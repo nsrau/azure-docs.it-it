@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: b48ecce1c87c0a29996e437d621c3ce396a84856
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 2b28c38d2444f227d26df1f9ca2d70876ff41064
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232665"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68260603"
 ---
 # <a name="manage-mailing-list-requests-with-azure-logic-apps"></a>Gestire le richieste di sottoscrizione di una lista di distribuzione con App per la logica di Azure
 
@@ -79,7 +79,7 @@ Ogni app per la logica deve essere avviata con un trigger, che viene attivato qu
 
 1. Nella finestra di progettazione immettere "all'arrivo di un nuovo messaggio di posta elettronica" nella casella di ricerca. Selezionare il trigger per il provider di posta elettronica: **<*provider-posta-elettronica*> - All'arrivo di un nuovo messaggio di posta elettronica**
    
-   ![Selezionare il trigger per il provider di posta elettronica: "All'arrivo di un nuovo messaggio di posta elettronica"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-new-email.png)
+   ![Selezionare questo trigger per il provider di posta elettronica: "All'arrivo di un nuovo messaggio di posta elettronica"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-new-email.png)
 
    * Per un account aziendale o dell'istituto di istruzione di Azure, selezionare Office 365 Outlook.
    * Per gli account Microsoft personali, selezionare Outlook.com.
@@ -147,7 +147,7 @@ Aggiungere quindi una condizione per controllare la risposta scelta dal responsa
 
 2. Rinominare la condizione con una descrizione migliore.
 
-   1. Sulla barra del titolo della condizione fare clic sui **puntini di sospensione** (**...**) > **Rinomina**.
+   1. Sulla barra del titolo della condizione fare clic sui **puntini di sospensione** ( **...** ) > **Rinomina**.
 
       Ad esempio, se il browser è in visualizzazione ridotta:
 
@@ -206,7 +206,7 @@ Aggiungere quindi una condizione in modo che sia possibile controllare se il nuo
 
 ## <a name="check-for-success-or-failure"></a>Controllare se l'operazione riesce
 
-1. Nel ramo **È true** nell'azione **Aggiungi membro all'elenco** scegliere **Altro...** > **Aggiungi una condizione**.
+1. Nel ramo **È true** nell'azione **Aggiungi membro all'elenco** scegliere **Altro...**  > **Aggiungi una condizione**.
 
 2. Rinominare la condizione con questa descrizione: ```If add member succeeded```
 

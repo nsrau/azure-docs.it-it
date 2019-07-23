@@ -4,14 +4,14 @@ description: Illustra i concetti relativi alle applicazioni gestite di Azure
 author: tfitzmac
 ms.service: managed-applications
 ms.topic: overview
-ms.date: 05/31/2019
+ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5b6cb030c6eba5d80dfd046f1c3950609da1ed73
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 97d6a229651f1c3fbcdbb79c7ae7d1c1f855882b
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479817"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234746"
 ---
 # <a name="azure-managed-applications-overview"></a>Panoramica delle applicazioni gestite di Azure
 
@@ -68,6 +68,8 @@ Il consumer ha accesso completo al gruppo di risorse e lo usa per gestire il cic
 ### <a name="managed-resource-group"></a>Gruppo di risorse gestite
 
 Questo gruppo di risorse contiene tutte le risorse richieste dall'applicazione gestita. Ad esempio, le macchine virtuali, gli account di archiviazione e le reti virtuali per la soluzione. Il consumer ha accesso limitato al gruppo di risorse perché non gestisce le singole risorse per l'applicazione gestita. L'accesso al gruppo di risorse dell'entità di pubblicazione corrisponde al ruolo specificato nella definizione dell'applicazione gestita. Ad esempio, l'entità di pubblicazione potrebbe richiedere il ruolo di proprietario o di collaboratore per il gruppo di risorse. L'accesso è permanente o limitato a un periodo di tempo.
+
+Quando pubblica l'[applicazione gestita nel Marketplace](publish-marketplace-app.md), l'autore può concedere agli utenti la possibilità di eseguire azioni specifiche sulle risorse nel gruppo di risorse gestite. L'autore può ad esempio specificare che gli utenti possono riavviare le macchine virtuali. Tutte le altre azioni oltre alle azioni di lettura sono comunque negate.
 
 Quando il consumer elimina l'applicazione gestita, viene eliminato anche il gruppo di risorse gestite.
 

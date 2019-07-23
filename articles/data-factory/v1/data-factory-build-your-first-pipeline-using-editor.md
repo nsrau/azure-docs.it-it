@@ -14,17 +14,16 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 964e6235923402814879fe59a204985b8aaac2b4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2a7e2f9e5018bdad2a1ed2c6edcb727a2ffdcddd
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573815"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839121"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Esercitazione: Creare la prima data factory con il portale di Azure
 > [!div class="op_single_selector"]
 > * [Panoramica e prerequisiti](data-factory-build-your-first-pipeline.md)
-> * [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modello di Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -33,6 +32,9 @@ ms.locfileid: "64573815"
 
 > [!NOTE]
 > Questo articolo si applica alla versione 1 di Azure Data Factory, disponibile a livello generale. Se si usa la versione corrente del servizio Data Factory, vedere [Quickstart: Create a data factory by using Data Factory](../quickstart-create-data-factory-dot-net.md) (Guida introduttiva: Creare una data factory con Data Factory).
+
+> [!WARNING]
+> L'editor JSON nel portale di Azure per la creazione e la distribuzione di pipeline ADF v1 verrà disattivato il 31 luglio 2019. Dopo il 31 luglio 2019 è possibile continuare a usare i [cmdlet di PowerShell per ADF v1](https://docs.microsoft.com/powershell/module/az.datafactory/?view=azps-2.4.0&viewFallbackFrom=azps-2.3.2), [ADF v1 .NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.datafactories.models?view=azure-dotnet) e le [API REST di ADF v1](https://docs.microsoft.com/rest/api/datafactory/) per creare e distribuire le pipeline ADF v1.
 
 Questo articolo descrive come usare il [portale di Azure](https://portal.azure.com/) per creare la prima data factory. Per eseguire l'esercitazione usando altri strumenti/SDK, selezionare una delle opzioni dall'elenco a discesa. 
 
@@ -77,7 +79,7 @@ Per creare una data factory, seguire questa procedura:
 
 1. Selezionare la casella di controllo **Aggiungi al dashboard**.
 
-1. Selezionare **Create**.
+1. Selezionare **Create** (Crea).
 
    > [!IMPORTANT]
    > Per creare istanze di data factory, l'utente deve essere membro del ruolo [Collaboratore Data factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) a livello di sottoscrizione/gruppo di risorse.

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54c3ae22b9cc2e447960b9e3527bbbb0afae3e54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3c7f8c8efcad0a07a3d3a56925866b10d94f82ed
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67095086"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227472"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Esercitazione: Integrazione di Azure Active Directory con PageDNA
 
@@ -171,7 +171,7 @@ In questa sezione viene creato un utente di test di nome Britta Simon nel portal
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a PageDNA.
+In questa sezione si abilita l'utente di nome Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a PageDNA.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** > **Tutte le applicazioni** > **PageDNA**.
 
@@ -212,3 +212,4 @@ Quando si seleziona **PageDNA** nel portale App personali, si dovrebbe automatic
 * [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 * [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+

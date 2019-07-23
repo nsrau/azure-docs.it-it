@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
-ms.date: 06/12/2019
+ms.date: 07/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: e178326c4a165a9bebbef6b0162cc79c1f9a0727
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: f92cb247afb25562a96373c28534549a2f16d8c9
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67459519"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805570"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>Guida introduttiva: Creare cluster Apache Hadoop in Azure HDInsight usando il portale di Azure
 
@@ -41,13 +41,13 @@ In questa sezione viene creato un cluster Hadoop in HDInsight usando il portale 
     |Proprietà  |DESCRIZIONE  |
     |---------|---------|
     |Nome cluster   | Immettere un nome per il cluster Hadoop. Poiché tutti i cluster in HDInsight condividono lo stesso spazio dei nomi DNS, è necessario che questo nome sia univoco. Il nome può includere al massimo 59 caratteri, tra cui lettere, numeri e trattini. Si noti che il primo e l'ultimo carattere del nome non possono essere trattini. |
-    |Sottoscrizione    |  Selezionare la sottoscrizione di Azure. |
+    |Subscription    |  Selezionare la sottoscrizione di Azure. |
     |Tipo di cluster     | Ignora per ora. I valori saranno inseriti nel passaggio successivo di questa procedura.|
     |Nome utente e password di accesso del cluster    | Il nome di accesso predefinito è **admin**. La password deve avere una lunghezza minima di 10 caratteri e deve contenere almeno una cifra, una lettera maiuscola, una lettera minuscola e un carattere non alfanumerico, ad eccezione di ' " ` \). Assicurarsi di **non fornire** password comuni, ad esempio "Pass@word1".|
     |Nome utente Secure Shell (SSH) | Il nome utente predefinito è **sshuser**.  È possibile fornire un altro nome come nome utente SSH. |
     |Usare la password di accesso del cluster per SSH| Selezionare questa casella di controllo se si vuole usare per l'utente SSH la stessa password fornita per l'utente di accesso del cluster.|
-    |Gruppo di risorse     | Creare un gruppo di risorse o selezionarne uno esistente.  Un gruppo di risorse è un contenitore di componenti di Azure.  In questo caso, il gruppo di risorse contiene il cluster HDInsight e l'account di Archiviazione di Azure dipendente. |
-    |Località    | Selezionare una posizione di Azure in cui si vuole creare il cluster.  Scegliere una località vicina all'utente per ottenere prestazioni migliori. |
+    |Resource group     | Creare un gruppo di risorse o selezionarne uno esistente.  Un gruppo di risorse è un contenitore di componenti di Azure.  In questo caso, il gruppo di risorse contiene il cluster HDInsight e l'account di Archiviazione di Azure dipendente. |
+    |Location    | Selezionare una posizione di Azure in cui si vuole creare il cluster.  Scegliere una località vicina all'utente per ottenere prestazioni migliori. |
 
     ![HDInsight Linux guida introduttiva fornisce i valori di base per il cluster](./media/apache-hadoop-linux-create-cluster-get-started-portal/quick-create-basics.png "Fornire i valori di base per la creazione di un cluster HDInsight")
 
@@ -68,7 +68,7 @@ In questa sezione viene creato un cluster Hadoop in HDInsight usando il portale 
     |---------|---------|
     |Tipo di archiviazione primario    | Per questo articolo selezionare Archiviazione di Azure per BLOB del servizio di archiviazione di Azure come account di archiviazione predefinito. Si può anche usare Azure Data Lake Storage come risorsa di archiviazione predefinita. |
     |Metodo di selezione     |  Per questo articolo selezionare **Sottoscrizioni personali** per usare un account di archiviazione dalla sottoscrizione di Azure. Per usare un account di archiviazione di altre sottoscrizioni, selezionare **Chiave di accesso** e quindi specificare la chiave di accesso per quell'account. |
-    |Selezionare un account di archiviazione   | Fare clic su **Selezionare un account di archiviazione** per scegliere un account di archiviazione esistente oppure su **Crea nuovo**.|
+    |Selezionare un account di archiviazione   | Fare clic su **Selezionare un account di archiviazione** per scegliere un account di archiviazione esistente oppure su **Crea nuovo**. Se si crea un nuovo account, il nome deve avere una lunghezza compresa tra 3 e 24 caratteri e può contenere solo numeri e lettere minuscole.|
 
     Accettare tutti gli altri valori predefiniti e quindi scegliere **Avanti** per passare alla pagina di riepilogo.
 

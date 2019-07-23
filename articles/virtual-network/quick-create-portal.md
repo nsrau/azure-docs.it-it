@@ -1,29 +1,30 @@
 ---
 title: 'Creare una rete virtuale: guida introduttiva - Portale di Azure'
 titlesuffix: Azure Virtual Network
-description: Questa guida introduttiva illustra come creare una rete virtuale usando il portale di Azure. Una rete virtuale consente alle risorse di Azure, come le macchine virtuali, di comunicare privatamente tra loro e con Internet.
+description: Questa guida introduttiva illustra come creare una rete virtuale usando il portale di Azure. Una rete virtuale consente alle risorse di Azure, come le macchine virtuali, di comunicare in modo sicuro tra loro e con Internet
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
 tags: azure-resource-manager
-Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
+Customer intent: I want to create a virtual network so that virtual machines can securely communicate with each other and with the internet.
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 11/30/2018
+ms.date: 07/08/2019
 ms.author: kumud
-ms.openlocfilehash: 995bc8e7b2eb4e9160b2b625067f20324df2cbfd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bbc40ae358a6ac7f58e01de997728db21c7eb3bc
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717002"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839705"
 ---
-# <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Avvio rapido: Creare una rete virtuale usando il portale di Azure
+# <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Guida introduttiva: Creare una rete virtuale usando il portale di Azure
 
-Una rete virtuale consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente tra loro e con Internet. Questa guida introduttiva illustra come creare una rete virtuale. Dopo avere creato una rete virtuale, si distribuiscono due VM nella rete virtuale. Quindi si effettua la connessione alle macchine virtuali da Internet e si stabilisce una comunicazione privata tra le due.
+Una rete virtuale è il blocco costitutivo fondamentale per una rete privata in Azure. Consente alle risorse di Azure, come le macchine virtuali, di comunicare in modo sicuro tra loro e con Internet. In questa guida di avvio rapido si apprenderà come creare una rete virtuale usando il portale di Azure. Sarà quindi possibile distribuire due macchine virtuali nella rete virtuale, attivare comunicazioni sicure tra le due macchine virtuali e connettersi alle macchine virtuali da Internet.
+
 
 Se non si ha una sottoscrizione di Azure, creare ora un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -41,13 +42,13 @@ Accedere al [portale di Azure](https://portal.azure.com).
     | ------- | ----- |
     | NOME | Immettere *myVirtualNetwork*. |
     | Spazio degli indirizzi | Immettere *10.1.0.0/16*. |
-    | Sottoscrizione | Selezionare la propria sottoscrizione.|
-    | Gruppo di risorse | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
-    | Località | Selezionare **Stati Uniti orientali**.|
+    | Subscription | Selezionare la propria sottoscrizione.|
+    | Resource group | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
+    | Location | Selezionare **Stati Uniti orientali**.|
     | Subnet - Nome | Immettere *myVirtualSubnet*. |
     | Subnet - Intervallo di indirizzi | Immettere *10.1.0.0/24*. |
 
-1. Lasciare tutte le impostazioni predefinite e selezionare **Crea**.
+1. Lasciare le altre impostazioni sui valori predefiniti e selezionare **Crea**.
 
 ## <a name="create-virtual-machines"></a>Creare macchine virtuali
 
@@ -55,20 +56,20 @@ Creare due VM nella rete virtuale:
 
 ### <a name="create-the-first-vm"></a>Creare la prima VM
 
-1. Nella parte superiore sinistra della schermata, selezionare **Crea una risorsa** > **Calcolo** > **Windows Server 2016 Datacenter**.
+1. Nella parte superiore sinistra della schermata selezionare **Crea una risorsa** > **Calcolo** > **Windows Server 2019 Datacenter**.
 
 1. In **Creare una macchina virtuale - Informazioni di base**, immettere o selezionare queste informazioni:
 
     | Impostazione | Valore |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
-    | Sottoscrizione | Selezionare la propria sottoscrizione. |
-    | Gruppo di risorse | Selezionare **MyResourceGroup**. È stato creato nella sezione precedente. |
+    | Subscription | Selezionare la propria sottoscrizione. |
+    | Resource group | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente. |
     | **DETTAGLI DELL'ISTANZA** |  |
     | Nome macchina virtuale | Immettere *myVm1*. |
     | Region | Selezionare **Stati Uniti orientali**. |
     | Opzioni di disponibilità | Lasciare l'impostazione predefinita **Nessuna ridondanza dell'infrastruttura necessaria**. |
-    | Image | Lasciare l'impostazione predefinita **Windows Server 2016 Datacenter**. |
+    | Image | Lasciare l'impostazione predefinita **Windows Server 2019 Datacenter**. |
     | Dimensione | Lasciare l'impostazione predefinita **DS1 Standard v2**. |
     | **ACCOUNT AMMINISTRATORE** |  |
     | Username | Immettere un nome utente a scelta. |
@@ -88,9 +89,9 @@ Creare due VM nella rete virtuale:
     | Impostazione | Valore |
     | ------- | ----- |
     | Rete virtuale | Lasciare l'impostazione predefinita **myVirtualNetwork**. |
-    | Subnet | Lasciare l'impostazione predefinita **myVirtualSubnet (10.1.0.0/24)**. |
+    | Subnet | Lasciare l'impostazione predefinita **myVirtualSubnet (10.1.0.0/24)** . |
     | IP pubblico | Lasciare l'impostazione predefinita **(nuovo) myVm-ip**. |
-    | Porte di sicurezza di rete | Selezionare **Consenti porte selezionate**. |
+    | Porte in ingresso pubbliche | Selezionare **Consenti porte selezionate**. |
     | Selezionare le porte in ingresso | Selezionare **HTTP** e **RDP**.
 
 1. Selezionare **Avanti: Gestione**.
@@ -101,14 +102,14 @@ Creare due VM nella rete virtuale:
 
     | Impostazione | Valore |
     | ------- | ----- |
-    | NOME | Immettere *myvmstorageaccount*. |
-    | Tipo di account | Lasciare l'impostazione predefinita **Archiviazione (utilizzo generico v1)**. |
+    | NOME | Immettere *myvmstorageaccount*. Se il nome è già usato, creare un nome univoco.|
+    | Tipo di account | Lasciare l'impostazione predefinita **Archiviazione (utilizzo generico v1)** . |
     | Prestazioni | Lasciare l'impostazione predefinita **Standard**. |
     | Replica | Lasciare l'impostazione predefinita **Archiviazione con ridondanza locale**. |
 
 1. Selezionare **OK**.
 
-1. Selezionare **Rivedi e crea**. Si verrà reindirizzati alla pagina **Rivedi e crea** e Azure convaliderà la configurazione.
+1. Selezionare **Rivedi e crea**. Si viene reindirizzati alla pagina **Rivedi e crea** dove Azure convalida la configurazione.
 
 1. Quando viene visualizzato il messaggio **Convalida superata**, selezionare **Crea**.
 
@@ -127,7 +128,7 @@ Creare due VM nella rete virtuale:
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Connettersi a una VM da Internet
 
-Dopo aver creato *myVm1*, connettersi alla macchina virtuale tramite Internet.
+Dopo aver creato *myVm1*, connettersi a Internet.
 
 1. Nella barra di ricerca del portale, immettere *myVm1*.
 
@@ -143,7 +144,7 @@ Dopo aver creato *myVm1*, connettersi alla macchina virtuale tramite Internet.
 
     1. Quando richiesto, selezionare **Connetti**.
 
-    1. Immettere il nome utente e la password specificati al momento della creazione della VM.
+    1. Immettere il nome utente e la password specificati al momento della creazione della macchina virtuale.
 
         > [!NOTE]
         > Potrebbe essere necessario selezionare **Altre opzioni** > **Usa un altro account** per specificare le credenziali immesse al momento della creazione della macchina virtuale.
@@ -160,7 +161,7 @@ Dopo aver creato *myVm1*, connettersi alla macchina virtuale tramite Internet.
 
 1. Immettere `ping myVm2`.
 
-    Si otterrà un messaggio simile al seguente:
+    Verrà visualizzato un messaggio simile al seguente:
 
     ```powershell
     Pinging myVm2.0v0zze1s0uiedpvtxz5z0r0cxg.bx.internal.clouda
@@ -204,7 +205,7 @@ Dopo aver creato *myVm1*, connettersi alla macchina virtuale tramite Internet.
         Minimum = 0ms, Maximum = 1ms, Average = 0ms
     ```
 
-    Si ricevono risposte da *myVm1*, poiché il protocollo ICMP è stato consentito in Windows Firewall nella VM *myVm1* in un passaggio precedente.
+    Si ricevono risposte da *myVm1*, poiché il protocollo ICMP è stato consentito in Windows Firewall nella macchina virtuale *myVm1* nel passaggio 3.
 
 1. Chiudere la connessione Desktop remoto a *myVm2*.
 
@@ -212,9 +213,7 @@ Dopo aver creato *myVm1*, connettersi alla macchina virtuale tramite Internet.
 
 Quando non si ha più bisogno della rete e delle macchine virtuali, rimuovere il gruppo di risorse e tutte le risorse che contiene:
 
-1. Immettere *myResourceGroup* nella casella di **ricerca** nella parte superiore del portale.
-
-1. Selezionare **myResourceGroup** quando viene visualizzato nei risultati della ricerca.
+1. Immettere *myResourceGroup* nella casella **Cerca** nella parte superiore del portale e selezionare **myResourceGroup** nei risultati della ricerca.
 
 1. Selezionare **Elimina gruppo di risorse**.
 
@@ -222,6 +221,6 @@ Quando non si ha più bisogno della rete e delle macchine virtuali, rimuovere il
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva sono state create una rete virtuale predefinita e due VM. È stata effettuata la connessione a una macchina virtuale da Internet ed è stata stabilita una comunicazione privata tra le due macchine virtuali. Per altre informazioni sulle impostazioni della rete virtuale, vedere [Manage a virtual network](manage-virtual-network.md) (Gestire una rete virtuale).
+In questa guida di avvio rapido sono state create una rete virtuale predefinita e due macchine virtuali. È stata effettuata la connessione a una macchina virtuale da Internet ed è stata stabilita una comunicazione sicura tra le due macchine virtuali. Per altre informazioni sulle impostazioni della rete virtuale, vedere [Manage a virtual network](manage-virtual-network.md) (Gestire una rete virtuale).
 
-Per impostazione predefinita, Azure consente comunicazioni private senza restrizioni tra le macchine virtuali. Tuttavia, permette solo connessioni al desktop remoto in ingresso alle macchine virtuali Windows da Internet. Per altre informazioni sulla configurazione dei diversi tipi di comunicazioni della rete delle macchine virtuali, vedere l'esercitazione [Filtrare il traffico di rete](tutorial-filter-network-traffic.md).
+Per impostazione predefinita, Azure consente comunicazioni sicure senza restrizioni tra le macchine virtuali. Tuttavia, permette solo connessioni al desktop remoto in ingresso alle macchine virtuali Windows da Internet. Per altre informazioni sulla configurazione dei diversi tipi di comunicazioni della rete delle macchine virtuali, vedere l'esercitazione [Filtrare il traffico di rete](tutorial-filter-network-traffic.md).

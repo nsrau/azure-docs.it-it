@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 2dc4994d88fc03c23a6d5722d6018c926e7d6b8c
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: fc63c1a0b3b496de8e5ecea58f79f1db9d872e80
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67788363"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838433"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share-preview"></a>Esercitazione: Accettare e ricevere dati con Condivisione dati di Azure (anteprima)
 
@@ -31,6 +31,8 @@ Assicurarsi che tutti i prerequisiti siano soddisfatti prima di accettare un inv
 * Sottoscrizione di Azure: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * Un account di Archiviazione di Azure: se non se ne ha già uno, è possibile creare un [account di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
 * Un invito alla Condivisione dati: un invito da Microsoft Azure con un oggetto denominato "Azure Data Share invitation from **<yourdataprovider@domain.com>** " (Invito alla Condivisione dati di Azure da...).
+* L'autorizzazione per aggiungere l'assegnazione di ruolo all'account di archiviazione, inclusa nell'autorizzazione*Microsoft.Authorization/role assignments/write*. Questa autorizzazione è presente nel ruolo proprietario. 
+* Registrazione del provider di risorse Microsoft.DataShare. Per informazioni su come eseguire questa operazione, vedere la documentazione sui [provider di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
 > [!IMPORTANT]
 > Per accettare e ricevere una Condivisione dati di Azure, è prima di utto necessario registrare il provider di risorse Microsoft.DataShare ed essere un proprietario dell'account di archiviazione in cui si accettano i dati. Seguire le istruzioni riportate in [Risolvere i problemi relativi a Condivisione dati di Azure (anteprima)](data-share-troubleshoot.md) per registrare il provider di risorse di condivisione dati e aggiungersi come proprietario dell'account di archiviazione. 

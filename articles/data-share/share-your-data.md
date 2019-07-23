@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: ebd60607f9a24074e0fa985973dfc35674f0d66c
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 01888f3656765b922c1b646e7ca8e07d81e799f3
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67788453"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838432"
 ---
 # <a name="tutorial-share-your-data-using-azure-data-share-preview"></a>Esercitazione: Condividere dati con Condivisione dati di Azure (anteprima)
 
@@ -29,6 +29,8 @@ In questa esercitazione si apprenderà come:
 
 * Sottoscrizione di Azure: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * Account di archiviazione di Azure: se non se ne ha già uno, è possibile creare un [account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+* L'autorizzazione per aggiungere l'assegnazione di ruolo all'account di archiviazione, inclusa nell'autorizzazione*Microsoft.Authorization/role assignments/write*. Questa autorizzazione è presente nel ruolo proprietario. 
+* Indirizzo di posta elettronica per l'accesso ad Azure dei destinatari (gli alias di posta elettronica non funzionano).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -49,9 +51,9 @@ Creare una risorsa di condivisione dati di Azure in un gruppo di risorse di Azur
      **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
     | NOME | *datashareacount* | Specificare un nome per l'account di condivisione dati. |
-    | Sottoscrizione | Sottoscrizione in uso | Selezionare la sottoscrizione di Azure da usare per l'account di condivisione dati.|
-    | Gruppo di risorse | *test-resource-group* | Usare un gruppo di risorse esistente oppure crearne uno nuovo. |
-    | Località | *Stati Uniti orientali 2* | Selezionare un'area per l'account di condivisione dati.
+    | Subscription | Sottoscrizione in uso | Selezionare la sottoscrizione di Azure da usare per l'account di condivisione dati.|
+    | Resource group | *test-resource-group* | Usare un gruppo di risorse esistente oppure crearne uno nuovo. |
+    | Location | *Stati Uniti orientali 2* | Selezionare un'area per l'account di condivisione dati.
     | | |
 
 1. Selezionare **Crea** per effettuare il provisioning dell'account di condivisione dati. Il completamento del provisioning di un nuovo account di condivisione dati in genere impiega al massimo 2 minuti. 

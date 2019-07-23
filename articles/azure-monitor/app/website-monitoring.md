@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/29/2018
+ms.date: 07/15/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: ece51892522721f7be3cdcadbb3b79705c9f83e4
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 9845329d30da40243751c00f7c0fa62fdcfe5a0d
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66384103"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67990101"
 ---
 # <a name="start-monitoring-your-website"></a>Avviare il monitoraggio del sito Web
 
@@ -41,12 +41,14 @@ Application Insights può raccogliere dati di telemetria da qualsiasi applicazio
 
 1. Selezionare **Crea una risorsa** > **Strumenti di gestione** > **Application Insights**.
 
+   > [!NOTE]
+   >Se è la prima volta che si crea una risorsa di Application Insights, vedere l'articolo [Creare una risorsa di Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) per altre informazioni.
+
    Verrà visualizzata una casella di configurazione. Usare la tabella seguente per completare i campi di input.
 
     | Impostazioni        | Valore           | DESCRIZIONE  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valore globalmente univoco | Nome che identifica l'app da monitorare |
-   | **Tipo di applicazione** | Applicazione generale | Tipo di app da monitorare |
    | **Gruppo di risorse**     | myResourceGroup      | Nome del nuovo gruppo di risorse per l'hosting dei dati di Application Insights |
    | **Posizione** | Stati Uniti orientali | Scegliere una località nelle vicinanze o vicina a quella in cui è ospitata l'app |
 

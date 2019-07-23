@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5fbbd2cf999ab8ba3183879bd9b417353aa5edd0
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: b5e2ccef3b2a91f903706745d74a4bf16e1003d4
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203488"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305217"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Eseguire il backup di database SQL Server in macchine virtuali di Azure
 
@@ -143,19 +143,19 @@ Configurare il backup come segue:
 
     ![Abilitare la protezione automatica per il gruppo di disponibilità AlwaysOn](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-5. In  **Scegliere i criteri di backup** selezionare un criterio e quindi fare clic su  **OK**.
+5. In **Scegliere i criteri di backup** selezionare un criterio e quindi fare clic su **OK**.
 
-   - Selezionare i criteri predefiniti: HourlyLogBackup.
+   - Selezionare i criteri predefiniti: HourlyLogBackup.
    - Scegliere un criterio di backup creato in precedenza per SQL.
    - Definire un nuovo criterio basato sull'obiettivo del punto di ripristino (RPO) e sull'intervallo di conservazione.
 
      ![Selezionare il criterio di backup](./media/backup-azure-sql-database/select-backup-policy.png)
 
-6. Scegliere  **Abilita backup** dal menu  **Backup**.
+6. Nel menu **Backup** selezionare **Abilita backup**.
 
     ![Abilitare i criteri di backup scelti](./media/backup-azure-sql-database/enable-backup-button.png)
 
-7. È possibile monitorare l'avanzamento della configurazione nell'area  **Notifiche**  del portale.
+7. È possibile monitorare l'avanzamento della configurazione nell'area delle **notifiche** del portale.
 
     ![Area delle notifiche](./media/backup-azure-sql-database/notifications-area.png)
 
@@ -245,5 +245,5 @@ Proseguire con l'esercitazione successiva sul ripristino di una macchina virtual
 
 > [!div class="nextstepaction"]
 > [Ripristinare il backup di database SQL Server in macchine virtuali di Azure](./restore-sql-database-azure-vm.md)
- 
+ 
 

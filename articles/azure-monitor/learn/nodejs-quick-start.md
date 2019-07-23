@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/01/2019
+ms.date: 07/12/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: c6979ce5cade09d4daa4e6eddd79fb69175ec902
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d92a96f928c859fba056f1d98c07ee4852aad0f1
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58849383"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68002741"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Iniziare a monitorare l'applicazione Web Node.js
 
@@ -45,16 +45,15 @@ Application Insights può raccogliere dati di telemetria da un'applicazione conn
 
    ![Aggiunta di una risorsa di Application Insights](./media/nodejs-quick-start/1createresourseappinsights.png)
 
-   ![Aggiunta di una risorsa di Application Insights](./media/nodejs-quick-start/2createnodejs.png)
+   > [!NOTE]
+   >Se è la prima volta che si crea una risorsa di Application Insights, consultare il documento [Create an Application Insights Resource (Creare una risorsa di Application Insights)](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) per ulteriori informazioni.
 
-
-   Verrà visualizzata una casella di configurazione. Usare la tabella seguente per completare i campi di input.
+   Verrà visualizzata una pagina di configurazione. Usare la tabella seguente per compilare i campi di input. 
 
     | Impostazioni        | Valore           | DESCRIZIONE  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valore globalmente univoco | Nome che identifica l'app da monitorare |
    | **Tipo di applicazione** | Applicazione Node.js | Tipo di app da monitorare |
-   | **Gruppo di risorse**     | myResourceGroup      | Nome del nuovo gruppo di risorse per l'hosting dei dati di Application Insights |
    | **Posizione** | Stati Uniti orientali | Scegliere una località nelle vicinanze o vicina a quella in cui è ospitata l'app |
 
 2. Fare clic su **Create**(Crea).

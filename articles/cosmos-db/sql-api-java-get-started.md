@@ -8,20 +8,17 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/22/2018
 ms.author: sngun
-ms.openlocfilehash: 24de1fe0695d0f7634d8f20f1876b5000496dbea
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 55bdcf9847f2194f269b92aed830a66c79c4d337
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475776"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67985656"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Esercitazione su NoSQL: Compilare un'applicazione console Java con l'API di SQL
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
-> * [.NET (Preview)](sql-api-dotnet-get-started-preview.md)
-> * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [.NET Core (Preview)](sql-api-dotnet-core-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 > * [Async Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
@@ -76,7 +73,7 @@ La directory contiene un oggetto `pom.xml` per il progetto e una cartella `src` 
         <version>LATEST</version>
     </dependency>
 
-## <a id="Connect"></a>Passaggio 3: Connettersi a un account Azure Cosmos DB
+## <a id="Connect"></a>Passaggio 3: collegarsi a un account di Azure Cosmos DB
 Tornare al [portale di Azure](https://portal.azure.com) per recuperare l'endpoint e la chiave master primaria. L'endpoint e la chiave primaria di Azure Cosmos DB sono necessari all'applicazione per conoscere la destinazione della connessione e ad Azure Cosmos DB per considerare attendibile la connessione dell'applicazione.
 
 Nel portale di Azure passare all'account Azure Cosmos DB e quindi fare clic su **Chiavi**. Copiare l'URI dal portale e incollarlo in `https://FILLME.documents.azure.com` nel file Program.java. Copiare quindi la CHIAVE PRIMARIA dal portale e incollarla in `FILLME`.

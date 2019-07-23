@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 1c1317726cf29f23e4729c67a5a5794fa459220b
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: fb35cc99164cc8da047e8309d63bf7909abf4815
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410842"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846022"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Guida introduttiva: Creare una macchina virtuale Windows di SQL Server 2017 nel portale di Azure
 
@@ -51,7 +51,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
    ![Finestra di ricerca Nuovo](./media/quickstart-sql-vm-create-portal/newsearch.png)
 
 
-1. Selezionare **Create**.
+1. Selezionare **Create** (Crea).
 
 ## <a id="configure"></a> Specificare i dettagli di base
 
@@ -59,12 +59,12 @@ Nella scheda **Nozioni di base** specificare le informazioni seguenti:
 
 1. Nella sezione **Dettagli progetto** selezionare la sottoscrizione di Azure e quindi selezionare **Crea nuovo** per creare un nuovo gruppo di risorse. Digitare _SQLVM-RG_ come nome.
 
-   ![Sottoscrizione](media/quickstart-sql-vm-create-portal/basics-project-details.png)
+   ![Subscription](media/quickstart-sql-vm-create-portal/basics-project-details.png)
 
 1. In **Dettagli istanza**:
     1. Digitare _SQLVM_ come **nome della macchina virtuale**. 
     1. Scegliere una posizione per l'**area**. 
-    1. Ai fini di questa guida di avvio rapido lasciare **Opzioni di disponibilità** impostato su _La ridondanza dell'infrastruttura non è richiesta_. Per altre informazioni sulle opzioni di disponibilità, vedere [Aree e disponibilità](../../windows/regions-and-availability.md). 
+    1. Ai fini di questa guida di avvio rapido lasciare **Opzioni di disponibilità** impostato su _La ridondanza dell'infrastruttura non è richiesta_. Per altre informazioni sulle opzioni di disponibilità, vedere [Disponibilità](../../windows/availability.md). 
     1. Nell'elenco **Immagine** selezionare _Free SQL Server License: SQL Server 2017 Developer in Windows Server 2016_. 
     1. Scegliere **Modifica dimensioni** per modificare le **dimensioni** della macchina virtuale e selezionare l'offerta **A2 Basic**. Assicurarsi di cancellare le risorse quando non sono più necessarie per evitare eventuali addebiti imprevisti. 
 

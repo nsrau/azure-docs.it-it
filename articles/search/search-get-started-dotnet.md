@@ -9,13 +9,13 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 07/09/2019
-ms.openlocfilehash: d3236f4782cc4fd9113329f03e36515a91bad528
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.date: 07/11/2019
+ms.openlocfilehash: 6138df5b80f479a54683ec0408b832dd78bff8e4
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798765"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67847086"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-c-using-the-net-sdk"></a>Guida introduttiva: Creare un indice di Ricerca di Azure in C# con .NET SDK
 > [!div class="op_single_selector"]
@@ -35,11 +35,9 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-In questa guida di avvio rapido vengono usati i servizi, gli strumenti e i dati seguenti. 
+Per questa guida di avvio rapido sono richiesti i servizi e gli strumenti seguenti.
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/), qualsiasi edizione. Il codice di esempio e le istruzioni sono stati testati nell'edizione Community Edition gratuita.
-
-+ L'indice e i documenti di esempio vengono forniti sia in questo articolo che nella [soluzione di Visual Studio](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart) per questo avvio rapido.
 
 + [Creare un servizio Ricerca di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questo avvio rapido.
 
@@ -195,11 +193,14 @@ L'indice degli alberghi è costituito da campi semplici e complessi, in cui i ca
     }
     ```
 
-    Gli attributi nel campo ne determinano l'uso in un'applicazione. Ad esempio, l'attributo `IsSearchable` viene assegnato a ogni campi che deve essere incluso in una ricerca full-text. In .NET SDK l'impostazione predefinita consiste nel disabilitare i comportamenti dei campi che non sono abilitati in modo esplicito.
+    Gli attributi nel campo ne determinano l'uso in un'applicazione. Ad esempio, l'attributo `IsSearchable` deve essere assegnato a ogni campo che deve essere incluso in una ricerca full-text. 
+    
+    > [!NOTE]
+    > In .NET SDK i campi devono essere attribuiti in modo esplicito come [`IsSearchable`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.issearchable?view=azure-dotnet), [`IsFilterable`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet), [`IsSortable`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.issortable?view=azure-dotnet) e [`IsFacetable`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfacetable?view=azure-dotnet). Questo comportamento si differenzia dall'API REST che consente implicitamente l'attribuzione in base al tipo di dati (ad esempio, i campi stringa semplici sono automaticamente disponibili per la ricerca).
 
     Esattamente un campo di tipo `string` nell'indice deve essere il campo *chiave*, che identifica in modo univoco ogni documento. In questo schema la chiave è `HotelId`.
 
-    In questo indice i campi della descrizione usano la proprietà facoltativa analyzer, specificata quando si vuole eseguire l'override dell'analizzatore standard predefinito Lucene. Il campo `description_fr` usa l'analizzatore Lucene per il francese ([FrLucene](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.frlucene?view=azure-dotnet)) perché archivia testo in francese. Il campo `description` usa l'analizzatore di lingua Microsoft facoltativo ([EnMicrosoft](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft?view=azure-dotnet)).
+    In questo indice i campi della descrizione usano la proprietà facoltativa [`analyzer`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.analyzer?view=azure-dotnet), specificata quando si vuole sostituire l'analizzatore standard predefinito Lucene. Il campo `description_fr` usa l'analizzatore Lucene per il francese ([FrLucene](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.frlucene?view=azure-dotnet)) perché archivia testo in francese. Il campo `description` usa l'analizzatore di lingua Microsoft facoltativo ([EnMicrosoft](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft?view=azure-dotnet)).
 
 1. In Program.cs creare un'istanza della classe [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) da connettere al servizio, usando valori archiviati nel file config dell'applicazione (appsettings.json). 
 

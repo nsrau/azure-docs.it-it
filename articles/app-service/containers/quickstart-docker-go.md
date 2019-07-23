@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 88c9996ce3f2d89ae58881c913f6bd4e549b5814
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: ec2b974e008ea4c7e266f5ae0d46cd67d2133e54
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547305"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854008"
 ---
 # <a name="run-a-custom-linux-container-in-azure-app-service"></a>Eseguire un contenitore Linux personalizzato nel servizio app di Azure
 
@@ -35,7 +35,7 @@ Il [servizio app Linux](app-service-linux-intro.md) fornisce stack di applicazio
 
 ## <a name="create-a-web-app"></a>Creare un'app Web
 
-Creare un'[app Web](../overview.md) nel piano di servizio app `myAppServicePlan` con il comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Non dimenticare di sostituire `<app name>` con un nome univoco dell'app a livello globale.
+Creare un'[app Web](../overview.md) nel piano di servizio app `myAppServicePlan` con il comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Non dimenticare di sostituire `<app name>` con un nome di app univoco globale (i caratteri validi sono `a-z`, `0-9` e `-`).
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name microsoft/azure-appservices-go-quickstart
@@ -81,4 +81,4 @@ http://<app_name>.azurewebsites.net/hello
 > [Configurare un contenitore personalizzato](configure-custom-container.md)
 
 > [!div class="nextstepaction"]
-> [Esercitazione: App WordPress multicontenitore](tutorial-multi-container-app.md)
+> [Esercitazione: App WordPress multi-contenitore](tutorial-multi-container-app.md)

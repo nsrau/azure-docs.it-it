@@ -1,5 +1,5 @@
 ---
-title: Creare una data factory di Azure usando .NET | Microsoft Docs
+title: Creare data factory di Azure con .NET SDK
 description: Creare una data factory di Azure per copiare i dati da una posizione dell'archivio BLOB di Azure a un'altra posizione.
 services: data-factory
 documentationcenter: ''
@@ -11,33 +11,31 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/26/2019
+ms.date: 06/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 0eff3ea74f8514bb09cc1674dc0de38e13963ac0
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 24cba4b02bb046a16db04635a1bf5ef4f6b619a6
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64865883"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234521"
 ---
-# <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Avvio rapido: Creare una data factory e una pipeline con .NET SDK
+# <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Guida introduttiva: Creare una data factory e una pipeline con .NET SDK
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versione corrente](quickstart-create-data-factory-dot-net.md)
 
-Questa guida introduttiva descrive come usare .NET SDK per creare una data factory di Azure. La pipeline creata in questa data factory **copia** dati da una cartella a un'altra in un archivio BLOB di Azure. Per un'esercitazione su come **trasformare** dati usando Azure Data Factory, vedere [Esercitazione: Trasformare i dati con Spark](transform-data-using-spark.md). 
+Questa guida introduttiva descrive come usare .NET SDK per creare una data factory di Azure. La pipeline creata in questa data factory **copia** dati da una cartella a un'altra in un archivio BLOB di Azure. Per un'esercitazione su come **trasformare** dati usando Azure Data Factory, vedere [Esercitazione: Trasformare i dati con Spark](tutorial-transform-data-spark-portal.md).
 
 > [!NOTE]
 > Questo articolo non offre una presentazione dettagliata del servizio Data Factory. Per un'introduzione al servizio Azure Data Factory, vedere [Introduzione ad Azure Data Factory](introduction.md).
-
-Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
 ### <a name="visual-studio"></a>Visual Studio
 
-Nella procedura guidata illustrata in questo articolo viene usato Visual Studio 2017. È anche possibile usare Visual Studio 2013 o 2015.
+Nella procedura guidata illustrata in questo articolo viene usato Visual Studio 2019. Le procedure per Visual Studio 2013, 2015 o 2017 sono leggermente diverse.
 
 ### <a name="azure-net-sdk"></a>Azure .NET SDK
 
@@ -45,31 +43,30 @@ Scaricare e installare [Azure .NET SDK](https://azure.microsoft.com/downloads/) 
 
 ## <a name="create-an-application-in-azure-active-directory"></a>Creare un'applicazione in Azure Active Directory
 
-Seguendo le istruzioni delle sezioni in [questo articolo](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) eseguire queste attività: 
+Dalle sezioni in *Procedura: Usare il portale per creare un'entità servizio e applicazione di Azure AD che possano accedere alle risorse*, seguire le istruzioni per eseguire queste attività:
 
-1. **Creare un'applicazione di Azure Active Directory**. In Azure Active Directory creare un'applicazione che rappresenti l'applicazione .NET che si crea in questa esercitazione. Come URL di accesso è possibile specificare un URL fittizio, come illustrato nell'articolo (`https://contoso.org/exampleapp`).
-2. Ottenere l'**ID applicazione** e la **chiave di autenticazione** e prendere nota di questi valori che verranno usati più avanti in questa esercitazione. 
-3. Ottenere l'**ID tenant** e prendere nota di questo valore che verrà usato più avanti in questa esercitazione.
-4. Assegnare l'applicazione al ruolo **Collaboratore** a livello di sottoscrizione in modo che l'applicazione possa creare le data factory nella sottoscrizione.
+1. In [Creare un'applicazione Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) creare un'applicazione che rappresenti l'applicazione .NET che verrà creata in questa esercitazione. Come URL di accesso è possibile specificare un URL fittizio, come illustrato nell'articolo (`https://contoso.org/exampleapp`).
+2. In [Ottenere i valori per l'accesso](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in) ottenere l'**ID dell'applicazione** e l'**ID del tenant**, quindi prendere nota di questi valori che verranno usati più avanti in questa esercitazione. 
+3. In [Certificati e segreti](../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) ottenere la **chiave di autenticazione** e prendere nota di questo valore che verrà usato più avanti in questa esercitazione.
+4. In [Assegnare l'applicazione a un ruolo](../active-directory/develop/howto-create-service-principal-portal.md#assign-the-application-to-a-role) assegnare l'applicazione al ruolo **Collaboratore** a livello di sottoscrizione, in modo che l'applicazione possa creare le data factory nella sottoscrizione.
 
 ## <a name="create-a-visual-studio-project"></a>Creare un progetto di Visual Studio
 
-Usando Visual Studio 2013/2015/2017, creare un'applicazione console .NET per C#.
+Creare quindi un'applicazione console C# .NET in Visual Studio:
 
 1. Avviare **Visual Studio**.
-2. Fare clic su **File**, scegliere **Nuovo** e quindi fare clic su **Progetto**.
-3. Selezionare **Visual C#** -> **App console (.NET Framework)** nell'elenco dei tipi di progetto a destra. È necessario .NET versione 4.5.2 o successiva.
-4. Immettere **ADFv2QuickStart** per il nome.
-5. Fare clic su **OK** per creare il progetto.
+2. Nella finestra di avvio selezionare **Crea un nuovo progetto** > **App console (.NET Framework)** . È necessario .NET versione 4.5.2 o successiva.
+3. In **Nome progetto** immettere **ADFv2QuickStart**.
+4. Selezionare **Crea** per creare il progetto.
 
 ## <a name="install-nuget-packages"></a>Installare i pacchetti NuGet
 
-1. Fare clic su **Strumenti** -> **Gestione pacchetti NuGet** -> **Console di Gestione pacchetti**.
-2. In **Console di Gestione pacchetti** eseguire questi comandi per installare i pacchetti. Per i dettagli, vedere il [pacchetto NuGet Microsoft.Azure.Management.DataFactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/).
+1. Fare clic su **Strumenti** > **Gestione Pacchetti NuGet** > **Console di Gestione pacchetti**.
+2. Nel riquadro **Console di Gestione pacchetti** eseguire questi comandi per installare i pacchetti. Per altre informazioni, vedere il [pacchetto NuGet Microsoft.Azure.Management.DataFactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/).
 
     ```powershell
     Install-Package Microsoft.Azure.Management.DataFactory
-    Install-Package Microsoft.Azure.Management.ResourceManager
+    Install-Package Microsoft.Azure.Management.ResourceManager -IncludePrerelease
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
     ```
 
@@ -88,39 +85,46 @@ Usando Visual Studio 2013/2015/2017, creare un'applicazione console .NET per C#.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. Aggiungere il codice seguente al metodo **Main** per impostare le variabili. Sostituire i segnaposto con i propri valori. Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analytics** per individuare **Data Factory**: [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
+2. Aggiungere il codice seguente al metodo **Main** per impostare le variabili. Sostituire i segnaposto con i valori personalizzati. Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analytics** per individuare **Data Factory**: [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL di Azure e altri) e le risorse di calcolo (HDInsight e altre) usati dalla data factory possono trovarsi in altre aree.
 
-    ```csharp
-    // Set variables
-    string tenantID = "<your tenant ID>";
-    string applicationId = "<your application ID>";
-    string authenticationKey = "<your authentication key for the application>";
-    string subscriptionId = "<your subscription ID where the data factory resides>";
-    string resourceGroup = "<your resource group where the data factory resides>";
-    string region = "East US 2";
-    string dataFactoryName = "<specify the name of data factory to create. It must be globally unique.>";
-    string storageAccount = "<your storage account name to copy data>";
-    string storageKey = "<your storage account key>";
-    // specify the container and input folder from which all files need to be copied to the output folder. 
-    string inputBlobPath = "<the path to existing blob(s) to copy data from, e.g. containername/foldername>";
-    //specify the contains and output folder where the files are copied
-    string outputBlobPath = "<the blob path to copy data to, e.g. containername/foldername>";
+   ```csharp
+   // Set variables
+   string tenantID = "<your tenant ID>";
+   string applicationId = "<your application ID>";
+   string authenticationKey = "<your authentication key for the application>";
+   string subscriptionId = "<your subscription ID where the data factory resides>";
+   string resourceGroup = "<your resource group where the data factory resides>";
+   string region = "<the location of your resource group>";
+   string dataFactoryName = 
+       "<specify the name of data factory to create. It must be globally unique.>";
+   string storageAccount = "<your storage account name to copy data>";
+   string storageKey = "<your storage account key>";
+   // specify the container and input folder from which all files 
+   // need to be copied to the output folder. 
+   string inputBlobPath =
+       "<path to existing blob(s) to copy data from, e.g. containername/inputdir>";
+   //specify the contains and output folder where the files are copied
+   string outputBlobPath =
+       "<the blob path to copy data to, e.g. containername/outputdir>";
 
-    string storageLinkedServiceName = "AzureStorageLinkedService";  // name of the Azure Storage linked service
-    string blobDatasetName = "BlobDataset";             // name of the blob dataset
-    string pipelineName = "Adfv2QuickStartPipeline";    // name of the pipeline
-    ```
+   // name of the Azure Storage linked service, blob dataset, and the pipeline
+   string storageLinkedServiceName = "AzureStorageLinkedService";
+   string blobDatasetName = "BlobDataset";
+   string pipelineName = "Adfv2QuickStartPipeline";
+   ```
 
 3. Aggiungere il codice seguente al metodo **Main** per creare un'istanza della classe **DataFactoryManagementClient**. Usare questo oggetto per creare una data factory, il servizio collegato, i set di dati e la pipeline. È possibile usare questo oggetto anche per monitorare i dettagli sull'esecuzione della pipeline.
 
-    ```csharp
-    // Authenticate and create a data factory management client
-    var context = new AuthenticationContext("https://login.windows.net/" + tenantID);
-    ClientCredential cc = new ClientCredential(applicationId, authenticationKey);
-    AuthenticationResult result = context.AcquireTokenAsync("https://management.azure.com/", cc).Result;
-    ServiceClientCredentials cred = new TokenCredentials(result.AccessToken);
-    var client = new DataFactoryManagementClient(cred) { SubscriptionId = subscriptionId };
-    ```
+   ```csharp
+   // Authenticate and create a data factory management client
+   var context = new AuthenticationContext("https://login.windows.net/" + tenantID);
+   ClientCredential cc = new ClientCredential(applicationId, authenticationKey);
+   AuthenticationResult result = context.AcquireTokenAsync(
+       "https://management.azure.com/", cc).Result;
+   ServiceClientCredentials cred = new TokenCredentials(result.AccessToken);
+   var client = new DataFactoryManagementClient(cred) {
+       SubscriptionId = subscriptionId };
+   ```
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
 
@@ -135,9 +139,11 @@ Factory dataFactory = new Factory
     Identity = new FactoryIdentity()
 };
 client.Factories.CreateOrUpdate(resourceGroup, dataFactoryName, dataFactory);
-Console.WriteLine(SafeJsonConvert.SerializeObject(dataFactory, client.SerializationSettings));
+Console.WriteLine(
+    SafeJsonConvert.SerializeObject(dataFactory, client.SerializationSettings));
 
-while (client.Factories.Get(resourceGroup, dataFactoryName).ProvisioningState == "PendingCreation")
+while (client.Factories.Get(resourceGroup, dataFactoryName).ProvisioningState ==
+       "PendingCreation")
 {
     System.Threading.Thread.Sleep(1000);
 }
@@ -147,7 +153,7 @@ while (client.Factories.Get(resourceGroup, dataFactoryName).ProvisioningState ==
 
 Aggiungere il codice seguente al metodo **Main** per creare un **servizio collegato di Archiviazione di Azure**.
 
-Si creano servizi collegati in una data factory per collegare gli archivi dati e i servizi di calcolo alla data factory. In questa guida introduttiva è necessario creare solo un servizio collegato Archiviazione di Azure come archivio sink e di origine della copia, denominato "AzureStorageLinkedService" nell'esempio.
+Si creano servizi collegati in una data factory per collegare gli archivi dati e i servizi di calcolo alla data factory. In questa guida di avvio rapido è necessario creare solo un servizio collegato Archiviazione di Azure per l'origine della copia e l'archivio sink, denominato "AzureStorageLinkedService" nell'esempio.
 
 ```csharp
 // Create an Azure Storage linked service
@@ -156,11 +162,15 @@ Console.WriteLine("Creating linked service " + storageLinkedServiceName + "...")
 LinkedServiceResource storageLinkedService = new LinkedServiceResource(
     new AzureStorageLinkedService
     {
-        ConnectionString = new SecureString("DefaultEndpointsProtocol=https;AccountName=" + storageAccount + ";AccountKey=" + storageKey)
+        ConnectionString = new SecureString(
+            "DefaultEndpointsProtocol=https;AccountName=" + storageAccount +
+            ";AccountKey=" + storageKey)
     }
 );
-client.LinkedServices.CreateOrUpdate(resourceGroup, dataFactoryName, storageLinkedServiceName, storageLinkedService);
-Console.WriteLine(SafeJsonConvert.SerializeObject(storageLinkedService, client.SerializationSettings));
+client.LinkedServices.CreateOrUpdate(
+    resourceGroup, dataFactoryName, storageLinkedServiceName, storageLinkedService);
+Console.WriteLine(SafeJsonConvert.SerializeObject(
+    storageLinkedService, client.SerializationSettings));
 ```
 
 ## <a name="create-a-dataset"></a>Creare un set di dati
@@ -183,19 +193,20 @@ DatasetResource blobDataset = new DatasetResource(
         Parameters = new Dictionary<string, ParameterSpecification>
         {
             { "path", new ParameterSpecification { Type = ParameterType.String } }
-
         }
     }
 );
-client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobDatasetName, blobDataset);
-Console.WriteLine(SafeJsonConvert.SerializeObject(blobDataset, client.SerializationSettings));
+client.Datasets.CreateOrUpdate(
+    resourceGroup, dataFactoryName, blobDatasetName, blobDataset);
+Console.WriteLine(
+    SafeJsonConvert.SerializeObject(blobDataset, client.SerializationSettings));
 ```
 
 ## <a name="create-a-pipeline"></a>Creare una pipeline
 
 Aggiungere il codice seguente al metodo **Main** per creare una **pipeline con un'attività di copia**.
 
-In questo esempio la pipeline contiene un'attività e accetta due parametri, il percorso del BLOB di input e il percorso del BLOB di output. I valori per questi parametri vengono impostati all'esecuzione/attivazione della pipeline. L'attività di copia fa riferimento allo stesso set di dati del BLOB creato nel passaggio precedente come input e output. Quando il set di dati viene usato come set di dati di input, viene specificato il percorso di input. Quando il set di dati viene usato come set di dati di output, viene specificato il percorso di output. 
+In questo esempio la pipeline contiene un'attività e accetta due parametri: il percorso del BLOB di input e il percorso del BLOB di output. I valori per questi parametri vengono impostati all'esecuzione/attivazione della pipeline. L'attività di copia fa riferimento allo stesso set di dati del BLOB creato nel passaggio precedente come input e output. Quando il set di dati viene usato come set di dati di input, viene specificato il percorso di input. Quando il set di dati viene usato come set di dati di output, viene specificato il percorso di output. 
 
 ```csharp
 // Create a pipeline with a copy activity
@@ -247,7 +258,7 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(pipeline, client.Serialization
 
 Aggiungere il codice seguente al metodo **Main** per **attivare un'esecuzione della pipeline**.
 
-Questo codice imposta anche i valori dei parametri **inputPath** e **outputPath** specificati nella pipeline con gli effettivi valori dei percorsi dei BLOB di origine e sink.
+Questo codice imposta anche i valori dei parametri **inputPath** e **outputPath** specificati nella pipeline con i valori effettivi dei percorsi dei BLOB di origine e sink.
 
 ```csharp
 // Create a pipeline run
@@ -257,7 +268,9 @@ Dictionary<string, object> parameters = new Dictionary<string, object>
     { "inputPath", inputBlobPath },
     { "outputPath", outputBlobPath }
 };
-CreateRunResponse runResponse = client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters: parameters).Result.Body;
+CreateRunResponse runResponse = client.Pipelines.CreateRunWithHttpMessagesAsync(
+    resourceGroup, dataFactoryName, pipelineName, parameters: parameters
+).Result.Body;
 Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```
 
@@ -265,42 +278,45 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 1. Aggiungere il codice seguente al metodo **Main** per controllare continuamente lo stato fino al termine della copia dei dati.
 
-    ```csharp
-    // Monitor the pipeline run
-    Console.WriteLine("Checking pipeline run status...");
-    PipelineRun pipelineRun;
-    while (true)
-    {
-        pipelineRun = client.PipelineRuns.Get(resourceGroup, dataFactoryName, runResponse.RunId);
-        Console.WriteLine("Status: " + pipelineRun.Status);
-        if (pipelineRun.Status == "InProgress")
-            System.Threading.Thread.Sleep(15000);
-        else
-            break;
-    }
-    ```
+   ```csharp
+   // Monitor the pipeline run
+   Console.WriteLine("Checking pipeline run status...");
+   PipelineRun pipelineRun;
+   while (true)
+   {
+       pipelineRun = client.PipelineRuns.Get(
+           resourceGroup, dataFactoryName, runResponse.RunId);
+       Console.WriteLine("Status: " + pipelineRun.Status);
+       if (pipelineRun.Status == "InProgress")
+           System.Threading.Thread.Sleep(15000);
+       else
+           break;
+   }
+   ```
 
-2. Aggiungere il codice seguente al metodo **Main** per recuperare i dettagli dell'esecuzione dell'attività di copia, ad esempio le dimensioni dei dati letti/scritti.
+2. Aggiungere il codice seguente al metodo **Main** per recuperare i dettagli dell'esecuzione dell'attività di copia, ad esempio le dimensioni dei dati letti o scritti.
 
-    ```csharp
-    // Check the copy activity run details
-    Console.WriteLine("Checking copy activity run details...");
+   ```csharp
+   // Check the copy activity run details
+   Console.WriteLine("Checking copy activity run details...");
 
-    RunFilterParameters filterParams = new RunFilterParameters(DateTime.UtcNow.AddMinutes(-10), DateTime.UtcNow.AddMinutes(10));
-    ActivityRunsQueryResponse queryResponse = client.ActivityRuns.QueryByPipelineRun(resourceGroup, dataFactoryName, runResponse.RunId, filterParams);
-    if (pipelineRun.Status == "Succeeded")
-        Console.WriteLine(queryResponse.Value.First().Output);
-    else
-        Console.WriteLine(queryResponse.Value.First().Error);
-    Console.WriteLine("\nPress any key to exit...");
-    Console.ReadKey();
-    ```
+   RunFilterParameters filterParams = new RunFilterParameters(
+       DateTime.UtcNow.AddMinutes(-10), DateTime.UtcNow.AddMinutes(10));
+   ActivityRunsQueryResponse queryResponse = client.ActivityRuns.QueryByPipelineRun(
+       resourceGroup, dataFactoryName, runResponse.RunId, filterParams);
+   if (pipelineRun.Status == "Succeeded")
+       Console.WriteLine(queryResponse.Value.First().Output);
+   else
+       Console.WriteLine(queryResponse.Value.First().Error);
+   Console.WriteLine("\nPress any key to exit...");
+   Console.ReadKey();
+   ```
 
 ## <a name="run-the-code"></a>Eseguire il codice
 
 Compilare e avviare l'applicazione, quindi verificare l'esecuzione della pipeline.
 
-La console stampa lo stato di creazione della data factory, del servizio collegato, dei set di dati, della pipeline e dell'esecuzione della pipeline. Controlla quindi lo stato di esecuzione della pipeline. Attendere fino a quando non vengono visualizzati i dettagli sull'esecuzione dell'attività di copia con le dimensioni dei dati letti/scritti. Usare quindi strumenti come [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per verificare che i BLOB siano stati copiati da "inputBlobPath" a "outputBlobPath", come specificato nelle variabili.
+La console stampa lo stato di creazione della data factory, del servizio collegato, dei set di dati, della pipeline e dell'esecuzione della pipeline. Controlla quindi lo stato di esecuzione della pipeline. Attendere fino a visualizzare i dettagli dell'esecuzione dell'attività di copia con le dimensioni dei dati di lettura/scrittura. Usare quindi strumenti come [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per verificare che i BLOB siano stati copiati da "inputBlobPath" a "outputBlobPath", come specificato nelle variabili.
 
 ### <a name="sample-output"></a>Output di esempio
 
@@ -412,23 +428,19 @@ Press any key to exit...
 
 ## <a name="verify-the-output"></a>Verificare l'output
 
-La pipeline crea automaticamente la cartella di output nel contenitore BLOB adftutorial, quindi copia il file emp.txt dalla cartella di input a quella di output. 
+La pipeline crea automaticamente la cartella di output nel contenitore BLOB **adftutorial**, quindi copia il file **emp.txt** dalla cartella di input a quella di output. 
 
-1. Nella pagina del contenitore **adftutorial** del portale di Azure fare clic su **Aggiorna** per visualizzare la cartella di output. 
-    
-    ![Aggiorna](media/quickstart-create-data-factory-dot-net/output-refresh.png)
-2. Fare clic su **output** nell'elenco di cartelle. 
-2. Verificare che **emp.txt** venga copiato nella cartella di output. 
-
-    ![Aggiorna](media/quickstart-create-data-factory-dot-net/output-file.png)
+1. Nel portale di Azure, nella pagina del contenitore **adftutorial** in cui si è rimasti dalla sezione precedente [Aggiungere una cartella di input e un file per il contenitore BLOB](#add-an-input-folder-and-file-for-the-blob-container) selezionare **Aggiorna** per visualizzare la cartella di output. 
+2. Nell'elenco delle cartelle selezionare **output**.
+3. Verificare che **emp.txt** venga copiato nella cartella di output. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Per eliminare una data factory a livello di codice, aggiungere al programma le righe di codice seguenti: 
 
 ```csharp
-            Console.WriteLine("Deleting the data factory");
-            client.Factories.Delete(resourceGroup, dataFactoryName);
+Console.WriteLine("Deleting the data factory");
+client.Factories.Delete(resourceGroup, dataFactoryName);
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

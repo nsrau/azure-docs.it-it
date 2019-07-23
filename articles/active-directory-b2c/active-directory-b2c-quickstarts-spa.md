@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: dff1716e8886d1ef72f4d2ad4fbca4bcab86a348
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 47df2cbdf0b083cf672353471d1ef51e03507475
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66509787"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835348"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Guida introduttiva: Configurare l'accesso per un'app a singola pagina tramite Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ Azure Active Directory (Azure AD) B2C consente la gestione delle identità del c
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
 
-1. Avviare il server eseguendo questi comandi al prompt dei comandi di Node.js: 
+1. Avviare il server eseguendo questi comandi al prompt dei comandi di Node.js:
 
     ```
     cd active-directory-b2c-javascript-msal-singlepageapp
@@ -56,23 +56,23 @@ Azure Active Directory (Azure AD) B2C consente la gestione delle identità del c
 
 1. Fare clic su **Login** (Accedi) per avviare il flusso di lavoro.
 
-    ![App di esempio nel browser](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
+    ![App di esempio dell'applicazione a pagina singola visualizzata nel browser](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
 
-    L'esempio supporta alcune opzioni di iscrizione, tra cui l'uso di un provider di identità di social networking o la creazione di un account locale tramite un indirizzo di posta elettronica. Per questa guida introduttiva, usare un account di provider di identità basato su social network, ovvero un account di Facebook, Google, Microsoft o Twitter. 
+    L'esempio supporta alcune opzioni di iscrizione, tra cui l'uso di un provider di identità di social networking o la creazione di un account locale tramite un indirizzo di posta elettronica. Per questa guida introduttiva, usare un account di provider di identità basato su social network, ovvero un account di Facebook, Google, Microsoft o Twitter.
 
 2. Azure AD B2C presenta una pagina di accesso personalizzata per un marchio fittizio denominato Wingtip Toys per l'app Web di esempio. Per iscriversi usando un provider di identità basato su social network, fare clic sul pulsante del provider di identità che si vuole usare.
 
-    ![Provider di accesso o di iscrizione](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
+    ![Pagina di accesso o di iscrizione che mostra i pulsanti del provider di identità](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
 
-    È necessario eseguire l'autenticazione (accesso) tramite le credenziali dell'account di social networking e autorizzare l'applicazione a leggere informazioni da questo account. Dopo la concessione dell'accesso, l'applicazione può recuperare le informazioni sul profilo dall'account, ad esempio il nome e la città dell'utente. 
+    È necessario eseguire l'autenticazione (accesso) tramite le credenziali dell'account di social networking e autorizzare l'applicazione a leggere informazioni da questo account. Dopo la concessione dell'accesso, l'applicazione può recuperare le informazioni sul profilo dall'account, ad esempio il nome e la città dell'utente.
 
 3. Completare il processo di accesso per il provider di identità.
 
 ## <a name="access-a-protected-api-resource"></a>Accedere a una risorsa API protetta
 
-Fare clic su **Call Web API** (Chiama API Web) affinché la chiamata all'API Web restituisca il nome visualizzato come oggetto JSON. 
+Fare clic su **Call Web API** (Chiama API Web) affinché la chiamata all'API Web restituisca il nome visualizzato come oggetto JSON.
 
-![Risposta API Web](media/active-directory-b2c-quickstarts-spa/call-api-spa.png)
+![Applicazione di esempio nel browser che mostra la risposta dell'API Web](media/active-directory-b2c-quickstarts-spa/call-api-spa.png)
 
 L'applicazione a pagina singola include un token di accesso nella richiesta alla risorsa API Web protetta.
 

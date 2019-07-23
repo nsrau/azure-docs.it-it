@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 543ba3ee4e72c5d31708e9b4983e7889421940ca
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: fce819e84d5c532777ffee91ed4e75a0b65dec9b
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546233"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853694"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Creare un'app multi-contenitore (anteprima) con una configurazione di Docker Compose
 
@@ -102,7 +102,7 @@ Al termine della creazione del piano di servizio app, l'interfaccia della riga d
 
 ## <a name="create-a-docker-compose-app"></a>Creare un'app Docker Compose
 
-Nel terminale Cloud Shell creare un'[app Web](app-service-linux-intro.md) multi-contenitore nel piano di servizio app `myAppServicePlan` con il comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Non dimenticare di sostituire _\<app_name>_ con un nome univoco per l'app.
+Nel terminale Cloud Shell creare un'[app Web](app-service-linux-intro.md) multi-contenitore nel piano di servizio app `myAppServicePlan` con il comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Non dimenticare di sostituire _\<app_name>_ con un nome univoco per l'app (i caratteri validi sono `a-z`, `0-9` e `-`).
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -138,7 +138,7 @@ La creazione di un'app multi-contenitore in App Web per contenitori è stata **c
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione: App WordPress multicontenitore](tutorial-multi-container-app.md)
+> [Esercitazione: App WordPress multi-contenitore](tutorial-multi-container-app.md)
 
 > [!div class="nextstepaction"]
 > [Configurare un contenitore personalizzato](configure-custom-container.md)

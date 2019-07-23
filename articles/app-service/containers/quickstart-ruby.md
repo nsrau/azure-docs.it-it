@@ -13,30 +13,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/11/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 29126171a2d808153c7578d911e0725641ec39ff
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: f9f142543140be3348bf7cd94894cc9e88278368
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545146"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849531"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service-on-linux"></a>Creare un'app Ruby on Rails con il Servizio app di Azure in Linux
 
-Il [servizio app di Azure in Linux](app-service-linux-intro.md) fornisce un servizio di hosting Web ad alta scalabilità e con funzioni di auto-correzione. In questa guida introduttiva viene illustrato come creare un'applicazione [Ruby on Rails](https://rubyonrails.org/) di base che può quindi essere distribuita come App Web in Linux.
+Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Questa esercitazione di avvio rapido illustra come distribuire un'app Ruby on Rails in Servizio app di Azure in Linux tramite [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 > [!NOTE]
 > In questo momento lo stack di sviluppo di Ruby supporta solo Ruby on Rails. Per usare una piattaforma diversa, ad esempio Sinatra, o per usare una [versione non supportata di Ruby](app-service-linux-intro.md), è necessario [eseguirla in un contenitore personalizzato](quickstart-docker-go.md).
 
-![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
+![Hello-world](./media/quickstart-ruby/hello-world-configured.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Installare Ruby 2.3 o versione successiva</a>
+* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Installare Ruby 2.6 o versione successiva</a>
 * <a href="https://git-scm.com/" target="_blank">Installare Git</a>
 
 ## <a name="download-the-sample"></a>Scaricare l'esempio
@@ -51,7 +51,7 @@ git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 
 Eseguire l'applicazione in locale, in modo da verificare l'aspetto che assumerà dopo la distribuzione in Azure. Aprire una finestra del terminale, passare alla directory `hello-world` e usare il comando `rails server` per avviare il server.
 
-Il primo passaggio consiste nell'installare le gemme necessarie. È presente un `Gemfile` incluso nell'esempio in modo che non sia necessario specificare le gemme da installare. A questo fine useremo un bundler:
+Il primo passaggio consiste nell'installare le gemme necessarie. Nell'esempio è incluso un `Gemfile`, quindi è sufficiente eseguire il comando seguente:
 
 ```bash
 bundle install
@@ -65,7 +65,7 @@ bundle exec rails server
 
 Tramite il Web browser, passare a `http://localhost:3000` per testare l'app in locale.
 
-![Hello World configurato](./media/quickstart-ruby/hello-world-configured.png)
+![Hello World configurato](./media/quickstart-ruby/hello-world-updated.png)
 
 [!INCLUDE [Try Cloud Shell](../../../includes/cloud-shell-try-it.md)]
 
@@ -79,7 +79,7 @@ Tramite il Web browser, passare a `http://localhost:3000` per testare l'app in l
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
 
-Passare al sito per visualizzare l'app Web con immagine incorporata appena creata. Sostituire _&lt;app name>_ con il nome dell'app Web.
+Passare all'app per visualizzare l'app Web con immagine incorporata appena creata. Sostituire _&lt;app name>_ con il nome dell'app Web.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -91,47 +91,42 @@ Ecco l'aspetto che avrà la nuova app Web:
 
 ## <a name="deploy-your-application"></a>Distribuire l'applicazione
 
-Eseguire i comandi seguenti per distribuire l'applicazione locale al sito Web di Azure:
+Eseguire i comandi seguenti per distribuire l'applicazione locale nel sito Web di Azure:
 
 ```bash
 git remote add azure <Git deployment URL from above>
-git add -A
-git commit -m "Initial deployment commit"
 git push azure master
 ```
 
 Verificare che per le operazioni di distribuzione in remoto venga segnalato l'esito positivo. I comandi generano un output simile al testo seguente:
 
 ```bash
-remote: Using sass-rails 5.0.6
-remote: Updating files in vendor/cache
-remote: Bundle gems are installed into ./vendor/bundle
-remote: Updating files in vendor/cache
-remote: ~site/repository
+remote: Using turbolinks 5.2.0
+remote: Using uglifier 4.1.20
+remote: Using web-console 3.7.0
+remote: Bundle complete! 18 Gemfile dependencies, 78 gems now installed.
+remote: Bundled gems are installed into `/tmp/bundle`
+remote: Zipping up bundle contents
+remote: .......
+remote: ~/site/repository
 remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
-To https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
-  579ccb....2ca5f31  master -> master
-myuser@ubuntu1234:~workspace/<app name>$
+remote: App container will begin restart within 10 seconds.
+To https://<app-name>.scm.azurewebsites.net/<app-name>.git
+   a6e73a2..ae34be9  master -> master
 ```
 
-Dopo aver completato la distribuzione, riavviare l'app Web affinché la distribuzione venga applicata tramite il comando [`az webapp restart`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-restart), come mostrato di seguito:
-
-```azurecli-interactive
-az webapp restart --name <app name> --resource-group myResourceGroup
-```
-
-Passare al sito e verificare i risultati.
+Al termine della distribuzione, attendere circa 10 secondi per il riavvio dell'app Web, quindi passare all'app Web e verificare i risultati.
 
 ```bash
-http://<app name>.azurewebsites.net
+http://<app-name>.azurewebsites.net
 ```
 
-![app Web aggiornata](./media/quickstart-ruby/hello-world-updated.png)
+![app Web aggiornata](./media/quickstart-ruby/hello-world-configured.png)
 
 > [!NOTE]
-> Mentre l'app viene riavviata, il tentativo di aprire il sito genera un codice di stato HTTP `Error 503 Server unavailable`. Il completamento del riavvio potrebbe richiedere alcuni minuti.
+> Durante il riavvio dell'app potrebbe essere visualizzato il codice di stato HTTP `Error 503 Server unavailable` nel browser o la pagina predefinita `Hey, Ruby developers!`. Il completamento del riavvio dell'app potrebbe richiedere alcuni minuti.
 >
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]

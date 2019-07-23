@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 21c7e996cfe2f07d9a5b056d8cbc22f238bb48fd
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: e787366694b55d3dcd61eec2c5a5b42dd187ec55
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357608"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226843"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Eseguire ricerche vicino a punti di interesse con Mappe di Azure
 
@@ -239,9 +239,9 @@ La mappa creata finora analizza solo i dati di longitudine/latitudine per i risu
     map.events.add('mouseover', resultLayer, showPopup);
     ```
 
-    La funzione `sup` dell'API consente di aggiungere una finestra di informazioni ancorata alla posizione richiesta sulla mappa. 
+    La funzione `*atlas.Popup` dell'API consente di aggiungere una finestra di informazioni ancorata alla posizione richiesta sulla mappa. 
 
-2. Nel tag *script* aggiungere il codice seguente dopo la funzione `GetMap` per mostrare nel popup le informazioni sui risultati al passaggio del mouse.
+2. Aggiungere il codice seguente nella funzione `GetMap` per mostrare nel popup le informazioni sui risultati al passaggio del mouse.
 
     ```JavaScript
     function showPopup(e) {

@@ -10,18 +10,18 @@ ms.topic: overview
 ms.date: 02/20/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5cceac260979b4322d41843038eab0998c8e8ba4
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: ca9d8a8373bd73d527862864d436319eb45b5f48
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66509758"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227161"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Informazioni su Azure Active Directory B2C
 
 Azure Active Directory (Azure AD) B2C è un servizio di gestione delle identità Business to Consumer. Questo servizio consente di personalizzare e controllare l'interazione sicura degli utenti con applicazioni Web, desktop, per dispositivi mobili o a pagina singola. Con Azure AD B2C, gli utenti possono eseguire l'iscrizione, l'accesso, la reimpostazione delle password e la modifica dei profili. Azure AD B2C implementa una forma dei protocolli OAuth 2.0 e OpenID Connect. Il fattore chiave nell'implementazione di questi protocolli sono i token di sicurezza e le relative attestazioni, che consentono di offrire un accesso sicuro alle risorse.
 
-Un *percorso utente* è una richiesta che specifica i criteri che controllano il comportamento dell'interazione dell'utente e dell'applicazione con Azure AD B2C. Per definire i percorsi utente in Azure AD B2C sono disponibili due modi. 
+Un *percorso utente* è una richiesta che specifica i criteri che controllano il comportamento dell'interazione dell'utente e dell'applicazione con Azure AD B2C. Per definire i percorsi utente in Azure AD B2C sono disponibili due modi.
 
 Gli sviluppatori di applicazioni, con o senza competenze nella gestione delle identità, possono scegliere di definire comuni flussi utente di gestione delle identità con il portale di Azure. Gli integratori di sistemi, i consulenti, i professionisti o i team interni addetti alla gestione delle identità che hanno familiarità con i flussi di OpenID Connect e conoscono i provider di identità e l'autenticazione basata sulle attestazioni possono scegliere di usare criteri personalizzati basati su XML.
 
@@ -29,7 +29,7 @@ Prima di iniziare a definire un percorso utente, è necessario creare un tenant 
 
 ## <a name="protocols-and-tokens"></a>Protocolli e token
 
-Per i percorsi utente, Azure AD B2C supporta i [protocolli OpenID Connect e OAuth 2.0](active-directory-b2c-reference-protocols.md). Nell'implementazione di OpenID Connect in Azure AD B2C, l'applicazione avvia il percorso utente inviando richieste di autenticazione ad Azure AD B2C. 
+Per i percorsi utente, Azure AD B2C supporta i [protocolli OpenID Connect e OAuth 2.0](active-directory-b2c-reference-protocols.md). Nell'implementazione di OpenID Connect in Azure AD B2C, l'applicazione avvia il percorso utente inviando richieste di autenticazione ad Azure AD B2C.
 
 Il risultato di una richiesta ad Azure AD B2C è un token di sicurezza, ad esempio [un token ID o un token di accesso](active-directory-b2c-reference-tokens.md). Questo token di sicurezza definisce l'identità dell'utente. I token vengono ricevuti da endpoint di Azure AD B2C, ad esempio da un endpoint `/token` o `/authorize`. Da questi token è possibile accedere alle attestazioni utilizzabili per convalidare un'identità e consentire l'accesso a risorse sicure.
 
@@ -62,17 +62,17 @@ I percorsi utente consentono di controllare i comportamenti configurando le impo
 - Aspetto delle pagine
 - Informazioni restituite all'applicazione
 
-I criteri personalizzati sono file di configurazione che definiscono il comportamento di [Identity Experience Framework](trustframeworkpolicy.md) nel tenant di Azure AD B2C. Identity Experience Framework è la piattaforma sottostante che stabilisce una relazione di trust tra più parti e completa i passaggi in un percorso utente. 
+I criteri personalizzati sono file di configurazione che definiscono il comportamento di [Identity Experience Framework](trustframeworkpolicy.md) nel tenant di Azure AD B2C. Identity Experience Framework è la piattaforma sottostante che stabilisce una relazione di trust tra più parti e completa i passaggi in un percorso utente.
 
-I criteri personalizzati possono essere modificati per completare numerose attività. Un criterio personalizzato è costituito da uno o più file in formato XML che fanno riferimento l'uno all'altro in una catena gerarchica. È disponibile uno [starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) per i criteri personalizzati per supportare attività comuni di gestione delle identità. 
+I criteri personalizzati possono essere modificati per completare numerose attività. Un criterio personalizzato è costituito da uno o più file in formato XML che fanno riferimento l'uno all'altro in una catena gerarchica. È disponibile uno [starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) per i criteri personalizzati per supportare attività comuni di gestione delle identità.
 
 Criteri personalizzati o flussi utente di diversi tipi possono essere usati nel tenant di Azure AD B2C in base alle esigenze ed essere riutilizzati in più applicazioni. Questa flessibilità consente di definire e modificare le esperienze di gestione delle identità utente senza modificare il codice o con modifiche minime. I criteri vengono usati aggiungendo uno speciale parametro di query alle richieste di autenticazione HTTP. Per creare criteri personalizzati, vedere [Introduzione ai criteri personalizzati in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 
-## <a name="identity-providers"></a>Provider di identità 
+## <a name="identity-providers"></a>Provider di identità
 
-È possibile consentire agli utenti di accedere alle applicazioni con provider di identità diversi. Un *provider di identità* crea, mantiene e gestisce le informazioni sulle identità fornendo al contempo servizi di autenticazione alle applicazioni. È possibile aggiungere provider di identità supportati da Azure AD B2C con il portale di Azure. 
+È possibile consentire agli utenti di accedere alle applicazioni con provider di identità diversi. Un *provider di identità* crea, mantiene e gestisce le informazioni sulle identità fornendo al contempo servizi di autenticazione alle applicazioni. È possibile aggiungere provider di identità supportati da Azure AD B2C con il portale di Azure.
 
-In genere si usa un solo provider di identità in un'applicazione, ma è possibile aggiungerne altri. Per configurare un provider di identità nel tenant di Azure AD B2C, per prima cosa si crea un'applicazione nel sito per sviluppatori del provider di identità, quindi si registrano l'ID applicazione o client e la password o il segreto client dell'applicazione del provider di identità che è stata creata. Questo identificatore e la password vengono quindi usati per configurare l'applicazione. 
+In genere si usa un solo provider di identità in un'applicazione, ma è possibile aggiungerne altri. Per configurare un provider di identità nel tenant di Azure AD B2C, per prima cosa si crea un'applicazione nel sito per sviluppatori del provider di identità, quindi si registrano l'ID applicazione o client e la password o il segreto client dell'applicazione del provider di identità che è stata creata. Questo identificatore e la password vengono quindi usati per configurare l'applicazione.
 
 Gli articoli seguenti descrivono i passaggi per aggiungere alcuni provider di identità comuni ai flussi utente:
 
@@ -90,7 +90,7 @@ Per altre informazioni, vedere [Esercitazione: Aggiungere provider di identità 
 
 ## <a name="page-customization"></a>Personalizzazione delle pagine
 
-È possibile controllare la maggior parte del contenuto HTML e CSS che viene presentato ai clienti in un percorso utente. Con la personalizzazione delle pagine, si può personalizzare l'aspetto di qualsiasi criterio personalizzato o flusso utente. Questa funzionalità di personalizzazione consente di mantenere la coerenza visiva e del marchio tra l'applicazione e Azure AD B2C. 
+È possibile controllare la maggior parte del contenuto HTML e CSS che viene presentato ai clienti in un percorso utente. Con la personalizzazione delle pagine, si può personalizzare l'aspetto di qualsiasi criterio personalizzato o flusso utente. Questa funzionalità di personalizzazione consente di mantenere la coerenza visiva e del marchio tra l'applicazione e Azure AD B2C.
 
 Azure AD B2C esegue il codice nel browser dell'utente e usa un approccio moderno denominato condivisione di risorse tra le origini (CORS). In primo luogo, specificare un URL nel criterio con contenuto HTML personalizzato. Azure AD B2C unisce elementi dell'interfaccia utente con il contenuto HTML caricato dall'URL e quindi mostra la pagina all'utente.
 
@@ -121,7 +121,7 @@ Gli sviluppatori di applicazioni a pagina singola che usano Node.js possono impo
 
 ### <a name="javascript"></a>JavaScript
 
-È possibile aggiungere codice lato client JavaScript alle applicazioni in Azure AD B2C. Per configurare JavaScript nell'applicazione, si definisce un [contratto della pagina](page-contract.md) e si abilita [JavaScript](javascript-samples.md) nei flussi utente o nei criteri personalizzati.
+È possibile aggiungere codice lato client JavaScript alle applicazioni in Azure AD B2C. Per configurare JavaScript nell'applicazione, si definisce un [layout di pagina](page-layout.md) e si abilita [JavaScript](javascript-samples.md) nei flussi utente o nei criteri personalizzati.
 
 ### <a name="user-accounts"></a>Account utente
 

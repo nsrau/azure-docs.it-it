@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 1d8b31e55a2a230385730c924d3e6bcc6072e7ea
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 87b5b30738451800da21736d7f139c4ba85ff998
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520433"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68233703"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>Caricare dati in modo incrementale da un archivio dati di origine a un archivio dati di destinazione
 
@@ -29,9 +29,11 @@ In questo caso, è necessario definire un limite nel database di origine. Un lim
 ![Flusso di lavoro per l'uso di un limite](media/tutorial-incremental-copy-overview/workflow-using-watermark.png)
 
 Per istruzioni dettagliate, vedere le esercitazioni seguenti: 
-
 - [Eseguire la copia incrementale di dati da una tabella del database SQL di Azure a un archivio BLOB di Azure](tutorial-incremental-copy-powershell.md)
 - [Eseguire la copia incrementale di dati da più tabelle di un database di SQL Server locale al database SQL di Azure](tutorial-incremental-copy-multiple-tables-powershell.md)
+
+Per i modelli vedere l'argomento seguente:
+- [Eseguire una copia differenziale con la tabella di controllo](solution-template-delta-copy-with-control-table.md)
 
 ## <a name="delta-data-loading-from-sql-db-by-using-the-change-tracking-technology"></a>Caricamento differenziale dei dati dal database SQL usando la tecnologia Rilevamento modifiche
 La tecnologia Rilevamento modifiche è una soluzione leggera inclusa in SQL Server e nel database SQL di Azure che offre un efficiente meccanismo di rilevamento delle modifiche per le applicazioni. Questa tecnologia consente a un'applicazione di identificare facilmente i dati inseriti, aggiornati o eliminati. 
@@ -41,19 +43,22 @@ Il flusso di lavoro per questo approccio è raffigurato nel diagramma seguente:
 ![Flusso di lavoro per l'uso di Rilevamento modifiche](media/tutorial-incremental-copy-overview/workflow-using-change-tracking.png)
 
 Per istruzioni dettagliate, vedere l'esercitazione seguente: <br/>
-[Eseguire la copia incrementale di dati dal database SQL di Azure a un archivio BLOB di Azure usando la tecnologia Rilevamento modifiche](tutorial-incremental-copy-change-tracking-feature-powershell.md)
+- [Eseguire la copia incrementale di dati dal database SQL di Azure a un archivio BLOB di Azure usando la tecnologia Rilevamento modifiche](tutorial-incremental-copy-change-tracking-feature-powershell.md)
 
 ## <a name="loading-new-and-changed-files-only-by-using-lastmodifieddate"></a>Caricamento dei soli file nuovi e modificati usando LastModifiedDate
 È possibile copiare i file nuovi e modificati solo usando LastModifiedDate nell'archivio di destinazione. Azure Data Factory analizza tutti i file dall'archivio di origine, applica il filtro LastModifiedDate sui file e copia nell'archivio di destinazione solo quello nuovo e aggiornato più di recente.  Tenere presente che, se Azure Data Factory analizza enormi quantità di file, ma si copiano pochi file nella destinazione, bisognerà comunque aspettarsi un'operazione lunga, perché anche l'analisi dei file richiede tempo.   
 
 Per istruzioni dettagliate, vedere l'esercitazione seguente: <br/>
-[Incrementally copy new and changed files based on LastModifiedDate from Azure Blob storage to Azure Blob storage](tutorial-incremental-copy-lastmodified-copy-data-tool.md) (Eseguire la copia incrementale dei file nuovi e modificati in base a LastModifiedDate da Archiviazione BLOB di Azure ad Archiviazione BLOB di Azure)
+- [Incrementally copy new and changed files based on LastModifiedDate from Azure Blob storage to Azure Blob storage](tutorial-incremental-copy-lastmodified-copy-data-tool.md) (Eseguire la copia incrementale dei file nuovi e modificati in base a LastModifiedDate da Archiviazione BLOB di Azure ad Archiviazione BLOB di Azure)
+
+Per i modelli vedere l'argomento seguente:
+- [Copiare i nuovi file in base a LastModifiedDate](solution-template-copy-new-files-lastmodifieddate.md)
 
 ## <a name="loading-new-files-only-by-using-time-partitioned-folder-or-file-name"></a>Caricamento dei soli file nuovi usando il nome di file o cartella partizionato in base al tempo
 È possibile copiare solo i nuovi file se i file o le cartelle sono già stati partizionati in base al tempo con informazioni temporali inserite nel nome di file o cartella (ad esempio, /aaaa/mm/gg/file.csv). Questo è l'approccio più redditizio in termini di prestazioni per il caricamento incrementale di nuovi file. 
 
 Per istruzioni dettagliate, vedere l'esercitazione seguente: <br/>
-[Incrementally copy new files based on time partitioned folder or file name from Azure Blob storage to Azure Blob storage](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md) (Eseguire la copia incrementale dei file nuovi in base al nome di cartella o di file partizionato in base al tempo da Archiviazione BLOB di Azure ad Archiviazione BLOB di Azure)
+- [Incrementally copy new files based on time partitioned folder or file name from Azure Blob storage to Azure Blob storage](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md) (Eseguire la copia incrementale dei file nuovi in base al nome di cartella o di file partizionato in base al tempo da Archiviazione BLOB di Azure ad Archiviazione BLOB di Azure)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Passare all'esercitazione seguente: 
