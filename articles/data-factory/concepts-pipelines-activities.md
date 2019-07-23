@@ -54,7 +54,7 @@ Attività di trasformazione dei dati | Ambiente di calcolo
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Hadoop Streaming](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
-[Attività di Machine Learning: Esecuzione batch e Aggiorna risorsa](transform-data-using-machine-learning.md) | Macchina virtuale di Azure
+[Attività di Machine Learning: Esecuzione batch e Aggiorna risorsa](transform-data-using-machine-learning.md) | Azure VM
 [Stored procedure](transform-data-using-stored-procedure.md) | Azure SQL, Azure SQL Data Warehouse o SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics.
 [Codice personalizzato](transform-data-using-dotnet-custom-activity.md) | Azure Batch
