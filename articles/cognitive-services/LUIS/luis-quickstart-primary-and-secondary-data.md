@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/01/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: ea9a2df1f06ba6836ef88bc57dc3f95fd31e1ee9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a03a1224451411617f38c8cecafbef008aa08916
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66124220"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276183"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Esercitazione: Estrarre nomi con entità semplice ed elenco di frasi
 
@@ -229,7 +229,7 @@ Aprire il file [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive
 
 1. Selezionare **Create new phrase list** (Crea nuovo elenco di frasi). 
 
-1. Assegnare al nuovo elenco di frasi il nome `JobNames` e copiare l'elenco dal file jobs-phrase-list.csv nella casella di testo **Values** (Valori). Premere INVIO. 
+1. Assegnare al nuovo elenco di frasi il nome `JobNames` e copiare l'elenco dal file jobs-phrase-list.csv nella casella di testo **Values** (Valori).
 
     [![Screenshot della finestra popup di creazione di un nuovo elenco di frasi](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Screenshot della finestra popup di creazione di un nuovo elenco di frasi")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
@@ -237,7 +237,7 @@ Aprire il file [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive
 
     Verificare che l'opzione **These values are interchangeable** (Questi valori sono intercambiabili) sia selezionata perché questi valori devono essere tutti considerati sinonimi delle mansioni. Vedere altre informazioni sui [concetti relativi agli elenchi di frasi](luis-concept-feature.md#how-to-use-phrase-lists) intercambiabili e non intercambiabili.
 
-1. Fare clic su **Save** (Salva) per attivare l'elenco di frasi.
+1. Selezionare **Done** (Fine) per attivare l'elenco di frasi.
 
     [![Screenshot della finestra popup di creazione di un nuovo elenco di frasi con parole nella casella dei valori dell'elenco di frasi](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Screenshot della finestra popup di creazione di un nuovo elenco di frasi con parole nella casella dei valori dell'elenco di frasi")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
