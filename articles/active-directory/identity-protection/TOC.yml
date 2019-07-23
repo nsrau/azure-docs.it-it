@@ -52,8 +52,6 @@
           href: howto-provide-risk-event-feedback.md
         - name: Configurare i criteri di rischio
           href: howto-configure-risk-policies.md
-        - name: Migliorare l'accuratezza del rilevamento
-          href: howto-improve-detection-accuracy.md
         - name: Domande frequenti e problemi noti
           href: known-issues.md
 - name: riferimento
