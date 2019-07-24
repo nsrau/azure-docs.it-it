@@ -1,6 +1,6 @@
 ---
 title: Definire i suggerimenti automatici personalizzati - Ricerca personalizzata Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Descrive come configurare Suggerimenti automatici personalizzati
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: bbad72b41a177bdbafd6cf98bfd2025190d98b16
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b08eb49b0c4f9655326d2ab09ce39210205e28a9
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128958"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405114"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Configurare l'esperienza di Suggerimenti automatici personalizzati
 

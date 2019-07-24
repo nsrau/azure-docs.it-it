@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 3fdedd1af9b683b221dfa4aebad7a30559b7abff
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 3d9415a99655c7866c1a6688d0e48fd0b236a63b
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722482"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423275"
 ---
 # <a name="offline-evaluation"></a>Valutazione offline
 
@@ -48,7 +48,7 @@ Di seguito sono riportati gli aspetti importanti da considerare per una valutazi
 
 È possibile usare il processo di valutazione offline per individuare automaticamente i criteri di apprendimento ottimali per Personalizza esperienze.
 
-Dopo aver eseguito la valutazione offline, è possibile verificare l'efficacia comparativa di Personalizza esperienze con i nuovi criteri rispetto ai criteri online correnti. È quindi possibile applicare tali criteri di apprendimento per renderli immediatamente effettivi in Personalizza esperienze oppure scaricarli per un'ulteriore analisi o un uso futuro.
+Dopo aver eseguito la valutazione offline, è possibile verificare l'efficacia comparativa di Personalizza esperienze con i nuovi criteri rispetto ai criteri online correnti. È quindi possibile applicare i criteri di apprendimento per renderli immediatamente effettivi in personalizzatore, scaricando e caricando questi criteri nel pannello modelli e criteri. È anche possibile scaricarlo per un'analisi o un uso futuro.
 
 ## <a name="understanding-the-relevance-of-offline-evaluation-results"></a>Identificazione della pertinenza dei risultati della valutazione offline
 
@@ -98,4 +98,5 @@ Le valutazioni offline possono fornire informazioni sul livello di incisività d
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Configurare Personalizza esperienze](how-to-settings.md)
+[Configurare](how-to-settings.md)
+le[valutazioni Esegui offline](how-to-offline-evaluation.md) di personalizzazione informazioni sul [funzionamento della personalizzazione](how-personalizer-works.md)

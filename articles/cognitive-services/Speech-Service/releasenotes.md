@@ -3,140 +3,140 @@ title: Note sulla versione - Servizi di riconoscimento vocale
 titlesuffix: Azure Cognitive Services
 description: Log in continuo aggiornamento relativo a rilasci di funzionalità, miglioramenti, correzioni di bug e problemi noti per i servizi di riconoscimento vocale di Azure.
 services: cognitive-services
-author: wolfma61
+author: BrianMouncer
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/26/2019
-ms.author: wolfma
+ms.date: 07/23/2019
+ms.author: jhakulin
 ms.custom: seodec18
-ms.openlocfilehash: 609443a4926fabd991846faee4a0a7dffe3a696b
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: e641051b75620ef5308bc81bca21b3ceda105d09
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490184"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404841"
 ---
 # <a name="release-notes"></a>Note sulla versione
 
-## <a name="speech-sdk-160-2019-june-release"></a>Speech SDK 1.6.0: Versione di giugno 2019
+## <a name="speech-sdk-160-2019-june-release"></a>Speech SDK 1.6.0: 2019-versione di giugno
 
 **Esempi**
-*   Esempi di avvio rapido per sintesi vocale in Unity e UWP
-*   Esempio di avvio rapido per Swift in iOS
-*   Esempi di Unity per il riconoscimento vocale & riconoscimento finalità e traduzione
-*   Esempi di avvio rapido aggiornato per DialogServiceConnector
+*   Esempi di avvio rapido per sintesi vocale in UWP e Unity
+*   Esempio di Guida introduttiva per SWIFT in iOS
+*   Esempi di Unity per la & vocale Riconoscimento finalità e traduzione
+*   Esempi di avvio rapido aggiornati per DialogServiceConnector
 
 **Miglioramenti/modifiche**
-* Finestra di dialogo dello spazio dei nomi:
-    * È stata rinominata SpeechBotConnector DialogServiceConnector
-    * È stata rinominata BotConfig DialogServiceConfig
-    * È stato modificato il mapping BotConfig::FromChannelSecret() a DialogServiceConfig::FromBotSecret()
-    * Tutti i client di Direct Line vocale esistenti continuano a essere supportate dopo la ridenominazione
-* Aggiorna scheda di sintesi vocale REST per supportare i proxy, connessione permanente
-* Migliorare il messaggio di errore quando viene passata un'area non è valida
+* Spazio dei nomi finestra di dialogo:
+    * SpeechBotConnector è stato rinominato in DialogServiceConnector
+    * BotConfig è stato rinominato in DialogServiceConfig
+    * BotConfig:: FromChannelSecret () è stato rimappato a DialogServiceConfig:: FromBotSecret ()
+    * Tutti i client di sintesi vocale diretta esistenti continuano a essere supportati dopo la ridenominazione
+* Aggiornare l'adapter REST TTS per supportare il proxy, la connessione permanente
+* Miglioramento del messaggio di errore quando viene passata un'area non valida
 * Swift/Objective-C:
-    * Segnalazione errori migliorata: I metodi che possono comportare un errore sono ora presenti nelle due versioni: Uno che espone un `NSError` oggetto per la gestione degli errori e uno che genera un'eccezione. Nel primo caso viene esposti a Swift. Questa modifica richiede modifiche al codice Swift esistente.
+    * Segnalazione errori migliorata: I metodi che possono causare un errore sono ora presenti in due versioni: Uno che espone un `NSError` oggetto per la gestione degli errori e uno che genera un'eccezione. Il primo è esposto a Swift. Questa modifica richiede adattamenti al codice Swift esistente.
     * Gestione degli eventi migliorata
 
 **Correzioni di bug**
-*   Correzione di sintesi vocale: in futuro SpeakTextAsync restituito senza tempi di attesa fino a quando l'audio è stata completata per il rendering
-*   Correzione per il marshalling di stringhe in C# per abilitare il supporto di lingue completo
-*   Correzione di problemi di app .NET core caricare la libreria di base con framework di destinazione net461 negli esempi
-*   Correzione di problemi occasionali distribuire le librerie native per la cartella di output negli esempi
-*   Correzione per web socket chiudendo in modo affidabile
-*   Correzione per possibile arresto anomalo durante l'apertura di una connessione con un carico molto pesante in Linux
-*   Correzione per i metadati mancanti nel bundle di framework per macOS
-*   Risolvere i problemi di `pip install --user` su Windows
+*   Correzione per TTS: dove SpeakTextAsync future restituiva senza attendere il completamento del rendering dell'audio
+*   Correzione per il marshalling delle C# stringhe in per abilitare il supporto completo del linguaggio
+*   Correzione del problema dell'app .NET Core per caricare la libreria principale con il Framework di destinazione net461 negli esempi
+*   Correzione di problemi occasionali per la distribuzione di librerie native nella cartella di output in esempi
+*   Correzione per la chiusura di Web socket in modo affidabile
+*   Correzione di un possibile arresto anomalo durante l'apertura di una connessione con carico molto elevato in Linux
+*   Correzione per i metadati mancanti nel bundle del Framework per macOS
+*   Correzione dei problemi con `pip install --user` in Windows
 
 
 ## <a name="speech-sdk-151"></a>Speech SDK 1.5.1
 
-Si tratta di una versione di correzione di bug e influisce solo sulle SDK nativo/gestito. Che non impedisca la versione JavaScript del SDK.
+Si tratta di una versione di correzione di bug che interessa solo l'SDK nativo/gestito. Non influisce sulla versione JavaScript dell'SDK.
 
 **Correzioni di bug**
 
-* Correggere FromSubscription quando usato con la trascrizione di conversazione.
-* Correzione di bug nella parola chiave potenziale per assistenti virtuali voice-first.
+* Correggere FromSubscription consente quando viene usato con la trascrizione delle conversazioni.
+* Correzione di un bug nell'individuazione di parole chiave per assistente virtuale con prima voce.
 
 
-## <a name="speech-sdk-150-2019-may-release"></a>SDK 1.5.0 traduzione vocale: Rilascio: maggio 2019
+## <a name="speech-sdk-150-2019-may-release"></a>Speech SDK 1.5.0: 2019-versione di maggio
 
 **Nuove funzionalità**
 
-* Funzionalità di word (parola chiave potenziale/KWS) di riattivazione è ora disponibile per Windows e Linux. Funzionalità KWS possono funzionare con qualsiasi tipo microfono, ufficiale KWS supporta, tuttavia, attualmente limitato alle matrici microfono si trova in hardware DK Kinect Azure o il SDK di dispositivi di riconoscimento vocale.
-* Funzionalità di hint per la frase è disponibile tramite il SDK. Per altre informazioni, vedere [qui](how-to-phrase-lists.md).
-* La funzionalità di trascrizione di conversazione è disponibile tramite il SDK. Vedere [qui](conversation-transcription-service.md).
-* Aggiungere il supporto per voice-first assistenti virtuali usando il canale Direct Line vocale.
+* La funzionalità Wake Word (keyword spotting/KWS) è ora disponibile per Windows e Linux. La funzionalità KWS potrebbe funzionare con qualsiasi tipo di microfono, il supporto ufficiale di KWS, tuttavia, è attualmente limitato agli array di microfoni presenti nell'hardware Kinect DK di Azure o nell'SDK per i dispositivi vocali.
+* La funzionalità hint per la frase è disponibile tramite l'SDK. Per altre informazioni, vedere [qui](how-to-phrase-lists.md).
+* La funzionalità di trascrizione delle conversazioni è disponibile tramite l'SDK. Vedere [qui](conversation-transcription-service.md).
+* Aggiungere il supporto per gli assistenti virtuali con la voce First con il canale vocale direct line.
 
 **Esempi**
 
-* Aggiunti esempi per le nuove funzionalità o nuovi servizi supportati dal SDK.
+* Sono stati aggiunti esempi per le nuove funzionalità o i nuovi servizi supportati dall'SDK.
 
 **Miglioramenti/modifiche**
 
-* Aggiunte diverse proprietà di riconoscimento per regolare il comportamento del servizio o i risultati del servizio (ad esempio di maschera il contenuto volgare e così via).
+* Sono state aggiunte diverse proprietà di riconoscimento per modificare il comportamento del servizio o i risultati del servizio (ad esempio la maschera di volgarità e altri).
 * È ora possibile configurare il riconoscimento tramite le proprietà di configurazione standard, anche se è stato creato il riconoscimento `FromEndpoint`.
-* Objective-c: `OutputFormat` proprietà è stata aggiunta a SPXSpeechConfiguration.
-* il SDK supporta ora Debian 9 come una distribuzione Linux.
+* Objective-C: `OutputFormat` la proprietà è stata aggiunta a SPXSpeechConfiguration.
+* SDK supporta ora Debian 9 come distribuzione Linux.
 
 **Correzioni di bug**
 
-* Risolto un problema in cui è stata eliminata la risorsa dell'altoparlante troppo presto in sintesi vocale.
+* Correzione di un problema a causa del quale la risorsa Speaker è stata distrutta troppo presto in sintesi vocale.
 ## <a name="speech-sdk-142"></a>Speech SDK 1.4.2
 
-Si tratta di una versione di correzione di bug e influisce solo sulle SDK nativo/gestito. Che non impedisca la versione JavaScript del SDK.
+Si tratta di una versione di correzione di bug che interessa solo l'SDK nativo/gestito. Non influisce sulla versione JavaScript dell'SDK.
 
 ## <a name="speech-sdk-141"></a>Speech SDK 1.4.1
 
 Questa è una versione solo per JavaScript. Non sono state aggiunte funzionalità. Sono state apportate le correzioni seguenti:
 
-* Impedisce il caricamento di https-proxy-agent di pacchetto di web.
+* Impedisci al Web Pack di caricare HTTPS-proxy-Agent.
 
-## <a name="speech-sdk-140-2019-april-release"></a>Speech SDK 1.4.0: Versione di aprile 2019
+## <a name="speech-sdk-140-2019-april-release"></a>1\.4.0 SDK vocale: 2019-versione di aprile
 
 **Nuove funzionalità** 
 
-* il SDK supporta ora il servizio di sintesi vocale come una versione beta. È supportata in Windows e Linux Desktop da C++ e C#. Per altre informazioni, vedere la [Panoramica di sintesi vocale](text-to-speech.md#get-started-with-text-to-speech).
-* il SDK supporta ora i file audio MP3 e sono state/OGG come file di input di flusso. Questa funzionalità è disponibile solo in Linux da C++ e C# ed è attualmente in versione beta (ulteriori dettagli [qui](how-to-use-codec-compressed-audio-input-streams.md)).
-* Speech SDK per Java, .NET core, Objective-C e C++ abbia avuto il supporto di macOS. Il supporto di Objective-C per macOS è attualmente in versione beta.
-* iOS: Speech SDK per iOS (Objective-C) è ora stata pubblicata anche un' CocoaPod.
-* JavaScript: Supporto per non predefinito microfono come dispositivo di input.
-* JavaScript: Supporto di proxy per Node. js.
+* L'SDK supporta ora il servizio di sintesi vocale come versione beta. È supportato nel desktop Windows e Linux da C++ e. C# Per altre informazioni, vedere [Cenni preliminari](text-to-speech.md#get-started-with-text-to-speech)sulla sintesi vocale.
+* L'SDK supporta ora i file audio MP3 e Opus/OGG come file di input di flusso. Questa funzionalità è disponibile solo in Linux da C++ e C# ed è attualmente in versione beta (altri dettagli [qui](how-to-use-codec-compressed-audio-input-streams.md)).
+* L'SDK di riconoscimento vocale per Java, .NET C++ core e Objective-C ha acquisito supporto MacOS. Il supporto Objective-C per macOS è attualmente in versione beta.
+* iOS: Speech SDK per iOS (Objective-C) è ora pubblicato anche come CocoaPod.
+* JavaScript: Supporto per microfoni non predefiniti come dispositivo di input.
+* JavaScript: Supporto del proxy per node. js.
 
 **Esempi**
 
-* Sono stati aggiunti esempi per l'uso di Speech SDK con C++ e Objective-C in macOS.
-* Sono stati aggiunti esempi che illustrano l'utilizzo del servizio di sintesi vocale.
+* Sono stati aggiunti esempi per l'uso C++ dell'SDK di riconoscimento vocale con e con Objective-C in MacOS.
+* Sono stati aggiunti esempi che dimostrano l'uso del servizio di sintesi vocale.
 
 **Miglioramenti/modifiche**
 
-* Python: Proprietà aggiuntive dei risultati del riconoscimento vengono ora esposti tramite il `properties` proprietà.
-* Per lo sviluppo aggiuntivo e supporto del debug, è possibile reindirizzare le informazioni di registrazione e diagnostica SDK in un file di log (altre informazioni [qui](how-to-use-logging.md)).
+* Python: Le proprietà aggiuntive dei risultati del riconoscimento vengono ora esposte tramite la `properties` proprietà.
+* Per un ulteriore supporto per lo sviluppo e il debug, è possibile reindirizzare le informazioni di diagnostica e registrazione SDK in un file di log. per ulteriori informazioni, vedere [qui](how-to-use-logging.md).
 * JavaScript: Migliorare le prestazioni di elaborazione audio.
 
 **Correzioni di bug**
 
-* Mac/iOS: È stato risolto un bug che ha portato a un tempo di attesa quando non è stato possibile stabilire una connessione al servizio riconoscimento vocale.
+* Mac/iOS: È stato corretto un bug che ha provocato un lungo periodo di attesa quando non è stato possibile stabilire una connessione al servizio di riconoscimento vocale.
 * Python: migliorare la gestione degli errori per gli argomenti nei callback Python.
-* JavaScript: Stato errato fisso reporting per il riconoscimento vocale è terminato RequestSession.
+* JavaScript: Correzione della creazione di report sullo stato errato per la voce terminata in RequestSession.
 
-## <a name="speech-sdk-131-2019-february-refresh"></a>Speech SDK 1.3.1: Aggiornamento: febbraio 2019
+## <a name="speech-sdk-131-2019-february-refresh"></a>Speech SDK 1.3.1: 2019-aggiornamento di febbraio
 
-Si tratta di una versione di correzione di bug e influisce solo sulle SDK nativo/gestito. Che non impedisca la versione JavaScript del SDK.
+Si tratta di una versione di correzione di bug che interessa solo l'SDK nativo/gestito. Non influisce sulla versione JavaScript dell'SDK.
 
 **Correzione di bug**
 
-* Risolto un problema di memoria quando si utilizza l'input del microfono. Stream di base o un file di input non è interessato.
+* Correzione di una perdita di memoria quando si utilizza l'input del microfono. L'input basato sul flusso o sul file non è interessato.
 
 ## <a name="speech-sdk-130-2019-february-release"></a>Speech SDK 1.3.0: versione di febbraio 2019
 
 **Nuove funzionalità**
 
-* Speech SDK supporta la selezione del microfono per l'input attraverso la classe AudioConfig. Ciò consente ai dati audio stream per i servizi di riconoscimento vocale dal microfono non predefinito. Per altre informazioni, vedere la documentazione che descrive [selezione del dispositivo di input audio](how-to-select-audio-input-devices.md). Questa funzionalità non è ancora disponibile da JavaScript.
-* Speech SDK supporta ora Unity in versione beta. Fornire commenti e suggerimenti tramite la sezione problema il [repository GitHub di esempio](https://aka.ms/csspeech/samples). Questa versione supporta Unity in Windows x86 e x64 (applicazioni desktop o per la piattaforma UWP) e Android (ARM32/64, x86). Altre informazioni sono disponibili nell'[Avvio rapido di Unity](quickstart-csharp-unity.md).
-* Il file `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (forniti nelle versioni precedenti) non è più necessaria. La funzionalità è ora integrata nel core SDK.
+* Speech SDK supporta la selezione del microfono per l'input attraverso la classe AudioConfig. In questo modo è possibile trasmettere i dati audio ai servizi di riconoscimento vocale da un microfono non predefinito. Per ulteriori informazioni, vedere la documentazione che descrive la [selezione del dispositivo di input audio](how-to-select-audio-input-devices.md). Questa funzionalità non è ancora disponibile in JavaScript.
+* Speech SDK supporta ora Unity in versione beta. Inviare commenti e suggerimenti tramite la sezione problema nel [repository di esempio GitHub](https://aka.ms/csspeech/samples). Questa versione supporta Unity in Windows x86 e x64 (applicazioni desktop o per la piattaforma UWP) e Android (ARM32/64, x86). Altre informazioni sono disponibili nell'[Avvio rapido di Unity](quickstart-csharp-unity.md).
+* Il file `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (fornito nelle versioni precedenti) non è più necessario. La funzionalità è ora integrata nell'SDK di base.
 
 
 **Esempi**
@@ -166,12 +166,12 @@ I nuovi contenuti seguenti sono disponibili nel [repository di esempio](https://
   * Supporto iniziale e implementazione per gli hint della frase.
   * Restituzione della raccolta di proprietà con il file JSON del servizio per il riconoscimento.
 * Le DLL di Windows contengono ora una risorsa di versione.
-* Se si crea un sistema di riconoscimento `FromEndpoint` è possibile aggiungere parametri direttamente all'URL dell'endpoint. Usando `FromEndpoint` non è possibile configurare il riconoscimento tramite le proprietà di configurazione standard.
+* Se si crea un riconoscimento `FromEndpoint` , è possibile aggiungere parametri direttamente all'URL dell'endpoint. Con `FromEndpoint` non è possibile configurare il riconoscimento tramite le proprietà di configurazione standard.
 
 **Correzioni di bug**
 
 * Il nome utente proxy e la password proxy vuoti non erano gestiti correttamente. Con questa versione, se si imposta il nome utente proxy e la password proxy su una stringa vuota, non verranno inviati quando ci si connette al proxy.
-* Gli ID sessione creati dall'SDK non erano sempre realmente casuali per alcune lingue&nbsp;/ ambienti. Aggiunta l'inizializzazione del generatore casuale per risolvere questo problema.
+* Gli ID sessione creati dall'SDK non erano sempre realmente casuali per alcune lingue&nbsp;/ ambienti. Aggiunta dell'inizializzazione del generatore casuale per risolvere il problema.
 * Gestione migliorata del token di autorizzazione. Se si vuole usare un token di autorizzazione, specificarlo in SpeechConfig e lasciare vuota la chiave di sottoscrizione. Creare quindi il sistema di riconoscimento come di consueto.
 * In alcuni casi l'oggetto Connection non veniva rilasciato correttamente. Il problema è stato risolto.
 * L'esempio di JavaScript è stato corretto per supportare l'output audio per la sintesi della traduzione anche in Safari.
@@ -191,14 +191,14 @@ Questa è una versione solo per JavaScript. Non sono state aggiunte funzionalit�
 **Nuove funzionalità**
 
 * Python
-  * La versione beta del supporto di Python (versione 3.5 e successive) è disponibile con questa versione. Per altre informazioni, vedere here](quickstart-python.md).
+  * La versione beta del supporto di Python (versione 3.5 e successive) è disponibile con questa versione. Per ulteriori informazioni, vedere qui] (avvio rapido-python.md).
 * JavaScript
   * Speech SDK per JavaScript è ora open source. Il codice sorgente è disponibile in [GitHub](https://github.com/Microsoft/cognitive-services-speech-sdk-js).
   * È ora supportato Node.js. Altre informazioni sono reperibili [qui](quickstart-js-node.md).
   * È stata rimossa la restrizione di lunghezza per le sessioni audio. La riconnessione avverrà automaticamente.
 * Oggetto Connection
-  * Dal riconoscimento, è possibile accedere a un oggetto di connessione. Questo oggetto consente di avviare in modo esplicito la connessione al servizio e di aggiungere una sottoscrizione per connettere e disconnettere gli eventi.
-    (Questa funzionalità non è ancora disponibile da JavaScript e Python.)
+  * Dal riconoscimento è possibile accedere a un oggetto Connection. Questo oggetto consente di avviare in modo esplicito la connessione al servizio e di aggiungere una sottoscrizione per connettere e disconnettere gli eventi.
+    Questa funzionalità non è ancora disponibile da JavaScript e Python.
 * Supporto per Ubuntu 18.04.
 * Android
   * Supporto di ProGuard abilitato durante la generazione di APK.
@@ -206,7 +206,7 @@ Questa è una versione solo per JavaScript. Non sono state aggiunte funzionalit�
 **Miglioramenti**
 
 * Miglioramenti nell'uso dei thread interni, con riduzione del numero di thread, blocchi e mutex.
-* Miglioramento della segnalazione errori e delle informazioni sugli errori. In alcuni casi, i messaggi di errore non siano stati propagati completamente out.
+* Miglioramento della segnalazione errori e delle informazioni sugli errori. In molti casi, i messaggi di errore non sono stati propagati fino a questo punto.
 * Aggiornamento delle dipendenze di sviluppo in JavaScript per usare i moduli aggiornati.
 
 **Correzioni di bug**
@@ -215,7 +215,7 @@ Questa è una versione solo per JavaScript. Non sono state aggiunte funzionalit�
 * In alcuni casi perdita delle eccezioni.
 * Correzione della perdita di memoria negli argomenti degli eventi di conversione.
 * Correzione di un problema di blocco per la riconnessione in sessioni a esecuzione prolungata.
-* Risolto un problema che potrebbe causare risultati finali per le conversioni non riuscite mancante.
+* Correzione di un problema che potrebbe causare la mancata riuscita delle traduzioni non riuscite.
 * C#: Se non è prevista l'attesa di un'operazione asincrona nel thread principale, lo strumento di riconoscimento potrebbe essere eliminato prima del completamento dell'attività asincrona.
 * Java: Risoluzione di un problema che causava l'arresto anomalo della macchina virtuale Java.
 * Objective-C: Correzione del mapping delle enumerazioni: restituzione di RecognizedIntent anziché RecognizingIntent.
@@ -224,7 +224,7 @@ Questa è una versione solo per JavaScript. Non sono state aggiunte funzionalit�
 
 **Esempi**
 
-* Aggiornato e risolto diversi esempi (ad esempio output voci per la conversione e così via.).
+* Sono stati aggiornati e corretti diversi esempi, ad esempio le voci di output per la traduzione e così via.
 * Aggiunta di esempi di Node.js nel [repository degli esempi](https://aka.ms/csspeech/samples).
 
 ## <a name="speech-sdk-110"></a>Speech SDK 1.1.0
@@ -232,7 +232,7 @@ Questa è una versione solo per JavaScript. Non sono state aggiunte funzionalit�
 **Nuove funzionalità**
 
 * Supporto per Android x86/x64.
-* Supporto proxy: Nell'oggetto SpeechConfig, è ora possibile chiamare una funzione per impostare le informazioni proxy (nome host, porta, nome utente e password). Questa funzionalità non è ancora disponibile in iOS.
+* Supporto proxy: Nell'oggetto SpeechConfig è ora possibile chiamare una funzione per impostare le informazioni sul proxy (nome host, porta, nome utente e password). Questa funzionalità non è ancora disponibile in iOS.
 * Messaggi e codice di errore migliorati. Se un riconoscimento ha restituito un errore, l'elemento `Reason` (nell'evento annullato) o `CancellationDetails` (nel risultato del riconoscimento) è già stato impostato su `Error`. L'evento annullato contiene ora due membri aggiuntivi: `ErrorCode` e `ErrorDetails`. Se il server ha restituito l'errore corredato da informazioni aggiuntive, le informazioni saranno ora disponibili nei nuovi membri.
 
 **Miglioramenti**
@@ -243,7 +243,7 @@ Questa è una versione solo per JavaScript. Non sono state aggiunte funzionalit�
 
 **Correzioni di bug**
 
-* Sono state corrette varie eccezioni rilevate nei sistemi di riconoscimento. Inoltre, le eccezioni vengono rilevate e convertite in eventi annullato.
+* Sono state corrette varie eccezioni rilevate nei sistemi di riconoscimento. Inoltre, le eccezioni vengono rilevate e convertite in un evento annullato.
 * È stata corretta una perdita di memoria nella gestione delle proprietà.
 * È stato corretto un bug per il quale un file di input audio può determinare l'arresto anomalo del sistema di riconoscimento.
 * È stato risolto un bug per il quale si continuano a ricevere eventi anche dopo un evento di arresto della sessione.
@@ -281,8 +281,8 @@ Al [repository di esempi](https://aka.ms/csspeech/samples) è stato aggiunto un 
 
 **Modifiche di rilievo**
 
-* Con questa versione, viene introdotte numerose modifiche di rilievo.
-  Controllare [questa pagina](https://aka.ms/csspeech/breakingchanges_1_0_0) per informazioni dettagliate.
+* In questa versione sono state introdotte alcune modifiche di rilievo.
+  Per informazioni dettagliate, vedere [Questa pagina](https://aka.ms/csspeech/breakingchanges_1_0_0) .
 
 ## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Speech SDK di Servizi cognitivi 0.6.0: versione di agosto 2018
 
@@ -318,7 +318,7 @@ Al [repository di esempi](https://aka.ms/csspeech/samples) è stato aggiunto un 
 * Supporto di .NET Standard 2.0 in Windows. Consultare la [Guida introduttiva di .NET Core](quickstart-csharp-dotnetcore-windows.md).
 * Sperimentale: supporto di UWP in Windows (versione 1709 o successiva).
   * Consultare la [Guida introduttiva della piattaforma UWP](quickstart-csharp-uwp.md).
-  * Note: le app UWP compilate con Speech SDK non superano ancora il Kit di certificazione app Windows (WACK).
+  * Nota: le app UWP compilate con Speech SDK non superano ancora il Kit di certificazione app Windows (WACK).
 * Supporto del riconoscimento a esecuzione prolungata con riconnessione automatica.
 
 **Modifiche funzionali**

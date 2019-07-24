@@ -1,6 +1,6 @@
 ---
 title: Come sfogliare i risultati di Ricerca notizie Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Informazioni su come sfogliare gli articoli di notizie restituiti dall'API di ricerca notizie Bing.
 services: cognitive-services
 author: swhite-msft
@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 1eab92dcc9c1890e82f9999e26e54378a3687c6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5f8dce1a03e44758eea737ad2da419fa67c36a2
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66390485"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423739"
 ---
 # <a name="how-to-page-through-news-search-results"></a>Come sfogliare i risultati della ricerca notizie
 
@@ -35,7 +35,7 @@ L'esempio seguente illustra il campo `totalEstimatedMatches` incluso in una risp
 Per sfogliare tutti gli articoli disponibili, usare i parametri di query [count](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#count) e [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#offset).  
  
 
-|Parametro  |Descrizione  |
+|Parametro  |DESCRIZIONE  |
 |---------|---------|
 |`count`     | Specifica il numero di risultati da restituire nella risposta. Il numero massimo di risultati che è possibile richiedere nella risposta è 100. Il valore predefinito è 10. Il numero effettivo restituito può essere inferiore a quello richiesto.        |
 |`offset`     | Specifica il numero di risultati da ignorare. `offset` è in base zero e deve essere inferiore a (`totalEstimatedMatches` - `count`).          |

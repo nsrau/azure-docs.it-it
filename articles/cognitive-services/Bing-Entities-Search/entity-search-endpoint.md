@@ -1,6 +1,6 @@
 ---
 title: Endpoint dell'API Ricerca entità Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Informazioni sull'endpoint dell'API Ricerca entità Bing e su come inviare richieste a tale endpoint.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 43bca65810d09c87f7f473b3bbac71ca6a7f9bc2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9d08091d0ea6869d13e294e60454f85a84f672ad
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389004"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424046"
 ---
 # <a name="bing-entity-search-api-endpoint"></a>Endpoint dell'API Ricerca entità Bing
 

@@ -9,12 +9,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: edjez
-ms.openlocfilehash: 38480d3cc32d53084b79af627e4f7e6ae7dcc03d
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 7bdafafc0d542a98b80f2b6f5db2c14c8777bf5b
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722364"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423249"
 ---
 # <a name="how-personalizer-works"></a>Funzionamento di Personalizza esperienze
 
@@ -79,6 +79,8 @@ Personalizza esperienze si basa su dati scientifici e ricerche nel campo dell'[a
 * **Eventi inattivi**: un evento inattivo si verifica quando viene effettuata una chiamata a Classifica ma non è certo se l'utente vedrà il risultato a causa delle decisioni dell'applicazione client. Gli eventi inattivi consentono di creare e archiviare i risultati della personalizzazione e quindi di decidere di rimuoverli in seguito senza influire sul modello di Machine Learning.
 
 * **Model** (Modella): un modello di Personalizza esperienze acquisisce tutti i dati appresi sul comportamento dell'utente, ottenendo i dati di training dalla combinazione degli argomenti inviati alle chiamate a Classifica e Ricompensa e con un comportamento di training determinato dai criteri di apprendimento. 
+
+* **Criteri di apprendimento**: Il modo in cui la personalizzazione del training di un modello su ogni evento verrà determinato da alcuni metadati che influiscono sul funzionamento degli algoritmi di machine learning. I nuovi cicli di personalizzazione inizieranno con criteri di apprendimento predefiniti che possono produrre prestazioni moderate. Quando si eseguono [valutazioni](concepts-offline-evaluation.md), il Personalizzatore può creare nuovi criteri di apprendimento specificamente ottimizzati per i casi d'uso del ciclo. Il Personalizzatore offre prestazioni significativamente migliori con i criteri ottimizzati per ogni ciclo specifico, generato durante la valutazione.
 
 ## <a name="example-use-cases-for-personalizer"></a>Casi d'uso di esempio per Personalizza esperienze
 
@@ -182,3 +184,4 @@ In alcune architetture la sequenza precedente può risultare difficile da implem
 ## <a name="next-steps"></a>Passaggi successivi
 
 Informazioni sui [casi in cui è possibile usare Personalizza esperienze](where-can-you-use-personalizer.md).
+Eseguire [valutazioni offline](how-to-offline-evaluation.md)

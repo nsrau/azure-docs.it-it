@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 07/18/2019
+ms.date: 07/22/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b366352d19b3f1e03e32e5fbddf0cb2816fa1ba3
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: b90b4806e86ed0ba33500cf31a6ed892241ceabe
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320296"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423447"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limiti della knowledge base di QnA Maker
 
@@ -60,7 +60,8 @@ Limiti complessivi sul contenuto nella knowledge base:
 * Lunghezza del nome file: 200
 * Formati di file supportati: ".tsv", ".pdf", ".txt", ".docx", ".xlsx".
 * Numero massimo di domande alternative: 300
-* Numero massimo di coppie di risposta alla domanda: Dipende dai limiti del **[livello di ricerca di Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits)** scelti. Una coppia di domande e risposte è un documento nell'indice di ricerca di Azure. 
+* Numero massimo di coppie di risposta alla domanda: Dipende dal livello di **[ricerca di Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits)** scelto. Una coppia di domande e risposte viene mappata a un documento nell'indice di ricerca di Azure. 
+* URL/pagina HTML: 1 milione caratteri
 
 ## <a name="create-knowledge-base-call-limits"></a>Creare i limiti di chiamata per la Knowledge base:
 Questi rappresentano i limiti per ogni azione di creazione di knowledge base; ovvero, fare clic su *Crea KB* o richiamare l'API di Crea Knowledge Base.

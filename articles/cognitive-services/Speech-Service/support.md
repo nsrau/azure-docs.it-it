@@ -3,27 +3,27 @@ title: Opzioni di supporto tecnico e assistenza
 titlesuffix: Azure Cognitive Services
 description: Informazioni su come ottenere assistenza e supporto tecnico per domande e problemi quando si creano applicazioni che si integrano con il servizio Voce
 services: cognitive-services
-author: wolfma61
+author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
-ms.author: wolfma
-ms.openlocfilehash: 9e975bbdcec2b45d67f910ac1a83a71ed252ebda
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.date: 07/23/2019
+ms.author: jhakulin
+ms.openlocfilehash: 981851ab9c4bbc39a2bd5df9f97a080b4f6ea388
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606270"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404795"
 ---
 # <a name="support-and-help-options"></a>Opzioni di supporto tecnico e assistenza
 
-Sta appena iniziando a esplorare le funzionalità dei servizi di riconoscimento vocale? o si sta per implementare una nuova funzionalità nell'applicazione, di seguito sono elencati i suggerimenti per gli sviluppatori su dove ottenere assistenza.
+Si sta iniziando a esplorare solo le funzionalità dei servizi di riconoscimento vocale? o si sta per implementare una nuova funzionalità nell'applicazione, di seguito sono elencati i suggerimenti per gli sviluppatori su dove ottenere assistenza.
 
 > [!div class="checklist"]
 > * È possibile rimanere informati sui nuovi sviluppi in *Servizi cognitivi di Azure* o leggere le ultime novità relative al *servizio Voce*.
-> * Note sulla versione contengono informazioni per tutte le versioni.
+> * Le note sulla versione contengono informazioni per tutte le versioni.
 > * Eseguire una ricerca per verificare se la community ha già discusso il problema o se esiste già la documentazione della funzionalità che si vuole implementare.
 > * Se non si riesce a trovare una risposta soddisfacente, si può porre una domanda in *Stack Overflow*.
 > * Se si riscontra un problema relativo a uno degli esempi in GitHub, segnalare il problema in *GitHub*.
@@ -31,13 +31,13 @@ Sta appena iniziando a esplorare le funzionalità dei servizi di riconoscimento 
 
 ## <a name="stay-informed"></a>Rimani sempre aggiornato
 
-Le novità su Servizi cognitivi sono raccolte nel[blog sui Servizi cognitivi](https://azure.microsoft.com/blog/topics/cognitive-services/). Per informazioni aggiornate sui servizi di riconoscimento vocale, tenere traccia di [blog di servizi di riconoscimento vocale](https://azure.microsoft.com/blog/tag/speech-service/).
+Le novità su Servizi cognitivi sono raccolte nel[blog sui Servizi cognitivi](https://azure.microsoft.com/blog/topics/cognitive-services/). Per informazioni aggiornate sui servizi vocali, tenere traccia del [Blog di servizi vocali](https://azure.microsoft.com/blog/tag/speech-service/).
 
 ## <a name="release-notes"></a>Note sulla versione
 
-Il [note sulla versione](https://aka.ms/csspeech/whatsnew) vengono aggiornati, non appena è disponibile una nuova versione. Le note contengono informazioni sulle nuove funzionalità, miglioramenti e correzioni di bug.
+Le [Note sulla versione](https://aka.ms/csspeech/whatsnew) vengono aggiornate non appena è disponibile una nuova versione. Le note contengono informazioni su nuove funzionalità, miglioramenti e correzioni di bug.
 
-## <a name="search"></a>Ricerca
+## <a name="search"></a>Cerca
 
 È possibile trovare la risposta necessaria nella documentazione, negli esempi o nelle risposte alle domande poste in [Stack Overflow](https://www.stackoverflow.com).
 
@@ -64,14 +64,14 @@ Stack Overflow è il canale da scegliere per le domande correlate allo sviluppo.
 
 Se non si trova una risposta al problema tramite la ricerca, inviare una nuova domanda a Stack Overflow. Quando si formula la domanda, usare uno dei tag seguenti:
 
-|Componente/Area  |`Tags`  |
+|Componente/Area  |Tag  |
 |---------|---------|
 |Riconoscimento vocale |[[microsoft-cognitive+speech-to-text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
 |Sintesi vocale |[[microsoft-cognitive+text-to-speech]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
 |Traduzione vocale |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
 |Finalità voce |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
 |Speech SDK generale |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
-| Assistenti virtuali Voice-first (anteprima) | [[microsoft-cognitive+virtual-assistant+botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) |
+| Assistenti virtuali per la prima voce (anteprima) | [[Microsoft-cognitive + Virtual-Assistant + botframework (]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) |
 
 > [!TIP]
 > I post di Stack Overflow seguenti contengono suggerimenti su come porre domande e su come aggiungere codice sorgente. Se ci si attiene a queste linee guida, aumenta la probabilità che i membri della community valutino le domande e rispondano rapidamente:  
@@ -85,7 +85,7 @@ Gli esempi vengono spesso pubblicati come open source. Per domande e problemi, s
 * [Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
 * [Speech Devices SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
-È possibile creare un report sui bug, richiesta di funzionalità, o porre una domanda generale e condividere le procedure consigliate. Per i report sui bug seguire il modello fornito:
+È possibile creare un report sui bug, una richiesta di funzionalità o porre una domanda generale e condividere le procedure consigliate. Per i report sui bug seguire il modello fornito:
 
 **Descrizione del bug**
 
@@ -114,7 +114,7 @@ Versione dell'SDK usata.
 **Altre informazioni di contesto**
 
  - Messaggi di errore, informazioni del log, analisi dello stack, ...
- - Se si segnala un errore per l'interazione con un servizio specifico, segnalare l'ID sessione e l'ora (tra cui fuso orario) di eventi imprevisti segnalati. Il valore di SessionId è indicato in tutti i callback e gli eventi ricevuti.
+ - Se si segnala un errore per un'interazione del servizio specifica, indicare il valore SessionId e l'ora (incl. TimeZone) degli eventi imprevisti segnalati. Il valore di SessionId è indicato in tutti i callback e gli eventi ricevuti.
  - Eventuali altre informazioni aggiuntive
 
 

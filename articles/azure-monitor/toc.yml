@@ -7,7 +7,6 @@
     - name: Modifiche della terminologia
       href: terminology.md
 - name: Guide introduttive
-  expanded: true
   items:
     - name: APPLICAZIONI
       items:
@@ -96,9 +95,9 @@
           href: platform/personal-data-mgmt.md
         - name: 'Raccolta, conservazione e archiviazione dei dati dell''applicazione'
           href: app/data-retention-privacy.md
-    - name: Rispondere agli eventi imprevisti
+    - name: Avvisi
       items:
-        - name: Avvisi
+        - name: Panoramica
           href: platform/alerts-overview.md
         - name: Avvisi classici
           href: platform/alerts-classic.overview.md
@@ -114,8 +113,6 @@
           href: platform/alerts-action-rules.md
         - name: Gruppi intelligenti
           href: platform/alerts-smartgroups-overview.md
-        - name: Autoscale
-          href: platform/autoscale-overview.md
         - name: Analisi dei cambiamenti
           href: app/change-analysis.md
     - name: Visualizzare i dati
@@ -954,6 +951,8 @@
       items:
         - name: Autoscale
           items:
+            - name: Panoramica
+              href: platform/autoscale-overview.md
             - name: Procedura dettagliata
               href: platform/autoscale-get-started.md
             - name: Impostazioni

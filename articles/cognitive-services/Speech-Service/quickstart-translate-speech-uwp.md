@@ -1,23 +1,22 @@
 ---
-title: 'Guida introduttiva: Traduzione vocale, C# (UWP) - Servizi di riconoscimento vocale'
+title: 'Avvio rapido: Traduzione vocale, C# (UWP) - Servizi di riconoscimento vocale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si creerà una semplice applicazione di piattaforma UWP (Universal Windows Platform) per acquisire i contenuti vocali dell'utente, convertirli in un'altra lingua e restituire il testo nella riga di comando. Questa guida è destinata agli utenti di Windows.
 services: cognitive-services
-author: wolfma61
+author: lisaweixu
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 07/05/2019
+ms.date: 07/23/2019
 ms.author: erhopf
-ms.openlocfilehash: 108edfeb7bfe24184219e0011f054c36c22c9890
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
-ms.translationtype: HT
+ms.openlocfilehash: dafcbd6bbe7f542d4eabc6b7cf858ac4871caae8
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602776"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404899"
 ---
-# <a name="quickstart-translate-speech-with-the-speech-sdk-for-c-uwp"></a>Guida introduttiva: Traduzione vocale con Speech SDK per C# (UWP)
+# <a name="quickstart-translate-speech-with-the-speech-sdk-for-c-uwp"></a>Avvio rapido: Traduzione vocale con Speech SDK per C# (UWP)
 
 Sono disponibili guide di avvio rapido anche per la [sintesi vocale](quickstart-csharp-uwp.md), la [traduzione con sintesi vocale](quickstart-text-to-speech-csharp-uwp.md) e l'[assistente virtuale voice-first](quickstart-virtual-assistant-csharp-uwp.md).
 
@@ -39,7 +38,7 @@ Questa guida introduttiva richiede:
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-uwp-create-proj.md)]
 
-## <a name="add-sample-code"></a>Aggiungere il codice di esempio
+## <a name="add-sample-code"></a>Aggiungi codice di esempio
 
 1. L'interfaccia utente dell'applicazione viene definita tramite XAML. Aprire `MainPage.xaml` in Esplora soluzioni. Nella visualizzazione della finestra di progettazione XAML inserire il frammento di codice XAML seguente tra `<Grid>` e `</Grid>`.
 
