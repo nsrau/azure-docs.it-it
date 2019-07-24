@@ -98,8 +98,6 @@
           href: sisense.md
     - name: Gestisci
       items:
-        - name: Gestire le autorizzazioni per i database
-          href: manage-database-permissions.md
         - name: Controllare l'integrità del cluster
           href: check-cluster-health.md
         - name: Selezionare lo SKY delle VM del cluster
@@ -108,6 +106,10 @@
           href: manage-cluster-horizontal-scaling.md
         - name: Gestire il ridimensionamento verticale dei cluster
           href: manage-cluster-vertical-scaling.md
+        - name: Gestire la sicurezza del cluster
+          href: manage-cluster-security.md
+        - name: Gestire le autorizzazioni per i database
+          href: manage-database-permissions.md
         - name: Eliminare i dati
           href: delete-data.md
         - name: Gestire i dati duplicati

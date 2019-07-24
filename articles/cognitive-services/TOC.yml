@@ -5,6 +5,8 @@
   items:
     - name: Che cosa sono i servizi cognitivi?
       href: Welcome.md
+    - name: Servizi cognitivi e Machine Learning
+      href: cognitive-services-and-machine-learning.md
     - name: Supporto per le lingue
       href: language-support.md
 - name: Supporto dei contenitori

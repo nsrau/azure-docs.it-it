@@ -27,6 +27,8 @@
       href: tutorial-azure-monitor-stream-logs-to-event-hub.md
 - name: Concetti
   items:
+    - name: Pianificare una distribuzione per creazione report e monitoraggio
+      href: plan-monitoring-and-reporting.md
     - name: Log di controllo
       href: concept-audit-logs.md
     - name: Log di accesso

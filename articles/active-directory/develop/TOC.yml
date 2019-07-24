@@ -193,6 +193,18 @@
                   href: scenario-mobile-overview.md
                 - name: Registrazione delle app
                   href: scenario-mobile-app-registration.md
+                - name: Configurazione del codice
+                  href: scenario-mobile-app-configuration.md
+                - name: Configurazione specifica per piattaforme mobili
+                  items:
+                    - name: Xamarin Android
+                      href: msal-net-xamarin-android-considerations.md
+                    - name: Browser di sistema in Android
+                      href: msal-net-system-browser-android-considerations.md
+                    - name: Xamarin iOS
+                      href: msal-net-xamarin-ios-considerations.md
+                    - name: Piattaforma UWP (Universal Windows Platform)
+                      href: msal-net-uwp-considerations.md
                 - name: Acquisizione di un token per l'app
                   href: scenario-mobile-acquire-token.md
                 - name: Chiamata a un'API Web
@@ -255,14 +267,6 @@
                   items:
                     - name: Web browser
                       href: msal-net-web-browsers.md
-                    - name: Xamarin Android
-                      href: msal-net-xamarin-android-considerations.md
-                    - name: Browser di sistema in Android
-                      href: msal-net-system-browser-android-considerations.md
-                    - name: Xamarin iOS
-                      href: msal-net-xamarin-ios-considerations.md
-                    - name: Piattaforma UWP (Universal Windows Platform)
-                      href: msal-net-uwp-considerations.md
                 - name: MSAL.js
                   items:
                     - name: Considerazioni sull'uso di IE

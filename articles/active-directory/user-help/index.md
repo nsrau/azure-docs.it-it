@@ -11,16 +11,16 @@ ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e73e089f0753f49233c75a5e55513ebaf7bf9c9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5a6908a26e1d513261094be28620c3c9a2d86b48
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60861804"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383102"
 ---
 # <a name="user-help-for-authentication-apps-and-device-management"></a>Guida dell'utente per l'autenticazione, le app e la gestione dei dispositivi
 
-Questo contenuto è utile per configurare e usare le informazioni di sicurezza e la verifica in due passaggi, apprendere come reimpostare le proprie password, configurare e aggiungere i dispositivi di Azure Active Directory e configurare e usare l'app Microsoft Authenticator e il portale delle app personali.
+Questo contenuto è utile per configurare e usare le informazioni di sicurezza e la verifica in due passaggi, reimpostare le proprie password, configurare e aggiungere i dispositivi di Azure Active Directory e configurare e usare l'app Microsoft Authenticator e il portale delle app personali.
 
 |  |
 |--|
@@ -77,6 +77,7 @@ Questo contenuto è utile per configurare e usare le informazioni di sicurezza e
                         <a href="/azure/active-directory/user-help/security-info-setup-auth-app">Configurare un'app di autenticazione</a><br/>
                         <a href="/azure/active-directory/user-help/security-info-setup-text-msg">Configurare SMS</a><br/>
                         <a href="/azure/active-directory/user-help/security-info-setup-phone-number">Configurare chiamate telefoniche</a><br/>
+                        <a href="/azure/active-directory/user-help/security-info-setup-security-key">Configurare una chiave di sicurezza</a><br/>
                         <a href="/azure/active-directory/user-help/user-help-sign-in">Come effettuare l'accesso</a>
                         </p>
                     </div>
