@@ -1,6 +1,6 @@
 ---
-title: Sviluppo con le API v3 - Azure | Microsoft Docs
-description: Questo articolo illustra le regole che si applicano a entità e le API durante lo sviluppo con servizi multimediali v3.
+title: Sviluppo con le API V3-Azure | Microsoft Docs
+description: Questo articolo illustra le regole applicabili alle entità e alle API durante lo sviluppo con servizi multimediali V3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,51 +9,51 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: a8dac6f38052f176c7a3741a664e174d0a66cbc5
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 26fea4322df625b2e38028a3b7121fb41f2acf81
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612690"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311855"
 ---
-# <a name="developing-with-media-services-v3-apis"></a>Sviluppo con servizi multimediali v3 API
+# <a name="developing-with-media-services-v3-apis"></a>Sviluppo con le API di servizi multimediali V3
 
 Gli sviluppatori possono usare l'[API REST](https://aka.ms/ams-v3-rest-ref) Servizi multimediali o le librerie client che consentono di interagire con l'API REST per creare, gestire e mantenere facilmente flussi di lavoro multimediali personalizzati. L'API [Servizi multimediali v3](https://aka.ms/ams-v3-rest-sdk) è basata sulla specifica OpenAPI (in precedenza nota come Swagger).
 
-Questo articolo illustra le regole che si applicano a entità e le API durante lo sviluppo con servizi multimediali v3.
+Questo articolo illustra le regole applicabili alle entità e alle API durante lo sviluppo con servizi multimediali V3.
 
-## <a name="accessing-the-azure-media-services-api"></a>L'accesso a API dei servizi di servizi multimediali di Azure
+## <a name="accessing-the-azure-media-services-api"></a>Accesso all'API servizi multimediali di Azure
 
-Per essere autorizzati ad accedere alle risorse e all'API di Servizi multimediali, è innanzitutto necessario essere autenticati. Servizi multimediali supporta [Azure Active Directory (Azure AD)-base](../../active-directory/fundamentals/active-directory-whatis.md) l'autenticazione. Due opzioni di autenticazione comuni sono:
+Per essere autorizzati ad accedere alle risorse e all'API di Servizi multimediali, è innanzitutto necessario essere autenticati. Servizi multimediali supporta l'autenticazione [basata su Azure Active Directory (Azure ad)](../../active-directory/fundamentals/active-directory-whatis.md) . Sono disponibili due opzioni di autenticazione comuni:
  
-* **Autenticazione dell'entità servizio** : usato per autenticare un servizio (ad esempio: web App, App per le funzioni, App per la logica, API e microservizi). Le applicazioni che in genere usano questo metodo di autenticazione sono app che eseguono servizi daemon, servizi di livello intermedio o processi pianificati. Ad esempio, per il Web sono applicazioni sarà sempre un livello intermedio che si connette a servizi multimediali con un'entità servizio.
-* **L'autenticazione utente** : usato per autenticare una persona che usa l'app per interagire con risorse di servizi multimediali. L'applicazione interattiva deve prima richiedere all'utente le credenziali. Un esempio è un'app della console di gestione usata dagli utenti autorizzati per monitorare i processi di codifica o lo streaming live.
+* **Autenticazione basata su entità servizio** : usata per autenticare un servizio (ad esempio, app Web, app per le funzioni, app per la logica, API e microservizi). Le applicazioni che in genere usano questo metodo di autenticazione sono app che eseguono servizi daemon, servizi di livello intermedio o processi pianificati. Per le applicazioni Web, ad esempio, deve essere sempre presente un livello intermedio che si connette a servizi multimediali con un'entità servizio.
+* **Autenticazione utente** : consente di autenticare una persona che usa l'app per interagire con le risorse di servizi multimediali. L'applicazione interattiva deve prima richiedere all'utente le credenziali. Un esempio è un'app della console di gestione usata dagli utenti autorizzati per monitorare i processi di codifica o lo streaming live.
 
-L'API servizi multimediali è necessario che l'utente o applicazione che effettua l'API REST richiede hanno accesso alla risorsa dell'account di servizi multimediali e usare una **collaboratore** oppure **proprietario** ruolo. L'API è possibile accedere con il **Reader** ruolo ma solo **ottenere** o **elenco**   operazioni saranno disponibili. Per altre informazioni, vedere [controllo di accesso basato sui ruoli per gli account di servizi multimediali](rbac-overview.md).
+L'API di servizi multimediali richiede che l'utente o l'applicazione che effettua le richieste API REST abbia accesso alla risorsa account di servizi multimediali  e usi un ruolo Collaboratore o **proprietario** . È possibile accedere all'API con il ruolo **Reader** , ma saranno disponibili solo le operazioni **Get** o **List**   . Per altre informazioni, vedere [controllo degli accessi in base al ruolo per gli account di servizi multimediali](rbac-overview.md).
 
-Anziché creare un'entità servizio, prendere in considerazione usando identità gestite per le risorse di Azure per accedere all'API servizi multimediali tramite Azure Resource Manager. Per altre informazioni sulle identità gestita per le risorse di Azure, vedere [What ' s identità gestita per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+Anziché creare un'entità servizio, è consigliabile usare identità gestite per le risorse di Azure per accedere all'API di servizi multimediali tramite Azure Resource Manager. Per altre informazioni sulle identità gestite per le risorse di Azure, vedere informazioni sulle [identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-### <a name="azure-ad-service-principal"></a>Entità servizio di Azure AD 
+### <a name="azure-ad-service-principal"></a>Entità servizio Azure AD 
 
-Se si sta creando un'applicazione Azure AD e un servizio come entità, l'applicazione deve essere nel proprio tenant. Dopo aver creato l'applicazione, assegnare all'app **Contributor** oppure **proprietario** ruolo l'accesso all'account di servizi multimediali. 
+Se si sta creando un'applicazione Azure AD e un'entità servizio, l'applicazione deve trovarsi nel proprio tenant. Dopo aver creato l'applicazione, concedere al ruolo  di collaboratore o **proprietario** dell'app l'accesso all'account di servizi multimediali. 
 
-Se non si è sicuri se si dispone delle autorizzazioni per creare un'applicazione Azure AD, vedere [autorizzazioni necessarie](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+Se non si è certi che si disponga delle autorizzazioni per creare un'applicazione Azure AD, vedere [autorizzazioni necessarie](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
-Nella figura seguente, i numeri rappresentano il flusso delle richieste in ordine cronologico:
+Nella figura seguente i numeri rappresentano il flusso delle richieste in ordine cronologico:
 
 ![App di livello intermedio](./media/use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
 
-1. Un'app di livello intermedio richiede un token di accesso di Azure AD con i parametri seguenti:  
+1. Un'applicazione di livello intermedio richiede un token di accesso Azure AD con i parametri seguenti:  
 
    * Endpoint tenant di Azure AD.
    * URI di risorsa per Servizi multimediali.
    * URI di risorsa per Servizi multimediali REST.
    * Valori dell'applicazione Azure AD: l'ID client e il segreto client.
    
-   Per ottenere tutti i valori necessari, vedere [accesso API servizi multimediali di Azure con la CLI di Azure](access-api-cli-how-to.md)
+   Per ottenere tutti i valori necessari, vedere [accedere all'API di servizi multimediali di Azure con l'interfaccia della](access-api-cli-how-to.md) riga di comando di Azure
 
 2. Il token di accesso di Azure AD viene inviato al livello intermedio.
 4. Il livello intermedio invia una richiesta all'API REST di Servizi multimediali di Azure con il token di Azure AD.
@@ -61,9 +61,9 @@ Nella figura seguente, i numeri rappresentano il flusso delle richieste in ordin
 
 ### <a name="samples"></a>Esempi
 
-Vedere i seguenti esempi che illustrano come connettersi con l'entità servizio di Azure AD:
+Vedere gli esempi seguenti che illustrano come connettersi con Azure AD entità servizio:
 
-* [Connettersi con REST](media-rest-apis-with-postman.md)  
+* [Connetti con REST](media-rest-apis-with-postman.md)  
 * [Connettersi con Java](configure-connect-java-howto.md)
 * [Connettersi con .NET](configure-connect-dotnet-howto.md)
 * [Connettersi con Node.js](configure-connect-nodejs-howto.md)
@@ -79,26 +79,32 @@ Per altre informazioni sulla denominazione di Azure Resource Manager, vedere: [R
 
 ## <a name="long-running-operations"></a>Operazioni con esecuzione prolungata
 
-Le operazioni contrassegnate con `x-ms-long-running-operation` in servizi multimediali di Azure [swagger file](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) sono lunghe operazioni in esecuzione. 
+Le operazioni contrassegnate `x-ms-long-running-operation` con nei [file spavalderia](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) di servizi multimediali di Azure sono operazioni a esecuzione prolungata. 
 
-Per informazioni dettagliate su come tenere traccia delle operazioni asincrone, vedere [operazioni asincrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation).
+Per informazioni dettagliate su come tenere traccia delle operazioni asincrone di Azure, vedere [operazioni asincrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation).
 
-Servizi multimediali ha le seguenti operazioni a esecuzione prolungata:
+Servizi multimediali prevede le seguenti operazioni a esecuzione prolungata:
 
-* Creare LiveEvent
-* Aggiornamento Live
-* Elimina LiveEvent
-* Avvia Live
-* Arresta Live
-* Reimpostare LiveEvent
-* Creare LiveOutput
-* Elimina LiveOutput
-* Creare un'entità StreamingEndpoint
-* Aggiornare l'entità StreamingEndpoint
-* Eliminare l'entità StreamingEndpoint
-* Avviare un'entità StreamingEndpoint
-* Arrestare entità StreamingEndpoint
-* Scalabilità StreamingEndpoint
+* [Crea eventi Live](https://docs.microsoft.com/rest/api/media/liveevents/create)
+* [Aggiorna eventi Live](https://docs.microsoft.com/rest/api/media/liveevents/update)
+* [Elimina evento Live](https://docs.microsoft.com/rest/api/media/liveevents/delete)
+* [Avvia evento Live](https://docs.microsoft.com/rest/api/media/liveevents/start)
+* [Arresta Live](https://docs.microsoft.com/rest/api/media/liveevents/stop)
+
+  Usare il `removeOutputsOnStop` parametro per eliminare tutti gli output Live associati quando si arresta l'evento.  
+* [Reimposta Live](https://docs.microsoft.com/rest/api/media/liveevents/reset)
+* [Crea LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/create)
+* [Elimina LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/delete)
+* [Crea StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create)
+* [Aggiornare StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/update)
+* [Elimina StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/delete)
+* [Avviare StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/start)
+* [Arresta StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/stop)
+* [Ridimensionare StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/scale)
+
+Al termine dell'invio di un'operazione di lunga durata si riceve un valore "202 accepted" ed è necessario eseguire il polling del completamento dell'operazione utilizzando l'ID operazione restituito.
+
+È supportata una sola operazione a esecuzione prolungata per un evento Live specificato o uno qualsiasi degli output Live associati. Una volta avviata, è necessario completare un'operazione a esecuzione prolungata prima di avviare una successiva operazione a esecuzione prolungata nello stesso Live o in qualsiasi output Live associato. Per gli eventi live con più output Live, è necessario attendere il completamento di un'operazione a esecuzione prolungata su un output Live prima di attivare un'operazione a esecuzione prolungata su un altro output Live. 
 
 ## <a name="sdks"></a>SDK
 
@@ -141,5 +147,5 @@ Consultare l'articolo [Community di Servizi multimediali di Azure](media-service
 
 * [Connettersi a servizi multimediali con Java](configure-connect-java-howto.md)
 * [Connettersi a servizi multimediali con .NET](configure-connect-dotnet-howto.md)
-* [Connettersi a servizi multimediali con Node. js](configure-connect-nodejs-howto.md)
+* [Connettersi a servizi multimediali con node. js](configure-connect-nodejs-howto.md)
 * [Connettersi a servizi multimediali con Python](configure-connect-python-howto.md)

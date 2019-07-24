@@ -1,7 +1,7 @@
 ---
-title: Come installare ed eseguire i contenitori per l'uso di API rilevatore di anomalie
+title: Come installare ed eseguire i contenitori per l'uso dell'API del rilevatore di anomalie
 titleSuffix: Azure Cognitive Services
-description: Usare algoritmi avanzati dell'API di rilevamento delle anomalie per identificare le anomalie nei dati delle serie temporali.
+description: Usare gli algoritmi avanzati dell'API Rilevamento anomalie per identificare le anomalie nei dati di serie temporali.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,39 +10,39 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: f84f1bab048630d6dd45085b3d082004d10bb6a8
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 8d107aed75904c27b9ed231d50c884f96318a324
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721715"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321423"
 ---
-# <a name="install-and-run-anomaly-detector-containers"></a>Installare ed eseguire i contenitori di rilevatore di anomalie
+# <a name="install-and-run-anomaly-detector-containers"></a>Installare ed eseguire contenitori di rilevatori di anomalie
 
-Il rilevatore di anomalie ha contenitore seguente: 
+Il rilevatore di anomalie presenta il contenitore seguente: 
 
 |Funzione|Funzionalità|
 |-|-|
-|Rilevamento anomalie| <li> Rileva le anomalie appena si verificano in tempo reale. <li> Rileva le anomalie in tutto il set di dati come batch. <li> Deduce normale intervallo di dati previsto. <li> Regolazione del tra maiuscole e minuscole rilevamento anomalie supporta per una migliore adatta i dati. |
+|Rilevamento anomalie| <li> Rileva le anomalie che si verificano in tempo reale. <li> Rileva le anomalie nel set di dati come batch. <li> Deduce l'intervallo normale dei dati previsto. <li> Supporta la regolazione della sensibilità del rilevamento anomalie per adattarsi meglio ai dati. |
 
 Per informazioni dettagliate sulle API, vedere:
-* [Altre informazioni sul servizio API rilevatore di anomalie](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
+* [Altre informazioni sul servizio API del rilevatore di anomalie](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessario soddisfare i prerequisiti seguenti prima di usare i contenitori di rilevatore di anomalie:
+Prima di usare i contenitori dei rilevatori di anomalie, è necessario soddisfare i prerequisiti seguenti:
 
 |Obbligatoria|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
-|Risorsa di rilevamento anomalie |Per usare questi contenitori, è necessario avere:<br><br>Un' _rilevatore di anomalie_ risorse di Azure per ottenere la chiave di fatturazione associata e l'URI dell'endpoint di fatturazione. Entrambi i valori sono disponibili nelle pagine di panoramica di rilevatore di anomalie e le chiavi del portale di Azure e sono necessari per avviare il contenitore.<br><br>**{BILLING_KEY}** : chiave della risorsa<br><br>**{BILLING_ENDPOINT_URI}** : un esempio di URI dell'endpoint è: `https://westus2.api.cognitive.microsoft.com`|
+|Risorsa rilevamento anomalie |Per usare questi contenitori, è necessario avere:<br><br>Risorsa di _Rilevamento anomalie_ di Azure per ottenere la chiave API e l'URI dell'endpoint associati. Entrambi i valori sono disponibili nelle pagine relative  alla panoramica del rilevatore di anomalie del portale di Azure e alle pagine delle chiavi e sono necessarie per avviare il contenitore.<br><br>**{API_KEY}** : Una delle due chiavi di risorsa disponibili nella pagina **chiavi**<br><br>**{ENDPOINT_URI}** : Endpoint fornito nella pagina **Panoramica**|
 
 ## <a name="request-access-to-the-container-registry"></a>Richiedere l'accesso al registro contenitori
 
-È necessario innanzitutto completare e inviare il [modulo di richiesta contenitore rilevatore di anomalie](https://aka.ms/adcontainer) per richiedere l'accesso al contenitore.
+È necessario prima completare e inviare il [modulo di richiesta del contenitore](https://aka.ms/adcontainer) del rilevatore di anomalie per richiedere l'accesso al contenitore.
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -56,12 +56,12 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ### <a name="container-requirements-and-recommendations"></a>Indicazioni e requisiti per i contenitori
 
-La tabella seguente descrive i minimi e consigliati di core CPU e memoria da allocare per il contenitore di rilevatore di anomalie.
+La tabella seguente descrive i core CPU minimi e consigliati e la memoria da allocare per il contenitore del rilevatore di anomalie.
 
-| Query al secondo (query al secondo) | Minima | Consigliato |
+| QUERY al secondo (query al secondo) | Minima | Consigliato |
 |-----------|---------|-------------|
-| 10 QUERY AL SECONDO | 4 core, 1GB di memoria | 8 core 2GB di memoria |
-| 20 QUERY AL SECONDO | 8 core, 2GB di memoria | 16 core 4GB di memoria |
+| 10 QUERY AL SECONDO | 4 core, 1 GB di memoria | 8 Core 2-GB di memoria |
+| 20 QUERY AL SECONDO | 8 core, 2 GB di memoria | 16 core da 4 GB di memoria |
 
 Ogni core deve essere di almeno 2,6 gigahertz (GHz) o superiore.
 
@@ -81,7 +81,7 @@ For a full description of available tags, such as `latest` used in the preceding
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
 
-### <a name="docker-pull-for-the-anomaly-detector-container"></a>Pull docker per il contenitore di rilevatore di anomalie
+### <a name="docker-pull-for-the-anomaly-detector-container"></a>Pull di Docker per il contenitore del rilevatore di anomalie
 
 ```Docker
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest
@@ -100,8 +100,8 @@ Usare il comando [docker run](https://docs.docker.com/engine/reference/commandli
 
 | Placeholder | Value |
 |-------------|-------|
-|{BILLING_KEY} | Questa chiave viene usata per avviare il contenitore e è disponibile nella pagina chiavi di rilevamento delle anomalie del portale di Azure.  |
-|{BILLING_ENDPOINT_URI} | Il valore URI dell'endpoint di fatturazione è disponibile nella pagina di panoramica di rilevatore di anomalie del portale di Azure.|
+|{API_KEY} | Questa chiave viene usata per avviare il contenitore ed è disponibile nella pagina chiavi del rilevatore di anomalie portale di Azure.  |
+|{ENDPOINT_URI} | Il valore URI dell'endpoint di fatturazione è disponibile nella pagina Panoramica del rilevatore di anomalie del portale di Azure.|
 
 Sostituire i parametri con i valori personalizzati nel comando `docker run` di esempio seguente.
 
@@ -109,13 +109,13 @@ Sostituire i parametri con i valori personalizzati nel comando `docker run` di e
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
 containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
 Questo comando:
 
-* Esegue un contenitore di rilevatore di anomalie dall'immagine del contenitore
+* Esegue un contenitore di rilevatori di anomalie dall'immagine del contenitore
 * Alloca un core CPU e 4 GB di memoria
 * Espone la porta TCP 5000 e alloca un pseudo terminale TTY per il contenitore
 * Rimuove automaticamente il contenitore dopo la chiusura. L'immagine del contenitore rimane disponibile nel computer host. 
@@ -127,7 +127,7 @@ Questo comando:
 
 Se si intende eseguire più contenitori con porte esposte, assicurarsi di eseguire ogni contenitore con una porta diversa. Eseguire ad esempio il primo contenitore sulla porta 5000 e il secondo sulla porta 5001.
 
-Sostituire `<container-registry>` e `<container-name>` con i valori dei contenitori usati. Questi non devono trovarsi necessariamente nello stesso contenitore. È possibile che il contenitore di rilevatore di anomalie e il contenitore di LUIS in esecuzione contemporaneamente nell'HOST oppure è possibile avere più contenitori di rilevatore di anomalie in esecuzione. 
+Sostituire `<container-registry>` e `<container-name>` con i valori dei contenitori usati. Questi non devono trovarsi necessariamente nello stesso contenitore. È possibile fare in modo che il contenitore dei rilevatori di anomalie e il contenitore LUIS siano in esecuzione nell'HOST oppure che siano in esecuzione più contenitori di rilevamento anomalie. 
 
 Eseguire il primo contenitore sulla porta 5000. 
 
@@ -135,8 +135,8 @@ Eseguire il primo contenitore sulla porta 5000.
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
 <container-registry>/microsoft/<container-name> \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
 Eseguire il secondo contenitore sulla porta 5001.
@@ -146,8 +146,8 @@ Eseguire il secondo contenitore sulla porta 5001.
 docker run --rm -it -p 5000:5001 --memory 4g --cpus 1 \
 <container-registry>/microsoft/<container-name> \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
 Ogni contenitore successivo deve essere su una porta diversa. 
@@ -172,7 +172,7 @@ Se si esegue il contenitore con un punto di [montaggio](anomaly-detector-contain
 
 ## <a name="billing"></a>Fatturazione
 
-L'invio di contenitori rilevatore di anomalie, fatturazione di Azure, usando un _rilevatore di anomalie_ risorse nell'account Azure. 
+I contenitori di anomalie Detector inviano informazioni di fatturazione ad  Azure, usando una risorsa del rilevatore di anomalie nell'account Azure. 
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
@@ -184,18 +184,18 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](ano
 
 ## <a name="summary"></a>Riepilogo
 
-In questo articolo si è appreso i concetti e flusso di lavoro per scaricare, installare ed eseguire i contenitori di rilevatore di anomalie. In sintesi:
+In questo articolo sono stati illustrati i concetti e il flusso di lavoro per il download, l'installazione e l'esecuzione di contenitori di rilevamento anomalie. In sintesi:
 
-* Rilevatore di anomalie fornisce un contenitore Linux per Docker, che incapsula il rilevamento delle anomalie con Visual Studio batch, streaming, l'inferenza di intervallo previsto e l'ottimizzazione tra maiuscole e minuscole.
-* Le immagini del contenitore vengono scaricate da un registro contenitori di Azure privato dedicato per l'anteprima dei contenitori.
+* Il rilevatore di anomalie fornisce un contenitore Linux per Docker, incapsulando il rilevamento delle anomalie con batch e streaming, l'inferenza prevista e l'ottimizzazione della sensibilità.
+* Le immagini del contenitore vengono scaricate da un'anteprima privata di Azure Container Registry dedicata per i contenitori.
 * Le immagini dei contenitori vengono eseguite in Docker.
-* È possibile utilizzare l'API REST o SDK di chiamare le operazioni nei contenitori di rilevatore di anomalie, specificando l'URI del contenitore di host.
+* È possibile usare l'API REST o l'SDK per chiamare le operazioni nei contenitori dei rilevatori di anomalie specificando l'URI host del contenitore.
 * Quando si crea un'istanza di un contenitore, è necessario specificare le informazioni di fatturazione.
 
 > [!IMPORTANT]
-> I contenitori di Servizi cognitivi non sono concessi in licenza per l'esecuzione senza essere connessi ad Azure per la misurazione. I clienti devono consentire ai contenitori di comunicare sempre le informazioni di fatturazione al servizio di misurazione. I contenitori di servizi cognitivi non inviare i dati dei clienti (ad esempio, la serie temporale che vengano viene analizzate) a Microsoft.
+> I contenitori di Servizi cognitivi non sono concessi in licenza per l'esecuzione senza essere connessi ad Azure per la misurazione. I clienti devono consentire ai contenitori di comunicare sempre le informazioni di fatturazione al servizio di misurazione. I contenitori di servizi cognitivi non inviano i dati dei clienti (ad esempio, i dati delle serie temporali analizzati) a Microsoft.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Rivedere [Configurare i contenitori](anomaly-detector-container-configuration.md) per informazioni sulle impostazioni di configurazione.
-* [Altre informazioni sul servizio API rilevatore di anomalie](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
+* [Altre informazioni sul servizio API del rilevatore di anomalie](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)

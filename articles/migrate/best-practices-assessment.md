@@ -1,68 +1,64 @@
 ---
-title: Procedure consigliate per la creazione di valutazione con Azure eseguire la migrazione di Server Assessment | Microsoft Docs
-description: Vengono forniti suggerimenti per la creazione delle valutazioni con valutazione Server eseguire la migrazione di Azure.
+title: Procedure consigliate per la creazione della valutazione con Azure Migrate server Assessment | Microsoft Docs
+description: Fornisce suggerimenti per la creazione di valutazioni con Azure Migrate server assessment.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 07/15/2019
 ms.author: raynew
-ms.openlocfilehash: d417efd4abf14247af171ea77b479f590e14fe76
-ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
+ms.openlocfilehash: 18b82b5553f7045c38c9de532199c2a0fd815ee1
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67812973"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234307"
 ---
-# <a name="best-practices-for-creating-assessments"></a>Le procedure consigliate per la creazione delle valutazioni
+# <a name="best-practices-for-creating-assessments"></a>Procedure consigliate per la creazione di valutazioni
 
-[Azure Migrate](migrate-overview.md) fornisce un hub di strumenti che consentono di individuare, valutare e la migrazione di App, infrastruttura e i carichi di lavoro in Microsoft Azure. L'hub include strumenti di Azure Migrate e le offerte di fornitori di software indipendenti di terze parti. 
+[Azure migrate](migrate-overview.md) offre un hub di strumenti che consentono di individuare, valutare ed eseguire la migrazione di app, infrastruttura e carichi di lavoro a Microsoft Azure. L'hub comprende Azure Migrate strumenti e offerte di fornitori di software indipendenti (ISV) di terze parti.
 
-Questo articolo riepiloga le procedure consigliate quando si crea valutazioni con lo strumento di valutazione di Azure Migrate Server. 
+In questo articolo vengono riepilogate le procedure consigliate per la creazione di valutazioni mediante lo strumento Azure Migrate server assessment.
 
-## <a name="about-assessments"></a>Sulle valutazioni
+## <a name="about-assessments"></a>Informazioni sulle valutazioni
 
-Le valutazioni create con la valutazione di Azure eseguire la migrazione di Server sono un punto nel tempo di snapshot dei dati. Esistono due tipi di valutazioni in Azure Migrate.
+Le valutazioni create con Azure Migrate server assessment sono uno snapshot temporizzato dei dati. Esistono due tipi di valutazione in Azure Migrate.
 
 **Tipo di valutazione** | **Dettagli** | **Dati**
 --- | --- | ---
-**Basato sulle prestazioni** | Verifiche che generano indicazioni basate sui dati sulle prestazioni raccolti | Indicazioni sulle dimensioni della macchina virtuale si basa sui dati di utilizzo della CPU e memoria.<br/><br/> Consiglio di tipo disco (dischi gestiti di standard o premium) si basa sulla IOPS e velocità effettiva dei dischi in locale.
-**Come-locale** | Valutazioni che non usano i dati sulle prestazioni per le raccomandazioni. | Indicazioni sulle dimensioni della macchina virtuale si basa sulle dimensioni della macchina virtuale in locale<br/><br> Il tipo di disco consigliate si basa su ciò che si seleziona l'impostazione per la valutazione del tipo di archiviazione.
+**Basato sulle prestazioni** | Valutazioni che fanno raccomandazioni basate sui dati sulle prestazioni raccolti | Le indicazioni sulle dimensioni della macchina virtuale sono basate sui dati di utilizzo della CPU e della memoria.<br/><br/> L'indicazione del tipo di disco (disco rigido/SSD standard o dischi gestiti Premium) si basa sui IOPS e la velocità effettiva dei dischi locali.
+**Così come sono in locale** | Valutazioni che non utilizzano dati sulle prestazioni per apportare raccomandazioni. | Le indicazioni sulle dimensioni della macchina virtuale sono basate sulle dimensioni della macchina virtuale locale<br/><br> Il tipo di disco consigliato è basato su quello selezionato nell'impostazione del tipo di archiviazione per la valutazione.
 
 ### <a name="example"></a>Esempio
-Ad esempio, se si dispone di una macchina virtuale da sito locale con quattro core al 20% di utilizzo e della memoria di 8 GB con 10% di utilizzo, le valutazioni sarà come segue:
+Ad esempio, se si dispone di una macchina virtuale locale con quattro core con utilizzo del 20% e la memoria di 8 GB con utilizzo del 10%, le valutazioni saranno le seguenti:
 
-- **Basato sulle prestazioni valutazione**:
-    - Consiglia di core e memoria basato su core (0,8 core) e l'utilizzo della memoria (0,8 GB).
-    - La valutazione si applica un fattore di comfort predefinito pari al 30%.
-    - Raccomandazione sulle macchine Virtuali: ~1.4 GB memoria e core ~1.4 (0,8 x1.3).
-- **Come-(locale) sulla valutazione**:
-    -  Si consiglia di una macchina virtuale con quattro core; 8 GB di memoria.
+- **Valutazione basata sulle prestazioni**:
+    - Identifica i core e la memoria effettivi basati sull'utilizzo di core (4 x 0,20 = 0,8) e memoria (8 GB x 0,10 = 0,8).
+    - Applica il fattore di comfort specificato nelle proprietà di valutazione (le'ts, 1,3 x) per ottenere i valori da utilizzare per il ridimensionamento. 
+    - Suggerisce le dimensioni più vicine della macchina virtuale in Azure che possono supportare ~ 1,4 core (0,8 x 1,3) e ~ 1,4 GB (0,8 x 1,3) di memoria.
 
-## <a name="best-practices-for-creating-assessments"></a>Le procedure consigliate per la creazione delle valutazioni
+- **Valutazione As-is (As on-premises)** :
+    -  Consiglia una macchina virtuale con quattro core; 8 GB di memoria.
 
-L'appliance Azure Migrate in modo continuo profila l'ambiente locale e invia i dati dei metadati e le prestazioni in Azure. Seguire queste procedure consigliate per la creazione di valutazioni:
+## <a name="best-practices-for-creating-assessments"></a>Procedure consigliate per la creazione di valutazioni
 
-- **Creare come-sia le valutazioni**: È possibile creare come-valutazioni si trova subito dopo l'individuazione.
-- **Crea valutazione basato sulle prestazioni**: Dopo aver configurato il rilevamento, è consigliabile attendere almeno un giorno prima di eseguire una valutazione basata sulle prestazioni:
-    - La raccolta dati sulle prestazioni di tempo. In attesa di almeno un giorno garantisce che esistono sufficienti punti dati delle prestazioni prima di eseguire la valutazione.
-    - Per i dati sulle prestazioni, l'appliance raccoglie i punti dati in tempo reale ogni 20 secondi per ogni metrica di prestazioni e ne esegue il rollback fino a un solo cinque minuti punto dati. L'appliance invia cinque minuti del punto dati in Azure ogni ora per il calcolo della valutazione.  
-- **Ottenere i dati più recenti**: Valutazioni non vengono aggiornate automaticamente con i dati più recenti. Per aggiornare una valutazione con i dati più recenti, è necessario eseguirlo di nuovo. 
-- **Assicurarsi che corrispondano a durate**: Quando si eseguono valutazioni basate su prestazioni, assicurarsi che il profilo dell'ambiente per la durata della valutazione. Ad esempio, se si crea una valutazione con una durata di prestazioni impostata su una settimana, è necessario attendere almeno una settimana dopo l'avvio di individuazione, per tutti i punti dati da raccogliere. In caso contrario, la valutazione non otterrà una classificazione di alto livello. 
-- **Evitare di punti dati mancanti**: I problemi seguenti potrebbero comportare punti dati mancanti in una valutazione basata sulle prestazioni:
-    - Le macchine virtuali sono spenti durante la valutazione e non vengono raccolti i dati sulle prestazioni. 
-    - Se si creano le macchine virtuali durante il mese in cui si basa la cronologia delle prestazioni. i dati per tali macchine virtuali saranno meno di un mese. 
-    - La valutazione viene creata immediatamente dopo l'individuazione o l'ora della valutazione non corrisponde l'ora di raccolta dati sulle prestazioni.
+Il Azure Migrate appliance continua a profilare l'ambiente locale e invia i metadati e i dati sulle prestazioni in Azure. Seguire queste procedure consigliate per la creazione di valutazioni:
 
-## <a name="best-practices-for-confidence-ratings"></a>Le procedure consigliate per le classificazioni di attendibilità
+- **Crea valutazioni così come sono**: È possibile creare valutazioni così come sono immediatamente dopo la visualizzazione dei computer nel portale di Azure Migrate.
+- **Creare una valutazione basata sulle prestazioni**: Dopo aver configurato l'individuazione, è consigliabile attendere almeno un giorno prima di eseguire una valutazione basata sulle prestazioni:
+    - La raccolta dei dati sulle prestazioni richiede tempo. L'attesa di almeno un giorno garantisce che siano presenti sufficienti punti dati sulle prestazioni prima di eseguire la valutazione.
+    - Quando si eseguono valutazioni basate sulle prestazioni, assicurarsi di profilare l'ambiente per la durata della valutazione. Se, ad esempio, si crea una valutazione con una durata delle prestazioni impostata su una settimana, è necessario attendere almeno una settimana dopo l'avvio dell'individuazione, per tutti i punti dati da raccogliere. In caso contrario, la valutazione non otterrà una classificazione a cinque stelle.
+- **Ricalcola valutazioni**: Poiché le valutazioni sono snapshot temporizzati, non vengono aggiornate automaticamente con i dati più recenti. Per aggiornare una valutazione con i dati più recenti, è necessario ricalcolarla.
 
-Quando si eseguono valutazioni basate su prestazioni, per la valutazione viene affidato una confidenza classificazione da 1 stelle (minima) a 5 stelle (più alta). Usare le classificazioni di attendibilità in modo efficace:
-- Azure eseguire la migrazione di Server Assessment richiede i dati di utilizzo per CPU/memoria della macchina virtuale e il disco dati IOPS/velocità effettiva.
-- Per ogni scheda di rete collegata a una macchina virtuale, Azure Migrate deve disporre della rete dati in/out.
-- Se i dati di utilizzo non sono disponibili nel Server vCenter, l'indicazione di dimensioni dovuto Azure Migrate potrebbe non essere affidabile. 
+## <a name="best-practices-for-confidence-ratings"></a>Procedure consigliate per le classificazioni di confidenza
 
-In base alla percentuale dei punti dati disponibili, nella tabella seguente sono riepilogate le classificazioni di confidenza per una valutazione.
+Quando si eseguono valutazioni basate sulle prestazioni, alla valutazione viene assegnata una classificazione di attendibilità compresa tra 1 stella (più bassa) e 5 stelle. Per usare in modo efficace la classificazione delle confidenze:
+- Azure Migrate server assessment richiede i dati di utilizzo per la CPU/memoria della macchina virtuale.
+- Per ogni disco collegato alla VM locale sono necessari i dati di IOPS/velocità effettiva di lettura/scrittura.
+- Per ogni scheda di rete collegata alla macchina virtuale, sono necessari i dati di rete in/out.
 
-   **Disponibilità del punto dati** | **Classificazione di attendibilità**
+A seconda della percentuale di punti dati disponibili per la durata selezionata, la classificazione di attendibilità per una valutazione viene fornita come riepilogata nella tabella seguente.
+
+   **Disponibilità dei punti dati** | **Classificazione di attendibilità**
    --- | ---
    0%-20% | 1 stella
    21%-40% | 2 stelle
@@ -70,31 +66,31 @@ In base alla percentuale dei punti dati disponibili, nella tabella seguente sono
    61%-80% | 4 stelle
    81%-100% | 5 stelle
 
-- Se si riceve una classificazione di attendibilità per una valutazione che è inferiore a cinque stelle, attendere almeno un giorno e quindi di ricalcolare la valutazione.
-- Un livello di gravità basso significa che consigli sul dimensionamento potrebbero non essere affidabile. In questo caso, è consigliabile modificare le proprietà di valutazione da utilizzare come-sulla valutazione di un'istanza locale.
 
-## <a name="common-assessment-issues"></a>Problemi comuni di valutazione
+## <a name="common-assessment-issues"></a>Problemi di valutazione comuni
 
-Di seguito viene illustrato come risolvere alcuni problemi comuni di ambiente che interessano le valutazioni.
+Di seguito viene illustrato come risolvere alcuni problemi di ambiente comuni che influiscono sulle valutazioni.
 
-###  <a name="out-of-sync-assessments"></a>Valutazioni di sincronizzata
+###  <a name="out-of-sync-assessments"></a>Valutazioni out-of-Sync
 
-Se si aggiunge o rimuove le macchine da un gruppo dopo aver creato una valutazione, la valutazione è stato creato verrà contrassegnata **sincronizzata di**. Eseguire nuovamente la valutazione (**ricalcolare**) in modo da riflettere le modifiche di gruppo.
+Se si aggiungono o rimuovono computer da un gruppo dopo aver creato una valutazione, la valutazione creata verrà contrassegnata come non **sincronizzata**. Eseguire nuovamente la valutazione (**Ricalcola**) per riflettere le modifiche apportate al gruppo.
 
-### <a name="outdated-assessments"></a>Valutazioni non aggiornate
+### <a name="outdated-assessments"></a>Valutazioni obsolete
 
-Se sono presenti modifiche in locale alle macchine virtuali presenti in un gruppo che è stato valutato, la valutazione viene contrassegnata **obsoleti**. Per riflettere le modifiche, eseguire nuovamente la valutazione.
+Se sono presenti modifiche locali alle macchine virtuali che si trovano in un gruppo valutato, la valutazione viene contrassegnata come obsoleta . Per riflettere le modifiche, eseguire nuovamente la valutazione.
 
-### <a name="missing-data-points"></a>Punti dati mancanti
+### <a name="low-confidence-rating"></a>Classificazione con attendibilità bassa
 
-Una valutazione potrebbe non essere tutti i punti dati per una serie di motivi:
+Una valutazione potrebbe non avere tutti i punti dati per diversi motivi:
 
-- Le macchine virtuali potrebbero essere spenta durante la valutazione e non vengono raccolti i dati sulle prestazioni. 
-- Le macchine virtuali potrebbero essere create durante il mese in cui le prestazioni della cronologia si basa, quindi i dati sulle prestazioni sono minore di un mese. 
-- La valutazione è stata creata immediatamente dopo l'individuazione. Per raccogliere dati sulle prestazioni per un periodo di tempo specificato, è necessario attendere la quantità di tempo prima di eseguire una valutazione specificata. Ad esempio, se si desidera valutare i dati sulle prestazioni per una settimana, è necessario attendere circa una settimana dopo l'individuazione. In caso contrario la valutazione non otterrà una classificazione di alto livello. 
+- L'ambiente non è stato analizzato per il perioro di tempo per cui si sta creando la valutazione. Se, ad esempio, si sta creando una *valutazione basata sulle prestazioni* con durata delle prestazioni impostata su una settimana, è necessario attendere almeno una settimana dopo l'avvio dell'individuazione per tutti i punti dati da raccogliere. È sempre possibile fare clic su **Ricalcola** per visualizzare l'ultima classificazione di attendibilità applicabile. La classificazione di attendibilità è applicabile solo quando si crea una valutazione *basata sulle prestazioni* .
+
+- Durante il periodo per cui viene calcolata la valutazione sono state arrestate alcune VM. Se alcune macchine virtuali sono spente per un certo periodo di tempo, server Assessment non sarà in grado di raccogliere i dati sulle prestazioni per tale periodo.
+
+- Sono state create alcune macchine virtuali dopo l'avvio dell'individuazione in server assessment. Questa situazione si verifica, ad esempio, se si crea una valutazione per la cronologia delle prestazioni dell'ultimo mese, ma solo una settimana prima sono state create alcune VM nell'ambiente. In questo caso, i dati sulle prestazioni per le nuove macchine virtuali non saranno disponibili per l'intera durata e la classificazione di attendibilità sarà bassa.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Informazioni su](concepts-assessment-calculation.md) come vengono calcolate le valutazioni.
-- [Informazioni su](how-to-modify-assessment.md) come personalizzare una valutazione.
+- [Informazioni](concepts-assessment-calculation.md) su come vengono calcolate le valutazioni.
+- [Informazioni](how-to-modify-assessment.md) su come personalizzare una valutazione.

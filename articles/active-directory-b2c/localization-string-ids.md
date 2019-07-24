@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 41a72013f1538b0a857c76bc949a7109e1cd54b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da1390de4e2eb0624032dc490416e7b6e5d61baa
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510917"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846842"
 ---
 # <a name="localization-string-ids"></a>ID della stringa di localizzazione
 
@@ -33,7 +33,7 @@ Gli ID seguenti vengono usati per una definizione del contenuto con un ID `api.s
 | **logonIdentifier_email** | Indirizzo di posta elettronica |
 | **requiredField_email** | Immettere l'indirizzo di posta elettronica |
 | **invalid_email** | Immettere un indirizzo di posta elettronica valido |
-| **email_pattern** | ^ [a-zA-Z0-9.. & $% & "*c++ /CLI =? ^ _\`{\|} ~-]+@[a-zA-Z0-9-]+ (?:\\. [ un-zA-Z0 - 9-] +)* $ |
+| **email_pattern** | ^ [a-zA-Z0-9.! # $% &'' *+/=? ^ _\`{\|} ~-] + @ [a-Za-z0-9-] + (?:\\. [ a-zA-Z0-9-] +)* $ |
 | **local_intro_username** | Accesso con il nome utente |
 | **logonIdentifier_username** | Username |
 | **requiredField_username** | Immettere il nome utente |
@@ -85,11 +85,11 @@ L'esempio seguente localizza il provider di identità Facebook sull'arabo:
 | -- | ------------- |
 | **UserMessageIfInvalidPassword** | La password non è corretta. |
 | **UserMessageIfClaimsPrincipalDoesNotExist** | L'account non è stato trovato. |
-| **UserMessageIfOldPasswordUsed** | È stata usata una password non aggiornata. |  
-| **DefaultMessage** | Nome utente o password non validi. |  
-| **UserMessageIfUserAccountDisabled** | L'account è stato bloccato. Contattare il supporto tecnico per sbloccarlo, quindi riprovare. |  
-| **UserMessageIfUserAccountLocked** | L'account è stato temporaneamente bloccato per impedirne l'uso non autorizzato. Riprovare. |  
-| **AADRequestsThrottled** | In questo momento sono presenti troppe richieste. Attendere qualche minuto e riprovare. |  
+| **UserMessageIfOldPasswordUsed** | È stata usata una password non aggiornata. |
+| **DefaultMessage** | Nome utente o password non validi. |
+| **UserMessageIfUserAccountDisabled** | L'account è stato bloccato. Contattare il supporto tecnico per sbloccarlo, quindi riprovare. |
+| **UserMessageIfUserAccountLocked** | L'account è stato temporaneamente bloccato per impedirne l'uso non autorizzato. Riprovare. |
+| **AADRequestsThrottled** | In questo momento sono presenti troppe richieste. Attendere qualche minuto e riprovare. |
 
 ## <a name="sign-up-and-self-asserted-pages-user-interface-elements"></a>Elementi dell'interfaccia utente delle pagine di iscrizione e di autocertificazione
 
@@ -146,7 +146,7 @@ Di seguito sono riportati gli ID per una definizione del contenuto con ID `api.l
 
 L'esempio seguente illustra l'uso di alcuni elementi dell'interfaccia utente nella pagina di iscrizione:
 
-![Elementi dell'esperienza utente della pagina di iscrizione](./media/localization-string-ids/localization-sign-up.png)
+![Pagina di iscrizione con i nomi degli elementi dell'interfaccia utente con etichetta](./media/localization-string-ids/localization-sign-up.png)
 
 L'esempio seguente illustra l'uso di alcuni elementi dell'interfaccia utente nella pagina di iscrizione, dopo che l'utente ha fatto clic sul pulsante di invio del codice di verifica:
 
@@ -155,7 +155,7 @@ L'esempio seguente illustra l'uso di alcuni elementi dell'interfaccia utente nel
 
 ## <a name="phone-factor-authentication-page-user-interface-elements"></a>Elementi dell'interfaccia utente della pagina di autenticazione del fattore telefono
 
-I seguenti sono gli ID di definizione del contenuto con ID `api.phonefactor`. 
+I seguenti sono gli ID di definizione del contenuto con ID `api.phonefactor`.
 
 | ID | Valore predefinito |
 | -- | ------------- |
@@ -190,7 +190,7 @@ I seguenti sono gli ID di definizione del contenuto con ID `api.phonefactor`.
 | **number_label** | Numero di telefono |
 | **error_tryagain** | Il numero di telefono specificato è occupato o non disponibile. Verificare il numero e riprovare. |
 | **error_incorrect_code** | Il codice di verifica immesso non corrisponde a quello in archivio. Riprovare o richiedere un nuovo codice. |
-| **countryList** | {\"Predefinite\":\"paese/area geografica\",\"AF\":\"Afghanistan\",\"AX\":\"Åland Isole\",\"AL\":\"Albania\",\"DZ\":\"Algeria\",\"AS\":\" Samoa americane\",\"AD\":\"Andorra\",\"AO\":\"Angola\",\"intelligenza artificiale\": \"Anguilla\",\"AQ\":\"Antartide\",\"AG\":\"Antigua e Barbuda\",\"AR\":\"Argentina\",\"AM\":\"Armenia\",\"AW\":\"Aruba \",\"AU\":\"Australia\",\"alla\":\"Austria\",\" AZ\":\"Azerbaigian\",\"BS\":\"Bahamas\",\"BH\":\" Il Bahrein\",\"BD\":\"Bangladesh\",\"BB\":\"Barbados\",\" DAL\":\"Belarus\",\"BE\":\"Belgio\",\"RIESCANO\":\" Belize\",\"BJ\":\"Benin\",\"BM\":\"Bermuda\",\"BT\":\"Bhutan\",\"BO\":\"Bolivia\",\"BQ\":\" Bonaire\",\"BA\":\"Bosnia ed Erzegovina\",\"BW\":\"Botswana<span class="notransla class=""></span class="notransla> Isole Minori Esterne degli Stati Uniti\",\"VI\":\"U.S. Isole Vergini\",\"UG\":\"Uganda\",\"UA\":\"Ucraina\",\"AE\":\"Emirati Arabi Uniti\",\"GB\":\"Regno Unito\",\"US\":\"Stati Uniti\",\"UY\":\"Uruguay\",\"UZ\":\"Uzbekistan\",\"VU\":\"Vanuatu\",\"VA\":\"Città del Vaticano\",\"VE\":\"Venezuela\",\"VN\":\"Vietnam\",\"WF\":\"Wallis e Futuna\",\"YE\":\"Yemen\",\"ZM\":\"Zambia\",\"ZW\":\"Zimbabwe\"} |
+| **countryList** | {\"Default\"\":paese/\"area geografica, AF:Afghanistan,\"ax:Åland\"\"\"\"\"\" Islands\",\"al:\"Albania\",DZ\":Algeria,come\":\"\"\"\"\"\" Samoa\"americane\",\"ad:\"Andorra,\"Ao:\"Angola,ai\":\"\"\"\" \"Anguilla,\"AQ\":Antartide\",AG: Antigua eBarbuda\",\"\"\"\"\"\"AR\":Argentina\",\"am:\"Armenia, AW:\"Aruba\"\"\"\"\" \",Au\":\"Australia,\"alle:Austria,\"\"\"\"\"\" AZ\":\"Azerbaijan,\"BS\":Bahamas\",BH:\"\"\"\"\" Bahrain\",\"BD:\"Bangladesh\",BB\":Barbados,\"\"\"\"\" Per\":\"Bielorussia,\"be\":Belgio\",BZ:\"\"\"\"\" Belize\",\"BJ:\"Benin\",BM\":Bermuda,\"\"\"\"\"BT\":Bhutan\",\"Bo:\"Bolivia,BQ:\"\"\"\"\"\" Bonaire\",\"BA:Bosnia\"edErzegovina\",\"BW:Botswana\"\"\"<span class="notransla class=""></span class="notransla> Isole Minori Esterne degli Stati Uniti\",\"VI\":\"U.S. Isole Vergini\",\"UG\":\"Uganda\",\"UA\":\"Ucraina\",\"AE\":\"Emirati Arabi Uniti\",\"GB\":\"Regno Unito\",\"US\":\"Stati Uniti\",\"UY\":\"Uruguay\",\"UZ\":\"Uzbekistan\",\"VU\":\"Vanuatu\",\"VA\":\"Città del Vaticano\",\"VE\":\"Venezuela\",\"VN\":\"Vietnam\",\"WF\":\"Wallis e Futuna\",\"YE\":\"Yemen\",\"ZM\":\"Zambia\",\"ZW\":\"Zimbabwe\"} |
 | **error_448** | Il numero di telefono specificato non è raggiungibile. |
 | **error_449** | L'utente ha superato il numero di tentativi consentiti. |
 | **verification_code_input_placeholder_text** | Codice di verifica |

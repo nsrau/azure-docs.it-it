@@ -1,6 +1,6 @@
 ---
-title: Configurare monitoraggio di Azure per la raccolta di dati dell'agente di contenitori | Microsoft Docs
-description: Questo articolo descrive come è possibile configurare il monitoraggio di Azure per controllare stdout/stderr dell'agente di contenitori e le variabili di ambiente di raccolta log.
+title: Configurare monitoraggio di Azure per la raccolta dati degli agenti di contenitori | Microsoft Docs
+description: Questo articolo descrive come configurare l'agente di monitoraggio di Azure per i contenitori per controllare la raccolta di log delle variabili di ambiente e stdout/stderr.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -11,77 +11,112 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/22/2019
+ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 1e7506e311c38d87371dd1b65440b6fb41a7ce78
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 12010aaa7bc90bd200264549ad3efb79f46576c6
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341654"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67867672"
 ---
-# <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configurare la raccolta di dati dell'agente di monitoraggio di Azure per contenitori
+# <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configurare la raccolta dei dati dell'agente per il monitoraggio di Azure per i contenitori
 
-Monitoraggio di Azure per contenitori raccoglie stdout, stderr e variabili di ambiente da carichi di lavoro contenitore distribuiti al cluster Kubernetes ospitato in Azure Kubernetes Service (AKS) dall'agente nei contenitori gestiti. È possibile configurare le impostazioni di raccolta dati dell'agente tramite la creazione di un oggetto personalizzato Kubernetes ConfigMaps per controllare questa esperienza. Questo articolo illustra come creare ConfigMap e configurare la raccolta di dati in base alle esigenze.
+Monitoraggio di Azure per contenitori raccoglie le variabili stdout, stderr e Environment dai carichi di lavoro dei contenitori distribuiti nei cluster Kubernetes gestiti ospitati nel servizio Azure Kubernetes dall'agente in contenitori. Questo agente può anche raccogliere dati di serie temporali (detti anche metriche) da Prometeo usando l'agente in contenitori senza dover configurare e gestire un server e un database Prometheus. Per configurare le impostazioni di raccolta dati di Agent, è possibile creare un ConfigMaps Kubernetes personalizzato per controllare questa esperienza. 
 
-## <a name="configure-your-cluster-with-custom-data-collection-settings"></a>Configurare il cluster con le impostazioni di raccolta dati personalizzati
+Questo articolo illustra come creare ConfigMap e configurare la raccolta dei dati in base alle esigenze.
 
-Un file di modello di oggetto ConfigMap viene fornito nella quale è possibile modificarlo facilmente con le personalizzazioni senza che sia necessario crearlo da zero. Prima di iniziare, è consigliabile consultare la documentazione di Kubernetes sui [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) e acquisire familiarità con le procedure per creare, configurare e distribuire ConfigMaps. In questo modo sarà possibile filtrare stderr e stdout per ogni spazio dei nomi o l'intero cluster e le variabili di ambiente per qualsiasi contenitore in esecuzione in tutti i POD/nodi del cluster.
+>[!NOTE]
+>Il supporto per Prometheus è una funzionalità di anteprima pubblica al momento.
+>
+
+## <a name="configure-your-cluster-with-custom-data-collection-settings"></a>Configurare il cluster con le impostazioni di raccolta dati personalizzate
+
+Viene fornito un file ConfigMap modello che consente di modificarlo facilmente con le personalizzazioni senza doverlo creare da zero. Prima di iniziare, è necessario rivedere la documentazione di Kubernetes su [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) e acquisire familiarità con la creazione, la configurazione e la distribuzione di ConfigMaps. Ciò consentirà di filtrare stderr e stdout per spazio dei nomi o nell'intero cluster e le variabili di ambiente per tutti i contenitori in esecuzione in tutti i pod/nodi del cluster.
 
 >[!IMPORTANT]
->La versione minima dell'agente supportata per questa funzionalità è microsoft / oms:ciprod06142019 o versione successiva. 
+>La versione minima dell'agente supportata per raccogliere le variabili stdout, stderr e Environment dai carichi di lavoro del contenitore è ciprod06142019 o successiva. La versione minima dell'agente supportata per l'scraping delle metriche Prometeo è ciprod07092019 o successiva. Per verificare la versione dell'agente, dalla scheda **nodo** selezionare un nodo, quindi nel riquadro Proprietà prendere nota del valore della proprietà **tag immagine agente** .  
 
-### <a name="overview-of-configurable-data-collection-settings"></a>Panoramica delle impostazioni di raccolta dati può essere configurato
+### <a name="overview-of-configurable-data-collection-settings"></a>Panoramica delle impostazioni di raccolta dati configurabili
 
-Di seguito sono le impostazioni che possono essere configurate per controllare la raccolta dei dati.
+Di seguito sono riportate le impostazioni che possono essere configurate per controllare la raccolta dei dati.
 
-|Chiave |Tipo di dati |Value |Descrizione |
+|Chiave |Tipo di dati |Value |DESCRIZIONE |
 |----|----------|------|------------|
-|`schema-version` |Stringa (maiuscole / minuscole) |v1 |Si tratta della versione dello schema utilizzata dall'agente durante l'analisi di questo oggetto ConfigMap. Schema-versione attualmente supportata è la versione 1. Modifica questo valore non è supportata e verrà rifiutata quando ConfigMap viene valutata.|
-|`config-version` |String | | Supporta la possibilità di tenere traccia di versione del file config nel repository del codice sorgente controllo sistema /. Numero massimo di caratteri consentito è 10 e tutti gli altri caratteri vengono troncati. |
-|`[log_collection_settings.stdout] enabled =` |Boolean | true o false | Consente di controllare se è abilitata la raccolta di log stdout contenitore. Se impostato su `true` e nessuno spazio dei nomi viene escluse per la raccolta di log stdout (`log_collection_settings.stdout.exclude_namespaces` impostazione sotto), verranno raccolti i log stdout da tutti i contenitori in tutti i POD/nodi del cluster. Se non specificato in ConfigMaps, il valore predefinito è `enabled = true`. |
-|`[log_collection_settings.stdout] exclude_namespaces =`|String | Matrice delimitato da virgole |Matrice di spazi dei nomi Kubernetes per cui stdout non verranno raccolti i log. Questa impostazione ha effetto solo se `log_collection_settings.stdout.enabled` è impostata su `true`. Se non specificato nell'oggetto ConfigMap, il valore predefinito è `exclude_namespaces = ["kube-system"]`.|
-|`[log_collection_settings.stderr] enabled =` |Boolean | true o false |Consente di controllare se è abilitata la raccolta di log stderr contenitore. Se impostato su `true` e nessuno spazio dei nomi viene escluse per la raccolta di log stdout (`log_collection_settings.stderr.exclude_namespaces` impostazione), verranno raccolti i log stderr da tutti i contenitori in tutti i POD/nodi del cluster. Se non specificato in ConfigMaps, il valore predefinito è `enabled = true`. |
-|`[log_collection_settings.stderr] exclude_namespaces =` |string |Matrice delimitato da virgole |Matrice di spazi dei nomi Kubernetes per cui stderr non verranno raccolti i log. Questa impostazione ha effetto solo se `log_collection_settings.stdout.enabled` è impostata su `true`. Se non specificato nell'oggetto ConfigMap, il valore predefinito è `exclude_namespaces = ["kube-system"]`. |
-| `[log_collection_settings.env_var] enabled =` |Boolean | true o false | Consente di controllare se la raccolta di variabili di ambiente è abilitata. Se impostato su `false`, nessuna variabile di ambiente vengono raccolti per qualsiasi contenitore in esecuzione in tutti i POD/nodi del cluster. Se non specificato nell'oggetto ConfigMap, il valore predefinito è `enabled = true`. |
+|`schema-version` |Stringa (maiuscole/minuscole) |v1 |Si tratta della versione dello schema utilizzata dall'agente durante l'analisi di questo ConfigMap. La versione dello schema attualmente supportata è V1. La modifica di questo valore non è supportata e verrà rifiutata quando ConfigMap viene valutato.|
+|`config-version` |String | | Supporta la possibilità di tenere traccia della versione del file di configurazione nel sistema/repository del controllo del codice sorgente. I caratteri massimi consentiti sono 10 e tutti gli altri caratteri vengono troncati. |
+|`[log_collection_settings.stdout] enabled =` |Boolean | true o false | Controlla se è abilitata la raccolta di log del contenitore stdout. Se è impostato `true` su e non viene escluso alcuno spazio dei nomi per`log_collection_settings.stdout.exclude_namespaces` la raccolta di log stdout (impostazione seguente), i log stdout verranno raccolti da tutti i contenitori in tutti i pod/nodi del cluster. Se non è specificato in ConfigMaps, il valore predefinito `enabled = true`è. |
+|`[log_collection_settings.stdout] exclude_namespaces =`|String | Matrice con valori delimitati da virgole |Matrice di spazi dei nomi Kubernetes per cui non verranno raccolti i log stdout. Questa impostazione è valida solo se `log_collection_settings.stdout.enabled` è impostato su `true`. Se non è specificato in ConfigMap, il valore predefinito `exclude_namespaces = ["kube-system"]`è.|
+|`[log_collection_settings.stderr] enabled =` |Boolean | true o false |Questo controlla se è abilitata la raccolta di log del contenitore stderr. Se è impostato `true` su e non viene escluso alcuno spazio dei nomi per`log_collection_settings.stderr.exclude_namespaces` la raccolta di log di stdout (impostazione), i log stderr verranno raccolti da tutti i contenitori in tutti i pod/nodi del cluster. Se non è specificato in ConfigMaps, il valore predefinito `enabled = true`è. |
+|`[log_collection_settings.stderr] exclude_namespaces =` |String |Matrice con valori delimitati da virgole |Matrice di spazi dei nomi Kubernetes per cui non verranno raccolti i log stderr. Questa impostazione è valida solo se `log_collection_settings.stdout.enabled` è impostato su `true`. Se non è specificato in ConfigMap, il valore predefinito `exclude_namespaces = ["kube-system"]`è. |
+| `[log_collection_settings.env_var] enabled =` |Boolean | true o false | Controlla se la raccolta di variabili di ambiente è abilitata. Quando è impostato `false`su, non viene raccolta alcuna variabile di ambiente per tutti i contenitori in esecuzione in tutti i pod/nodi del cluster. Se non è specificato in ConfigMap, il valore predefinito `enabled = true`è. |
+
+## <a name="overview-of-configurable-prometheus-scraping-settings"></a>Panoramica delle impostazioni di scraping di Prometeo configurabili
+
+Il frammento attivo delle metriche da Prometheus viene eseguito da una delle due prospettive seguenti:
+
+* URL HTTP a livello di cluster e individuare destinazioni dagli endpoint elencati di un servizio, servizi K8S come Kube-DNS e Kube-state-Metrics e annotazioni Pod specifiche di un'applicazione. Le metriche raccolte in questo contesto verranno definite nella sezione ConfigMap *[Prometheus data_collection_settings. cluster]* .
+* URL HTTP a livello di nodo e individua destinazioni dagli endpoint elencati di un servizio. Le metriche raccolte in questo contesto verranno definite nella sezione ConfigMap *[Prometheus_data_collection_settings. Node]* .
+
+|Ambito | Chiave | Tipo di dati | Valore | Descrizione |
+|------|-----|-----------|-------|-------------|
+| A livello di cluster | | | | Specificare uno dei tre metodi seguenti per rimuovere gli endpoint per le metriche. |
+| | `urls` | String | Matrice con valori delimitati da virgole | Endpoint HTTP (indirizzo IP o percorso URL valido specificato). Ad esempio: `urls=[$NODE_IP/metrics]`. ($NODE _IP è uno specifico parametro di monitoraggio di Azure per contenitori e può essere usato al posto dell'indirizzo IP del nodo. Deve essere tutti in maiuscolo.) |
+| | `kubernetes_services` | String | Matrice con valori delimitati da virgole | Una matrice di servizi Kubernetes per rimuovere le metriche da Kube-state-Metrics. Ad esempio,`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics", http://my-service-dns.my-namespace:9100/metrics]`.|
+| | `monitor_kubernetes_pods` | Boolean | true o false | Quando è impostato `true` su nelle impostazioni a livello di cluster, monitoraggio di Azure per l'agente dei contenitori Kubernetes i pod nell'intero cluster per le annotazioni Prometeo seguenti:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
+| | `prometheus.io/scrape` | Boolean | true o false | Consente di rimuovere il pod. |
+| | `prometheus.io/scheme` | String | http o https | Il valore predefinito è la rottamazione su HTTP. Se necessario, impostare su `https`. | 
+| | `prometheus.io/path` | String | Matrice con valori delimitati da virgole | Percorso della risorsa HTTP da cui recuperare le metriche. Se il percorso delle metriche non `/metrics`è, definirlo con questa annotazione. |
+| | `prometheus.io/port` | String | 9102 | Specificare una porta su cui restare in ascolto. Se la porta non è impostata, il valore predefinito è 9102. |
+| A livello di nodo | `urls` | String | Matrice con valori delimitati da virgole | Endpoint HTTP (indirizzo IP o percorso URL valido specificato). Ad esempio: `urls=[$NODE_IP/metrics]`. ($NODE _IP è uno specifico parametro di monitoraggio di Azure per contenitori e può essere usato al posto dell'indirizzo IP del nodo. Deve essere tutti in maiuscolo.) |
+| A livello di nodo o a livello di cluster | `interval` | String | 60 s | Il valore predefinito per l'intervallo di raccolta è di un minuto (60 secondi). È possibile modificare la raccolta per *[prometheus_data_collection_settings. Node]* e/o *[prometheus_data_collection_settings. cluster]* in unità di tempo, ad esempio NS, US (o Âμs), MS, s, m, h. |
+| A livello di nodo o a livello di cluster | `fieldpass`<br> `fielddrop`| String | Matrice con valori delimitati da virgole | È possibile specificare determinate metriche da raccogliere o meno dall'endpoint impostando l'elenco Consenti (`fieldpass`) e non consentire (`fielddrop`). È necessario impostare prima l'elenco Consenti. |
+
+ConfigMap è un elenco globale e può essere applicato un solo ConfigMap all'agente. Non è possibile avere un altro ConfigMap che esegue la sovradecisione delle raccolte.
 
 ### <a name="configure-and-deploy-configmaps"></a>Configurare e distribuire ConfigMaps
 
-Eseguire la procedura seguente per configurare e distribuire il file di configurazione ConfigMap nel cluster.
+Per configurare e distribuire il file di configurazione ConfigMap nel cluster, seguire questa procedura.
 
-1. [Scaricare](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) il codice yaml ConfigMap modello e salvarlo come contenitore-azm-ms-agentconfig.yaml.  
-1. Modificare il file yaml ConfigMap con le personalizzazioni. 
+1. [Scaricare](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) il modello ConfigMap YAML file e salvarlo come container-AZM-MS-agentconfig. yaml.  
+1. Modificare il file YAML di ConfigMap con le personalizzazioni.
 
-    - Per escludere gli spazi dei nomi specifici per la raccolta di log stdout, si configura il chiave/valore usando l'esempio seguente: `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`.
-    - Per disabilitare la raccolta di variabili di ambiente per un contenitore specifico, impostare il chiave/valore `[log_collection_settings.env_var] enabled = true` per abilitare la raccolta della variabile a livello globale e quindi seguire i passaggi [qui](container-insights-manage-agent.md#how-to-disable-environment-variable-collection-on-a-container) per completare la configurazione per il contenitore specifico.
-    - Per disabilitare la raccolta dei log stderr a livello di cluster, si configura il chiave/valore usando l'esempio seguente: `[log_collection_settings.stderr] enabled = false`.
+    - Per escludere spazi dei nomi specifici per la raccolta di log di stdout, configurare la chiave o il valore `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`usando l'esempio seguente:.
+    - Per disabilitare la raccolta delle variabili di ambiente per un contenitore specifico, impostare la `[log_collection_settings.env_var] enabled = true` chiave/valore per abilitare la raccolta di variabili a livello globale, quindi seguire i passaggi [qui](container-insights-manage-agent.md#how-to-disable-environment-variable-collection-on-a-container) per completare la configurazione per il contenitore specifico.
+    - Per disabilitare la raccolta di log stderr a livello di cluster, configurare la chiave o il valore usando l' `[log_collection_settings.stderr] enabled = false`esempio seguente:.
 
-1. Creare l'oggetto ConfigMap eseguendo il seguente comando di kubectl: `kubectl apply -f <configmap_yaml_file.yaml>`.
+1. Creare ConfigMap eseguendo il comando kubectl seguente: `kubectl apply -f <configmap_yaml_file.yaml>`.
     
     Esempio: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
     
-    La modifica della configurazione può richiedere alcuni minuti prima che diventino effettive e verranno riavviati tutti i POD omsagent nel cluster. Il riavvio è un riavvio in sequenza per tutti i POD omsagent, non tutte riavviate nello stesso momento. Dopo il riavvio del completamento, viene visualizzato un messaggio che è simile al seguente che include il risultato: `configmap "container-azm-ms-agentconfig" created`.
+    La modifica della configurazione può richiedere alcuni minuti prima di essere applicata e tutti i pod omsagent del cluster verranno riavviati. Il riavvio è un riavvio in sequenza per tutti i pod omsagent, non tutti i riavvii nello stesso momento. Al termine del riavvio, viene visualizzato un messaggio simile al seguente e include il risultato: `configmap "container-azm-ms-agentconfig" created`.
 
-Per verificare la configurazione è stata applicata, usare il comando seguente per esaminare i log dal pod agente: `kubectl logs omsagent-fdf58 -n=kube-system`. Se sono presenti errori di configurazione dai POD osmagent, l'output visualizzerà gli errori simili al seguente:
+Per verificare che la configurazione sia stata applicata correttamente, usare il comando seguente per esaminare i log di un pod `kubectl logs omsagent-fdf58 -n=kube-system`agente:. Se si verificano errori di configurazione dai pod omsagent, l'output visualizzerà errori simili ai seguenti:
 
 ``` 
 ***************Start Config Processing******************** 
 config::unsupported/missing config schema version - 'v21' , using defaults
 ```
 
-Errori impediscono l'analisi del file, in modo da riavviare, utilizzare la configurazione predefinita di omsagent. Dopo aver corretto gli errori nell'oggetto ConfigMap, salvare il file yaml e applicare il ConfigMaps aggiornato eseguendo il comando: `kubectl apply -f <configmap_yaml_file.yaml`.
+Gli errori relativi all'applicazione delle modifiche di configurazione per Prometheus sono disponibili anche per la revisione.  Dai log da un pod di Agent usando lo stesso `kubectl logs` comando o da log attivi. Log attivi Mostra errori simili ai seguenti:
 
-## <a name="applying-updated-configmap"></a>Applicazione aggiornato ConfigMap
+```
+2019-07-08T18:55:00Z E! [inputs.prometheus]: Error in plugin: error making HTTP request to http://invalidurl:1010/metrics: Get http://invalidurl:1010/metrics: dial tcp: lookup invalidurl on 10.0.0.10:53: no such host
+```
 
-Se hai già distribuito un oggetto ConfigMap per il cluster e si desidera aggiornare con una configurazione più recente, è sufficiente modificare il file oggetto ConfigMap è utilizzato in precedenza e quindi applicare utilizzando lo stesso comando, come in precedenza, `kubectl apply -f <configmap_yaml_file.yaml`.
+Gli errori impediscono l'analisi del file da parte di omsagent, causando il riavvio e l'utilizzo della configurazione predefinita. Dopo aver corretto gli errori in ConfigMap, salvare il file YAML e applicare il ConfigMaps aggiornato eseguendo il comando: `kubectl apply -f <configmap_yaml_file.yaml`.
 
-La modifica della configurazione può richiedere alcuni minuti prima che diventino effettive e verranno riavviati tutti i POD omsagent nel cluster. Il riavvio è un riavvio in sequenza per tutti i POD omsagent, non tutte riavviate nello stesso momento. Dopo il riavvio del completamento, viene visualizzato un messaggio che è simile al seguente che include il risultato: `configmap "container-azm-ms-agentconfig" updated`.
+## <a name="applying-updated-configmap"></a>Applicazione di ConfigMap aggiornati
+
+Se è già stato distribuito un ConfigMap nel cluster e si vuole aggiornarlo con una configurazione più recente, è sufficiente modificare il file ConfigMap usato in precedenza e quindi applicarlo usando lo stesso comando precedente, `kubectl apply -f <configmap_yaml_file.yaml`.
+
+La modifica della configurazione può richiedere alcuni minuti prima di essere applicata e tutti i pod omsagent del cluster verranno riavviati. Il riavvio è un riavvio in sequenza per tutti i pod omsagent, non tutti i riavvii nello stesso momento. Al termine del riavvio, viene visualizzato un messaggio simile al seguente e include il risultato: `configmap "container-azm-ms-agentconfig" updated`.
 
 ## <a name="verifying-schema-version"></a>Verifica della versione dello schema
 
-Versioni dello schema di configurazione supportati sono disponibili come annotazione di pod (versioni dello schema) nel pod omsagent. È possibile visualizzarli con il comando kubectl seguente: `kubectl describe pod omsagent-fdf58 -n=kube-system`
+Le versioni dello schema di configurazione supportate sono disponibili come annotazione pod (versioni dello schema) nel pod omsagent. È possibile visualizzarli con il comando kubectl seguente:`kubectl describe pod omsagent-fdf58 -n=kube-system`
 
-L'output visualizzerà simile al seguente con le versioni dello schema di annotazione:
+L'output sarà simile al seguente con le versioni dello schema di annotazione:
 
 ```
     Name:           omsagent-fdf58
@@ -96,7 +131,43 @@ L'output visualizzerà simile al seguente con le versioni dello schema di annota
                     schema-versions=v1 
 ```
 
+## <a name="review-prometheus-data-usage"></a>Esaminare l'utilizzo dei dati di Prometeo
+
+Per identificare il volume di inserimento di ogni dimensione di metrica in GB al giorno per comprendere se è elevato, viene fornita la query seguente.
+
+```
+InsightsMetrics 
+| where Namespace contains "prometheus"
+| where TimeGenerated > ago(24h)
+| summarize VolumeInGB = (sum(_BilledSize) / (1024 * 1024 * 1024)) by Name
+| order by VolumeInGB desc
+| render barchart
+```
+L'output visualizzerà risultati simili ai seguenti:
+
+![Registrare i risultati delle query del volume di inserimento dati](./media/container-insights-agent-config/log-query-example-usage-03.png)
+
+Per stimare le dimensioni di ogni metrica in GB per un mese per comprendere se il volume di dati inseriti nell'area di lavoro è elevato, viene fornita la query seguente.
+
+```
+InsightsMetrics 
+| where Namespace contains "prometheus"
+| where TimeGenerated > ago(24h)
+| summarize EstimatedGBPer30dayMonth = (sum(_BilledSize) / (1024 * 1024 * 1024)) * 30 by Name
+| order by EstimatedGBPer30dayMonth desc
+| render barchart
+```
+
+L'output visualizzerà risultati simili ai seguenti:
+
+![Registrare i risultati delle query del volume di inserimento dati](./media/container-insights-agent-config/log-query-example-usage-02.png)
+
+Ulteriori informazioni su come monitorare l'utilizzo dei dati e analizzare i costi sono disponibili in [gestire l'utilizzo e i costi con i log di monitoraggio di Azure](../platform/manage-cost-storage.md).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
+Il monitoraggio di Azure per i contenitori non include un set predefinito di avvisi. Per informazioni su come creare avvisi consigliati per un utilizzo elevato della CPU e della memoria per supportare le procedure e i processi operativi, vedere la pagina [relativa alla creazione di avvisi di prestazioni con monitoraggio di Azure per i contenitori](container-insights-alerts.md) .
+
 - Per altre informazioni su come usare Monitoraggio di Azure e monitorare altri aspetti del cluster del servizio Azure Kubernetes, vedere [Visualizzare l'integrità del servizio Kubernetes di Azure](container-insights-analyze.md).
-- Vista [esempi di query di log](container-insights-log-search.md#search-logs-to-analyze-data) per visualizzare query predefinito ed esempi per valutare o personalizzare per gli avvisi, la visualizzazione o l'analisi dei cluster.
+
+- Visualizzare gli [esempi di query di log](container-insights-log-search.md#search-logs-to-analyze-data) per visualizzare query e esempi predefiniti per valutare o personalizzare gli avvisi, la visualizzazione o l'analisi dei cluster.

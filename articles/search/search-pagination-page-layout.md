@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 73f0dc98d7d2c3e7aa77f6414cbd58e58599eae7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bb86a75be464cb78a16170626bc96778d43bb8b6
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068836"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67974613"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>Come usare i risultati della ricerca in Ricerca di Azure
 In questo articolo vengono fornite indicazioni su come implementare elementi standard di una pagina di risultati della ricerca, ad esempio i conteggi totali, il recupero di documenti, i criteri di ordinamento e l'esplorazione. Le opzioni relative alla pagina che forniscono dati o informazioni per i risultati della ricerca vengono specificate tramite richieste [Cerca nel documento](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) inviate al servizio Ricerca di Azure. 
@@ -25,7 +25,7 @@ Nell'API REST le richieste includono un comando GET, un percorso e parametri di 
 Alcuni esempi di codice includono un'interfaccia front-end Web, che è possibile trovare in [New York City Jobs demo app](https://azjobsdemo.azurewebsites.net/) (App demo relativa alle offerte di lavoro della città di New York) e [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
-> Una richiesta valida include diversi elementi, ad esempio URL e percorso del servizio, verbo HTTP, `api-version`, e così via. Per brevità, gli esempi sono stati tagliati in modo da evidenziare solo la sintassi rilevante per l'impaginazione. Per altre informazioni sulla sintassi richiesta, vedere [Azure Search Service REST](https://docs.microsoft.com/rest/api/searchservice).
+> Una richiesta valida include diversi elementi, ad esempio URL e percorso del servizio, verbo HTTP, `api-version`, e così via. Per brevità, gli esempi sono stati tagliati in modo da evidenziare solo la sintassi rilevante per l'impaginazione. Per altre informazioni sulla sintassi della richiesta, vedere [Azure servizio di ricerca Rest](https://docs.microsoft.com/rest/api/searchservice).
 >
 
 ## <a name="total-hits-and-page-counts"></a>Corrispondenze totali e conteggi delle pagine
@@ -34,21 +34,21 @@ La visualizzazione del numero totale di risultati ottenuti da una query e la res
 
 ![][1]
 
-In Ricerca di Azure è possibile utilizzare i parametri `$count`, `$top`, e `$skip` per restituire questi valori. L'esempio seguente mostra una richiesta di esempio per il totale raggiunge su un indice denominato "catalogo online", restituito come `@odata.count`:
+In Ricerca di Azure è possibile utilizzare i parametri `$count`, `$top`, e `$skip` per restituire questi valori. Nell'esempio seguente viene illustrata una richiesta di esempio per il totale dei riscontri su un indice denominato "online `@odata.count`-Catalog", restituito come:
 
     GET /indexes/online-catalog/docs?$count=true
 
 Recuperare i documenti in gruppi di 15 e visualizzare le corrispondenze totali, a partire dalla prima pagina:
 
-    GET /indexes/online-catalog/docs?search=*$top=15&$skip=0&$count=true
+    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=0&$count=true
 
 L'impaginazione dei risultati richiede sia `$top` che `$skip`, dove `$top` specifica il numero di elementi da restituire in un batch e `$skip` specifica il numero di elementi da ignorare. Nell'esempio seguente, in ogni pagina vengono visualizzati 15 elementi, indicati da salti incrementali nel parametro `$skip` .
 
-    GET /indexes/online-catalog/docs?search=*$top=15&$skip=0&$count=true
+    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=0&$count=true
 
-    GET /indexes/online-catalog/docs?search=*$top=15&$skip=15&$count=true
+    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=15&$count=true
 
-    GET /indexes/online-catalog/docs?search=*$top=15&$skip=30&$count=true
+    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=30&$count=true
 
 ## <a name="layout"></a>Layout
 
@@ -56,7 +56,7 @@ In una pagina di risultati della ricerca, è possibile visualizzare un'immagine 
 
  ![][2]
 
-In ricerca di Azure, si utilizzerebbe `$select` e una [richiesta API di ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents) per implementare questa esperienza.
+In ricerca di Azure è possibile usare `$select` e una [richiesta dell'API di ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents) per implementare questa esperienza.
 
 Per restituire un sottoinsieme di campi per un layout affiancato:
 
@@ -96,7 +96,7 @@ L’esplorazione di ricerca è comune in una pagina di risultati, che spesso si 
 
 ## <a name="filters-at-the-page-level"></a>Filtri a livello di pagina
 
-Se la progettazione della soluzione include pagine di ricerca dedicate per specifici tipi di contenuto (ad esempio, un'applicazione di vendita online elencati nella parte superiore della pagina), è possibile inserire un [espressione di filtro](search-filters.md) insieme a un **onClick** evento per aprire una pagina in uno stato di pre-filtrato.
+Se la progettazione della soluzione include pagine di ricerca dedicate per tipi specifici di contenuto (ad esempio, un'applicazione per la vendita al dettaglio online con reparti elencati nella parte superiore della pagina), è possibile inserire un' [espressione di filtro](search-filters.md) insieme a un evento OnClick per  aprire una pagina in uno stato pre-filtrato.
 
 È possibile inviare un filtro con o senza espressione di ricerca. Ad esempio, la seguente richiesta filtrerà la marca, restituendo solo i documenti ad essa corrispondenti.
 

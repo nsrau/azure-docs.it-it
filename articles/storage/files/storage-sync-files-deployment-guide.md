@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 12fd1b03e58d1c62157c6652ce96d8f0172dadb2
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
-ms.translationtype: MT
+ms.openlocfilehash: 9c05f3cf9a4c6fc916f1c9578de7aee6d0190ee5
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606115"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68327138"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuire Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -21,11 +21,11 @@ Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell
 È consigliabile leggere [Pianificazione per la distribuzione di File di Azure](storage-files-planning.md) e [Pianificazione per la distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md) prima di completare i passaggi descritti in questo articolo.
 
 ## <a name="prerequisites"></a>Prerequisiti
-* Un file di Azure condividono nella stessa area che si vuole distribuire sincronizzazione File di Azure. Per altre informazioni, vedere:
+* Una condivisione file di Azure nella stessa area che si vuole distribuire Sincronizzazione file di Azure. Per altre informazioni, vedere:
     - [Aree di disponibilità](storage-sync-files-planning.md#region-availability) per Sincronizzazione file di Azure.
     - [Creare una condivisione file](storage-how-to-create-file-share.md) per una descrizione dettagliata della procedura per la creazione di una condivisione file.
 * Almeno un'istanza supportata di Windows Server o di cluster Windows Server da sincronizzare con Sincronizzazione file di Azure. Per altre informazioni sulle versioni supportate di Windows Server, vedere [Interoperabilità di Sincronizzazione file di Azure](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
-* Il modulo PowerShell di Az può essere usato con PowerShell 5.1 o con PowerShell 6 o versione successiva. È possibile usare il modulo PowerShell di Az per sincronizzazione File di Azure in qualsiasi sistema supportato, inclusi i sistemi non Windows, tuttavia, il cmdlet di registrazione del server deve sempre essere eseguito nell'istanza del Server di Windows si sono la registrazione (questa operazione può essere eseguita direttamente o tramite PowerShell accesso remoto). In Windows Server 2012 R2, è possibile verificare che sia in esecuzione almeno PowerShell 5.1. \* esaminando il valore della **PSVersion** proprietà della **$PSVersionTable** oggetto:
+* Il modulo AZ PowerShell può essere usato con PowerShell 5,1 o PowerShell 6 +. È possibile usare il modulo AZ PowerShell per Sincronizzazione file di Azure in qualsiasi sistema supportato, inclusi i sistemi non Windows, ma il cmdlet di registrazione del server deve essere sempre eseguito nell'istanza di Windows Server che si sta registrando. questa operazione può essere eseguita direttamente o tramite PowerShell Servizi remoti). In Windows Server 2012 R2 è possibile verificare che sia in esecuzione almeno PowerShell 5,1. esaminando il valore della proprietà **psversion** dell'oggetto $psversiontable:  \*
 
     ```powershell
     $PSVersionTable.PSVersion
@@ -33,30 +33,30 @@ Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell
 
     Se il valore di PSVersion è minore di 5.1.\*, come nella maggior parte delle installazioni recenti di Windows Server 2012 R2, è possibile eseguire facilmente l'aggiornamento scaricando e installando [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). Il pacchetto appropriato da scaricare e installare per Windows Server 2012 R2 è **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**. 
 
-    PowerShell 6 o versione successiva può essere utilizzato con qualsiasi sistema supportato e può essere scaricato tramite il [pagina GitHub](https://github.com/PowerShell/PowerShell#get-powershell). 
+    PowerShell 6 + può essere usato con qualsiasi sistema supportato e può essere scaricato tramite la [pagina GitHub](https://github.com/PowerShell/PowerShell#get-powershell). 
 
     > [!Important]  
-    > Se si prevede di usare l'interfaccia utente registrazione Server, anziché la registrazione direttamente da PowerShell, è necessario usare PowerShell 5.1.
+    > Se si prevede di usare l'interfaccia utente di registrazione del server, anziché eseguire la registrazione direttamente da PowerShell, è necessario usare PowerShell 5,1.
 
-* Se si è scelto di usare PowerShell 5.1, assicurarsi che in viene installato almeno .NET 4.7.2. Altre informazioni sulle [versioni di .NET Framework e le dipendenze](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) nel sistema.
+* Se si è scelto di usare PowerShell 5,1, verificare che sia installato almeno .NET 4.7.2. Altre informazioni su [.NET Framework versioni e dipendenze](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) nel sistema.
 
     > [!Important]  
-    > Se si sta installando .NET 4.7.2+ in Windows Server Core, è necessario installare con il `quiet` e `norestart` flag o l'installazione avrà esito negativo. Ad esempio, se l'installazione di .NET 4.8, il comando sarebbe simile al seguente:
+    > Se si sta installando .NET 4.7.2 + in Windows Server Core, è necessario installare con `quiet` i `norestart` flag e. in caso contrario, l'installazione avrà esito negativo. Ad esempio, se si installa .NET 4,8, il comando avrà un aspetto simile al seguente:
     > ```PowerShell
     > Start-Process -FilePath "ndp48-x86-x64-allos-enu.exe" -ArgumentList "/q /norestart" -Wait
     > ```
 
-* Il modulo PowerShell di Az, che può essere installato seguendo le istruzioni riportate qui: [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+* Il modulo AZ PowerShell, che può essere installato seguendo le istruzioni riportate qui: [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
      
     > [!Note]  
-    > Il modulo Az.StorageSync ora viene installato automaticamente quando si installa il modulo PowerShell di Az.
+    > Il modulo AZ. StorageSync viene ora installato automaticamente quando si installa il modulo AZ PowerShell.
 
 ## <a name="prepare-windows-server-to-use-with-azure-file-sync"></a>Preparare Windows Server per l'uso con Sincronizzazione file di Azure
 Per ogni server da usare con Sincronizzazione file di Azure, incluso ogni nodo server in un cluster di failover, disabilitare **Sicurezza avanzata di Internet Explorer**. Questa operazione è necessaria solo per la registrazione iniziale del server e l'opzione può essere riabilitata dopo che il server è stato registrato.
 
 # <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 > [!Note]  
-> È possibile ignorare questo passaggio se si distribuisce sincronizzazione File di Azure in Windows Server Core.
+> È possibile ignorare questo passaggio se si sta distribuendo Sincronizzazione file di Azure in Windows Server Core.
 
 1. Aprire Server Manager.
 2. Fare clic su **Server locale**:  
@@ -98,7 +98,7 @@ La distribuzione di Sincronizzazione file di Azure inizia con l'inserimento di u
 > Il servizio di sincronizzazione archiviazione eredita le autorizzazioni di accesso dalla sottoscrizione e dal gruppo di risorse in cui viene distribuito. È consigliabile controllare attentamente chi dispone di accesso. Le entità con accesso in scrittura possono avviare la sincronizzazione di nuovi set di file dai server registrati in questo servizio di sincronizzazione archiviazione, causando il flusso dei dati in un archivio di Azure a loro accessibile.
 
 # <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
-Per distribuire un servizio di sincronizzazione archiviazione, vedere la [portale di Azure](https://portal.azure.com/), fare clic su *crea una risorsa* e cercare sincronizzazione File di Azure. Nei risultati della ricerca selezionare **Sincronizzazione file di Azure** e quindi selezionare **Crea** per aprire la scheda **Distribuisci sincronizzazione archiviazione**.
+Per distribuire un servizio di sincronizzazione archiviazione, passare alla [portale di Azure](https://portal.azure.com/), fare clic su *Crea una risorsa* e quindi cercare sincronizzazione file di Azure. Nei risultati della ricerca selezionare **Sincronizzazione file di Azure** e quindi selezionare **Crea** per aprire la scheda **Distribuisci sincronizzazione archiviazione**.
 
 Nel pannello che viene visualizzato immettere le informazioni seguenti:
 
@@ -110,7 +110,7 @@ Nel pannello che viene visualizzato immettere le informazioni seguenti:
 Al termine, selezionare **Crea** per distribuire il servizio di sincronizzazione di archiviazione.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-Sostituire **< Az_Region >** , **< RG_Name >** , e **< my_storage_sync_service >** con i propri valori, quindi usare i comandi seguenti per creare e distribuire un Servizio di sincronizzazione archiviazione:
+Sostituire **< Az_Region >** , **< RG_Name >** e **< my_storage_sync_service >** con i propri valori, quindi usare il cmds seguente per creare e distribuire un servizio di sincronizzazione archiviazione:
 
 ```powershell
 $hostType = (Get-Host).Name
@@ -357,6 +357,19 @@ if ($cloudTieringDesired) {
 
 ---
 
+## <a name="configure-firewall-and-vnet-settings"></a>Configurare le impostazioni del firewall e del VNet
+
+### <a name="portal"></a>Portale
+Se si vuole configurare sincronizzazione file di Azure per l'uso con le impostazioni del firewall e della rete virtuale, eseguire le operazioni seguenti:
+
+1. Dalla portale di Azure passare all'account di archiviazione che si vuole proteggere.
+1. Selezionare il pulsante **firewall e reti virtuali** nel menu a sinistra.
+1. Selezionare le **reti selezionate** in **Consenti accesso da**.
+1. Verificare che l'indirizzo IP o la rete virtuale dei server sia elencato nella sezione appropriata.
+1. Verificare che **l'opzione Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione** sia selezionata.
+1. Per salvare le impostazioni, fare clic su **Save** (Salva).
+
+
 ## <a name="onboarding-with-azure-file-sync"></a>Onboarding con Sincronizzazione file di Azure
 Le procedure consigliate per l'esecuzione dell'onboarding in Sincronizzazione file di Azure per la prima volta senza alcun tempo di inattività e mantenendo intatta la fedeltà dei file e dell'elenco di controllo di accesso (ACL) sono le seguenti:
  
@@ -375,13 +388,13 @@ Le procedure consigliate per l'esecuzione dell'onboarding in Sincronizzazione fi
  
 Se non si dispone di risorse di archiviazione extra per l'onboarding iniziale e si desidera collegarsi alle condivisioni esistenti, è possibile effettuare il pre-seeding dei dati nelle condivisioni file di Azure. Questo approccio è consigliato solo se è possibile accettare il tempo di inattività e garantire che non avvenga alcuna modifica nelle condivisioni dei server durante il processo di onboarding iniziale. 
  
-1. Assicurarsi che i dati nei server non possano essere modificati durante il processo di onboarding.
-2. Effettuare il pre-seeding delle condivisioni file di Azure con i dati del server usando un qualsiasi strumento di trasferimento di dati su SMB, ad esempio Robocopy, copia SMB diretta. Poiché l'utilità AzCopy non carica i dati su SMB, non può essere usata per l'esecuzione del pre-seeding.
+1. Assicurarsi che i dati in uno qualsiasi dei server non possano essere modificati durante il processo di onboarding.
+2. Pre-inizializzare le condivisioni file di Azure con i dati del server usando uno strumento di trasferimento dei dati su SMB, ad esempio Robocopy, copia SMB diretta. Poiché l'utilità AzCopy non carica i dati su SMB, non può essere usata per l'esecuzione del pre-seeding.
 3. Creare una topologia di Sincronizzazione file di Azure con gli endpoint del server desiderati che puntano alle condivisioni esistenti.
 4. Consentire alla sincronizzazione di completare il processo di riconciliazione in tutti gli endpoint. 
 5. Una volta completata la riconciliazione, è possibile aprire le condivisioni per le modifiche.
  
-Tenere presente che attualmente l'approccio dell'esecuzione del pre-seeding presenta alcune limitazioni: 
+Attualmente, l'approccio di pre-seeding presenta alcune limitazioni: 
 - La piena fedeltà dei file non viene mantenuta. I file perdono ad esempio tutti i timestamp e gli elenchi di controllo di accesso.
 - Le modifiche ai dati nel server prima che la topologia di sincronizzazione sia completamente operativa possono causare conflitti negli endpoint server.  
 - Dopo aver creato l'endpoint cloud, Sincronizzazione file di Azure esegue un processo per rilevare i file nel cloud prima di avviare la sincronizzazione iniziale. Il tempo impiegato per completare il processo varia a seconda dei vari fattori quali la velocità di rete, la larghezza di banda disponibile e il numero di file e cartelle. Per la stima approssimativa nella versione di anteprima, il processo di rilevamento viene eseguito a una velocità di circa 10 file/sec. Di conseguenza, anche se il pre-seeding viene eseguito velocemente, il tempo complessivo per ottenere un sistema completamente operativo può essere notevolmente più lungo quando viene effettuato il pre-seeding dei dati nel cloud.

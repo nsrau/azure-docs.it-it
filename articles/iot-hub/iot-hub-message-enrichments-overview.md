@@ -1,6 +1,6 @@
 ---
-title: Panoramica dei miglioramenti di messaggi dell'IoT Hub di Azure
-description: Panoramica dei miglioramenti di messaggio per i messaggi dell'IoT Hub di Azure
+title: Panoramica degli arricchimenti dei messaggi dell'hub Azure
+description: Panoramica degli arricchimenti dei messaggi per i messaggi dell'hub Azure
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -8,81 +8,84 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 13e35ab93fc37541548785c6355489eaf3a3efc2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: b815ba80ac0860a4248b27e4013da4a8a9d12e18
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754558"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321286"
 ---
-# <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Miglioramenti di messaggio per i messaggi da dispositivo a cloud dell'IoT Hub (anteprima)
+# <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Arricchimento dei messaggi per i messaggi dell'hub da dispositivo a cloud (anteprima)
 
-*Miglioramenti dei messaggi* è la capacità dell'IoT Hub per *timbro* messaggi con informazioni aggiuntive prima che i messaggi vengono inviati all'endpoint designato. Uno dei motivi per utilizzare miglioramenti messaggio consiste nell'includere dati che possono essere utilizzati per semplificare l'elaborazione downstream. Ad esempio, il miglioramento dei messaggi di telemetria da dispositivo con un tag di dispositivo gemello può ridurre il carico sui clienti a effettuare chiamate API per ottenere queste informazioni dispositivo gemello.
+I miglioramenti apportati ai *messaggi sono la* possibilità dell'hub  Internet di contrassegnare i messaggi con informazioni aggiuntive prima che i messaggi vengano inviati all'endpoint designato. Un motivo per utilizzare gli arricchimenti dei messaggi consiste nell'includere dati che possono essere utilizzati per semplificare l'elaborazione downstream. Ad esempio, l'arricchimento dei messaggi di telemetria del dispositivo con un tag del dispositivo gemello può ridurre il carico sui clienti per effettuare chiamate API dei dispositivi gemelli per queste informazioni.
 
-![Flusso dei miglioramenti di messaggi](./media/iot-hub-message-enrichments-overview/message-enrichments-flow.png)
+![Flusso di arricchimenti messaggi](./media/iot-hub-message-enrichments-overview/message-enrichments-flow.png)
 
-Un arricchimento dei messaggi presenta tre elementi chiave:
+Un arricchimento del messaggio ha tre elementi chiave:
 
-* Abilitare l'arricchimento dei nome o la chiave
+* Nome o chiave di arricchimento
 
-* Un valore
+* Valore
 
-* Uno o più [endpoint](iot-hub-devguide-endpoints.md) per cui deve essere applicato l'arricchimento.
+* Uno o più [endpoint](iot-hub-devguide-endpoints.md) per i quali deve essere applicata l'arricchimento.
 
-La chiave può essere qualsiasi stringa.
+La chiave può essere una stringa qualsiasi.
 
 Il valore può essere uno degli esempi seguenti:
 
-* Qualsiasi stringa statica. I valori dinamici, ad esempio le condizioni, per la logica, operazioni e funzioni non sono consentiti. Ad esempio, se si sviluppa un'applicazione SaaS che viene usata da clienti diversi, è possibile assegnare un identificatore a ogni cliente e rendere disponibili nell'applicazione di tale identificatore. Quando viene eseguita l'applicazione, l'IoT Hub verrà contrassegnare il dispositivo i messaggi di telemetria con identificatore del cliente, rendendo possibile l'elaborazione dei messaggi in modo diverso per ogni cliente.
+* Qualsiasi stringa statica. Non sono consentiti valori dinamici quali le condizioni, la logica, le operazioni e le funzioni. Se, ad esempio, si sviluppa un'applicazione SaaS utilizzata da più clienti, è possibile assegnare un identificatore a ogni cliente e rendere tale identificatore disponibile nell'applicazione. Quando l'applicazione è in esecuzione, l'hub di tutti i messaggi di telemetria del dispositivo viene timbrato con l'identificatore del cliente, rendendo possibile l'elaborazione dei messaggi in modo diverso per ogni cliente.
 
-* Informazioni dal dispositivo gemello, ad esempio il relativo percorso. Esempi sarebbe *$twin.tags.field* e *$twin.tags.latitude*.
+* Nome dell'hub Internet delle cose che invia il messaggio. Questo valore è *$iothubname*.
 
-* Il nome dell'hub IoT invia il messaggio. Questo valore è *$iothubname*.
+* Informazioni del dispositivo gemello, ad esempio il percorso. Gli esempi sono *$Twin. Tags. Field* e *$Twin. Tags. Latitudine*.
 
-## <a name="applying-enrichments"></a>Miglioramenti di applicazione
+   > [!NOTE]
+   > Al momento, solo $iothubname, $twin. Tags, $twin. Properties. desired e $twin. Properties. Reports sono variabili supportate per l'arricchimento dei messaggi.
 
-I messaggi possono provenire da qualsiasi origine dati supportata da [routing dei messaggi dell'IoT Hub](iot-hub-devguide-messages-d2c.md), inclusi gli esempi seguenti:
+## <a name="applying-enrichments"></a>Applicazione di arricchimenti
 
-* telemetria del dispositivo, ad esempio temperatura o pressione
-* notifiche di modifica dispositivo gemello: le modifiche nel dispositivo gemello
-* eventi del ciclo di vita di dispositivo, ad esempio quando il dispositivo viene creato o eliminato
+I messaggi possono provenire da qualsiasi origine dati supportata dal [routing dei messaggi dell'hub](iot-hub-devguide-messages-d2c.md)Internet, inclusi gli esempi seguenti:
 
-È possibile aggiungere i miglioramenti per i messaggi che verranno all'endpoint predefinito di un IoT Hub, o che vengono indirizzati a endpoint personalizzati, ad esempio archiviazione Blob di Azure, una coda del Bus di servizio o un argomento del Bus di servizio.
+* telemetria dei dispositivi, ad esempio temperatura o pressione
+* notifiche di modifiche del dispositivo gemello: modifiche nel dispositivo gemello
+* eventi del ciclo di vita del dispositivo, ad esempio quando il dispositivo viene creato o eliminato
 
-È anche possibile aggiungere i miglioramenti ai messaggi che vengono pubblicati selezionando l'endpoint come griglia di eventi a griglia di eventi. Per altre informazioni, vedere [Iot Hub e griglia di eventi](iot-hub-event-grid.md).
+È possibile aggiungere arricchimenti ai messaggi che vengono indirizzati all'endpoint predefinito di un hub delle cose o ai messaggi che vengono indirizzati a endpoint personalizzati, ad esempio archiviazione BLOB di Azure, una coda del bus di servizio o un argomento del bus di servizio.
 
-Miglioramenti vengono applicate per ogni endpoint. Se si specificano cinque miglioramenti da aggiungere per un endpoint specifico, tutti i messaggi inviati a tale endpoint sono contrassegnati con i miglioramenti di cinque stesso.
+È anche possibile aggiungere arricchimenti ai messaggi che vengono pubblicati in griglia di eventi selezionando l'endpoint come griglia di eventi. Per altre informazioni, vedere [Hub e griglia di eventi](iot-hub-event-grid.md).
 
-Per informazioni su come provare miglioramenti di messaggio, vedere il [esercitazione miglioramenti di messaggio](tutorial-message-enrichments.md)
+Gli arricchimenti vengono applicati per ogni endpoint. Se si specificano cinque arricchimenti da contrassegnare per un endpoint specifico, tutti i messaggi che passano a tale endpoint vengono contrassegnati con gli stessi cinque arricchimenti.
+
+Per informazioni su come provare gli arricchimenti dei messaggi, vedere l' [esercitazione](tutorial-message-enrichments.md) relativa all'arricchimento dei messaggi
 
 ## <a name="limitations"></a>Limitazioni
 
-* È possibile aggiungere fino a 10 miglioramenti per l'IoT Hub per gli hub nel livello standard o basic. Per gli hub IoT nel livello gratuito, è possibile aggiungere fino a 2 miglioramenti.
+* È possibile aggiungere fino a 10 arricchimenti per l'hub di tutti gli hub nel livello standard o Basic. Per gli hub Internet nel livello gratuito, è possibile aggiungere fino a 2 arricchimenti.
 
-* In alcuni casi, se si sta applicando un arricchimento con un valore impostato su un tag o proprietà nel dispositivo gemello, il valore verrà contrassegnato come valore stringa. Ad esempio, se un valore di arricchimento è impostato su $twin.tags.field, i messaggi verranno contrassegnati con la stringa "$twin.tags.field" anziché il valore del campo da un gemello. Ciò si verifica nei casi seguenti:
+* In alcuni casi, se si applica un arricchimento con un valore impostato su un tag o una proprietà nel dispositivo gemello, il valore verrà timbrato come valore stringa. Se, ad esempio, un valore di arricchimento è impostato su $twin. Tags. Field, i messaggi verranno contrassegnati con la stringa "$twin. Tags. Field" invece del valore di tale campo dal dispositivo gemello. Questo problema si verifica nei casi seguenti:
 
-   * L'IoT Hub è nel livello basic. Gli hub IoT di livello Basic non supportano i dispositivi gemelli.
+   * L'hub Internet delle cose è nel livello Basic. Gli hub Internet del livello Basic non supportano i dispositivi gemelli.
 
-   * L'IoT Hub è nel livello standard, ma il dispositivo che invia il messaggio non dispone di alcun dispositivo gemello.
+   * L'hub Internet delle cose è nel livello standard, ma il dispositivo che invia il messaggio non ha un dispositivo gemello.
 
-   * L'IoT Hub è nel livello standard, ma il percorso del dispositivo gemello usato per il valore dell'arricchimento non esiste. Ad esempio, se il valore di arricchimento è impostato su $twin.tags.location e il dispositivo gemello non ha una proprietà di posizione con tag, il messaggio è contrassegnato dal con la stringa "$twin.tags.location". 
+   * L'hub Internet delle cose è nel livello standard, ma il percorso del dispositivo gemello usato per il valore dell'arricchimento non esiste. Se, ad esempio, il valore di arricchimento è impostato su $twin. Tags. location e il dispositivo gemello non dispone di una proprietà location in Tags, il messaggio viene contrassegnato con la stringa "$twin. Tags. location". 
 
-* Gli aggiornamenti a un dispositivo gemello possono richiedere fino a cinque minuti per essere riflessa nel valore arricchimento corrispondente.
+* Gli aggiornamenti a un dispositivo gemello possono richiedere fino a cinque minuti per essere riflessi nel valore di arricchimento corrispondente.
 
-* La dimensione totale dei messaggi, inclusi i miglioramenti, non può superare i 256 KB. Se una dimensione del messaggio supera i 256 KB, l'IoT Hub eliminerà il messaggio. È possibile usare [le metriche dell'IoT Hub](iot-hub-metrics.md) identificare ed eseguire il debug degli errori quando i messaggi vengono eliminati. Ad esempio, è possibile monitorare d2c.telemetry.egress.invalid.
+* Le dimensioni totali dei messaggi, incluse le arricchimenti, non possono superare 256 KB. Se le dimensioni di un messaggio superano 256 KB, l'hub delle cose eliminerà il messaggio. È possibile usare le [metriche dell'hub](iot-hub-metrics.md) Internet per identificare ed eseguire il debug degli errori quando i messaggi vengono eliminati. Ad esempio, è possibile monitorare D2C. telemetria. uscita. non è valido.
 
 ## <a name="pricing"></a>Prezzi
 
-Miglioramenti di messaggio sono disponibili senza alcun costo aggiuntivo. Attualmente, vengono addebitati quando si invia un messaggio a un IoT Hub. Viene addebitato solo una volta per il messaggio, anche se il messaggio viene inviato a più endpoint.
+Gli arricchimenti dei messaggi sono disponibili senza costi aggiuntivi. Attualmente viene addebitato un addebito quando si invia un messaggio a un hub Internet. Viene addebitata una sola volta per il messaggio, anche se il messaggio viene indirizzato a più endpoint.
 
 ## <a name="availability"></a>Disponibilità
 
-Questa funzionalità è disponibile in anteprima ed è disponibile in tutte le aree ad eccezione degli Stati Uniti orientali, Stati Uniti occidentali, Europa occidentale [Azure per enti pubblici](/azure/azure-government/documentation-government-welcome), [Azure Cina 21Vianet](/azure/china), e [Azure Germania](https://azure.microsoft.com/global-infrastructure/germany/).
+Questa funzionalità è disponibile in anteprima ed è disponibile in tutte le aree, ad eccezione degli Stati Uniti orientali, Stati Uniti occidentali, Europa occidentale, [Azure per enti pubblici](/azure/azure-government/documentation-government-welcome), [Azure Cina 21ViaNet](/azure/china)e [Azure Germania](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere gli articoli seguenti per altre informazioni sul routing dei messaggi a un IoT Hub:
+Vedere questi articoli per altre informazioni sul routing dei messaggi a un hub Internet:
 
-* [Usare il routing dei messaggi dell'IoT Hub per inviare messaggi da dispositivo a cloud a endpoint diversi](iot-hub-devguide-messages-d2c.md)
+* [Usare il routing dei messaggi dell'hub Internet per inviare messaggi da dispositivo a cloud a endpoint diversi](iot-hub-devguide-messages-d2c.md)
 
-* [Esercitazione: Routing dell'IoT Hub](tutorial-routing.md)
+* [Esercitazione: Routing dell'hub Internet](tutorial-routing.md)

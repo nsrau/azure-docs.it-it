@@ -256,7 +256,7 @@ Dopo avere creato il disco rigido virtuale nella directory locale, è possibile 
 Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 ```
 
-Ad esempio \<Uri > potrebbe essere  ** _"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"_** . Ad esempio \<FileInfo > può essere  ** _"C:\path\to\upload.vhd"_** .
+Ad esempio \<Uri > potrebbe essere **_"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"_** . Ad esempio \<FileInfo > può essere **_"C:\path\to\upload.vhd"_** .
 
 ##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>Opzione 2: uso di AzCopy per caricare il file con estensione vhd
 Tramite AzCopy è possibile caricare facilmente il disco rigido virtuale in Internet. A seconda della dimensione dei dischi rigidi virtuali, tale operazione potrebbe richiedere tempo. Ricordarsi di verificare i limiti di ingresso/uscita dell’account di archiviazione quando si utilizza questa opzione. Vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md) per i dettagli.

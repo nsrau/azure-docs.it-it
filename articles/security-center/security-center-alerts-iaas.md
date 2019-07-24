@@ -1,6 +1,6 @@
 ---
-title: Per le minacce rilevamento per le macchine virtuali e i server nel Centro sicurezza di Azure | Microsoft Docs
-description: Questo argomento presenta avvisi della macchina virtuale e server disponibili nel Centro sicurezza di Azure.
+title: Rilevamento delle minacce per le macchine virtuali & Server nel centro sicurezza di Azure | Microsoft Docs
+description: Questo argomento presenta gli avvisi relativi alla macchina virtuale e al server disponibili nel centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -13,110 +13,110 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/02/2019
-ms.author: monhaber
-ms.openlocfilehash: 5487b4f49f5dbf7b968cd45d40555c69b54c329a
-ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
+ms.author: v-mohabe
+ms.openlocfilehash: f23865fc0a1943a5157e4ff8eb8de10a71ef0883
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571582"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295782"
 ---
-# <a name="threat-detection-for-vms--servers-in-azure-security-center"></a>Rilevamento delle minacce per macchine virtuali e i server nel Centro sicurezza di Azure
+# <a name="threat-detection-for-vms--servers-in-azure-security-center"></a>Rilevamento delle minacce per le macchine virtuali & Server nel centro sicurezza di Azure
 
-In questo argomento presenta i diversi tipi di metodi di rilevamento e gli avvisi disponibili per le macchine virtuali e i server con i sistemi operativi seguenti. Per un elenco delle versioni supportate, vedere [funzionalità supportate dal Centro sicurezza di Azure e piattaforme](https://docs.microsoft.com/azure/security-center/security-center-os-coverage).
+In questo argomento vengono illustrati i diversi tipi di metodi di rilevamento e gli avvisi disponibili per le macchine virtuali e i server con i sistemi operativi seguenti. Per un elenco delle versioni supportate, vedere [piattaforme e funzionalità supportate dal centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-os-coverage).
 
 * [Windows](#windows-machines)
 * [Linux](#linux-machines)
 
 ## Windows <a name="windows-machines"></a>
 
-Il Centro sicurezza si integra con servizi di Azure per monitorare e proteggere i computer basati su Windows.  Il Centro sicurezza Visualizza gli avvisi e i suggerimenti di correzione da tutti questi servizi in un formato di facile utilizzo.
+Il Centro sicurezza si integra con i servizi di Azure per monitorare e proteggere i computer basati su Windows.  Il Centro sicurezza presenta gli avvisi e i suggerimenti per la correzione di tutti questi servizi in un formato di facile utilizzo.
 
-### Microsoft Server Defender ATP <a nanme="windows-atp"></a>
+### Microsoft Server Defender ATP<a nanme="windows-atp"></a>
 
-Centro sicurezza di Azure estende le piattaforme di protezione del carico di lavoro Cloud grazie all'integrazione con Windows Defender Advanced Threat Protection (ATP). Ciò offre funzionalità complete di Endpoint di rilevamento e risposta (EDR).
+Il Centro sicurezza di Azure estende le piattaforme di protezione dei carichi di lavoro cloud integrando con Windows Defender Advanced Threat Protection (ATP). In questo modo vengono fornite le funzionalità complete di rilevamento e risposta dell'endpoint.
 
 > [!NOTE]
-> Sensore di Server di Windows Defender ATP viene abilitato automaticamente in Windows Server che siano state caricate al Centro sicurezza di Azure.
+> Il sensore Windows Server Defender ATP viene abilitato automaticamente nei server Windows caricati nel centro sicurezza di Azure.
 
-Quando il Server di Windows Defender ATP rileva una minaccia, attiva un avviso. L'avviso viene visualizzato nel dashboard del Centro sicurezza. Dal dashboard, è possibile trasformare tramite pivot nella console di Windows Defender ATP per eseguire un'analisi approfondita per scoprire l'ambito dell'attacco. Per altre informazioni sui Server di Windows Defender ATP, vedere [server eseguire l'Onboarding nel servizio di Windows Defender ATP](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
+Quando Windows Server Defender ATP rileva una minaccia, viene attivato un avviso. L'avviso viene visualizzato nel dashboard del Centro sicurezza. Dal dashboard è possibile passare alla console di Windows Defender ATP per eseguire un'indagine dettagliata per individuare l'ambito dell'attacco. Per ulteriori informazioni su Windows Server Defender ATP, vedere [onboarding servers to the Windows Defender ATP Service](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
 
-### Analisi di Dump di arresto anomalo del sistema <a nanme="windows-dump"></a>
+### Analisi del dump di arresto anomalo<a nanme="windows-dump"></a>
 
 Quando il software si arresta in modo anomalo, un dump di arresto anomalo acquisisce una porzione della memoria al momento dell'arresto.
 
-Un arresto anomalo del sistema potrebbe essere stato causato da malware o contengono malware. Per evitare di essere rilevate dai prodotti di sicurezza, varie forme di malware utilizzano un attacco fileless, che consente di evitare la scrittura su disco o la crittografia dei componenti software scritti sul disco. Questo tipo di attacco è difficile da rilevare con gli approcci tradizionali basate su disco.
+Un arresto anomalo può essere causato da malware o contenere malware. Per evitare di essere rilevati dai prodotti per la sicurezza, diverse forme di malware utilizzano un attacco senza file, che evita la scrittura su disco o la crittografia dei componenti software scritti su disco. Questo tipo di attacco è difficile da rilevare usando approcci tradizionali basati su disco.
 
-Tuttavia, questo tipo di attacco può essere rilevato tramite l'analisi della memoria. Analizzando la memoria nel dump di arresto anomalo del sistema, il Centro sicurezza può rilevare le tecniche di che attacco Usa per sfruttare le vulnerabilità del software, accedere ai dati riservati e rimanere permanentemente all'interno di un computer. In tal caso, il back-end di Centro sicurezza con impatto minimo sulle prestazioni per gli host.
+Tuttavia, questo tipo di attacco può essere rilevato tramite l'analisi della memoria. Analizzando la memoria nel dump di arresto anomalo del sistema, il Centro sicurezza è in grado di rilevare le tecniche usate dall'attacco per sfruttare le vulnerabilità del software, accedere ai dati riservati e mantenersi nascosto in un computer compromesso. Questa operazione viene eseguita dal centro sicurezza back-end con un effetto minimo sulle prestazioni degli host.
 
 > [!div class="mx-tableFixed"]
 
 |Avviso|Descrizione|
 |---|---|
-|**Attacco di code injection individuato**|Un attacco di code injection consiste nell'inserimento di moduli eseguibili in processi o thread in esecuzione. Questa tecnica viene usata dal malware per accedere ai dati, mentre correttamente se si nasconde in modo da evitare che viene trovato e rimosso. <br/>Questo avviso indica che nel dump di arresto anomalo del sistema è presente un modulo inserito. Per distinguere tra moduli inseriti dannosi e legittimi, il Centro sicurezza verifica se il modulo inserito corrisponde a un profilo di comportamento sospetto.|
-|**Segmento di codice sospetto individuato**|Indica che un segmento di codice è stato allocato con metodi non standard, ad esempio reflective injection e hollowing del processo. L'avviso fornisce le caratteristiche aggiuntive del segmento di codice che sono state elaborate per fornire un contesto per le funzionalità e i comportamenti del segmento di codice segnalato.|
-|**Individuato attacco ShellCode**|Uno shellcode è il payload che viene eseguito dopo che il malware ha sfruttato una vulnerabilità del software.<br/>Questo avviso indica che l'analisi di dump di arresto anomalo del sistema ha rilevato codice eseguibile che presenta un comportamento comunemente adottato dai payload dannosi. Sebbene non malware può anche eseguire questo comportamento, non è tipico di procedure consigliate per lo sviluppo di software normale.|
+|**Inserimento di codice individuato**|Un attacco di code injection consiste nell'inserimento di moduli eseguibili in processi o thread in esecuzione. Questa tecnica viene usata da malware per accedere ai dati, mentre si nasconde correttamente per impedire che venga individuata e rimossa. <br/>Questo avviso indica che nel dump di arresto anomalo del sistema è presente un modulo inserito. Per distinguere i moduli inseriti dannosi e non dannosi, il Centro sicurezza controlla se il modulo inserito è conforme a un profilo di comportamento sospetto.|
+|**Rilevato segmento di codice sospetto**|Indica che un segmento di codice è stato allocato utilizzando metodi non standard, ad esempio l'inserimento riflettente e il svuotamento del processo. L'avviso fornisce caratteristiche aggiuntive del segmento di codice che sono state elaborate per fornire il contesto per le funzionalità e i comportamenti del segmento di codice restituito.|
+|**Shellcode individuato**|Uno shellcode è il payload che viene eseguito dopo che il malware ha sfruttato una vulnerabilità del software.<br/>Questo avviso indica che l'analisi dei dump di arresto anomalo del sistema ha rilevato codice eseguibile che presenta un comportamento comunemente eseguito da payload dannosi. Anche se il software non dannoso può eseguire questo comportamento, non è tipico delle normali procedure di sviluppo del software.|
 
-### Rilevamento di attacchi fileless <a nanme="windows-fileless"></a>
+### Rilevamento di attacchi non file<a nanme="windows-fileless"></a>
 
-In Azure, noteremo regolarmente fileless attacchi gli endpoint dei clienti.
+In Azure, si verificano periodicamente attacchi non di file destinati agli endpoint dei clienti.
 
-Per evitare il rilevamento, attacchi fileless inserire payload dannosi in memoria. I payload di autore dell'attacco persistono all'interno della memoria dei processi compromessi ed eseguono un'ampia gamma di attività dannose.
+Per evitare il rilevamento, gli attacchi con file inseriscono payload dannosi nella memoria. I payload degli utenti malintenzionati vengono mantenuti nella memoria dei processi compromessi ed eseguono un'ampia gamma di attività dannose.
 
-Con il rilevamento di attacchi fileless, tecniche di analisi forense memoria automatizzati identificano i comportamenti, tecniche e attacchi fileless Toolkit. Questa soluzione periodicamente analizza la macchina in fase di esecuzione ed estrae insights direttamente dalla memoria dei processi critici per la sicurezza.
+Con il rilevamento di attacchi senza file, le tecniche di analisi della memoria automatizzata identificano i toolkit, le tecniche e i comportamenti di attacco senza file. Questa soluzione analizza periodicamente il computer in fase di esecuzione ed estrae informazioni dettagliate direttamente dalla memoria dei processi critici per la sicurezza.
 
-Rileva la prova di exploit, inserimento di codice ed esecuzione del payload dannosi. Rilevamento di attacchi fileless genera avvisi di sicurezza dettagliate per accelerare la valutazione degli avvisi, la correlazione e il tempo di risposta a valle. Questo approccio si integra con soluzioni EDR basato su eventi che fornisce maggiore copertura del rilevamento.
+Rileva l'evidenza di exploit, inserimento di codice ed esecuzione di payload dannosi. Il rilevamento di attacchi non file genera avvisi di sicurezza dettagliati per accelerare la valutazione degli avvisi, la correlazione e il tempo di risposta downstream. Questo approccio integra le soluzioni EDR basate su eventi, garantendo una maggiore copertura del rilevamento.
 
 > [!NOTE]
-> È possibile simulare gli avvisi di Windows tramite download [Azure Security Center Playbook](https://gallery.technet.microsoft.com/Azure-Security-Center-0ac8a5ef): Avvisi di sicurezza e seguire le linee guida fornite
+> È possibile simulare gli avvisi di Windows scaricando il [PlayBook del Centro sicurezza di Azure](https://gallery.technet.microsoft.com/Azure-Security-Center-0ac8a5ef): Avvisi di sicurezza e seguire le linee guida fornite
 
 > [!div class="mx-tableFixed"]
 
 |Avviso|DESCRIZIONE|
 |---|---|
-|**Tecnica di attacco fileless rilevato**|La memoria del processo specificato di seguito contiene un toolkit di attacco fileless: Meterpreter. Toolkit di attacco fileless in genere non è una presenza nel file system, rendendo difficile il rilevamento antivirus tradizionali.|
+|**È stata rilevata una tecnica di attacco non file**|La memoria del processo specificato di seguito contiene un toolkit di attacco informatico: Meterpreter. I toolkit di attacco senza file in genere non hanno una presenza sul file system, rendendo difficile il rilevamento da parte di un antivirus tradizionale.|
 
 ### <a name="further-reading"></a>Altre informazioni
 
 Per esempi e altre informazioni sul rilevamento del Centro sicurezza:
 
-* [Il Centro sicurezza di Azure consente di automatizzare il rilevamento di attacchi informatici](https://azure.microsoft.com/blog/leverage-azure-security-center-to-detect-when-compromised-linux-machines-attack/)
-* [Il Centro sicurezza di Azure rileva vulnerabilità usando strumenti di amministrazione](https://azure.microsoft.com/blog/azure-security-center-can-detect-emerging-vulnerabilities-in-linux/)
+* [Come il Centro sicurezza di Azure automatizza il rilevamento di attacchi informatici](https://azure.microsoft.com/blog/leverage-azure-security-center-to-detect-when-compromised-linux-machines-attack/)
+* [Come il Centro sicurezza di Azure rileva le vulnerabilità usando gli strumenti di amministrazione](https://azure.microsoft.com/blog/azure-security-center-can-detect-emerging-vulnerabilities-in-linux/)
 
 ## Linux <a name="linux-machines"></a>
 
-Raccoglie il Centro sicurezza controlla i record da computer Linux usando **auditd**, uno di Linux più comuni Framework di controllo. auditd ha il vantaggio di essere stata intorno per molto tempo e che vivono nel kernel del progetto principale. 
+Il Centro sicurezza raccoglie i record di controllo dai computer Linux usando auditd, uno dei framework di controllo di Linux più comuni. il controllo ha il vantaggio di essere stato da molto tempo e vivere nel kernel principale. 
 
-### Integrazione di Microsoft Monitoring Agent (MMA) e gli avvisi di Linux auditd <a name="linux-auditd"></a>
+### Integrazione di Microsoft Monitoring Agent e avvisi controllati da Linux (MMA)<a name="linux-auditd"></a>
 
-Il sistema auditd è costituito da un sottosistema a livello di kernel, che è responsabile per le chiamate di sistema di monitoraggio, filtrarli da un determinato set di regole e scrivendo messaggi per loro un socket. Il Centro sicurezza si integra le funzionalità dal pacchetto auditd all'interno di Microsoft Monitoring Agent (MMA). Questa integrazione consente la raccolta di eventi auditd in tutte le distribuzioni di Linux supportate senza tutti i prerequisiti.  
+Il sistema controllato è costituito da un sottosistema a livello di kernel, che è responsabile del monitoraggio delle chiamate di sistema, del filtro in base a un determinato set di regole e della scrittura dei messaggi in un socket. Il Centro sicurezza integra le funzionalità del pacchetto controllato all'interno del Microsoft Monitoring Agent (MMA). Questa integrazione consente la raccolta di eventi controllati in tutte le distribuzioni di Linux supportate senza prerequisiti.  
 
-i record di controllo vengono raccolti, arricchiti e aggregati in eventi tramite l'agente MMA Linux. Il Centro sicurezza è rivolto sull'aggiunta di nuovi analitica, che sfrutta Linux segnali per rilevare comportamenti dannosi nei cloud locali e nel computer Linux. Analogamente alle funzionalità di Windows, questi analitica estendersi su processi sospetti, tentativi di accesso sospette, caricamento moduli kernel e altre attività, che indicano un computer è sotto attacco oppure non è stata soddisfatta.  
+i record controllati vengono raccolti, arricchiti e aggregati in eventi usando l'agente MMA di Linux. Il Centro sicurezza sta lavorando costantemente sull'aggiunta di nuove analisi, che sfruttano i segnali di Linux per rilevare comportamenti dannosi nei computer Linux locali e cloud. Analogamente alle funzionalità di Windows, queste analisi si estendono nei processi sospetti, i tentativi di accesso ambigui, il caricamento del modulo kernel e altre attività, che indicano che un computer è sotto attacco o è stato violato.  
 
-Ecco alcuni esempi di analitica, che illustrano come si estendono su diverse fasi del ciclo di vita di attacco.
+Di seguito sono riportati alcuni esempi di analisi, che dimostrano il modo in cui si estendono diverse fasi del ciclo di vita degli attacchi.
 
 > [!div class="mx-tableFixed"]
 
-|Avviso|DESCRIZIONE|
+|Avviso|Descrizione|
 |---|---|
-|**Processo visualizzata l'accesso al file di chiavi autorizzate SSH in modo anomalo**|Un file di chiavi autorizzate SSH è stato eseguito l'accesso in un metodo simile alle campagne malware conosciuto. Questo tipo di accesso potrebbe indicare che un utente malintenzionato sta tentando di ottenere l'accesso permanente a un computer|
-|**Tentativo di salvataggio permanente rilevato**|Analisi di dati host ha rilevato che uno script di avvio per la modalità utente singolo sia stato installato. <br/>Poiché è raro che tutti i processi legittimi sarebbe richiesto per eseguire in tale modalità, questo può indicare che un utente malintenzionato ha aggiunto un processo dannoso a ogni livello di esecuzione per garantire la persistenza.|
-|**Manipolazione di attività pianificate rilevato**|Analisi dei dati host ha rilevato possibili manipolazione delle attività pianificate. Gli utenti malintenzionati aggiungono spesso le attività pianificate per le macchine che hai compromesse per ottenere la persistenza.|
-|**Modifica del timestamp file sospetto**|Analisi dei dati host ha rilevato una modifica del timestamp sospette. Gli utenti malintenzionati spesso copiare timestamp dai file legittimi esistenti ai nuovi strumenti per evitare il rilevamento di questi file appena rilasciati|
-|**È stato aggiunto un nuovo utente al gruppo sudoers**|Analisi dei dati host ha rilevato che un utente è stato aggiunto al gruppo sudoers, che consente ai membri di eseguire i comandi con privilegi elevati.|
-|**Probabilmente exploit di vulnerabilità DynoRoot nel client dhcp**|Analisi dei dati host rilevati l'esecuzione di un comando insolito con il processo padre di dhclient script.|
-|**Rilevato modulo kernel sospetta**|Analisi dei dati di host ha rilevato un file oggetto condiviso viene caricato come modulo del kernel. Potrebbe trattarsi di attività legittimo o un valore che indica che una delle macchine sia stata compromessa.|
-|**Processo associato al data mining valuta digitale rilevato**|Analisi dei dati host rilevati l'esecuzione di un processo in genere associato a data mining valuta digitale|
-|**Potenziali il port forwarding per indirizzo IP esterno**|Analisi dei dati host ha rilevato l'apertura di porte di inoltro a un indirizzo IP esterno.|
+|**Il processo ha visto l'accesso al file delle chiavi autorizzate SSH in modo insolito**|È stato eseguito l'accesso a un file di chiavi autorizzate SSH in un metodo simile a una campagna malware nota. Questo accesso potrebbe indicare che un utente malintenzionato sta tentando di ottenere l'accesso permanente a un computer|
+|**Tentativo di persistenza rilevato**|L'analisi dei dati host ha rilevato che è stato installato uno script di avvio per la modalità utente singolo. <br/>Poiché è raro che sia necessario eseguire qualsiasi processo legittimo in tale modalità, questo può indicare che un utente malintenzionato ha aggiunto un processo dannoso a ogni livello di esecuzione per garantire la persistenza.|
+|**Manipolazione delle attività pianificate rilevate**|L'analisi dei dati host ha rilevato la possibile modifica delle attività pianificate. Spesso gli utenti malintenzionati aggiungono attività pianificate ai computer compromessi per ottenere la persistenza.|
+|**Modifica del timestamp del file sospetto**|L'analisi dei dati host ha rilevato una modifica del timestamp sospetta. Spesso gli utenti malintenzionati copiano i timestamp da file legittimi esistenti a nuovi strumenti per evitare il rilevamento di questi file appena eliminati|
+|**Un nuovo utente è stato aggiunto al gruppo sudoers**|L'analisi dei dati host ha rilevato che un utente è stato aggiunto al gruppo sudoers, che consente ai membri di eseguire comandi con privilegi elevati.|
+|**Exploit probabile della vulnerabilità DynoRoot nel client DHCP**|L'analisi dei dati host ha rilevato l'esecuzione di un comando insolito con processo padre dello script dhclient.|
+|**Rilevato modulo kernel sospetto**|L'analisi dei dati host ha rilevato un file oggetto condiviso caricato come un modulo kernel. Questa operazione potrebbe essere legittima o indicare che uno dei computer è stato compromesso.|
+|**Processo associato al data mining di valuta digitale rilevato**|L'analisi dei dati dell'host ha rilevato l'esecuzione di un processo normalmente associato a Digital Currency mining|
+|**Potenziale portabilità dell'invio a un indirizzo IP esterno**|L'analisi dei dati dell'host ha rilevato l'avvio del Port inoltring a un indirizzo IP esterno.|
 
 > [!NOTE]
-> È possibile simulare gli avvisi di Windows scaricando [Azure Security Center Playbook: Avvisi di sicurezza](https://gallery.technet.microsoft.com/Azure-Security-Center-0ac8a5ef) e seguire le linee guida specificate.
+> È possibile simulare gli avvisi di Windows [scaricando il PlayBook del Centro sicurezza di Azure: Avvisi](https://gallery.technet.microsoft.com/Azure-Security-Center-0ac8a5ef) di sicurezza e seguire le linee guida fornite.
 
 
 Per altre informazioni, vedere questi articoli:  
 
-* [Centro sicurezza di Azure usare per rilevare l'attacco dei computer Linux compromesso](https://azure.microsoft.com/blog/leverage-azure-security-center-to-detect-when-compromised-linux-machines-attack/)
+* [Usare il Centro sicurezza di Azure per rilevare gli attacchi con computer Linux compromessi](https://azure.microsoft.com/blog/leverage-azure-security-center-to-detect-when-compromised-linux-machines-attack/)
 
-* [Centro sicurezza di Azure consente di rilevare le vulnerabilità emergenti in Linux](https://azure.microsoft.com/blog/azure-security-center-can-detect-emerging-vulnerabilities-in-linux/)
+* [Il Centro sicurezza di Azure può rilevare le vulnerabilità emergenti in Linux](https://azure.microsoft.com/blog/azure-security-center-can-detect-emerging-vulnerabilities-in-linux/)
 
  

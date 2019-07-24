@@ -1,6 +1,6 @@
 ---
-title: Versioni di Service Fabric Azure
-description: Note sulla versione per le ultime funzionalità e miglioramenti in Service Fabric.
+title: Versioni di Azure Service Fabric
+description: Note sulla versione per le funzionalità e i miglioramenti più recenti in Service Fabric.
 author: athinanthny
 manager: chackdan
 ms.author: atsenthi
@@ -9,64 +9,71 @@ ms.topic: conceptual
 ms.service: service-fabric
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 78fb96cae3d3d128da608183f37771b2ecf66dcf
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 829963cf13eb1dc1b1113b6a296fe77dadb63bc4
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165350"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68224941"
 ---
-# <a name="service-fabric-releases"></a>Versioni di Service Fabric
+# <a name="service-fabric-releases"></a>Versioni Service Fabric
 
-| <a href="https://github.com/Azure/Service-Fabric-Troubleshooting-Guides" target="blank">Risoluzione dei problemi di Guide</a> 
-| <a href="https://github.com/Azure/service-fabric-issues" target="blank">gestione dei problemi</a> 
-| <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-support" target="blank">opzioni di supporto</a> 
-| <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-versions" target="blank">versioni supportate</a>  
-|  <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank">Esempi di codice</a>
+| <a href="https://github.com/Azure/Service-Fabric-Troubleshooting-Guides" target="blank">Guida</a><a href="https://github.com/Azure/service-fabric-issues" target="blank"></a> 
+|  
+| <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank"></a> <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-versions" target="blank"></a><a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-support" target="blank"></a>alla risoluzione dei problemi delleOpzioni 
+| supporto per la gestione delle versioni supportate esempi di codice 
+| 
 
-Questo articolo fornisce altre informazioni sulle versioni più recenti e aggiornamenti per gli SDK e runtime di Service Fabric.
+Questo articolo fornisce altre informazioni sulle versioni più recenti e sugli aggiornamenti per il runtime di Service Fabric e gli SDK.
 
-## <a name="whats-new-in-service-fabric"></a>**Novità in Service Fabric**
+## <a name="whats-new-in-service-fabric"></a>Novità di Service Fabric
 
-### <a name="service-fabric-65"></a>Service Fabric 6.5
+### <a name="service-fabric-65"></a>Service Fabric 6,5
 
-La versione più recente di Service Fabric include la supportabilità, l'affidabilità e miglioramenti delle prestazioni, nuove funzionalità, correzioni di bug e miglioramenti per semplificare la gestione del ciclo di vita del cluster e dell'applicazione.
+La versione più recente Service Fabric include miglioramenti a supporto, affidabilità e prestazioni, nuove funzionalità, correzioni di bug e miglioramenti per semplificare la gestione del ciclo di vita delle applicazioni e dei cluster.
 
 > [!IMPORTANT]
-> Service Fabric 6.5 è la versione finale di Service Fabric supportano strumenti in Visual Studio 2015. I clienti sono invitati a cui spostarsi [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) in futuro.
+> Service Fabric 6,5 è la versione finale con supporto degli strumenti Service Fabric in Visual Studio 2015. Si consiglia ai clienti di passare a [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) in futuro.
 
-Ecco che cosa sono le novità di Service Fabric 6.5:
+Ecco le novità di Service Fabric 6,5:
 
-- Service Fabric Explorer include un' [Image Store Viewer](service-fabric-visualizing-your-cluster.md#image-store-viewer) per il controllo delle applicazioni sono stati caricati su archivio immagini.
+- Service Fabric Explorer include un [visualizzatore archivio immagini](service-fabric-visualizing-your-cluster.md#image-store-viewer) per esaminare le applicazioni caricate nell'archivio immagini.
 
-- [Patch Orchestration Application (POA)](service-fabric-patch-orchestration-application.md) versione [1.4.0](https://github.com/microsoft/Service-Fabric-POA/releases/tag/v1.4.0) include numerosi miglioramenti di diagnostica automatico. I clienti di POA si consiglia di passare a questa versione.
+- [Patch Orchestration Application (POA)](service-fabric-patch-orchestration-application.md) versione [1.4.0](https://github.com/microsoft/Service-Fabric-POA/releases/tag/v1.4.0) include numerosi miglioramenti di diagnostica automatica. I clienti di POA sono consigliati per passare a questa versione.
 
-- [EventStore Service è abilitato per impostazione predefinita](service-fabric-visualizing-your-cluster.md#event-store) per i cluster di Service Fabric 6.5 a meno che non si sono esclusi.
+- Il [servizio EventStore è abilitato per impostazione predefinita](service-fabric-visualizing-your-cluster.md#event-store) per Service Fabric cluster 6,5, a meno che non sia stato rifiutato.
 
-- Aggiunti [eventi del ciclo di vita della replica](service-fabric-diagnostics-event-generation-operational.md#replica-events) per i servizi con stato.
+- Sono stati aggiunti [eventi del ciclo](service-fabric-diagnostics-event-generation-operational.md#replica-events) di vita della replica per i servizi con stato.
 
-- [Migliore visibilità dello stato nodo di valore di inizializzazione](service-fabric-understand-and-troubleshoot-with-system-health-reports.md#seed-node-status), inclusi gli avvisi a livello di cluster se un nodo di valore di inizializzazione non è integro (*verso il basso*, *rimosso* oppure *sconosciuto*).
+- [Migliore visibilità dello stato del nodo di inizializzazione](service-fabric-understand-and-troubleshoot-with-system-health-reports.md#seed-node-status), inclusi gli avvisi a livello di cluster se un nodo di inizializzazione non è integro (inattivo, *rimosso* o *sconosciuto*).
 
-- [Lo strumento Service Fabric Application Disaster Recovery](https://github.com/Microsoft/Service-Fabric-AppDRTool) consente ai servizi con stati di Service Fabric per un rapido ripristino quando il cluster primario rileva una situazione di emergenza. I dati dal cluster primario viene sincronizzati in modo continuo nell'applicazione di standby secondario utilizzando backup periodico e il ripristino.
+- [Service Fabric strumento di ripristino di emergenza dell'applicazione](https://github.com/Microsoft/Service-Fabric-AppDRTool) consente Service Fabric servizi con stato di eseguire rapidamente il ripristino quando il cluster primario rileva un'emergenza. I dati del cluster primario vengono continuamente sincronizzati nell'applicazione di standby secondaria mediante backup e ripristino periodici.
 
-- Supporto di Visual Studio per [pubblicazione di App .NET Core per cluster basati su Linux](service-fabric-how-to-publish-linux-app-vs.md).
+- Supporto di Visual Studio per la [pubblicazione di app .NET Core in cluster basati su Linux](service-fabric-how-to-publish-linux-app-vs.md).
 
-- [Azure Service Fabric CLI (SFCTL)](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) verrà installato automaticamente per Service Fabric 6.5 e versioni successive, quando si aggiorna o si crea un nuovo cluster di Linux in Azure.
+- L'interfaccia della riga di comando di [Azure Service Fabric (SFCTL)](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) verrà installata automaticamente per Service Fabric 6,5 (e versioni successive) quando si aggiorna o si crea un nuovo cluster Linux in Azure.
 
 - [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) viene installato per impostazione predefinita nei cluster OneBox MacOS/Linux.
 
-Per altre informazioni, vedere la [note sulla versione di Service Fabric 6.5](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65.pdf).
+Per ulteriori informazioni, vedere le [Note sulla versione di Service Fabric 6,5](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65.pdf).
 
-## <a name="previous-versions"></a>Versioni precedenti
-
-### <a name="service-fabric-64-releases"></a>Versioni di Service Fabric 6.4
+### <a name="service-fabric-65-releases"></a>Versioni di Service Fabric 6,5
 
 | Data di rilascio | Versione | Altre informazioni |
 |---|---|---|
-| 30 novembre 2018 | [Azure Service Fabric 6.4](https://blogs.msdn.microsoft.com/azureservicefabric/2018/11/30/azure-service-fabric-6-4-release/)  | [Note sulla versione](https://msdnshared.blob.core.windows.net/media/2018/12/Service-Fabric-6.4-Release.pdf)|
-| 12 dicembre 2018 | [Cluster di Service Fabric 6.4 Aggiorna versione per Windows Azure](https://blogs.msdn.microsoft.com/azureservicefabric/2018/12/12/azure-service-fabric-6-4-refresh-for-windows-clusters/)  | [Note sulla versione](https://msdnshared.blob.core.windows.net/media/2018/12/Links.pdf)  |
-| 4 febbraio 2019 | [Azure Service Fabric 6.4 aggiornamento versione](https://blogs.msdn.microsoft.com/azureservicefabric/2019/02/04/azure-service-fabric-6-4-refresh-release/) | [Note sulla versione](https://msdnshared.blob.core.windows.net/media/2019/02/Service-Fabric-6.4CU3-Release-Notes.pdf) |
-| 4 marzo 2019 | [Azure Service Fabric 6.4 aggiornamento versione](https://blogs.msdn.microsoft.com/azureservicefabric/2019/03/12/azure-service-fabric-6-4-refresh-release-2/) | [Note sulla versione](https://msdnshared.blob.core.windows.net/media/2019/03/Service-Fabric-6.4CU4-Release-Notes.pdf)
-| 8 aprile 2019 | [Azure Service Fabric 6.4 aggiornamento versione](https://blogs.msdn.microsoft.com/azureservicefabric/2019/04/08/azure-service-fabric-6-4-refresh-release-5/) | [Note sulla versione](https://msdnshared.blob.core.windows.net/media/2019/04/Service-Fabric-6.4CU5-ReleaseNotes3.pdf)
-| 2 maggio 2019 | [Azure Service Fabric 6.4 aggiornamento versione](https://blogs.msdn.microsoft.com/azureservicefabric/2019/05/02/azure-service-fabric-6-4-refresh-release-3/) | [Note sulla versione](https://msdnshared.blob.core.windows.net/media/2019/05/Service-Fabric-64CU6-Release-Notes-V2.pdf)
-| 28 maggio 2019 | [Azure Service Fabric 6.4 aggiornamento versione](https://blogs.msdn.microsoft.com/azureservicefabric/2019/05/28/azure-service-fabric-6-4-refresh-release-4/) | [Note sulla versione](https://msdnshared.blob.core.windows.net/media/2019/05/Service_Fabric_64CU7_Release_Notes1.pdf)
+| 11 giugno 2019 | [Azure Service Fabric 6,5](https://blogs.msdn.microsoft.com/azureservicefabric/2019/06/11/azure-service-fabric-6-5-release/)  | [Note sulla versione](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65.pdf)|
+| 2 luglio 2019 | [Azure Service Fabric 6,5 aggiornamento versione](https://blogs.msdn.microsoft.com/azureservicefabric/2019/07/04/azure-service-fabric-6-5-refresh-release/)  | [Note sulla versione](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU1.pdf)  |
+
+## <a name="previous-versions"></a>Versioni precedenti
+
+### <a name="service-fabric-64-releases"></a>Versioni di Service Fabric 6,4
+
+| Data di rilascio | Versione | Altre informazioni |
+|---|---|---|
+| 30 novembre, 2018 | [Azure Service Fabric 6,4](https://blogs.msdn.microsoft.com/azureservicefabric/2018/11/30/azure-service-fabric-6-4-release/)  | [Note sulla versione](https://msdnshared.blob.core.windows.net/media/2018/12/Service-Fabric-6.4-Release.pdf)|
+| 12 dicembre 2018 | [Versione di aggiornamento di Azure Service Fabric 6,4 per i cluster Windows](https://blogs.msdn.microsoft.com/azureservicefabric/2018/12/12/azure-service-fabric-6-4-refresh-for-windows-clusters/)  | [Note sulla versione](https://msdnshared.blob.core.windows.net/media/2018/12/Links.pdf)  |
+| 4 febbraio 2019 | [Azure Service Fabric 6,4 aggiornamento versione](https://blogs.msdn.microsoft.com/azureservicefabric/2019/02/04/azure-service-fabric-6-4-refresh-release/) | [Note sulla versione](https://msdnshared.blob.core.windows.net/media/2019/02/Service-Fabric-6.4CU3-Release-Notes.pdf) |
+| 4 marzo 2019 | [Azure Service Fabric 6,4 aggiornamento versione](https://blogs.msdn.microsoft.com/azureservicefabric/2019/03/12/azure-service-fabric-6-4-refresh-release-2/) | [Note sulla versione](https://msdnshared.blob.core.windows.net/media/2019/03/Service-Fabric-6.4CU4-Release-Notes.pdf)
+| 8 aprile 2019 | [Azure Service Fabric 6,4 aggiornamento versione](https://blogs.msdn.microsoft.com/azureservicefabric/2019/04/08/azure-service-fabric-6-4-refresh-release-5/) | [Note sulla versione](https://msdnshared.blob.core.windows.net/media/2019/04/Service-Fabric-6.4CU5-ReleaseNotes3.pdf)
+| 2 maggio 2019 | [Azure Service Fabric 6,4 aggiornamento versione](https://blogs.msdn.microsoft.com/azureservicefabric/2019/05/02/azure-service-fabric-6-4-refresh-release-3/) | [Note sulla versione](https://msdnshared.blob.core.windows.net/media/2019/05/Service-Fabric-64CU6-Release-Notes-V2.pdf)
+| 28 maggio 2019 | [Azure Service Fabric 6,4 aggiornamento versione](https://blogs.msdn.microsoft.com/azureservicefabric/2019/05/28/azure-service-fabric-6-4-refresh-release-4/) | [Note sulla versione](https://msdnshared.blob.core.windows.net/media/2019/05/Service_Fabric_64CU7_Release_Notes1.pdf)
