@@ -5,6 +5,7 @@
     - name: Informazioni su Gemelli digitali di Azure
       href: about-digital-twins.md
 - name: Guide introduttive
+  expanded: true
   items:
     - name: Trovare le stanze disponibili
       href: quickstart-view-occupancy-dotnet.md

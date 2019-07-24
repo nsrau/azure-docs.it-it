@@ -13,6 +13,10 @@
   items:
     - name: Avviare lo strumento di lettura immersiva (Node.js)
       href: tutorial.md
+- name: Procedura
+  items:
+    - name: Autenticazione di Azure Active Directory
+      href: azure-active-directory-authentication.md
 - name: riferimento
   items:
     - name: Informazioni di riferimento sugli SDK

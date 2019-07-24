@@ -48,7 +48,7 @@ I passaggi seguenti descrivono come creare un'origine dati ODBC Apache Hive.
 
 1. Nella scheda **DSN utente** selezionare **Aggiungi** per aprire la finestra **Crea nuova origine dati**.
 
-1. Selezionare **Microsoft Hive ODBC Driver** e quindi selezionare **Fine** per aprire la finestra di configurazione del **** DSN per Microsoft Hive ODBC Driver.
+1. Selezionare **Microsoft Hive ODBC Driver** e quindi selezionare **Fine** per aprire la finestra di configurazione del **DSN per Microsoft Hive ODBC Driver.**
 
 1. Digitare o selezionare i valori seguenti:
 
@@ -76,7 +76,7 @@ I passaggi seguenti descrivono come creare un'origine dati ODBC Apache Hive.
 
 1. Selezionare **OK** per chiudere la finestra Test.  
 
-1. Selezionare **OK** per chiudere la finestra di configurazione del **** DSN per Microsoft Hive ODBC Driver.  
+1. Selezionare **OK** per chiudere la finestra di configurazione del DSN per Microsoft Hive ODBC Driver.  
 
 1. Selezionare **OK** per chiudere la finestra **Amministratore origine dati ODBC**.  
 
