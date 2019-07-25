@@ -41,6 +41,9 @@
     - name: Ottenere le modifiche delle risorse
       displayName: 'resource, change, history, snapshot, details'
       href: ./how-to/get-resource-changes.md
+- name: Risolvere problemi
+  displayName: 'errors, violation'
+  href: ./troubleshoot/general.md
 - name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure

@@ -36,7 +36,7 @@
 - name: riferimento
   items:
     - name: .NET
-      href: /dotnet/api/microsoft.azure.management.datashare
+      href: /dotnet/api/overview/azure/datashare
     - name: API REST
       href: /rest/api/datashare
 - name: Risorse
