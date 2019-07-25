@@ -11,7 +11,7 @@ ms.service: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 953a549a44d224f9d196c6d6842bdcae04cca975
 ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/01/2019
 ms.locfileid: "67485920"

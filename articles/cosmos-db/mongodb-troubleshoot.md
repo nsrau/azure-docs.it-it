@@ -26,7 +26,7 @@ API di Azure Cosmos DB per MongoDB è compatibile con la versione 3.2 del protoc
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | Il numero totale di unità richiesta utilizzate è maggiore del livello di unità richiesta di cui è stato effettuato il provisioning per la raccolta ed è stata applicata la limitazione. | Provare a ridimensionare la velocità effettiva assegnata a un contenitore o un set di contenitori dal portale di Azure oppure è possibile ripetere l'operazione. |
 | ExceededMemoryLimit | 16501 | In quanto servizio multi-tenant, l'operazione ha superato il limite di allocazione di memoria del client. | Ridurre l'ambito dell'operazione tramite criteri di query più restrittivi oppure contattare il supporto tecnico dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Esempio: `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |
-| Problemi di versione wire MongoDB | - | Le versioni precedenti dei driver di MongoDB sono in grado di rilevare il nome dell'account Azure Cosmos nelle stringhe di connessione. | Accodare *appName = @**accountName** @*  alla fine dell'API di Cosmos DB per la stringa di connessione di MongoDB, dove ***accountName*** è il nome dell'account Cosmos DB . |
+| Problemi di versione wire MongoDB | - | Le versioni precedenti dei driver di MongoDB sono in grado di rilevare il nome dell'account Azure Cosmos nelle stringhe di connessione. | Accodare *appName = @**accountName**@* alla fine dell'API di Cosmos DB per la stringa di connessione di MongoDB, dove ***accountName*** è il nome dell'account Cosmos DB . |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

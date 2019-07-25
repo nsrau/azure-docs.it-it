@@ -58,8 +58,8 @@ Per prima cosa è necessario configurare le attestazioni ADFS. Creare due regole
 
 1. Aprire il componente di gestione di ADFS.
 2. A sinistra selezionare **Attendibilità componente**.
-3. Fare clic su **piattaforma delle identità di Microsoft Office 365** e selezionare **Modifica regole attestazione... ** 
-    ![Console ADFS - Modifica regole attestazione](./media/howto-mfa-adfs/trustedip1.png)
+3. Fare clic su **piattaforma delle identità di Microsoft Office 365** e selezionare **Modifica regole attestazione...** 
+   ![Console ADFS - Modifica regole attestazione](./media/howto-mfa-adfs/trustedip1.png)
 4. In regole di trasformazione rilascio fare clic su **Aggiungi regola.** 
     ![Aggiunta di una regola di attestazione](./media/howto-mfa-adfs/trustedip2.png)
 5. Nell'Aggiunta guidata regole attestazione di trasformazione selezionare **Applicare la funzione di pass-through o di filtro a un'attestazione in ingresso** dall'elenco a discesa e fare clic su **Avanti**.
