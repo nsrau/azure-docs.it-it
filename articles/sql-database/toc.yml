@@ -19,7 +19,7 @@
       href: sql-database-managed-instance-quickstart-guide.md
     - name: Create
       items:
-        - name: Database singolo - Portale
+        - name: Database singolo
           href: sql-database-single-database-get-started.md
         - name: Database singolo - Modello
           displayName: 'Azure Resource Manager template, ARM'
@@ -87,14 +87,22 @@
           href: sql-database-design-first-database.md
         - name: Progettare un database con .NET
           href: sql-database-design-first-database-csharp.md
-    - name: Database singleton
+    - name: Database singolo
       items:
         - name: Eseguire la migrazione a un database singolo/in pool con il Servizio Migrazione del database
           href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
+        - name: Aggiungere a un gruppo di failover
+          href: sql-database-single-database-failover-group-tutorial.md
         - name: Implementare un database con distribuzione geografica
           href: sql-database-implement-geo-distributed-database.md
+        - name: Configurare la replica geografica attiva
+          href: sql-database-active-geo-replication-portal.md
         - name: Configurare la sincronizzazione dati SQL
           href: sql-database-get-started-sql-data-sync.md
+    - name: Pool elastico
+      items:
+        - name: Aggiungere a un gruppo di failover
+          href: sql-database-elastic-pool-failover-group-tutorial.md
     - name: Istanza gestita
       items:
         - name: Eseguire la migrazione online con Servizio Migrazione del database
@@ -245,8 +253,6 @@
               href: sql-database-active-geo-replication.md
             - name: Gruppi di failover automatico
               href: sql-database-auto-failover-group.md
-            - name: Configurare la replica geografica attiva - Portale
-              href: sql-database-active-geo-replication-portal.md
             - name: Configurare la sicurezza per le repliche
               href: sql-database-geo-replication-security-config.md
         - name: Opzioni di ripristino del database
@@ -516,6 +522,8 @@
           href: sql-database-managed-instance-connect-app.md
     - name: Caricare e spostare dati
       items:
+        - name: Spostare una risorsa in una nuova area
+          href: sql-database-move-resources-across-regions.md
         - name: Copiare un database all'interno di Azure
           href: sql-database-copy.md
         - name: Importare un database da un file BACPAC

@@ -63,18 +63,18 @@
       href: template-best-practices.md
     - name: Modelli per la coerenza del cloud
       href: templates-cloud-consistency.md
-    - name: Provider e tipi di risorse
-      href: resource-manager-supported-services.md
-    - name: Deployment Manager
-      displayName: adm
-      href: deployment-manager-overview.md
-    - name: Controllo integrità di Deployment Manager
-      displayName: adm
-      href: deployment-manager-health-check.md
     - name: Modalità di distribuzione
       href: deployment-modes.md
     - name: Eliminazione delle risorse
       href: resource-group-delete.md
+    - name: Deployment Manager
+      items:
+        - name: Panoramica
+          displayName: 'adm, deployment manager'
+          href: deployment-manager-overview.md
+        - name: Controllo integrità
+          displayName: 'adm, deployment manager'
+          href: deployment-manager-health-check.md
     - name: Resource Manager e distribuzione classica
       href: resource-manager-deployment-model.md
     - name: Attributi comuni della sicurezza di Azure
@@ -228,6 +228,8 @@
           href: resource-manager-sku-not-available-errors.md
         - name: Problemi di distribuzione di Windows
           href: ../virtual-machines/windows/troubleshoot-deploy-vm.md
+    - name: Provider e tipi di risorse
+      href: resource-manager-supported-services.md
     - name: Limitazione delle richieste
       href: resource-manager-request-limits.md
     - name: Tenere traccia delle operazioni asincrone

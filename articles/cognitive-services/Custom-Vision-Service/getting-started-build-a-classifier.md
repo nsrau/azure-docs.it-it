@@ -1,38 +1,39 @@
 ---
-title: Creare un classificatore - Servizio visione artificiale personalizzato
+title: 'Avvio rapido: Creare un classificatore - Servizio Visione personalizzata'
 titlesuffix: Azure Cognitive Services
-description: Informazioni su come usare il sito Web di Visione personalizzata per creare un modello di classificazione immagini.
+description: Questo argomento di avvio rapido descrive come usare il sito Web di Visione personalizzata per creare un modello di classificazione di immagini.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
-ms.topic: conceptual
-ms.date: 04/03/2019
+ms.topic: quickstart
+ms.date: 07/12/2019
 ms.author: anroth
-ms.openlocfilehash: 3cb67b57f406774b4bcaf57c24b8e7741068ced6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 748336dcea580cefaf7638c86c1466bf0c16a472
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66497317"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423590"
 ---
-# <a name="how-to-build-a-classifier-with-custom-vision"></a>Come creare un classificatore con Visione personalizzata
+# <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>Guida introduttiva: Come creare un classificatore con Visione personalizzata
 
-Per usare il Servizio visione artificiale personalizzato per la classificazione immagini, è prima di tutto necessario creare un modello di classificatore. In questa guida si apprenderà come creare un classificatore tramite il sito Web di Visione personalizzata.
+Questo argomento di avvio rapido descrive come creare un classificatore tramite il sito Web di Visione personalizzata. Dopo aver creato un modello di classificatore, è possibile usare il servizio Visione personalizzata per la classificazione delle immagini.
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Una sottoscrizione di Azure valida. [Creare un account](https://azure.microsoft.com/free/) gratuitamente.
 - Un set di immagini con cui eseguire il training del classificatore. Per suggerimenti sulla scelta delle immagini, vedere di seguito.
 
+## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Creare risorse di Visione personalizzata nel portale di Azure
 
-## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Creare le risorse di visione artificiale personalizzato nel portale di Azure
-Per utilizzare servizio visione artificiale personalizzato, è necessario creare risorse di Training di Custom Vision e stima il [portale di Azure](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). Verrà creata una risorsa di training e stima. 
+Per usare il servizio Visione personalizzata, è necessario creare le risorse Training visione personalizzata e Previsioni visione personalizzata nel portale di Azure. Per creare tali risorse, completare la finestra di dialogo nella pagina [Create Custom Vision](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision) (Crea visione personalizzata). 
 
 ## <a name="create-a-new-project"></a>Creare un nuovo progetto
 
-Nel Web browser passare alla [pagina web Visione personalizzata](https://customvision.ai) e selezionare __Accedi__. Accedere con lo stesso account usato per accedere al portale di Azure.
+Nel Web browser passare alla [pagina web Visione personalizzata](https://customvision.ai) e selezionare __Accedi__. Accedere con lo stesso account usato per il portale di Azure.
 
 ![Immagine della pagina di accesso](./media/browser-home.png)
 
@@ -44,7 +45,7 @@ Nel Web browser passare alla [pagina web Visione personalizzata](https://customv
 1. Immettere un nome e una descrizione per il progetto. Selezionare quindi un gruppo di risorse. Se l'account connesso è associato a un account Azure, l'elenco a discesa Gruppo di risorse visualizzerà tutti i gruppi di risorse di Azure che includono una risorsa Servizio visione artificiale personalizzato. 
 
    > [!NOTE]
-   > Se nessun gruppo di risorse è disponibile, per confermare di aver effettuato [customvision.ai](https://customvision.ai) con lo stesso account è usato per accedere al [portale di Azure](https://portal.azure.com/). Verificare inoltre di avere selezionato nel portale del servizio Visione personalizzata la stessa "Directory" di quella del portale di Azure in cui si trovano le risorse di Visione personalizzata. In entrambi i siti è possibile selezionare la directory nel menu a discesa dell'account nell'angolo superiore destro dello schermo. 
+   > Se non sono disponibili gruppi di risorse, verificare di aver eseguito l'accesso a [customvision.ai](https://customvision.ai) con lo stesso account usato per il [portale di Azure](https://portal.azure.com/). Verificare inoltre di avere selezionato nel portale del servizio Visione personalizzata la stessa "Directory" di quella del portale di Azure in cui si trovano le risorse di Visione personalizzata. In entrambi i siti è possibile selezionare la directory nel menu a discesa dell'account nell'angolo superiore destro dello schermo. 
 
 1. Selezionare __Classificazione__ in __Project Types__ (Tipi di progetto). In __Classification Types__ (Tipi di classificazione) scegliere quindi **Multilabel** (Multietichetta) o **Multiclass** (Multiclasse), a seconda del caso d'uso. La classificazione multietichetta applica un numero qualsiasi di tag a un'immagine (zero o più), mentre la classificazione multiclasse ordina le immagini in categorie singole (ogni immagine inviata verrà ordinata nel tag più probabile). Sarà possibile modificare il tipo di classificazione in un secondo momento, se necessario.
 
@@ -62,21 +63,7 @@ Nel Web browser passare alla [pagina web Visione personalizzata](https://customv
 
 ## <a name="choose-training-images"></a>Scegliere le immagini di training
 
-Come minimo, è consigliabile usare almeno 30 immagini per ogni tag nel set di training iniziale. È anche opportuno raccogliere alcune immagini aggiuntive per testare il modello dopo che ne è stato eseguito il training.
-
-Per eseguire il training del modello in modo efficace, usare le immagini con diversi oggetti visivi. Selezionare immagini diverse per:
-* angolazione
-* illuminazione
-* background
-* stile visivo
-* soggetti singoli/raggruppati
-* size
-* type
-
-Assicurarsi anche che tutte le immagini di training soddisfino i criteri seguenti:
-* formato JPG, PNG o BMP
-* dimensioni massime pari a 6 MB (4 MB per le immagini per la previsione)
-* almeno 256 pixel sul bordo più corto. Le immagini più piccole verranno automaticamente ingrandite dal Servizio visione artificiale personalizzato
+[!INCLUDE [choose training images](includes/choose-training-images.md)]
 
 ## <a name="upload-and-tag-images"></a>Caricare e contrassegnare le immagini
 
@@ -118,9 +105,7 @@ Al termine del training, le prestazioni del modello vengono stimate e visualizza
 
 ### <a name="probability-threshold"></a>Soglia di probabilità
 
-Si noti il dispositivo di scorrimento **Probability Threshold** (Soglia probabilità) nel riquadro sinistro della scheda **Prestazioni**. Si tratta della soglia per considerare corretta una probabilità prevista quando si calcolano precisione e recupero.
-
-L'interpretazione di chiamate di previsione con una soglia di probabilità elevata tende a restituire risultati con precisione elevata a scapito del recupero: le classificazioni trovate sono corrette, ma molte non vengono trovate. Con una soglia di probabilità bassa accade il contrario: viene trovata la maggior parte delle classificazioni effettive, ma in tale set sono presenti falsi positivi. Tenendo presente questo aspetto, è consigliabile impostare la soglia di probabilità in base alle esigenze specifiche del progetto. In seguito è consigliabile usare lo stesso valore di soglia di probabilità sul lato client come filtro quando si ricevono i risultati della previsione dal modello.
+[!INCLUDE [probability threshold](includes/probability-threshold.md)]
 
 ## <a name="manage-training-iterations"></a>Gestire le iterazioni di training
 
@@ -128,7 +113,8 @@ Ogni volta che si esegue il training del classificatore, si crea una nuova _iter
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida è stato descritto come creare ed eseguire il training di un modello di classificazione immagini usando il sito Web di Visione personalizzata. È ora possibile ottenere altre informazioni sul processo iterativo per migliorare il modello.
+In questo argomento di avvio rapido è stato descritto come creare ed eseguire il training di un modello di classificazione di immagini tramite il sito Web di Visione personalizzata. È ora possibile ottenere altre informazioni sul processo iterativo per migliorare il modello.
 
-[Testare un modello e ripeterne il training](test-your-model.md)
+> [!div class="nextstepaction"]
+> [Testare un modello e ripeterne il training](test-your-model.md)
 

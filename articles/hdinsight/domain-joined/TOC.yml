@@ -2,8 +2,8 @@
   href: /azure/hdinsight
 - name: Panoramica
   items:
-    - name: Informazioni su Enterprise Security Package in HDInsight
-      href: apache-domain-joined-introduction.md
+    - name: Informazioni sulla sicurezza aziendale in HDInsight
+      href: hdinsight-security-overview.md
 - name: Esercitazioni
   items:
     - name: Controllo degli accessi in base al ruolo per Apache HBase con Apache Ranger
