@@ -210,8 +210,8 @@ Quando si copiano dati da Amazon Redshift, vengono usati i mapping seguenti tra 
 | Tipo di dati di Amazon Redshift | Tipo di dati provvisori di Data Factory |
 |:--- |:--- |
 | BIGINT |Int64 |
-| BOOLEAN |string |
-| CHAR |string |
+| BOOLEAN |String |
+| CHAR |String |
 | DATE |DateTime |
 | DECIMAL |Decimal |
 | DOUBLE PRECISION |Double |
