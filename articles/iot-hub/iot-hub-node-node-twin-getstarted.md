@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: elioda
-ms.openlocfilehash: 20b804f3d15543d0cf415d00dc81a6f55a348260
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8dd5269532e9eb6139d8debb0ee9b503cd2e4354
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65597429"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68403966"
 ---
 # <a name="get-started-with-device-twins-node"></a>Introduzione ai dispositivi gemelli (Node)
 
@@ -31,7 +31,7 @@ Al termine di questa esercitazione si avranno due app console Node.js:
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Node. js versione 10.0 o versione successiva.
+* Node. js versione 10.0. x o successiva.
 
 * Un account Azure attivo. Se non si dispone di un account, è possibile crearne uno [gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 
@@ -39,11 +39,13 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Ottenere la stringa di connessione per l'hub IoT
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
+
+## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub Internet
+
+[!INCLUDE [iot-hub-howto-twin-shared-access-policy-text](../../includes/iot-hub-howto-twin-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-custom-connection-string](../../includes/iot-hub-include-find-custom-connection-string.md)]
 
 ## <a name="create-the-service-app"></a>Creare l'app di servizio
 
@@ -63,7 +65,7 @@ In questa sezione si crea a un'app console Node.js che aggiunge i metadati della
 
 3. Usando un editor di testo, creare un nuovo file **AddTagsAndQuery.js** nella cartella **addtagsandqueryapp**.
 
-4. Aggiungere il codice seguente al file **AddTagsAndQuery.js** e sostituire il segnaposto **{iot hub connection string}** con la stringa di connessione dell'hub IoT copiata quando è stato creato l'hub:
+4. Aggiungere il codice seguente al file **AddTagsAndQuery. js** e sostituire il valore del segnaposto **{la stringa di connessione dell'hub Internet}** con la stringa di connessione dell'hub Internet che è stata copiata in precedenza in [ottenere la stringa di connessione dell'hub](#get-the-iot-hub-connection-string)Internet:
 
    ``` javascript
         'use strict';
@@ -136,7 +138,7 @@ In questa sezione si crea a un'app console Node.js che aggiunge i metadati della
 
    Nei risultati si noterà un dispositivo per la query che cerca tutti i dispositivi situati in **Redmond43** e nessuno per la query che limita i risultati ai dispositivi che usano una rete cellulare.
    
-    ![Vedere un dispositivo nei risultati della query](media/iot-hub-node-node-twin-getstarted/service1.png)
+    ![Vedere l'unico dispositivo nei risultati della query](media/iot-hub-node-node-twin-getstarted/service1.png)
 
 Nella sezione successiva si crea un'app per dispositivo che segnala le informazioni sulla connettività e modifica il risultato della query nella sezione precedente.
 
@@ -224,8 +226,8 @@ In questa esercitazione è stato configurato un nuovo hub IoT nel Portale di Azu
 
 Per altre informazioni, vedere le risorse seguenti:
 
-* Inviare dati di telemetria dai dispositivi con il [Introduzione all'IoT Hub](quickstart-send-telemetry-node.md) esercitazione
+* per inviare dati di telemetria dai dispositivi, usare l'esercitazione [Introduzione all'hub](quickstart-send-telemetry-node.md) Internet.
 
 * per configurare i dispositivi usando le proprietà desiderate del dispositivo gemello, vedere l'esercitazione [Usare le proprietà desiderate per configurare i dispositivi](tutorial-device-twins.md);
 
-* Controllare i dispositivi in modo interattivo (ad esempio, attivare una ventola da un'app controllata dall'utente), con la [usare metodi diretti](quickstart-control-device-node.md) esercitazione.
+* controllare i dispositivi in modo interattivo, ad esempio l'accensione di una ventola da un'app controllata dall'utente, con l'esercitazione [usare i metodi diretti](quickstart-control-device-node.md) .

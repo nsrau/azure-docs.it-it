@@ -3,23 +3,18 @@ title: Applicazione Node.js con Socket.io | Azure
 description: Informazioni su come usare socket.io in un'applicazione node.js ospitata in Azure.
 services: cloud-services
 documentationcenter: nodejs
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 7f9435e0-7732-4aa1-a4df-ea0e894b847f
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: jeconnoc
-ms.openlocfilehash: cd0bceae770182e778410d8065d34dfeed055acc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 251fd8ec3708ed154e12b0511be24eb776a48fbf
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61433206"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359069"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Creare un'applicazione di chat Node.js con Socket.IO in un servizio cloud di Azure
 
@@ -109,9 +104,9 @@ Dopo aver salvato le modifiche apportate al file **server.js**, eseguire la proc
        PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
    
    > [!NOTE]
-   > Se si verificano problemi con l'avvio dell'emulatore, ad es.: Start-AzureEmulator: Si è verificato un errore imprevisto.  Dettagli: Si è verificato un errore imprevisto, l'oggetto di comunicazione System.ServiceModel.Channels.ServiceChannel, non può essere usato per la comunicazione perché è nello stato Faulted.
+   > Se si verificano problemi con l'avvio dell'emulatore, ad esempio: Start-AzureEmulator: Si è verificato un errore imprevisto.  Dettagli: Errore imprevisto. Impossibile utilizzare l'oggetto di comunicazione, System. ServiceModel. Channels. ServiceChannel, per la comunicazione perché è nello stato Faulted.
    > 
-   > Reinstallare v AzureAuthoringTools 2.7.1 e azurecomputeemulator 2.7 - verificare che la versione corrisponda.
+   > Reinstallare AzureAuthoringTools v 2.7.1 e AzureComputeEmulator v 2,7: assicurarsi che la versione corrisponda a.
 
 2. Aprire un browser e passare a **http://127.0.0.1** .
 3. Quando si apre la finestra del browser, immettere un nome alternativo e premere INVIO.
@@ -147,7 +142,7 @@ L'applicazione è ora in esecuzione in Azure ed è in grado di inoltrare i messa
 > 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa esercitazione è stato illustrato come creare un'applicazione di chat di base ospitata in un servizio cloud di Azure. Per informazioni su come ospitare questa applicazione in un sito Web di Azure, vedere [Creazione di un'applicazione di chat Node.js con Socket.IO in un sito Web di Azure][chatwebsite].
+In questa esercitazione è stato illustrato come creare un'applicazione di chat di base ospitata in un servizio cloud di Azure. Per informazioni su come ospitare questa applicazione in un sito Web di Azure, vedere [creare un'applicazione di chat node. js con socket.io in un sito Web di Azure][chatwebsite].
 
 Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Node.js](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest).
 

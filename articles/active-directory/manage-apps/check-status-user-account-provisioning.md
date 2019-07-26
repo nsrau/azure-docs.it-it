@@ -1,5 +1,5 @@
 ---
-title: Creazione di report sul provisioning automatico dell'account utente di Azure Active Directory per le applicazioni SaaS | Microsoft Docs
+title: Segnalare il provisioning automatico degli account utente alle applicazioni SaaS | Microsoft Docs
 description: Informazioni su come controllare lo stato dei processi di provisioning automatico dell'account utente e risolvere i problemi di provisioning di singoli utenti.
 services: active-directory
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.date: 09/09/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f7386fd26de55911f51f73600f1e2bf1a70ce11
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: fda7654ca2d825ae4112dd06021c7e83ed6867cd
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807704"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381249"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Esercitazione: Creazione di report sul provisioning automatico degli account utente
 
-Azure Active Directory (Azure AD) include un' [servizio di provisioning degli account utente](user-provisioning.md) che consente di automatizzare il provisioning del deprovisioning degli account utente nelle App SaaS e altri sistemi, ai fini del ciclo di vita end-to-end identità gestione. Azure AD supporta i connettori preintegrati di provisioning dell'utente per tutte le applicazioni e i sistemi nella sezione "In primo piano" della [raccolta delle applicazioni di Azure AD](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured).
+Azure Active Directory (Azure AD) include un servizio di provisioning degli [account utente](user-provisioning.md) che consente di automatizzare il provisioning del deprovisioning degli account utente nelle app SaaS e in altri sistemi, allo scopo di gestire il ciclo di vita delle identità end-to-end. Azure AD supporta i connettori preintegrati di provisioning dell'utente per tutte le applicazioni e i sistemi nella sezione "In primo piano" della [raccolta delle applicazioni di Azure AD](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured).
 
 In questo articolo viene descritto come controllare lo stato dei processi di provisioning in seguito alla loro configurazione e come risolvere i problemi di provisioning di singoli utenti e gruppi.
 
@@ -32,7 +32,7 @@ In questo articolo viene descritto come controllare lo stato dei processi di pro
 
 I connettori di provisioning vengono impostati e configurati tramite il [portale di Azure](https://portal.azure.com) in base alla [documentazione disponibile](../saas-apps/tutorial-list.md) per l'applicazione supportata. Una volta configurati e in esecuzione, i processi di provisioning possono essere segnalati tramite uno dei due metodi seguenti:
 
-* **Portale di Azure** -questo articolo descrive principalmente il recupero delle informazioni di report dal [portale di Azure](https://portal.azure.com), che fornisce sia un report di riepilogo del provisioning, nonché dettagliati sul provisioning log di controllo per un determinato applicazione.
+* **Portale di Azure** : questo articolo descrive principalmente il recupero delle informazioni del report dall' [portale di Azure](https://portal.azure.com), che fornisce un report di riepilogo del provisioning, oltre ai log di controllo dettagliati del provisioning per una determinata applicazione.
 * **API di controllo**: Azure Active Directory offre anche un'API di controllo che consente di abilitare il recupero programmatico dei log di controllo dettagliati sul provisioning. Vedere [Informazioni di riferimento sull'API di controllo di Azure Active Directory](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) per la documentazione specifica sull'uso di questa API. Sebbene questo articolo non si concentri in particolare sull'uso dell'API, contiene informazioni dettagliate sui tipi di eventi di provisioning registrati nel log di controllo.
 
 ### <a name="definitions"></a>Definizioni
@@ -40,11 +40,11 @@ I connettori di provisioning vengono impostati e configurati tramite il [portale
 Questo articolo usa i termini seguenti, qui definiti:
 
 * **Sistema di origine**: il repository degli utenti da cui il servizio di provisioning di Azure AD esegue la sincronizzazione. Azure Active Directory è il sistema di origine per la maggior parte dei connettori di provisioning preintegrati. Esistono tuttavia alcune eccezioni, ad esempio Workday Inbound Synchronization.
-* **Sistema di destinazione**: il repository di utenti con cui il servizio di provisioning di Azure AD esegue la sincronizzazione. Si tratta in genere di un'applicazione SaaS (ad esempio, Salesforce, ServiceNow, G Suite, Dropbox for Business), ma in alcuni casi può essere un sistema locale come Active Directory (esempio: Workday Inbound Synchronization per Active Directory).
+* **Sistema di destinazione**: il repository di utenti con cui il servizio di provisioning di Azure AD esegue la sincronizzazione. Si tratta in genere di un'applicazione SaaS (ad esempio, Salesforce, ServiceNow, G Suite, Dropbox for business, ma in alcuni casi può essere un sistema locale come Active Directory, ad esempio: Workday Inbound Synchronization per Active Directory).
 
-## <a name="getting-provisioning-reports-from-the-azure-portal"></a>Ottenere report dal portale di Azure di provisioning
+## <a name="getting-provisioning-reports-from-the-azure-portal"></a>Ottenere i report di provisioning dal portale di Azure
 
-Per ottenere il provisioning di informazioni sul report per una determinata applicazione, iniziare avviando il [portale di Azure](https://portal.azure.com) e passare all'applicazione aziendale per cui è configurato il provisioning. Ad esempio, se si esegue il provisioning di utenti in LinkedIn Elevate, il percorso di navigazione per i dettagli dell'applicazione è:
+Per ottenere informazioni sui report di provisioning per una determinata applicazione, iniziare avviando il [portale di Azure](https://portal.azure.com) e passando all'applicazione aziendale per la quale è stato configurato il provisioning. Ad esempio, se si esegue il provisioning di utenti in LinkedIn Elevate, il percorso di navigazione per i dettagli dell'applicazione è:
 
 **Azure Active Directory &gt; Applicazioni aziendali &gt; All applications (Tutte le applicazioni) &gt; LinkedIn Elevate**
 
@@ -79,7 +79,7 @@ Se si esaminano gli eventi di provisioning per un singolo utente si nota che in 
 1. Evento della regola di sincronizzazione: i dati utente dei sistemi di origine e di destinazione vengono valutati rispetto alle regole di mapping degli attributi configurati e ai filtri di ambito per determinare le eventuali azioni da eseguire.
 1. Evento di esportazione: se l'evento della regola di sincronizzazione determina l'esecuzione di un'azione, ad esempio Aggiungi, Aggiorna o Elimina, i risultati dell'azione vengono registrati in un evento di esportazione.
 
-   ![Esempio: Pagina di log di controllo che mostra le attività e stato](./media/check-status-user-account-provisioning/audit_logs.PNG)
+   ![Esempio: Pagina Registro di controllo che mostra le attività e lo stato](./media/check-status-user-account-provisioning/audit_logs.PNG)
 
 ### <a name="looking-up-provisioning-events-for-a-specific-user"></a>Cercare un utente specifico negli eventi di provisioning
 
