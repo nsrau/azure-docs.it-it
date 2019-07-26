@@ -8,12 +8,12 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 609d16994cf88f1777584243b1031368ddc79724
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 0fcce6bd6ee9461790ca7618f65be9a20a821afc
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849078"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360334"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Esportare i dati in Archiviazione BLOB di Azure
 
@@ -99,7 +99,7 @@ I dati di misurazioni, dispositivi e modelli di dispositivo vengono esportati ne
 - Dispositivi: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
 - Modelli di dispositivi: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
 
-### <a name="measurements"></a>Misure
+### <a name="measurements"></a>Misurazioni
 
 I dati delle misurazioni esportati contengono tutti i nuovi messaggi che IoT Central ha ricevuto da tutti i dispositivi durante tale periodo. I file esportati sono nello stesso formato dei file dei messaggi esportati dal [routing dei messaggi dell'hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) nell'archiviazione BLOB.
 
@@ -286,6 +286,7 @@ import json
 import pandavro as pdx
 import pandas as pd
 
+
 def parse(filePath):
     # Pandavro loads the Avro file into a pandas DataFrame
     # where each record is a single row.
@@ -297,16 +298,17 @@ def parse(filePath):
 
     # The SystemProperties column contains a dictionary
     # with the device ID located under the connectionDeviceId key.
-    transformed["device_id"] = measurements["SystemProperties"].apply(lambda x: x["connectionDeviceId"])
+    transformed["device_id"] = measurements["SystemProperties"].apply(
+        lambda x: x["connectionDeviceId"])
 
     # The Body column is a series of UTF-8 bytes that is stringified
     # and parsed as JSON. This example pulls the humidity property
     # from each column to get the humidity field.
-    transformed["humidity"] = measurements["Body"].apply(lambda x: json.loads(bytes(x).decode('utf-8'))["humidity"])
+    transformed["humidity"] = measurements["Body"].apply(
+        lambda x: json.loads(bytes(x).decode('utf-8'))["humidity"])
 
     # Finally, print the new DataFrame with our device IDs and humidities.
     print(transformed)
-
 ```
 
 #### <a name="parse-a-devices-avro-file"></a>Analizzare un file AVRO dei dispositivi
@@ -315,6 +317,7 @@ def parse(filePath):
 import json
 import pandavro as pdx
 import pandas as pd
+
 
 def parse(filePath):
     # Pandavro loads the Avro file into a pandas DataFrame
@@ -330,17 +333,19 @@ def parse(filePath):
 
     # The template ID and version are present in a dictionary under
     # the deviceTemplate column.
-    transformed["template_id"] = devices["deviceTemplate"].apply(lambda x: x["id"])
-    transformed["template_version"] = devices["deviceTemplate"].apply(lambda x: x["version"])
+    transformed["template_id"] = devices["deviceTemplate"].apply(
+        lambda x: x["id"])
+    transformed["template_version"] = devices["deviceTemplate"].apply(
+        lambda x: x["version"])
 
     # The fanSpeed setting value is located in a nested dictionary
     # under the settings column.
-    transformed["fan_speed"] = devices["settings"].apply(lambda x: x["device"]["fanSpeed"])
+    transformed["fan_speed"] = devices["settings"].apply(
+        lambda x: x["device"]["fanSpeed"])
 
     # Finally, print the new DataFrame with our device and template
     # information, along with the value of the fan speed.
     print(transformed)
-
 ```
 
 #### <a name="parse-a-device-templates-avro-file"></a>Analizzare un file AVRO dei modelli di dispositivo
@@ -349,6 +354,7 @@ def parse(filePath):
 import json
 import pandavro as pdx
 import pandas as pd
+
 
 def parse(filePath):
     # Pandavro loads the Avro file into a pandas DataFrame
@@ -365,7 +371,8 @@ def parse(filePath):
 
     # The fanSpeed setting value is located in a nested dictionary
     # under the settings column.
-    transformed["fan_speed"] = templates["settings"].apply(lambda x: x["device"]["fanSpeed"])
+    transformed["fan_speed"] = templates["settings"].apply(
+        lambda x: x["device"]["fanSpeed"])
 
     # Finally, print the new DataFrame with our device and template
     # information, along with the value of the fan speed.

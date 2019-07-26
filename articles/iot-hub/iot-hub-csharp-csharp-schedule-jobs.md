@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/06/2018
 ms.author: robinsh
-ms.openlocfilehash: f21f1eed6babee52f30c6eccc79f88dc7bee5d58
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aceb90dbaf87ba621837c047eb114bc9be4b822e
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65864487"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68402683"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>Pianificare e trasmettere processi (.NET/.NET)
 
@@ -29,9 +29,9 @@ Un processo esegue il wrapping di una di queste azioni e tiene traccia dell'esec
 
 Per altre informazioni su queste funzionalità, vedere:
 
-* Dispositivo gemello e proprietà: [Introduzione ai dispositivi gemelli](iot-hub-csharp-csharp-twin-getstarted.md) e [esercitazione: Come usare le proprietà del dispositivo gemello](tutorial-device-twins.md)
+* Dispositivo gemello e proprietà: [Introduzione ai dispositivi gemelli](iot-hub-csharp-csharp-twin-getstarted.md) ed [esercitazione: Come usare le proprietà dei dispositivi gemelli](tutorial-device-twins.md)
 
-* Metodi diretti: [Guida per gli sviluppatori dell'IoT Hub - metodi diretti](iot-hub-devguide-direct-methods.md) e [esercitazione: Usare metodi diretti](quickstart-control-device-dotnet.md)
+* Metodi diretti: [Guida per gli sviluppatori dell'hub Internet-metodi diretti](iot-hub-devguide-direct-methods.md) ed [esercitazione: Usare metodi diretti](quickstart-control-device-dotnet.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -55,10 +55,6 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
-
-### <a name="retrieve-connection-string-for-iot-hub"></a>Ottenere la stringa di connessione per l'hub IoT
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
 ## <a name="register-a-new-device-in-the-iot-hub"></a>Registrare un nuovo dispositivo nell'hub IoT
 
@@ -151,6 +147,12 @@ In questa sezione viene creata un'app console .NET che risponde a un metodo dire
 > Per semplicità, in questa esercitazione non si implementa alcun criterio di ripetizione dei tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio dei tentativi di connessione, come suggerito nell'articolo [Gestione degli errori temporanei](/azure/architecture/best-practices/transient-faults).
 > 
 
+## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub Internet
+
+[!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
+
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-sending-device-twin-updates"></a>Pianificare i processi per chiamare un metodo diretto e inviare gli aggiornamenti dei dispositivi gemelli
 
 In questa sezione si crea un'app console .NET (usando C#) che usa i processi per chiamare il metodo diretto **LockDoor** e inviare gli aggiornamenti di proprietà desiderati a più dispositivi.
@@ -179,7 +181,7 @@ In questa sezione si crea un'app console .NET (usando C#) che usa i processi per
     using System.Threading.Tasks;
     ```
 
-6. Aggiungere i campi seguenti alla classe **Program** . Sostituire i segnaposto con la stringa di connessione dell'hub IoT creato nella sezione precedente e il nome del dispositivo.
+6. Aggiungere i campi seguenti alla classe **Program** . Sostituire i segnaposto con la stringa di connessione dell'hub Internet che è stata copiata in precedenza in [ottenere la stringa di connessione dell'hub Internet](#get-the-iot-hub-connection-string) e il nome del dispositivo.
 
     ```csharp
     static JobClient jobClient;
@@ -291,6 +293,6 @@ A questo punto è possibile eseguire le app.
 
 In questa esercitazione è stato usato un processo per pianificare un metodo diretto in un dispositivo e aggiornare le proprietà di un dispositivo gemello.
 
-Per altre informazioni sull'IoT Hub e modelli di gestione dei dispositivi, ad esempio remoto tramite l'aggiornamento del firmware air, leggere [esercitazione: Come eseguire un aggiornamento del firmware](tutorial-firmware-update.md).
+Per continuare a usare i modelli di gestione di hub e dispositivi, ad esempio Remote over the Air Firmware Update [, vedere l'esercitazione: Come eseguire un aggiornamento](tutorial-firmware-update.md)del firmware.
 
 Per altre informazioni sulla distribuzione dell'intelligenza artificiale in dispositivi perimetrali con Azure IoT Edge, vedere la [Guida introduttiva di IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).

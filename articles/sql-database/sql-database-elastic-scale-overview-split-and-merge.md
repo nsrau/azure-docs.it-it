@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 2127c05d7e52b0103d91ecfac4fb5977a4815f31
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 506847b436eeb3e1f612a17bf1182359a0e00947
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66123357"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348419"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Spostamento di dati tra database cloud con scalabilità orizzontale
 
@@ -101,7 +101,7 @@ Lo strumento di suddivisione-unione viene eseguito come servizio Web di Azure. U
 
     Le informazioni relative al confronto tra tabelle di riferimento e tabelle partizionate vengono fornite dalle API `SchemaInfo` nella mappa partizioni. Il seguente esempio illustra l'uso di queste API in un determinato oggetto del gestore delle mappe partizioni:
 
-    ```c#
+    ```csharp
     // Create the schema annotations
     SchemaInfo schemaInfo = new SchemaInfo();
 
@@ -218,7 +218,7 @@ Il servizio di suddivisione-unione utilizza la diagnostica Azure basata su Azure
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Il modulo Azure PowerShell per Resource Manager è ancora supportato dal Database SQL di Azure, ma i progetti di sviluppo future è per il modulo Az.Sql. Per questi cmdlet, vedere [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRm sono sostanzialmente identici.
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
 
 Per abilitare il monitoraggio e la diagnostica utilizzando la configurazione della diagnostica per i ruoli Web e di lavoro forniti dal pacchetto NuGet, eseguire i seguenti comandi utilizzando Azure PowerShell:
 

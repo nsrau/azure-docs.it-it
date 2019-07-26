@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 9bdeb91b145f8c7f31be8c1dcd5c5158d50ff2f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eed6113442b4080341ff08b3983880f3afe66c00
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712320"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385132"
 ---
 # <a name="expressroute-qos-requirements"></a>Requisiti ExpressRoute QoS
 Skype per aziende dispone di diversi carichi di lavoro che richiedono la gestione QoS differenziata. Se si prevede di utilizzare i servizi vocali tramite ExpressRoute, è necessario rispettare i requisiti descritti di seguito.
@@ -25,11 +25,11 @@ Skype per aziende dispone di diversi carichi di lavoro che richiedono la gestion
 > 
 > 
 
-Nella tabella seguente fornisce un elenco di contrassegni DSCP utilizzati da Microsoft Teams e Skype for Business. Fare riferimento a [Gestione QoS per Skype per aziende](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/managing-quality-of-service-QoS) per ulteriori informazioni.
+La tabella seguente fornisce un elenco di contrassegni DSCP usati da Microsoft teams e Skype for business. Fare riferimento a [Gestione QoS per Skype per aziende](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/managing-quality-of-service-QoS) per ulteriori informazioni.
 
-| **Classe di traffico** | **Modalità di gestione (contrassegno DSCP)** | **Microsoft Teams e Skype per Business carichi di lavoro** |
+| **Classe di traffico** | **Modalità di gestione (contrassegno DSCP)** | **Carichi di lavoro Microsoft teams e Skype for business** |
 | --- | --- | --- |
-| **Voice** |ENTITY FRAMEWORK (46) |Skype / voice di Lync |
+| **Voice** |ENTITY FRAMEWORK (46) |Skype/Microsoft teams/Lync Voice |
 | **Interattivo** |AF41 (34) |Video, VBSS |
 | |AF21 (18) |Condivisione delle app | 
 | **Default** |AF11 (10) |Trasferimento di file |

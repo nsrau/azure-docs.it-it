@@ -1,5 +1,5 @@
 ---
-title: Problema nella configurazione dell'accesso Single Sign-On basato su password per un'applicazione nella raccolta di Azure AD | Microsoft Docs
+title: Problemi di configurazione dell'accesso Single Sign-on basato su password per Azure AD app della raccolta | Microsoft Docs
 description: Informazioni sui problemi comuni che si possono incontrare durante la configurazione dell'accesso Single Sign-On basato su password per applicazioni incluse nella raccolta delle applicazioni di Azure AD
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a35ef95074099499186eae0fadd37f1995d8e725
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: bc75346b1093cc41a44edad1376c5f10dfec2409
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190288"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381137"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Problema nella configurazione dell'accesso Single Sign-On basato su password per un'applicazione nella raccolta di Azure AD
 

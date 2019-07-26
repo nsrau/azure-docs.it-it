@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1408c06570babfd93c46fdfc7a3c6754000bcbc
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 76f0cddfa889376d3795726e74d82e53417b31f1
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320847"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68413568"
 ---
 # <a name="mobile-app-that-calls-web-apis---call-a-web-api"></a>App per dispositivi mobili che chiama API Web-chiamare un'API Web
 
@@ -114,17 +114,7 @@ Dopo aver avuto il token di accesso, è facile chiamare un'API Web. L'app userà
 
 ### <a name="xamarin"></a>Xamarin
 
-```CSharp
-httpClient = new HttpClient();
-
-// Put access token in HTTP request.
-httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
-
-// Call Graph.
-HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
-...
-}
-```
+[!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
 
 ## <a name="making-several-api-requests"></a>Esecuzione di diverse richieste API
 
@@ -132,6 +122,40 @@ Se è necessario chiamare la stessa API più volte o se è necessario chiamare p
 
 - **Consenso incrementale**: Microsoft Identity Platform consente alle app di ottenere il consenso dell'utente in quanto le autorizzazioni sono obbligatorie, anziché tutte all'inizio. Ogni volta che l'app è pronta per chiamare un'API, deve richiedere solo gli ambiti che deve usare.
 - **Accesso condizionale**: In alcuni scenari, è possibile ottenere ulteriori requisiti di accesso condizionale quando si effettuano diverse richieste API. Questo problema può verificarsi se alla prima richiesta non sono applicati criteri di accesso condizionale e l'app tenta di accedere automaticamente a una nuova API che richiede l'accesso condizionale. Per gestire questo scenario, assicurarsi di intercettare gli errori dalle richieste automatiche e prepararsi a eseguire una richiesta interattiva.  Per altre informazioni, vedere [linee guida per l'accesso condizionale](conditional-access-dev-guide.md).
+
+## <a name="calling-several-apis-in-xamarin-or-uwp---incremental-consent-and-conditional-access"></a>Chiamata di diverse API in Novell o UWP-consenso incrementale e accesso condizionale
+
+Se è necessario chiamare diverse API per lo stesso utente, dopo aver acquisito un token per un utente, è possibile evitare di `AcquireTokenSilent` chiedere ripetutamente le credenziali dell'utente chiamando per ottenere un token.
+
+```CSharp
+var result = await app.AcquireTokenXX("scopeApi1")
+                      .ExecuteAsync();
+
+result = await app.AcquireTokenSilent("scopeApi2")
+                  .ExecuteAsync();
+```
+
+I casi in cui è necessaria l'interazione sono i seguenti:
+
+- L'utente ha acconsentito alla prima API, ma ora deve fornire il consenso per più ambiti (consenso incrementale)
+- La prima API non richiede l'autenticazione a più fattori, ma la successiva.
+
+```CSharp
+var result = await app.AcquireTokenXX("scopeApi1")
+                      .ExecuteAsync();
+
+try
+{
+ result = await app.AcquireTokenSilent("scopeApi2")
+                  .ExecuteAsync();
+}
+catch(MsalUiRequiredException ex)
+{
+ result = await app.AcquireTokenInteractive("scopeApi2")
+                  .WithClaims(ex.Claims)
+                  .ExecuteAsync();
+}
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

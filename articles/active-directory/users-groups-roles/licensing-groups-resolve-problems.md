@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4060c90af3825122c871696a5555e8579d0ad0a
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 2129405dfdc2585d29c35a0982c9823a4cd57f71
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67358092"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359989"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificare e risolvere i problemi relativi alle licenze per un gruppo in Azure Active Directory
 
@@ -35,11 +35,11 @@ Quando si usano le licenze basate sui gruppi, è possibile che si verifichino gl
 
 1. Per trovare gli utenti con stato di errore in un gruppo specifico, aprire il riquadro del gruppo. In **Licenze** compare una notifica se sono presenti utenti con stato di errore.
 
-   ![Messaggio di notifiche di errore e di gruppo](./media/licensing-groups-resolve-problems/group-error-notification.png)
+   ![Messaggio di notifiche di gruppo e di errore](./media/licensing-groups-resolve-problems/group-error-notification.png)
 
 2. Selezionare la notifica per aprire un elenco di tutti gli utenti interessati. È possibile selezionare ogni singolo utente per visualizzare altri dettagli.
 
-   ![elenco degli utenti nel gruppo di gestione delle licenze di stato di errore](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
+   ![elenco di utenti in stato di errore di gestione licenze gruppo](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
 3. Per trovare tutti i gruppi che contengono almeno un errore, nel pannello **Azure Active Directory** selezionare **Licenze** e quindi selezionare **Panoramica**. Se ci sono gruppi che richiedono attenzione, viene visualizzata una casella di informazioni.
 
@@ -47,7 +47,7 @@ Quando si usano le licenze basate sui gruppi, è possibile che si verifichino gl
 
 4. Selezionare la casella per visualizzare un elenco di tutti i gruppi con errori. È possibile selezionare ciascun gruppo per visualizzare altri dettagli.
 
-   ![Panoramica ed elenco di gruppi con errori](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
+   ![Panoramica ed elenco dei gruppi con errori](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
 
 
 Le sezioni seguenti riportano una descrizione di ogni potenziale problema con la relativa soluzione.
@@ -111,11 +111,11 @@ Se si usa Exchange Online, alcuni utenti nel tenant potrebbero non essere config
 
 Dopo aver risolto i problemi di indirizzo proxy per gli utenti interessati, forzare l'elaborazione delle licenze nel gruppo per assicurarsi che ora sia possibile applicarle.
 
-## <a name="azure-ad-mail-and-proxyaddresses-attribute-change"></a>Modifica dell'attributo ProxyAddresses e posta elettronica AD Azure
+## <a name="azure-ad-mail-and-proxyaddresses-attribute-change"></a>Modifica dell'attributo Azure AD mail e ProxyAddresses
 
-**Problema:** Durante l'aggiornamento dell'assegnazione di licenza in un utente o un gruppo, è possibile notare che l'attributo di posta elettronica di Azure AD che l'attributo ProxyAddresses di alcuni utenti vengano modificate.
+**Problema:** Durante l'aggiornamento dell'assegnazione delle licenze per un utente o un gruppo, è possibile notare che l'attributo Azure AD mail e ProxyAddresses di alcuni utenti sono stati modificati.
 
-L'aggiornamento dell'assegnazione di licenza sulle cause utente al proxy indirizzo calcolo venga attivato, che può modificare gli attributi dell'utente. Per comprendere la causa esatta della modifica e risolvere il problema, vedere questo articolo sulle [come viene popolato l'attributo proxyAddresses di Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
+L'aggiornamento dell'assegnazione delle licenze per un utente comporta l'attivazione del calcolo dell'indirizzo del proxy, che può modificare gli attributi utente. Per comprendere il motivo esatto della modifica e risolvere il problema, vedere questo articolo su [come viene popolato l'attributo proxyAddresses in Azure ad](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
 
 ## <a name="what-happens-when-theres-more-than-one-product-license-on-a-group"></a>Cosa accade quando un gruppo include più di una licenza del prodotto
 

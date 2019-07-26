@@ -12,12 +12,12 @@ ms.date: 07/17/2019
 ms.author: mimart
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3b23aa7db29390ef50a72f73fb153fef5301b92
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: ddbb233bb9d0970169f040e3040b44a0b75aa1f8
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304828"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477167"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Accesso Single Sign-On alle applicazioni in Azure Active Directory
 
@@ -71,9 +71,9 @@ L'accesso Single Sign-On basato su SAML è supportato per le applicazioni che us
 - SAML 2.0
 - WS-Federation
 
-Per configurare un'applicazione SaaS per Single Sign-on basato su SAML, vedere [configurare l'accesso Single Sign-on basato su SAML](configure-single-sign-on-portal.md). Inoltre, molte applicazioni SaaS (software come un servizio) hanno un'[esercitazione specifica dell'applicazione](../saas-apps/tutorial-list.md) che illustra la configurazione per l'accesso Single Sign-On basato su SAML.
+Per configurare un'applicazione SaaS per Single Sign-on basato su SAML, vedere [configurare l'accesso Single Sign-on basato su SAML](configure-single-sign-on-non-gallery-applications.md). Inoltre, molte applicazioni SaaS (software come un servizio) hanno un'[esercitazione specifica dell'applicazione](../saas-apps/tutorial-list.md) che illustra la configurazione per l'accesso Single Sign-On basato su SAML.
 
-Per configurare un'applicazione per WS-Federation, seguire le stesse linee guida per configurare l'applicazione per Single Sign-on basato su SAML, vedere [configurare l'accesso Single Sign-on basato su SAML](configure-single-sign-on-portal.md). Nel passaggio per configurare l'applicazione per l'utilizzo di Azure AD, sarà necessario sostituire l'URL di accesso Azure AD per l'endpoint `https://login.microsoftonline.com/<tenant-ID>/wsfed`WS-Federation.
+Per configurare un'applicazione per WS-Federation, seguire le stesse linee guida per configurare l'applicazione per Single Sign-on basato su SAML, vedere [configurare l'accesso Single Sign-on basato su SAML](configure-single-sign-on-non-gallery-applications.md). Nel passaggio per configurare l'applicazione per l'utilizzo di Azure AD, sarà necessario sostituire l'URL di accesso Azure AD per l'endpoint `https://login.microsoftonline.com/<tenant-ID>/wsfed`WS-Federation.
 
 Per configurare un'applicazione locale per l'accesso Single Sign-on basato su SAML, vedere l' [accesso Single Sign-On SAML per le applicazioni locali con il proxy di applicazione](application-proxy-configure-single-sign-on-on-premises-apps.md).
 
@@ -100,7 +100,7 @@ L'accesso Single Sign-On basato su password è supportato per qualunque applicaz
 - Chrome in Windows 7 o versione successiva e in MacOS X o versione successiva
 - Firefox 26.0 o versione successiva in Windows XP SP2 o versione successiva e in Mac OS X 10.6 o versione successiva
 
-Per configurare un'applicazione cloud per l'accesso Single Sign-On basato su password, vedere [Configurare l'applicazione per un accesso Single Sign-On basato su password](application-sign-in-problem-password-sso-gallery.md#configure-the-app-for-password-sso).
+Per configurare un'applicazione cloud per l'accesso Single Sign-on basato su password, vedere [configurare la password Single Sign-on](configure-password-single-sign-on-non-gallery-applications.md).
 
 Per configurare un'applicazione in locale per l'accesso Single Sign-On tramite Application Proxy, vedere [Insieme di credenziali delle password per l'accesso Single Sign-On con il proxy dell'applicazione](application-proxy-configure-single-sign-on-password-vaulting.md)
 
@@ -127,8 +127,7 @@ Quando l'utente finale gestisce le credenziali:
 - Gli amministratori sono comunque in grado di impostare nuove credenziali per l'applicazione.
 
 ## <a name="linked-sign-on"></a>Linked sign-on (Accesso collegato)
-
-L'accesso Single Sign-On collegato consente ad Azure AD di fornire l'accesso Single Sign-On a un'applicazione già configurata per l'SSO in un altro servizio. L'applicazione collegata può essere visualizzata dagli utenti finali nel portale di Office 365 o nel portale MyApps di Azure AD. Un utente può ad esempio avviare un'applicazione configurata per l'accesso Single Sign-On in Active Directory Federation Services 2.0 (AD FS) dal portale di Office 365. Sono anche disponibili report aggiuntivi per le applicazioni collegate che vengono avviate dal portale di Office 365 o dal portale MyApps di Azure AD.
+L'accesso Single Sign-On collegato consente ad Azure AD di fornire l'accesso Single Sign-On a un'applicazione già configurata per l'SSO in un altro servizio. L'applicazione collegata può essere visualizzata dagli utenti finali nel portale di Office 365 o nel portale MyApps di Azure AD. Un utente può ad esempio avviare un'applicazione configurata per l'accesso Single Sign-On in Active Directory Federation Services 2.0 (AD FS) dal portale di Office 365. Sono anche disponibili report aggiuntivi per le applicazioni collegate che vengono avviate dal portale di Office 365 o dal portale MyApps di Azure AD. Per configurare un'applicazione per l'accesso collegato, vedere [configurare l'accesso collegato](configure-linked-sign-on.md).
 
 ### <a name="linked-sign-on-for-application-migration"></a>Accesso collegato per la migrazione delle applicazioni
 
@@ -176,7 +175,7 @@ Scegliere Single Sign-on basato su intestazione quando il proxy di applicazione 
 
 Per configurare l'autenticazione basata su intestazione, vedere [Autenticazione basata su intestazione per l'accesso Single Sign-On con il proxy di applicazione](application-proxy-configure-single-sign-on-with-ping-access.md).
 
-### <a name="what-is-pingaccess-for-azure-ad"></a>Che cos'è PingAccess per Azure AD?
+### <a name="what-is-pingaccess-for-azure-ad"></a>Informazioni su PingAccess per Azure AD
 
 Grazie a PingAccess per Azure AD, gli utenti possono eseguire l'accesso e l'accesso Single Sign-On alle applicazioni che usano intestazioni per l'autenticazione. Application Proxy tratta queste applicazioni come qualsiasi altra, usando Azure AD per autenticare l'accesso e quindi passando il traffico attraverso il servizio del connettore. Dopo l'autenticazione, il servizio PingAccess convertirà il token di accesso di Azure AD in un formato di intestazione inviato all'applicazione.
 
@@ -189,8 +188,9 @@ Poiché questo scenario è il risultato di una partnership fra Azure AD e PingAc
 Per altre informazioni, vedere [Edizioni di Azure Active Directory](../fundamentals/active-directory-whatis.md).
 
 ## <a name="related-articles"></a>Articoli correlati
-
-- [Esercitazioni per l'integrazione di applicazioni SaaS con Azure Active Directory](../saas-apps/tutorial-list.md)
-- [Esercitazione per configurare l'accesso Single Sign-On](configure-single-sign-on-portal.md)
-- [Introduzione alla gestione dell'accesso alle applicazioni](what-is-access-management.md)
-- Collegamento di download: [Piano di distribuzione Single Sign-on](https://aka.ms/SSODeploymentPlan)
+* [Esercitazioni per l'integrazione di applicazioni SaaS con Azure Active Directory](../saas-apps/tutorial-list.md)
+* [Configurazione di Single Sign-on basato su SAML](configure-single-sign-on-non-gallery-applications.md)
+* [Configurazione di Single Sign-on basato su password](configure-password-single-sign-on-non-gallery-applications.md)
+* [Configurazione dell'accesso collegato](configure-linked-sign-on.md)
+* [Introduzione alla gestione dell'accesso alle applicazioni](what-is-access-management.md)
+* Collegamento di download: [piano di distribuzione di Single Sign-On](https://aka.ms/SSODeploymentPlan).

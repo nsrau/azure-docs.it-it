@@ -12,14 +12,15 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4757be00a3633f56aed52dd7af22923e49b0b62
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 912bda010ddcf9b02506df14f06fb0650271a53b
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60475673"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382991"
 ---
 # <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>Configurare le informazioni di sicurezza (anteprima) per l'uso di un'app di autenticazione
+
 È possibile seguire questi passaggi per aggiungere i metodi di verifica a due fattori e di reimpostazione della password. Dopo averle configurate per la prima volta, è possibile tornare alla pagina **Informazioni di sicurezza** per aggiungere, aggiornare o eliminare le informazioni di sicurezza.
 
 Se viene chiesto di configurarle subito dopo aver effettuato l'accesso all'account aziendale o dell'istituto di istruzione, vedere i passaggi dettagliati nell'articolo [Configurare le informazioni di sicurezza (anteprima) dal messaggio di richiesta della pagina di accesso](security-info-setup-signin.md).
@@ -30,7 +31,8 @@ Se viene chiesto di configurarle subito dopo aver effettuato l'accesso all'accou
 >Se l'opzione relativa all'app di autenticazione non viene visualizzata, è possibile che l'organizzazione non consenta l'uso di un'app di autenticazione per la verifica. In questo caso, è necessario scegliere un altro metodo oppure contattare l'amministratore per ricevere assistenza.
 
 ## <a name="set-up-the-microsoft-authenticator-app-from-the-security-info-page"></a>Configurare l'app Microsoft Authenticator dalla pagina Informazioni di sicurezza
-A seconda delle impostazioni dell'organizzazione, potrebbe essere possibile usare un'app di autenticazione come metodo per le informazioni di sicurezza. Non è necessario usare l'app Microsoft Authenticator ed è possibile scegliere un'app diversa durante il processo di configurazione. Tuttavia, in questo articolo viene usata l'app Microsoft Authenticator. 
+
+A seconda delle impostazioni dell'organizzazione, potrebbe essere possibile usare un'app di autenticazione come metodo per le informazioni di sicurezza. Non è necessario usare l'app Microsoft Authenticator ed è possibile scegliere un'app diversa durante il processo di configurazione. Tuttavia, in questo articolo viene usata l'app Microsoft Authenticator.
 
 ### <a name="to-set-up-the-microsoft-authenticator-app"></a>Per configurare l'app Microsoft Authenticator
 
@@ -54,7 +56,7 @@ A seconda delle impostazioni dell'organizzazione, potrebbe essere possibile usar
 
    > [!Note]
    > Se si vuole usare un'app di autenticazione diversa dall'app Microsoft Authenticator, fare clic sul collegamento **Desidero usare un'app di autenticazione diversa**.
-   > 
+   >
    > Se l'organizzazione consente di scegliere un metodo diverso oltre all'app di autenticazione, è possibile fare clic sul collegamento **Desidero configurare un metodo diverso**.
 
 5. Rimanere sulla pagina **Configurare l'account** durante la configurazione dell'app Microsoft Authenticator sul dispositivo mobile.
@@ -69,23 +71,24 @@ A seconda delle impostazioni dell'organizzazione, potrebbe essere possibile usar
 
     ![Eseguire la scansione del codice a matrice tramite l'app Authenticator](media/security-info/securityinfo-myprofile-qrcodeauthapp.png)
 
-6. Eseguire la scansione del codice fornito con il lettore di codice a matrice dell'app Microsoft Authenticator, visualizzato sul dispositivo mobile dopo la creazione dell'account aziendale o dell'istituto di istruzione nel passaggio 6.
+8. Eseguire la scansione del codice fornito con il lettore di codice a matrice dell'app Microsoft Authenticator, visualizzato sul dispositivo mobile dopo la creazione dell'account aziendale o dell'istituto di istruzione nel passaggio 6.
 
     L'app di autenticazione dovrebbe aggiungere correttamente l'account aziendale o dell'istituto di istruzione senza richiedere informazioni aggiuntive. Se invece il lettore di codice a matrice non riesce a leggere il codice, è possibile selezionare il link **Non è possibile eseguire la scansione del codice a matrice** e immettere manualmente il codice e l'URL nell'app Microsoft Authenticator. Per altre informazioni sull'aggiunta manuale di un codice, vedere [Aggiungere manualmente un account all'app](user-help-auth-app-add-account-manual.md).
 
-7. Selezionare **Avanti** nella pagina **Esegui la scansione del codice a matrice**.
+9. Selezionare **Avanti** nella pagina **Esegui la scansione del codice a matrice**.
 
     Verrà inviata una notifica all'app Microsoft Authenticator sul dispositivo mobile per testare l'account.
 
     ![Testare l'account con l'app di autenticazione](media/security-info/securityinfo-myprofile-tryitauthapp.png)
 
-8. Approvare la notifica nell'app Microsoft Authenticator, quindi selezionare **Avanti**.
+10. Approvare la notifica nell'app Microsoft Authenticator, quindi selezionare **Avanti**.
 
      ![Notifica di operazione riuscita e connessione dell'app e dell'account](media/security-info/securityinfo-myprofile-successauthapp.png)
 
      Le informazioni di sicurezza vengono aggiornate in modo da usare per impostazione predefinita l'app Microsoft Authenticator per verificare l'identità quando si usa la verifica in due passaggi o la reimpostazione della password.
 
 ## <a name="delete-your-authenticator-app-from-your-security-info-methods"></a>Eliminare l'app di autenticazione dai metodi di gestione delle informazioni di sicurezza
+
 Per non usare più l'app di autenticazione come metodo di gestione delle informazioni di sicurezza, è possibile rimuoverla dalla pagina **Informazioni di sicurezza**. Questa opzione funziona per tutte le app di autenticazione, non solo l'app Microsoft Authenticator. Dopo aver eliminato l'app, è necessario accedere all'app di autenticazione sul dispositivo mobile ed eliminare l'account.
 
 >[!Important]
@@ -104,6 +107,7 @@ Per non usare più l'app di autenticazione come metodo di gestione delle informa
     L'account verrà completamente rimosso dall'app di autenticazione per le richieste di verifica a due fattori e reimpostazione della password.
 
 ## <a name="change-your-default-security-info-method"></a>Modificare il metodo di gestione delle informazioni di sicurezza predefinito
+
 Se si desidera impostare l'app di autenticazione come metodo predefinito da usare quando si accede all'account aziendale o dell'istituto di istruzione con la verifica a due fattori o per le richieste di reimpostazione della password, è possibile farlo dalla pagina **Informazioni di sicurezza**.
 
 ### <a name="to-change-your-default-security-info-method"></a>Per modificare il metodo di gestione delle informazioni di sicurezza predefinito
@@ -121,16 +125,19 @@ Se si desidera impostare l'app di autenticazione come metodo predefinito da usar
     Il metodo predefinito usato per l'accesso passa all'app Microsoft Authenticator.
 
 ## <a name="additional-security-info-methods"></a>Opzioni aggiuntive per le informazioni di sicurezza
+
 In base all'operazione da eseguire, sono disponibili opzioni aggiuntive relative alle modalità di contatto da parte dell'organizzazione per verificare l'identità dell'utente, Queste opzioni includono:
 
 - **SMS su dispositivo mobile.** Immettere il numero del dispositivo mobile per ricevere via SMS un codice da usare per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con un SMS, vedere [Configurare le informazioni di sicurezza per l'invio di SMS](security-info-setup-text-msg.md).
 
 - **Chiamata sul dispositivo mobile o sul telefono dell'ufficio.** Immettere il numero del dispositivo mobile per ricevere una chiamata per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con un numero di telefono, vedere [Configurare le informazioni di sicurezza per l'uso di chiamate telefoniche](security-info-setup-phone-number.md).
 
+- **Chiave di sicurezza.** Registrare la chiave di sicurezza compatibile con Microsoft e usarla insieme a un PIN per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con una chiave di sicurezza, vedere [configurare le informazioni di sicurezza per l'uso di una chiave di sicurezza](security-info-setup-security-key.md).
+
 - **Indirizzo di posta elettronica.** Immettere l'indirizzo di posta elettronica aziendale o dell'istituto di istruzione per ricevere un messaggio di posta elettronica per la reimpostazione della password. Questa opzione non è disponibile per la verifica in due passaggi. Per istruzioni dettagliate su come configurare l'indirizzo di posta elettronica, vedere [Configurare le informazioni di sicurezza per l'uso della posta elettronica](security-info-setup-email.md).
 
 - **Domande di sicurezza.** Rispondere ad alcune domande di sicurezza create dall'amministratore per l'organizzazione. Questa opzione è disponibile solo per la reimpostazione della password e non per la verifica in due passaggi. Per istruzioni dettagliate su come configurare le domande di sicurezza, vedere l'articolo [Configurare le informazioni di sicurezza per l'uso di domande di sicurezza](security-info-setup-questions.md).
-    
+
     >[!Note]
     >Se alcune opzioni non sono disponibili, è probabile che l'organizzazione non consenta di usare questi metodi. In questo caso, è necessario scegliere un metodo disponibile oppure contattare l'amministratore per ottenere assistenza.
 

@@ -1,5 +1,5 @@
 ---
-title: Problemi durante l'accesso a un'applicazione locale tramite il proxy di applicazione di Azure AD | Microsoft Docs
+title: Problemi di accesso all'app locale con Azure AD proxy app | Microsoft Docs
 description: Risoluzione dei problemi comuni riscontrati quando non si è in grado di accedere a un'applicazione locale integrata con Azure AD tramite il proxy di applicazione di Azure AD
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 05/21/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0adc2effb27ffcd870ec543ee7b353a092808797
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4483dc75d116e75521cb348b56dac418b3e012a8
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65825249"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381314"
 ---
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problemi durante l'accesso a un'applicazione locale tramite il proxy di applicazione di Azure AD
 
@@ -56,7 +56,7 @@ I documenti seguenti possono aiutare a risolvere alcuni dei problemi più comuni
 
 ## <a name="im-having-a-problem-with-the-application-proxy-agent-connector"></a>Si è verificato un problema con il connettore dell'agente proxy di applicazione
   I documenti seguenti possono aiutare a risolvere alcuni dei problemi più comuni in questa categoria.
-  * [Si verificano problemi durante l'installazione del connettore dell'agente Proxy di applicazione](application-proxy-connector-installation-problem.md)
+  * [Problemi di installazione del connettore dell'agente Application Proxy](application-proxy-connector-installation-problem.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Come fornire l'accesso remoto sicuro alle applicazioni locali](application-proxy.md)

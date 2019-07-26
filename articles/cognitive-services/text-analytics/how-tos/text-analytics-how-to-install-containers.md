@@ -11,12 +11,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: dapine
-ms.openlocfilehash: 7f178152fb5b6d540c2cecdfa42687469dfe3881
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 39f15cf8d1374ca95b10ccbddb8a59ec3e98f4f8
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356980"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68488758"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installare ed eseguire i contenitori di Analisi del testo
 
@@ -37,6 +37,8 @@ Per usare i contenitori di Analisi del testo, è necessario soddisfare i prerequ
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
 |Risorsa Analisi del testo |Per usare il contenitore, è necessario disporre di:<br><br>Una risorsa di Azure [analisi del testo](text-analytics-how-to-access-key.md) per ottenere la chiave API e l'URI dell'endpoint associati. Entrambi i valori sono disponibili nelle pagine delle chiavi e della panoramica di Analisi del testo nel portale di Azure e sono necessarie per avviare il contenitore.<br><br>**{API_KEY}** : Una delle due chiavi di risorsa disponibili nella pagina **chiavi**<br><br>**{ENDPOINT_URI}** : Endpoint fornito nella pagina **Panoramica**|
+
+[!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
 
 ### <a name="the-host-computer"></a>Computer host
 
@@ -107,14 +109,7 @@ Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), segui
 
 ## <a name="run-the-container-with-docker-run"></a>Eseguire il contenitore con `docker run`
 
-Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire uno qualsiasi dei tre contenitori. Il comando usa i parametri seguenti:
-
-| Placeholder | Value |
-|-------------|-------|
-|{API_KEY} | Questa chiave viene usata per avviare il contenitore ed è disponibile nella pagina `Text Analytics` chiavi del portale di Azure. |
-|{ENDPOINT_URI} | Il valore dell'URI dell'endpoint di fatturazione è disponibile `Text Analytics` nella pagina Panoramica di Azure. |
-
-Sostituire i parametri con i valori personalizzati nel comando `docker run` di esempio seguente.
+Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire uno qualsiasi dei tre contenitori. Per informazioni dettagliate su come ottenere i `{Endpoint_URI}` valori e `{API_Key}` , vedere raccolta dei [parametri obbligatori](#gathering-required-parameters) .
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \

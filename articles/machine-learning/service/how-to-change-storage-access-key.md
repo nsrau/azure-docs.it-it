@@ -1,7 +1,7 @@
 ---
-title: Modificare le chiavi di accesso account di archiviazione
+title: Modificare le chiavi di accesso dell'account di archiviazione
 titleSuffix: Azure Machine Learning service
-description: Informazioni su come modificare le chiavi di accesso per l'account di archiviazione di Azure usato per l'area di lavoro. Servizio Azure Machine Learning Usa un account di archiviazione di Azure per archiviare i dati e modelli. Quando si rigenera la chiave di accesso dell'account di archiviazione, è necessario aggiornare il servizio di Azure Machine Learning per usare le nuove chiavi.
+description: Informazioni su come modificare le chiavi di accesso per l'account di archiviazione di Azure usato dall'area di lavoro. Azure Machine Learning servizio usa un account di archiviazione di Azure per archiviare i dati e i modelli. Quando si rigenera la chiave di accesso per l'account di archiviazione, è necessario aggiornare il servizio Azure Machine Learning per usare le nuove chiavi.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,37 +10,37 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/17/2019
-ms.openlocfilehash: 488a032e177897caf2897ba6335f4e7f64dc0e4d
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 0721542811709e9b938fea3f31bc2a0a28ecdc74
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543838"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358766"
 ---
-# <a name="regenerate-storage-account-access-keys"></a>Rigenera chiavi di accesso di account di archiviazione
+# <a name="regenerate-storage-account-access-keys"></a>Rigenera le chiavi di accesso dell'account di archiviazione
 
-Informazioni su come modificare le chiavi di accesso per gli account di archiviazione di Azure usati dal servizio Azure Machine Learning. Azure Machine Learning è possibile usare gli account di archiviazione per archiviare i dati o modelli sottoposti a training.
+Informazioni su come modificare le chiavi di accesso per gli account di archiviazione di Azure usati dal servizio Azure Machine Learning. Azure Machine Learning possibile usare gli account di archiviazione per archiviare i dati o i modelli sottoposti a training.
 
-Per motivi di sicurezza, si potrebbe essere necessario modificare le chiavi di accesso per un account di archiviazione di Azure. Quando si rigenera la chiave di accesso, Azure Machine Learning deve essere aggiornato per usare la nuova chiave. Azure Machine Learning può essere l'account di archiviazione per entrambi archiviazione del modello e come un archivio dati.
+Per motivi di sicurezza, potrebbe essere necessario modificare le chiavi di accesso per un account di archiviazione di Azure. Quando si rigenera la chiave di accesso, è necessario aggiornare Azure Machine Learning per l'uso della nuova chiave. Azure Machine Learning possibile che utilizzino l'account di archiviazione sia per l'archiviazione del modello sia come archivio dati.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un'area di lavoro del servizio Azure Machine Learning. Per altre informazioni, vedere la [creare un'area di lavoro](setup-create-workspace.md) articolo.
+* Un'area di lavoro del servizio Azure Machine Learning. Per altre informazioni, vedere l'articolo [creare un'area di lavoro](setup-create-workspace.md) .
 
-* Il [di Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+* [SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
-* Il [estensione della riga di comando di Azure Machine Learning](reference-azure-machine-learning-cli.md).
+* [Estensione dell'interfaccia](reference-azure-machine-learning-cli.md)della riga di comando Azure Machine Learning.
 
 <a id="whattoupdate"></a> 
 
-## <a name="what-needs-to-be-updated"></a>Che cosa deve essere aggiornato
+## <a name="what-needs-to-be-updated"></a>Cosa è necessario aggiornare
 
-Gli account di archiviazione possono essere usati nell'area di lavoro del servizio Azure Machine Learning (l'archiviazione dei log, i modelli, gli snapshot, e così via) e come un archivio dati. Il processo per aggiornare l'area di lavoro è un singolo comando di Azure e può essere eseguito dopo l'aggiornamento della chiave di archiviazione. Il processo di aggiornamento di archivi dati è più complesso e richiede l'individuazione dei quali archivi di dati attualmente in uso l'account di archiviazione e quindi nuovamente la relativa registrazione.
+Gli account di archiviazione possono essere usati dall'area di lavoro del servizio Azure Machine Learning (archiviando log, modelli, snapshot e così via) e come archivio dati. Il processo di aggiornamento dell'area di lavoro è un singolo comando dell'interfaccia della riga di comando di Azure e può essere eseguito dopo l'aggiornamento della chiave di archiviazione. Il processo di aggiornamento degli archivi dati è più necessario ed è necessario individuare gli archivi dati che usano attualmente l'account di archiviazione e quindi registrarli di nuovo.
 
 > [!IMPORTANT]
-> Aggiornare l'area di lavoro tramite la CLI di Azure e gli archivi dati con Python, nello stesso momento. L'aggiornamento solo uno o l'altro non è sufficiente e può causare errori fino a quando non vengono entrambe aggiornate.
+> Aggiornare l'area di lavoro usando l'interfaccia della riga di comando di Azure e gli archivi dati usando Python, allo stesso tempo. L'aggiornamento di un solo o l'altro non è sufficiente e può causare errori fino a quando non vengono aggiornati entrambi.
 
-Per individuare gli account di archiviazione usati da archivi di dati, usare il codice seguente:
+Per individuare gli account di archiviazione usati dagli archivi dati, usare il codice seguente:
 
 ```python
 import azureml.core
@@ -49,54 +49,56 @@ from azureml.core import Workspace, Datastore
 ws = Workspace.from_config()
 
 default_ds = ws.get_default_datastore()
-print("Default datstore: " + default_ds.name + ", storage account name: " + default_ds.account_name + ", container name: " + ds.container_name)
+print("Default datstore: " + default_ds.name + ", storage account name: " +
+      default_ds.account_name + ", container name: " + ds.container_name)
 
 datastores = ws.datastores
 for name, ds in datastores.items():
     if ds.datastore_type == "AzureBlob" or ds.datastore_type == "AzureFile":
-        print("datastore name: " + name + ", storage account name: " + ds.account_name + ", container name: " + ds.container_name)
+        print("datastore name: " + name + ", storage account name: " +
+              ds.account_name + ", container name: " + ds.container_name)
 ```
 
-Questo codice è simile per tutti gli archivi dati registrati che usano l'archiviazione di Azure ed elenca le informazioni seguenti:
+Questo codice Cerca tutti gli archivi dati registrati che usano archiviazione di Azure e elenca le informazioni seguenti:
 
-* Nome archivio dati: Il nome dell'archivio dati registrato con l'account di archiviazione.
-* Nome account di archiviazione: Il nome dell'account di archiviazione di Azure.
-* Contenitore: Il contenitore nell'account di archiviazione usato da questa registrazione.
+* Nome archivio dati: Nome dell'archivio dati in cui è registrato l'account di archiviazione.
+* Nome account di archiviazione: Nome dell'account di archiviazione di Azure.
+* Contenitore Il contenitore nell'account di archiviazione usato dalla registrazione.
 
-Se esiste una voce per l'account di archiviazione che si prevede di rigenerazione delle chiavi di accesso per, salvare il nome di archivio dati, nome account di archiviazione e nome del contenitore.
+Se esiste una voce per l'account di archiviazione per cui si prevede di rigenerare le chiavi di accesso, salvare il nome dell'archivio dati, il nome dell'account di archiviazione e il nome del contenitore.
 
 ## <a name="update-the-access-key"></a>Aggiornare la chiave di accesso
 
-Per aggiornare il servizio di Azure Machine Learning per usare la nuova chiave, seguire questa procedura:
+Per aggiornare Azure Machine Learning servizio per l'utilizzo della nuova chiave, attenersi alla procedura seguente:
 
 > [!IMPORTANT]
-> Eseguire tutti i passaggi, l'aggiornamento sia l'area di lavoro usando il comando e gli archivi dati usando Python. L'aggiornamento solo uno o l'altro può causare errori fino a quando non vengono entrambe aggiornate.
+> Eseguire tutti i passaggi, aggiornare l'area di lavoro usando l'interfaccia della riga di comando e gli archivi dati usando Python. L'aggiornamento di un solo o l'altro può causare errori fino a quando non vengono aggiornati entrambi.
 
-1. Rigenerare la chiave. Per informazioni sulla rigenerazione di una chiave di accesso, vedere la [gestire un account di archiviazione](/azure/storage/common/storage-account-manage#access-keys) articolo. Salvare la nuova chiave.
+1. Rigenerare la chiave. Per informazioni sulla rigenerazione di una chiave di accesso, vedere l'articolo [gestire un account di archiviazione](/azure/storage/common/storage-account-manage#access-keys) . Salvare la nuova chiave.
 
-1. Per aggiornare l'area di lavoro per usare la nuova chiave, usare la procedura seguente:
+1. Per aggiornare l'area di lavoro in modo da usare la nuova chiave, seguire questa procedura:
 
-    1. Per accedere alla sottoscrizione di Azure che contiene l'area di lavoro usando il comando di Azure:
+    1. Per accedere alla sottoscrizione di Azure che contiene l'area di lavoro usando il comando dell'interfaccia della riga di comando di Azure seguente:
 
         ```azurecli-interactive
         az login
         ```
 
-    1. Per installare l'estensione di Azure Machine Learning, usare il comando seguente:
+    1. Per installare l'estensione Azure Machine Learning, utilizzare il comando seguente:
 
         ```azurecli-interactive
         az extension add -n azure-cli-ml 
         ```
 
-    1. Per aggiornare l'area di lavoro per usare la nuova chiave, usare il comando seguente. Sostituire `myworkspace` con il nome dell'area di lavoro di Azure Machine Learning e `myresourcegroup` con il nome del gruppo di risorse di Azure che contiene l'area di lavoro.
+    1. Per aggiornare l'area di lavoro per l'utilizzo della nuova chiave, utilizzare il comando seguente. Sostituire `myworkspace` con il nome dell'area di lavoro Azure Machine Learning `myresourcegroup` e sostituire con il nome del gruppo di risorse di Azure che contiene l'area di lavoro.
 
         ```azurecli-interactive
         az ml workspace sync-keys -w myworkspace -g myresourcegroup
         ```
 
-        Questo comando sincronizzerà automaticamente le nuove chiavi dell'account di archiviazione di Azure usato nell'area di lavoro.
+        Questo comando Sincronizza automaticamente le nuove chiavi per l'account di archiviazione di Azure usato dall'area di lavoro.
 
-1. Per registrare nuovamente archivi dati che utilizzano l'account di archiviazione, usare i valori di [ciò che deve essere aggiornato](#whattoupdate) sezione e la chiave dal passaggio 1 con il codice seguente:
+1. Per registrare di nuovo gli archivi dati che usano l'account di archiviazione, usare i valori della sezione [elementi che devono essere aggiornati](#whattoupdate) e la chiave del passaggio 1 con il codice seguente:
 
     ```python
     ds = Datastore.register_azure_blob_container(workspace=ws, 
@@ -107,8 +109,8 @@ Per aggiornare il servizio di Azure Machine Learning per usare la nuova chiave, 
                                               overwrite=True)
     ```
 
-    Poiché `overwrite=True` viene specificato, questo codice sovrascrive la registrazione esistente e aggiorna in modo che usi la nuova chiave.
+    Poiché `overwrite=True` è specificato, questo codice sovrascrive la registrazione esistente e la Aggiorna per l'uso della nuova chiave.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su come registrare gli archivi dati, vedere la [ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) di riferimento sulla classe.
+Per ulteriori informazioni sulla registrazione di archivi dati, vedere il riferimento [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) alla classe.

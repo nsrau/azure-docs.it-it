@@ -5,15 +5,15 @@ author: rimman
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: c0e97eed0a4028fdd9d2254fd9472dc3141d607a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 617d19b0dd9da926eb49170c1566febc6f6280ba
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66239841"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467803"
 ---
 # <a name="work-with-azure-cosmos-account"></a>Usare l'account Azure Cosmos
 
@@ -21,7 +21,7 @@ Azure Cosmos DB è una piattaforma completamente gestita distribuita come serviz
 
 L'account Azure Cosmos è l'unità fondamentale della distribuzione globale e della disponibilità elevata. Per la distribuzione a livello globale dei dati e della velocità effettiva tra più aree di Azure, è possibile aggiungere e rimuovere aree di Azure all'account Azure Cosmos in qualsiasi momento. È possibile configurare l'account Azure Cosmos per una o più aree di scrittura. Per altre informazioni, vedere [Come aggiungere e rimuovere aree di Azure per l'account Azure Cosmos](how-to-manage-database-account.md). È possibile configurare il [livello di coerenza predefinito](consistency-levels.md) nell'account Azure Cosmos. Azure Cosmos DB offre contratti di servizio completi che includono velocità effettiva, latenza al 99° percentile, coerenza e disponibilità elevata. Per altre informazioni, vedere [Contratti di servizio per Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/).
 
-Per gestire in modo sicuro l'accesso a tutti i dati all'interno dell'account Azure Cosmos, è possibile usare la [chiavi master](secure-access-to-data.md) associate all'account. Per proteggere ulteriormente l'accesso ai dati, è possibile configurare un [endpoint del servizio rete virtuale](vnet-service-endpoint.md) e [firewall IP](firewall-support.md) nell'account Azure Cosmos. 
+Per gestire in modo sicuro l'accesso a tutti i dati nell'account Azure Cosmos, è possibile usare le [chiavi master](secure-access-to-data.md) associate all'account. Per proteggere ulteriormente l'accesso ai dati, è possibile configurare un [endpoint del servizio VNET](vnet-service-endpoint.md) e [IP-Firewall](firewall-support.md) nell'account Azure Cosmos. 
 
 ## <a name="elements-in-an-azure-cosmos-account"></a>Elementi nell'account Azure Cosmos
 
@@ -33,7 +33,7 @@ Attualmente è possibile creare un massimo di 100 account Azure Cosmos in una so
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come gestire il proprio account Azure Cosmos e altri concetti:
+Informazioni su come gestire l'account Azure Cosmos e altri concetti:
 
 * [Come gestire l'account Azure Cosmos](how-to-manage-database-account.md)
 * [Distribuzione globale](distribute-data-globally.md)

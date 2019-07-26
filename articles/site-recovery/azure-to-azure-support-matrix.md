@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/07/2019
+ms.date: 07/22/2019
 ms.author: raynew
-ms.openlocfilehash: f44cb90beb7c1c544cb135f277fc12f724769b65
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 819b0f94f2dc8742b658dbd3aaa87108f204d2a7
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846986"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68406075"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matrice di supporto per la replica di macchine virtuali di Azure da un'area a un'altra
 
@@ -48,7 +48,7 @@ Questo articolo riepiloga il supporto e i prerequisiti quando si imposta il ripr
 -- | --
 America | Canada orientale, Canada centrale, Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti centrali, Stati Uniti centro-settentrionali
 Europa | Regno Unito occidentale, Regno Unito meridionale, Europa settentrionale, Europa occidentale, Francia centrale, Francia meridionale, Sudafrica occidentale, Sudafrica settentrionale
-Asia | India meridionale, India centrale, Asia sud-orientale, Asia orientale, Giappone orientale, Giappone occidentale, Corea del Sud centrale, Corea del Sud meridionale
+Asia | India meridionale, India centrale, India occidentale, Asia sudorientale, Asia orientale, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Emirati Arabi Uniti centrali, Emirati Arabi Uniti settentrionali
 Australia   | Australia orientale, Australia sud-orientale, Australia centrale, Australia centrale 2
 Azure Government    | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central 
 Germania | Germania centrale, Germania nord-orientale
@@ -182,7 +182,7 @@ Questa tabella riepiloga il supporto per il disco del sistema operativo, il disc
 --- | --- | ---
 Dimensione massima del disco del sistema operativo | 2048 GB | [Altre informazioni](../virtual-machines/windows/managed-disks-overview.md) sui dischi delle VM.
 Disco temporaneo | Non supportate | Il disco temporaneo è sempre escluso dalla replica.<br/><br/> Non conservare dati persistenti sul disco temporaneo. [Altre informazioni](../virtual-machines/windows/managed-disks-overview.md)
-Dimensione massima del disco dati | 4095 GB |
+Dimensione massima del disco dati | 8192 GB per Managed Disks<br></br>4095 GB per dischi non gestiti|
 Dimensioni minime disco dati | Nessuna restrizione per i dischi non gestiti. 2 GB per Managed Disks | 
 Numero massimo di dischi dati | Fino a 64, in conformità con il supporto per una specifica dimensione di VM di Azure | [Altre informazioni](../virtual-machines/windows/sizes.md) sulle dimensioni delle VM.
 Frequenza di modifica del disco dati | Massimo 10 Mbps per disco per l'archiviazione Premium. Massimo 2 Mbps per disco per l'archiviazione Standard. | Se la frequenza di modifica media dei dati sul disco supera costantemente il limite massimo, la replica non verrà aggiornata.<br/><br/>  Se tuttavia il limite massimo viene superato sporadicamente, la replica può essere aggiornata, ma i punti di ripristino potrebbero essere visualizzati leggermente ritardati.

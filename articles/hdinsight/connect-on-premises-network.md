@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 52fe8c05101f9647549acec276f0bdb9fa52d1c7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ced0655d2e8ff012b3043dd123a8483674b4c472
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60537901"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404538"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Connettere HDInsight alla rete locale
 
@@ -45,10 +45,10 @@ Nel diagramma seguente le linee verdi sono richieste di risorse che terminano ne
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un client SSH. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](./hdinsight-hadoop-linux-use-ssh-unix.md).
-* Se si usa PowerShell, è necessario il [modulo di AZ](https://docs.microsoft.com/powershell/azure/overview).
-* Se vogliono usare Azure CLI e non è stato ancora installato, vedere [installare CLI Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Se si usa PowerShell, sarà necessario il [modulo AZ](https://docs.microsoft.com/powershell/azure/overview).
+* Se si vuole usare l'interfaccia della riga di comando di Azure e non è ancora stata installata, vedere [installare l'interfaccia della](https://docs.microsoft.com/cli/azure/install-azure-cli)riga di comando di Azure.
 
-## <a name="create-virtual-network-configuration"></a>Creare la configurazione della rete virtuale
+## <a name="create-virtual-network-configuration"></a>Crea configurazione rete virtuale
 
 Vedere i documenti seguenti per informazioni su come creare una rete virtuale di Azure connessa alla rete locale:
 
@@ -56,7 +56,7 @@ Vedere i documenti seguenti per informazioni su come creare una rete virtuale di
 * [Uso di Azure PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 * [Uso dell'interfaccia della riga di comando di Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 
-## <a name="create-custom-dns-server"></a>Creare server DNS personalizzato
+## <a name="create-custom-dns-server"></a>Creare un server DNS personalizzato
 
 > [!IMPORTANT]  
 > È necessario creare e configurare il server DNS prima di installare HDInsight nella rete virtuale.
@@ -65,24 +65,24 @@ Questa procedura usa il [portale di Azure](https://portal.azure.com) per creare 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
   
-2. Nel menu a sinistra, passare a **+ crea una risorsa** > **calcolo** > **Ubuntu Server 18.04 LTS**.
+2. Dal menu a sinistra passare a **+ Crea una risorsa** > **calcolo** > **Ubuntu server 18,04 LTS**.
 
     ![Creare una macchina virtuale Ubuntu](./media/connect-on-premises-network/create-ubuntu-vm.png)
 
 3. Nella scheda __Informazioni di base__ immettere le informazioni seguenti:  
   
-    | Campo | Value |
+    | Campo | Valore |
     | --- | --- |
     |Sottoscrizione |Selezionare la sottoscrizione appropriata.|
     |Gruppo di risorse |Selezionare il gruppo di risorse che contiene la rete virtuale creata in precedenza.|
-    |Nome macchina virtuale | Immettere un nome descrittivo che identifica la macchina virtuale. In questo esempio viene usato **DNSProxy**.|
+    |Nome della macchina virtuale | Immettere un nome descrittivo che identifica la macchina virtuale. In questo esempio viene usato **DNSProxy**.|
     |Region | Selezionare la stessa area della rete virtuale creata in precedenza.  Non tutte le dimensioni di macchina virtuale sono disponibili in tutte le aree.  |
     |Opzioni di disponibilità |  Selezionare il livello di disponibilità desiderato.  Azure offre una gamma di opzioni per la gestione della disponibilità e della resilienza delle applicazioni.  Progettando una soluzione per l'uso di macchine virtuali replicate in zone di disponibilità o set di disponibilità è possibile proteggere le app e i dati da eventuali interruzioni del data center ed eventi di manutenzione. Im questo esempio viene usata l'opzione **La ridondanza dell'infrastruttura non è richiesta**. |
-    |Image | Lasciare **LTS Ubuntu Server 18.04**. |
-    |Tipo di autenticazione | __Password__ o __Chiave pubblica SSH__: metodo di autenticazione per l'account SSH. Si consiglia di usare le chiavi pubbliche, che sono più sicure. Questo esempio viene usato **Password**.  Per altre informazioni, vedere il documento [Creare e usare chiavi SSH per VM Linux](../virtual-machines/linux/mac-create-ssh-keys.md).|
+    |Image | Uscire da **Ubuntu Server 18,04 LTS**. |
+    |Tipo di autenticazione | __Password__ o __Chiave pubblica SSH__: metodo di autenticazione per l'account SSH. Si consiglia di usare le chiavi pubbliche, che sono più sicure. In questo esempio viene utilizzata la **password**.  Per altre informazioni, vedere il documento [Creare e usare chiavi SSH per VM Linux](../virtual-machines/linux/mac-create-ssh-keys.md).|
     |Nome utente |Immettere il nome utente dell'amministratore della macchina virtuale.  In questo esempio viene usato **sshuser**.|
     |Password o chiave pubblica SSH | Il campo disponibile è determinato dall'opzione selezionata per **Tipo di autenticazione**.  Immettere il valore appropriato.|
-    |Porte in ingresso pubbliche|Selezionare **Consenti porte selezionate**. Quindi selezionare **SSH (22)** dalle **selezionare le porte in ingresso** elenco a discesa.|
+    |Porte in ingresso pubbliche|Selezionare **Consenti porte selezionate**. Selezionare quindi **SSH (22)** nell'elenco a discesa **selezionare le porte in ingresso** .|
 
     ![Configurazione di base della macchina virtuale](./media/connect-on-premises-network/vm-basics.png)
 
@@ -94,7 +94,7 @@ Questa procedura usa il [portale di Azure](https://portal.azure.com) per creare 
     | --- | --- |
     |Rete virtuale | Selezionare la rete virtuale creata in precedenza.|
     |Subnet | Selezionare la subnet predefinita per la rete virtuale creata in precedenza. __Non__ selezionare la subnet usata dal gateway VPN.|
-    |IP pubblico | Usare il valore compilato automaticamente.  |
+    |IP pubblico | Usare il valore popolato automaticamente.  |
 
     ![Impostazioni della rete virtuale](./media/connect-on-premises-network/virtual-network-settings.png)
 
@@ -126,7 +126,7 @@ Dopo aver creato la macchina virtuale, si riceverà una notifica contenente il m
     sudo apt-get install bind9 -y
     ```
 
-3. Per configurare Bind per inoltrare le richieste di risoluzione nome per il server DNS locale, usare il testo seguente come contenuto del `/etc/bind/named.conf.options` file:
+3. Per configurare binding per l'invio di richieste di risoluzione dei nomi al server DNS locale, usare il testo seguente come contenuto del `/etc/bind/named.conf.options` file:
 
         acl goodclients {
             10.0.0.0/16; # Replace with the IP address range of the virtual network
@@ -231,7 +231,7 @@ Dopo aver creato la macchina virtuale, si riceverà una notifica contenente il m
 
 Per configurare la rete virtuale per usare il server DNS personalizzato invece del resolver ricorsivo di Azure, seguire questa procedura nel [portale di Azure](https://portal.azure.com):
 
-1. Nel menu a sinistra, passare a **tutti i servizi** > **Networking** > **reti virtuali**.
+1. Dal menu a sinistra passare a **tutti i servizi** > **rete** > **reti virtuali**.
 
 2. Selezionare la rete virtuale dall'elenco, che aprirà la visualizzazione predefinita per la rete virtuale.  
 
@@ -243,7 +243,7 @@ Per configurare la rete virtuale per usare il server DNS personalizzato invece d
 
     ![Impostare il server DNS personalizzato per la rete](./media/connect-on-premises-network/configure-custom-dns.png)
 
-## <a name="configure-on-premises-dns-server"></a>Configurare server DNS locale
+## <a name="configure-on-premises-dns-server"></a>Configurare il server DNS locale
 
 Nella sezione precedente è stato configurato il server DNS personalizzato per inoltrare le richieste al server DNS locale. È quindi necessario configurare il server DNS locale per inoltrare le richieste al server DNS personalizzato.
 
@@ -275,14 +275,14 @@ Questo esempio usa il server DNS locale in 196.168.0.4 per risolvere il nome del
 > [!WARNING]  
 > HDInsight richiede l'accesso in ingresso da indirizzi IP specifici nel cloud Azure e l'accesso in uscita senza restrizioni. Quando si usano NSG o route definite dall'utente per controllare il traffico, è necessario eseguire questa procedura:
 
-1. Trovare gli indirizzi IP per la località contenente la rete virtuale. Per un elenco di indirizzi IP necessari in base alla località, vedere [Indirizzi IP richiesti](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
+1. Trovare gli indirizzi IP per la località contenente la rete virtuale. Per un elenco di indirizzi IP necessari in base alla località, vedere [Indirizzi IP richiesti](./hdinsight-management-ip-addresses.md).
 
 2. Per gli indirizzi IP identificati nel passaggio 1, consentire il traffico in ingresso da tali indirizzi.
 
    * Se si usano i __gruppi di sicurezza di rete__: consentire il traffico __in ingresso__ sulla porta __443__ per gli indirizzi IP.
    * Se si usano le __route definite dall'utente__: impostare il tipo __Hop successivo__ della route su __Internet__ per gli indirizzi IP.
 
-Per un esempio di utilizzo di Azure PowerShell o dell'interfaccia della riga di comando di Azure per creare gruppi NSG, vedere il documento [Estendere le funzionalità di HDInsight usando Rete virtuale di Azure](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-nsg).
+Per un esempio di utilizzo di Azure PowerShell o dell'interfaccia della riga di comando di Azure per creare gruppi NSG, vedere il documento [Estendere le funzionalità di HDInsight usando Rete virtuale di Azure](hdinsight-create-virtual-network.md#hdinsight-nsg).
 
 ## <a name="create-the-hdinsight-cluster"></a>Creare il cluster HDInsight
 
@@ -334,9 +334,9 @@ Per connettersi direttamente a HDInsight attraverso la rete virtuale, seguire qu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni sull'uso HDInsight in una rete virtuale, vedere [Estendere le funzionalità di HDInsight usando Rete virtuale di Azure](./hdinsight-extend-hadoop-virtual-network.md).
+* Per altre informazioni sull'uso di HDInsight in una rete virtuale, vedere [pianificare una distribuzione di rete virtuale per i cluster Azure HDInsight](./hdinsight-plan-virtual-network-deployment.md).
 
-* Per altre informazioni sulle reti virtuali di Azure, vedere [Rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
+* Per altre informazioni sulle reti virtuali di Azure, vedere la [panoramica sulle reti virtuali di Azure](../virtual-network/virtual-networks-overview.md).
 
 * Per altre informazioni sui gruppi di sicurezza di rete, vedere [Gruppi di sicurezza di rete](../virtual-network/security-overview.md).
 

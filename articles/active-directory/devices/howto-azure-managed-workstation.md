@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90687d0229d3ad74c287bb4aff4885dc26932e40
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
-ms.translationtype: HT
+ms.openlocfilehash: be9e6374d92fbb7bb1c4b5a2a9e154119c5baf87
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227262"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377484"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>Distribuire una workstation protetta gestita da Azure
 
@@ -28,18 +28,18 @@ Prima di poter distribuire la soluzione, è necessario selezionare un profilo. �
 > [!NOTE]
 > Applicare i profili in base alle esigenze. È possibile passare a un altro profilo mediante l'assegnazione in Intune.
 
-| Profilo | Basso | Avanzato | Alto | Specializzata | Assicurato | Isolato |
+| Profilo | Basso | Avanzato | High | Specializzato | Protetti | Isolato |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Utente in Azure AD | Yes | Sì | Sì | Sì | Sì | Sì |
-| Gestione di Intune | Yes | Sì | Sì | Sì | Sì | Sì |
+| Gestione di Intune | Sì | Sì | Sì | Sì | Sì | Sì |
 | Azure AD dispositivo registrato | Sì |  |  |  |  | |   |
 | Dispositivo-Azure AD aggiunto |   | Sì | Sì | Sì | Sì | Yes |
-| Baseline della sicurezza di Intune applicata |   | Sì <br> Enhanced | Sì <br> (HighSecurity) | Sì <br> NCSC | Sì <br> Assicurato |  ND |
+| Baseline della sicurezza di Intune applicata |   | Sì <br> Enhanced | Sì <br> (HighSecurity) | Sì <br> NCSC | Yes <br> Assicurato |  ND |
 | L'hardware soddisfa gli standard di Windows 10 protetti |   | Sì | Sì | Sì | Sì | Sì |
 | Microsoft Defender ATP abilitato |   | Sì  | Sì | Sì | Sì | Sì |
-| Rimozione dei diritti di amministratore |   |   | Yes  | Sì | Sì | Sì |
-| Distribuzione con Microsoft Autopilot |   |   | Sì  | Sì | Sì | Sì |
-| App installate solo da Intune |   |   |   | Yes | Sì |Yes |
+| Rimozione dei diritti di amministratore |   |   | Sì  | Sì | Sì | Sì |
+| Distribuzione con Microsoft Autopilot |   |   | Sì  | Sì | Sì | Yes |
+| App installate solo da Intune |   |   |   | Sì | Sì |Sì |
 | URL limitati all'elenco approvato |   |   |   | Sì | Sì |Yes |
 | Internet bloccato (in ingresso/in uscita) |   |   |   |  |  |Sì |
 
@@ -229,14 +229,14 @@ Per altre informazioni, vedere [Windows Defender Advanced Threat Protection](htt
 
 Per completare correttamente la protezione avanzata della soluzione, scaricare ed eseguire lo script appropriato. Trovare i collegamenti di download per il **livello di profilo**desiderato:
 
-| Profilo | Percorso di download | Filename |
+| Profilo | Percorso download | Nome file |
 | --- | --- | --- |
 | Sicurezza bassa | N/D |  N/D |
 | Sicurezza avanzata | https://aka.ms/securedworkstationgit | Enhanced-workstation-Windows10-(1809). ps1 |
 | Sicurezza elevata  | https://aka.ms/securedworkstationgit | HighSecurityWorkstation-Windows10-(1809).ps1 |
-| Specializzata | https://github.com/pelarsen/IntunePowerShellAutomation | DeviceConfiguration_NCSC-Windows10 (1803) SecurityBaseline. ps1 |
+| Specializzato | https://github.com/pelarsen/IntunePowerShellAutomation | DeviceConfiguration_NCSC-Windows10 (1803) SecurityBaseline. ps1 |
 | Conformità specializzata * | https://aka.ms/securedworkstationgit | DeviceCompliance_NCSC-Windows10(1803).ps1 |
-| Assicurato | https://aka.ms/securedworkstationgit | Secure-Workstation-Windows10-(1809)-SecurityBaseline.ps1 |
+| Protetti | https://aka.ms/securedworkstationgit | Secure-Workstation-Windows10-(1809)-SecurityBaseline.ps1 |
 
 \*La conformità specializzata è uno script che impone la configurazione specializzata fornita in NCSC Windows10 SecurityBaseline.
 
@@ -245,7 +245,7 @@ Una volta eseguito correttamente lo script, è possibile effettuare aggiornament
 * Qui è possibile trovare i profili di configurazione dei dispositivi di Intune creati dagli script: **Portale di Azure**Microsoft Intune i profili diconfigurazione > dei dispositivi. >  > 
 * Qui è possibile trovare i criteri di conformità dei dispositivi di Intune creati dagli script: **Portale di Azure**Microsoft Intune i criteri diconformità > del dispositivo. >  > 
 
-Per esaminare le modifiche apportate dagli script, è possibile esportare i profili. In questo modo è possibile determinare ulteriori finalizzazione che potrebbero essere richieste come indicato nella documentazione di SECCOn.
+Per esaminare le modifiche apportate dagli script, è possibile esportare i profili. In questo modo è possibile determinare ulteriori finalizzazione che potrebbero essere richieste come indicato nella documentazione di [Seccon](https://docs.microsoft.com/windows/security/threat-protection/windows-security-configuration-framework/windows-security-configuration-framework).
 
 Eseguire lo script `DeviceConfiguration_Export.ps1` di esportazione dei dati di Intune dal [repository DeviceConfiguration GiuHub](https://github.com/microsoftgraph/powershell-intune-samples/tree/master/DeviceConfiguration) per esportare tutti i profili Intune correnti.
 

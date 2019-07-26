@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: iainfou
-ms.openlocfilehash: e252774d99eecac3623fcbae4ce9fdc0e1591672
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 3ea4ebe652679ee9e4c0a165493fa86756ca7868
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67474100"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494562"
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Abilitare la sincronizzazione password con Azure Active Directory Domain Services
 Nelle attività precedenti è stato abilitato Azure Active Directory Domain Services per il tenant di Azure Active Directory (Azure AD). L'attività successiva prevede l'abilitazione della sincronizzazione degli hash delle credenziali necessari per l'autenticazione NTLM (NT LAN Manager) e Kerberos con Azure AD Domain Services. Al termine della configurazione della sincronizzazione delle credenziali, gli utenti potranno accedere al dominio gestito con le credenziali aziendali.
@@ -41,7 +41,7 @@ La procedura da eseguire è diversa per gli account utente solo cloud rispetto a
 Un tenant di Azure AD viene impostato per la sincronizzazione con la directory locale dell'organizzazione con Azure AD Connect. Per impostazione predefinita, Azure AD Connect non sincronizza gli hash delle credenziali NTLM e Kerberos con Azure AD. Per usare Servizi di dominio Azure AD, è necessario configurare Azure AD Connect per sincronizzare gli hash delle credenziali necessari per l'autenticazione NTLM e Kerberos. I passaggi seguenti consentono di sincronizzare gli hash delle credenziali necessari dalla directory locale con il tenant di Azure AD.
 
 > [!NOTE]
-> **Se l'organizzazione include account utente sincronizzati dalla directory locale, è necessario abilitare la sincronizzazione degli hash NTLM e Kerberos per usare il dominio gestito.** Un account utente sincronizzato è un account creato nella directory locale e viene sincronizzato con il tenant di Azure AD tramite Azure AD Connect.
+> **Se l'organizzazione include account utente sincronizzati dalla directory locale, è necessario abilitare la sincronizzazione degli hash NTLM e Kerberos per usare il dominio gestito.** Un account utente sincronizzato è un account creato nella directory locale e viene sincronizzato con il tenant di Azure AD tramite Azure AD Connect.  La sincronizzazione dell'hash delle password è un processo diverso rispetto alla sincronizzazione di utenti/oggetti. È necessario disabilitare o abilitare la sincronizzazione dell'hash delle password per ottenere la sincronizzazione completa delle password. gli aggiornamenti dell'hash delle password batch vengono visualizzati nel registro eventi dell'applicazione.
 >
 >
 
@@ -77,6 +77,9 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 ```
 
 A seconda delle dimensioni della directory (numero di utenti, gruppi e così via), la sincronizzazione degli hash delle credenziali con Azure AD richiede tempo. Le password saranno utilizzabili nel dominio gestito dei servizi di dominio Azure Active Directory non appena le hash di credenziali saranno sincronizzate con Azure.
+
+> [!NOTE]
+> La **sincronizzazione dell'hash delle password** è un processo diverso rispetto alla sincronizzazione di utenti/oggetti. È necessario disabilitare o abilitare la sincronizzazione dell'hash delle password per ottenere la sincronizzazione completa delle password. gli aggiornamenti dell'hash delle password batch vengono visualizzati nel registro eventi dell'applicazione.
 
 ## <a name="related-content"></a>Contenuto correlato
 * [Abilitare la sincronizzazione password in Servizi di dominio Azure AD per una directory di Azure AD solo cloud](active-directory-ds-getting-started-password-sync.md)

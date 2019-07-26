@@ -5,22 +5,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 01/11/2018
+ms.date: 07/19/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 54050116f9894f9a7903dad53caf6b01228313b7
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: e692b4704d14a1f0d18f2a3be7397a13a969bc40
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326951"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371774"
 ---
 La tabella seguente descrive i limiti predefiniti per gli account di archiviazione BLOB V1, V2 e per utilizzo generico di Azure. Il limite di *ingresso* si riferisce a tutti i dati delle richieste inviate a un account di archiviazione. Il limite in *uscita* fa riferimento a tutti i dati delle risposte ricevute da un account di archiviazione.
 
 | Risorsa | Limite predefinito |
 | --- | --- |
 | Numero di account di archiviazione per ogni area per ogni sottoscrizione, inclusi gli account sia Standard che Premium | 250 |
-| Capacità massima dell'account di archiviazione | 2 PB per Stati Uniti ed Europa e 500 TB per tutte le altre aree (incluso il Regno Unito) <sup>1</sup>|
+| Capacità massima dell'account di archiviazione | 2 PB per Stati Uniti ed Europa e 500 TB per tutte le altre aree (incluso il Regno Unito)<sup>1</sup>|
 | Numero massimo di contenitori BLOB, BLOB, condivisioni file, tabelle, code, entità o messaggi per account di archiviazione | Nessun limite |
 | Frequenza massima di richieste<sup>1</sup> per account di archiviazione | 20.000 richieste al secondo |
 | Ingresso massimo<sup>1</sup> per account di archiviazione (aree Stati Uniti, Europa) | 25 Gbps |

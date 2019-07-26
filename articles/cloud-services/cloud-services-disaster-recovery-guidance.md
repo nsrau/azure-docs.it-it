@@ -4,22 +4,17 @@ description: Informazioni sulle operazioni da eseguire in caso di un'interruzion
 services: cloud-services
 documentationcenter: ''
 author: mmccrory
-manager: timlt
-editor: ''
-ms.assetid: e52634ab-003d-4f1e-85fa-794f6cd12ce4
 ms.service: cloud-services
 ms.workload: cloud-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: memccror
-ms.openlocfilehash: 976bb43fd3e6d6fdb19c733affd4afa2e49e482c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 269bb59210e24623a16b27d21d7276c084e4cca7
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967677"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359664"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Operazioni da eseguire in caso di un'interruzione del servizio Azure con impatto sui servizi cloud di Azure
 Microsoft si impegna costantemente per garantire agli utenti la disponibilità dei servizi in base alle esigenze. Eventi imprevisti possono, tuttavia, causare interruzioni non pianificate dei servizi.
@@ -51,7 +46,7 @@ Per altre informazioni sulla creazione e la distribuzione di un'applicazione di 
 In base alle origini dati dell'applicazione, può essere necessario controllare le procedure di ripristino per l'origine dati dell'applicazione.
 
 * Per le origini dati di Archiviazione di Azure, vedere [Replica di Archiviazione di Azure](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) per controllare le opzioni disponibili in base al modello di replica scelto per l'applicazione.
-* Per le origini di Database SQL, leggere [Panoramica: Ripristino di emergenza di continuità aziendale e il database business con il Database SQL cloud](../sql-database/sql-database-business-continuity.md) per controllare le opzioni disponibili basati sul modello di replica scelto per l'applicazione.
+* Per le origini del database SQL [, vedere Panoramica: Continuità aziendale del cloud e ripristino di emergenza del database](../sql-database/sql-database-business-continuity.md) con il database SQL per controllare le opzioni disponibili in base al modello di replica scelto per l'applicazione.
 
 
 ## <a name="option-3-wait-for-recovery"></a>Opzione 3: attendere il ripristino

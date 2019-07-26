@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2018
 ms.author: shvija
-ms.openlocfilehash: 88fdaec9e19c082a6fe981dc4d9a0e015335f1e2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f86dc92b4df45119930970acfe9e173f32f894fb
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60202974"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356045"
 ---
 # <a name="how-to-use-azure-event-hubs-from-a-python-application"></a>Come usare Hub eventi di Azure da un'applicazione Python
 Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per altre informazioni, vedere [Introduzione a Hub eventi](event-hubs-what-is-event-hubs.md). 
@@ -94,7 +94,8 @@ Il codice seguente spiega come ricevere eventi da un hub eventi di un’applicaz
 client = EventHubClient(ADDRESS, debug=False, username=USER, password=KEY)
 
 # Add a receiver to the client
-receiver = client.add_receiver(CONSUMER_GROUP, PARTITION, prefetch=5000, offset=OFFSET)
+receiver = client.add_receiver(
+    CONSUMER_GROUP, PARTITION, prefetch=5000, offset=OFFSET)
 
 # Run the Event Hubs client
 client.run()
@@ -156,7 +157,6 @@ def startProcessing(accountName, key, container):
             os.remove(cleanName)
         block_blob_service.delete_blob(container, blob.name)
 startProcessing('YOUR STORAGE ACCOUNT NAME', 'YOUR KEY', 'capture')
-
 ```
 
 In [questo articolo](event-hubs-capture-python.md) è disponibile un’esercitazione completa su come leggere i dati di Hub eventi acquisiti in una risorsa di archiviazione BLOB di Azure di un’applicazione scritta con Python.

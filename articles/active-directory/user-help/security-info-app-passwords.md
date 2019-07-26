@@ -12,14 +12,15 @@ ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55dfab0c60e77b86157a005db34c37917a5e08d2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d599607da6653d088f53490ea4d4b5f7f6d0f236
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60475085"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382939"
 ---
 # <a name="manage-app-passwords-from-your-security-info-preview-page"></a>Gestire le password delle app dalla pagina Info di sicurezza (anteprima)
+
 Alcune app, come Outlook 2010, non supportano la verifica in due passaggi. L'assenza di supporto significa che se si usa la verifica in due passaggi nell'organizzazione, l'app non funzionerà. Per ovviare a questo problema, è possibile creare una password generata automaticamente da usare con ogni app non basata su browser, diversa dalla password normale.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
@@ -39,12 +40,14 @@ Quando si usano password per le app, è importante tenere presente quanto segue:
     >I client di Office 2013, tra cui Outlook, supportano i nuovi protocolli di autenticazione e possono essere usati con la verifica in due passaggi. Questo supporto significa che dopo l'attivazione della verifica in due passaggi non sono più necessarie le password per le app per i client Office 2013. Per altre informazioni, vedere l'articolo [Funzionamento dell'autenticazione moderna per le applicazioni client di Office 2013 e Office 2016](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517).
 
 ## <a name="create-new-app-passwords"></a>Creare nuove password per l'app
+
 Se si usa la verifica in due passaggi con l'account aziendale o dell'istituto di istruzione e l'amministratore ha disattivato l'esperienza delle informazioni di sicurezza, è possibile creare ed eliminare le password delle app usando la pagina **Info di sicurezza**.
 
 >[!Note]
 >Se l'amministratore non ha attivato l'esperienza delle informazioni di sicurezza, è necessario seguire le istruzioni e le informazioni nella sezione [Gestire le password delle app per la verifica in due passaggi](multi-factor-authentication-end-user-app-passwords.md).
 
 ### <a name="to-create-a-new-app-password"></a>Per creare una nuova password per l'app
+
 1. Accedere all'account aziendale o dell'istituto di istruzione e quindi passare alla pagina https://myprofile.microsoft.com/.
 
     ![Pagina Profilo personale con i collegamenti evidenziati delle Informazioni di sicurezza](media/security-info/securityinfo-myprofile-page.png)
@@ -64,10 +67,11 @@ Se si usa la verifica in due passaggi con l'account aziendale o dell'istituto di
 5. Copiare il testo dalla casella **Password**, incollare la password nell'apposita area dell'app (in questo esempio Outlook 2010) e quindi selezionare **Fine**.
 
     ![Pagina Password dell'app, con il nome dell'app](media/security-info/securityinfo-myprofile-password-copytext.png)
-    
+
     La password viene aggiunta ed è possibile accedere all'app a partire da questo momento.
 
 ## <a name="delete-your-app-passwords"></a>Elimina le password dell'app
+
 Se non è più necessario usare un'app che richiede una password, è possibile eliminare la password dell'app associata. L'eliminazione della password dell'app libera uno dei posti disponibili per la password dell'app da usare in futuro.
 
 >[!Important]
@@ -82,4 +86,5 @@ Se non è più necessario usare un'app che richiede una password, è possibile e
 2. Selezionare **Sì** nella finestra di dialogo di conferma per eliminare la **password dell'app**. La password dell'app, dopo essere stata eliminata, viene rimossa dalle informazioni di sicurezza e non viene più visualizzata nella pagina **Info di sicurezza**.
 
 ## <a name="for-more-information"></a>Per altre informazioni
+
 - Per altre informazioni sulla pagina **Info di sicurezza** e su come configurarla, vedere [Panoramica delle informazioni di sicurezza](user-help-security-info-overview.md)

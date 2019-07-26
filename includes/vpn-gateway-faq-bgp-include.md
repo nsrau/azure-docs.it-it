@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 7c1f3fc7861f5e1b895423d502218b9b07302c1c
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 23386139364a72b0275936cdc458c8cd2a5771c9
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67659835"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68386901"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>BGP è supportato in tutti gli SKU del gateway VPN di Azure?
 No, BGP è supportato nei gateway VPN **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** e **HighPerformance** di Azure. **Basic** NON è supportato.
@@ -85,10 +85,10 @@ Sì, ma almeno uno dei gateway di rete virtuale deve avere la configurazione att
 Sì. 
 
 ### <a name="what-address-does-azure-vpn-gateway-use-for-bgp-peer-ip"></a>Quale indirizzo viene usato dal gateway VPN di Azure per l'indirizzo IP del peer BGP?
-Il gateway VPN di Azure allocherà un singolo indirizzo IP dall'intervallo GatewaySubnet per i gateway VPN di tipo attivo-standby o due indirizzi IP per i gateway VPN active-active. È possibile ottenere gli indirizzi IP BGP effettiva allocata tramite PowerShell (Get-AzVirtualNetworkGateway, cercare la proprietà "indirizzo peer BGP") o nel portale di Azure (con la proprietà "Configura ASN BGP" nella pagina Configurazione Gateway).
+Il gateway VPN di Azure alloca un singolo indirizzo IP dall'intervallo di GatewaySubnet per i gateway VPN attivi-standby o due indirizzi IP per i gateway VPN attivi/attivi. È possibile ottenere gli indirizzi IP BGP effettivi allocati usando PowerShell (Get-AzVirtualNetworkGateway, cercare la proprietà "indirizzo peer BGP") o nel portale di Azure (sotto la proprietà "Configure BGP ASN" nella pagina di configurazione del gateway).
 
 ### <a name="what-are-the-requirements-for-the-bgp-peer-ip-addresses-on-my-vpn-device"></a>Quali sono i requisiti per gli indirizzi IP dei peer BGP nel dispositivo VPN?
-L'indirizzo del peer BGP locale **NON DEVE** essere uguale all'indirizzo IP pubblico del dispositivo VPN. Usare un indirizzo IP diverso nel dispositivo VPN per l'indirizzo IP del peer BGP. Può essere un indirizzo assegnato all'interfaccia di loopback nel dispositivo, ma si noti che non può essere un indirizzo APIPA (169.254.x.x). Specificare questo indirizzo nel gateway di rete locale corrispondente che rappresenta la posizione.
+L'indirizzo peer BGP locale **non deve** corrispondere all'indirizzo IP pubblico del dispositivo VPN o allo spazio di indirizzi VNET del gateway VPN. Usare un indirizzo IP diverso nel dispositivo VPN per l'indirizzo IP del peer BGP. Può essere un indirizzo assegnato all'interfaccia di loopback nel dispositivo, ma si noti che non può essere un indirizzo APIPA (169.254.x.x). Specificare questo indirizzo nel gateway di rete locale corrispondente che rappresenta la posizione.
 
 ### <a name="what-should-i-specify-as-my-address-prefixes-for-the-local-network-gateway-when-i-use-bgp"></a>Cosa occorre specificare come prefissi di indirizzo per il gateway di rete locale quando si usa BGP?
 Il gateway di rete locale di Azure specifica i prefissi di indirizzo iniziali per la rete locale. Con BGP è necessario allocare il prefisso dell'host, ovvero il prefisso /32, dell'indirizzo IP del peer BGP come spazio di indirizzi per la rete locale. Se l'indirizzo IP del peer BGP è 10.52.255.254, specificare "10.52.255.254/32" come localNetworkAddressSpace per il gateway di rete locale che rappresenta la rete locale. Questo permette al gateway VPN di Azure di stabilire la sessione BGP attraverso il tunnel VPN S2S.

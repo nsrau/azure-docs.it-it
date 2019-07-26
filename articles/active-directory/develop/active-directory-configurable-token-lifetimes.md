@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev, annaba
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9776126687832485bf329061dfeedce928918d9
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 901cf3e25ed63421f7e07d7773b6381fc54ea8a2
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321135"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489121"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Durate dei token configurabili in Azure Active Directory (anteprima)
 
@@ -40,6 +40,7 @@ In Azure AD, un oggetto criteri rappresenta un set di regole applicate a singole
 > I criteri per la durata dei token configurabili non sono supportati per SharePoint Online.  Anche se si ha la possibilità di creare questo criterio tramite PowerShell, SharePoint Online non lo riconoscerà. Fare riferimento ai [blog di SharePoint Online](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) per altre informazioni sulla configurazione dei timeout di sessione inattiva.
 >* La durata predefinita per il token di accesso di SharePoint Online è 1 ora. 
 >* Il tempo di inattività massimo predefinito del token di aggiornamento di SharePoint Online è 90 giorni.
+
 
 ## <a name="token-types"></a>Tipi di token
 
@@ -80,7 +81,7 @@ I criteri per la durata dei token rappresentano un tipo di oggetto criteri conte
 ### <a name="configurable-token-lifetime-properties"></a>Proprietà configurabili per la durata dei token
 | Proprietà | Stringa proprietà criteri | Impatto | Predefinito | Minima | Massima |
 | --- | --- | --- | --- | --- | --- |
-| Durata dei token di accesso |AccessTokenLifetime |Token di accesso, token ID, token SAML2 |1 ora |10 minuti |1 giorno |
+| Durata dei token di accesso |AccessTokenLifetime<sup>4</sup> |Token di accesso, token ID, token SAML2 |1 ora |10 minuti |1 giorno |
 | Tempo inattività massimo token di aggiornamento |MaxInactiveTime |Token di aggiornamento |90 giorni |10 minuti |90 giorni |
 | Validità massima token di aggiornamento a fattore singolo |MaxAgeSingleFactor |Token di aggiornamento (per tutti gli utenti) |Fino a revoca |10 minuti |Fino alla revoca<sup>1</sup> |
 | Validità massima token di aggiornamento a più fattori |MaxAgeMultiFactor |Token di aggiornamento (per tutti gli utenti) |Fino a revoca |10 minuti |Fino alla revoca<sup>1</sup> |
@@ -88,6 +89,7 @@ I criteri per la durata dei token rappresentano un tipo di oggetto criteri conte
 | Validità massima token di sessione a più fattori |MaxAgeSessionMultiFactor<sup>3</sup> |Token di sessione (permanenti e non permanenti) |Fino a revoca |10 minuti |Fino alla revoca<sup>1</sup> |
 
 * <sup>1</sup> La durata esplicita massima che è possibile impostare per questi attributi è 365 giorni.
+* <sup>4</sup> Per far funzionare il client Web Microsoft teams, è consigliabile impostare AccessTokenLifetime su un valore superiore a 15 minuti per Microsoft teams.
 
 ### <a name="exceptions"></a>Eccezioni
 | Proprietà | Impatto | Predefinito |
@@ -381,7 +383,7 @@ Crea nuovi criteri.
 New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type>
 ```
 
-| Parametri | Descrizione | Esempio |
+| Parametri | DESCRIZIONE | Esempio |
 | --- | --- | --- |
 | <code>&#8209;Definition</code> |Matrice del codice JSON in formato stringa contenente tutte le regole dei criteri. | `-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
 | <code>&#8209;DisplayName</code> |Stringa relativa al nome dei criteri. |`-DisplayName "MyTokenPolicy"` |
@@ -398,7 +400,7 @@ Ottiene tutti i criteri di Azure AD o i criteri specificati.
 Get-AzureADPolicy
 ```
 
-| Parametri | DESCRIZIONE | Esempio |
+| Parametri | Descrizione | Esempio |
 | --- | --- | --- |
 | <code>&#8209;Id</code>[Facoltativo] |**ObjectID (ID)** del criterio desiderato. |`-Id <ObjectId of Policy>` |
 
@@ -411,7 +413,7 @@ Ottiene tutte le app e le entità servizio collegate a criteri specifici.
 Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 ```
 
-| Parametri | Descrizione | Esempio |
+| Parametri | DESCRIZIONE | Esempio |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectID (ID)** del criterio desiderato. |`-Id <ObjectId of Policy>` |
 
@@ -442,7 +444,7 @@ Elimina i criteri specificati.
  Remove-AzureADPolicy -Id <ObjectId of Policy>
 ```
 
-| Parametri | Descrizione | Esempio |
+| Parametri | DESCRIZIONE | Esempio |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectID (ID)** del criterio desiderato. | `-Id <ObjectId of Policy>` |
 
@@ -458,7 +460,7 @@ Collega i criteri specificati a un'applicazione.
 Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
 ```
 
-| Parametri | Descrizione | Esempio |
+| Parametri | DESCRIZIONE | Esempio |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectID (ID)** dell'applicazione. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**ObjectId** dei criteri. | `-RefObjectId <ObjectId of Policy>` |
@@ -492,7 +494,7 @@ Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectI
 
 </br></br>
 
-### <a name="service-principal-policies"></a>Criteri dell'entità servizio
+### <a name="service-principal-policies"></a>Criteri per l'entità servizio
 È possibile usare i cmdlet riportati di seguito per i criteri dell'entità servizio.
 
 #### <a name="add-azureadserviceprincipalpolicy"></a>Add-AzureADServicePrincipalPolicy
@@ -502,7 +504,7 @@ Collega i criteri specificati a un'entità servizio.
 Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
 ```
 
-| Parametri | Descrizione | Esempio |
+| Parametri | DESCRIZIONE | Esempio |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectID (ID)** dell'applicazione. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**ObjectId** dei criteri. | `-RefObjectId <ObjectId of Policy>` |

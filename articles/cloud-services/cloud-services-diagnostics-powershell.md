@@ -3,29 +3,24 @@ title: Abilitare la diagnostica nei servizi cloud di Azure con PowerShell | Docu
 description: Informazioni su come abilitare la diagnostica per i servizi cloud tramite PowerShell
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 66e08754-8639-4022-ae18-4237749ba17d
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/06/2016
-ms.author: jeconnoc
-ms.openlocfilehash: 13a855c5770281e2578523bfc1813b2e03df6651
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 4beed4dd874c23c36e125b5855e2e8380859ef83
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539238"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359153"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>Abilitare la diagnostica nei servizi cloud di Azure con PowerShell
 È possibile raccogliere dati di diagnostica come log applicazioni, contatori delle prestazioni e così via da un servizio cloud mediante l'estensione Diagnostica di Azure. Questo articolo descrive come abilitare l'estensione Diagnostica di Azure per un servizio Cloud tramite PowerShell.  Per i prerequisiti necessari per questo articolo, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) .
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>Abilitare l'estensione delle funzionalità di diagnostica come parte della distribuzione di un servizio Cloud
-Questo approccio è applicabile al tipo di scenari di integrazione continua, in cui l'estensione Diagnostica può essere abilitata come parte della distribuzione del servizio cloud. Quando si crea una nuova distribuzione del servizio Cloud, è possibile abilitare l'estensione diagnostica passando il *ExtensionConfiguration* parametro per il [New-AzureDeployment](/powershell/module/servicemanagement/azure/new-azuredeployment?view=azuresmps-3.7.0) cmdlet. Il parametro *ExtensionConfiguration* accetta una matrice di configurazioni di diagnostica che può essere creata utilizzando il cmdlet [New AzureServiceDiagnosticsExtensionConfig](/powershell/module/servicemanagement/azure/new-azureservicediagnosticsextensionconfig?view=azuresmps-3.7.0) .
+Questo approccio è applicabile al tipo di scenari di integrazione continua, in cui l'estensione Diagnostica può essere abilitata come parte della distribuzione del servizio cloud. Quando si crea una nuova distribuzione del servizio cloud, è possibile abilitare l'estensione di diagnostica passando il parametro *ExtensionConfiguration* al cmdlet [New-AzureDeployment](/powershell/module/servicemanagement/azure/new-azuredeployment?view=azuresmps-3.7.0) . Il parametro *ExtensionConfiguration* accetta una matrice di configurazioni di diagnostica che può essere creata utilizzando il cmdlet [New AzureServiceDiagnosticsExtensionConfig](/powershell/module/servicemanagement/azure/new-azureservicediagnosticsextensionconfig?view=azuresmps-3.7.0) .
 
 L'esempio seguente mostra come abilitare la diagnostica per un servizio cloud con un WebRole e un WorkerRole, ognuno dei quali ha una configurazione di diagnostica diversa.
 
@@ -120,13 +115,13 @@ Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
 ## <a name="remove-diagnostics-extension"></a>Rimuovere l'estensione della diagnostica
-Per disattivare la diagnostica in un servizio cloud, è possibile usare la [Remove AzureServiceDiagnosticsExtension](/powershell/module/servicemanagement/azure/remove-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet.
+Per disattivare la diagnostica in un servizio cloud, è possibile usare il cmdlet [Remove-AzureServiceDiagnosticsExtension](/powershell/module/servicemanagement/azure/remove-azureservicediagnosticsextension?view=azuresmps-3.7.0) .
 
 ```powershell
 Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
-Se è stata abilitata l'estensione di diagnostica usando uno *Set-AzureServiceDiagnosticsExtension* o nella *New AzureServiceDiagnosticsExtensionConfig* senza il *ruolo*parametro, sarà possibile rimuovere l'estensione usando *Remove AzureServiceDiagnosticsExtension* senza il *ruolo* parametro. Se il *ruolo* parametro è stato usato quando si abilita l'estensione, quindi deve essere utilizzato anche quando si rimuove l'estensione.
+Se è stata abilitata l'estensione di diagnostica usando *set-AzureServiceDiagnosticsExtension* o *New-AzureServiceDiagnosticsExtensionConfig* senza il parametro *Role* , è possibile rimuovere l'estensione usando  *Remove-AzureServiceDiagnosticsExtension* senza il parametro *Role* . Se il parametro *Role* è stato usato quando si Abilita l'estensione, è necessario usarlo anche quando si rimuove l'estensione.
 
 Per rimuovere l'estensione della diagnostica da ogni singolo ruolo:
 

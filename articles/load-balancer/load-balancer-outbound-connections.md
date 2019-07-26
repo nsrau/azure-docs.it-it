@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: allensu
-ms.openlocfilehash: 6623b3e679faaa73f18c0f6b376de101113bcbdb
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 833d0d0b17f7cc22b2ab37b4e225c1a8cce9c592
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274548"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385555"
 ---
 # <a name="outbound-connections-in-azure"></a>Connessioni in uscita in Azure
 
@@ -40,27 +40,27 @@ Sono presenti più [scenari in uscita](#scenarios). È possibile combinare quest
 
 Quando si usa [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), vengono definiti in modo esplicito il servizio Azure Load Balancer e le risorse correlate.  Attualmente, Azure offre tre diversi metodi per ottenere la connettività in uscita per le risorse di Azure Resource Manager. 
 
-| SKU | Scenario | Metodo | Protocolli IP | Descrizione |
+| SKU | Scenario | Metodo | Protocolli IP | DESCRIZIONE |
 | --- | --- | --- | --- | --- |
-| Standard, di base | [1. Macchina virtuale con indirizzo IP pubblico a livello di istanza (con o senza Load Balancer)](#ilpip) | SNAT, il mascheramento delle porte non viene usato | TCP, UDP, ICMP, ESP | Azure usa l'indirizzo IP pubblico assegnato alla configurazione IP della scheda di interfaccia di rete dell'istanza. L'istanza ha tutte le porte temporanee disponibili. Quando si usa Load Balancer Standard, è consigliabile usare le [regole in uscita](load-balancer-outbound-rules-overview.md) per definire in modo esplicito la connettività in uscita. |
-| Standard, di base | [2. Servizio Load Balancer pubblico associato a una macchina virtuale (nessun indirizzo IP pubblico a livello di istanza per l'istanza)](#lb) | SNAT con mascheramento delle porte (PAT) tramite i front-end di Load Balancer | TCP, UDP |Azure condivide l'indirizzo IP pubblico dei front-end di Load Balancer pubblici con più IP privati. Azure usa le porte temporanee dei front-end per PAT. |
-| Nessuna o di base | [3. Macchina virtuale autonoma (senza Load Balancer, nessun indirizzo IP pubblico a livello di istanza)](#defaultsnat) | SNAT con mascheramento delle porte (PAT) | TCP, UDP | Azure designa automaticamente un indirizzo IP pubblico per SNAT, condivide questo indirizzo IP pubblico con più indirizzi IP privati del set di disponibilità e usa le porte temporanee di questo indirizzo IP pubblico. Questo è uno scenario di fallback per gli scenari precedenti. Non è consigliato se sono necessari visibilità e controllo. |
+| Standard, di base | [1. Macchina virtuale con indirizzo IP pubblico (con o senza Load Balancer)](#ilpip) | SNAT, il mascheramento delle porte non viene usato | TCP, UDP, ICMP, ESP | Azure usa l'indirizzo IP pubblico assegnato alla configurazione IP della scheda di interfaccia di rete dell'istanza. L'istanza ha tutte le porte temporanee disponibili. Quando si usa Load Balancer Standard, è consigliabile usare le [regole in uscita](load-balancer-outbound-rules-overview.md) per definire in modo esplicito la connettività in uscita. |
+| Standard, di base | [2. Load Balancer pubblico associato a una macchina virtuale (nessun indirizzo IP pubblico nell'istanza)](#lb) | SNAT con mascheramento delle porte (PAT) tramite i front-end di Load Balancer | TCP, UDP |Azure condivide l'indirizzo IP pubblico dei front-end di Load Balancer pubblici con più IP privati. Azure usa le porte temporanee dei front-end per PAT. |
+| Nessuna o di base | [3. VM autonoma (nessuna Load Balancer, nessun indirizzo IP pubblico)](#defaultsnat) | SNAT con mascheramento delle porte (PAT) | TCP, UDP | Azure designa automaticamente un indirizzo IP pubblico per SNAT, condivide questo indirizzo IP pubblico con più indirizzi IP privati del set di disponibilità e usa le porte temporanee di questo indirizzo IP pubblico. Questo è uno scenario di fallback per gli scenari precedenti. Non è consigliato se sono necessari visibilità e controllo. |
 
 Se non si vuole che una macchina virtuale comunichi con gli endpoint all'esterno di Azure nello spazio indirizzi IP pubblici, è possibile usare i gruppi di sicurezza di rete per bloccare l'accesso in base alle specifiche esigenze. La sezione [Impedire la connettività in uscita](#preventoutbound) illustra i gruppi di sicurezza di rete più in dettaglio. La progettazione, l'implementazione e la gestione di una rete virtuale senza accesso in uscita non rientrano nell'ambito di questo articolo.
 
-### <a name="ilpip"></a>Scenario 1: Macchina virtuale con un indirizzo IP pubblico a livello di istanza
+### <a name="ilpip"></a>Scenario 1: Macchina virtuale con indirizzo IP pubblico
 
-In questo scenario la macchina virtuale ha assegnato un IP pubblico a livello di istanza. Per quanto riguarda le connessioni in uscita, non è importante se la macchina virtuale abbia un carico bilanciato o meno. Questo scenario ha la precedenza rispetto agli altri. Quando si usa un indirizzo IP pubblico a livello di istanza, la macchina virtuale usa tale indirizzo IP per tutti i flussi in uscita.  
+In questo scenario alla macchina virtuale è assegnato un indirizzo IP pubblico. Per quanto riguarda le connessioni in uscita, non è importante se la macchina virtuale abbia un carico bilanciato o meno. Questo scenario ha la precedenza rispetto agli altri. Quando viene usato un indirizzo IP pubblico, la macchina virtuale usa l'indirizzo IP pubblico per tutti i flussi in uscita.  
 
 Un indirizzo IP pubblico assegnato a una macchina virtuale è una relazione 1:1, anziché 1:molti, e viene implementato come NAT 1:1 senza stato.  Il mascheramento delle porte (PAT) non viene usato e tutte le porte temporanee sono disponibili per l'uso per la macchina virtuale.
 
-Se l'applicazione avvia numerosi flussi in uscita e si assiste a un esaurimento delle porte SNAT, prendere in considerazione l'assegnazione di un [indirizzo IP pubblico a livello di istanza per ridurre i vincoli SNAT](#assignilpip). Leggere per intero [Gestione dell'esaurimento SNAT](#snatexhaust).
+Se l'applicazione avvia numerosi flussi in uscita e si verifica l'esaurimento delle porte SNAT, è consigliabile assegnare un [indirizzo IP pubblico per attenuare i vincoli SNAT](#assignilpip). Leggere per intero [Gestione dell'esaurimento SNAT](#snatexhaust).
 
-### <a name="lb"></a>Scenario 2: Macchina virtuale con carico bilanciato senza indirizzo IP pubblico a livello di istanza
+### <a name="lb"></a>Scenario 2: Macchina virtuale con carico bilanciato senza indirizzo IP pubblico
 
 In questo scenario la macchina virtuale fa parte di un pool di back-end di Load Balancer pubblico. Alla macchina virtuale non è assegnato un indirizzo IP pubblico. La risorsa di bilanciamento del carico deve essere configurata con una regola di bilanciamento del carico per creare un collegamento fra il front-end dell'IP pubblico e il pool back-end.
 
-Se questa configurazione delle regole non viene completata, il comportamento sarà quello descritto nello scenario [Macchina virtuale autonoma senza indirizzo IP pubblico a livello di istanza](#defaultsnat). Per la regola non è richiesta la presenza di un listener di lavoro nel pool di back-end perché il probe di integrità abbia esito positivo.
+Se questa configurazione delle regole non viene completata, il comportamento sarà quello descritto nello scenario per la [macchina virtuale autonoma senza indirizzo IP pubblico](#defaultsnat). Per la regola non è richiesta la presenza di un listener di lavoro nel pool di back-end perché il probe di integrità abbia esito positivo.
 
 Quando la macchina virtuale con carico bilanciato crea un flusso in uscita, Azure converte l'indirizzo IP di origine privata del flusso in uscita nell'indirizzo IP pubblico del front-end pubblico di Load Balancer. Azure usa SNAT per eseguire questa funzione. Azure usa anche [PAT](#pat) per mascherare più indirizzi IP privati dietro un indirizzo IP pubblico. 
 
@@ -72,9 +72,9 @@ Se a [Load Balancer Basic vengono associati più indirizzi IP pubblici](load-bal
 
 Per monitorare l'integrità delle connessioni in uscita con Load Balancer Basic, è possibile usare i [log di monitoraggio di Azure per Load Balancer](load-balancer-monitor-log.md) e i [registri eventi di avviso](load-balancer-monitor-log.md#alert-event-log) per monitorare i messaggi di esaurimento delle porte SNAT.
 
-### <a name="defaultsnat"></a>Scenario 3: Macchina virtuale autonoma senza indirizzo IP pubblico a livello di istanza
+### <a name="defaultsnat"></a>Scenario 3: VM autonoma senza indirizzo IP pubblico
 
-In questo scenario la macchina virtuale non fa parte di un pool di Load Balancer pubblico, né di un pool di Load Balancer Standard interno, e non ha assegnato un indirizzo ILPIP. Quando la macchina virtuale crea un flusso in uscita, Azure converte l'indirizzo IP di origine privata del flusso in uscita in un indirizzo IP di origine pubblica. L'indirizzo IP pubblico usato per questo flusso in uscita non è configurabile e non interferisce con il limite della risorsa IP pubblico della sottoscrizione. Questo indirizzo IP pubblico non appartiene all'utente e non può essere riservato. Se si ridistribuisce la macchina virtuale, il set di disponibilità o il set di scalabilità della macchina virtuale, questo indirizzo IP pubblico verrà rilasciato e verrà richiesto un nuovo indirizzo IP pubblico. Non usare questo scenario per creare un elenco di indirizzi IP consentiti. Adottare uno degli altri due scenari in cui si dichiara in modo esplicito lo scenario in uscita e l'indirizzo IP pubblico da usare per la connettività in uscita.
+In questo scenario, la macchina virtuale non fa parte di un pool di Load Balancer pubblico (e non fa parte di un pool interno di Load Balancer Standard) e non dispone di un indirizzo IP pubblico assegnato. Quando la macchina virtuale crea un flusso in uscita, Azure converte l'indirizzo IP di origine privata del flusso in uscita in un indirizzo IP di origine pubblica. L'indirizzo IP pubblico usato per questo flusso in uscita non è configurabile e non interferisce con il limite della risorsa IP pubblico della sottoscrizione. Questo indirizzo IP pubblico non appartiene all'utente e non può essere riservato. Se si ridistribuisce la macchina virtuale, il set di disponibilità o il set di scalabilità della macchina virtuale, questo indirizzo IP pubblico verrà rilasciato e verrà richiesto un nuovo indirizzo IP pubblico. Non usare questo scenario per creare un elenco di indirizzi IP consentiti. Adottare uno degli altri due scenari in cui si dichiara in modo esplicito lo scenario in uscita e l'indirizzo IP pubblico da usare per la connettività in uscita.
 
 >[!IMPORTANT] 
 >Questo scenario si applica anche quando è collegata __solo__ un'istanza di Load Balancer Basic interna. Lo scenario 3 __non è disponibile__ quando un'istanza di Load Balancer Standard interna è collegata a una macchina virtuale.  È necessario creare in modo esplicito lo [scenario 1](#ilpip) o lo [scenario 2](#lb) oltre a usare un'istanza di Load Balancer Standard interna.
@@ -189,7 +189,7 @@ Le allocazioni delle porte SNAT sono specifiche del protocollo di trasporto IP (
 Questa sezione è stata pensata per attenuare i problemi relativi all'esaurimento SNAT e che possono verificarsi con le connessioni in uscita in Azure.
 
 ### <a name="snatexhaust"></a> Gestione dell'esaurimento delle porte SNAT (PAT)
-Le [porte temporanee](#preallocatedports) usate per [PAT](#pat) sono una risorsa esauribile, come descritto in [Macchina virtuale autonoma senza indirizzo IP pubblico a livello di istanza](#defaultsnat) e [Macchina virtuale con carico bilanciato senza indirizzo IP pubblico a livello di istanza](#lb).
+Le [porte](#preallocatedports) temporanee usate per [Pat](#pat) sono una risorsa esauribile, come descritto in [macchina virtuale autonoma senza un indirizzo IP pubblico](#defaultsnat) e una [macchina virtuale con carico bilanciato senza indirizzo IP pubblico](#lb).
 
 Sono disponibili diverse opzioni di mitigazione generali, se si è certi che verranno avviate numerose connessioni in uscita TCP o UDP allo stesso indirizzo IP e alla stessa porta di destinazione e se si riscontrano connessioni in uscita con errore o se il supporto tecnico ha comunicato il possibile esaurimento delle porte SNAT ([porte temporanee](#preallocatedports) preallocate usate da [PAT](#pat)). Esaminare queste opzioni e scegliere quella disponibile e ottimale per lo scenario specifico. È possibile che una o più opzioni risultino utili per gestire questo scenario.
 
@@ -210,8 +210,8 @@ Quando vengono esaurite le [porte temporanee preallocate](#preallocatedports) us
 
 Le porte temporanee hanno un timeout di inattività di 4 minuti (non modificabile). Se i tentativi di ripetizione sono troppo aggressivi, l'esaurimento delle porte non viene eliminato autonomamente. La modalità e la frequenza con cui l'applicazione effettua nuovi tentativi di transazioni sono quindi un fattore fondamentale della progettazione.
 
-#### <a name="assignilpip"></a>Assegnare un indirizzo IP pubblico a livello di istanza a ogni macchina virtuale
-Con l'assegnazione di un indirizzo IP pubblico a livello di istanza lo scenario cambia in [Indirizzo IP pubblico a livello di istanza a una macchina virtuale](#ilpip). Tutte le porte temporanee dell'IP pubblico usate per ogni VM sono disponibili per la VM, al contrario di quanto accade negli scenari in cui le porte temporanee di un IP pubblico sono condivise con tutte le VM associate al rispettivo pool back-end. Bisogna considerare anche l'altro lato della medaglia, ad esempio i costi aggiuntivi per gli indirizzi IP pubblici e l'impatto potenziale di creare un elenco con un numero elevato di singoli indirizzi IP consentiti.
+#### <a name="assignilpip"></a>Assegnare un indirizzo IP pubblico a ogni macchina virtuale
+L'assegnazione di un indirizzo IP pubblico consente di modificare lo scenario in [un indirizzo IP pubblico in una macchina virtuale](#ilpip). Tutte le porte temporanee dell'IP pubblico usate per ogni VM sono disponibili per la VM, al contrario di quanto accade negli scenari in cui le porte temporanee di un IP pubblico sono condivise con tutte le VM associate al rispettivo pool back-end. Bisogna considerare anche l'altro lato della medaglia, ad esempio i costi aggiuntivi per gli indirizzi IP pubblici e l'impatto potenziale di creare un elenco con un numero elevato di singoli indirizzi IP consentiti.
 
 >[!NOTE] 
 >Questa opzione non è disponibile per i ruoli di lavoro Web.

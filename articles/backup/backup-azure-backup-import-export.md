@@ -1,19 +1,18 @@
 ---
 title: 'Backup di Azure: backup offline o seeding iniziale con il servizio Importazione/Esportazione di Azure'
 description: Informazioni sull'uso di Backup di Azure per l'invio di dati offline tramite il servizio Importazione/Esportazione di Azure. Questo articolo illustra il seeding offline dei dati del backup iniziale tramite il servizio Importazione/Esportazione di Azure.
-services: backup
 author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: e08b1d8f847536101d44db266be5cd34e3e6a74c
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: e852e1595be5b564bd1a6326d41115496284506f
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155322"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466780"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flusso di lavoro del backup offline in Backup di Azure
 In Backup di Azure sono incorporate diverse funzionalità che consentono di ridurre in modo efficiente i costi di archiviazione e di rete durante i backup completi iniziali dei dati in Azure. I backup completi iniziali comportano in genere il trasferimento di grandi quantità di dati e richiedono una larghezza di banda di rete superiore rispetto ai backup successivi con cui vengono trasferiti solo backup differenziali/incrementali. Con il processo di seeding offline, Backup di Azure può usare i dischi per caricare in Azure i dati di backup offline.
@@ -76,7 +75,7 @@ Questa sezione descrive il flusso di lavoro di backup offline in modo che i dati
    Di seguito è riportata la descrizione degli input.
 
     * **Posizione per la gestione temporanea**: posizione di archiviazione temporanea in cui viene scritta la copia di backup iniziale. Il percorso di gestione temporanea può trovarsi in una condivisione di rete o in un computer locale. Se il computer di copia e il computer di origine sono diversi, è consigliabile specificare il percorso di rete completo per la gestione temporanea.
-    * **Account di archiviazione di Azure Resource Manager**: Il nome di Resource Manager tipo account di archiviazione (utilizzo generico v1 o v2 generico) in qualsiasi sottoscrizione di Azure.
+    * **Account di archiviazione di Azure Resource Manager**: Nome dell'account di archiviazione del tipo di Gestione risorse (utilizzo generico V1 o utilizzo generico v2) in qualsiasi sottoscrizione di Azure.
     * **Contenitore di archiviazione di Azure**: nome del BLOB di archiviazione di destinazione nell'account di Archiviazione di Azure in cui vengono importati i dati del backup prima di essere copiati nell'insieme di credenziali di Servizi di ripristino.
     * **ID sottoscrizione di Azure**: ID della sottoscrizione di Azure in cui viene creato l'account di Archiviazione di Azure.
     * **Nome del processo di importazione di Azure**: nome univoco con cui il servizio di importazione di Azure e Backup di Azure tengono traccia del trasferimento dei dati inviati in Azure usando dischi. 

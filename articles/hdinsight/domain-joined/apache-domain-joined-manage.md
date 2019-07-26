@@ -8,19 +8,19 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: 951bd74c67c77c944a17e41646c4fe49ef46b33f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7fa215f843fd025d26ba0f583b96f3bb7e63c9ed
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64725684"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68488718"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Gestire i cluster HDInsight con Enterprise Security Package
 Informazioni su utenti e ruoli in HDInsight Enterprise Security Package (ESP) e su come gestire i cluster ESP.
 
 ## <a name="use-vscode-to-link-to-domain-joined-cluster"></a>Usare VSCode per collegarsi a un cluster aggiunto al dominio
 
-È possibile collegare un cluster normale usando un nome utente Apache Ambari gestito e anche collegare un cluster Apache Hadoop di sicurezza usando un nome utente di dominio (ad esempio: user1@contoso.com).
+È possibile collegare un cluster normale usando un nome utente Apache Ambari gestito e anche collegare un cluster Apache Hadoop di sicurezza usando un nome utente di dominio (ad esempio: `user1@contoso.com`).
 1. Aprire il riquadro comandi premendo **CTRL+MAIUSC+P**, quindi immettere **HDInsight: Link a cluster** (HDInsight: Collega un cluster).
 
    ![comando di collegamento di un cluster](./media/apache-domain-joined-manage/link-cluster-command.png)
@@ -40,7 +40,7 @@ Informazioni su utenti e ruoli in HDInsight Enterprise Security Package (ESP) e 
 
 ## <a name="use-intellij-to-link-to-domain-joined-cluster"></a>Usare IntelliJ per collegarsi a un cluster aggiunto al dominio
 
-È possibile collegare un cluster normale usando un nome utente Ambari gestito e anche collegare un cluster Hadoop di sicurezza usando un nome utente di dominio (ad esempio: user1@contoso.com). 
+È possibile collegare un cluster normale usando un nome utente Ambari gestito e anche collegare un cluster Hadoop di sicurezza usando un nome utente di dominio (ad esempio: `user1@contoso.com`). 
 1. Fare clic su **Link a cluster** (Collega un cluster) in **Azure Explorer** (Esplora Azure).
 
    ![Menu di scelta rapida per collegare un cluster](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
@@ -64,7 +64,7 @@ Informazioni su utenti e ruoli in HDInsight Enterprise Security Package (ESP) e 
 
 ## <a name="use-eclipse-to-link-to-domain-joined-cluster"></a>Usare Eclipse per collegarsi a un cluster aggiunto al dominio
 
-È possibile collegare un cluster normale usando un nome utente Ambari gestito e anche collegare un cluster Hadoop di sicurezza usando un nome utente di dominio (ad esempio: user1@contoso.com).
+È possibile collegare un cluster normale usando un nome utente Ambari gestito e anche collegare un cluster Hadoop di sicurezza usando un nome utente di dominio (ad esempio: `user1@contoso.com`).
 1. Fare clic su **Link a cluster** (Collega un cluster) in **Azure Explorer** (Esplora Azure).
 
    ![Menu di scelta rapida per collegare un cluster](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
@@ -96,8 +96,8 @@ La sicurezza e l'isolamento degli utenti sono importanti per un cluster HDInsigh
 |Apache Hadoop|Hive - query/processi interattivi  |<ul><li>[Beeline](#beeline)</li><li>[Vista di Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC - Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Strumenti di Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
 |Apache Spark|Query/processi interattivi, PySpark interattivo|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin con Livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Vista di Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC - Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Strumenti di Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
 |Apache Spark|Scenari batch - Spark-submit, PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
-|Interactive Query (LLAP)|Interattività|<ul><li>[Beeline](#beeline)</li><li>[Vista di Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC - Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Strumenti di Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
-|Qualsiasi|Installazione applicazione personalizzata|<ul><li>[Azioni Script](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
+|Interactive Query (LLAP)|Interattivo|<ul><li>[Beeline](#beeline)</li><li>[Vista di Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC - Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Strumenti di Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Any|Installazione applicazione personalizzata|<ul><li>[Azioni Script](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
 
    > [!NOTE]  
    > Jupyter non è installato/supportato in Enterprise Security Package.
@@ -142,7 +142,7 @@ Per trovare il nome di dominio completo di un nodo head, usare le informazioni c
 ## <a name="users-of-hdinsight-clusters-with-esp"></a>Utenti dei cluster HDInsight con ESP
 Un cluster HDInsight non ESP dispone di due account utente creati durante la creazione del cluster:
 
-* **Amministratore Ambari**: questo account è denominato anche *Utente Hadoop* o *Utente HTTP*. Questo account può essere usato per accedere ad Ambari all'indirizzo https://&lt;NomeCluster >. azurehdinsight. Può anche essere utilizzato per eseguire query sulle viste di Ambari, eseguire i processi tramite strumenti esterni (ad esempio, PowerShell, Templeton, Visual Studio) e l'autenticazione con il driver ODBC di Hive e strumenti di Business Intelligence (ad esempio, Excel, Power BI o Tableau).
+* **Amministratore Ambari**: questo account è denominato anche *Utente Hadoop* o *Utente HTTP*. Questo account può essere usato per accedere a Ambari in https://&lt;clustername >. azurehdinsight. NET. Può anche essere usato per eseguire query su viste Ambari, eseguire processi tramite strumenti esterni (ad esempio, PowerShell, Templeton, Visual Studio) ed eseguire l'autenticazione con il driver ODBC hive e gli strumenti di Business Intelligence (ad esempio Excel, Power BI o Tableau).
 
 Un cluster HDInsight con ESP ha tre nuovi utenti, oltre all'amministratore di Ambari.
 
@@ -180,7 +180,7 @@ Enterprise Security Package per HDInsight ha i seguenti ruoli:
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Aprire il cluster HDInsight.
 3. Fare clic su **Dashboard** nel menu principale per aprire Ambari.
-4. Accedere ad Ambari usando il nome utente di dominio amministratore cluster e la password.
+4. Accedere a Ambari usando il nome utente e la password di dominio di amministrazione del cluster.
 5. Fare clic sul menu a discesa **Admin** (Amministratore) in alto a destra e quindi fare clic su **Manage Ambari** (Gestisci Ambari).
 
     ![Gestire Ambari nel cluster HDInsight per ESP](./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png)

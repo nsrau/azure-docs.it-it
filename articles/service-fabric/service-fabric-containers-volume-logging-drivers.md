@@ -13,33 +13,35 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
-ms.author: subramar
-ms.openlocfilehash: 58bfee5963257df380adac94133dcc55dd03a443
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.author: aljo, subramar
+ms.openlocfilehash: 09ee729fea952665350aa25c21cdb3d5823b899f
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617627"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489905"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Driver di volume per File di Azure di Service Fabric (anteprima)
-Il plug-in di volume di File di Azure è un [plug-in di volume Docker](https://docs.docker.com/engine/extend/plugins_volume/) che fornisce volumi basati su [File di Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) per contenitori Docker. Questo plug-in di volume Docker viene offerto come pacchetto di applicazione di Service Fabric distribuibile nei cluster di Service Fabric, con lo scopo di fornire volumi basati su File di Azure per altre applicazioni contenitore di Service Fabric distribuite nel cluster.
+Il plug-in di volume di File di Azure è un [plug-in di volume Docker](https://docs.docker.com/engine/extend/plugins_volume/) che fornisce volumi basati su [File di Azure](https:///azure/storage/files/storage-files-introduction) per contenitori Docker. Questo plug-in di volume Docker viene offerto come pacchetto di applicazione di Service Fabric distribuibile nei cluster di Service Fabric, Lo scopo è fornire volumi basati su File di Azure per altre applicazioni contenitore Service Fabric distribuite nel cluster.
 
 > [!NOTE]
-> Versione 6.4.571.9590 del plug-in di volume di file di Azure è una versione di anteprima che è disponibile con il presente documento. In quanto versione di anteprima, l'uso in ambienti di produzione **non** è supportato.
+> La versione 6.5.516.9494 del plug-in del volume File di Azure è una versione di anteprima disponibile in questo documento. In quanto versione di anteprima, l'uso in ambienti di produzione **non** è supportato.
 >
 
 ## <a name="prerequisites"></a>Prerequisiti
-* La versione Windows del plug-in di volume di File di Azure può essere usata solo in [Windows Server versione 1709](https://docs.microsoft.com/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 versione 1709](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) o sistemi operativi successivi. La versione Linux del plug-in di volume di File di Azure può essere usata in tutte le versioni del sistema operativo supportate da Service Fabric.
+* La versione Windows del plug-in di volume di File di Azure può essere usata solo in [Windows Server versione 1709](https:///windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 versione 1709](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) o sistemi operativi successivi.
+
+* La versione Linux del plug-in di volume di File di Azure può essere usata in tutte le versioni del sistema operativo supportate da Service Fabric.
 
 * Il plug-in di volume di File di Azure funziona solo con Service Fabric 6.2 e versioni successive.
 
-* Per creare una condivisione file per l'applicazione contenitore di Service Fabric da usare come volume, seguire le istruzioni riportate nella [documentazione di File di Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
+* Per creare una condivisione file per l'applicazione contenitore di Service Fabric da usare come volume, seguire le istruzioni riportate nella [documentazione di File di Azure](https:///azure/storage/files/storage-how-to-create-file-share).
 
-* È necessario che sia installato [Powershell con il modulo Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started) o [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli).
+* È necessario che sia installato [Powershell con il modulo Service Fabric](https:///azure/service-fabric/service-fabric-get-started) o [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli).
 
-* Se si usano contenitori Hyper-V, è necessario aggiungere i frammenti di codice seguenti nella sezione ClusterManifest (cluster locale) o fabricSettings nel modello ARM (cluster di Azure) o ClusterConfig.json (cluster autonomo). È necessario specificare il nome del volume e la porta su cui il volume è in ascolto nel cluster. 
+* Se si usano contenitori di Hyper-V, è necessario aggiungere i frammenti di codice seguenti nella sezione ClusterManifest (cluster locale) o fabricSettings nel modello di Azure Resource Manager (cluster di Azure) o ClusterConfig. JSON (cluster autonomo).
 
-In ClusterManifest è necessario aggiungere il codice seguente nella sezione Hosting. In questo esempio, è il nome del volume **sfazurefile** e la porta è in ascolto per il cluster sia **19100**.  
+In ClusterManifest è necessario aggiungere il codice seguente nella sezione Hosting. In questo esempio il nome del volume è **sfazurefile** e la porta su cui è in ascolto nel cluster è **19100**. Sostituirli con i valori corretti per il cluster.
 
 ``` xml 
 <Section Name="Hosting">
@@ -47,7 +49,7 @@ In ClusterManifest è necessario aggiungere il codice seguente nella sezione Hos
 </Section>
 ```
 
-Nella sezione fabricSettings nel modello ARM (per le distribuzioni di Azure) o ClusterConfig.json (per le distribuzioni autonome) è necessario aggiungere il frammento di codice seguente. 
+Nella sezione fabricSettings del modello di Azure Resource Manager (per le distribuzioni di Azure) o ClusterConfig. JSON (per le distribuzioni autonome) è necessario aggiungere il frammento di codice seguente. Anche in questo caso, sostituire i valori di nome e porta del volume con quelli personalizzati.
 
 ```json
 "fabricSettings": [
@@ -66,9 +68,29 @@ Nella sezione fabricSettings nel modello ARM (per le distribuzioni di Azure) o C
 
 ## <a name="deploy-the-service-fabric-azure-files-application"></a>Distribuire l'applicazione File di Azure di Service Fabric
 
-L'applicazione di Service Fabric che fornisce i volumi per i contenitori può essere scaricata dal [collegamento](https://download.microsoft.com/download/C/0/3/C0373AA9-DEFA-48CF-9EBE-994CA2A5FA2F/AzureFilesVolumePlugin.6.4.571.9590.zip) seguente. L'applicazione può essere distribuita nel cluster tramite [PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications), l'[interfaccia della riga di comando](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) o le [API di FabricClient](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
+### <a name="using-azure-resource-manager-via-the-provided-powershell-script-recommended"></a>Uso di Azure Resource Manager tramite lo script di PowerShell specificato (scelta consigliata)
 
-1. Usando la riga di comando, passare alla directory radice del pacchetto dell'applicazione scaricato.
+Se il cluster è basato su Azure, si consiglia di distribuire le applicazioni usando il modello di risorse dell'applicazione Azure Resource Manager per facilitarne l'uso e di spostarsi verso il modello di gestione dell'infrastruttura come codice. Questo approccio elimina la necessità di tenere traccia della versione dell'app per il driver del volume File di Azure. Consente inoltre di gestire modelli di Azure Resource Manager distinti per ogni sistema operativo supportato. Lo script presuppone che venga distribuita la versione più recente dell'applicazione File di Azure e accetta i parametri per tipo di sistema operativo, ID sottoscrizione cluster e gruppo di risorse. È possibile scaricare lo script dal [sito di download Service Fabric](https://sfazfilevd.blob.core.windows.net/sfazfilevd/DeployAzureFilesVolumeDriver.zip). Si noti che in questo modo viene impostato automaticamente il ListenPort, ovvero la porta su cui il plug-in File di Azure volume è in ascolto delle richieste provenienti dal daemon Docker, fino a 19100. È possibile modificarlo aggiungendo il parametro denominato "listenPort". Verificare che la porta non sia in conflitto con altre porte utilizzate dal cluster o dalle applicazioni.
+ 
+
+Azure Resource Manager comando di distribuzione per Windows:
+```powershell
+.\DeployAzureFilesVolumeDriver.ps1 -subscriptionId [subscriptionId] -resourceGroupName [resourceGroupName] -clusterName [clusterName] -windows
+```
+
+Comando Azure Resource Manager distribuzione per Linux:
+```powershell
+.\DeployAzureFilesVolumeDriver.ps1 -subscriptionId [subscriptionId] -resourceGroupName [resourceGroupName] -clusterName [clusterName] -linux
+```
+
+Una volta eseguito correttamente lo script, è possibile passare alla [sezione configurazione dell'applicazione.](https:////azure/service-fabric/service-fabric-containers-volume-logging-drivers#configure-your-applications-to-use-the-volume)
+
+
+### <a name="manual-deployment-for-standalone-clusters"></a>Distribuzione manuale per i cluster autonomi
+
+L'applicazione Service Fabric che fornisce i volumi per i contenitori può essere scaricata dal [sito di download di Service Fabric](https://sfazfilevd.blob.core.windows.net/sfazfilevd/AzureFilesVolumePlugin.6.5.516.9494.zip). L'applicazione può essere distribuita nel cluster tramite [PowerShell](https:///azure/service-fabric/service-fabric-deploy-remove-applications), l'[interfaccia della riga di comando](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) o le [API di FabricClient](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
+
+1. Utilizzando la riga di comando, passare alla directory radice del pacchetto dell'applicazione scaricato.
 
     ```powershell
     cd .\AzureFilesVolume\
@@ -78,7 +100,7 @@ L'applicazione di Service Fabric che fornisce i volumi per i contenitori può es
     cd ~/AzureFilesVolume
     ```
 
-2. Copiare il pacchetto dell'applicazione nell'archivio immagini. Eseguire questo comando con i valori appropriati per [ApplicationPackagePath] e [ImageStoreConnectionString]:
+2. Copiare quindi il pacchetto dell'applicazione nell'archivio immagini con i valori appropriati per [ApplicationPackagePath] e [ImageStoreConnectionString]:
 
     ```powershell
     Copy-ServiceFabricApplicationPackage -ApplicationPackagePath [ApplicationPackagePath] -ImageStoreConnectionString [ImageStoreConnectionString] -ApplicationPackagePathInImageStore AzureFilesVolumePlugin
@@ -99,32 +121,35 @@ L'applicazione di Service Fabric che fornisce i volumi per i contenitori può es
     sfctl application provision --application-type-build-path [ApplicationPackagePath]
     ```
 
-4. Creare l'applicazione. Nel comando per la creazione dell'applicazione riportato di seguito, si noti il parametro **ListenPort** dell'applicazione. Il valore specificato per questo parametro dell'applicazione è la porta su cui il plug-in di volume di File di Azure resta in ascolto delle richieste dal daemon Docker. È importante garantire che la porta fornita per la corrispondenza di applicazione VolumePluginPorts in ClusterManifest e non in conflitto con qualsiasi altra porta che il cluster o le applicazioni utilizzano.
+4. Creare l'applicazione, prestando attenzione al valore del parametro dell'applicazione **listenport** . Questo valore è la porta su cui il plug-in del volume File di Azure è in ascolto delle richieste provenienti dal daemon docker. Verificare che la porta fornita all'applicazione corrisponda a quella di VolumePluginPorts in ClusterManifest e non sia in conflitto con altre porte utilizzate dal cluster o dalle applicazioni.
 
     ```powershell
-    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9590 -ApplicationParameter @{ListenPort='19100'}
+    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.5.516.9494  -ApplicationParameter @{ListenPort='19100'}
     ```
 
     ```bash
-    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9590 --parameter '{"ListenPort":"19100"}'
+    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.5.516.9494 --parameter '{"ListenPort":"19100"}'
     ```
 
 > [!NOTE]
 > 
-> Windows Server 2016 Datacenter non supporta il mapping dei montaggi SMB nei contenitori ([supportati solo in Windows Server versione 1709](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/container-storage)). Questa limitazione impedisce il mapping del volume della rete e l'uso dei driver di volume di File di Azure precedenti alla versione 1709.
+> Windows Server 2016 Datacenter non supporta il mapping dei montaggi SMB nei contenitori ([supportati solo in Windows Server versione 1709](https:///virtualization/windowscontainers/manage-containers/container-storage)). Questa limitazione impedisce il mapping del volume della rete e l'uso dei driver di volume di File di Azure precedenti alla versione 1709.
 
-### <a name="deploy-the-application-on-a-local-development-cluster"></a>Distribuire l'applicazione in un cluster di sviluppo locale
-Il numero predefinito di istanze del servizio per l'applicazione del plug-in di volume di File di Azure è -1, corrispondente alla distribuzione di un'istanza del servizio in ogni nodo del cluster. Quando si distribuisce l'applicazione del plug-in di volume di File di Azure in un cluster di sviluppo locale, tuttavia, il numero di istanze del servizio specificato dovrà essere 1. A questo scopo è possibile usare il parametro **InstanceCount** dell'applicazione. Il comando per distribuire l'applicazione del plug-in di volume di File di Azure in un cluster di sviluppo locale è quindi il seguente:
+#### <a name="deploy-the-application-on-a-local-development-cluster"></a>Distribuire l'applicazione in un cluster di sviluppo locale
+Seguire i passaggi 1-3 della versione [precedente.](https:////azure/service-fabric/service-fabric-containers-volume-logging-drivers#manual-deployment-for-standalone-clusters)
+
+ Il numero predefinito di istanze del servizio per l'applicazione del plug-in di volume di File di Azure è -1, corrispondente alla distribuzione di un'istanza del servizio in ogni nodo del cluster. Quando si distribuisce l'applicazione del plug-in di volume di File di Azure in un cluster di sviluppo locale, tuttavia, il numero di istanze del servizio specificato dovrà essere 1. A questo scopo è possibile usare il parametro **InstanceCount** dell'applicazione. Pertanto, il comando per la creazione dell'applicazione del plug-in del volume File di Azure in un cluster di sviluppo locale è:
 
 ```powershell
-New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9590 -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
+New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.5.516.9494 -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
 ```
 
 ```bash
-sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9590 --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
+sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.5.516.9494 --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
 ```
+
 ## <a name="configure-your-applications-to-use-the-volume"></a>Configurare le applicazioni per l'uso del volume
-Il frammento seguente illustra come è possibile specificare un volume basato su File di Azure nel manifesto dell'applicazione. L'elemento di specifico interesse è il tag **Volume**:
+Il frammento di codice seguente mostra come è possibile specificare un volume basato su File di Azure nel file manifesto dell'applicazione. L'elemento di specifico interesse è il tag **Volume**:
 
 ```xml
 ?xml version="1.0" encoding="UTF-8"?>
@@ -158,11 +183,11 @@ Il frammento seguente illustra come è possibile specificare un volume basato su
 </ApplicationManifest>
 ```
 
-Il nome del driver per il plug-in di volume di File di Azure è **sfazurefile**. Questo valore viene impostato per l'attributo **Driver** dell'elemento **Volume** nel manifesto dell'applicazione.
+Il nome del driver per il plug-in di volume di File di Azure è **sfazurefile**. Questo valore è impostato per l'attributo **driver** dell'elemento tag del **volume** nel manifesto dell'applicazione.
 
-Nell'elemento **Volume** nel frammento precedente, il plug-in di volume di File di Azure richiede i tag seguenti.
+Nel tag **volume** del frammento di codice precedente, il plug-in del volume file di Azure richiede gli attributi seguenti:
 - **Source**: corrisponde al nome del volume. L'utente può scegliere qualsiasi nome per il volume.
-- **Destination**: questo tag è la posizione in cui viene eseguito il mapping del volume nel contenitore in esecuzione. La destinazione non può quindi essere una posizione già esistente nel contenitore.
+- **Destination (destinazione** ): questo attributo è il percorso a cui è stato eseguito il mapping del volume all'interno del contenitore in esecuzione. La destinazione non può quindi essere una posizione già esistente nel contenitore.
 
 Come illustrato negli elementi **DriverOption** nel frammento precedente, il plug-in di volume di File di Azure supporta le opzioni del driver seguenti.
 - **shareName**: nome della condivisione file di File di Azure che rende disponibile il volume per il contenitore.
@@ -184,7 +209,7 @@ Come illustrato negli elementi **DriverOption** nel frammento precedente, il plu
     ```
 
 ## <a name="using-your-own-volume-or-logging-driver"></a>Uso di un driver di volume o di registrazione personalizzato
-Service Fabric consente anche di usare driver di [volume](https://docs.docker.com/engine/extend/plugins_volume/) o di [registrazione](https://docs.docker.com/engine/admin/logging/overview/) personalizzati. Se il driver di volume/registrazione Docker non è installato nel cluster, è possibile installarlo manualmente usando i protocolli RDP/SSH. È possibile eseguire l'installazione con questi protocolli tramite un [script di avvio del set di scalabilità di macchine virtuali](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) o uno [script SetupEntryPoint](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model).
+Service Fabric consente anche di usare driver di [volume](https://docs.docker.com/engine/extend/plugins_volume/) o di [registrazione](https://docs.docker.com/engine/admin/logging/overview/) personalizzati. Se il driver di volume/registrazione Docker non è installato nel cluster, è possibile installarlo manualmente usando i protocolli RDP/SSH. È possibile eseguire l'installazione con questi protocolli tramite un [script di avvio del set di scalabilità di macchine virtuali](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) o uno [script SetupEntryPoint](https:///azure/service-fabric/service-fabric-application-model).
 
 Un esempio di script per installare il [driver di volume Docker per Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/) è riportato di seguito:
 

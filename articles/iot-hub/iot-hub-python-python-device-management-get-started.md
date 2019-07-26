@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 04fc1da04d9da715acfed8ca9d26e9c325afb403
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c4c8957e8d9b355216e10503d58915977c3b9b1a
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64569429"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68403400"
 ---
 # <a name="get-started-with-device-management-python"></a>Introduzione alla gestione dei dispositivi (Python)
 
@@ -36,11 +36,11 @@ Al termine di questa esercitazione, si avranno due app console Python:
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* [Python 2.x o 3.x](https://www.python.org/downloads/). Assicurarsi di usare le installazioni a 32 bit o 64 bit, come richiesto dalla configurazione. Quando richiesto durante l'installazione, assicurarsi di aggiungere Python alla variabile di ambiente specifica per la piattaforma. Se si usa Python 2.x, potrebbe essere necessario [installare o aggiornare *pip*, il sistema di gestione pacchetti Python](https://pip.pypa.io/en/stable/installing/).
+* [Python 2. x o 3. x](https://www.python.org/downloads/). Assicurarsi di usare le installazioni a 32 bit o 64 bit, come richiesto dalla configurazione. Quando richiesto durante l'installazione, assicurarsi di aggiungere Python alla variabile di ambiente specifica per la piattaforma. Se si usa Python 2.x, potrebbe essere necessario [installare o aggiornare *pip*, il sistema di gestione pacchetti Python](https://pip.pypa.io/en/stable/installing/).
 
-* Installare il [azure-iothub-device-client](https://pypi.org/project/azure-iothub-device-client/) del pacchetto, usando il comando       `pip install azure-iothub-device-client`
+* Installare il pacchetto [Azure-iothub-Device-client](https://pypi.org/project/azure-iothub-device-client/) usando il comando`pip install azure-iothub-device-client`
 
-* Installare il [azure-iothub-service-client](https://pypi.org/project/azure-iothub-service-client/) del pacchetto, usando il comando       `pip install azure-iothub-service-client`
+* Installare il pacchetto [Azure-iothub-Service-client](https://pypi.org/project/azure-iothub-service-client/) usando il comando`pip install azure-iothub-service-client`
 
 * Se si usa il sistema operativo Windows, usare il [pacchetto ridistribuibile di Visual C++](https://www.microsoft.com/download/confirmation.aspx?id=48145) per consentire l'uso di DLL native da Python.
 
@@ -50,9 +50,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Ottenere la stringa di connessione per l'hub IoT
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
+[!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="create-a-simulated-device-app"></a>Creare un'app di dispositivo simulato
 
@@ -162,6 +160,11 @@ In questa sezione si svolgeranno le seguenti operazioni:
 > [!NOTE]
 > Per semplicità, in questa esercitazione non si implementa alcun criterio di ripetizione dei tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come suggerito nell'articolo [Gestione degli errori temporanei](/azure/architecture/best-practices/transient-faults).
 
+## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub Internet
+
+[!INCLUDE [iot-hub-howto-device-management-shared-access-policy-text](../../includes/iot-hub-howto-device-management-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Attivare un riavvio remoto nel dispositivo con un metodo diretto
 
