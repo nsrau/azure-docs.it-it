@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.openlocfilehash: 606cab09debf760d1b101390b2a19a1a090bb4c3
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
-ms.translationtype: HT
+ms.openlocfilehash: e749138cd28f7bd8faf10ca1087a73f323533a25
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234571"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335660"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Attività Delete in Azure Data Factory
 
@@ -81,12 +81,12 @@ Ecco alcuni consigli per l'uso dell'attività Delete:
 
 | Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| dataset | Fornisce il riferimento al set di dati per determinare quali file o cartelle eliminare | Sì |
+| dataset | Fornisce il riferimento al set di dati per determinare quali file o cartelle eliminare | Yes |
 | recursive | Indica se i file devono essere eliminati in modo ricorsivo dalle sottocartelle o solo dalla cartella specificata.  | No. Il valore predefinito è `false`. |
 | maxConcurrentConnections | Numero di connessioni cui connettere l'archivio simultaneamente per eliminare la cartella o i file.   |  No. Il valore predefinito è `1`. |
 | enablelogging | Indica se è necessario registrare i nomi di cartella o di file che sono stati eliminati. Se è true, è necessario fornire un account di archiviazione per salvare il file di log, in modo da poter monitorare i comportamenti dell'attività Delete leggendo il file di log. | No |
 | logStorageSettings | Applicabile solo quando enablelogging = true.<br/><br/>Gruppo di proprietà di archiviazione che può essere specificato e in cui si vuole salvare il file di log che contiene i nomi di cartella o di file eliminati tramite l'attività Delete. | No |
-| linkedServiceName | Applicabile solo quando enablelogging = true.<br/><br/>Il servizio collegato di [archiviazione di Azure](connector-azure-blob-storage.md#linked-service-properties), [Azure Data Lake storage Gen1](connector-azure-data-lake-store.md#linked-service-properties)o [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) per archiviare il file di log che contiene la cartella o i nomi di file che sono stati eliminati dall'attività di eliminazione. | No |
+| linkedServiceName | Applicabile solo quando enablelogging = true.<br/><br/>Il servizio collegato di [archiviazione di Azure](connector-azure-blob-storage.md#linked-service-properties), [Azure Data Lake storage Gen1](connector-azure-data-lake-store.md#linked-service-properties)o [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) per archiviare il file di log che contiene la cartella o i nomi di file che sono stati eliminati dall'attività di eliminazione. Tenere presente che deve essere configurato con lo stesso tipo di Integration Runtime da quello utilizzato dall'attività Delete per eliminare i file. | No |
 | path | Applicabile solo quando enablelogging = true.<br/><br/>Percorso in cui salvare il file di log nell'account di archiviazione. Se non si specifica un percorso, il servizio crea automaticamente un contenitore. | No |
 
 ## <a name="monitoring"></a>Monitoraggio
@@ -117,10 +117,10 @@ Ecco alcuni consigli per l'uso dell'attività Delete:
 
 | Name | Category | Stato | Errore |
 |:--- |:--- |:--- |:--- |
-| test1/yyy. JSON | File | Deleted |  |
-| test2/hello789.txt | File | Deleted |  |
-| test2/test3/hello000.txt | File | Deleted |  |
-| test2/test3/zzz.json | File | Deleted |  |
+| test1/yyy. JSON | File | Eliminata |  |
+| test2/hello789.txt | File | Eliminata |  |
+| test2/test3/hello000.txt | File | Eliminata |  |
+| test2/test3/zzz.json | File | Eliminata |  |
 
 ## <a name="examples-of-using-the-delete-activity"></a>Esempi dell'uso dell'attività Delete
 

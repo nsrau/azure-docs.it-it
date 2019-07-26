@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 7/18/2019
 ms.author: raiye
-ms.openlocfilehash: edf120fa7997cf2d0381dcb7cd3ee0d4e16dd72b
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 2dac76ef0d0d71c11291e63fdb3a7ce307638b50
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321414"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405550"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK
 Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure più recente per i servizi cloud. Queste informazioni sono utili per pianificare il percorso di aggiornamento prima che un sistema operativo guest venga disabilitato. Se si configurano i ruoli per l'uso degli aggiornamenti *automatici* del sistema operativo guest come descritto in [Impostazioni di aggiornamento del sistema operativo guest Azure][Azure Guest OS Update Settings], non è indispensabile leggere questa pagina.
@@ -76,7 +76,7 @@ In caso di dubbi su come aggiornare il sistema operativo guest, Vedere [.][cloud
 ###### <a name="october-12-2018"></a>**12 ottobre 2018**
 È stato rilasciato il sistema operativo guest di settembre.
 
-## <a name="releases"></a>Rilasci
+## <a name="releases"></a>Versioni
 
 ## <a name="family-6-releases"></a>Versioni della famiglia 6
 **Windows Server 2019**
@@ -110,7 +110,7 @@ Versione .NET Framework installata: 3.5, 4.7.2
 ## <a name="family-5-releases"></a>Versioni della famiglia 5
 **Windows Server 2016**
 
-Versione .NET Framework installata: 3,5, 4.6.2, 4.7.2
+Versione .NET Framework installata: 3,5, 4,6
 
 > [!NOTE]
 > La password di RDP per la famiglia di sistemi operativi 5 deve contenere almeno 10 caratteri.

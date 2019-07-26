@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
 ms.date: 02/28/2019
-ms.openlocfilehash: c1db16475224cc3c91a5353ead0aabd091098e14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 775e1abe1f3d6412171b8ff5427fd905e37480b5
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240368"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489682"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>I pool di database elastici consentono di gestire e ridimensionare più database SQL di Azure
 
@@ -205,19 +205,19 @@ Per altre informazioni, vedere [Usare il portale di Azure per creare avvisi per 
 
 - [SnelStart](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-snelstart/)
 
-  SnelStart usati i pool elastici con il Database SQL di Azure per espandere rapidamente i servizi aziendali con una frequenza di 1.000 nuovi database di SQL di Azure al mese.
+  SnelStart ha usato i pool elastici con il database SQL di Azure per espandere rapidamente i servizi aziendali con una frequenza di 1.000 nuovi database SQL di Azure al mese.
 
 - [Umbraco](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-umbraco/)
 
-  Umbraco Usa il pool elastico con Database SQL di Azure per eseguire rapidamente il provisioning e ridimensionare servizi per migliaia di tenant nel cloud.
+  Umbraco usa i pool elastici con il database SQL di Azure per eseguire rapidamente il provisioning e la scalabilità dei servizi per migliaia di tenant nel cloud.
 
 - [Daxko/CSI](https://customers.microsoft.com/story/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services)
 
-  Daxko/CSI Usa i pool elastici con il Database SQL di Azure per accelerare il ciclo di sviluppo e migliorare i servizi al cliente e le prestazioni.
+  Daxko/CSI usa i pool elastici con il database SQL di Azure per accelerare il ciclo di sviluppo e migliorare le prestazioni e i servizi dei clienti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per ridimensionare i pool elastici, vedere [Ridimensionamento dei pool elastici](sql-database-elastic-pool.md) e [Ridimensionare un pool elastico - codice di esempio](scripts/sql-database-monitor-and-scale-pool-powershell.md)
+- Per ridimensionare i pool elastici, vedere [Ridimensionamento dei pool elastici](sql-database-elastic-pool-scale.md) e [Ridimensionare un pool elastico - codice di esempio](scripts/sql-database-monitor-and-scale-pool-powershell.md)
 - Un video è disponibile in [Esercitazione video di Microsoft Virtual Academy sulle funzionalità di elasticità del database SQL di Azure](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 - Per altre informazioni sui modelli di progettazione per applicazioni SaaS con pool elastici, vedere l'articolo relativo ai [modelli di progettazione per applicazioni SaaS multi-tenant con database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 - Per un'esercitazione sul SaaS con i pool elastici, vedere [Introduzione all'applicazione SaaS Wingtip](sql-database-wtp-overview.md).

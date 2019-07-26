@@ -1,37 +1,36 @@
 ---
-title: Domande frequenti su backup di macchine virtuali di Azure con Backup di Azure
-description: Risposte alle domande frequenti sul backup di macchine virtuali di Azure con Backup di Azure.
-services: backup
+title: Domande frequenti sul backup di macchine virtuali di Azure con backup di Azure
+description: Risposte alle domande comuni sul backup di macchine virtuali di Azure con backup di Azure.
 author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: sogup
-ms.openlocfilehash: 0248e169f5d502cce8723f594f438b87ab088f3a
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: a26cc2fcdc381361912085b0980a736f040c5b0a
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551603"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465284"
 ---
-# <a name="frequently-asked-questions-back-up-azure-vms"></a>Back-domande frequenti su backup di macchine virtuali di Azure
+# <a name="frequently-asked-questions-back-up-azure-vms"></a>Domande frequenti-eseguire il backup di macchine virtuali di Azure
 
-Questo articolo risponde alle domande frequenti su backup di macchine virtuali di Azure con il [Backup di Azure](backup-introduction-to-azure-backup.md) servizio.
+Questo articolo risponde a domande comuni sul backup di macchine virtuali di Azure con il servizio [backup di Azure](backup-introduction-to-azure-backup.md) .
 
 
 ## <a name="backup"></a>Backup
 
-### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Quando creano, quali immagini di macchina virtuale possono essere abilitate per il backup?
-Quando si crea una macchina virtuale, è possibile abilitare il backup per macchine virtuali che eseguono [sistemi operativi supportati](backup-support-matrix-iaas.md#supported-backup-actions)
+### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Quali immagini di macchina virtuale possono essere abilitate per il backup durante la creazione?
+Quando si crea una macchina virtuale, è possibile abilitare il backup per le macchine virtuali che eseguono [sistemi operativi supportati](backup-support-matrix-iaas.md#supported-backup-actions)
 
-### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>È il costo del backup è incluso nel costo della macchina virtuale?
+### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>Il costo del backup è incluso nel costo della macchina virtuale?
 
-No. Costi di backup sono separati dai costi della macchina virtuale. Altre informazioni sulle [prezzi di Backup di Azure](https://azure.microsoft.com/pricing/details/backup/).
+No. I costi di backup sono separati dai costi della macchina virtuale. Scopri di più sui [prezzi di backup di Azure](https://azure.microsoft.com/pricing/details/backup/).
 
 ### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>Quali autorizzazioni sono necessarie per abilitare il backup per una macchina virtuale?
 
-Se si ha un collaboratore macchina virtuale, è possibile abilitare il backup della macchina virtuale. Se si usa un ruolo personalizzato, sono necessarie le autorizzazioni seguenti per abilitare il backup della macchina virtuale:
+Se si è un collaboratore della macchina virtuale, è possibile abilitare il backup nella macchina virtuale. Se si usa un ruolo personalizzato, sono necessarie le autorizzazioni seguenti per abilitare il backup nella macchina virtuale:
 
 - Microsoft.RecoveryServices/Vaults/write
 - Microsoft.RecoveryServices/Vaults/read
@@ -43,14 +42,14 @@ Se si ha un collaboratore macchina virtuale, è possibile abilitare il backup de
 - Microsoft.RecoveryServices/Vaults/backupPolicies/read
 - Microsoft.RecoveryServices/Vaults/backupPolicies/write
 
-Se l'insieme di credenziali di servizi di ripristino e della macchina virtuale dispone di diversi gruppi di risorse, verificare di che disporre delle autorizzazioni di scrittura nel gruppo di risorse per l'insieme di credenziali di servizi di ripristino.  
+Se l'insieme di credenziali di servizi di ripristino e la VM hanno gruppi di risorse diversi, verificare di avere le autorizzazioni di scrittura nel gruppo di risorse per l'insieme di credenziali di servizi di ripristino.  
 
 
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>Un processo di backup su richiesta si basa sulla stessa pianificazione di conservazione dei backup pianificati?
-No. Specificare l'intervallo di conservazione per un processo di backup su richiesta. Per impostazione predefinita, un backup attivato dal portale viene conservato per 30 giorni.
+No. Specificare il periodo di mantenimento dati per un processo di backup su richiesta. Per impostazione predefinita, un backup attivato dal portale viene conservato per 30 giorni.
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>Di recente è stata abilitata la Crittografia dischi di Azure in alcune macchine virtuali. I backup continueranno a funzionare?
-Specificare le autorizzazioni per Backup di Azure per accedere a Key Vault. Specificare le autorizzazioni in PowerShell come descritto nella sezione **Attivare un backup** nella documentazione relativa a [PowerShell di Backup di Azure](backup-azure-vms-automation.md).
+Fornire le autorizzazioni per il backup di Azure per accedere a Key Vault. Specificare le autorizzazioni in PowerShell come descritto nella sezione **Attivare un backup** nella documentazione relativa a [PowerShell di Backup di Azure](backup-azure-vms-automation.md).
 
 ### <a name="i-migrated-vm-disks-to-managed-disks-will-my-backups-continue-to-work"></a>È stata eseguita la migrazione dei dischi della macchina virtuale in dischi gestiti. I backup continueranno a funzionare?
 Sì, i backup continueranno a funzionare senza problemi. Non è necessario riconfigurare alcun elemento.
@@ -64,14 +63,14 @@ Sì. I backup vengono eseguiti quando una macchina virtuale è spenta. Il punto 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>È possibile annullare un processo di backup in corso?
 Sì. È possibile annullare un processo di backup nello stato **Creazione dello snapshot**. Non è possibile annullare un processo se è in corso il trasferimento di dati dallo snapshot.
 
-### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprggeonumber-will-my-backups-continue-to-work"></a>È stato abilitato blocco sul gruppo di risorse creato dal servizio di Backup di Azure (ad es. `AzureBackupRG_<geo>_<number>`), i backup continueranno a funzionare?
-Se si blocca il gruppo di risorse creato dal servizio Backup di Azure, i backup inizieranno ad avere esito negativo in quanto non esiste un limite massimo di 18 punti di ripristino.
+### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprggeonumber-will-my-backups-continue-to-work"></a>È stato abilitato il blocco sul gruppo di risorse creato dal servizio backup di Azure (ad esempio `AzureBackupRG_<geo>_<number>`, i backup continueranno a funzionare?
+Se si blocca il gruppo di risorse creato dal servizio backup di Azure, i backup inizieranno ad avere esito negativo perché è previsto un limite massimo di 18 punti di ripristino.
 
-È necessario rimuovere il blocco e cancellare la raccolta di punti di ripristino da tale gruppo di risorse per poter raggiungere il risultato, i backup futuri [seguire questa procedura](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) per rimuovere la raccolta di punti di ripristino.
+Per fare in modo che i backup futuri abbiano esito positivo, è necessario rimuovere il blocco e deselezionare la raccolta di punti di ripristino da tale gruppo di risorse, [attenersi alla procedura seguente](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) per rimuovere la raccolta di punti di ripristino.
 
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Backup di Azure supporta Managed Disks SSD Standard?
-Backup di Azure supporta [Managed Disks SSD Standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/), Unità SSD, managed disks offre un nuovo tipo di risorsa di archiviazione durevole per macchine virtuali di Azure. Il supporto per dischi gestiti SSD è offerto nel [Ripristino istantaneo](backup-instant-restore-capability.md).
+Backup di Azure supporta [Managed Disks SSD Standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/), I dischi gestiti da SSD forniscono un nuovo tipo di archiviazione durevole per le macchine virtuali di Azure. Il supporto per dischi gestiti SSD è offerto nel [Ripristino istantaneo](backup-instant-restore-capability.md).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>È possibile eseguire il backup di una macchina virtuale con un disco con acceleratore di scrittura?
 Non è possibile creare snapshot nel disco con acceleratore di scrittura. Il servizio Backup di Azure, tuttavia, può escludere questo disco dal backup.
@@ -79,22 +78,22 @@ Non è possibile creare snapshot nel disco con acceleratore di scrittura. Il ser
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>In una macchina virtuale sono presenti dischi con acceleratore di scrittura ed è installato SAP HANA. In che modo è possibile eseguire il backup?
 Backup di Azure non può eseguire il backup del disco con acceleratore di scrittura, ma può escluderlo dal processo. Il backup, tuttavia, non assicurerà la coerenza del database perché non viene eseguito il backup delle informazioni presenti sul disco con acceleratore di scrittura. È possibile eseguire il backup di dischi con questa configurazione per ottenere il backup del disco del sistema operativo e il backup di dischi senza acceleratore di scrittura.
 
-Anteprima privata per un backup di SAP HANA è in esecuzione con un RPO pari a 15 minuti. È stata creata in modo simile al backup del database SQL e usa l'interfaccia backInt per soluzioni di terze parti certificate da SAP HANA. Se si è interessati, scrivici all'indirizzo `AskAzureBackupTeam@microsoft.com` con il soggetto **iscriversi per l'anteprima privata per il backup di SAP HANA in macchine virtuali di Azure**.
+È in esecuzione un'anteprima privata per un backup di SAP HANA con un RPO di 15 minuti. È stata creata in modo simile al backup del database SQL e usa l'interfaccia backInt per soluzioni di terze parti certificate da SAP HANA. Se si è interessati, inviare un messaggio `AskAzureBackupTeam@microsoft.com` di posta elettronica all'indirizzo con l' **iscrizione per l'anteprima privata per il backup delle SAP Hana nelle VM di Azure**.
 
-### <a name="what-is-the-maximum-delay-i-can-expect-in-backup-start-time-from-the-scheduled-backup-time-i-have-set-in-my-vm-backup-policy"></a>Che cos'è il ritardo massimo che è possibile prevedere nell'ora di inizio backup dal momento del backup pianificato, che ho impostato nella mio criterio di backup della macchina virtuale?
-Il backup pianificato verrà attivato entro 2 ore dal momento del backup pianificato. Per es. Se 100 macchine virtuali dispone ora di inizio backup pianificata alle 2:00 di notte, quindi per max 4:00 am tutti il 100VMs avranno processo di backup in corso. Se i backup pianificati sono stati sospesi a causa dell'interruzione del servizio e ripreso/ripetuti backup può iniziare di fuori di questa finestra di 2 ore pianificate.
+### <a name="what-is-the-maximum-delay-i-can-expect-in-backup-start-time-from-the-scheduled-backup-time-i-have-set-in-my-vm-backup-policy"></a>Qual è il ritardo massimo che è possibile aspettarsi nell'ora di inizio del backup dall'ora di backup pianificata configurata nel criterio di backup della macchina virtuale?
+Il backup pianificato verrà attivato entro 2 ore dall'ora del backup pianificato. Per es. Se le VM 100 hanno un'ora di inizio di backup pianificata alle 2:00 AM, il processo di backup in corso sarà in corso per il numero 4:00 massimo di 100VMs. Se i backup pianificati sono stati sospesi a causa di un problema di interruzione e ripresa/nuovo tentativo, il backup può essere avviato fuori dalla finestra svil pianificata.
 
-### <a name="what-is-the-minimum-allowed-retention-range-for-daily-backup-point"></a>Che cos'è l'intervallo di conservazione minimo consentito per punto di backup giornaliero?
-Criteri di backup di macchine virtuali Azure supportano un intervallo minimo di conservazione di 7 giorni fino a 9999 giorni. Eventuali modifiche apportate a un criterio di backup della macchina virtuale esistente con meno di 7 giorni verranno richiesto un aggiornamento per soddisfare l'intervallo minimo di conservazione di 7 giorni.
+### <a name="what-is-the-minimum-allowed-retention-range-for-daily-backup-point"></a>Qual è il periodo di mantenimento dati minimo consentito per il punto di backup giornaliero?
+Il criterio di backup della macchina virtuale di Azure supporta un periodo di mantenimento dati minimo di 7 giorni fino a 9999 giorni. Qualsiasi modifica a un criterio di backup di VM esistente con meno di 7 giorni richiederà un aggiornamento per soddisfare il periodo di mantenimento dati minimo di 7 giorni.
 
-## <a name="restore"></a>Restore
+## <a name="restore"></a>Ripristina
 
 ### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>In che modo si decide se è opportuno ripristinare solo i dischi oppure una macchina virtuale completa?
-Il ripristino di una macchina virtuale può essere considerato come un'opzione di creazione rapida di una macchina virtuale di Azure. Questa opzione consente di modificare i nomi dei dischi, contenitori usati dai dischi, gli indirizzi IP pubblici e i nomi di interfaccia di rete. Con la modifica le risorse vengono mantenute univoche quando si crea una macchina virtuale. La macchina virtuale non viene aggiunta a un set di disponibilità.
+Il ripristino di una macchina virtuale può essere considerato come un'opzione di creazione rapida di una macchina virtuale di Azure. Questa opzione modifica i nomi dei dischi, i contenitori usati dai dischi, gli indirizzi IP pubblici e i nomi delle interfacce di rete. Con la modifica le risorse vengono mantenute univoche quando si crea una macchina virtuale. La macchina virtuale non viene aggiunta a un set di disponibilità.
 
 L'opzione di ripristino di un disco consente di:
-  * Personalizzare la macchina virtuale che viene creata, Ad esempio, modificare le dimensioni.
-  * Aggiungere le impostazioni di configurazione che non erano presenti al momento del backup.
+  * Personalizzare la macchina virtuale che viene creata, Modificare ad esempio le dimensioni.
+  * Aggiungere le impostazioni di configurazione che non erano disponibili al momento del backup.
   * Controllare la convenzione di denominazione delle risorse create.
   * Aggiungere la macchina virtuale a un set di disponibilità.
   * Aggiungere qualsiasi altra impostazione da configurare usando PowerShell o un modello.
@@ -133,9 +132,9 @@ Il backup della macchina virtuale viene eseguito usando le impostazioni di conse
 
 1. Interrompere temporaneamente il backup e conservare i dati di backup.
 2. Spostare la macchina virtuale nel gruppo di risorse di destinazione.
-3. Abilitata di nuovo il backup nell'insieme di credenziali stesso o nuovo.
+3. Riabilitazione del backup nello stesso o in un nuovo insieme di credenziali.
 
 È possibile ripristinare la macchina virtuale dai punti di ripristino disponibili creati prima dell'operazione di spostamento.
 
-### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-a-same-backup-policy"></a>È previsto un limite sul numero di macchine virtuali che possono essere associati a un criterio di backup stesso?
-Sì, è previsto un limite di 100 macchine virtuali che possono essere associati al criterio di backup stesso dal portale. È consigliabile che per più di 100 macchine virtuali, creare più criteri di backup con pianificazione diverse o stesso.
+### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-a-same-backup-policy"></a>Esiste un limite al numero di macchine virtuali che possono essere associate a uno stesso criterio di backup?
+Sì, è previsto un limite di 100 VM che possono essere associate agli stessi criteri di backup dal portale. Per più di 100 macchine virtuali, è consigliabile creare più criteri di backup con la stessa pianificazione o una pianificazione diversa.

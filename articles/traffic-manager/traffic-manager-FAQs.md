@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: c2bff5749ab833efcb252d3fafb5d38cfbc8691e
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
-ms.translationtype: HT
+ms.openlocfilehash: 37f1a0d9c70afc0a3a86ac76b682ee7b2adb253d
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310272"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335803"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Domande frequenti (FAQ) su Gestione traffico
 
@@ -300,7 +300,7 @@ Durante il periodo di anteprima, Visualizzazione traffico è stato abilitato a l
 
 La determinazione dei prezzi di Visualizzazione traffico è basata sul numero di punti dati usati per creare l'output. L'unico tipo di dati supportato al momento sono le query che vengono ricevute dal proprio profilo. Viene addebitata inoltre solo l'elaborazione eseguita quando Visualizzazione traffico è abilitata. Ciò significa che, se si abilita Visualizzazione traffico per un periodo di tempo specifico in un mese e la si disabilita in altri periodi, vengono considerati per la fatturazione solo i punti dati elaborati mentre la funzionalità era abilitata.
 
-## <a name="traffic-manager-endpoints"></a>Endpoint di Gestione traffico
+## <a name="traffic-manager-endpoints"></a>Endpoint Gestione traffico
 
 ### <a name="can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions"></a>È possibile usare Gestione traffico con endpoint di più sottoscrizioni?
 
@@ -438,7 +438,7 @@ Le impostazioni di monitoraggio di Gestione traffico sono configurate a livello 
 Gestione traffico consente di specificare intestazioni personalizzate nei controlli di integrità HTTP(S) avviati per gli endpoint. Per specificare un'intestazione personalizzata, è possibile eseguire questa operazione a livello di profilo (applicabile a tutti gli endpoint) o a livello di endpoint. Se un'intestazione viene definita su entrambi i livelli, quella specificata a livello di endpoint sostituirà quella a livello di profilo.
 Un caso d'uso comune è specificare intestazioni host in modo che le richieste di Gestione traffico possano essere instradate correttamente a un endpoint ospitato in un ambiente multi-tenant. Un altro caso d'uso è identificare le richieste di Gestione traffico dai log delle richieste HTTP(S) di un endpoint.
 
-## <a name="what-host-header-do-endpoint-health-checks-use"></a>Quali intestazione host viene usata per i controlli di integrità degli endpoint?
+### <a name="what-host-header-do-endpoint-health-checks-use"></a>Quali intestazione host viene usata per i controlli di integrità degli endpoint?
 
 Se non viene specificata alcuna impostazione di intestazione host personalizzata, l'intestazione host usata da Gestione traffico è il nome DNS della destinazione dell'endpoint configurata nel profilo, se disponibile.
 

@@ -2,24 +2,17 @@
 title: Cosa sono un modello del servizio cloud e un pacchetto | Documentazione Microsoft
 description: Descrive il modello del servizio cloud (csdef, cscfg) e il pacchetto (cspkg) in Azure
 services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 4ce2feb5-0437-496c-98da-1fb6dcb7f59e
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 6c8833dc0db80dde96dda92c426c7840c44c1f1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: 47d031e339b3677e0bf6ddcbad9456041c53c6e2
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080750"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359548"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Cos'è il modello del servizio cloud e come è possibile crearne il pacchetto?
 Un servizio cloud viene creato da tre componenti: la definizione del servizio *(.csdef)* , la configurazione del servizio *(.cscfg)* e un pacchetto servizio *(.cspkg)* . Entrambi i file **ServiceDefinition.csdef** e **ServiceConfig.cscfg** sono basati su XML e descrivono la struttura e la configurazione del servizio cloud. Insieme costituiscono il modello. **ServicePackage.cspkg** è un file ZIP generato da **ServiceDefinition.csdef** e contiene, oltre ad altri elementi, tutte le dipendenze necessarie basate su file binari. Azure crea un servizio cloud sia da **ServicePackage.cspkg** che da **ServiceConfig.cscfg**.
@@ -280,7 +273,7 @@ Dove le variabili vengono definite come segue:
 ## <a name="next-steps"></a>Passaggi successivi
 Si sta creando un pacchetto del servizio cloud e si vuole...
 
-* [Configurare il desktop remoto per un'istanza del servizio cloud][remotedesktop]
+* [Configurare Desktop remoto per un'istanza del servizio cloud][remotedesktop]
 * [Distribuire un progetto di servizio cloud][deploy]
 
 Si sta usando Visual Studio e si vuole...
@@ -288,7 +281,7 @@ Si sta usando Visual Studio e si vuole...
 * [Creare un nuovo servizio cloud][vs_create]
 * [Riconfigurare un servizio cloud esistente][vs_reconfigure]
 * [Distribuire un progetto di servizio cloud][vs_deploy]
-* [Configurare il desktop remoto per un'istanza del servizio cloud][vs_remote]
+* [Configurare Desktop remoto per un'istanza del servizio cloud][vs_remote]
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop-new-portal.md

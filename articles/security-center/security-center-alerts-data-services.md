@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/02/2019
+ms.date: 7/24/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 1cafd8a3c766e57aed67634d7da8498c9a6ee120
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: f33b69ac443a1bb8f6b7d6e1b19f2f077bf38f58
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295831"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501473"
 ---
 # <a name="threat-detection-for-data-services-in-azure-security-center"></a>Rilevamento delle minacce per i servizi dati nel centro sicurezza di Azure
 
@@ -27,12 +27,13 @@ ms.locfileid: "68295831"
 
 * [Database SQL di Azure e SQL Data Warehouse](#data-sql)
 * [Archiviazione di Azure](#azure-storage)
+* [Cosmos DB](#cosmos-db)
 
 ## Database SQL di Azure e SQL Data Warehouse<a name="data-sql"></a>
 
 Il rilevamento delle minacce SQL rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database. Il Centro sicurezza analizza i log di controllo SQL ed esegue in modalità nativa nel motore di SQL.
 
-|Avviso|Descrizione|
+|Avviso|DESCRIZIONE|
 |---|---|
 |**Vulnerabilità a SQL injection**|Un'applicazione ha generato un'istruzione SQL non corretta nel database. Questo può indicare una possibile vulnerabilità agli attacchi intrusivi nel codice SQL. Ci sono due possibili motivi per la generazione di un'istruzione non corretta: Un difetto nel codice dell'applicazione ha creato un'istruzione SQL non funzionante. In alternativa, il codice dell'applicazione o le stored procedure non hanno purificato l'input dell'utente durante la creazione dell'istruzione SQL difettosa, che può essere sfruttata per SQL injection.|
 |**Potenziale attacco SQL injection**|Si è verificato un exploit attivo in un'applicazione identificata vulnerabile a SQL injection. Ciò significa che un utente malintenzionato sta provando a inserire istruzioni SQL dannose usando il codice dell'applicazione vulnerabile o le stored procedure.|
@@ -46,7 +47,7 @@ Per altre informazioni sugli avvisi di rilevamento delle minacce di SQL, vedere[
 ## Archiviazione di Azure<a name="azure-storage"></a>
 
 >[!NOTE]
-> Advanced Threat Protection per archiviazione di Azure è attualmente disponibile solo per l'archiviazione BLOB. 
+> Advanced Threat Protection per archiviazione di Azure è attualmente disponibile solo per l'archiviazione BLOB.
 
 Advanced Threat Protection per Archiviazione di Azure offre un livello aggiuntivo di intelligence di sicurezza in grado di rilevare tentativi insoliti e potenzialmente dannosi di accesso o sfruttamento degli account di archiviazione. Questo livello di protezione consente di risolvere le minacce senza richiedere l'intervento di un esperto di sicurezza e gestire i sistemi di monitoraggio della sicurezza.
 
@@ -54,7 +55,7 @@ Il Centro sicurezza analizza i log di diagnostica delle richieste di lettura, sc
 
 > [!div class="mx-tableFixed"]
 
-|Avviso|Descrizione|
+|Avviso|DESCRIZIONE|
 |---|---|
 |**Anomalia di accesso al percorso insolito**|L'analisi del traffico di rete campionata ha rilevato una comunicazione in uscita Remote Desktop Protocol (RDP) anomala originata da una risorsa nella distribuzione. Questa attività viene considerata anomala per questo ambiente e può indicare che la risorsa è stata compromessa e viene ora utilizzata per la forza bruta dell'endpoint RDP esterno. Si noti che in seguito a questo tipo di attività l'IP può venire contrassegnato come dannoso dalle entità esterne.|
 |**Anomalie di accesso all'applicazione**|Indica che l'account di archiviazione ha eseguito l'accesso a un'applicazione insolita. Una causa potenziale è che un utente malintenzionato ha eseguito l'accesso all'account di archiviazione utilizzando una nuova applicazione.|
@@ -70,3 +71,14 @@ Il Centro sicurezza analizza i log di diagnostica delle richieste di lettura, sc
 >Advanced Threat Protection per archiviazione di Azure non è attualmente disponibile in Azure per enti pubblici e aree cloud sovrane.
 
 Per altre informazioni sugli avvisi per l'archiviazione, vedere l'articolo [Advanced Threat Protection per archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection) ed esaminare la sezione avvisi di protezione.
+
+## Cosmos DB<a name="cosmos-db"></a>
+
+Gli avvisi seguenti vengono generati da tentativi insoliti e potenzialmente dannosi di accesso o exploit Azure Cosmos DB account:
+
+|Avviso|Descrizione|
+|---|---|
+|**Accesso da una posizione insolita**|Indica che è stata apportata una modifica nel modello di accesso a un account Cosmos DB. Un utente ha eseguito l'accesso a questo account da un indirizzo IP non noto, rispetto alle attività recenti. Un utente malintenzionato ha effettuato l'accesso a un account Cosmos DB o un utente legittimo ha eseguito l'accesso all'account di Cosmos DB da una posizione geografica nuova e insolita. Ad esempio, una nuova applicazione o una manutenzione per sviluppatori da remoto.|
+|**Exfiltration dati insoliti**|Indica che è stata apportata una modifica al modello di estrazione dei dati da un account Cosmos DB. Un utente ha estratto una quantità di dati insolita rispetto alle attività recenti. Un utente malintenzionato ha estratto una grande quantità di dati da un database Cosmos DB. Ad esempio: exfiltration/perdita di dati, trasferimento di dati non autorizzato. Oppure un'applicazione o un utente legittimo ha estratto una quantità insolita di dati da un contenitore. Ad esempio: attività di backup di manutenzione.|
+
+Per ulteriori informazioni, vedere [Advanced Threat Protection per Azure Cosmos DB](../cosmos-db/cosmos-db-advanced-threat-protection.md).

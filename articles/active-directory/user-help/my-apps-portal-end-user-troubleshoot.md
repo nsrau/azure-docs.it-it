@@ -1,6 +1,6 @@
 ---
-title: Ottieni assistenza per il portale App personali - Azure Active Directory | Microsoft Docs
-description: Ottieni assistenza per accesso a e l'esecuzione di attività comuni nel portale App personali.
+title: Ottenere supporto per il portale delle app personali-Azure Active Directory | Microsoft Docs
+description: Ottenere assistenza per l'accesso e l'esecuzione di attività comuni nel portale app personali.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,73 +13,83 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6e87ae0a8adf28176d9a97cbf1b78943179884a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 11a7376720661e13a03be65df4ee180e0bca20c3
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60475028"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383072"
 ---
-# <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Risolvere i problemi con il portale App personali
-Se vengono riscontrati problemi con l'accesso a o usando il **My Apps** portale, provare questi suggerimenti di risoluzione dei problemi prima di contattare il supporto tecnico o l'amministratore per assistenza.
+# <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Risolvere i problemi del portale app personali
 
-## <a name="im-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>Si verifica un problema di installazione dell'estensione accesso sicuro alle App personali
-Se si verificano problemi di installazione dell'estensione accesso sicuro alle App personali:
+Se si verificano problemi durante l'accesso a o tramite il portale **app personali** , provare questi suggerimenti per la risoluzione dei problemi prima di contattare il supporto tecnico o l'amministratore per assistenza.
 
-- Assicurarsi che si sta usando un browser supportati, tra cui:
+## <a name="im-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>Si verificano problemi durante l'installazione dell'estensione per l'accesso sicuro alle app personali
+
+Se si verificano problemi durante l'installazione dell'estensione per l'accesso sicuro alle app personali:
+
+- Verificare che sia in uso un browser supportato, tra cui:
 
     - **Microsoft Edge.** In esecuzione in Windows 10 Anniversary Edition o versioni successive.
-    - **Google Chrome.** In esecuzione in Windows 7 o versioni successive e in Mac OS X o versione successiva.
-    - **Mozilla Firefox 26.0 o versione successiva.** In esecuzione in Windows XP SP2 o versioni successive e in Mac OS X 10.6 o versione successiva.
-    - **Internet Explorer 11.** In Windows 7 o versioni successive (supporto limitato) è in esecuzione.
 
-- Assicurarsi che le impostazioni di estensione del browser siano accesi.
+    - **Google Chrome.** In esecuzione su Windows 7 o versione successiva e in Mac OS X o versione successiva.
 
-- Provare a riavviare il browser e accedere la **My Apps** nuovo portale.
+    - **Mozilla Firefox 26,0 o versione successiva.** In esecuzione in Windows XP SP2 o versioni successive e in Mac OS X 10,6 o versione successiva.
 
-- Provare a cancellare i cookie del browser, quindi riavviare e accedere al **My Apps** nuovo portale.
+    - **Internet Explorer 11.** Esecuzione in Windows 7 o versione successiva (supporto limitato).
 
-## <a name="i-cant-sign-in-to-the-my-apps-portal"></a>Non è possibile accedere per il **My Apps** portale
-Se si riscontrano problemi di accesso di **My Apps** portale, è possibile provare quanto segue:
+- Verificare che le impostazioni dell'estensione del browser siano attivate.
 
-- Assicurarsi che si usa l'URL corretto. Deve essere https://myapps.microsoft.com o una pagina personalizzata per l'organizzazione, ad esempio https://myapps.microsoft.com/contoso.com.
+- Provare a riavviare il browser e accedere di nuovo al portale **app personali** .
 
-- Assicurarsi che la password sia corretta e non sia scaduto. Per altre informazioni, vedi [reimpostare la password aziendale o dell'istituto di istruzione](active-directory-passwords-update-your-own-password.md).
+- Provare a cancellare i cookie del browser e quindi a riavviare e accedere di nuovo al portale **app personali** .
 
-- Assicurarsi che le tue info di verifica non aggiornate e accurate. Per altre informazioni, vedere [cosa Azure multi-Factor Authentication per me?](multi-factor-authentication-end-user.md) oppure [modifica le informazioni e metodi di info di sicurezza](security-info-add-update-methods-overview.md).
+## <a name="i-cant-sign-in-to-the-my-apps-portal"></a>Non è possibile accedere al portale **app personali**
 
-- Aggiungere il **App personali** portale URL per il **proprietà Internet > sicurezza > siti attendibili** impostazione.
+Se si verificano problemi durante l'accesso al portale **app personali** , è possibile provare a eseguire le operazioni seguenti:
 
-- Cancellare la cache del browser e provare a eseguire nuovamente l'accesso.
+- Assicurarsi di usare l'URL corretto. Deve essere https://myapps.microsoft.com o una pagina personalizzata per l'organizzazione, https://myapps.microsoft.com/contoso.com ad esempio.
+
+- Assicurarsi che la password sia corretta e non sia scaduta. Per altre informazioni, vedere [reimpostare la password aziendale o dell'Istituto di istruzione](active-directory-passwords-update-your-own-password.md).
+
+- Verificare che le informazioni di verifica siano aggiornate e accurate. Per altre informazioni, vedere [cosa significa Azure Multifactor Authentication per me?](multi-factor-authentication-end-user.md) o [modificare i metodi e le informazioni di sicurezza](security-info-add-update-methods-overview.md).
+
+- Aggiungere l'URL del portale dell' **app** all'impostazione **Proprietà Internet > sicurezza > siti attendibili** .
+
+- Cancellare la cache del browser e riprovare ad accedere.
 
 ## <a name="my-password-isnt-working"></a>La password non funziona
-Se si dimentica la password, mai ricevuto uno della propria organizzazione, sono bloccati senza accesso all'account o per modificare la password, vedere [dimenticata la password di Azure AD](active-directory-passwords-update-your-own-password.md).
 
-## <a name="i-want-to-be-able-to-reset-my-own-password"></a>Desidera essere in grado di reimpostare la propria password
-Per essere in grado di reimpostare la password, l'amministratore deve prima di tutto attivare la funzionalità per l'organizzazione e quindi è necessario aggiornare e verificare i metodi di verifica richiesto. Per altre informazioni su come aggiornare i metodi di verifica, vedere [registrazione per reimpostazione password self-service](active-directory-passwords-reset-register.md).
+Se la password è stata dimenticata, non ne è mai stata ricevuta una dall'organizzazione, l'account è bloccato o si vuole modificare la password, vedere la pagina della [Guida, ho dimenticato la password del Azure ad](active-directory-passwords-update-your-own-password.md).
 
-## <a name="im-getting-an-access-denied-message-when-i-start-an-app"></a>Viene visualizzato un messaggio accesso negato quando si avvia un'app
-Se si riceve un **accesso negato** dei messaggi dopo l'avvio di un'app dalle **My App** portale, è possibile provare quanto segue:
+## <a name="i-want-to-be-able-to-reset-my-own-password"></a>Desidero poter reimpostare la password personale
 
-- Assicurarsi di aver installato il [sicuro alle App personali estensione di accesso](my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) e che sta usando una [browser supportato](my-apps-portal-end-user-access.md#supported-browsers).
+Per poter reimpostare la propria password, l'amministratore deve innanzitutto attivare la funzionalità per l'organizzazione, quindi è necessario aggiornare e verificare i metodi di verifica richiesti. Per altre informazioni su come aggiornare i metodi di verifica, vedere eseguire la [registrazione per la reimpostazione della password self-service](active-directory-passwords-reset-register.md).
 
-- Assicurarsi che si usa l'URL corretto per l'app e che l'URL è nelle **proprietà Internet > sicurezza > siti attendibili** elenco.
+## <a name="im-getting-an-access-denied-message-when-i-start-an-app"></a>Quando si avvia un'app, viene ricevuto un messaggio di accesso negato
 
-- Assicurarsi che la password sia corretta e non sia scaduto. Per altre informazioni, vedi [reimpostare la password aziendale o dell'istituto di istruzione](active-directory-passwords-update-your-own-password.md).
+Se si sta ricevendo un messaggio di **accesso negato** dopo l'avvio di un'app dal portale dell' **app** , è possibile provare a eseguire le operazioni seguenti:
 
-- Assicurarsi che le tue info di verifica non aggiornate e accurate. Per altre informazioni, vedere [cosa Azure multi-Factor Authentication per me?](multi-factor-authentication-end-user.md) oppure [modifica le informazioni e metodi di info di sicurezza](security-info-add-update-methods-overview.md).
+- Assicurarsi di aver installato l' [estensione per l'accesso sicuro alle app personali](my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) e che si stia usando un [browser supportato](my-apps-portal-end-user-access.md#supported-browsers).
 
-- Cancellare la cache del browser e provare a eseguire nuovamente l'accesso.
+- Assicurarsi di usare l'URL corretto per l'app e che l'URL sia presente nelle **Proprietà Internet > sicurezza >** elenco dei siti attendibili.
 
-Se dopo aver provato queste operazioni è ancora possibile accedere all'app, è necessario contattare l'Help desk dell'organizzazione per assistenza.
+- Assicurarsi che la password sia corretta e non sia scaduta. Per altre informazioni, vedere [reimpostare la password aziendale o dell'Istituto di istruzione](active-directory-passwords-update-your-own-password.md).
+
+- Verificare che le informazioni di verifica siano aggiornate e accurate. Per altre informazioni, vedere [cosa significa Azure Multifactor Authentication per me?](multi-factor-authentication-end-user.md) o [modificare i metodi e le informazioni di sicurezza](security-info-add-update-methods-overview.md).
+
+- Cancellare la cache del browser e riprovare ad accedere.
+
+Se dopo aver provato questi elementi non è ancora possibile accedere all'app, è necessario contattare il supporto tecnico dell'organizzazione per assistenza.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo l'accesso per il **My Apps** portale, è anche possibile aggiornare il profilo e le informazioni sull'account, le informazioni sul gruppo e l'accesso esaminare informazioni (se si dispone dell'autorizzazione).
 
-- [Accedere e usare le app nel portale App personali](my-apps-portal-end-user-access.md).
+Dopo aver effettuato l'accesso al portale **app personali** , è anche possibile aggiornare il profilo e le informazioni sull'account, le informazioni sul gruppo e le informazioni di verifica di accesso (se si dispone dell'autorizzazione).
 
-- [Modificare le informazioni sul profilo](my-apps-portal-end-user-update-profile.md).
+- [Accedere e usare le app nel portale app personali](my-apps-portal-end-user-access.md).
 
-- [Visualizzare e aggiornare le informazioni correlate a gruppi](my-apps-portal-end-user-groups.md).
+- [Modificare le informazioni del profilo](my-apps-portal-end-user-update-profile.md).
 
-- [Eseguire le verifiche di accesso personalizzati](my-apps-portal-end-user-access-reviews.md).
+- [Visualizzare e aggiornare le informazioni relative ai gruppi](my-apps-portal-end-user-groups.md).
+
+- [Eseguire le proprie](my-apps-portal-end-user-access-reviews.md)verifiche di accesso.

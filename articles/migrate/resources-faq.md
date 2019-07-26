@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: snehaa
-ms.openlocfilehash: e5b4777adfcbb5babbf5db792a10d025c79b1a8b
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 0708502087ae6880d9559cf17f0ba9982b2ba040
+ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302361"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68372480"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Domande frequenti su Azure Migrate
 
@@ -20,20 +20,8 @@ Questo articolo include le domande frequenti su Azure Migrate. Eventuali altre d
 ## <a name="general"></a>Generale
 
 ### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>Quali aree geografiche di Azure sono supportate da Azure Migrate?
-Azure Migrate supporta attualmente diverse aree geografiche in cui è possibile creare un progetto Azure Migrate. Anche se è possibile creare progetti solo in queste aree geografiche, è comunque possibile valutare o migrare i computer per altri percorsi di destinazione. L'area geografica del progetto viene usata solo per archiviare i metadati individuati.
 
-
-**Area geografica** | **Posizione di archiviazione dei metadati**
---- | ---
-Azure per enti pubblici | US Gov Virginia
-Asia | Asia sud-orientale o Asia orientale
-Europa | Europa meridionale o Europa occidentale
-Regno Unito | Regno Unito meridionale o Regno Unito occidentale
-Stati Uniti | Stati Uniti centrali o Stati Uniti occidentali 2
-
-
-> [!NOTE]
-> Il supporto per Azure per enti pubblici è attualmente disponibile solo per la [versione precedente](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) di Azure migrate.
+Qui è possibile trovare l'elenco per [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects) e per [Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects).
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery"></a>Quali sono le differenze tra Azure Migrate e Azure Site Recover?
 
@@ -51,7 +39,7 @@ Per gli URL e le porte necessari per la comunicazione di Azure Migrate con Azure
 
 ### <a name="can-i-harden-the-appliance-vm-i-set-up-with-the-template"></a>È possibile rafforzare la VM del dispositivo configurata con il modello?
 
-È possibile aggiungere componenti aggiuntivi, ad esempio anti-virus, nel modello, purché le regole di comunicazione e del firewall necessarie per la Azure Migrate Appliance rimangano invariate.   
+È possibile aggiungere componenti aggiuntivi, ad esempio antivirus, nel modello, purché le regole di comunicazione e del firewall necessarie per l'appliance Azure Migrate rimangano invariate.   
 
 ### <a name="what-data-is-collected-by-azure-migrate-appliance"></a>Quali dati vengono raccolti da Azure Migrate Appliance?
 
@@ -99,7 +87,7 @@ Per Hyper-V, l'individuazione usa le credenziali dell'host Hyper-V, se le VM con
 
 È possibile individuare fino a 10.000 VM VMware e fino a 5.000 macchine virtuali Hyper-V usando un'unica appliance di migrazione.  Se si dispone di più computer nell'ambiente locale, informazioni su come ridimensionare [Hyper-V](scale-hyper-v-assessment.md) e [VMware](scale-vmware-assessment.md) assessment.
 
-## <a name="azure-migrate-server-assessment"></a>Azure Migrate: Valutazione server
+## <a name="azure-migrate-server-assessment"></a>Azure Migrate: Server Assessment
 
 ### <a name="does-azure-migrate-server-assessment-support-assessment-of-physical-servers"></a>Azure Migrate: Valutazione del supporto server assessment dei server fisici
 
@@ -195,7 +183,7 @@ No, è possibile visualizzare le dipendenze per un massimo di un'ora. È possibi
 ### <a name="is-dependency-visualization-supported-for-groups-with-more-than-10-vms"></a>La visualizzazione delle dipendenze è supportata per i gruppi con più di 10 macchine virtuali?
 È possibile [visualizzare le dipendenze per i gruppi](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) con un massimo di 10 macchine virtuali. Se si dispone di un gruppo con più di 10 macchine virtuali, è consigliabile suddividere il gruppo in gruppi più piccoli, quindi visualizzare le dipendenze.
 
-## <a name="azure-migrate-server-migration"></a>Azure Migrate: Migrazione server
+## <a name="azure-migrate-server-migration"></a>Azure Migrate: Server Migration
 
 ### <a name="how-is-azure-migrate-server-migration-different-from-azure-site-recovery"></a>Modalità di Azure Migrate: La migrazione del server è diversa da Azure Site Recovery?
 
