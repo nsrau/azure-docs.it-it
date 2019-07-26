@@ -6,12 +6,12 @@ description: Informazioni su come compilare e gestire applicazioni avanzate usan
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 810df2f0826d6740aa499ecf98b51e470526b765
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: b451763a4d359d18ccb4d53cd3ee96fdafd53818
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443092"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501237"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -5027,18 +5027,18 @@ ms.locfileid: "68443092"
                         <a href="#mobile">Dispositivi mobili</a>
                         <ul id="mobile" class="cardsA">
                             <li>
-                                <a href="/azure/app-service-mobile">
+                                <a href="/appcenter">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/app-service-mobile.svg" alt="" />
+                                                        <img alt="" src="https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg">
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Servizio app - App per dispositivi mobili</h3>
-                                                    <p>Sviluppare e ospitare il back-end per qualsiasi app per dispositivi mobili</p>
+                                                    <h3>Visual Studio App Center</h3>
+                                                    <p>Inviare le app più rapidamente tramite l'automazione dei cicli di vita delle applicazioni</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5084,25 +5084,6 @@ ms.locfileid: "68443092"
                                 </a>
                             </li>
                             <li>
-                                <a href="/appcenter">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img alt="" src="https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg">
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Visual Studio App Center</h3>
-                                                    <p>Inviare le app più rapidamente tramite l'automazione dei cicli di vita delle applicazioni</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/azure/azure-maps">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -5140,6 +5121,25 @@ ms.locfileid: "68443092"
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/app-service-mobile">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/app-service-mobile.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Servizio app - App per dispositivi mobili</h3>
+                                                    <p>Sviluppare e ospitare il back-end per qualsiasi app per dispositivi mobili</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>                            
                         </ul>
                     </li>
                     <li>

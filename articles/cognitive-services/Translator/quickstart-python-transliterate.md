@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: c6c6bb526c78ce87b9ee2acca05f478fee0ae5ff
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: cafaf67cfaa07d27bf4569efbc7f76196222cc2a
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704339"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348740"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>Avvio rapido: Usare l'API Traduzione testuale per traslitterare un testo con Python
 
@@ -24,7 +24,7 @@ In questa guida introduttiva si apprenderà come traslitterare (convertire) un t
 Per questa guida introduttiva è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa Traduzione testuale. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
 
 >[!TIP]
-> Per vedere tutto il codice contemporaneamente, il codice sorgente di questo esempio è disponibile in [GitHub]().
+> Per vedere tutto il codice contemporaneamente, il codice sorgente di questo esempio è disponibile in [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

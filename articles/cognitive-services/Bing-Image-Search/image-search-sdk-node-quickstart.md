@@ -1,7 +1,7 @@
 ---
 title: 'Avvio rapido: Cercare immagini - SDK di Ricerca immagini Bing per Node.js'
-description: Usare questa guida introduttiva per effettuare la prima ricerca di immagini tramite l'SDK di Ricerca immagini Bing, che consiste in un wrapper per l'API e contiene le stesse funzionalità. Questa semplice applicazione Node.js invia una query di ricerca immagine, analizza la risposta JSON e visualizza l'URL della prima immagine restituita.
 titleSuffix: Azure Cognitive Services
+description: Usare questa guida introduttiva per effettuare la prima ricerca di immagini tramite l'SDK di Ricerca immagini Bing, che consiste in un wrapper per l'API e contiene le stesse funzionalità. Questa semplice applicazione Node.js invia una query di ricerca immagine, analizza la risposta JSON e visualizza l'URL della prima immagine restituita.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 43de847452c5318fd66ae883301ba1667e6a4f05
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 24f6de759f233b82cb19a21401d3886a80bd746f
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66384349"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423899"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-nodejs"></a>Avvio rapido: Cercare immagini con l’SDK di Ricerca immagini Bing per Node.js
 

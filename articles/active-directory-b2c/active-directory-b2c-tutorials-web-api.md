@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 6b93a7848e5c8516507c825d3064fb61a404e3cf
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 339b118e48a01469312a40e6b0652a4ffb90291a
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66507757"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347139"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Esercitazione: Concedere l'accesso a un'API Web ASP.NET con Azure Active Directory B2C
 
@@ -91,13 +91,13 @@ I due progetti inclusi nella soluzione di esempio sono i seguenti:
 2. Aprire **Web.config** nel progetto **TaskWebApp**.
 3. Per eseguire l'API in locale, usare l'impostazione localhost per **api:TaskServiceUrl**. Modificare il file Web.config come segue: 
 
-    ```C#
+    ```csharp
     <add key="api:TaskServiceUrl" value="https://localhost:44332/"/>
     ```
 
 3. Configurare l'URI dell'API. È l'URI usato dall'applicazione Web per effettuare la richiesta API. Configurare anche le autorizzazioni richieste.
 
-    ```C#
+    ```csharp
     <add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/api/" />
     <add key="api:ReadScope" value="Hello.Read" />
     <add key="api:WriteScope" value="Hello.Write" />
@@ -108,25 +108,25 @@ I due progetti inclusi nella soluzione di esempio sono i seguenti:
 1. Aprire **Web.config** nel progetto **TaskService**.
 2. Configurare l'API per l'uso del tenant.
 
-    ```C#
+    ```csharp
     <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />
     ```
 
 3. Per l'ID client usare l'ID dell'applicazione registrata per l'API.
 
-    ```C#
+    ```csharp
     <add key="ida:ClientId" value="<application-ID>"/>
     ```
 
 4. Aggiornare l'impostazione del flusso utente con il nome del flusso utente di iscrizione e accesso.
 
-    ```C#
+    ```csharp
     <add key="ida:SignUpSignInUserFlowId" value="B2C_1_signupsignin1" />
     ```
 
 5. Configurare l'impostazione degli ambiti in modo che corrisponda a quella creata nel portale.
 
-    ```C#
+    ```csharp
     <add key="api:ReadScope" value="Hello.Read" />
     <add key="api:WriteScope" value="Hello.Write" />
     ```

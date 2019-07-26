@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 07/08/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 3510c0505a5a3c1353642baf5060a83d13fdd43a
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 885c877f219f59ab5049cf7b8e01243077d6d3eb
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67808111"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348395"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Eseguire la migrazione di VM VMware ad Azure (senza agente)
 
@@ -34,7 +34,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="migration-methods"></a>Metodi di migrazione
 
-È possibile eseguire la migrazione di VM VMware ad Azure usando lo strumento di migrazione server di Azure Migrate. Questo strumento offre due opzioni per la migrazione di VM VMware:
+È possibile eseguire la migrazione di macchine virtuali VMware in Azure usando lo strumento Migrazione server di Azure Migrate. Questo strumento offre due opzioni per la migrazione di VM VMware:
 
 - Migrazione con replica senza agente. Consente di eseguire la migrazione delle macchine virtuali senza che siano necessarie installazioni nelle VM stesse.
 - Migrazione con un agente per la replica. Installare un agente nella VM per la replica.
@@ -72,9 +72,9 @@ Se è stata seguita la seconda esercitazione ed è già disponibile un progetto 
 
     ![Selezionare uno strumento](./media/tutorial-migrate-vmware/select-migration-tool.png)
 
-4. Nell'elenco di strumenti selezionare **Azure Migrate: Migrazione del server** > **Aggiungi strumento**.
+4. Nell'elenco di strumenti selezionare **Azure Migrate: Migrazione server** > **Aggiungi strumento**
 
-    ![Strumento di migrazione server](./media/tutorial-migrate-vmware/server-migration-tool.png)
+    ![Strumento Migrazione server](./media/tutorial-migrate-vmware/server-migration-tool.png)
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Configurare l'appliance di Azure Migrate
 
@@ -104,7 +104,7 @@ Affinché sia possibile eseguirne la migrazione ad Azure, Azure Migrate richiede
 **Azione** | **Dettagli** | **Istruzioni**
 --- | --- | ---
 Assicurarsi che i volumi di Windows nella VM di Azure usino le stesse assegnazioni di lettere di unità della VM locale | Configurare il criterio SAN Porta in linea tutti i dischi. | 1. Accedere alla VM con un account amministratore e aprire una finestra di comando.<br/> 2. Digitare **diskpart** per eseguire l'utilità Diskpart.<br/> 3. Digitare **SAN POLICY=OnlineAll**<br/> 4. Digitare Exit per uscire da Diskpart e chiudere il prompt dei comandi.
-Abilitare la console seriale di accesso di Azure per la VM di Azure | Questa operazione è utile per la risoluzione dei problemi. Non è necessario riavviare la VM. La VM di Azure verrà avviata usando l'immagine del disco e tale avvio equivale a un riavvio per la nuova VM. | Seguire [queste istruzioni](https://docs.microsoft.com/azure/virtual-machines/windows/serial-console#enable-serial-console-in-custom-or-older-images) per abilitare la console.
+Abilitare la console seriale di accesso di Azure per la VM di Azure | Questa operazione è utile per la risoluzione dei problemi. Non è necessario riavviare la VM. La VM di Azure verrà avviata usando l'immagine del disco e tale avvio equivale a un riavvio per la nuova VM. | Seguire [queste istruzioni](https://docs.microsoft.com/azure/virtual-machines/windows/serial-console) per abilitare la console.
 Installare i servizi di integrazione guest Hyper-V | In caso di migrazione di macchine virtuali che eseguono Windows Server 2003, installare i servizi di integrazione guest Hyper-V nel sistema operativo delle VM. | [Altre informazioni](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#install-or-update-integration-services)
 Desktop remoto | Abilitare Desktop remoto nella VM e controllare che Windows Firewall non blocchi l'accesso tramite Desktop remoto nei profili di rete. | [Altre informazioni](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access)
 
@@ -128,7 +128,7 @@ Per informazioni sulla procedura per eseguire una VM Linux in Azure e istruzioni
 
 Al termine dell'individuazione, è possibile avviare la replica delle VM VMware in Azure.
 
-1. Nel progetto di Azure Migrate selezionare **Server** e **Azure Migrate: Migrazione del server** e fare clic su **Replica**.
+1. Nel progetto di Azure Migrate selezionare **Server** e **Azure Migrate: Migrazione server**, quindi **Replica**.
 
     ![Replicare le VM](./media/tutorial-migrate-vmware/select-replicate.png)
 
@@ -161,7 +161,7 @@ Al termine dell'individuazione, è possibile avviare la replica delle VM VMware 
 
 8. In **Calcolo** esaminare il nome, le dimensioni, il tipo di disco del sistema operativo e il set di disponibilità delle VM. Le VM devono essere conformi ai [requisiti di Azure](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements).
 
-    - **Dimensioni macchina virtuale**: se si usano i consigli della valutazione, l'elenco a discesa Dimensioni macchina virtuale conterrà le dimensioni consigliate. In caso contrario, Azure Migrate seleziona le dimensioni più simili nella sottoscrizione di Azure. In alternativa, selezionare manualmente le dimensioni in **Dimensioni macchina virtuale di Azure**. 
+    - **Dimensioni macchina virtuale**: se si usano i consigli per la valutazione, l'elenco a discesa Dimensioni macchina virtuale conterrà le dimensioni consigliate. In caso contrario, Azure Migrate seleziona le dimensioni più simili nella sottoscrizione di Azure. In alternativa, selezionare manualmente le dimensioni in **Dimensioni macchina virtuale di Azure**. 
     - **Disco del sistema operativo**: specificare il disco del sistema operativo (di avvio) per la VM. È il disco che contiene il bootloader e il programma di installazione del sistema operativo. 
     - **Set di disponibilità**: se la VM deve essere inclusa in un set di disponibilità di Azure dopo la migrazione, specificare il set. Il set deve trovarsi nel gruppo di risorse di destinazione specificato per la migrazione.
 
@@ -180,10 +180,10 @@ Al termine dell'individuazione, è possibile avviare la replica delle VM VMware 
 
 ### <a name="provisioning-for-the-first-time"></a>Primo provisioning
 
-Per la prima VM replicata nel progetto di Azure Migrate, lo strumento di migrazione server di Azure Migrate effettua automaticamente il provisioning delle risorse nello stesso gruppo di risorse del progetto.
+Per la prima VM replicata nel progetto di Azure Migrate, lo strumento Migrazione server di Azure Migrate effettua automaticamente il provisioning delle risorse nello stesso gruppo di risorse del progetto.
 
-- **Bus di servizio**: lo strumento di migrazione server di Azure Migrate usa il bus di servizio per inviare messaggi di orchestrazione della replica all'appliance.
-- **Account di archiviazione del gateway**: lo strumento di migrazione server usa l'account di archiviazione del gateway per archiviare le informazioni sullo stato delle VM da replicare.
+- **Bus di servizio**: lo strumento Migrazione server di Azure Migrate usa il bus di servizio per inviare messaggi di orchestrazione della replica all'appliance.
+- **Account di archiviazione del gateway**: lo strumento Migrazione server usa l'account di archiviazione del gateway per archiviare le informazioni sullo stato delle VM da replicare.
 - **Account di archiviazione di log**: l'appliance di Azure Migrate carica i log di replica per le VM in un account di archiviazione di log. Azure Migrate applica le informazioni di replica ai dischi gestiti di replica.
 - **Insieme di credenziali delle chiavi**: l'appliance di Azure Migrate usa l'insieme di credenziali delle chiavi per gestire le stringhe di connessione per il bus di servizio e le chiavi di accesso per gli account di archiviazione usati nella replica. Le autorizzazioni necessarie all'insieme di credenziali delle chiavi per accedere all'account di archiviazione dovrebbero essere state configurate durante la preparazione. [Esaminare le autorizzazioni](tutorial-prepare-vmware.md#assign-role-assignment-permissions).   
 
@@ -198,7 +198,7 @@ Per la prima VM replicata nel progetto di Azure Migrate, lo strumento di migrazi
 
 È possibile tenere traccia dello stato del processo nelle notifiche del portale.
 
-È possibile monitorare lo stato della replica facendo clic su **Replica dei server**  in **Azure Migrate: Migrazione del server**.
+È possibile monitorare lo stato della replica facendo clic su **Replica dei server**  in **Azure Migrate: Migrazione server**.
 ![Monitorare la replica](./media/tutorial-migrate-vmware/replicating-servers.png)
 
 
@@ -216,7 +216,7 @@ All'avvio della replica differenziale, è possibile eseguire una migrazione di t
 Per eseguire una migrazione di test, seguire questa procedura:
 
 
-1. In **Obiettivi della migrazione**  > **Server** > **Azure Migrate: Migrazione del server** fare clic su **Testare i server con migrazione completata**.
+1. In **Obiettivi della migrazione** > **Server** > **Azure Migrate: Migrazione server** fare clic su **Testare i server con migrazione completata**.
 
      ![Testare i server con migrazione completata](./media/tutorial-migrate-vmware/test-migrated-servers.png)
 
@@ -227,7 +227,7 @@ Per eseguire una migrazione di test, seguire questa procedura:
 3. In **Migrazione di test** selezionare la rete virtuale di Azure in cui verrà inserita la VM di Azure dopo la migrazione. È consigliabile usare una rete virtuale non di produzione.
 4. Verrà avviato il processo **Migrazione di test**. Monitorare il processo nelle notifiche del portale.
 5. Al termine della migrazione, visualizzare la VM di Azure di cui è stata eseguita la migrazione in **Macchine virtuali** nel portale di Azure. Il nome della macchina virtuale ha il suffisso **-Test**.
-6. Al termine del test, fare clic con il pulsante destro del mouse sulla VM di Azure in **Replica delle macchine virtuali**  e scegliere **Pulisci migrazione di test**.
+6. Al termine del test, fare clic con il pulsante destro del mouse sulla macchina virtuale di Azure in **Replica delle macchine virtuali** e scegliere **Pulisci migrazione di test**.
 
     ![Eseguire la pulizia della migrazione](./media/tutorial-migrate-vmware/clean-up.png)
 
@@ -236,14 +236,14 @@ Per eseguire una migrazione di test, seguire questa procedura:
 
 Dopo aver verificato che la migrazione di test funzioni nel modo previsto, è possibile procedere con la migrazione delle macchine virtuali locali.
 
-1. Nel progetto di Azure Migrate selezionare **Server** > **Azure Migrate: Migrazione del server** e fare clic su **Replica dei server**.
+1. Nel progetto di Azure Migrate selezionare **Server** > **Azure Migrate: Migrazione server** e fare clic su **Replica dei server**.
 
     ![Replica dei server](./media/tutorial-migrate-vmware/replicate-servers.png)
 
 2. In **Replica delle macchine virtuali** fare clic con il pulsante destro del mouse sulla VM e scegliere **Esegui la migrazione**.
 3. In **Esegui la migrazione** > **Spegnere le macchine virtuali ed eseguire una migrazione pianificata senza perdita di dati** selezionare **Sì** > **OK**.
     - Per impostazione predefinita, Azure Migrate arresta la VM locale ed esegue una replica su richiesta per sincronizzare le eventuali modifiche apportate alla macchina virtuale dopo l'ultima replica. Questa operazione assicura che non vi sia alcuna perdita di dati.
-    - Se non si vuole arrestare la VM, selezionare **No**.
+    - Se non si vuole arrestare la VM, selezionare **No**
 4. Verrà avviato un processo di migrazione per la VM. Tenere traccia del processo nelle notifiche di Azure.
 5. Al termine del processo, è possibile visualizzare e gestire la VM dalla pagina **Macchine virtuali**.
 

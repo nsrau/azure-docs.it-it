@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: overview
-ms.date: 05/02/2019
+ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 95121523c510e72894086740ad340bdfd33f3c32
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: c90d656539a2ed64b416dc9b8e7e11e205b98ee6
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721410"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478388"
 ---
 # <a name="what-is-the-ink-recognizer-api"></a>Informazioni sull'API di Riconoscimento input penna
 
 
 Il servizio cognitivo Riconoscimento input penna fornisce un'API REST basata sul cloud per analizzare e riconoscere il contenuto dell'input penna. A differenza di servizi come il riconoscimento ottico dei caratteri (OCR), l'API richiede l'immissione di dati sotto forma di tratto input penna. I tratti input penna sono set temporizzati di punti 2D (coordinate X,Y) che rappresentano il movimento di strumenti di input come penne digitali o dita. Il servizio riconosce quindi la forma del contenuto scritto a mano dall'input e restituisce una risposta JSON contenente tutte le entità riconosciute.
 
-![Diagramma di flusso che descrive l'invio di un tratto input penna all'API](media/ink-recognizer-pen-graph.png)
+![Diagramma di flusso che descrive l'invio di un tratto input penna all'API](media/ink-recognizer-pen-graph.svg)
 
 ## <a name="features"></a>Funzionalità
 

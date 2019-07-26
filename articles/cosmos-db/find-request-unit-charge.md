@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 06/14/2019
 ms.author: thweiss
-ms.openlocfilehash: 3d088da4c771c828db9788817e424c4d89586dd6
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 96c36067456a49a5760d6fde488dcb4ad8311a90
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67986141"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356455"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Trovare l'addebito delle unità richiesta in Azure Cosmos DB
 
@@ -153,10 +153,12 @@ Per altre informazioni, vedere [Avvio rapido: Compilare un'app Node.js usando un
 L'oggetto `CosmosClient` proveniente da [Python SDK](https://pypi.org/project/azure-cosmos/) espone un dizionario `last_response_headers` che viene mappato a tutte le intestazione restituite dall'API HTTP sottostante per l'ultima operazione eseguita. L'addebito della richiesta è disponibile sotto la chiave `x-ms-request-charge`:
 
 ```python
-response = client.ReadItem('dbs/database/colls/container/docs/itemId', { 'partitionKey': 'partitionKey' })
+response = client.ReadItem(
+    'dbs/database/colls/container/docs/itemId', {'partitionKey': 'partitionKey'})
 request_charge = client.last_response_headers['x-ms-request-charge']
 
-response = client.ExecuteStoredProcedure('dbs/database/colls/container/sprocs/storedProcedureId', None, { 'partitionKey': 'partitionKey' })
+response = client.ExecuteStoredProcedure(
+    'dbs/database/colls/container/sprocs/storedProcedureId', None, {'partitionKey': 'partitionKey'})
 request_charge = client.last_response_headers['x-ms-request-charge']
 ```
 

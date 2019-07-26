@@ -3,8 +3,8 @@ title: Esercitazione - Creare il primo pacchetto di accesso in Gestione entitlem
 description: Esercitazione dettagliata sulla creazione del primo pacchetto di accesso in Gestione entitlement di Azure Active Directory (anteprima).
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 04/27/2019
-ms.author: rolyon
+ms.date: 07/23/2019
+ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 354af736d5896214848205f41e429d9bf2c49863
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 1688651466ba6748e1254c9d33bb24435602868b
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64873523"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489159"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management-preview"></a>Esercitazione: Creare il primo pacchetto di accesso in Gestione entitlement di Azure AD (anteprima)
 
@@ -32,7 +32,7 @@ ms.locfileid: "64873523"
 
 La gestione degli accessi a tutte le risorse necessarie per i dipendenti, ad esempio gruppi, applicazioni e siti, è una funzione importante per le organizzazioni. È necessario concedere ai dipendenti il livello di accesso corretto affinché possano essere produttivi e rimuovere l'accesso quando non è più necessario.
 
-In questa esercitazione l'utente lavora come amministratore IT presso Woodgrove Bank. All'utente è stato richiesto di creare un pacchetto di risorse per un progetto Web per la gestione self-service delle richieste da parte degli utenti interni. Le richieste richiedono l'approvazione e l'accesso degli utenti scade dopo 30 giorni. Per questa esercitazione, le risorse del progetto Web sono semplici appartenenze in un singolo gruppo, ma potrebbe trattarsi di una raccolta di gruppi, applicazioni o siti di SharePoint Online.
+In questa esercitazione l'utente lavora come amministratore presso Woodgrove Bank. All'utente è stato richiesto di creare un pacchetto di risorse per un progetto Web per la gestione self-service delle richieste da parte degli utenti interni. Le richieste richiedono l'approvazione e l'accesso degli utenti scade dopo 30 giorni. Per questa esercitazione, le risorse del progetto Web sono semplici appartenenze in un singolo gruppo, ma potrebbe trattarsi di una raccolta di gruppi, applicazioni o siti di SharePoint Online.
 
 ![Panoramica dello scenario](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
 
@@ -174,9 +174,9 @@ Un *criterio* definisce le regole o i vincoli per accedere a un pacchetto di acc
 
     In questa esercitazione l'amministratore e il responsabile approvazione sono la stessa persona, ma possibile designare un'altra persona come responsabile approvazione.
 
-1. Nella sezione **Scadenza** impostare**Scadenza del pacchetto di accesso** su **Numero di giorni**.
+1. Nella sezione **Scadenza** impostare**Access package expires** (Scadenza pacchetto di accesso) su **Numero di giorni**.
 
-1. Impostare **Scadenza dell'accesso dopo** su **30** giorni.
+1. Impostare **Access expires after** (L'accesso scade dopo) su **30** giorni.
 
 1. Per **Attiva criterio** fare clic su **Sì**.
 
@@ -216,7 +216,7 @@ In questo passaggio le procedure verranno eseguite come **richiedente interno** 
 
 1. Nella casella **Motivazioni aziendali** digitare la motivazione **Collaborazione al progetto Web**.
 
-1. Impostare l'opzione **Richiedi per un periodo specifico** su **Sì**.
+1. Impostare l'opzione **Request for specific period** (Richiedi per un periodo specifico) su **Sì**.
 
 1. Impostare la **Data di inizio** su oggi e la **Data di fine** su domani.
 
@@ -310,7 +310,7 @@ In questo passaggio verranno rimosse le modifiche apportate e verrà eliminato i
 
 1. Fare clic su **Ruoli delle risorse**.
 
-1. Per **Engineering Group** fare clic sui puntini di sospensione ( **...** ) e quindi su **Rimuovi il ruolo della risorsa**.
+1. Per **Engineering Group** fare clic sui puntini di sospensione ( **...** ) e quindi su **Remove resource role** (Rimuovi ruolo risorsa).
 
 1. Aprire l'elenco dei pacchetti di accesso.
 

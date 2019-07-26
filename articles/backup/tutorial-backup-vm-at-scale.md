@@ -1,7 +1,6 @@
 ---
 title: Eseguire un backup delle macchine virtuali di Azure su larga scala
 description: Eseguire il backup contemporaneo di più macchine virtuali di Azure
-services: backup
 keywords: backup di macchine virtuali; back up di macchine virtuali; back up di VM; backup di VM; backup di macchine virtuali di Azure; backup e ripristino di emergenza
 author: rayne-wiselman
 ms.author: raynew
@@ -9,12 +8,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: 99f5b09d0b5dfc144dca7f19efff3f0656a82b35
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: da2a9e634567dbe657410a61e5bfe0526197309d
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093246"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467128"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Usare il portale di Azure per eseguire il backup di più macchine virtuali
 

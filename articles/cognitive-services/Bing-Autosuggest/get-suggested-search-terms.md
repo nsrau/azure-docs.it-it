@@ -1,6 +1,6 @@
 ---
 title: Informazioni sui Suggerimenti automatici Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Imparare a usare l'API Suggerimenti automatici Bing.
 services: cognitive-services
 author: swhite-msft
@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 24f35d795b34e7d9c214a23c040791841b4a711b
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 13606fa5a58106575648a39e5074507f5d3bf471
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66382563"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405380"
 ---
 # <a name="what-is-bing-autosuggest"></a>Informazioni sui Suggerimenti automatici Bing
 

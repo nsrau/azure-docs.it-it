@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: ca2a7edff4b8c06b2838474449360b4b14b3e393
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d26e8a21865304b2065a28da5e241f58cb5ab34c
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67092974"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383230"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reflektive"></a>Esercitazione: Integrazione di Azure Active Directory con Reflektive
 
@@ -138,7 +138,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Reflektive, seguire que
 
 ### <a name="configure-reflektive-single-sign-on"></a>Configurare l'accesso Single Sign-On di Reflektive
 
-Per configurare l'accesso Single Sign-On sul lato **Reflektive**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Reflektive](mailto: https://support@reflektive.com/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Reflektive**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Reflektive](mailto:support@reflektive.com/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
@@ -192,7 +192,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 ### <a name="create-reflektive-test-user"></a>Creare l'utente di test di Reflektive
 
-In questa sezione viene creato un utente chiamato Britta Simon in Reflektive. Per aggiungere utenti alla piattaforma Reflektive, collaborare con il  [team di supporto di Reflektive](mailto: https://support@reflektive.com/). Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente chiamato Britta Simon in Reflektive. Per aggiungere utenti alla piattaforma Reflektive, collaborare con il  [team di supporto di Reflektive](mailto:support@reflektive.com/). Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

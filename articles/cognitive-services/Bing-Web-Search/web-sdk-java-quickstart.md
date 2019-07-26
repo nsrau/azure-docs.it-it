@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Usare l'SDK di Ricerca Web Bing per Java"
+title: "Guida introduttiva: Usare l'SDK di Ricerca Web Bing per Java"
 titleSuffix: Azure Cognitive Services
 description: L'SDK di Ricerca Web Bing facilita l'integrazione di Ricerca Web Bing nell'applicazione Java. In questa guida introduttiva si apprenderà come inviare una richiesta, ricevere una risposta JSON e filtrare e analizzare i risultati.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 07/25/2019
 ms.author: aahi
-ms.openlocfilehash: 7209df902f03a7055e142dcbbb7743b6832958b6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0d2c1ca439dbbbd79ddabd2ea7a4eb5298d1071a
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863781"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500975"
 ---
-# <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>Avvio rapido: Usare l'SDK di Ricerca Web Bing per Java
+# <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>Guida introduttiva: Usare l'SDK di Ricerca Web Bing per Java
 
 L'SDK di Ricerca Web Bing facilita l'integrazione di Ricerca Web Bing nell'applicazione Java. In questa guida introduttiva si apprenderà come inviare una richiesta, ricevere una risposta JSON e filtrare e analizzare i risultati.
 
@@ -127,7 +127,7 @@ import com.microsoft.azure.cognitiveservices.search.websearch.models.VideoObject
 import com.microsoft.azure.cognitiveservices.search.websearch.models.WebPage;
 ```
 
-Se il progetto è stato creato con Maven, il pacchetto dovrebbe essere già dichiarato. In caso contrario, dichiararlo ora. Ad esempio: 
+Se il progetto è stato creato con Maven, il pacchetto dovrebbe essere già dichiarato. In caso contrario, dichiararlo ora. Ad esempio:
 
 ```java
 package com.bingwebsearch.app
@@ -298,6 +298,6 @@ Dopo aver terminato di usare questo progetto, rimuovere la chiave di sottoscrizi
 > [!div class="nextstepaction"]
 > [Esempi di Java SDK per Servizi cognitivi](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
-* [Informazioni di riferimento su Azure Java SDK](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/websearch)
+* [Informazioni di riferimento su Azure Java SDK](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-java-stable)

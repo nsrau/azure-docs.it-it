@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 0d7ca38ecb66dbf92678eae4da7d8706f68cbaa2
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 4cc21a4dbab7d5114eed8414c6530eab5f42bb00
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273828"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478867"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Creare un localizzatore di punti vendita con Mappe di Azure
 
@@ -139,7 +139,7 @@ Per creare l'interfaccia utente, aggiungere codice a *index.html*:
 1. Aggiungere un riferimento al modulo dei servizi di Mappe di Azure. Il modulo è una libreria di JavaScript che esegue il wrapping dei servizi REST di Mappe di Azure e li rende facili da usare in JavaScript. Questo modulo è utile per potenziare la funzionalità di ricerca.
 
     ```HTML
-    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
+    <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
     ```
 
 1. Aggiungere riferimenti ai file *index.js* e *index.css*:

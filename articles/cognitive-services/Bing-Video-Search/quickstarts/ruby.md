@@ -1,6 +1,6 @@
 ---
 title: "Guida introduttiva: Cercare video con l'API REST Ricerca video Bing e Ruby"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per inviare richieste di ricerca video all'API REST Ricerca video Bing con Ruby.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: 2abab9db46c9ca5bf52ed613b28d698550adaf6a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1303abb204881833413bf0465909582e49535e1c
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447024"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500652"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-ruby"></a>Guida introduttiva: Cercare video con l'API REST Ricerca video Bing e Ruby
 

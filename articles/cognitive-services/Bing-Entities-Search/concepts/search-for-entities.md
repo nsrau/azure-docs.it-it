@@ -1,6 +1,6 @@
 ---
 title: Cercare entità con l'API Ricerca entità Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Usare l'API Ricerca entità Bing per estrarre e cercare entità e luoghi da query di ricerca.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: overview
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: c205f792138ebd7e8094b3bd7cd303d54dfa8d8f
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 54c295c353e83c5d7068c30952d1cbf125788f60
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389852"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404980"
 ---
 # <a name="searching-for-entities-with-the-bing-entity-api"></a>Ricerca di entità con l'API Ricerca entità Bing
 
