@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 7056d127aac8268a131d62c2b20655407e2336b2
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 242f2fa9885f3f85439caddd061f650baafb8df4
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304060"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314423"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Hub eventi di Azure - Piattaforma di streaming di Big Data e servizio di inserimento di eventi
 Hub eventi di Azure è una piattaforma di streaming di Big Data e un servizio di inserimento di eventi. È in grado di ricevere ed elaborare milioni di eventi al secondo. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione.
@@ -31,7 +31,7 @@ Di seguito sono riportati alcuni scenari in cui è possibile usare Hub eventi:
 - Elaborazione di dati di telemetria dell'utente
 - Streaming della telemetria dei dispositivi
 
-[!VIDEO https://www.youtube.com/watch?v=45wgY-VSk9I]
+<iframe width="560" height="315" src="https://www.youtube.com/embed/45wgY-VSk9I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## <a name="why-use-event-hubs"></a>Vantaggi dell'uso di Hub eventi
 

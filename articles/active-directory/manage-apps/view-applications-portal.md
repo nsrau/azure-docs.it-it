@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ae5e16aa00147d6ea434090720b51af06e8e0c5
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 764c7c048dd0398b495ee31421a8e2bc9f8169ee
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807560"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477189"
 ---
 # <a name="view-your-azure-active-directory-tenant-applications"></a>Visualizzare le applicazioni del tenant di Azure Active Directory
 
@@ -79,4 +79,4 @@ In questo argomento di avvio rapido si è appreso come visualizzare le applicazi
 Dopo aver trovato l'applicazione cercata, si può continuare ad [aggiungere altre applicazioni al tenant](add-application-portal.md). In alternativa, è possibile selezionare l'applicazione per visualizzare o modificare le proprietà e le opzioni di configurazione. Ad esempio, è possibile configurare l'accesso Single Sign-On.
 
 > [!div class="nextstepaction"]
-> [Configurare l'accesso Single Sign-On](configure-single-sign-on-portal.md)
+> [Configurare l'accesso Single Sign-On](configure-single-sign-on-non-gallery-applications.md)

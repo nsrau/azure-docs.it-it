@@ -12,14 +12,15 @@ ms.topic: overview
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9c6faff10f68d720bc3c86a191e4cd1b1f9abdc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c20256fb712d9381ba2adc90e2e68ce4fdc8911a
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123607"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382788"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Configurare le informazioni di sicurezza (anteprima) dal messaggio di richiesta della pagina di accesso
+
 È possibile seguire questa procedura se subito dopo l'accesso all'account aziendale o dell'istituto di istruzione viene richiesto di configurare le informazioni di sicurezza.
 
 Questo messaggio di richiesta verrà visualizzato solo se non si sono ancora configurate le informazioni di sicurezza richieste dall'organizzazione. Se sono state configurate in precedenza ma si vogliono apportare modifiche, è possibile seguire i passaggi illustrati nei vari articoli sulle procedure in base al metodo. Per altre informazioni, vedere la [panoramica su come aggiungere o aggiornare le informazioni di sicurezza](security-info-add-update-methods-overview.md).
@@ -27,11 +28,13 @@ Questo messaggio di richiesta verrà visualizzato solo se non si sono ancora con
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 ## <a name="sign-in-to-your-work-or-school-account"></a>Accedere all'account aziendale o dell'istituto di istruzione
+
 Dopo che si è eseguito l'accesso all'account aziendale o dell'istituto di istruzione, prima di poter accedere all'account verrà visualizzata la richiesta di specificare altre informazioni.
 
 ![Messaggio di richiesta di altre informazioni](media/security-info/securityinfo-prompt.png)
 
 ## <a name="set-up-your-security-info-using-the-wizard"></a>Configurare le informazioni di sicurezza con la procedura guidata
+
 Seguire questa procedura per configurare le informazioni di sicurezza per l'account aziendale o dell'istituto di istruzione dal messaggio di richiesta.
 
 >[!Important]
@@ -41,7 +44,7 @@ Seguire questa procedura per configurare le informazioni di sicurezza per l'acco
 
    > [!Note]
    > Se si vuole usare un'app di autenticazione diversa dall'app Microsoft Authenticator, selezionare il collegamento **Voglio usare un'app di autenticazione diversa**.
-   > 
+   >
    > Se l'organizzazione consente di scegliere un metodo diverso oltre all'app di autenticazione, è possibile selezionare il collegamento **Si vuole configurare un metodo diverso**.
 
     ![Procedura guidata Proteggi l'account: pagina per il download dell'app di autenticazione](media/security-info/securityinfo-prompt-get-auth-app.png)

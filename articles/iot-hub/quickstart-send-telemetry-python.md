@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/28/2019
-ms.openlocfilehash: a8abd71609d3e063c92541485007a3bde44be954
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c92b019e15c6a9ee5b2d38e240ae4f9891621f72
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051244"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360201"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT e leggere i dati con un'applicazione di back-end (Python)
 
@@ -40,11 +40,11 @@ Questa guida di avvio rapido presuppone che si usi un computer di sviluppo Windo
 È possibile verificare la versione corrente di Python installata nel computer di sviluppo tramite uno dei comandi seguenti:
 
 ```python
-python --version
+python - -version
 ```
 
 ```python
-python3 --version
+python3 - -version
 ```
 
 Eseguire il comando seguente per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell. L'estensione IoT aggiunge i comandi specifici di hub IoT, IoT Edge e servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.

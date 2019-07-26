@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: 22d5aea119d71553afc02ee923fab5cf5ead5ce0
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 3610a5be356f306e4f92ea35d399a888f568d6d3
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65519039"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326187"
 ---
 # <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>Guida introduttiva: Creare un'app dell'API Tabella con Java e Azure Cosmos DB
 
@@ -94,7 +94,7 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 5. Trasformare in commento la riga 1 e rimuovere il commento dalla riga 2. L'aspetto delle prime due righe dovrebbe essere simile al seguente.
 
-    ```
+    ```xml
     #StorageConnectionString = UseDevelopmentStorage=true
     StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=[ACCOUNTNAME];AccountKey=[ACCOUNTKEY]
     ```

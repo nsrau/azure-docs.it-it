@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: 9c9b892f7d1f992210a18f2290bb199d12aeaf49
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: fe0c16962eef38ac26490eb7928d1705ef63a217
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330499"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68355033"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Guida introduttiva: Controllare un dispositivo connesso a un hub IoT (Python)
 
@@ -44,11 +44,11 @@ Questa guida di avvio rapido presuppone che si usi un computer di sviluppo Windo
 È possibile verificare la versione corrente di Python installata nel computer di sviluppo tramite uno dei comandi seguenti:
 
 ```python
-python --version
+python - -version
 ```
 
 ```python
-python3 --version
+python3 - -version
 ```
 
 Eseguire il comando seguente per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell. L'estensione IoT aggiunge i comandi specifici di hub IoT, IoT Edge e servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.

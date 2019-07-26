@@ -1,7 +1,6 @@
 ---
 title: Guida introduttiva di Azure - Eseguire il backup di una macchina virtuale con l'interfaccia della riga di comando di Azure
 description: Informazioni su come eseguire il backup delle macchine virtuali con l'interfaccia della riga di comando di Azure
-services: backup
 author: rayne-wiselman
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
@@ -11,12 +10,12 @@ ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d3ed9370726d35f67edfbcf32dfd25e74d7865e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1d431cceee80175710f339e4734972340ed3469d
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66127689"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467243"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Eseguire il backup di una macchina virtuale in Azure con l'interfaccia della riga di comando
 L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. È possibile proteggere i dati eseguendo backup a intervalli regolari. Backup di Azure crea punti di ripristino che possono essere archiviati in insiemi di credenziali di ripristino con ridondanza geografica. Questo articolo illustra in modo dettagliato come eseguire il backup di una macchina virtuale (VM) in Azure con l'interfaccia della riga di comando di Azure. È anche possibile eseguire questa procedura con [Azure PowerShell](quick-backup-vm-powershell.md) o nel [portale di Azure](quick-backup-vm-portal.md).

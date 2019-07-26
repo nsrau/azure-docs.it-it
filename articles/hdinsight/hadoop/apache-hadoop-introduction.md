@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
 ms.date: 06/11/2019
-ms.openlocfilehash: 4482cf8a92778cb20672f63dc2b8eca828d58fc8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5e36a4691c485472b1e0b43b9d8c551790bc68e9
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446891"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442121"
 ---
 # <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>Informazioni su Apache Hadoop in Azure HDInsight
 
@@ -42,7 +42,7 @@ Questa sezione elenca le funzionalità di Azure HDInsight.
 |---------|---------|
 |Cloud nativo     |     Azure HDInsight permette di creare cluster ottimizzati per [Hadoop](apache-hadoop-linux-tutorial-get-started.md), [Spark](../spark/apache-spark-jupyter-spark-sql.md), [Interactive Query (LLAP)](../interactive-query/apache-interactive-query-get-started.md), [Kafka](../kafka/apache-kafka-get-started.md), [Storm](../storm/apache-storm-tutorial-get-started-linux.md), [HBase](../hbase/apache-hbase-tutorial-get-started-linux.md) e  [ML Services](../r-server/r-server-overview.md) in Azure. HDInsight fornisce anche un contratto di servizio end-to-end per tutti i carichi di lavoro di produzione.  |
 |Costi contenuti e scalabilità     | HDInsight consente di [ridimensionare](../hdinsight-administer-use-portal-linux.md#scale-clusters) i carichi di lavoro aumentando o riducendo le prestazioni. È possibile ridurre il costo  [creando cluster su richiesta](../hdinsight-hadoop-create-linux-clusters-adf.md)  e pagando solo per le risorse usate. È anche possibile compilare pipeline di dati per rendere operativi i processi. Calcolo e archiviazione disaccoppiati offrono migliori prestazioni e flessibilità. |
-|Sicurezza e conformità    | HDInsight consente di proteggere i dati aziendali usando [Rete virtuale di Azure](../hdinsight-extend-hadoop-virtual-network.md), la [crittografia](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md) e l'integrazione con [Azure Active Directory](../domain-joined/apache-domain-joined-introduction.md). HDInsight soddisfa anche i più diffusi [standard di conformità](https://azure.microsoft.com/overview/trusted-cloud) del settore e governativi.        |
+|Sicurezza e conformità    | HDInsight consente di proteggere i dati aziendali usando [Rete virtuale di Azure](../hdinsight-plan-virtual-network-deployment.md), la [crittografia](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md) e l'integrazione con [Azure Active Directory](../domain-joined/hdinsight-security-overview.md). HDInsight soddisfa anche i più diffusi [standard di conformità](https://azure.microsoft.com/overview/trusted-cloud) del settore e governativi.        |
 |Monitoraggio    | Azure HDInsight si integra con i [log di Monitoraggio di Azure](../hdinsight-hadoop-oms-log-analytics-tutorial.md) per fornire una singola interfaccia che consente di monitorare tutti i cluster.        |
 |Disponibilità globale | HDInsight è disponibile in più  [aree](https://azure.microsoft.com/regions/services/)  di qualsiasi altra offerta di analisi di Big Data. Azure HDInsight è anche disponibile in Azure per enti pubblici, Cina e Germania per soddisfare le esigenze aziendali nelle principali aree sovrane. |  
 |Produttività     |  Azure HDInsight consente di usare strumenti di produttività avanzati per Hadoop e Spark con gli ambienti di sviluppo più diffusi. Questi ambienti di sviluppo includono [Visual Studio](apache-hadoop-visual-studio-tools-get-started.md), [VSCode](../hdinsight-for-vscode.md), [Eclipse](../spark/apache-spark-eclipse-tool-plugin.md) e [IntelliJ](../spark/apache-spark-intellij-tool-plugin.md) per supportare Scala, Python, R, Java e .NET. I data scientist possono anche collaborare usando notebook diffusi, ad esempio [Jupyter](../spark/apache-spark-jupyter-notebook-kernels.md) e [Zeppelin](../spark/apache-spark-zeppelin-notebook.md).    |
@@ -96,7 +96,7 @@ HDInsight include tipi di cluster specifici e funzionalità di personalizzazione
 
 ## <a name="open-source-components-in-hdinsight"></a>Componenti open source in HDInsight
 
-Azure HDInsight consente di creare cluster con framework open source, ad esempio Hadoop, Spark, Hive, LLAP, Kafka, Storm, HBase e R. Per impostazione predefinita, questi cluster vengono forniti con altri componenti open source inclusi nel cluster, ad esempio [Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md), [Avro](https://avro.apache.org/docs/current/spec.html), [Apache Hive](https://hive.apache.org), [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog/), [Apache Mahout](https://mahout.apache.org/), [Apache Hadoop MapReduce](https://wiki.apache.org/hadoop/MapReduce), [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), [Apache Phoenix](https://phoenix.apache.org/), [Apache Pig](https://pig.apache.org/), [Apache Sqoop](https://sqoop.apache.org/), [Apache Tez](https://tez.apache.org/), [Apache Oozie](https://oozie.apache.org/), [Apache ZooKeeper](https://zookeeper.apache.org/).  
+Azure HDInsight consente di creare cluster con framework open source, ad esempio Hadoop, Spark, Hive, LLAP, Kafka, Storm, HBase e R. Per impostazione predefinita, questi cluster vengono forniti con altri componenti open source inclusi nel cluster, ad esempio [Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md), [Avro](https://avro.apache.org/docs/current/spec.html), [Apache Hive](https://hive.apache.org), [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog/), [Apache Mahout](https://mahout.apache.org/), [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html), [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), [Apache Phoenix](https://phoenix.apache.org/), [Apache Pig](https://pig.apache.org/), [Apache Sqoop](https://sqoop.apache.org/), [Apache Tez](https://tez.apache.org/), [Apache Oozie](https://oozie.apache.org/), [Apache ZooKeeper](https://zookeeper.apache.org/).  
 
 ## <a name="programming-languages-in-hdinsight"></a>Linguaggi di programmazione in HDInsight
 

@@ -3,19 +3,19 @@ title: 'Guida introduttiva di Azure: Eseguire un processo Batch - .NET'
 description: Eseguire rapidamente un processo e attività Batch con la libreria client Batch .NET.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: b8d7556607cdb73c3e3ae19109bcbf34b72b0915
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 37cd6fdd2f82af581e27f9341292c484b1cc601e
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595354"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322338"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Guida introduttiva: Eseguire il primo processo di Azure Batch con l'API .NET
 
@@ -47,7 +47,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-quickstart.git
 
 Passare alla directory contenente il file di soluzione Visual Studio `BatchDotNetQuickstart.sln`.
 
-Aprire il file di soluzione in Visual Studio e aggiornare le stringhe delle credenziali in `Program.cs` con i valori ottenuti per gli account. Ad esempio: 
+Aprire il file di soluzione in Visual Studio e aggiornare le stringhe delle credenziali in `Program.cs` con i valori ottenuti per gli account. Ad esempio:
 
 ```csharp
 // Batch account credentials

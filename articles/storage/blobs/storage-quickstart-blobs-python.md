@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 12/14/2018
 ms.author: mhopkins
 ms.reviewer: seguler
-ms.openlocfilehash: 0ae47a7898e380a25618a8d6ae6a1e0251fe466c
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 5fe011d740b1c08ae3b9cf4e3ea67d2cdd4fee66
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514581"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360088"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con Python
 
@@ -45,8 +45,9 @@ Questo comando clona il repository *Azure-Samples/storage-blobs-python-quickstar
 ## <a name="configure-your-storage-connection-string"></a>Configurare la stringa di connessione di archiviazione
 Nell'applicazione, inserire il nome dell'account di archiviazione e la chiave dell'account per creare un oggetto `BlockBlobService`. Aprire il file *example.py* da Esplora soluzioni nell'IDE. Sostituire i valori `accountname` e `accountkey` con il nome e la chiave dell'account. 
 
-```python 
-block_blob_service = BlockBlobService(account_name = 'accountname', account_key = 'accountkey') 
+```python
+block_blob_service = BlockBlobService(
+    account_name='accountname', account_key='accountkey')
 ```
 
 ## <a name="run-the-sample"></a>Eseguire l'esempio
@@ -94,16 +95,18 @@ Una volta creato il contenitore cloud di BLOB, creare un'istanza dell'oggetto **
 
 In questa sezione si creano istanze degli oggetti, si crea un nuovo contenitore e quindi si impostano le autorizzazioni nel contenitore in modo che i BLOB siano pubblici. Il contenitore è denominato **quickstartblobs**. 
 
-```python 
+```python
 # Create the BlockBlockService that is used to call the Blob service for the storage account.
-block_blob_service = BlockBlobService(account_name = 'accountname', account_key = 'accountkey') 
- 
+block_blob_service = BlockBlobService(
+    account_name='accountname', account_key='accountkey')
+
 # Create a container called 'quickstartblobs'.
 container_name = 'quickstartblobs'
-block_blob_service.create_container(container_name) 
+block_blob_service.create_container(container_name)
 
 # Set the permission so the blobs are public.
-block_blob_service.set_container_acl(container_name, public_access=PublicAccess.Container)
+block_blob_service.set_container_acl(
+    container_name, public_access=PublicAccess.Container)
 ```
 ### <a name="upload-blobs-to-the-container"></a>Caricare i BLOB nel contenitore
 
@@ -128,7 +131,8 @@ print("Temp file = " + full_path_to_file)
 print("\nUploading to Blob storage as blob" + local_file_name)
 
 # Upload the created file, use local_file_name for the blob name.
-block_blob_service.create_blob_from_path(container_name, local_file_name, full_path_to_file)
+block_blob_service.create_blob_from_path(
+    container_name, local_file_name, full_path_to_file)
 ```
 
 Esistono diversi metodi di caricamento che è possibile usare con l'archiviazione BLOB. Nel caso di un flusso di memoria, ad esempio, è possibile usare il metodo `create_blob_from_stream` anziché il metodo `create_blob_from_path`. 
@@ -154,9 +158,11 @@ Scaricare i BLOB nel disco locale usando il metodo `get_blob_to_path`. Il codice
 ```python
 # Download the blob(s).
 # Add '_DOWNLOADED' as prefix to '.txt' so you can see both files in Documents.
-full_path_to_file2 = os.path.join(local_path, string.replace(local_file_name, '.txt', '_DOWNLOADED.txt'))
+full_path_to_file2 = os.path.join(local_path, string.replace(
+    local_file_name, '.txt', '_DOWNLOADED.txt'))
 print("\nDownloading blob to " + full_path_to_file2)
-block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_to_file2)
+block_blob_service.get_blob_to_path(
+    container_name, local_file_name, full_path_to_file2)
 ```
 
 ### <a name="clean-up-resources"></a>Pulire le risorse

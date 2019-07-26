@@ -11,14 +11,14 @@ ms.author: andrela
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 2d9ce34d52d08b4dd38caaadfab48b7a69870e9a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: fcc1a093f8df87da24f9d7f7945c490d7b58c9bd
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447942"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320573"
 ---
-# <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Avvio rapido: Usare Java per eseguire query su un database SQL di Azure
+# <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Guida introduttiva: Usare Java per eseguire query su un database SQL di Azure
 
 Questo articolo illustra come usare [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) per connettersi a un database SQL di Azure. È quindi possibile usare istruzioni T-SQL per eseguire query sui dati.
 
@@ -33,12 +33,11 @@ Per completare questo esempio, accertarsi di avere i prerequisiti seguenti:
   | Create| [Portale](sql-database-single-database-get-started.md) | [Portale](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
-  | Configurare | [Regola del firewall per gli indirizzi IP a livello di server](sql-database-server-level-firewall-rule.md)| [Connettività da una VM](sql-database-managed-instance-configure-vm.md)|
+  | Configurare | [Regola del firewall IP a livello di server](sql-database-server-level-firewall-rule.md)| [Connettività da una VM](sql-database-managed-instance-configure-vm.md)|
   |||[Connettività da locale](sql-database-managed-instance-configure-p2s.md)
   |Caricare i dati|Adventure Works caricato in base alla guida introduttiva|[Ripristinare Wide World Importers](sql-database-managed-instance-get-started-restore.md)
   |||Ripristinare o importare Adventure Works dal file [BACPAC](sql-database-import.md) ottenuto da [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
-  |||
-
+  
   > [!IMPORTANT]
   > Gli script in questo articolo sono scritti in modo da usare il database Adventure Works. Con un'istanza gestita, è necessario importare il database Adventure Works in un database dell'istanza oppure modificare gli script di questo articolo in modo da usare il database Wide World Importers.
 

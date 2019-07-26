@@ -1,23 +1,23 @@
 ---
-title: 'Avvio rapido: Aumentare il numero delle risorse di calcolo in Azure SQL Data Warehouse - Portale di Azure| Microsoft Docs'
+title: 'Guida introduttiva: Aumentare il numero delle risorse di calcolo in Azure SQL Data Warehouse - Portale di Azure| Microsoft Docs'
 description: È possibile ridimensionare le risorse di calcolo in Azure SQL Data Warehouse dal portale di Azure, aumentandone il numero per ottenere prestazioni migliori o riducendolo per diminuire i costi.
 services: sql-data-warehouse
-author: kevinvngo
+author: Antvgski
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: implement
 ms.date: 04/17/2018
-ms.author: kevin
+ms.author: Anthony.vanGemert
 ms.reviewer: jrasnick
-ms.openlocfilehash: b02259e2eaf497fb1bfefc4c1ed7611a22394d48
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7c3e48cc57613b107e82cb0fbcb7d69aceb6cf0a
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894190"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479271"
 ---
-## <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>Avvio rapido: Aumentare il numero delle risorse di calcolo in Azure SQL Data Warehouse nel portale di Azure
+## <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>Guida introduttiva: Aumentare il numero delle risorse di calcolo in Azure SQL Data Warehouse nel portale di Azure
 
 È possibile ridimensionare le risorse di calcolo in Azure SQL Data Warehouse dal portale di Azure, [aumentandone il numero](sql-data-warehouse-manage-compute-overview.md) per ottenere prestazioni migliori o riducendolo per diminuire i costi. 
 

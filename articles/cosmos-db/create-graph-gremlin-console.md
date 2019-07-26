@@ -5,14 +5,14 @@ author: luisbosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: quickstart
-ms.date: 01/08/2019
+ms.date: 07/23/2019
 ms.author: lbosq
-ms.openlocfilehash: 277755641047bf311e06d17de5fe9d39bcc3b74b
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: cd5408e9a40177fb2c8b029673b96994c6928313
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480589"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68384321"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Guida introduttiva: Creare, eseguire query e attraversare un database a grafo di Azure Cosmos DB usando la console Gremlin
 

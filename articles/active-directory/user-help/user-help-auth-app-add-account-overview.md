@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34455cac61dd3b1f1251d4bc2003bd8b029de031
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d16699729e62953cb2369f39ecfe759aab663caf
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014964"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382641"
 ---
 # <a name="overview-about-adding-accounts-to-the-microsoft-authenticator-app"></a>Panoramica sull'aggiunta di account all'app Microsoft Authenticator
 
@@ -25,7 +25,7 @@ L'app Microsoft Authenticator consente di accedere ai propri account se si usa l
 
 > [!Important]
 > L'app Microsoft Authenticator funziona con qualsiasi app che usa la verifica a due fattori e qualsiasi account che supporta gli standard TOTP (Time-Based One-Time Passwords).
-> 
+>
 > Questo contenuto è destinato agli utenti. Gli amministratori possono trovare altre informazioni su come configurare e gestire l'ambiente Azure Active Directory (Azure AD) nella [documentazione di Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
 È possibile usare l'app Microsoft Authenticator in diversi modi, tra cui:
@@ -35,22 +35,19 @@ L'app Microsoft Authenticator consente di accedere ai propri account se si usa l
 - Fornendo l'accesso senza richiedere una password, usando il nome utente e il dispositivo mobile con l'impronta digitale, il viso o il PIN.
 
 ## <a name="what-account-types-can-i-add"></a>Quali tipi di account è possibile aggiungere
+
 È possibile attivare la verifica a due fattori per molti account di uso quotidiano, tra cui:
 
-|Tipo di account|DESCRIZIONE|
-|------------|-----------|
-|Account aziendali o dell'istituto di istruzione|L'account fornito dall'azienda o dall'istituto di istruzione, ad esempio alain@contoso.com.|
-|Account personali|Gli account Microsoft e non Microsoft aperti personalmente, ad esempio per Outlook.com, Xbox LIVE, Google, Facebook e così via.|
+| Tipo di account | DESCRIZIONE |
+| ------------ | ----------- |
+| Account aziendali o dell'istituto di istruzione | L'account fornito dall'azienda o dall'istituto di istruzione, ad esempio alain@contoso.com. |
+| Account personali | Gli account Microsoft e non Microsoft aperti personalmente, ad esempio per Outlook.com, Xbox LIVE, Google, Facebook e così via. |
 
 ## <a name="in-this-section"></a>Contenuto della sezione
 
-|Articolo |DESCRIZIONE |
-|------|------------|
-|[Aggiungere l'account aziendale o dell'istituto di istruzione](user-help-auth-app-add-work-school-account.md)|Descrive come aggiungere l'account aziendale o dell'istituto di istruzione all'app Microsoft Authenticator per la verifica a due fattori.|
-|[Aggiungere l'account Microsoft personale](user-help-auth-app-add-personal-ms-account.md)|Descrive come aggiungere gli account Microsoft personali per la verifica a due fattori e l'accesso tramite telefono (anche noto come accesso senza password).|
-|[Aggiungere gli account non Microsoft](user-help-auth-app-add-non-ms-account.md)|Descrive come aggiungere gli account non Microsoft personali per la verifica a due fattori.|
-|[Aggiungere manualmente l'account](user-help-auth-app-add-account-manual.md)|Descrive come aggiungere manualmente l'account all'app Microsoft Authenticator, se la fotocamera non può acquisire il codice a matrice.|
-
-
-
-
+| Articolo |DESCRIZIONE |
+| ------|------------|
+| [Aggiungere l'account aziendale o dell'istituto di istruzione](user-help-auth-app-add-work-school-account.md) | Descrive come aggiungere l'account aziendale o dell'istituto di istruzione all'app Microsoft Authenticator per la verifica a due fattori. |
+| [Aggiungere l'account Microsoft personale](user-help-auth-app-add-personal-ms-account.md) | Descrive come aggiungere gli account Microsoft personali per la verifica a due fattori e l'accesso tramite telefono (anche noto come accesso senza password). |
+| [Aggiungere gli account non Microsoft](user-help-auth-app-add-non-ms-account.md) | Descrive come aggiungere gli account non Microsoft personali per la verifica a due fattori. |
+| [Aggiungere manualmente l'account](user-help-auth-app-add-account-manual.md) | Descrive come aggiungere manualmente l'account all'app Microsoft Authenticator, se la fotocamera non può acquisire il codice a matrice. |

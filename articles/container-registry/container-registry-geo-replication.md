@@ -3,17 +3,17 @@ title: Replica geografica di un registro contenitori di Azure
 description: Introduzione alla creazione e gestione dei registri contenitori di Azure con replica geografica
 services: container-registry
 author: stevelas
-manager: jeconnoc
+manager: gwallace
 ms.service: container-registry
 ms.topic: overview
 ms.date: 05/24/2019
 ms.author: stevelas
-ms.openlocfilehash: a26b261a900dfae742e00d9540e744524b781815
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: e17b70843fcda1d183de1b81a98da53138835340
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66384110"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309600"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replica geografica nel servizio Registro Azure Container
 

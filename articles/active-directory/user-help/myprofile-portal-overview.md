@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 05/08/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c686dc0af893259d942527d318f3dd7d98fd752d
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: d72cc4360025d50c6db55bf3029d1edeb538a040
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65470727"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382947"
 ---
 # <a name="my-profile-preview-portal-overview"></a>Panoramica del portale Profilo personale (anteprima)
 
@@ -32,7 +32,7 @@ Il portale **Profilo personale** (anteprima) consente di gestire l'account azien
 
 ## <a name="go-to-the-my-profile-portal"></a>Passare al portale Profilo personale
 
-È possibile accedere al portale **Profilo personale** (https://myprofile.microsoft.com)), dalla versione corrente di uno qualsiasi dei browser seguenti:
+È possibile accedere al portale **Profilo personale** (https://myprofile.microsoft.com) ), dalla versione corrente di uno qualsiasi dei browser seguenti:
 
 - Chrome
 - Microsoft Edge
@@ -46,7 +46,7 @@ Per informazioni dettagliate e istruzioni sul contenuto disponibile nel portale 
 
 |Articolo |DESCRIZIONE |
 |------|------------|
-|[Aggiungere l'informazione di sicurezza](user-help-security-info-overview.md)| Diversi articoli on istruzioni su come configurare l'app Microsoft Authenticator, gli SMS o le telefonate come metodo di verifica. Sono inoltre inclusi articoli su come aggiungere un indirizzo di posta elettronica o le domande di sicurezza predefinite in modo da reimpostare autonomamente la propria password dimenticata, se necessario.|
-|[Visualizzare o rimuovere le organizzazioni connesse](myprofile-portal-organizations-page.md)| Istruzioni su come visualizzare e rimuovere le organizzazioni connesse all'account aziendale o dell'istituto di istruzione.|
-|[Visualizzare o disabilitare i dispositivi connessi](myprofile-portal-devices-page.md)| Istruzioni su come visualizzare e disabilitare i dispositivi connessi all'account aziendale o dell'istituto di istruzione.|
-|[Visualizzare le informazioni relative alla privacy](myprofile-portal-privacy-page.md)| Istruzioni su come visualizzare i servizi online connessi all'account aziendale o dell'istituto di istruzione, insieme alle condizioni per l'utilizzo dell'organizzazione.|
+| [Aggiungere l'informazione di sicurezza](user-help-security-info-overview.md) | Diversi articoli on istruzioni su come configurare l'app Microsoft Authenticator, gli SMS o le telefonate come metodo di verifica. Sono inoltre inclusi articoli su come aggiungere un indirizzo di posta elettronica o le domande di sicurezza predefinite in modo da reimpostare autonomamente la propria password dimenticata, se necessario.|
+| [Visualizzare o rimuovere le organizzazioni connesse](myprofile-portal-organizations-page.md) | Istruzioni su come visualizzare e rimuovere le organizzazioni connesse all'account aziendale o dell'istituto di istruzione.|
+| [Visualizzare o disabilitare i dispositivi connessi](myprofile-portal-devices-page.md) | Istruzioni su come visualizzare e disabilitare i dispositivi connessi all'account aziendale o dell'istituto di istruzione.|
+| [Visualizzare le informazioni relative alla privacy](myprofile-portal-privacy-page.md) | Istruzioni su come visualizzare i servizi online connessi all'account aziendale o dell'istituto di istruzione, insieme alle condizioni per l'utilizzo dell'organizzazione.|
