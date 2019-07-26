@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/19/2019
-ms.openlocfilehash: 76d4fbaaea987b5d935d09b7ff1c490b6003a489
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 0c7fbe209a20182ac2a17fcdb467d1f2a03183e5
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68260361"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370737"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Riferimento per i tipi di trigger e di azione nel linguaggio di definizione del flusso di lavoro per app per la logica
 
@@ -1632,7 +1632,7 @@ Questa azione crea una tabella CSV o HTML da una matrice. Per le matrici con ogg
 
 *Obbligatorio* 
 
-| Value | Type | Descrizione | 
+| Value | Type | DESCRIZIONE | 
 |-------|------|-------------| 
 | \<> CSV *o* HTML| String | Il formato della tabella da creare | 
 | <*matrice*> | Array | La matrice o l'espressione che fornisce gli elementi di origine per la tabella <p>**Nota**: se la matrice di origine è vuota, l'azione crea una tabella vuota. | 
@@ -2380,6 +2380,7 @@ Per i trigger e azioni, è possibile limitare la durata del modello asincrono a 
 | `runtimeConfiguration.concurrency.maximumWaitingRuns` | Integer | Modificare il [*limite predefinito*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) per il numero di istanze del flusso di lavoro che possono attendere l'esecuzione quando il flusso di lavoro sta già eseguendo il numero massimo di istanze simultanee. È possibile modificare il limite di concorrenza nella proprietà `concurrency.runs`. <p>Per modificare il limite predefinito, vedere [Modificare il limite delle esecuzioni in attesa](#change-waiting-runs). | Tutti i trigger | 
 | `runtimeConfiguration.concurrency.repetitions` | Integer | Modifica il [*limite predefinito*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) sul numero di iterazioni del ciclo "for each" che è possibile eseguire contemporaneamente o in parallelo. <p>L'impostazione della proprietà `repetitions` su `1` funziona allo stesso modo dell'impostazione della proprietà `operationOptions` su `SingleInstance`. È possibile impostare una delle proprietà, ma non entrambe. <p>Per modificare il limite predefinito, vedere [Modificare la concorrenza "for each"](#change-for-each-concurrency) oppure [Eseguire i cicli "for each" in sequenza](#sequential-for-each). | Azione: <p>[Foreach](#foreach-action) | 
 | `runtimeConfiguration.paginationPolicy.minimumItemCount` | Integer | Per azioni specifiche che supportano e hanno attivato l'impaginazione, questo valore specifica il numero *minimo* di risultati da recuperare. <p>Per attivare la paginazione, vedere [Get bulk data, Items, or results by using impaginazione](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) | Azione: Diversi |
+| `runtimeConfiguration.secureData.properties` | Array | In molti trigger e azioni queste impostazioni nascondono input, output o entrambi dalla cronologia di esecuzione dell'app per la logica. <p>Per proteggere questi dati, vedere [nascondere gli input e gli output dalla cronologia di esecuzione](../logic-apps/logic-apps-securing-a-logic-app.md#secure-data-code-view). | Maggior parte dei trigger e delle azioni |
 | `runtimeConfiguration.staticResult` | Oggetto JSON | Per le azioni che supportano e hanno l'impostazione del [risultato statico](../logic-apps/test-logic-apps-mock-data-static-results.md) attivata, `staticResult` l'oggetto presenta questi attributi: <p>- `name`, che fa riferimento al nome della definizione di risultato statico dell'azione corrente, che `staticResults` viene visualizzato all'interno dell'attributo nell' `definition` attributo del flusso di lavoro dell'app per la logica. Per ulteriori informazioni, vedere [risultati statici-riferimento allo schema per il linguaggio di definizione del flusso di lavoro](../logic-apps/logic-apps-workflow-definition-language.md#static-results). <p> - `staticResultOptions`, che specifica se i risultati statici `Enabled` sono o meno per l'azione corrente. <p>Per attivare i risultati statici, vedere [testare le app per la logica con dati fittizi configurando risultati statici](../logic-apps/test-logic-apps-mock-data-static-results.md) | Azione: Diversi |
 ||||| 
 
@@ -2663,7 +2664,7 @@ Ecco i tipi di autenticazione che è possibile configurare:
 
 Per l'[autenticazione di base](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md) usando Azure Active Directory, la definizione di trigger o azione può includere un oggetto JSON `authentication`, che dispone delle proprietà specificate nella tabella seguente. Per accedere ai valori dei parametri durante il runtime, si può usare l'espressione `@parameters('parameterName')` fornita dal [linguaggio di definizione del flusso di lavoro](https://aka.ms/logicappsdocs). 
 
-| Proprietà | Obbligatorio | Value | Descrizione | 
+| Proprietà | Obbligatorio | Value | DESCRIZIONE | 
 |----------|----------|-------|-------------| 
 | **type** | Yes | "Basic" | Il tipo di autenticazione da usare, in questo caso, "Basic" | 
 | **username** | Yes | "@parameters('userNameParam')" | Il nome utente per l'autenticazione dell'accesso all'endpoint del servizio di destinazione |

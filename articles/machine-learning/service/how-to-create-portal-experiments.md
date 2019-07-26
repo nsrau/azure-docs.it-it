@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
-ms.openlocfilehash: 5eb3e94ff65e8a8b74f357a4cb8a517fd3837c5a
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
-ms.translationtype: HT
+ms.openlocfilehash: 1bfc415b2e4dbc66e2afeae73b78079fb027a60c
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871820"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358835"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Creare ed esplorare esperimenti automatici di machine learning nel portale di Azure (anteprima)
 
@@ -58,10 +58,10 @@ Selezionare il pulsante Crea esperimento per popolare il formato seguente.
 
     ![Crea nuovo calcolo per l'esperimento](media/how-to-create-portal-experiments/create-new-compute.png)
 
-    Campo|DESCRIZIONE
+    Campo|Descrizione
     ---|---
-    Nome calcolo| Immettere un nome univoco che identifichi il contesto di calcolo.
-    Dimensioni della macchina virtuale| Selezionare le dimensioni della macchina virtuale per il calcolo.
+    Nome dell'ambiente di calcolo| Immettere un nome univoco che identifichi il contesto di calcolo.
+    Dimensioni delle macchine virtuali| Selezionare le dimensioni della macchina virtuale per il calcolo.
     Impostazioni aggiuntive| *Nodo minimo*: Immettere il numero minimo di nodi per il calcolo. Il numero minimo di nodi per il calcolo di AML è 0. Per abilitare la profilatura dei dati, è necessario disporre di uno o più nodi. <br> *Nodo massimo*: Immettere il numero massimo di nodi per il calcolo. Il valore predefinito è 6 nodi per un calcolo AML.
 
       Per avviare la creazione del nuovo calcolo, fare clic su **Crea**. Questa operazione può richiedere alcuni minuti.
@@ -154,7 +154,7 @@ Selezionare il pulsante Crea esperimento per popolare il formato seguente.
 
 Quando si configurano gli esperimenti, è possibile abilitare `Preprocess`l'impostazione avanzate. In questo modo, vengono eseguiti automaticamente i passaggi di pre-elaborazione e di conteggi dei dati seguenti.
 
-|&nbsp;Passaggi di pre-elaborazione| Descrizione |
+|&nbsp;Passaggi di pre-elaborazione| DESCRIZIONE |
 | ------------- | ------------- |
 |Eliminazione delle caratteristiche con elevata cardinalità o senza varianza|Eliminarli dai set di training e di convalida, incluse le funzionalità con tutti i valori mancanti, lo stesso valore in tutte le righe o con cardinalità estremamente elevata (ad esempio, hash, ID o GUID).|
 |Attribuire i valori mancanti|Per le funzionalità numeriche, imputare alla media dei valori nella colonna.<br/><br/>Per le funzionalità categoriche, imputare il valore più frequente.|
@@ -180,7 +180,7 @@ Per completare l'esecuzione di ogni pipeline, i processi di training possono ric
 
 ### <a name="view-training-run-details"></a>Visualizza i dettagli dell'esecuzione di training
 
-Eseguire il drill-down su uno dei modelli di output per visualizzare i dettagli delle esecuzioni di training, come le metriche delle prestazioni e i grafici di distribuzione. [Altre informazioni sui grafici](how-to-track-experiments.md#understanding-automated-ml-charts).
+Eseguire il drill-down su uno dei modelli di output per visualizzare i dettagli delle esecuzioni di training, come le metriche delle prestazioni e i grafici di distribuzione. [Altre informazioni sui grafici](how-to-understand-automated-ml.md).
 
 ![Dettagli iterazione](media/how-to-create-portal-experiments/iteration-details.png)
 
@@ -213,7 +213,7 @@ Automatizzato ML semplifica la distribuzione del modello senza scrivere codice:
 
     È possibile identificare il modello in base alla relativa descrizione, che includerà l'ID esecuzione, il numero di iterazione, nel formato seguente: *< Run_ID > _ < Iteration_number > _Model*
 
-    ![Modelli Crea immagine](media/how-to-create-portal-experiments/model-create-image.png)
+    ![Modelli: Crea immagine](media/how-to-create-portal-experiments/model-create-image.png)
 
 1. Immettere un nome per l'immagine. 
 1. Selezionare il pulsante **Sfoglia** accanto alla casella "file di punteggio" per caricare il file di assegnazione dei punteggi (Scoring.py) precedentemente scaricato.
@@ -243,4 +243,5 @@ Automatizzato ML semplifica la distribuzione del modello senza scrivere codice:
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Scopri di più su Machine Learning](concept-automated-ml.md) e Azure Machine Learning automatizzati.
+* [Informazioni sui risultati automatici di Machine Learning](how-to-understand-automated-ml.md).
 * [Informazioni su come utilizzare un servizio Web](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).

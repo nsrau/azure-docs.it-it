@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 89c4723e83979f89721677146810abdf99fb5d11
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: ecb2059e529347b7eff72bf6af74b82558a4c251
+ms.sourcegitcommit: 83a89c45253b0d432ce8dcd70084c18e9930b1fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67310474"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371687"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Informazioni di riferimento su host.json per Funzioni di Azure 2.x  
 
@@ -114,7 +114,7 @@ Controlla le [funzionalità di campionamento in Application Insights](./function
 > [!NOTE]
 > Il campionamento di log potrebbe non consentire di visualizzare alcune esecuzioni nel pannello monitoraggio di Application Insights.
 
-|Proprietà  |Predefinito | Descrizione |
+|Proprietà  |Predefinito | DESCRIZIONE |
 |---------|---------|---------| 
 |isEnabled|true|Abilita o disabilita il campionamento.| 
 |maxTelemetryItemsPerSecond|5|La soglia oltre la quale viene avviato il campionamento.| 
@@ -135,7 +135,7 @@ Le impostazioni di configurazione sono reperibili in [Trigger e associazioni di 
 
 Proprietà che restituisce un oggetto che contiene tutte le impostazioni di associazione specifiche, ad esempio [http](#http) e [eventHub](#eventhub).
 
-## <a name="functions"></a>functions
+## <a name="functions"></a>funzioni
 
 Un elenco di funzioni eseguite dall'host di processo. Una matrice vuota indica l’esecuzione di tutte le funzioni. Deve essere utilizzato solo in caso di [esecuzione in locale](functions-run-local.md). In app per le funzioni in Azure è necessario invece seguire i passaggi descritti in [Come disabilitare le funzioni in Funzioni di Azure](disable-function.md) per disabilitare le funzioni specifiche invece di usare questa impostazione.
 
@@ -147,7 +147,7 @@ Un elenco di funzioni eseguite dall'host di processo. Una matrice vuota indica l
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Indica la durata del timeout per tutte le funzioni. In un piano di consumo serverless l'intervallo valido va da 1 secondo a 10 minuti e il valore predefinito è 5 minuti. In un piano di servizio App dedicato, non è previsto alcun limite complessivo e il valore predefinito è 30 minuti. Un valore di `-1` indica senza vincoli di esecuzione.
+Indica la durata del timeout per tutte le funzioni. In un piano di consumo serverless l'intervallo valido va da 1 secondo a 10 minuti e il valore predefinito è 5 minuti. In un piano di servizio app non è previsto alcun limite complessivo e il valore predefinito varia a seconda della versione del runtime. Nella versione 2.x il valore predefinito per un piano di servizio app è di 30 minuti. Nella versione 1.x il valore è *null*, che indica nessun timeout. Non può essere impostato come infinito. Se questo valore non viene impostato in modo esplicito, il valore predefinito è pari a 30 minuti.
 
 ```json
 {
@@ -284,7 +284,7 @@ Un set di [directory codice condivise](functions-reference-csharp.md#watched-dir
 
 ## <a name="manageddependency"></a>managedDependency
 
-Dipendenza gestito è una funzionalità di anteprima è attualmente supportate solo con PowerShell basati su funzioni. In questo modo le dipendenze gestite automaticamente dal servizio. Quando è impostata la proprietà attivata su true, il [requirements.psd1](functions-reference-powershell.md#dependency-management) file verrà elaborato. Dipendenze verranno aggiornate quando vengono rilasciate tutte le versioni secondarie.
+La dipendenza gestita è una funzionalità di anteprima attualmente supportata solo con le funzioni basate su PowerShell. Consente la gestione automatica delle dipendenze da parte del servizio. Quando la proprietà Enabled è impostata su true, il file [requirements. psd1](functions-reference-powershell.md#dependency-management) verrà elaborato. Le dipendenze verranno aggiornate quando vengono rilasciate versioni secondarie.
 
 ```json
 {

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f05161dbbfd9293cd7b1cbf447bb7ca1c313250c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ca3b953f84677c13908028af968d5a2bf28b57c
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65023453"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347755"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Competenza cognitiva Riconoscimento delle entità
 
@@ -32,7 +32,7 @@ La competenza **Riconoscimento delle entità** estrae le entità di tipi diversi
 Microsoft.Skills.Text.EntityRecognitionSkill
 
 ## <a name="data-limits"></a>Limiti dei dati
-Le dimensioni massime di un record devono essere di 50.000 caratteri in base alla misurazione di `String.Length`. Se è necessario suddividere i dati prima di inviarli all'estrattore di frasi chiave, è possibile usare la competenza [Divisione del testo](cognitive-search-skill-textsplit.md).
+La dimensione massima di un record deve essere di 50.000 caratteri misurata [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)da. Se è necessario suddividere i dati prima di inviarli all'estrattore di frasi chiave, è possibile usare la competenza [Divisione del testo](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Parametri della competenza
 
@@ -40,16 +40,16 @@ I parametri fanno distinzione tra maiuscole e minuscole e sono tutti facoltativi
 
 | Nome parametro     | Descrizione |
 |--------------------|-------------|
-| Categorie    | Matrice di categorie che devono essere estratte.  Possibili tipi di categorie: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Se non vengono fornite categorie, vengono restituiti tutti i tipi.|
+| categories    | Matrice di categorie che devono essere estratte.  Possibili tipi di categorie: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Se non vengono fornite categorie, vengono restituiti tutti i tipi.|
 |defaultLanguageCode |  Codice lingua del testo di input. Sono supportate le lingue seguenti: `de, en, es, fr, it`|
 |minimumPrecision | Non utilizzato. Riservato per utilizzi futuri. |
 |includeTypelessEntities | Quando è impostato su true, se il testo contiene un'entità conosciuta, ma che non può essere classificata in una delle categorie supportate, verrà restituito come parte del campo di output complesso `"entities"`. 
-Queste sono le entità che sono ben note, ma non classificate come parte di corrente "categorie supportate". Ad esempio "Windows 10" è un'entità nota (un prodotto), ma "Prodotti" non si trovano le categorie supportate oggi stesso. Il valore predefinito è `false` |
+Si tratta di entità note che non sono classificate come parte delle "categorie" supportate correnti. Ad esempio, "Windows 10" è un'entità nota (un prodotto), ma i "prodotti" non sono inclusi nelle categorie attualmente supportate. Il valore predefinito è `false` |
 
 
 ## <a name="skill-inputs"></a>Input competenze
 
-| Nome input      | Descrizione                   |
+| Nome di input      | DESCRIZIONE                   |
 |---------------|-------------------------------|
 | languageCode  | facoltativo. Il valore predefinito è `"en"`.  |
 | text          | Testo da analizzare.          |
@@ -68,8 +68,8 @@ Queste sono le entità che sono ben note, ma non classificate come parte di corr
 | dateTimes  | Una matrice di stringhe in cui ogni stringa rappresenta un valore DateTime (come viene visualizzato nel testo). |
 | urls | Una matrice di stringhe in cui ogni stringa rappresenta un URL |
 | emails | Una matrice di stringhe in cui ogni stringa rappresenta un indirizzo di posta elettronica |
-| namedEntities | Una matrice di tipi complessi, che contiene i campi seguenti: <ul><li>category</li> <li>valore (il nome dell'entità effettivo)</li><li>offset (percorso in cui è stato trovato nel testo)</li><li>confidence (non usato per il momento. Verrà impostato sul valore -1)</li></ul> |
-| entities | Una matrice di tipi complessi, che contiene informazioni dettagliate sulle entità estratte dal testo, con i campi seguenti <ul><li> name (nome entità effettivo. Rappresenta una forma "normalizzata")</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (collegamento alla pagina di Wikipedia dell'entità)</li><li>bingId</li><li>type (categoria dell'entità riconosciuta)</li><li>subType (disponibile solo per determinate categorie, in modo da offrire una visualizzazione più granulare del tipo di entità)</li><li> matches (raccolta complessa contenente)<ul><li>testo (testo non elaborato per l'entità)</li><li>offset (posizione in cui è stata trovata)</li><li>length (lunghezza del testo dell'entità non elaborato)</li></ul></li></ul> |
+| namedEntities | Una matrice di tipi complessi, che contiene i campi seguenti: <ul><li>category</li> <li>valore (il nome effettivo dell'entità)</li><li>offset (percorso in cui è stato trovato nel testo)</li><li>confidence (non usato per il momento. Verrà impostato sul valore -1)</li></ul> |
+| entità | Una matrice di tipi complessi, che contiene informazioni dettagliate sulle entità estratte dal testo, con i campi seguenti <ul><li> name (nome entità effettivo. Rappresenta una forma "normalizzata")</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (collegamento alla pagina di Wikipedia dell'entità)</li><li>bingId</li><li>type (categoria dell'entità riconosciuta)</li><li>subType (disponibile solo per determinate categorie, in modo da offrire una visualizzazione più granulare del tipo di entità)</li><li> matches (raccolta complessa contenente)<ul><li>testo (testo non elaborato per l'entità)</li><li>offset (posizione in cui è stata trovata)</li><li>length (lunghezza del testo dell'entità non elaborato)</li></ul></li></ul> |
 
 ##  <a name="sample-definition"></a>Definizione di esempio
 
@@ -117,7 +117,7 @@ Queste sono le entità che sono ben note, ma non classificate come parte di corr
 }
 ```
 
-##  <a name="sample-output"></a>Output di esempio
+##  <a name="sample-output"></a>Esempio di output
 
 ```json
 {

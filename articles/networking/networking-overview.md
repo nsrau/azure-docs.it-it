@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/17/2019
 ms.author: kumud
-ms.openlocfilehash: 759b61e5fb444643bf83e1cca47b6f7152a96590
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 9fb7fc9b4f0e5af0847876ff41b6a307f8a09749
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305641"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348022"
 ---
 # <a name="azure-networking"></a>Rete di Azure
 
@@ -36,7 +36,7 @@ Questa sezione descrive i servizi che forniscono la connettività tra le risorse
 |[Rete virtuale](#vnet)|Consente alle risorse di Azure di comunicare in modo sicuro tra loro, con Internet e con le reti locali.| <p>[Filtrare il traffico di rete](../virtual-network/tutorial-filter-network-traffic.md)</p> <p>[Indirizzare il traffico di rete](../virtual-network/tutorial-create-route-table-portal.md)</p> <p>[Limitare l'accesso di rete alle risorse](../virtual-network/tutorial-restrict-network-access-to-resources.md)</p> <p>[Connettere reti virtuali](../virtual-network/tutorial-connect-virtual-networks-portal.md)</p>|
 |[ExpressRoute](#expressroute)|Estende le reti locali nel cloud Microsoft tramite una connessione privata facilitata da un provider di connettività.|<p>[Creare e modificare un circuito ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)</p> <p>[Creare e modificare i peering per un circuito ExpressRoute](../expressroute/expressroute-howto-routing-portal-resource-manager.md)</p> <p>[Collegare una rete virtuale a un circuito ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)</p> <p>[Configurare e gestire i filtri di route per circuiti ExpressRoute](../expressroute/how-to-routefilter-portal.md)</p>|
 |[Gateway VPN](#vpngateway)|Invia il traffico crittografato tra una rete virtuale di Azure e una posizione locale tramite la rete Internet pubblica.|<p>[Connessioni da sito a sito](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)</p> <p>[Connessioni da VNet a VNet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)</p> <p>[Connessioni da punto a sito](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)</p>|
-|[Rete WAN virtuale](#virtualwan)|Consente di ottimizzare e automatizzare la connettività del ramo a e tramite Azure. Le aree di Azure fungono da hub a cui è possibile scegliere di connettere i rami.|<p>[Connessioni da sito a sito](../virtual-wan/virtual-wan-site-to-site-portal.md), [connessioni ExpressRoute](../virtual-wan/virtual-wan-expressroute-portal.md)</p> <p>[Connessioni da punto a sito](../virtual-wan/virtual-wan-point-to-site-portal.md)</p> |
+|[Rete WAN virtuale](#virtualwan)|Consente di ottimizzare e automatizzare la connettività del ramo a e tramite Azure. Le aree di Azure fungono da hub a cui è possibile scegliere di connettere i rami.|<p>[Connessioni da sito a sito](../virtual-wan/virtual-wan-site-to-site-portal.md), [connessioni ExpressRoute](../virtual-wan/virtual-wan-expressroute-portal.md)</p>|
 |[DNS di Azure](#dns)|Ospita domini DNS che forniscono la risoluzione dei nomi usando Microsoft Azure infrastruttura.|<p>[Ospitare un dominio in DNS di Azure](../dns/dns-delegate-domain-azure-dns.md)</p><p>[Creare record DNS per un'app Web](../dns/dns-web-sites-custom-domain.md)</p> <p>[Creare un record alias per gestione traffico](../dns/tutorial-alias-tm.md)</p> <p>[Creare un record alias per l'indirizzo IP pubblico](../dns/tutorial-alias-pip.md)</p> <p>[Creare un record alias per il record di risorse della zona](../dns/tutorial-alias-rr.md)</p>|
 |[Azure Bastion (anteprima)](#bastion)|Configurare una connettività RDP/SSH sicura e ininterrotta con le macchine virtuali direttamente nel portale di Azure su SSL. Quando ci si connette tramite Azure Bastion, le macchine virtuali non necessitano di un indirizzo IP pubblico|<p>[Creare un host Bastion di Azure](../bastion/bastion-create-host-portal.md)</p><p>[Connettersi con SSH a una VM Linux](../bastion/bastion-connect-vm-ssh.md)</p><p>[Connettersi tramite RDP a una macchina virtuale Windows](/bastion/bastion-connect-vm-rdp.md)</p>|
 ||||
@@ -101,6 +101,8 @@ Questa sezione descrive i servizi di rete in Azure che consentono di proteggere 
 Il Web Application Firewall (WAF) di Azure garantisce la protezione delle applicazioni Web da exploit e vulnerabilità Web comuni, come SQL injection e cross site scripting. Azure WAF offre la protezione predefinita da OWASP prime 10 vulnerabilità tramite regole gestite. Inoltre, i clienti possono configurare regole personalizzate, ovvero regole gestite dal cliente per fornire protezione aggiuntiva in base all'intervallo di indirizzi IP di origine e attributi di richiesta quali intestazioni, cookie, campi dati di form o parametri di stringa di query.
 
 I clienti possono scegliere di distribuire [Azure WAF con il gateway applicazione](../application-gateway/waf-overview.md) , che fornisce la protezione a livello di area alle entità nello spazio degli indirizzi pubblico e privato. I clienti possono anche scegliere di distribuire [Azure WAF con la porta anteriore](../frontdoor/waf-overview.md) , che fornisce la protezione sul perimetro della rete agli endpoint pubblici.
+
+![Web application firewall](./media/networking-overview/waf-overview.png)
 
 
 ### <a name="firewall"></a>Firewall di Azure

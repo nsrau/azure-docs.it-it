@@ -1,6 +1,6 @@
 ---
-title: Trasferire i dati da o verso archiviazione Blob di Azure tramite AzCopy v10 | Microsoft Docs
-description: Questo articolo contiene una raccolta di AzCopy esempio i comandi che consentono di creano contenitori, copiano i file e sincronizzazione delle directory tra i file System locali e i contenitori.
+title: Trasferire dati da e verso l'archiviazione BLOB di Azure tramite AzCopy V10 | Microsoft Docs
+description: Questo articolo contiene una raccolta di comandi di esempio AzCopy che semplificano la creazione di contenitori, la copia di file e la sincronizzazione di directory tra i file System e i contenitori locali.
 services: storage
 author: normesta
 ms.service: storage
@@ -8,31 +8,31 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 83e32a1e8f77604330a9f3aba0e011a0a0851e2f
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: d1bb0dc0e5c9cca0a9570e9074a294afdeb99455
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67625601"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501385"
 ---
-# <a name="transfer-data-with-azcopy-and-blob-storage"></a>Trasferire dati con AzCopy e l'archiviazione Blob
+# <a name="transfer-data-with-azcopy-and-blob-storage"></a>Trasferire i dati con AzCopy e l'archiviazione BLOB
 
-AzCopy è un'utilità della riga di comando che è possibile usare per copiare i dati a, da o tra account di archiviazione. Questo articolo contiene esempi di comandi che funzionano con archivio Blob.
+AzCopy è un'utilità da riga di comando che è possibile usare per copiare i dati in, da o tra account di archiviazione. Questo articolo contiene i comandi di esempio che funzionano con l'archivio BLOB.
 
 ## <a name="get-started"></a>Attività iniziali
 
-Vedere le [Introduzione ad AzCopy](storage-use-azcopy-v10.md) articolo per il download di AzCopy e informazioni sui metodi che è possibile fornire le credenziali di autorizzazione per il servizio di archiviazione.
+Vedere l'articolo [Introduzione a AzCopy](storage-use-azcopy-v10.md) per scaricare AzCopy e informazioni sui modi in cui è possibile fornire le credenziali di autorizzazione al servizio di archiviazione.
 
 > [!NOTE]
-> Gli esempi in questo articolo presuppongono che l'utente è autenticato la tua identità usando il `AzCopy login` comando. AzCopy Usa quindi l'account Azure AD per autorizzare l'accesso ai dati nell'archiviazione Blob.
+> Gli esempi in questo articolo presuppongono che l'identità sia stata autenticata tramite `AzCopy login` il comando. AzCopy usa quindi l'account Azure AD per autorizzare l'accesso ai dati nell'archivio BLOB.
 >
-> Se si preferisce usare un token di firma di accesso condiviso per autorizzare l'accesso ai dati blob, è possibile aggiungere tale token per l'URL della risorsa in ogni comando di AzCopy.
+> Se si preferisce usare un token di firma di accesso condiviso per autorizzare l'accesso ai dati BLOB, è possibile aggiungere tale token all'URL della risorsa in ogni comando AzCopy.
 >
 > Ad esempio: `https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>"`.
 
 ## <a name="create-a-container"></a>Creare un contenitore
 
-È possibile usare AzCopy `make` comando per creare un contenitore. Gli esempi in questa sezione è creare un contenitore denominato `mycontainer`.
+È possibile usare il comando `make` AzCopy per creare un contenitore. Negli esempi di questa sezione viene creato un contenitore `mycontainer`denominato.
 
 |    |     |
 |--------|-----------|
@@ -42,19 +42,19 @@ Vedere le [Introduzione ad AzCopy](storage-use-azcopy-v10.md) articolo per il do
 
 ## <a name="upload-files"></a>Caricare file
 
-È possibile usare AzCopy `copy` comando per caricare file e directory nel computer locale.
+È possibile usare il comando `copy` AzCopy per caricare file e directory dal computer locale.
 
 Questa sezione contiene gli esempi seguenti:
 
 > [!div class="checklist"]
-> * Caricare un file
+> * Carica un file
 > * Caricare una directory
 > * Caricare file usando caratteri jolly
 
 > [!NOTE]
-> AzCopy non automaticamente calcolare e archiviare il codice hash md5 del file. Se si desidera che AzCopy a tale scopo, quindi aggiungere il `--put-md5` flag per ogni comando di copia. In questo modo, quando viene scaricato il blob, AzCopy viene calcolato un hash MD5 per i dati scaricati e verifica che l'hash MD5 archiviato nell'oggetto blob `Content-md5` proprietà corrisponda all'hash calcolato.
+> AzCopy non calcola e archivia automaticamente il codice hash MD5 del file. Se si vuole eseguire questa operazione, aggiungere il `--put-md5` flag a ogni comando di copia di AzCopy. In questo modo, quando viene scaricato il BLOB, AzCopy calcola un hash MD5 per i dati scaricati e verifica che l'hash MD5 archiviato nella `Content-md5` proprietà del BLOB corrisponda all'hash calcolato.
 
-### <a name="upload-a-file"></a>Caricare un file
+### <a name="upload-a-file"></a>Carica un file
 
 |    |     |
 |--------|-----------|
@@ -63,11 +63,11 @@ Questa sezione contiene gli esempi seguenti:
 | **Esempio** (spazio dei nomi gerarchico) | `azcopy copy "C:\myDirectory\myTextFile.txt" "https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt"` |
 
 > [!NOTE]
-> Per impostazione predefinita, AzCopy carica i dati in BLOB in blocchi. Per caricare i file come BLOB di accodamento o BLOB di pagine, usare il flag `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
+> Per impostazione predefinita, AzCopy carica i dati in BLOB in blocchi. Per caricare i file come BLOB di accodamento o BLOB di pagine `--blob-type=[BlockBlob|PageBlob|AppendBlob]`, usare il flag.
 
 ### <a name="upload-a-directory"></a>Caricare una directory
 
-In questo esempio copia una directory (e tutti i file in tale directory) in un contenitore blob. Il risultato è una directory nel contenitore con lo stesso nome.
+Questo esempio copia una directory (e tutti i file in tale directory) in un contenitore BLOB. Il risultato è una directory nel contenitore con lo stesso nome.
 
 |    |     |
 |--------|-----------|
@@ -75,18 +75,18 @@ In questo esempio copia una directory (e tutti i file in tale directory) in un c
 | **Esempio** | `azcopy copy "C:\myDirectory" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive` |
 | **Esempio** (spazio dei nomi gerarchico) | `azcopy copy "C:\myDirectory" "https://mystorageaccount.dfs.core.windows.net/mycontainer" --recursive` |
 
-Per copiare una directory all'interno del contenitore, è sufficiente specificare il nome della directory nella stringa di comando.
+Per eseguire la copia in una directory all'interno del contenitore, è sufficiente specificare il nome della directory nella stringa di comando.
 
 |    |     |
 |--------|-----------|
 | **Esempio** | `azcopy copy "C:\myDirectory" "https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory" --recursive` |
 | **Esempio** (spazio dei nomi gerarchico) | `azcopy copy "C:\myDirectory" "https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory" --recursive` |
 
-Se si specifica il nome di una directory che non esiste nel contenitore, AzCopy crea una nuova directory con lo stesso nome.
+Se si specifica il nome di una directory che non esiste nel contenitore, AzCopy crea una nuova directory con tale nome.
 
 ### <a name="upload-the-contents-of-a-directory"></a>Caricare il contenuto di una directory
 
-È possibile caricare il contenuto di una directory senza copiare la directory che lo contiene se stesso tramite il carattere jolly asterisco (*).
+È possibile caricare il contenuto di una directory senza copiare la directory che lo contiene usando il carattere jolly (*).
 
 |    |     |
 |--------|-----------|
@@ -99,19 +99,19 @@ Se si specifica il nome di una directory che non esiste nel contenitore, AzCopy 
 
 ## <a name="download-files"></a>Download dei file
 
-È possibile usare AzCopy `copy` comando per scaricare i BLOB, directory e i contenitori nel computer locale.
+È possibile usare il comando `copy` AzCopy per scaricare i BLOB, le directory e i contenitori nel computer locale.
 
 Questa sezione contiene gli esempi seguenti:
 
 > [!div class="checklist"]
-> * Scaricare un file
-> * Download di una directory
+> * Scarica file
+> * Scaricare una directory
 > * Scaricare i file utilizzando caratteri jolly
 
 > [!NOTE]
-> Se il `Content-md5` valore della proprietà di un blob contiene un hash, AzCopy viene calcolato un hash MD5 per i dati scaricati e verifica che l'hash MD5 archiviato nell'oggetto blob `Content-md5` proprietà corrisponda all'hash calcolato. Se questi valori non corrispondono, il download ha esito negativo a meno che non si esegue l'override di questo comportamento aggiungendo `--check-md5=NoCheck` o `--check-md5=LogOnly` comando per la copia.
+> Se il `Content-md5` valore della proprietà di un BLOB contiene un hash, AzCopy calcola un hash MD5 per i dati scaricati e verifica che l'hash MD5 archiviato nella `Content-md5` proprietà del BLOB corrisponda all'hash calcolato. Se questi valori non corrispondono, il download ha esito negativo a meno che non si esegua `--check-md5=LogOnly` l'override di questo comportamento accodando `--check-md5=NoCheck` o al comando copy.
 
-### <a name="download-a-file"></a>Scaricare un file
+### <a name="download-a-file"></a>Scarica file
 
 |    |     |
 |--------|-----------|
@@ -119,7 +119,7 @@ Questa sezione contiene gli esempi seguenti:
 | **Esempio** | `azcopy copy "https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt" "C:\myDirectory\myTextFile.txt"` |
 | **Esempio** (spazio dei nomi gerarchico) | `azcopy copy "https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt" "C:\myDirectory\myTextFile.txt"` |
 
-### <a name="download-a-directory"></a>Download di una directory
+### <a name="download-a-directory"></a>Scaricare una directory
 
 |    |     |
 |--------|-----------|
@@ -127,14 +127,14 @@ Questa sezione contiene gli esempi seguenti:
 | **Esempio** | `azcopy copy "https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory "C:\myDirectory"  --recursive` |
 | **Esempio** (spazio dei nomi gerarchico) | `azcopy copy "https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory "C:\myDirectory"  --recursive` |
 
-In questo esempio crea una directory denominata `C:\myDirectory\myBlobDirectory` che contiene tutti i file scaricati.
+Questo esempio genera una directory denominata `C:\myDirectory\myBlobDirectory` che contiene tutti i file scaricati.
 
-### <a name="download-the-contents-of-a-directory"></a>Scaricare il contenuto di una directory
+### <a name="download-the-contents-of-a-directory"></a>Scarica il contenuto di una directory
 
-È possibile scaricare il contenuto di una directory senza copiare la directory che lo contiene se stesso tramite il carattere jolly asterisco (*).
+È possibile scaricare il contenuto di una directory senza copiare la directory che lo contiene usando il carattere jolly (*).
 
 > [!NOTE]
-> Attualmente, questo scenario è supportato solo per gli account che non hanno uno spazio dei nomi gerarchico.
+> Attualmente, questo scenario è supportato solo per gli account che non dispongono di uno spazio dei nomi gerarchico.
 
 |    |     |
 |--------|-----------|
@@ -144,27 +144,27 @@ In questo esempio crea una directory denominata `C:\myDirectory\myBlobDirectory`
 > [!NOTE]
 > Aggiungere il `--recursive` flag per scaricare i file in tutte le sottodirectory.
 
-## <a name="copy-blobs-between-storage-accounts"></a>Copiare i BLOB tra account di archiviazione
+## <a name="copy-blobs-between-storage-accounts"></a>Copiare i BLOB tra gli account di archiviazione
 
-È possibile usare AzCopy per copiare i BLOB negli altri account di archiviazione. L'operazione di copia è sincrono quando termina, il comando che indica che tutti i file siano stati copiati.
+È possibile usare AzCopy per copiare i BLOB in altri account di archiviazione. L'operazione di copia è sincrona, quindi quando il comando restituisce, che indica che tutti i file sono stati copiati.
 
 > [!NOTE]
-> Attualmente, questo scenario è supportato solo per gli account che non hanno uno spazio dei nomi gerarchico. 
+> Attualmente, questo scenario è supportato solo per gli account che non dispongono di uno spazio dei nomi gerarchico. 
 
-AzCopy Usa il [Put Block From URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API, in modo che i dati vengono copiati direttamente tra i server di archiviazione. Queste operazioni di copia non usano la larghezza di banda di rete del computer in uso.
+AzCopy usa le [API](https://docs.microsoft.com/en-us/rest/api/storageservices/put-page-from-url) [da server a server](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) , quindi i dati vengono copiati direttamente tra i server di archiviazione. Queste operazioni di copia non utilizzano la larghezza di banda di rete del computer.
 
 Questa sezione contiene gli esempi seguenti:
 
 > [!div class="checklist"]
-> * Copiare un blob in un altro account di archiviazione
+> * Copiare un BLOB in un altro account di archiviazione
 > * Copiare una directory in un altro account di archiviazione
-> * Copiare un contenitori a un altro account di archiviazione
-> * Copiare tutti i contenitori, le directory e file in un altro account di archiviazione
+> * Copiare un contenitore in un altro account di archiviazione
+> * Copia tutti i contenitori, le directory e i file in un altro account di archiviazione
 
 > [!NOTE]
-> Nella versione corrente, è necessario aggiungere un token di firma di accesso condiviso per ogni URL di origine. Se si specificano credenziali di autorizzazione con Azure Active Directory (AD), è possibile omettere il token di firma di accesso condiviso solo dall'URL di destinazione. 
+> Nella versione corrente è necessario aggiungere un token SAS a ogni URL di origine. Se si forniscono le credenziali di autorizzazione usando Azure Active Directory (AD), è possibile omettere il token SAS solo dall'URL di destinazione. 
 
-### <a name="copy-a-blob-to-another-storage-account"></a>Copiare un blob in un altro account di archiviazione
+### <a name="copy-a-blob-to-another-storage-account"></a>Copiare un BLOB in un altro account di archiviazione
 
 |    |     |
 |--------|-----------|
@@ -178,14 +178,14 @@ Questa sezione contiene gli esempi seguenti:
 | **Sintassi** | `azcopy cp "https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<directory-path>?<SAS-token>" "https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<directory-path>" --recursive` |
 | **Esempio** | `azcopy cp "https://mysourceaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D" "https://mydestinationaccount.blob.core.windows.net/mycontainer/myBlobDirectory" --recursive` |
 
-### <a name="copy-a-containers-to-another-storage-account"></a>Copiare un contenitori a un altro account di archiviazione
+### <a name="copy-a-containers-to-another-storage-account"></a>Copiare un contenitore in un altro account di archiviazione
 
 |    |     |
 |--------|-----------|
 | **Sintassi** | `azcopy cp "https://<source-storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>" "https://<destination-storage-account-name>.blob.core.windows.net/<container-name>" --recursive` |
 | **Esempio** | `azcopy cp "https://mysourceaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D" "https://mydestinationaccount.blob.core.windows.net/mycontainer" --recursive` |
 
-### <a name="copy-all-containers-directories-and-files-to-another-storage-account"></a>Copiare tutti i contenitori, le directory e file in un altro account di archiviazione
+### <a name="copy-all-containers-directories-and-files-to-another-storage-account"></a>Copia tutti i contenitori, le directory e i file in un altro account di archiviazione
 
 |    |     |
 |--------|-----------|
@@ -194,30 +194,30 @@ Questa sezione contiene gli esempi seguenti:
 
 ## <a name="synchronize-files"></a>Sincronizzare i file
 
-È possibile sincronizzare il contenuto di un file system locale con un contenitore blob. La sincronizzazione è unidirezionale. In altre parole, decidere quali di questi due endpoint è l'origine e quello che rappresenta la destinazione.
+È possibile sincronizzare il contenuto di un file system locale con un contenitore BLOB. La sincronizzazione è unidirezionale. In altre parole, è possibile scegliere quali di questi due endpoint sono l'origine e quella di destinazione.
 
 > [!NOTE]
-> Attualmente, questo scenario è supportato solo per gli account che non hanno uno spazio dei nomi gerarchico. La versione corrente di AzCopy non sincronizza tra le altre origini e destinazioni (ad esempio: Archiviazione di file o il bucket S3 di Amazon Web Services (AWS)).
+> Attualmente, questo scenario è supportato solo per gli account che non dispongono di uno spazio dei nomi gerarchico. La versione corrente di AzCopy non viene sincronizzata tra altre origini e destinazioni, ad esempio: Bucket di archiviazione file o Amazon Web Services (AWS) S3).
 
-Il `sync` comando consente di confrontare i nomi di file e i timestamp dell'ultima modifica. Impostare il `--delete-destination` flag facoltativo su un valore di `true` o `prompt` per eliminare i file nella directory di destinazione se tali file non esistono più nella directory di origine.
+Il `sync` comando Confronta i nomi di file e i timestamp dell'Ultima modifica. Impostare il `--delete-destination` flag facoltativo sul `true` valore o `prompt` per eliminare i file nella directory di destinazione se tali file non sono più presenti nella directory di origine.
 
-Se si impostano i `--delete-destination` flag per `true` AzCopy Elimina i file senza fornire un prompt dei comandi. Se si desidera un prompt dei comandi precedere AzCopy Elimina un file, impostare il `--delete-destination` flag `prompt`.
+Se si imposta il `--delete-destination` flag su `true` AzCopy Elimina i file senza fornire un messaggio di richiesta. Se si desidera che venga visualizzata una richiesta prima che AzCopy elimini un file `--delete-destination` , impostare `prompt`il flag su.
 
 > [!NOTE]
-> Per impedire eliminazioni accidentali, assicurarsi di abilitare la [eliminazione temporanea](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) funzionalità prima di usare il `--delete-destination=prompt|true` flag.
+> Per evitare eliminazioni accidentali, assicurarsi di abilitare la funzionalità di [eliminazione](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) temporanea prima di usare `--delete-destination=prompt|true` il flag.
 
-### <a name="update-a-container-with-changes-to-a-local-file-system"></a>Aggiornare un contenitore con le modifiche a un file system locale
+### <a name="update-a-container-with-changes-to-a-local-file-system"></a>Aggiornare un contenitore con modifiche a una file system locale
 
-In questo caso, il contenitore è la destinazione e nel file system locale è l'origine.
+In questo caso, il contenitore è la destinazione e la file system locale è l'origine.
 
 |    |     |
 |--------|-----------|
 | **Sintassi** | `azcopy sync "<local-directory-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive` |
 | **Esempio** | `azcopy sync "C:\myDirectory" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive` |
 
-### <a name="update-a-local-file-system-with-changes-to-a-container"></a>Aggiornare un file system locale con le modifiche a un contenitore
+### <a name="update-a-local-file-system-with-changes-to-a-container"></a>Aggiornare un file system locale con le modifiche apportate a un contenitore
 
-In questo caso, il file system locale rappresenta la destinazione e il contenitore è l'origine.
+In questo caso, il file system locale è la destinazione e il contenitore è l'origine.
 
 |    |     |
 |--------|-----------|
@@ -227,11 +227,11 @@ In questo caso, il file system locale rappresenta la destinazione e il contenito
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Trovare altri esempi in questi articoli:
+Altri esempi sono disponibili in uno di questi articoli:
 
 - [Introduzione ad AzCopy](storage-use-azcopy-v10.md)
 
-- [Esercitazione: La migrazione dei dati in locale al cloud di archiviazione tramite AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
+- [Esercitazione: Eseguire la migrazione di dati locali nell'archiviazione cloud usando AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
 
 - [Trasferire dati con AzCopy e l'archivio file](storage-use-azcopy-files.md)
 

@@ -63,6 +63,8 @@
           href: how-vs-code-works-with-dev-spaces.md
     - name: Procedure
       items:
+        - name: Installare Azure Dev Spaces
+          href: how-to/install-dev-spaces.md
         - name: Creare un cluster Kubernetes usando Azure Cloud Shell
           href: how-to/create-cluster-cloud-shell.md
         - name: Condividere Azure Dev Spaces
@@ -81,5 +83,7 @@
           href: ../jenkins/tutorial-jenkins-dev-spaces.md
         - name: Continuità aziendale e ripristino di emergenza per Azure Dev Spaces
           href: how-to/dev-spaces-business-continuity.md
+        - name: Interagire con contenitori Windows
+          href: how-to/run-dev-spaces-windows-containers.md
     - name: risoluzione dei problemi
       href: troubleshooting.md

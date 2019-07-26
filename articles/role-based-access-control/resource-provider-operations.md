@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 07/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e6ac3ef296509c6613a2a30821392c91648cc104
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: ce4765a512b81d13f735a05ad4fba5408284a607
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868620"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501417"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operazioni dei provider di risorse di Azure Resource Manager
 
@@ -1246,9 +1246,9 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per otte
 > | Azione | Microsoft.Compute/locations/usages/read | Ottiene i limiti del servizio e le quantità di utilizzo corrente delle risorse di calcolo della sottoscrizione in una posizione |
 > | Azione | Microsoft.Compute/locations/vmSizes/read | Elenca le dimensioni delle macchine virtuali disponibili in una posizione |
 > | Azione | Microsoft.Compute/operations/read | Elenca le operazioni disponibili sul provider di risorse Microsoft.Compute |
-> | Azione | Microsoft.Compute/proximityPlacementGroups/delete | Elimina il gruppo di posizionamento vicino |
-> | Azione | Microsoft.Compute/proximityPlacementGroups/read | Ottenere le proprietà di un gruppo di posizionamento di prossimità |
-> | Azione | Microsoft.Compute/proximityPlacementGroups/write | Crea un nuovo gruppo di posizionamento di prossimità o ne aggiorna uno esistente |
+> | Azione | Microsoft.Compute/proximityPlacementGroups/delete | Elimina il gruppo di selezione host di prossimità |
+> | Azione | Microsoft.Compute/proximityPlacementGroups/read | Recupera le proprietà di un gruppo di selezione host di prossimità |
+> | Azione | Microsoft.Compute/proximityPlacementGroups/write | Crea un nuovo gruppo di selezione host di prossimità o ne aggiorna uno esistente |
 > | Azione | Microsoft.Compute/register/action | Registra la sottoscrizione con il provider di risorse Microsoft.Compute |
 > | Azione | Microsoft.Compute/restorePointCollections/delete | Elimina la raccolta di punti di ripristino e i punti di ripristino contenuti |
 > | Azione | Microsoft.Compute/restorePointCollections/read | Ottiene le proprietà di un insieme di punti di ripristino |
@@ -2403,7 +2403,7 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per otte
 > | Azione | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/operationResults/read | Lettura dello stato dell'operazione asincrona. Applicabile solo ai tipi di API: "Cassandra". Applicabile solo per i tipi di impostazione: "velocità effettiva". |
 > | Azione | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/read | Leggi una velocità effettiva di spazio. Applicabile solo ai tipi di API: "Cassandra". Applicabile solo per i tipi di impostazione: "velocità effettiva". |
 > | Azione | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/write | Aggiornare una velocità effettiva di spazio. Applicabile solo ai tipi di API: "Cassandra". Applicabile solo per i tipi di impostazione: "velocità effettiva". |
-> | Azione | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/delete | Eliminare una tabella. Applicabile solo ai tipi di API: "Cassandra". |
+> | Azione | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/delete | Elimina una tabella. Applicabile solo ai tipi di API: "Cassandra". |
 > | Azione | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/operationResults/read | Lettura dello stato dell'operazione asincrona. Applicabile solo ai tipi di API: "Cassandra". |
 > | Azione | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/read | Leggere una tabella o un elenco di tutte le tabelle. Applicabile solo ai tipi di API: "Cassandra". |
 > | Azione | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/operationResults/read | Lettura dello stato dell'operazione asincrona. Applicabile solo ai tipi di API: "Cassandra". Applicabile solo per i tipi di impostazione: "velocità effettiva". |
@@ -2411,7 +2411,7 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per otte
 > | Azione | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/write | Aggiornare una velocità effettiva della tabella. Applicabile solo ai tipi di API: "Cassandra". Applicabile solo per i tipi di impostazione: "velocità effettiva". |
 > | Azione | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/write | Creare o aggiornare una tabella. Applicabile solo ai tipi di API: "Cassandra". |
 > | Azione | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/write | Creare uno spazio. Applicabile solo ai tipi di API: "Cassandra". |
-> | Azione | Microsoft.DocumentDB/databaseAccounts/apis/tables/delete | Eliminare una tabella. Applicabile solo ai tipi di API:' Table '. |
+> | Azione | Microsoft.DocumentDB/databaseAccounts/apis/tables/delete | Elimina una tabella. Applicabile solo ai tipi di API:' Table '. |
 > | Azione | Microsoft.DocumentDB/databaseAccounts/apis/tables/operationResults/read | Lettura dello stato dell'operazione asincrona. Applicabile solo ai tipi di API:' Table '. |
 > | Azione | Microsoft.DocumentDB/databaseAccounts/apis/tables/read | Leggere una tabella o un elenco di tutte le tabelle. Applicabile solo ai tipi di API:' Table '. |
 > | Azione | Microsoft.DocumentDB/databaseAccounts/apis/tables/settings/operationResults/read | Lettura dello stato dell'operazione asincrona. Applicabile solo ai tipi di API:' Table '. Applicabile solo per i tipi di impostazione: "velocità effettiva". |
@@ -2581,8 +2581,8 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per otte
 > | Azione | Microsoft.EventHub/namespaces/ipFilterRules/delete | Elimina la risorsa filtro IP |
 > | Azione | Microsoft.EventHub/namespaces/ipFilterRules/read | Recupera la risorsa filtro IP |
 > | Azione | Microsoft.EventHub/namespaces/ipFilterRules/write | Crea la risorsa filtro IP |
-> | DataAction | Microsoft.EventHub/namespaces/messages/receive/action | Ricevere messaggi |
-> | DataAction | Microsoft.EventHub/namespaces/messages/send/action | Inviare messaggi |
+> | DataAction | Microsoft.EventHub/namespaces/messages/receive/action | Ricevi messaggi |
+> | DataAction | Microsoft.EventHub/namespaces/messages/send/action | Invia messaggi |
 > | Azione | Microsoft.EventHub/namespaces/messagingPlan/read | Ottiene il piano di messaggistica per uno spazio dei nomi.<br>Questa API è deprecata.<br>Le proprietà esposte tramite la risorsa MessagingPlan sono state spostate nella risorsa spazio dei nomi, padre, nelle versioni API successive.<br>Questa operazione non è supportata per l'API versione 2017-04-01. |
 > | Azione | Microsoft.EventHub/namespaces/messagingPlan/write | Aggiorna il piano di messaggistica per uno spazio dei nomi.<br>Questa API è deprecata.<br>Le proprietà esposte tramite la risorsa MessagingPlan sono state spostate nella risorsa spazio dei nomi, padre, nelle versioni API successive.<br>Questa operazione non è supportata per l'API versione 2017-04-01. |
 > | Azione | Microsoft. EventHub/Namespaces/networkruleset/Delete | Elimina la risorsa regola di rete virtuale |
@@ -2922,7 +2922,7 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per otte
 > | Azione | Microsoft.Insights/MetricDefinitions/Microsoft.Insights/Read | Consente di leggere le definizioni della metrica |
 > | Azione | Microsoft.Insights/MetricDefinitions/providers/Microsoft.Insights/Read | Consente di leggere le definizioni della metrica |
 > | Azione | Microsoft.Insights/MetricDefinitions/Read | Consente di leggere le definizioni della metrica |
-> | Azione | Microsoft. Insights/Metricnamespaces/lettura | Leggi spazi dei nomi metrica |
+> | Azione | Microsoft. Insights/Metricnamespaces/lettura | Lettura spazio dei nomi metrica |
 > | Azione | Microsoft.Insights/Metrics/Action | Azione della metrica |
 > | Azione | Microsoft.Insights/Metrics/Microsoft.Insights/Read | Esegue la lettura delle metriche |
 > | Azione | Microsoft.Insights/Metrics/providers/Metrics/Read | Esegue la lettura delle metriche |
@@ -3234,19 +3234,6 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per otte
 > | Azione | Microsoft.MachineLearning/Workspaces/resyncstoragekeys/action | Risincronizza le chiavi dell'account di archiviazione configurato per un'area di lavoro di Machine Learning |
 > | Azione | Microsoft.MachineLearning/Workspaces/write | Crea o aggiorna una qualsiasi area di lavoro di Machine Learning |
 
-## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
-
-> [!div class="mx-tdCol2BreakAll"]
-> | Tipo di azione | Operazione | Descrizione |
-> | --- | --- | --- |
-> | Azione | Microsoft.MachineLearningCompute/operationalizationClusters/checkUpdate/action | Controlla se sono disponibili aggiornamenti per i servizi di sistema per il cluster di operazionalizzazione |
-> | Azione | Microsoft.MachineLearningCompute/operationalizationClusters/delete | Elimina tutti gli account di hosting |
-> | Azione | Microsoft.MachineLearningCompute/operationalizationClusters/listKeys/action | Elenca le chiavi associate al cluster di operazionalizzazione |
-> | Azione | Microsoft.MachineLearningCompute/operationalizationClusters/read | Legge tutti gli account di hosting |
-> | Azione | Microsoft.MachineLearningCompute/operationalizationClusters/updateSystem/action | Aggiorna i servizi di sistema in un cluster di operazionalizzazione |
-> | Azione | Microsoft.MachineLearningCompute/operationalizationClusters/write | Crea o aggiorna gli account di hosting |
-> | Azione | Microsoft.MachineLearningCompute/register/action | Registra l'ID sottoscrizione per il provider di risorse e consente la creazione di risorse di calcolo di apprendimento automatico |
-
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -3285,15 +3272,15 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per otte
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo di azione | Operazione | Descrizione |
 > | --- | --- | --- |
-> | Azione | Microsoft. ManagedServices/marketplaceRegistrationDefinitions/Read | Recupera un elenco di definizioni di registrazione dei servizi gestiti. |
+> | Azione | Microsoft. ManagedServices/marketplaceRegistrationDefinitions/Read | Recupera un elenco di definizioni della registrazione di servizi gestiti. |
 > | Azione | Microsoft. ManagedServices/operationStatuses/Read | Legge lo stato dell'operazione per la risorsa. |
 > | Azione | Microsoft. ManagedServices/Register/Action | Eseguire la registrazione ai servizi gestiti. |
-> | Azione | Microsoft. ManagedServices/registrationAssignments/Delete | Rimuove l'assegnazione di registrazione dei servizi gestiti. |
-> | Azione | Microsoft. ManagedServices/registrationAssignments/Read | Recupera un elenco di assegnazioni di registrazione dei servizi gestiti. |
-> | Azione | Microsoft. ManagedServices/registrationAssignments/Write | Aggiungere o modificare l'assegnazione di registrazione dei servizi gestiti. |
-> | Azione | Microsoft. ManagedServices/registrationDefinitions/Delete | Rimuove la definizione di registrazione dei servizi gestiti. |
-> | Azione | Microsoft. ManagedServices/registrationDefinitions/Read | Recupera un elenco di definizioni di registrazione dei servizi gestiti. |
-> | Azione | Microsoft. ManagedServices/registrationDefinitions/Write | Aggiungere o modificare la definizione di registrazione dei servizi gestiti. |
+> | Azione | Microsoft. ManagedServices/registrationAssignments/Delete | Rimuove l'assegnazione della registrazione di servizi gestiti. |
+> | Azione | Microsoft. ManagedServices/registrationAssignments/Read | Recupera un elenco di assegnazioni della registrazione di servizi gestiti. |
+> | Azione | Microsoft. ManagedServices/registrationAssignments/Write | Aggiunge o modifica l'assegnazione della registrazione di servizi gestiti. |
+> | Azione | Microsoft. ManagedServices/registrationDefinitions/Delete | Rimuove la definizione della registrazione di servizi gestiti. |
+> | Azione | Microsoft. ManagedServices/registrationDefinitions/Read | Recupera un elenco di definizioni della registrazione di servizi gestiti. |
+> | Azione | Microsoft. ManagedServices/registrationDefinitions/Write | Aggiunge o modifica la definizione della registrazione di servizi gestiti. |
 > | Azione | Microsoft. ManagedServices/Annulla registrazione/azione | Annullare la registrazione da servizi gestiti. |
 
 ## <a name="microsoftmanagement"></a>Microsoft.Management
@@ -4631,7 +4618,7 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per otte
 > | Azione | Microsoft.Resources/deployments/operations/read | Ottiene o elenca le operazioni di distribuzione. |
 > | Azione | Microsoft.Resources/deployments/read | Ottiene o elenca le distribuzioni. |
 > | Azione | Microsoft.Resources/deployments/validate/action | Convalida una distribuzione. |
-> | Azione | Microsoft.Resources/deployments/whatIf/action | Stima le modifiche della distribuzione del modello. |
+> | Azione | Microsoft.Resources/deployments/whatIf/action | Prevede le modifiche della distribuzione modelli. |
 > | Azione | Microsoft.Resources/deployments/write | Crea o aggiorna una distribuzione. |
 > | Azione | Microsoft.Resources/links/delete | Elimina un collegamento a una risorsa. |
 > | Azione | Microsoft.Resources/links/read | Ottiene o elenca i collegamenti a una risorsa. |
@@ -4798,9 +4785,9 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per otte
 > | Azione | Microsoft.ServiceBus/namespaces/ipFilterRules/write | Crea la risorsa filtro IP |
 > | DataAction | Microsoft.ServiceBus/namespaces/messages/browse/action | Sfogliare messges |
 > | DataAction | Microsoft.ServiceBus/namespaces/messages/defer/action | Rinvia messaggi |
-> | DataAction | Microsoft.ServiceBus/namespaces/messages/receive/action | Ricevere messaggi |
+> | DataAction | Microsoft.ServiceBus/namespaces/messages/receive/action | Ricevi messaggi |
 > | DataAction | Microsoft.ServiceBus/namespaces/messages/schedule/action | Messaggi pianificazione |
-> | DataAction | Microsoft.ServiceBus/namespaces/messages/send/action | Inviare messaggi |
+> | DataAction | Microsoft.ServiceBus/namespaces/messages/send/action | Invia messaggi |
 > | DataAction | Microsoft.ServiceBus/namespaces/messages/setstate/action | Imposta stato sessione |
 > | Azione | Microsoft.ServiceBus/namespaces/messagingPlan/read | Ottiene il piano di messaggistica per uno spazio dei nomi.<br>Questa API è deprecata.<br>Le proprietà esposte tramite la risorsa MessagingPlan sono state spostate nella risorsa spazio dei nomi, padre, nelle versioni API successive.<br>Questa operazione non è supportata per l'API versione 2017-04-01. |
 > | Azione | Microsoft.ServiceBus/namespaces/messagingPlan/write | Aggiorna il piano di messaggistica per uno spazio dei nomi.<br>Questa API è deprecata.<br>Le proprietà esposte tramite la risorsa MessagingPlan sono state spostate nella risorsa spazio dei nomi, padre, nelle versioni API successive.<br>Questa operazione non è supportata per l'API versione 2017-04-01. |

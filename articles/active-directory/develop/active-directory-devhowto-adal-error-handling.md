@@ -1,5 +1,5 @@
 ---
-title: Procedure consigliate di gestione degli errori per i client di Azure Active Directory Authentication Library (ADAL)
+title: Procedure consigliate per la gestione degli errori per i client Autenticazione di Azure AD Library (ADAL)
 description: Fornisce linee guida e procedure consigliate per la gestione degli errori per le applicazioni client ADAL.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1d478bbb2f8645703299c8fe37c2117f492c3f8
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 0e3ef8e32c3472f7a3861250f1845ce2e60ac868
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324821"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381004"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Procedure consigliate di gestione degli errori per i client di Azure Active Directory Authentication Library (ADAL)
 

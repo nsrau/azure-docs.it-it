@@ -1,19 +1,18 @@
 ---
 title: Risolvere i problemi dell'agente di backup di Azure
 description: Risolvere i problemi di installazione e registrazione dell'agente di backup di Azure
-services: backup
 author: saurabhsensharma
 manager: sivan
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: saurse
-ms.openlocfilehash: a791773a3e9cc0b75c626b622070b29c9779c453
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 6dc56e4eccbad0de986551e055e877d3d051b145
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249534"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465974"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Risolvere i problemi relativi all'agente Servizi di ripristino di Microsoft Azure (MARS)
 
@@ -74,7 +73,7 @@ Prima di iniziare la risoluzione dei problemi relativi all'agente di servizi di 
 
 ## <a name="the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup"></a>L'agente di Servizi di ripristino di Microsoft Azure non è riuscito a connettersi a Backup di Microsoft Azure
 
-| Errore  | Possibili cause | Azioni consigliate |
+| Errore  | Causa possibile | Azioni consigliate |
 | ---     | ---     | ---    |
 | <br /><ul><li>L'agente del servizio di ripristino Microsoft Azure non è riuscito a connettersi al Backup di Microsoft Azure. (ID: 100050) controllare le impostazioni di rete e assicurarsi di essere in grado di connettersi a Internet.<li>(407) autenticazione proxy obbligatoria. |Un proxy blocca la connessione. |  <ul><li>In Internet Explorer passare a **strumenti** > **Opzioni** > Internet**sicurezza** > **Internet**. Selezionare **livello personalizzato** e scorrere verso il basso fino alla sezione **download del file** . Selezionare **Abilita**.<p>Potrebbe inoltre essere necessario aggiungere [URL e indirizzi IP](backup-configure-vault.md#verify-internet-access) ai siti attendibili in Internet Explorer.<li>Modificare le impostazioni per l'utilizzo di un server proxy. Indicare quindi i dettagli del server proxy.<li> Se il computer ha accesso a Internet limitato, verificare che le impostazioni del firewall nel computer o nel proxy consentano questi [URL e indirizzi IP](backup-configure-vault.md#verify-internet-access). <li>Se nel server è installato un software antivirus, escludere questi file dall'analisi antivirus: <ul><li>CBengine.exe (anziché dpmra.exe).<li>CSC.exe (correlato a .NET Framework). È presente un file CSC. exe per ogni versione di .NET Framework installata nel server. Escludere i file CSC. exe per tutte le versioni di .NET Framework nel server interessato. <li>Percorso della cartella scratch o della cache. <br>Il percorso predefinito per la cartella scratch o il percorso della cache è C:\Programmi\Microsoft Azure Recovery Services Agent\Scratch.<li>La cartella bin in C:\Programmi\Microsoft Azure Recovery Services Agent\Bin.
 

@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 47e45a7dac8abc65f414fedd0fd910e3a7a78113
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e96ddcb904bbda6c3123ffc9d3da50ff80823689
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508815"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500020"
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Definizione dei framework attendibilità basati sul Framework dell'esperienza di gestione delle identità di Azure AD B2C
 
 I criteri personalizzati di Azure Active Directory B2C (Azure AD B2C) che usano il Framework dell'esperienza di gestione delle identità offrono all'organizzazione un servizio centralizzato. Questo servizio riduce la complessità della federazione delle identità in una community di interesse di grandi dimensioni a una singola relazione di trust e a un singolo scambio di metadati.
 
-I criteri personalizzati di Azure AD B2C basati sul Framework dell'esperienza di gestione delle identità consentono di rispondere alle domande seguenti:
+Azure AD B2C criteri personalizzati usano il Framework dell'esperienza di identità per rispondere alle domande seguenti:
 
 - Quali criteri legali, di sicurezza, privacy e protezione dei dati devono essere rispettati?
 - Chi sono i contatti e quali sono le procedure per diventare membro accreditato?

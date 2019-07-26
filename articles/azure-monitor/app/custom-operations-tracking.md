@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 2c33c481d96a9edecc6360a9a91c095c2bca220b
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 841c55e9aa05e6b627716b084ad7685683f9faec
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798335"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498343"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Verifica delle operazioni personalizzate con Application Insights .NET SDK
 
@@ -210,7 +210,7 @@ public async Task Process(BrokeredMessage message)
 L'esempio seguente illustra come tenere traccia delle operazioni della [coda di archiviazione di Azure](../../storage/queues/storage-dotnet-how-to-use-queues.md) e correlare i dati di telemetria tra producer, consumer e Archiviazione di Azure. 
 
 La coda di archiviazione ha un'API HTTP. Tutte le chiamate alla coda vengono tracciate dall'agente di raccolta di dipendenze Application Insights per le richieste HTTP.
-È configurato per impostazione predefinita nelle applicazioni ASP.NET e ASP.NET Core, con altri tipi di applicazione, è possibile fare riferimento a [console documentazione delle applicazioni](../../azure-monitor/app/console.md)
+Viene configurato per impostazione predefinita nelle applicazioni ASP.NET e ASP.NET Core, con altri tipi di applicazione, è possibile fare riferimento alla [documentazione delle applicazioni console](../../azure-monitor/app/console.md)
 
 Inoltre è possibile correlare l'ID operazione di Application Insights con l'ID di richiesta di Archiviazione. Per informazioni su come impostare e ottenere un client di richiesta di Archivazione e un ID di richiesta del server, vedere [Monitoraggio, diagnosi e risoluzione dei problemi dell'archiviazione di Azure](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
 
@@ -484,6 +484,13 @@ public async Task RunAllTasks()
     await Task.WhenAll(task1, task2);
 }
 ```
+
+## <a name="applicationinsights-operations-vs-systemdiagnosticsactivity"></a>Operazioni ApplicationInsights rispetto a System. Diagnostics. Activity
+`System.Diagnostics.Activity`rappresenta il contesto della traccia distribuita e viene usato da Framework e librerie per creare e propagare il contesto all'interno e all'esterno del processo e correlare gli elementi di telemetria. L'attività interagisce `System.Diagnostics.DiagnosticSource` con: il meccanismo di notifica tra il Framework o la libreria per notificare gli eventi interessanti (richieste in ingresso o in uscita, eccezioni e così via).
+
+Le attività sono i cittadini di prima classe in Application Insights e la dipendenza automatica e la `DiagnosticSource` raccolta di richieste si basa in modo significativo su di essi insieme agli eventi. Se si crea un'attività nell'applicazione, non si verificherà la creazione di dati di telemetria Application Insights. Application Insights deve ricevere eventi DiagnosticSource e conosce i nomi e i payload degli eventi per tradurre l'attività nei dati di telemetria.
+
+Ogni operazione di Application Insights (richiesta o dipendenza) `Activity` implica- `StartOperation` quando viene chiamato, crea un'attività sottostante. `StartOperation`è il metodo consigliato per tenere traccia delle telemetrie delle richieste o delle dipendenze manualmente e garantire che tutti gli elementi siano correlati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

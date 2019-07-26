@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e9363f88db4fa44879eb8f6a6a04e23563c5ba44
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 06df5d403ba10489ea9a36a79a94f4b94782e4ef
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67125742"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501318"
 ---
 # <a name="use-azure-files-with-linux"></a>Usare File di Azure con Linux
 
@@ -25,16 +25,16 @@ ms.locfileid: "67125742"
 ## <a name="prerequisites-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package"></a>Prerequisiti per il montaggio di una condivisione file di Azure con Linux e il pacchetto cifs-utils
 <a id="smb-client-reqs"></a>
 
-* **Una condivisione file e account di archiviazione di Azure esistente**: Per completare questo articolo, è necessario disporre di un account di archiviazione e condivisione file. Se è stata già creata, vedere uno delle guide introduttive sull'argomento: [Creare condivisioni di file - CLI](storage-how-to-use-files-cli.md).
+* **Un account di archiviazione di Azure esistente e una condivisione file**: Per completare questo articolo, è necessario disporre di un account di archiviazione e di una condivisione file. Se non ne è già stato creato uno, vedere una delle guide introduttive sull'oggetto: [Creare condivisioni file-CLI](storage-how-to-use-files-cli.md).
 
-* **Il nome di account di archiviazione e chiave** è necessario il nome account di archiviazione e la chiave per completare questo articolo. Se è stato creato uno usando l'avvio rapido dell'interfaccia della riga si dovrebbe già disporre, in caso contrario, consultare la Guida introduttiva dell'interfaccia della riga che è stata collegata in precedenza, per informazioni su come recuperare la chiave dell'account.
+* **Il nome e la chiave dell'account di archiviazione** Per completare questo articolo, sono necessari il nome e la chiave dell'account di archiviazione. Se ne è stata creata una usando la Guida introduttiva dell'interfaccia della riga di comando, è necessario che siano già presenti. in caso contrario, consultare la Guida introduttiva dell'interfaccia della riga di comando collegata in precedenza per informazioni su come recuperare la chiave dell'account
 
 * **Selezionare una distribuzione Linux che soddisfi le esigenze di montaggio.**  
       File di Azure può essere installato tramite SMB 2.1 e SMB 3.0. Per le connessioni da client locali o in altre aree di Azure, è necessario usare SMB 3.0. File di Azure rifiuterà SMB 2.1 (o SMB 3.0 senza crittografia). Se si accede alla condivisione file di Azure da una macchina virtuale nella stessa area di Azure, è possibile accedere alla condivisione file usando SMB 2.1, se e solo se, è disabilitato il *trasferimento sicuro obbligatorio* per l'account di archiviazione che ospita la condivisione file di Azure. È sempre consigliabile richiedere il trasferimento sicuro e usare solo SMB 3.0 con crittografia.
 
     Il supporto della crittografia in SMB 3.0 è stato introdotto nella versione kernel Linux 4.11 ed è stato eseguito il backport per le versioni kernel precedenti per distribuzioni di Linux più diffuse. Al momento della pubblicazione di questo documento, le distribuzioni seguenti della raccolta di Azure supportano l'opzione di montaggio specificata nelle intestazioni della tabella. 
 
-### <a name="minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30"></a>Consigliati minimo versioni con funzionalità di montaggio corrispondenti (SMB versione 2.1 e SMB 3.0)
+### <a name="minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30"></a>Versioni minime consigliate con funzionalità di montaggio corrispondenti (versione SMB 2,1 vs SMB versione 3,0)
 
 |   | SMB 2.1 <br>(Montaggio in macchine virtuali nella stessa area di Azure) | SMB 3.0 <br>(Montaggio in locale e tra più aree) |
 | --- | :---: | :---: |
@@ -75,10 +75,10 @@ uname -r
 
     In altre distribuzioni usare l'utilità di gestione pacchetti appropriata o [compilare il codice sorgente](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download)
 
-* **Scegliere le autorizzazioni per directory e file della condivisione montata**: negli esempi seguenti viene usata l'autorizzazione `0777` per concedere le autorizzazioni di lettura, scrittura ed esecuzione a tutti gli utenti. È possibile sostituirlo con altro [autorizzazioni chmod](https://en.wikipedia.org/wiki/Chmod) in base alle esigenze, anche se ciò comporterà potenzialmente la limitazione dell'accesso. Se si usano altre autorizzazioni, è consigliabile usare anche uid e un gid per mantenere l'accesso per gli utenti locali e i gruppi di propria scelta.
+* **Scegliere le autorizzazioni per directory e file della condivisione montata**: negli esempi seguenti viene usata l'autorizzazione `0777` per concedere le autorizzazioni di lettura, scrittura ed esecuzione a tutti gli utenti. Se lo si desidera, è possibile sostituirlo con altre [autorizzazioni con chmod](https://en.wikipedia.org/wiki/Chmod) , sebbene ciò comporterebbe l'accesso potenzialmente restrittivo. Se si usano altre autorizzazioni, è consigliabile usare UID e GID anche per mantenere l'accesso per gli utenti e i gruppi locali di propria scelta.
 
 > [!NOTE]
-> Se non si assegna in modo esplicito l'autorizzazione di file e directory con dir_mode e file_mode, per impostazione predefinita verranno 0755.
+> Se non si assegna in modo esplicito l'autorizzazione file e directory con dir_mode e file_mode, per impostazione predefinita viene impostato su 0755.
 
 * **Assicurarsi che la porta 445 sia aperta**: SMB comunica tramite la porta TCP 445: verificare che il firewall non blocchi le porte TCP 445 dal computer client.
 
@@ -86,13 +86,13 @@ uname -r
 
 1. **[Installare il pacchetto cifs-utils per la distribuzione Linux](#install-cifs-utils)** .
 
-1. **Creare una cartella per il punto di montaggio**: Una cartella per un punto di montaggio può essere creata in un punto qualsiasi nel file system, ma è convenzione comune per creare l'oggetto in una nuova cartella. Ad esempio, il comando seguente crea una nuova directory, sostituire **< storage_account_name >** e **< file_share_name >** con le informazioni appropriate per l'ambiente:
+1. **Creare una cartella per il punto di montaggio**: Una cartella per un punto di montaggio può essere creata in qualsiasi punto del file system, ma è la convenzione comune per crearla in una nuova cartella. Ad esempio, il comando seguente crea una nuova directory, sostituisce **< storage_account_name >** e **< file_share_name >** con le informazioni appropriate per l'ambiente:
 
     ```bash
     mkdir -p <storage_account_name>/<file_share_name>
     ```
 
-1. **Usare il comando mount per montare la condivisione file di Azure**: Ricordare di sostituire **< storage_account_name >** , **< nome_condivisione >** , **< smb_version >** , **< storage_account_key >** , e **< punto_montaggio >** con le informazioni appropriate per l'ambiente. Se la distribuzione di Linux supporta SMB 3.0 con crittografia (vedere [i requisiti del client SMB comprendere](#smb-client-reqs) per altre informazioni), usare **3.0** per **< smb_version >** . Per le distribuzioni di Linux che non supportano SMB 3.0 con crittografia, usare **2.1** per **< smb_version >** . Una condivisione file di Azure può essere implementata solo all'esterno di un'area di Azure (incluso in locale o in un'area di Azure) con SMB 3.0. Se si desidera, è possibile modificare le autorizzazioni di file e directory della condivisione montata ma, questo significherebbe una limitazione dell'accesso.
+1. **Usare il comando mount per montare la condivisione file di Azure**: Ricordarsi di sostituire **< storage_account_name >** , **< share_name >** , < **smb_version >** , **< storage_account_key >** e **< mount_point >** con le informazioni appropriate per il ambiente. Se la distribuzione di Linux supporta SMB 3,0 con crittografia (vedere [comprendere i requisiti del client SMB](#smb-client-reqs) per ulteriori informazioni), usare **3,0** per **< > smb_version**. Per le distribuzioni Linux che non supportano SMB 3,0 con crittografia, usare **2,1** per **< > smb_version**. Una condivisione file di Azure può essere montata solo all'esterno di un'area di Azure (inclusa in locale o in un'area di Azure diversa) con SMB 3,0. Se lo si desidera, è possibile modificare le autorizzazioni directory e file della condivisione montata, ma ciò significherebbe la restrizione dell'accesso.
 
     ```bash
     sudo mount -t cifs //<storage_account_name>.file.core.windows.net/<share_name> <mount_point> -o vers=<smb_version>,username=<storage_account_name>,password=<storage_account_key>,dir_mode=0777,file_mode=0777,serverino
@@ -105,13 +105,13 @@ uname -r
 
 1. **[Installare il pacchetto cifs-utils per la distribuzione Linux](#install-cifs-utils)** .
 
-1. **Creare una cartella per il punto di montaggio**: Una cartella per un punto di montaggio può essere creata in un punto qualsiasi nel file system, ma è convenzione comune per creare l'oggetto in una nuova cartella. Ogni volta che si crea tale cartella, prendere nota del percorso assoluto. Ad esempio, il comando seguente crea una nuova directory, sostituire **< storage_account_name >** e **< file_share_name >** con le informazioni appropriate per l'ambiente.
+1. **Creare una cartella per il punto di montaggio**: Una cartella per un punto di montaggio può essere creata in qualsiasi punto del file system, ma è la convenzione comune per crearla in una nuova cartella. Ogni volta che si crea tale cartella, prendere nota del percorso assoluto. Ad esempio, il comando seguente crea una nuova directory, sostituisce **< storage_account_name >** e **< file_share_name >** con le informazioni appropriate per l'ambiente in uso.
 
     ```bash
     sudo mkdir -p <storage_account_name>/<file_share_name>
     ```
 
-1. **Creare un file di credenziali in cui archiviare nome utente (il nome dell'account di archiviazione) e password (la chiave dell'account di archiviazione) per la condivisione file.** Sostituire **< storage_account_name >** e **< storage_account_key >** con le informazioni appropriate per l'ambiente.
+1. **Creare un file di credenziali in cui archiviare nome utente (il nome dell'account di archiviazione) e password (la chiave dell'account di archiviazione) per la condivisione file.** Sostituire **< storage_account_name >** e **< storage_account_key >** con le informazioni appropriate per l'ambiente in uso.
 
     ```bash
     if [ ! -d "/etc/smbcredentials" ]; then
@@ -129,10 +129,10 @@ uname -r
     sudo chmod 600 /etc/smbcredentials/<storage_account_name>.cred
     ```
 
-1. **Usare il comando seguente per accodare la riga seguente a `/etc/fstab`** : Ricordare di sostituire **< storage_account_name >** , **< nome_condivisione >** , **< smb_version >** , e **< punto_montaggio >** con le informazioni appropriate per l'ambiente. Se la distribuzione di Linux supporta SMB 3.0 con crittografia (vedere [i requisiti del client SMB comprendere](#smb-client-reqs) per altre informazioni), usare **3.0** per **< smb_version >** . Per le distribuzioni di Linux che non supportano SMB 3.0 con crittografia, usare **2.1** per **< smb_version >** . Una condivisione file di Azure può essere implementata solo all'esterno di un'area di Azure (incluso in locale o in un'area di Azure) con SMB 3.0.
+1. **Usare il comando seguente per accodare la riga seguente a `/etc/fstab`** : Ricordarsi di sostituire **< storage_account_name >** , **< share_name >** , **< smb_version**> e **< mount_point >** con le informazioni appropriate per l'ambiente in uso. Se la distribuzione di Linux supporta SMB 3,0 con crittografia (vedere [comprendere i requisiti del client SMB](#smb-client-reqs) per ulteriori informazioni), usare **3,0** per **< > smb_version**. Per le distribuzioni Linux che non supportano SMB 3,0 con crittografia, usare **2,1** per **< > smb_version**. Una condivisione file di Azure può essere montata solo all'esterno di un'area di Azure (inclusa in locale o in un'area di Azure diversa) con SMB 3,0.
 
     ```bash
-    sudo bash -c 'echo "//<STORAGE ACCOUNT NAME>.file.core.windows.net/<FILE SHARE NAME> /mount/<STORAGE ACCOUNT NAME>/<FILE SHARE NAME> cifs nofail,vers=3.0,credentials=/etc/smbcredentials/<STORAGE ACCOUNT NAME>.cred,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
+    sudo bash -c 'echo "//<STORAGE ACCOUNT NAME>.file.core.windows.net/<FILE SHARE NAME> /mount/<STORAGE ACCOUNT NAME>/<FILE SHARE NAME> cifs _netdev,nofail,vers=3.0,credentials=/etc/smbcredentials/<STORAGE ACCOUNT NAME>.cred,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
 
     sudo mount /mount/<STORAGE ACCOUNT NAME>/<FILE SHARE NAME>
     ```

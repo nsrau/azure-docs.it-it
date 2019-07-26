@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.openlocfilehash: 72be96e89cd46267d0c0795bd5121de76e48cf6f
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: a9de7c75ef2bd29b2e401ba387ca16a5dfda34fb
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484092"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442040"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Componenti e versioni di Apache Hadoop disponibili in HDInsight.
 
@@ -47,7 +47,7 @@ Le versioni del componente associate alle versioni del cluster HDInsight sono el
 | Apache Mahout | - | 0.9.0+ | 0.9.0+ | 0.9.0+ | 0.9.0+ | 0.9.0 |
 | Apache Phoenix | 5 | 4.7.0 | 4.7.0 | 4.4.0 | 4.4.0 | 4.2.0 |
 | Apache Spark | 2.3.1, 2.4 | 2.3.0, 2.2.0, 2.1.0 | 1.6.2, 2.0 | 1.6.0 | 1.5.2 | 1.3.1 (solo Windows) |
-| Apache Livy | 0,5 | 0.4, 0.4, 0.3 | 0,3 | 0,3 | 0,2 | - |
+| Apache Livy | 0,5 | 0,4, 0,4, 0,3 | 0.3 | 0.3 | 0,2 | - |
 | Apache Kafka | 1.1.1, 2.1 | 1.1, 1.0 * (vedere la nota seguente) | 0.10.0 | 0.9.0 | - | - |
 | Apache Ambari | 2.7.0 | 2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 | - |
 | Apache Zeppelin | 0.8.0 | 0.7.0 | - | - | - | - |
@@ -74,8 +74,8 @@ La tabella seguente elenca le versioni di HDInsight disponibili nel portale di A
 
 | Versione HDInsight | Versione HDP | Sistema operativo della macchina virtuale | Data di rilascio | Data di scadenza del supporto | Data di ritiro | Disponibilità elevata |  Disponibilità nel portale di Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 4.0 |HDP 3.0 |Ubuntu 16.0.4 LTS |24 settembre 2018 | | |Yes |Yes |
-| HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 aprile 2017 | 30 giugno 2020 |31 dicembre 2020 |Yes |Yes |
+| HDInsight 4.0 |HDP 3.0 |Ubuntu 16.0.4 LTS |24 settembre 2018 | | |Sì |Sì |
+| HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 aprile 2017 | 30 giugno 2020 |31 dicembre 2020 |Sì |Yes |
 
 
 > [!NOTE]  
@@ -88,14 +88,14 @@ La tabella seguente elenca le versioni di HDInsight attualmente **non** disponib
 
 | Versione HDInsight | Versione HDP | Sistema operativo della macchina virtuale | Data di rilascio | Data di scadenza del supporto | Data di ritiro | Disponibilità elevata |  Disponibilità nel portale di Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3.5 <br> (Non Spark) |HDP 2.5 |Ubuntu 16.0.4 LTS |30 settembre 2016 |5 settembre 2017 |28 giugno 2018 |Yes |No |
-| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 marzo 2016 |29 dicembre 2016 |9 gennaio 2018 |Yes |No |
+| HDInsight 3.5 <br> (Non Spark) |HDP 2.5 |Ubuntu 16.0.4 LTS |30 settembre 2016 |5 settembre 2017 |28 giugno 2018 |Sì |No |
+| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 marzo 2016 |29 dicembre 2016 |9 gennaio 2018 |Sì |No |
 | HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 dicembre 2015 |27 giugno 2016 |31 luglio 2018 |Yes |No |
 | HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2 dicembre 2015 |27 giugno 2016 |31 luglio 2017 |Yes |No |
 | HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS o Windows Server 2012 R2 |18 febbraio 2015 |1° marzo 2016 |1° aprile 2017 |Yes |No |
-| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |24 giugno 2014 |18 maggio 2015 |30 giugno 2016 |Yes |No |
-| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |11 febbraio 2014 |17 settembre 2014 |30 giugno 2015 |Yes |No |
-| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |28 ottobre 2013 |12 maggio 2014 |31 maggio 2015 |Yes |No |
+| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |24 giugno 2014 |18 maggio 2015 |30 giugno 2016 |Sì |No |
+| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |11 febbraio 2014 |17 settembre 2014 |30 giugno 2015 |Sì |No |
+| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |28 ottobre 2013 |12 maggio 2014 |31 maggio 2015 |Sì |No |
 | HDInsight 1.6 |HDP 1.1 | |28 ottobre 2013 |26 aprile 2014 |31 maggio 2015 |No |No |
 
 > [!NOTE]  
@@ -111,7 +111,7 @@ Si tratta di un pacchetto opzionale che è possibile aggiungere al cluster HDIns
 
     Per altre informazioni, vedere:
 
-    - [Introduzione alla sicurezza Apache Hadoop con i cluster HDInsight aggiunti al dominio](./domain-joined/apache-domain-joined-introduction.md)
+    - [Introduzione alla sicurezza Apache Hadoop con i cluster HDInsight aggiunti al dominio](./domain-joined/hdinsight-security-overview.md)
     - [Pianificare cluster Apache Hadoop aggiunti a un dominio di Azure in HDInsight](./domain-joined/apache-domain-joined-architecture.md)
     - [Configurare l'ambiente sandbox aggiunto al dominio](./domain-joined/apache-domain-joined-configure.md)
     - [Configurare cluster HDInsight aggiunti al dominio usando Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
@@ -139,7 +139,7 @@ Attualmente solo i tipi di cluster seguenti supportano il Pacchetto di sicurezza
 
 Enterprise Security Package supporta l'uso di Azure Data Lake Storage come risorsa di archiviazione sia primaria che aggiuntiva.
 
-### <a name="pricing-and-service-level-agreement"></a>Contratto di servizio e di determinazione dei prezzi
+### <a name="pricing-and-service-level-agreement"></a>Prezzi e contratto di servizio
 
 Per informazioni su prezzi e contratto di servizio per il Pacchetto di sicurezza aziendale, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -167,13 +167,13 @@ La sezione fornisce collegamenti alle note sulla versione di Hortonworks Data Pl
 
   * Le [note sulla versione di Apache Storm](https://storm.apache.org/2015/11/05/storm0100-released.html) sono disponibili nel sito Web di Apache.
   * Le [note sulla versione di Apache Hive](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12332384&styleName=Text&projectId=12310843) sono disponibili nel sito Web di Apache.
-* Cluster HDInsight versione 3.2 Usa una distribuzione Hadoop basata su [Hortonworks Data Platform 2.2][hdp-2-2].
+* Il cluster HDInsight versione 3,2 usa una distribuzione Hadoop basata su [Hortonworks Data Platform 2,2][hdp-2-2].
 
   * Note sulla versione per componenti specifici di Apache sono disponibili come indicato di seguito: [Hive 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310843&version=12326450), [Pig 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310730&version=12326954), [HBase 0.98.4](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310753&version=12326810), [Phoenix 4.2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&version=12327581), [M/R 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310941&version=12327180), [Hadoop Distributed File System 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310942&version=12327181), [YARN 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12313722&version=12327197), [Common](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310240&version=12327179), [Tez 0.5.2](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314426&version=12328742), [Ambari 2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12312020&version=12327486), [Storm 0.9.3](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314820&version=12327112) e [Oozie 4.1.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12324960&projectId=12311620).
-* Cluster HDInsight versione 3.1 Usa una distribuzione Hadoop basata su [Hortonworks Data Platform 2.1.7][hdp-2-1-7]. HDInsight 3.1 clusters created before November, 7, 2014, are based on [Hortonworks Data Platform 2.1.1][hdp-2-1-1].
-* Cluster HDInsight versione 3.0 usa una distribuzione Hadoop basata su [Hortonworks Data Platform 2.0][hdp-2-0-8].
-* Cluster HDInsight versione 2.1 Usa una distribuzione Hadoop basata su [Hortonworks Data Platform 1.3][hdp-1-3-0].
-* Cluster HDInsight versione 1.6 Usa una distribuzione Hadoop basata su [Hortonworks Data Platform 1.1][hdp-1-1-0].
+* Il cluster HDInsight versione 3,1 USA una distribuzione Hadoop basata su [Hortonworks Data Platform 2.1.7][hdp-2-1-7]. HDInsight 3.1 clusters created before November, 7, 2014, are based on [Hortonworks Data Platform 2.1.1][hdp-2-1-1].
+* Il cluster HDInsight versione 3,0 usa una distribuzione Hadoop basata su [Hortonworks Data Platform 2,0][hdp-2-0-8].
+* Il cluster HDInsight versione 2,1 USA una distribuzione Hadoop basata su [Hortonworks Data Platform 1,3][hdp-1-3-0].
+* Il cluster HDInsight versione 1,6 usa una distribuzione Hadoop basata su [Hortonworks Data Platform 1,1][hdp-1-1-0].
 
 ## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>Configurazione del nodo predefinito e dimensioni della macchina virtuale per i cluster
 
@@ -204,8 +204,8 @@ La tabella seguente elenca le dimensioni di macchina virtuale (VM) predefinite p
 |ZooKeeper: dimensioni VM consigliate||A4 v2||A2 v2|||A2M v2|
 |||A8 v2||A4 v2|||D3 v2|
 |||A2m v2||A8 v2|||E8 v3|
-|I servizi di Machine Learning: dimensioni VM predefinite||||||D4 v2||
-|Servizi di Machine Learning: dimensioni VM consigliate||||||D4 v2||
+|ML Services: dimensioni VM predefinite||||||D4 v2||
+|ML Services: dimensioni VM consigliate||||||D4 v2||
 |||||||D12 v2||
 |||||||D13 v2||
 |||||||D14 v2||
@@ -224,8 +224,8 @@ La tabella seguente elenca le dimensioni di macchina virtuale (VM) predefinite p
   | Ruolo di lavoro: dimensioni VM consigliate |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |D3,<br/> D4,<br/> D12 |D4,<br/> D12,<br/> D13,<br/> D14 | D4,<br/> D12,<br/> D13,<br/> D14 |
   | ZooKeeper: dimensioni VM predefinite | |A4 v2 | A4 v2| A4 v2 | | A2 v2|
   | ZooKeeper: dimensioni VM consigliate | |A2,<br/> A3,<br/> A4. | |A2,<br/> A3,<br/> A4. | | |
-  | I servizi di Machine Learning: dimensioni di VM predefinite | | | | | |D4 |
-  | Servizi di Machine Learning: dimensioni VM consigliate | | | | | |D4,<br/> D12,<br/> D13,<br/> D14 |
+  | ML Services: dimensioni VM predefinite | | | | | |D4 |
+  | ML Services: dimensioni di VM consigliate | | | | | |D4,<br/> D12,<br/> D13,<br/> D14 |
 
 > [!NOTE]
 > - Il nodo Head è chiamato *Nimbus* per il tipo di cluster Storm.

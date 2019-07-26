@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 1d221e3bcdfd781da79c73e8f228b9e449a7f5bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 87f20f1989c70988784b422fc38094ec1fc5a966
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65021824"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347724"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Competenza Estrazione frasi chiave della ricerca cognitiva
 
@@ -34,20 +34,20 @@ Questa funzionalità è utile se occorre identificare rapidamente i punti di dis
 Microsoft.Skills.Text.KeyPhraseExtractionSkill 
 
 ## <a name="data-limits"></a>Limiti dei dati
-Le dimensioni massime di un record devono essere di 50.000 caratteri in base alla misurazione di `String.Length`. Se è necessario suddividere i dati prima di inviarli all'estrattore di frasi chiave, è possibile usare la competenza [Divisione del testo](cognitive-search-skill-textsplit.md).
+La dimensione massima di un record deve essere di 50.000 caratteri misurata [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)da. Se è necessario suddividere i dati prima di inviarli all'estrattore di frasi chiave, è possibile usare la competenza [Divisione del testo](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Parametri della competenza
 
 I parametri fanno distinzione tra maiuscole e minuscole.
 
-| Input                | Descrizione |
+| Input                | DESCRIZIONE |
 |---------------------|-------------|
 | defaultLanguageCode | (Facoltativo) Il codice lingua da applicare ai documenti che non specificano in modo esplicito una lingua.  Se il codice lingua predefinito non è specificato, Inglese (en) verrà usato come il codice lingua predefinito. <br/> Vedere l'[elenco completo delle lingue supportate](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). |
 | maxKeyPhraseCount   | (Facoltativo) Il numero massimo di frasi chiave da produrre. |
 
 ## <a name="skill-inputs"></a>Input competenze
 
-| Input     | Descrizione |
+| Input     | DESCRIZIONE |
 |--------------------|-------------|
 | text | Testo da analizzare.|
 | languageCode  |  Stringa che indica la lingua dei record. Se questo parametro viene omesso, il codice lingua predefinito verrà usato per analizzare i record. <br/>Vedere l'[elenco completo delle lingue supportate](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)|
@@ -93,7 +93,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 ```
 
 
-##  <a name="sample-output"></a>Output di esempio
+##  <a name="sample-output"></a>Esempio di output
 
 ```json
 {

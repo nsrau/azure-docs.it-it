@@ -1,18 +1,18 @@
 ---
 title: Informazioni sulle prenotazioni di Azure
-description: Informazioni sulle prenotazioni e sui prezzi di Azure per risparmiare sui costi di macchine virtuali, database SQL, Azure Cosmos DB e altre risorse.
+description: Informazioni sulle prenotazioni e i prezzi di Azure per il salvataggio in macchine virtuali, database SQL, Azure Cosmos DB e altri costi delle risorse.
 author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/03/2019
+ms.date: 07/19/2019
 ms.author: banders
-ms.openlocfilehash: cd0a70aa0fb5096c5b0157ae078c961da03109bc
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: c63447ff0a3329e0cc0dc0605984ae4f26e9c25f
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565343"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359224"
 ---
 # <a name="what-are-azure-reservations"></a>Informazioni sulle prenotazioni di Azure
 
@@ -22,132 +22,154 @@ Le prenotazioni di Azure consentono di risparmiare effettuando il pagamento anti
 
 ## <a name="why-buy-a-reservation"></a>Perché acquistare una prenotazione?
 
-Se si dispone di macchine virtuali, Azure Cosmos DB o database SQL eseguiti per lunghi periodi di tempo, acquisto di una prenotazione offre l'opzione più conveniente. Ad esempio, quando si eseguono in modo continuo quattro istanze di un servizio senza una prenotazione, ti viene addebitata in base alle tariffe con pagamento a consumo. Se si acquista una prenotazione per tali risorse, vengono immediatamente visualizzati lo sconto di prenotazione. Per le risorse non verranno più addebitate tariffe in base al consumo.
+Se si dispone di macchine virtuali, Azure Cosmos DB o database SQL in esecuzione per lunghi periodi di tempo, l'acquisto di una prenotazione offre un'opzione più conveniente. Se ad esempio si eseguono in modo continuo quattro istanze di un servizio senza prenotazione, verranno addebitate le tariffe con pagamento in base al consumo. Quando si acquista una prenotazione per tali risorse, si ottiene immediatamente lo sconto relativo alla prenotazione. Per le risorse non verranno più addebitate tariffe in base al consumo.
 
 ## <a name="charges-covered-by-reservation"></a>Addebiti coperti dalla prenotazione
 
 Piani di servizio:
 
-- **Istanze di macchina virtuale riservate** -una prenotazione copre solo i costi di calcolo di macchine virtuali. e non i costi aggiuntivi relativi a software, rete o archiviazione.
-- **Capacità riservata di Azure Cosmos DB** -una prenotazione copre velocità effettiva di provisioning per le risorse. Non copre i costi di archiviazione e rete.
-- **Database SQL riservati vCore** : solo i costi di calcolo sono inclusi con una prenotazione. I costi della licenza vengono fatturati separatamente.
+- **Istanza di macchina virtuale riservata** : una prenotazione copre solo i costi di calcolo della macchina virtuale. e non i costi aggiuntivi relativi a software, rete o archiviazione.
+- **Azure Cosmos DB capacità riservata** : una prenotazione copre la velocità effettiva di cui è stato effettuato il provisioning per le risorse. Non copre i costi di archiviazione e rete.
+- **VCore riservato database SQL** : solo i costi di calcolo sono inclusi in una prenotazione. I costi della licenza vengono fatturati separatamente.
 
 Per le macchine virtuali Windows e il database SQL, i costi delle licenze possono essere coperti con le offerte di [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 ## <a name="whos-eligible-to-purchase-a-reservation"></a>Chi è idoneo all'acquisto di una prenotazione?
 
-Per acquistare un piano, è necessario disporre di un ruolo di proprietario di sottoscrizione in una sottoscrizione di pagamento a consumo (MS-AZR - 003p o MS-AZR - 0023P) o Enterprise (MS-AZR - 0017p o MS-AZR - 0148p). Cloud solution provider può usare il portale di Azure oppure [Centro per i Partner](/partner-center/azure-reservations) per l'acquisto di prenotazioni di Azure.
+Per acquistare un piano, è necessario avere un ruolo di proprietario della sottoscrizione in una sottoscrizione Enterprise (MS-AZR-0017P o MS-AZR-0148P) o con pagamento in base al consumo (MS-AZR-003P o MS-AZR-0023P). I provider di soluzioni cloud possono usare il portale di Azure o il [centro](/partner-center/azure-reservations) per i partner per acquistare prenotazioni di Azure.
 
-I clienti con contratto Enterprise Agreement possono limitare gli acquisti al contratto Enterprise admins disabilitando il **aggiungere le istanze riservate** opzione nel portale EA. Contratti Enterprise admins deve essere un proprietario della sottoscrizione per almeno una sottoscrizione con contratto Enterprise Agreement per acquistare una prenotazione. L'opzione è utile per le aziende che desiderano un team centralizzato per l'acquisto di prenotazioni per diversi reparti. Dopo l'acquisto, centralizzato i team possono aggiungere i proprietari di centro di costo per le prenotazioni. I proprietari possono quindi definire l'ambito la prenotazione per le sottoscrizioni. Il team centrale non deve necessariamente avere accesso proprietario di sottoscrizione in cui viene acquistata la prenotazione.
+I clienti Enterprise Agreement (EA) possono limitare gli acquisti agli amministratori EA. A tale scopo, Disabilita l'opzione **Aggiungi istanze riservate** nel portale EA. Gli amministratori EA devono essere un proprietario della sottoscrizione per almeno una sottoscrizione EA per l'acquisto di una prenotazione. Questa opzione è utile per le aziende che desiderano che un team centralizzato acquisti prenotazioni per diversi centri di costo. Dopo l'acquisto, i team centralizzati possono aggiungere i proprietari del centro di costo alle prenotazioni. I proprietari possono quindi definire l'ambito della prenotazione per le sottoscrizioni. Il team centrale non deve avere l'accesso al proprietario della sottoscrizione in cui viene acquistata la prenotazione.
 
-Uno sconto di prenotazione si applica solo alle risorse associate alle sottoscrizioni acquistate tramite Enterprise, CSP e i piani di singole con tariffe a consumo.
+Uno sconto sulla prenotazione si applica solo alle risorse associate alle sottoscrizioni acquistate tramite Enterprise, Cloud Solution Provider (CSP) e singoli piani con tariffe con pagamento in base al consumo.
 
-## <a name="scope-reservations"></a>Prenotazioni di ambito
+## <a name="scope-reservations"></a>Prenotazioni ambito
 
-È possibile definire l'ambito di una prenotazione per un gruppo di risorse o sottoscrizione. Impostazione dell'ambito di una prenotazione istruzioni SELECT in cui applica il risparmio di prenotazione. Quando si definisce l'ambito della prenotazione a un gruppo di risorse, gli sconti di prenotazione si applicano solo al gruppo di risorse, non l'intera sottoscrizione.
+È possibile definire l'ambito di una prenotazione a una sottoscrizione o a gruppi di risorse. Se si imposta l'ambito di una prenotazione, viene selezionato il punto di risparmio di prenotazione. Quando si crea l'ambito della prenotazione per un gruppo di risorse, gli sconti per la prenotazione si applicano solo al gruppo di risorse, non all'intera sottoscrizione.
 
-### <a name="reservation-scoping-options"></a>Opzioni di ambito di prenotazione
+### <a name="reservation-scoping-options"></a>Opzioni di ambito prenotazione
 
-Con la risorsa gruppo di ambito è disponibili tre opzioni per definire l'ambito di una prenotazione, a seconda delle esigenze:
+Con l'ambito del gruppo di risorse sono disponibili tre opzioni per definire l'ambito di una prenotazione, a seconda delle esigenze:
 
-- **Singolo ambito di gruppo di risorse** , applica lo sconto di prenotazione per le risorse corrispondente nel solo il gruppo di risorse selezionato.
-- **Ambito della sottoscrizione singola** , applica lo sconto di prenotazione per le risorse corrispondente nella sottoscrizione selezionata.
-- **Ambito condiviso** : si applica lo sconto di prenotazione per le risorse nelle sottoscrizioni idonee che sono nel contesto di fatturazione. Per i clienti con contratto Enterprise, il contesto di fatturazione è la registrazione. Per le singole sottoscrizioni con tariffe a consumo, l'ambito di fatturazione è tutte le sottoscrizioni idonee create dall'amministratore dell'account.
+- **Ambito del gruppo di risorse singolo** : applica lo sconto di prenotazione alle risorse corrispondenti solo nel gruppo di risorse selezionato.
+- **Singolo ambito di sottoscrizione** : applica lo sconto di prenotazione alle risorse corrispondenti nella sottoscrizione selezionata.
+- **Ambito condiviso** : applica lo sconto di prenotazione alle risorse corrispondenti nelle sottoscrizioni idonee presenti nel contesto di fatturazione. Per Enterprise Agreement clienti, il contesto di fatturazione è la registrazione. Per le singole sottoscrizioni con tariffe con pagamento in base al consumo, l'ambito di fatturazione è costituito da tutte le sottoscrizioni idonee create dall'amministratore account.
 
-Applicando gli sconti di prenotazione sull'utilizzo di Azure elabora la prenotazione nell'ordine seguente:
+Quando si applicano gli sconti di prenotazione sull'utilizzo, Azure elabora la prenotazione nell'ordine seguente:
 
-1. Prenotazioni sono limitate a un gruppo di risorse
-2. Prenotazioni di ambito singolo
-3. Prenotazioni di ambito condiviso
+1. Prenotazioni con ambito di un gruppo di risorse
+2. Prenotazioni a ambito singolo
+3. Prenotazioni per ambito condiviso
 
-Un singolo gruppo di risorse può ottenere sconti prenotazione da più prenotazioni, a seconda del modo in cui si definisce l'ambito di prenotazioni.
+Un singolo gruppo di risorse può ottenere sconti di prenotazione da più prenotazioni, a seconda della modalità di definizione dell'ambito delle prenotazioni.
 
 ### <a name="scope-a-reservation-to-a-resource-group"></a>Definire l'ambito di una prenotazione per un gruppo di risorse
 
-È possibile definire l'ambito della prenotazione a un gruppo di risorse quando si acquista la prenotazione o si imposta l'ambito dopo l'acquisto. È necessario essere un proprietario della sottoscrizione per definire l'ambito della prenotazione a un gruppo di risorse.
+È possibile definire l'ambito della prenotazione per un gruppo di risorse quando si acquista la prenotazione oppure si imposta l'ambito dopo l'acquisto. Per definire l'ambito della prenotazione per un gruppo di risorse, è necessario essere un proprietario della sottoscrizione.
 
-Per impostare l'ambito, vedere la [acquistare la prenotazione](https://ms.portal.azure.com/#blade/Microsoft\_Azure\_Reservations/CreateBlade/referrer/Browse\_AddCommand) pagina nel portale di Azure. Quindi, selezionare il tipo di prenotazione che si vuole acquistare. Nel **selezionare il prodotto che si desidera acquistare** modulo di selezione, modifica il **ambito** valore **singolo gruppo di risorse** e selezionare un gruppo di risorse.
+Per impostare l'ambito, andare alla pagina di [prenotazione acquisti](https://ms.portal.azure.com/#blade/Microsoft\_Azure\_Reservations/CreateBlade/referrer/Browse\_AddCommand) nel portale di Azure. Selezionare il tipo di prenotazione che si desidera acquistare. Nel modulo **selezionare il prodotto di cui si vuole acquistare** la selezione, modificare il valore dell'ambito in un singolo gruppo di risorse. Quindi, selezionare un gruppo di risorse.
 
-![Esempio di selezione di acquisto di prenotazione della macchina virtuale](./media/billing-save-compute-costs-reservations/select-product-to-purchase.png)
+![Esempio che mostra la selezione di acquisto della prenotazione VM](./media/billing-save-compute-costs-reservations/select-product-to-purchase.png)
 
-Vengono visualizzate raccomandazioni di acquisto per il gruppo di risorse nella prenotazione macchina virtuale. Le raccomandazioni vengono calcolate in base all'analisi dell'utilizzo negli ultimi 30 giorni. Se il costo delle risorse con le istanze riservate è più economico rispetto al costo dell'esecuzione di risorse con tariffe a consumo, viene generata una raccomandazione di acquisto. Per altre informazioni sulle indicazioni relative agli acquisti di prenotazione, vedere la [consigli per gli acquisti ottenere istanze riservate basano sul modello di utilizzo](https://azure.microsoft.com/blog/get-usage-based-reserved-instance-recommendations) post di blog.
+Vengono visualizzate le raccomandazioni di acquisto per il gruppo di risorse nella prenotazione della macchina virtuale. Le raccomandazioni vengono calcolate analizzando l'utilizzo negli ultimi 30 giorni. Viene fornita una raccomandazione di acquisto se il costo di esecuzione delle risorse con istanze riservate è più economico rispetto al costo di esecuzione delle risorse con tariffe con pagamento in base al consumo. Per ulteriori informazioni sulle raccomandazioni per l'acquisto di prenotazioni, vedere [ottenere consigli per l'acquisto di istanze riservate in base al modello di utilizzo](https://azure.microsoft.com/blog/get-usage-based-reserved-instance-recommendations).
 
-È sempre possibile aggiornare l'ambito dopo che si acquista una prenotazione. A tale scopo, passare alla prenotazione, fare clic su **configurazione** e oltretutto la prenotazione. Modifica dell'ambito di una prenotazione non è una transazione commerciale. Il periodo di prenotazione non è stato modificato. Per altre informazioni sull'aggiornamento dell'ambito, vedere [aggiornare l'ambito dopo l'acquisto di una prenotazione](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
+È sempre possibile aggiornare l'ambito dopo l'acquisto di una prenotazione. A tale scopo, passare alla prenotazione, fare clic su **configurazione**e ridefinire l'ambito della prenotazione. La ridefinizione dell'ambito di una prenotazione non è una transazione commerciale. Il periodo di prenotazione non è stato modificato. Per ulteriori informazioni sull'aggiornamento dell'ambito, vedere [la pagina relativa all'aggiornamento dell'ambito dopo l'acquisto di una prenotazione](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
 
-![Esempio che illustra una modifica dell'ambito prenotazione](./media/billing-save-compute-costs-reservations/rescope-reservation-resource-group.png)
+![Esempio che mostra una modifica dell'ambito della prenotazione](./media/billing-save-compute-costs-reservations/rescope-reservation-resource-group.png)
 
 ### <a name="monitor-and-optimize-reservation-usage"></a>Monitorare e ottimizzare l'utilizzo della prenotazione
 
-È possibile monitorare l'utilizzo della prenotazione in diversi modi: tramite il portale di Azure, tramite le API o tramite i dati di utilizzo. Per visualizzare tutte le prenotazioni che è necessario accedere a, passare a **prenotazioni** nel portale di Azure. Nella griglia le prenotazioni vengono visualizzate l'ultima percentuale di utilizzo registrati per la prenotazione. Fare clic sulla prenotazione per visualizzare l'utilizzo a lungo termine della prenotazione.
+È possibile monitorare l'utilizzo della prenotazione in diversi modi: tramite portale di Azure, tramite le API o tramite i dati di utilizzo. Per visualizzare tutte le prenotazioni a cui si ha accesso, passare a **prenotazioni** nella portale di Azure. La griglia prenotazioni Mostra l'ultima percentuale di utilizzo registrata per la prenotazione. Fare clic sulla prenotazione per visualizzare l'utilizzo a lungo termine della prenotazione.
 
-È anche possibile ottenere con utilizzo della prenotazione [API](billing-reservation-apis.md#see-reservation-usage) e dai [i dati di utilizzo](billing-understand-reserved-instance-usage-ea.md#common-cost-and-usage-tasks) se sei un cliente con contratto enterprise.
+È anche possibile ottenere l'utilizzo delle prenotazioni usando le [API](billing-reservation-apis.md#see-reservation-usage) e i [dati di utilizzo](billing-understand-reserved-instance-usage-ea.md#common-cost-and-usage-tasks) se si è un cliente con contratto Enterprise Agreement.
 
-Se si nota che l'utilizzo del gruppo di risorse con ambito prenotazione è basso, quindi è possibile aggiornare l'ambito della prenotazione per singola sottoscrizione o condividerlo tra il contesto di fatturazione. È inoltre possibile dividere la prenotazione e applicare le prenotazioni risultante a diversi gruppi di risorse.
+Se si nota che l'utilizzo della prenotazione con ambito gruppo di risorse è basso, è possibile aggiornare l'ambito della prenotazione a una singola sottoscrizione o condividerlo nel contesto di fatturazione. È anche possibile dividere la prenotazione e applicare le prenotazioni risultanti a gruppi di risorse diversi.
 
 ### <a name="other-considerations"></a>Altre considerazioni
 
-Se non hai le risorse necessarie in un gruppo di risorse, quindi la prenotazione sarà sottoutilizzata. La prenotazione non applica automaticamente in un altro gruppo di risorse o sottoscrizione in cui è presente un utilizzo ridotto.
+Se non si hanno risorse corrispondenti in un gruppo di risorse, la prenotazione sarà sottoutilizzata. La prenotazione non viene applicata automaticamente a un gruppo di risorse o a una sottoscrizione diversa in cui è presente un utilizzo ridotto.
 
-Un ambito della prenotazione non viene aggiornata automaticamente se si sposta il gruppo di risorse da una sottoscrizione a un altro. Dovrai oltretutto la prenotazione. In caso contrario, la prenotazione verrà sottoutilizzata.
+Un ambito di prenotazione non viene aggiornato automaticamente se si sposta il gruppo di risorse da una sottoscrizione a un'altra. L'ambito non viene aggiornato se si elimina il gruppo di risorse. Sarà necessario ridefinire [l'ambito della prenotazione](billing-manage-reserved-vm-instance.md#change-the-reservation-scope). In caso contrario, la prenotazione sarà sottoutilizzata.
 
-## <a name="discounted-subscription-and-offer-types"></a>Tipi di sottoscrizione e dell'offerta scontati
+## <a name="discounted-subscription-and-offer-types"></a>Sottoscrizione scontata e tipi di offerta
 
-Gli sconti di prenotazione si applicano alle seguenti sottoscrizioni idonee e tipi di offerta.
+Gli sconti di prenotazione si applicano alle sottoscrizioni idonee e ai tipi di offerta seguenti.
 
-- Contratto Enterprise agreement (numeri dell'offerta: MS-AZR-0017P o MS-AZR - 0148p)
-- I piani di singole con tariffe a consumo (numeri dell'offerta: MS-AZR-0003P o MS-AZR - 0023 P)
+- Enterprise Agreement (numero di offerte: MS-AZR-0017P o MS-AZR-0148P)
+- Singoli piani con tariffe con pagamento in base al consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P)
 - Sottoscrizioni CSP
 
 Le risorse eseguite in una sottoscrizione con altri tipi di offerta non prevedono questo tipo di sconto.
 
 ## <a name="how-is-a-reservation-billed"></a>Come viene fatturata una prenotazione?
 
-La prenotazione viene addebitata in base al metodo di pagamento associato alla sottoscrizione. Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Se tale saldo non copre il costo della prenotazione, l'eccedenza verrà fatturata. Se hai una sottoscrizione da un singolo piano con tariffe a consumo, la carta di credito associata con l'account viene fatturata immediatamente. Se invece l'addebito avviene tramite fattura, il costo risulterà visibile sulla fattura successiva.
+La prenotazione viene addebitata in base al metodo di pagamento associato alla sottoscrizione. Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Quando il saldo dell'impegno monetario non copre il costo della prenotazione, l'eccedenza viene addebitata. Se si ha una sottoscrizione di un singolo piano con tariffe con pagamento in base al consumo, la carta di credito per l'account viene addebitata immediatamente. Quando la fatturazione viene addebitata in base alla fattura, verranno visualizzati gli addebiti per la fattura successiva.
 
 ## <a name="how-reservation-discount-is-applied"></a>Come viene applicato lo sconto della prenotazione
 
-Per l'utilizzo delle risorse corrispondenti gli attributi selezionati quando si acquista la prenotazione viene applicato lo sconto di prenotazione. Gli attributi includono l'ambito in cui vengono eseguiti i database SQL, Azure Cosmos DB, le macchine virtuali o le altre risorse corrispondenti. Ad esempio, se si desidera uno sconto di prenotazione per quattro macchine virtuali D2 Standard nell'area Stati Uniti occidentali, quindi selezionare la sottoscrizione in cui vengono eseguite le macchine virtuali.
+Lo sconto relativo alla prenotazione si applica all'utilizzo delle risorse che corrisponde agli attributi selezionati quando si acquista la prenotazione. Gli attributi includono l'ambito in cui vengono eseguite le VM corrispondenti, i database SQL, Azure Cosmos DB o altre risorse. Ad esempio, se si vuole uno sconto di prenotazione per quattro macchine virtuali D2 standard nell'area Stati Uniti occidentali, selezionare la sottoscrizione in cui sono in esecuzione le macchine virtuali.
 
-È uno sconto di prenotazione "*utilizzare-it-o-perdere-it*". Se non si dispone delle risorse di corrispondenza per qualsiasi ora, si perde una quantità di prenotazione per quell'ora. Non sarà possibile eseguire inoltrare ore riservate non usate.
+Uno sconto sulla prenotazione è "*use-it-or-lose-it*". Se non si hanno risorse corrispondenti per un'ora, si perderà la quantità di prenotazione per quell'ora. Non è possibile portare in avanti ore riservate inutilizzate.
 
-Quando si arresta una risorsa, lo sconto della prenotazione viene applicato automaticamente a un'altra risorsa corrisponda nell'ambito specificato. Se viene trovata alcuna risorsa corrisponda nell'ambito specificato, quindi sono le ore riservate *persi*.
+Quando si arresta una risorsa, lo sconto della prenotazione si applica automaticamente a un'altra risorsa corrispondente nell'ambito specificato. Se non vengono trovate risorse corrispondenti nell'ambito specificato, le ore riservate vengono *perse*.
 
-In un secondo momento si potrebbe, ad esempio, crea una risorsa e hanno una prenotazione corrisponda che è sottoutilizzata. In questo esempio, lo sconto di prenotazione si applica automaticamente alla nuova risorsa corrisponda.
+Ad esempio, è possibile creare una risorsa in un secondo momento e disporre di una prenotazione corrispondente sottoutilizzata. Lo sconto della prenotazione si applica automaticamente alla nuova risorsa corrispondente.
 
 Se le macchine virtuali sono in esecuzione in diverse sottoscrizioni all'interno della sottoscrizione o dell'account corrente, selezionare l'ambito condiviso. L'ambito condiviso consente l'applicazione dello sconto relativo all'acquisto di istanze riservate tra sottoscrizioni. Dopo aver acquistato una prenotazione è possibile modificare l'ambito. Per altre informazioni, vedere [Gestire le prenotazioni di Azure](billing-manage-reserved-vm-instance.md).
 
-Uno sconto di prenotazione si applica solo alle risorse associate a CSP, Enterprise o le sottoscrizioni con pagamento in base al capacità di passare tariffe. Le risorse eseguite in una sottoscrizione con altri tipi di offerta non prevedono questo tipo di sconto.
+Uno sconto sulla prenotazione si applica solo a risorse associate a Enterprise, CSP o sottoscrizioni con tariffe con pagamento in base al consumo. Le risorse eseguite in una sottoscrizione con altri tipi di offerta non prevedono questo tipo di sconto.
 
 ## <a name="when-the-reservation-term-expires"></a>Alla scadenza del periodo di prenotazione
 
-La scadenza del periodo di prenotazione comporta anche la scadenza dello sconto sulla fatturazione. Al termine di questo periodo, le macchine virtuali, i database SQL, Azure Cosmos DB, o le altre risorse verranno fatturati in base alle tariffe con pagamento in base al consumo. Le prenotazioni di Azure non vengono rinnovate automaticamente. Per continuare a usufruire dello sconto sulla fatturazione è necessario acquistare una nuova prenotazione per i servizi e il software idonei.
+Alla fine del periodo di prenotazione, lo sconto per la fatturazione scade. Per la macchina virtuale, il database SQL, Azure Cosmos DB o un'altra risorsa viene addebitato il prezzo con pagamento in base al consumo. Le prenotazioni di Azure non vengono rinnovate automaticamente. Per continuare a usufruire dello sconto sulla fatturazione è necessario acquistare una nuova prenotazione per i servizi e il software idonei.
 
-## <a name="discount-applies-to-different-sizes"></a>Viene applicato uno sconto per diverse dimensioni
+## <a name="discount-applies-to-different-sizes"></a>Lo sconto si applica a dimensioni diverse
 
-Quando si acquista una prenotazione, è possibile applicare lo sconto ad altre istanze con gli attributi compresi nello stesso gruppo di dimensioni. Questa funzionalità è detta flessibilità le dimensioni dell'istanza. La flessibilità della copertura degli sconti dipende dal tipo di prenotazione e dagli attributi scelti all'acquisto della prenotazione.
+Quando si acquista una prenotazione, è possibile applicare lo sconto ad altre istanze con gli attributi compresi nello stesso gruppo di dimensioni. Questa funzionalità è nota come flessibilità delle dimensioni dell'istanza. La flessibilità della copertura degli sconti dipende dal tipo di prenotazione e dagli attributi scelti all'acquisto della prenotazione.
 
 Piani di servizio:
 
-- Istanze di macchina virtuale riservate: Quando si acquista la prenotazione e si sceglie **ottimizzato per**: **flessibilità le dimensioni dell'istanza**, il code coverage sconto dipende dalle dimensioni della macchina virtuale si seleziona. La prenotazione può essere applicata alle dimensioni delle macchine virtuali (VM) nello stesso gruppo di serie di dimensioni. Per altre informazioni vedere [Flessibilità di dimensioni delle macchine virtuali con le istanze di macchina virtuale riservate](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+- Istanze di macchina virtuale riservate: Quando si acquista la prenotazione e si seleziona **ottimizzato per la flessibilità delle dimensioni dell'istanza**, il code coverage degli sconti dipende dalle dimensioni della VM selezionate. La prenotazione può essere applicata alle dimensioni delle macchine virtuali (VM) nello stesso gruppo di serie di dimensioni. Per altre informazioni vedere [Flessibilità di dimensioni delle macchine virtuali con le istanze di macchina virtuale riservate](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
 - Capacità riservata del database SQL: la copertura degli sconti dipende dal livello di prestazioni selezionato. Per altre informazioni, vedere [Informazioni su come viene applicato ai database SQL lo sconto sulla prenotazione](billing-understand-reservation-charges.md).
 - Capacità riservata di Azure Cosmos DB: la copertura degli sconti dipende dalla velocità effettiva di cui viene effettuato il provisioning. Per altre informazioni, vedere [Informazioni su come viene applicato lo sconto per la prenotazione ad Azure Cosmos DB](billing-understand-cosmosdb-reservation-charges.md).
 
+## <a name="reservation-notifications"></a>Notifiche di prenotazione
+
+A seconda di come si paga la sottoscrizione di Azure, le notifiche di prenotazione vengono inviate tramite posta elettronica agli utenti seguenti dell'organizzazione. Le notifiche vengono inviate per vari eventi, tra cui:
+
+- Acquista
+- Scadenza prenotazione imminente
+- Expiry
+- Rinnovo
+- Annullamento
+- Modifica ambito
+
+Per i clienti con sottoscrizioni EA:
+- Viene inviata una notifica di acquisto all'acquirente e ai contatti per le notifiche EA.
+- Le altre notifiche del ciclo di vita della prenotazione vengono inviate solo ai contatti delle notifiche EA.
+- Gli utenti aggiunti a una prenotazione tramite l'autorizzazione RBAC (IAM) non ricevono notifiche tramite posta elettronica.
+
+Per i clienti con sottoscrizioni individuali:
+- L'acquirente riceve una notifica di acquisto.
+- Al momento dell'acquisto, il proprietario dell'account di fatturazione della sottoscrizione riceve una notifica di acquisto.
+- Il proprietario dell'account riceve tutte le altre notifiche.
+
+
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+Per eventuali domande o per richiedere assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti:
     - [Gestire le prenotazioni di Azure](billing-manage-reserved-vm-instance.md)
-    - [Comprendere l'utilizzo della prenotazione per la sottoscrizione con tariffe a consumo](billing-understand-reserved-instance-usage.md)
+    - [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con tariffe con pagamento in base al consumo](billing-understand-reserved-instance-usage.md)
     - [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
     - [Costi del software Windows non inclusi nelle prenotazioni](billing-reserved-instance-windows-software-costs.md)
     - [Prenotazioni di Azure nel programma Cloud Solution Provider (CSP) del Centro per i partner](/partner-center/azure-reservations)
 
-- Altre informazioni su prenotazioni per i piani di servizio:
-    - [Macchine virtuali con le istanze di macchina virtuale riservate di Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-    - [Capacità riservata di risorse di Azure Cosmos DB con Azure Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md)
-    - [Capacità riservata di risorse di calcolo di Database SQL con Database SQL di Azure](../sql-database/sql-database-reserved-capacity.md) altre informazioni sulle prenotazioni per i piani software:
-    - [Piani software Red Hat dalle prenotazioni di Azure](../virtual-machines/linux/prepay-rhel-software-charges.md)
-    - [Piani software SUSE dalle prenotazioni di Azure](../virtual-machines/linux/prepay-suse-software-charges.md)
+- Altre informazioni sulle prenotazioni per i piani di servizio:
+    - [Macchine virtuali con istanze di VM riservate di Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+    - [Azure Cosmos DB risorse con Azure Cosmos DB capacità riservata](../cosmos-db/cosmos-db-reserved-capacity.md)
+    - [Risorse di calcolo del database SQL con capacità riservata del database SQL di Azure](../sql-database/sql-database-reserved-capacity.md) Altre informazioni sulle prenotazioni per i piani software:
+    - [Piani software Red Hat di Azure prenotazione](../virtual-machines/linux/prepay-rhel-software-charges.md)
+    - [Piani software SUSE da prenotazioni di Azure](../virtual-machines/linux/prepay-suse-software-charges.md)

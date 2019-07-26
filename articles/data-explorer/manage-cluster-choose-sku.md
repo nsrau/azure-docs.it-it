@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/14/2019
-ms.openlocfilehash: 0239111ca56dfe431a00eee83c79eedccc66c927
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: b0cf6eab86b0b932e44b6824305c23df01f35808
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226144"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383812"
 ---
 # <a name="select-the-correct-vm-sku-for-your-azure-data-explorer-cluster"></a>Selezionare lo SKU di VM corretto per il cluster di Azure Esplora dati 
 
@@ -39,11 +39,11 @@ Azure Esplora dati offre due tipi di cluster:
 
 Quando si crea un cluster Esplora dati di Azure, selezionare lo SKU di VM *ottimale* per il carico di lavoro pianificato. Azure Esplora dati dispone di due famiglie di SKU tra cui scegliere:
 
-* **D_V2**: Lo SKU **D** è ottimizzato per il calcolo e fornito in due versioni.
+* **D_V2**: Lo SKU D è ottimizzato per il calcolo e fornito in due versioni.
     * VM stessa
     * VM in bundle con dischi di archiviazione Premium
 
-* **LS**: Lo SKU **L** è ottimizzato per l'archiviazione. Il numero di unità SSD è molto maggiore rispetto allo SKU con prezzo equivalente **D** .
+* **LS**: Lo SKU L è ottimizzato per l'archiviazione. Il numero di unità SSD è molto maggiore rispetto allo SKU con prezzo equivalente **D** .
 
 La tabella seguente illustra le differenze principali tra i tipi di SKU disponibili:
  

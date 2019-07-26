@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: f0b0ff3ff4ac742a7e850798c736eb31098f66e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1668e0b3b155804496b190f2ba66d220ba0dd219
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966388"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381956"
 ---
 # <a name="aks-troubleshooting"></a>Risoluzione dei problemi di servizio Azure Kubernetes
 
@@ -63,70 +63,70 @@ Il modo più semplice per accedere al servizio all'esterno del cluster consiste 
 
 Se non viene visualizzato il dashboard di Kubernetes, controllare se il pod `kube-proxy` è eseguito nello spazio dei nomi `kube-system`. Se non è esecuzione, eliminare il pod in modo che venga riavviato.
 
-## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Non è possibile ottenere i log usando i log di kubectl o non è possibile connettersi al server API. Viene visualizzato "errore dal server: errore nella composizione back-end: comporre tcp...". Cosa devo fare?
+## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Non è possibile ottenere i log usando i log di kubectl o non è possibile connettersi al server API. Ricevo un messaggio di errore dal server: errore durante la connessione del back-end: Dial TCP... ". Cosa devo fare?
 
-Assicurarsi che il gruppo di sicurezza di rete predefinito non è stato modificato e che la porta 22 sia aperta per la connessione al server API. Controllare se il `tunnelfront` pod in esecuzione nel *kube system* dello spazio dei nomi usando il `kubectl get pods --namespace kube-system` comando. In caso contrario, forzare l’eliminazione del pod per riavviarlo.
+Verificare che il gruppo di sicurezza di rete predefinito non sia stato modificato e che sia la porta 22 che la 9000 siano aperte per la connessione al server API. Controllare se il `tunnelfront` Pod è in esecuzione nello spazio dei nomi *Kube-System* usando il `kubectl get pods --namespace kube-system` comando. In caso contrario, forzare l’eliminazione del pod per riavviarlo.
 
 ## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>Sto cercando di eseguire l'aggiornamento o il ridimensionamento e ricevo un "messaggio: La modifica della proprietà 'imageReference' non è consentita". Come si risolve il problema?
 
 È possibile che questo errore venga visualizzato in seguito alla modifica di tag nei nodi dell'agente all'interno del cluster AKS. La modifica e l'eliminazione di tag e altre proprietà delle risorse nel gruppo di risorse MC_* può causare risultati imprevisti. La modifica delle risorse nel gruppo MC_* del cluster del servizio Kubernetes di Azure è una violazione dell'obiettivo del livello di servizio (SLO).
 
-## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>Si verificano errori che il cluster non è in stato di errore e l'aggiornamento o ridimensionamento non funzioneranno finché non si è risolto
+## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>Si ricevono errori che il cluster è in stato di errore e l'aggiornamento o il ridimensionamento non funziona finché non viene risolto
 
-*Questo tipo di servizio di risoluzione dei problemi viene indirizzato da https://aka.ms/aks-cluster-failed*
+*Questa assistenza per la risoluzione dei problemi è diretta da https://aka.ms/aks-cluster-failed*
 
-Questo errore si verifica quando i cluster di entrano in uno stato non riuscito per diversi motivi. Attenersi alla procedura seguente per risolvere lo stato del cluster non riuscito prima di ritentare l'operazione non riuscita in precedenza:
+Questo errore si verifica quando i cluster entrano in uno stato di errore per diversi motivi. Attenersi alla procedura seguente per risolvere lo stato di errore del cluster prima di riprovare a eseguire l'operazione precedentemente non riuscita:
 
-1. Fino a quando il cluster si trova fuori `failed` stato `upgrade` e `scale` operazioni non riescono. Le risoluzioni e i problemi radice comuni includono:
-    * Scalandola **quota di calcolo sufficienti (CRP)** . Per risolvere, prima di tutto ridimensionare il cluster tornato a uno stato stabile obiettivo entro la quota. Quindi seguire queste [aumenta la seguente procedura per richiedere una quota di calcolo](../azure-supportability/resource-manager-core-quotas-request.md) prima di provare ad aumentare le prestazioni oltre nuovamente i limiti di quota iniziale.
-    * Ridimensionamento di un cluster con una rete avanzata e **le risorse della subnet insufficiente (rete)** . Per risolvere, prima di tutto ridimensionare il cluster tornato a uno stato stabile obiettivo entro la quota. Segui [aumenta la procedura seguente per richiedere una quota di risorse](../azure-resource-manager/resource-manager-quota-errors.md#solution) prima di provare ad aumentare le prestazioni oltre nuovamente i limiti di quota iniziale.
-2. Dopo avere risolta la causa principale dell'errore di aggiornamento, il cluster deve essere nello stato riuscito. Una volta verificato uno stato completato, ripetere l'operazione originale.
+1. Fino a quando il cluster non `failed` è in `upgrade` stato `scale` di stato e le operazioni non riusciranno. I problemi e le soluzioni principali comuni includono:
+    * Ridimensionamento con **quota di calcolo (CRP) insufficiente**. Per risolvere il cluster, ridimensionare prima di tutto il cluster fino a uno stato di obiettivo stabile entro la quota. Seguire quindi questa [procedura per richiedere un aumento della quota di calcolo](../azure-supportability/resource-manager-core-quotas-request.md) prima di riprovare a eseguire la scalabilità verticale oltre i limiti di quota iniziali.
+    * Ridimensionamento di un cluster con rete avanzata e risorse insufficienti per la **subnet (rete)** . Per risolvere il cluster, ridimensionare prima di tutto il cluster fino a uno stato di obiettivo stabile entro la quota. Seguire quindi [questa procedura per richiedere un aumento della quota di risorse](../azure-resource-manager/resource-manager-quota-errors.md#solution) prima di provare a eseguire la scalabilità verticale oltre i limiti iniziali della quota.
+2. Una volta risolta la cause sottostante dell'errore di aggiornamento, il cluster deve essere in uno stato di esito positivo. Una volta verificato uno stato di esito positivo, ripetere l'operazione originale.
 
-## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Si verificano errori durante il tentativo di eseguire l'aggiornamento o la scala che indicano il cluster è in corso attualmente in corso aggiornato o dispone di aggiornamento non riuscito
+## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Si sono verificati errori durante il tentativo di aggiornare o ridimensionare lo stato in corso di aggiornamento del cluster o l'aggiornamento non è riuscito
 
-*Questo tipo di servizio di risoluzione dei problemi viene indirizzato da https://aka.ms/aks-pending-upgrade*
+*Questa assistenza per la risoluzione dei problemi è diretta da https://aka.ms/aks-pending-upgrade*
 
-Le operazioni del cluster sono limitate quando si verificano operazioni di aggiornamento attive o è stato tentato un aggiornamento, ma successivamente non è riuscito. Per diagnosticare il problema eseguire `az aks show -g myResourceGroup -n myAKSCluster -o table` per recuperare informazioni dettagliate sullo stato nel cluster. In base al risultato:
+Le operazioni del cluster sono limitate quando si verificano operazioni di aggiornamento attive o se è stato eseguito un tentativo di aggiornamento, ma successivamente non riuscito. Per diagnosticare l'esecuzione `az aks show -g myResourceGroup -n myAKSCluster -o table` del problema per recuperare lo stato dettagliato del cluster. In base al risultato:
 
-* Se è attiva l'aggiornamento di cluster, attendere finché non termina l'operazione. Se la connessione riesce, ripetere l'operazione non riuscita in precedenza.
-* Se cluster ha esito negativo di aggiornamento, seguire i passaggi descritti in precedenza
+* Se il cluster sta aggiornando attivamente, attendere che l'operazione venga terminata. In caso di esito positivo, provare a eseguire di nuovo l'operazione precedentemente non riuscita.
+* Se il cluster non è stato aggiornato, attenersi alla procedura descritta in precedenza
 
-## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>È possibile spostare il cluster a un'altra sottoscrizione o la sottoscrizione con il cluster in un nuovo tenant?
+## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>È possibile spostare il cluster in una sottoscrizione o in una sottoscrizione diversa con il cluster in un nuovo tenant?
 
-Se sono stati spostati cluster servizio contenitore di AZURE a un'altra sottoscrizione o del cluster proprietario di sottoscrizione in un nuovo tenant, il cluster perderà la funzionalità a causa di diritti di identità del servizio e le assegnazioni di ruolo non confermata. **Servizio contenitore di AZURE non supporta cluster lo spostamento tra sottoscrizioni o i tenant** a causa di questo vincolo.
+Se il cluster AKS è stato spostato in una sottoscrizione diversa o nella sottoscrizione proprietaria del cluster a un nuovo tenant, il cluster perderà la funzionalità a causa della perdita di assegnazioni di ruolo e dei diritti di entità servizio. AKS non supporta lo stato di **trasferimento dei cluster tra sottoscrizioni o tenant** a causa del vincolo this.
 
-## <a name="im-receiving-errors-trying-to-use-features-that-require-virtual-machine-scale-sets"></a>Si verificano errori durante il tentativo di utilizzare funzionalità che richiedono set di scalabilità di macchine virtuali
+## <a name="im-receiving-errors-trying-to-use-features-that-require-virtual-machine-scale-sets"></a>Ricevo errori durante il tentativo di usare le funzionalità che richiedono set di scalabilità di macchine virtuali
 
-*Questo tipo di servizio di risoluzione dei problemi viene indirizzato dal aka.ms/aks-vmss-abilitazione*
+*Questa assistenza per la risoluzione dei problemi è diretta da aka.ms/aks-vmss-enablement*
 
-È possibile ricevere errori che indicano che il cluster AKS non è presente in un set di scalabilità di macchine virtuali, come nell'esempio seguente:
+È possibile che vengano visualizzati errori che indicano che il cluster AKS non si trova in un set di scalabilità di macchine virtuali, come nell'esempio seguente:
 
-**AgentPool 'agentpool' è impostata come abilitata la scalabilità automatica, ma non nel set di scalabilità di macchine virtuali**
+**AgentPool ' AgentPool ' ha impostato la scalabilità automatica come abilitato ma non nei set di scalabilità di macchine virtuali**
 
-Usare le funzionalità, ad esempio il ridimensionamento automatico del cluster o più nodi di pool, necessario creare i cluster servizio contenitore di AZURE che usano set di scalabilità di macchine virtuali. Se si prova a usare le funzionalità che dipendono da set di scalabilità di macchine virtuali e la destinazione è un cluster AKS scala regolare, macchina virtuale non vengono restituiti errori. Supporto di set di scalabilità di macchine virtuali è attualmente in anteprima nel servizio contenitore di AZURE.
+Per usare funzionalità come il ridimensionamento automatico del cluster o più pool di nodi, è necessario creare cluster AKS che usano i set di scalabilità di macchine virtuali. Gli errori vengono restituiti se si prova a usare funzionalità che dipendono dai set di scalabilità di macchine virtuali e si fa riferimento a un cluster AKS normale di un set di scalabilità di macchine virtuali. Il supporto per i set di scalabilità di macchine virtuali è attualmente disponibile in anteprima in AKS.
 
-Seguire le *prima di iniziare* passaggi nel documento appropriato per registrare correttamente per la scalabilità di macchine virtuali del set di funzionalità di anteprima e creare un cluster del servizio contenitore di AZURE:
+Seguire i passaggi *prima di iniziare* nel documento appropriato per registrarsi correttamente per la funzionalità Anteprima del set di scalabilità di macchine virtuali e creare un cluster AKS:
 
-* [Usare la scalabilità automatica di cluster](cluster-autoscaler.md)
+* [Usare il ridimensionamento automatico del cluster](cluster-autoscaler.md)
 * [Creare e usare più pool di nodi](use-multiple-node-pools.md)
  
-## <a name="what-naming-restrictions-are-enforced-for-aks-resources-and-parameters"></a>Le restrizioni di denominazione vengono applicati per i parametri e le risorse AKS?
+## <a name="what-naming-restrictions-are-enforced-for-aks-resources-and-parameters"></a>Quali restrizioni di denominazione sono applicate per le risorse e i parametri AKS?
 
-*Questo tipo di servizio di risoluzione dei problemi viene indirizzato dal aka.ms/aks--regole di denominazione*
+*Questa assistenza per la risoluzione dei problemi è diretta da aka.ms/aks-naming-rules*
 
-Restrizioni di denominazione vengono implementate dal servizio contenitore di AZURE e dalla piattaforma Azure. Se un nome di risorsa o un parametro si distacca da una di queste restrizioni, viene restituito un errore che chiede che è fornire un input diverso. Applicano le convenzioni di denominazione comuni seguenti:
+Le restrizioni di denominazione sono implementate sia dalla piattaforma Azure che da AKS. Se un nome di risorsa o un parametro interrompe una di queste restrizioni, viene restituito un errore in cui viene chiesto di fornire un input diverso. Si applicano le linee guida di denominazione comuni seguenti:
 
-* Il servizio contenitore di AZURE *MC _* nome gruppo di risorse combina nome gruppo di risorse e il nome di risorsa. La sintassi di autogenerato `MC_resourceGroupName_resourceName_AzureRegion` non deve essere maggiore di 80 caratteri. Se necessario, ridurre la lunghezza del nome del gruppo di risorse o il nome del cluster servizio contenitore di AZURE.
-* Il *dnsPrefix* deve iniziare e terminare con valori alfanumerici. I caratteri validi includono valori alfanumerici e trattini (-). Il *dnsPrefix* non possono contenere caratteri speciali, ad esempio un punto (.).
+* Il nome del gruppo di risorse *MC_* AKS combina il nome del gruppo di risorse e il nome della risorsa. La sintassi generata automaticamente di `MC_resourceGroupName_resourceName_AzureRegion` non deve essere maggiore di 80 caratteri. Se necessario, ridurre la lunghezza del nome del gruppo di risorse o del cluster AKS.
+* Il *dnsPrefix* deve iniziare e terminare con valori alfanumerici. I caratteri validi includono valori alfanumerici e trattini (-). Il *dnsPrefix* non può includere caratteri speciali, ad esempio un punto (.).
 
-## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Si verificano errori durante il tentativo di creare, aggiornare, scalare, eliminare o aggiornare il cluster, operazione non consentita perché un'altra operazione è in corso.
+## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Si ricevono errori durante il tentativo di creare, aggiornare, ridimensionare, eliminare o aggiornare il cluster. tale operazione non è consentita perché è in corso un'altra operazione.
 
-*Questo tipo di servizio di risoluzione dei problemi viene indirizzato dal aka.ms/aks-in sospeso-operazione*
+*Questa assistenza per la risoluzione dei problemi è diretta da aka.ms/aks-pending-operation*
 
-Le operazioni del cluster sono limitate quando un'operazione precedente è ancora in corso. Per recuperare uno stato dettagliato del cluster, usare il `az aks show -g myResourceGroup -n myAKSCluster -o table` comando. Usare il proprio gruppo di risorse e il nome del cluster servizio contenitore di AZURE in base alle esigenze.
+Le operazioni del cluster sono limitate quando è ancora in corso un'operazione precedente. Per recuperare uno stato dettagliato del cluster, usare il `az aks show -g myResourceGroup -n myAKSCluster -o table` comando. Usare il proprio gruppo di risorse e il nome del cluster AKS in base alle esigenze.
 
-Basata sull'output dello stato del cluster:
+In base all'output dello stato del cluster:
 
-* Se il cluster è diverso da qualsiasi stato di provisioning *Succeeded* oppure *Failed*, attendere finché l'operazione (*l'aggiornamento / l'aggiornamento / creazione / scala / eliminazione / migrazione*) termina. Al termine dell'operazione precedente, ripetere l'operazione di cluster più recente.
+* Se il cluster si trova in uno stato di provisioning  diverso da SUCCEEDED o *failed*, attendere che venga terminata l'operazione (*aggiornamento/aggiornamento/creazione/ridimensionamento/eliminazione/migrazione*). Al termine dell'operazione precedente, riprovare a eseguire l'operazione più recente del cluster.
 
-* Se il cluster dispone di un aggiornamento non riuscito, seguire la procedura descritta [sono la ricezione di errori che il cluster non è in stato di errore e l'aggiornamento o ridimensionamento non funzionerà fintanto che permane](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).
+* Se si verifica un errore di aggiornamento del cluster, attenersi alla procedura descritta [per la ricezione di errori nel caso in cui il cluster si trova in stato di errore e l'aggiornamento o il ridimensionamento non funzionerà fino a quando non sarà stato risolto](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).

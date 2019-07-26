@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 06/21/2019
 ms.author: juliako
-ms.openlocfilehash: 766208c01f27d2024025b7a202bc3724b4fc9fff
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 28b9c8f343437c20e277d2f3ba53767afa45a5c2
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311843"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501265"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Domande frequenti su servizi multimediali V3
 
@@ -110,28 +110,6 @@ I clienti spesso investono in una farm di server licenze nel proprio data center
 
 * Il servizio token di sicurezza deve rilasciare token che siano accettabili e verificabili dalla farm di server licenze. Ad esempio, i server licenze Widevine forniti da Axinom richiedono uno specifico token JWT contenente un elemento "entitlement message". Per rilasciare tale token JWT, è quindi necessario un servizio token di sicurezza. 
 * Non è più necessario configurare il servizio di distribuzione delle licenze in Servizi multimediali. È sufficiente fornire gli URL di acquisizione delle licenze (per PlayReady, Widevine e FairPlay) quando si configura ContentKeyPolicies.
-
-### <a name="what-if-i-want-to-use-a-custom-sts"></a>Come procedere per usare un servizio token di sicurezza personalizzato?
-
-È possibile che un cliente scelga di usare un servizio token di sicurezza personalizzato per fornire i token JWT. I motivi includono:
-
-* Il provider di identità usato dal cliente non supporta il servizio token di sicurezza. In questo caso, può essere opportuno usare un servizio token di sicurezza personalizzato.
-* Il cliente può avere bisogno di un controllo più flessibile o più rigido nell'integrazione del servizio token di sicurezza con il sistema di fatturazione sottoscrittore del cliente. Un operatore MVPD, ad esempio, può offrire più pacchetti sottoscrittore OTT: Premium, Basic, Sport e così via. L'operatore può associare le attestazioni in un token al pacchetto di un sottoscrittore in modo che siano disponibili solo i contenuti del pacchetto corretto. In questo caso, un servizio token di sicurezza personalizzato fornisce la flessibilità e il controllo necessari.
-
-Quando si usa un servizio token di sicurezza personalizzato, è necessario apportare due modifiche:
-
-* Quando si configura un servizio di distribuzione delle licenze per un asset, è necessario specificare la chiave di sicurezza usata per la verifica dal servizio token di sicurezza personalizzato invece della chiave corrente di Azure AD. Di seguito sono riportate altre informazioni. 
-* Quando viene generato un token JTW, viene specificata una chiave di sicurezza invece della chiave privata del certificato X509 corrente in Azure AD.
-
-Esistono due tipi di chiavi di sicurezza:
-
-* Chiave simmetrica: la stessa chiave viene usata per generare e verificare un token JWT.
-* Chiave asimmetrica: una coppia di chiavi pubblica-privata in un certificato X509 viene usata con una chiave privata per la crittografia/generazione di un token JWT e con la chiave pubblica per la verifica del token.
-
-> [!NOTE]
-> Se si usa .NET Framework/C# come piattaforma di sviluppo, il certificato X509 usato per la chiave di sicurezza asimmetrica deve avere una lunghezza della chiave pari almeno a 2048 bit. È un requisito della classe System.IdentityModel.Tokens.X509AsymmetricSecurityKey in .NET Framework. In caso contrario, viene generata un'eccezione simile alla seguente:
-> 
-> IDX10630: 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' per la firma non può essere inferiore a 2048 bit.
 
 ## <a name="media-services-v2-vs-v3"></a>Servizi multimediali v2 e v3 
 

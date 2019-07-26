@@ -12,14 +12,15 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 696b6b14b2a369e8b80ac615fc77fa7f48f51c57
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7f2145811338200b38e84766459844b4c83e5a80
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60474286"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382765"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Aggiungere manualmente un account all'app
+
 Se la fotocamera non è in grado di acquisire il codice a matrice, è possibile aggiungere manualmente le informazioni dell'account all'app Microsoft Authenticator per la verifica a due fattori. Questa opzione funziona per gli account aziendali o degli istituti di istruzione e per gli account non Microsoft.
 
 I codici forniti per gli account non fanno distinzione tra maiuscole e minuscole e non richiedono spazi quando aggiunti all'App Microsoft Authenticator.
@@ -30,7 +31,7 @@ I codici forniti per gli account non fanno distinzione tra maiuscole e minuscole
 ## <a name="add-your-work-or-school-account"></a>Aggiungere l'account aziendale o dell'istituto di istruzione
 
 1. Nel computer prendere nota del **Codice** e delle informazioni dell'**Url** sulla pagina **Configura app per dispositivi mobili**. Tenere aperta questa pagina per visualizzare il codice e l'URL.
-    
+
     ![Schermata contenente il codice a matrice](./media/user-help-auth-app-add-account-manual/auth-app-barcode.png)
 
 2. Aprire l'app Microsoft Authenticator, selezionare **Aggiungi account** dall'icona **Customize and control** (Personalizza e controlla) nell'angolo in alto a destra e quindi selezionare **Account aziendale o dell'istituto di istruzione**.
@@ -38,7 +39,7 @@ I codici forniti per gli account non fanno distinzione tra maiuscole e minuscole
 3. Selezionare **O IMMETTERE IL CODICE MANUALMENTE**.
 
     ![Schermata per la scansione di un codice a matrice](./media/user-help-auth-app-add-account-manual/auth-app-manual-code.png)
-   
+
 4. Immettere il **Codice** e l'**URL** del passaggio 1, quindi selezionare **Fine**.
 
     ![Schermata per l'immissione del codice e dell'URL](./media/user-help-auth-app-add-account-manual/auth-app-code-url.png)
@@ -78,6 +79,7 @@ I codici forniti per gli account non fanno distinzione tra maiuscole e minuscole
     >Per altre informazioni sulla verifica a due fattori e l'account di Facebook, vedere [Cos'è l'autenticazione a due fattori e come funziona?](https://www.facebook.com/help/148233965247823).
 
 ## <a name="add-your-amazon-account"></a>Aggiungere l'account Amazon
+
 È possibile aggiungere l'account Amazon attivando la verifica a due fattori e quindi aggiungendo l'account all'app.
 
 1. Nel computer selezionare **Non riesci a scansionare il codice a barre?** dalla pagina **Scegli come ricevere i codici** con il codice a matrice.
@@ -103,6 +105,6 @@ I codici forniti per gli account non fanno distinzione tra maiuscole e minuscole
 
 - Dopo aver aggiunto gli account all'app, è possibile accedere usando l'app Microsoft Authenticator nel dispositivo. Per altre informazioni, consultare [Accedere con l'app](user-help-auth-app-sign-in.md).
 
-- Se si verificano problemi durante il recupero del codice di verifica per l'account Microsoft personale, vedere la **risoluzione dei problemi di codice di verifica** sezione il [info di sicurezza di account Microsoft e verifica i codici](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) articolo.
+- Se si verificano problemi durante il recupero del codice di verifica per la account Microsoft personale, vedere la sezione **risoluzione dei problemi del codice di verifica** per la risoluzione dei problemi dell'articolo [account Microsoft informazioni di sicurezza & codici di verifica](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) .
 
 - Per i dispositivi che eseguono iOS, è anche possibile eseguire il backup nel cloud delle credenziali dell'account e delle relative impostazioni dell'app, ad esempio l'ordine degli account. Per altre informazioni, consultare [Eseguire il backup e il ripristino con l'app Microsoft Authenticator](user-help-auth-app-backup-recovery.md).

@@ -1,6 +1,6 @@
 ---
 title: Aggiornamento di API Ricerca video Bing da v5 a v7
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Identifica le parti dell'applicazione da aggiornare per usare la versione 7.
 services: cognitive-services
 author: swhite-msft
@@ -10,22 +10,22 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 32dc928147af8fbb3c84bdb76e50cee4fdabe17d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5dc4c870ae8dbe9f082456d738836aced1271732
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66386643"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500738"
 ---
 # <a name="video-search-api-upgrade-guide"></a>Guida all'aggiornamento dell'API Ricerca video
 
 Questa guida all'aggiornamento indica le differenze tra la versione 5 e la versione 7 dell'API Ricerca video Bing. Usare questa guida per identificare le parti dell'applicazione da aggiornare per usare la versione 7.
 
-## <a name="breaking-changes"></a>Modifiche di rilievo
+## <a name="breaking-changes"></a>Modifiche che causano un'interruzione
 
 ### <a name="endpoints"></a>Endpoint
 
-- Il numero di versione dell'endpoint è stato modificato da v5 a v7. Ad esempio: `https://api.cognitive.microsoft.com/bing/v7.0/videos/search`.
+- Il numero di versione dell'endpoint è stato modificato da v5 a v7. Ad esempio `https://api.cognitive.microsoft.com/bing/v7.0/videos/search`.
 
 ### <a name="error-response-objects-and-error-codes"></a>Oggetti di risposta di errore e codici di errore
 

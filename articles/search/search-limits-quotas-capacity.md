@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b6940be7f64aa9ae16258fa936d197e2715235ab
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 35beb55d7326b954a568a377b73696fe598742c5
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485407"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348308"
 ---
 # <a name="service-limits-in-azure-search"></a>Limiti dei servizi in Ricerca di Azure
-I limiti massimi per archiviazione, carichi di lavoro e quantità di indici, documenti e altri oggetti variano a seconda che si [ricerca di Azure](search-create-service-portal.md) alla **gratuito**, **base**,  **Standard**, oppure **ottimizzate per l'archiviazione** piani tariffari.
+I limiti massimi per archiviazione, carichi di lavoro e quantità di indici, documenti e altri oggetti variano a seconda che venga effettuato il provisioning di [ricerca di Azure](search-create-service-portal.md) in base ai piani tariffari **gratuiti**, **Basic**, **standard**o ottimizzati per l' **archiviazione** .
 
 + **gratuito** è un servizio condiviso multi-tenant fornito con la sottoscrizione di Azure.
 
@@ -26,10 +26,10 @@ I limiti massimi per archiviazione, carichi di lavoro e quantità di indici, doc
 
 + Il piano **Standard** prevede computer dedicati con maggiore capacità di elaborazione e archiviazione a ogni livello. Il piano Standard è disponibile in quattro livelli: S1, S2, S3 ed S3 HD.
 
-+ **Archiviazione ottimizzata** prevede computer dedicati con più spazio di archiviazione totale, della larghezza di banda di archiviazione e memoria rispetto a quella **Standard**. Con ottimizzazione per la memoria è disponibile in due livelli: L1 e L2
++ L' **archiviazione ottimizzata** viene eseguita su computer dedicati con maggiore spazio di archiviazione totale, larghezza di banda di archiviazione e memoria superiore a quella **standard**. L'archiviazione ottimizzata è in due livelli: L1 e L2
 
 > [!NOTE]
-> Dal 1 ° luglio, tutti i livelli sono disponibili a livello generale, incluso il livello di ottimizzazione dell'archiviazione. Tutti i prezzi sono reperibili nella [dettagli prezzi-](https://azure.microsoft.com/pricing/details/search/) pagina.
+> A partire dal 1 ° luglio, tutti i livelli sono disponibili a livello generale, incluso il livello ottimizzato per l'archiviazione. Tutti i prezzi sono disponibili nella pagina [Dettagli prezzi](https://azure.microsoft.com/pricing/details/search/) .
 
   S3 Alta densità (S3 HD) è progettato per carichi di lavoro specifici: [multi-tenancy](search-modeling-multitenant-saas-applications.md) e grandi quantità di indici di dimensioni ridotte (un milione di documenti per ogni indice, tremila indici per ogni servizio). Questo livello non contiene la [funzionalità indicizzatore](search-indexer-overview.md). In S3 HD, l'inserimento dati deve sfruttare l'approccio push, usando le chiamate API per eseguire il push dei dati dall'origine all'indice. 
 
@@ -47,18 +47,18 @@ I limiti massimi per archiviazione, carichi di lavoro e quantità di indici, doc
 
 ## <a name="index-limits"></a>Limiti per gli indici
 
-| Resource | Gratuito | Basic&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+| Risorsa | Gratuito | Basic&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | Numero massimo di indici |3 |5 o 15 |50 |200 |200 |1000 per partizione o 3000 per servizio |10 |10 |
-| Numero massimo di campi semplice per indice |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
-| Campi della raccolta complessa massima per ogni indice |40 |40 |40 |40 |40 |40 |40 |40 |
-| Numero massimo di elementi in tutte le raccolte complesse per ciascun documento |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
+| Numero massimo di campi semplici per indice |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
+| Numero massimo di campi di raccolta complessi per indice |40 |40 |40 |40 |40 |40 |40 |40 |
+| Numero massimo di elementi in tutte le raccolte complesse per documento |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
 | Profondità massima dei campi complessi |10 |10 |10 |10 |10 |10 |10 |10 |
 | Numero massimo di [suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggesters) per indice |1 |1 |1 |1 |1 |1 |1 |1 |
 | Numero massimo di [profili di punteggio](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per indice |100 |100 |100 |100 |100 |100 |100 |100 |
 | Numero massimo di funzioni per profilo |8 |8 |8 |8 |8 |8 |8 |8 |
 
-<sup>1</sup> servizi basic creati prima di dicembre 2017 hanno limiti inferiori (5 invece 15) sugli indici. Il livello Basic è l'unico SKU con un limite inferiore a 100 campi per indice.
+<sup>1</sup> i servizi di base creati prima del 2017 dicembre hanno limiti inferiori (5 anziché 15) sugli indici. Il livello Basic è l'unico SKU con un limite inferiore a 100 campi per indice.
 
 <a name="document-limits"></a>
 
@@ -102,24 +102,24 @@ Per limitare la dimensione del documento, è necessario escludere dalla richiest
 
 ## <a name="indexer-limits"></a>Limiti dell'indicizzatore
 
-Numero massimo di occorrenze esecuzione esistenza per fornire il saldo e stabilità per il servizio nel suo complesso, ma più grandi set di dati potrebbe richiedere tempi più indicizzazione maggiore di quello massimo consentito. Se un processo di indicizzazione non può essere completato nel tempo massimo consentito, provare a eseguirlo in una pianificazione. L'utilità di pianificazione tiene traccia dello stato di indicizzazione. Se un processo di indicizzazione pianificato viene interrotto per qualsiasi motivo, alla successiva esecuzione pianificata l'indicizzatore può riprendere dall'ultima interruzione.
+Sono disponibili tempi di esecuzione massimi per fornire bilanciamento e stabilità al servizio nel suo complesso, ma i set di dati di dimensioni maggiori potrebbero richiedere più tempo di indicizzazione rispetto al massimo consentito. Se un processo di indicizzazione non può essere completato nel tempo massimo consentito, provare a eseguirlo in una pianificazione. L'utilità di pianificazione tiene traccia dello stato di indicizzazione. Se un processo di indicizzazione pianificato viene interrotto per qualsiasi motivo, alla successiva esecuzione pianificata l'indicizzatore può riprendere dall'ultima interruzione.
 
 
-| Resource | Gratuito&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
+| Risorsa | Gratuito&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
 | Numero massimo di indicizzatori |3 |5 o 15|50 |200 |200 |N/D |10 |10 |
 | Numero massimo di origini dati |3 |5 o 15 |50 |200 |200 |N/D |10 |10 |
 | Numero massimo di set di competenze <sup>4</sup> |3 |5 o 15 |50 |200 |200 |N/D |10 |10 |
 | Carico di indicizzazione massimo per chiamata |10.000 documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |N/D |Nessun limite |Nessun limite |
-| Pianificazione minimo | 5 minuti |5 minuti |5 minuti |5 minuti |5 minuti |5 minuti |5 minuti | 5 minuti |
+| Pianificazione minima | 5 minuti |5 minuti |5 minuti |5 minuti |5 minuti |5 minuti |5 minuti | 5 minuti |
 | Tempo massimo di esecuzione <sup>5</sup> | 1-3 minuti |24 ore |24 ore |24 ore |24 ore |N/D  |24 ore |24 ore |
 | Tempo massimo di esecuzione per set di competenze di ricerca cognitiva o indicizzazione BLOB con analisi delle immagini <sup>5</sup> | 3-10 minuti |2 ore |2 ore |2 ore |2 ore |N/D  |2 ore |2 ore |
 | Indicizzatore BLOB: dimensioni massime per un BLOB, MB |16 |16 |128 |256 |256 |N/D  |256 |256 |
-| Indicizzatore BLOB: numero massimo di caratteri di contenuto estratti da un BLOB |32.000 |64.000 |4&nbsp;milione |4&nbsp;milione |4&nbsp;milione |N/D |4&nbsp;milione |4&nbsp;milione |
+| Indicizzatore BLOB: numero massimo di caratteri di contenuto estratti da un BLOB |32.000 |64.000 |4&nbsp;milioni |4&nbsp;milioni |4&nbsp;milioni |N/D |4&nbsp;milioni |4&nbsp;milioni |
 
-<sup>1</sup> I servizi del livello Gratuito hanno un tempo massimo di esecuzione degli indicizzatori di 3 minuti per le origini BLOB e di 1 minuto per tutte le altre origini dati. Per l'intelligenza artificiale di indicizzazione che effettua chiamate in servizi cognitivi, servizi gratuiti sono limitati a 20 transazioni gratuite al giorno, in cui una transazione viene definita come un documento in cui vengano passate correttamente attraverso la pipeline enrichment.
+<sup>1</sup> I servizi del livello Gratuito hanno un tempo massimo di esecuzione degli indicizzatori di 3 minuti per le origini BLOB e di 1 minuto per tutte le altre origini dati. Per l'indicizzazione di intelligenza artificiale che effettua chiamate in Servizi cognitivi, i servizi gratuiti sono limitati a 20 transazioni gratuite al giorno, in cui una transazione viene definita come documento che passa correttamente attraverso la pipeline di arricchimento.
 
-<sup>2</sup> servizi basic creati prima di dicembre 2017 hanno limiti inferiori (5 invece 15) sugli indicizzatori, origini dati e competenze.
+<sup>2</sup> i servizi Basic creati prima del 2017 dicembre hanno limiti inferiori (5 anziché 15) per gli indicizzatori, le origini dati e skillsets.
 
 <sup>3</sup> I servizi del livello S3 HD non includono il supporto per l'indicizzatore.
 
@@ -133,13 +133,13 @@ Le stime di query al secondo devono essere sviluppate in modo indipendente da og
 
 Le stime sono più prevedibili se vengono calcolate su servizi in esecuzione su risorse dedicate (livelli Basic e Standard). In questo caso, infatti, è possibile stimare in modo più preciso il numero di query al secondo, poiché si ha il controllo di un numero maggiore di parametri. Per informazioni su come eseguire la stima, vedere [Considerazioni sulle prestazioni e sull'ottimizzazione di Ricerca di Azure](search-performance-optimization.md).
 
-Per i livelli di ottimizzazione dell'archiviazione, è possibile aspettarsi una velocità effettiva di query inferiore e una latenza maggiore rispetto a livelli Standard.  La metodologia per la stima delle prestazioni delle query che si verifichi è quello utilizzato per i livelli Standard.
+Per i livelli ottimizzati per l'archiviazione è necessario prevedere una velocità effettiva delle query inferiore e una latenza superiore rispetto ai livelli standard.  La metodologia per stimare le prestazioni delle query che si verificheranno è identica a quella dei livelli standard.
 
 ## <a name="data-limits-cognitive-search"></a>Limiti dei dati (ricerca cognitiva)
 
-Una [pipeline di ricerca cognitiva](cognitive-search-concept-intro.md) che effettua chiamate a una risorsa di Analisi del testo per il [riconoscimento di entità](cognitive-search-skill-entity-recognition.md), l'[estrazione di frasi chiave](cognitive-search-skill-keyphrases.md), l'[analisi della valutazione ](cognitive-search-skill-sentiment.md) e il [rilevamento della lingua](cognitive-search-skill-language-detection.md) è soggetta a limiti dei dati. Le dimensioni massime di un record devono essere di 50.000 caratteri in base alla misurazione di `String.Length`. Se è necessario suddividere i dati prima di inviarli all'analizzatore di valutazione, usare la [competenza cognitiva di divisione del testo](cognitive-search-skill-textsplit.md).
+Una [pipeline di ricerca cognitiva](cognitive-search-concept-intro.md) che effettua chiamate a una risorsa di Analisi del testo per il [riconoscimento di entità](cognitive-search-skill-entity-recognition.md), l'[estrazione di frasi chiave](cognitive-search-skill-keyphrases.md), l'[analisi della valutazione ](cognitive-search-skill-sentiment.md) e il [rilevamento della lingua](cognitive-search-skill-language-detection.md) è soggetta a limiti dei dati. La dimensione massima di un record deve essere di 50.000 caratteri misurata [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)da. Se è necessario suddividere i dati prima di inviarli all'analizzatore di valutazione, usare la [competenza cognitiva di divisione del testo](cognitive-search-skill-textsplit.md).
 
-## <a name="api-request-limits"></a>Limiti delle richieste di API
+## <a name="api-request-limits"></a>Limiti delle richieste API
 * 16 MB al massimo per <sup>1</sup> richiesta
 * 8 KB al massimo per la lunghezza dell'URL
 * 1000 documenti al massimo per ogni batch di carichi, unioni o eliminazioni di indice
@@ -152,8 +152,8 @@ Una [pipeline di ricerca cognitiva](cognitive-search-concept-intro.md) che effet
 * 1000 documenti al massimo restituiti per pagina di risultati della ricerca
 * 100 suggerimenti al massimo restituiti per richiesta di API di suggerimento
 
-## <a name="api-key-limits"></a>Limiti chiave API
-Chiavi API vengono usate per l'autenticazione del servizio. Sono disponibili due tipi. Le chiavi amministratore, specificate nell'intestazione della richiesta, consentono l'accesso completo in lettura e scrittura al servizio. Le chiavi di query sono di sola lettura, sono specificate nell'URL e in genere sono distribuite ad applicazioni client.
+## <a name="api-key-limits"></a>Limiti delle chiavi API
+Le chiavi API vengono usate per l'autenticazione del servizio. Sono disponibili due tipi. Le chiavi amministratore, specificate nell'intestazione della richiesta, consentono l'accesso completo in lettura e scrittura al servizio. Le chiavi di query sono di sola lettura, sono specificate nell'URL e in genere sono distribuite ad applicazioni client.
 
 * 2 chiavi di amministrazione al massimo per ogni servizio
 * 50 chiavi di query al massimo per ogni servizio

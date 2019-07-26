@@ -1,5 +1,5 @@
 ---
-title: Proteggere i contenuti con la crittografia dinamica di servizi multimediali-Azure | Microsoft Docs
+title: Proteggere i contenuti usando la crittografia dinamica di servizi multimediali-Azure | Microsoft Docs
 description: Questo articolo offre una panoramica della protezione dei contenuti con la crittografia dinamica. Vengono inoltre illustrati i protocolli di streaming e i tipi di crittografia.
 services: media-services
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 07/17/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 5d31e4a523fdedf9907e33c70638f07a08461ed1
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 174184993e40b60dc89022d360f0c09fb31bc60b
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310308"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501277"
 ---
-# <a name="content-protection-with-dynamic-encryption"></a>Protezione del contenuto con la crittografia dinamica
+# <a name="protect-your-content-by-using-media-services-dynamic-encryption"></a>Proteggere i contenuti usando la crittografia dinamica di servizi multimediali
 
-È possibile usare Servizi multimediali di Azure per proteggere i file multimediali dal momento in cui escono dal computer fino alle fasi di archiviazione, elaborazione e recapito. Con Servizi multimediali è possibile distribuire contenuti live e on demand crittografati dinamicamente con AES-128 (Advanced Encryption Standard) o con uno dei principali sistemi DRM (Digital Rights Management): Microsoft PlayReady, Google Widevine e Apple FairPlay. Servizi multimediali offre anche un servizio per la distribuzione di chiavi AES e licenze DRM (PlayReady, Widevine e FairPlay) ai client autorizzati. 
+È possibile usare servizi multimediali di Azure per proteggere i file multimediali dal momento in cui si lascia il computer attraverso archiviazione, elaborazione e recapito. Con Servizi multimediali è possibile distribuire contenuti live e on demand crittografati dinamicamente con AES-128 (Advanced Encryption Standard) o con uno dei principali sistemi DRM (Digital Rights Management): Microsoft PlayReady, Google Widevine e Apple FairPlay. Servizi multimediali offre anche un servizio per la distribuzione di chiavi AES e licenze DRM (PlayReady, Widevine e FairPlay) ai client autorizzati.  
 
 In servizi multimediali V3, una chiave simmetrica è associata a un localizzatore di streaming (vedere [questo esempio](protect-with-aes128.md)). Se si usa il servizio di distribuzione delle chiavi di servizi multimediali, è possibile consentire a servizi multimediali di Azure di generare automaticamente la chiave simmetrica. È necessario generare la chiave simmetrica se si usa il servizio di distribuzione delle chiavi o se è necessario gestire uno scenario a disponibilità elevata in cui è necessario avere la stessa chiave simmetrica in due data center.
 
@@ -31,75 +31,89 @@ Quando un flusso viene richiesto da un lettore, Servizi multimediali usa la chia
 
 È possibile usare l'API REST o una libreria client di Servizi multimediali per configurare i criteri di autorizzazione e autenticazione per le licenze e le chiavi.
 
-L'immagine seguente illustra il flusso di lavoro di protezione dei contenuti di Servizi multimediali: 
+La figura seguente illustra il flusso di lavoro per la protezione del contenuto di servizi multimediali:
 
-![Proteggere il contenuto](./media/content-protection/content-protection.svg)
+![Flusso di lavoro per la protezione del contenuto di servizi multimediali](./media/content-protection/content-protection.svg)
+  
+&#42;*La crittografia dinamica supporta la chiave non crittografata AES-128, CBCS e Cenc. Per informazioni dettagliate, vedere la [matrice di supporto](#streaming-protocols-and-encryption-types).*
 
-&#42; *la crittografia dinamica supporta AES-128 "con chiave non crittografata", CBCS e CENC. Per altre informazioni, vedere la matrice del supporto [qui](#streaming-protocols-and-encryption-types).*
-
-Questo articolo usa una terminologia e illustra concetti importanti per comprendere la protezione dei contenuti con Servizi multimediali.
+Questo articolo illustra i concetti e la terminologia che consentono di comprendere la protezione del contenuto con servizi multimediali.
 
 ## <a name="main-components-of-a-content-protection-system"></a>Componenti principali di un sistema di protezione del contenuto
 
-Per completare la progettazione del sistema o dell'applicazione con "protezione del contenuto", è necessario comprendere a fondo l'ambito del lavoro richiesto. L'elenco seguente offre una panoramica di tre parti che è necessario implementare. 
-
-1. Codice di Servizi multimediali di Azure
-  
-   L'esempio [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) Mostra come implementare un sistema con DRM multiplo con servizi multimediali v3 usando .NET. Viene inoltre illustrato come utilizzare il servizio di distribuzione di licenze/chiavi di servizi multimediali. È possibile crittografare ogni asset con più tipi di crittografia (AES-128, PlayReady, Widevine, FairPlay). Per informazioni su come combinarli efficacemente, vedere [Streaming protocols and encryption types](#streaming-protocols-and-encryption-types) (Protocolli di streaming e tipi di crittografia).
-  
-   L'esempio illustra come:
-
-   1. Creare e configurare [criteri della chiave](content-key-policy-concept.md)simmetrica. È possibile creare un **criterio della chiave** simmetrica per configurare il modo in cui la chiave simmetrica (che fornisce l'accesso sicuro agli asset) viene fornita ai client finali.    
-
-      * Definire l'autorizzazione di recapito di licenza, che specifica la logica del controllo dell'autorizzazione in base ad attestazioni nel token JWT.
-      * Configurare le licenze [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md)e/o [Fairplay](fairplay-license-overview.md) . I modelli consentono di configurare diritti e autorizzazioni per ognuno dei Digital Rights Management utilizzati.
-
-        ```
-        ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
-        ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
-        ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
-        ```
-   2. Creare un [localizzatore di streaming](streaming-locators-concept.md) configurato per lo streaming dell'asset crittografato. 
-  
-      Il **localizzatore di streaming** deve essere associato a un [criterio di streaming](streaming-policy-concept.md). Nell'esempio, si imposta StreamingLocator. StreamingPolicyName sul criterio "Predefined_MultiDrmCencStreaming". Vengono applicate le crittografie PlayReady e Widevine, la chiave viene recapitata al client di riproduzione in base alle licenze DRM configurate. Se si vuole anche crittografare il flusso con CBCS (FairPlay), usare "Predefined_MultiDrmStreaming".
-      
-      Il localizzatore di streaming è associato anche ai **criteri della chiave** simmetrica definiti.
-    
-   3. Creare un token di test.
-
-      Il metodo **GetTokenAsync** illustra come creare un token di test.
-   4. Compilare l'URL di streaming.
-
-      Il metodo **GetDASHStreamingUrlAsync** illustra come compilare l'URL di streaming. In questo caso, l'URL esegue lo streaming del contenuto **DASH**.
-
-2. Lettore con un client DRM o AES. Un'app lettore video basata su un SDK per lettori, nativa o basata su browser, deve soddisfare i requisiti seguenti:
-   * L'SDK per lettori supporta i client DRM necessari
-   * L'SDK per lettori supporta i protocolli di streaming necessari: Smooth, DASH e/o HLS
-   * L'SDK per lettori deve essere in grado di gestire il passaggio di un token JWT nella richiesta di acquisizione della licenza
-  
-     È possibile creare un lettore usando l'[API di Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/). Usare l'[API ProtectionInfo di Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/) per specificare la tecnologia DRM da usare in varie piattaforme DRM.
-
-     Per testare il contenuto crittografato con AES o CENC (Widevine e/o PlayReady), è possibile usare [Azure Media Player](https://aka.ms/azuremediaplayer). Assicurarsi di fare clic su "Opzioni avanzate" e controllare le opzioni d crittografia.
-
-     Se si vuole testare il contenuto crittografato di FairPlay, usare [questo lettore di test](https://aka.ms/amtest). Il lettore supporta Widevine, PlayReady e DRM FairPlay oltre alla crittografia AES-128 a chiave non crittografata. 
-    
-     È necessario scegliere il browser appropriato per testare i vari DRM: Chrome, Opera o Firefox per Widevine, Microsoft Edge o Internet Explorer 11 per PlayReady, Safari su macOS per FairPlay.
-
-3. Secure Token Service (STS) che rilascia JSON Web Token (JWT) come token di accesso per l'accesso alle risorse back-end. È possibile usare i servizi di distribuzione di licenze di AMS come risorsa di back-end. Un STS deve definire gli elementi seguenti:
-
-   * Autorità di certificazione e destinatari o ambito
-   * Attestazioni, che dipendono dai requisiti aziendali di protezione del contenuto
-   * Verifica simmetrica o asimmetrica per la verifica della firma
-   * Supporto del rollover della chiave, se necessario
-
-     È possibile usare [questo strumento del ](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) per testare il servizio token di sicurezza, che supporta tutti e 3 i tipi di chiave di verifica: simmetrica, asimmetrica o Azure AD con rollover della chiave. 
+Per completare correttamente il sistema di protezione del contenuto, è necessario comprendere completamente l'ambito del lavoro richiesto. Le sezioni seguenti forniscono una panoramica di tre parti che è necessario implementare. 
 
 > [!NOTE]
-> È altamente consigliabile concentrarsi ed eseguire un test completo su ogni parte, come descritto in precedenza, prima di procedere alla parte successiva. Per testare il sistema di "protezione del contenuto", usare gli strumenti specificati nell'elenco precedente.  
+> Si consiglia vivamente di concentrarsi e testare completamente ogni parte delle sezioni seguenti prima di passare alla parte successiva. Per testare il sistema di protezione del contenuto, usare gli strumenti specificati nelle sezioni.
+
+### <a name="media-services-code"></a>Codice di servizi multimediali
+  
+L' [esempio DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) Mostra come implementare un sistema con DRM multiplo con servizi multimediali v3 usando .NET. Viene inoltre illustrato come utilizzare il servizio di distribuzione di licenze/chiavi di servizi multimediali.   
+  
+È possibile crittografare ogni asset con più tipi di crittografia (AES-128, PlayReady, Widevine, FairPlay). Per capire cosa è sensato combinare, vedere [protocolli di streaming e tipi di crittografia](#streaming-protocols-and-encryption-types).
+
+L'esempio illustra come:
+
+1. Creare e configurare un [criterio della chiave](content-key-policy-concept.md)simmetrica.    
+
+   È possibile creare un criterio della chiave simmetrica per configurare la modalità di distribuzione della chiave simmetrica, che fornisce l'accesso sicuro agli asset, ai client finali:  
+ 
+   * Definire l'autorizzazione per la distribuzione delle licenze. Specificare la logica del controllo dell'autorizzazione in base alle attestazioni nel token Web JSON (JWT).
+   * Configurare le licenze [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md)e/o [Fairplay](fairplay-license-overview.md) . I modelli consentono di configurare i diritti e le autorizzazioni per ogni DRM.
+
+     ```
+     ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
+     ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
+     ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
+     ```
+2. Creare un [localizzatore di streaming](streaming-locators-concept.md) configurato per lo streaming dell'asset crittografato. 
+  
+   Il localizzatore di streaming deve essere associato a un [criterio di streaming](streaming-policy-concept.md). Nell'esempio viene impostato `StreamingLocator.StreamingPolicyName` il criterio "Predefined_MultiDrmCencStreaming". 
+      
+   Verranno applicate le crittografie PlayReady e Widevine e la chiave verrà recapitata al client di riproduzione in base alle licenze DRM configurate. Se si vuole anche crittografare il flusso con CBCS (FairPlay), usare il criterio "Predefined_MultiDrmStreaming".
+
+   Il localizzatore di streaming è associato anche ai criteri della chiave simmetrica definiti.
+3. Creare un token di test.
+
+   Il `GetTokenAsync` metodo Mostra come creare un token di test.
+4. Compilare l'URL di streaming.
+
+   Il `GetDASHStreamingUrlAsync` metodo Mostra come compilare l'URL di streaming. In questo caso, l'URL trasmette il contenuto del TRATTIno.
+
+### <a name="player-with-an-aes-or-drm-client"></a>Lettore con un client AES o DRM 
+
+Un'app lettore video basata su un SDK per lettori, nativa o basata su browser, deve soddisfare i requisiti seguenti:
+
+* Player SDK supporta i client DRM necessari.
+* L'SDK per lettori supporta i protocolli di streaming necessari: Smooth, DASH e/o HLS.
+* Il lettore SDK può gestire il passaggio di un token JWT in una richiesta di acquisizione della licenza.
+
+È possibile creare un lettore usando l'[API di Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/). Usare l'[API ProtectionInfo di Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/) per specificare la tecnologia DRM da usare in varie piattaforme DRM.
+
+Per testare il contenuto crittografato con AES o CENC (Widevine e/o PlayReady), è possibile usare [Azure Media Player](https://aka.ms/azuremediaplayer). Assicurarsi di selezionare **Opzioni avanzate** e controllare le opzioni di crittografia.
+
+Se si vuole testare il contenuto crittografato di FairPlay, usare [questo lettore di test](https://aka.ms/amtest). Il lettore supporta Widevine, PlayReady e FairPlay DRM, insieme alla crittografia della chiave non crittografata AES-128. 
+
+Scegliere il browser giusto per testare diversi DRM:
+
+* Chrome, opera o Firefox per Widevine
+* Microsoft Edge o Internet Explorer 11 per PlayReady
+* Safari su macOS per FairPlay
+
+### <a name="security-token-service"></a>Servizio token di sicurezza
+
+Un servizio token di sicurezza (STS) rilascia JWT come token di accesso per l'accesso alle risorse back-end. È possibile usare il servizio di distribuzione di licenze/chiavi di servizi multimediali di Azure come risorsa back-end. Un STS deve definire gli elementi seguenti:
+
+* Autorità di certificazione e destinatari o ambito
+* Attestazioni, che dipendono dai requisiti aziendali di protezione del contenuto
+* Verifica simmetrica o asimmetrica per la verifica della firma
+* Supporto del rollover della chiave, se necessario
+
+È possibile utilizzare [questo strumento STS](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) per testare il servizio token di servizio. Supporta tutti e tre i tipi di chiavi di verifica: simmetrico, asimmetrico o Azure Active Directory (Azure AD) con rollover della chiave. 
 
 ## <a name="streaming-protocols-and-encryption-types"></a>Protocolli di streaming e tipi di crittografia
 
-È possibile usare Servizi multimediali per distribuire i contenuti crittografati dinamicamente con chiave non crittografata AES o con crittografia DRM mediante PlayReady, Widevine o FairPlay. Attualmente è possibile crittografare i formati HLS (HTTP Live Streaming), MPEG DASH e Smooth Streaming. Ogni protocollo supporta i metodi di crittografia seguenti:
+È possibile usare Servizi multimediali per distribuire i contenuti crittografati dinamicamente con chiave non crittografata AES o con crittografia DRM mediante PlayReady, Widevine o FairPlay. Attualmente è possibile crittografare i formati HLS (HTTP Live Streaming), MPEG DASH e Smooth Streaming. Ogni protocollo supporta i seguenti metodi di crittografia.
 
 ### <a name="hls"></a>HLS
 
@@ -115,9 +129,9 @@ Il protocollo HLS supporta i formati di contenitore e gli schemi di crittografia
 
 HLS/CMAF + FairPlay (incluso HEVC/H. 265) è supportato nei dispositivi seguenti:
 
-* iOS V11 o versione successiva 
+* iOS 11 o versione successiva 
 * iPhone 8 o versione successiva
-* MacOS High Sierra con CPU Intel 7th Gen
+* MacOS High Sierra con CPU Intel 7 Generation
 
 ### <a name="mpeg-dash"></a>MPEG-DASH
 
@@ -145,20 +159,25 @@ I browser comuni supportano i client DRM seguenti:
 |Browser|Crittografia|
 |---|---|
 |Chrome|Widevine|
-|Microsoft Edge, IE 11|PlayReady|
+|Microsoft Edge, Internet Explorer 11|PlayReady|
 |Firefox|Widevine|
 |Opera|Widevine|
 |Safari|FairPlay|
 
-## <a name="control-content-access"></a>Controllare l'accesso ai contenuti
+## <a name="controlling-content-access"></a>Controllo dell'accesso al contenuto
 
-È possibile controllare chi ha accesso ai propri contenuti configurando i criteri di chiave simmetrica. Servizi multimediali supporta più modalità di autenticazione degli utenti che richiedono le chiavi. È necessario configurare i criteri di chiave simmetrica. Il client (lettore) deve soddisfare i criteri prima che la chiave possa essere distribuita al client stesso. I criteri di chiave simmetrica possono avere restrizioni **open** o **token**. 
+È possibile controllare chi ha accesso ai propri contenuti configurando i criteri di chiave simmetrica. Servizi multimediali supporta più modalità di autenticazione degli utenti che richiedono le chiavi. È necessario configurare i criteri di chiave simmetrica. Il client (lettore) deve soddisfare i criteri prima che la chiave possa essere distribuita al client stesso. I criteri di chiave simmetrica possono avere restrizioni *open* o *token*. 
 
-Con i criteri di chiave simmetrica con restrizione token, la chiave simmetrica viene inviata solamente a un client che fornisca un token JSON Web (JWT) o un token Web semplice (SWT) valido nella richiesta di licenza/chiave. Questo token deve essere emesso da un servizio token di sicurezza. È possibile usare Azure Active Directory come servizio token di sicurezza oppure distribuire un servizio token di sicurezza personalizzato. Il servizio token di sicurezza deve essere configurato in modo da creare un token firmato con la chiave specificata e rilasciare le attestazioni specificate nella configurazione della restrizione token. Il servizio di distribuzione delle chiavi di Servizi multimediali restituisce al client la chiave o la licenza richiesta se il token è valido e le attestazioni del token corrispondono a quelle configurate per la chiave o la licenza.
+Quando si vuole rilasciare la licenza a chiunque senza autorizzazione, è possibile usare un criterio di chiave simmetrica con restrizioni aperte. Ad esempio, se i ricavi sono basati su Active Directory e non basati su sottoscrizioni.  
 
-Quando si configurano i criteri di restrizione del token, è necessario specificare i parametri primary verification key, issuer e audience. Il parametro primary verification key include la chiave usata per firmare il token. Il parametro issuer è il servizio token di sicurezza che rilascia il token. Il parametro audience (talvolta denominato scope) descrive l'ambito del token o la risorsa a cui il token autorizza l'accesso. Il servizio di distribuzione delle chiavi di Servizi multimediali verifica che i valori nel token corrispondano ai valori nel modello.
+Con i criteri della chiave simmetrica con restrizioni dei token, la chiave simmetrica viene inviata solo a un client che presenta un token JWT valido o un token Web semplice nella richiesta di licenza/chiave. Questo token deve essere emesso da un servizio token di servizio. 
 
-I clienti spesso usano un servizio token di servizio personalizzato per includere le attestazioni personalizzate nel token per scegliere tra ContentKeyPolicyOptions diversi con diversi parametri di licenza DRM (una licenza di sottoscrizione rispetto a una licenza di noleggio) o includere un'attestazione che rappresenta la chiave simmetrica Identificatore della chiave a cui il token concede l'accesso.
+È possibile utilizzare Azure AD come STS o distribuire un servizio token di servizio personalizzato. Il servizio token di sicurezza deve essere configurato in modo da creare un token firmato con la chiave specificata e rilasciare le attestazioni specificate nella configurazione della restrizione token. Il servizio di distribuzione di licenze/chiavi di servizi multimediali restituisce la licenza o la chiave richiesta al client se sono presenti entrambe le condizioni seguenti:
+
+* Il token è valido. 
+* Le attestazioni nel token corrispondono a quelle configurate per la licenza o la chiave.
+
+Quando si configurano i criteri di restrizione del token, è necessario specificare i parametri primary verification key, issuer e audience. Il parametro primary verification key include la chiave usata per firmare il token. Il parametro issuer è il servizio token di sicurezza che rilascia il token. Il gruppo di destinatari, talvolta denominato ambito, descrive lo scopo del token o la risorsa a cui il token autorizza l'accesso. Il servizio di distribuzione di licenze/chiavi di servizi multimediali verifica che i valori nel token corrispondano ai valori nel modello.
 
 ### <a name="token-replay-prevention"></a>Prevenzione della riproduzione del token
 
@@ -173,14 +192,43 @@ La funzionalità di *prevenzione della riproduzione dei token* consente ai clien
 * Questa funzionalità può essere usata per tutto il contenuto protetto esistente (è necessario modificare solo il token emesso).
 * Questa funzionalità funziona sia con JWT che con SWT.
 
+## <a name="using-a-custom-sts"></a>Uso di un servizio token di servizio personalizzato
+
+Un cliente può scegliere di usare un STS personalizzato per fornire i token. I motivi includono:
+
+* Il provider di identità usato dal cliente non supporta il servizio token di sicurezza. In questo caso, può essere opportuno usare un servizio token di sicurezza personalizzato.
+* Il cliente può avere bisogno di un controllo più flessibile o più rigido nell'integrazione del servizio token di sicurezza con il sistema di fatturazione sottoscrittore del cliente. Un operatore MVPD, ad esempio, può offrire più pacchetti sottoscrittore OTT: Premium, Basic, Sport e così via. L'operatore può associare le attestazioni in un token al pacchetto di un sottoscrittore in modo che siano disponibili solo i contenuti del pacchetto corretto. In questo caso, un servizio token di sicurezza personalizzato fornisce la flessibilità e il controllo necessari.
+* Per includere le attestazioni personalizzate nel token per scegliere tra ContentKeyPolicyOptions diversi con diversi parametri di licenza DRM (una licenza di sottoscrizione e una licenza di noleggio).
+* Per includere un'attestazione che rappresenta l'identificatore della chiave simmetrica della chiave a cui il token concede l'accesso.
+
+Quando si usa un servizio token di sicurezza personalizzato, è necessario apportare due modifiche:
+
+* Quando si configura un servizio di distribuzione delle licenze per un asset, è necessario specificare la chiave di sicurezza usata per la verifica dal servizio token di sicurezza personalizzato invece della chiave corrente di Azure AD.
+* Quando viene generato un token JTW, viene specificata una chiave di sicurezza invece della chiave privata del certificato X509 corrente in Azure AD.
+
+Esistono due tipi di chiavi di sicurezza:
+
+* Chiave simmetrica: la stessa chiave viene usata per generare e verificare un token JWT.
+* Chiave asimmetrica: una coppia di chiavi pubblica-privata in un certificato X509 viene usata con una chiave privata per la crittografia/generazione di un token JWT e con la chiave pubblica per la verifica del token.
+
+Se si usa .NET Framework/C# come piattaforma di sviluppo, il certificato X509 usato per la chiave di sicurezza asimmetrica deve avere una lunghezza della chiave pari almeno a 2048 bit. È un requisito della classe System.IdentityModel.Tokens.X509AsymmetricSecurityKey in .NET Framework. In caso contrario, viene generata un'eccezione simile alla seguente: IDX10630: 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' per la firma non può essere inferiore a 2048 bit.
+
 ## <a name="custom-key-and-license-acquisition-url"></a>URL di acquisizione di licenze e chiavi personalizzate
 
-Usare i modelli seguenti se si vuole specificare un servizio di distribuzione di chiavi e licenze diverso (non servizi multimediali). I due campi sostituibili nei modelli sono disponibili per poter condividere i criteri di streaming tra più asset anziché creare criteri di flusso per ogni asset. 
+Usare i modelli seguenti se si vuole specificare un servizio di distribuzione di licenze/chiavi diverso (non servizi multimediali). I due campi sostituibili nei modelli sono disponibili per poter condividere i criteri di streaming tra più asset anziché creare criteri di flusso per ogni asset. 
 
-* EnvelopeEncryption. CustomKeyAcquisitionUrlTemplate: modello per l'URL del servizio personalizzato che fornisce le chiavi ai giocatori degli utenti finali. Non richiesto quando si usa servizi multimediali di Azure per l'emissione di chiavi. Il modello supporta i token sostituibili che il servizio aggiornerà in fase di esecuzione con il valore specifico della richiesta.  I valori di token attualmente supportati sono {AlternativeMediaId}, che viene sostituito con il valore di StreamingLocatorId. AlternativeMediaId e {Idchiavesimmetrica}, che viene sostituito con il valore dell'identificatore della chiave richiesta.
-* StreamingPolicyPlayReadyConfiguration. CustomLicenseAcquisitionUrlTemplate: modello per l'URL del servizio personalizzato che fornisce le licenze ai giocatori degli utenti finali. Non richiesto quando si usa servizi multimediali di Azure per emettere licenze. Il modello supporta i token sostituibili che il servizio aggiornerà in fase di esecuzione con il valore specifico della richiesta. I valori di token attualmente supportati sono {AlternativeMediaId}, che viene sostituito con il valore di StreamingLocatorId. AlternativeMediaId e {Idchiavesimmetrica}, che viene sostituito con il valore dell'identificatore della chiave richiesta. 
-* StreamingPolicyWidevineConfiguration. CustomLicenseAcquisitionUrlTemplate: uguale a quello riportato sopra, solo per Widevine. 
-* StreamingPolicyFairPlayConfiguration. CustomLicenseAcquisitionUrlTemplate: uguale a quello riportato sopra, solo per FairPlay.  
+* `EnvelopeEncryption.CustomKeyAcquisitionUrlTemplate`: Modello per l'URL del servizio personalizzato che fornisce le chiavi ai giocatori degli utenti finali. Non è obbligatorio quando si usa servizi multimediali di Azure per l'emissione di chiavi. 
+
+   Il modello supporta i token sostituibili che il servizio aggiornerà in fase di esecuzione con il valore specifico della richiesta.  I valori dei token attualmente supportati sono:
+   * `{AlternativeMediaId}`, che viene sostituito con il valore di StreamingLocatorId. AlternativeMediaId.
+   * `{ContentKeyId}`, che viene sostituito con il valore dell'identificatore della chiave richiesta.
+* `StreamingPolicyPlayReadyConfiguration.CustomLicenseAcquisitionUrlTemplate`: Modello per l'URL del servizio personalizzato che fornisce le licenze ai giocatori degli utenti finali. Non è obbligatorio quando si usa servizi multimediali di Azure per emettere licenze. 
+
+   Il modello supporta i token sostituibili che il servizio aggiornerà in fase di esecuzione con il valore specifico della richiesta. I valori dei token attualmente supportati sono:  
+   * `{AlternativeMediaId}`, che viene sostituito con il valore di StreamingLocatorId. AlternativeMediaId.
+   * `{ContentKeyId}`, che viene sostituito con il valore dell'identificatore della chiave richiesta. 
+* `StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate`: Uguale al modello precedente, solo per Widevine. 
+* `StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate`: Uguale al modello precedente, solo per FairPlay.  
 
 Ad esempio:
 
@@ -188,15 +236,15 @@ Ad esempio:
 streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";
 ```
 
-Ha un valore della chiave richiesta `AlternativeMediaId` e può essere usato se si vuole eseguire il mapping della richiesta a un'entità sul lato. `ContentKeyId` Ad esempio, può `AlternativeMediaId` essere usato per semplificare la ricerca delle autorizzazioni.
+`ContentKeyId`ha un valore della chiave richiesta. È possibile usare `AlternativeMediaId` se si vuole eseguire il mapping della richiesta a un'entità da parte dell'utente. Ad esempio, `AlternativeMediaId` può essere usato per semplificare la ricerca delle autorizzazioni.
 
-Per esempi REST che usano URL di acquisizione di licenze e chiavi personalizzate, vedere [criteri di streaming-crea](https://docs.microsoft.com/rest/api/media/streamingpolicies/create)
+ Per esempi REST che usano URL di acquisizione di licenze/chiavi personalizzati, vedere [criteri di streaming-crea](https://docs.microsoft.com/rest/api/media/streamingpolicies/create).
 
 ## <a name="troubleshoot"></a>Risolvere problemi
 
 Se viene ricevuto l' `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` errore, assicurarsi di specificare i criteri di flusso appropriati.
 
-Se vengono visualizzati errori che terminano `_NOT_SPECIFIED_IN_URL`con, assicurarsi di specificare il formato di crittografia nell'URL. Ad esempio `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Vedere [protocolli di streaming e tipi di crittografia](#streaming-protocols-and-encryption-types).
+Se vengono visualizzati errori che terminano `_NOT_SPECIFIED_IN_URL`con, assicurarsi di specificare il formato di crittografia nell'URL. Un esempio è `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Vedere [protocolli di streaming e tipi di crittografia](#streaming-protocols-and-encryption-types).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
 

@@ -1,6 +1,6 @@
 ---
-title: Limiti di servizio monitoraggio di Azure | Microsoft Docs
-description: Elenca i limiti in aree diverse del monitoraggio di Azure.
+title: Limiti dei servizi di monitoraggio di Azure | Microsoft Docs
+description: Elenca i limiti in aree diverse di monitoraggio di Azure.
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/10/2019
 ms.author: bwren
-ms.openlocfilehash: be9d3a14d5b242ba8c331cdd1f4c558e7a080af5
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 0386700c238c213fd9cde3ca1b49e5e598d05bfd
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67297262"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405686"
 ---
-# <a name="azure-monitor-service-limits"></a>Limiti di servizio monitoraggio di Azure
+# <a name="azure-monitor-service-limits"></a>Limiti dei servizi di monitoraggio di Azure
 
-Questo articolo elenca i limiti in aree diverse del monitoraggio di Azure.
+Questo articolo elenca i limiti in diverse aree di monitoraggio di Azure.
 
 ## <a name="alerts"></a>Avvisi
 
@@ -30,6 +30,10 @@ Questo articolo elenca i limiti in aree diverse del monitoraggio di Azure.
 ## <a name="action-groups"></a>Gruppi di azioni
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-action-groups.md)]
+
+## <a name="log-queries-and-language"></a>Query e linguaggio di log
+
+[!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-log-queries.md)]
 
 ## <a name="log-analytics-workspaces"></a>Aree di lavoro di Log Analytics
 
@@ -42,5 +46,5 @@ Questo articolo elenca i limiti in aree diverse del monitoraggio di Azure.
 ## <a name="next-steps"></a>Fasi successive
 
 - [Prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/)
-- [Monitoraggio dell'utilizzo e costi stimati in Monitoraggio di Azure](platform/usage-estimated-costs.md)
-- [Gestire l'utilizzo e costi per Application Insights](app/pricing.md)
+- [Monitoraggio dell'utilizzo e dei costi stimati in monitoraggio di Azure](platform/usage-estimated-costs.md)
+- [Gestire l'utilizzo e i costi per Application Insights](app/pricing.md)

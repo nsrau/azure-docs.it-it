@@ -1,6 +1,6 @@
 ---
-title: Abilitare il Debugger di Snapshot per le app .NET in Azure Service Fabric, servizio Cloud e macchine virtuali | Microsoft Docs
-description: Abilitare il Debugger di Snapshot per le app .NET in Azure Service Fabric, servizio Cloud e macchine virtuali
+title: Abilitare Snapshot Debugger per le app .NET in Azure Service Fabric, servizio cloud e macchine virtuali | Microsoft Docs
+description: Abilitare Snapshot Debugger per le app .NET in Azure Service Fabric, servizio cloud e macchine virtuali
 services: application-insights
 documentationcenter: ''
 author: brahmnes
@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: bfung
-ms.openlocfilehash: 5ac1d1339cb8a26cc86157d4d2aa664517418095
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 5a6cf763ae16b55806df2acaf2e03fd8c13d1e76
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617804"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359283"
 ---
-# <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Abilitare il Debugger di Snapshot per le app .NET in Azure Service Fabric, servizio Cloud e macchine virtuali
+# <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Abilitare Snapshot Debugger per le app .NET in Azure Service Fabric, servizio cloud e macchine virtuali
 
-Se l'ASP.NET o ASP.NET core dell'esecuzione dell'applicazione nel servizio App di Azure, è altamente consigliabile [abilitare il Debugger di Snapshot tramite la pagina del portale di Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json). Tuttavia, se l'applicazione richiede una configurazione di Snapshot Debugger personalizzato o una versione di anteprima di .NET core, quindi questa istruzione deve essere seguita ***inoltre*** alle istruzioni per [abilitazione tramite pagina del portale di Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
+Se l'applicazione ASP.NET o ASP.NET Core viene eseguita nel servizio app Azure, è consigliabile [abilitare snapshot debugger tramite la pagina del portale di Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json). Tuttavia, se l'applicazione richiede una configurazione di Snapshot Debugger personalizzata o una versione di anteprima di .NET Core, questa istruzione deve essere seguita ***oltre*** alle istruzioni per l' [Abilitazione tramite il portale di Application Insights pagina](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
 
-Se l'applicazione viene eseguita in Azure Service Fabric, servizio Cloud, macchine virtuali o computer locali, usare le istruzioni seguenti. 
+Se l'applicazione è in esecuzione in Service Fabric di Azure, in un servizio cloud, in macchine virtuali o in computer locali, è necessario usare le istruzioni seguenti. 
     
 ## <a name="configure-snapshot-collection-for-aspnet-applications"></a>Configurare la raccolta di snapshot per le applicazioni ASP.NET
 
@@ -31,7 +31,7 @@ Se l'applicazione viene eseguita in Azure Service Fabric, servizio Cloud, macchi
 
 2. Includere il pacchetto NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) nell'app.
 
-3. Se necessario, personalizzare la configurazione del Debugger di Snapshot aggiunto alla [applicationinsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). La configurazione di Snapshot Debugger predefinita è pressoché vuota e tutte le impostazioni sono facoltative. Ecco un esempio che illustra una configurazione equivalente per la configurazione predefinita:
+3. Se necessario, personalizzare la configurazione Snapshot Debugger aggiunta a [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). La configurazione predefinita del Snapshot Debugger è prevalentemente vuota e tutte le impostazioni sono facoltative. Di seguito è riportato un esempio che mostra una configurazione equivalente alla configurazione predefinita:
 
     ```xml
     <TelemetryProcessors>
@@ -68,7 +68,7 @@ Se l'applicazione viene eseguita in Azure Service Fabric, servizio Cloud, macchi
 4. Gli snapshot vengono raccolti solo per le eccezioni segnalate ad Application Insights. In alcuni casi (ad esempio, versioni precedenti della piattaforma .NET), potrebbe essere necessario [configurare la raccolta di eccezioni](../../azure-monitor/app/asp-net-exceptions.md#exceptions) per visualizzare le eccezioni con gli snapshot nel portale.
 
 
-## <a name="configure-snapshot-collection-for-applications-using-aspnet-core-20-or-above"></a>Configurare la raccolta di snapshot per le applicazioni con ASP.NET Core 2.0 o versione successiva
+## <a name="configure-snapshot-collection-for-applications-using-aspnet-core-20-or-above"></a>Configurare la raccolta di snapshot per le applicazioni usando ASP.NET Core 2,0 o versione successiva
 
 1. [Abilitare Application Insights nell'app Web ASP.NET Core](../../azure-monitor/app/asp-net-core.md) se non è ancora stato fatto.
 
@@ -78,26 +78,18 @@ Se l'applicazione viene eseguita in Azure Service Fabric, servizio Cloud, macchi
 2. Includere il pacchetto NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) nell'app.
 
 3. Modificare la classe `Startup` dell'applicazione per aggiungere e configurare il processore di telemetria dell'agente di raccolta snapshot.
-    1. Se [snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet versione 1.3.5 del pacchetto o versioni successive viene utilizzato, quindi aggiungere quanto segue usando istruzioni `Startup.cs`.
+    1. Se viene usato [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) versione del pacchetto NuGet 1.3.5 o versione successiva, aggiungere le istruzioni using seguenti `Startup.cs`a.
 
        ```csharp
             using Microsoft.ApplicationInsights.SnapshotCollector;
        ```
 
-       Aggiungere il codice seguente alla fine del metodo ConfigureServices nella `Startup` classe `Startup.cs`.
+       Aggiungere quanto segue alla fine del metodo ConfigureServices nella `Startup` classe in. `Startup.cs`
 
        ```csharp
-            services.AddSnapshotCollector((configuration) =>
-            {
-                IConfigurationSection section = Configuration.GetSection(nameof(SnapshotCollectorConfiguration));
-                if (section.Value != null)
-                {
-                    section.Bind(configuration);
-                }
-            });
-
+            services.AddSnapshotCollector((configuration) => Configuration.Bind(nameof(SnapshotCollectorConfiguration), configuration));
        ```
-    2. Se [snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 1.3.4 di versione del pacchetto o di seguito viene usato, quindi aggiungere le seguenti istruzioni using riportate `Startup.cs`.
+    2. Se viene usato [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) versione del pacchetto NuGet 1.3.4 o di seguito, aggiungere le istruzioni using seguenti `Startup.cs`a.
 
        ```csharp
        using Microsoft.ApplicationInsights.SnapshotCollector;
@@ -143,7 +135,7 @@ Se l'applicazione viene eseguita in Azure Service Fabric, servizio Cloud, macchi
        }
        ```
 
-4. Se necessario, personalizzare la configurazione del Debugger di Snapshot tramite l'aggiunta di una sezione SnapshotCollectorConfiguration per appSettings. JSON. Tutte le impostazioni nella configurazione del Debugger di Snapshot sono facoltative. Ecco un esempio che illustra una configurazione equivalente per la configurazione predefinita:
+4. Se necessario, personalizzare la configurazione del Snapshot Debugger aggiungendo una sezione SnapshotCollectorConfiguration a appSettings. JSON. Tutte le impostazioni nella configurazione del Snapshot Debugger sono facoltative. Di seguito è riportato un esempio che mostra una configurazione equivalente alla configurazione predefinita:
 
    ```json
    {
@@ -191,6 +183,6 @@ Se l'applicazione viene eseguita in Azure Service Fabric, servizio Cloud, macchi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Generare traffico verso l'applicazione che può generare un'eccezione. Attendere quindi 10-15 minuti per gli snapshot da inviare all'istanza di Application Insights.
-- Visualizzare [snapshot](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) nel portale di Azure.
-- Per informazioni sulla risoluzione dei problemi del Debugger di Snapshot, vedere [risoluzione dei problemi di Snapshot Debugger](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).
+- Generare il traffico all'applicazione che può attivare un'eccezione. Attendere da 10 a 15 minuti per l'invio degli snapshot all'istanza di Application Insights.
+- Vedere [snapshot](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) nel portale di Azure.
+- Per informazioni sulla risoluzione dei problemi di Snapshot Debugger, vedere [snapshot debugger risoluzione dei](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json)problemi.

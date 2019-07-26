@@ -15,19 +15,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 8058246ea5f4ac87c24fab8c5ec64032eb8a1f0b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ebe6f27818df8407504e4254f16d952aa298b6cc
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710650"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348312"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Progettare e implementare un database Oracle in Azure
 
 ## <a name="assumptions"></a>Presupposti
 
 - Si sta pianificando la migrazione di un database Oracle da locale ad Azure.
-- Hanno le [diagnostica Pack](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) per il Database Oracle si sta cercando di eseguire la migrazione
+- Si ha il [pacchetto di diagnostica](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) per il Oracle database si sta cercando di eseguire la migrazione
 - Si conoscono le varie metriche dei report AWR di Oracle.
 - Si ha una conoscenza di base delle prestazioni delle applicazioni e dell'utilizzo della piattaforma.
 
@@ -52,7 +52,7 @@ La tabella seguente elenca alcune differenze tra un'implementazione locale e un'
 > | **Resilienza** |MTBF (tempo medio tra gli errori) |MTTR (tempo medio per il ripristino)|
 > | **Manutenzione pianificata** |Applicazione di patch/aggiornamenti|[Set di disponibilità](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (applicazione di patch/aggiornamenti gestita da Azure) |
 > | **Risorsa** |Dedicato  |Condivisa con altri client|
-> | **Aree** |Data center |[Coppie di aree](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability)|
+> | **Aree** |Data center |[Coppie di aree](https://docs.microsoft.com/azure/virtual-machines/windows/regions#region-pairs)|
 > | **Archiviazione** |Dischi fisici/SAN |[Archiviazione gestita da Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
 > | **Ridimensionare** |Scalabilità verticale |Scalabilità orizzontale|
 
@@ -66,18 +66,18 @@ La tabella seguente elenca alcune differenze tra un'implementazione locale e un'
 
 Esistono quattro potenziali aree che è possibile ottimizzare per migliorare le prestazioni in un ambiente Azure:
 
-- Dimensioni della macchina virtuale
+- Dimensioni delle macchine virtuali
 - Velocità effettiva della rete
 - Tipi di disco e configurazioni
 - Impostazioni della cache su disco
 
 ### <a name="generate-an-awr-report"></a>Generare un report AWR
 
-Se è già disponibile database Oracle di cui si sta pianificando la migrazione ad Azure, esistono diverse opzioni. Se si dispone di [diagnostica Pack](https://www.oracle.com/technetwork/oem/pdf/511880.pdf) per le istanze di Oracle, è possibile eseguire il report AWR di Oracle per ottenere le metriche (IOPS, Mbps, Gib e così via). Scegliere quindi la VM in base alle metriche raccolte. In alternativa, è possibile contattare il team dell'infrastruttura per ottenere informazioni simili.
+Se è già disponibile database Oracle di cui si sta pianificando la migrazione ad Azure, esistono diverse opzioni. Se si dispone del [pacchetto di diagnostica](https://www.oracle.com/technetwork/oem/pdf/511880.pdf) per le istanze di Oracle, è possibile eseguire il report AWR di Oracle per ottenere le metriche (IOPS, Mbps, GiBs e così via). Scegliere quindi la VM in base alle metriche raccolte. In alternativa, è possibile contattare il team dell'infrastruttura per ottenere informazioni simili.
 
 È possibile valutare se eseguire il report AWR durante i carichi di lavoro sia normali che di picco, per poter effettuare un confronto. Attraverso questi report, è possibile ridimensionare le macchine virtuali in base al carico di lavoro medio o al carico di lavoro massimo.
 
-Ecco un esempio di come generare un report AWR (Genera report AWR di Oracle Enterprise Manager, usando se l'installazione corrente ha uno):
+Di seguito è riportato un esempio di come generare un report AWR (generare i report di AWR usando Oracle Enterprise Manager, se l'installazione corrente ne contiene uno):
 
 ```bash
 $ sqlplus / as sysdba
@@ -101,7 +101,7 @@ Di seguito sono indicate le metriche che è possibile ottenere dal report AWR:
 - Dimensioni del database in GB
 - Byte ricevuti tramite SQL*Net da e verso il client
 
-### <a name="virtual-machine-size"></a>Dimensioni della macchina virtuale
+### <a name="virtual-machine-size"></a>Dimensioni delle macchine virtuali
 
 #### <a name="1-estimate-vm-size-based-on-cpu-memory-and-io-usage-from-the-awr-report"></a>1. Stimare le dimensioni della macchina virtuale in base a utilizzo di CPU, memoria e I/O dal report AWR
 
@@ -144,10 +144,10 @@ In base ai requisiti di larghezza di banda della rete, sono disponibili diversi 
 
 - La latenza di rete è superiore rispetto a una distribuzione locale. La riduzione dei round trip di rete può migliorare notevolmente le prestazioni.
 - Per ridurre i round trip, consolidare le applicazioni con transazioni elevate o con un livello di comunicazioni elevato nella stessa macchina virtuale.
-- Usare le macchine virtuali con [rete accelerata](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) per migliorare le prestazioni di rete.
-- Per alcuni distrubutions Linux, provare ad abilitare [supporto per TRIM/UNMAP](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
-- Installare [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) su una macchina virtuale separata.
-- Huge Page sono attivate non in linux per impostazione predefinita. Prendere in considerazione l'abilitazione di enorme pagine e impostare `use_large_pages = ONLY` nel database Oracle. Ciò può migliorare le prestazioni. Ulteriori informazioni sono disponibili [qui](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
+- Usare macchine virtuali con [rete accelerata](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) per migliorare le prestazioni di rete.
+- Per alcuni distrubutions Linux, è consigliabile abilitare il [supporto per Trim/annullare](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
+- Installare [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) in una macchina virtuale separata.
+- Per impostazione predefinita, le pagine di grandi dimensioni non sono abilitate in Linux. Prendere in considerazione l'abilitazione `use_large_pages = ONLY` di pagine di grandi dimensioni e impostare sul Oracle DB. Questo può contribuire a migliorare le prestazioni. Ulteriori informazioni sono disponibili [qui](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
 
 ### <a name="disk-types-and-configurations"></a>Tipi di disco e configurazioni
 
@@ -188,7 +188,7 @@ Dopo avere ottenuto un quadro preciso dei requisiti di I/O, è possibile sceglie
 - Usare la compressione dei dati per ridurre le operazioni di I/O (per i dati e gli indici).
 - Separare i log di rollforward, di sistema e temporanei e annullare TS nei dischi dati separati.
 - Non inserire alcun file dell'applicazione nei dischi del sistema operativo predefiniti (dev/sda). Questi dischi non sono ottimizzati per l'avvio rapido delle macchine virtuali e potrebbero non offrire prestazioni valide per l'applicazione.
-- Quando si usano macchine virtuali serie M per l'archiviazione Premium, attivare [acceleratore di scrittura](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) nella fase di rollforward del disco di log.
+- Quando si usano macchine virtuali della serie M nell'archiviazione Premium, abilitare [acceleratore di scrittura](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) sul disco dei log di rollforward.
 
 ### <a name="disk-cache-settings"></a>Impostazioni della cache su disco
 
@@ -202,7 +202,7 @@ Sono disponibili tre opzioni per la memorizzazione nella cache dell'host:
 
 **Indicazioni**
 
-Per ottimizzare la velocità effettiva, è consigliabile iniziare con **None** per la memorizzazione nella cache host. Per Archiviazione Premium, tenere presente che è necessario disabilitare le "barriere" quando si esegue il montaggio del file system con le opzioni **Sola lettura** o **Nessuna**. Aggiornare il file /etc/fstab con l'UUID dei dischi.
+Per ottimizzare la velocità effettiva, è consigliabile iniziare con **None** per la memorizzazione nella cache dell'host. Per Archiviazione Premium, tenere presente che è necessario disabilitare le "barriere" quando si esegue il montaggio del file system con le opzioni **Sola lettura** o **Nessuna**. Aggiornare il file /etc/fstab con l'UUID dei dischi.
 
 ![Screenshot della pagina del disco gestito](./media/oracle-design/premium_disk02.png)
 
@@ -216,7 +216,7 @@ Dopo avere salvato l'impostazione del disco dati, non è possibile modificare l'
 
 Dopo avere installato e configurato l'ambiente Azure, il passaggio successivo consiste nel proteggere la rete. Di seguito sono elencati alcuni suggerimenti:
 
-- *Criteri del gruppo di sicurezza di rete*: un gruppo di sicurezza di rete può essere definito da una subnet o una scheda di interfaccia di rete. È più semplice per controllare l'accesso a livello di subnet, sia per la sicurezza e forzare il routing per elementi come i firewall dell'applicazione.
+- *Criteri del gruppo di sicurezza di rete*: un gruppo di sicurezza di rete può essere definito da una subnet o una scheda di interfaccia di rete. È più semplice controllare l'accesso a livello di subnet per la sicurezza e forzare il routing per elementi come i firewall applicazione.
 
 - *Jumpbox*: Per una maggiore sicurezza dell'accesso, gli amministratori non devono connettersi direttamente al servizio dell'applicazione o al database. Viene usato un jumpbox come elemento intermedio tra il computer dell'amministratore e le risorse di Azure.
 ![Screenshot della pagina della topologia jumpbox](./media/oracle-design/jumpbox.png)

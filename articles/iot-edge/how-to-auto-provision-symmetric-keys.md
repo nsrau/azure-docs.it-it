@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a91162271bf36e1d68e087a60723497e7fc261ec
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 3c21c0bdce6f6a5cd3c8f634bf400600b30a8ead
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275733"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414599"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Creare ed effettuare il provisioning di un dispositivo IoT Edge usando l'attestazione della chiave simmetrica
 
@@ -165,8 +165,7 @@ Quando si esegue il provisioning del dispositivo, sono necessarie le informazion
 
 Seguire le istruzioni per l'architettura del dispositivo. Assicurarsi di configurare il runtime IoT Edge per il provisioning automatico, non manuale.
 
-* [Installare il runtime di Azure IoT Edge in Linux (x64)](how-to-install-iot-edge-linux.md)
-* [Installare il runtime di Azure IoT Edge in Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md)
+[Installare il runtime di Azure IoT Edge in Linux](how-to-install-iot-edge-linux.md)
 
 La sezione nel file di configurazione per il provisioning di chiavi simmetriche è simile alla seguente:
 
@@ -188,7 +187,7 @@ Sostituire i valori segnaposto `{scope_id}`per `{registration_id}`, e `{symmetri
 
 Seguire le istruzioni per installare il runtime di IoT Edge nel dispositivo per cui è stata generata una chiave del dispositivo derivato. Assicurarsi di configurare il runtime IoT Edge per il provisioning automatico, non manuale.
 
-[Installare ed effettuare automaticamente il provisioning di IoT Edge](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
+[Installare ed eseguire automaticamente il provisioning di IoT Edge in Windows](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
 
 ## <a name="verify-successful-installation"></a>Verificare l'esito positivo dell'installazione
 

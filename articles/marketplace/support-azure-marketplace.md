@@ -2,18 +2,18 @@
 title: Supporto per Azure Marketplace e AppSource | Azure
 description: Informazioni sul supporto e collegamenti per Azure Marketplace e AppSource
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: yijenj
-manager: nunoc
+author: qianw211
+manager: evansma
 ms.service: marketplace
 ms.topic: article
-ms.date: 10/05/2018
-ms.author: nunoc
-ms.openlocfilehash: 1c27b85aca45f25354d6351c1a335b14cb9bc446
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.date: 7/25/2019
+ms.author: v-qiwe
+ms.openlocfilehash: 525bcc0ba148c4cb3e679dee1209953e4a3d87b6
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297814"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501297"
 ---
 # <a name="support-for-the-marketplace"></a>Supporto per Marketplace  
 Ecco un elenco delle opzioni di supporto per Marketplace.  
@@ -24,19 +24,18 @@ Ecco un elenco delle opzioni di supporto per Marketplace.
 
 È possibile aprire un ticket con il supporto per gli editori di Microsoft [Marketplace](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) per problemi relativi a onboarding e Guida introduttiva o al [supporto dei partner](https://partner.microsoft.com/support) Microsoft per eventuali domande su Microsoft Partner Network.
 
-## <a name="cloud-partner-portal"></a>Portale per Cloud Partner  
+## <a name="partner-center-or-cloud-partner-portal"></a>Centro per i partner o portale Cloud Partner  
 
-| Canale di supporto | DESCRIZIONE | Disponibilità |  
+| Canale di supporto | Descrizione | Disponibilità |  
 |:--- |:--- |:--- |  
-| Per assistenza, visitare la pagina Create an incident (Creare un evento imprevisto) disponibile nel [supporto per il Marketplace](https://go.microsoft.com/fwlink/?linkid=844975)</li> </ul> | Supporto per il Portale per Cloud Partner. | I servizi di supporto vengono erogati tra le 6.00 e le 18.00 PST. |  
+| Per assistenza, visitare la pagina Create an incident (Creare un evento imprevisto) disponibile nel [supporto per il Marketplace](https://go.microsoft.com/fwlink/?linkid=844975)</li> </ul> | Supporto per partner Center o portale Cloud Partner. | I servizi di supporto vengono erogati tra le 6.00 e le 18.00 PST. |  
 
-## <a name="technical"></a>Tecnici  
+## <a name="technical"></a>Tecnico  
 
-| Canale di supporto | Descrizione |  
+| Canale di supporto | DESCRIZIONE |  
 |:--- |:--- |  
 | Forum MSDN: Marketplace disponibile all'indirizzo [social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Forum di Microsoft Developer Network. |  
 | Stack Overflow: Azure disponibile all'indirizzo [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Ambiente di Stack Overflow per ottenere soluzioni e porre domande su qualsiasi argomento relativo ad Azure Marketplace.<ul> <li>Stack Overflow: Azure Marketplace disponibile all'indirizzo [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack Overflow: Azure Resource Manager disponibile all'indirizzo [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack Overflow: macchine virtuali in Azure disponibile all'indirizzo [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Stack Overflow: contenitori in Azure disponibile all'indirizzo [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
-| Supporto per AppSource: [appsourcecrm@Microsoft.com](mailto:appsourcecrm@microsoft.com) | Supportare la pubblicazione di app Dynamics |
 
 ## <a name="marketing-resources"></a>Risorse di marketing  
 

@@ -2,7 +2,7 @@
 title: Connettersi ad Azure SQL Data Warehouse |Documentazione Microsoft
 description: Connettersi ad Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 2c937285b9c54072c6d1e1b0628c3d5fbfe786f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 71f5c8ca56bc188c0664604a78c38a05be3c3b01
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873657"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479739"
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Connettersi ad Azure SQL Data Warehouse
 Connettersi ad Azure SQL Data Warehouse.
@@ -31,7 +31,7 @@ Il nome del server nell'esempio seguente è samplesvr.database.windows.net. Per 
     ![Nome completo del server][1]
 
 ## <a name="supported-drivers-and-connection-strings"></a>Driver supportati e stringhe di connessione
-Azure SQL Data Warehouse supporta [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] e [JDBC][JDBC]. Per trovare la versione e la documentazione più recenti, fare clic su uno dei driver precedenti. Per generare automaticamente la stringa di connessione per il driver in uso dal portale di Azure, fare clic su **Mostra stringhe di connessione del database** nell'esempio precedente. Di seguito sono riportati alcuni esempi di come si presenta la stringa di connessione per ogni driver.
+Azure SQL data warehouse supporta [ADO.NET][ADO.NET], [ODBC][ODBC], [php][php]e [JDBC][JDBC]. Per trovare la versione e la documentazione più recenti, fare clic su uno dei driver precedenti. Per generare automaticamente la stringa di connessione per il driver in uso dal portale di Azure, fare clic su **Mostra stringhe di connessione del database** nell'esempio precedente. Di seguito sono riportati alcuni esempi di come si presenta la stringa di connessione per ogni driver.
 
 > [!NOTE]
 > Per preservare la connessione in caso di brevi periodi di indisponibilità, può essere opportuno impostare il timeout di connessione su 300 secondi.
@@ -61,15 +61,15 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 ## <a name="connection-settings"></a>Impostazioni di connessione
 SQL Data Warehouse standardizza alcune impostazioni durante la connessione e la creazione di oggetti. Queste impostazioni, di cui non è possibile eseguire l'override, includono:
 
-| Impostazione del database | Value |
+| Impostazione del database | Valore |
 |:--- |:--- |
-| [ANSI_NULLS][ANSI_NULLS] |ATTIVA |
-| [QUOTED_IDENTIFIERS][QUOTED_IDENTIFIERS] |ATTIVA |
+| [ANSI_NULLS][ANSI_NULLS] |SÌ |
+| [QUOTED_IDENTIFIERS][QUOTED_IDENTIFIERS] |SÌ |
 | [DATEFORMAT][DATEFORMAT] |mdy |
-| [DATEFIRST][DATEFIRST] |7 |
+| [DATEFORMAT][DATEFIRST] |7 |
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per connettersi ed eseguire query con Visual Studio, vedere [Eseguire query con Visual Studio][Query with Visual Studio]. Per altre informazioni sulle opzioni di autenticazione, vedere [Autenticazione in Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse].
+Per connettersi ed eseguire query con Visual Studio, vedere [eseguire query con Visual Studio][Query with Visual Studio]. To learn more about authentication options, see [Authentication to Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse].
 
 <!--Articles-->
 [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md

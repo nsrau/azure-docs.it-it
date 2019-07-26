@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: c9dfa6af4fb13018051c06783e5ae2bc3f49c0da
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 3d0c7c10b03169e5d78b833df5a26d83b04b9240
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672100"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347851"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>Competenze predefinite per l'arricchimento del contenuto (Ricerca di Azure)
 
@@ -31,7 +31,7 @@ Questo articolo illustra i concetti relativi alle competenze cognitive accluse a
 
 Diverse competenze sono flessibili in relazione a ciò che usano o producono. In generale, la maggior parte delle competenze sono basate su modelli con training preliminare, ovvero di cui non è possibile eseguire il training usando i propri dati di training. Nella tabella seguente sono enumerate e descritte le competenze fornite da Microsoft. 
 
-| Competenza | Descrizione |
+| Competenza | DESCRIZIONE |
 |-------|-------------|
 | [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md) | Questa competenza usa un modello con training preliminare per rilevare le frasi importanti in base alla posizione del termine, alle regole linguistiche, alla prossimità ad altri termini e a quanto il termine è inusuale all'interno dei dati di origine. |
 | [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)  | Questa competenza usa un modello con training preliminare per rilevare la lingua usata (un ID lingua per ogni documento). Quando vengono usate più lingue all'interno dei segmenti dello stesso testo, l'output è l'identificatore LCID della lingua usata prevalentemente.|
@@ -39,13 +39,15 @@ Diverse competenze sono flessibili in relazione a ciò che usano o producono. In
 | [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md) | Questa competenza usa un modello con training preliminare per stabilire le entità per un set fisso di categorie: persone, posizione, organizzazione, posta elettronica, URL, campi datetime. |
 | [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)  | Questa competenza usa un modello con training preliminare per assegnare un punteggio positivo o negativo della valutazione in base al record. Il valore è compreso tra 0 e 1. Si verificano punteggi neutri per entrambi i casi null quando la valutazione non può essere rilevata e per il testo che viene considerato neutro.  |
 | [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md) | Suddivide il testo in più pagine in modo che sia possibile arricchire o aumentare il contenuto in modo incrementale. |
+| [Microsoft. Skills. Text. TranslationSkill (anteprima)](cognitive-search-skill-text-translation.md) | Questa competenza usa un modello pretrainato per tradurre il testo di input in un'ampia gamma di linguaggi per i casi d'uso di normalizzazione o localizzazione. |
 | [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md) | Questa competenza usa un algoritmo di rilevamento dell'immagine per identificare il contenuto di un'immagine e generare una descrizione di testo. |
 | [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md) | Riconoscimento ottico dei caratteri. |
+| [Microsoft. Skills. util. ConditionalSkill](cognitive-search-skill-conditional.md) | Consente di filtrare, assegnare un valore predefinito e unire i dati in base a una condizione.|
 | [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md) | Esegue il mapping di output a un tipo complesso (un tipo di dati multiparte, che può essere usato per un nome completo, un indirizzo su più righe o una combinazione di cognome e ID personale.) |
 | [Microsoft.Skills.Custom.WebApiSkill](cognitive-search-custom-skill-web-api.md) | Consente l'estendibilità della pipeline di ricerca cognitiva effettuando una chiamata HTTP in un'API Web personalizzata |
 
 
-Per istruzioni sulla creazione di un [competenze personalizzate](cognitive-search-custom-skill-web-api.md), vedere [come definire un'interfaccia personalizzata](cognitive-search-custom-skill-interface.md) e [esempio: Creazione di una competenza personalizzata per la ricerca cognitiva](cognitive-search-create-custom-skill-example.md).
+Per istruzioni sulla creazione di un' [abilità personalizzata](cognitive-search-custom-skill-web-api.md), vedere [come definire un'interfaccia personalizzata](cognitive-search-custom-skill-interface.md) ed [esempio: Creazione di un'abilità personalizzata per la](cognitive-search-create-custom-skill-example.md)ricerca cognitiva.
 
 ## <a name="see-also"></a>Vedere anche
 

@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 07/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: f3668a069013bc3b913051161ec0cdadc989e9d5
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
-ms.translationtype: HT
+ms.openlocfilehash: 24716a9b9fa5174d899cf0678b83b2da0c59957c
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314154"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358663"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Risoluzione dei problemi relativi al servizio Azure Machine Learning di Azure Kubernetes e alla distribuzione di istanze di contenitore di Azure
 
@@ -101,7 +101,7 @@ print(ws.images['myimg'].image_build_log_uri)
 
 # list logs for all images in the workspace
 for name, img in ws.images.items():
-    print (img.name, img.version, img.image_build_log_uri)
+    print(img.name, img.version, img.image_build_log_uri)
 ```
 
 L'URI del log è un URL SAS che punta a un file di log archiviato nell'Archivio BLOB di Azure. Basta copiare e incollare l'URI in una finestra del browser per poter scaricare e visualizzare il file di log.
@@ -165,18 +165,19 @@ Se si verificano problemi durante la distribuzione di un modello in ACI o AKS, p
 Per eseguire la distribuzione in locale, modificare il `LocalWebservice.deploy_configuration()` codice in modo da usare per creare una configurazione di distribuzione. Usare `Model.deploy()` quindi per distribuire il servizio. Nell'esempio seguente viene distribuito un modello (contenuto nella `model` variabile) come servizio Web locale:
 
 ```python
-from azureml.core.model import InferenceConfig,Model
+from azureml.core.model import InferenceConfig, Model
 from azureml.core.webservice import LocalWebservice
 
 # Create inference configuration. This creates a docker image that contains the model.
-inference_config = InferenceConfig(runtime= "python", 
+inference_config = InferenceConfig(runtime="python",
                                    entry_script="score.py",
                                    conda_file="myenv.yml")
 
 # Create a local deployment, using port 8890 for the web service endpoint
 deployment_config = LocalWebservice.deploy_configuration(port=8890)
 # Deploy the service
-service = Model.deploy(ws, "mymodel", [model], inference_config, deployment_config)
+service = Model.deploy(
+    ws, "mymodel", [model], inference_config, deployment_config)
 # Wait for the deployment to complete
 service.wait_for_deployment(True)
 # Display the port that the web service is available on
@@ -189,11 +190,11 @@ A questo punto, è possibile usare il servizio come di consueto. Ad esempio, nel
 import json
 
 test_sample = json.dumps({'data': [
-    [1,2,3,4,5,6,7,8,9,10], 
-    [10,9,8,7,6,5,4,3,2,1]
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 ]})
 
-test_sample = bytes(test_sample,encoding = 'utf8')
+test_sample = bytes(test_sample, encoding='utf8')
 
 prediction = service.run(input_data=test_sample)
 print(prediction)
@@ -244,9 +245,9 @@ Usare le informazioni nella sezione [esaminare il registro Docker](#dockerlog) p
 Spesso, nella `init()` funzione nello script di assegnazione dei punteggi, viene chiamata la funzione [Model. Get _model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) per individuare un file di modello o una cartella di file di modello nel contenitore. Se non è possibile trovare il file o la cartella del modello, la funzione ha esito negativo. Il modo più semplice per eseguire il debug di questo errore consiste nell'eseguire il codice Python seguente nella shell del contenitore:
 
 ```python
+from azureml.core.model import Model
 import logging
 logging.basicConfig(level=logging.DEBUG)
-from azureml.core.model import Model
 print(Model.get_model_path(model_name='my-best-model'))
 ```
 

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/13/2019
-ms.openlocfilehash: e7e81632b2be135fb74d375ab8a11f1b4b3ef39d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 7/25/2019
+ms.openlocfilehash: 3d4bab4558ebfd0f6031ef00a0b67bb0d5b61120
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60525924"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501453"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versioni supportate del Database di Azure per il server MySQL
 
@@ -19,22 +19,31 @@ Database di Azure per MySQL è stato sviluppato da [MySQL Community Edition](htt
 
 MySQL usa lo schema di denominazione X.Y.Z. X è la versione principale, Y è la versione secondaria Z è la versione di correzione di bug. Per altre informazioni sullo schema, vedere la [documentazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
 
+> [!NOTE]
+> Nel servizio viene usato un gateway per reindirizzare le connessioni alle istanze del server. Dopo che è stata stabilita la connessione, il client MySQL visualizza la versione di MySQL impostata nel gateway e non la versione effettiva in esecuzione nell'istanza del server MySQL. Per determinare la versione dell'istanza del server MySQL, usare il comando `SELECT VERSION();` dal prompt di MySQL.
+
 Al momento il Database di Azure per MySQL supporta le versioni indicate di seguito:
 
 ## <a name="mysql-version-56"></a>MySQL versione 5.6
 
 Versione di correzione di bug: 5.6.42
 
-Fare riferimento a MySQL [note sulla versione](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-42.html) per altre informazioni sui miglioramenti e sulle correzioni in MySQL 5.6.42.
+Per altre informazioni sui miglioramenti e sulle correzioni in MySQL 5.6.42, vedere le [Note sulla versione](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-42.html) di MySQL.
 
 ## <a name="mysql-version-57"></a>MySQL versione 5.7
 
 Versione di correzione di bug: 5.7.24
 
-Fare riferimento a MySQL [note sulla versione](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-24.html) per informazioni sui miglioramenti e correzioni in MySQL 5.7.24.
+Per informazioni sui miglioramenti e sulle correzioni in MySQL 5.7.24, vedere le [Note sulla versione](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-24.html) di MySQL.
+
+## <a name="mysql-version-80"></a>MySQL versione 8,0
 
 > [!NOTE]
-> Nel servizio viene usato un gateway per reindirizzare le connessioni alle istanze del server. Dopo che è stata stabilita la connessione, il client MySQL visualizza la versione di MySQL impostata nel gateway e non la versione effettiva in esecuzione nell'istanza del server MySQL. Per determinare la versione dell'istanza del server MySQL, usare il comando `SELECT VERSION();` dal prompt di MySQL.
+> MySQL 8,0 è attualmente in fase di anteprima. Se MySQL 8,0 non viene visualizzato nella portale di Azure, è possibile che la distribuzione non sia stata completata nella propria area geografica. 
+
+Versione di correzione di bug: 8.0.15
+
+Per informazioni sui miglioramenti e sulle correzioni in MySQL 8.0.15, vedere le [Note sulla versione](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) di MySQL.
 
 ## <a name="managing-updates-and-upgrades"></a>Gestire gli aggiornamenti
 Il servizio gestisce automaticamente l'applicazione di patch per gli aggiornamenti delle versioni di correzione dei bug. Ad esempio, da 5.7.20 a 5.7.21.  

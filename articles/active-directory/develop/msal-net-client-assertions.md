@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a938f85b2047ea5cceada98df6adba2c560c1a1
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: e1ea75499334f3f6eb2f5d3c15526067fcef4eb8
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278668"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442500"
 ---
 # <a name="confidential-client-assertions"></a>Asserzioni client riservate
 Per dimostrare la propria identità, le applicazioni client riservate scambiano un segreto con Azure AD. Il segreto può essere:
@@ -34,7 +34,7 @@ Questo segreto può anche essere un'asserzione firmata direttamente.
 MSAL.NET dispone di quattro metodi per fornire le credenziali o le asserzioni all'app client riservata:
 - `.WithClientSecret()`
 - `.WithCertificate()`
-- `.WithSignedAssertion()`
+- `.WithClientAssertion()`
 - `.WithClientClaims()`
 
 ### <a name="signed-assertions"></a>Asserzioni firmate
@@ -50,7 +50,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 Le attestazioni previste da Azure AD sono:
 
-Tipo di attestazione | Valore | Descrizione
+Tipo di attestazione | Valore | DESCRIZIONE
 ---------- | ---------- | ----------
 aud | https://login.microsoftonline.com/{tenantId}/v2.0 | L'attestazione "AUD" (audience) identifica i destinatari a cui è destinato il JWT (qui Azure AD) vedere [RFC 7519, sezione 4.1.3]
 exp | Gio giu 27 2019 15:04:17 GMT + 0200 (Romance Daylight Time) | L'attestazione "exp" (expiration time) identifica l'ora di scadenza a partire dalla quale o successivamente alla quale il token JWT non deve essere accettato per l'elaborazione. Vedere [RFC 7519, sezione 4.1.4]

@@ -5,21 +5,16 @@ services: cloud-services
 documentationcenter: na
 author: raiye
 manager: timlt
-editor: ''
-ms.assetid: 37b422e9-0713-4a81-a942-f553ef478064
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
 ms.date: 5/21/2017
 ms.author: raiye
-ms.openlocfilehash: d6429766b6aac547fd99279659acb1067298e77c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ae2df6f47d99fc5d452a6d3ea70f2dd2e4e7416b
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60518959"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359594"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Avviso di ritiro della famiglia di sistemi operativi guest 1
 Il ritiro della famiglia di sistemi operativi guest 1 è stato annunciato il 1° giugno 2013.
@@ -37,7 +32,7 @@ I servizi cloud sono interessati se si verifica una delle seguenti condizioni:
 2. Nel file ServiceConfiguration.cscfg per il servizio cloud non è specificato esplicitamente alcun valore per osFamily. Attualmente viene usato il valore predefinito "1" in questo caso.
 3. Il valore della famiglia di sistemi operativi guest indicato nel portale di Azure è "Windows Server 2008".
 
-Per trovare la famiglia di sistemi operativi in esecuzione sui servizi cloud, è possibile eseguire lo script seguente in Azure PowerShell, anche se prima è necessario [configurare Azure PowerShell](/powershell/azureps-cmdlets-docs). Per altre informazioni sullo script, vedere [Azure Guest OS Family 1 fine vita della: Giugno 2014](https://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
+Per trovare la famiglia di sistemi operativi in esecuzione sui servizi cloud, è possibile eseguire lo script seguente in Azure PowerShell, anche se prima è necessario [configurare Azure PowerShell](/powershell/azureps-cmdlets-docs). Per altre informazioni sullo script, vedere [la pagina relativa alla fine della vita della famiglia di sistemi operativi guest Azure 1. 2014](https://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx)giugno.
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {

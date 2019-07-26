@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: aba41d62df49a40d9fc3686684b39b71e1363453
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 6282ce426b08c4ad9c44bead0bd4ec3d259f65fe
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296047"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501425"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 
@@ -202,14 +202,14 @@ Questa sezione si applica solo alle condivisioni file standard. Tutte le condivi
 - Non è possibile eseguire la conversione dell'account con ridondanza locale/ZRS in GRS su un nuovo account di archiviazione creato dopo che la sottoscrizione è stata accettata per l'anteprima delle condivisioni file più grandi.
 
 
-### <a name="regional-availability"></a>Disponibilità internazionale
+### <a name="regional-availability"></a>Disponibilità a livello di area
 
 Le condivisioni file standard sono disponibili in tutte le aree fino a 5 TiB. In determinate aree, è disponibile con un limite di 100 TiB, le aree sono elencate nella tabella seguente:
 
 |Region  |Ridondanza supportata  |Supporta gli account di archiviazione esistenti  |
 |---------|---------|---------|
 |Asia sudorientale     |Archiviazione con ridondanza locale|No         |
-|Europa occidentale     |Archiviazione con ridondanza locale|No         |
+|Europa occidentale     |CON RIDONDANZA LOCALE, ZRS|No         |
 |Stati Uniti occidentali 2     |CON RIDONDANZA LOCALE, ZRS|No         |
 
 Per aiutarci a classificare in ordine di priorità nuove aree e funzionalità, compila questo [sondaggio](https://aka.ms/azurefilesatscalesurvey).

@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 398b2236caa77e4aef5b471079407a5edeeeee2d
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: cc0ba80f7aef53568e048b8285800982c818b004
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326944"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334589"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 
@@ -23,8 +23,6 @@ Archiviazione di Azure offre un modello di sicurezza su più livelli, che consen
 Per accedere a un account di archiviazione quando le regole di rete sono applicate, un'applicazione deve inviare una richiesta che deve essere correttamente autorizzata. L'autorizzazione è supportata con le credenziali Azure Active Directory (Azure AD) per i BLOB e le code, con una chiave di accesso dell'account valida o con un token SAS.
 
 > [!IMPORTANT]
-> Sincronizzazione file di Azure non supporta ancora firewall e reti virtuali. Se si usano Sincronizzazione file di Azure nell'account di archiviazione e si abilitano questi Sincronizzazione file di Azure non verranno sincronizzati.
->
 > L'attivazione delle regole firewall per l'account di archiviazione blocca le richieste in ingresso per i dati per impostazione predefinita, a meno che le richieste non provengano da un servizio che opera all'interno di una rete virtuale di Azure. Le richieste che vengono bloccate sono quelle che provengono da altri servizi di Azure, dal portale di Azure, dai servizi di registrazione e metriche e così via.
 >
 > È possibile concedere l'accesso ai servizi di Azure eseguiti all'interno di una rete virtuale consentendo l'accesso alla subnet dell'istanza del servizio. Abilitare un numero limitato di scenari tramite il meccanismo di [eccezioni](#exceptions) descritto nella sezione seguente. Per accedere al portale di Azure, è necessario usare un computer all'interno del limite attendibile (IP o rete virtuale) configurato.

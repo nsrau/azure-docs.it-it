@@ -1,24 +1,24 @@
 ---
-title: Creare e usare regole personalizzate di Web Application Firewall (WAF) di Azure v2
-description: Questo articolo fornisce informazioni su come creare regole personalizzate v2 di Web Application Firewall (WAF) nel Gateway applicazione di Azure.
+title: Creare e usare le regole personalizzate di Azure Web Application Firewall (WAF) V2
+description: Questo articolo fornisce informazioni su come creare regole personalizzate di Web Application Firewall (WAF) V2 in applicazione Azure gateway.
 services: application-gateway
 ms.topic: article
 author: vhorne
 ms.service: application-gateway
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: 86ddb0b608cd17814cbcbb902f0b2905fe61094a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: dcfdec0a746406296616456f6e6b8c0eabddf4b5
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164683"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478595"
 ---
-# <a name="create-and-use-web-application-firewall-v2-custom-rules"></a>Creare e usare regole personalizzate di Web Application Firewall v2
+# <a name="create-and-use-web-application-firewall-v2-custom-rules"></a>Creazione e utilizzo di regole personalizzate del Web Application Firewall V2
 
-La versione 2 di Azure Application Gateway Web Application Firewall (WAF) offre protezione per le applicazioni web. Questa protezione viene fornita da Open Web Application Security Project (OWASP) Core regola impostato (CRS). In alcuni casi, potrebbe essere necessario creare regole personalizzate per soddisfare esigenze specifiche. Per altre informazioni sulle regole personalizzate di WAF, vedere [panoramica delle regole firewall applicazione web personalizzata](custom-waf-rules-overview.md).
+Il applicazione Azure gateway Web Application Firewall (WAF) v2 fornisce la protezione per le applicazioni Web. Questa protezione viene fornita dal set di regole di base (CRS) di Open Web Application Security Project (OWASP). In alcuni casi, potrebbe essere necessario creare regole personalizzate per soddisfare esigenze specifiche. Per ulteriori informazioni sulle regole personalizzate di WAF, vedere [custom Web Application Firewall Rules Overview](custom-waf-rules-overview.md).
 
-Questo articolo illustra alcuni esempi di regole personalizzate che è possibile creare e usare con il firewall WAF v2. Per informazioni su come distribuire un Web Application firewall con una regola personalizzata usando Azure PowerShell, vedere [regole personalizzate configurare Web Application Firewall tramite Azure PowerShell](configure-waf-custom-rules.md).
+Questo articolo illustra alcune regole personalizzate di esempio che è possibile creare e usare con la WAF V2. Per informazioni su come distribuire un WAF con una regola personalizzata usando Azure PowerShell, vedere [configurare le regole personalizzate di Web Application Firewall usando Azure PowerShell](configure-waf-custom-rules.md).
 
 >[!NOTE]
 > Se il gateway applicazione non sta usando il livello WAF, l'opzione per aggiornare il gateway applicazione al livello WAF, come visualizzato nel riquadro a destra.
@@ -27,9 +27,9 @@ Questo articolo illustra alcuni esempi di regole personalizzate che è possibile
 
 ## <a name="example-1"></a>Esempio 1
 
-Si sa esiste un bot denominato *evilbot* che si desidera impedire la ricerca per indicizzazione del sito Web. In questo caso, si sarà esegue il blocco User-Agent *evilbot* nelle intestazioni della richiesta.
+Si sa che esiste un bot denominato *evilbot* che si vuole bloccare dalla ricerca per indicizzazione del sito Web. In questo caso, si bloccherà in *evilbot* dell'agente utente nelle intestazioni della richiesta.
 
-Per la logica: p
+Logica: p
 
 ```azurepowershell
 $variable = New-AzApplicationGatewayFirewallMatchVariable `
@@ -51,7 +51,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-Ed ecco il rispettivo codice JSON:
+Ecco il codice JSON corrispondente:
 
 ```json
   {
@@ -75,11 +75,11 @@ Ed ecco il rispettivo codice JSON:
   }
 ```
 
-Per informazioni su un WAF distribuito usando la regola personalizzata, vedere [configurare una regola personalizzata di Web Application Firewall tramite Azure PowerShell](configure-waf-custom-rules.md).
+Per visualizzare un WAF distribuito usando questa regola personalizzata, vedere [configurare una regola personalizzata del firewall applicazione Web usando Azure PowerShell](configure-waf-custom-rules.md).
 
 ### <a name="example-1a"></a>Esempio 1a
 
-È possibile ottenere lo stesso risultato usando un'espressione regolare:
+È possibile eseguire la stessa operazione utilizzando un'espressione regolare:
 
 ```azurepowershell
 $variable = New-AzApplicationGatewayFirewallMatchVariable `
@@ -101,7 +101,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-E il rispettivo codice JSON:
+E il JSON corrispondente:
 
 ```json
   {
@@ -127,11 +127,11 @@ E il rispettivo codice JSON:
 
 ## <a name="example-2"></a>Esempio 2
 
-Si vuole bloccare tutte le richieste provenienti da indirizzi IP in 198.168.5.4/24 l'intervallo.
+Si desidera bloccare tutte le richieste dagli indirizzi IP nell'intervallo 198.168.5.4/24.
 
-In questo esempio, è possibile bloccare tutto il traffico proveniente da un intervallo di indirizzi IP. È il nome della regola *Regola1* e la priorità è impostata su 100.
+In questo esempio si bloccherà tutto il traffico che deriva da un intervallo di indirizzi IP. Il nome della regola è *Regola1* e la priorità è impostata su 100.
 
-Per la logica: p
+Logica: p
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
@@ -151,7 +151,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-Ecco il rispettivo codice JSON:
+Ecco il codice JSON corrispondente:
 
 ```json
   {
@@ -175,13 +175,13 @@ Ecco il rispettivo codice JSON:
   }
 ```
 
-Regola di CRS corrispondente: `SecRule REMOTE_ADDR "@ipMatch 192.168.5.4/24" "id:7001,deny"`
+Regola CRS corrispondente:`SecRule REMOTE_ADDR "@ipMatch 192.168.5.4/24" "id:7001,deny"`
 
 ## <a name="example-3"></a>Esempio 3
 
-In questo esempio si vuole bloccare User-Agent *evilbot*e per il traffico 192.168.5.4/24 l'intervallo. A tale scopo, è possibile creare due condizioni di corrispondenza separato e inserirli entrambi nella stessa regola. In questo modo entrambe *evilbot* nell'intestazione User-Agent **e** vengono bloccati da 192.168.5.4/24 l'intervallo indirizzi IP.
+Per questo esempio, si vuole bloccare il *Evilbot*dell'agente utente e il traffico nell'intervallo 192.168.5.4/24. A tale scopo, è possibile creare due condizioni di corrispondenza separate e inserirle entrambe nella stessa regola. In questo modo si garantisce che sia *evilbot* nell'intestazione dell'agente utente **che** negli indirizzi IP dall'intervallo 192.168.5.4/24 siano bloccati.
 
-Per la logica: p **e** q
+Logica: p **e** q
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
@@ -212,7 +212,7 @@ $condition2 = New-AzApplicationGatewayFirewallCondition `
    -Action Block
 ```
 
-Ecco il rispettivo codice JSON:
+Ecco il codice JSON corrispondente:
 
 ```json
 { 
@@ -251,9 +251,9 @@ Ecco il rispettivo codice JSON:
 
 ## <a name="example-4"></a>Esempio 4
 
-In questo esempio si vuole bloccare se la richiesta è compreso nell'intervallo di indirizzi IP *192.168.5.4/24*, o non è la stringa agente utente *chrome* (vale a dire l'utente non sta usando il browser Chrome). Poiché questa logica viene utilizzata **o**, le due condizioni sono nelle regole separate, come illustrato nell'esempio seguente. *Regola1* e *Regola2* entrambi devono corrispondere per bloccare il traffico.
+Per questo esempio, si vuole bloccare se la richiesta è esterna all'intervallo di indirizzi IP *192.168.5.4/24*oppure la stringa dell'agente utente non è *Chrome* (ovvero l'utente non usa il browser Chrome). Poiché questa logica USA **o**, le due condizioni sono in regole separate, come illustrato nell'esempio seguente. *Regola1* e *Regola2* devono corrispondere per bloccare il traffico.
 
-Per la logica: **non** (p **e** q) = **non** p **o non** q.
+Logica: **not** (p **e** q) = **not** p **o not** q.
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
@@ -291,7 +291,7 @@ $rule2 = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-E il rispettivo codice JSON:
+E il JSON corrispondente:
 
 ```json
 {
@@ -338,9 +338,9 @@ E il rispettivo codice JSON:
 
 ## <a name="example-5"></a>Esempio 5
 
-Si vuole bloccare SQLI personalizzato. Poiché la logica usata in questo caso è **o**, e tutti i valori sono nel *RequestUri*, tutti del *MatchValues* può essere in un elenco delimitato da virgole.
+Si vuole bloccare il SQLI personalizzato. Poiché la logica usata qui è **o**e tutti i valori si trovano in *requestUri*, tutti i *MatchValues* possono trovarsi in un elenco delimitato da virgole.
 
-Per la logica: p **oppure** q **o** r
+Logica: p **o** q **o** r
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
@@ -385,7 +385,7 @@ JSON corrispondente:
   }
 ```
 
-Alternativa PowerShell per Azure:
+Azure PowerShell alternativa:
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
@@ -493,16 +493,8 @@ JSON corrispondente:
   }
 ```
 
-Regola corrispondente a ModSecurity:
-
-`SecRule REQUEST_URI "@contains 1-1" "id:7001,deny"`
-
-`SecRule REQUEST_URI "@contains --" "id:7001,deny"`
-
-`SecRule REQUEST_URI "@contains drop tables" "id:7001,deny"`
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver creato le regole personalizzate, è possibile imparare a visualizzare i log WAF. Per altre informazioni, vedere [Diagnostica del gateway applicazione](application-gateway-diagnostics.md#diagnostic-logging).
+Dopo aver creato le regole personalizzate, è possibile apprendere come visualizzare i log WAF. Per altre informazioni, vedere [Diagnostica del gateway applicazione](application-gateway-diagnostics.md#diagnostic-logging).
 
 [fig1]: ./media/application-gateway-customize-waf-rules-portal/1.png

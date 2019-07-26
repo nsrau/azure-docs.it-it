@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 03d39ed01907a2ad61e089946673b96b8a2cc83e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e672e7bd43dcd05d048d22205939749c1d96579
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65916931"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348072"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Come usare i criteri di allocazione personalizzati
 
@@ -156,7 +156,7 @@ In questa sezione si creerà un nuovo gruppo di registrazioni che usa i criteri 
 
 10. Sostituire il codice della nuova funzione C# con il codice riportato di seguito, quindi fare clic su **Salva**:    
 
-    ```C#
+    ```csharp
     #r "Newtonsoft.Json"
     using System.Net;
     using System.Text;
@@ -508,7 +508,7 @@ La tabella seguente illustra gli scenari previsti e i codici di errore dei risul
 
 | Scenario | Risultato della registrazione dal servizio di provisioning | Effettuare il provisioning dei risultati SDK |
 | -------- | --------------------------------------------- | ------------------------ |
-| Il webhook restituisce 200 OK con 'iotHubHostName' impostato su un nome host dell'hub IoT valido | Stato del risultato: Assegnato  | L'SDK restituisce PROV_DEVICE_RESULT_OK insieme alle informazioni dell'hub |
+| Il webhook restituisce 200 OK con 'iotHubHostName' impostato su un nome host dell'hub IoT valido | Stato del risultato: Assegnata  | L'SDK restituisce PROV_DEVICE_RESULT_OK insieme alle informazioni dell'hub |
 | Il webhook restituisce 200 OK con 'iotHubHostName' incluso nella risposta ma impostato su una stringa vuota o Null | Stato del risultato: Failed<br><br> Codice errore: CustomAllocationIotHubNotSpecified (400208) | L'SDK restituisce PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
 | Il webhook restituisce 401 - Non autorizzato | Stato del risultato: Failed<br><br>Codice errore: CustomAllocationUnauthorizedAccess (400209) | L'SDK restituisce PROV_DEVICE_RESULT_UNAUTHORIZED |
 | È stata creata una registrazione singola per disabilitare il dispositivo | Stato del risultato: Disabled | L'SDK restituisce PROV_DEVICE_RESULT_DISABLED |
@@ -538,8 +538,8 @@ Per eliminare il gruppo di risorse per nome:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni su altre Reprovisioning, vedere [dispositivo Hub IoT un nuovo provisioning concetti](concepts-device-reprovision.md) 
-- Per informazioni su ulteriori il deprovisioning di utenti, vedere [come effettuare il deprovisioning di dispositivi che sono stati precedentemente sottoposti a provisioning](how-to-unprovision-devices.md) 
+- Per ulteriori informazioni sul nuovo provisioning, vedere [concetti relativi](concepts-device-reprovision.md) al provisioning dei dispositivi dell'hub. 
+- Per ulteriori informazioni sul deprovisioning, vedere [come eseguire il deprovisioning di dispositivi precedentemente](how-to-unprovision-devices.md) sottoposti a provisioning automatico 
 
 
 

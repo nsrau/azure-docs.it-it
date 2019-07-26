@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: e51551d4ce8061122fce52b05e68e102b71c27a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64f16c2ad6fdeeb47b747eab24587b43f3df5130
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66494603"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68355951"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>Creare un database e un cluster di Esplora dati di Azure tramite C#
 
@@ -22,9 +22,8 @@ ms.locfileid: "66494603"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
->  
 
-Esplora dati di Azure è un servizio di analisi dei dati veloce e completamente gestito per l'analisi in tempo reale di volumi elevati di dati in streaming provenienti da applicazioni, siti Web, dispositivi IoT e altro ancora. Per usare Esplora dati di Azure, è necessario prima creare un cluster e quindi uno o più database al suo interno. Quindi si inseriscono (caricano) i dati in un database per poter eseguire query. In questo articolo, si crea un cluster e un database tramite C#.
+Esplora dati di Azure è un servizio di analisi dei dati veloce e completamente gestito per l'analisi in tempo reale di volumi elevati di dati in streaming provenienti da applicazioni, siti Web, dispositivi IoT e altro ancora. Per usare Esplora dati di Azure, è necessario prima creare un cluster e quindi uno o più database al suo interno. Quindi si inseriscono (caricano) i dati in un database per poter eseguire query. In questo articolo vengono creati un cluster e un database usando C#.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -32,7 +31,7 @@ Esplora dati di Azure è un servizio di analisi dei dati veloce e completamente 
 
 * Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="install-c-nuget"></a>Installare il pacchetto NuGet per C#
+## <a name="install-c-nuget"></a>Installare C# NuGet
 
 1. Installare il [pacchetto NuGet Esplora dati di Azure (Kusto)](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
 
@@ -42,25 +41,25 @@ Esplora dati di Azure è un servizio di analisi dei dati veloce e completamente 
 
 1. Creare il cluster usando il codice seguente:
 
-    ```C#-interactive
-    string resourceGroupName = "testrg";    
-    string clusterName = "mykustocluster";
-    string location = "Central US";
-    AzureSku sku = new AzureSku("D13_v2", 5);
-    Cluster cluster = new Cluster(location, sku);
-    
+    ```csharp
+    var resourceGroupName = "testrg";
+    var clusterName = "mykustocluster";
+    var location = "Central US";
+    var sku = new AzureSku("D13_v2", 5);
+    var cluster = new Cluster(location, sku);
+
     var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantName}");
     var credential = new ClientCredential(clientId: "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx", clientSecret: "xxxxxxxxxxxxxx");
-    var result = authenticationContext.AcquireTokenAsync(resource: "https://management.core.windows.net/", clientCredential: credential).Result;
-    
+    var result = await authenticationContext.AcquireTokenAsync(resource: "https://management.core.windows.net/", clientCredential: credential);
+
     var credentials = new TokenCredentials(result.AccessToken, result.AccessTokenType);
-     
-    KustoManagementClient KustoManagementClient = new KustoManagementClient(credentials)
+
+    var kustoManagementClient = new KustoManagementClient(credentials)
     {
         SubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
     };
 
-    KustoManagementClient.Clusters.CreateOrUpdate(resourceGroupName, clusterName, cluster);
+    kustoManagementClient.Clusters.CreateOrUpdate(resourceGroupName, clusterName, cluster);
     ```
 
    |**Impostazione** | **Valore consigliato** | **Descrizione campo**|
@@ -75,8 +74,8 @@ Esplora dati di Azure è un servizio di analisi dei dati veloce e completamente 
 
 1. Per verificare se il cluster è stato creato correttamente, eseguire il comando seguente:
 
-    ```C#-interactive
-    KustoManagementClient.Clusters.Get(resourceGroupName, clusterName);
+    ```csharp
+    kustoManagementClient.Clusters.Get(resourceGroupName, clusterName);
     ```
 
 Se il risultato contiene `ProvisioningState` con il valore `Succeeded`, il cluster è stato creato correttamente.
@@ -85,13 +84,13 @@ Se il risultato contiene `ProvisioningState` con il valore `Succeeded`, il clust
 
 1. Creare il database usando il codice seguente:
 
-    ```c#-interactive
-    TimeSpan hotCachePeriod = new TimeSpan(3650, 0, 0, 0);
-    TimeSpan softDeletePeriod = new TimeSpan(3650, 0, 0, 0);
-    string databaseName = "mykustodatabase";
-    Database database = new Database(location: location, softDeletePeriod: softDeletePeriod, hotCachePeriod: hotCachePeriod);
-    
-    KustoManagementClient.Databases.CreateOrUpdate(resourceGroupName, clusterName, databaseName, database);
+    ```csharp
+    var hotCachePeriod = new TimeSpan(3650, 0, 0, 0);
+    var softDeletePeriod = new TimeSpan(3650, 0, 0, 0);
+    var databaseName = "mykustodatabase";
+    var database = new Database(location: location, softDeletePeriod: softDeletePeriod, hotCachePeriod: hotCachePeriod);
+
+    kustoManagementClient.Databases.CreateOrUpdate(resourceGroupName, clusterName, databaseName, database);
     ```
 
    |**Impostazione** | **Valore consigliato** | **Descrizione campo**|
@@ -104,19 +103,19 @@ Se il risultato contiene `ProvisioningState` con il valore `Succeeded`, il clust
 
 2. Eseguire il comando seguente per vedere il database creato:
 
-    ```c#-interactive
-    KustoManagementClient.Databases.Get(resourceGroupName, clusterName, databaseName);
+    ```csharp
+    kustoManagementClient.Databases.Get(resourceGroupName, clusterName, databaseName);
     ```
 
 A questo punto sono disponibili un cluster e un database.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-* Se si prevede di eseguire gli altri articoli, mantenere le risorse create.
+* Se si prevede di seguire gli altri articoli, è necessario salvare le risorse create.
 * Per pulire le risorse, eliminare il cluster. Quando si elimina un cluster, vengono eliminati anche tutti i database al suo interno. Usare il comando seguente per eliminare il cluster:
 
-    ```C#-interactive
-    KustoManagementClient.Clusters.Delete(resourceGroupName, clusterName);
+    ```csharp
+    kustoManagementClient.Clusters.Delete(resourceGroupName, clusterName);
     ```
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,110 +1,109 @@
 ---
-title: Architettura di rete di transito globale rete WAN virtuale Azure | Microsoft Docs
+title: Architettura della rete di transito globale WAN virtuale di Azure | Microsoft Docs
 description: Informazioni sull'architettura di rete di transito globale per la rete WAN virtuale
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 07/23/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand global transit network architecture as it relates to Virtual WAN.
-ms.openlocfilehash: 114d11f98c6181a03f5ce52527b5e2efea468c42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2376c77ecc328788c842e045aafb618cbad39b0e
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65965974"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68421420"
 ---
-# <a name="global-transit-network-architecture-and-virtual-wan"></a>Architettura di rete di transito globale e una rete WAN virtuale
+# <a name="global-transit-network-architecture-and-virtual-wan"></a>Architettura di rete di transito globale e rete WAN virtuale
 
-Architettura di rete di transito globale viene adottato da alle aziende di consolidamento, connettere e controllare l'azienda moderna incentrate su cloud footprint IT. In un'organizzazione incentrata sul cloud moderna, il traffico di rete non dovrà essere backhauled alla sede centrale. Architettura di rete di transito globale si basa su concetti di rete comuni e nuovi concetti univoci per architetture basate su cloud e cloud.
+L'architettura di rete di transito globale è stata adottata dalle aziende per consolidare, connettere e controllare il footprint IT moderno incentrato sul cloud. In una moderna azienda incentrata sul cloud, il traffico di rete non deve essere revisionato in HQ. L'architettura di rete di transito globale si basa su concetti di rete noti e su nuovi concetti unici per le architetture cloud e basate su cloud.
 
 ![architettura](./media/virtual-wan-global-transit-network-architecture/architecture2.png)
 
 **Figura 1: Rete di transito globale con rete WAN virtuale**
 
-Le aziende moderne richiedono la connettività universale tra hyper applicazioni distribuite a livello dei dati e gli utenti nel cloud e locali. Rete WAN virtuale Azure consente a un'architettura di rete di transito globale abilitando la connettività universale, any-to-any tra set distribuito a livello globale di reti virtuali, siti, applicazioni e utenti. Rete WAN virtuale Azure è un servizio gestito da Microsoft. Tutti i componenti di rete che questo servizio è composto ospitati e gestiti da Microsoft. Per altre informazioni sulla rete WAN virtuale, vedere la [Panoramica della rete WAN virtuale](virtual-wan-about.md) articolo.
+Le aziende moderne richiedono una connettività onnipresente tra le applicazioni, i dati e gli utenti Hyper-distribuiti nel cloud e in locale. La rete WAN virtuale di Azure consente un'architettura di rete di transito globale abilitando connettività universale, any-to-any tra set distribuiti a livello globale di reti virtuali, siti, applicazioni e utenti. La rete WAN virtuale di Azure è un servizio gestito da Microsoft. Tutti i componenti di rete di cui questo servizio è composto sono ospitati e gestiti da Microsoft. Per altre informazioni sulla rete WAN virtuale, vedere l'articolo [Panoramica della rete WAN virtuale](virtual-wan-about.md) .
 
-Nell'architettura di Azure rete WAN virtuale, le aree di Azure è fungere da hub a cui è possibile scegliere di connettere i rami. Una volta connessi i rami, è possibile sfruttare il backbone di Azure per stabilire branch-to-VNet e, facoltativamente, la connettività al ramo di ramo.
+Nell'architettura WAN virtuale di Azure, le aree di Azure servono come hub a cui è possibile scegliere di connettere i rami. Una volta connessi i rami, è possibile sfruttare la backbone di Azure per stabilire la connettività da ramo a VNet e, facoltativamente, da ramo a ramo.
 
-Creazione di un singolo hub rete WAN virtuale nell'area che ha il maggior numero di spoke (rami, le reti virtuali, gli utenti) e quindi collegando gli spoke che si trovano in altre aree all'hub, è possibile stabilire una rete WAN virtuale. In alternativa, se gli spoke sono distribuiti geograficamente, è possibile anche creare un'istanza di hub a livello di area e gli hub di interconnessione. Gli hub fanno tutte parte della rete WAN virtuale stessa, ma possono essere associate a diversi criteri a livello di area.
+È possibile stabilire una rete WAN virtuale creando un singolo hub WAN virtuale nell'area con il maggior numero di spoke (Branch, reti virtuali, utenti) e quindi connettendo i spoke che si trovano in altre aree all'hub. In alternativa, se i spoke sono distribuiti geograficamente, è anche possibile creare un'istanza degli hub regionali e interconnettere gli hub. Gli hub fanno parte della stessa rete WAN virtuale, ma possono essere associati a criteri regionali diversi.
 
-## <a name="hub"></a>Transito hub e spoke
+## <a name="hub"></a>Transito Hub e spoke
 
-L'architettura di rete di transito globale si basa su un modello classico connettività hub-spoke in cui la rete ospitato nel cloud "hub" Abilita la connettività transitiva tra gli endpoint che può essere distribuita in diversi tipi di 'spoke'.
+L'architettura di rete di transito globale è basata su un modello di connettività hub-spoke classico in cui la rete ospitata nel cloud ' hub ' consente la connettività transitiva tra gli endpoint che possono essere distribuiti tra tipi diversi di "spoke".
   
-In questo modello può essere uno spoke:
+In questo modello, un spoke può essere:
 
-* Rete virtuale (Vnet)
-* Sito fisico branch
+* Rete virtuale (reti virtuali)
+* Sito del ramo fisico
 * Utente remoto
 * Internet
 
-![diagramma di transito globale dell'hub e spoke](./media/virtual-wan-global-transit-network-architecture/architecture.png)
+![diagramma di transito globale Hub e spoke](./media/virtual-wan-global-transit-network-architecture/architecture.png)
 
 **Figura 2: Hub e spoke**
 
-Figura 2 mostra la visualizzazione logica della rete globale in cui utenti distribuiti geograficamente, siti fisici e le reti virtuali sono collegate tra loro tramite un hub di rete ospitato nel cloud. Questa architettura abilita la connettività di transito un hop logico tra gli endpoint di rete. Gli spoke sono connessi all'hub da vari servizi rete Azure, ad esempio VPN da sito o ExpressRoute da sito a rami fisico, VNet peering reti virtuali e VPN da punto a sito per gli utenti remoti.
+Nella figura 2 è illustrata la visualizzazione logica della rete globale in cui utenti distribuiti geograficamente, siti fisici e reti virtuali vengono interconnessi tramite un hub di rete ospitato nel cloud. Questa architettura consente la connettività di transito a un hop logico tra gli endpoint di rete. I spoke sono connessi all'hub da vari servizi di rete di Azure, ad esempio ExpressRoute o VPN da sito a sito, per i rami fisici, il peering VNet per reti virtuali e la VPN da punto a sito per gli utenti remoti.
 
-## <a name="crossregion"></a>Connettività in più aree
+## <a name="crossregion"></a>Connettività tra aree
 
-Per un'azienda, un footprint cloud segue in genere l'impronta fisica. La maggior parte delle aziende accedere a cloud da un'area più vicina ai propri fisico del sito e gli utenti. Una delle entità chiave dell'architettura di rete globale è per abilitare la connettività tra più aree tra le entità di rete ed endpoint. Un footprint cloud può estendersi su più aree. Ciò significa che il traffico proveniente da un ramo che è connesso al cloud in un'area possa raggiungere un altro ramo o una rete virtuale in un'altra area usando la connettività hub nell'hub che è attualmente in anteprima.
+Per un'azienda, un'impronta cloud segue in genere il footprint fisico. La maggior parte delle aziende accede al cloud da un'area più vicina al sito fisico e agli utenti. Una delle principali principali dell'architettura di rete globale è l'abilitazione della connettività tra aree tra le entità di rete e gli endpoint. Un footprint cloud può estendersi su più aree. Questo significa che il traffico da un ramo connesso al cloud in un'area può raggiungere un altro ramo o una VNet in un'area diversa usando la connettività da Hub a hub, che attualmente si trova in questo percorso.
 
-## <a name="any"></a>Connettività Any-to-any
+## <a name="any"></a>Connettività any-to-any
 
-Architettura di rete di transito globale consente *connettività any-to-any* tramite un hub centrale di rete. Questa architettura si elimina o riduce la necessità di maglia completa o modelli di connettività di rete mesh parziale che sono più complessi per compilare e gestire. Inoltre, un controllo di routing nell'hub e spoke e le reti mesh è più facile da configurare e gestire.
+L'architettura di rete di transito globale consente la *connettività any-to-any* tramite un hub di rete centrale. Questa architettura Elimina o riduce la necessità di modelli di connettività a mesh completo o a mesh parziali più complessi da compilare e gestire. Inoltre, il controllo di routing nelle reti hub e spoke e rete mesh è più semplice da configurare e gestire.
 
-Connettività Any-to-any, nel contesto di un'architettura globale, consente a un'azienda con utenti distribuiti a livello globale, i rami, i Data Center, le reti virtuali e applicazioni di connettersi tra loro tramite l'hub di transito. L'hub di transito funge da sistema di transito globale.
+La connettività any-to-any, nel contesto di un'architettura globale, consente a un'organizzazione con utenti, rami, Data Center, reti virtuali e applicazioni distribuite a livello globale di connettersi tra loro tramite l'hub di transito. L'hub di transito funge da sistema di transito globale.
 
-![percorsi del traffico](./media/virtual-wan-global-transit-network-architecture/trafficpath.png)
+![percorsi di traffico](./media/virtual-wan-global-transit-network-architecture/trafficpath.png)
 
-**Figura 3: Percorsi di traffico di rete WAN virtuale**
+**Figura 3: Percorsi di traffico WAN virtuale**
 
-Rete WAN virtuale Azure supporta i seguenti percorsi di connettività di transito globale. Figura 3 mappare le lettere tra parentesi.
+La rete WAN virtuale di Azure supporta i seguenti percorsi di connettività di transito globali. Le lettere tra parentesi vengono mappate alla figura 3.
 
-* Ramo-to-VNet (a)  
-* Ramo al ramo (b)
-* Utente-a-rete virtuale remota (c)
-* Utente-a-ramo remoto (d)
-* VNet-VNet tramite peering di rete virtuale (e)
-* Copertura globale di ExpressRoute 
+* Branch-to-VNet (a)  
+* Ramo a ramo (b)
+* Utente remoto-VNet (c)
+* Remote User-to-Branch (d)
+* Da VNet a VNet mediante il peering VNet (e)
+* Copertura globale ExpressRoute 
 
-### <a name="branchvnet"></a>Ramo-to-VNet
+### <a name="branchvnet"></a>Da ramo a VNet
 
-Ramo-to-VNet è il percorso principale supportato da Azure rete WAN virtuale. Questo percorso consente di connettersi i rami a carichi di lavoro aziendali IAAS di Azure distribuite in reti virtuali di Azure. I rami possono essere connesse alla rete WAN virtuale tramite ExpressRoute o VPN site-to-site. Transiti di traffico a reti virtuali connesse a hub di rete WAN virtuale tramite connessioni di rete virtuale.
+Branch-to-VNet è il percorso primario supportato dalla rete WAN virtuale di Azure. Questo percorso consente di connettere i rami ai carichi di lavoro aziendali di Azure IAAS distribuiti in Azure reti virtuali. È possibile connettere i rami alla rete WAN virtuale tramite ExpressRoute o VPN da sito a sito. Il traffico viene transitato verso reti virtuali connesse agli hub WAN virtuali tramite connessioni VNet.
 
-### <a name="branchbranch"></a>Branch-a-branch
+### <a name="branchbranch"></a>Da ramo a ramo
 
-I rami possono essere connesse a un hub WAN virtuale di Azure usando i circuiti ExpressRoute e/o le connessioni VPN site-to-site. I branch è possibile connettersi all'hub di rete WAN virtuale presente nell'area più vicina al ramo.
+I rami possono essere connessi a un hub WAN virtuale di Azure usando circuiti ExpressRoute e/o connessioni VPN da sito a sito. È possibile connettere i rami all'hub WAN virtuale che si trova nell'area più vicina al ramo.
 
-Questa opzione consente alle grandi imprese di sfruttare il backbone di Azure per connettere i rami. Tuttavia, anche se questa funzionalità è disponibile, è opportuno valutare i vantaggi di connessione rami su WAN virtuale di Azure o usando una rete WAN privata.
+Questa opzione consente alle aziende di sfruttare la backbone di Azure per connettere i rami. Tuttavia, anche se questa funzionalità è disponibile, è necessario valutare i vantaggi della connessione dei rami sulla rete WAN virtuale di Azure rispetto all'uso di una rete WAN privata.
 
-### <a name="usertovnet"></a>Utente remoto-to-VNet
+### <a name="usertovnet"></a>Da utente remoto a VNet
 
-È possibile abilitare accesso remoto diretto e protetto in Azure usando connessioni da punto a sito da un client utente remoto a una rete WAN virtuale. Gli utenti remoti Enterprise non è più necessario hairpin al cloud usando una VPN azienda.
+È possibile abilitare l'accesso remoto diretto e sicuro ad Azure tramite connessioni da punto a sito da un client utente remoto a una rete WAN virtuale. Gli utenti remoti aziendali non devono più eseguire il tornamento al cloud usando una VPN aziendale.
 
-### <a name="usertobranch"></a>Utente al ramo remoto
+### <a name="usertobranch"></a>Da utente a ramo remoto
 
-Il percorso utente al ramo remoto consente agli utenti remoti che usano una connessione da punto a sito per i carichi di lavoro di accesso di Azure in locale e le applicazioni da in transito tramite il cloud. Questo percorso flessibilità agli utenti remoti per i carichi di lavoro di accesso che sono distribuiti in Azure sia in locale. Le aziende è possono abilitare il servizio centrale di accesso remoto sicuro e basato sul cloud in Azure rete WAN virtuale.
+Il percorso remoto da utente a ramo consente agli utenti remoti che usano una connessione da punto a sito ad Azure di accedere ai carichi di lavoro e alle applicazioni locali passando attraverso il cloud. Questo percorso offre agli utenti remoti la flessibilità necessaria per accedere ai carichi di lavoro distribuiti in Azure e in locale. Le aziende possono abilitare il servizio di accesso remoto sicuro basato sul cloud in una rete WAN virtuale di Azure.
 
-### <a name="vnetvnet"></a>VNet-to-VNet transito tramite il peering reti virtuali
+### <a name="vnetvnet"></a>Transito da VNet a VNet con peering VNet
 
-Per connettere le reti virtuali tra loro per supportare le applicazioni multilivello che vengono implementate in più reti virtuali, usare il peering reti virtuali. Uno scenario di transito VNet a VNet tramite Azure rete WAN virtuale non è attualmente supportato, ma la roadmap di Azure. La connessione di reti virtuali tramite peering reti virtuali è la soluzione consigliata per le reti virtuali che devono essere connesse tra loro. [Il transito gateway](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) (nel contesto di peering reti virtuali) non è necessaria per la rete WAN virtuale perché rete WAN virtuale abilita automaticamente il transito gateway.
+Per connettere reti virtuali l'uno all'altro per supportare applicazioni multilivello implementate in più reti virtuali, usare il peering VNet. Uno scenario di transito da VNet a VNet tramite la rete WAN virtuale di Azure non è attualmente supportato, ma si trova nella roadmap di Azure. La connessione di reti virtuali tramite il peering VNet è la soluzione consigliata per reti virtuali che devono essere connesse tra loro. [Transito gateway](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) (nel contesto del peering VNet) non è necessario per la rete WAN virtuale perché la rete WAN virtuale Abilita automaticamente il transito del gateway.
 
-### <a name="globalreach"></a>Copertura globale di ExpressRoute
+### <a name="globalreach"></a>Copertura globale ExpressRoute
 
-ExpressRoute è un modo privato e resiliente per connettere le reti locali nel cloud di Microsoft. Raggiungere globale ExpressRoute è una funzionalità aggiuntiva per ExpressRoute. Con raggiungere globale, è possibile collegare i circuiti ExpressRoute tra loro per rendere una rete privata tra le reti locali. Rami connesse a Azure rete WAN virtuale tramite ExpressRoute richiedono di ExpressRoute globale raggiungere comunicare tra loro.
+ExpressRoute è un modo privato e resiliente per connettere le reti locali al Microsoft Cloud. ExpressRoute Copertura globale è una funzionalità del componente aggiuntivo per ExpressRoute. Con Copertura globale è possibile collegare circuiti ExpressRoute insieme per creare una rete privata tra le reti locali. I rami connessi alla rete WAN virtuale di Azure con ExpressRoute richiedono che il ExpressRoute Copertura globale per comunicare tra loro.
 
-In questo modello, ogni ramo che è connesso all'hub di rete WAN virtuale tramite ExpressRoute può connettersi alle reti virtuali tramite il percorso del ramo-to-VNet. Il traffico al ramo di ramo non transito nell'hub perché raggiungere globale ExpressRoute consente un percorso più ottimale su WAN di Azure.
+In questo modello ogni ramo connesso all'hub WAN virtuale usando ExpressRoute può connettersi a reti virtuali usando il percorso da ramo a VNet. Il traffico da ramo a ramo non transiterà nell'hub perché ExpressRoute Copertura globale Abilita un percorso più ottimale sulla rete WAN di Azure.
 
 ## <a name="security"></a>Sicurezza e controllo dei criteri
 
-L'hub di rete virtuale interconnessioni e potenzialmente vede tutto il traffico di transito. Può essere la posizione in cui le funzioni di rete centrale di host e i servizi come tale cloud routing, criteri di rete e sicurezza e controllo di accesso Internet.
+L'hub di rete virtuale si interconnette e potenzialmente rileva tutto il traffico di transito. Può essere il posto di ospitare funzioni e servizi di rete centrale, ad esempio routing cloud, criteri di rete e sicurezza e controllo di accesso a Internet.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Creare una connessione tramite rete WAN virtuale.
+Creare una connessione utilizzando la rete WAN virtuale.
 
-* [Connessioni Site-to-site tramite rete WAN virtuale](virtual-wan-site-to-site-portal.md)
-* [Connessioni da punto a sito tramite rete WAN virtuale](virtual-wan-point-to-site-portal.md)
-* [Connessioni ExpressRoute tramite rete WAN virtuale](virtual-wan-expressroute-portal.md)
+* [Connessioni da sito a sito tramite la rete WAN virtuale](virtual-wan-site-to-site-portal.md)
+* [Connessioni ExpressRoute tramite la rete WAN virtuale](virtual-wan-expressroute-portal.md)

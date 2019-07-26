@@ -3,23 +3,19 @@ title: Installare .NET nei ruoli di Servizi cloud di Azure | Microsoft Docs
 description: Questo articolo illustra come installare manualmente .NET Framework nei ruoli Web e di lavoro del servizio cloud
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 8d1243dc-879c-4d1f-9ed0-eecd1f6a6653
+author: georgewallace
+manager: carmonm
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/22/2018
-ms.author: jeconnoc
-ms.openlocfilehash: bc861b6730e8bf9db6ba2ab005496914f7b9ed89
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 25151f154b9806646406639df3efd7616e53f6bf
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64699670"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359640"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Installare .NET nei ruoli di Servizi cloud di Azure
 Questo articolo illustra come installare versioni di .NET Framework non incluse nel sistema operativo guest di Azure. È possibile usare .NET nel sistema operativo guest per configurare i ruoli Web e di lavoro del servizio cloud.
@@ -34,7 +30,7 @@ Per installare .NET nei ruoli Web e di lavoro, includere il programma di install
 ## <a name="add-the-net-installer-to-your-project"></a>Aggiungere al progetto il programma di installazione .NET
 Per scaricare il programma di installazione Web per .NET Framework, scegliere la versione da installare:
 
-* [Programma di installazione web 4.8 .NET](https://dotnet.microsoft.com/download/thank-you/net48)
+* [Programma di installazione Web di .NET 4,8](https://dotnet.microsoft.com/download/thank-you/net48)
 * [Programma di installazione Web di .NET 4.7.2](https://go.microsoft.com/fwlink/?LinkId=863262)
 * [Programma di installazione Web di .NET 4.6.2](https://www.microsoft.com/download/details.aspx?id=53345)
 
@@ -228,8 +224,8 @@ Quando si distribuisce il servizio cloud, le attività di avvio installano .NET 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * [Installazione di .NET Framework][Installing the .NET Framework]
-* [Determinare quali sono le versioni di .NET Framework installate][How to: Determine Which .NET Framework Versions Are Installed]
-* [Risoluzione dei problemi di installazione di .NET Framework][Troubleshooting .NET Framework Installations]
+* [Determinare quali versioni di .NET Framework sono installate][How to: Determine Which .NET Framework Versions Are Installed]
+* [Risoluzione dei problemi relativi alle installazioni di .NET Framework][Troubleshooting .NET Framework Installations]
 
 [How to: Determine Which .NET Framework Versions Are Installed]: /dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed
 [Installing the .NET Framework]: /dotnet/framework/install/guide-for-developers

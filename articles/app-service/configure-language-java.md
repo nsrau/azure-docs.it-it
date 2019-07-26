@@ -1,7 +1,7 @@
 ---
-title: Configurare Windows App Java - servizio App di Azure | Microsoft Docs
-description: Informazioni su come configurare le app Java per l'esecuzione nelle istanze di Windows predefinito nel servizio App di Azure.
-keywords: servizio app di Azure, app web, windows, oss, java
+title: Configurare app Java di Windows-servizio app Azure | Microsoft Docs
+description: Informazioni su come configurare le app Java da eseguire nelle istanze di Windows predefinite nel servizio app Azure.
+keywords: servizio app di Azure, app Web, Windows, OSS, Java
 services: app-service
 author: jasonfreeberg
 manager: jeconnock
@@ -14,30 +14,30 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 25434360bcc0155411451dbac065e0b7fad9c3bf
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: c1ea306d8a6b5c1876ac6a9288820e1592dbfda6
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617479"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498524"
 ---
-# <a name="configure-a-windows-java-app-for-azure-app-service"></a>Configurare un Windows app Java per servizio App di Azure
+# <a name="configure-a-windows-java-app-for-azure-app-service"></a>Configurare un'app Java Windows per il servizio app Azure
 
-Servizio App di Azure permette agli sviluppatori Java per creare, distribuire e ridimensionare le Tomcat o Java Standard Edition (SE) di pacchetti di applicazioni web in un servizio completamente gestito basato su Windows. Distribuire le applicazioni con i plug-in Maven dalla riga di comando o in editor come IntelliJ, Eclipse o Visual Studio Code.
+App Azure servizio consente agli sviluppatori Java di creare, distribuire e ridimensionare rapidamente le applicazioni Web in pacchetto Tomcat o Java Standard Edition (SE) in un servizio basato su Windows completamente gestito. Distribuire le applicazioni con i plug-in Maven dalla riga di comando o in editor come IntelliJ, Eclipse o Visual Studio Code.
 
-Questa guida fornisce i concetti chiave e le istruzioni per sviluppatori Java usando nel servizio App. Se non si è mai usato Azure App Service, è consigliabile leggere il [Guida introduttiva a Java](app-service-web-get-started-java.md) prima. Risposta alle domande di carattere generale sull'uso del servizio App che non sono specifiche per lo sviluppo Java nel [domande frequenti su Windows del servizio App](faq-configuration-and-management.md).
+Questa guida fornisce i concetti chiave e le istruzioni per gli sviluppatori Java che usano nel servizio app. Se non si è mai usato app Azure servizio, è consigliabile leggere prima di tutto la [Guida introduttiva per Java](app-service-web-get-started-java.md) . Domande generali sull'uso del servizio app non specifiche per lo sviluppo Java sono disponibili nelle [domande frequenti su Windows del servizio app](faq-configuration-and-management.md).
 
 > [!NOTE]
-> Le informazioni cercate non sono disponibili? Vedere la [domande frequenti su sistemi operativi Windows](faq-configuration-and-management.md) o nella [Guida alla configurazione di Java Linux](containers/configure-language-java.md) per informazioni sulla distribuzione e protezione di app Java.
+> Le informazioni cercate non sono disponibili? Per informazioni sulla distribuzione e la protezione dell'app Java, vedere le [domande frequenti su Windows OSS](faq-configuration-and-management.md) o la [Guida alla configurazione di Java Linux](containers/configure-language-java.md) .
 
-## <a name="configuring-tomcat"></a>Configurazione Tomcat
+## <a name="configuring-tomcat"></a>Configurazione di Tomcat
 
-Per modificare di Tomcat `server.xml` o altri file di configurazione, innanzitutto prendere nota della versione principale di Tomcat nel portale.
+Per modificare Tomcat `server.xml` o altri file di configurazione, prendere nota della versione principale di Tomcat nel portale.
 
-1. Trovare la directory principale di Tomcat per la versione eseguendo il `env` comando. Cercare la variabile di ambiente che inizia con `AZURE_TOMCAT`e corrisponde alla versione principale. Ad esempio, `AZURE_TOMCAT85_HOME` punti alla directory di Tomcat per Tomcat 8.5.
-1. Dopo aver identificato la home directory di Tomcat per la versione, copiare la directory di configurazione per `D:\home`. Ad esempio, se `AZURE_TOMCAT85_HOME` conteneva un valore di `D:\Program Files (x86)\apache-tomcat-8.5.37`, il percorso completo della directory di configurazione copiato sarebbe `D:\home\tomcat\conf`.
+1. Trovare la home directory di Tomcat per la versione eseguendo il `env` comando. Cercare la variabile di ambiente che inizia con `AZURE_TOMCAT`e corrisponde alla versione principale. Ad esempio, `AZURE_TOMCAT85_HOME` punta alla directory Tomcat per Tomcat 8,5.
+1. Dopo aver identificato la home directory di Tomcat per la versione in uso, copiare la directory `D:\home`di configurazione in. Se `AZURE_TOMCAT85_HOME` , ad esempio, il valore di `D:\Program Files (x86)\apache-tomcat-8.5.37`è, il nuovo percorso della directory copiata sarà `D:\home\apache-tomcat-8.5.37`.
 
-Riavviare infine il servizio app. Le distribuzioni devono passare a `D:\home\site\wwwroot\webapps` esattamente come in precedenza.
+Riavviare infine il servizio app. Le distribuzioni devono essere `D:\home\site\wwwroot\webapps` inserite come prima.
 
 ## <a name="java-runtime-statement-of-support"></a>Istruzione di supporto del runtime Java
 
@@ -45,7 +45,7 @@ Riavviare infine il servizio app. Le distribuzioni devono passare a `D:\home\sit
 
 Il pacchetto Java Development Kit (JDK) supportato di Azure è [Zulu](https://www.azul.com/downloads/azure-only/zulu/) fornito da [Azul Systems](https://www.azul.com/).
 
-Gli aggiornamenti di versione principale verranno forniti tramite nuove opzioni di runtime in servizio App di Azure per Windows. I clienti eseguono l'aggiornamento a queste versioni più recenti di Java configurando la distribuzione del servizio app e sono responsabili dei test, oltre che di assicurare che l'aggiornamento principale risponda alle esigenze.
+Gli aggiornamenti delle versioni principali verranno forniti tramite nuove opzioni di runtime nel servizio app Azure per Windows. I clienti eseguono l'aggiornamento a queste versioni più recenti di Java configurando la distribuzione del servizio app e sono responsabili dei test, oltre che di assicurare che l'aggiornamento principale risponda alle esigenze.
 
 Ai pacchetti JDK supportati vengono automaticamente applicate patch con cadenza trimestrale, a gennaio, aprile, luglio e ottobre di ogni anno.
 
@@ -63,7 +63,7 @@ Gli sviluppatori possono scaricare l'edizione Production di Azul Zulu Enterprise
 
 ### <a name="development-support"></a>Supporto per lo sviluppo
 
-Il supporto tecnico per il [supportate da Azure Azul Zulu JDK](https://www.azul.com/downloads/azure-only/zulu/) è disponibile tramite Microsoft durante lo sviluppo per Azure o [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) con un [qualificato piano di supporto tecnico di Azure](https://azure.microsoft.com/support/plans/).
+Il supporto del prodotto per l' [Azul Zulu del JDK supportato da Azure](https://www.azul.com/downloads/azure-only/zulu/) è disponibile tramite Microsoft quando si sviluppa per azure o [Azure stack](https://azure.microsoft.com/overview/azure-stack/) con un [piano di supporto di Azure completo](https://azure.microsoft.com/support/plans/).
 
 ### <a name="runtime-support"></a>Supporto di runtime
 
@@ -71,7 +71,7 @@ Gli sviluppatori possono [aprire un problema](/azure/azure-supportability/how-to
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo argomento fornisce l'istruzione di Runtime Java di supporto per servizio App di Azure su Windows.
+Questo argomento descrive il supporto di Java Runtime per app Azure servizio in Windows.
 
-- Per altre informazioni sull'hosting di applicazioni web con servizio App di Azure, vedere [Panoramica del servizio App](overview.md).
-- Per informazioni su Java sullo sviluppo di Azure, vedere [Azure per il centro per sviluppatori Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable).
+- Per altre informazioni sull'hosting di applicazioni Web con app Azure servizio, vedere [Panoramica del servizio app](overview.md).
+- Per informazioni sullo sviluppo di Java in Azure, vedere [Azure per Java Dev Center](https://docs.microsoft.com/java/azure/?view=azure-java-stable).

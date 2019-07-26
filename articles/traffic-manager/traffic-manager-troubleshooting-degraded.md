@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
-ms.openlocfilehash: f01dfe78d5d5e322258b0ee98cec314f9afe33c0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 19a654215377ba0fac7dacf800bf87a3481679c0
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60329752"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68357219"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico
 
-In questo articolo viene descritto come risolvere i problemi relativi al profilo di Gestione traffico di Azure che mostra uno stato danneggiato. Si supponga di aver configurato un profilo di Gestione traffico che punta ad alcuni dei servizi ospitati cloudapp.net. Se lo stato di integrità di Gestione traffico è **Danneggiato**, anche lo stato di uno o più endpoint può essere **Danneggiato**:
+In questo articolo viene descritto come risolvere i problemi relativi al profilo di Gestione traffico di Azure che mostra uno stato danneggiato. Come primo passaggio per la risoluzione dei problemi relativi allo stato danneggiato di gestione traffico di Azure, abilitare la registrazione diagnostica.  Per ulteriori informazioni, vedere [abilitare i log di diagnostica](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs) . Si supponga di aver configurato un profilo di Gestione traffico che punta ad alcuni dei servizi ospitati cloudapp.net. Se lo stato di integrità di Gestione traffico è **Danneggiato**, anche lo stato di uno o più endpoint può essere **Danneggiato**:
 
 ![Stato degli endpoint Danneggiato](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
 
@@ -47,7 +47,7 @@ Per risolvere gli errori di probe, è necessario uno strumento che mostri il cod
 
 È inoltre possibile utilizzare la scheda Rete in Strumenti F12 per il debug di Internet Explorer per visualizzare le risposte HTTP.
 
-Per questo esempio si vuole visualizzare la risposta dall'URL del probe: http:\//watestsdp2008r2.cloudapp.net:80/Probe. L'esempio di PowerShell seguente illustra il problema.
+Per questo esempio si vuole visualizzare la risposta dall'URL del probe: http:\//watestsdp2008r2.cloudapp.NET:80/Probe. L'esempio di PowerShell seguente illustra il problema.
 
 ```powershell
 Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription

@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: 1a26950f355fd10d9dd502851886a8b8101d4a83
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: ef02c8120775aa119aff44ff7a06bccf2bc70a21
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508300"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377336"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Trigger timer per Funzioni di Azure 
 
@@ -51,7 +51,7 @@ Vedere l'esempio specifico per ciascun linguaggio:
 
 ### <a name="c-example"></a>Esempio in C#
 
-L'esempio seguente mostra una [ C# funzione](functions-dotnet-class-library.md) che viene eseguita ogni volta che i minuti hanno un valore divisibile per cinque (ad esempio, se la funzione inizia in corrispondenza di 57: 18.00, le prestazioni successiva saranno alle 19:00:00). Il [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) oggetto viene passato alla funzione.
+Nell'esempio seguente viene illustrata una [ C# funzione](functions-dotnet-class-library.md) che viene eseguita ogni volta che i minuti hanno un valore divisibile per cinque (ad esempio, se la funzione inizia a 18:57:00, le prestazioni successive saranno pari a 19:00:00). L' [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) oggetto viene passato nella funzione.
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
@@ -67,7 +67,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 ### <a name="c-script-example"></a>Esempio di script C#
 
-L'esempio seguente mostra un'associazione di trigger timer in un file *function.json* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione. La funzione scrive un log che indica se la chiamata di funzione è dovuta un'occorrenza di pianificazione mancante. Il [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) oggetto viene passato alla funzione.
+L'esempio seguente mostra un'associazione di trigger timer in un file *function.json* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione. La funzione scrive un log che indica se la chiamata di funzione è dovuta un'occorrenza di pianificazione mancante. L' [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) oggetto viene passato nella funzione.
 
 Ecco i dati di associazione nel file *function.json*:
 
@@ -95,7 +95,7 @@ public static void Run(TimerInfo myTimer, ILogger log)
 
 ### <a name="f-example"></a>Esempio F#
 
-L'esempio seguente mostra un'associazione di trigger timer in un file *function.json* e una [funzione script F#](functions-reference-fsharp.md) che usa l'associazione. La funzione scrive un log che indica se la chiamata di funzione è dovuta un'occorrenza di pianificazione mancante. Il [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) oggetto viene passato alla funzione.
+L'esempio seguente mostra un'associazione di trigger timer in un file *function.json* e una [funzione script F#](functions-reference-fsharp.md) che usa l'associazione. La funzione scrive un log che indica se la chiamata di funzione è dovuta un'occorrenza di pianificazione mancante. L' [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) oggetto viene passato nella funzione.
 
 Ecco i dati di associazione nel file *function.json*:
 
@@ -135,7 +135,7 @@ public void keepAlive(
 
 ### <a name="javascript-example"></a>Esempio JavaScript
 
-L'esempio seguente mostra un'associazione di trigger timer in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione scrive un log che indica se la chiamata di funzione è dovuta un'occorrenza di pianificazione mancante. Oggetto [oggetto timer](#usage) viene passato alla funzione.
+L'esempio seguente mostra un'associazione di trigger timer in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione scrive un log che indica se la chiamata di funzione è dovuta un'occorrenza di pianificazione mancante. Un [oggetto timer](#usage) viene passato nella funzione.
 
 Ecco i dati di associazione nel file *function.json*:
 
@@ -166,7 +166,7 @@ module.exports = function (context, myTimer) {
 
 ### <a name="python-example"></a>Esempio in Python
 
-L'esempio seguente usa un trigger del timer viene descritta in cui la configurazione di associazione la *Function. JSON* file. L'effettivo [funzione Python](functions-reference-python.md) che usa l'associazione è descritta nel  *__init__py* file. L'oggetto passato alla funzione è di tipo [azure.functions.TimerRequest oggetto](/python/api/azure-functions/azure.functions.timerrequest). La logica della funzione scrive i log che indica se la chiamata corrente a causa di un'occorrenza di pianificazione mancante. 
+Nell'esempio seguente viene usata un'associazione di trigger timer la cui configurazione è descritta nel file *Function. JSON* . La [funzione Python](functions-reference-python.md) effettiva che usa l'associazione è descritta nel file  *__init__. py* . L'oggetto passato nella funzione è di tipo [Azure. Functions. TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). La logica della funzione scrive nei log che indicano se la chiamata corrente è dovuta a un'occorrenza di pianificazione mancante. 
 
 Ecco i dati di associazione nel file *function.json*:
 
@@ -232,11 +232,11 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!CAUTION]
-> L'impostazione di **runOnStartup** su `true` non è consigliata in ambienti di produzione. Con questa impostazione, il codice viene eseguito in momenti estremamente imprevedibili. In alcune impostazioni di produzione queste esecuzioni aggiuntive possono determinare costi molto più elevati per le app ospitate in piani a consumo. Ad esempio, con **runOnStartup** attivato il trigger viene richiamato ogni volta che viene ridimensionata l'app per le funzioni. Prima di abilitare **runOnStartup** in un ambiente di produzione assicurarsi di avere ben compreso il comportamento in produzione delle proprie funzioni.   
+> L'impostazione di **runOnStartup** su `true` non è consigliata in ambienti di produzione. Con questa impostazione, il codice viene eseguito in momenti estremamente imprevedibili. In alcune impostazioni di produzione queste esecuzioni aggiuntive possono determinare costi molto più elevati per le app ospitate in piani a consumo. Con **runOnStartup** abilitato, ad esempio, il trigger viene richiamato ogni volta che l'app per le funzioni viene ridimensionata. Prima di abilitare **runOnStartup** in un ambiente di produzione assicurarsi di avere ben compreso il comportamento in produzione delle proprie funzioni.   
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 
-Quando viene richiamata una funzione di trigger timer, un oggetto timer viene passato alla funzione. Il codice JSON seguente è una rappresentazione di esempio dell'oggetto timer.
+Quando viene richiamata una funzione di trigger del timer, nella funzione viene passato un oggetto timer. Il codice JSON seguente è una rappresentazione di esempio dell'oggetto timer.
 
 ```json
 {
@@ -319,7 +319,8 @@ Espresso come stringa, il formato di `TimeSpan` è `hh:mm:ss`, dove `hh` è mino
 |---------|---------|
 |"01:00:00" | Ogni ora        |
 |"00:01:00"|Ogni minuto         |
-|"24:00:00" | ogni giorno        |
+|"24:00:00" | Ogni 24 giorni        |
+|"1.00:00:00" | ogni giorno        |
 
 ## <a name="scale-out"></a>Scalabilità orizzontale
 

@@ -1,7 +1,6 @@
 ---
 title: "Risolvere l'errore di Backup di Azure: stato dell'agente guest sconosciuto"
 description: Sintomi, cause e soluzioni per i problemi di Backup di Azure correlati all'agente, all'estensione e ai dischi.
-services: backup
 author: saurabhsensharma
 manager: saurabhsensharma
 keywords: Backup di Azure; agente di macchine virtuali; connettività di rete;
@@ -9,12 +8,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: saurse
-ms.openlocfilehash: 1bfc862a7063a023fd148e5504b3baa7fb275229
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: e4337c9c89ca239bb664cbb7fb953ab9eedd3ac5
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704960"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465325"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere l'errore di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -51,7 +50,7 @@ Dopo la registrazione e la pianificazione di una macchina virtuale per il serviz
 **Codice errore**: UserErrorRpCollectionLimitReached <br>
 **Messaggio di errore**: È stato raggiunto il limite massimo di raccolte di punti di ripristino. <br>
 * Questo problema può verificarsi se è presente un blocco sul gruppo di risorse dei punti di ripristino che impedisce la pulizia automatica dei punti di ripristino.
-* Questo problema può verificarsi anche se vengono attivate più operazioni di backup al giorno. Attualmente, è consigliabile un solo backup al giorno come da 1 a 5 giorni in base al periodo di conservazione configurato snapshot vengono mantenuti i punti di ripristino immediato e solo 18 RPs immediata può essere associata a una macchina virtuale in un determinato momento. <br>
+* Questo problema può verificarsi anche se vengono attivate più operazioni di backup al giorno. Attualmente si consiglia un solo backup al giorno perché i punti di ripristino istantaneo vengono conservati per 1-5 giorni in base alla conservazione dello snapshot configurato e solo 18 RPs istantaneo possono essere associati a una macchina virtuale in un determinato momento. <br>
 
 Azione consigliata:<br>
 Per risolvere il problema, rimuovere il blocco sul gruppo di risorse della macchina virtuale e ripetere l'operazione per attivare la pulizia.
@@ -102,12 +101,12 @@ Dopo la registrazione e la pianificazione di una macchina virtuale per il serviz
 **Causa 5: Il servizio di Backup di Azure non possiede l'autorizzazione per eliminare i punti di ripristino precedenti, a causa di un blocco del gruppo di risorse** <br>
 **Causa 6: [La macchina virtuale non ha accesso a Internet](#the-vm-has-no-internet-access)**
 
-## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-4095gb"></a>UserErrorUnsupportedDiskSize - Backup di Azure attualmente non supporta dischi di dimensioni superiori a 4095GB
+## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-4095gb"></a>UserErrorUnsupportedDiskSize-attualmente backup di Azure non supporta le dimensioni dei dischi maggiori di 4.095 GB
 
 **Codice errore**: UserErrorUnsupportedDiskSize <br>
-**Messaggio di errore**: Backup di Azure non supporta attualmente dimensioni superiori a 4095GB <br>
+**Messaggio di errore**: Attualmente backup di Azure non supporta dischi di dimensioni superiori a 4.095 GB <br>
 
-L'operazione di backup potrebbe non riuscire durante il backup della macchina virtuale con dischi di dimensioni superiori a 4095GB. Supporto per dischi di grandi dimensioni sarà presto disponibile.  
+L'operazione di backup potrebbe non riuscire quando si esegue il backup di una macchina virtuale con dimensioni del disco maggiori di 4.095 GB. Il supporto per dischi di grandi dimensioni sarà presto disponibile.  
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - Impossibile avviare il backup perché è attualmente in corso un'altra operazione di backup
 
@@ -193,7 +192,7 @@ Le condizioni seguenti possono causare errori dell'attività di snapshot:
 | Causa | Soluzione |
 | --- | --- |
 | Lo stato della macchina virtuale viene segnalato in modo non corretto perché la macchina virtuale viene arrestata in RDP (Remote Desktop Protocol). | Se si arresta la macchina virtuale in RDP, controllare il portale per determinare se lo stato della macchina virtuale è corretto. In caso contrario, arrestare la macchina virtuale nel portale tramite l'opzione **Spegni** nel dashboard della macchina virtuale. |
-| La macchina virtuale non riesce a ottenere l'indirizzo dell'host o dell'infrastruttura da DHCP. | DHCP deve essere abilitato nel computer guest per consentire il funzionamento del backup delle VM IaaS. Se la macchina virtuale non riesce a ottenere l'indirizzo dell'host o dell'infrastruttura da DHCP, con risposta 245, non è possibile scaricare o eseguire le estensioni. Se è necessario un indirizzo IP privato statico, è necessario configurarlo tramite il **portale di Azure** oppure **PowerShell** e assicurarsi che l'opzione DHCP all'interno della VM sia abilitato. [Altre informazioni](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) sulla configurazione di un indirizzo IP statico con PowerShell.
+| La macchina virtuale non riesce a ottenere l'indirizzo dell'host o dell'infrastruttura da DHCP. | DHCP deve essere abilitato nel computer guest per consentire il funzionamento del backup delle VM IaaS. Se la macchina virtuale non riesce a ottenere l'indirizzo dell'host o dell'infrastruttura da DHCP, con risposta 245, non è possibile scaricare o eseguire le estensioni. Se è necessario un indirizzo IP privato statico, è necessario configurarlo tramite il **portale di Azure** o **PowerShell** e assicurarsi che l'opzione DHCP all'interno della VM sia abilitata. [Altre](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) informazioni sulla configurazione di un indirizzo IP statico con PowerShell.
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>Non è possibile aggiornare o caricare l'estensione di backup
 Se non è possibile caricare le estensioni, si verifica un errore del backup perché non è possibile acquisire uno snapshot.
@@ -224,14 +223,14 @@ Questa procedura fa in modo che l'estensione venga reinstallata durante il backu
 
 ### <a name="clean_up_restore_point_collection"></a> Pulire la raccolta di punti di ripristino
 Dopo aver rimosso il blocco, è necessario eseguire la pulizia dei punti di ripristino. A questo scopo, seguire uno dei metodi seguenti:<br>
-* [Pulizia ripristino raccolta di punti mediante l'esecuzione di backup ad hoc](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
+* [Pulire la raccolta di punti di ripristino eseguendo il backup ad hoc](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
 * [Pulire la raccolta di punti di ripristino dal portale di Azure](#clean-up-restore-point-collection-from-azure-portal)<br>
 
-#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Pulizia ripristino raccolta di punti mediante l'esecuzione di backup ad hoc
-Dopo la rimozione di blocco, attivare un backup ad hoc/manuali di Active Directory. In tal modo, i punti di ripristino verranno automaticamente puliti. Prevede che questa operazione ad hoc o manuale ad eseguire la prima volta. Tuttavia, garantirà la pulizia automatica anziché l'eliminazione manuale di punti di ripristino. Dopo la pulizia, il successivo backup pianificato avrà esito positivo.
+#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Pulire la raccolta di punti di ripristino eseguendo il backup ad hoc
+Dopo la rimozione del blocco, attivare un backup ad hoc/manuale. In tal modo, i punti di ripristino verranno automaticamente puliti. Si prevede che questa operazione ad hoc/manuale abbia esito negativo per la prima volta. Tuttavia, verrà garantita la pulizia automatica anziché l'eliminazione manuale dei punti di ripristino. Dopo la pulizia, il successivo backup pianificato avrà esito positivo.
 
 > [!NOTE]
-> La pulizia automatica verrà eseguito dopo alcune ore dall'attivazione di backup ad hoc/manuali. Se il backup pianificato continua ad avere esito negativo, provare a eliminare manualmente la raccolta di punti di ripristino seguendo la procedura illustrata [qui](#clean-up-restore-point-collection-from-azure-portal).
+> La pulizia automatica viene eseguita dopo alcune ore dall'attivazione del backup ad hoc/manuale. Se il backup pianificato continua ad avere esito negativo, provare a eliminare manualmente la raccolta di punti di ripristino seguendo la procedura illustrata [qui](#clean-up-restore-point-collection-from-azure-portal).
 
 #### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Pulire la raccolta di punti di ripristino dal portale di Azure <br>
 

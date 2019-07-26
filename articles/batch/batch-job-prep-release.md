@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 75ff3bdf7a0900c32feb7090e0c24af748080a76
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a85ced787529db7e6d607665d81632ab1c450dfe
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323495"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466980"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Eseguire attività di preparazione e rilascio del processo in nodi di calcolo di Batch
 
@@ -68,11 +68,13 @@ L'attività di preparazione del processo viene eseguita solo su nodi pianificati
 > 
 > 
 
-## <a name="job-release-task"></a>attività di rilascio del processo
+## <a name="job-release-task"></a>Attività di rilascio del processo
 Dopo aver contrassegnato un processo come completato , viene eseguita l'attività di rilascio del processo in ogni nodo del pool che ha eseguito almeno un'attività. Un processo viene contrassegnato come completato generando una richiesta di interruzione. Il servizio Batch imposta quindi lo stato del processo su *Arresto in corso*, termina le attività attive o in esecuzione associate al processo ed esegue l'attività di rilascio del processo. Il processo passa quindi allo stato *completato* .
 
 > [!NOTE]
 > Anche l'eliminazione del processo esegue l'attività di rilascio del processo. Tuttavia, se un processo è già stato terminato, l'attività di rilascio non viene eseguita una seconda volta se il processo viene eliminato in seguito.
+
+Le attività di rilascio dei processi possono essere eseguite per un massimo di 15 minuti prima di essere interrotte dal servizio batch. Per ulteriori informazioni, vedere la [documentazione di riferimento dell'API REST](https://docs.microsoft.com/rest/api/batchservice/job/add#jobreleasetask).
 > 
 > 
 

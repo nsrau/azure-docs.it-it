@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: ddff9ffb00f4167cb8f64a75b129711467de739d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 395bb01247efde82dbb39733c1915bc989b1729d
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66297055"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68402774"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Connettersi ad Apache Kafka in HDInsight tramite una rete virtuale di Azure
 
@@ -56,7 +56,7 @@ HDInsight non consente la connessione diretta a Kafka nella rete Internet pubbli
      > * Ogni client deve connettersi usando un client software VPN.
      > * Il client VPN non passa le richieste di risoluzione dei nomi alla rete virtuale, quindi per comunicare con Kafka è necessario usare gli indirizzi IP. La comunicazione tramite IP richiede una configurazione aggiuntiva nel cluster Kafka.
 
-Per altre informazioni sull'uso di HDInsight in una rete virtuale, vedere [Estendere le funzionalità di HDInsight usando Rete virtuale di Azure](../hdinsight-extend-hadoop-virtual-network.md).
+Per altre informazioni sull'uso di HDInsight in una rete virtuale, vedere [pianificare una rete virtuale per i cluster Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md).
 
 ## <a id="on-premises"></a> Connettersi ad Apache Kafka da una rete locale
 
@@ -242,7 +242,7 @@ Usare la procedura descritta in questa sezione per creare la configurazione segu
 
 Per impostazione predefinita, Apache ZooKeeper restituisce il nome di dominio dei broker di Kafka ai client. Questa configurazione non funziona con il client software VPN, poiché non può usare la risoluzione dei nomi per le entità nella rete virtuale. Per questa configurazione usare la procedura seguente per configurare Kafka in HDInsight affinché possa creare pubblicità per gli indirizzi IP anziché per i nomi di dominio:
 
-1. Usando un Web browser, passare a `https://CLUSTERNAME.azurehdinsight.net`. Sostituire `CLUSTERNAME` con il nome di Kafka nel cluster HDInsight.
+1. Usando un Web browser, passare a `https://CLUSTERNAME.azurehdinsight.net`. Sostituire `CLUSTERNAME` con il nome del cluster Kafka in HDInsight.
 
     Quando richiesto, usare il nome utente HTTPS e la password per il cluster. Viene visualizzata l'interfaccia utente di Ambari Web per il cluster.
 
@@ -368,7 +368,7 @@ Per convalidare la connettività a Kafka, usare la procedura seguente per creare
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'uso di HDInsight con le reti virtuali, vedere il documento [Estendere le funzionalità di HDInsight usando Rete virtuale di Azure](../hdinsight-extend-hadoop-virtual-network.md).
+Per altre informazioni sull'uso di HDInsight con una rete virtuale, vedere il documento [pianificare una distribuzione di rete virtuale per i cluster Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md) .
 
 Per altre informazioni sulla creazione di una rete virtuale di Azure con gateway VPN da punto a sito, vedere i seguenti documenti:
 

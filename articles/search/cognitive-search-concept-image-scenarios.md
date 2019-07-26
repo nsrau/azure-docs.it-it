@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 8bea47467d141869b1a668668bc57451a882a54b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 589f8c8f11138b4fb5c3c3096229e28c633efb0d
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448444"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423018"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Come elaborare ed estrarre informazioni da immagini in scenari di ricerca cognitiva
 
@@ -30,11 +30,11 @@ Questo articolo illustra nel dettaglio il processo di elaborazione delle immagin
 
 Nell'ambito del processo di individuazione dei documenti, è disponibile un nuovo set di parametri di configurazione dell'indicizzatore per la gestione di file di immagine o di immagini incorporate nei file. Questi parametri consentono di normalizzare le immagini in modo da poterle elaborare ulteriormente. La normalizzazione delle immagini le rende più uniformi. Le immagini di grandi dimensioni vengono ridimensionate a un'altezza e una larghezza tali da poter essere usate. Per le immagini che forniscono metadati sull'orientamento, la rotazione dell'immagine viene impostata per il caricamento verticale. Le modifiche a livello di metadati vengono acquisite in un tipo complesso creato per ogni immagine. 
 
-Non è possibile disattivare la normalizzazione delle immagini. Le competenze che prevedono l'iterazione sulle immagini richiedono immagini normalizzate. Abilitare la normalizzazione di immagine in un indicizzatore, è necessario che un insieme di competenze di essere collegato all'indicizzatore stesso.
+Non è possibile disattivare la normalizzazione delle immagini. Le competenze che prevedono l'iterazione sulle immagini richiedono immagini normalizzate. Per abilitare la normalizzazione delle immagini in un indicizzatore, è necessario associare un skillt a tale indicizzatore.
 
-| Parametro di configurazione | Descrizione |
+| Parametro di configurazione | DESCRIZIONE |
 |--------------------|-------------|
-| imageAction   | Impostare su "none" se non deve essere eseguita alcuna operazione quando vengono rilevate immagini incorporate o file di immagine. <br/>Impostare su "generateNormalizedImages" per generare una matrice di immagini durante l'individuazione dei documenti.<br/>Impostare su "generateNormalizedImagePerPage" per generare una matrice di immagini normalizzate in cui, per i file PDF nell'origine dati, per ogni pagina viene eseguito il rendering in una sola immagine di output.  Per i tipi di file diversi da PDF, la funzionalità è la stessa di "generateNormalizedImages".<br/>Per qualsiasi opzione diversa da "none", le immagini verranno esposte nel campo *normalized_images*. <br/>Il valore predefinito è "none". Questa configurazione è pertinente solo alle origini dati BLOB, quando "dataToExtract" è impostato su "contentAndMetadata". <br/>Verrà estratto un massimo di 1000 immagini da un documento specifico. Se sono presenti più di 1000 immagini in un documento, verranno estratti prime 1000 e verrà generato un avviso. |
+| imageAction   | Impostare su "none" se non deve essere eseguita alcuna operazione quando vengono rilevate immagini incorporate o file di immagine. <br/>Impostare su "generateNormalizedImages" per generare una matrice di immagini durante l'individuazione dei documenti.<br/>Impostare su "generateNormalizedImagePerPage" per generare una matrice di immagini normalizzate in cui, per i file PDF nell'origine dati, per ogni pagina viene eseguito il rendering in una sola immagine di output.  Per i tipi di file diversi da PDF, la funzionalità è la stessa di "generateNormalizedImages".<br/>Per qualsiasi opzione diversa da "none", le immagini verranno esposte nel campo *normalized_images*. <br/>Il valore predefinito è "none". Questa configurazione è pertinente solo alle origini dati BLOB, quando "dataToExtract" è impostato su "contentAndMetadata". <br/>Verrà estratto un massimo di 1000 immagini da un documento specifico. Se sono presenti più di 1000 immagini in un documento, il primo 1000 verrà estratto e verrà generato un avviso. |
 |  normalizedImageMaxWidth | La larghezza massima (in pixel) per le immagini normalizzate generate. Il valore predefinito è 2000.|
 |  normalizedImageMaxHeight | L'altezza massima (in pixel) per le immagini normalizzate generate. Il valore predefinito è 2000.|
 
@@ -102,8 +102,6 @@ La [competenza di analisi delle immagini](cognitive-search-skill-image-analysis.
 ### <a name="ocr-skill"></a>Competenza OCR
 
 La [competenza OCR](cognitive-search-skill-ocr.md) estrae il testo da file di immagine in formato JPG, PNG e bitmap. È possibile estrarre sia il testo sia informazioni di layout. Le informazioni di layout presentano rettangoli di selezione per ogni stringa identificata.
-
-La competenza OCR consente di selezionare l'algoritmo da usare per il rilevamento del testo nelle immagini. Supporta attualmente due algoritmi, uno per il testo stampato e uno per il testo scritto.
 
 ## <a name="embedded-image-scenario"></a>Scenario di immagine incorporata
 

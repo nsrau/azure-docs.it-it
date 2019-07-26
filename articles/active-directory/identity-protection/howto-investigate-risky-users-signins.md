@@ -2,33 +2,25 @@
 title: Come analizzare utenti e accessi a rischio in Azure Active Directory Identity Protection (procedura aggiornata) | Microsoft Docs
 description: Informazioni su come analizzare utenti e accessi a rischio in Azure Active Directory Identity Protection (procedura aggiornata).
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, gestione applicazioni, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.author: joflore
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
+ms.topic: conceptual
 ms.date: 01/25/2019
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a90195a2d0899b0a157cc67badd2f9873164987
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c89658e962654f005eaee5ceff220d5fb343e86e
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108958"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370318"
 ---
 # <a name="how-to-investigate-risky-users-and-sign-ins"></a>Procedura: Analizzare utenti e accessi a rischio 
 
-
-Usando i report sugli accessi e gli utenti a rischio è possibile analizzare e ottenere informazioni approfondite sui potenziali rischi nell'ambiente. Con la possibilità di filtrare e ordinare gli accessi e gli utenti a rischio, si possono comprendere meglio le potenziali intrusioni nella propria organizzazione. 
-
+Utilizzando gli accessi a rischio e i report degli utenti a rischio, è possibile esaminare e ottenere informazioni sui rischi dell'ambiente. Con la possibilità di filtrare e ordinare gli accessi e gli utenti a rischio, si possono comprendere meglio le potenziali intrusioni nella propria organizzazione. 
 
 ## <a name="risky-users-report"></a>Report utenti a rischio
 
@@ -37,32 +29,21 @@ Le informazioni contenute nel report utenti a rischio consentono di rispondere a
 - Quali sono gli utenti ad alto rischio?
 - Quali utenti presentano lo stato di rischio con correzione?
 
-
-
 Il primo punto di approccio a questo report è la sezione **Analisis dei problemi** nella pagina di sicurezza.
 
 ![Report utenti a rischio](./media/howto-investigate-risky-users-signins/01.png)
 
-
 Il report utenti a rischio dispone di una vista predefinita che include:
 
 - Name
-
 - Stato del rischio
-
 - Livello di rischio
-
 - Dettaglio del rischio
-
 - Ultimo aggiornamento rischio
-
 - Type
-
 - Stato
- 
 
 ![Report utenti a rischio](./media/howto-investigate-risky-users-signins/03.png)
-
 
 Per personalizzare la visualizzazione elenco, fare clic su **Colonne** nella barra degli strumenti.
 
@@ -74,55 +55,36 @@ Facendo clic su un elemento nella visualizzazione elenco, è possibile ottenere 
 
 ![Report utenti a rischio](./media/howto-investigate-risky-users-signins/05.png)
 
-
 La vista Dettagli mostra:
 
 - Info di base
-
 - Accessi a rischio recenti
-
 - Eventi di rischio non collegati a un accesso
-
 - Cronologia rischio
-
-
 
 È anche possibile:
 
 ![Report utenti a rischio](./media/howto-investigate-risky-users-signins/08.png)
 
 - Visualizzare tutti i collegamenti agli accessi per vedere il report degli accessi per tale utente.
-
 - Visualizzare tutti gli accessi a rischio per vedere tutti gli accessi dell'utente che sono stati contrassegnati come rischiosi.
-
 - Reimpostare la password dell'utente se si ritiene che la sua identità sia stata compromessa.
-
-- Ignorare il rischio utente se si ritiene che gli eventi di rischio attivi di un utente siano falsi positivi. Per altre informazioni, vedere [How to improve the detection accuracy](howto-improve-detection-accuracy.md)(Come migliorare la precisione del rilevamento).
-
-
+- Ignorare il rischio utente se si ritiene che gli eventi di rischio attivi di un utente siano falsi positivi. Per ulteriori informazioni, vedere l'articolo [fornire feedback sugli eventi di rischio in Azure ad Identity Protection](howto-provide-risk-event-feedback.md).
 
 ### <a name="filter-risky-users"></a>Filtrare gli utenti a rischio
 
 Per limitare i dati segnalati in base alle esigenze, è possibile filtrare i dati sugli utenti a rischio usando i campi predefiniti seguenti:
 
 - Name
-
-- Username
-
+- Nome utente
 - Stato del rischio
-
 - Livello di rischio
-
 - Type
-
 - Stato
 
 ![Report utenti a rischio](./media/howto-investigate-risky-users-signins/06.png)
 
-
-
 Il filtro **Nome** consente di specificare il nome o il nome dell'entità utente (UPN) per l'utente interessato.
-
 
 Il filtro **Stato rischio** consente di selezionare:
 
@@ -130,31 +92,27 @@ Il filtro **Stato rischio** consente di selezionare:
 - Con correzione
 - Ignorato
 
-
 Il filtro **Livello rischio** consente di selezionare:
 
-- Alto
-- Media
+- High
+- Medi
 - Basso
-
 
 Il filtro **Tipo** consente di selezionare:
 
 - Guest
-- Membro
+- Member
 
 Il filtro **Stato** consente di selezionare:
 
-- Deleted
+- Eliminata
 - Attivo
-
 
 ### <a name="download-risky-users-data"></a>Download dei dati sugli utenti a rischio
 
-Se si desidera utilizzarli all'esterno del portale di Azure, è possibile scaricare i dati degli utenti a rischio. Facendo clic su Download crea un file CSV dei record di 2.500 più recente. 
+È possibile scaricare i dati degli utenti rischiosi se si desidera utilizzarli al di fuori della portale di Azure. Facendo clic su Scarica viene creato un file CSV dei record 2.500 più recenti. 
 
 ![Report utenti a rischio](./media/howto-investigate-risky-users-signins/07.png)
-
 
 Per personalizzare la visualizzazione elenco, fare clic su Colonne nella barra degli strumenti.
  
@@ -162,22 +120,13 @@ In questo modo è possibile visualizzare campi aggiuntivi o rimuovere campi già
  
 Per altre informazioni su un utente a rischio, fare clic sul pannello dei dettagli per espanderlo
 
- 
-
-
-
 ## <a name="risky-sign-ins-report"></a>Report sugli accessi a rischio
 
 Le informazioni contenute nel report accessi a rischio consentono di rispondere a domande come le seguenti:
 
 - Quanti accessi per i quali sono stati rilevati eventi di rischio con indirizzo IP anonimo sono stati effettuati nell'ultima settimana?
-
 - Quali utenti sono stati confermati compromessi nell'ultimo mese?
-
 - Quali utenti hanno effettuato accessi a rischio al portale Office 365?
-
-
-
 
 Il primo punto di approccio a questo report è la sezione **Analisis dei problemi** nella pagina di sicurezza.
 
@@ -186,26 +135,16 @@ Il primo punto di approccio a questo report è la sezione **Analisis dei problem
 Il report accessi a rischio presenta una vista predefinita che include:
 
 - Date
-
 - Utente
-
 - Applicazione
-
 - Stato accesso
-
 - Stato del rischio
-
 - Livello di rischio (aggregato)
-
 - Livello di rischio (in tempo reale)
-
 - Accesso condizionale
-
 - Autenticazione a più fattori obbligatoria  
- 
 
 ![Report sugli accessi a rischio](./media/howto-investigate-risky-users-signins/09.png)
-
 
 Per personalizzare la visualizzazione elenco, fare clic su **Colonne** nella barra degli strumenti.
 
@@ -217,35 +156,22 @@ Facendo clic su un elemento nella visualizzazione elenco, è possibile ottenere 
 
 ![Report utenti a rischio](./media/howto-investigate-risky-users-signins/12.png)
 
-
 La vista Dettagli mostra:
 
 - Info di base
-
 - Informazioni dispositivo
-
 - Informazioni di rischio
-
 - Informazioni su MFA
-
 - Accesso condizionale
-
-
-
-
 
 È anche possibile:
 
 ![Report utenti a rischio](./media/howto-investigate-risky-users-signins/13.png)
 
 - Confermare un accesso compromesso 
+- Conferma sicuro
 
-- Confermare un accesso sicuro
-
-Per altre informazioni, vedere [How to improve the detection accuracy](howto-improve-detection-accuracy.md)(Come migliorare la precisione del rilevamento).
-
-
-
+Per ulteriori informazioni, vedere l'articolo [fornire feedback sugli eventi di rischio in Azure ad Identity Protection](howto-provide-risk-event-feedback.md).
 
 ### <a name="filter-risky-sign-ins"></a>Filtrare gli accessi a rischio
 
@@ -263,8 +189,6 @@ Per limitare i dati segnalati in base alle esigenze, è possibile filtrare i dat
 
 ![Report sugli accessi a rischio](./media/howto-investigate-risky-users-signins/14.png)
 
-
-
 Il filtro **Nome** consente di specificare il nome o il nome dell'entità utente (UPN) per l'utente interessato.
 
 Il filtro **Applicazione** consente di specificare l'app cloud a cui l’utente ha provato ad accedere.
@@ -273,8 +197,7 @@ Il filtro **Stato accesso** permette di selezionare:
 
 - Tutti
 - Riuscito
-- Esito negativo
-
+- Errore
 
 Il filtro **Stato rischio** consente di selezionare:
 
@@ -284,27 +207,24 @@ Il filtro **Stato rischio** consente di selezionare:
 - Ignorato
 - Con correzione
 
-
 Il filtro **Livello di rischio (aggregato)** consente di selezionare:
 
-- Alto
-- Media
+- High
+- Medi
 - Basso
 
 Il filtro **Livello di rischio (in tempo reale)** consente di selezionare:
 
-- Alto
-- Media
+- High
+- Medi
 - Basso
 
-
-Il **accesso condizionale** filtro consente di selezionare:
+Il filtro di **accesso condizionale** consente di selezionare:
 
 - Tutti
 - Non applicato
 - Riuscito
-- Esito negativo
-
+- Errore
 
 Il filtro **Date** (Data) permette di definire un intervallo di tempo per i dati restituiti.
 I valori possibili sono:
@@ -314,17 +234,11 @@ I valori possibili sono:
 - Ultime 24 ore
 - Intervallo di tempo personalizzato
 
-
-
-
-
 ### <a name="download-risky-sign-ins-data"></a>Download dei dati sugli accessi a rischio
 
-Se si desidera utilizzarli all'esterno del portale di Azure, è possibile scaricare i dati di accessi a rischio. Facendo clic su Download crea un file CSV dei record di 2.500 più recente. 
+È possibile scaricare i dati degli accessi a rischio se si desidera utilizzarli al di fuori della portale di Azure. Facendo clic su Scarica viene creato un file CSV dei record 2.500 più recenti. 
 
 ![Report utenti a rischio](./media/howto-investigate-risky-users-signins/15.png)
-
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

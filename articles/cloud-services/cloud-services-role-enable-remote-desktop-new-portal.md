@@ -4,22 +4,16 @@ description: Come configurare l'applicazione del servizio cloud di Azure per con
 services: cloud-services
 documentationcenter: ''
 author: mmccrory
-manager: timlt
-editor: ''
-ms.assetid: 73ea1d64-1529-4d72-b58e-f6c10499e6bb
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: memccror
-ms.openlocfilehash: 0c36dc5fb6b2754fc93a02e29d8d8ae74df36da7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bea4e0c43d6ae6e0ea05c43343535195a25cf3e2
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963261"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359525"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Impostare una connessione Desktop remoto per un ruolo nei servizi cloud di Azure
 

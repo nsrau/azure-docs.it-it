@@ -6,14 +6,14 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 07/23/2019
 ms.author: normesta
-ms.openlocfilehash: fd3875c5c78a02efab1251166ec7113902be3e08
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 010b7bc38caf83c12dd0d8b8e731fdbad6e45256
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723243"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422872"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Uso di Azure Data Lake Storage Gen2 per i requisiti di Big Data
 
@@ -81,7 +81,7 @@ Per concedere l'accesso a specifici file e cartelle, vedere questi articoli.
 
 * [Elenchi di controllo di accesso per file e directory](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories)
 
-Per maggiori informazioni sull'impostazione di altri aspetti della sicurezza, vedere la [Guida alla sicurezza di Azure Data Lake Storage Gen2](https://review.docs.microsoft.com/azure/storage/common/storage-data-lake-storage-security-guide?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Per maggiori informazioni sull'impostazione di altri aspetti della sicurezza, vedere la [Guida alla sicurezza di Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/common/storage-data-lake-storage-security-guide?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="ingest-the-data"></a>Inserire i dati
 
@@ -142,7 +142,7 @@ Ecco un elenco di strumenti che è possibile usare per inserire i dati associati
 |---|--|
 |Apache DistCp | [Usare DistCp per copiare dati tra i BLOB del servizio di Archiviazione di Microsoft Azure e i Data Lake Storage Gen2 di Azure](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
 |Strumento AzCopy | [Trasferire dati con AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) |
-|Data factory di Azure | [Copiare dati da o verso Azure Data Lake Storage Gen2 usando Azure Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2) |
+|Data factory di Azure | [Copiare dati da e verso Azure Data Lake Storage Gen2 tramite Azure Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2) |
 
 ### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>Dati archiviati in locale o in cluster IaaS Hadoop
 

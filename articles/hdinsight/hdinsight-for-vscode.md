@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 31f6c34089c1825eca21283b01eae181c8112216
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: da5cdd36e70166d274d50fcb093c0889cf534172
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312182"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489010"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Usare gli strumenti di Spark & hive per Visual Studio Code
 
@@ -83,9 +83,9 @@ Prima di poter inviare script ai cluster da Visual Studio Code, è necessario co
 
 ## <a name="link-a-cluster"></a>Collegare un cluster
 
-### <a name="link-azure-hdinsight"></a>Collegamento HDInsight di Azure
+### <a name="link-azure-hdinsight"></a>Collegamento: HDInsight di Azure
 
-È possibile collegare un cluster normale usando un nome utente gestito [Apache Ambari](https://ambari.apache.org/) o collegare un cluster Hadoop con Enterprise Security Pack usando un nome utente di dominio (ad esempio: user1@contoso.com).
+È possibile collegare un cluster normale usando un nome utente gestito [Apache Ambari](https://ambari.apache.org/) o collegare un cluster Hadoop con Enterprise Security Pack usando un nome utente di dominio (ad esempio: `user1@contoso.com`).
 
 1. Dalla barra dei menu passare a **Visualizza** > **riquadro comandi**e immettere **Spark/hive: Link a Cluster**.
 
@@ -109,7 +109,7 @@ Prima di poter inviare script ai cluster da Visual Studio Code, è necessario co
    > Vengono usati il nome utente e la password collegati se il cluster ha eseguito l'accesso alla sottoscrizione di Azure e ha collegato un cluster.  
 
 
-### <a name="link-generic-livy-endpoint"></a>Collegamento endpoint Livy generico
+### <a name="link-generic-livy-endpoint"></a>Collegamento: endpoint Livy generico
 
 1. Dalla barra dei menu passare a **Visualizza** > **riquadro comandi**e immettere **Spark/hive: Link a Cluster**.
 
@@ -208,7 +208,7 @@ Con Spark & gli strumenti hive per Visual Studio Code è possibile inviare query
 
    ![finestra interattiva di Python interattiva di pyspark](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png) 
 
-7. Immettere **"%% info"** , quindi premere **MAIUSC + INVIO** per visualizzare le informazioni sul processo. Facoltativa
+7. Immettere **"%% info"** , quindi premere **MAIUSC + INVIO** per visualizzare le informazioni sul processo. (Facoltativo)
 
    ![Visualizza informazioni sui processi](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
 
@@ -435,7 +435,7 @@ Quando si invia un processo a un cluster HDInsight con ADLS Gen2, verrà richies
 
 3. Esaminare la vista **OUTPUT** per verificare i dati.  
 
-## <a name="sign-out"></a>Disconnessione  
+## <a name="sign-out"></a>Esci  
 
 Dalla barra dei menu passare a **Visualizza** > **riquadro comandi...** e quindi immettere **Azure: Disconnettersi**.
 

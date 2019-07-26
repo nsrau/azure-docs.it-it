@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: e9100a764ba3922e0254b7fa5cd03b18e204925f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8528ac81f2248e417d7d25d0f3c2650845c3d7d
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596008"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404314"
 ---
 # <a name="get-started-with-device-management-java"></a>Introduzione alla gestione dei dispositivi (Java)
 
@@ -63,11 +63,13 @@ Per completare questa esercitazione, sono necessari:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Ottenere la stringa di connessione per l'hub IoT
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
+
+## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub Internet
+
+[!INCLUDE [iot-hub-howto-device-management-shared-access-policy-text](../../includes/iot-hub-howto-device-management-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Attivare un riavvio remoto nel dispositivo con un metodo diretto
 
@@ -140,7 +142,7 @@ Quest'app console si connette all'hub IoT per richiamare il metodo diretto e leg
     import java.util.concurrent.ExecutorService;
     ```
 
-9. Aggiungere le variabili a livello di classe seguenti alla classe **App** . Sostituire `{youriothubconnectionstring}` con la stringa di connessione dell'hub IoT indicata nella sezione *Creare un hub IoT*:
+9. Aggiungere le variabili a livello di classe seguenti alla classe **App** . Sostituire `{youriothubconnectionstring}` con la stringa di connessione dell'hub Internet che Ã¨ stata copiata in precedenza in [ottenere la stringa di connessione dell'hub Internet](#get-the-iot-hub-connection-string):
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -354,7 +356,7 @@ In questa sezione si crea un'app console Java che simula un dispositivo. L'app Ã
     }
     ```
 
-12. Per implementare il metodo diretto nel dispositivo, aggiungere la classe nidificata seguente alla classe **App**. Quando l'app simulata riceve una chiamata al metodo diretto di **riavvio**, restituisce una conferma al chiamante e quindi avvia un thread per elaborare il riavvio:
+12. Per implementare il metodo diretto nel dispositivo, aggiungere la classe nidificata seguente alla classe **App**. Quando l'app simulata riceve una chiamata al metodo diretto di **riavvio** , restituisce un riconoscimento al chiamante e quindi avvia un thread per elaborare il riavvio:
 
     ```java
     protected static class DirectMethodCallback implements com.microsoft.azure.sdk.iot.device.DeviceTwin.DeviceMethodCallback

@@ -2,7 +2,7 @@
 title: Indicizzazione di tabelle in Azure SQL Data Warehouse | Microsoft Azure
 description: Raccomandazioni ed esempi per l'indicizzazione di tabelle in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: 158b229c2c45a14ed0fd5433d1903eca92f32401
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4d51bd6906a8299a25fe50ca817b1a2b6082ab91
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851657"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479848"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indicizzazione di tabelle in SQL Data Warehouse
 
@@ -48,13 +48,13 @@ In alcuni scenari l'indice columnstore cluster potrebbe non essere la scelta ide
 
 - Le tabelle columnstore non supportano varchar(max), nvarchar(max) e varbinary(max). È consigliabile usare tabelle heap o di indici cluster.
 - Le tabelle columnstore potrebbero risultare meno efficiente per i dati temporanei. È consigliabile usare tabelle heap oppure tabelle temporanee.
-- Tabelle di piccole dimensioni con meno di 60 milioni di righe. È consigliabile usare tabelle heap.
+- Tabelle di piccole dimensioni con meno di 60 milioni righe. È consigliabile usare tabelle heap.
 
 ## <a name="heap-tables"></a>Tabelle heap
 
-Quando si inseriscono temporaneamente i dati in SQL Data Warehouse, è probabile che una tabella heap rende più veloce il processo complessivo. Questo perché il caricamento negli heap è più veloce rispetto alle tabelle degli indici e in alcuni casi è possibile eseguire la lettura successiva dalla cache.  Se si caricano i dati solo per inserirli temporaneamente prima di eseguire altre trasformazioni, il caricamento della tabella in una tabella heap è molto più rapido del caricamento dei dati in una tabella columnstore cluster. Anche il caricamento dei dati in una [tabella temporanea](sql-data-warehouse-tables-temporary.md) risulta più veloce del caricamento di una tabella in un archivio permanente.  
+Quando si inseriscono temporaneamente i dati in SQL Data Warehouse, si può notare che l'utilizzo di una tabella heap rende più veloce il processo complessivo. Questo perché il caricamento negli heap è più veloce rispetto alle tabelle degli indici e in alcuni casi è possibile eseguire la lettura successiva dalla cache.  Se si caricano i dati solo per inserirli temporaneamente prima di eseguire altre trasformazioni, il caricamento della tabella in una tabella heap è molto più rapido del caricamento dei dati in una tabella columnstore cluster. Anche il caricamento dei dati in una [tabella temporanea](sql-data-warehouse-tables-temporary.md) risulta più veloce del caricamento di una tabella in un archivio permanente.  
 
-Per le tabelle di ricerca di piccole dimensioni, minore di 60 milioni di righe, spesso le tabelle heap sono significativi.  Le tabelle columnstore cluster iniziano a raggiungere la compressione ottimale quando è presente più di 60 milioni di righe.
+Per le tabelle di ricerca di piccole dimensioni inferiori a 60 milioni righe, spesso le tabelle heap hanno senso.  Le tabelle columnstore cluster iniziano a ottenere una compressione ottimale quando sono presenti più di 60 milioni righe.
 
 Per creare una tabella heap è sufficiente specificare HEAP nella clausola WITH:
 
@@ -200,7 +200,7 @@ Un volume elevato di operazioni DML pesanti per l'aggiornamento e l'eliminazione
 - Quando si inserisce una riga, questa viene aggiunta a una tabella rowstore interna detta gruppo di righe differenziale. La riga inserita non viene convertita in columnstore fino a quando il gruppo di righe differenziale non viene riempito e contrassegnato come chiuso. I gruppi di righe vengono chiusi quando raggiungono la capacità massima di 1.048.576 righe.
 - L'aggiornamento di una riga nel formato columnstore viene elaborato come un'eliminazione logica e poi come operazione di inserimento. La riga inserita può essere archiviata nell'archivio differenziale.
 
-Le operazioni di aggiornamento e inserimento in batch che superano la soglia in blocco di 102.400 righe per distribuzione allineata a partizione passano direttamente al formato columnstore. Tuttavia, presupponendo una distribuzione uniforme, perché ciò si verifichi si dovranno modificare più di 6.144.000 righe in una singola operazione. Se il numero di righe per una determinata distribuzione allineata alle partizioni è inferiore a 102.400 le righe inviate all'archivio differenziale e lì rimangono fino a quando non viene inserite o modificate per chiudere il gruppo di righe sufficiente righe o l'indice è stato ricompilato.
+Le operazioni di aggiornamento e inserimento in batch che superano la soglia in blocco di 102.400 righe per distribuzione allineata a partizione passano direttamente al formato columnstore. Tuttavia, presupponendo una distribuzione uniforme, perché ciò si verifichi si dovranno modificare più di 6.144.000 righe in una singola operazione. Se il numero di righe per una determinata distribuzione allineata alle partizioni è inferiore a 102.400, le righe vengono indirizzate all'archivio Delta e rimaneno fino a quando non sono state inserite o modificate righe sufficienti per chiudere il gruppo di righe o l'indice è stato ricompilato.
 
 ### <a name="small-or-trickle-load-operations"></a>Operazioni di caricamento di piccole dimensioni o con un flusso irregolare
 
@@ -210,7 +210,7 @@ In queste situazioni è spesso preferibile inserire prima i dati nell'archivio B
 
 ### <a name="too-many-partitions"></a>Troppe partizioni
 
-Un altro fattore da considerare è l'impatto del partizionamento sulle tabelle columnstore cluster.  Prima di eseguire il partizionamento, SQL Data Warehouse divide già i dati in 60 database.  Il partizionamento, quindi, suddivide ulteriormente i dati.  Se si partizionano i dati, tenere presente che per poter sfruttare i vantaggi di un indice columnstore cluster **ogni** partizione deve contenere almeno 1 milione di righe.  Se si partizionare la tabella in 100 partizioni, quindi la tabella deve almeno 6 miliardi di righe per trarre vantaggio da un indice columnstore cluster (60 distribuzioni *100 partizioni* 1 milione di righe). Se la tabella da 100 partizioni non contiene 6 miliardi di righe, occorre ridurre il numero di partizioni o prendere in considerazione l'uso di una tabella heap.
+Un altro fattore da considerare è l'impatto del partizionamento sulle tabelle columnstore cluster.  Prima di eseguire il partizionamento, SQL Data Warehouse divide già i dati in 60 database.  Il partizionamento, quindi, suddivide ulteriormente i dati.  Se si partizionano i dati, tenere presente che per poter sfruttare i vantaggi di un indice columnstore cluster **ogni** partizione deve contenere almeno 1 milione di righe.  Se la tabella viene partizionata in partizioni 100, la tabella deve avere almeno 6 miliardi righe per trarre vantaggio da un indice columnstore cluster (60 distribuzioni *100 partizioni* 1 milione righe). Se la tabella da 100 partizioni non contiene 6 miliardi di righe, occorre ridurre il numero di partizioni o prendere in considerazione l'uso di una tabella heap.
 
 Dopo aver caricato alcuni dati nelle tabelle, seguire questa procedura per identificare e ricompilare le tabelle con indici columnstore cluster non ottimali.
 
@@ -228,7 +228,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 
 ### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Passaggio 2: Ricompilare gli indici columnstore cluster con un utente che usa una classe di risorse superiore
 
-Accedere come l'utente indicato nel passaggio 1, ad esempio LoadUser, che ora Usa una classe di risorse superiore, ed eseguire le istruzioni ALTER INDEX. Assicurarsi che l'utente abbia l'autorizzazione ALTER per le tabelle in cui viene ricompilato l'indice. Questi esempi illustrano come ricompilare l'intero indice columnstore o una singola partizione. Nelle tabelle di grandi dimensioni, è consigliabile ricompilare gli indici procedendo una partizione alla volta.
+Accedere come utente dal passaggio 1 (ad esempio, LoadUser), che ora usa una classe di risorse superiore, ed eseguire le istruzioni ALTER INDEX. Assicurarsi che l'utente abbia l'autorizzazione ALTER per le tabelle in cui viene ricompilato l'indice. Questi esempi illustrano come ricompilare l'intero indice columnstore o una singola partizione. Nelle tabelle di grandi dimensioni, è consigliabile ricompilare gli indici procedendo una partizione alla volta.
 
 In alternativa, invece di ricompilare l'indice è possibile copiare la tabella in una nuova tabella con [CTAS](sql-data-warehouse-develop-ctas.md). Qual è il modo migliore? Per grandi volumi di dati CTAS è in genere più veloce di [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). Per volumi di dati più piccoli, ALTER INDEX è più facile da usare e non richiede la sostituzione della tabella.
 

@@ -3,23 +3,17 @@ title: Dimensioni delle macchine virtuali per i servizi cloud di Azure | Documen
 description: Elenco delle diverse dimensioni e ID delle macchine virtuali per i ruoli Web e di lavoro del servizio cloud di Azure.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: jpconnock
-editor: ''
-ms.assetid: 1127c23e-106a-47c1-a2e9-40e6dda640f6
+author: georgewallace
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
 ms.date: 07/18/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 21fbfe22901de677209b55639cd8871ab408375b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 0df9ee859ae8e341537f5e832d9ff90e9736cb0c
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64719026"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443005"
 ---
 # <a name="sizes-for-cloud-services"></a>Dimensioni dei servizi cloud
 Questo argomento descrive le dimensioni e le opzioni disponibili per le istanze del ruolo di servizio cloud, come ruoli Web e di lavoro. Fornisce anche considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse. Ogni dimensione dispone di un ID da inserire nel [file di definizione del servizio](cloud-services-model-and-package.md#csdef). I prezzi per ogni dimensione sono disponibili nella pagina relativa ai [prezzi dei servizi cloud](https://azure.microsoft.com/pricing/details/cloud-services/).
@@ -68,7 +62,6 @@ Le considerazioni seguenti potrebbero essere utili all'utente per scegliere una 
 | [D v2](#dv2-series) |160 - 190* |
 | [D v3](#dv3-series) |160 - 190* |
 | [E v3](#ev3-series) |160 - 190* |
-| [F](#f-series) |210 - 250*|
 | [G](#g-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
 
@@ -87,7 +80,7 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Molto piccola      | 1         | 0,768        | 20                   | 1/bassa |
 | Small           | 1         | 1,75         | 225                  | 1/moderata |
-| Media          | 2         | 3.5          | 490                  | 1/moderata |
+| Medi          | 2         | 3.5          | 490                  | 1/moderata |
 | Large           | 4         | 7            | 1000                 | 2/alta |
 | Molto grande      | 8         | 14           | 2040                 | 4/alta |
 | A5              | 2         | 14           | 490                  | 1/moderata |
@@ -166,17 +159,6 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Dimensi
 | Standard_E16_v3 | 16        | 128           | 400                  | 8/estremamente alta |
 | Standard_E32_v3 | 32        | 256           | 800                  | 8/estremamente alta |
 | Standard_E64_v3 | 64        | 432           | 1600                 | 8/estremamente alta |
-
-## <a name="f-series"></a>Serie F
-
-
-| Dimensione            | Core CPU | Memoria: GiB   | Archivio temporaneo (unità SSD): GiB       | Larghezza di banda della rete/scheda NIC max |
-|---------------- | --------- | ------------- | -------------------- | ---------------------------- |
-| Standard_F1     | 1         | 2             | 16                   | 2 / 750  |
-| Standard_F2     | 2         | 4             | 32                   | 2 / 1500 |
-| Standard_F4     | 4         | 8             | 64                   | 4 / 3000 |
-| Standard_F8     | 8         | 16            | 128                  | 8 / 6000 |
-| Standard_F16    | 16        | 32            | 256                  | 8 / 12000|
 
 
 ## <a name="g-series"></a>Serie G

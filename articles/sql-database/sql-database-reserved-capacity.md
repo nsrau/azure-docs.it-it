@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 07/15/2019
-ms.openlocfilehash: fa64177dfa5bfadad5db4116224b94ffac2fadc0
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.date: 07/19/2019
+ms.openlocfilehash: 1cc8828f5a936b130480c2c7516d00b8bee6760f
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233043"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68357272"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Pagare in anticipo risorse di calcolo del database SQL con capacità di riserva del database SQL di Azure
 
@@ -66,9 +66,9 @@ Nella tabella seguente vengono descritti i campi obbligatori.
 
 ## <a name="cancellations-and-exchanges"></a>Annullamenti e scambi
 
-Se è necessario annullare la prenotazione della capacità di riserva del database SQL, potrebbe venire applicato un corrispettivo del 12% per l'interruzione anticipata. I rimborsi si basano sul prezzo più basso tra il prezzo di acquisto o il prezzo corrente della prenotazione. I rimborsi sono limitati a $50.000 dollari all'anno. Il rimborso ricevuto corrisponde al saldo ripartito rimanente meno la quota del 12% per l'interruzione anticipata. Per richiedere un annullamento, andare alla prenotazione nel portale di Azure e selezionare **Rimborso** per creare una richiesta di supporto.
+Se è necessario annullare la prenotazione della capacità di riserva del database SQL, potrebbe venire applicato un corrispettivo del 12% per l'interruzione anticipata. I rimborsi si basano sul prezzo più basso tra il prezzo di acquisto o il prezzo corrente della prenotazione. I rimborsi sono limitati a $50.000 dollari all'anno. Il rimborso ricevuto corrisponde al saldo ripartito rimanente meno il costo per la risoluzione del 12%. Per annullare, passare alla prenotazione nel portale di Azure e selezionare **rimborso**.
 
-Se è necessario modificare la prenotazione della capacità di riserva del database SQL scegliendo un'area, un tipo di distribuzione, un livello di prestazioni o un periodo diverso, è possibile effettuare uno scambio con un'altra prenotazione di valore uguale o superiore. Come data di inizio del periodo della nuova prenotazione non viene conservata quella della prenotazione scambiata. Il periodo di uno o tre anni inizia dal momento della creazione della nuova prenotazione. Per richiedere uno scambio, passare alla prenotazione nel portale di Azure e selezionare **Scambio** per creare una richiesta di supporto.
+Se è necessario modificare la prenotazione della capacità di riserva del database SQL scegliendo un'area, un tipo di distribuzione, un livello di prestazioni o un periodo diverso, è possibile effettuare uno scambio con un'altra prenotazione di valore uguale o superiore. Come data di inizio del periodo della nuova prenotazione non viene conservata quella della prenotazione scambiata. Il periodo di uno o tre anni inizia dal momento della creazione della nuova prenotazione. Per scambiare, passare alla prenotazione nella portale di Azure e selezionare **Exchange**.
 
 Per ulteriori informazioni su come scambiare o rimborsare le prenotazioni, vedere la pagina relativa agli [scambi di prenotazione e](../billing/billing-azure-reservations-self-service-exchange-and-refund.md)ai rimborsi.
 

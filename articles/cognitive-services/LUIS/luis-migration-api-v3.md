@@ -1,7 +1,7 @@
 ---
-title: Migrazione da API V3 v2
+title: Migrazione dell'API da V2 a V3
 titleSuffix: Azure Cognitive Services
-description: L'endpoint della versione 3 sono state modificate le API. Usare questa guida per comprendere come eseguire la migrazione alla API dell'endpoint versione 3.
+description: Le API dell'endpoint della versione 3 sono state modificate. Usare questa guida per comprendere come eseguire la migrazione alle API endpoint della versione 3.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,78 +9,83 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 06/24/2019
+ms.date: 07/22/2019
 ms.author: diberry
-ms.openlocfilehash: 4c08c95a05d4f22e2338a7264409aec0f64a4755
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: edaa36cf22e63d42eb347aea3da1816e2c93b45e
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442510"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479208"
 ---
-# <a name="preview-migrate-to-api-version-3x-for-luis-apps"></a>Anteprima: Eseguire la migrazione alla versione dell'API 3.x per le app LUIS
+# <a name="preview-migrate-to-api-version-3x-for-luis-apps"></a>Anteprima: Eseguire la migrazione all'API versione 3. x per le app LUIS
 
-L'endpoint di stima di query sono state modificate le API. Usare questa guida per comprendere come eseguire la migrazione alla API dell'endpoint versione 3. 
+Le API dell'endpoint di stima delle query sono state modificate. Usare questa guida per comprendere come eseguire la migrazione alle API endpoint della versione 3. 
 
-Questa API V3 offre le nuove funzionalità seguenti, che includono modifiche di richiesta e/o risposta JSON significative: 
+Questa API V3 fornisce le seguenti nuove funzionalità, che includono le modifiche significative di richiesta e/o risposta JSON: 
 
 * [Entità esterne](#external-entities-passed-in-at-prediction-time)
 * [Elenchi dinamici](#dynamic-lists-passed-in-at-prediction-time)
-* [Modifiche JSON entità predefiniti](#prebuilt-entities-with-new-json)
+* [Modifiche JSON dell'entità predefinite](#prebuilt-entities-with-new-json)
 
 <!--
 * [Multi-intent detection of utterance](#detect-multiple-intents-within-single-utterance)
 -->
 
-L'endpoint di query prediction [richiesta](#request-changes) e [risposta](#response-changes) presentano modifiche significative per supportare le nuove funzionalità elencate in precedenza, inclusi i seguenti:
+La [richiesta](#request-changes) e la [risposta](#response-changes) dell'endpoint di stima della query presentano modifiche significative per supportare le nuove funzionalità elencate in precedenza, incluse le seguenti:
 
-* [Modifiche all'oggetto risposta](#top-level-json-changes)
-* [Riferimenti al nome ruolo entità anziché il nome di entità](#entity-role-name-instead-of-entity-name)
-* [Proprietà consentono di contrassegnare entità nelle espressioni](#marking-placement-of-entities-in-utterances)
+* [Modifiche agli oggetti risposta](#top-level-json-changes)
+* [Riferimenti nome ruolo entità anziché nome entità](#entity-role-name-instead-of-entity-name)
+* [Proprietà per contrassegnare le entità negli enunciati](#marking-placement-of-entities-in-utterances)
 
-Sono le seguenti funzionalità di LUIS **non è supportato** nell'API V3:
+Le funzionalità di LUIS seguenti **non sono supportate** nell'API V3:
 
-* V7 di controllo ortografico Bing
+* Controllo ortografico Bing V7
 
-[Documentazione di riferimento](https://aka.ms/luis-api-v3) è disponibile per V3.
+La [documentazione di riferimento](https://aka.ms/luis-api-v3) è disponibile per V3.
 
-## <a name="endpoint-url-changes-by-slot-name"></a>Modifiche all'endpoint URL in base al nome dello slot
+## <a name="endpoint-url-changes-by-slot-name"></a>Modifiche dell'URL dell'endpoint in base al nome dello slot
 
-Il formato della chiamata dell'endpoint HTTP V3 è cambiato.
+Il formato della chiamata HTTP dell'endpoint V3 è stato modificato.
 
-|(METODO)|URL|
+|METODO|URL|
 |--|--|
 |GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict?query=<b>{QUERY}</b>|
-|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict|
+|INSERISCI|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict|
 |||
 
-## <a name="endpoint-url-changes-by-version-id"></a>Modifiche all'URL endpoint base all'ID versione
+Valori validi per gli slot:
 
-Se si desidera eseguire una query dalla versione, è innanzitutto necessario [pubblicare tramite l'API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) con il `"directVersionPublish":true`. Query sull'endpoint fa riferimento all'ID versione anziché il nome dello slot.
+* `production`
+* `staging`
+
+## <a name="endpoint-url-changes-by-version-id"></a>Modifiche dell'URL dell'endpoint per ID versione
+
+Per eseguire una query in base alla versione, è prima di tutto necessario [pubblicare tramite](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) l' `"directVersionPublish":true`API con il. Eseguire una query sull'endpoint che fa riferimento all'ID versione anziché al nome dello slot.
 
 
-|(METODO)|URL|
+|METODO|URL|
 |--|--|
 |GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict?query=<b>{QUERY}</b>|
-|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict|
+|INSERISCI|https://<b>{Region}</b>. API.cognitive.Microsoft.com/Luis/<b>v 3.0-Preview</b>/Apps/<b>{App-ID}</b>/Versions/<b>{Version-ID}</b>/Predict|
 |||
 
 ## <a name="prebuilt-entities-with-new-json"></a>Entità predefinite con nuovo JSON
 
-Includono le modifiche all'oggetto risposta V3 [entità predefinite](luis-reference-prebuilt-entities.md). 
+Le modifiche all'oggetto della risposta V3 includono le [entità predefinite](luis-reference-prebuilt-entities.md). 
 
 ## <a name="request-changes"></a>Richiedere modifiche 
 
 ### <a name="query-string-parameters"></a>Parametri della stringa di query
 
-L'API V3 include parametri della stringa di query diversi.
+L'API V3 ha parametri di stringa di query diversi.
 
-|Nome del parametro|Type|Version|Predefinito|Scopo|
+|Nome param|Type|Version|Predefinito|Scopo|
 |--|--|--|--|--|
-|`log`|boolean|V2 E V3|false|Query Store nel file di log.| 
-|`query`|string|Solo V3|Nessuna impostazione predefinita: è obbligatorio nella richiesta GET|**Nella versione 2**, si trova il utterance deve essere stimata nel `q` parametro. <br><br>**In V3**, la funzionalità viene passata il `query` parametro.|
-|`show-all-intents`|boolean|Solo V3|false|Restituire tutti i tipi con il punteggio corrispondente nel **prediction.intents** oggetto. Gli Intent vengono restituiti come oggetti in un elemento padre `intents` oggetto. Ciò consente l'accesso a livello di codice senza la necessità di individuare lo scopo in una matrice: `prediction.intents.give`. Nella versione 2, questi sono stati restituiti in una matrice. |
-|`verbose`|boolean|V2 E V3|false|**Nella versione V2**, quando impostato su true, tutti stimato Intent sono stati restituiti. Se è necessario stimato tutti gli Intent, usare il parametro V3 di `show-all-intents`.<br><br>**In V3**, questo parametro fornisce solo entità i dettagli della stima di entità dei metadati.  |
+|`log`|boolean|V2 & V3|false|Archivia query nel file di log.| 
+|`query`|string|Solo V3|Nessun valore predefinito: è obbligatorio nella richiesta GET|**Nella versione V2**, l'espressione da stimare si trova nel `q` parametro. <br><br>**Nella V3**la funzionalità viene passata nel `query` parametro.|
+|`show-all-intents`|boolean|Solo V3|false|Restituisce tutti gli Intent con il punteggio corrispondente nell'oggetto **PREDICTION. Intent** . Gli Intent vengono restituiti come oggetti in un oggetto `intents` padre. Questo consente l'accesso a livello di codice senza la necessità di trovare l'intento in una matrice: `prediction.intents.give`. Nella versione V2 questi sono stati restituiti in una matrice. |
+|`verbose`|boolean|V2 & V3|false|**Nella versione V2**, quando è impostato su true, vengono restituiti tutti gli Intent stimati. Se sono necessari tutti gli intenti previsti, usare il parametro V3 di `show-all-intents`.<br><br>**In V3**, questo parametro fornisce solo i dettagli relativi ai metadati dell'entità della stima delle entità.  |
 
 
 
@@ -89,7 +94,7 @@ L'API V3 include parametri della stringa di query diversi.
 -->
 
 
-### <a name="the-query-prediction-json-body-for-the-post-request"></a>La stima di query JSON del corpo per il `POST` richiesta
+### <a name="the-query-prediction-json-body-for-the-post-request"></a>Il corpo JSON di stima della query per `POST` la richiesta
 
 ```JSON
 {
@@ -105,21 +110,21 @@ L'API V3 include parametri della stringa di query diversi.
 
 |Proprietà|Type|Version|Predefinito|Scopo|
 |--|--|--|--|--|
-|`dynamicLists`|array|Solo V3|Non obbligatorio.|[Gli elenchi dinamici](#dynamic-lists-passed-in-at-prediction-time) consentono di estendere un'entità sottoposto a training e pubblicato un elenco esistente, già nell'app LUIS.|
-|`externalEntities`|array|Solo V3|Non obbligatorio.|[Le entità esterne](#external-entities-passed-in-at-prediction-time) assegnare all'app LUIS la possibilità di identificare e classificare le entità in fase di esecuzione, che possa essere usate come funzionalità alle entità esistenti. |
-|`options.datetimeReference`|string|Solo V3|Nessun valore predefinito|Consente di determinare [datetimeV2 offset](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity).|
-|`options.overridePredictions`|boolean|Solo V3|false|Specifica se dell'utente [entità esterne (con stesso nome di entità esistente)](#override-existing-model-predictions) viene usato o l'entità esistente nel modello viene utilizzato per la stima. |
-|`query`|string|Solo V3|Richiesto.|**Nella versione 2**, si trova il utterance deve essere stimata nel `q` parametro. <br><br>**In V3**, la funzionalità viene passata il `query` parametro.|
+|`dynamicLists`|array|Solo V3|Non obbligatorio.|Gli [elenchi dinamici](#dynamic-lists-passed-in-at-prediction-time) consentono di estendere un'entità di elenco con training e pubblicato esistente, già nell'app Luis.|
+|`externalEntities`|array|Solo V3|Non obbligatorio.|Le [entità esterne](#external-entities-passed-in-at-prediction-time) offrono all'app Luis la possibilità di identificare ed etichettare entità durante il runtime, che possono essere usate come funzionalità per le entità esistenti. |
+|`options.datetimeReference`|string|Solo V3|Nessun valore predefinito|Utilizzato per determinare l' [offset del datetimeV2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). Il formato di datetimeReference è [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
+|`options.overridePredictions`|boolean|Solo V3|false|Specifica se l' [entità esterna dell'utente (con lo stesso nome dell'entità esistente)](#override-existing-model-predictions) viene utilizzata o se per la stima viene utilizzata l'entità esistente del modello. |
+|`query`|string|Solo V3|Richiesto.|**Nella versione V2**, l'espressione da stimare si trova nel `q` parametro. <br><br>**Nella V3**la funzionalità viene passata nel `query` parametro.|
 
 
 
-## <a name="response-changes"></a>Modifiche di risposta
+## <a name="response-changes"></a>Modifiche della risposta
 
-La risposta alla query JSON modificata per consentire l'accesso a livello di codice maggiore ai dati usati più di frequente. 
+Il codice JSON per la risposta alla query è stato modificato per consentire un maggiore accesso programmatico ai dati usati più di frequente. 
 
-### <a name="top-level-json-changes"></a>Modifiche a livello superiore di JSON
+### <a name="top-level-json-changes"></a>Modifiche JSON di primo livello
 
-Le proprietà JSON principali per la versione V2 sono, quando `verbose` è impostata su true, che restituisce tutti i tipi e i punteggi del `intents` proprietà:
+Le prime proprietà JSON per V2 sono, quando `verbose` è impostato su true, che restituisce tutti gli Intent e i relativi punteggi `intents` nella proprietà:
 
 ```JSON
 {
@@ -131,7 +136,7 @@ Le proprietà JSON principali per la versione V2 sono, quando `verbose` è impos
 }
 ```
 
-Le prime proprietà JSON per V3 sono:
+Le principali proprietà JSON per V3 sono:
 
 ```JSON
 {
@@ -145,31 +150,33 @@ Le prime proprietà JSON per V3 sono:
 }
 ```
 
-Il `intents` oggetto è un elenco non ordinato. Non presupporre che il primo elemento figlio nel `intents` corrisponde alla `topIntent`. Usare invece il `topIntent` valore da trovare il punteggio:
+`normalizedQuery` Contiene correzioni ortografiche. Corrisponde alla proprietà `alteredQuery`dell'API v2.  
+
+L' `intents` oggetto è un elenco non ordinato. Non presupporre `topIntent`che il primo elemento figlio `intents` nell'oggetto corrisponda a. Usare invece il `topIntent` valore per trovare il Punteggio:
 
 ```nodejs
 const topIntentName = response.prediction.topIntent;
 const score = intents[topIntentName];
 ```
 
-Consentono le modifiche dello schema di risposta JSON:
+Le modifiche dello schema JSON della risposta consentono:
 
-* Distinzione tra utterance originale, deselezionare `query`e ha restituito stima, `prediction`.
-* Più facile accesso programmatico a dati stimati. Invece di enumerare una matrice nella versione 2, è possibile accedere ai valori da **denominato** per le finalità ed entità. Per i ruoli di entità previsto, viene restituito il nome di ruolo perché tale valore è univoco per l'intera app.
-* Tipi di dati, se determinato, vengono rispettati. Dati numerici non sono più vengono restituiti come stringhe.
-* Distinguere tra la prime informazioni di stima di priorità e i metadati aggiuntivi, restituito nel `$instance` oggetto. 
+* Distinzione netta tra espressione originale `query`, e stima restituita, `prediction`.
+* Accesso programmatico più semplice ai dati stimati. Anziché eseguire l'enumerazione tramite una matrice nella versione V2, è possibile accedere ai  valori denominati sia per gli Intent che per le entità. Per i ruoli di entità stimati, viene restituito il nome del ruolo perché è univoco nell'intera app.
+* I tipi di dati, se determinati, vengono rispettati. I numeri non vengono più restituiti come stringhe.
+* Distinzione tra le prime informazioni di stima di priorità e i `$instance` metadati aggiuntivi restituiti nell'oggetto. 
 
 ### <a name="access-instance-for-entity-metadata"></a>Accesso `$instance` per i metadati dell'entità
 
-Se è necessario metadati delle entità, la stringa di query deve usare la `verbose=true` flag e la risposta contiene i metadati nel `$instance` oggetto. Nelle risposte JSON nelle sezioni seguenti sono riportati alcuni esempi.
+Se sono necessari metadati di entità, la stringa di query deve usare `verbose=true` il flag e la risposta contiene i metadati `$instance` nell'oggetto. Gli esempi vengono mostrati nelle risposte JSON nelle sezioni seguenti.
 
-### <a name="each-predicted-entity-is-represented-as-an-array"></a>Ogni entità stimato è rappresentato come una matrice
+### <a name="each-predicted-entity-is-represented-as-an-array"></a>Ogni entità stimata è rappresentata come una matrice
 
-Il `prediction.entities.<entity-name>` oggetto contiene una matrice perché ogni entità può essere stimato più volte nel utterance. 
+L' `prediction.entities.<entity-name>` oggetto contiene una matrice perché ogni entità può essere stimata più di una volta nell'espressione. 
 
-### <a name="list-entity-prediction-changes"></a>Modifiche all'elenco entità stima
+### <a name="list-entity-prediction-changes"></a>Elencare le modifiche di stima delle entità
 
-Il codice JSON per una stima di entità di elenco è stato modificato per essere una matrice di matrici:
+Il codice JSON per la stima di un'entità di elenco è stato modificato in una matrice di matrici:
 
 ```JSON
 "entities":{
@@ -179,9 +186,9 @@ Il codice JSON per una stima di entità di elenco è stato modificato per essere
     ]
 }
 ```
-Ogni matrice interna corrisponde al testo all'interno di utterance. L'oggetto interno è una matrice perché lo stesso testo può apparire in più di un sottoelenco di un'entità di elenco. 
+Ogni matrice interna corrisponde al testo all'interno dell'espressione. L'oggetto interno è una matrice perché lo stesso testo può essere visualizzato in più di un sottoelenco di un'entità elenco. 
 
-Quando il mapping tra il `entities` dell'oggetto per il `$instance` dell'oggetto, l'ordine degli oggetti viene mantenuto per le stime di entità di elenco.
+Quando si esegue il `entities` mapping tra l' `$instance` oggetto e l'oggetto, l'ordine degli oggetti viene mantenuto per le stime di entità dell'elenco.
 
 ```nodejs
 const item = 0; // order preserved, use same enumeration for both
@@ -189,17 +196,17 @@ const predictedCanonicalForm = entities.my_list_entity[item];
 const associatedMetadata = entities.$instance.my_list_entity[item];
 ```
 
-### <a name="entity-role-name-instead-of-entity-name"></a>Nome del ruolo entità anziché il nome di entità 
+### <a name="entity-role-name-instead-of-entity-name"></a>Nome ruolo entità anziché nome entità 
 
-Nella versione 2, il `entities` matrice restituita di tutte le entità stimate con il nome dell'entità in corso l'identificatore univoco. In V3, se l'entità vengono utilizzati i ruoli e la stima sia per un ruolo di entità, l'identificatore primario è il nome del ruolo. Questo è possibile perché i nomi dei ruoli di entità deve essere univoci per l'intera app tra cui gli altri nomi di modello (entity preventivi,).
+Nella versione V2 la `entities` matrice ha restituito tutte le entità stimate con il nome dell'entità che rappresenta l'identificatore univoco. In V3, se l'entità utilizza ruoli e la stima è per un ruolo entità, l'identificatore primario è il nome del ruolo. Questo è possibile perché i nomi dei ruoli di entità devono essere univoci nell'intera app, inclusi altri nomi di modello (finalità, entità).
 
-Nell'esempio seguente: prendere in considerazione un utterance che include i testo `Yellow Bird Lane`. Questo testo viene stimato come proprietà personalizzata `Location` ruolo dell'entità di `Destination`.
+Nell'esempio seguente: si consideri un enunciato che include `Yellow Bird Lane`il testo. Questo testo viene stimato come il ruolo `Location` di un'entità personalizzata `Destination`di.
 
-|Testo utterance|Nome dell'entità|Nome del ruolo|
+|Testo enunciato|Nome dell'entità|Nome del ruolo|
 |--|--|--|
 |`Yellow Bird Lane`|`Location`|`Destination`|
 
-Nella versione 2, l'entità è identificata dal _nome dell'entità_ con il ruolo come una proprietà dell'oggetto:
+Nella versione V2 l'entità viene identificata dal _nome dell'entità_ con il ruolo come proprietà dell'oggetto:
 
 ```JSON
 "entities":[
@@ -214,7 +221,7 @@ Nella versione 2, l'entità è identificata dal _nome dell'entità_ con il ruolo
 ]
 ```
 
-In V3, l'entità fa riferimento il _ruolo dell'entità_, se la stima sia per il ruolo:
+In V3, all'entità viene fatto riferimento dal _ruolo entità_, se la stima è per il ruolo:
 
 ```JSON
 "entities":{
@@ -248,27 +255,27 @@ In V3, lo stesso risultato con il `verbose` flag per restituire i metadati dell'
 }
 ```
 
-## <a name="external-entities-passed-in-at-prediction-time"></a>Le entità esterne passata in fase di stima
+## <a name="external-entities-passed-in-at-prediction-time"></a>Entità esterne passate in fase di stima
 
-Le entità esterne assegnare all'app LUIS la possibilità di identificare e classificare le entità in fase di esecuzione, che possa essere usate come funzionalità alle entità esistenti. Ciò consente di usare estrattori personalizzati entità separate e personalizzate prima di inviare query all'endpoint della stima. Poiché questa operazione viene eseguita in corrispondenza dell'endpoint di stima di query, non è necessario ripetere il training e pubblicare il modello.
+Le entità esterne offrono all'app LUIS la possibilità di identificare ed etichettare entità durante il runtime, che possono essere usate come funzionalità per le entità esistenti. In questo modo è possibile utilizzare estrattiri di entità distinti e personalizzati prima di inviare query all'endpoint di stima. Poiché questa operazione viene eseguita nell'endpoint di stima della query, non è necessario ripetere il training e pubblicare il modello.
 
-L'applicazione client consiste nel fornire un proprio estrattore di entità mediante la gestione di entità corrispondenti e determinare la posizione all'interno di utterance di tale entità corrispondente e quindi l'invio di tali informazioni con la richiesta. 
+L'applicazione client fornisce il proprio estrattore di entità gestendo la corrispondenza delle entità e determinando la posizione nell'espressione dell'entità corrispondente e quindi inviando tali informazioni con la richiesta. 
 
-Le entità esterne sono il meccanismo per estendere qualsiasi tipo di entità mentre ancora in uso come segnali e altri modelli come i ruoli, composite e altri.
+Le entità esterne sono il meccanismo per l'estensione di qualsiasi tipo di entità, mentre continuano a essere usati come segnali per altri modelli, ad esempio ruoli, composito e altri.
 
-Ciò è utile per un'entità che dispone di dati disponibili solo in fase di esecuzione di query stima. Esempi di questo tipo di dati cambiano continuamente i dati o specifici per ogni utente. È possibile estendere un'entità contatto LUIS con informazioni esterne dall'elenco di contatti dell'utente. 
+Questa operazione è utile per un'entità che dispone di dati disponibili solo nel runtime di stima query. Esempi di questo tipo di dati sono dati in costante evoluzione o specifici per utente. È possibile estendere un'entità Contact LUIS con informazioni esterne dall'elenco dei contatti di un utente. 
 
-### <a name="entity-already-exists-in-app"></a>Entità esiste già nell'app
+### <a name="entity-already-exists-in-app"></a>L'entità esiste già nell'app
 
-Il valore di `entityName` per l'entità esterna, passato nel corpo del POST, la richiesta dell'endpoint deve essere già presenti nell'app pubblicata e sottoposto a training al momento della richiesta. Il tipo di entità non è rilevante, tutti i tipi sono supportati.
+Il valore di `entityName` per l'entità esterna, passato nel corpo della richiesta dell'endpoint, deve esistere già nell'app sottoposta a training e pubblicata al momento della richiesta. Il tipo di entità non è rilevante, sono supportati tutti i tipi.
 
-### <a name="first-turn-in-conversation"></a>Prima di tutto convertire in conversazione
+### <a name="first-turn-in-conversation"></a>Primo turno di conversazione
 
-Si consideri un primo utterance nelle conversazioni chat bot in cui un utente immette le informazioni incomplete seguenti:
+Si consideri un primo enunciato in una conversazione bot chat in cui un utente immette le informazioni incomplete seguenti:
 
 `Send Hazem a new message`
 
-La richiesta di bot chat di LUIS può passare informazioni nel corpo del POST su `Hazem` in modo che viene confrontato direttamente come uno dei contatti dell'utente.
+La richiesta dal bot della chat a Luis può passare informazioni sul `Hazem` corpo del post, in modo che corrisponda direttamente a uno dei contatti dell'utente.
 
 ```json
     "externalEntities": [
@@ -284,15 +291,15 @@ La richiesta di bot chat di LUIS può passare informazioni nel corpo del POST su
     ]
 ```
 
-La risposta di stima include tale entità esterna, con tutte le altre stimate entità, perché è definito nella richiesta.  
+La risposta di stima include l'entità esterna, con tutte le altre entità stimate, perché è definita nella richiesta.  
 
-### <a name="second-turn-in-conversation"></a>In secondo luogo attiva in conversazione
+### <a name="second-turn-in-conversation"></a>Seconda attivazione della conversazione
 
-Il successivo utterance utente nella finestra di chatbot Usa un termine più vaga:
+Il successivo enunciato dell'utente in chat bot usa un termine più vago:
 
 `Send him a calendar reminder for the party.`
 
-In utterance precedente, viene utilizzato il utterance `him` come riferimento a `Hazem`. Bot, chat discorsiva nel corpo del POST, è possibile mappare `him` sul valore di entità estratto da utterance prima, `Hazem`.
+Nell'espressione precedente, l'espressione USA `him` come riferimento a. `Hazem` Il bot della chat conversazione, nel corpo post, può eseguire `him` il mapping al valore dell'entità Estratto dal primo enunciato,. `Hazem`
 
 ```json
     "externalEntities": [
@@ -308,13 +315,13 @@ In utterance precedente, viene utilizzato il utterance `him` come riferimento a 
     ]
 ```
 
-La risposta di stima include tale entità esterna, con tutte le altre stimate entità, perché è definito nella richiesta.  
+La risposta di stima include l'entità esterna, con tutte le altre entità stimate, perché è definita nella richiesta.  
 
-### <a name="override-existing-model-predictions"></a>Eseguire l'override delle stime del modello esistente
+### <a name="override-existing-model-predictions"></a>Eseguire l'override delle stime del modello esistenti
 
-Il `overridePredictions` proprietà di opzioni consente di specificare che, se l'utente invia un'entità esterna che si sovrappone con un'entità stimata con lo stesso nome, LUIS sceglie l'entità passata o l'entità esistente nel modello. 
+La `overridePredictions` proprietà Options specifica che se l'utente invia un'entità esterna che si sovrappone a un'entità stimata con lo stesso nome, Luis sceglie l'entità passata o l'entità esistente nel modello. 
 
-Ad esempio, si consideri la query `today I'm free`. LUIS rileva `today` come un datetimeV2 con la risposta seguente:
+Si consideri, ad `today I'm free`esempio, la query. Luis rileva `today` come datetimeV2 con la risposta seguente:
 
 ```JSON
 "datetimeV2": [
@@ -330,7 +337,7 @@ Ad esempio, si consideri la query `today I'm free`. LUIS rileva `today` come un 
 ]
 ```
 
-Se l'utente invia le entità esterne:
+Se l'utente invia l'entità esterna:
 
 ```JSON
 {
@@ -343,7 +350,7 @@ Se l'utente invia le entità esterne:
 }
 ```
 
-Se il `overridePredictions` è impostata su `false`, LUIS restituisce una risposta come se l'entità esterna non sono stati inviati. 
+Se è impostato su `false`, Luis restituisce una risposta come se l'entità esterna non venisse inviata. `overridePredictions` 
 
 ```JSON
 "datetimeV2": [
@@ -359,7 +366,7 @@ Se il `overridePredictions` è impostata su `false`, LUIS restituisce una rispos
 ]
 ```
 
-Se il `overridePredictions` è impostata su `true`, LUIS restituisce una risposta che include:
+Se è impostato su, `true`Luis restituisce una risposta che include: `overridePredictions`
 
 ```JSON
 "datetimeV2": [
@@ -373,33 +380,33 @@ Se il `overridePredictions` è impostata su `true`, LUIS restituisce una rispost
 
 #### <a name="resolution"></a>Risoluzione
 
-Il _facoltativi_ `resolution` restituisce proprietà nella risposta stima, consentendo di passare i metadati associati all'entità esterna, quindi lo riceveranno nuovamente nella risposta. 
+La  `resolution` proprietà facoltativa restituisce nella risposta di stima, consentendo di passare i metadati associati all'entità esterna, quindi di riceverli di nuovo nella risposta. 
 
-Lo scopo principale è per estendere le entità predefinite, ma non è limitato a tale tipo di entità. 
+Lo scopo principale consiste nell'estendere le entità predefinite, ma questo non è limitato a tale tipo di entità. 
 
-Il `resolution` proprietà può essere un numero, stringa, un oggetto o una matrice:
+La `resolution` proprietà può essere un numero, una stringa, un oggetto o una matrice:
 
-* "Dallas"
-* {"text": "value"}
+* Dallas
+* {"Text": "value"}
 * 12345 
 * ["a", "b", "c"]
 
 
 
-## <a name="dynamic-lists-passed-in-at-prediction-time"></a>Gli elenchi dinamici passata in fase di stima
+## <a name="dynamic-lists-passed-in-at-prediction-time"></a>Elenchi dinamici passati in fase di stima
 
-Gli elenchi dinamici consentono di estendere un'entità sottoposto a training e pubblicato un elenco esistente, già nell'app LUIS. 
+Gli elenchi dinamici consentono di estendere un'entità di elenco con training e pubblicato esistente, già nell'app LUIS. 
 
-Utilizzare questa funzionalità quando è necessario modificare periodicamente i valori di entità elenco. Questa funzionalità consente di estendere un'entità già sottoposto a training e pubblicato un elenco:
+Usare questa funzionalità quando i valori dell'entità elenco devono essere modificati periodicamente. Questa funzionalità consente di estendere un'entità di elenco già sottoposta a training e pubblicato:
 
-* Al momento della richiesta dell'endpoint di stima di query.
+* Al momento della richiesta dell'endpoint di stima della query.
 * Per una singola richiesta.
 
-L'entità elenco può essere vuoto nell'app LUIS ma presenta a esistere. Non viene modificato l'entità elenco nell'app LUIS, ma la capacità di stima in corrispondenza dell'endpoint è stato esteso per includere fino a 2 elenchi con circa 1.000 elementi.
+L'entità List può essere vuota nell'app LUIS, ma deve esistere. L'entità List nell'app LUIS non è stata modificata, ma la capacità di stima all'endpoint viene estesa per includere fino a 2 elenchi con circa 1.000 elementi.
 
-### <a name="dynamic-list-json-request-body"></a>Elenco dinamico di corpo della richiesta JSON
+### <a name="dynamic-list-json-request-body"></a>Corpo della richiesta JSON dell'elenco dinamico
 
-Inviare nel corpo JSON seguente per aggiungere un nuovo sottoelenco con sinonimi all'elenco e stimare l'entità di elenco per il testo `LUIS`, con la `POST` richiesta di stima di query:
+Inviare il corpo JSON seguente per aggiungere un nuovo sottoelenco con sinonimi all'elenco e stimare l'entità list per il testo, `LUIS`, con la `POST` richiesta di stima della query:
 
 ```JSON
 {
@@ -426,24 +433,24 @@ Inviare nel corpo JSON seguente per aggiungere un nuovo sottoelenco con sinonimi
 }
 ```
 
-La risposta di stima include entità elenco, con tutte le altre stimate entità, perché è definito nella richiesta. 
+La risposta di stima include l'entità elenco, con tutte le altre entità stimate, perché è definita nella richiesta. 
 
-## <a name="timezoneoffset-renamed-to-datetimereference"></a>TimezoneOffset rinominata datetimeReference
+## <a name="timezoneoffset-renamed-to-datetimereference"></a>TimezoneOffset rinominato in datetimeReference
 
-**Nella versione 2**, il `timezoneOffset` [parametro](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) viene inviato nella richiesta di stima come parametro di stringa di query, indipendentemente dal fatto che se la richiesta viene inviata una richiesta GET o POST. 
+**Nella versione V2**il `timezoneOffset` [parametro](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) viene inviato nella richiesta di stima come parametro della stringa di query, indipendentemente dal fatto che la richiesta venga inviata come richiesta GET o post. 
 
-**In V3**, la stessa funzionalità viene fornita con il parametro del corpo di POST `datetimeReference`. 
+**In V3**, viene fornita la stessa funzionalità con il parametro Post Body, `datetimeReference`. 
 
-## <a name="marking-placement-of-entities-in-utterances"></a>Contrassegno di selezione host delle entità in espressioni
+## <a name="marking-placement-of-entities-in-utterances"></a>Contrassegno del posizionamento delle entità negli enunciati
 
-**Nella versione 2**, un'entità è stata contrassegnata in un utterance con il `startIndex` e `endIndex`. 
+**Nella versione V2**, un'entità è stata contrassegnata in un `startIndex` enunciato con e `endIndex`. 
 
-**In V3**, l'entità è contrassegnato con `startIndex` e `entityLength`.
+**In V3**l'entità è contrassegnata con `startIndex` e `entityLength`.
 
 ## <a name="deprecation"></a>Deprecazione 
 
-L'API V2 verrà deprecata non di almeno 9 mesi dopo l'anteprima di V3. 
+L'API v2 non verrà deprecata per almeno 9 mesi dopo l'anteprima V3. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Usare la documentazione dell'API V3 REST esistenti di aggiornare le chiamate a LUIS [endpoint](https://aka.ms/luis-api-v3) API. 
+Usare la documentazione dell'API V3 per aggiornare le chiamate REST esistenti alle API dell' [endpoint](https://aka.ms/luis-api-v3) Luis. 

@@ -1,19 +1,18 @@
 ---
 title: Backup di Azure - Backup offline per DPM e server di Backup di Azure
 description: Informazioni sull'uso di Backup di Azure per l'invio di dati offline tramite il servizio Importazione/Esportazione di Azure. Questo articolo illustra il seeding offline dei dati del backup iniziale tramite il servizio Importazione/Esportazione di Azure.
-services: backup
 author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
-ms.openlocfilehash: 18f84062bcaf2766ee0abd5248f876c3d8acef3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a8571230b24d76482c505ec22d6faaa0caec5e6
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304030"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466710"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Flusso di lavoro di backup offline per DPM e server di Backup di Azure
 In Backup di Azure sono incorporate diverse funzionalità che consentono di ridurre in modo efficiente i costi di archiviazione e di rete durante i backup completi iniziali dei dati in Azure. I backup completi iniziali comportano in genere il trasferimento di grandi quantità di dati e richiedono una larghezza di banda di rete superiore rispetto ai backup successivi con cui vengono trasferiti solo backup differenziali/incrementali. Backup di Azure comprime i backup iniziali. Con il processo di seeding offline, Backup di Azure può usare i dischi per caricare in Azure i dati compressi dei backup iniziali.
@@ -98,7 +97,7 @@ Le informazioni presenti in questa sezione consentono di completare il flusso di
 ### <a name="prepare-sata-drives-and-ship-to-azure"></a>Preparare le unità SATA e inviarle al data center di Azure
 L'utilità *AzureOfflineBackupDiskPrep* consente di preparare le unità SATA da inviare al data center di Azure più vicino. Questa utilità è disponibile nella directory di installazione dell'agente di Servizi di ripristino nel percorso seguente:
 
-*\\Microsoft Azure Recovery Services Agent\\Utils\\*
+*\\Utils di\\servizi di ripristino di Microsoft Azure Agent\\*
 
 1. Passare alla directory e copiare la directory **AzureOfflineBackupDiskPrep** in un computer di copia a cui sono collegate le unità SATA da preparare. Assicurarsi che il computer di copia soddisfi i requisiti seguenti:
 

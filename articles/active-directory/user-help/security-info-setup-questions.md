@@ -12,14 +12,15 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e5d1546c658631911f25c43e94275f00c7a5140
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f1c375b64d93662ec50923078549c4f2153fba0a
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60474646"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382821"
 ---
 # <a name="set-up-security-info-preview-to-use-security-questions"></a>Configurare le informazioni di sicurezza (anteprima) per l'uso di domande di sicurezza
+
 È possibile seguire questi passaggi per aggiungere il metodo di reimpostazione della password. Dopo averle configurate per la prima volta, è possibile tornare alla pagina **Info di sicurezza** per aggiungere, aggiornare o eliminare le informazioni di sicurezza.
 
 Dopo aver configurato il metodo di reimpostazione della password, è necessario configurare anche il metodo di verifica a due fattori, usando un [app di autenticazione](security-info-setup-auth-app.md), l'[invio di SMS](security-info-setup-text-msg.md) o una [chiamata telefonica](security-info-setup-phone-number.md).
@@ -27,16 +28,17 @@ Dopo aver configurato il metodo di reimpostazione della password, è necessario 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 ## <a name="set-up-your-security-questions-from-the-security-info-page"></a>Configurare le domande di sicurezza dalla pagina Info di sicurezza
+
 A seconda delle impostazioni dell'organizzazione, potrebbe essere possibile scegliere alcune domande a cui rispondere, come metodo per le informazioni di sicurezza. L'amministratore configura il numero di domande di sicurezza che è necessario scegliere e a cui rispondere.
 
 Se vengono usate le domande di sicurezza, è consigliabile combinare questo metodo con un altro. Le domande di sicurezza possono risultare meno sicure rispetto ad altri metodi perché alcuni utenti potrebbero conoscere le risposte alle domande.
 
 > [!Note]
 > Le domande di sicurezza vengono archiviate privatamente e in modo sicuro in un oggetto utente nella directory e gli utenti possono rispondere a tali domande solo durante la registrazione. All'amministratore non è consentito leggere o modificare le domande e le risposte di un utente.
-> 
+>
 > Se l'opzione relativa alle domande di sicurezza non viene visualizzata, è possibile che l'organizzazione non consenta di usare le domande di sicurezza per la verifica. In questo caso, è necessario scegliere un altro metodo oppure contattare l'amministratore per ottenere assistenza.
-> 
-> Gli account amministratore non è consentiti usare domande di sicurezza come metodo di reimpostazione della password. Se è connessi come un account a livello di amministratore che non verranno visualizzate queste opzioni.
+>
+> Gli account amministratore non sono autorizzati a utilizzare le domande di sicurezza come metodo di reimpostazione della password. Se si è connessi come account a livello di amministratore, queste opzioni non verranno visualizzate.
 
 ### <a name="to-set-up-your-security-questions"></a>Per configurare le domande di sicurezza
 
@@ -59,6 +61,7 @@ Se vengono usate le domande di sicurezza, è consigliabile combinare questo meto
     Le informazioni di sicurezza vengono aggiornate ed è possibile usare le domande di sicurezza per verificare l'identità quando si usa la reimpostazione della password.
 
 ## <a name="delete-security-questions-from-your-security-info-methods"></a>Eliminare le domande di sicurezza dai metodi di gestione delle informazioni di sicurezza
+
 Per non usare più le domande di sicurezza come metodo di gestione delle informazioni di sicurezza, è possibile rimuoverle dalla pagina **Info di sicurezza**.
 
 >[!Important]
@@ -73,6 +76,7 @@ Per non usare più le domande di sicurezza come metodo di gestione delle informa
 2. Selezionare **Sì** nella finestra di dialogo di conferma per eliminare le **domande di sicurezza**. Dopo l'eliminazione delle domande di sicurezza, il metodo viene rimosso dalle informazioni di sicurezza e non viene più visualizzato nella pagina **Info di sicurezza**.
 
 ## <a name="additional-security-info-methods"></a>Metodi aggiuntivi per le informazioni di sicurezza
+
 In base all'operazione da eseguire, sono disponibili opzioni aggiuntive relative alle modalità di contatto da parte dell'organizzazione per verificare l'identità dell'utente, tra cui:
 
 - **App di autenticazione.** Scaricare e usare un'app di autenticazione per ottenere una notifica di approvazione o un codice di approvazione generato in modo casuale per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come configurare e usare l'app Microsoft Authenticator, vedere [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](security-info-setup-auth-app.md).
@@ -81,8 +85,10 @@ In base all'operazione da eseguire, sono disponibili opzioni aggiuntive relative
 
 - **Chiamata sul dispositivo mobile o sul telefono dell'ufficio.** Immettere il numero del dispositivo mobile per ricevere una chiamata per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con un numero di telefono, vedere [Configurare le informazioni di sicurezza per l'uso di chiamate telefoniche](security-info-setup-phone-number.md).
 
+- **Chiave di sicurezza.** Registrare la chiave di sicurezza compatibile con Microsoft e usarla insieme a un PIN per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con una chiave di sicurezza, vedere [configurare le informazioni di sicurezza per l'uso di una chiave di sicurezza](security-info-setup-security-key.md).
+
 - **Indirizzo di posta elettronica.** Immettere l'indirizzo di posta elettronica aziendale o dell'istituto di istruzione per ricevere un messaggio di posta elettronica per la reimpostazione della password. Questa opzione non è disponibile per la verifica in due passaggi. Per istruzioni dettagliate su come configurare l'indirizzo di posta elettronica, vedere [Configurare le informazioni di sicurezza per l'uso della posta elettronica](security-info-setup-email.md).
-   
+
     >[!Note]
     >Se alcune opzioni non sono disponibili, è probabile che l'organizzazione non consenta di usare questi metodi. In questo caso, è necessario scegliere un metodo disponibile oppure contattare l'amministratore per ottenere assistenza.
 

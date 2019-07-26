@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9c3bd2480853f5c4134cd560c20a6007b044e138
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c2096b6c5ddb72c8ab5c5d3203a05c94db51f6c5
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64924645"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444343"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Amministratori della sottoscrizione classica di Azure
 
@@ -91,7 +91,7 @@ Esistono due modi per modificare l'amministratore del servizio. È possibile mod
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-1. Assicurarsi che lo scenario sia supportato verificando le limitazioni per la modifica degli amministratori del servizio.
+1. Verificare che lo scenario sia supportato controllando le limitazioni per la modifica degli amministratori del servizio.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore account.
 
@@ -109,7 +109,7 @@ Esistono due modi per modificare l'amministratore del servizio. È possibile mod
 
 ### <a name="account-center"></a>Centro account
 
-1. Assicurarsi che lo scenario sia supportato verificando le limitazioni per la modifica degli amministratori del servizio.
+1. Verificare che lo scenario sia supportato controllando le limitazioni per la modifica degli amministratori del servizio.
 
 1. Accedere al [Centro account](https://account.windowsazure.com/subscriptions) come amministratore account.
 
@@ -129,12 +129,12 @@ Esistono due modi per modificare l'amministratore del servizio. È possibile mod
 
 Ogni sottoscrizione è associata a una directory di Azure AD. Per trovare la directory a cui è associata la sottoscrizione, aprire **Sottoscrizioni** nel portale di Azure, quindi selezionare una sottoscrizione per visualizzare la directory.
 
-Se l'accesso è stato eseguito con un account aziendale o dell'istituto di istruzione, è possibile aggiungere altri account dell'organizzazione come amministratori del servizio. Ad esempio, abby@contoso.com può aggiungere bob@contoso.com come amministratore del servizio, ma non può aggiungere john@notcontoso.com a meno che john@notcontoso.com non si trovi nella directory contoso.com. Gli utenti che hanno eseguito l'accesso con un account aziendale o dell'istituto di istruzione possono continuare ad aggiungere utenti con account Microsoft come amministratori del servizio.
+Se l'accesso è stato eseguito con un account aziendale o dell'istituto di istruzione, è possibile aggiungere altri account dell'organizzazione come amministratori del servizio. Ad esempio, abby@contoso.com può aggiungere bob@contoso.com come amministratore del servizio, ma non può aggiungere john@notcontoso.com a meno che john@notcontoso.com non si trovi nella directory contoso.com. Gli utenti che hanno eseguito l'accesso con un account aziendale o dell'istituto di istruzione possono continuare ad aggiungere utenti con account Microsoft come amministratori del servizio. Può essere presente un solo amministratore del servizio per ogni sottoscrizione di Azure.
 
   | Metodo di accesso | Aggiungere l'utente con account Microsoft come amministratore del servizio? | Aggiungere un account aziendale o dell'istituto di istruzione nella stessa organizzazione come amministratore del servizio? | Aggiungere un account aziendale o dell'istituto di istruzione in un'organizzazione diversa come amministratore del servizio? |
   | --- | --- | --- | --- |
-  |  Account Microsoft |Yes |No |No |
-  |  Account aziendale o dell'istituto di istruzione |Yes |Sì |No |
+  |  Account Microsoft |Sì |No |No |
+  |  Account aziendale o dell 'istituto di istruzione |Sì |Sì |No |
 
 ## <a name="view-the-account-administrator"></a>Visualizzare l'amministratore dell'account
 

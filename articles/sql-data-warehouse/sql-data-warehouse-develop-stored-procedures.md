@@ -2,7 +2,7 @@
 title: Uso di stored procedure in Azure SQL Data Warehouse | Microsoft Docs
 description: Suggerimenti per l'implementazione delle stored procedure in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,17 +10,17 @@ ms.subservice: development
 ms.date: 04/02/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 200433d95d62edf2e878e58e5089a6baff290775
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2c12a679ed5f0a1574deb34df8c0151e737d2d01
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65850577"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479597"
 ---
 # <a name="using-stored-procedures-in-sql-data-warehouse"></a>Uso di stored procedure in SQL Data Warehouse
 Suggerimenti per l'implementazione delle stored procedure in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 
-## <a name="what-to-expect"></a>Cosa aspettarsi
+## <a name="what-to-expect"></a>Impatto di questa modifica
 
 SQL Data Warehouse supporta molte delle funzionalità T-SQL che si usano in SQL Server. Ancora più importanti sono le funzionalità di scale-out specifiche, che si possono usare per migliorare le prestazioni della soluzione.
 

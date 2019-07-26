@@ -14,34 +14,34 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: cd1db615b11259bcf1d8aff988d2817e08065ca2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a7e6e86be8b6fc901d9637c85794cdfe1f744fd4
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991743"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360802"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>Come usare le code del bus di servizio con Java
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-In questa esercitazione descrive come creare applicazioni Java per inviare e ricevere messaggi da una coda del Bus di servizio. 
+In questa esercitazione si apprenderà come creare applicazioni Java per inviare e ricevere messaggi da una coda del bus di servizio. 
 
 > [!NOTE]
 > È possibile trovare esempi di Java in GitHub nel [repository azure-service-bus](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
 
 ## <a name="prerequisites"></a>Prerequisiti
-1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [benefici per sottoscrittori MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) oppure iscriversi per una [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Se non si dispone di una coda per lavorare con, seguire i passaggi nel [portale di Azure Usa per creare una coda del Bus di servizio](service-bus-quickstart-portal.md) articolo creare una coda.
-    1. Leggere la rapida **overview** del Bus di servizio **code**. 
-    2. Creare un Bus di servizio **dello spazio dei nomi**. 
-    3. Ottenere il **stringa di connessione**.
-    4. Creare un Bus di servizio **coda**.
+1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [benefici](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) per gli abbonati MSDN o iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Se non si ha una coda da usare, seguire i passaggi nell'articolo [usare portale di Azure per creare una](service-bus-quickstart-portal.md) coda del bus di servizio per creare una coda.
+    1. Leggere la breve **Panoramica** delle **Code**del bus di servizio. 
+    2. Creare uno **spazio dei nomi**del bus di servizio. 
+    3. Ottenere la **stringa di connessione**.
+    4. Creare una **coda**del bus di servizio.
 3. Installare [Azure SDK per Java][Azure SDK for Java]. 
 
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurare l'applicazione per l'uso del bus di servizio
-Assicurarsi di aver installato [Azure SDK per Java][Azure SDK for Java] prima di compilare questo esempio. Se si usa Eclipse, è possibile installare [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] che include Azure SDK per Java. È quindi possibile aggiungere le **librerie di Microsoft Azure per Java** al progetto:
+Assicurarsi di aver installato [Azure SDK per Java][Azure SDK for Java] before building this sample. If you are using Eclipse, you can install the [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] che include Azure SDK per Java. È quindi possibile aggiungere le **librerie di Microsoft Azure per Java** al progetto:
 
-![](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
+![Screenshot della scheda librerie in cui è possibile aggiungere librerie](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
 Aggiungere le seguenti istruzioni `import` all'inizio del file Java:
 
@@ -187,7 +187,7 @@ In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio m
 > È possibile gestire le risorse del bus di servizio con [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer consente agli utenti di connettersi a uno spazio dei nomi del bus di servizio e di amministrare le entità di messaggistica in modo semplice. Lo strumento offre caratteristiche avanzate, tra cui funzionalità di importazione/esportazione o la possibilità di testare argomenti, code, sottoscrizioni, servizi di inoltro, hub di notifica e hub eventi. 
 
 ## <a name="next-steps"></a>Fasi successive
-A questo punto, dopo aver appreso le nozioni di base delle code del bus di servizio, vedere [Code, argomenti e sottoscrizioni del bus di servizio][Queues, topics, and subscriptions] per altre informazioni.
+A questo punto, dopo aver appreso le nozioni di base delle code del bus di servizio, vedere [Code, argomenti e sottoscrizioni][Queues, topics, and subscriptions] per altre informazioni.
 
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di Java](https://azure.microsoft.com/develop/java/).
 

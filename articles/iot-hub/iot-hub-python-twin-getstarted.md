@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: kgremban
-ms.openlocfilehash: 3e703c999d57cf62064291cf91059a17a959a2c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53e3d32497c7aae6c584d23b9baddbaeaf1bd822
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64569264"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405869"
 ---
 # <a name="get-started-with-device-twins-python"></a>Introduzione ai dispositivi gemelli (Python)
 
@@ -31,31 +31,33 @@ Al termine di questa esercitazione, si avranno due app console Python:
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* [Python 2.x o 3.x](https://www.python.org/downloads/). Assicurarsi di usare le installazioni a 32 bit o 64 bit, come richiesto dalla configurazione. Quando richiesto durante l'installazione, assicurarsi di aggiungere Python alla variabile di ambiente specifica per la piattaforma. Se si usa Python 2.x, potrebbe essere necessario [installare o aggiornare *pip*, il sistema di gestione pacchetti Python](https://pip.pypa.io/en/stable/installing/).
+* [Python 2. x o 3. x](https://www.python.org/downloads/). Assicurarsi di usare le installazioni a 32 bit o 64 bit, come richiesto dalla configurazione. Quando richiesto durante l'installazione, assicurarsi di aggiungere Python alla variabile di ambiente specifica per la piattaforma. Se si usa Python 2.x, potrebbe essere necessario [installare o aggiornare *pip*, il sistema di gestione pacchetti Python](https://pip.pypa.io/en/stable/installing/).
 
 * Se si usa il sistema operativo Windows, usare il [pacchetto ridistribuibile di Visual C++](https://www.microsoft.com/download/confirmation.aspx?id=48145) per consentire l'uso di DLL native da Python.
 
 * Un account Azure attivo. Se non si dispone di un account, è possibile crearne uno [gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 
 > [!NOTE]
-> I pacchetti *pip* per `azure-iothub-service-client` e `azure-iothub-device-client` sono attualmente disponibili solo per il sistema operativo Windows. Per Linux o Mac OS, vedere le sezioni specifiche del sistema operativo Mac e Linux sul [preparare l'ambiente di sviluppo per Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) post.
+> I pacchetti *pip* per `azure-iothub-service-client` e `azure-iothub-device-client` sono attualmente disponibili solo per il sistema operativo Windows. Per Linux/Mac OS, vedere le sezioni specifiche per Linux e Mac OS dell' [ambiente di sviluppo per Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) .
 >
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Ottenere la stringa di connessione per l'hub IoT
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
 ## <a name="register-a-new-device-in-the-iot-hub"></a>Registrare un nuovo dispositivo nell'hub IoT
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
+## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub Internet
+
+[!INCLUDE [iot-hub-howto-twin-shared-access-policy-text](../../includes/iot-hub-howto-twin-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-custom-connection-string](../../includes/iot-hub-include-find-custom-connection-string.md)]
+
 ## <a name="create-the-service-app"></a>Creare l'app di servizio
 
-In questa sezione si crea un'app console Python che aggiunge i metadati della posizione al dispositivo gemello associato con il **{ID dispositivo}** . Viene quindi eseguita una query sui dispositivi gemelli archiviati nell'hub IoT selezionando i dispositivi situati a Redmond e quindi quelli che segnalano una connessione alla rete cellulare.
+In questa sezione si crea un'app console Python che aggiunge i metadati della posizione al dispositivo gemello associato all' **{ID dispositivo}** . Viene quindi eseguita una query sui dispositivi gemelli archiviati nell'hub IoT selezionando i dispositivi situati a Redmond e quindi quelli che segnalano una connessione alla rete cellulare.
 
 1. Aprire un prompt dei comandi e installare **Azure IoT Hub Service SDK per Python**. Chiudere il prompt dei comandi dopo l'installazione dell'SDK.
 
@@ -74,7 +76,7 @@ In questa sezione si crea un'app console Python che aggiunge i metadati della po
    from iothub_service_client import IoTHubDeviceTwin, IoTHubError
    ```
 
-4. Aggiungere il codice seguente, sostituendo il segnaposto per `[IoTHub Connection String]` e `[Device Id]` con la stringa di connessione per l'hub IoT e l'ID dispositivo creati nelle sezioni precedenti.
+4. Aggiungere il codice seguente, sostituendo il segnaposto `[Device Id]` per `[IoTHub Connection String]` e con la stringa di connessione per l'hub Internet e l'ID del dispositivo creato nelle sezioni precedenti.
   
     ```python
     CONNECTION_STRING = "[IoTHub Connection String]"
@@ -151,13 +153,13 @@ In questa sezione si crea un'app console Python che aggiunge i metadati della po
 
     Nei risultati si noterà un dispositivo per la query che cerca tutti i dispositivi situati in **Redmond43** e nessuno per la query che limita i risultati ai dispositivi che usano una rete cellulare.
 
-    ![eseguire una query che mostra tutti i dispositivi a Redmond](./media/iot-hub-python-twin-getstarted/1-device-twins-python-service-sample.png)
+    ![prima query che Mostra tutti i dispositivi a Redmond](./media/iot-hub-python-twin-getstarted/1-device-twins-python-service-sample.png)
 
 Nella sezione successiva si crea un'app per dispositivo che segnala le informazioni sulla connettività e modifica il risultato della query nella sezione precedente.
 
 ## <a name="create-the-device-app"></a>Creare l'app per dispositivo
 
-In questa sezione si crea un'app console Python che si connette all'hub come le **{ID dispositivo}** e quindi aggiorna le proprietà per contenere le informazioni che è connesso tramite una rete cellulare segnalate del dispositivo gemello.
+In questa sezione si crea un'app console Python che si connette all'hub come **{ID dispositivo}** e quindi aggiorna le proprietà segnalate del dispositivo gemello per contenere le informazioni connesse usando una rete cellulare.
 
 1. Aprire un prompt dei comandi e installare **Azure IoT Hub Service SDK per Python**. Chiudere il prompt dei comandi dopo l'installazione dell'SDK.
 
@@ -264,7 +266,7 @@ In questa sezione si crea un'app console Python che si connette all'hub come le 
     python AddTagsAndQuery.py
     ```
 
-    Questa volta il **{ID dispositivo}** dovrebbe essere visualizzato in entrambi i risultati della query.
+    Questa volta il **{ID dispositivo}** verrà visualizzato in entrambi i risultati della query.
 
     ![Seconda query](./media/iot-hub-python-twin-getstarted/3-device-twins-python-service-sample.png)
 
@@ -276,6 +278,6 @@ Per altre informazioni, vedere le risorse seguenti:
 
 * Per inviare dati di telemetria dai dispositivi, vedere l'esercitazione [Introduzione all'hub IoT](quickstart-send-telemetry-python.md).
 
-* Configurare i dispositivi usando le proprietà desiderate del dispositivo gemello con le [Usa le proprietà desiderate per configurare i dispositivi](tutorial-device-twins.md) esercitazione.
+* Configurare i dispositivi usando le proprietà desiderate del dispositivo gemello con l'esercitazione [usare le proprietà desiderate per configurare i dispositivi](tutorial-device-twins.md) .
 
-* Controllare i dispositivi in modo interattivo (ad esempio, attivare una ventola da un'app controllata dall'utente), con la [usare metodi diretti](quickstart-control-device-python.md) esercitazione.
+* Controllare i dispositivi in modo interattivo, ad esempio l'accensione di una ventola da un'app controllata dall'utente, con l'esercitazione [usare i metodi diretti](quickstart-control-device-python.md) .

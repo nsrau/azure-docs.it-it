@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 manager: craigg
 ms.date: 07/18/2019
-ms.openlocfilehash: 028b3b2287e9d37a87ae2caf828c8855be331a1f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: f4dc00623694fa1fd218f43e7bbd19edef48dec4
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327027"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348119"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Che cos'è l'istanza gestita di database SQL di Azure?
 
@@ -54,18 +54,18 @@ L'istanza gestita combina le migliori funzionalità disponibili sia nel database
 
 Nella tabella seguente sono elencate le principali funzionalità delle istanze gestite:
 
-|Funzionalità | Descrizione|
+|Funzionalità | DESCRIZIONE|
 |---|---|
 | Versione/build di SQL Server | Motore di database di SQL Server (ultima versione stabile) |
-| Backup automatici gestiti | Yes |
+| Backup automatici gestiti | Sì |
 | Monitoraggio predefinito e metriche dell'istanza e del database | Yes |
 | Applicazione automatica di patch software | Sì |
 | Funzionalità più recenti del motore di database | Sì |
-| Numero di file di dati (RIGHE) per il database | Multipli |
+| Numero di file di dati (RIGHE) per il database | Più posizioni |
 | Numero di file di log (LOG) per il database | 1 |
-| Rete virtuale: distribuzione di Azure Resource Manager | Yes |
+| Rete virtuale: distribuzione di Azure Resource Manager | Sì |
 | Rete virtuale: modello di distribuzione classica | No |
-| Supporto del portale | Sì|
+| Supporto del portale | Yes|
 | Integration Services (SSIS) incorporato | No - SSIS fa parte di [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Analysis Services (SSAS) incorporato | No - SSAS fa parte di una [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) distinta |
 | Reporting Services (SSRS) incorporato | No - usare Power BI o SSRS IaaS |
@@ -159,7 +159,7 @@ Nella tabella seguente sono riepilogate le operazioni e le durate generali tipic
 |Aggiorna |Scalabilità verticale/orizzontale per l'archiviazione delle istanze (business critical livello di servizio)|-Ridimensionamento cluster virtuale<br>-Always On seeding del gruppo di disponibilità|90% di operazioni completate tra 2,5 ore + tempo per il seeding di tutti i database (220 GB/ora)|
 |Aggiorna |Scalabilità verticale (VCore) di calcolo dell'istanza (per utilizzo generico)|-Ridimensionamento cluster virtuale<br>-Connessione dei file di database|90% di operazioni completate tra 2,5 ore|
 |Aggiorna |Scalabilità verticale (VCore) di calcolo dell'istanza (business critical)|-Ridimensionamento cluster virtuale<br>-Always On seeding del gruppo di disponibilità|90% di operazioni completate tra 2,5 ore + tempo per il seeding di tutti i database (220 GB/ora)|
-|Aggiorna |Ridimensionamento dell'istanza fino a 4 Vcore (per utilizzo generico)|-Il ridimensionamento del cluster virtuale (se eseguito per la prima volta, potrebbe richiedere la creazione di un cluster virtuale * *)<br>-Connessione dei file di database|90% di operazioni terminano tra 4 h 5 min * *|
+|Aggiorna |Ridimensionamento dell'istanza fino a 4 Vcore (per utilizzo generico)|-Il ridimensionamento del cluster virtuale (se eseguito per la prima volta, potrebbe richiedere la creazione di un cluster virtuale * *)<br>-Connessione dei file di database|90% di operazioni completate in 4 h 5 min * *|
 |Aggiorna |Ridimensionamento dell'istanza fino a 4 Vcore (per utilizzo generico)|-Il ridimensionamento del cluster virtuale (se eseguito per la prima volta, potrebbe richiedere la creazione di un cluster virtuale * *)<br>-Always On seeding del gruppo di disponibilità|90% di operazioni completate tra 4 ore + tempo per il seeding di tutti i database (220 GB/ora)|
 |Aggiorna |Modifica del livello di servizio dell'istanza (per utilizzo generico business critical e viceversa)|-Ridimensionamento cluster virtuale<br>-Always On seeding del gruppo di disponibilità|90% di operazioni completate tra 2,5 ore + tempo per il seeding di tutti i database (220 GB/ora)|
 |**Eliminazione**|Eliminazione di un'istanza|Backup della parte finale del log per tutti i database|90% le operazioni vengono completate fino a un minuto.<br>Nota: se viene eliminata l'ultima istanza della subnet, questa operazione pianifica l'eliminazione del cluster virtuale dopo 12 ore * * *|
@@ -293,7 +293,7 @@ L'opzione di distribuzione dell'istanza gestita consente all'amministratore di s
 
 La tabella seguente mostra diverse proprietà, accessibili tramite Transact SQL, che è possibile usare per rilevare se l'applicazione funziona con l'istanza gestita e recuperare proprietà importanti.
 
-|Proprietà|Valore|Commento|
+|Proprietà|Value|Commento|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Questo valore è uguale a quello del database SQL.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Questo valore è uguale a quello del database SQL.|

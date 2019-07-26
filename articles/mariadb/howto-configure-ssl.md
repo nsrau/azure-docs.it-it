@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/02/2019
-ms.openlocfilehash: 2c1b7e8f777f1975a20bbf63919a3dbfe543e683
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: e57371bb7598a92f35dd4fd0ec22a55fad722987
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537714"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360512"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>Configurare la connettività SSL nell'applicazione per la connessione sicura a Database di Azure per MariaDB
 Database di Azure per MariaDB supporta la connessione alle applicazioni client tramite Secure Sockets Layer (SSL). L'applicazione delle connessioni SSL tra il server di database e le applicazioni client aiuta a proteggersi dagli attacchi "man in the middle" crittografando il flusso di dati tra il server e l'applicazione.
@@ -22,18 +22,18 @@ Scaricare il certificato necessario per comunicare tramite SSL con il server di 
 
 ## <a name="bind-ssl"></a>Associare SSL
 
-### <a name="connecting-to-server-using-mysql-workbench-over-ssl"></a>La connessione al server con MySQL Workbench tramite SSL
+### <a name="connecting-to-server-using-mysql-workbench-over-ssl"></a>Connessione al server con MySQL Workbench tramite SSL
 Configurare MySQL Workbench per connettersi in modo sicuro tramite SSL. 
 
 1. Passare alla scheda **SSL** dalla finestra di dialogo Setup New Connection (Configura nuova connessione). 
 
-1. Aggiorna il **Usa SSL** campo "Require".
+1. Aggiornare il campo **Usa SSL** a "Richiedi".
 
 1. Immettere il percorso del file BaltimoreCyberTrustRoot.crt.pem nel campo **SSL CA File:** (File CA SSL:). 
     
-    ![Salvare la configurazione di SSL](./media/howto-configure-ssl/mysql-workbench-ssl.png)
+    ![Salva configurazione SSL](./media/howto-configure-ssl/mysql-workbench-ssl.png)
 
-Per le connessioni esistenti, è possibile associare SSL facendo clic sull'icona di connessione e scegliere Modifica. In seguito passare alla scheda **SSL** e associare il file del certificato.
+Per le connessioni esistenti, è possibile associare SSL facendo clic con il pulsante destro del mouse sull'icona di connessione e scegliendo Modifica. In seguito passare alla scheda **SSL** e associare il file del certificato.
 
 ### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>Connessione al server con l'interfaccia della riga di comando di MySQL tramite SSL
 Un altro modo per associare il certificato SSL è quello di usare l'interfaccia della riga di comando di MySQL eseguendo i comandi seguenti. 
@@ -78,21 +78,21 @@ die('Failed to connect to MySQL: '.mysqli_connect_error());
 ### <a name="python-mysqlconnector-python"></a>Python (MySQLConnector Python)
 ```python
 try:
-    conn=mysql.connector.connect(user='myadmin@mydemoserver', 
-        password='yourpassword', 
-        database='quickstartdb', 
-        host='mydemoserver.mariadb.database.azure.com', 
-        ssl_ca='/var/www/html/BaltimoreCyberTrustRoot.crt.pem')
+    conn = mysql.connector.connect(user='myadmin@mydemoserver',
+                                   password='yourpassword',
+                                   database='quickstartdb',
+                                   host='mydemoserver.mariadb.database.azure.com',
+                                   ssl_ca='/var/www/html/BaltimoreCyberTrustRoot.crt.pem')
 except mysql.connector.Error as err:
     print(err)
 ```
 ### <a name="python-pymysql"></a>Python (PyMySQL)
 ```python
-conn = pymysql.connect(user = 'myadmin@mydemoserver', 
-        password = 'yourpassword', 
-        database = 'quickstartdb', 
-        host = 'mydemoserver.mariadb.database.azure.com', 
-        ssl = {'ssl': {'ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}})
+conn = pymysql.connect(user='myadmin@mydemoserver',
+                       password='yourpassword',
+                       database='quickstartdb',
+                       host='mydemoserver.mariadb.database.azure.com',
+                       ssl={'ssl': {'ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}})
 ```
 ### <a name="ruby"></a>Ruby
 ```ruby

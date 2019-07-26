@@ -3,23 +3,19 @@ title: Introduzione a Servizi cloud di Azure e ASP.NET | Microsoft Docs
 description: Informazioni sulla creazione di un app a più livelli con ASP.NET MVC e Azure. L'app viene eseguita in un servizio cloud, con un ruolo Web e un ruolo di lavoro. Usa Entity Framework, il database SQL e le code e i BLOB di archiviazione di Azure.
 services: cloud-services, storage
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: d7aa440d-af4a-4f80-b804-cc46178df4f9
+author: georgewallace
+manager: carmonm
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 3082ca34f2bcb71dd7aa02b4539899997374cfc0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 802ece106099e8a475b83c820130c3c238d330d2
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595169"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359204"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introduzione a Servizi cloud di Azure e ASP.NET
 
@@ -51,7 +47,7 @@ Nell'esercitazione si presuppone che l'utente abbia familiarità con i [concetti
 
 È possibile eseguire l'app localmente senza sottoscrizione di Azure, ma sarà necessaria una sottoscrizione per distribuire l'applicazione nel cloud. Se non si dispone di un account, è possibile [attivare i benefici della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) oppure [iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
 
-Le istruzioni dell'esercitazione funzionano con uno qualsiasi dei seguenti prodotti:
+Le istruzioni dell'esercitazione funzionano con uno dei prodotti seguenti:
 
 * Visual Studio 2013
 * Visual Studio 2015

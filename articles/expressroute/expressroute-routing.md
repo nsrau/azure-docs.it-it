@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 6c475ab0a2e47cf654d1299a4c5638b34fb5e4b6
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 458808f9d2c496ae4c29b05bd8a3531b94ba78c0
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508528"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422681"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisiti per il routing di ExpressRoute
 Per connettersi ai servizi cloud Microsoft con ExpressRoute, è necessario configurare e gestire il routing. Alcuni provider di connettività offrono la configurazione e la gestione del routing come servizio gestito. Rivolgersi al proprio provider di connettività per verificare se viene offerto questo servizio. Se non è offerto, è necessario rispettare i requisiti seguenti:
@@ -84,7 +84,7 @@ Per configurare le sessioni BGP è necessario usare indirizzi IP pubblici di pro
 È possibile scegliere di usare gli indirizzi IPv4 pubblici o privati per il peering privato. Microsoft offre un isolamento end-to-end del traffico, quindi la sovrapposizione degli indirizzi con altri clienti non si verifica in caso di peering privato. Questi indirizzi non vengono annunciati su Internet. 
 
 ### <a name="microsoft-peering"></a>Peering Microsoft
-Il percorso di peering di Microsoft consente di connettersi ai servizi cloud Microsoft. L'elenco dei servizi include servizi Office 365 quali Exchange Online, SharePoint Online, Skype for Business e Dynamics 365. Microsoft supporta la connettività bidirezionale nel peering Microsoft. Il traffico destinato ai servizi cloud Microsoft nel peering pubblico deve usare indirizzi IPv4 pubblici validi per poter accedere alla rete Microsoft.
+Il percorso di peering di Microsoft consente di connettersi ai servizi cloud Microsoft. L'elenco dei servizi include i servizi di Office 365, ad esempio Exchange Online, SharePoint Online, Skype for business, Microsoft teams e Dynamics 365. Microsoft supporta la connettività bidirezionale nel peering Microsoft. Il traffico destinato ai servizi cloud Microsoft nel peering pubblico deve usare indirizzi IPv4 pubblici validi per poter accedere alla rete Microsoft.
 
 Assicurarsi che l'indirizzo IP e il numero AS siano registrati a nome dell'utente in uno dei registri seguenti:
 
@@ -154,7 +154,7 @@ Per un elenco dettagliato delle aree geopolitiche, delle aree di Azure associate
 
 È possibile acquistare più di un circuito ExpressRoute per area geopolitica. Un maggior numero di connessioni offre vantaggi significativi in termini di disponibilità elevata, grazie alla ridondanza geografica. Se si hanno più circuiti ExpressRoute, si riceverà lo stesso set di prefissi annunciati da Microsoft nei percorsi per il peering Microsoft e per il peering pubblico. Questo significa che saranno disponibili più percorsi dalla propria rete a Microsoft. In questo caso, all'interno della rete potrebbero essere prese decisioni di routing non ottimali, che possono a propria volta determinare esperienze di connettività non ottimali per diversi servizi. Per prendere decisioni di routing appropriate e offrire un servizio di [routing ottimale agli utenti](expressroute-optimize-routing.md), è possibile usare i valori della community.
 
-| **Area di Microsoft Azure** | **Community BGP a livello di area** | **Community BGP archiviazione** | **SQL BGP community** | **Community di COSMOS DB BGP** |
+| **Area di Microsoft Azure** | **Community BGP regionale** | **Community BGP di archiviazione** | **Community BGP SQL** | **Cosmos DB community BGP** |
 | --- | --- | --- | --- | --- |
 | **America del Nord** | |
 | East US | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 |
@@ -210,7 +210,7 @@ Tutte le route annunciate da Microsoft verranno contrassegnate con il valore del
 > 
 > 
 
-### <a name="service-to-bgp-community-value"></a>Servizio per il valore di community BGP
+### <a name="service-to-bgp-community-value"></a>Valore della community da servizio a BGP
 Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. Questo si applica solo al peering Microsoft. La tabella seguente fornisce il mapping del servizio al valore della community BGP.
 
 | **Servizio** | **Valore della community BGP** |
@@ -236,11 +236,11 @@ Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. 
 | --- | --- |
 | **US Government** |  |
 | US Gov Arizona | 12076:51106 |
-| Governo degli Stati Uniti - Iowa | 12076:51109 |
+| US Gov Iowa | 12076:51109 |
 | US Gov Virginia | 12076:51105 |
 | US Gov Texas | 12076:51108 |
-| US DoD (area centrale) | 12076:51209 |
-| US DoD (area orientale) | 12076:51205 |
+| US DoD Central | 12076:51209 |
+| US DoD East | 12076:51205 |
 
 
 | **Servizio dei cloud nazionali** | **Valore della community BGP** |

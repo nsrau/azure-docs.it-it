@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 27dd9888d83e01ea522b2532fc1d65284f2fe8d1
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: c129391c0830e0194c32a041853482f92340bbb9
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476930"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405781"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Output di runbook e messaggi in automazione di Azure
 La maggior parte dei runbook di Automazione Azure ha una forma di output. L'output può essere un messaggio di errore destinato all'utente o un oggetto complesso che si prevede di usare con un altro runbook. Windows PowerShell fornisce [più flussi](/powershell/module/microsoft.powershell.core/about/about_redirection) per inviare l'output da uno script o flusso di lavoro. Automazione di Azure funziona con ogni flusso in modo diverso. Seguire le procedure consigliate per usare ogni flusso quando si crea un runbook.
@@ -184,23 +184,23 @@ In Windows PowerShell, è possibile recuperare i messaggi e gli output da un run
 Nell'esempio seguente viene avviato un runbook figlio e si attende il suo completamento. Una volta completato, il relativo output viene raccolto dal processo.
 
 ```powershell
-$job = Start-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
+$job = Start-AzAutomationRunbook -ResourceGroupName "ResourceGroup01" `
   –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
 
 $doLoop = $true
 While ($doLoop) {
-  $job = Get-AzureRmAutomationJob -ResourceGroupName "ResourceGroup01" `
+  $job = Get-AzAutomationJob -ResourceGroupName "ResourceGroup01" `
     –AutomationAccountName "MyAutomationAccount" -Id $job.JobId
   $status = $job.Status
   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped"))
 }
 
-Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+Get-AzAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
   –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Output
 
-# For more detailed job output, pipe the output of Get-AzureRmAutomationJobOutput to Get-AzureRmAutomationJobOutputRecord
-Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
-  –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzureRmAutomationJobOutputRecord
+# For more detailed job output, pipe the output of Get-AzAutomationJobOutput to Get-AzAutomationJobOutputRecord
+Get-AzAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+  –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzAutomationJobOutputRecord
 ``` 
 
 ### <a name="graphical-authoring"></a>Creazione grafica
@@ -220,8 +220,8 @@ Per i runbook grafici, è disponibile una registrazione aggiuntiva sotto forma d
    
    ![Pannello Registrazione e traccia per la creazione grafica](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
-### <a name="microsoft-azure-monitor-logs"></a>Log di monitoraggio di Microsoft Azure
-Automazione può inviare lo stato e i flussi del processo del runbook all'area di lavoro Log Analytics. Con i log di monitoraggio di Azure è possibile,
+### <a name="microsoft-azure-monitor-logs"></a>Log di monitoraggio Microsoft Azure
+Automazione può inviare lo stato e i flussi del processo del runbook all'area di lavoro Log Analytics. Con i log di monitoraggio di Azure puoi,
 
 * Ottenere informazioni dettagliate sui processi di Automazione. 
 * Attivare un messaggio e-mail o un avviso in base allo stato del processo del runbook, ad esempio non riuscito o sospeso. 
@@ -229,7 +229,7 @@ Automazione può inviare lo stato e i flussi del processo del runbook all'area d
 * Correlare i processi tra account di Automazione. 
 * Visualizzare la cronologia dei processi nel tempo.    
 
-Per altre informazioni su come configurare l'integrazione con i log di monitoraggio di Azure per raccogliere, correlare e agire sui dati del processo, vedere [inoltrare lo stato del processo e i flussi del processo da automazione a log di monitoraggio di Azure](automation-manage-send-joblogs-log-analytics.md).
+Per altre informazioni su come configurare l'integrazione con i log di monitoraggio di Azure per raccogliere, correlare e agire sui dati del processo, vedere [trasmettere lo stato e i flussi del processo dall'automazione ai log di monitoraggio di Azure](automation-manage-send-joblogs-log-analytics.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per maggiori informazioni sull'esecuzione dei runbook, su come monitorare i processi dei runbook e su altri dettagli tecnici, vedere come tenere traccia del processo di un runbook in [Esecuzione di runbook in Automazione di Azure](automation-runbook-execution.md)

@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/25/2017
-ms.openlocfilehash: 9bc34110b85119c7b8b303774b585d03ce9d3a0f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 868df2c8d1e14000f743686dcb6d4174d851be86
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596637"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68403256"
 ---
 # <a name="get-started-with-device-management-node"></a>Introduzione alla gestione dei dispositivi (Node)
 
@@ -21,7 +21,7 @@ ms.locfileid: "65596637"
 
 Questa esercitazione illustra come:
 
-* Usare la [portale di Azure](https://portal.azure.com) per creare un IoT Hub e creare un'identità del dispositivo nell'hub IoT.
+* Usare il [portale di Azure](https://portal.azure.com) per creare un hub Internet delle cose e creare un'identità del dispositivo nell'hub Internet delle cose.
 
 * Creare un'app di dispositivo simulato contenente un metodo diretto per il riavvio del dispositivo. I metodi diretti vengono richiamati dal cloud.
 
@@ -35,7 +35,7 @@ Al termine di questa esercitazione si avranno due app console Node.js:
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Node. js versione 10.0 o versione successiva. [Preparare l'ambiente di sviluppo](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) viene descritto come installare Node. js per questa esercitazione in Windows o Linux.
+* Node. js versione 10.0. x o successiva. [Preparare l'ambiente di sviluppo](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) descrive come installare Node. js per questa esercitazione in Windows o Linux.
 
 * Un account Azure attivo. Se non si dispone di un account, è possibile crearne uno [gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 
@@ -43,15 +43,11 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Ottenere la stringa di connessione per l'hub IoT
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="create-a-simulated-device-app"></a>Creare un'app di dispositivo simulato
 
-In questa sezione si eseguirà i passaggi seguenti:
+In questa sezione si eseguiranno i passaggi seguenti:
 
 * Creare un'app console Node.js che risponde a un metodo diretto chiamato dal cloud
 
@@ -149,6 +145,12 @@ In questa sezione si eseguirà i passaggi seguenti:
 
 > [!NOTE]
 > Per semplicità, in questa esercitazione non si implementa alcun criterio di ripetizione dei tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come suggerito nell'articolo [Gestione degli errori temporanei](/azure/architecture/best-practices/transient-faults).
+
+## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub Internet
+
+[!INCLUDE [iot-hub-howto-device-management-shared-access-policy-text](../../includes/iot-hub-howto-device-management-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Attivare un riavvio remoto nel dispositivo con un metodo diretto
 

@@ -1,6 +1,6 @@
 ---
 title: Come sfogliare i video disponibili - Ricerca video Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Informazioni su come restituire in più pagine tutti i video trovati dall'API Ricerca video Bing.
 services: cognitive-services
 author: swhite-msft
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 12549bb53a21dd657f51a4a02460ddc82c47bef8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c3570d8772734595c6707ca8103006867a8eb47a
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66386396"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500717"
 ---
 # <a name="paging-through-video-search-results"></a>Restituire in più pagine i risultati della ricerca di video
 
