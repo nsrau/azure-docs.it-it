@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e778e55bd87e325b3dcf14a8c9f1616157a420b
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 67788dd9257a0a4685313dce44c6a3dfb5e514df
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320882"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68413598"
 ---
 # <a name="mobile-app-that-calls-web-apis---move-to-production"></a>App per dispositivi mobili che chiama le API Web-passa all'ambiente di produzione
 
@@ -47,3 +47,5 @@ Per diagnosticare i problemi nell'app, è utile per raccogliere i dati. Per info
 ## <a name="next-steps"></a>Passaggi successivi
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+
+Provare esempi aggiuntivi disponibili negli [esempi | App client pubbliche per desktop e dispositivi mobili](sample-v2-code.md#desktop-and-mobile-public-client-apps)

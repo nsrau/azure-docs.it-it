@@ -1,26 +1,26 @@
 ---
-title: Diagnosticare e risolvere i problemi quando si usa Azure Cosmos DB trigger in funzioni di Azure
-description: Problemi comuni, soluzioni alternative e procedure di diagnostica quando si usa il trigger Azure Cosmos DB con funzioni di Azure
+title: Diagnosticare e risolvere i problemi quando si usa il trigger di funzioni di Azure per Cosmos DB
+description: Problemi comuni, soluzioni alternative e procedure di diagnostica, quando si usa il trigger di funzioni di Azure per Cosmos DB
 author: ealsur
 ms.service: cosmos-db
-ms.date: 05/23/2019
+ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 9c728a735e56e461e49dd3f594186c9c0192a3f0
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: b90986e449df7e81f97f9ef86ce3cf69621c76d6
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250021"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335744"
 ---
-# <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Diagnosticare e risolvere i problemi quando si usa Azure Cosmos DB trigger in funzioni di Azure
+# <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnosticare e risolvere i problemi quando si usa il trigger di funzioni di Azure per Cosmos DB
 
-Questo articolo descrive i problemi comuni, le soluzioni alternative e i passaggi di diagnostica, quando si usa il [Trigger Azure Cosmos DB](change-feed-functions.md) con funzioni di Azure.
+Questo articolo descrive i problemi comuni, le soluzioni alternative e i passaggi di diagnostica, quando si usa il [trigger di funzioni di Azure per Cosmos DB](change-feed-functions.md).
 
 ## <a name="dependencies"></a>Dipendenze
 
-Il trigger e le associazioni di Azure Cosmos DB dipendono dai pacchetti di estensione nel runtime di funzioni di Azure di base. Mantieni sempre aggiornati i pacchetti, in quanto potrebbero includere correzioni e nuove funzionalità che potrebbero risolvere eventuali problemi potenziali che possono verificarsi:
+Il trigger e le associazioni di funzioni di Azure per Cosmos DB dipendono dai pacchetti di estensione nel runtime di funzioni di Azure di base. Mantieni sempre aggiornati i pacchetti, in quanto potrebbero includere correzioni e nuove funzionalità che potrebbero risolvere eventuali problemi potenziali che possono verificarsi:
 
 * Per funzioni di Azure V2, vedere [Microsoft. Azure. webjobs. Extensions. CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
 * Per funzioni di Azure V1, vedere [Microsoft. Azure. webjobs. Extensions. DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
@@ -29,7 +29,7 @@ Questo articolo si riferisce sempre a funzioni di Azure V2 ogni volta che viene 
 
 ## <a name="consume-the-azure-cosmos-db-sdk-independently"></a>Utilizzare il Azure Cosmos DB SDK in modo indipendente
 
-La funzionalità principale del pacchetto di estensione consiste nel fornire supporto per il trigger e le associazioni Azure Cosmos DB. Include anche [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet-core.md), utile se si desidera interagire con Azure Cosmos DB a livello di codice senza utilizzare il trigger e le associazioni.
+La funzionalità principale del pacchetto di estensione consiste nel fornire supporto per il trigger e le associazioni di funzioni di Azure per Cosmos DB. Include anche [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet-core.md), utile se si desidera interagire con Azure Cosmos DB a livello di codice senza utilizzare il trigger e le associazioni.
 
 Se si vuole usare Azure Cosmos DB SDK, assicurarsi di non aggiungere al progetto un altro riferimento al pacchetto NuGet. Al contrario, **lasciare che il riferimento all'SDK venga risolto tramite il pacchetto di estensione delle funzioni di Azure**. Utilizzare il Azure Cosmos DB SDK separatamente dal trigger e dalle associazioni
 
@@ -81,7 +81,7 @@ Se nella destinazione mancano alcune modifiche, ciò potrebbe indicare che si è
 In questo scenario, il modo migliore consiste nell'aggiungere `try/catch blocks` il codice e all'interno dei cicli che potrebbero elaborare le modifiche, per rilevare qualsiasi errore per un particolare subset di elementi e gestirli di conseguenza (inviarli a un'altra risorsa di archiviazione per ulteriori analisi o ripetizione dei tentativi). 
 
 > [!NOTE]
-> Il trigger Azure Cosmos DB, per impostazione predefinita, non tenterà di ritentare un batch di modifiche se si è verificata un'eccezione non gestita durante l'esecuzione del codice. Ciò significa che il motivo per cui le modifiche non arrivano alla destinazione è dovuto al fatto che l'elaborazione non è riuscita.
+> Il trigger di funzioni di Azure per Cosmos DB, per impostazione predefinita, non ripeterà un batch di modifiche se si è verificata un'eccezione non gestita durante l'esecuzione del codice. Ciò significa che il motivo per cui le modifiche non arrivano alla destinazione è dovuto al fatto che l'elaborazione non è riuscita.
 
 Se si rileva che alcune modifiche non sono state ricevute dal trigger, lo scenario più comune è che è **in esecuzione un'altra funzione di Azure**. Potrebbe trattarsi di un'altra funzione di Azure distribuita in Azure o di una funzione di Azure in esecuzione in locale nel computer di uno sviluppatore che ha **esattamente la stessa configurazione** (gli stessi contenitori monitorati e di lease) e che questa funzione di Azure sta rubando un subset delle modifiche si aspetterebbe che la funzione di Azure venga elaborata.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: fe0af4ca7b6860fff19f4df3165a975c42b54a03
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: d4daa7ae9c7e58c1949dfbe4427a154c389100d4
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277786"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348381"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Pianificazione della capacità e scalabilità per Azure Service Fabric
 
@@ -27,7 +27,7 @@ Prima di creare un cluster di Azure Service Fabric o ridimensionare le risorse d
 
 Oltre a considerare il tipo di nodo e le caratteristiche del cluster, è necessario prevedere che le operazioni di ridimensionamento imprendano più di un'ora per il completamento di un ambiente di produzione. Questa considerazione è valida indipendentemente dal numero di macchine virtuali che si stanno aggiungendo.
 
-## <a name="autoscaling"></a>Scalabilità automatica
+## <a name="autoscaling"></a>Ridimensionamento automatico
 È consigliabile eseguire operazioni di ridimensionamento tramite Azure Resource Manager modelli, perché è la procedura consigliata considerare le [configurazioni delle risorse come codice]( https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code). 
 
 Con il ridimensionamento automatico tramite i set di scalabilità di macchine virtuali, il modello di Gestione risorse con versione viene definito in modo non accurato per i set di scalabilità di macchine virtuali. Una definizione non accurata aumenta il rischio che le distribuzioni future provochino operazioni di ridimensionamento indesiderate. In generale, è consigliabile usare la scalabilità automatica se:
@@ -92,7 +92,7 @@ La scalabilità orizzontale può essere eseguita [manualmente](https://docs.micr
 
 Ridimensionare un cluster di Service Fabric aumentando il numero di istanze per un determinato set di scalabilità di macchine virtuali. È possibile scalare in orizzontale a livello `AzureClient` di codice usando e l'ID del set di scalabilità desiderato per aumentare la capacità.
 
-```c#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
@@ -134,7 +134,7 @@ Per applicare la scalabilità manuale, aggiornare la capacità nella proprietà 
 
 È necessario preparare il nodo per la scalabilità a livello di codice. Trovare il nodo da rimuovere (il nodo di istanza più elevato). Ad esempio:
 
-```c#
+```csharp
 using (var client = new FabricClient())
 {
     var mostRecentLiveNode = (await client.QueryManager.GetNodeListAsync())
@@ -151,7 +151,7 @@ using (var client = new FabricClient())
 
 Disattivare e rimuovere il nodo utilizzando la stessa `FabricClient` istanza (`client` in questo caso) e l'istanza del nodo (`instanceIdString` in questo caso) utilizzata nel codice precedente:
 
-```c#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 
 // Remove the node from the Service Fabric cluster

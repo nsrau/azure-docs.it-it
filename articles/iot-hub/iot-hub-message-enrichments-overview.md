@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: b815ba80ac0860a4248b27e4013da4a8a9d12e18
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: 8e24489ad2909879b035a08316e66788034e99bc
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321286"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377207"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Arricchimento dei messaggi per i messaggi dell'hub da dispositivo a cloud (anteprima)
 
@@ -41,6 +41,8 @@ Il valore può essere uno degli esempi seguenti:
 
    > [!NOTE]
    > Al momento, solo $iothubname, $twin. Tags, $twin. Properties. desired e $twin. Properties. Reports sono variabili supportate per l'arricchimento dei messaggi.
+
+Gli arricchimenti dei messaggi vengono aggiunti come proprietà dell'applicazione ai messaggi inviati agli endpoint scelti.  
 
 ## <a name="applying-enrichments"></a>Applicazione di arricchimenti
 

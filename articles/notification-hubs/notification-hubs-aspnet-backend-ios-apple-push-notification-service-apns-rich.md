@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: dd808a04dff77388248bf7309f5ff804e6dd065c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7fcb4a1db62abfc04d2b0c60488d35393d98c57e
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60873087"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348470"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Push avanzato degli hub di notifica di Azure
 
@@ -50,12 +50,12 @@ In generale:
     ![][IOS2]
 5. In `Notifications.cs` aggiungere l'istruzione using seguente:
 
-    ```c#
+    ```csharp
     using System.Reflection;
     ```
 6. Aggiornare l'intera classe `Notifications` con il codice seguente. Assicurarsi di sostituire i segnaposto con le credenziali dell'hub di notifica e il nome file di immagine.
 
-    ```c#
+    ```csharp
     public class Notification {
         public int Id { get; set; }
         // Initial notification message to display to users
@@ -105,7 +105,7 @@ In generale:
 
 7. In `NotificationsController.cs` ridefinire `NotificationsController con i frammenti di codice riportati di seguito. Questo codice invia un ID notifica avanzata automatica iniziale al dispositivo e consente il recupero lato client dell'immagine:
 
-    ```c#
+    ```csharp
     // Return http response with image binary
     public HttpResponseMessage Get(int id) {
         var stream = Notifications.Instance.ReadImage(id);
@@ -369,7 +369,7 @@ Dopo avere modificato il back-end del app per poter inviare solo l' *id* di una 
     }
     ```
 
-## <a name="run-the-application"></a>Eseguire l'applicazione
+## <a name="run-the-application"></a>Esecuzione dell'applicazione
 
 1. In XCode eseguire l'app su un dispositivo iOS fisico (le notifiche push non funzioneranno nel simulatore).
 2. Nell'interfaccia utente dell'app per iOS immettere un nome utente e una password con lo stesso valore per l'autenticazione e fare clic su **Log In**.

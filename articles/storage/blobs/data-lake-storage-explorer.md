@@ -1,22 +1,22 @@
 ---
-title: 'Avvio rapido: Usare Azure Storage Explorer per gestire i dati in Azure Data Lake Storage Gen2 '
+title: 'Usare Azure Storage Explorer per gestire i dati in Azure Data Lake Storage Gen2 '
 description: Questo avvio rapido descrive come usare Azure Storage Explorer per creare un file system in un account di Azure Data Lake Storage Gen2, nonché una directory e un file. Verrà successivamente illustrato come scaricare il file nel computer locale e come visualizzare tutti i file in una directory.
 services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.custom: mvc
 ms.service: storage
-ms.topic: quickstart
-ms.date: 12/05/2018
+ms.topic: article
+ms.date: 07/19/2019
 ms.author: normesta
-ms.openlocfilehash: 01743eb7ec7f6650a0fd28fd9c4f090bebd524b3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: HT
+ms.openlocfilehash: 38cc0533d3e993dd90a037ee6a504c2dcd575e6f
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939351"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360864"
 ---
-# <a name="quickstart-use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>Avvio rapido: Usare Azure Storage Explorer per gestire i dati in un account di Azure Data Lake Storage Gen2
+# <a name="use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>Usare Azure Storage Explorer per gestire i dati in un account di Azure Data Lake Storage Gen2
 
 In questa guida introduttiva si descrive come usare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per creare una directory e un BLOB. Verrà successivamente illustrato come scaricare il BLOB nel computer locale e come visualizzare tutti i BLOB in una directory. Verranno fornite informazioni anche su come creare lo snapshot di un BLOB, come gestire i criteri d'accesso alla directory e come creare una firma di accesso condiviso.
 
@@ -58,9 +58,9 @@ Sulla barra multifunzione della directory selezionare **Carica**. Questa operazi
 
 Scegliere i file o le cartelle da caricare. Selezionare il **Tipo BLOB**. Le opzioni accettabili sono BLOB **Aggiunta**, **Pagina** o **Blocchi**.
 
-Se si carica un file con estensione vhd o vhdx, scegliere **Carica i file vhd/vhdx come BLOB di pagine (scelta consigliata)**.
+Se si carica un file con estensione vhd o vhdx, scegliere **Carica i file vhd/vhdx come BLOB di pagine (scelta consigliata)** .
 
-Nel campo **Carica nella cartella (facoltativo)**, specificare un nome di cartella per l'archiviazione di file o cartelle in una cartella nella directory. Se non viene selezionata alcuna cartella, i file vengono caricati direttamente nella directory.
+Nel campo **Carica nella cartella (facoltativo)** , specificare un nome di cartella per l'archiviazione di file o cartelle in una cartella nella directory. Se non viene selezionata alcuna cartella, i file vengono caricati direttamente nella directory.
 
 ![Microsoft Azure Storage Explorer - Caricare un BLOB](media/storage-quickstart-blobs-storage-explorer/uploadblob.png)
 

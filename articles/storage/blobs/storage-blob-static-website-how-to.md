@@ -1,24 +1,24 @@
 ---
 title: Ospitare un sito Web statico in archiviazione di Azure
-description: Informazioni su come rendere disponibile contenuto statico (HTML, CSS, JavaScript e i file di immagine) direttamente da un contenitore in un account per utilizzo generico v2 archiviazione di Azure.
+description: Informazioni su come gestire contenuto statico (file HTML, CSS, JavaScript e immagini) direttamente da un contenitore in un account GPv2 di archiviazione di Azure.
 services: storage
 author: normesta
 ms.service: storage
 ms.topic: article
 ms.author: normesta
 ms.date: 05/28/2019
-ms.openlocfilehash: 5ab24a99b22fae172b5308ba7477953f27ecfd44
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e53f8dd832b7f19692b9095e913330848e5b0330
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435946"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385773"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Ospitare un sito Web statico in archiviazione di Azure
 
-È possibile rendere disponibile contenuto statico (HTML, CSS, JavaScript e i file di immagine) direttamente da un contenitore in un account per utilizzo generico v2 archiviazione di Azure. Per altre informazioni, vedere [hosting di siti Web statici in archiviazione di Azure](storage-blob-static-website.md).
+È possibile gestire il contenuto statico (file HTML, CSS, JavaScript e di immagine) direttamente da un contenitore in un account GPv2 di archiviazione di Azure. Per altre informazioni, vedere [hosting di siti web statici in archiviazione di Azure](storage-blob-static-website.md).
 
-Questo articolo illustra come consentire l'hosting del sito Web statico tramite il portale di Azure, il comando di Azure o PowerShell.
+Questo articolo illustra come abilitare l'hosting di siti web statici usando il portale di Azure, l'interfaccia della riga di comando di Azure o PowerShell.
 
 <a id="portal" />
 
@@ -26,13 +26,13 @@ Questo articolo illustra come consentire l'hosting del sito Web statico tramite 
 
 Per un'esercitazione dettagliata, vedere [esercitazione: Ospitare un sito Web statico nell'archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
 
-Dopo aver abilitato l'hosting di siti Web statici, è possibile visualizzare le pagine del sito da un browser usando l'URL del sito Web pubblico.
+Dopo aver abilitato l'hosting di siti web statici, è possibile visualizzare le pagine del sito da un browser usando l'URL pubblico del sito Web.
 
 <a id="portal-find-url" />
 
 ### <a name="find-the-website-url-by-using-the-azure-portal"></a>Trovare l'URL del sito Web usando il portale di Azure
 
-Nel riquadro visualizzato accanto alla pagina di panoramica account dell'account di archiviazione, selezionare **sito Web statico**. L'URL del sito verrà visualizzato il **endpoint primario** campo.
+Nel riquadro visualizzato accanto alla pagina Panoramica account dell'account di archiviazione selezionare **sito Web statico**. L'URL del sito viene visualizzato nel campo **endpoint primario** .
 
 ![Metrica Dati in uscita delle metriche dei siti Web statici di Archiviazione di Azure](./media/storage-blob-static-website/storage-blob-static-website-url.png)
 
@@ -40,11 +40,11 @@ Nel riquadro visualizzato accanto alla pagina di panoramica account dell'account
 
 ## <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure
 
-È possibile abilitare l'hosting di siti Web statici tramite le [interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+È possibile abilitare l'hosting di siti web statici usando l' [interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
-1. Prima di tutto, aprire il [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest), o se è già [installato](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) la CLI di Azure in locale, aprire un'applicazione console dei comandi, ad esempio Windows PowerShell.
+1. Aprire prima di tutto la [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest)o, se l'interfaccia della riga di comando di Azure è stata [installata](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) localmente, aprire un'applicazione console comando come Windows PowerShell.
 
-2. Se l'identità è associata a più di una sottoscrizione, quindi impostare attive sottoscrizione a sottoscrizione dell'account di archiviazione che ospiterà il sito Web statico.
+2. Se l'identità è associata a più di una sottoscrizione, impostare la sottoscrizione attiva sulla sottoscrizione dell'account di archiviazione che ospiterà il sito Web statico.
 
    ```azurecli-interactive
    az account set --subscription <subscription-id>
@@ -52,7 +52,7 @@ Nel riquadro visualizzato accanto alla pagina di panoramica account dell'account
 
    Sostituire il `<subscription-id>` valore del segnaposto con l'ID della sottoscrizione.
 
-3. Abilitare l'hosting di siti Web statici.
+3. Abilita l'hosting di siti web statici.
 
    ```azurecli-interactive
    az storage blob service-properties update --account-name <storage-account-name> --static-website --404-document <error-document-name> --index-document <index-document-name>
@@ -60,16 +60,16 @@ Nel riquadro visualizzato accanto alla pagina di panoramica account dell'account
 
    * Sostituire il valore segnaposto `<storage-account-name>` con il nome del proprio account di archiviazione.
 
-   * Sostituire il `<error-document-name>` segnaposto con il nome del documento di errore che verrà visualizzati agli utenti quando un browser richiede una pagina nel sito che non esiste.
+   * Sostituire il `<error-document-name>` segnaposto con il nome del documento di errore che verrà visualizzato agli utenti quando un browser richiede una pagina nel sito che non esiste.
 
-   * Sostituire il `<index-document-name>` segnaposto con il nome del documento di indice. Questo documento è in genere "index. HTML".
+   * Sostituire il `<index-document-name>` segnaposto con il nome del documento di indice. Questo documento è comunemente "index. html".
 
 4. Caricare gli oggetti nel contenitore *$web* da una directory di origine.
 
    > [!NOTE]
-   > Se si usa Azure Cloud Shell, assicurarsi di aggiungere un `\` carattere di escape quando si fa riferimento per il `$web` contenitore (ad esempio: `\$web`). Se si usa un'installazione locale della riga di comando di Azure, non sarà necessario usare il carattere di escape.
+   > Se si usa Azure cloud Shell, assicurarsi di aggiungere un `\` carattere di escape quando si fa riferimento `$web` al contenitore (ad esempio: `\$web`). Se si usa un'installazione locale dell'interfaccia della riga di comando di Azure, non sarà necessario usare il carattere di escape.
 
-   Questo esempio si presuppone che si esegue i comandi dalla sessione di Azure Cloud Shell.
+   In questo esempio si presuppone che siano in esecuzione comandi da Azure Cloud Shell sessione.
 
    ```azurecli-interactive
    az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name>
@@ -77,18 +77,18 @@ Nel riquadro visualizzato accanto alla pagina di panoramica account dell'account
 
    * Sostituire il valore segnaposto `<storage-account-name>` con il nome del proprio account di archiviazione.
 
-   * Sostituire il `<source-path>` segnaposto con il percorso dei file che si vuole caricare.
+   * Sostituire il `<source-path>` segnaposto con un percorso per il percorso dei file che si desidera caricare.
 
    > [!NOTE]
-   > Se si usa un'installazione di posizione della riga di comando di Azure, è quindi possibile usare il percorso in un punto qualsiasi nel computer locale (ad esempio: `C:\myFolder`.
+   > Se si usa un percorso di installazione dell'interfaccia della riga di comando di Azure, è possibile usare il percorso di qualsiasi percorso nel computer locale ( `C:\myFolder`ad esempio:.
    >
-   > Se si usa Azure Cloud Shell, è possibile fare riferimento a una condivisione di file che è visibile in Cloud Shell. Questo percorso potrebbe essere la condivisione di file del Cloud condivisione stessa o una condivisione file esistente che si monta da Cloud Shell. Per informazioni su come eseguire questa operazione, vedere [rendere persistenti i file in Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage).
+   > Se si usa Azure Cloud Shell, sarà necessario fare riferimento a una condivisione file visibile al Cloud Shell. Questo percorso potrebbe corrispondere alla condivisione file della condivisione cloud o a una condivisione file esistente montata dal Cloud Shell. Per informazioni su come eseguire questa operazione, vedere [salvare i file in Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage).
 
 <a id="cli-find-url" />
 
-### <a name="find-the-website-url-by-using-the-azure-cli"></a>Trovare l'URL del sito Web tramite la CLI di Azure
+### <a name="find-the-website-url-by-using-the-azure-cli"></a>Trovare l'URL del sito Web usando l'interfaccia della riga di comando di Azure
 
-È possibile visualizzare il contenuto da un browser usando l'URL del sito Web pubblico.
+È possibile visualizzare il contenuto da un browser utilizzando l'URL pubblico del sito Web.
 
 Trovare l'URL usando il comando seguente:
 
@@ -104,11 +104,11 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
 
 ## <a name="use-powershell"></a>Usare PowerShell
 
-È possibile abilitare l'hosting di siti Web statici usando il modulo Azure PowerShell.
+È possibile abilitare l'hosting di siti web statici usando il modulo Azure PowerShell.
 
 1. Aprire una finestra di comando di Windows PowerShell.
 
-2. Verificare di avere Azure PowerShell module Az 0,7 o versioni successive.
+2. Verificare di disporre di Azure PowerShell modulo AZ versione 0,7 o successiva.
 
    ```powershell
    Get-InstalledModule -Name Az -AllVersions | select Name,Version
@@ -122,7 +122,7 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
    Connect-AzAccount
    ```
 
-4. Se l'identità è associata a più di una sottoscrizione, quindi impostare attive sottoscrizione a sottoscrizione dell'account di archiviazione che ospiterà il sito Web statico.
+4. Se l'identità è associata a più di una sottoscrizione, impostare la sottoscrizione attiva sulla sottoscrizione dell'account di archiviazione che ospiterà il sito Web statico.
 
    ```powershell
    $context = Get-AzSubscription -SubscriptionId <subscription-id>
@@ -131,7 +131,7 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
 
    Sostituire il `<subscription-id>` valore del segnaposto con l'ID della sottoscrizione.
 
-5. Ottenere il contesto di account di archiviazione che definisce l'account di archiviazione da usare.
+5. Ottenere il contesto dell'account di archiviazione che definisce l'account di archiviazione che si vuole usare.
 
    ```powershell
    $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
@@ -142,15 +142,15 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
 
    * Sostituire il valore segnaposto `<storage-account-name>` con il nome del proprio account di archiviazione.
 
-6. Abilitare l'hosting di siti Web statici.
+6. Abilita l'hosting di siti web statici.
 
    ```powershell
    Enable-AzStorageStaticWebsite -Context $ctx -IndexDocument <index-document-name> -ErrorDocument404Path <error-document-name>
    ```
 
-   * Sostituire il `<error-document-name>` segnaposto con il nome del documento di errore che verrà visualizzati agli utenti quando un browser richiede una pagina nel sito che non esiste.
+   * Sostituire il `<error-document-name>` segnaposto con il nome del documento di errore che verrà visualizzato agli utenti quando un browser richiede una pagina nel sito che non esiste.
 
-   * Sostituire il `<index-document-name>` segnaposto con il nome del documento di indice. Questo documento è in genere "index. HTML".
+   * Sostituire il `<index-document-name>` segnaposto con il nome del documento di indice. Questo documento è comunemente "index. html".
 
 7. Caricare gli oggetti nel contenitore *$web* da una directory di origine.
 
@@ -162,15 +162,15 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
     -Context $ctx
      ```
 
-   * Sostituire il `<path-to-file>` valore del segnaposto con il percorso completo del file che si vuole caricare (ad esempio: `C:\temp\index.html`).
+   * Sostituire il `<path-to-file>` valore del segnaposto con il percorso completo del file che si desidera caricare, ad esempio:. `C:\temp\index.html`
 
-   * Sostituire il `<blob-name>` valore del segnaposto con il nome che si desidera assegnare al blob risulta (ad esempio: `index.html`).
+   * Sostituire il `<blob-name>` valore del segnaposto con il nome che si desidera assegnare al BLOB risultante, ad esempio `index.html`:.
 
 <a id="powershell-find-url" />
 
-### <a name="find-the-website-url-by-using-powershell"></a>Trovare l'URL del sito Web con PowerShell
+### <a name="find-the-website-url-by-using-powershell"></a>Trovare l'URL del sito Web usando PowerShell
 
-È possibile visualizzare il contenuto da un browser usando l'URL del sito Web pubblico.
+È possibile visualizzare il contenuto da un browser utilizzando l'URL pubblico del sito Web.
 
 Trovare l'URL usando il comando seguente:
 
@@ -185,19 +185,19 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 
 <a id="metrics" />
 
-## <a name="enable-metrics-on-static-website-pages"></a>Abilitare le metriche sulle pagine di sito Web statico
+## <a name="enable-metrics-on-static-website-pages"></a>Abilitare le metriche nelle pagine del sito Web statico
 
-Dopo aver abilitato le metriche, il traffico delle statistiche sui file nei **$web** contenitore vengono segnalate nel dashboard di metriche.
+Dopo aver abilitato le metriche, le statistiche sul traffico sui file nel contenitore **$Web** vengono segnalate nel dashboard delle metriche.
 
-1. Fare clic su **le impostazioni** > **monitoraggio** > **metriche**.
+1. Fare clic su **Impostazioni** > **metriche**di**monitoraggio** > .
 
-   I dati delle metriche vengono generati mediante l'associazione a diverse API di metrica. Il portale visualizza solo i membri delle API usati in un determinato intervallo di tempo per concentrarsi solo sui membri che restituiscono dati. Per assicurare che sia possibile selezionare il membro API necessario, il primo passaggio è necessario espandere l'intervallo di tempo.
+   I dati delle metriche vengono generati mediante l'associazione a diverse API di metrica. Il portale visualizza solo i membri delle API usati in un determinato intervallo di tempo per concentrarsi solo sui membri che restituiscono dati. Per essere certi di poter selezionare il membro API necessario, il primo passaggio consiste nell'espandere l'intervallo di tempo.
 
-2. Fare clic sul pulsante di intervallo di tempo e selezionare **ultime 24 ore** e quindi fare clic su **applica**.
+2. Fare clic sul pulsante relativa all'intervallo di tempo e selezionare le **ultime 24 ore** e quindi fare clic su **applica**.
 
    ![Intervallo di tempo delle metriche dei siti Web statici di Archiviazione di Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
 
-3. Selezionare **Blob** dalle *Namespace* elenco a discesa.
+3. Selezionare **BLOB** dall'elenco a discesa *spazio dei nomi* .
 
    ![Spazio dei nomi delle metriche dei siti Web statici di Archiviazione di Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-namespace.png)
 
@@ -209,11 +209,11 @@ Dopo aver abilitato le metriche, il traffico delle statistiche sui file nei **$w
 
    ![Aggregazione delle metriche dei siti Web statici di Archiviazione di Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-aggregation.png)
 
-6. Fare clic sui **Aggiungi filtro** pulsante e scegliere **nome API** dal *proprietà* selettore.
+6. Fare clic sul pulsante **Aggiungi filtro** e scegliere **nome API** dal selettore della *proprietà* .
 
    ![Nome API delle metriche dei siti Web statici di Archiviazione di Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-api-name.png)
 
-7. Controlla la casella accanto a **GetWebContent** nel *valori* selettore per popolare il report sulle metriche.
+7. Selezionare la casella accanto a **GetWebContent** nel selettore *valori* per popolare il rapporto delle metriche.
 
    ![GetWebContent delle metriche dei siti Web statici di Archiviazione di Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-getwebcontent.png)
 

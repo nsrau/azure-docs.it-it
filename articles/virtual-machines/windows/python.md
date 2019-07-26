@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
-ms.openlocfilehash: 21b423aa900d4d47c1ae1239b6197280be8cada2
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: a132cf28b0ccd30b3f7e854e46763ce99372ddfe
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719897"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68361157"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Creare e gestire macchine virtuali Windows in Azure usando Python
 
@@ -103,7 +103,7 @@ Prima di iniziare questo passaggio, verificare di disporre di un'[entità serviz
     credentials = get_credentials()
     ```
 
-## <a name="create-resources"></a>Creare le risorse
+## <a name="create-resources"></a>Crea risorse
  
 ### <a name="initialize-management-clients"></a>Inizializzare i client di gestione
 
@@ -111,15 +111,15 @@ I client di gestione sono necessari per creare e gestire le risorse tramite Pyth
 
 ```python
 resource_group_client = ResourceManagementClient(
-    credentials, 
+    credentials,
     SUBSCRIPTION_ID
 )
 network_client = NetworkManagementClient(
-    credentials, 
+    credentials,
     SUBSCRIPTION_ID
 )
 compute_client = ComputeManagementClient(
-    credentials, 
+    credentials,
     SUBSCRIPTION_ID
 )
 ```

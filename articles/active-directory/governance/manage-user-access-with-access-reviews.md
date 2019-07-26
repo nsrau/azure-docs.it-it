@@ -1,10 +1,10 @@
 ---
-title: Gestire l'accesso utente con le verifiche di accesso - Azure Active Directory | Microsoft Docs
+title: Gestire l'accesso utente con le verifiche di accesso-Azure Active Directory | Microsoft Docs
 description: Informazioni su come gestire l'accesso degli utenti come appartenenza a un gruppo o assegnazione a un'applicazione con le verifiche di accesso di Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 06/21/2018
-ms.author: rolyon
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d873f1dace3e3be6a8767e77d57db5ac554afd7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 70b6d925772548e6703b57c265ebacf6b7f3f4c9
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473814"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499646"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Gestire l'accesso utente con le verifiche di accesso di Azure AD
 
@@ -34,7 +34,7 @@ Con Azure Active Directory (Azure AD), è possibile verificare facilmente che gl
 
 - Azure AD P2 Premium
 
-Per altre informazioni, vedere [quali gli utenti devono avere le licenze?](access-reviews-overview.md#which-users-must-have-licenses).
+Per altre informazioni, vedere [quali utenti devono avere licenze?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## <a name="create-and-perform-an-access-review"></a>Creare ed eseguire una verifica di accesso
 
@@ -44,15 +44,15 @@ A una verifica di accesso possono partecipare uno o più revisori.
 
 2. Decidere se ogni utente dovrà verificare il proprio accesso o se uno o più utenti dovranno verificare l'accesso di tutti.
 
-3. Come amministratore globale o amministratore dell'utente, vedere la [pagina di governance delle identità](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+3. In qualità di amministratore globale o Amministratore utenti, passare alla [pagina governance delle identità](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-4. Creare la verifica di accesso. Per altre informazioni, vedere [creare una verifica di accesso di gruppi o applicazioni](create-access-review.md).
+4. Creare la verifica di accesso. Per altre informazioni, vedere [creare una verifica di accesso dei gruppi o delle applicazioni](create-access-review.md).
 
-5. Quando la verifica di accesso viene avviata, chiedere ai revisori di esprimere il proprio giudizio. Per impostazione predefinita, ogni ricevono un messaggio di posta elettronica da Azure AD con un collegamento al pannello di accesso, in cui essi [verificare l'accesso a gruppi o applicazioni](perform-access-review.md).
+5. Quando la verifica di accesso viene avviata, chiedere ai revisori di esprimere il proprio giudizio. Per impostazione predefinita, ricevono un messaggio di posta elettronica da Azure AD con un collegamento al pannello di accesso, in cui [esaminano l'accesso a gruppi o applicazioni](perform-access-review.md).
 
 6. Se i revisori non hanno espresso il proprio giudizio, è possibile chiedere ad Azure AD di inviare loro un promemoria. Per impostazione predefinita, Azure AD invia automaticamente un promemoria ai revisori che non hanno ancora risposto a metà periodo rispetto alla data di scadenza.
 
-7. Dopo che i revisori avranno espresso il proprio giudizio, interrompere la verifica di accesso e applicare le modifiche. Per altre informazioni, vedere [completare una verifica di accesso dei gruppi o applicazioni](complete-access-review.md).
+7. Dopo che i revisori avranno espresso il proprio giudizio, interrompere la verifica di accesso e applicare le modifiche. Per altre informazioni, vedere [completare una verifica dell'accesso dei gruppi o delle applicazioni](complete-access-review.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

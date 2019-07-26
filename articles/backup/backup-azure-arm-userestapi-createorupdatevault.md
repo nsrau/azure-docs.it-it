@@ -1,7 +1,6 @@
 ---
 title: "Backup di Azure: creare insiemi di credenziali di Servizi di ripristino con l'API REST"
 description: Gestire le operazioni di backup e ripristino delle macchine virtuali di Backup di Azure con l'API REST
-services: backup
 author: pvrk
 manager: shivamg
 keywords: API REST, backup di macchine virtuali di Azure, ripristino di macchine virtuali di Azure;
@@ -10,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: 4f18b10ee3f4148badc8e53a9660c9f5c998aef7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0373098dd344df79be79871227f20c8a995958fa
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60646708"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466934"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Creare l'insieme di credenziali di Servizi di ripristino di Azure con l'API REST
 
@@ -44,10 +43,10 @@ Per altre informazioni su come creare la richiesta, vedere [Componenti di una ri
 
 Per compilare un corpo della richiesta vengono usate le definizioni comuni seguenti:
 
-|Name  |Obbligatorio  |Type  |Descrizione  |
+|NOME  |Obbligatoria  |Type  |Descrizione  |
 |---------|---------|---------|---------|
 |eTag     |         |   String      |  eTag facoltativo       |
-|location     |  true       |String         |   Percorso risorsa      |
+|location     |  true       |String         |   Posizione risorsa      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Proprietà dell'insieme di credenziali       |
 |sku     |         |  [Sku](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Indica l'identificatore di sistema univoco per ogni risorsa di Azure     |
 |tags     |         | Object        |     Tag delle risorse    |
@@ -72,10 +71,10 @@ Il corpo di esempio riportato di seguito viene usato per creare un insieme di cr
 
 Esistono due risposte che indicano l'esito positivo dell'operazione di creazione o aggiornamento di un insieme di credenziali di Servizi di ripristino:
 
-|NOME  |Type  |Descrizione  |
+|Name  |Type  |DESCRIZIONE  |
 |---------|---------|---------|
 |200 - OK     |   [Insieme di credenziali](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)      | OK        |
-|201 Creato     | [Insieme di credenziali](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Data di creazione      |
+|201 Creato     | [Insieme di credenziali](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Data creazione      |
 
 Per altre informazioni sulle risposte dell'API REST, vedere [Process the response message](/rest/api/azure/#process-the-response-message) (Elaborare il messaggio di risposta).
 

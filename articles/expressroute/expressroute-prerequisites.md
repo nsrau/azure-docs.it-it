@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/20/2019
-ms.author: mialdrid
+ms.date: 07/23/2019
+ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: afe8d3971a51d57498e3e32b7e1cf5bf5a3263d6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f16f797afca6d60029c1f39fea7235ce84e4f954
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60883269"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442221"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Prerequisiti di ExpressRoute ed elenco di controllo
 Per connettersi ai servizi di Microsoft Cloud usando ExpressRoute sarà necessario verificare che siano stati soddisfatti i requisiti elencati nelle sezioni seguenti.
@@ -30,8 +30,8 @@ Per connettersi ai servizi di Microsoft Cloud usando ExpressRoute sarà necessar
 * Se il provider non è un partner per la connettività ExpressRoute, è comunque possibile connettersi a Microsoft Cloud tramite un [provider Cloud Exchange](expressroute-locations.md#connectivity-through-exchange-providers).
 
 ## <a name="network-requirements"></a>Requisiti di rete
-* **Presso ogni località di peering ridondanza**: Microsoft richiede sessioni BGP ridondanti essere configurata tra i router perimetrali Microsoft e i router di peering in ogni circuito ExpressRoute (anche quando sono state eseguite [una connessione fisica a una struttura cloud exchange](expressroute-faqs.md#onep2plink)).
-* **La ridondanza per il ripristino di emergenza**: Microsoft consiglia di che configurare almeno due circuiti ExpressRoute in posizioni di peering diverse per evitare un singolo punto di guasto.
+* **Ridondanza in ogni località di peering**: Microsoft richiede sessioni BGP ridondanti da configurare tra i router Microsoft e i router di peering in ogni circuito ExpressRoute (anche quando si dispone [di una sola connessione fisica a uno scambio cloud](expressroute-faqs.md#onep2plink)).
+* **Ridondanza per il ripristino di emergenza**: Microsoft consiglia di impostare almeno due circuiti ExpressRoute in posizioni di peering diverse per evitare un singolo punto di errore.
 * **Routing**: a seconda di come ci si connette a Microsoft Cloud, è necessario configurare e gestire le sessioni BGP per i [domini di routing](expressroute-circuit-peerings.md) o chiedere al provider di farlo. Alcuni provider di connettività Ethernet o provider Cloud Exchange possono offrire la gestione BGP come servizio a valore aggiunto.
 * **NAT**: Microsoft accetta solo indirizzi IP pubblici tramite peer Microsoft. Se si usano indirizzi IP privati nella rete locale, è necessario convertirli in indirizzi IP pubblici (o chiedere al provider di farlo) [con il processo NAT](expressroute-nat.md).
 * **QoS**: Skype for Business include diversi servizi, ad esempio voce, video o testo, che richiedono una gestione QoS differenziata. È necessario seguire i [requisiti QoS](expressroute-qos.md).
@@ -50,10 +50,7 @@ Se si prevede di abilitare Office 365 in ExpressRoute, esaminare i documenti seg
 * [Video di training avanzato su ExpressRoute in Office 365](https://channel9.msdn.com/series/aer/)
 
 ## <a name="dynamics-365"></a>Dynamics 365
-Se si prevede di abilitare Dynamics 365 in ExpressRoute, esaminare i documenti seguenti per altre informazioni su Dynamics 365
-
-* [White paper su Dynamics 365 ed ExpressRoute](https://download.microsoft.com/download/B/2/8/B2896B38-9832-417B-9836-9EF240C0A212/Microsoft%20Dynamics%20365%20and%20ExpressRoute.pdf)
-* [URL](https://support.microsoft.com/kb/2655102) e [intervalli di indirizzi IP per Dynamics 365](https://support.microsoft.com/kb/2728473)
+Se si prevede di abilitare Dynamics 365 in ExpressRoute, esaminare gli URL e gli [intervalli di indirizzi IP](https://support.microsoft.com/kb/2728473)di [Dynamics 365](https://support.microsoft.com/kb/2655102) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).

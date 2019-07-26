@@ -1,19 +1,18 @@
 ---
 title: Eseguire il backup di carichi di lavoro di SQL Server in Azure Stack
 description: Usare il server di Backup di Azure per proteggere il carico di lavoro di SQL Server in Azure Stack.
-services: backup
 author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: adigan
-ms.openlocfilehash: fb064c39fa014515fb2a3f4ccc96ce216f2f7b2e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 11d03a9c5cc81b915f48bc66f5a0e5ab034662ed
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60254214"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465150"
 ---
 # <a name="back-up-sql-server-on-stack"></a>Eseguire il backup di SQL Server in Stack
 Usare questo articolo per configurare il server di Backup di Microsoft Azure (MABS) per proteggere i database di SQL Server in Azure Stack.
@@ -33,7 +32,7 @@ La gestione delle operazioni di backup del database SQL server in Azure e di rip
 
 2. Nella barra degli strumenti, fare clic su **Nuovo** per creare un nuovo gruppo di protezione.
 
-    ![Creazione di un gruppo di protezione](./media/backup-azure-backup-sql/protection-group.png)
+    ![Creare un gruppo di protezione](./media/backup-azure-backup-sql/protection-group.png)
 
     Il server di Backup di Azure avvia la procedura guidata Crea nuovo gruppo protezione dati, che guida l'utente nei passaggi necessari per creare un **gruppo protezione dati**. Fare clic su **Avanti**.
 

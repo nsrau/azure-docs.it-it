@@ -9,24 +9,24 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 27cdada0bfbb4236e16d17c263aaba0f4f5c511f
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 3893e496b41b0f3df8dc5a580daf298888578d6e
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620106"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404172"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Caricare file da un dispositivo al cloud con l'hub IoT
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-Questa esercitazione si basa sul codice nel [inviare messaggi da cloud a dispositivo con l'IoT Hub](iot-hub-java-java-c2d.md) esercitazione descrive come usare i [file di funzionalità di caricamento dell'IoT Hub](iot-hub-devguide-file-upload.md) per caricare un file a [blob di Azure archiviazione](../storage/index.yml). L'esercitazione illustra come:
+Questa esercitazione si basa sul codice nell'esercitazione [inviare messaggi da cloud a dispositivo con l'hub](iot-hub-java-java-c2d.md) Internet per mostrare come usare le [funzionalità di caricamento dei file dell'hub](iot-hub-devguide-file-upload.md) Internet per caricare un file nell' [Archivio BLOB di Azure](../storage/index.yml). L'esercitazione illustra come:
 
 * Specificare in modo sicuro un dispositivo con un URI del BLOB di Azure per il caricamento di un file.
 
 * Usare le notifiche di caricamento di file dell'hub IoT per attivare l'elaborazione del file nel back-end dell'app.
 
-Il [inviare i dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-java.md) Guida introduttiva e [inviare messaggi da cloud a dispositivo con l'IoT Hub](iot-hub-java-java-c2d.md) esercitazione viene illustrato il base funzionalità di messaggistica da dispositivo a cloud e da cloud a dispositivo Internet delle cose Hub. L'esercitazione [Configurare il routing dei messaggi con l'IoT Hub](tutorial-routing.md) illustra come archiviare in modo affidabile i messaggi da dispositivo a cloud nell'archivio BLOB di Azure. Tuttavia in alcuni scenari non è possibile mappare facilmente i dati che i dispositivi inviano in messaggi relativamente ridotti da dispositivo a cloud, che l'hub IoT accetta. Ad esempio:
+L'esercitazione inviare i dati di telemetria [da un dispositivo a un hub](quickstart-send-telemetry-java.md) Internet e [inviare messaggi da cloud a dispositivo con l'hub](iot-hub-java-java-c2d.md) Internet illustra le funzionalità di messaggistica di base da dispositivo a cloud e da cloud a dispositivo dell'hub Internet. L'esercitazione [Configurare il routing dei messaggi con l'IoT Hub](tutorial-routing.md) illustra come archiviare in modo affidabile i messaggi da dispositivo a cloud nell'archivio BLOB di Azure. Tuttavia in alcuni scenari non è possibile mappare facilmente i dati che i dispositivi inviano in messaggi relativamente ridotti da dispositivo a cloud, che l'hub IoT accetta. Ad esempio:
 
 * File di grandi dimensioni che contengono immagini
 * Video
@@ -37,7 +37,7 @@ Questi dati in genere vengono elaborati in batch nel cloud con strumenti come [A
 
 Al termine di questa esercitazione verranno eseguite due app console Java:
 
-* **Simulated-device**, una versione modificata dell'app creata nell'esercitazione [inviare messaggi da cloud a dispositivo con l'IoT Hub]. Ciò consente di caricare un file nell'archivio tramite un URI con firma di accesso condiviso fornito dall'hub IoT.
+* **Simulated-Device**, una versione modificata dell'app creata nell'esercitazione [inviare messaggi da cloud a dispositivo con l'hub cose]. Ciò consente di caricare un file nell'archivio tramite un URI con firma di accesso condiviso fornito dall'hub IoT.
 
 * **read-file-upload-notification**, che riceve le notifiche di caricamento file dall'hub IoT.
 
@@ -56,7 +56,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 ## <a name="upload-a-file-from-a-device-app"></a>Caricare un file da un'app per dispositivi
 
-In questa sezione, si modifica l'app per dispositivi creata in [inviare messaggi da cloud a dispositivo con l'IoT Hub](iot-hub-java-java-c2d.md) per caricare un file nell'hub IoT.
+In questa sezione si modifica l'app per dispositivi creata in [inviare messaggi da cloud a dispositivo con l'hub](iot-hub-java-java-c2d.md) Internet per caricare un file nell'hub Internet.
 
 1. Copiare un file di immagine nella cartella `simulated-device` e rinominarlo `myimage.png`.
 
@@ -120,11 +120,15 @@ In questa sezione, si modifica l'app per dispositivi creata in [inviare messaggi
     mvn clean package -DskipTests
     ```
 
+## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub Internet
+
+In questo articolo viene creato un servizio back-end per ricevere i messaggi di notifica di caricamento file dall'hub di Internet delle cose creato in inviare dati di telemetria [da un dispositivo a un hub](quickstart-send-telemetry-java.md)Internet. Per ricevere i messaggi di notifica di caricamento file, il servizio richiede l'autorizzazione **Connect del servizio** . Per impostazione predefinita, ogni hub tutto viene creato con un criterio di accesso condiviso denominato **Service** che concede l'autorizzazione.
+
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+
 ## <a name="receive-a-file-upload-notification"></a>Ricevere la notifica di caricamento di un file
 
 In questa sezione viene creata un'app console Java che riceve messaggi di notifica di caricamento file dall'hub IoT.
-
-Per completare questa sezione è necessaria la stringa di connessione **iothubowner**. È possibile trovare la stringa di connessione nel [portale di Azure](https://portal.azure.com/) nel pannello **Criteri di accesso condiviso**.
 
 1. Creare un progetto Maven denominato **read-file-upload-notification** usando questo comando al prompt dei comandi. Si noti che si tratta di un lungo comando singolo:
 
@@ -161,7 +165,7 @@ Per completare questa sezione è necessaria la stringa di connessione **iothubow
     import java.util.concurrent.Executors;
     ```
 
-7. Aggiungere le variabili a livello di classe seguenti alla classe **App** :
+7. Aggiungere le variabili a livello di classe seguenti alla classe **App** . Sostituire il `{Your IoT Hub connection string}` valore del segnaposto con la stringa di connessione dell'hub Internet che è stata copiata in precedenza in [ottenere la stringa di connessione dell'hub Internet](#get-the-iot-hub-connection-string):
 
     ```java
     private static final String connectionString = "{Your IoT Hub connection string}";

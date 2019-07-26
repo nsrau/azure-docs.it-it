@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11532fbae4565ec1fc3625abe60b98d2ccd26fec
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: 01a9cc4ec4788422337b77b285ed8ee440f6acd4
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68319753"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68346897"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Distribuire la protezione delle password di Azure AD
 
@@ -135,11 +135,11 @@ Per la protezione Azure AD password sono disponibili due programmi di installazi
         ```
 
         > [!NOTE]
-        > Questa modalità ha esito negativo se è richiesta l'autenticazione a più fattori di Azure. In tal caso, utilizzare una delle due modalità di autenticazione precedenti oppure utilizzare una delle soluzioni alternative riportate di seguito. È consigliabile ignorare i requisiti dell'autenticazione a più fattori solo a scopo di test.
+        > Questa modalità ha esito negativo se per l'account è richiesta l'autenticazione a più fattori di Azure. In tal caso, usare una delle due modalità di autenticazione precedenti o usare invece un account diverso che non richiede l'autenticazione a più fattori.
         >
-        > Se l'account Azure è configurato in modo specifico per richiedere l'autenticazione a più fattori, è possibile usare un account diverso che non richiede l'autenticazione a più fattori.
+        > È anche possibile vedere l'autenticazione a più fattori necessaria se la registrazione del dispositivo di Azure, che viene usata dietro le quinte da Azure AD la protezione delle password, è stata configurata in modo da richiedere a livello globale Per risolvere questo problema, è possibile usare un account diverso che supporta l'autenticazione a più fattori con una delle due modalità di autenticazione precedenti oppure è possibile anche disattivare temporaneamente il requisito di autenticazione a più fattori per la registrazione dei dispositivi di Azure. A tale scopo, passare al portale di gestione di Azure, passare a Azure Active Directory, quindi dispositivi, impostazioni dispositivo, quindi impostare "Richiedi autenticazione a più fattori per aggiungere dispositivi" a No. Assicurarsi di riconfigurare nuovamente questa impostazione su Sì al termine della registrazione.
         >
-        > È anche possibile vedere l'autenticazione a più fattori necessaria se la registrazione del dispositivo di Azure, che viene usata dietro le quinte da Azure AD la protezione delle password, è stata configurata in modo da richiedere a livello globale Per aggirare questo problema, è possibile usare un account diverso che non richiede l'autenticazione a più fattori oppure è possibile disattivare temporaneamente il requisito di autenticazione a più fattori per la registrazione dei dispositivi di Azure. A tale scopo, passare al portale di gestione di Azure, passare a Azure Active Directory, quindi dispositivi, impostazioni dispositivo, quindi impostare "Richiedi autenticazione a più fattori per aggiungere dispositivi" a No.  Assicurarsi di riconfigurare nuovamente questa impostazione su Sì al termine della registrazione.
+        > È consigliabile ignorare i requisiti dell'autenticazione a più fattori solo a scopo di test.
 
        Attualmente non è necessario specificare il parametro *-ForestCredential* , riservato per le funzionalità future.
 
@@ -179,11 +179,11 @@ Per la protezione Azure AD password sono disponibili due programmi di installazi
         ```
 
         > [!NOTE]
-        > Questa modalità ha esito negativo se è richiesta l'autenticazione a più fattori di Azure. In tal caso, utilizzare una delle due modalità di autenticazione precedenti oppure utilizzare una delle soluzioni alternative riportate di seguito. È consigliabile ignorare i requisiti dell'autenticazione a più fattori solo a scopo di test.
+        > Questa modalità ha esito negativo se per l'account è richiesta l'autenticazione a più fattori di Azure. In tal caso, usare una delle due modalità di autenticazione precedenti o usare invece un account diverso che non richiede l'autenticazione a più fattori.
         >
-        > Se l'account Azure è configurato in modo specifico per richiedere l'autenticazione a più fattori, è possibile usare un account diverso che non richiede l'autenticazione a più fattori.
+        > È anche possibile vedere l'autenticazione a più fattori necessaria se la registrazione del dispositivo di Azure, che viene usata dietro le quinte da Azure AD la protezione delle password, è stata configurata in modo da richiedere a livello globale Per risolvere questo problema, è possibile usare un account diverso che supporta l'autenticazione a più fattori con una delle due modalità di autenticazione precedenti oppure è possibile anche disattivare temporaneamente il requisito di autenticazione a più fattori per la registrazione dei dispositivi di Azure. A tale scopo, passare al portale di gestione di Azure, passare a Azure Active Directory, quindi dispositivi, impostazioni dispositivo, quindi impostare "Richiedi autenticazione a più fattori per aggiungere dispositivi" a No. Assicurarsi di riconfigurare nuovamente questa impostazione su Sì al termine della registrazione.
         >
-        > È anche possibile vedere l'autenticazione a più fattori necessaria se la registrazione del dispositivo di Azure, che viene usata dietro le quinte da Azure AD la protezione delle password, è stata configurata in modo da richiedere a livello globale Per aggirare questo problema, è possibile usare un account diverso che non richiede l'autenticazione a più fattori oppure è possibile disattivare temporaneamente il requisito di autenticazione a più fattori per la registrazione dei dispositivi di Azure. A tale scopo, passare al portale di gestione di Azure, passare a Azure Active Directory, quindi dispositivi, impostazioni dispositivo, quindi impostare "Richiedi autenticazione a più fattori per aggiungere dispositivi" a No.  Assicurarsi di riconfigurare nuovamente questa impostazione su Sì al termine della registrazione.
+        > È consigliabile ignorare i requisiti dell'autenticazione a più fattori solo a scopo di test.
 
        Questi esempi hanno esito positivo solo se l'utente attualmente connesso è anche un amministratore di dominio Active Directory per il dominio radice. In caso contrario, è possibile specificare credenziali di dominio alternative tramite il parametro *-ForestCredential* .
 

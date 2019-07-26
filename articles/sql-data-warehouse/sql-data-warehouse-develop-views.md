@@ -2,7 +2,7 @@
 title: Uso di viste T-SQL in Azure SQL Data Warehouse | Documentazione Microsoft
 description: Suggerimenti per l'uso di viste T-SQL in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: e8d516cfd764f947bd2fe7fc25f6394c313c0d9a
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 8a770e66120e69271744942899186ece39b2a3c3
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595508"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479516"
 ---
 # <a name="views-in-azure-sql-data-warehouse"></a>Viste in Azure SQL Data Warehouse
 Suggerimenti per l'uso di viste T-SQL in Azure SQL Data Warehouse per lo sviluppo di soluzioni. 
@@ -25,7 +25,7 @@ Le viste risultano utili in molti modi diversi per migliorare la qualità della 
 
 
 > [!IMPORTANT]
-> Vedere la nuova sintassi vista materializzata [CREATE MATERIALIZZATE visualizzazione AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).  Per altre informazioni, vedere la [note sulla versione](/azure/sql-data-warehouse/release-notes-10-0-10106-0).
+> Per la nuova sintassi della vista materializzata [, vedere creare una vista materializzata come SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).  Per ulteriori informazioni, vedere le [Note sulla versione](/azure/sql-data-warehouse/release-notes-10-0-10106-0).
 >
 
 

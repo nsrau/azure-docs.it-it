@@ -1,6 +1,6 @@
 ---
-title: Note sulla versione di Azure Media Services Video Indexer | Microsoft Docs
-description: Per rimanere aggiornati con gli sviluppi più recenti, in questo articolo offre gli aggiornamenti più recenti su indicizzatore Video di servizi multimediali di Azure.
+title: Note sulla versione di servizi multimediali di Azure Video Indexer | Microsoft Docs
+description: Per rimanere sempre aggiornati sugli sviluppi più recenti, questo articolo fornisce gli aggiornamenti più recenti su servizi multimediali di Azure Video Indexer.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -10,16 +10,16 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 06/25/2019
+ms.date: 07/22/2019
 ms.author: juliako
-ms.openlocfilehash: f1c5f43316292f17547b84d970a0f03a1a2c366f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fd67e867b5eac58838551ac29e1fca5e860b15ff
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67454022"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414222"
 ---
-# <a name="azure-media-services-video-indexer-release-notes"></a>Note sulla versione di Azure Media Services Video Indexer
+# <a name="azure-media-services-video-indexer-release-notes"></a>Note sulla versione di servizi multimediali di Azure Video Indexer
 
 Per stare al passo con gli sviluppi più recenti, questo articolo fornisce informazioni sugli argomenti seguenti:
 
@@ -30,37 +30,37 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 
 ## <a name="june-2019"></a>Giugno 2019
 
-### <a name="video-indexer-deployed-to-japan-east"></a>Video Indexer distribuita in Giappone orientale
+### <a name="video-indexer-deployed-to-japan-east"></a>Video Indexer distribuito in Giappone orientale
 
-È ora possibile creare un indicizzatore Video a pagamento di account nell'area Giappone orientale.
+È ora possibile creare un account a pagamento Video Indexer nell'area Giappone orientale.
 
-### <a name="create-and-repair-account-api-preview"></a>Creare e ripristinare l'account API (anteprima)
+### <a name="create-and-repair-account-api-preview"></a>Creare e ripristinare l'API dell'account (anteprima)
 
-Aggiunta una nuova API che ti permette [aggiornare l'endpoint di connessione di servizi multimediali di Azure o una chiave](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Paid-Account-Azure-Media-Services?&groupBy=tag).
+È stata aggiunta una nuova API che consente di [aggiornare la chiave o l'endpoint di connessione del servizio multimediale di Azure](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Paid-Account-Azure-Media-Services?&groupBy=tag).
 
-### <a name="improve-error-handling-on-upload"></a>Migliorare la gestione degli errori sul caricamento 
+### <a name="improve-error-handling-on-upload"></a>Migliorare la gestione degli errori al caricamento 
 
-Viene restituito un messaggio descrittivo in caso di errore di configurazione dell'account servizi multimediali di Azure sottostante.
+Viene restituito un messaggio descrittivo in caso di errata configurazione dell'account di servizi multimediali di Azure sottostante.
 
-### <a name="player-timeline-keyframes-preview"></a>Anteprima di Windows Media Player della sequenza temporale fotogrammi chiave 
+### <a name="player-timeline-keyframes-preview"></a>Anteprima fotogrammi chiave della sequenza temporale del lettore 
 
-È ora possibile visualizzare un'anteprima dell'immagine per ogni periodo di tempo nella sequenza temporale del lettore.
+È ora possibile visualizzare un'anteprima dell'immagine per ogni volta nella sequenza temporale del lettore.
 
-### <a name="editor-semi-select"></a>Editor semi-selezione
+### <a name="editor-semi-select"></a>Selezione semi-editor
 
-È ora possibile visualizzare un'anteprima di tutte le informazioni dettagliate che sono selezionati come risultato la scelta di un intervallo di tempo di approfondimento specifico nell'editor.
+È ora possibile visualizzare un'anteprima di tutte le informazioni selezionate in seguito alla scelta di un intervallo di tempo specifico nell'editor.
 
 ## <a name="may-2019"></a>Maggio 2019
 
-### <a name="update-custom-language-model-from-closed-caption-file"></a>Aggiornare il modello di lingua personalizzato dal file di sottotitoli
+### <a name="update-custom-language-model-from-closed-caption-file"></a>Aggiornare il modello di lingua personalizzato da un file di sottotitoli chiuso
 
-[Crea modello di lingua personalizzato](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Language-Model?&groupBy=tag) e [aggiornare modelli di lingua personalizzati](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Language-Model?&groupBy=tag) API ora supportano VTT, SRT, e formati di file TTML come input per i modelli di linguaggio.
+[Creare un modello di linguaggio personalizzato](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Language-Model?&groupBy=tag) e aggiornare le API dei [modelli di linguaggio personalizzati](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Language-Model?&groupBy=tag) ora supportano i formati di file VTT, SRT e TTML come input per i modelli di linguaggio.
 
-Quando si chiama il [trascrizione Video aggiornamento API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Transcript?&pattern=transcript), la trascrizione viene aggiunto automaticamente. Il training del modello associato con il video viene aggiornato automaticamente. Per informazioni su come personalizzare ed eseguire il training di modelli di lingua, vedere [personalizzare un modello di lingua con l'indicizzatore Video](customize-language-model-overview.md).
+Quando si chiama l' [API della trascrizione video di aggiornamento](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Transcript?&pattern=transcript), la trascrizione viene aggiunta automaticamente. Anche il modello di training associato al video viene aggiornato automaticamente. Per informazioni su come personalizzare ed eseguire il training dei modelli di linguaggio, vedere [personalizzare un modello di linguaggio con video Indexer](customize-language-model-overview.md).
 
-### <a name="new-download-transcript-formats--txt-and-csv"></a>Nuovi formati di trascrizione di download: CSV e TXT
+### <a name="new-download-transcript-formats--txt-and-csv"></a>Nuovi formati di trascrizione per il download-TXT e CSV
 
-Oltre al chiusi i sottotitoli codificato formato già supportato (SRT, VTT e TTML), Video Indexer supporta ora il download la trascrizione nei formati CSV e TXT.
+Oltre al formato di didascalia chiuso già supportato (SRT, VTT e TTML), Video Indexer ora supporta il download della trascrizione nei formati TXT e CSV.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

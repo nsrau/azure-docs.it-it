@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: mlearned
-ms.openlocfilehash: 554eba87efc56e2dadb3fb2d0cb78cd8b7ea7237
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 7aff0fe47d1586b63157d5df7882fc338637f714
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302732"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381973"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative al servizio Azure Kubernetes
 
@@ -140,6 +140,50 @@ Il `az aks update-credentials` comando può essere usato per spostare un cluster
 ## <a name="can-i-movemigrate-my-cluster-between-subscriptions"></a>È possibile spostare/migrare il cluster tra le sottoscrizioni?
 
 Lo spostamento di cluster tra sottoscrizioni non è al momento supportato.
+
+## <a name="can-i-move-my-aks-clusters-from-the-current-azure-subscription-to-another"></a>È possibile spostare i cluster AKS dalla sottoscrizione di Azure corrente a un'altra? 
+
+Lo stato di trasferimento del cluster AKS e delle risorse associate tra le sottoscrizioni di Azure non è supportato.
+
+## <a name="why-is-my-cluster-delete-taking-so-long"></a>Perché l'eliminazione del cluster richiede molto tempo? 
+
+La maggior parte dei cluster viene eliminata in seguito alla richiesta dell'utente. in alcuni casi, in particolare quando i clienti portano il proprio gruppo di risorse o l'eliminazione di attività tra RG può richiedere ulteriore tempo o non riuscire. In caso di problemi con le eliminazioni, verificare che non siano presenti blocchi sull'RG, che tutte le risorse esterne all'RG siano dissociate dal RG e così via.
+
+## <a name="if-i-have-pod--deployments-in-state-nodelost-or-unknown-can-i-still-upgrade-my-cluster"></a>Se si dispone di Pod/distribuzioni nello stato ' nodelost ' o ' Unknown ', è ancora possibile aggiornare il cluster?
+
+È possibile, ma AKS sconsiglia questa operazione. Gli aggiornamenti dovrebbero essere eseguiti idealmente quando lo stato del cluster è noto e integro.
+
+## <a name="if-i-have-a-cluster-with-one-or-more-nodes-in-an-unhealthy-state-or-shut-down-can-i-perform-an-upgrade"></a>Se si dispone di un cluster con uno o più nodi in uno stato non integro o arrestato, è possibile eseguire un aggiornamento?
+
+No, eliminare o rimuovere tutti i nodi con stato di errore o rimossi dal cluster prima di eseguire l'aggiornamento.
+
+## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>È stata eseguita un'eliminazione del cluster, ma è stato visualizzato l'errore`[Errno 11001] getaddrinfo failed` 
+
+In genere, ciò è dovuto al fatto che gli utenti che dispongono di uno o più gruppi di sicurezza di rete (gruppi) sono ancora in uso e associati al cluster.  Rimuoverli e ripetere l'operazione di eliminazione.
+
+## <a name="i-ran-an-upgrade-but-now-my-pods-are-in-crash-loops-and-readiness-probes-fail"></a>Ho eseguito un aggiornamento, ma ora i pod sono in cicli di arresto anomalo e i probe di conformità hanno esito negativo?
+
+Verificare che l'entità servizio non sia scaduta.  Vedere: Credenziali dell' [entità servizio](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) e di [aggiornamento AKS](https://docs.microsoft.com/azure/aks/update-credentials).
+
+## <a name="my-cluster-was-working-but-suddenly-can-not-provision-loadbalancers-mount-pvcs-etc"></a>Il mio cluster funzionava, ma improvvisamente non è in grado di eseguire il provisioning di LoadBalancers, montare PVC e così via? 
+
+Verificare che l'entità servizio non sia scaduta.  Vedere: Credenziali dell' [entità servizio](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) e di [aggiornamento AKS](https://docs.microsoft.com/azure/aks/update-credentials).
+
+## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>È possibile usare le API del set di scalabilità di macchine virtuali per la scalabilità manuale?
+
+No, le operazioni di ridimensionamento con le API del set di scalabilità di macchine virtuali non sono supportate. Usare le API AKS (`az aks scale`).
+
+## <a name="can-i-use-virtual-machine-scale-sets-to-manually-scale-to-0-nodes"></a>È possibile usare I set di scalabilità di macchine virtuali per eseguire manualmente la scalabilità a 0 nodi?
+
+No, le operazioni di ridimensionamento con le API del set di scalabilità di macchine virtuali non sono supportate.
+
+## <a name="can-i-stop-or-de-allocate-all-my-vms"></a>È possibile arrestare o deallocare tutte le VM?
+
+Sebbene AKS includa meccanismi di resilienza per resistere a tale configurazione ed eseguire il ripristino da tale configurazione, questa non è una configurazione consigliata.
+
+## <a name="can-i-use-custom-vm-extensions"></a>È possibile usare estensioni di VM personalizzate?
+
+Nessun AKS è un servizio gestito e la manipolazione delle risorse IaaS non è supportata. Per installare i componenti personalizzati e così via. utilizzare le API e i meccanismi di kubernetes. Ad esempio, utilizzare gli elementi daemonset per installare i componenti necessari.
 
 <!-- LINKS - internal -->
 

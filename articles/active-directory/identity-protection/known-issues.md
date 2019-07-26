@@ -2,42 +2,33 @@
 title: Domande frequenti e problemi noti con Identity Protection (procedura aggiornata) in Azure Active Directory | Microsoft Docs
 description: Domande frequenti e problemi noti con Identity Protection (procedura aggiornata) in Azure Active Directory.
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, gestione applicazioni, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 01/24/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 392b7a08d9422658c5620f60e9c1caca074bc85e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5d5aa50aec98b3944aed92b9da49182f0608f34c
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60452681"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333899"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>Domande frequenti e problemi noti con Identity Protection (procedura aggiornata) in Azure Active Directory
 
-
-## <a name="dismiss-user-risk-known-issues"></a>Ignorare il rischio utente problemi noti
+## <a name="dismiss-user-risk-known-issues"></a>Ignora problemi noti relativi al rischio utente
 
 **Ignora rischio utente** nella modalità classica di Identity Protection imposta **Azure AD** come attore nella cronologia del rischio dell'utente di Identity Protection (procedura aggiornata).
-
 
 **Ignora rischio utente** in Identity Protection (procedura aggiornata) imposta il **\<nome dell'amministratore con un collegamento ipertestuale che punta al pannello dell'utente\>** come attore nella cronologia del rischio dell'utente di Identity Protection (procedura aggiornata).
 
 Un problema noto corrente può causare latenze nel flusso di rimozione dei rischi utente. Se si hanno "criteri di rischio utente", questi criteri smetteranno di venire applicati agli utenti rimossi entro alcuni minuti da quando si fa clic su "Ignora rischio utente". Tuttavia, ci sono ritardi noti nell'esperienza utente di aggiornamento dello "stato del rischio" degli utenti rimossi. Come soluzione alternativa, aggiornare la pagina a livello di browser per visualizzare lo "stato del rischio" più recente per l'utente.
 
-
-## <a name="risky-users-report-known-issues"></a>Gli utenti a rischio segnalare i problemi noti
+## <a name="risky-users-report-known-issues"></a>Segnalazione di problemi noti da parte degli utenti rischiosi
 
 Le query sul campo del **nome utente** fanno distinzione tra maiuscole e minuscole, mentre le query sul campo del **Nome** non fanno distinzione tra maiuscole e minuscole.
 
@@ -45,11 +36,9 @@ Attivando **Visualizza date come** viene nascosta la colonna **ULTIMO AGGIORNAME
 
 **Elimina tutti gli eventi** nella modalità classica di Identity Protection imposta lo stato degli eventi di rischio come **Chiusi (risolti)** .
 
-
-## <a name="risky-sign-ins-report-known-issues"></a>Report accessi a rischio problemi noti
+## <a name="risky-sign-ins-report-known-issues"></a>Problemi noti segnalati dagli accessi a rischio
 
 **Risolvi** su un evento di rischio imposta lo stato su **Utenti che hanno superato la MFA secondo i criteri basati sul rischio**.
-
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
@@ -57,11 +46,9 @@ Attivando **Visualizza date come** viene nascosta la colonna **ULTIMO AGGIORNAME
 
 I livelli di rischio in Identity Protection si basano sulla precisione del rilevamento e si avvalgono della tecnologia di Machine Learning. Per personalizzare ciò che viene presentato agli utenti, l'amministratore può includere o escludere determinati utenti o gruppi dai criteri di rischio utente e di rischio di accesso.
 
-
 ### <a name="why-does-the-location-of-a-sign-in-not-match-where-the-user-truly-signed-in-from"></a>Cause per cui la posizione di accesso non corrisponde a quella in cui l'utente ha effettivamente eseguito l'accesso.
 
 Il mapping di georilevazione IP costituisce una sfida a livello di settore. Se si ritiene che la posizione elencata nel report degli accessi non corrisponda alla posizione effettiva, rivolgersi all'assistenza. 
-
 
 ### <a name="how-do-the-feedback-mechanisms-in-identity-protection-work"></a>Come funzionano i meccanismi dei feedback in Identity Protection?
 
@@ -82,8 +69,6 @@ Il mapping di georilevazione IP costituisce una sfida a livello di settore. Se s
 
     > [!NOTE]
     > Se si ritiene che l'utente non sia compromesso, usare **Ignora rischio utente** sul livello utente anziché **Confermato sicuro** a livello di accesso. **Ignora rischio utente** sul livello dell'utente chiude il rischio utente e tutti gli accessi a rischio e gli eventi di rischio precedenti.
-
-
 
 ### <a name="why-am-i-seeing-a-user-with-a-low-or-above-risk-score-even-if-no-risky-sign-ins-or-risk-events-are-shown-in-identity-protection"></a>Cause per cui viene visualizzato un punteggio di rischio utente con un valore basso (o superiore), anche se non vengono visualizzati gli accessi rischiosi o gli eventi di rischio in Identity Protection.
 

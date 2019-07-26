@@ -3,23 +3,18 @@ title: Creare e distribuire un'app Express in Node.js in Servizi cloud di Azure
 description: Creare e distribuire un'applicazione Express.js in Node.js in Servizi cloud di Azure
 services: cloud-services
 documentationcenter: nodejs
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 24f8e7ef-e90d-4554-9b1e-a9b31d5824e5
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: jeconnoc
-ms.openlocfilehash: b212eaffb977846d40270a5f2abc76192aee4c0d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: b3d8e364a982f85ad9df6e48dc4d28da1e8efb40
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60528151"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359057"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Creare e distribuire un'applicazione Web Node.js usando Express in Servizi cloud di Azure
 
@@ -98,7 +93,7 @@ Modificare le visualizzazione in modo che il messaggio visualizzato sia "Welcome
    
    ![Contenuto del file index.jade.](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
    
-   Jade è il motore di visualizzazione predefinito utilizzato dalle applicazioni Express. Per altre informazioni sul motore di visualizzazione Jade, vedere [http://jade-lang.com][http://jade-lang.com].
+   Jade è il motore di visualizzazione predefinito utilizzato dalle applicazioni Express. Per ulteriori informazioni sul motore di visualizzazione Jade, vedere [http://jade-lang.com][http://jade-lang.com].
 2. Modificare l'ultima riga di testo aggiungendo **in Azure**.
    
    ![File index.jade che nell'ultima riga riporta: p Welcome to \#{title} in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)

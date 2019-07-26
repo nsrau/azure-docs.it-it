@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 269568c172ff6c65c9877f9ad22067a11125b339
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: edc0da77fc1c2813c2485fca18d50952e3060db8
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67847594"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370481"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Metriche di log durante le esecuzioni di training in Azure Machine Learning
 
@@ -30,7 +30,7 @@ Le metriche seguenti possono essere aggiunte a un'esecuzione durante il training
 |Type| Funzione Python | Note|
 |----|:----|:----|
 |Valori scalari |Funzione:<br>`run.log(name, value, description='')`<br><br>Esempio:<br>run.log("accuracy", 0.95) |Registrare un valore numerico o stringa per l'esecuzione con il nome specificato. La registrazione di una metrica per un'esecuzione fa sì che tale metrica venga archiviata nel record esecuzione nell'esperimento.  È possibile registrare la stessa metrica più volte all'interno di un'esecuzione. Il risultato verrà considerato un vettore di tale metrica.|
-|Elenchi|Funzione:<br>`run.log_list(name, value, description='')`<br><br>Esempio:<br>run.log_list("accuracies", [0.6, 0.7, 0.87]) | Registrare un elenco di valori per l'esecuzione con il nome specificato.|
+|Liste|Funzione:<br>`run.log_list(name, value, description='')`<br><br>Esempio:<br>run.log_list("accuracies", [0.6, 0.7, 0.87]) | Registrare un elenco di valori per l'esecuzione con il nome specificato.|
 |Riga|Funzione:<br>`run.log_row(name, description=None, **kwargs)`<br>Esempio:<br>run.log_row("Y over X", x=1, y=0.4) | L'uso di *log_row* crea una metrica con più colonne come descritto in kwargs. Ogni parametro denominato genera una colonna con il valore specificato.  *log_row* può essere chiamato una volta per registrare una tupla arbitraria o più volte in un ciclo per generare una tabella completa.|
 |Tabella|Funzione:<br>`run.log_table(name, value, description='')`<br><br>Esempio:<br>run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]}) | Registrare un oggetto dizionario per l'esecuzione con il nome specificato. |
 |Immagini|Funzione:<br>`run.log_image(name, path=None, plot=None)`<br><br>Esempio:<br>`run.log_image("ROC", plt)` | Registrare un'immagine per il record esecuzione. Usare log_image per registrare un file di immagine o un tracciato matplotlib per l'esecuzione.  Queste immagini saranno visibili e confrontabili nel record esecuzione.|
@@ -225,8 +225,8 @@ L'articolo [avviare, monitorare e annullare](how-to-manage-runs.md) le esecuzion
 
 ## <a name="view-run-details"></a>Visualizzare i dettagli dell'esecuzione
 
-### <a name="monitor-run-with-jupyter-notebook-widgets"></a>Monitorare l'esecuzione con i widget di Jupyter Notebook
-Quando si usa il metodo **ScriptRunConfig** per inviare le esecuzioni, è possibile controllare lo stato di avanzamento dell'esecuzione con un widget di Jupyter Notebook. Come per l'invio dell'esecuzione, il widget è asincrono e fornisce aggiornamenti in tempo reale ogni 10-15 secondi finché non viene completato il processo.
+### <a name="monitor-run-with-jupyter-notebook-widget"></a>Monitorare l'esecuzione con il widget Jupyter notebook
+Quando si usa il metodo **ScriptRunConfig** per inviare le esecuzioni, è possibile controllare lo stato di avanzamento dell'esecuzione con un [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). Come per l'invio dell'esecuzione, il widget è asincrono e fornisce aggiornamenti in tempo reale ogni 10-15 secondi finché non viene completato il processo.
 
 1. Visualizzare il widget di Jupyter durante l'attesa del completamento dell'esecuzione.
 
@@ -236,6 +236,12 @@ Quando si usa il metodo **ScriptRunConfig** per inviare le esecuzioni, è possib
    ```
 
    ![Screenshot del widget di Jupyter Notebook](./media/how-to-track-experiments/run-details-widget.png)
+
+È anche possibile ottenere un collegamento alla stessa visualizzazione nell'area di lavoro.
+
+```python
+print(run.get_portal_url())
+```
 
 2. **[Per le esecuzioni di Machine Learning automatizzato]** Per accedere ai grafici di un'esecuzione precedente, Sostituire `<<experiment_name>>` con il nome dell'esperimento appropriato:
 
@@ -257,7 +263,8 @@ Per visualizzare altri dettagli di un pipeline, fare clic sulla pipeline che si 
 ### <a name="get-log-results-upon-completion"></a>Ottenere i risultati del log dopo il completamento
 
 Il training e il monitoraggio del modello si verificano in background, pertanto è possibile eseguire altre attività durante l'attesa. È anche possibile attendere il completamento del training del modello prima di eseguire altro codice. Quando si usa **ScriptRunConfig**, è possibile usare ```run.wait_for_completion(show_output = True)``` per visualizzare quando viene completato il training del modello. Il flag ```show_output``` fornisce output dettagliato. 
-  
+
+
 ### <a name="query-run-metrics"></a>Eseguire query sulle metriche di esecuzione
 
 È possibile visualizzare le metriche relative a un modello sottoposto a training usando ```run.get_metrics()```. È ora possibile ottenere tutte le metriche registrate nell'esempio precedente per determinare il modello migliore.
@@ -287,140 +294,6 @@ Sono disponibili vari modi per usare le API di registrazione per registrare dive
 |Registra più volte una riga con due colonne numeriche|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Grafico a linee a due variabili|
 |Registra una tabella con due colonne numeriche|`run.log_table(name='Sine Wave', value=sines)`|Grafico a linee a due variabili|
 
-<a name="auto"></a>
-## <a name="understanding-automated-ml-charts"></a>Informazioni sui grafici di Machine Learning automatizzato
-
-Dopo avere inviato un processo di Machine Learning automatizzato in un notebook, è possibile trovare una cronologia di queste esecuzioni nell'area di lavoro del servizio Machine Learning. 
-
-Altre informazioni su:
-+ [Grafici e curve per i modelli di classificazione](#classification)
-+ [Grafici per i modelli di regressione](#regression)
-+ [Spiegabilità del modello](#model-explain-ability-and-feature-importance)
-
-
-### <a name="view-the-run-charts"></a>Visualizzare i grafici delle esecuzioni
-
-1. Passa all'area di lavoro. 
-
-1. Selezionare **Esperimenti** nel pannello a sinistra dell'area di lavoro.
-
-   ![Screenshot del menu Esperimenti](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-menu.png)
-
-1. Selezionare l'esperimento a cui si è interessati.
-
-   ![Elenco degli esperimenti](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-list.png)
-
-1. Nella tabella selezionare il numero dell'esecuzione.
-
-   ![Esecuzione dell'esperimento](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-run.png)
-
-1. Nella tabella selezionare il numero dell'iterazione per il modello che si vuole esplorare più in dettaglio.
-
-   ![Modello dell'esperimento](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-model.png)
-
-
-
-### <a name="classification"></a>classificazione
-
-Per ogni modello di classificazione creato tramite le funzionalità di Machine Learning automatizzato in Azure Machine Learning, è possibile visualizzare i grafici seguenti: 
-+ [Matrice di confusione](#confusion-matrix)
-+ [Grafico di precisione-recupero](#precision-recall-chart)
-+ [ROC (Receiver Operating Characteristics)](#roc)
-+ [Curva di accuratezza](#lift-curve)
-+ [Curva del guadagno](#gains-curve)
-+ [Tracciato di calibrazione](#calibration-plot)
-
-#### <a name="confusion-matrix"></a>Matrice di confusione
-
-Una matrice di confusione viene usata per descrivere le prestazioni di un modello di classificazione. Ogni riga visualizza le istanze della classe vera e ogni colonna rappresenta le istanze della classe stimata. La matrice di confusione mostra le etichette classificate correttamente e quelle classificate in modo errato per un determinato modello.
-
-Per i problemi di classificazione, Azure Machine Learning offre automaticamente una matrice di confusione per ogni modello creato. Per ogni matrice di confusione, il processo di Machine Learning automatizzato visualizza in verde le etichette classificate correttamente e in rosso quelle classificate in modo errato. La dimensione del cerchio rappresenta il numero di esempi nello specifico contenitore. Nei grafici a barre adiacenti è inoltre indicato il valore di frequenza di ogni etichetta stimata e ogni etichetta vera. 
-
-Esempio 1: modello di classificazione con scarsa accuratezza ![modello di classificazione con scarsa accuratezza](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion-matrix1.png)
-
-Esempio 2 modello di classificazione con elevata accuratezza (ideale) ![modello di classificazione con elevata accuratezza](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion-matrix2.png)
-
-
-#### <a name="precision-recall-chart"></a>Grafico di precisione-recupero
-
-Con questo grafico è possibile confrontare le curve di precisione-recupero per ogni modello al fine di determinare quale modello ha una relazione accettabile tra precisione e recupero per uno specifico problema aziendale. Questo grafico mostra la media macro di precisione-recupero, la media micro di precisione-recupero e il valore di precisione-recupero associato a tutte le classi per un modello.
-
-Il termine "precisione" indica la capacità di un algoritmo di classificazione di etichettare correttamente tutte le istanze. Il termine "recupero" indica la capacità di un algoritmo di classificazione di trovare tutte le istanze di una determinata etichetta. La curva di precisione-recupero mostra la relazione tra questi due concetti. In una situazione ideale, il modello ha 100% di precisione e 100% di accuratezza.
-
-Esempio 1: modello di classificazione con valori ridotti di precisione e recupero ![modello di classificazione con valori ridotti di precisione e recupero](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision-recall1.png)
-
-Esempio 2 modello di classificazione con ~100% di precisione e ~100% di recupero (ideale) ![modello di classificazione con valori elevati di precisione e recupero](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision-recall2.png)
-
-#### <a name="roc"></a>ROC
-
-ROC (Receiver Operating Characteristics) è un tracciato che mette a confronto le etichette classificate correttamente con quelle classificate in modo errato per un determinato modello. La curva ROC può essere meno informativa quando si esegue il training di modelli su set di dati con elevata distorsione perché non visualizza le etichette false positive.
-
-Esempio 1: modello di classificazione con un numero ridotto di etichette vere e un numero elevato di etichette false ![modello di classificazione con un numero ridotto di etichette vere e un numero elevato di etichette false](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc-1.png)
-
-Esempio 2 modello di classificazione con un numero elevato di etichette vere e un numero ridotto di etichette false ![modello di classificazione con un numero elevato di etichette vere e un numero ridotto di etichette false](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc-2.png)
-
-#### <a name="lift-curve"></a>Curva di accuratezza
-
-È possibile confrontare l'accuratezza del modello creato automaticamente con Azure Machine Learning rispetto al modello di base per visualizzare il guadagno di valore di tale modello.
-
-I grafici di accuratezza vengono usati per valutare le prestazioni di un modello di classificazione. Mostrano il miglioramento che ci si può aspettare di ottenere usando un modello rispetto all'apprendimento senza modello. 
-
-Esempio 1: risultati del modello peggiori rispetto un modello di selezione casuale ![risultati del modello di classificazione peggiori rispetto un modello di selezione casuale](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift-curve1.png)
-
-Esempio 2 risultati del modello migliori rispetto un modello di selezione casuale ![risultati del modello di classificazione migliori](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift-curve2.png)
-
-#### <a name="gains-curve"></a>Curva del guadagno
-
-Un grafico del guadagno valuta le prestazioni di un modello di classificazione in base alle singole porzioni dei dati. Per ogni percentile del set di dati, mostra il miglioramento che ci si può aspettare di ottenere rispetto a un modello di selezione casuale.
-
-L'uso del grafico del guadagno cumulativo consente di scegliere il limite di classificazione usando un valore percentuale corrispondente al guadagno che si vuole ottenere dal modello. Queste informazioni offrono un modo alternativo di esaminare i risultati nel grafico di accuratezza associato.
-
-Esempio 1: modello di classificazione con guadagno minimo ![modello di classificazione con guadagno minimo](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains-curve1.png)
-
-Esempio 2 modello di classificazione con guadagno significativo ![modello di classificazione con guadagno significativo](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains-curve2.png)
-
-#### <a name="calibration-plot"></a>Tracciato di calibrazione
-
-Per tutti i problemi di classificazione, è possibile esaminare la linea di calibrazione per media micro, media macro e ogni classe in un determinato modello predittivo. 
-
-Un tracciato di calibrazione viene usato per visualizzare il grado di fiducia di un modello predittivo. A tale scopo, il tracciato mostra la relazione tra probabilità stimata e probabilità effettiva, dove per "probabilità" si intende la possibilità che una particolare istanza appartenga a una determinata etichetta. Un modello ben calibrato è allineato alla linea y=x, che rappresenta una ragionevole fiducia nelle stime. Un modello con eccessiva fiducia è allineato alla linea y=0, dove la probabilità stimata è presente ma non esiste alcuna probabilità effettiva.
-
-Esempio 1: modello ben calibrato ![ modello ben calibrato](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib-curve1.png)
-
-Esempio 2 modello con eccessiva fiducia ![modello con eccessiva fiducia](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib-curve2.png)
-
-### <a name="regression"></a>Regressione
-Per ogni modello di regressione creato tramite le funzionalità di Machine Learning automatizzato in Azure Machine Learning, è possibile visualizzare i grafici seguenti: 
-+ [Valori stimato rispetto a valore vero](#pvt)
-+ [Istogramma dei valori residui](#histo)
-
-<a name="pvt"></a>
-
-#### <a name="predicted-vs-true"></a>Valore stimato rispetto a valore True
-
-Questo grafico mostra la relazione tra un valore stimato e il valore vero correlato per un problema di regressione. Può essere usato per misurare le prestazioni di un modello poiché la vicinanza dei valori stimati alla linea y=x è direttamente proporzionale all'accuratezza di un modello predittivo.
-
-Dopo ogni esecuzione, è possibile visualizzare un grafico del valore stimato rispetto al valore vero per ogni modello di regressione. Per proteggere la privacy dei dati, i valori sono raggruppati in contenitori e la dimensione di ogni contenitore viene visualizzata in un grafico a barre nella parte inferiore dell'area del grafico. È possibile confrontare il modello predittivo, con l'area più chiara indicante i margini di errore, rispetto al valore ideale che dovrebbe raggiungere il modello.
-
-Esempio 1: modello di regressione con accuratezza delle stime ridotta ![modello di regressione con accuratezza delle stime ridotta](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression1.png)
-
-Esempio 2 modello di regressione con accuratezza delle stime elevata ![modello di regressione con accuratezza delle stime elevata](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression2.png)
-
-<a name="histo"></a>
-
-#### <a name="histogram-of-residuals"></a>Istogramma dei valori residui
-
-Un valore residuo rappresenta la differenza tra un valore y osservato e il valore y stimato. Per mostrare un margine di errore con distorsione ridotta, l'istogramma dei valori residui deve avere la forma di una curva a campana, con il centro vicino allo 0. 
-
-Esempio 1: modello di regressione con distorsione negli errori ![modello di regressione con distorsione negli errori](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression3.png)
-
-Esempio 2 modello di regressione con una distribuzione degli errori più uniforme![modello di regressione con una distribuzione degli errori più uniforme](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression4.png)
-
-### <a name="model-explain-ability-and-feature-importance"></a>Spiegabilità del modello e importanza delle caratteristiche
-
-Il grafico relativo all'importanza delle caratteristiche mostra un punteggio che indica l'importanza di ogni caratteristica nella creazione di un modello. È possibile esaminare l'importanza delle caratteristiche per l'intero modello e per classe di un modello predittivo. È inoltre possibile visualizzare il confronto dell'importanza di ogni caratteristica rispetto alle singole classi e al modello complessivo.
-
-![Spiegabilità delle caratteristiche](./media/how-to-track-experiments/azure-machine-learning-auto-ml-feature-explain1.png)
 
 ## <a name="example-notebooks"></a>Notebook di esempio
 I notebook seguenti illustrano i concetti descritti in questo articolo:

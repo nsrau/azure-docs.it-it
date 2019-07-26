@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
-ms.author: erikre
-ms.openlocfilehash: 9a0b536426ab024d5af7b257e44a2d5e20f14def
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: banders
+ms.openlocfilehash: 25d9b48696dc2a83ea0ba77c1be2c7aad7627fff
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371037"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443156"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>Esaminare i dati di fatturazione dell'Iscrizione Enterprise tramite le API REST
 
@@ -41,7 +41,7 @@ Il parametro `{billingAccountId}` è obbligatorio e deve contenere l'ID per l'ac
 
 Gli argomenti seguenti sono obbligatori: 
 
-|Intestazione della richiesta|Descrizione|  
+|Intestazione della richiesta|DESCRIZIONE|  
 |--------------------|-----------------|  
 |*Content-Type:*|Richiesto. Impostare su `application/json`.|  
 |*Authorization:*|Richiesto. Impostare un valore valido per la `Bearer` [chiave API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
@@ -94,7 +94,7 @@ Il parametro `{departmentId}` è obbligatorio e deve contenere l'ID del reparto 
 
 Gli argomenti seguenti sono obbligatori: 
 
-|Intestazione della richiesta|Descrizione|  
+|Intestazione della richiesta|DESCRIZIONE|  
 |--------------------|-----------------|  
 |*Content-Type:*|Richiesto. Impostare su `application/json`.|  
 |*Authorization:*|Richiesto. Impostare un valore valido per la `Bearer` [chiave API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
@@ -150,7 +150,7 @@ Il parametro `{enrollmentAccountId}` è obbligatorio e deve contenere l'ID dell'
 
 Gli argomenti seguenti sono obbligatori: 
 
-|Intestazione della richiesta|Descrizione|  
+|Intestazione della richiesta|DESCRIZIONE|  
 |--------------------|-----------------|  
 |*Content-Type:*|Richiesto. Impostare su `application/json`.|  
 |*Authorization:*|Richiesto. Impostare un valore valido per la `Bearer` [chiave API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  

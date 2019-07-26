@@ -3,7 +3,7 @@ title: Scenari di automazione per la fatturazione e la gestione dei costi di Azu
 description: Informazioni sul mapping di scenari comuni di fatturazione e gestione dei costi ad API diverse.
 services: billing
 documentationcenter: ''
-author: Erikre
+author: bandersmsft
 manager: dougeby
 editor: ''
 tags: billing
@@ -14,13 +14,13 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
-ms.author: erikre
-ms.openlocfilehash: cb7a13d9abcf7c677d51f03df002ea06b543014e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: banders
+ms.openlocfilehash: 3d06df9b9a90f26b39afc17b8fcd02c85da567a1
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65232472"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443242"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Scenari di automazione per la fatturazione e la gestione dei costi
 
@@ -52,7 +52,7 @@ In questo articolo vengono elencati gli scenari comuni per la fatturazione e la 
 | Raccomandazioni di prenotazione |                           |                  |           X          |                  |                    |           |
 | Dettagli di prenotazione         |                           |                  |           X          |         X        |                    |           |
 | Riepiloghi di prenotazioni       |                           |                  |           X          |         X        |                    |           |
-| Dettagli sull'utilizzo               |             X             |         X        |           X          |         X        |          X         |     X     |
+| Dettagli utilizzo               |             X             |         X        |           X          |         X        |          X         |     X     |
 | Periodi di fatturazione             |             X             |         X        |           X          |         X        |                    |           |
 | Fatture                    |             X             |         X        |           X          |         X        |                    |           |
 | RateCard                    |             X             |                  |           X          |         X        |          X         |           |
@@ -143,4 +143,4 @@ Queste API forniscono set simili di dati, ma hanno destinatari diversi:
 
 - Per confrontare la fattura con il file dettagliato sull'utilizzo giornaliero e i report di gestione dei costi nel portale di Azure, vedere [Comprendere la fattura per Microsoft Azure](billing-understand-your-bill.md).
 
-- Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+- Per eventuali domande o per richiedere assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).

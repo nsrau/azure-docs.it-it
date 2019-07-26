@@ -9,12 +9,12 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: 40a783f702db580618d49fa34a1dae67e3e067da
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: e1285f6bc3bd081eae03cf1e5a124a86cac7a2ae
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327063"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335984"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modello di determinazione dei prezzi per le App per la logica di Azure
 
@@ -49,17 +49,17 @@ Un [ *ambiente Integration Services* (ISE)](../logic-apps/connect-virtual-networ
 
 * [Connettori aziendali](../connectors/apis-list.md#enterprise-connectors) con il numero di connessioni desiderato
 
-* Utilizzo dell' [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) senza costi aggiuntivi in base allo [SKU ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
+* Utilizzo dell' [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) senza costi aggiuntivi, in base allo [SKU ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
 
   * **SKU Premium**: Un singolo account di integrazione del [livello standard](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)
 
   * **SKU per sviluppatori**: Un singolo account di integrazione del [livello gratuito](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)
 
-  Ogni SKU ISE è limitato a 5 account di integrazione totali. Per un costo aggiuntivo, si hanno più account di integrazione in base allo SKU ISE:
+  Ogni SKU ISE è limitato a 5 account di integrazione totali. Per un costo aggiuntivo, è possibile avere più account di integrazione in base allo SKU ISE:
 
-  * **SKU Premium**: Fino a quattro account standard, senza account gratuiti o di base
+  * **SKU Premium**: Fino a quattro più account standard. Nessun account gratuito o Basic.
 
-  * **SKU per sviluppatori**: Un massimo di 4 account standard o fino a 5 account standard totali, nessun account di base
+  * **SKU per sviluppatori**: Un massimo di 4 account standard o fino a 5 account standard totali. Nessun account di base.
 
 Per altre informazioni sui limiti dell'account di integrazione, vedere [limiti e configurazione delle app](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)per la logica. Più avanti in questo argomento sono disponibili ulteriori informazioni sui [livelli di account di integrazione e sul relativo modello di determinazione dei prezzi](#integration-accounts) . 
 

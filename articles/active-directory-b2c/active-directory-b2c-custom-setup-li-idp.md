@@ -1,5 +1,5 @@
 ---
-title: Configurare l'accesso con un account LinkedIn tramite criteri personalizzati - Azure Active Directory B2C | Microsoft Docs
+title: Configurare l'accesso con un account LinkedIn usando criteri personalizzati-Azure Active Directory B2C
 description: Configurare l'accesso con un account LinkedIn in Azure Active Directory B2C usando criteri personalizzati.
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 07/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b336428592a4897319725782c994c3fae26bfae0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f854e1771eec1d02fd14e040510688bf33c59c8
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510406"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442440"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un account LinkedIn usando criteri personalizzati in Azure Active Directory B2C
 
@@ -26,50 +26,59 @@ Questo articolo illustra come consentire agli utenti l'accesso da un account Lin
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Completare le procedure illustrate in [Introduzione ai criteri personalizzati in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
-- Se non si ha già un account LinkedIn, crearne uno nella [pagina di iscrizione a LinkedIn](https://www.linkedin.com/start/join).
-- Per un'applicazione LinkedIn è necessario specificare un'immagine di logo di 80 x 80 pixel che la rappresenti.
+- Account LinkedIn: se non ne è già stato creato uno, [creare un account](https://www.linkedin.com/start/join).
+- Pagina LinkedIn: è necessaria una [pagina di LinkedIn](https://www.linkedin.com/company/setup/new/) da associare all'applicazione LinkedIn creata nella sezione successiva.
 
 ## <a name="create-an-application"></a>Creare un'applicazione
 
 Per usare LinkedIn come provider di identità in Azure AD B2C, è necessario creare un'applicazione LinkedIn.
 
+### <a name="create-app"></a>Crea app
+
 1. Accedere al sito Web per la [gestione delle applicazioni LinkedIn](https://www.linkedin.com/secure/developer?newapp=) con le credenziali dell'account LinkedIn.
-2. Selezionare **Crea applicazione**.
-3. Immettere il **nome dell'azienda**, il **nome dell'applicazione** e una **descrizione dell'applicazione**.
-4. Caricare il **logo dell'applicazione** che è stato creato.
-5. Scegliere un **uso dell'applicazione** nell'elenco disponibile.
-6. In **Indirizzo del sito Web** immettere `https://your-tenant.b2clogin.com`.  Sostituire `your-tenant` con il nome del tenant di Azure AD B2C. Ad esempio, contoso.b2clogin.com.
-7. Immettere l'indirizzo **e-mail aziendale** e il numero di **telefono aziendale**.
-8. Nella parte inferiore della pagina leggere e accettare le condizioni d'uso, quindi fare clic su **Invia**.
-9. Selezionare **Autenticazione** e quindi copiare i valori di **ID client** e **Segreto client** per usarli in seguito.
-10. In **URL reindirizzamento autorizzati** immettere `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp`. Sostituire `your-tenant` con il nome del tenant. È necessario usare lettere minuscole quando si immette il nome del tenant, anche se questo viene definito con lettere maiuscole in Azure AD B2C. 
-11. Selezionare **Aggiorna**.
-12. Selezionare **Impostazioni**, impostare **Stato dell'applicazione** su **Live** e quindi fare clic su **Aggiorna**.
+1. Selezionare **Crea app**.
+1. Immettere un **nome**per l'app.
+1. Immettere il nome di una **società** corrispondente a un nome di pagina di LinkedIn. Se non si dispone già di una pagina di LinkedIn, crearne una.
+1. Opzionale Immettere un URL per l'informativa **sulla privacy**. Deve essere un URL valido, ma non deve essere un endpoint raggiungibile.
+1. Immettere un **messaggio di posta elettronica aziendale**.
+1. Caricare un'immagine del **logo dell'app** . L'immagine del logo deve essere quadrata e le dimensioni devono essere almeno 100x100 pixel.
+1. Lasciare le impostazioni predefinite nella sezione **prodotti** .
+1. Esaminare le informazioni presentate in **termini legali**. Se si accettano le condizioni, selezionare la casella.
+1. Selezionare **Crea app**.
+
+### <a name="configure-auth"></a>Configurare l'autenticazione e l'autorizzazione
+
+1. Selezionare la scheda **autenticazione** .
+1. Registrare l' **ID client**.
+1. Rivelare e registrare il **segreto client**.
+1. In **impostazioni OAuth 2,0**aggiungere l'URL di **Reindirizzamento**seguente. Sostituire `your-tenant` con il nome del tenant. Usare **tutte le lettere minuscole** per il nome del tenant anche se è definito con lettere maiuscole in Azure ad B2C.
+
+    `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp`
 
 ## <a name="create-a-policy-key"></a>Creare una chiave dei criteri
 
 È necessario archiviare il segreto client registrato in precedenza nel tenant di Azure AD B2C.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Assicurarsi che si usa la directory che contiene il tenant di Azure AD B2C. Selezionare il **Directory e sottoscrizione filtro** nel menu in alto e scegliere la directory che contiene il tenant.
+2. Assicurarsi di usare la directory che contiene il tenant del Azure AD B2C. Selezionare il **filtro directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
 4. Nella pagina Panoramica selezionare **Framework dell'esperienza di gestione delle identità**.
-5. Selezionare **Chiavi dei criteri** e quindi selezionare **Aggiungi**.
+5. Selezionare **chiavi dei criteri** e quindi selezionare **Aggiungi**.
 6. Per **Opzioni** scegliere `Manual`.
-7. Immettere un **nome** per la chiave dei criteri. Ad esempio: `LinkedInSecret`. Verrà aggiunto automaticamente il prefisso `B2C_1A_` al nome della chiave.
-8. In **Segreto** immettere il segreto client registrato in precedenza.
+7. Immettere un **nome** per la chiave dei criteri. Ad esempio `LinkedInSecret`. Il prefisso *B2C_1A_* viene aggiunto automaticamente al nome della chiave.
+8. In **Secret (segreto**) immettere il segreto client registrato in precedenza.
 9. In **Uso chiave** selezionare `Signature`.
 10. Fare clic su **Create**(Crea).
 
 ## <a name="add-a-claims-provider"></a>Aggiungere un provider di attestazioni
 
-Per consentire agli utenti di accedere con un account LinkedIn, è necessario definire l'account come provider di attestazioni con cui Azure AD B2C possa comunicare tramite un endpoint. L'endpoint offre un set di attestazioni che vengono usate da Azure AD B2C per verificare se un utente specifico è stato autenticato. 
+Per consentire agli utenti di accedere con un account LinkedIn, è necessario definire l'account come provider di attestazioni con cui Azure AD B2C possa comunicare tramite un endpoint. L'endpoint offre un set di attestazioni che vengono usate da Azure AD B2C per verificare se un utente specifico è stato autenticato.
 
-È possibile definire un account LinkedIn come provider di attestazioni aggiungendolo all'elemento **ClaimsProviders** nel file di estensione dei criteri.
+Definire un account LinkedIn come provider di attestazioni aggiungendolo all'elemento **ClaimsProviders** nel file di estensione dei criteri.
 
-1. Aprire *TrustFrameworkExtensions.xml*.
-2. Trovare l'elemento **ClaimsProviders**. Se non esiste, aggiungerlo nell'elemento radice.
-3. Aggiungere un nuovo **ClaimsProvider** come illustrato di seguito:
+1. Aprire il file *SocialAndLocalAccounts/* * TrustFrameworkExtensions. XML** * nell'editor. Questo file si trova nello [Starter Pack dei criteri personalizzati][starter-pack] scaricato come parte di uno dei prerequisiti.
+1. Trovare l'elemento **ClaimsProviders**. Se non esiste, aggiungerlo nell'elemento radice.
+1. Aggiungere un nuovo **ClaimsProvider** come illustrato di seguito:
 
     ```xml
     <ClaimsProvider>
@@ -84,6 +93,8 @@ Per consentire agli utenti di accedere con un account LinkedIn, è necessario de
             <Item Key="authorization_endpoint">https://www.linkedin.com/oauth/v2/authorization</Item>
             <Item Key="AccessTokenEndpoint">https://www.linkedin.com/oauth/v2/accessToken</Item>
             <Item Key="ClaimsEndpoint">https://api.linkedin.com/v2/me</Item>
+            <Item Key="scope">r_emailaddress r_liteprofile</Item>
+            <Item Key="HttpBinding">POST</Item>
             <Item Key="external_user_identity_claim_id">id</Item>
             <Item Key="BearerTokenTransmissionMethod">AuthorizationHeader</Item>
             <Item Key="ResolveJsonPathsInJsonTokens">true</Item>
@@ -93,12 +104,13 @@ Per consentire agli utenti di accedere con un account LinkedIn, è necessario de
           <CryptographicKeys>
             <Key Id="client_secret" StorageReferenceId="B2C_1A_LinkedInSecret" />
           </CryptographicKeys>
+          <InputClaims />
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="id" />
             <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName.localized" />
             <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName.localized" />
-            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="linkedin.com" />
-            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
+            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="linkedin.com" AlwaysUseDefaultValue="true" />
+            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
           </OutputClaims>
           <OutputClaimsTransformations>
             <OutputClaimsTransformation ReferenceId="ExtractGivenNameFromLinkedInResponse" />
@@ -114,14 +126,14 @@ Per consentire agli utenti di accedere con un account LinkedIn, è necessario de
     </ClaimsProvider>
     ```
 
-4. Sostituire il valore di **client_id** con l'ID client registrato in precedenza.
-5. Salvare il file.
+1. Sostituire il valore di **client_id** con l'ID client dell'applicazione LinkedIn registrata in precedenza.
+1. Salvare il file.
 
-### <a name="add-the-claims-transformations"></a>Aggiungere le trasformazioni di attestazioni
+### <a name="add-the-claims-transformations"></a>Aggiungere le trasformazioni delle attestazioni
 
-Il profilo tecnico LinkedIn richiede la **ExtractGivenNameFromLinkedInResponse** e **ExtractSurNameFromLinkedInResponse** da aggiungere all'elenco di trasformazioni delle attestazioni ClaimsTransformations. Se non hai un **ClaimsTransformations** elemento definito nel file, aggiungere gli elementi XML padre, come illustrato di seguito. Le trasformazioni di attestazioni denominato anche necessario un nuovo tipo di attestazione definito **nullStringClaim**. 
+Il profilo tecnico LinkedIn richiede l'aggiunta delle trasformazioni delle attestazioni **ExtractGivenNameFromLinkedInResponse** e **ExtractSurNameFromLinkedInResponse** all'elenco di ClaimsTransformations. Se non è stato definito un elemento **ClaimsTransformations** nel file, aggiungere gli elementi XML padre come illustrato di seguito. Per le trasformazioni delle attestazioni è necessario anche un nuovo tipo di attestazione definito denominato **nullStringClaim**.
 
-Il **BuildingBlocks** elemento deve essere aggiunto all'inizio del file. Vedere le *trustframeworkbase. XML* come esempio.
+Aggiungere l'elemento **BuildingBlocks** nella parte superiore del file *TrustFrameworkExtensions. XML* . Per un esempio, vedere *TrustFrameworkBase. XML* .
 
 ```XML
 <BuildingBlocks>
@@ -158,30 +170,31 @@ Il **BuildingBlocks** elemento deve essere aggiunto all'inizio del file. Vedere 
   </ClaimsTransformations>
 </BuildingBlocks>
 ```
+
 ### <a name="upload-the-extension-file-for-verification"></a>Caricare il file di estensione per la verifica
 
-A questo punto, i criteri sono stati configurati in modo che Azure AD B2C possa comunicare con l'account LinkedIn. Provare a caricare il file di estensione dei criteri per verificare che non siano presenti problemi.
+A questo punto si dispone di un criterio configurato in modo che Azure AD B2C sappia come comunicare con l'account LinkedIn. Provare a caricare il file di estensione dei criteri per verificare che non ci siano problemi finora.
 
 1. Nella pagina **Criteri personalizzati** del tenant di Azure AD B2C selezionare **Carica il criterio**.
 2. Abilitare **Sovrascrivi il criterio se esistente** e quindi cercare e selezionare il file *TrustFrameworkExtensions.xml*.
-3. Fare clic su **Carica**.
+3. Fare clic su **Upload**.
 
 ## <a name="register-the-claims-provider"></a>Registrare il provider di attestazioni
 
-A questo punto, il provider di identità è stato configurato, ma non è disponibile nelle schermate di iscrizione o accesso. Per renderlo disponibile, si crea un duplicato di un percorso utente modello esistente e quindi si modifica tale duplicato in modo che includa anche il provider di identità LinkedIn.
+A questo punto, il provider di identità è stato configurato, ma non è disponibile in nessuna delle schermate di iscrizione o di accesso. Per renderlo disponibile, si crea un duplicato di un percorso utente modello esistente e quindi si modifica tale duplicato in modo che includa anche il provider di identità LinkedIn.
 
-1. Aprire il file *TrustFrameworkBase.xml* dallo starter pack.
+1. Aprire il file *TrustFrameworkBase. XML* nel pacchetto Starter.
 2. Trovare e copiare l'intero contenuto dell'elemento **UserJourney** che include `Id="SignUpOrSignIn"`.
 3. Aprire *TrustFrameworkExtensions.xml* e trovare l'elemento **UserJourneys**. Se l'elemento non esiste, aggiungerne uno.
 4. Incollare l'intero contenuto dell'elemento **UserJourney** copiato come figlio dell'elemento **UserJourneys**.
-5. Rinominare l'ID del percorso utente. Ad esempio: `SignUpSignInLinkedIn`.
+5. Rinominare l'ID del percorso utente. Ad esempio `SignUpSignInLinkedIn`.
 
 ### <a name="display-the-button"></a>Visualizzare il pulsante
 
 L'elemento **ClaimsProviderSelection** è analogo a un pulsante per il provider di identità in una schermata di iscrizione o accesso. Se si aggiunge un elemento **ClaimsProviderSelection** per un account LinkedIn, quando un utente apre la pagina viene visualizzato un nuovo pulsante.
 
 1. Trovare l'elemento **OrchestrationStep** che include `Order="1"` nel percorso utente creato.
-2. In **ClaimsProviderSelects** aggiungere l'elemento riportato di seguito. Impostare **TargetClaimsExchangeId** su un valore appropriato, ad esempio `LinkedInExchange`:
+2. In **ClaimsProviderSelections** aggiungere l'elemento riportato di seguito. Impostare **TargetClaimsExchangeId** su un valore appropriato, ad esempio `LinkedInExchange`:
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="LinkedInExchange" />
@@ -197,8 +210,8 @@ Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. 
     ```XML
     <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
     ```
-    
-    Aggiornare il valore di **TechnicalProfileReferenceId** con l'ID del profilo tecnico creato in precedenza. Ad esempio: `LinkedIn-OAUTH`.
+
+    Aggiornare il valore di **TechnicalProfileReferenceId** con l'ID del profilo tecnico creato in precedenza. Ad esempio `LinkedIn-OAUTH`.
 
 3. Salvare il file *TrustFrameworkExtensions.xml* e caricarlo di nuovo per la verifica.
 
@@ -207,7 +220,7 @@ Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. 
 La comunicazione con Azure AD B2C avviene tramite un'applicazione creata nel tenant. Questa sezione elenca i passaggi facoltativi che è possibile completare per creare un'applicazione di test, se non è già stato fatto.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Assicurarsi che si usa la directory che contiene il tenant di Azure AD B2C. Selezionare il **Directory e sottoscrizione filtro** nel menu in alto e scegliere la directory che contiene il tenant.
+2. Assicurarsi di usare la directory che contiene il tenant del Azure AD B2C. Selezionare il **filtro directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
 4. Selezionare **Applicazioni** e quindi **Aggiungi**.
 5. Immettere un nome per l'applicazione, ad esempio *apptest1*.
@@ -219,26 +232,26 @@ La comunicazione con Azure AD B2C avviene tramite un'applicazione creata nel ten
 Aggiornare il file della relying party (RP) che avvierà il percorso utente appena creato.
 
 1. Creare una copia di *SignUpOrSignIn.xml* nella directory di lavoro e rinominare la copia. Ad esempio, assegnare il nome *SignUpSignInLinkedIn.xml*.
-2. Aprire il nuovo file e aggiornare il valore dell'attributo **PolicyId** per **TrustFrameworkPolicy** con un valore univoco. Ad esempio: `SignUpSignInLinkedIn`.
+2. Aprire il nuovo file e aggiornare il valore dell'attributo **PolicyId** per **TrustFrameworkPolicy** con un valore univoco. Ad esempio `SignUpSignInLinkedIn`.
 3. Aggiornare il valore di **PublicPolicyUri** con l'URI dei criteri. Ad esempio, `http://contoso.com/B2C_1A_signup_signin_linkedin`
 4. Aggiornare il valore dell'attributo **ReferenceId** in **DefaultUserJourney** in modo che corrisponda all'ID del nuovo percorso utente che è stato creato (SignUpSignLinkedIn).
 5. Salvare le modifiche, caricare il file e quindi selezionare i nuovi criteri nell'elenco.
 6. Verificare che nel campo **Selezionare l'applicazione** sia selezionata l'applicazione Azure AD B2C creata e quindi testarla facendo clic su **Esegui adesso**.
 
-## <a name="migration-from-v10-to-v20"></a>Migrazione da v1.0, v2.0
+## <a name="migration-from-v10-to-v20"></a>Migrazione dalla versione 1.0 alla versione 2.0
 
-LinkedIn recentemente [aggiornate le API da v1.0 v2.0](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). Per eseguire la migrazione della configurazione esistente per la nuova configurazione, usare le informazioni nelle sezioni seguenti per aggiornare gli elementi nel profilo tecnico.
+LinkedIn ha [aggiornato di recente le API dalla versione 1.0 alla versione 2.0](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). Per eseguire la migrazione della configurazione esistente alla nuova configurazione, usare le informazioni nelle sezioni riportate di seguito per aggiornare gli elementi nel profilo tecnico.
 
-### <a name="replace-items-in-the-metadata"></a>Sostituire gli elementi nei metadati
+### <a name="replace-items-in-the-metadata"></a>Sostituisci elementi nei metadati
 
-Esistente **dei metadati** elemento delle **TechnicalProfile**, aggiornare le seguenti **elemento** gli elementi da:
+Nell'elemento dei **metadati** esistente di **TechnicalProfile**aggiornare gli elementi di **elemento** seguenti da:
 
 ```XML
 <Item Key="ClaimsEndpoint">https://api.linkedin.com/v1/people/~:(id,first-name,last-name,email-address,headline)</Item>
 <Item Key="scope">r_emailaddress r_basicprofile</Item>
 ```
 
-Con:
+A:
 
 ```XML
 <Item Key="ClaimsEndpoint">https://api.linkedin.com/v2/me</Item>
@@ -247,7 +260,7 @@ Con:
 
 ### <a name="add-items-to-the-metadata"></a>Aggiungere elementi ai metadati
 
-Nel **dei metadati** delle **TechnicalProfile**, aggiungere il codice seguente **elemento** elementi:
+Nei **metadati** di **TechnicalProfile**aggiungere gli elementi **Item** seguenti:
 
 ```XML
 <Item Key="external_user_identity_claim_id">id</Item>
@@ -255,36 +268,36 @@ Nel **dei metadati** delle **TechnicalProfile**, aggiungere il codice seguente *
 <Item Key="ResolveJsonPathsInJsonTokens">true</Item>
 ```
 
-### <a name="update-the-outputclaims"></a>Aggiornare il OutputClaims
+### <a name="update-the-outputclaims"></a>Aggiornare OutputClaims
 
-Esistente **OutputClaims** delle **TechnicalProfile**, aggiornare le seguenti **OutputClaim** gli elementi da:
+Nella **OutputClaims** esistente di **TechnicalProfile**aggiornare gli elementi **OutputClaim** seguenti da:
 
 ```XML
 <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName" />
 <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName" />
 ```
 
-Con:
+A:
 
 ```XML
 <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName.localized" />
 <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName.localized" />
 ```
 
-### <a name="add-new-outputclaimstransformation-elements"></a>Aggiungere nuovi elementi OutputClaimsTransformation
+### <a name="add-new-outputclaimstransformation-elements"></a>Aggiungi nuovi elementi OutputClaimsTransformation
 
-Nel **OutputClaimsTransformations** delle **TechnicalProfile**, aggiungere il codice seguente **OutputClaimsTransformation** elementi:
+In **OutputClaimsTransformations** di **TechnicalProfile**aggiungere gli elementi **OutputClaimsTransformation** seguenti:
 
 ```XML
 <OutputClaimsTransformation ReferenceId="ExtractGivenNameFromLinkedInResponse" />
 <OutputClaimsTransformation ReferenceId="ExtractSurNameFromLinkedInResponse" />
 ```
 
-### <a name="define-the-new-claims-transformations-and-claim-type"></a>Definire le nuove trasformazioni di attestazioni e tipo di attestazione
+### <a name="define-the-new-claims-transformations-and-claim-type"></a>Definire le nuove trasformazioni delle attestazioni e il tipo di attestazione
 
-L'ultimo passaggio, è stato aggiunto nuove trasformazioni di attestazioni che devono essere definiti. Per definire le trasformazioni di attestazioni, aggiungerli all'elenco degli **ClaimsTransformations**. Se non hai un **ClaimsTransformations** elemento definito nel file, aggiungere gli elementi XML padre, come illustrato di seguito. Le trasformazioni di attestazioni denominato anche necessario un nuovo tipo di attestazione definito **nullStringClaim**. 
+Nell'ultimo passaggio sono state aggiunte nuove trasformazioni delle attestazioni che devono essere definite. Per definire le trasformazioni delle attestazioni, aggiungerle all'elenco di **ClaimsTransformations**. Se non è stato definito un elemento **ClaimsTransformations** nel file, aggiungere gli elementi XML padre come illustrato di seguito. Per le trasformazioni delle attestazioni è necessario anche un nuovo tipo di attestazione definito denominato **nullStringClaim**.
 
-Il **BuildingBlocks** elemento deve essere aggiunto all'inizio del file. Vedere le *trustframeworkbase. XML* come esempio.
+L'elemento **BuildingBlocks** deve essere aggiunto alla parte superiore del file. Vedere *TrustframeworkBase. XML* come esempio.
 
 ```XML
 <BuildingBlocks>
@@ -324,14 +337,14 @@ Il **BuildingBlocks** elemento deve essere aggiunto all'inizio del file. Vedere 
 
 ### <a name="obtain-an-email-address"></a>Ottenere un indirizzo di posta elettronica
 
-Durante la migrazione di LinkedIn da v1.0, v2.0, un'altra chiamata a un'altra API è necessario per ottenere l'indirizzo di posta elettronica. Se è necessario ottenere l'indirizzo di posta elettronica durante l'iscrizione, eseguire le operazioni seguenti:
+Come parte della migrazione di LinkedIn dalla versione 1.0 alla versione 2.0, è necessaria una chiamata aggiuntiva a un'altra API per ottenere l'indirizzo di posta elettronica. Se è necessario ottenere l'indirizzo di posta elettronica durante l'iscrizione, seguire questa procedura:
 
-1. Completare i passaggi precedenti per consentire di Azure AD B2C attuare la federazione con LinkedIn per consentire all'utente l'accesso. Come parte della federazione, Azure AD B2C riceve il token di accesso per LinkedIn.
-2. Salvare il token di accesso di LinkedIn in un'attestazione. [Vedere le istruzioni riportate qui](idp-pass-through-custom.md).
-3. Aggiungere il provider di attestazioni seguente che effettua la richiesta a LinkedIn `/emailAddress` API. Per autorizzare questa richiesta, è necessario il token di accesso di LinkedIn.
+1. Completare i passaggi precedenti per consentire Azure AD B2C di eseguire la Federazione con LinkedIn per consentire all'utente di accedere. Come parte della Federazione, Azure AD B2C riceve il token di accesso per LinkedIn.
+2. Salvare il token di accesso di LinkedIn in un'attestazione. [Vedere le istruzioni qui](idp-pass-through-custom.md).
+3. Aggiungere il provider di attestazioni seguente che effettua la richiesta all' `/emailAddress` API di LinkedIn. Per autorizzare questa richiesta, è necessario il token di accesso di LinkedIn.
 
     ```XML
-    <ClaimsProvider> 
+    <ClaimsProvider>
       <DisplayName>REST APIs</DisplayName>
       <TechnicalProfiles>
         <TechnicalProfile Id="API-LinkedInEmail">
@@ -356,7 +369,7 @@ Durante la migrazione di LinkedIn da v1.0, v2.0, un'altra chiamata a un'altra AP
     </ClaimsProvider>
     ```
 
-4. Aggiungere il seguente passaggio di orchestrazione nel percorso utente, in modo che il provider di attestazioni API viene attivato quando un utente acceda con LinkedIn. Assicurarsi di aggiornare il `Order` numerare in modo appropriato. Aggiungere questo passaggio subito dopo il passaggio di orchestrazione che attiva il profilo tecnico di LinkedIn.
+4. Aggiungere il passaggio di orchestrazione seguente al percorso utente, in modo che il provider di attestazioni API venga attivato quando un utente accede tramite LinkedIn. Assicurarsi di aggiornare il `Order` numero in modo appropriato. Aggiungere questo passaggio subito dopo il passaggio di orchestrazione che attiva il profilo tecnico di LinkedIn.
 
     ```XML
     <!-- Extra step for LinkedIn to get the email -->
@@ -378,6 +391,9 @@ Durante la migrazione di LinkedIn da v1.0, v2.0, un'altra chiamata a un'altra AP
     </OrchestrationStep>
     ```
 
-Ottenere l'indirizzo di posta elettronica da LinkedIn durante l'iscrizione è facoltativo. Se si sceglie di non ottenere il messaggio di posta elettronica da LinkedIn ma, è necessario uno durante l'iscrizione, l'utente viene richiesto di immettere l'indirizzo di posta elettronica e convalidarlo manualmente.
+Il recupero dell'indirizzo di posta elettronica da LinkedIn durante l'iscrizione è facoltativo. Se si sceglie di non ricevere il messaggio di posta elettronica da LinkedIn ma ne è necessario uno durante l'iscrizione, l'utente deve immettere manualmente l'indirizzo di posta elettronica e convalidarlo.
 
-Per un esempio completo di un criterio che utilizza il provider di identità LinkedIn, vedere la [Starter Pack sui criteri personalizzati](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/linkedin-identity-provider).
+Per un esempio completo di un criterio che usa il provider di identità LinkedIn, vedere lo [Starter Pack per i criteri personalizzati](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/linkedin-identity-provider).
+
+<!-- Links - EXTERNAL -->
+[starter-pack]: https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack

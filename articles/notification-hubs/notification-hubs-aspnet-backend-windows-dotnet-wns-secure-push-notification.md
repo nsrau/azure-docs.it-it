@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: cf23ef5df3bdcaad23841da111fa06cc36b4cd57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2f18b4793d205cfa019f501549dedfcd62f501e7
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61459247"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348599"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>Inviare notifiche push in modo sicuro da Hub di notifica di Azure
 
@@ -57,12 +57,12 @@ In questa esercitazione sul push sicuro viene illustrato come inviare una notifi
 
 1. Nel progetto **NotifyUserWindowsPhone** aggiungere il codice seguente al file App.xaml.cs per registrare l'attività di push in background. Aggiungere la seguente riga di codice alla fine del metodo `OnLaunched()` :
 
-    ```c#
+    ```csharp
     RegisterBackgroundTask();
     ```
 2. Sempre nel file App.xaml.cs aggiungere il seguente codice immediatamente dopo il metodo `OnLaunched()` :
 
-    ```c#
+    ```csharp
     private async void RegisterBackgroundTask()
     {
         if (!Windows.ApplicationModel.Background.BackgroundTaskRegistration.AllTasks.Any(i => i.Value.Name == "PushBackgroundTask"))
@@ -79,7 +79,7 @@ In questa esercitazione sul push sicuro viene illustrato come inviare una notifi
     ```
 3. Aggiungere le seguenti istruzioni `using` all'inizio del file App.xaml.cs:
 
-    ```c#
+    ```csharp
     using Windows.Networking.PushNotifications;
     using Windows.ApplicationModel.Background;
     ```
@@ -147,7 +147,7 @@ Il passaggio successivo consiste nella creazione del componente push in backgrou
 9. Di nuovo nella **casella di ricerca** di NuGet digitare **Json.net**. Installare il pacchetto **Json.NET** e quindi chiudere la finestra di Gestione pacchetti NuGet.
 10. Aggiungere le istruzioni `using` seguenti all'inizio del file `PushBackgroundTask.cs`:
 
-    ```c#
+    ```csharp
     using Windows.ApplicationModel.Background;
     using Windows.Networking.PushNotifications;
     using System.Net.Http;
@@ -168,7 +168,7 @@ Il passaggio successivo consiste nella creazione del componente push in backgrou
     ![][13]
 16. Scegliere **Save All** (Salva tutto) nel menu **File**.
 
-## <a name="run-the-application"></a>Eseguire l'applicazione
+## <a name="run-the-application"></a>Esecuzione dell'applicazione
 
 Per eseguire l'applicazione, eseguire le operazioni seguenti:
 

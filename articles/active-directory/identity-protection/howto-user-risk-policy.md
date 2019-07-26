@@ -2,38 +2,31 @@
 title: Come configurare i criteri di rischio utente in Azure Active Directory Identity Protection | Microsoft Docs
 description: Informazioni su come configurare i criteri di rischio utente in Azure AD Identity Protection.
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, gestione applicazioni, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 942f7e43a549b5aa1a21284949ffc12ef3c8d75f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fc7ea05497d69a7ca833cc783e7a2bc6bf1a8b07
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108922"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335447"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>Procedura: Configurare i criteri di rischio utente
 
-Con il rischio utente, Azure AD rileva la probabilità che un account utente sia stato compromesso. Come amministratore, è possibile configurare un criterio di accesso condizionale, per rispondere automaticamente a un livello di rischio utente specifico di rischio utente.
+Con il rischio utente, Azure AD rileva la probabilità che un account utente sia stato compromesso. In qualità di amministratore, è possibile configurare i criteri di accesso condizionale per il rischio utente per rispondere automaticamente a un livello di rischio utente specifico.
  
 Questo articolo fornisce le informazioni necessarie per configurare i criteri di rischio utente.
 
-
 ## <a name="what-is-a-user-risk-policy"></a>Cosa sono i criteri di rischio utente?
 
-Azure AD analizza ogni accesso di un utente. L'obiettivo dell'analisi è rilevare eventuali azioni sospette compiute contestualmente alla procedura di accesso. In Azure AD, le azioni sospette che il sistema è in grado di rilevare prendono il nome di "eventi di rischio". Mentre alcuni eventi di rischio possono essere rilevati in tempo reale, altri richiedono più tempo. Per rilevare un trasferimento impossibile in una posizione atipica, ad esempio, il sistema richiede un periodo di apprendimento iniziale di 14 giorni per capire il comportamento normale dell'utente. Sono disponibili varie opzioni per risolvere gli eventi di rischio rilevati. Ad esempio, è possibile risolvere gli eventi di rischio di singoli manualmente oppure è possibile ottenerli risolto con un rischio di accesso o un criterio di accesso condizionale di rischio utente.
+Azure AD analizza ogni accesso di un utente. L'obiettivo dell'analisi è rilevare eventuali azioni sospette compiute contestualmente alla procedura di accesso. In Azure AD, le azioni sospette che il sistema è in grado di rilevare prendono il nome di "eventi di rischio". Mentre alcuni eventi di rischio possono essere rilevati in tempo reale, altri richiedono più tempo. Per rilevare un trasferimento impossibile in una posizione atipica, ad esempio, il sistema richiede un periodo di apprendimento iniziale di 14 giorni per capire il comportamento normale dell'utente. Sono disponibili varie opzioni per risolvere gli eventi di rischio rilevati. Ad esempio, è possibile risolvere i singoli eventi di rischio manualmente oppure è possibile risolverli con un rischio di accesso o con un criterio di accesso condizionale a rischio utente.
 
 Tutti gli eventi di rischio rilevati per un utente e non risolti prendono il nome di "eventi di rischio attivi". Con "rischio utente" si intendono gli eventi di rischio attivi associati a un utente. Sulla base del rischio utente, Azure AD calcola la probabilità (bassa, media, elevata) che un utente sia stato compromesso. Questa probabilità viene definita "livello di rischio utente".
 
@@ -41,16 +34,13 @@ Tutti gli eventi di rischio rilevati per un utente e non risolti prendono il nom
 
 I criteri di rischio utente sono costituiti da una risposta automatica che è possibile configurare per un determinato livello di rischio utente. Consentono, ad esempio, di bloccare l'accesso alle risorse o di richiedere una modifica della password per ripristinare un account utente a uno stato pulito.
 
-
 ## <a name="how-do-i-access-the-user-risk-policy"></a>Come si può accedere ai criteri di rischio utente?
    
 I criteri di rischio di accesso si trovano nella sezione di **configurazione** della [pagina di Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
    
 ![Criteri di rischio utente](./media/howto-user-risk-policy/1014.png)
 
-
-
-## <a name="policy-settings"></a>Impostazioni dei criteri
+## <a name="policy-settings"></a>Impostazioni di criteri
 
 Quando si configurano i criteri di rischio di accesso, è necessario impostare:
 
@@ -79,7 +69,6 @@ La finestra di dialogo di configurazione dei criteri include un'opzione che cons
 È possibile impostare criteri di sicurezza per il rischio utente per bloccare gli utenti al momento dell'accesso in base al livello di rischio.
 
 ![Blocco](./media/howto-user-risk-policy/16.png)
-
 
 Il blocco dell'accesso:
 
@@ -110,9 +99,6 @@ Per una panoramica dell'esperienza utente correlata, vedere:
 - Nel pannello **Azure AD Identity Protection** fare clic su **Criteri di rischio utente** nella sezione **Configura**.
 
     ![Criteri di rischio utente](./media/howto-user-risk-policy/1009.png "Criteri di rischio utente")
-
-
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

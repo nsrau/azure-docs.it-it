@@ -1,5 +1,5 @@
 ---
-title: Pubblicare applicazioni in reti e posizioni separate tramite gruppi di connettori nel proxy di applicazione di Azure AD | Microsoft Docs
+title: Pubblicare app in reti separate con App Azure AD gruppi di connettori del proxy | Microsoft Docs
 description: Illustra come creare e gestire i gruppi di connettori nel proxy di applicazione di Azure AD.
 services: active-directory
 author: msmimart
@@ -14,12 +14,12 @@ ms.date: 11/08/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 574ce6def407f302439f6c53356fe69259240b2e
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: dae4eea3e08818d43482c995595cc9fbc3f91910
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702488"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381493"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Pubblicare applicazioni in reti e posizioni separate tramite i gruppi di connettori
 
@@ -77,11 +77,11 @@ Per le applicazioni installate in IaaS per l'accesso al cloud, i gruppi di conne
 
 Considerare come esempio un'organizzazione con diverse macchine virtuali connesse alla rete virtuale IaaS ospitata. Per permettere ai dipendenti di usare le applicazioni, tali reti private sono connesse alla rete aziendale tramite VPN da sito a sito. Questa soluzione offre un'esperienza ottimale ai dipendenti a livello locale. Può tuttavia non essere ideale per i dipendenti che lavorano in remoto, poiché richiede un'infrastruttura locale aggiuntiva per instradare l'accesso, come illustra il diagramma seguente:
 
-![Diagramma che illustra la rete IaaS di Azure AD](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
+![Diagramma che illustra la rete IaaS Azure AD](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
   
 Con i gruppi di connettori del proxy di applicazione di Azure AD, è possibile abilitare un servizio comune per proteggere l'accesso a tutte le applicazioni senza creare una dipendenza aggiuntiva nella rete aziendale:
 
-![Azure AD più fornitori Cloud IaaS](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
+![Azure AD IaaS più fornitori di cloud](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
 
 ### <a name="multi-forest--different-connector-groups-for-each-forest"></a>Scenario a più foreste: gruppi di connettori diversi per ogni foresta
 
@@ -108,7 +108,7 @@ Tra gli esempi che è possibile implementare, sono inclusi i gruppi di connettor
 
 Se non si usano gruppi di connettori, la configurazione ha un aspetto simile al seguente:
 
-![Esempio di Azure AD senza gruppi di connettori](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
+![Esempio Azure AD nessun gruppo di connettori](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
 
 Questa configurazione è sufficiente per distribuzioni di piccole dimensioni e test. È adatta anche a organizzazioni con una topologia di rete flat.
 
@@ -116,7 +116,7 @@ Questa configurazione è sufficiente per distribuzioni di piccole dimensioni e t
 
 Questa configurazione rappresenta un'evoluzione di quella predefinita. In questa configurazione un'app specifica viene eseguita in una rete isolata, ad esempio una rete virtuale IaaS:
 
-![I gruppi di connettori No di esempio Azure AD e una rete isolata](./media/application-proxy-connector-groups/application-proxy-sample-config-2.png)
+![Esempio Azure AD nessun gruppo di connettori e una rete isolata](./media/application-proxy-connector-groups/application-proxy-sample-config-2.png)
 
 ### <a name="recommended-configuration--several-specific-groups-and-a-default-group-for-idle"></a>Configurazione consigliata con diversi gruppi specifici e un gruppo predefinito inattivo
 
@@ -124,7 +124,7 @@ La configurazione consigliata per organizzazioni complesse di grandi dimensioni 
 
 Nell'esempio seguente l'azienda ha due data center, A e B, con due connettori che gestiscono ogni sito. In ognuno dei siti vengono eseguite applicazioni diverse.
 
-![Esempio di società con 2 connettori e data 2 Center](./media/application-proxy-connector-groups/application-proxy-sample-config-3.png)
+![Esempio di società con 2 Data Center e 2 connettori](./media/application-proxy-connector-groups/application-proxy-sample-config-3.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

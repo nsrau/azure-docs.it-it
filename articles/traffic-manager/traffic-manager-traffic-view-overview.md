@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 5a34cf3e41e04367b1cf38015861518fb74dd3f7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 39d6090b14a16f505413154df2a78d42b3fb3f3c
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070956"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333704"
 ---
 # <a name="traffic-manager-traffic-view"></a>Visualizzazione traffico di Gestione traffico
 
@@ -36,7 +36,7 @@ Ad esempio, è possibile usare Visualizzazione traffico per comprendere quali ar
 Visualizzazione traffico fa in modo che Gestione traffico esamini le query in ingresso ricevute negli ultimi sette giorni da un profilo che ha questa funzionalità abilitata. Dalle informazioni delle query in ingresso, Visualizzazione traffico estrae l'IP di origine del resolver DNS che viene usato come rappresentazione della posizione degli utenti. Questi vengono quindi raggruppati in una granularità a livello del resolver DNS per creare aree di basi utente usando le informazioni geografiche degli indirizzi IP gestiti da Gestione traffico. Gestione traffico analizza quindi le aree di Azure a cui la query è stata indirizzata e costruisce una mappa del flusso di traffico per gli utenti da tali aree.  
 Nel passaggio successivo Gestione traffico mette in correlazione l'area della base utenti con il mapping delle aree di Azure con le tabelle di latenza della intelligence di rete che mantiene per reti di utenti finali diverse per comprendere la latenza media riscontrata dagli utenti di tali aree quando si connettono ad aree di Azure. Tutti questi calcoli vengono quindi combinati a un livello di IP del resolver DNS locale prima di essere presentati all'utente. È possibile usare le informazioni in vari modi.
 
-La frequenza di aggiornamento dei dati di visualizzazione traffico è dipende da più variabili interno del servizio. Tuttavia, i dati vengono in genere aggiornati una volta ogni 24 ore.
+La frequenza di aggiornamento dei dati di visualizzazione traffico dipende da più variabili di servizio interne. Tuttavia, i dati vengono in genere aggiornati ogni 24 ore.
 
 >[!NOTE]
 >La latenza descritta in Visualizzazione traffico è una latenza rappresentativa tra l'utente finale e le aree di Azure a cui è stato connesso e non è la latenza di ricerca DNS. Visualizzazione traffico fa una stima del massimo sforzo della latenza tra il resolver DNS locale e l'area di Azure a cui è stata indirizzata la query. Se i dati disponibili sono insufficienti, la latenza restituita sarà Null. 
@@ -68,6 +68,25 @@ Le aree di Azure in cui risiedono gli endpoint vengono indicate come punti blu n
 
 Quando si usa Visualizzazione traffico, la fatturazione viene eseguita in base al numero di punti dati usati per creare le informazioni presentate. L'unico tipo di punto dati attualmente usato corrisponde alle query ricevute dal profilo di Gestione traffico. Per altri dettagli sui prezzi, visitare la [pagina dei prezzi di Gestione Traffico](https://azure.microsoft.com/pricing/details/traffic-manager/).
 
+## <a name="faqs"></a>Domande frequenti
+
+* [Che cosa fa Visualizzazione traffico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-does-traffic-view-do)
+
+* [Come è possibile trarre vantaggio dall'utilizzo di Visualizzazione traffico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-benefit-from-using-traffic-view)
+
+* [In che modo Visualizzazione traffico diverse le metriche di Traffic Manager disponibili tramite monitoraggio di Azure?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-is-traffic-view-different-from-the-traffic-manager-metrics-available-through-azure-monitor)
+
+* [Visualizzazione traffico USA le informazioni sulla subnet del client EDNS?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-view-use-edns-client-subnet-information)
+
+* [Quanti giorni di dati Visualizzazione traffico usare?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-days-of-data-does-traffic-view-use)
+
+* [In che modo Visualizzazione traffico gestisce gli endpoint esterni?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-view-handle-external-endpoints)
+
+* [È necessario abilitare Visualizzazione traffico per ogni profilo nella sottoscrizione?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription)
+
+* [Come è possibile disattivare Visualizzazione traffico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-turn-off-traffic-view)
+
+* [Come funziona la fatturazione Visualizzazione traffico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-view-billing-work)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

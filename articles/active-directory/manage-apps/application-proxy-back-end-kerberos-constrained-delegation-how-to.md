@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi di configurazione della delega vincolata Kerberos per Application Proxy | Microsoft Docs
+title: Risolvere i problemi di configurazione della delega vincolata Kerberos per il proxy applicazione | Microsoft Docs
 description: Risolvere i problemi di configurazione della delega vincolata Kerberos per Application Proxy
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 04/23/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c758b473dcdf36456bcc3569c18849488ad14983
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 3ca50cfb8697fdbb8c71054c5a6b4d5e23792eb5
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702651"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381532"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Risolvere i problemi di configurazione della delega vincolata Kerberos per Application Proxy
 
@@ -46,7 +46,7 @@ Per questo motivo è consigliabile verificare che siano soddisfatti tutti i prer
 
 - Spesso può accadere che un server membro del dominio apra una finestra di dialogo con canale sicuro con un controller di dominio specifico. Quindi il server potrebbe passare a un'altra finestra di dialogo in qualsiasi momento. Gli host del connettore non sono quindi limitati alla comunicazione con specifici controller di dominio di siti locali.
 - Gli scenari tra domini si affidano ai riferimenti che indirizzano un host del connettore ai controller di dominio che possono trovarsi all'esterno del perimetro della rete locale. In questi casi, è altrettanto importante consentire il traffico verso i controller di dominio che rappresentano altri rispettivi domini. In caso contrario, la delega avrà esito negativo.
-- Dove possibile, evitare di inserire eventuali dispositivi attivi IPS o IDS tra gli host del connettore e i controller di dominio, Questi dispositivi sono a volte troppo invadente e interferiscano con il traffico RPC core.
+- Dove possibile, evitare di inserire eventuali dispositivi attivi IPS o IDS tra gli host del connettore e i controller di dominio, Questi dispositivi sono talvolta troppo intrusivi e interferiscono con il traffico RPC di base.
 
 È consigliabile testare la delega negli scenari più semplici. Il numero di variabili introdotte è infatti direttamente proporzionale ai problemi da risolvere. Ad esempio, limitare i test a un singolo connettore permette di risparmiare tempo prezioso e, dopo aver risolto i problemi, sarà possibile aggiungere altri connettori.
 
@@ -129,7 +129,7 @@ Il consumer del ticket Kerberos fornito dal connettore. In questa fase si preved
 
      *Microsoft AAD Application Proxy Connector non riesce ad autenticare l'utente perché il server back-end risponde ai tentativi di autenticazione Kerberos con un errore HTTP 401.*
 
-      ![Mostra HTTP 401 non consentito di errore](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic8.png)
+      ![Mostra l'errore HTTTP 401 Forbidden](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic8.png)
 
    - Controllare l'applicazione IIS. Verificare che il pool di applicazioni sia configurato per l'uso dello stesso account con cui è stato configurato il nome dell'entità servizio in Azure AD. Passare a IIS come mostrato nella figura seguente.
 
@@ -165,8 +165,8 @@ Se il problema persiste, contattare il supporto tecnico Microsoft creando un tic
 
 ## <a name="other-scenarios"></a>Altri scenari
 
-- Il proxy dell'applicazione Azure richiede un ticket Kerberos prima dell'invio della richiesta a un'applicazione. Alcune applicazioni di terze parti non piace questo metodo di autenticazione. preferendo l'approccio più tradizionale delle negoziazioni. La prima richiesta è anonima, consentendo all'applicazione di rispondere con i tipi di autenticazione supportati tramite un codice 401.
-- L'autenticazione multihop viene generalmente usata negli scenari con applicazioni a livelli, con un back-end e un front-end che richiedono l'autenticazione, ad esempio SQL Server Reporting Services. Per configurare lo scenario di multi-hop, vedere l'articolo del supporto tecnico [vincolata delega potrebbe richiedere transizione al protocollo Kerberos in scenari multi-hop](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
+- Il proxy dell'applicazione Azure richiede un ticket Kerberos prima dell'invio della richiesta a un'applicazione. Alcune applicazioni di terze parti non sono simili a questo metodo di autenticazione. preferendo l'approccio più tradizionale delle negoziazioni. La prima richiesta è anonima, consentendo all'applicazione di rispondere con i tipi di autenticazione supportati tramite un codice 401.
+- L'autenticazione multihop viene generalmente usata negli scenari con applicazioni a livelli, con un back-end e un front-end che richiedono l'autenticazione, ad esempio SQL Server Reporting Services. Per configurare lo scenario a più hop, vedere l'articolo del supporto per la [delega vincolata Kerberos può richiedere la transizione del protocollo negli scenari con più hop](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

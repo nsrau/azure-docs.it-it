@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e5e7ae02cfdc921d593d204151ac501c8c8ee80
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ROBOTS: NOINDEX
+ms.openlocfilehash: fb2c49d6436a14e9b6cbb0a92eb0dfba077c8e4d
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807666"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424252"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Scelta del tipo di applicazione al momento dell'aggiunta di un'applicazione in Azure Active Directory
 
@@ -42,7 +43,7 @@ Azure AD supporta quattro principali tipi di applicazione che è possibile aggiu
 
 Le funzionalità seguenti sono supportate dai quattro tipi di applicazione indicati in precedenza in Azure AD:
 
-- **Avvio rapido**: consente l'uso rapido di un'applicazione tramite una [semplice procedura di distribuzione](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications-getting-started)
+- **Guida introduttiva** : iniziare a usare rapidamente un'applicazione seguendo [semplici passaggi di distribuzione](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications-getting-started)
 
 - **Gestione generale delle proprietà**: consente di ottenere un [collegamento diretto](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) a un'applicazione, [la personalizzazione del marchio](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-change-app-logo-user-azure-portal) di un'applicazione o di [disabilitare l'applicazione](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) per tutti gli utenti.
 
@@ -62,7 +63,7 @@ Le funzionalità seguenti sono supportate dai quattro tipi di applicazione indic
 
 La tabella seguente descrive le modalità Single Sign-On e di provisioning supportate da ognuno dei tipi di applicazione precedenti. È possibile usare questa tabella per comprendere quale applicazione è necessario aggiungere per supportare un obiettivo specifico.
 
-  ![Tabella: SSO e modalità supportate da ogni tipo di app di provisioning diversi](./media/choose-application-type/table1.png)
+  ![Tabella: Modalità di provisioning e SSO diverse supportate da ogni tipo di app](./media/choose-application-type/table1.png)
 
 ## <a name="how-to-choose-a-single-sign-on-mode"></a>Come scegliere una modalità Single Sign-On
 
@@ -105,7 +106,7 @@ Leggere [Guida per gli sviluppatori di Azure Active Directory](https://docs.micr
 
 ## <a name="how-to-set-an-applications-single-sign-on-mode"></a>Come impostare la modalità Single Sign-On di un'applicazione
 
-Per impostare la modalità di un'applicazione single sign-on, seguire queste istruzioni:
+Per impostare la modalità Single Sign-on di un'applicazione, seguire queste istruzioni:
 
 1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
 1. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
