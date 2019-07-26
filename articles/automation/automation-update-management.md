@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0c94e10a6f44a99c31e30c8f7df54e9441ce7a18
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
-ms.translationtype: MT
+ms.openlocfilehash: 82d5775f0b99e3f55a70399f15894589b769d887
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311751"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381553"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
@@ -54,7 +54,7 @@ La soluzione genera report sullo stato di aggiornamento del computer in base all
 
 È possibile distribuire e installare gli aggiornamenti software nei computer che richiedono gli aggiornamenti creando una distribuzione pianificata. Gli aggiornamenti classificati come *facoltativi* non sono inclusi nell'ambito della distribuzione per i computer Windows. Nell'ambito della distribuzione vengono inclusi solo gli aggiornamenti obbligatori.
 
-La distribuzione pianificata definisce quali computer di destinazione ricevono gli aggiornamenti applicabili, specificando in modo esplicito i computer o selezionando un [gruppo di computer](../azure-monitor/platform/computer-groups.md) basato sulle ricerche log di un determinato set di computer o su una [query di Azure](#azure-machines) che seleziona dinamicamente le VM di Azure in base ai criteri specificati. Questi gruppi sono diversi dalla [configurazione dell'ambito](../azure-monitor/insights/solution-targeting.md), che viene usata solo per determinare quali computer ottengono i Management Pack che abilitano la soluzione. 
+La distribuzione pianificata definisce quali computer di destinazione ricevono gli aggiornamenti applicabili, specificando in modo esplicito i computer o selezionando un [gruppo di computer](../azure-monitor/platform/computer-groups.md) basato sulle ricerche log di un determinato set di computer o su una [query di Azure](#azure-machines) che seleziona dinamicamente le VM di Azure in base ai criteri specificati. Questi gruppi sono diversi dalla [configurazione dell'ambito](../azure-monitor/insights/solution-targeting.md), che viene usata solo per determinare quali computer ottengono i Management Pack che abilitano la soluzione.
 
 Si specifica anche una pianificazione per approvare e impostare un periodo di tempo durante il quale è possibile installare gli aggiornamenti. Questo periodo di tempo viene chiamato finestra di manutenzione. Dieci minuti della finestra di manutenzione sono riservati ai riavvii se è necessario un riavvio ed è stata selezionata l'opzione di riavvio appropriato. Se l'applicazione di patch richiede più tempo del previsto e la finestra di manutenzione è inferiore a dieci minuti, non si verificherà un riavvio.
 
@@ -78,6 +78,9 @@ La tabella seguente elenca i sistemi operativi supportati:
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
 |Ubuntu 14.04 LTS, 16.04 LTS e 18.04 LTS (x86/x64)      |Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.         |
+
+> [!NOTE]
+> I set di scalabilità di macchine virtuali di Azure possono essere gestiti con Gestione aggiornamenti. Gestione aggiornamenti funziona sulle istanze stesse e non sull'immagine di base. È necessario pianificare gli aggiornamenti in modo incrementale, perché non aggiornare tutte le istanze di macchina virtuale in una sola volta.
 
 ### <a name="unsupported-client-types"></a>Tipi di client non supportati
 
@@ -140,7 +143,7 @@ Per avviare l'applicazione di patch ai sistemi, è necessario abilitare la soluz
 * [Dall'esplorazione di più computer](automation-onboard-solutions-from-browse.md)
 * [Dall'account di Automazione](automation-onboard-solutions-from-automation-account.md)
 * [Con un runbook di Automazione di Azure](automation-onboard-solutions.md)
-  
+
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Verificare l'onboarding di computer non di Azure
 
 Per verificare che i computer connessi direttamente comunicano con i log di monitoraggio di Azure, dopo alcuni minuti è possibile eseguire una delle ricerche nei log seguenti.

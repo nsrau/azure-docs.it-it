@@ -12,12 +12,12 @@ ms.author: rohitna
 ms.reviewer: carlrab, vanto
 manager: craigg
 ms.date: 07/02/2019
-ms.openlocfilehash: 951481a7dd7d7a9cfd8c88f2cd8bbcaaec4df685
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 9dfc22be45b68ba4ff59d88810435db35bafc8b6
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320633"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494960"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architettura della connettività di SQL di Azure
 
@@ -72,12 +72,12 @@ In futuro verranno aggiunti altri gateway in ogni area e i gateway verranno riti
 | Canada centrale       | 40.85.224.249      |                 | |
 | Canada orientale          | 40.86.226.166      |                 | |
 | Stati Uniti centrali           | 13.67.215.62, 52.182.137.15 | 23.99.160.139 | Nessuna connessione dopo il 1 ° settembre 2019 |
-| Cina orientale 1         | 139.219.130.35     |                 | |
+| Cina orientale           | 139.219.130.35     |                 | |
 | Cina orientale 2         | 40.73.82.1         |                 | |
-| Cina settentrionale 1        | 139.219.15.17      |                 | |
+| Cina settentrionale          | 139.219.15.17      |                 | |
 | Cina settentrionale 2        | 40.73.50.0         |                 | |
 | Asia orientale            | 191.234.2.139, 52.175.33.150 |       | |
-| Stati Uniti orientali 1            | 40.121.158.30, 40.79.153.12 | 191.238.6.43 | Nessuna connessione dopo il 1 ° settembre 2019 |
+| East US              | 40.121.158.30, 40.79.153.12 | 191.238.6.43 | Nessuna connessione dopo il 1 ° settembre 2019 |
 | Stati Uniti orientali 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0 | 191.239.224.107    | Nessuna connessione dopo il 1 ° settembre 2019 |
 | Francia centrale       | 40.79.137.0, 40.79.129.1 |           | |
 | Germania centrale      | 51.4.144.100       |                 | |
@@ -100,8 +100,8 @@ In futuro verranno aggiunti altri gateway in ogni area e i gateway verranno riti
 | Regno Unito meridionale             | 51.140.184.11      |                 | |
 | Regno Unito occidentale              | 51.141.8.11        |                 | |
 | Stati Uniti centro-occidentali      | 13.78.145.25       |                 | |
-| Europa occidentale          | 191.237.232.75, 40.68.37.158 |       | |
-| Stati Uniti occidentali 1            | 23.99.34.75, 104.42.238.205 |        | |
+| Europa occidentale          | 40.68.37.158       | 191.237.232.75  | Nessuna connessione dopo il 1 ° settembre 2019 |
+| Stati Uniti occidentali              | 104.42.238.205     | 23.99.34.75     | Nessuna connessione dopo il 1 ° settembre 2019 |
 | Stati Uniti occidentali 2            | 13.66.226.202      |                 | |
 |                      |                    |                 | |
 

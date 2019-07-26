@@ -1,80 +1,101 @@
 ---
-title: Integrazioni partner del Desktop virtuale Windows - Azure
-description: Informazioni sui partner del Desktop virtuale Windows e accedere alla documentazione su come integrare con essi.
+title: Integrazioni di partner desktop virtuali Windows-Azure
+description: Informazioni sui partner del desktop virtuale di Windows e sull'accesso alla documentazione su come integrarli.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: eb433b8781a72943c059754d0b3acff00a603506
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 6fe2e63138ce9e0f4e8980e4f37330228ac2bdb6
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67811310"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68369512"
 ---
-# <a name="windows-virtual-desktop-partner-integrations"></a>Integrazioni partner del Desktop virtuale Windows
+# <a name="windows-virtual-desktop-partner-integrations"></a>Integrazioni di partner desktop virtuali Windows
 
-Questo articolo elenca i partner del Desktop virtuale Windows in ordine alfabetico.
+Questo articolo elenca i partner del desktop virtuale di Windows in ordine alfabetico.
 
-## <a name="active-cypher"></a>Pacchetti di crittografia attivo
+## <a name="active-cypher"></a>Cypher attivo
 
-Pacchetti di crittografia attivo è un provider di servizi a valore aggiunto di Desktop virtuale Windows che rende disponibile con la tecnologia di crittografia per proteggere l'azienda dalla perdita di dati e di violazioni della sicurezza IT. Con Cypher attivo, la tecnologia di crittografia innovative supporta la strategia di protezione file complessivo per l'esecuzione di Desktop virtuale Windows in Azure.
+![Logo di crittografia attivo](./media/partners/active-cypher.png)
 
-Se usato con Windows Desktop virtuale, Cypher attiva fornisce funzionalità aggiuntive per consentire l'accessibilità e mobilità dei dati utente, impedendo la perdita accidentale dei dati. Con Cypher attivi, i criteri di sicurezza di gruppo esistenti e le autorizzazioni in Azure Information Protection possono essere usate per crittografare i file utente durante l'utilizzo di Desktop virtuale Windows.
+Active Cypher è un provider di servizi a valore aggiunto per desktop virtuale di Windows che lo dota di tecnologia di crittografia per aiutare a proteggere l'organizzazione da violazioni e perdite di dati. Con la crittografia attiva, la tecnologia di crittografia innovativa supporta la strategia di protezione file complessiva per l'esecuzione di desktop virtuali Windows in Azure.
 
-[Vai al sito Web di partner.](https://activecypher.com/)
+Se usato con desktop virtuale Windows, il Cypher attivo fornisce funzionalità aggiuntive per consentire l'accessibilità e la mobilità dei dati degli utenti, impedendo la perdita accidentale di dati. Con il Cypher attivo, i criteri di sicurezza del gruppo e le autorizzazioni esistenti in Azure Information Protection possono essere sfruttati per crittografare i file utente quando si usa desktop virtuale di Windows.
+
+- [Vedere la breve soluzione congiunta.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oNLu)
+- [Accedere al sito Web del partner.](https://activecypher.com/)
 
 ## <a name="cloudjumper"></a>CloudJumper
 
-CloudJumper è un provider di servizi a valore aggiunto di Desktop virtuale Windows che rende disponibile i provider di soluzioni e IT aziendale con il software olistico effettuare il provisioning e gestire gli ambienti Desktop virtuale Windows. Con il software CloudJumper, reparto IT può gestire tutti i livelli di una distribuzione di Desktop virtuale Windows. Distribuzione di applicazioni e carichi di lavoro automatizzato, assicurando che gli utenti possono accedere rapidamente i desktop ovunque in qualsiasi dispositivo.
+![Logo di CloudJumper](./media/partners/cloudjumper.png)
 
-Software di CloudJumper, dell'area di lavoro di Cloud Management Suite estende il valore di Desktop virtuale Windows mediante la semplificazione di distribuzione e le attività di amministrazione in corso in Azure. Da un'unica console, reparto IT può eseguire il provisioning, gestire e ottimizzare l'infrastruttura per le aree di lavoro utente. Semplice attivare motore del CloudJumper di Script si integra con piattaforme di servizi IT di automatizzare le attività coinvolte nel provisioning di Windows Desktop virtuale. Inoltre, CloudJumper APIs consentono ulteriore estendibilità e integrazione con altri sistemi aziendali, ad esempio ServiceNow e BMC pronto.
+CloudJumper è un provider di servizi a valore aggiunto per desktop virtuale di Windows che fornisce a provider di soluzioni e IT aziendale un software per il provisioning olistico e la gestione di ambienti desktop virtuali Windows. Con il software CloudJumper, può gestire ogni livello di una distribuzione di desktop virtuali Windows. Il recapito dei carichi di lavoro e delle applicazioni è automatizzato, garantendo che gli utenti possano accedere rapidamente al desktop ovunque si trovino su qualsiasi dispositivo.
 
-[Vai al sito Web di partner.](https://cloudjumper.com/wvd/)
+Il software di CloudJumper, la suite di gestione delle aree di lavoro cloud estende il valore del desktop virtuale Windows semplificando la distribuzione e le attività amministrative in corso in Azure. Da un unico riquadro, può effettuare il provisioning, la gestione e l'ottimizzazione dell'infrastruttura per le aree di lavoro degli utenti. Il motore di attivazione semplice dello script di CloudJumper si integra con le piattaforme del servizio IT per automatizzare le attività necessarie per il provisioning di desktop virtuali Windows. Inoltre, le API CloudJumper consentono una maggiore estendibilità e integrazione con altri sistemi aziendali, ad esempio ServiceNow e BMC Ready.
 
-## <a name="lakeside-software"></a>Lakeside Software
+- [Vedere la breve soluzione congiunta.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mg)
+- [Accedere al sito Web del partner.](https://cloudjumper.com/wvd/)
 
-Lakeside Software è un provider di servizi a valore aggiunto di Desktop virtuale Windows che rende disponibile i team IT con il software per il monitoraggio delle prestazioni e valutare l'idoneità della migrazione dei carichi di lavoro utente. Con questo software, i miglioramenti IT più chiara visibilità applicazione sull'utilizzo e consumo delle risorse per semplificare il processo di migrazione. Software Lakeside raccoglie i dati in ogni area di lavoro per creare un report completo in ambienti di utente, abilitando la rapida risoluzione e ottimizzazione degli asset.
+## <a name="lakeside-software"></a>Software Lakeside
 
-Esperienza digitale del Software Lakeside SysTrack, soluzione di monitoraggio consente di garantire un'esperienza utente eccezionale per tenere traccia delle prestazioni e identificare i carichi di lavoro ideali per la migrazione. SysTrack lavora per estendere il valore di Desktop virtuale Windows tramite corretto dimensionamento delle valutazioni e monitoraggio continuo di ambienti per gli utenti.
+![Logo del software Lakeside](./media/partners/lakeside.png)
 
-[Vai al sito Web di partner.](https://www.lakesidesoftware.com/assessments/wvd)
+Lakeside software è un provider di servizi a valore aggiunto per desktop virtuale di Windows che fornisce ai team IT il software per il monitoraggio delle prestazioni e la valutazione della disponibilità della migrazione di Azure per i carichi di lavoro degli utenti. Con questo software, ottiene una visibilità più chiara sull'utilizzo delle applicazioni e sull'utilizzo delle risorse per semplificare il processo di migrazione. Il software Lakeside raccoglie i dati in ogni area di lavoro per creare un report completo sugli ambienti utente, consentendo una rapida risoluzione dei problemi e l'ottimizzazione delle risorse.
+
+La soluzione di monitoraggio dell'esperienza digitale del software Lakeside, SysTrack, può aiutare a offrire un'esperienza utente ottimale monitorando le prestazioni e identificando i carichi di lavoro ideali per la migrazione. SysTrack funziona per estendere il valore del desktop virtuale di Windows tramite valutazioni di dimensionamento corretto e monitoraggio continuo degli ambienti utente.
+
+- [Vedere la breve soluzione congiunta.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8Q)
+- [Accedere al sito Web del partner.](https://www.lakesidesoftware.com/assessments/wvd)
 
 ## <a name="liquidware"></a>Liquidware
 
-Liquidware è un provider di servizi a valore aggiunto di Desktop virtuale Windows che offre software che gestisce e ottimizza la distribuzione di Desktop virtuale Windows. La suite Liquidware Essentials offre recapito dell'applicazione tramite diagnostica e dei livelli, gestione dell'ambiente utente e la visibilità di esperienza utente principali. Con le soluzioni per valutare la preparazione della migrazione e analizzare le metriche di utilizzo, Liquidware garantisce un'esperienza di desktop virtuale per gli utenti finali.
+![Logo di Liquidware](./media/partners/liquidware.png)
 
-Liquidware Essentials estende il valore di Desktop virtuale Windows mediante la raccolta di profili utente e la raccolta dei dati chiave dell'utente per semplificare la migrazione di ambienti utente in Azure in modo efficiente. Inoltre, Liquidware Essentials semplifica la gestione di immagini, unificando i profili utente e le app dei livelli in base ai diritti configurabili le impostazioni di gestione.
+Liquidware è un provider di servizi a valore aggiunto per desktop virtuale di Windows che offre software che gestisce e ottimizza la distribuzione di desktop virtuali Windows. Liquidware Essentials Suite fornisce la distribuzione delle applicazioni tramite la gestione dei livelli, dell'ambiente utente e la visibilità e la diagnostica dell'esperienza utente chiave. Con soluzioni per la valutazione della conformità della migrazione e l'analisi delle metriche di utilizzo, Liquidware offre un'esperienza desktop virtuale semplice per gli utenti finali.
 
-[Vai al sito Web di partner.](https://www.liquidware.com/solutions/solutions-platform/microsoft)
+Liquidware Essentials estende il valore del desktop virtuale di Windows grazie alla raccolta efficiente di profili utente e alla raccolta di dati utente chiave per semplificare la migrazione degli ambienti utente in Azure. Inoltre, Liquidware Essentials semplifica la gestione delle immagini unificando i profili utente e le app a livelli in base alle impostazioni configurabili di Rights Management.
+
+- [Vedere la breve soluzione congiunta.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oSY1)
+- [Accedere al sito Web del partner.](https://www.liquidware.com/solutions/solutions-platform/microsoft)
 
 ## <a name="nerdio"></a>Nerdio
 
-Nerdio; è una piattaforma di automazione IT di Azure che rende più semplice distribuire e gestire Desktop virtuali di Windows. Nerdio; fornisce le conoscenze e tecnologie per distribuire, prezzo, creare un pacchetto, gestire e ottimizzare le distribuzioni di Azure dei clienti, ovvero con il Desktop virtuale Windows front-e-centro.
+![Logo di Nerdio](./media/partners/nerdio.png)
 
-Nerdio estende il valore di Desktop virtuale Windows in modo semplice eseguire il provisioning delle risorse di Azure e semplificare la distribuzione. Con nerdio; per Azure, ma può automaticamente a distribuire e gestire un ambiente di Azure completo, tra cui Windows Desktop virtuale, in meno di due ore.
+Nerdio è una piattaforma di automazione IT di Azure che semplifica la distribuzione e la gestione di desktop virtuali Windows. Nerdio fornisce le informazioni e la tecnologia per distribuire, prezzare, creare pacchetti, gestire e ottimizzare le distribuzioni di Azure dei clienti, con i desktop virtuali Windows front-and-Center.
 
-[Vai al sito Web di partner.](https://getnerdio.com/academy/windows-virtual-desktop-explained-for-msps/)
+Nerdio estende il valore di desktop virtuale di Windows facilitando il provisioning delle risorse di Azure e semplificando la distribuzione. Con Nerdio per Azure, è in grado di distribuire e gestire automaticamente un ambiente Azure completo, incluso il desktop virtuale di Windows, in meno di due ore.
+
+- [Vedere la breve soluzione congiunta.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh)
+- [Accedere al sito Web del partner.](https://getnerdio.com/academy/windows-virtual-desktop-explained-for-msps/)
 
 ## <a name="thinprint"></a>ThinPrint
 
-ThinPrint è un provider di servizi a valore aggiunto di Desktop virtuale Windows che offre cloud semplice e sicuro stampa da Desktop virtuale Windows. Con i servizi e software, infrastruttura di stampa esistente può essere utilizzato per stampare documenti dal cloud. ThinPrint Abilita connessione locali e stampanti di rete, rendendo più semplice per gli utenti di stampare in ufficio o funziona in modalità remota.
+![Logo di ThinPrint](./media/partners/thinprint.png)
 
-Soluzione ezeep del ThinPrint estensione del valore di Desktop virtuale Windows, consentendo la connessione all'infrastruttura di stampa aziendale esistente. ezeep offre agli utenti di controllo sulla stampa aziendali ovunque si trovino. Usa ezeep, gli utenti possono colmare il divario tra Windows Desktop virtuale e all'hardware di stampa.
+ThinPrint è un provider di servizi a valore aggiunto per desktop virtuale di Windows che offre una stampa cloud semplice e sicura da desktop virtuale di Windows. Con i servizi e il software, l'infrastruttura di stampa esistente può essere usata per stampare documenti dal cloud. ThinPrint consente la connessione alle stampanti locali e di rete, semplificando la stampa da parte degli utenti in ufficio o lavorando in remoto.
 
-[Vai al sito Web di partner.](http://www.ezeep.com/wvd-printing)
+La soluzione ezeep di ThinPrint estende il valore del desktop virtuale di Windows abilitando la connessione all'infrastruttura di stampa aziendale esistente. ezeep offre agli utenti il controllo sulla stampa in azienda, indipendentemente dalla loro posizione. Utilizzando ezeep, gli utenti possono colmare il gap tra desktop virtuale Windows e hardware di stampa.
+
+- [Vedere la breve soluzione congiunta.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oYas)
+- [Vai al sito Web del partner.](http://www.ezeep.com/wvd-printing)
 
 ## <a name="workspot"></a>Workspot
 
-Workspot è un provider di servizi a valore aggiunto di Desktop virtuale Windows che fornisce alle aziende di fronteggiare desktop ad alte prestazioni e le workstation in Azure. Con Workspot, il provisioning dell'infrastruttura viene automatizzato, ovvero gli utenti possono accedere proprio ambiente Desktop virtuale Windows da qualsiasi posizione tutto il mondo con la disponibilità elevata.
+![Logo di WORKSPOT](./media/partners/workspot.png)
 
-Workspot estende il valore di Desktop virtuale Windows, semplificando il processo di provisioning dell'infrastruttura desktop basata su cloud. Con Workspot, le risorse possono essere facilmente ridimensionate su e giù per soddisfare le esigenze di diversi casi di utenti e viene utilizzato. Workspot può ottimizzare le distribuzioni per le workstation GPU ad alte prestazioni necessarie per CAD e gli utenti tecnici, nonché applicazioni di Windows e App desktop di Windows 10 per tutti gli utenti di business.
+WORKSPOT è un provider di servizi a valore aggiunto per desktop virtuale di Windows che fornisce le aziende con desktop e workstation ad alte prestazioni in Azure. Con WORKSPOT, il provisioning dell'infrastruttura è automatizzato, il che significa che gli utenti possono accedere al proprio ambiente di desktop virtuale Windows da qualsiasi parte del mondo con disponibilità elevata.
 
-[Vai al sito Web di partner.](https://www.workspot.com/wvd)
+WORKSPOT estende il valore del desktop virtuale Windows semplificando il processo di provisioning dell'infrastruttura desktop cloud. Con WORKSPOT, le risorse possono essere facilmente aumentate e ridotte per soddisfare le esigenze di utenti e casi di utilizzo diversi. WORKSPOT è in grado di ottimizzare le distribuzioni per le workstation GPU a prestazioni elevate necessarie per gli utenti di progettazione e CAD, nonché le applicazioni Windows e i desktop Windows 10 per tutti gli utenti aziendali.
+
+- [Vedere la breve soluzione congiunta.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8P)
+- [Vai al sito Web del partner.](https://www.workspot.com/wvd)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Altre informazioni su Windows Desktop virtuale](overview.md)
-- [Creare un tenant in Desktop virtuale Windows](tenant-setup-azure-active-directory.md)
+- [Ulteriori informazioni su desktop virtuale di Windows.](overview.md)
+- [Creare un tenant nel desktop virtuale di Windows.](tenant-setup-azure-active-directory.md)

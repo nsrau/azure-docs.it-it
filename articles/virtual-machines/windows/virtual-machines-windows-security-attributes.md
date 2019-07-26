@@ -1,6 +1,6 @@
 ---
-title: Attributi di sicurezza per macchine virtuali Windows di Azure
-description: Un elenco di controllo di attributi di sicurezza comuni per la valutazione delle macchine virtuali di Windows Azure
+title: Attributi di sicurezza per Azure macchine virtuali Windows
+description: Elenco di controllo degli attributi di sicurezza per la valutazione di Azure macchine virtuali Windows
 services: virtual-machines
 ms.service: virtual-machines
 documentationcenter: ''
@@ -9,16 +9,16 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0c13ca0f383db53d14847f72f1ea63166f763d94
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 1aabdbf24725ae0986feb1f9652e13e806df8fdf
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67800263"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444315"
 ---
-# <a name="security-attributes-for-windows-virtual-machines"></a>Attributi di sicurezza per le macchine virtuali di Windows
+# <a name="security-attributes-for-windows-virtual-machines"></a>Attributi di sicurezza per macchine virtuali Windows
 
-Questo articolo sono descritti gli attributi di sicurezza creati in macchine virtuali di Windows.
+Questo articolo descrive gli attributi di sicurezza incorporati in macchine virtuali Windows.
 
 [!INCLUDE [Security attributes header](../../../includes/security-attributes-header.md)]
 

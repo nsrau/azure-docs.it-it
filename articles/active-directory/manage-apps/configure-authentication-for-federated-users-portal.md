@@ -1,6 +1,6 @@
 ---
-title: Configurare l'accelerazione automatica dell'accesso usando criteri di individuazione dell'area di autenticazione principale | Microsoft Docs
-description: Informazioni su come configurare i criteri Home Realm Discovery per l'autenticazione di Azure Active Directory per gli utenti federati, inclusi gli hint di dominio e l'accelerazione automatica.
+title: Configurare l'accelerazione automatica dell'accesso usando i criteri di individuazione dell'area di autenticazione principale | Microsoft Docs
+description: Informazioni su come configurare i criteri di individuazione dell'area di autenticazione principale per l'autenticazione Azure Active Directory per gli utenti federati, inclusi l'accelerazione automatica e gli hint di dominio.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -15,16 +15,16 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0534037393f4634364b927020595aa21d8e1b7b3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8f8f51fcd69a7115879aad97bbf696833e87877b
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67440361"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477212"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurare i comportamenti delle informazioni di accesso di Azure Active Directory per un'applicazione usando criteri di individuazione dell'area di autenticazione principale
 
-Questo articolo fornisce un'introduzione alla configurazione del comportamento di autenticazione di Azure Active Directory per gli utenti federati. Viene illustrata la configurazione delle restrizioni di accelerazione automatica e di autenticazione per gli utenti di domini federati.
+Questo articolo fornisce un'introduzione alla configurazione di Azure Active Directory comportamento di autenticazione per gli utenti federati. Viene illustrata la configurazione delle restrizioni di accelerazione automatica e di autenticazione per gli utenti di domini federati.
 
 ## <a name="home-realm-discovery"></a>Individuazione dell'area di autenticazione principale
 L'individuazione dell'area di autenticazione principale (HRD) è il processo che consente ad Azure Active Directory (Azure AD) di determinare, al momento dell'accesso, dove deve eseguire l'autenticazione l'utente.  Quando un utente effettua l'accesso a un tenant di Azure AD per accedere a una risorsa, o nella pagina di accesso comune di Azure AD, l'utente digita un nome utente (UPN). Azure AD lo usa per individuare dove l'utente deve effettuare l'accesso. 
@@ -211,7 +211,7 @@ Per eseguire i criteri HRD dopo la rispettiva creazione, è possibile assegnarli
 
 È possibile usare il portale oppure è possibile eseguire una query [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Per visualizzare tutte le entità servizio dell'organizzazione, è inoltre possibile passare allo [strumento Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) e accedere all'account Azure AD. 
 
-Perché si sta usando PowerShell, è possibile usare il cmdlet seguente per elencare le entità servizio e i relativi ID.
+Poiché si usa PowerShell, è possibile usare il cmdlet seguente per elencare le entità servizio e i relativi ID.
 
 ``` powershell
 Get-AzureADServicePrincipal
@@ -270,5 +270,5 @@ Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 ## <a name="next-steps"></a>Passaggi successivi
 - Per altre informazioni sul funzionamento dell'autenticazione in Azure AD, vedere [Scenari di autenticazione per Azure AD](../develop/authentication-scenarios.md).
-- Per altre informazioni sul Single Sign-On per l'utente, consultare [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](configure-single-sign-on-portal.md).
+- Per ulteriori informazioni su Single Sign-on utente, vedere [Single Sign-on to Applications in Azure Active Directory](what-is-single-sign-on.md).
 - Per una panoramica di tutti i contenuti correlati allo sviluppo, vedere la [Guida per gli sviluppatori di Active Directory](../develop/v1-overview.md).

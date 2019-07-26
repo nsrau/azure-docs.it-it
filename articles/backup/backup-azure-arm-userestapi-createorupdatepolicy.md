@@ -1,7 +1,6 @@
 ---
-title: "Backup di Azure: Creare i criteri di backup usando l'API REST"
+title: "Backup di Azure: Creare criteri di backup usando l'API REST"
 description: Gestire i criteri di backup (pianificazione e conservazione) usando l'API REST
-services: backup
 author: pvrk
 manager: shivamg
 keywords: API REST, backup di macchine virtuali di Azure, ripristino di macchine virtuali di Azure;
@@ -10,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: 657a777da0e984a145c1c617a6194bf4ef56306e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f0729a49c3dc72a28431d711e6783abda96d2ce3
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648806"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466828"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Creare criteri di backup di Servizi di ripristino di Azure usando l'API REST
 
@@ -30,8 +29,8 @@ I passaggi per creare un criterio di backup per un insieme di credenziali di Ser
   - Condivisione file di Azure
 - Un criterio può essere assegnato a più risorse. Un criterio di backup di macchine virtuali di Azure può essere usato per proteggere più macchine virtuali di Azure.
 - Un criterio è costituito da due componenti
-  - Programma: Quando effettuare il backup
-  - detenzione: Per quanto tempo ogni backup deve essere conservato.
+  - Pianificazione Quando eseguire il backup
+  - Conservazione Per quanto tempo devono essere conservati i backup.
 - La pianificazione può essere "giornaliera" o "settimanale" rispetto a uno specifico punto temporale.
 - La conservazione può essere definita per punti di backup "giornalieri", "settimanali", "mensili" e "annuali".
 - "Settimanale" si riferisce a un backup eseguito in un determinato giorno della settimana, "mensile" indica un backup eseguito in un determinato giorno del mese e "annuale" fa riferimento a un backup eseguito in un determinato giorno dell'anno.
@@ -50,7 +49,7 @@ I parametri `{policyName}` e `{vaultName}` vengono forniti nell'URI. Informazion
 
 Ad esempio, per creare un criterio per il backup di macchine virtuali di Azure, sono disponibili i componenti del corpo della richiesta indicati di seguito.
 
-|Name  |Obbligatorio  |Type  |Descrizione  |
+|Name  |Obbligatoria  |Type  |DESCRIZIONE  |
 |---------|---------|---------|---------|
 |properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Proprietà ProtectionPolicyResource        |
 |tags     |         | Object        |  Tag delle risorse       |
@@ -161,7 +160,7 @@ L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'al
 |NOME  |Type  |Descrizione  |
 |---------|---------|---------|
 |200 - OK     |    [ProtectionPolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
-|202 - Accettato     |         |     Accepted    |
+|202 - Accettato     |         |     Accettato    |
 
 ### <a name="example-responses"></a>Risposte di esempio
 

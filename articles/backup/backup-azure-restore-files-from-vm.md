@@ -1,7 +1,6 @@
 ---
 title: 'Backup di Azure: Ripristinare file e cartelle da un backup di macchine virtuali di Azure'
 description: Ripristinare i file da un punto di ripristino della macchina virtuale di Azure
-services: backup
 author: pvrk
 manager: shivamg
 keywords: ripristino a livello di elemento; ripristino di file da un backup di VM di Azure; ripristinare file da VM di Azure
@@ -9,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 3/01/2019
 ms.author: pullabhk
-ms.openlocfilehash: 22ada6f9bb614bdc3698c58c6aa8ec3dd5def868
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 678b187eb49c84b5b4cf17fe063d21d09b333434
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60240220"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465656"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -67,16 +66,16 @@ Per ripristinare file o cartelle dal punto di recupero, passare alla macchina vi
 
     - download.microsoft.com
     - URL di servizi di ripristino (il nome geografico si riferisce all'area in cui si trova l'insieme di credenziali di servizi di ripristino)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.com (aree geografiche pubbliche di Azure)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn (per Azure Cina)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.us (per Azure governo degli Stati Uniti)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.de (per Azure Germania)
+        - https:\//pod01-rec2.Geo-Name.backup.WindowsAzure.com (per GEOS pubblico di Azure)
+        - https:\//pod01-rec2.Geo-Name.backup.WindowsAzure.cn (per Azure Cina)
+        - https:\//pod01-rec2.Geo-Name.backup.WindowsAzure.US (per il governo degli Stati Uniti di Azure)
+        - https:\//pod01-rec2.Geo-Name.backup.WindowsAzure.de (per Azure Germania)
     - porta in uscita 3260
 
 > [!Note]
 > 
-> * Il nome del file scaricato lo script avrà la **geo-name** deve essere compilato nell'URL. Per esempio: Il nome dello script scaricato inizia con \'VMname\'\_\'geoname\'_\'GUID\', ad esempio ContosoVM_wcus_12345678...<br><br>
-> * The URL would be "https:\//pod01-rec2.wcus.backup.windowsazure.com"
+> * Il nome del file script scaricato avrà il **nome geografico** da compilare nell'URL. Per esempio: Il nome dello script scaricato inizia \'con\'VMName\_\'\'geoname\'_GUID\', ad esempio ContosoVM_wcus_12345678....<br><br>
+> * L'URL è "https:\//pod01-rec2.wcus.backup.WindowsAzure.com"
 
 
    Per Linux, lo script richiede i componenti "open-iscsi" e "lshw" per la connessione al punto di ripristino. Se i componenti non sono presenti nel computer in cui viene eseguito, lo script chiede l'autorizzazione per installarli. Acconsentire all'installazione dei componenti necessari.
@@ -207,8 +206,8 @@ In Linux, il sistema operativo del computer usato per ripristinare i file deve s
 | openSUSE | 42.2 e versioni successive |
 
 > [!Note]
-> Sono state trovate alcuni problemi nell'esecuzione dello script di ripristino di file nei computer con sistema operativo di SLES 12 SP4. Esaminando con il team di SLES.
-> Attualmente, in esecuzione lo script di ripristino di file è impegnato nel computer con le versioni di SLES 12 SP2 e SP3 del sistema operativo.
+> Sono stati rilevati alcuni problemi nell'esecuzione dello script di ripristino del file nei computer con sistema operativo SLES 12 SP4. Analisi del team SLES.
+> Attualmente, l'esecuzione dello script di ripristino del file funziona sui computer con versioni del sistema operativo SLES 12 SP2 e SP3.
 >
 
 Per l'esecuzione e la connessione sicura al punto di ripristino, lo script richiede anche componenti bash e Python.
@@ -235,38 +234,38 @@ Se si verificano problemi durante il ripristino di file dalle macchine virtuali,
 
 ## <a name="security"></a>Security
 
-Questa sezione illustra le diverse misure di sicurezza impiegate per l'implementazione del ripristino di File da backup di macchine Virtuali di Azure, in modo che gli utenti siano a conoscenza degli aspetti della funzionalità di sicurezza.
+Questa sezione illustra le varie misure di sicurezza adottate per l'implementazione del ripristino di file dai backup di macchine virtuali di Azure, in modo che gli utenti siano a conoscenza degli aspetti di sicurezza della funzionalità.
 
 ### <a name="feature-flow"></a>Flusso di funzionalità
 
-Questa funzionalità è stata creata per accedere ai dati della macchina virtuale senza la necessità di ripristinare l'intera macchina virtuale o macchina virtuale i dischi e in almeno i passaggi. L'accesso ai dati della macchina virtuale è fornito da uno script (che consente di montare il volume di ripristino quando esegue come illustrato di seguito) e pertanto costituisce la base di tutte le implementazioni di sicurezza
+Questa funzionalità è stata creata per accedere ai dati della macchina virtuale senza dover ripristinare l'intera macchina virtuale o i dischi delle macchine virtuali e in passaggi minimi. L'accesso ai dati della VM viene fornito da uno script (che monta il volume di ripristino quando viene eseguito come illustrato di seguito) e quindi costituisce il fondamento di tutte le implementazioni di sicurezza.
 
-  ![Flusso di funzionalità di sicurezza](./media/backup-azure-restore-files-from-vm/vm-security-feature-flow.png)
+  ![Flusso delle funzionalità di sicurezza](./media/backup-azure-restore-files-from-vm/vm-security-feature-flow.png)
 
-### <a name="security-implementations"></a>Implementazioni di sicurezza
+### <a name="security-implementations"></a>Implementazioni della sicurezza
 
-#### <a name="select-recovery-point-who-can-generate-script"></a>Selezionare un punto di ripristino (che è possibile generare script)
+#### <a name="select-recovery-point-who-can-generate-script"></a>Seleziona punto di ripristino (che può generare lo script)
 
-Lo script fornisce l'accesso ai dati della macchina virtuale, è importante definire chi può generare in primo luogo. Uno deve eseguire l'accesso al portale di Azure e deve essere [RBAC autorizzato](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) sia in grado di generare lo script.
+Lo script fornisce l'accesso ai dati della macchina virtuale, è importante definire chi può generarlo in primo luogo. È necessario eseguire l'accesso a portale di Azure e il controllo degli accessi in base al ruolo [autorizzato](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) a generare lo script.
 
-Il ripristino di file richiede lo stesso livello di autorizzazione come richiesto per il ripristino della macchina virtuale e il ripristino di dischi. In altre parole, solo agli utenti autorizzati possa visualizzare i dati della macchina virtuale può generare lo script.
+Il ripristino del file richiede lo stesso livello di autorizzazione necessario per il ripristino delle macchine virtuali e il ripristino dei dischi. In altre parole, solo gli utenti autorizzati possono visualizzare i dati della macchina virtuale possono generare lo script.
 
-Lo script generato viene firmato con certificato Microsoft ufficiale per il servizio Backup di Azure. Eventuali manomissioni con lo script significa che la firma viene interrotta e qualsiasi tentativo di eseguire lo script è evidenziato come un potenziale rischio dal sistema operativo.
+Lo script generato è firmato con un certificato Microsoft ufficiale per il servizio backup di Azure. Eventuali manomissioni dello script indicano che la firma è interruppe e qualsiasi tentativo di eseguire lo script viene evidenziato come un potenziale rischio da parte del sistema operativo.
 
-#### <a name="mount-recovery-volume-who-can-run-script"></a>Volume di ripristino di montaggio (Specifica chi può eseguire script)
+#### <a name="mount-recovery-volume-who-can-run-script"></a>Montaggio del volume di ripristino (utente che può eseguire lo script)
 
-Solo amministratore può eseguire lo script e deve essere eseguito con privilegi elevati. Lo script solo viene eseguito un set di passi generato in precedenza e non accetta input da qualsiasi origine esterna.
+Solo l'amministratore può eseguire lo script ed eseguirlo in modalità con privilegi elevati. Lo script esegue solo un set di passaggi pregenerati e non accetta input da un'origine esterna.
 
-Per eseguire lo script, uno richiede una password che viene visualizzata solo all'utente autorizzato al momento della generazione dello script nel portale di Azure o PowerShell/CLI. Questo modo si garantisce che l'utente autorizzato che scarica lo script è anche responsabile dell'esecuzione dello script.
+Per eseguire lo script, è necessario specificare una password che viene visualizzata solo per l'utente autorizzato al momento della generazione dello script nella portale di Azure o in PowerShell/CLI. Questo consente di verificare che l'utente autorizzato che Scarica lo script sia anche responsabile dell'esecuzione dello script.
 
-#### <a name="browse-files-and-folders"></a>Esplorare i file e cartelle
+#### <a name="browse-files-and-folders"></a>Sfogliare file e cartelle
 
-Per esaminare i file e cartelle, lo script utilizza l'iniziatore iSCSI nella macchina e connettersi al punto di ripristino che è configurato come destinazione iSCSI. Qui si può presupporre gli scenari in cui uno sta tentando di ottenere un risultato/spoofing sia/tutti i componenti.
+Per esplorare file e cartelle, lo script usa l'iniziatore iSCSI nel computer e si connette al punto di ripristino configurato come destinazione iSCSI. Qui è possibile ipotizzare scenari in cui uno sta provando a imitare/falsificare o tutti i componenti.
 
-Meccanismo di autenticazione CHAP reciproca è utilizzare in modo che ogni componente autentica l'altro. Ciò significa che è estremamente difficile per un iniziatore fittizio per la connessione alla destinazione iSCSI e una destinazione fittizio per essere collegati al computer in cui viene eseguito lo script.
+Viene usato il meccanismo di autenticazione CHAP reciproca, in modo che ogni componente esegua l'autenticazione dell'altro. Ciò significa che è molto difficile per un iniziatore fasullo connettersi alla destinazione iSCSI e una destinazione falsa da connettere al computer in cui viene eseguito lo script.
 
-Il flusso di dati tra il servizio di ripristino e il computer è protetto mediante la generazione di un tunnel SSL protetto su TCP ([TLS 1.2 dovrebbe essere supportata](#system-requirements) nel computer in cui viene eseguito lo script)
+Il flusso di dati tra il servizio di ripristino e il computer è protetto mediante la creazione di un tunnel SSL sicuro su TCP (è[necessario supportare TLS 1,2](#system-requirements) nel computer in cui viene eseguito lo script)
 
-Qualsiasi file di controllo elenco accesso (ACL) presente nel principale/backup della VM vengono mantenute anche nel file system montato.
+Anche tutti gli elenchi di controllo di accesso (ACL) dei file presenti nella macchina virtuale padre/di cui è stato eseguito il backup vengono conservati nel file system montato.
 
-Lo script offre accesso in lettura a un punto di ripristino ed è valido solo per 12 ore. Se l'utente desidera rimuovere l'accesso in precedenza, quindi eseguire l'accesso nel portale/PowerShell/CLI Azure ed eseguire la **smontare i dischi** per quel determinato punto di ripristino. Lo script verrà invalidato immediatamente.
+Lo script concede l'accesso in sola lettura a un punto di ripristino ed è valido solo per 12 ore. Se l'utente vuole rimuovere l'accesso in precedenza, accedere al portale di Azure/PowerShell/CLI ed eseguire il **smontaggio dei dischi** per quel particolare punto di ripristino. Lo script verrà invalidato immediatamente.

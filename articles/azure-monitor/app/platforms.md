@@ -10,28 +10,25 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/06/2019
+ms.date: 07/18/2019
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: db79f2b1d3857aac2f71d2e18a3949f068b746eb
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: dd2fb0c9ef157e3706ca3d902f7feebaf4c2f279
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67990065"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478918"
 ---
-# <a name="languages---officially-supported-by-application-insights-team"></a>Lingue: supportato ufficialmente dal team Application Insights
+# <a name="supported-languages"></a>Lingue supportate
 
 * [C#|VB (.NET)](../../azure-monitor/app/asp-net.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
-* [Pagine Web JavaScript](../../azure-monitor/app/javascript.md)
+* [JavaScript](../../azure-monitor/app/javascript.md)
 * [Node.JS](../../azure-monitor/app/nodejs.md)
 
-## <a name="community-sdks"></a>SDK della community
+## <a name="supported-platforms-and-frameworks"></a>Piattaforme e framework supportati
 
-Sono disponibili diversi SDK della community applicazione Azure Insights, molti dei quali sono stati originariamente creati da Microsoft. Gli SDK della community non sono ufficialmente gestiti da Microsoft. Non è possibile fornire supporto per un SDK non incluso nell'elenco ufficialmente supportato. Questi SDK sono considerati sperimentali e non sono consigliati per l'uso in ambiente di produzione.
-
-## <a name="platforms-and-frameworks"></a>Piattaforme e framework
 ### <a name="instrumentation-for-already-deployed-applications-codeless-agent-based"></a>Strumentazione per applicazioni già distribuite (senza codice, basate su agenti)
 * [VM di Azure e set di scalabilità di macchine virtuali di Azure](../../azure-monitor/app/azure-vm-vmss-apps.md)
 * [Servizio app di Azure](../../azure-monitor/app/azure-web-apps.md)
@@ -59,3 +56,7 @@ Sono disponibili diversi SDK della community applicazione Azure Insights, molti 
 ## <a name="export-and-data-analysis"></a>Esportazione e analisi dei dati
 * [Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
 * [Analisi dei flussi](../../azure-monitor/app/export-power-bi.md)
+
+## <a name="unsupported-community-sdks"></a>SDK community non supportati
+
+Sono disponibili diversi SDK Application Insights della community. Gli SDK della community non sono ufficialmente supportati/gestiti da Microsoft. Non è possibile fornire supporto per un SDK non incluso nell'elenco ufficialmente supportato. 

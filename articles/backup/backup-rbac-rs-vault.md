@@ -1,29 +1,28 @@
 ---
 title: Gestire i backup con il controllo degli accessi in base al ruolo di Azure
 description: Usare il controllo degli accessi in base al ruolo per gestire l'accesso alle operazioni di gestione di backup in un insieme di credenziali di Servizi di ripristino.
-services: backup
 author: utraghuv
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: utraghuv
-ms.openlocfilehash: 3b4585422a36992241fb4839238b1f6aa46c659f
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 928c08862fdb8a447b6b7afdd7fc12317a201224
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565648"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464967"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Usare il controllo degli accessi in base al ruolo per gestire i punti di ripristino di Backup di Azure
 Il Controllo degli accessi in base al ruolo di Azure (RBAC) consente la gestione specifica degli accessi per Azure. Usando il Controllo degli accessi in base al ruolo, è possibile separare i compiti all'interno del team e concedere agli utenti solo la quantità di accesso di cui hanno bisogno per svolgere il proprio lavoro.
 
 > [!IMPORTANT]
-> Ruoli predefiniti forniti da Backup di Azure sono limitati alle azioni che possono essere eseguite nel portale di Azure o tramite l'API REST o i cmdlet di PowerShell o CLI di credenziali di servizi di ripristino. Non rientrano sotto il controllo di questi ruoli le azioni eseguite nell'interfaccia utente client di Azure Backup Agent, nell'interfaccia utente di System Center Data Protection Manager o nell'interfaccia utente del server di Backup di Azure.
+> I ruoli forniti da backup di Azure sono limitati alle azioni che possono essere eseguite in portale di Azure o tramite l'API REST o i cmdlet di PowerShell per l'insieme di credenziali di servizi di ripristino. Non rientrano sotto il controllo di questi ruoli le azioni eseguite nell'interfaccia utente client di Azure Backup Agent, nell'interfaccia utente di System Center Data Protection Manager o nell'interfaccia utente del server di Backup di Azure.
 
-Backup di Azure offre tre ruoli predefiniti per controllare le operazioni di gestione di backup. Maggiori informazioni sui [ruoli predefiniti del Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/built-in-roles.md)
+Backup di Azure offre tre ruoli predefiniti per controllare le operazioni di gestione dei backup. Maggiori informazioni sui [ruoli predefiniti del Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/built-in-roles.md)
 
-* [Collaboratore di backup](../role-based-access-control/built-in-roles.md#backup-contributor) -questo ruolo ha tutte le autorizzazioni per creare e gestire il backup, ad eccezione di eliminazione dell'insieme di credenziali di servizi di ripristino e l'accesso ad altri utenti. Si immagini questo ruolo come amministratore della gestione di backup autorizzato a eseguire ogni operazione in tale ambito.
+* [Collaboratore backup](../role-based-access-control/built-in-roles.md#backup-contributor) : questo ruolo dispone di tutte le autorizzazioni per creare e gestire il backup, eccetto l'eliminazione dell'insieme di credenziali dei servizi di ripristino e l'accesso ad altri. Si immagini questo ruolo come amministratore della gestione di backup autorizzato a eseguire ogni operazione in tale ambito.
 * [Operatore di backup](../role-based-access-control/built-in-roles.md#backup-operator): questo ruolo dispone delle autorizzazioni per tutte le operazioni svolte da un collaboratore, tranne per la rimozione di backup e la gestione dei criteri di backup. Questo ruolo è equivalente al collaboratore, ma non può eseguire operazioni distruttive, ad esempio interrompere il backup con eliminazione dei dati o rimuovere la registrazione di risorse locali.
 * [Lettore di backup](../role-based-access-control/built-in-roles.md#backup-reader): questo ruolo dispone delle autorizzazioni per visualizzare tutte le operazioni di gestione di backup. Si immagini questo ruolo come una persona addetta al monitoraggio.
 
@@ -62,20 +61,20 @@ La tabella seguente riporta le azioni di gestione di Backup e il ruolo Controllo
 > [!IMPORTANT]
 > Se si specifica Collaboratore di VM in un ambito di risorsa di macchina virtuale e si fa clic su Backup come parte delle impostazioni della macchina virtuale, si aprirà la schermata "Abilita backup" anche se il backup della macchina virtuale viene già eseguito, in quanto la chiamata per verificare lo stato del backup funziona solo a livello di sottoscrizione. Per evitare questo problema, accedere all'insieme di credenziali e aprire la vista degli elementi di backup della macchina virtuale o specificare il ruolo Collaboratore di VM a livello di sottoscrizione.
 
-## <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Requisiti del ruolo minimo per il backup di condivisioni File di Azure
-Nella tabella seguente consente di acquisire le azioni di gestione di Backup e ruolo corrispondente necessario per eseguire l'operazione di condivisione File di Azure.
+## <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Requisiti minimi del ruolo per il backup della condivisione file di Azure
+La tabella seguente acquisisce le azioni di gestione del backup e il ruolo corrispondente necessari per eseguire l'operazione di condivisione file di Azure.
 
-| Operazione di gestione | Ruolo richiesto | Risorse |
+| Operazione di gestione | Ruolo obbligatorio | Risorse |
 | --- | --- | --- |
-| Abilitare il backup di condivisioni File di Azure | Collaboratore di backup | Insieme di credenziali dei servizi di ripristino |
-| | Account di archiviazione | Risorsa dell'account di archiviazione per i collaboratori |
+| Abilitare il backup delle condivisioni file di Azure | Collaboratore di backup | Insieme di credenziali dei servizi di ripristino |
+| | Account di archiviazione | Risorsa account di archiviazione collaboratore |
 | Backup su richiesta della VM | Operatore di backup | Insieme di credenziali dei servizi di ripristino |
-| Ripristinare la condivisione File | Operatore di backup | Insieme di credenziali dei servizi di ripristino |
-| | Collaboratore account di archiviazione | Risorse dell'account di archiviazione in cui sono presenti condivisioni di file di destinazione e origine ripristino |
+| Ripristino della condivisione file | Operatore di backup | Insieme di credenziali dei servizi di ripristino |
+| | Collaboratore account di archiviazione | Risorse dell'account di archiviazione in cui sono presenti condivisioni file di origine e di destinazione |
 | Ripristinare singoli file | Operatore di backup | Insieme di credenziali dei servizi di ripristino |
-| | Collaboratore account di archiviazione |   Risorse dell'account di archiviazione in cui sono presenti condivisioni di file di destinazione e origine ripristino |
+| | Collaboratore account di archiviazione |   Risorse dell'account di archiviazione in cui sono presenti condivisioni file di origine e di destinazione |
 | Arresta protezione | Collaboratore di backup | Insieme di credenziali dei servizi di ripristino |      
-| Annullare la registrazione di account di archiviazione dall'insieme di credenziali |   Collaboratore di backup | Insieme di credenziali dei servizi di ripristino |
+| Annulla la registrazione dell'account di archiviazione dall'insieme di credenziali |   Collaboratore di backup | Insieme di credenziali dei servizi di ripristino |
 | | Collaboratore account di archiviazione | Risorsa dell'account di archiviazione|
 
 
