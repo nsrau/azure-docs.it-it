@@ -1,5 +1,5 @@
 ---
-title: Come usare archiviazione di Accodamento da Python - archiviazione di Azure
+title: Come usare l'archiviazione di Accodamento da Python-archiviazione di Azure
 description: Informazioni su come usare il servizio di accodamento di Azure da Python per creare ed eliminare code e per inserire, visualizzare ed eliminare messaggi.
 services: storage
 author: mhopkins-msft
@@ -10,12 +10,12 @@ ms.date: 12/14/2018
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: 75f04893067d92813207bd656fc3368239ae9303
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 141999f4119ac92e2b8846477c50edf8fba027d0
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65142796"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360034"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>Come usare l'archiviazione di accodamento da Python
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -98,10 +98,11 @@ for message in messages:
 Innanzitutto, è possibile recuperare un batch di messaggi (massimo 32). In secondo luogo, è possibile impostare un timeout di invisibilità più lungo o più breve assegnando al codice più o meno tempo per l'elaborazione completa di ogni messaggio. Nell'esempio di codice seguente viene usato il metodo **get\_messages** per recuperare 16 messaggi con una sola chiamata. Quindi, ogni messaggio viene elaborato con un ciclo for. Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti.
 
 ```python
-messages = queue_service.get_messages('taskqueue', num_messages=16, visibility_timeout=5*60)
+messages = queue_service.get_messages(
+    'taskqueue', num_messages=16, visibility_timeout=5*60)
 for message in messages:
     print(message.content)
-    queue_service.delete_message('taskqueue', message.id, message.pop_receipt)        
+    queue_service.delete_message('taskqueue', message.id, message.pop_receipt)
 ```
 
 ## <a name="how-to-change-the-contents-of-a-queued-message"></a>Procedura: Cambiare il contenuto di un messaggio in coda
@@ -110,7 +111,8 @@ for message in messages:
 ```python
 messages = queue_service.get_messages('taskqueue')
 for message in messages:
-    queue_service.update_message('taskqueue', message.id, message.pop_receipt, 0, u'Hello World Again')
+    queue_service.update_message(
+        'taskqueue', message.id, message.pop_receipt, 0, u'Hello World Again')
 ```
 
 ## <a name="how-to-get-the-queue-length"></a>Procedura: Recuperare la lunghezza della coda

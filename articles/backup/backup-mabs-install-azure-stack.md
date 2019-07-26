@@ -1,7 +1,6 @@
 ---
 title: Installare il server di Backup di Azure in Azure Stack | Microsoft Docs
 description: Usare il server di Backup di Azure per proteggere o eseguire il backup dei carichi di lavoro in Azure Stack.
-services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
@@ -10,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: d3a2ffdedda7f541fb1a3f37a8b40bc7af3dcb57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 77f418a37c47850cf8a763dc399109d86925feff
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60852140"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465248"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installare il server di Backup di Azure in Azure Stack
 
@@ -323,11 +322,11 @@ Dopo avere verificato lo stato della connettività di Azure e della sottoscrizio
 
 | Stato di connettività | Sottoscrizione di Azure | Eseguire il backup in Azure | Eseguire il backup su disco | Ripristino da Azure | Ripristino da disco |
 | --- | --- | --- | --- | --- | --- |
-| Connesso |Attivo |Consentito |Consentito |Consentito |Consentito |
-| Connesso |Scaduto |Arrestato |Arrestato |Consentito |Consentito |
-| Connesso |Deprovisioning eseguito |Arrestato |Arrestato |Arrestato e punti di ripristino di Azure eliminati |Arrestato |
-| Connettività persa > 15 giorni |Attivo |Arrestato |Arrestato |Consentito |Consentito |
-| Connettività persa > 15 giorni |Scaduto |Arrestato |Arrestato |Consentito |Consentito |
+| Connesso |Attivo |Allowed |Consentito |Consentito |Allowed |
+| Connessione attivata |Scaduto |Arrestato |Arrestato |Allowed |Allowed |
+| Connessione attivata |Deprovisioning eseguito |Arrestato |Arrestato |Arrestato e punti di ripristino di Azure eliminati |Arrestato |
+| Connettività persa > 15 giorni |Attivo |Arrestato |Arrestato |Allowed |Allowed |
+| Connettività persa > 15 giorni |Scaduto |Arrestato |Arrestato |Allowed |Allowed |
 | Connettività persa > 15 giorni |Deprovisioning eseguito |Arrestato |Arrestato |Arrestato e punti di ripristino di Azure eliminati |Arrestato |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recupero dalla perdita di connettività

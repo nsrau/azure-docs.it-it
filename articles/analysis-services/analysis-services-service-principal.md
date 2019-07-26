@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c034ed7164e67183b9a848d5210dcaf377476c6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4bfa969089407a35658160cf05a6407f8c717714
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65518156"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347964"
 ---
 # <a name="automation-with-service-principals"></a>Automazione con le entità servizio
 
@@ -21,7 +21,7 @@ Le entità servizio sono una risorsa dell'applicazione Azure Active Directory cr
 
 In Analysis Services le entità servizio vengono usate con Automazione di Azure, la modalità automatica di PowerShell, le applicazioni client personalizzate e le app Web per automatizzare le attività comuni. Ad esempio, il provisioning dei server, la distribuzione di modelli, l'aggiornamento dei dati, l'aumento/riduzione delle prestazioni e la sospensione/ripresa possono essere automatizzati usando le entità servizio. Le autorizzazioni vengono assegnate alle entità servizio tramite l'appartenenza a un ruolo, in modo analogo ai normali account UPN di Azure AD.
 
-Analysis Services supporta anche le operazioni eseguite da identità gestite tramite le entità servizio. Per altre informazioni, vedere [gestite le identità per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md) e [servizi di Azure che Azure AD supportano l'autenticazione](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).
+Analysis Services supporta anche le operazioni eseguite dalle identità gestite usando le entità servizio. Per altre informazioni, vedere [identità gestite per le risorse di Azure e i](../active-directory/managed-identities-azure-resources/overview.md) [servizi di Azure che supportano l'autenticazione Azure ad](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).
 
 ## <a name="create-service-principals"></a>Creare entità servizio
  
@@ -49,11 +49,11 @@ L'ID app e la password o il certificato dell'entità servizio possono essere usa
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />Using Az.AnalysisServices module
+#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />Uso del modulo AZ. AnalysisServices
 
-Quando si usa un'entità servizio per le operazioni di gestione risorse con il [Az.AnalysisServices](/powershell/module/az.analysisservices) modulo, usare `Connect-AzAccount` cmdlet. 
+Quando si usa un'entità servizio per le operazioni di gestione delle risorse con il modulo [AZ. AnalysisServices](/powershell/module/az.analysisservices) , usare `Connect-AzAccount` il cmdlet. 
 
-Nell'esempio seguente, appID e password usati per eseguire operazioni del piano di controllo per la sincronizzazione delle repliche di sola lettura e scalabilità verticale/orizzontale:
+Nell'esempio seguente vengono usati appID e una password per eseguire operazioni del piano di controllo per la sincronizzazione con le repliche di sola lettura e la scalabilità verticale/orizzontale:
 
 ```powershell
 Param (
@@ -74,7 +74,7 @@ Sync-AzAnalysisServicesInstance -Instance "asazure://westus.asazure.windows.net/
 Set-AzAnalysisServicesServer -Name "testsvr" -ResourceGroupName "testRG" -Sku "S1" -ReadonlyReplicaCount 2 -DefaultConnectionMode Readonly
 ```
 
-#### <a name="using-sqlserver-module"></a>Usando il modulo SQLServer
+#### <a name="using-sqlserver-module"></a>Uso del modulo SQLServer
 
 Nell'esempio seguente vengono usati l'ID app e una password per eseguire un'operazione di aggiornamento del database modello:
 
@@ -97,7 +97,7 @@ Quando ci si connette ad applicazioni client e app Web, i pacchetti installabili
 
 Nell'esempio seguente vengono usati `appID` e una `password` per eseguire un'operazione di aggiornamento del database modello:
 
-```C#
+```csharp
 string appId = "xxx";
 string authKey = "yyy";
 string connString = $"Provider=MSOLAP;Data Source=asazure://westus.asazure.windows.net/<servername>;User ID=app:{appId};Password={authKey};";

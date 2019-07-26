@@ -1,5 +1,5 @@
 ---
-title: Esempi di PowerShell per la gestione di gruppi e anteprima gruppo writeback in locale - Azure Active Directory | Microsoft Docs
+title: Esempi di PowerShell per la gestione dei gruppi e l'anteprima del writeback del gruppo in locale-Azure Active Directory | Microsoft Docs
 description: Questa pagina riporta esempi di PowerShell per la gestione dei gruppi in Azure Active Directory
 keywords: Azure AD, Azure Active Directory, PowerShell, gruppi, gestione dei gruppi
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9817d63990b390cfbb0002423c1ff8f19fcd27f7
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 2e22baabda901a34f624cf27c25037ff3ba94e90
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147272"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381854"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlet di Azure Active Directory versione 2 per la gestione dei gruppi
 
@@ -170,9 +170,10 @@ Quindi si cambia la proprietà Description nel nuovo valore "Amministratori di d
     PS C:\Windows\system32> Set-AzureADGroup -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -Description "Intune Device Administrators"
 ```
 
-A questo punto, se si cerca di nuovo il gruppo, viene visualizzato che la proprietà Description viene aggiornata per riflettere il nuovo valore:
+A questo punto, se il gruppo viene trovato di nuovo, la proprietà Description viene aggiornata per riflettere il nuovo valore:
 
-' ' powershell C:\Windows\system32 PS > Get-AzureADGroup-filtro "DisplayName eq 'Gli amministratori di Intune'"
+```powershell
+    PS C:\Windows\system32> Get-AzureADGroup -Filter "DisplayName eq 'Intune Administrators'"
 
     DeletionTimeStamp            :
     ObjectId                     : 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df
@@ -190,15 +191,15 @@ A questo punto, se si cerca di nuovo il gruppo, viene visualizzato che la propri
     SecurityEnabled              : True
 ```
 
-## Delete groups
+## <a name="delete-groups"></a>Elimina gruppi
 
-To delete groups from your directory, use the Remove-AzureADGroup cmdlet as follows:
+Per eliminare gruppi dalla directory, usare il cmdlet Remove-AzureADGroup come segue:
 
 ```powershell
     PS C:\Windows\system32> Remove-AzureADGroup -ObjectId b11ca53e-07cc-455d-9a89-1fe3ab24566b
 ```
 
-## <a name="manage-group-membership"></a>Gestire l'appartenenza a gruppi
+## <a name="manage-group-membership"></a>Gestisci l'appartenenza ai gruppi
 
 ### <a name="add-members"></a>Aggiungere membri
 
@@ -223,7 +224,7 @@ Per ottenere i membri di un gruppo esistente, usare il cmdlet Get-AzureADGroupMe
                           8120cc36-64b4-4080-a9e8-23aa98e8b34f User
 ```
 
-### <a name="remove-members"></a>Rimuovere membri
+### <a name="remove-members"></a>Rimuovi membri
 
 Per rimuovere il membro aggiunto al gruppo in precedenza, usare il cmdlet Remove-AzureADGroupMember, come illustrato di seguito:
 
@@ -283,7 +284,7 @@ Per aggiungere proprietari a un gruppo, usare il cmdlet AzureADGroupOwner:
     PS C:\Windows\system32> Add-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
 ```
 
-Il parametro - ObjectId è il valore ObjectID del gruppo a cui si desidera aggiungere un proprietario e - RefObjectId è il valore ObjectID dell'utente o entità da aggiungere come proprietario del gruppo di servizio.
+Il parametro-ObjectId è il valore ObjectID del gruppo a cui si desidera aggiungere un proprietario e-RefObjectId è il valore ObjectID dell'utente o dell'entità servizio che si desidera aggiungere come proprietario del gruppo.
 
 Per recuperare i proprietari di un gruppo, usare il cmdlet Get-AzureADGroupOwner:
 
@@ -291,7 +292,7 @@ Per recuperare i proprietari di un gruppo, usare il cmdlet Get-AzureADGroupOwner
     PS C:\Windows\system32> Get-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df
 ```
 
-Il cmdlet restituisce l'elenco dei proprietari (utenti ed entità servizio) per il gruppo specificato:
+Il cmdlet restituisce l'elenco di proprietari (utenti ed entità servizio) per il gruppo specificato:
 
 ```powershell
     DeletionTimeStamp ObjectId                             ObjectType
@@ -321,15 +322,15 @@ Quando viene creato un gruppo, alcuni endpoint consentono all'utente finale di s
 * ssl-admin
 * webmaster
 
-## <a name="group-writeback-to-on-premises-preview"></a>Writeback dei gruppi in locale (anteprima)
+## <a name="group-writeback-to-on-premises-preview"></a>Eseguire il writeback del gruppo in locale (anteprima)
 
-Oggi, molti gruppi continuano a essere gestiti in un'istanza locale di Active Directory. Per rispondere alle richieste per sincronizzare i gruppi di cloud al writeback gruppi di Office 365 in locale, funzionalità di Azure AD è ora disponibile in anteprima.
+Attualmente, molti gruppi sono ancora gestiti in Active Directory locali. Per rispondere alle richieste di sincronizzazione dei gruppi di cloud di nuovo in locale, la funzionalità di writeback dei gruppi di Office 365 per Azure AD è ora disponibile in anteprima.
 
-Gruppi di Office 365 vengono creati e gestiti nel cloud. La funzionalità di writeback consente writeback gruppi di Office 365 come gruppi di distribuzione in una foresta di Active Directory con Exchange installato. Utenti con Exchange on-premises cassette postali possono quindi inviare e ricevere messaggi di posta elettronica da questi gruppi. La funzionalità di writeback di gruppo non supporta gruppi di sicurezza di Azure AD o i gruppi di distribuzione.
+I gruppi di Office 365 vengono creati e gestiti nel cloud. La funzionalità di writeback consente di eseguire il writeback dei gruppi di Office 365 come gruppi di distribuzione in una foresta Active Directory con Exchange installato. Gli utenti con cassette postali di Exchange locali possono inviare e ricevere messaggi di posta elettronica da questi gruppi. La funzionalità di writeback dei gruppi non supporta i gruppi di sicurezza o i gruppi di distribuzione di Azure AD.
 
-Per altri dettagli, consultare la documentazione per il [servizio di sincronizzazione Azure AD Connect](../hybrid/how-to-connect-syncservice-features.md).
+Per altri dettagli, vedere la documentazione per il [servizio di sincronizzazione Azure ad Connect](../hybrid/how-to-connect-syncservice-features.md).
 
-Writeback gruppi di Office 365 è una funzionalità di anteprima pubblica di Azure Active Directory (Azure AD) ed è disponibile con qualsiasi piano di licenza di Azure AD pagato. Per alcune informazioni legali sulla versione Preview, vedere [condizioni per l'utilizzo per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Il writeback dei gruppi di Office 365 è una funzionalità di anteprima pubblica di Azure Active Directory (Azure AD) ed è disponibile con qualsiasi piano di licenza Azure AD a pagamento. Per alcune informazioni legali sulle anteprime, vedere le [condizioni per l'utilizzo supplementari per le anteprime Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

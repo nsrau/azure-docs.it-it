@@ -3,7 +3,7 @@ title: Panoramica delle API per il consumo di Azure | Microsoft Docs
 description: Informazioni su come le API per il consumo di Azure consentono l'accesso a livello di codice ai dati sui costi e sull'utilizzo per le risorse di Azure.
 services: billing
 documentationcenter: ''
-author: Erikre
+author: bandersmsft
 manager: dougeby
 editor: ''
 tags: billing
@@ -14,13 +14,13 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/07/2018
-ms.author: erikre
-ms.openlocfilehash: 16e0bdfa0fc70d5239cb4127e61891a013bf54a3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: banders
+ms.openlocfilehash: 2a2922daef5e75af41252119f9a467fae976bcda
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60615891"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443264"
 ---
 # <a name="azure-consumption-api-overview"></a>Panoramica delle API per il consumo di Azure 
 
@@ -96,7 +96,7 @@ L'API include:
 -   **Filtri**: filtrare il budget per ottenere un subset più piccolo di risorse tramite i filtri configurabili seguenti
     - Gruppo di risorse
     - Nome risorsa
-    - Contatore
+    - Misuratore
 -   **Periodi budget configurabili**: specificare la frequenza di reimpostazione del budget e la durata della validità di quest'ultimo.
 
 Per altre informazioni, vedere le specifiche tecniche per l'[API Budget](https://docs.microsoft.com/rest/api/consumption/budgets).
@@ -109,7 +109,7 @@ L'API include:
 
 -   **Controllo degli accessi in base al ruolo di Azure**: configurare criteri di accesso nel [portale di Azure](https://portal.azure.com), nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o tramite [cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) per specificare quali utenti o applicazioni possono accedere ai dati di utilizzo della sottoscrizione. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Per ottenere l'accesso ai dati di uso per una determinata sottoscrizione di Azure aggiungere il chiamante al ruolo Lettore della fatturazione, Proprietario o Collaboratore. 
 -   **Filtri**: personalizzare i risultati relativi alle raccomandazioni tramite i filtri seguenti:
-    - `Scope`
+    - Ambito
     - Periodo di ricerca posticipata
 -   **Informazioni sulle prenotazioni per tipi di offerte diversi**: le informazioni sulle prenotazioni sono attualmente disponibili per i clienti Enterprise e Accesso Web diretto.
 
@@ -136,7 +136,7 @@ L'API include:
 
 -   **Controllo degli accessi in base al ruolo di Azure**: configurare criteri di accesso nel [portale di Azure](https://portal.azure.com), nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o tramite [cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) per specificare quali utenti o applicazioni possono accedere ai dati di utilizzo della sottoscrizione. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Per ottenere l'accesso ai dati di uso per una determinata sottoscrizione di Azure aggiungere il chiamante al ruolo Lettore della fatturazione, Proprietario o Collaboratore. 
 -   **Filtri**: personalizzare i risultati della granularità giornaliera con il filtro seguente:
-    - Data utilizzo
+    - Data di utilizzo
 -   **Informazioni sulle prenotazioni per tipi di offerte diversi**: le informazioni sulle prenotazioni sono attualmente disponibili per i clienti Enterprise e Accesso Web diretto.
 -   **Aggregazioni giornaliere o mensili**: i chiamanti possono specificare se vogliono i propri dati di riepilogo delle prenotazioni nella granularità giornaliera o mensile.
 

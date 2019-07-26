@@ -1,10 +1,10 @@
 ---
-title: Richiedere l'accesso a un pacchetto di accesso nella gestione dei diritti di Azure AD (anteprima) - Azure Active Directory
-description: Informazioni su come usare il portale di accesso personale per richiedere l'accesso a un pacchetto di accesso nella gestione dei diritti di Azure Active Directory (anteprima).
+title: Richiedere l'accesso a un pacchetto di accesso in Azure AD gestione dei diritti (anteprima)-Azure Active Directory
+description: Informazioni su come usare il portale di accesso personale per richiedere l'accesso a un pacchetto di accesso in Azure Active Directory gestione dei diritti (anteprima).
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: mamtakumar
 ms.service: active-directory
 ms.workload: identity
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 04/19/2019
-ms.author: rolyon
+ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39a50240b4360c5b4adcd6020c2b80b0f06315f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 578f78d1853194cad000aa2e54b40d1ac5003544
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64541556"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489055"
 ---
-# <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Richiedere l'accesso a un pacchetto di accesso nella gestione dei diritti di Azure AD (anteprima)
+# <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Richiedere l'accesso a un pacchetto di accesso in Azure AD gestione dei diritti (anteprima)
 
 > [!IMPORTANT]
 > Gestione entitlement di Azure Active Directory (Azure AD) è attualmente in anteprima pubblica.
@@ -32,11 +32,11 @@ ms.locfileid: "64541556"
 
 ## <a name="sign-in-to-the-my-access-portal"></a>Accedere al portale di accesso personale
 
-Il primo passaggio è per accedere al portale di accesso personale in cui è possibile richiedere l'accesso a un pacchetto di accesso.
+Il primo passaggio consiste nell'accedere al portale di accesso personale, in cui è possibile richiedere l'accesso a un pacchetto di accesso.
 
 **Ruolo prerequisito:** Richiedente
 
-1. Cercare un messaggio di posta elettronica o un messaggio dalla gestione del progetto o business che si sta lavorando. Messaggio di posta elettronica deve includere un collegamento al pacchetto di accesso a che è necessario accedere. Il collegamento verrà avviato con:
+1. Cercare un messaggio di posta elettronica o un messaggio dal progetto o dal gestore di business che si sta utilizzando. Il messaggio di posta elettronica deve includere un collegamento al pacchetto di accesso a cui sarà necessario accedere. Il collegamento inizierà con:
 
     `https://myaccess.microsoft.com`
 
@@ -44,9 +44,9 @@ Il primo passaggio è per accedere al portale di accesso personale in cui è pos
 
 1. Accedere al portale di accesso personale.
 
-    Assicurarsi di che usare l'account dell'organizzazione. Se si è certi, verificare con il responsabile di progetto o business.
+    Assicurarsi di usare l'account aziendale. In caso di dubbi, rivolgersi al progetto o al responsabile di business.
 
-## <a name="request-an-access-package"></a>Richiesta di un pacchetto di accesso
+## <a name="request-an-access-package"></a>Richiedere un pacchetto di accesso
 
 Dopo aver trovato il pacchetto di accesso nel portale di accesso personale, è possibile inviare una richiesta.
 
@@ -58,43 +58,43 @@ Dopo aver trovato il pacchetto di accesso nel portale di accesso personale, è p
 
 1. Fare clic su **Richiedi accesso** per aprire il riquadro Richiedi accesso.
 
-1. Se il **motivazione aziendale** viene visualizzata la finestra, digitare una giustificazione per che necessitano dell'accesso.
+1. Se viene visualizzata la casella **motivazione aziendale** , digitare una giustificazione per la necessità di accesso.
 
-1. Se **richiesta per un periodo specifico?** è abilitato, selezionare **Yes** oppure **No**.
+1. Se la **richiesta per un periodo specifico** è abilitata, selezionare **Sì** o **No**.
 
-1. Se necessario, specificare la data di inizio e data di fine.
+1. Se necessario, specificare la data di inizio e la data di fine.
 
     ![Portale di Accesso personale - Richiedi accesso](./media/entitlement-management-shared/my-access-request-access.png)
 
-1. Al termine, fare clic su **Submit** per inviare la richiesta.
+1. Al termine, fare clic su **Invia** per inviare la richiesta.
 
-1. Fare clic su **cronologia delle richieste** per visualizzare un elenco di richieste e lo stato.
+1. Fare clic su **Cronologia richieste** per visualizzare un elenco delle richieste e dello stato.
 
     Se il pacchetto di accesso richiede l'approvazione, la richiesta è ora in uno stato di approvazione in sospeso.
 
-## <a name="cancel-a-request"></a>Annullare una richiesta
+## <a name="cancel-a-request"></a>Annulla richiesta
 
-Se si invia una richiesta di accesso e la richiesta è ancora nel **in attesa di approvazione** lo stato, è possibile annullare la richiesta.
+Se si invia una richiesta di accesso e la richiesta è ancora in stato di **approvazione in sospeso** , è possibile annullare la richiesta.
 
 **Ruolo prerequisito:** Richiedente
 
-1. Nel portale di accesso personale, a sinistra, fare clic su **cronologia delle richieste** per visualizzare un elenco di richieste e lo stato.
+1. Nel portale di accesso personale, a sinistra, fare clic su **Richiedi cronologia** per visualizzare un elenco delle richieste e dello stato.
 
-1. Fare clic sui **vista** collegamento per la richiesta di cui si desidera annullare.
+1. Fare clic sul collegamento **Visualizza** per la richiesta che si desidera annullare.
 
-1. Se la richiesta è ancora nel **in attesa di approvazione** lo stato, è possibile fare clic su **richiesta di annullamento** per annullare la richiesta.
+1. Se la richiesta è ancora in stato di **approvazione in sospeso** , è possibile fare clic su **Annulla richiesta** per annullare la richiesta.
 
-    ![Il portale di accesso - richiesta di annullamento.](./media/entitlement-management-request-access/my-access-cancel-request.png)
+    ![Portale di accesso personale-richiesta di annullamento](./media/entitlement-management-request-access/my-access-cancel-request.png)
 
-1. Fare clic su **cronologia delle richieste** per confermare la richiesta è stata annullata.
+1. Fare clic su **Cronologia richieste** per confermare che la richiesta è stata annullata.
 
-## <a name="select-a-policy"></a>Selezionare un criterio
+## <a name="select-a-policy"></a>Selezionare i criteri
 
-Se si richiede l'accesso a un pacchetto di accesso che ha più criteri applicabili, potrebbe essere richiesto di selezionare i criteri. Ad esempio, un package manager l'accesso potrebbe configurare un pacchetto di accesso con due criteri per i due gruppi di dipendenti interni. Il primo criterio potrebbe consentire l'accesso per 60 giorni e richiedere l'approvazione. Il secondo criterio potrebbe consentire l'accesso a 2 giorni e non richiedono l'approvazione. Se si verifica questo scenario, è necessario selezionare il criterio che si desidera utilizzare.
+Se si richiede l'accesso a un pacchetto di accesso con più criteri applicabili, potrebbe essere richiesto di selezionare un criterio. Una gestione pacchetti di Access, ad esempio, potrebbe configurare un pacchetto di accesso con due criteri per due gruppi di dipendenti interni. Il primo criterio potrebbe consentire l'accesso per 60 giorni e richiedere l'approvazione. Il secondo criterio potrebbe consentire l'accesso per 2 giorni e non richiede l'approvazione. Se si verifica questo scenario, è necessario selezionare il criterio che si desidera utilizzare.
 
 **Ruolo prerequisito:** Richiedente
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Approvare o rifiutare le richieste di accesso](entitlement-management-request-approve.md)
-- [Richiedere le notifiche di posta elettronica e di processo](entitlement-management-process.md)
+- [Approva o rifiuta le richieste di accesso](entitlement-management-request-approve.md)
+- [Richieste di processo e notifiche tramite posta elettronica](entitlement-management-process.md)

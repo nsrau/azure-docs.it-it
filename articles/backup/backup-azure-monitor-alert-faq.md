@@ -1,24 +1,23 @@
 ---
-title: Monitoraggio avviso domande frequenti su Backup di Azure
-description: 'Risposte alle domande comuni su: Avviso monitoraggio Backup di Azure'
-services: backup
+title: Domande frequenti sull'avviso di monitoraggio di backup di Azure
+description: 'Risposte alle domande comuni su: Avviso di monitoraggio di backup di Azure'
 author: srinathvasireddy
 manager: sivan
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: srinathv
-ms.openlocfilehash: bb684f65539b4429862b2dce0e378d8f659d2975
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: dc68b68ffa0ae2ee4f1bdd8f2c7ac0d7ff5ebb8c
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705037"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465847"
 ---
-# <a name="azure-backup-monitoring-alert---faq"></a>Monitoraggio avviso - domande frequenti su Backup di Azure
-Questo articolo risponde a domande comuni relative all'avviso di monitoraggio di Azure.
+# <a name="azure-backup-monitoring-alert---faq"></a>Avviso di monitoraggio di backup di Azure-Domande frequenti
+Questo articolo risponde a domande comuni sull'avviso di monitoraggio di Azure.
 
-## <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
+## <a name="configure-azure-backup-reports"></a>Configurare i report di Backup di Azure
 
 ### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-storage-account"></a>Come verificare se è stato avviato il trasferimento dei dati dei report in un account di archiviazione?
 Passare all'account di archiviazione configurato e selezionare i contenitori. Se il contenitore include una voce per insights-logs-azurebackupreport, indica che è stato avviato il trasferimento dei dati dei report.

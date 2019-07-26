@@ -14,44 +14,44 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: b74238ee49fe0d96d218f1800a33a9d60badc6d5
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: fa3aedf138564fedafe555adfbaf6c56efc1813e
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341701"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360851"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>Come usare le code del bus di servizio con Python
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-In questa esercitazione descrive come creare applicazioni Python per inviare e ricevere messaggi da una coda del Bus di servizio. 
+In questa esercitazione si apprenderà come creare applicazioni Python per inviare e ricevere messaggi da una coda del bus di servizio. 
 
 ## <a name="prerequisites"></a>Prerequisiti
-1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [benefici per sottoscrittori MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) oppure iscriversi per una [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Seguire i passaggi nel [portale di Azure Usa per creare una coda del Bus di servizio](service-bus-quickstart-portal.md) articolo.
-    1. Leggere la rapida **overview** del Bus di servizio **code**. 
-    2. Creare un Bus di servizio **dello spazio dei nomi**. 
-    3. Ottenere il **stringa di connessione**. 
+1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [benefici](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) per gli abbonati MSDN o iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Seguire i passaggi nell'articolo [usare portale di Azure per creare una coda del bus di servizio](service-bus-quickstart-portal.md) .
+    1. Leggere la breve **Panoramica** delle **Code**del bus di servizio. 
+    2. Creare uno **spazio dei nomi**del bus di servizio. 
+    3. Ottenere la **stringa di connessione**. 
 
         > [!NOTE]
-        > Si creerà una **coda** nello spazio dei nomi del Bus di servizio con Python in questa esercitazione. 
-1. Installare Python o il [pacchetto di Python Azure Service Bus][Python Azure Service Bus package], vedere la [Guida all'installazione di Python](../python-how-to-install.md). Vedere la documentazione completa di Service Bus Python SDK [qui](/python/api/overview/azure/servicebus?view=azure-python).
+        > In questa esercitazione verrà creata una **coda** nello spazio dei nomi del bus di servizio usando Python. 
+1. Installare Python o il [pacchetto del bus di servizio di Azure per Python][Python Azure Service Bus package], vedere la Guida all'installazione di [Python](../python-how-to-install.md). Vedere la documentazione completa di Python SDK di Service Bus [qui](/python/api/overview/azure/servicebus?view=azure-python).
 
-## <a name="create-a-queue"></a>Creare una coda
-Il **ServiceBusClient** consente di usare le code. Aggiungere il seguente codice all'inizio di ogni file Python da cui si desidera accedere al bus di servizio a livello di codice:
+## <a name="create-a-queue"></a>Crea una coda
+L'oggetto **ServiceBusClient** consente di usare le code. Aggiungere il seguente codice all'inizio di ogni file Python da cui si desidera accedere al bus di servizio a livello di codice:
 
 ```python
 from azure.servicebus import ServiceBusClient
 ```
 
-Il codice seguente crea una **ServiceBusClient** oggetto. Sostituire `<CONNECTION STRING>` con la proprietà connectionstring del bus di servizio.
+Il codice seguente crea un oggetto **ServiceBusClient** . Sostituire `<CONNECTION STRING>` con il ServiceBus ConnectionString.
 
 ```python
 sb_client = ServiceBusClient.from_connection_string('<CONNECTION STRING>')
 ```
 
-I valori per il nome della chiave SAS e il valore sono reperibile nel [portale di Azure][Azure portal] informazioni di connessione, o in Visual Studio **proprietà** riquadro quando si seleziona lo spazio dei nomi del Bus di servizio in Esplora Server (come illustrato nella sezione precedente).
+I valori per il nome e il valore della chiave di firma di accesso condiviso sono disponibili nelle informazioni di connessione [portale di Azure][Azure portal] o nel riquadro **Proprietà** di Visual Studio quando si seleziona lo spazio dei nomi del Bus di servizio in Esplora server (come illustrato nella sezione precedente).
 
 ```python
 sb_client.create_queue("taskqueue")
@@ -60,21 +60,23 @@ sb_client.create_queue("taskqueue")
 Il metodo `create_queue` supporta anche opzioni aggiuntive che consentono di eseguire l'override delle impostazioni predefinite delle code, come ad esempio la durata (TTL) dei messaggi o la dimensione massima della coda. L'esempio seguente illustra come impostare la dimensione massima della coda su 5 GB e il valore TTL su 1 minuto:
 
 ```python
-sb_client.create_queue("taskqueue", max_size_in_megabytes=5120, default_message_time_to_live=datetime.timedelta(minutes=1))
+sb_client.create_queue("taskqueue", max_size_in_megabytes=5120,
+                       default_message_time_to_live=datetime.timedelta(minutes=1))
 ```
 
-Per altre informazioni, vedere [documentazione di Python di Azure Service Bus](/python/api/overview/azure/servicebus?view=azure-python).
+Per altre informazioni, vedere la documentazione di Python per il [bus di servizio di Azure](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## <a name="send-messages-to-a-queue"></a>Inviare messaggi a una coda
-Per inviare un messaggio a una coda del Bus di servizio, l'applicazione chiama il `send` metodo di `ServiceBusClient` oggetto.
+Per inviare un messaggio a una coda del bus di servizio, l'applicazione `send` chiama il metodo `ServiceBusClient` sull'oggetto.
 
 L'esempio seguente illustra come inviare un messaggio di prova alla coda denominata `taskqueue` usando `send_queue_message`:
 
 ```python
 from azure.servicebus import QueueClient, Message
 
-# Create the QueueClient 
-queue_client = QueueClient.from_connection_string("<CONNECTION STRING>", "<QUEUE NAME>")
+# Create the QueueClient
+queue_client = QueueClient.from_connection_string(
+    "<CONNECTION STRING>", "<QUEUE NAME>")
 
 # Send a test message to the queue
 msg = Message(b'Test Message')
@@ -83,18 +85,19 @@ queue_client.send(msg)
 
 Le code del bus di servizio supportano messaggi di dimensioni fino a 256 KB nel [livello Standard](service-bus-premium-messaging.md) e fino a 1 MB nel [livello Premium](service-bus-premium-messaging.md). Le dimensioni massime dell'intestazione, che include le proprietà standard e personalizzate dell'applicazione, non possono superare 64 KB. Non esiste alcun limite al numero di messaggi mantenuti in una coda, mentre è prevista una limitazione alla dimensione totale dei messaggi di una coda. Questa dimensione della coda viene definita al momento della creazione, con un limite massimo di 5 GB. Per altre informazioni sulle quote, vedere [Quote del bus di servizio][Service Bus quotas].
 
-Per altre informazioni, vedere [documentazione di Python di Azure Service Bus](/python/api/overview/azure/servicebus?view=azure-python).
+Per altre informazioni, vedere la documentazione di Python per il [bus di servizio di Azure](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## <a name="receive-messages-from-a-queue"></a>Ricevere messaggi da una coda
-I messaggi vengono ricevuti da una coda tramite il `get_receiver` metodo di `ServiceBusService` oggetto:
+I messaggi vengono ricevuti da una coda usando `get_receiver` il metodo `ServiceBusService` sull'oggetto:
 
 ```python
 from azure.servicebus import QueueClient, Message
 
-# Create the QueueClient 
-queue_client = QueueClient.from_connection_string("<CONNECTION STRING>", "<QUEUE NAME>")
+# Create the QueueClient
+queue_client = QueueClient.from_connection_string(
+    "<CONNECTION STRING>", "<QUEUE NAME>")
 
-## Receive the message from the queue
+# Receive the message from the queue
 with queue_client.get_receiver() as queue_receiver:
     messages = queue_receiver.fetch_next(timeout=3)
     for message in messages:
@@ -102,7 +105,7 @@ with queue_client.get_receiver() as queue_receiver:
         message.complete()
 ```
 
-Per altre informazioni, vedere [documentazione di Python di Azure Service Bus](/python/api/overview/azure/servicebus?view=azure-python).
+Per altre informazioni, vedere la documentazione di Python per il [bus di servizio di Azure](/python/api/overview/azure/servicebus?view=azure-python).
 
 
 I messaggi vengono eliminati dalla coda non appena vengono letti, quando il parametro `peek_lock` è impostato su **False**. È possibile leggere e bloccare il messaggio senza eliminarlo dalla coda impostando il parametro `peek_lock` su **True**.
@@ -120,7 +123,7 @@ Il bus di servizio fornisce funzionalità per il ripristino gestito automaticame
 
 Al messaggio bloccato nella coda è inoltre associato un timeout. Se l'applicazione non riesce a elaborare il messaggio prima della scadenza del timeout, ad esempio a causa di un arresto anomalo, il bus di servizio sbloccherà automaticamente il messaggio rendendolo nuovamente disponibile per la ricezione.
 
-In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio ma prima della chiamata del metodo **delete**, il messaggio verrà nuovamente recapitato all'applicazione al riavvio. Spesso si tratta **almeno una volta elaborazione**, vale a dire, ogni messaggio verrà elaborato almeno una volta ma in alcuni casi lo stesso messaggio potrebbe essere recapitato una seconda volta. Se lo scenario non tollera la doppia elaborazione, gli sviluppatori dovranno aggiungere logica aggiuntiva all'applicazione per gestire il secondo recapito del messaggio. A tale scopo viene spesso usata la proprietà **MessageId** del messaggio, che rimane costante in tutti i tentativi di recapito.
+In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio ma prima della chiamata del metodo **delete**, il messaggio verrà nuovamente recapitato all'applicazione al riavvio. Questa operazione viene spesso definita **elaborazione at-least-once**, ovvero ogni messaggio verrà elaborato almeno una volta, ma in determinate situazioni lo stesso messaggio potrebbe essere recapitato nuovamente. Se lo scenario non tollera la doppia elaborazione, gli sviluppatori dovranno aggiungere logica aggiuntiva all'applicazione per gestire il secondo recapito del messaggio. A tale scopo viene spesso usata la proprietà **MessageId** del messaggio, che rimane costante in tutti i tentativi di recapito.
 
 > [!NOTE]
 > È possibile gestire le risorse del bus di servizio con [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer consente agli utenti di connettersi a uno spazio dei nomi del bus di servizio e di amministrare le entità di messaggistica in modo semplice. Lo strumento offre caratteristiche avanzate, tra cui funzionalità di importazione/esportazione o la possibilità di testare argomenti, code, sottoscrizioni, servizi di inoltro, hub di notifica e hub eventi. 

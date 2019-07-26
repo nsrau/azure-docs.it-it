@@ -4,14 +4,14 @@ description: Informazioni su come creare, indicizzare e sottoporre a query ogget
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 07/23/2019
 ms.author: sngun
-ms.openlocfilehash: d0571608e154915a473145374ce007854aaa57f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1654ccabab751896fcbbab09d112080ccc2f67b6
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480130"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467725"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Uso dei dati geospaziali e dei dati località GeoJSON con l'account di Azure Cosmos DB per l'API SQL
 
@@ -142,7 +142,7 @@ await client.CreateDocumentAsync(
     });
 ```
 
-Se si non hanno le informazioni di latitudine e longitudine, ma hanno indirizzi fisici o del nome di percorso, ad esempio città o paese/area geografica, è possibile cercare le coordinate effettive tramite un servizio di geocodifica come i servizi REST di Bing mappe. Ulteriori informazioni sulla geocodifica di Bing Maps sono disponibili [qui](https://msdn.microsoft.com/library/ff701713.aspx).
+Se non si dispone delle informazioni di latitudine e longitudine, ma si dispone di indirizzi fisici o nome località come città o paese/area geografica, è possibile cercare le coordinate effettive usando un servizio di geocodifica come i servizi REST di Bing Maps. Ulteriori informazioni sulla geocodifica di Bing Maps sono disponibili [qui](https://msdn.microsoft.com/library/ff701713.aspx).
 
 ## <a name="querying-spatial-types"></a>Query sui tipi spaziali
 Dopo aver compreso come inserire i dati geospaziali, è ora possibile esaminare come eseguire query sui dati usando Azure Cosmos DB e LINQ.

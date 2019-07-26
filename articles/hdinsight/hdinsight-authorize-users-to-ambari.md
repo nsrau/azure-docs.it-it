@@ -1,25 +1,25 @@
 ---
 title: Autorizzare gli utenti per le viste di Ambari - Azure HDInsight
 description: Come gestire le autorizzazioni utente e di gruppo per Ambari per cluster HDInsight con ESP abilitato.
-author: maxluk
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
-ms.author: maxluk
-ms.openlocfilehash: 69ae1bd05b64912b3d53ca88b468a72a90ff5a74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: hrasheed
+ms.openlocfilehash: 28f30270ab0a6c057ee583ccebc2a8540980c6cc
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64718306"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442182"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Autorizzare gli utenti per le visualizzazioni di Apache Ambari
 
-I [cluster HDInsight con Enterprise Security Package (ESP) abilitato](./domain-joined/apache-domain-joined-introduction.md) offrono funzionalità di livello aziendale, ad esempio l'autenticazione basata su Azure Active Directory. È possibile [sincronizzare i nuovi utenti](hdinsight-sync-aad-users-to-cluster.md) aggiunti a gruppi di Azure AD a cui è stato concesso l'accesso al cluster, consentendo loro di eseguire determinate azioni. L'utilizzo di utenti, gruppi e autorizzazioni in [Apache Ambari](https://ambari.apache.org/) è supportato sia per cluster HDInsight con ESP sia per cluster HDInsight standard.
+I [cluster HDInsight con Enterprise Security Package (ESP) abilitato](./domain-joined/hdinsight-security-overview.md) offrono funzionalità di livello aziendale, ad esempio l'autenticazione basata su Azure Active Directory. È possibile [sincronizzare i nuovi utenti](hdinsight-sync-aad-users-to-cluster.md) aggiunti a gruppi di Azure AD a cui è stato concesso l'accesso al cluster, consentendo loro di eseguire determinate azioni. L'utilizzo di utenti, gruppi e autorizzazioni in [Apache Ambari](https://ambari.apache.org/) è supportato sia per cluster HDInsight con ESP sia per cluster HDInsight standard.
 
-Utenti di Active Directory possono accedere ai nodi del cluster usando le proprie credenziali di dominio. che consentono anche di autenticare le interazioni tra cluster con antri endpoint approvati, ad esempio [Hue](https://gethue.com/), viste di Ambari, ODBC, JDBC, PowerShell e API REST.
+Active Directory gli utenti possono accedere ai nodi del cluster usando le credenziali di dominio. che consentono anche di autenticare le interazioni tra cluster con antri endpoint approvati, ad esempio [Hue](https://gethue.com/), viste di Ambari, ODBC, JDBC, PowerShell e API REST.
 
 > [!WARNING]  
 > Non modificare la password del watchdog Ambari (hdinsightwatchdog) nel cluster HDInsight basato su Linux. Se si modifica la password, non sarà più possibile usare azioni script o eseguire operazioni di ridimensionamento con il cluster.

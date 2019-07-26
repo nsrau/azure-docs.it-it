@@ -2,7 +2,7 @@
 title: Stringhe di connessione per Azure SQL Data Warehouse | Microsoft Docs
 description: Stringhe di connessione per SQL Data Warehouse
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,15 +10,15 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 8f7843714395664b98383c32911de40ca064779e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: afc8dbfa0bc1b1ad37e5f1a0f290c42998ed1e4b
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873625"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479715"
 ---
 # <a name="connection-strings-for-azure-sql-data-warehouse"></a>Stringhe di connessione per Azure SQL Data Warehouse
-È possibile connettersi a SQL Data Warehouse con diversi protocolli applicativi, ad esempio, [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] e [JDBC][JDBC]. Di seguito sono riportati esempi di stringhe di connessione per ogni protocollo.  Per impostare la stringa di connessione, è anche possibile usare il portale di Azure.  Per compilare la stringa di connessione tramite il portale di Azure, passare al pannello database e in *Informazioni di base* fare clic su *Mostra stringhe di connessione del database*.
+È possibile connettersi a SQL data warehouse con diversi protocolli applicativi, ad esempio, [ADO.NET][ADO.NET], [ODBC][ODBC], [php][php] e [JDBC][JDBC]. Di seguito sono riportati esempi di stringhe di connessione per ogni protocollo.  Per impostare la stringa di connessione, è anche possibile usare il portale di Azure.  Per compilare la stringa di connessione tramite il portale di Azure, passare al pannello database e in *Informazioni di base* fare clic su *Mostra stringhe di connessione del database*.
 
 ## <a name="sample-adonet-connection-string"></a>Stringa di connessione ADO.NET di esempio
 ```csharp
@@ -46,7 +46,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 > 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per iniziare a eseguire query sul data warehouse con Visual Studio e altre applicazioni, vedere [Eseguire query con Visual Studio][Query with Visual Studio].
+Per iniziare a eseguire query sul data warehouse con Visual Studio e altre applicazioni, vedere [Eseguire query in Azure SQL Data Warehouse (Visual Studio)][Query with Visual Studio].
 
 <!--Image references-->
 

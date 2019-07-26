@@ -1,5 +1,5 @@
 ---
-title: Integrazione del Centro sicurezza con i prodotti per la sicurezza di Azure | Microsoft Docs
+title: Integrazione dei prodotti per la sicurezza di Azure nel centro sicurezza di Azure | Microsoft Docs
 description: Questo argomento presenta i prodotti di sicurezza di Azure che sono stati integrati con il Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/02/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 64a636cc4452de1ef4a2d0e94629e7d8e3a5878d
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 847748d1c56221119d8f74a2aee716ee08448e28
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295744"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335810"
 ---
-# <a name="security-center-integration-with-azure-security-products-in-asc"></a>Integrazione del Centro sicurezza con prodotti per la sicurezza di Azure in ASC
+# <a name="integration-of-azure-security-products-in-azure-security-center"></a>Integrazione dei prodotti per la sicurezza di Azure nel centro sicurezza di Azure
 
 Il Centro sicurezza offre ai clienti licenze Microsoft aggiuntive per l'onboarding dei risultati nel centro sicurezza e per visualizzarli in modo consolidato.
 
@@ -46,7 +46,7 @@ Protezione DDoS Standard consente di mitigare i seguenti tipi di attacchi:
 
 > [!div class="mx-tableFixed"]
 
-|Avviso|Descrizione|
+|Avviso|DESCRIZIONE|
 |---|---|
 |**Attacco volumetrico rilevato**|L'obiettivo di questo attacco è quello di inondare il livello di rete con una notevole quantità di traffico apparentemente legittimo. Sono inclusi attacchi flood UDP, attacchi flood con amplificazione e attacchi flood con pacchetti falsificati. Protezione DDoS Standard mitiga questi attacchi con dimensioni potenziali di molti gigabyte assorbendoli ed eseguendone lo scrubbing, sfruttando automaticamente la scalabilità di rete globale di Azure.|
 |**Attacco del protocollo rilevato**|Questi attacchi rendono inaccessibile una destinazione, sfruttando un punto debole nello stack di protocolli di livello 3 e 4. Sono inclusi attacchi di tipo SYN flood, attacchi di tipo reflection e altri attacchi contro i protocolli. Protezione DDoS Standard mitiga questi attacchi distinguendo tra traffico dannoso e legittimo tramite l'interazione con il client e bloccando il traffico dannoso.|

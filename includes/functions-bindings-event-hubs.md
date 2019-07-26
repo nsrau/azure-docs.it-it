@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 3ce3d61bf6b5fb44fa13527bc5a93295784fa66b
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 1fcb308c73ee93308515d91398bedee3c41ccf38
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68286309"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68362548"
 ---
 ## <a name="trigger"></a>Trigger
 
@@ -327,6 +327,7 @@ Ecco il codice Python:
 import logging
 import azure.functions as func
 
+
 def main(event: func.EventHubEvent):
     logging.info('Function triggered to process a message: ', event.get_body())
     logging.info('  EnqueuedTimeUtc =', event.enqueued_time)
@@ -400,7 +401,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 Il trigger di Hub eventi fornisce diverse [proprietà di metadati](../articles/azure-functions/./functions-bindings-expressions-patterns.md). Queste proprietà possono essere usate come parte delle espressioni di associazione in altre associazioni o come parametri nel codice. Queste sono proprietà della classe [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata).
 
-|Proprietà|Type|Descrizione|
+|Proprietà|Type|DESCRIZIONE|
 |--------|----|-----------|
 |`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|L'istanza di `PartitionContext`.|
 |`EnqueuedTimeUtc`|`DateTime`|Il tempo di accodamento in formato UTC.|
@@ -630,9 +631,10 @@ import datetime
 import logging
 import azure.functions as func
 
+
 def main(timer: func.TimerRequest) -> str:
     timestamp = datetime.datetime.utcnow()
-    logging.info('Message created at: %s', timestamp);   
+    logging.info('Message created at: %s', timestamp)
     return 'Message created at: {}'.format(timestamp)
 ```
 
@@ -719,7 +721,7 @@ Questa sezione descrive le impostazioni di configurazione globali disponibili pe
 }  
 ```
 
-|Proprietà  |Predefinito | Descrizione |
+|Proprietà  |Predefinito | DESCRIZIONE |
 |---------|---------|---------|
 |maxBatchSize|64|Il numero massimo degli eventi ricevuto per ogni ciclo di ricezione.|
 |prefetchCount|n/d|Il valore predefinito di PrefetchCount che verrà utilizzato dall’EventProcessorHost sottostante.|

@@ -1,19 +1,18 @@
 ---
 title: Backup di Azure per carichi di lavoro di SQL server tramite DPM
 description: Introduzione al backup dei database SQL Server tramite il servizio Backup di Azure
-services: backup
 author: kasinh
 manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
-ms.openlocfilehash: d7d94c7b238f8d413d8837c3c34468c6cd653fe3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 60afba5d094d730aab20f2a7d50206c063f390ff
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60644144"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466635"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Backup di SQL Server in Azure come carico di lavoro DPM
 In questo articolo viene avviata la procedura di configurazione per il backup dei database SQL Server mediante il Backup di Azure.
@@ -33,7 +32,7 @@ Prima di procedere, assicurarsi che tutti i [prerequisiti](backup-azure-dpm-intr
 1. Sul server DPM, fare clic nell'area di lavoro **Protezione** .
 2. Nella barra degli strumenti, fare clic su **Nuovo** per creare un nuovo gruppo di protezione.
 
-    ![Creazione di un gruppo di protezione](./media/backup-azure-backup-sql/protection-group.png)
+    ![Creare un gruppo di protezione](./media/backup-azure-backup-sql/protection-group.png)
 3. DPM mostra la schermata iniziale con le linee guida per creare un **Gruppo di protezione**. Fare clic su **Avanti**.
 4. Selezione dei **Server**.
 

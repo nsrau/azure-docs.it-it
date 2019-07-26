@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2568d2213d15faf66ecf606e56ea6b82bacafc3e
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
-ms.translationtype: MT
+ms.openlocfilehash: 1e8e066f9a5b7a405dba65dd636d38679cfa748b
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233674"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479957"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Note sulla versione del servizio Azure Machine Learning
 
@@ -24,6 +24,100 @@ Questo articolo fornisce informazioni sulle versioni del servizio Azure Machine 
 + [**SDK di preparazione dei dati**](https://aka.ms/data-prep-sdk) di Azure Machine Learning
 
 Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei problemi noti](resource-known-issues.md).
+
+## <a name="2019-07-15"></a>2019-07-15
+
+### <a name="azure-machine-learning-sdk-for-python-v1053"></a>SDK di Azure Machine Learning per Python v 1.0.53
+
++ **Nuove funzionalità**
+    + Machine Learning automatizzato supporta ora i modelli ONNX di training nella destinazione di calcolo remota
+  + Azure Machine Learning ora offre la possibilità di riprendere il training da un'esecuzione precedente, un checkpoint o un file di modello.
+    + Informazioni su come [usare gli estimatori per riprendere il training da un'esecuzione precedente](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb)
+
++ **Correzioni di bug e miglioramenti**
+  + **automl-client-Core-nativeClient**
+    + Correzione del bug relativo alla perdita di tipi di colonne dopo la trasformazione (bug collegato); 
+    + Consenti a y_query di essere un tipo di oggetto contenente nessuno all'inizio (#459519).
+  + **azure-cli-ml**
+    + I comandi dell'interfaccia della riga di comando "distribuzione modello" e "aggiornamento servizio" accettano ora parametri, file di configurazione o una combinazione dei due. I parametri hanno la precedenza sugli attributi nei file.
+    + È ora possibile aggiornare la descrizione del modello dopo la registrazione
+  + **azureml-automl-Core**
+    + Aggiornare la dipendenza NimbusML alla versione 1.2.0 (Current Latest).
+    + Aggiunta del supporto per gli estimatori Nimbus ML & le pipeline da usare all'interno degli estimatori AutoML.
+    + Correzione di un bug nella procedura di selezione dell'insieme che inutilmente cresceva l'insieme risultante anche se i punteggi rimanevano costanti.
+    + Consentire il riutilizzo di alcuni featurizations tra le divisioni del CV per le attività di previsione. Questo consente di velocizzare la fase di esecuzione dell'installazione di un fattore di n_cross_validations per featurizations costosi, ad esempio i ritardi e le finestre in sequenza.
+    + Risoluzione di un problema se il tempo è esterno all'intervallo di tempo supportato da Pandas. Viene ora generata un'eccezione DataException se l'ora è inferiore a PD. Timestamp. min o maggiore di PD. Timestamp. max
+    + La previsione consente ora diverse frequenze nei set di training e di test se possono essere allineate. Ad esempio, "Quarterly a partire da gennaio" e a "Quarterly a partire da ottobre" possono essere allineati.
+    + La proprietà "Parameters" è stata aggiunta a TimeSeriesTransformer.
+    + Rimuovere le classi di eccezioni obsolete.
+    + Nelle attività di previsione, il `target_lags` parametro ora accetta un solo valore integer o un elenco di numeri interi. Se è stato specificato il valore integer, verrà creato solo un ritardo. Se viene specificato un elenco, verranno rilevati i valori univoci dei ritardi. target_lags = [1, 2, 2, 4] creerà i ritardi di uno, 2 e 4 punti.
+    + Correzione del bug relativo alla perdita di tipi di colonne dopo la trasformazione (bug collegato);
+    + In `model.forecast(X, y_query)`, consentire a y_query di essere un tipo di oggetto contenente nessuno all'inizio (#459519).
+    + Aggiungere i valori previsti all'output di automl
+  + **azureml-contrib-datadrift**
+    +  Miglioramenti al notebook di esempio, inclusa l'opzione passa a azureml-opendatasets anziché azureml-contrib-opendatasets e miglioramenti delle prestazioni quando si arricchiscono i dati
+  + **azureml-contrib-explain-Model**
+    + Correzione dell'argomento relativo alle trasformazioni per l'importanza della funzionalità RAW in azureml-contrib-explain-Model Package
+    + Aggiunta di segmentazioni alle spiegazioni delle immagini in image Explainer per il pacchetto AzureML-contrib-explain-Model
+    + Aggiunta del supporto di SciPy sparse per LimeExplainer
+    + aggiungere batch_size a MIME Explainer quando include_local = false per lo streaming di spiegazioni globali in batch per migliorare i tempi di esecuzione di DecisionTreeExplainableModel
+  + **azureml-contrib-featureengineering**
+    + Usare una o due frasi: usare il termine "passato" con il periodo di tempo esempio:-è stato risolto il problema in useful_util, questa volta funziona effettivamente.
+    + Correzione per la chiamata a set_featurizer_timeseries_params (): modifica del tipo di valore dict e controllo null-Aggiungi notebook per timeseries featurizer
+    + Aggiornare la dipendenza NimbusML alla versione 1.2.0 (Current Latest).
+  + **azureml-core**
+    + Aggiunta della possibilità di alleghire archivi dati DBFS nell'interfaccia della riga di comando di AzureML 
+    + Correzione del bug relativo al caricamento dell'archivio dati in cui viene creata una `target_path` cartella vuota se avviata con`/`
+    + Correzione del problema di DeepCopy in ServicePrincipalAuthentication.
+    + Sono stati aggiunti i comandi "AZ ml Environment Show" e "AZ ml Environment list" all'interfaccia della riga di comando.
+    + Gli ambienti supportano ora la specifica di un base_dockerfile come alternativa a un base_image già compilato.
+    + L'impostazione RunConfiguration non usata auto_prepare_environment è stata contrassegnata come deprecata.
+    + È ora possibile aggiornare la descrizione del modello dopo la registrazione
+    + Bugfix Model and Image Delete offre ora ulteriori informazioni sul recupero di oggetti upstream che dipendono da essi se l'eliminazione non riesce a causa di una dipendenza upstream.
+    + Correzione del bug che stampava una durata vuota per le distribuzioni che si verificano quando si crea un'area di lavoro per alcuni ambienti.
+    + Eccezioni di creazione dell'area di lavoro migliorate. In modo che gli utenti non visualizzino "Impossibile creare l'area di lavoro. Impossibile trovare... " come messaggio e visualizzano invece l'effettivo errore di creazione.
+    + Aggiungere il supporto per l'autenticazione del token in AKS WebServices. 
+    + Aggiungere `get_token()` il metodo `Webservice` agli oggetti.
+    + Aggiunta del supporto dell'interfaccia della riga di comando per la gestione di set di impostazioni
+    + `Datastore.register_azure_blob_container`Ora, facoltativamente, `blob_cache_timeout` accetta un valore (in secondi) che configura i parametri di montaggio di blobfuse per abilitare la scadenza della cache per l'archivio dati. Il valore predefinito non prevede alcun timeout, ad esempio quando un BLOB viene letto, rimane nella cache locale fino al termine del processo. La maggior parte dei processi preferisce questa impostazione, ma alcuni processi devono leggere più dati da un set di dati di grandi dimensioni rispetto ai relativi nodi. Per questi processi, l'ottimizzazione di questo parametro ne consentirà l'esito positivo. Prestare attenzione quando si esegue l'ottimizzazione di questo parametro: l'impostazione di un valore troppo basso può comportare una riduzione delle prestazioni, in quanto i dati utilizzati in un'epoca possono scadere prima di essere riutilizzati. Ciò significa che tutte le letture verranno eseguite dall'archiviazione BLOB, ovvero dalla rete, anziché dalla cache locale, che influisce negativamente sui tempi di training.
+    + La descrizione del modello può ora essere aggiornata correttamente dopo la registrazione
+    + L'eliminazione di modelli e immagini offre ora ulteriori informazioni sugli oggetti upstream che dipendono da tali oggetti, causando l'esito negativo dell'eliminazione
+    + Migliorare l'utilizzo delle risorse delle esecuzioni remote con azureml. mlflow.
+  + **azureml-dataprep**
+    + È ora possibile eseguire l'iterazione degli oggetti del flusso di dati, producendo una sequenza di record.
+    + Aggiungere `_summarize_each` come funzionalità sperimentale `azureml.dataprep.Dataflow`a.
+  + **azureml-explain-model**
+    + Correzione dell'argomento relativo alle trasformazioni per l'importanza della funzionalità RAW in azureml-contrib-explain-Model Package
+    + Aggiunta del supporto di SciPy sparse per LimeExplainer
+    + è stato aggiunto il wrapper Shap Linear Explainer, oltre a un altro livello di spiegazione tabulare per la spiegazione dei modelli lineari
+    + per explain Explainer in explain Model Library, errore fisso quando include_local = false per l'input di dati di tipo sparse
+    + aggiungere i valori previsti all'output di automl
+    + priorità della funzionalità di permutazione fissa durante l'argomento delle trasformazioni fornito per ottenere l'importanza della funzionalità RAW
+    + aggiungere batch_size a MIME Explainer quando include_local = false per lo streaming di spiegazioni globali in batch per migliorare i tempi di esecuzione di DecisionTreeExplainableModel
+    + per la libreria di spiegazione del modello, i Explainer di Blackbox fissi dove è richiesto l'input dei frame di dati Pandas per la stima
+    + Correzione di un bug `explanation.expected_values` in cui talvolta verrebbe restituito un valore float anziché un elenco con un valore float.
+  + **azureml-mlflow**
+    + Migliorare le prestazioni di mlflow. set _experiment (experiment_name)
+    + Correzione di un bug in uso di InteractiveLoginAuthentication per mlflow tracking_uri
+    + Migliorare la documentazione del pacchetto azureml-mlflow
+    + Patch bug where mlflow. log _artifacts ("my_dir") Salva gli artefatti in "my_dir/< artefatto-Paths >" invece di "< artefatto-Paths >"-[x] ho esaminato gli errori di cancelli facoltativi e non introdurre nuovi errori-[] sono troppo pigri per la lettura Questa sezione
+    + Migliorare l'utilizzo delle risorse delle esecuzioni remote con azureml. mlflow.
+  + **azureml-opendatasets**
+    + Aggiungere pyarrow di opendatasets alle versioni precedenti (< 0.14.0) a causa di un problema di memoria appena introdotto.
+    +  Spostare azureml-contrib-opendatasets in azureml-opendatasets. -Consentire la registrazione delle classi del set di dati aperte nell'area di lavoro di AML e sfruttare facilmente le funzionalità del set di dati AML. -Migliorare significativamente le prestazioni di NoaaIsdWeather in una versione non SPARK.
+  + **azureml-pipeline-steps**
+    + DBFS datastore è ora supportato per gli input e gli output in DatabricksStep.
+    + Documentazione aggiornata per Azure Batch step per quanto riguarda gli input/output.
+    + In AzureBatchStep è stato modificato *delete_batch_job_after_finish* valore predefinito in *true*.
+  + **azureml-telemetria**
+    +  Spostare azureml-contrib-opendatasets in azureml-opendatasets. -Consentire la registrazione delle classi del set di dati aperte nell'area di lavoro di AML e sfruttare facilmente le funzionalità del set di dati AML. -Migliorare significativamente le prestazioni di NoaaIsdWeather in una versione non SPARK.
+  + **azureml-train-automl**
+    + Documentazione aggiornata su get_Output per riflettere il tipo restituito effettivo e fornire note aggiuntive sul recupero delle proprietà chiave.
+    + Aggiornare la dipendenza NimbusML alla versione 1.2.0 (Current Latest).
+    + aggiungere i valori previsti all'output di automl
+  + **azureml-train-core**
+    + Le stringhe sono ora accettate come destinazione di calcolo per l'ottimizzazione automatica degli iperparametri
+    + L'impostazione RunConfiguration non usata auto_prepare_environment è stata contrassegnata come deprecata.
 
 ## <a name="2019-07-09"></a>2019-07-09
 
@@ -508,7 +602,7 @@ Nota: Python SDK per la preparazione dei dati non `numpy` installerà più i pac
     - Istogramma
     - Grafico a barre in pila
     - Box plot
-    - Grafico a dispersione
+    - Tracciato a dispersione
     - Grafico a bolle
 + Il portale a questo punto genera in modo dinamico i report per gli esperimenti. Quando un utente invia un'esecuzione a un esperimento, verrà generato automaticamente un report contenente i grafici e le metriche registrate per consentire il confronto tra diverse esecuzioni. 
 
@@ -622,7 +716,7 @@ L'ambiente di calcolo di Azure Machine Learning può essere creato in Python, tr
 + Visualizzare lo stato del cluster dell'ambiente di calcolo di Azure Machine Learning in tempo reale.
 + È stato aggiunto il supporto di rete virtuale per la creazione dell'ambiente di calcolo di Azure Machine Learning e del servizio Azure Kubernetes.
 + Eseguire di nuovo le pipeline pubblicate con i parametri esistenti.
-+ Nuovi [grafici automatizzati di apprendimento automatico](how-to-track-experiments.md#auto) per i modelli di classificazione (accuratezza, miglioramenti, calibrazione, grafico dell'importanza delle funzionalità con la spiegabilità del modello) e i modelli di regressione (valori residui e grafico di importanza della funzionalità con la spiegabilità del modello). 
++ Nuovi [grafici automatizzati di apprendimento automatico](how-to-understand-automated-ml.md) per i modelli di classificazione (accuratezza, miglioramenti, calibrazione, grafico dell'importanza delle funzionalità con la spiegabilità del modello) e i modelli di regressione (valori residui e grafico di importanza della funzionalità con la spiegabilità del modello). 
 + Le pipeline possono essere visualizzate nel portale di Azure
 
 

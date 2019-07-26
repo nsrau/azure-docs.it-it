@@ -1,19 +1,18 @@
 ---
 title: Ripristinare dati in Azure in un computer Windows Server o in un client Windows
 description: Informazioni su come ripristinare i dati archiviati in Azure in un computer di Windows Server o in un client Windows.
-services: backup
 author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 9/7/2018
 ms.author: saurse
-ms.openlocfilehash: 9c2f8ce0dfb866826de549946bc3ee1acc2b677f
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: e22db587c698594170c3b08ea04ff6699b6a61c8
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460267"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465688"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Ripristinare i file in Windows usando il modello di distribuzione Azure Resource Manager
 
@@ -48,7 +47,7 @@ Se un file è stato eliminato accidentalmente e lo si vuole ripristinare nello s
 
     ![Schermata della pagina introduttiva del Ripristino guidato dei dati](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
-4. Nel **Seleziona modalità di ripristino** pagina, scegliere **singoli file e cartelle** > **Avanti**.
+4. Nella pagina **selezione modalità di ripristino** scegliere **singoli file e cartelle** > **Avanti**.
 
     ![Schermata della pagina Seleziona modalità di ripristino del Ripristino guidato dei dati](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]
@@ -97,7 +96,7 @@ Tali passaggi usano la terminologia seguente:
 * *Insieme di credenziali di esempio*: l'insieme di credenziali dei servizi di ripristino in cui il computer di origine e il computer di destinazione sono registrati. <br/>
 
 > [!NOTE]
-> Non è possibile ripristinare i backup in un computer di destinazione che esegue una versione precedente del sistema operativo. Ad esempio, un backup eseguito da un computer Windows 7 può essere ripristinato in un computer Windows 7 (o versione successivo). Un backup eseguito su un computer con Windows 8 non può essere ripristinato in un computer con Windows 7.
+> Non è possibile ripristinare i backup in un computer di destinazione che esegue una versione precedente del sistema operativo. Ad esempio, è possibile ripristinare un backup effettuato da un computer Windows 7 in un computer Windows 7 (o versione successiva). Un backup eseguito su un computer con Windows 8 non può essere ripristinato in un computer con Windows 7.
 >
 >
 

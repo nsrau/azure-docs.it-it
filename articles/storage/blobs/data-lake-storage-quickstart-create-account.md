@@ -5,18 +5,17 @@ services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: quickstart
-ms.date: 12/06/2018
+ms.topic: article
+ms.date: 07/19/2019
 ms.author: normesta
-ms.reviewer: jamesbak
-ms.openlocfilehash: 18132ac4c218c766efdc9a9afae2cc3508c4f732
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: HT
+ms.openlocfilehash: 297ab5971fdf60ce260808cb4864621ec1188b5e
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939417"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360772"
 ---
-# <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Guida introduttiva: Creare un account di archiviazione di Azure Data Lake Storage Gen2
+# <a name="create-an-azure-data-lake-storage-gen2-storage-account"></a>Creare un account di archiviazione di Azure Data Lake Storage Gen2
 
 Azure Data Lake Storage Gen2 [supporta uno spazio dei nomi gerarchico](data-lake-storage-introduction.md) che fornisce un file system nativo basato su directory da usare con Hadoop Distributed File System (HDFS). L'accesso ai dati di Data Lake Storage Gen2 da HDFS è disponibile tramite il [driver ABFS](data-lake-storage-abfs-driver.md).
 
@@ -30,7 +29,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 |-----------|--------------|
 |Portale     | Nessuno         |
 |PowerShell | Per questa guida introduttiva è richiesto il modulo PowerShell Az.Storage versione **0.7** o successiva. Eseguire il comando `Get-Module -ListAvailable Az.Storage` per trovare la versione corrente. Se dopo aver eseguito questo comando non vengono visualizzati risultati o se viene indicata una versione diversa dalla **0.7**, è necessario aggiornare il modulo di PowerShell. Vedere la sezione [Aggiornare il modulo di PowerShell](#upgrade-your-powershell-module) della guida.
-|CLI        | È possibile accedere ad Azure ed eseguire i comandi dell'interfaccia della riga di comando di Azure in uno dei due modi seguenti: <ul><li>È possibile eseguire i comandi dell'interfaccia della riga di comando nel portale di Azure, in Azure Cloud Shell </li><li>È possibile installare l'interfaccia della riga di comando ed eseguire i relativi comandi in locale</li></ul>|
+|Interfaccia della riga di comando        | È possibile accedere ad Azure ed eseguire i comandi dell'interfaccia della riga di comando di Azure in uno dei due modi seguenti: <ul><li>È possibile eseguire i comandi dell'interfaccia della riga di comando nel portale di Azure, in Azure Cloud Shell </li><li>È possibile installare l'interfaccia della riga di comando ed eseguire i relativi comandi in locale</li></ul>|
 
 Quando si usa la riga di comando, è possibile scegliere se eseguire Azure Cloud Shell o installare l'interfaccia della riga di comando in locale.
 

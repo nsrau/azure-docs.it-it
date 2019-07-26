@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: a7016b8ca43abee9c3f346c6dec55a101ce4020a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0802185b7fb0d1a6d7d41cd1fa5a30f5ce10424b
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60528346"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443917"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>Regole di firewall per il server MySQL del database di Azure
 I firewall impediscono qualsiasi accesso al server di database finché non vengono specificati i computer autorizzati. Il firewall concede l'accesso al server in base all'indirizzo IP di origine di ogni richiesta.
@@ -61,5 +61,5 @@ Quando l'accesso al servizio Database di Microsoft Azure per server MySQL non si
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Creare e gestire regole di firewall per il database di Azure per MySQL mediante il portale di Azure](./howto-manage-firewall-using-portal.md)
-[Creare e gestire regole di firewall per il database di Azure per MySQL mediante l'interfaccia della riga di comando di Azure](./howto-manage-firewall-using-cli.md)
+* [Creare e gestire regole del firewall di Database di Azure per MySQL con il portale di Azure](./howto-manage-firewall-using-portal.md)
+* [Creare e gestire regole del firewall di database di Azure per MySQL usando l'interfaccia della riga di comando](./howto-manage-firewall-using-cli.md)

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: allensu
-ms.openlocfilehash: dd4b9f88e61396003a209b1b8edabb8c1564c761
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: 305f24fc274ad48f5c60762223b7bf4e970fe083
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320079"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333745"
 ---
 # <a name="traffic-manager-routing-methods"></a>Metodi di routing di Gestione traffico
 
@@ -148,6 +148,14 @@ Come spiegato in [Modalità di funzionamento di Gestione traffico](traffic-manag
 ## <a name = "multivalue"></a>Metodo di routing del traffico Multivalore
 Il metodo di routing del traffico **Multivalore** consente di ottenere più endpoint integri in un'unica risposta a una query DNS. In questo modo, il chiamante, in caso di mancata risposta da parte di un endpoint restituito, può eseguire nuovi tentativi sul lato client con altri endpoint. Questo modello può aumentare la disponibilità di un servizio e ridurre la latenza associata a una nuova query DNS per ottenere un endpoint integro. Il metodo di routing Multivalore funziona solo se tutti gli endpoint di tipo Esterno sono specificati come indirizzi IPv4 o IPv6. Quando si riceve una query per profili di questo tipo, tutti gli endpoint integri vengono restituiti e sono soggetti a un numero massimo di restituzioni configurabili.
 
+### <a name="faqs"></a>Domande frequenti
+
+* [Quali sono alcuni casi d'uso in cui il routing multivalore è utile?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-multivalue-routing-is-useful)
+
+* [Quanti endpoint vengono restituiti quando si usa il routing multivalore?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-endpoints-are-returned-when-multivalue-routing-is-used)
+
+* [Si otterrà lo stesso set di endpoint quando si usa il routing multivalore?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used)
+
 ## <a name = "subnet"></a>Metodo di routing del traffico Subnet
 Il metodo di routing del traffico **Subnet** consente di eseguire il mapping di un set di intervalli di indirizzi IP dell'utente finale a endpoint specifici di un profilo. Successivamente, se Gestione traffico riceve una query DNS per tale profilo, controllerà l'indirizzo IP di origine della richiesta (nella maggior parte dei casi si tratta dell'indirizzo IP in uscita del resolver DNS usato dal chiamante), determinerà l'endpoint a cui eseguire il mapping e restituirà l'endpoint nella risposta alla query. 
 
@@ -155,6 +163,19 @@ L'indirizzo IP di cui eseguire il mapping a un endpoint può essere specificato 
 Se si definisce un endpoint senza intervallo di indirizzi, questo funziona come fallback e accetta il traffico da qualsiasi subnet rimanente. Se non è incluso alcun endpoint di fallback, Gestione traffico invia una risposta NODATA per tutti gli intervalli non definiti. Di conseguenza, è consigliabile definire un endpoint di fallback o assicurarsi che negli endpoint siano specificati tutti gli intervalli di indirizzi IP possibili.
 
 È possibile usare il metodo di routing Subnet per offrire un'esperienza diversa per gli utenti che si connettono da uno spazio di IP specifico. Ad esempio, con questo metodo un cliente può fare in modo che tutte le richieste provenienti dall'ufficio aziendale vengano instradate a un endpoint diverso dove è possibile testare una versione solo interna dell'app. Un altro scenario può essere quello in cui si voglia offrire un'esperienza diversa agli utenti che si connettono da un ISP specifico, ad esempio per bloccare gli utenti di un determinato ISP.
+
+### <a name="faqs"></a>Domande frequenti
+
+* [Quali sono alcuni casi d'uso in cui il routing delle subnet è utile?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-subnet-routing-is-useful)
+
+* [In che modo gestione traffico conosce l'indirizzo IP dell'utente finale?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-know-the-ip-address-of-the-end-user)
+
+* [Come è possibile specificare gli indirizzi IP quando si usa il routing della subnet?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-ip-addresses-when-using-subnet-routing)
+
+* [Come è possibile specificare un endpoint di fallback quando si usa il routing della subnet?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing)
+
+* [Cosa accade se un endpoint viene disabilitato in un profilo del tipo di routing della subnet?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile)
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

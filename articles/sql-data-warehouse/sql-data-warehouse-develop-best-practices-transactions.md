@@ -2,7 +2,7 @@
 title: Ottimizzazione delle transazioni per Azure SQL Data Warehouse | Microsoft Docs
 description: Informazioni su come ottimizzare le prestazioni del codice transazionale in Azure SQL Data Warehouse riducendo al contempo il rischio di rollback di lunga durata.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 9ab1da9fce74359448311591986d57abbbcef066
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2299c526dd63eb8e8772661ee8fae66153fc36c3
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873622"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479667"
 ---
 # <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>Ottimizzazione delle transazioni in Azure SQL Data Warehouse
 Informazioni su come ottimizzare le prestazioni del codice transazionale in Azure SQL Data Warehouse riducendo al contempo il rischio di rollback di lunga durata.
@@ -67,7 +67,7 @@ CTAS e INSERT...SELECT sono entrambe operazioni di caricamento bulk. Tuttavia, e
 
 | Indice primario | Scenario di caricamento | Modalità di registrazione |
 | --- | --- | --- |
-| Heap |Qualsiasi |**Minima** |
+| Heap |Any |**Minima** |
 | Indice cluster |Tabella di destinazione vuota |**Minima** |
 | Indice cluster |Le righe caricate non si sovrappongono alle pagine esistenti nella destinazione |**Minima** |
 | Indice cluster |Le righe caricate si sovrappongono alle pagine esistenti nella destinazione |Completa |

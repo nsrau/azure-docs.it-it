@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 38359858d16a20f73cf845fa547899bdc5ee7fd3
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: 0264cf3a972c35edb3ad6dc600ca39bdaa076dfd
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326241"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333695"
 ---
 # <a name="status-monitor-v2"></a>Status Monitor v2
 
@@ -62,13 +62,13 @@ Ognuna di queste opzioni è descritta nelle [istruzioni dettagliate](status-moni
   
 - Ricerca per categorie verificare l'esito positivo dell'abilitazione?
 
-   Non è disponibile alcun cmdlet per verificare che l'abilitazione sia riuscita.
-È consigliabile usare le [metriche in tempo reale](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) per determinare rapidamente se l'app invia dati di telemetria.
+  - Il cmdlet [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md) può essere usato per verificare che l'abilitazione sia stata completata.
+  - È consigliabile usare le [metriche in tempo reale](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) per determinare rapidamente se l'app invia dati di telemetria.
 
-   È anche possibile usare [log Analytics](../log-query/get-started-portal.md) per elencare tutti i ruoli cloud che inviano attualmente i dati di telemetria:
-   ```Kusto
-   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
-   ```
+  - È anche possibile usare [log Analytics](../log-query/get-started-portal.md) per elencare tutti i ruoli cloud che inviano attualmente i dati di telemetria:
+      ```Kusto
+      union * | summarize count() by cloud_RoleName, cloud_RoleInstance
+      ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

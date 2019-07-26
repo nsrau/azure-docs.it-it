@@ -1,6 +1,6 @@
 ---
-title: Attributi di sicurezza comuni per Azure Service Fabric
-description: Un elenco di controllo degli attributi di sicurezza comuni per la valutazione di Azure Service Fabric
+title: Attributi di sicurezza per Azure Service Fabric
+description: Elenco di controllo degli attributi di sicurezza per la valutazione di Azure Service Fabric
 services: service-fabric
 documentationcenter: ''
 author: msmbaldwin
@@ -9,16 +9,16 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7c1718298c3f7c3fea28fa0b18569085f071696f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 23c7f8bdcf67d59ccdd5cd0b00bc0e0960ba1d8f
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66003065"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443865"
 ---
 # <a name="security-attributes-for-azure-service-fabric"></a>Attributi di sicurezza per Azure Service Fabric
 
-Questo articolo sono descritti gli attributi di sicurezza integrati di Azure Service Fabric. 
+Questo articolo descrive gli attributi di sicurezza incorporati in Azure Service Fabric. 
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -26,44 +26,44 @@ Questo articolo sono descritti gli attributi di sicurezza integrati di Azure Ser
 
 | Attributo di sicurezza | Sì/No | Note |
 |---|---|--|
-| Crittografia di dati inattivi:<ul><li>Modello di crittografia lato server</li><li>Crittografia lato server con chiavi gestite dal cliente</li><li>Altre funzionalità di crittografia (ad esempio lato client, Always Encrypted e così via)</ul>| Yes | Il cliente è proprietario del cluster e la scalabilità di macchine virtuali impostato su cui viene creato il cluster. Crittografia dischi di Azure può essere abilitata nel set di scalabilità di macchine virtuali. |
-| Crittografia in transito:<ul><li>Crittografia ExpressRoute</li><li>Nella crittografia di rete virtuale</li><li>Crittografia da rete virtuale a rete virtuale</ul>| Yes |  |
-| Gestione della crittografia chiave (CMK, modalità BYOK e così via)| Yes | Il cliente è proprietario del cluster e la scalabilità di macchine virtuali impostato su cui viene creato il cluster. Crittografia dischi di Azure può essere abilitata nel set di scalabilità di macchine virtuali. |
-| Crittografia a livello di colonna (Azure Data Services)| N/D |  |
-| Chiamate API crittografate| Yes | Le chiamate API di Service Fabric vengono eseguite tramite Azure Resource Manager. È necessario un token JSON Web (JWT) valido. |
+| Crittografia dei servizi inattivi, ad esempio la crittografia lato server, la crittografia lato server con chiavi gestite dal cliente e altre funzionalità di crittografia| Sì | Il cliente è proprietario del cluster e del set di scalabilità di macchine virtuali in cui viene compilato il cluster. Crittografia dischi di Azure può essere abilitata nel set di scalabilità di macchine virtuali. |
+| Crittografia in transito (ad esempio crittografia ExpressRoute, crittografia VNet e crittografia VNet-VNet)| Sì |  |
+| Gestione della chiave di crittografia (CMK, BYOK e così via)| Yes | Il cliente è proprietario del cluster e del set di scalabilità di macchine virtuali in cui viene compilato il cluster. Crittografia dischi di Azure può essere abilitata nel set di scalabilità di macchine virtuali. |
+| Crittografia a livello di colonna (servizi dati di Azure)| N/D |  |
+| Chiamate API crittografate| Sì | Le chiamate API di Service Fabric vengono eseguite tramite Azure Resource Manager. È necessario un token JSON Web (JWT) valido. |
 
 ## <a name="network-segmentation"></a>Segmentazione di rete
 
 | Attributo di sicurezza | Sì/No | Note |
 |---|---|--|
-| Supporto endpoint del servizio| Yes |  |
-| Supportare l'inserimento di rete virtuale| Yes |  |
-| Isolamento di rete e supporto firewall| Yes | Uso dei gruppi di sicurezza di rete. |
-| Supporto di tunneling forzato| Yes | Sulla rete di Azure è disponibile il tunneling forzato. |
+| Supporto per endpoint di servizio| Sì |  |
+| Supporto di VNet Injection| Yes |  |
+| Isolamento rete e supporto del firewall| Sì | Uso dei gruppi di sicurezza di rete. |
+| Supporto del tunneling forzato| Sì | Sulla rete di Azure è disponibile il tunneling forzato. |
 
 ## <a name="detection"></a>Rilevamento
 
 | Attributo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Monitoraggio di supporto (analitica di Log, Application insights e così via) di Azure| Yes | Utilizzo di supporto e il supporto di terze parti di monitoraggio di Azure. |
+| Supporto di monitoraggio di Azure (log Analytics, Application Insights e così via)| Sì | Uso del supporto di monitoraggio di Azure e del supporto di terze parti. |
 
 ## <a name="identity-and-access-management"></a>Gestione delle identità e dell'accesso
 
 | Attributo di sicurezza | Sì/No | Note|
 |---|---|--|
 | Authentication| Yes | L'autenticazione avviene tramite Azure Active Directory. |
-| Authorization| Yes | Gestione delle identità e degli accessi per le chiamate tramite provider di risorse di Service Fabric. Per le chiamate inviate direttamente all'endpoint del cluster sono supportati due ruoli: Utente e Amministratore. Il cliente può mappare le API a entrambi i ruoli. |
+| Authorization| Sì | Gestione delle identità e degli accessi per le chiamate tramite provider di risorse di Service Fabric. Per le chiamate inviate direttamente all'endpoint del cluster sono supportati due ruoli: Utente e Amministratore. Il cliente può mappare le API a entrambi i ruoli. |
 
 
 ## <a name="audit-trail"></a>Audit trail
 
 | Attributo di sicurezza | Sì/No | Note|
 |---|---|--|
-| La registrazione di piano di controllo e la gestione e controllo| Yes | Tutte le operazioni del piano di controllo vengono eseguite tramite i processi per il controllo e le approvazioni. |
-| Controllo e registrazione di piano dati| N/D | Il cliente è proprietario del cluster.  |
+| Registrazione e controllo del piano di gestione e controllo| Sì | Tutte le operazioni del piano di controllo vengono eseguite tramite i processi per il controllo e le approvazioni. |
+| Registrazione e controllo del piano dati| N/D | Il cliente è proprietario del cluster.  |
 
 ## <a name="configuration-management"></a>Gestione della configurazione
 
 | Attributo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Supporto di Gestione configurazione (controllo delle versioni di configurazione e così via).| Yes | |
+| Supporto per la gestione della configurazione (controllo delle versioni della configurazione e così via)| Sì | |

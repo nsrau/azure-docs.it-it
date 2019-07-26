@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 06/20/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 848d0eddb9870f7690989e5bfa01985883e4308e
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 048a4dd9f35bd62886876f98bcbc5e6267cca6c8
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508855"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442223"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Informazioni sulle zone di disponibilità di Azure
 Le zone di disponibilità offrono una soluzione a disponibilità elevata che consente di proteggere le applicazioni e i dati da eventuali guasti del data center. Le zone di disponibilità sono località fisiche esclusive all'interno di un'area di Azure. Ogni zona è costituita da uno o più data center dotati di impianti indipendenti per l'alimentazione, il raffreddamento e la connettività di rete. Per garantire la resilienza, sono presenti almeno tre zone separate in tutte le aree abilitate. La separazione fisica delle zone di disponibilità all'interno di un'area consente di proteggere le applicazioni e i dati da eventuali guasti del data center. I servizi con ridondanza della zona replicano le applicazioni e i dati tra aree di disponibilità per garantire la protezione da singoli punti di errore. Con le zone di disponibilità, Azure offre un contratto di servizio con tempo di attività delle VM del 99,99% tra i migliori del settore. La versione completa del [contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) descrive la disponibilità garantita di Azure nel suo complesso.
@@ -37,9 +37,9 @@ Per garantire la continuità aziendale completa in Azure, creare l'architettura 
  
 ![Visualizzazione concettuale di una zona che diventa indisponibile in un'area](./media/az-overview/az-graphic-two.png)
 
-## <a name="services-support-by-region"></a>Supporto dei servizi per area
+## <a name="services-support-by-region"></a>Supporto dei servizi in base all'area
 
-Le combinazioni di servizi di Azure e le aree che supportano le zone di disponibilità sono:
+Le combinazioni dei servizi e delle aree di Azure che supportano zone di disponibilità sono:
 
 
 |                                 |Americhe |              |           |           | Europa |              |          |              | Asia/Pacifico |                 |
@@ -55,11 +55,12 @@ Le combinazioni di servizi di Azure e le aree che supportano le zone di disponib
 | **Rete**                     |            |              |           |           |                |              |          |             |            |                |
 | Indirizzo IP standard        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
 | Load Balancer Standard     | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
-| Gateway VPN                     | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
-| Gateway ExpressRoute   | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
+| Gateway VPN   | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;  | &#10003;     |   &#10003;  | &#10003;    |  &#10003;   | &#10003;       |
+| Gateway ExpressRoute   | &#10003;   |  &#10003;   | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |   &#10003;  | &#10003;       |
 | Gateway applicazione   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    | &#10003;       | &#10003;       |
 | Firewall di Azure           | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |  &#10003;       | &#10003;       |
 | **Database**                     |            |              |           |           |                |              |          |             |            |                |
+| Esplora dati di Azure                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;        | &#10003;       |
 | Database SQL                    | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |            | &#10003;       |
 | Cache Redis di Azure           | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |  &#10003;       | &#10003;       |
 | Azure Cosmos DB                    | &#10003;   |  &#10003;  |  &#10003; |  |       |     | &#10003; |     |            | &#10003;       |
@@ -70,8 +71,8 @@ Le combinazioni di servizi di Azure e le aree che supportano le zone di disponib
 
 
 
-## <a name="services-resiliency"></a>Resilienza di servizi
-Tutti i servizi di gestione di Azure sono progettati per essere resilienti dagli errori a livello di area. Nello spettro di errori, uno o più errori di zona di disponibilità all'interno di un'area presentano un raggio di errore più piccolo rispetto a un errore all'intera area. Azure è possibile ripristinare da un errore a livello di zona dei servizi di gestione all'interno dell'area o da un'altra area di Azure. Azure esegue una zona di manutenzione critiche in un momento all'interno di un'area per evitare eventuali errori delle conseguenze per le risorse dei clienti distribuite tra zone di disponibilità all'interno di un'area.
+## <a name="services-resiliency"></a>Resilienza dei servizi
+Tutti i servizi di gestione di Azure sono progettati per essere resilienti da errori a livello di area. Nello spettro degli errori, uno o più errori della zona di disponibilità all'interno di un'area hanno un raggio di errore inferiore rispetto a un errore dell'intera area. Azure può eseguire il ripristino da un errore a livello di zona dei servizi di gestione all'interno dell'area o da un'altra area di Azure. Azure esegue una manutenzione critica di una zona alla volta all'interno di un'area, per evitare errori che influiscano sulle risorse dei clienti distribuite tra zone di disponibilità all'interno di un'area.
 
 ## <a name="pricing"></a>Prezzi
 Per le macchine virtuali distribuite in una zona di disponibilità non sono previsti costi aggiuntivi. Il contratto di servizio con tempo di attività delle VM del 99,99% viene offerto quando due o più macchine virtuali vengono distribuite tra due o più zone di disponibilità all'interno di un'area di Azure. Vengono applicati addebiti per il trasferimento dei dati da VM a VM tra diverse zone di disponibilità. Per altre informazioni, vedere la pagina [Dettagli sui prezzi per la larghezza di banda](https://azure.microsoft.com/pricing/details/bandwidth/).
@@ -88,8 +89,8 @@ Per le macchine virtuali distribuite in una zona di disponibilità non sono prev
 - [Ripristino di emergenza geografico di Hub eventi](../event-hubs/event-hubs-geo-dr.md#availability-zones)
 - [Ripristino di emergenza geografico del bus di servizio](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
 - [Creare un gateway di rete virtuale con ridondanza della zona](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
-- [Aggiungi area con ridondanza della zona per Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support)
-- [Introduzione a Cache Redis zone di disponibilità di Azure](https://aka.ms/redis/az/getstarted)
+- [Aggiungere un'area con ridondanza della zona per Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support)
+- [Introduzione cache di Azure per Redis zone di disponibilità](https://aka.ms/redis/az/getstarted)
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Modelli di avvio rapido](https://aka.ms/azqs)

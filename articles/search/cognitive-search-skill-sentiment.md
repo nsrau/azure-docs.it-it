@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f52f5200f33d11db44d94b5a5f26d246f711e224
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f950bea4ea32ecc95b1721c6930903c3afaee848
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65023811"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347666"
 ---
 #   <a name="sentiment-cognitive-skill"></a>Competenza valutazione cognitiva
 
@@ -33,7 +33,7 @@ La competenza **Valutazione** valuta il testo non strutturato in una sequenza di
 Microsoft.Skills.Text.SentimentSkill
 
 ## <a name="data-limits"></a>Limiti dei dati
-Le dimensioni massime di un record devono essere 5000 caratteri in base alla misurazione di `String.Length`. Se è necessario suddividere i dati prima di inviarli all'analizzatore di valutazione, usare la [competenza cognitiva di divisione del testo](cognitive-search-skill-textsplit.md).
+La dimensione massima di un record deve essere di 5000 caratteri misurata [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)da. Se è necessario suddividere i dati prima di inviarli all'analizzatore di valutazione, usare la [competenza cognitiva di divisione del testo](cognitive-search-skill-textsplit.md).
 
 
 ## <a name="skill-parameters"></a>Parametri della competenza
@@ -99,7 +99,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 ```
 
 
-##  <a name="sample-output"></a>Output di esempio
+##  <a name="sample-output"></a>Esempio di output
 
 ```json
 {

@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/24/2019
+ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: d508ce217e3a97b3399435cb63295eb28965359a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cdd1c8348acac37acbe8ad15199f3953bfe95a8e
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65605596"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370653"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Tempo di inserimento dei dati di log in Monitoraggio di Azure
 Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. Spesso sono state poste domande sul tempo necessario affinché i dati di log diventino disponibili dopo la raccolta. Questo articolo illustra i diversi fattori che influiscono su questa latenza.
@@ -63,7 +63,7 @@ Alcune soluzioni non raccolgono i dati da un agente e possono usare un metodo di
 Per determinare la frequenza di raccolta specifica, consultare la documentazione relativa a ciascuna soluzione.
 
 ### <a name="pipeline-process-time"></a>Tempo di elaborazione della pipeline
-Dopo l'inserimento nella pipeline di Monitoraggio di Azure, i record di log vengono scritti nello spazio di archiviazione temporanea per garantire l'isolamento del tenant e assicurarsi che i dati non vadano perduti. Questo processo richiede in genere altri 5-15 secondi. Alcune soluzioni di gestione implementano algoritmi più pesanti per aggregare i dati e derivare informazioni dettagliate mentre i dati sono in streaming. Ad esempio, Monitoraggio prestazioni rete aggrega i dati in ingresso a intervalli di 3 minuti, aggiungendo di fatto una latenza di 3 minuti. Un altro processo che aggiunge latenza è il processo che gestisce i log personalizzati. In alcuni casi, questo processo potrebbe aggiungere alcuni minuti di latenza ai log che vengono raccolti dai file dall'agente.
+Una volta che i record di log vengono inseriti nella pipeline di monitoraggio di Azure (come indicato nella proprietà [_TimeReceived](log-standard-properties.md#_timereceived) ), vengono scritti nell'archiviazione temporanea per assicurare l'isolamento del tenant e per assicurarsi che i dati non vadano perduti. Questo processo richiede in genere altri 5-15 secondi. Alcune soluzioni di gestione implementano algoritmi più pesanti per aggregare i dati e derivare informazioni dettagliate mentre i dati sono in streaming. Ad esempio, Monitoraggio prestazioni rete aggrega i dati in ingresso a intervalli di 3 minuti, aggiungendo di fatto una latenza di 3 minuti. Un altro processo che aggiunge latenza è il processo che gestisce i log personalizzati. In alcuni casi, questo processo potrebbe aggiungere alcuni minuti di latenza ai log che vengono raccolti dai file dall'agente.
 
 ### <a name="new-custom-data-types-provisioning"></a>Provisioning di nuovi tipi di dati personalizzati
 Quando viene creato un nuovo tipo di dati personalizzati da un [log personalizzato](data-sources-custom-logs.md) o dall'[API dell'agente di raccolta dati](data-collector-api.md), il sistema crea un contenitore di archiviazione dedicato. Questo sovraccarico è occasionale poiché si verifica solo alla prima occorrenza di questo tipo di dati.
@@ -79,10 +79,16 @@ Attualmente questo processo richiede circa 5 minuti in caso di un volume ridotto
 
 
 ## <a name="checking-ingestion-time"></a>Controllo del tempo di inserimento dei dati
-Il tempo di inserimento può variare a seconda delle risorse e delle circostanze. Per identificare il comportamento specifico dell'ambiente è possibile usare le query di log.
+Il tempo di inserimento può variare a seconda delle risorse e delle circostanze. Per identificare il comportamento specifico dell'ambiente è possibile usare le query di log. La tabella seguente specifica come è possibile determinare le ore diverse per un record quando viene creato e inviato a monitoraggio di Azure.
+
+| Passaggio | Proprietà o funzione | Commenti |
+|:---|:---|:---|
+| Record creato nell'origine dati | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) <br>Se l'origine dati non imposta questo valore, verrà impostato sulla stessa ora di _TimeReceived. |
+| Record ricevuto dall'endpoint di inserimento di monitoraggio di Azure | [_TimeReceived](log-standard-properties.md#_timereceived) | |
+| Record archiviato nell'area di lavoro e disponibile per le query | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | |
 
 ### <a name="ingestion-latency-delays"></a>Valori della latenza di inserimento
-È possibile misurare la latenza di un record specifico confrontando il risultato della funzione [ingestion_time()](/azure/kusto/query/ingestiontimefunction) con il campo _TimeGenerated_. Questi dati possono essere usati con varie aggregazioni per individuare il comportamento della latenza di inserimento. Esaminare qualche percentile del tempo di inserimento per ottenere informazioni dettagliate per una grande quantità di dati. 
+È possibile misurare la latenza di un record specifico confrontando il risultato della funzione [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) con la proprietà _TimeGenerated_ . Questi dati possono essere usati con varie aggregazioni per individuare il comportamento della latenza di inserimento. Esaminare qualche percentile del tempo di inserimento per ottenere informazioni dettagliate per una grande quantità di dati. 
 
 La query seguente mostrerà ad esempio i computer per cui è stato riscontrato il tempo di inserimento più elevato durante il giorno corrente: 
 
@@ -90,27 +96,30 @@ La query seguente mostrerà ad esempio i computer per cui è stato riscontrato i
 Heartbeat
 | where TimeGenerated > ago(8h) 
 | extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
-| summarize percentiles(E2EIngestionLatency,50,95) by Computer 
-| top 20 by percentile_E2EIngestionLatency_95 desc  
+| extend AgentLatency = _TimeReceived - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95), percentiles(AgentLatency,50,95) by Computer 
+| top 20 by percentile_E2EIngestionLatency_95 desc
 ```
  
 Se si vuole eseguire il drill-down nel tempo di inserimento per un computer specifico in un periodo di tempo, usare la query seguente che visualizza anche i dati in un grafico: 
 
 ``` Kusto
 Heartbeat 
-| where TimeGenerated > ago(24h) and Computer == "ContosoWeb2-Linux"  
+| where TimeGenerated > ago(24h) //and Computer == "ContosoWeb2-Linux"  
 | extend E2EIngestionLatencyMin = todouble(datetime_diff("Second",ingestion_time(),TimeGenerated))/60 
-| summarize percentiles(E2EIngestionLatencyMin,50,95) by bin(TimeGenerated,30m) 
-| render timechart  
+| extend AgentLatencyMin = todouble(datetime_diff("Second",_TimeReceived,TimeGenerated))/60 
+| summarize percentiles(E2EIngestionLatencyMin,50,95), percentiles(AgentLatencyMin,50,95) by bin(TimeGenerated,30m) 
+| render timechart
 ```
  
-Usare la query seguente per mostrare ora l'inserimento del computer per il paese/area geografica che si trovano base agli indirizzi IP: 
+Usare la query seguente per visualizzare il tempo di inserimento del computer in base al paese/area geografica in cui si trovano, in base all'indirizzo IP: 
 
 ``` Kusto
 Heartbeat 
 | where TimeGenerated > ago(8h) 
 | extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
-| summarize percentiles(E2EIngestionLatency,50,95) by RemoteIPCountry 
+| extend AgentLatency = _TimeReceived - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95),percentiles(AgentLatency,50,95) by RemoteIPCountry 
 ```
  
 Tipi di dati diversi che hanno origine dall'agente potrebbero avere un tempo di latenza di inserimento differente. Le query precedenti possono quindi essere usate con altri tipi. Usare la query seguente per esaminare il tempo di inserimento dei vari servizi di Azure: 
@@ -119,7 +128,8 @@ Tipi di dati diversi che hanno origine dall'agente potrebbero avere un tempo di 
 AzureDiagnostics 
 | where TimeGenerated > ago(8h) 
 | extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
-| summarize percentiles(E2EIngestionLatency,50,95) by ResourceProvider
+| extend AgentLatency = _TimeReceived - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95), percentiles(AgentLatency,50,95) by ResourceProvider
 ```
 
 ### <a name="resources-that-stop-responding"></a>Blocco delle risorse 
