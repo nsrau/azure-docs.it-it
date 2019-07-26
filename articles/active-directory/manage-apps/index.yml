@@ -48,4 +48,4 @@ sections:
         style: unordered
         items:
           - html: '<a href="https://docs.microsoft.com/azure/active-directory/saas-apps/">Esercitazioni sulle applicazioni SaaS</a>'
-          - html: <a href="/azure/active-directory/manage-apps/configure-single-sign-on-portal">Configurare l'accesso Single Sign-On</a>
+          - html: <a href="/azure/active-directory/manage-apps/application-proxy-add-on-premises-application">Aggiungere un'app locale tramite proxy dell'applicazione</a>

@@ -4,15 +4,15 @@ description: Compromessi nella disponibilità e nelle prestazioni per vari livel
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 09777a9980e4576a5d00123516e33696e845dcac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2d80e291b3c054fec92b169c8a216a7189e24b79
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65990231"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68384190"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Compromessi tra coerenza, disponibilità e prestazioni 
 
@@ -26,17 +26,17 @@ Azure Cosmos DB affronta la coerenza dei dati offrendo uno spettro di scelte. Qu
 - *Coerenza del prefisso*
 - *Finale*
 
-Ogni modello offre compromessi tra prestazioni e disponibilità e supportata da contratti di servizio completi.
+Ogni modello fornisce compromessi a livello di disponibilità e prestazioni ed è supportato da contratti di contratto completi.
 
 ## <a name="consistency-levels-and-latency"></a>Livelli di coerenza e latenza
 
 La latenza di lettura per tutti i livelli di coerenza è sempre minore ai 10 millisecondi al 99° percentile. Questa latenza di lettura è supportata dal contratto di servizio. La latenza di lettura media, al 50° percentile, è in genere uguale o inferiore ai 2 millisecondi. Gli account di Azure Cosmos che si estendono su più aree e sono configurati con coerenza assoluta costituiscono un'eccezione a questa garanzia.
 
-La latenza di scrittura per tutti i livelli di coerenza è sempre essere minore di 10 millisecondi al 99 ° percentile. Questa latenza di scrittura è supportata dal contratto di servizio. La latenza di scrittura media, al 50° percentile, è in genere uguale o inferiore ai 5 millisecondi.
+La latenza di scrittura per tutti i livelli di coerenza è sempre inferiore a 10 millisecondi al 99 ° percentile. Questa latenza di scrittura è supportata dal contratto di servizio. La latenza di scrittura media, al 50° percentile, è in genere uguale o inferiore ai 5 millisecondi.
 
-Per gli account Azure Cosmos configurati con coerenza assoluta, con più di un'area, la latenza di scrittura è necessariamente minore di due volte il round trip time (RTT) tra una delle due aree di sovrapposizione, oltre a 10 millisecondi al 99 ° percentile.
+Per gli account Azure Cosmos configurati con coerenza assoluta con più di un'area, la latenza di scrittura è sicuramente inferiore al doppio del tempo di round trip (RTT) tra le due aree più lontane, più 10 millisecondi al 99 ° percentile.
 
-La latenza RTT esatta è una funzione della velocità della luce e la topologia di rete di Azure. La rete di Azure non fornisce nessun contratto di servizio di latenza per il tempo RTT tra due aree di Azure. Per l'account Azure Cosmos, le latenze di replica vengono visualizzate nel portale di Azure. È possibile usare il portale di Azure (passare al pannello delle metriche) per monitorare le latenze di replica tra varie aree associate all'account Azure Cosmos.
+La latenza RTT esatta è una funzione della velocità della luce e la topologia di rete di Azure. La rete di Azure non fornisce nessun contratto di servizio di latenza per il tempo RTT tra due aree di Azure. Per l'account Azure Cosmos, le latenze di replica vengono visualizzate nel portale di Azure. È possibile usare il portale di Azure (passare al pannello metriche) per monitorare le latenze di replica tra le varie aree associate all'account Azure Cosmos.
 
 ## <a name="consistency-levels-and-throughput"></a>Livelli di coerenza e velocità effettiva
 
@@ -46,22 +46,22 @@ La latenza RTT esatta è una funzione della velocità della luce e la topologia 
 
 ## <a id="rto"></a>Livelli di coerenza e durabilità dei dati
 
-All'interno di un ambiente di database distribuito a livello globale sussiste una relazione diretta tra il livello di coerenza e la durabilità dei dati in presenza di un'interruzione a livello di area. Quando si sviluppa il piano di continuità aziendale, è necessario conoscere il tempo massimo accettabile prima che l'applicazione venga ripristinata completamente dopo un evento di arresto improvviso. Il tempo necessario per un'applicazione per un ripristino completo è detta **obiettivo tempo di ripristino** (**RTO**). È anche necessario conoscere la perdita massima di aggiornamenti di dati recenti che l'applicazione è in grado di tollerare durante il ripristino dopo un evento di arresto improvviso. Il periodo di tempo degli aggiornamenti che si potrebbero permettersi di perdere è detta **obiettivo del punto di ripristino** (**RPO**).
+All'interno di un ambiente di database distribuito a livello globale sussiste una relazione diretta tra il livello di coerenza e la durabilità dei dati in presenza di un'interruzione a livello di area. Quando si sviluppa il piano di continuità aziendale, è necessario conoscere il tempo massimo accettabile prima che l'applicazione venga ripristinata completamente dopo un evento di arresto improvviso. Il tempo necessario per il ripristino completo di un'applicazione è noto come **obiettivo del tempo di ripristino** (**RTO**). È anche necessario conoscere la perdita massima di aggiornamenti di dati recenti che l'applicazione è in grado di tollerare durante il ripristino dopo un evento di arresto improvviso. Il periodo di tempo degli aggiornamenti che è possibile perdere è noto come **obiettivo del punto di ripristino** (**RPO**).
 
-Nella tabella seguente definisce la relazione tra coerenza del modello e durabilità dei dati in presenza di un'interruzione a livello di area. È importante notare che in un sistema distribuito, anche con coerenza assoluta, non è possibile disporre di un database distribuito con un RPO e RTO pari a zero a causa di the CAP Theorem. Per altre informazioni sui motivi per cui, vedere [livelli di coerenza in Azure Cosmos DB](consistency-levels.md).
+La tabella seguente definisce la relazione tra il modello di coerenza e la durabilità dei dati in presenza di un'interruzione a livello di area. È importante notare che in un sistema distribuito, anche con coerenza assoluta, non è possibile avere un database distribuito con un RPO e RTO zero a causa del teorema CAP. Per altre informazioni sui motivi, vedere [livelli di coerenza in Azure Cosmos DB](consistency-levels.md).
 
 |**Area/e**|**Modalità di replica**|**Livello di coerenza**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
 |1|Master singolo o multimaster|Qualsiasi livello di coerenza|< 240 minuti|<1 settimana|
 |>1|Master singolo|Sessione, Prefisso coerente, Finale|< 15 minuti|< 15 minuti|
 |>1|Master singolo|Decadimento ristretto|*K* & *T*|< 15 minuti|
-|>1|Master singolo|Assoluta|0|< 15 minuti|
+|>1|Master singolo|Alta|0|< 15 minuti|
 |>1|Multimaster|Sessione, Prefisso coerente, Finale|< 15 minuti|0|
 |>1|Multimaster|Decadimento ristretto|*K* & *T*|0|
 
-*K* = numero di *"K"* versioni, ad esempio, gli aggiornamenti, di un elemento.
+*K* = numero di versioni *"k"* , ovvero aggiornamenti, di un elemento.
 
-*T* = l'intervallo di tempo *"T"* dopo l'ultimo aggiornamento.
+*T* = intervallo di tempo *"t"* dall'ultimo aggiornamento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

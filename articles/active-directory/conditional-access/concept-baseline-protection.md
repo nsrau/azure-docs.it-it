@@ -1,6 +1,6 @@
 ---
-title: Linea di base protezione Criteri di accesso condizionale - Azure Active Directory
-description: Criteri di accesso condizionale della linea di base per le organizzazioni di proteggere da attacchi comuni
+title: Criteri di protezione di base per l'accesso condizionale-Azure Active Directory
+description: Criteri di accesso condizionale di base per proteggere le organizzazioni dagli attacchi comuni
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,83 +11,86 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 970fdaba1870097e253b51c70e523e399bc88dfc
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: c2fc552211ed55239259ce84d84584c451733d70
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67440788"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499866"
 ---
-# <a name="what-are-baseline-policies"></a>Quali sono i criteri di base?
+# <a name="what-are-baseline-policies"></a>Che cosa sono i criteri di base?
 
-I criteri di base sono un set di criteri predefiniti che consentono di proteggere da attacchi comuni molte organizzazioni. Questi attacchi comuni possono includere phishing, riproduzione e spray password. I criteri di base sono disponibili in tutte le edizioni di Azure Active Directory. Microsoft sta rendendo questi criteri di protezione della linea di base disponibili per tutti gli utenti perché è in aumento negli ultimi anni sono state attacchi basati su identità. L'obiettivo di questi quattro criteri è per garantire che tutte le organizzazioni hanno un livello linea di base di sicurezza abilitato senza costi aggiuntivi.  
+I criteri di base sono un set di criteri predefiniti che consentono di proteggere le organizzazioni da molti attacchi comuni. Questi attacchi comuni possono includere spray, riproduzione e phishing delle password. I criteri di base sono disponibili in tutte le edizioni di Azure AD. Microsoft sta rendendo disponibili i criteri di protezione di base a tutti perché gli attacchi basati sull'identità sono stati in crescita negli ultimi anni. L'obiettivo di questi quattro criteri è garantire che tutte le organizzazioni dispongano di un livello di sicurezza di base abilitato senza costi aggiuntivi.  
 
-La gestione di criteri di accesso condizionale personalizzati richiede una licenza Azure AD Premium.
+Per la gestione dei criteri di accesso condizionale personalizzati è necessaria una licenza Azure AD Premium.
 
 ## <a name="baseline-policies"></a>Criteri di base
 
-![Criteri di base di accesso condizionale nel portale di Azure](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
+![Criteri di base per l'accesso condizionale nella portale di Azure](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
 
-Esistono quattro criteri di base che le organizzazioni possono abilitare:
+Sono disponibili quattro criteri di base che le organizzazioni possono abilitare:
 
-* [Richiedere l'autenticazione MFA per gli amministratori (anteprima)](howto-baseline-protect-administrators.md)
+* [Richiedi autenticazione a più fattori per gli amministratori (anteprima)](howto-baseline-protect-administrators.md)
 * [Protezione dell'utente finale (anteprima)](howto-baseline-protect-end-users.md)
-* [Autenticazione legacy di blocco (anteprima)](howto-baseline-protect-legacy-auth.md)
-* [Richiedere l'autenticazione MFA per la gestione dei servizi (anteprima)](howto-baseline-protect-azure.md)
+* [Blocca autenticazione legacy (anteprima)](howto-baseline-protect-legacy-auth.md)
+* [Richiedi autenticazione a più fattori per la gestione dei servizi (anteprima)](howto-baseline-protect-azure.md)
 
-Tutti e quattro di questi criteri interesserà i flussi di autenticazione legacy come POP, IMAP e client desktop di Office meno recenti.
+Tutti e quattro questi criteri influiscono sui flussi di autenticazione legacy, ad esempio POP, IMAP e client desktop di Office meno recenti.
 
-### <a name="require-mfa-for-admins-preview"></a>Richiedere l'autenticazione MFA per gli amministratori (anteprima)
+### <a name="require-mfa-for-admins-preview"></a>Richiedi autenticazione a più fattori per gli amministratori (anteprima)
 
-A causa la potenza e l'accesso degli account amministratore, è necessario considerarle con particolare attenzione. Un metodo comune per migliorare la protezione degli account con privilegi consiste nel richiedere una forma più avanzata di verifica dell'account quando vengono usati per accedere. In Azure Active Directory, è possibile ottenere una maggiore verifica dell'account, richiedendo agli amministratori di richiedere e usare Azure multi-Factor Authentication.
+A causa della potenza e dell'accesso degli account amministratore, è consigliabile gestirli con particolare attenzione. Un metodo comune per migliorare la protezione degli account con privilegi consiste nel richiedere una forma più avanzata di verifica dell'account quando vengono usati per eseguire l'accesso. In Azure Active Directory, è possibile ottenere una verifica più avanzata degli account richiedendo agli amministratori di registrarsi e usare Azure Multifactor Authentication.
 
-[Richiedere l'autenticazione MFA per gli amministratori (anteprima)](howto-baseline-protect-administrators.md) è un criterio di base che richiede l'autenticazione a più fattori (MFA) per i ruoli della directory seguenti, considerati i ruoli di Azure AD con più privilegi:
+[Richiedi autenticazione a più fattori per gli amministratori (anteprima)](howto-baseline-protect-administrators.md) è un criterio di base che richiede l'autenticazione a più fattori per i ruoli della directory seguenti, considerati come i ruoli Azure ad più privilegiati:
 
 * Amministratore globale
 * Amministratore di SharePoint
 * Amministratore di Exchange
-* Amministratore di accesso condizionale
+* Amministratore accesso condizionale
 * Amministratore della sicurezza
-* Amministratore supporto tecnico o amministratore Password
+* Amministratore helpdesk/amministratore password
 * Amministratore fatturazione
 * Amministratore utenti
 
-Se l'organizzazione dispone di questi account in uso nel codice o gli script, è consigliabile sostituirli con [gestito identità](../managed-identities-azure-resources/overview.md).
+Se l'organizzazione dispone di questi account in uso negli script o nel codice, è consigliabile sostituirli con [identità gestite](../managed-identities-azure-resources/overview.md).
 
 ### <a name="end-user-protection-preview"></a>Protezione dell'utente finale (anteprima)
 
-Gli amministratori con privilegi elevati non sono gli unici negli attacchi di destinazione. Cattivi attori tendono a destinate agli utenti normali. Una volta ottenuto l'accesso, questi cattivi attori può richiedere l'accesso a informazioni con privilegi per conto il titolare dell'account originale o scaricare l'intera directory ed eseguire un attacco di phishing per l'intera organizzazione. Un metodo comune per migliorare la protezione per tutti gli utenti consiste nel richiedere una forma più avanzata di verifica dell'account quando viene rilevato un accesso rischioso.
+Gli amministratori con privilegi elevati non sono gli unici destinati ad attacchi. Gli attori cattivi tendono a raggiungere utenti normali. Una volta effettuato l'accesso, questi attori malintenzionati possono richiedere l'accesso a informazioni privilegiate per conto del titolare dell'account originale oppure scaricare l'intera directory ed eseguire un attacco di phishing all'intera organizzazione. Un metodo comune per migliorare la protezione per tutti gli utenti è quello di richiedere una forma più avanzata di verifica dell'account quando viene rilevato un accesso rischioso.
 
-**Protezione dell'utente finale (anteprima)** è un criterio di base che consente di proteggere tutti gli utenti in una directory. Abilita questo criterio richiede tutti gli utenti di registrarsi ad Azure multi-Factor Authentication entro 14 giorni. Una volta registrato, verranno richiesto agli utenti per MFA solo durante i tentativi di accesso rischiosi. Account utente compromessi vengono bloccate finché non reimpostare e rischio licenziamento password.
+La **protezione dell'utente finale (anteprima)** è un criterio di base che protegge tutti gli utenti di una directory. L'abilitazione di questo criterio richiede a tutti gli utenti di registrarsi per l'autenticazione a più fattori di Azure entro 14 giorni. Una volta effettuata la registrazione, agli utenti verrà richiesto di eseguire l'autenticazione a più fattori solo durante i tentativi di accesso rischioso. Gli account utente compromessi vengono bloccati fino alla reimpostazione della password e al rischio. 
 
-### <a name="block-legacy-authentication-preview"></a>Autenticazione legacy di blocco (anteprima)
+[!NOTE]
+Tutti gli utenti contrassegnati in precedenza per il rischio vengono bloccati fino alla reimpostazione della password e alla dismissione del rischio dopo l'attivazione dei criteri.
 
-Protocolli di autenticazione legacy (ad esempio: IMAP, SMTP, POP3) sono protocolli utilizzati normalmente da client di posta elettronica meno recenti per l'autenticazione. I protocolli legacy non supportano multi-factor authentication. Anche se si dispone di un criterio che richiede l'autenticazione a più fattori per la directory, un attore malintenzionato potrebbe può eseguire l'autenticazione tramite uno di questi protocolli legacy e bypass di multi-factor authentication.
+### <a name="block-legacy-authentication-preview"></a>Blocca autenticazione legacy (anteprima)
 
-Il modo migliore per proteggere l'account da richieste di autenticazione dannoso eseguite dai protocolli legacy è per bloccarli.
+Protocolli di autenticazione legacy (ad esempio: IMAP, SMTP, POP3 sono i protocolli usati normalmente dai client di posta meno recenti per l'autenticazione. I protocolli legacy non supportano l'autenticazione a più fattori. Anche se si dispone di criteri che richiedono l'autenticazione a più fattori per la directory, un attore malintenzionato può eseguire l'autenticazione usando uno di questi protocolli legacy e ignorare la funzionalità di autenticazione a più fattori.
 
-Il **autenticazione legacy di blocco (anteprima)** criteri base bloccano le richieste di autenticazione vengono effettuate tramite i protocolli legacy. L'autenticazione moderna deve essere usato per accedere correttamente per tutti gli utenti. Usato in combinazione con altri criteri di base, le richieste provenienti dai protocolli legacy verranno bloccate. Inoltre, tutti gli utenti dovranno MFA quando necessario. Questo criterio non blocca Exchange ActiveSync.
+Il modo migliore per proteggere l'account da richieste di autenticazione dannose effettuate da protocolli legacy consiste nel bloccarle.
 
-### <a name="require-mfa-for-service-management-preview"></a>Richiedere l'autenticazione MFA per la gestione dei servizi (anteprima)
+I criteri di base **blocca autenticazione legacy (anteprima)** bloccano le richieste di autenticazione effettuate usando protocolli legacy. Per eseguire correttamente l'accesso a tutti gli utenti, è necessario usare l'autenticazione moderna. Usato in combinazione con gli altri criteri di base, le richieste provenienti da protocolli legacy verranno bloccate. Inoltre, tutti gli utenti saranno necessari per l'autenticazione a più fattori ogni volta che è necessario. Questo criterio non blocca Exchange ActiveSync.
 
-Le organizzazioni usano un'ampia gamma di servizi di Azure e gestirli da strumenti basati su Azure Resource Manager, ad esempio:
+### <a name="require-mfa-for-service-management-preview"></a>Richiedi autenticazione a più fattori per la gestione dei servizi (anteprima)
+
+Le organizzazioni usano un'ampia gamma di servizi di Azure e li gestiscono da strumenti Azure Resource Manager basati su, ad esempio:
 
 * Portale di Azure
 * Azure PowerShell
 * Interfaccia della riga di comando di Azure
 
-Utilizza uno di questi strumenti per eseguire la gestione delle risorse è un'azione con privilegiata elevati. Questi strumenti possono modificare le configurazioni a livello di sottoscrizione, ad esempio le impostazioni del servizio e la fatturazione di sottoscrizione.
+Usare uno di questi strumenti per eseguire la gestione delle risorse è un'azione con privilegi elevati. Questi strumenti possono modificare le configurazioni a livello di sottoscrizione, ad esempio le impostazioni del servizio e la fatturazione della sottoscrizione.
 
-Per proteggere le azioni con privilegi, ciò **Richiedi autenticazione a più fattori per la gestione dei servizi (anteprima)** criteri richiederanno multi-factor authentication per qualsiasi utente che accede al portale di Azure, Azure PowerShell o CLI di Azure.
+Per proteggere le azioni con privilegi, è necessario che l'autenticazione a più fattori per i criteri di **gestione dei servizi (anteprima)** richieda l'autenticazione a più fattori per ogni utente che accede a portale di Azure, Azure PowerShell o l'interfaccia della riga di comando
 
 ## <a name="enable-a-baseline-policy"></a>Abilitare un criterio di base
 
 Per abilitare un criterio di base:
 
-1. Accedi per il **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore di accesso condizionale.
+1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
 1. Passare a **Azure Active Directory** > **accesso condizionale**.
-1. Nell'elenco dei criteri, selezionare un criterio di base che si vuole abilitare.
-1. Impostare **abilitare i criteri** al **su**.
+1. Nell'elenco dei criteri selezionare un criterio di base che si vuole abilitare.
+1. Impostare **Abilita criterio** **su on**.
 1. Fare clic su Salva.
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -96,7 +99,7 @@ Per altre informazioni, vedere:
 
 * [Cinque passaggi per proteggere l'infrastruttura di identità](../../security/azure-ad-secure-steps.md)
 * [Che cos'è l'accesso condizionale in Azure Active Directory?](overview.md)
-* [Richiedere l'autenticazione MFA per gli amministratori (anteprima)](howto-baseline-protect-administrators.md)
+* [Richiedi autenticazione a più fattori per gli amministratori (anteprima)](howto-baseline-protect-administrators.md)
 * [Protezione dell'utente finale (anteprima)](howto-baseline-protect-end-users.md)
-* [Autenticazione legacy di blocco (anteprima)](howto-baseline-protect-legacy-auth.md)
-* [Richiedere l'autenticazione MFA per la gestione dei servizi (anteprima)](howto-baseline-protect-azure.md)
+* [Blocca autenticazione legacy (anteprima)](howto-baseline-protect-legacy-auth.md)
+* [Richiedi autenticazione a più fattori per la gestione dei servizi (anteprima)](howto-baseline-protect-azure.md)

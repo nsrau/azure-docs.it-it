@@ -11,18 +11,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0b35ef5ca3aaa7ad4169f99e2830ebea76d2759e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 267872f2036a0e697f4b2da65064805a0cfbd2b7
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074937"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358730"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurare le destinazioni di calcolo per il training del modello 
 
 Con il servizio Azure Machine Learning è possibile eseguire il training del modello in un'ampia gamma di risorse o ambienti, collettivamente definiti [__destinazioni di calcolo__](concept-azure-machine-learning-architecture.md#compute-targets). Una destinazione di calcolo può essere un computer locale o una risorsa cloud, come un ambiente di calcolo di Machine Learning, Azure HDInsight o una macchina virtuale remota.  È possibile anche creare destinazioni di calcolo per la distribuzione del modello, come descritto in ["Dove e come distribuire i modelli"](how-to-deploy-and-where.md).
 
-È possibile creare e gestire una destinazione di calcolo usando il SDK di Azure Machine Learning, portale di Azure, estensione di comando di Azure o Visual Studio Code di Azure Machine Learning. Se si dispone di destinazioni di calcolo create tramite un altro servizio, ad esempio un cluster HDInsight, è possibile usarle associandole all'area di lavoro del servizio Azure Machine Learning.
+È possibile creare e gestire una destinazione di calcolo usando il Azure Machine Learning SDK, portale di Azure, l'interfaccia della riga di comando di Azure o l'estensione di VS Code Azure Machine Learning. Se si dispone di destinazioni di calcolo create tramite un altro servizio, ad esempio un cluster HDInsight, è possibile usarle associandole all'area di lavoro del servizio Azure Machine Learning.
  
 Questo articolo illustra come usare diverse destinazioni di calcolo per il training del modello.  I passaggi per tutte le destinazioni di calcolo seguono lo stesso flusso di lavoro:
 1. __Creare__ una destinazione di calcolo se non ne esiste già una.
@@ -75,7 +75,7 @@ Il codice seguente illustra un esempio di configurazione di esecuzioni di traini
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
   
-## <a name="set-up-in-python"></a>Configurare Python
+## <a name="set-up-in-python"></a>Configurare in Python
 
 Usare le sezioni seguenti per configurare queste destinazioni di calcolo:
 
@@ -111,7 +111,7 @@ Per alcuni aspetti, l'ambiente di calcolo di Azure Machine Learning prevede limi
 È possibile creare l'ambiente di calcolo di Machine Learning come destinazione di calcolo in fase di esecuzione. Il calcolo viene creato automaticamente per l'esecuzione. Il calcolo viene eliminato automaticamente dopo il completamento dell'esecuzione. 
 
 > [!NOTE]
-> Per specificare il numero massimo di nodi da usare, è necessario impostare normalmente `node_count` al numero di nodi. Attualmente non è disponibile (04/04/2019) un bug che impedisce che questo lavoro. In alternativa, usare il `amlcompute._cluster_max_node_count` proprietà della configurazione di esecuzione. Ad esempio: `run_config.amlcompute._cluster_max_node_count = 5`.
+> Per specificare il numero massimo di nodi da usare, in genere si imposta `node_count` sul numero di nodi. Attualmente (04/04/2019) è presente un bug che impedisce il funzionamento di questo. Come soluzione alternativa, utilizzare la `amlcompute._cluster_max_node_count` proprietà della configurazione di esecuzione. Ad esempio `run_config.amlcompute._cluster_max_node_count = 5`.
 
 > [!IMPORTANT]
 > La creazione basata su esecuzione dell'ambiente di calcolo di Azure Machine Learning è attualmente disponibile in anteprima. Non usare la creazione basata su esecuzione se si usa l'ottimizzazione degli iperparametri o le funzionalità automatizzate di Machine Learning. Per usare l'ottimizzazione degli iperparametri o le funzionalità automatizzate di Machine Learning, creare una destinazione di [calcolo permanente](#persistent).
@@ -237,33 +237,37 @@ Dopo aver collegato le risorse di calcolo e aver configurato l'esecuzione, il pa
 
 ### <a id="azbatch"></a>Azure Batch 
 
-Azure Batch consente di eseguire in modo efficiente applicazioni su larga scala parallele e ad alte prestazioni computing (HPC) nel cloud. AzureBatchStep può essere utilizzato in una Pipeline di Azure Machine Learning per inviare processi a un pool di Batch di Azure di macchine.
+Azure Batch viene usato per eseguire in modo efficiente applicazioni parallele e HPC (High Performance Computing) su larga scala nel cloud. AzureBatchStep può essere usato in una pipeline Azure Machine Learning per inviare processi a un pool di Azure Batch di computer.
 
-Per connettere Azure Batch come una destinazione di calcolo, è necessario usare il SDK di Azure Machine Learning e fornire le informazioni seguenti:
+Per aggiungere Azure Batch come destinazione di calcolo, è necessario usare Azure Machine Learning SDK e fornire le informazioni seguenti:
 
--   **Nome del calcolo di Azure Batch**: Un nome descrittivo da usare per le risorse di calcolo nell'area di lavoro
--   **Nome dell'account Azure Batch**: Il nome dell'account Azure Batch
--   **Gruppo di risorse**: Il gruppo di risorse che contiene l'account Azure Batch.
+-   **Nome Azure batch Calcolo**: Nome descrittivo da usare per il calcolo nell'area di lavoro
+-   **Nome account Azure batch**: Nome dell'account di Azure Batch
+-   **Gruppo di risorse**: Il gruppo di risorse contenente l'account Azure Batch.
 
-Il codice seguente illustra come collegare Azure Batch come una destinazione di calcolo:
+Il codice seguente illustra come aggiungere Azure Batch come destinazione di calcolo:
 
 ```python
 from azureml.core.compute import ComputeTarget, BatchCompute
 from azureml.exceptions import ComputeTargetException
 
-batch_compute_name = 'mybatchcompute' # Name to associate with new compute in workspace
+# Name to associate with new compute in workspace
+batch_compute_name = 'mybatchcompute'
 
 # Batch account details needed to attach as compute to workspace
-batch_account_name = "<batch_account_name>" # Name of the Batch account
-batch_resource_group = "<batch_resource_group>" # Name of the resource group which contains this account
+batch_account_name = "<batch_account_name>"  # Name of the Batch account
+# Name of the resource group which contains this account
+batch_resource_group = "<batch_resource_group>"
 
 try:
     # check if the compute is already attached
     batch_compute = BatchCompute(ws, batch_compute_name)
 except ComputeTargetException:
     print('Attaching Batch compute...')
-    provisioning_config = BatchCompute.attach_configuration(resource_group=batch_resource_group, account_name=batch_account_name)
-    batch_compute = ComputeTarget.attach(ws, batch_compute_name, provisioning_config)
+    provisioning_config = BatchCompute.attach_configuration(
+        resource_group=batch_resource_group, account_name=batch_account_name)
+    batch_compute = ComputeTarget.attach(
+        ws, batch_compute_name, provisioning_config)
     batch_compute.wait_for_completion()
     print("Provisioning state:{}".format(batch_compute.provisioning_state))
     print("Provisioning errors:{}".format(batch_compute.provisioning_errors))
@@ -271,7 +275,7 @@ except ComputeTargetException:
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
 
-## <a name="set-up-in-azure-portal"></a>Configurare nel portale di Azure
+## <a name="set-up-in-azure-portal"></a>Configurare in portale di Azure
 
 È possibile accedere alle destinazioni di calcolo associate all'area di lavoro nel portale di Azure.  Nel portale è possibile:
 
@@ -357,7 +361,7 @@ Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di ca
 1. Selezionare __Allega__. 
 1. Visualizzare lo stato dell'operazione di collegamento selezionando la destinazione di calcolo dall'elenco.
 
-## <a name="set-up-with-cli"></a>Configurare con CLI
+## <a name="set-up-with-cli"></a>Configurare con l'interfaccia della riga di comando
 
 È possibile accedere alle destinazioni di calcolo collegate all'area di lavoro usando l'[estensione dell'interfaccia della riga di comando](reference-azure-machine-learning-cli.md) per il servizio Azure Machine Learning.  È possibile usare l'interfaccia della riga di comando per:
 
@@ -367,9 +371,9 @@ Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di ca
 
 Per altre informazioni consultare [Gestione delle risorse](reference-azure-machine-learning-cli.md#resource-management).
 
-## <a name="set-up-with-vs-code"></a>Configurare con Visual Studio Code
+## <a name="set-up-with-vs-code"></a>Configurare con VS Code
 
-È possibile accedere, creare e gestire le destinazioni di calcolo associati con l'area di lavoro utilizzando il [estensione di Visual Studio Code](how-to-vscode-tools.md#create-and-manage-compute-targets) per il servizio di Azure Machine Learning.
+È possibile accedere, creare e gestire le destinazioni di calcolo associate all'area di lavoro usando l' [estensione vs code](how-to-vscode-tools.md#create-and-manage-compute-targets) per Azure Machine Learning servizio.
 
 ## <a id="submit"></a>Inviare l'esecuzione di training
 
@@ -380,9 +384,9 @@ Dopo aver creato una configurazione di esecuzione, questa si usa per l'esecuzion
 1. Attendere il completamento dell'esecuzione.
 
 > [!IMPORTANT]
-> Quando si invia l'esecuzione di training, uno snapshot della directory che contiene gli script di training viene creato e inviato per la destinazione di calcolo. Sono anche archiviati come parte dell'esperimento nell'area di lavoro. Se si modificano i file e invia l'esecuzione anche in questo caso, verranno caricati solo i file modificati.
+> Quando si invia l'esecuzione del training, viene creato uno snapshot della directory che contiene gli script di training e viene inviata alla destinazione di calcolo. Viene inoltre archiviato come parte dell'esperimento nell'area di lavoro. Se si modificano i file e si invia di nuovo l'esecuzione, verranno caricati solo i file modificati.
 >
-> Per impedire che viene incluso nello snapshot di file, creare un [file con estensione gitignore](https://git-scm.com/docs/gitignore) o `.amlignore` file nella directory e aggiungere i file a esso. Il `.amlignore` file utilizza la stessa sintassi e i modelli come i [file con estensione gitignore](https://git-scm.com/docs/gitignore) file. Se entrambi i file esistono, il `.amlignore` file ha la precedenza.
+> Per impedire che i file vengano inclusi nello snapshot, creare un file con [estensione gitignore](https://git-scm.com/docs/gitignore) o `.amlignore` nella directory e aggiungervi i file. Il `.amlignore` file usa la stessa sintassi e gli stessi criteri del file con [estensione gitignore](https://git-scm.com/docs/gitignore) . Se sono presenti entrambi i file `.amlignore` , il file avrà la precedenza.
 > 
 > Per altre informazioni, vedere [Snapshot](concept-azure-machine-learning-architecture.md#snapshots).
 
@@ -412,11 +416,11 @@ In alternativa, è possibile:
 
 * Inviare l'esperimento con un oggetto `Estimator` come illustrato in [Eseguire il training di modelli di Machine Learning con oggetti Estimator](how-to-train-ml-models.md).
 * Inviare un esperimento [usando l'estensione dell'interfaccia della riga di comando](reference-azure-machine-learning-cli.md#experiments).
-* Inviare un esperimento tramite il [estensione di Visual Studio Code](how-to-vscode-tools.md#train-and-tune-models).
+* Inviare un esperimento tramite l' [estensione vs code](how-to-vscode-tools.md#train-and-tune-models).
 
-## <a name="github-tracking-and-integration"></a>Integrazione e il rilevamento di GitHub
+## <a name="github-tracking-and-integration"></a>Rilevamento e integrazione di GitHub
 
-Quando si avvia un'esecuzione in cui la directory di origine è un repository Git locale di training, informazioni sul repository vengono archiviate nella cronologia di esecuzione. Ad esempio, l'ID commit corrente per il repository viene registrato come parte della cronologia.
+Quando si avvia un'esecuzione di training in cui la directory di origine è un repository git locale, le informazioni sul repository vengono archiviate nella cronologia di esecuzione. Ad esempio, l'ID commit corrente per il repository viene registrato come parte della cronologia.
 
 ## <a name="notebook-examples"></a>Esempi di notebook
 
@@ -429,7 +433,7 @@ Consultare questi notebook per esempi di training con varie destinazioni di calc
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Esercitazione: Eseguire il training di un modello](tutorial-train-models-with-aml.md) usa una destinazione di calcolo gestita per il training del modello.
-* Informazioni su come [in modo efficiente ottimizzare gli iperparametri](how-to-tune-hyperparameters.md) per compilare modelli migliori.
+* Informazioni su come [ottimizzare in modo efficiente](how-to-tune-hyperparameters.md) gli iperparametri per creare modelli migliori.
 * Dopo aver creato un modello con training, consultare le informazioni su [come e dove distribuire i modelli](how-to-deploy-and-where.md).
 * Consultare le informazioni sull'SDK di [classe RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py).
 * [Usare il servizio Azure Machine Learning con le reti virtuali di Azure](how-to-enable-virtual-network.md)

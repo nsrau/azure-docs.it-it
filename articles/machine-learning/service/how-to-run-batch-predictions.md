@@ -10,12 +10,12 @@ ms.reviewer: jmartens, garye
 ms.author: jordane
 author: jpe316
 ms.date: 07/12/2019
-ms.openlocfilehash: c233c44625779d6b070ccce1795a84f264d4764b
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 689ee003e0923a65d3ca3f2d13c1a2d05c299dbd
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868794"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358718"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-service"></a>Eseguire previsioni di batch su set di dati di grandi dimensioni con il servizio Azure Machine Learning
 
@@ -65,14 +65,14 @@ Usare un contenitore BLOB pubblico, denominato *SampleData*, nell'account *pipel
 from azureml.core import Datastore
 
 account_name = "pipelinedata"
-datastore_name="images_datastore"
-container_name="sampledata"
+datastore_name = "images_datastore"
+container_name = "sampledata"
 
 batchscore_blob = Datastore.register_azure_blob_container(ws,
-                      datastore_name=datastore_name,
-                      container_name= container_name,
-                      account_name=account_name,
-                      overwrite=True)
+                                                          datastore_name=datastore_name,
+                                                          container_name=container_name,
+                                                          account_name=account_name,
+                                                          overwrite=True)
 ```
 
 Quindi effettuare la configurazione in modo da usare l'archivio dati predefinito per gli output.
@@ -132,20 +132,20 @@ if compute_name in ws.compute_targets:
 else:
     print('Creating a new compute target...')
     provisioning_config = AmlCompute.provisioning_configuration(
-                     vm_size = vm_size, # NC6 is GPU-enabled
-                     vm_priority = 'lowpriority', # optional
-                     min_nodes = compute_min_nodes,
-                     max_nodes = compute_max_nodes)
+        vm_size=vm_size,  # NC6 is GPU-enabled
+        vm_priority='lowpriority',  # optional
+        min_nodes=compute_min_nodes,
+        max_nodes=compute_max_nodes)
 
     # create the cluster
     compute_target = ComputeTarget.create(ws,
-                        compute_name,
-                        provisioning_config)
+                                          compute_name,
+                                          provisioning_config)
 
     compute_target.wait_for_completion(
-                     show_output=True,
-                     min_node_count=None,
-                     timeout_in_minutes=20)
+        show_output=True,
+        min_node_count=None,
+        timeout_in_minutes=20)
 ```
 
 ## <a name="prepare-the-model"></a>Preparare il modello
@@ -165,7 +165,7 @@ model_dir = 'models'
 if not os.path.isdir(model_dir):
     os.mkdir(model_dir)
 
-url="http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz"
+url = "http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz"
 response = urllib.request.urlretrieve(url, "model.tar.gz")
 tar = tarfile.open("model.tar.gz", "r:gz")
 tar.extractall(model_dir)
@@ -181,11 +181,11 @@ from azureml.core.model import Model
 
 # register downloaded model
 model = Model.register(
-        model_path = "models/inception_v3.ckpt",
-        model_name = "inception", # This is the name of the registered model
-        tags = {'pretrained': "inception"},
-        description = "Imagenet trained tensorflow inception",
-        workspace = ws)
+    model_path="models/inception_v3.ckpt",
+    model_name="inception",  # This is the name of the registered model
+    tags={'pretrained': "inception"},
+    description="Imagenet trained tensorflow inception",
+    workspace=ws)
 ```
 
 ## <a name="write-your-scoring-script"></a>Scrivere lo script di assegnazione dei punteggi
@@ -254,7 +254,8 @@ from azureml.core.runconfig import DEFAULT_GPU_IMAGE
 from azureml.core.runconfig import RunConfiguration
 from azureml.core.conda_dependencies import CondaDependencies
 
-cd = CondaDependencies.create(pip_packages=["tensorflow-gpu==1.10.0", "azureml-defaults"])
+cd = CondaDependencies.create(
+    pip_packages=["tensorflow-gpu==1.10.0", "azureml-defaults"])
 
 # Runconfig
 amlcompute_run_config = RunConfiguration(conda_dependencies=cd)
@@ -271,8 +272,8 @@ Creare un parametro della pipeline usando un oggetto  [PipelineParameter](https
 ```python
 from azureml.pipeline.core.graph import PipelineParameter
 batch_size_param = PipelineParameter(
-                    name="param_batch_size",
-                    default_value=20)
+    name="param_batch_size",
+    default_value=20)
 ```
 
 ### <a name="create-the-pipeline-step"></a>Creare il passaggio della pipeline
@@ -303,11 +304,13 @@ batch_score_step = PythonScriptStep(
 Adesso eseguire la pipeline ed esaminare l'output prodotto. L'output avrà un punteggio corrispondente a ogni immagine di input.
 
 ```python
+import pandas as pd
 from azureml.pipeline.core import Pipeline
 
 # Run the pipeline
 pipeline = Pipeline(workspace=ws, steps=[batch_score_step])
-pipeline_run = Experiment(ws, 'batch_scoring').submit(pipeline, pipeline_params={"param_batch_size": 20})
+pipeline_run = Experiment(ws, 'batch_scoring').submit(
+    pipeline, pipeline_params={"param_batch_size": 20})
 
 # Wait for the run to finish (this might take several minutes)
 pipeline_run.wait_for_completion(show_output=True)
@@ -316,7 +319,6 @@ pipeline_run.wait_for_completion(show_output=True)
 step_run = list(pipeline_run.get_children())[0]
 step_run.download_file("./outputs/result-labels.txt")
 
-import pandas as pd
 df = pd.read_csv("result-labels.txt", delimiter=":", header=None)
 df.columns = ["Filename", "Prediction"]
 df.head()
@@ -338,17 +340,17 @@ published_pipeline = pipeline_run.publish_pipeline(
 Per eseguire di nuovo la pipeline, è necessario un token di intestazione di autenticazione Azure Active Directory come descritto nell'articolo sulla classe [AzureCliAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py).
 
 ```python
+from azureml.pipeline.core.run import PipelineRun
 from azureml.pipeline.core import PublishedPipeline
 
 rest_endpoint = published_pipeline.endpoint
 # specify batch size when running the pipeline
 response = requests.post(rest_endpoint,
-        headers=aad_token,
-        json={"ExperimentName": "batch_scoring",
-               "ParameterAssignments": {"param_batch_size": 50}})
+                         headers=aad_token,
+                         json={"ExperimentName": "batch_scoring",
+                               "ParameterAssignments": {"param_batch_size": 50}})
 
 # Monitor the run
-from azureml.pipeline.core.run import PipelineRun
 published_pipeline_run = PipelineRun(ws.experiments["batch_scoring"], run_id)
 
 RunDetails(published_pipeline_run).show()

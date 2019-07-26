@@ -3,23 +3,17 @@ title: Attività comuni di gestione di servizi cloud | Documentazione Microsoft
 description: Informazioni su come gestire Servizi cloud nel portale di Azure. Questi esempi utilizzano il portale di Azure.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: cb218ad9-77d4-4149-83db-71159c00767e
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: jeconnoc
-ms.openlocfilehash: d3d1ae759f0f3fa5edd417da61f1fa50b5d9cde7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 8ec7784fb51d0fa4de2563f76444b0b5e5f34902
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61433971"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359607"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Gestire Servizi cloud nel portale di Azure
 Nell'area **Servizi cloud** del portale di Azure è possibile:
@@ -34,7 +28,7 @@ Per altre informazioni sul ridimensionamento del servizio cloud, vedere [Come co
 ## <a name="update-a-cloud-service-role-or-deployment"></a>Aggiornare un ruolo o una distribuzione del servizio cloud
 Se è necessario aggiornare il codice dell'applicazione per il servizio cloud, utilizzare **Aggiorna** nel blade del servizio cloud. È possibile aggiornare un singolo ruolo o tutti i ruoli. Per eseguire l'aggiornamento, è possibile caricare un nuovo pacchetto del servizio o un nuovo file di configurazione del servizio.
 
-1. Nel [portale di Azure][Azure portal] selezionare il servizio cloud che si desidera aggiornare. Questo passaggio consente di aprire il pannello dell'istanza del servizio cloud.
+1. Nel [portale di Azure][Azure portal], selezionare il servizio cloud che si desidera aggiornare. Questo passaggio consente di aprire il pannello dell'istanza del servizio cloud.
 
 2. Nel pannello selezionare **Aggiorna**.
 
@@ -59,7 +53,7 @@ Quando si decide di distribuire una nuova versione di un servizio cloud, è poss
 
 È possibile scambiare le distribuzioni dalla pagina **Cloud Services** o dal dashboard.
 
-1. Nel [portale di Azure][Azure portal] selezionare il servizio cloud che si desidera aggiornare. Questo passaggio consente di aprire il pannello dell'istanza del servizio cloud.
+1. Nel [portale di Azure][Azure portal], selezionare il servizio cloud che si desidera aggiornare. Questo passaggio consente di aprire il pannello dell'istanza del servizio cloud.
 
 2. Nel pannello selezionare **Scambia**.
 
@@ -98,7 +92,7 @@ Per ridurre i costi di calcolo, è possibile eliminare la distribuzione di gesti
 
 Per eliminare una distribuzione o il servizio cloud, attenersi alla procedura seguente.
 
-1. Nel [portale di Azure][Azure portal] selezionare il servizio cloud che si desidera eliminare. Questo passaggio consente di aprire il pannello dell'istanza del servizio cloud.
+1. Nel [portale di Azure][Azure portal], selezionare il servizio cloud che si desidera eliminare. Questo passaggio consente di aprire il pannello dell'istanza del servizio cloud.
 
 2. Nel pannello selezionare **Elimina**.
 

@@ -1,19 +1,18 @@
 ---
 title: Gestire server e insiemi di credenziali di Servizi di ripristino di Azure
 description: Gestire processi e avvisi in un insieme di credenziali di Servizi di ripristino di Azure.
-services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: raynew
-ms.openlocfilehash: b447290a6910d144703bb796290908d0fc21b924
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 5876ce4a511617d8465cdf008ea0ce14b3ad15d4
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705130"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466365"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorare e gestire insiemi di credenziali di Servizi di ripristino
 
@@ -156,7 +155,7 @@ Scegliere la gravità degli avvisi (critici o avvertenze) usata per generare il 
 
 ## <a name="manage-backup-items"></a>Gestire gli elementi di backup
 
-Un insieme di credenziali di Servizi di ripristino contiene molti tipi di dati di backup. [Altre informazioni](backup-overview.md#what-can-i-back-up) su ciò che è possibile eseguire il backup. Per gestire i diversi server, computer, database e carichi di lavoro fare clic sul riquadro **Elementi di backup** per visualizzare i contenuti dell'insieme di credenziali.
+Un insieme di credenziali di Servizi di ripristino contiene molti tipi di dati di backup. [Altre](backup-overview.md#what-can-i-back-up) informazioni sugli elementi di cui è possibile eseguire il backup. Per gestire i diversi server, computer, database e carichi di lavoro fare clic sul riquadro **Elementi di backup** per visualizzare i contenuti dell'insieme di credenziali.
 
 ![Riquadro Elementi di backup](./media/backup-azure-manage-windows-server/backup-items.png)
 

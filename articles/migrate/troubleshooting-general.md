@@ -4,18 +4,18 @@ description: Questo articolo offre una panoramica dei problemi noti relativi al 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 07/22/2019
 ms.author: raynew
-ms.openlocfilehash: 0e2a8f269a98babc17f36ceff209ee2f057e6911
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 15d3809b9a028fd2495c504e9bf19251dd051520
+ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302320"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68372593"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Risolvere i problemi relativi ad Azure Migrate
 
-[Azure migrate](migrate-services-overview.md) offre un hub di Microsoft Tools per la valutazione e la migrazione, nonché offerte di fornitori di software indipendenti (ISV) di terze parti. Questo documento fornisce informazioni sulla risoluzione degli errori con Azure Migrate Azure Migrate: Valutazione del server e Azure Migrate: Migrazione del server.
+[Azure migrate](migrate-services-overview.md) offre un hub di Microsoft Tools per la valutazione e la migrazione, nonché offerte di fornitori di software indipendenti (ISV) di terze parti. Questo documento fornisce informazioni sulla risoluzione degli errori con Azure Migrate Azure Migrate: Valutazione del server e Azure Migrate: Server Migration.
 
 ## <a name="azure-migrate-project-issues"></a>Problemi di Azure Migrate progetto
 
@@ -54,6 +54,10 @@ Attenersi ai passaggi seguenti per creare un nuovo progetto Azure Migrate.
 
    ![Creazione di un secondo progetto di Azure Migrate](./media/troubleshooting-general/create-new-project.png)
 
+### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>Quali aree geografiche di Azure sono supportate da Azure Migrate?
+
+Qui è possibile trovare l'elenco per [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects) e per [Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects).
+
 ### <a name="deletion-of-azure-migrate-projects-and-associated-log-analytics-workspace"></a>Eliminazione dei progetti Azure Migrate e dell'area di lavoro Log Analytics associata
 
 Quando si elimina un progetto di Azure Migrate, viene eliminato il progetto di migrazione insieme ai metadati sui computer individuati. Tuttavia, se è stata collegata un'area di lavoro Log Analytics allo strumento Server Assessment, l'area di lavoro Log Analytics non viene eliminata automaticamente. Questo avviene perché la stessa area di lavoro Log Analytics è applicabile a più casi d'uso. Se si vuole eliminare anche l'area di lavoro Log Analytics, è necessario eseguire questa operazione manualmente.
@@ -76,7 +80,7 @@ Una volta ricevuto il messaggio di posta elettronica di invito, è necessario ap
 
 ### <a name="deployment-of-azure-migrate-appliance-for-vmware-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>La distribuzione di Azure Migrate Appliance per VMware non è riuscita con l'errore: The provided manifest file is invalid: Invalid OVF manifest entry. (Il file manifesto specificato non è valido: voce del manifesto OVF non valida.)
 
-1. Verificare se il file OVA del dispositivo Azure Migrate viene scaricato correttamente controllando il relativo valore hash. Per verificare il valore hash, vedere questo [articolo](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance). Se il valore hash non corrisponde, scaricare nuovamente il file OVA e ripetere il tentativo di distribuzione.
+1. Verificare se il file OVA del dispositivo Azure Migrate viene scaricato correttamente controllando il relativo valore hash. Per verificare il valore hash, vedere questo [articolo](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware). Se il valore hash non corrisponde, scaricare nuovamente il file OVA e ripetere il tentativo di distribuzione.
 2. Se ancora non riesce e si usa VMware vSphere Client per distribuire il file OVF, provare a eseguire la distribuzione con vSphere Web Client. Se il problema persiste, provare a usare un Web browser diverso.
 3. Se si usa vSphere Web Client e si prova a distribuirlo in un server vCenter 6.5 o 6.7, provare a distribuire il file OVA direttamente nell'host ESXi seguendo questi passaggi:
    - Connettersi direttamente all'host ESXi (invece di server vCenter) usando il client Web (https://<*indirizzo IP host*>/UI).
@@ -121,9 +125,31 @@ Se l'errore si verifica anche con la versione più recente, è possibile che com
 3. Identificare il numero di porta corretto per connettersi al server vCenter.
 4. Infine controllare che il server vCenter sia attivo e in esecuzione.
 
+
+### <a name="the-appliance-could-not-be-registered-successfully-to-the-azure-migrate-project-error-id-60052"></a>Non è stato possibile registrare il dispositivo correttamente nel progetto Azure Migrate (ID errore: 60052)
+
+Questo errore è dovuto a autorizzazioni insufficienti per l'account Azure usato per registrare l'appliance. Assicurarsi che l'account utente di Azure usato per registrare l'appliance disponga almeno dell'accesso "collaboratore" per la sottoscrizione. [Altre](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) informazioni sui ruoli e sulle autorizzazioni di Azure richiesti.
+
+### <a name="the-appliance-could-not-be-registered-successfully-to-the-azure-migrate-project-error-id-60039"></a>Non è stato possibile registrare il dispositivo correttamente nel progetto Azure Migrate (ID errore: 60039)
+
+Il progetto di Azure Migrate selezionato dall'utente per registrare l'appliance non è stato trovato, causando un errore di registrazione. Passare alla portale di Azure e verificare se il progetto esiste nel gruppo di risorse. Se il progetto non esiste, creare un nuovo progetto di Azure Migrate nel gruppo di risorse e registrare di nuovo l'appliance. [Altre](https://docs.microsoft.com/azure/migrate/how-to-add-tool-first-time#create-a-project-and-add-a-tool) informazioni sulla creazione di un nuovo progetto Azure migrate.
+
+### <a name="azure-key-vault-management-operation-failed-error-id-60030-60031"></a>Operazione di gestione di Azure Key Vault non riuscita (ID errore: 60030, 60031)
+
+Assicurarsi che l'account utente di Azure usato per registrare l'appliance disponga almeno dell'accesso "collaboratore" per la sottoscrizione. Verificare inoltre che l'account abbia accesso al Key Vault specificato nel messaggio di errore e ripetere l'operazione. Se il problema persiste, contattare il supporto tecnico Microsoft. [Altre](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) informazioni sui ruoli e sulle autorizzazioni di Azure richiesti.
+
+### <a name="discovery-could-not-be-initiated-due-to-the-error-the-operation-failed-for-the-given-list-of-hosts-or-clusters-error-id-60028"></a>Impossibile avviare l'individuazione a causa dell'errore. Operazione non riuscita per l'elenco di host o cluster specificato (ID errore: 60028)
+
+Non è stato possibile avviare l'individuazione negli host elencati nell'errore a causa di un problema durante l'accesso o il recupero delle informazioni sulla macchina virtuale. il resto degli host aggiunti è stato aggiunto correttamente. Aggiungere di nuovo gli host nell'errore utilizzando l'opzione **Aggiungi host** . Se si verifica un errore di convalida, rivedere le indicazioni per la correzione per correggere gli errori e provare a **salvare e avviare di** nuovo l'individuazione.
+
+### <a name="azure-active-directory-aad-operation-failed-the-error-occurred-while-creating-or-updating-the-aad-application-error-id-60025"></a>Operazione di Azure Active Directory (AAD) non riuscita. Si è verificato l'errore durante la creazione o l'aggiornamento dell'applicazione AAD (ID errore: 60025)
+
+L'account utente di Azure usato per registrare l'appliance non ha accesso all'applicazione AAD specificata nel messaggio di errore. Verificare se l'utente è il proprietario dell'applicazione AAD. [Altre](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) informazioni sulle autorizzazioni dell'applicazione AAD.
+
+
 ## <a name="discovery-issues"></a>Problemi di individuazione
 
-### <a name="i-started-discovery-but-i-dont-see-the-discovered-vms-on-azure-portal-server-assessment-and-server-migrate-tiles-show-a-status-of-discovery-in-progress"></a>È stata avviata l'individuazione, ma le macchine virtuali individuate non vengono visualizzate in portale di Azure. I riquadri server assessment e server migrate mostrano lo stato "individuazione in corso"
+### <a name="i-started-discovery-but-i-dont-see-the-discovered-vms-on-azure-portal-server-assessment-and-server-migration-tiles-show-a-status-of-discovery-in-progress"></a>È stata avviata l'individuazione, ma le macchine virtuali individuate non vengono visualizzate in portale di Azure. I riquadri server assessment e migrazione server mostrano lo stato "individuazione in corso"
 Dopo l'avvio dell'individuazione dal dispositivo, attendere il tempo necessario per la visualizzazione dei computer individuati nella portale di Azure. Sono necessari circa 15 minuti per l'individuazione di VMware e circa 2 minuti per ogni host aggiunto per un'individuazione di Hyper-V. Se si continua a visualizzare "individuazione in corso" anche dopo questa volta, fare clic su **Aggiorna** nella scheda **Server** . Verrà visualizzato il numero dei server individuati nei riquadri server assessment e migrazione server.
 
 
@@ -146,15 +172,15 @@ Sono necessari fino a 30 minuti per i dati di individuazione raccolti dall'appli
 4. Attendere il completamento dell'operazione di aggiornamento. Verranno ora visualizzate informazioni aggiornate sulle VM.
 
 ### <a name="unable-to-connect-to-hosts-or-cluster-as-the-server-name-cannot-be-resolved-winrm-error-code-0x803381b9-error-id-50004"></a>Non è possibile connettersi a host o cluster perché il nome del server non può essere risolto. Codice errore WinRM: 0x803381B9 (ID errore: 50004)
-Questo errore si verifica se il DNS che funge da dispositivo non è in grado di risolvere il nome host o il cluster specificato. Se questo errore viene visualizzato nel cluster, provare a fornire il nome di dominio completo del cluster. 
+Questo errore si verifica se il DNS che funge da dispositivo non è in grado di risolvere il nome host o il cluster specificato. Se questo errore viene visualizzato nel cluster, provare a fornire il nome di dominio completo del cluster.
 
-Questo errore può essere visualizzato anche per gli host in un cluster. In questo caso, l'appliance potrebbe connettersi al cluster. Ma il cluster ha restituito i nomi host che non sono nomi di dominio completi. 
+Questo errore può essere visualizzato anche per gli host in un cluster. In questo caso, l'appliance potrebbe connettersi al cluster. Ma il cluster ha restituito i nomi host che non sono nomi di dominio completi.
 
 Per correggere l'errore, aggiornare il file hosts nell'appliance aggiungendo un mapping dell'indirizzo IP e dei nomi host.
 1. Aprire Blocco note come utente amministratore. Aprire il file C:\Windows\System32\Drivers\etc\hosts.
 2. Aggiungere l'indirizzo IP e il nome host in una riga. Ripetere l'operazione per ogni host o cluster in cui viene visualizzato questo errore.
 3. Salvare e chiudere il file degli host.
-4. È possibile verificare se l'appliance è in grado di connettersi agli host usando l'app di gestione Appliance. Dopo 30 minuti, si dovrebbe essere in grado di visualizzare le informazioni più recenti su questi host nell'portale di Azure. 
+4. È possibile verificare se l'appliance è in grado di connettersi agli host usando l'app di gestione Appliance. Dopo 30 minuti, si dovrebbe essere in grado di visualizzare le informazioni più recenti su questi host nell'portale di Azure.
 
 
 ## <a name="assessment-issues"></a>Problemi di valutazione
@@ -187,30 +213,33 @@ Non è stato possibile determinare l'idoneità di uno o più dischi a causa di u
 Non è stato possibile determinare l'idoneità di una o più schede di rete a causa di un errore interno. | Provare a creare una nuova valutazione per il gruppo.
 
 ### <a name="i-am-unable-to-specify-enterprise-agreement-ea-as-an-azure-offer-in-the-assessment-properties"></a>Non è possibile specificare Enterprise Agreement (EA) come offerta di Azure nelle proprietà di valutazione?
-Azure Migrate: Server Assessment attualmente non supporta i prezzi basati su Enterprise Agreement (EA). La soluzione alternativa consiste nell'usare "pagamento a consumo" come offerta Azure e usare la proprietà "Discount" per specificare gli sconti personalizzati ricevuti. [Altre informazioni su come è possibile personalizzare una valutazione](https://aka.ms/migrate/selfhelp/eapricing).
+Azure Migrate: Server Assessment attualmente non supporta prezzi basati sul contratto Enterprise. La soluzione alternativa è usare l'opzione di pagamento in base al consumo come offerta di Azure e usare la proprietà "Sconto" per specificare eventuali sconti personalizzati ricevuti. [Altre informazioni su come personalizzare una valutazione](https://aka.ms/migrate/selfhelp/eapricing).
 
 ### <a name="why-does-server-assessment-mark-my-linux-vms-conditionally-ready-is-there-anything-i-need-to-do-to-fix-this"></a>Perché la valutazione del server contrassegna le VM Linux in modo condizionale. È necessario eseguire questa operazione per risolvere il problema?
-Si verifica un gap noto in server Assessment, in cui non è possibile rilevare la versione secondaria del sistema operativo Linux installato nelle VM locali (ad esempio, per RHEL 6,10, attualmente server Assessment rileva solo RHEL 6 come versione del sistema operativo). Poiché Azure approva solo versioni specifiche di Linux, le VM Linux sono attualmente contrassegnate come predisposte in modo condizionale nella valutazione del server. È possibile verificare manualmente se il sistema operativo Linux in esecuzione nella macchina virtuale locale è approvato in Azure esaminando la [documentazione del supporto per Linux di Azure.](https://aka.ms/migrate/selfhost/azureendorseddistros) Dopo aver verificato la distribuzione approvata, è possibile ignorare questo avviso.
+Server Assessment presenta un problema noto che impedisce di rilevare la versione secondaria del sistema operativo Linux installato nelle macchine virtuali locali (ad esempio, per RHEL 6.10 Server Assessment attualmente rileva solo RHEL 6 come versione del sistema operativo). Dal momento che Azure approva solo versioni specifiche di Linux, le macchine virtuali Linux sono attualmente contrassegnate come pronte in base alle condizioni in Server Assessment. È possibile verificare manualmente se il sistema operativo Linux in esecuzione nella macchina virtuale locale è approvato in Azure esaminando la [documentazione del supporto per Linux di Azure.](https://aka.ms/migrate/selfhost/azureendorseddistros) Dopo avere verificato la distribuzione approvata, è possibile ignorare questo avviso.
 
 ### <a name="the-vm-sku-recommended-by-server-assessment-has-more-number-of-cores-and-a-larger-memory-size-than-what-is-allocated-on-premises-why-is-that-so"></a>Lo SKU di VM consigliato da server assessment ha un numero maggiore di core e una dimensione della memoria maggiore rispetto a quella allocata in locale. Per quale motivo?
-La raccomandazione SKU della macchina virtuale in server Assessment dipende dalle proprietà di valutazione. È possibile creare due tipi di valutazione in valutazione del server, valutazioni basate sulle prestazioni e come valutazioni locali. Per le valutazioni basate sulle prestazioni, valutazione server considera i dati di utilizzo delle macchine virtuali locali (CPU, memoria, disco e utilizzo della rete) per determinare lo SKU di VM di destinazione appropriato per le macchine virtuali locali. Inoltre, per il dimensionamento in base alle prestazioni, il fattore di comfort viene tenuto in considerazione per identificare l'utilizzo effettivo. Per quanto riguarda il dimensionamento locale, i dati sulle prestazioni non vengono considerati ed è consigliabile usare uno SKU di destinazione in base a quanto allocato in locale.
+Lo SKU della macchina virtuale consigliato in Server Assessment dipende dalle proprietà della valutazione. In Server Assessment è possibile creare due tipi di valutazioni: "basate sulle prestazioni" e "come in locale". Per le valutazioni basate sulle prestazioni, valutazione server considera i dati di utilizzo delle macchine virtuali locali (CPU, memoria, disco e utilizzo della rete) per determinare lo SKU di VM di destinazione appropriato per le macchine virtuali locali. Inoltre, per il ridimensionamento basato sulle prestazioni, viene preso in considerazione il fattore di comfort per identificare l'utilizzo effettivo. Per il ridimensionamento come in locale, i dati delle prestazioni non sono presi in considerazione e lo SKU di destinazione viene consigliato in base a quanto allocato in locale.
 
-Si immagini, ad esempio, che esista una macchina virtuale locale con 4 core e 8 GB di memoria con un utilizzo della CPU del 50% e l'utilizzo della memoria del 50% e che nella valutazione sia specificato un fattore di comfort 1,3. Se il criterio di dimensionamento della valutazione è' come locale ', è consigliabile usare uno SKU di VM di Azure con 4 core e 8 GB di memoria, se il criterio di dimensionamento è basato sulle prestazioni, in base all'utilizzo effettivo di CPU e memoria (50% di 4 core * 1,3 = 2,6 core e 50% di 8 GB memoria * 1,3 = 5,3-GB di memoria), è consigliabile usare lo SKU di VM più economico di quattro core (numero di core supportato più vicino) e le dimensioni della memoria di 8 GB (la dimensione di memoria supportata più vicina). [Ulteriori informazioni su come la valutazione del server esegue il ridimensionamento.](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#sizing)
+Si immagini, ad esempio, che esista una macchina virtuale locale con 4 core e 8 GB di memoria con un utilizzo della CPU del 50% e l'utilizzo della memoria del 50% e che nella valutazione sia specificato un fattore di comfort 1,3. Se il criterio di dimensionamento della valutazione è' come locale ', è consigliabile usare uno SKU di VM di Azure con 4 core e 8 GB di memoria, se il criterio di dimensionamento è basato sulle prestazioni, in base all'utilizzo effettivo di CPU e memoria (50% di 4 core * 1,3 = 2,6 core e 50% di 8 GB memoria * 1,3 = 5,3-GB di memoria), è consigliabile usare lo SKU di VM più economico di quattro core (numero di core supportato più vicino) e le dimensioni della memoria di 8 GB (la dimensione di memoria supportata più vicina). [Altre informazioni su come Server Assessment esegue il ridimensionamento.](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#sizing).
 
 ### <a name="the-disk-sku-recommended-by-server-assessment-has-a-bigger-size-than-what-is-allocated-on-premises-why-is-that-so"></a>Lo SKU del disco consigliato da server assessment ha una dimensione maggiore rispetto a quella allocata in locale. Per quale motivo?
-Il dimensionamento del disco in server Assessment dipende dalle due proprietà di valutazione, ovvero dal criterio di ridimensionamento e dal tipo di archiviazione. Se il criterio di ridimensionamento è "basato sulle prestazioni" e il tipo di archiviazione è impostato su "automatico", vengono considerati i valori di IOPS e velocità effettiva del disco per identificare il tipo di disco di destinazione (HDD Standard, SDD Standard o dischi Premium). Uno SKU del disco all'interno del tipo di disco viene quindi consigliato considerando i requisiti di dimensioni del disco locale. Se il criterio di dimensionamento è basato sulle prestazioni e il tipo di archiviazione è "Premium", è consigliabile usare uno SKU di dischi Premium in Azure in base ai requisiti di IOPS, velocità effettiva e dimensioni del disco locale. La stessa logica viene utilizzata per eseguire il dimensionamento del disco quando il criterio di ridimensionamento è' As locale ' dimensionation and storage type is ' HDD Standard ',' SDD Standard ' o ' Premium '.
+Il ridimensionamento dei dischi in Server Assessment dipende da due proprietà di valutazione: i criteri di ridimensionamento e il tipo di archiviazione. Se il criterio di ridimensionamento è "basato sulle prestazioni" e il tipo di archiviazione è impostato su "automatico", vengono considerati i valori di IOPS e velocità effettiva del disco per identificare il tipo di disco di destinazione (HDD Standard, SDD Standard o dischi Premium). A seconda delle dimensioni richieste del disco locale, è quindi consigliabile uno SKU di disco all'interno del tipo di disco. Se il criterio di dimensionamento è basato sulle prestazioni e il tipo di archiviazione è "Premium", è consigliabile usare uno SKU di dischi Premium in Azure in base ai requisiti di IOPS, velocità effettiva e dimensioni del disco locale. La stessa logica si applica al ridimensionamento del disco quando il criterio di ridimensionamento è quello locale e il tipo di archiviazione è "HDD Standard", "SSD Standard" o "Premium".
 
-Ad esempio, se si dispone di un disco locale con 32 GB di memoria, ma le operazioni di i/o di lettura e scrittura aggregate per il disco sono 800 IOPS, server Assessment consiglierà un tipo di disco Premium (a causa dei requisiti di IOPS più elevati) e quindi consiglierà uno SKU del disco, che può supportare IOPS e dimensioni obbligatorie. La corrispondenza più vicina in questo esempio è P15 (256 GB, 1100 IOPS). Quindi, anche se le dimensioni richieste dal disco locale sono 32 GB, server Assessment consiglia un disco con dimensioni maggiori a causa del requisito di IOPS elevato del disco locale.
+Ad esempio, se si dispone di un disco locale con 32 GB di memoria, ma le operazioni di i/o di lettura e scrittura aggregate per il disco sono 800 IOPS, server Assessment consiglierà un tipo di disco Premium (a causa dei requisiti di IOPS più elevati) e quindi consiglierà uno SKU del disco, che può supportare IOPS e dimensioni obbligatorie. In questo esempio la corrispondenza più vicina sarebbe P15 (256 GB, 1.100 operazioni di I/O al secondo). Quindi, anche se le dimensioni richieste dal disco locale erano 32 GB, Server Assessment ha consigliato un disco di dimensioni maggiori a causa della richiesta di operazioni di I/O al secondo più elevate del disco locale.
+
+### <a name="why-does-my-assessment-report-say-percentageofcoresutilizedmissing-or-percentageofmemoryutilizedmissing-for-some-vms"></a>Perché il report di valutazione dice ' PercentageOfCoresUtilizedMissing ' o ' PercentageOfMemoryUtilizedMissing ' per alcune VM?
+I problemi precedenti sono elencati quando l'appliance Azure Migrate non è in grado di raccogliere i dati sulle prestazioni per le macchine virtuali locali. Questo problema può verificarsi se le macchine virtuali sono spente per la durata per la quale si sta creando la valutazione (ultimo giorno/una settimana/mese) perché l'appliance non può raccogliere i dati sulle prestazioni per una macchina virtuale, quando è spenta. Se mancano solo i contatori di memoria e si sta provando a valutare le VM Hyper-V, controllare se la memoria dinamica è abilitata in queste VM. Si è verificato un problema noto a causa del quale Azure Migrate appliance non è in grado di raccogliere l'utilizzo di memoria per le macchine virtuali in cui non è abilitata la memoria dinamica. Si noti che il problema è disponibile solo per le macchine virtuali Hyper-V e non per le macchine virtuali VMware. Se mancano alcuni contatori delle prestazioni, Azure Migrate: La valutazione del server esegue il fallback alla memoria/Core allocata e consiglia una dimensione di macchina virtuale di conseguenza.
 
 ### <a name="is-the-os-license-cost-of-the-vm-included-in-the-compute-cost-estimated-by-server-assessment"></a>Il costo della licenza del sistema operativo della macchina virtuale è incluso nel costo di calcolo stimato da server Assessment?
-Server Assessment considera attualmente solo il costo della licenza del sistema operativo per i computer Windows, il costo della licenza del sistema operativo per i computer Linux non è attualmente considerato. 
+Al momento Server Assessment considera solo il costo della licenza del sistema operativo per i computer Windows. Il costo della licenza del sistema operativo per i computer Linux non è attualmente conteggiato.
 
 ### <a name="what-impact-does-performance-history-and-percentile-utilization-have-on-the-size-recommendations"></a>Qual è l'impatto della cronologia delle prestazioni e dell'utilizzo percentile sulle dimensioni consigliate?
-Queste proprietà sono valide solo per il dimensionamento basato sulle prestazioni. Server assessment raccoglie continuamente i dati sulle prestazioni dei computer locali e li usa per consigliare lo SKU della macchina virtuale e lo SKU del disco in Azure. Di seguito viene illustrato il modo in cui i dati sulle prestazioni vengono raccolti da valutazione server:
+Queste proprietà sono applicabili solo per il ridimensionamento basato sulle prestazioni. Server Assessment raccoglie continuamente i dati delle prestazioni dei computer locali e li usa per consigliare lo SKU della macchina virtuale e del disco in Azure. Di seguito è illustrato come Server Assessment raccoglie i dati sulle prestazioni:
 - Il Azure Migrate appliance continua a profilare l'ambiente locale per raccogliere i dati di utilizzo in tempo reale ogni 20 secondi per le macchine virtuali VMware e ogni 30 secondi per le VM Hyper-V.
-- Il dispositivo esegue il rollup degli esempi di 20/30 secondi per creare un singolo punto dati per ogni 10 minuti. Per creare il singolo punto dati, l'appliance seleziona il valore massimo da tutti gli esempi di 20/30 secondi e lo invia ad Azure.
-- Quando si crea una valutazione in server Assessment, in base alla durata delle prestazioni e al valore percentile della cronologia delle prestazioni, viene identificato il valore di utilizzo rappresentativo. Se, ad esempio, la cronologia delle prestazioni è di una settimana e l'utilizzo percentile è pari a 95, Azure Migrate ordina tutti i punti di campionamento di 10 minuti per l'ultima settimana in ordine crescente e quindi seleziona il 95 ° percentile come valore rappresentativo.
-Il valore del 95 ° percentile garantisce che gli outlier vengano ignorati, che possono essere inclusi se si sceglie il 99 ° percentile. Se si vuole selezionare il picco di utilizzo per il periodo e non si vogliono perdere gli outlier, è consigliabile selezionare 99 ° percentile come utilizzo percentile.
+- L'appliance esegue il rollup dei campioni raccolti ogni 20/30 secondi per creare un singolo punto dati ogni 10 minuti. Per creare il singolo punto dati, l'appliance seleziona il valore di picco da tutti i campioni raccolti ogni 20/30 secondi e lo invia ad Azure.
+- Quando si crea una valutazione in Server Assessment, in base alla durata delle prestazioni e al valore percentile della cronologia delle prestazioni, viene identificato il valore relativo all'utilizzo rappresentativo. Se, ad esempio, la cronologia delle prestazioni è di una settimana e l'utilizzo percentile è pari a 95, Azure Migrate ordina tutti i punti di campionamento di 10 minuti per l'ultima settimana in ordine crescente e quindi seleziona il 95 ° percentile come valore rappresentativo.
+Il valore del 95° percentile assicura che vengano ignorati eventuali outlier, che potrebbero essere inclusi se si selezionasse il 99° percentile. Per scegliere il picco nell'utilizzo per il periodo di tempo senza perdere gli outlier, è consigliabile selezionare il 99° percentile come utilizzo.
 
 ## <a name="dependency-visualization-issues"></a>Problemi di visualizzazione delle dipendenze
 

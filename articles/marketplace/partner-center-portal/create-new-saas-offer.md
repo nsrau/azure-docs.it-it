@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: cea763416f36abd80b1d22b4414cc2454bc30c66
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
-ms.translationtype: HT
+ms.openlocfilehash: a4947349e64d5f9bf95a9213701dc62a0e018b8f
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868734"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501317"
 ---
 # <a name="create-a-new-saas-offer"></a>Creare una nuova offerta SaaS
 
@@ -114,12 +114,15 @@ Promuovere la propria azienda con Microsoft creando un elenco di Marketplace. Se
 - **In che modo si desidera che i clienti possano interagire con questa offerta di inserzione?**
 
 ##### <a name="get-it-now-free"></a>Ottieni ora (gratuito)
-Elenca gratuitamente l'offerta ai clienti fornendo un URL valido (a partire da http o HTTPS) dove possono accedere all'app.  Ad esempio: `https://contoso.com/saas-app`
+Elenca gratuitamente l'offerta ai clienti fornendo un URL valido (a partire da *http* o *https*) dove possono accedere all'app.  Ad esempio: `https://contoso.com/saas-app`
 
 ##### <a name="free-trial-listing"></a>Versione di valutazione gratuita (elenco)
-Elencare l'offerta ai clienti con un collegamento a una versione di valutazione gratuita fornendo un URL valido (a partire da http o HTTPS) dove possono accedere all'app.  Ad esempio: `https://contoso.com/trial/saas-app`. Le versioni di valutazione gratuite dell'elenco di offerte vengono create, gestite e configurate dal servizio e non hanno sottoscrizioni gestite da Microsoft.
+Elencare l'offerta ai clienti con un collegamento a una versione di valutazione gratuita fornendo un URL valido (a partire da *http* o *https*), in cui è possibile ottenere una versione di valutazione tramite [l'autenticazione con un clic usando Azure Active Directory (Azure ad)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials).  Ad esempio: `https://contoso.com/trial/saas-app`. Le versioni di valutazione gratuite dell'elenco di offerte vengono create, gestite e configurate dal servizio e non hanno sottoscrizioni gestite da Microsoft.
 
-##### <a name="contact-me"></a>Contact me (Contattami)
+> [!NOTE]
+> I token che l'applicazione riceverà tramite il collegamento alla versione di valutazione può essere usato solo per ottenere informazioni sugli utenti tramite Azure AD per automatizzare la creazione di account nell'app. Gli account Microsoft (MSA) non sono supportati per l'autenticazione con questo token.
+
+##### <a name="contact-me"></a>Contatta
 Raccogliere le informazioni di contatto del cliente connettendosi al sistema CRM (Customer Relationship Management). Al cliente verrà richiesta l'autorizzazione a condividere le informazioni. Queste informazioni sui clienti, insieme al nome dell'offerta, all'ID e all'origine del Marketplace in cui è stata trovata l'offerta, verranno inviate al sistema CRM configurato. Per ulteriori informazioni sulla configurazione del CRM, vedere [Connect Lead Management](#connect-lead-management). 
 
 ## <a name="example-marketplace-offer-listing"></a>Elenco di offerte del Marketplace di esempio
@@ -220,6 +223,92 @@ In questo campo è possibile immettere fino a 3.000 caratteri di testo. Per altr
 - **Parole chiave di ricerca**: Immettere fino a tre parole chiave di ricerca che i clienti possono usare per trovare l'offerta nel Marketplace.
 - **Istruzioni introduttive** (obbligatorio): Spiega come configurare e iniziare a usare la tua app per i potenziali clienti.  Questa Guida introduttiva può contenere collegamenti a documentazione online più dettagliata. In questo campo è possibile immettere fino a 3.000 caratteri di testo. 
 
+#### <a name="description"></a>**Descrizione**
+
+Questo è un campo obbligatorio. Elementi da includere nella descrizione: 
+
+* Descrivere chiaramente la proposta di valore dell'offerta subito nelle prime frasi della descrizione.  
+* Tenere presente che le prime frasi possono essere visualizzate nei risultati dei motori di ricerca.  
+* Per vendere un prodotto, non basarsi sulle funzionalità, ma concentrarsi sul valore che può offrire.  
+* Usare il più possibile la terminologia specifica del settore o formule che mettano in evidenza i vantaggi offerti. 
+
+I componenti fondamentali di una proposta di valore devono includere le informazioni seguenti: 
+
+* Descrizione del prodotto. 
+* Tipo di utente che ottiene vantaggi dal prodotto. 
+* Esigenze del cliente o dolore che il prodotto indirizzi. 
+
+Per rendere più accattivante la descrizione dell'offerta, è possibile usare i tag HTML per formattare la descrizione. 
+
+1. Se si desidera creare paragrafi, aggiungere `<p>` al prompt del testo e aggiungere `</p>` alla fine.
+
+    **Esempio**: 
+
+    `<p>`Questo è il primo paragrafo. `</p>` <br>
+    `<p>`Questo è il secondo paragrafo. `</p>` <br>
+
+    Il precedente avrà un aspetto simile al seguente:
+
+    <p> Questo è il primo paragrafo. </p>
+    <p> Questo è il secondo paragrafo. </p>
+
+1. Se si desidera aggiungere un **elenco puntato di elementi**, inserire il testo all'interno dei `<li>` Tag indicati di seguito. È possibile copiare e incollare più elementi puntati (elementi tra i `<li>` tag `</li>` e) nei `<ul>` tag e `</ul>` . Assicurarsi di aggiungere il `<ul></ul>`. 
+
+    **Esempio**:
+
+    ```
+    <ul> 
+        <li>add text here</li> 
+        <li> add text here </li> 
+        <li> add text here </li> 
+    </ul> 
+    ```
+
+    Il precedente avrà un aspetto simile al seguente:
+    <ul> 
+        <li>aggiungere qui il testo</li> 
+        <li> aggiungere qui il testo </li> 
+        <li> aggiungere qui il testo </li> 
+    </ul> 
+
+1. Per  il contenuto in grassetto, aggiungere `<b>` all'inizio del testo che si desidera grassetto `</b>` e aggiungere alla fine del testo che si desidera grassetto. 
+
+    **Esempio**: `<b>`VERSIONE DI VALUTAZIONE GRATUITA`</b>`
+    
+    Il precedente comporterebbe il grassetto della versione di valutazione gratuita nella descrizione dell'offerta nello storefront. 
+
+    **VERSIONE DI VALUTAZIONE GRATUITA**
+
+1. Per aggiungere **interruzioni di riga** tra il contenuto `<br>` , aggiungere prima del contenuto che si vuole avviare in una nuova riga. Se si desidera lasciare uno spazio e verificare che il contenuto venga avviato in una nuova riga, `<br><br>` aggiungere prima del contenuto. 
+
+    **Esempio**:
+
+    Si tratta di una riga di testo. `<br>`Si tratta di una riga di testo che verrà avviata in una nuova riga. `<br><br>`Si tratta di una linea che avvierà due righe sotto. 
+
+    Il precedente avrà un aspetto simile al seguente:
+
+    Si tratta di una riga di testo. <br> Si tratta di una riga di testo che verrà avviata in una nuova riga. <br><br> Si tratta di una linea che avvierà due righe sotto. 
+
+1. Se si desidera **aumentare le dimensioni del testo**, è necessario innanzitutto scegliere la dimensione desiderata per il testo. Usare gli esempi seguenti. Dopo aver selezionato le dimensioni del testo, aggiungere i tag corrispondenti `<H*></H*>` all'inizio e alla fine del testo. 
+
+    **Esempio**:
+
+    `<h1>`Titolo 1`</h1>` <br>
+    `<h2>`Questo è l'intestazione 2`</h2>` <br>
+    `<h3>`Questa è l'intestazione 3`</h3>` <br>
+    `<h4>`Titolo 4`</h4>` <br>
+    `<h5>`Questo è l'intestazione 5`</h5>` <br>
+    `<h6>`Titolo 6`</h6>` 
+
+    Il precedente avrà un aspetto simile al seguente:
+
+    <h1>Titolo 1</h1> 
+    <h2>Questo è l'intestazione 2</h2> 
+    <h3>Questa è l'intestazione 3</h3> 
+    <h4>Titolo 4</h4> 
+    <h5>Questo è l'intestazione 5</h5> 
+    <h6>Titolo 6</h6> 
+
 #### <a name="links"></a>Collegamenti
 
 - **Informativa sulla privacy** (obbligatorio): Collegamento all'informativa sulla privacy dell'organizzazione. L'utente è responsabile di garantire che l'applicazione sia conforme alle leggi e alle normative sulla privacy e per fornire un'informativa sulla privacy valida
@@ -259,7 +348,7 @@ La scheda **Anteprima** consente di definire un pubblico di **Anteprima** limita
 
 - **Definire un gruppo di destinatari di anteprima: Aggiungere un solo indirizzo di posta elettronica dell'account AAD/MSA per riga, insieme a una descrizione facoltativa.**
 
-È possibile aggiungere fino a dieci (10) indirizzi di posta elettronica manualmente o 20 (20) se si carica un file CSV, per gli account Microsoft (MSA) o Azure Active Directory (AAD) esistenti per convalidare l'offerta prima della pubblicazione in tempo reale. Aggiungendo questi account, si definisce un gruppo di destinatari a cui verrà consentito l'accesso in anteprima all'offerta prima che venga pubblicata nei Marketplace. Se l'offerta è già attiva, è comunque possibile definire un pubblico di anteprima per testare eventuali modifiche o aggiornamenti all'offerta.
+È possibile aggiungere fino a dieci (10) indirizzi di posta elettronica manualmente oppure 20 (20) se si carica un file CSV, per account Microsoft (MSA) o Azure Active Directory account esistenti per consentire la convalida dell'offerta prima della pubblicazione in tempo reale. Aggiungendo questi account, si definisce un gruppo di destinatari a cui verrà consentito l'accesso in anteprima all'offerta prima che venga pubblicata nei Marketplace. Se l'offerta è già attiva, è comunque possibile definire un pubblico di anteprima per testare eventuali modifiche o aggiornamenti all'offerta.
 
 > [!NOTE]
 > Il pubblico di anteprima è diverso da un pubblico privato. Un pubblico di anteprima è autorizzato ad accedere all'offerta _prima_ di essere pubblicata Live nei Marketplace. È anche possibile scegliere di creare un piano e renderlo disponibile solo per i destinatari privati. Nella scheda **elenco piani** è possibile definire un pubblico privato con la casella di controllo **questo è un piano privato** . È quindi possibile definire un pubblico privato di un massimo di 20.000 clienti usando gli ID tenant di Azure.

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6ea919a4c9554584e0da79739d3465586ae43227
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dbf59740af64bf8d403b6596a17646304c0f1eb0
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60456357"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385779"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurare una connessione gateway VPN tra reti virtuali usando PowerShell
 
@@ -32,7 +32,7 @@ I passaggi di questo articolo sono applicabili al modello di distribuzione Resou
 
 Ci sono diversi modi per connettere le reti virtuali. Le sezioni seguenti descrivono i diversi metodi di connessione delle reti virtuali.
 
-### <a name="vnet-to-vnet"></a>Tra reti virtuali
+### <a name="vnet-to-vnet"></a>Da rete virtuale a rete virtuale
 
 La configurazione di una connessione da rete virtuale a rete virtuale rappresenta un buon metodo per connettere facilmente le reti virtuali. La connessione di una rete virtuale a un'altra rete virtuale tramite il tipo di connessione da rete virtuale a rete virtuale (VNet2VNet) è simile alla creazione di una connessione IPsec da sito a sito in una posizione locale.  Entrambi i tipi di connettività usano un gateway VPN per fornire un tunnel sicuro tramite IPsec/IKE ed entrambi funzionano in modo analogo durante la comunicazione. La differenza tra i tipi di connessione è costituita dal modo in cui viene configurato il gateway di rete locale. Quando si crea una connessione da rete virtuale a rete virtuale, non viene visualizzato lo spazio indirizzi del gateway di rete locale, che viene creato e popolato automaticamente. Se si aggiorna lo spazio indirizzi per una rete virtuale, l'altra rete virtuale eseguirà automaticamente il routing allo spazio indirizzi aggiornato. La creazione di una connessione da rete virtuale a rete virtuale è in genere più veloce e semplice rispetto alla creazione di una connessione da sito a sito tra reti virtuali.
 
@@ -40,7 +40,7 @@ La configurazione di una connessione da rete virtuale a rete virtuale rappresent
 
 Se si usa una configurazione di rete complessa, potrebbe essere preferibile connettersi alle reti virtuali usando la procedura di connessione [da sito a sito](vpn-gateway-create-site-to-site-rm-powershell.md) invece di quella di connessione da rete virtuale a rete virtuale. Con la procedura di connessione da sito a sito, è necessario creare e configurare manualmente i gateway di rete locali. Il gateway di rete locale per ogni rete virtuale considera l'altra rete virtuale come sito locale. Ciò consente di specificare uno spazio indirizzi aggiuntivo per il gateway di rete locale per il routing del traffico. Se lo spazio indirizzi per una rete virtuale cambia, è necessario aggiornare di conseguenza il gateway di rete locale corrispondente. L'aggiornamento non avviene automaticamente.
 
-### <a name="vnet-peering"></a>Peering reti virtuali
+### <a name="vnet-peering"></a>Peering di rete virtuale
 
 È possibile connettere le reti virtuali tramite il peering reti virtuali. Il peering reti virtuali non usa un gateway VPN e presenta vincoli diversi. I [prezzi per il peering reti virtuali](https://azure.microsoft.com/pricing/details/virtual-network) vengono inoltre calcolati in modo diverso rispetto ai [prezzi per il gateway VPN da rete virtuale a rete virtuale](https://azure.microsoft.com/pricing/details/vpn-gateway). Per altre informazioni, vedere [Peering reti virtuali](../virtual-network/virtual-network-peering-overview.md).
 
@@ -93,7 +93,7 @@ Negli esempi vengono usati i valori seguenti:
 
 * Nome della rete virtuale: TestVNet1
 * Gruppo di risorse: TestRG1
-* Percorso: Stati Uniti orientali
+* Percorso: East US
 * TestVNet1: 10.11.0.0/16 e 10.12.0.0/16
 * FrontEnd: 10.11.0.0/24
 * BackEnd: 10.12.0.0/24
@@ -150,7 +150,6 @@ Negli esempi vengono usati i valori seguenti:
    $VNetName1 = "TestVNet1"
    $FESubName1 = "FrontEnd"
    $BESubName1 = "Backend"
-   $GWSubName1 = "GatewaySubnet"
    $VNetPrefix11 = "10.11.0.0/16"
    $VNetPrefix12 = "10.12.0.0/16"
    $FESubPrefix1 = "10.11.0.0/24"
@@ -167,14 +166,14 @@ Negli esempi vengono usati i valori seguenti:
    ```azurepowershell-interactive
    New-AzResourceGroup -Name $RG1 -Location $Location1
    ```
-4. Creare le configurazioni di subnet per TestVNet1. L'esempio seguente mostra come creare una rete virtuale denominata TestVNet1 e tre subnet, denominate rispettivamente GatewaySubnet, FrontEnd e Backend. Quando si sostituiscono i valori, è importante che la subnet gateway venga denominata sempre esattamente GatewaySubnet. Se si assegnano altri nomi, la creazione del gateway ha esito negativo.
+4. Creare le configurazioni di subnet per TestVNet1. L'esempio seguente mostra come creare una rete virtuale denominata TestVNet1 e tre subnet, denominate rispettivamente GatewaySubnet, FrontEnd e Backend. Quando si sostituiscono i valori, è importante che la subnet gateway venga denominata sempre esattamente GatewaySubnet. Se si assegnano altri nomi, la creazione del gateway ha esito negativo. Per questo motivo, non viene assegnato tramite la variabile riportata di seguito.
 
    L'esempio seguente fa uso delle variabili impostate in precedenza. In questo esempio, la subnet del gateway usa /27. Nonostante sia possibile creare una subnet del gateway con dimensioni di /29 soltanto, è consigliabile crearne una più grande che includa più indirizzi selezionando almeno /28 o /27. In questo modo saranno disponibili indirizzi sufficienti per supportare in futuro le possibili configurazioni aggiuntive desiderate.
 
    ```azurepowershell-interactive
    $fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
    $besub1 = New-AzVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
-   $gwsub1 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWSubPrefix1
+   $gwsub1 = New-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix $GWSubPrefix1
    ```
 5. Creare TestVNet1.
 
@@ -218,7 +217,6 @@ Dopo aver configurato TestVNet1, creare TestVNet4. Eseguire la procedura seguent
    $VnetName4 = "TestVNet4"
    $FESubName4 = "FrontEnd"
    $BESubName4 = "Backend"
-   $GWSubName4 = "GatewaySubnet"
    $VnetPrefix41 = "10.41.0.0/16"
    $VnetPrefix42 = "10.42.0.0/16"
    $FESubPrefix4 = "10.41.0.0/24"
@@ -239,7 +237,7 @@ Dopo aver configurato TestVNet1, creare TestVNet4. Eseguire la procedura seguent
    ```azurepowershell-interactive
    $fesub4 = New-AzVirtualNetworkSubnetConfig -Name $FESubName4 -AddressPrefix $FESubPrefix4
    $besub4 = New-AzVirtualNetworkSubnetConfig -Name $BESubName4 -AddressPrefix $BESubPrefix4
-   $gwsub4 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName4 -AddressPrefix $GWSubPrefix4
+   $gwsub4 = New-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix $GWSubPrefix4
    ```
 4. Creare TestVNet4.
 

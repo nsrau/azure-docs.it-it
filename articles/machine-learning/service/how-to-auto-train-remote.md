@@ -11,12 +11,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 7/12/2019
-ms.openlocfilehash: 00e4e9d5a1fc63dd73fe5a4dba7e1f1416cd08bc
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 852190f7b66c0d2c527d1784c72f963e11620064
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868878"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371099"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Eseguire il training di modelli di apprendimento automatico nel cloud
 
@@ -46,17 +46,19 @@ Creare la destinazione AmlCompute nell'area di lavoro`ws`() se non esiste già.
 from azureml.core.compute import AmlCompute
 from azureml.core.compute import ComputeTarget
 
-amlcompute_cluster_name = "automlcl" #Name your cluster
-provisioning_config = AmlCompute.provisioning_configuration(vm_size = "STANDARD_D2_V2",
+amlcompute_cluster_name = "automlcl"  # Name your cluster
+provisioning_config = AmlCompute.provisioning_configuration(vm_size="STANDARD_D2_V2",
                                                             # for GPU, use "STANDARD_NC6"
-                                                            #vm_priority = 'lowpriority', # optional
-                                                            max_nodes = 6)
+                                                            # vm_priority = 'lowpriority', # optional
+                                                            max_nodes=6)
 
-compute_target = ComputeTarget.create(ws, amlcompute_cluster_name, provisioning_config)
+compute_target = ComputeTarget.create(
+    ws, amlcompute_cluster_name, provisioning_config)
 
 # Can poll for a minimum number of nodes and for a specific timeout.
 # If no min_node_count is provided, it will use the scale settings for the cluster.
-compute_target.wait_for_completion(show_output = True, min_node_count = None, timeout_in_minutes = 20)
+compute_target.wait_for_completion(
+    show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
 È ora possibile usare l'oggetto `compute_target` come destinazione di calcolo remota.
@@ -109,7 +111,8 @@ run_config.target = compute_target
 run_config.environment.docker.enabled = True
 run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
 
-dependencies = CondaDependencies.create(pip_packages=["scikit-learn", "scipy", "numpy"])
+dependencies = CondaDependencies.create(
+    pip_packages=["scikit-learn", "scipy", "numpy"])
 run_config.environment.python.conda_dependencies = dependencies
 ```
 
@@ -142,7 +145,7 @@ automl_config = AutoMLConfig(task='classification',
                              run_configuration=run_config,
                              data_script=project_folder + "/get_data.py",
                              **automl_settings,
-                            )
+                             )
 ```
 
 ### <a name="enable-model-explanations"></a>Abilitare le spiegazioni del modello
@@ -153,13 +156,13 @@ Impostare il parametro facoltativo `model_explainability` nel costruttore `AutoM
 automl_config = AutoMLConfig(task='classification',
                              debug_log='automl_errors.log',
                              path=project_folder,
-                             compute_target = compute_target,
+                             compute_target=compute_target,
                              run_configuration=run_config,
                              data_script=project_folder + "/get_data.py",
                              **automl_settings,
                              model_explainability=True,
-                             X_valid = X_test
-                            )
+                             X_valid=X_test
+                             )
 ```
 
 ## <a name="submit-training-experiment"></a>Inviare l'esperimento di training
@@ -208,24 +211,33 @@ L'output sarà simile all'esempio seguente:
 
 ## <a name="explore-results"></a>Esplorare i risultati
 
-È possibile usare lo stesso widget di Jupyter di quello [dell'esercitazione del training](tutorial-auto-train-models.md#explore-the-results) per visualizzare un grafico e tabella dei risultati.
+Per visualizzare un grafico e una tabella di risultati, è possibile usare lo stesso [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) , come illustrato nell' [esercitazione di training](tutorial-auto-train-models.md#explore-the-results) .
 
 ```python
 from azureml.widgets import RunDetails
 RunDetails(remote_run).show()
 ```
+
 Ecco un'immagine statica del widget.  Nel notebook, è possibile fare clic su una qualsiasi riga della tabella per visualizzare le proprietà di esecuzione e i log di output per quell'esecuzione.   È possibile usare l'elenco a discesa sopra il grafico per visualizzare un grafico di ogni metrica disponibile per ogni iterazione.
 
 ![Tabella del widget](./media/how-to-auto-train-remote/table.png)
 ![tracciato del widget](./media/how-to-auto-train-remote/plot.png)
 
-Il widget visualizza un URL da usare per visualizzare ed esplorare i singoli dettagli dell'esecuzione.
+Il widget visualizza un URL da usare per visualizzare ed esplorare i singoli dettagli dell'esecuzione.  
 
-### <a name="view-logs"></a>Visualizzare i log
+Se non si è in un notebook di Jupyter, è possibile visualizzare l'URL dall'esecuzione stessa:
+
+```
+remote_run.get_portal_url()
+```
+
+Le stesse informazioni sono disponibili nell'area di lavoro.  Per altre informazioni su questi risultati, vedere informazioni sui [risultati automatici di Machine Learning](how-to-understand-automated-ml.md).
+
+### <a name="view-logs"></a>Visualizza i log
 
 I log si trovano nel percorso `/tmp/azureml_run/{iterationid}/azureml-logs` della DSVM.
 
-## <a name="best-model-explanation"></a>Spiegazione del modello migliore
+## <a name="explain"></a>Migliore spiegazione del modello
 
 Il recupero dei dati di spiegazione dei modelli consente di visualizzare informazioni dettagliate sui modelli per rendere più trasparente il processo in esecuzione nel back-end. In questo esempio si eseguono le spiegazioni del modello solo per il modello migliore. L'esecuzione delle spiegazioni per tutti i modelli della pipeline richiede una notevole quantità di tempo. Le informazioni di spiegazione del modello includono:
 

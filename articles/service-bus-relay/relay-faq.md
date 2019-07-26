@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: f9f182a459f9a38c96bdf923998d1cdfee8fc3ac
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 207f73bbf9a92d26be1791fc11ce81fe68252705
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277969"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422966"
 ---
 # <a name="azure-relay-faqs"></a>Domande frequenti sul servizio di inoltro di Azure
 
@@ -36,7 +36,7 @@ Il [servizio di inoltro di Azure](relay-what-is-it.md) facilita le applicazioni 
 Uno [spazio dei nomi](relay-create-namespace-portal.md) è un contenitore di ambiti che è possibile usare per gestire le risorse di inoltro nell'applicazione. È necessario creare uno spazio dei nomi per usare l'inoltro. Questo è uno dei primi passaggi nella guida introduttiva.
 
 ### <a name="what-happened-to-service-bus-relay-service"></a>Quali novità interessano il servizio di inoltro del bus di servizio?
-Il servizio in precedenza chiamato Inoltro del bus di servizio ora si chiama [Inoltro WCF](relay-wcf-dotnet-get-started.md). È possibile continuare a usarlo come un tempo. La funzionalità Connessioni ibride è una versione aggiornata di un servizio trasferito da Servizi BizTalk di Azure. Verrà fornito ancora il supporto per l'inoltro WCF e per Connessioni ibride.
+Il servizio in precedenza chiamato Inoltro del bus di servizio ora si chiama [Inoltro WCF](service-bus-relay-tutorial.md). È possibile continuare a usarlo come un tempo. La funzionalità Connessioni ibride è una versione aggiornata di un servizio trasferito da Servizi BizTalk di Azure. Verrà fornito ancora il supporto per l'inoltro WCF e per Connessioni ibride.
 
 ## <a name="pricing"></a>Prezzi
 Questa sezione contiene le risposte ad alcune domande frequenti sulla struttura dei prezzi del servizio di inoltro. Per informazioni generali sui prezzi di Azure, vedere [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/). Per informazioni complete sui prezzi del servizio di inoltro, vedere la pagina contenente i [dettagli dei prezzi del bus di servizio][Pricing overview].
@@ -86,7 +86,7 @@ Gli inoltri aperti con il binding WCF **netTCPRelay** considerano i messaggi non
 | Connessioni di inoltro simultanee per tutti gli endpoint di inoltro in uno spazio dei nomi del servizio |Spazio dei nomi |- |5\.000 |
 | Endpoint di inoltro per ogni spazio dei nomi del servizio |Spazio dei nomi |- |10,000 |
 | Dimensione dei messaggi per gli inoltri [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) e [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) |Spazio dei nomi |I messaggi in ingresso che superano queste quote vengono rifiutati e il codice chiamante riceve un'eccezione. |64 KB |
-| Dimensione dei messaggi per gli inoltri [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) e [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) |Spazio dei nomi |Nessun limite alla dimensione dei messaggi. |Illimitato |
+| Dimensione dei messaggi per gli inoltri [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) e [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) |Spazio dei nomi |Nessun limite alla dimensione dei messaggi. |Senza limitazioni |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>Per il servizio di inoltro sono previste quote di utilizzo?
 Per impostazione predefinita per qualsiasi servizio cloud, Microsoft imposta una quota di utilizzo mensile aggregata che viene calcolata su tutte le sottoscrizioni di un cliente. In alcuni casi le esigenze del cliente possono superare questi limiti. È possibile contattare il servizio clienti in qualsiasi momento per comunicare esigenze specifiche e consentire un adeguamento appropriato di tali limiti. Per il bus di servizio, le quote di utilizzo aggregate sono le seguenti:

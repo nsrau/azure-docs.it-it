@@ -1,19 +1,18 @@
 ---
 title: Usare il server di Backup di Azure per eseguire il backup dei carichi di lavoro in Azure
 description: Usare il server di Backup di Azure per proteggere o eseguire il backup dei carichi di lavoro nel portale di Azure.
-services: backup
 author: kasinh
 manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: kasinh
-ms.openlocfilehash: 12ec1ce4a774178be621d7d8626ead7f1b106189
-ms.sourcegitcommit: 20bb149fe74459e59b648361235324b0674fe55b
+ms.openlocfilehash: bf0e964c46088947fa50d1eadbcc12b78978251f
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68298520"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466385"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installare e preparare il server di Backup di Azure
 > [!div class="op_single_selector"]
@@ -277,8 +276,8 @@ Dopo avere verificato lo stato della connettività di Azure e della sottoscrizio
 | Stato di connettività | Sottoscrizione di Azure | Eseguire il backup in Azure | Eseguire il backup su disco | Ripristino da Azure | Ripristino da disco |
 | --- | --- | --- | --- | --- | --- |
 | Connesso |Attivo |Allowed |Consentito |Consentito |Allowed |
-| Connesso |Scaduto |Arrestato |Arrestato |Allowed |Allowed |
-| Connesso |Deprovisioning eseguito |Arrestato |Arrestato |Arrestato e punti di ripristino di Azure eliminati |Arrestato |
+| Connessione attivata |Scaduto |Arrestato |Arrestato |Allowed |Allowed |
+| Connessione attivata |Deprovisioning eseguito |Arrestato |Arrestato |Arrestato e punti di ripristino di Azure eliminati |Arrestato |
 | Connettività persa > 15 giorni |Attivo |Arrestato |Arrestato |Allowed |Allowed |
 | Connettività persa > 15 giorni |Scaduto |Arrestato |Arrestato |Allowed |Allowed |
 | Connettività persa > 15 giorni |Deprovisioning eseguito |Arrestato |Arrestato |Arrestato e punti di ripristino di Azure eliminati |Arrestato |

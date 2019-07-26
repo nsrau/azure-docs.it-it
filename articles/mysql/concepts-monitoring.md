@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.openlocfilehash: 0122f952e586d0535fc2e482c7b78266f8809272
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/25/2019
 ms.locfileid: "67062430"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitoraggio in Database di Azure per MySQL
@@ -28,7 +28,7 @@ Per Database di Azure per MySQL sono disponibili le metriche seguenti:
 |memory_percent|Percentuale memoria|Percent|Percentuale di memoria in uso.|
 |io_consumption_percent|IO percent (Percentuale IO)|Percent|Percentuale di I/O in uso.|
 |storage_percent|Percentuale archiviazione|Percent|Percentuale di spazio di archiviazione usata rispetto al massimo del server.|
-|storage_used|Uso archiviazione|Byte|Quantità di spazio di archiviazione in uso. Lo spazio di archiviazione usato dal servizio può includere file di database, log delle transazioni e log del server.|
+|storage_used|Spazio di archiviazione utilizzato|Byte|Quantità di spazio di archiviazione in uso. Lo spazio di archiviazione usato dal servizio può includere file di database, log delle transazioni e log del server.|
 |serverlog_storage_percent|Percentuale di archiviazione dei log del server|Percent|Percentuale di spazio di archiviazione dei log del server usata rispetto allo spazio di archiviazione massimo dei log del server per il server.|
 |serverlog_storage_usage|Archiviazione dei log del server usata|Byte|Quantità di spazio di archiviazione dei log del server in uso.|
 |serverlog_storage_limit|Limite di archiviazione dei log del server|Byte|Spazio di archiviazione massimo dei log del server per il server.|
@@ -41,15 +41,15 @@ Per Database di Azure per MySQL sono disponibili le metriche seguenti:
 |backup_storage_used|Risorse di backup in uso|Byte|Quantità di risorse dell'archivio di backup usate.|
 
 ## <a name="server-logs"></a>Log del server
-È possibile abilitare query lente e log nel server di controllo. Questi log sono disponibili anche tramite i log di diagnostica di Azure nell'Account di archiviazione, hub eventi e log monitoraggio di Azure. Per altre informazioni sulla registrazione, visitare il [log di controllo](concepts-audit-logs.md) e [slow log di query](concepts-server-logs.md) articoli.
+È possibile abilitare la registrazione lenta della query e del controllo nel server. Questi log sono disponibili anche tramite i log di diagnostica di Azure in log di monitoraggio di Azure, Hub eventi e account di archiviazione. Per altre informazioni sulla registrazione, vedere gli articoli [log di controllo](concepts-audit-logs.md) e log di [query lente](concepts-server-logs.md) .
 
-## <a name="query-store"></a>Archivio query
-[Query Store](concepts-query-store.md) è una funzionalità di anteprima pubblica che tiene traccia delle prestazioni di query nel tempo, incluse informazioni su statistiche dei runtime di query ed eventi di attesa. La funzionalità rende persistenti le informazioni sulle prestazioni di runtime di query nella **mysql** dello schema. È possibile controllare la raccolta e l'archiviazione dei dati tramite vari controlli di configurazione.
+## <a name="query-store"></a>Query Store
+[Query Store](concepts-query-store.md) è una funzionalità di anteprima pubblica che tiene traccia delle prestazioni di query nel tempo, incluse informazioni su statistiche dei runtime di query ed eventi di attesa. La funzionalità rende permanente le informazioni sulle prestazioni di query runtime nello schema **MySQL** . È possibile controllare la raccolta e l'archiviazione dei dati tramite vari controlli di configurazione.
 
 ## <a name="query-performance-insight"></a>Informazioni dettagliate prestazioni query
-[Informazioni dettagliate prestazioni query](concepts-query-performance-insight.md) funziona in combinazione con Query Store per fornire visualizzazioni accessibili dal portale di Azure. Questi grafici consentono di identificare le principali query che influiscono sulle prestazioni. Query Performance Insight è disponibile in anteprima pubblica ed è accessibile nel **prestazioni intelligenti** sezione del Database di Azure per la pagina del portale del server MySQL.
+[Informazioni dettagliate prestazioni query](concepts-query-performance-insight.md) funziona in combinazione con Query Store per fornire visualizzazioni accessibili dal portale di Azure. Questi grafici consentono di identificare le principali query che influiscono sulle prestazioni. Informazioni dettagliate prestazioni query è disponibile in anteprima pubblica ed è accessibile nella sezione **prestazioni intelligenti** della pagina del portale del database di Azure per il server MySQL.
 
-## <a name="performance-recommendations"></a>Raccomandazioni per le prestazioni
+## <a name="performance-recommendations"></a>Consigli per le prestazioni
 La funzionalità [Raccomandazioni per le prestazioni](concepts-performance-recommendations.md) identifica le opportunità per migliorare le prestazioni dei carichi di lavoro. La versione di anteprima pubblica di Raccomandazioni per le prestazioni fornisce consigli per la creazione di nuovi indici che possono migliorare le prestazioni dei carichi di lavoro. Per generare le raccomandazioni sugli indici, la funzionalità prende in considerazione diverse caratteristiche del database, tra cui lo schema e il carico di lavoro segnalati da Query Store. Dopo avere implementato le raccomandazioni per le prestazioni, i clienti devono testare le prestazioni per valutare l'impatto di tali modifiche.
 
 ## <a name="next-steps"></a>Passaggi successivi

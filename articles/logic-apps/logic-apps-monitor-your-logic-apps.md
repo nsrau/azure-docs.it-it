@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: 851943ad967a79a6800a899b31d0cf9f90a6889b
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 840124a35ed4389699757e011aaf5d05a9400836
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312250"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385535"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorare lo stato, configurare la registrazione diagnostica e attivare gli avvisi per App per la logica di Azure
 
@@ -293,6 +293,6 @@ L'evento `ActionCompleted`, ad esempio, ha le proprietà `clientTrackingId` e `t
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Creare modelli per la distribuzione delle app per la logica e la gestione dei rilasci](../logic-apps/logic-apps-create-deploy-template.md)
+* [Automatizzare la distribuzione delle app per la logica](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 * [Scenari B2B con Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
 * [Monitorare i messaggi B2B](../logic-apps/logic-apps-monitor-b2b-message.md)

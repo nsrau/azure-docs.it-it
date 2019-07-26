@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: bce9f3b3a574d27e2fb47fb9b2da9470c43fd2eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 78a531c769612af0597e732f0dc539286dd7cdac
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399419"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489882"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali Hyper-V locali in Azure
 
@@ -33,8 +33,8 @@ Hyper-V senza Virtual Machine Manager | È possibile eseguire il ripristino di e
 
 **Server** | **Requisiti** | **Dettagli**
 --- | --- | ---
-Hyper-V (in esecuzione senza Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016 (tra cui installazione server core), Windows Server 2012 R2 con gli aggiornamenti più recenti | Se si è già configurato Windows Server 2012 R2 con/o SCVMM 2012 R2 con Azure Site Recovery e si prevede di aggiornare il sistema operativo, seguire le indicazioni nella [documentazione](upgrade-2012R2-to-2016.md) correlata. 
-Hyper-V (in esecuzione con Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Se si utilizza Virtual Machine Manager, gli host Windows Server 2019 devono essere gestiti in Virtual Machine Manager 2019. Analogamente, gli host Windows Server 2016 devono essere gestiti in Virtual Machine Manager 2016.<br/><br/>
+Hyper-V (in esecuzione senza Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016 (inclusa l'installazione dei componenti di base del server), Windows Server 2012 R2 con gli aggiornamenti più recenti | Se si è già configurato Windows Server 2012 R2 con/o SCVMM 2012 R2 con Azure Site Recovery e si prevede di aggiornare il sistema operativo, seguire le indicazioni nella [documentazione](upgrade-2012R2-to-2016.md) correlata. 
+Hyper-V (in esecuzione con Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Se si usa Virtual Machine Manager, gli host Windows Server 2019 devono essere gestiti in Virtual Machine Manager 2019. Analogamente, gli host Windows Server 2016 devono essere gestiti in Virtual Machine Manager 2016.<br/><br/>
 
 
 ## <a name="replicated-vms"></a>VM replicate
@@ -59,16 +59,16 @@ Aggiungere il disco nella macchina virtuale Hyper-V replicata | Non supportati. 
 
 **Componente** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | ---
-Rete host: gruppo NIC | Yes | Yes
-Rete host: VLAN | Yes | Yes
+Rete host: gruppo NIC | Sì | Sì
+Rete host: VLAN | Yes | Sì
 Rete host: IPv4 | Yes | Yes
 Rete host: IPv6 | No | No
 Rete macchine virtuali guest: gruppo NIC | No | No
-Rete macchine virtuali guest: IPv4 | Yes | Yes
-Rete macchine virtuali guest: IPv6 | No | Yes
-Rete macchine virtuali guest: IP statico (Windows) | Yes | Yes
+Rete macchine virtuali guest: IPv4 | Sì | Yes
+Rete macchine virtuali guest: IPv6 | No | Sì
+Rete macchine virtuali guest: IP statico (Windows) | Sì | Sì
 Rete macchine virtuali guest: IP statico (Linux) | No | No
-Rete macchine virtuali guest: Più NIC | Yes | Yes
+Rete macchine virtuali guest: Più NIC | Sì | Yes
 
 
 
@@ -76,15 +76,15 @@ Rete macchine virtuali guest: Più NIC | Yes | Yes
 
 **Componente** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | ---
-Azure ExpressRoute | Yes | Yes
-ILB | Yes | Yes
-ELB | Yes | Yes
-Gestione traffico di Azure | Yes | Yes
-Più NIC | Yes | Yes
-IP riservato | Yes | Yes
-IPv4 | Yes | Yes
-Conservazione indirizzo IP di origine | Yes | Yes
-Endpoint servizio di rete virtuale di Azure<br/> (senza firewall di Archiviazione di Azure) | Yes | Yes
+Azure ExpressRoute | Sì | Sì
+ILB | Sì | Sì
+ELB | Sì | Sì
+Gestione traffico di Azure | Yes | Sì
+Più NIC | Sì | Sì
+IP riservato | Sì | Yes
+IPv4 | Sì | Sì
+Conservazione indirizzo IP di origine | Yes | Sì
+Endpoint servizio di rete virtuale di Azure<br/> (senza firewall di Archiviazione di Azure) | Sì | Yes
 Rete accelerata | No | No
 
 
@@ -92,46 +92,46 @@ Rete accelerata | No | No
 
 **Archiviazione** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | --- 
-NFS | NA | NA
-SMB 3.0 | Yes | Yes
-SAN (iSCSI) | Yes | Yes
-Percorsi multipli (MPIO). Testato con:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM for CLARiiON | Yes | Yes
+NFS | ND | ND
+SMB 3.0 | Sì | Yes
+SAN (iSCSI) | Sì | Sì
+Percorsi multipli (MPIO). Testato con:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM for CLARiiON | Sì | Yes
 
 ## <a name="hyper-v-vm-guest-storage"></a>Archiviazione VM guest Hyper-V
 
 **Archiviazione** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | ---
-VMDK | NA | NA
-VHD/VHDX | Yes | Yes
-VM Gen 2 | Yes | Yes
-EFI/UEFI| Yes | Yes
+VMDK | ND | ND
+VHD/VHDX | Sì | Sì
+VM Gen 2 | Sì | Sì
+EFI/UEFI| Yes | Sì
 Disco cluster condiviso | No | No
 Disco crittografato | No | No
-NFS | NA | NA
+NFS | ND | ND
 SMB 3.0 | No | No
-RDM | NA | NA
+RDM | ND | ND
 Disco superiore a 1 TB | Sì, fino a 4.095 GB | Sì, fino a 4.095 GB
 Disco: dimensioni logiche e fisiche di settore a 4 KB | Non supportato: Gen 1/Gen 2 | Non supportato: Gen 1/Gen 2
-Disco: dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 512 byte | Yes |  Yes
-Gestione volumi logici (LVM). LVM è supportata solo nei dischi dati. Azure ha un solo disco di sistema operativo. | Yes | Yes
-Volume con disco con striping superiore a 1 TB | Yes | Yes
-Spazi di archiviazione | Yes | Yes
+Disco: dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 512 byte | Sì |  Sì
+Gestione volumi logici (LVM). LVM è supportata solo nei dischi dati. Azure ha un solo disco di sistema operativo. | Sì | Sì
+Volume con disco con striping superiore a 1 TB | Sì | Sì
+Spazi di archiviazione | No | No
 Aggiunta/rimozione a caldo disco | No | No
-Esclusione disco | Yes | Yes
-Percorsi multipli (MPIO) | Yes | Yes
+Esclusione disco | Sì | Yes
+Percorsi multipli (MPIO) | Sì | Yes
 
 ## <a name="azure-storage"></a>Archiviazione di Azure
 
 **Componente** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | ---
-Archiviazione con ridondanza locale | Yes | Yes
-Archiviazione con ridondanza geografica | Yes | Yes
-Archiviazione con ridondanza geografica e accesso in lettura | Yes | Yes
+Archiviazione con ridondanza locale | Sì | Sì
+Archiviazione con ridondanza geografica | Sì | Yes
+Archiviazione con ridondanza geografica e accesso in lettura | Sì | Sì
 Archiviazione ad accesso sporadico | No | No
 Archiviazione ad accesso frequente| No | No
 BLOB in blocchi | No | No
-Crittografia per dati inattivi (SSE)| Yes | Yes
-Archiviazione Premium | Yes | Yes
+Crittografia per dati inattivi (SSE)| Sì | Yes
+Archiviazione Premium | Sì | Sì
 Servizio di importazione/esportazione | No | No
 Firewall di Archiviazione di Azure per reti virtuali configurate in un account di archiviazione di destinazione/archiviazione della cache (usato per l'archiviazione dei dati di replica) | No | No
 
@@ -140,8 +140,8 @@ Firewall di Archiviazione di Azure per reti virtuali configurate in un account d
 
 **Funzionalità** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | ---
-Set di disponibilità | Yes | Yes
-HUB | Yes | Yes  
+Set di disponibilità | Yes | Sì
+HUB | Yes | Sì  
 Dischi gestiti | Sì, per il failover.<br/><br/> Non è supportato il failback di dischi gestiti. | Sì, per il failover.<br/><br/> Non è supportato il failback di dischi gestiti.
 
 ## <a name="azure-vm-requirements"></a>Requisiti per le VM di Azure

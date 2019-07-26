@@ -3,8 +3,8 @@ title: Costi del software per la prenotazione di Azure | Microsoft Docs
 description: Informazioni sui contatori relativi al software non inclusi nei costi dell'istanza di macchina virtuale riservata di Azure.
 services: billing
 documentationcenter: ''
-author: manish-shukla01
-manager: manshuk
+author: yashar
+manager: yashar
 editor: ''
 tags: billing
 ms.service: billing
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: 340cba65a1faac247678cd187f106157ba566f3e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 52e2e2503303c2a7525a3a6c156f648c097b27dd
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371173"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478618"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Costi del software non inclusi nelle istanze di macchina virtuale riservate di Azure
 
-Se non si ha un vantaggio Azure Hybrid nelle istanze di macchina virtuale riservate, viene addebitato per i contatori relativi al software elencati nella sezione seguente.
+L'istanza riservata della macchina virtuale e gli sconti per la capacità riservata SQL si applicano solo ai costi dell'infrastruttura e non ai costi del software. Se si usa una VM Windows e non si dispone di un Vantaggio Azure Hybrid nelle istanze di macchine virtuali riservate, verranno addebitati i costi per i contatori software elencati nella sezione seguente. Per le distribuzioni di SQL PaaS, il costo IP continuerà a essere addebitato usando un contatore separato se Vantaggio Azure Hybrid non è selezionato.
 
 ## <a name="windows-software-meters-not-included-in-reservation-cost"></a>Costi dei contatori relativi al software Windows non inclusi nella prenotazione
 
-| ID contatore | Nome del contatore nel file di uso | Usato da VM |
+| ID del contatore | Nome del contatore nel file di uso | Usato da VM |
 | ------- | ------------------------| --- |
 | e7e152ac-f29c-4cce-ad6e-026192c01ef2 | Burst istanze riservate di Windows Server (1 core) | Serie B |
 | cac255a2-9f0f-4c62-8bd6-f0fa449c5f76 | Burst istanze riservate di Windows Server (2 core) | Serie B |
@@ -52,7 +52,7 @@ Se non si ha un vantaggio Azure Hybrid nelle istanze di macchina virtuale riserv
 
 ## <a name="cloud-services-software-meters-not-included-in-reservation-cost"></a>Costi dei contatori relativi al software dei servizi cloud non inclusi nella prenotazione
 
-| ID contatore | Nome del contatore nel file di uso |
+| ID del contatore | Nome del contatore nel file di uso |
 | ------- | ------------------------|
 |ac9d47ff-ff68-4afc-a145-0c321cf8d0d5|Licenza vCPU servizi cloud 1|
 |e0434559-19ee-4132-9c46-05ad4044f3f7|Licenza vCPU servizi cloud 2|
@@ -71,13 +71,13 @@ Se non si ha un vantaggio Azure Hybrid nelle istanze di macchina virtuale riserv
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle prenotazioni per Azure, vedere gli articoli seguenti:
 
-- [Quali sono le prenotazioni per Azure?](billing-save-compute-costs-reservations.md)
+- [Che cosa sono le prenotazioni per Azure?](billing-save-compute-costs-reservations.md)
 - [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Gestire le prenotazioni per Azure](billing-manage-reserved-vm-instance.md)
+- [Gestisci prenotazioni per Azure](billing-manage-reserved-vm-instance.md)
 - [Informazioni su come viene applicato lo sconto sulla prenotazione](billing-understand-vm-reservation-charges.md)
 - [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](billing-understand-reserved-instance-usage.md)
 - [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
 
-Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+Per eventuali domande o per richiedere assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).

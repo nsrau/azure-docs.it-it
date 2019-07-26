@@ -10,16 +10,16 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.date: 01/31/2018
-ms.openlocfilehash: 6d9a2929d7b8b1687b602093d0e9de35508dbd8c
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 95eca4c7f3e8170f6559799fc4c706e95df70e9e
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273079"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385513"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Scenari comuni, esempi, esercitazioni e procedure dettagliate per le app per la logica di Azure
 
-[App](../logic-apps/logic-apps-overview.md) per la logica di Azure ti permette di orchestrare e integrare servizi diversi grazie a [centinaia di connettori pronti per l'uso](../connectors/apis-list.md), che vanno da SQL Server locali o da SAP a servizi cognitivi Microsoft. Il servizio delle App per la logica è "senza server", quindi non è necessario preoccuparsi per la scala o le istanze. È necessario solo definire il flusso di lavoro con un trigger e le azioni eseguite dal flusso di lavoro. La piattaforma sottostante gestisce scalabilità, disponibilità e prestazioni. Le app per la logica sono particolarmente utili per i casi d'uso e gli scenari in cui è necessario coordinare più azioni tra più sistemi.
+[App](../logic-apps/logic-apps-overview.md) per la logica di Azure ti permette di orchestrare e integrare servizi diversi grazie a [centinaia di connettori pronti per l'uso](../connectors/apis-list.md), che vanno da SQL Server locali o da SAP a servizi cognitivi di Azure. Il servizio delle App per la logica è "senza server", quindi non è necessario preoccuparsi per la scala o le istanze. È necessario solo definire il flusso di lavoro con un trigger e le azioni eseguite dal flusso di lavoro. La piattaforma sottostante gestisce scalabilità, disponibilità e prestazioni. Le app per la logica sono particolarmente utili per i casi d'uso e gli scenari in cui è necessario coordinare più azioni tra più sistemi.
 
 Per fornire maggiori informazioni sui numerosi modelli e sulle funzionalità supportate dalle [app per la logica di Azure](../logic-apps/logic-apps-overview.md), di seguito sono elencati alcuni esempi e scenari comuni.
 
@@ -80,7 +80,7 @@ Le app per la logica includono funzionalità sofisticate per il flusso di contro
 
 * [Creare e distribuire app per la logica con Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Attivare il monitoraggio, la registrazione e gli avvisi per le app per la logica esistenti](../logic-apps/logic-apps-monitor-your-logic-apps.md)
-* [Creare un modello di distribuzione automatizzato](../logic-apps/logic-apps-create-deploy-template.md)
+* [Automatizzare la distribuzione delle app per la logica](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 
 ## <a name="content-types-conversions-and-transformations-within-a-run"></a>Tipi di contenuto, conversioni e trasformazioni durante un'esecuzione
 
@@ -98,7 +98,7 @@ Le app per la logica offrono inoltre l'integrazione con molti servizi, come Funz
 * [Chiamare Funzioni di Azure da app per la logica](../logic-apps/logic-apps-azure-functions.md)
 * [Esercitazione: Attivare app per la logica con funzioni di Azure](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
 * [Esercitazione: Monitorare le modifiche della macchina virtuale con griglia di eventi di Azure e app per la logica](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
-* [Esercitazione: Creare una funzione che si integra con le app per la logica di Azure e i servizi cognitivi Microsoft per analizzare le opinioni post su Twitter](../azure-functions/functions-twitter-email.md)
+* [Esercitazione: Creare una funzione che si integra con app per la logica di Azure e servizi cognitivi di Azure per analizzare le opinioni post su Twitter](../azure-functions/functions-twitter-email.md)
 * [Esercitazione: Monitoraggio remoto e notifiche con app per la logica di Azure connessione dell'hub e della cassetta postale](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 * [Blog: Chiamare gli endpoint SOAP da app per la logica](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 

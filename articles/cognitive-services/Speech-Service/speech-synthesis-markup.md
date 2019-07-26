@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: dd535f96c60a3f9259a108f3e8aff643eed1870d
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: e2b1e02a622dfe4ae488e372e44c8440f20d7034
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414704"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501158"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Speech Synthesis Markup Language (SSML)
 
@@ -94,7 +94,7 @@ All'interno `speak` dell'elemento è possibile specificare più voci per l'outpu
 
 **Attributes (Attributi)**
 
-| Attributo | Descrizione | Obbligatoria / Facoltativa |
+| Attributo | DESCRIZIONE | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
 | name | Identifica la voce utilizzata per l'output da sintesi vocale. Per un elenco completo delle voci supportate, vedere [supporto](language-support.md#text-to-speech)per le lingue. | Obbligatoria |
 
@@ -175,12 +175,12 @@ Usare l' `break` elemento per inserire pause (o interruzioni) tra parole oppure 
 
 **Attributes (Attributi)**
 
-| Attributo | Descrizione | Obbligatoria / Facoltativa |
+| Attributo | DESCRIZIONE | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
 | forza | Specifica la durata relativa di una pausa utilizzando uno dei valori seguenti:<ul><li>none</li><li>x-debole</li><li>vulnerabile</li><li>media (impostazione predefinita)</li><li>complessa</li><li>x-forte</li></ul> | Facoltativo |
 | time | Specifica la durata assoluta di una pausa in secondi o millisecondi. Esempi di valori validi sono 2S e 500 | Facoltativo |
 
-| Forza | DESCRIZIONE |
+| Forza | Descrizione |
 |----------|-------------|
 | None oppure se non viene specificato alcun valore | 0 ms |
 | x-debole | 250 ms |
@@ -283,12 +283,12 @@ Poiché i valori dell'attributo prosodica possono variare in base a un intervall
 
 **Attributes (Attributi)**
 
-| Attributo | Descrizione | Obbligatoria / Facoltativa |
+| Attributo | DESCRIZIONE | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
 | passo | Indica il passo della linea di base per il testo. È possibile esprimere il passo come:<ul><li>Valore assoluto, espresso come numero seguito da "Hz" (hertz). Ad esempio, 600Hz.</li><li>Valore relativo, espresso come numero preceduto da "+" o "-", seguito da "Hz" o "St", che specifica una quantità per modificare il pitch. Ad esempio: + 80Hz o-2ST. Il valore "St" indica che l'unità di modifica è semitono, ovvero la metà di un tono (un mezzo) sulla scala diatonica standard.</li><li>Valore costante:<ul><li>x-basso</li><li>bassa</li><li>media</li><li>elevata</li><li>x-alto</li><li>default</li></ul></li></ul>. | Facoltativo |
 | contorno | Il contorno non è supportato per le voci neurali. Contour rappresenta le modifiche in pitch per il contenuto vocale come matrice di destinazioni in posizioni temporali specificate nell'output del riconoscimento vocale. Ogni destinazione è definita da insiemi di coppie di parametri. Ad esempio: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Il primo valore di ogni set di parametri specifica la posizione della modifica del passo come percentuale della durata del testo. Il secondo valore specifica la quantità da elevare o abbassare il pitch, usando un valore relativo o un valore di enumerazione per pitch `pitch`(vedere). | Facoltativo |
 | range  | Valore che rappresenta l'intervallo di pitch per il testo. È possibile esprimere `range` usando gli stessi valori assoluti, i valori relativi o i valori di enumerazione usati `pitch`per descrivere. | Facoltativo |
-| tasso  | Indica la velocità di pronuncia del testo. È possibile esprimere `rate` le seguenti operazioni:<ul><li>Valore relativo, espresso come numero che funge da moltiplicatore del valore predefinito. Il valore *1* , ad esempio, non comporta alcuna modifica nella frequenza. Il valore *0,5* comporta una dimezzazione della frequenza. Il valore *3* comporta un triplo della frequenza.</li><li>Valore costante:<ul><li>x-lento</li><li>lento</li><li>media</li><li>Veloce</li><li>x-veloce</li><li>default</li></ul></li></ul> | Facoltativo |
+| tasso  | Indica la velocità di pronuncia del testo. È possibile esprimere `rate` le seguenti operazioni:<ul><li>Valore relativo, espresso come numero che funge da moltiplicatore del valore predefinito. Il valore *1* , ad esempio, non comporta alcuna modifica nella frequenza. Il valore *0,5* comporta una dimezzazione della frequenza. Il valore *3* comporta un triplo della frequenza.</li><li>Valore costante:<ul><li>x-lento</li><li>lento</li><li>media</li><li>veloce</li><li>x-veloce</li><li>default</li></ul></li></ul> | Facoltativo |
 | duration  | Periodo di tempo che deve trascorrere mentre il servizio di sintesi vocale (TTS) legge il testo, in secondi o millisecondi. Ad esempio, *2S* o *1800ms*. | Facoltativo |
 | volume  | Indica il livello del volume della voce di pronuncia. Il volume può essere espresso come segue:<ul><li>Valore assoluto, espresso come numero compreso nell'intervallo tra 0,0 e 100,0, dal più *silenzioso* al più *alto*. Ad esempio, 75. Il valore predefinito è 100,0.</li><li>Valore relativo, espresso come numero preceduto da "+" o "-", che specifica una quantità per modificare il volume. Ad esempio + 10 o-5,5.</li><li>Valore costante:<ul><li>silenzioso</li><li>x-soft</li><li>temporanea</li><li>media</li><li>forte</li><li>x-Loud</li><li>default</li></ul></li></ul> | Facoltativo |
 
@@ -351,6 +351,78 @@ Le modifiche di pitch possono essere applicate alle voci standard a livello di p
         <prosody contour="(80%,+20%) (90%,+30%)" >
             Good morning.
         </prosody>
+    </voice>
+</speak>
+```
+
+## <a name="add-recorded-audio"></a>Aggiungi audio registrato
+
+`audio`è un elemento facoltativo che consente di inserire audio MP3 in un documento SSML. Il corpo dell'elemento audio può contenere testo normale o markup SSML che viene parlato se il file audio non è disponibile o non è riproducibile. Inoltre, l' `audio` elemento può contenere testo e gli elementi seguenti: `audio`, `break` `p`,, `s`, `phoneme`, `prosody`, `say-as`e `sub`.
+
+Qualsiasi audio incluso nel documento SSML deve soddisfare i requisiti seguenti:
+
+* Il formato MP3 deve essere ospitato in un endpoint HTTPS accessibile da Internet. HTTPS è obbligatorio e il dominio che ospita il file MP3 deve presentare un certificato SSL valido e attendibile.
+* Il formato MP3 deve essere un file MP3 valido (MPEG v2).
+* La velocità in bit deve essere di 48 kbps.
+* La frequenza di campionamento deve essere 16000 Hz.
+* Il tempo totale combinato per tutti i file di testo e audio in una singola risposta non può superare 90 (90) secondi.
+* Il file MP3 non deve contenere informazioni riservate o specifiche del cliente.
+
+**Sintassi**
+
+```xml
+<audio src="string"/></audio>
+```
+
+**Attributes (Attributi)**
+
+| Attributo | Descrizione | Obbligatoria / Facoltativa |
+|-----------|-------------|---------------------|
+| src | Specifica il percorso o l'URL del file audio. | Obbligatorio se si usa l'elemento audio nel documento di SSML. |
+
+**Esempio**
+
+```xml
+<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <p>
+        <audio src="https://contoso.com/opinionprompt.wav"/>
+        Thanks for offering your opinion. Please begin speaking after the beep.
+        <audio src="https://contoso.com/beep.wav">
+        Could not play the beep, please voice your opinion now. </audio>
+    </p>
+</speak>
+```
+
+## <a name="add-background-audio"></a>Aggiungi audio in background
+
+L' `mstts:backgroundaudio` elemento consente di aggiungere audio in background ai documenti SSML (o combinare un file audio con sintesi vocale). Con `mstts:backgroundaudio` è possibile eseguire il loop di un file audio in background, dissolversi all'inizio di sintesi vocale e dissolvenza al termine della sintesi vocale.
+
+Se l'audio in background fornito è più breve della sintesi vocale o della dissolvenza, verrà eseguito il ciclo. Se è più lungo del testo da sintesi vocale, si interrompe al termine della dissolvenza.
+
+Per ogni documento SSML è consentito un solo file audio di sfondo. Tuttavia, è possibile intervallare `audio` i tag all'interno dell' `voice` elemento per aggiungere altro audio al documento SSML.
+
+**Sintassi**
+
+```XML
+<mstts:backgroundaudio src="string" volume="string" fadein="string" fadeout="string"/>
+```
+
+**Attributes (Attributi)**
+
+| Attributo | Descrizione | Obbligatoria / Facoltativa |
+|-----------|-------------|---------------------|
+| src | Specifica il percorso o l'URL del file audio in background. | Obbligatorio se si usa l'audio in background nel documento di SSML. |
+| volume | Specifica il volume del file audio in background. **Valori**accettati `0` : `100` per l'inclusione. Il valore predefinito è `1`. | Facoltativo |
+| fadein | Specifica la durata della dissolvenza audio in background. **Valori**accettati `0` : `10000` per l'inclusione.  | Facoltativo |
+| fadeout | Specifica la durata della dissolvenza dell'audio in background. **Valori**accettati `0` : `10000` per l'inclusione.  | Facoltativo |
+
+**Esempio**
+
+```xml
+<speak version="1.0" xml:lang="en-US" xmlns:mstts="http://www.w3.org/2001/mstts">
+    <mstts:backgroundaudio src="https://contoso.com/sample.wav" volume="0.7" fadein="3000" fadeout="4000"/>
+    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)">
+        The text provided in this document will be spoken over the background audio.
     </voice>
 </speak>
 ```

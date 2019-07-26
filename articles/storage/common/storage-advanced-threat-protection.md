@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: fb221d774d9d00a5dc7b0d94edc35a5651443a5b
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 5d0b41344f4a77f3205799be7c30526e2a150523
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67874064"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479896"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection per Archiviazione di Azure
 
@@ -66,7 +66,7 @@ Usare un modello di Azure Resource Manager per distribuire un account di archivi
 
 Usare un criterio di Azure per abilitare la protezione avanzata dalle minacce tra gli account di archiviazione in una sottoscrizione o un gruppo di risorse specifico.
 
-1. Pranzare nella pagina **criteri di Azure-definizioni** .
+1. Avviare la pagina **criteri di Azure-definizioni** .
 
 1. Cercare il criterio **Distribuisci Advanced Threat Protection in account di archiviazione** .
 

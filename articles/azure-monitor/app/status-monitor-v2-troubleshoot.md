@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: c61d54fc49ddd0a8a9ac5063c1a2a3edea66a899
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: e34beba32eace370664893225dd85b6f4b79c886
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326219"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424093"
 ---
 # <a name="troubleshooting-status-monitor-v2"></a>Risoluzione dei problemi Status Monitor V2
 
@@ -78,11 +78,13 @@ Dopo aver eseguito il comando di abilitazione, completare i passaggi seguenti:
 
 ### <a name="iis-nested-applications"></a>Applicazioni annidate IIS
 
-Non è possibile instrumentare le applicazioni annidate in IIS nella versione 1,0. questo problema si verifica [qui](https://github.com/microsoft/ApplicationInsights-Home/issues/369).
+Non è necessario instrumentare le applicazioni annidate in IIS nella versione 1,0.
+Questo problema è stato monitorato [qui](https://github.com/microsoft/ApplicationInsights-Home/issues/369).
 
 ### <a name="advanced-sdk-configuration-isnt-available"></a>La configurazione avanzata dell'SDK non è disponibile.
 
-La configurazione dell'SDK non è esposta all'utente finale nella versione 1,0. questo problema è stato monitorato [qui](https://github.com/microsoft/ApplicationInsights-Home/issues/375).
+La configurazione dell'SDK non è esposta all'utente finale nella versione 1,0.
+Questo problema è stato monitorato [qui](https://github.com/microsoft/ApplicationInsights-Home/issues/375).
 
     
     
@@ -116,7 +118,7 @@ Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az
 ```
 
 #### <a name="determine-the-current-version-of-the-status-monitor-v2-module"></a>Determinare la versione corrente del modulo Status Monitor V2
-Eseguire il `Get-ApplicationInsightsMonitoringStatus` comando per visualizzare le informazioni seguenti sul modulo:
+Eseguire il `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` comando per visualizzare le informazioni seguenti sul modulo:
    - Versione del modulo PowerShell
    - Versione di Application Insights SDK
    - Percorsi dei file del modulo PowerShell
@@ -148,7 +150,7 @@ Per una descrizione dettagliata di come usare questo cmdlet, vedere le informazi
 5. Impostare i **provider aggiuntivi**seguenti:`61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
 
 
-#### <a name="collecting-logs"></a>Raccolta di log
+#### <a name="collecting-logs"></a>Raccolta dei log
 
 1. In una console dei comandi con privilegi di amministratore eseguire `iisreset /stop` il comando per disattivare IIS e tutte le app Web.
 2. In PerfView selezionare **Avvia raccolta**.

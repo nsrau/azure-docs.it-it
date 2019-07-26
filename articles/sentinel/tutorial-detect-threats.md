@@ -1,6 +1,6 @@
 ---
 title: Esaminare gli avvisi con l'anteprima di Azure Sentinel | Microsoft Docs
-description: Usare questa esercitazione per imparare a esaminare gli avvisi con Sentinel di Azure.
+description: Usare questa esercitazione per informazioni su come analizzare gli avvisi con Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,48 +13,48 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2019
+ms.date: 07/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: e20f6fc0dc8dbe02b09490f62ce84af12aa31b87
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: ad9c752898733286701db2d0f0b1fc40029b7521
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621242"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370699"
 ---
-# <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Esercitazione: Rilevare le minacce con Sentinel anteprima di Azure
+# <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Esercitazione: Rilevare le minacce con l'anteprima di Azure Sentinel
 
 > [!IMPORTANT]
 > Azure Sentinel è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Dopo aver [le origini dati connesse](quickstart-onboard.md) Sentinel di Azure, si desidera ricevere una notifica quando succede qualcosa di sospetto. Per consentire a tale scopo, Azure Sentinel consente di che creare avanzato e le regole di avviso, che generano i casi in cui è possibile assegnare per analizzare completamente le anomalie e le minacce nell'ambiente in uso. 
+Dopo aver [connesso le origini dati](quickstart-onboard.md) ad Azure Sentinel, è necessario ricevere una notifica quando si verifica un evento sospetto. Per consentire l'esecuzione di questa operazione, Azure Sentinel consente di creare regole di avviso avanzate, che generano casi che è possibile assegnare e usare per analizzare in modo approfondito le anomalie e le minacce nell'ambiente. 
 
-Questa esercitazione consente di rilevare le minacce con Sentinel di Azure.
+Questa esercitazione consente di rilevare le minacce con Azure Sentinel.
 > [!div class="checklist"]
 > * Creare regole di rilevamento
-> * Rispondere alle minacce
+> * Automatizzare le risposte alle minacce
 
 ## <a name="create-detection-rules"></a>Creare regole di rilevamento
 
-Per analizzare i casi, è necessario innanzitutto creare le regole di rilevamento. 
+Per esaminare i casi, è necessario innanzitutto creare regole di rilevamento. 
 
 > [!NOTE]
-> Sono disponibili tramite gli avvisi generati in Azure Sentinel [Microsoft Graph Security](https://aka.ms/securitygraphdocs). Vedere le [documentazione degli avvisi di sicurezza di Microsoft Graph](https://aka.ms/graphsecurityreferencebetadocs) per ulteriori dettagli e i partner di integrazione.
+> Gli avvisi generati in Sentinel di Azure sono disponibili tramite [Microsoft Graph sicurezza](https://aka.ms/securitygraphdocs). Per altri dettagli e partner di integrazione, fare riferimento alla [documentazione relativa agli avvisi di sicurezza Microsoft Graph](https://aka.ms/graphsecurityreferencebetadocs) .
 
-Regole di rilevamento sono basate sui tipi di minacce e anomalie che potrebbero essere sospette nell'ambiente che si desidera conoscere sin da subito, assicurando sono visibili, esaminati e risolti. 
+Le regole di rilevamento sono basate sui tipi di minacce e le anomalie che potrebbero essere sospette nell'ambiente che si desidera conoscere immediatamente, garantendo che siano rilevate, analizzate e corrette. 
 
-1. Nel portale di Azure in Azure Sentinel, selezionare **Analitica**.
+1. Nel portale di Azure in Sentinel di Azure selezionare **Analytics**.
 
-   ![Analytics](./media/tutorial-detect-threats/alert-rules.png)
+   ![Analisi](./media/tutorial-detect-threats/alert-rules.png)
 
-2. Nella barra dei menu superiore, fare clic su **+ Aggiungi**.  
+2. Nella barra dei menu superiore fare clic su **+ Aggiungi**.  
 
-   ![Creare la regola di avviso](./media/tutorial-detect-threats/create-alert-rule.png)
+   ![Crea regola di avviso](./media/tutorial-detect-threats/create-alert-rule.png)
 
-3. Sotto **Crea regola di avviso**, specificare un nome descrittivo e impostare le **gravità** in base alle esigenze. 
+3. In **Crea regola di avviso**, fornire un nome descrittivo e impostare la **gravità** secondo le esigenze. 
 
-4. Creare la query in Log Analitica e quindi incollarlo nella **regola di avviso Set** campo. Ecco un esempio di query che potrebbe ricevere un avviso quando un numero anomalo delle risorse viene creato nell'attività di Azure.
+4. Creare la query in Log Analytics e quindi incollarla nel campo **impostazione regola di avviso** . Ecco una query di esempio che avvisa l'utente quando viene creato un numero anomalo di risorse nell'attività di Azure.
 
         AzureActivity
         | where OperationName == "Create or Update Virtual Machine" or OperationName == "Create Deployment"
@@ -62,42 +62,52 @@ Regole di rilevamento sono basate sui tipi di minacce e anomalie che potrebbero 
         | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
 
    > [!NOTE]
-   > La lunghezza di query deve essere compreso tra 1 e 10000 caratteri e non può contenere "search *" e "union *".
+   > La lunghezza della query deve avere una lunghezza compresa tra 1 e 10000 caratteri e non può contenere "Search *" e "Union *".
 
 
-5. Nel **mapping dell'entità** sezione, i campi nell'area **tipo di entità** per eseguire il mapping ai campi dell'entità riconosciuti da Azure Sentinel le colonne nella query. Per ogni campo, eseguire il mapping di colonna corrispondente nella query che è stato creato in Log Analitica, per il campo dell'entità appropriata. Selezionare il nome della colonna pertinente sotto il **proprietà**. Ogni entità include più campi, ad esempio SID, GUID, e così via. È possibile eseguire il mapping dell'entità in base a uno dei campi, non solo le entità di livello superiore.
+5. Nella sezione **mapping di entità** usare i campi in **tipo di entità** per eseguire il mapping delle colonne nella query ai campi di entità riconosciuti da Azure Sentinel. Per ogni campo, eseguire il mapping della colonna pertinente nella query creata in Log Analytics al campo dell'entità appropriato. Selezionare il nome della colonna pertinente nella **Proprietà**. Ogni entità include più campi, ad esempio SID, GUID e così via. È possibile eseguire il mapping dell'entità in base a uno dei campi, non solo all'entità di livello superiore.
 
-6. Definire le condizioni di attivazione dell'avviso sotto **attivazione dell'avviso**. Definisce le condizioni che attivano l'avviso. 
+6. Definire le condizioni del trigger di avviso in **trigger di avviso**. Definisce le condizioni che attivano l'avviso. 
 
-7. Impostare il **frequenza** per la frequenza di esecuzione query - come frequentemente ogni 5 minuti o di frequenza minima di una volta al giorno. 
+7. Impostare la **frequenza** con cui viene eseguita la query, con una frequenza pari a ogni 5 minuti o raramente come una volta al giorno. 
 
-8. Impostare il **periodo** per controllare l'intervallo di tempo per la quantità di dati viene eseguita la query in - ad esempio, è possibile eseguire ogni ora tra 60 minuti di dati.
+8. Impostare il **periodo** per controllare l'intervallo di tempo per la quantità di dati su cui viene eseguita la query, ad esempio, può essere eseguito ogni ora in 60 minuti di dati.
 
-9. È anche possibile impostare il **eliminazione**. L'eliminazione è utile quando si vuole arrestare gli avvisi duplicati attivazione per lo stesso evento imprevisto. In questo modo, è possibile arrestare gli avvisi da attivati durante un periodo specifico. Ciò consente di evitare avvisi duplicati per lo stesso evento imprevisto e consentono di eliminare gli avvisi consecutivi per un periodo di tempo. Ad esempio, se il **avviso pianificazione** **frequenza** è impostato su 60 minuti e il **stagione di avviso** è impostato su due ore, e i risultati della query superata definito soglia, attiverà un avviso due volte, una volta quando viene prima rilevato negli ultimi 60 minuti, e anche in questo caso quando è nei primi 60 minuti 2 ore di dati verranno campionati. È consigliabile che, se viene attivato un avviso, verificare che l'eliminazione deve essere la quantità di tempo impostato nel periodo di avviso. Nel nostro esempio, è possibile impostare la soppressione per 60 minuti, in modo che gli avvisi vengono attivati solo per gli eventi che si sono verificati durante l'ora più recente.
+9. È anche possibile impostare l' **eliminazione**. L'eliminazione è utile quando si desidera arrestare l'attivazione di avvisi duplicati per lo stesso evento imprevisto. In questo modo, è possibile arrestare l'attivazione degli avvisi durante un periodo specifico. Ciò consente di evitare gli avvisi duplicati per lo stesso evento imprevisto e di eliminare gli avvisi consecutivi per un determinato periodo di tempo. Se, ad esempio, la **frequenza** di **pianificazione degli avvisi** è impostata su 60 minuti e il periodo di **pianificazione dell'avviso** è impostato su due ore e i risultati della query hanno superato la soglia specificata, verrà generato un avviso due volte, una volta quando viene rilevata per la prima volta. negli ultimi 60 minuti e nuovamente quando si trova nei primi 60 minuti delle 2 ore di campionamento dei dati. Se viene attivato un avviso, è consigliabile che l'eliminazione sia per la quantità di tempo impostata nel periodo di avviso. In questo esempio, potrebbe essere necessario impostare l'eliminazione per 60 minuti, in modo che gli avvisi vengano attivati solo per gli eventi che si sono verificati durante l'ora più recente.
 
-8. Dopo che incollare la query nella **regola di avviso Set** campo, è possibile visualizzare immediatamente una simulazione dell'avviso in **simulazione degli avvisi per la logica** in modo che è possibile ottenere la comprensione del modo in cui la quantità di dati sarà generato in un intervallo di tempo specifico per l'avviso che è stato creato. Procedura varia a seconda di ciò che è impostato per **Frequency** e **soglia**. Se viene visualizzato che in Media, l'avviso verrà attivato una frequenza eccessiva, è opportuno impostare il numero di risultati superiore in modo che sia sopra la linea di base medio.
+8. Dopo aver incollato la query nel campo **Imposta regola di avviso** , è possibile visualizzare immediatamente una simulazione dell'avviso nella **simulazione dell'avviso di logica** , in modo da poter ottenere informazioni sulla quantità di dati che verranno generati in un intervallo di tempo specifico per l'avviso. è stato creato. Ciò dipende da quanto impostato per **frequenza** e **soglia**. Se si nota che in media, l'avviso viene attivato troppo spesso, è consigliabile impostare il numero di risultati in modo che sia superiore alla baseline media.
 
-9. Fare clic su **Create** per inizializzare la regola di avviso. Dopo aver creato l'avviso, viene creato un caso che contiene l'avviso. È possibile visualizzare le regole di rilevamento definiti come righe di **Analitica sicurezza** scheda. È anche possibile visualizzare il numero di corrispondenze per ogni regola - gli avvisi attivati. In questo elenco che è possibile abilitare, disabilitare o eliminare ogni regola. È possibile anche a destra selezionare i puntini di sospensione (...) alla fine della riga per ogni modifica, disabilitare, clonare, mostrare le corrispondenze o eliminare una regola dell'avviso. Il **Analitica** pagina è una raccolta di tutte le regole di avviso attive, inclusi i modelli si abilita e regole di avviso creata in base a modelli.
+9. Fare clic su **Crea** per inizializzare la regola di avviso. Dopo la creazione dell'avviso, viene creato un case contenente l'avviso. È possibile visualizzare le regole di rilevamento definite come righe nella scheda **analisi della sicurezza** . È anche possibile visualizzare il numero di corrispondenze per ogni regola, ovvero gli avvisi attivati. Da questo elenco è possibile abilitare, disabilitare o eliminare ogni regola. È anche possibile fare clic con il pulsante destro del mouse sui puntini di sospensione (...) alla fine della riga per ogni avviso per modificare, disabilitare, clonare, visualizzare corrispondenze o eliminare una regola. La pagina **Analytics** è una raccolta di tutte le regole di avviso attive, inclusi i modelli abilitati e le regole di avviso create in base ai modelli.
 
-1. I risultati le regole di avviso possono essere visualizzati nel **casi** pagina, in cui è possibile valutare [analizzare casi](tutorial-investigate-cases.md), e risolvere le minacce.
+1. I risultati delle regole di avviso possono essere visualizzati nella pagina **casi** , in cui è possibile valutare, [esaminare i casi](tutorial-investigate-cases.md)e correggere le minacce.
 
 
 
-## <a name="respond-to-threats"></a>Rispondere alle minacce
+## <a name="automate-threat-responses"></a>Automatizzare le risposte alle minacce
 
-Sentinel Azure offre due opzioni principali per rispondere alle minacce tramite Playbook. È possibile impostare un playbook da eseguire automaticamente quando viene attivato un avviso oppure è possibile eseguire manualmente un playbook in risposta a un avviso.
+I team SIEM/SOC possono essere inondati periodicamente da avvisi di sicurezza. Il volume degli avvisi generati è talmente grande che gli amministratori della sicurezza disponibili sono sovraccaricati. Si tratta di un risultato troppo spesso nelle situazioni in cui non è possibile analizzare molti avvisi, lasciando l'organizzazione vulnerabile ad attacchi che non vengono rilevati. 
 
-- Impostare un playbook da eseguire automaticamente quando viene attivato un avviso quando si configura il playbook. 
+Molti di questi avvisi sono conformi a modelli ricorrenti che possono essere risolti da azioni correttive specifiche e definite. Azure Sentinel consente già di definire la correzione nei PlayBook. È anche possibile impostare l'automazione in tempo reale come parte della definizione PlayBook per consentire di automatizzare completamente una risposta definita a determinati avvisi di sicurezza. Usando l'automazione in tempo reale, i team di risposta possono ridurre significativamente il carico di lavoro automatizzando completamente le risposte di routine ai tipi di avviso ricorrenti, consentendo di concentrarsi maggiormente su avvisi univoci, analisi dei modelli, ricerca di minacce e altro ancora.
 
-- Eseguire manualmente un playbook all'interno dell'avviso, facendo clic **Visualizza i Playbook** e quindi selezionando un playbook per l'esecuzione.
+Per automatizzare le risposte:
 
+1. Scegliere l'avviso per il quale si vuole automatizzare la risposta.
+1. Dal menu di spostamento dell'area di lavoro di Azure Sentinel selezionare **Analytics**.
+1. Selezionare l'avviso che si vuole automatizzare. 
+1. Nella pagina **Modifica regola di avviso** , in **automazione in tempo reale**, scegliere il **PlayBook attivato** che si vuole eseguire quando viene confrontata la regola di avviso.
+1. Selezionare **Salva**.
+
+   ![automazione in tempo reale](./media/tutorial-detect-threats/rt-configuration.png)
+
+
+Inoltre, è possibile correggere manualmente un avviso eseguendo un PlayBook dall'interno dell'avviso, facendo clic su **Visualizza PlayBook** e selezionando un PlayBook da eseguire. Per informazioni su come creare un nuovo PlayBook o modificarne uno esistente, vedere [uso dei PlayBook in Sentinel di Azure](tutorial-respond-threats-playbook.md).
 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa esercitazione è stato descritto come iniziare a rilevare le minacce tramite Azure Sentinel. 
+In questa esercitazione si è appreso come iniziare a rilevare le minacce usando Azure Sentinel. 
 
-Per informazioni su come automatizzare le risposte alle minacce, [come rispondere alle minacce tramite Playbook automatizzati](tutorial-respond-threats-playbook.md).
+Per informazioni su come automatizzare le risposte alle minacce, su [come rispondere alle minacce usando i PlayBook automatici](tutorial-respond-threats-playbook.md).
 > [!div class="nextstepaction"]
 > [Rispondere alle minacce](tutorial-respond-threats-playbook.md) per automatizzare le risposte alle minacce.
 

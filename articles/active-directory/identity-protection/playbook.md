@@ -2,35 +2,28 @@
 title: Studio su Azure Active Directory Identity Protection | Documentazione Microsoft
 description: Informazioni su come Azure AD Identity Protection consente di limitare la possibilità di un utente malintenzionato di sfruttare un'identità o un dispositivo compromesso e di proteggere un'identità o un dispositivo che in precedenza è stato sospettato o ritenuto essere compromesso.
 services: active-directory
-keywords: Azure Active Directory Identity Protection, sicurezza, Cloud Discovery, gestione applicazioni, rischio, livello di rischio, vulnerabilità, criteri di sicurezza
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24c3af12d35d07796db9255f0ac76dd1389bd013
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 273a6aca2050676650b955ec078b47b2ffcfe319
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108835"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333921"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Studio sulla protezione delle identità di Azure Active Directory
 
 Questo studio consente di:
 
 * Inserire i dati nell'ambiente Identity Protection simulando eventi di rischio e vulnerabilità
-* Configurare i criteri di accesso condizionale basati sui rischi e testare l'impatto di questi criteri
-
+* Configurare criteri di accesso condizionale basato sul rischio e testare l'effetto di questi criteri
 
 ## <a name="simulating-risk-events"></a>Simulazione di eventi di rischio
 
@@ -58,7 +51,7 @@ Per completare la procedura seguente, sono necessari:
 
 L'accesso viene visualizzato nel dashboard Identity Protection entro 10-15 minuti. 
 
-### <a name="sign-ins-from-unfamiliar-locations"></a>Accessi da posizioni non note
+### <a name="sign-ins-from-unfamiliar-locations"></a>Accessi da posizioni insolite
 
 Per altre informazioni su questo evento di rischio, vedere [Accessi da posizioni non note](../reports-monitoring/concept-risk-events.md#sign-in-from-unfamiliar-locations). 
 
@@ -67,7 +60,6 @@ Per simulare posizioni non note, è necessario accedere da una posizione e da un
 Con la procedura seguente si usano gli elementi seguenti, appena creati:
 
 - Connessione VPN, per simulare la nuova posizione.
-
 - Macchina virtuale, per simulare un nuovo dispositivo.
 
 Per completare la procedura seguente, è necessario usare un account utente con:
@@ -75,12 +67,10 @@ Per completare la procedura seguente, è necessario usare un account utente con:
 - Una cronologia di accesso di almeno 30 giorni.
 - Autenticazione a più fattori abilitata.
 
-
 **Per simulare un accesso da una posizione non nota, seguire questa procedura**:
 
 1. Quando si accede con l'account di test, fare in modo che la richiesta di verifica dell'autenticazione a più fattori non riesca.
 2. Usando la nuova rete VPN, passare a [https://myapps.microsoft.com](https://myapps.microsoft.com) e immettere le credenziali dell'account di test.
-   
 
 L'accesso viene visualizzato nel dashboard Identity Protection entro 10-15 minuti.
 
@@ -89,7 +79,6 @@ L'accesso viene visualizzato nel dashboard Identity Protection entro 10-15 minut
 Per altre informazioni su questo evento di rischio, vedere [Trasferimento impossibile a posizioni atipiche](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations). 
 
 La condizione di trasferimento impossibile è difficile da simulare perché l'algoritmo usa Machine Learning per eliminare i falsi positivi, ad esempio il trasferimento impossibile da dispositivi noti o l'accesso da VPN usate da altri utenti nella directory. Per iniziare a generare eventi di rischio, l'algoritmo richiede anche una cronologia di accesso di 14 giorni e 10 accessi per l'utente. A causa dei complessi modelli di Machine Learning coinvolti e delle regole sopra descritte, è possibile che con la procedura seguente non venga rilevato alcun evento di rischio. Per pubblicare questo evento di rischio, è consigliabile replicare la procedura per più account Azure AD.
-
 
 **Per simulare un trasferimento impossibile a posizioni atipiche, seguire questa procedura**:
 
@@ -108,18 +97,15 @@ Le vulnerabilità sono punti deboli in un ambiente Azure AD che possono essere s
 * Azure AD [Cloud Discovery](https://docs.microsoft.com/cloud-app-security/).
 * Azure AD [Privileged Identity Management](../privileged-identity-management/pim-configure.md). 
 
-
 ## <a name="testing-security-policies"></a>Test dei criteri di sicurezza
 
 Questa sezione illustra i passaggi per testare i criteri di sicurezza per il rischio utente e il rischio di accesso.
-
 
 ### <a name="user-risk-security-policy"></a>Criteri di sicurezza per il rischio utente
 
 Per altre informazioni, vedere [Come configurare i criteri di rischio utente](howto-user-risk-policy.md).
 
 ![Rischio utente](./media/playbook/02.png " - Studio")
-
 
 **Per testare i criteri di sicurezza per il rischio utente, seguire questa procedura**:
 
@@ -135,9 +121,7 @@ Per altre informazioni, vedere [Come configurare i criteri di rischio utente](ho
 6. Alzare di livello il rischio di utente di un account di test, ad esempio, simulando alcune volte uno degli eventi di rischio.
 7. Attendere alcuni minuti e poi verificare che il livello utente sia Medio. Se non lo è, simulare altri eventi di rischio per l'utente.
 8. Come valore di **Imponi criteri**, selezionare **Attivato**.
-9. È ora possibile testare utente basati sul rischio di accesso condizionale effettuando l'accesso usando un utente con un livello di rischio elevato.
-    
-    
+9. È ora possibile testare l'accesso condizionale basato sul rischio utente eseguendo l'accesso con un utente con un livello di rischio elevato.
 
 ### <a name="sign-in-risk-security-policy"></a>Criteri di sicurezza per il rischio di accesso
 
@@ -145,34 +129,20 @@ Per altre informazioni, vedere [Come configurare i criteri di rischio di accesso
 
 ![Rischio di accesso](./media/playbook/01.png " - Studio")
 
-
 **Per testare i criteri di rischio di accesso, seguire questa procedura:**
 
 1. Accedere a [https://portal.azure.com](https://portal.azure.com) con credenziali di amministratore globale per il tenant.
-
 2. Passare ad **Azure AD Identity Protection**.
-
 3. Nella pagina principale di **Azure AD Identity Protection** fare clic su **Criteri di rischio di accesso**. 
-
 4. Nella sezione **Assegnazioni** selezionare gli utenti (e i gruppi) desiderati e il livello di rischio di accesso.
 
     ![Rischio di accesso](./media/playbook/04.png " - Studio")
 
-
 5. Nella sezione **Controlli** selezionare il controllo di accesso desiderato, ad esempio **Richiedi autenticazione a più fattori**. 
-
 6. Come valore di **Imponi criteri**, selezionare **Attivato**.
-
 7. Fare clic su **Save**.
-
-8. È ora possibile testare l'accesso condizionale basati sul rischio di Accedi effettuando l'accesso usando una sessione a rischio (ad esempio, usando il browser Tor). 
-
- 
-
-
-
+8. È ora possibile testare l'accesso condizionale basato sul rischio di accesso eseguendo l'accesso con una sessione rischiosa (ad esempio, usando il browser Tor). 
 
 ## <a name="see-also"></a>Vedere anche
 
 - [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
-

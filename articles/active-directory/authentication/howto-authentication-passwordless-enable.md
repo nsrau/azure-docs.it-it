@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79f5eba18e34f65f7bc8a625babca92b86e06b4c
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: ad2f25aac7f74c74eb63fd4666c5184ae751ec1f
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67867296"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499925"
 ---
 # <a name="enable-passwordless-sign-in-for-azure-ad-preview"></a>Abilitare l'accesso senza password per Azure AD (anteprima)
 
 ## <a name="requirements"></a>Requisiti
 
 * Azure Multi-Factor Authentication
-* Anteprima della registrazione combinata
+* Anteprima della registrazione combinata con gli utenti abilitati per SSPR
 * L'anteprima della chiave di sicurezza FIDO2 richiede chiavi di sicurezza FIDO2 compatibili
 * Webauthn richiede Microsoft Edge in Windows 10 versione 1809 o successiva
 * L'accesso a Windows basato su FIDO2 richiede che Azure AD aggiunto Windows 10 versione 1809 o successiva
@@ -179,7 +179,7 @@ Gli utenti che si basano su WIA SSO che usano credenziali gestite, come le chiav
 
 Stiamo lavorando per supportare una funzionalità che consente la modifica di UPN nei dispositivi ibridi AADJ e AADJ. Se l'UPN di un utente viene modificato, non è più possibile modificare le chiavi di sicurezza di FIDO2 per tenere conto di tale valore. Quindi, l'unico approccio consiste nel reimpostare il dispositivo e l'utente deve eseguire di nuovo la registrazione.
 
-### <a name="authenticator-app"></a>App di autenticazione
+### <a name="authenticator-app"></a>App Authenticator
 
 #### <a name="ad-fs-integration"></a>Integrazione di AD FS
 

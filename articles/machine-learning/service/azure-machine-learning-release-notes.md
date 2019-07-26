@@ -6,26 +6,24 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.author: larryfr
-author: Blackmist
-ms.date: 05/14/2019
+ms.author: jmartens
+author: j-martens
+ms.date: 07/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1e8e066f9a5b7a405dba65dd636d38679cfa748b
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
-ms.translationtype: HT
+ms.openlocfilehash: f39c914bce3fbc47775a76f1c3a1fb64de560505
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479957"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498329"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Note sulla versione del servizio Azure Machine Learning
 
-Questo articolo fornisce informazioni sulle versioni del servizio Azure Machine Learning.  Per una descrizione completa di ogni SDK, vedere la documentazione di riferimento per:
-+ [ **SDK principale Azure Machine Learning per Python**](https://aka.ms/aml-sdk)
-+ [**SDK di preparazione dei dati**](https://aka.ms/data-prep-sdk) di Azure Machine Learning
+Questo articolo fornisce informazioni sulle versioni del servizio Azure Machine Learning.  Per il contenuto completo dell'SDK di riferimento, visitare la pagina di riferimento dell'SDK principale di Azure Machine Learning [**per Python**](https://aka.ms/aml-sdk) .
 
 Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei problemi noti](resource-known-issues.md).
 
-## <a name="2019-07-15"></a>2019-07-15
+## <a name="2019-07-23"></a>2019-07-23
 
 ### <a name="azure-machine-learning-sdk-for-python-v1053"></a>SDK di Azure Machine Learning per Python v 1.0.53
 
@@ -62,7 +60,6 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
     + Aggiunta del supporto di SciPy sparse per LimeExplainer
     + aggiungere batch_size a MIME Explainer quando include_local = false per lo streaming di spiegazioni globali in batch per migliorare i tempi di esecuzione di DecisionTreeExplainableModel
   + **azureml-contrib-featureengineering**
-    + Usare una o due frasi: usare il termine "passato" con il periodo di tempo esempio:-è stato risolto il problema in useful_util, questa volta funziona effettivamente.
     + Correzione per la chiamata a set_featurizer_timeseries_params (): modifica del tipo di valore dict e controllo null-Aggiungi notebook per timeseries featurizer
     + Aggiornare la dipendenza NimbusML alla versione 1.2.0 (Current Latest).
   + **azureml-core**
@@ -99,9 +96,9 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
   + **azureml-mlflow**
     + Migliorare le prestazioni di mlflow. set _experiment (experiment_name)
     + Correzione di un bug in uso di InteractiveLoginAuthentication per mlflow tracking_uri
-    + Migliorare la documentazione del pacchetto azureml-mlflow
-    + Patch bug where mlflow. log _artifacts ("my_dir") Salva gli artefatti in "my_dir/< artefatto-Paths >" invece di "< artefatto-Paths >"-[x] ho esaminato gli errori di cancelli facoltativi e non introdurre nuovi errori-[] sono troppo pigri per la lettura Questa sezione
     + Migliorare l'utilizzo delle risorse delle esecuzioni remote con azureml. mlflow.
+    + Migliorare la documentazione del pacchetto azureml-mlflow
+    + Patch bug where mlflow. log _artifacts ("my_dir") Salva gli artefatti in "my_dir/< artefatto-Paths >" anziché "< artefatto-Paths >"
   + **azureml-opendatasets**
     + Aggiungere pyarrow di opendatasets alle versioni precedenti (< 0.14.0) a causa di un problema di memoria appena introdotto.
     +  Spostare azureml-contrib-opendatasets in azureml-opendatasets. -Consentire la registrazione delle classi del set di dati aperte nell'area di lavoro di AML e sfruttare facilmente le funzionalità del set di dati AML. -Migliorare significativamente le prestazioni di NoaaIsdWeather in una versione non SPARK.

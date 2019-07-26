@@ -1,10 +1,10 @@
 ---
-title: Completare una verifica di accesso di gruppi o applicazioni - Azure Active Directory | Microsoft Docs
-description: Informazioni su come completare una verifica di accesso dei membri del gruppo o l'accesso alle applicazioni in Azure Active Directory le verifiche di accesso.
+title: Completare una verifica di accesso di gruppi o applicazioni-Azure Active Directory | Microsoft Docs
+description: Informazioni su come completare una verifica di accesso dei membri del gruppo o dell'accesso alle applicazioni in Azure Active Directory verifiche di accesso.
 services: active-directory
 documentationcenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,77 +12,77 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/22/2019
-ms.author: rolyon
+ms.date: 07/23/2019
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec3909ffbb624284f999360140b7454098643062
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97c405032368ffd06f5808bc4518302d2f6d66b9
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473361"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489152"
 ---
-# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Completare una verifica di accesso dei gruppi o applicazioni in Azure AD le verifiche di accesso
+# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Completare una verifica di accesso di gruppi o applicazioni in Azure AD verifiche di accesso
 
-Come amministratore, si [creare una verifica di accesso di gruppi o applicazioni](create-access-review.md) e i revisori [eseguire la verifica dell'accesso](perform-access-review.md). Questo articolo descrive come visualizzare i risultati della verifica di accesso e applicare i risultati.
+In qualità di amministratore, si [Crea una verifica di accesso di gruppi o applicazioni](create-access-review.md) e i revisori [eseguono la verifica dell'accesso](perform-access-review.md). Questo articolo descrive come visualizzare i risultati della verifica di accesso e applicare i risultati.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Azure AD P2 Premium
-- Lettura per la sicurezza, l'utente amministratore, amministratore della sicurezza o amministratore globale
+- Amministratore globale, Amministratore utenti, amministratore della sicurezza o lettore sicurezza
 
-Per altre informazioni, vedere [quali gli utenti devono avere le licenze?](access-reviews-overview.md#which-users-must-have-licenses).
+Per altre informazioni, vedere [quali utenti devono avere licenze?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## <a name="view-an-access-review"></a>Visualizzare una verifica di accesso
 
-È possibile tenere traccia dello stato di avanzamento verifiche eseguite dai revisori loro.
+È possibile tenere traccia dello stato di avanzamento dei revisori che completano le proprie revisioni.
 
-1. Accedere al portale di Azure e aprire il [pagina di governance delle identità](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+1. Accedere alla portale di Azure e aprire la [pagina governance delle identità](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-1. Nel menu a sinistra, fare clic su **verifiche di accesso**.
+1. Nel menu a sinistra fare clic su verifiche di **accesso**.
 
-1. Nell'elenco, fare clic su una verifica di accesso.
+1. Nell'elenco fare clic su una verifica di accesso.
 
-    Per visualizzare una serie di accesso recensioni, passare alla verifica di accesso e troverai le ricorrenze future nelle revisioni pianificato.
+    Per visualizzare una serie di verifiche di accesso, passare alla verifica di accesso e trovare le occorrenze imminenti nelle verifiche pianificate.
 
-    Nel **Panoramica** pagina, è possibile visualizzare lo stato di avanzamento. Nessun diritto di accesso viene modificato nella directory fino a quando non viene completata la revisione.
+    Nella pagina **Panoramica** è possibile visualizzare lo stato di avanzamento. Nessun diritto di accesso viene modificato nella directory fino al completamento della verifica.
 
-    ![Lo stato di avanzamento delle verifiche di accesso](./media/complete-access-review/overview-progress.png)
+    ![Analisi di accesso-stato](./media/complete-access-review/overview-progress.png)
 
-1. Se si desidera interrompere una verifica di accesso in precedenza ha raggiunto la data di fine pianificata, scegliere il **arrestare** pulsante.
+1. Se si desidera arrestare una verifica di accesso prima di aver raggiunto la data di fine pianificata, fare clic sul pulsante **Arresta** .
 
-    Quando interrompere una verifica, i revisori non saranno in grado di fornire risposte. Non è possibile riavviare una verifica dopo che è stata interrotta.
+    Quando si arresta una revisione, i revisori non saranno più in grado di fornire risposte. Non è possibile riavviare una verifica dopo che è stata interrotta.
 
-1. Se si è non è più interessati durante la verifica di accesso, è possibile eliminare facendo il **eliminare** pulsante.
+1. Se non si è più interessati alla verifica di accesso, è possibile eliminarlo facendo clic sul pulsante **Elimina** .
 
 ## <a name="apply-the-changes"></a>Applicare le modifiche.
 
-Se **applica automaticamente i risultati alla risorsa** era abilitata e sulla base delle selezioni nella **impostazioni al completamento**, auto-applicare will da eseguire dopo la data di fine dell'analisi o quando si arresta manualmente la revisione.
+Se l' **opzione applica automaticamente i risultati alla risorsa** è stata abilitata e si basa sulle selezioni effettuate in **al termine delle impostazioni**, l'applicazione automatica verrà eseguita dopo la data di fine della verifica o quando si arresta manualmente la revisione.
 
-Se **applica automaticamente i risultati alla risorsa** non è stato abilitato per la revisione, fare clic su **applica** applicare manualmente le modifiche. Se l'accesso un utente è stato negato durante la verifica, quando si fa clic **applica**, Azure AD rimuoverà l'assegnazione dell'applicazione o dell'appartenenza.
+Se l' **opzione applica automaticamente i risultati alla risorsa** non è stata abilitata per la revisione, fare clic su **applica** per applicare manualmente le modifiche. Se l'accesso di un utente è stato negato durante la verifica, quando si fa clic su **applica**Azure ad rimuove l'assegnazione dell'applicazione o dell'appartenenza.
 
-![Applicare le modifiche di verifica di accesso](./media/complete-access-review/apply-changes.png)
+![Applicare le modifiche della verifica di accesso](./media/complete-access-review/apply-changes.png)
 
-Lo stato della verifica passerà da **Completed** attraverso alcuni stati intermedi, ad esempio **applicazione** e infine allo stato **risultato è stato applicato**. È possibile che, dopo alcuni minuti, eventuali utenti rifiutati vengano rimossi dall'appartenenza al gruppo o dall'assegnazione dell'applicazione.
+Lo stato della revisione passerà da **completato** a stati intermedi, ad esempio l' **applicazione** e infine il **risultato**di stato applicato. È possibile che, dopo alcuni minuti, eventuali utenti rifiutati vengano rimossi dall'appartenenza al gruppo o dall'assegnazione dell'applicazione.
 
 Se per una verifica si configura l'applicazione automatica o si seleziona **Applica**, questa operazione non avrà alcun effetto su un gruppo che ha origine in una directory locale o in un gruppo dinamico. Per modificare un gruppo che ha origine in locale, scaricare i risultati e applicare queste modifiche alla rappresentazione del gruppo in questa directory.
 
 ## <a name="retrieve-the-results"></a>Recuperare i risultati
 
-Per visualizzare i risultati di una verifica di accesso monouso, scegliere il **risultati** pagina. Per visualizzare solo un utente l'accesso, nella casella di ricerca, digitare il nome visualizzato o il nome dell'entità utente di un utente il cui accesso è stata rivista.
+Per visualizzare i risultati di una verifica di accesso monouso, fare clic sulla pagina **risultati** . Per visualizzare solo l'accesso di un utente, nella casella di ricerca digitare il nome visualizzato o il nome dell'entità utente di un utente il cui accesso è stato esaminato.
 
 ![Recuperare i risultati per una verifica di accesso](./media/complete-access-review/retrieve-results.png)
 
-Per visualizzare lo stato di avanzamento di una verifica di accesso attivo che è ricorrente, fare clic sui **risultati** pagina.
+Per visualizzare lo stato di una verifica di accesso attivo ricorrente, fare clic sulla pagina **risultati** .
 
-Per visualizzare i risultati di un'istanza completata di una verifica di accesso che è ricorrente, fare clic su **esaminare la cronologia**, quindi selezionare l'istanza specifica nell'elenco di istanze di verifica di accesso completati, in base dell'istanza data di inizio e fine. I risultati di questa istanza possono essere ottenuti dal **risultati** pagina.
+Per visualizzare i risultati di un'istanza completata di una verifica di accesso ricorrente, fare clic su **Verifica cronologia**, quindi selezionare l'istanza specifica dall'elenco di istanze di verifica di accesso completate in base alla data di inizio e di fine dell'istanza. I risultati di questa istanza possono essere ottenuti dalla pagina **risultati** .
 
-Per recuperare tutti i risultati di una verifica di accesso, fare clic sui **scaricare** pulsante. Il file CSV risultante può essere visualizzato in Excel o in altri programmi aperti in file CSV con codifica UTF-8.
+Per recuperare tutti i risultati di una verifica di accesso, fare clic sul pulsante **download** . Il file CSV risultante può essere visualizzato in Excel o in altri programmi aperti in file CSV con codifica UTF-8.
 
-## <a name="remove-users-from-an-access-review"></a>Rimuovere utenti da una verifica di accesso
+## <a name="remove-users-from-an-access-review"></a>Rimuovere gli utenti da una verifica di accesso
 
  Per impostazione predefinita, un utente eliminato rimarrà comunque in Azure AD per 30 giorni, periodo durante il quale un amministratore potrà eseguirne il ripristino se necessario.  Dopo 30 giorni l'utente verrà eliminato definitivamente.  Inoltre, tramite il portale di Azure Active Directory, un Amministratore globale può in modo esplicito [eliminare definitivamente un utente eliminato di recente](../fundamentals/active-directory-users-restore.md) prima della scadenza di tale periodo.  Dopo l'eliminazione definitiva di un utente, i dati riguardanti tale utente verranno rimossi dalle verifiche di accesso attive.  Le informazioni di controllo sugli utenti eliminati restano nel log di controllo.
 

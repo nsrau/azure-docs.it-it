@@ -1,6 +1,6 @@
 ---
-title: Attributi di sicurezza comuni per l'archiviazione di Azure
-description: Un elenco di controllo di attributi di sicurezza comuni per la valutazione di archiviazione di Azure
+title: Attributi di sicurezza per archiviazione di Azure
+description: Elenco di controllo degli attributi di sicurezza per la valutazione di archiviazione di Azure
 services: storage
 documentationcenter: ''
 author: msmbaldwin
@@ -9,16 +9,16 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 922273e3805004f6af068ea748c16f5675810144
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16ec2757955b53a8bfa73ba724100f7fa61d2867
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66001469"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444308"
 ---
 # <a name="security-attributes-for-azure-storage"></a>Attributi di sicurezza per archiviazione di Azure
 
-Questo articolo sono descritti gli attributi di sicurezza integrati in archiviazione di Azure. 
+Questo articolo descrive gli attributi di sicurezza incorporati in archiviazione di Azure. 
 
 [!INCLUDE [Security Attributes Header](../../../includes/security-attributes-header.md)]
 
@@ -26,44 +26,44 @@ Questo articolo sono descritti gli attributi di sicurezza integrati in archiviaz
 
 | Attributo di sicurezza | Sì/No | Note |
 |---|---|--|
-| Crittografia di dati inattivi:<ul><li>Modello di crittografia lato server</li><li>Crittografia lato server con chiavi gestite dal cliente</li><li>Altre funzionalità di crittografia (ad esempio lato client, Always Encrypted e così via)</ul>| Yes |  |
-| Crittografia in transito:<ul><li>Crittografia ExpressRoute</li><li>Nella crittografia di rete virtuale</li><li>Crittografia da rete virtuale a rete virtuale</ul>| Yes | Supporto di meccanismi standard HTTPS/TLS.  Gli utenti possono anche crittografare i dati prima di essere trasmesso al servizio. |
-| Gestione della crittografia chiave (CMK, modalità BYOK e così via)| Yes | Visualizzare [crittografia del servizio di archiviazione di Azure con chiavi gestite dal cliente in Azure Key Vault](storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
-| Crittografia a livello di colonna (Azure Data Services)| N/D |  |
-| Chiamate API crittografate| Yes |  |
+| Crittografia dei servizi inattivi, ad esempio la crittografia lato server, la crittografia lato server con chiavi gestite dal cliente e altre funzionalità di crittografia| Sì |  |
+| Crittografia in transito (ad esempio crittografia ExpressRoute, crittografia VNet e crittografia VNet-VNet)| Sì | Supporta meccanismi HTTPS/TLS standard.  Gli utenti possono inoltre crittografare i dati prima che vengano trasmessi al servizio. |
+| Gestione della chiave di crittografia (CMK, BYOK e così via)| Yes | Vedere [crittografia del servizio di archiviazione uso delle chiavi gestite dal cliente nel Azure Key Vault](storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
+| Crittografia a livello di colonna (servizi dati di Azure)| N/D |  |
+| Chiamate API crittografate| Sì |  |
 
 ## <a name="network-segmentation"></a>Segmentazione di rete
 
 | Attributo di sicurezza | Sì/No | Note |
 |---|---|--|
-| Supporto endpoint del servizio| Yes |  |
-| Supportare l'inserimento di rete virtuale| N/D |  |
-| Isolamento di rete e supporto firewall| Yes | |
-| Supporto di tunneling forzato| N/D |  |
+| Supporto per endpoint di servizio| Sì |  |
+| Supporto di VNet Injection| N/D |  |
+| Isolamento rete e supporto del firewall| Sì | |
+| Supporto del tunneling forzato| N/D |  |
 
 ## <a name="detection"></a>Rilevamento
 
 | Attributo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Monitoraggio di supporto (analitica di Log, Application insights e così via) di Azure| Yes | Metriche di monitoraggio di Azure disponibili a questo punto, i log di anteprima inizia |
+| Supporto di monitoraggio di Azure (log Analytics, Application Insights e così via)| Yes | Metriche di monitoraggio di Azure disponibili ora, log che avviano l'anteprima |
 
 ## <a name="identity-and-access-management"></a>Gestione delle identità e dell'accesso
 
 | Attributo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Authentication| Yes | Azure Active Directory, chiave condivisa, il token di accesso condiviso. |
-| Authorization| Yes | Autorizzazione di supporto tramite RBAC, POSIX ACL e i token di firma di accesso condiviso |
+| Authentication| Sì | Azure Active Directory, chiave condivisa e token di accesso condiviso. |
+| Authorization| Yes | Supportare l'autorizzazione tramite RBAC, ACL POSIX e token SAS |
 
 
 ## <a name="audit-trail"></a>Audit trail
 
 | Attributo di sicurezza | Sì/No | Note|
 |---|---|--|
-| La registrazione di piano di controllo e la gestione e controllo | Yes | Log attività di Azure Resource Manager |
-| Controllo e registrazione di piano dati| Yes | I log di diagnostica del servizio e anteprima di partenza la registrazione di monitoraggio di Azure  |
+| Registrazione e controllo del piano di gestione e controllo | Sì | Log attività Azure Resource Manager |
+| Registrazione e controllo del piano dati| Sì | Log di diagnostica del servizio e registrazione di monitoraggio di Azure, avvio dell'anteprima  |
 
 ## <a name="configuration-management"></a>Gestione della configurazione
 
 | Attributo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Supporto di Gestione configurazione (controllo delle versioni di configurazione e così via).| Yes | Supporta il controllo delle versioni del Provider di risorse tramite le API di Azure Resource Manager |
+| Supporto per la gestione della configurazione (controllo delle versioni della configurazione e così via)| Yes | Supportare il controllo delle versioni del provider di risorse tramite API Azure Resource Manager |

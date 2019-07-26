@@ -2,7 +2,7 @@
 title: Tabelle di partizionamento in Azure SQL Data Warehouse | Microsoft Docs
 description: Raccomandazioni ed esempi per l'uso di partizioni della tabella in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: af9fa49d274036888fd266f8983c523a3b077cbd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6791ff2f2a9719a19d2c9abc4ff480435de7bb00
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851514"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477098"
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>Tabelle di partizionamento in SQL Data Warehouse
 Raccomandazioni ed esempi per l'uso di partizioni della tabella in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
@@ -226,7 +226,7 @@ UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
 ### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>Caricare nuovi dati in partizioni che contengono dati in un unico passaggio
-Il caricamento dei dati nelle partizioni con cambio della partizione è un modo pratico la gestione temporanea nuovi dati in una tabella che non è visibile agli utenti l'opzione nei nuovi dati.  Può risultare difficile in sistemi molto sfruttati per affrontare la contesa tra blocchi associata con cambio della partizione.  Per cancellare i dati esistenti in una partizione, un `ALTER TABLE` erano necessarie per passare i dati.  Quindi un'altra `ALTER TABLE` era necessario passare i nuovi dati.  In SQL Data Warehouse, il `TRUNCATE_TARGET` opzione è supportata nel `ALTER TABLE` comando.  Con `TRUNCATE_TARGET` il `ALTER TABLE` comando sovrascrive dati esistenti nella partizione con i nuovi dati.  Di seguito è riportato un esempio che usa `CTAS` per creare una nuova tabella con i dati esistenti, consente di inserire nuovi dati, quindi torna di tutti i dati nella tabella di destinazione, sovrascrivendo i dati esistenti.
+Il caricamento dei dati nelle partizioni con cambio di partizione è un modo pratico per organizzare i nuovi dati in una tabella che non è visibile agli utenti nel passaggio dei nuovi dati.  Per gestire la contesa di blocco associata al cambio di partizione, è possibile che si tratti di una sfida sui sistemi occupati.  Per cancellare i dati esistenti in una partizione, un `ALTER TABLE` utilizzato per disattivare i dati.  Quindi, `ALTER TABLE` era necessario un altro per attivare i nuovi dati.  In SQL data warehouse, l' `TRUNCATE_TARGET` opzione è supportata `ALTER TABLE` nel comando.  Con `TRUNCATE_TARGET` il`ALTER TABLE` comando sovrascrive i dati esistenti nella partizione con nuovi dati.  Di seguito è riportato un esempio `CTAS` che usa per creare una nuova tabella con i dati esistenti, inserire nuovi dati, quindi riportare tutti i dati nella tabella di destinazione, sovrascrivendo i dati esistenti.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_NewSales]

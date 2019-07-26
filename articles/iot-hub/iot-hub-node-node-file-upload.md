@@ -9,29 +9,29 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: d52e0e1093668a65e76bd6600329619240aee182
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: f78f53f259234dc949ce5b18ccc7714b32e239f9
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612598"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404039"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Caricare file da un dispositivo al cloud con l'hub IoT
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-Questa esercitazione si basa sul codice nel [inviare messaggi da cloud a dispositivo con l'IoT Hub](iot-hub-node-node-c2d.md) esercitazione descrive come usare i [file di funzionalità di caricamento dell'IoT Hub](iot-hub-devguide-file-upload.md) per caricare un file a [blob di Azure archiviazione](../storage/index.yml). L'esercitazione illustra come:
+Questa esercitazione si basa sul codice nell'esercitazione [inviare messaggi da cloud a dispositivo con l'hub](iot-hub-node-node-c2d.md) Internet per mostrare come usare le [funzionalità di caricamento dei file dell'hub](iot-hub-devguide-file-upload.md) Internet per caricare un file nell' [Archivio BLOB di Azure](../storage/index.yml). L'esercitazione illustra come:
 
 * Specificare in modo sicuro un dispositivo con un URI del BLOB di Azure per il caricamento di un file.
 
 * Usare le notifiche di caricamento di file dell'hub IoT per attivare l'elaborazione del file nel back-end dell'app.
 
-Il [inviare i dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-node.md) Guida introduttiva illustra la funzionalità di messaggistica base da dispositivo a cloud dell'IoT Hub. Tuttavia in alcuni scenari non è possibile mappare facilmente i dati che i dispositivi inviano in messaggi relativamente ridotti da dispositivo a cloud, che l'hub IoT accetta. Ad esempio:
+La Guida introduttiva inviare dati di telemetria [da un dispositivo a un hub](quickstart-send-telemetry-node.md) Internet viene illustrata la funzionalità di messaggistica di base da dispositivo a cloud dell'hub Internet. Tuttavia in alcuni scenari non è possibile mappare facilmente i dati che i dispositivi inviano in messaggi relativamente ridotti da dispositivo a cloud, che l'hub IoT accetta. Ad esempio:
 
 * File di grandi dimensioni che contengono immagini
 * Video
 * Dati di vibrazione campionati ad alta frequenza
-* Qualche tipo di dati pre-elaborati.
+* Una forma di dati pre-elaborati.
 
 Questi dati in genere vengono elaborati in batch nel cloud con strumenti come [Azure Data Factory](../data-factory/introduction.md) o lo stack [Hadoop](../hdinsight/index.yml). Quando è necessario caricare file da un dispositivo, è comunque possibile usare la sicurezza e l'affidabilità dell'hub IoT.
 
@@ -42,11 +42,11 @@ Al termine di questa esercitazione, verranno eseguite due app console Node.js:
 * **ReadFileUploadNotification.js**, che riceve le notifiche di caricamento file dall'hub IoT.
 
 > [!NOTE]
-> L'hub IoT supporta molte piattaforme e linguaggi, tra cui C, .NET, Javascript, Python e Java, tramite gli Azure IoT SDK per dispositivi. Vedere la [Azure Centro per sviluppatori IoT] per istruzioni dettagliate su come connettere il dispositivo all'IoT Hub di Azure.
+> L'hub IoT supporta molte piattaforme e linguaggi, tra cui C, .NET, Javascript, Python e Java, tramite gli Azure IoT SDK per dispositivi. Per istruzioni dettagliate su come connettere il dispositivo all'hub Internet di Azure, vedere [Azure Internet Developer Center].
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Node. js versione 10.0 o versione successiva.
+* Node. js versione 10.0. x o successiva.
 
 * Un account Azure attivo. Se non si ha un account, è possibile crearne uno [gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 
@@ -117,6 +117,12 @@ In questa sezione viene creata l'app del dispositivo per caricare un file nell'h
 
 9. Copiare un file di immagine nella cartella `simulateddevice` e rinominarlo `myimage.png`.
 
+## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub Internet
+
+In questo articolo viene creato un servizio back-end per ricevere i messaggi di notifica di caricamento file dall'hub di Internet delle cose creato in inviare dati di telemetria [da un dispositivo a un hub](quickstart-send-telemetry-node.md)Internet. Per ricevere i messaggi di notifica di caricamento file, il servizio richiede l'autorizzazione **Connect del servizio** . Per impostazione predefinita, ogni hub tutto viene creato con un criterio di accesso condiviso denominato **Service** che concede l'autorizzazione.
+
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+
 ## <a name="receive-a-file-upload-notification"></a>Ricevere la notifica di caricamento di un file
 
 In questa sezione viene creata un'app console Node.js che riceve messaggi di notifica di caricamento file dall'hub IoT.
@@ -145,7 +151,7 @@ Per completare questa sezione, è possibile usare la stringa di connessione **io
     var Client = require('azure-iothub').Client;
     ```
 
-5. Aggiungere una variabile `iothubconnectionstring` e usarla per creare un'istanza **Client**.  Sostituire `{iothubconnectionstring}` con la stringa di connessione per l'hub IoT creata nella sezione _Creare un hub IoT_:
+5. Aggiungere una variabile `iothubconnectionstring` e usarla per creare un'istanza **Client**.  Sostituire il `{iothubconnectionstring}` valore del segnaposto con la stringa di connessione dell'hub Internet che è stata copiata in precedenza in [ottenere la stringa di connessione dell'hub Internet](#get-the-iot-hub-connection-string):
 
     ```javascript
     var connectionString = '{iothubconnectionstring}';

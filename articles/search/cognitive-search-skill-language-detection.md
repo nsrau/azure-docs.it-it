@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: a076eee9818f294a8e5c4b10cebbcb9e5a55d80c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3685e2f2a212591788c62ba4f0384ae320d89824
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65021855"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347760"
 ---
 #   <a name="language-detection-cognitive-skill"></a>Competenza cognitiva di rilevamento lingua
 
-Il **rilevamento lingua** competenza rileva la lingua del testo di input e segnala il codice una sola lingua per ogni documento inviato nella richiesta. Il codice lingua è associato a un punteggio che indica il livello di attendibilità dell'analisi. Questa competenza usa i modelli di Machine Learning forniti da [Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) in Servizi cognitivi.
+Il **rilevamento lingua** skill rileva la lingua del testo di input e segnala un singolo codice di lingua per ogni documento inviato nella richiesta. Il codice lingua è associato a un punteggio che indica il livello di attendibilità dell'analisi. Questa competenza usa i modelli di Machine Learning forniti da [Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) in Servizi cognitivi.
 
 Questa funzionalità è particolarmente utile quando è necessario specificare la lingua del testo come input per altre competenze (ad esempio, la competenza [Analisi del sentiment](cognitive-search-skill-sentiment.md) o la competenza [Divisione del testo](cognitive-search-skill-textsplit.md)).
 
-Rilevamento della lingua si basa su librerie di elaborazione in linguaggio naturale di Bing, che supera il numero del [lingue e aree geografiche supportate](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support) elencati per testo Analitica. L'elenco esatto delle lingue non è pubblicato, ma include tutte le lingue, diffuse in più varianti, dialetti e alcune lingue internazionali e relative alla lingua. Se si dispone di contenuto espresso in un linguaggio usato meno frequentemente, è possibile [provare l'API di rilevamento lingua](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) per vedere se viene restituito un codice. La risposta per le lingue che non è possibile rilevare è `unknown`.
+Il rilevamento della lingua sfrutta le librerie di elaborazione del linguaggio naturale di Bing, che supera il numero di [lingue e aree supportate](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support) elencate per analisi del testo. L'elenco esatto delle lingue non è pubblicato, ma include tutte le lingue diffuse, oltre a varianti, dialetti e alcune lingue regionali e culturali. Se il contenuto è espresso in un linguaggio usato meno di frequente, è possibile [provare l'API rilevamento lingua](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) per verificare se restituisce un codice. La risposta per le lingue che non è possibile rilevare è `unknown`.
 
 > [!NOTE]
 > Se si espande l'ambito aumentando la frequenza di elaborazione, aggiungendo più documenti oppure aggiungendo altri algoritmi di intelligenza artificiale, sarà necessario [collegare una risorsa fatturabile di Servizi cognitivi](cognitive-search-attach-cognitive-services.md). Gli addebiti si accumulano quando si chiamano le API in Servizi cognitivi e per l'estrazione di immagini come parte della fase di individuazione di documenti in Ricerca di Azure. Non sono previsti addebiti per l'estrazione di testo dai documenti.
@@ -36,7 +36,7 @@ Rilevamento della lingua si basa su librerie di elaborazione in linguaggio natur
 Microsoft.Skills.Text.LanguageDetectionSkill
 
 ## <a name="data-limits"></a>Limiti dei dati
-Le dimensioni massime di un record devono essere di 50.000 caratteri in base alla misurazione di `String.Length`. Se è necessario suddividere i dati prima di inviarli all'analizzatore di valutazione, è possibile usare la [competenza di divisione del testo](cognitive-search-skill-textsplit.md).
+La dimensione massima di un record deve essere di 50.000 caratteri misurata [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)da. Se è necessario suddividere i dati prima di inviarli all'analizzatore di valutazione, è possibile usare la [competenza di divisione del testo](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-inputs"></a>Input competenze
 
@@ -48,7 +48,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 ## <a name="skill-outputs"></a>Output competenze
 
-| Nome output    | Descrizione |
+| Nome output    | DESCRIZIONE |
 |--------------------|-------------|
 | languageCode | Il codice di lingua ISO 6391 per la lingua identificata. Ad esempio, "en". |
 | languageName | Il nome della lingua. Ad esempio, "Inglese". |
@@ -106,7 +106,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 ```
 
 
-##  <a name="sample-output"></a>Output di esempio
+##  <a name="sample-output"></a>Esempio di output
 
 ```json
 {
