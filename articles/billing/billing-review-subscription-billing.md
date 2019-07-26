@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
-ms.author: erikre
-ms.openlocfilehash: 0a73462b7fdbaf6386a3051a72da755f31ff8dd2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: banders
+ms.openlocfilehash: 8cfa429b18fb282f5c1f85d2fd1637704653b855
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65192117"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443043"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Esaminare la fatturazione della sottoscrizione con le API REST
 
@@ -81,7 +81,7 @@ Una risposta corretta prevede la restituzione del codice di stato 200 (OK), con 
 
 Ogni elemento in **value** rappresenta un dettaglio relativo all'uso di un servizio:
 
-|Proprietà Response|Descrizione|
+|Proprietà Response|DESCRIZIONE|
 |----------------|----------|
 |**subscriptionGuid** | ID univoco globale per la sottoscrizione. |
 |**startDate** | Data di avvio dell'uso. |

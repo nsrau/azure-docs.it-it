@@ -4,15 +4,15 @@ description: In questo articolo viene descritto come Azure Cosmos DB garantisce 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 07/23/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 38629ed2246f4eb67e4183354fe4feaaaee16805
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 4dde41479c05151fa4e14c9fe4b534b9f7edf9b4
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305452"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467744"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Disponibilità elevata con Azure Cosmos DB
 
@@ -49,9 +49,9 @@ Le interruzioni a livello di area sono abbastanza comuni e Azure Cosmos DB garan
 - Gli account in più aree configurati con aree a scrittura multipla rimarranno a disponibilità elevata sia per le operazioni di scrittura che per le operazioni di lettura. I failover a livello di area vengono visualizzati immediatamente e non richiedono modifiche dall'applicazione.
 
 - **Account a più aree con un'area a scrittura singola (interruzione dell'area di scrittura):** 
-  * durante un'interruzione del servizio in un'area di scrittura, questi account mantengono la disponibilità elevata per le letture. Tuttavia, per le Scritture è necessario **abilitare il failover automatico** nell'account Cosmos per eseguire il failover dell'area interessata in un'altra area. Il failover verrà eseguito nell'ordine di priorità dell'area specificato. 
-  * Quando l'area interessata è di nuovo online, i dati non replicati presenti nell'area di scrittura interessata durante l'interruzione vengono resi disponibili tramite il [feed dei conflitti](how-to-manage-conflicts.md#read-from-conflict-feed). Le applicazioni possono leggere il feed dei conflitti, risolvere i conflitti in base alla logica specifica dell'applicazione e scrivere nuovamente i dati aggiornati nel contenitore Cosmos nel modo appropriato. 
-  * Una volta che viene ripristinata l'area di scrittura interessata in precedenza, diventa automaticamente disponibile come area di lettura. È possibile tornare all'area ripristinata come area di scrittura. È possibile cambiare le aree usando l'interfaccia della riga di comando di [Azure o portale di Azure](how-to-manage-database-account.md#manual-failover). Non si verificano **perdite di dati o disponibilità** prima, durante o dopo il failover manuale. L'applicazione continua a offrire disponibilità elevata. 
+  * durante un'interruzione del servizio in un'area di scrittura, questi account mantengono la disponibilità elevata per le letture. Affinché le richieste di scrittura abbiano esito positivo, è necessario attivare l'opzione **Abilita failover automatico** nell'account Azure Cosmos. L'abilitazione di questa opzione consente di eseguire il failover dell'area interessata in un'altra area nell'ordine di priorità dell'area specificata. 
+  * Quando l'area interessata in precedenza è di nuovo online, tutti i dati di scrittura che non sono stati replicati quando l'area ha avuto esito negativo vengono resi disponibili tramite il [feed dei conflitti](how-to-manage-conflicts.md#read-from-conflict-feed). Le applicazioni possono leggere il feed dei conflitti, risolvere i conflitti in base alla logica specifica dell'applicazione e scrivere di nuovo i dati aggiornati nel contenitore Azure Cosmos nel modo appropriato. 
+  * Una volta che viene ripristinata l'area di scrittura interessata in precedenza, diventa automaticamente disponibile come area di lettura. È possibile tornare all'area ripristinata come area di scrittura. È possibile cambiare le aree usando l'interfaccia della riga di comando di [Azure o portale di Azure](how-to-manage-database-account.md#manual-failover). Non sono presenti **dati o perdite di disponibilità** prima di, durante o dopo l'attivazione dell'area di scrittura e l'applicazione continua a essere a disponibilità elevata. 
 
 - **Account a più aree con un'area a scrittura singola (interruzione dell'area di lettura):** 
   * durante un'interruzione del servizio in un'area di lettura, questi account mantengono la disponibilità elevata per le letture e le scritture. 
@@ -87,7 +87,7 @@ Questa funzionalità è disponibile nelle aree di Azure seguenti:
 
 Nella tabella seguente sono riepilogate le funzionalità di disponibilità elevata di diverse configurazioni di account: 
 
-|KPI  |Singola area senza zone di disponibilità (non AZ)  |Area singola con zone di disponibilità (AZ)  |Scritture in più aree con zone di disponibilità (AZ, 2 Regions): impostazione consigliata |
+|Indicatore KPI  |Singola area senza zone di disponibilità (non AZ)  |Area singola con zone di disponibilità (AZ)  |Scritture in più aree con zone di disponibilità (AZ, 2 Regions): impostazione consigliata |
 |---------|---------|---------|---------|
 |SLA sulla disponibilità di scrittura     |   99,99%      |    99,99%     |  99,999%  |
 |SLA per la disponibilità di lettura   |   99,99%      |   99,99%      |  99,999%       |

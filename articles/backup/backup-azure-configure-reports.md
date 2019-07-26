@@ -1,21 +1,20 @@
 ---
 title: Configurare report per Backup di Azure
 description: Configurare report di Power BI per Backup di Azure usando un insieme di credenziali di Servizi di ripristino.
-services: backup
 author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: adigan
-ms.openlocfilehash: 5f656a097509e9998d6fb8f157d1910cc04b7799
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ae772446a4955f9f9def830d5c770f7d826b7e48
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705148"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466619"
 ---
-# <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
+# <a name="configure-azure-backup-reports"></a>Configurare i report di Backup di Azure
 Questo articolo illustra i passaggi da seguire per configurare report per Backup di Azure tramite un insieme di credenziali di Servizi di ripristino. Descrive inoltre come accedere ai report con Power BI. Dopo aver completato questi passaggi, sarà possibile passare direttamente a Power BI per visualizzare, personalizzare e creare report.
 
 > [!IMPORTANT]

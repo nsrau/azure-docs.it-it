@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: f449449c542ce6ac04daa58ff37a3577f0d75aee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 659a6f5acaac848084ed1e9590a414191542b54a
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61221847"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414623"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integrazione e distribuzione continue in Azure IoT Edge
 
@@ -47,7 +47,7 @@ In questa sezione viene creata una nuova pipeline di compilazione. Configurare l
 >
 >Per altre informazioni, vedere [Creare una pipeline di compilazione](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav#create-a-build-pipeline).
 
-1. Accesso all'organizzazione di Azure DevOps (**https:\/organizzazione /dev.azure.com/{your} /** ) e aprire il progetto che contiene il repository della soluzione IoT Edge.
+1. Accedere all'organizzazione DevOps di Azure (**https:\//dev.Azure.com/{Your Organization}/** ) e aprire il progetto che contiene il repository della soluzione IOT Edge.
 
    Per questo articolo è stato creato un repository denominato **IoTEdgeRepo**. Questo repository contiene **IoTEdgeSolution**, in cui c'è il codice per un modulo denominato **filtermodule**. 
 
@@ -73,7 +73,7 @@ In questa sezione viene creata una nuova pipeline di compilazione. Configurare l
 
    * Se si desidera compilare i moduli nella piattaforma amd64 per i contenitori Windows 1809, è necessario [configurare un agente auto-ospitato in Windows](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
 
-   * Se si desidera compilare i moduli nella piattaforma arm32v7 per i contenitori Linux, è necessario [configurare un agente auto-ospitato in Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/).
+   * Se si vuole compilare i moduli nella piattaforma arm32v7 o arm64 per i contenitori Linux, è necessario [configurare l'agente self-hosted in Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/).
     
      ![Configurare il pool di agenti di compilazione](./media/how-to-ci-cd/configure-env.png)
 

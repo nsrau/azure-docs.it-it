@@ -1,11 +1,11 @@
 ---
 title: Ridimensionamento e hosting di Funzioni di Azure | Microsoft Docs
-description: Informazioni su come scegliere tra piano a consumo di funzioni di Azure e piano Premium.
+description: Scopri come scegliere tra il piano a consumo di funzioni di Azure e il piano Premium.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-keywords: Azure funzioni, funzioni, piano a consumo, il piano premium, l'elaborazione di eventi, webhook, calcolo dinamico, architettura senza server
+keywords: funzioni di Azure, funzioni, piano a consumo, piano Premium, elaborazione di eventi, webhook, calcolo dinamico, architettura senza server
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: azure-functions
 ms.devlang: multiple
@@ -13,49 +13,49 @@ ms.topic: reference
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3253cc7e379ae63880d533f14bc76e7af5a4425a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 94ef85836ef524b34cd1c51e4eda83695bc70507
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050563"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443945"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Ridimensionamento e hosting di Funzioni di Azure
 
-Quando si crea un'app per le funzioni in Azure, è necessario scegliere un piano di hosting per l'app. Sono disponibili tre piani di hosting per funzioni di Azure: [Piano a consumo](#consumption-plan), [Premium-piano](#premium-plan), e [piano di servizio App](#app-service-plan).
+Quando si crea un'app per le funzioni in Azure, è necessario scegliere un piano di hosting per l'app. Sono disponibili tre piani di hosting per funzioni di Azure: Piano a [consumo](#consumption-plan), [piano Premium](#premium-plan)e [piano di servizio app](#app-service-plan).
 
-Il piano di hosting che scelto determina i comportamenti seguenti:
+Il piano di hosting scelto determina i comportamenti seguenti:
 
-* Modalità di ridimensionamento di app per le funzioni.
-* Le risorse disponibili per ogni istanza dell'app funzioni.
-* Supporto per funzionalità avanzate, ad esempio la connettività di rete virtuale.
+* Modalità di ridimensionamento dell'app per le funzioni.
+* Risorse disponibili per ogni istanza dell'app per le funzioni.
+* Supporto per le funzionalità avanzate, ad esempio la connettività VNET.
 
-I piani di consumo e Premium aggiungono automaticamente potenza di calcolo quando il codice è in esecuzione. L'app è aumentato quando è necessario per gestire il carico e scalabilità verso il basso al termine dell'esecuzione di codice. Per il piano a consumo, anche non devi pagare per le macchine virtuali inattive o riservare in anticipo la capacità.  
+Sia il consumo che i piani Premium aggiungono automaticamente la potenza di calcolo quando il codice è in esecuzione. L'app viene scalata orizzontalmente quando necessario per gestire il carico e viene ridotta quando il codice viene arrestato. Per il piano a consumo, non è necessario pagare in anticipo le macchine virtuali inattive o la capacità di riserva.  
 
-Piano Premium offre funzionalità aggiuntive, ad esempio premium istanze di calcolo, la possibilità di mantenere le istanze a caldo a tempo indeterminato e la connettività di rete virtuale.
+Il piano Premium offre funzionalità aggiuntive, ad esempio le istanze di calcolo Premium, la possibilità di limitare le istanze a tempo indefinito e la connettività VNet.
 
-Piano di servizio App consente di sfruttare i vantaggi dell'infrastruttura dedicata, che è gestire. App per le funzioni non supporta la scalabilità in base agli eventi, ovvero non è mai scale fino a zero. (Richiede che [Always on](#always-on) è abilitato.)
+Il piano di servizio app consente di sfruttare i vantaggi dell'infrastruttura dedicata, che è possibile gestire. L'app per le funzioni non viene ridimensionata in base agli eventi, il che significa che non viene mai ridimensionato fino a zero. Richiede che [Always on](#always-on) sia abilitato.
 
 > [!NOTE]
-> È possibile passare tra i piani di consumo e Premium, modificare la proprietà del piano della risorsa di app per la funzione.
+> È possibile passare tra i piani di consumo e Premium modificando la proprietà del piano della risorsa dell'app per le funzioni.
 
-## <a name="hosting-plan-support"></a>Supporto dei piani di hosting
+## <a name="hosting-plan-support"></a>Supporto del piano di hosting
 
-Supporto della funzionalità rientra nelle due categorie seguenti:
+Il supporto delle funzionalità rientra nelle due categorie seguenti:
 
 * _Disponibile a livello generale (GA)_ : completamente supportato e approvato per l'uso in produzione.
-* _Anteprima_: non è ancora completamente supportato e approvato per l'uso in produzione.
+* _Anteprima_: non ancora completamente supportato e approvato per l'uso in produzione.
 
-Nella tabella seguente indica il livello corrente di supporto per i piani di hosting tre, durante l'esecuzione in Windows o Linux:
+La tabella seguente indica il livello di supporto corrente per i tre piani di hosting, quando è in esecuzione in Windows o Linux:
 
 | | Piano a consumo | Piano Premium | Piano dedicato |
 |-|:----------------:|:------------:|:----------------:|
-| Windows | GA | preview | GA |
-| Linux | preview | N/D | GA |
+| Windows | GA | anteprima | GA |
+| Linux | anteprima | anteprima | GA |
 
 ## <a name="consumption-plan"></a>Piano a consumo
 
-Quando si usa il piano a consumo, in modo dinamico istanze dell'host di funzioni di Azure vengono aggiunti e rimossi in base al numero di eventi in ingresso. Questo piano senza server offre la scalabilità automatica e sono previsti costi per le risorse di calcolo solo quando le funzioni sono in esecuzione. In un piano A consumo, il timeout dell'esecuzione di una funzione si verifica dopo un periodo di tempo configurabile.
+Quando si usa il piano a consumo, le istanze dell'host di funzioni di Azure vengono aggiunte e rimosse in modo dinamico in base al numero di eventi in ingresso. Questo piano senza server offre la scalabilità automatica e sono previsti costi per le risorse di calcolo solo quando le funzioni sono in esecuzione. In un piano A consumo, il timeout dell'esecuzione di una funzione si verifica dopo un periodo di tempo configurabile.
 
 La fatturazione si basa sul numero di esecuzioni, il tempo di esecuzione e la memoria usata. La fatturazione viene aggregata tra tutte le funzioni all'interno di un'app per le funzioni. Per altre informazioni, vedere la [pagina relativa ai prezzi per Funzioni di Azure](https://azure.microsoft.com/pricing/details/functions/).
 
@@ -64,52 +64,49 @@ Il piano a consumo è l'opzione di hosting predefinita e offre i vantaggi seguen
 * Addebiti solo quando le funzioni sono in esecuzione
 * Aumento automatico del numero di istanze anche in periodo di carico elevato
 
-App per le funzioni nella stessa area possono essere assegnati per lo stesso piano di consumo. Non sono svantaggio o impatto alla presenza di più App in esecuzione nello stesso piano di consumo. Assegnazione di più App per lo stesso piano di consumo non ha alcun impatto su resilienza, scalabilità o affidabilità di ogni app.
+Le app per le funzioni nella stessa area possono essere assegnate allo stesso piano a consumo. Non ci sono svantaggi o conseguenze per l'esecuzione di più app nello stesso piano a consumo. L'assegnazione di più app allo stesso piano a consumo non ha alcun effetto sulla resilienza, la scalabilità o l'affidabilità di ogni app.
 
 ## <a name="premium-plan"></a>Piano Premium (anteprima)
 
-Quando si usa il piano Premium, le istanze dell'host di funzioni di Azure vengono aggiunti e rimossi in base al numero di eventi in ingresso esattamente come il piano a consumo.  Piano Premium supporta le funzionalità seguenti:
+Quando si usa il piano Premium, le istanze dell'host di funzioni di Azure vengono aggiunte e rimosse in base al numero di eventi in ingresso esattamente come il piano a consumo.  Il piano Premium supporta le funzionalità seguenti:
 
-* Istanze perennemente warm per evitare qualsiasi avvio a freddo
+* Istanze perennemente calde per evitare l'avvio a freddo
 * Connettività di rete virtuale
-* Durata di esecuzione illimitato
-* Dimensioni delle istanze di Premium (un core, due core e quattro le istanze di core)
-* Più prevedibili di prezzi
-* Assegnazione di app ad alta densità per i piani con più App per le funzioni
+* Durata di esecuzione illimitata
+* Dimensioni delle istanze Premium (un core, due core e quattro istanze Core)
+* Prezzo più prevedibile
+* Allocazione di app ad alta densità per i piani con più app per le funzioni
 
-Informazioni sul modo in cui è possibile configurare queste opzioni sono disponibili nel [documento di funzioni di Azure premium piano](functions-premium-plan.md).
+Informazioni su come è possibile configurare queste opzioni sono disponibili nel documento del [piano Premium di funzioni di Azure](functions-premium-plan.md).
 
-Invece di fatturazione per ogni esecuzione e di memoria utilizzata, la fatturazione per il piano Premium si basa sul numero di secondi core, il tempo di esecuzione e sulla memoria usata tra le istanze riservate e necessari.  Almeno un'istanza deve essere at a caldo sempre. Ciò significa che vi sia un costo fisso mensile per ogni piano attivo, indipendentemente dal numero di esecuzioni.
+Anziché eseguire la fatturazione per esecuzione e la memoria utilizzata, la fatturazione per il piano Premium si basa sul numero di secondi core, sul tempo di esecuzione e sulla memoria usata nelle istanze necessarie e riservate.  Almeno un'istanza deve essere sempre calda. Ciò significa che esiste un costo mensile fisso per ogni piano attivo, indipendentemente dal numero di esecuzioni.
 
-Prendere in considerazione il piano premium di funzioni di Azure nelle situazioni seguenti:
+Si consideri il piano Premium di funzioni di Azure nelle situazioni seguenti:
 
 * Le app per le funzioni vengono eseguite in modo continuo o quasi continuo.
-* Sono necessarie altre opzioni di utilizzo della CPU o memoria rispetto a quello fornito dal piano a consumo.
-* Il codice deve eseguire più di [tempo di esecuzione massimo consentito](#timeout) nel piano a consumo.
-* Sono necessarie funzionalità disponibili solo in un piano Premium, ad esempio la connettività di rete virtuale/VPN.
+* Sono necessarie più opzioni di CPU o memoria rispetto a quelle fornite dal piano a consumo.
+* Il codice deve essere eseguito più a lungo del [tempo di esecuzione massimo consentito](#timeout) nel piano a consumo.
+* Sono necessarie funzionalità disponibili solo in un piano Premium, ad esempio connettività VNET/VPN.
 
-> [!NOTE]
-> L'anteprima del piano premium supporta attualmente solo funzioni di Azure in Windows.
+Quando si eseguono funzioni JavaScript in un piano Premium, è consigliabile scegliere un'istanza con un minor numero di vCPU. Per ulteriori informazioni, vedere la pagina relativa alla [scelta dei piani Premium a core singolo](functions-reference-node.md#considerations-for-javascript-functions).  
 
-Quando si esegue funzioni JavaScript in un piano Premium, è consigliabile scegliere un'istanza con un minor numero di Vcpu. Per altre informazioni, vedere la [scegliere i piani Premium single core](functions-reference-node.md#considerations-for-javascript-functions).  
+## <a name="app-service-plan"></a>Piano dedicato (servizio app)
 
-## <a name="app-service-plan"></a>Piano dedicato (servizio App)
+Le app per le funzioni possono anche essere eseguite sulle stesse VM dedicate di altre app del servizio app (SKU Basic, standard, Premium e isolated).
 
-App per le funzioni eseguibili anche sulla stesse macchine virtuali dedicate di altre app di servizio App (Basic, Standard, Premium e agli SKU isolati).
-
-Prendere in considerazione un piano di servizio App nelle situazioni seguenti:
+Si consideri un piano di servizio app nelle situazioni seguenti:
 
 * Sono presenti macchine virtuali sottoutilizzate, che eseguono già altre istanze del servizio app.
-* Si desidera fornire un'immagine personalizzata in cui eseguire le funzioni.
+* Si desidera fornire un'immagine personalizzata su cui eseguire le funzioni.
 
-Si paga la stessa App per le funzioni in un piano di servizio App come si farebbe per altre risorse del servizio App, ad esempio le app web. Per informazioni dettagliate sul funzionamento del piano di servizio app, vedere [Panoramica approfondita dei piani di servizio app di Azure](../app-service/overview-hosting-plans.md).
+Si paga lo stesso per le app per le funzioni in un piano di servizio app come per le altre risorse del servizio app, ad esempio le app Web. Per informazioni dettagliate sul funzionamento del piano di servizio app, vedere [Panoramica approfondita dei piani di servizio app di Azure](../app-service/overview-hosting-plans.md).
 
-Con un piano di servizio App, è possibile scalare orizzontalmente manualmente aggiungendo altre istanze di macchina virtuale. È anche possibile abilitare la scalabilità automatica. Per altre informazioni, vedere [Scalare il conteggio delle istanze manualmente o automaticamente](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Per aumentare le prestazioni è anche possibile scegliere un piano di servizio App diverso. Per altre informazioni, vedere [Aumentare le prestazioni di un'app in Azure](../app-service/web-sites-scale.md). 
+Con un piano di servizio app, è possibile aumentare manualmente il numero di istanze aggiungendo altre istanze di VM. È anche possibile abilitare la scalabilità automatica. Per altre informazioni, vedere [Scalare il conteggio delle istanze manualmente o automaticamente](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Per aumentare le prestazioni è anche possibile scegliere un piano di servizio App diverso. Per altre informazioni, vedere [Aumentare le prestazioni di un'app in Azure](../app-service/web-sites-scale.md). 
 
-Quando si eseguono funzioni JavaScript in un piano di servizio app, è necessario scegliere un piano con un minor numero di vCPU. Per altre informazioni, vedere [scegliere i piani di servizio App single core](functions-reference-node.md#choose-single-vcpu-app-service-plans). 
+Quando si eseguono funzioni JavaScript in un piano di servizio app, è necessario scegliere un piano con un minor numero di vCPU. Per altre informazioni, vedere [scegliere i piani di servizio app Single Core](functions-reference-node.md#choose-single-vcpu-app-service-plans). 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 
-### <a name="always-on"></a> Always On
+### <a name="always-on"></a>Always On
 
 Se per l'esecuzione si usa un piano di servizio app, è necessario abilitare l'impostazione **Always on** in modo che l'app per le funzioni venga eseguita correttamente. In un piano di servizio app il runtime delle funzioni risulta inattivo dopo pochi minuti di inattività. Solo i trigger HTTP "attiveranno" quindi le funzioni. L'opzione Always on è disponibile solo nel piano di servizio app. In un piano a consumo, la piattaforma attiva automaticamente le app per le funzioni.
 
@@ -131,40 +128,40 @@ appServicePlanId=$(az functionapp show --name <my_function_app_name> --resource-
 az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output tsv
 ```  
 
-Quando l'output di questo comando è `dynamic`, l'app per le funzioni è nel piano a consumo. Quando l'output da questo comando è `ElasticPremium`, app per le funzioni già inclusi nel piano Premium. Tutti gli altri valori indicano diversi livelli di un piano di servizio App.
+Quando l'output di questo comando è `dynamic`, l'app per le funzioni è nel piano a consumo. Quando l'output di questo comando è `ElasticPremium`, l'app per le funzioni si trova nel piano Premium. Tutti gli altri valori indicano livelli diversi di un piano di servizio app.
 
 ## <a name="storage-account-requirements"></a>Requisiti dell'account di archiviazione
 
-Nel piano a qualsiasi app per le funzioni richiede un account di archiviazione di Azure generale che supporta l'archiviazione Blob di Azure, file, tabelle e di Accodamento. Questo avviene perché le funzioni si basano sull'archiviazione di Azure per operazioni quali la gestione dei trigger e la registrazione dell'esecuzione di funzione, ma alcuni account di archiviazione non supportano code e tabelle. Questi account, che includono l'archiviazione solo BLOB (tra cui Archiviazione premium) e gli account di archiviazione per utilizzo generico con replica di archiviazione con ridondanza della zona, vengono esclusi dalle selezioni di **Account di archiviazione** esistenti quando si crea un'app per le funzioni.
+In qualsiasi piano, un'app per le funzioni richiede un account di archiviazione di Azure generale che supporta archiviazione BLOB, code, file e tabelle di Azure. Questo perché le funzioni si basano sull'archiviazione di Azure per operazioni come la gestione dei trigger e la registrazione delle esecuzioni di funzioni, ma alcuni account di archiviazione non supportano code e tabelle. Questi account, che includono l'archiviazione solo BLOB (tra cui Archiviazione premium) e gli account di archiviazione per utilizzo generico con replica di archiviazione con ridondanza della zona, vengono esclusi dalle selezioni di **Account di archiviazione** esistenti quando si crea un'app per le funzioni.
 
 <!-- JH: Does using a Premium Storage account improve perf? -->
 
 Per altre informazioni sui tipi di account di archiviazione, vedere [Introduzione ai servizi di archiviazione di Azure](../storage/common/storage-introduction.md#azure-storage-services).
 
-## <a name="how-the-consumption-and-premium-plans-work"></a>Come funzionano i piani di consumo e premium
+## <a name="how-the-consumption-and-premium-plans-work"></a>Come funzionano i piani di consumo e Premium
 
-Nell'uso e i piani premium, l'infrastruttura di funzioni di Azure ridimensiona le risorse di CPU e memoria aggiungendo altre istanze dell'host di funzioni, in base al numero di eventi che attivano le relative funzioni. Ogni istanza dell'host di funzioni nel piano a consumo è limitata a 1,5 GB di memoria e una CPU.  Un'istanza dell'host è l'app intera funzione, vale a dire tutte le funzioni all'interno di una risorsa di condivisione di app di funzione all'interno di un'istanza e nello stesso momento. App per le funzioni che condividono lo stesso piano di consumo vengono ridimensionati in modo indipendente.  Il piano premium, le dimensioni del piano determinerà la memoria disponibile e la CPU per tutte le app nel piano in quell'istanza.  
+Nei piani di consumo e Premium, l'infrastruttura di funzioni di Azure consente di ridimensionare le risorse di CPU e memoria aggiungendo altre istanze dell'host di funzioni, in base al numero di eventi su cui vengono attivate le relative funzioni. Ogni istanza dell'host di funzioni nel piano a consumo è limitata a 1,5 GB di memoria e una CPU.  Un'istanza dell'host è l'intera app per le funzioni, che significa che tutte le funzioni all'interno di un'app per le funzioni condividono una risorsa all'interno di un'istanza e vengono ridimensionate allo stesso tempo. Le app per le funzioni che condividono lo stesso piano a consumo vengono ridimensionate in modo indipendente.  Nel piano Premium, le dimensioni del piano determineranno la memoria e la CPU disponibili per tutte le app del piano in tale istanza.  
 
-I file di codice di funzione vengono archiviati nelle condivisioni di file di Azure nell'account di archiviazione principale della funzione. Quando si elimina l'account di archiviazione principale dell'app per le funzioni, i file di codice delle funzioni vengono eliminati e non possono essere recuperati.
+I file di codice delle funzioni vengono archiviati nelle condivisioni File di Azure nell'account di archiviazione principale della funzione. Quando si elimina l'account di archiviazione principale dell'app per le funzioni, i file di codice delle funzioni vengono eliminati e non possono essere recuperati.
 
 > [!NOTE]
-> Quando si usa un trigger di tipo BLOB in un piano a consumo, può verificarsi un ritardo massimo di 10 minuti per l'elaborazione di nuovi BLOB. Questo ritardo si verifica in caso di inattività di un'app per le funzioni. Quando l'app per le funzioni è in esecuzione, i BLOB vengono elaborati immediatamente. Per evitare questo ritardo di avvio a freddo, usare il piano Premium oppure usare il [trigger griglia di eventi](functions-bindings-event-grid.md). Per altre informazioni, vedere l'articolo di riferimento sull'[associazione del trigger BLOB](functions-bindings-storage-blob.md#trigger).
+> Quando si usa un trigger di tipo BLOB in un piano a consumo, può verificarsi un ritardo massimo di 10 minuti per l'elaborazione di nuovi BLOB. Questo ritardo si verifica in caso di inattività di un'app per le funzioni. Quando l'app per le funzioni è in esecuzione, i BLOB vengono elaborati immediatamente. Per evitare questo ritardo di avvio a freddo, utilizzare il piano Premium oppure utilizzare il [trigger griglia di eventi](functions-bindings-event-grid.md). Per altre informazioni, vedere l'articolo di riferimento sull'[associazione del trigger BLOB](functions-bindings-storage-blob.md#trigger).
 
 ### <a name="runtime-scaling"></a>Ridimensionamento in fase di runtime
 
 Funzioni di Azure usa un componente denominato *controller di scalabilità* per monitorare la frequenza degli eventi e determinare se aumentare il numero di istanze o ridurre le prestazioni. Il controller di scalabilità usa le funzionalità di euristica per ogni tipo di trigger. Quando si usa ad esempio un trigger di archiviazione code di Azure, la scalabilità dipende dalla lunghezza della coda e dal tempo di attesa del messaggio meno recente della coda.
 
-L'unità di scala per le funzioni di Azure è l'app per le funzioni. In caso di aumento del numero di istanze dell'app per le funzioni, vengono allocate altre risorse per l'esecuzione di più istanze dell'host di Funzioni di Azure. In caso di riduzione delle richieste di calcolo, il controller di scalabilità rimuove le istanze dell'host di Funzioni. Il numero di istanze viene ridotto a zero quando non è in esecuzione alcuna funzione in un'app per le funzioni.
+L'unità di scala per funzioni di Azure è l'app per le funzioni. In caso di aumento del numero di istanze dell'app per le funzioni, vengono allocate altre risorse per l'esecuzione di più istanze dell'host di Funzioni di Azure. In caso di riduzione delle richieste di calcolo, il controller di scalabilità rimuove le istanze dell'host di Funzioni. Il numero di istanze viene ridotto a zero quando non è in esecuzione alcuna funzione in un'app per le funzioni.
 
 ![Monitoraggio degli eventi e creazione delle istanze da parte del controller di scalabilità](./media/functions-scale/central-listener.png)
 
 ### <a name="understanding-scaling-behaviors"></a>Introduzione al ridimensionamento
 
-Il ridimensionamento può variare in base a numerosi fattori e comportarsi diversamente a seconda del trigger e della lingua selezionati. Esistono alcuni aspetti complessi della scalabilità comportamenti da tenere presenti:
+Il ridimensionamento può variare in base a numerosi fattori e comportarsi diversamente a seconda del trigger e della lingua selezionati. È necessario tenere presenti alcune complessità dei comportamenti di ridimensionamento:
 
 * Un'app per le funzioni viene ridimensionata solo fino a un massimo di 200 istanze. Una singola istanza può elaborare più di un messaggio o più di una richiesta alla volta. Pertanto, non esiste alcun limite per quanto riguarda il numero di esecuzioni parallele.
-* Per i trigger HTTP, le nuove istanze verranno allocate al massimo una volta ogni secondo.
-* Per i trigger non HTTP, le nuove istanze verranno allocate al massimo una volta ogni 30 secondi.
+* Per i trigger HTTP, le nuove istanze verranno allocate al massimo ogni 1 secondo.
+* Per i trigger non HTTP, le nuove istanze verranno allocate al massimo ogni 30 secondi.
 
 Trigger distinti possono avere limiti di ridimensionamento diversi come illustrato di seguito:
 
@@ -176,17 +173,17 @@ Esistono molti aspetti di un'app per le funzioni che hanno un impatto sull'accur
 
 ### <a name="billing-model"></a>Modello di fatturazione
 
-La fatturazione per i diversi piani è descritto in dettaglio nel [pagina dei prezzi di funzioni di Azure](https://azure.microsoft.com/pricing/details/functions/). L'utilizzo viene aggregato a livello di app per le funzioni e viene calcolato solo il tempo di esecuzione del codice di tale funzione. Per la fatturazione vengono usate le unità seguenti:
+La fatturazione per i diversi piani è descritta in dettaglio nella [pagina dei prezzi di funzioni di Azure](https://azure.microsoft.com/pricing/details/functions/). L'utilizzo viene aggregato a livello di app per le funzioni e viene calcolato solo il tempo di esecuzione del codice di tale funzione. Per la fatturazione vengono usate le unità seguenti:
 
 * **Utilizzo delle risorse in gigabyte al secondo (GB-s)** . Calcolato come combinazione di dimensioni di memoria e tempo di esecuzione per tutte le funzioni in un'app per le funzioni. 
 * **Esecuzioni**. Conteggiate ogni volta che una funzione viene eseguita in risposta a un trigger di evento.
 
-Query utili e informazioni su come comprendere la fattura di consumo reperibili [sulle domande frequenti su fatturazione](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ).
+Le query e le informazioni utili su come comprendere la fattura per il consumo sono disponibili [nelle domande frequenti sulla fatturazione](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ).
 
 [Azure Functions pricing page]: https://azure.microsoft.com/pricing/details/functions
 
 ## <a name="service-limits"></a>Limiti del servizio
 
-Nella tabella seguente indica i limiti applicabili alle App per le funzioni durante l'esecuzione in vari piani di hosting:
+La tabella seguente indica i limiti che si applicano alle app per le funzioni durante l'esecuzione nei diversi piani di hosting:
 
 [!INCLUDE [functions-limits](../../includes/functions-limits.md)]

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/08/2019
+ms.date: 07/04/2019
 ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e1b0ea2f808c982a587392edbe57eb75c532ee2
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 0198e5f5df3d25ef825248ff78db95326dc755c2
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324714"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477049"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Procedura: Inserire l'applicazione nella raccolta di applicazioni di Azure Active Directory
 
@@ -49,6 +49,8 @@ Questo articolo illustra come elencare un'applicazione nella raccolta di applica
 - Per l'accesso SSO con password, assicurarsi che l'applicazione supporti l'autenticazione basata su modulo in modo che sia possibile eseguire l'insieme di credenziali delle password affinché l'accesso SSO funzioni come previsto.
 
 - Per le richieste di provisioning utenti automatico, l'applicazione deve essere presente nella raccolta con la funzionalità Single Sign-On abilitata per usare SAML 2.0/WS-Fed. È possibile richiedere sia l'accesso SSO che il provisioning utenti nel portale, se non sono già elencati.
+
+- È necessario un account permanente per il test con almeno 2 utenti registrati.
 
 >[!NOTE]
 >È in esecuzione con un numero elevato di richieste di SCIM Connector, quindi è stata interrotta l'acquisizione di nuove richieste nel portale. Tieni sotto mano le tue richieste fino a un ulteriore preavviso. Ci scusiamo per questo ritardo e per eventuali inconvenienti causati da questo problema.
@@ -123,7 +125,7 @@ Di seguito è riportato il flusso di applicazioni richieste dal cliente:
 
 ![Mostra il flusso delle app richieste dal cliente](./media/howto-app-gallery-listing/customer-request.png)
 
-## <a name="timelines"></a>Tempistica
+## <a name="timelines"></a>Sequenze temporali
 
 La tempistica del processo di inserimento di un'applicazione SAML 2.0 o WS-Fed nella raccolta è di 7-10 giorni lavorativi.
 

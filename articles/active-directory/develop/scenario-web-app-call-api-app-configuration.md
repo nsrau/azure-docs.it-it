@@ -15,12 +15,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15c12aebccf34957db8442034ebbcd6ac7c107e1
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 2ad995908ff20d123a77b511d127652aa17c4634
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276720"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494517"
 ---
 # <a name="web-app-that-calls-web-apis---code-configuration"></a>App Web che chiama API Web-configurazione del codice
 
@@ -29,6 +29,12 @@ Come illustrato nello [scenario degli utenti](scenario-web-app-sign-user-overvie
 - Si consentirà a ASP.NET o ASP.NET Core di richiedere un codice di autorizzazione. Eseguendo questa operazione, ASP.NET/ASP.NET Core consentirà all'utente di accedere e acconsentire,
 - Si sottoscriverà la ricezione del codice di autorizzazione dall'app Web.
 - Quando si riceve il codice di autenticazione, si useranno le librerie MSAL per riscattare il codice e i token di accesso e i token di aggiornamento risultanti nella cache dei token. Da qui, la cache può essere usata in altre parti dell'applicazione per acquisire altri token in modo invisibile all'utente.
+
+> [!NOTE]
+> I frammenti di codice di questo articolo sono estratti dagli esempi seguenti in GitHub, che sono completamente funzionanti:
+>
+> - [Esercitazione incrementale di ASP.NET Core app Web](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)
+> - [Esempio di app Web ASP.NET](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect)
 
 ## <a name="libraries-supporting-web-app-scenarios"></a>Librerie che supportano scenari di app Web
 
@@ -42,7 +48,12 @@ Le librerie che supportano il flusso del codice di autorizzazione per le app Web
 
 ## <a name="aspnet-core-configuration"></a>Configurazione di ASP.NET Core
 
-In ASP.NET Core, le operazioni vengono eseguite `Startup.cs` nel file. Si vuole sottoscrivere l' `OnAuthorizationCodeReceived` evento Open ID Connect e da questo evento chiamare MSAL. Metodo `AcquireTokenFromAuthorizationCode` di NET che ha l'effetto di archiviare nella cache dei token, il token di accesso per gli ambiti richiesti e un token di aggiornamento che verrà usato per aggiornare il token di accesso quando è prossimo alla scadenza o per ottenere un token per conto dello stesso utente , ma per un'altra risorsa.
+In ASP.NET Core, le operazioni vengono eseguite `Startup.cs` nel file. Si vuole sottoscrivere l' `OnAuthorizationCodeReceived` evento Open ID Connect e da questo evento chiamare MSAL. Metodo `AcquireTokenFromAuthorizationCode` di NET che ha l'effetto di archiviare nella cache dei token, il token di accesso per l' `scopes`oggetto richiesto e un token di aggiornamento che verrà usato per aggiornare il token di accesso quando è prossimo alla scadenza o per ottenere un token per conto dello stesso utente , ma per un'altra risorsa.
+
+```CSharp
+string[] scopes = new string[]{ "user.read" };
+string[] scopesRequestedByMsalNet = new string[]{ "openid", "profile", "offline_access" };
+```
 
 I commenti nel codice riportato di seguito consentiranno di comprendere alcuni aspetti complicati della tessitura di MSAL.NET e ASP.NET Core. I dettagli completi sono disponibili nell' [esercitazione incrementale ASP.NET Core app Web, capitolo 2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)
 
@@ -56,7 +67,7 @@ I commenti nel codice riportato di seguito consentiranno di comprendere alcuni a
    // their Microsoft personal accounts
    // (it's required by MSAL.NET and automatically provided by Azure AD when users
    // sign in with work or school accounts, but not with their Microsoft personal accounts)
-   options.Scope.Add(OidcConstants.ScopeOfflineAccess);
+   options.Scope.Add("offline_access");
    options.Scope.Add("user.read"); // for instance
 
    // Handling the auth redemption by MSAL.NET so that a token is available in the token cache
@@ -88,7 +99,12 @@ I commenti nel codice riportato di seguito consentiranno di comprendere alcuni a
    };
 ```
 
-In ASP.NET Core la creazione dell'applicazione client riservata usa le informazioni contenute in HttpContext. Questo HttpContext conosce l'URL per l'app Web e l'utente che ha eseguito l'accesso (in un `ClaimsPrincipal`). USA anche la configurazione ASP.NET Core, che include una sezione "AzureAD" e che è associata alla `_applicationOptions` struttura dei dati. Infine, l'applicazione deve gestire le cache dei token.
+In ASP.NET Core la creazione dell'applicazione client riservata usa le informazioni contenute in HttpContext. Conosce l'URL per l'app Web e l'utente che ha eseguito l'accesso (in un `ClaimsPrincipal`). `HttpContext` 
+
+USA anche la configurazione ASP.NET Core, che include una sezione "AzureAD", e che è associata a:
+
+- struttura di dati di tipo [ConfidentialClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationoptions?view=azure-dotnet) `_applicationOptions`
+- istanza di tipo [AzureAdOptions](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/AzureADOptions.cs) definita in ASP.NET Core `Authentication.AzureAD.UI`. `azureAdOptions` Infine, l'applicazione deve gestire le cache dei token.
 
 ```CSharp
 /// <summary>
@@ -102,7 +118,7 @@ private IConfidentialClientApplication BuildConfidentialClientApplication(HttpCo
  var request = httpContext.Request;
 
  // Find the URI of the application)
- string currentUri = UriHelper.BuildAbsolute(request.Scheme, request.Host, request.PathBase, azureAdOptions.CallbackPath ?? string.Empty);
+ string currentUri = UriHelper.BuildAbsolute(request.Scheme, request.Host, request.PathBase, _applicationOptions.CallbackPath ?? string.Empty);
 
  // Updates the authority from the instance (including national clouds) and the tenant
  string authority = $"{azureAdOptions.Instance}{azureAdOptions.TenantId}/";
@@ -116,19 +132,22 @@ private IConfidentialClientApplication BuildConfidentialClientApplication(HttpCo
  // Initialize token cache providers. In the case of Web applications, there must be one
  // token cache per user (here the key of the token cache is in the claimsPrincipal which
  // contains the identity of the signed-in user)
- if (this.UserTokenCacheProvider != null)
+ if (UserTokenCacheProvider != null)
  {
-  this.UserTokenCacheProvider.Initialize(app.UserTokenCache, httpContext, claimsPrincipal);
+  UserTokenCacheProvider.Initialize(app.UserTokenCache, httpContext, claimsPrincipal);
  }
- if (this.AppTokenCacheProvider != null)
+ if (AppTokenCacheProvider != null)
  {
-  this.AppTokenCacheProvider.Initialize(app.AppTokenCache, httpContext);
+  AppTokenCacheProvider.Initialize(app.AppTokenCache, httpContext);
  }
  return app;
 }
 ```
 
-`AcquireTokenByAuthorizationCode`Riscatta effettivamente il codice di autorizzazione richiesto da ASP.NET e ottiene i token aggiunti alla cache dei token utente di MSAL.NET. Da qui vengono usati nei controller di ASP.NET Core.
+Per informazioni dettagliate sui provider di cache di token, vedere le esercitazioni sulle [app Web di ASP.NET Core | Cache di token](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/455d32f09f4f6647b066ebee583f1a708376b12f/2-WebApp-graph-user/2-2-TokenCache)
+
+> [!NOTE]
+> `AcquireTokenByAuthorizationCode`Riscatta effettivamente il codice di autorizzazione richiesto da ASP.NET e ottiene i token aggiunti alla cache dei token utente di MSAL.NET. Da qui vengono usati nei controller di ASP.NET Core.
 
 ## <a name="aspnet-configuration"></a>Configurazione di ASP.NET
 

@@ -1,19 +1,19 @@
 ---
 title: Configurare le impostazioni di Spark - Azure HDInsight
 description: Come configurare Spark per un cluster Azure HDInsight.
-author: maxluk
-ms.author: maxluk
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: d5dca3f4517f3d24b765652f420a38c258ad9a2e
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: eb948aa2b683f426831e1b0d34b44f814eab6b9f
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190926"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68441922"
 ---
 # <a name="configure-apache-spark-settings"></a>Configurare le impostazioni di Apache Spark
 
@@ -57,7 +57,7 @@ L'esempio precedente esegue l'override di alcuni valori predefiniti per cinque p
 
 ## <a name="view-cluster-configuration-settings"></a>Visualizzare le impostazioni di configurazione del cluster
 
-Verificare le impostazioni di configurazione correnti del cluster HDInsight prima di eseguire l'ottimizzazione delle prestazioni nel cluster. Avviare il dashboard di HDInsight dal portale di Azure facendo clic sul collegamento **Dashboard** nel riquadro del cluster Spark. Accedere usando nome utente e password dell'amministratore del cluster.
+Verificare le impostazioni di configurazione correnti del cluster HDInsight prima di eseguire l'ottimizzazione delle prestazioni nel cluster. Avviare il dashboard di HDInsight dal portale di Azure facendo clic sul collegamento **Dashboard** nel riquadro del cluster Spark. Accedere con il nome utente e la password dell'amministratore del cluster.
 
 Viene visualizzata l'interfaccia utente Web di Apache Ambari, con una vista del dashboard delle metriche principali di utilizzo delle risorse del cluster.  Il dashboard di Ambari mostra la configurazione di Apache Spark e altri servizi installati. Il dashboard include una scheda **Config History** (Cronologia configurazione), dove è possibile visualizzare le informazioni di configurazione per tutti i servizi installati, incluso Spark.
 
@@ -140,7 +140,7 @@ Il codice riportato di seguito mostra come modificare la configurazione per un'a
     {"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
 ```
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 Ci sono numerose impostazioni di configurazione principali che è necessario monitorare e modificare per garantire che i processi Spark vengano eseguiti in modo prevedibile e ad alte prestazioni. Queste impostazioni aiutano a determinare la migliore configurazione del cluster Spark per i carichi di lavoro specifici.  È anche necessario monitorare i processi Spark che comportano un'esecuzione prolungata e/o un consumo eccessivo di risorse.  Le sfide più comuni sono legate a un carico eccessivo sulla memoria a causa di configurazioni non corrette (in particolare in caso di executor di dimensioni errate), operazioni con esecuzione prolungata e attività che generano operazioni cartesiane.
 

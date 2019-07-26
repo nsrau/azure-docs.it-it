@@ -1,6 +1,6 @@
 ---
-title: Attributi di sicurezza comuni per l'inoltro del Bus di servizio di Azure
-description: Un elenco di controllo di attributi di sicurezza comuni per la valutazione di inoltro del Bus di servizio di Azure
+title: Attributi di sicurezza per l'inoltro del bus di servizio di Azure
+description: Elenco di controllo degli attributi di sicurezza per la valutazione di inoltro del bus di servizio di Azure
 services: service-bus-relay
 ms.service: service-bus-relay
 documentationcenter: ''
@@ -9,16 +9,16 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d8ce3c995e8e0f20ed6d694f481cc5fc9fde4fa7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2047f64914d4a286e6de38b7b2c8524d98eba562
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66000158"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443876"
 ---
-# <a name="security-attributes-for-azure-service-bus-relay"></a>Attributi di sicurezza per l'inoltro del Bus di servizio di Azure
+# <a name="security-attributes-for-azure-service-bus-relay"></a>Attributi di sicurezza per l'inoltro del bus di servizio di Azure
 
-Questo articolo sono descritti gli attributi di sicurezza integrati di inoltro del Bus di servizio di Azure.
+Questo articolo descrive gli attributi di sicurezza incorporati nell'inoltro del bus di servizio di Azure.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -26,43 +26,43 @@ Questo articolo sono descritti gli attributi di sicurezza integrati di inoltro d
 
 | Attributo di sicurezza | Sì/No | Note |
 |---|---|--|
-| Crittografia di dati inattivi:<ul><li>Modello di crittografia lato server</li><li>Crittografia lato server con chiavi gestite dal cliente</li><li>Altre funzionalità di crittografia (ad esempio lato client, Always Encrypted e così via)</ul>|  N/D | Inoltro è un web socket e non rende persistenti i dati. |
-| Crittografia in transito:<ul><li>Crittografia ExpressRoute</li><li>Nella crittografia di rete virtuale</li><li>Crittografia da rete virtuale a rete virtuale</ul>| Yes | Il servizio richiede TLS. |
-| Gestione della crittografia chiave (CMK, modalità BYOK e così via)| No | Utilizza solo certificati TLS Microsoft.  |
-| Crittografia a livello di colonna (Azure Data Services)| N/D | |
-| Chiamate API crittografate| Yes | HTTPS. |
+| Crittografia dei servizi inattivi, ad esempio la crittografia lato server, la crittografia lato server con chiavi gestite dal cliente e altre funzionalità di crittografia|  N/D | L'inoltro è un socket Web e non rende persistenti i dati. |
+| Crittografia in transito (ad esempio crittografia ExpressRoute, crittografia VNet e crittografia VNet-VNet)| Sì | Il servizio richiede TLS. |
+| Gestione della chiave di crittografia (CMK, BYOK e così via)| No | USA solo certificati TLS Microsoft.  |
+| Crittografia a livello di colonna (servizi dati di Azure)| N/D | |
+| Chiamate API crittografate| Sì | HTTPS. |
 
 ## <a name="network-segmentation"></a>Segmentazione di rete
 
 | Attributo di sicurezza | Sì/No | Note |
 |---|---|--|
-| Supporto endpoint del servizio| No |  |
-| Isolamento di rete e supporto firewall| No |  |
-| Supporto di tunneling forzato| N/D | Endpoint di inoltro è il tunnel TLS  |
+| Supporto per endpoint di servizio| No |  |
+| Isolamento rete e supporto del firewall| No |  |
+| Supporto del tunneling forzato| N/D | L'inoltro è il tunnel TLS  |
 
 ## <a name="detection"></a>Rilevamento
 
 | Attributo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Monitoraggio di supporto (analitica di Log, Application insights e così via) di Azure| Yes | |
+| Supporto di monitoraggio di Azure (log Analytics, Application Insights e così via)| Sì | |
 
 ## <a name="identity-and-access-management"></a>Gestione delle identità e dell'accesso
 
 | Attributo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Authentication| Yes | Via SAS. |
-| Authorization|  Yes | Via SAS. |
+| Authentication| Yes | Tramite SAS. |
+| Authorization|  Sì | Tramite SAS. |
 
 
 ## <a name="audit-trail"></a>Audit trail
 
 | Attributo di sicurezza | Sì/No | Note|
 |---|---|--|
-| La registrazione di piano di controllo e la gestione e controllo| Yes | Attraverso [Azure Resource Manager](../azure-resource-manager/index.yml). |
-| Controllo e registrazione di piano dati| Yes | Esito positivo di connessione / errore e gli errori e registrati.  |
+| Registrazione e controllo del piano di gestione e controllo| Yes | Tramite [Azure Resource Manager](../azure-resource-manager/index.yml). |
+| Registrazione e controllo del piano dati| Sì | Connessione riuscita/non riuscita ed errori e registrato.  |
 
 ## <a name="configuration-management"></a>Gestione della configurazione
 
 | Attributo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Supporto di Gestione configurazione (controllo delle versioni di configurazione e così via).| Yes | Attraverso [Azure Resource Manager](../azure-resource-manager/index.yml).|
+| Supporto per la gestione della configurazione (controllo delle versioni della configurazione e così via)| Sì | Tramite [Azure Resource Manager](../azure-resource-manager/index.yml).|

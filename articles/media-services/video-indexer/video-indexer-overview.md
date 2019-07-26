@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 07/22/2019
 ms.author: juliako
-ms.openlocfilehash: 2c72c7c493c0a887adab147054c725a2e1c0659f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b0d0df5d113b1d75602022085b8bb17133f07333
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799130"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422972"
 ---
 # <a name="what-is-video-indexer"></a>Informazioni su Video Indexer
 
@@ -24,31 +24,31 @@ Video Indexer di Azure è un'applicazione cloud creata sulla base di Analisi Ser
 ## <a name="video-insights"></a>Informazioni dettagliate sui contenuti video
 
 - **Rilevamento volto**: rileva e raggruppa i visi visualizzati nel video.
-- **Identificazione di celebrità**: Video Indexer identifica automaticamente celebrità di oltre 1 milione – come leader del mondo, gli attori, attrici, atleti, i ricercatori, business e i responsabili tecnici in tutto il mondo. I dati relativi a queste celebrità possono anche essere trovati su diversi siti Web noti, ad esempio IMDB e Wikipedia.
-- **Identificazione viso basata sull'account**: Video Indexer esegue il training di un modello per un account specifico. Riconosce quindi volti del video in base al modello con training. Per altre informazioni, vedere [personalizzare un modello di persona dal sito Web di Video Indexer](customize-person-model-with-website.md) e [personalizzare un modello di persona con l'API Video Indexer](customize-person-model-with-api.md).
+- **Identificazione di celebrità**: Video Indexer identifica automaticamente più di 1 milione celebrità, ad esempio leader mondiali, attori, attrici, atleti, ricercatori, aziende e leader della tecnologia in tutto il mondo. I dati relativi a queste celebrità possono anche essere trovati su diversi siti Web noti, ad esempio IMDB e Wikipedia.
+- **Identificazione viso basata sull'account**: Video Indexer esegue il training di un modello per un account specifico. Riconosce quindi i visi nel video in base al modello sottoposto a training. Per altre informazioni, vedere [personalizzare un modello di persona dal sito web video Indexer](customize-person-model-with-website.md) e [personalizzare un modello di persona con l'API video Indexer](customize-person-model-with-api.md).
 - **Estrazione dell'anteprima per i visi** ("viso migliore"): identifica automaticamente il viso migliore acquisito in ogni gruppo di visi (in base a qualità, dimensioni e posizione frontale) e lo estrae come risorsa immagine.
 - **Riconoscimento del testo visivo** (OCR): estrae il testo visualizzato nel video.
 - **Moderazione del contenuto visivo**: rileva contenuto visivo per adulti e/o razzista.
 - **Identificazione delle etichette**: identifica gli oggetti visivi e le azioni visualizzate.
-- **Segmentazione della scena**: determina quando viene modificato una scena nel video in base a segnali visivi. Una scena illustra un singolo evento ed è composto da una serie di schermate consecutivi, semanticamente correlate. 
-- **Cattura di rilevamento**: determina quando viene modificato un cattura nel video in base a segnali visivi. Una cattura è una serie di fotogrammi impiegato dalla fotocamera cinematografica stesso. Per altre informazioni, vedere [scene, scatti e fotogrammi chiave](scenes-shots-keyframes.md).
+- **Segmentazione della scena**: determina quando una scena cambia in video in base a segnali visivi. Una scena raffigura un singolo evento ed è costituita da una serie di scatti consecutivi, che sono semanticamente correlati. 
+- **Rilevamento shot**: determina quando viene modificato il video in base ai segnali visivi. Un'immagine è una serie di frame ricavati dalla stessa fotocamera di movimento. Per altre informazioni, vedere [scene, scatti e fotogrammi chiave](scenes-shots-keyframes.md).
 - **Rilevamento fotogramma nero**: identifica i fotogrammi neri presentati nel video.
 - **Estrazione di fotogrammi chiave**: rileva i fotogrammi chiave stabili in un video.
-- **Implementazione di crediti**: identificare l'inizio e fine dei crediti in sequenza alla fine di film e TV.
+- **Crediti in sequenza**: identificare l'inizio e la fine dei crediti in corso alla fine della TV e dei film.
 
 ## <a name="audio-insights"></a>Informazioni dettagliate sui contenuti audio
 
-- **Rilevamento automatico della lingua**: identifica automaticamente la lingua parlata dominante. Lingue supportate includono inglese, spagnolo, francese, tedesco, italiano, cinese (semplificato), giapponese, russo e brasiliano portoghese sarà il fallback a inglese quando non è possibile rilevare la lingua.
-- **Trascrizione audio**: converte la voce in testo in 12 lingue diverse e consente le estensioni. Lingue supportate includono inglese, spagnolo, francese, tedesco, italiano, cinese (semplificato), giapponese, arabo, russo, portoghese (Brasile), Hindi e coreano.
+- **Rilevamento automatico della lingua**: identifica automaticamente la lingua parlata dominante. Le lingue supportate sono inglese, spagnolo, francese, tedesco, italiano, cinese (semplificato), giapponese, russo e portoghese brasiliano. Se la lingua non può essere identificata in tutta sicurezza, Video Indexer presuppone che la lingua parlata sia l'inglese. Per altre informazioni, vedere [modello di identificazione della lingua](language-identification-model.md).
+- **Trascrizione audio**: converte la voce in testo in 12 lingue diverse e consente le estensioni. Le lingue supportate sono inglese, spagnolo, francese, tedesco, italiano, cinese (semplificato), giapponese, arabo, russo, Portoghese brasiliano, Hindi e coreano.
 - **Sottotitoli**: consente di creare sottotitoli in tre formati: VTT, TTML e SRT.
 - **Elaborazione a due canali**: rileva automaticamente trascrizioni separate e le unisce in una singola sequenza temporale.
 - **Riduzione del rumore**: ripulisce le registrazioni audio di telefonia o le registrazioni con rumori (in base ai filtri Skype).
-- **Personalizzazione della trascrizione** (CRIS): Esegue il training di riconoscimento vocale personalizzato per i modelli di testo per creare le trascrizioni specifici del settore. Per altre informazioni, vedere [personalizzare un modello di lingua dal sito Web di Video Indexer](customize-language-model-with-website.md) e [personalizzare un modello di lingua con le API di indicizzatore Video](customize-language-model-with-api.md).
+- **Personalizzazione della trascrizione** (CRIS): Consente di eseguire il training del riconoscimento vocale personalizzato nei modelli di testo per creare trascrizioni specifiche del settore. Per altre informazioni, vedere [personalizzare un modello di linguaggio dal sito Web di video Indexer](customize-language-model-with-website.md) e [personalizzare un modello di linguaggio con le API video Indexer](customize-language-model-with-api.md).
 - **Enumerazione dei relatori**: identifica e riconosce quale relatore ha pronunciato determinate parole e quando.
 - **Statistiche dei relatori**: fornisce statistiche in merito al parlato dei relatori.
 - **Moderazione del contenuto testuale**: rileva testo esplicito nella trascrizione audio.
 - **Effetti audio**: identifica effetti audio, come applausi, parlato e silenzio.
-- **Rilevamento delle emozioni**: Identifica le emozioni basate su riconoscimento vocale (parlato) e tonalità di voce (come lo è detto).  L'emozione potrebbe essere gioia, tristezza, rabbia o paura.
+- **Rilevamento delle emozioni**: Identifica le emozioni in base al parlato (cosa viene detto) e alla tonalità vocale (come viene detto).  L'emozione potrebbe essere gioia, tristezza, rabbia o paura.
 - **Traduzione**: crea traduzioni della trascrizione audio in 54 lingue diverse.
 
 ## <a name="audio-and-video-insights-multi-channels"></a>Informazioni dettagliate sui contenuti audio e video (più canali)
@@ -72,13 +72,13 @@ Il servizio Video Indexer soddisfa le esigenze dei gestori di contenuti e degli 
 Ecco alcuni scenari in cui Video Indexer può risultare utile.
 
 - Ricerca: le informazioni dettagliate estratte dal video possono essere usate per migliorare l'esperienza di ricerca in un catalogo video. L'indicizzazione del testo parlato e dei visi ad esempio può consentire all'esperienza di ricerca di individuare i momenti in un video in cui una persona specifica ha pronunciato determinate parole o in cui due persone sono visualizzate insieme. La ricerca basata su tali informazioni dettagliate estratte dai video è utile per agenzie di stampa, istituti di istruzione, operatori che trasmettono eventi live, proprietari di contenuti per l'intrattenimento, app line-of-business aziendali e in genere per qualsiasi settore che ha un catalogo video in cui gli utenti devono eseguire ricerche.
-- La creazione: insights estratto dai video e contenuto della Guida in modo efficace creare contenuto, ad esempio i trailer, contenuti multimediali basati su social network, notizie, clip e così via da contenuti esistenti nell'archivio dell'organizzazione 
+- Creazione di contenuto: informazioni dettagliate estratte dai video e che consentono di creare in modo efficace contenuto, ad esempio trailer, contenuto di social media, clip di notizie e così via, dal contenuto esistente nell'archivio dell'organizzazione 
 - Monetizzazione: Video Indexer può contribuire al miglioramento del valore dei video. I settori che si basano ad esempio sui profitti degli annunci pubblicitari (media, social media e così via) possono offrire annunci più rilevanti usando le informazioni dettagliate estratte come segnali aggiuntivi per il server di annunci. La presentazione di un annuncio relativo a una scarpa sportiva, ad esempio, è più rilevante durante una partita di calcio rispetto a una gara di nuoto.
 - Engagement degli utenti: le informazioni dettagliate estratte dai video possono essere usate per migliorare l'engagement degli utenti tramite il posizionamento dei momenti rilevanti del video per gli utenti. Si consideri ad esempio un video formativo che illustra le sfere per i primi 30 minuti e le piramidi per i 30 minuti successivi. Uno studente che sta leggendo informazioni sulle piramidi otterrebbe maggiori vantaggi se il video venisse posizionato a partire dal marcatore dei 30 minuti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È ora possibile iniziare a usare Video Indexer. Per altre informazioni, vedere gli articoli seguenti:
+È ora possibile iniziare a usare Video Indexer. Per altre informazioni, vedere i seguenti articoli:
 
 - [Introduzione al sito Web di Video Indexer](video-indexer-get-started.md)
 - [Elaborare contenuti con l'API REST Video Indexer](video-indexer-use-apis.md)

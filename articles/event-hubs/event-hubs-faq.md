@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/15/2019
 ms.author: shvija
-ms.openlocfilehash: e1ec6987f1a142e9bf9cd4413cfb4444bde1b7dd
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 66b11ef8e746222074eadab2348f8a2cf9dab39f
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797008"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479141"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Domande frequenti sugli Hub eventi di Azure
 
@@ -24,14 +24,14 @@ ms.locfileid: "67797008"
 ### <a name="what-is-an-event-hubs-namespace"></a>Che cos'è uno spazio dei nomi di Hub eventi?
 Uno spazio dei nomi è un contenitore di ambito per gli argomenti di Hub eventi/Kafka. Specifica un nome [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) univoco. Uno spazio dei nomi viene usato come contenitore di applicazioni che può ospitare più argomenti di Hub eventi/Kafka. 
 
-### <a name="when-do-i-create-a-new-namespace-vs-use-an-existing-namespace"></a>Quando si crea un nuovo spazio dei nomi e usa uno spazio dei nomi esistente?
-Le allocazioni della capacità ([unità di velocità effettiva (tu predeterminate)](#throughput-units)) vengono fatturati a livello di spazio dei nomi. Uno spazio dei nomi è anche associato a un'area.
+### <a name="when-do-i-create-a-new-namespace-vs-use-an-existing-namespace"></a>Quando si crea un nuovo spazio dei nomi e si utilizza uno spazio dei nomi esistente?
+Le allocazioni di capacità (unità elaborate[(TUS)](#throughput-units)) vengono fatturate a livello di spazio dei nomi. Uno spazio dei nomi è associato anche a un'area.
 
-È possibile creare un nuovo spazio dei nomi anziché usare un'uno esistente in uno dei seguenti scenari: 
+È possibile creare un nuovo spazio dei nomi anziché utilizzarne uno esistente in uno degli scenari seguenti: 
 
-- È necessario un Hub di eventi associato a una nuova area.
-- È necessario un Hub di eventi associato a una sottoscrizione diversa.
-- È necessario un Hub eventi con un'allocazione capacità di distinct (vale a dire, la capacità necessaria per lo spazio dei nomi con l'hub eventi di aggiunta comporterebbe il superamento della soglia di unità Elaborate 40 e non si vuole passare per il cluster dedicato)  
+- È necessario un hub eventi associato a una nuova area.
+- È necessario un hub eventi associato a una sottoscrizione diversa.
+- È necessario un hub eventi con un'allocazione di capacità distinta, ovvero la necessità di capacità per lo spazio dei nomi con l'hub eventi aggiunto supera la soglia 40 e non si vuole andare per il cluster dedicato.  
 
 ### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>Qual è la differenza tra i livelli Standard e Base di Hub eventi?
 
@@ -61,45 +61,45 @@ Il livello Standard di Hub eventi supporta attualmente un periodo di conservazio
 Hub eventi genera metriche complete che specificano lo stato delle risorse in [Monitoraggio di Azure](../azure-monitor/overview.md). Consentono anche di valutare l'integrità generale delle risorse del servizio Hub eventi, non solo a livello di spazio dei nomi, ma anche a livello di entità. Sono disponibili informazioni sul tipo di monitoraggio offerto per [Hub eventi di Azure](event-hubs-metrics-azure-monitor.md).
 
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quali porte è necessario aprire nel firewall? 
-È possibile utilizzare i protocolli seguenti con il Bus di servizio di Azure per inviare e ricevere messaggi:
+È possibile usare i protocolli seguenti con il bus di servizio di Azure per inviare e ricevere messaggi:
 
 - Advanced Message Queuing Protocol (AMQP)
 - HTTP
 - Apache Kafka
 
-Vedere la tabella seguente per le porte in uscita che è necessario aprire per l'uso di questi protocolli per comunicare con hub eventi di Azure. 
+Vedere la tabella seguente per le porte in uscita che è necessario aprire per usare questi protocolli per comunicare con hub eventi di Azure. 
 
 | Protocol | Porte | Dettagli | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 e 5672 | Vedere [Guida al protocollo AMQP](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
+| AMQP | 5671 e 5672 | Vedere la [Guida al protocollo AMQP](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
 | HTTP, HTTPS | 80, 443 |  |
-| Kafka | 9093 | Vedere [usare gli hub di eventi da applicazioni di Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+| Kafka | 9093 | Vedere [usare hub eventi dalle applicazioni Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Quali indirizzi IP è necessario all'elenco elementi consentiti?
-Per trovare gli indirizzi IP a destra all'elenco elementi consentiti per le connessioni, seguire questa procedura:
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Quali indirizzi IP sono necessari per l'elenco elementi consentiti?
+Per trovare gli indirizzi IP corretti per le connessioni a elenco bianco, seguire questa procedura:
 
-1. Eseguire il comando seguente al prompt dei comandi: 
+1. Eseguire il comando seguente da un prompt dei comandi: 
 
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Annotare l'indirizzo IP restituito `Non-authoritative answer`. L'unico punto nel tempo che comporterebbe la modifica è se si ripristina lo spazio dei nomi a un cluster diverso.
+2. Annotare l'indirizzo IP restituito `Non-authoritative answer`in. L'unico punto nel tempo che cambierebbe è se si ripristina lo spazio dei nomi in un cluster diverso.
 
-Se si usa la ridondanza della zona per lo spazio dei nomi, è necessario effettuare alcuni passaggi aggiuntivi: 
+Se si usa la ridondanza della zona per lo spazio dei nomi, è necessario eseguire alcuni passaggi aggiuntivi: 
 
-1. In primo luogo, eseguire nslookup nello spazio dei nomi.
+1. Per prima cosa, eseguire nslookup nello spazio dei nomi.
 
     ```
     nslookup <yournamespace>.servicebus.windows.net
     ```
-2. Annotare il nome nel **risposta non autorevole** sezione, in cui si trova in uno dei formati seguenti: 
+2. Annotare il nome nella sezione della **risposta non autorevole** , che si trova in uno dei formati seguenti: 
 
     ```
     <name>-s1.servicebus.windows.net
     <name>-s2.servicebus.windows.net
     <name>-s3.servicebus.windows.net
     ```
-3. Eseguire nslookup per ognuno di essi con i suffissi s1, s2 e s3 per ottenere gli indirizzi IP di tutte le tre istanze in esecuzione in tre zone di disponibilità, 
+3. Eseguire nslookup per ciascuna di esse con suffissi S1, S2 e S3 per ottenere gli indirizzi IP di tutte e tre le istanze in esecuzione in tre zone di disponibilità. 
 
 ## <a name="apache-kafka-integration"></a>Integrazione di Apache Kafka
 
@@ -185,8 +185,9 @@ Per crea un cluster Hub eventi Dedicato, inviare una [richiesta di supporto di a
 ## <a name="best-practices"></a>Procedure consigliate
 
 ### <a name="how-many-partitions-do-i-need"></a>Quante partizioni sono necessarie?
+Il numero di partizioni viene specificato in fase di creazione e deve essere compreso tra 2 e 32. Il numero di partizioni non può essere modificato. È quindi consigliabile valutare le dimensioni a lungo termine in fase di impostazione del numero di partizioni. Le partizioni sono un meccanismo di organizzazione dei dati correlato al parallelismo downstream necessario per utilizzare le applicazioni. Il numero di partizioni in un hub eventi è direttamente correlato al numero di lettori simultanei previsti. Per ulteriori informazioni sulle partizioni, vedere [partizioni](event-hubs-features.md#partitions).
 
-Il numero di partizioni in un hub eventi non può essere modificato dopo la configurazione. Dato tale presupposto, è importante riflettere sul numero di partizioni necessario prima di iniziare. 
+È possibile impostarlo in modo che sia il valore massimo possibile, ovvero 32, al momento della creazione. Tenere presente che se si dispone di più di una partizione, gli eventi vengono inviati a più partizioni senza mantenere l'ordine, a meno che non si configurino i mittenti per inviare solo a una singola partizione fuori dalla 32 lasciando ridondanti le 31 partizioni rimanenti. Nel primo caso, sarà necessario leggere gli eventi in tutte le partizioni 32. Nel secondo caso, non vi sono costi aggiuntivi evidenti rispetto alla configurazione aggiuntiva che è necessario eseguire sull'host processore di eventi.
 
 Hub eventi è progettato per consentire un solo lettore di partizione per ogni gruppo di consumer. Nella maggior parte dei casi, è sufficiente l'impostazione predefinita di quattro partizioni. Se si intende ridimensionare l'elaborazione degli eventi, è possibile considerare di aggiungere altre partizioni. Non esiste alcun limite specifico della velocità effettiva in una partizione. Tuttavia, la velocità effettiva aggregata nello spazio dei nomi è limitata dal numero di unità della velocità effettiva. Quando si aumenta il numero di unità della velocità effettiva nello spazio dei nomi, è opportuno aggiungere partizioni per consentire ai lettori simultanei di raggiungere la velocità effettiva personale massima.
 

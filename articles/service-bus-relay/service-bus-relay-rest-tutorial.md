@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 4ed45e1ed18ad630831772997b1fc150882731bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e988724f842ff12cd599eba95c31006fe208fad
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62123400"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422884"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Esercitazione su REST per l'inoltro WCF di Azure
 Questa esercitazione descrive come creare una semplice applicazione host di inoltro di Azure che espone un'interfaccia basata su REST. REST consente ai client Web, ad esempio un Web browser, di accedere all'API del bus di servizio tramite richieste HTTP.
@@ -49,7 +49,7 @@ Per usare le funzionalità del servizio d'inoltro di Azure, è prima necessario 
 
 ## <a name="define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>Definire un contratto di servizio WCF basato su REST da usare con Inoltro di Azure
 
-Quando si crea un servizio basato su REST WCF, è necessario definire il contratto. Il contratto specifica quali operazioni sono supportate dall'host. Un'operazione di servizio può essere considerata come un metodo del servizio Web. I contratti vengono creati definendo un'interfaccia C++, C# o Visual Basic. Ogni metodo dell'interfaccia corrisponde a un'operazione di servizio specifico. L'attributo [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) deve essere applicato a ogni interfaccia e l'attributo [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) deve essere applicato a ogni operazione. Se un metodo di un'interfaccia che ha [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) non ha [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute), non viene esposto. Il codice usato per eseguire queste attività viene illustrato nell'esempio che segue la procedura.
+Quando si crea un servizio basato su REST WCF, è necessario definire il contratto. Il contratto specifica quali operazioni sono supportate dall'host. Un'operazione di servizio può essere considerata come un metodo del servizio Web. I contratti vengono creati definendo un'interfaccia C++, C# o Visual Basic. Ogni metodo nell'interfaccia corrisponde a un'operazione del servizio specifica. L'attributo [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) deve essere applicato a ogni interfaccia e l'attributo [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) deve essere applicato a ogni operazione. Se un metodo di un'interfaccia che ha [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) non ha [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute), non viene esposto. Il codice usato per eseguire queste attività viene illustrato nell'esempio che segue la procedura.
 
 La differenza principale tra un contratto di WCF e un contratto di tipo REST è costituita dall'aggiunta di una proprietà all'attributo [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute): [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute). Questa proprietà consente di eseguire il mapping di un metodo dell'interfaccia a un metodo su altro lato dell'interfaccia. Questo esempio usa l'attributo [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute) per collegare un metodo al metodo HTTP GET. In questo modo il bus di servizio può recuperare e interpretare in modo accurato i comandi inviati all'interfaccia.
 
@@ -259,7 +259,7 @@ Come per i passaggi precedenti, è impercettibile la differenza tra l'implementa
     ```
    
     Questo passaggio consente di configurare un servizio che usa il valore predefinito **webHttpRelayBinding** definito in precedenza. Usa anche il valore predefinito **sbTokenProvider**, definito nel passaggio successivo.
-4. Dopo l'elemento `<services>` creare un elemento `<behaviors>` con il contenuto seguente, sostituendo "SAS_KEY" con la chiave di *firma di accesso condiviso* ottenuta in precedenza dal [portale di Azure][Azure portal].
+4. Dopo l'elemento `<services>`, creare un elemento `<behaviors>` con il contenuto seguente, sostituendo "SAS_KEY" con la chiave di *firma di accesso condiviso* ottenuta in precedenza dal [portale di Azure][Azure portal].
    
     ```xml
     <behaviors>
@@ -578,6 +578,6 @@ Dopo aver compilato la soluzione, effettuare le operazioni seguenti per eseguire
 A questo punto, dopo avere creato un'applicazione che usa il servizio di inoltro di Azure, vedere gli articoli seguenti per altre informazioni:
 
 * [Panoramica del servizio di inoltro di Azure](relay-what-is-it.md)
-* [Come usare il servizio di inoltro WCF con .NET](relay-wcf-dotnet-get-started.md)
+* [Come usare il servizio di inoltro WCF con .NET](service-bus-relay-tutorial.md)
 
 [Azure portal]: https://portal.azure.com

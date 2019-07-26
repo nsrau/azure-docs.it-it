@@ -1,19 +1,18 @@
 ---
 title: Modello di dati per Backup di Microsoft Azure
 description: Questo articolo illustra i dettagli del modello di dati di Power BI per i report di Backup di Azure.
-services: backup
 author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/26/2017
 ms.author: adigan
-ms.openlocfilehash: c6160570644da108ba713e8229b38f9587495c92
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 66245a25af000d999ded87c58e3ba225b373b101
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60337579"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465604"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Modello di dati per i report di Backup di Azure
 Questo articolo descrive il modello di dati di Power BI usato per creare report di Backup di Azure. Con questo modello di dati è possibile filtrare report esistenti in base ai campi di interesse e, soprattutto, creare report personalizzati usando le tabelle e i campi del modello. 
@@ -62,7 +61,7 @@ Questa tabella presenta i campi e le aggregazioni di base per diversi campi corr
 ### <a name="calendar"></a>Calendario
 Questa tabella offre dettagli sui campi relativi al calendario.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | Date |Date |Data selezionata per il filtro dei dati |
 | DateKey |Text |Chiave univoca per ogni elemento data |
@@ -79,7 +78,7 @@ Questa tabella offre dettagli sui campi relativi al calendario.
 ### <a name="job"></a>Processo
 Questa tabella presenta i campi e le aggregazioni di base per diversi campi correlati ai processi.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | #JobsCreatedInPeriod |Numero intero |Numero di processi creati nel periodo di tempo selezionato |
 | %FailuresForJobsCreatedInPeriod |Percentuale |Percentuale complessiva degli errori dei processi nel periodo di tempo selezionato |
@@ -96,7 +95,7 @@ Questa tabella presenta i campi e le aggregazioni di base per diversi campi corr
 | Stato processo |Text |Stato del processo completato, ad esempio, Completed o Failed |
 | JobUniqueId |Text |ID univoco per l'identificazione del processo |
 
-### <a name="policy"></a>Policy
+### <a name="policy"></a>Criteri
 Questa tabella presenta i campi e le aggregazioni di base per diversi campi correlati ai criteri.
 
 | Campo | Tipo di dati | Descrizione |
@@ -133,7 +132,7 @@ Questa tabella presenta i campi e le aggregazioni di base per diversi campi corr
 ### <a name="protected-server"></a>Server protetti
 Questa tabella presenta i campi e le aggregazioni di base per diversi campi correlati ai server protetti.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | #ProtectedServers |Numero intero |Numero di server protetti |
 | AsOnDateTime |Data/ora |Data e ora dell'aggiornamento più recente della riga selezionata |
@@ -152,7 +151,7 @@ Questa tabella presenta i campi e le aggregazioni di base per diversi campi corr
 ### <a name="storage"></a>Archiviazione
 Questa tabella presenta i campi e le aggregazioni di base per diversi campi correlati all'archiviazione.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | #ProtectedInstances |Numero decimale |Numero di istanze protette usato per il calcolo dell'archiviazione front-end a scopo di fatturazione, calcolato in base al valore più recente nel periodo selezionato |
 | AsOnDateTime |Data/ora |Data e ora dell'aggiornamento più recente della riga selezionata |
