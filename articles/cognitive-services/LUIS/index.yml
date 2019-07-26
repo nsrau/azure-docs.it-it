@@ -6,7 +6,7 @@ metadata:
   title: 'Language Understanding Intelligent Service (LUIS): esercitazioni, guide introduttive, informazioni di riferimento sulle API'
   description: Informazioni su come usare il servizio Language Understanding per consentire all'applicazione di comprendere la finalità espressa da una persona con le proprie parole.
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
   ms.devlang: na

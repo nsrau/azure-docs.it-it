@@ -6,7 +6,7 @@ metadata:
   description: Informazioni su come usare il portale e l'API Ricerca personalizzata Bing per creare un'esperienza di ricerca personalizzata
   services: cognitive-services
   author: v-deken
-  manager: cgronlun
+  manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.tgt_pltfrm: na

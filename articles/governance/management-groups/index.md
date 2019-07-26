@@ -7,12 +7,12 @@ ms.service: governance
 ms.date: 04/22/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: 1958a829df2643bd218d4e8d7f6dd563b5b395e8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6ca8351e7294c5a9cdd9f594eb4524d04a27b5c1
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237173"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516981"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizzare le risorse con i gruppi di gestione di Azure
 
@@ -98,7 +98,7 @@ Il grafico seguente mostra l'elenco dei ruoli e delle azioni supportate per i gr
 |Reader                      |        |        |        |        |               |               | X     |
 |Lettore gruppo di gestione*                  |        |        |        |        |               |               | X     |
 |Collaboratore per i criteri delle risorse |        |        |        |        |               | X             |       |
-|Amministratore accessi utente   |        |        |        |        | X             |               |       |
+|Amministratore accessi utente   |        |        |        |        | X             | X             |       |
 
 *: i ruoli Collaboratore gruppo di gestione e Lettore gruppo di gestione consentono agli utenti di eseguire le azioni solo nell'ambito del gruppo di gestione.  
 **: per spostare una sottoscrizione o un gruppo di gestione all'interno o all'esterno di un gruppo di gestione radice, non sono necessarie assegnazioni di ruolo.  Per informazioni su come spostare elementi all'interno della gerarchia, vedere [Gestire le risorse con i gruppi di gestione](manage.md).

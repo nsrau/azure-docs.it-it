@@ -6,7 +6,7 @@ metadata:
   title: 'Personalizza esperienze - Esercitazioni, guide introduttive, informazioni di riferimento sulle API'
   description: 'Informazioni su come usare il servizio Personalizza esperienze per consentire all''applicazione di scegliere la migliore esperienza da mostrare agli utenti, apprendendo dal loro comportamento in tempo reale.'
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
   ms.devlang: na

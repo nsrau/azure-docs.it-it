@@ -6,7 +6,7 @@ metadata:
   description: Informazioni su come usare Riconoscimento modulo per estrarre in modo intelligente dati chiave-valore dai documenti modulo.
   services: cognitive-services
   author: PatrickFarley
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: forms-recognizer
   ms.tgt_pltfrm: na

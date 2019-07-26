@@ -6,7 +6,7 @@ metadata:
   description: Informazioni su come usare l'API Viso per rilevare e identificare i visi nelle immagini e restituire le informazioni facciali. Le esercitazioni illustrano come compilare app che usano l'API.
   services: cognitive-services
   author: PatrickFarley
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: face-api
   ms.tgt_pltfrm: na

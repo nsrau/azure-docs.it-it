@@ -6,7 +6,7 @@ metadata:
   description: Informazioni su come usare Visione artificiale per elaborare immagini e restituire informazioni. Le esercitazioni illustrano come compilare app che usano l'API.
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: computer-vision
   ms.tgt_pltfrm: na
