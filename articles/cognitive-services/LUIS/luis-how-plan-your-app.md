@@ -1,6 +1,6 @@
 ---
-title: Pianificare l'app
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Pianificare l'app-LUIS
+titleSuffix: Azure Cognitive Services
 description: Definire le finalità e le entità dell'app e quindi creare i relativi piani in Language Understanding Intelligent Service (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 9d54cff81f39f41b60800e9b33f3b4da1a735d85
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 121423682bbd9bbb32f2ab1d02e48d3237ee830d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60196236"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563770"
 ---
 # <a name="plan-your-luis-app-with-subject-domain-intents-and-entities"></a>Pianificare l'app LUIS con dominio soggetto, finalità ed entità
 

@@ -1,6 +1,6 @@
 ---
-title: Importare espressioni usando Node.js
-titleSuffix: Azure
+title: Importare le espressioni con node. js-LUIS
+titleSuffix: Azure Cognitive Services
 description: Informazioni su come compilare un'app LUIS a livello di codice a partire da dati preesistenti in formato CSV usando l'API di creazione LUIS.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: diberry
-ms.openlocfilehash: 314d121e8964ba1cdbb457260826d85bf8505fbc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9ca04bdd7f4ed577ad571e6a715201f8c3e2b6ee
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60494898"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559973"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Compilare un'app LUIS a livello di codice con Node.js
 
@@ -26,7 +26,7 @@ LUIS fornisce un'API a livello di codice che esegue le stesse operazioni del sit
 
 * Accedere al sito Web [LUIS](luis-reference-regions.md) e individuare la [chiave di creazione](luis-concept-keys.md#authoring-key) in Account Settings (Impostazioni account). Questa chiave viene usata per chiamare l'API di creazione.
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
-* Questa esercitazione inizia con un CSV per un file di log di richieste degli utenti di un'ipotetica azienda. Scaricarla [qui](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv).
+* Questa esercitazione inizia con un CSV per un file di log di richieste degli utenti di un'ipotetica azienda. Il download è disponibile [qui](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv).
 * Installare la versione più recente di Node.js con NPM. Scaricarla [qui](https://nodejs.org/en/download/).
 * **[Consigliato]** Visual Studio Code per IntelliSense e debug. Scaricarlo [qui](https://code.visualstudio.com/) gratuitamente.
 

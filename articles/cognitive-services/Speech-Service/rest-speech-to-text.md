@@ -1,7 +1,7 @@
 ---
-title: Riferimento API per il riconoscimento vocale (REST) - servizi di riconoscimento vocale
+title: Informazioni di riferimento sulle API di sintesi vocale (REST)-servizio riconoscimento vocale
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come usare l'API REST per il riconoscimento vocale. In questo articolo vengono illustrate le opzioni di autorizzazione, le opzioni di query, come strutturare una richiesta e ricevere una risposta.
+description: Informazioni su come usare l'API REST per sintesi vocale. In questo articolo vengono illustrate le opzioni di autorizzazione, le opzioni di query, come strutturare una richiesta e ricevere una risposta.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 9d967fa4d5ba54e4470dadc5e797067454e1769a
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 6324c00d9b85a13ef6e69185e3b380b20f761f3b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606345"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552970"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST di riconoscimento vocale
 
-Come alternativa per il [Speech SDK](speech-sdk.md), servizi voce consentono di convertire per il riconoscimento vocale usando un'API REST. Ogni endpoint accessibile è associato a un'area. L'applicazione richiede una chiave di sottoscrizione per l'endpoint che si intende usare.
+In alternativa all'SDK di [riconoscimento vocale](speech-sdk.md), i servizi di riconoscimento vocale consentono di convertire sintesi vocale usando un'API REST. Ogni endpoint accessibile è associato a un'area. L'applicazione richiede una chiave di sottoscrizione per l'endpoint che si intende usare.
 
-Prima di usare l'API REST per il riconoscimento vocale, comprensione:
+Prima di usare l'API REST di sintesi vocale, comprendere quanto segue:
 * Le richieste che usano l'API REST possono contenere solo 10 secondi di audio registrato.
 * L'API REST per il riconoscimento vocale restituisce solo i risultati finali. I risultati parziali non sono disponibili.
 
@@ -39,9 +39,9 @@ Queste aree sono supportate per la trascrizione vocale usando l'API REST. Assicu
 
 Questi parametri possono essere inclusi nella stringa di query della richiesta REST.
 
-| Parametro | Descrizione | Obbligatoria / Facoltativa |
+| Parametro | DESCRIZIONE | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
-| `language` | Identifica la lingua parlata che viene riconosciuta. Vedere [Lingue supportate](language-support.md#speech-to-text). | Obbligatorio |
+| `language` | Identifica la lingua parlata che viene riconosciuta. Vedere [Lingue supportate](language-support.md#speech-to-text). | Obbligatoria |
 | `format` | Specifica il formato del risultato. I valori accettati sono `simple` e `detailed`. I risultati semplici includono `RecognitionStatus`, `DisplayText`, `Offset` e `Duration`. Le risposte dettagliate includono più risultati con valori di attendibilità e quattro diverse rappresentazioni. L'impostazione predefinita è `simple`. | Facoltativo |
 | `profanity` | Specifica come gestire il linguaggio volgare nei risultati del riconoscimento. I valori accettati sono `masked` che sostituisce il contenuto volgare con gli asterischi, `removed` che rimuove tutto il contenuto volgare dal risultato, o `raw` che include il contenuto volgare nei risultati. L'impostazione predefinita è `masked`. | Facoltativo |
 
@@ -51,24 +51,24 @@ Questa tabella elenca le intestazioni obbligatorie e facoltative per le richiest
 
 |Intestazione| Descrizione | Obbligatoria / Facoltativa |
 |------|-------------|---------------------|
-| `Ocp-Apim-Subscription-Key` | La chiave di sottoscrizione di servizi di riconoscimento vocale. | È necessaria questa intestazione o `Authorization`. |
+| `Ocp-Apim-Subscription-Key` | Chiave di sottoscrizione di servizi vocali. | È necessaria questa intestazione o `Authorization`. |
 | `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | È necessaria questa intestazione o `Ocp-Apim-Subscription-Key`. |
-| `Content-type` | Descrive il formato e il codec dei dati audio forniti. I valori accettati sono `audio/wav; codecs=audio/pcm; samplerate=16000` e `audio/ogg; codecs=opus`. | Obbligatorio |
+| `Content-type` | Descrive il formato e il codec dei dati audio forniti. I valori accettati sono `audio/wav; codecs=audio/pcm; samplerate=16000` e `audio/ogg; codecs=opus`. | Obbligatoria |
 | `Transfer-Encoding` | Specifica che vengono inviati i dati audio in blocchi, anziché un singolo file. Utilizzare questa intestazione solo se vi è stata la suddivisione in blocchi dei dati audio. | Facoltativo |
-| `Expect` | Se si usa il trasferimento in blocchi, inviare `Expect: 100-continue`. I servizi di riconoscimento vocale riconosca la richiesta iniziale e attende ulteriori dati.| Obbligatorio in caso di invio di dati audio in blocchi. |
+| `Expect` | Se si usa il trasferimento in blocchi, inviare `Expect: 100-continue`. I servizi di riconoscimento vocale riconoscono la richiesta iniziale e attendono dati aggiuntivi.| Obbligatorio in caso di invio di dati audio in blocchi. |
 | `Accept` | Se specificato, deve essere `application/json`. I servizi di riconoscimento vocale forniscono i risultati in formato JSON. Alcuni framework per le richieste Web offrono un valore predefinito incompatibile se non se ne specifica uno, pertanto è buona norma includere sempre `Accept`. | Facoltativo, ma consigliato. |
 
 ## <a name="audio-formats"></a>Formati audio
 
 L'audio viene inviato nel corpo della richiesta HTTP `POST`. Deve essere in uno dei formati elencati in questa tabella:
 
-| Format | Codec | Bitrate | Frequenza di campionamento |
+| Formato | Codec | Bitrate | Frequenza di campionamento |
 |--------|-------|---------|-------------|
 | WAV | PCM | 16 bit | 16 kHz, mono |
 | OGG | OPUS | 16 bit | 16 kHz, mono |
 
 >[!NOTE]
->I formati indicati sopra sono supportati tramite l'API REST e WebSocket nei servizi di riconoscimento vocale. [Speech SDK](speech-sdk.md) attualmente supporta solo il formato WAV con codec PCM.
+>I formati precedenti sono supportati tramite l'API REST e WebSocket nei servizi di riconoscimento vocale. [Speech SDK](speech-sdk.md) attualmente supporta solo il formato WAV con codec PCM.
 
 ## <a name="sample-request"></a>Richiesta di esempio
 
@@ -88,17 +88,17 @@ Expect: 100-continue
 
 Il codice di stato HTTP di ogni risposta indica esito positivo o errori comuni.
 
-| Stato codice HTTP | Descrizione | Possibile motivo |
+| Stato codice HTTP | DESCRIZIONE | Possibile motivo |
 |------------------|-------------|-----------------|
 | 100 | Continue | La richiesta iniziale è stata accettata. Procedere con l'invio del resto dei dati. (Usato con il trasferimento in blocchi.) |
 | 200 | OK | La richiesta ha avuto esito positivo; il corpo della risposta è un oggetto JSON. |
 | 400 | Richiesta non valida | Il codice lingua non è specificato o non è una lingua supportata. Il file audio non è valido. |
-| 401 | Non autorizzata | La chiave di sottoscrizione o il token di autorizzazione non è valido nell'area specificata o l'endpoint non è valido. |
+| 401 | Non autorizzato | La chiave di sottoscrizione o il token di autorizzazione non è valido nell'area specificata o l'endpoint non è valido. |
 | 403 | Accesso negato | Manca la chiave di sottoscrizione o il token di autorizzazione. |
 
 ## <a name="chunked-transfer"></a>Trasferimento in blocchi
 
-Trasferimento in blocco (`Transfer-Encoding: chunked`) consente di ridurre la latenza di riconoscimento perché consente di servizi di riconoscimento vocale iniziare l'elaborazione del file audio durante la trasmissione. L'API REST non fornisce risultati provvisori o parziali. Questa opzione è intesa unicamente a migliorare la velocità di risposta.
+Il trasferimento in blocchi`Transfer-Encoding: chunked`() consente di ridurre la latenza di riconoscimento perché consente ai servizi vocali di iniziare l'elaborazione del file audio durante la trasmissione. L'API REST non fornisce risultati provvisori o parziali. Questa opzione è intesa unicamente a migliorare la velocità di risposta.
 
 Questo esempio di codice mostra come inviare audio in blocchi. Solo il primo blocco deve contenere l'intestazione del file audio. `request` è un oggetto HTTPWebRequest connesso all'endpoint REST appropriato. `audioFile` è il percorso di un file audio su disco.
 
@@ -152,7 +152,7 @@ I risultati vengono forniti in formato JSON. Il formato `simple` include i campi
 
 Il campo `RecognitionStatus` può contenere questi valori:
 
-| Stato | Descrizione |
+| Stato | DESCRIZIONE |
 |--------|-------------|
 | `Success` | Il riconoscimento ha avuto esito positivo e il campo `DisplayText` è presente. |
 | `NoMatch` | La parte parlata è stata rilevata nel flusso audio, ma non sono state trovate corrispondenze per alcuna parola nella lingua di destinazione. In genere significa che la lingua di riconoscimento è una lingua diversa da quella parlata dall'utente. |
@@ -163,7 +163,7 @@ Il campo `RecognitionStatus` può contenere questi valori:
 > [!NOTE]
 > Se l'audio è costituito solo da contenuto volgare e il parametro di query `profanity` è impostato su `remove`, il servizio non restituisce un risultato di riconoscimento vocale.
 
-Il `detailed` formato include gli stessi dati come i `simple` formattare, insieme con `NBest`, un elenco di alternative interpretazioni sullo stesso risultato di riconoscimento. Questi risultati vengono classificati dal probabilmente al meno probabile. La prima voce corrisponde al risultato del riconoscimento principale.  Quando si usa il formato `detailed`, `DisplayText` viene fornito come `Display` per ogni risultato nell'elenco `NBest`.
+Il `detailed` formato include gli stessi dati `simple` del formato, insieme a `NBest`, un elenco di interpretazioni alternative dello stesso risultato del riconoscimento. Questi risultati sono classificati in base alla probabilità meno probabile. La prima voce corrisponde al risultato del riconoscimento principale.  Quando si usa il formato `detailed`, `DisplayText` viene fornito come `Display` per ogni risultato nell'elenco `NBest`.
 
 Ogni oggetto nell'elenco `NBest` include:
 

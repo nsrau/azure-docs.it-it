@@ -1,7 +1,7 @@
 ---
-title: Installare i contenitori di riconoscimento vocale
+title: Installare i contenitori di sintesi vocale
 titleSuffix: Azure Cognitive Services
-description: Descrive in dettaglio le opzioni di configurazione grafico helm per il riconoscimento vocale.
+description: Descrive le opzioni di configurazione del grafico Helm per sintesi vocale.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -11,31 +11,31 @@ ms.topic: include
 ms.date: 06/26/2019
 ms.author: dapine
 ms.openlocfilehash: 1b46c58d3f3c804052e637f7bde2e1a456764dba
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67717242"
 ---
-### <a name="speech-to-text-sub-chart-chartsspeechtotext"></a>Per il riconoscimento vocale (grafico secondario: i grafici/speechToText)
+### <a name="speech-to-text-sub-chart-chartsspeechtotext"></a>Sintesi vocale (Sottografico: grafici/speechToText)
 
-Per ignorare il grafico "ombrello", aggiungere il prefisso `speechToText.` qualsiasi parametro per renderlo più specifico. Ad esempio, eseguirà l'override di parametro corrispondente, ad esempio `speechToText.numberOfConcurrentRequest` esegue l'override `numberOfConcurrentRequest`.
+Per eseguire l'override del grafico "Umbrella", aggiungere `speechToText.` il prefisso su qualsiasi parametro per renderlo più specifico. Ad esempio, eseguirà l'override del parametro corrispondente, `speechToText.numberOfConcurrentRequest` ad `numberOfConcurrentRequest`esempio sostituzioni.
 
 |Parametro|Descrizione|Predefinito|
 | -- | -- | -- |
-| `enabled` | Se il **vocale-** servizio è abilitato. | `false` |
-| `numberOfConcurrentRequest` | Il numero di richieste simultanee per il **vocale-** service. Il grafico calcola automaticamente le risorse di CPU e memoria, in base a questo valore. | `2` |
-| `optimizeForAudioFile`| Indica se il servizio deve ottimizzare per l'input audio tramite file audio. Se `true`, questo grafico dovrà allocare più risorse della CPU al servizio. | `false` |
-| `image.registry`| Il **vocale-** Registro di immagini docker. | `containerpreview.azurecr.io` |
-| `image.repository` | Il **vocale-** repository di immagini docker. | `microsoft/cognitive-services-speech-to-text` |
-| `image.tag` | Il **vocale-** tag immagine docker. | `latest` |
-| `image.pullSecrets` | I segreti di immagine per il pull il **vocale-** immagine docker. | |
-| `image.pullByHash`| Indica se l'immagine docker viene effettuato il pull dall'hash. Se `true`, `image.hash` è obbligatorio. | `false` |
-| `image.hash`| Il **vocale-** hash immagine docker. Utilizzato solo quando `image.pullByHash: true`.  | |
-| `image.args.eula` (obbligatorio) | Indica il che accettazione della licenza. È l'unico valore valido `accept` | |
-| `image.args.billing` (obbligatorio) | Il valore URI dell'endpoint di fatturazione è disponibile nella pagina di panoramica di sintesi vocale del portale di Azure. | |
-| `image.args.apikey` (obbligatorio) | Si usa per rilevare le informazioni di fatturazione. ||
-| `service.type` | Tipo di servizio di Kubernetes il **vocale-** service. Vedere le [servizio Kubernetes i tipi di istruzioni](https://kubernetes.io/docs/concepts/services-networking/service/) per altri dettagli e verificare il supporto di provider di cloud. | `LoadBalancer` |
-| `service.port`|  La porta dei **vocale-** service. | `80` |
-| `service.autoScaler.enabled` | Se il [scalabilità automatica orizzontale di Pod](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) è abilitata. Se `true`, il `speech-to-text-autoscaler` verrà distribuito nel cluster Kubernetes. | `true` |
-| `service.podDisruption.enabled` | Se il [Pod interruzioni del Budget](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) è abilitata. Se `true`, il `speech-to-text-poddisruptionbudget` verrà distribuito nel cluster Kubernetes. | `true` |
+| `enabled` | Indica se il servizio **di riconoscimento vocale** è abilitato. | `false` |
+| `numberOfConcurrentRequest` | Numero di richieste simultanee per il servizio **di riconoscimento vocale** . Questo grafico calcola automaticamente le risorse di CPU e memoria in base a questo valore. | `2` |
+| `optimizeForAudioFile`| Indica se il servizio deve essere ottimizzato per l'input audio tramite file audio. Se `true`, il grafico alloca più risorse della CPU al servizio. | `false` |
+| `image.registry`| Registro delle immagini Docker **per il riconoscimento vocale** . | `containerpreview.azurecr.io` |
+| `image.repository` | Repository di immagini Docker **con testo vocale** . | `microsoft/cognitive-services-speech-to-text` |
+| `image.tag` | Tag dell'immagine Docker **di testo** . | `latest` |
+| `image.pullSecrets` | I segreti dell'immagine per il pull dell'immagine Docker **di sintesi vocale** . | |
+| `image.pullByHash`| Indica se viene eseguito il pull dell'immagine Docker in base all'hash. Se `true` ,`image.hash` è obbligatorio. | `false` |
+| `image.hash`| Hash dell'immagine docker del **testo** . Utilizzato solo quando `image.pullByHash: true`.  | |
+| `image.args.eula`necessaria | Indica che la licenza è stata accettata. L'unico valore valido è`accept` | |
+| `image.args.billing`necessaria | Il valore dell'URI dell'endpoint di fatturazione è disponibile nella pagina di panoramica del discorso del portale di Azure. | |
+| `image.args.apikey`necessaria | Si usa per rilevare le informazioni di fatturazione. ||
+| `service.type` | Tipo di servizio Kubernetes del servizio di **riconoscimento vocale** . Vedere le [istruzioni sui tipi di servizio Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/) per altri dettagli e verificare il supporto del provider di servizi cloud. | `LoadBalancer` |
+| `service.port`|  Porta del servizio di **riconoscimento vocale** . | `80` |
+| `service.autoScaler.enabled` | Indica se il ridimensionamento automatico del [Pod orizzontale](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) è abilitato. Se `true`, il `speech-to-text-autoscaler` verrà distribuito nel cluster Kubernetes. | `true` |
+| `service.podDisruption.enabled` | Indica se il [budget di interferenza Pod](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) è abilitato. Se `true`, il `speech-to-text-poddisruptionbudget` verrà distribuito nel cluster Kubernetes. | `true` |

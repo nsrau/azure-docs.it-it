@@ -1,7 +1,7 @@
 ---
-title: Eseguire istanze di contenitore di Azure
+title: Eseguire istanze di contenitore di Azure-servizio di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
-description: Distribuire il contenitore di servizio di riconoscimento vocale in un'istanza di contenitore di Azure ed eseguirne il test in un web browser.
+description: Distribuire il contenitore del servizio riconoscimento vocale in un'istanza di contenitore di Azure e testarlo in un Web browser.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 7/5/2019
 ms.author: dapine
-ms.openlocfilehash: 062765be22135b12abb29ff6f7ce8a772c67adae
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 41589a12f16f330188e2971e3069eb715d1a7163
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711516"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559726"
 ---
-# <a name="deploy-the-speech-service-container-to-azure-container-instances"></a>Distribuire il contenitore del servizio di riconoscimento vocale in istanze di contenitore di Azure
+# <a name="deploy-the-speech-service-container-to-azure-container-instances"></a>Distribuire il contenitore del servizio riconoscimento vocale in istanze di contenitore di Azure
 
-Informazioni su come distribuire i servizi cognitivi [servizio di riconoscimento vocale](speech-container-howto.md) contenitore di Azure [istanze di contenitore](https://docs.microsoft.com/azure/container-instances/). Questa procedura illustra la creazione di una risorsa del servizio di riconoscimento vocale di Azure. Quindi si discuterà il pull dell'immagine contenitore associato. Infine, vengono messi in evidenza la possibilità di provare l'orchestrazione delle due da un browser. Uso di contenitori può essere spostato l'attenzione degli sviluppatori dalla gestione dell'infrastruttura per invece concentrarsi sullo sviluppo di applicazioni.
+Informazioni su come distribuire il contenitore del [servizio riconoscimento vocale](speech-container-howto.md) di servizi cognitivi in [istanze di contenitore](https://docs.microsoft.com/azure/container-instances/)di Azure. Questa procedura illustra la creazione di una risorsa del servizio riconoscimento vocale di Azure. Viene quindi illustrato il pull dell'immagine del contenitore associata. Infine, viene evidenziata la possibilità di eseguire l'orchestrazione dei due da un browser. L'uso dei contenitori può spostare l'attenzione degli sviluppatori fuori dalla gestione dell'infrastruttura per concentrarsi invece sullo sviluppo di applicazioni.
 
 [!INCLUDE [Prerequisites](../containers/includes/container-preview-prerequisites.md)]
 
 ## <a name="request-access-to-the-container-registry"></a>Richiedere l'accesso al registro contenitori
 
-È necessario innanzitutto completare e inviare il [modulo di richiesta di contenitori vocale servizi cognitivi](https://aka.ms/speechcontainerspreview/) per richiedere l'accesso al contenitore. 
+È necessario prima completare e inviare il [modulo di richiesta di contenitori di sintesi vocale di servizi cognitivi](https://aka.ms/speechcontainerspreview/) per richiedere l'accesso al contenitore. 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 

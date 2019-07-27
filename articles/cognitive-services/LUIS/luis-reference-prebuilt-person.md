@@ -1,5 +1,5 @@
 ---
-title: Entità predefinita personName
+title: Personaname-entità precompilata-LUIS
 titleSuffix: Azure Cognitive Services
 description: Questo articolo contiene informazioni sull'entità predefinita personName in Language Understanding, ovvero LUIS.
 services: cognitive-services
@@ -11,19 +11,19 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 3b12c69b7c6710e774d50e631d2423fd72ce828a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63e32fe79d1f3f6d2573d9a8f94f937cb9eb31ef
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072165"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560173"
 ---
 # <a name="personname-prebuilt-entity-for-a-luis-app"></a>Entità predefinita personName per un'app LUIS
 L'entità predefinita personName rileva i nomi di persona. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti personName per le finalità dell'applicazione. L'entità personName è supportata nelle [impostazioni cultura](luis-reference-prebuilt-entities.md) inglese e cinese.
 
 ## <a name="resolution-for-personname-entity"></a>Risoluzione per l'entità personName
 
-### <a name="api-version-2x"></a>Versione dell'API 2.x
+### <a name="api-version-2x"></a>API versione 2. x
 
 L'esempio seguente illustra la risoluzione dell'entità **builtin.personName**.
 
@@ -45,9 +45,9 @@ L'esempio seguente illustra la risoluzione dell'entità **builtin.personName**.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Versione di anteprima API 3.x
+### <a name="preview-api-version-3x"></a>API di anteprima versione 3. x
 
-Il codice JSON seguente è con il `verbose` parametro è impostato su `false`:
+Il codice JSON seguente è con `verbose` il parametro impostato `false`su:
 
 ```json
 {
@@ -69,7 +69,7 @@ Il codice JSON seguente è con il `verbose` parametro è impostato su `false`:
 }
 ```
 
-Il codice JSON seguente è con il `verbose` parametro è impostato su `true`:
+Il codice JSON seguente è con `verbose` il parametro impostato `true`su:
 
 ```json
 {

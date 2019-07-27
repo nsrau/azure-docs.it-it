@@ -5,6 +5,7 @@
     - name: Informazioni su Mappe di Azure
       href: about-azure-maps.md
 - name: Guide introduttive
+  expanded: true
   items:
     - name: Creare un'app Web
       href: quick-demo-map-app.md

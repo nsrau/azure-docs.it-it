@@ -1,5 +1,5 @@
 ---
-title: Dashboard-Language Understanding
+title: Dashboard-Language Understanding-LUIS
 titleSuffix: Azure Cognitive Services
 description: Correggere gli Intent con il dashboard di analisi, uno strumento di creazione di report visualizzato.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: f068aa7ca6b396ebba05b9d9462d9e95faf7fbaa
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 42dfe4af56149e4305d076b0427f15038a01fadc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296427"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563622"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Come usare il dashboard per migliorare l'app
 
@@ -154,7 +154,7 @@ Determinare le percentuali di soglia con cui si ha dimestichezza per l'azienda.
 
 Il filtro consente di trovare gli Intent con un problema specifico:
 
-|Filtro|Percentuale suggerita|Scopo|
+|Applica filtro|Percentuale suggerita|Scopo|
 |--|--|--|
 |Intent più problematici|-|**Iniziare da qui** : correggere le espressioni in questo intento migliorerà l'app più di altre correzioni.|
 |Correggere le stime di seguito|60%|Questa è la percentuale di enunciati nell'intento selezionato che sono corretti, ma hanno un punteggio di confidenza al di sotto della soglia. |

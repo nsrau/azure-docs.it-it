@@ -1,6 +1,6 @@
 ---
 title: Come testare una knowledge base - QnA Maker
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Testare la Knowledge Base di QnA Maker è una parte importante di un processo iterativo per migliorare l'accuratezza delle risposte restituite. È possibile testare la Knowledge Base attraverso un'interfaccia di chat avanzata che consente anche di apportare modifiche.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 4d9c00c4ea7fd0494d00551dc37b186e1a357037
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6a512098d5dfda47b7755e24b286aabf83aa7e69
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439716"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563077"
 ---
 # <a name="test-your-knowledge-base-interactively-in-qna-maker"></a>Testare la knowledge base in modo interattivo in QnA Maker
 
@@ -63,18 +63,18 @@ Se la risposta con il punteggio più alto non è corretta, selezionare la rispos
 
 È possibile aggiungere una nuova risposta se una delle risposte esistenti individuate non è corretta o se la risposta non esiste nella Knowledge Base (non è stata trovata una buona corrispondenza nella Knowledge Base). 
 
-Nella parte inferiore dell'elenco di risposte, usare la casella di testo per immettere una nuova risposta e premere INVIO per aggiungerlo. 
+Nella parte inferiore dell'elenco risposte utilizzare la casella di testo per immettere una nuova risposta e premere INVIO per aggiungerla. 
 
 Selezionare **Save and train** (Salva ed esegui training) per salvare questa risposta in modo permanente. Una nuova coppia di domanda/risposta è stata così aggiunta alla Knowledge Base. 
 
 > [!NOTE]
 > Tutte le modifiche alla Knowledge Base vengono salvate solo quando si fa clic sul pulsante  **Save and train** (Salva ed esegui training).
 
-## <a name="test-the-published-knowledge-base"></a>Testare la pubblicazione della knowledge base
+## <a name="test-the-published-knowledge-base"></a>Testare la Knowledge base pubblicata
 
-È possibile testare la versione pubblicata dell'articolo della knowledge base nel riquadro di test. Dopo aver pubblicato la Knowledge Base, selezionare la **Knowledge Base pubblicati** casella e inviare una query per ottenere i risultati dalla Knowledge Base pubblicata.
+È possibile testare la versione pubblicata della Knowledge base nel riquadro test. Dopo aver pubblicato la Knowledge base, selezionare la casella **KB pubblicati** e inviare una query per ottenere risultati dalla KB pubblicata.
 
-![Testare l'ambiente di una Knowledge Base pubblicati](../media/qnamaker-how-to-test-kb/test-against-published-kb.png)
+![Eseguire test su una KB pubblicata](../media/qnamaker-how-to-test-kb/test-against-published-kb.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

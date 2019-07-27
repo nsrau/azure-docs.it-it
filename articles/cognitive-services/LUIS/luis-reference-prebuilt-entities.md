@@ -1,5 +1,5 @@
 ---
-title: Tutte le entità predefinite
+title: Tutte le entità predefinite-LUIS
 titleSuffix: Azure Cognitive Services
 description: Questo articolo contiene gli elenchi delle entità predefinite incluse in Language Understanding, ovvero LUIS.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: diberry
-ms.openlocfilehash: 082ebaef9a2497899cf91c24435dea6e626f0041
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 9ce6d33f6f8be844877067163630e5a7909183f6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485144"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563445"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entità per impostazioni cultura nel modello LUIS
 
@@ -34,7 +34,7 @@ Language Understanding offre entità predefinite. Quando un'entità predefinita 
 |Coreano|[ko-KR](#korean-entity-support)||
 |Portoghese|[pt-BR (Brasile)](#portuguese-brazil-entity-support)||
 |Spagnolo|[es-ES (Spagna)](#spanish-spain-entity-support), [es-MX (Messico)](#spanish-mexico-entity-support)||
-|Turco|[turkish](#turkish-entity-support)|Nessuna entità predefinite supportate in turco|
+|Turco|[turkish](#turkish-entity-support)|Nessuna entità predefinita supportata in turco|
 
 ## <a name="chinese-entity-support"></a>Supporto entità cinesi
 
@@ -42,7 +42,7 @@ Sono supportate le entità seguenti:
 
 |Entità predefinita|```zh-CN``` |
 ------|:------:|
-[Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    ✔   |
+[Età](luis-reference-prebuilt-age.md):<br>year<br>mese<br>settimana<br>day   |    ✔   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    ✔   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervallo di tempo   |    ✔   | 
 [Dimensioni](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    ✔   | 
@@ -64,9 +64,9 @@ Sono supportate le entità seguenti:
 
 |Entità predefinita|```nl-NL``` |
 ------|:------:|
-[Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    ✔   |
+[Età](luis-reference-prebuilt-age.md):<br>year<br>mese<br>settimana<br>day   |    ✔   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    ✔   |
-[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   | 
+[DateTime](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimensioni](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    ✔   | 
 [Indirizzo di posta elettronica](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -86,7 +86,7 @@ Sono supportate le entità seguenti:
 
 |Entità predefinita|```en-US``` |
 ------|:------:|
-[Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    ✔   |
+[Età](luis-reference-prebuilt-age.md):<br>year<br>mese<br>settimana<br>day   |    ✔   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    ✔   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervallo di tempo   |    ✔   | 
 [Dimensioni](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    ✔   | 
@@ -108,7 +108,7 @@ Sono supportate le entità seguenti:
 
 |Entità predefinita|```fr-FR``` |
 ------|:------:|
-[Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    ✔   |
+[Età](luis-reference-prebuilt-age.md):<br>year<br>mese<br>settimana<br>day   |    ✔   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    ✔   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervallo di tempo   |    ✔   | 
 [Dimensioni](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    ✔   | 
@@ -130,7 +130,7 @@ Sono supportate le entità seguenti:
 
 |Entità predefinita|```fr-CA``` |
 ------|:------:|
-[Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    ✔   |
+[Età](luis-reference-prebuilt-age.md):<br>year<br>mese<br>settimana<br>day   |    ✔   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    ✔   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervallo di tempo   |    ✔   | 
 [Dimensioni](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    ✔   | 
@@ -152,7 +152,7 @@ Sono supportate le entità seguenti:
 
 |Entità predefinita|```de-DE``` |
 ------|:------:|
-[Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    ✔   |
+[Età](luis-reference-prebuilt-age.md):<br>year<br>mese<br>settimana<br>day   |    ✔   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    ✔   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervallo di tempo   |    ✔   | 
 [Dimensioni](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    ✔   | 
@@ -174,9 +174,9 @@ Sono supportate le entità seguenti:
 
 |Entità predefinita|```it-IT``` |
 ------|:------:|
-[Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    ✔   |
+[Età](luis-reference-prebuilt-age.md):<br>year<br>mese<br>settimana<br>day   |    ✔   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    ✔   |
-[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   | 
+[DateTime](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimensioni](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    ✔   | 
 [Indirizzo di posta elettronica](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -196,9 +196,9 @@ Sono supportate le entità seguenti:
 
 |Entità predefinita|```ja-JP``` |
 ------|:------:|
-[Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    ✔   |
+[Età](luis-reference-prebuilt-age.md):<br>year<br>mese<br>settimana<br>day   |    ✔   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    ✔   |
-[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   | 
+[DateTime](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimensioni](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    ✔   | 
 [Indirizzo di posta elettronica](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -218,9 +218,9 @@ Sono supportate le entità seguenti:
 
 |Entità predefinita|```ko-KR``` |
 ------|:------:|
-[Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    -   |
+[Età](luis-reference-prebuilt-age.md):<br>year<br>mese<br>settimana<br>day   |    -   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    -   |
-[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   | 
+[DateTime](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimensioni](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    -   | 
 [Indirizzo di posta elettronica](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -240,7 +240,7 @@ Sono supportate le entità seguenti:
 
 |Entità predefinita|```pt-BR``` |
 ------|:------:|
-[Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    ✔   |
+[Età](luis-reference-prebuilt-age.md):<br>year<br>mese<br>settimana<br>day   |    ✔   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    ✔   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervallo di tempo   |    ✔   | 
 [Dimensioni](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    ✔   | 
@@ -262,7 +262,7 @@ Sono supportate le entità seguenti:
 
 |Entità predefinita|```es-ES``` |
 ------|:------:|
-[Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    ✔   |
+[Età](luis-reference-prebuilt-age.md):<br>year<br>mese<br>settimana<br>day   |    ✔   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    ✔   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervallo di tempo   |    ✔   | 
 [Dimensioni](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    ✔   | 
@@ -284,7 +284,7 @@ Sono supportate le entità seguenti:
 
 |Entità predefinita|```es-MX``` |
 ------|:------:|
-[Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    -   |
+[Età](luis-reference-prebuilt-age.md):<br>year<br>mese<br>settimana<br>day   |    -   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    -   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervallo di tempo   |    -   | 
 [Dimensioni](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    -   | 
@@ -306,7 +306,7 @@ KeyPhrase non è disponibile in tutte le impostazioni cultura secondarie del por
 
 ## <a name="turkish-entity-support"></a>Supporto entità turche
 
-**Non sono presenti entità predefiniti supportati in turco.** 
+**Non sono presenti entità predefinite supportate in turco.** 
 
 <!--
 

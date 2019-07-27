@@ -1,7 +1,7 @@
 ---
-title: Traduzione vocale con i servizi di riconoscimento vocale di Azure
-titlesuffix: Azure Cognitive Services
-description: I servizi voce consentono di aggiungere end-to-end, in tempo reale, in più lingue la traduzione vocale per le applicazioni, strumenti e i dispositivi. La stessa API può essere usata sia per la traduzione vocale che per la traduzione con riconoscimento vocale.
+title: Traduzione vocale con servizio di riconoscimento vocale
+titleSuffix: Azure Cognitive Services
+description: Il servizio riconoscimento vocale consente di aggiungere la traduzione vocale end-to-end, in tempo reale e multilingue per le applicazioni, gli strumenti e i dispositivi. La stessa API può essere usata sia per la traduzione vocale che per la traduzione con riconoscimento vocale.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,54 +10,54 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 428dba9e8ff5ec072d5172fee357fd5319d04ad8
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: cfcefd0b18831163324519b61dbea305f90f44bc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657740"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552656"
 ---
 # <a name="what-is-speech-translation"></a>Che cos'è la traduzione vocale?
 
-API traduzione vocale di servizi di riconoscimento vocale, Azure Abilita traduzione vocale vocale e riconoscimento vocale in tempo reale, multilingue di flussi audio. Con il SDK di riconoscimento vocale, applicazioni, strumenti e i dispositivi hanno accesso a trascrizioni di origine e di output di traduzione per l'audio specificato. I risultati intermedi di trascrizione e traduzione vengono restituiti quando viene rilevato il parlato, e risultati finali possono essere convertiti in sintesi vocale.
+Traduzione vocale da servizi di sintesi vocale di Azure, consente la traduzione vocale e vocale in tempo reale e multilingue dei flussi audio. Con l'SDK di riconoscimento vocale, le applicazioni, gli strumenti e i dispositivi hanno accesso a trascrizioni di origine e output di traduzione per l'audio fornito. I risultati della trascrizione e della traduzione provvisori vengono restituiti quando viene rilevato un riconoscimento vocale e i risultati finali possono essere convertiti in sintesi vocale.
 
-Motore di conversione di Microsoft si basa su due diversi approcci: traduzione automatica statistici (LAM) e traduzione automatica neurale (NMT). SMT Usa analisi statistiche avanzate per stimare le conversioni migliore possibili nel contesto di alcune parole. Con NMT, le reti neurali vengono usate per fornire le traduzioni più accurate, naturale, usando il contesto completo di frasi di tradurre parole.
+Il motore di traduzione Microsoft è basato su due approcci diversi: statistical machine translation (SMT) e Neural Machine Translation (NMT). SMT usa l'analisi statistica avanzata per stimare le migliori traduzioni possibili in base al contesto di alcune parole. Con NMT, le reti neurali vengono usate per fornire traduzioni più accurate e con suono naturale usando il contesto completo delle frasi per tradurre le parole.
 
-Microsoft Usa attualmente NMT per la conversione a linguaggi più diffusi. Tutte le [lingue disponibili per la traduzione vocale](language-support.md#speech-translation) usano la tecnologia basata sulla traduzione automatica neurale. La traduzione con riconoscimento vocale può usare la traduzione automatica statistica o la traduzione automatica neurale a seconda della coppia di lingue. Quando la lingua di destinazione è supportata da NMT, la traduzione completa è basato su NMT. Quando la lingua di destinazione non è supportata da NMT, la conversione è un ibrido di NMT e SMT, usando l'inglese come "pivot" tra i due linguaggi.
+Oggi Microsoft usa NMT per la traduzione in lingue più diffuse. Tutte le [lingue disponibili per la traduzione vocale](language-support.md#speech-translation) usano la tecnologia basata sulla traduzione automatica neurale. La traduzione con riconoscimento vocale può usare la traduzione automatica statistica o la traduzione automatica neurale a seconda della coppia di lingue. Quando la lingua di destinazione è supportata da NMT, la traduzione completa è basata su NMT. Quando la lingua di destinazione non è supportata da NMT, la traduzione è ibrida di NMT e SMT, usando la lingua inglese come "pivot" tra le due lingue.
 
 ## <a name="core-features"></a>Funzionalità di base
 
-Ecco le funzionalità disponibili attraverso il sistema Speech SDK e API REST:
+Di seguito sono riportate le funzionalità disponibili tramite l'SDK vocale e le API REST:
 
 | Caso d'uso | SDK | REST |
 |----------|-----|------|
-| Traduzione vocale-con risultati del riconoscimento. | Yes | No |
-| Traduzione vocale vocale. | Yes | No |
-| Risultati di riconoscimento e traduzione intermedi. | Yes | No |
+| Traduzione vocale con risultati di riconoscimento. | Yes | No |
+| Traduzione vocale. | Yes | No |
+| Risultati del riconoscimento provvisorio e della traduzione. | Sì | No |
 
-## <a name="get-started-with-speech-translation"></a>Introduzione a funzionalità di traduzione vocale
+## <a name="get-started-with-speech-translation"></a>Introduzione alla traduzione vocale
 
-Sono disponibili guide introduttive progettato per l'esecuzione di codice in meno di 10 minuti. Questa tabella include un elenco delle guide introduttive di traduzione vocale organizzati per linguaggio.
+Sono disponibili guide introduttive progettate per l'esecuzione di codice in meno di 10 minuti. Questa tabella include un elenco di guide introduttive per la traduzione vocale organizzate in base alla lingua.
 
-| Guida introduttiva | Piattaforma | Informazioni di riferimento sulle API |
+| Avvio rapido | Piattaforma | Informazioni di riferimento per l'API |
 |------------|----------|---------------|
-| [C#, .NET core](quickstart-translate-speech-dotnetcore-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, .NET framework](quickstart-translate-speech-dotnetframework-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#, .NET Core](quickstart-translate-speech-dotnetcore-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#, .NET Framework](quickstart-translate-speech-dotnetframework-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
 | [C#, UWP](quickstart-translate-speech-uwp.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
 | [C++](quickstart-translate-speech-cpp-windows.md) | Windows | [Browse](https://aka.ms/csspeech/cppref)|
 | [Java](quickstart-translate-speech-java-jre.md) | Windows, Linux, macOS | [Browse](https://aka.ms/csspeech/javaref) |
 
 ## <a name="sample-code"></a>Codice di esempio
 
-Codice di esempio per Speech SDK è disponibile in GitHub. Questi esempi coprono scenari comuni, ad esempio la lettura di audio da un file o flusso, continua e unica riconoscimento/traduzione e l'utilizzo di modelli personalizzati.
+Il codice di esempio per l'SDK di riconoscimento vocale è disponibile su GitHub. Questi esempi illustrano scenari comuni, ad esempio la lettura di audio da un file o un flusso, il riconoscimento e la traduzione continui e singoli e l'utilizzo di modelli personalizzati.
 
-* [Esempi di riconoscimento vocale e traduzione (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+* [Esempi di sintesi vocale e traduzione (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 
 ## <a name="migration-guides"></a>Guide alla migrazione
 
-Se le applicazioni, strumenti o prodotti Usa la [API traduzione vocale Microsoft Translator](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview), abbiamo creato le guide per facilitare la migrazione ai servizi di riconoscimento vocale.
+Se le applicazioni, gli strumenti o i prodotti usano la [API traduzione vocale](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview), sono state create guide che consentono di eseguire la migrazione ai servizi di riconoscimento vocale.
 
-* [Eseguire la migrazione dall'API traduzione vocale Microsoft Translator per i servizi di riconoscimento vocale](how-to-migrate-from-translator-speech-api.md)
+* [Eseguire la migrazione dalla API Traduzione vocale ai servizi di riconoscimento vocale](how-to-migrate-from-translator-speech-api.md)
 
 ## <a name="reference-docs"></a>Documentazione di riferimento
 
@@ -70,4 +70,4 @@ Se le applicazioni, strumenti o prodotti Usa la [API traduzione vocale Microsoft
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Ottieni gratuitamente una chiave di sottoscrizione per i servizi Voce](get-started.md)
-* [Ottenere il SDK di riconoscimento vocale](speech-sdk.md)
+* [Ottenere l'SDK di riconoscimento vocale](speech-sdk.md)

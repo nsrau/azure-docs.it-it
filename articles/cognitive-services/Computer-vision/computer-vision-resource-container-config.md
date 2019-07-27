@@ -1,6 +1,6 @@
 ---
 title: Configurare i contenitori - Visione artificiale
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Configurare varie impostazioni per i contenitori di riconoscimento del testo in Visione artificiale.
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 90358d54077a0c320e8d3186e806b8a61d951c82
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 3e1dc68ec67e8a7a24c3459519df80a8faf2fc01
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321348"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565651"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>Configurare i contenitori del Docker di riconoscimento del testo
 
@@ -51,7 +51,7 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 Ricordarsi di aggiungere `vision/v1.0` il routing all'URI dell'endpoint, come illustrato nella tabella seguente. 
 
-|Obbligatoria| NOME | Tipo di dati | DESCRIZIONE |
+|Obbligatoria| Name | Tipo di dati | Descrizione |
 |--|------|-----------|-------------|
 |Yes| `Billing` | String | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
@@ -79,7 +79,7 @@ I contenitori Visione artificiale non usano montaggi di input o di output per l'
 
 La sintassi esatta della posizione di montaggio host varia a seconda del sistema operativo host. Inoltre, il percorso di montaggio del [computer host](computer-vision-how-to-install-containers.md#the-host-computer) potrebbe non essere accessibile a causa di un conflitto tra le autorizzazioni utilizzate dall'account del servizio Docker e le autorizzazioni del percorso di montaggio dell'host. 
 
-|Facoltativo| NOME | Tipo di dati | Descrizione |
+|Facoltativo| Name | Tipo di dati | Descrizione |
 |-------|------|-----------|-------------|
 |Non consentito| `Input` | String | I contenitori di Visione artificiale non la usano.|
 |Facoltativo| `Output` | String | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -95,7 +95,7 @@ Ricordarsi di aggiungere `vision/v1.0` il routing all'URI dell'endpoint, come il
 
 Sostituire {_nome_argomento_} con i propri valori:
 
-| Placeholder | Value | Formato o esempio |
+| Segnaposto | Value | Formato o esempio |
 |-------------|-------|---|
 |{API_KEY} | Chiave dell'endpoint della risorsa Servizi cognitivi. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{ENDPOINT_URI} | Il valore dell'endpoint di fatturazione inclusa la regione.|`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0`|

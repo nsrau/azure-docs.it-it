@@ -1,7 +1,7 @@
 ---
-title: Controllare la qualità dei dati per il riconoscimento vocale personalizzato - servizi di riconoscimento vocale
-titlesuffix: Azure Cognitive Services
-description: Riconoscimento vocale personalizzato fornisce strumenti che consentono di controllare visivamente la qualità di riconoscimento di un modello tramite il confronto dei dati audio con il risultato del riconoscimento corrispondente. Dal portale di riconoscimento vocale personalizzato, è possibile riprodurre l'audio caricato e determinare se il risultato del riconoscimento fornito sia corretto.  Questo strumento consente di analizzare rapidamente di qualità del modello di riconoscimento vocale della linea di base di Microsoft o un modello con training personalizzato senza la necessità di trascrivere i dati audio.
+title: Controllare la qualità dei dati per il servizio di Riconoscimento vocale personalizzato vocale
+titleSuffix: Azure Cognitive Services
+description: Riconoscimento vocale personalizzato offre strumenti che consentono di esaminare visivamente la qualità del riconoscimento di un modello confrontando i dati audio con il risultato del riconoscimento corrispondente. Dal portale di Riconoscimento vocale personalizzato è possibile riprodurre l'audio caricato e determinare se il risultato del riconoscimento fornito è corretto.  Questo strumento consente di controllare rapidamente la qualità del modello di sintesi vocale o di un modello personalizzato con training senza dover trascrivere i dati audio.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,50 +10,50 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 900d9b032b4ed121589d904a8ad18059b3283661
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b58f9c17995128091b5c4badd228356dbacc6ae9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603112"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562854"
 ---
-# <a name="inspect-custom-speech-data"></a>Esaminare i dati di riconoscimento vocale personalizzato
+# <a name="inspect-custom-speech-data"></a>Esaminare i dati Riconoscimento vocale personalizzato
 
 > [!NOTE]
-> Qui si presume che l'utente abbia letto [prepara i dati di test per riconoscimento vocale personalizzato](how-to-custom-speech-test-data.md) e avere caricato un set di dati per l'ispezione.
+> Questa pagina presuppone che sia stata effettuata la lettura [dei dati di test per riconoscimento vocale personalizzato](how-to-custom-speech-test-data.md) e che sia stato caricato un set di dati per l'ispezione.
 
-Riconoscimento vocale personalizzato fornisce strumenti che consentono di controllare visivamente la qualità di riconoscimento di un modello tramite il confronto dei dati audio con il risultato del riconoscimento corrispondente. Dal portale di riconoscimento vocale personalizzato, è possibile riprodurre l'audio caricato e determinare se il risultato del riconoscimento fornito sia corretto. Questo strumento consente di analizzare rapidamente di qualità del modello di riconoscimento vocale della linea di base di Microsoft o un modello con training personalizzato senza la necessità di trascrivere i dati audio.
+Riconoscimento vocale personalizzato offre strumenti che consentono di esaminare visivamente la qualità del riconoscimento di un modello confrontando i dati audio con il risultato del riconoscimento corrispondente. Dal portale di Riconoscimento vocale personalizzato è possibile riprodurre l'audio caricato e determinare se il risultato del riconoscimento fornito è corretto. Questo strumento consente di ispezionare rapidamente la qualità del modello di sintesi vocale di Microsoft o di un modello personalizzato sottoposto a training senza dover trascrivere dati audio.
 
-In questo documento verrà illustrato come esaminare visivamente la qualità di un modello utilizzando i dati di training che è stato caricato in precedenza.
+In questo documento si apprenderà come esaminare visivamente la qualità di un modello usando i dati di training caricati in precedenza.
 
-In questa pagina, verrà illustrato come esaminare visivamente la qualità del modello di riconoscimento vocale della linea di base di Microsoft e/o un modello personalizzato che è stato eseguito il training. Si userà i dati caricati per il **dati** scheda per il test.
+In questa pagina si apprenderà come esaminare visivamente la qualità del modello di sintesi vocale di Microsoft Baseline e/o un modello personalizzato di cui è stato eseguito il training. Verranno usati i dati caricati nella scheda **dati** per il testing.
 
 ## <a name="create-a-test"></a>Creare un test
 
-Seguire queste istruzioni per creare un test:
+Per creare un test, seguire queste istruzioni:
 
-1. Passare a **vocale-> riconoscimento vocale personalizzato > test**.
-2. Fare clic su **aggiungere Test**.
-3. Selezionare **ispezionare qualità (dati Audio-only)** . Assegnare un nome, descrizione, il test e selezionare il set di dati audio.
+1. Passare a **riconoscimento vocale > Riconoscimento vocale personalizzato > test**.
+2. Fare clic su **Aggiungi test**.
+3. Selezionare **Controlla qualità (dati solo audio)** . Assegnare al test un nome, una descrizione e selezionare il set di dati audio.
 4. Selezionare fino a due modelli che si desidera testare.
 5. Fare clic su **Create**(Crea).
 
-Dopo aver creato correttamente un test, è possibile confrontare i modelli affiancati.
+Una volta creato correttamente un test, è possibile confrontare i modelli affiancati.
 
-## <a name="side-by-side-model-comparisons"></a>Confronti di modello side-by-side
+## <a name="side-by-side-model-comparisons"></a>Confronto tra modelli affiancati
 
-Quando lo stato del test è *Succeeded*, fare clic sul nome di elemento di test per visualizzare i dettagli del test. Questa pagina di dettaglio Elenca tutte le espressioni nel set di dati, che indica i risultati di riconoscimento dei due modelli insieme la trascrizione del set di dati inviati.
+Quando lo stato del test ha *esito positivo*, fare clic sul nome dell'elemento del test per visualizzare i dettagli del test. Questa pagina di dettaglio elenca tutte le espressioni del set di dati, indicando i risultati del riconoscimento dei due modelli insieme alla trascrizione dal set di dati inviato.
 
-Per consentire di controllare il confronto side-by-side, è possibile passare diversi tipi di errore, tra cui inserimento, eliminazione e sostituzione. Ascoltare l'audio e confrontando i risultati del riconoscimento in ogni colonna (rappresentato da un'etichetta umane trascrizione e i risultati dei due modelli di riconoscimento vocale), è possibile decidere quale modello soddisfa le proprie esigenze e in cui sono necessari miglioramenti.
+Per esaminare il confronto affiancato, è possibile abilitare o disabilitare vari tipi di errore, tra cui inserimento, eliminazione e sostituzione. Ascoltando l'audio e confrontando i risultati del riconoscimento in ogni colonna (mostrando la trascrizione con etichetta umana e i risultati di due modelli di riconoscimento vocale), è possibile decidere quale modello soddisfi le proprie esigenze e dove siano necessari miglioramenti.
 
-Controllo qualità di test è utile per verificare se la qualità di un endpoint di riconoscimento vocale è sufficiente per un'applicazione.  Per una misura obiettiva di accuratezza, che richiedono trascritto audio, seguire le istruzioni disponibili nel [valutare accuratezza](how-to-custom-speech-evaluate-data.md).
+Il controllo della qualità dei test è utile per verificare se la qualità di un endpoint di riconoscimento vocale è sufficiente per un'applicazione.  Per una misura oggettiva di accuratezza, che richiede l'audio trascritto, seguire le istruzioni disponibili in [valutare](how-to-custom-speech-evaluate-data.md)l'accuratezza.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Valutare i dati](how-to-custom-speech-evaluate-data.md)
-* [Il training del modello](how-to-custom-speech-train-model.md)
+* [Valutazione dei dati](how-to-custom-speech-evaluate-data.md)
+* [Eseguire il training del modello](how-to-custom-speech-train-model.md)
 * [Distribuire il modello](how-to-custom-speech-deploy-model.md)
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Preparare i dati di test per riconoscimento vocale personalizzato](how-to-custom-speech-test-data.md)
+* [Preparare i dati di test per Riconoscimento vocale personalizzato](how-to-custom-speech-test-data.md)

@@ -1,6 +1,6 @@
 ---
 title: Come installare ed eseguire i contenitori - Visione artificiale
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Come scaricare, installare ed eseguire i contenitori per Visione artificiale in questa esercitazione dettagliata.
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: efde223061a873a57595bc4a577b7de55b1d8a46
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: afccce5ca9101ed1e30f69264abae7ad85b4902b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321457"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564576"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Installare ed eseguire contenitori di riconoscimento del testo
 
@@ -87,7 +87,7 @@ Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), segui
 
 Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire il contenitore. Il comando usa i parametri seguenti:
 
-| Placeholder | Valore |
+| Segnaposto | Value |
 |-------------|-------|
 |{API_KEY} | Questa chiave viene usata per avviare il contenitore ed è disponibile nella pagina chiavi di `Cognitive Services` Azure.  |
 |{ENDPOINT_URI} | Valore dell'URI dell'endpoint di fatturazione. Esempio:`https://westus.api.cognitive.microsoft.com/vision/v2.0`|

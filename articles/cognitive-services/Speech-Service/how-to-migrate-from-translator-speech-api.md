@@ -1,7 +1,7 @@
 ---
 title: Eseguire la migrazione dall'API Traduzione vocale al Servizio di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come eseguire la migrazione delle applicazioni dall'API traduzione vocale per i servizi di riconoscimento vocale.
+description: Informazioni su come eseguire la migrazione delle applicazioni dall'API Traduzione vocale al Servizio di riconoscimento vocale.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 1ed494cea1ccf8845a25a3ab49d3194cc6a55509
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7b61aef13b113d9b2502c24e3001da25fa186c76
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65785674"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559573"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Eseguire la migrazione dall'API Traduzione vocale al Servizio di riconoscimento vocale
 
 Usare le informazioni di questo articolo per eseguire la migrazione delle applicazioni dall'API Traduzione vocale Microsoft al [Servizio di riconoscimento vocale](index.yml). Questa guida descrive le differenze tra l'API Traduzione vocale e il Servizio di riconoscimento vocale e suggerisce strategie per la migrazione delle applicazioni.
 
 > [!NOTE]
-> La chiave di sottoscrizione dell'API Traduzione vocale non verrà accettata dal Servizio di riconoscimento vocale. È necessario creare una nuova sottoscrizione di servizi di riconoscimento vocale.
+> La chiave di sottoscrizione dell'API Traduzione vocale non verrà accettata dal Servizio di riconoscimento vocale. È necessario creare una nuova sottoscrizione di servizi vocali.
 
 ## <a name="comparison-of-features"></a>Confronto delle funzionalità
 
@@ -35,16 +35,16 @@ Usare le informazioni di questo articolo per eseguire la migrazione delle applic
 | Limite di tempo della connessione                             | 90 minuti                                               | Senza limiti con l'SDK. 10 minuti con una connessione WebSocket.                                                                                                                                                                                                                                                                                   |
 | Chiave di autenticazione nell'intestazione                                | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Più lingue tradotte in una singola richiesta | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| SDK disponibili                                    | :heavy_minus_sign:                                              | :heavy_check_mark:                 | Vedere le [documentazione di servizi di riconoscimento vocale](index.yml) per SDK disponibili.                                                                                                                                                    |
+| SDK disponibili                                    | :heavy_minus_sign:                                              | :heavy_check_mark:                 | Vedere la [documentazione di servizi vocali](index.yml) per gli SDK disponibili.                                                                                                                                                    |
 | Connessioni WebSocket                             | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| API di lingue                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | I servizi di riconoscimento vocale supporta la stessa gamma di linguaggi descritto nel [riferimento lingue API Translator](../translator-speech/languages-reference.md) articolo. |
+| API di lingue                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | I servizi di riconoscimento vocale supportano la stessa gamma di linguaggi descritti nell'articolo di [riferimento sulle lingue dell'API di traduzione](../translator-speech/languages-reference.md) . |
 | Marcatore e filtro per contenuto volgare                       | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | .WAV/PCM come input                                 | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Altri tipi di file come input                         | :heavy_minus_sign:                                              | :heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
 | Risultati parziali                                   | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Informazioni di temporizzazione                                       | :heavy_check_mark:                                              | :heavy_minus_sign:                 |                                                                                                                                                                 |
 | ID correlazione                                    | :heavy_check_mark:                                              | :heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
-| Modelli conversione voce/testo personalizzati                              | :heavy_minus_sign:                                              | :heavy_check_mark:                 | I servizi di riconoscimento vocale offrono i modelli di riconoscimento vocale personalizzato che consentono di personalizzare il riconoscimento vocale vocabolario univoco della propria organizzazione.                                                                                                                                           |
+| Modelli conversione voce/testo personalizzati                              | :heavy_minus_sign:                                              | :heavy_check_mark:                 | I servizi di riconoscimento vocale offrono modelli di riconoscimento vocale personalizzati che consentono di personalizzare il riconoscimento vocale per il vocabolario univoco dell'organizzazione.                                                                                                                                           |
 | Modelli di traduzione personalizzati                         | :heavy_minus_sign:                                              | :heavy_check_mark:                 | La sottoscrizione all'API Traduzione testuale Microsoft consente di usare il [traduttore personalizzato](https://www.microsoft.com/translator/business/customization/) per usare i propri dati per traduzioni più accurate.                                                 |
 
 ## <a name="migration-strategies"></a>Strategie di migrazione
@@ -57,14 +57,14 @@ Se l'organizzazione dispone di applicazioni in fase di sviluppo o in produzione 
 
 * Se l'applicazione usa l'API Traduzione testuale e l'API Traduzione vocale per abilitare i modelli di traduzione personalizzati, è possibile aggiungere gli ID di categoria direttamente usando il Servizio di riconoscimento vocale.
 
-* A differenza dell'API di riconoscimento vocale Microsoft Translator, i servizi di riconoscimento vocale può completare le traduzioni in più lingue in un'unica richiesta.
+* Diversamente dalla API Traduzione vocale, i servizi di riconoscimento vocale possono completare le traduzioni in più linguaggi in un'unica richiesta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Prova gratuitamente i servizi di riconoscimento vocale](get-started.md)
+* [Prova gratuitamente i servizi vocali](get-started.md)
 * [Avvio rapido: Riconoscere i contenuti vocali in un'app UWP con Speech SDK](quickstart-csharp-uwp.md)
 
 ## <a name="see-also"></a>Vedere anche
 
 * [Informazioni sul servizio Voce](overview.md)
-* [Documentazione di servizi di riconoscimento vocale e Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg)
+* [Documentazione di Speech Services e Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg)

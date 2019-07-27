@@ -1,6 +1,6 @@
 ---
 title: Controllare le immagini in base a elenchi personalizzati in C# - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Come moderare immagini con elenchi personalizzati di immagini usando Content Moderator SDK per C#.
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: 49f87b7cf3d7f46a66c0992edf25968b1dbae073
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 915b308b0129d714e51ac50b4230d8447b5c933a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603400"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564473"
 ---
 # <a name="moderate-with-custom-image-lists-in-c"></a>Eseguire la moderazione con elenchi personalizzati di immagini in C#
 
@@ -32,7 +32,7 @@ Questo articolo contiene informazioni ed esempi di codice per iniziare a usare l
 > [!NOTE]
 > È previsto un limite massimo di **5 elenchi di immagini** e ogni elenco **non può includere più di 10.000 immagini**.
 
-L'applicazione console in questa Guida consente di simulare alcune delle attività che è possibile eseguire con l'elenco di immagini, API.
+L'applicazione console per questa guida simula alcune delle attività che è possibile eseguire con l'API dell'elenco di immagini.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
 
@@ -303,7 +303,7 @@ private static ImageList CreateCustomList(ContentModeratorClient client)
 
 ## <a name="create-a-method-to-add-a-collection-of-images-to-the-list"></a>Creare un metodo per aggiungere una raccolta di immagini all'elenco
 
-Aggiungere il metodo seguente alla classe **Program**. Questa Guida non illustra come applicare i tag alle immagini nell'elenco. 
+Aggiungere il metodo seguente alla classe **Program**. Questa guida non illustra come applicare tag alle immagini nell'elenco. 
 
 ```csharp
 /// <summary>

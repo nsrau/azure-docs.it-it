@@ -1,6 +1,6 @@
 ---
-title: Controllo delle versioni
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Controllo delle versioni-LUIS
+titleSuffix: Azure Cognitive Services
 description: Le versioni in LUIS sono simili alle versioni nella programmazione tradizionale. Ogni versione è uno snapshot temporizzato dell'app. Prima di apportare modifiche all'app, creare una nuova versione. È facile tornare all'esatta app e quindi tentare di riportare la finalità e le espressioni dell'app a uno stato precedente.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: diberry
-ms.openlocfilehash: 9da79e5b744f8ba70c0e265f0d1f0126b37eba49
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 75e82cf8a9da7b75f372f35270b16b10ec6e3da6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60509674"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563868"
 ---
 # <a name="understand-how-and-when-to-use-a-luis-version"></a>Comprendere come e quando usare una versione di LUIS
 
@@ -35,7 +35,7 @@ Una [versione](luis-how-to-manage-versions.md#set-active-version) impostata come
 
 Il nome della versione attualmente attiva viene visualizzato nel riquadro in alto a sinistra dopo il nome dell'app. 
 
-[![Versione attiva modifica](./media/luis-concept-version/version-in-nav-bar-inline.png)](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
+[![Modifica versione attiva](./media/luis-concept-version/version-in-nav-bar-inline.png)](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
 
 ## <a name="versions-and-publishing-slots"></a>Versioni e slot di pubblicazione
 La pubblicazione avviene in slot di produzione e di staging. Ogni slot può presentare una versione diversa o la stessa versione. È utile per verificare le modifiche tra versioni modello tramite l'endpoint, disponibile ai bot o ad altre applicazioni di chiamata LUIS. 

@@ -1,6 +1,6 @@
 ---
 title: Miglioramento del classificatore - Servizio visione artificiale personalizzato
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Informazioni su come migliorare la qualità del classificatore.
 services: cognitive-services
 author: PatrickFarley
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: 35f83832b0ceb7507b39095e9cc974d82a480c69
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d71c750185589fd488df70b63fd48e9e674ee3dc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60606847"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561053"
 ---
 # <a name="how-to-improve-your-classifier"></a>Come migliorare il classificatore
 
@@ -29,7 +29,7 @@ Il modello generale riportato di seguito è utile per la compilazione di un clas
 1. Usare nuove immagini per testare la stima
 1. Modificare i dati di training esistenti in base ai risultati della stima
 
-## <a name="prevent-overfitting"></a>Evitare l'overfitting
+## <a name="prevent-overfitting"></a>Impedisci overfitting
 
 In alcuni casi, a un classificatore verrà illustrato come eseguire stime in base alle caratteristiche arbitrarie che le immagini hanno in comune. Ad esempio, se si sta creando un classificatore per mele e agrumi e si sono usate immagini di mele in mano e di agrumi su piatti bianchi, il classificatore potrebbe dare importanza non dovuta a mani e piatti bianchi anziché a mele e agrumi.
 
@@ -39,7 +39,7 @@ Per risolvere il problema, usare il materiale sussidiario seguente sul training 
 
 ## <a name="data-quantity"></a>Quantità di dati
 
-Il numero di immagini di training è il fattore più importante. È consigliabile usare almeno 50 immagini per ogni etichetta come punto di partenza. Con un numero inferiore di immagini, c'è un rischio maggiore di overfitting e, sebbene i numeri di prestazione possano suggerire una buona qualità, il modello potrebbe avere difficoltà con i dati del mondo reale. 
+Il numero di immagini di training è il fattore più importante. È consigliabile usare almeno 50 immagini per etichetta come punto di partenza. Con un numero inferiore di immagini, c'è un rischio maggiore di overfitting e, sebbene i numeri di prestazione possano suggerire una buona qualità, il modello potrebbe avere difficoltà con i dati del mondo reale. 
 
 ## <a name="data-balance"></a>Bilanciamento dei dati
 

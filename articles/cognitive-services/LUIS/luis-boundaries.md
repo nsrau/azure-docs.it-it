@@ -1,6 +1,6 @@
 ---
-title: Limiti
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Limiti-LUIS
+titleSuffix: Azure Cognitive Services
 description: Questo articolo illustra i limiti di LUIS (Language Understanding) dei Servizi cognitivi di Azure. LUIS dispone di diverse aree di limiti. Il limite modello controlla finalità, entità e funzionalità in LUIS. I limiti di quota si basano sul tipo di chiave. La combinazione di tasti controlla il sito Web di LUIS.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/18/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 357ed4c42cc2758766b9ccd45a3fafa541338d11
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5dd49035414c7e717c3d60ab9bc185f42dcac408
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65154563"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560861"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limiti per il modello LUIS e le chiavi
 LUIS dispone di diverse aree di limiti. La prima è il [limite modello](#model-boundaries), che controlla finalità, entità e funzionalità in LUIS. La seconda area è [limiti di quota](#key-limits) basata sul tipo di chiave. Una terza area di limiti è rappresentata dalla [combinazione di tasti](#keyboard-controls) per il controllo del sito Web LUIS. Una quarta area è data dal [mapping dell'area globale](luis-reference-regions.md) tra il sito Web di creazione LUIS e le API dell'[endpoint LUIS](luis-glossary.md#endpoint). 
@@ -29,23 +29,23 @@ Se l'app supera i limiti del modello LUIS, è consigliabile usare un'app [dispat
 |Area|Limite|
 |--|:--|
 | [Nome app][luis-get-started-create-app] | *Numero max predefinito di caratteri |
-| [Test di batch][batch-testing]| 10 set di dati, 1000 espressioni per ogni set di dati|
+| [Test batch][batch-testing]| 10 set di dati, 1000 espressioni per ogni set di dati|
 | Elenco esplicito | 50 per applicazione|
-| Entità esterne | senza limiti |
-| [Finalità][intents]|500 per ogni applicazione: 499 finalità personalizzate e la finalità _None_ obbligatoria.<br>Applicazione [basata su invio](https://aka.ms/dispatch-tool) con 500 origini di spedizione corrispondenti.|
+| Entità esterne | Nessun limite |
+| [Intent][intents]|500 per ogni applicazione: 499 finalità personalizzate e la finalità _None_ obbligatoria.<br>Applicazione [basata su invio](https://aka.ms/dispatch-tool) con 500 origini di spedizione corrispondenti.|
 | [Elenca entità](./luis-concept-entity-types.md) | Padre: 50, figlio: 20.000 elementi. Il nome canonico è il *numero max predefinito di caratteri. I sinonimi non hanno restrizioni di lunghezza. |
-| [Entità apprese macchina + ruoli](./luis-concept-entity-types.md):<br> Composita,<br>semplice,<br>ruolo entità|Un limite di 100 entità padre o 330 entità, a seconda di quale limita i riscontri utente prima di tutto. Un ruolo viene conteggiata come un'entità ai fini questo limite. È un esempio è un composita con un semplice entità che ha 2 ruoli: 1 semplice composta + 1 + 2 ruoli = 4 330 entità.|
-| [Anteprima - elenco dinamico di entità](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 elenchi di circa 1 KB per ogni richiesta dell'endpoint stima query|
+| [Entità e ruoli appresi dal computer](./luis-concept-entity-types.md):<br> composito<br>semplice<br>ruolo entità|Limite di 100 entità padre o di 330 entità, a seconda del limite che viene raggiunto per primo dall'utente. Un ruolo viene conteggiato come entità ai fini di questo limite. Un esempio è costituito da un oggetto composito con un'entità semplice con due ruoli: 1 composti + 1 Simple + 2 Roles = 4 delle entità 330.|
+| [Anteprima-entità elenco dinamico](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 elenchi di ~ 1K per richiesta dell'endpoint di stima di query|
 | [Criteri](luis-concept-patterns.md)|500 criteri per ogni applicazione.<br>Il criterio può contenere al massimo 400 caratteri.<br>3 entità pattern.any per criterio<br>Il criterio può contenere al massimo 2 testi facoltativi annidati|
 | [Pattern.any](./luis-concept-entity-types.md)|100 per applicazione, 3 entità pattern.any per criterio |
-| [Elenco di frasi][phrase-list]|10 elenchi di frase, 5.000 elementi per ogni elenco|
+| [Elenco frasi][phrase-list]|10 elenchi di frase, 5.000 elementi per ogni elenco|
 | [Entità predefinite](./luis-prebuilt-entities.md) | nessun limite|
 | [Entità di espressione regolare](./luis-concept-entity-types.md)|20 entità<br>È consentito un numero massimo di 500 caratteri. per ogni criterio di entità di espressione regolare|
 | [Ruoli](luis-concept-roles.md)|300 ruoli per ogni applicazione. 10 per entità|
 | [Espressione][utterances] | 500 caratteri|
-| [Espressioni][utterances] | 15\.000 per ogni applicazione - non sono previsti limiti al numero di espressioni per finalità|
+| [Espressioni][utterances] | 15.000 per applicazione: non esiste alcun limite al numero di enunciati per finalità|
 | [Versioni](luis-concept-version.md)| nessun limite |
-| [Nome della versione][luis-how-to-manage-versions] | 10 caratteri limitati a caratteri alfanumerici e punto (.) |
+| [Nome versione][luis-how-to-manage-versions] | 10 caratteri limitati a caratteri alfanumerici e punto (.) |
 
 *Il numero max predefinito di caratteri è 50. 
 
@@ -53,14 +53,14 @@ Se l'app supera i limiti del modello LUIS, è consigliabile usare un'app [dispat
 
 ## <a name="object-naming"></a>Denominazione degli oggetti
 
-Non utilizzare i seguenti caratteri nei nomi seguenti.
+Non usare i caratteri seguenti nei nomi seguenti.
 
-|Object|Escludere i caratteri|
+|Object|Escludi caratteri|
 |--|--|
-|Nomi di ruolo, entità e finalità|`:`<br>`$`|
-|Nome della versione|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
+|Finalità, entità e nomi di ruoli|`:`<br>`$`|
+|Nome versione|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
 
-## <a name="key-usage"></a>Uso della chiave
+## <a name="key-usage"></a>Uso chiave
 
 Language Understanding ha chiavi separate, un tipo per la creazione e un tipo per l'esecuzione di query sull'endpoint di stima. Per altre informazioni sulle differenze tra i tipi di chiave, vedere [Chiavi di creazione e di endpoint per query di stima in LUIS](luis-concept-keys.md).
 
@@ -72,9 +72,9 @@ La chiave di creazione presenta diversi limiti per creazione e endpoint. La chia
 |Chiave|Creazione|Endpoint|Scopo|
 |--|--|--|--|
 |Creazione/Avvio di Language Understanding|1 milione/mese, 5/secondo|1\.000/mese, 5/secondo|Creazione di app LUIS|
-|[Sottoscrizione][pricing] di Language Understanding - F0 - livello gratuito |non valido|10\.000/mese, 5/secondo|Esecuzione di query per l'endpoint LUIS|
-|[Sottoscrizione][pricing] di Language Understanding - S0 - livello Basic|non valido|50/secondo|Esecuzione di query per l'endpoint LUIS|
-|[Sottoscrizione][pricing] di Servizi cognitivi- S0 - livello Standard|non valido|50/secondo|Esecuzione di query per l'endpoint LUIS|
+|[Sottoscrizione][pricing] di Language Understanding-livello gratuito F0 |non valido|10.000/mese, 5/secondo|Esecuzione di query per l'endpoint LUIS|
+|[Sottoscrizione][pricing] di Language Understanding-S0-livello Basic|non valido|50/secondo|Esecuzione di query per l'endpoint LUIS|
+|[Sottoscrizione][pricing] di servizi cognitivi-S0-livello standard|non valido|50/secondo|Esecuzione di query per l'endpoint LUIS|
 |[Integrazione dell'Analisi del sentiment](luis-how-to-publish-app.md#enable-sentiment-analysis)|non valido|nessun addebito|Aggiunta di informazioni sentiment inclusa l'estrazione dei dati di frase chiave |
 |Integrazione riconoscimento vocale|non valido|Richieste di endpoint $5,50 USD/1.000|Converte un'espressione parlata in un espressione di testo e restituisce i risultati LUIS|
 

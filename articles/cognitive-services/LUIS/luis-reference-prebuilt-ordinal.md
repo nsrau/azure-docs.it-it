@@ -1,6 +1,6 @@
 ---
-title: Entità predefinita Ordinal
-titleSuffix: Azure
+title: Entità predefinita ordinale-LUIS
+titleSuffix: Azure Cognitive Services
 description: Questo articolo contiene informazioni sull'entità predefinita ordinale in Language Understanding, ovvero LUIS.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: diberry
-ms.openlocfilehash: 16529c8334ae9f2eed5715abb22dcbcdbebec7c4
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 8070f614e84dd4c328d7451103c0850826704e60
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485118"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560214"
 ---
 # <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>Entità predefinita Ordinal per un'app LUIS
 I numeri ordinali sono una rappresentazione numerica di un oggetto all'interno di un insieme: `first`, `second`, `third`. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti l'ordinale per le finalità dell'applicazione. L'entità ordinale è supportata in [molte impostazioni cultura](luis-reference-prebuilt-entities.md). 
@@ -26,7 +26,7 @@ L'entità Ordinal viene gestita dal repository GitHub [Recognizers-text](https:/
 
 ## <a name="resolution-for-prebuilt-ordinal-entity"></a>Risoluzione per l'entità ordinale predefinita
 
-### <a name="api-version-2x"></a>Versione dell'API 2.x
+### <a name="api-version-2x"></a>API versione 2. x
 
 L'esempio seguente illustra la risoluzione dell'entità **builtin.ordinal**.
 
@@ -61,9 +61,9 @@ L'esempio seguente illustra la risoluzione dell'entità **builtin.ordinal**.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Versione di anteprima API 3.x
+### <a name="preview-api-version-3x"></a>API di anteprima versione 3. x
 
-Il codice JSON seguente è con il `verbose` parametro è impostato su `false`:
+Il codice JSON seguente è con `verbose` il parametro impostato `false`su:
 
 ```json
 {
@@ -88,7 +88,7 @@ Il codice JSON seguente è con il `verbose` parametro è impostato su `false`:
 }
 ```
 
-Il codice JSON seguente è con il `verbose` parametro è impostato su `true`:
+Il codice JSON seguente è con `verbose` il parametro impostato `true`su:
 
 ```json
 {
@@ -130,4 +130,4 @@ Il codice JSON seguente è con il `verbose` parametro è impostato su `true`:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Scopri le [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md), [numero di telefono](luis-reference-prebuilt-phonenumber.md), e [temperatura](luis-reference-prebuilt-temperature.md) entità. 
+Informazioni su [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md), [numero di telefono](luis-reference-prebuilt-phonenumber.md)e entità di [temperatura](luis-reference-prebuilt-temperature.md) . 

@@ -1,7 +1,7 @@
 ---
-title: Linee guida per un'etichetta umane trascrizioni - servizi di riconoscimento vocale
-titlesuffix: Azure Cognitive Services
-description: Se si intende per migliorare la precisione del riconoscimento, in particolare i problemi che vengono generati quando le parole vengono eliminate o sostituite in modo non corretto, è opportuno usare un'etichetta umane trascrizioni insieme ai dati audio. Quali sono un'etichetta umane trascrizioni? La risposta è semplice, si tratta di parola per parola, verbatim trascrizioni di un file audio.
+title: Linee guida per le trascrizioni con etichetta umana-servizio riconoscimento vocale
+titleSuffix: Azure Cognitive Services
+description: Se si vuole migliorare l'accuratezza del riconoscimento, in particolare per i problemi che si verificano quando le parole vengono eliminate o sostituite in modo errato, è opportuno usare trascrizioni con etichetta umana insieme ai dati audio. Che cosa sono le trascrizioni con etichetta umana? Si tratta di un'operazione semplice, ovvero le trascrizioni Verbatim di un file audio.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,42 +10,42 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 1fca2a21758a060dbfdc4acb2123a59fcae585fd
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 1645e97e5648032a1281e7cb410c42f0a28b6767
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606558"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559653"
 ---
-# <a name="how-to-create-human-labeled-transcriptions"></a>Come creare un'etichetta umane trascrizioni
+# <a name="how-to-create-human-labeled-transcriptions"></a>Come creare trascrizioni con etichetta umana
 
-Se si intende per migliorare la precisione del riconoscimento, in particolare i problemi che vengono generati quando le parole vengono eliminate o sostituite in modo non corretto, è opportuno usare un'etichetta umane trascrizioni insieme ai dati audio. Quali sono un'etichetta umane trascrizioni? La risposta è semplice, si tratta di parola per parola, verbatim trascrizioni di un file audio.
+Se si vuole migliorare l'accuratezza del riconoscimento, in particolare per i problemi che si verificano quando le parole vengono eliminate o sostituite in modo errato, è opportuno usare trascrizioni con etichetta umana insieme ai dati audio. Che cosa sono le trascrizioni con etichetta umana? Si tratta di un'operazione semplice, ovvero le trascrizioni Verbatim di un file audio.
 
-Per migliorare il riconoscimento è necessario un ampio campione di dati di trascrizione, è consigliabile fornire compreso tra 10 e 1.000 ore di dati di trascrizione. In questa pagina, verranno esaminate le linee guida che consentono di creare trascrizioni di alta qualità. In questa guida è suddivisa nelle impostazioni locali, con sezioni per inglese Stati Uniti, il cinese mandarino e tedesco.
+Per migliorare il riconoscimento è necessario un ampio esempio di dati di trascrizione. è consigliabile fornire tra 10 e 1.000 ore di dati di trascrizione. In questa pagina, verranno esaminate le linee guida progettate per facilitare la creazione di trascrizioni di alta qualità. Questa guida è suddivisa in base alle impostazioni locali, con sezioni per l'inglese (Stati Uniti), cinese mandarino e tedesco.
 
 ## <a name="us-english-en-us"></a>Inglese Stati Uniti (en-US)
 
-Come testo normale, usando solo caratteri ASCII, è necessario specificare un'etichetta umane trascrizioni per l'audio in lingua inglese. Evitare l'uso dei caratteri di punteggiatura Latin 1 o Unicode. Questi caratteri vengono spesso inavvertitamente aggiunti durante la copia di testo da un'applicazione di elaborazione di testi o esamina i dati dalle pagine web. Se questi caratteri sono presenti, assicurarsi di aggiornarli con la sostituzione di ASCII appropriata.
+Le trascrizioni con etichetta umana per l'audio in lingua inglese devono essere fornite come testo normale, usando solo caratteri ASCII. Evitare l'uso di caratteri di punteggiatura Latino-1 o Unicode. Questi caratteri vengono spesso aggiunti inavvertitamente quando si copia il testo da un'applicazione di elaborazione di testo o si eliminano dati dalle pagine Web. Se questi caratteri sono presenti, assicurarsi di aggiornarli con la sostituzione ASCII appropriata.
 
 Di seguito sono disponibili alcuni esempi:
 
 | Caratteri da evitare | Sostituzione | Note |
 |---------------------|--------------|-------|
-| "Hello world" | "Hello world" | Le virgolette di apertura e chiusura sono state sostituite con caratteri ASCII appropriati. |
-| Giorno di John | Giorno di John | Apostrofo è stato sostituito con il carattere ASCII appropriato. |
-| it was good—no, it was great! | it was good--no, it was great! | Il trattino em è stato sostituito con due segni meno. |
+| "Hello World" | "Hello world" | I contrassegni di virgolette di apertura e di chiusura sono stati sostituiti con caratteri ASCII appropriati. |
+| John ' s Day | John ' s Day | L'apostrofo è stato sostituito con il carattere ASCII appropriato. |
+| it was good—no, it was great! | it was good--no, it was great! | Il Dash em è stato sostituito con due trattini. |
 
-### <a name="text-normalization-for-us-english"></a>Normalizzazione del testo per l'inglese Americano
+### <a name="text-normalization-for-us-english"></a>Normalizzazione del testo per l'inglese (Stati Uniti)
 
-Normalizzazione del testo è la trasformazione delle parole in un formato coerente usato durante il training di un modello. Alcune regole di normalizzazione vengono applicate automaticamente al testo, tuttavia, è consigliabile usare queste linee guida durante la preparazione dei dati con etichetta umane trascrizione:
+La normalizzazione del testo è la trasformazione delle parole in un formato coerente utilizzato durante il training di un modello. Alcune regole di normalizzazione vengono applicate automaticamente al testo, tuttavia è consigliabile usare queste linee guida durante la preparazione dei dati di trascrizione con etichetta umana:
 
-* Scrivere le abbreviazioni in parole.
-* Scrive stringhe numeriche non standard in parole (ad esempio termini di contabilità).
-* Misti caratteri alfanumerici o caratteri non alfabetici dovrebbero essere trascritto particolarmente evidenti.
-* Le abbreviazioni che vengono pronunciate come parole non devono essere modificate (ad esempio, "radar", "laser", "RAM" o "NATO").
-* Scrittura out abbreviazioni che vengono pronunciati come lettere separate con ogni lettera separato da uno spazio.
+* Scrivere abbreviazioni in parole.
+* Scrivere stringhe numeriche non standard in parole, ad esempio le condizioni per l'accounting.
+* I caratteri non alfabetici o i caratteri alfanumerici misti devono essere trascritti come pronunciati.
+* Le abbreviazioni pronunciate come parole non devono essere modificate (ad esempio "radar", "laser", "RAM" o "NATO").
+* Scrivere abbreviazioni pronunciate come lettere separate con ogni lettera separata da uno spazio.
 
-Ecco alcuni esempi di normalizzazione che è consigliabile eseguire la trascrizione di:
+Di seguito sono riportati alcuni esempi di normalizzazione che è necessario eseguire nella trascrizione:
 
 | Testo originale | Testo dopo la normalizzazione |
 |---------------|--------------------------|
@@ -54,18 +54,18 @@ Ecco alcuni esempi di normalizzazione che è consigliabile eseguire la trascrizi
 | Ke$ha | Ke$ha |
 | How long is the 2x4 | How long is the two by four |
 | The meeting goes from 1-3pm | The meeting goes from one to three pm |
-| il tipo di sangue è + O | My blood type is O positive |
-| Water è H20 | Water è O 2 H |
-| Riproduci OU812 da Van Halen | Riproduci U O 8 1 2 da Halen Van |
+| Il mio tipo di sangue è O + | My blood type is O positive |
+| L'acqua è H20 | L'acqua è H 2 O |
+| Play OU812 by Van Halen | Play O U 8 1 2 di Van Halen |
 | UTF-8 with BOM | U T F 8 with BOM |
 
-Le seguenti regole di normalizzazione vengono applicate automaticamente a trascrizioni:
+Le seguenti regole di normalizzazione vengono applicate automaticamente alle trascrizioni:
 
 * Usare lettere minuscole.
-* Rimuovere tutti i segni di punteggiatura tranne apostrofi all'interno delle parole.
-* Espandere i numeri in formato parole/pronunciare, ad esempio quantità di denaro.
+* Rimuovere tutti i segni di punteggiatura tranne gli apostrofi all'interno di parole.
+* Espandere i numeri in parole/form vocali, ad esempio importi in dollari.
 
-Ecco alcuni esempi di normalizzazione eseguita automaticamente la trascrizione di:
+Di seguito sono riportati alcuni esempi di normalizzazione eseguita automaticamente nella trascrizione:
 
 | Testo originale | Testo dopo la normalizzazione |
 |---------------|--------------------------|
@@ -80,37 +80,37 @@ It costs $3.14| it costs three fourteen |
 
 ## <a name="mandarin-chinese-zh-cn"></a>Cinese mandarino (zh-CN)
 
-Con l'etichetta umane trascrizioni per l'audio cinese mandarino devono essere codificato con un byte order mark UTF-8. Evitare l'uso di caratteri di punteggiatura a mezza larghezza. Questi caratteri possono essere inclusi inavvertitamente quando si prepara i dati in un programma di elaborazione testi o cercare i dati dalle pagine web. Se questi caratteri sono presenti, assicurarsi di aggiornarli con la sostituzione a larghezza intera appropriata.
+Le trascrizioni con etichetta umana per l'audio cinese mandarino devono essere codificate in UTF-8 con un marcatore dell'ordine dei byte. Evitare l'uso di caratteri di punteggiatura a mezza larghezza. Questi caratteri possono essere inclusi inavvertitamente quando si preparano i dati in un programma di elaborazione di testi o si eliminano dati dalle pagine Web. Se questi caratteri sono presenti, assicurarsi di aggiornarli con la sostituzione a larghezza completa appropriata.
 
 Di seguito sono disponibili alcuni esempi:
 
 | Caratteri da evitare | Sostituzione | Note |
 |---------------------|--------------|-------|
-| "你好" | "你好" | Le virgolette di apertura e chiusura sono state sostituite con caratteri appropriati. |
-| 需要什么帮助? | 需要什么帮助？ | Il punto interrogativo è stato sostituito con caratteri appropriati. |
+| "你好" | "你好" | Le virgolette di apertura e di chiusura sono state sostituite con i caratteri appropriati. |
+| 需要什么帮助? | 需要什么帮助？ | Il punto interrogativo è stato sostituito con il carattere appropriato. |
 
 ### <a name="text-normalization-for-mandarin-chinese"></a>Normalizzazione del testo per il cinese mandarino
 
-Normalizzazione del testo è la trasformazione delle parole in un formato coerente usato durante il training di un modello. Alcune regole di normalizzazione vengono applicate automaticamente al testo, tuttavia, è consigliabile usare queste linee guida durante la preparazione dei dati con etichetta umane trascrizione:
+La normalizzazione del testo è la trasformazione delle parole in un formato coerente utilizzato durante il training di un modello. Alcune regole di normalizzazione vengono applicate automaticamente al testo, tuttavia è consigliabile usare queste linee guida durante la preparazione dei dati di trascrizione con etichetta umana:
 
-* Scrivere le abbreviazioni in parole.
+* Scrivere abbreviazioni in parole.
 * Scrivere stringhe numeriche in forma parlata.
 
-Ecco alcuni esempi di normalizzazione che è consigliabile eseguire la trascrizione di:
+Di seguito sono riportati alcuni esempi di normalizzazione che è necessario eseguire nella trascrizione:
 
 | Testo originale | Testo dopo la normalizzazione |
 |---------------|--------------------------|
 | 我今年21 | 我今年二十一 |
 | 3号楼504 | 三号 楼 五 零 四 |
 
-Le seguenti regole di normalizzazione vengono applicate automaticamente a trascrizioni:
+Le seguenti regole di normalizzazione vengono applicate automaticamente alle trascrizioni:
 
-* Rimuovere tutti i segni di punteggiatura
-* Espandere i numeri in forma parlata
-* Converte le lettere a larghezza intera a metà larghezza lettere
+* Rimuovi tutti i punteggiatura
+* Espandi numeri a form parlato
+* Converte le lettere a larghezza intera in lettere a metà larghezza
 * Uso delle lettere maiuscole per tutte le parole in inglese
 
-Ecco alcuni esempi di normalizzazione eseguita automaticamente la trascrizione di:
+Di seguito sono riportati alcuni esempi di normalizzazione eseguita automaticamente nella trascrizione:
 
 | Testo originale | Testo dopo la normalizzazione |
 |---------------|--------------------------|
@@ -122,39 +122,39 @@ Ecco alcuni esempi di normalizzazione eseguita automaticamente la trascrizione d
 | 下午5:00的航班 | 下午 五点 的 航班 |
 | 我今年21岁 | 我 今年 二十 一 岁 |
 
-## <a name="german-de-de-and-other-languages"></a>Tedesco (de-DE) e altri linguaggi
+## <a name="german-de-de-and-other-languages"></a>Tedesco (de-DE) e altre lingue
 
-Con l'etichetta umane trascrizioni per audio tedesco (e non in inglese o altre lingue cinese mandarino) devono essere codificato con un byte order mark UTF-8. Per ogni file audio, è necessario specificare una trascrizione con etichetta umane.
+Le trascrizioni con etichetta umana per l'audio tedesco (e altre lingue non in lingua inglese o cinese mandarino) devono essere codificate come UTF-8 con un marcatore per l'ordine dei byte. È necessario fornire una trascrizione con etichetta umana per ogni file audio.
 
 ### <a name="text-normalization-for-german"></a>Normalizzazione del testo per il tedesco
 
-Normalizzazione del testo è la trasformazione delle parole in un formato coerente usato durante il training di un modello. Alcune regole di normalizzazione vengono applicate automaticamente al testo, tuttavia, è consigliabile usare queste linee guida durante la preparazione dei dati con etichetta umane trascrizione:
+La normalizzazione del testo è la trasformazione delle parole in un formato coerente utilizzato durante il training di un modello. Alcune regole di normalizzazione vengono applicate automaticamente al testo, tuttavia è consigliabile usare queste linee guida durante la preparazione dei dati di trascrizione con etichetta umana:
 
-*   Scrivere i separatori decimali come ","e non".".
-*   Separatori del tempo di scrittura ":"e non"." (ad esempio: 12:00 Uhr).
-*   Le abbreviazioni, ad esempio "ca.", non vengono sostituiti. È consigliabile utilizzare la forma parlata completa.
-*   I quattro operatori matematici principali (+, -, \* e /) vengono rimossi. È consigliabile sostituirli con la forma scritta: "più (+)," "meno," "" e "geteilt."
-*   Vengono rimossi gli operatori di confronto (=, <, e >). È consigliabile sostituirli con "gleich", "kleiner als" e "grösser als".
-*   Scrivere le frazioni, ad esempio 3 e 4, in forma scritta (ad esempio: "drei viertel" anziché 3 e 4).
-*   Sostituire il simbolo "€" con la forma scritta "Euro."
+*   Scrivere i punti decimali come "," e non ".".
+*   I separatori di tempo di scrittura sono ":" e non "." (ad esempio: 12:00 Fossil).
+*   Le abbreviazioni, ad esempio "ca.", non vengono sostituiti. Si consiglia di utilizzare il formato completo.
+*   I quattro operatori matematici principali (+, -, \* e /) vengono rimossi. È consigliabile sostituirli con il formato scritto: "Plus", "minu", "mal" e "geteilt".
+*   Gli operatori di confronto vengono rimossi (=, < e >). È consigliabile sostituirli con "gleich", "kleiner als" e "grösser als".
+*   Scrivere frazioni, ad esempio 3/4, in forma scritta (ad esempio: "Drei Viertel" invece di 3/4).
+*   Sostituire il simbolo "€" con il formato scritto "euro".
 
-Ecco alcuni esempi di normalizzazione che è consigliabile eseguire la trascrizione di:
+Di seguito sono riportati alcuni esempi di normalizzazione che è necessario eseguire nella trascrizione:
 
-| Testo originale | Testo dopo la normalizzazione di utente | Testo dopo la normalizzazione di sistema |
+| Testo originale | Testo dopo la normalizzazione dell'utente | Testo dopo la normalizzazione del sistema |
 |---------------|-------------------------------|---------------------------------|
 | Es ist 12.23 Uhr | Es ist 12:23 Uhr | es ist zwölf uhr drei und zwanzig uhr |
 | {12.45} | {12,45} | zwölf komma vier fünf |
 | 2 + 3 - 4 | 2 plus 3 minus 4 | zwei plus drei minus vier |
 
-Le seguenti regole di normalizzazione vengono applicate automaticamente a trascrizioni:
+Le seguenti regole di normalizzazione vengono applicate automaticamente alle trascrizioni:
 
 * Usare lettere minuscole per tutto il testo.
-* Rimuovere tutti i segni di punteggiatura, compresi i vari tipi di virgolette doppie ("test", 'test', "test" e «testare» sono OK).
-* Ignorare le righe con set di caratteri speciali: stato ¤ ¥ ¦ sezione © ª ¬® ° + ² µ × ÿ Ø¬¬.
-* Espandere i numeri in forma parlata, tra cui dollaro o importi in Euro.
-* Accettare gli umlaut solo per un oggetto, o e si. Gli altri verranno sostituiti da "th" o annullati.
+* Rimuovere tutti i segni di punteggiatura, inclusi i vari tipi di virgolette ("test", "test", "test" e "test" sono OK).
+* Elimina le righe con caratteri speciali da questo set: ¢ ¤ ¥ ¦ § © ª ¬® ° ± ² μ × ÿ Ø ¬.
+* Espandere i numeri in formato parlato, inclusi gli importi dollaro o euro.
+* Accettare dieresi solo per un, o e l'utente. Altri verranno sostituiti da "th" o rimossi.
 
-Ecco alcuni esempi di normalizzazione eseguita automaticamente la trascrizione di:
+Di seguito sono riportati alcuni esempi di normalizzazione eseguita automaticamente nella trascrizione:
 
 | Testo originale | Testo dopo la normalizzazione |
 |---------------|--------------------------|
@@ -166,6 +166,6 @@ Ecco alcuni esempi di normalizzazione eseguita automaticamente la trascrizione d
 
 * [Preparare e testare i dati](how-to-custom-speech-test-data.md)
 * [Esaminare i dati](how-to-custom-speech-inspect-data.md)
-* [Valutare i dati](how-to-custom-speech-evaluate-data.md)
-* [Il training del modello](how-to-custom-speech-train-model.md)
+* [Valutazione dei dati](how-to-custom-speech-evaluate-data.md)
+* [Eseguire il training del modello](how-to-custom-speech-train-model.md)
 * [Distribuire il modello](how-to-custom-speech-deploy-model.md)

@@ -1,6 +1,6 @@
 ---
 title: Domande frequenti - Visione artificiale
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Risposte alle domande frequenti sull'API Visione artificiale in Servizi cognitivi di Azure.
 services: cognitive-services
 author: KellyDF
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: fce3242746d47809c4fbbb1448453369d6460a9b
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: e8ab205a43e5cb1e8e2b96dbd9600e1fceb29403
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203231"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564599"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>Domande frequenti sull'API Visione artificiale
 

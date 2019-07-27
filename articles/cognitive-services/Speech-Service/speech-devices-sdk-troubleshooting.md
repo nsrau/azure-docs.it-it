@@ -1,7 +1,7 @@
 ---
-title: Risolvere i problemi dei dispositivi di Speech SDK - servizi di riconoscimento vocale
+title: Risolvere i problemi relativi all'SDK dei dispositivi vocali-servizio riconoscimento vocale
 titleSuffix: Azure Cognitive Services
-description: Questo articolo fornisce informazioni che consentono di risolvere i problemi riscontrati quando si usa il SDK di dispositivi di riconoscimento vocale.
+description: Questo articolo fornisce informazioni che consentono di risolvere i problemi che possono verificarsi quando si usa l'SDK per dispositivi vocali.
 services: cognitive-services
 author: mswellsi
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: wellsi
-ms.openlocfilehash: f55171a177dfcbebb9bc6df5ce125a8f29494946
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 9a757402360b4b69e760315a809482be9b4e04d4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606307"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558909"
 ---
 # <a name="troubleshoot-the-speech-devices-sdk"></a>Risolvere i problemi di Speech Devices SDK
 
-Questo articolo fornisce informazioni che consentono di risolvere i problemi riscontrati quando si usa il SDK di dispositivi di riconoscimento vocale.
+Questo articolo fornisce informazioni che consentono di risolvere i problemi che possono verificarsi quando si usa l'SDK per dispositivi vocali.
 
 ## <a name="certificate-failures"></a>Errori di certificato
 
-Se si verificano errori del certificato quando si usano i servizi di riconoscimento vocale, assicurarsi che il dispositivo abbia corretti di data e ora:
+Se si verificano errori di certificato quando si usa il servizio di riconoscimento vocale, assicurarsi che la data e l'ora del dispositivo siano corrette:
 
 1. Passare a **Impostazioni**. In **System** (Sistema) selezionare **Date & time** (Data e ora).
 

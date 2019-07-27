@@ -1,6 +1,6 @@
 ---
 title: Eseguire operazioni sulle immagini - Java
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: In questa esercitazione si esamina un'app Swing Java di base che usa l'API Visione artificiale in Servizi cognitivi di Azure. Si effettua il riconoscimento ottico dei caratteri (OCR), si creano anteprime e si usano le caratteristiche visive in un'immagine.
 services: cognitive-services
 author: KellyDF
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.author: kefre
 ms.custom: seodec18
 ms.date: 04/30/2019
-ms.openlocfilehash: a22308e0c7ff924205f715692d011a4572b2bdb8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16f75095c7e4461c84a1fea28cc620c49b6c5bca
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65232624"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565689"
 ---
-# <a name="use-computer-vision-features-with-the-rest-api-and-java"></a>Usare le funzionalità di visione artificiale con l'API REST e Java
+# <a name="use-computer-vision-features-with-the-rest-api-and-java"></a>Usare le funzionalità di Visione artificiale con l'API REST e Java
 
 Questa esercitazione illustra le funzionalità dell'API REST Visione artificiale di Servizi cognitivi di Azure.
 
@@ -34,7 +34,7 @@ Questa esercitazione illustra come usare Visione artificiale per:
 > * Leggere testo stampato in un'immagine
 > * Leggere testo scritto a mano in un'immagine
 
-L'applicazione di form Swing Java è già stato scritto, ma non presenta alcuna funzionalità. In questa esercitazione si aggiunge codice specifico dell'API REST Visione artificiale per completare le funzionalità dell'applicazione.
+L'applicazione Java Swing form è già stata scritta ma non ha funzionalità. In questa esercitazione si aggiunge codice specifico dell'API REST Visione artificiale per completare le funzionalità dell'applicazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -44,9 +44,9 @@ Questa esercitazione è stata sviluppata usando l'ambiente di sviluppo integrato
 
 ### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Effettuare la sottoscrizione dell'API Visione artificiale e ottenere una chiave di sottoscrizione
 
-Prima di creare l'esempio, è necessario sottoscrivere API visione artificiale che fa parte di servizi cognitivi di Azure. Per informazioni dettagliate sulla sottoscrizione e sulla gestione delle chiavi, vedere [Sottoscrizioni](https://azure.microsoft.com/try/cognitive-services/). In questa esercitazione è possibile usare sia la chiave primaria sia quella secondaria.
+Prima di creare l'esempio, è necessario sottoscrivere API Visione artificiale che fa parte dei servizi cognitivi di Azure. Per informazioni dettagliate sulla sottoscrizione e sulla gestione delle chiavi, vedere [Sottoscrizioni](https://azure.microsoft.com/try/cognitive-services/). In questa esercitazione è possibile usare sia la chiave primaria sia quella secondaria.
 
-## <a name="acquire-incomplete-tutorial-project"></a>Acquisizione progetto esercitazione incompleto
+## <a name="acquire-incomplete-tutorial-project"></a>Acquisisci progetto di esercitazione incompleta
 
 ### <a name="download-the-project"></a>Scaricare il progetto
 
@@ -78,7 +78,7 @@ Importare il file **cognitive-services-java-computer-vision-tutorial-master.zip*
 
 1. Chiudere l'applicazione dell'esercitazione.
 
-## <a name="add-tutorial-code-to-the-project"></a>Aggiungere codice per l'esercitazione al progetto
+## <a name="add-tutorial-code-to-the-project"></a>Aggiungere il codice dell'esercitazione al progetto
 
 L'applicazione Swing Java è configurata con sei schede. Ogni scheda illustra una funzione diversa di Visione artificiale (analisi, OCR e così via). Le sei sezioni dell'esercitazione non sono interdipendenti, quindi è possibile aggiungere un'unica sezione, tutte e sei le sezioni oppure un qualsiasi subset di queste. È possibile aggiungere le sezioni in qualsiasi ordine.
 
@@ -88,7 +88,7 @@ La funzionalità di analisi di Visione artificiale analizza un'immagine cercando
 
 Per completare la funzionalità di analisi dell'applicazione dell'esercitazione, procedere come segue:
 
-#### <a name="add-the-event-handler-code-for-the-analyze-button"></a>Aggiungere il codice del gestore eventi per il pulsante per l'analisi
+#### <a name="add-the-event-handler-code-for-the-analyze-button"></a>Aggiungere il codice del gestore eventi per il pulsante Analizza
 
 Il metodo del gestore dell'evento **analyzeImageButtonActionPerformed** cancella il modulo, visualizza l'immagine specificata nell'URL e quindi chiama il metodo **AnalyzeImage** per analizzare l'immagine. Quando viene restituito il risultato di **AnalyzeImage**, il metodo visualizza la risposta in formato JSON nell'area di testo **Response** (Risposta), estrae la prima didascalia da **JSONObject** e visualizza la didascalia e il livello di attendibilità relativo alla correttezza della didascalia.
 
@@ -202,7 +202,7 @@ Copiare e incollare il metodo**AnalyzeImage** subito sotto il metodo **analyzeIm
     }
  ```
 
-#### <a name="run-the-analyze-function"></a>Eseguire la funzione di analisi
+#### <a name="run-the-analyze-function"></a>Eseguire la funzione Analyze
 
 Premere **F6** per eseguire l'applicazione. Inserire la chiave di sottoscrizione nel campo **Chiave sottoscrizione** e verificare di usare l'area corretta in **Subscription Region** (Area sottoscrizione). Immettere un URL di un'immagine da analizzare, quindi fare clic sul pulsante **Analyze Image** (Analizza immagine) per analizzare un'immagine e visualizzare il risultato.
 
@@ -326,7 +326,7 @@ Copiare e incollare il metodo**LandmarkImage** subito sotto il metodo **landmark
     }
 ```
 
-#### <a name="run-the-landmark-function"></a>Eseguire la funzione luoghi di interesse
+#### <a name="run-the-landmark-function"></a>Eseguire la funzione Landmark
 
 Premere **F6** per eseguire l'applicazione. Inserire la chiave di sottoscrizione nel campo **Chiave sottoscrizione** e verificare di usare l'area corretta in **Subscription Region** (Area sottoscrizione). Fare clic sulla scheda **Landmark** (Luogo di interesse), immettere l'URL di un'immagine di un luogo di interesse, quindi fare clic sul pulsante **Analyze Image** (Analizza immagine) per analizzare l'immagine e visualizzare il risultato.
 
@@ -684,7 +684,7 @@ Copiare e incollare il metodo**OcrImage** subito sotto il metodo **ocrImageButto
     }
 ```
 
-#### <a name="run-the-ocr-function"></a>Eseguire la funzione di OCR
+#### <a name="run-the-ocr-function"></a>Eseguire la funzione OCR
 
 Premere **F6** per eseguire l'applicazione. Inserire la chiave di sottoscrizione nel campo **Chiave sottoscrizione** e verificare di usare l'area corretta in **Subscription Region** (Area sottoscrizione). Fare clic sulla scheda **OCR**, immettere l'URL di un'immagine di testo stampato, quindi fare clic sul pulsante **Read Image** (Leggi immagine) per analizzare l'immagine e visualizzare il risultato.
 
@@ -694,7 +694,7 @@ La funzionalità di riconoscimento della grafia di Visione artificiale analizza 
 
 Per completare la funzionalità di riconoscimento della grafia dell'applicazione dell'esercitazione, procedere come segue:
 
-#### <a name="add-the-event-handler-code-for-the-handwriting-button"></a>Aggiungere il codice del gestore eventi per il pulsante di riconoscimento della grafia
+#### <a name="add-the-event-handler-code-for-the-handwriting-button"></a>Aggiungere il codice del gestore eventi per il pulsante grafia
 
 Il metodo del gestore dell'evento **handwritingImageButtonActionPerformed** cancella il modulo, visualizza l'immagine specificata nell'URL e quindi chiama il metodo **HandwritingImage** per analizzare l'immagine. Quando viene restituito il risultato di **HandwritingImage**, il metodo visualizza il testo rilevato in formato JSON nell'area di testo **Response** (Risposta).
 
@@ -842,12 +842,12 @@ Copiare e incollare il metodo**HandwritingImage** subito sotto il metodo **handw
     }
 ```
 
-#### <a name="run-the-handwriting-function"></a>Eseguire la funzione di riconoscimento della grafia
+#### <a name="run-the-handwriting-function"></a>Eseguire la funzione di grafia
 
 Per eseguire l'applicazione, premere **F6**. Inserire la chiave di sottoscrizione nel campo **Chiave sottoscrizione** e verificare di usare l'area corretta in **Subscription Region** (Area sottoscrizione). Fare clic sulla scheda **Read Handwritten Text** (Leggi testo scritto a mano), immettere l'URL di un'immagine di testo scritto a mano, quindi fare clic sul pulsante **Read Image** (Leggi immagine) per analizzare l'immagine e visualizzare il risultato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa Guida, l'API REST di visione artificiale con Java è usato per testare molte delle funzionalità di analisi immagine disponibile. Successivamente, vedere la documentazione di riferimento per altre che informazioni sulle API coinvolti.
+In questa guida è stata usata l'API REST di Visione artificiale con Java per testare molte delle funzionalità di analisi delle immagini disponibili. Vedere quindi la documentazione di riferimento per ulteriori informazioni sulle API necessarie.
 
-- [REST API visione artificiale](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)
+- [API REST di Visione artificiale](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)

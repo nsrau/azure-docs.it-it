@@ -1,6 +1,6 @@
 ---
-title: Configurare i contenitori
-titlesuffix: Face - Azure Cognitive Services
+title: Configurare i contenitori-API viso
+titleSuffix: Azure Cognitive Services
 description: Impostazioni di configurazione per i contenitori.
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: dapine
-ms.openlocfilehash: c5044428b6f9c7c8fd343c93b06c1774eba8e17f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 6dd047b0ba7f9a123ffcc014cff5604466946d07
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320533"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564101"
 ---
 # <a name="configure-face-docker-containers"></a>Configurare i contenitori di Viso Docker
 
@@ -51,9 +51,9 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 Ricordarsi di aggiungere il routing del _volto_ all'URI dell'endpoint, come illustrato nell'esempio. 
 
-|Obbligatoria| Name | Tipo di dati | DESCRIZIONE |
+|Obbligatoria| Name | Tipo di dati | Descrizione |
 |--|------|-----------|-------------|
-|Sì| `Billing` | String | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
+|Yes| `Billing` | String | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
 
 <!-- specific to face only -->
 
@@ -61,7 +61,7 @@ Ricordarsi di aggiungere il routing del _volto_ all'URI dell'endpoint, come illu
 
 Le impostazioni di configurazione nella sezione `CloudAI` forniscono le opzioni specifiche per il contenitore proprie del rispettivo contenitore. Gli oggetti e le impostazioni seguenti sono supportati per il contenitore Viso nella sezione `CloudAI`
 
-| NOME | Tipo di dati | Descrizione |
+| Name | Tipo di dati | DESCRIZIONE |
 |------|-----------|-------------|
 | `Storage` | Object | Lo scenario di archiviazione usato dal contenitore Viso. Per altre informazioni sugli scenari di archiviazione e sulle impostazioni associate per l'oggetto `Storage`, vedere [Impostazioni di uno scenario di archiviazione](#storage-scenario-settings) |
 
@@ -80,7 +80,7 @@ Il contenitore Viso archivia BLOB, cache, metadati e dati della coda, a seconda 
 
 Gli scenari di archiviazione e le impostazioni di configurazione associate sono gestite dall'oggetto `Storage`, sotto la sezione di configurazione `CloudAI`. Le impostazioni di configurazione seguenti sono disponibili nell'oggetto `Storage`:
 
-| Name | Tipo di dati | Descrizione |
+| NOME | Tipo di dati | DESCRIZIONE |
 |------|-----------|-------------|
 | `StorageScenario` | String | Lo scenario di archiviazione supportato dal contenitore. Sono disponibili i valori seguenti<br/>`Memory` - Valore predefinito. Il contenitore usa l'archiviazione non permanente, non distribuita e in memoria, per l'utilizzo temporaneo in un singolo nodo. Se il contenitore viene arrestato o rimosso, l'archiviazione per tale contenitore viene eliminata definitivamente.<br/>`Azure` - Il contenitore utilizza le risorse di Azure per l'archiviazione. Se il contenitore viene arrestato o rimosso, l'archiviazione per tale contenitore viene salvata in modo permanente.|
 | `ConnectionStringOfAzureStorage` | String | La stringa di connessione per la risorsa di archiviazione di Azure usata dal contenitore.<br/>Questa impostazione si applica solo se `Azure` viene specificato per l'impostazione di configurazione `StorageScenario`. |
@@ -122,7 +122,7 @@ I contenitori Viso non usano montaggi di input o output per archiviare i dati di
 
 La sintassi esatta della posizione di montaggio host varia a seconda del sistema operativo host. Inoltre, il percorso di montaggio del [computer host](face-how-to-install-containers.md#the-host-computer) potrebbe non essere accessibile a causa di un conflitto tra le autorizzazioni utilizzate dall'account del servizio Docker e le autorizzazioni del percorso di montaggio dell'host. 
 
-|Facoltativo| Name | Tipo di dati | DESCRIZIONE |
+|Facoltativo| Name | Tipo di dati | Descrizione |
 |-------|------|-----------|-------------|
 |Non consentito| `Input` | String | I contenitori Viso non la usano.|
 |Facoltativo| `Output` | String | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -136,7 +136,7 @@ Gli esempi seguenti usano le impostazioni di configurazione per illustrare come 
 
 Sostituire {_nome_argomento_} con i propri valori:
 
-| Placeholder | Value | Formato o esempio |
+| Segnaposto | Valore | Formato o esempio |
 |-------------|-------|---|
 |{API_KEY} | Chiave dell'endpoint della risorsa Servizi cognitivi. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{ENDPOINT_URI} | Valore dell'endpoint che include l'area e il routing del volto.|`https://westcentralus.api.cognitive.microsoft.com/face/v1.0`|

@@ -1,5 +1,5 @@
 ---
-title: Trascrizioni di call center - Servizi Voce
+title: Trascrizione del Call Center-servizio di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: Uno scenario comune per il riconoscimento vocale è la trascrizione di grandi volumi di dati di telefonia che possono provenire da vari sistemi, ad esempio i bot IVR (Interactive Voice Response). L'audio può essere stereo o mono e raw, con poca o nessuna elaborazione eseguita sul segnale. Grazie all'uso dei servizi Voce e del modello conversione voce/testo unificato, un'azienda può ottenere trascrizioni di alta qualità, con molti sistemi di acquisizione audio.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 37d68a4d2b7658542ebcfdb5d22a10676a8e4d52
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b7c7bfffb5ddf947dc9bd25e6828e2816a7325cd
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603314"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559729"
 ---
 # <a name="speech-services-for-telephony-data"></a>Servizi Voce per i dati di telefonia
 
@@ -116,7 +116,7 @@ Un altro scenario è l'integrazione diretta con SIP. Un servizio di Azure si con
 
 I servizi Voce di Azure funzionano bene con i modelli predefiniti, tuttavia, è possibile personalizzare e ottimizzare l'esperienza per un prodotto o ambiente. Le opzioni di personalizzazione spaziano dall'ottimizzazione del modello acustico ai caratteri voce univoci per il proprio marchio. Dopo aver creato un modello personalizzato, è possibile usarlo con uno qualsiasi dei servizi Voce di Azure, in tempo reale o in modalità batch.
 
-| Servizio Voce | Modello | DESCRIZIONE |
+| Servizio Voce | Modello | Descrizione |
 |----------------|-------|-------------|
 | Riconoscimento vocale | [Modello acustico](how-to-customize-acoustic-models.md) | Creazione di un modello acustico personalizzato per applicazioni, strumenti o dispositivi usati in ambienti particolari, ad esempio in un'automobile o in fabbrica, ognuno con condizioni di registrazione specifiche. Sono esempi di queste situazioni un eloquio con un forte accento, particolari rumori di sottofondo o l'uso di uno speciale microfono per la registrazione. |
 | | [Modello linguistico](how-to-customize-language-model.md) | Creazione di un modello linguistico personalizzato per migliorare la trascrizione di grammatica e terminologia specifica di settore, ad esempio terminologia medica o IT. |

@@ -1,6 +1,6 @@
 ---
-title: Contenitori Docker
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Contenitori Docker-LUIS
+titleSuffix: Azure Cognitive Services
 description: Il contenitore LUIS carica un'app sottoposta a training o pubblicata in un contenitore Docker e fornisce l'accesso alle stime di query dagli endpoint dell'API del contenitore.
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: dapine
-ms.openlocfilehash: ae2f24c83cb0de054cc97bf0be8ada35a568ad82
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 2b87f9bcbaa0fd9d8a23d774e0765e1eb5b56633
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360560"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563909"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installare ed eseguire i contenitori docker LUIS
  
@@ -109,7 +109,7 @@ La directory di montaggio di input può contenere contemporaneamente le versioni
 |Tipo di pacchetto|API endpoint di query|Disponibilità query|Formato nome file pacchetto|
 |--|--|--|--|
 |Con training|Get, Post|Solo contenitore|`{APPLICATION_ID}_v{APPLICATION_VERSION}.gz`|
-|Staging|Get, Post|Azure e contenitore|`{APPLICATION_ID}_STAGING.gz`|
+|Gestione temporanea|Get, Post|Azure e contenitore|`{APPLICATION_ID}_STAGING.gz`|
 |Produzione|Get, Post|Azure e contenitore|`{APPLICATION_ID}_PRODUCTION.gz`|
 
 > [!IMPORTANT]
@@ -168,7 +168,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Placeholder | Value |
+| Segnaposto | Valore |
 |-------------|-------|
 |{APPLICATION_ID} | ID applicazione dell'app LUIS pubblicata. |
 |{APPLICATION_ENVIRONMENT} | Ambiente dell'app LUIS pubblicata. Usare uno dei valori seguenti:<br/>```PRODUCTION```<br/>```STAGING``` |
@@ -187,7 +187,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Placeholder | Valore |
+| Segnaposto | Value |
 |-------------|-------|
 |{APPLICATION_ID} | ID dell'applicazione LUIS sottoposta a training. |
 |{APPLICATION_VERSION} | Versione dell'applicazione LUIS sottoposta a training. |
@@ -200,7 +200,7 @@ Per scaricare il pacchetto sottoposto a training, consultare la [documentazione 
 
 Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire il contenitore. Il comando usa i parametri seguenti:
 
-| Placeholder | Valore |
+| Segnaposto | Value |
 |-------------|-------|
 |{API_KEY} | Questa chiave viene usata per avviare il contenitore. Non usare la chiave di avvio. |
 |{ENDPOINT_URI} | Il valore dell'endpoint è disponibile nella pagina `Cognitive Services` Panoramica del portale di Azure. |
@@ -257,7 +257,7 @@ Usare l'host, `https://localhost:5000`, per le API del contenitore.
 
 I parametri di query specificano la modalità e i contenuti restituiti nella risposta della query:
 
-|Query parameter (Parametro di query)|Type|Scopo|
+|Parametro di query|Type|Scopo|
 |--|--|--|
 |`q`|string|Espressione dell'utente.|
 |`timezoneOffset`|number|Il parametro timezoneOffset consente di [modificare il fuso orario](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) usato dall'entità predefinita datetimeV2.|

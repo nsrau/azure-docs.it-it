@@ -1,7 +1,7 @@
 ---
-title: Webhook - servizi di riconoscimento vocale
-titlesuffix: Azure Cognitive Services
-description: I Webhook vengono richiamate HTTP ideale per ottimizzare la soluzione quando si lavora con prolungata dei processi, ad esempio importazioni, adattamento, i test di accuratezza o trascrizioni di lunga esecuzione file in esecuzione.
+title: Webhook-servizio riconoscimento vocale
+titleSuffix: Azure Cognitive Services
+description: I webhook sono richiamati HTTP ideali per l'ottimizzazione della soluzione quando si gestiscono processi a esecuzione prolungata come importazione, adattamento, test di accuratezza o trascrizioni di file a esecuzione prolungata.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: a100049ddfc9d4859e303546c1b10e814cf96ebb
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 3d07e540bf88c956f61b5d3b2a98702cad616985
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606216"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558801"
 ---
-# <a name="webhooks-for-speech-services"></a>Webhook per i servizi di riconoscimento vocale
+# <a name="webhooks-for-speech-services"></a>Webhook per servizi vocali
 
-I Webhook sono simili a callback HTTP che consentono all'applicazione di accettare i dati dai servizi di riconoscimento vocale quando diventa disponibile. Uso di webhook, è possibile ottimizzare l'uso dell'API REST, eliminando la necessità di eseguire continuamente il polling di una risposta. Nelle prossime sezioni, si apprenderà come usare i webhook con i servizi di riconoscimento vocale.
+I webhook sono come callback HTTP che consentono all'applicazione di accettare i dati dai servizi di riconoscimento vocale quando diventano disponibili. Usando i webhook, è possibile ottimizzare l'uso delle API REST eliminando la necessità di eseguire continuamente il polling di una risposta. Nelle prossime sezioni verrà illustrato come usare i webhook con i servizi di riconoscimento vocale.
 
 ## <a name="supported-operations"></a>Operazioni supportate
 
-I servizi di riconoscimento vocale supportare i webhook per tutte le operazioni a esecuzione prolungata. Ognuna delle operazioni elencate di seguito può attivare un callback HTTP dopo il completamento.
+I servizi di riconoscimento vocale supportano i webhook per tutte le operazioni a esecuzione prolungata. Ognuna delle operazioni elencate di seguito può attivare un callback HTTP al termine del completamento.
 
 * DataImportCompletion
 * ModelAdaptationCompletion
@@ -32,15 +32,15 @@ I servizi di riconoscimento vocale supportare i webhook per tutte le operazioni 
 * EndpointDeploymentCompletion
 * EndpointDataCollectionCompletion
 
-Successivamente, è possibile creare un webhook.
+Verrà ora creato un webhook.
 
 ## <a name="create-a-webhook"></a>Creare un webhook
 
-È possibile creare un webhook per una trascrizione offline. Lo scenario: un utente dispone di un file audio a esecuzione prolungata che desiderano trascrivere in modo asincrono con l'API di trascrizione di Batch.
+Viene ora creato un webhook per una trascrizione offline. Scenario: un utente dispone di un file audio con esecuzione prolungata che si vuole trascrivere in modo asincrono con l'API di trascrizione batch.
 
-I Webhook possono essere creati da una richiesta POST a https://\<regione\>.cris.ai/api/speechtotext/v2.1/transcriptions/hooks.
+I webhook possono essere creati effettuando una richiesta post a https://\<Region\>. Cris.ai/API/speechtotext/V2.1/Transcriptions/hooks.
 
-I parametri di configurazione per la richiesta vengono forniti in formato JSON:
+I parametri di configurazione per la richiesta vengono forniti come JSON:
 
 ```json
 {
@@ -60,17 +60,17 @@ I parametri di configurazione per la richiesta vengono forniti in formato JSON:
 
 }
 ```
-Tutte le richieste POST all'API di trascrizione Batch richiedono un `name`. Il `description` e `properties` parametri sono facoltativi.
+Tutte le richieste POST all'API di trascrizione batch `name`richiedono. I `description` parametri `properties` e sono facoltativi.
 
-Il `Active` proprietà viene utilizzata per passare la richiamata nell'URL di attivare e disattivare senza dover eliminare e ricreare la registrazione del webhook. Se è sufficiente chiamare nuovamente una volta dopo che il processo è completo, quindi eliminare il webhook e switch di `Active` proprietà su false.
+La `Active` proprietà viene usata per attivare e disattivare la chiamata all'URL senza dover eliminare e ricreare la registrazione del webhook. Se è necessario chiamare di nuovo una volta al termine del processo, eliminare il webhook e impostare la `Active` proprietà su false.
 
-Il tipo di evento `TranscriptionCompletion` viene fornito nella matrice di eventi. Verrà eseguita una richiamata all'endpoint quando una trascrizione entra in uno stato terminale (`Succeeded` o `Failed`). Quando si chiama nuovamente all'URL registrato, la richiesta contiene un `X-MicrosoftSpeechServices-Event` intestazione contenente uno dei tipi di evento registrato. Non vi è una richiesta per ogni tipo di evento registrato.
+Il tipo `TranscriptionCompletion` di evento viene fornito nella matrice di eventi. Verrà richiamato all'endpoint quando una trascrizione entra in uno stato terminale (`Succeeded` o `Failed`). Quando si richiama l'URL registrato, la richiesta conterrà un' `X-MicrosoftSpeechServices-Event` intestazione contenente uno dei tipi di evento registrati. È presente una richiesta per ogni tipo di evento registrato.
 
-Vi è un tipo di evento che è possibile sottoscrivere. Si tratta di `Ping` tipo di evento. Viene inviata una richiesta con questo tipo per l'URL al termine della creazione di un webhook quando si usa l'URL di ping (vedere sotto).  
+Esiste un tipo di evento che non è possibile sottoscrivere. Si tratta del `Ping` tipo di evento. Una richiesta con questo tipo viene inviata all'URL al termine della creazione di un webhook quando si usa l'URL ping (vedere di seguito).  
 
-Nella configurazione, il `url` proprietà è obbligatoria. Vengono inviate le richieste POST all'URL. Il `secret` viene usato per creare un hash SHA256 del payload, con il master secret come chiave HMAC. L'hash sia impostato come il `X-MicrosoftSpeechServices-Signature` intestazione quando si chiama nuovamente all'URL registrato. Questa intestazione è con codificata Base64.
+Nella configurazione, la `url` proprietà è obbligatoria. Le richieste POST vengono inviate a questo URL. `secret` Viene utilizzato per creare un hash SHA256 del payload, con il segreto come chiave HMAC. L'hash viene impostato come `X-MicrosoftSpeechServices-Signature` intestazione quando si richiama l'URL registrato. Questa intestazione è con codifica Base64.
 
-Questo esempio viene illustrato come convalidare un payload tramite C#:
+Questo esempio illustra come convalidare un payload usando C#:
 
 ```csharp
 
@@ -110,32 +110,32 @@ public async Task<IActionResult> PostAsync([FromHeader(Name = EventTypeHeaderNam
 }
 
 ```
-In questo frammento di codice il `secret` è decodificata e convalidato. Si noterà anche che il tipo di evento del webhook è stato spostato. È attualmente disponibile un evento per ogni trascrizione completato. Il codice ripete cinque volte per ogni evento (con un ritardo secondo uno) prima di rinunciare.
+In questo frammento di codice `secret` , la viene decodificata e convalidata. Si noterà anche che il tipo di evento webhook è stato cambiato. Attualmente esiste un evento per ogni trascrizione completata. Il codice esegue un nuovo tentativo cinque volte per ogni evento (con un ritardo di un secondo) prima di rinunciare.
 
-### <a name="other-webhook-operations"></a>Altre operazioni di webhook
+### <a name="other-webhook-operations"></a>Altre operazioni di Webhook
 
-Per ottenere registrati tutti i webhook: GET https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks
+Per ottenere tutti i webhook registrati: GET https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks
 
 Per ottenere un webhook specifico: GET https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id
 
 Per rimuovere un webhook specifico: DELETE https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id
 
 > [!Note]
-> Nell'esempio precedente, l'area è 'westus'. Questo deve essere sostituito dall'area in cui è stata creata la risorsa di servizi di riconoscimento vocale nel portale di Azure.
+> Nell'esempio precedente, l'area è "westus". Questa operazione deve essere sostituita dall'area in cui è stata creata la risorsa di servizi vocali nel portale di Azure.
 
-POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/ping corpo: vuoto
+Corpo https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/ping post: vuoto
 
-Invia una richiesta POST all'URL registrato. La richiesta contiene un `X-MicrosoftSpeechServices-Event` intestazione con un ping di valore. Se il webhook è stato registrato con un segreto, conterrà un `X-MicrosoftSpeechServices-Signature` intestazione con un hash SHA256 del payload con il master secret come chiave HMAC. L'hash è con codificata Base64.
+Invia una richiesta POST all'URL registrato. La richiesta contiene un' `X-MicrosoftSpeechServices-Event` intestazione con un valore ping. Se il webhook è stato registrato con un segreto, conterrà un' `X-MicrosoftSpeechServices-Signature` intestazione con un hash SHA256 del payload con il segreto come chiave HMAC. L'hash è codificato in base 64.
 
-POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/test corpo: vuoto
+Corpo https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/test post: vuoto
 
-Invia una richiesta POST all'URL registrato se un'entità per il tipo di evento sottoscritto (trascrizione) è presente nel sistema e si trova nello stato appropriato. Il payload verrà generato dall'ultima entità che sarebbe stato richiamato il webhook. Se non è presente alcuna entità, il POST risponderà con 204. Se è possibile eseguire una richiesta di test, risponderà con 200. Il corpo della richiesta è della stessa forma come la richiesta di recupero per un'entità specifica (ad esempio trascrizione) ha sottoscritto l'hook web. La richiesta avrà il `X-MicrosoftSpeechServices-Event` e `X-MicrosoftSpeechServices-Signature` intestazioni come descritto in precedenza.
+Invia una richiesta POST all'URL registrato se un'entità per il tipo di evento sottoscritto (trascrizione) è presente nel sistema ed è nello stato appropriato. Il payload verrà generato dall'ultima entità che avrebbe richiamato l'hook Web. Se non è presente alcuna entità, il POST risponderà con 204. Se è possibile effettuare una richiesta di test, risponderà con 200. Il corpo della richiesta ha la stessa forma della richiesta GET per un'entità specifica sottoscritta dall'hook Web (per la trascrizione dell'istanza). La richiesta avrà le `X-MicrosoftSpeechServices-Event` intestazioni e `X-MicrosoftSpeechServices-Signature` come descritto in precedenza.
 
 ### <a name="run-a-test"></a>Eseguire un test
 
-Un rapido test può essere eseguito tramite il sito Web https://bin.webhookrelay.com. Da qui, è possibile ottenere chiamata nuovamente gli URL da passare come parametro per la richiesta HTTP POST per la creazione di un webhook, descritto in precedenza nel documento.
+È possibile eseguire un test rapido usando il sito https://bin.webhookrelay.com Web. Da qui è possibile ottenere gli URL di chiamata per passare come parametro al POST HTTP per la creazione di un webhook descritto in precedenza nel documento.
 
-Fare clic su 'Crea Bucket' e seguire sullo schermo le istruzioni per ottenere un hook. Usare quindi le informazioni fornite in questa pagina per registrare l'hook nel servizio di riconoscimento vocale. Il payload di un messaggio di inoltro: nella risposta per il completamento di una trascrizione – appare come segue:
+Fare clic su "Crea bucket" e seguire le istruzioni visualizzate per ottenere un hook. Usare quindi le informazioni fornite in questa pagina per registrare l'hook con il servizio di riconoscimento vocale. Il payload di un messaggio di inoltro, in risposta al completamento di una trascrizione, è simile al seguente:
 
 ```json
 {
@@ -177,7 +177,7 @@ Fare clic su 'Crea Bucket' e seguire sullo schermo le istruzioni per ottenere un
     }
 }
 ```
-Il messaggio contiene l'URL di registrazione e i modelli usati per trascrivere che la registrazione.
+Il messaggio contiene l'URL di registrazione e i modelli usati per trascrivere la registrazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

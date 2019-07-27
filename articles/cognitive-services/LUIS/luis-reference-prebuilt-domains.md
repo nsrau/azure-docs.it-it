@@ -1,6 +1,6 @@
 ---
-title: Informazioni di riferimento sui domini predefiniti
-titleSuffix: Azure
+title: Riferimento a dominio predefinito-LUIS
+titleSuffix: Azure Cognitive Services
 description: Informazioni di riferimento sui domini predefiniti che sono raccolte predefinite di finalità ed entità di Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,21 +11,21 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: b615185472ede25fd6ceef9cc3e7325375e16ac7
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: ce043e23a0384a74fd5d2c9dd514045578ef836d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846676"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563466"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Informazioni di riferimento sui domini predefiniti per l'app LUIS
 Queste informazioni di riferimento descrivono i [domini predefiniti](luis-how-to-use-prebuilt-domains.md) che sono raccolte predefinite delle finalità ed delle entità offerte da LUIS.
 
 I [domini personalizzati](luis-how-to-start-new-app.md), al contrario, vengono avviati senza finalità e modelli. È possibile aggiungere le finalità e le entità dei domini predefiniti a un modello personalizzato.
 
-# <a name="supported-domains-across-cultures"></a>Domini supportati nelle impostazioni cultura
+# <a name="supported-domains-across-cultures"></a>Domini supportati tra le diverse impostazioni cultura
 
-L'unica lingua supportata è impostata sull'inglese. 
+Le uniche impostazioni cultura supportate sono la lingua inglese. 
 
 <!--
 
@@ -54,14 +54,14 @@ The table below summarizes the currently supported domains. Support for English 
 
 |Tipo di entità|description|
 |--|--|
-|Calendar|Calendario è alcuna operazione sulle riunioni personale e gli appuntamenti _non_ eventi pubblici (ad esempio mondo FIFA pianificazioni, calendari Seattle) calendari generici o (ad esempio quale giorno è oggi, ciò che rientrano avviata, quando è Labor Day).|
-|Comunicazione|Le richieste per effettuare chiamate, inviare messaggi o messaggi immediati, trovare e aggiungere contatti e varie altre richieste alle comunicazioni (a livello generale in uscita). Nome del contatto solo le query non appartengono al dominio di comunicazione.|
-|Email|Messaggio di posta elettronica è un sottodominio del dominio di comunicazione. Contiene principalmente le richieste per inviare e ricevere messaggi tramite messaggi di posta elettronica.|
-|HomeAutomation|Il dominio HomeAutomation fornisce finalità ed entità correlate al controllo del smart device home. Principalmente supporta il comando di controllo correlato alla luce puntiforme e condizionatore d'aria, ma presenta alcune funzionalità di generalizzazione per altre Appliance electric.|
-|Note|Dominio nota fornisce finalità ed entità per la creazione di note e annotare gli elementi per gli utenti.|
-|Località|Posizioni includono le aziende, gli istituti, i ristoranti, spazi pubblici e indirizzi. Il dominio supporta la posizione di ricerca e che richiede le informazioni di un luogo pubblico, ad esempio posizione, ore e distanza operativi.|
-|RestaurantReservation|Dominio di prenotazione ristorante supporta gli Intent per la gestione delle prenotazioni per ristoranti.|
-|ToDo|Dominio ToDo fornisce tipi di elenchi di attività per gli utenti aggiungere, contrassegnare ed eliminare i propri elementi todo.|
-|Servizi pubblici|Dominio di utilità è generale tra LUIS tutti i modelli predefiniti che contiene gli Intent ed espressioni in scenari di differenza comuni.|
-|Weather|Dominio meteo è incentrato sulla verifica condizioni meteorologiche e gli avvisi con posizione e l'ora o il controllo di tempo per le condizioni meteo.|
-|Web|Il dominio Web fornisce la finalità e le entità per la ricerca di un sito Web.|
+|Calendar|Il calendario riguarda riunioni e appuntamenti personali, _non_ eventi pubblici, ad esempio le pianificazioni della Coppa del mondo, i calendari degli eventi di Seattle, oppure calendari generici (ad esempio, il giorno attuale, che cosa inizia, quando è il giorno del lavoro).|
+|Comunicazioni|Richieste di effettuare chiamate, inviare testi o messaggi istantanei, trovare e aggiungere contatti e diverse altre richieste correlate alla comunicazione (in genere in uscita). Il nome contatto solo le query non appartengono al dominio di comunicazione.|
+|Email|Il messaggio di posta elettronica è un sottodominio del dominio di comunicazione. Contiene principalmente le richieste di invio e ricezione di messaggi tramite posta elettronica.|
+|HomeAutomation|Il dominio HomeAutomation fornisce Intent ed entità correlati al controllo dei dispositivi Smart Home. Supporta principalmente il comando di controllo relativo a luci e condizionatori d'aria, ma presenta alcune funzionalità di generalizzazione per altri dispositivi elettrici.|
+|Note|Nota Domain fornisce Intent ed entità per la creazione di note e la scrittura di elementi per gli utenti.|
+|Località|I luoghi includono aziende, istituzioni, ristoranti, spazi pubblici e indirizzi. Il dominio supporta la ricerca e l'individuazione delle informazioni di un luogo pubblico, ad esempio località, ore operative e distanza.|
+|RestaurantReservation|Il dominio di prenotazione del ristorante supporta gli Intent per la gestione delle prenotazioni per i ristoranti.|
+|ToDo|ToDo Domain fornisce i tipi di elenchi di attività che consentono agli utenti di aggiungere, contrassegnare ed eliminare gli elementi todo.|
+|Servizi pubblici|Utilities Domain è un dominio generale tra tutti i modelli predefiniti di LUIS, che contiene finalità e espressioni comuni negli scenari di differenza.|
+|Weather|Il dominio meteorologico è incentrato sul controllo della condizione meteorologica e degli avvisi con località e ora o verifica del tempo in base alle condizioni meteorologiche.|
+|Web|Il dominio web fornisce le finalità e le entità per la ricerca di un sito Web.|

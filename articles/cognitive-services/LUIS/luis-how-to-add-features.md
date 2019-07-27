@@ -1,6 +1,6 @@
 ---
-title: Elenchi di frasi
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Elenchi di frasi-LUIS
+titleSuffix: Azure Cognitive Services
 description: Usare LUIS (Language Understanding) per aggiungere alle app funzionalità in grado di migliorare il rilevamento o la stima di finalità ed entità con cui creare categorie e criteri
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: diberry
-ms.openlocfilehash: 0723c3730ca0ae6325d828fbb5f41698cb807dd3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 75764fd0a3f862157d9377d7dc886334ef1231db
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60195910"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563711"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Usare gli elenchi di frasi in segnali boost dell'elenco di parole
 

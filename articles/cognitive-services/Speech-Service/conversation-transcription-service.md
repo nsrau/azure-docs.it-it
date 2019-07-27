@@ -1,7 +1,7 @@
 ---
-title: Trascrizione conversazione - servizi di riconoscimento vocale
+title: Trascrizione conversazione-servizio riconoscimento vocale
 titleSuffix: Azure Cognitive Services
-description: La trascrizione di conversazione è una funzionalità avanzata dei servizi di riconoscimento vocale che combina il riconoscimento vocale in tempo reale, identificazione voce e diarization. Trascrizione di conversazione è perfetta per la trascrizione riunioni di persona, con la possibilità di distinguere gli altoparlanti, consente di sapere chi ha detto what e when, che consente ai partecipanti di concentrarsi sulla riunione rapidamente completamento sui passaggi successivi. Questa funzionalità migliora anche l'accessibilità. Con la trascrizione, è possibile coinvolgere attivamente i partecipanti con problemi di udito.
+description: La trascrizione delle conversazioni è una funzionalità avanzata dei servizi di sintesi vocale che combinano il riconoscimento vocale in tempo reale, l'identificazione del relatore e la paginazione. La trascrizione delle conversazioni è ideale per la traduzione di riunioni di persona, con la possibilità di distinguere gli oratori, consente di sapere chi ha detto cosa e quando consentire ai partecipanti di concentrarsi sulla riunione e di seguire rapidamente i passaggi successivi. Questa funzionalità migliora inoltre l'accessibilità. Con la trascrizione, è possibile coinvolgere attivamente i partecipanti con problemi di udito.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,70 +10,70 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 18de3e52d61afd8e1ef20f80c020c8b7d96b9757
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: acbf82335523ee226f4b899180f0f22cb94cca5e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603258"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562880"
 ---
-# <a name="what-is-conversation-transcription"></a>Che cos'è la trascrizione di conversazione?
+# <a name="what-is-conversation-transcription"></a>Che cos'è la trascrizione delle conversazioni?
 
-La trascrizione di conversazione è una funzionalità avanzata dei servizi di riconoscimento vocale che combina il riconoscimento vocale in tempo reale, identificazione voce e diarization. Trascrizione di conversazione è perfetta per la trascrizione riunioni di persona, con la possibilità di distinguere gli altoparlanti, consente di sapere chi ha detto what e when, che consente ai partecipanti di concentrarsi sulla riunione rapidamente completamento sui passaggi successivi. Questa funzionalità migliora anche l'accessibilità. Con la trascrizione, è possibile coinvolgere attivamente i partecipanti con problemi di udito.   
+La trascrizione delle conversazioni è una funzionalità avanzata dei servizi di sintesi vocale che combinano il riconoscimento vocale in tempo reale, l'identificazione del relatore e la paginazione. La trascrizione delle conversazioni è ideale per la traduzione di riunioni di persona, con la possibilità di distinguere gli oratori, consente di sapere chi ha detto cosa e quando consentire ai partecipanti di concentrarsi sulla riunione e di seguire rapidamente i passaggi successivi. Questa funzionalità migliora inoltre l'accessibilità. Con la trascrizione, è possibile coinvolgere attivamente i partecipanti con problemi di udito.   
 
-Trascrizione conversazione offre riconoscimento accurato con modelli di riconoscimento vocale personalizzabile che è possibile personalizzare per comprendere il settore di fondo e vocabolario specifiche della società. Inoltre, è possibile abbinare la trascrizione di conversazione con il SDK di dispositivi vocale per ottimizzare l'esperienza per i dispositivi più microfono.
+La trascrizione delle conversazioni offre un riconoscimento accurato con modelli di riconoscimento vocale personalizzabili che è possibile personalizzare per comprendere il vocabolario specifico del settore e dell'azienda. Inoltre, è possibile associare la trascrizione delle conversazioni con l'SDK per i dispositivi vocali per ottimizzare l'esperienza per i dispositivi multimicrofono.
 
 >[!NOTE]
-> Attualmente, la trascrizione di conversazione è consigliata per piccole riunioni. Se vuoi estendere la trascrizione di conversazione per le riunioni di grandi dimensioni su larga scala, contattaci.
+> Attualmente, la trascrizione delle conversazioni è consigliata per riunioni di piccole dimensioni. Per estendere la trascrizione delle conversazioni per riunioni di grandi dimensioni su larga scala, contattaci.
 
-Questo diagramma illustra l'hardware, software e servizi che interagiscono con la trascrizione di conversazione.
+Questo diagramma illustra l'hardware, il software e i servizi che interagiscono con la trascrizione delle conversazioni.
 
-![Il diagramma di trascrizione di conversazione di importazione](media/scenarios/conversation-transcription-service.png)
+![Diagramma di trascrizione della conversazione di importazione](media/scenarios/conversation-transcription-service.png)
 
 >[!IMPORTANT]
-> Una matrice di sette microfono circolare con configurazione specifica geometria è obbligatoria. Per informazioni dettagliate specifiche e la progettazione, vedere [microfono SDK di Microsoft Speech dispositivo](https://aka.ms/cts/microphone). Per altre informazioni o si acquista un kit di sviluppo, vedere [ottenere Microsoft Speech Device SDK](https://aka.ms/cts/getsdk).
+> È necessaria una matrice circolare di sette microfoni con una specifica configurazione di geometria. Per informazioni dettagliate e di progettazione, vedere [microfono per dispositivi Microsoft Speech SDK](https://aka.ms/cts/microphone). Per ulteriori informazioni o per acquistare un kit di sviluppo, vedere la pagina relativa a come [ottenere Microsoft Speech Device SDK](https://aka.ms/cts/getsdk).
 
-## <a name="get-started-with-conversation-transcription"></a>Introduzione a conversazione trascrizione
+## <a name="get-started-with-conversation-transcription"></a>Inizia a usare la trascrizione delle conversazioni
 
-Esistono tre passaggi che è necessario eseguire per iniziare a usare la trascrizione di conversazione.
+Per iniziare a usare la trascrizione delle conversazioni, è necessario eseguire tre passaggi.
 
-1. Raccogliere esempi vocali dagli utenti.
-2. Generare i profili utente utilizzando gli esempi di utente vocale
-3. Usare il SDK di riconoscimento vocale per identificare gli utenti (relatori) e trascrizione vocale
+1. Raccogliere gli esempi vocali dagli utenti.
+2. Generare profili utente usando gli esempi di User Voice
+3. Usare l'SDK vocale per identificare gli utenti (speaker) e la traduzione vocale
 
-## <a name="collect-user-voice-samples"></a>Raccogliere gli esempi di utente vocale
+## <a name="collect-user-voice-samples"></a>Raccogli esempi di voce utente
 
-Il primo passaggio è raccogliere registrazioni audio da ogni utente. Riconoscimento vocale utente deve essere registrati in un ambiente non interattiva senza radiazione di fondo. La lunghezza consigliata per ogni campione audio è compreso tra 30 secondi e due minuti. Campioni audio più lungo comporterà una maggiore precisione quando si identificano gli altoparlanti. Audio deve essere un canale mono con una frequenza di campionamento KHz 16.
+Il primo passaggio consiste nella raccolta di registrazioni audio da ogni utente. Il riconoscimento vocale dell'utente deve essere registrato in un ambiente silenzioso senza rumore di fondo. La lunghezza consigliata per ogni campione audio è compresa tra 30 secondi e due minuti. Gli esempi audio più lunghi comporteranno una maggiore accuratezza quando si identificano gli altoparlanti. L'audio deve essere mono Channel con una frequenza di campionamento di 16 KHz.
 
-Oltre alla Guida menzionati in precedenza come audio verrà registrato e archiviati dipende dall'utente, è consigliabile un database protetto. Nella sezione successiva, verranno esaminate come questo audio viene utilizzato per generare i profili utente che vengono usati con Speech SDK per riconoscere gli altoparlanti.
+Oltre alle indicazioni sopra riportate, il modo in cui l'audio viene registrato e archiviato è la scelta di un database protetto. Nella sezione successiva verrà esaminato il modo in cui questo audio viene utilizzato per generare i profili utente utilizzati con l'SDK di riconoscimento vocale per riconoscere i relatori.
 
-## <a name="generate-user-profiles"></a>Generare i profili utente mobili
+## <a name="generate-user-profiles"></a>Genera profili utente
 
-Successivamente, è necessario inviare le registrazioni audio è stato raccolto per il servizio di generazione di firma per convalidare l'audio e generare i profili utente. Il [servizio di generazione firma](https://aka.ms/cts/signaturegenservice) è un set di API REST, che consentono di generare e recuperare i profili utente.
+Successivamente, sarà necessario inviare le registrazioni audio raccolte al servizio di generazione della firma per convalidare l'audio e generare i profili utente. Il [servizio di generazione della firma](https://aka.ms/cts/signaturegenservice) è un set di API REST che consentono di generare e recuperare i profili utente.
 
-Per creare un profilo utente, è necessario usare il `GenerateVoiceSignature` API. Sono disponibili i dettagli della specifica e codice di esempio:
+Per creare un profilo utente, è necessario usare l' `GenerateVoiceSignature` API. Sono disponibili i dettagli della specifica e il codice di esempio:
 
 > [!NOTE]
-> La trascrizione di conversazione è attualmente disponibile in "en-US" e "zh-CN" nelle aree seguenti: `centralus` e `eastasia`.
+> La trascrizione delle conversazioni è attualmente disponibile in "en-US" e "zh-CN" nelle aree `centralus` seguenti `eastasia`: e.
 
-* [Specifica di REST](https://aka.ms/cts/signaturegenservice)
-* [Come usare la trascrizione di conversazione](https://aka.ms/cts/howto)
+* [Specifica REST](https://aka.ms/cts/signaturegenservice)
+* [Come usare la trascrizione delle conversazioni](https://aka.ms/cts/howto)
 
-## <a name="transcribe-and-identify-speakers"></a>Trascrivi e identificare i parlanti
+## <a name="transcribe-and-identify-speakers"></a>Trascrizione e identificazione degli altoparlanti
 
-Trascrizione di conversazione si aspetta che i flussi audio multicanale e profili utente mobili come input per generare trascrizioni e identificare i parlanti. I dati del profilo utente e audio vengono inviati al servizio di conversazione trascrizione usando il SDK di dispositivi di riconoscimento vocale. Come accennato in precedenza, una matrice di sette microfono circolare e i dispositivi Speech SDK devono utilizzare la trascrizione di conversazione.
+La trascrizione della conversazione prevede flussi audio e profili utente multicanale come input per generare trascrizioni e identificare gli speaker. I dati relativi ai profili audio e utente vengono inviati al servizio di trascrizione delle conversazioni usando l'SDK per dispositivi vocali. Come indicato in precedenza, per usare la trascrizione delle conversazioni è necessario disporre di sette microfoni circolari e dell'SDK per dispositivi vocali.
 
 >[!NOTE]
-> Per informazioni dettagliate specifiche e la progettazione, vedere [microfono SDK di Microsoft Speech dispositivo](https://aka.ms/cts/microphone). Per altre informazioni o si acquista un kit di sviluppo, vedere [ottenere Microsoft Speech Device SDK](https://aka.ms/cts/getsdk).
+> Per informazioni dettagliate e di progettazione, vedere [microfono per dispositivi Microsoft Speech SDK](https://aka.ms/cts/microphone). Per ulteriori informazioni o per acquistare un kit di sviluppo, vedere la pagina relativa a come [ottenere Microsoft Speech Device SDK](https://aka.ms/cts/getsdk).
 
-Per informazioni su come usare la trascrizione di conversazione con il riconoscimento vocale Devices SDK, vedere [come usare la trascrizione di conversazione](https://aka.ms/cts/howto).
+Per informazioni su come usare la trascrizione delle conversazioni con l'SDK per i dispositivi vocali, vedere [come usare](https://aka.ms/cts/howto)la trascrizione delle conversazioni.
 
 
 ## <a name="quick-start-with-a-sample-app"></a>Avvio rapido con un'app di esempio
 
-SDK per dispositivi vocale Microsoft dispone di un'app di esempio di avvio rapido per tutti i dispositivi esempi correlati. La trascrizione di conversazione è uno di essi. È possibile trovarlo nel [Speech SDK per dispositivi android: Guida introduttiva](https://aka.ms/sdsdk-quickstart) con app di esempio e il relativo codice sorgente per riferimento.
+Microsoft Speech Device SDK include un'app di esempio di avvio rapido per tutti gli esempi relativi ai dispositivi. La trascrizione delle conversazioni è uno di essi. È possibile trovarlo nella [Guida introduttiva per Android Device SDK](https://aka.ms/sdsdk-quickstart) con l'app di esempio e il relativo codice sorgente per il riferimento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Altre informazioni sui dispositivi Speech SDK](speech-devices-sdk.md)
+> [Altre informazioni sull'SDK dei dispositivi vocali](speech-devices-sdk.md)

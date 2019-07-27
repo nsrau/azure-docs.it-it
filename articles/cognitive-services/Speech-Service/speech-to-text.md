@@ -1,7 +1,7 @@
 ---
-title: Sintesi vocale con servizi di riconoscimento vocale di Azure
+title: Servizio riconoscimento vocale vocale
 titleSuffix: Azure Cognitive Services
-description: Riconoscimento vocale da servizi vocali di Azure, noto anche come riconoscimento vocale, consente la trascrizione in tempo reale dei flussi audio in testo che le applicazioni, gli strumenti o i dispositivi possono utilizzare, visualizzare e agire come input del comando. Questo servizio è basato sulla stessa tecnologia di riconoscimento utilizzata da Microsoft per i prodotti Cortana e Office e funziona senza interruzioni con la traduzione e la sintesi vocale.
+description: La funzionalità di riconoscimento vocale nel servizio riconoscimento vocale, nota anche come sintesi vocale, consente la trascrizione in tempo reale dei flussi audio in testo che le applicazioni, gli strumenti o i dispositivi possono utilizzare, visualizzare e agire come input del comando. Questo servizio è basato sulla stessa tecnologia di riconoscimento utilizzata da Microsoft per i prodotti Cortana e Office e funziona senza interruzioni con la traduzione e la sintesi vocale.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: cb9362c4d58deb5472c8d5adab39cdd1cc4e2600
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 435de6e6516256d350ad93b121dd5a38d1512ddc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333563"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558860"
 ---
 # <a name="what-is-speech-to-text"></a>Che cos'è la sintesi vocale?
 
@@ -31,9 +31,9 @@ Di seguito sono riportate le funzionalità disponibili tramite l'SDK vocale e le
 
 | Caso d'uso | SDK | REST |
 |----------|-----|------|
-| Trascrivere brevi espressioni (< 15 secondi). Supporta solo il risultato finale della trascrizione. | Sì | Sì |
-| Trascrizione continua di espressioni Long e audio di streaming (> 15 secondi). Supporta i risultati della trascrizione temporanea e finale. | Sì | No |
-| Derivare gli Intent dai risultati del riconoscimento con [Luis](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis). | Yes | No\* |
+| Trascrivere brevi espressioni (< 15 secondi). Supporta solo il risultato finale della trascrizione. | Yes | Yes |
+| Trascrizione continua di espressioni Long e audio di streaming (> 15 secondi). Supporta i risultati della trascrizione temporanea e finale. | Yes | No |
+| Derivare gli Intent dai risultati del riconoscimento con [Luis](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis). | Sì | No\* |
 | Trascrizione batch di file audio in modo asincrono. | No | Sì\** |
 | Creare e gestire i modelli di riconoscimento vocale. | No | Sì\** |
 | Creare e gestire distribuzioni di modelli personalizzati. | No | Sì\** |
@@ -65,7 +65,7 @@ Il codice di esempio per l'SDK di riconoscimento vocale è disponibile su GitHub
 
 Oltre al modello universale usato dai servizi di riconoscimento vocale, è possibile creare modelli di lingua acustica, lingua e pronuncia personalizzati specifici per la propria esperienza. Ecco un elenco di opzioni di personalizzazione:
 
-| Modello | DESCRIZIONE |
+| Modello | Descrizione |
 |-------|-------------|
 | [Modello acustico](how-to-customize-acoustic-models.md) | La creazione di un modello acustico personalizzato è utile se l'applicazione, gli strumenti o i dispositivi vengono usati in un ambiente specifico, ad esempio in una macchina o in una fabbrica con condizioni di registrazione specifiche. Sono esempi di queste situazioni un eloquio con un forte accento, particolari rumori di sottofondo o l'uso di uno speciale microfono per la registrazione. |
 | [Modello linguistico](how-to-customize-language-model.md) | Creazione di un modello linguistico personalizzato per migliorare la trascrizione di grammatica e terminologia specifica di settore, ad esempio terminologia medica o IT. |

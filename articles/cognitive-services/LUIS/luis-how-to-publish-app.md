@@ -1,5 +1,5 @@
 ---
-title: Pubblicare l'app
+title: Pubblica app-LUIS
 titleSuffix: Azure Cognitive Services
 description: Dopo aver compilato ed eseguito il test dell'app LUIS attiva, renderla disponibile per l'applicazione client effettuandone la pubblicazione sull'endpoint.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: diberry
-ms.openlocfilehash: 22bed877d853c7023f8efe6bfb3dd21b4aa4c8df
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fdbdb2cd13d131019c4230aa369af31240d25f0d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60194470"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563640"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Pubblicare l'app attiva di cui si è eseguito il training in un endpoint di staging o di produzione
 

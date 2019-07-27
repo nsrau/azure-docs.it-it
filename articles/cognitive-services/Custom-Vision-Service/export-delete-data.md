@@ -1,6 +1,6 @@
 ---
 title: Esportare o eliminare i dati - Servizio visione artificiale personalizzato
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Informazioni su come esportare o eliminare i dati nel Servizio visione artificiale personalizzato.
 services: cognitive-services
 author: PatrickFarley
@@ -10,22 +10,22 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: e662e61a9df45cf3d57d5698337a26b7b8fc55a3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b885f359d9416fbc5f778b094610260342a75f65
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60605464"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564220"
 ---
 # <a name="export-or-delete-user-data-in-custom-vision"></a>Esportare o eliminare i dati in Visione personalizzata
 
-Servizio visione artificiale personalizzato raccoglie i dati utente per il funzionamento del servizio, ma i clienti hanno pieno controllo sulle visualizzazione, esportazione e l'eliminazione di dati tramite la visione artificiale personalizzato [API Training](https://go.microsoft.com/fwlink/?linkid=865446).
+Visione personalizzata raccoglie i dati utente per il funzionamento del servizio, ma i clienti hanno il controllo completo sulla visualizzazione, l'esportazione e l'eliminazione dei dati usando le [API di training](https://go.microsoft.com/fwlink/?linkid=865446)di visione personalizzata.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-Per informazioni su come esportare ed eliminare i dati utente in visione artificiale personalizzato, vedere la tabella seguente.
+Per informazioni su come esportare ed eliminare i dati utente in Visione personalizzata, vedere la tabella seguente.
 
-| Dati | Operazione di esportazione | Operazione di eliminazione |
+| Data | Operazione di esportazione | Operazione di eliminazione |
 | ---- | ---------------- | ---------------- |
 | Informazioni sull'account (chiavi di sottoscrizione) | [GetAccountInfo](https://go.microsoft.com/fwlink/?linkid=865446) | Eliminare tramite il portale di Azure (sottoscrizioni di Azure). In alternativa, usare il pulsante "Elimina l'account" nella pagina delle impostazioni di CustomVision.ai (sottoscrizioni di account Microsoft) | 
 | Dettagli sull'iterazione | [GetIteration](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteIteration](https://go.microsoft.com/fwlink/?linkid=865446) |

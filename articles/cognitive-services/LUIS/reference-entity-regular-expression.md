@@ -1,6 +1,6 @@
 ---
-title: Tipo di entità di espressione regolare
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Tipo di entità di espressione regolare-LUIS
+titleSuffix: Azure Cognitive Services
 description: Un'espressione regolare è ideale per il testo di un'espressione non elaborata. Maiuscole e minuscole vengono ignorate così come la variante relativa alla lingua.  La corrispondenza tramite le espressioni regolari viene applicata dopo le modifiche del controllo ortografico a livello di carattere e non a livello di token.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/24/2019
 ms.author: diberry
-ms.openlocfilehash: dfffea26ccd8dfcecea2c6a2e07234f3ab27f72b
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 82cce359f2161800c53ccce7cdb0342bba759d43
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68480231"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559945"
 ---
 # <a name="regular-expression-entity"></a>Entità di espressione regolare 
 

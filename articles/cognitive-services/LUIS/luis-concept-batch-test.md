@@ -1,6 +1,6 @@
 ---
-title: Test in batch
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Test batch-LUIS
+titleSuffix: Azure Cognitive Services
 description: Usare test in batch per lavorare continuamente all'applicazione allo scopo di perfezionarla e di migliorarne la comprensione del linguaggio.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: acb561970b6a8576d1219fc15758e21a3032c9e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a9a6e7ae48a51ab10e6ba2e5d3996e61938c6f3a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813316"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560845"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Test in batch con 1000 espressioni nel portale di LUIS
 

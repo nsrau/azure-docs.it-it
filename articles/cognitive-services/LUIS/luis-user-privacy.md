@@ -1,7 +1,7 @@
 ---
-title: Esportare ed eliminare dati
+title: Esporta & eliminare i dati-LUIS
 titleSuffix: Azure Cognitive Services
-description: Eliminare i dati del cliente garantire la privacy e conformità.
+description: Elimina i dati dei clienti per garantire la privacy e la conformità.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,19 +11,19 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: a82452f4b41aee9c4ea6f269d92fbc91a5697d16
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e234f88d6e735f33be253cacb373baef63c605c0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64916948"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559984"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Esportare ed eliminare i dati dei clienti in Language Understanding (LUIS) in Servizi cognitivi
 
-Eliminare i dati del cliente garantire la privacy e conformità. 
+Elimina i dati dei clienti per garantire la privacy e la conformità. 
 
 ## <a name="summary-of-customer-data-request-features"></a>Riepilogo delle funzionalità di richiesta dei dati dei clienti
-Language Understanding Intelligent Service (LUIS) conserva i contenuti dei clienti per consentire il funzionamento del servizio, ma l'utente LUIS ha il controllo completo su visualizzazione, esportazione ed eliminazione dei propri dati. Questa operazione può essere eseguita tramite il web LUIS [portal](luis-reference-regions.md) o il [le API (noto anche come a livello di codice) di creazione servizio LUIS](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
+Language Understanding Intelligent Service (LUIS) conserva i contenuti dei clienti per consentire il funzionamento del servizio, ma l'utente LUIS ha il controllo completo su visualizzazione, esportazione ed eliminazione dei propri dati. Questa operazione può essere eseguita tramite il [portale](luis-reference-regions.md) Web Luis o le [API Luis authoring (note anche come programmatiche)](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -31,20 +31,20 @@ I contenuti dei clienti vengono archiviati e crittografati in archivi Azure a li
 
 - Contenuti degli account utente raccolti al momento della registrazione
 - Dati di training necessari per compilare i modelli
-- Registrati query utente usate da [apprendimento attivo](luis-concept-review-endpoint-utterances.md) per contribuire a migliorare il modello
+- Query utente registrate utilizzate da [Active Learning](luis-concept-review-endpoint-utterances.md) per contribuire al miglioramento del modello
   - Gli utenti possono disattivare la registrazione delle query aggiungendo `&log=false` alla richiesta. Informazioni dettagliate sono disponibili [qui](troubleshooting.md#how-can-i-disable-the-logging-of-utterances)
 
 ## <a name="deleting-customer-data"></a>Eliminazione dei dati dei clienti
-Gli utenti di LUIS hanno il controllo completo per eliminare qualsiasi contenuto, tramite il portale web di LUIS o le API LUIS (noto anche come a livello di codice) di creazione dell'utente. Nella tabella seguente sono disponibili i collegamenti per entrambe le opzioni:
+Gli utenti LUIS hanno il controllo completo per eliminare qualsiasi contenuto utente, tramite il portale Web LUIS o le API LUIS authoring (noto anche come programmatico). Nella tabella seguente sono disponibili i collegamenti per entrambe le opzioni:
 
-| | **Account utente** | **Applicazione** | **Esempio Utterance(s)** | **Query utente finale** |
+| | **Account utente** | **Applicazione** | **Espressioni di esempio** | **Query utente finale** |
 | --- | --- | --- | --- | --- |
-| **Portale** | [Collegamento](luis-concept-data-storage.md#delete-an-account) | [Collegamento](luis-how-to-start-new-app.md#delete-app) | [Collegamento](luis-concept-data-storage.md#utterances-in-an-intent) | [Espressioni di apprendimento attivo](luis-how-to-review-endpoint-utterances.md#disable-active-learning)<br>[Espressioni connessi](luis-concept-data-storage.md#disable-logging-utterances) |
+| **Portale** | [Collegamento](luis-concept-data-storage.md#delete-an-account) | [Collegamento](luis-how-to-start-new-app.md#delete-app) | [Collegamento](luis-concept-data-storage.md#utterances-in-an-intent) | [Espressioni di apprendimento attive](luis-how-to-review-endpoint-utterances.md#disable-active-learning)<br>[Espressioni registrate](luis-concept-data-storage.md#disable-logging-utterances) |
 | **API** | [Collegamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [Collegamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [Collegamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [Collegamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
 
 
 ## <a name="exporting-customer-data"></a>Esportazione dei dati dei clienti
-Gli utenti di LUIS hanno controllo completo per visualizzare i dati nel portale, ma deve essere esportato tramite le API (noto anche come a livello di codice) di creazione servizio LUIS. Nella tabella seguente vengono visualizzati i collegamenti ad assistere con le esportazioni di dati tramite le API (noto anche come livello di programmazione) LUIS creazione:
+Gli utenti LUIS hanno il controllo completo per visualizzare i dati nel portale, ma devono essere esportati tramite le API LUIS authoring (noto anche come programmatico). La tabella seguente contiene i collegamenti che assistono alle esportazioni di dati tramite le API di authoring LUIS (note anche a livello di codice):
 
 | | **Account utente** | **Applicazione** | **Espressione/i** | **Query utente finale** |
 | --- | --- | --- | --- | --- |
@@ -52,39 +52,39 @@ Gli utenti di LUIS hanno controllo completo per visualizzare i dati nel portale,
 
 ## <a name="location-of-active-learning"></a>Percorso di apprendimento attivo
 
-Per abilitare [apprendimento attivo](luis-how-to-review-endpoint-utterances.md#enable-active-learning), utterances connesso degli utenti, ricevuti con l'endpoint pubblicati di LUIS, vengono archiviati in aree geografiche di Azure seguenti:
+Per abilitare l' [apprendimento attivo](luis-how-to-review-endpoint-utterances.md#enable-active-learning), le espressioni registrate degli utenti, ricevute negli endpoint Luis pubblicati, vengono archiviate nelle aree geografiche di Azure seguenti:
 
 * [Europa](#europe)
 * [Australia](#australia)
 * [Stati Uniti](#united-states)
 
-Fatta eccezione per i dati di apprendimento attivo (illustrati di seguito), LUIS segue il [procedure consigliate di archiviazione dei dati per i servizi a livello di area](https://azuredatacentermap.azurewebsites.net/). 
+Ad eccezione dei dati di apprendimento attivi (dettagliati di seguito), LUIS segue le [procedure di archiviazione dei dati per i servizi a livello](https://azuredatacentermap.azurewebsites.net/)di area. 
 
 ### <a name="europe"></a>Europa
 
-Il [eu.luis.ai](https://eu.luis.ai) portale e l'Europa (noto anche come a livello di codice API) di creazione sono ospitati in area geografica di Azure Europa. Il portale eu.luis.ai ed Europa (noto anche come a livello di codice API) di creazione supportare la distribuzione di endpoint per le aree geografiche di Azure seguenti:
+Il portale di [eu.Luis.ai](https://eu.luis.ai) e la creazione di Europe (noti anche come API programmatiche) sono ospitati nella geografia dell'Europa di Azure. Il portale di eu.luis.ai e la creazione di Europe (noti anche come API programmatiche) supportano la distribuzione di endpoint nelle seguenti aree geografiche di Azure:
 
 * Europa
 * Francia
 * Regno Unito
 
-Durante la distribuzione di queste aree geografiche di Azure, le espressioni ricevute dall'endpoint dagli utenti finali dell'app verranno archiviate nell'area geografica Europa di Azure per apprendimento attivo. È possibile disabilitare l'apprendimento attivo, vedere [disabilitare apprendimento attivo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Per gestire utterances archiviati, vedere [eliminare utterance](luis-how-to-review-endpoint-utterances.md#delete-utterance). 
+Quando si esegue la distribuzione in queste aree geografiche di Azure, le espressioni ricevute dall'endpoint dagli utenti finali dell'app vengono archiviate nella geografia dell'Europa di Azure per l'apprendimento attivo. È possibile disabilitare l'apprendimento attivo, vedere [disabilitare Active Learning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Per gestire le espressioni archiviate, vedere [eliminare l'espressione](luis-how-to-review-endpoint-utterances.md#delete-utterance). 
 
 ### <a name="australia"></a>Australia
 
-Il [au.luis.ai](https://au.luis.ai) portale e Australia Authoring (anche noto come API programmatiche) sono ospitati in area geografica Australia di Azure. Il portale au.luis.ai e Australia (noto anche come a livello di codice API) di creazione supportare la distribuzione di endpoint per le aree geografiche di Azure seguenti:
+Il portale di [au.Luis.ai](https://au.luis.ai) e la creazione dell'Australia (noti anche come API programmatiche) sono ospitati nell'area geografica Australia di Azure. Il portale di au.luis.ai e la creazione dell'Australia (noti anche come API programmatiche) supportano la distribuzione di endpoint nelle seguenti aree geografiche di Azure:
 
 * Australia
 
-Durante la distribuzione di queste aree geografiche di Azure, le espressioni ricevute dall'endpoint dagli utenti finali dell'app verranno archiviate nell'area geografica Australia di Azure per apprendimento attivo. È possibile disabilitare l'apprendimento attivo, vedere [disabilitare apprendimento attivo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Per gestire utterances archiviati, vedere [eliminare utterance](luis-how-to-review-endpoint-utterances.md#delete-utterance). 
+Quando si esegue la distribuzione in queste aree geografiche di Azure, le espressioni ricevute dall'endpoint dagli utenti finali dell'app vengono archiviate nella Geografia Australia di Azure per l'apprendimento attivo. È possibile disabilitare l'apprendimento attivo, vedere [disabilitare Active Learning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Per gestire le espressioni archiviate, vedere [eliminare l'espressione](luis-how-to-review-endpoint-utterances.md#delete-utterance). 
 
 ### <a name="united-states"></a>Stati Uniti
 
-Il [luis.ai](https://www.luis.ai) portale e Stati Uniti (noto anche come a livello di codice API) di creazione sono ospitati in area geografica Stati Uniti di Azure. Il portale luis.ai e Stati Uniti (noto anche come a livello di codice API) di creazione supportare la distribuzione di endpoint per le aree geografiche di Azure seguenti:
+Il portale di [Luis.ai](https://www.luis.ai) e la creazione di Stati Uniti (noti anche come API programmatiche) sono ospitati in Stati Uniti geography di Azure. Il portale di luis.ai e la creazione di Stati Uniti (noti anche come API programmatiche) supportano la distribuzione di endpoint nelle seguenti aree geografiche di Azure:
 
-* Aree geografiche di Azure non è supportati dall'Europa o creazione di aree Australia
+* Aree geografiche di Azure non supportate dalle aree di creazione dell'Europa o dell'Australia
 
-Durante la distribuzione di queste aree geografiche di Azure, le espressioni ricevute dall'endpoint dagli utenti finali dell'app verranno archiviate nell'area geografica Stati Uniti di Azure per apprendimento attivo. È possibile disabilitare l'apprendimento attivo, vedere [disabilitare apprendimento attivo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Per gestire utterances archiviati, vedere [eliminare utterance](luis-how-to-review-endpoint-utterances.md#delete-utterance). 
+Quando si esegue la distribuzione in queste aree geografiche di Azure, le espressioni ricevute dall'endpoint dagli utenti finali dell'app verranno archiviate nel Stati Uniti geography di Azure per l'apprendimento attivo. È possibile disabilitare l'apprendimento attivo, vedere [disabilitare Active Learning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Per gestire le espressioni archiviate, vedere [eliminare l'espressione](luis-how-to-review-endpoint-utterances.md#delete-utterance). 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

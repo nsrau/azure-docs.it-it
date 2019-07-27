@@ -1,6 +1,6 @@
 ---
-title: Procedure consigliate
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Procedure consigliate-LUIS
+titleSuffix: Azure Cognitive Services
 description: Informazioni sulle procedure consigliate LUIS per ottenere i risultati migliori con il modello di app LUIS.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: diberry
-ms.openlocfilehash: 9a6f9d54c52f36b8f709eacaf25d3fea31dbe516
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5cbdf94ef1899c4963f6ebe0149024baed4916a7
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812902"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564034"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Procedure consigliate per la creazione di un'app di riconoscimento vocale con Servizi cognitivi
 Usare il processo di creazione dell'app per compilare l'app LUIS. 
@@ -78,7 +78,7 @@ Per altre informazioni:
 
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>Aggiungere elenchi di frasi e criteri nelle iterazioni successive
 
-È consigliabile non applicare queste procedure prima che l'app sia stata testata. È necessario comprendere il comportamento dell'app prima di aggiungere gli elenchi di frase e modelli in quanto queste funzionalità sono un peso maggiore rispetto a espressioni di esempio e sfaserà confidenza. 
+È consigliabile non applicare queste procedure prima che l'app sia stata testata. È necessario comprendere il comportamento dell'app prima di aggiungere gli elenchi di frasi e i modelli, perché queste funzionalità sono ponderate in modo più significativo rispetto alle espressioni di esempio e dipendono dalla confidenza. 
 
 Dopo aver compreso come si comporta l'app senza queste caratteristiche, aggiungerne una alla volta in base alle esigenze. Non è necessario aggiungere queste caratteristiche con ogni [iterazione](luis-concept-app-iteration.md) o modificarle con ogni versione. 
 
@@ -97,7 +97,7 @@ Per altre informazioni:
 * Concetto: [Caratteristiche di tipo elenco di frasi nell'app LUIS](luis-concept-feature.md)
 * Procedura: [Usare gli elenchi di frasi in segnali boost dell'elenco di parole](luis-how-to-add-features.md)
 
-### <a name="patterns"></a>Modelli
+### <a name="patterns"></a>Criterio di ricerca
 
 Le espressioni utente reali dall'endpoint, molto simili tra loro, potrebbero rivelare criteri di scelta e posizionamento di parole. La funzionalità [criteri](luis-concept-patterns.md) apprende la scelta e il posizionamento delle parole oltre alle espressioni regolari per migliorare la precisione della stima. Un'espressione regolare nei criteri tiene conto delle parole e della punteggiatura che si intende ignorare mantenendo la corrispondenza ai criteri. 
 

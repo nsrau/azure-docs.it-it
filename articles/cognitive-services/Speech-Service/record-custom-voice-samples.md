@@ -1,5 +1,5 @@
 ---
-title: Registrare campioni vocali personalizzati - Servizi di riconoscimento vocale
+title: Registrare esempi vocali personalizzati-servizio riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: Creare una voce personalizzata di qualità di produzione grazie alla preparazione di uno script solido, all'assunzione di speaker di alto livello e a una registrazione professionale.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: ad2a3cd73fe97415f0d6835d70e15bf90349696c
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 47e1f8bf178723a5d4be323f24724214a67499e2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604896"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559199"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Esempi di campioni vocali per la creazione di una voce personalizzata
 
@@ -52,7 +52,7 @@ Scegliere uno speaker con la voce naturale che si preferisce. È possibile crear
 
 Il fattore più importante per la scelta di uno speaker è l'uniformità. Tutte le registrazioni devono sembrare come eseguite nello stesso giorno e nella stessa stanza. È possibile avvicinarsi a questa situazione ideale tramite procedure e tecniche ottimali di registrazione.
 
-Lo speaker rappresenta la seconda parte dell'equazione. Devono essere in grado di parlare con frequenza coerente, a livello di volume, il passo e tono. e una dizione perfetta è naturalmente indispensabile. Il talento deve inoltre essere in grado di controllare accuratamente relativi tono varianti emotivo effetto ed è utile vocale.
+Lo speaker rappresenta la seconda parte dell'equazione. Devono essere in grado di comunicare con frequenza coerente, livello di volume, passo e tono. e una dizione perfetta è naturalmente indispensabile. Il talento deve anche essere in grado di controllare in modo rigoroso la variazione del pitch, l'impatto emotivo e i comportamenti vocali.
 
 La registrazione di campioni vocali personalizzati può essere più difficoltosa rispetto ad altri tipi di attività legate alla voce. La maggior parte degli speaker può registrare per due o tre ore al giorno. Limitare le sessioni a tre o quattro alla settimana, con un giorno di riposo tra l'una e l'altra, se possibile.
 
@@ -104,11 +104,11 @@ In base alle norme sul copyright, la lettura di un testo protetto da copyright d
 
 È possibile tuttavia evitare completamente questi problemi. Sono disponibili molte origini di testo che si possono usare senza licenza né autorizzazione.
 
-|Origine del testo|Descrizione|
+|Origine del testo|DESCRIZIONE|
 |-|-|
 |[CMU Arctic corpus](http://festvox.org/cmu_arctic/)|Circa 1100 frasi selezionate da testi non protetti da copyright per l'uso specifico in progetti di sintesi vocale. Si tratta di un punto di partenza eccellente.|
 |Testi non più protetti<br>da copyright|Si tratta in genere di testi pubblicati prima del 1923. Per l'inglese, sul sito [Project Gutenberg](https://www.gutenberg.org/) sono disponibili decine di migliaia di tali testi. Può essere opportuno, tuttavia, concentrarsi su testi più recenti perché la lingua si avvicina di più all'inglese moderno.|
-|Testi&nbsp;di enti pubblici|Sebbene il governo potrebbe affermare copyright in altri paesi/aree geografiche, negli Stati Uniti, non è sono protette da copyright Works creati per il governo degli Stati Uniti.|
+|Testi&nbsp;di enti pubblici|Le opere create dal Stati Uniti Government non sono protette da copyright nel Stati Uniti, anche se il governo può richiedere il copyright in altri paesi/aree geografiche.|
 |Pubblico dominio|Testi per cui è stata fatta rinuncia esplicita al diritto di copyright o che sono stati definiti di pubblico dominio. In alcune giurisdizioni può non essere possibile rinunciare completamente al copyright.|
 |Testi concessi in licenza|Testi distribuiti in base a una licenza, ad esempio Creative Commons o la GNU Free Documentation License (GFDL). Wikipedia usa la licenza GFDL. Alcune licenze, tuttavia, possono imporre restrizioni sulle prestazioni correlate al contenuto concesso in licenza, condizione che può influire sulla creazione di un modello di voce personalizzata. È consigliabile pertanto leggere attentamente la licenza.|
 
@@ -116,7 +116,7 @@ In base alle norme sul copyright, la lettura di un testo protetto da copyright d
 
 Registrare lo script in uno studio di registrazione professionale specializzato in attività vocali. In uno studio di questo tipo sono disponibili un banco di registrazione, le apparecchiature adeguate e le persone esperte per farle funzionare. Quando di tratta di eseguire una registrazione, è opportuno non risparmiare.
 
-Esaminare il progetto con il tecnico di registrazione di studio e ascoltare i consigli. La registrazione deve avere minima o nessuna compressione di intervallo dinamico (massimo 4:1). È fondamentale che l'audio sia caratterizzato da un volume uniforme e da un rapporto segnale/rumore elevato e che sia privo di suoni non desiderati.
+È possibile discutere il progetto con il tecnico di registrazione di studio e ascoltare i loro consigli. La registrazione deve avere minima o nessuna compressione di intervallo dinamico (massimo 4:1). È fondamentale che l'audio sia caratterizzato da un volume uniforme e da un rapporto segnale/rumore elevato e che sia privo di suoni non desiderati.
 
 ### <a name="do-it-yourself"></a>Provare
 
@@ -157,12 +157,12 @@ Registrare a una qualità monofonica di 44,1 KHz 16 bit (qualità CD) o superior
 
 ### <a name="before-the-session"></a>Prima della sessione
 
-Per evitare di sprecare tempo in studio, esaminare lo script con lo speaker prima della sessione di registrazione. Mentre il talento vocale diventi familiare con il testo, essi può aiutare a chiarire la pronuncia di tutte le parole non note.
+Per evitare di sprecare tempo in studio, esaminare lo script con lo speaker prima della sessione di registrazione. Sebbene il talento vocale possa acquisire familiarità con il testo, può chiarire la pronuncia di eventuali parole non note.
 
 > [!NOTE]
 > La maggior parte degli studi di registrazione consente di visualizzare in modo elettronico gli script nel banco di registrazione. In questo caso digitare le note direttamente nel documento dello script. È tuttavia opportuno disporre di una copia cartacea per prendere appunti durante la sessione. Anche la maggior parte dei tecnici vuole in genere una copia cartacea. Predisporre anche una terza copia stampata come backup per lo speaker qualora il computer si arresti.
 
-Lo speaker potrebbe chiedere quale parola deve essere enfatizzata in un'espressione ("parola operativa"). Comunicare loro che si desidera una naturale di lettura con alcuna particolare attenzione. L'enfasi può essere aggiunta in fase di sintesi vocale, ma non deve far parte della registrazione originale.
+Lo speaker potrebbe chiedere quale parola deve essere enfatizzata in un'espressione ("parola operativa"). Indicare che si desidera una lettura naturale senza particolare enfasi. L'enfasi può essere aggiunta in fase di sintesi vocale, ma non deve far parte della registrazione originale.
 
 Indicare allo speaker di pronunciare distintamente le parole. Ogni parola dello script deve essere pronunciata come è stata scritta. I suoni non devono essere omessi né confusi, come talvolta avviene in un discorso casuale, *a meno che non siano stati scritti in tal modo nello script.*
 
@@ -195,7 +195,7 @@ Ascoltare con attenzione, usando le cuffie, la prestazione dello speaker. Verifi
 
 Prendere nota del numero del take o del time code per ogni espressione. Chiedere al tecnico se può contrassegnare ogni espressione nei metadati o nel foglio della segnalazione della registrazione.
 
-Eseguire le normali interruzioni e fornire una bevanda per dimostra il tuo talento vocale mantenere la propria voce formattati correttamente.
+Interrompi le interruzioni regolari e fornisci una bevanda per aiutare il tuo talento vocale a mantenete la propria voce in forma corretta.
 
 ### <a name="after-the-session"></a>Al termine della sessione
 

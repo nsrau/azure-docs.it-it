@@ -1,5 +1,5 @@
 ---
-title: Installare i contenitori di sintesi vocale
+title: Installare i contenitori di sintesi vocale-servizio vocale
 titleSuffix: Azure Cognitive Services
 description: Installare ed eseguire i contenitori di riconoscimento vocale. Riconoscimento vocale trascrive in tempo reale flussi audio in testo da usare o visualizzare in applicazioni, dispositivi o strumenti. Sintesi vocale converte il testo di input in una voce sintetizzata simile a quella di un essere umano.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 089b9030debc7489e123d49b5c78052f597ca469
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 0778814d4a228afe3a986426684c7d1f2080b517
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348406"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553229"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installare ed eseguire i contenitori dei servizi vocali
 
@@ -23,7 +23,7 @@ I contenitori di sintesi vocale consentono ai clienti di creare un'architettura 
 
 I due contenitori di riconoscimento vocale sono **sintesi vocale** e sintesi **vocale**. 
 
-|Funzione|Funzionalità|Ultima|
+|Funzione|Funzionalità|Ultimo|
 |-|-|--|
 |Riconoscimento vocale| <li>Trascrive registrazioni audio continue in tempo reale o batch in testo con risultati intermedi.|1.1.3|
 |Sintesi vocale| <li>Converte il testo scritto in un audio che suona naturale. con input di testo normale o SSML (Speech Synthesis Markup Language). |1.1.0|
@@ -178,7 +178,7 @@ Usare il comando [docker run](https://docs.docker.com/engine/reference/commandli
 
 **Durante l'anteprima**, le impostazioni di fatturazione devono essere valide per avviare il contenitore, ma non viene addebitato l'utilizzo.
 
-| Placeholder | Value |
+| Segnaposto | Value |
 |-------------|-------|
 |{API_KEY} | Questa chiave viene usata per avviare il contenitore ed è disponibile nella pagina relativa alle chiavi vocali del portale di Azure.  |
 |{ENDPOINT_URI} | Il valore dell'URI dell'endpoint di fatturazione è disponibile nella pagina di panoramica del discorso del portale di Azure.|

@@ -1,5 +1,5 @@
 ---
-title: Sintesi vocale riferimento all'API REST () - servizi di riconoscimento vocale
+title: Informazioni di riferimento sull'API sintesi vocale (REST)-servizio riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come usare l'API REST di sintesi vocale. In questo articolo vengono illustrate le opzioni di autorizzazione, le opzioni di query, come strutturare una richiesta e ricevere una risposta.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 684ddcd49d3cd3c3d4f0a8d6f4675e1e27bdb7b9
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b0a0d788c9fadd13b9a37f541a81945c86b37c29
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604881"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559179"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST di sintesi vocale
 
-I servizi voce consentono [convertire testo in sintesi vocale](#convert-text-to-speech) e [ottenere un elenco di voci supportati](#get-a-list-of-voices) per un'area con una serie di API REST. Ogni endpoint disponibile è associato a un'area. È necessaria una chiave di sottoscrizione per l'endpoint/area geografica che si intende usare.
+I servizi di riconoscimento vocale consentono di [convertire il testo in sintesi vocale](#convert-text-to-speech) e [ottenere un elenco di voci supportate](#get-a-list-of-voices) per un'area usando un set di API REST. Ogni endpoint disponibile è associato a un'area. È necessaria una chiave di sottoscrizione per l'endpoint/area che si prevede di usare.
 
 L'API REST Sintesi vocale supporta voci neurali e standard, ognuna delle quali supporta a sua volta una lingua e una lingua regionale specifiche, identificate dalle impostazioni locali.
 
@@ -29,7 +29,7 @@ L'API REST Sintesi vocale supporta voci neurali e standard, ognuna delle quali s
 > [!IMPORTANT]
 > I costi variano per voci standard, personalizzate e neurali. Per altre informazioni, vedere [Prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-Prima di usare questa API, comprendere:
+Prima di usare questa API, comprendere quanto segue:
 
 * L'API REST di sintesi vocale richiede un'intestazione dell'autorizzazione. Ciò significa che è necessario completare uno scambio di token per accedere al servizio. Per altre informazioni, vedere [Autenticazione](#authentication).
 
@@ -37,7 +37,7 @@ Prima di usare questa API, comprendere:
 
 ## <a name="get-a-list-of-voices"></a>Ottenere un elenco di voci
 
-Il `voices/list` endpoint consente di ottenere un elenco completo delle voci per un specificato area/endpoint.
+L' `voices/list` endpoint consente di ottenere un elenco completo delle voci per un'area o un endpoint specifico.
 
 ### <a name="regions-and-endpoints"></a>Aree ed endpoint
 
@@ -69,11 +69,11 @@ Questa tabella elenca le intestazioni obbligatorie e facoltative per le richiest
 
 | Intestazione | Descrizione | Obbligatoria / Facoltativa |
 |--------|-------------|---------------------|
-| `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | Obbligatorio |
+| `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | Obbligatoria |
 
 ### <a name="request-body"></a>Corpo della richiesta
 
-Un corpo non è necessario per `GET` richieste a questo endpoint.
+Non è necessario un corpo `GET` per le richieste a questo endpoint.
 
 ### <a name="sample-request"></a>Richiesta di esempio
 
@@ -91,7 +91,7 @@ Authorization: Bearer [Base64 access_token]
 Questa risposta è stata troncata per illustrare la struttura di una risposta.
 
 > [!NOTE]
-> Disponibilità Voice dipende dalla regione/endpoint.
+> La disponibilità vocale varia in base all'area/endpoint.
 
 ```json
 [
@@ -137,16 +137,16 @@ Il codice di stato HTTP di ogni risposta indica esito positivo o errori comuni.
 
 | Stato codice HTTP | Descrizione | Possibile motivo |
 |------------------|-------------|-----------------|
-| 200 | OK | La richiesta viene eseguita correttamente. |
-| 400 | Bad Request | Un parametro obbligatorio è mancante, vuoto o Null. In alternativa, il valore passato a un parametro obbligatorio o facoltativo non è valido. Un problema comune è la lunghezza eccessiva dell'intestazione. |
-| 401 | Non autorizzata | La richiesta non è autorizzata. Assicurarsi che la chiave di sottoscrizione o il token sia valido e nell'area corretta. |
+| 200 | OK | La richiesta è stata completata. |
+| 400 | Richiesta errata | Un parametro obbligatorio è mancante, vuoto o Null. In alternativa, il valore passato a un parametro obbligatorio o facoltativo non è valido. Un problema comune è la lunghezza eccessiva dell'intestazione. |
+| 401 | Non autorizzato | La richiesta non è autorizzata. Assicurarsi che la chiave di sottoscrizione o il token sia valido e nell'area corretta. |
 | 429 | Troppe richieste | È stata superata la quota o la frequenza di richieste consentite per la sottoscrizione. |
 | 502 | Gateway non valido | Problema di rete o lato server. Può anche indicare intestazioni non valide. |
 
 
 ## <a name="convert-text-to-speech"></a>Conversione sintesi vocale
 
-Il `v1` endpoint consente di eseguire la conversione tramite sintesi vocale [linguaggio di Markup sintesi della voce (SSML)](speech-synthesis-markup.md).
+L' `v1` endpoint consente di convertire sintesi vocale mediante [SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md).
 
 ### <a name="regions-and-endpoints"></a>Aree ed endpoint
 
@@ -160,14 +160,14 @@ Questa tabella elenca le intestazioni obbligatorie e facoltative per le richiest
 
 | Intestazione | Descrizione | Obbligatoria / Facoltativa |
 |--------|-------------|---------------------|
-| `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | Obbligatorio |
-| `Content-Type` | Specifica il tipo di contenuto per il testo specificato. Valore accettato: `application/ssml+xml`. | Obbligatorio |
-| `X-Microsoft-OutputFormat` | Specifica il formato di output audio. Per un elenco completo dei valori accettati, vedere [output audio](#audio-outputs). | Obbligatorio |
-| `User-Agent` | Il nome applicazione. Il valore fornito deve essere minore di 255 caratteri. | Obbligatorio |
+| `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | Obbligatoria |
+| `Content-Type` | Specifica il tipo di contenuto per il testo specificato. Valore accettato: `application/ssml+xml`. | Obbligatoria |
+| `X-Microsoft-OutputFormat` | Specifica il formato di output audio. Per un elenco completo dei valori accettati, vedere [output audio](#audio-outputs). | Obbligatoria |
+| `User-Agent` | Il nome applicazione. Il valore specificato deve essere inferiore a 255 caratteri. | Obbligatoria |
 
 ### <a name="audio-outputs"></a>Output audio
 
-Questo è un elenco dei formati audio supportati che vengono inviati in ogni richiesta come intestazione `X-Microsoft-OutputFormat`. Ognuno incorpora una velocità in bit e il tipo di codifica. I servizi di riconoscimento vocale supporta 24 kHz, kHz 16, e gli output audio 8 kHz.
+Questo è un elenco dei formati audio supportati che vengono inviati in ogni richiesta come intestazione `X-Microsoft-OutputFormat`. Ognuno incorpora una velocità in bit e il tipo di codifica. I servizi di riconoscimento vocale supportano output audio a 24 kHz, 16 kHz e 8 kHz.
 
 |||
 |-|-|
@@ -180,7 +180,7 @@ Questo è un elenco dei formati audio supportati che vengono inviati in ogni ric
 | `audio-24khz-48kbitrate-mono-mp3` | |
 
 > [!NOTE]
-> Se la voce selezionata e il formato di output hanno velocità in bit diverse, il campionamento audio viene ripetuto secondo necessità. Tuttavia, non supportano voices 24 kHz `audio-16khz-16kbps-mono-siren` e `riff-16khz-16kbps-mono-siren` formati di output.
+> Se la voce selezionata e il formato di output hanno velocità in bit diverse, il campionamento audio viene ripetuto secondo necessità. Tuttavia, le voci di 24 kHz non `audio-16khz-16kbps-mono-siren` supportano `riff-16khz-16kbps-mono-siren` e i formati di output.
 
 ### <a name="request-body"></a>Corpo della richiesta
 
@@ -208,9 +208,9 @@ Authorization: Bearer [Base64 access_token]
 </voice></speak>
 ```
 
-Vedere le guide introduttive per esempi specifici del linguaggio:
+Vedere le guide introduttive per esempi specifici della lingua:
 
-* [.NET Core, C#](quickstart-dotnet-text-to-speech.md)
+* [.NET Core,C#](quickstart-dotnet-text-to-speech.md)
 * [Python](quickstart-python-text-to-speech.md)
 * [Node.js](quickstart-nodejs-text-to-speech.md)
 
@@ -221,10 +221,10 @@ Il codice di stato HTTP di ogni risposta indica esito positivo o errori comuni.
 | Stato codice HTTP | Descrizione | Possibile motivo |
 |------------------|-------------|-----------------|
 | 200 | OK | La richiesta ha avuto esito positivo; il corpo della risposta è un file audio. |
-| 400 | Bad Request | Un parametro obbligatorio è mancante, vuoto o Null. In alternativa, il valore passato a un parametro obbligatorio o facoltativo non è valido. Un problema comune è la lunghezza eccessiva dell'intestazione. |
-| 401 | Non autorizzata | La richiesta non è autorizzata. Assicurarsi che la chiave di sottoscrizione o il token sia valido e nell'area corretta. |
+| 400 | Richiesta errata | Un parametro obbligatorio è mancante, vuoto o Null. In alternativa, il valore passato a un parametro obbligatorio o facoltativo non è valido. Un problema comune è la lunghezza eccessiva dell'intestazione. |
+| 401 | Non autorizzato | La richiesta non è autorizzata. Assicurarsi che la chiave di sottoscrizione o il token sia valido e nell'area corretta. |
 | 413 | Entità della richiesta troppo grande | La lunghezza dell'input SSML è maggiore di 1024 caratteri. |
-| 415 | Tipo di supporto non supportato | È possibile che il problema `Content-Type` è stato specificato. `Content-Type` deve essere impostato su `application/ssml+xml`. |
+| 415 | Tipo di supporto non supportato | È possibile che sia stato specificato `Content-Type` un errore. `Content-Type`deve essere impostato su `application/ssml+xml`. |
 | 429 | Troppe richieste | È stata superata la quota o la frequenza di richieste consentite per la sottoscrizione. |
 | 502 | Gateway non valido | Problema di rete o lato server. Può anche indicare intestazioni non valide. |
 

@@ -1,6 +1,6 @@
 ---
-title: Come usare la trascrizione batch - Servizi di riconoscimento vocale
-titlesuffix: Azure Cognitive Services
+title: Come usare il servizio di traduzione vocale di batch
+titleSuffix: Azure Cognitive Services
 description: La trascrizione batch è ideale se si desidera trascrivere una grande quantità di audio in un archivio, ad esempio BLOB di Azure. Usando l'API REST dedicata è possibile puntare ai file audio con un URI di firma di accesso condiviso (SAS) e ricevere trascrizioni in modo asincrono.
 services: cognitive-services
 author: PanosPeriorellis
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: b71400c3ae3c1cc6737d9194b4d94bf0b9c7efa9
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 088b6ef93631cb964979de3621453caa430c5b1e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606737"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559708"
 ---
 # <a name="why-use-batch-transcription"></a>Perché usare la trascrizione batch?
 
@@ -23,7 +23,7 @@ La trascrizione batch è ideale se si desidera trascrivere una grande quantità 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-### <a name="subscription-key"></a>Chiave di sottoscrizione
+### <a name="subscription-key"></a>Chiave sottoscrizione
 
 Come per tutte le funzionalità del servizio Voce, si crea una chiave di sottoscrizione dal [portale di Azure](https://portal.azure.com) seguendo la [guida introduttiva](get-started.md). Se si prevede di ottenere trascrizioni dai modelli di base, la creazione di una chiave è l'unica operazione da eseguire.
 
@@ -49,7 +49,7 @@ L'API di trascrizione batch offre la trascrizione asincrona della voce in testo 
 
 L'API di trascrizione batch supporta i formati seguenti:
 
-| Format | Codec | Bitrate | Frequenza di campionamento |
+| Formato | Codec | Bitrate | Frequenza di campionamento |
 |--------|-------|---------|-------------|
 | WAV | PCM | 16 bit | 8 o 16 kHz, mono, stereo |
 | MP3 | PCM | 16 bit | 8 o 16 kHz, mono, stereo |
@@ -89,24 +89,24 @@ Usare queste proprietà facoltative per configurare la trascrizione:
 | `ProfanityFilterMode` | Specifica come gestire il linguaggio volgare nei risultati del riconoscimento. I valori accettati sono `none` che disabilita i filtri del contenuto volgare, `masked` che sostituisce il contenuto volgare con gli asterischi, `removed` che rimuove tutto il contenuto volgare dal risultato, o `tags` che aggiunge tag "contenuti volgari". L'impostazione predefinita è `masked`. |
 | `PunctuationMode` | Specifica come gestire la punteggiatura nei risultati del riconoscimento. I valori accettati sono `none` che consente di disattivare la punteggiatura, `dictated` che implica la punteggiatura esplicita, `automatic` che permette al decodificatore di occuparsi della punteggiatura, o `dictatedandautomatic` che implica segni di punteggiatura dettata o automatica. |
  | `AddWordLevelTimestamps` | Specifica se i timestamp a livello di parola devono essere aggiunti all'output. I valori accettati sono `true`, che abilita i timestamp a livello di parola, e `false` (valore predefinito), che li disabilita. |
- | `AddSentiment` | Specifica dei sentimenti devono essere aggiunte alle utterance. Valori accettati sono `true` che consente di sentimenti per ogni utterance e `false` (valore predefinito) per disabilitarlo. |
- | `AddDiarization` | Specifica che alalysis diarization deve essere eseguita sull'input che dovrà essere canale mono contenente due voci. Valori accettati sono `true` consentendo diarization e `false` (valore predefinito) per disabilitarlo. È inoltre necessario `AddWordLevelTimestamps` da impostare su true.|
+ | `AddSentiment` | Specifica che il sentimento deve essere aggiunto all'espressione. I valori accettati sono `true` che Abilita il sentimento per ogni espressione e `false` (il valore predefinito) per disabilitarlo. |
+ | `AddDiarization` | Specifica che è necessario eseguire la alalysis di diarizzazione nell'input, che dovrebbe essere canale mono contenente due voci. I valori accettati sono `true` che consentono di eseguire la diaria e `false` (il valore predefinito) per disabilitarla. È anche necessario `AddWordLevelTimestamps` che sia impostato su true.|
 
 ### <a name="storage"></a>Archiviazione
 
-Batch supporta di trascrizione [archiviazione Blob di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) per la lettura di audio e trascrizioni di scrittura in un archivio.
+La trascrizione batch supporta l' [archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) per la lettura di audio e la scrittura di trascrizioni nell'archiviazione.
 
 ## <a name="webhooks"></a>webhooks
 
-Polling di uno stato di trascrizione potrebbe non essere il più efficiente o fornire la migliore esperienza utente. Per eseguire il polling dello stato, è possibile registrare i callback, che è possibile informare il client al completamento di attività con esecuzione prolungata trascrizione.
+Il polling dello stato della trascrizione potrebbe non essere il più efficiente o offrire la migliore esperienza utente. Per eseguire il polling dello stato, è possibile registrare i callback, che invierà una notifica al client durante il completamento delle attività di trascrizione con esecuzione prolungata.
 
-Per altre informazioni, vedere [Webhook](webhooks.md).
+Per altri dettagli, vedere [webhook](webhooks.md).
 
-## <a name="speaker-separation-diarization"></a>Separazione degli altoparlanti (Diarization)
+## <a name="speaker-separation-diarization"></a>Separazione dei relatori
 
-Diarization è il processo di separazione relatori in un frammento di audio. La pipeline di Batch supporta Diarization ed è in grado di riconoscere gli due altoparlanti sulle registrazioni di canale mono.
+La deframmentazione è il processo di separazione degli altoparlanti in un audio. La pipeline batch supporta la registrazione ed è in grado di riconoscere due altoparlanti nelle registrazioni del canale mono.
 
-Per richiedere che la richiesta di trascrizione audio viene elaborata per diarization, è sufficiente aggiungere il parametro in questione nella richiesta HTTP come illustrato di seguito.
+Per richiedere che la richiesta di trascrizione audio venga elaborata per la diaria, è sufficiente aggiungere il parametro pertinente nella richiesta HTTP, come illustrato di seguito.
 
  ```json
 {
@@ -122,30 +122,30 @@ Per richiedere che la richiesta di trascrizione audio viene elaborata per diariz
 }
 ```
 
-Timestamp di Word a livello sarebbe inoltre necessario 'attivata' perché indicano i parametri nella richiesta precedente.
+È necessario che i timestamp a livello di parola siano anch ' essi attivati perché i parametri nella richiesta precedente indicano.
 
-L'audio corrispondente conterrà i relatori principali identificati da un numero (attualmente sono supportate solo due voci, in modo che i relatori principali verranno identificati come ' relatore 1 ' e 'Relatore 2') seguito dall'output trascrizione.
+L'audio corrispondente conterrà gli altoparlanti identificati da un numero (attualmente sono supportate solo due voci, quindi gli altoparlanti verranno identificati come ' Speaker 1' è Speaker 2') seguiti dall'output della trascrizione.
 
-Si noti inoltre che Diarization non è disponibile in registrazioni Stereo. Inoltre, tutti i JSON output conterrà il tag del relatore. Se non viene utilizzato diarization, verrà indicato ' relatore: Null' nell'output JSON.
+Si noti inoltre che la registrazione non è disponibile nelle registrazioni stereo. Inoltre, tutto l'output JSON conterrà il tag del relatore. Se la non viene usata, verrà visualizzata la voce "Speaker: Null nell'output JSON.
 
 > [!NOTE]
-> Diarization è disponibile in tutte le aree e per tutte le impostazioni locali.
+> La predisposizione è disponibile in tutte le aree geografiche e per tutte le impostazioni locali.
 
 ## <a name="sentiment"></a>Valutazione
 
-Sentiment è una nuova funzionalità nell'API di Batch la trascrizione e costituisce un'importante funzionalità del dominio di centro di chiamata. I clienti possono usare il `AddSentiment` parametri alle loro richieste di
+Il sentimento è una nuova funzionalità dell'API di trascrizione di batch ed è una funzionalità importante del dominio del Call Center. I clienti possono usare `AddSentiment` i parametri per le richieste a
 
 1.  Ottieni informazioni dettagliate sulla soddisfazione dei clienti
-2.  Ottieni informazioni dettagliate sulle prestazioni degli agenti (team richiede le chiamate)
-3.  Individuare il punto esatto nel tempo quando una chiamata ha avuto un giro in direzione negativa
-4.  Individuare la causa anche quando si attiva chiamate negative a positivo
-5.  Identificare cosa, come i clienti e quali sono graditi di un prodotto o un servizio
+2.  Ottenere informazioni dettagliate sulle prestazioni degli agenti (team che effettua le chiamate)
+3.  Individuare il punto nel tempo esatto in cui una chiamata ha avuto un turno in una direzione negativa
+4.  Individuare le prestazioni ottimali quando si attivano le chiamate negative a positive
+5.  Identificare i clienti che desiderano e cosa non amano per un prodotto o un servizio
 
-Punteggio del sentiment è per ogni segmento di audio in cui un segmento di audio è definito come lasso di tempo tra l'inizio di utterance (offset) e l'inattività di rilevamento della fine del flusso di byte. L'intero testo all'interno di tale segmento viene utilizzato per il calcolo del sentiment. Non viene calcolare i valori di aggregazione del sentiment per la chiamata intera o del contenuto vocale intero di ogni canale. Queste aggregazioni vengono lasciate al proprietario del dominio per applicare ulteriormente.
+Il Punteggio viene valutato per segmento audio in cui un segmento audio viene definito come intervallo di tempo tra l'inizio dell'espressione (offset) e il silenzio di rilevamento della fine del flusso di byte. L'intero testo all'interno di tale segmento viene usato per calcolare il sentimento. NON vengono calcolati i valori di valutazione aggregati per l'intera chiamata o l'intero riconoscimento vocale di ogni canale. Queste aggregazioni vengono lasciate al proprietario del dominio per essere applicate ulteriormente.
 
-Sentiment viene applicato al formato lessicale.
+Il sentimento viene applicato al formato lessicale.
 
-Un esempio di output JSON simile al seguente:
+Un esempio di output JSON ha un aspetto simile al seguente:
 
 ```json
 {
@@ -180,11 +180,11 @@ Un esempio di output JSON simile al seguente:
   ]
 }
 ```
-La funzionalità Usa un modello del Sentiment, che è attualmente in versione Beta.
+La funzionalità Usa un modello di valutazione, che è attualmente in versione beta.
 
 ## <a name="sample-code"></a>Codice di esempio
 
-Esempi completi sono disponibili nel [repository GitHub di esempio](https://aka.ms/csspeech/samples) all'interno di `samples/batch` sottodirectory.
+Gli esempi completi sono disponibili nel [repository di esempio GitHub](https://aka.ms/csspeech/samples) all' `samples/batch` interno della sottodirectory.
 
 È necessario personalizzare il codice di esempio con le informazioni della sottoscrizione, l'area di servizio, l'URI di firma di accesso condiviso che punta al file audio da trascrivere e gli ID di modello in caso si voglia usare un modello acustico o linguistico personalizzato.
 

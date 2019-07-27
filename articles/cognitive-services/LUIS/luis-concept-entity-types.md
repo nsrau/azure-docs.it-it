@@ -1,6 +1,6 @@
 ---
-title: Tipi di entità
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Tipi di entità-LUIS
+titleSuffix: Azure Cognitive Services
 description: "Le entità estraggono i dati dall'espressione. I tipi di entità offrono un'estrazione prevedibile dei dati. Esistono due tipi di entità: Machine-learned e non-Machine-Learned. È importante individuare il tipo di entità che si sta utilizzando nelle espressioni."
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: diberry
-ms.openlocfilehash: a5a3ba8c25107317e7c47ee358f9a6ebe7d4556f
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 9919b6d07e874bd306bdba9da2cd3357bedc48f0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479121"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564005"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Tipi di entità e relativo scopo nel servizio LUIS
 

@@ -1,7 +1,7 @@
 ---
 title: Migrazione delle API da v1 a v2
 titleSuffix: Azure Cognitive Services
-description: L'endpoint della versione 1 e la creazione di API riconoscimento vocale sono deprecati. Usare questa guida per comprendere come eseguire la migrazione alla versione 2 delle API dell'endpoint e di creazione.
+description: L'endpoint della versione 1 e le API per la creazione Language Understanding sono deprecate. Usare questa guida per comprendere come eseguire la migrazione alla versione 2 delle API dell'endpoint e di creazione.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: a4e176552fcbab9d54da696439c7e46750be3944
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab42ee29e508bfa62e2dba7a6e6a06baa0da2489
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522354"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560318"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guida alla migrazione delle API da v1 a v2 per le app LUIS
 La versione 1 delle API dell'[endpoint](https://aka.ms/v1-endpoint-api-docs) e di [creazione](https://aka.ms/v1-authoring-api-docs) è deprecata. Usare questa guida per imparare a migrare le API [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) e [creazione](https://go.microsoft.com/fwlink/?linkid=2092087) alla versione 2. 
 
 ## <a name="new-azure-regions"></a>Nuove regioni di Azure
-LUIS offre nuove [regioni](https://aka.ms/LUIS-regions) per le API LUIS. LUIS fornisce un portale diverso per gruppi di aree. L'applicazione deve essere creata nella stessa regione in cui si prevede di eseguire le query. Le applicazioni non eseguono automaticamente la migrazione delle regioni. Esportare l'app da una regione, quindi importarla in un'altra affinché sia disponibile in una nuova regione.
+LUIS offre nuove [regioni](https://aka.ms/LUIS-regions) per le API LUIS. LUIS fornisce un portale diverso per i gruppi di aree. L'applicazione deve essere creata nella stessa regione in cui si prevede di eseguire le query. Le applicazioni non eseguono automaticamente la migrazione delle regioni. Esportare l'app da una regione, quindi importarla in un'altra affinché sia disponibile in una nuova regione.
 
 ## <a name="authoring-route-changes"></a>Modifiche alla route di creazione
 L'API di creazione non è più basata sulla route **prog** ma sulla route **api**.
@@ -35,7 +35,7 @@ L'API di creazione non è più basata sulla route **prog** ma sulla route **api*
 
 
 ## <a name="endpoint-route-changes"></a>Modifiche alla route endpoint
-L'endpoint API dispone di nuovi parametri di stringa di query, nonché una risposta diversa. Se il flag verbose è true, tutte le finalità, indipendentemente dal punteggio, vengono restituite in una matrice di finalità denominate, oltre a topScoringIntent.
+L'API dell'endpoint ha nuovi parametri della stringa di query e una risposta diversa. Se il flag verbose è true, tutte le finalità, indipendentemente dal punteggio, vengono restituite in una matrice di finalità denominate, oltre a topScoringIntent.
 
 | version | GET route |
 |--|--|
@@ -153,7 +153,7 @@ I [domini predefiniti](luis-how-to-use-prebuilt-domains.md) rappresentano modell
 |/luis/api/v2.0/apps/customprebuiltdomains/{culture}  |get|
 
 ## <a name="importing-1x-app-into-2x"></a>Importazione dell'app 1.x in 2.x
-Alcune aree del JSON dell'app 1.x esportata devono essere modificate prima di importarlo in [LUIS][LUIS] 2.0. 
+Il file JSON dell'app 1. x esportato contiene alcune aree che è necessario modificare prima di eseguire l'importazione in [LUIS][LUIS] 2,0. 
 
 ### <a name="prebuilt-entities"></a>Entità predefinite 
 Le [entità predefinite](luis-prebuilt-entities.md) sono cambiate. Assicurarsi di usare entità predefinite V2. È incluso l'uso di [datetimeV2](luis-reference-prebuilt-datetimev2.md) anziché datetime. 

@@ -1,7 +1,7 @@
 ---
-title: Ottimizzare l'output di sintesi vocale - servizi di riconoscimento vocale
+title: Ottimizzazione dell'output di sintesi vocale
 titleSuffix: Azure Cognitive Services
-description: Abilitare la registrazione nel SDK di riconoscimento vocale.
+description: Abilitare la registrazione nell'SDK di riconoscimento vocale.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,66 +10,66 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 94b58279b1a9fd4d9acdb4183f59b0a8579c17fd
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 4cf2338d76ce31f44eaf3fb235e5f8796602d819
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606455"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562745"
 ---
 # <a name="fine-tune-text-to-speech-output"></a>Ottimizzare l'output della sintesi vocale
 
-Servizi di riconoscimento vocale Azure consentono di regolare la velocità, pronuncia, volume, il passo e contorno dell'output tramite la sintesi vocale [linguaggio di Markup sintesi della voce (SSML)](speech-synthesis-markup.md). SSML è un linguaggio di markup basato su XML che utilizza tag per informare che il servizio richiede le funzionalità di ottimizzazione. Il messaggio SSML viene quindi inviato nel corpo di ogni richiesta al servizio di sintesi vocale. Per semplificare il processo di personalizzazione, i servizi di riconoscimento vocale offrono ora un' [Voice ottimizzazione](https://aka.ms/voicetuning) output dello strumento che consente di controllare visivamente e ottimizzare sintesi vocale in tempo reale.
+I servizi di riconoscimento vocale di Azure consentono di regolare la velocità, la pronuncia, il volume, il pitch e il contorno dell'output da sintesi vocale usando [SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md). SSML è un linguaggio di markup basato su XML che usa tag per informare il servizio sulla funzionalità che richiede l'ottimizzazione. Il messaggio SSML viene quindi inviato nel corpo di ogni richiesta al servizio di sintesi vocale. Per semplificare il processo di personalizzazione, i servizi di riconoscimento vocale offrono ora uno strumento di [ottimizzazione vocale](https://aka.ms/voicetuning) che consente di ispezionare visivamente e ottimizzare gli output da testo a riconoscimento vocale in tempo reale.
 
-Lo strumento di ottimizzazione Voice supporta Microsoft [standard](language-support.md#standard-voices), [neurale](language-support.md#text-to-speech), e [voci personalizzate](how-to-customize-voice-font.md).
+Lo strumento di ottimizzazione vocale supporta le voci [standard](language-support.md#standard-voices), [neurale](language-support.md#text-to-speech)e [personalizzate](how-to-customize-voice-font.md)Microsoft.
 
-## <a name="get-started-with-the-voice-tuning-tool"></a>Iniziare con lo strumento di ottimizzazione vocale
+## <a name="get-started-with-the-voice-tuning-tool"></a>Introduzione allo strumento di ottimizzazione vocale
 
-Prima di iniziare l'output di sintesi vocale con lo strumento di ottimizzazione vocali di ottimizzazione, è necessario effettuare le seguenti operazioni:
+Prima di iniziare a ottimizzare l'output di sintesi vocale con lo strumento di ottimizzazione vocale, è necessario completare i passaggi seguenti:
 
-1. Creare un [account Microsoft gratuito](https://account.microsoft.com/account) se non ne hai già uno.
-2. Creare un [account Azure gratuito](https://azure.microsoft.com/free/) se non ne hai già uno. Fare clic su **inizia gratis**e creare un nuovo account di Azure con l'account Microsoft.
+1. Se non si dispone già di un account Microsoft, è possibile crearne uno [gratuito](https://account.microsoft.com/account) .
+2. Se non si dispone già di un account Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) . Fare clic su **Avvia gratis**e creare un nuovo account Azure usando il account Microsoft.
 
-3. Creare una sottoscrizione di servizi di riconoscimento vocale nel portale di Azure. Istruzioni dettagliate per la [come creare una risorsa di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) sono disponibili.
+3. Creare una sottoscrizione di servizi vocali nella portale di Azure. Sono disponibili istruzioni dettagliate per [la creazione di una risorsa di sintesi vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) .
    >[!NOTE]
-   >Quando si crea una risorsa di riconoscimento vocale nel portale di Azure, le informazioni di località di Azure devono corrispondere all'area di sintesi vocale. Neural sintesi vocale supporta un set di subset di posizioni di Azure. Per un elenco completo di supporto, vedere [aree](regions.md#text-to-speech).
+   >Quando si crea una risorsa di sintesi vocale nella portale di Azure, le informazioni sulla località di Azure devono corrispondere all'area della voce TTS. La voce neurale TTS supporta un sottoinsieme di località di Azure. Per un elenco completo del supporto, vedere [aree](regions.md#text-to-speech).
 
    >[!NOTE]
-   >È necessario disporre di un F0 o una chiave S0 creata nel portale di Azure prima di poter usare il servizio. Vocali Tuning **non** supportano il [chiave di valutazione gratuita di 30 giorni](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started?branch=release-build-cogserv-speech-services#free-trial).
+   >Prima di poter usare il servizio, è necessario che nel portale di Azure sia stata creata una chiave F0 o una chiave S0. L'ottimizzazione vocale **non** supporta la [chiave di valutazione gratuita di 30 giorni](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started?branch=release-build-cogserv-speech-services#free-trial).
 
-4. Accedi per il [Voice ottimizzazione](https://aka.ms/voicetuning) portale e collegare la sottoscrizione di servizi di riconoscimento vocale. Scegliere una singola sottoscrizione di servizi di riconoscimento vocale e quindi creare un progetto.
+4. Accedere al portale di [ottimizzazione vocale](https://aka.ms/voicetuning) e connettere la sottoscrizione ai servizi vocali. Scegliere una singola sottoscrizione di servizi vocali e quindi creare un progetto.
 5. Selezionare **nuova ottimizzazione**. Seguire quindi questa procedura:
 
    * Individuare e selezionare **tutte le sottoscrizioni**.  
    * Selezionare **Connect existing subscription** (Connetti sottoscrizione esistente).  
-     ![Connettere una sottoscrizione esistente](./media/custom-voice/custom-voice-connect-subscription.png).
-   * Immettere la chiave di sottoscrizione di servizi di riconoscimento vocale di Azure e quindi selezionare **Add**. Le chiavi di sottoscrizione sono disponibili nel portale di personalizzazione di riconoscimento vocale dal [pagina di sottoscrizione](https://go.microsoft.com/fwlink/?linkid=2090458). È anche possibile leggere le chiavi nel riquadro di gestione delle risorse nel [portale di Azure](https://portal.azure.com/).
-   * Se hai più sottoscrizioni di servizi di riconoscimento vocale che si intende usare, ripetere questi passaggi per ogni sottoscrizione.
+     ![Connettere una sottoscrizione](./media/custom-voice/custom-voice-connect-subscription.png)esistente.
+   * Immettere la chiave di sottoscrizione di servizi vocali di Azure, quindi selezionare **Aggiungi**. Le chiavi di sottoscrizione sono disponibili nel portale di personalizzazione vocale dalla [pagina sottoscrizione](https://go.microsoft.com/fwlink/?linkid=2090458). È anche possibile ottenere le chiavi dal riquadro Gestione risorse nel [portale di Azure](https://portal.azure.com/).
+   * Se si prevede di usare più di una sottoscrizione di servizi vocali, ripetere questi passaggi per ogni sottoscrizione.
 
 ## <a name="customize-the-text-to-speech-output"></a>Personalizzare l'output di sintesi vocale
 
-Ora che è stato creato gli account e collegato la sottoscrizione, è possibile avviare l'ottimizzazione dell'output di sintesi vocale.
+Ora che sono stati creati gli account e collegato la sottoscrizione, è possibile iniziare a ottimizzare l'output di sintesi vocale.
 
 1. Scegliere una voce.
-2. Immettere il testo da modificare.
-3. Prima di iniziare ad apportare modifiche, riprodurre l'audio per acquisire familiarità con l'output.
-4. Selezionare la parola/frase che si desidera ridefinire e inizia a sperimentare con diverse funzioni basate su SSML.
+2. Immettere il testo che si desidera modificare.
+3. Prima di iniziare a apportare modifiche, riprodurre l'audio per ottenere un'idea dell'output.
+4. Selezionare la parola/frase che si vuole perfezionare e iniziare a sperimentare con diverse funzioni basate su SSML.
 
 >[!TIP]
-> Per informazioni dettagliate sulla regolazione SSML e l'ottimizzazione dell'output vocale, vedere [linguaggio di Markup sintesi della voce (SSML)](speech-synthesis-markup.md).
+> Per informazioni dettagliate sulla modifica di SSML e sull'ottimizzazione dell'output vocale, vedere [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md).
 
 ## <a name="limitations"></a>Limitazioni
 
-Ottimizzazione vocale neurale è leggermente diverso rispetto all'ottimizzazione per la voce Standard e personalizzate.
+L'ottimizzazione della voce neurale è leggermente diversa rispetto all'ottimizzazione per le voci standard e personalizzate.
 
-* Intonazione non è supportata per la voce neurale.
-* Funzionalità del passo e volume funzionano solo con frasi complete. Queste funzionalità non sono disponibili a livello di word.
-* Per la frequenza, alcune voci neurali possono essere ottimizzate basate su parole, mentre altri richiedono di selezionare frasi intere.
+* L'intonazione non è supportata per le voci neurali.
+* Le funzionalità di pitch e volume funzionano solo con frasi complete. Queste funzionalità non sono disponibili a livello di parola.
+* Per la frequenza, alcune voci neurali possono essere ottimizzate in base alle parole, mentre altre richiedono la selezione di frasi intere.
 
 > [!TIP]
-> Lo strumento di ottimizzazione vocali fornisce informazioni contestuali sulla funzionalità e l'ottimizzazione.
+> Lo strumento di ottimizzazione vocale fornisce informazioni contestuali sulle funzionalità e sull'ottimizzazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Creare una risorsa di riconoscimento vocale in Azure](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure)
-* [Avviare l'ottimizzazione vocale](https://speech.microsoft.com/app.html#/VoiceTuning)
+* [Creare una risorsa vocale in Azure](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure)
+* [Avvia ottimizzazione voce](https://speech.microsoft.com/app.html#/VoiceTuning)
 * [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md)

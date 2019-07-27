@@ -1,6 +1,6 @@
 ---
 title: Moderare il testo usando l'API Moderazione testo - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Provare a moderare il testo usando l'API Moderazione testo nella console online.
 services: cognitive-services
 author: sanjeev3
@@ -10,16 +10,16 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: a3eb134d655f2a25acb45e0d249aa421667d1520
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 49047c21f86530aac6ed3e0138a643fd08c35af8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621396"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561184"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Moderare il testo dalla console dell'API
 
-Usare la [API di moderazione testo](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) in Azure Content Moderator per analizzare il contenuto di testo per il contenuto volgare e confrontarla con elenchi personalizzati e condivisi.
+Usare l' [API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) di moderazione del testo in Azure Content Moderator per analizzare il contenuto di testo in modo volgare e confrontarlo con elenchi personalizzati e condivisi.
 
 ## <a name="get-your-api-key"></a>Ottenere la chiave dell'API
 
@@ -73,7 +73,7 @@ Also, 999-99-9999 looks like a social security number (SSN).
 
 ## <a name="analyze-the-response"></a>Analizzare la risposta
 
-La risposta seguente mostra le varie informazioni provenienti dall'API. Contiene contenuto potenzialmente volgare, i dati personali, classificazione (anteprima) e la versione è stata corretta automaticamente.
+La risposta seguente mostra le varie informazioni provenienti dall'API. Contiene potenziali volgarità, dati personali, classificazione (anteprima) e la versione con correzione automatica.
 
 > [!NOTE]
 > La funzionalità "Classification" (Classificazione) automatica è disponibile in anteprima e supporta solo la lingua inglese.
@@ -172,8 +172,8 @@ La risposta seguente mostra le varie informazioni provenienti dall'API. Contiene
 }
 ```
 
-Per una spiegazione dettagliata di tutte le sezioni nella risposta JSON, vedere la [moderazione testo](text-moderation-api.md) Guida concettuale.
+Per una spiegazione dettagliata di tutte le sezioni della risposta JSON, vedere la Guida concettuale relativa alla moderazione del [testo](text-moderation-api.md) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Usare l'API REST nel codice o iniziare con il [Guida introduttiva di .NET moderazione testo](text-moderation-quickstart-dotnet.md) per l'integrazione con l'applicazione.
+Usare l'API REST nel codice o iniziare con la [Guida introduttiva di .NET](text-moderation-quickstart-dotnet.md) per la moderazione del testo per l'integrazione con l'applicazione.

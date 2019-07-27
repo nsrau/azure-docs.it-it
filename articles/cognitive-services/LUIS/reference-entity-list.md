@@ -1,6 +1,6 @@
 ---
-title: Elencare il tipo di entità
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Elencare il tipo di entità-LUIS
+titleSuffix: Azure Cognitive Services
 description: Le entità elenco rappresentano un set chiuso e fisso di parole correlate insieme ai relativi sinonimi. LUIS non individua valori aggiuntivi per le entità elenco. Usare la funzionalità consigli per visualizzare i suggerimenti per le nuove parole in base all'elenco corrente.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/24/2019
 ms.author: diberry
-ms.openlocfilehash: c278a72327d476be8963b10db5e8231b6d859a4a
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: ca9f8b570ee28b1913c8ec81c66a5b70827c04d6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68480187"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559953"
 ---
 # <a name="list-entity"></a>Entità elenco 
 
@@ -81,7 +81,7 @@ Un'altra espressione di esempio, usando un sinonimo per Parigi:
 ]
 ```
 
-|Oggetto dati|Nome dell'entità|Value|
+|Oggetto dati|Nome dell'entità|Valore|
 |--|--|--|
 |Entità semplice|`Customer`|`bob jones`|
 

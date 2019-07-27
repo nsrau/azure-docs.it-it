@@ -1,6 +1,6 @@
 ---
-title: Espressioni di esempio corrette
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Espressioni di esempio valide-LUIS
+titleSuffix: Azure Cognitive Services
 description: Le espressioni sono gli input dell'utente che l'app ha bisogno di interpretare. Raccogliere le frasi che si ritiene verranno immesse dagli utenti. Includere espressioni con lo stesso significato ma con una costruzione diversa in termini di lunghezza e posizione delle parole.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: fdf5508475d868ccb8c271daaac7449d3c940301
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 43f4b289bb2d072961eb3dabe6970f11726e0ed3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65073161"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560604"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Comprendere quali sono le espressioni ottimali per l'app LUIS
 
@@ -74,13 +74,13 @@ LUIS compila modelli efficaci con espressioni selezionate con attenzione dall'au
 
 È consigliabile iniziare con poche espressioni, poi [esaminare le espressioni dell'endpoint](luis-how-to-review-endpoint-utterances.md) per prevederne correttamente la finalità e per estrarre l'entità.
 
-## <a name="utterance-normalization"></a>Normalizzazione utterance
+## <a name="utterance-normalization"></a>Normalizzazione dell'espressione
 
-Normalizzazione utterance è il processo di ignorare gli effetti dei segni di punteggiatura e i segni diacritici durante il training e stima.
+La normalizzazione delle espressioni è il processo di ignorare gli effetti della punteggiatura e dei segni diacritici durante il training e la stima.
 
-## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>Normalizzazione utterance per i segni diacritici e punteggiatura
+## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>Normalizzazione dell'espressione per segni diacritici e punteggiatura
 
-Normalizzazione utterance viene definita quando si crea o si importa l'app perché è un'impostazione nel file JSON dell'app. Le impostazioni di normalizzazione utterance sono disattivate per impostazione predefinita. 
+La normalizzazione dell'espressione viene definita quando si crea o si importa l'app perché si tratta di un'impostazione nel file JSON dell'app. Per impostazione predefinita, le impostazioni di normalizzazione dell'espressione sono disattivate. 
 
 I segni diacritici sono contrassegni o segni all'interno del testo, ad esempio: 
 
@@ -88,9 +88,9 @@ I segni diacritici sono contrassegni o segni all'interno del testo, ad esempio:
 İ ı Ş Ğ ş ğ ö ü
 ```
 
-Se l'app attiva la normalizzazione, assegna un punteggio nel **Test** riquadro test in batch e query endpoint verranno apportate modifiche per tutte le espressioni utilizzando i segni diacritici o segni di punteggiatura.
+Se l'app attiva la normalizzazione, i punteggi nel riquadro di **test** , i test batch e le query di endpoint cambiano per tutte le espressioni che usano segni diacritici o segni di punteggiatura.
 
-Attivare la normalizzazione utterance per i segni diacritici o la punteggiatura al file app LUIS JSON nel `settings` parametro.
+Attivare la normalizzazione dell'espressione per i segni diacritici o la `settings` punteggiatura del file dell'app Luis JSON nel parametro.
 
 ```JSON
 "settings": [
@@ -99,22 +99,22 @@ Attivare la normalizzazione utterance per i segni diacritici o la punteggiatura 
 ] 
 ```
 
-Normalizzazione **punteggiatura** significa che, prima che i modelli di corsi di formazione e prima l'endpoint ottenere stimata query, segni di punteggiatura verrà rimossa dalle espressioni. 
+Normalizzare  la punteggiatura significa che prima che i modelli vengano sottoposti a training e prima che le query dell'endpoint vengano stimate, la punteggiatura verrà rimossa dalle espressioni. 
 
-Normalizzazione **i segni diacritici** sostituisce i caratteri con accenti in espressioni con caratteri normali. Ad esempio: `Je parle français` diventa `Je parle francais`. 
+La normalizzazione dei **segni diacritici** sostituisce i caratteri con segni diacritici in espressioni con caratteri regolari. Ad esempio: `Je parle français` diventa `Je parle francais`. 
 
-Normalizzazione non significa che sarà non vedere punteggiatura e i segni diacritici nel espressioni di esempio o le risposte di stima, semplicemente che tali valori verranno ignorati durante il training e stima.
+La normalizzazione non significa che la punteggiatura e i segni diacritici non verranno visualizzati nelle espressioni di esempio o nelle risposte di stima, semplicemente che verranno ignorate durante il training e la stima.
 
 
 ### <a name="punctuation-marks"></a>Segni di punteggiatura
 
-Se la punteggiatura non è normalizzata, LUIS non vengono tralasciate segni di punteggiatura, per impostazione predefinita, in quanto alcune applicazioni client possono effettuare significato in questi contrassegni. Assicurarsi che le espressioni di esempio usino sia lo stile con punteggiatura sia quello senza punteggiatura, in modo che entrambi gli stili restituiscano gli stessi punteggi relativi. 
+Se la punteggiatura non viene normalizzata, LUIS non ignora i segni di punteggiatura, per impostazione predefinita, perché alcune applicazioni client possono avere importanza su questi contrassegni. Assicurarsi che le espressioni di esempio usino sia lo stile con punteggiatura sia quello senza punteggiatura, in modo che entrambi gli stili restituiscano gli stessi punteggi relativi. 
 
-Se la punteggiatura non ha alcun significato specifico nell'applicazione client, prendere in considerazione [ignorando i segni di punteggiatura](#utterance-normalization) dalla normalizzazione dei segni di punteggiatura. 
+Se la punteggiatura non ha un significato specifico nell'applicazione client, considerare la possibilità di [ignorare](#utterance-normalization) la punteggiatura normalizzando la punteggiatura. 
 
 ### <a name="ignoring-words-and-punctuation"></a>Ignorare parole e punteggiatura
 
-Se si desidera ignorare la punteggiatura nei modelli o parole specifiche, usare una [pattern](luis-concept-patterns.md#pattern-syntax) con il _ignora_ sintassi di parentesi quadre, `[]`. 
+Se si desidera ignorare parole specifiche o segni di punteggiatura nei modelli, utilizzare un [modello](luis-concept-patterns.md#pattern-syntax) con la sintassi ignore delle parentesi quadre,.  `[]` 
 
 ## <a name="training-utterances"></a>Eseguire il training sulle espressioni
 

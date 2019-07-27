@@ -1,6 +1,6 @@
 ---
-title: Entità predefiniti valuta
-titleSuffix: Azure
+title: Entità predefinita valuta-LUIS
+titleSuffix: Azure Cognitive Services
 description: Questo articolo contiene informazioni sull'entità predefinita valuta in Language Understanding, ovvero LUIS.
 services: cognitive-services
 author: diberry
@@ -11,22 +11,22 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 7e882a66ae5a090e1fd3a0850ff35281dc4e692d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 369e8f94a4733a7c9e21fee98c72aa447802e943
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072015"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563489"
 ---
 # <a name="currency-prebuilt-entity-for-a-luis-app"></a>Entità predefinita Currency per un'app LUIS
-L'entità di valuta predefinito rileva valuta in molti denominazioni e paesi/aree geografiche, indipendentemente dalle impostazioni cultura app LUIS. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti la valuta per le finalità dell'applicazione. L'entità valuta è supportata in [molte impostazioni cultura](luis-reference-prebuilt-entities.md). 
+L'entità di valuta predefinita rileva la valuta in molte denominazioni e paesi/aree geografiche, indipendentemente dalle impostazioni cultura dell'app LUIS. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti la valuta per le finalità dell'applicazione. L'entità valuta è supportata in [molte impostazioni cultura](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-currency"></a>Tipi di valuta
 L'entità Currency viene gestita dal repository GitHub [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L26)
 
 ## <a name="resolution-for-currency-entity"></a>Risoluzione per entità valuta
 
-### <a name="api-version-2x"></a>Versione dell'API 2.x
+### <a name="api-version-2x"></a>API versione 2. x
 
 L'esempio seguente illustra la risoluzione dell'entità **builtin.currency**.
 
@@ -64,9 +64,9 @@ L'esempio seguente illustra la risoluzione dell'entità **builtin.currency**.
 
 
 
-### <a name="preview-api-version-3x"></a>Versione di anteprima API 3.x
+### <a name="preview-api-version-3x"></a>API di anteprima versione 3. x
 
-Il codice JSON seguente è con il `verbose` parametro è impostato su `false`:
+Il codice JSON seguente è con `verbose` il parametro impostato `false`su:
 
 ```json
 {
@@ -91,7 +91,7 @@ Il codice JSON seguente è con il `verbose` parametro è impostato su `false`:
 }
 ```
 
-Il codice JSON seguente è con il `verbose` parametro è impostato su `true`:
+Il codice JSON seguente è con `verbose` il parametro impostato `true`su:
 
 ```json
 {

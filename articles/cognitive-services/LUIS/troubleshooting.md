@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti
+title: Domande frequenti-LUIS
 titleSuffix: Azure Cognitive Services
 description: Questo articolo contiene risposte alle domande frequenti su LUIS.
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: diberry
-ms.openlocfilehash: 7e1e61d96b066c395668ce1dd9cdba4cb4ecb2be
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: bccdcce52b9e62048d7eb307a4783abda0f9d17c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204110"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563164"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Risposte alle domande frequenti per Language Understanding (LUIS)
 
@@ -24,7 +24,7 @@ Questo articolo contiene risposte alle domande frequenti su LUIS.
 
 ## <a name="whats-new"></a>Novità
 
-[Altre informazioni](whats-new.md) sulle nuove funzionalità di Language Understanding Intelligent Service.
+[Altre](whats-new.md) informazioni sulle novità di Language Understanding.
 
 <a name="luis-authoring"></a>
 
@@ -68,13 +68,13 @@ Le app Cortana predefinite sono state deprecate nel 2017. Non sono più supporta
 ### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>Come si trasferisce la proprietà di un'app LUIS?
 Per trasferire un'app LUIS in un'altra sottoscrizione di Azure, esportare l'app LUIS e importarla usando un nuovo account. Aggiornare l'ID dell'app LUIS nell'applicazione client che la chiama. La nuova app può restituire punteggi LUIS leggermente diversi rispetto all'app originale.
 
-### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Un'entità predefinita verrà contrassegnata in un utterance esempio invece l'entità personalizzata. Come risolvere il problema? 
+### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Un'entità predefinita è contrassegnata con un enunciato di esempio invece che con l'entità personalizzata. Come si risolve il problema? 
 
-Visualizzare [risoluzione dei problemi relativi a entità predefinite](luis-concept-entity-types.md#troubleshooting-prebuilt-entities).
+Vedere [risoluzione dei problemi relativi alle entità predefinite](luis-concept-entity-types.md#troubleshooting-prebuilt-entities).
 
-### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>Si è tentato di importare un file app o di versione, ma si verifica un errore, cosa è successo? 
+### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>Si è tentato di importare un'app o un file di versione, ma si è verificato un errore? 
 
-Altre informazioni, vedere [errori di importazione versione](luis-how-to-manage-versions.md#import-errors) e [errori di importazione app](luis-how-to-start-new-app.md#import-errors).
+Altre informazioni sugli errori di [importazione della versione](luis-how-to-manage-versions.md#import-errors) e sugli errori di [importazione dell'app](luis-how-to-start-new-app.md#import-errors).
 
 <a name="luis-collaborating"></a>
 
@@ -189,11 +189,11 @@ Per altre informazioni sulle differenze tra la [chiave di creazione](luis-how-to
 
 ### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>È stato restituito un errore per segnalare il superamento della quota. Risoluzione 
 
-Vedere [correggere codice di stato 403 e 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) per altre informazioni.
+Per altre informazioni, vedere [correggere il codice di stato HTTP 403 e 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) .
 
 ### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>È necessario gestire più query di endpoint. Come procedere? 
 
-Vedere [correggere codice di stato 403 e 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) per altre informazioni.
+Per altre informazioni, vedere [correggere il codice di stato HTTP 403 e 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) .
 
 
 
@@ -210,7 +210,7 @@ La registrazione è l'unico spazio di archiviazione delle espressioni.
 ### <a name="why-dont-i-want-all-my-endpoint-utterances-logged"></a>Perché un utente potrebbe non desiderare la registrazione di tutte le espressioni degli endpoint?
 Se si usa il log per l'analisi delle stime, non acquisire le espressioni di test nel log.
 
-## <a name="data-management"></a>Gestione dei dati
+## <a name="data-management"></a>Gestione dati
 
 ### <a name="can-i-delete-data-from-luis"></a>È possibile eliminare dati da LUIS?
 
@@ -286,25 +286,25 @@ Usare il sample di LUIS per [trovare l'area](https://github.com/Azure-Samples/co
 
 Sì, è possibile usare il [contenitore](luis-container-howto.md) LUIS per questi scenari se si dispone della connettività necessaria per misurare l'utilizzo. 
 
-## <a name="migrating-to-the-next-version"></a>Eseguire la migrazione alla versione successiva
+## <a name="migrating-to-the-next-version"></a>Migrazione alla versione successiva
 
-### <a name="how-do-i-migrate-to-preview-v3-api"></a>Come eseguire la migrazione per visualizzare in anteprima V3 API? 
+### <a name="how-do-i-migrate-to-preview-v3-api"></a>Ricerca per categorie eseguire la migrazione all'API anteprima V3? 
 
-Vedere [API v2 a v3 migrazione manuale per le app LUIS](luis-migration-api-v3.md)
+Vedere [la guida alla migrazione da API v2 a V3 per le app Luis](luis-migration-api-v3.md)
 
-## <a name="build-2019-conference-announcements"></a>Annunci di conferenza build 2019
+## <a name="build-2019-conference-announcements"></a>Build 2019 annunci di conferenza
 
-Le funzionalità seguenti sono state rilasciate in occasione della conferenza Build 2019:
+Le funzionalità seguenti sono state rilasciate alla conferenza Build 2019:
 
-* [Anteprima della Guida alla migrazione di API V3](luis-migration-api-v3.md)
-* [Dashboard di analitica migliorata](luis-how-to-use-dashboard.md)
-* [Migliorati i domini predefiniti](luis-reference-prebuilt-domains.md) 
-* [Elenco dinamico di entità](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
+* [Anteprima della Guida alla migrazione dell'API V3](luis-migration-api-v3.md)
+* [Dashboard di analisi migliorato](luis-how-to-use-dashboard.md)
+* [Domini predefiniti migliorati](luis-reference-prebuilt-domains.md) 
+* [Entità elenco dinamico](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
 * [Entità esterne](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
 
-Video:
+Video
 
-* [Come usare Azure per intelligenza artificiale discorsiva per scalare la propria azienda per la nuova generazione](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
+* [Come usare l'intelligenza artificiale per la conversazione di Azure per la scalabilità dell'azienda per la prossima generazione](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,7 +1,7 @@
 ---
-title: Punteggi di stima
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: Un punteggio della stima indica il livello di confidenza è il servizio API LUIS per i risultati della stima, in base utterance un utente.
+title: Punteggi di stima-LUIS
+titleSuffix: Azure Cognitive Services
+description: Un punteggio di stima indica il grado di attendibilità del servizio API LUIS per i risultati della stima, in base a un enunciato utente.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: diberry
-ms.openlocfilehash: 383ce4c4248f7e21f745f503c74a29cb613983e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ccbdb60687bd81de57ff675634f9d124f10784e1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60814010"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563957"
 ---
 # <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>I punteggi di stima indicano l'accuratezza delle stime per la finalità e le entità
 
-Un punteggio della stima indica il livello di confidenza LUIS ha per i risultati della stima, in base utterance un utente.
+Un punteggio di stima indica il grado di confidenza di LUIS per i risultati della stima, in base a un enunciato utente.
 
 Un punteggio di stima è compreso tra zero (0) e uno (1). Un esempio di punteggio LUIS altamente attendibile è 0,99. Un esempio di punteggio poco attendibile è 0,01. 
 
@@ -37,7 +37,7 @@ Quando un'espressione ottiene un punteggio di bassa attendibilità, LUIS lo evid
 
 ## <a name="top-scoring-intent"></a>Finalità con punteggio elevato
 
-La stima di ogni espressione restituisce una finalità con punteggio elevato. Questa stima è un confronto numerico dei punteggi di stima. I punteggi massimi 2 possono avere una piccola differenza tra di essi. LUIS non indica grazie a questa prossimità diverso da restituire il punteggio superiore.  
+La stima di ogni espressione restituisce una finalità con punteggio elevato. Questa stima è un confronto numerico dei punteggi di stima. I primi 2 punteggi possono avere una piccola differenza tra di essi. LUIS non indica questa prossimità oltre alla restituzione del punteggio superiore.  
 
 ## <a name="return-prediction-score-for-all-intents"></a>Restituire un punteggio di stima per tutte le finalità
 
@@ -47,17 +47,17 @@ Un risultato di test o endpoint può includere tutte le finalità. Questa config
 
 Rivedere il punteggio di tutte le finalità per verificare non solo che sia stata identificata la finalità corretta, ma che il punteggio della finalità identificata successivamente sia di molto inferiore in modo coerente per le espressioni.
 
-Se più finalità presentano punteggi di stima vicini, in base al contesto di un'espressione, LUIS potrebbe passare da una finalità a un'altra. Per risolvere questa situazione, continuare ad aggiungere espressioni a ogni scopo con un'ampia gamma di differenze contestuale oppure è possibile che l'applicazione client, ad esempio un chat bot, effettuare scelte a livello di codice su come gestire gli scopi principali 2.
+Se più finalità presentano punteggi di stima vicini, in base al contesto di un'espressione, LUIS potrebbe passare da una finalità a un'altra. Per risolvere questo problema, continuare ad aggiungere espressioni a ogni finalità con una varietà più ampia di differenze contestuali oppure è possibile fare in modo che l'applicazione client, ad esempio un bot di chat, faccia scelte a livello di codice su come gestire i 2 Intent principali.
 
-Può invertire il 2 Intent, sono troppo a stretto contatto con punteggio, a causa di training non deterministica. Il punteggio superiore può diventare il secondo punteggio mentre il secondo può diventare il primo. Per evitare questa situazione, aggiungere espressioni di esempio per ognuno dei primi due finalità per tale utterance le opzioni di word e rapida che consentono di distinguere il 2 Intent. Le due finalità devono avere circa lo stesso numero di espressioni di esempio. Una regola generale per la separazione per impedire l'inversione a causa del training è una differenza del 15% nei punteggi.
+I 2 Intent, che hanno un punteggio troppo ravvicinato, possono essere invertiti a causa della formazione non deterministica. Il punteggio superiore può diventare il secondo punteggio mentre il secondo può diventare il primo. Per evitare questa situazione, aggiungere espressioni di esempio a ognuno dei primi due intenti per tale espressione con scelta e contesto di parola che differenziano i due intenti. Le due finalità devono avere circa lo stesso numero di espressioni di esempio. Una regola generale per la separazione per impedire l'inversione a causa del training è una differenza del 15% nei punteggi.
 
-È possibile disattivare il training non deterministica dal [con tutti i dati di training](luis-how-to-train.md#train-with-all-data).
+È possibile disattivare il training non deterministico eseguendo il [training con tutti i dati](luis-how-to-train.md#train-with-all-data).
 
-## <a name="differences-with-predictions-between-different-training-sessions"></a>Differenze con stime tra le sessioni di training diversi
+## <a name="differences-with-predictions-between-different-training-sessions"></a>Differenze con le stime tra sessioni di training diverse
 
-Quando si esegue il training lo stesso modello in un'altra app e i punteggi non sono uguali, questa differenza è perché si è a scopo formativo deterministica (un elemento di casualità). In secondo luogo, eventuali sovrapposizioni di un'espressione a più di una finalità indicano che la finalità principale della stessa espressione può cambiare in base al training.
+Quando si esegue il training dello stesso modello in un'altra app e i punteggi non sono gli stessi, la differenza è dovuta al fatto che è presente un training non deterministico (un elemento di casualità). In secondo luogo, eventuali sovrapposizioni di un'espressione a più di una finalità indicano che la finalità principale della stessa espressione può cambiare in base al training.
 
-Se il bot chat richiede un punteggio di LUIS specifico per indicare la fiducia in un intent, è consigliabile usare la differenza di punteggio tra i primi due finalità. Questa situazione offre flessibilità per le variazioni nel training.
+Se il bot di chat richiede un punteggio LUIS specifico per indicare la confidenza, è necessario usare la differenza di punteggio tra i primi due intenti. Questa situazione offre flessibilità per le variazioni nel training.
 
 ## <a name="e-exponent-notation"></a>Notazione E (esponenziale)
 
@@ -69,7 +69,7 @@ I punteggi di stima possono usare la notazione esponenziale, dove *appare* sopra
 
 ## <a name="punctuation"></a>Punteggiatura
 
-Punteggiatura è un token separato in LUIS. Un utterance contenente un punto alla fine e un utterance che non contiene un punto alla fine sono due espressioni separate e possono ottenere due diverse stime. Verificare che il modello gestisca la punteggiatura nelle [espressioni di esempio](luis-concept-utterance.md) (con e senza punteggiatura) o nei [modelli](luis-concept-patterns.md) dove risulta più semplice ignorare la punteggiatura con la sintassi speciale: `I am applying for the {Job} position[.]`
+Punteggiatura è un token separato in LUIS. Un enunciato contenente un punto alla fine rispetto a un enunciato che non contiene un punto alla fine è costituito da due espressioni separate e può ottenere due stime diverse. Verificare che il modello gestisca la punteggiatura nelle [espressioni di esempio](luis-concept-utterance.md) (con e senza punteggiatura) o nei [modelli](luis-concept-patterns.md) dove risulta più semplice ignorare la punteggiatura con la sintassi speciale: `I am applying for the {Job} position[.]`
 
 ## <a name="next-steps"></a>Passaggi successivi
 

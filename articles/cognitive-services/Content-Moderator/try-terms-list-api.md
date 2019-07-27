@@ -1,6 +1,6 @@
 ---
 title: Eseguire la moderazione del testo con elenchi personalizzati di termini - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Usare l'API di gestione degli elenchi per creare elenchi personalizzati di termini da usare con l'API di moderazione del testo.
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 28029fe92a207dba85e2ab5a22c08879b7172925
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a4e9b7925c2309a9682156934e9d94fa83c0d4b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62097947"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564397"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>Moderare il testo con elenchi personalizzati nella console dell'API
 

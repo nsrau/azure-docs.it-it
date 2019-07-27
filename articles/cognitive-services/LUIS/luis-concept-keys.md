@@ -1,6 +1,6 @@
 ---
-title: Chiavi di sottoscrizione
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Chiavi di sottoscrizione-LUIS
+titleSuffix: Azure Cognitive Services
 description: LUIS usa due chiavi, la chiave di creazione gratuita per creare il modello e la chiave di endpoint a consumo per l'esecuzione di query sull'endpoint di stima con espressioni utente.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: feb4622be14b51cfa72c33cda6c2477f799758c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0d52445d82965973c2d1e0f4fca2ef463312ad5f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473584"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560744"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>Chiavi di creazione e di endpoint per query di stima in LUIS
 LUIS usa due chiavi: [creazione](#programmatic-key) ed [endpoint](#endpoint-key). La chiave di creazione viene creata automaticamente quando si crea l'account LUIS. Quando si è pronti a pubblicare l'app LUIS, è necessario [creare la chiave endpoint](luis-how-to-azure-subscription.md), [assegnarla](luis-how-to-azure-subscription.md) all'app LUIS e [usarla con la query endpoint](#use-endpoint-key-in-query). 

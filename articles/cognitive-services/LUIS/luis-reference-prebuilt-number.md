@@ -1,6 +1,6 @@
 ---
-title: Entità predefinita numero
-titleSuffix: Azure
+title: Numero di entità predefinite-LUIS
+titleSuffix: Azure Cognitive Services
 description: Questo articolo contiene informazioni sull'entità predefinita numero in Language Understanding, ovvero LUIS.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: d4f707d4bf9bac5e2208eadb94983af368b9f521
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88f36fb6d73e2ec88940e7eb53d982824e194074
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072253"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560202"
 ---
 # <a name="number-prebuilt-entity-for-a-luis-app"></a>Entità predefinita numero per un'app LUIS
 I modi in cui i valori numerici vengono usati per quantificare, esprimere e descrivere i tipi di informazioni sono diversi. Questo articolo illustra solo alcuni degli esempi possibili. LUIS interpreta le variazioni nelle espressioni utente e restituisce valori numerici coerenti. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti il numero per le finalità dell'applicazione. 
@@ -43,7 +43,7 @@ LUIS include il valore riconosciuto di un'entità **`builtin.number`** nel campo
 ## <a name="resolution-for-prebuilt-number"></a>Risoluzione per il numero predefinito
 
 
-### <a name="api-version-2x"></a>Versione dell'API 2.x
+### <a name="api-version-2x"></a>API versione 2. x
 
 L'esempio seguente mostra una risposta JSON di LUIS, che include la risoluzione del valore 24, per l'espressione "due dozzine".
 
@@ -83,9 +83,9 @@ L'esempio seguente mostra una risposta JSON di LUIS, che include la risoluzione 
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Versione di anteprima API 3.x
+### <a name="preview-api-version-3x"></a>API di anteprima versione 3. x
 
-Il codice JSON seguente è con il `verbose` parametro è impostato su `false`:
+Il codice JSON seguente è con `verbose` il parametro impostato `false`su:
 
 ```json
 {
@@ -107,7 +107,7 @@ Il codice JSON seguente è con il `verbose` parametro è impostato su `false`:
 }
 ```
 
-Il codice JSON seguente è con il `verbose` parametro è impostato su `true`:
+Il codice JSON seguente è con `verbose` il parametro impostato `true`su:
 
 ```json
 {

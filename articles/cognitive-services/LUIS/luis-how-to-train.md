@@ -1,6 +1,6 @@
 ---
-title: Eseguire il training dell'app
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Train app-LUIS
+titleSuffix: Azure Cognitive Services
 description: Il training è il processo di appredimento per la propria versione applicazione Language Understanding (LUIS) al fine di migliorare la comprensione del linguaggio naturale. Eseguire il training dell'app LUIS dopo gli aggiornamenti al modello, ad esempio aggiunta, modifica, aggiunta di etichette o eliminazione di entità, finalità o espressioni.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/07/2019
 ms.author: diberry
-ms.openlocfilehash: ba0db22437961a33b0b415ec7cb60ad3df12821c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 70c29769da2ec092b2b27b83f2f83200d4e727af
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60195853"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560370"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>Eseguire il training della versione attiva dell'app LUIS 
 
@@ -44,9 +44,9 @@ Per avviare il processo iterativo nel [portale LUIS](https://www.luis.ai), è pr
 >[!NOTE]
 >Se nell'app ci sono una o più finalità che non includono espressioni di esempio, non è possibile eseguire il training. Aggiungere espressioni per tutte le finalità. Per altre informazioni, vedere [Add example utterances](luis-how-to-add-example-utterances.md) (Aggiungere espressioni di esempio).
 
-## <a name="training-date-and-time"></a>Formazione su data e ora
+## <a name="training-date-and-time"></a>Data e ora di training
 
-Formazione su data e ora è GMT + 2. 
+La data e l'ora di training sono GMT + 2. 
 
 ## <a name="train-with-all-data"></a>Eseguire il training con tutti i dati
 

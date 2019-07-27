@@ -1,7 +1,7 @@
 ---
-title: Come preparare i dati per le funzionalità vocali personalizzati - servizi di riconoscimento vocale
-titlesuffix: Azure Cognitive Services
-description: Creare una voce personalizzata per il tuo marchio con servizi di riconoscimento vocale di Azure. Si forniscono le registrazioni di studio e gli script associati, il servizio genera un modello vocale univoca ottimizzato per la voce registrata. Utilizzare questa voce per sintesi vocale per i prodotti, strumenti e applicazioni.
+title: Come preparare i dati per il servizio di riconoscimento vocale personalizzato
+titleSuffix: Azure Cognitive Services
+description: Creare una voce personalizzata per il marchio con il servizio di riconoscimento vocale. Si forniscono le registrazioni di studio e gli script associati, il servizio genera un modello Voice univoco ottimizzato per la voce registrata. Usa questa voce per sintetizzare la sintesi vocale nei tuoi prodotti, strumenti e applicazioni.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,65 +10,65 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 4b49e7453079b848a273aa8c1c706b2d00fff921
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 6a29117ff6e5173063bc2aced87f08f1a6aea425
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606531"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559576"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Preparare i dati per creare una voce personalizzata
 
-Quando si è pronti per creare una voce di sintesi vocale personalizzata per l'applicazione, il primo passaggio è raccogliere registrazioni audio e gli script associati per avviare training del modello vocali. Il servizio Usa questi dati per creare una voce esclusiva ottimizzata in modo che corrisponda la voce nelle registrazioni. Dopo aver eseguito il training della voce, è possibile avviare la sintesi vocale nelle tue applicazioni.
+Quando si è pronti per creare una voce di sintesi vocale personalizzata per l'applicazione, il primo passaggio consiste nel raccogliere le registrazioni audio e gli script associati per avviare il training del modello vocale. Il servizio usa questi dati per creare una voce univoca ottimizzata in modo da corrispondere alla voce nelle registrazioni. Dopo aver eseguito il training della voce, è possibile iniziare a sintetizzare la sintesi vocale nelle applicazioni.
 
-È possibile iniziare con una piccola quantità di dati per creare un modello di verifica. Tuttavia, i dati più specificata dall'utente, il più naturale verranno suoni vocali personalizzati. Prima è possibile eseguire il training modello di sintesi vocale personalizzato, è necessario registrazioni audio e trascrizioni il testo associato. In questa pagina, verranno esaminati i tipi di dati, come vengono usati e come gestire ognuna.
+È possibile iniziare con una piccola quantità di dati per creare un modello di prova. Tuttavia, maggiore è il numero di dati forniti, più naturale sarà il suono della voce personalizzata. Prima di poter eseguire il training di un modello vocale di sintesi vocale, sono necessarie registrazioni audio e le trascrizioni del testo associate. In questa pagina, verranno esaminati i tipi di dati, il modo in cui vengono usati e come gestirli.
 
 ## <a name="data-types"></a>Tipi di dati
 
-Un set di dati di training vocali include registrazioni audio e file di testo con le trascrizioni associati. Ciascun file audio dovrà contenere un singolo utterance (una singola frase o un singolo attiva per un sistema di finestra di dialogo) ed essere meno di 15 secondi.
+Un set di dati di training vocale include registrazioni audio e un file di testo con le trascrizioni associate. Ogni file audio deve contenere un singolo enunciato (una singola frase o un singolo turno per un sistema di dialogo) e essere di lunghezza inferiore a 15 secondi.
 
-In alcuni casi, non si abbia il giusto set di dati pronti e sarà necessario testare il training vocali personalizzati con file audio disponibili, short o long, con o senza le trascrizioni. Offriamo gli strumenti (beta) che consentono di segmentare l'audio in espressioni e preparare le trascrizioni usando il [API Batch trascrizione](batch-transcription.md).
+In alcuni casi, è possibile che non si disponga del set di dati appropriato e che si voglia testare il training vocale personalizzato con i file audio disponibili, short o Long, con o senza trascrizioni. Sono disponibili strumenti (beta) che consentono di segmentare l'audio in espressioni e di preparare le trascrizioni usando l' [API di trascrizione batch](batch-transcription.md).
 
-Questa tabella elenca i tipi di dati e come ognuno viene utilizzato per creare un modello personalizzato di sintesi vocale.
+Questa tabella elenca i tipi di dati e il modo in cui ognuno viene usato per creare un modello vocale personalizzato per la sintesi vocale.
 
-| Tipo di dati | Descrizione | Quando usare le autorizzazioni | Servizio aggiuntiva necessaria | Quantità per il training di un modello | Locale(s) |
+| Tipo di dati | Descrizione | Quando usare le autorizzazioni | Richiesto servizio aggiuntivo | Quantità per il training di un modello | Impostazioni locali |
 | --------- | ----------- | ----------- | --------------------------- | ----------------------------- | --------- |
-| **Singole espressioni + trascrizioni corrispondenti** | Una raccolta (con estensione zip) di file audio (wav) come singole espressioni. Ciascun file audio deve essere 15 secondi o una lunghezza, associato a una trascrizione formattata (con estensione txt). | Registrazioni professionale con i corrispondenti trascrizioni | Pronto per il training. | Nessun requisito disco rigido per en-US e zh-CN. Più di 2.000 + utterances distinti per le altre impostazioni locali. | Tutte le impostazioni locali vocale personalizzato |
-| **Long audio + trascrizioni (beta)** | Una raccolta (con estensione zip) di lunghe, non segmentati file audio (più di 20 secondi), associata a una trascrizione (con estensione txt) contenente tutti i dialoghi. | Si dispone di file audio e trascrizioni corrispondente, ma non sono segmentati in espressioni. | Segmentazione (usando la trascrizione di batch).<br>Trasformazione di formato audio richiesto. | Nessun requisito disco rigido per en-US e zh-CN. | `en-US` e `zh-CN` |
-| **Solo l'audio (beta)** | Raccolta (con estensione zip) di file audio senza una trascrizione. | È necessario solo i file disponibili, senza le trascrizioni audio. | Segmentazione + generazione di trascrizione (mediante la trascrizione di batch).<br>Trasformazione di formato audio richiesto.| Nessun requisito per `en-US` e `zh-CN`. | `en-US` e `zh-CN` |
+| **Singole espressioni + trascrizione corrispondente** | Raccolta (zip) di file audio (WAV) come singoli enunciati. Ogni file audio deve avere una lunghezza di 15 secondi o inferiore, associato a una trascrizione formattata (con estensione txt). | Registrazioni professionali con trascrizioni corrispondenti | Pronto per il training. | Nessun requisito rigido per en-US e zh-CN. Oltre 2000 espressioni distinte per altre impostazioni locali. | Tutte le impostazioni locali vocali personalizzate |
+| **Audio lungo + trascrizione (beta)** | Raccolta (con estensione zip) di file audio lunghi e non segmentati (più di 20 secondi), abbinati a una trascrizione (con estensione txt) che contiene tutte le parole vocali. | Sono presenti file audio e trascrizioni corrispondenti, ma non sono segmentati in espressioni. | Segmentazione (usando la trascrizione batch).<br>Trasformazione del formato audio, ove necessario. | Nessun requisito rigido per en-US e zh-CN. | `en-US` e `zh-CN` |
+| **Solo audio (beta)** | Raccolta (zip) di file audio senza una trascrizione. | Sono disponibili solo file audio, senza trascrizioni. | Segmentazione + generazione della trascrizione (usando la trascrizione batch).<br>Trasformazione del formato audio, ove necessario.| Nessun requisito rigido per `en-US` e `zh-CN`. | `en-US` e `zh-CN` |
 
 I file devono essere raggruppati per tipo in un set di dati e caricati come file zip. Ogni set di dati può contenere solo un singolo tipo di dati.
 
 > [!NOTE]
-> Il numero massimo di set di dati possono essere importati per ogni sottoscrizione è 10 ZIP file gratuitamente utenti della sottoscrizione (F0) e 500 per gli utenti sottoscrizione standard (S0).
+> Il numero massimo di set di dati che possono essere importati per ogni sottoscrizione è 10 file zip per gli utenti della sottoscrizione gratuita (F0) e 500 per gli utenti con sottoscrizione standard (S0).
 
-## <a name="individual-utterances--matching-transcript"></a>Singole espressioni + trascrizioni corrispondenti
+## <a name="individual-utterances--matching-transcript"></a>Singole espressioni + trascrizione corrispondente
 
-È possibile preparare le registrazioni singole espressioni e la trascrizione corrispondente in due modi. Uno scrivere uno script che verrà letto da un talent vocali o usare audio disponibile pubblicamente e trascrivere al testo. Nel secondo caso, modificare le disfluenze dai file audio, ad esempio "um" e altri suoni riempitivi, balbettii, parole mormorate o errori di pronuncia.
+È possibile preparare le registrazioni di singole espressioni e la trascrizione corrispondente in due modi. Scrivere uno script e leggerlo da un talento vocale o usare l'audio disponibile pubblicamente e trasmetterlo in testo. Nel secondo caso, modificare le disfluenze dai file audio, ad esempio "um" e altri suoni riempitivi, balbettii, parole mormorate o errori di pronuncia.
 
-Per produrre un carattere voce valida, creare le registrazioni in una chat room non interattiva con un microfono di alta qualità. Volume coerente, velocità, parlando passo ed espressivi è utile di riconoscimento vocale di lettura sono essenziali.
+Per produrre un tipo di carattere vocale appropriato, creare le registrazioni in una stanza silenziosa con un microfono di alta qualità. Il volume coerente, la velocità di pronuncia, il pitch di pronuncia e i comportamenti espressivi di sintesi vocale sono essenziali.
 
 > [!TIP]
 > Per creare una voce per l'uso in produzione, è consigliabile avvalersi di uno studio di registrazione e uno speaker professionali. Per altre informazioni, vedere [Come registrare esempi vocali per una voce personalizzata](record-custom-voice-samples.md).
 
 ### <a name="audio-files"></a>File audio
 
-Ogni file audio deve contenere un singolo utterance (una singola frase o una singola attivazione di un sistema di finestra di dialogo), meno di 15 secondi. Tutti i file devono essere nella stessa lingua parlata. Voci di sintesi vocale personalizzate multilingue non sono supportate, ad eccezione di bilingue in lingua inglese cinese. Ogni file audio deve avere un nome file numerico univoco con il file wav estensione nome file.
+Ogni file audio deve contenere un singolo enunciato, ovvero una singola frase o un solo turno di un sistema di dialogo, con una lunghezza inferiore a 15 secondi. Tutti i file devono trovarsi nella stessa lingua parlata. Le voci di sintesi vocale personalizzate multi-linguaggio non sono supportate, ad eccezione della lingua inglese cinese (BI). Ogni file audio deve avere un nome di file numerico univoco con il nome file Extension. wav.
 
-Seguire queste linee guida durante la preparazione di audio.
+Seguire queste linee guida durante la preparazione dell'audio.
 
 | Proprietà | Value |
 | -------- | ----- |
-| Formato file | RIFF (. wav), raggruppati in un file con estensione zip |
-| Frequenza di campionamento | almeno 16.000 Hz |
+| Formato file | RIFF (WAV), raggruppati in un file con estensione zip |
+| Frequenza di campionamento | Almeno 16.000 Hz |
 | Formato del campione | PCM, 16 bit |
-| Nome file | Valori numerici, con estensione wav. Non nomi di file duplicati consentiti. |
-| Lunghezza audio | Inferiore a 15 secondi |
+| Nome file | Numeric, con estensione wav. Non sono consentiti nomi file duplicati. |
+| Lunghezza audio | Più breve di 15 secondi |
 | Formato di archiviazione | zip |
 | Dimensione massima dell'archivio | 200 MB |
 
 > [!NOTE]
-> i file con estensione wav con una frequenza di campionamento inferiore a 16.000 Hz verranno rifiutati. Se un file con estensione zip contiene i file con estensione wav con frequenze di campionamento differenti, verranno importati solo tali uguale o superiore a 16.000 Hz. Il portale attualmente importa archivi ZIP fino a 200 MB. È tuttavia possibile caricare più archivi.
+> i file WAV con frequenza di campionamento inferiore a 16.000 Hz verranno rifiutati. Se un file con estensione zip contiene file con estensione wav con frequenze di campionamento diverse, verranno importati solo i valori uguali o superiori a 16.000 Hz. Il portale attualmente importa archivi ZIP fino a 200 MB. È tuttavia possibile caricare più archivi.
 
 ### <a name="transcripts"></a>Trascrizioni
 
@@ -77,79 +77,79 @@ Il file di trascrizione è un file di testo normale. Usare queste linee guida pe
 | Proprietà | Value |
 | -------- | ----- |
 | Formato file | Testo normale (con estensione txt) |
-| Formato di codifica | ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE o UTF-16-BE. Per zh-CN, codifiche ANSI/ASCII e UTF-8 non sono supportate. |
-| N. di espressioni per riga | **Uno** -ogni riga del file di trascrizione deve contenere il nome di uno dei file audio, aggiungendo la trascrizione corrispondente. Il nome del file deve essere separato dalla trascrizione mediante un carattere di tabulazione (\t). |
+| Formato di codifica | ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE o UTF-16-BE. Per le codifiche zh-CN, ANSI/ASCII e UTF-8 non sono supportate. |
+| N. di espressioni per riga | **Uno** -ogni riga del file di trascrizione deve contenere il nome di uno dei file audio, seguito dalla trascrizione corrispondente. Il nome del file deve essere separato dalla trascrizione mediante un carattere di tabulazione (\t). |
 | Dimensione massima dei file | 50 MB |
 
-Di seguito è riportato un esempio di come le trascrizioni sono organizzate utterance da utterance in un unico file. txt:
+Di seguito è riportato un esempio di come le trascrizioni siano organizzate in base all'espressione in un file con estensione txt:
 
 ```
 0000000001[tab] This is the waistline, and it's falling.
 0000000002[tab] We have trouble scoring.
 0000000003[tab] It was Janet Maslin.
 ```
-È importante che le trascrizioni sono trascrizioni accurata del 100% dell'audio corrispondente. Errori nella trascrizione renderà disponibile la perdita di qualità durante il training.
+È importante che le trascrizioni siano trascrizioni accurate del 100% dell'audio corrispondente. Gli errori nelle trascrizioni introdurranno una perdita di qualità durante il training.
 
 > [!TIP]
-> Durante la generazione di sintesi vocale voices, utterances selezionare (o creazione di script) che prendono in produzione account sia fonetica copertura ed efficienza. Problemi nell'ottenere i risultati desiderati? [Contattare la vocale personalizzato](mailto:speechsupport@microsoft.com) team per trovare informazioni sulla presenza di Stati Uniti, consultare.
+> Quando si compilano voci di sintesi vocale di produzione, selezionare espressioni (o scrivere script) che tengano conto sia della copertura fonetica che dell'efficienza. Problemi nell'ottenere i risultati desiderati? [Contattare il team del Voice personalizzato](mailto:speechsupport@microsoft.com) per scoprire di più su come consultarlo.
 
-## <a name="long-audio--transcript-beta"></a>Long audio + trascrizioni (beta)
+## <a name="long-audio--transcript-beta"></a>Audio lungo + trascrizione (beta)
 
-In alcuni casi, si potrebbe non avere segmentati audio disponibile. Offriamo un servizio (beta) tramite il portale vocali personalizzati che consentono di segmentare i file audio lungo e creare trascrizioni. Tenere presente, questo servizio verrà addebitato verso l'utilizzo della sottoscrizione per il riconoscimento vocale.
+In alcuni casi, l'audio segmentato potrebbe non essere disponibile. Viene fornito un servizio (beta) tramite il portale vocale personalizzato che consente di segmentare i file audio lunghi e creare trascrizioni. Tenere presente che questo servizio verrà addebitato all'utilizzo della sottoscrizione di riconoscimento vocale.
 
 > [!NOTE]
-> Il servizio di long-audio segmentazione sfrutterà la funzionalità di trascrizione di batch di riconoscimento vocale in testo, che supporta solo gli utenti sottoscrizione standard (S0). Durante l'elaborazione della segmentazione, i file audio e le trascrizioni verranno anche inviate al servizio riconoscimento vocale personalizzato per perfezionare il modello di riconoscimento in modo che è possibile migliorare l'accuratezza dei dati. Nessun dato verrà mantenuto durante questo processo. Al termine la segmentazione, solo le espressioni segmentate e le trascrizioni di mapping verranno archiviate per il download e il training.
+> Il servizio di segmentazione dell'audio lungo utilizzerà la funzionalità di trascrizione batch di riconoscimento vocale, che supporta solo gli utenti di sottoscrizione standard (S0). Durante l'elaborazione della segmentazione, i file audio e le trascrizioni verranno inviati anche al servizio Riconoscimento vocale personalizzato per perfezionare il modello di riconoscimento, in modo che l'accuratezza possa essere migliorata per i dati. Durante questo processo non verranno conservati dati. Al termine della segmentazione, verranno archiviati solo gli enunciati segmentati e le relative trascrizioni di mapping per il download e il training.
 
 ### <a name="audio-files"></a>File audio
 
-Seguire queste linee guida quando si prepara l'audio per la segmentazione.
+Seguire queste linee guida durante la preparazione dell'audio per la segmentazione.
 
 | Proprietà | Value |
 | -------- | ----- |
-| Formato file | RIFF (. wav) con una frequenza di campionamento di almeno 16 khz 16-bit nel PCM o MP3 con una velocità in bit di almeno 256 KBps, raggruppati in un file con estensione zip |
-| Nome file | Solo caratteri ASCII. I caratteri Unicode nel nome avrà esito negativo (ad esempio, i caratteri cinesi o simboli, ad esempio ","). Non sono consentiti nomi duplicati. |
+| Formato file | RIFF (WAV) con frequenza di campionamento di almeno 16 kHz-16 bit in PCM o. mp3 con una velocità in bit di almeno 256 KBps, raggruppati in un file con estensione zip |
+| Nome file | Solo caratteri ASCII. I caratteri Unicode nel nome avranno esito negativo, ad esempio i caratteri cinesi o i simboli come "-". Non sono consentiti nomi duplicati. |
 | Lunghezza audio | Più di 20 secondi |
 | Formato di archiviazione | zip |
 | Dimensione massima dell'archivio | 200 MB |
 
-Tutti i file audio devono essere raggruppati in un file zip. È anche possibile inserire i file con estensione wav e MP3 in un file zip audio, ma non è consentita alcuna sottocartella nel file zip. Ad esempio, è possibile caricare un file con estensione zip che contiene un file audio denominato 'kingstory.wav' 45-secondo-prolungata e un altro uno denominato 'queenstory.mp3', 200-secondo: long, senza sottocartelle. Tutti i file MP3 verranno trasformati in formato WAV dopo l'elaborazione.
+Tutti i file audio devono essere raggruppati in un file zip. È possibile inserire i file con estensione wav e MP3 in un unico file ZIP audio, ma nel file zip non è consentita alcuna sottocartella. Ad esempio, è possibile caricare un file zip contenente un file audio denominato ' kingstory. wav ', 45-second-Long e un altro denominato ' queenstory. mp3', 200-Second-Long, senza sottocartelle. Tutti i file con estensione mp3 verranno trasformati nel formato WAV dopo l'elaborazione.
 
 ### <a name="transcripts"></a>Trascrizioni
 
-Le trascrizioni devono essere preparate per le specifiche elencate in questa tabella. Ciascun file audio deve essere associata a una trascrizione.
+Le trascrizioni devono essere preparate alle specifiche elencate in questa tabella. Ogni file audio deve corrispondere a una trascrizione.
 
 | Proprietà | Value |
 | -------- | ----- |
-| Formato file | Testo normale (con estensione txt), raggruppato in un file ZIP |
-| Nome file | Usare lo stesso nome del file audio corrispondente |
-| Formato di codifica | UTF-8-BOM solo |
+| Formato file | Testo normale (con estensione txt), raggruppati in un file con estensione zip |
+| Nome file | USA lo stesso nome del file audio corrispondente |
+| Formato di codifica | Solo UTF-8-BOM |
 | N. di espressioni per riga | Nessun limite |
-| Dimensione massima dei file | 50 MILIONI |
+| Dimensione massima dei file | 50.000.000 |
 
-Tutti i file di trascrizioni di questo tipo di dati devono essere raggruppati in un file zip. Nel file zip non è consentita alcuna sottocartella. Ad esempio, è stato caricato un file con estensione zip che contiene un file audio denominato 'kingstory.wav', 45 secondi di durata e un altro uno denominato 'queenstory.mp3', 200 secondi lungo. È necessario caricare un altro file con estensione zip contenente le trascrizioni delle due, uno denominato 'kingstory.txt', l'altro una 'queenstory.txt'. All'interno di ogni file di testo normale, si specificherà la trascrizione completo corretta per l'audio corrisponda.
+Tutti i file delle trascrizioni in questo tipo di dati devono essere raggruppati in un file zip. Nel file zip non è consentita alcuna sottocartella. Ad esempio, è stato caricato un file zip contenente un file audio denominato ' kingstory. wav ', 45 secondi e un altro denominato ' queenstory. mp3', 200 secondi di lunghezza. Sarà necessario caricare un altro file zip contenente due trascrizioni, una con il nome "kingstory. txt", l'altra "queenstory. txt". All'interno di ogni file di testo normale, viene fornita la trascrizione completa corretta per l'audio corrispondente.
 
-Dopo che è stato caricato il set di dati, ti aiuteremo a segmentare il file audio in espressioni basati sulla trascrizione fornita. È possibile controllare le trascrizioni corrispondente e le espressioni segmentate scaricando il set di dati. ID univoco viene assegnato automaticamente per le espressioni segmentate. È importante assicurarsi che le trascrizioni che è fornire sono accurati al 100%. Gli errori nella trascrizione possono ridurre la precisione durante la segmentazione audio e introdurre un'ulteriore perdita di qualità in fase di formazione che viene eseguita in seguito.
+Dopo che il set di dati è stato caricato correttamente, sarà possibile segmentare il file audio in espressioni basate sulla trascrizione fornita. È possibile controllare le espressioni segmentate e le trascrizioni corrispondenti scaricando il set di dati. Gli ID univoci verranno assegnati automaticamente agli enunciati segmentati. È importante assicurarsi che le trascrizioni fornite siano accurate al 100%. Gli errori nelle trascrizioni possono ridurre la precisione durante la segmentazione audio e introdurre ulteriore perdita di qualità nella fase di training che verrà rilevata in un secondo momento.
 
-## <a name="audio-only-beta"></a>Solo l'audio (beta)
+## <a name="audio-only-beta"></a>Solo audio (beta)
 
-Se non si dispone di trascrizioni per le registrazioni audio, usare il **solo l'Audio** opzione per caricare i dati. Il nostro sistema consentono di segmentare e trascrivere i file audio. Tenere presente che questo servizio verrà considerato come l'utilizzo della sottoscrizione per il riconoscimento vocale.
+Se non si hanno trascrizioni per le registrazioni audio, usare l'opzione **solo audio** per caricare i dati. Il sistema può essere utile per segmentare e trascrivere i file audio. Tenere presente che questo servizio verrà conteggiato per l'utilizzo della sottoscrizione di riconoscimento vocale.
 
-Seguire queste linee guida durante la preparazione di audio.
+Seguire queste linee guida durante la preparazione dell'audio.
 
 > [!NOTE]
-> Il servizio di long-audio segmentazione sfrutterà la funzionalità di trascrizione di batch di riconoscimento vocale in testo, che supporta solo gli utenti sottoscrizione standard (S0).
+> Il servizio di segmentazione dell'audio lungo utilizzerà la funzionalità di trascrizione batch di riconoscimento vocale, che supporta solo gli utenti di sottoscrizione standard (S0).
 
 | Proprietà | Value |
 | -------- | ----- |
-| Formato file | RIFF (. wav) con una frequenza di campionamento di almeno 16 khz 16-bit nel PCM o MP3 con una velocità in bit di almeno 256 KBps, raggruppati in un file con estensione zip |
-| Nome file | Solo caratteri ASCII. I caratteri Unicode nel nome avrà esito negativo (ad esempio, i caratteri cinesi o simboli, ad esempio ","). Non è consentito: nome duplicato. |
+| Formato file | RIFF (WAV) con frequenza di campionamento di almeno 16 kHz-16 bit in PCM o. mp3 con una velocità in bit di almeno 256 KBps, raggruppati in un file con estensione zip |
+| Nome file | Solo caratteri ASCII. I caratteri Unicode nel nome avranno esito negativo, ad esempio i caratteri cinesi o i simboli come "-". Nessun nome duplicato consentito. |
 | Lunghezza audio | Più di 20 secondi |
 | Formato di archiviazione | zip |
 | Dimensione massima dell'archivio | 200 MB |
 
-Tutti i file audio devono essere raggruppati in un file zip. Nel file zip non è consentita alcuna sottocartella. Dopo che è stato caricato il set di dati, ti aiuteremo a segmentare il file audio in espressioni basati sul nostro servizio di trascrizione vocale batch. ID univoco viene assegnato automaticamente per le espressioni segmentate. Corrispondenza trascrizioni verrà generato tramite il riconoscimento vocale. Tutti i file MP3 verranno trasformati in formato WAV dopo l'elaborazione. È possibile controllare le trascrizioni corrispondente e le espressioni segmentate scaricando il set di dati.
+Tutti i file audio devono essere raggruppati in un file zip. Nel file zip non è consentita alcuna sottocartella. Una volta che il set di dati è stato caricato correttamente, sarà possibile segmentare il file audio in espressioni basate sul servizio di trascrizione di batch vocale. Gli ID univoci verranno assegnati automaticamente agli enunciati segmentati. Le trascrizioni corrispondenti verranno generate tramite il riconoscimento vocale. Tutti i file con estensione mp3 verranno trasformati nel formato WAV dopo l'elaborazione. È possibile controllare le espressioni segmentate e le trascrizioni corrispondenti scaricando il set di dati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Creare una voce personalizzata](how-to-custom-voice-create-voice.md)
-- [Guida: Esempi di voce di record](record-custom-voice-samples.md)
+- [Guida Registrare gli esempi di Voice](record-custom-voice-samples.md)

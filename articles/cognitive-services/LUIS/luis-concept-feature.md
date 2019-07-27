@@ -1,6 +1,6 @@
 ---
-title: Funzionalità
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Funzionalità-LUIS
+titleSuffix: Azure Cognitive Services
 description: L'aggiunta di funzionalità a un modello linguistico consente di fornire suggerimenti sul riconoscimento dell'input a cui assegnare un'etichetta o da classificare.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 7889f223b607912fd88c798b31ec028f97dfbbd6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1aed6f9a0ceec18ca800e5030ec09bbb8d98cb76
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812933"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560723"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>Funzionalità di elenco di frasi nell'app LUIS
 
@@ -46,7 +46,7 @@ Creare un elenco frasi quando l'app contiene parole o frasi importanti per l'app
 
 Dopo aver immesso alcuni parole o frasi, usare la caratteristica **Recommend** (Consiglia) per trovare i valori correlati. Verificare i valori correlati prima di aggiungerli ai valori dell'elenco di frasi.
 
-|Tipo di elenco|Scopo|
+|Tipo elenco|Scopo|
 |--|--|
 |Intercambiabile|Sinonimi o parole che, quando usati al posto di un'altra parola nell'elenco hanno la stessa finalità ed estrazione di entità.|
 |Non intercambiabile|Vocabolario dell'app, specifico per l'app più di altre parole in generale in tale lingua.|
@@ -93,7 +93,7 @@ Sia un elenco di frasi sia le entità elenco possono influire sulle espressioni 
 ### <a name="use-a-phrase-list"></a>Usare un elenco di frasi
 Con un elenco di frasi, LUIS riesce sempre tener conto del contesto e di generalizzare per identificare gli elementi che sono simili ma sono non una corrispondenza esatta, in quanto elementi in un elenco. Se è necessario che l'app LUIS generalizzi e identifichi i nuovi elementi in una categoria, usa un elenco di frasi. 
 
-Quando si desidera essere in grado di riconoscere le nuove istanze di un'entità, ad esempio un'utilità di pianificazione di riunioni che dovrebbe riconoscere i nomi dei nuovi contatti o un'app di inventario che dovrebbe riconoscere i nuovi prodotti, utilizzare un altro tipo di entità apprese macchina, ad esempio un'entità semplice. Quindi, crea un elenco di frasi composto da parole e frasi che consenta a LUIS di trovare altre parole simili all'entità. Questo elenco guida LUIS attraverso il riconoscimento degli esempi di entità mediante l'aggiunta di ulteriore significato al valore di tali parole. 
+Quando si vuole essere in grado di riconoscere nuove istanze di un'entità, ad esempio un'utilità di pianificazione della riunione che deve riconoscere i nomi dei nuovi contatti o un'app di inventario che dovrebbe riconoscere nuovi prodotti, usare un altro tipo di entità appresa dal computer, ad esempio un'entità semplice. Quindi, crea un elenco di frasi composto da parole e frasi che consenta a LUIS di trovare altre parole simili all'entità. Questo elenco guida LUIS attraverso il riconoscimento degli esempi di entità mediante l'aggiunta di ulteriore significato al valore di tali parole. 
 
 Gli elenchi di frasi sono come un vocabolario specifico per dominio che consente di migliorare la qualità della comprensione di entrambe le finalità e le entità. Un uso comune di un elenco di frasi è quello dei nomi propri, ad esempio i nomi di città. Un nome di città può essere costituito da più parole, inclusi trattini o apostrofi.
  

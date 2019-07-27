@@ -1,6 +1,6 @@
 ---
-title: Collaborazione
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Collaborazione-LUIS
+titleSuffix: Azure Cognitive Services
 description: Con le app LUIS è richiesto un singolo proprietario e collaboratori facoltativi per consentire a più persone di creare una singola app.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 294905ccfd0ce8db6da8737277b0ce978ba837ea
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e53ba9f24e40837a823e6012340358113d490f46
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473525"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560793"
 ---
 # <a name="collaborating-with-other-authors"></a>Collaborazione con altri autori
 
@@ -31,7 +31,7 @@ Per altre informazioni sugli account utente Active Directory vedere [Tenant di A
 
 ## <a name="luis-app-owner"></a>Proprietario dell'app LUIS
 
-L'account che consente di creare un'app è il proprietario e ogni app ha un solo proprietario. Il proprietario è indicato per l'app **[delle impostazioni](luis-how-to-collaborate.md)** pagina. Il proprietario riceve tramite posta elettronica al 75% del limite mensile di raggiungimento della quota di endpoint. 
+L'account che crea un'app è il proprietario e ogni app ha un unico proprietario. Il proprietario è elencato nella pagina **[delle impostazioni](luis-how-to-collaborate.md)** dell'app. Il proprietario riceve un messaggio di posta elettronica quando la quota dell'endpoint raggiunge il 75% del limite mensile. 
 
 ## <a name="authorization-roles"></a>Ruoli di autorizzazione
 LUIS non supporta i diversi ruoli per proprietari e collaboratori, con un'eccezione. L'account proprietario è l'unico che può eliminare l'app.
@@ -63,9 +63,9 @@ Questo metodo consente di disporre di una versione attiva, di una versione di st
 
 Le app esportate sono file in formato JSON confrontabili con l'esportazione base a livello di modifiche. Combinare i file per creare un singolo file JSON della nuova versione. Modificare la proprietà **versionId** nel file JSON affinché indichi la nuova versione unita. Importare la versione nell'app originale.
 
-## <a name="collaborator-roles-vs-entity-roles"></a>Ruoli di collaboratore entità di Visual Studio
+## <a name="collaborator-roles-vs-entity-roles"></a>Ruoli collaboratore e ruoli entità
 
-[I ruoli delle entità](luis-concept-roles.md) applicabili al modello di dati dell'app LUIS. Ruoli di collaboratore si applicano ai livelli di accesso di creazione. 
+I [ruoli dell'entità](luis-concept-roles.md) si applicano al modello di dati dell'app Luis. I ruoli del collaboratore si applicano ai livelli di accesso alla creazione. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

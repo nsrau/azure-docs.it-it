@@ -1,6 +1,6 @@
 ---
-title: Configurare i contenitori
-titlesuffix: Text Analytics - Azure Cognitive Services
+title: Configurare i contenitori-Analisi del testo
+titleSuffix: Azure Cognitive Services
 description: Analisi del testo fornisce a ogni contenitore un framework di configurazione comune che consente di configurare e gestire con facilità le impostazioni di archiviazione, registrazione, telemetria e sicurezza dei contenitori.
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: dapine
-ms.openlocfilehash: 2a9b9ce5109315d940d6dcadf395489612faddec
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 65d88e6c201f633a260e31544444341e636e9941
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356929"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552256"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Configurare i contenitori docker di Analisi del testo
 
@@ -49,9 +49,9 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 * Portale di Azure: **Analisi del testo** Panoramica, con etichetta`Endpoint`
 
-|Obbligatoria| Name | Tipo di dati | DESCRIZIONE |
+|Obbligatoria| NOME | Tipo di dati | Descrizione |
 |--|------|-----------|-------------|
-|Yes| `Billing` | String | URI dell'endpoint di fatturazione obbligatorio |
+|Sì| `Billing` | String | URI dell'endpoint di fatturazione obbligatorio |
 
 ## <a name="eula-setting"></a>Impostazione Eula
 
@@ -77,7 +77,7 @@ Il contenitore Analisi del testo non usa montaggi di input o output per archivia
 
 La sintassi esatta della posizione di montaggio host varia a seconda del sistema operativo host. Inoltre, il percorso di montaggio del [computer host](how-tos/text-analytics-how-to-install-containers.md#the-host-computer) potrebbe non essere accessibile a causa di un conflitto tra le autorizzazioni utilizzate dall'account del servizio docker e le autorizzazioni del percorso di montaggio dell'host. 
 
-|Facoltativo| Name | Tipo di dati | DESCRIZIONE |
+|Facoltativo| Name | Tipo di dati | Descrizione |
 |-------|------|-----------|-------------|
 |Non consentito| `Input` | String | I contenitori di Analisi del testo non la usano.|
 |Facoltativo| `Output` | String | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -91,7 +91,7 @@ Gli esempi seguenti usano le impostazioni di configurazione per illustrare come 
 
 Sostituire {_nome_argomento_} con i propri valori:
 
-| Placeholder | Valore | Formato o esempio |
+| Segnaposto | Valore | Formato o esempio |
 |-------------|-------|---|
 |{API_KEY} | Chiave dell'endpoint della `Text Analytics` risorsa disponibile nella pagina chiavi di Azure. `Text Analytics` |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
 |{ENDPOINT_URI} | Il valore dell'endpoint di fatturazione è disponibile nella `Text Analytics` pagina Panoramica di Azure.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|

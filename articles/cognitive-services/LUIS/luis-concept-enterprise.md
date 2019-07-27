@@ -1,6 +1,6 @@
 ---
-title: Concetti aziendali
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Concetti Enterprise-LUIS
+titleSuffix: Azure Cognitive Services
 description: Comprendere i concetti di progettazione per le app LUIS di grandi dimensioni o per più app, incluse LUIS e QnA Maker.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: e5d7e2bfe1ee4e3ca248f40701aa65e757fc4d74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0d51778473dc033bce3c58b1572f1e514a8b6327
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812847"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560781"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Strategie aziendali per un'app LUIS
 Rivedere queste strategie di progettazione per l'app aziendale.
@@ -42,13 +42,13 @@ Se l'app deve prevedere un'ampia varietà di espressioni utente, è consigliabil
 Pianificare una [revisione periodica delle espressioni endpoint](luis-how-to-review-endpoint-utterances.md) per l'apprendimento attivo, ad esempio ogni due settimane, rieseguire il training e ripubblicare. 
 
 ## <a name="when-you-need-to-have-more-than-500-intents"></a>Quando è necessario disporre di più di 500 finalità
-Si supponga, ad esempio, di sviluppare un assistente per ufficio con oltre 500 finalità. Se 200 finalità sono correlate alla pianificazione di riunioni, 200 riguardano i promemoria, 200 il recupero di informazioni sui colleghi e 200 l'invio di messaggi di posta elettronica, raggruppare le finalità in modo che ciascun gruppo si trovi in una singola app, quindi creare un'app di livello superiore contenente ciascuna finalità. Usare l'[architettura e lo strumento recapito](#dispatch-tool-and-model) per compilare l'app di livello superiore. Modificare il bot affinché usi la chiamata a cascata come mostrato nell'[esercitazione sul recapito][dispatcher-application-tutorial]. 
+Si supponga, ad esempio, di sviluppare un assistente per ufficio con oltre 500 finalità. Se 200 finalità sono correlate alla pianificazione di riunioni, 200 riguardano i promemoria, 200 il recupero di informazioni sui colleghi e 200 l'invio di messaggi di posta elettronica, raggruppare le finalità in modo che ciascun gruppo si trovi in una singola app, quindi creare un'app di livello superiore contenente ciascuna finalità. Usare l'[architettura e lo strumento recapito](#dispatch-tool-and-model) per compilare l'app di livello superiore. Modificare quindi il bot per usare la chiamata a cascata come illustrato nell' [esercitazione dispatch][dispatcher-application-tutorial]. 
 
 ## <a name="when-you-need-to-combine-several-luis-and-qna-maker-apps"></a>Quando è necessario combinare più app LUIS e QnA Maker
-Se si dispone di più app LUIS e QnA Maker che devono rispondere a un bot, usare lo [strumento recapito](#dispatch-tool-and-model) per compilare l'app di livello superiore. Modificare il bot affinché usi la chiamata a cascata come mostrato nell'[esercitazione sul recapito][dispatcher-application-tutorial]. 
+Se si dispone di più app LUIS e QnA Maker che devono rispondere a un bot, usare lo [strumento recapito](#dispatch-tool-and-model) per compilare l'app di livello superiore. Modificare quindi il bot per usare la chiamata a cascata come illustrato nell' [esercitazione dispatch][dispatcher-application-tutorial]. 
 
 ## <a name="dispatch-tool-and-model"></a>Modello e strumento recapito
-Usare lo strumento da riga di comando [Dispatch][dispatch-tool], disponibile in [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools), per combinare più app LUIS e/o QnA Maker in un'app LUIS padre. Questo approccio consente di disporre di un dominio padre, inclusi tutti i soggetti e i domini di soggetti figlio diversi in app separate. 
+Usare lo strumento da riga di comando [Dispatch][dispatch-tool] , disponibile in [BotBuilder-Tools](https://github.com/Microsoft/botbuilder-tools) per combinare più app luis e/o QnA Maker in un'app Luis padre. Questo approccio consente di disporre di un dominio padre, inclusi tutti i soggetti e i domini di soggetti figlio diversi in app separate. 
 
 ![Immagine concettuale dell'architettura di recapito](./media/luis-concept-enterprise/dispatch-architecture.png)
 
@@ -56,7 +56,7 @@ Il dominio padre è indicato in LUIS con una versione denominata `Dispatch` nell
 
 Il chatbot riceve l'espressione, quindi la invia all'app LUIS padre per la stima. La finalità stimata principale dall'app padre determina quale app LUIS figlio viene chiamata dopo. Il chatbot invia l'espressione all'app figlio per una stima più specifica.
 
-Informazioni su questa gerarchia di chiamate dall'[esercitazione dell'applicazione di recapito][dispatcher-application-tutorial] Bot Builder v4.  
+Comprendere il modo in cui viene eseguita questa gerarchia di chiamate dal Bot Builder v4 [Dispatcher-Application-Tutorial][dispatcher-application-tutorial].  
 
 ### <a name="intent-limits-in-dispatch-model"></a>Limiti di finalità nel modello recapito
 Al massimo un'applicazione di recapito dispone di 500 origini di recapito, equivalenti a 500 finalità. 

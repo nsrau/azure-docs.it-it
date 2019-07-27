@@ -1,7 +1,7 @@
 ---
-title: Gestire l'account e le chiavi
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: Le informazioni principali di un account LUIS sono l'account utente e la chiave di creazione. Le informazioni di accesso viene gestite in account.microsoft.com. La creazione e modifica chiave è gestita dalla pagina Impostazioni del portale LUIS.
+title: Gestisci account e chiavi-LUIS
+titleSuffix: Azure Cognitive Services
+description: Le informazioni principali di un account LUIS sono l'account utente e la chiave di creazione. Le informazioni di accesso sono gestite in account.microsoft.com. La chiave di creazione viene gestita dalla pagina delle impostazioni del portale LUIS.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,20 +11,20 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: diberry
-ms.openlocfilehash: d5a1d7ee3b8b16631f7b919f3aece0848d662e62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9164c94886488ac7dcadeb7894453daad5d8b322
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523510"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560487"
 ---
 # <a name="manage-account-and-authoring-key"></a>Gestire l'account e la chiave di creazione
 
-Le informazioni principali di un account LUIS sono l'account utente e la chiave di creazione. Le informazioni di accesso sono gestite in [account.microsoft.com](https://account.microsoft.com). La creazione e modifica chiave è gestita dal [LUIS](luis-reference-regions.md) portal **impostazioni** pagina.
+Le informazioni principali di un account LUIS sono l'account utente e la chiave di creazione. Le informazioni di accesso sono gestite in [account.microsoft.com](https://account.microsoft.com). La chiave di creazione viene gestita dalla pagina **delle impostazioni** del portale [Luis](luis-reference-regions.md) .
 
 ## <a name="authoring-key"></a>Chiave di creazione
 
-Questo singolo, specifico dell'area di creazione chiave, nel **impostazioni** pagina, è possibile creare tutte le app dal [LUIS](luis-reference-regions.md) del portale, nonché il [API di creazione](https://go.microsoft.com/fwlink/?linkid=2092087). Per praticità, la chiave di creazione è autorizzata a creare un numero [limitato](luis-boundaries.md) di query di endpoint al mese.
+Questa singola chiave di creazione specifica dell'area, nella pagina **Impostazioni** , consente di creare tutte le app dal portale [Luis](luis-reference-regions.md) , oltre che dalle [API di creazione](https://go.microsoft.com/fwlink/?linkid=2092087). Per praticità, la chiave di creazione è autorizzata a creare un numero [limitato](luis-boundaries.md) di query di endpoint al mese.
 
 [![Pagina delle impostazioni di LUIS](./media/luis-how-to-account-settings/account-settings.png)](./media/luis-how-to-account-settings/account-settings.png#lightbox)
 
@@ -36,7 +36,7 @@ La chiave di creazione è specifica dell'[area di creazione](luis-reference-regi
 
 ## <a name="reset-authoring-key"></a>Reimpostare la chiave di creazione
 
-Se la chiave di creazione è danneggiata, reimpostare la chiave. La chiave viene reimpostata su tutte le app nel [LUIS](luis-reference-regions.md) portale. Se le app vengono create mediante le API di creazione, è necessario modificare il valore di `Ocp-Apim-Subscription-Key` con la nuova chiave.
+Se la chiave di creazione è danneggiata, reimpostare la chiave. La chiave viene reimpostata su tutte le app nel portale [Luis](luis-reference-regions.md) . Se le app vengono create mediante le API di creazione, è necessario modificare il valore di `Ocp-Apim-Subscription-Key` con la nuova chiave.
 
 ## <a name="delete-account"></a>Eliminare l'account
 

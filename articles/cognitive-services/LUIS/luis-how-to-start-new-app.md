@@ -1,6 +1,6 @@
 ---
-title: Creare una nuova app
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Crea una nuova app-LUIS
+titleSuffix: Azure Cognitive Services
 description: Creare e gestire le applicazioni nella pagina Web di Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: b8b0cebf4ba47f875caacfcfbf89b84551b41333
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 7f9809fde088a03d4b20b5c739253f446c7a84b6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341865"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563617"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Creare una nuova app LUIS nel portale LUIS
 Un'app LUIS può essere creata in due modi. È possibile creare un'app LUIS nel portale [LUIS](https://www.luis.ai) o tramite le [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) di creazione di LUIS.
@@ -56,32 +56,32 @@ Un'app LUIS può essere creata in due modi. È possibile creare un'app LUIS nel 
     > [!NOTE]
     > Le impostazioni cultura non possono essere modificate dopo la creazione dell'applicazione. 
 
-## <a name="import-an-app-from-file"></a>Importare un'app da file
+## <a name="import-an-app-from-file"></a>Importa un'app da un file
 
 1. Nella pagina **App personali**, seleziona **Importa una nuova applicazione**.
 1. Nella finestra di dialogo popup, selezionare un file JSON dell'app valido, quindi **.**
 
 ### <a name="import-errors"></a>Errori di importazione
 
-Gli errori possibili sono: 
+Possibili errori: 
 
-* Un'app con lo stesso nome esiste già. Per risolvere questo problema, reimportare le app e impostare il **nome facoltativo** a un nuovo nome. 
+* Esiste già un'app con lo stesso nome. Per risolvere il problema, reimportare l'app e impostare il **nome facoltativo** su un nuovo nome. 
 
-## <a name="export-app-for-backup"></a>Esportare l'app per il backup
+## <a name="export-app-for-backup"></a>Esporta app per il backup
 
-1. Sul **My Apps** pagina, selezionare **esportare**.
-1. Selezionare **esportare in formato JSON**. Il browser scarica la versione dell'app attiva.
-1. Aggiungere questo file per il sistema di backup per archiviare il modello.
+1. Nella pagina **app personali** selezionare **Esporta**.
+1. Selezionare **Esporta come JSON**. Il browser Scarica la versione attiva dell'app.
+1. Aggiungere questo file al sistema di backup per archiviare il modello.
 
-## <a name="export-app-for-containers"></a>Esportare l'app per contenitori
+## <a name="export-app-for-containers"></a>Esporta app per contenitori
 
-1. Sul **My Apps** pagina, selezionare **esportare**.
-1. Selezionare **esportare come contenitore** quindi selezionare quale slot pubblicato (produzione o fase) che si desidera esportare.
-1. Usare questo file con il [contenitore LUIS](luis-container-howto.md). 
+1. Nella pagina **app personali** selezionare **Esporta**.
+1. Selezionare **Esporta come contenitore** e quindi selezionare lo slot pubblicato (produzione o fase) che si vuole esportare.
+1. Usare questo file con il [contenitore Luis](luis-container-howto.md). 
 
-    Se è interessati a esportando un sottoposto a training ma non ancora un modello pubblicato da utilizzare con il contenitore di LUIS, passare al **versioni** pagina ed esportare da tale posizione. 
+    Se si è interessati all'esportazione di un modello sottoposto a training ma non ancora pubblicato da usare con il contenitore LUIS, passare alla pagina **versioni** ed esportare da questa posizione. 
 
-## <a name="delete-app"></a>Eliminare l'applicazione
+## <a name="delete-app"></a>Elimina app
 
 1. Nella pagina **App personali** seleziona i tre punti di sospensione (...) alla fine della riga dell'applicazione.
 1. Seleziona **Elimina** dal menu.

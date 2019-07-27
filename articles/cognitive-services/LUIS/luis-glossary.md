@@ -1,6 +1,6 @@
 ---
-title: Glossario
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Glossario-LUIS
+titleSuffix: Azure Cognitive Services
 description: Il glossario contiene termini che è probabile trovare durante l'uso del servizio API LUIS.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: a88d7de69158a54995106d45683094c9b976896b
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 595a835018475ed3aa915971f5ff2b78981e7bdf
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302519"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560506"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossario per la comprensione del linguaggio con vocabolario e concetti comuni
 Il glossario Language Understanding (LUIS) contiene termini che è probabile trovare durante l'uso del servizio API LUIS.
@@ -82,11 +82,11 @@ Un endpoint di esempio è simile al seguente:
 
 |Parametro QueryString|description|
 |--|--|
-|region| [regione di pubblicazione](luis-reference-regions.md#publishing-regions) |
+|Area| [regione di pubblicazione](luis-reference-regions.md#publishing-regions) |
 |appID | ID dell'app LUIS |
 |subscriptionid | Chiave endpoint LUIS creata nel portale di Azure |
 |q | espressione |
-|timezoneOffset| minutes|
+|timezoneOffset| minuti|
 
 ## <a name="entity"></a>Entità
 

@@ -1,6 +1,6 @@
 ---
-title: Entità predefinita age
-titleSuffix: Azure
+title: Entità precompilata Age-LUIS
+titleSuffix: Azure Cognitive Services
 description: Questo articolo contiene informazioni sull'entità predefinita età in Language Understanding, ovvero LUIS.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: b8239688000f0ce32ca2c2be054b1443bbb698b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 77290790342c1159eca049108e1c9fadd5d4bbf3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65069126"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560301"
 ---
 # <a name="age-prebuilt-entity-for-a-luis-app"></a>Entità predefinita age per un'app LUIS
 L'entità predefinita età acquisisce il valore dell'età sia numericamente che in termini di giorni, settimane, mesi e anni. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti l'età per le finalità dell'applicazione. L'entità età è supportata in [molte impostazioni cultura](luis-reference-prebuilt-entities.md). 
@@ -26,7 +26,7 @@ L'entità age viene gestita nel repository GitHub [Recognizers-text](https://git
 
 ## <a name="resolution-for-prebuilt-age-entity"></a>Risoluzione per l'entità età predefinita
 
-### <a name="api-version-2x"></a>Versione dell'API 2.x
+### <a name="api-version-2x"></a>API versione 2. x
 
 L'esempio seguente illustra la risoluzione dell'entità **builtin.age**.
 
@@ -52,9 +52,9 @@ L'esempio seguente illustra la risoluzione dell'entità **builtin.age**.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Versione di anteprima API 3.x
+### <a name="preview-api-version-3x"></a>API di anteprima versione 3. x
 
-Il codice JSON seguente è con il `verbose` parametro è impostato su `false`:
+Il codice JSON seguente è con `verbose` il parametro impostato `false`su:
 
 ```json
 {
@@ -79,7 +79,7 @@ Il codice JSON seguente è con il `verbose` parametro è impostato su `false`:
 }
 ```
 
-Il codice JSON seguente è con il `verbose` parametro è impostato su `true`:
+Il codice JSON seguente è con `verbose` il parametro impostato `true`su:
 
 ```json
 {

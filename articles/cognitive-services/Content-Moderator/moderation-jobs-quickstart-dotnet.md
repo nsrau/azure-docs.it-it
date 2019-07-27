@@ -1,7 +1,7 @@
 ---
-title: Usare i processi di moderazione con .NET - Content Moderator
-titlesuffix: Azure Cognitive Services
-description: Usare contenuto Moderator .NET SDK per avviare i processi di moderazione dei contenuti di end-to-end per il contenuto di testo o immagine in Azure Content Moderator.
+title: Usare i processi di moderazione con .NET-Content Moderator
+titleSuffix: Azure Cognitive Services
+description: Usare Content Moderator .NET SDK per avviare i processi di moderazione dei contenuti end-to-end per il contenuto di immagini o testo in Azure Content Moderator.
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
@@ -10,25 +10,25 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: sajagtap
-ms.openlocfilehash: 24d5483cf3b418cada3c5b7f03eedbff13cc36d6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d98c88a6e1d6dfa23f53c32c85c013b4cf2c468d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62113869"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565603"
 ---
-# <a name="define-and-use-moderation-jobs-net"></a>Definire e usare i processi di moderazione (.NET)
+# <a name="define-and-use-moderation-jobs-net"></a>Definire e usare processi di moderazione (.NET)
 
-Un processo di moderazione funziona come una specie di wrapper per la funzionalità di moderazione dei contenuti, i flussi di lavoro e le revisioni. Questa guida fornisce informazioni e gli esempi di codice che consentono di iniziare a usare il [Content Moderator SDK per .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) per:
+Un processo di moderazione funge da wrapper per la funzionalità di moderazione del contenuto, flussi di lavoro e revisioni. Questa guida fornisce informazioni ed esempi di codice che consentono di iniziare a usare l' [SDK content moderator per .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) per:
 
 - Avviare un processo di moderazione per eseguire analisi e creare revisioni per moderatori umani
 - Ottenere lo stato della revisione in sospeso
 - Monitorare e ottenere lo stato finale della revisione
-- Inviare i risultati della verifica per l'URL di callback
+- Inviare i risultati della verifica all'URL callback
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Accedi o crea un account su Content Moderator [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/) sito.
+- Accedere o creare un account nel sito [dello strumento di revisione](https://contentmoderator.cognitive.microsoft.com/) content moderator.
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Verificare che la chiave API possa chiamare l'API di verifica per la creazione della revisione
 

@@ -1,5 +1,5 @@
 ---
-title: Informazioni su Speech SDK - Servizi di riconoscimento vocale
+title: Informazioni sul servizio riconoscimento vocale (Speech SDK)
 titleSuffix: Azure Cognitive Services
 description: Speech Software Development Kit (SDK) fornisce alle applicazioni l'accesso nativo alle funzioni del servizio Voce, rendendo più semplice lo sviluppo di software. Questo articolo fornisce dettagli aggiuntivi sull'SDK per Windows, Linux e Android.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 120dd4a6a342732f3e07d87786009779d23be829
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: c5e12812a4305493be2cdc234946796b21dd26d8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606415"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558935"
 ---
 # <a name="about-the-speech-sdk"></a>Informazioni su Speech SDK
 
-Il Software Development Kit (SDK) di sintesi vocale offre l'accesso delle applicazioni alle funzioni di servizi di riconoscimento vocale, rendendo più semplice sviluppare software abilitate al riconoscimento vocale. Attualmente, gli SDK offrono accesso a **per il riconoscimento vocale**, **sintesi vocale**, **traduzione vocale**, **riconoscimento delle intenzioni tramite**, e **Canale Direct Line vocale bot Framework**. Una panoramica generale sulle funzionalità e le piattaforme supportate sono reperibili nella documentazione di [pagina di immissione](https://aka.ms/csspeech).
+Speech Software Development Kit (SDK) consente alle applicazioni di accedere alle funzioni dei servizi di riconoscimento vocale, semplificando lo sviluppo di software abilitato per la sintesi vocale. Attualmente, gli SDK forniscono l'accesso a riconoscimento **vocale** **, sintesi**vocale, **traduzione vocale**, **riconoscimento preventivo**e **canale vocale diretto di bot Framework**. Una panoramica generale sulle funzionalità e sulle piattaforme supportate è disponibile nella [pagina voce](https://aka.ms/csspeech)della documentazione.
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
@@ -38,9 +38,9 @@ Per Windows sono supportati le lingue seguenti:
 ### <a name="linux"></a>Linux
 
 > [!NOTE]
-> Attualmente è supportato solo Ubuntu 16.04, 18.04 Ubuntu e Debian 9 in un computer (x86 o x64 per C++ sviluppo e x64 per .NET Core, Java e Python).
+> Attualmente sono supportati solo Ubuntu 16,04, Ubuntu 18,04 e Debian 9 in un computer (x86 o x64 per C++ lo sviluppo e x64 per .NET Core, Java e Python).
 
-Assicurarsi di avere le librerie richieste installate eseguendo i comandi della shell seguenti:
+Verificare che siano installate le librerie necessarie eseguendo i comandi della shell seguenti:
 
 In Ubuntu:
 
@@ -66,7 +66,7 @@ sudo apt-get install libssl1.0.2 libasound2
 
 * C++: scaricare l'SDK come [pacchetto con estensione tar](https://aka.ms/csspeech/linuxbinary) e decomprimere i file nella directory desiderata. La tabella seguente illustra la struttura di cartelle dell'SDK:
 
-  |`Path`|Descrizione|
+  |`Path`|DESCRIZIONE|
   |-|-|
   |`license.md`|Licenza|
   |`ThirdPartyNotices.md`|Comunicazioni di terze parti|

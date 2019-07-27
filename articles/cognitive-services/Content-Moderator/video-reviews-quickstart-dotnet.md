@@ -1,6 +1,6 @@
 ---
 title: Creare revisioni di video usando .NET - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Questo articolo include informazioni ed esempi di codice per iniziare in poco tempo a usare Content Moderator SDK con C# per creare revisioni di video.
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: c8572e6bc7fdedb68527cad4e7ea4109838089b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 74b0ad4b5d8a16c8d46fcf6de67c46dab29ba51d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64726836"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564290"
 ---
 # <a name="create-video-reviews-using-net"></a>Creare revisioni di video usando .NET
 
@@ -29,7 +29,7 @@ Questo articolo contiene informazioni ed esempi di codice per iniziare rapidamen
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Accedi o crea un account su Content Moderator [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/) sito.
+- Accedere o creare un account nel sito [dello strumento di revisione](https://contentmoderator.cognitive.microsoft.com/) content moderator.
 - In questo articolo si presuppone che sia stato [moderato il video (vedere la guida introduttiva)](video-moderation-api.md) e che siano disponibili i dati di risposta, indispensabili per creare revisioni basate su fotogrammi per i moderatori umani.
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Verificare che la chiave API possa chiamare l'API di verifica per la creazione della revisione
@@ -166,7 +166,7 @@ Creare la revisione di un video con **ContentModeratorClient.Reviews.CreateVideo
 L'oggetto **CreateVideoReviews** ha i parametri obbligatori seguenti:
 1. Stringa contenente un tipo MIME, che deve essere "application/json". 
 1. Nome del team di Content Moderator.
-1. Un' **IList\<CreateVideoReviewsBodyItem >** oggetto. Ogni oggetto **CreateVideoReviewsBodyItem** rappresenta la revisione di un video. Questo Avvio rapido crea una revisione alla volta.
+1. Oggetto **CreateVideoReviewsBodyItem\<> IList** . Ogni oggetto **CreateVideoReviewsBodyItem** rappresenta la revisione di un video. Questo Avvio rapido crea una revisione alla volta.
 
 L'oggetto **CreateVideoReviewsBodyItem** include diverse proprietà. Impostare almeno le proprietà seguenti:
 - **Content**. URL del video da rivedere.
@@ -174,7 +174,7 @@ L'oggetto **CreateVideoReviewsBodyItem** include diverse proprietà. Impostare a
 - **Status**. Impostare il valore su "Unpublished". Se non si imposta questa proprietà, il valore predefinito è "Pending", vale a dire che la revisione del video è pubblicata e la revisione umana è in sospeso. Dopo la pubblicazione della revisione di un video, non è più possibile aggiungervi fotogrammi video, una trascrizione o il risultato della moderazione di una trascrizione.
 
 > [!NOTE]
-> **CreateVideoReviews** restituisce un oggetto IList\<stringa >. Ognuna di queste stringhe contiene un ID per la revisione di un video. Questi ID sono GUID e non sono uguali al valore della proprietà **ContentId**. 
+> **CreateVideoReviews** restituisce una stringa\<IList >. Ognuna di queste stringhe contiene un ID per la revisione di un video. Questi ID sono GUID e non sono uguali al valore della proprietà **ContentId**. 
 
 Aggiungere la definizione del metodo seguente allo spazio dei nomi VideoReviews, classe Program.
 
@@ -224,18 +224,18 @@ private static string CreateReview(ContentModeratorClient client, string id, str
 1. Stringa contenente un tipo MIME, che deve essere "application/json".
 1. Nome del team di Content Moderator.
 1. ID della revisione del video restituito da **CreateVideoReviews**.
-1. Un' **IList\<VideoFrameBodyItem >** oggetto. Ogni oggetto **VideoFrameBodyItem** rappresenta un fotogramma video.
+1. Oggetto **VideoFrameBodyItem\<> IList** . Ogni oggetto **VideoFrameBodyItem** rappresenta un fotogramma video.
 
 **VideoFrameBodyItem** ha le proprietà seguenti:
 - **Timestamp**. Stringa contenente, in secondi, l'ora nel video in cui è stato estratto il fotogramma video.
 - **FrameImage**. URL del fotogramma video.
-- **Metadata**. Un oggetto IList\<VideoFrameBodyItemMetadataItem >. **VideoFrameBodyItemMetadataItem** è semplicemente una coppia chiave/valore. Le chiavi valide includono:
+- **Metadata**. > IList\<VideoFrameBodyItemMetadataItem. **VideoFrameBodyItemMetadataItem** è semplicemente una coppia chiave/valore. Le chiavi valide includono:
 - **reviewRecommended**. True se è consigliata una revisione umana del fotogramma video.
 - **adultScore**. Valore compreso tra 0 e 1 che classifica il livello di gravità del contenuto per adulti nel fotogramma video.
 - **a**. True se il video contiene contenuto per adulti.
 - **racyScore**. Valore compreso tra 0 e 1 che classifica il livello di gravità del contenuto spinto nel fotogramma video.
 - **r**. True se il fotogramma video contiene contenuto spinto.
-- **ReviewerResultTags**. Un oggetto IList\<VideoFrameBodyItemReviewerResultTagsItem >. **VideoFrameBodyItemReviewerResultTagsItem** è semplicemente una coppia chiave/valore. Un'applicazione può usare questi tag per organizzare i fotogrammi video.
+- **ReviewerResultTags**. > IList\<VideoFrameBodyItemReviewerResultTagsItem. **VideoFrameBodyItemReviewerResultTagsItem** è semplicemente una coppia chiave/valore. Un'applicazione può usare questi tag per organizzare i fotogrammi video.
 
 > [!NOTE]
 > In questa guida introduttiva vengono generati valori casuali per le proprietà **adultScore** e **racyScore**. In un'applicazione di produzione è possibile ottenere questi valori dal [servizio di moderazione video](video-moderation-api.md), distribuito come servizio multimediale di Azure.

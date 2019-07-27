@@ -1,5 +1,5 @@
 ---
-title: Speech Synthesis Markup Language (SSML)-servizi vocali
+title: Speech Synthesis Markup Language (SSML)-servizio di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: Uso di Speech Synthesis Markup Language per controllare la pronuncia e la prosodia nella sintesi vocale.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: e2b1e02a622dfe4ae488e372e44c8440f20d7034
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 1bd1882218630aca0707a792d120045c06dea127
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501158"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552674"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Speech Synthesis Markup Language (SSML)
 
@@ -71,7 +71,7 @@ L' `voice` elemento è obbligatorio. Viene usato per specificare la voce usata p
 
 **Attributes (Attributi)**
 
-| Attributo | Descrizione | Obbligatoria / Facoltativa |
+| Attributo | DESCRIZIONE | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
 | name | Identifica la voce utilizzata per l'output da sintesi vocale. Per un elenco completo delle voci supportate, vedere [supporto](language-support.md#text-to-speech)per le lingue. | Obbligatoria |
 
@@ -94,7 +94,7 @@ All'interno `speak` dell'elemento è possibile specificare più voci per l'outpu
 
 **Attributes (Attributi)**
 
-| Attributo | DESCRIZIONE | Obbligatoria / Facoltativa |
+| Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
 | name | Identifica la voce utilizzata per l'output da sintesi vocale. Per un elenco completo delle voci supportate, vedere [supporto](language-support.md#text-to-speech)per le lingue. | Obbligatoria |
 
@@ -138,7 +138,7 @@ Le modifiche vengono applicate a livello di frase e lo stile varia in base alla 
 
 Usare questa tabella per determinare quali stili di pronuncia sono supportati per ogni voce neurale.
 
-| Voce | Type | Descrizione |
+| Voce | Type | DESCRIZIONE |
 |-------|------|-------------|
 | `en-US-JessaNeural` | tipo =`cheerful` | Esprime un'emozione positiva e felice |
 | | tipo =`empathy` | Esprime un senso di attenzione e comprensione |
@@ -175,7 +175,7 @@ Usare l' `break` elemento per inserire pause (o interruzioni) tra parole oppure 
 
 **Attributes (Attributi)**
 
-| Attributo | DESCRIZIONE | Obbligatoria / Facoltativa |
+| Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
 | forza | Specifica la durata relativa di una pausa utilizzando uno dei valori seguenti:<ul><li>none</li><li>x-debole</li><li>vulnerabile</li><li>media (impostazione predefinita)</li><li>complessa</li><li>x-forte</li></ul> | Facoltativo |
 | time | Specifica la durata assoluta di una pausa in secondi o millisecondi. Esempi di valori validi sono 2S e 500 | Facoltativo |
@@ -283,7 +283,7 @@ Poiché i valori dell'attributo prosodica possono variare in base a un intervall
 
 **Attributes (Attributi)**
 
-| Attributo | DESCRIZIONE | Obbligatoria / Facoltativa |
+| Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
 | passo | Indica il passo della linea di base per il testo. È possibile esprimere il passo come:<ul><li>Valore assoluto, espresso come numero seguito da "Hz" (hertz). Ad esempio, 600Hz.</li><li>Valore relativo, espresso come numero preceduto da "+" o "-", seguito da "Hz" o "St", che specifica una quantità per modificare il pitch. Ad esempio: + 80Hz o-2ST. Il valore "St" indica che l'unità di modifica è semitono, ovvero la metà di un tono (un mezzo) sulla scala diatonica standard.</li><li>Valore costante:<ul><li>x-basso</li><li>bassa</li><li>media</li><li>elevata</li><li>x-alto</li><li>default</li></ul></li></ul>. | Facoltativo |
 | contorno | Il contorno non è supportato per le voci neurali. Contour rappresenta le modifiche in pitch per il contenuto vocale come matrice di destinazioni in posizioni temporali specificate nell'output del riconoscimento vocale. Ogni destinazione è definita da insiemi di coppie di parametri. Ad esempio: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Il primo valore di ogni set di parametri specifica la posizione della modifica del passo come percentuale della durata del testo. Il secondo valore specifica la quantità da elevare o abbassare il pitch, usando un valore relativo o un valore di enumerazione per pitch `pitch`(vedere). | Facoltativo |
@@ -409,7 +409,7 @@ Per ogni documento SSML è consentito un solo file audio di sfondo. Tuttavia, è
 
 **Attributes (Attributi)**
 
-| Attributo | Descrizione | Obbligatoria / Facoltativa |
+| Attributo | DESCRIZIONE | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
 | src | Specifica il percorso o l'URL del file audio in background. | Obbligatorio se si usa l'audio in background nel documento di SSML. |
 | volume | Specifica il volume del file audio in background. **Valori**accettati `0` : `100` per l'inclusione. Il valore predefinito è `1`. | Facoltativo |

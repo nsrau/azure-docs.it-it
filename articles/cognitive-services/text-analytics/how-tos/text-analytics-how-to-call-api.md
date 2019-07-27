@@ -1,6 +1,6 @@
 ---
 title: Chiamare l'API Analisi del testo
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Informazioni su come chiamare l'API REST Analisi del testo.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: e98979ac43945ebc9af82d5f89db01855429ca70
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 2aa43318eab9a8d1beb2b133ab9802d390de8a7f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304195"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552453"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Come chiamare l'API REST Analisi del testo
 
@@ -40,10 +40,10 @@ L'input deve essere JSON in testo non elaborato e non strutturato. XML non è su
 
 Attualmente è possibile inviare gli stessi documenti per tutte le operazioni di Analisi del testo: sentiment, frase chiave, rilevamento della lingua e identificazione delle entità. In futuro probabilmente lo schema varierà per ogni analisi.
 
-| Elemento | Valori validi | Obbligatorio? | Uso |
+| Elemento | Valori validi | Obbligatorio? | Utilizzo |
 |---------|--------------|-----------|-------|
-|`id` |Il tipo di dati è stringa, ma in pratica gli ID documento tendono a essere numeri interi. | Obbligatorio | Il sistema usa gli ID immessi per strutturare l'output. Per ogni ID della richiesta vengono generati codici di lingua, frasi chiave e punteggi di sentiment.|
-|`text` | Dati non strutturato testo non elaborato, un massimo di 5.120 caratteri. | Obbligatorio | Per il rilevamento della lingua, il testo può essere espresso in qualsiasi lingua. Per l'analisi del sentiment, l'estrazione delle frasi chiave e l'identificazione delle entità, il testo deve essere in una [lingua supportata](../text-analytics-supported-languages.md). |
+|`id` |Il tipo di dati è stringa, ma in pratica gli ID documento tendono a essere numeri interi. | Obbligatoria | Il sistema usa gli ID immessi per strutturare l'output. Per ogni ID della richiesta vengono generati codici di lingua, frasi chiave e punteggi di sentiment.|
+|`text` | Testo non elaborato non strutturato, composto da un massimo di 5.120 caratteri. | Obbligatoria | Per il rilevamento della lingua, il testo può essere espresso in qualsiasi lingua. Per l'analisi del sentiment, l'estrazione delle frasi chiave e l'identificazione delle entità, il testo deve essere in una [lingua supportata](../text-analytics-supported-languages.md). |
 |`language` | Codice [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) di 2 caratteri per una [lingua supportata](../text-analytics-supported-languages.md) | Variabile | Richiesto per l'analisi del sentiment, l'estrazione delle frasi chiave e il collegamento delle entità; facoltativo per il rilevamento della lingua. Se lo si omette non si verifica nessun errore ma l'analisi risulta più debole. Il codice della lingua deve corrispondere al `text` fornito. |
 
 Per altre informazioni sui limiti, vedere [Panoramica di Analisi del testo > Limiti relativi ai dati](../overview.md#data-limits). 
@@ -84,10 +84,10 @@ Il servizio accetta richieste fino alla dimensione di 1 MB. Se si usa Postman o 
   + [Rilevamento della lingua](text-analytics-how-to-language-detection.md)  
   + [Estrazione delle frasi chiave](text-analytics-how-to-keyword-extraction.md)  
   + [Analisi del sentiment](text-analytics-how-to-sentiment-analysis.md)  
-  + [Riconoscimento di entità](text-analytics-how-to-entity-linking.md)  
+  + [Riconoscimento entità](text-analytics-how-to-entity-linking.md)  
 
 
-6. Fare clic su **Send** (Invia) per inviare la richiesta. Vedere le [limiti relativi a data](../overview.md#data-limits) sezione nella panoramica per informazioni sul numero di richieste è possibile inviare al minuto e secondo.
+6. Fare clic su **Send** (Invia) per inviare la richiesta. Per informazioni sul numero di richieste che è possibile inviare al minuto e al secondo, vedere la sezione relativa ai [limiti dei dati](../overview.md#data-limits) nella panoramica.
 
    In Postman la risposta è visualizzata nella finestra successiva in basso, come singolo documento JSON, con un elemento per ogni ID documento specificato nella richiesta.
 

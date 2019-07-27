@@ -1,6 +1,6 @@
 ---
-title: Impostazioni del contenitore Docker
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Impostazioni del contenitore Docker-LUIS
+titleSuffix: Azure Cognitive Services
 description: L'ambiente di runtime del contenitore LUIS si configura mediante gli argomenti del comando `docker run`. LUIS ha diverse impostazioni necessarie e alcune impostazioni facoltative.
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: dapine
-ms.openlocfilehash: 7858d94b6e2a9ef07da9121cb84ffaf6adaa24d3
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: e6a13688bba1c3a0e62e427e078e78c8f8dd4e70
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360531"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560622"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configurare i contenitori Docker di Language Understanding 
 
@@ -31,7 +31,7 @@ Questo contenitore ha le impostazioni di configurazione seguenti:
 |Sì|[ApiKey](#apikey-setting)|Si usa per rilevare le informazioni di fatturazione.|
 |No|[ApplicationInsights](#applicationinsights-setting)|Consente di aggiungere al contenitore il supporto per i dati di telemetria di [Azure Application Insights](https://docs.microsoft.com/azure/application-insights).|
 |Sì|[Fatturazione](#billing-setting)|Specifica l'URI dell'endpoint della risorsa del servizio in Azure.|
-|Sì|[Eula](#eula-setting)| Indica che è stata accettata la licenza per il contenitore.|
+|Yes|[Eula](#eula-setting)| Indica che è stata accettata la licenza per il contenitore.|
 |No|[Fluentd](#fluentd-settings)|Scrivere il log e, facoltativamente, i dati delle metriche in un server Fluentd.|
 |No|[Proxy HTTP](#http-proxy-credentials-settings)|Configurare un proxy HTTP per le richieste in uscita.|
 |No|[registrazione](#logging-settings)|Fornisce il supporto di registrazione ASP.NET Core per il contenitore. |
@@ -67,9 +67,9 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 Ricordarsi di includere `luis/v2.0` il routing nell'URL, come illustrato nella tabella seguente:
 
 
-|Obbligatoria| Name | Tipo di dati | Descrizione |
+|Obbligatoria| NOME | Tipo di dati | DESCRIZIONE |
 |--|------|-----------|-------------|
-|Yes| `Billing` | String | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
+|Sì| `Billing` | String | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
 
 ## <a name="eula-setting"></a>Impostazione Eula
 
@@ -97,7 +97,7 @@ La sintassi esatta della posizione di montaggio host varia a seconda del sistema
 
 La tabella seguente descrive le impostazioni supportate.
 
-|Obbligatoria| Name | Tipo di dati | DESCRIZIONE |
+|Obbligatoria| NOME | Tipo di dati | Descrizione |
 |-------|------|-----------|-------------|
 |Sì| `Input` | String | Destinazione del montaggio di input. Il valore predefinito è `/input`. Questo è il percorso del file del pacchetto LUIS. <br><br>Esempio:<br>`--mount type=bind,src=c:\input,target=/input`|
 |No| `Output` | String | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log di query LUIS e i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -114,7 +114,7 @@ Ricordarsi di includere `luis/v2.0` il routing nell'URL, come illustrato nella t
 
 Sostituire {_nome_argomento_} con i propri valori:
 
-| Placeholder | Valore | Formato o esempio |
+| Segnaposto | Valore | Formato o esempio |
 |-------------|-------|---|
 |{API_KEY} | La chiave di endpoint dell'applicazione LUIS di cui si esegue il training. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{ENDPOINT_URL} | Il valore dell'endpoint di fatturazione è disponibile nella `Cognitive Services` pagina Panoramica di Azure. |https://westus.api.cognitive.microsoft.com/luis/v2.0|
