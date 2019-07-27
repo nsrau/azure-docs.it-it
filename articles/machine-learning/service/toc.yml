@@ -227,8 +227,12 @@
     - name: Distribuire e gestire modelli
       items:
         - name: Dove e come eseguire la distribuzione
-          displayName: publish azure kubernetes azure container instances
+          displayName: publish web service
           href: how-to-deploy-and-where.md
+        - name: Istanze di Azure Container
+          href: how-to-deploy-azure-container-instance.md
+        - name: Servizio Azure Kubernetes
+          href: how-to-deploy-azure-kubernetes-service.md
         - name: Inferenza della GPU
           href: how-to-deploy-inferencing-gpus.md
         - name: Inferenza dei FPGA
