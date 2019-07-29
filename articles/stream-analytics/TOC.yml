@@ -148,6 +148,8 @@
               href: stream-analytics-scale-jobs.md
         - name: Ridimensionare con le funzioni di Machine Learning
           href: stream-analytics-scale-with-machine-learning-functions.md
+        - name: Ridimensionare con il ripartizionamento
+          href: repartition.md
     - name: Automatizzare
       items:
         - name: Uso di .NET SDK
