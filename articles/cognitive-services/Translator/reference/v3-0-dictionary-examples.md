@@ -1,6 +1,6 @@
 ---
 title: Metodo Dictionary Examples dell'API Traduzione testuale
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Usare il metodo Dictionary Examples dell'API Traduzione testuale.
 services: cognitive-services
 author: swmachan
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: e4665157803409b884c3333d9a3514403e5630bd
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 15d23016df9b0c85b9d252b4c4a9ea48d3608f75
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435112"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595058"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>API Traduzione testuale 3.0: Esempi di dizionari
 
@@ -34,8 +34,8 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 I parametri della richiesta inviati a una stringa di query sono:
 
 <table width="100%">
-  <th width="20%">Query parameter (Parametro di query)</th>
-  <th>Descrizione</th>
+  <th width="20%">Parametro di query</th>
+  <th>DESCRIZIONE</th>
   <tr>
     <td>api-version</td>
     <td>*Parametro obbligatorio*.<br/>Versione dell'API richiesta dal client. Il valore deve essere `3.0`.</td>
@@ -45,7 +45,7 @@ I parametri della richiesta inviati a una stringa di query sono:
     <td>*Parametro obbligatorio*.<br/>Specifica la lingua del testo di input. La lingua di origine deve essere una delle [lingue supportate](./v3-0-languages.md) incluse nell'ambito `dictionary`.</td>
   </tr>
   <tr>
-    <td>to</td>
+    <td>in</td>
     <td>*Parametro obbligatorio*.<br/>Specifica la lingua del testo di output. La lingua di destinazione deve essere una delle [lingue supportate](./v3-0-languages.md) incluse nell'ambito `dictionary`.</td>
   </tr>
 </table>
@@ -53,10 +53,10 @@ I parametri della richiesta inviati a una stringa di query sono:
 Le intestazioni della richiesta includono:
 
 <table width="100%">
-  <th width="20%">Headers</th>
-  <th>Descrizione</th>
+  <th width="20%">Intestazioni</th>
+  <th>DESCRIZIONE</th>
   <tr>
-    <td>Intestazioni di autenticazione</td>
+    <td>Intestazione/e di autenticazione</td>
     <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
   </tr>
   <tr>

@@ -3,18 +3,18 @@ title: Dettagli documento - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Nella pagina contenente l'elenco di documenti vengono visualizzati i primi 10 documenti nell'area di lavoro. Per ciascun documento vengono visualizzati il nome, l'associazione, il tipo, la lingua, il timestamp di caricamento e l'indirizzo di posta elettronica dell'utente che ha caricato il documento.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 267d60c2e9941c66ab128f68bd7aaf1cc54fedd9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: cf0d96414c40784210723e315da5d885d61198c5
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442498"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595587"
 ---
 # <a name="view-document-details"></a>Visualizzare i dettagli del documento
 
@@ -27,7 +27,7 @@ Fare clic su un documento specifico per visualizzare la pagina dei relativi dett
 
 ![dettagli del documento](media/how-to/how-to-view-document-details.png)
 
-## <a name="delete-a-document"></a>Eliminare un documento
+## <a name="delete-a-document"></a>Elimina un documento
 
 L'utente deve essere il proprietario dell'area di lavoro per poter eliminare un documento. Inoltre, se il documento è usato da un modello che si trova in un punto qualsiasi del processo di training o del processo di distribuzione, tale documento non potrà essere eliminato.
 

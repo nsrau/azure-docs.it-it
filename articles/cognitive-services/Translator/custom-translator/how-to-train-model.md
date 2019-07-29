@@ -3,18 +3,18 @@ title: Eseguire il training di un modello - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Il training di un modello è un passaggio importante quando si compila un modello di traduzione. Il training viene eseguito in base ai documenti selezionati per questa operazione.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 8804285bf419bce5ca85cc5070cd47ce9a87392a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a875cc8f5e69be8b940f9d177d3b915bfaa2c973
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447952"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595693"
 ---
 # <a name="train-a-model"></a>Eseguire il training di un modello
 
@@ -53,7 +53,7 @@ Per eseguire il training di un modello:
     ![Pagina Train model (Esegui il training del modello)](media/how-to/how-to-train-model-3.png)
 
 >[!Note]
->Convertitore personalizzato supporta 10 sessioni simultanee di formazione all'interno di un'area di lavoro in qualsiasi punto nel tempo.
+>Il convertitore personalizzato supporta 10 Training simultanei in un'area di lavoro in qualsiasi momento.
 
 
 ## <a name="edit-a-model"></a>Modificare un modello

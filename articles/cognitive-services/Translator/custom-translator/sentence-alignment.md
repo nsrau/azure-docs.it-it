@@ -3,18 +3,18 @@ title: Abbinamento e allineamento di frasi - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Durante l'esecuzione del training, le frasi presenti in documenti paralleli vengono abbinate o allineate. Custom Translator apprende le traduzioni una frase alla volta, leggendo una frase e la relativa traduzione. Allinea quindi ogni parola e ogni espressione l'una all'altra in queste due frasi.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: f73c40704e10a8e2368ee1eb369ee3dccdf269ee
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e9bc5c876da6bd2be1b22b389b819e51330b2e50
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448321"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595466"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Abbinamento e allineamento di frasi in documenti paralleli
 
@@ -37,7 +37,7 @@ La tabella seguente mostra il numero minimo di frasi estratte e frasi allineate 
 | Set di dati   | Numero minimo suggerito di frasi estratte | Numero minimo suggerito di frasi allineate | Numero massimo di frasi allineate |
 |------------|--------------------------------------------|------------------------------------------|--------------------------------|
 | Formazione   | 10,000                                     | 2\.000                                    | Nessun limite massimo                 |
-| Ottimizzazione     | 2\.000                                      | 500                                      | 2\.500                          |
+| Regolazione     | 2\.000                                      | 500                                      | 2\.500                          |
 | Test    | 2\.000                                      | 500                                      | 2\.500                          |
 | Dizionario | 0                                          | 0                                        | Nessun limite massimo                 |
 

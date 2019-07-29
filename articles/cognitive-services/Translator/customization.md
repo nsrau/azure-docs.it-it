@@ -1,6 +1,6 @@
 ---
 title: Personalizzazione della traduzione - API Traduzione testuale
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Usare l'hub di Microsoft Translator per creare il proprio sistema di traduzione automatica usando la terminologia e lo stile preferiti.
 services: cognitive-services
 author: swmachan
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 87c47fc970ccb96419818e3b3e39c939201708f0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e6771a0d72592f1952853642ceea196b02774ada
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447331"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595303"
 ---
 # <a name="customize-your-text-translations"></a>Personalizzare le traduzioni di testo
 
@@ -43,7 +43,7 @@ Altre informazioni sui vari livelli di personalizzazione in base ai dati disponi
 ## <a name="microsoft-translator-hub"></a>Hub di Microsoft Translator
 
 > [!NOTE]
-> Microsoft Translator Hub legacy verrà ritirato il 17 maggio 2019. [Visualizzare le date e le informazioni sulla migrazione importante](https://www.microsoft.com/translator/business/hub/).  
+> L'Hub Microsoft Translator legacy verrà ritirato il 17 maggio 2019. [Visualizzare le informazioni e le date importanti per la migrazione](https://www.microsoft.com/translator/business/hub/).  
 
 ## <a name="custom-translator-versus-hub"></a>Custom Translator e Hub
 
@@ -51,10 +51,10 @@ Altre informazioni sui vari livelli di personalizzazione in base ai dati disponi
 |:-----|:----:|:----:|
 |Stato delle funzionalità di personalizzazione   | Disponibilità generale  | Disponibilità generale |
 | Versione API per testo  | Solo V2   | Solo V3 |
-| Personalizzazione SMT | Yes   | No |
+| Personalizzazione SMT | Sì   | No |
 | Personalizzazione NMT | No    | Yes |
-| Personalizzazione dei nuovi servizi voce unificati | No    | Yes |
-| [Nessuna traccia](https://www.aka.ms/notrace) | Yes  | Yes |
+| Personalizzazione dei nuovi servizi voce unificati | No    | Sì |
+| [Nessuna traccia](https://www.aka.ms/notrace) | Sì  | Yes |
 
 ## <a name="collaborative-translations-framework"></a>Framework di Collaborative Translations
 

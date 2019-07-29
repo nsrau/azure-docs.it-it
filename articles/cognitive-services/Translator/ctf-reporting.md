@@ -1,6 +1,6 @@
 ---
 title: Report di Collaborative Translation Framework (CTF) - API Traduzione testuale
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Come usare i report di Collaborative Translation Framework (CTF).
 services: cognitive-services
 author: swmachan
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
-ms.openlocfilehash: 79a645b0b41f200c384c165f244efa679be65171
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6a197095d97e67f7548e60375148cff57e47b797
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443451"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595929"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Come usare i report di Collaborative Translation Framework (CTF)
 
@@ -34,7 +34,7 @@ L'endpoint dell'API di creazione report di CTF è https://api.microsofttranslato
 
 
 ## <a name="methods"></a>Metodi
-| NOME |    Descrizione|
+| Name |    DESCRIZIONE|
 |:---|:---|
 | Metodo GetUserTranslationCounts | Ottiene i conteggi delle traduzioni create dall'utente. |
 | Metodo GetUserTranslations | Recupera le traduzioni create dall'utente. |
@@ -77,14 +77,14 @@ Questo metodo recupera il conteggio delle traduzioni create dall'utente. Fornisc
 | appId | **Obbligatorio** Se si usa l'intestazione dell'autorizzazione, lasciare vuoto il campo appid. In caso contrario specificare una stringa contenente il token di accesso "Bearer" + " " +.|
 | uriPrefix | **Facoltativo** Stringa contenente il prefisso dell'URI della traduzione.|
 | from | **Facoltativo** Stringa che rappresenta il codice della lingua del testo della traduzione. |
-| to | **Facoltativo** Stringa che rappresenta il codice della lingua in cui tradurre il testo.|
+| in | **Facoltativo** Stringa che rappresenta il codice della lingua in cui tradurre il testo.|
 | minRating| **Facoltativo** Valore intero che rappresenta la classificazione di qualità minima per il testo tradotto. Il valore valido è compreso tra -10 e 10. Il valore predefinito è 1.|
 | maxRating| **Facoltativo** Valore intero che rappresenta la classificazione di qualità massima per il testo tradotto. Il valore valido è compreso tra -10 e 10. Il valore predefinito è 1.|
 | user | **Facoltativo** Stringa usata per filtrare i risultati in base all'iniziatore dell'invio. |
 | category| **Facoltativo** Stringa che contiene la categoria o il dominio della traduzione. Questo parametro supporta solo l'opzione predefinita general.|
 | minDateUtc| **Facoltativo** Data da cui si vogliono recuperare le traduzioni. La data deve essere nel formato UTC. |
 | maxDateUtc| **Facoltativo** Data fino a cui si vogliono recuperare le traduzioni. La data deve essere nel formato UTC. |
-| skip| **Facoltativo** Numero di risultati da ignorare in una pagina. Ad esempio, se si vogliono ignorare le prime 20 righe di risultati e visualizzare a partire dal record dei risultati 21, specificare 20 per questo parametro. Il valore predefinito per questo parametro è 0.|
+| ignora| **Facoltativo** Numero di risultati da ignorare in una pagina. Ad esempio, se si vogliono ignorare le prime 20 righe di risultati e visualizzare a partire dal record dei risultati 21, specificare 20 per questo parametro. Il valore predefinito per questo parametro è 0.|
 | take | **Facoltativo** Numero di risultati da recuperare. Il numero massimo di ogni richiesta è 100. Il valore predefinito è 100.|
 
 > [!NOTE]
@@ -98,14 +98,14 @@ Il set di risultati contiene una matrice di **UserTranslationCount**. Ogni UserT
 |:---|:---|
 | Conteggio| Numero di risultati recuperati|
 | Da | Lingua di origine|
-| Rating| Classificazione applicata dall'autore dell'invio nella chiamata al metodo AddTranslation()|
+| Classificazione| Classificazione applicata dall'autore dell'invio nella chiamata al metodo AddTranslation()|
 | A| Lingua di destinazione|
-| Uri| URI applicato nella chiamata al metodo AddTranslation()|
+| URI| URI applicato nella chiamata al metodo AddTranslation()|
 | Utente| Nome dell'utente|
 
 **Eccezioni**
 
-| Eccezione | `Message` | Condizioni |
+| Eccezione | Messaggio | Condizioni |
 |:---|:---|:---|
 | ArgumentOutOfRangeException | The parameter '**maxDateUtc**' must be greater than or equal to '**minDateUtc**' (Il parametro 'maxDateUtc' deve essere maggiore di o uguale a 'minDateUtc').| Il valore del parametro **maxDateUtc** è minore del valore del parametro **minDateUtc**.|
 | TranslateApiException | IP is over the quota (IP oltre la quota).| <ul><li>È stato raggiunto il limite per il numero di richieste al minuto.</li><li>Le dimensioni delle richieste restano limitate a 10.000 caratteri.</li><li>Il numero di caratteri accettati dall'API Microsoft Translator è limitato da una quota giornaliera e da una quota oraria.</li></ul>|
@@ -148,14 +148,14 @@ Questo metodo recupera le traduzioni create dall'utente. Fornisce le traduzioni 
 | appId | **Obbligatorio** Se si usa l'intestazione dell'autorizzazione, lasciare vuoto il campo appid. In caso contrario specificare una stringa contenente il token di accesso "Bearer" + " " +.|
 | uriPrefix| **Facoltativo** Stringa contenente il prefisso dell'URI della traduzione.|
 | from| **Facoltativo** Stringa che rappresenta il codice della lingua del testo della traduzione.|
-| to| **Facoltativo** Stringa che rappresenta il codice della lingua in cui tradurre il testo.|
+| in| **Facoltativo** Stringa che rappresenta il codice della lingua in cui tradurre il testo.|
 | minRating| **Facoltativo** Valore intero che rappresenta la classificazione di qualità minima per il testo tradotto. Il valore valido è compreso tra -10 e 10. Il valore predefinito è 1.|
 | maxRating| **Facoltativo** Valore intero che rappresenta la classificazione di qualità massima per il testo tradotto. Il valore valido è compreso tra -10 e 10. Il valore predefinito è 1.|
 | user| **Facoltativo. Stringa usata per filtrare i risultati in base all'iniziatore dell'invio**|
 | category| **Facoltativo** Stringa che contiene la categoria o il dominio della traduzione. Questo parametro supporta solo l'opzione predefinita general.|
 | minDateUtc| **Facoltativo** Data da cui si vogliono recuperare le traduzioni. La data deve essere nel formato UTC.|
 | maxDateUtc| **Facoltativo** Data fino a cui si vogliono recuperare le traduzioni. La data deve essere nel formato UTC.|
-| skip| **Facoltativo** Numero di risultati da ignorare in una pagina. Ad esempio, se si vogliono ignorare le prime 20 righe di risultati e visualizzare a partire dal record dei risultati 21, specificare 20 per questo parametro. Il valore predefinito per questo parametro è 0.|
+| ignora| **Facoltativo** Numero di risultati da ignorare in una pagina. Ad esempio, se si vogliono ignorare le prime 20 righe di risultati e visualizzare a partire dal record dei risultati 21, specificare 20 per questo parametro. Il valore predefinito per questo parametro è 0.|
 | take| **Facoltativo** Numero di risultati da recuperare. Il numero massimo di ogni richiesta è 100. Il valore predefinito è 50.|
 
 > [!NOTE]
@@ -165,20 +165,20 @@ Questo metodo recupera le traduzioni create dall'utente. Fornisce le traduzioni 
 
 Il set di risultati contiene una matrice di **UserTranslation**. Ogni UserTranslation presenta gli elementi seguenti:
 
-| Campo | Descrizione |
+| Campo | DESCRIZIONE |
 |:---|:---|
 | CreatedDateUtc| Data di creazione della voce mediante AddTranslation()|
 | Da| Lingua di origine|
 | OriginalText| Testo nella lingua di origine usato durante l'invio della richiesta|
-|Rating |Classificazione applicata dall'autore dell'invio nella chiamata al metodo AddTranslation()|
+|Classificazione |Classificazione applicata dall'autore dell'invio nella chiamata al metodo AddTranslation()|
 |A|    Lingua di destinazione|
 |TranslatedText|    Traduzione così come inviata nella chiamata al metodo AddTranslation()|
-|Uri|   URI applicato nella chiamata al metodo AddTranslation()|
+|URI|   URI applicato nella chiamata al metodo AddTranslation()|
 |Utente   |Nome dell'utente|
 
 **Eccezioni**
 
-| Eccezione | `Message` | Condizioni |
+| Eccezione | Messaggio | Condizioni |
 |:---|:---|:---|
 | ArgumentOutOfRangeException | The parameter '**maxDateUtc**' must be greater than or equal to '**minDateUtc**' (Il parametro 'maxDateUtc' deve essere maggiore di o uguale a 'minDateUtc').| Il valore del parametro **maxDateUtc** è minore del valore del parametro **minDateUtc**.|
 | TranslateApiException | IP is over the quota (IP oltre la quota).| <ul><li>È stato raggiunto il limite per il numero di richieste al minuto.</li><li>Le dimensioni delle richieste restano limitate a 10.000 caratteri.</li><li>Il numero di caratteri accettati dall'API Microsoft Translator è limitato da una quota giornaliera e da una quota oraria.</li></ul>|

@@ -3,18 +3,18 @@ title: Visualizzare i risultati dei test di sistema e distribuzione - Custom Tra
 titleSuffix: Azure Cognitive Services
 description: Al termine del training, esaminare i test di sistema per analizzare i risultati del training. Se si è soddisfatti dei risultati del training, inviare una richiesta di distribuzione per il modello sottoposto a training.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: ec15851ae7ff59a752fbf0d823d87aa6e68f10e9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f5e1a21f24fdd2458d4803d6ed1675455fa5037d
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442488"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595608"
 ---
 # <a name="view-system-test-results"></a>Visualizzare i risultati dei test di sistema
 
@@ -26,7 +26,7 @@ Selezionare un progetto, quindi selezionare la scheda Models (Modelli) di quel p
 
 La scheda Test mostra quanto segue:
 
-1.  **Risultati Test di sistema:** Il risultato del processo di test nei corsi di formazione. Il processo di test produce il punteggio BLEU.
+1.  **Risultati test di sistema:** Risultato del processo di test nei training. Il processo di test produce il punteggio BLEU.
 
     **Sentence Count** (Numero di frasi): il numero di frasi parallele utilizzate nel set di test.
 
@@ -80,7 +80,7 @@ Per richiedere una distribuzione:
 5.  È possibile visualizzare lo stato del modello nella colonna "Status" (Stato).
 
 >[!Note]
->Microsoft Translator personalizzato supporta 10 modelli distribuiti all'interno di un'area di lavoro in qualsiasi punto nel tempo.
+>Il convertitore personalizzato supporta 10 modelli distribuiti in un'area di lavoro in qualsiasi momento.
 
 ## <a name="update-deployment-settings"></a>Aggiornare le impostazioni di distribuzione
 

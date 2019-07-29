@@ -3,18 +3,18 @@ title: Come creare un progetto - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Come creare un progetto in Custom Translator
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 6c8b46c35c03b472863bdc71d29552198dbb0d77
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a62cc6133fe01bf7478166c526e32b3215ceebf1
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448326"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595744"
 ---
 # <a name="create-a-project"></a>Creare un progetto
 
@@ -46,7 +46,7 @@ La creazione del progetto è il primo passaggio per la creazione di un modello.
 
 3.  Fare clic su Crea
 
-## <a name="view-project-details"></a>Visualizzare i dettagli del progetto
+## <a name="view-project-details"></a>Visualizza i dettagli del progetto
 
 La pagina di destinazione di Custom Translator mostra i primi 10 progetti nell'area di lavoro. Visualizza il nome del progetto, la coppia di lingue, la categoria, lo stato e il punteggio BLEU.
 
@@ -60,7 +60,7 @@ Dopo aver selezionato un progetto, si noteranno le informazioni seguenti nella p
 
 - Pulsante per filtrare i documenti: usare questo pulsante per filtrare e cercare documenti specifici.
 
-    ![Visualizzare i dettagli del progetto](media/how-to/how-to-view-project.png)
+    ![Visualizza i dettagli del progetto](media/how-to/how-to-view-project.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,6 +1,6 @@
 ---
 title: Riferimenti per l'API Traduzione testuale v3.0
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Documentazione di riferimento per l'API Traduzione testuale v3.0.
 services: cognitive-services
 author: swmachan
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: 8956aff86777e2a2570c6a555a9bd0882f328a77
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: ad619ad965cf4b7d94b781818c658152f71250a7
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868403"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594996"
 ---
 # <a name="translator-text-api-v30"></a>API Traduzione testuale v3.0
 
@@ -33,17 +33,17 @@ La versione 3 dell'API Traduzione testuale fornisce un'API Web moderna basata su
 
 Microsoft Translator è accessibile da più posizioni di data center. Attualmente si trovano in 10 [aree geografiche di Azure](https://azure.microsoft.com/global-infrastructure/regions):
 
-* **Americhe:** Stati Uniti orientali, Stati Uniti centro-meridionali, Stati Uniti centro occidentali e Stati Uniti occidentali 2 
-* **Asia Pacifico:** Corea meridionale, Giappone orientale, Asia sud-orientale e Australia orientale
+* **Americhe:** Stati Uniti orientali, Stati Uniti centro-meridionali, Stati Uniti centro-occidentali e Stati Uniti occidentali 2 
+* **Asia Pacifico:** Corea meridionale, Giappone orientale, Asia sudorientale e Australia orientale
 * **Europa:** Europa settentrionale e Europa occidentale
 
-Nella maggior parte dei casi le richieste per l'API Traduzione testuale Microsoft vengono gestite dal data center più vicino all'area di origine della richiesta. In caso di errore di Data Center, la richiesta può essere instradata di fuori dell'area geografica di Azure.
+Nella maggior parte dei casi le richieste per l'API Traduzione testuale Microsoft vengono gestite dal data center più vicino all'area di origine della richiesta. In caso di errore di un Data Center, la richiesta può essere instradata al di fuori della geografia di Azure.
 
-Per forzare la richiesta di essere gestita da una specifica area geografica di Azure, modificare l'endpoint globale nella richiesta di API per l'endpoint a livello di area desiderato:
+Per forzare la gestione della richiesta da parte di una specifica area geografica di Azure, impostare l'endpoint globale nella richiesta dell'API sull'endpoint di area desiderato:
 
-|DESCRIZIONE|Area geografica di Azure|URL di base|
+|DESCRIZIONE|Geografia di Azure|URL di base|
 |:--|:--|:--|
-|Azure|Global (non a livello di area)|   api.cognitive.microsofttranslator.com|
+|Azure|Globale (non a livello di area)|   api.cognitive.microsofttranslator.com|
 |Azure|Stati Uniti|   api-nam.cognitive.microsofttranslator.com|
 |Azure|Europa|  api-eur.cognitive.microsofttranslator.com|
 |Azure|Asia/Pacifico|    api-apc.cognitive.microsofttranslator.com|
@@ -51,15 +51,15 @@ Per forzare la richiesta di essere gestita da una specifica area geografica di A
 
 ## <a name="authentication"></a>Authentication
 
-La sottoscrizione all'API traduzione testuale oppure [multi-servizio servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/) in servizi cognitivi Microsoft e utilizzare la sottoscrizione della chiave (disponibile nel portale di Azure) per l'autenticazione. 
+Sottoscrivere la funzionalità multiservizio di API Traduzione testuale o [Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/) in Servizi cognitivi Microsoft e usare la chiave di sottoscrizione (disponibile nella portale di Azure) per l'autenticazione. 
 
 Sono tre le intestazioni che è possibile usare per autenticare la sottoscrizione. Questa tabella spiega come usare ogni intestazione:
 
-|Headers|Descrizione|
+|Intestazioni|Descrizione|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|*Usare con la sottoscrizione di Servizi cognitivi se si passa la chiave privata*.<br/>Il valore è la chiave privata di Azure per la sottoscrizione dell'API Traduzione testuale.|
 |Authorization|*Usare con la sottoscrizione di Servizi cognitivi se si passa un token di autenticazione*.<br/>Il valore è il token di connessione: `Bearer <token>`.|
-|Ocp-Apim-Subscription-Region|*Usare con servizi cognitivi multiservizio sottoscrizione se si passa una chiave privata multiservizio.*<br/>Il valore è l'area della sottoscrizione multiservizio. Questo valore è facoltativo se non si usa una sottoscrizione di multi-service.|
+|Ocp-Apim-Subscription-Region|*Usare con la sottoscrizione multiservizio di servizi cognitivi se si passa una chiave privata a più servizi.*<br/>Il valore è l'area della sottoscrizione multiservizio. Questo valore è facoltativo se non si utilizza una sottoscrizione multiservizio.|
 
 ###  <a name="secret-key"></a>Chiave privata
 La prima opzione consiste nell'eseguire l'autenticazione usando l'intestazione `Ocp-Apim-Subscription-Key`. Aggiungere semplicemente l'intestazione `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` alla richiesta.
@@ -67,7 +67,7 @@ La prima opzione consiste nell'eseguire l'autenticazione usando l'intestazione `
 ### <a name="authorization-token"></a>Token di autorizzazione
 In alternativa, è possibile scambiare la chiave privata con un token di accesso. Questo token viene incluso in ogni richiesta come intestazione `Authorization`. Per ottenere un token di autorizzazione, effettuare una richiesta `POST` all'URL seguente:
 
-| Environment     | URL servizio di autenticazione                                |
+| Ambiente     | URL servizio di autenticazione                                |
 |-----------------|-----------------------------------------------------------|
 | Azure           | `https://api.cognitive.microsoft.com/sts/v1.0/issueToken` |
 
@@ -91,13 +91,13 @@ Un token di autenticazione è valido per 10 minuti. Il token deve essere riutili
 
 ### <a name="multi-service-subscription"></a>Sottoscrizione multiservizio
 
-L'ultima opzione authentication è usare multiservizio sottoscrizione di un servizio cognitivi. In questo modo è possibile usare una singola chiave privata per autenticare le richieste per più servizi. 
+L'ultima opzione di autenticazione prevede l'uso di una sottoscrizione multiservizio di un servizio cognitivo. In questo modo è possibile usare una singola chiave privata per autenticare le richieste per più servizi. 
 
-Quando si usa una chiave privata multiservizio, è necessario includere due intestazioni di autenticazione con la richiesta. La prima passa la chiave privata, mentre la seconda specifica l'area associata alla sottoscrizione. 
+Quando si usa una chiave privata a più servizi, è necessario includere due intestazioni di autenticazione con la richiesta. La prima passa la chiave privata, mentre la seconda specifica l'area associata alla sottoscrizione. 
 * `Ocp-Apim-Subscription-Key`
 * `Ocp-Apim-Subscription-Region`
 
-Area è obbligatoria per la sottoscrizione di API traduzione testuale multiservizio. L'area selezionata è l'unica area che è possibile usare per la traduzione del testo quando si usa la chiave di sottoscrizione multiservizio, e deve trovarsi nella stessa area selezionata durante l'iscrizione per la sottoscrizione multi-service tramite il portale di Azure.
+L'area è obbligatoria per la sottoscrizione dell'API del testo multiservizio. L'area selezionata è l'unica area che è possibile usare per la traduzione di testo quando si usa la chiave di sottoscrizione multiservizio e deve essere la stessa area selezionata al momento dell'iscrizione per la sottoscrizione multiservizio tramite il portale di Azure.
 
 Le aree disponibili sono `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus` e `westus2`.
 
@@ -144,7 +144,7 @@ Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 
 | 400036| La lingua di destinazione (campo "To") manca o non è valida.|
 | 400042| Una delle opzioni specificate (campo "Options") non è valida.|
 | 400043| L'ID traccia client (campo ClientTraceId o intestazione X-ClientTraceId) manca o non è valido.|
-| 400050| Il testo di input è troppo lungo. Vista [limiti di richieste](../request-limits.md).|
+| 400050| Il testo di input è troppo lungo. Visualizzare i [limiti della richiesta](../request-limits.md).|
 | 400064| Il parametro "translation" manca o non è valido.|
 | 400070| Il numero di script di destinazione (parametro ToScript) non corrisponde al numero di lingue di destinazione (parametro To).|
 | 400071| Il valore non è valido per TextType.|
@@ -152,16 +152,16 @@ Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 
 | 400073| Il parametro script non è valido.|
 | 400074| Il corpo della richiesta non è in formato JSON valido.|
 | 400075| La combinazione di coppia di lingue e categoria non è valida.|
-| 400077| Le dimensioni massime della richiesta sono state superate. Vista [limiti di richieste](../request-limits.md).|
+| 400077| Le dimensioni massime della richiesta sono state superate. Visualizzare i [limiti della richiesta](../request-limits.md).|
 | 400079| Il sistema personalizzato richiesto per la traduzione da/verso la lingua non esiste.|
-| 400080| Traslitterazione non è supportata per la lingua o lo script.|
+| 400080| La traslitterazione non è supportata per il linguaggio o lo script.|
 | 401000| La richiesta non è autorizzata perché le credenziali mancano o non sono valide.|
 | 401015| "Le credenziali specificate si riferiscono a Speech API. Per questa richiesta sono necessarie le credenziali per l'API Testo. Usare una sottoscrizione all'API Traduzione testuale."|
 | 403000| L'operazione non è consentita.|
 | 403001| L'operazione non è consentita perché la sottoscrizione ha superato la quota gratuita.|
 | 405000| Il metodo della richiesta non è supportato per la risorsa richiesta.|
-| 408001| Il sistema di traduzione richiesto è in fase di preparazione. Riprovare tra qualche minuto.|
-| 408002| Timeout della richiesta in attesa di flusso in ingresso. Il client non ha prodotto una richiesta entro l'ora in cui il server è stato preparato in attesa. Il client può ripetere la richiesta senza modifiche in un secondo momento.|
+| 408001| È in corso la preparazione del sistema di traduzione richiesto. Riprovare tra qualche minuto.|
+| 408002| Timeout della richiesta in attesa del flusso in ingresso. Il client non ha prodotto una richiesta entro il tempo in cui il server è stato preparato per l'attesa. Il client può ripetere la richiesta senza modifiche in un secondo momento.|
 | 415000| L'intestazione Content-Type manca o non è valida.|
 | 429000, 429001, 429002| Il server ha rifiutato la richiesta perché il client ha superato i limiti di richiesta.|
 | 500000| Si è verificato un errore imprevisto. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta indicato in X-RequestId nell'intestazione della risposta e identificatore del client indicato in X-ClientTraceId nell'intestazione della richiesta.|

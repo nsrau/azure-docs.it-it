@@ -1,6 +1,6 @@
 ---
 title: Metodo Languages dell'API Traduzione testuale
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Usare il metodo Languages dell'API Traduzione testuale.
 services: cognitive-services
 author: swmachan
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 7bac97b7edbfa0f7a03a65e462106b33160c6d1a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: c5298c038f056942ddc754482cbf4ec8cd77b48b
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435088"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595018"
 ---
-# <a name="translator-text-api-30-languages"></a>API Traduzione testuale 3.0: Languages
+# <a name="translator-text-api-30-languages"></a>API Traduzione testuale 3.0: Lingue
 
 Ottiene il set di lingue attualmente supportate da altre operazioni dell'API Traduzione testuale. 
 
@@ -33,7 +33,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 I parametri della richiesta inviati a una stringa di query sono:
 
 <table width="100%">
-  <th width="20%">Query parameter (Parametro di query)</th>
+  <th width="20%">Parametro di query</th>
   <th>Descrizione</th>
   <tr>
     <td>api-version</td>
@@ -48,7 +48,7 @@ I parametri della richiesta inviati a una stringa di query sono:
 Le intestazioni della richiesta sono le seguenti:
 
 <table width="100%">
-  <th width="20%">Headers</th>
+  <th width="20%">Intestazioni</th>
   <th>Descrizione</th>
   <tr>
     <td>Accept-Language</td>
@@ -229,7 +229,7 @@ L'elenco delle lingue supportate non subirà spesso modifiche. Per risparmiare l
 ## <a name="response-headers"></a>Intestazioni della risposta
 
 <table width="100%">
-  <th width="20%">Headers</th>
+  <th width="20%">Intestazioni</th>
   <th>Descrizione</th>
   <tr>
     <td>ETag</td>
@@ -251,7 +251,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   <th>Descrizione</th>
   <tr>
     <td>200</td>
-    <td>Completamento della procedura.</td>
+    <td>Riuscite.</td>
   </tr>
   <tr>
     <td>304</td>

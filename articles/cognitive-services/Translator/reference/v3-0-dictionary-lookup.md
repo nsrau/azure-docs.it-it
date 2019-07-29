@@ -1,6 +1,6 @@
 ---
 title: Metodo Dictionary Lookup dell'API Traduzione testuale
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Usare il metodo Dictionary Lookup dell'API Traduzione testuale.
 services: cognitive-services
 author: swmachan
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: 8cc37c9edd5679158f8454e00bd27a53e4491004
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 9a06c8e3b50c3f54971694f8d3924a3a5ba5f071
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357704"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595030"
 ---
 # <a name="translator-text-api-30-dictionary-lookup"></a>API Traduzione testuale 3.0: Ricerca nel dizionario
 
@@ -34,8 +34,8 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 I parametri della richiesta inviati a una stringa di query sono:
 
 <table width="100%">
-  <th width="20%">Query parameter (Parametro di query)</th>
-  <th>Descrizione</th>
+  <th width="20%">Parametro di query</th>
+  <th>DESCRIZIONE</th>
   <tr>
     <td>api-version</td>
     <td>*Parametro obbligatorio*.<br/>Versione dell'API richiesta dal client. Il valore deve essere `3.0`.</td>
@@ -45,7 +45,7 @@ I parametri della richiesta inviati a una stringa di query sono:
     <td>*Parametro obbligatorio*.<br/>Specifica la lingua del testo di input. La lingua di origine deve essere una delle [lingue supportate](./v3-0-languages.md) incluse nell'ambito `dictionary`.</td>
   </tr>
   <tr>
-    <td>to</td>
+    <td>in</td>
     <td>*Parametro obbligatorio*.<br/>Specifica la lingua del testo di output. La lingua di destinazione deve essere una delle [lingue supportate](./v3-0-languages.md) incluse nell'ambito `dictionary`.</td>
   </tr>
 </table>
@@ -53,10 +53,10 @@ I parametri della richiesta inviati a una stringa di query sono:
 Le intestazioni della richiesta includono:
 
 <table width="100%">
-  <th width="20%">Headers</th>
-  <th>Descrizione</th>
+  <th width="20%">Intestazioni</th>
+  <th>DESCRIZIONE</th>
   <tr>
-    <td>Intestazioni di autenticazione</td>
+    <td>Intestazione/e di autenticazione</td>
     <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
   </tr>
   <tr>
@@ -115,7 +115,7 @@ Una risposta corretta è una matrice JSON con un risultato per ogni stringa nell
         | PREP     | Preposizioni |
         | PRON     | Pronomi     |
         | VERB     | Verbi        |
-        | OTHER    | Altri        |
+        | OTHER    | Altro        |
 
         Come nota per l'implementazione, questi tag sono stati determinati in base alla parte del discorso che definisce la categoria in inglese e poi prendendo il tag più frequente per ogni coppia di origine/destinazione. Pertanto, se gli utenti spesso traducono una parola spagnola nel tag di una parte del discorso diversa in inglese, si potrebbe rilevare che i tag contengono errori rispetto al termine spagnolo.
 
