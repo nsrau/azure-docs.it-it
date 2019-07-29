@@ -3,7 +3,7 @@ title: Creare un’app .NET su Service Fabric in Azure | Microsoft Docs
 description: Questa esercitazione illustra come creare un'applicazione con un front-end ASP.NET Core e un back-end con stato Reliable Services e come distribuire l'applicazione in un cluster.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/10/2019
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 4c73fe170d0b2cb6f12534de2ccc43bfc7b530f0
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: b5acee47a13e0faa538c5d8464835297088d03e8
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228179"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598921"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Esercitazione: Creare e distribuire un'applicazione con un servizio front-end API Web ASP.NET Core e un servizio back-end con stato
 

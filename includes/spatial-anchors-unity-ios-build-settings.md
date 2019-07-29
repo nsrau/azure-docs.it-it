@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: f66a3653bc85925349dde84551310fd24f4c9336
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: cfd5cf77b9df8cdd5b856a0b36b9010077a7078a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67179832"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562468"
 ---
 Aprire **Build Settings** (Impostazioni compilazione) selezionando **File** > **Build Settings** (File -> Impostazioni compilazione).
 
@@ -21,8 +21,3 @@ Selezionare **Switch Platform** (Cambia piattaforma) per impostare **iOS** come 
 
 Chiudere la finestra **Build Settings** (Impostazioni compilazione).
 
-### <a name="download-and-import-the-unity-arkit-plugin"></a>Scaricare e importare il plug-in ARKit di Unity
-
-Scaricare il [plug-in Unity ARKit versione 2.0.0](https://bitbucket.org/Unity-Technologies/unity-arkit-plugin/get/v2.0.0.zip) ed estrarre l'archivio.
-
-Copiare il contenuto della cartella `Assets` dalla cartella del plug-in Unity ARKit estratto alla cartella `Assets` dell'esempio.

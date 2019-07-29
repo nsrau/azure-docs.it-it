@@ -217,7 +217,7 @@ az mysql server firewall-rule create --name AllowLocalClient --server <mysql_ser
 
 ### <a name="connect-to-production-mysql-server-locally"></a>Connettersi al server MySQL di produzione in locale
 
-Nella finestra del terminale locale connettersi al server MySQL in Azure. Usare il valore specificato in precedenza per _&lt;mysql_server_name>_. Quando viene richiesta una password, usare la password specificata al momento della creazione del database in Azure.
+Nella finestra del terminale locale connettersi al server MySQL in Azure. Usare il valore specificato in precedenza per _&lt;mysql_server_name>_ . Quando viene richiesta una password, usare la password specificata al momento della creazione del database in Azure.
 
 ```bash
 mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p
@@ -355,7 +355,7 @@ Come evidenziato in precedenza, è possibile connettersi al database MySQL di Az
 
 In Cloud Shell, le variabili di ambiente vengono configurate come _impostazioni dell'app_ usando il comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set).
 
-Il comando seguente configura le impostazioni dell'app `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` e `DB_PASSWORD`. Sostituire i segnaposto _&lt;appname>_ e _&lt;mysql_server_name>_.
+Il comando seguente configura le impostazioni dell'app `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` e `DB_PASSWORD`. Sostituire i segnaposto _&lt;appname>_ e _&lt;mysql_server_name>_ .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<mysql_server_name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
@@ -384,7 +384,7 @@ Nella finestra del terminale locale usare `php artisan` per generare una nuova c
 php artisan key:generate --show
 ```
 
-In Cloud Shell impostare la chiave applicazione nell'app del servizio app usando il comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set). Sostituire i segnaposto _&lt;appname>_ e _&lt;outputofphpartisankey:generate>_.
+In Cloud Shell impostare la chiave applicazione nell'app del servizio app usando il comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set). Sostituire i segnaposto _&lt;appname>_ e _&lt;outputofphpartisankey:generate>_ .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
@@ -402,7 +402,7 @@ In Cloud Shell impostare il percorso virtuale dell'applicazione con il comando [
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
 ```
 
-Per impostazione predefinita, il servizio app di Azure fa in modo che il percorso virtuale dell'applicazione radice (_/_) punti alla directory radice dei file dell'applicazione distribuiti (_sites\wwwroot_).
+Per impostazione predefinita, il servizio app di Azure fa in modo che il percorso virtuale dell'applicazione radice ( _/_ ) punti alla directory radice dei file dell'applicazione distribuiti (_sites\wwwroot_).
 
 ### <a name="push-to-azure-from-git"></a>Effettuare il push in Azure da Git
 

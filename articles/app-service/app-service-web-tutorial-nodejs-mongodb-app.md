@@ -272,7 +272,7 @@ Per impostazione predefinita, il progetto MEAN.js mantiene _config/env/local-pro
 
 Per configurare le impostazioni dell'app, usare il comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) in Cloud Shell. 
 
-L'esempio seguente configura un'impostazione dell'app `MONGODB_URI` nell'app Azure. Sostituire i segnaposto *\<app_name>*, *\<cosmosdb_name>* e *\<primary_master_key>*.
+L'esempio seguente configura un'impostazione dell'app `MONGODB_URI` nell'app Azure. Sostituire i segnaposto *\<app_name>* , *\<cosmosdb_name>* e *\<primary_master_key>* .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
@@ -447,7 +447,7 @@ node server.js
 
 Andare a `http://localhost:8443` in un browser e assicurarsi di avere eseguito l'accesso.
 
-Selezionare **Admin > Manage Articles** (Admin > Gestione articoli), quindi aggiungere un articolo selezionando il pulsante **+**.
+Selezionare **Admin > Manage Articles** (Admin > Gestione articoli), quindi aggiungere un articolo selezionando il pulsante **+** .
 
 La nuova casella di testo `Comment` è ora visibile.
 

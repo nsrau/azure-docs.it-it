@@ -55,7 +55,7 @@ Quando si crea o si ridimensiona un set di scalabilità, vengono automaticamente
 | [Ottimizzate per il calcolo](../virtual-machines/windows/sizes-compute.md) | Serie F | 576 |
 | [Ottimizzate per la memoria](../virtual-machines/windows/sizes-memory.md) | Serie D, E, G e M | 6144 |
 | [Ottimizzate per l'archiviazione](../virtual-machines/windows/sizes-storage.md) | Serie L | 5630 |
-| [GPU](../virtual-machines/windows/sizes-gpu.md) | Serie N | 1.440 |
+| [GPU](../virtual-machines/windows/sizes-gpu.md) | Serie N | 1\.440 |
 | [Prestazioni elevate](../virtual-machines/windows/sizes-hpc.md) | Serie A e H | 2000 |
 
 
@@ -85,8 +85,8 @@ I dischi Premium sono supportati da dischi a bassa latenza e ad alte prestazioni
 ### <a name="premium-disk-performance"></a>Prestazioni disco premium
 |Tipo di disco di Archiviazione Premium | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Dimensioni del disco (arrotondate) | 32 GB | 64 GB | 128 GB | 512 GB | 1.024 GB (1 TB) | 2.048 GB (2 TB) | 4.095 GB (4 TB) |
-| Operazioni IOPS al secondo max per disco | 120 | 240 | 500 | 2.300 | 5.000 | 7.500 | 7.500 |
+| Dimensioni del disco (arrotondate) | 32 GB | 64 GB | 128 GB | 512 GB | 1\.024 GB (1 TB) | 2\.048 GB (2 TB) | 4\.095 GB (4 TB) |
+| Operazioni IOPS al secondo max per disco | 120 | 240 | 500 | 2\.300 | 5\.000 | 7\.500 | 7\.500 |
 Velocità effettiva per disco | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s |
 
 Sebbene la tabella sopra riportata identifichi il numero massimo di operazioni di I/O al secondo per disco, è possibile raggiungere un livello superiore di prestazioni tramite lo striping di più dischi di dati. Ad esempio, una macchina virtuale Standard_GS5 può raggiungere un massimo di 80.000 operazioni di I/O al secondo. Per informazioni dettagliate sul numero massimo di operazioni di I/O al secondo per macchina virtuale, vedere [Dimensioni delle macchine virtuali Windows](../virtual-machines/windows/sizes.md).

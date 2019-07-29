@@ -100,12 +100,12 @@ aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
 
-Un file manifesto di Kubernetes definisce uno stato desiderato per il cluster, ad esempio le immagini del contenitore da eseguire. In questa guida introduttiva, viene usato un manifesto per creare tutti gli oggetti necessari per eseguire l'applicazione Azure Vote. Questo manifesto include due [distribuzioni Kubernetes][kubernetes-deployment] - one for the sample Azure Vote Python applications, and the other for a Redis instance. Two [Kubernetes Services][kubernetes-service] che vengono create: un servizio interno per l'istanza di Redis e un servizio esterno per l'accesso all'applicazione Azure Vote da Internet.
+Un file manifesto di Kubernetes definisce uno stato desiderato per il cluster, ad esempio le immagini del contenitore da eseguire. In questa guida introduttiva, viene usato un manifesto per creare tutti gli oggetti necessari per eseguire l'applicazione Azure Vote. Questo manifesto include due [distribuzioni Kubernetes][kubernetes-deployment] - one for the sample Azure Vote Python applications, and the other for a Redis instance. Two [Kubernetes Services][kubernetes-service] che vengono create: un servizio interno per l'istanza di Redis e un servizio esterno per l'accesso all'applicazione Azure Vote da Internet. In questa guida introduttiva, si creano e distribuiscono manualmente i manifesti dell'applicazione nel cluster servizio Azure Kubernetes.
 
 > [!TIP]
-> In questa guida introduttiva, si creano e distribuiscono manualmente i manifesti dell'applicazione nel cluster servizio Azure Kubernetes. In altre situazioni reali, è possibile usare [Azure Dev Spaces][azure-dev-spaces] per eseguire rapidamente l'iterazione e il debug del codice direttamente nel cluster servizio Azure Kubernetes. È possibile usare Dev Spaces su piattaforme del sistema operativo e ambienti di sviluppo e collaborare con altri utenti nel team.
+> In altre situazioni reali, è possibile usare [Azure Dev Spaces][azure-dev-spaces] per eseguire rapidamente l'iterazione e il debug del codice direttamente nel cluster servizio Azure Kubernetes. È possibile usare Dev Spaces su piattaforme del sistema operativo e ambienti di sviluppo e collaborare con altri utenti nel team. Creare un file denominato `azure-vote.yaml` e copiarlo nella definizione YAML seguente.
 
-Creare un file denominato `azure-vote.yaml` e copiarlo nella definizione YAML seguente. Se si usa Azure Cloud Shell, questo file può essere creato usando `vi` o `nano` come se si usasse un sistema virtuale o fisico:
+Se si usa Azure Cloud Shell, questo file può essere creato usando `vi` o `nano` come se si usasse un sistema virtuale o fisico: Distribuire l'applicazione usando il comando [kubectl apply][kubectl-apply] e specificare il nome del manifesto YAML:
 
 ```yaml
 apiVersion: apps/v1
@@ -192,13 +192,13 @@ spec:
     app: azure-vote-front
 ```
 
-Distribuire l'applicazione usando il comando [kubectl apply][kubectl-apply] e specificare il nome del manifesto YAML:
+L'output di esempio seguente mostra le distribuzioni e i servizi creati correttamente:
 
 ```azurecli-interactive
 kubectl apply -f azure-vote.yaml
 ```
 
-L'output di esempio seguente mostra le distribuzioni e i servizi creati correttamente:
+Test dell'applicazione
 
 ```output
 deployment "azure-vote-back" created
@@ -207,79 +207,79 @@ deployment "azure-vote-front" created
 service "azure-vote-front" created
 ```
 
-## <a name="test-the-application"></a>Test dell'applicazione
+## <a name="test-the-application"></a>Durante l'esecuzione dell'applicazione, un servizio Kubernetes espone il front-end dell'applicazione a Internet.
 
-Durante l'esecuzione dell'applicazione, un servizio Kubernetes espone il front-end dell'applicazione a Internet. Il processo potrebbe richiedere alcuni minuti.
+Il processo potrebbe richiedere alcuni minuti. Per monitorare lo stato, usare il comando [kubectl get service][kubectl-get] con l'argomento `--watch`.
 
-Per monitorare lo stato, usare il comando [kubectl get service][kubectl-get] con l'argomento `--watch`.
+*EXTERNAL-IP* per il servizio *azure-vote-front* viene inizialmente visualizzato come *pending*.
 
 ```azurecli-interactive
 kubectl get service azure-vote-front --watch
 ```
 
-*EXTERNAL-IP* per il servizio *azure-vote-front* viene inizialmente visualizzato come *pending*.
+Quando *EXTERNAL-IP* passa da *pending* a un effettivo indirizzo IP pubblico, usare `CTRL-C` per arrestare il processo di controllo `kubectl`.
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
-Quando *EXTERNAL-IP* passa da *pending* a un effettivo indirizzo IP pubblico, usare `CTRL-C` per arrestare il processo di controllo `kubectl`. L'output di esempio seguente mostra un indirizzo IP pubblico valido assegnato al servizio:
+L'output di esempio seguente mostra un indirizzo IP pubblico valido assegnato al servizio: Per osservare l'app Azure Vote in azione, aprire un Web browser all'indirizzo IP esterno del servizio.
 
 ```output
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
-Per osservare l'app Azure Vote in azione, aprire un Web browser all'indirizzo IP esterno del servizio.
+Immagine del passaggio ad Azure Vote
 
-![Immagine del passaggio ad Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Monitoraggio di stato e log](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
-## <a name="monitor-health-and-logs"></a>Monitoraggio di stato e log
+## <a name="monitor-health-and-logs"></a>Quando è stato creato il cluster del servizio Azure Kubernetes, è stato abilitato Monitoraggio di Azure per i contenitori, in modo da acquisire le metriche di integrità sia per i pod sia per i nodi del cluster.
 
-Quando è stato creato il cluster del servizio Azure Kubernetes, è stato abilitato Monitoraggio di Azure per i contenitori, in modo da acquisire le metriche di integrità sia per i pod sia per i nodi del cluster. Queste metriche di integrità sono disponibili nel portale di Azure.
+Queste metriche di integrità sono disponibili nel portale di Azure. Per visualizzare lo stato corrente, i tempi di attività e l'utilizzo delle risorse per i pod di Azure Vote, seguire questa procedura:
 
-Per visualizzare lo stato corrente, i tempi di attività e l'utilizzo delle risorse per i pod di Azure Vote, seguire questa procedura:
+In un Web browser passare al portale di Azure [https://portal.azure.com][azure-portal].
 
-1. In un Web browser passare al portale di Azure [https://portal.azure.com][azure-portal].
 1. Selezionare il gruppo di risorse, ad esempio *myResourceGroup*, quindi selezionare il cluster del servizio Azure Kubernetes, ad esempio *myservizio Azure KubernetesCluster*.
 1. Nel lato a sinistra in **Monitoraggio** scegliere **Informazioni dettagliate**
 1. Nella parte superiore scegliere **+ Aggiungi filtro**
 1. Selezionare *Spazio dei nomi* come proprietà, quindi scegliere *\<All but kube-system\>* (Tutti tranne kube-system)
 1. Scegliere di visualizzare i **Contenitori**.
+1. Verranno visualizzati i contenitori *azure-vote-back* e *azure-vote-front*, come mostrato in questo esempio:
 
-Verranno visualizzati i contenitori *azure-vote-back* e *azure-vote-front*, come mostrato in questo esempio:
+Visualizzare l'integrità dei contenitori in esecuzione nel servizio Azure Kubernetes
 
-![Visualizzare l'integrità dei contenitori in esecuzione nel servizio Azure Kubernetes](media/kubernetes-walkthrough/monitor-containers.png)
+![Per visualizzare i log per il pod `azure-vote-back`, scegliere l'opzione **Visualizza in Analisi** e quindi **Visualizza log contenitori** a destra dell'elenco dei contenitori.](media/kubernetes-walkthrough/monitor-containers.png)
 
-Per visualizzare i log per il pod `azure-vote-back`, scegliere l'opzione **Visualizza in Analisi** e quindi **Visualizza log contenitori** a destra dell'elenco dei contenitori. Questi log includono i flussi *stdout* e *stderr* del contenitore.
+Questi log includono i flussi *stdout* e *stderr* del contenitore. Visualizzare i log dei contenitori nel servizio Azure Kubernetes
 
-![Visualizzare i log dei contenitori nel servizio Azure Kubernetes](media/kubernetes-walkthrough/monitor-container-logs.png)
+![Eliminare il cluster](media/kubernetes-walkthrough/monitor-container-logs.png)
 
-## <a name="delete-the-cluster"></a>Eliminare il cluster
+## <a name="delete-the-cluster"></a>Quando il cluster non è più necessario, usare il comando [az group delete][az-group-delete] per rimuovere il gruppo di risorse, il servizio contenitore e tutte le risorse correlate.
 
-Quando il cluster non è più necessario, usare il comando [az group delete][az-group-delete] per rimuovere il gruppo di risorse, il servizio contenitore e tutte le risorse correlate.
+Quando si elimina il cluster, l'entità servizio di Azure Active Directory utilizzata dal cluster servizio Azure Kubernetes non viene rimossa.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> Quando si elimina il cluster, l'entità servizio di Azure Active Directory utilizzata dal cluster servizio Azure Kubernetes non viene rimossa. Per istruzioni su come rimuovere l'entità servizio, vedere le [considerazioni sull'entità servizio servizio Azure Kubernetes e la sua eliminazione][sp-delete].
+> Per istruzioni su come rimuovere l'entità servizio, vedere le [considerazioni sull'entità servizio servizio Azure Kubernetes e la sua eliminazione][sp-delete]. Ottenere il codice
 
-## <a name="get-the-code"></a>Ottenere il codice
+## <a name="get-the-code"></a>In questa guida introduttiva sono state usate immagini del contenitore già creato per creare una distribuzione di Kubernetes.
 
-In questa guida introduttiva sono state usate immagini del contenitore già creato per creare una distribuzione di Kubernetes. Il codice dell'applicazione correlato, Dockerfile, e il file manifesto di Kubernetes sono disponibili su GitHub.
+Il codice dell'applicazione correlato, Dockerfile, e il file manifesto di Kubernetes sono disponibili su GitHub. Passaggi successivi
 
 [https://github.com/Azure-Samples/azure-voting-app-redis][azure-vote-app]
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>In questa guida introduttiva è stato distribuito un cluster Kubernetes in cui è stata quindi distribuita un'applicazione multicontenitore.
 
-In questa guida introduttiva è stato distribuito un cluster Kubernetes in cui è stata quindi distribuita un'applicazione multicontenitore. È anche possibile [accedere al dashboard Web di Kubernetes][kubernetes-dashboard] per il cluster del servizio Azure Kubernetes.
+È anche possibile [accedere al dashboard Web di Kubernetes][kubernetes-dashboard] per il cluster del servizio Azure Kubernetes. Per altre informazioni sul servizio Azure Container e l'analisi del codice completo per un esempio di distribuzione, passare all'esercitazione sul cluster Kubernetes.
 
-Per altre informazioni sul servizio Azure Container e l'analisi del codice completo per un esempio di distribuzione, passare all'esercitazione sul cluster Kubernetes.
+[Esercitazione sul servizio Azure Container][aks-tutorial]
 
 > [!div class="nextstepaction"]
-> [Esercitazione sul servizio Azure Container][aks-tutorial]
+> <bpt id="p1">[</bpt>AKS tutorial<ept id="p1">][aks-tutorial]</ept>
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git

@@ -82,7 +82,7 @@ Dopo aver creato una zona DNS di test, con un record "A" di test, è possibile t
    nslookup www.contoso.xyz <name server name>
    ```
 
-   Ad esempio: 
+   Ad esempio:
 
    ```
    nslookup www.contoso.xyz ns1-08.azure-dns.com.

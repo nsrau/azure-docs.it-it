@@ -49,7 +49,7 @@ sudo apt-get install -y maven
 
 Per eseguire l'interfaccia della riga di comando di Azure è necessaria una credenziale di Azure.
 
-* Nel dashboard di Jenkins fare clic su **Credentials -> System ->**. Fare clic su **Global credentials(unrestricted)**.
+* Nel dashboard di Jenkins fare clic su **Credentials -> System ->** . Fare clic su **Global credentials(unrestricted)** .
 * Fare clic su **Add Credentials** per aggiungere un'[entità servizio di Microsoft Azure](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json), immettendo: Subscription ID (ID sottoscrizione), Client ID (ID client), Client Secret (Segreto client) e OAuth 2.0 Token Endpoint (Endpoint di token OAuth 2.0). Indicare un ID per l'uso nel passaggio successivo.
 
 ![Add Credentials](./media/execute-cli-jenkins-pipeline/add-credentials.png)

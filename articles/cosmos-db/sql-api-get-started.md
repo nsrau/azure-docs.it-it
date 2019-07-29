@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 07/23/2019
 ms.author: kirankk
-ms.openlocfilehash: 36d172daed487372401691c7046215fb6c4a63ee
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 37b6a9947d3cabe1f566f842e321229efe9d03b6
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384935"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598526"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Compilare un'app console .NET per gestire i dati in un account API SQL di Azure Cosmos DB
 
@@ -261,7 +261,7 @@ Congratulazioni! La creazione di un database di Azure Cosmos DB è stata complet
 >
 >
 
-Un contenitore può essere creato usando la funzione [**CreateContainerIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabase) o [**CreateContainerAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabase) della classe **CosmosDatabase**. Un contenitore è costituito da elementi (documenti JSON nel caso dell'API SQL) e dalla logica dell'applicazione lato server associata in JavaScript, ad esempio stored procedure, funzioni definite dall'utente e trigger.
+Un contenitore può essere creato usando la funzione [**CreateContainerIfNotExistsAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Database_CreateContainerIfNotExistsAsync_Microsoft_Azure_Cosmos_ContainerProperties_System_Nullable_System_Int32__Microsoft_Azure_Cosmos_RequestOptions_System_Threading_CancellationToken_) o [**CreateContainerAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Database_CreateContainerAsync_Microsoft_Azure_Cosmos_ContainerProperties_System_Nullable_System_Int32__Microsoft_Azure_Cosmos_RequestOptions_System_Threading_CancellationToken_) della classe **CosmosDatabase**. Un contenitore è costituito da elementi (documenti JSON nel caso dell'API SQL) e dalla logica dell'applicazione lato server associata in JavaScript, ad esempio stored procedure, funzioni definite dall'utente e trigger.
 
 1. Copiare e incollare il metodo **CreateContainerAsync** sotto il metodo **CreateDatabaseAsync**. **CreateContainerAsync** creerà un nuovo contenitore, se non esiste già, con l'ID ``FamilyContainer`` specificato nel campo ``containerId`` partizionato dalla proprietà ``LastName``.
 
@@ -286,7 +286,7 @@ Un contenitore può essere creato usando la funzione [**CreateContainerIfNotExis
 Congratulazioni! La creazione di un contenitore di Azure Cosmos DB è stata completata.  
 
 ## <a id="CreateDoc"></a>Passaggio 6: Aggiungere elementi al contenitore
-È possibile creare un elemento usando la funzione [**CreateItemAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainer) della classe **CosmosContainer**. Quando si usa l'API SQL, gli elementi vengono proiettati come documenti, che sono contenuto JSON definito dall'utente (arbitrario). È ora possibile inserire un elemento nel contenitore di Azure Cosmos DB.
+È possibile creare un elemento usando la funzione [**CreateItemAsync**](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Container_CreateItemAsync__1___0_System_Nullable_Microsoft_Azure_Cosmos_PartitionKey__Microsoft_Azure_Cosmos_ItemRequestOptions_System_Threading_CancellationToken_) della classe **CosmosContainer**. Quando si usa l'API SQL, gli elementi vengono proiettati come documenti, che sono contenuto JSON definito dall'utente (arbitrario). È ora possibile inserire un elemento nel contenitore di Azure Cosmos DB.
 
 Prima di tutto verrà creata una classe **Family** che rappresenterà gli oggetti archiviati in Azure Cosmos DB in questo esempio. Verranno create anche le sottoclassi **Parent**, **Child**, **Pet** e **Address** da usare in **Family**. Si noti che l'elemento deve avere una proprietà **Id** serializzata come **id** in JSON.
 

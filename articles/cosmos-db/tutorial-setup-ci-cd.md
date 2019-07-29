@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 05/23/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 19ced9767d77b0d7bfcec6f01425ab1089a55d54
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dad99a7e3d0463263e912aa05b5312edbcb89c0b
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069236"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597679"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurare una pipeline CI/CD con l'attività di compilazione dell'emulatore di Azure Cosmos DB in Azure DevOps
 
@@ -31,7 +31,7 @@ Per usare l'attività di compilazione, è innanzitutto necessario installarla ne
 Successivamente, scegliere l'organizzazione in cui installare l'estensione. 
 
 > [!NOTE]
-> Per installare un'estensione in un'organizzazione di Azure DevOps, è necessario essere proprietario dell'account o amministratore della raccolta di progetti. Se non si dispone di autorizzazioni, ma si è membri dell'account, in alternativa è possibile richiedere delle estensioni. [Altre informazioni.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions)
+> Per installare un'estensione in un'organizzazione di Azure DevOps, è necessario essere proprietario dell'account o amministratore della raccolta di progetti. Se non si dispone di autorizzazioni, ma si è membri dell'account, in alternativa è possibile richiedere delle estensioni. [Altre informazioni.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts)
 
 ![Scegliere un'organizzazione di Azure DevOps in cui installare un'estensione](./media/tutorial-setup-ci-cd/addExtension_2.png)
 

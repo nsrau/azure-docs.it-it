@@ -8,15 +8,14 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 02/08/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: d09af0a4c2d09004d5c1bbf3261a14850eef7714
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: ce9ba7c197bb604b9d71e2bf501ca67d32865f38
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496438"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566880"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Esercitazione: Proteggere un database singolo o in pool
 
