@@ -6,14 +6,12 @@ metadata:
   title: 'Documentazione sulle macchine virtuali Linux di Azure: esercitazioni e informazioni di riferimento sulle API'
   meta.description: Learn how to create a virtual machine using the Linux distribution of your choice. Documentation shows different ways to create VM templates.
   services: virtual-machines\linux
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: virtual-machines-linux
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/23/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'Le macchine virtuali Linux di Azure offrono un''infrastruttura virtualizzata, sicura, a scalabilità elevata e su richiesta con Red Hat, Ubuntu o la distribuzione Linux preferita. Informazioni su come creare, configurare, gestire, aggiornare e ridimensionare le macchine virtuali Linux con guide rapide, le esercitazioni ed esempi.'
   aside:

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 0d52445d82965973c2d1e0f4fca2ef463312ad5f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 69b4a92470b33ab6615eead16be044a88436d64e
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560744"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619770"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>Chiavi di creazione e di endpoint per query di stima in LUIS
 LUIS usa due chiavi: [creazione](#programmatic-key) ed [endpoint](#endpoint-key). La chiave di creazione viene creata automaticamente quando si crea l'account LUIS. Quando si è pronti a pubblicare l'app LUIS, è necessario [creare la chiave endpoint](luis-how-to-azure-subscription.md), [assegnarla](luis-how-to-azure-subscription.md) all'app LUIS e [usarla con la query endpoint](#use-endpoint-key-in-query). 
@@ -29,6 +29,7 @@ LUIS usa due chiavi: [creazione](#programmatic-key) ed [endpoint](#endpoint-key)
 È importante creare app LUIS in [regioni](luis-reference-regions.md#publishing-regions) in cui si desidera pubblicare ed eseguire query.
 
 <a name="programmatic-key" ></a>
+
 ## <a name="authoring-key"></a>Chiave di creazione
 
 Una chiave di creazione, nota anche come chiave di avvio, viene creata automaticamente quando si crea un account LUIS ed è gratuita. È presente una chiave di creazione per tutte le app LUIS per ogni [regione](luis-reference-regions.md) di creazione. La chiave di creazione viene fornita per creare l'app LUIS o per testare le query endpoint. 

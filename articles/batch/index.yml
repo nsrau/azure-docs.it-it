@@ -5,14 +5,12 @@ metadata:
   title: Documentazione di Batch - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
   description: 'Usare Batch per eseguire in modo efficiente applicazioni parallele e HPC (High Performance Computing) su larga scala nel cloud. Definire le risorse di calcolo di Azure per eseguire le applicazioni in parallelo o in scala, senza necessità di configurare o gestire manualmente l''infrastruttura. Pianificare attività a elevato utilizzo di calcolo e aggiungere o rimuovere dinamicamente le risorse in base a requisiti specifici. Informazioni su come usare Azure Batch con le guide rapide, le esercitazioni e gli esempi.'
   services: batch
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: batch
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 11/30/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'Usare Batch per eseguire in modo efficiente applicazioni parallele e HPC (High Performance Computing) su larga scala nel cloud. Definire le risorse di calcolo di Azure per eseguire le applicazioni in parallelo o in scala, senza necessità di configurare o gestire manualmente l''infrastruttura. Pianificare attività a elevato utilizzo di calcolo e aggiungere o rimuovere dinamicamente le risorse in base a requisiti specifici. Informazioni su come usare Azure Batch con le guide rapide, le esercitazioni e gli esempi.'
 sections:

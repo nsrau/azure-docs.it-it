@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 2b574e0a545091263fce7949f997a3ba2dc8e5a8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bb7fa9d930f4c1ab3c241048804060e17fe5a8e4
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563973"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619912"
 ---
 # <a name="concepts-about-intents-in-your-luis-app"></a>Concetti relativi alle finalità nell'app LUIS
 
@@ -42,12 +42,15 @@ Assegnare un'espressione a una singola finalità. Quando LUIS riceve un'espressi
 ## <a name="intent-compared-to-entity"></a>Finalità ed entità a confronto
 La finalità rappresenta l'azione che il chatbot deve eseguire per l'utente ed è basata sull'intera espressione. L'entità rappresenta parole o frasi contenute all'interno dell'espressione. Un'espressione può disporre di una sola finalità punteggio più alto, ma può avere molte entità. 
 
-<a name="how-do-intents-relate-to-entities"></a> Creare una finalità quando l'_intenzione_ dell'utente avvierebbe un'azione nell'applicazione client, ad esempio una chiamata alla funzione checkweather(). Creare un'entità per rappresentare i parametri necessari per eseguire l'azione. 
+<a name="how-do-intents-relate-to-entities"></a>
+
+Creare una finalità quando l' _intenzione_ dell'utente attiverà un'azione nell'applicazione client, ad esempio una chiamata alla funzione checkweather (). Creare un'entità per rappresentare i parametri necessari per eseguire l'azione. 
 
 |Finalità di esempio   | Entità | Entità in espressioni di esempio   | 
 |------------------|------------------------------|------------------------------|
 | Meteo | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | Com'è il tempo a `Seattle` `tomorrow`? |
 | Meteo | { "type": "date_range", "entity": "this weekend" } | Mostrami le previsioni per `this weekend` | 
+||||
 
 ## <a name="custom-intents"></a>Finalità personalizzate
 

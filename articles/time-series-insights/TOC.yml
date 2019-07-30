@@ -5,6 +5,7 @@
     - name: Informazioni su Time Series Insights
       href: time-series-insights-update-overview.md
 - name: Guide introduttive
+  expanded: true
   items:
     - name: Azure Time Series Insights disponibile a livello generale
       items:

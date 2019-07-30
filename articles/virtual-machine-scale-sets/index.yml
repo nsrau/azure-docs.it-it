@@ -4,14 +4,12 @@ title: Documentazione dei set di scalabilità di macchine virtuali
 metadata:
   title: 'I set di scalabilità di macchine virtuali di Azure consentono di creare e gestire un gruppo di VM identiche con bilanciamento del carico e scalabilità automatica. Informazioni su come creare, configurare, gestire e ridimensionare automaticamente i set di scalabilità di macchine virtuali con guide introduttive, esercitazioni ed esempi.'
   services: virtual-machine-scale-sets
-  author: carolz
-  manager: czeumault
+  author: georgewallace
+  manager: gwallace
   ms.service: virtual-machine-scale-sets
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 03/14/2018
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'I set di scalabilità di macchine virtuali di Azure consentono di creare e gestire un gruppo di VM identiche con bilanciamento del carico e scalabilità automatica. Informazioni su come creare, configurare, gestire e ridimensionare automaticamente i set di scalabilità di macchine virtuali con guide introduttive, esercitazioni ed esempi.'
 sections:

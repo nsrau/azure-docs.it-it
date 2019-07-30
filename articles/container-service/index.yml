@@ -6,14 +6,12 @@ metadata:
   title: Documentazione del servizio Azure Container - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
   meta.description: 'Azure Container Service allows you to quickly deploy a production ready Kubernetes, DC/OS, or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.'
   services: container-service
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: container-service
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07-21-2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'Il servizio Azure Container consente di distribuire rapidamente un cluster Docker Swarm, DC/OS o Kubernetes pronto per la produzione. Informazioni su come usare il servizio Azure Container grazie a guide introduttive, esercitazioni ed esempi.'
 sections:

@@ -5,14 +5,12 @@ metadata:
   title: Documentazione di Istanze di Azure Container - Esercitazioni | Microsoft Docs
   description: 'Istanze di Azure Container rappresenta il modo più semplice e rapido per eseguire un contenitore in Azure, senza dover effettuare il provisioning di macchine virtuali o adottare un servizio di livello superiore.'
   services: container-instances
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: container-instances
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/26/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'Istanze di Azure Container rappresenta il modo più semplice e rapido per eseguire un contenitore in Azure, senza dover effettuare il provisioning di macchine virtuali o adottare un servizio di livello superiore. Informazioni su come creare e gestire istanze di contenitori con guide introduttive, esercitazioni ed esempi.<p>Se è necessaria una soluzione di orchestrazione del contenitore completa, vedere la <a href="/azure/aks/">Documentazione del servizio Azure Container</a>.</p>'
 sections:
