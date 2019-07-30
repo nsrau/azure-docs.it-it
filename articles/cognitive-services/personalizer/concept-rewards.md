@@ -3,19 +3,19 @@ title: Punteggio di ricompensa - Personalizza esperienze
 titleSuffix: Azure Cognitive Services
 description: Il punteggio di ricompensa indica quanto ha funzionato la scelta di personalizzazione, RewardActionID, per l'utente. Il valore del punteggio di ricompensa è determinato dalla logica di business sulla base delle osservazioni del comportamento degli utenti. Personalizza esperienze esegue il training dei modelli di Machine Learning valutando le ricompense.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.author: edjez
-ms.openlocfilehash: 39db28cd7e11d77362a2aefcf4ad8d2748db59c2
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: 72c425a1ec9fb83cc2e9dd1bae2c4f521109f162
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722499"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663387"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>I punteggi di ricompensa indicano il grado di successo della personalizzazione
 

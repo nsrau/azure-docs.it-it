@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: f02f50eef971e774236f534c0d664dfcf090dcae
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 04f0944173df59989745ee9167984b493f202b14
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563735"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638226"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Aggiungere un'entità in espressioni di esempio 
 
 Le espressioni di esempio sono campioni di testo con domande o commenti degli utenti. Per l'apprendimento di LUIS (Language Understanding), è necessario aggiungere [espressioni di esempio](luis-concept-utterance.md) a una [finalità](luis-concept-intent.md).
 
-In genere, si aggiunge un enunciato di esempio a un preventivo, quindi si creano entità ed espressioni di etichetta nella  pagina Intent. Se si desidera invece creare prima le entità, vedere [Aggiungere entità](luis-how-to-add-entities.md).
+In genere, si aggiunge un enunciato di esempio a un preventivo, quindi si creano entità ed espressioni di etichetta nella pagina Intent. Se si desidera invece creare prima le entità, vedere [Aggiungere entità](luis-how-to-add-entities.md).
 
 ## <a name="marking-entities-in-example-utterances"></a>Contrassegnare le entità in espressioni di esempio
 
@@ -57,7 +57,7 @@ Elencare le entità rappresenta un set di corrispondenze esatte del testo di par
 
 Per un elenco dei reparti aziendali è possibile avere valori normalizzati: `Accounting` e `Human Resources`. Ciascun nome normalizzato ha dei sinonimi. I sinonimi vengono indicati in inglese. Per quanto riguarda un reparto, questi sinonimi possono includere qualsiasi acronimo, numero o gergo relativo al reparto. Non è necessario conoscere tutti i valori quando si crea l'entità. È possibile aggiungerne altri dopo aver esaminato le espressioni reali degli utenti con i sinonimi.
 
-1. In un enunciato di esempio  nella pagina Intent, selezionare la parola o la frase desiderata nel nuovo elenco. Quando viene visualizzato l'elenco a discesa entità, immettere il nome per la nuova entità elenco nella casella di testo superiore, quindi selezionare **Crea nuova entità**.   
+1. In un enunciato di esempio nella pagina Intent, selezionare la parola o la frase desiderata nel nuovo elenco. Quando viene visualizzato l'elenco a discesa entità, immettere il nome per la nuova entità elenco nella casella di testo superiore, quindi selezionare **Crea nuova entità**.   
 
 1. Nella casella popup **What type of entity do you want to create?** (Che tipo di entità vuoi creare?) denominare l'entità e selezionare **List** (Elenco) come tipo. Aggiungere i sinonimi di questo elemento elenco, quindi selezionare **Done** (Chiudi). 
 

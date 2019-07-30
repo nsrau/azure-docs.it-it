@@ -7,6 +7,7 @@
     - name: Modelli di soluzioni end-to-end
       href: stream-analytics-solution-patterns.md
 - name: Guide introduttive
+  expanded: true
   items:
     - name: Creare un processo - Portale di Azure
       href: stream-analytics-quick-create-portal.md

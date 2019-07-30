@@ -1,21 +1,21 @@
 ---
-title: Configurare le impostazioni - Personalizer
+title: Configura impostazioni-personalizzatore
 titleSuffix: Azure Cognitive Services
 description: La configurazione del servizio include il modo in cui vengono trattate le ricompense, la frequenza delle esplorazioni, la frequenza di ripetizione del training del modello e la quantità di dati archiviati.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
-ms.author: edjez
-ms.openlocfilehash: 6f5028f093a9fd8c17928c2167039599d4db897c
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: f0ccf0e480fa57e0ffdfc94ca35cfaceded37a0b
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722329"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663889"
 ---
 # <a name="personalizer-settings"></a>Impostazioni di Personalizza esperienze
 

@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 17693b7dff1df1d538f2f4a180be025e0de67c82
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bbd86ab2ffa55903715da05b0120442f300a1702
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563480"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637845"
 ---
 # <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Entità predefinite deprecate in un'app LUIS
 Le entità predefinite seguenti sono deprecate e non possono essere aggiunte alle nuove app LUIS.

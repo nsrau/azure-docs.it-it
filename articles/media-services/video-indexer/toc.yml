@@ -53,6 +53,8 @@
       href: use-editor-create-project.md
     - name: Incorporare widget nell'applicazione
       href: video-indexer-embed-widgets.md
+    - name: Ripristino di emergenza
+      href: video-indexer-disaster-recovery.md
     - name: Personalizzare i modelli di contenuto
       items:
         - name: Person

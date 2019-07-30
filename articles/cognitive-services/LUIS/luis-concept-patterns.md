@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: acbcaa7e5588c0fecf2c20751e69442e1373cbb5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bad3bdc2b4508c082ca50647d5de5e7265c763a1
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563995"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639189"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Migliorare l'accuratezza della stima con i criteri
 I criteri sono progettati per migliorare l'accuratezza quando vi sono più espressioni molto simili.  Un modello consente di ottenere maggiore accuratezza in relazione a una finalità senza fornire molte altre espressioni. 
@@ -75,7 +75,7 @@ La sintassi del modello supporta la sintassi seguente:
 
 ## <a name="nesting-syntax-in-patterns"></a>Annidamento della sintassi nei modelli
 
-La  sintassi facoltativa, con parentesi quadre, può essere annidata in due livelli. Ad esempio: `[[this]is] a new form`. Questo esempio consente le espressioni seguenti: 
+La sintassi facoltativa, con parentesi quadre, può essere annidata in due livelli. Ad esempio: `[[this]is] a new form`. Questo esempio consente le espressioni seguenti: 
 
 |Esempio di espressione facoltativa annidata|Spiegazione|
 |--|--|

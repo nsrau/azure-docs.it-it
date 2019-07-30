@@ -3,19 +3,19 @@ title: Esplorazione - Personalizza esperienze
 titleSuffix: Azure Cognitive Services
 description: Con l'esplorazione, Personalizza esperienze può continuare a offrire buoni risultati, anche quando cambia il comportamento degli utenti. La scelta di un'impostazione di esplorazione è una decisione aziendale che riguarda la proporzione di interazioni degli utenti da usare per l'esplorazione al fine di migliorare il modello.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.author: edjez
-ms.openlocfilehash: ebb59b6bb7c36f4558b2bd63d2d55fa95823c4c3
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: cfecea6a64301d86aa657420dc300c26d4ed6f1e
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722473"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663388"
 ---
 # <a name="exploration-and-exploitation"></a>Esplorazione e sfruttamento
 

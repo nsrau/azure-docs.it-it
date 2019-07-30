@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 43f4b289bb2d072961eb3dabe6970f11726e0ed3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3c3c54faa882a38fb6c55c9fc0476a569f25cb98
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560604"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638322"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Comprendere quali sono le espressioni ottimali per l'app LUIS
 
@@ -99,7 +99,7 @@ Attivare la normalizzazione dell'espressione per i segni diacritici o la `settin
 ] 
 ```
 
-Normalizzare  la punteggiatura significa che prima che i modelli vengano sottoposti a training e prima che le query dell'endpoint vengano stimate, la punteggiatura verrà rimossa dalle espressioni. 
+Normalizzare la punteggiatura significa che prima che i modelli vengano sottoposti a training e prima che le query dell'endpoint vengano stimate, la punteggiatura verrà rimossa dalle espressioni. 
 
 La normalizzazione dei **segni diacritici** sostituisce i caratteri con segni diacritici in espressioni con caratteri regolari. Ad esempio: `Je parle français` diventa `Je parle francais`. 
 
@@ -108,13 +108,17 @@ La normalizzazione non significa che la punteggiatura e i segni diacritici non v
 
 ### <a name="punctuation-marks"></a>Segni di punteggiatura
 
+Punteggiatura è un token separato in LUIS. Un enunciato contenente un punto alla fine rispetto a un enunciato che non contiene un punto alla fine è costituito da due espressioni separate e può ottenere due stime diverse. 
+
 Se la punteggiatura non viene normalizzata, LUIS non ignora i segni di punteggiatura, per impostazione predefinita, perché alcune applicazioni client possono avere importanza su questi contrassegni. Assicurarsi che le espressioni di esempio usino sia lo stile con punteggiatura sia quello senza punteggiatura, in modo che entrambi gli stili restituiscano gli stessi punteggi relativi. 
+
+Verificare che il modello gestisca la punteggiatura nelle [espressioni di esempio](luis-concept-utterance.md) (con e senza punteggiatura) o nei [modelli](luis-concept-patterns.md) dove risulta più semplice ignorare la punteggiatura con la sintassi speciale: `I am applying for the {Job} position[.]`
 
 Se la punteggiatura non ha un significato specifico nell'applicazione client, considerare la possibilità di [ignorare](#utterance-normalization) la punteggiatura normalizzando la punteggiatura. 
 
 ### <a name="ignoring-words-and-punctuation"></a>Ignorare parole e punteggiatura
 
-Se si desidera ignorare parole specifiche o segni di punteggiatura nei modelli, utilizzare un [modello](luis-concept-patterns.md#pattern-syntax) con la sintassi ignore delle parentesi quadre,.  `[]` 
+Se si desidera ignorare parole specifiche o segni di punteggiatura nei modelli, utilizzare un [modello](luis-concept-patterns.md#pattern-syntax) con la sintassi ignore delle parentesi quadre,. `[]` 
 
 ## <a name="training-utterances"></a>Eseguire il training sulle espressioni
 

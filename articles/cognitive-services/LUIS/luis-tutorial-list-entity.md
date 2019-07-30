@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 60364e864a8b35cf5f39bb8c0a0f86ae611a3c70
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: da6e8e794520a737a96ba45f94459fb8c1a5ff18
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563257"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637826"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Usare un'entità elenco per migliorare il rilevamento di entità 
 Questa esercitazione illustra l'uso di una [entità elenco](luis-concept-entity-types.md) per migliorare il rilevamento di entità. Non è necessario etichettare le entità elenco, in quanto rappresentano una corrispondenza esatta di termini.  

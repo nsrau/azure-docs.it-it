@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 1aed6f9a0ceec18ca800e5030ec09bbb8d98cb76
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e85f9a90af778a7e68bf761d8d2159e808cf122d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560723"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639203"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>Funzionalità di elenco di frasi nell'app LUIS
 
@@ -35,7 +35,7 @@ Gli elenchi di frasi non sono collegati a una finalità o a un'entità specifica
 
 ## <a name="how-to-use-phrase-lists"></a>Come usare gli elenchi di frasi
 
-Creare un elenco frasi quando l'app contiene parole o frasi importanti per l'app, ad esempio:
+[Creare un](luis-how-to-add-features.md) elenco di frasi quando l'app contiene parole o frasi importanti per l'app, ad esempio:
 
 * termini di settore
 * gergo
@@ -79,7 +79,7 @@ Man mano che le dimensioni dell'elenco di frasi aumentano nel tempo, si potrebbe
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 
-## <a name="phrase-lists-help-identify-simple-interchangeable-entities"></a>Gli elenchi di frasi aiutano a identificare le entità intercambiabili semplici
+## <a name="phrase-lists-help-identify-simple-interchangeable-entities"></a>Gli elenchi di frasi consentono di identificare semplici entità intercambiabili
 Gli elenchi di frasi intercambiabili sono un ottimo modo per ottimizzare le prestazioni della propria app LUIS. Se l'applicazione ha difficoltà a prevedere espressioni con le finalità corrette o a riconoscere le entità, valuta se le espressioni contengono o meno parole insolite o che potrebbero avere un significato ambiguo. Queste parole sono buoni candidati da includere in un elenco di frasi.
 
 ## <a name="phrase-lists-help-identify-intents-by-better-understanding-context"></a>Gli elenchi di frasi consentono di identificare le finalità grazie a una migliore comprensione del contesto
@@ -88,7 +88,7 @@ Un elenco di frasi non è un'istruzione impartita a LUIS perché quest’ultimo 
 L'aggiunta di un elenco di frasi è un'alternativa all'aggiunta di ulteriori espressioni di esempio a una finalità. 
 
 ## <a name="when-to-use-phrase-lists-versus-list-entities"></a>Quando usare gli elenchi di frasi e le entità elenco
-Sia un elenco di frasi sia le entità elenco possono influire sulle espressioni di qualsiasi finalità, tuttavia le modalità con cui ciò avviene sono diverse. Usa un elenco di frasi per influire sul punteggio di previsione delle finalità. Usa un'entità elenco per influire sull'estrazione di entità per ottenere una corrispondenza testuale esatta. 
+Sebbene sia un elenco di frasi che un [elenco di entità](reference-entity-list.md) possono influenzare le espressioni in tutti gli Intent, ognuno esegue questa operazione in modo diverso. Usa un elenco di frasi per influire sul punteggio di previsione delle finalità. Usa un'entità elenco per influire sull'estrazione di entità per ottenere una corrispondenza testuale esatta. 
 
 ### <a name="use-a-phrase-list"></a>Usare un elenco di frasi
 Con un elenco di frasi, LUIS riesce sempre tener conto del contesto e di generalizzare per identificare gli elementi che sono simili ma sono non una corrispondenza esatta, in quanto elementi in un elenco. Se è necessario che l'app LUIS generalizzi e identifichi i nuovi elementi in una categoria, usa un elenco di frasi. 

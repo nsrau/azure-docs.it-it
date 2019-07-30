@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: af0223db944f01346ddcbc1f198ac0c15a426be4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e3028a9f046edb4013d8a2d6ec88d8c3cb2ca489
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564018"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639231"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Archiviazione e rimozione dei dati nei Servizi cognitivi di LUIS (Language Understanding)
 LUIS archivia i dati crittografati in un archivio dati di Azure corrispondente alla regione specificata dalla chiave. Questi dati vengono archiviati per 30 giorni. 
@@ -34,6 +34,7 @@ Le espressioni possono essere archiviate in due posizioni diverse.
 <a name="utterances-in-an-intent"></a>
 
 ### <a name="delete-example-utterances-from-an-intent"></a>Elimina le espressioni di esempio da un Intent
+
 Eliminare le espressioni di esempio usate per il training di [LUIS](luis-reference-regions.md). Le espressioni di esempio eliminate dall'app LUIS vengono rimosse dal servizio Web LUIS e non sono più disponibili per l'esportazione.
 
 <a name="utterances-in-review"></a>

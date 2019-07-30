@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/18/2019
+ms.date: 07/29/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 5dd49035414c7e717c3d60ab9bc185f42dcac408
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6d4991a0a05bbdd7143987bfa227cc40732cda35
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560861"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639241"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limiti per il modello LUIS e le chiavi
 LUIS dispone di diverse aree di limiti. La prima è il [limite modello](#model-boundaries), che controlla finalità, entità e funzionalità in LUIS. La seconda area è [limiti di quota](#key-limits) basata sul tipo di chiave. Una terza area di limiti è rappresentata dalla [combinazione di tasti](#keyboard-controls) per il controllo del sito Web LUIS. Una quarta area è data dal [mapping dell'area globale](luis-reference-regions.md) tra il sito Web di creazione LUIS e le API dell'[endpoint LUIS](luis-glossary.md#endpoint). 
@@ -76,15 +76,15 @@ La chiave di creazione presenta diversi limiti per creazione e endpoint. La chia
 |[Sottoscrizione][pricing] di Language Understanding-S0-livello Basic|non valido|50/secondo|Esecuzione di query per l'endpoint LUIS|
 |[Sottoscrizione][pricing] di servizi cognitivi-S0-livello standard|non valido|50/secondo|Esecuzione di query per l'endpoint LUIS|
 |[Integrazione dell'Analisi del sentiment](luis-how-to-publish-app.md#enable-sentiment-analysis)|non valido|nessun addebito|Aggiunta di informazioni sentiment inclusa l'estrazione dei dati di frase chiave |
-|Integrazione riconoscimento vocale|non valido|Richieste di endpoint $5,50 USD/1.000|Converte un'espressione parlata in un espressione di testo e restituisce i risultati LUIS|
+|[Integrazione vocale](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|non valido|Richieste di endpoint $5,50 USD/1.000|Converte un'espressione parlata in un espressione di testo e restituisce i risultati LUIS|
 
 ## <a name="keyboard-controls"></a>Controlli tastiera
 
-|Input tastiera | Descrizione | 
+|Input tastiera | DESCRIZIONE | 
 |--|--|
 |Controllo + E|passa dai token alle entità nell'elenco delle espressioni|
 
-## <a name="website-sign-in-time-period"></a>Periodo di tempo per l'accesso al sito Web
+## <a name="website-sign-in-time-period"></a>Periodo di accesso del sito Web
 
 Il periodo di tempo di accesso è di **60 minuti**. Trascorso questo tempo, si verificherà il seguente errore. Sarà necessario eseguire nuovamente l'accesso.
 

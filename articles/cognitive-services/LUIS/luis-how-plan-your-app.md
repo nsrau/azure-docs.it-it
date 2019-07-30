@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 121423682bbd9bbb32f2ab1d02e48d3237ee830d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: dc648b30dc1236080be06044f510557ae0ce9476
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563770"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638303"
 ---
 # <a name="plan-your-luis-app-with-subject-domain-intents-and-entities"></a>Pianificare l'app LUIS con dominio soggetto, finalità ed entità
 
-È importante pianificare l'app. Identificare il dominio, tra cui possibili finalità ed entità rilevanti per l'applicazione.  
+Per pianificare l'app, identificare il dominio dell'area del soggetto. Sono inclusi possibili Intent ed entità rilevanti per l'applicazione.  
 
 ## <a name="identify-your-domain"></a>Identificare il dominio
 
@@ -39,11 +39,13 @@ Pensare alle [finalità](luis-concept-intent.md) che sono importanti per l'attiv
 
 ## <a name="create-example-utterances-for-each-intent"></a>Creare espressioni di esempio per ogni finalità
 
-Dopo aver determinato le finalità, creare 10 o 15 espressioni di esempio per ciascuna. Per cominciare, il numero non deve essere inferiore a questo e non si devono creare molte espressioni per ogni finalità. Ogni espressione deve essere diversa dall'espressione precedente. Una buona varietà di espressioni comprende il conteggio complessivo delle parole, la scelta delle parole, i tempi verbali e la punteggiatura. 
+Una volta determinati gli Intent, creare da 15 a 30 espressioni di esempio per ogni finalità. Per iniziare, non avere meno di questo numero o creare troppe espressioni per ogni finalità. Ogni espressione deve essere diversa dall'espressione precedente. Una buona varietà di espressioni comprende il conteggio complessivo delle parole, la scelta delle parole, i tempi verbali e la punteggiatura. 
+
+Per ulteriori informazioni, esaminare le [espressioni](luis-concept-utterance.md) .
 
 ## <a name="identify-your-entities"></a>Identificare le entità
 
-Nelle espressioni di esempio individuare le entità che si intende estrarre. Per prenotare un volo sono necessarie alcune informazioni come destinazione, data, compagnia aerea, categoria del biglietto e classe di viaggio. Creare entità per questi tipi di dati e quindi contrassegnare le [entità](luis-concept-entity-types.md) nelle espressioni di esempio perché sono importanti per conseguire una finalità. 
+Nelle espressioni di esempio individuare le entità che si intende estrarre. Per prenotare un volo, sono necessarie informazioni come la destinazione, la data, la compagnia aerea, la categoria di ticket e la classe di viaggio. Creare entità per questi tipi di dati e quindi contrassegnare le [entità](luis-concept-entity-types.md) negli enunciati di esempio perché sono importanti per l'esecuzione di una finalità. 
 
 Quando si determinano le entità da usare nell'app, tenere presente che esistono diversi tipi di entità per l'acquisizione di relazioni tra i tipi di oggetti. L'articolo [Entità in LUIS](luis-concept-entity-types.md) fornisce maggiori dettagli su questi diversi tipi.
 

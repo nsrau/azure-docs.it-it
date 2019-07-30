@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: ccbdb60687bd81de57ff675634f9d124f10784e1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 34ec5588a510574f4ea9f01bd23c6f6487e288da
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563957"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638368"
 ---
 # <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>I punteggi di stima indicano l'accuratezza delle stime per la finalità e le entità
 
@@ -69,7 +69,7 @@ I punteggi di stima possono usare la notazione esponenziale, dove *appare* sopra
 
 ## <a name="punctuation"></a>Punteggiatura
 
-Punteggiatura è un token separato in LUIS. Un enunciato contenente un punto alla fine rispetto a un enunciato che non contiene un punto alla fine è costituito da due espressioni separate e può ottenere due stime diverse. Verificare che il modello gestisca la punteggiatura nelle [espressioni di esempio](luis-concept-utterance.md) (con e senza punteggiatura) o nei [modelli](luis-concept-patterns.md) dove risulta più semplice ignorare la punteggiatura con la sintassi speciale: `I am applying for the {Job} position[.]`
+[Altre](luis-concept-utterance.md#punctuation-marks) informazioni su come usare o ignorare la punteggiatura. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

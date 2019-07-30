@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: fdf60a454aeb19b83ce455a771b8399c90af3bce
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1b42ab9155f5b9719ef6477934722021e3fbac99
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563749"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638250"
 ---
 # <a name="create-entities-without-utterances"></a>Creare entità senza espressioni
 
@@ -114,13 +114,13 @@ Nell'espressione `Where is Request relocation from employee new to the company o
 
 Un ruolo è un sottotipo denominato basato sul contesto. È disponibile in tutte le entità, incluse le entità predefinite e non apprese dal computer. 
 
-La sintassi per un ruolo è **`{Entityname:Rolename}`** la posizione in cui il nome dell'entità è seguito da due punti, quindi il nome del ruolo. Ad esempio `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
+La sintassi per un ruolo è **`{Entityname:Rolename}`** la posizione in cui il nome dell'entità è seguito da due punti, quindi il nome del ruolo. Ad esempio `Move {personName} from {Location:Origin} to {Location:Destination}`.
 
 1. Nella sezione **Build** (Compila) selezionare **Entities** (Entità) nel pannello a sinistra.
 
-1. Selezionare **Create new entity** (Crea nuova entità). Immettere il nome di `LocationUsingRoles`. Selezionare il tipo **Simple** (Semplice) e quindi selezionare **Done** (Fatto). 
+1. Selezionare **Create new entity** (Crea nuova entità). Immettere il nome di `Location`. Selezionare il tipo **Simple** (Semplice) e quindi selezionare **Done** (Fatto). 
 
-1. Selezionare **Entities** (Entità) nel pannello a sinistra, quindi selezionare la nuova entità **LocationUsingRoles** creata nel passaggio precedente.
+1. Selezionare **entità** dal pannello sinistro, quindi selezionare la nuova **posizione** dell'entità creata nel passaggio precedente.
 
 1. Nella casella di testo **Role name** (Nome ruolo) immettere il nome del ruolo `Origin` e quindi premere INVIO. Aggiungere un secondo nome del ruolo di `Destination`. 
 

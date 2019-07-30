@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 75764fd0a3f862157d9377d7dc886334ef1231db
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0ce1fb182320b04aebb45b0f848d8c8f6c965fd9
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563711"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638195"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Usare gli elenchi di frasi in segnali boost dell'elenco di parole
 
 È possibile aggiungere funzionalità alla propria app LUIS per migliorarne l'accuratezza. Le funzionalità consentono a LUIS di suggerire determinate parole e frasi che fanno parte del vocabolario del dominio dell'app. 
 
-Un [elenco di frasi](luis-concept-feature.md) comprende un gruppo di valori (parole o frasi) che appartengono alla stessa classe e devono essere trattati in modo analogo (ad esempio i nomi di città o prodotti). Ciò che LUIS apprende in merito a uno di essi viene applicato automaticamente anche agli altri. L'elenco non è un'entità elenco chiusa (esatte corrispondenze di testo) di parole associate.
+Un [elenco di frasi](luis-concept-feature.md) comprende un gruppo di valori (parole o frasi) che appartengono alla stessa classe e devono essere trattati in modo analogo (ad esempio i nomi di città o prodotti). Ciò che LUIS apprende in merito a uno di essi viene applicato automaticamente anche agli altri. Questo elenco non corrisponde a un' [entità di elenco](reference-entity-list.md) (corrispondenze esatte del testo) di parole corrispondenti.
 
 Viene integrato un elenco di frasi al vocabolario del dominio dell'applicazione come secondo segnale di LUIS in merito a tali parole.
 
@@ -32,21 +32,21 @@ LUIS consente fino a 10 elenchi di frasi per ogni app.
 
 1. Aprire l'app facendo doppio clic sul nome nella pagina **My Apps** (App personali) e quindi fare clic su **Build** (Compila) e poi su **Phrase lists** (Elenchi di frasi) nel riquadro sinistro dell'app. 
 
-2. Nella pagina **Phrase lists** (Elenchi di frasi) fare clic su **Create new phrase list** (Crea nuovo elenco di frasi). 
+1. Nella pagina **Phrase lists** (Elenchi di frasi) fare clic su **Create new phrase list** (Crea nuovo elenco di frasi). 
  
-3. Nella finestra di dialogo **Add Phrase List** (Aggiungi elenco di frasi) digitare "Città" come nome dell'elenco. Nella casella **Value** (Valore) digitare i valori dell'elenco di frasi. È possibile digitare un valore alla volta o un set di valori separati da virgole e quindi premere **INVIO**.
+1. Nella finestra di dialogo **Aggiungi elenco di frasi** Digitare `Cities` come nome dell'elenco di frasi. Nella casella **Value** (Valore) digitare i valori dell'elenco di frasi. È possibile digitare un valore alla volta o un set di valori separati da virgole e quindi premere **INVIO**.
 
     ![Aggiungere città all'elenco di frasi](./media/luis-add-features/add-phrase-list-cities.png)
 
-4. LUIS è in grado di proporre valori correlati da aggiungere all'elenco di frasi. Fare clic su **Recommend** (Consiglia) per ottenere un gruppo di valori proposti che sono correlati a livello semantico ai valori aggiunti. È possibile fare clic su uno qualsiasi dei valori proposti o fare clic su **Add All** (Aggiungi tutti) per aggiungerli tutti.
+1. LUIS è in grado di proporre valori correlati da aggiungere all'elenco di frasi. Fare clic su **Recommend** (Consiglia) per ottenere un gruppo di valori proposti che sono correlati a livello semantico ai valori aggiunti. È possibile fare clic su uno qualsiasi dei valori proposti o fare clic su **Add All** (Aggiungi tutti) per aggiungerli tutti.
 
     ![Valori proposti per l'elenco di frasi - Comando Add All (Aggiungi tutti)](./media/luis-add-features/related-values.png)
 
-5. Fare clic su **These values are interchangeable** (Questi valori sono intercambiabili) se i valori dell'elenco di frasi aggiunti sono alternative che possono essere usate indifferentemente.
+1. Fare clic su **These values are interchangeable** (Questi valori sono intercambiabili) se i valori dell'elenco di frasi aggiunti sono alternative che possono essere usate indifferentemente.
 
     ![Valori proposti per l'elenco di frasi - Casella per la selezione di valori intercambiabili](./media/luis-add-features/interchangeable.png)
 
-6. Fare clic su **Save**. L'elenco di frasi "Città" verrà aggiunto alla pagina **Phrase lists** (Elenchi di frasi).
+1. Fare clic su **Done**. L'elenco di frasi "Città" verrà aggiunto alla pagina **Phrase lists** (Elenchi di frasi).
 
 <a name="edit-phrase-list"></a>
 <a name="delete-phrase-list"></a>

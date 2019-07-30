@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 8821ce46c65ac8bca36f006ef77bcaf475b0573d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fad0fada4d9dd888b0b2a37b59e4eac1e016aec4
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559611"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663593"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparare i dati per Riconoscimento vocale personalizzato
 
@@ -28,8 +28,8 @@ In questa tabella sono elencati i tipi di dati accettati, quando è necessario u
 | Tipo di dati | Usato per il test | Quantità | Usato per il training | Quantità |
 |-----------|-----------------|----------|-------------------|----------|
 | [Audio](#audio-data-for-testing) | Yes<br>Usato per l'ispezione visiva | 5 + file audio | No | N/a |
-| [Trascrizioni audio + con etichetta umana](#audio--human-labeled-transcript-data-for-testingtraining) | Sì<br>Utilizzato per valutare l'accuratezza | 0,5-5 ore di audio | Sì | da 1 a 1.000 ore di audio |
-| [Testo correlato](##related-text-data-for-training) | No | N/a | Sì | 1-200 MB di testo correlato |
+| [Trascrizioni audio + con etichetta umana](#audio--human-labeled-transcript-data-for-testingtraining) | Sì<br>Utilizzato per valutare l'accuratezza | 0,5-5 ore di audio | Yes | da 1 a 1.000 ore di audio |
+| [Testo correlato](#related-text-data-for-training) | No | N/a | Yes | 1-200 MB di testo correlato |
 
 I file devono essere raggruppati per tipo in un set di dati e caricati come file zip. Ogni set di dati può contenere solo un singolo tipo di dati.
 
@@ -52,7 +52,7 @@ I dati audio sono ottimali per il test dell'accuratezza del modello di sintesi v
 
 Usare questa tabella per assicurarsi che i file audio siano formattati correttamente per l'uso con Riconoscimento vocale personalizzato:
 
-| Proprietà | Value |
+| Proprietà | Valore |
 |----------|-------|
 | Formato file | RIFF (WAV) |
 | Frequenza di campionamento | 8\.000 Hz o 16.000 Hz |
@@ -64,7 +64,7 @@ Usare questa tabella per assicurarsi che i file audio siano formattati correttam
 
 Se l'audio non soddisfa queste proprietà o se si vuole verificarlo, è consigliabile scaricare [Sox](http://sox.sourceforge.net) per controllare o convertire l'audio. Di seguito sono riportati alcuni esempi di come è possibile eseguire ognuna di queste attività tramite la riga di comando:
 
-| Attività | DESCRIZIONE | Comando Sox |
+| Attività | Descrizione | Comando Sox |
 |----------|-------------|-------------|
 | Controlla formato audio | Usare questo comando per controllare il formato del file audio. | `sox --i <filename>` |
 | Converti formato audio | Usare questo comando per convertire il file audio in un canale singolo, a 16 bit, a 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |

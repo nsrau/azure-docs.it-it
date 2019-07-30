@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: c1a0afc909aa7ef16fa54b931e1601c2ce7304cc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 31d979b92bdf050f28ac5d7549218016dc5e473c
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560424"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637986"
 ---
-# <a name="test-your-luis-app-in-the-luis-portal"></a>Testare l'app LUIS nel portale LUIS
 <a name="train-your-app"></a>
-[Il test](luis-concept-test.md) di un'app costituisce un processo iterativo. Dopo aver eseguito il training dell'app LUIS, testarla con espressioni di esempio per verificare se le finalità e le entità vengono riconosciute correttamente. Se così non fosse, aggiornare l'app LUIS ed eseguire nuovamente il training e il test. 
+
+# <a name="test-your-luis-app-in-the-luis-portal"></a>Testare l'app LUIS nel portale LUIS
+
+Il [test](luis-concept-test.md) di un'app è un processo iterativo. Dopo aver eseguito il training dell'app LUIS, testarla con espressioni di esempio per verificare se le finalità e le entità vengono riconosciute correttamente. Se così non fosse, aggiornare l'app LUIS ed eseguire nuovamente il training e il test. 
 
 <!-- anchors for H2 name changes -->
 <a name="test-your-app"></a>
@@ -31,13 +33,13 @@ ms.locfileid: "68560424"
 
 1. Accedere all'app selezionando il relativo nome nella pagina **My Apps** (App personali). 
 
-2. Per accedere al pannello a scorrimento **Test**, selezionare **Test** nel pannello superiore dell'applicazione.
+1. Per accedere al pannello a scorrimento **Test**, selezionare **Test** nel pannello superiore dell'applicazione.
 
     ![Pagina Train & Test App (Esegui il training e il test dell'app)](./media/luis-how-to-interactive-test/test.png)
 
-3. Immettere un'espressione nella casella di testo e premere Invio. È possibile digitare il numero desiderato di espressioni in **Test**, ma solo un'espressione alla volta.
+1. Immettere un'espressione nella casella di testo e premere Invio. È possibile digitare il numero desiderato di espressioni in **Test**, ma solo un'espressione alla volta.
 
-4. L'espressione, la finalità principale relativa e il punteggio vengono aggiunti all'elenco di espressioni nella casella di testo.
+1. L'espressione, la finalità principale relativa e il punteggio vengono aggiunti all'elenco di espressioni nella casella di testo.
 
     ![Il test interattivo identifica la finalità errata](./media/luis-how-to-interactive-test/test-weather-1.png)
 
@@ -49,7 +51,7 @@ ms.locfileid: "68560424"
 
     ![Selezionare il pulsante Ispeziona per visualizzare altri dettagli sui risultati del test](./media/luis-how-to-interactive-test/inspect.png)
 
-2. Viene visualizzato il pannello **Inspection** (Ispezione). Il pannello include la finalità con il punteggio più alto ed eventuali entità identificate. Il pannello mostra il risultato dell'espressione selezionata.
+1. Viene visualizzato il pannello **Inspection** (Ispezione). Il pannello include la finalità con il punteggio più alto ed eventuali entità identificate. Il pannello mostra il risultato dell'espressione selezionata.
 
     ![Il pannello include la finalità con il punteggio più alto ed eventuali entità identificate. Il pannello mostra il risultato dell'espressione selezionata.](./media/luis-how-to-interactive-test/inspect-panel.png)
 
@@ -57,7 +59,7 @@ ms.locfileid: "68560424"
 
 1. Se la finalità con punteggio più alto non è corretta, selezionare il pulsante **Edit** (Modifica).
 
-2.  Nell'elenco a discesa selezionare la finalità corretta per l'espressione.
+1.  Nell'elenco a discesa selezionare la finalità corretta per l'espressione.
 
     ![Selezionare la finalità corretta](./media/luis-how-to-interactive-test/intent-select.png)
 
@@ -103,16 +105,14 @@ Usare la procedura seguente per includere il servizio [Controllo ortografico Bin
 
 1. Nel riquadro **Test** immettere un'espressione. Quando viene prevista l'espressione, selezionare **[Inspect](#inspect-score)** (Ispeziona) sotto l'espressione immessa. 
 
-2. Quando si apre il pannello **Inspect** (Ispeziona), selezionare **[Compare with Published](#compare-with-published-version)** (Confronta con pubblicata). 
+1. Quando si apre il pannello **Inspect** (Ispeziona), selezionare **[Compare with Published](#compare-with-published-version)** (Confronta con pubblicata). 
 
-3. Quando si apre il pannello **Published** (Pubblicata) selezionare **[Additional Settings](#additional-settings-in-test-panel)** (Impostazioni aggiuntive).
+1. Quando si apre il pannello **Published** (Pubblicata) selezionare **[Additional Settings](#additional-settings-in-test-panel)** (Impostazioni aggiuntive).
 
-4. Nella finestra di dialogo popup immettere la **chiave del servizio** Controllo ortografico Bing. 
-    ![Immettere la chiave del servizio Controllo ortografico Bing](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
+1. Nella finestra di dialogo popup selezionare **abilita controllo ortografico Bing** e immettere la chiave e quindi fare clic su **fine**. 
+    ![Immettere la chiave del servizio Controllo ortografico Bing](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key-text.png)
 
-5. Immettere una query con un'ortografia errata, ad esempio `book flite to seattle` e premere Invio. L'ortografia errata della parola `flite` viene sostituita nella query inviata a LUIS e il JSON risultante mostra sia la query originale, `query`, sia l'ortografia corretta nella query, `alteredQuery`.
-
-    ![JSON con ortografia corretta](./media/luis-how-to-interactive-test/interactive-with-spell-check-results.png)
+1. Immettere una query con un'ortografia errata, ad esempio `book flite to seattle` e premere Invio. L'ortografia errata della parola `flite` viene sostituita nella query inviata a LUIS e il JSON risultante mostra sia la query originale, `query`, sia l'ortografia corretta nella query, `alteredQuery`.
 
 <a name="json-file-with-no-duplicates"></a>
 <a name="import-a-dataset-file-for-batch-testing"></a>

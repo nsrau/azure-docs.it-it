@@ -3,19 +3,19 @@ title: Etica e uso responsabile - Personalizza esperienze
 titleSuffix: Azure Cognitive Services
 description: Queste linee guida hanno lo scopo di consentire un'implementazione della personalizzazione che generi fiducia nell'azienda e nel servizio. Assicurarsi di dedicare tempo alla ricerca, all'apprendimento e alla valutazione dell'impatto della personalizzazione sulla vita delle persone. In caso di dubbi, chiedere indicazioni.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.author: edjez
-ms.openlocfilehash: ceb32e9e378ba1e58db11e55be8bd551faf08c2a
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: f565d95f8270612a8d83dd44a1e1bb895d1a4373
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722402"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662776"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Linee guida per l'implementazione responsabile di Personalizza esperienze
 
@@ -183,7 +183,7 @@ Valutare la possibilità di creare metodi con cui i membri del team, gli utenti 
 
 Nel considerare gli effetti collaterali dell'uso di qualsiasi tecnologia, chiunque è limitato dalla propria prospettiva ed esperienza di vita. Ampliare la gamma di opinioni disponibile integrando più voci eterogenee nei team, tra gli utenti o nei comitati consultivi, in modo che possano esprimersi e siano incoraggiate a farlo. Prendere in considerazione materiali di formazione e apprendimento per ampliare ulteriormente le conoscenze del team in questo campo e per aumentare la capacità di affrontare argomenti complessi e sensibili.
 
-Considerare le attività riguardanti l'uso responsabile come le altre attività trasversali nel ciclo di vita dell'applicazione, ad esempio quelle relative a esperienza utente, sicurezza o DevOps. Queste attività e i relativi requisiti non possono essere rimandati a un secondo momento. L'uso responsabile deve essere discusso e verificato in tutto il ciclo di vita dell'applicazione.
+Prendere in considerazione le attività relative all'uso responsabile proprio come le altre attività crosscutting nel ciclo di vita dell'applicazione, ad esempio le attività relative all'esperienza utente, alla sicurezza o DevOps. Queste attività e i relativi requisiti non possono essere rimandati a un secondo momento. L'uso responsabile deve essere discusso e verificato in tutto il ciclo di vita dell'applicazione.
  
 ## <a name="questions-and-feedback"></a>Domande, commenti e suggerimenti
 

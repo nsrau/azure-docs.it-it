@@ -2,19 +2,19 @@
 title: Funzionamento di Personalizza esperienze - Personalizza esperienze
 titleSuffix: Azure Cognitive Services
 description: Personalizza esperienze usa modelli di Machine Learning per individuare quale azione usare in un contesto. Ogni ciclo di apprendimento include un modello sottoposto a training esclusivamente con i dati inviati tramite chiamate a Classifica e a Ricompensa. Ogni ciclo di apprendimento è completamente indipendente rispetto agli altri.
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.author: edjez
-ms.openlocfilehash: 7bdafafc0d542a98b80f2b6f5db2c14c8777bf5b
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.author: diberry
+ms.openlocfilehash: e55ccb508760c4473f71245c183948219f31985c
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423249"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663920"
 ---
 # <a name="how-personalizer-works"></a>Funzionamento di Personalizza esperienze
 
