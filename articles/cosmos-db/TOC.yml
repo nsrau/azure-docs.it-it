@@ -738,6 +738,12 @@
           maintainContext: true
         - name: Driver ODBC
           href: odbc-driver.md
+    - name: Eseguire la migrazione di dati a Cosmos DB
+      items:
+        - name: Eseguire la migrazione all'API SQL tramite StriIm
+          href: cosmosdb-sql-api-migrate-data-striim.md
+        - name: Eseguire la migrazione all'API Cassandra tramite StriIm
+          href: cosmosdb-cassandra-api-migrate-data-striim.md
     - name: Libreria Bulk Executor
       items:
         - name: Informazioni sulla libreria dell'executor bulk

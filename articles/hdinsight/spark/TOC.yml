@@ -50,6 +50,18 @@
       href: ../hdinsight-version-release.md
     - name: Monitorare la disponibilità dei cluster con i log di Ambari e di Monitoraggio di Azure
       href: ../hdinsight-cluster-availability.md
+    - name: Risolvere problemi
+      items:
+        - name: Eccezione OutOfMemoryError
+          items:
+            - name: Memoria heap insufficiente
+              href: ./apache-spark-troubleshoot-outofmemory-heap.md
+        - name: Eccezione IllegalArgumentException
+          href: ./apache-spark-troubleshoot-illegalargumentexception.md
+        - name: Arresto dell'applicazione di streaming Apache Spark
+          href: ./apache-spark-troubleshoot-application-stops.md
+        - name: Eccezione RpcTimeoutException
+          href: ./apache-spark-troubleshoot-rpctimeoutexception.md
 - name: Procedure
   items:
     - name: Usare l'archiviazione cluster

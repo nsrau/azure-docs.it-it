@@ -2,21 +2,20 @@
 title: Cloud Foundry in Azure
 description: Cloud Foundry in Azure
 services: multiple
-author: czeumault
-manager: jeconnoc
+author: georgewallace
+manager: gwallace
 layout: LandingPage
 ms.service: multiple
-ms.tgt_pltfrm: na
 ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
-ms.author: carolz
-ms.openlocfilehash: 850ed1418a8880e30273f62aec3b3420c41b2ef6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: gwallace
+ms.openlocfilehash: f846a199305bbf3f1282649b8c20f46968519e48
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60198059"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609648"
 ---
 <div class="content">
     <h1>Cloud Foundry in Azure</h1>
@@ -27,8 +26,8 @@ Cloud Foundry è una piattaforma distribuita come servizio (PaaS) open source pe
         </div>
     </div>
 <h2>Guide introduttive di 5 minuti</h2>
-<a href="https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry">Distribuire Cloud Foundry in Azure</a>
-<h2 style="margin-top: 36px">Esercitazioni dettagliate</h2>
+<a href="https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry">Distribuire Cloud Foundry in Azure
+<h2 style="margin-top: 36px"></a>Esercitazioni dettagliate</h2>
 <ol>
   <li><a href="/azure/virtual-machines/linux/cloudfoundry-get-started">Introduzione a Cloud Foundry in Azure</a></li>
   <li><a href="/azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app">Distribuire l'app Cloud Foundry in Azure</a></li>  

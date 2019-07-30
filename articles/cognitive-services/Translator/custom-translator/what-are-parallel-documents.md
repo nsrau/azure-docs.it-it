@@ -3,18 +3,18 @@ title: Che cosa sono i documenti paralleli? - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: I documenti paralleli sono coppie di documenti in cui uno è la traduzione dell'altro. Un documento della coppia contiene frasi nella lingua di origine, mentre l'altro contiene le stesse frasi tradotte nella lingua di destinazione.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 3b7997adfa38fa24bdf41f22c99f06e9a0ba1bf0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fb54df2e1eb89d30e62ae80355635356343994ee
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447402"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595438"
 ---
 # <a name="what-are-parallel-documents"></a>Che cosa sono i documenti paralleli?
 
@@ -23,7 +23,7 @@ Non ha importanza quale lingua è contrassegnata come "di origine" e quale come 
 
 ## <a name="requirements"></a>Requisiti
 
-È necessario un minimo di 10.000 frasi parallele univoche per il training di un sistema. Come procedura consigliata, è possibile aggiungere continuamente contenuti paralleli e ripetere il training per migliorare la qualità del sistema di traduzione.
+Per eseguire il training di un sistema, è necessario un minimo di 10.000 frasi parallele univoche. Come procedura consigliata, è possibile aggiungere continuamente contenuti paralleli e ripetere il training per migliorare la qualità del sistema di traduzione.
 
 Microsoft richiede che i documenti caricati in Custom Translator non violino i diritti di copyright o di proprietà intellettuale di terze parti. Per altre informazioni, vedere le [Condizioni per l'utilizzo](https://azure.microsoft.com/support/legal/cognitive-services-terms/).
 Il caricamento di un documento tramite il portale non altera in alcun modo la proprietà intellettuale nel documento stesso.

@@ -70,7 +70,7 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## <a name="autoscale-pods"></a>Scalare automaticamente i pod
 
-Kubernetes supporta il [ridimensionamento automatico orizzontale dei pod][kubernetes-hpa] per modificare il numero di pod in una distribuzione in base all'utilizzo della CPU o ad altre metriche selezionate. Il server delle metriche viene usato per fornire l'utilizzo delle risorse a Kubernetes e viene automaticamente distribuito nei cluster servizio Azure Kubernetes 1.10 e versioni successive. Per vedere la versione del cluster servizio Azure Kubernetes in uso, usare il comando [az aks show][az-aks-show], come illustrato nell'esempio seguente:
+Kubernetes supporta [la scalabilità automatica orizzontale dei pod][kubernetes-hpa] to adjust the number of pods in a deployment depending on CPU utilization or other select metrics. The [Metrics Server][metrics-server] viene usato per fornire l'utilizzo delle risorse di Kubernetes e viene automaticamente distribuita nel cluster AKS 1.10 e versioni successive. Per vedere la versione del cluster servizio Azure Kubernetes in uso, usare il comando [az aks show][az-aks-show], come illustrato nell'esempio seguente:
 
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion

@@ -1,4 +1,4 @@
-- name: Documentazione dell'anteprima del Centro sicurezza di Azure per IoT
+- name: Documentazione del Centro sicurezza di Azure per IoT
   href: index.yml
 - name: Panoramica
   href: overview.md
@@ -13,6 +13,11 @@
       href: service-prerequisites.md
     - name: Introduzione al Centro sicurezza di Azure per IoT
       href: getting-started.md
+      items:
+        - name: Hub IoT
+          href: iot-hub-integration.md
+        - name: Agenti di sicurezza
+          href: security-agents.md
 - name: Guide introduttive
   expanded: true
   items:
@@ -34,6 +39,8 @@
       href: concept-security-alerts.md
     - name: Suggerimenti per la sicurezza
       href: concept-recommendations.md
+    - name: Aggregazione di eventi
+      href: event-aggregation.md
     - name: Prezzi e costi associati
       href: concept-pricing.md
 - name: Guide alle procedure
@@ -48,6 +55,14 @@
           href: how-to-deploy-linux-cs.md
         - name: Distribuire un agente di sicurezza basato su C in un dispositivo Linux
           href: how-to-deploy-linux-c.md
+    - name: Risolvere i problemi di un agente di sicurezza
+      items:
+        - name: Risolvere i problemi dell'agente di sicurezza Linux del Centro sicurezza di Azure per IoT
+          href: troubleshoot-agent.md
+        - name: Configurazione locale C
+          href: azure-iot-security-local-configuration-c.md
+        - name: 'Configurazione locale C#'
+          href: azure-iot-security-local-configuration-csharp.md
     - name: Distribuire il modulo di sicurezza per Edge
       href: how-to-deploy-edge.md
     - name: Configurare gli agenti di sicurezza

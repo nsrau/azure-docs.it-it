@@ -7,22 +7,22 @@
 - name: Guide introduttive
   expaned: true
   items:
-    - name: Eseguire il training del modello personalizzato ed estrarre i dati
+    - name: Utilizzo dell'API REST
       items:
-        - name: Utilizzo dell'API REST
+        - name: Eseguire il training del modello personalizzato ed estrarre i dati
           items:
             - name: cURL
               href: quickstarts/curl-train-extract.md
             - name: Python
               href: quickstarts/python-train-extract.md
-    - name: Usare un modello di ricevute predefinito
-      items:
-        - name: Utilizzo dell'API REST
+        - name: Usare un modello di ricevute predefinito
           items:
             - name: cURL
               href: quickstarts/curl-receipts.md
             - name: Python
               href: quickstarts/python-receipts.md
+    - name: Uso di .NET SDK
+      href: quickstarts/dotnet-sdk.md
 - name: Guide alle procedure
   items:
     - name: Creare un set di dati di training

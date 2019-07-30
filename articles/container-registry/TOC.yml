@@ -77,6 +77,8 @@
       items:
         - name: Limitare l'accesso con la rete virtuale (anteprima)
           href: container-registry-vnet.md
+        - name: Accedere dietro a un firewall
+          href: container-registry-firewall-access-rules.md
         - name: Authentication
           items:
             - name: Panoramica dell'autenticazione

@@ -61,7 +61,7 @@
           href: container-instances-restart-policy.md
         - name: Impostare le variabili di ambiente (env)
           href: container-instances-environment-variables.md
-        - name: Eseguire l'override del punto di ingresso del contenitore
+        - name: Impostare il comando di avvio dei contenitori (entrypoint)
           href: container-instances-start-command.md
         - name: Eseguire un comando (exec)
           href: container-instances-exec.md
