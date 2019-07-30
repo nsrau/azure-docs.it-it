@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: marsma
-ms.date: 07/08/2019
+ms.date: 07/24/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 496cf801a44638af61306b43791abce9466e2cb2
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 6884cb7b10da3996977f2aea7693625bc45c3139
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835677"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68369569"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c"></a>Esercitazione: Abilitare l'autenticazione in un'applicazione a pagina singola con Azure Active Directory B2C
 
@@ -41,7 +41,7 @@ Prima di continuare con i passaggi in questa esercitazione è necessario impleme
 In più, nell'ambiente di sviluppo locale devono anche essere installati gli elementi seguenti:
 
 * Editor di codice, ad esempio [Visual Studio Code](https://code.visualstudio.com/) o [Visual Studio 2019](https://www.visualstudio.com/downloads/)
-* [.NET Core SDK 2.0.0](https://www.microsoft.com/net/core) o versioni successive
+* [.NET Core SDK 2.2](https://dotnet.microsoft.com/download) o versione successiva
 * [Node.js](https://nodejs.org/en/download/)
 
 ## <a name="update-the-application"></a>Aggiornare l'applicazione
@@ -115,7 +115,7 @@ L'esempio supporta l'iscrizione, l'accesso, la modifica del profilo e la reimpos
 
 ### <a name="sign-up-using-an-email-address"></a>Iscriversi usando un indirizzo di posta elettronica
 
-1. Fare clic su **Login** per iscriversi come utente dell'applicazione. Verrà usato il flusso utente **B2C_1_signupsignin1** specificato in un passaggio precedente.
+1. Fare clic su **Accedi** per avviare il flusso utente *B2C_1_signupsignin1* specificato in un passaggio precedente.
 1. Azure AD B2C presenta una pagina di accesso con un collegamento di iscrizione. Non avendo ancora un account, fare clic sul collegamento **Iscriversi adesso**.
 1. Il flusso di lavoro per l'iscrizione presenta una pagina per raccogliere e verificare l'identità dell'utente usando un indirizzo e-mail. Il flusso di lavoro per l'iscrizione raccoglie anche la password dell'utente e gli attributi richiesti definiti nel flusso utente.
 
@@ -133,11 +133,15 @@ Quando fa clic su **Crea**, si chiude la pagina di iscrizione e viene nuovamente
 
 Dopo l'accesso, l'app visualizza l'errore "Autorizzazioni insufficienti": si tratta di un **comportamento previsto**:
 
-`ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.`
+```Output
+ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.
+Correlation ID: ce15bbcc-0000-0000-0000-494a52e95cd7
+Timestamp: 2019-07-20 22:17:27Z
+```
 
-L'errore viene visualizzato perché si sta provando ad accedere a una risorsa dalla directory dimostrativa, ma il token di accesso è valido solo per la propria directory di Azure AD. La chiamata all'API di conseguenza non è autorizzata.
+Questo errore viene visualizzato perché l'applicazione Web sta provando ad accedere a un'API Web protetta dalla directory demo, *fabrikamb2c*. Poiché il token di accesso è valido solo per la directory di Azure AD, la chiamata API non è autorizzata.
 
-Continuare con l'esercitazione successiva nella serie (vedere [Passaggi successivi](#next-steps)) per la creazione di un'API Web protetta per la directory.
+Per correggere l'errore, continuare con l'esercitazione successiva della serie (vedere [Passaggi successivi](#next-steps)) per la creazione di un'API Web protetta per la directory.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -151,4 +155,4 @@ In questo articolo si è appreso come:
 Passare ora all'esercitazione successiva nella serie per concedere l'accesso a un'API Web protetta dall'applicazione a pagina singola:
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Concedere l'accesso a un'API Web ASP.NET Core da un'app a pagina singola con Azure Active Directory B2C](active-directory-b2c-tutorials-spa-webapi.md)
+> [Esercitazione: Concedere l'accesso a un'API Web ASP.NET Core da un'applicazione a pagina singola usando Azure AD B2C >](active-directory-b2c-tutorials-spa-webapi.md)

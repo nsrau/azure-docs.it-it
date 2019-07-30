@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: 6a9d6ec651cd365995ce63a8dff6d60c8b23dec1
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 52cb11b015bb231b91184a2270e333e4c9aa8303
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312649"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424288"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Caricare i dati in modo incrementale da un database SQL di Azure a un archivio BLOB di Azure
 In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati delta da una tabella di un database SQL di Azure a un archivio BLOB di Azure. 
@@ -238,7 +238,7 @@ In questa esercitazione si crea una pipeline con due attività di ricerca, un'at
 
         ![Seconda attività di ricerca: nuovo set di dati](./media/tutorial-incremental-copy-portal/source-dataset-connection.png)
 17. Passare all'editor di pipeline facendo clic sulla scheda della pipeline in alto oppure sul nome della pipeline nella visualizzazione albero a sinistra. Nella finestra delle proprietà per l'attività **Cerca** verificare che nel campo **Source Dataset** (Set di dati di origine) sia selezionato **SourceDataset**. 
-18. Selezionare **Query** per il campo **Use Query** (Usa query) e immettere la query seguente, con cui si seleziona solo il valore massimo di **LastModifytime** da **data_source_table**. Assicurarsi di aver controllato anche **Solo prima riga**.
+18. Selezionare **Query** per il campo **Use Query** (Usa query) e immettere la query seguente, con cui si seleziona solo il valore massimo di **LastModifytime** da **data_source_table**. Assicurarsi di aver selezionato anche **Solo prima riga**.
 
     ```sql
     select MAX(LastModifytime) as NewWatermarkvalue from data_source_table

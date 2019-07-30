@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/18/2019
 ms.author: spelluru
-ms.openlocfilehash: b5abb8d4aad7c58bf673aa578255efe12d32ad4b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ee9a68df685095244fc9471b7d4ab0f6cee0642d
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422899"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360271"
 ---
 # <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Esercitazione: Accedere a un lab in Azure DevTest Labs
 Questa esercitazione descrive come usare il lab creato in [Esercitazione: Creare un lab in Azure DevTest Labs](tutorial-create-custom-lab.md).
@@ -58,8 +58,15 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
     ![Connettersi alla macchina virtuale](./media/tutorial-use-custom-lab/connect-button.png)
 2. Salvare il file **RDP** scaricato nel disco rigido e usarlo per connettersi alla macchina virtuale. Specificare il nome utente e la password indicati quando è stata creata la VM nella sezione precedente. 
 
-    > [!NOTE] 
-    > Per connettersi a una VM Linux, è necessario abilitare l'accesso SSH e/o RDP alla macchina virtuale. Per la procedura di connessione a una VM Linux tramite RDP, vedere [Installare e configurare Desktop remoto per connettersi a una VM Linux di Azure](../virtual-machines/linux/use-remote-desktop.md). 
+    Per connettersi a una VM Linux, è necessario abilitare l'accesso SSH e/o RDP alla macchina virtuale. Per la procedura di connessione a una VM Linux tramite RDP, vedere [Installare e configurare Desktop remoto per connettersi a una VM Linux di Azure](../virtual-machines/linux/use-remote-desktop.md). 
+
+    > [!NOTE]
+    > Esistono altri modi per accedere alla pagina Macchina virtuale per la VM. Eccone alcuni: 
+    > 
+    > 1. Cercare tutte le VM nella sottoscrizione. Selezionare la VM nell'elenco di macchine virtuali per passare alla pagina **Macchina virtuale**.
+    > 2. Passare alla pagina **Gruppo di risorse** relativa al gruppo di risorse. Quindi selezionare la VM nell'elenco di risorse del gruppo di risorse per passare alla pagina **Macchina virtuale**. 
+    >
+    > Non usare il pulsante **Connetti** sulla barra degli strumenti nella pagina **Macchina virtuale** a cui si accede usando queste opzioni. Al contrario, passare alla pagina **Macchina virtuale** dalla pagina **DevTest Labs**, come illustrato in questo articolo, quindi usare il pulsante **Connetti** sulla barra degli strumenti.
 
 
 ## <a name="unclaim-the-vm"></a>Annullare la richiesta della VM

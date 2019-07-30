@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 05/15/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1dae1b8577c4f90211c3b377dbf88efe6907326
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 66cb7218b5217565529e1e15d875c23dff10e06f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243881"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382278"
 ---
 # <a name="reset-your-own-work-or-school-password-overview"></a>Panoramica della reimpostazione della password per un account aziendale o dell'istituto di istruzione
 
@@ -34,5 +34,5 @@ Per informazioni dettagliate e istruzioni su come registrare l'account per la re
 
 |Articolo |DESCRIZIONE |
 |------|------------|
-|[Registrarsi per la reimpostazione della password self-service](active-directory-passwords-reset-register.md)| Istruzioni su come verificare i metodi di autenticazione e registrarsi per la reimpostazione della password self-service per poter reimpostare la password.|
-|[Reimpostare la password](user-help-reset-password.md)| Istruzioni su come reimpostare o sbloccare la password per un account aziendale o dell'istituto di istruzione.|
+| [Registrarsi per la reimpostazione della password self-service](active-directory-passwords-reset-register.md) ] Istruzioni su come verificare i metodi di autenticazione e registrarsi per la reimpostazione della password self-service per poter reimpostare la propria password.|
+| [Reimpostare la password](user-help-reset-password.md) ] Istruzioni su come reimpostare o sbloccare la password per un account aziendale o dell'istituto di istruzione.|

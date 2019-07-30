@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: b9ced0b08ed26057a45959f759fb90cbd7efe2a5
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 305804682ede9833619837807d6f174ec670560e
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239807"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414254"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Esercitazione: Sviluppare un modulo IoT Edge in C# per dispositivi Linux
 
@@ -42,6 +42,9 @@ Usare la tabella seguente per informazioni sulle opzioni disponibili per lo svil
 | -- | ------------------ | ------------- |
 | **Linux AMD64** | ![Moduli C# per LinuxAMD64 in Visual Studio Code](./media/tutorial-c-module/green-check.png) | ![Moduli C# per LinuxAMD64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
 | **Linux ARM32** | ![Moduli C# per LinuxARM32 in Visual Studio Code](./media/tutorial-c-module/green-check.png) | ![Moduli C# per LinuxARM64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
+
+>[!NOTE]
+>Il supporto per i dispositivi Linux ARM64 è disponibile in [anteprima pubblica](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Per altre informazioni, vedere [Sviluppare ed eseguire il debug di moduli IoT Edge ARM64 in Visual Studio Code (anteprima)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -93,7 +96,7 @@ Il file dell'ambiente archivia le credenziali per il registro contenitori e le c
 
 ### <a name="select-your-target-architecture"></a>Selezionare l'architettura di destinazione
 
-Attualmente, Visual Studio Code può sviluppare moduli C per dispositivi Linux AMD64 e Linux ARM32v7. È necessario selezionare l'architettura di destinazione per ogni soluzione, perché il contenitore viene creato ed eseguito in modo diverso in base al tipo di architettura. L'impostazione predefinita è Linux AMD64. 
+Attualmente, Visual Studio Code può sviluppare moduli C# per dispositivi Linux AMD64 e Linux ARM32v7. È necessario selezionare l'architettura di destinazione per ogni soluzione, perché il contenitore viene creato ed eseguito in modo diverso in base al tipo di architettura. L'impostazione predefinita è Linux AMD64. 
 
 1. Aprire il riquadro comandi e cercare **Azure IoT Edge: Set Default Target Platform for Edge Solution** (Azure IoT Edge: Imposta la piattaforma di destinazione predefinita per la soluzione Edge) oppure selezionare l'icona del collegamento sulla barra laterale nella parte inferiore della finestra. 
 
@@ -298,7 +301,7 @@ Dopo aver applicato il manifesto della distribuzione al dispositivo IoT Edge, il
 
 È possibile visualizzare lo stato del dispositivo IoT Edge tramite la sezione **Azure IoT Hub Devices** (Dispositivi hub IoT di Azure) della finestra di esplorazione di Visual Studio Code. Espandere i dettagli del dispositivo per visualizzare un elenco dei moduli distribuiti e in esecuzione.
 
-1. In Esplora risorse di Visual Studio Code fare clic con il pulsante destro del mouse sul nome del dispositivo IoT Edge e scegliere **Start Monitoring Built-in Event Endpoint** (Avvia il monitoraggio dell'endpoint evento predefinito).
+1. Nella finestra di esplorazione di Visual Studio Code fare clic con il pulsante destro del mouse sul nome del dispositivo IoT Edge e scegliere **Start Monitoring Built-in Event Endpoint** (Avvia monitoraggio endpoint eventi predefinito).
 
 2. Visualizzare i messaggi in arrivo nell'hub IoT. L'arrivo dei messaggi potrebbe richiedere del tempo, perché il dispositivo IoT Edge deve ricevere la nuova distribuzione e avviare tutti i moduli. Quindi, a causa delle modifiche apportate, il codice CModule aspetta che la temperatura del computer raggiunga i 25 gradi prima di inviare messaggi. Ai messaggi che indicano il raggiungimento della soglia di temperatura viene inoltre aggiunto il tipo di messaggio **Alert**. 
 

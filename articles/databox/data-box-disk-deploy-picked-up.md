@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 06/25/2019
+ms.date: 07/23/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 7e7a1f119a2f2b0e60645cb776b26c124910cacb
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ca42532fe6ba954180ce06ed0e3561e42f1fb447
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448205"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424244"
 ---
+::: zone target="docs"
+
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Esercitazione: Restituire Azure Data Box Disk e verificare il caricamento dei dati in Azure
 
 Questa è l'ultima esercitazione della serie: Distribuire Azure Data Box Disk. In questa esercitazione si apprenderà come:
@@ -28,6 +30,7 @@ Questa è l'ultima esercitazione della serie: Distribuire Azure Data Box Disk. I
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, assicurarsi di aver completato l'[Esercitazione: copiare i dati in Azure Data Box Disk ed eseguire la verifica](data-box-disk-deploy-copy-data.md).
+
 
 ## <a name="ship-data-box-disk-back"></a>Restituire i dischi di Data Box
 
@@ -229,5 +232,41 @@ Passare alla guida pratica successiva per scoprire come gestire i dischi di Data
 
 > [!div class="nextstepaction"]
 > [Usare il portale di Azure per amministrare Azure Data Box Disk](./data-box-portal-ui-admin.md)
+
+::: zone-end
+
+
+::: zone target="chromeless"
+
+# <a name="return-the-disk-and-verify-upload-to-azure"></a>Restituire il disco e verificare il caricamento in Azure
+
+## <a name="ship-to-azure"></a>Spedire ad Azure
+
+1. Dopo aver completato la convalida dei dati, scollegare i dischi. Rimuovere i cavi di collegamento.
+2. Avvolgere i dischi e i cavi di collegamento nel pluriball e inserirli nella scatola per la spedizione. In caso di accessori mancanti, potrebbero essere addebitate spese aggiuntive.
+    - Riutilizzare l'imballaggio della spedizione iniziale.  
+    - È consigliabile imballare i dischi avvolgendoli con cura in una pellicola a bolle d'aria.
+    - Assicurarsi di riempire i vuoti per ridurre i movimenti all'interno della scatola.
+3. I passaggi successivi dipendono dalla destinazione di restituzione del dispositivo.
+    - [Pianificare un ritiro con UPS per la restituzione negli Stati Uniti e in Canada](data-box-disk-deploy-picked-up.md#pick-up-in-us-canada).
+    - [Pianificare un ritiro con DHL per l'Europa](data-box-disk-deploy-picked-up.md#pick-up-in-europe) visitando il relativo sito Web e specificando il numero di lettera di trasporto aereo.
+    - [Pianificare un ritiro per i paesi nell'area Australia-Pacifico](data-box-disk-deploy-picked-up.md#pick-up-in-asia-pacific-region), come Australia, Giappone, Corea e Singapore.
+4. Dopo il ritiro dei dischi da parte del vettore, lo stato dell'ordine nel portale viene aggiornato e viene visualizzato un ID di tracciabilità.
+
+## <a name="verify-upload-to-azure"></a>Verificare il caricamento in Azure
+
+Dopo il caricamento in Azure, verificare che i dati si trovino nell'account o negli account di archiviazione prima di eliminarli dall'origine. I dati possono trovarsi in:
+
+- Account di archiviazione di Azure. Quando si copiano i dati in Data Box, a seconda del tipo, i dati vengono caricati in uno dei percorsi seguenti nell'account di archiviazione di Azure.
+
+    - **Per i BLOB in blocchi e i BLOB di pagine**: https://<nome_account_archiviazione>.blob.core.windows.net/<containername>/files/a.txt
+
+    - **Per File di Azure**: https://<nome_account_archiviazione>.file.core.windows.net/<sharename>/files/a.txt
+
+    In alternativa, è possibile passare all'account di archiviazione di Azure nel portale di Azure e procedere da questa posizione.
+
+- Gruppi di risorse di dischi gestiti. Quando si creano dischi gestiti, i dischi rigidi virtuali vengono caricati come BLOB di pagine e quindi convertiti in dischi gestiti. I dischi gestiti vengono associati ai gruppi di risorse specificati al momento della creazione dell'ordine.
+
+::: zone-end
 
 

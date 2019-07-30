@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 93cda8680bc665055d449e86c24d6565f6fc525f
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: c859fb9b8b3509e8369559a3a9a4d45cb4e34125
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296485"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414149"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Creare e condividere i dashboard dei dati di Log Analytics
 
@@ -75,7 +75,7 @@ Salvare la query selezionando il pulsante **Salva query** nella parte superiore 
 
 ![Salvare la query](media/tutorial-logs-dashboards/save-query.png)
 
-Nel pannello di controllo **Salva query** specificare un nome, ad esempio *Macchine virtuali di Azure - Utilizzo del processore* e una categoria, ad esempio *Dashboard*, e quindi fare clic su **Salva**.  In questo modo è possibile creare una raccolta di query comuni che è possibile usare e modificare.  Infine, aggiungere la query al dashboard condiviso creato in precedenza selezionando il pulsante **Aggiungi** nell'angolo in alto a destra nella pagina e quindi selezionando il nome del dashboard.
+Nel pannello di controllo **Salva query** specificare un nome, ad esempio *Macchine virtuali di Azure - Utilizzo del processore* e una categoria, ad esempio *Dashboard*, e quindi fare clic su **Salva**.  In questo modo è possibile creare una raccolta di query comuni che è possibile usare e modificare.  Infine, aggiungere la query al dashboard condiviso creato in precedenza selezionando il pulsante **Aggiungi al dashboard** nell'angolo in alto a destra nella pagina e quindi selezionando il nome del dashboard.
 
 La query aggiunta al dashboard presenta un titolo generico e un commento sotto di essa.
 

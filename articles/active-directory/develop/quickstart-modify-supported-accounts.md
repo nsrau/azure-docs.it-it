@@ -1,5 +1,5 @@
 ---
-title: Modificare gli account supportati da un'applicazione registrata con Microsoft Identity Platform | Azure
+title: Modificare gli account delle app di Microsoft Identity Platform | Azure
 description: Configurare un'applicazione registrata con Microsoft Identity Platform per modificare gli utenti o gli account che possono accedere all'applicazione.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00d99ae48abfcb3e4d4abc0d63565994df45f746
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: be62dabc01e00465fa5227c5531fa18a16cf10a9
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545717"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380771"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Guida introduttiva: Modificare gli account supportati da un'applicazione
 

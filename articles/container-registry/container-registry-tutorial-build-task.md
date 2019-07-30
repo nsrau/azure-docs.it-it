@@ -3,17 +3,18 @@ title: Esercitazione - Automatizzare la compilazione di immagini dei contenitori
 description: Questa esercitazione illustra come configurare un'attività di Registro Azure Container per attivare automaticamente compilazioni delle immagini dei contenitori nel cloud quando si esegue il commit di codice sorgente in un repository Git.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 05/04/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 7a9a1e3d3c92f43d19a75e7cd0e10b3fd395a9b5
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: ea3f4f295da747b3a53956c0888797a5f8607d6e
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544965"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310484"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Esercitazione: Automatizzare la compilazione di immagini dei contenitori nel cloud quando si esegue il commit di codice sorgente
 
@@ -33,7 +34,7 @@ Questa esercitazione presuppone che siano già state completate le procedure del
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si preferisce usare l'interfaccia della riga di comando di Azure in locale, è necessario che sia installata l'interfaccia della riga di comando di Azure versione **2.0.46** o successiva ed eseguire l'accesso con [az login][az-login]. Eseguire `az --version` per trovare la versione. Se è necessario installare o aggiornare l'interfaccia della riga di comando, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
+Se si preferisce usare l'interfaccia della riga di comando di Azure in locale, è necessario che sia installata la versione **2.0.46** o successiva e che sia stato eseguito l'accesso con [az login][az-login]. Eseguire `az --version` per trovare la versione. Se è necessario installare o aggiornare l'interfaccia della riga di comando, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
 
 [!INCLUDE [container-registry-task-tutorial-prereq.md](../../includes/container-registry-task-tutorial-prereq.md)]
 
@@ -208,7 +209,7 @@ Run ID: da2 was successful after 27s
 
 Dopo aver testato l'attività eseguendola manualmente, attivarla automaticamente con una modifica del codice sorgente.
 
-Per prima cosa, verificare di trovarsi nella directory contenente il clone locale del [repository][sample-repo]:
+Prima di tutto, verificare di trovarsi nella directory contenente il clone locale del [repository][sample-repo]:
 
 ```azurecli-interactive
 cd acr-build-helloworld-node
@@ -251,7 +252,7 @@ Run ID: da4 was successful after 38s
 
 ## <a name="list-builds"></a>Elencare le compilazioni
 
-Per visualizzare un elenco delle esecuzioni delle attività che ACR Tasks ha completato per il registro, eseguire il comando [az acr task list-runs][az-acr-task-list-runs]:
+Per visualizzare un elenco delle esecuzioni di attività completate da Attività del Registro Azure Container, eseguire il comando [az acr task list-runs][az-acr-task-list-runs]:
 
 ```azurecli-interactive
 az acr task list-runs --registry $ACR_NAME --output table

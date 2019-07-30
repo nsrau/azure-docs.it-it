@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/11/2019
 ms.author: spelluru
-ms.openlocfilehash: 803fe6eff8804dbd407642386865fe975c8db524
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0c50a321cbeb0d07a5039038ff796df00463ac8a
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67123247"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385660"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Esercitazione: Configurare un lab per le classi 
 Questa esercitazione descrive come configurare un lab per le classi con macchine virtuali usate dagli studenti nella classe.  
@@ -113,14 +113,14 @@ Un proprietario del lab può aggiungere altri utenti al ruolo **Autore di labora
 È possibile impostare quote per utente usando la procedura seguente: 
 
 1. Selezionare **Users** (Utenti) nel menu a sinistra se la pagina non è già attiva. 
-2. Selezionare **Quota per user:** (Quota per utente) sulla barra degli strumenti. 
+2. Selezionare **Quota per user (Quota per utente): 10 hours** (10 ore) sulla barra degli strumenti. 
 3. Nella pagina **Quote per user** (Quota per utente) specificare il numero di ore da assegnare a ogni utente (studente): 
+    1. **Total number of lab hours per user** (Numero totale di ore lab per utente). Gli utenti possono usare le proprie macchine virtuali per il numero di ore specificato (indicato in questo campo), **in aggiunta all'orario pianificato**. Se si seleziona questa opzione, immettere il **numero di ore** nella casella di testo. 
+
+        ![Numero di ore per utente](../media/how-to-configure-student-usage/number-of-hours-per-user.png). 
     1. **0 hours (schedule only)** (0 ore - solo pianificazione). Gli utenti possono usare le proprie macchine virtuali durante l'orario pianificato oppure quando il proprietario del lab attiva le macchine virtuali per loro.
 
         ![Zero ore - solo orario pianificato](../media/how-to-configure-student-usage/zero-hours.png)
-    1. **Total number of lab hours per user** (Numero totale di ore lab per utente). Gli utenti possono usare le proprie macchine virtuali per il numero di ore specificato (indicato in questo campo), **in aggiunta all'orario pianificato**. Se si seleziona questa opzione, immettere il **numero di ore** nella casella di testo. 
-
-        ![Numero di ore per utente](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
     4. Selezionare **Salva**. 
 5. Nella barra degli strumenti verranno visualizzati ora i valori modificati: **Quota per user (Quota per utente): &lt;numero di ore&gt;** . 
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: b6ef08be346aebd220b7234253ce45c4615e38a9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 53a46c6137c3336c405eb62dc7b254ac26c13d9e
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445518"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68406005"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Esercitazione: usare Apache Storm con Apache Kafka in HDInsight
 
@@ -58,7 +58,7 @@ Le variabili di ambiente seguenti possono essere impostate quando si installa Ja
 > 
 > Per comodità, questo documento si collega a un modello in grado di creare tutte le risorse di Azure necessarie. 
 >
-> Per altre informazioni sull'uso di HDInsight in una rete virtuale, vedere il documento [Estendere Azure HDInsight usando Rete virtuale di Azure](hdinsight-extend-hadoop-virtual-network.md).
+> Per altre informazioni sull'uso di HDInsight in una rete virtuale, vedere il documento [Pianificare una rete virtuale per HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
 ## <a name="storm-and-kafka"></a>Storm e Kafka
 
@@ -408,9 +408,9 @@ Per creare una Rete virtuale di Microsoft Azure e quindi crearvi i cluster Kafka
 
       | Impostazione | Valore |
       | --- | --- |
-      | Sottoscrizione | Sottoscrizione di Azure |
-      | Gruppo di risorse | Gruppo di risorse che contiene le risorse. |
-      | Località | Area di Azure in cui vengono create le risorse. |
+      | Subscription | Sottoscrizione di Azure |
+      | Resource group | Gruppo di risorse che contiene le risorse. |
+      | Location | Area di Azure in cui vengono create le risorse. |
       | Nome del cluster Kafka | Nome del cluster Kafka. |
       | Nome del cluster Storm | Nome del cluster Storm. |
       | Nome utente dell'account di accesso del cluster | Nome utente dell'amministratore per i cluster. |

@@ -3,17 +3,18 @@ title: 'Esercitazione: Preparare un registro contenitori per Istanze di Azure Co
 description: Esercitazione di Istanze di Azure Container - Parte 2 di 3 - Preparare un registro contenitori di Azure ed eseguire il push di un'immagine
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c1a4313f9a8174b9ea6e6cff694b9a0a9cf395d1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b3c907eacb14ed65410a60fcf22ebe99fd8cc3bb
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538154"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325614"
 ---
 # <a name="tutorial-deploy-an-azure-container-registry-and-push-a-container-image"></a>Esercitazione: Distribuire un registro contenitori di Azure ed eseguire il push di un'immagine del contenitore
 
@@ -140,7 +141,7 @@ mycontainerregistry082.azurecr.io/aci-tutorial-app    v1        5c745774dfa9    
 
 ## <a name="push-image-to-azure-container-registry"></a>Eseguire il push dell'immagine in Registro Azure Container
 
-Dopo aver assegnato all'immagine *aci-tutorial-app* il tag con il nome completo del server di accesso del registro privato, è possibile eseguire il push dell'immagine nel registro con il comando [docker push][docker-push]. Sostituire `<acrLoginServer>` con il nome completo del server di accesso ottenuto nel passaggio precedente.
+Dopo aver assegnato all'immagine *aci-tutorial-app* il tag con il nome completo del server di accesso del registro privato, è possibile eseguirne il push nel registro con il comando [docker push][docker-push]. Sostituire `<acrLoginServer>` con il nome completo del server di accesso ottenuto nel passaggio precedente.
 
 ```bash
 docker push <acrLoginServer>/aci-tutorial-app:v1
@@ -168,7 +169,7 @@ Per verificare che l'immagine di cui è appena stato eseguito il push si trovi e
 az acr repository list --name <acrName> --output table
 ```
 
-Ad esempio: 
+Ad esempio:
 
 ```console
 $ az acr repository list --name mycontainerregistry082 --output table

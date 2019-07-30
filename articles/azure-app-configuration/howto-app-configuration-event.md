@@ -13,24 +13,20 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 2cb9ad28a21842987f8c0f7c75151ab8c7fe6fa0
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: d41ce06279536e3479b96d8d7afedf81624dbc9b
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735810"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326589"
 ---
 # <a name="quickstart-route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Guida introduttiva: Instradare gli eventi di Configurazione app di Azure a un endpoint Web con l'interfaccia della riga di comando di Azure
 
-Gli utenti di Configurazione app di Azure possono sottoscrivere eventi generati ogni volta che le coppie chiave-valore vengono modificate. Questi eventi possono attivare webhook, Funzioni di Azure, code di archiviazione di Azure o qualsiasi altro gestore di eventi supportato da [Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/event-handlers). Questo articolo descrive come usare l'interfaccia della riga di comando di Azure per sottoscrivere gli eventi di Configurazione app di Azure.
+Questo argomento di avvio rapido descrive come configurare le sottoscrizioni di eventi di Configurazione app di Azure per inviare eventi di modifica delle coppie chiave-valore a un endpoint Web. Gli utenti di Configurazione app di Azure possono sottoscrivere eventi generati ogni volta che le coppie chiave-valore vengono modificate. Questi eventi possono attivare webhook, Funzioni di Azure, code di archiviazione di Azure o qualsiasi altro gestore di eventi supportato da Griglia di eventi di Azure. In genere, si inviano eventi a un endpoint che elabora i dati dell'evento e intraprende azioni. Per maggiore semplicità, tuttavia, in questo articolo gli eventi vengono inviati a un'app Web che raccoglie e visualizza i messaggi.
 
-In genere, si inviano eventi a un endpoint che elabora i dati dell'evento e intraprende azioni. Per maggiore semplicità, tuttavia, in questo articolo gli eventi vengono inviati a un'app Web che raccoglie e visualizza i messaggi.
+## <a name="prerequisites"></a>Prerequisiti
 
-Al termine della procedura descritta in questo articolo, si potrà notare che i dati dell'evento sono stati inviati all'app Web.
-
-![Visualizzare l'evento della sottoscrizione](./media/quickstarts/event-grid/view-results.png)
-
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+- Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/). È anche possibile usare Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -144,3 +140,4 @@ Ora che si è appreso come creare argomenti e sottoscrizioni di eventi, è possi
 
 - [Reazioni a eventi delle coppie chiave-valore](concept-app-configuration-event.md)
 - [Informazioni sulla griglia di eventi](../event-grid/overview.md)
+- [Gestori di Griglia di eventi di Azure](../event-grid/event-handlers.md)

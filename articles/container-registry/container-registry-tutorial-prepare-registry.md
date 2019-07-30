@@ -3,17 +3,18 @@ title: 'Esercitazione: Creare un registro con replica geografica di Docker in Az
 description: Creare un registro contenitori di Azure, configurare la replica geografica, preparare un'immagine Docker e distribuirla nel registro. Prima parte di una serie in tre parti.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2017
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 7aec257335e3380fa99669c1191ee89857ec975d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 87746bd39e624699612bf5221258ad757cd462b3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533665"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68309576"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Esercitazione: Preparare un registro contenitori di Azure con replica geografica
 
@@ -99,7 +100,7 @@ Il comando restituisce `Login Succeeded` al termine dell'esecuzione.
 
 ## <a name="get-application-code"></a>Ottenere il codice dell'applicazione
 
-L'esempio in questa esercitazione include un'applicazione Web di piccole dimensioni creata con [ASP.NET Core][aspnet-core]. L'app usa una pagina HTML che visualizza l'area da cui l'immagine viene distribuita da Registro Azure Container.
+L'esempio in questa esercitazione include una semplice applicazione Web compilata con [ASP.NET Core][aspnet-core]. L'app usa una pagina HTML che visualizza l'area da cui l'immagine viene distribuita da Registro Azure Container.
 
 ![App dell'esercitazione visualizzata in un browser][tut-app-01]
 
@@ -114,9 +115,9 @@ Se `git` non è installato, è possibile [scaricare l'archivio ZIP][acr-hellowor
 
 ## <a name="update-dockerfile"></a>Aggiornare il documento Dockerfile
 
-Il documento Dockerfile fornito nell'esempio illustra come viene compilato il contenitore. Questo documento usa un'immagine [aspnetcore][dockerhub-aspnetcore] ufficiale come punto di partenza, copia i file dell'applicazione nel contenitore, installa le dipendenze, compila l'output usando l'immagine [aspnetcore-build][dockerhub-aspnetcore-build] ufficiale e infine compila un'immagine aspnetcore ottimizzata.
+Il documento Dockerfile fornito nell'esempio illustra come viene compilato il contenitore. Questo documento viene creato da un'immagine [aspnetcore][dockerhub-aspnetcore] ufficiale, copia i file dell'applicazione nel contenitore, installa le dipendenze, compila l'output usando l'immagine [aspnetcore-build][dockerhub-aspnetcore-build] ufficiale e quindi compila un'immagine aspnetcore ottimizzata.
 
-Il documento [Dockerfile][dockerfile] si trova nella directory `./AcrHelloworld/Dockerfile` nell'origine clonata.
+Il [Dockerfile][dockerfile] si trova nella directory `./AcrHelloworld/Dockerfile` nell'origine clonata.
 
 ```Dockerfile
 FROM microsoft/aspnetcore:2.0 AS base

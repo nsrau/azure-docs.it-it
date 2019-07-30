@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 041bcf32035ab6cdc3ee4df06050f75186759f5e
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: bcfd1ef02c68de7709cb8642b94f23a6884ea156
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835641"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464770"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Esercitazione: Abilitare l'autenticazione in un'applicazione Web con Azure Active Directory B2C
 
@@ -64,8 +64,9 @@ I due progetti inclusi nella soluzione di esempio sono i seguenti:
 Modificare l'esempio per usare l'applicazione registrata nel tenant in uso, con l'ID applicazione e la chiave annotati in precedenza. Configurare anche i flussi utente creati. L'esempio definisce i valori di configurazione come impostazioni nel file Web.config. Per modificare le impostazioni:
 
 1. Aprire la soluzione **B2C-WebAPI-DotNet** in Visual Studio.
-2. Nel progetto **TaskWebApp** aprire il file **Web.config**. Sostituire il valore di `ida:Tenant` con il nome del tenant creato. Sostituire il valore di `ida:ClientId` con l'ID applicazione registrato. Sostituire il valore di `ida:ClientSecret` con la chiave registrata.
+2. Nel progetto **TaskWebApp** aprire il file **Web.config**. Sostituire il valore di `ida:Tenant` con il nome del tenant creato. Sostituire il valore di `ida:ClientId` con l'ID applicazione registrato. Sostituire il valore di `ida:ClientSecret` con la chiave registrata. È necessario codificare in XML il segreto client prima di aggiungerlo al file Web.config.
 3. Nel file **Web.config** sostituire il valore di `ida:SignUpSignInPolicyId` con `b2c_1_signupsignin1`. Sostituire il valore di `ida:EditProfilePolicyId` con `b2c_1_profileediting1`. Sostituire il valore di `ida:ResetPasswordPolicyId` con `b2c_1_passwordreset1`.
+
 
 ## <a name="run-the-sample"></a>Eseguire l'esempio
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/17/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 9cc18c7442a55c14ad759201aaf195d2d1bf3309
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: f22273a28d5e4207712bdba71ef788629d51916e
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594053"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321660"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Esercitazione: Configurare HTTPS in un dominio personalizzato della rete CDN di Azure
 
@@ -190,15 +190,11 @@ La convalida automatica richiede in genere qualche ora. Se il dominio non viene 
 ### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>Il dominio personalizzato non è mappato all'endpoint della rete CDN
 
 >[!NOTE]
->La convalida tramite posta elettronica della proprietà del dominio personalizzato non è al momento disponibile per i profili di **Rete CDN di Azure di Akamai**. Se si usa **Rete CDN di Azure di Akamai**, il dominio personalizzato deve essere mappato all'endpoint CDN con un record CNAME come indicato in precedenza.  Questa funzionalità è attualmente presente nel backlog. 
+>Se si usa **Rete CDN di Azure di Akamai**, il dominio personalizzato deve essere mappato all'endpoint CDN con un record CNAME come indicato in precedenza.  Questa funzionalità è attualmente presente nel backlog. 
 
 Se la voce di record CNAME contiene il sottodominio cdnverify, seguire le istruzioni riportate in questo passaggio.
 
-Dopo aver inviato una richiesta per l'abilitazione di HTTPS nel dominio personalizzato, la CA DigiCert convalida la proprietà del dominio contattando il registrante in base alle informazioni sul registrante stesso in [WHOIS](http://whois.domaintools.com/). Per il contatto viene usato l'indirizzo di posta elettronica (impostazione predefinita) o il numero di telefono riportato nella registrazione WHOIS. Prima che la funzionalità HTTPS sia attiva nel dominio personalizzato, è necessario completare la convalida del dominio. Il dominio deve essere approvato entro sei giorni lavorativi. Le richieste non approvate entro sei giorni lavorativi vengono annullate automaticamente. 
-
-![Record WHOIS](./media/cdn-custom-ssl/whois-record.png)
-
-DigiCert invia un messaggio di verifica anche a indirizzi di posta elettronica aggiuntivi. Se le informazioni del registrante WHOIS sono private, verificare di poter eseguire l'approvazione direttamente da uno degli indirizzi seguenti:
+DigiCert invia un messaggio di verifica agli indirizzi di posta elettronica seguenti. Verificare di poter eseguire l'approvazione direttamente da uno degli indirizzi seguenti:
 
 admin@&lt;nome-dominio.com&gt;  
 administrator@&lt;nome-dominio.com&gt;  
@@ -206,7 +202,7 @@ webmaster@&lt;nome-dominio.com&gt;
 hostmaster@&lt;nome-dominio.com&gt;  
 postmaster@&lt;nome-dominio.com&gt;  
 
-Entro pochi minuti si dovrebbe ricevere un messaggio di posta elettronica simile all'esempio seguente, in cui viene chiesto di approvare la richiesta. Se si usa un filtro per la posta indesiderata, aggiungere admin@digicert.com all'elenco degli indirizzi consentiti. Se non si riceve un messaggio di posta elettronica entro 24 ore, contattare il supporto tecnico Microsoft.
+Entro pochi minuti si dovrebbe ricevere un messaggio di posta elettronica simile all'esempio seguente, in cui viene chiesto di approvare la richiesta. Se si usa un filtro per la posta indesiderata, aggiungere verification@digicert.com all'elenco degli indirizzi consentiti. Se non si riceve un messaggio di posta elettronica entro 24 ore, contattare il supporto tecnico Microsoft.
     
 ![Messaggio di posta elettronica di convalida del dominio](./media/cdn-custom-ssl/domain-validation-email.png)
 

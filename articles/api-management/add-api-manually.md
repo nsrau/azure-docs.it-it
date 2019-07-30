@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 14d4bf6d7e1d1f474e2388c4e2ce232574ebf0d8
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 0094364ed2e5d6c024f75a88db90eb703792f9f3
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682798"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405840"
 ---
 # <a name="add-an-api-manually"></a>Aggiungere manualmente un'API
 
@@ -43,16 +43,15 @@ Completare l'argomento di avvio rapido seguente: [Creare un'istanza di Gestione 
     ![API vuota](media/add-api-manually/blank-api.png)
 4. Immettere le impostazioni per l'API.
 
-    ![Impostazioni](media/add-api-manually/settings.png)
-
     |**Nome**|**Valore**|**Descrizione**|
     |---|---|---|
-    |**Nome visualizzato**|"*Blank API*" |Questo nome viene visualizzato nel portale per sviluppatori.|
-    |**URL del servizio Web** (facoltativo)| "*https://httpbin.org*"| Per simulare un'API, è possibile non immettere nulla. <br/>In questo caso, immettere [https://httpbin.org](https://httpbin.org). Si tratta di un servizio pubblico di test. <br/>Per importare un'API di cui viene eseguito il mapping automatico a un back-end, vedere uno degli argomenti nella sezione [Argomenti correlati](#related-topics).|
-    |**Schema URL**|"*HTTPS*"|In questo caso, anche se il back end ha accesso HTTP non sicuro, viene specificato un accesso di Gestione API HTTPS sicuro al back-end. <br/>Questo tipo di scenario (da HTTPS a HTTP) viene chiamato terminazione HTTPS. È possibile eseguirlo se l'API esiste in una rete virtuale (dove è certo che l'accesso è sicuro anche se non viene usato HTTPS). <br/>È possibile usare la "terminazione HTTPS" per il salvataggio in alcuni cicli di CPU.|
-    |**Suffisso dell'URL dell'API**|"*hbin*"| Il suffisso è un nome che identifica questa specifica API in questa istanza di Gestione API. Deve essere univoco nell'istanza di Gestione API.|
-    |**Prodotti**|"*Unlimited*" |Pubblicare l'API associandola a un prodotto. Per fare in modo che l'API venga pubblicata e sia disponibile per gli sviluppatori, aggiungerla a un prodotto. È possibile eseguire questa operazione durante la creazione dell'API o in un secondo momento.<br/><br/>I prodotti sono associazioni di una o più API. È possibile includere diverse API e proporle agli sviluppatori tramite il portale per sviluppatori. <br/>Per avere accesso all'API, gli sviluppatori devono prima sottoscrivere un prodotto. In questo modo ottengono una chiave di sottoscrizione valida per tutte le API nel prodotto. Se si è creata l'istanza di Gestione API, si è già un amministratore e la sottoscrizione a ogni prodotto è stata effettuata per impostazione predefinita.<br/><br/> Per impostazione predefinita, con ogni istanza di Gestione API vengono forniti due prodotti di esempio: **Starter** e **Senza limiti**.| 
-5. Selezionare **Create**.
+    |**Nome visualizzato**|*Blank API*|Questo nome viene visualizzato nel portale per sviluppatori.|
+    |**Nome**|*blank-api*|Fornisce un nome univoco per l'API.|
+    |**URL del servizio Web** (facoltativo)|*https://httpbin.org*| Per simulare un'API, è possibile non immettere nulla. <br/>In questo caso, immettere [https://httpbin.org](https://httpbin.org). Si tratta di un servizio pubblico di test. <br/>Per importare un'API di cui viene eseguito il mapping automatico a un back-end, vedere uno degli argomenti nella sezione [Argomenti correlati](#related-topics).|
+    |**Schema URL**|*HTTPS*|In questo caso, anche se il back end ha accesso HTTP non sicuro, viene specificato un accesso di Gestione API HTTPS sicuro al back-end. <br/>Questo tipo di scenario (da HTTPS a HTTP) viene chiamato terminazione HTTPS. È possibile eseguirlo se l'API esiste in una rete virtuale (dove è certo che l'accesso è sicuro anche se non viene usato HTTPS). <br/>È possibile usare la "terminazione HTTPS" per il salvataggio in alcuni cicli di CPU.|
+    |**Suffisso dell'URL dell'API**|*hbin*| Il suffisso è un nome che identifica questa specifica API in questa istanza di Gestione API. Deve essere univoco nell'istanza di Gestione API.|
+    |**Prodotti**|*Illimitato*|Pubblicare l'API associandola a un prodotto. Per fare in modo che l'API venga pubblicata e sia disponibile per gli sviluppatori, aggiungerla a un prodotto. È possibile eseguire questa operazione durante la creazione dell'API o in un secondo momento.<br/><br/>I prodotti sono associazioni di una o più API. È possibile includere diverse API e proporle agli sviluppatori tramite il portale per sviluppatori. <br/>Per avere accesso all'API, gli sviluppatori devono prima sottoscrivere un prodotto. In questo modo ottengono una chiave di sottoscrizione valida per tutte le API nel prodotto. Se si è creata l'istanza di Gestione API, si è già un amministratore e la sottoscrizione a ogni prodotto è stata effettuata per impostazione predefinita.<br/><br/> Per impostazione predefinita, con ogni istanza di Gestione API vengono forniti due prodotti di esempio: **Starter** e **Senza limiti**.| 
+5. Selezionare **Create** (Crea).
 
 A questo punto, non si hanno operazioni in Gestione API di cui viene eseguito il mapping alle operazioni nell'API back-end. Se si chiama un'operazione esposta tramite il back-end, ma non tramite Gestione API, viene visualizzato un errore **404**.
 
@@ -67,7 +66,7 @@ Questa sezione illustra come aggiungere un'operazione "/get" per eseguirne il ma
 
 1. Selezionare l'API creata nel passaggio precedente.
 2. Fare clic su **+ Aggiungi operazione**.
-3. In **URL** selezionare **GET** e immettere "*/get*" nella risorsa.
+3. In **URL** selezionare **GET** e immettere " */get*" nella risorsa.
 4. Immettere "*FetchData*" in **Nome visualizzato**.
 5. Selezionare **Salva**.
 
@@ -89,7 +88,7 @@ Questa sezione illustra come aggiungere un'operazione che accetta un parametro. 
 
 1. Selezionare l'API creata nel passaggio precedente.
 2. Fare clic su **+ Aggiungi operazione**.
-3. In **URL** selezionare **GET** e immettere "*/status/{codice}*" nella risorsa. Facoltativamente, è possibile fornire alcune informazioni associate a questo parametro. Immettere ad esempio "*Number*" in **TIPO**, "*200*" (impostazione predefinita) in **VALORI**.
+3. In **URL** selezionare **GET** e immettere " */status/{codice}* " nella risorsa. Facoltativamente, è possibile fornire alcune informazioni associate a questo parametro. Immettere ad esempio "*Number*" in **TIPO**, "*200*" (impostazione predefinita) in **VALORI**.
 4. Immettere "GetStatus" in **Nome visualizzato**.
 5. Selezionare **Salva**.
 

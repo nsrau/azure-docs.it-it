@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 07/18/2019
 ms.author: alkohli
-ms.openlocfilehash: d74539ec1de8f503b0d0e423adf6273d1422fed5
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 4955b28dff3193a95950912562cc3b6ec789479d
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592344"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325279"
 ---
 # <a name="use-the-azure-data-box-heavy-to-migrate-your-file-share-content-to-sharepoint-online"></a>Usare Azure Data Box Heavy per eseguire la migrazione del contenuto di una condivisione file in SharePoint Online
 
@@ -66,8 +66,8 @@ Seguire questa procedura per copiare i dati in Data Box Heavy.
 2. Dopo averlo ricevuto, [configurare Data Box Heavy](data-box-heavy-deploy-set-up.md). Occorrerà cablare e configurare entrambi i nodi sul dispositivo.
 3. [Copiare i dati in Azure Data Box Heavy](data-box-heavy-deploy-copy-data.md). Durante la copia accertarsi di:
 
-    - Usare solo la cartella *AzureFile* in Data Box Heavy per copiare i dati. I dati devono infatti essere inseriti in una condivisione file di Azure, non in BLOB in blocchi o in BLOB di pagine.
-    - Copiare i file in una cartella all'interno della cartella *AzureFile*. Una sottocartella all'interno di *AzureFile* determina la creazione di una condivisione file. I file copiati direttamente nella cartella *AzureFile* hanno esito negativo e vengono caricati come BLOB in blocchi. Questa condivisione file verrà montata nella macchina virtuale al passaggio successivo.
+    - Usare solo la cartella *StorageAccountName_AzFile* in Data Box Heavy per copiare i dati. I dati devono infatti essere inseriti in una condivisione file di Azure, non in BLOB in blocchi o in BLOB di pagine.
+    - Copiare i file in una cartella all'interno della cartella *StorageAccountName_AzFile*. Una sottocartella all'interno di *StorageAccountName_AzFile* determina la creazione di una condivisione file. La copia effettuata direttamente nella cartella *StorageAccountName_AzFile* non riesce e i file vengono caricati come BLOB in blocchi. Questa condivisione file verrà montata nella macchina virtuale al passaggio successivo.
     - Copiare i dati in entrambi i nodi di Data Box Heavy.
 3. Eseguire [Prepara per la spedizione](data-box-heavy-deploy-picked-up.md#prepare-to-ship) sul dispositivo. Una preparazione per la spedizione corretta assicura il corretto caricamento dei file in Azure.
 4. [Restituire il dispositivo](data-box-heavy-deploy-picked-up.md#ship-data-box-heavy-back).
@@ -75,7 +75,7 @@ Seguire questa procedura per copiare i dati in Data Box Heavy.
 
 ## <a name="use-spmt-to-migrate-data"></a>Usare lo Strumento di migrazione di SharePoint per eseguire la migrazione dei dati
 
-Dopo aver ricevuto conferma dal team responsabile dei dati di Azure dell'avvenuta copia dei dati, è possibile procedere con la migrazione dei dati in SharePoint Online.
+Dopo aver ricevuto conferma dal team responsabile dei dati di Azure dell'avvenuta copia dei dati, è possibile procedere con la migrazione a SharePoint Online.
 
 Per livelli ottimali di prestazioni e connettività, è consigliabile creare una macchina virtuale di Azure.
 

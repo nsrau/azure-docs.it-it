@@ -8,20 +8,20 @@ manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
+ms.custom: aaddev
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
-ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2182708ea459b578a2a9a94213ab41e76821aefc
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 3ca7e7f282d63160cd1f729fba00f6d7d7704270
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514345"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334129"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application"></a>Guida introduttiva: Concedere l'accesso agli utenti e acquisire un token di accesso da un'applicazione a pagina singola JavaScript
 
@@ -275,3 +275,8 @@ Per consultare il repository MSAL per documentazione, domande frequenti, problem
 
 > [!div class="nextstepaction"]
 > [Repository MSAL.js di GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js)
+
+Contribuire al miglioramento di Microsoft Identity Platform. Completare un breve sondaggio di due domande per condividere la propria opinione.
+
+> [!div class="nextstepaction"]
+> [Sondaggio su Microsoft Identity Platform](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

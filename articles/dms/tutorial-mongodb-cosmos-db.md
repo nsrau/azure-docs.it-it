@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 07/04/2019
-ms.openlocfilehash: 2ff5ebefbe379edda94dcf8ac066027398e2f3f4
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: baf3c372d0c84d4daf439fdc92fa6eeac5d12d0b
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565551"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501028"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Esercitazione: Eseguire la migrazione offline di MongoDB all'API di Azure Cosmos DB per MongoDB con il servizio Migrazione del database
 
@@ -128,6 +128,8 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
      https://blobnameurl/container?SASKEY
      ```
 
+     Questa stringa di connessione della firma di accesso condiviso del contenitore BLOB si trova in Azure Storage Explorer. La creazione della firma di accesso condiviso per il contenitore interessato fornirà l'URL nel formato richiesto descritto sopra.
+     
      Inoltre, in base alle informazioni sui dump nell'archiviazione di Azure, tenere presenti i dettagli seguenti.
 
      * Per i dump BSON, i dati all'interno del contenitore di BLOB devono essere in formato bsondump, in modo che i file di dati vengano inseriti in cartelle con gli stessi nomi dei database che li contengono nel formato collection.bson. I nomi dei file di metadati (se presenti) dovranno essere in formato *collection*.metadata.json.

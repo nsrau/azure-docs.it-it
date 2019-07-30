@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: dcd1ef5c54885b758ac9a301616d79a163999bc9
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 2d26d9e145030e5972289c224dc2f76078d67527
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509627"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498495"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Esercitazione: Compilare un'app Web Java EE e Postgres in Azure
 
@@ -169,7 +169,7 @@ Per configurare il server, saranno necessari i quattro file presenti nella direc
 
 - **postgresql-42.2.5.jar**: questo file JAR è il driver JDBC per Postgres. Per altre informazioni, vedere il [sito Web ufficiale](https://jdbc.postgresql.org/index.html).
 - **postgres-module.xml**: questo file XML dichiara un nome per il modulo Postgres (org.postgres). Specifica anche le risorse e le dipendenze necessarie per usare il modulo.
-- **jboss_cli_commands.cl**: questo file contiene i comandi di configurazione che verranno eseguiti dall'interfaccia della riga di comando di JBoss. I comandi aggiungono il modulo Postgres al server applicazioni WildFly, specificano le credenziali, dichiarano un nome JNDI, impostano la soglia di timeout e così via. Se non si ha familiarità con l'interfaccia della riga di comando di JBoss, vedere la [documentazione ufficiale](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
+- **jboss_cli_commands.cli**: questo file contiene i comandi di configurazione che verranno eseguiti dall'interfaccia della riga di comando di JBoss. I comandi aggiungono il modulo Postgres al server applicazioni WildFly, specificano le credenziali, dichiarano un nome JNDI, impostano la soglia di timeout e così via. Se non si ha familiarità con l'interfaccia della riga di comando di JBoss, vedere la [documentazione ufficiale](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
 - **startup_script.sh**: questo script della shell, infine, verrà eseguito a ogni avvio dell'istanza del servizio app. Lo script esegue una sola funzione: il piping dei comandi di *jboss_cli_commands.cli* all'interfaccia della riga di comando di JBoss.
 
 È consigliabile leggere il contenuto di questi file, soprattutto di *jboss_cli_commands.cli*.
@@ -194,7 +194,7 @@ In una finestra del terminale ricompilare e ridistribuire l'applicazione.
 mvn clean install -DskipTests azure-webapp:deploy
 ```
 
-Congratulazioni! L'applicazione usa ora un database Postgres e tutti i record creati nell'applicazione verranno archiviati in Postgres, anziché nel precedente database H3 in memoria. Per verificare, è possibile creare un record e riavviare il servizio app. I record saranno ancora presenti al riavvio dell'applicazione.
+Congratulazioni! L'applicazione usa ora un database Postgres e tutti i record creati nell'applicazione verranno archiviati in Postgres, anziché nel precedente database H2 in memoria. Per verificare, è possibile creare un record e riavviare il servizio app. I record saranno ancora presenti al riavvio dell'applicazione.
 
 ## <a name="clean-up"></a>Eseguire la pulizia
 

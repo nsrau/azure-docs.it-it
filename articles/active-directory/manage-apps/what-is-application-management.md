@@ -12,16 +12,16 @@ ms.date: 06/05/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcd0338f9195afae0e326155dbc4e10dd4fc1f91
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.openlocfilehash: 5d1ebb4b094ab5c03343486e7af6624273288453
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723899"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68421215"
 ---
 # <a name="application-management-with-azure-active-directory"></a>Gestione di applicazioni con Azure Active Directory
 
-Azure Active Directory (Azure AD) semplifica la gestione delle applicazioni fornendo un unico sistema di gestione delle identità per le app cloud e locali. È possibile aggiungere ad Azure AD le proprie applicazioni SaaS (software come un servizio), locali e line-of-business. Gli utenti eseguono quindi l'accesso una sola volta per accedere in modo facile e sicuro a queste applicazioni, oltre a Office 365 e ad altre applicazioni aziendali Microsoft. È anche possibile ridurre i costi amministrativi automatizzando il provisioning degli utenti e usare l'autenticazione a più fattori e i criteri di accesso condizionale per fornire un accesso sicuro alle applicazioni.
+Azure Active Directory (Azure AD) semplifica la gestione delle applicazioni fornendo un unico sistema di gestione delle identità per le app cloud e locali. È possibile aggiungere ad Azure AD le proprie applicazioni SaaS (software come un servizio), locali e line-of-business. Gli utenti eseguono quindi l'accesso una sola volta per accedere in modo facile e sicuro a queste applicazioni, oltre a Office 365 e ad altre applicazioni aziendali Microsoft. È possibile ridurre i costi amministrativi [automatizzando il provisioning degli utenti](user-provisioning.md). e usare l'autenticazione a più fattori e i criteri di accesso condizionale per fornire un accesso sicuro alle applicazioni.
 
 ![Diagramma che mostra le app federate tramite Azure AD](media/what-is-application-management/app-management-overview.png)
 

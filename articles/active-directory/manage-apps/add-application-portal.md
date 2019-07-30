@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/09/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3de6a2cbdfe7a6d006a3bbfab16792376eda0d07
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 466660a1e064ef41eb330b36107dbdcb1d097498
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702542"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477315"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Guida introduttiva: Aggiungere un'applicazione al tenant di Azure Active Directory
 
@@ -137,9 +137,8 @@ Per usare un logo personalizzato:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva si è appreso come aggiungere un'applicazione della raccolta al tenant di Azure AD. Si è anche appreso come modificare le proprietà di un'applicazione.
+Ora che l'applicazione è stata aggiunta all'organizzazione di Azure AD, [scegliere un metodo di Single Sign-On](what-is-single-sign-on.md#choosing-a-single-sign-on-method) da usare e fare riferimento all'articolo appropriato di seguito:
 
-È ora possibile configurare l'applicazione per l'accesso Single Sign-On.
-
-> [!div class="nextstepaction"]
-> [Configurare l'accesso Single Sign-On](configure-single-sign-on-portal.md)
+- [Configurare l'accesso Single Sign-On basato su SAML](configure-single-sign-on-non-gallery-applications.md)
+- [Configurare l'accesso Single Sign-On tramite password](configure-password-single-sign-on-non-gallery-applications.md)
+- [Configurare l'accesso collegato](configure-linked-sign-on.md)

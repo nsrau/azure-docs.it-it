@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b24888934d7e89a13b1b07b7138be476575fc306
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: c7781651536275eba60bfde49e00a450dde6d3e1
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204610"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68357037"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Esercitazione: Configurare l'aggiunta all'identità ibrida di Azure Active Directory per i domini gestiti
 
@@ -134,7 +134,7 @@ Se alcuni dei dispositivi aggiunti a un dominio sono dispositivi Windows di live
 
 ### <a name="configure-the-local-intranet-settings-for-device-registration"></a>Configurare le impostazioni intranet locali per la registrazione dei dispositivi
 
-Per completare l'aggiunta ad Azure AD ibrido dei dispositivi Windows di livello inferiore e per evitare le richieste dei certificati quando i dispositivi vengono autenticati in Azure AD, è possibile eseguire il push di criteri nei dispositivi aggiunti al dominio per aggiungere gli URL seguenti all'area Intranet locale in Internet Explorer:
+Per completare l'aggiunta ad Azure AD ibrido dei dispositivi Windows di livello inferiore e per evitare le richieste di certificati quando i dispositivi vengono autenticati in Azure AD, è possibile eseguire il push di criteri nei dispositivi aggiunti al dominio per aggiungere gli URL seguenti all'area Intranet locale in Internet Explorer:
 
 - `https://device.login.microsoftonline.com`
 - `https://autologon.microsoftazuread-sso.com`
@@ -143,7 +143,7 @@ Per completare l'aggiunta ad Azure AD ibrido dei dispositivi Windows di livello 
 
 ### <a name="configure-seamless-sso"></a>Configurare Seamless SSO
 
-Per completare correttamente l'aggiunta ad Azure AD ibrido dei dispositivi Windows di livello inferiore in un dominio gestito che usa la sincronizzazione dell'hash delle password (../hybrid/whatis-phs.md) o l'[autenticazione pass-through](../hybrid/how-to-connect-pta.md) come metodo di autenticazione cloud di Azure AD, è necessario anche [configurare Seamless SSO](../hybrid/how-to-connect-sso-quick-start.md#step-2-enable-the-feature).
+Per completare correttamente l'aggiunta ad Azure AD ibrido dei dispositivi Windows di livello inferiore in un dominio gestito che usa la [sincronizzazione dell'hash delle password](../hybrid/whatis-phs.md) o l'[autenticazione pass-through](../hybrid/how-to-connect-pta.md) come metodo di autenticazione cloud di Azure AD, è necessario anche [configurare Seamless SSO](../hybrid/how-to-connect-sso-quick-start.md#step-2-enable-the-feature).
 
 ### <a name="install-microsoft-workplace-join-for-windows-downlevel-computers"></a>Installare Microsoft Workplace Join for Windows per i computer di livello inferiore
 

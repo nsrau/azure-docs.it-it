@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 05/08/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8a200df2f474cead197a0e74ae7e27927f814d2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: d981ad0f02e9cef31a01a9d407de22cf63352c01
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242266"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382199"
 ---
 # <a name="security-info-preview-overview"></a>Panoramica delle informazioni di sicurezza (anteprima)
 
@@ -32,13 +32,14 @@ La pagina **Informazioni di sicurezza** consente di configurare i metodi di veri
 
 Per informazioni dettagliate e istruzioni sull'aggiunta, l'aggiornamento e l'eliminazione delle informazioni di sicurezza, in base al metodo che si vuole usare, vedere gli articoli seguenti:.
 
-|Articolo |DESCRIZIONE |
-|------|------------|
-|[Aggiungere il metodo di sicurezza dal messaggio di richiesta della pagina di accesso](security-info-setup-signin.md)| Istruzioni su come configurare le informazioni di sicurezza se richiesto nella pagina di accesso. Questo messaggio verrà visualizzato solo se le informazioni si sicurezza richieste dall'organizzazione non sono state già configurate. Se non viene visualizzato, è comunque possibile cambiare e aggiungere i metodi di verifica seguendo gli altri articoli di questa tabella.|
-|[Aggiungere l'app Microsoft Authenticator come metodo di verifica](security-info-setup-auth-app.md)| Istruzioni su come configurare l'app Microsoft Authenticator come metodo di verifica.|
-|[Aggiungere l'uso di SMS come metodo di verifica](security-info-setup-text-msg.md)| Istruzioni su come configurare i messaggi SMS come metodo di verifica.|
-|[Aggiungere le telefonate come metodo di verifica](security-info-setup-phone-number.md)| Istruzioni su come configurare il proprio numero di telefono come metodo di verifica.|
-|[Aggiungere un indirizzo di posta elettronica per la reimpostazione della password](security-info-setup-email.md)| Istruzioni su come aggiungere l'indirizzo di posta elettronica in modo da poter reimpostare autonomamente la password.|
-|[Aggiungere le domande di sicurezza per la reimpostazione della password](security-info-setup-questions.md)| Istruzioni su come aggiungere domande di sicurezza predefinite in modo da poter reimpostare autonomamente la password.|
-|[Gestire le password dell'app per le app che non supportano la verifica in due passaggi](security-info-app-passwords.md)| Istruzioni su come creare password dell'app per le app che non supportano la verifica in due passaggi in un'organizzazione che usa questo metodo.|
-|[Come effettuare l'accesso](user-help-sign-in.md)|Descrive come effettuare l'accesso usando il metodo di verifica specificato.|
+| Articolo | DESCRIZIONE |
+| ------ | ------------ |
+| [Aggiungere il metodo di sicurezza dal messaggio di richiesta della pagina di accesso](security-info-setup-signin.md) | Istruzioni su come configurare le informazioni di sicurezza se richiesto nella pagina di accesso. Questo messaggio verrà visualizzato solo se le informazioni si sicurezza richieste dall'organizzazione non sono state già configurate. Se non viene visualizzato, è comunque possibile cambiare e aggiungere i metodi di verifica seguendo gli altri articoli di questa tabella. |
+| [Aggiungere l'app Microsoft Authenticator come metodo di verifica](security-info-setup-auth-app.md) | Istruzioni su come configurare l'app Microsoft Authenticator come metodo di verifica. |
+| [Aggiungere l'uso di SMS come metodo di verifica](security-info-setup-text-msg.md) | Istruzioni su come configurare i messaggi SMS come metodo di verifica. |
+| [Aggiungere le telefonate come metodo di verifica](security-info-setup-phone-number.md) | Istruzioni su come configurare il proprio numero di telefono come metodo di verifica. |
+| [Aggiungere una chiave di sicurezza come metodo di verifica](security-info-setup-security-key.md) | Istruzioni su come registrare una chiave di sicurezza compatibile con Microsoft come metodo di verifica. |
+| [Aggiungere un indirizzo di posta elettronica per la reimpostazione della password](security-info-setup-email.md) | Istruzioni su come aggiungere l'indirizzo di posta elettronica in modo da poter reimpostare autonomamente la password. |
+| [Aggiungere le domande di sicurezza per la reimpostazione della password](security-info-setup-questions.md) | Istruzioni su come aggiungere domande di sicurezza predefinite in modo da poter reimpostare autonomamente la password. |
+| [Gestire le password dell'app per le app che non supportano la verifica in due passaggi](security-info-app-passwords.md) | Istruzioni su come creare password dell'app per le app che non supportano la verifica in due passaggi in un'organizzazione che usa questo metodo. |
+| [Come effettuare l'accesso](user-help-sign-in.md) |Descrive come effettuare l'accesso usando il metodo di verifica specificato. |

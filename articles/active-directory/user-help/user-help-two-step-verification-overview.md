@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48a38b91cd17e2107fe85bfc77da8ead86196173
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d33a18aaca923bd49858671546ab053cf3fb21a3
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174045"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382138"
 ---
 # <a name="two-step-verification-overview"></a>Panoramica della verifica in due passaggi
 
@@ -30,9 +30,9 @@ Si tratta di un metodo più sicuro rispetto alla sola password perché si basa s
 
 |Articolo |DESCRIZIONE |
 |------|------------|
-|[Esperienza di installazione](multi-factor-authentication-end-user-first-time.md) |Descrive come configurare la verifica in due passaggi per la prima volta.|
-|[Introduzione alla verifica in due passaggi](multi-factor-authentication-end-user.md)|Descrive il significato della verifica in due passaggi per l'utente.| 
-|[Come effettuare l'accesso](user-help-sign-in.md)|Descrive come effettuare l'accesso usando il metodo di verifica specificato.|
-|[Modifica delle impostazioni](multi-factor-authentication-end-user-manage-settings.md) |Descrive come modificare le impostazioni, ad esempio il numero di telefono o il metodo di iscrizione preferito.|
-|[Guida alla verifica in due passaggi](multi-factor-authentication-end-user-troubleshoot.md) |Descrive come risolvere i problemi comuni relativi alla verifica in due passaggi.|
-|[Gestire le password delle app](multi-factor-authentication-end-user-app-passwords.md) |Descrive come creare e usare le password delle app.|
+| [Esperienza di installazione](multi-factor-authentication-end-user-first-time.md) |Descrive come configurare la verifica in due passaggi per la prima volta.|
+| [Introduzione alla verifica in due passaggi](multi-factor-authentication-end-user.md) ] Descrive gli effetti della verifica in due passaggi.| 
+| [Come eseguire l'accesso](user-help-sign-in.md) ] Descrive come eseguire l'accesso usando il metodo di verifica specificato.|
+| [Modifica delle impostazioni](multi-factor-authentication-end-user-manage-settings.md) |Descrive come modificare le impostazioni, ad esempio il numero di telefono o il metodo di iscrizione preferito.|
+| [Guida alla verifica in due passaggi](multi-factor-authentication-end-user-troubleshoot.md) |Descrive come risolvere i problemi comuni relativi alla verifica in due passaggi.|
+| [Gestire le password delle app](multi-factor-authentication-end-user-app-passwords.md) |Descrive come creare e usare le password delle app.|

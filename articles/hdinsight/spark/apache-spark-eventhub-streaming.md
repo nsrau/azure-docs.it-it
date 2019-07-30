@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/24/2019
-ms.openlocfilehash: c8c99d976f416d0c1d07fb3a266d37ecd6235fdb
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: fef551c254eb4fa212333a55bde3d642645a16b6
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295366"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489799"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Esercitazione: Elaborare i tweet usando Hub eventi di Azure e Apache Spark in HDInsight
 
@@ -48,7 +48,7 @@ Per ricevere un flusso di tweet, si crea un'applicazione in Twitter. Seguire le 
     |---|---|
     |NOME|Specificare il nome dell'applicazione. Il valore usato per questa esercitazione è **HDISparkStreamApp0423**. Questo nome deve essere un nome univoco.|
     |DESCRIZIONE|Fornire una breve descrizione dell'applicazione. Il valore usato per questa esercitazione è **A simple HDInsight Spark streaming application** (Un'applicazione di streaming HDInsight Spark semplice).|
-    |Website|Specificare il sito Web dell'applicazione. Non è necessario inserire un sito Web valido.  Il valore usato per questa esercitazione è **http://www.contoso.com** .|
+    |Website|Specificare il sito Web dell'applicazione. Non è necessario inserire un sito Web valido.  Il valore usato per questa esercitazione è `http://www.contoso.com`.|
     |Callback URL (URL callback)|È possibile lasciarlo vuoto.|
 
 1. Selezionare **Sì, ho letto e accetto il contratto per gli sviluppatori di Twitter**, quindi selezionare **Creare un'applicazione Twitter**.
@@ -84,9 +84,9 @@ L'hub eventi consente di archiviare tweet.
     |---|---|
     |NOME|immettere un nome per l'hub eventi.  Il valore usato per questa esercitazione è **myeventhubns20180403**.|
     |Piano tariffario|Selezionare **Standard**.|
-    |Sottoscrizione|Selezionare la sottoscrizione appropriata.|
-    |Gruppo di risorse|selezionare un gruppo di risorse esistente dall'elenco a discesa oppure selezionare **Crea nuovo** per creare un nuovo gruppo di risorse.|
-    |Località|selezionare la stessa **Località** del cluster Apache Spark in HDInsight per ridurre i costi e la latenza.|
+    |Subscription|Selezionare la sottoscrizione appropriata.|
+    |Resource group|selezionare un gruppo di risorse esistente dall'elenco a discesa oppure selezionare **Crea nuovo** per creare un nuovo gruppo di risorse.|
+    |Location|selezionare la stessa **Località** del cluster Apache Spark in HDInsight per ridurre i costi e la latenza.|
     |Abilita aumento automatico (facoltativo) |La funzionalità di aumento automatico ridimensiona automaticamente il numero di unità elaborate assegnato allo spazio dei nomi dell'hub eventi quando il traffico supera la capacità di unità elaborate assegnata allo spazio dei nomi stesso.  |
     |Numero massimo di unità elaborate per l'aumento automatico (facoltativo)|Questo dispositivo di scorrimento viene visualizzato solo se l'opzione **Abilita aumento automatico** è selezionata.  |
 

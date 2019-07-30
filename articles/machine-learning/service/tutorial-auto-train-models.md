@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8cedf7abf71a772a0b770dd2f82d9a5508f5dd75
-ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
+ms.openlocfilehash: bbb9653173925e1443504aa3f2e9c5e6edbfc486
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67622366"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371028"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Esercitazione: Usare il servizio Machine Learning automatizzato per creare il proprio modello di regressione
 
@@ -618,7 +618,8 @@ dflow_prepared.get_profile()
 Per preparare i dati per l'esperimento, si aggiungono a `dflow_x` le colonne da usare come caratteristiche per la creazione del modello. Si definisce quindi `dflow_y` come valore da stimare, ovvero **cost**:
 
 ```python
-dflow_X = dflow_prepared.keep_columns(['pickup_weekday','pickup_hour', 'distance','passengers', 'vendor'])
+dflow_X = dflow_prepared.keep_columns(
+    ['pickup_weekday', 'pickup_hour', 'distance', 'passengers', 'vendor'])
 dflow_y = dflow_prepared.keep_columns('cost')
 ```
 
@@ -632,7 +633,8 @@ from sklearn.model_selection import train_test_split
 x_df = dflow_X.to_pandas_dataframe()
 y_df = dflow_y.to_pandas_dataframe()
 
-x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=223)
+x_train, x_test, y_train, y_test = train_test_split(
+    x_df, y_df, test_size=0.2, random_state=223)
 # flatten y_train to 1d array
 y_train.values.flatten()
 ```
@@ -663,11 +665,11 @@ Definire le impostazioni del modello e dei parametri dell'esperimento per la gen
 
 ```python
 automl_settings = {
-    "iteration_timeout_minutes" : 10,
-    "iterations" : 30,
-    "primary_metric" : 'spearman_correlation',
-    "preprocess" : True,
-    "verbosity" : logging.INFO,
+    "iteration_timeout_minutes": 10,
+    "iterations": 30,
+    "primary_metric": 'spearman_correlation',
+    "preprocess": True,
+    "verbosity": logging.INFO,
     "n_cross_validations": 5
 }
 ```
@@ -678,12 +680,12 @@ Usare le impostazioni di training definite come parametro a un oggetto `AutoMLCo
 from azureml.train.automl import AutoMLConfig
 
 # local compute
-automated_ml_config = AutoMLConfig(task = 'regression',
-                             debug_log = 'automated_ml_errors.log',
-                             path = project_folder,
-                             X = x_train.values,
-                             y = y_train.values.flatten(),
-                             **automl_settings)
+automated_ml_config = AutoMLConfig(task='regression',
+                                   debug_log='automated_ml_errors.log',
+                                   path=project_folder,
+                                   X=x_train.values,
+                                   y=y_train.values.flatten(),
+                                   **automl_settings)
 ```
 
 ### <a name="train-the-automatic-regression-model"></a>Eseguire il training del modello di regressione automatica
@@ -693,7 +695,7 @@ Avviare l'esperimento per l'esecuzione in locale. Passare l'oggetto `automated_m
 
 ```python
 from azureml.core.experiment import Experiment
-experiment=Experiment(ws, experiment_name)
+experiment = Experiment(ws, experiment_name)
 local_run = experiment.submit(automated_ml_config, show_output=True)
 ```
 
@@ -746,7 +748,7 @@ Esplorare i risultati del training automatico usando un widget di Jupyter o esam
 
 ### <a name="option-1-add-a-jupyter-widget-to-see-results"></a>Opzione 1: Aggiungere un widget di Jupyter per visualizzare i risultati
 
-Se si usa Jupyter Notebook, usare questo widget per visualizzare un grafico e una tabella di tutti i risultati:
+Se si usa Jupyter Notebook, usare questo [widget di Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) per visualizzare un grafico e una tabella di tutti i risultati:
 
 
 ```python
@@ -757,6 +759,13 @@ RunDetails(local_run).show()
 ![Dettagli sull'esecuzione del widget Jupyter](./media/tutorial-auto-train-models/automl-dash-output.png)
 ![Tracciato del widget Jupyter](./media/tutorial-auto-train-models/automl-chart-output.png)
 
+Gli stessi risultati sono archiviati nell'area di lavoro.  È possibile ottenere un collegamento ai risultati dall'esecuzione:
+
+```
+local_run.get_portal_url()
+```
+  
+
 ### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>Opzione 2: Ottenere ed esaminare tutte le iterazioni di esecuzione in Python
 
 È anche possibile recuperare la cronologia di ogni esperimento ed esplorare le singole metriche per ogni esecuzione dell'iterazione. Esaminando RMSE (root_mean_squared_error) per ogni singola esecuzione del modello, si noterà che la maggior parte delle iterazioni stima il costo della corsa in taxi entro un margine ragionevole ($3-4).
@@ -766,7 +775,8 @@ children = list(local_run.get_children())
 metricslist = {}
 for run in children:
     properties = run.get_properties()
-    metrics = {k: v for k, v in run.get_metrics().items() if isinstance(v, float)}
+    metrics = {k: v for k, v in run.get_metrics().items()
+               if isinstance(v, float)}
     metricslist[int(properties['iteration'])] = metrics
 
 rundata = pd.DataFrame(metricslist).sort_index(1)
@@ -1137,8 +1147,10 @@ ax1 = fig.add_subplot(111)
 distance_vals = [x[4] for x in x_test.values]
 y_actual = y_test.values.flatten().tolist()
 
-ax1.scatter(distance_vals[:100], y_predict[:100], s=18, c='b', marker="s", label='Predicted')
-ax1.scatter(distance_vals[:100], y_actual[:100], s=18, c='r', marker="o", label='Actual')
+ax1.scatter(distance_vals[:100], y_predict[:100],
+            s=18, c='b', marker="s", label='Predicted')
+ax1.scatter(distance_vals[:100], y_actual[:100],
+            s=18, c='r', marker="o", label='Actual')
 
 ax1.set_xlabel('distance (mi)')
 ax1.set_title('Predicted and Actual Cost/Distance')

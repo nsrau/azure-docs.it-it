@@ -3,17 +3,18 @@ title: 'Esercitazione: Compilare immagini dei contenitori nel cloud - Attività 
 description: Questa esercitazione illustra come compilare un'immagine del contenitore Docker in Azure con ACR Tasks e quindi distribuire tale immagine in Istanze di Azure Container.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: ed5df09d492bbf6123e76f73717a1738a23a066c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a9e84210427612143bffe33efe4a5da5364b7a22
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66152107"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310449"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Esercitazione: Compilare e distribuire immagini dei contenitori nel cloud con Attività del Registro Azure Container
 
@@ -34,7 +35,7 @@ Le esercitazioni successive illustrano come usare ACR Tasks per automatizzare la
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si preferisce usare l'interfaccia della riga di comando di Azure in locale, è necessario che sia installata l'interfaccia della riga di comando di Azure versione **2.0.46** o successiva ed eseguire l'accesso con [az login][az-login]. Eseguire `az --version` per trovare la versione. Se è necessario installare o aggiornare l'interfaccia della riga di comando, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
+Se si preferisce usare l'interfaccia della riga di comando di Azure in locale, è necessario che sia installata la versione **2.0.46** o successiva e che sia stato eseguito l'accesso con [az login][az-login]. Eseguire `az --version` per trovare la versione. Se è necessario installare o aggiornare l'interfaccia della riga di comando, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -191,7 +192,7 @@ az keyvault create --resource-group $RES_GROUP --name $AKV_NAME
 
 A questo punto occorre creare un'entità servizio e archiviarne le credenziali nell'insieme di credenziali delle chiavi.
 
-Usare il comando [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] per creare l'entità servizio e [az keyvault secret set][az-keyvault-secret-set] per archiviare la **password** dell'entità servizio nell'insieme di credenziali:
+Usare [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] command to create the service principal, and [az keyvault secret set][az-keyvault-secret-set] per archiviare la **password** dell'entità servizio nell'insieme di credenziali:
 
 ```azurecli-interactive
 # Create service principal, store its password in AKV (the registry *password*)

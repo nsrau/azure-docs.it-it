@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
 ms.date: 05/22/2019
 ms.author: hrasheed
-ms.openlocfilehash: 51f84234ac35be5f60d1aaa5dac661ad9ce5e0c2
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: da31b6a880344de918a3b3e0f89f60d985db2ce7
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257891"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68406030"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Esercitazione: usare lo streaming strutturato di Apache Spark con Apache Kafka in HDInsight
 
@@ -44,7 +44,7 @@ Al termine della procedura descritta in questo documento, eliminare i cluster pe
 > 
 > Per comodità, questo documento si collega a un modello in grado di creare tutte le risorse di Azure necessarie. 
 >
-> Per altre informazioni sull'uso di HDInsight in una rete virtuale, vedere il documento [Estendere Azure HDInsight usando Rete virtuale di Azure](hdinsight-extend-hadoop-virtual-network.md).
+> Per altre informazioni sull'uso di HDInsight in una rete virtuale, vedere il documento [Pianificare una rete virtuale per HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
 ## <a name="structured-streaming-with-apache-kafka"></a>Streaming strutturato con Apache Kafka
 
@@ -142,9 +142,9 @@ Per creare una Rete virtuale di Microsoft Azure e quindi crearvi i cluster Kafka
 
     | Impostazione | Valore |
     | --- | --- |
-    | Sottoscrizione | Sottoscrizione di Azure |
-    | Gruppo di risorse | Gruppo di risorse che contiene le risorse. |
-    | Località | Area di Azure in cui vengono create le risorse. |
+    | Subscription | Sottoscrizione di Azure |
+    | Resource group | Gruppo di risorse che contiene le risorse. |
+    | Location | Area di Azure in cui vengono create le risorse. |
     | Nome del cluster Spark | Nome del cluster Spark. I primi sei caratteri devono essere diversi dal nome di cluster Kafka. |
     | Nome del cluster Kafka | Nome del cluster Kafka. I primi sei caratteri devono essere diversi dal nome di cluster Spark. |
     | Nome utente dell'account di accesso del cluster | Nome utente dell'amministratore per i cluster. |

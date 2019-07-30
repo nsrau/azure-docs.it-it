@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 05/20/2019
-ms.openlocfilehash: dc29cc6d3cc2a07214fb638a10039a4c3ea2d92b
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 75f1554f7522723d71666633a03761d07e797e33
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953614"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443513"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introduzione all'API Tabella di Azure Cosmos DB e all'archiviazione tabelle con .NET SDK
 
@@ -45,11 +45,11 @@ In Visual Studio creare una nuova applicazione console .NET. La procedura seguen
 
 1. Selezionare **File** > **Nuovo** > **Progetto**.
 
-1. Scegliere **App console (.NET Core)**, quindi selezionare **Avanti**.
+1. Scegliere **App console (.NET Core)** , quindi selezionare **Avanti**.
 
 1. Nel campo **Nome progetto** immettere un nome per l'applicazione, ad esempio **CosmosTableSamples**. (È possibile immettere un nome diverso in base alle esigenze).
 
-1. Selezionare **Create**.
+1. Selezionare **Create** (Crea).
 
 Tutti gli esempi di codice in questo esempio possono essere aggiunti al metodo Main() del file **Program.cs** dell'applicazione console.
 
@@ -110,9 +110,19 @@ Per ottenere il pacchetto NuGet, seguire questa procedura:
 
 1. Definire un metodo `CreateStorageAccountFromConnectionString` come mostrato di seguito. Questo metodo analizzerà i dettagli della stringa di connessione e verificherà che il nome dell'account e i dettagli delle chiavi dell'account specificati nel file "Settings.json" siano validi. 
 
-   ```csharp
-   public static CloudStorageAccount CreateStorageAccountFromConnectionString(string storageConnectionString)
+ ```csharp
+using System;
+
+namespace CosmosTableSamples
+{
+    using System.Threading.Tasks;
+    using Microsoft.Azure.Cosmos.Table;
+    using Microsoft.Azure.Documents;
+
+    public class Common
     {
+        public static CloudStorageAccount CreateStorageAccountFromConnectionString(string storageConnectionString)
+        {
             CloudStorageAccount storageAccount;
             try
             {
@@ -132,6 +142,8 @@ Per ottenere il pacchetto NuGet, seguire questa procedura:
 
             return storageAccount;
         }
+    }
+}
    ```
 
 
@@ -378,6 +390,29 @@ Il codice precedente crea una tabella che inizia con "demo" e il GUID generato v
 In questa esercitazione è stato compilato il codice per eseguire operazioni CRUD di base sui dati archiviati nell'account API Tabella. È anche possibile eseguire operazioni avanzate quali inserimento di dati in batch, query su tutti i dati all'interno di una partizione, query su un intervallo di dati all'interno di una partizione, elencare le tabelle nell'account i cui nomi iniziano con il prefisso specificato. È possibile scaricare l'esempio completo dal repository GitHub [azure-cosmos-table-dotnet-core-getting-started](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started). La classe [AdvancedSamples.cs](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started/blob/master/CosmosTableSamples/AdvancedSamples.cs) ha più operazioni che è possibile eseguire sui dati.  
 
 ## <a name="run-the-project"></a>Eseguire il progetto
+
+Nel progetto **CosmosTableSamples**. Aprire la classe denominata **Program.cs** e aggiungervi il codice seguente per chiamare BasicSamples durante l'esecuzione del progetto.
+
+```csharp
+using System;
+
+namespace CosmosTableSamples
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("Azure Cosmos Table Samples");
+            BasicSamples basicSamples = new BasicSamples();
+            basicSamples.RunSamples().Wait();
+           
+            Console.WriteLine();
+            Console.WriteLine("Press any key to exit");
+            Console.Read();
+        }
+    }
+}
+```
 
 Compilare ora la soluzione e premere F5 per eseguire il progetto. Quando viene eseguito il progetto, nel prompt dei comandi verrà visualizzato l'output seguente:
 

@@ -1,5 +1,5 @@
 ---
-title: Compilazione di un'app a singola pagina AngularJS per l'accesso e la disconnessione con Azure Active Directory | Microsoft Docs
+title: Creare un'app a pagina singola AngularJS per l'accesso e la disconnessione con Azure Active Directory | Microsoft Docs
 description: Informazioni su come compilare un'applicazione AngularJS a singola pagina che si integra con Azure AD per l'accesso e chiama le API protette di Azure AD usando OAuth.
 services: active-directory
 documentationcenter: ''
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a1fdbcd04504181a20f5245b6f2378be5b9d405
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 20c62d379006382d4208e4b111202581bc75454f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001205"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380764"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Guida introduttiva: Compilazione di un'app a singola pagina AngularJS per l'accesso e la disconnessione con Azure Active Directory
 

@@ -17,12 +17,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10b5169d3f06e265b3effa3ec18ad8e4f69959d3
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 328db116cebda5eb288f04cc89e2c85550c38083
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121965"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68421183"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>Differenze tra MSAL.js e ADAL.js
 
@@ -59,9 +59,9 @@ Nella versione 2.0, l'uso dell'autorità `https://login.microsoftonline.com/comm
 
     Il protocollo della versione 2.0 usa gli ambiti invece delle risorse nelle richieste. In altre parole, quando l'applicazione deve richiedere i token con autorizzazioni per una risorsa, ad esempio Microsoft Graph, la differenza tra i valori passati ai metodi della libreria è la seguente:
 
-    versione 1.0: resource=[https://graph.microsoft.com](https://graph.microsoft.com )
+    v1.0: resource = https\://graph.microsoft.com
 
-    versione 2.0: scope= [https://graph.microsoft.com/User.Read](https://graph.microsoft.com/User.Read )
+    v2.0: scope = https\://graph.microsoft.com/User.Read
 
     È possibile richiedere gli ambiti per qualsiasi API di risorsa usando l'URI dell'API in questo formato: URIidapp/ambito, ad esempio: https:\//mytenant.onmicrosoft.com/myapi/api.read
 
