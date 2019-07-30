@@ -14,26 +14,21 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: c42066b3ac02264ee357bac7ed3fdd360e9d5d4a
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 99a42102b30c91b7f1bba06cfaae7662b408b784
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798408"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326560"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Guida introduttiva: Creare un'app .NET Core con Configurazione app
 
-Configurazione app di Azure è un servizio di configurazione gestito di Azure. È possibile usarla per archiviare e gestire con facilità tutte le impostazioni delle applicazioni in un'unica risorsa separata dal codice. Questa guida introduttiva mostra come incorporare il servizio in un'app console .NET Core.
-
-Per completare i passaggi riportati in questo argomento di avvio rapido, è possibile usare qualsiasi editor di codice. [Visual Studio Code](https://code.visualstudio.com/) è un'ottima scelta per le piattaforme Windows, macOS e Linux.
-
-![Avvio rapido: esecuzione dell'app](./media/quickstarts/dotnet-core-app-run.png)
+In questa guida di avvio rapido si incorpora Configurazione app di Azure in un'app console .NET Core per centralizzare l'archiviazione e la gestione delle impostazioni dell'applicazione separatamente dal codice.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa guida di avvio rapido, installare [.NET Core SDK](https://dotnet.microsoft.com/download).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
+- [ASP.NET Core SDK](https://dotnet.microsoft.com/download)
 
 ## <a name="create-an-app-configuration-store"></a>Creare un archivio di configurazione app
 

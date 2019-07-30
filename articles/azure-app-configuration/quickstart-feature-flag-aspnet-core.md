@@ -14,26 +14,23 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 38b404ec10fb7b66b5e276665b0c9047d0576c15
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 41947de18ae27b41d046fd4358f0039a1b56374d
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798396"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347921"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Guida introduttiva: Aggiungere i flag di funzionalità a un'app ASP.NET Core
 
-È possibile abilitare la gestione delle funzionalità in ASP.NET Core connettendo l'applicazione a Configurazione app di Azure. È possibile usare questo servizio gestito per archiviare tutti i flag di funzionalità e controllarne centralmente gli stati. Questo argomento di avvio rapido illustra come incorporare Configurazione app in un'app Web ASP.NET Core per creare un'implementazione end-to-end della gestione delle funzionalità.
+In questa guida di avvio rapido si incorpora Configurazione app di Azure in un'app Web ASP.NET Core per creare un'implementazione end-to-end della gestione delle funzionalità. È possibile usare il servizio Configurazione app per archiviare tutti i flag di funzionalità in una posizione centralizzata e controllarne gli stati. 
 
 Le librerie di Gestione funzionalità di .NET Core estendono il framework con il supporto completo per i flag di funzionalità. Queste librerie si basano sul sistema di configurazione di .NET Core. Si integrano facilmente con Configurazione app tramite il provider di configurazione di .NET Core.
 
-Per completare i passaggi riportati in questa guida di avvio rapido, è possibile usare qualsiasi editor di codice. [Visual Studio Code](https://code.visualstudio.com/) è un'ottima scelta per le piattaforme Windows, macOS e Linux.
-
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa guida di avvio rapido, installare [.NET Core SDK](https://dotnet.microsoft.com/download).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
+- [.NET Core SDK](https://dotnet.microsoft.com/download).
 
 ## <a name="create-an-app-configuration-store"></a>Creare un archivio di Configurazione app
 
@@ -135,7 +132,7 @@ Aggiungere lo [strumento Secret Manager](https://docs.microsoft.com/aspnet/core/
 1. Aprire *Startup.cs* e aggiungere i riferimenti alla gestione funzionalità di .NET Core:
 
     ```csharp
-    using Microsoft.FeatureManagement.AspNetCore;
+    using Microsoft.FeatureManagement;
     ```
 
 1. Aggiornare il metodo `ConfigureServices` per aggiungere il supporto dei flag di funzionalità chiamando il metodo `services.AddFeatureManagement()`. Facoltativamente, includere eventuali filtri da usare con i flag di funzionalità chiamando `services.AddFeatureFilter<FilterType>()`:

@@ -2,31 +2,25 @@
 title: Azure Active Directory Identity Protection | Microsoft Docs
 description: Informazioni su come Azure AD Identity Protection consente di limitare la possibilità di un utente malintenzionato di sfruttare un'identità o un dispositivo compromesso e di proteggere un'identità o un dispositivo che in precedenza è stato sospettato o ritenuto essere compromesso.
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, gestione applicazioni, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 01/29/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 660793cdba61b5438283ea54a9f7349bdfbc98e1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
-ms.translationtype: MT
+ms.openlocfilehash: 99a542d3208d5871d88c966fffc65cf16e0fbeee
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67440502"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335384"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Cos'è Azure Active Directory Identity Protection?
 
-Azure Active Directory [identità](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology) Protection consente alle organizzazioni di configurare risposte automatizzate alle azioni sospette rilevate in relazione alle identità utente.
+Azure Active Directory [Identity](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology) Protection consente alle organizzazioni di configurare risposte automatiche alle azioni sospette rilevate in relazione alle identità degli utenti.
 
 ## <a name="get-started"></a>Attività iniziali
 
@@ -37,12 +31,11 @@ La maggior parte delle violazioni della sicurezza si verifica quando utenti mali
 Di conseguenza, è necessario:
 
 - Proteggere tutte le identità indipendentemente dal livello di privilegi
-
 - Impedire in modo proattivo l'uso improprio delle identità compromesse
 
 Trovare le identità compromesse non è un compito facile. Azure Active Directory usa l'euristica e gli algoritmi adattivi di apprendimento automatico per rilevare anomalie ed eventi imprevisti sospetti che indicano identità potenzialmente compromesse. Sulla base di tali dati, Identity Protection genera report e avvisi che consentono di valutare i problemi rilevati e di adottare le azioni di correzione o mitigazione appropriate.
 
-Azure Active Directory Identity Protection è ben più di un semplice strumento di monitoraggio e reporting. Per proteggere le identità dell'organizzazione, è possibile configurare criteri basati sul rischio che rispondano automaticamente ai problemi rilevati quando viene raggiunto un livello di rischio specificato. Questi criteri, insieme ad altri controlli di accesso condizionale forniti da Azure Active Directory e [Enterprise Mobility + Security](https://docs.microsoft.com/enterprise-mobility-security/) (EMS), può automaticamente bloccare o avviare azioni di correzione adattive, tra cui reimpostazione della password e l'applicazione dell'autenticazione a più fattori.
+Azure Active Directory Identity Protection è ben più di un semplice strumento di monitoraggio e reporting. Per proteggere le identità dell'organizzazione, è possibile configurare criteri basati sul rischio che rispondano automaticamente ai problemi rilevati quando viene raggiunto un livello di rischio specificato. Questi criteri, insieme ad altri controlli di accesso condizionale forniti da Azure Active Directory e da [Enterprise Mobility + Security](https://docs.microsoft.com/enterprise-mobility-security/) (EMS), possono applicare il blocco automatico oppure avviare azioni di correzione adattive, che includono la reimpostazione della password e l'imposizione dell'autenticazione a più fattori.
 
 ### <a name="identity-protection-capabilities"></a>Funzionalità di Identity Protection
 
@@ -69,7 +62,7 @@ Azure Active Directory Identity Protection è ben più di un semplice strumento 
 
 Per bilanciare il carico delle attività di gestione per l'implementazione di Identity Protection, è possibile assegnare più ruoli. Azure AD Identity Protection supporta 3 ruoli di directory:
 
-| Role | Operazione consentita | Operazione non consentita |
+| Ruolo | Operazione consentita | Operazione non consentita |
 | :-- | --- | --- |
 | Amministratore globale | Accesso completo a Identity Protection, implementazione di Identity Protection| |
 | Amministratore della sicurezza | Accesso completo a Identity Protection | Implementazione di Identity Protection, reimpostazione delle password per un utente |

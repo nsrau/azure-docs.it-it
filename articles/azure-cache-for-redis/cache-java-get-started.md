@@ -15,32 +15,21 @@ ms.workload: tbd
 ms.date: 05/23/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 047350fa957d9ca1fdec50f97a590ba90a42e1b2
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 01fb6f66ce71599a70a127a2b73eba6f848bf365
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237767"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324133"
 ---
-# <a name="quickstart-how-to-use-azure-cache-for-redis-with-java"></a>Avvio rapido: Come usare Cache Redis di Azure con Java
+# <a name="quickstart-use-azure-cache-for-redis-with-java"></a>Guida introduttiva: Usare Azure Cache for Redis con Java
 
-
-Cache Redis di Azure consente di accedere a un'istanza di Cache Redis di Azure dedicata, gestita da Microsoft. È possibile accedere alla cache da qualsiasi applicazione in Microsoft Azure.
-
-Questo articolo illustra come iniziare a usare Cache Redis di Azure con il client Redis [Jedis](https://github.com/xetorthio/jedis) per Java.
-
-![App cache completata](./media/cache-java-get-started/cache-app-complete.png)
-
-Per completare i passaggi descritti in questa guida di avvio rapido è possibile usare qualsiasi editor di codice. Tuttavia, [Visual Studio Code](https://code.visualstudio.com/) è un'ottima scelta per le piattaforme Windows, macOS e Linux.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
+In questa guida di avvio rapido si incorpora Azure Cache for Redis in un'app Java usando il client [Jedis](https://github.com/xetorthio/jedis) di Redis per accedere a una cache sicura e dedicata accessibile da qualsiasi applicazione in Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[Apache Maven](https://maven.apache.org/)
-
-
+- Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
+- [Apache Maven](https://maven.apache.org/download.cgi)
 
 ## <a name="create-an-azure-cache-for-redis"></a>Creare un'istanza di Cache Redis di Azure
 
@@ -50,7 +39,7 @@ Per completare i passaggi descritti in questa guida di avvio rapido è possibile
 
 Aggiungere le variabili di ambiente per il **nome host** e la chiave di accesso **primaria**. Queste variabili verranno usate dal codice invece di includere le informazioni riservate direttamente nel codice.
 
-```
+```CMD 
 set REDISCACHEHOSTNAME=contosoCache.redis.cache.windows.net
 set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
@@ -59,7 +48,7 @@ set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 Usare Maven e generare una nuova app per la guida introduttiva:
 
-```
+```CMD
 mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.3 -DgroupId=example.demo -DartifactId=redistest -Dversion=1.0
 ```
 
@@ -139,7 +128,7 @@ Salvare *App.java*.
 
 Eseguire il comando Maven seguente per compilare ed eseguire l'app:
 
-```
+```CMD
 mvn compile
 mvn exec:java -D exec.mainClass=example.demo.App
 ```
@@ -147,7 +136,6 @@ mvn exec:java -D exec.mainClass=example.demo.App
 Nell'esempio seguente è possibile notare che la chiave `Message` in precedenza aveva un valore nella cache che era stato impostato usando la Console Redis nel portale di Azure. L'app ha aggiornato questo valore memorizzato nella cache. L'app ha anche eseguito i comandi `PING` e `CLIENT LIST`.
 
 ![App cache completata](./media/cache-java-get-started/cache-app-complete.png)
-
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -169,14 +157,9 @@ Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Immettere il 
 
 Dopo qualche istante il gruppo di risorse e tutte le risorse che contiene vengono eliminati.
 
-
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa guida introduttiva si è visto come usare Cache Redis di Azure da un'applicazione Java. Continuare con la guida introduttiva successiva per usare Cache Redis di Azure con un'app Web ASP.NET.
 
 > [!div class="nextstepaction"]
 > [Creare un'app Web ASP.NET che usa Cache Redis di Azure.](./cache-web-app-howto.md)
-
-
-

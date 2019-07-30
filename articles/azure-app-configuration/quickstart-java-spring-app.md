@@ -14,24 +14,22 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: a91c61edd773b5742b092f5d72a5a22f1d90e63b
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: e27635d153e58f96dad7db6870ed1dc3f640236a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393559"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326476"
 ---
-# <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>Guida introduttiva: Creare un'app Java Spring con Configurazione app
+# <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Guida introduttiva: Creare un'app Java Spring con Configurazione app di Azure
 
-Configurazione app di Azure è un servizio di configurazione gestito di Azure. È possibile usarlo per archiviare e gestire con facilità tutte le impostazioni delle applicazioni in un'unica risorsa separata dal codice. Questa guida introduttiva mostra come incorporare il servizio in un'app Java Spring.
-
-Per completare i passaggi riportati in questa guida di avvio rapido, è possibile usare qualsiasi editor di codice. [Visual Studio Code](https://code.visualstudio.com/) è un'ottima scelta per le piattaforme Windows, macOS e Linux.
+In questa guida di avvio rapido si incorpora Configurazione app di Azure in un'app Java Spring per centralizzare l'archiviazione e la gestione delle impostazioni dell'applicazione separatamente dal codice.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa guida di avvio rapido, installare [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk) versione 8 e [Apache Maven](https://maven.apache.org/) versione 3.0 o successiva.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
+- [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk) versione 8 supportato.
+- [Apache Maven](https://maven.apache.org/download.cgi) versione 3.0 o successive.
 
 ## <a name="create-an-app-configuration-store"></a>Creare un archivio di configurazione app
 
