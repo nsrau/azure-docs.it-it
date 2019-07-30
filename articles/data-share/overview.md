@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 7d4e51ec9564bfb123cf73d9fe89d040f42fe650
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 11f32b1f1349ef0f9826f95832648e6949cc2f8c
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807555"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68421392"
 ---
 # <a name="what-is-azure-data-share-preview"></a>Informazioni su Condivisione dati di Azure (anteprima)
 
@@ -24,6 +24,8 @@ Condivisione dati di Azure (anteprima) consente alle organizzazioni di condivide
 Il provider di dati può mantenere il controllo del modo in cui vengono gestiti i dati specificando apposite condizioni per l'utilizzo. Il consumer dei dati deve accettare queste condizioni prima di iniziare a riceverli. I provider di dati possono specificare la frequenza con cui i consumer ricevono gli aggiornamenti. L'accesso a nuovi aggiornamenti può essere revocato in qualsiasi momento dal provider di dati. 
 
 Condivisione dati di Azure consente di ottimizzare le informazioni semplificando la combinazione di dati di terze parti per arricchire gli scenari di analisi e intelligenza artificiale. È possibile sfruttare facilmente le funzionalità degli strumenti di analisi di Azure per preparare, elaborare e analizzare i dati condivisi tramite Condivisione dati di Azure. 
+
+Per condividere e ricevere dati, sia il provider che il consumer di dati devono disporre di una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/).
 
 ## <a name="scenarios-for-azure-data-share"></a>Scenari per Condivisione dati di Azure
 
@@ -55,7 +57,7 @@ Condivisione dati di Azure consente ai provider di dati di:
 
 * Consentire ai clienti di eseguire il pull dell'ultima versione dei dati, se necessario, oppure di ricevere automaticamente le modifiche incrementali apportate ai dati a un intervallo predefinito
 
-Condivisione dati di Azure consente ai consumer dei dati di: 
+Condivisione dati di Azure consente ai consumer di dati di: 
 
 * Visualizzare una descrizione del tipo di dati condivisi
 
@@ -78,6 +80,7 @@ Condivisione dati di Azure sfrutta le funzionalità di sicurezza sottostanti off
 I controlli dell'accesso possono essere configurati a livello di risorsa di Condivisione dati di Azure per assicurare che siano accessibili solo da persone autorizzate. 
 
 Condivisione dati di Azure sfrutta le identità gestite per le risorse di Azure (in precedenza MSI) per la gestione automatica delle identità in Azure Active Directory. Le identità gestite per le risorse di Azure vengono sfruttate per l'accesso agli account di archiviazione usati per la condivisione di dati. Non viene effettuato alcuno scambio di credenziali tra un provider di dati e un consumer. Per altre informazioni, vedere la pagina [Identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities). 
+
 
 ## <a name="supported-regions"></a>Aree supportate
 

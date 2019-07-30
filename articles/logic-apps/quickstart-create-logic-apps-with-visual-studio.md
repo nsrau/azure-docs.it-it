@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 04/25/2019
-ms.openlocfilehash: a8857d62b3078d78bdd0a339ebadf766ddb2fb43
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 51d1af24a22f7ed86b01b1c7c79b204cd552a7ea
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295813"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385394"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Guida introduttiva: Creare attività, processi e flussi di lavoro automatizzati con App per la logica di Azure - Visual Studio
 
@@ -64,6 +64,8 @@ In questo argomento di avvio rapido verrà creata con Visual Studio la stessa ap
   Ad esempio, per connessioni Dynamics CRM Online, la finestra di progettazione verifica la presenza di proprietà predefinite e personalizzate nell'istanza di CRM.
 
 * Un account di posta elettronica supportato da App per la logica, ad esempio un account Office 365 Outlook, Outlook.com o Gmail. Per altri provider, [vedere qui l'elenco dei connettori](https://docs.microsoft.com/connectors/). Questo esempio usa Outlook per Office 365. Se si usa un altro provider, la procedura generale resta invariata, ma l'interfaccia utente potrebbe essere leggermente diversa.
+
+<a name="create-resource-group-project"></a>
 
 ## <a name="create-azure-resource-group-project"></a>Creare un progetto Gruppo di risorse di Azure
 
@@ -141,6 +143,8 @@ Nella casella di ricerca immettere "rss". Nell'elenco di trigger selezionare que
 
 1. Salvare la soluzione di Visual Studio. (scelta rapida da tastiera: CTRL+S).
 
+<a name="deploy-to-Azure"></a>
+
 ## <a name="deploy-logic-app-to-azure"></a>Distribuire l'app per la logica in Azure
 
 Prima di poter eseguire e testare l'app per la logica, distribuire l'app in Azure da Visual Studio.
@@ -173,6 +177,22 @@ Prima di poter eseguire e testare l'app per la logica, distribuire l'app in Azur
    ![Outlook invia messaggi di posta elettronica per ogni nuovo elemento RSS](./media/quickstart-create-logic-apps-with-visual-studio/outlook-email.png)
 
 Congratulazioni, l'app per la logica è stata compilata e distribuita con Visual Studio. Per gestire l'app per la logica ed esaminarne la cronologia di esecuzione, vedere [Gestire app per la logica con Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).
+
+## <a name="add-new-logic-app"></a>Aggiungere la nuova app per la logica
+
+Quando è disponibile un progetto Gruppo di risorse esistente, è possibile aggiungere una nuova app per la logica vuota al progetto usando la finestra Struttura JSON.
+
+1. In Esplora soluzioni aprire il file `<logic-app-name>.json`.
+
+1. Nel menu **Visualizza** selezionare **Altre finestre** > **Struttura JSON**.
+
+1. Per aggiungere una risorsa al file del modello, scegliere **Aggiungi risorsa** nella parte superiore della finestra Struttura JSON. Oppure nella finestra Struttura JSON fare clic con il tasto destro del mouse su **risorse**e selezionare **Aggiungi nuova risorsa**.
+
+   ![Finestra Struttura JSON](./media/quickstart-create-logic-apps-with-visual-studio/jsonoutline.png)
+
+1. Nella finestra di dialogo **Aggiungi risorsa**, individuare e selezionare **App per la logica**. Dare un nome all'app per la logica e scegliere **Aggiungi**.
+
+   ![Aggiungere una risorsa](./media/quickstart-create-logic-apps-with-visual-studio/addresource.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

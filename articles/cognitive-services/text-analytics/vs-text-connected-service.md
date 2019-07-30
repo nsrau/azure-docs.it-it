@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: 75228b8c939cb5b8dd04471662ba86b46cfc808c
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: ff4c703070d6a7ebd545de3043e5f59b764fe4c9
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65860467"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478467"
 ---
 # <a name="tutorial-connect-to-the-text-analytics-service-with-connected-services-in-visual-studio"></a>Esercitazione: Connettersi al servizio Analisi del testo con Servizi connessi in Visual Studio
 
@@ -54,7 +54,7 @@ Questo articolo e i relativi articoli correlati descrivono in dettaglio l'uso de
    Seguire il collegamento per informazioni dettagliate sui piani tariffari.
 
 1. Fare clic su **Aggiungi** per aggiungere supporto per il servizio connesso.
-   Visual Studio modifica il progetto per aggiungere i pacchetti NuGet, le voci del file di configurazione e altre modifiche per supportare una connessione al servizio Analisi del testo. La **Finestra di output** visualizza il log che mostra le operazioni che vengono svolte nel progetto. Verrà visualizzata una schermata simile alla seguente:
+   Visual Studio modifica il progetto per aggiungere i pacchetti NuGet, le voci del file di configurazione e altre modifiche per supportare una connessione al servizio Analisi del testo. La **Finestra di output** visualizza il log che mostra le operazioni che vengono svolte nel progetto. L'output dovrebbe essere simile al seguente:
 
    ```output
     [6/1/2018 3:04:02.347 PM] Adding Text Analytics to the project.
@@ -90,7 +90,7 @@ Questo articolo e i relativi articoli correlati descrivono in dettaglio l'uso de
       }
    ```
 
-1. Aggiungere un file di classe nella cartella Controllers denominata DemoTextAnalyzeController e sostituirne il contenuto con il codice seguente:
+1. Aggiungere un file di classe nella cartella *Controllers* denominato `DemoTextAnalyzeController` e sostituirne il contenuto con il codice seguente:
 
     ```csharp
     using System;
@@ -153,7 +153,7 @@ Questo articolo e i relativi articoli correlati descrivono in dettaglio l'uso de
     }
     ```
     
-    Il codice include GetTextAnalyzeClient per ottenere l'oggetto client che è possibile usare per richiamare l'API Analisi del testo e un gestore di richieste che richiama DetectLanguage su un testo specifico.
+    Il codice include `GetTextAnalyzeClient` per ottenere l'oggetto client per effettuare le chiamate all'API Analisi del testo e un gestore di richieste che chiama DetectLanguage su un testo specifico.
 
 1. Aggiungere la classe helper MyHandler che viene usata dal codice precedente.
 
@@ -171,7 +171,7 @@ Questo articolo e i relativi articoli correlati descrivono in dettaglio l'uso de
         }
     ```
 
-1. Nella cartella Models aggiungere una classe per il modello.
+1. Nella cartella *Models* aggiungere una classe per il modello.
 
     ```csharp
     using System;

@@ -4,14 +4,14 @@ description: Informazioni su Azure Cosmos DB. Questo database multimodello distr
 author: rimman
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 05/20/2019
+ms.date: 07/23/2019
 ms.author: rimman
-ms.openlocfilehash: a338cec213b82d54b08f2a11a969ddecf72ea7e5
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: ee863b6003444ec099753a6488f3fe4078338e60
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953913"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68384130"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Introduzione ad Azure Cosmos DB
 
@@ -74,11 +74,11 @@ Dal momento che Cosmos DB è un servizio completamente gestito, non è più nece
 
 Cosmos DB è il primo e unico servizio che offre [contratti di servizio leader del settore completi](https://azure.microsoft.com/support/legal/sla/cosmos-db/) con disponibilità elevata al 99,999%, latenza di lettura e scrittura al 99° percentile, velocità effettiva garantita e coerenza.
 
-### <a name="globally-distributed-operational-analytics-with-spark"></a>Analisi operativa distribuita a livello globale con Spark
+### <a name="globally-distributed-operational-analytics-and-ai-with-natively-built-in-apache-spark"></a>Analisi operativa e intelligenza artificiale distribuite a livello globale con Apache Spark incorporato in modo nativo
 
 È possibile eseguire [Spark](spark-connector.md) direttamente nei dati archiviati in Cosmos DB. Questa funzionalità consente di eseguire analisi operative di bassa latenza su scala globale senza conseguenze sui carichi di lavoro transazionali in funzione direttamente in Cosmos DB. Per altre informazioni, vedere [Analisi operativa distribuita a livello globale](lambda-architecture.md).
 
-### <a name="develop-applications-on-cosmos-db-using-popular-nosql-apis"></a>Sviluppare applicazioni in Cosmos DB usando API NoSQL comuni
+### <a name="develop-applications-on-cosmos-db-using-popular-open-source-software-oss-apis"></a>Sviluppo di applicazioni in Cosmos DB usando le API Open Source Software (OSS) più diffuse
 
 Cosmos DB offre una vasta gamma di API da usare con i dati archiviati nel database Cosmos. Per impostazione predefinita, [è possibile usare SQL](how-to-sql-query.md) (un'API core) per eseguire query sul database Cosmos. Cosmos DB implementa anche le API per [Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), [Gremlin](graph-introduction.md) e [Archiviazione tabelle di Azure](table-introduction.md). È possibile indirizzare i driver (e gli strumenti) dei client per le API NoSQL di uso comune, ad esempio MongoDB, Cassandra, Gremlin, direttamente al database Cosmos. Grazie al supporto dei protocolli di collegamento delle API NoSQL di uso comune, Cosmos DB permette di:
 

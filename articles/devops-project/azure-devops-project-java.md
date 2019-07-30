@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare una pipeline CI/CD per Java con Azure DevOps Projects'
+title: 'Guida introduttiva: Creare una pipeline CI/CD per Java - Azure DevOps Projects'
 description: DevOps Projects consente di iniziare a usare Azure in modo semplice. Con pochi rapidi passaggi, è possibile avviare un'app in un servizio di Azure a scelta.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
-ms.custom: mvc
+ms.custom: mvc, seo-java-july2019
 monikerRange: vsts
-ms.openlocfilehash: 38be92a006ae6dbb7a550d2d91d886df820fb883
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 87090e205f4aa3e6b2886e6384921ddd46ea717d
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093566"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489521"
 ---
 # <a name="create-a-cicd-pipeline-for-java-with-azure-devops-projects"></a>Creare una pipeline CI/CD per Java con Azure DevOps Projects
 
@@ -38,7 +38,7 @@ Se non si ha ancora una sottoscrizione di Azure, è possibile ottenerne una grat
 
 1. Nel riquadro a sinistra selezionare **Crea una risorsa** e quindi cercare **DevOps Projects**.  
 
-2. Selezionare **Create**.
+2. Selezionare **Create** (Crea).
 
     ![Inizio della configurazione del recapito continuo](_img/azure-devops-project-java/fullbrowser.png)
 

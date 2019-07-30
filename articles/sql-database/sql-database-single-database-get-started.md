@@ -1,6 +1,6 @@
 ---
-title: 'Portale di Azure: Creare un database singolo - Database SQL di Azure | Microsoft Docs'
-description: Creare un database singolo ed eseguire query nel database SQL di Azure usando il portale di Azure.
+title: Creare un database singolo - Database SQL di Azure | Microsoft Docs
+description: Informazioni su come creare un database singolo ed eseguire query nel database SQL di Azure usando il portale di Azure, PowerShell e l'interfaccia della riga di comando di Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -12,14 +12,14 @@ ms.author: ninarn
 ms.reviewer: carlrab, sstein
 manager: craigg
 ms.date: 04/23/2019
-ms.openlocfilehash: 1c24c8a10e35c0cf8979538c67fa8fb71b712741
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 470dca235b9a3212c09052f7535fa90d076fe4d3
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070158"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444410"
 ---
-# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Guida introduttiva: Creare un database singolo del database SQL di Azure usando il portale di Azure
+# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>Guida introduttiva: Creare un database singolo nel database SQL di Azure usando il portale di Azure, PowerShell e l'interfaccia della riga di comando di Azure
 
 La creazione di un [database singolo](sql-database-single-database.md) è l'opzione di distribuzione più semplice e rapida per la creazione di database nel database SQL di Azure. Questa guida introduttiva mostra come creare un database singolo e quindi eseguire query usando il portale di Azure.
 
@@ -41,59 +41,7 @@ Quando si crea un database singolo, si definisce anche un [server di database SQ
 
 Per creare un database singolo contenente i dati di esempio di AdventureWorksLT:
 
-1. Selezionare **Crea risorsa** nell'angolo superiore sinistro del portale di Azure.
-2. Selezionare **Database** e quindi **Database SQL** per aprire la pagina **Crea database SQL**.
-
-   ![Creare un database singolo](./media/sql-database-get-started-portal/create-database-1.png)
-
-3. Nella sezione **Dettagli del progetto** della scheda **Generale** digitare o selezionare i valori seguenti:
-
-   - **Sottoscrizione** se non è già visualizzata, selezionare la sottoscrizione corretta nell'elenco a discesa.
-   - **Gruppo di risorse**: selezionare **Crea nuovo**, digitare `myResourceGroup` e selezionare **OK**.
-
-     ![Nuovo database SQL - scheda Generale](media/sql-database-get-started-portal/new-sql-database-basics.png)
-
-4. Nella sezione **Dettagli del database** digitare o selezionare i valori seguenti:
-
-   - **Nome database**: Immettere `mySampleDatabase`.
-   - **Server**: selezionare **Crea nuovo** e immettere i valori seguenti, quindi scegliere **Selezionare**.
-       - **Nome server**: digitare `mysqlserver`, oltre ad alcuni numeri per garantire l'univocità.
-       - **Account di accesso amministratore server**: Digitare `azureuser`.
-       - **Password**: Digitare una password complessa che soddisfi i corrispondenti requisiti.
-       - **Località**: scegliere una località dall'elenco a discesa, ad esempio `West US 2`.
-
-         ![Nuovo server](media/sql-database-get-started-portal/new-server.png)
-
-      > [!IMPORTANT]
-      > Ricordarsi di prendere nota dell'account di accesso amministratore del server e della password per poter accedere al server e ai database per questa e le altre guide introduttive. Se si dimentica l'account di accesso o la password, è possibile recuperare il nome di accesso o reimpostare la password nella pagina **SQL Server**. Per aprire la pagina **SQL Server**, selezionare il nome del server nella pagina **Panoramica** del database dopo che questo è stato creato.
-
-        ![Dettagli del database SQL](media/sql-database-get-started-portal/sql-db-basic-db-details.png)
-
-   - **Usare il pool elastico SQL?** : selezionare l'opzione **No**.
-   - **Calcolo e archiviazione**: Selezionare **Configura database** e, per questo argomento di avvio rapido, selezionare **Opzioni di acquisto basate su vCore**
-
-     ![Opzioni di acquisto basate su vCore](media/sql-database-get-started-portal/create-database-vcore.png)
-
-   - Selezionare **Serverless**.
-
-     ![Livello di elaborazione serverless](media/sql-database-get-started-portal/create-database-serverless.png)
-
-   - Rivedere le impostazioni per **Numero massimo vCore**, **Numero minimo vCore**, **Ritardo di sospensione automatica** e **Dimensioni massime dati**. Modificare tali impostazioni in base alle esigenze.
-   - Accettare le condizioni preliminari e fare clic su **OK**.
-   - Selezionare **Applica**.
-
-5. Selezionare la scheda **Impostazioni aggiuntive**. 
-6. Nella sezione **Origine dati**, in **Usa dati esistenti**, selezionare `Sample`. 
-
-   ![Impostazioni aggiuntive del database SQL](media/sql-database-get-started-portal/create-sql-database-additional-settings.png)
-
-   > [!IMPORTANT]
-   > Assicurarsi di selezionare i dati di **Sample (AdventureWorksLT)** per poter seguire questa e le altre guide introduttive per il database SQL di Azure in cui vengono usati tali dati.
-
-7. Lasciare i restanti valori predefiniti e selezionare **Rivedi e crea** in basso nel modulo.
-8. Rivedere le impostazioni finali e selezionare **Crea**.
-
-9. Nel modulo **Database SQL** selezionare **Crea** per distribuire il gruppo di risorse, il server e il database ed effettuarne il provisioning.
+[!INCLUDE [sql-database-create-single-database](includes/sql-database-create-single-database.md)]
 
 ## <a name="query-the-database"></a>Eseguire query sul database
 

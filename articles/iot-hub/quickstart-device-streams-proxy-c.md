@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: b958711c498f0826f2a48d92d4892eb43ec8d18a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 23a005ebb16f4786c7dde9ec5b2a7ae7c5685cb8
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446087"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377243"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Guida introduttiva: Abilitare SSH e RDP su un flusso del dispositivo dell'hub IoT con un'applicazione proxy C (anteprima)
 
@@ -149,7 +149,7 @@ In questa sezione si stabilisce un flusso end-to-end per il tunneling del traffi
 
 ### <a name="run-the-device-local-proxy-application"></a>Eseguire l'applicazione proxy locale del dispositivo
 
-1. Modificare il file di origine *iothub_client_c2d_streaming_sample.c* nella cartella *iothub_client/samples/iothub_client_c2d_streaming_sample* e specificare la stringa di connessione del dispositivo, l'indirizzo IP/nome host del dispositivo di destinazione e la porta SSH 22:
+1. Modificare il file di origine *iothub_client_c2d_streaming_proxy_sample.c* nella cartella *iothub_client/samples/iothub_client_c2d_streaming_proxy_sample* e specificare la stringa di connessione del dispositivo, l'indirizzo IP/nome host del dispositivo di destinazione e la porta SSH 22:
 
    ```C
    /* Paste in your iothub connection string  */

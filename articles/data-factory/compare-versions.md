@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: 4d31a134ae15e4ddbda0cc60a741f8780fec8d12
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 4cdb517e644d55504bfdafbd3bacdfd4bfa0b36c
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67838107"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479309"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Confrontare Azure Data Factory con Data Factory versione 1
 Questo articolo mette a confronto Data Factory e Data Factory versione 1. Per un'introduzione a Data Factory, vedere [Introduzione a Data Factory](introduction.md). Per un'introduzione a Data Factory versione 1, vedere [Introduzione ad Azure Data Factory](v1/data-factory-introduction.md). 

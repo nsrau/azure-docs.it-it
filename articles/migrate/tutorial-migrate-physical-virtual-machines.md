@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 2554501ecf6d4ef115e3283fa635c24510b8c797
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 728bf785edebcd17599b6a56edea1e26ed2d2fbc
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249597"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311784"
 ---
 # <a name="migrate-physical-or-virtualized-servers-to-azure"></a>Eseguire la migrazione di server fisici o virtuali ad Azure 
 
@@ -72,7 +72,7 @@ Configurare le autorizzazioni di Azure prima di eseguire la migrazione con lo st
 ### <a name="assign-permissions-to-create-project"></a>Assegnare le autorizzazioni per creare il progetto
 
 1. Nel portale di Azure aprire la sottoscrizione e selezionare **Controllo di accesso (IAM)** .
-2. In **Verifica l'accesso**  trovare l'account pertinente e fare clic su di esso per visualizzare le autorizzazioni.
+2. In **Verifica l'accesso** trovare l'account pertinente e fare clic su di esso per visualizzare le autorizzazioni.
 3. È necessario avere le autorizzazioni di **Collaboratore** o **Proprietario**.
     - Se è appena stato creato un account Azure gratuito, si è proprietari della propria sottoscrizione.
     - Se non si ha il ruolo di proprietario della sottoscrizione, collaborare con il proprietario per assegnare il ruolo.
@@ -111,7 +111,7 @@ L'amministratore tenant/globale può assegnare il ruolo Sviluppatore di applicaz
 Per assegnare le autorizzazioni di assegnazione di ruolo per il gruppo di risorse in cui si trova il progetto di Azure Migrate, eseguire questa procedura:
 
 1. Nel gruppo di risorse nel portale di Azure selezionare **Controllo di accesso (IAM)** .
-2. In **Verifica l'accesso**  trovare l'account pertinente e fare clic su di esso per visualizzare le autorizzazioni. Sono necessarie le autorizzazioni di **Proprietario** (o di **Collaboratore** e **Amministratore Accesso utenti** ).
+2. In **Verifica l'accesso** trovare l'account pertinente e fare clic su di esso per visualizzare le autorizzazioni. Sono necessarie le autorizzazioni di **Proprietario** (o di **Collaboratore** e **Amministratore Accesso utenti** ).
 3. Se non si hanno le autorizzazioni necessarie, richiederle al proprietario del gruppo di risorse. 
 
 ## <a name="prepare-for-migration"></a>Preparare la migrazione
@@ -151,7 +151,7 @@ Configurare un progetto di Azure Migrate e quindi aggiungervi lo strumento Migra
 
 5. In **Individuare, valutare ed eseguire la migrazione dei server** fare clic su **Aggiungi strumenti**.
 6. In **Progetto di migrazione** selezionare la sottoscrizione di Azure e creare un gruppo di risorse, se non se ne ha già uno.
-7. In **Dettagli del progetto** specificare il nome del progetto e l'area geografica in cui lo si vuole creare, quindi fare clic su **Avanti**
+7. In **Dettagli del progetto** specificare il nome del progetto e l'area geografica in cui lo si vuole creare, quindi fare clic su **Avanti**.
 
     ![Creare un progetto di Azure Migrate](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
 
@@ -214,7 +214,7 @@ Nei computer di cui eseguire la migrazione, è necessario installare l'agente de
 4. Copiare il file del programma di installazione nel computer di cui eseguire la migrazione.
 5. Assicurarsi di avere a disposizione la passphrase generata durante la distribuzione dell'appliance.
     - Archiviare il file in un file di testo temporaneo nel computer.
-    - È possibile ottenere la passphrase nell'appliance di replica. Dalla riga di comando eseguire **C:\ProgramData\ASR\svsystems\bin\genpassphrase.exe -v** per visualizzare la passphrase corrente.
+    - È possibile ottenere la passphrase nell'appliance di replica. Dalla riga di comando eseguire **C:\ProgramData\ASR\home\svsystems\bin\genpassphrase.exe -v** per visualizzare la passphrase corrente.
     - Non rigenerare la passphrase. In caso contrario, la connettività si interrompe ed è necessario ripetere la registrazione dell'appliance di replica.
 
 
@@ -260,9 +260,9 @@ Nei computer di cui eseguire la migrazione, è necessario installare l'agente de
 
     ![Replicare le VM](./media/tutorial-migrate-physical-virtual-machines/select-replicate.png)
 
-2. In **Replica** > **Impostazioni origine**  > **I computer sono virtualizzati?** selezionare **Sì, con VMware vSphere**.
-3. In **Appliance locale**  selezionare il nome dell'appliance di Azure Migrate configurata.
-4. In **Server vCenter**  specificare il nome del server vCenter che gestisce le VM, ovvero il server vSphere che le ospita.
+2. In **Replica** > **Impostazioni origine** > **I computer sono virtualizzati?** selezionare **Sì, con VMware vSphere**.
+3. In **Appliance locale** selezionare il nome dell'appliance di Azure Migrate configurata.
+4. In **Server vCenter** specificare il nome del server vCenter che gestisce le VM, ovvero il server vSphere che le ospita.
 5. In **Server di elaborazione** selezionare il nome dell'appliance di replica.
 6. In **Credenziali guest** specificare l'account amministratore di macchine virtuali che verrà usato per l'installazione push del servizio Mobility. In questa esercitazione il servizio Mobility viene installato manualmente, quindi è possibile aggiungere qualsiasi account fittizio. Fare quindi clic su **Avanti: Macchine virtuali**.
 
@@ -329,7 +329,7 @@ All'avvio della replica differenziale, è possibile eseguire una migrazione di t
 Per eseguire una migrazione di test, seguire questa procedura:
 
 
-1. In **Obiettivi della migrazione**  > **Server** > **Azure Migrate: Migrazione server** fare clic su **Testare i server con migrazione completata**.
+1. In **Obiettivi della migrazione** > **Server** > **Azure Migrate: Migrazione server** fare clic su **Testare i server con migrazione completata**.
 
      ![Testare i server con migrazione completata](./media/tutorial-migrate-physical-virtual-machines/test-migrated-servers.png)
 
@@ -340,7 +340,7 @@ Per eseguire una migrazione di test, seguire questa procedura:
 3. In **Migrazione di test** selezionare la rete virtuale di Azure in cui verrà inserita la VM di Azure dopo la migrazione. È consigliabile usare una rete virtuale non di produzione.
 4. Verrà avviato il processo **Migrazione di test**. Monitorare il processo nelle notifiche del portale.
 5. Al termine della migrazione, visualizzare la VM di Azure di cui è stata eseguita la migrazione in **Macchine virtuali** nel portale di Azure. Il nome della macchina virtuale ha il suffisso **-Test**.
-6. Al termine del test, fare clic con il pulsante destro del mouse sulla VM di Azure in **Replica delle macchine virtuali**  e scegliere **Pulisci migrazione di test**.
+6. Al termine del test, fare clic con il pulsante destro del mouse sulla macchina virtuale di Azure in **Replica delle macchine virtuali** e scegliere **Pulisci migrazione di test**.
 
     ![Eseguire la pulizia della migrazione](./media/tutorial-migrate-physical-virtual-machines/clean-up.png)
 

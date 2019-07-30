@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Inviare una query all'API Bing Local Business Search in C# | Microsoft Docs"
+title: "Avvio rapido: Inviare una query all'API Ricerca attività commerciali locali Bing in C#"
 titleSuffix: Azure Cognitive Services
 description: Seguire questo articolo per iniziare a usare l'API Bing Local Business Search in C#.
 services: cognitive-services
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 04/26/2019
 ms.author: rosh
-ms.openlocfilehash: 3b75d89720212149711c8aad9985267d72b8cecd
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 479429ff6354813468fb529029ca540a8ebc1b70
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592775"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423393"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>Guida introduttiva: Inviare una query all'API Bing Local Business Search in C#
 

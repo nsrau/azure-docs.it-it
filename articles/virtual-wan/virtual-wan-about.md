@@ -5,23 +5,23 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 06/28/2019
+ms.date: 07/22/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 46f3f87fac5b65229e03ee91d8f2b93b1a1590e8
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: f1576e963f9c25821b5e3f57907662e3d86df4e0
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795288"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68406367"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Che cos'è la rete WAN virtuale di Azure?
 
 La rete WAN virtuale di Azure è un servizio di rete che offre connettività tra rami ottimizzata e automatizzata verso e tramite Azure. Le aree di Azure fungono da hub a cui è possibile scegliere di connettere i rami. È possibile sfruttare il backbone di Azure per anche connettere i rami e sfruttare i vantaggi della connettività da ramo a VNet. È disponibile un elenco di partner che supportano l'automazione della connettività con VPN di rete WAN virtuale di Azure. Per maggiori informazioni, vedere l'articolo [Partner e località della rete WAN virtuale](virtual-wan-locations-partners.md).
 
-La rete WAN virtuale di Azure raggruppa in una singola interfaccia operativa numerosi servizi di connettività cloud di Azure, ad esempio VPN da sito a sito, ExpressRoute e VPN utente da punto a sito. La connettività con le reti virtuali di Azure viene stabilita tramite connessioni di rete virtuali.
+La rete WAN virtuale di Azure raggruppa in una singola interfaccia operativa numerosi servizi di connettività cloud di Azure, tra cui VPN da sito a sito ed ExpressRoute. La connettività con le reti virtuali di Azure viene stabilita tramite connessioni di rete virtuali.
 
-ExpressRoute e la VPN utente da punto per la rete WAN virtuale sono attualmente disponibili in anteprima.
+ExpressRoute nella rete WAN virtuale di Azure è attualmente disponibile in anteprima.
 
 ![Diagramma della rete WAN virtuale](./media/virtual-wan-about/virtualwan1.png)
 
@@ -51,7 +51,7 @@ Per configurare una rete WAN virtuale end-to-end, creare le risorse seguenti:
 
 ## <a name="connectivity"></a>Connettività
 
-La rete WAN virtuale consente tre tipi di connettività: da sito a sito, da punto a sito (anteprima) ed ExpressRoute (anteprima).
+La rete WAN virtuale consente due tipi di connettività, ovvero da sito a sito ed ExpressRoute (anteprima).
 
 ### <a name="s2s"></a>Connessioni VPN da sito a sito
 
@@ -71,11 +71,6 @@ Se si collabora con un partner della rete WAN virtuale, il flusso di lavoro è i
 
 Per un elenco di partner e località disponibili, vedere l'articolo [Partner e località della rete WAN virtuale](virtual-wan-locations-partners.md).
 
-### <a name="p2s"></a>Connessioni VPN da punto a sito (anteprima)
-
-Una connessione da punto a sito (P2S) consente di creare una connessione sicura all'hub virtuale da un singolo computer client. Una connessione da punto a sito viene stabilita avviandola dal computer client. Questa soluzione è utile per i telelavoratori che vogliono connettersi da una posizione remota, ad esempio da casa o durante una riunione. Una VPN da punto a sito è anche una soluzione utile da usare al posto di una VPN da sito a sito quando devono connettersi solo pochi client.
-
-Per creare la connessione, vedere [Creare una connessione da punto a sito tramite la rete WAN virtuale](virtual-wan-point-to-site-portal.md).
 
 ### <a name="er"></a>Connessioni ExpressRoute (anteprima)
 

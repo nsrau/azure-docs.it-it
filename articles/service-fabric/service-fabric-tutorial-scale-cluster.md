@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/19/2019
+ms.date: 07/22/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: fa9b091beacbc98c6939ec0454bd04da2b7561e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9e34984dde4ae09540ff73a8ddd1a90c11d5bef4
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66157972"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385199"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Esercitazione: Ridimensionare un cluster di Service Fabric in Azure
 
@@ -68,7 +68,7 @@ Quando si ridimensiona un cluster di Azure, tenere presenti le linee guida segue
 * I tipi di nodo primari che eseguono carichi di lavoro di produzione devono avere un [livello di durabilità][durability] Gold o Silver e contenere sempre cinque o più nodi.
 * I tipi di nodo non primari che eseguono carichi di lavoro di produzione con stato devono contenere sempre cinque o più nodi.
 * I tipi di nodo non primari che eseguono carichi di lavoro di produzione senza stato devono contenere sempre due o più nodi.
-* Qualsiasi tipo di nodo del [livello di durabilità][durability] Gold o Silver deve sempre contenere cinque o più nodi.
+* Qualsiasi tipo di nodo del [livello di durabilità][durability] Gold or Silver deve sempre contenere cinque o più nodi.
 * Se si ridimensiona un tipo di nodo primario rimuovendo alcuni nodi, è consigliabile non ridurre mai il numero di istanze a un valore inferiore a quello richiesto dal [livello di affidabilità][reliability].
 
 Per altre informazioni, vedere la [guida alla capacità del cluster](service-fabric-cluster-capacity.md).
@@ -820,7 +820,7 @@ Dopo aver creato un cluster di Service Fabric, è possibile ridimensionare un cl
 > [!WARNING]
 > Non è consigliabile usare frequentemente il comando Remove-AzServiceFabricNodeType per rimuovere un tipo di nodo da un cluster di produzione. È un comando molto pericoloso perché elimina la risorsa set di scalabilità di macchine virtuali presente dietro il tipo di nodo. 
 
-Per rimuovere il tipo di nodo, eseguire il cmdlet [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype).  Il [livello di durabilità][durability] del tipo di nodo deve essere Silver o Gold. Il cmdlet elimina il set di scalabilità associato al tipo di nodo e il completamento del cmdlet tempo.  Eseguire quindi il cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) in ciascuno dei nodi da rimuovere, che consente di eliminare lo stato del nodo e di rimuovere i nodi dal cluster. Se nei nodi sono presenti servizi, questi vengono prima spostati in un altro nodo. Se Cluster Manager non è in grado di trovare un nodo per una replica o un servizio, l'operazione viene posticipata o bloccata.
+Per rimuovere il tipo di nodo, eseguire il cmdlet [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype).  Il [livello di durabilità][durability] del tipo di nodo deve essere Silver o Gold. Il cmdlet elimina il set di scalabilità associato al tipo di nodo e l'operazione richiede qualche istante.  Eseguire quindi il cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) in ciascuno dei nodi da rimuovere, che consente di eliminare lo stato del nodo e di rimuovere i nodi dal cluster. Se nei nodi sono presenti servizi, questi vengono prima spostati in un altro nodo. Se Cluster Manager non è in grado di trovare un nodo per una replica o un servizio, l'operazione viene posticipata o bloccata.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"

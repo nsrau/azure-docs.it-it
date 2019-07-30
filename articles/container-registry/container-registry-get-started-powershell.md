@@ -3,17 +3,18 @@ title: Guida introduttiva - Creare un registro contenitori Docker privati in Azu
 description: Imparare rapidamente a creare un registro contenitori Docker privati in Azure con PowerShell.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 82771d005ce38972cdb1484a02e071a30e577a06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f99b4ee6dd11a109d1c563c84debc2157cb03337
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66152169"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309486"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Guida introduttiva: creare un registro contenitori privato usando Azure PowerShell
 
@@ -59,7 +60,7 @@ In questa guida introduttiva viene creato un registro *Basic*, ovvero un'opzione
 
 ## <a name="log-in-to-registry"></a>Accedere al registro
 
-Prima di eseguire il push e il pull delle immagini del contenitore, è necessario accedere al registro. Negli scenari di produzione è necessario usare una singola identità o entità servizio per l'accesso al registro contenitori, ma per brevità in questa guida introduttiva è sufficiente abilitare l'utente amministratore nel registro con il comando [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential]:
+Prima di eseguire il push e il pull delle immagini del contenitore, è necessario accedere al registro. Negli scenari di produzione è necessario usare una singola identità o entità servizio per l'accesso al registro contenitori, ma per brevità in questa guida di avvio rapido è sufficiente abilitare l'utente amministratore nel registro con il comando [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential]:
 
 ```powershell
 $creds = Get-AzContainerRegistryCredential -Registry $registry
@@ -79,7 +80,7 @@ Il comando restituisce `Login Succeeded` al termine dell'esecuzione.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Dopo avere usato le risorse create in questa guida introduttiva, usare il comando [Remove-AzResourceGroup][Remove-AzResourceGroup] per rimuovere il gruppo di risorse, il registro contenitori e le immagini del contenitore archiviate in tale registro:
+Dopo avere usato le risorse create in questa guida di avvio rapido, usare il comando [Remove-AzResourceGroup][Remove-AzResourceGroup] per rimuovere il gruppo di risorse, il registro contenitori e le immagini del contenitore archiviate in tale registro:
 
 ```powershell
 Remove-AzResourceGroup -Name myResourceGroup

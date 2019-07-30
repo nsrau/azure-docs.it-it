@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: overview
 ms.custom: mvc
 ms.date: 6/29/2018
-ms.openlocfilehash: 90287ab45341f203905aaf32eb6325edd3687231
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: f25ade0e984c98b9cbc8c4efa93f300c3ed93b14
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273136"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385473"
 ---
 # <a name="what-is-azure-logic-apps"></a>Informazioni su App per la logica di Azure
 
@@ -96,7 +96,7 @@ Ragionando sull'altra direzione, BizTalk Server può connettersi a e comunicare 
 
 ### <a name="write-once-reuse-often"></a>Possibilità di riutilizzare il codice scritto
 
-È possibile creare le app per la logica sotto forma di modelli in modo da poter [distribuire e riconfigurare le app](../logic-apps/logic-apps-create-deploy-template.md) in più ambienti e aree.
+È possibile creare le app per la logica sotto forma di modelli di Azure Resource Manager per poter [automatizzare la distribuzione di app per la logica](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) in più aree e ambienti.
 
 ### <a name="built-in-extensibility"></a>Estendibilità incorporata
 

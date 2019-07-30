@@ -1,20 +1,20 @@
 ---
-title: 'Avvio rapido: Creare un database e un cluster di Esplora dati di Azure'
+title: 'Guida introduttiva: Creare un database e un cluster di Esplora dati di Azure'
 description: Questa guida introduttiva descrive come creare un database e un cluster di Esplora dati di Azure e inserire (caricare) i dati.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/25/2019
-ms.openlocfilehash: 41a15a29798953cb32029b7c4d1167020074e49f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 07/22/2019
+ms.openlocfilehash: cfab883f9b9b063bd51b9fdb7306d45371449180
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046037"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68406111"
 ---
-# <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Avvio rapido: Creare un database e un cluster di Esplora dati di Azure
+# <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Guida introduttiva: Creare un database e un cluster di Esplora dati di Azure
 
 > [!div class="op_single_selector"]
 > * [Portale](create-cluster-database-portal.md)
@@ -47,14 +47,15 @@ Creare un cluster di Esplora dati di Azure in un gruppo di risorse di Azure con 
 
 1. Compilare il modulo dei dettagli del cluster di base con le informazioni seguenti.
 
-   ![Modulo per la creazione del cluster](media/create-cluster-database-portal/create-cluster-form.png)
+   ![Modulo per la creazione del cluster](media/create-cluster-database-portal/create-cluster-form2.png)
 
     **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
-    | Sottoscrizione | Sottoscrizione in uso | Selezionare la sottoscrizione di Azure da usare per il cluster.|
-    | Gruppo di risorse | *test-resource-group* | Usare un gruppo di risorse esistente oppure crearne uno nuovo. |
-    | Nome cluster | Nome univoco del cluster | Scegliere un nome univoco che identifica il cluster. Ad esempio *mydataexplorercluster*. Il nome di dominio *[area].kusto.windows.net* viene accodato al nome del cluster specificato. Il nome può contenere solo lettere minuscole e numeri. Deve avere una lunghezza compresa tra 3 e 22 caratteri.
-    | Località | *Stati Uniti occidentali* | Per questa guida introduttiva selezionare *Stati Uniti occidentali*. Per un sistema di produzione, selezionare l'area più appropriata in base alle esigenze.
+    | Subscription | Sottoscrizione in uso | Selezionare la sottoscrizione di Azure da usare per il cluster.|
+    | Resource group | Gruppo di risorse in uso | Usare un gruppo di risorse esistente oppure crearne uno nuovo. |
+    | Nome cluster | Nome univoco del cluster | Scegliere un nome univoco che identifica il cluster. Il nome di dominio *[area].kusto.windows.net* viene accodato al nome del cluster specificato. Il nome può contenere solo lettere minuscole e numeri. Deve avere una lunghezza compresa tra 4 e 22 caratteri.
+    | Region | *Stati Uniti occidentali* o *Stati Uniti occidentali 2* | Per questa guida introduttiva selezionare *Stati Uniti occidentali* o *Stati Uniti occidentali 2* (se si usano le zone di disponibilità). Per un sistema di produzione, selezionare l'area più appropriata in base alle esigenze.
+    | Zone di disponibilità | *1*, *2* e/o *3* | Per le aree supportate con ridondanza delle zone, selezionare le zone in cui risiederanno le istanze (passaggio facoltativo). Per impostazione predefinita, i nodi del cluster vengono creati nello stesso data center. Usare [Zone di disponibilità di Azure](/azure/availability-zones/az-overview) per inserire le istanze del cluster in diverse zone di disponibilità nella stessa area. Selezionando diverse zone di disponibilità è possibile eliminare un singolo punto di guasto e garantire disponibilità elevata. 
     | Specifiche dell'ambiente di calcolo | *D13_v2* | Per questa guida introduttiva, selezionare la specifica con il prezzo più basso. Per un sistema di produzione, selezionare la specifica più appropriata in base alle esigenze.
     | | |
 

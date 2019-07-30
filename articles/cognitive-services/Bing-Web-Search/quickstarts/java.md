@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Eseguire una ricerca Web con Java - API REST Ricerca Web Bing'
+title: "Guida introduttiva: Usare Java per chiamare l'API REST Ricerca Web Bing"
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida di avvio rapido per inviare richieste all'API REST Ricerca Web Bing usando Java e ricevere una risposta JSON
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 07/22/2019
 ms.author: aahi
-ms.custom: seodec2018
-ms.openlocfilehash: 8282838f778516e31080960400e5b1435f0b5673
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.custom: seodec2018, seo-java-july2019
+ms.openlocfilehash: 42cb270955846f1333b79389c3ca979dc4808f05
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57866327"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489638"
 ---
-# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-java"></a>Avvio rapido: Effettuare ricerche sul Web con l'API REST Ricerca Web Bing e Java
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-java"></a>Guida introduttiva: Effettuare ricerche sul Web con l'API REST Ricerca Web Bing e Java
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca Web Bing e ricevere la risposta JSON. Questa applicazione Java invia una richiesta di ricerca all'API e visualizza la risposta. L'applicazione è scritta in Java, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 

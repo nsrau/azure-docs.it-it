@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: f8697042ed46e0ff333f736454346908d76cf039
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 73f9ee597682cc995f3a2cc783abeee92bf11bd2
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718369"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501131"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Esercitazione: Avviare lo strumento di lettura immersiva (Node.js)
 
@@ -33,7 +33,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una chiave di sottoscrizione per lo strumento di lettura immersiva. Per ottenerne una, seguire [queste istruzioni](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+* Una risorsa Strumento di lettura immersiva configurata per l'autenticazione Azure Active Directory (Azure AD). Seguire [queste istruzioni](./azure-active-directory-authentication.md) per configurare l'ambiente. Per la configurazione delle proprietà dell'ambiente, saranno necessari alcuni dei valori creati qui. Salvare l'output della sessione in un file di testo per riferimento futuro.
 * [Node.js](https://nodejs.org/) e [Yarn](https://yarnpkg.com)
 * Un ambiente di sviluppo integrato, ad esempio [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -55,20 +55,31 @@ yarn add request
 yarn add dotenv
 ```
 
-## <a name="acquire-an-access-token"></a>Acquisire un token di accesso
+## <a name="acquire-an-azure-ad-authentication-token"></a>Acquisire un token di autenticazione di Azure AD
 
-Scrivere quindi un'API back-end per recuperare un token di accesso usando la chiave di sottoscrizione. Per questo passaggio è necessario conoscere la chiave di sottoscrizione e l'endpoint. È possibile trovare la chiave di sottoscrizione nella pagina delle chiavi dello strumento di lettura immersiva nel portale di Azure. È possibile trovare l'endpoint nella pagina di panoramica.
+Successivamente, scrivere un'API back-end per recuperare un token di autenticazione di Azure AD.
 
-Non appena si hanno la chiave di sottoscrizione e l'endpoint, creare un nuovo file con estensione _env_e incollarvi il codice seguente, sostituendo `{YOUR_SUBSCRIPTION_KEY}` e `{YOUR_ENDPOINT}` rispettivamente con la chiave di sottoscrizione e l'endpoint.
+Per questa parte sono necessari alcuni valori del passaggio relativo ai prerequisiti di configurazione dell'autenticazione di Azure AD. Fare riferimento al file di testo salvato della sessione.
+
+````text
+TenantId     => Azure subscription TenantId
+ClientId     => Azure AD ApplicationId
+ClientSecret => Azure AD Application Service Principal password
+Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
+````
+
+Dopo aver recuperato i valori necessari, creare un nuovo file denominato _.env_ e incollare il codice seguente al suo interno, specificando i valori delle proprietà personalizzate dal passaggio precedente.
 
 ```text
-SUBSCRIPTION_KEY={YOUR_SUBSCRIPTION_KEY}
-ENDPOINT={YOUR_ENDPOINT}
+TENANT_ID={YOUR_TENANT_ID}
+CLIENT_ID={YOUR_CLIENT_ID}
+CLIENT_SECRET={YOUR_CLIENT_SECRET}
+SUBDOMAIN={YOUR_SUBDOMAIN}
 ```
 
 Fare attenzione a non eseguire il commit di questo file nel controllo del codice sorgente, poiché contiene segreti che non devono essere resi pubblici.
 
-Aprire quindi _app.js_ e aggiungere il codice seguente all'inizio del file. In questo modo, la chiave di sottoscrizione e l'endpoint vengono caricati come variabili di ambiente in Node.
+Aprire quindi _app.js_ e aggiungere il codice seguente all'inizio del file. Verranno caricate le proprietà definite nel file .env come variabili di ambiente in Node.
 
 ```javascript
 require('dotenv').config();
@@ -80,31 +91,45 @@ Aprire il file _routes\index.js_ e inserire quanto segue all'inizio del file:
 var request = require('request');
 ```
 
-Aggiungere quindi il codice seguente subito dopo tale riga. Questo codice crea un endpoint API che acquisisce un token di accesso usando la chiave di sottoscrizione e quindi restituisce tale token.
+Aggiungere quindi il codice seguente subito dopo tale riga. Questo codice crea un endpoint API che acquisisce un token di autenticazione di Azure AD usando la password dell'entità servizio e quindi restituisce tale token. È anche presente un secondo endpoint per il recupero del sottodominio.
 
 ```javascript
-router.get('/token', function(req, res, next) {
-  request.post({
-    headers: {
-        'Ocp-Apim-Subscription-Key': process.env.SUBSCRIPTION_KEY,
-        'content-type': 'application/x-www-form-urlencoded'
-    },
-    url: process.env.ENDPOINT
-  },
-  function(err, resp, token) {
-    return res.send(token);
-  });
+router.get('/getimmersivereadertoken', function(req, res) {
+  request.post ({
+          headers: {
+              'content-type': 'application/x-www-form-urlencoded'
+          },
+          url: `https://login.windows.net/${process.env.TENANT_ID}/oauth2/token`,
+          form: {
+              grant_type: 'client_credentials',
+              client_id: process.env.CLIENT_ID,
+              client_secret: process.env.CLIENT_SECRET,
+              resource: 'https://cognitiveservices.azure.com/'
+          }
+      },
+      function(err, resp, token) {
+          if (err) {
+              return res.status(500).send('CogSvcs IssueToken error');
+          }
+
+          return res.send(JSON.parse(token).access_token);
+      }
+  );
+});
+
+router.get('/subdomain', function (req, res) {
+    return res.send(process.env.SUBDOMAIN);
 });
 ```
 
-Questo endpoint API deve essere protetto da una qualche forma di autenticazione, ad esempio [OAuth](https://oauth.net/2/), ma questa operazione esula dall'ambito di questa esercitazione.
+L'endpoint API **getimmersivereadertoken** deve essere protetto da qualche forma di autenticazione, ad esempio [OAuth](https://oauth.net/2/), per impedire agli utenti non autorizzati di ottenere token da usare per il servizio Strumento di lettura immersiva e la fatturazione, ma la relativa procedura esula dall'ambito di questa esercitazione.
 
 ## <a name="launch-the-immersive-reader-with-sample-content"></a>Avviare lo strumento di lettura immersiva con contenuto di esempio
 
 1. Aprire _views\layout.pug_ e aggiungere il codice seguente sotto il tag `head`, prima del tag `body`. Questi tag `script` caricano [Immersive Reader SDK](https://github.com/Microsoft/immersive-reader-sdk) e jQuery.
 
     ```pug
-    script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.1.js')
+    script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.2.js')
     script(src='https://code.jquery.com/jquery-3.3.1.min.js')
     ```
 
@@ -118,21 +143,47 @@ Questo endpoint API deve essere protetto da una qualche forma di autenticazione,
       p(id='content') The study of Earth's landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers.
       div(class='immersive-reader-button' data-button-style='iconAndText' data-locale='en-US' onclick='launchImmersiveReader()')
       script.
-        function launchImmersiveReader() {
-          // First, get a token using our /token endpoint
-          $.ajax('/token', { success: token => {
-            // Second, grab the content from the page
+
+        function getImmersiveReaderTokenAsync() {
+            return new Promise((resolve, reject) => {
+                $.ajax({
+                    url: '/getimmersivereadertoken',
+                    type: 'GET',
+                    success: token => {
+                        resolve(token);
+                    },
+                    error: err => {
+                        console.log('Error in getting token!', err);
+                        reject(err);
+                    }
+                });
+            });
+        }
+
+        function getSubdomainAsync() {
+            return new Promise((resolve, reject) => {
+                $.ajax({
+                    url: '/subdomain',
+                    type: 'GET',
+                    success: subdomain => { resolve(subdomain); },
+                    error: err => { reject(err); }
+                });
+            });
+        }
+
+        async function launchImmersiveReader() {
             const content = {
-              title: document.getElementById('title').innerText,
-              chunks: [ {
-                content: document.getElementById('content').innerText + '\n\n',
-                lang: 'en'
-              } ]
+                title: document.getElementById('title').innerText,
+                chunks: [{
+                    content: document.getElementById('content').innerText + '\n\n',
+                    lang: 'en'
+                }]
             };
 
-            // Third, launch the Immersive Reader
-            ImmersiveReader.launchAsync(token, content);
-          }});
+            const token = await getImmersiveReaderTokenAsync();
+            const subdomain = await getSubdomainAsync();
+
+            ImmersiveReader.launchAsync(token, subdomain, content);
         }
     ```
 
@@ -142,7 +193,7 @@ Questo endpoint API deve essere protetto da una qualche forma di autenticazione,
     npm start
     ```
 
-4. Aprire il browser e passare a _http://localhost:3000_. Nella pagina verrà visualizzato il contenuto sopra riportato. Fare clic sul pulsante **Immersive Reader** per avviare lo strumento di lettura immersiva con il contenuto.
+4. Aprire il browser e passare a _http://localhost:3000_ . Nella pagina verrà visualizzato il contenuto sopra riportato. Fare clic sul pulsante **Immersive Reader** per avviare lo strumento di lettura immersiva con il contenuto.
 
 ## <a name="specify-the-language-of-your-content"></a>Specificare la lingua del contenuto
 
@@ -163,7 +214,7 @@ Lo strumento di lettura immersiva include il supporto per molte lingue diverse. 
     });
     ```
 
-3. Passare di nuovo a _http://localhost:3000_. Il testo in spagnolo viene visualizzato nella pagina e, quando si fa clic su **Immersive Reader**, viene visualizzato anche nello strumento di lettura immersiva.
+3. Passare di nuovo a _http://localhost:3000_ . Il testo in spagnolo viene visualizzato nella pagina e, quando si fa clic su **Immersive Reader**, viene visualizzato anche nello strumento di lettura immersiva.
 
 ## <a name="specify-the-language-of-the-immersive-reader-interface"></a>Specificare la lingua dell'interfaccia dello strumento di lettura immersiva
 
@@ -178,7 +229,7 @@ Per impostazione predefinita, la lingua dell'interfaccia dello strumento di lett
     ImmersiveReader.launchAsync(token, content, options);
     ```
 
-2. Passare a _http://localhost:3000_. Quando si avvierà lo strumento di lettura immersiva, l'interfaccia verrà visualizzata in francese.
+2. Passare a _http://localhost:3000_ . Quando si avvierà lo strumento di lettura immersiva, l'interfaccia verrà visualizzata in francese.
 
 ## <a name="launch-the-immersive-reader-with-math-content"></a>Avviare lo strumento di lettura immersiva con dati matematici
 
@@ -209,9 +260,9 @@ Per impostazione predefinita, la lingua dell'interfaccia dello strumento di lett
     });
     ```
 
-2. Passare a _http://localhost:3000_. Quando si avvierà lo strumento di lettura immersiva, si noterà la formula matematica alla fine della schermata.
+2. Passare a _http://localhost:3000_ . Quando si avvierà lo strumento di lettura immersiva, si noterà la formula matematica alla fine della schermata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Esplorare [Immersive Reader SDK](https://github.com/Microsoft/immersive-reader-sdk) e le [informazioni di riferimento su Immersive Reader SDK](./reference.md)
-* Visualizzare gli esempi di codice su [GitHub](https://github.com/microsoft/immersive-reader-sdk/samples/advanced-csharp)
+* Visualizzare gli esempi di codice su [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/samples/advanced-csharp)

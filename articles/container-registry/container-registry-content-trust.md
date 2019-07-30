@@ -3,16 +3,17 @@ title: Attendibilità dei contenuti in Registro Azure Container
 description: Informazioni su come abilitare l'attendibilità dei contenuti per Registro Azure Container ed eseguire il push e il pull di immagini firmate.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.author: danlep
-ms.openlocfilehash: ca9ef32a830f56edb471256b3b9175ba0fbec51d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: d2132f060076aefe6ae0eccb6d5300c78c96ece5
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65069211"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356540"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Attendibilità dei contenuti in Registro Azure Container
 
@@ -33,10 +34,10 @@ L'attendibilità dei contenuti funziona con i **tag** in un repository. I reposi
 
 ### <a name="signing-keys"></a>Chiavi di firma
 
-L'attendibilità dei contenuti viene gestita tramite l'uso di un set di chiavi di firma crittografiche. Queste chiavi sono associate a un repository specifico in un registro. Ci sono diversi tipi di chiavi di firma che i client Docker e il registro usano per gestire l'attendibilità per i tag in un repository. Quando si abilita l'attendibilità dei contenuti e la si integra nella pipeline di pubblicazione e utilizzo dei contenitori, è necessario gestire queste chiavi con attenzione. Per altre informazioni, vedere [Gestione delle chiavi](#key-management) più avanti in questo articolo e [Manage keys for content trust][docker-manage-keys] (Gestire le chiavi per l'attendibilità dei contenuti) nella documentazione di Docker.
+L'attendibilità dei contenuti viene gestita tramite l'uso di un set di chiavi di firma crittografiche. Queste chiavi sono associate a un repository specifico in un registro. Ci sono diversi tipi di chiavi di firma che i client Docker e il registro usano per gestire l'attendibilità per i tag in un repository. Quando si abilita l'attendibilità dei contenuti e la si integra nella pipeline di pubblicazione e utilizzo dei contenitori, è necessario gestire queste chiavi con attenzione. Per altre informazioni, vedere [Gestione delle chiavi](#key-management) più avanti in questo articolo e [Gestire le chiavi per l'attendibilità dei contenuti][docker-manage-keys] nella documentazione di Docker.
 
 > [!TIP]
-> Quella fornita è una panoramica molto generale del modello di attendibilità dei contenuti Docker. Per un'analisi approfondita dell'attendibilità dei contenuti, vedere [Content trust in Docker][docker-content-trust] (Attendibilità dei contenuti in Docker).
+> Quella fornita è una panoramica molto generale del modello di attendibilità dei contenuti Docker. Per un'analisi approfondita dell'attendibilità dei contenuti, vedere [Attendibilità dei contenuti in Docker][docker-content-trust].
 
 ## <a name="enable-registry-content-trust"></a>Abilitare l'attendibilità dei contenuti nel registro
 
@@ -173,13 +174,13 @@ Come indicato nell'output di `docker push` quando si esegue il push della prima 
 ~/.docker/trust/private
 ```
 
-Eseguire il backup delle chiavi radice e del repository comprimendole in un archivio e archiviandole in modo sicuro offline (ad esempio in un dispositivo di archiviazione USB). Ad esempio, in Bash:
+Eseguire il backup delle chiavi radice e del repository comprimendole in un archivio e archiviandole in una posizione sicura. Ad esempio, in Bash:
 
 ```bash
 umask 077; tar -zcvf docker_private_keys_backup.tar.gz ~/.docker/trust/private; umask 022
 ```
 
-Insieme alle chiavi radice e del repository generate in locale ne vengono generate e archiviate anche altre da Registro Azure Container quando si esegue il push di un'immagine attendibile. Per informazioni dettagliate sulle diverse chiavi nell'implementazione dell'attendibilità dei contenuti di Docker, incluse indicazioni aggiuntive sulla gestione, vedere [Manage keys for content trust][docker-manage-keys] (Gestire le chiavi per l'attendibilità dei contenuti) nella documentazione di Docker.
+Insieme alle chiavi radice e del repository generate in locale ne vengono generate e archiviate anche altre da Registro Azure Container quando si esegue il push di un'immagine attendibile. Per informazioni dettagliate sulle diverse chiavi nell'implementazione dell'attendibilità dei contenuti di Docker, incluse indicazioni aggiuntive sulla gestione, vedere [Gestire le chiavi per l'attendibilità dei contenuti][docker-manage-keys] nella documentazione di Docker.
 
 ### <a name="lost-root-key"></a>Chiave radice persa
 
@@ -194,7 +195,9 @@ Per disabilitare l'attendibilità dei contenuti per il registro, passare al regi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'attendibilità del contenuto, vedere [Content trust in Docker][docker-content-trust] (Attendibilità del contenuto in Docker). Sebbene in questo articolo siano stati illustrati diversi punti importanti, l'attendibilità dei contenuti è un argomento vasto e viene descritta in modo più dettagliato nella documentazione di Docker.
+* Per altre informazioni sull'attendibilità del contenuto, vedere [Attendibilità dei contenuti in Docker][docker-content-trust]. Sebbene in questo articolo siano stati illustrati diversi punti importanti, l'attendibilità dei contenuti è un argomento vasto e viene descritta in modo più dettagliato nella documentazione di Docker.
+
+* Per un esempio relativo all'uso dell'attendibilità dei contenuti quando si compila e si esegue il push di un'immagine Docker, vedere la documentazione di [Azure Pipelines](/azure/devops/pipelines/build/content-trust).
 
 <!-- IMAGES> -->
 [content-trust-01-portal]: ./media/container-registry-content-trust/content-trust-01-portal.png

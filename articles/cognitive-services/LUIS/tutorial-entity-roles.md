@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: a0ab928ef3b8551e3e20ff3c4b16533c80ee4b7d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 061bd94a839d83f75566412ac546ab3208543780
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149281"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467642"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Esercitazione: Estrarre dati con una relazione di tipo contestuale da un'espressione
 
@@ -91,7 +91,7 @@ L'entità predefinita geographyV2 estrae le informazioni sulla posizione, compre
 1. Aggiungere i due ruoli `Origin` e `Destination`. 
 
     ![Aggiungere i ruoli all'entità predefinita](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
-1. Selezionare **Intents** (Finalità) nel riquadro di spostamento a sinistra, quindi selezionare la finalità **MoveEmployeeToCity**. Notare che i nomi delle città sono etichettati con l'entità predefinita **geographyV2**.
+1. Selezionare **Intents** (Finalità) nel riquadro di spostamento a sinistra, quindi selezionare la finalità **MoveEmployeeToCity**. Si noti che i nomi delle città sono etichettati con l'entità predefinita **geographyV2**.
 1. Nella prima espressione dell'elenco selezionare la posizione di origine. Viene visualizzato un menu a discesa. Selezionare **geographyV2** nell'elenco, quindi seguire il menu per selezionare **Origin** (Origine).
 1. Usare il metodo del passaggio precedente per contrassegnare tutti i ruoli delle posizioni in tutte le espressioni. 
 
