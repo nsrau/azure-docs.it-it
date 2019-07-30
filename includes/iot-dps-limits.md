@@ -4,29 +4,31 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 610f5fcf80db8ffa0c7207d459b98087cbb4773b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: e427a7b80b28f1cc70a02890152f9f2247a8bcd2
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66455174"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360307"
 ---
-Nella tabella seguente sono elencate le limitazioni che si applicano alle risorse di Azure IoT Hub servizio Device Provisioning.
+La tabella seguente elenca i limiti applicabili alle risorse del servizio Device Provisioning in hub IoT di Azure.
 
-| Resource | Limite |
+| Risorsa | Limite |
 | --- | --- |
-| Massimo servizi device provisioning per ogni sottoscrizione di Azure | 10 |
+| Numero massimo di servizi di provisioning di dispositivi per sottoscrizione di Azure | 10 |
 | Numero massimo di iscrizioni | 1\.000.000 |
 | Numero massimo di registrazioni | 1\.000.000 |
 | Numero massimo di gruppi di registrazione | 100 |
 | Numero massimo di autorità di certificazione | 25 |
-| Dimensione massima del messaggio | 96 KB|
+| Numero massimo di hub IoT collegati | 10 |
+| Dimensioni massime del messaggio | 96 KB|
+
 
 > [!NOTE]
-> Per aumentare il numero di istanze nella sottoscrizione, contattare [supporto tecnico Microsoft](https://azure.microsoft.com/support/options/).
+> Per aumentare il numero di istanze nella sottoscrizione, contattare il [supporto tecnico Microsoft](https://azure.microsoft.com/support/options/).
 
 > [!NOTE]
-> Per aumentare il numero di registrazioni e le registrazioni sul servizio di provisioning, contattare [supporto tecnico Microsoft](https://azure.microsoft.com/support/options/).
+> Per aumentare il numero di registrazioni al servizio di provisioning, contattare il [supporto tecnico Microsoft](https://azure.microsoft.com/support/options/).
 
 Il servizio Device Provisioning limita le richieste quando vengono superate le quote seguenti.
 
