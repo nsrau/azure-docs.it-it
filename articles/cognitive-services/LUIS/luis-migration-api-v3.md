@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 07/30/2019
 ms.author: diberry
-ms.openlocfilehash: edaa36cf22e63d42eb347aea3da1816e2c93b45e
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: a61f196a509c3e84b518fffb4eb78f5f7430cb28
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479208"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667575"
 ---
 # <a name="preview-migrate-to-api-version-3x-for-luis-apps"></a>Anteprima: Eseguire la migrazione all'API versione 3. x per le app LUIS
 
@@ -150,7 +150,9 @@ Le principali proprietà JSON per V3 sono:
 }
 ```
 
-`normalizedQuery` Contiene correzioni ortografiche. Corrisponde alla proprietà `alteredQuery`dell'API v2.  
+<!--
+The `alteredQuery` contains spelling corrections. This corresponds to the V2 API property `alteredQuery`.  
+-->
 
 L' `intents` oggetto è un elenco non ordinato. Non presupporre `topIntent`che il primo elemento figlio `intents` nell'oggetto corrisponda a. Usare invece il `topIntent` valore per trovare il Punteggio:
 
@@ -162,7 +164,7 @@ const score = intents[topIntentName];
 Le modifiche dello schema JSON della risposta consentono:
 
 * Distinzione netta tra espressione originale `query`, e stima restituita, `prediction`.
-* Accesso programmatico più semplice ai dati stimati. Anziché eseguire l'enumerazione tramite una matrice nella versione V2, è possibile accedere ai  valori denominati sia per gli Intent che per le entità. Per i ruoli di entità stimati, viene restituito il nome del ruolo perché è univoco nell'intera app.
+* Accesso programmatico più semplice ai dati stimati. Anziché eseguire l'enumerazione tramite una matrice nella versione V2, è possibile accedere ai valori denominati sia per gli Intent che per le entità. Per i ruoli di entità stimati, viene restituito il nome del ruolo perché è univoco nell'intera app.
 * I tipi di dati, se determinati, vengono rispettati. I numeri non vengono più restituiti come stringhe.
 * Distinzione tra le prime informazioni di stima di priorità e i `$instance` metadati aggiuntivi restituiti nell'oggetto. 
 
@@ -380,7 +382,7 @@ Se è impostato su, `true`Luis restituisce una risposta che include: `overridePr
 
 #### <a name="resolution"></a>Risoluzione
 
-La  `resolution` proprietà facoltativa restituisce nella risposta di stima, consentendo di passare i metadati associati all'entità esterna, quindi di riceverli di nuovo nella risposta. 
+La `resolution` proprietà facoltativa restituisce nella risposta di stima, consentendo di passare i metadati associati all'entità esterna, quindi di riceverli di nuovo nella risposta. 
 
 Lo scopo principale consiste nell'estendere le entità predefinite, ma questo non è limitato a tale tipo di entità. 
 

@@ -74,6 +74,7 @@
     - name: Supporto di lingua e area geografica
       href: language-support.md
     - name: Analisi per l'API Suggerimenti automatici Bing
-      href: bing-autosuggest-stats.md
+      maintainContext: true
+      href: ../bing-web-search/bing-web-stats.md
     - name: Conformità
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

@@ -70,7 +70,8 @@
 - name: Risorse
   items:
     - name: Analisi per l'API Controllo ortografico Bing
-      href: bing-spell-check-stats.md
+      maintainContext: true
+      href: ../bing-web-search/bing-web-stats.md
     - name: Supporto di lingua e area geografica
       href: language-support.md
     - name: Prezzi
