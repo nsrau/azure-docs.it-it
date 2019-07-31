@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2019
 ms.author: magoedte
 ms.openlocfilehash: 1f06345995e30f4d7f165230f4292c560c89e2e8
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "68489777"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso del Mapping dei servizi in Azure
@@ -332,7 +332,7 @@ I record in queste tabelle vengono generati dai dati segnalati da Dependency Age
 
 Per gestire i costi e la complessità, i record di connessione non rappresentano singole connessioni di rete fisiche. Più connessioni di rete fisiche vengono raggruppate in una connessione logica, che viene quindi riflessa nella rispettiva tabella.  Ciò significa che i record nella tabella *VMConnection* rappresentano un raggruppamento logico e non le singole connessioni fisiche osservate. Le connessioni di rete fisiche che condividono lo stesso valore per gli attributi seguenti durante uno specifico intervallo di un minuto vengono aggregate in un singolo record logico in *VMConnection*. 
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--|:--|
 | `Direction` |Direzione della connessione. Il valore è *inbound* o *outbound* |
 | `Machine` |FQDN del computer |
@@ -393,7 +393,7 @@ Per praticità, l'indirizzo IP dell'estremità remota di una connessione è incl
 
 Ogni proprietà RemoteIp nella tabella *VMConnection* viene confrontata con un set di indirizzi IP con attività dannosa nota. Se la proprietà RemoteIp viene identificata come dannosa, le proprietà del record seguenti (vuote quando l'indirizzo IP non è considerato dannoso) vengono popolate:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--|:--|
 | `MaliciousIp` |Indirizzo RemoteIp |
 | `IndicatorThreadType` |L'indicatore di minaccia rilevato è uno dei valori seguenti, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |

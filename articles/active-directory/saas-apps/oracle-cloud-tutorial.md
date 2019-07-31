@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/10/2019
+ms.date: 07/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 456c984e577e3427ce8cd62d6f63987118f2c8ed
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e0725988ff88baea2458f0a5e459440874e66088
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164143"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596428"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>Esercitazione: Integrare Oracle Cloud Infrastructure Console con Azure Active Directory
 
@@ -165,7 +165,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
       ![Configurazione](./media/oracle-cloud-tutorial/config09.png)
 
-   1. Per i campi **IDENTITY PROVIDER GROUP** (GRUPPO PROVIDER DI IDENTITÀ) immettere il nome e l'ID del gruppo impostati nel portale di Azure. Il gruppo deve essere mappato al gruppo corrispondente nel campo **OCI GROUP** (GRUPPO OCI).
+   1. Il **** gruppo di provider di identità deve essere selezionato come gruppo personalizzato. L'ID del gruppo deve essere il GUID del gruppo di Azure Active Directory. Il gruppo deve essere mappato al gruppo corrispondente nel campo **OCI GROUP** (GRUPPO OCI).
 
    1. È possibile eseguire il mapping di più gruppi in base alla configurazione nel portale di Azure e alle esigenze dell'organizzazione. Fare clic su **+ Add mapping** (Aggiungi mapping) per aggiungere tutti i gruppi richiesti.
 

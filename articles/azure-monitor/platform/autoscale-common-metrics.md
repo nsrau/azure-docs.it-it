@@ -9,10 +9,10 @@ ms.date: 12/6/2016
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 9da8e5fb88ff34e561b579b760973ecd23c884a3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "66129740"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Metriche comuni per la scalabilità automatica di Monitoraggio di Azure
@@ -69,8 +69,8 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \PhysicalDisk(_Total)\% Disk Time |Percent |
 | \PhysicalDisk(_Total)\% Disk Read Time |Percent |
 | \PhysicalDisk(_Total)\% Disk Write Time |Percent |
-| \DiscoFisico(_Totale)\Trasferimenti disco/secondo |Conteggio al secondo |
-| \PhysicalDisk(_Total)\Disk Reads/sec |Conteggio al secondo |
+| \DiscoFisico(_Totale)\Trasferimenti disco/secondo |CountPerSecond |
+| \PhysicalDisk(_Total)\Disk Reads/sec |CountPerSecond |
 | \PhysicalDisk(_Total)\Disk Writes/sec |Conteggio al secondo |
 | \PhysicalDisk(_Total)\Disk Bytes/sec |Byte al secondo |
 | \PhysicalDisk(_Total)\Disk Read Bytes/sec |Byte al secondo |
@@ -99,9 +99,9 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \Memory\UsedMemory |Byte |
 | \Memory\PercentUsedMemory |Percent |
 | \Memory\PercentUsedByCache |Percent |
-| \Memory\PagesPerSec |Conteggio al secondo |
-| \Memory\PagesReadPerSec |Conteggio al secondo |
-| \Memory\PagesWrittenPerSec |Conteggio al secondo |
+| \Memory\PagesPerSec |CountPerSecond |
+| \Memory\PagesReadPerSec |CountPerSecond |
+| \Memory\PagesWrittenPerSec |CountPerSecond |
 | \Memory\AvailableSwap |Byte |
 | \Memory\PercentAvailableSwap |Percent |
 | \Memory\UsedSwap |Byte |
@@ -117,9 +117,9 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \PhysicalDisk\BytesPerSecond |Byte al secondo |
 | \PhysicalDisk\ReadBytesPerSecond |Byte al secondo |
 | \PhysicalDisk\WriteBytesPerSecond |Byte al secondo |
-| \PhysicalDisk\TransfersPerSecond |Conteggio al secondo |
-| \PhysicalDisk\ReadsPerSecond |Conteggio al secondo |
-| \PhysicalDisk\WritesPerSecond |Conteggio al secondo |
+| \PhysicalDisk\TransfersPerSecond |CountPerSecond |
+| \PhysicalDisk\ReadsPerSecond |CountPerSecond |
+| \PhysicalDisk\WritesPerSecond |CountPerSecond |
 | \PhysicalDisk\AverageReadTime |Secondi |
 | \PhysicalDisk\AverageWriteTime |Secondi |
 | \PhysicalDisk\AverageTransferTime |Secondi |

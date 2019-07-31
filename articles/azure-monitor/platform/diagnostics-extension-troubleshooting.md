@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: robb
 ms.openlocfilehash: 99ac4ffc288773e52183d371ef2c20f6153bc0f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "65471791"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Risoluzione dei problemi di Diagnostica di Azure
@@ -81,7 +81,7 @@ Se non sono presenti dati per la metrica specifica, controllare in **Diagnostics
 Se la configurazione è impostata correttamente ma i dati relativi alle metriche non vengono comunque visualizzati, usare le linee guida seguenti per risolvere il problema.
 
 
-## <a name="azure-diagnostics-is-not-starting"></a>Mancato avvio di diagnostica di Azure
+## <a name="azure-diagnostics-is-not-starting"></a>Diagnostica di Azure non viene avviato
 Per informazioni sui motivi per cui non è stato possibile avviare Diagnostica di Azure, vedere i file **DiagnosticsPluginLauncher.log** e **DiagnosticsPlugin.log** nel percorso dei file di log riportati in precedenza.
 
 Se questi log indicano `Monitoring Agent not reporting success after launch`, significa che si è verificato un errore di avvio di MonAgentHost.exe. Esaminare i log nel percorso indicato per `MonAgentHost log file` nella sezione precedente.
@@ -104,15 +104,15 @@ La causa più comune per cui non viene visualizzato alcun dato di eventi è la d
 
 Soluzione: correggere la configurazione della diagnostica e reinstallare Diagnostica.
 
-Se l'account di archiviazione è configurato correttamente, accedere in remoto la macchina e verificare che *DiagnosticsPlugin.exe* e *MonAgentCore.exe* sono in esecuzione. Se non sono in esecuzione, seguire la procedura illustrata in [Mancato avvio di Diagnostica di Azure](#azure-diagnostics-is-not-starting).
+Se l'account di archiviazione è configurato correttamente, accedere in remoto al computer e verificare che *DiagnosticsPlugin. exe* e *MonAgentCore. exe* siano in esecuzione. Se non sono in esecuzione, seguire la procedura illustrata in [Mancato avvio di Diagnostica di Azure](#azure-diagnostics-is-not-starting).
 
 Se i processi sono in esecuzione, passare a [I dati vengono acquisiti in locale?](#is-data-getting-captured-locally) e seguire le istruzioni riportate in tale sottoparagrafo.
 
-Se ciò non risolve il problema, provare a:
+Se il problema persiste, provare a:
 
 1. Disinstallare l'agente
 2. Rimuovi directory C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics
-3. Installare di nuovo agente
+3. Installare di nuovo Agent
 
 
 ### <a name="part-of-the-data-is-missing"></a>Alcuni dati sono mancanti
@@ -207,7 +207,7 @@ Di seguito è fornito un esempio:
 ```
 Questo codice genera quattro tabelle:
 
-| Event | Nome tabella |
+| event | Nome tabella |
 | --- | --- |
 | provider="prov1" &lt;Event id=v1" /&gt; |WADEvent+MD5(“prov1”)+”1” |
 | provider="prov1" &lt;Event id="2" eventDestination="dest1" /&gt; |WADdest1 |
@@ -232,7 +232,7 @@ Il plug-in restituisce i seguenti codici di uscita:
 
 | Codice di uscita | Descrizione |
 | --- | --- |
-| 0 |Completamento della procedura. |
+| 0 |Riuscite. |
 | -1 |Errore generico. |
 | -2 |Impossibile caricare il file rcf.<p>Questo errore interno dovrebbe verificarsi solo se l'utilità di avvio del plug-in dell'agente guest viene richiamata manualmente in modo non corretto sulla VM. |
 | -3 |Impossibile caricare il file di configurazione di Diagnostica.<p><p>Soluzione: Questo errore si verifica quando un file di configurazione non supera la convalida dello schema. La soluzione consiste nel fornire un file di configurazione conforme allo schema. |
@@ -250,7 +250,7 @@ Il plug-in restituisce i seguenti codici di uscita:
 | -108 |Impossibile convertire il file di configurazione di Diagnostica nel file di configurazione dell'agente di monitoraggio.<p><p>Questo errore interno dovrebbe verificarsi solo se il plug-in di Diagnostica viene richiamato manualmente con un file di configurazione non valido. |
 | -110 |Errore di configurazione generale di Diagnostica.<p><p>Questo errore interno dovrebbe verificarsi solo se il plug-in di Diagnostica viene richiamato manualmente con un file di configurazione non valido. |
 | -111 |Impossibile avviare l'agente di monitoraggio.<p><p>Soluzione: verificare che siano disponibili risorse di sistema sufficienti. |
-| -112 |Errore generale: |
+| -112 |Errore generale |
 
 ### <a name="local-log-extraction"></a>Estrazione dei log locali
 L'agente di monitoraggio raccoglie log ed elementi come file `.tsf`. Il file con estensione `.tsf` non è leggibile ma può essere convertito in `.csv` come illustrato di seguito:

@@ -14,10 +14,10 @@ author: jpconnock
 ms.author: jeconnoc
 manager: timlt
 ms.openlocfilehash: 90a11c5bb81a0d29f5f8a1c1696732453aa4b1ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "62095405"
 ---
 # <a name="azure-cloud-services-definition-workerrole-schema"></a>Schema WorkerRole di definizione di Servizi cloud di Azure
@@ -206,7 +206,7 @@ La tabella seguente descrive gli attributi dell'elemento `InputEndpoint`.
 | Attributo | Type | DESCRIZIONE |
 | --------- | ---- | ----------- |
 |name|stringa|Richiesto. Nome univoco per l'endpoint esterno.|
-|protocol|string|Richiesto. Protocollo di trasporto per l'endpoint esterno. Per un ruolo di lavoro, i possibili valori sono `HTTP`, `HTTPS`, `UDP` o `TCP`.|
+|protocollo|string|Richiesto. Protocollo di trasporto per l'endpoint esterno. Per un ruolo di lavoro, i possibili valori sono `HTTP`, `HTTPS`, `UDP` o `TCP`.|
 |port|int|Richiesto. Porta per l'endpoint esterno. È possibile specificare qualsiasi numero di porta scelto, ma i numeri di porta specificati per ogni ruolo nel servizio devono essere univoci.<br /><br /> I possibili valori sono compresi tra 1 e 65535 inclusi (Azure SDK versione 1.7 o successiva).|
 |certificato|string|Obbligatorio per un endpoint HTTPS. Nome di un certificato definito da un elemento `Certificate`.|
 |localPort|int|facoltativo. Specifica una porta usata per le connessioni interne nell'endpoint. L'attributo `localPort` esegue il mapping della porta esterna nell'endpoint a una porta interna in un ruolo. È utile negli scenari in cui un ruolo deve comunicare con un componente interno su una porta diversa da quella esposta esternamente.<br /><br /> Se non specificato, il valore di `localPort` è lo stesso dell'attributo `port`. Impostare il valore di `localPort` su "*" per assegnare automaticamente una porta non allocata individuabile usando l'API di runtime.<br /><br /> I possibili valori sono compresi tra 1 e 65535 inclusi (Azure SDK versione 1.7 o successiva).<br /><br /> L'attributo `localPort` è disponibile solo se si usa Azure SDK versione 1.3 o successiva.|
@@ -221,7 +221,7 @@ La tabella seguente descrive gli attributi dell'elemento `InternalEndpoint`.
 | Attributo | Type | DESCRIZIONE |
 | --------- | ---- | ----------- |
 |name|stringa|Richiesto. Nome univoco per l'endpoint interno.|
-|protocol|string|Richiesto. Protocollo di trasporto per l'endpoint interno. I possibili valori sono `HTTP`, `TCP`, `UDP` o `ANY`.<br /><br /> Il valore `ANY` specifica che sono consentiti tutti i protocolli e tutte le porte.|
+|protocollo|string|Richiesto. Protocollo di trasporto per l'endpoint interno. I possibili valori sono `HTTP`, `TCP`, `UDP` o `ANY`.<br /><br /> Il valore `ANY` specifica che sono consentiti tutti i protocolli e tutte le porte.|
 |port|int|facoltativo. Porta usata per le connessioni interne con bilanciamento del carico nell'endpoint. Un endpoint con bilanciamento del carico usa due porte. la porta usata per l'indirizzo IP pubblico e la porta usata per l'indirizzo IP privato, che in genere sono impostate sullo stesso valore, ma è possibile scegliere di usare porte diverse.<br /><br /> I possibili valori sono compresi tra 1 e 65535 inclusi (Azure SDK versione 1.7 o successiva).<br /><br /> L'attributo `Port` è disponibile solo se si usa Azure SDK versione 1.3 o successiva.|
 
 ##  <a name="InstanceInputEndpoint"></a> InstanceInputEndpoint
@@ -235,7 +235,7 @@ La tabella seguente descrive gli attributi dell'elemento `InstanceInputEndpoint`
 | --------- | ---- | ----------- |
 |name|stringa|Richiesto. Nome univoco per l'endpoint.|
 |localPort|int|Richiesto. Specifica la porta interna su cui tutte le istanze del ruolo saranno in ascolto per ricevere il traffico in ingresso inoltrato dal servizio di bilanciamento del carico. I possibili valori sono compresi tra 1 e 65535 inclusi.|
-|protocol|string|Richiesto. Protocollo di trasporto per l'endpoint interno. I possibili valori sono `udp` o `tcp`. Usare `tcp` per il traffico basato su http/https.|
+|protocollo|string|Richiesto. Protocollo di trasporto per l'endpoint interno. I possibili valori sono `udp` o `tcp`. Usare `tcp` per il traffico basato su http/https.|
 
 ##  <a name="AllocatePublicPortFrom"></a> AllocatePublicPortFrom
 L'elemento `AllocatePublicPortFrom` descrive l'intervallo di porte pubbliche che può essere usato dai clienti esterni per accedere a ogni endpoint di input dell'istanza. Il numero di porta pubblica (indirizzo VIP) viene allocato da questo intervallo e assegnato a ogni singolo endpoint di istanza del ruolo durante la distribuzione e l'aggiornamento del tenant. Questo è l'elemento padre dell'elemento `FixedPortRange`.
@@ -265,7 +265,7 @@ La tabella seguente descrive gli attributi dell'elemento `FixedPortRange`.
 
 | Attributo | Type | Descrizione |
 | --------- | ---- | ----------- |
-|Min|int|Richiesto. Numero di porta minimo nell'intervallo. I possibili valori sono compresi tra 1 e 65535 inclusi (Azure SDK versione 1.7 o successiva).|
+|min|int|Richiesto. Numero di porta minimo nell'intervallo. I possibili valori sono compresi tra 1 e 65535 inclusi (Azure SDK versione 1.7 o successiva).|
 |max|string|Richiesto. Numero di porta massimo nell'intervallo. I possibili valori sono compresi tra 1 e 65535 inclusi (Azure SDK versione 1.7 o successiva).|
 
 ##  <a name="Certificates"></a> Certificates
@@ -350,7 +350,7 @@ La tabella seguente descrive gli attributi dell'elemento `NetFxEntryPoint`.
 | Attributo | Type | Descrizione |
 | --------- | ---- | ----------- |
 |assemblyName|string|Richiesto. Percorso e nome file dell'assembly contenente il punto di ingresso. Il percorso è relativo alla cartella **\\%ROLEROOT%\Approot**. Non specificare **\\%ROLEROOT%\Approot** in `commandLine` perché è dato per scontato. **%ROLEROOT%** è una variabile di ambiente gestita da Azure e rappresenta la posizione della cartella radice per il ruolo. La cartella **\\%ROLEROOT%\Approot** rappresenta la cartella dell'applicazione per il ruolo.|
-|targetFrameworkVersion|string|Richiesto. Versione di .NET Framework in cui è stato compilato l'assembly, Ad esempio: `targetFrameworkVersion="v4.0"`.|
+|targetFrameworkVersion|string|Richiesto. Versione di .NET Framework in cui è stato compilato l'assembly, Ad esempio `targetFrameworkVersion="v4.0"`.|
 
 ##  <a name="ProgramEntryPoint"></a> ProgramEntryPoint
 L'elemento `ProgramEntryPoint` specifica il programma da eseguire per un ruolo. L'elemento `ProgramEntryPoint` consente di specificare un punto di ingresso del programma non basato su un assembly .NET.
@@ -399,7 +399,7 @@ L'elemento `Content` è disponibile solo se si usa Azure SDK versione 1.5 o succ
 
 La tabella seguente descrive gli attributi dell'elemento `Content`.
 
-| Attributo | Type | Descrizione |
+| Attributo | Type | DESCRIZIONE |
 | --------- | ---- | ----------- |
 |destinazione|string|Richiesto. Posizione della macchina virtuale Azure in cui viene inserito il contenuto. Questa posizione è relativa alla cartella **%ROLEROOT%\Approot**.|
 

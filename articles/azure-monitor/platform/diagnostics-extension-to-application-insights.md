@@ -9,10 +9,10 @@ ms.date: 03/19/2016
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: f7e21b805c64522005dce3e7d04aa158e1c21032
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "60396139"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Inviare i dati di diagnostica del servizio Cloud, della macchina virtuale o di Service Fabric ad Application Insights
@@ -70,7 +70,7 @@ Esempio di configurazione di un sink per Application Insights:
         - Dettagliato
         - Informazioni
         - Avviso
-        - Tipi di errore
+        - Errore
         - Critico
 
 Un canale agisce da filtro e consente di selezionare specifici livelli di log da inviare al sink di destinazione. Ad esempio, l'utente può raccogliere log dettagliati inviarli alla risorsa di archiviazione, ma inviare solo gli errori al sink.

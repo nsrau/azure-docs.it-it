@@ -10,10 +10,10 @@ ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: ac2b79d670b803573a359dfc9f8738f972f2d9b5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "60237848"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Schema di configurazione di Diagnostica di Azure 1.0
@@ -21,7 +21,7 @@ ms.locfileid: "60237848"
 > Diagnostica di Azure è il componente usato per raccogliere i contatori delle prestazioni e altre statistiche da Macchine virtuali, set di scalabilità di macchine virtuali, Service Fabric e Servizi cloud di Azure.  Questa pagina è utile solo se si usa uno di questi servizi.
 >
 
-Diagnostica di Azure viene usata con altri prodotti di diagnostica Microsoft, ad esempio monitoraggio di Azure, che include Application Insights e Log Analitica.
+Diagnostica di Azure viene usato con altri prodotti di diagnostica Microsoft, come monitoraggio di Azure, che include Application Insights e Log Analytics.
 
 Il file di configurazione di Diagnostica di Azure definisce i valori usati per inizializzare il monitor di diagnostica. Il file viene usato per inizializzare le impostazioni di diagnostica quando viene avviato il monitor di diagnostica.  
 
@@ -126,7 +126,7 @@ Attributi:
 
 Attributi:  
 
-|Attributo|Type|Descrizione|  
+|Attributo|Type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|facoltativo. Specifica lo spazio massimo di archiviazione del file system disponibile per i dati specificati.<br /><br /> Il valore predefinito è 0.|  
 |**scheduledTransferLogLevelFilter**|string|facoltativo. Specifica il livello di gravità minimo per le voci di log trasferite. Il valore predefinito è **Non definito**. Altri valori possibili sono **Dettagli**, **Informazioni**, **Avviso**, **Errore** e **Critico**.|  
@@ -140,7 +140,7 @@ Elemento padre: Elemento DiagnosticMonitorConfiguration.
 
 Attributi:  
 
-|Attributo|Type|Descrizione|  
+|Attributo|Type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|facoltativo. Specifica lo spazio massimo di archiviazione del file system disponibile per i dati specificati.<br /><br /> Il valore predefinito è 0.|  
 |**scheduledTransferPeriod**|duration|facoltativo. Specifica l'intervallo tra trasferimenti di dati pianificati, arrotondato per eccesso al minuto più vicino.<br /><br /> Il valore predefinito è PT0S.|  
@@ -164,7 +164,7 @@ Attributi:
 
 Attributi:  
 
-|Attributo|Type|Descrizione|  
+|Attributo|Type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
 |**container**|string|Nome del contenitore in cui dovrà essere trasferito il contenuto della directory.|  
 |**directoryQuotaInMB**|unsignedInt|facoltativo. Specifica le dimensioni massime della directory in MB.<br /><br /> Il valore predefinito è 0.|  
@@ -176,7 +176,7 @@ Attributi:
 
 Attributi:  
 
-|Attributo|Type|Descrizione|  
+|Attributo|Type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
 |**container**|string|Nome del contenitore in cui dovrà essere trasferito il contenuto della directory.|  
 |**directoryQuotaInMB**|unsignedInt|facoltativo. Specifica le dimensioni massime della directory in MB.<br /><br /> Il valore predefinito è 0.|  
@@ -205,7 +205,7 @@ Attributi:
 
 Attributi:  
 
-|Attributo|Type|Descrizione|  
+|Attributo|Type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
 |**path**|string|Richiesto. Percorso assoluto della directory da monitorare.|  
 |**expandEnvironment**|boolean|Richiesto. Se impostato su **true**, le variabili di ambiente nel percorso verranno espanse.|  
@@ -217,7 +217,7 @@ Attributi:
 
 Attributi:  
 
-|Attributo|Type|Descrizione|  
+|Attributo|Type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
 |**name**|string|Richiesto. Nome della risorsa locale che contiene la directory da monitorare.|  
 |**relativePath**|string|Richiesto. Percorso relativo della risorsa locale da monitorare.|  

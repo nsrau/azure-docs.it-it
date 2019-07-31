@@ -3,16 +3,16 @@ title: Domande frequenti sul backup di file di Azure
 description: Questo articolo fornisce informazioni dettagliate su come proteggere le condivisioni file di Azure.
 author: dcurwin
 ms.author: dacurwin
-ms.date: 01/31/2019
+ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: e3f94badb3af2e3f26a857f27f0b68a78338db92
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 35a41abb156326612c2d60829980f73457cde881
+ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466318"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68601756"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Domande sul backup di file di Azure
 Questo articolo risponde a domande comuni sul backup di file di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -33,7 +33,7 @@ Sì. La protezione di condivisioni file di Azure connesse a gruppi di sincronizz
 ### <a name="when-trying-to-back-up-file-shares-i-clicked-on-a-storage-account-for-discovering-the-file-shares-in-it-however-i-did-not-protect-them-how-do-i-protect-these-file-shares-with-any-other-vault"></a>Durante un tentativo di backup delle condivisioni file, è stato selezionato un account di archiviazione per individuare le condivisioni file presenti. Le condivisioni non sono state tuttavia protette. Come si possono proteggere queste condivisioni file con altri insiemi di credenziali?
 Durante un tentativo di backup, la selezione di un account di archiviazione per l'individuazione di condivisioni file incluse in tale account comporta la registrazione dell'account di archiviazione nell'insieme di credenziali da cui viene eseguita l'operazione. Se si sceglie di proteggere le condivisioni file con un insieme di credenziali diverso, [annullare la registrazione](troubleshoot-azure-files.md#configuring-backup) dell'account di archiviazione scelto da questo insieme di credenziali.
 
-### <a name="can-i-change-the-vault-to-which-i-backup-my-file-shares"></a>È possibile cambiare l'insieme di credenziali in cui si esegue il backup delle condivisioni file?
+### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>È possibile cambiare l'insieme di credenziali in cui si esegue il backup delle condivisioni file?
 Sì. Sarà tuttavia necessario [interrompere la protezione](backup-azure-files.md#stop-protecting-an-azure-file-share) dall'insieme di credenziali connesso, [annullare la registrazione](troubleshoot-azure-files.md#configuring-backup) dell'account di archiviazione e quindi proteggerlo da un insieme di credenziali diverso.
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>In quali aree geografiche è possibile eseguire il backup di condivisioni file di Azure? <br/>
@@ -76,6 +76,9 @@ Durante l'anteprima è possibile proteggere condivisioni file di Azure di un mas
 No. Tutte le condivisioni file di un account di archiviazione possono essere protette solo dallo stesso insieme di credenziali.
 
 ## <a name="backup"></a>Backup
+
+### <a name="how-many-scheduled-backups-can-i-configure-per-file-share"></a>Quanti backup pianificati è possibile configurare per ogni condivisione file?
+Backup di Azure supporta attualmente la configurazione di backup pianificati una volta al giorno per le condivisioni file di Azure. 
 
 ### <a name="how-many-on-demand-backups-can-i-take-per-file-share-br"></a>Quanti backup su richiesta è possibile eseguire per ogni condivisione file? <br/>
 È previsto un limite di 200 snapshot per ogni condivisione file in qualsiasi momento. Il limite include gli snapshot creati da Backup di Azure in base ai criteri definiti. Se si iniziano a rilevare errori con i backup dopo aver raggiunto questo limite, eliminare i punti di ripristino su richiesta per poter completare i backup successivi.

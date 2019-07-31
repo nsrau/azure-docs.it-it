@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 265aea1b8873d812859b39175c732c3e7118cbb5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "60394208"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Scenari comuni di diagnosi con Service Fabric
 
-Questo articolo illustra gli scenari comuni affrontati dagli utenti nell'ambito del monitoraggio e della diagnostica con Service Fabric. Gli scenari presentati illustrano tutti i 3 livelli di Service Fabric: applicazione, cluster e infrastruttura. Ogni soluzione Usa Application Insights e log di monitoraggio di Azure, strumenti di monitoraggio di Azure per completare ogni scenario. I passaggi in ogni soluzione concedere agli utenti un'introduzione su come usare Application Insights e log di monitoraggio di Azure nel contesto di Service Fabric.
+Questo articolo illustra gli scenari comuni affrontati dagli utenti nell'ambito del monitoraggio e della diagnostica con Service Fabric. Gli scenari presentati illustrano tutti i 3 livelli di Service Fabric: applicazione, cluster e infrastruttura. Ogni soluzione USA Application Insights e i log di monitoraggio di Azure, gli strumenti di monitoraggio di Azure, per completare ogni scenario. I passaggi in ogni soluzione forniscono agli utenti un'introduzione su come usare Application Insights e i log di monitoraggio di Azure nel contesto di Service Fabric.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -33,7 +33,7 @@ Le soluzioni in questo articolo useranno gli strumenti seguenti. È consigliabil
 
 * [Application Insights con Service Fabric](service-fabric-tutorial-monitoring-aspnet.md)
 * [Abilitare Diagnostica di Azure nel cluster](service-fabric-diagnostics-event-aggregation-wad.md)
-* [Configurare un'area di lavoro di Log Analitica](service-fabric-diagnostics-oms-setup.md)
+* [Configurare un'area di lavoro Log Analytics](service-fabric-diagnostics-oms-setup.md)
 * [Agente di Log Analytics per tenere traccia dei contatori delle prestazioni](service-fabric-diagnostics-oms-agent.md)
 
 ## <a name="how-can-i-see-unhandled-exceptions-in-my-application"></a>Come visualizzare le eccezioni non gestite nell'applicazione
@@ -65,7 +65,7 @@ Le soluzioni in questo articolo useranno gli strumenti seguenti. È consigliabil
 1. Il cluster di Service Fabric tiene traccia degli eventi dei nodi. Passare alla risorsa della soluzione Analisi Service Fabric denominata **ServiceFabric(NameofResourceGroup)**
 2. Fare clic sul grafico nella parte inferiore del pannello intitolato "Riepilogo"
 
-    ![Soluzioni di log di monitoraggio di Azure](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
+    ![Soluzione log di monitoraggio di Azure](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
 
 3. Sono disponibili molti grafici e riquadri con diverse metriche. Fare clic su uno dei grafici per passare alla ricerca log, dove è possibile cercare gli eventi del cluster o i contatori delle prestazioni.
 4. Immettere la query seguente. Questi ID evento sono inclusi nella [documentazione di riferimento sugli eventi dei nodi](service-fabric-diagnostics-event-generation-operational.md#application-events)
@@ -77,7 +77,7 @@ Le soluzioni in questo articolo useranno gli strumenti seguenti. È consigliabil
 
 5. Fare clic su "Nuova regola di avviso" nella parte superiore. Da questo momento, ogni volta che arriva un evento basato su questa query, si riceverà un avviso con il metodo di comunicazione scelto.
 
-    ![Monitoraggio di Azure Registra nuovo avviso](media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png)
+    ![Un nuovo avviso viene registrato da monitoraggio di Azure](media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png)
 
 ## <a name="how-can-i-be-alerted-of-application-upgrade-rollbacks"></a>Come essere avvisati dei ripristini dello stato precedente dell'aggiornamento dell'applicazione?
 
@@ -129,10 +129,10 @@ Nella stessa visualizzazione con tutti i grafici si noteranno alcuni riquadri pe
 
 ## <a name="how-do-i-track-performance-of-my-reliable-services-and-actors"></a>Come tenere traccia delle prestazioni di Reliable Services e Actors
 
-Per monitorare le prestazioni di Actors o Reliable Services nelle applicazioni, è necessario raccogliere contatori Service Fabric Actors, un metodo attore, servizio e il metodo di servizio. Di seguito sono riportati esempi di reliable service e l'attore i contatori delle prestazioni da raccogliere
+Per tenere traccia delle prestazioni di Reliable Services o attori nelle applicazioni, è necessario raccogliere anche i contatori di Service Fabric Actor, metodo Actor, servizio e metodo di servizio. Di seguito sono riportati alcuni esempi di contatori delle prestazioni Reliable Service e Actor per la raccolta
 
 >[!NOTE]
->I contatori delle prestazioni di Service Fabric non possono essere raccolti dall'agente di Log Analitica attualmente, ma possono essere raccolti da [altre soluzioni di diagnostica](service-fabric-diagnostics-partners.md)
+>I contatori delle prestazioni Service Fabric non possono essere raccolti attualmente dall'agente Log Analytics, ma possono essere raccolti da [altre soluzioni di diagnostica](service-fabric-diagnostics-partners.md)
 
 * `Service Fabric Service(*)\\Average milliseconds per request`
 * `Service Fabric Service Method(*)\\Invocations/Sec`
@@ -145,7 +145,7 @@ Fare clic su questi collegamenti per l'elenco completo dei contatori delle prest
 
 * [Configurare gli avvisi in AI](../azure-monitor/app/alerts.md) per ricevere una notifica sulle modifiche apportate alle prestazioni o all'uso
 * [Rilevamento intelligente in Application Insights](../azure-monitor/app/proactive-diagnostics.md) esegue un'analisi proattiva dei dati di telemetria che vengono inviati ad AI per avvisare l'utente in caso di potenziali problemi di prestazioni
-* Altre informazioni sui log di monitoraggio di Azure [avvisi](../log-analytics/log-analytics-alerts.md) per semplificare il rilevamento e la diagnostica.
-* Per i cluster in locale, i log di monitoraggio di Azure offre un gateway (Proxy di inoltro HTTP) che può essere utilizzato per inviare dati a log di monitoraggio di Azure. Per ulteriori informazioni in [connettere computer senza accesso a Internet per i log di monitoraggio di Azure usando il gateway Log Analitica](../azure-monitor/platform/gateway.md)
-* Acquisire familiarità con le [ricerca log e l'esecuzione di query](../log-analytics/log-analytics-log-searches.md) funzionalità fornite come parte dei log di monitoraggio di Azure
-* Ottenere una panoramica più dettagliata dei log di monitoraggio di Azure e sui vantaggi offerti, leggere [What ' s i log di monitoraggio di Azure?](../operations-management-suite/operations-management-suite-overview.md)
+* Scopri di più sugli [avvisi](../log-analytics/log-analytics-alerts.md) dei log di monitoraggio di Azure per facilitare il rilevamento e la diagnostica.
+* Per i cluster locali, log di monitoraggio di Azure offre un gateway (proxy di inoltro HTTP) che può essere usato per inviare dati ai log di monitoraggio di Azure. Per altre informazioni, vedere [connessione di computer senza accesso a Internet ai log di monitoraggio di Azure tramite il gateway log Analytics](../azure-monitor/platform/gateway.md)
+* Acquisire familiarità con le funzionalità di [Ricerca log ed esecuzione di query](../log-analytics/log-analytics-log-searches.md) disponibili nell'ambito dei log di monitoraggio di Azure
+* Ottenere una panoramica più dettagliata dei log di monitoraggio di Azure e delle relative offerte, vedere informazioni sui [log di monitoraggio di Azure.](../operations-management-suite/operations-management-suite-overview.md)
