@@ -56,12 +56,18 @@
           items:
             - name: Memoria heap insufficiente
               href: ./apache-spark-troubleshoot-outofmemory-heap.md
+            - name: Spazio dell'heap di Java
+              href: ./apache-spark-troubleshoot-outofmemory-heap-space.md
+        - name: Processi Apache Spark lenti - contenitore di archiviazione
+          href: ./apache-spark-troubleshoot-job-slowness-container.md
         - name: Eccezione IllegalArgumentException
           href: ./apache-spark-troubleshoot-illegalargumentexception.md
         - name: Arresto dell'applicazione di streaming Apache Spark
           href: ./apache-spark-troubleshoot-application-stops.md
         - name: Eccezione RpcTimeoutException
           href: ./apache-spark-troubleshoot-rpctimeoutexception.md
+        - name: Blocco delle richieste multiorigine nell'API
+          href: ./apache-spark-troubleshoot-blocking-cross-origin.md
 - name: Procedure
   items:
     - name: Usare l'archiviazione cluster

@@ -33,6 +33,12 @@
   items:
     - name: Python SDK
       items:
+        - name: Creare il primo esperimento di Machine Learning
+          items:
+            - name: 1. Configurare l'area di lavoro e l'ambiente di sviluppo
+              href: tutorial-1st-experiment-sdk-setup.md
+            - name: 2. Eseguire il training del primo modello
+              href: tutorial-1st-experiment-sdk-train.md
         - name: Classificazione delle immagini (dati di MNIST)
           items:
             - name: 1. Eseguire il training di un modello

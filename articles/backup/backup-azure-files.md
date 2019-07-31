@@ -1,18 +1,18 @@
 ---
 title: Eseguire il backup di condivisioni file di Azure
 description: Questo articolo descrive come eseguire il backup e il ripristino delle condivisioni file di Azure e spiega le attività di gestione.
-author: rayne-wiselman
-ms.author: raynew
-ms.date: 01/31/2019
+author: dcurwin
+ms.author: dacurwin
+ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 7233db1e685c3edcdbd6a97bc2ae23706ad6f767
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 9cb0150efcb4860af98b47aa5da4cfd24d2e9de9
+ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466555"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68602021"
 ---
 # <a name="back-up-azure-file-shares"></a>Eseguire il backup di condivisioni file di Azure
 Questo articolo illustra come usare il portale di Azure per eseguire il backup e il ripristino delle [condivisioni file di Azure](../storage/files/storage-files-introduction.md).
@@ -34,6 +34,7 @@ Il backup per le condivisioni file di Azure è disponibile in anteprima. Le cond
 - Il supporto per il backup delle condivisioni file di Azure negli account di archiviazione con replica di [archiviazione con ridondanza della zona](../storage/common/storage-redundancy-zrs.md) (ZRS) è attualmente limitato a [queste aree](backup-azure-files-faq.md#in-which-geos-can-i-back-up-azure-file-shares-).
 - Non è possibile proteggere le condivisioni file di Azure negli account di archiviazione con reti virtuali o firewall abilitati.
 - Per la protezione di File di Azure con Backup di Azure non è disponibile l'interfaccia della riga di comando.
+- Backup di Azure supporta attualmente la configurazione di backup pianificati una volta al giorno per le condivisioni file di Azure.
 - Il numero massimo di backup pianificati al giorno è uno.
 - Il numero massimo di backup su richiesta al giorno è quattro.
 - Usare i [blocchi delle risorse](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) nell'account di archiviazione per impedire l'eliminazione accidentale dei backup nell'insieme di credenziali di Servizi di ripristino.
@@ -192,6 +193,6 @@ Per riprendere la protezione della condivisione file, passare all'elemento di ba
 Nella procedura seguente si presuppone che il processo di backup per la condivisione file sia stato interrotto. Dopo aver interrotto il processo di backup, nel dashboard dell'elemento di backup sono disponibili le opzioni Riprendi backup ed Elimina dati di backup. Fare clic su Elimina dati di backup e immettere il nome della condivisione file per confermare l'eliminazione. L'aggiunta di un motivo o commento per l'eliminazione è facoltativa.
 
 ## <a name="see-also"></a>Vedere anche
-Per altre informazioni sulle condivisioni file di Azure, vedere:
+Per altre informazioni sulle condivisioni file di Azure, vedere
 - [Domande frequenti sul backup di condivisioni file di Azure](backup-azure-files-faq.md)
 - [Risolvere i problemi del backup delle condivisioni file di Azure](troubleshoot-azure-files.md)

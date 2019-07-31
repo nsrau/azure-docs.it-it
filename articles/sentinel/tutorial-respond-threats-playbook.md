@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 7/25/2019
 ms.author: rkarlin
-ms.openlocfilehash: 52346e2ff9c47e58f2bd040582bee29eaf08bb13
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: cdfe22b67585221e2d7e17f47c6a09ba929d68ef
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621202"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599022"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel-preview"></a>Esercitazione: Configurare le risposte automatiche alle minacce nell'anteprima di Azure Sentinel
 
@@ -36,6 +36,7 @@ Questa esercitazione illustra come usare i playbook di sicurezza in Azure Sentin
 > * Informazioni sui playbook
 > * Creare un playbook
 > * Eseguire un playbook
+> * Automatizzare le risposte alle minacce
 
 
 ## <a name="what-is-a-security-playbook-in-azure-sentinel"></a>Definizione di playbook di sicurezza in Azure Sentinel
@@ -95,9 +96,29 @@ Per eseguire un playbook su richiesta:
 
 
 
+## <a name="automate-threat-responses"></a>Automatizzare le risposte alle minacce
+
+I team SIEM/SOC possono essere inondati periodicamente da avvisi di sicurezza. Il numero degli avvisi generati è talmente elevato che gli amministratori della sicurezza disponibili sono sovraccaricati. La conseguenza è che troppo spesso molti avvisi non possono essere analizzati, lasciando l'organizzazione vulnerabile ad attacchi che non vengono rilevati. 
+
+Molti di questi avvisi, se non la maggior parte, seguono modelli ricorrenti che possono essere risolti con azioni correttive specifiche e definite. Azure Sentinel consente già di definire le misure correttive nei playbook. È anche possibile impostare l'automazione in tempo reale come parte della definizione dei playbook, consentendo di automatizzare completamente una risposta definita a determinati avvisi di sicurezza. Usando l'automazione in tempo reale, i team di sicurezza possono ridurre sensibilmente il loro carico di lavoro automatizzando completamente le risposte di routine ai tipi di avviso ricorrenti, con la possibilità di concentrarsi maggiormente su avvisi univoci, analisi dei modelli, ricerca di minacce e altro ancora.
+
+Per automatizzare le risposte:
+
+1. Scegliere l'avviso per cui si vuole automatizzare la risposta.
+1. Nel menu di spostamento dell'area di lavoro di Azure Sentinel selezionare **Analisi**.
+1. Selezionare l'avviso da automatizzare. 
+1. Nella pagina **Modifica la regola di avviso**, in **Playbook attivati** della sezione **Automazione in tempo reale**, scegliere il playbook che si vuole eseguire quando viene trovata una corrispondenza con la regola di avviso.
+1. Selezionare **Salva**.
+
+   ![automazione in tempo reale](./media/tutorial-detect-threats/rt-configuration.png)
+
+
+
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo articolo si è appreso come eseguire un playbook in Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti: In questa esercitazione si è appreso come eseguire un playbook in Azure Sentinel. Vedere ora [come cercare le minacce in modo proattivo](hunting.md) usando Azure Sentinel.
-> [!div class="nextstepaction"]
-> [Cercare le minacce](hunting.md) per individuare le minacce in modo proattivo nella rete.
+
+In questa esercitazione si è appreso come eseguire un playbook in Azure Sentinel. Vedere ora [come cercare le minacce in modo proattivo](hunting.md) usando Azure Sentinel.
+
 

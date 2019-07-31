@@ -12,31 +12,31 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/02/2019
-ms.openlocfilehash: 17b68f71f4034e5eb637d40b975cc22d94438fb7
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.date: 07/26/2019
+ms.openlocfilehash: 9fa816b2a8e736f03c99b66b898f48bd2a483b31
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978696"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596766"
 ---
 # <a name="tutorial-deploy-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Esercitazione: Distribuire un modello predittivo in R con Machine Learning Services del database SQL di Azure (anteprima)
 
-Nella terza parte di questa esercitazione in tre parti, è possibile distribuire un modello predittivo in R con Machine Learning Services del database SQL di Azure (anteprima).
+Nella terza parte di questa esercitazione in tre parti verrà distribuito un modello predittivo, sviluppato in R, in un database SQL usando Machine Learning Services di Database SQL di Azure (anteprima).
 
 Si creerà una stored procedure con uno script R incorporato che esegue le stime usando il modello. Poiché il modello viene eseguito nel database SQL di Azure, è possibile eseguire facilmente il training con i dati archiviati nel database.
 
-In questo articolo viene spiegato come:
+In questo articolo, usando gli script R sviluppati nella prima e nella seconda parte, verrà descritto come:
 
 > [!div class="checklist"]
-> * Memorizzare il modello predittivo in una tabella di database
-> * Creare una stored procedure per la generazione del modello
+> * Creare una stored procedure che genera il modello di Machine Learning
+> * Memorizzare il modello in una tabella di database
 > * Creare una stored procedure per le stime in base al modello
 > * Eseguire il modello con nuovi dati
 
-Nella [prima parte](sql-database-tutorial-predictive-model-prepare-data.md) si è appreso come importare un database di esempio in un database SQL di Azure e quindi preparare i dati da utilizzare per il training di un modello predittivo in R.
+Nella [prima parte](sql-database-tutorial-predictive-model-prepare-data.md) si è appreso come importare un database di esempio e quindi preparare i dati da usare per il training di un modello predittivo in R.
 
-Nella [seconda parte](sql-database-tutorial-predictive-model-build-compare.md) si è appreso come creare ed eseguire il training di più modelli e quindi scegliere quello più accurato.
+Nella [seconda parte](sql-database-tutorial-predictive-model-build-compare.md) si è appreso come creare ed eseguire il training di più modelli di Machine Learning in R e quindi scegliere quello più accurato.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -46,7 +46,7 @@ Nella [seconda parte](sql-database-tutorial-predictive-model-build-compare.md) s
 
 ## <a name="create-a-stored-procedure-that-generates-the-model"></a>Creare una stored procedure per la generazione del modello
 
-Nella seconda parte di questa serie di esercitazioni, si è scelto come più accurato un albero delle decisioni (dtree). Creare ora una stored procedure (`generate_rental_rx_model`) per il training e la generazione del modello dtree usando rxDTree dal pacchetto RevoScaleR.
+Nella seconda parte di questa serie di esercitazioni, si è scelto come più accurato un albero delle decisioni (dtree). Adesso, usando gli script R sviluppati, creare una stored procedure (`generate_rental_rx_model`) per il training e la generazione del modello dtree usando rxDTree del pacchetto RevoScaleR.
 
 Eseguire i seguenti comandi in Azure Data Studio o SSMS.
 
@@ -205,7 +205,7 @@ Dopo aver usato il database Tutorial DB, eliminarlo dal server di database SQL d
 
 Seguire questa procedura nel portale di Azure:
 
-1. Dal meno a sinistra nel portale di Azure selezionare **Tutte le risorse** o **Database SQL**.
+1. Dal menu a sinistra nel portale di Azure selezionare **Tutte le risorse** o **Database SQL**.
 1. Nel campo **Filtra per nome...** immettere **TutorialDB** e selezionare la sottoscrizione.
 1. Selezionare il proprio database TutorialDB.
 1. Nella pagina **Panoramica** selezionare **Elimina**.
@@ -214,8 +214,8 @@ Seguire questa procedura nel portale di Azure:
 
 Nella seconda parte di questa serie di esercitazioni sono stati completati questi passaggi:
 
-* Memorizzare il modello predittivo in una tabella di database
-* Creare una stored procedure per la generazione del modello
+* Creare una stored procedure che genera il modello di Machine Learning
+* Memorizzare il modello in una tabella di database
 * Creare una stored procedure per le stime in base al modello
 * Eseguire il modello con nuovi dati
 

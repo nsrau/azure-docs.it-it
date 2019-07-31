@@ -12,30 +12,32 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/02/2019
-ms.openlocfilehash: aa9c41ee34a50ab9b1409357bfe7d123166601bf
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.date: 07/26/2019
+ms.openlocfilehash: c1271d5b63fa796fe44b7a40c364953464a87539
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978738"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596677"
 ---
 # <a name="tutorial-prepare-data-to-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Esercitazione: Preparare i dati per eseguire il training di un modello predittivo in R con Machine Learning Services di database SQL di Azure (anteprima)
 
-Nella prima parte di questa serie di esercitazioni in tre parti, è possibile preparare i dati da un database SQL di Azure per eseguire il training di un modello predittivo in R con Machine Learning Services del database SQL di Azure (anteprima).
+Nella prima parte di questa serie di esercitazioni in tre parti, si importeranno e prepareranno i dati di un database SQL di Azure usando R. Più avanti nella serie, questi dati verranno usati per eseguire il training e la distribuzione di un modello di Machine Learning predittivo in R con Machine Learning Services di Database SQL di Azure (anteprima).
 
 Per questa serie di esercitazioni, supporre di essere i proprietari di un'attività di noleggio di sci e di voler stimare il numero di noleggi che verranno richiesti in una data futura. Queste informazioni aiuteranno a tenere pronti il magazzino, il personale e le strutture.
+
+Nella prima e nella seconda parte di questa serie si svilupperanno alcuni script R in RStudio per preparare i dati ed eseguire il training di un modello di Machine Learning. Quindi, nella terza parte, questi script R verranno eseguiti all'interno di un database SQL tramite stored procedure.
 
 L'articolo spiega come:
 
 > [!div class="checklist"]
-> * Importare un database di esempio in un database SQL di Azure
-> * Caricare i dati dal database SQL di Azure in un frame di dati con R
-> * Preparare i dati tramite l'identificazione di alcune colonne come categorie
+> * Importare un database di esempio in un database SQL di Azure con R
+> * Caricare i dati del database SQL di Azure in un dataframe R
+> * Preparare i dati in R identificando alcune colonne come categoriche
 
-Nella [seconda parte](sql-database-tutorial-predictive-model-build-compare.md) si spiegherà come creare ed eseguire il training di più modelli e quindi scegliere quello più accurato.
+Nella [seconda parte](sql-database-tutorial-predictive-model-build-compare.md) si apprenderà come creare ed eseguire il training di più modelli di Machine Learning in R e quindi scegliere quello più accurato.
 
-Nelle [terza parte](sql-database-tutorial-predictive-model-deploy.md) si spiegherà come archiviare il modello in un database e quindi creare una stored procedure in grado di eseguire stime basate su nuovi dati.
+Nelle [terza parte](sql-database-tutorial-predictive-model-deploy.md) si spiegherà come archiviare il modello in un database e quindi creare le stored procedure dagli script R sviluppati nella prima e nella seconda parte. Le stored procedure verranno eseguite in un database SQL per effettuare stime basate sui nuovi dati.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -158,9 +160,9 @@ Seguire questa procedura nel portale di Azure:
 
 Nella prima parte di questa serie di esercitazioni sono stati completati questi passaggi:
 
-* Importare un file di backup del database in un database SQL di Azure
-* Caricare i dati dal database SQL di Azure in un frame di dati con R
-* Preparare i dati tramite l'identificazione di alcune colonne come categorie
+* Importare un database di esempio in un database SQL di Azure con R
+* Caricare i dati del database SQL di Azure in un dataframe R
+* Preparare i dati in R identificando alcune colonne come categoriche
 
 Per creare un modello di Machine Learning che usa i dati dal database TutorialDB, attenersi alla seconda parte di questa serie di esercitazioni:
 

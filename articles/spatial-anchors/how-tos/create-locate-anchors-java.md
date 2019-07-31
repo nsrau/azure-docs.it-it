@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 7c8c5de469439f7ada294215682a1919022bcc1d
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 7bc4a2251fa07f201d35e385806d2eb49cd8851e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672062"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562524"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-java"></a>Come creare e individuare ancoraggi usando Ancoraggi nello spazio di Azure in Java
 
@@ -21,14 +21,14 @@ ms.locfileid: "67672062"
 > * [Unity](create-locate-anchors-unity.md)
 > * [Objective-C](create-locate-anchors-objc.md)
 > * [Swift](create-locate-anchors-swift.md)
-> * [Java Android](create-locate-anchors-java.md)
+> * [Android Java](create-locate-anchors-java.md)
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
 > * [C++/WinRT](create-locate-anchors-cpp-winrt.md)
 
 Ancoraggi nello spazio di Azure è un servizio che consente di condividere ancoraggi nel mondo tra dispositivi diversi. Supporta vari ambienti di sviluppo differenti. Questo articolo esaminerà come usare l'SDK degli Ancoraggi nello spazio di Azure, in Java, per:
 
 - Configurare e gestire in modo corretto una sessione di Ancoraggi nello spazio di Azure.
-- Creare e impostare gli ancoraggi locali.
+- Creare e impostare le proprietà sugli ancoraggi locali.
 - Caricarli nel cloud.
 - Trovare ed eliminare gli ancoraggi nello spazio nel cloud.
 
@@ -39,7 +39,7 @@ Per completare questa guida, accertarsi di avere:
 - Letto la [Panoramica di ancoraggi nello spazio di Azure](../overview.md).
 - Completato uno degli argomenti di [avvio rapido di 5 minuti](../index.yml).
 - Conoscenze di base di Java.
-- Conoscenze di base di <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> 1.7.
+- Conoscenze di base di <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a>.
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 

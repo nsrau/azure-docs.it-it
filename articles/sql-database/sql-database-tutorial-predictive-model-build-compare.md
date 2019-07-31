@@ -12,28 +12,28 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/02/2019
-ms.openlocfilehash: 3d336d6a53b6d234048c56d8492d278bef6fed64
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.date: 07/26/2019
+ms.openlocfilehash: 2c85a378dc219e8af1b6458344ee4dba0fa73e68
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957512"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596805"
 ---
 # <a name="tutorial-create-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Esercitazione: Creare ed eseguire un modello predittivo in R con i Machine Learning Services del database SQL di Azure (anteprima)
 
-Nella seconda parte di questa serie di esercitazioni in tre parti verranno creati due modelli predittivi in R con i Machine Learning Services del database SQL di Azure (anteprima) e quindi si selezionerà il modello più accurato.
+Nella seconda parte di questa serie di esercitazioni in tre parti verranno creati due modelli predittivi in R e quindi si selezionerà il modello più accurato. Nella parte successiva di questa serie questo modello verrà distribuito in un database SQL con Machine Learning Services di Database SQL di Azure (anteprima).
 
-In questo articolo viene spiegato come:
+L'articolo spiega come:
 
 > [!div class="checklist"]
 > * Eseguire il training di due modelli di Machine Learning
 > * Eseguire stime da entrambi i modelli
 > * Confrontare i risultati per scegliere il modello più accurato
 
-Nella [prima parte](sql-database-tutorial-predictive-model-prepare-data.md) si è appreso come importare un database di esempio in un database SQL di Azure e quindi preparare i dati da utilizzare per il training di un modello predittivo in R.
+Nella [prima parte](sql-database-tutorial-predictive-model-prepare-data.md) si è appreso come importare un database di esempio e quindi preparare i dati da usare per il training di un modello predittivo in R.
 
-Nelle [terza parte](sql-database-tutorial-predictive-model-deploy.md) verrà illustrato come archiviare il modello in un database e quindi creare una stored procedure in grado di eseguire stime basate su nuovi dati.
+Nelle [terza parte](sql-database-tutorial-predictive-model-deploy.md) si spiegherà come archiviare il modello in un database e quindi creare le stored procedure dagli script R sviluppati nella prima e nella seconda parte. Le stored procedure verranno eseguite in un database SQL per effettuare stime basate sui nuovi dati.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -114,9 +114,9 @@ Se non si intende proseguire con questa esercitazione, eliminare il database Tut
 
 Seguire questa procedura nel portale di Azure:
 
-1. Nel portale di Azure fare clic su **Tutte le risorse** o su **Database SQL** nel menu a sinistra.
-1. Nel campo **Filtra per nome...** immettere **TutorialDB**e selezionare la sottoscrizione.
-1. Selezionare il database TutorialDB.
+1. Dal menu a sinistra nel portale di Azure selezionare **Tutte le risorse** o **Database SQL**.
+1. Nel campo **Filtra per nome...** immettere **TutorialDB** e selezionare la sottoscrizione.
+1. Selezionare il proprio database TutorialDB.
 1. Nella pagina **Panoramica** selezionare **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi

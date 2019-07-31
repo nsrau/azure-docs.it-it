@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: sngun
 ms.openlocfilehash: 85d9cbe7d0807ca0e7951e1e12d1edbbf7c921db
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67985807"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Esercitazione: Sviluppare un'applicazione Web MVC ASP.NET Core con Azure Cosmos DB usando .NET SDK 
@@ -132,7 +132,7 @@ A questo punto occorre aggiungere i modelli, le visualizzazioni e i controller a
 
    [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs)]
 
-   L'attributo **ValidateAntiForgeryToken** viene usato qui per proteggere l'applicazione da attacchi di falsificazione (CSRF) richiesta tra siti. Oltre ad aggiungere questo attributo, è necessario che le visualizzazioni usino questo token antifalsificazione. Per altre informazioni in proposito e per esempi di corretta implementazione, vedere [Prevenzione della richiesta intersito falsa][Preventing Cross-Site Request Forgery]. Al codice sorgente fornito in GitHub è applicata l'implementazione completa.. The source code provided on [GitHub][GitHub]
+   L'attributo **ValidateAntiForgeryToken** viene usato qui per proteggere l'applicazione da attacchi di falsificazione (CSRF) richiesta tra siti. Oltre ad aggiungere questo attributo, è necessario che le visualizzazioni usino questo token antifalsificazione. Per altre informazioni in proposito e per alcuni esempi sulla corretta implementazione, vedere [Prevenzione degli attacchi di falsificazione (CSRF) richiesta tra siti nell'applicazione ASP.NET MVC][Preventing Cross-Site Request Forgery]. Il codice sorgente fornito in [GitHub][GitHub] permette l'implementazione completa.
 
    Viene usato anche l'attributo **Bind** nel parametro del metodo come protezione dagli attacchi di overposting. Per informazioni dettagliate, vedere [Implementazione della funzionalità CRUD di base con Entity Framework nell'applicazione ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
 

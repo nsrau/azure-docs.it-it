@@ -289,6 +289,9 @@
           href: idp-pass-through-user-flow.md
         - name: Richiedere il token di accesso
           href: active-directory-b2c-access-tokens.md
+        - name: Supportare più autorità emittenti di token
+          href: multiple-token-endpoints.md
+          displayName: 'migrate, b2clogin, owin, jwt'
     - name: Usare b2clogin.com
       href: b2clogin.md
     - name: Usare l'API Graph di Azure AD

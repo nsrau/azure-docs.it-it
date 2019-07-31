@@ -231,7 +231,9 @@
           href: cognitive-search-resources-documentation.md
     - name: Knowledge store (anteprima)
       items:
-        - name: Attività iniziali
+        - name: Connettersi con Power BI
+          href: knowledge-store-connect-powerbi.md
+        - name: Creare con REST e Postman
           href: knowledge-store-howto.md
     - name: Eseguire query sui dati
       items:

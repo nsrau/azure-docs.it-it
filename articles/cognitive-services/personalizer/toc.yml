@@ -43,6 +43,8 @@
         - name: Valutazione offline
           href: concepts-offline-evaluation.md
           displayName: 'learning policy, Counterfactual, features'
+        - name: Valutazione delle funzionalità
+          href: concept-feature-evaluation.md
     - name: Scalabilità e prestazioni
       href: concepts-scalability-performance.md
 - name: Guide alle procedure
