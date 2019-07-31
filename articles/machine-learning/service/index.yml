@@ -36,7 +36,6 @@ sections:
         items:
           - html: <a href="quickstart-run-cloud-notebook">Eseguire un esperimento nel cloud</a> (nessuna installazione necessaria).
           - html: <a href="quickstart-run-local-notebook">Eseguire un esperimento usando un server di notebook locale</a> (installazione dell'SDK locale).
-          - html: <a href="ui-quickstart-run-experiment">Preparare e visualizzare dati senza scrivere codice</a> nell'interfaccia visiva grafica.
   - title: Esercitazioni dettagliate
     items:
       - type: paragraph

@@ -34,7 +34,6 @@ sections:
       - items:
           - html: <a href="service/quickstart-run-cloud-notebook">Eseguire un esperimento nel cloud</a> (nessuna installazione necessaria)
           - html: <a href="service/quickstart-run-local-notebook">Eseguire un esperimento usando un server di notebook locale</a> (installazione dell'SDK locale)
-          - html: <a href="service/ui-quickstart-run-experiment">Eseguire un esperimento nell'interfaccia visiva grafica</a> (senza codice)
         style: unordered
         type: list
       - text: '<b>Esercitazione: </b>Classificazione delle immagini dei dati di MNIST con SDK:'

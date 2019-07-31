@@ -5,13 +5,13 @@ metadata:
   title: Documentazione di Backup di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
   description: 'Backup di Azure consente di eseguire il backup dei dati per server locali, macchine virtuali, carichi di lavoro virtualizzati, istanze di SQL Server, SharePoint Server e altro ancora. Questo articolo contiene informazioni su come eseguire il backup e ripristino dei dati con guide introduttive, esercitazioni ed esempi.'
   services: backup
-  author: rayne-wiselman
+  author: dcurwin
   manager: carmonm
   ms.service: backup
   ms.tgt_pltfrm: na
   ms.topic: landing-page
   ms.date: 05/22/2018
-  ms.author: raynew
+  ms.author: dacurwin
 abstract:
   description: 'Usare Backup di Azure per proteggere i dati per server locali, macchine virtuali, carichi di lavoro virtualizzati, istanze di SQL Server, SharePoint Server e altro ancora. Questo articolo contiene informazioni su come eseguire il backup e ripristino dei dati con guide introduttive, esercitazioni ed esempi.'
 sections:
