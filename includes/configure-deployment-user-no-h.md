@@ -19,7 +19,7 @@ FTP e l'istanza Git locale possono essere usati per la distribuzione in un'app W
 
 Per configurare l'utente della distribuzione, eseguire il comando [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) in Azure Cloud Shell. Sostituire \<username> e \<password> con il nome utente e la password di un utente della distribuzione. 
 
-- Il nome utente deve essere univoco in Azure e per i push Git locali non deve contenere il simbolo "@". 
+- Il nome utente deve essere univoco in Azure e per i push Git locali non deve contenere il simbolo "\@". 
 - La password deve essere composta da almeno otto caratteri, con due dei tre elementi seguenti: lettere, numeri e simboli. 
 
 ```azurecli-interactive
