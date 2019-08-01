@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: raymondl
-ms.openlocfilehash: dd3f0c5b82c1898d6e4bbe564556ee26e872dc94
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 1d94cff3eb3299692fc4172f5bb5211532ef1002
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619673"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697829"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Esempio: Come estrarre frasi chiave con Analisi del testo
 
@@ -76,7 +76,7 @@ Per informazioni sulla definizione della richiesta, vedere [Come chiamare l'API 
 
 + Impostare l'endpoint HTTP per l'estrazione delle frasi chiave usando una risorsa di Analisi del testo in Azure oppure un'istanza di un [contenitore di Analisi del testo](text-analytics-how-to-install-containers.md). È necessario includere la risorsa `/keyPhrases`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`.
 
-+ Impostare un'intestazione della richiesta in modo da includere la chiave di accesso per le operazioni di Analisi del testo. Per altre informazioni, vedere [How to find endpoints and access keys](text-analytics-how-to-access-key.md) (Come trovare gli endpoint e le chiavi di accesso).
++ Impostare un'intestazione della richiesta per includere la [chiave di accesso](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) per analisi del testo operazioni.
 
 + Nel corpo della richiesta specificare la raccolta di documenti JSON preparata per l'analisi.
 
@@ -89,7 +89,7 @@ Al momento della ricezione della richiesta viene eseguita l'analisi. Per informa
 
 Tenere presente che il servizio è senza stato. Nessun dato viene archiviato nell'account. I risultati vengono restituiti immediatamente nella risposta.
 
-## <a name="step-3-view-results"></a>Passaggio 3: Visualizzare i risultati
+## <a name="step-3-view-results"></a>Passaggio 3: Visualizza risultati
 
 Tutte le richieste POST restituiscono una risposta JSON formattata con gli ID e le proprietà rilevate.
 
@@ -148,13 +148,13 @@ Di seguito è illustrato un esempio dell'output di estrazione di frasi chiave:
 
 Come indicato, l'analizzatore trova e rimuove le parole non essenziali e mantiene singoli termini o frasi che sembrano essere il soggetto o l'oggetto di una frase.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 In questo articolo si sono appresi i concetti e il flusso di lavoro per l'estrazione di frasi chiave tramite Analisi del testo in Servizi cognitivi. In sintesi:
 
 + L'[API Estrazione frasi chiave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) è disponibile per le lingue selezionate.
 + I documenti JSON nel corpo della richiesta includono un ID, il testo e il codice della lingua.
-+ La richiesta POST è a un endpoint `/keyphrases`, usando [una chiave di accesso e un endpoint](text-analytics-how-to-access-key.md) personalizzati validi per la sottoscrizione.
++ La richiesta POST è a un endpoint `/keyphrases`, usando [una chiave di accesso e un endpoint](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) personalizzati validi per la sottoscrizione.
 + L'output di risposta, costituito da parole o frasi chiave per ogni ID documento, può essere trasmesso a qualsiasi app che accetta JSON, tra cui Microsoft Office Excel e Power BI, solo per citarne alcune.
 
 ## <a name="see-also"></a>Vedere anche

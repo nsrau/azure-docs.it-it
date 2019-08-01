@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 22860e0798ec852b6d25da27e108befe8a3089a2
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 1a616bce8c161825853b1966769d9505595d95de
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488822"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688322"
 ---
 # <a name="immersive-reader-sdk-reference"></a>Guida di riferimento a immersive Reader SDK
 
@@ -136,5 +136,5 @@ Usare le versioni più recenti dei browser seguenti per un'esperienza ottimale c
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Esplorare [Immersive Reader SDK in GitHub](https://github.com/Microsoft/immersive-reader-sdk)
+* Esplorare [Immersive Reader SDK in GitHub](https://github.com/microsoft/immersive-reader-sdk)
 * [Avvio rapido: Creare un'app Web che avvii il lettore immersivoC#()](./quickstart.md)

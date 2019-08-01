@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 5a5787504d72259354f9c5eba2e2f4e22402ef0b
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: ea7d3f56aa512b8f5998d710451ff3b37659ca13
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619739"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697834"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Come usare il riconoscimento delle entità denominate in Analisi del testo
 
@@ -96,11 +96,11 @@ Le dimensioni dei documenti devono essere inferiori a 5.120 caratteri per docume
 
 I dettagli sulla definizione della richiesta sono reperibili in [How to call the Text Analytics API](text-analytics-how-to-call-api.md) (Come chiamare l'API Analisi del testo). Per comodità si ridefiniscono i punti seguenti:
 
-+ Creare una richiesta **POST**. Esaminare la documentazione dell'API per la richiesta: [API Collegamento entità](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
++ Creare una richiesta **POST**. Esaminare la documentazione dell'API per la richiesta: [API di entità](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
 + Impostare l'endpoint HTTP per l'estrazione di entità. È necessario includere la risorsa `/entities`: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1/entities`
 
-+ Impostare un'intestazione della richiesta in modo da includere la chiave di accesso per le operazioni di Analisi del testo. Per altre informazioni, vedere [How to find endpoints and access keys](text-analytics-how-to-access-key.md) (Come trovare gli endpoint e le chiavi di accesso).
++ Impostare un'intestazione della richiesta per includere [la chiave di accesso](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) per analisi del testo operazioni.
 
 + Nel corpo della richiesta specificare la raccolta di documenti JSON preparata per l'analisi.
 
@@ -283,7 +283,7 @@ In questo articolo si sono appresi i concetti e il flusso di lavoro per il colle
 
 + L'[API entità](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) è disponibile per le lingue selezionate.
 + I documenti JSON nel corpo della richiesta includono un ID, il testo e il codice della lingua.
-+ La richiesta POST è a un endpoint `/entities`, usando [una chiave di accesso e un endpoint](text-analytics-how-to-access-key.md) personalizzati validi per la sottoscrizione.
++ La richiesta POST è a un endpoint `/entities`, usando [una chiave di accesso e un endpoint](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) personalizzati validi per la sottoscrizione.
 + L'output di risposta, che consiste di entità collegate (inclusi punteggi di attendibilità, offset e collegamenti Web per ogni ID di documento) può essere usato in qualsiasi applicazione
 
 ## <a name="next-steps"></a>Passaggi successivi
