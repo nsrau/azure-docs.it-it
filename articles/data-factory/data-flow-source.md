@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: f6aed5d2ac1c4672d8d8868fe127ead053512e42
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 974ece9cd035ae29ada38f34b7933d86f682194f
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314830"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68696226"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Trasformazione origine per il mapping del flusso di dati 
 
@@ -28,8 +28,12 @@ Ogni flusso di dati richiede almeno una trasformazione di origine. Aggiungere tu
 
 Associare la trasformazione origine flusso di dati a un solo set di dati Data Factory. Il set di dati definisce la forma e il percorso dei dati da cui si desidera eseguire la scrittura o la lettura. È possibile usare i caratteri jolly e gli elenchi di file nell'origine per lavorare con più di un file alla volta.
 
-## <a name="data-flow-staging-areas"></a>Aree di gestione temporanea del flusso di dati
+L'uso di un'opzione di **modello con caratteri jolly** indicherà ad ADF di scorrere ogni cartella e file corrispondente in un'unica trasformazione origine. Si tratta di un modo molto efficace per elaborare più file all'interno di un singolo flusso. Per tenere traccia del nome del file attualmente in fase di elaborazione, impostare un nome di campo per il campo "colonna per l'archiviazione del nome file" nelle opzioni di origine.
 
+> [!NOTE]
+> Impostare più modelli di corrispondenza con caratteri jolly con il segno + accanto al modello con caratteri jolly esistente per aggiungere altre regole jolly.
+
+## <a name="data-flow-staging-areas"></a>Aree di gestione temporanea del flusso di dati
 Il flusso di dati funziona con i set di dati di *staging* che sono tutti in Azure. Usare questi set di dati per la gestione temporanea quando si trasformano i dati. 
 
 Data Factory ha accesso a quasi 80 connettori nativi. Per includere dati da tali origini nel flusso di dati, utilizzare lo strumento attività di copia per organizzare i dati in una delle aree di gestione temporanea del set di dati del flusso di dati.
@@ -52,7 +56,7 @@ Se la versione in ingresso dei dati di origine non corrisponde allo schema defin
 ![Impostazioni dell'origine pubblica, che mostrano le opzioni per convalidare lo schema, consentire la deriva dello schema e il campionamento](media/data-flow/source1.png "origine pubblica 1")
 
 ### <a name="sample-the-data"></a>Campionare i dati
-Abilitare  il campionamento per limitare il numero di righe dall'origine. Usare questa impostazione quando si testano o si campionano i dati dall'origine a scopo di debug.
+Abilitare il campionamento per limitare il numero di righe dall'origine. Usare questa impostazione quando si testano o si campionano i dati dall'origine a scopo di debug.
 
 ## <a name="define-schema"></a>Definire lo schema
 
@@ -101,13 +105,23 @@ Esempi di caratteri jolly:
 
 Il contenitore deve essere specificato nel set di dati. Il percorso del carattere jolly deve quindi includere anche il percorso della cartella nella cartella radice.
 
+* **Percorso radice partizione**: Se sono presenti cartelle partizionate nell'origine file di un ```key=value``` formato (ad esempio, anno = 2019), è possibile chiedere ad ADF di assegnare il primo livello dell'albero delle cartelle della partizione a un nome di colonna nel flusso di dati del flusso di dati.
+
+Per prima cosa, impostare un carattere jolly per includere tutti i percorsi che rappresentano le cartelle partizionate e i file foglia che si desidera leggere.
+
+![Impostazioni del file di origine della partizione](media/data-flow/partfile2.png "Impostazione del file di partizione")
+
+Usare ora l'impostazione percorso radice partizione per indicare ad ADF qual è il livello superiore della struttura di cartelle. A questo punto, quando si Visualizza il contenuto dei dati, si noterà che ADF aggiungerà le partizioni risolte presenti in ogni livello di cartella.
+
+![Percorso radice partizione](media/data-flow/partfile1.png "Anteprima percorso radice partizione")
+
 * **Elenco di file**: Si tratta di un set di file. Creare un file di testo che includa un elenco di file di percorso relativi da elaborare. Puntare a questo file di testo.
 * **Colonna in cui archiviare il nome del file**: Archiviare il nome del file di origine in una colonna nei dati. Immettere un nuovo nome per archiviare la stringa del nome file.
 * **Dopo il completamento**: Scegliere di non eseguire alcuna operazione con il file di origine dopo l'esecuzione del flusso di dati, eliminare il file di origine oppure spostare il file di origine. I percorsi per lo spostamento sono relativi.
 
 Per spostare i file di origine in un altro percorso dopo l'elaborazione, selezionare prima di tutto "Sposta" per operazione su file. Quindi, impostare la directory "from". Se non si usano caratteri jolly per il percorso, l'impostazione "da" sarà la stessa cartella della cartella di origine.
 
-Se si dispone di un percorso di origine con caratteri jolly, ad esempio:
+Se si dispone di un percorso di origine con carattere jolly, la sintassi avrà un aspetto simile al seguente:
 
 ```/data/sales/20??/**/*.csv```
 
@@ -119,7 +133,7 @@ E "a" come
 
 ```/backup/priorSales```
 
-In questo caso, tutte le sottodirectory in/data/Sales che sono state originate vengono spostate rispetto a/backup/priorSales.
+In questo caso, tutti i file originati in/data/Sales vengono spostati in/backup/priorSales.
 
 ### <a name="sql-datasets"></a>Set di impostazioni SQL
 
@@ -128,9 +142,9 @@ Se l'origine si trova nel database SQL o in SQL Data Warehouse, sono disponibili
 * **Query**: Immettere una query SQL per l'origine. Questa impostazione esegue l'override di qualsiasi tabella scelta nel set di dati. Si noti che le clausole **Order by** non sono supportate in questo punto, ma è possibile impostare un'istruzione SELECT from completa. È anche possibile usare funzioni di tabella definite dall'utente. **Select * from udfGetData ()** è una funzione definita dall'utente in SQL che restituisce una tabella. Questa query produrrà una tabella di origine che è possibile utilizzare nel flusso di dati.
 * **Dimensioni batch**: Immettere le dimensioni del batch per suddividere i dati di grandi dimensioni in letture.
 * **Livello di isolamento**: Il valore predefinito per le origini SQL nei flussi di dati di mapping di ADF è READ UNCOMMITTED. È possibile modificare il livello di isolamento in uno dei seguenti valori:
-* Read Committed
-* Read uncommitted
-* Repeatable Read
+* Lettura eseguita
+* Lettura non eseguita
+* Lettura ripetibile
 * Serializzabile
 * Nessuno (ignora il livello di isolamento)
 
@@ -151,9 +165,8 @@ Se nel file di testo non è definito alcuno schema, selezionare **rileva tipo di
 
 ![Impostazioni per i formati di dati predefiniti](media/data-flow/source2.png "Formati predefiniti")
 
-### <a name="add-dynamic-content"></a>Aggiungere contenuto dinamico
-
-Quando si fa clic all'interno dei campi nel pannello delle impostazioni, viene visualizzato un collegamento ipertestuale per "Aggiungi contenuto dinamico". Quando si fa clic qui, si avvierà il generatore di espressioni. Qui è possibile impostare i valori per le impostazioni in modo dinamico tramite espressioni, valori letterali statici o parametri.
+### <a name="add-dynamic-content"></a>Aggiungi contenuto dinamico
+Quando si fa clic all'interno dei campi nel pannello delle impostazioni, viene visualizzato un collegamento ipertestuale per "Aggiungi contenuto dinamico". Quando si sceglie di avviare Generatore di espressioni, i valori vengono impostati in modo dinamico tramite espressioni, valori letterali statici o parametri.
 
 ![Parametri] di (media/data-flow/params6.png "Parametri") di
 

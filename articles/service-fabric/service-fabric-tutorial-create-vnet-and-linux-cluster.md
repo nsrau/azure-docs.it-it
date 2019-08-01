@@ -3,7 +3,7 @@ title: Creare un cluster Linux di Service Fabric in Azure | Microsoft Docs
 description: Informazioni su come distribuire un cluster Linux di Service Fabric in una rete virtuale di Azure esistente tramite l'interfaccia della riga di comando di Azure.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 00d7e510fa43865f1427092f2f20b9847f1afa9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ba157d7bf2e6effbaf7ab129dbbbfd1ca8b9667
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60863785"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598848"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Distribuire un cluster Linux di Service Fabric in una rete virtuale di Azure
 
@@ -42,10 +42,10 @@ Le procedure seguenti creano un cluster di Service Fabric a sette nodi. Per calc
 
 Scaricare i file del modello di Resource Manager seguenti:
 
-* [AzureDeploy.json][template]
-* [AzureDeploy.Parameters.json][parameters]
+* [File azuredeploy. JSON][template]
+* [File azuredeploy. Parameters. JSON][parameters]
 
-Questo modello distribuisce un cluster sicuro di sette macchine virtuali e tre tipi di nodo in una rete virtuale.  Altri modelli di esempio sono disponibili su [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). [AzureDeploy.json][template] distribuisce alcune risorse, incluse le seguenti.
+Questo modello distribuisce un cluster sicuro di sette macchine virtuali e tre tipi di nodo in una rete virtuale.  Altri modelli di esempio sono disponibili su [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). [File azuredeploy. JSON][template] distribuisce un numero di risorse, incluse le seguenti.
 
 ### <a name="service-fabric-cluster"></a>Cluster di Service Fabric
 
@@ -61,7 +61,7 @@ Nella risorsa **Microsoft.ServiceFabric/clusters** viene distribuito un cluster 
 * Endpoint di connessione client: 19000 (configurabile nei parametri del modello)
 * Endpoint del gateway HTTP: 19080 (configurabile nei parametri del modello)
 
-### <a name="azure-load-balancer"></a>Servizio di bilanciamento del carico di Azure
+### <a name="azure-load-balancer"></a>Azure Load Balancer
 
 Nella risorsa **Microsoft.Network/loadBalancers** viene configurato un servizio di bilanciamento del carico e vengono impostate probe e regole per le porte seguenti:
 
@@ -81,7 +81,7 @@ Se sono necessarie altre porte dell'applicazione, si dovrà modificare la risors
 
 ## <a name="set-template-parameters"></a>Impostare i parametri del modello
 
-Nel file dei parametri [AzureDeploy.Parameters][parameters] vengono dichiarati molti valori usati per distribuire il cluster e le risorse associate. Di seguito sono riportati alcuni dei parametri che potrebbe essere necessario modificare per la propria distribuzione:
+Il file dei parametri [file azuredeploy. Parameters][parameters] dichiara molti valori usati per distribuire il cluster e le risorse associate. Di seguito sono riportati alcuni dei parametri che potrebbe essere necessario modificare per la propria distribuzione:
 
 |Parametro|Valore di esempio|Note|
 |---|---||
@@ -97,7 +97,7 @@ Nel file dei parametri [AzureDeploy.Parameters][parameters] vengono dichiarati m
 
 ## <a name="deploy-the-virtual-network-and-cluster"></a>Distribuire la rete virtuale e il cluster
 
-Configurare quindi la topologia di rete e distribuire il cluster di Service Fabric. Il modello di Resource Manager [AzureDeploy.json][template] crea una rete virtuale e una subnet per Service Fabric. Il modello distribuisce anche un cluster in cui è abilitata la sicurezza basata su certificati.  Come certificato per i cluster di produzione usare un certificato di un'entità di certificazione (CA). Per proteggere i cluster di test è possibile usare un certificato autofirmato.
+Configurare quindi la topologia di rete e distribuire il cluster di Service Fabric. Il modello di Gestione risorse [file azuredeploy. JSON][template] crea una rete virtuale (VNET) e una subnet per Service Fabric. Il modello distribuisce anche un cluster in cui è abilitata la sicurezza basata su certificati.  Come certificato per i cluster di produzione usare un certificato di un'entità di certificazione (CA). Per proteggere i cluster di test è possibile usare un certificato autofirmato.
 
 Il modello in questo articolo distribuisce un cluster che usa l'identificazione personale del certificato per identificare il certificato del cluster.  Nessun certificato può avere la stessa identificazione personale di un altro, il che rende più difficile gestire i certificati. Commutare un cluster distribuito dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato rende molto più semplice la gestione dei certificati.  Per informazioni su come aggiornare il cluster per l'uso dei nomi comuni del certificato per la gestione dei certificati, vedere [Passare dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato in un cluster](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 

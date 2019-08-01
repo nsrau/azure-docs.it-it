@@ -3,34 +3,23 @@ title: Limitare il traffico Web con un web application firewall
 description: Informazioni su come limitare il traffico Web con un web application firewall tramite Azure PowerShell.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-tags: azure-resource-manager
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 03/25/2019
+ms.topic: article
+ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e962d76bc82edabf750af52c50ec45ed9ed76e17
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
-ms.translationtype: HT
+ms.openlocfilehash: 219c2a36d1a241db8361ae1f8f2f74b9a68780ca
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596843"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688270"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>Abilitare il web application firewall tramite Azure PowerShell
 
-> [!div class="op_single_selector"]
->
-> - [Portale di Azure](application-gateway-web-application-firewall-portal.md)
-> - [PowerShell](tutorial-restrict-web-traffic-powershell.md)
-> - [Interfaccia della riga di comando di Azure](tutorial-restrict-web-traffic-cli.md)
->
-> 
-
 È possibile limitare il traffico in un [gateway applicazione](overview.md) usando un [web application firewall](waf-overview.md). Il WAF usa regole di [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) per proteggere l'applicazione. Queste regole includono la protezione contro attacchi di tipo SQL injection, attacchi tramite script da altri siti (XSS) e hijack delle sessioni. 
 
-In questa esercitazione si apprenderà come:
+In questo articolo viene spiegato come:
 
 > [!div class="checklist"]
 > * Configurare la rete
@@ -40,7 +29,7 @@ In questa esercitazione si apprenderà come:
 
 ![Esempio di web application firewall](./media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
 
-Se si preferisce, è possibile completare questa esercitazione usando l'[interfaccia della riga di comando di Azure](tutorial-restrict-web-traffic-cli.md).
+Se si preferisce, è possibile completare questo articolo usando il [portale di Azure](application-gateway-web-application-firewall-portal.md) o l' [interfaccia](tutorial-restrict-web-traffic-cli.md)della riga di comando di Azure.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -48,7 +37,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 1.0.0 o successiva. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzAccount` per creare una connessione con Azure.
+Se si sceglie di installare e usare PowerShell in locale, questo articolo richiede il modulo Azure PowerShell versione 1.0.0 o successiva. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzAccount` per creare una connessione con Azure.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -82,12 +71,13 @@ $pip = New-AzPublicIpAddress `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
   -Name myAGPublicIPAddress `
-  -AllocationMethod Dynamic
+  -AllocationMethod Static `
+  -Sku Standard
 ```
 
 ## <a name="create-an-application-gateway"></a>Creare un gateway applicazione
 
-In questa sezione verranno create risorse che supportano il gateway applicazione e infine verranno creati il gateway applicazione stesso e un web application firewall. Le risorse create includono:
+In questa sezione si creano le risorse che supportano il gateway applicazione e infine le si crea e un WAF. Le risorse create includono:
 
 - *Configurazioni IP e porta front-end*:per associare la subnet creata in precedenza al gateway applicazione e assegnare una porta da usare per accedervi.
 - *Pool predefinito*: tutti i gateway applicazione devono avere almeno un pool back-end di server.
@@ -160,8 +150,8 @@ Dopo aver creato le risorse di supporto necessarie, specificare i parametri per 
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `
-  -Name WAF_Medium `
-  -Tier WAF `
+  -Name WAF_v2 `
+  -Tier WAF_v2 `
   -Capacity 2
 
 $wafConfig = New-AzApplicationGatewayWebApplicationFirewallConfiguration `
@@ -258,7 +248,7 @@ Update-AzVmss `
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>Creare un account di archiviazione e configurare la diagnostica
 
-In questa esercitazione il gateway applicazione usa un account di archiviazione per archiviare i dati con finalità di rilevamento e prevenzione. È anche possibile usare i log di Monitoraggio di Azure o Hub eventi per registrare i dati.
+In questo articolo il gateway applicazione usa un account di archiviazione per archiviare i dati con finalità di rilevamento e prevenzione. È anche possibile usare i log di Monitoraggio di Azure o Hub eventi per registrare i dati.
 
 ### <a name="create-the-storage-account"></a>Creare l'account di archiviazione
 
@@ -314,13 +304,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
-
-> [!div class="checklist"]
-> * Configurare la rete
-> * Creare un gateway applicazione con WAF abilitato
-> * Creare un set di scalabilità di macchine virtuali
-> * Creare un account di archiviazione e configurare la diagnostica
-
-> [!div class="nextstepaction"]
-> [Creare un gateway applicazione con la terminazione SSL](./tutorial-ssl-powershell.md)
+[Creare un gateway applicazione con la terminazione SSL](./tutorial-ssl-powershell.md)

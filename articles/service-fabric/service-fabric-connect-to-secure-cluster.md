@@ -3,7 +3,7 @@ title: Connettersi a un cluster sicuro di Azure Service Fabric | Microsoft Docs
 description: Descrive come autenticare l'accesso client a un cluster di Service Fabric e come proteggere la comunicazione tra i client e un cluster.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: 759a539e-e5e6-4055-bff5-d38804656e10
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2019
-ms.author: aljo
-ms.openlocfilehash: 703830778edb73781a263ae4d92529f7f79a0eb2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: c350b53b2d0b235c5e34431386205f090f37b482
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306849"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599706"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Connettersi a un cluster sicuro
 
@@ -355,7 +355,7 @@ Per connettersi a un cluster protetto con AAD, inserire nel browser l'indirizzo 
 
 `https://<your-cluster-endpoint>:19080/Explorer`
 
-Viene automaticamente richiesto di accedere con AAD.
+Verrà automaticamente richiesto di accedere con AAD.
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Connettersi a un cluster sicuro con un certificato client
 

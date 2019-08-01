@@ -4,14 +4,14 @@ description: Informazioni sulle funzioni da usare in un modello di Azure Resourc
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 07/11/2019
+ms.date: 07/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7d967f0bb0b7a811d4db7836cdbffdad91088a2c
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 7548b75f201c896e3a5248cb9d0154a9a676a86f
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311691"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698206"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funzioni delle risorse per i modelli di Azure Resource Manager
 
@@ -39,7 +39,7 @@ La sintassi per questa funzione varia in base al nome delle operazioni list. Ogn
 
 | Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| resourceName o resourceIdentifier |Sì |string |Identificatore univoco della risorsa. |
+| resourceName o resourceIdentifier |Yes |string |Identificatore univoco della risorsa. |
 | apiVersion |Sì |string |Versione dell'API dello stato di runtime della risorsa. In genere il formato è **aaaa-mm-gg**. |
 | functionValues |No |object | Oggetto che contiene valori per la funzione. Specificare solo questo oggetto per le funzioni che supportano la ricezione di un oggetto con valori di parametro, ad esempio **listAccountSas** per un account di archiviazione. Questo articolo illustra un esempio di passaggio dei valori di funzione. | 
 
@@ -265,7 +265,7 @@ Restituisce informazioni su un provider di risorse e i relativi tipi di risorse 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | DESCRIZIONE |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | providerNamespace |Sì |string |Spazio dei nomi del provider |
 | resourceType |No |string |Il tipo di risorsa all'interno dello spazio dei nomi specificato. |
@@ -607,11 +607,11 @@ Restituisce l'identificatore univoco di una risorsa. Questa funzione viene usata
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | DESCRIZIONE |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |No |Stringa (in formato GUID) |Il valore predefinito è la sottoscrizione corrente. Specificare questo valore quando si vuole recuperare una risorsa in un'altra sottoscrizione. |
 | resourceGroupName |No |string |Il valore predefinito è il gruppo di risorse corrente. Specificare questo valore quando si vuole recuperare una risorsa in un altro gruppo di risorse. |
-| resourceType |Sì |string |Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse. |
+| resourceType |Yes |string |Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse. |
 | resourceName1 |Yes |string |Nome della risorsa. |
 | resourceName2 |No |string |Segmento successivo del nome della risorsa se la risorsa è annidata. |
 

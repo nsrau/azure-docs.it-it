@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e563d86abe3817e4c77cc0d5c8df928e41563f8
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 1654e0a8cd11ac1c7a2f4ef0667d0e99187c2374
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489078"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618322"
 ---
 # <a name="create-and-manage-a-catalog-in-azure-ad-entitlement-management-preview"></a>Creare e gestire un catalogo in Azure AD gestione dei diritti (anteprima)
 
@@ -34,7 +34,7 @@ ms.locfileid: "68489078"
 
 Un catalogo è un contenitore di risorse e pacchetti di accesso. Si crea un catalogo quando si desidera raggruppare le risorse correlate e accedere ai pacchetti. Chi crea il catalogo diventa il primo proprietario del catalogo. Un proprietario del catalogo può aggiungere altri proprietari del catalogo.
 
-**Ruolo prerequisito:** Amministratore utente o autore del catalogo
+**Ruolo prerequisito:** Amministratore globale, amministratore utente o autore del catalogo
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
@@ -102,7 +102,7 @@ Per includere le risorse in un pacchetto di accesso, le risorse devono esistere 
 
 È possibile modificare il nome e la descrizione di un catalogo. Gli utenti visualizzano queste informazioni nei dettagli di un pacchetto di accesso.
 
-**Ruolo prerequisito:** Amministratore utente o proprietario del catalogo
+**Ruolo prerequisito:** Amministratore globale, amministratore utente o proprietario del catalogo
 
 1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
@@ -118,7 +118,7 @@ Per includere le risorse in un pacchetto di accesso, le risorse devono esistere 
 
 È possibile eliminare un catalogo, ma solo se non dispone di pacchetti di accesso.
 
-**Ruolo prerequisito:** Amministratore utente o proprietario del catalogo
+**Ruolo prerequisito:** Amministratore globale, amministratore utente o proprietario del catalogo
 
 1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 

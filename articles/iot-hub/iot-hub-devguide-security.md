@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: bb402a5a059fb6f2836bddbd951220271ca77ba3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3b3b1b652515241950e7f87416122125fbe67f43
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60400602"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640581"
 ---
 # <a name="control-access-to-iot-hub"></a>Controllare l'accesso all'hub IoT
 
@@ -37,10 +37,10 @@ Per concedere le [autorizzazioni](#iot-hub-permissions) è possibile procedere n
 
 * **Criteri di accesso condivisi a livello di hub IoT**. I criteri di accesso condiviso possono concedere qualsiasi combinazione di [autorizzazioni](#iot-hub-permissions). È possibile definire i criteri nel [portale di Azure](https://portal.azure.com) a livello di codice tramite le [API REST di risorsa dell'hub IoT](/rest/api/iothub/iothubresource) o tramite il comando dell'interfaccia della riga di comando [az iot hub policy](/cli/azure/iot/hub/policy?view=azure-cli-latest). Un hub IoT appena creato ha i criteri predefiniti seguenti:
   
-  | Criterio di accesso condiviso | Autorizzazioni |
+  | Criteri di accesso condiviso | Autorizzazioni |
   | -------------------- | ----------- |
   | iothubowner | Tutte le autorizzazioni |
-  | service | Autorizzazioni **ServiceConnect** |
+  | servizio | Autorizzazioni **ServiceConnect** |
   | device | Autorizzazioni **DeviceConnect** |
   | registryRead | Autorizzazioni **RegistryRead** |
   | registryReadWrite | Autorizzazioni **RegistryRead** e **RegistryWrite** |
@@ -134,7 +134,7 @@ Il token di sicurezza ha il formato seguente:
 
 I valori previsti sono i seguenti:
 
-| Value | Descrizione |
+| Value | DESCRIZIONE |
 | --- | --- |
 | {signature} |Stringa della firma HMAC-SHA256 nel formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: la chiave viene decodificata dalla codifica Base64 e usata come chiave per eseguire il calcolo di HMAC-SHA256. |
 | {resourceURI} |Prefisso URI (per segmento) degli endpoint a cui è possibile accedere tramite questo token e che inizia con il nome host dell'hub IoT senza il protocollo. Ad esempio: `myHub.azure-devices.net/devices/device1` |
@@ -194,6 +194,11 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 
     return 'SharedAccessSignature ' + urlencode(rawtoken)
 ```
+
+Di seguito sono riportate le istruzioni di installazione per i prerequisiti.
+
+[!INCLUDE [Iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
+
 
 La funzionalità di C# per generare un token di sicurezza è la seguente:
 
@@ -436,11 +441,11 @@ Gli argomenti di riferimento seguenti offrono altre informazioni sul controllo d
 
 La tabella seguente elenca le autorizzazioni che è possibile usare per controllare l'accesso all'hub IoT.
 
-| Autorizzazione | Note |
+| Autorizzazioni | Note |
 | --- | --- |
 | **RegistryRead** |Concede l'accesso di sola lettura al registro di identità. Per altre informazioni, vedere [Registro delle identità](iot-hub-devguide-identity-registry.md). <br/>Questa autorizzazione viene usata dai servizi cloud back-end. |
 | **RegistryReadWrite** |Concede l'accesso di lettura e scrittura al registro di identità. Per altre informazioni, vedere [Registro delle identità](iot-hub-devguide-identity-registry.md). <br/>Questa autorizzazione viene usata dai servizi cloud back-end. |
-| **ServiceConnect** |Concede l'accesso alle comunicazioni per il servizio cloud e al monitoraggio degli endpoint. <br/>Concede l'autorizzazione per la ricezione di messaggi da dispositivo a cloud, l'invio di messaggi da cloud a dispositivo e il recupero degli acknowledgment di recapito corrispondenti. <br/>Concede l'autorizzazione per il recupero degli acknowledgement di recapito per caricamenti di file. <br/>Concede l'autorizzazione per l'accesso a dispositivi/moduli gemelli per l'aggiornamento dei tag e delle proprietà indicate, il recupero delle proprietà segnalate e l'esecuzione di query. <br/>Questa autorizzazione viene usata dai servizi cloud back-end. |
+| **ServiceConnect** |Concede l'accesso alle comunicazioni per il servizio cloud e al monitoraggio degli endpoint. <br/>Concede l'autorizzazione per la ricezione di messaggi da dispositivo a cloud, l'invio di messaggi da cloud a dispositivo e il recupero degli acknowledgment di recapito corrispondenti. <br/>Concede l'autorizzazione per recuperare i riconoscimenti di recapito per i caricamenti di file. <br/>Concede l'autorizzazione per l'accesso a dispositivi/moduli gemelli per l'aggiornamento dei tag e delle proprietà indicate, il recupero delle proprietà segnalate e l'esecuzione di query. <br/>Questa autorizzazione viene usata dai servizi cloud back-end. |
 | **DeviceConnect** |Concede l'accesso agli endpoint per il dispositivo. <br/>Concede l'autorizzazione per l'invio di messaggi da dispositivo a cloud e la ricezione di messaggi da cloud a dispositivo. <br/>Concede l'autorizzazione per il caricamento di file da un dispositivo. <br/>Concede l'autorizzazione per la ricezione di notifiche su particolari proprietà del dispositivo gemello e l'aggiornamento delle proprietà segnalate di quest'ultimo. <br/>Concede l'autorizzazione per il caricamento di file. <br/>Questa autorizzazione viene usata dai dispositivi. |
 
 ## <a name="additional-reference-material"></a>Materiale di riferimento

@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 99440e22eb736522a25c2ee56bb07ef1d9967e66
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 40d946db48a65452d2da529098c07d0d0c60d472
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325659"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619672"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Impostare la riga di comando in un'istanza di contenitore per sostituire l'operazione della riga di comando predefinita
 
@@ -23,7 +23,7 @@ Come l'impostazione delle [variabili di ambiente](container-instances-environmen
 
 ## <a name="command-line-guidelines"></a>Linee guida della riga di comando
 
-* Per impostazione predefinita, la riga di comando specifica un *singolo processo che inizia senza una shell* nel contenitore. Ad esempio, la riga di comando può eseguire uno script Python o un file eseguibile. 
+* Per impostazione predefinita, la riga di comando specifica un *singolo processo che inizia senza una shell* nel contenitore. Ad esempio, la riga di comando può eseguire uno script Python o un file eseguibile. Il processo può specificare parametri o argomenti aggiuntivi.
 
 * Per eseguire più comandi, iniziare la riga di comando impostando un ambiente shell supportato nel sistema operativo del contenitore. Esempi:
 
@@ -66,7 +66,7 @@ La sintassi della riga di comando varia a seconda dell'API o dello strumento di 
 
 Ad esempio, modificare il comportamento dell'immagine del contenitore [Microsoft/ACI-WordCount][aci-wordcount] , che analizza il testo nel *villaggio* di Shakespeare per trovare le parole che si verificano più di frequente. Anziché analizzare *Hamlet*, è possibile impostare una riga di comando che punta a un'origine di testo diversa.
 
-Per visualizzare l'output del comando [Microsoft/ACI-WordCount][aci-wordcount] container when it analyzes the default text, run it with the following [az container create][az-container-create] . Non viene specificata alcuna riga di comando di avvio, pertanto viene eseguito il comando contenitore predefinito. A scopo illustrativo, questo esempio imposta le [variabili di ambiente](container-instances-environment-variables.md) per trovare le prime 3 parole che hanno una lunghezza di almeno cinque lettere:
+Per visualizzare l'output del contenitore [Microsoft/ACI-WordCount][aci-wordcount] quando analizza il testo predefinito, eseguirlo con il comando [AZ container create][az-container-create] seguente. Non viene specificata alcuna riga di comando di avvio, pertanto viene eseguito il comando contenitore predefinito. A scopo illustrativo, questo esempio imposta le [variabili di ambiente](container-instances-environment-variables.md) per trovare le prime 3 parole che hanno una lunghezza di almeno cinque lettere:
 
 ```azurecli-interactive
 az container create \
@@ -77,7 +77,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Quando lo stato del contenitore viene visualizzato come *terminato* (usare [AZ container Show][az-container-show] to check state), display the log with [az container logs][az-container-logs] per visualizzare l'output.
+Quando lo stato del contenitore viene visualizzato come *terminato* (usare [AZ container Show][az-container-show] per verificare lo stato), visualizzare il log con [AZ container logs][az-container-logs] per visualizzare l'output.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer1

@@ -1,18 +1,19 @@
 ---
 title: Modello di dati dei log di monitoraggio di Azure per backup di Azure
 description: Questo articolo illustra i dettagli del modello di dati dei log di monitoraggio di Azure per i dati di backup di Azure.
-author: adigan
-manager: shivamg
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.author: adigan
-ms.openlocfilehash: 6563eefffee0ed8d9ce94c3e0a1e24b0d32314f0
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 878e4e7508d82f78e82f1fd8bda69079d9468e9f
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466165"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689230"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modello di dati di Log Analytics per i dati di Backup di Azure
 
@@ -28,7 +29,7 @@ Usare il modello di dati Log Analytics per creare avvisi personalizzati da Log A
 
 Questa tabella offre dettagli sui campi relativi agli avvisi.
 
-| Campo | Tipo di dati | DESCRIZIONE |
+| Campo | Tipo di dati | Descrizione |
 | --- | --- | --- |
 | AlertUniqueId_s |Text |Identificatore univoco dell'avviso generato |
 | AlertType_s |Text |Tipo di avviso, ad esempio Backup |
@@ -62,7 +63,7 @@ Questa tabella offre dettagli sui campi relativi agli avvisi.
 
 Questa tabella offre dettagli sui campi relativi agli elementi di backup.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | EventName_s |Text |Nome dell'evento. Sempre AzureBackupCentralReport |  
 | BackupItemUniqueId_s |Text |Identificatore univoco dell'elemento di backup |
@@ -92,7 +93,7 @@ Questa tabella offre dettagli sui campi relativi agli elementi di backup.
 
 Questa tabella fornisce dettagli sulle associazioni degli elementi di backup con varie entità.
 
-| Campo | Tipo di dati | DESCRIZIONE |
+| Campo | Tipo di dati | Descrizione |
 | --- | --- | --- |
 | EventName_s |Text |Questo campo rappresenta il nome di questo evento, che è sempre AzureBackupCentralReport |  
 | BackupItemUniqueId_s |Text |ID univoco dell'elemento di backup |
@@ -136,7 +137,7 @@ Questa tabella fornisce dettagli sulle associazioni degli elementi di backup con
 
 Questa tabella offre dettagli sui campi relativi al processo.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | EventName_s |Text |Nome dell'evento. Sempre AzureBackupCentralReport |
 | BackupItemUniqueId_s |Text |Identificatore univoco dell'elemento di backup |
@@ -172,7 +173,7 @@ Questa tabella offre dettagli sui campi relativi al processo.
 
 Questa tabella offre dettagli sui campi relativi al criterio.
 
-| Campo | Tipo di dati | Versioni applicabili | DESCRIZIONE |
+| Campo | Tipo di dati | Versioni applicabili | Descrizione |
 | --- | --- | --- | --- |
 | EventName_s |Text ||Questo campo rappresenta il nome di questo evento, che è sempre AzureBackupCentralReport |
 | SchemaVersion_s |Text ||Questo campo indica la versione corrente dello schema, ovvero **v2** |
@@ -262,7 +263,7 @@ Questa tabella fornisce i campi di base sui contenitori protetti. (ProtectedServ
 
 Questa tabella offre dettagli sui campi relativi all'archiviazione.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | CloudStorageInBytes_s |Numero decimale |Archiviazione di backup nel cloud usata dai backup, calcolata in base al valore più recente (questo campo è solo per lo schema v1)|
 | ProtectedInstances_s |Numero decimale |Numero di istanze protette usato per il calcolo dell'archiviazione front-end a scopo di fatturazione, calcolato in base al valore più recente |
@@ -327,14 +328,14 @@ Questa tabella offre dettagli sui campi relativi all'insieme di credenziali.
 
 Questa tabella fornisce i campi di base relativi ai server di gestione di backup.
 
-|Campo  |Tipo di dati  | DESCRIZIONE  |
+|Campo  |Tipo di dati  | Descrizione  |
 |---------|---------|----------|
-|BackupManagmentServerName_s     |Text         |Nome del server di gestione di backup        |
+|BackupManagementServerName_s     |Text         |Nome del server di gestione di backup        |
 |AzureBackupAgentVersion_s     |Text         |Versione dell'agente di backup di Azure nel server di gestione di backup          |
-|BackupManagmentServerVersion_s     |Text         |Versione del server di gestione di backup|
-|BackupManagmentServerOSVersion_s     |Text            |Versione del sistema operativo del server di gestione di backup|
+|BackupManagementServerVersion_s     |Text         |Versione del server di gestione di backup|
+|BackupManagementServerOSVersion_s     |Text            |Versione del sistema operativo del server di gestione di backup|
 |BackupManagementServerType_s     |Text         |Tipo di server di gestione di backup, come MAB, SC DPM|
-|BackupManagmentServerUniqueId_s     |Text         |Per identificare in modo univoco il server di gestione di backup       |
+|BackupManagementServerUniqueId_s     |Text         |Per identificare in modo univoco il server di gestione di backup       |
 
 ### <a name="preferredworkloadonvolume"></a>PreferredWorkloadOnVolume
 
@@ -349,7 +350,7 @@ Questa tabella specifica i carichi di lavoro a cui è associato un volume.
 
 Questa tabella fornisce i campi correlati alle istanze protette di base.
 
-| Campo | Tipo di dati |Versioni applicabili | DESCRIZIONE |
+| Campo | Tipo di dati |Versioni applicabili | Descrizione |
 | --- | --- | --- | --- |
 | BackupItemUniqueId_s |Text |v2|ID univoco usato per identificare l'elemento di backup per le macchine virtuali di cui è stato eseguito il backup con DPM, MAB|
 | ProtectedContainerUniqueId_s |Text |v2|ID univoco usato per identificare il contenitore protetto per tutti gli elementi eccetto le macchine virtuali di cui è stato eseguito il backup con DPM, MAB|
@@ -359,7 +360,7 @@ Questa tabella fornisce i campi correlati alle istanze protette di base.
 
 Questa tabella fornisce i campi di base relativi ai punti di ripristino.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | BackupItemUniqueId_s |Text |ID univoco usato per identificare l'elemento di backup per le macchine virtuali di cui è stato eseguito il backup con DPM, MAB|
 | OldestRecoveryPointTime_s |Text |Data e ora del punto di ripristino meno recente per l'elemento di backup|

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: v-mohabe
 ms.custom: seodec18
-ms.openlocfilehash: 02281a1cad9c7e6f9680441a699fa5d34558b890
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 0504da45cbbd60629954d3e3ca3230e05761c1d6
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501494"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640351"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db"></a>Advanced Threat Protection per Azure Cosmos DB
 
@@ -23,7 +23,7 @@ Gli avvisi di sicurezza vengono attivati quando si verificano anomalie nelle att
 > [!NOTE]
 >
 > * Advanced Threat Protection per Azure Cosmos DB è attualmente disponibile solo per l'API SQL.
-> * Advanced Threat Protection per Azure Cosmos DB è attualmente disponibile in Azure per enti pubblici e aree cloud sovrane.
+> * Advanced Threat Protection per Azure Cosmos DB non è attualmente disponibile in Azure per enti pubblici e aree cloud sovrane.
 
 Per un'analisi completa degli avvisi di sicurezza, è consigliabile abilitare la [registrazione diagnostica in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/logging), che registra le operazioni nel database stesso, incluse le operazioni CRUD su tutti i documenti, i contenitori e i database.
 

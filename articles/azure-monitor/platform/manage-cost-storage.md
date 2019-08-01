@@ -1,6 +1,6 @@
 ---
-title: Gestire l'utilizzo e costi per i log di monitoraggio di Azure | Microsoft Docs
-description: Informazioni su come modificare il piano tariffario e gestire criteri di conservazione e volume dati per l'area di lavoro di Log Analitica in Monitoraggio di Azure.
+title: Gestire l'utilizzo e i costi per i log di monitoraggio di Azure | Microsoft Docs
+description: Informazioni su come modificare il piano tariffario e gestire il volume dei dati e i criteri di conservazione per l'area di lavoro Log Analytics in monitoraggio di Azure.
 services: azure-monitor
 documentationcenter: azure-monitor
 author: mgoedtel
@@ -11,23 +11,23 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 07/29/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: bcfefc9698f7f251e99531750e19e7c06395e064
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 5e325f7766e7b0d9764949eb3fbf9753d65db8b3
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67655695"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619389"
 ---
-# <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gestire l'utilizzo e costi con i log di monitoraggio di Azure
+# <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gestire l'utilizzo e i costi con i log di monitoraggio di Azure
 
 > [!NOTE]
-> Questo articolo descrive come controllare i costi in Monitoraggio di Azure, impostare il periodo di conservazione dati per l'area di lavoro di Log Analitica.  Vedere l'articolo seguente per informazioni correlate.
+> Questo articolo descrive come controllare i costi in monitoraggio di Azure impostando il periodo di conservazione dei dati per l'area di lavoro Log Analytics.  Per informazioni correlate, vedere l'articolo seguente.
 > - [Monitoraggio dell'utilizzo e dei costi stimati](usage-estimated-costs.md) descrive come visualizzare l'utilizzo e i costi stimati tra più funzionalità di monitoraggio di Azure per diversi modelli di determinazione dei prezzi. Illustra inoltre come modificare il modello di prezzi.
 
-Log di monitoraggio di Azure è progettato per scalabilità e supportare la raccolta, l'indicizzazione e l'archiviazione di enormi quantità di dati al giorno da qualsiasi origine in ambito aziendale o distribuito in Azure.  Anche se si tratta di uno strumento importante per l'organizzazione, è comunque fondamentale ottimizzare i costi. A tale scopo, è importante comprendere che il costo di un'area di lavoro di Log Analitica non è basato solo sul volume dei dati raccolti, è anche dipende dal piano selezionato, e quanto tempo si è scelto di archiviare i dati generati dalle origini connesse.  
+Log di monitoraggio di Azure è progettato per scalare e supportare la raccolta, l'indicizzazione e l'archiviazione di grandi quantità di dati al giorno da qualsiasi origine nell'azienda o distribuita in Azure.  Anche se si tratta di uno strumento importante per l'organizzazione, è comunque fondamentale ottimizzare i costi. A tal fine, è importante comprendere che il costo di un'area di lavoro Log Analytics non è basato solo sul volume dei dati raccolti, dipende anche dal piano selezionato e dal tempo in cui si è scelto di archiviare i dati generati dalle origini connesse.  
 
 In questo articolo viene esaminato come monitorare in modo proattivo il volume dei dati e l'aumento dello spazio di archiviazione e definire i limiti per controllare i costi associati. 
 
@@ -41,7 +41,7 @@ Il costo dei dati può essere notevole, a seconda dei fattori seguenti:
 
 ## <a name="understand-your-workspaces-usage-and-estimated-cost"></a>Comprendere utilizzo e costi stimati dell'area di lavoro
 
-Azure consente di monitorare i log a capire che cosa sono i costi probabili in base modelli di utilizzo recente. A questo scopo, usare **Log Analitica utilizzo e costi stimati** per esaminare e analizzare l'utilizzo di dati. Questa pagina mostra quanti dati vengono raccolti da ogni soluzione, quanti dati vengono conservati e una stima dei costi in base alla quantità di dati inseriti e a eventuali altri dati conservati oltre la quantità inclusa.
+I log di monitoraggio di Azure consentono di comprendere facilmente i costi che probabilmente si basano sui modelli di utilizzo recenti. A tale scopo, usare **log Analytics utilizzo e i costi stimati** per esaminare e analizzare l'utilizzo dei dati. Questa pagina mostra quanti dati vengono raccolti da ogni soluzione, quanti dati vengono conservati e una stima dei costi in base alla quantità di dati inseriti e a eventuali altri dati conservati oltre la quantità inclusa.
 
 ![Utilizzo e costi stimati](media/manage-cost-storage/usage-estimated-cost-dashboard-01.png)
 
@@ -49,18 +49,18 @@ Per esplorare i dati in maggiore dettaglio, fare clic sull'icona nell'angolo sup
 
 ![Visualizzazione dei log](media/manage-cost-storage/logs.png)
 
-Dalla pagina **Utilizzo e costi stimati** è possibile rivedere il volume dei dati per il mese. Sono inclusi tutti i dati ricevuti e conservati nell'area di lavoro Log Analytics.  Fare clic su **dettagli di utilizzo** nella parte superiore della pagina per visualizzare il dashboard di utilizzo con le informazioni sulle tendenze di volume di dati dall'origine, computer e offerta. Per visualizzare e impostare un limite giornaliero o per modificare il periodo di conservazione, fare clic su **Gestione del volume dati**.
+Dalla pagina **Utilizzo e costi stimati** è possibile rivedere il volume dei dati per il mese. Sono inclusi tutti i dati ricevuti e conservati nell'area di lavoro Log Analytics.  Fare clic su **Dettagli di utilizzo** nella parte superiore della pagina per visualizzare il dashboard Usage con informazioni sulle tendenze del volume dei dati per origine, computer e offerta. Per visualizzare e impostare un limite giornaliero o per modificare il periodo di conservazione, fare clic su **Gestione del volume dati**.
  
 I costi di Log Analytics vengono addebitati nella fattura di Azure. È possibile visualizzare i dettagli della fattura di Azure nella sezione Fatturazione del portale di Azure oppure nel [portale di fatturazione di Azure](https://account.windowsazure.com/Subscriptions).  
 
 ## <a name="daily-cap"></a>Limite giornaliero
 
-È possibile configurare un limite giornaliero e limitare l'inserimento giornaliero per l'area di lavoro, tuttavia è necessario tenere presente che l'obiettivo non deve essere quello di raggiungere tale limite.  In caso contrario, si perdono i dati per il resto del giorno, situazione che può influire su altri servizi e soluzioni di Azure la cui funzionalità può dipendere da dati aggiornati disponibili nell'area di lavoro.  Di conseguenza, la possibilità di osservare e ricevere avvisi quando le condizioni di integrità delle risorse che supportano i servizi IT sono interessate.  Il limite massimo giornaliero dovrà essere utilizzato come un modo per gestire l'aumento imprevisto nel volume di dati dalle risorse gestite e rimanere entro il limite, o quando si desidera limitare addebiti non pianificati per l'area di lavoro.  
+È possibile configurare un limite giornaliero e limitare l'inserimento giornaliero per l'area di lavoro, tuttavia è necessario tenere presente che l'obiettivo non deve essere quello di raggiungere tale limite.  In caso contrario, si perdono i dati per il resto del giorno, situazione che può influire su altri servizi e soluzioni di Azure la cui funzionalità può dipendere da dati aggiornati disponibili nell'area di lavoro.  Di conseguenza, la possibilità di osservare e ricevere avvisi quando le condizioni di integrità delle risorse che supportano i servizi IT sono interessate.  Il limite giornaliero è destinato a essere utilizzato come metodo per gestire l'aumento imprevisto del volume di dati dalle risorse gestite e rimanere entro il limite o quando si desidera limitare gli addebiti non pianificati per l'area di lavoro.  
 
 Quando viene raggiunto il limite giornaliero, la raccolta di tipi di dati fatturabili viene arrestata per il resto del giorno. Nella parte superiore della pagina per l'area di lavoro Log Analytics selezionata viene visualizzato un banner di avviso e viene inviato un evento di tipo operazione alla tabella *Operazione* nella categoria **LogManagement**. La raccolta dati riprende dopo l'ora di ripristino definita in *Daily limit will be set at* (Ora impostazione limite giornaliero). Si consiglia di definire una regola di avviso in base a questo evento operazione, per l'invio di una notifica quando viene raggiunta la soglia dei dati giornaliera. 
 
 > [!NOTE]
-> Il limite massimo giornaliero non arresta la raccolta dei dati dal Centro sicurezza di Azure.
+> Il limite giornaliero non interrompe la raccolta di dati dal centro sicurezza di Azure.
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identificare la soglia dei dati giornaliera da definire
 
@@ -68,17 +68,17 @@ Vedere [Utilizzo e costi stimati di Log Analytics](usage-estimated-costs.md) per
 
 ### <a name="manage-the-maximum-daily-data-volume"></a>Gestire il volume di dati giornaliero massimo
 
-I passaggi seguenti descrivono come configurare un limite per gestire il volume dei dati dell'area di lavoro di Log Analitica verrà inseriti al giorno.  
+Nei passaggi seguenti viene descritto come configurare un limite per gestire il volume di dati che Log Analytics area di lavoro inserirà al giorno.  
 
 1. Nell'area di lavoro selezionare **Utilizzo e costi stimati** nel riquadro a sinistra.
 2. Nella pagina **Utilizzo e costi stimati** per l'area di lavoro selezionata fare clic su **Gestione del volume dati** nella parte superiore. 
 3. Per impostazione predefinita, il limite giornaliero è impostato su **DISATTIVA**. Fare clic su **ATTIVA** per abilitarlo e quindi impostare il volume di dati in GB/giorno.
 
-    ![Log Analitica Configura limite dei dati](media/manage-cost-storage/set-daily-volume-cap-01.png)
+    ![Log Analytics configurare il limite dei dati](media/manage-cost-storage/set-daily-volume-cap-01.png)
 
 ### <a name="alert-when-daily-cap-reached"></a>Avvisa al raggiungimento del limite giornaliero
 
-Anche se nel portale di Azure viene visualizzato un segnale visivo quando viene raggiunta la soglia dei dati, questo comportamento potrebbe non soddisfare le esigenze aziendali per la gestione di problemi operativi che richiedono attenzione immediata.  Per ricevere una notifica di avviso, è possibile creare una nuova regola di avviso in Monitoraggio di Azure.  Per altre informazioni, vedere [come creare, visualizzare e gestire gli avvisi](alerts-metric.md).
+Anche se nel portale di Azure viene visualizzato un segnale visivo quando viene raggiunta la soglia dei dati, questo comportamento potrebbe non soddisfare le esigenze aziendali per la gestione di problemi operativi che richiedono attenzione immediata.  Per ricevere una notifica di avviso, è possibile creare una nuova regola di avviso in Monitoraggio di Azure.  Per ulteriori informazioni, vedere [come creare, visualizzare e gestire gli avvisi](alerts-metric.md).
 
 Per iniziare, ecco le impostazioni consigliate per l'avviso:
 
@@ -106,16 +106,19 @@ La procedura seguente descrive come configurare il periodo di conservazione dei 
 
     ![Modificare l'impostazione di conservazione dei dati dell'area di lavoro](media/manage-cost-storage/manage-cost-change-retention-01.png)
     
-Il periodo di conservazione può essere anche [impostati tramite ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) usando il `dataRetention` parametro. Inoltre, se si imposta la conservazione dei dati per 30 giorni, è possibile attivare un'eliminazione immediata dei dati meno recenti usando il `immediatePurgeDataOn30Days` parametro, che può essere utile per gli scenari correlati alla conformità. Questa funzionalità è esposta solo tramite ARM. 
+Il periodo di memorizzazione può essere [impostato anche tramite ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) utilizzando il `dataRetention` parametro. Inoltre, se si imposta la conservazione dei dati su 30 giorni, è possibile attivare un'eliminazione immediata dei dati meno recenti utilizzando `immediatePurgeDataOn30Days` il parametro, che può essere utile per gli scenari correlati alla conformità. Questa funzionalità viene esposta solo tramite ARM. 
 
 ## <a name="legacy-pricing-tiers"></a>Piani tariffari legacy
 
-Le sottoscrizioni che ha un'area di lavoro di Log Analitica o risorsa di Application Insights in esso prima del 2 aprile 2018, o sono collegate a un contratto Enterprise Agreement che ha avviato prima del 1 febbraio 2019, continueranno ad avere accesso a legacy piani tariffari: **Libera**, **autonomo (Per GB)** e **per ogni nodo (OMS)** .  Le aree di lavoro nel piano tariffario gratuito avrà l'inserimento di dati giornaliero limitata a 500 MB (tranne i tipi di dati di sicurezza raccolti dal Centro sicurezza di Azure) e la conservazione dei dati è limitato a 7 giorni. Il piano tariffario gratuito è destinato solo a scopo di valutazione. Aree di lavoro di autonomo o per ogni nodo piani tariffari hanno conservazione configurabili dall'utente di fino a 2 anni. Aree di lavoro create prima del mese di aprile 2016 hanno anche accesso originale **Standard** e **Premium** piani tariffari. Sono disponibili altri dettagli di limitazioni a livello di prezzo [qui](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-workspaces).
+Le sottoscrizioni che hanno un'area di lavoro Log Analytics o una risorsa Application Insights prima del 2 aprile 2018 o sono collegate a una Enterprise Agreement avviata prima del 1 ° febbraio 2019, continueranno ad avere accesso per usare i piani tariffari legacy: **Gratuito**, **autonomo (per GB)** e **per nodo (OMS)** .  Le aree di lavoro nel piano tariffario gratuito avranno un inserimento dati giornaliero limitato a 500 MB (eccetto i tipi di dati di sicurezza raccolti dal centro sicurezza di Azure) e la conservazione dei dati è limitata a 7 giorni. Il piano tariffario gratuito è destinato solo a scopo di valutazione. Le aree di lavoro nei piani tariffari autonomo o per nodo hanno una conservazione configurabile dall'utente fino a 2 anni. 
+
+Le aree di lavoro create prima del 2016 aprile hanno anche accesso ai piani tariffari **standard** e **Premium** originali con conservazione dei dati fissa rispettivamente di 30 e 365 giorni. Non è possibile creare nuove aree di lavoro nei piani tariffari **standard** o **Premium** . se un'area di lavoro viene spostata da questi livelli, non sarà possibile spostarla di nuovo. 
+
+Altre informazioni sulle limitazioni del piano tariffario sono disponibili [qui](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-workspaces).
 
 > [!NOTE]
 > Per usare i diritti che derivano dall'acquisto di OMS E1 Suite, OMS E2 Suite o un componente aggiuntivo di OMS per System Center, scegliere il piano tariffario *Per nodo* di Log Analytics.
 
-La società ad adottare più vecchio Log Analitica inoltre avranno accesso per i piani tariffari originali **Standard** e **Premium**, che hanno risolto rispettivamente la conservazione dei dati di 30 e 365 giorni. 
 
 ## <a name="changing-pricing-tier"></a>Modifica del piano tariffario
 
@@ -128,7 +131,7 @@ Se l'area di lavoro Log Analytics ha accesso ai piani tariffari esistenti, modif
 3. In **Piano tariffario** selezionare un piano tariffario e quindi fare clic su **Seleziona**.  
     ![Piano tariffario selezionato](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-È anche possibile [impostare il piano tariffario tramite ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) usando il `ServiceTier` parametro. 
+È anche possibile [impostare il piano tariffario tramite ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) usando `ServiceTier` il parametro. 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Risoluzione dei problemi se Log Analytics non sta più raccogliendo dati
 
@@ -138,7 +141,7 @@ Se si sta usando il piano tariffario legacy Gratuito e sono stati inviati più d
 Operation | where OperationCategory == 'Data Collection Status'
 ```
 
-Quando la raccolta dei dati si interrompe, OperationStatus è **avviso**. Quando si avvia la raccolta dei dati, OperationStatus è **Succeeded**. La tabella seguente descrive i motivi per cui raccolta dei dati si interrompe e un'azione consigliata per riprendere la raccolta dati:  
+Quando la raccolta dati si interrompe, OperationStatus è un **avviso**. Quando viene avviata la raccolta dei dati, OperationStatus è **riuscito**. La tabella seguente descrive i motivi per cui raccolta dei dati si interrompe e un'azione consigliata per riprendere la raccolta dati:  
 
 |Motivo dell'arresto della raccolta| Soluzione| 
 |-----------------------|---------|
@@ -146,17 +149,17 @@ Quando la raccolta dei dati si interrompe, OperationStatus è **avviso**. Quando
 |È stato raggiunto il limite giornaliero dell'area di lavoro|Attendere il riavvio automatico della raccolta oppure aumentare il limite giornaliero per il volume di dati, come descritto nella sezione sulla gestione del volume di dati giornaliero massimo. Il tempo di ripristino del limite giornaliero viene visualizzato nella pagina **Gestione del volume dati**. |
 |La sottoscrizione di Azure è in sospeso perché:<br> la versione di prova gratuita è terminata<br> Azure Pass è scaduto<br> Il limite di spesa mensile è stato raggiunto, ad esempio in una sottoscrizione MSDN o in una sottoscrizione di Visual Studio|Passare a una sottoscrizione a pagamento<br> Rimuovere il limite oppure attendere fino ripristino del limite|
 
-Per essere notificato quando si arresta la raccolta dei dati, utilizzare la procedura descritta in *limite di utilizzo dati giornaliero crea* avviso per ricevere una notifica quando si arresta la raccolta dei dati. Usare la procedura descritta in [creare un gruppo di azioni](action-groups.md) per configurare un'azione di posta elettronica, webhook o runbook per la regola di avviso. 
+Per ricevere una notifica quando la raccolta dati si interrompe, seguire i passaggi descritti in creare un avviso di *protezione dati giornaliera* per ricevere una notifica quando la raccolta dati viene arrestata. Usare la procedura descritta in [creare un gruppo di azione](action-groups.md) per configurare un'azione di posta elettronica, webhook o Runbook per la regola di avviso. 
 
 ## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Risoluzione dei problemi che determinano un utilizzo superiore al previsto
 
 Un utilizzo più elevato è dovuto a una o entrambe le cause seguenti:
-- Più nodi del previsto inviano dati all'area di lavoro di Log Analitica
-- Più dati del previsto l'invio all'area di lavoro di Log Analitica
+- Più nodi del previsto che inviano dati all'area di lavoro Log Analytics
+- Più dati del previsto inviato ad area di lavoro Log Analytics
 
 ## <a name="understanding-nodes-sending-data"></a>Informazioni sui nodi che inviano dati
 
-Per conoscere il numero di computer che segnalano gli heartbeat ogni giorno nell'ultimo mese,
+Per comprendere il numero di computer che segnalano gli heartbeat ogni giorno nell'ultimo mese, utilizzare
 
 ```kusto
 Heartbeat | where TimeGenerated > startofday(ago(31d))
@@ -164,7 +167,7 @@ Heartbeat | where TimeGenerated > startofday(ago(31d))
 | render timechart
 ```
 
-Per ottenere un elenco di computer che verranno fatturate come nodi se l'area di lavoro è nel nodo legacy per ogni piano tariffario, cercare i nodi che inviano **tipi di dati fatturati** (alcuni tipi di dati sono gratuite). A questo scopo, usare il `_IsBillable` [proprietà](log-standard-properties.md#_isbillable) e usare il campo più a sinistra del nome di dominio completo. Restituisce l'elenco dei computer con i dati di fatturazione:
+Per ottenere un elenco di computer che verranno fatturati come nodi se l'area di lavoro è nel piano tariffario per nodo Legacy, cercare i nodi che inviano **tipi di dati fatturati** (alcuni tipi di dati sono gratuiti). A tale scopo, utilizzare la `_IsBillable` [proprietà](log-standard-properties.md#_isbillable) e utilizzare il campo più a sinistra del nome di dominio completo. Viene restituito l'elenco dei computer con i dati fatturati:
 
 ```kusto
 union withsource = tt * 
@@ -174,7 +177,7 @@ union withsource = tt *
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName
 ```
 
-Può essere stimato il numero di nodi fatturabili visualizzate come: 
+Il numero di nodi fatturabili visualizzati può essere stimato come segue: 
 
 ```kusto
 union withsource = tt * 
@@ -185,9 +188,9 @@ union withsource = tt *
 ```
 
 > [!NOTE]
-> Usare queste query `union withsource = tt *` solo se necessario, poiché le analisi tra tipi di dati sono costose. Questa query sostituisce quello precedente di una query su informazioni per ogni computer con il tipo di dati di utilizzo.  
+> Usare queste query `union withsource = tt *` solo se necessario, poiché le analisi tra tipi di dati sono costose. Questa query sostituisce il vecchio modo per eseguire query sulle informazioni per computer con il tipo di dati Usage.  
 
-Un calcolo più accurato di ciò che effettivamente avverrà consiste nell'ottenere il conteggio dei computer che inviano i tipi di dati fatturati ogni ora. (Per le aree di lavoro nel livello di prezzo per ogni nodo legacy, Log Analitica per calcolare il numero di nodi che devono essere fatturate su base oraria.) 
+Un calcolo più accurato di ciò che verrà effettivamente fatturato consiste nell'ottenere il numero di computer all'ora che inviano tipi di dati fatturati. Per le aree di lavoro nel piano tariffario legacy per nodo, Log Analytics calcola il numero di nodi che devono essere fatturati su base oraria. 
 
 ```kusto
 union withsource = tt * 
@@ -197,7 +200,7 @@ union withsource = tt *
 | summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
 ```
 
-## <a name="understanding-ingested-data-volume"></a>Volume di dati inserito conoscenza
+## <a name="understanding-ingested-data-volume"></a>Informazioni sul volume di dati inseriti
 
 Nella pagina **Utilizzo e costi stimati** il grafico *Inserimento dati per soluzione* mostra il volume totale dei dati inviati e la quantità inviata da ogni soluzione. In questo modo è possibile determinare tendenze specifiche, ad esempio se l'utilizzo dei dati complessivo (o da parte di una particolare soluzione) sta aumentando, è stabile o sta diminuendo. La query usata per generare questi dati è
 
@@ -218,7 +221,7 @@ Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
 
 ### <a name="data-volume-by-computer"></a>Volume dati per computer
 
-Per visualizzare il **dimensioni** degli eventi fatturabili inseriti al computer, utilizzare il `_BilledSize` [proprietà](log-standard-properties.md#_billedsize), che fornisce la dimensione in byte:
+Per visualizzare le **dimensioni** degli eventi fatturabili inseriti per computer, utilizzare la `_BilledSize` [Proprietà](log-standard-properties.md#_billedsize), che fornisce la dimensione in byte:
 
 ```kusto
 union withsource = tt * 
@@ -227,9 +230,9 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by  computerName | sort by Bytes nulls last
 ```
 
-Il `_IsBillable` [proprietà](log-standard-properties.md#_isbillable) specifica se i dati acquisiti daranno luogo ad addebiti.
+La `_IsBillable` [proprietà](log-standard-properties.md#_isbillable) specifica se i dati inseriti comporteranno addebiti.
 
-Per visualizzare il conteggio dei **fatturabili** gli eventi inseriti per ogni computer, usare 
+Per visualizzare il numero di eventi fatturabili inseriti per computer, usare 
 
 ```kusto
 union withsource = tt * 
@@ -247,9 +250,9 @@ union withsource = tt *
 | summarize count() by tt | sort by count_ nulls last
 ```
 
-### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Volume di dati da risorse di Azure, gruppo di risorse o sottoscrizione
+### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Volume di dati per risorsa di Azure, gruppo di risorse o sottoscrizione
 
-Per i dati dai nodi ospitati in Azure è possibile ottenere il **dimensioni** di eventi fatturabili inseriti __per ogni computer__, usare il _ResourceId [proprietà](log-standard-properties.md#_resourceid), che fornisce il percorso completo di risorsa:
+Per i dati dei nodi ospitati in Azure, è possibile ottenere le **dimensioni** degli eventi fatturabili inseriti __per computer__, usare la [proprietà](log-standard-properties.md#_resourceid)_ResourceId, che fornisce il percorso completo della risorsa:
 
 ```kusto
 union withsource = tt * 
@@ -257,7 +260,7 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
 ```
 
-Per i dati dai nodi ospitati in Azure è possibile ottenere il **dimensioni** degli eventi fatturabili inseriti __per ogni sottoscrizione di Azure__, analizzare il `_ResourceId` proprietà come:
+Per i dati dei nodi ospitati in Azure, è possibile ottenere le **dimensioni** degli eventi fatturabili inseriti __per ogni sottoscrizione di Azure__, analizzare la `_ResourceId` proprietà come:
 
 ```kusto
 union withsource = tt * 
@@ -267,13 +270,13 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last
 ```
 
-Modificando `subscriptionId` a `resourceGroup` indicherà il volume di dati inseriti fatturabili dal gruppo di risorse di Azure. 
+Se `subscriptionId` si `resourceGroup` modifica in, viene visualizzato il volume dei dati inseriti fatturabile per gruppo di risorse di Azure. 
 
 
 > [!NOTE]
 > Benché siano ancora inclusi nello schema, alcuni campi del tipo di dati Utilizzo sono stati deprecati e i rispettivi valori non verranno più popolati. Si tratta del campo **Computer** e dei campi correlati all'inserimento, ossia **TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** e **AverageProcessingTimeMs**.
 
-### <a name="querying-for-common-data-types"></a>L'esecuzione di query per tipi di dati comuni
+### <a name="querying-for-common-data-types"></a>Esecuzione di query per i tipi di dati comuni
 
 Ecco alcune query di esempio utili per analizzare in maggiore profondità l'origine dei dati di un particolare tipo di dati:
 
@@ -306,7 +309,7 @@ Ecco alcuni suggerimenti utili per ridurre il volume dei log raccolti:
 | AzureDiagnostics           | Modificare la raccolta dei log delle risorse per: <br> - Ridurre il numero di risorse che inviano log a Log Analytics <br> - Raccogliere solo i log necessari |
 | Dati della soluzione da computer che non richiedono la soluzione | Usare il [targeting della soluzione](../insights/solution-targeting.md) per raccogliere dati unicamente dai gruppi di computer necessari |
 
-### <a name="getting-security-and-automation-node-counts"></a>Ottenere i conteggi di nodo sicurezza e automazione
+### <a name="getting-security-and-automation-node-counts"></a>Recupero dei conteggi dei nodi di sicurezza e automazione
 
 Se si usa un piano tariffario "Per nodo (OMS)", l'addebito viene effettuato in base al numero di nodi e soluzioni usati e il numero di nodi di Informazioni dettagliate e analisi fatturati sarà visualizzato in una tabella nella pagina **Utilizzo e costi stimati**.  
 
@@ -350,7 +353,7 @@ Per visualizzare il numero di nodi di Automazione distinti usare la query:
  | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc
 ```
 
-## <a name="create-an-alert-when-data-collection-is-high"></a>Creare un avviso quando la raccolta dei dati è elevata
+## <a name="create-an-alert-when-data-collection-is-high"></a>Crea un avviso quando la raccolta dati è elevata
 
 Questa sezione descrive come creare un avviso nei casi seguenti:
 - Il volume di dati supera una quantità specificata.
@@ -413,12 +416,12 @@ Quando si riceve un avviso, seguire la procedura descritta nella sezione seguent
 
 ## <a name="limits-summary"></a>Riepilogo dei limiti
 
-Esistono alcuni altri limiti di Analitica di Log, alcuni dei quali dipendono dal piano tariffario di Analitica di Log. Questi scenari sono documentati [qui](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-workspaces).
+Esistono alcuni limiti di Log Analytics aggiuntivi, alcuni dei quali dipendono dal piano tariffario Log Analytics. Questi sono descritti [qui](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-workspaces).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Visualizzare [ricerche nei Log in log di monitoraggio di Azure](../log-query/log-query-overview.md) per imparare a usare il linguaggio di ricerca. È possibile usare le query di ricerca per eseguire ulteriori analisi sui dati di utilizzo.
+- Vedere [ricerche nei log nei](../log-query/log-query-overview.md) log di monitoraggio di Azure per informazioni su come usare il linguaggio di ricerca. È possibile usare le query di ricerca per eseguire ulteriori analisi sui dati di utilizzo.
 - Per ricevere una notifica quando vengono soddisfatti determinati criteri di ricerca, seguire la procedura descritta in [Creare un nuovo avviso del log](alerts-metric.md).
 - Usare il [targeting della soluzione](../insights/solution-targeting.md) per raccogliere dati unicamente dai gruppi di computer necessari
 - Per configurare un criterio efficace per la raccolta degli eventi, vedere [Criteri per i filtri del Centro sicurezza di Azure](../../security-center/security-center-enable-data-collection.md).

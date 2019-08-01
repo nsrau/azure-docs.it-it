@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: 190aab1f321aa9014eea95a63d525b394288b03b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: fd3c40d56e0ba9cdb50847832051606f81d0e952
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709268"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677680"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Risoluzione dei problemi di connessione SSH a una macchina virtuale Linux di Azure che ha esito negativo, genera errori o è stata rifiutata.
 Questo articolo illustra come trovare e correggere i problemi dovuti a errori Secure Shell (SSH), a errori di connessione SSH o al rifiuto della connessione SSH durante il tentativo di connessione a una macchina virtuale Linux. È possibile usare il portale di Azure, l'interfaccia della riga di comando Azure o l'estensione dell'accesso alle VM per Linux per risolvere i problemi di connessione.
@@ -49,7 +49,7 @@ Continuare la lettura per la procedura di risoluzione dei problemi e spiegazioni
 È possibile reimpostare le credenziali o la configurazione SSH usando uno dei metodi seguenti:
 
 * [Portale di Azure](#use-the-azure-portal): indicato per ripristinare rapidamente la configurazione SSH o la chiave SSH nel caso in cui non siano stati installati gli strumenti di Azure.
-* [Console seriale di macchina virtuale Azure](https://aka.ms/serialconsolelinux) -console seriale della macchina virtuale funzionerà indipendentemente dalla configurazione SSH e fornirà all'utente una console interattiva per la macchina virtuale. In effetti, "Impossibile SSH" situazioni sono specificamente qual è la console seriale progettato per aiutare a risolvere. Altri dettagli sotto.
+* [Console seriale di VM di Azure](https://aka.ms/serialconsolelinux) : la console seriale della VM funzionerà indipendentemente dalla configurazione SSH e fornirà una console interattiva alla VM. In realtà, le situazioni "non è possibile SSH" sono specifiche della console seriale progettata per contribuire alla risoluzione. Altri dettagli sono riportati di seguito.
 * [Interfaccia della riga di comando di Azure](#use-the-azure-cli): se ci si trova già nella riga di comando, reimpostare rapidamente le credenziali o la configurazione SSH. Se si lavora con una macchina virtuale classica, è possibile usare l'[interfaccia della riga di comando classica di Azure](#use-the-azure-classic-cli).
 * [Estensione VMAccessForLinux di Azure](#use-the-vmaccess-extension): creare e usare di nuovo i file di definizione JSON per reimpostare le credenziali utente o la configurazione di SSH.
 
@@ -78,22 +78,22 @@ Usare la funzionalità [Verifica flusso IP](../../network-watcher/network-watche
 
 Usare la funzionalità [Hop successivo](../../network-watcher/network-watcher-check-next-hop-portal.md) di Network Watcher per verificare che una route non impedisca il routing del traffico da o verso una macchina virtuale. È anche possibile esaminare le route per determinare tutte quelle valide per un'interfaccia di rete. Per altre informazioni, vedere [Uso di route valide per risolvere i problemi relativi al flusso di traffico delle macchine virtuali](../../virtual-network/diagnose-network-routing-problem.md).
 
-## <a name="use-the-azure-vm-serial-console"></a>Utilizzare la Console seriale di una VM di Azure
-Il [Console seriale della macchina virtuale di Azure](./serial-console-linux.md) fornisce l'accesso a una console basata su testo per le macchine virtuali Linux. È possibile utilizzare la console per risolvere i problemi di connessione SSH in una shell interattiva. Verificare che siano soddisfatti i [prerequisiti](./serial-console-linux.md#prerequisites) per l'utilizzo di Console seriale e provare i comandi seguenti per continuare, risolvere i problemi la connettività SSH.
+## <a name="use-the-azure-vm-serial-console"></a>Usare la console seriale della VM di Azure
+La [console seriale di VM di Azure](./serial-console-linux.md) fornisce l'accesso a una console basata su testo per le macchine virtuali Linux. È possibile usare la console di per risolvere i problemi relativi alla connessione SSH in una shell interattiva. Assicurarsi di aver soddisfatto i [prerequisiti](./serial-console-linux.md#prerequisites) per l'uso della console seriale e provare i comandi seguenti per risolvere ulteriormente i problemi di connettività SSH.
 
 ### <a name="check-that-ssh-is-running"></a>Verificare che SSH sia in esecuzione
 È possibile usare il comando seguente per verificare se SSH è in esecuzione nella macchina virtuale:
 ```
 $ ps -aux | grep ssh
 ```
-Se è presente alcun output, SSH sia in esecuzione.
+Se è presente un output, SSH è attivo e in esecuzione.
 
-### <a name="check-which-port-ssh-is-running-on"></a>Verificare la porta SSH è in esecuzione in
-È possibile usare il comando seguente per verificare la porta SSH è in esecuzione in:
+### <a name="check-which-port-ssh-is-running-on"></a>Verificare la porta su cui è in esecuzione SSH
+È possibile usare il comando seguente per verificare la porta su cui è in esecuzione SSH:
 ```
 $ sudo grep Port /etc/ssh/sshd_config
 ```
-L'output apparirà simile:
+L'output sarà simile al seguente:
 ```
 Port 22
 ```
@@ -101,7 +101,7 @@ Port 22
 ## <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure
 Se non è già stato fatto, installare la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e accedere a un account di Azure tramite il comando [az login](/cli/azure/reference-index).
 
-Se è stata creata e caricata un'immagine del disco Linux personalizzata, verificare che sia installato l'[agente Linux di Microsoft Azure](../extensions/agent-windows.md) in versione 2.0.5 o successiva. Per le macchine virtuali create tramite le immagini della raccolta, questa estensione dell'accesso è già installata e configurata automaticamente.
+Se è stata creata e caricata un'immagine del disco Linux personalizzata, verificare che sia installato l'[agente Linux di Microsoft Azure](../extensions/agent-linux.md) in versione 2.0.5 o successiva. Per le macchine virtuali create tramite le immagini della raccolta, questa estensione dell'accesso è già installata e configurata automaticamente.
 
 ### <a name="reset-ssh-configuration"></a>Reimpostare la configurazione SSH
 È possibile provare inizialmente a reimpostare la configurazione SSH ai valori predefiniti e riavviare quindi il server SSH nella macchina virtuale. Il nome dell'account utente, la password o le chiavi SSH non verranno modificate.
@@ -176,7 +176,7 @@ Se necessario, [installare l'interfaccia della riga di comando classica di Azure
 azure config mode arm
 ```
 
-Se è stata creata e caricata un'immagine del disco Linux personalizzata, verificare che sia installato l'[agente Linux di Microsoft Azure](../extensions/agent-windows.md) in versione 2.0.5 o successiva. Per le macchine virtuali create tramite le immagini della raccolta, questa estensione dell'accesso è già installata e configurata automaticamente.
+Se è stata creata e caricata un'immagine del disco Linux personalizzata, verificare che sia installato l'[agente Linux di Microsoft Azure](../extensions/agent-linux.md) in versione 2.0.5 o successiva. Per le macchine virtuali create tramite le immagini della raccolta, questa estensione dell'accesso è già installata e configurata automaticamente.
 
 ### <a name="reset-ssh-configuration"></a>Reimpostare la configurazione SSH
 La configurazione del disco SSHD in sé può essere errata oppure il servizio ha rilevato un errore. È possibile reimpostare il disco SSHD per controllare la validità della configurazione SSH. La reimpostazione SSHD deve essere il primo passaggio da eseguire per la risoluzione dei problemi.

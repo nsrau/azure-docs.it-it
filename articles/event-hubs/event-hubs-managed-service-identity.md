@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/20/2019
 ms.author: shvija
-ms.openlocfilehash: 4e6f16a15547583baab63f452504d36eb2e43b85
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dbef1db94d7835bd9326102bd62921c6b3d88d74
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978433"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707058"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Identità gestite per le risorse di Azure con Hub eventi
 
@@ -27,28 +27,28 @@ Con le identità gestite, la piattaforma Azure gestisce questa identità di runt
 Una volta eseguita l'associazione a un'identità gestita, un client di Hub eventi può eseguire tutte le operazioni autorizzate. L'autorizzazione viene concessa associando un'identità gestita ai ruoli di Hub eventi. 
 
 ## <a name="event-hubs-roles-and-permissions"></a>Ruoli e autorizzazioni di Hub eventi
-È possibile aggiungere un'identità gestita per il **proprietario dei dati di hub eventi** ruolo di uno spazio dei nomi di hub eventi. Questo ruolo concede l'identità del controllo completo (per la gestione e operazioni sui dati) in tutte le entità nello spazio dei nomi.
+È possibile aggiungere un'identità gestita al ruolo di **proprietario dei dati di hub eventi** di uno spazio dei nomi di hub eventi. Questo ruolo concede l'identità, il controllo completo (per le operazioni di gestione e dati) su tutte le entità nello spazio dei nomi.
 
 >[!IMPORTANT]
-> È supportato in precedenza aggiungendo identità gestita per il **proprietario** oppure **collaboratore** ruolo. Accesso ai dati, tuttavia, i privilegi per **Owner** e **collaboratore** ruolo non vengono rispettate. Se si usa la **proprietario** o **collaboratore** ruolo, passare all'uso di **proprietario dei dati di hub eventi** ruolo.
+> In precedenza era supportata l'aggiunta dell'identità gestita al ruolo **proprietario** o **collaboratore** . Tuttavia, i privilegi di accesso ai dati per il **proprietario** e il ruolo **collaboratore** non vengono più rispettati. Se si usa il ruolo **proprietario** o **collaboratore** , passare a usando il ruolo **proprietario dati di hub eventi** .
 
-Per usare il nuovo ruolo incorporato, seguire questa procedura: 
+Per usare il nuovo ruolo predefinito, seguire questa procedura: 
 
 1. Passare al [portale di Azure](https://portal.azure.com)
 2. Passare allo spazio dei nomi di hub eventi.
-3. Nel **Namespace di hub eventi** pagina, selezionare **accesso (IAM)** nel menu a sinistra.
-4. Nel **controllo di accesso (IAM)** pagina, selezionare **Add** nel **aggiungere un'assegnazione di ruolo** sezione. 
+3. Nella pagina **spazio dei nomi di hub eventi** selezionare **controllo di accesso (IAM)** dal menu a sinistra.
+4. Nella pagina **controllo di accesso (IAM)** selezionare **Aggiungi** nella sezione **Aggiungi un'assegnazione di ruolo** . 
 
-    ![Aggiungere un pulsante di assegnazione di ruolo](./media/event-hubs-managed-service-identity/add-role-assignment-button.png)
-5. Nel **aggiungere un'assegnazione di ruolo** pagina, effettuare i passaggi seguenti: 
-    1. Per la **ruolo**, selezionare **proprietario dei dati di hub eventi Azure**. 
-    2. Selezionare il **identità** da aggiungere al ruolo.
+    ![Pulsante Aggiungi assegnazione ruolo](./media/event-hubs-managed-service-identity/add-role-assignment-button.png)
+5. Nella pagina **Aggiungi assegnazione ruolo** eseguire le operazioni seguenti: 
+    1. Per **ruolo**selezionare il **proprietario dei dati di hub eventi di Azure**. 
+    2. Consente di selezionare l' **identità** da aggiungere al ruolo.
     3. Selezionare **Salva**. 
 
-        ![Ruolo di proprietario dei dati di hub eventi](./media/event-hubs-managed-service-identity/add-role-assignment-dialog.png)
-6. Passare al **assegnazioni di ruolo** pagina e verificare che l'utente viene aggiunto al **proprietario dei dati hub eventi di Azure** ruolo. 
+        ![Ruolo proprietario dati di hub eventi](./media/event-hubs-managed-service-identity/add-role-assignment-dialog.png)
+6. Passare alla pagina **assegnazioni di ruolo** e verificare che l'utente sia stato aggiunto al ruolo di **proprietario dei dati di hub eventi di Azure** . 
 
-    ![Confermare l'utente viene aggiunto al ruolo](./media/event-hubs-managed-service-identity/role-assignments.png)
+    ![Confermare che l'utente è stato aggiunto al ruolo](./media/event-hubs-managed-service-identity/role-assignments.png)
  
 ## <a name="use-event-hubs-with-managed-identities-for-azure-resources"></a>Uso dell'Hub eventi con le identità gestite per le risorse di Azure
 
@@ -74,13 +74,13 @@ Una volta abilitata la funzionalità, una nuova identità del servizio viene cre
 
 ### <a name="create-a-new-event-hubs-namespace"></a>Creare un nuovo spazio dei nomi di Hub eventi
 
-Successivamente [creare uno spazio dei nomi di hub eventi](event-hubs-create.md). 
+Successivamente, [creare uno spazio dei nomi di hub eventi](event-hubs-create.md). 
 
 Passare alla pagina **Controllo di accesso (IAM)** dello spazio dei nomi nel portale e quindi fare clic su **Aggiungi un'assegnazione di ruolo** per aggiungere l'identità gestita al ruolo **Proprietario**. A tale scopo, cercare il nome dell'applicazione Web nel campo **Seleziona** del pannello **Aggiungi autorizzazioni** e quindi fare clic sulla voce. Fare quindi clic su **Salva**. L'identità gestita per l'applicazione Web dispone ora dell'accesso allo spazio dei nomi di Hub eventi e all'hub eventi creato in precedenza. 
 
-### <a name="run-the-app"></a>Esecuzione dell'app
+### <a name="run-the-app"></a>Eseguire l'app
 
-Modificare ora la pagina predefinita dell'applicazione ASP.NET creata. È anche possibile usare il codice dell'applicazione Web di [questo repository GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/MSI/EventHubsMSIDemoWebApp). 
+Modificare ora la pagina predefinita dell'applicazione ASP.NET creata. È anche possibile usare il codice dell'applicazione Web di [questo repository GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/ManagedIdentityWebApp). 
 
 Una volta avviata l'app, aprire nel browser la pagina EventHubsMSIDemo.aspx. È anche possibile impostare questa pagina come pagina iniziale. Il codice è disponibile nel file EventHubsMSIDemo.aspx.cs. Il risultato è un'applicazione Web minima con pochi campi di immissione e con pulsanti di **invio** e **ricezione** che consentono la connessione a Hub eventi per l'invio o la ricezione di eventi. 
 

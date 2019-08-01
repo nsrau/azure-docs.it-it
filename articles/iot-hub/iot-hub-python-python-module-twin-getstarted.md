@@ -6,16 +6,18 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 07/30/2019
 ms.author: menchi
-ms.openlocfilehash: 428f13c1c70171404da4cbb6f731d95056813914
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 2c388ff86e782c916916bfb08c7a55ec5c845b13
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68402318"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667920"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-python-back-end-and-python-device"></a>Introduzione all'identità del modulo e ai moduli gemelli dell'hub IoT usando il back-end Python e un dispositivo Python
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>Introduzione all'identità del modulo dell'hub Internet e al modulo gemello (Python)
+
+[!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
 > [!NOTE]
 > [Le identità del modulo e i moduli gemelli](iot-hub-devguide-module-twins.md) sono simili alle identità del dispositivo e ai dispositivi gemelli dell'hub IoT di Azure, ma offrono una granularità superiore. Mentre l'identità del dispositivo e il dispositivo gemello dell'hub IoT di Azure consentono all'applicazione back-end di configurare un dispositivo e forniscono visibilità sulle condizioni del dispositivo, l'identità del modulo e il modulo gemello forniscono queste funzionalità per i singoli componenti di un dispositivo. Nei dispositivi con più componenti, ad esempio i dispositivi basati su sistema operativo o i dispositivi firmware, è possibile isolare la configurazione e le condizioni di ogni componente.
@@ -27,15 +29,11 @@ Al termine di questa esercitazione si hanno due app Python:
 
 * **UpdateModuleTwinReportedProperties**, che invia le proprietà segnalate aggiornate del modulo gemello all'hub IoT.
 
-> [!NOTE]
-> Per informazioni sugli Azure IoT SDK che consentono di compilare le applicazioni da eseguire nei dispositivi e i back-end della soluzione, vedere [Azure IoT SDK](iot-hub-devguide-sdks.md).
->
+[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-Per completare l'esercitazione, sono necessari gli elementi seguenti:
+Di seguito sono riportate le istruzioni di installazione per i prerequisiti.
 
-* Un account Azure attivo. Se non si dispone di un account, è possibile crearne uno [gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
-
-* Installare la versione di [Python SDK](https://github.com/Azure/azure-iot-sdk-python) più recente.
+[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 

@@ -1,7 +1,7 @@
 ---
-title: Quando usare le entità ENUM e azioni dell'entità impostata con un modello di apprendimento di conversazioni - servizi cognitivi di Azure | Microsoft Docs
+title: Quando usare le entità ENUM e impostare le azioni dell'entità con un modello di Conversation Learner-Servizi cognitivi di Azure | Microsoft Docs
 titleSuffix: Azure
-description: Informazioni su quando è appropriato usare entità ENUM e azioni dell'entità impostata con un modello di apprendimento di conversazioni.
+description: Informazioni sul momento in cui è appropriato utilizzare le entità ENUM e impostare le azioni dell'entità con un modello di Conversation Learner.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,103 +10,104 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nolachar
-ms.openlocfilehash: ed18d30a0c3f5d51cb3a07b8948863cdda16c1ae
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5443b97febd6bf3831690531bceb540181e7676c
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845956"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706984"
 ---
-# <a name="when-to-use-enum-entities-and-set-entity-actions"></a>Quando usare azioni di SET di entità ed entità di ENUM
+# <a name="when-to-use-enum-entities-and-set-entity-actions"></a>Quando usare le entità ENUM e impostare le azioni dell'entità
 
-Questa esercitazione verrà spiegato quando è necessario usare azioni SET_ENTITY ed entità di ENUM (enumerazione).
+In questa esercitazione verrà illustrato quando è necessario utilizzare le entità ENUM (Enumeration) e le azioni SET_ENTITY.
 
 ## <a name="video"></a>Video
 
-[![Anteprima di set di entità dell'esercitazione](https://aka.ms/cl_Tutorial_v3_SetEntity_Preview)](https://aka.ms/cl_Tutorial_v3_SetEntity)
+[![Imposta l'anteprima dell'esercitazione sull'entità](https://aka.ms/cl_Tutorial_v3_SetEntity_Preview)](https://aka.ms/cl_Tutorial_v3_SetEntity)
 
 
 
 ## <a name="what-is-covered"></a>Argomenti trattati
 
-Questa esercitazione verrà introdotte due nuove funzionalità. Un nuovo tipo di entità denominata ENUM (abbreviazione di enumerazione) e un nuovo tipo di azione denominata SET_ENTITY, che può fare riferimento a uno di questi valori di enumerazione e, come suggerisce il nome, imposta l'entità a questo valore. Come verrà illustrato sotto, queste nuove funzionalità vengono usate insieme e verrà spiegato che cosa sono e come usarli riportato di seguito. Prima di passare i dettagli, è importante comprendere quale problema queste funzionalità consentono di risolvere.
+Questa esercitazione introdurrà due nuove funzionalità. Un nuovo tipo di entità denominato ENUM (short per Enumeration) e un nuovo tipo di azione denominato SET_ENTITY, che può fare riferimento a uno di questi valori enum e come suggerisce il nome, imposta l'entità su questo valore. Come si apprenderà di seguito, queste nuove funzionalità vengono usate insieme e verranno illustrate le modalità di utilizzo. Prima di entrare nei dettagli, è importante comprendere il problema che queste funzionalità contribuiscono a risolvere.
 
 ![enum_entity_type.png](../media/tutorial-enum-set-entity/enum_entity_type.png)
 ![action_set_entity_type.png](../media/tutorial-enum-set-entity/action_set_entity_type.png)
 
 ## <a name="problem"></a>Problema
 
-Vi sono casi in cui il significato delle parole dipende dal contesto di conversazioni.  In genere le parole chiave con etichette vengono acquisite ed estratti usando un servizio di comprensione del linguaggio, ma in questi casi questi sistemi non siano in grado di apprende l'uso di esempi etichettati.
+Ci sono casi di conversazioni in cui il significato delle parole dipende dal contesto.  Normalmente le parole chiave con etichetta vengono apprese ed estratte usando un servizio di comprensione del linguaggio, ma in questi casi questi sistemi potrebbero non essere in grado di apprendere l'uso di esempi con etichetta.
 
-Si supponga si overhear parte di una conversazione tra persone nelle vicinanze e si sentono solo la parola "Sì". Non è possibile sapere che cos'è accettandone "Sì" o perché non hai sentito la domanda che conferma richiesto prima di esso. La domanda porre la prima è il contesto che fornisce un significato per la risposta. Allo stesso modo dopo "Sì" è una risposta a numerose domande non può essere riconosciuto, fornendo esempi di come si farebbe con così comune [sottoposto a training di Custom](04-introduction-to-entities.md) entità poiché verrebbe imparano etichettare ogni "Sì" come tale entità.
+Si supponga di aver origliato parte di una conversazione tra persone vicine e di avere sentito solo la parola "Sì". Non è possibile sapere qual è il consenso o la conferma della "Sì" perché non è stata ricevuta la domanda prima. La domanda che precede è il contesto, che fornisce un significato alla risposta. Analogamente, poiché "Sì" è una risposta di questo tipo comune a molte domande diverse, non può essere appreso fornendo esempi come si farebbe con le entità con [training personalizzato](04-introduction-to-entities.md) , perché apprenderà ad etichettare ogni "Sì" come tale entità.
 
 ### <a name="example"></a>Esempio
 
-Occorre chiarire ulteriormente con l'esempio seguente:
+È ora più chiaro l'esempio seguente:
 
-BOT: Servizi cognitivi di Azure è piacevole?
-Utente: Sì Bot: Ice cream è piacevole?
-Utente: Yes
-
-Nelle esercitazioni precedenti abbiamo esaminato [sottoposto a training di Custom](04-introduction-to-entities.md) entità e il pensiero iniziale potrebbe essere per creare un'entità denominata "likesCogServices" e assegnare un'etichetta il primo "Sì" come questa entità.  Tuttavia, il sistema sarebbe l'etichetta la seconda "Sì". Quando si è tentato di risolvere l'etichetta della seconda "Sì" per "likesIceCream", è quindi necessario creare un conflitto di due input stesso "Yes" diversi significati significato e potrebbe essere bloccati.
-
-È in questi casi in cui è necessario usare le azioni SET_ENTITY ed entità di Enumerazione.
-
-## <a name="when-to-use-enums-or-setentity-actions"></a>Quando usare le enumerazioni o le azioni SET_ENTITY
-
-Usare queste regole indicate di seguito per sapere quando usare le entità ENUM e SET_ENTITY azioni:
-
-- Impostazione dell'entità o il rilevamento è dipendente dal contesto
-- Numero di valori possibili è fisso (Sì e No sarebbe due valori)
-
-In altre parole, usare questi valori per eventuali richieste è terminata di chiusura, ad esempio domande conferma che è sempre comportare Yes o No.
-
-> [!NOTE]
-> Attualmente sono la limitazione di valori fino a 5 per ogni entità enum. Ogni valore viene utilizzato uno degli slot nel limite di 64 corrente. Vedere [cl-valori-e-limiti](../cl-values-and-boundaries.md)
-
-Esempio: BOT: L'ordine è corretta?
+Bot Si desidera servizi cognitivi di Azure?
+Utente: Sì bot: Ti piace il gelato?
 Utente: Sì
 
-Quando i valori possibili dell'entità sono aperte e non corretto, è necessario usare, ad esempio una funzionalità alternativa [previsto entità](05-expected-entity.md).
+Nelle esercitazioni precedenti sono state esaminate le entità con [training personalizzato](04-introduction-to-entities.md) e il pensiero iniziale potrebbe consistere nel creare un'entità denominata "likesCogServices" ed etichettare il primo "Sì" come questa entità.  Tuttavia, il sistema indicherà anche il secondo "Sì". Quando si è provato a correggere l'etichetta della seconda "Sì" in "likesIceCream", si creerebbe un conflitto di due input "Yes", che significa che i diversi elementi e verrebbero bloccati.
 
-Esempio: BOT: Come ti chiami?
-Utente: Matt Bot: Che cos'è il colore preferito?
+In questi casi è necessario usare le entità ENUM e le azioni SET_ENTITY.
+
+## <a name="when-to-use-enums-or-setentity-actions"></a>Quando usare le azioni ENUM o SET_ENTITY
+
+Usare queste regole di seguito per capire quando usare le entità ENUM e le azioni SET_ENTITY:
+
+- Il rilevamento o l'impostazione dell'entità è dipendente dal contesto
+- Il numero di valori possibili è Fixed (Sì e no sarebbe due valori)
+
+In altre parole, usare questi comandi per eventuali richieste di chiusura, ad esempio domande di conferma che comportano sempre sì o no.
+
+> [!NOTE]
+> Attualmente è prevista una limitazione di un massimo di 5 valori per entità enum. Ogni valore usa uno degli slot nel limite 64 corrente. Vedere [CL-values-and-](../cl-values-and-boundaries.md) delimitators
+
+Esempio: Bot L'ordine è corretto?
+Utente: Sì
+
+Quando i valori possibili dell'entità sono aperti e non corretti, è necessario usare una funzionalità alternativa, ad esempio l' [entità prevista](05-expected-entity.md).
+
+Esempio: Bot Come ti chiami?
+Utente: Matt bot: Qual è il colore preferito?
 Utente: Silver
 
-Queste richieste vengono considerate aperte perché si è stato possibile ottenere risposte con valori arbitrari.
+Questi prompt sono considerati aperti, perché potrebbero ricevere risposte con valori arbitrari.
 
-## <a name="what"></a>Cosa
+## <a name="what"></a>Dettagli
 
 ### <a name="enum-entities"></a>Entità ENUM
 
-Le entità ENUM vengono create esattamente come altre entità. Analogamente alle entità "a, livello di codice", è Impossibile etichetta parole come queste entità. Al contrario, deve essere impostate tramite codice o SET_ENTITY azioni.
+Le entità ENUM vengono create esattamente come le altre entità. Analogamente alle entità "programmatiche", non è possibile etichettare parole come queste entità. Ma devono essere impostate tramite codice o azioni SET_ENTITY.
 
 ![enum_entity_creation.png](../media/tutorial-enum-set-entity/enum_entity_creation.png)
 
-### <a name="set-entity-actions"></a>Impostare le azioni di entità
+### <a name="set-entity-actions"></a>Imposta azioni entità
 
-Come indicato in precedenza, le azioni di "Set di entità" è sufficiente impostare un'entità in un valore enum noti. È possibile ottenere gli stessi risultati tramite la creazione di un'azione di callback di API e Usa il gestore della memoria per impostare l'entità su un valore. ad esempio [https://login.microsoftonline.com/consumers/](`memory.Set(entityName, entityValue)`). La necessità di scrivere il codice e creare queste azioni diventerebbe noioso e difficile da gestire, in modo da strumento di apprendimento di conversazioni sono azioni speciali per facilitare il lavoro e generare automaticamente queste azioni quando vengono usati. Con queste azioni indipendenti consente di mantenere la capacità di comporre questi senza essere accoppiati con altre azioni o il codice nel tuo bot.
+Come indicato in precedenza, le azioni "set Entity" impostano semplicemente un'entità su un valore enum noto. È possibile ottenere gli stessi risultati creando un'azione di callback API e usando il gestore della memoria per impostare l'entità su un valore. ad esempio [https://login.microsoftonline.com/consumers/](`memory.Set(entityName, entityValue)`). La necessità di scrivere questo codice e creare queste azioni diventa noioso e difficile da gestire, quindi Conversation Learner dispone di azioni speciali per facilitare il lavoro e generare automaticamente queste azioni quando vengono usate. La presenza di questi come azioni indipendenti consente di mantenere la possibilità di comporre questi senza essere associati ad altre azioni o codice nel bot.
 
-- Impostare le azioni possono essere create solo quando si fa riferimento a un valore di un'entità di enumerazione è quindi necessario creare un'entità di enumerazione prima entità.
-- Impostare le azioni di entità sono anche "non-await" poiché non dispongono di alcun output visibile e devono essere seguiti da un'azione "attendere" l'utente può visualizzare.
-- Impostare le azioni di entità non sono modificabili vale a dire che non di modificarle dopo la creazione.
+- È possibile creare azioni di entità set solo quando si fa riferimento a un valore di un'entità enum, quindi è necessario prima creare un'entità enum.
+- Le azioni di impostazione dell'entità sono anche "non await" perché non hanno output visibile ed è necessario seguire un'azione di "attesa" che l'utente può visualizzare.
+- Le azioni imposta entità non sono modificabili, pertanto non è possibile modificarle dopo la creazione.
 
 ![action_set_entity_creation.png](../media/tutorial-enum-set-entity/action_set_entity_creation.png)
 
-### <a name="automatic-action-generation"></a>Generazione automatica di azione
+### <a name="automatic-action-generation"></a>Generazione automatica delle azioni
 
-Se esiste un'entità di enumerazione nel modello, strumento di apprendimento di conversazioni crea segnaposto azioni per ognuno dei valori possibili e renderli disponibili per la selezione durante il training. Volta effettuata la selezione, l'azione potrebbe essere creato automaticamente.
+Se nel modello esiste un'entità enum, Conversation Learner creerà azioni segnaposto per ognuno dei valori possibili e le renderà disponibili per la selezione durante il training. Al momento della selezione, l'azione verrà creata automaticamente.
 
-Ad esempio, se si crea un'entità di enumerazione con i valori "Yes" e "No":
+Ad esempio, se si crea un'entità enum con i valori "Yes" e "No":
 
 ![enum_entity_order_confirmation.png](../media/tutorial-enum-set-entity/enum_entity_order_confirmation.png)
 
-Anche senza creare in modo esplicito le azioni per questa nuova enumerazione si vedrà due nuove azioni disponibili durante il training:
+Anche senza creare esplicitamente azioni per questa nuova enumerazione, verranno visualizzate due nuove azioni durante il training:
 
 ![action_set_entity_sample.png](../media/tutorial-enum-set-entity/action_set_entity_sample.png)
 
 
-## <a name="create-a-bot-using-these-new-features"></a>Crea un Bot tramite queste nuove funzionalità
+## <a name="create-a-bot-using-these-new-features"></a>Crea un bot usando queste nuove funzionalità
 
 ### <a name="requirements"></a>Requisiti
 
@@ -114,51 +115,51 @@ Per questa esercitazione è necessario che il bot di esercitazione generale sia 
 
     npm run tutorial-general
 
-Si creerà un bot per simulare l'ordinamento cibo fast. Avrà valori discreti per le dimensioni delle bevande e fritte (piccola/Media/grande) e conferma alle domande con Sì / risposte. Entrambe queste entità soddisfa le due regole di sopra dei valori fissi e risposte dipendente dal contesto.
+Si creerà un bot per simulare l'ordinamento rapido degli alimenti. Avrà valori discreti per le dimensioni di bevande e patatine (SMALL/MEDIum/LARGE) e domande di conferma con risposte Sì/NO. Entrambe queste entità soddisfano le due regole sopra indicate come risposte dipendenti dal contesto e valori fissi.
 
 ### <a name="create-the-model"></a>Creare il modello
 
-1. L'interfaccia utente Web, fare clic su "Importa"
-2. Selezionare l'esercitazione denominato "Esercitazione-Enum-Set-Entity"
+1. Nell'interfaccia utente Web fare clic su "Importa"
+2. Selezionare l'esercitazione denominata "tutorial-enum-set-Entity"
 
-Questo si passerà alla pagina di gestione modelli.
-Si noti che il modello contiene già alcune entità enum e impostare le azioni di entità.
+Verrà visualizzata la pagina di gestione del modello.
+Si noti che il modello contiene già alcune entità enum e imposta le azioni dell'entità.
 
 ### <a name="create-the-first-dialog"></a>Creare il primo dialogo
 
-1. Nel riquadro di spostamento a sinistra fare clic su "Finestre di dialogo Train", quindi fare clic sul pulsante "Nuovo dialogo Train".
-2. Come tipo di utente nella, "salve, mi piacerebbe ordinare un coke e fritte.".
-3. Fare clic sul pulsante "Punteggio azioni"
+1. Nel pannello di navigazione a sinistra fare clic su "Training Dialogs", quindi fare clic sul pulsante "New Train Dialog".
+2. In qualità di utente digitare, "Salve, desidero ordinare una Coca e Fries".
+3. Fai clic sul pulsante "score actions"
 
-   > L'utente non ha specificato le dimensioni per il bevande o fritte dobbiamo chiedere.
+   > L'utente non ha specificato le dimensioni per la bevanda o le patatine, quindi è necessario richiederle.
 
-4. Selezionare l'azione con risposta: "Bevande quali dimensioni si?"
-5. Come tipo di utente in "grande"
-6. Fare clic sul pulsante "Punteggio azioni"
-7. Selezionare l'azione SET_ENTITY - "drinkSize: GRANDE"
-8. Selezionare l'azione con risposta: "Quali dimensioni fritte desiderato?"
-9. Come tipo di utilizzo in "Um, rendere quelli un supporto.
-10. Fare clic sul pulsante "Punteggio azioni"
-11. Selezionare l'azione SET_ENTITY - "friesSize: MEDIUM"
-12. Selezionare l'azione con risposta: "Si vuole qualsiasi condimenti?"
-13. Come tipo di utilizzo, in "Sì"
-14. Fare clic sul pulsante "Punteggio azioni"
-15. Selezionare l'azione SET_ENTITY - "condimentsConfirmation: YES"
-16. Selezionare l'azione con risposta: "Ok, ho un ordine per una bevanda grande e medie fritte. È giusto?"
-17. Come tipo di utilizzo, in "Sì"
-18. Fare clic sul pulsante "Punteggio azioni"
-19. Selezionare l'azione SET_ENTITY - "orderConfirmation: YES"
-20. Selezionare l'azione con risposta: "Bene, il numero di ordine è 58. Attendere. in questa posizione."
+4. Selezionare l'azione con risposta: "Quali sono le dimensioni da bere?"
+5. Il tipo di utente è "large"
+6. Fai clic sul pulsante "score actions"
+7. Selezionare l'azione SET_ENTITY-"drinkSize: GRANDI DIMENSIONI
+8. Selezionare l'azione con risposta: "Quali sono le dimensioni di Fries?"
+9. Come tipo di utilizzo in, "um, renderli un supporto.
+10. Fai clic sul pulsante "score actions"
+11. Selezionare l'azione SET_ENTITY-"friesSize: MEDIA
+12. Selezionare l'azione con risposta: "Vuoi avere tutti i condimenti?"
+13. Come il tipo di utilizzo in, "Yes"
+14. Fai clic sul pulsante "score actions"
+15. Selezionare l'azione SET_ENTITY-"condimentsConfirmation: SÌ
+16. Selezionare l'azione con risposta: "OK, ho un ordine per una bevanda di grandi dimensioni e patatine medie. È corretto? "
+17. Come il tipo di utilizzo in, "Yes"
+18. Fai clic sul pulsante "score actions"
+19. Selezionare l'azione SET_ENTITY-"orderConfirmation: SÌ
+20. Selezionare l'azione con risposta: "OK, il numero di ordine è 58. Attendere. "
 21. Fare clic su "Salva" per chiudere la finestra di dialogo
 
-La prima finestra di dialogo usando le entità ENUM e azioni SET_ENTITY appena creato. È possibile apportare molte più combinazioni di utente specifica delle informazioni parziali o di esperimenti con altri tipi di domande che è terminata di chiusura.
+È stata appena creata la prima finestra di dialogo usando le entità ENUM e le azioni SET_ENTITY. È possibile eseguire molte più combinazioni dell'utente specificando informazioni parziali o sperimentando altri tipi di domande di chiusura.
 
 > [!NOTE]
-> Durante il training verrà visualizzato come segnaposto per le azioni SET_ENTITY
+> Durante il training vengono visualizzati i segnaposto per le azioni SET_ENTITY, ad esempio
 >
 > ![action_set_entity_training.png](../media/tutorial-enum-set-entity/action_set_entity_training.png)
 >
-> ma quando la creazione di log tramite distribuzione o le finestre di dialogo Bot non sarà possibile visualizzare questi.
+> Tuttavia, durante la creazione di finestre di dialogo di log o l'uso di bot distribuiti, gli utenti non li vedranno.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

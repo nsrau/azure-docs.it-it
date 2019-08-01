@@ -1,18 +1,18 @@
 ---
 title: Gestire server e insiemi di credenziali di Servizi di ripristino di Azure
 description: Gestire processi e avvisi in un insieme di credenziali di Servizi di ripristino di Azure.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.author: raynew
-ms.openlocfilehash: 5876ce4a511617d8465cdf008ea0ce14b3ad15d4
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 4ce6ef67c24bd623a4162329442693ed1628dae2
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466365"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639870"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorare e gestire insiemi di credenziali di Servizi di ripristino
 

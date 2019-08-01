@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: d94567800a9fd020784c9cb07b2c6824cd032509
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 14bf7dc62bb97cb14232660db6d0649e3d77d4fa
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064284"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662930"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrare soluzioni di sicurezza nel Centro sicurezza di Azure
 Questo documento aiuta a gestire le soluzioni di sicurezza già connesse al Centro sicurezza di Azure e ad aggiungerne di nuove.
 
 > [!NOTE]
-> Un sottoinsieme di soluzioni di sicurezza verrà ritirato il 31 luglio 2019. Per altre informazioni e servizi alternativi, vedere [ritiro del Centro sicurezza di funzionalità (luglio 2019)](security-center-features-retirement-july2019.md#menu_solutions).
+> Un subset di soluzioni di sicurezza è stato ritirato il 31 luglio 2019. Per ulteriori informazioni e servizi alternativi, vedere [ritiro delle funzionalità del Centro sicurezza (luglio 2019)](security-center-features-retirement-july2019.md#menu_solutions).
 
 ## <a name="integrated-azure-security-solutions"></a>Soluzioni di sicurezza di Azure integrate
 Il Centro sicurezza semplifica l'abilitazione di soluzioni di sicurezza integrate in Azure. I vantaggi includono:
@@ -34,7 +34,7 @@ Il Centro sicurezza semplifica l'abilitazione di soluzioni di sicurezza integrat
 - **Rilevamenti integrati**: Gli eventi di sicurezza delle soluzioni partner vengono raccolti, aggregati e visualizzati automaticamente nell'ambito degli avvisi e degli eventi imprevisti del Centro sicurezza. Questi eventi vengono anche combinati con i rilevamenti di altre origini per offrire funzionalità avanzate di rilevamento delle minacce.
 - **Gestione e monitoraggio dell'integrità unificati**: I clienti possono usare gli eventi di integrità integrati per monitorare in modo immediato tutte le soluzioni partner. Sono disponibili funzionalità di gestione di base, con un facile accesso alla configurazione avanzata con la soluzione partner.
 
-Attualmente, soluzioni di sicurezza integrate includono la valutazione della vulnerabilità dal [Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) e [Rapid7](https://www.rapid7.com/products/insightvm/) e Gateway applicazione di Microsoft Web application firewall.
+Attualmente, le soluzioni di sicurezza integrate includono la valutazione della vulnerabilità di [Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) e [Rapid7](https://www.rapid7.com/products/insightvm/) e del Web Application Firewall del gateway applicazione Microsoft.
 
 > [!NOTE]
 > Centro sicurezza non installa Microsoft Monitoring Agent nelle appliance virtuali dei partner perché la maggior parte dei fornitori di soluzioni di sicurezza non consente che vengano eseguiti agenti esterni nelle proprie appliance.
@@ -85,7 +85,7 @@ Una soluzione partner può avere uno degli stati seguenti:
 
    ![Dettagli della soluzione di un partner](./media/security-center-partner-solutions/partner-solutions-detail.png)
 
-### <a name="discovered-solutions"></a>Discovered solutions (Soluzioni individuate)
+### <a name="discovered-solutions"></a>Soluzioni individuate
 
 Il Centro sicurezza individua automaticamente le soluzioni di sicurezza in esecuzione in Azure che non sono tuttavia connesse al Centro sicurezza e visualizza le soluzioni nella sezione **Soluzioni individuate**. Sono incluse le soluzioni di Azure, ad esempio [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), e le soluzioni dei partner.
 
@@ -96,11 +96,11 @@ Il Centro sicurezza individua automaticamente le soluzioni di sicurezza in esecu
 
 Selezionare **CONNETTI** in una soluzione per integrarla con il Centro sicurezza e ricevere avvisi di sicurezza.
 
-![Discovered solutions (Soluzioni individuate)](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
+![Soluzioni individuate](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
 
 Il Centro sicurezza individua anche le soluzioni distribuite nella sottoscrizione che sono in grado di inoltrare log in formato CEF (Common Event Format). Vedere come [connettere al Centro sicurezza una soluzione di sicurezza](quick-security-solutions.md) che usa i log CEF.
 
-### <a name="add-data-sources"></a>Aggiungere origini dati
+### <a name="add-data-sources"></a>Aggiungi origini dati
 
 La sezione **Aggiungi origini dati** include altre origini dati disponibili che è possibile connettere. Per istruzioni sull'aggiunta di dati da una qualsiasi di queste origini, fare clic su **AGGIUNGI**.
 

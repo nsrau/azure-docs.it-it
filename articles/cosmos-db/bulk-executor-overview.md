@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: e4357007ec1cfac2cf6a10d339c6b3aa3ae41488
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1716bd64286f1882b9fc224712d227967d78058a
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257094"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637785"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Panoramica della libreria dell'executor bulk di Azure Cosmos DB
  
@@ -38,17 +38,17 @@ La libreria dell'executor bulk consente di sfruttare la velocità effettiva e la
 
 * È possibile aggiornare in blocco i dati esistenti nei contenitori di Azure Cosmos DB come patch. 
  
-## <a name="how-does-the-bulk-executor-operate"></a>Funzionamento dell'Executor in blocco 
+## <a name="how-does-the-bulk-executor-operate"></a>Funzionamento dell'executor bulk 
 
 Quando un'operazione in blocco per importare o aggiornare i documenti viene attivata con un batch di entità, esse vengono mescolate inizialmente in dei bucket che corrispondono ai loro intervalli di chiavi di partizione di Azure Cosmos DB. In ogni bucket che corrisponde a una partizione dell'intervallo delle chiavi, esse sono suddivise in mini-batch e ogni mini batch agisce come un payload di cui viene eseguito il commit sul lato server. La libreria dell'executor bulk dispone di ottimizzazioni predefinite per l'esecuzione simultanea di questi batch mini sia all'interno degli intervalli sia tra gli intervalli delle chiavi di partizione. L'immagine seguente illustra come l'executor bulk raggruppa i dati in chiavi di partizione differenti:  
 
 ![Architettura dell'executor Bulk](./media/bulk-executor-overview/bulk-executor-architecture.png)
 
-La libreria dell'Executor Bulk garantisce di usare drasticamente la velocità effettiva allocata a una raccolta. Usa un  [meccanismo di controllo della congestione in stile AIMD](https://tools.ietf.org/html/rfc5681) per ogni intervallo di chiavi di partizione di Azure Cosmos DB per gestire in modo efficiente la limitazione della frequenza delle richieste e i timeout. 
+La libreria dell'esecutore bulk garantisce la massima utilizzabilità della velocità effettiva allocata a una raccolta. Usa un  [meccanismo di controllo della congestione in stile AIMD](https://tools.ietf.org/html/rfc5681) per ogni intervallo di chiavi di partizione di Azure Cosmos DB per gestire in modo efficiente la limitazione della frequenza delle richieste e i timeout. 
 
 ## <a name="next-steps"></a>Fasi successive 
   
-* Per altre informazioni, provare le applicazioni di esempio che usano la libreria dell'Executor in bloco in [.NET](bulk-executor-dot-net.md) e [Java](bulk-executor-java.md).  
+* Per altre informazioni, provare le applicazioni di esempio che utilizzano la libreria Executor in blocco in [.NET](bulk-executor-dot-net.md) e [Java](bulk-executor-java.md).  
 * Consultare le note sulla versione e le informazioni dell'SDK dell'executor bulk in [.NET](sql-api-sdk-bulk-executor-dot-net.md) e [Java](sql-api-sdk-bulk-executor-java.md).
-* La libreria dell'Executor Bulk è integrata nel connettore Spark DB Cosmos, per altre informazioni, vedere l'articolo [connettore di Azure Cosmos DB Spark](spark-connector.md).  
+* Per altre informazioni, [Azure Cosmos DB](spark-connector.md) vedere l'articolo relativo al connettore Spark per la libreria di esecuzioni bulk in Cosmos DB.  
 * La libreria dell'executor bulk è integrata anche in una nuova versione del [connettore di Azure Cosmos DB](https://aka.ms/bulkexecutor-adf-v2) per consentire ad Azure Data Factory di copiare i dati.

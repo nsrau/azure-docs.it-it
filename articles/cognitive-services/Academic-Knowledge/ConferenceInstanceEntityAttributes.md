@@ -10,22 +10,23 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 183a307159adb5dfdb248eb0cf4862462a626db6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ROBOTS: NOINDEX
+ms.openlocfilehash: 37a353fbb86ca199b2316dcfba5904f4b46b0276
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60498747"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705067"
 ---
 # <a name="conference-instance-entity"></a>Entità Conference Instance
 
 <sub> *Gli attributi seguenti sono specifici dell'entità Conference Instance. (Ty = '4') </sub>
 
-NOME    |Descrizione                            |Type       | Operazioni
+NOME    |DESCRIZIONE                            |Type       | Operazioni
 ------- | ------------------------------------- | --------- | ----------------------------
-ID      |ID entità                              |Int64      |Uguale a
-CIN     |Nome normalizzato dell'istanza di conferenza ({ConferenceSeriesNormalizedName} {ConferenceInstanceYear})        |String     |Uguale a
-DCN     |Nome visualizzato dell'istanza di conferenza ({ConferenceSeriesNormalizedName} {ConferenceInstanceYear})       |String     |Nessuno
+ID      |ID entità                              |Int64      |Equals
+CIN     |Nome normalizzato dell'istanza di conferenza ({ConferenceSeriesNormalizedName} {ConferenceInstanceYear})        |String     |Equals
+DCN     |Nome visualizzato dell'istanza di conferenza ({ConferenceSeriesNormalizedName} {ConferenceInstanceYear})       |String     |none
 CIL     |Posizione dell'istanza di conferenza    |String     |Uguale a<br/>StartsWith
 CISD    |Data di inizio dell'istanza di conferenza  |Date       |Uguale a<br/>IsBetween
 CIED    |Data di fine dell'istanza di conferenza    |Date       |Uguale a<br/>IsBetween
@@ -35,14 +36,14 @@ CIFVD   |Scadenza della versione finale dell'istanza di conferenza  |Date       
 CINDD   |Data di notifica dell'istanza di conferenza   |Date       |Uguale a<br/>IsBetween
 CD.T    |Titolo di un evento dell'istanza di conferenza   |Date       |Uguale a<br/>IsBetween
 CD.D    |Data di un evento dell'istanza di conferenza    |Date       |Uguale a<br/>IsBetween
-PCS.CN  |Nome della serie di conferenze dell'istanza |String     |Uguale a
-PCS.CId |ID della serie di conferenze dell'istanza |Int64    |Uguale a
-CC      |Numero totale delle citazioni dell'istanza di conferenza           |Int32      |Nessuno  
-ECC     |Numero totale stimato delle citazioni dell'istanza di conferenza |Int32      |Nessuno
+PCS.CN  |Nome della serie di conferenze dell'istanza |String     |Equals
+PCS.CId |ID della serie di conferenze dell'istanza |Int64    |Equals
+Cc      |Numero totale delle citazioni dell'istanza di conferenza           |Int32      |none  
+ECC     |Numero totale stimato delle citazioni dell'istanza di conferenza |Int32      |none
 
 
 ## <a name="extended-metadata-attributes"></a>Attributi dei metadati estesi ##
 
-Name    | Descrizione               
+NOME    | Descrizione               
 --------|---------------------------    
 FN      | Nome completo dell'istanza di conferenza

@@ -4,16 +4,16 @@ description: In questo articolo viene descritto come instradare il traffico Web,
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: tutorial
-ms.date: 5/20/2019
+ms.topic: article
+ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: c0954d1010a6cf5ef6f8edab1470588df9fba559
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: HT
+ms.openlocfilehash: b6bc0b00579bdef0a358f756b8cf2b6034aca017
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955508"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688186"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Instradare il traffico Web in base all'URL tramite l'interfaccia della riga di comando di Azure
 
@@ -70,12 +70,14 @@ az network vnet subnet create \
 
 az network public-ip create \
   --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress \
+  --allocation-method Static \
+  --sku Standard
 ```
 
 ## <a name="create-the-app-gateway-with-a-url-map"></a>Creare il gateway applicazione con un mapping di URL
 
-Usare il comando `az network application-gateway create` per creare un gateway applicazione denominato *myAppGateway*. Quando si crea un gateway applicazione usando l'interfaccia della riga di comando di Azure, specificare le informazioni di configurazione, ad esempio le impostazioni relative a capacità, SKU e HTTP. Il gateway applicazione viene assegnato alla subnet *myAGSubnet* e all'indirizzo IP pubblico *myAGPublicIPAddress* creati in precedenza.
+Usare il comando `az network application-gateway create` per creare un gateway applicazione denominato *myAppGateway*. Quando si crea un gateway applicazione usando l'interfaccia della riga di comando di Azure, specificare le informazioni di configurazione, ad esempio le impostazioni relative a capacità, SKU e HTTP. Il gateway applicazione viene assegnato a *myAGSubnet* e *myAGPublicIPAddress*.
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -85,7 +87,7 @@ az network application-gateway create \
   --vnet-name myVNet \
   --subnet myAGsubnet \
   --capacity 2 \
-  --sku Standard_Medium \
+  --sku Standard_v2 \
   --http-settings-cookie-based-affinity Disabled \
   --frontend-port 80 \
   --http-settings-port 80 \
@@ -165,7 +167,7 @@ az network application-gateway url-path-map rule create \
   --address-pool videoBackendPool
 ```
 
-### <a name="add-a-routing-rule"></a>Aggiungere una regola di routing
+### <a name="add-a-routing-rule"></a>Aggiungi una regola di routing
 
 La regola di routing associa le mappe URL al listener creato. Aggiungere una regola denominata *rule2* usando il comando `az network application-gateway rule create`.
 
@@ -180,7 +182,7 @@ az network application-gateway rule create \
   --address-pool appGatewayBackendPool
 ```
 
-## <a name="create-vm-scale-sets"></a>Creare set di scalabilità di macchine virtuali
+## <a name="create-virtual-machine-scale-sets"></a>Creare set di scalabilità di macchine virtuali
 
 In questo articolo si creeranno tre set di scalabilità di macchine virtuali che supportano i tre pool back-end creati. È necessario creare tre set di scalabilità denominati *myvmss1*, *myvmss2* e *myvmss3*. Ogni set di scalabilità contiene due istanze di macchina virtuale in cui è necessario installare NGINX.
 
@@ -246,11 +248,11 @@ az network public-ip show \
 
 ![Testare l'URL di base nel gateway applicazione](./media/tutorial-url-route-cli/application-gateway-nginx.png)
 
-Modificare l'URL in http://&lt;indirizzo-ip&gt;:8080/video/test.htm, sostituendo &lt;indirizzo-ip&gt; con l'indirizzo IP desiderato per ottenere qualcosa di simile all'esempio seguente:
+Modificare l'URL in http://&lt;IP-address&gt;: 8080/images/test.html, sostituendo l'indirizzo IP &lt;per IP-&gt;Address e dovrebbe essere visualizzato un esempio simile al seguente:
 
 ![Testare l'URL delle immagini nel gateway applicazione](./media/tutorial-url-route-cli/application-gateway-nginx-images.png)
 
-Modificare l'URL in http://&lt;ip-address&gt;:8080/video/test.html sostituendo &lt;ip-address&gt; con l'indirizzo IP usato come nell'esempio seguente:
+Modificare l'URL in http://&lt;IP-address&gt;: 8080/video/test.html, sostituendo l'indirizzo IP &lt;per IP-&gt;Address e dovrebbe essere visualizzato un esempio simile al seguente.
 
 ![Testare l'URL video nel gateway applicazione](./media/tutorial-url-route-cli/application-gateway-nginx-video.png)
 
@@ -259,9 +261,9 @@ Modificare l'URL in http://&lt;ip-address&gt;:8080/video/test.html sostituendo &
 Quando non sono più necessari, rimuovere il gruppo di risorse, il gateway applicazione e tutte le risorse correlate.
 
 ```azurecli-interactive
-az group delete --name myResourceGroupAG --location eastus
+az group delete --name myResourceGroupAG
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Creare un gateway applicazione con reindirizzamento basato su percorsi URL](./tutorial-url-redirect-cli.md)
+[Creare un gateway applicazione con reindirizzamento basato su percorsi URL](./tutorial-url-redirect-cli.md)

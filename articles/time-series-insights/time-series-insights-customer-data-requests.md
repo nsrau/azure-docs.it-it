@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: f99a54f5623100e057e0c02249f5886f46656a21
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a67e716300254b7ae73cf5c608e4ab9177638456
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66355936"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677892"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Riepilogo delle funzionalità di richiesta dei dati dei clienti
 
@@ -36,7 +36,7 @@ L'amministratore del tenant può eliminare i dati dei clienti tramite il portale
 
 Tuttavia, prima di eliminare i dati dei clienti tramite il portale, è necessario rimuovere i criteri di accesso dell'utente dall'ambiente di Time Series Insights nel portale di Azure. Per altre informazioni, vedere [Concedere l'accesso ai dati in un ambiente Time Series Insights con il portale di Azure](time-series-insights-data-access.md).
 
-È anche possibile eseguire le operazioni di eliminazione dei criteri di accesso usando l'API REST. Per altre informazioni, vedere [Access Policies - Delete](/rest/api/time-series-insights/management/accesspolicies/delete) (Criteri di accesso - Delete).
+È anche possibile eseguire le operazioni di eliminazione dei criteri di accesso usando l'API REST. Per altre informazioni, vedere [Access Policies - Delete](https://docs.microsoft.com/rest/api/time-series-insights/management/accesspolicies/delete) (Criteri di accesso - Delete).
 
 Time Series Insights si integra con il pannello Criteri nel portale di Azure. Sia Time Series Insights che il pannello Criteri consentono di visualizzare, esportare ed eliminare i dati utente archiviati all'interno del servizio. Le azioni di eliminazione eseguite nel pannello Criteri del portale di Azure fanno sì che i dati utente vengano eliminati anche in Time Series Insights. Ad esempio, se un utente ha una query personale salvata, tale query viene eliminata definitivamente dallo strumento di esplorazione di Time Series Insights. Se l'utente ha una query condivisa salvata, la query persiste, ma le informazioni sull'utente vengono eliminate definitivamente. La nota seguente contiene le istruzioni su come eseguire queste attività.
 
@@ -48,7 +48,7 @@ Analogamente all'eliminazione dei dati, l'amministratore del tenant può visuali
 
 Se si è un amministratore di tenant, è possibile visualizzare i criteri di accesso ai dati nell'ambiente di Time Series Insights nel portale di Azure. Per altre informazioni, vedere [Concedere l'accesso ai dati in un ambiente Time Series Insights con il portale di Azure](time-series-insights-data-access.md).
 
-È anche possibile eseguire le operazioni di esportazione dei criteri di accesso mediante l'operazione di elenco in base ad ambiente specificata nell'API REST. Per altre informazioni, vedere [Access Policies - List By Environment](/rest/api/time-series-insights/management/accesspolicies/listbyenvironment) (Criteri di accesso - List By Environment).
+È anche possibile eseguire le operazioni di esportazione dei criteri di accesso mediante l'operazione di elenco in base ad ambiente specificata nell'API REST. Per altre informazioni, vedere [Access Policies - List By Environment](https://docs.microsoft.com/rest/api/time-series-insights/management/accesspolicies/listbyenvironment) (Criteri di accesso - List By Environment).
 
 ## <a name="to-delete-data-stored-within-time-series-insights"></a>Per eliminare i dati archiviati in Time Series Insights
 
@@ -68,8 +68,8 @@ Per altre informazioni, vedere [Configurazione della conservazione in Time Serie
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni, vedere [concedere l'accesso ai dati nell'ambiente Time Series Insights](./time-series-insights-data-access.md).
+* Altre informazioni sulla [concessione dell'accesso ai dati nell'ambiente TSI](./time-series-insights-data-access.md).
 
-* Visualizza i [Azure Time Series Insights explorer](time-series-insights-explorer.md).
+* Visualizzare [esplora Azure Time Series Insights](time-series-insights-explorer.md).
 
-* Scopri [configurazione della conservazione in Time Series Insights](time-series-insights-how-to-configure-retention.md).
+* Informazioni sulla [configurazione della conservazione in Time Series Insights](time-series-insights-how-to-configure-retention.md).

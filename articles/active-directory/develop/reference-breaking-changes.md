@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2018
+ms.date: 07/26/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ea3ec9024e4ea6a254fb6fe80f93886dc31a0ff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9c0bc7f5d4890ae494c6c6616b42eddc2445b159
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545796"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666495"
 ---
 # <a name="whats-new-for-authentication"></a>Novità per l'autenticazione 
 
@@ -41,11 +41,50 @@ Il sistema di autenticazione modifica e aggiunge funzionalità regolarmente per 
 
 ## <a name="upcoming-changes"></a>Modifiche imminenti
 
-Nessun aggiornamento pianificato in questo momento. 
+2019 agosto: Applicare la semantica POST in base alle regole di analisi dell'URL: i parametri duplicati generano un errore, le virgolette tra i parametri non verranno più ignorate e il [BOM](https://www.w3.org/International/questions/qa-byte-order-mark) verrà ignorato.
 
-## <a name="march-2019"></a>Marzo 2019
+## <a name="july-2019"></a>2019 luglio
 
-### <a name="looping-clients-will-be-interrupted"></a>I client di ciclo verrà interrotto
+### <a name="app-only-tokens-for-single-tenant-applications-are-only-issued-if-the-client-app-exists-in-the-resource-tenant"></a>I token solo app per le applicazioni a tenant singolo vengono emessi solo se l'app client esiste nel tenant delle risorse
+
+**Data di validità**: 26 luglio 2019
+
+**Endpoint interessati**: [V 1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) e [v 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)
+
+**Protocollo interessato**: [Credenziali client (token solo app)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
+
+Una modifica alla sicurezza è passata in diretta il 26 luglio che modifica il modo in cui vengono emessi i token solo app (tramite la concessione delle credenziali client). In precedenza, le applicazioni potevano ottenere i token per chiamare qualsiasi altra app, indipendentemente dalla presenza nel tenant o dai ruoli consentiti per l'applicazione.  Questo comportamento è stato aggiornato in modo che per le risorse (talvolta chiamate API Web) sia impostato come single-tenant (impostazione predefinita), l'applicazione client deve esistere all'interno del tenant delle risorse.  Si noti che il consenso esistente tra il client e l'API non è ancora necessario e le app devono ancora eseguire i propri controlli di autorizzazione per assicurarsi `roles` che sia presente un'attestazione e che contenga il valore previsto per l'API.
+
+Il messaggio di errore per questo scenario attualmente indica: 
+
+`The service principal named <appName> was not found in the tenant named <tenant_name>. This can happen if the application has not been installed by the administrator of the tenant.`
+
+Per risolvere questo problema, usare l'esperienza di consenso dell'amministratore per creare l'entità servizio dell'applicazione client nel tenant oppure crearla manualmente.  Questo requisito garantisce che il tenant abbia concesso all'applicazione l'autorizzazione per operare nel tenant.  
+
+#### <a name="example-request"></a>Richiesta di esempio
+
+`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...`In questo esempio, il tenant di risorse (Authority) è contoso.com, l'app per le risorse è un'app a `gateway.contoso.com/api` tenant singolo chiamata per il tenant Contoso e l'app `14c88eee-b3e2-4bb0-9233-f5e3053b3a28`client è.  Se l'app client dispone di un'entità servizio all'interno di Contoso.com, questa richiesta può continuare.  In caso contrario, la richiesta avrà esito negativo con l'errore precedente.  
+
+Se l'app del gateway contoso era un'applicazione multi-tenant, tuttavia, la richiesta continuerà indipendentemente dall'app client con un'entità servizio all'interno di Contoso.com.  
+
+### <a name="redirect-uris-can-now-contain-query-string-parameters"></a>Gli URI di reindirizzamento possono ora contenere parametri della stringa di query
+
+**Data di validità**: 22 luglio 2019
+
+**Endpoint interessati**: sia la versione 1.0 che la versione 2.0
+
+**Protocollo interessato**: Tutti i flussi
+
+Per [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2), Azure ad applicazioni possono ora registrare e usare gli URI di reindirizzamento (risposta) con parametri di query statici https://contoso.com/oauth2?idp=microsoft) , ad esempio per le richieste OAuth 2,0.  Gli URI di reindirizzamento dinamici sono ancora proibiti perché rappresentano un rischio per la sicurezza e non possono essere usati per mantenere le informazioni sullo stato attraverso una richiesta di autenticazione `state` . per questo, usare il parametro.
+
+Il parametro della query statica è soggetto alla corrispondenza di stringa per gli URI di reindirizzamento come qualsiasi altra parte dell'URI di reindirizzamento: se nessuna stringa è registrata che corrisponde al redirect_uri decodificato dall'URI, la richiesta verrà rifiutata.  Se l'URI si trova nella registrazione dell'app, l'intera stringa verrà usata per reindirizzare l'utente, incluso il parametro di query statica. 
+
+Si noti che al momento (fine del luglio 2019), la registrazione dell'app UX in portale di Azure ancora blocca i parametri della query.  Tuttavia, è possibile modificare manualmente il manifesto dell'applicazione per aggiungere parametri di query e testarlo nell'app.  
+
+
+## <a name="march-2019"></a>2019 marzo
+
+### <a name="looping-clients-will-be-interrupted"></a>I client di ciclo verranno interrotti
 
 **Data di validità**: 25 marzo 2019
 
@@ -53,25 +92,25 @@ Nessun aggiornamento pianificato in questo momento.
 
 **Protocollo interessato**: Tutti i flussi
 
-Le applicazioni client possono talvolta causino il comportamento errato, il rilascio di centinaia della stessa richiesta di accesso in un breve periodo di tempo.  Queste richieste potrebbero o non sia riuscite, ma tutti contribuiscono all'esperienza utente misera e cogliere nuove opportunità di carichi di lavoro per il provider di identità, aumentare la latenza per tutti gli utenti e ridurre la disponibilità del provider di identità.  Queste applicazioni operano esterno ai limiti di utilizzo normale e devono essere aggiornate per funzionare correttamente.  
+Le applicazioni client possono talvolta comportarsi in maniera non concreta, emettendo centinaia della stessa richiesta di accesso in un breve periodo di tempo.  Queste richieste possono avere esito positivo o negativo, ma contribuiscono all'esperienza utente e ai carichi di lavoro aumentati per l'IDP, aumentando la latenza per tutti gli utenti e riducendo la disponibilità dell'IDP.  Queste applicazioni funzionano al di fuori dei limiti di utilizzo normale e devono essere aggiornate per comportarsi correttamente.  
 
-I client che inviano richieste di duplicazione più volte in cui verranno inviati un `invalid_grant` errori: `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`. 
+Ai client che inviano richieste duplicate più volte verrà `invalid_grant` inviato un `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`errore:. 
 
-La maggior parte dei client non sarà necessario modificare il comportamento per evitare questo errore.  Solo i client non configurato correttamente (quelli senza la memorizzazione nella cache di token o quelle che presentano già cicli dei messaggi di richiesta) saranno interessati da questo errore.  I client vengono registrati in ogni istanza in locale (tramite cookie) dai fattori seguenti:
+Per evitare questo errore, la maggior parte dei client non dovrà modificare il comportamento.  Questo errore verrà influenzato solo dai client non configurati correttamente (quelli senza memorizzazione nella cache dei token o che presentano già i cicli di richiesta).  I client vengono rilevati in base alle singole istanze in locale (tramite cookie) sui fattori seguenti:
 
-* Suggerimento di utente, se presente
+* Hint utente, se presente
 
-* Risorsa richiesta o agli ambiti
+* Ambiti o risorse richieste
 
 * ID client
 
 * URI di reindirizzamento
 
-* La modalità e il tipo di risposta
+* Tipo di risposta e modalità
 
-Le app rendendo più richieste (15 +) in un breve periodo di tempo (5 minuti) verranno visualizzato un `invalid_grant` errore che indica che essi viene eseguito alcun ciclo.  I token richiesti sufficientemente lunga durate (minimo di 10 minuti, 60 minuti per impostazione predefinita), quindi ripetere il richieste in questo periodo di tempo non sono necessari.  
+Le app che eseguono più richieste (15 +) in un breve periodo di tempo (5 minuti) riceveranno un `invalid_grant` errore che indica che sono in ciclo.  I token richiesti hanno una durata sufficientemente lunga (almeno 10 minuti, 60 minuti per impostazione predefinita), quindi le richieste ripetute per questo periodo di tempo non sono necessarie.  
 
-Tutte le app devono gestire `invalid_grant` che mostra un prompt interattivo, anziché in modo invisibile richiedendo un token.  Per evitare questo errore, i client necessario accertarsi che in modo corretto la memorizzazione nella cache i token ricevuti.
+Tutte le app devono `invalid_grant` essere gestite visualizzando un prompt interattivo anziché richiedere un token in modo invisibile all'utente.  Per evitare questo errore, è necessario che i client garantiscano la corretta memorizzazione nella cache dei token ricevuti.
 
 
 ## <a name="october-2018"></a>Ottobre 2018

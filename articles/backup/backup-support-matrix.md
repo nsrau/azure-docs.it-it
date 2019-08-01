@@ -1,18 +1,18 @@
 ---
 title: Matrice di supporto di Backup di Azure
 description: Informazioni riepilogative su impostazioni e limiti del supporto per il servizio Backup di Azure.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.author: raynew
-ms.openlocfilehash: a6b7dfe8fb8ade7f84f41fb5602aff68b4f52cf2
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 7ee4cffea9c997e5fcd3631594d61e6d5383cb38
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464828"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639487"
 ---
 # <a name="azure-backup-support-matrix"></a>Matrice di supporto di Backup di Azure
 
@@ -116,9 +116,9 @@ Backup di Azure supporta la crittografia per i dati in transito e inattivi.
 
 **Computer** | **In movimento** | **Inattivi**
 --- | --- | ---
-**Computer Windows locali senza DPM/MAB** | ![Sì][green] | ![Sì][green]
-**Macchine virtuali di Azure** | ![Sì][green] | ![Sì][green]
-**Computer Windows locali o macchine virtuali di Azure con DPM** | ![Yes][green] | ![Yes][green]
+**Computer Windows locali senza DPM/MAB** | ![Yes][green] | ![Sì][green]
+**Macchine virtuali di Azure** | ![Yes][green] | ![Sì][green]
+**Computer Windows locali o macchine virtuali di Azure con DPM** | ![Yes][green] | ![Sì][green]
 **Computer Windows locali o macchine virtuali di Azure con MAB** | ![Sì][green] | ![Sì][green]
 
 ## <a name="compression-support"></a>Supporto della compressione

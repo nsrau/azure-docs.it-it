@@ -1,19 +1,18 @@
 ---
 title: Domande frequenti per File di Azure | Microsoft Docs
 description: Risposte ad alcune domande frequenti sul servizio File di Azure.
-services: storage
 author: roygara
 ms.service: storage
 ms.date: 01/02/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: c32d9954b3c90a5f7e9c5475acdb141f7154cf76
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 622a033b73ace93e98cfa0d5179002c78ec49b35
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540364"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704477"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Domande frequenti su File di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud, accessibili tramite il [protocollo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard di settore. È possibile montare le condivisioni file di Azure simultaneamente da distribuzioni cloud o locali di Windows, Linux e macOS. È anche possibile memorizzare nella cache le condivisioni file di Azure nei computer Windows Server tramite Sincronizzazione file di Azure per l'accesso rapido in prossimità della posizione in cui vengono usati i dati.
@@ -73,10 +72,10 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 
 * <a id="tier-options"></a>
   **Quali livelli di archiviazione sono supportati in File di Azure?**  
-    File di Azure supporta due livelli di archiviazione: standard e premium. Le condivisioni di file standard in genere vengono create gli account di archiviazione (per utilizzo generico v1 o v2) scopo e le condivisioni file premium vengono create negli account di archiviazione FileStorage. Altre informazioni su come creare [condivisioni di file standard](storage-how-to-create-file-share.md) e [condivisioni file premium](storage-how-to-create-premium-fileshare.md). 
+    File di Azure supporta due livelli di archiviazione, ovvero Premium e standard. Le condivisioni file standard vengono create in account di archiviazione per utilizzo generico (utilizzo generico V1 o GPv2) e le condivisioni file Premium vengono create negli account di archiviazione filestorage. Altre informazioni su come creare [condivisioni file standard](storage-how-to-create-file-share.md) e [condivisioni file Premium](storage-how-to-create-premium-fileshare.md). 
     
     > [!NOTE]
-    > Non è possibile creare condivisioni file di Azure dagli account di archiviazione Blob o *premium* gli account di archiviazione (per utilizzo generico v1 o v2) generico. File di Azure standard condivide deve creato nella *standard* è necessario creare condivisioni file di Azure premium e solo negli account di archiviazione FileStorage solo account di uso generale. *Premium* account di archiviazione (per utilizzo generico v1 e per utilizzo generico v2) di uso generale sono per solo i BLOB di pagine premium. 
+    > Non è possibile creare condivisioni file di Azure dagli account di archiviazione BLOB o dagli account di archiviazione per utilizzo generico *Premium* (utilizzo generico V1 o GPv2). Le condivisioni file di Azure standard devono essere create solo negli account *standard* per utilizzo generico e le condivisioni file di Azure Premium devono essere create solo negli account di archiviazione filestorage. Gli account di archiviazione *Premium* per utilizzo generico (utilizzo generico V1 e GPv2) sono solo per i BLOB di pagine Premium. 
 
 * <a id="give-us-feedback"></a>
   **È possibile aggiungere una funzionalità specifica a File di Azure?**  
@@ -145,7 +144,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 
 * <a id="afs-os-support"></a>
   **È possibile usare Sincronizzazione file di Azure con Windows Server 2008 R2, Linux o un dispositivo NAS?**  
-    Attualmente, sincronizzazione File di Azure supporta solo Windows Server 2019, Windows Server 2016 e Windows Server 2012 R2. In questo momento, non sono previsti altri tipi di supporto, ma Microsoft è interessata a supportare ulteriori piattaforme in base alle esigenze dei clienti. Gli utenti sono invitati a comunicare le piattaforme per cui desiderano supporto in [UserVoice per File di Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files).
+    Attualmente, Sincronizzazione file di Azure supporta solo Windows Server 2019, Windows Server 2016 e Windows Server 2012 R2. In questo momento, non sono previsti altri tipi di supporto, ma Microsoft è interessata a supportare ulteriori piattaforme in base alle esigenze dei clienti. Gli utenti sono invitati a comunicare le piattaforme per cui desiderano supporto in [UserVoice per File di Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files).
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
   **Perché sono presenti file a livelli all'esterno dello spazio dei nomi dell'endpoint server?**  
@@ -222,7 +221,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 * <a id="encryption-at-rest"></a>
 **Come è possibile garantire che la condivisione file di Azure usi la crittografia dei dati inattivi?**  
 
-    Sì. Per altre informazioni, vedere [crittografia del servizio di archiviazione Azure](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+    Sì. Per altre informazioni, vedere [crittografia del servizio di archiviazione di Azure](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 * <a id="access-via-browser"></a>
 **Come è possibile fornire accesso a un file specifico tramite un Web browser?**  
@@ -247,9 +246,9 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 ## <a name="on-premises-access"></a>Accesso locale
 
 * <a id="port-445-blocked"></a>
-**Montare la risorsa ISP o IT blocchi la porta 445 non è possibile eseguire file di Azure. Cosa devo fare?**
+**Il provider di servizi Internet blocca la porta 445 che non riesce File di Azure montaggio. Cosa devo fare?**
 
-    Sono disponibili informazioni [vari modi per risolvere il problema bloccata la porta 445 qui](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked). File di Azure permette solo connessioni con SMB 3.0 (supporto della crittografia) da all'esterno della regione o Data Center. Protocollo SMB 3.0 è state introdotte numerose funzionalità di sicurezza tra cui la crittografia del canale che è molto sicura per l'utilizzo su internet. Tuttavia, possibile che la porta 445 è stata bloccata a causa di motivi storici delle vulnerabilità trovato nelle versioni precedenti di SMB. Nel caso ideale, la porta deve essere bloccata per solo per il traffico SMB 1.0 e SMB 1.0 deve essere disattivata in tutti i client.
+    Qui è possibile ottenere informazioni sui [vari modi per aggirare la porta bloccata 445](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked). File di Azure consente solo le connessioni che usano SMB 3,0 (con supporto della crittografia) dall'esterno dell'area o del Data Center. Il protocollo SMB 3,0 ha introdotto numerose funzionalità di sicurezza, tra cui la crittografia dei canali, che è molto sicura da usare su Internet. Tuttavia, è possibile che la porta 445 sia stata bloccata a causa di motivi cronologici di vulnerabilità rilevate in versioni SMB inferiori. In caso ideale, la porta deve essere bloccata solo per il traffico SMB 1,0 e SMB 1,0 deve essere disattivato su tutti i client.
 
 * <a id="expressroute-not-required"></a>
 **È necessario usare Azure ExpressRoute per connettersi a File di Azure o per usare Sincronizzazione file di Azure in locale?**  
@@ -276,10 +275,6 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 * <a id="where-are-snapshots-stored"></a>
 **Dove vengono archiviati gli snapshot di condivisione?**  
     Gli snapshot di condivisione vengono archiviati nello stesso account di archiviazione della condivisione file.
-
-* <a id="snapshot-perf-impact"></a>
-**Esistono implicazioni a livello di prestazioni per l'uso degli snapshot di condivisione?**  
-    Gli snapshot di condivisione non comportano alcun overhead delle prestazioni.
 
 * <a id="snapshot-consistency"></a>
 **Gli snapshot di condivisione sono coerenti con l'applicazione?**  
@@ -357,7 +352,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 
 * <a id="need-larger-share"></a>
 **Quali dimensioni sono disponibili per le condivisioni file di Azure?**  
-    Le dimensioni di condivisione file di Azure (standard e premium) consente la scalabilità fino a 100 TiB. Le dimensioni di condivisioni file Premium fino a 100 TiB sono disponibili come un'offerta disponibile a livello generale. Dimensioni delle condivisioni di file standard fino a 5 TiB sono disponibili come un'offerta disponibile a livello generale, mentre le dimensioni fino a 100 TiB sono disponibili in anteprima. Vedere le [l'Onboarding in condivisioni di file più grandi (livello standard)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) sezione della Guida alla pianificazione di istruzioni per l'onboarding per il file di dimensioni maggiori condivide anteprima per il livello standard.
+    Le dimensioni della condivisione file di Azure (Premium e standard) possono essere scalate fino a 100 TiB. Le condivisioni file Premium con dimensioni fino a 100 TiB sono disponibili come offerta GA. Le condivisioni file standard con dimensioni fino a 5 TiB sono disponibili come offerta GA, mentre le dimensioni fino a 100 TiB sono disponibili in anteprima. Vedere la sezione onboarding [to large file Shares (livello standard)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) della Guida alla pianificazione per le istruzioni di onboarding nell'anteprima delle condivisioni file più grandi per il livello standard.
 
 * <a id="open-handles-quota"></a>
 **Quanti client possono accedere allo stesso file contemporaneamente?**    

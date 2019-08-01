@@ -1,18 +1,18 @@
 ---
 title: Gestire e monitorare SQL Server database in una macchina virtuale di Azure di cui è stato eseguito il backup con backup di Azure | Microsoft Docs
 description: Questo articolo descrive come gestire e monitorare SQL Server database in esecuzione in una macchina virtuale di Azure.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
-ms.author: raynew
-ms.openlocfilehash: 0a864382e54f5c8641aa6da2369eb914011c712c
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: c5f61c778849a57d9143580e0e1041c7fe992d52
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464858"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639580"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gestire e monitorare i database SQL Server di cui è stato eseguito il backup
 
@@ -127,7 +127,7 @@ Per ulteriori informazioni, vedere [SQL Server tipi di backup](backup-architectu
 
 Annullare la registrazione di un'istanza di SQL Server dopo aver disabilitato la protezione ma prima di eliminare l'insieme di credenziali:
 
-1. Nel dashboard dell'insieme di credenziali , in Gestisci, selezionare **infrastruttura di backup**.  
+1. Nel dashboard dell'insieme di credenziali, in Gestisci, selezionare **infrastruttura di backup**.  
 
    ![Selezionare Infrastruttura di backup](./media/backup-azure-sql-database/backup-infrastructure-button.png)
 

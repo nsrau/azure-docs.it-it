@@ -1,18 +1,19 @@
 ---
 title: Attributi di sicurezza per backup di Azure
 description: Elenco di controllo degli attributi di sicurezza per la valutazione di backup di Azure
-author: utraghuv
-manager: barbkess
+ms.reviewer: mbaldwin
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: mbaldwin
-ms.openlocfilehash: c2500c6c9ff6882e521f4edce02426a92a0bd39f
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: e6ea701840b201c2794d81be5019d57ca531cd00
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464936"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688497"
 ---
 # <a name="security-attributes-for-azure-backup"></a>Attributi di sicurezza per backup di Azure
 
@@ -57,11 +58,11 @@ Questo articolo descrive gli attributi di sicurezza incorporati in backup di Azu
 
 | Attributo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Registrazione e controllo del piano di gestione e controllo| Yes | Tutte le azioni attivate dai clienti dal portale di Azure vengono registrate nei log attività. |
+| Registrazione e controllo del piano di gestione e controllo| Sì | Tutte le azioni attivate dai clienti dal portale di Azure vengono registrate nei log attività. |
 | Registrazione e controllo del piano dati| No | Il piano dati di Backup di Azure non è raggiungibile direttamente.  |
 
 ## <a name="configuration-management"></a>Gestione della configurazione
 
 | Attributo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Supporto per la gestione della configurazione (controllo delle versioni della configurazione e così via)| Sì|  |
+| Supporto per la gestione della configurazione (controllo delle versioni della configurazione e così via)| Yes|  |

@@ -3,18 +3,18 @@ title: Gestire gli eventi del mouse con Mappe di Azure | Microsoft Docs
 description: Come creare una mappa Javascript interattiva con gli eventi di mappa
 author: jingjing-z
 ms.author: jinzh
-ms.date: 11/29/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 4fce8eae25942d098bb3f3277938bfaa3dafa00b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da6b183155de0fbc370751254a6842343d280874
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60770449"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638980"
 ---
 # <a name="interact-with-the-map---mouse-events"></a>Interazione con la mappa - eventi del mouse
 
@@ -51,7 +51,7 @@ Per altre informazioni sulle classi e sui metodi usati in questo articolo, veder
 Per esempi di codice completi, vedere gli articoli seguenti:
 
 > [!div class="nextstepaction"]
-> [Uso del modulo di servizi di mappe di Azure](./how-to-use-services-module.md)
+> [Uso del modulo servizi di mappe di Azure](./how-to-use-services-module.md)
 
 > [!div class="nextstepaction"]
 > [Pagina dell'esempio di codice](https://aka.ms/AzureMapsSamples)

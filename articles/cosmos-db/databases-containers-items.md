@@ -4,15 +4,15 @@ description: Questo articolo descrive come creare e usare database, contenitori 
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 07/26/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 277564208a5e4a209aecf8f976aca6b35ab17781
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 9c8460380755c6057f7507443d0b564e85c2ff86
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467759"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598491"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Utilizzare database, contenitori ed elementi in Azure Cosmos DB
 
@@ -40,9 +40,9 @@ Nell'immagine seguente viene illustrata la gerarchia di entità diverse in un ac
 | Operazione | Interfaccia della riga di comando di Azure | API SQL | API Cassandra | API Azure Cosmos DB per MongoDB | API Gremlin | API di tabella |
 | --- | --- | --- | --- | --- | --- | --- |
 |Enumerare tutti i database| Sì | Sì | Sì (il database è mappato a un keyspace) | Yes | ND | ND |
-|Leggere il database| Sì | Sì | Sì (il database è mappato a un keyspace) | Sì | ND | ND |
-|Crea nuovo database| Sì | Sì | Sì (il database è mappato a un keyspace) | Yes | ND | ND |
-|Aggiornare il database| Yes | Sì | Sì (il database è mappato a un keyspace) | Yes | ND | ND |
+|Leggere il database| Yes | Yes | Sì (il database è mappato a un keyspace) | Sì | ND | ND |
+|Crea nuovo database| Sì | Yes | Sì (il database è mappato a un keyspace) | Sì | ND | ND |
+|Aggiornare il database| Sì | Sì | Sì (il database è mappato a un keyspace) | Yes | ND | ND |
 
 
 ## <a name="azure-cosmos-containers"></a>Contenitori Azure Cosmos DB
@@ -88,8 +88,8 @@ Un contenitore di Azure Cosmos dispone di un set di proprietà definite dal sist
 |\_auto | Generato dal sistema | URI indirizzabile del contenitore | Sì | No | No | No | No |
 |id | Configurabile dall'utente | Nome univoco definito dall'utente del contenitore | Sì | Sì | Sì | Sì | Yes |
 |indexingPolicy | Configurabile dall'utente | Consente di modificare il percorso dell'indice, il tipo di indice e la modalità di indice | Sì | No | No | No | Sì |
-|TimeToLive | Configurabile dall'utente | Consente di eliminare automaticamente gli elementi da un contenitore dopo un determinato periodo di tempo. Per informazioni dettagliate, vedere [durata (TTL](time-to-live.md)). | Yes | No | No | No | Sì |
-|changeFeedPolicy | Configurabile dall'utente | Usato per leggere le modifiche apportate a elementi in un contenitore. Per informazioni dettagliate, vedere [feed di modifiche](change-feed.md). | Sì | No | No | No | Sì |
+|TimeToLive | Configurabile dall'utente | Consente di eliminare automaticamente gli elementi da un contenitore dopo un determinato periodo di tempo. Per informazioni dettagliate, vedere [durata (TTL](time-to-live.md)). | Sì | No | No | No | Sì |
+|changeFeedPolicy | Configurabile dall'utente | Usato per leggere le modifiche apportate a elementi in un contenitore. Per informazioni dettagliate, vedere [feed di modifiche](change-feed.md). | Sì | No | No | No | Yes |
 |uniqueKeyPolicy | Configurabile dall'utente | Utilizzato per garantire l'univocità di uno o più valori in una partizione logica. Per altre informazioni, vedere [vincoli di chiave univoca](unique-keys.md). | Sì | No | No | No | Sì |
 
 ### <a name="operations-on-an-azure-cosmos-container"></a>Operazioni su un contenitore Azure Cosmos DB
@@ -98,10 +98,10 @@ Un contenitore di Azure Cosmos supporta le operazioni seguenti quando si usa una
 
 | Operazione | Interfaccia della riga di comando di Azure | API SQL | API Cassandra | API Azure Cosmos DB per MongoDB | API Gremlin | API di tabella |
 | --- | --- | --- | --- | --- | --- | --- |
-| Enumerare i contenitori in un database | Sì | Sì | Sì | Sì | ND | ND |
-| Leggere un contenitore | Sì | Sì | Sì | Sì | ND | ND |
-| Crea un nuovo contenitore | Sì | Sì | Sì | Yes | ND | ND |
-| Aggiornare un contenitore | Sì | Sì | Sì | Sì | ND | ND |
+| Enumerare i contenitori in un database | Sì | Sì | Sì | Yes | ND | ND |
+| Leggere un contenitore | Sì | Sì | Sì | Yes | ND | ND |
+| Crea un nuovo contenitore | Yes | Sì | Sì | Sì | ND | ND |
+| Aggiornare un contenitore | Sì | Sì | Sì | Yes | ND | ND |
 | Eliminare un contenitore | Sì | Sì | Sì | Sì | ND | ND |
 
 ## <a name="azure-cosmos-items"></a>Elementi Azure Cosmos DB
@@ -119,11 +119,14 @@ Ogni elemento di Azure Cosmos presenta le seguenti proprietà definite dal siste
 | Proprietà definita dal sistema | Generato dal sistema o configurabile dall'utente| Scopo | API SQL | API Cassandra | API Azure Cosmos DB per MongoDB | API Gremlin | API di tabella |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |\_id | Generato dal sistema | Identificatore univoco dell'elemento | Sì | No | No | No | No |
-|\_ETag | Generato dal sistema | Tag di entità usato per il controllo della concorrenza ottimistica | Yes | No | No | No | No |
+|\_ETag | Generato dal sistema | Tag di entità usato per il controllo della concorrenza ottimistica | Sì | No | No | No | No |
 |\_ts | Generato dal sistema | Timestamp dell'ultimo aggiornamento dell'elemento | Sì | No | No | No | No |
-|\_auto | Generato dal sistema | URI indirizzabile dell'elemento | Sì | No | No | No | No |
-|id | È possibile usare il | Nome univoco definito dall'utente in una partizione logica. Se l'utente non specifica l'ID, il sistema ne genera automaticamente uno. | Sì | Sì | Sì | Sì | Yes |
-|Proprietà definite dall'utente arbitrarie | Definito dall'utente | Proprietà definite dall'utente rappresentate nella rappresentazione nativa dell'API (inclusi JSON, BSON e CQL) | Yes | Sì | Sì | Sì | Sì |
+|\_auto | Generato dal sistema | URI indirizzabile dell'elemento | Yes | No | No | No | No |
+|id | È possibile usare il | Nome univoco definito dall'utente in una partizione logica. Se l'utente non specifica l'ID, il sistema ne genera automaticamente uno. | Sì | Sì | Sì | Sì | Sì |
+|Proprietà definite dall'utente arbitrarie | Definito dall'utente | Proprietà definite dall'utente rappresentate nella rappresentazione nativa dell'API (inclusi JSON, BSON e CQL) | Sì | Sì | Sì | Sì | Sì |
+
+> [!NOTE]
+> L' `id` univocità della proprietà viene applicata solo all'interno di ogni partizione logica. Più documenti possono avere la stessa `id` proprietà con valori di chiave di partizione diversi.
 
 ### <a name="operations-on-items"></a>Operazioni sugli elementi
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: dimart
 ms.custom: mvc
-ms.openlocfilehash: fd502a308d6298dc2941461632a2832ac336c45c
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: fe24ab21a9a7d227d58e50c58f9aff2bd91e767f
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849875"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598565"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(DEPRECATO) Pipeline CI/CD completa per distribuire un'applicazione con più contenitori nel servizio contenitore di Azure con il motore ACS e la modalità Docker Swarm tramite Azure DevOps
 
@@ -24,7 +24,7 @@ ms.locfileid: "67849875"
 
 Una delle sfide principali quando si sviluppano applicazioni moderne per il cloud è quella di riuscire a distribuire le applicazioni in modo continuativo. Questo articolo illustra come implementare una pipeline completa di integrazione e distribuzione continua (CI/CD) tramite: 
 * Motore del servizio Azure Container con la modalità Docker Swarm
-* Registro Azure Container
+* Registro contenitori di Azure
 * Azure DevOps
 
 Questo articolo si basa su una semplice applicazione, disponibile in [GitHub](https://github.com/jcorioland/MyShop/tree/docker-linux) e sviluppata con ASP.NET Core. L'applicazione è composta da quattro servizi diversi: tre API Web e un Web front-end:
@@ -251,6 +251,6 @@ Dopo aver completato la configurazione, è il momento di testare la nuova pipeli
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni su CI/CD Azure DevOps, consultare la [Panoramica della compilazione di Azure DevOps](https://www.visualstudio.com/docs/build/overview).
+* Per altre informazioni su CI/CD con Azure DevOps, vedere l'articolo della [documentazione Azure Pipelines](/azure/devops/pipelines/?view=azure-devops) .
 * Per altre informazioni sul motore del servizio contenitore di Azure, vedere il [repository di GitHub sul motore del servizio contenitore di Azure](https://github.com/Azure/acs-engine).
 * Per altre informazioni sulla modalità Docker Swarm, vedere [Docker Swarm mode overview](https://docs.docker.com/engine/swarm/) (Panoramica della modalità Docker Swarm).

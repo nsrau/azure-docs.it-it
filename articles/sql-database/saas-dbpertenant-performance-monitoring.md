@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 075d0e2471457e1a585f7fdea9b523b1d13499c7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 322cc2fd53972c7c084da76ac0c80b757d0d2297
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61388593"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570404"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitorare e gestire le prestazioni di database SQL di Azure e di pool in un'app SaaS multi-tenant
 
@@ -57,7 +56,7 @@ I pool e i database nei pool devono essere monitorati per assicurarsi che rimang
 
 Il [portale di Azure](https://portal.azure.com) include funzionalità di monitoraggio e avviso predefinite per la maggior parte delle risorse. Per il database SQL, il monitoraggio e gli avvisi sono disponibili per database e pool. Le funzionalità di monitoraggio e avviso predefinite sono specifiche delle risorse, quindi è comodo usarle per un numero limitato di risorse, mentre non sono altrettanto utili quando si usano molte risorse.
 
-Per scenari con volumi elevati, in cui si lavora con molte risorse, [monitoraggio di Azure registra](saas-dbpertenant-log-analytics.md) può essere utilizzato. Si tratta di un servizio di Azure separato che fornisce funzionalità analitica di log di diagnostica e dati di telemetria raccolti in un'area di lavoro di Log Analitica. Log di monitoraggio di Azure può raccogliere i dati di telemetria da molti servizi e consente di eseguire query e impostare gli avvisi.
+Per gli scenari con volumi elevati, in cui si lavora con molte risorse, è possibile usare i [log di monitoraggio di Azure](saas-dbpertenant-log-analytics.md) . Si tratta di un servizio di Azure separato che fornisce analisi su log di diagnostica e telemetria emessi raccolti in un'area di lavoro Log Analytics. I log di monitoraggio di Azure possono raccogliere dati di telemetria da molti servizi e possono essere usati per eseguire query e impostare avvisi.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Ottenere gli script dell'applicazione del database per tenant SaaS Wingtip Tickets
 
@@ -83,9 +82,9 @@ Lo script *New-TenantBatch* usa un set annidato o collegato di modelli di [Resou
 
 | Demo | Scenario |
 |:--|:--|
-| 2 | Generare un carico di intensità normale (circa 40 DTU) |
+| 2 | Genera un carico di intensità normale (approssimativamente 40 DTU) |
 | 3 | Generare un carico con picchi più lunghi e più frequenti per ogni database|
-| 4 | Generare un carico con picchi DTU maggiori per ogni database (circa 80 DTU)|
+| 4 | Genera il carico con picchi di DTU più elevati per ogni database (approssimativamente 80 DTU)|
 | 5 | Generare un carico normale e un carico elevato in un singolo tenant (circa 95 DTU)|
 | 6 | Generare un carico non bilanciato su più pool|
 
@@ -247,4 +246,4 @@ In questa esercitazione si apprenderà come:
 * Altre [esercitazioni basate sulla distribuzione dell'applicazione del database per tenant SaaS Wingtip Tickets](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Pool elastici SQL](sql-database-elastic-pool.md)
 * [Automazione di Azure](../automation/automation-intro.md)
-* [Log di monitoraggio di Azure](saas-dbpertenant-log-analytics.md) - impostazione e sull'utilizzo esercitazione i log di monitoraggio di Azure
+* [Log di monitoraggio di Azure](saas-dbpertenant-log-analytics.md) : esercitazione sulla configurazione e l'uso dei log di monitoraggio di Azure

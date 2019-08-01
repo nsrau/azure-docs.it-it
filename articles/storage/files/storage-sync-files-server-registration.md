@@ -1,19 +1,18 @@
 ---
 title: Gestire i server registrati con Sincronizzazione file di Azure | Microsoft Docs
 description: Informazioni su come registrare e annullare la registrazione di Windows Server con un servizio di sincronizzazione archiviazione di File di Azure.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ef6def9f03a880d9fc8d649fe226caf597ba0ad5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9bbeda33f25aec15124bacb605513a3c52c3f07e
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991833"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699277"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Gestire i server registrati con Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Tutto questo avviene trasformando i sistemi Windows Server in una cache rapida della condivisione file di Azure. È possibile usare qualsiasi protocollo disponibile in Windows Server per accedere ai dati in locale (tra cui SMB, NFS e FTPS) ed è possibile scegliere tutte le cache necessarie in tutto il mondo.
@@ -152,7 +151,7 @@ Dopo che tutti i dati sono stati richiamati e il server è stato rimosso da tutt
 1. Nel portale di Azure passare alla sezione *Server registrati* del servizio di sincronizzazione archiviazione.
 2. Fare clic con il pulsante destro del mouse sul server per cui si vuole annullare la registrazione e fare clic su "Annulla registrazione server".
 
-    ![Annullare la registrazione del server](media/storage-sync-files-server-registration/unregister-server-1.png)
+    ![Annulla registrazione server](media/storage-sync-files-server-registration/unregister-server-1.png)
 
 ## <a name="ensuring-azure-file-sync-is-a-good-neighbor-in-your-datacenter"></a>Corretta integrazione di Sincronizzazione file di Azure nel data center 
 Dato che Sincronizzazione file di Azure raramente è l'unico servizio in esecuzione nel data center, potrebbe essere opportuno limitarne l'utilizzo della rete e dello spazio di archiviazione.

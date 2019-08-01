@@ -1,104 +1,108 @@
 ---
-title: Copiare o spostare i dati in archiviazione di Azure tramite AzCopy v10 | Microsoft Docs
-description: AzCopy è un'utilità della riga di comando che è possibile usare per copiare i dati a, da o tra account di archiviazione. Questo articolo consente di scaricare AzCopy, connettersi all'account di archiviazione e quindi trasferire i file.
+title: Copiare o spostare dati in archiviazione di Azure tramite AzCopy V10 | Microsoft Docs
+description: AzCopy è un'utilità da riga di comando che è possibile usare per copiare i dati in, da o tra account di archiviazione. Questo articolo consente di scaricare AzCopy, connettersi all'account di archiviazione e quindi trasferire i file.
 services: storage
 author: normesta
 ms.service: storage
 ms.topic: article
-ms.date: 05/14/2019
+ms.date: 07/25/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 94aca33b2f12c1c39297221a856296dcca052b0f
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 7ad5be0c7774beacaa15fcca0646c78e2d328ba4
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565791"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699853"
 ---
 # <a name="get-started-with-azcopy"></a>Introduzione ad AzCopy
 
-AzCopy è un'utilità della riga di comando che è possibile usare per copiare BLOB o file da o verso un account di archiviazione. Questo articolo consente di scaricare AzCopy, connettersi all'account di archiviazione e quindi trasferire i file.
+AzCopy è un'utilità da riga di comando che è possibile usare per copiare i BLOB o i file da e verso un account di archiviazione. Questo articolo consente di scaricare AzCopy, connettersi all'account di archiviazione e quindi trasferire i file.
 
 > [!NOTE]
 > AzCopy **V10** è la versione attualmente supportata di AzCopy.
 >
-> Se è necessario usare AzCopy **v8.1**, vedere la [utilizzare la versione precedente di AzCopy](#previous-version) sezione di questo articolo.
+> Se è necessario usare AzCopy **v 8.1**, vedere la sezione [usare la versione precedente di AzCopy](#previous-version) di questo articolo.
 
 <a id="download-and-install-azcopy" />
 
 ## <a name="download-azcopy"></a>Scaricare AzCopy
 
-Prima di tutto, scaricare il file eseguibile AzCopy V10 in qualsiasi directory nel computer. 
+Prima di tutto, scaricare il file eseguibile AzCopy V10 in qualsiasi directory del computer.
 
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
+AzCopy V10 è semplicemente un file eseguibile, quindi non c'è niente da installare.
+
 > [!NOTE]
-> Se si vogliono copiare i dati da e verso i [archiviazione tabelle di Azure](https://docs.microsoft.com/azure/storage/tables/table-storage-overview) del servizio, quindi installare [AzCopy versione 7.3](https://aka.ms/downloadazcopynet).
+> Se si vogliono copiare dati da e verso il servizio di [archiviazione tabelle di Azure](https://docs.microsoft.com/azure/storage/tables/table-storage-overview) , installare [AzCopy versione 7,3](https://aka.ms/downloadazcopynet).
 
-## <a name="run-azcopy"></a>Eseguire AzCopy
+## <a name="run-azcopy"></a>Esegui AzCopy
 
-Per praticità, è consigliabile aggiungere il percorso della directory del file eseguibile AzCopy al percorso di sistema per la semplicità d'uso. In questo modo è possibile digitare `azcopy` da qualsiasi directory nel sistema.
+Per praticità, è consigliabile aggiungere il percorso della directory del file eseguibile AzCopy al percorso di sistema per facilitarne l'uso. In questo modo è possibile `azcopy` digitare da qualsiasi directory nel sistema.
 
-Se si sceglie di non aggiungere la directory di AzCopy al percorso, sarà necessario passare alla directory nel percorso di file eseguibile AzCopy e digitare `azcopy` o `.\azcopy` nel prompt dei comandi di Windows PowerShell.
+Se si sceglie di non aggiungere la directory AzCopy al percorso, sarà necessario modificare le directory nel percorso del file eseguibile di AzCopy e digitare `azcopy` o `.\azcopy` nei prompt dei comandi di Windows PowerShell.
 
-Per visualizzare un elenco dei comandi, digitare `azcopy -h` e quindi premere INVIO.
+Per visualizzare un elenco di comandi, digitare `azcopy -h` e premere il tasto INVIO.
 
-Per altre informazioni su un comando specifico, includere semplicemente il nome del comando (ad esempio: `azcopy list -h`).
+Per informazioni su un comando specifico, è sufficiente includere il nome del comando (ad esempio: `azcopy list -h`).
 
-![Guida in linea](media/storage-use-azcopy-v10/azcopy-inline-help.png)
+![Guida inline](media/storage-use-azcopy-v10/azcopy-inline-help.png)
 
 > [!NOTE] 
-> In qualità di proprietario dell'account di archiviazione di Azure sono automaticamente non è assegnate le autorizzazioni per accedere ai dati. Prima di effettuare altri elementi significativi con AzCopy, è necessario decidere come fornire le credenziali di autorizzazione al servizio di archiviazione. 
+> In qualità di proprietario dell'account di archiviazione di Azure, non vengono assegnate automaticamente le autorizzazioni per accedere ai dati. Prima di poter eseguire operazioni significative con AzCopy, è necessario decidere come fornire le credenziali di autorizzazione al servizio di archiviazione. 
 
-## <a name="choose-how-youll-provide-authorization-credentials"></a>Scegliere come fornire le credenziali di autorizzazione
+## <a name="choose-how-youll-provide-authorization-credentials"></a>Scegliere il modo in cui fornire le credenziali di autorizzazione
 
-È possibile fornire credenziali di autorizzazione con Azure Active Directory (AD) o con un token di firma di accesso condiviso (SAS).
+È possibile fornire le credenziali di autorizzazione usando Azure Active Directory (AD) o usando un token di firma di accesso condiviso (SAS).
 
 Usare questa tabella come guida:
 
-| Tipo di archiviazione | Metodo attualmente supportato di autorizzazione |
+| Tipo di archiviazione | Metodo di autorizzazione attualmente supportato |
 |--|--|
-|**Archiviazione BLOB** | Azure AD & firma di accesso condiviso |
-|**Archiviazione BLOB (spazio dei nomi gerarchico)** | Azure AD & firma di accesso condiviso |
-|**Archiviazione file** | Firma di accesso condiviso solo |
+|**Archiviazione BLOB** | Firma di accesso condiviso Azure AD & |
+|**Archiviazione BLOB (spazio dei nomi gerarchica)** | Firma di accesso condiviso Azure AD & |
+|**Archiviazione file** | Solo SAS |
 
-### <a name="option-1-use-azure-ad"></a>Opzione 1: Usare Azure AD
+### <a name="option-1-use-azure-ad"></a>Opzione 1: USA Azure AD
 
-Con Azure AD, è possibile fornire le credenziali una sola volta invece di dover aggiungere un token di firma di accesso condiviso per ogni comando.  
-
-Il livello di autorizzazione che è necessario dipende se si prevede di caricare i file o semplicemente eseguirne il download.
-
-Se si desidera solo scaricare i file, quindi verificare che il [lettore di dati Blob di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) assegnato per l'identità dell'utente o entità servizio. 
+Con Azure AD è possibile fornire le credenziali una sola volta anziché dover aggiungere un token SAS a ogni comando.  
 
 > [!NOTE]
-> Le identità degli utenti ed entità servizio sono ognuno un tipo di *entità di sicurezza*, quindi verrà usato il termine *entità di sicurezza* nella parte restante di questo articolo.
+> Nella versione corrente, se si prevede di copiare i BLOB tra gli account di archiviazione, è necessario aggiungere un token di firma di accesso condiviso a ogni URL di origine. È possibile omettere il token SAS solo dall'URL di destinazione. Per esempi, vedere [copiare i BLOB tra account di archiviazione](storage-use-azcopy-blobs.md).
 
-Se si desidera caricare i file, quindi verificare che uno di questi ruoli è stato assegnato all'entità di sicurezza:
+Il livello di autorizzazione necessario si basa sul fatto che si preveda di caricare i file o semplicemente scaricarli.
+
+Se si vuole solo scaricare i file, verificare che il [lettore di dati BLOB di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) sia stato assegnato all'identità utente, all'identità gestita o all'entità servizio.
+
+> Le identità utente, le identità gestite e le entità servizio sono ognuna un tipo di *entità di sicurezza*, quindi si userà il termine *entità di sicurezza* per la parte restante di questo articolo.
+
+Se si vuole caricare i file, verificare che uno di questi ruoli sia stato assegnato all'entità di sicurezza:
 
 - [Collaboratore ai dati del BLOB di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
 - [Proprietario dei dati del BLOB di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
-Questi ruoli possono essere assegnati alla propria identità in uno di questi ambiti:
+Questi ruoli possono essere assegnati all'entità di sicurezza in uno di questi ambiti:
 
-- Contenitore (file system di)
+- Contenitore (file system)
 - Account di archiviazione
 - Gruppo di risorse
 - Sottoscrizione
 
-Per informazioni su come verificare e assegnare ruoli, vedere [concedere l'accesso a Azure blob e Accodamento dei dati con accessi nel portale di Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Per informazioni su come verificare e assegnare i ruoli, vedere [concedere l'accesso ai dati di Accodamento e BLOB di Azure con RBAC nel portale di Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-> [!NOTE] 
-> Tenere presente che le assegnazioni di ruolo RBAC possono richiedere fino a cinque minuti per propagare.
+> [!NOTE]
+> Tenere presente che le assegnazioni di ruolo RBAC possono richiedere fino a cinque minuti per la propagazione.
 
-Non è necessario avere uno di questi ruoli assegnati all'entità di sicurezza se l'entità di sicurezza viene aggiunto all'elenco di controllo di accesso (ACL) del contenitore di destinazione o della directory. Nell'elenco ACL, l'entità di sicurezza richiede l'autorizzazione di scrittura nella directory di destinazione e l'autorizzazione di esecuzione nel contenitore e per ogni directory padre.
+Non è necessario che uno di questi ruoli sia assegnato all'entità di sicurezza se l'entità di sicurezza viene aggiunta all'elenco di controllo di accesso (ACL) del contenitore o della directory di destinazione. Nell'ACL l'entità di sicurezza necessita dell'autorizzazione di scrittura per la directory di destinazione e dell'autorizzazione Execute per il contenitore e ogni directory padre.
 
-Per altre informazioni, vedere [controllo degli accessi in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+Per altre informazioni, vedere [controllo di accesso in Azure Data Lake storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
 #### <a name="authenticate-a-user-identity"></a>Autenticare un'identità utente
 
-Dopo aver verificato che l'identità dell'utente è stato assegnato il livello di autorizzazione necessari, aprire un prompt dei comandi, digitare il comando seguente e quindi premere INVIO.
+Dopo aver verificato che all'identità utente è stato assegnato il livello di autorizzazione necessario, aprire un prompt dei comandi, digitare il comando seguente, quindi premere il tasto INVIO.
 
 ```azcopy
 azcopy login
@@ -110,7 +114,7 @@ Se si appartiene a più di un'organizzazione, includere l'ID tenant dell'organiz
 azcopy login --tenant-id=<tenant-id>
 ```
 
-Sostituire il `<tenant-id>` segnaposto con l'ID tenant dell'organizzazione a cui appartiene l'account di archiviazione. Per trovare l'ID tenant, selezionare **Azure Active Directory > Proprietà > ID Directory** nel portale di Azure.
+Sostituire il `<tenant-id>` segnaposto con l'ID tenant dell'organizzazione a cui appartiene l'account di archiviazione. Per trovare l'ID tenant, selezionare **Azure Active Directory > proprietà > ID directory** nella portale di Azure.
 
 Questo comando restituisce un codice di autenticazione e l'URL di un sito Web. Aprire il sito Web, immettere il codice e quindi scegliere il pulsante **Avanti**.
 
@@ -122,85 +126,129 @@ Verrà visualizzata una finestra di accesso. In tale finestra accedere al propri
 
 #### <a name="authenticate-a-service-principal"></a>Autenticare un'entità servizio
 
-Questa è un'opzione utilissima se si prevede di usare AzCopy all'interno di uno script che viene eseguito senza l'intervento dell'utente. 
+Si tratta di un'ottima opzione se si prevede di usare AzCopy all'interno di uno script che viene eseguito senza interazione dell'utente, in particolare in caso di esecuzione in locale. Se si prevede di eseguire AzCopy in macchine virtuali eseguite in Azure, un'identità del servizio gestito è più semplice da amministrare. Per altre informazioni, vedere la sezione [autenticare un'identità gestita](#managed-identity) di questo articolo.
 
-Prima di eseguire lo script, è necessario Accedi in modo interattivo almeno una volta in modo che AzCopy è possibile fornire le credenziali dell'entità servizio.  Tali credenziali vengono archiviate in un file protetto e crittografato in modo che lo script senza dover fornire le informazioni sensibili.
+Prima di eseguire uno script, è necessario eseguire l'accesso in modo interattivo almeno una volta, in modo da poter fornire a AzCopy le credenziali dell'entità servizio.  Queste credenziali vengono archiviate in un file protetto e crittografato, in modo che lo script non debba fornire tali informazioni riservate.
 
-È possibile accedere all'account tramite un segreto client o utilizzando la password di un certificato di registrazione dell'app dell'entità servizio associata. 
+È possibile accedere all'account usando un segreto client o usando la password di un certificato associato alla registrazione dell'app dell'entità servizio.
 
-Per altre informazioni sulla creazione dell'entità servizio, vedere [come: Usare il portale per creare un'entità servizio e applicazione di Azure AD che possano accedere alle risorse](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+Per ulteriori informazioni sulla creazione dell'entità servizio, [vedere Procedura: Usare il portale per creare un'entità servizio e applicazione di Azure AD che possano accedere alle risorse](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-Per altre informazioni sulle entità servizio in generale, vedere [dell'applicazione e oggetti entità servizio in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
+Per ulteriori informazioni sulle entità servizio in generale, vedere [oggetti applicazione e oggetti entità servizio in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
 
-##### <a name="using-a-client-secret"></a>Tramite un segreto client
+##### <a name="using-a-client-secret"></a>Uso di un segreto client
 
-Iniziare impostando il `AZCOPY_SPA_CLIENT_SECRET` variabile di ambiente per il segreto client dell'entità servizio di registrazione dell'app. 
+Per iniziare, impostare `AZCOPY_SPA_CLIENT_SECRET` la variabile di ambiente sul segreto client della registrazione dell'app dell'entità servizio.
 
 > [!NOTE]
-> Assicurarsi di impostare questo valore dal prompt dei comandi e non nell'ambiente di variabili delle impostazioni del sistema operativo. In questo modo, il valore è disponibile solo per la sessione corrente.
+> Assicurarsi di impostare questo valore dal prompt dei comandi e non nelle impostazioni delle variabili di ambiente del sistema operativo. In questo modo, il valore è disponibile solo per la sessione corrente.
 
-Questo esempio viene illustrato come è possibile eseguire questa operazione in PowerShell.
+Questo esempio illustra come eseguire questa operazione in PowerShell.
 
 ```azcopy
 $env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
 ```
 
 > [!NOTE]
-> È consigliabile usare un prompt dei comandi, come illustrato in questo esempio. In questo modo, il segreto client non sarà visualizzati nella cronologia dei comandi della console. 
+> Prendere in considerazione l'uso di un prompt, come illustrato in questo esempio. In questo modo, il segreto client non verrà visualizzato nella cronologia dei comandi della console. 
 
-Successivamente, digitare il comando seguente e quindi premere INVIO.
+Digitare quindi il comando seguente e premere il tasto INVIO.
 
 ```azcopy
 azcopy login --service-principal --application-id <application-id>
 ```
 
-Sostituire il `<application-id>` segnaposto con l'ID applicazione dell'entità servizio di registrazione dell'app.
+Sostituire il `<application-id>` segnaposto con l'ID applicazione della registrazione dell'app dell'entità servizio.
 
 ##### <a name="using-a-certificate"></a>Utilizzo di un certificato
 
-Se si preferisce usare le proprie credenziali per l'autorizzazione, è possibile caricare un certificato di registrazione dell'app e quindi usare tale certificato per account di accesso.
+Se si preferisce usare le proprie credenziali per l'autorizzazione, è possibile caricare un certificato nella registrazione dell'app e quindi usare tale certificato per l'accesso.
 
-Oltre a caricare il certificato per la registrazione dell'app, è necessario anche disporre di una copia del certificato salvato per il computer o macchina virtuale in cui verranno eseguiti AzCopy. Questa copia del certificato deve essere. File PFX o. PEM formattare e deve includere la chiave privata. La chiave privata deve essere protetto da password. Se si usa Windows e il certificato esiste solo in un archivio certificati, assicurarsi di esportare il certificato in un file PFX (tra cui la chiave privata). Per istruzioni, vedere [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate?view=win10-ps)
+Oltre a caricare il certificato nella registrazione dell'app, è anche necessario disporre di una copia del certificato salvato nel computer o nella macchina virtuale in cui verrà eseguito AzCopy. Questa copia del certificato deve essere in. PFX o. Formato PEM e deve includere la chiave privata. La chiave privata deve essere protetta da password. Se si usa Windows e il certificato esiste solo in un archivio certificati, assicurarsi di esportare il certificato in un file PFX (inclusa la chiave privata). Per istruzioni, vedere [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate?view=win10-ps)
 
-Impostare quindi il `AZCOPY_SPA_CERT_PASSWORD` variabile di ambiente per la password del certificato.
+Impostare quindi la `AZCOPY_SPA_CERT_PASSWORD` variabile di ambiente sulla password del certificato.
 
 > [!NOTE]
-> Assicurarsi di impostare questo valore dal prompt dei comandi e non nell'ambiente di variabili delle impostazioni del sistema operativo. In questo modo, il valore è disponibile solo per la sessione corrente.
+> Assicurarsi di impostare questo valore dal prompt dei comandi e non nelle impostazioni delle variabili di ambiente del sistema operativo. In questo modo, il valore è disponibile solo per la sessione corrente.
 
-Questo esempio viene illustrato come è possibile eseguire questa operazione in PowerShell.
+Questo esempio illustra come eseguire questa operazione in PowerShell.
 
 ```azcopy
 $env:AZCOPY_SPA_CERT_PASSWORD="$(Read-Host -prompt "Enter key")"
 ```
 
-Successivamente, digitare il comando seguente e quindi premere INVIO.
+Digitare quindi il comando seguente e premere il tasto INVIO.
 
 ```azcopy
 azcopy login --service-principal --certificate-path <path-to-certificate-file>
 ```
 
-Sostituire il `<path-to-certificate-file>` segnaposto con il percorso relativo o completo del file di certificato. AzCopy Salva il percorso per questo certificato, ma non salva una copia del certificato, assicurarsi quindi di mantenere tale certificato.
+Sostituire il `<path-to-certificate-file>` segnaposto con il percorso relativo o il percorso completo del file di certificato. AzCopy Salva il percorso del certificato, ma non salva una copia del certificato, quindi assicurarsi di conservare il certificato.
 
 > [!NOTE]
-> È consigliabile usare un prompt dei comandi, come illustrato in questo esempio. In questo modo, la password non sarà più visualizzato nella cronologia dei comandi della console. 
+> Prendere in considerazione l'uso di un prompt, come illustrato in questo esempio. In questo modo, la password non verrà visualizzata nella cronologia dei comandi della console. 
+
+<a id="managed-identity" />
+
+#### <a name="authenticate-a-managed-identity"></a>Autenticare un'identità gestita
+
+Si tratta di un'ottima opzione se si prevede di usare AzCopy all'interno di uno script che viene eseguito senza interazione dell'utente e lo script viene eseguito da una macchina virtuale (VM) di Azure. Quando si usa questa opzione, non è necessario archiviare le credenziali nella macchina virtuale.
+
+È possibile accedere all'account usando un'identità gestita a livello di sistema abilitata nella VM oppure usando l'ID client, l'ID oggetto o l'ID di risorsa di un'identità gestita assegnata dall'utente che è stata assegnata alla macchina virtuale.
+
+Per altre informazioni su come abilitare un'identità gestita a livello di sistema o creare un'identità gestita assegnata dall'utente, vedere [configurare le identità gestite per le risorse di Azure in una macchina virtuale usando il portale di Azure](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm).
+
+##### <a name="using-a-system-wide-managed-identity"></a>Uso di un'identità gestita a livello di sistema
+
+Assicurarsi prima di tutto che sia stata abilitata un'identità gestita a livello di sistema nella macchina virtuale. Vedere [identità gestita assegnata dal sistema](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity).
+
+Quindi, nella console dei comandi, digitare il comando seguente, quindi premere il tasto INVIO.
+
+```azcopy
+azcopy login --identity
+```
+
+##### <a name="using-a-user-assigned-managed-identity"></a>Uso di un'identità gestita assegnata dall'utente
+
+Assicurarsi prima di tutto che sia stata abilitata un'identità gestita assegnata dall'utente nella macchina virtuale. Vedere [identità gestita assegnata dall'utente](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity).
+
+Quindi, nella console dei comandi, digitare uno dei comandi seguenti, quindi premere il tasto INVIO.
+
+```azcopy
+azcopy login --identity --identity-client-id "<client-id>"
+```
+
+Sostituire il `<client-id>` segnaposto con l'ID client dell'identità gestita assegnata dall'utente.
+
+```azcopy
+azcopy login --identity --identity-object-id "<object-id>"
+```
+
+Sostituire il `<object-id>` segnaposto con l'ID oggetto dell'identità gestita assegnata dall'utente.
+
+```azcopy
+azcopy login --identity --identity-resource-id "<resource-id>"
+```
+
+Sostituire il `<resource-id>` segnaposto con l'ID risorsa dell'identità gestita assegnata dall'utente.
 
 ### <a name="option-2-use-a-sas-token"></a>Opzione 2: Usare un token di firma di accesso condiviso
 
-È possibile aggiungere un token di firma di accesso condiviso per ogni URL di origine o di destinazione usata nei comandi di AzCopy.
+È possibile aggiungere un token di firma di accesso condiviso a ogni URL di origine o di destinazione usato nei comandi di AzCopy.
 
-Questo comando di esempio in modo ricorsivo copia i dati da una directory locale in un contenitore blob. Un token di firma di accesso condiviso fittizio viene aggiunto alla fine della dell'URL del contenitore.
+Questo comando di esempio copia in modo ricorsivo i dati da una directory locale a un contenitore BLOB. Un token di firma di accesso condiviso fittizio viene aggiunto alla fine dell'URL del contenitore.
 
 ```azcopy
 azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
 ```
 
-Per altre informazioni sui token di firma di accesso condiviso e su come ottenerne uno, vedere [uso delle firme di accesso (SAS) condiviso](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1).
+Per altre informazioni sui token SAS e su come ottenerne uno, vedere [uso delle firme di accesso condiviso (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1).
 
-## <a name="transfer-files"></a>Trasferimento di file
+## <a name="transfer-files"></a>Trasferimenti di file
 
-Dopo aver autenticato la tua identità o ottenuto un token di firma di accesso condiviso, è possibile iniziare il trasferimento di file.
+Dopo aver autenticato l'identità o ottenuto un token di firma di accesso condiviso, è possibile iniziare a trasferire i file.
 
-Per trovare i comandi di esempio, vedere questi articoli.
+Per trovare i comandi di esempio, vedere uno di questi articoli.
 
 - [Trasferire dati con AzCopy e l'archivio BLOB](storage-use-azcopy-blobs.md)
 
@@ -208,17 +256,15 @@ Per trovare i comandi di esempio, vedere questi articoli.
 
 - [Trasferire dati con AzCopy e bucket Amazon S3](storage-use-azcopy-s3.md)
 
-- [Trasferire dati con AzCopy e Azure Stack di archiviazione](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#azcopy)
+- [Trasferire dati con AzCopy e archiviazione Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#azcopy)
 
-## <a name="use-azcopy-in-a-script"></a>Uso di AzCopy in uno script
+## <a name="use-azcopy-in-a-script"></a>Usare AzCopy in uno script
 
-Prima di eseguire lo script, è necessario Accedi in modo interattivo almeno una volta in modo che AzCopy è possibile fornire le credenziali dell'entità servizio.  Tali credenziali vengono archiviate in un file protetto e crittografato in modo che lo script senza dover fornire le informazioni sensibili. Per esempi, vedere la [autenticare l'entità servizio](#service-principal) sezione di questo articolo.
+Nel corso del tempo, il collegamento per il [download](#download-and-install-azcopy) di AzCopy punterà alle nuove versioni di AzCopy. Se lo script Scarica AzCopy, lo script potrebbe smettere di funzionare se una versione più recente di AzCopy modifica le funzionalità da cui dipende lo script. 
 
-Nel corso del tempo, AzCopy [collegamento di download](#download-and-install-azcopy) punterà a nuove versioni di AzCopy. Se lo script esegue il download di AzCopy, lo script potrebbe smettere di funzionare se una versione più recente di AzCopy che lo script varia a seconda della funzionalità di modifica. 
+Per evitare questi problemi, ottenere un collegamento statico (non modificabile) alla versione corrente di AzCopy. In questo modo, lo script Scarica la stessa versione esatta di AzCopy ogni volta che viene eseguito.
 
-Per evitare questi problemi, ottenere un collegamento statico (non modificabile) alla versione corrente di AzCopy. In questo modo, lo script Scarica esattamente la stessa versione di AzCopy ogni volta che viene eseguito.
-
-Per ottenere il collegamento, eseguire questo comando:
+Per ottenere il collegamento, eseguire il comando seguente:
 
 | Sistema operativo  | Comando |
 |--------|-----------|
@@ -226,9 +272,9 @@ Per ottenere il collegamento, eseguire questo comando:
 | **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).RawContent` |
 
 > [!NOTE]
-> Per Linux `--strip-components=1` nella `tar` comando rimuove la cartella di primo livello che contiene il nome della versione e invece consente di estrarre il file binario direttamente nella cartella corrente. In questo modo lo script deve essere aggiornata con una nuova versione di `azcopy` aggiornando solo le `wget` URL.
+> Per Linux, `--strip-components=1` `tar` il comando rimuove la cartella di primo livello che contiene il nome della versione e estrae il file binario direttamente nella cartella corrente. Questo consente di aggiornare lo script con una nuova versione di `azcopy` aggiornando solo l' `wget` URL.
 
-L'URL viene visualizzato nell'output di questo comando. Lo script può quindi scaricare AzCopy con tale URL.
+L'URL viene visualizzato nell'output di questo comando. Lo script può quindi scaricare AzCopy usando tale URL.
 
 | Sistema operativo  | Comando |
 |--------|-----------|
@@ -237,31 +283,31 @@ L'URL viene visualizzato nell'output di questo comando. Lo script può quindi sc
 
 ## <a name="use-azcopy-in-storage-explorer"></a>Usare AzCopy in Storage Explorer
 
-Se si desidera sfruttare i vantaggi delle prestazioni di AzCopy, ma si preferisce usare Storage Explorer piuttosto che la riga di comando per interagire con i file, quindi abilitare AzCopy in Storage Explorer. 
+Se si vogliono sfruttare i vantaggi delle prestazioni di AzCopy, ma si preferisce usare Storage Explorer anziché la riga di comando per interagire con i file, quindi abilitare AzCopy in Storage Explorer. 
 
-In Storage Explorer, scegliere **Preview**->**usare AzCopy per migliorata del caricamento di Blob e il Download**.
+In Storage Explorer scegliere **Anteprima**->**USA AzCopy per migliorare il caricamento e il download di BLOB**.
 
 ![Abilitare AzCopy come motore di trasferimento in Azure Storage Explorer](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
 
 > [!NOTE]
-> Non è necessario abilitare questa impostazione se è stato abilitato uno spazio dei nomi gerarchico nell'account di archiviazione. Ciò avviene perché Storage Explorer usa automaticamente AzCopy sugli account di archiviazione con uno spazio dei nomi gerarchico.  
+> Non è necessario abilitare questa impostazione se è stato abilitato uno spazio dei nomi gerarchico nell'account di archiviazione. Questo perché Storage Explorer usa automaticamente AzCopy per gli account di archiviazione che hanno uno spazio dei nomi gerarchico.  
 
-Storage Explorer usa la chiave dell'account per eseguire operazioni, in modo che dopo l'accesso in Storage Explorer, non sarà necessario fornire le credenziali di fornire autorizzazioni aggiuntive.
+Storage Explorer usa la chiave dell'account per eseguire operazioni, quindi, dopo l'accesso Storage Explorer, non è necessario fornire credenziali di autorizzazione aggiuntive.
 
 <a id="previous-version" />
 
-## <a name="use-the-previous-version-of-azcopy"></a>Utilizzare la versione precedente di AzCopy
+## <a name="use-the-previous-version-of-azcopy"></a>Usare la versione precedente di AzCopy
 
-Se è necessario utilizzare la versione precedente di AzCopy (AzCopy v8.1), vedere uno dei collegamenti seguenti:
+Se è necessario usare la versione precedente di AzCopy (AzCopy v 8.1), vedere uno dei seguenti collegamenti:
 
-- [AzCopy on Windows (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
+- [AzCopy in Windows (V8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
 
 - [AzCopy on Linux (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
 
-## <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurare, ottimizzare e risolvere i problemi di AzCopy
+## <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurare, ottimizzare e risolvere i problemi relativi a AzCopy
 
-Vedere [configura, ottimizzare e risolvere i problemi di AzCopy](storage-use-azcopy-configure.md)
+Vedere [configurare, ottimizzare e risolvere i problemi relativi a AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se hai domande, problemi o commenti e suggerimenti generali, inviarli [su GitHub](https://github.com/Azure/azure-storage-azcopy) pagina.
+In caso di domande, problemi o commenti e suggerimenti generali, inviarli [nella pagina di GitHub](https://github.com/Azure/azure-storage-azcopy) .
