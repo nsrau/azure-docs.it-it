@@ -3,9 +3,8 @@ title: Aggiornare un cluster di Azure Service Fabric usando il nome comune dei c
 description: Informazioni su come passare dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato in un cluster di Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
-editor: aljo
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/01/2019
-ms.author: aljo
-ms.openlocfilehash: a94fda5a1f3aedd5842bad92b5348a77177b4137
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 6bf24a0948ecee68d1bbf3cd3fe8b2bec5634de9
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66302452"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68600044"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Passare dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato in un cluster
 Nessun certificato può avere la stessa identificazione digitale di un altro, il che rende difficile eseguire il rollover o gestire il certificato del cluster. Più certificati, tuttavia, possono avere lo stesso nome comune o lo stesso oggetto.  Commutare un cluster distribuito dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato rende molto più semplice la gestione dei certificati. In questo articolo viene descritto come aggiornare un cluster di Service Fabric in esecuzione per usare il nome comune del certificato anziché l'identificazione personale del certificato.
@@ -102,7 +101,7 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
 > I segreti del set di scalabilità non supportano lo stesso ID risorsa per due segreti separati, perché ogni segreto è una risorsa univoca con controllo delle versioni. 
 
 ## <a name="download-and-update-the-template-from-the-portal"></a>Scaricare e aggiornare il modello dal portale
-Il certificato è stato installato sul set di scalabilità sottostante, ma è necessario aggiornare anche il cluster di Service Fabric perché usi tale certificato e il relativo nome comune.  A questo punto, scaricare il modello per la distribuzione del cluster.  Accedi per il [portale di Azure](https://portal.azure.com) e passare al gruppo di risorse che ospita il cluster.  In **Impostazioni**, selezionare **Distribuzioni**.  Selezionare la distribuzione più recente e fare clic su **Visualizza modello**.
+Il certificato è stato installato sul set di scalabilità sottostante, ma è necessario aggiornare anche il cluster di Service Fabric perché usi tale certificato e il relativo nome comune.  A questo punto, scaricare il modello per la distribuzione del cluster.  Accedere al [portale di Azure](https://portal.azure.com) e passare al gruppo di risorse che ospita il cluster.  In **Impostazioni**, selezionare **Distribuzioni**.  Selezionare la distribuzione più recente e fare clic su **Visualizza modello**.
 
 ![Visualizzare un modello][image1]
 
@@ -127,7 +126,7 @@ Aprire quindi il file di modello in un editor di testo e apportare tre aggiornam
     },
     ```
 
-    Anche provare a rimuovere il *certificateThumbprint*, è non possibile non è più farvi riferimento nel modello di Resource Manager.
+    Prendere in considerazione anche la rimozione del *CertificateThumbprint*, a cui potrebbe non essere più fatto riferimento nel modello di gestione risorse.
 
 2. Nella risorsa **Microsoft.Compute/virtualMachineScaleSets**, aggiornare l'estensione macchina virtuale perché nelle impostazioni del certificato venga usato il nome comune anziché l'identificazione personale.  In **virtualMachineProfile**->**extensionProfile**->**extensions**->**properties**->**settings**->**certificate** aggiungere `"commonNames": ["[parameters('certificateCommonName')]"],` e rimuovere `"thumbprint": "[parameters('certificateThumbprint')]",`.
     ```json

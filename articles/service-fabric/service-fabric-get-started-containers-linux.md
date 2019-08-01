@@ -3,7 +3,7 @@ title: Creare un'applicazione contenitore di Azure Service Fabric in Linux | Mic
 description: Creare la prima applicazione contenitore Linux in Azure Service Fabric. Compilare un'immagine Docker con l'applicazione, eseguire il push dell'immagine in un registro contenitori e compilare e distribuire un'applicazione contenitore di Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
-ms.author: aljo
-ms.openlocfilehash: 16f117e7c5291216b5716aee40995e6f224705fa
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: atsenthi
+ms.openlocfilehash: dde124a568581c53a4168b1c84e5df8a9d55155f
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359372"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599558"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Creare la prima applicazione contenitore di Service Fabric in Linux
 > [!div class="op_single_selector"]
@@ -236,7 +236,7 @@ La [governance delle risorse](service-fabric-resource-governance.md) limita le r
 
 A partire dalla versione 6.1, Service Fabric integra automaticamente gli eventi di [docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) nel report relativo all'integrità del sistema. Se **HEALTHCHECK** è stato abilitato nel contenitore, Service Fabric fornirà informazioni sull'integrità ogni volta che lo stato dell'integrità del contenitore subisce modifiche, in base a quanto segnalato da Docker. Un report sull'integrità di tipo **OK** verrà visualizzato in [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) quando il valore *health_status* è *healthy* e un report di tipo **AVVISO** verrà visualizzato quando il valore *health_status* è *unhealthy*. 
 
-A partire dalla versione di aggiornamento più recente di v 6.4, è possibile specificare che le valutazioni di Docker HEALTHCHECK devono essere segnalate come un errore. Se questa opzione è abilitata, viene visualizzato un report di integrità **OK** quando  *health_status* è integro e viene visualizzato un **errore** quando *health_status* non è *integro*.
+A partire dalla versione di aggiornamento più recente di v 6.4, è possibile specificare che le valutazioni di Docker HEALTHCHECK devono essere segnalate come un errore. Se questa opzione è abilitata, viene visualizzato un report di integrità **OK** quando *health_status* è integro e viene visualizzato un **errore** quando *health_status* non è *integro*.
 
 L'istruzione **HEALTHCHECK** che fa riferimento alla verifica effettiva eseguita per il monitoraggio dell'integrità dei contenitori deve essere presente nel Dockerfile usato durante la generazione dell'immagine del contenitore.
 

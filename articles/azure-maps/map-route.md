@@ -3,18 +3,18 @@ title: Visualizzare le indicazioni stradali con Mappe di Azure | Microsoft Docs
 description: Come visualizzare le indicazioni stradali tra due posizioni su una mappa JavaScript
 author: jingjing-z
 ms.author: jinzh
-ms.date: 3/7/2019
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: 9e9469e012f2e6b54d9bb84858a9dfc970873b4c
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 65f8337585e0a4d1077897274fd07505024af22c
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476797"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638954"
 ---
 # <a name="show-directions-from-a-to-b"></a>Visualizzare le indicazioni stradali da A a B
 
@@ -27,9 +27,9 @@ Questo articolo illustra come effettuare una richiesta di pianificazione percors
 <iframe height='500' scrolling='no' title='Visualizzare le indicazioni stradali da A a B su una mappa (Modulo del servizio)' src='//codepen.io/azuremaps/embed/RBZbep/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Visualizzare l'elemento Pen <a href='https://codepen.io/azuremaps/pen/RBZbep/'>Show directions from A to B on a map</a> (Visualizzare le indicazioni stradali da A a B su una mappa (Modulo del servizio)) di Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Nel codice precedente il primo blocco di codice costruisce un oggetto map e imposta il meccanismo di autenticazione per l'uso della chiave di sottoscrizione. Per le istruzioni è possibile vedere [Creare una mappa](./map-create.md).
+Nel codice precedente il primo blocco di codice costruisce un oggetto map e imposta il meccanismo di autenticazione per usare il token di accesso. Per le istruzioni è possibile vedere [Creare una mappa](./map-create.md).
 
-Il secondo blocco di codice crea un `SubscriptionKeyCredentialPolicy` oggetto per autenticare le richieste HTTP per le mappe di Azure con la chiave di sottoscrizione. `atlas.service.MapsURL.newPipeline()` acquisisce il criterio `SubscriptionKeyCredential` e crea un'istanza [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest). `routeURL` rappresenta un URL per le operazioni di [pianificazione del percorso](https://docs.microsoft.com/rest/api/maps/route) di Mappe di Azure.
+Il secondo blocco di codice crea un `TokenCredential` oggetto per autenticare le richieste HTTP per le mappe di Azure con il token di accesso. Passa quindi a `atlas.service.MapsURL.newPipeline()` e `TokenCredential` crea un'istanza della [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) . `routeURL` rappresenta un URL per le operazioni di [pianificazione del percorso](https://docs.microsoft.com/rest/api/maps/route) di Mappe di Azure.
 
 Il terzo blocco di codice crea e aggiunge un oggetto [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) alla mappa.
 
@@ -50,7 +50,7 @@ La query per l'itinerario, l'origine dati, il livello simbolo e il livello linea
 <iframe height='500' scrolling='no' title='Visualizzare le indicazioni stradali da A a B su una mappa' src='//codepen.io/azuremaps/embed/zRyNmP/?height=469&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Visualizzare l'elemento Pen <a href='https://codepen.io/azuremaps/pen/zRyNmP/'>Show directions from A to B on a map</a> (Visualizzare le indicazioni stradali da A a B su una mappa) di Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Nel codice precedente il primo blocco di codice costruisce un oggetto map e imposta il meccanismo di autenticazione per l'uso della chiave di sottoscrizione. Per le istruzioni è possibile vedere [Creare una mappa](./map-create.md).
+Nel codice precedente il primo blocco di codice costruisce un oggetto map e imposta il meccanismo di autenticazione per usare il token di accesso. Per le istruzioni è possibile vedere [Creare una mappa](./map-create.md).
 
 Il secondo blocco di codice crea e aggiunge un oggetto [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) alla mappa.
 

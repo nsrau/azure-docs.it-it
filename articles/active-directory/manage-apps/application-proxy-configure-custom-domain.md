@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bae13de156d502cdd731005d460641ca452448d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5d721e750ddb77ba293643ad978cecf4bd2dbac0
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108664"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618816"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Utilizzo di domini personalizzati nel Proxy di applicazione AD Azure
 
@@ -61,7 +61,7 @@ Quando questi tre requisiti sono pronti, seguire questi passaggi per configurare
 6. Caricare il certificato PFX e immettere la relativa password. 
 7. Fare clic su **Salva** per salvare le modifiche. 
 8. Aggiungere un [record DNS](../../dns/dns-operations-recordsets-portal.md) che reindirizza il nuovo URL esterno al dominio msappproxy.net.
-9. Verificare che il record DNS sia configurato correttamente seguendo la [nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) comando per verificare se l'URL esterno è raggiungibile e che il dominio msapproxy.net viene visualizzato come un alias.
+9. Verificare che il record DNS sia configurato correttamente usando il comando [nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) per verificare se l'URL esterno è raggiungibile e il dominio msapproxy.NET viene visualizzato come alias.
 
 >[!TIP] 
 >È sufficiente caricare un certificato per ogni dominio personalizzato. Dopo aver caricato un certificato, è possibile scegliere il dominio personalizzato quando si pubblica una nuova app, senza dover eseguire configurazioni aggiuntive, ad eccezione che per il record DNS. 
@@ -73,7 +73,7 @@ Non ci sono restrizioni per i metodi di firma del certificato. Sono supportati c
 
 È possibile usare un certificato con caratteri jolly, purché i caratteri jolly corrispondano all'URL esterno desiderato.
 
-È possibile usare un certificato emesso dalla propria infrastruttura a chiave pubblica (PKI) a causa di considerazioni sulla sicurezza.
+Se la catena di certificati è installata nei dispositivi client, è possibile usare i certificati emessi dalla propria infrastruttura a chiave pubblica (PKI). Intune può essere usato per distribuire questi certificati ai dispositivi gestiti. Per i dispositivi non gestiti questi certificati devono essere installati manualmente.
 
 ### <a name="changing-the-domain"></a>Modifica del dominio
 Tutti i domini verificati vengono visualizzati nell'elenco a discesa URL esterno per l'applicazione. Per modificare il dominio, è sufficiente aggiornare tale campo per l'applicazione. Se il dominio desiderato non è nell'elenco, [aggiungerlo come dominio verificato](../fundamentals/add-custom-domain.md). Se si seleziona un dominio cui non è ancora associato un certificato, seguire i passaggi da 5 a 7 per aggiungere il certificato. Assicurarsi quindi di aggiornare il record DNS per il reindirizzamento dal nuovo URL esterno. 
@@ -87,7 +87,7 @@ Attualmente la gestione di tutti i certificati avviene tramite singole pagine de
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Abilitare l'accesso Single Sign-On](application-proxy-configure-single-sign-on-with-kcd.md) alle app pubblicate con l'autenticazione di Azure AD.
-* [Abilitare l'accesso condizionale](application-proxy-integrate-with-sharepoint-server.md) alle App pubblicate.
+* [Abilitare l'accesso condizionale](application-proxy-integrate-with-sharepoint-server.md) alle app pubblicate.
 * [Aggiungere un nome di dominio personalizzato ad Azure AD](../fundamentals/add-custom-domain.md)
 
 

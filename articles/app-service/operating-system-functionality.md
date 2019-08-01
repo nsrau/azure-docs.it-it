@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f8087afc541dba41d23eacd2dd0f50e8f0180af1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f06b0866f5a79756f3404d7911f03bcdcc7f67d7
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808398"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608046"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funzionalità del sistema operativo in Servizio app di Azure
 Questo articolo descrive le funzionalità di base comuni del sistema operativo disponibili in tutte le app Windows in esecuzione in [Servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Queste funzionalità includono l'accesso a file, rete e registro, nonché log ed eventi di diagnostica. 
@@ -65,7 +65,7 @@ Il servizio app è essenzialmente un servizio in esecuzione sull'infrastruttura 
 
 - L'app può generare un errore che indica che non vi è sufficiente spazio su disco.
 - Potrebbero verificarsi errori del disco durante la navigazione nella console Kudu.
-- Distribuzione da DevOps di Azure o Visual Studio potrebbe non riuscire con `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`.
+- La distribuzione da Azure DevOps o Visual Studio potrebbe non `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`riuscire con.
 - L'app potrebbe subire un rallentamento delle prestazioni.
 
 <a id="NetworkDrives"></a>
@@ -96,7 +96,7 @@ La home directory include il contenuto di un'app e il codice dell'applicazione p
 <a id="NetworkAccess"></a>
 
 ## <a name="network-access"></a>Accesso alla rete
-Il codice dell'applicazione può usare i protocolli basati su TCP/IP e UDP per effettuare connessioni di rete in uscita a endpoint accessibili tramite Internet che rendono visibili i servizi esterni. Le app possono usare gli stessi protocolli per connettersi ai servizi di Azure&#151; ad esempio stabilendo connessioni HTTPS al database SQL.
+Il codice dell'applicazione può usare i protocolli basati su TCP/IP e UDP per effettuare connessioni di rete in uscita a endpoint accessibili tramite Internet che rendono visibili i servizi esterni. Le app possono usare questi stessi protocolli per connettersi ai servizi in Azure, ad esempio stabilendo connessioni HTTPS al database SQL.
 
 È anche presente una capacità limitata per le app di stabilire una connessione loopback locale e di disporre di un'app in ascolto su tale socket loopback locale. Questa funzionalità esiste principalmente per abilitare le app che includono tra le proprie funzionalità l'ascolto su socket di loopback locali. Ogni app vede una connessione loopback "privata". L'app "A" non può porsi in ascolto di un socket di loopback locale stabilito dall'app "B".
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: 030259f7773435760c09afd25ca674b63bb1b3ca
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 743f15c13a2e4fe7215229145b49fd87a32a1f18
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073248"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663272"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlazione di dati di telemetria in Application Insights
 
@@ -35,7 +35,7 @@ Ogni operazione in uscita, ad esempio una chiamata HTTP a un altro componente, �
 
 È possibile creare una visualizzazione dell'operazione logica distribuita usando `operation_Id`, `operation_parentId` e `request.id` con `dependency.id`. Questi campi definiscono anche l'ordine della causalità delle chiamate di telemetria.
 
-In un ambiente di microservizi, le tracce dai componenti possono finire in elementi di archiviazione diversi. Ogni componente può avere la propria chiave di strumentazione in Application Insights. Per ottenere i dati di telemetria per l'operazione logica, esperienza utente Application Insights esegue query sui dati di tutti gli elementi di archiviazione. Quando il numero di elementi di archiviazione è molto elevato, sarà necessario un hint per sapere dove cercare dopo. Per risolvere questo problema, nel modello di dati di Application Insights sono definiti due campi: `request.source` e `dependency.target`. Il primo campo definisce il componente che ha avviato la richiesta di dipendenza, mentre il secondo identifica quale componente ha restituito la risposta alla chiamata di dipendenza.
+In un ambiente di microservizi, le tracce dai componenti possono finire in elementi di archiviazione diversi. Ogni componente può avere la propria chiave di strumentazione in Application Insights. Per ottenere i dati di telemetria per l'operazione logica, il Application Insights UX esegue query sui dati da ogni elemento di archiviazione. Quando il numero di elementi di archiviazione è molto elevato, sarà necessario un hint per sapere dove cercare dopo. Per risolvere questo problema, nel modello di dati di Application Insights sono definiti due campi: `request.source` e `dependency.target`. Il primo campo definisce il componente che ha avviato la richiesta di dipendenza, mentre il secondo identifica quale componente ha restituito la risposta alla chiamata di dipendenza.
 
 ## <a name="example"></a>Esempio
 
@@ -51,7 +51,7 @@ Un'applicazione denominata Stock Prices mostra il prezzo di mercato di un'azione
 
 Nei risultati tutti gli elementi di telemetria condividono l'elemento `operation_Id` radice. Quando viene eseguita una chiamata Ajax dalla pagina, viene assegnato un nuovo ID univoco (`qJSXU`) alla telemetria delle dipendenze e l'ID di pageView viene usato come `operation_ParentId`. La richiesta server usa quindi l'ID Ajax come `operation_ParentId`.
 
-| itemType   | name                      | ID           | operation_ParentId | operation_Id |
+| itemType   | name                      | id           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | pageView   | Pagina Stock                |              | STYz               | STYz         |
 | dipendenza | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
@@ -85,6 +85,14 @@ Questa funzionalità è disponibile nei pacchetti `Microsoft.ApplicationInsights
 
 - In `RequestTrackingTelemetryModule` aggiungere l'elemento `EnableW3CHeadersExtraction` con il valore impostato su `true`.
 - In `DependencyTrackingTelemetryModule` aggiungere l'elemento `EnableW3CHeadersInjection` con il valore impostato su `true`.
+- Aggiungere `W3COperationCorrelationTelemetryInitializer` sotto la `TelemetryInitializers` simile a 
+
+```xml
+<TelemetryInitializers>
+  <Add Type="Microsoft.ApplicationInsights.Extensibility.W3C.W3COperationCorrelationTelemetryInitializer, Microsoft.ApplicationInsights"/>
+   ...
+</TelemetryInitializers> 
+```
 
 #### <a name="enable-w3c-distributed-tracing-support-for-aspnet-core-apps"></a>Abilitare il supporto di analisi distribuita W3C per le app ASP.NET Core
 
@@ -186,7 +194,7 @@ La propagazione automatica del contesto attraverso tecnologie di messaggistica (
 
 ### <a name="telemetry-correlation-in-asynchronous-java-application"></a>Correlazione di dati di telemetria nell'applicazione Java asincrona
 
-Per correlare i dati di telemetria all'applicazione Spring Boot asincrona, seguire [ciò](https://github.com/Microsoft/ApplicationInsights-Java/wiki/Distributed-Tracing-in-Asynchronous-Java-Applications) articolo approfondito. Vengono fornite informazioni aggiuntive per la strumentazione di Spring [ThreadPoolTaskExecutor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskExecutor.html) nonché [ThreadPoolTaskScheduler](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskScheduler.html). 
+Per correlare i dati di telemetria nell'applicazione di Spring boot asincrona, seguire [questo](https://github.com/Microsoft/ApplicationInsights-Java/wiki/Distributed-Tracing-in-Asynchronous-Java-Applications) articolo dettagliato. Fornisce indicazioni per la strumentazione di [ThreadPoolTaskExecutor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskExecutor.html) di Spring e [ThreadPoolTaskScheduler](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskScheduler.html). 
 
 
 <a name="java-role-name"></a>

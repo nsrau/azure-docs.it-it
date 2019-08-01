@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/18/2019
+ms.date: 07/29/2019
 ms.author: mayg
-ms.openlocfilehash: 42ef6087663c48cad965be768f14920efa777a62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e1d27d133b2eb4e0d4d45a5de563e119513c79f
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244334"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68620050"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Informazioni su Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure
 Questo articolo contiene la guida dell'utente di Azure Site Recovery Deployment Planner per distribuzioni di produzione da VMware ad Azure.
@@ -41,10 +41,9 @@ Lo strumento indica i dettagli seguenti:
 
 **Requisiti dell'infrastruttura di Azure**
 
-* Requisito relativo al tipo di archiviazione (account di archiviazione Standard o Premium) per ogni VM
-* Numero totale di account di archiviazione Standard e Premium da configurare per la replica
+* Requisito relativo al tipo di archiviazione (archiviazione standard o Premium) per ogni VM
+* Numero totale di account di archiviazione standard e Premium da configurare per la replica (include gli account di archiviazione della cache)
 * Suggerimenti di denominazione degli account di archiviazione in base alle linee guida di archiviazione
-* Selezione host degli account di archiviazione per tutte le VM
 * Numero di core di Azure da configurare prima del failover di test o del failover nella sottoscrizione
 * Dimensioni consigliate per ogni VM di Azure locale
 
@@ -66,9 +65,9 @@ Lo strumento indica i dettagli seguenti:
 | | **Da VMware ad Azure** |**Da Hyper-V ad Azure**|**Da Azure ad Azure**|**Da Hyper-V al sito secondario**|**Da VMware al sito secondario**
 --|--|--|--|--|--
 Scenari supportati |Yes|Sì|No|Sì*|No
-Versione supportata | vCenter 6.7, 6.5, 6.0 o 5.5| Windows Server 2016, Windows Server 2012 R2 | NA |Windows Server 2016, Windows Server 2012 R2|NA
-Configurazione supportata|vCenter, ESXi| Cluster Hyper-V, host Hyper-V|NA|Cluster Hyper-V, host Hyper-V|NA|
-Numero di server che è possibile profilare per ogni istanza in esecuzione di Site Recovery Deployment Planner |Singolo (è possibile profilare le VM appartenenti a un solo server vCenter o a un solo server ESXi alla volta)|Multipli (è possibile profilare contemporaneamente le VM in più host o cluster di host)| NA |Multipli (è possibile profilare contemporaneamente le VM in più host o cluster di host)| NA
+Versione supportata | vCenter 6,7, 6,5, 6,0 o 5,5| Windows Server 2016, Windows Server 2012 R2 | ND |Windows Server 2016, Windows Server 2012 R2|ND
+Configurazione supportata|vCenter, ESXi| Cluster Hyper-V, host Hyper-V|ND|Cluster Hyper-V, host Hyper-V|ND|
+Numero di server che è possibile profilare per ogni istanza in esecuzione di Site Recovery Deployment Planner |Singolo (è possibile profilare le VM appartenenti a un solo server vCenter o a un solo server ESXi alla volta)|Multipli (è possibile profilare contemporaneamente le VM in più host o cluster di host)| ND |Multipli (è possibile profilare contemporaneamente le VM in più host o cluster di host)| ND
 
 *Lo strumento è destinato principalmente allo scenario di ripristino di emergenza da Hyper-V ad Azure. Per il ripristino di emergenza da Hyper-V al sito secondario, può essere usato solo per conoscere le raccomandazioni sul lato di origine, ad esempio larghezza di banda di rete necessaria, spazio di archiviazione libero necessario in ogni server Hyper-V di origine e numeri di invio in batch e definizioni dei batch della replica iniziale. Ignorare le raccomandazioni di Azure e i costi del report. L'operazione per misurare la velocità effettiva non è inoltre applicabile per lo scenario di ripristino di emergenza da Hyper-V al sito secondario.
 
@@ -105,7 +104,7 @@ La cartella contiene più file e sottocartelle. Il file eseguibile è ASRDeploym
 
 ### <a name="update-to-the-latest-version-of-deployment-planner"></a>Eseguire l'aggiornamento alla versione più recente di Deployment Planner
 
-Gli aggiornamenti più recenti sono riepilogati in Deployment Planner [cronologia delle versioni](site-recovery-deployment-planner-history.md).
+Gli ultimi aggiornamenti sono riepilogati nella cronologia delle [versioni](site-recovery-deployment-planner-history.md)Deployment Planner.
 
 Se si ha una versione precedente di Deployment Planner, eseguire una di queste operazioni:
  * Se la versione più recente non contiene una correzione della profilatura e la profilatura è già in corso nella versione corrente dell'utilità di pianificazione, continuare la profilatura.
@@ -120,7 +119,7 @@ Se si ha una versione precedente di Deployment Planner, eseguire una di queste o
 
 
 ## <a name="version-history"></a>Cronologia delle versioni
-La versione più recente di Site Recovery Deployment Planner è 2.4.
+La versione più recente di Site Recovery Deployment Planner Tool è 2,5.
 Per le correzioni aggiunte in ogni aggiornamento, vedere la pagina della [cronologia delle versioni di Site Recovery Deployment Planner](https://docs.microsoft.com/azure/site-recovery/site-recovery-deployment-planner-history).
 
 ## <a name="next-steps"></a>Passaggi successivi

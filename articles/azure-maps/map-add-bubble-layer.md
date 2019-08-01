@@ -3,25 +3,25 @@ title: Aggiungere un livello bolle in Mappe di Azure | Microsoft Docs
 description: Come aggiungere un livello bolle alla mappa Javascript
 author: rbrundritt
 ms.author: richbrun
-ms.date: 10/30/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: f2c4c6b8655d5efb993a2dedf536000ac94328c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 516e4f35c88ae9c0e2d63e8a4ee40eb57c05ac29
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60769686"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639033"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Aggiungere un livello bolle a una mappa
 
 Questo articolo illustra come eseguire il rendering di un punto dati da un'origine dati come livello bolle in una mappa. I livelli bolle eseguono il rendering dei punti come cerchi sulla mappa con raggio dei pixel fisso. 
 
 > [!TIP]
-> Per impostazione predefinita i livelli bolle eseguiranno il rendering delle coordinate di tutte le geometrie in un'origine dati. Per limitare il livello in modo da poter sviluppare solo punto di geometria funzionalità set il `filter` proprietà del livello `['==', ['geometry-type'], 'Point']` o `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` se si desidera includere anche le funzionalità MultiPoint.
+> Per impostazione predefinita i livelli bolle eseguiranno il rendering delle coordinate di tutte le geometrie in un'origine dati. Per limitare il livello in modo che esegua il rendering solo delle funzionalità di `filter` geometria dei punti, impostare `['==', ['geometry-type'], 'Point']` la `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` proprietà del livello su o se si desidera includere anche le funzionalità multipoint.
 
 ## <a name="add-a-bubble-layer"></a>Aggiungere un livello per le bolle
 

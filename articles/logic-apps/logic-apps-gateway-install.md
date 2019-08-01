@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 10a6e5c33f6a3c23d98e6eb3380de0d6dc6ac216
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61a9b319b9ea44f766bc6f014b76bc48d15efc57
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544470"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598448"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installare il gateway dati locale per App per la logica di Azure
 
@@ -36,7 +36,7 @@ Il gateway supporta [connettori locali](../connectors/apis-list.md#on-premises-c
 *   PostgreSQL
 *   Server applicazioni SAP 
 *   Server messaggi SAP
-*   SharePoint Server
+*   Server SharePoint
 *   SQL Server
 *   Teradata
 
@@ -296,7 +296,7 @@ Il gateway dati viene eseguito come servizio Windows e, come qualsiasi altro ser
 
 ## <a name="tenant-level-administration"></a>Amministrazione a livello di tenant 
 
-Attualmente non esiste un'unica posizione in cui gli amministratori del tenant possono gestire tutti i gateway che altri utenti hanno installato e configurato. Se l'utente è un amministratore del tenant, può richiedere agli utenti dell'organizzazione di aggiungerlo come amministratore per ogni gateway che installano. In questo modo, è possibile gestire tutti i gateway all'interno dell'organizzazione tramite la pagina delle impostazioni del gateway oppure tramite i [comandi di PowerShell](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters#powershell-support-for-gateway-clusters). 
+Attualmente non esiste un'unica posizione in cui gli amministratori del tenant possono gestire tutti i gateway che altri utenti hanno installato e configurato. Se l'utente è un amministratore del tenant, può richiedere agli utenti dell'organizzazione di aggiungerlo come amministratore per ogni gateway che installano. In questo modo, è possibile gestire tutti i gateway all'interno dell'organizzazione tramite la pagina delle impostazioni del gateway oppure tramite i [comandi di PowerShell](/data-integration/gateway/service-gateway-powershell-support). 
 
 <a name="gateway-cloud-service"></a>
 
@@ -418,7 +418,7 @@ Per la risoluzione dei problemi, iniziare sempre raccogliendo ed esaminando i lo
 
 Di seguito sono riportate altre posizioni in cui è possibile trovare vari log:
 
-| Tipo di log | Località | 
+| Tipo di log | Location | 
 |----------|----------| 
 | **Log del programma di installazione** | %localappdata%\Temp\On-premises_data_gateway_<*aaaammgg*>.<*numero*>.log | 
 | **Log di configurazione** | C:\Users\<*nomeutente*>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator<*aaaammgg*>.<*numero*>.log | 

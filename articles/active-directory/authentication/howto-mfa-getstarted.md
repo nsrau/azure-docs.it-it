@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fa2254ff3223be4312f4e9b3db4d9d83da443c0
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 182b9da402e633033411f85eb59b31f76749f3cd
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311335"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666245"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Pianificazione di una distribuzione di Azure per l'autenticazione a più fattori basata sul cloud
 
@@ -52,7 +52,7 @@ Azure Multifactor Authentication viene distribuito applicando criteri con access
 
 * Tutti gli utenti, un utente specifico, un membro di un gruppo o un ruolo assegnato
 * Applicazione cloud specifica a cui si accede
-* Piattaforma del dispositivo.
+* Piattaforma del dispositivo
 * Stato del dispositivo
 * Percorso di rete o indirizzo IP geografico
 * Applicazioni client
@@ -72,7 +72,7 @@ I criteri di accesso condizionale applicano la registrazione, richiedendo agli u
 * Credenziali perse
 * Accessi da indirizzi IP anonimi
 * Trasferimento impossibile a posizioni atipiche
-* Accessi da posizioni non note
+* Accessi da posizioni insolite
 * Accessi da dispositivi infetti
 * Accessi da indirizzi IP con attività sospette
 
@@ -102,7 +102,7 @@ Alcuni degli eventi di rischio rilevati da Azure Active Directory Identity Prote
 
 Gli amministratori possono scegliere i [metodi di autenticazione](../authentication/concept-authentication-methods.md) che desiderano rendere disponibili per gli utenti. È importante consentire più di un singolo metodo di autenticazione in modo che gli utenti dispongano di un metodo di backup disponibile nel caso in cui il metodo principale non sia disponibile. Per consentire agli amministratori di abilitare, sono disponibili i metodi seguenti:
 
-### <a name="notification-through-mobile-app"></a>Notifica tramite app per dispositivi mobili
+### <a name="notification-through-mobile-app"></a>Notifica tramite l'app per dispositivi mobili
 
 Viene inviata una notifica push all'app Microsoft Authenticator nel dispositivo mobile. L'utente Visualizza la notifica e seleziona **approva** per completare la verifica. Le notifiche push tramite un'app per dispositivi mobili offrono l'opzione meno intrusiva per gli utenti. Sono anche l'opzione più affidabile e sicura perché usano una connessione dati invece della telefonia.
 
@@ -300,7 +300,7 @@ Se si dispone di un'istanza del server dei criteri di servizio distribuita e gi�
 
 Scegliere cosa accade quando gli utenti che non sono registrati con l'autenticazione a più fattori tentano di eseguire l'autenticazione. Usare l'impostazione `REQUIRE_USER_MATCH` del registro di sistema nel `HKLM\Software\Microsoft\AzureMFA` percorso del registro di sistema per controllare il comportamento della funzionalità. Questa impostazione ha un'unica opzione di configurazione.
 
-| Chiave | Valore | Predefinito |
+| Chiave | Value | Predefinito |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE/FALSE | Non impostato (equivalente a VERO) |
 
@@ -361,13 +361,16 @@ Ora che è stata pianificata la soluzione, è possibile implementare attenendosi
 1. Inviare le comunicazioni utente e chiedere agli utenti di registrarsi all'indirizzo[https://aka.ms/mfasetup](https://aka.ms/mfasetup)
 1. [Tenere traccia degli utenti registrati](#identify-non-registered-users)
 
+> [!TIP]
+> Gli utenti del cloud per enti pubblici possono iscriversi all'indirizzo[https://aka.ms/GovtMFASetup](https://aka.ms/GovtMFASetup)
+
 ## <a name="manage-your-solution"></a>Gestire la soluzione
 
 Report per l'autenticazione a più fattori di Azure
 
 Autenticazione a più fattori di Azure fornisce report tramite i portale di Azure:
 
-| Report | Location | Descrizione |
+| Report | Location | DESCRIZIONE |
 | --- | --- | --- |
 | Avvisi di illecito e utilizzo | Azure AD > Accessi | Fornisce informazioni su utilizzo complessivo, riepilogo utenti e dettagli utente; nonché una cronologia degli avvisi di illecito inviati durante l'intervallo di date specificato. |
 

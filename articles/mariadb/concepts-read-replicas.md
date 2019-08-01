@@ -6,16 +6,16 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: e6bbe15727a6f989d8c16c67591d39d7870d5708
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 8d4a7a1b176a0c232c4461c7a8cfc2b1e3faddd6
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67874902"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638383"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Leggere le repliche nel database di Azure per MariaDB
 
-La funzionalità di lettura della replica consente di replicare i dati da un database di Azure per il server MariaDB a un server di sola lettura. È possibile eseguire la replica dal server master a un massimo di cinque repliche. Le repliche vengono aggiornate in modo asincrono utilizzando la tecnologia di replica basata su posizione del file binlog (binary log) del motore MariaDB con l'ID di transazione globale (GTID). Per altre informazioni su questo tipo di replica, vedere [binlog replication overview](https://mariadb.com/kb/en/library/replication-overview/) (Panoramica della replica basata su binlog).
+La funzionalità di lettura della replica consente di replicare i dati da un database di Azure per il server MariaDB a un server di sola lettura. È possibile creare fino a un massimo di cinque repliche da un server master. Le repliche vengono aggiornate in modo asincrono utilizzando la tecnologia di replica basata su posizione del file binlog (binary log) del motore MariaDB con l'ID di transazione globale (GTID). Per altre informazioni su questo tipo di replica, vedere [binlog replication overview](https://mariadb.com/kb/en/library/replication-overview/) (Panoramica della replica basata su binlog).
 
 > [!IMPORTANT]
 > È possibile creare una replica di lettura nella stessa area del server master o in qualsiasi altra area di Azure di propria scelta. Le repliche di lettura (stessa area e tra più aree) sono attualmente in anteprima pubblica.
@@ -69,7 +69,7 @@ Questa metrica viene calcolata usando `seconds_behind_master` la metrica disponi
 
 Impostare un avviso per informare l'utente quando il ritardo di replica raggiunge un valore che non è accettabile per il carico di lavoro.
 
-## <a name="stop-replication"></a>Arrestare la replica
+## <a name="stop-replication"></a>Arresta replica
 
 È possibile scegliere di arrestare la replica tra un master e una replica. Dopo l'arresto della replica tra un server master e una replica in lettura, la replica diventa un server autonomo. I dati nel server autonomo sono i dati che erano disponibili nella replica al momento dell'esecuzione del comando di arresto della replica. Il server autonomo non è aggiornato con il server master.
 
@@ -133,3 +133,4 @@ Il [`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni su come [creare e gestire le repliche in lettura tramite il portale di Azure](howto-read-replicas-portal.md)
+- Leggere le informazioni su come [creare e gestire repliche in lettura tramite l'interfaccia della riga di comando di Azure](howto-read-replicas-cli.md)

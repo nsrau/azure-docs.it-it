@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 99933fa36cc822598ec9c173a470f90264d06d54
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 5b48a41f025ef06c69e6de126e0a64ad359ce09a
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461347"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666376"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Creare un set di dati di riferimento per l'ambiente Time Series Insights usando il portale di Azure
 
@@ -24,11 +24,11 @@ In questo articolo viene descritto come aggiungere un set di dati di riferimento
 
 Un set di dati di riferimento è una raccolta di elementi che aumentano gli eventi dell'origine evento. Il motore in ingresso di Time Series Insights crea un join tra ogni evento dell'origine evento e la riga di dati corrispondente nel set di dati di riferimento. Questo evento aumentato sarà quindi disponibile per le query. Questo join è basato sulla colonna o le colonne di chiavi primarie definite nel set di dati di riferimento.
 
-Non viene creato un join dei dati di riferimento in maniera retroattiva. Di conseguenza, i dati in ingresso solo attuali e future sono corrispondente e aggiunto al set di date di riferimento, una volta che è stato configurato e caricato.
+Non viene creato un join dei dati di riferimento in maniera retroattiva. In questo modo, solo i dati in ingresso correnti e futuri vengono abbinati e aggiunti al set di date di riferimento, una volta che è stato configurato e caricato.
 
 ## <a name="video"></a>Video
 
-### <a name="learn-about-time-series-insights-reference-data-modelbr"></a>Informazioni sul modello di dati del Time Series Insights riferimento.</br>
+### <a name="learn-about-time-series-insights-reference-data-modelbr"></a>Informazioni sul modello di dati di riferimento di Time Series Insights.</br>
 
 > [!VIDEO https://www.youtube.com/embed/Z0NuWQUMv1o]
 
@@ -54,7 +54,7 @@ Non viene creato un join dei dati di riferimento in maniera retroattiva. Di cons
    - Scegliere **CSV** per i dati delimitati da virgole. La prima riga viene considerata una riga di intestazione.
    - Scegliere **Matrice JSON** per i dati in formato JavaScript Object Notation (JSON).
 
-   [![Scegli il formato dei dati.](media/add-reference-data-set/add-data.png)](media/add-reference-data-set/add-data.png#lightbox)
+   [![Scegliere il formato dati.](media/add-reference-data-set/add-data.png)](media/add-reference-data-set/add-data.png#lightbox)
 
 1. Specificare i dati usando uno dei due metodi seguenti:
    - Incollare i dati nell'editor di testo. Quindi scegliere il pulsante **Analizza dati di riferimento**.
@@ -76,23 +76,23 @@ Non viene creato un join dei dati di riferimento in maniera retroattiva. Di cons
 
 1. Rinominare le intestazioni di colonna se necessario. Il nome di colonna chiave è necessario per creare un join con la proprietà corrispondente nell'origine evento. Verificare che i nomi di colonna chiave dei dati di riferimento corrispondano esattamente al nome evento nei dati in entrata, inclusa la combinazione di maiuscole/minuscole. I nomi non di colonna chiave vengono usati per aumentare i dati in entrata con i valori dei dati di riferimento corrispondenti.
 
-1. Selezionare **aggiungere una riga** oppure **aggiungere una colonna** per aggiungere più valori di dati di riferimento, in base alle esigenze.
+1. Selezionare **Aggiungi una riga** o **Aggiungi una colonna** per aggiungere altri valori dei dati di riferimento, in base alle esigenze.
 
 1. Digitare un valore nel campo **Filtra righe** per esaminare righe specifiche in base alle necessità. Il filtro è utile per esaminare i dati, ma non viene applicato quando si caricano i dati.
 
 1. Assegnare un nome al set di dati specificandolo nel campo **Nome del set di dati** sopra la griglia dei dati.
 
-    [![Nome del set di dati.](media/add-reference-data-set/name-reference-dataset.png)](media/add-reference-data-set/name-reference-dataset.png#lightbox)
+    [![Assegnare un nome al set di dati.](media/add-reference-data-set/name-reference-dataset.png)](media/add-reference-data-set/name-reference-dataset.png#lightbox)
 
 1. Specificare la colonna **Chiave primaria** nel set di dati, selezionandola dall'elenco a discesa sopra la griglia dei dati.
 
-    [![Selezionare le colonne di chiavi.](media/add-reference-data-set/set-primary-key.png)](media/add-reference-data-set/set-primary-key.png#lightbox)
+    [![Selezionare la colonna o le colonne chiave.](media/add-reference-data-set/set-primary-key.png)](media/add-reference-data-set/set-primary-key.png#lightbox)
 
     Facoltativamente, selezionare il pulsante **+** per aggiungere una colonna chiave secondaria, come una chiave primaria composta. Se occorre annullare la selezione, selezionare il valore vuoto nell'elenco a discesa per rimuovere la chiave secondaria.
 
 1. Per caricare i dati, selezionare il pulsante **Carica righe**.
 
-    [![caricamento](media/add-reference-data-set/upload-rows.png)](media/add-reference-data-set/upload-rows.png#lightbox)
+    [![Caricare](media/add-reference-data-set/upload-rows.png)](media/add-reference-data-set/upload-rows.png#lightbox)
 
     La pagina conferma il completamento del caricamento e visualizza il messaggio **Il set di dati è stato caricato**.
 
@@ -100,4 +100,4 @@ Non viene creato un join dei dati di riferimento in maniera retroattiva. Di cons
 
 * [Gestire i dati di riferimento](time-series-insights-manage-reference-data-csharp.md) a livello di codice.
 
-* Per le informazioni di riferimento complete per l'API, vedere il documento relativo all'[API dei dati di riferimento](/rest/api/time-series-insights/ga-reference-data-api).
+* Per le informazioni di riferimento complete per l'API, vedere il documento relativo all'[API dei dati di riferimento](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).

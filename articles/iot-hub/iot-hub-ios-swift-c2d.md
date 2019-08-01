@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: af1b331836cd025bbe15665aa03faee000e7c4f0
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 8c6013e5bda2bec1c8a09fd9f2434cdd477eed01
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404233"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618515"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Inviare messaggi da cloud a dispositivo con l'hub IoT (iOS)
 
@@ -37,7 +37,7 @@ Alla fine di questo articolo, vengono eseguiti due progetti Swift iOS:
 * **Sample-Service**, che invia un messaggio da cloud a dispositivo all'app per dispositivo simulato tramite l'hub Internet e quindi riceve la conferma di recapito.
 
 > [!NOTE]
-> L’hub IoT dispone del supporto SDK per molte piattaforme e linguaggi (inclusi C, Java e Javascript) tramite gli SDK del dispositivo IoT Azure. Per istruzioni dettagliate su come connettere il dispositivo al codice dell'esercitazione e in generale all'hub IoT di Azure, vedere il [Centro per sviluppatori Azure IoT](https://www.azure.com/develop/iot).
+> L'hub di Internet delle cose dispone del supporto SDK per molte piattaforme e linguaggi del dispositivo (inclusi C, Java, Python e JavaScript) tramite gli SDK per dispositivi Azure. Per istruzioni dettagliate su come connettere il dispositivo al codice dell'esercitazione e in generale all'hub IoT di Azure, vedere il [Centro per sviluppatori Azure IoT](https://www.azure.com/develop/iot).
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 

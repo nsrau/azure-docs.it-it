@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 50a1e0a6bfa6fe33f432548a4a0b485134a60c72
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 689a702863dda53870f775bd8520d5dd406d242f
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055346"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640611"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Informazioni di riferimento - Endpoint dell'hub IoT
 
@@ -75,21 +75,21 @@ Tutti gli endpoint dell'hub IoT usano il protocollo [TLS](https://tools.ietf.org
 
 Hub IoT supporta attualmente i servizi di Azure seguenti come endpoint aggiuntivi:
 
-* Contenitori di Archiviazione di Azure
+* Contenitori di archiviazione di Azure
 * Hub eventi
 * Code del bus di servizio
 * Argomenti del bus di servizio
 
 Per i limiti sul numero di endpoint che è possibile aggiungere, vedere [Quotas and throttling](iot-hub-devguide-quotas-throttling.md) (Quote e limitazioni).
 
-È possibile usare l'API REST [integrità degli Endpoint ottenere](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) per ottenere lo stato di integrità degli endpoint. È consigliabile usare la [le metriche dell'IoT Hub](iot-hub-metrics.md) relativi alla latenza di routing di messaggi per identificare e il debug degli errori quando l'integrità dell'endpoint è inattivo o non integro, come prevedevamo latenza a essere superiore quando l'endpoint si trova in uno di questi stati.
+È possibile usare l'API REST per [ottenere l'integrità dell'endpoint](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) per ottenere lo stato di integrità degli endpoint. Si consiglia di usare le [metriche dell'hub](iot-hub-metrics.md) delle cose correlate alla latenza dei messaggi di routing per identificare ed eseguire il debug degli errori quando l'integrità dell'endpoint è inattiva o non integra, perché si prevede che la latenza sia superiore quando l'endpoint si trova in uno di questi Stati.
 
-|Stato di integrità|Descrizione|
+|Stato integrità|DESCRIZIONE|
 |---|---|
-|healthy|L'endpoint accetta i messaggi nel modo previsto.|
-|Tipo non integro|L'endpoint non accetta i messaggi come previsto e nuovo tentativo dell'IoT Hub per inviare dati a questo endpoint. Lo stato di un endpoint integro verrà aggiornato in integro quando l'IoT Hub ha stabilito uno stato di integrità con coerenza finale.|
-|unknown|L'IoT Hub non ha stabilito una connessione con l'endpoint. Nessun messaggio è stato recapitato o rifiutato da questo endpoint.|
-|Dead|L'endpoint non accetta i messaggi, dopo che l'IoT Hub ritentare l'invio di messaggi per il periodo retrial.|
+|healthy|L'endpoint accetta messaggi come previsto.|
+|non integro|L'endpoint non accetta messaggi come previsto e l'hub Internet sta tentando di inviare i dati a questo endpoint. Lo stato di un endpoint non integro verrà aggiornato a integro quando lo stato di integrità dell'hub Internet è stabile.|
+|sconosciuto|L'hub cose non ha stabilito una connessione con l'endpoint. Nessun messaggio è stato recapitato o rifiutato da questo endpoint.|
+|morto|L'endpoint non accetta messaggi, dopo che l'hub di Internet delle cose ha ritentato l'invio di messaggi per il periodo di prova.|
 
 ## <a name="field-gateways"></a>Gateway sul campo
 
@@ -104,3 +104,4 @@ Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida p
 * [Linguaggio di query dell'hub IoT per dispositivi gemelli, processi e routing di messaggi](iot-hub-devguide-query-language.md)
 * [Quote e limitazione](iot-hub-devguide-quotas-throttling.md)
 * [Supporto di MQTT nell'hub IoT](iot-hub-mqtt-support.md)
+* [Informazioni sull'indirizzo IP dell'hub Internet](iot-hub-understand-ip-address.md)
