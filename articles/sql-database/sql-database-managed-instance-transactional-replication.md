@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 1c62fb466774a3599972d6a9cc340cca300eee59
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: db295f7644cae96eb00670cecf6e4eeba9bb6bed
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67696198"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567229"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Replica transazionale con database singoli, in pool e dell'istanza nel database SQL di Azure
 
@@ -52,22 +51,22 @@ Il **sottoscrittore** è un'istanza o un server che riceve le modifiche apportat
 
 | Role | Database singoli e in pool | Database dell'istanza |
 | :----| :------------- | :--------------- |
-| **Autore** | No | Yes | 
+| **Autore** | No | Sì | 
 | **Database di distribuzione** | No | Sì|
 | **Sottoscrittore pull** | No | Sì|
-| **Sottoscrittore push**| Yes | Yes|
+| **Sottoscrittore push**| Sì | Sì|
 | &nbsp; | &nbsp; | &nbsp; |
 
   >[!NOTE]
-  > Una sottoscrizione pull non è supportata quando il server di distribuzione è un database dell'istanza e non nel Sottoscrittore. 
+  > Una sottoscrizione pull non è supportata quando il server di distribuzione è un database di istanza e il Sottoscrittore non lo è. 
 
 Esistono diversi [tipi di replica](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication):
 
 
 | Replica | Database singoli e in pool | Database in istanza|
 | :----| :------------- | :--------------- |
-| [**Transazionale standard**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sì (solo come sottoscrittore) | Yes | 
-| [**Snapshot**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sì (solo come sottoscrittore) | Sì|
+| [**Transazionale standard**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sì (solo come sottoscrittore) | Sì | 
+| [**Snapshot**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sì (solo come sottoscrittore) | Yes|
 | [**Replica di tipo merge**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | No | No|
 | [**Peer-to-peer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | No | No|
 | [**Bidirezionale**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | No | Sì|
@@ -78,8 +77,8 @@ Esistono diversi [tipi di replica](https://docs.microsoft.com/sql/relational-dat
   > - Se si cerca di configurare la replica usando una versione meno recente, potrebbero essere generati gli errori MSSQL_REPL20084. (Il processo non è riuscito a connettersi al sottoscrittore) e MSSQ_REPL40532 (Impossibile aprire il server \<nome> richiesto dall'account di accesso. Accesso non riuscito).
   > - Per usare tutte le funzionalità del database SQL di Azure, è necessario usare le versioni più recenti di [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
   
-  ### <a name="supportability-matrix-for-instance-databases-and-on-premises-systems"></a>Matrice di supporto per i sistemi di database di istanza e in locale
-  La matrice di supporto della replica ad esempio i database è identico a quello per SQL Server locale. 
+  ### <a name="supportability-matrix-for-instance-databases-and-on-premises-systems"></a>Matrice di supporto per i database di istanza e i sistemi locali
+  La matrice di supporto della replica per i database dell'istanza è identica a quella per SQL Server in locale. 
   
   | **Autore**   | **Database di distribuzione** | **Sottoscrittore** |
 | :------------   | :-------------- | :------------- |
@@ -94,15 +93,15 @@ Esistono diversi [tipi di replica](https://docs.microsoft.com/sql/relational-dat
 
 - Per la connettività viene usata l'autenticazione SQL tra i partecipanti alla replica. 
 - Una condivisione di account di archiviazione di Azure per la directory di lavoro usata dalla replica. 
-- La porta 445 (TCP in uscita) deve essere aperta nelle regole di sicurezza di subnet dell'istanza gestita per accedere alla condivisione file di Azure. 
+- Per accedere alla condivisione file di Azure, è necessario aprire la porta 445 (TCP in uscita) nelle regole di sicurezza della subnet Istanza gestita. 
 - La porta 1433 (TCP in uscita) deve essere aperta se il server di pubblicazione/database di distribuzione si trovano in un'istanza gestita e il sottoscrittore è locale.
 
   >[!NOTE]
-  > È possibile riscontrare l'errore 53 durante la connessione a un File di archiviazione di Azure se la porta di gruppo (NSG) di sicurezza di rete in uscita 445 è bloccata quando il server di distribuzione è un database dell'istanza e il sottoscrittore è in locale. [Aggiornare la rete virtuale NSG](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) per risolvere il problema. 
+  > È possibile che si verifichi l'errore 53 durante la connessione a un file di archiviazione di Azure se la porta 445 del gruppo di sicurezza di rete (NSG) in uscita è bloccata quando il server di distribuzione è un database di istanza e il Sottoscrittore è in locale. [Aggiornare il NSG di vNet](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) per risolvere il problema. 
 
 ### <a name="compare-data-sync-with-transactional-replication"></a>Confrontare la sincronizzazione dati con la replica transazionale
 
-| | Sincronizzazione dei dati | Replica transazionale |
+| | Sincronizzazione dati | Replica transazionale |
 |---|---|---|
 | Vantaggi | - Supporto attivo/attivo<br/>- Bidirezionale tra database locali e database SQL di Azure | - Latenza inferiore<br/>- Coerenza delle transazioni<br/>- Riutilizzo topologia esistente dopo la migrazione |
 | Svantaggi | - Latenza 5 min o superiore<br/>- Nessuna coerenza delle transazioni<br/>- Maggiore impatto sulle prestazioni | - Impossibilità di pubblicare da database singolo o in pool di Database SQL di Azure<br/>- Alti costi di manutenzione |

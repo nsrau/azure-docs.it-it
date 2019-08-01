@@ -3,7 +3,7 @@ title: Proteggere un cluster di Azure Service Fabric | Documentazione Microsoft
 description: Informazioni sugli scenari di sicurezza per un cluster di Azure Service Fabric e le varie tecnologie che è possibile usare per la relativa implementazione.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: 26b58724-6a43-4f20-b965-2da3f086cf8a
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
-ms.author: aljo
-ms.openlocfilehash: 6d67fa4af031480fda4a91f7356bff69830a654c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 6ee7c71a66488e9636752676d68a79fdfaf855cb
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711504"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599840"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scenari di sicurezza di un cluster di Service Fabric
 Un cluster di Azure Service Fabric è una risorsa di cui si è proprietari. È responsabilità dell'utente proteggere i cluster per evitare che utenti non autorizzati si connettano a essi. Un cluster sicuro è particolarmente importante quando si eseguono carichi di lavoro nel cluster. La creazione di cluster non protetti, anche se possibile, potrebbe consentire a utenti anonimi di connettersi a un cluster che espone gli endpoint di gestione a Internet pubblico. I cluster non protetti non sono supportati per l'esecuzione di carichi di lavoro di produzione. 
@@ -66,13 +66,13 @@ Per informazioni su come impostare la sicurezza basata su certificati in un clus
 Per informazioni su come impostare la sicurezza basata su certificati in un cluster di Windows Server autonomo, vedere [proteggere un cluster autonomo in Windows mediante certificati X.509](service-fabric-windows-cluster-x509-security.md).
 
 ### <a name="client-to-node-azure-active-directory-security-on-azure"></a>Sicurezza di Azure Active Directory da client a nodo in Azure
-Azure AD consente alle organizzazioni (note come tenant) di gestire l'accesso degli utenti alle applicazioni. Alcune applicazioni sono caratterizzate da un'interfaccia utente di accesso basata sul Web, altre invece da un'esperienza client nativa. Se il tenant non è ancora stato creato, prima di iniziare consultare [Come ottenere un tenant di Azure Active Directory][active-directory-howto-tenant].
+Azure AD consente alle organizzazioni (note come tenant) di gestire l'accesso degli utenti alle applicazioni. Alcune applicazioni sono caratterizzate da un'interfaccia utente di accesso basata sul Web, altre invece da un'esperienza client nativa. Se non è già stato creato un tenant, iniziare leggendo [come ottenere un tenant di Azure Active Directory][active-directory-howto-tenant].
 
-I cluster di Service Fabric offrono numerosi punti di ingresso alle relative funzionalità di gestione, tra cui [Service Fabric Explorer][service-fabric-visualizing-your-cluster], basato sul Web, e [Visual Studio][service-fabric-manage-application-in-visual-studio]. Verranno quindi create due applicazioni Azure AD per controllare l'accesso al cluster, un'applicazione Web e un'applicazione nativa.
+Un cluster di Service Fabric offre diversi punti di accesso alle proprie funzionalità di gestione, tra cui [Service Fabric Explorer][service-fabric-visualizing-your-cluster] e [Visual Studio][service-fabric-manage-application-in-visual-studio] basati sul Web. Verranno quindi create due applicazioni Azure AD per controllare l'accesso al cluster, un'applicazione Web e un'applicazione nativa.
 
 Per i cluster eseguiti in Azure è anche possibile proteggere l'accesso agli endpoint di gestione usando Azure Active Directory (Azure AD). Per informazioni su come creare gli artefatti necessari di Azure AD e su come popolarli durante la creazione del cluster, vedere [Configurare Azure AD per autenticare i client](service-fabric-cluster-creation-setup-aad.md).
 
-## <a name="security-recommendations"></a>Suggerimenti per la sicurezza
+## <a name="security-recommendations"></a>Raccomandazioni sulla sicurezza
 Per i cluster di Service Fabric distribuiti in una rete pubblica ospitata in Azure, per l'autenticazione reciproca da client a nodo è consigliabile:
 *   Usare Azure Active Directory per l'identità del client
 *   Un certificato per l'identità del server e la crittografia SSL della comunicazione HTTP
@@ -112,7 +112,7 @@ Il certificato deve soddisfare i requisiti seguenti:
 
 Altri aspetti da considerare:
 
-* Il campo **Soggetto** può avere più valori. Ogni valore è preceduto da un'inizializzazione per indicare il tipo di valore. È in genere l'inizializzazione **CN** (per *nome comune*), ad esempio **CN = www\.contoso.com**. 
+* Il campo **Soggetto** può avere più valori. Ogni valore è preceduto da un'inizializzazione per indicare il tipo di valore. In genere, l'inizializzazione è **CN** (per il *nome comune*); ad esempio, **cn = www\.contoso.com**. 
 * Il campo **Soggetto** può essere vuoto. 
 * Se il campo facoltativo **Nome alternativo soggetto** è popolato, deve contenere sia il nome comune del certificato sia una voce per ogni nome alternativo del soggetto. Queste voci vengono immesse come valori di **nomi DNS**. Per informazioni su come generare certificati con nomi alternativi del soggetto, vedere [Come aggiungere un nome alternativo del soggetto a un certificato LDAP sicuro](https://support.microsoft.com/kb/931351).
 * Il valore del campo **Scopi designati** del certificato deve includere un valore appropriato, ad esempio **Autenticazione server** o **Autenticazione client**.

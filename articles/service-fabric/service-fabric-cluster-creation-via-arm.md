@@ -3,7 +3,7 @@ title: Creare un cluster di Azure Service Fabric | Microsoft Docs
 description: Informazioni su come configurare un cluster di Service Fabric protetto in Azure usando Azure Resource Manager.  È possibile creare un cluster usando un modello predefinito o il proprio modello di cluster.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: chackdan
 ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
-ms.author: aljo
-ms.openlocfilehash: 709b59d257dd974e81d8b4058983f6e264ba0708
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 4a865102cbc33da4140f3e25e4b4926eade8e162
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925861"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599966"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Creare un cluster di Service Fabric usando Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "64925861"
 
 Un [cluster di Azure Service Fabric](service-fabric-deploy-anywhere.md) è un set di macchine virtuali connesse in rete, in cui vengono distribuiti e gestiti i microservizi.  Un cluster di Service Fabric in esecuzione in Azure è una risorsa di Azure e viene distribuito tramite Azure Resource Manager. Questo articolo descrive come distribuire un cluster di Service Fabric protetto in Azure usando Resource Manager. È possibile usare un modello di cluster predefinito o un modello personalizzato.  Se non si ha un modello personalizzato, consultare le [informazioni su come crearne uno](service-fabric-cluster-creation-create-template.md).
 
-La sicurezza del cluster viene configurata durante la prima configurazione del cluster e non può essere modificata in un secondo momento. Prima di configurare un cluster, vedere [Scenari di sicurezza di un cluster di Service Fabric][service-fabric-cluster-security]. In Azure, Service Fabric usa un certificato x509 per proteggere il cluster e i relativi endpoint, autenticare i client e crittografare i dati. Per proteggere l'accesso agli endpoint di gestione, è anche consigliabile usare Azure Active Directory. Prima di creare il cluster, è necessario creare i tenant e gli utenti di Azure AD.  Per altre informazioni, vedere [Configurare Azure AD per autenticare i client](service-fabric-cluster-creation-setup-aad.md).
+La sicurezza del cluster viene configurata durante la prima configurazione del cluster e non può essere modificata in un secondo momento. Prima di configurare un cluster, leggere [Service Fabric scenari di sicurezza del cluster][service-fabric-cluster-security]. In Azure, Service Fabric usa un certificato x509 per proteggere il cluster e i relativi endpoint, autenticare i client e crittografare i dati. Per proteggere l'accesso agli endpoint di gestione, è anche consigliabile usare Azure Active Directory. Prima di creare il cluster, è necessario creare i tenant e gli utenti di Azure AD.  Per altre informazioni, vedere [Configurare Azure AD per autenticare i client](service-fabric-cluster-creation-setup-aad.md).
 
 Per la creazione di un cluster di produzione per l'esecuzione di carichi di lavoro di produzione, si consiglia di leggere l'[Elenco di controllo per l'idoneità per la produzione](service-fabric-production-readiness-checklist.md).
 
@@ -40,8 +40,8 @@ Per la creazione di un cluster di produzione per l'esecuzione di carichi di lavo
 ## <a name="prerequisites"></a>Prerequisiti 
 In questo articolo, è possibile usare powershell Resource Manager di Service Fabric o moduli dell’interfaccia della riga di comando di Azure per distribuire un cluster:
 
-* [Azure PowerShell 4.1 e versioni successive][azure-powershell]
-* [Interfaccia della riga di comando di Azure versione 2.0 e versioni successive][azure-CLI]
+* [Azure PowerShell 4,1 e versioni successive][azure-powershell]
+* [INTERFACCIA della riga di comando di Azure versione 2,0 e successive][azure-CLI]
 
 È possibile trovare la documentazione di riferimento per i moduli di Service Fabric di seguito:
 * [Az.ServiceFabric](https://docs.microsoft.com/powershell/module/az.servicefabric)
@@ -74,7 +74,7 @@ Il modello utilizzato è disponibile tra gli [esempi di modelli di Azure Service
 Il comando seguente può creare sia cluster Windows che cluster Linux, è necessario specificare il sistema operativo in base alle esigenze. I comandi di PowerShell e dell'interfaccia della riga di comando restituiscono inoltre il certificato nella cartella *CertificateOutputFolder* specificata, tuttavia assicurarsi che la cartella del certificato sia già stata creata. Il comando accetta anche altri parametri come VM SKU.
 
 > [!NOTE]
-> Il comando PowerShell seguente funziona solo con Azure PowerShell `Az` modulo. Per controllare la versione corrente di PowerShell per Azure Resource Manager, eseguire il comando seguente di PowerShell "Get-Module Az". Per aggiornare la versione di PowerShell per Azure Resource Manager, seguire [questo collegamento](/powershell/azure/install-Az-ps). 
+> Il comando di PowerShell seguente funziona solo con il `Az` modulo Azure PowerShell. Per verificare la versione corrente di Azure Resource Manager versione di PowerShell, eseguire il comando di PowerShell seguente "Get-Module AZ". Per aggiornare la versione di PowerShell per Azure Resource Manager, seguire [questo collegamento](/powershell/azure/install-Az-ps). 
 >
 >
 

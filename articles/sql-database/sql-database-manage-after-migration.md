@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
-manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 73bc2d9889727a1633986e12642bd06cf2714632
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2edd12435643f88a0923abf0927149993d49e424
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357319"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567801"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nuovo DBA nel cloud - Gestione dei database singoli e in pool nel database SQL di Azure
 
@@ -29,7 +28,7 @@ Il passaggio da un ambiente tradizionale, gestito e controllato in autonomia, a 
 
 Questo articolo illustra alcune delle caratteristiche principali del database SQL di Azure come piattaforma immediatamente fruibile quando si lavora con i database singoli e i database in pool in pool elastici. Eccole:
 
-- Monitorare un database usando il portale di Azure
+- Monitorare il database usando il portale di Azure
 - Continuità aziendale e ripristino di emergenza (BCDR)
 - Sicurezza e conformità
 - Monitoraggio e manutenzione intelligenti del database
@@ -40,10 +39,10 @@ Questo articolo illustra alcune delle caratteristiche principali del database SQ
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Monitorare i database tramite il portale di Azure
 
-Nel [portale di Azure](https://portal.azure.com/), è possibile monitorare un utilizzo di singoli database s selezionandolo e scegliendo il **monitoraggio** grafico. Verrà visualizzata una finestra della **metrica** in cui è possibile apportare modifiche facendo clic su l pulsante **Modifica grafico**. Aggiungere le metriche seguenti
+Nella [portale di Azure](https://portal.azure.com/)è possibile monitorare l'utilizzo di singoli database selezionando il database e facendo clic sul grafico di **monitoraggio** . Verrà visualizzata una finestra della **metrica** in cui è possibile apportare modifiche facendo clic su l pulsante **Modifica grafico**. Aggiungere le metriche seguenti
 
 - Percentuale CPU
-- Percentuale di DTU
+- Percentuale DTU
 - Percentuale di I/O di dati
 - Percentuale di dimensioni del database
 
@@ -155,7 +154,7 @@ La porta 1433. Il database SQL comunica attraverso questa porta. Per connettersi
 
 Con il database SQL è possibile attivare il controllo per rilevare gli eventi di database. Il servizio di [controllo del database SQL](sql-database-auditing.md) registra gli eventi che si verificano nel database e li registra in un file di log di controllo nell'account di Archiviazione di Azure dell'utente. Il controllo è particolarmente utile se si intende ottenere informazioni su potenziali violazioni in termini di sicurezza e criteri, mantenere la conformità ai requisiti normativi e così via. Consente di definire e configurare determinate categorie di eventi che si ritiene necessitino di controllo e, sulla base di ciò, è possibile ottenere report preconfigurati e un dashboard per avere una panoramica degli eventi che si verificano nel database. È possibile applicare questi criteri di controllo a livello di database o server. Per una guida su come attivare il controllo per il server/database, vedere: [Abilitare il controllo del database SQL](sql-database-security-tutorial.md#enable-security-features).
 
-#### <a name="threat-detection"></a>Introduzione al rilevamento delle minacce
+#### <a name="threat-detection"></a>Rilevamento delle minacce
 
 Con il [rilevamento delle minacce](sql-database-threat-detection.md) è possibile intervenire in modo molto semplice sulle violazioni in termini di sicurezza o criteri individuate con il controllo. Non è necessario essere esperti di sicurezza per risolvere potenziali minacce o violazioni nel sistema. Il rilevamento delle minacce include anche alcune funzionalità incorporate come il rilevamento di attacchi SQL injection. Un attacco SQL injection è un tentativo di modificare o compromettere i dati e un modo molto comune per attaccare in genere un'applicazione di database. Il rilevamento delle minacce esegue vari set di algoritmi che rilevano potenziali vulnerabilità e attacchi SQL injection, nonché modelli anomali di accesso al database (ad esempio, accesso da una posizione insolita o da un'entità di sicurezza sconosciuta). I responsabili della sicurezza o altri amministratori designati ricevono una notifica e-mail se viene rilevata una minaccia nel database. Ogni notifica contiene dettagli sull'attività sospetta e consigli su come eseguire altre indagini e mitigare la minaccia. Per informazioni su come attivare il rilevamento delle minacce, vedere: [Enable threat detection](sql-database-security-tutorial.md#enable-security-features) (Abilitare il rilevamento delle minacce).
 
@@ -180,7 +179,7 @@ Per proteggere i dati sensibili in elaborazione e inattivi, il database SQL incl
 
 ### <a name="how-can-i-limit-access-to-sensitive-data-in-my-database"></a>Come limitare l'accesso ai dati sensibili nel database
 
-Ogni applicazione include quantità specifiche di dati sensibili nel database che non devono essere visibili a chiunque. Alcuni membri del personale all'interno dell'organizzazione devono essere in grado di visualizzare questi dati, a differenza di altri. Un esempio è rappresentato dai salari dei dipendenti. Un gestore di è necessario accedere a informazioni per i report diretti, tuttavia, i singoli membri del team non devono avere accesso alle informazioni salariali dei loro pari. Un altro scenario è rappresentato da sviluppatori di dati che potrebbero interagire con dati sensibili durante le fasi di sviluppo o test, ad esempio i codici fiscali dei clienti. Anche queste informazioni non devono essere esposte agli sviluppatori. In questi casi, i dati sensibili devono essere mascherati o addirittura non esposti. Per impedire a utenti non autorizzati di visualizzare dati sensibili, il database SQL offre due approcci di questo tipo:
+Ogni applicazione include quantità specifiche di dati sensibili nel database che non devono essere visibili a chiunque. Alcuni membri del personale all'interno dell'organizzazione devono essere in grado di visualizzare questi dati, a differenza di altri. Un esempio è rappresentato dai salari dei dipendenti. Un responsabile deve accedere alle informazioni sui salari per i loro dipendenti diretti, tuttavia, i singoli membri del team non devono avere accesso alle informazioni sui salari dei propri peer. Un altro scenario è rappresentato da sviluppatori di dati che potrebbero interagire con dati sensibili durante le fasi di sviluppo o test, ad esempio i codici fiscali dei clienti. Anche queste informazioni non devono essere esposte agli sviluppatori. In questi casi, i dati sensibili devono essere mascherati o addirittura non esposti. Per impedire a utenti non autorizzati di visualizzare dati sensibili, il database SQL offre due approcci di questo tipo:
 
 [Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md) è una funzionalità di mascheramento dei dati che limita l'esposizione a dati sensibili mascherandoli agli utenti sprovvisti di privilegi sul lato applicazione. Definire una regola di maschera che può creare un criterio di maschera (ad esempio per visualizzare solo le ultime quattro cifre di un codice fiscale: XXX-XX-0000 e visualizzarne la maggior parte come X) e identificare gli utenti da escludere dalla regola di maschera. Il mascheramento avviene in tempo reale e sono disponibili varie funzioni di mascheramento per categorie di dati diverse. Dynamic Data Masking consente di rilevare automaticamente i dati sensibili nel database e applicarvi il mascheramento.
 
@@ -227,7 +226,7 @@ ExpressRoute consente anche di raddoppiare il limite di larghezza di banda acqui
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>Il database SQL è conforme ai requisiti normativi e in che modo questo facilita la conformità dell'organizzazione
 
-Il database SQL rispetta una serie di conformità normative. Per visualizzare il set più recente di conformità siano stati soddisfatti dal Database SQL, visitare il [Microsoft Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) e il drill-down nelle conformità importanti per l'organizzazione per capire se il Database SQL è incluso nella conformità Servizi di Azure. È importante notare che, sebbene il database SQL possa essere certificato come servizio conforme, agevola la conformità del servizio dell'organizzazione, ma non la garantisce automaticamente.
+Il database SQL rispetta una serie di conformità normative. Per visualizzare il set più recente di Conformità soddisfatte dal database SQL, visitare il [Centro protezione Microsoft](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) ed eseguire il drill-down nelle conformità importanti per l'organizzazione per verificare se il database SQL è incluso nei servizi conformi di Azure. È importante notare che, sebbene il database SQL possa essere certificato come servizio conforme, agevola la conformità del servizio dell'organizzazione, ma non la garantisce automaticamente.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>Monitoraggio e manutenzione intelligenti del database dopo la migrazione
 
@@ -281,9 +280,9 @@ Da questo grafico è anche possibile configurare avvisi per risorsa. Questi avvi
 
 ![Informazioni dettagliate prestazioni query](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
-#### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>I log Analitica di SQL Azure (anteprima) in Monitoraggio di Azure
+#### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Analisi SQL di Azure (anteprima) nei log di monitoraggio di Azure
 
-[Log di monitoraggio di Azure](../azure-monitor/insights/azure-sql.md) consente di raccogliere e visualizzare le metriche delle prestazioni chiave Azure SQL Azure, supportando fino a 150.000 database SQL e 5.000 pool elastici SQL per area di lavoro. È possibile usare il servizio per monitorare e ricevere notifiche. È possibile monitorare le metriche del database SQL e dei pool elastici in più sottoscrizioni e pool elastici di Azure e usarle per identificare problemi a ogni livello dello stack di applicazioni.
+[Log di monitoraggio di Azure](../azure-monitor/insights/azure-sql.md) consente di raccogliere e visualizzare le metriche delle prestazioni chiave di Azure SQL Azure, supportando fino a 150.000 database sql e 5.000 pool elastici SQL per area di lavoro. È possibile usare il servizio per monitorare e ricevere notifiche. È possibile monitorare le metriche del database SQL e dei pool elastici in più sottoscrizioni e pool elastici di Azure e usarle per identificare problemi a ogni livello dello stack di applicazioni.
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Si riscontrano problemi di prestazioni. In che modo la metodologia di risoluzione dei problemi del database SQL differisce da SQL Server
 

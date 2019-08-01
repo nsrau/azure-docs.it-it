@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewers: billgib,ayolubek
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 9562d0cd1ad97a459c3630456a6070ac2b6e63f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fa8dbbbb09fbdc14049e168afe6eb4810ccc8254
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61484745"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570248"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Reporting tra tenant tramite query distribuite
 
@@ -93,7 +92,7 @@ Per esaminare la definizione della vista *Venues*:
 
 1. In **Esplora oggetti** espandere **contosoconcerthall** > **Viste**:
 
-   ![Viste](media/saas-tenancy-cross-tenant-reporting/views.png)
+   ![visualizzazioni](media/saas-tenancy-cross-tenant-reporting/views.png)
 
 2. Fare clic con il pulsante destro del mouse su **dbo.Venues**.
 3. Selezionare **Crea script per vista** > **CREATE in** > **Nuova finestra editor di query**.
@@ -106,7 +105,7 @@ Questo esercizio distribuisce il database _adhocreporting_, ovvero il database p
 
 1. In *PowerShell ISE* aprire ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReporting.ps1*. 
 
-1. Impostare **$DemoScenario scrittura=2**, _distribuzione Ad hoc reporting database_.
+1. Impostare **$DemoScenario = 2**, _distribuire un database di report ad hoc_.
 
 1. Premere **F5** per eseguire lo script e creare il database *adhocreporting*.
 
@@ -148,7 +147,7 @@ Dopo avere configurato il database *adhocreporting*, è possibile procedere ed e
 
 Quando si esamina il piano di esecuzione, passare il mouse sulle icone del piano per visualizzare i dettagli. 
 
-È importante sottolineare che l'impostazione **DISTRIBUTION = SHARDED(VenueId)** , usata per la definizione dell'origine dati esterna, consente di migliorare le prestazioni in molti scenari. Dato che ogni *VenueId* corrisponde a un singolo database, il filtro viene eseguito facilmente in remoto, restituire solo i dati necessiti.
+È importante sottolineare che l'impostazione **DISTRIBUTION = SHARDED(VenueId)** , usata per la definizione dell'origine dati esterna, consente di migliorare le prestazioni in molti scenari. Poiché ogni *VenueId* esegue il mapping a un singolo database, l'applicazione di filtri viene eseguita facilmente in remoto, restituendo solo i dati necessari.
 
 1. Aprire ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql* in SQL Server Management Studio.
 2. Assicurarsi di essere connessi al database **adhocreporting**.

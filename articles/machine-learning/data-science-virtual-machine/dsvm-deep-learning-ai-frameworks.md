@@ -4,7 +4,7 @@ description: Informazioni su strumenti e framework di Deep Learning supportati i
 keywords: strumenti di analisi scientifica dei dati, macchina virtuale per l'analisi scientifica dei dati, strumenti per l'analisi scientifica dei dati, analisi scientifica dei dati per Linux
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.author: gokuma
-ms.openlocfilehash: 59f88d54d3542738f1a500c8c476995eb1535ecf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: vijetaj
+ms.openlocfilehash: 08a740ec898f1ac46ff66de9002e4241d918adc0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130277"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558179"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Apprendimento avanzato e framework AI
 La [macchina virtuale per data science](https://aka.ms/dsvm) e la [macchina virtuale per l'apprendimento avanzato](https://aka.ms/dsvm/deeplearning) supportano diversi framework per consentire la creazione delle applicazioni di Intelligenza artificiale con analisi predittiva e funzionalità cognitive come comprensione delle immagini e del linguaggio.
@@ -32,7 +32,7 @@ Di seguito sono riportati i dettagli su tutti i framework di apprendimento avanz
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | Framework per l'apprendimento avanzato      |
+| Informazioni   | Framework per l'apprendimento avanzato      |
 | Edizioni supportate della macchina virtuale per data science      | Windows, Linux     |
 | Come viene configurata o installata sulla macchina virtuale per data science?  | Microsoft Cognitive Toolkit, ovvero CNTK, viene installato in Python 3.5 su [Linux e Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) e in Python 3.6 su [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition).   |
 | Collegamenti agli esempi      | Sono inclusi i blocchi appunti Jupyter di esempio.     |
@@ -43,7 +43,7 @@ Di seguito sono riportati i dettagli su tutti i framework di apprendimento avanz
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | Framework per l'apprendimento avanzato      |
+| Informazioni   | Framework per l'apprendimento avanzato      |
 | Edizioni supportate della macchina virtuale per data science      | Windows, Linux     |
 | Come viene configurata o installata sulla macchina virtuale per data science?  | TensorFlow viene installato in Python 3.5 su [Linux e Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) e in Python 3.6 su [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition).  |
 | Collegamenti agli esempi      | Sono inclusi i blocchi appunti Jupyter di esempio.     |
@@ -54,7 +54,7 @@ Di seguito sono riportati i dettagli su tutti i framework di apprendimento avanz
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | Framework di apprendimento avanzato distribuito per TensorFlow      |
+| Informazioni   | Framework di apprendimento avanzato distribuito per TensorFlow      |
 | Edizioni supportate della macchina virtuale per data science      | Ubuntu     |
 | Come viene configurata o installata sulla macchina virtuale per data science?  | Horovod viene installato in Python 3.5 su [Ubuntu](dsvm-languages.md#python-linux-and-windows-server-2012-edition).  |
 | Collegamenti agli esempi      | [https://github.com/uber/horovod/tree/master/examples](https://github.com/uber/horovod/tree/master/examples)     |
@@ -65,7 +65,7 @@ Di seguito sono riportati i dettagli su tutti i framework di apprendimento avanz
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | API di alto livello di apprendimento avanzato      |
+| Informazioni   | API di alto livello di apprendimento avanzato      |
 | Edizioni supportate della macchina virtuale per data science      | Windows, Linux     |
 | Come viene configurata o installata sulla macchina virtuale per data science?  | TensorFlow viene installato in Python 3.5 su [Linux e Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) e in Python 3.6 su [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). |
 | Collegamenti agli esempi      | https://github.com/fchollet/keras/tree/master/examples      |
@@ -76,7 +76,7 @@ Di seguito sono riportati i dettagli su tutti i framework di apprendimento avanz
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | Framework per l'apprendimento avanzato      |
+| Informazioni   | Framework per l'apprendimento avanzato      |
 | Edizioni supportate della macchina virtuale per data science      | Ubuntu     |
 | Come viene configurata o installata sulla macchina virtuale per data science?  | Caffe è installato in `/opt/caffe`.    |
 | Come passare a Python 2.7 | Eseguire `source activate root` |
@@ -103,7 +103,7 @@ La versione installata di Caffe richiede Python 2.7 e non funziona con Python 3.
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | Framework per l'apprendimento avanzato      |
+| Informazioni   | Framework per l'apprendimento avanzato      |
 | Edizioni supportate della macchina virtuale per data science      | Ubuntu     |
 | Come viene configurata o installata sulla macchina virtuale per data science?  | Caffe2 viene installato nell'[ambiente Conda di Python 2.7, ovvero nella radice](dsvm-languages.md#python-linux-and-windows-server-2012-edition). L'origine è `/opt/caffe2`. |
 | Collegamenti agli esempi      | In Jupyter sono inclusi i blocchi appunti di esempio. |
@@ -115,7 +115,7 @@ La versione installata di Caffe richiede Python 2.7 e non funziona con Python 3.
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | Framework per l'apprendimento avanzato      |
+| Informazioni   | Framework per l'apprendimento avanzato      |
 | Edizioni supportate della macchina virtuale per data science      | Windows, Linux     |
 | Come viene configurata o installata sulla macchina virtuale per data science?  | Chainer viene installato in [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition). Vengono installati anche ChainerRL e ChainerCV.   |
 | Collegamenti agli esempi      | In Jupyter sono inclusi i blocchi appunti di esempio. |
@@ -127,7 +127,7 @@ La versione installata di Caffe richiede Python 2.7 e non funziona con Python 3.
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | Framework per l'apprendimento avanzato per H2O      |
+| Informazioni   | Framework per l'apprendimento avanzato per H2O      |
 | Edizioni supportate della macchina virtuale per data science      | Ubuntu     |
 | Come viene configurata o installata sulla macchina virtuale per data science?  | Deep Water viene installato in [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) ed è anche disponibile in `/dsvm/tools/deep_water`.   |
 | Collegamenti agli esempi      | In Jupyter sono inclusi i blocchi appunti di esempio.      |
@@ -150,7 +150,7 @@ Per usare Deep Water:
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | Framework per l'apprendimento avanzato      |
+| Informazioni   | Framework per l'apprendimento avanzato      |
 | Edizioni supportate della macchina virtuale per data science      | Windows, Linux     |
 | Come viene configurata o installata sulla macchina virtuale per data science?  | MXNet è installato in `C:\dsvm\tools\mxnet` su Windows e in `/dsvm/tools/mxnet` su Linux. Le associazioni di Python vengono installate in Python 3.5 su [Linux e Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) e in Python 3.6 su [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). Anche le associazioni di R vengono installate su Ubuntu.   |
 | Collegamenti agli esempi      | Sono inclusi i blocchi appunti Jupyter di esempio.    |
@@ -162,7 +162,7 @@ Per usare Deep Water:
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | Sistema di apprendimento avanzato di NVIDIA per eseguire un training rapido sui modelli di apprendimento avanzato      |
+| Informazioni   | Sistema di apprendimento avanzato di NVIDIA per eseguire un training rapido sui modelli di apprendimento avanzato      |
 | Edizioni supportate della macchina virtuale per data science      | Ubuntu     |
 | Come viene configurata o installata sulla macchina virtuale per data science?  | DIGITS viene installato in `/dsvm/tools/DIGITS` ed è disponibile come servizio denominato _digits_.   |
 
@@ -180,7 +180,7 @@ L'avvio del servizio richiede circa un minuto. Aprire un Web browser e passare a
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | Lo strumento NVIDIA per l'esecuzione di query sull'attività GPU      |
+| Informazioni   | Lo strumento NVIDIA per l'esecuzione di query sull'attività GPU      |
 | Edizioni supportate della macchina virtuale per data science      | Windows, Linux     |
 | Come viene configurata o installata sulla macchina virtuale per data science?  | _nvidia-smi_ è disponibile nel percorso del sistema.   |
 | Come usarla o eseguirla? | Avviare un prompt dei comandi in Windows o un terminale in Linux, quindi eseguire _nvidia-smi_.
@@ -191,7 +191,7 @@ L'avvio del servizio richiede circa un minuto. Aprire un Web browser e passare a
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | Framework per l'apprendimento avanzato      |
+| Informazioni   | Framework per l'apprendimento avanzato      |
 | Edizioni supportate della macchina virtuale per data science      | Ubuntu     |
 | Come viene configurata o installata sulla macchina virtuale per data science?  | Theano viene installato in Python 2.7, _radice_, e nell'ambiente Python 3.5, _py35_.   |
 | Strumenti correlati nella macchina virtuale per data science      | Keras      |
@@ -203,7 +203,7 @@ L'avvio del servizio richiede circa un minuto. Aprire un Web browser e passare a
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | Framework per l'apprendimento avanzato      |
+| Informazioni   | Framework per l'apprendimento avanzato      |
 | Edizioni supportate della macchina virtuale per data science      | Ubuntu     |
 | Come viene configurata o installata sulla macchina virtuale per data science?  | Torch è installato in `/dsvm/tools/torch`. PyTorch viene installato in Python 2.7, _radice_, e nell'ambiente Python 3.5, _py35_.   |
 | Collegamenti agli esempi      | Gli esempi di Torch si trovano in `/dsvm/samples/torch`. Gli esempi di PyTorch si trovano in `/dsvm/samples/pytorch`.      |
@@ -213,7 +213,7 @@ L'avvio del servizio richiede circa un minuto. Aprire un Web browser e passare a
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | Framework per l'apprendimento avanzato      |
+| Informazioni   | Framework per l'apprendimento avanzato      |
 | Edizioni supportate della macchina virtuale per data science      | Linux     |
 | Come viene configurata o installata sulla macchina virtuale per data science?  | PyTorch viene installato in [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition).  |
 | Collegamenti agli esempi      | Sono inclusi notebook di Jupyter di esempio e altri esempi sono disponibili in /dsvm/samples/pytorch.      |
@@ -224,7 +224,7 @@ L'avvio del servizio richiede circa un minuto. Aprire un Web browser e passare a
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | Un server per la creazione di endpoint HTTP per i modelli MXNet e ONNX      |
+| Informazioni   | Un server per la creazione di endpoint HTTP per i modelli MXNet e ONNX      |
 | Edizioni supportate della macchina virtuale per data science      | Linux     |
 | Come viene configurata o installata sulla macchina virtuale per data science?  | _mxnet-model-server_ è disponibile nel terminale.   |
 | Collegamenti agli esempi      | Cercare gli esempi aggiornati nella [pagina di MXNet Model Server](https://github.com/awslabs/mxnet-model-server).    |
@@ -234,7 +234,7 @@ L'avvio del servizio richiede circa un minuto. Aprire un Web browser e passare a
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | Un server per l'esecuzione di inferenza in un modello TensorFlow      |
+| Informazioni   | Un server per l'esecuzione di inferenza in un modello TensorFlow      |
 | Edizioni supportate della macchina virtuale per data science      | Linux     |
 | Come viene configurata o installata sulla macchina virtuale per data science?  | _tensorflow_model_server_ è disponibile nel terminale.   |
 | Collegamenti agli esempi      | Sono disponibili esempi [online](https://www.tensorflow.org/serving/).      |
@@ -244,7 +244,7 @@ L'avvio del servizio richiede circa un minuto. Aprire un Web browser e passare a
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | Server di inferenza per l'apprendimento avanzato da NVIDIA. |
+| Informazioni   | Server di inferenza per l'apprendimento avanzato da NVIDIA. |
 | Edizioni supportate della macchina virtuale per data science      | Ubuntu     |
 | Come viene configurata o installata sulla macchina virtuale per data science?  | TensorRT viene installato come un pacchetto _apt_.   |
 | Collegamenti agli esempi      | Sono disponibili esempi [online](https://docs.nvidia.com/deeplearning/sdk/tensorrt-developer-guide/index.html#samples).      |

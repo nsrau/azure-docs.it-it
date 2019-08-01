@@ -10,20 +10,19 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: 803d05e1aaf4d9c26a6132bde30f101ce3905924
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b5a996fe6be5aa839b78b6693accac9b1000cef8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61388343"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570435"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Effettuare il provisioning di nuovi tenant e registrarli nel catalogo
 
 In questa esercitazione si apprenderà come effettuare il provisioning dei modelli SaaS e catalogarli. Si apprenderà inoltre come questi modelli sono implementati nell'applicazione SaaS di database per tenant Wingtip Tickets. L'esercitazione illustra come creare e inizializzare nuovi database tenant e come registrarli nel catalogo dei tenant dell'applicazione. Il catalogo è un database che gestisce il mapping tra i molti tenant dell'applicazione SaaS e i relativi dati. Il catalogo svolge un ruolo importante indirizzando al database corretto le richieste dell'applicazione e quelle di gestione.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione si imparerà a:
 
 > [!div class="checklist"]
 > 
@@ -46,7 +45,7 @@ Il catalogo consente di modificare il nome o la posizione del database con un im
 
 Il catalogo può inoltre archiviare altri metadati di tenant o database, ad esempio la versione dello schema, il piano di servizio o i contratti di servizio offerti ai tenant, nonché informazioni per la gestione delle applicazioni, il supporto tecnico o DevOps. 
 
-Oltre all'applicazione SaaS, il catalogo può abilitare strumenti di database. Nell'esempio di database per tenant SaaS Wingtip Tickets il catalogo viene usato per abilitare le query tra tenant, che viene esaminata nel [reporting Ad hoc esercitazione](saas-tenancy-cross-tenant-reporting.md). La gestione dei processi tra database viene esaminata nelle esercitazioni relative alla [gestione dello schema](saas-tenancy-schema-management.md) e all'[analisi del tenant](saas-tenancy-tenant-analytics.md). 
+Oltre all'applicazione SaaS, il catalogo può abilitare strumenti di database. Nell'esempio SaaS di database per tenant Wingtip Tickets il catalogo viene usato per abilitare le query tra tenant, che vengono esaminate nell'esercitazione relativa al [Reporting ad hoc](saas-tenancy-cross-tenant-reporting.md). La gestione dei processi tra database viene esaminata nelle esercitazioni relative alla [gestione dello schema](saas-tenancy-schema-management.md) e all'[analisi del tenant](saas-tenancy-tenant-analytics.md). 
 
 Negli esempi SaaS Wingtip Tickets il catalogo viene implementato tramite le funzionalità di gestione delle partizioni della [libreria EDCL (Elastic Database Client Library, libreria client dei database elastici)](sql-database-elastic-database-client-library.md). La libreria EDCL è disponibile in Java e in .NET Framework. La libreria EDCL consente a un'applicazione di creare, gestire e usare una mappa partizioni supportata da database. 
 
