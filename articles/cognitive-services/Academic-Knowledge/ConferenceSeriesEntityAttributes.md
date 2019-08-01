@@ -10,12 +10,13 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 38b4aa4c899668a68041f042ce6981ddd8c58219
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: feed324202f6a75ceb7e9089875b899c51cd8ae6
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61340197"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705035"
 ---
 # <a name="conference-series-entity"></a>Entità Conference Series
 
@@ -23,10 +24,10 @@ ms.locfileid: "61340197"
 
 Name    |Descrizione                            |Type       | Operazioni
 ------- | ------------------------------------- | --------- | ----------------------------
-ID      |ID entità                              |Int64      |Uguale a
-CN      |Nome normalizzato della serie di conferenze      |String     |Uguale a
-DCN     |Nome visualizzato della serie di conferenze         |String     |Nessuno
-CC      |Numero totale delle citazioni della serie di conferenze         |Int32      |Nessuno  
-ECC     |Numero totale stimato delle citazioni della serie di conferenze   |Int32      |Nessuno
-F.FId   |ID entità del campo di studi associato alla serie di conferenze |Int64  | Uguale a
+ID      |ID entità                              |Int64      |Equals
+CN      |Nome normalizzato della serie di conferenze      |String     |Equals
+DCN     |Nome visualizzato della serie di conferenze         |String     |none
+Cc      |Numero totale delle citazioni della serie di conferenze         |Int32      |none  
+ECC     |Numero totale stimato delle citazioni della serie di conferenze   |Int32      |none
+F.FId   |ID entità del campo di studi associato alla serie di conferenze |Int64  | Equals
 F.FN    |Nome del campo di studi associato alla serie di conferenze  | Uguale a<br/>StartsWith

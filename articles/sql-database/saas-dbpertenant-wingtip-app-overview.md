@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: 1c16ea44418d99ee1f80a7d0ef7a3e5b3f118f46
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16f4bb946af4720a327a8755c6bf9187f3b71ba6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61485215"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570349"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Introduzione a un'app SaaS multi-tenant che usa il modello di database per tenant con il database SQL
 
@@ -46,10 +45,10 @@ Dopo avere distribuito l'app, sfogliare le esercitazioni seguenti, che si basano
 |[Distribuire ed esplorare l'applicazione SaaS Wingtip](saas-dbpertenant-get-started-deploy.md)|  Implementare e sfogliare l'applicazione SaaS Wingtip nella sottoscrizione di Azure. |
 |[Effettuare il provisioning di tenant e registrarli nel catalogo](saas-dbpertenant-provision-and-catalog.md)| Informazioni su come l'applicazione si connette ai tenant usando un database di catalogo e su come il catalogo esegue il mapping dei tenant ai dati. |
 |[Monitorare e gestire le prestazioni](saas-dbpertenant-performance-monitoring.md)| Informazioni su come usare le funzionalità di monitoraggio del database SQL e impostare avvisi quando vengono superate le soglie per le prestazioni. |
-|[Monitorare con log di monitoraggio di Azure](saas-dbpertenant-log-analytics.md) | Informazioni su come usare [monitoraggio di Azure registra](../log-analytics/log-analytics-overview.md) per monitorare grandi quantità di risorse in più pool. |
+|[Monitorare con i log di monitoraggio di Azure](saas-dbpertenant-log-analytics.md) | Informazioni su come usare i [log di monitoraggio di Azure](../log-analytics/log-analytics-overview.md) per monitorare grandi quantità di risorse in più pool. |
 |[Ripristinare un tenant singolo](saas-dbpertenant-restore-single-tenant.md)| Informazioni su come eseguire un ripristino temporizzato di un database tenant. È inclusa anche la procedura per ripristinare un database parallelo, lasciando il database tenant esistente online. |
 |[Gestire lo schema del database tenant](saas-tenancy-schema-management.md)| Informazioni su come aggiornare lo schema e i dati di riferimento in tutti i database tenant. |
-|[Eseguire query distribuite tra tenant](saas-tenancy-cross-tenant-reporting.md) | Creare un database di analitica ad hoc ed eseguire query distribuite in tempo reale su tutti i tenant.  |
+|[Eseguire query distribuite tra tenant](saas-tenancy-cross-tenant-reporting.md) | Creare un database di analisi ad hoc ed eseguire query distribuite in tempo reale su tutti i tenant.  |
 |[Eseguire analisi sui dati del tenant estratti](saas-tenancy-tenant-analytics.md) | Estrarre i dati del tenant in un database di analisi o in un data warehouse per query di analisi offline. |
 
 

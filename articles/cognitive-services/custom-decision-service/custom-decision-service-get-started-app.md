@@ -10,12 +10,13 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: slivkins
-ms.openlocfilehash: 0e5c99aae61fb927ea7f101bab74d661a747f88b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ROBOTS: NOINDEX
+ms.openlocfilehash: 08fbc1716d402c83bc2c33be82cba143c1737a55
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60511556"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707244"
 ---
 # <a name="call-api-from-an-app"></a>Chiamare l'API da un'app
 

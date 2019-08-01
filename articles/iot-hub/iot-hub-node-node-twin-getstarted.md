@@ -8,14 +8,14 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: elioda
-ms.openlocfilehash: 8dd5269532e9eb6139d8debb0ee9b503cd2e4354
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: eb8b7c62e765ab233b50310dca9c21e9728ed56a
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68403966"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668008"
 ---
-# <a name="get-started-with-device-twins-node"></a>Introduzione ai dispositivi gemelli (Node)
+# <a name="get-started-with-device-twins-nodejs"></a>Introduzione ai dispositivi gemelli (node. js)
 
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 

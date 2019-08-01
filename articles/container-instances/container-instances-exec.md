@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: danlep
 ms.openlocfilehash: a8583cf605891631a2bce6914b24525aebd59ea0
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68325989"
 ---
 # <a name="execute-a-command-in-a-running-azure-container-instance"></a>Eseguire un comando in un'istanza di contenitore di Azure in esecuzione
@@ -21,7 +21,7 @@ Istanze di Azure Container supporta l'esecuzione di un comando in un contenitore
 
 ## <a name="run-a-command-with-azure-cli"></a>Eseguire un comando con l'interfaccia della riga di comando di Azure
 
-Eseguire un comando in un contenitore in esecuzione con [AZ container Exec][az-container-exec] in the [Azure CLI][azure-cli]:
+Eseguire un comando in un contenitore in esecuzione con [AZ container Exec][az-container-exec] nell' [interfaccia][azure-cli]della riga di comando di Azure:
 
 ```azurecli
 az container exec --resource-group <group-name> --name <container-group-name> --exec-command "<command>"

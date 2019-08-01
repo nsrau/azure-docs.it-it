@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6260a619ad3dfda65fcdfc1180cba4002dd23d0
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 7011025a1d94a5c99bf2338d9f80c683c2fd7b35
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499905"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514968"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurare le impostazioni di Azure Multi-Factor Authentication
 
@@ -30,12 +30,12 @@ Questo articolo offre informazioni utili per gestire le impostazioni di Azure Mu
 
 Alcune di queste impostazioni si applicano al server MFA, ad Azure MFA o a entrambi.
 
-| Funzionalità | DESCRIZIONE |
+| Funzionalità | Descrizione |
 | ------- | ----------- |
 | Blocco account | Blocca temporaneamente gli account nel servizio di autenticazione a più fattori se si verificano troppi tentativi di autorizzazione negata di seguito. Questa funzionalità si applica solo agli utenti che effettuano l'autenticazione tramite PIN (server MFA). |
 | [Blocca/Sblocca utenti](#block-and-unblock-users) | Utilizzato per impedire a utenti specifici di ricevere richieste di autenticazione a più fattori. Eventuali tentativi di autenticazione per gli utenti bloccati vengono negati automaticamente. Gli utenti restano bloccati per 90 giorni dal momento in cui vengono bloccati. |
 | [Avviso di illecito](#fraud-alert) | Configurare le impostazioni relative alla capacità degli utenti di segnalare richieste di verifica fraudolente |
-| Notifiche | Abilita le notifiche degli eventi dal server MFA. |
+| [Notifications](#notifications) | Abilita le notifiche degli eventi dal server MFA. |
 | [Token OATH](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Funzionalità usata in ambienti Azure MFA basati sul cloud per gestire i token OATH per gli utenti. |
 | [Impostazioni telefonata](#phone-call-settings) | Permette di configurare le impostazioni correlate a chiamate telefoniche e messaggi di saluto per gli ambienti cloud e locali. |
 | Provider | Mostra tutti i provider di autenticazione esistenti che possono essere stati associati all'account. Non è stato possibile creare nuovi provider di autenticazione fino al 1° settembre 2018 |
@@ -44,7 +44,7 @@ Alcune di queste impostazioni si applicano al server MFA, ad Azure MFA o a entra
 
 Le impostazioni in questa sezione sono valide solo per il server MFA.
 
-| Funzionalità | DESCRIZIONE |
+| Funzionalità | Descrizione |
 | ------- | ----------- |
 | Impostazioni del server | Permette di scaricare il server MFA e di generare le credenziali di attivazione per inizializzare l'ambiente |
 | [Bypass monouso](#one-time-bypass) | Permette a un utente di eseguire l'autenticazione senza completare la verifica in due passaggi per un periodo di tempo limitato. |
@@ -99,6 +99,12 @@ Configurare la funzionalità di _avviso di illecito_ in modo che gli utenti poss
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare **Azure Active Directory** > **Accessi**. Il report di illecito fa ora parte del report standard di Azure AD relativo agli accessi.
+
+## <a name="notifications"></a>Notifiche
+
+Configurare gli indirizzi di posta elettronica per gli utenti che riceveranno messaggi di posta elettronica di avviso illecito.
+
+![Esempio di messaggio di posta elettronica di avviso di illecito](./media/howto-mfa-mfasettings/multi-factor-authentication-fraud-alert-email.png)
 
 ## <a name="phone-call-settings"></a>Impostazioni telefonata
 

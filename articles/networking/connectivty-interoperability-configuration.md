@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 9c4a57111566248d3537cab0d9d85c0c3be874a1
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68335935"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Interoperabilità nelle funzionalità di connettività back-end di Azure: Dettagli di configurazione di test
@@ -188,7 +188,7 @@ Nel peering reti virtuali all'interno di un'area, le reti virtuali spoke possono
 
 È possibile far comunicare tra loro le reti virtuali del ramo in aree diverse e le reti virtuali tramite una rete virtuale dell'hub. La soluzione di Azure nativa per questa configurazione è la connettività VPN da sito a sito tramite una rete VPN. In alternativa, è possibile usare un'appliance virtuale di rete per il routing nell'hub.
 
-Per altre informazioni, vedere [che cos'è il gateway VPN?][VPN] [https://login.microsoftonline.com/consumers/](and [Deploy a highly available NVA][Deploy-NVA]).
+Per altre informazioni, vedere [che cos'è il gateway VPN][VPN] e distribuire un'appliance virtuale di rete [a disponibilità elevata][Deploy-NVA].
 
 ## <a name="next-steps"></a>Passaggi successivi
 

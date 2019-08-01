@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: genemi, vanto
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 6713182003a280c1d53e904209159b55b4ad01c6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fd8cabb14ad65b4da562c7d6048a52b574513b26
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60331146"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566180"
 ---
 # <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell:  Creare un endpoint del servizio virtuale e una regola di rete virtuale per SQL
 
@@ -38,13 +37,13 @@ Le ragioni per la creazione di una regola sono descritte in: [Endpoint del servi
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Il modulo Azure PowerShell per Resource Manager è ancora supportato dal Database SQL di Azure, ma i progetti di sviluppo future è per il modulo Az.Sql. Per questi cmdlet, vedere [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRm sono sostanzialmente identici.
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
 
 ## <a name="major-cmdlets"></a>Cmdlet principali
 
-Questo articolo evidenzia le **New-AzSqlServerVirtualNetworkRule** cmdlet che aggiunge l'endpoint della subnet all'elenco di controllo di accesso (ACL) del server di Database SQL di Azure, creando una regola.
+In questo articolo viene enfatizzato il cmdlet **New-AzSqlServerVirtualNetworkRule** che aggiunge l'endpoint della subnet all'elenco di controllo di accesso (ACL) del server di database SQL di Azure, creando così una regola.
 
-L'elenco seguente mostra la sequenza degli altri *principali* cmdlet che è necessario eseguire per prepararsi per la chiamata a **New-AzSqlServerVirtualNetworkRule**. In questo articolo queste chiamate si verificano nello [Script 3 "Regola di rete virtuale"](#a-script-30):
+Nell'elenco seguente viene illustrata la sequenza di altri cmdlet *principali* che è necessario eseguire per preparare la chiamata a **New-AzSqlServerVirtualNetworkRule**. In questo articolo queste chiamate si verificano nello [Script 3 "Regola di rete virtuale"](#a-script-30):
 
 1. [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig): crea un oggetto subnet.
 2. [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork): crea la rete virtuale, assegnandovi la subnet.
@@ -55,7 +54,7 @@ L'elenco seguente mostra la sequenza degli altri *principali* cmdlet che è nece
 
 ## <a name="prerequisites-for-running-powershell"></a>Prerequisiti per l'esecuzione di PowerShell
 
-- È già possibile accedere ad Azure, ad esempio tramite il [portale di Azure][http-azure-portal-link-ref-477t].
+- È già possibile accedere ad Azure, ad esempio tramite la [portale di Azure][http-azure-portal-link-ref-477t].
 - È già possibile eseguire script di PowerShell.
 
 > [!NOTE]
@@ -470,7 +469,7 @@ Lo script principale di PowerShell è concluso.
 
 ## <a name="verify-your-subnet-is-an-endpoint"></a>Verificare che la subnet sia un endpoint
 
-Alla subnet potrebbe essere già stato assegnato il nome del tipo **Microsoft.Sql**; ciò significa che si tratta già di un endpoint del servizio virtuale. È possibile usare il [portale di Azure][http-azure-portal-link-ref-477t] per creare una regola di rete virtuale dall'endpoint.
+Alla subnet potrebbe essere già stato assegnato il nome del tipo **Microsoft.Sql**; ciò significa che si tratta già di un endpoint del servizio virtuale. È possibile usare la [portale di Azure][http-azure-portal-link-ref-477t] per creare una regola della rete virtuale dall'endpoint.
 
 Nel caso in cui non si sia certi che la subnet abbia il nome del tipo **Microsoft.Sql**, è possibile eseguire lo script di PowerShell seguente per completare queste azioni:
 

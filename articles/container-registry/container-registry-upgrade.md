@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: danlep
 ms.openlocfilehash: 05c227e7de078c6bb371049f16e191598b9ca4e5
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68310385"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Aggiornamento del registro contenitori classico
@@ -23,7 +23,7 @@ Lo SKU classico verrà deprecato e non sarà disponibile dopo il 2019 aprile. Qu
 
 ## <a name="why-upgrade"></a>Ragioni dell'aggiornamento
 
-Lo SKU del registro di sistema classico verrà deprecato e non sarà disponibile dopo il **2019 aprile**. Tutti i registri classici esistenti devono essere aggiornati prima del 2019 aprile. Le funzionalità di gestione del portale dei registri classici verranno eliminate gradualmente. La creazione di nuovi registri classici verrà disabilitata dopo il 2019 aprile.
+Lo SKU del registro di sistemaclassico verrà deprecato e non sarà disponibile dopo il **2019 aprile**. Tutti i registri classici esistenti devono essere aggiornati prima del 2019 aprile. Le funzionalità di gestione del portale dei registri classici verranno eliminate gradualmente. La creazione di nuovi registri classici verrà disabilitata dopo il 2019 aprile.
 
 A causa della deprecazione pianificata e delle funzionalità limitate dei registri classici non gestiti, tutti i registri classici devono essere aggiornati ai registri gestiti (Basic, standard o Premium). Questi SKU di livello superiore integrano in modo più specifico il registro nelle funzionalità di Azure. Per ulteriori informazioni sui prezzi e sulle funzionalità dei diversi livelli di servizio, vedere [container Registry SKU](container-registry-skus.md).
 
@@ -53,7 +53,7 @@ Al termine della migrazione, l'account di archiviazione nella sottoscrizione che
 
 ## <a name="how-to-upgrade"></a>Come eseguire l'aggiornamento
 
-È possibile aggiornare un registro classico non gestito a uno degli SKU gestiti in diversi modi. Nelle sezioni seguenti viene descritto il processo per l'uso dell' [interfaccia][azure-cli] and the [Azure portal][azure-portal]della riga di comando di Azure.
+È possibile aggiornare un registro classico non gestito a uno degli SKU gestiti in diversi modi. Nelle sezioni seguenti viene descritto il processo per l'uso dell'interfaccia della riga di comando di [Azure][azure-cli] e della [portale di Azure][azure-portal].
 
 ## <a name="upgrade-in-azure-cli"></a>Aggiornamento tramite l'interfaccia della riga di comando di Azure
 

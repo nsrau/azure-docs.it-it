@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: danlep
-ms.openlocfilehash: 672d446fa8dc27612c7b046cac109bfa4ca5fec5
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 4585749c83432c19b6e62f57c1d954b3afc5ee33
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309383"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608390"
 ---
 # <a name="health-check-error-reference"></a>Riferimento errore controllo integrità
 
@@ -63,7 +63,7 @@ Questo errore indica che il DNS per il server di accesso del registro di sistema
 
 ## <a name="connectivityforbiddenerror"></a>CONNECTIVITY_FORBIDDEN_ERROR
 
-Questo errore indica che l'endpoint di richiesta per il registro di sistema specificato ha risposto con uno stato HTTP non consentito 403. Questo errore indica che gli utenti non hanno accesso al registro di sistema, probabilmente a causa di una configurazione di rete virtuale.
+Questo errore indica che l'endpoint di richiesta per il registro di sistema specificato ha risposto con uno stato HTTP non consentito 403. Questo errore indica che gli utenti non hanno accesso al registro di sistema, probabilmente a causa di una configurazione di rete virtuale. Per visualizzare le regole del firewall attualmente configurate, eseguire `az acr show --query networkRuleSet --name <registry>`.
 
 *Possibili soluzioni*: Rimuovere le regole della rete virtuale o aggiungere l'indirizzo IP del client corrente all'elenco degli indirizzi consentiti.
 

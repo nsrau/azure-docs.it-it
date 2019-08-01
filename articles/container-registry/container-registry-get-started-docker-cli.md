@@ -10,10 +10,10 @@ ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
 ms.openlocfilehash: 6944755619ea5e8e63af04b9b3bca6f7376e29a9
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68309437"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Effettuare il push della prima immagine in un registro contenitori Docker privato tramite l'interfaccia della riga di comando di Docker
@@ -25,7 +25,7 @@ La procedura seguente esegue il download di un'[immagine di Nginx](https://store
 ## <a name="prerequisites"></a>Prerequisiti
 
 * **Registro Azure Container**: creare un registro di contenitori nella sottoscrizione di Azure. Ad esempio usare il [portale di Azure](container-registry-get-started-portal.md) oppure l'[interfaccia della riga di comando di Azure](container-registry-get-started-azure-cli.md).
-* **Interfaccia della riga di comando di Docker**: è anche necessario avere Docker installato localmente. Docker offre pacchetti che consentono di configurare facilmente Docker in qualsiasi sistema [MacOS][docker-mac], [Windows][docker-windows]o [Linux][Docker-Linux] .
+* **Interfaccia della riga di comando di Docker**: è anche necessario avere Docker installato localmente. Docker offre pacchetti che consentono di configurare facilmente Docker in qualsiasi sistema [MacOS][docker-mac], [Windows][docker-windows]o [Linux][docker-linux] .
 
 ## <a name="log-in-to-a-registry"></a>Accedere a un registro
 

@@ -10,22 +10,23 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 6ffa0881df07e453c8beb175b8580deebbfc1ec9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: f4f3024451696dbd0244d9da39cba67b49447af1
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389900"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703633"
 ---
 # <a name="how-to-use-branching-and-undo-operations"></a>Come usare le operazioni di creazione di un ramo e annullamento
 In questa esercitazione verranno presentate le operazioni di annullamento e diramazione.
 
 
 ## <a name="details"></a>Dettagli
-### <a name="undo"></a>Annullamento
+### <a name="undo"></a>Annulla
 Consente allo sviluppatore di "annullare" l'ultimo input dell'utente o l'ultima scelta di un'azione. Dietro le quinte, l'operazione di annullamento crea in effetti un nuovo dialogo e lo riproduce fino al passaggio precedente.  Questi significa che verranno chiamati di nuovo il callback di rilevamento delle entità e le chiamate API nel dialogo.
 
-### <a name="branch"></a>Ramo
+### <a name="branch"></a>Branch
 Crea un nuovo dialogo di training che inizia allo stesso modo di un dialogo di training esistente, evitando così di dover immettere di nuovo manualmente i turni del dialogo. Dietro le quinte, il "ramo" crea un nuovo dialogo e riproduce il dialogo di training esistente fino al passaggio selezionato.  Questi significa che verranno chiamati di nuovo il callback di rilevamento delle entità e le chiamate API nel dialogo.
 
 
@@ -38,7 +39,7 @@ Per questa esercitazione è necessario che il bot per l'ordinazione di pizza sia
 
 Se è già stata usata l'esercitazione per ordinare la pizza, aprire semplicemente il modello specifico nell'elenco nell'interfaccia utente Web. In caso contrario è necessario fare clic su "Import Tutorials" (Importa esercitazioni) e selezionare il modello denominato "Demo-PizzaOrder".
 
-## <a name="undo"></a>Annullamento
+## <a name="undo"></a>Annulla
 
 Ecco un esempio della funzione `Undo`:
 
@@ -51,7 +52,7 @@ Ecco un esempio della funzione `Undo`:
 6. Fare clic sul pulsante `Undo`.
     - L'ultima voce viene rimossa, lasciando l'ultima risposta del bot "What would you like on your pizza?".
 
-## <a name="branch"></a>Ramo
+## <a name="branch"></a>Branch
 
 Per questo demo verrà aperto un dialogo di training esistente e si creerà un altro dialogo di training tramite la creazione di un ramo.
 

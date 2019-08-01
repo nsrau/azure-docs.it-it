@@ -10,16 +10,15 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 04/22/2019
-ms.openlocfilehash: c89aa3b4ecf0c07cfbb579cdc18fac6e822bc047
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 661ac9ea3fd87268c43bf0a0eba66e30f636fc77
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67536223"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566215"
 ---
-# <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Limiti delle risorse per database singoli con il modello di acquisto basato su vCore
+# <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Limiti delle risorse per i singoli database che usano il modello di acquisto basato su vCore
 
 Questo articolo illustra in modo dettagliato i limiti delle risorse per i database singoli del database SQL di Azure usando il modello di acquisto basato su vCore.
 
@@ -31,7 +30,7 @@ Per i limiti del modello di acquisto basato su DTU per i singoli database in un 
 È possibile impostare il livello di servizio, le dimensioni di calcolo e lo spazio di archiviazione per un singolo database usando il [portale di Azure](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-sql-database-servers-and-single-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases), l'[interfaccia della riga di comando di Azure](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases) o l'[API REST](sql-database-single-databases-manage.md#rest-api-manage-sql-database-servers-and-single-databases).
 
 > [!IMPORTANT]
-> Per la scalabilità indicazioni e considerazioni, vedere [ridimensionare un singolo database](sql-database-single-database-scale.md).
+> Per indicazioni e considerazioni sulla scalabilità, vedere [ridimensionare un singolo database](sql-database-single-database-scale.md).
 
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Livello di servizio Utilizzo generico: dimensioni di archiviazione e di calcolo
 
@@ -53,7 +52,7 @@ Per i limiti del modello di acquisto basato su DTU per i singoli database in un 
 |Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Target IOPS (64 KB)|500|1000|1500|2000|2500|3000|
-|Registrare i limiti di velocità (MBps)|3,75|7.5|11,25|15|18.75|22,5|
+|Limiti di velocità del log (MBps)|3,75|7.5|11,25|15|18,75|22,5|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|600|800|1000|1200|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|
 |Numero di repliche|1|1|1|1|1|1|
@@ -76,7 +75,7 @@ Per i limiti del modello di acquisto basato su DTU per i singoli database in un 
 |Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)
 |Target IOPS (64 KB)|3500|4000|4500|5000|7000|7000|
-|Registrare i limiti di velocità (MBps)|26.25|30|30|30|30|30|
+|Limiti di velocità del log (MBps)|26,25|30|30|30|30|30|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|1400|1600|1800|2000|3200|4800|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|
 |Numero di repliche|1|1|1|1|1|1|
@@ -99,7 +98,7 @@ Per i limiti del modello di acquisto basato su DTU per i singoli database in un 
 |Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Target IOPS (64 KB)|1000|2000|3000|4000|5000|6000|7000|
-|Registrare i limiti di velocità (MBps)|3,75|7.5|11,25|15|18.75|22,5|26.25|
+|Limiti di velocità del log (MBps)|3,75|7.5|11,25|15|18,75|22,5|26,25|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|600|800|1000|1200|1400|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|30000|
 |Numero di repliche|1|1|1|1|1|1|1|
@@ -122,7 +121,7 @@ Per i limiti del modello di acquisto basato su DTU per i singoli database in un 
 |Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Target IOPS (64 KB)|7000|7000|7000|7000|7000|7000|7000|
-|Registrare i limiti di velocità (MBps)|30|30|30|30|30|30|30|
+|Limiti di velocità del log (MBps)|30|30|30|30|30|30|30|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|1600|1800|2000|2400|3200|4000|8000|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|30000|
 |Numero di repliche|1|1|1|1|1|1|1|
@@ -132,16 +131,16 @@ Per i limiti del modello di acquisto basato su DTU per i singoli database in un 
 
 ### <a name="serverless-compute-tier"></a>Livello di elaborazione serverless
 
-Il [livello di calcolo senza server](sql-database-serverless.md) è disponibile in anteprima ed è solo per database singoli con l'acquisto di vCore del modello.
+Il [livello di calcolo senza server](sql-database-serverless.md) è in anteprima ed è solo per i database singoli che usano il modello di acquisto vCore.
 
 #### <a name="generation-5-compute-platform"></a>Piattaforma di calcolo Generazione 5
 
 |Dimensioni di calcolo|GP_S_Gen5_1|GP_S_Gen5_2|GP_S_Gen5_4|
 |:--- | --: |--: |--: |
 |Generazione hardware|5|5|5|
-|Numero di Vcore min-max|0.5-1|0.5-2|0.5-4|
-|Min-max memoria (GB)|2.02-3|2.05-6|2.10-12|
-|Sospensione automatica min ritardo (ore)|6|6|6|
+|VCore min-max|0,5-1|0,5-2|0,5-4|
+|Memoria min-max (GB)|2.02-3|2.05-6|2.10-12|
+|Ritardo di pausa automatico minimo (ore)|6|6|6|
 |Supporto per columnstore|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|
 |Dimensioni massime dei dati (GB)|512|1024|1024|
@@ -150,7 +149,7 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è disponibile 
 |Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Target IOPS (64 KB)|500|1000|2000|
-|Registrare i limiti di velocità (MBps)|2.5|5.6|10|
+|Limiti di velocità del log (MBps)|2.5|5.6|10|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|75|150|300|
 |Numero massimo di sessioni consentite|30000|30000|30000|
 |Numero di repliche|1|1|1|
@@ -158,7 +157,7 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è disponibile 
 |Scalabilità orizzontale in lettura|N/D|N/D|N/D|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
-## <a name="business-critical-service-tier-for-provisioned-compute-tier"></a>Livello di servizio critici di business per il livello di calcolo sottoposte a provisioning
+## <a name="business-critical-service-tier-for-provisioned-compute-tier"></a>business critical livello di servizio per il livello di calcolo con provisioning
 
 > [!IMPORTANT]
 > I nuovi database Gen4 non sono più supportati nell'area AustraliaEast.
@@ -178,7 +177,7 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è disponibile 
 |Dimensioni di TempDB (GB)|32|64|96|128|160|192|
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
 |Target IOPS (64 KB)|5000|10000|15000|20000|25000|30000|
-|Registrare i limiti di velocità (MBps)|8|16|24|32|40|48|
+|Limiti di velocità del log (MBps)|8|16|24|32|40|48|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|600|800|1000|1200|
 |Numero massimo di accessi simultanei|200|400|600|800|1000|1200|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|
@@ -202,7 +201,7 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è disponibile 
 |Dimensioni di TempDB (GB)|224|256|288|320|384|384|
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
 |Target IOPS (64 KB)|35000|40000|45000|50000|80000|120000|
-|Registrare i limiti di velocità (MBps)|56|64|64|64|64|64|
+|Limiti di velocità del log (MBps)|56|64|64|64|64|64|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|1400|1600|1800|2000|3200|4800|
 |Numero massimo di accessi simultanei (richieste)|1400|1600|1800|2000|3200|4800|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|
@@ -226,7 +225,7 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è disponibile 
 |Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
 |Target IOPS (64 KB)|8000|16000|24000|32000|40000|48000|56000|
-|Registrare i limiti di velocità (MBps)|12|24|36|48|60|72|84|
+|Limiti di velocità del log (MBps)|12|24|36|48|60|72|84|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|600|800|1000|1200|1400|
 |Numero massimo di accessi simultanei|200|400|600|800|1000|1200|1400|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|30000|
@@ -250,7 +249,7 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è disponibile 
 |Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
 |Target IOPS (64 KB)|64000|72000|80000|96000|128000|160000|320000|
-|Registrare i limiti di velocità (MBps)|96|96|96|96|96|96|96|
+|Limiti di velocità del log (MBps)|96|96|96|96|96|96|96|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|1600|1800|2000|2400|3200|4000|8000|
 |Numero massimo di accessi simultanei|1600|1800|2000|2400|3200|4000|8000|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|30000|
@@ -286,7 +285,7 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è disponibile 
 
 ### <a name="note-1"></a>Nota 1
 
-Su scala molto vasta è un'architettura a più livelli con più livelli di memorizzazione nella cache. IOPS effettivo varia in base al carico di lavoro.
+La funzionalità iperscalabile è un'architettura a più livelli con memorizzazione nella cache a più livelli. Gli IOPS effettivi dipendono dal carico di lavoro.
 
 ### <a name="next-steps"></a>Passaggi successivi
 

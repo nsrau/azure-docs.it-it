@@ -11,41 +11,34 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 058b6c979346d9dcce36940432d0e222e919dba9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a970bb2c33db1ad78dca088b7d9b2430984df96
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540837"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698857"
 ---
 #   <a name="shaper-cognitive-skill"></a>Competenza cognitiva Shaper
 
-Il **Shaper** competenza Consolida più input in un [tipo complesso](search-howto-complex-data-types.md) che è possibile fare riferimento in un secondo momento nella pipeline di arricchimento. La competenza **Shaper** consente essenzialmente di creare una struttura, definire il nome dei membri di tale struttura e assegnare valori a ciascun membro. Esempi di campi consolidati utili negli scenari di ricerca includono la combinazione di un nome e cognome in una singola struttura, città e stato in una singola struttura, o un nome e data di nascita in un'unica struttura per stabilire l'identità univoca.
+L'abilità **shaper** consolida diversi input in un [tipo complesso](search-howto-complex-data-types.md) a cui è possibile fare riferimento in un secondo momento nella pipeline di arricchimento. La competenza **Shaper** consente essenzialmente di creare una struttura, definire il nome dei membri di tale struttura e assegnare valori a ciascun membro. Esempi di campi consolidati utili negli scenari di ricerca includono la combinazione di un nome e un cognome in una singola struttura, città e stato in una singola struttura oppure nome e data di nascita in una singola struttura per stabilire un'identità univoca.
 
-La versione dell'API determina la profondità di data shaping è possibile ottenere. 
+Inoltre, l'abilità **shaper** illustrata nello [scenario 3](#nested-complex-types) aggiunge una proprietà facoltativa *sourceContext* all'input. Le proprietà *source* e *sourceContext* si escludono a vicenda. Se l'input è nel contesto della competenza, usare semplicemente *source*. Se l'input si trova in un contesto *diverso* rispetto al contesto skill, usare *sourceContext*. Per *sourceContext* è necessario definire un input annidato con l'elemento specifico da risolvere come origine. 
 
-| Versione dell'API | Data shaping dei comportamenti | 
-|-------------|-------------------|
-| Versione 2019-05-06-preview dell'API REST (.NET SDK non è supportato) | Gli oggetti complessi, più livelli di profondità, in uno **Shaper** definizione competenze. |
-| 2019-05-06 * * (disponibile a livello generale), 2017-11-11-Preview| Oggetti complessi, un livello di profondità. Una forma a più livelli richiede diversi passaggi shaper il concatenamento.|
-
-Così come fornito da `api-version=2019-05-06-Preview`, il **Shaper** competenza illustrato [scenario 3](#nested-complex-types) aggiunge un nuovo facoltativo *sourceContext* proprietà all'input. Il *origine* e *sourceContext* proprietà si escludono a vicenda. Se l'input è in corrispondenza del contesto della competenza, usare semplicemente *origine*. Se l'input è in un *differente* contesto rispetto al contesto di competenza, utilizzare il *sourceContext*. Il *sourceContext* è necessario definire un input annidato con l'elemento specifico indirizzata come origine. 
-
-Nella risposta, per tutte le versioni API, il nome di output è sempre "output". Internamente, la pipeline può eseguire il mapping di un nome diverso, ad esempio "analyzedText" come illustrato negli esempi seguenti, ma il **Shaper** competenza stesso restituisce "output" nella risposta. Questo potrebbe essere importante se si esegue il debug di documenti approfonditi e si nota la discrepanza nella denominazione oppure se si compila una competenza personalizzata e si esegue la struttura della risposta manualmente.
+Il nome dell'output è sempre "output". Internamente, la pipeline può eseguire il mapping di un nome diverso, ad esempio "analyzedText", come illustrato negli esempi riportati di seguito, ma la capacità di **shaper** restituisce "output" nella risposta. Questo potrebbe essere importante se si esegue il debug di documenti approfonditi e si nota la discrepanza nella denominazione oppure se si compila una competenza personalizzata e si esegue la struttura della risposta manualmente.
 
 > [!NOTE]
-> Il **Shaper** competenza non è associato a un'API servizi cognitivi e non vengono addebitati per il relativo utilizzo. È tuttavia necessario [collegare una risorsa di Servizi cognitivi](cognitive-search-attach-cognitive-services.md) per eseguire l'override dell'opzione di risorsa **Gratuito**, che consente solo un numero ridotto di arricchimenti al giorno.
+> L'abilità dell' **shaper** non è associata a un'API servizi cognitivi e non viene addebitata l'utilizzo. È tuttavia necessario [collegare una risorsa di Servizi cognitivi](cognitive-search-attach-cognitive-services.md) per eseguire l'override dell'opzione di risorsa **Gratuito**, che consente solo un numero ridotto di arricchimenti al giorno.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill
 
 ## <a name="scenario-1-complex-types"></a>Scenario 1: tipi complessi
 
-Si consideri uno scenario in cui si desidera creare una struttura denominata *analyzedText* dotata di due membri: rispettivamente *testo* e *valutazione*. In un indice di ricerca di Azure, un campo ricercabile multiparte viene chiamato un *tipo complesso* e viene spesso creato quando i dati di origine hanno una struttura complessa corrispondente che esegue il mapping a esso.
+Si consideri uno scenario in cui si desidera creare una struttura denominata *analyzedText* dotata di due membri: rispettivamente *testo* e *valutazione*. In un indice di ricerca di Azure, un campo ricercabile multiparte è denominato *tipo complesso* e viene spesso creato quando i dati di origine hanno una struttura complessa corrispondente che esegue il mapping.
 
-Tuttavia, un altro approccio per la creazione di tipi complessi è tramite il **Shaper** competenza. Includendo questa esperienza in un insieme di competenze, le operazioni in memoria durante l'elaborazione di set di competenze possono restituire forme di data con strutture annidate, che possono quindi essere mappate a un tipo complesso nell'indice. 
+Tuttavia, un altro approccio per la creazione di tipi complessi è costituito dall'abilità **shaper** . Grazie all'inclusione di questa competenza in un insieme di competenze, le operazioni in memoria durante l'elaborazione delle competenze possono restituire forme di dati con strutture annidate, che possono quindi essere mappate a un tipo complesso nell'indice. 
 
-La definizione di competenza di esempio seguente fornisce i nomi membro come input. 
+Nell'esempio di definizione di competenze seguente vengono forniti i nomi dei membri come input. 
 
 
 ```json
@@ -71,9 +64,9 @@ La definizione di competenza di esempio seguente fornisce i nomi membro come inp
 }
 ```
 
-### <a name="sample-index"></a>Indice degli esempi
+### <a name="sample-index"></a>Indice di esempio
 
-Un insieme di competenze viene richiamato da un indicizzatore e un indicizzatore è necessario un indice. Una rappresentazione complessa campo nell'indice potrebbe essere simile al seguente. 
+Un indicizzatore viene richiamato da un indicizzatore e un indicizzatore richiede un indice. Una rappresentazione di campo complessa nell'indice potrebbe essere simile all'esempio seguente. 
 
 ```json
 
@@ -98,9 +91,9 @@ Un insieme di competenze viene richiamato da un indicizzatore e un indicizzatore
                 },
 ```
 
-### <a name="skill-input"></a>Input di competenze
+### <a name="skill-input"></a>Input competenze
 
-Un documento JSON in arrivo fornisce l'input utilizzabile per questo **Shaper** competenza potrebbe essere:
+Un documento JSON in arrivo che fornisce un input utilizzabile per questa skill di **shaper** può essere:
 
 ```json
 {
@@ -117,9 +110,9 @@ Un documento JSON in arrivo fornisce l'input utilizzabile per questo **Shaper** 
 ```
 
 
-### <a name="skill-output"></a>Output di competenze
+### <a name="skill-output"></a>Output delle competenze
 
-La competenza **Shaper** genera un nuovo elemento denominato *analyzedText* con gli elementi combinati di *testo* e *valutazione*. Questo output è conforme allo schema dell'indice. Verranno importato e indicizzato in un indice di ricerca di Azure.
+La competenza **Shaper** genera un nuovo elemento denominato *analyzedText* con gli elementi combinati di *testo* e *valutazione*. Questo output è conforme allo schema dell'indice. Che verrà importato e indicizzato in un indice di ricerca di Azure.
 
 ```json
 {
@@ -139,11 +132,11 @@ La competenza **Shaper** genera un nuovo elemento denominato *analyzedText* con 
 }
 ```
 
-## <a name="scenario-2-input-consolidation"></a>Scenario 2: input consolidamento
+## <a name="scenario-2-input-consolidation"></a>Scenario 2: consolidamento dell'input
 
 In un altro esempio, si supponga che in diverse fasi di elaborazione della pipeline siano stati estratti il titolo di un libro e i titoli dei capitoli in diverse pagine del libro. È ora possibile creare una singola struttura composta da questi input diversi.
 
-Il **Shaper** definizione competenze per questo scenario potrebbe essere simile al seguente:
+La definizione delle competenze di **shaper** per questo scenario potrebbe essere simile all'esempio seguente:
 
 ```json
 {
@@ -168,8 +161,8 @@ Il **Shaper** definizione competenze per questo scenario potrebbe essere simile 
 }
 ```
 
-### <a name="skill-output"></a>Output di competenze
-In questo caso, il **Shaper** rende flat tutti i titoli capitolo per creare una matrice. 
+### <a name="skill-output"></a>Output delle competenze
+In questo caso, lo **shaper** rende Flat tutti i titoli dei capitoli per creare una singola matrice. 
 
 ```json
 {
@@ -193,14 +186,11 @@ In questo caso, il **Shaper** rende flat tutti i titoli capitolo per creare una 
 
 <a name="nested-complex-types"></a>
 
-## <a name="scenario-3-input-consolidation-from-nested-contexts"></a>Scenario 3: il consolidamento di input da contesti annidati
+## <a name="scenario-3-input-consolidation-from-nested-contexts"></a>Scenario 3: consolidamento dell'input da contesti annidati
 
-> [!NOTE]
-> Annidata è supportate in strutture di [API REST versione 2019-05-06-Preview](search-api-preview.md) può essere usato in un [store knowledge](knowledge-store-concept-intro.md) o in un indice di ricerca di Azure.
+Si supponga di avere il titolo, i capitoli e il contenuto di un libro e di avere eseguito il riconoscimento delle entità e le frasi chiave sul contenuto e ora è necessario aggregare i risultati delle diverse competenze in un'unica forma con il nome del capitolo, le entità e le frasi chiave.
 
-Si supponga hanno il titolo, capitoli e contenuto di un libro e sono state eseguite le frasi chiave e riconoscimento di entità sul contenuto, è possibile per aggregare i risultati di competenze diverse in una singola forma con il nome capitolo, entità e le frasi chiave.
-
-Il **Shaper** definizione competenze per questo scenario potrebbe essere simile al seguente:
+La definizione delle competenze di **shaper** per questo scenario potrebbe essere simile all'esempio seguente:
 
 ```json
 {
@@ -236,8 +226,8 @@ Il **Shaper** definizione competenze per questo scenario potrebbe essere simile 
 }
 ```
 
-### <a name="skill-output"></a>Output di competenze
-In questo caso, il **Shaper** crea un tipo complesso. Questa struttura è presente in memoria. Se si desidera salvarlo in un archivio della Knowledge Base, è necessario creare una proiezione nelle tue competenze che definisce le caratteristiche di archiviazione.
+### <a name="skill-output"></a>Output delle competenze
+In questo caso, lo **shaper** crea un tipo complesso. Questa struttura esiste in memoria. Se si desidera salvare il file in un [Archivio informazioni](knowledge-store-concept-intro.md), è necessario creare una proiezione nel proprio Skills che definisce le caratteristiche di archiviazione.
 
 ```json
 {
@@ -265,4 +255,4 @@ In questo caso, il **Shaper** crea un tipo complesso. Questa struttura è presen
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)
 + [Come usare i tipi complessi](search-howto-complex-data-types.md)
 + [Panoramica su Knowledge Store](knowledge-store-concept-intro.md)
-+ [Come iniziare a usare archivio della Knowledge Base](knowledge-store-howto.md)
++ [Come iniziare a usare l'archivio informazioni](knowledge-store-howto.md)

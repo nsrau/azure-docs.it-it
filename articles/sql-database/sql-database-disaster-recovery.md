@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 06/21/2019
-ms.openlocfilehash: 00fa1128df03befda8b15be2d7f2c527f65f9973
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 95814805d0bcb2532c09f4f68c6b8d97c3b8c6a5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341083"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568827"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Ripristinare un database SQL di Azure o eseguire il failover in un database secondario
 
@@ -34,11 +33,11 @@ Per informazioni sugli scenari di continuità aziendale e sulle funzionalità ch
 > Se si usano database o pool premium o business critical con ridondanza della zona, il processo di ripristino viene automatizzato e la parte restante di questo articolo non è applicabile.
 
 > [!NOTE]
-> I database primari e secondari devono avere lo stesso livello di servizio. È anche consigliabile che il database secondario viene creato con le stesse dimensioni di calcolo (Dtu o Vcore) del database primario. Per altre informazioni, vedere [l'aggiornamento o downgrade come database primario](sql-database-active-geo-replication.md#upgrading-or-downgrading-primary-database).
+> I database primari e secondari devono avere lo stesso livello di servizio. Si consiglia inoltre di creare il database secondario con le stesse dimensioni di calcolo (DTU o VCore) del database primario. Per ulteriori informazioni, vedere [aggiornamento o downgrade come database primario](sql-database-active-geo-replication.md#upgrading-or-downgrading-primary-database).
 
 > [!NOTE]
 > Usare uno o più gruppi di failover per gestire il failover di più database.
-> Se si aggiunge una relazione di replica geografica esistente al gruppo di failover, verificare che il database di replica geografica secondario sia configurato con lo stesso livello di servizio e le stesse dimensioni di calcolo del database primario. Per altre informazioni, vedere [usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database](sql-database-auto-failover-group.md).
+> Se si aggiunge una relazione di replica geografica esistente al gruppo di failover, verificare che il database di replica geografica secondario sia configurato con lo stesso livello di servizio e le stesse dimensioni di calcolo del database primario. Per altre informazioni, vedere [usare i gruppi di failover automatico per abilitare il failover trasparente e coordinato di più database](sql-database-auto-failover-group.md).
 
 ## <a name="prepare-for-the-event-of-an-outage"></a>Prepararsi per un evento di interruzione del servizio
 
@@ -80,7 +79,7 @@ Per eseguire il failover in un database secondario con replica geografica, segui
 
 - [Failover in un server secondario con replica geografica tramite il portale di Azure](sql-database-geo-replication-portal.md)
 - [Failover nel server secondario tramite PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-- [Eseguire il failover in un server secondario tramite Transact-SQL (T-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
+- [Eseguire il failover su un server secondario tramite Transact-SQL (T-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
 
 ## <a name="recover-using-geo-restore"></a>Ripristino tramite il ripristino geografico
 
@@ -90,7 +89,7 @@ Se i tempi di inattività dell'applicazione non comportano una responsabilità a
 
 Se si esegue il ripristino da un'interruzione del servizio usando il ripristino geografico, è necessario assicurarsi che la connettività ai nuovi database sia configurata correttamente in modo da poter riprendere il normale funzionamento dell'applicazione. Di seguito è riportato un elenco di controllo di attività per fare in modo che il database ripristinato sia pronto per la produzione.
 
-### <a name="update-connection-strings"></a>Aggiornare le stringhe di connessione
+### <a name="update-connection-strings"></a>Aggiorna stringhe di connessione
 
 Poiché il database ripristinato si trova in un server diverso, è necessario aggiornare la stringa di connessione dell'applicazione in modo che punti a tale server.
 

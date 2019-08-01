@@ -10,17 +10,17 @@ ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 8ae7ab3f53f480f46165800504fbb1eb6649c3e2
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68325961"
 ---
 # <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Recuperare log ed eventi dei contenitori in Istanze di Azure Container
 
-Quando si dispone di un contenitore errato, iniziare visualizzando i log con [AZ container logs][az-container-logs], and streaming its standard out and standard error with [az container attach][az-container-attach].
+Quando si dispone di un contenitore errato, iniziare visualizzando i log con il comando [AZ container logs][az-container-logs]e trasmettere in streaming il relativo standard e l'errore standard con [AZ container collegata][az-container-attach].
 
-## <a name="view-logs"></a>Visualizzare i log
+## <a name="view-logs"></a>Visualizza i log
 
 Per visualizzare i log generati dal codice dell'applicazione all'interno di un contenitore, è possibile usare il comando [az container logs][az-container-logs].
 

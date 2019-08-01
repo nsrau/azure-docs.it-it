@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 47fd6c1e2bb342bc1a31fb16a45a5ebc749dca69
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 55b23b8d8e03a79aa0806a68306017f89c747760
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60702617"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567769"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Gestire gli aggiornamenti in sequenza delle applicazioni cloud con la replica geografica attiva del database SQL
 
@@ -110,7 +109,7 @@ ALTER DATABASE <Prod_DB>
 SET (ALLOW_CONNECTIONS = NO)
 ```
 
-2. Terminare la replica geografica scollegando il database secondario (11). Questa azione crea una copia indipendente ma completamente sincronizzata del database di produzione. Questo database verrà aggiornato. L'esempio seguente usa Transact-SQL, ma [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) è inoltre disponibile. 
+2. Terminare la replica geografica disconnettendo il database secondario (11). Questa azione crea una copia indipendente ma completamente sincronizzata del database di produzione. Questo database verrà aggiornato. Nell'esempio seguente viene usato Transact-SQL, ma [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) è anche disponibile. 
 
 ```sql
 -- Disconnect the secondary, terminating geo-replication

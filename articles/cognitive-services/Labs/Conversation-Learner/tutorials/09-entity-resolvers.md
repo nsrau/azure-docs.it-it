@@ -1,5 +1,5 @@
 ---
-title: Sistemi di risoluzione entità in un modello di apprendimento di conversazioni - servizi cognitivi di Azure | Microsoft Docs
+title: Resolver di entità in un modello di Conversation Learner-Servizi cognitivi di Azure | Microsoft Docs
 titleSuffix: Azure
 description: Informazioni su come usare i resolver di entità in Conversation Learner.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 51f74f504f0ad70c8c7f73be8ee6a05add685824
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 60c4abf1590cb91fd460cc6a2a5ba75a225ebd80
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475747"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704032"
 ---
 # <a name="entity-resolvers"></a>Resolver di entità
 
@@ -42,36 +43,36 @@ Per iniziare, passare alla home page nell'interfaccia utente Web.
 ### <a name="create-the-model"></a>Creare il modello
 
 1. Selezionare **nuovo modello**.
-2. Immettere **entità resolver** per **nome**.
+2. Immettere **resolver di entità** per **nome**.
 3. Selezionare **Create**.
 
 ### <a name="create-a-pair-of-entities"></a>Creare una coppia di entità
 
-1. Selezionare **Entities** nel riquadro sinistro, quindi **nuova entità**.
-2. Immettere **partenze** per **nome entità**.
-3. Selezionare **datetimeV2** per **tipo di Resolver**.
+1. Selezionare **entità** nel pannello a sinistra e quindi **nuova entità**.
+2. Immettere la **partenza** per il **nome dell'entità**.
+3. Selezionare **datetimeV2** per **tipo di resolver**.
 4. Selezionare **Create**. Chiudere il popup informativo selezionando **OK**.
-5. Ripetere i passaggi da 1 a 4 per creare una seconda entità denominate **restituire** con **datetimeV2** tipo di resolver.
+5. Ripetere i passaggi 1-4 per creare una seconda entità denominata **return** con tipo di resolver **datetimeV2** .
 
 ![](../media/T09_entities.png)
 
 ### <a name="create-a-pair-of-actions"></a>Creare una coppia di azioni
 
-1. Selezionare **azioni** nel riquadro sinistro, quindi **nuova azione**.
-2. Immettere **lasciando nei $departure e restituzione per $return** per **risposta del Bot...** .
-    - IMPORTANTE - quando si digita $ [entityName] è necessario sottoporre a hit immettere o fare clic sull'entità nell'elenco a discesa dello strumento di apprendimento di conversazioni in caso contrario, prenderà in considerazione questo sia il testo anziché come un'entità.
-    - Si noti che il **le entità necessarie** campo potranno inoltre ottenere tali entità e non possono essere rimossi. Ciò impedisce all'azione di diventare disponibile fino a quando non saranno presenti entrambe le entità obbligatorie.
+1. Selezionare **Actions (azioni** ) nel pannello sinistro, quindi **nuova azione**.
+2. Immettere **il $Departure e tornare al $Return** per **la risposta del bot...** .
+    - IMPORTANTE: quando si digita $ [EntityName] è necessario premere INVIO o fare clic sull'entità nell'elenco a discesa in caso contrario Conversation Learner considererà il testo anziché un'entità.
+    - Si noti che il campo **entità obbligatorie** otterrà anche queste entità e non è possibile rimuoverle. Ciò impedisce all'azione di diventare disponibile fino a quando non saranno presenti entrambe le entità obbligatorie.
 3. Selezionare **Create**.
 4. Selezionare **nuova azione** per creare una seconda azione.
-5. Immettere **quando si prevede di viaggio?** per **risposta del Bot...** .
-6. Immettere **partenze** e **restituire** per **entità qualificato**. Questi elementi indicano al bot di NON eseguire questa operazione se una delle entità contiene un valore.
+5. Immettere **quando si prevede di viaggiare?** per **la risposta del bot...** .
+6. Immettere la **partenza** e **restituire** per le entità che non sono **idonee**. Questi elementi indicano al bot di NON eseguire questa operazione se una delle entità contiene un valore.
 7. Selezionare **Create**.
 
 ![](../media/T09_actions.png)
 
 ### <a name="training"></a>Formazione
 
-1. Guarda il **formazione: [Status]** nell'angolo superiore sinistro per **Completed**.
+1. Guardare il **Training: [status]** nell'angolo superiore sinistro per **Completed**.
     - Fare clic sul collegamento "Refresh" (Aggiorna) se l'operazione richiede troppo tempo.
     - È necessario attendere che lo stato del training sia "Completed" (Completato) affinché i resolver delle entità funzionino quando si esegue il training del modello.
 
@@ -85,7 +86,7 @@ Per iniziare, passare alla home page nell'interfaccia utente Web.
 8. Etichettare quindi il testo "Sunday next week" come "return".
 9. Fare clic su "Score Actions" (Punteggio azioni).
     - Si noti come il riquadro "Memory" (Memoria) contiene le date corrispondenti alla partenza e al ritorno.
-    - Passare il mouse su ciascuno di essi e osservare come le entità sono oggetti di data che consentono di acquisire in modo chiaro la data di calendario effettivo anziché "Sunday" o "tomorrow".
+    - Passare il mouse su ciascuno di essi e osservare il modo in cui le entità sono oggetti data che acquisiscono chiaramente la data effettiva del calendario anziché "Sunday" o "Tomorrow".
 10. Selezionare la risposta del bot "You are leaving on..."
 11. Fare clic sul pulsante "Save" (Salva).
 
@@ -94,4 +95,4 @@ Per iniziare, passare alla home page nell'interfaccia utente Web.
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Entità di enum](./tutorial-enum-set-entity.md)
+> [Entità enum](./tutorial-enum-set-entity.md)

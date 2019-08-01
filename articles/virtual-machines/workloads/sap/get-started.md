@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/24/2019
+ms.date: 07/29/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8f4352a1f6a065d1e9be78f01bde95c8f00593a3
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 60474148d1eac6ca9d85fbc1d103ad612787aeae
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479781"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607875"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usare Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -43,7 +43,7 @@ L'hosting di scenari di carico di lavoro SAP in Azure può anche creare requisit
 - Introduzione di ExpressRoute Fast Path e Copertura globale per le istanze large di HANA in [SAP Hana architettura di rete (istanze large)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture) e documenti correlati
 - Il rilascio del [controllo delle istanze large di Azure Hana tramite il portale di Azure](hana-li-portal.md)
 - Rilascio della [disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure in SUSE Linux Enterprise Server con Azure NetApp files per le applicazioni SAP](high-availability-guide-suse-netapp-files.md)
-
+- Versione dell' [installazione di SAP NETWEAVER ASC per SAP Hana in Azure NetAppFiles (e) beta](lama-installation.md)
 
 
 

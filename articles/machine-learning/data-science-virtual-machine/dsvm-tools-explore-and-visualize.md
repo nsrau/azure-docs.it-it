@@ -4,7 +4,7 @@ description: Strumenti per la visualizzazione e l'esplorazione dei dati per la m
 keywords: strumenti di analisi scientifica dei dati, macchina virtuale per l'analisi scientifica dei dati, strumenti per l'analisi scientifica dei dati, analisi scientifica dei dati per Linux
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: gokuma
-ms.openlocfilehash: 693be80e493a0ba259d147f432dc9d6c07ba876d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: vijetaj
+ms.openlocfilehash: 31b05ec4fa68c3d4804000caee94b62432bdaed9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427524"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68557759"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Strumenti per la visualizzazione e l'esplorazione dei dati nella macchina virtuale per data science
 
-Un passaggio fondamentale del data science consiste nel comprendere i dati. Gli strumenti di visualizzazione ed esplorazione dei dati consentono di velocizzare la comprensione dei dati. Ecco alcuni strumenti forniti in DSVM, che semplificano questo passaggio chiave. 
+Un passaggio fondamentale del data science consiste nel comprendere i dati. Gli strumenti di visualizzazione ed esplorazione dei dati consentono di velocizzare la comprensione dei dati. Ecco alcuni strumenti disponibili in DSVM che rendono più semplice questo passaggio chiave. 
 
 ## <a name="apache-drill"></a>Apache Drill
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | Motore di query SQL open source su Big data    |
+| Informazioni   | Motore di query SQL open source su Big data    |
 | Versioni supportate della macchina virtuale per data science      | Windows, Linux  |
 | Come viene configurata o installata sulla macchina virtuale per data science?      |  Installato in `/dsvm/tools/drill*` solo in modalità incorporata   |
 | Usi tipici      |  Esplorazione dei dati locali senza la necessità di usare ETL. Esecuzione di query su origini dati e formati diversi tra cui CSV, JSON, tabelle relazionali, Hadoop     |
@@ -39,17 +39,17 @@ Un passaggio fondamentale del data science consiste nel comprendere i dati. Gli 
 ## <a name="weka"></a>Weka
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   |  Weka è una raccolta di algoritmi per machine learning per attività di data mining. Gli algoritmi possono essere applicati direttamente a un set di dati o chiamati dal codice Java. Weka contiene strumenti per la pre-elaborazione, la classificazione, la regressione, il clustering, le regole di associazione e la visualizzazione dei dati. |
+| Informazioni   |  Weka è una raccolta di algoritmi per machine learning per attività di data mining. Gli algoritmi possono essere applicati direttamente a un set di dati o chiamati dal codice Java. Weka contiene strumenti per la pre-elaborazione, la classificazione, la regressione, il clustering, le regole di associazione e la visualizzazione dei dati. |
 | Edizioni supportate della macchina virtuale per data science     | Windows, Linux     |
 | Usi tipici      | Strumento ML generale     |
-| Come usarla o eseguirla?      | In Windows cercare Weka nel menu Start. In Linux, accedere con X2Go, quindi passare ad applicazioni -> Development -> Weka. |
+| Come usarla o eseguirla?      | In Windows cercare Weka nel menu Start. In Linux accedere con X2Go, quindi passare ad Applications-> Development-> weka. |
 | Collegamenti agli esempi      | [Esempi di Weka](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | Strumenti correlati nella macchina virtuale per data science      |LightGBM, Rattle, Xgboost   |
 
 ## <a name="rattle"></a>Rattle
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   |   Un'interfaccia utente grafica per data mining con R   |
+| Informazioni   |   Un'interfaccia utente grafica per data mining con R   |
 | Edizioni supportate della macchina virtuale per data science     | Windows, Linux     |
 | Usi tipici      | Strumento di data mining dell'interfaccia utente generale per R    |
 | Come usarla o eseguirla?      | Strumento dell'interfaccia utente. In Windows avviare un prompt dei comandi, eseguire R, quindi all'interno di R eseguire `rattle()`. In Linux connettersi con X2Go, avviare un terminale, eseguire R, quindi all'interno di R eseguire `rattle()`. |
@@ -59,7 +59,7 @@ Un passaggio fondamentale del data science consiste nel comprendere i dati. Gli 
 ## <a name="power-bi-desktop"></a>Power BI Desktop 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | Strumento di visualizzazione dei dati interattivo e di BI    |
+| Informazioni   | Strumento di visualizzazione dei dati interattivo e di BI    |
 | Versioni supportate della macchina virtuale per data science      | Windows  |
 | Usi tipici      |  Visualizzazione dei dati e creazione di dashboard   |
 | Come usarla o eseguirla?      | Collegamento sul desktop (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |

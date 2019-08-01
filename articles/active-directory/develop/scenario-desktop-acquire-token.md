@@ -15,12 +15,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05596365dfa011675f38beda2435fdda1a53a5a3
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 6e952b011eb760ebc9dcf5fe7250cf56ec67465f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488853"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562338"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>App desktop che chiama le API Web-Acquisisci un token
 
@@ -126,7 +126,7 @@ La classe definisce le costanti seguenti:
 
 #### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
 
-Questo modificatore viene usato in uno scenario avanzato in cui si vuole che l'utente preacconsente a diverse risorse in anticipo (e non vuole usare il consenso incrementale, che viene in genere usato con MSAL.NET/Microsoft Identity Platform v 2.0). Per informazioni dettagliate [, vedere Procedura: ottenere il consenso dell'utente in anticipo per diverse risorse](scenario-desktop-production.md#how-to-have--the-user-consent-upfront-for-several-resources).
+Questo modificatore viene usato in uno scenario avanzato in cui si vuole che l'utente preacconsente a diverse risorse in anticipo (e non vuole usare il consenso incrementale, che in genere viene usato con MSAL.NET/la piattaforma di identità Microsoft). Per informazioni dettagliate [, vedere Procedura: ottenere il consenso dell'utente in anticipo per diverse risorse](scenario-desktop-production.md#how-to-have--the-user-consent-upfront-for-several-resources).
 
 ```CSharp
 var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
@@ -198,7 +198,7 @@ AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
 
 - Questo flusso è abilitato per le app .NET desktop, .NET Core e Windows Universal (UWP). In .NET Core è disponibile solo l'overload che accetta il nome utente, perché la piattaforma .NET Core non può richiedere il nome utente al sistema operativo.
   
-Per altre informazioni sul consenso, vedere [autorizzazioni e consenso per la versione 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)
+Per ulteriori informazioni sul consenso, vedere [autorizzazioni e consenso della piattaforma Microsoft Identity](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) .
 
 ### <a name="how-to-use-it"></a>Come usarlo
 

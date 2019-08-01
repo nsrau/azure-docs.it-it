@@ -10,20 +10,19 @@ ms.topic: conceptual
 author: johnpaulkee
 ms.author: joke
 ms.reviewer: sstein
-manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: 627b29018afff2adb57b3b8b5c816bea9c421f68
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9fa3444244cbd51c3f14abcfef5212a366cadbd2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236871"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68550560"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>Eseguire la migrazione ai nuovi processi di database elastico
 
 È disponibile una versione aggiornata dei [processi di database elastico](elastic-jobs-overview.md).
 
-Se si dispone di un cliente esistente ospitata versione del servizio processi elastici del Database, i cmdlet di migrazione e vengono forniti gli script per eseguire facilmente la migrazione alla versione più recente.
+Se si dispone di una versione ospitata da un cliente esistente di processi di database elastici, vengono forniti i cmdlet e gli script di migrazione per eseguire facilmente la migrazione alla versione più recente.
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -32,7 +31,7 @@ La versione aggiornata dei processi di database elastico include un nuovo set di
 
 ### <a name="install-the-latest-elastic-jobs-cmdlets"></a>Installare la versione più recente dei cmdlet per i processi elastici
 
-Se si ha già una sottoscrizione di Azure [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+Se non si ha già una sottoscrizione di Azure, [creare un account gratuito prima di](https://azure.microsoft.com/free/) iniziare.
 
 Installare il modulo **Az.Sql** 1.1.1-preview per ottenere i cmdlet per processi elastici più recenti. Eseguire questi comandi in PowerShell con accesso amministrativo.
 
@@ -145,7 +144,7 @@ Per eseguire la migrazione delle credenziali, eseguire il comando seguente passa
 Migrate-Credentials $agent
 ```
 
-Output di esempio
+Esempio di output
 
 ```powershell
 # You should see similar output after executing the above

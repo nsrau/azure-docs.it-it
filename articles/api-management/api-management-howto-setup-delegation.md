@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 2fad585e1d37694e37c219be210f9521dbbda3a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cd7b2cecce443e821e233d97a260b7dfb3471752
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241644"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667233"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Come delegare la registrazione utente e la sottoscrizione ai prodotti
 
-La delega consente di utilizzare il sito Web esistente per la gestione di accesso per gli sviluppatori / effettuare l'iscrizione e sottoscrizione ai prodotti, invece di usare la funzionalità incorporata nel portale per sviluppatori. Ciò consente al sito Web di avere la proprietà dei dati utente e di eseguire la convalida di questi passaggi in modo personalizzato.
+La delega consente di usare il sito Web esistente per gestire l'accesso e l'iscrizione degli sviluppatori e la sottoscrizione ai prodotti, anziché usare la funzionalità incorporata nel portale per sviluppatori. Ciò consente al sito Web di avere la proprietà dei dati utente e di eseguire la convalida di questi passaggi in modo personalizzato.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="delegate-signin-up"> </a>Delega per gli sviluppatori l'accesso ed effettuare l'iscrizione
+## <a name="delegate-signin-up"> </a>Delega dell'accesso e dell'iscrizione degli sviluppatori
 
-Per delegare l'accesso per gli sviluppatori ed effettuare l'iscrizione al sito Web esistente, è necessario creare un endpoint di delega speciale nel sito. Deve agire come punto di ingresso per qualsiasi richiesta avviata dal portale per sviluppatori di gestione API.
+Per delegare l'accesso e l'iscrizione per gli sviluppatori al sito Web esistente, è necessario creare un endpoint di delega speciale nel sito. Deve fungere da punto di ingresso per qualsiasi richiesta avviata dal portale per sviluppatori di gestione API.
 
 Il flusso di lavoro finale sarà il seguente:
 
-1. Collegamento al portale per sviluppatori di gestione API di iscrizione o lo sviluppatore fa clic su Accedi
+1. Gli sviluppatori fanno clic sul collegamento per l'accesso o l'iscrizione nel portale per sviluppatori di gestione API
 2. Il browser viene reindirizzato all'endpoint di delega.
-3. Endpoint di delega in o reindirizza a presenta un'interfaccia utente richiesta utente per accedere o iscriversi
+3. L'endpoint di delega in return reindirizza a o presenta l'interfaccia utente chiedendo all'utente di eseguire l'accesso o l'iscrizione
 4. In caso di esito positivo, l'utente viene reindirizzato alla pagina del portale per sviluppatori di Gestione API da dove è partito.
 
-Per iniziare, configurare innanzitutto Gestione API per indirizzare le richieste tramite l'endpoint di delega. Nel portale di pubblicazione Gestione API fare clic su **Sicurezza** e selezionare la scheda **Delega**. Fare clic sulla casella di controllo per abilitare 'Delegare l'accesso e iscrizione'.
+Per iniziare, configurare innanzitutto Gestione API per indirizzare le richieste tramite l'endpoint di delega. Nella portale di Azure cercare **sicurezza** nella risorsa gestione API e quindi fare clic sull'elemento **delega** . Fare clic sulla casella di controllo per abilitare ' delega accesso & iscriversi '.
 
 ![Pagina Delega][api-management-delegation-signin-up]
 
@@ -49,14 +49,14 @@ Per iniziare, configurare innanzitutto Gestione API per indirizzare le richieste
 
 1. Ricevere una richiesta nel formato seguente:
    
-   > *http:\//www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}*
+   > *http:\//www.yourwebsite.com/apimdelegation? Operation = SignIn & ReturnUrl = {URL della pagina di origine} & Salt = {String} & sig = {String}*
    > 
    > 
    
-    Parametri di query per l'accesso o l'iscrizione:
+    Parametri di query per il caso di accesso/iscrizione:
    
    * **operation**: identifica il tipo di richiesta di delega; in questo caso può essere solo di tipo **SignIn**
-   * **returnUrl**: l'URL della pagina in cui l'utente fa clic su una richiesta di accesso o iscrizione collegamento
+   * **ReturnUrl**: URL della pagina in cui l'utente ha fatto clic su un collegamento per l'accesso o l'iscrizione
    * **salt**: stringa salt speciale usata per il calcolo di un hash di sicurezza
    * **sig**: hash di sicurezza calcolato da usare per il confronto con il proprio hash calcolato
 2. Verificare che la richiesta provenga da Gestione API di Azure. Questa operazione è facoltativa ma altamente consigliata per motivi di sicurezza.
@@ -67,9 +67,9 @@ Per iniziare, configurare innanzitutto Gestione API per indirizzare le richieste
      > 
      > 
    * Confrontare l'hash sopra calcolato con il valore del parametro di query **sig** . Se i due hash corrispondono, procedere con il passaggio successivo; in caso contrario, negare la richiesta.
-3. Verificare che riceve una richiesta per l'accesso / iscrizione: i **operazione** parametro di query verrà impostato su "**SignIn**".
-4. Presentare all'utente con l'interfaccia utente di accedere o iscriversi
-5. Se l'utente sta effettuando un'iscrizione, è necessario creare un account corrispondente in Gestione API. [Creare un utente] con l'API REST di Gestione API. In tal caso, assicurarsi di impostare l'ID utente sullo stesso valore come l'archivio utente o a un ID che è possibile tenere traccia di.
+3. Verificare di ricevere una richiesta di accesso/iscrizione: il parametro di query dell' **operazione** verrà impostato su "signin".
+4. Presentare all'utente l'interfaccia utente per l'accesso o l'iscrizione
+5. Se l'utente sta effettuando un'iscrizione, è necessario creare un account corrispondente in Gestione API. [Creare un utente] con l'API REST di Gestione API. Quando si esegue questa operazione, assicurarsi di impostare l'ID utente sullo stesso valore dell'archivio utente o su un ID di cui è possibile tenere traccia.
 6. Quando l'utente viene autenticato correttamente:
    
    * [Richiedere un token SSO (Single Sign-On)] tramite l'API REST di Gestione API
@@ -89,24 +89,24 @@ Oltre all'operazione **SignIn**, è anche possibile eseguire la gestione degli a
 È necessario passare i parametri di query seguenti per le operazioni di gestione di account.
 
 * **operation**: identifica il tipo di richiesta di delega (ChangePassword, ChangeProfile o CloseAccount)
-* **userId**: l'ID utente dell'account da gestire
+* **userid**: ID utente dell'account da gestire
 * **salt**: stringa salt speciale usata per il calcolo di un hash di sicurezza
 * **sig**: hash di sicurezza calcolato da usare per il confronto con il proprio hash calcolato
 
 ## <a name="delegate-product-subscription"></a>Delega della sottoscrizione ai prodotti
-Delega sottoscrizione ai prodotti funziona in modo analogo alla delega dell'accesso dell'utente o dell'iscrizione. Il flusso di lavoro finale sarà il seguente:
+La delega della sottoscrizione del prodotto funziona in modo analogo alla delega dell'accesso utente. Il flusso di lavoro finale sarà il seguente:
 
-1. Sviluppatore seleziona un prodotto del portale per sviluppatori di gestione API e fa clic sul pulsante "Subscribe".
-2. Browser viene reindirizzato all'endpoint di delega.
-3. Endpoint di delega esegue i passaggi di sottoscrizione del prodotto richiesto. Spetta all'utente per i passaggi di progettazione. Possono includere il reindirizzamento a un'altra pagina per richiedere le informazioni di fatturazione, porre altre domande, o semplicemente se archiviare le informazioni e che non richiedono intervento dell'utente.
+1. Developer seleziona un prodotto nel portale per sviluppatori di gestione API e fa clic sul pulsante Subscribe (sottoscrizione).
+2. Il browser viene reindirizzato all'endpoint di delega.
+3. L'endpoint di delega esegue i passaggi necessari per la sottoscrizione al prodotto. È necessario progettare i passaggi. Possono includere il reindirizzamento a un'altra pagina per richiedere informazioni di fatturazione, porre domande aggiuntive o semplicemente archiviare le informazioni e non richiedere alcuna azione da parte dell'utente.
 
 Per abilitare la funzionalità, nella pagina **Delega** fare clic su **Delega sottoscrizione ai prodotti**.
 
-Verificare quindi che l'endpoint di delega esegue le azioni seguenti:
+Assicurarsi quindi che l'endpoint di delega esegue le azioni seguenti:
 
 1. Ricevere una richiesta nel formato seguente:
    
-   > *http:\//www.yourwebsite.com/apimdelegation?operation= {operazione} & productId = {prodotto per la sottoscrizione a} & userId = {utente che effettua richiesta} & salt = {string} & sig = {string}*
+   > *http:\//www.yourwebsite.com/apimdelegation? Operation = {Operation} & ProductID = {prodotto per sottoscrivere} & UserID = {utente che effettua la richiesta} & Salt = {String} & sig = {String}*
    >
    
     Parametri di query per la sottoscrizione ai prodotti:
@@ -116,28 +116,28 @@ Verificare quindi che l'endpoint di delega esegue le azioni seguenti:
      * "Unsubscribe": richiesta di annullamento della sottoscrizione a un prodotto
      * "Renew": richiesta di rinnovo di una sottoscrizione, ad esempio perché è scaduta
    * **productId**: ID del prodotto a cui effettuare la sottoscrizione
-   * **subscriptionId**: in *Unsubscribe* e *Renew* -l'ID della sottoscrizione del prodotto
-   * **userId**: l'ID dell'utente viene effettuata la richiesta per
+   * **SubscriptionId**: su *Annulla sottoscrizione* e *rinnovo* -ID della sottoscrizione del prodotto
+   * **userid**: ID dell'utente per cui viene effettuata la richiesta
    * **salt**: stringa salt speciale usata per il calcolo di un hash di sicurezza
    * **sig**: hash di sicurezza calcolato da usare per il confronto con il proprio hash calcolato
 
 2. Verificare che la richiesta provenga da Gestione API di Azure. Questa operazione è facoltativa ma altamente consigliata per motivi di sicurezza.
    
-   * Calcolare un hash HMAC-SHA512 di una stringa in base il **productId**, **userId**, e **salt** parametri di query:
+   * Calcolare un HMAC-SHA512 di una stringa in base ai parametri di query **ProductID**, **userid**e **Salt** :
      
      > HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
      > 
      > 
    * Confrontare l'hash sopra calcolato con il valore del parametro di query **sig** . Se i due hash corrispondono, procedere con il passaggio successivo; in caso contrario, negare la richiesta.
-3. Sottoscrizione al prodotto in base al tipo di operazione richiesta in elaborazione **operazione** , ad esempio fatturazione, altre domande e così via.
-4. Dopo la corretta sottoscrizione utente per il prodotto sul lato dell'utente, effettuare la sottoscrizione al prodotto in Gestione API da [chiamare l'API REST per le sottoscrizioni].
+3. Elaborare la sottoscrizione del prodotto in base al tipo di operazione richiesta in **Operation** , ad esempio fatturazione, altre domande e così via.
+4. Quando si sottoscrive correttamente l'utente al prodotto, sottoscrivere l'utente al prodotto gestione API [chiamata dell'API REST per le sottoscrizioni]le sottoscrizioni.
 
 ## <a name="delegate-example-code"></a> Codice di esempio
 
-Questi mostra esempi di codice come per:
+Questi esempi di codice illustrano come:
 
-* Sfruttare il *chiave di convalida delega*, impostata nella schermata delega del portale di pubblicazione
-* Creare un hash HMAC che viene quindi usato per convalidare la firma, dimostrando la validità del returnUrl passato.
+* Prendere la *chiave di convalida della delega*, impostata nella schermata delega del portale di pubblicazione
+* Creare un HMAC, che viene quindi usato per convalidare la firma, dimostrando la validità del returnUrl passato.
 
 Lo stesso codice funziona per productId e userId con leggeri modifiche.
 
@@ -186,7 +186,7 @@ Per altre informazioni sulla delega, vedere il video seguente:
 [Delegating product subscription]: #delegate-product-subscription
 [Richiedere un token SSO (Single Sign-On)]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/User/GenerateSsoUrl
 [Creare un utente]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/user/createorupdate
-[chiamare l'API REST per le sottoscrizioni]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription/createorupdate
+[chiamata dell'API REST per le sottoscrizioni]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription/createorupdate
 [Next steps]: #next-steps
 [il codice di esempio è fornito di seguito]: #delegate-example-code
 

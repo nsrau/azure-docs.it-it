@@ -9,14 +9,14 @@ services: iot-hub
 ms.devlang: javascript
 ms.topic: conceptual
 ms.date: 06/16/2017
-ms.openlocfilehash: b1aa8f2ce7d271187657d57993032069639ca9c7
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: d3e4e0f4e7b1f8d3e100b3f1b3446907cfd587c5
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404111"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716948"
 ---
-# <a name="send-cloud-to-device-messages-with-iot-hub-node"></a>Inviare messaggi da cloud a dispositivo con l'hub IoT (Node)
+# <a name="send-cloud-to-device-messages-with-iot-hub-nodejs"></a>Inviare messaggi da cloud a dispositivo con l'hub Internet (node. js)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
@@ -41,7 +41,7 @@ Al termine di questa esercitazione, vengono eseguite due app console Node.js:
 * **SendCloudToDeviceMessage**, che invia un messaggio da cloud a dispositivo all'app per dispositivo simulato tramite l'hub Internet e quindi riceve la conferma di recapito.
 
 > [!NOTE]
-> L’hub IoT dispone del supporto SDK per molte piattaforme e linguaggi (inclusi C, Java e Javascript) tramite gli SDK del dispositivo IoT Azure. Per istruzioni dettagliate su come connettere il dispositivo al codice dell'esercitazione e in generale all'hub IoT di Azure, vedere il [Centro per sviluppatori Azure IoT](https://azure.microsoft.com/develop/iot).
+> L'hub di Internet delle cose dispone del supporto SDK per molte piattaforme e linguaggi del dispositivo (inclusi C, Java, Python e JavaScript) tramite gli SDK per dispositivi Azure. Per istruzioni dettagliate su come connettere il dispositivo al codice dell'esercitazione e in generale all'hub IoT di Azure, vedere il [Centro per sviluppatori Azure IoT](https://azure.microsoft.com/develop/iot).
 >
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
@@ -53,33 +53,26 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 In questa sezione si modifica l'app per dispositivo simulato creata in inviare dati di telemetria [da un dispositivo a un hub](quickstart-send-telemetry-node.md) Internet per ricevere messaggi da cloud a dispositivo dall'hub Internet.
 
-1. Con un editor di testo aprire il file SimulatedDevice.js.
+1. Usando un editor di testo, aprire il file **SimulatedDevice. js** . Questo file si trova nella cartella **IOT-hub\Quickstarts\simulated-Device** dalla cartella radice del codice di esempio node. js scaricato nella Guida introduttiva inviare dati di telemetria [da un dispositivo a un hub](quickstart-send-telemetry-node.md) .
 
-2. Modificare la funzione **connectCallback** per gestire i messaggi inviati dall'hub IoT. In questo esempio il dispositivo richiama sempre la funzione **complete** per notificare all'hub IoT Hub che ha elaborato il messaggio. La nuova versione della funzione **connectCallback** è simile al frammento seguente:
+2. Registrare un gestore con il client del dispositivo per ricevere i messaggi inviati dall'hub. Aggiungere la chiamata a `client.on` subito dopo la riga che crea il client del dispositivo come nel frammento di codice seguente:
 
     ```javascript
-    var connectCallback = function (err) {
-      if (err) {
-        console.log('Could not connect: ' + err);
-      } else {
-        console.log('Client connected');
-        client.on('message', function (msg) {
-          console.log('Id: ' + msg.messageId + ' Body: ' + msg.data);
-          client.complete(msg, printResultFor('completed'));
-        });
-        // Create a message and send it to the IoT Hub every second
-        setInterval(function(){
-            var temperature = 20 + (Math.random() * 15);
-            var humidity = 60 + (Math.random() * 20);
-            var data = JSON.stringify({ deviceId: 'myFirstNodeDevice', temperature: temperature, humidity: humidity });
-            var message = new Message(data);
-            message.properties.add('temperatureAlert', (temperature > 30) ? 'true' : 'false');
-            console.log("Sending message: " + message.getData());
-            client.sendEvent(message, printResultFor('send'));
-        }, 1000);
-      }
-    };
+    var client = DeviceClient.fromConnectionString(connectionString, Mqtt);
+
+    client.on('message', function (msg) {
+      console.log('Id: ' + msg.messageId + ' Body: ' + msg.data);
+      client.complete(msg, function (err) {
+        if (err) {
+          console.error('complete error: ' + err.toString());
+        } else {
+          console.log('complete sent');
+        }
+      });
+    });
     ```
+
+    In questo esempio, il dispositivo richiama la funzione **complete** per inviare una notifica all'hub cose che ha elaborato il messaggio. La chiamata a **complete** non è obbligatoria se si usa il trasporto MQTT e può essere omesso. È obbligatorio per HTTPS e AMQP.
   
    > [!NOTE]
    > Se si usa HTTPS invece di MQTT o AMQP per il trasporto, l'istanza di **DeviceClient** controlla raramente i messaggi provenienti dall'hub IoT (meno di 25 minuti). Per altre informazioni sulle differenze tra il supporto di MQTT, AMQP e HTTPS e la limitazione dell'hub Internet, vedere la guida per gli [sviluppatori dell'hub](iot-hub-devguide-messaging.md)Internet.
@@ -93,7 +86,7 @@ In questo articolo viene creato un servizio back-end per l'invio di messaggi da 
 
 ## <a name="send-a-cloud-to-device-message"></a>Inviare un messaggio da cloud a dispositivo
 
-In questa sezione si crea un'app console Node.js che invia messaggi da cloud a dispositivo all'app del dispositivo simulato. È necessario l'ID dispositivo del dispositivo aggiunto nella Guida introduttiva inviare dati di telemetria [da un dispositivo a un hub](quickstart-send-telemetry-node.md) . È necessaria anche la stringa di connessione dell'hub Internet che è stata copiata in precedenza in [ottenere la stringa di connessione dell'hub Internet](#get-the-iot-hub-connection-string).
+In questa sezione si crea un'app console Node.js che invia messaggi da cloud a dispositivo all'app del dispositivo simulato. È necessario l'ID dispositivo del dispositivo aggiunto nella Guida introduttiva inviare dati di telemetria [da un dispositivo a un hub](quickstart-send-telemetry-node.md) . È necessaria anche la stringa di connessione dell'hub Internet delle cose copiata in precedenza in [ottenere la stringa di connessione dell'hub Internet](#get-the-iot-hub-connection-string).
 
 1. Creare una cartella vuota denominata **sendcloudtodevicemessage**. Nella cartella **sendcloudtodevicemessage** creare un file package.json eseguendo questo comando al prompt dei comandi. Accettare tutte le impostazioni predefinite:
 
@@ -173,7 +166,7 @@ In questa sezione si crea un'app console Node.js che invia messaggi da cloud a d
 
 A questo punto è possibile eseguire le applicazioni.
 
-1. Al prompt dei comandi nella cartella **simulateddevice** eseguire questo comando per inviare i dati di telemetria all'hub IoT e per rimanere in ascolto dei messaggi da cloud a dispositivo:
+1. Al prompt dei comandi nella cartella **Simulated-Device** eseguire il comando seguente per inviare dati di telemetria all'hub Internet e per restare in ascolto dei messaggi da cloud a dispositivo:
 
     ```shell
     node SimulatedDevice.js

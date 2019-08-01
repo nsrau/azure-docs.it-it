@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 882d4e0592b74e8af30ff5bf110a41e403c3bf7d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4274b3684a2e9e79385a561b1cad426b4ffd954e
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60906594"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609951"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Gestire i problemi di protezione degli endpoint con il Centro sicurezza di Azure
 Il Centro sicurezza di Azure monitora lo stato della protezione antimalware e lo segnala nel pannello dei problemi di protezione endpoint. Il Centro sicurezza evidenzia i problemi, quali minacce rilevate e protezione insufficiente, che può rendere i computer e le macchine virtuali vulnerabili ai rischi antimalware. Usando le informazioni in **Problemi di protezione degli endpoint**, è possibile sviluppare un piano per risolvere eventuali problemi identificati.
@@ -47,7 +47,7 @@ In questo esempio si userà **Calcolo**.  Verrà illustrato come installare l'an
 
 ## <a name="install-antimalware-on-azure-vms"></a>Installare l'antimalware sulle macchine virtuali di Azure
 
-1. Selezionare **app & calcolo** nel menu principale del Centro sicurezza oppure **Panoramica**.
+1. Selezionare **calcolo & app** nel menu principale del Centro sicurezza o **Panoramica**.
 
    ![Selezionare Calcolo][1]
 
@@ -60,7 +60,7 @@ In questo esempio si userà **Calcolo**.  Verrà illustrato come installare l'an
    - Installed endpoint protection providers (Provider di protezione endpoint installata): elenca i diversi provider identificati dal Centro sicurezza.
    - Installed endpoint protection health state (Stato di integrità della protezione endpoint installata), mostra lo stato di integrità delle macchine virtuali e dei computer su cui è installata una soluzione di protezione endpoint. Il grafico mostra il numero di macchine virtuali e computer integri e quelli con protezione insufficiente.
    - Malware rilevato: mostra il numero di macchine virtuali e computer in cui il Centro sicurezza segnala il malware rilevato.
-   - Computer attaccati: Mostra il numero di macchine virtuali e computer in cui il Centro sicurezza segnala gli attacchi da malware.
+   - Computer attaccati: Mostra il numero di macchine virtuali e computer in cui il Centro sicurezza segnala gli attacchi da parte del malware.
 
    Nella parte inferiore del dashboard è presente un elenco di problemi di protezione endpoint che include le informazioni seguenti:  
 
@@ -84,13 +84,13 @@ In questo esempio si userà **Calcolo**.  Verrà illustrato come installare l'an
 
    ![Selezionare Endpoint protection not installed on non-Azure computers (Protezione endpoint non installata sui computer che non hanno Azure)][4]
 
-2. In **Endpoint protection not installed on non-Azure computers** (Protezione endpoint non installata sui computer che non hanno Azure) selezionare un'area di lavoro. Una query di ricerca log di monitoraggio di Azure filtrata nell'area di lavoro si apre ed elenca i computer privi di antimalware. Selezionare un computer dall'elenco per avere maggiori informazioni.
+2. In **Endpoint protection not installed on non-Azure computers** (Protezione endpoint non installata sui computer che non hanno Azure) selezionare un'area di lavoro. Una query di ricerca dei log di monitoraggio di Azure filtrata per l'area di lavoro viene aperta ed elenca i computer senza antimalware. Selezionare un computer dall'elenco per avere maggiori informazioni.
 
-   ![Ricerca di log di monitoraggio di Azure][5]
+   ![Ricerca nei log di monitoraggio di Azure][5]
 
 Verrà visualizzata un'altra finestra di risultati della ricerca contenente le informazioni filtrate solo per quel computer.
 
-  ![Ricerca di log di monitoraggio di Azure][6]
+  ![Ricerca nei log di monitoraggio di Azure][6]
 
 > [!NOTE]
 > Si consiglia si eseguire il provisioning di protezione endpoint per tutte le macchine virtuali e i computer, per identificare e rimuovere virus, spyware e altro software dannoso.
@@ -100,7 +100,7 @@ Verrà visualizzata un'altra finestra di risultati della ricerca contenente le i
 ## <a name="next-steps"></a>Passaggi successivi
 Questo documento illustra come implementare la raccomandazione "Installa Endpoint Protection" del Centro sicurezza. Per altre informazioni sull'abilitazione di un programma antimalware di Microsoft in Azure, vedere i documenti seguenti:
 
-* [Microsoft Antimalware per Servizi cloud e Macchine virtuali di Azure](../security/azure-security-antimalware.md): informazioni su come distribuire la protezione antimalware Microsoft.
+* [Microsoft Antimalware per Servizi cloud e Macchine virtuali di Azure](../security/fundamentals/antimalware.md): informazioni su come distribuire la protezione antimalware Microsoft.
 
 Per altre informazioni sul Centro sicurezza, vedere i documenti seguenti:
 

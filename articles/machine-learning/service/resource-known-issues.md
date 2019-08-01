@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 206a8d9ba45dcb948dfffff86bab17b58a33e464
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 7d1bce7575272b7df185c4e261685d989f49436c
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358623"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716542"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemi noti e risoluzione per il servizio di Azure Machine Learning
 
@@ -151,3 +151,9 @@ Se si esegue un'operazione di gestione in una destinazione di calcolo da un proc
 ```
 
 Ad esempio, si riceverà un errore se si prova a creare o collegare una destinazione di calcolo da una pipeline di Machine Learning che viene inviata per l'esecuzione remota.
+
+## <a name="overloaded-azurefile-storage"></a>Archiviazione AzureFile di overload
+
+Se viene visualizzato l'errore "Impossibile caricare i file di progetto nella directory di lavoro in AzureFile perché lo spazio di archiviazione è sovraccarico", applicare le soluzioni alternative seguenti.
+
+Se si usa una condivisione file per altri carichi di lavoro, ad esempio il trasferimento dei dati, si consiglia di usare i BLOB in modo che la condivisione file sia disponibile per l'invio di esecuzioni. È inoltre possibile suddividere il carico di lavoro tra due aree di lavoro diverse.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad2f25aac7f74c74eb63fd4666c5184ae751ec1f
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: cce5de98fe4914e18ee0154d4ac5f1af008d32a6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499925"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561301"
 ---
 # <a name="enable-passwordless-sign-in-for-azure-ad-preview"></a>Abilitare l'accesso senza password per Azure AD (anteprima)
 
@@ -109,7 +109,7 @@ Le funzionalità di registrazione per le chiavi di sicurezza di FIDO2 si basano 
 ### <a name="enable-new-passwordless-authentication-methods"></a>Abilita nuovi metodi di autenticazione con password
 
 1. Accedere al [portale di Azure](https://portal.azure.com)
-1. Passare a **Azure Active Directory** > metodi > di autenticazione**criteri metodo di autenticazione (anteprima)**
+1. Passare a **Azure Active Directory** >  > **Metodi**diautenticazionedisicurezzacriterimetododi > **autenticazione (anteprima)**
 1. In ogni **Metodo**scegliere le opzioni seguenti
    1. **Abilita** -Sì o no
    1. **Destinazione** -tutti gli utenti o utenti selezionati

@@ -4,15 +4,15 @@ description: Questo articolo illustra concetti quali stored procedure, trigger e
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 53ff318dcc034fb11e2d554f9ad8e8814eb32879
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 1c2bf53a610c566ac58df588f6d96389f2206563
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672581"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717541"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Stored procedure, trigger e funzioni definite dall'utente
 
@@ -37,7 +37,7 @@ La scrittura di stored procedure, trigger e funzioni definite dall'utente (UDF) 
 * **Incapsulamento:** è possibile usare le stored procedure per raggruppare la logica in un solo posto. L'incapsulamento aggiunge un livello di astrazione al di sopra dei dati, consentendo l'evoluzione delle applicazioni indipendentemente dai dati. Questo livello di astrazione è utile quando i dati sono senza schema e non è necessario gestire l'aggiunta di altra logica direttamente nell'applicazione. Questa astrazione consente di proteggere i dati semplificando l'accesso dagli script.
 
 > [!TIP]
-> Le stored procedure sono ideali per le operazioni di scrittura pesanti e richiedono una transazione tra un valore di chiave di partizione. Se si decide di utilizzare le stored procedure, ottimizzare tutto che incapsula la quantità massima di possibili operazioni di scrittura. In generale, le stored procedure non sono il modo più efficiente per eseguire un numero elevato di operazioni di lettura o la query, in modo che utilizzano le stored procedure a un numero elevato di letture da restituire al client di batch non produrrà i vantaggi desiderati. Per prestazioni ottimali, queste operazioni con intensa attività di lettura devono essere eseguite sul lato client, usando il SDK di Cosmos. 
+> Le stored procedure sono ideali per operazioni di scrittura e richiedono una transazione in un valore di chiave di partizione. Quando si decide se utilizzare le stored procedure, è possibile ottimizzare l'incapsulamento della quantità massima di Scritture. In generale, le stored procedure non rappresentano il modo più efficiente per eseguire un numero elevato di operazioni di lettura o di query, pertanto l'utilizzo di stored procedure per eseguire il batch di un numero elevato di letture per tornare al client non produrrà il vantaggio desiderato. Per ottenere prestazioni ottimali, è consigliabile eseguire le operazioni di lettura sul lato client, usando Cosmos SDK. 
 
 ## <a name="transactions"></a>Transazioni
 
@@ -86,7 +86,7 @@ Azure Cosmos DB include trigger che possono essere richiamati eseguendo un'opera
 Analogamente ai pre-trigger, anche i post-trigger sono associati a un'operazione su un elemento di Azure Cosmos DB e non richiedono parametri di input. Vengono eseguiti *dopo* il completamento dell'operazione e hanno accesso al messaggio di risposta inviato al client. Per gli esempi, vedere [Come scrivere i trigger](how-to-write-stored-procedures-triggers-udfs.md#triggers).
 
 > [!NOTE]
-> Registrato i trigger non vengono eseguiti automaticamente quando le operazioni corrispondenti (creazione / eliminazione / sostituire / aggiornamento) si verificano. Dovranno essere chiamato in modo esplicito durante l'esecuzione di queste operazioni. Per altre informazioni, vedere [sull'esecuzione di trigger](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) articolo.
+> I trigger registrati non vengono eseguiti automaticamente quando si verificano le operazioni corrispondenti (creazione/eliminazione/sostituzione/aggiornamento). Devono essere chiamati in modo esplicito durante l'esecuzione di queste operazioni. Per altre informazioni, vedere [How to Run Triggers](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) article.
 
 ## <a id="udfs"></a>Funzioni definite dall'utente
 

@@ -1,18 +1,19 @@
 ---
 title: Domande frequenti su server di Backup di Azure e DPM
 description: 'Risposte alle domande comuni su: Il server di Backup di Azure e DPM.'
-author: srinathvasireddy
-manager: sivan
+ms.reviewer: srinathv
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.author: srinathv
-ms.openlocfilehash: 54727daa158172ae44379b847c70602ca998c65d
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 16cf4bcb6d83d22417d83d0b20ee564431f82840
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466418"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689332"
 ---
 # <a name="azure-backup-server-and-dpm---faq"></a>Domande frequenti su server di Backup di Azure e DPM
 In questo articolo vengono fornite le risposte alle domande frequenti relative a server di Backup di Azure e DPM.

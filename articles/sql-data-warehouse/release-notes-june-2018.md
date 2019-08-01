@@ -11,10 +11,10 @@ ms.date: 07/23/2018
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.openlocfilehash: 4348a634fd5b2b33f36d8e79f28caf659b82ccf4
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67626144"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Novità di Azure SQL Data Warehouse Giugno 2018
@@ -25,7 +25,7 @@ Azure SQL Data Warehouse riceve continuamente miglioramenti. Questo articolo ill
 ## <a name="user-defined-restore-points"></a>Punti di ripristino definiti dall'utente
 SQL Data Warehouse acquisisce automaticamente gli snapshot del data warehouse ogni 8 ore garantendo un obiettivo del punto di ripristino (RPO) di otto ore. Sebbene questi snapshot automatizzati facilitino gli oneri di gestione dell'esecuzione del data warehouse, è necessario creare snapshot nei momenti critici in base alle esigenze aziendali. Ad esempio, l'esecuzione di uno snapshot subito prima della distribuzione di nuovi script o un carico di dati significativi nel data warehouse per abilitare un punto di ripristino subito prima dell'operazione. 
 
-SQL Data Warehouse ora supporta [punti di ripristino definita dall'utente](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) tramite il [New-AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint) cmdlet.
+SQL Data Warehouse supporta ora i [punti di ripristino definiti dall'utente](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) tramite il cmdlet [New-AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint) .
 
 ```powershell
 New-AzSqlDatabaseRestorePoint
@@ -111,7 +111,7 @@ start_time                | end_time                | command
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo aver appreso alcune informazioni su SQL Data Warehouse, vedere come rapidamente [creare un SQL Data Warehouse][create a SQL Data Warehouse] . If you are new to Azure, you may find the [Azure glossary][Azure glossary] può essere utile quando si incontrano termini nuovi. Oppure vedere alcune delle altre risorse disponibili per SQL Data Warehouse.  
+Ora che si è appreso come SQL Data Warehouse, viene illustrato come [creare rapidamente una SQL data warehouse][create a SQL Data Warehouse]. Se non si ha familiarità con Azure, il [glossario di Azure][Azure glossary] può essere utile quando si incontrano termini nuovi. Oppure vedere alcune delle altre risorse disponibili per SQL Data Warehouse.  
 
 * [Casi di successo dei clienti]
 * [Blog]

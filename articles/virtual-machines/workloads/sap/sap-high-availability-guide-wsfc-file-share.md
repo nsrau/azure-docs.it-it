@@ -18,10 +18,10 @@ ms.date: 07/24/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 70f9264357ca1a0c1a612481f4254e86f05e41d8
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68479184"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
@@ -312,11 +312,11 @@ Per usare una condivisione file di tipo scale-out, il sistema deve soddisfare i 
 * È necessario usare dischi Premium di Azure.
 * È consigliabile usare Azure Managed Disks.
 * È consigliabile formattare i volumi con Resilient File System (ReFS).
-    * Per ulteriori informazioni, vedere la [Nota SAP 1869038-il capitolo supporto SAP per file System][1869038] and the [Choosing the file system][planning-volumes-s2d-choosing-filesystem] ReFs dell'articolo pianificazione di volumi in spazi di archiviazione diretta.
+    * Per ulteriori informazioni, vedere la [Nota sap 1869038-supporto SAP per file System ReFs][1869038] e il capitolo sulla [scelta del file System][planning-volumes-s2d-choosing-filesystem] dell'articolo pianificazione dei volumi in spazi di archiviazione diretta.
     * Assicurarsi di installare l' [aggiornamento cumulativo Microsoft KB4025334][kb4025334].
 * È possibile usare le dimensioni delle VM di Azure DS-Series o DSv2-Series.
 * Per ottenere prestazioni di rete di buon livello tra le macchine virtuali, necessari per la sincronizzazione dei dischi di Spazi di archiviazione diretta, usare un tipo di macchina virtuale che abbia almeno una larghezza di banda "alta".
-    Per ulteriori informazioni, vedere le specifiche della [serie][dv2-series] and [DS-Series][ds-series] DSv2.
+    Per ulteriori informazioni, vedere le specifiche della serie [DSv2][dv2-series] e [DS][ds-series] .
 * È consigliabile riservare capacità non allocata nel pool di archiviazione. Se si lascia capacità non allocata nel pool di archiviazione, si lascia ai volumi lo spazio per il ripristino "sul posto" nel caso in cui un'unità si guasti. Questo approccio migliora le prestazioni e la sicurezza dei dati.  Per ulteriori informazioni, vedere [scelta delle dimensioni del volume][choosing-the-size-of-volumes-s2d].
 * Non è necessario configurare il servizio di bilanciamento del carico interno di Azure per il nome di rete della condivisione file di tipo scale-out, ad esempio per \<host globale SAP\>. Questa configurazione viene eseguita per il \<nome host virtuale ASCS/SCS\> dell'istanza ASCS/SCS di SAP o per il sistema DBMS. Una condivisione file di tipo scale-out scala orizzontalmente il carico su tutti i nodi del cluster. \<Host globale SAP\> Usa l'indirizzo IP locale per tutti i nodi del cluster.
 

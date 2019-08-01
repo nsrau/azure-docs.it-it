@@ -4,7 +4,7 @@ description: Informazioni su strumenti e piattaforme dati supportati nella Data 
 keywords: strumenti di analisi scientifica dei dati, macchina virtuale per l'analisi scientifica dei dati, strumenti per l'analisi scientifica dei dati, analisi scientifica dei dati per Linux
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: gokuma
-ms.openlocfilehash: 27e0deae9c35ad8fa00659e3e3e505cace6e9014
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: vijetaj
+ms.openlocfilehash: a0fe4ee33769a6d8cf14f60dcc0c4615bb00c5e8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60516493"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565304"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Piattaforme dati supportate nella Data Science Virtual Machine
 
@@ -33,7 +33,7 @@ Di seguito sono indicati gli strumenti della piattaforma di dati supportati nell
 
 | | |
 | ------------- | ------------- |
-| Che cos'è?   | Un'istanza locale del database relazionale      |
+| Informazioni   | Un'istanza locale del database relazionale      |
 | Edizioni supportate della macchina virtuale per data science      | Windows      |
 | Usi tipici      | Sviluppo rapido in locale con set di dati più piccoli <br/> Eseguire R In-database   |
 | Collegamenti agli esempi      |    Un piccolo esempio di set di dati di New York City viene caricato nel database SQL `nyctaxi`. <br/> Esempio di Jupyter che mostra che Microsoft R e le analisi nel database sono reperibili in:<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
@@ -68,7 +68,7 @@ SQL Server è installato nella modalità standard. È disponibile in `C:\Program
 
 | | |
 | ------------- | ------------- |
-| Che cos'è?   | Un'istanza autonoma, ovvero un nodo singolo in-process, della nota piattaforma Apache Spark, un sistema per la rapida elaborazione di dati su larga scala e il processo di machine learning     |
+| Informazioni   | Un'istanza autonoma, ovvero un nodo singolo in-process, della nota piattaforma Apache Spark, un sistema per la rapida elaborazione di dati su larga scala e il processo di machine learning     |
 | Edizioni supportate della macchina virtuale per data science      | Linux <br /> Windows (sperimentale)      |
 | Usi tipici      | * Rapido sviluppo di applicazioni Spark/PySpark in locale con set di dati più piccoli e successiva distribuzione nei cluster Spark di grandi dimensioni, ad esempio Azure HDInsight<br/> * Testare il contesto di Spark in Microsoft R Server <br />* Usare la libreria open source [MMLSpark](https://github.com/Azure/mmlspark) di Microsoft o di SparkML per compilare le applicazioni ML  |
 | Collegamenti agli esempi      |    Esempio Jupyter: <br />&nbsp;&nbsp;* ~/notebooks/SparkML/pySpark <br /> &nbsp;&nbsp;* ~/notebooks/MMLSpark <br /> Microsoft R Server (Spark Context): /dsvm/samples/MRS/MRSSparkContextSample.R |

@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 5d754ae558d485036a9a55f573a3f40162ed9f84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2923ae8b9b25932ae214cfa45780dffb8780dd39
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60725432"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568852"
 ---
 # <a name="performing-disaster-recovery-drill"></a>Esercitazione per il ripristino di emergenza
 
@@ -39,7 +38,7 @@ Per evitare il rischio di perdita di dati durante l'esecuzione di un test per il
 
 Per simulare l'interruzione è possibile rinominare il database di origine. Questa modifica del nome causa errori di connettività dell'applicazione.
 
-### <a name="recovery"></a>Ripristino
+### <a name="recovery"></a>Recupero
 
 * Eseguire il ripristino geografico del database in un server diverso, come descritto [qui](sql-database-disaster-recovery.md).
 * Modificare la configurazione dell'applicazione per connettersi ai database ripristinati e seguire la guida [Configurare un database dopo il ripristino](sql-database-disaster-recovery.md) per completare il ripristino.
@@ -56,7 +55,7 @@ Per un database protetto mediante i gruppi di failover l'esercitazione comporta 
 
 Per simulare l'interruzione è possibile disabilitare l'applicazione web o la macchina virtuale connessa al database. Questa simulazione di interruzione determina errori di connettività per i client Web.
 
-### <a name="recovery"></a>Ripristino
+### <a name="recovery"></a>Recupero
 
 * Assicurarsi che la configurazione dell'applicazione nell'area DR punti al database secondario precedente, che diventa il nuovo database primario completamente accessibile.
 * Attivare il [failover pianificato](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) del gruppo di failover dal server secondario.

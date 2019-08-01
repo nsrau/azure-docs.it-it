@@ -6,14 +6,14 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 15c74637a2dc42ec44f582878b5505d94637cd7b
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 974243da07a2570e851b7d44eac2556c201c2782
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314201"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678523"
 ---
-# <a name="azure-data-factory-mapping-data-flow-select-transformation"></a>Trasformazione Selezione per il flusso di dati di mapping di Azure Data Factory
+# <a name="mapping-data-flow-select-transformation"></a>Trasformazione Selezione flusso di dati mapping
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 Usare questa trasformazione per la selettività delle colonne (riducendo il numero di colonne), le colonne alias e i nomi di flusso e riordinare le colonne.
@@ -27,10 +27,7 @@ Nel diagramma precedente la trasformazione Selezione si trova nella parte superi
 
 È possibile usare la trasformazione Selezione anche come modo per deselezionare le colonne dal flusso di dati. Ad esempio, se nel sink sono definite 6 colonne, ma se ne vogliono selezionare solo 3 specifiche per la trasformazione e per poi inserirle nel flusso per il sink, è possibile selezionare solo quelle 3 tramite la trasformazione Selezione.
 
-> [!NOTE]
-> È necessario disattivare "Select All" (Seleziona tutto) per selezionare solo colonne specifiche
-
-![Trasformazione Selezione](media/data-flow/select001.png "Selezionare un alias")
+![Trasformazione Selezione](media/data-flow/newselect1.png "Selezionare un alias")
 
 ## <a name="options"></a>Opzioni
 * L'impostazione predefinita per "Select" (Selezione) prevede l'inclusione di tutte le colonne in ingresso mantenendo i nomi originali. È possibile definire un alias per il flusso impostando il nome della trasformazione Selezione.
@@ -38,6 +35,23 @@ Nel diagramma precedente la trasformazione Selezione si trova nella parte superi
 * Scegliere Ignora duplicati per eliminare le colonne duplicate dai metadati di input o di output.
 
 ![Ignora duplicati](media/data-flow/select-skip-dup.png "Ignora duplicati")
+
+> [!NOTE]
+> Per cancellare le regole di mapping, fare clic sul pulsante **Reimposta** .
+
+## <a name="mapping"></a>Mapping
+Per impostazione predefinita, la trasformazione Select eseguirà automaticamente il mapping di tutte le colonne, che passeranno tutte le colonne in ingresso allo stesso nome nell'output. Il nome del flusso di output impostato in Seleziona impostazioni definirà un nuovo nome di alias per il flusso. Se si mantiene il set di selezione per la mappa automatica, è possibile usare l'alias dell'intero flusso con tutte le colonne uguali.
+
+![Selezionare le regole di trasformazione](media/data-flow/rule2.png "Mapping basato su regole")
+
+Se si desidera assegnare alias, rimuovere, rinominare o riordinare le colonne, è necessario innanzitutto disattivare "mappa automatica". Per impostazione predefinita, viene visualizzata una regola predefinita immessa per il nome "tutte le colonne di input". È possibile lasciare invariata questa regola se si intende consentire sempre il mapping di tutte le colonne in ingresso allo stesso nome nell'output.
+
+Tuttavia, se si desidera aggiungere regole personalizzate, sarà necessario fare clic su "Aggiungi mapping". Il mapping dei campi fornirà un elenco di nomi di colonna in entrata e in uscita da mappare e alias. Scegliere "mapping basato su regole" per creare regole di corrispondenza dei criteri.
+
+## <a name="rule-based-mapping"></a>Mapping basato su regole
+Quando si sceglie il mapping basato su regole, si indica ad ADF di valutare l'espressione corrispondente in modo che corrisponda alle regole dei criteri in ingresso e di definire i nomi dei campi in uscita. È possibile aggiungere qualsiasi combinazione di mapping di campi e basati su regole. I nomi dei campi vengono quindi generati in fase di esecuzione da ADF in base ai metadati in ingresso provenienti dall'origine. È possibile visualizzare i nomi dei campi generati durante il debug e utilizzando il riquadro di anteprima dei dati.
+
+Altre informazioni sui criteri di ricerca sono disponibili nella [documentazione relativa ai modelli di colonna](concepts-data-flow-column-pattern.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Dopo aver utilizzato SELECT per rinominare, riordinare e utilizzare le colonne alias, utilizzare la [trasformazione sink](data-flow-sink.md) per inserire i dati in un archivio dati.

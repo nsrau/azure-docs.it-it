@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 01247dfc0046ef722d70fe48f7ab8ee63f685962
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0236491f9ebc8e3ecf7df8b74db4fd5ff441c7f8
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153562"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677446"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Creare ed effettuare il provisioning di un dispositivo simulato TPM Edge in Windows
 
@@ -46,7 +46,7 @@ Quando si crea una registrazione nel servizio Device Provisioning, si ha la poss
 
 Scegliere il linguaggio di SDK che si vuole usare per creare il dispositivo simulato e seguire i passaggi per creare la singola registrazione.
 
-Quando si crea la singola registrazione, selezionare **Abilita** per dichiarare che il dispositivo TPM simulato nel computer di sviluppo Windows è un **dispositivo IoT Edge**.
+Quando si crea la registrazione singola, selezionare **true** per dichiarare che il dispositivo TPM simulato nel computer di sviluppo Windows è un **dispositivo IOT Edge**.
 
 Guide relative ai dispositivi simulati e alle singole registrazioni:
 

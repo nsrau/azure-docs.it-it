@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2872d106eea56a37c362195e7a3250058336768b
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 13cec6f53af460a9e9372eedf3b7e17798d1c653
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295047"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610394"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Appendice per Crittografia dischi di Azure 
 
@@ -104,7 +104,7 @@ Prima di iniziare, vedere l'articolo [Prerequisiti](azure-security-disk-encrypti
      ```
 
 ### <a name="bkmk_prereq-script"></a> Uso dello script di PowerShell per i prerequisiti di Crittografia dischi di Azure
-Se si ha già familiarità con i prerequisiti per Crittografia dischi di Azure, è possibile usare lo [script di PowerShell per i prerequisiti di Crittografia dischi di Azure](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Per un esempio d'uso di questo script di PowerShell, vedere [Guida introduttiva alla crittografia di una macchina virtuale](quick-encrypt-vm-powershell.md). È possibile rimuovere i commenti da una sezione dello script, a partire dalla riga 211, per crittografare tutti i dischi per le macchine virtuali esistenti in un gruppo di risorse esistente. 
+Se si ha già familiarità con i prerequisiti per Crittografia dischi di Azure, è possibile usare lo [script di PowerShell per i prerequisiti di Crittografia dischi di Azure](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Per un esempio d'uso di questo script di PowerShell, vedere [Guida introduttiva alla crittografia di una macchina virtuale](fundamentals/quick-encrypt-vm-powershell.md). È possibile rimuovere i commenti da una sezione dello script, a partire dalla riga 211, per crittografare tutti i dischi per le macchine virtuali esistenti in un gruppo di risorse esistente. 
 
 La tabella seguente illustra i parametri che possono essere usati nello script di PowerShell: 
 
@@ -133,15 +133,15 @@ La tabella seguente illustra i parametri che possono essere usati nello script d
   - [Disabilitare la crittografia su macchine virtuali Linux in esecuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
     - È possibile disabilitare la crittografia solo nei volumi di dati per macchine virtuali Linux.  
 
-### <a name="encrypt-or-decrypt-virtual-machine-scale-sets"></a>Crittografare o decrittografare il set di scalabilità di macchine virtuali
+### <a name="encrypt-or-decrypt-virtual-machine-scale-sets"></a>Crittografia o decrittografia dei set di scalabilità di macchine virtuali
 
 - [Abilitare la crittografia dei dischi in un set di scalabilità di macchine virtuali Linux in esecuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
 
 - [Abilitare la crittografia dei dischi in un set di scalabilità di macchine virtuali Windows in esecuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
 
-  - [Distribuire un set di scalabilità di macchine virtuali delle macchine virtuali Linux con un jumpbox e abilita la crittografia in Linux VMSS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
+  - [Distribuire un set di scalabilità di macchine virtuali Linux con una JumpBox e Abilita la crittografia in Linux VMSS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
 
-  - [Distribuire un set di scalabilità di macchine virtuali delle macchine virtuali Windows con un jumpbox e abilita la crittografia su Windows VMSS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
+  - [Distribuire un set di scalabilità di macchine virtuali Windows con un JumpBox e Abilita la crittografia in Windows VMSS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
 
 - [Disabilitare la crittografia dei dischi in un set di scalabilità di macchine virtuali Linux in esecuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
 
@@ -206,7 +206,7 @@ Usare il comando [`manage-bde`](https://technet.microsoft.com/library/ff829849.a
 
 ### <a name="prerequisites-for-os-disk-encryption"></a>Prerequisiti per la crittografia del disco del sistema operativo
 
-* La macchina virtuale deve usare una distribuzione compatibile con la crittografia del disco del sistema operativo come elencato nella [sistemi operativi supportati per crittografia dischi di Azure: Linux](azure-security-disk-encryption-prerequisites.md#linux) 
+* La macchina virtuale deve usare una distribuzione compatibile con la crittografia del [disco del sistema operativo, come elencato nei sistemi operativi supportati da crittografia dischi di Azure: Linux](azure-security-disk-encryption-prerequisites.md#linux) 
 * La macchina virtuale deve essere creata dall'immagine del Marketplace in Azure Resource Manager.
 * VM di Azure con almeno 4 GB di RAM (7 GB consigliati).
 * (Per RHEL e CentOS) Disabilitare SELinux. Per disabilitare SELinux, vedere "4.4.2. Disabling SELinux" (4.4.2. Disabilitazione di SELinux) in [SELinux User's and Administrator's Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) (Manuale dell'utente e dell'amministratore di SELinux) nella VM.
@@ -234,7 +234,7 @@ Usare il comando [`manage-bde`](https://technet.microsoft.com/library/ff829849.a
 
 5. Monitorare periodicamente lo stato della crittografia tramite le istruzioni indicate nella [sezione successiva](#monitoring-os-encryption-progress).
 
-6. Quando Get-AzVmDiskEncryptionStatus indica "VMRestartPending", riavviare la macchina virtuale tramite l'accesso ad esso o usando il portale, PowerShell o CLI.
+6. Dopo che Get-AzVmDiskEncryptionStatus Mostra "VMRestartPending", riavviare la macchina virtuale eseguendo l'accesso o usando il portale, PowerShell o l'interfaccia della riga di comando.
     ```powershell
     C:\> Get-AzVmDiskEncryptionStatus  -ResourceGroupName $ResourceGroupName -VMName $VMName
     -ExtensionName $ExtensionName
@@ -353,7 +353,7 @@ Configurare la crittografia per l'uso in Azure eseguendo i passaggi seguenti:
     fi
    ```
 
-2. Modificare la configurazione di crittografia in */etc/crypttab*. L'aspetto dovrebbe risultare simile al seguente:
+2. Modificare la configurazione di crittografia in */etc/crypttab*. Il codice dovrebbe essere simile al seguente:
    ```
     xxx_crypt uuid=xxxxxxxxxxxxxxxxxxxxx none luks,discard,keyscript=/usr/local/sbin/azure_crypt_key.sh
     ```
@@ -498,7 +498,7 @@ Per configurare la crittografia per l'uso in Azure, eseguire i passaggi seguenti
    ```bash
     if [ -z "$DRACUT_SYSTEMD" ]; then
    ```
-   to
+   in
    ```bash
     if [ 1 ]; then
    ```
@@ -546,7 +546,7 @@ Quando si esegue la crittografia usando un'app Azure AD, il segreto di crittogra
 ``` 
 
 ### <a name="bkmk_SecretnoKEK"></a> Segreto di crittografia del disco non crittografato con una chiave di crittografia della chiave
-Per configurare il segreto nell'insieme di credenziali delle chiavi, usare [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). Se si ha una macchina virtuale Windows, il file con estensione bek viene codificato come stringa base64, quindi viene caricato nell'insieme di credenziali delle chiavi usando il cmdlet `Set-AzKeyVaultSecret`. Per Linux la passphrase viene codificata come stringa Base 64 e quindi caricata nell'insieme di credenziali delle chiavi. Assicurarsi anche che i tag seguenti siano impostati quando si crea il segreto nell'insieme di credenziali delle chiavi.
+Per configurare il segreto nell'insieme di credenziali delle chiavi, usare [set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). Se si ha una macchina virtuale Windows, il file con estensione bek viene codificato come stringa base64, quindi viene caricato nell'insieme di credenziali delle chiavi usando il cmdlet `Set-AzKeyVaultSecret`. Per Linux la passphrase viene codificata come stringa Base 64 e quindi caricata nell'insieme di credenziali delle chiavi. Assicurarsi anche che i tag seguenti siano impostati quando si crea il segreto nell'insieme di credenziali delle chiavi.
 
 #### <a name="windows-bek-file"></a>File Windows con estensione bek
 ```powershell

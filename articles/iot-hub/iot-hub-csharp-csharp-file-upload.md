@@ -9,14 +9,14 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
-ms.openlocfilehash: f1001df52b3bbb54f3b872f23276957fa01a7da5
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 6e41b1999033c00b277cd35173b3247a727e9a8a
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68403207"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668144"
 ---
-# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Eseguire l'upload di file dal dispositivo al cloud con l'hub IoT usando .NET
+# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>Caricare i file dal dispositivo al cloud con l'hub Internet (.NET)
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
@@ -42,7 +42,7 @@ Al termine di questa esercitazione vengono eseguite due app console .NET:
 * **ReadFileUploadNotification**riceve le notifiche di caricamento file dall'hub IoT.
 
 > [!NOTE]
-> L'hub IoT supporta numerose piattaforme e linguaggi (inclusi C, Java e Javascript) tramite gli Azure IoT SDK per dispositivi. Vedere il [Centro per sviluppatori di IoT di Azure](https://azure.microsoft.com/develop/iot) per istruzioni dettagliate su come connettere il dispositivo all'Hub IoT di Azure.
+> L'hub Internet delle cose supporta molte piattaforme e linguaggi di dispositivi, tra cui C, Java, Python e JavaScript, tramite gli SDK per dispositivi Azure. Vedere il [Centro per sviluppatori di IoT di Azure](https://azure.microsoft.com/develop/iot) per istruzioni dettagliate su come connettere il dispositivo all'Hub IoT di Azure.
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 

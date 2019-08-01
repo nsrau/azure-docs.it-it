@@ -9,36 +9,34 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3738ffe8b3faedc328bde01173400289403652f4
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 45b28b4d88c670a8b2ec34b93a342f06b80e02d7
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297939"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668473"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurare un ambiente di sviluppo per Azure Machine Learning
 
-Questo articolo contiene informazioni su come configurare un ambiente di sviluppo per poter usare il servizio Azure Machine Learning. Il servizio Machine Learning è indipendente dalla piattaforma.
+Questo articolo contiene informazioni su come configurare un ambiente di sviluppo per poter usare il servizio Azure Machine Learning. Azure Machine Learning servizio è indipendente dalla piattaforma. L'unico requisito difficile per l'ambiente di sviluppo è Python 3. È consigliabile anche un ambiente isolato come Anaconda o virtualenv.
 
-Gli unici requisiti per l'ambiente di sviluppo sono Python 3, Anaconda (per ambienti isolati) e un file di configurazione che contiene le informazioni dell'area di lavoro Azure Machine Learning.
+La tabella seguente illustra tutti gli ambienti di sviluppo trattati in questo articolo, oltre a vantaggi e svantaggi.
 
-Questo articolo è incentrato sugli strumenti e ambienti seguenti:
+| Ambiente | Vantaggi | Svantaggi |
+| --- | --- | --- |
+| [VM notebook basata sul cloud](#notebookvm) | Modo più semplice per iniziare. L'intero SDK è già installato nella macchina virtuale dell'area di lavoro e le esercitazioni sui notebook sono pre-clonate e pronte per l'esecuzione. | Mancanza di controllo sull'ambiente di sviluppo e sulle dipendenze. Costi aggiuntivi per le VM Linux (è possibile arrestare la macchina virtuale quando non è in uso per evitare addebiti). Vedere i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). |
+| [Ambiente locale](#local) | Controllo completo dell'ambiente di sviluppo e delle dipendenze. Eseguire con qualsiasi strumento di compilazione, ambiente o IDE di propria scelta. | Per iniziare, è necessario più tempo. È necessario installare i pacchetti SDK necessari ed è necessario installare anche un ambiente, se non è già presente. |
+| [Azure Databricks](#aml-databricks) | Ideale per l'esecuzione di flussi di lavoro di Machine Learning intensivi su larga scala sulla piattaforma Apache Spark scalabile. | Overkill per l'apprendimento automatico sperimentale o per esperimenti e flussi di lavoro su scala ridotta. Costi aggiuntivi per Azure Databricks. Vedere i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/databricks/). |
+| [Il Data Science Virtual Machine (DSVM)](#dsvm) | Analogamente alla macchina virtuale notebook basata sul cloud (Python e SDK sono preinstallati), ma con gli strumenti di data science e di apprendimento automatico più diffusi preinstallati. Facile da scalare e combinare con altri strumenti e flussi di lavoro personalizzati. | Un'esperienza introduttiva più lenta rispetto alla VM notebook basata sul cloud. |
+| [Azure Notebooks](#aznotebooks) | Esperienza introduttiva gratuita e leggera con Python e l'SDK pre-installato. | Sono disponibili macchine virtuali meno potenti rispetto alla VM notebook basata sul cloud. Isolato dall'area di lavoro e da altre risorse. |
 
-* Una [macchina virtuale notebook basata sul cloud](#notebookvm): Usare una risorsa di calcolo nella workstation per eseguire Jupyter notebook. Si tratta del modo più semplice per iniziare perché l'SDK di Azure Machine Learning è già installato.
-
-* [Data Science Virtual Machine (DSVM)](#dsvm): un ambiente di sviluppo o sperimentazione preconfigurato nel cloud di Azure che è stato progettato per l'ambito data science e può essere distribuito in istanze di macchina virtuale con sola CPU o basate su GPU. Python 3, Conda, Jupyter Notebook e l'SDK di Azure Machine Learning sono già installati. La macchina virtuale viene fornita con i framework, gli strumenti e gli editor di Machine Learning e Deep Learning più diffusi per lo sviluppo di soluzioni di Machine Learning. Si tratta probabilmente dell'ambiente di sviluppo di Machine Learning più completo nella piattaforma Azure.
+Questo articolo fornisce anche suggerimenti sull'utilizzo aggiuntivi per gli strumenti seguenti:
 
 * [Jupyter Notebook](#jupyter): se si usa già Jupyter Notebook, l'SDK include alcune funzionalità aggiuntive che è consigliabile installare.
 
 * [Visual Studio Code](#vscode): se si usa Visual Studio Code, sono disponibili alcune estensioni utili che è possibile installare.
-
-* [Azure Databricks](#aml-databricks): una piattaforma diffusa per l'analisi dei dati basata su Apache Spark. Leggere le informazioni su come installare l'SDK di Azure Machine Learning nel cluster in modo da poter distribuire i modelli.
-
-* [Azure Notebooks](#aznotebooks): un servizio di Jupyter Notebook ospitato nel cloud di Azure. Un modo semplice per iniziare, perché il Azure Machine Learning SDK è già installato.  
-
-Se si dispone già di un ambiente Python 3, o si vogliono solo conoscere i passaggi di base per l'installazione dell'SDK, vedere la sezione [Computer locale](#local).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -57,9 +55,9 @@ Per installare l'ambiente SDK per il [computer locale](#local), [Jupyter Noteboo
 
 ## <a id="notebookvm"></a>VM notebook basata sul cloud
 
-La macchina virtuale notebook (anteprima) è una workstation di Azure sicura basata sul cloud che fornisce ai data scientist un server Jupyter notebook, JupyterLab e un ambiente ML completamente preparato. 
+La macchina virtuale notebook (anteprima) è una workstation di Azure sicura basata sul cloud che fornisce ai data scientist un server Jupyter notebook, JupyterLab e un ambiente ML completamente preparato.
 
-La VM del notebook è: 
+La VM del notebook è:
 
 + **Sicuro**. Poiché l'accesso alla macchina virtuale e al notebook viene protetto con HTTPS e Azure Active Directory per impostazione predefinita, i professionisti IT possono applicare facilmente Single Sign-on e altre funzionalità di sicurezza, ad esempio l'autenticazione a più fattori.
 
@@ -68,17 +66,17 @@ La VM del notebook è:
   + Configurazione automatica per l'uso con l'area di lavoro
   + Un server Jupyter notebook
   + IDE di JupyterLab notebook
-  + Driver GPU preconfigurati 
+  + Driver GPU preconfigurati
   + Una selezione di Framework per Deep Learning
- 
 
-  Se ci si trova nel codice, nella macchina virtuale sono incluse esercitazioni ed esempi che consentono di esplorare e apprendere come usare Azure Machine Learning servizio. I notebook di esempio vengono archiviati nell'account di archiviazione BLOB di Azure dell'area di lavoro rendendoli condivisibili tra le macchine virtuali. Quando vengono eseguiti, possono anche accedere agli archivi dati e alle risorse di calcolo dell'area di lavoro. 
+
+  Se ci si trova nel codice, nella macchina virtuale sono incluse esercitazioni ed esempi che consentono di esplorare e apprendere come usare Azure Machine Learning servizio. I notebook di esempio vengono archiviati nell'account di archiviazione BLOB di Azure dell'area di lavoro rendendoli condivisibili tra le macchine virtuali. Quando vengono eseguiti, possono anche accedere agli archivi dati e alle risorse di calcolo dell'area di lavoro.
 
 + **Installazione semplice**: Crearne uno in qualsiasi momento dall'area di lavoro Azure Machine Learning. Fornire un solo nome e specificare un tipo di macchina virtuale di Azure. Provare ora con questa [Guida introduttiva: Usare un server notebook basato sul cloud per iniziare a usare Azure Machine Learning](quickstart-run-cloud-notebook.md).
 
 + **Personalizzabile**. Anche se un'offerta di macchina virtuale gestita e sicura consente di mantenere l'accesso completo alle funzionalità hardware e di personalizzarlo in base alle proprie esigenze. Ad esempio, è possibile creare rapidamente la macchina virtuale più recente con tecnologia NVidia V100 per eseguire il debug dettagliato di una nuova architettura di rete neurale.
 
-Per arrestare gli addebiti per le VM notebook, [arrestare la VM del notebook](quickstart-run-cloud-notebook.md#stop-the-notebook-vm). 
+Per arrestare gli addebiti per le VM notebook, [arrestare la VM del notebook](quickstart-run-cloud-notebook.md#stop-the-notebook-vm).
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
@@ -285,9 +283,9 @@ Per usare Visual Studio Code per lo sviluppo, seguire questa procedura:
 Azure Databricks è un ambiente basato su Apache Spark nel cloud di Azure. Offre un ambiente basato su notebook collaborativo con cluster di calcolo basato su CPU o GPU.
 
 Funzionamento di Azure Databricks con il servizio Azure Machine Learning:
-+ È possibile eseguire il training di un modello usando Spark MLlib e distribuire il modello in ACI/AKS dall'interno Azure Databricks. 
++ È possibile eseguire il training di un modello usando Spark MLlib e distribuire il modello in ACI/AKS dall'interno Azure Databricks.
 + È anche possibile usare le funzionalità automatiche di [Machine Learning](concept-automated-ml.md) in un SDK di Azure ml speciale con Azure Databricks.
-+ È possibile usare Azure Databricks come destinazione di calcolo da una [pipeline di Azure Machine Learning](concept-ml-pipelines.md). 
++ È possibile usare Azure Databricks come destinazione di calcolo da una [pipeline di Azure Machine Learning](concept-ml-pipelines.md).
 
 ### <a name="set-up-your-databricks-cluster"></a>Configurare il cluster databricks
 
@@ -298,17 +296,17 @@ Usare le impostazioni seguenti:
 
 | Impostazione |Si applica a| Value |
 |----|---|---|
-| Nome cluster |Sempre| nomecluster |
-| Databricks Runtime |Sempre| Qualsiasi runtime non ML (non ML 4.x, 5.x) |
-| Versione Python |Sempre| 3 |
-| Ruoli di lavoro |Sempre| almeno 2 |
+| Nome cluster |sempre| nomecluster |
+| Databricks Runtime |sempre| Qualsiasi runtime non ML (non ML 4.x, 5.x) |
+| Versione Python |sempre| 3 |
+| Ruoli di lavoro |sempre| almeno 2 |
 | Worker node VM types (Tipi di VM dei nodi di ruolo di lavoro) <br>(determina il numero massimo di iterazioni simultanee) |Funzionalità automatiche di Machine Learning<br>solo| È preferibile una macchina virtuale ottimizzata per la memoria |
 | Enable Autoscaling (Abilita la scalabilità automatica) |Funzionalità automatiche di Machine Learning<br>solo| Deselezionare |
 
 Attendere che il cluster sia in esecuzione prima di proseguire.
 
 ### <a name="install-the-correct-sdk-into-a-databricks-library"></a>Installare l'SDK corretto in una libreria databricks
-Quando il cluster è in esecuzione, [creare una libreria](https://docs.databricks.com/user-guide/libraries.html#create-a-library) per alleghi il pacchetto SDK Azure Machine Learning appropriato al cluster. 
+Quando il cluster è in esecuzione, [creare una libreria](https://docs.databricks.com/user-guide/libraries.html#create-a-library) per alleghi il pacchetto SDK Azure Machine Learning appropriato al cluster.
 
 1. Scegliere **una sola** opzione (non sono supportate altre installazioni SDK)
 
@@ -323,21 +321,21 @@ Quando il cluster è in esecuzione, [creare una libreria](https://docs.databrick
    * Non selezionare **Connetti automaticamente a tutti i cluster**.
    * Selezionare **Connetti** accanto al nome del cluster.
 
-1. Consente di monitorare gli errori fino a quando lo stato non diventa **collegato**, operazione che può richiedere alcuni minuti.  Se questo passaggio non riesce, controllare quanto segue: 
+1. Consente di monitorare gli errori fino a quando lo stato non diventa **collegato**, operazione che può richiedere alcuni minuti.  Se questo passaggio non riesce, controllare quanto segue:
 
    Provare a riavviare il cluster per:
    1. Nel riquadro a sinistra selezionare **Cluster**.
    1. Nella tabella selezionare il nome del cluster.
    1. Nella scheda **Librerie** selezionare **Riavvia**.
-      
+
    Prendere in considerazione anche:
    + In Automl config, quando si usa Azure Databricks aggiungere i parametri seguenti:
-       1. ```max_concurrent_iterations```si basa sul numero di nodi del ruolo di lavoro nel cluster. 
-        2. ```spark_context=sc```si basa sul contesto Spark predefinito. 
+       1. ```max_concurrent_iterations```si basa sul numero di nodi del ruolo di lavoro nel cluster.
+        2. ```spark_context=sc```si basa sul contesto Spark predefinito.
    + In alternativa, se si dispone di una versione precedente dell'SDK, deselezionarla dalle librerie installate del cluster e spostarla nel Cestino. Installare la nuova versione dell'SDK e riavviare il cluster. Se successivamente si verifica un problema, scollegare e ricollegare il cluster.
 
 Se l'installazione ha avuto esito positivo, la libreria importata avrà un aspetto simile al seguente:
-   
+
 SDK per databricks **_senza_** automazione Azure Machine Learning SDK ![per machine learning per databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
 SDK per databricks **con** l'SDK di ![Machine Learning automatizzato con Machine Learning automatico installato in databricks](./media/how-to-configure-environment/automlonadb.jpg)
@@ -345,9 +343,9 @@ SDK per databricks **con** l'SDK di ![Machine Learning automatizzato con Machine
 ### <a name="start-exploring"></a>Inizia a esplorare
 
 Prova:
-+ Scaricare il [file di archivio del notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/Databricks_AMLSDK_1-4_6.dbc) per Azure Databricks/Azure Machine Learning SDK e [importare il file di archivio](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) nel cluster databricks.  
++ Scaricare il [file di archivio del notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/Databricks_AMLSDK_1-4_6.dbc) per Azure Databricks/Azure Machine Learning SDK e [importare il file di archivio](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) nel cluster databricks.
   Sebbene siano disponibili molti notebook di esempio, **solo [questi notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) funzionano con Azure Databricks.**
-  
+
 + Informazioni su come [creare una pipeline con databricks come calcolo di training](how-to-create-your-first-pipeline.md).
 
 ## <a id="aznotebooks"></a>Azure Notebooks

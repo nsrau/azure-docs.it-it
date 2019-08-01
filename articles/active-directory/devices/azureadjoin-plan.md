@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4332c921af770cb47e9a9a779d0bd148153fcd31
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 6e58762bd5bf4342804767a200c94b432dd152a0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67666151"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562214"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure AD
 
@@ -30,17 +30,17 @@ Questo articolo presuppone che l'utente abbia familiarità con quanto descritto 
 
 ## <a name="plan-your-implementation"></a>Pianificare l'implementazione
 
-Per pianificare l'implementazione di join Azure AD, è consigliabile acquisire familiarità con:
+Per pianificare l'implementazione di Azure AD join, è necessario acquisire familiarità con:
 
 |   |   |
 |---|---|
-|![Controllo][1]|Esame degli scenari|
-|![Controllo][1]|Esame dell'infrastruttura di gestione delle identità|
-|![Controllo][1]|Valutazione della gestione dei dispositivi|
-|![Controllo][1]|Analisi delle considerazioni relative a risorse e applicazioni|
-|![Controllo][1]|Identificazione delle opzioni di provisioning|
-|![Controllo][1]|Configurazione di Enterprise State Roaming|
-|![Controllo][1]|Configurare l'accesso condizionale|
+|![Segno di spunta][1]|Esame degli scenari|
+|![Segno di spunta][1]|Esame dell'infrastruttura di gestione delle identità|
+|![Segno di spunta][1]|Valutazione della gestione dei dispositivi|
+|![Segno di spunta][1]|Analisi delle considerazioni relative a risorse e applicazioni|
+|![Segno di spunta][1]|Identificazione delle opzioni di provisioning|
+|![Segno di spunta][1]|Configurazione di Enterprise State Roaming|
+|![Segno di spunta][1]|Configurare l'accesso condizionale|
 
 ## <a name="review-your-scenarios"></a>Esame degli scenari 
 
@@ -70,7 +70,7 @@ Un ambiente federato deve includere un provider di identità che supporta i prot
 - **WS-Fed:** questo protocollo è necessario per aggiungere un dispositivo ad Azure AD.
 - **WS-Trust:** questo protocollo è necessario per accedere a un dispositivo aggiunto ad Azure AD. 
 
-Se il provider di identità non supporta questi protocolli, l'aggiunta ad Azure AD non funziona in modo nativo. A partire da Windows 10 1809, gli utenti possono accedere a un dispositivo aggiunto ad Azure AD con un provider di identità basato su SAML attraverso l'[accesso Web in Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Attualmente, accedi web sono una funzionalità in anteprima e non sono consigliato per le distribuzioni di produzione.
+Se il provider di identità non supporta questi protocolli, l'aggiunta ad Azure AD non funziona in modo nativo. A partire da Windows 10 1809, gli utenti possono accedere a un dispositivo aggiunto ad Azure AD con un provider di identità basato su SAML attraverso l'[accesso Web in Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Attualmente, l'accesso Web è una funzionalità di anteprima e non è consigliato per le distribuzioni di produzione.
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>Smart card e autenticazione basata su certificato
 
@@ -101,10 +101,10 @@ L'aggiunta ad Azure AD:
 
 ### <a name="management-platform"></a>Piattaforma di gestione
 
-Gestione dei dispositivi aggiunti ad Azure AD si basa su una piattaforma MDM, ad esempio Intune e MDM CSP. Windows 10 include un agente MDM integrato che funziona con tutte le soluzioni MDM compatibili.
+La gestione dei dispositivi per Azure AD dispositivi aggiunti si basa su una piattaforma MDM, ad esempio Intune, e DSN MDM. Windows 10 include un agente MDM integrato che funziona con tutte le soluzioni MDM compatibili.
 
 > [!NOTE]
-> I criteri di gruppo non sono supportati in dispositivi aggiunti ad Azure AD che non siano connessi a un'istanza locale di Active Directory. Gestione dei dispositivi aggiunti ad Azure AD è possibile solo tramite MDM
+> I criteri di gruppo non sono supportati nei dispositivi Azure AD aggiunti perché non sono connessi a Active Directory locali. La gestione dei dispositivi Azure AD aggiunti è possibile solo tramite MDM
 
 Esistono due approcci per la gestione dei dispositivi aggiunti ad Azure AD:
 
@@ -238,7 +238,7 @@ Prima di poter configurare le impostazioni di mobilità, può essere necessario 
 1. Fare clic su **Aggiungi applicazione**.
 1. Selezionare il provider MDM nell'elenco.
 
-   ![Aggiungere un'applicazione](./media/azureadjoin-plan/04.png)
+   ![Aggiungi applicazione](./media/azureadjoin-plan/04.png)
 
 Selezionare il provider MDM per configurare le impostazioni correlate. 
 
@@ -261,7 +261,7 @@ Esistono tre URL correlati alla configurazione MDM:
 - URL individuazione MDM 
 - URL conformità MDM
 
-![Aggiungere un'applicazione](./media/azureadjoin-plan/06.png)
+![Aggiungi applicazione](./media/azureadjoin-plan/06.png)
 
 Ogni URL ha un valore predefinito. Se questi campi sono vuoti, contattare il provider MDM per altre informazioni.
 
@@ -271,7 +271,7 @@ Il software MAM non si applica all'aggiunta ad Azure AD.
 
 ## <a name="configure-enterprise-state-roaming"></a>Configurazione di Enterprise State Roaming
 
-Se si vuole abilitare Enterprise State Roaming in Azure AD in modo che gli utenti possano sincronizzare le impostazioni tra dispositivi, vedere [Abilitare Enterprise State Roaming in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/devices/enterprise-state-roaming-enable). 
+Se si vuole abilitare Enterprise State Roaming in Azure AD in modo che gli utenti possano sincronizzare le impostazioni tra dispositivi, vedere [Abilitare Enterprise State Roaming in Azure Active Directory](enterprise-state-roaming-enable.md). 
 
 **Consiglio**: abilitare questa impostazione anche per i dispositivi aggiunti ad Azure AD ibrido.
 
@@ -281,7 +281,7 @@ Se per i dispositivi aggiunti ad Azure AD è stato configurato un provider MDM, 
 
 ![Dispositivo conforme](./media/azureadjoin-plan/46.png)
 
-È possibile usare questa implementazione per [richiedono i dispositivi gestiti per accedere all'app cloud con l'accesso condizionale](../conditional-access/require-managed-devices.md).
+È possibile usare questa implementazione per [richiedere i dispositivi gestiti per l'accesso alle app cloud con accesso condizionale](../conditional-access/require-managed-devices.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,23 +1,25 @@
 ---
-title: Installare il gateway dati locale | Microsoft Docs
+title: Installare il gateway dati locale per Azure Analysis Services | Microsoft Docs
 description: Informazioni su come installare e configurare un gateway dati locale.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 07/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 55f68d777d291c7d12fcbae93884a5596b84c8ca
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e87a8221a4db4dfab132a91a31a9ba5b5602a3db
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67062259"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678422"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installare e configurare un gateway dati locale
 
-Quando uno o più server Azure Analysis Services nella stessa area si connettono a origini dati locali, è necessario un gateway dati locale. Per altre informazioni sul gateway, vedere [Gateway dati locale](analysis-services-gateway.md).
+Quando uno o più server Azure Analysis Services nella stessa area si connettono a origini dati locali, è necessario un gateway dati locale.  Mentre il gateway installato è lo stesso usato da altri servizi, ad esempio Power BI, Power Apps e app per la logica, quando si installa per Azure Analysis Services, è necessario completare alcuni passaggi aggiuntivi. Questo articolo di installazione è specifico per **Azure Analysis Services**.
+
+Per altre informazioni sul gateway e su come viene usato da Azure Analysis Services, vedere [connessione alle origini dati locali](analysis-services-gateway.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -47,11 +49,15 @@ Quando uno o più server Azure Analysis Services nella stessa area si connettono
 
 ## <a name="download"></a>Scaricare
 
- [Scaricare il gateway](https://aka.ms/azureasgateway)
+ [Scaricare il gateway](https://go.microsoft.com/fwlink/?LinkId=820925&clcid=0x409)
 
 ## <a name="install"></a>Installare
 
 1. Eseguire l'installazione.
+
+2. Selezionare **gateway dati locale**.
+
+   ![Select](media/analysis-services-gateway-install/aas-gateway-installer-select.png)
 
 2. Selezionare un percorso, accettare le condizioni e quindi fare clic su **Installa**.
 
@@ -70,21 +76,21 @@ Per creare una risorsa per il gateway in Azure, è necessario registrare l'istan
 
 1.  Selezionare l'opzione che **consente di registrare un nuovo gateway in questo computer**.
 
-    ![Register](media/analysis-services-gateway-install/aas-gateway-register-new.png)
+    ![Registra](media/analysis-services-gateway-install/aas-gateway-register-new.png)
 
 2. Digitare un nome e la chiave di ripristino per il gateway. Per impostazione predefinita, il gateway usa l'area predefinita della sottoscrizione. Se è necessario selezionare un'area diversa, selezionare **Cambia area**.
 
     > [!IMPORTANT]
     > Salvare la chiave di ripristino in un luogo sicuro. La chiave di ripristino è necessaria per poter acquisire la proprietà, eseguire la migrazione o ripristinare un gateway. 
 
-   ![Register](media/analysis-services-gateway-install/aas-gateway-register-name.png)
+   ![Registra](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
 
 ## <a name="create-resource"></a>Creare una risorsa per il gateway di Azure
 
 Dopo aver installato e registrato il gateway, è necessario creare una risorsa per il gateway nella sottoscrizione di Azure. Accedere ad Azure con lo stesso account usato durante la registrazione del gateway.
 
-1. Nel portale di Azure, fare clic su **Crea una risorsa** > **Integrazione** > **Gateway dati locale**.
+1. In portale di Azure fare clic su **Crea una risorsa**, quindi cercare **il gateway dati locale**e quindi fare clic su **Crea**.
 
    ![Creazione di una risorsa per il gateway](media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png)
 
@@ -100,7 +106,7 @@ Dopo aver installato e registrato il gateway, è necessario creare una risorsa p
 
    * **Località**: selezionare l'area in cui è stato registrato il gateway.
 
-   * **Nome installazione**: se l'installazione del gateway non è già selezionata, selezionare il gateway registrato. 
+   * **Nome installazione**: Se l'installazione del gateway non è già selezionata, selezionare il gateway installato nel computer e registrato. 
 
      Al termine dell'operazione, scegliere **Crea**.
 
@@ -115,7 +121,12 @@ Dopo aver installato e registrato il gateway, è necessario creare una risorsa p
    ![Connessione del server alla risorsa per il gateway](media/analysis-services-gateway-install/aas-gateway-connect-resource.png)
 
     > [!NOTE]
-    > Se il gateway non viene visualizzato nell'elenco, probabilmente il server non si trova nella stessa area specificata durante la registrazione del gateway. 
+    > Se il gateway non viene visualizzato nell'elenco, probabilmente il server non si trova nell'area specificata durante la registrazione del gateway.
+
+    Quando la connessione tra il server e la risorsa del gateway ha esito positivo, lo stato visualizzerà **Connected**.
+
+
+    ![Connessione del server alla risorsa del gateway riuscita](media/analysis-services-gateway-install/aas-gateway-connect-success.png)
 
 È tutto. Se è necessario aprire le porte o risolvere eventuali problemi, vedere l'articolo su [Gateway dati locale](analysis-services-gateway.md).
 

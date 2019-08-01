@@ -10,18 +10,17 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 1bab1ed9e2a24b0a84f4327d47a910934319b397
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cbc4985f032c228db7a9ddf719390bbf2d0166b9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61475891"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568687"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Uso della classe RecoveryManager per correggere i problemi delle mappe partizioni
 
-Il [RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) classe consente applicazioni ADO.NET di rilevare e correggere eventuali incoerenze tra la mappa globale partizioni (GSM) e la mappa locale partizioni (LSM) in un ambiente di database partizionato facilmente.
+La classe [RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) offre alle applicazioni ADO.NET la possibilità di rilevare e correggere facilmente eventuali incoerenze tra la mappa globale partizioni (GSM) e la mappa partizioni locale (LSM) in un ambiente di database partizionato.
 
 La mappa globale partizioni e la mappa locale partizioni tengono traccia del mapping di ogni database in un ambiente partizionato. Si verifica a volte un'interruzione tra la mappa globale partizioni e la mappa locale partizioni. In tal caso usare la classe RecoveryManager per rilevare e correggere l'interruzione.
 

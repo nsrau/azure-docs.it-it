@@ -1,7 +1,6 @@
 ---
 title: Eseguire lo sviluppo per File di Azure con .NET | Microsoft Docs
 description: Informazioni su come sviluppare applicazioni e servizi .NET che usano File di Azure per archiviare i dati dei file.
-services: storage
 author: roygara
 ms.service: storage
 ms.devlang: dotnet
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/22/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 38bafdb4753b41a9c8acd599e6b7215e1777c6cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 35f29e425fc471e4df4a037ef312af0fd041dcd7
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65779472"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699774"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Eseguire lo sviluppo per File di Azure con .NET
 
@@ -53,16 +52,16 @@ In Visual Studio creare una nuova applicazione console di Windows. La procedura 
 
 Tutti gli esempi di codice in questa esercitazione possono essere aggiunti al metodo `Main()` del file `Program.cs` dell'applicazione console.
 
-È possibile usare la libreria client di archiviazione di Azure in qualsiasi tipo di applicazione .NET, ad esempio un'app web o servizio di cloud di Azure e applicazioni desktop e per dispositivi mobili. Per semplicità, in questa guida si usa un'applicazione console.
+È possibile usare la libreria client di archiviazione di Azure in qualsiasi tipo di applicazione .NET, tra cui un servizio cloud o un'app Web di Azure e applicazioni desktop e per dispositivi mobili. Per semplicità, in questa guida si usa un'applicazione console.
 
 ## <a name="use-nuget-to-install-the-required-packages"></a>Usare NuGet per installare i pacchetti necessari
 Per completare questa esercitazione, è necessario fare riferimento a due pacchetti nel progetto:
 
-* [Libreria comune di archiviazione di Microsoft Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): Questo pacchetto fornisce l'accesso a livello di codice alle risorse comuni nell'account di archiviazione.
-* [Libreria di archiviazione Blob di Microsoft Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/): Questo pacchetto fornisce l'accesso a livello di codice alle risorse Blob nell'account di archiviazione.
+* [Archiviazione di Microsoft Azure libreria comune per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): Questo pacchetto fornisce l'accesso a livello di codice alle risorse comuni nell'account di archiviazione.
+* [Archiviazione di Microsoft Azure libreria BLOB per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/): Questo pacchetto fornisce l'accesso a livello di codice alle risorse BLOB nell'account di archiviazione.
 * [Libreria Gestione configurazione di Microsoft Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): questo pacchetto fornisce una classe per l'analisi di una stringa di connessione in un file di configurazione, indipendentemente dalla posizione in cui viene eseguita l'applicazione.
 
-Per ottenere entrambi i pacchetti, è possibile usare NuGet. A tale scopo, seguire questa procedura:
+Per ottenere entrambi i pacchetti, è possibile usare NuGet. Attenersi ai passaggi riportati di seguito.
 
 1. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**.
 2. Cercare online "WindowsAzure.Storage" e fare clic su **Installa** per installare il pacchetto della libreria client di archiviazione e le relative dipendenze.
@@ -402,7 +401,7 @@ CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTim
 ## <a name="troubleshooting-azure-files-using-metrics"></a>Risoluzione dei problemi di File di Azure con le metriche
 Analisi archiviazione di Azure supporta ora metriche per File di Azure. Grazie ai dati di metrica, è possibile monitorare le richieste e diagnosticare i problemi.
 
-È possibile abilitare le metriche per file di Azure dal [portale di Azure](https://portal.azure.com). È anche possibile abilitare le metriche a livello di codice chiamando l'operazione Set File Service Properties tramite l'API REST o una delle soluzioni analoghe disponibili nella libreria client di archiviazione.
+È possibile abilitare le metriche per File di Azure dalla [portale di Azure](https://portal.azure.com). È anche possibile abilitare le metriche a livello di codice chiamando l'operazione Set File Service Properties tramite l'API REST o una delle soluzioni analoghe disponibili nella libreria client di archiviazione.
 
 L'esempio di codice seguente mostra come usare la libreria client di archiviazione per .NET per abilitare le metriche per File di Azure.
 

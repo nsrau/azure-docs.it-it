@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: mbullwin
 ms.openlocfilehash: ea324d616928b0d517c00dc9cab3e282f1e3415e
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67876430"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentare app Web in fase di esecuzione con Application Insights connessione senza codice
@@ -43,15 +43,15 @@ Status Monitor viene usato per instrumentare un'applicazione .NET ospitata in II
 
 Ecco un riepilogo di ciò che offrono i singoli modi:
 
-|  | Fase di compilazione | Fase di esecuzione |
+|  | Fase di compilazione | Tempo di esecuzione |
 | --- | --- | --- |
-| Richieste ed eccezioni |Sì |Yes |
+| Richieste ed eccezioni |Sì |Sì |
 | [Eccezioni più dettagliate](../../azure-monitor/app/asp-net-exceptions.md) | |Sì |
 | [Diagnostica delle dipendenze](../../azure-monitor/app/asp-net-dependencies.md) |In .NET 4.6 e versioni successive, ma meno dettagli |Sì, dettagli completi: codici risultato, testo del comando SQL, verbo HTTP|
 | [Contatori delle prestazioni di sistema](../../azure-monitor/app/performance-counters.md) |Sì |Sì |
 | [API per la telemetria personalizzata][api] |Sì |No |
-| [Integrazione log di traccia](../../azure-monitor/app/asp-net-trace-logs.md) |Sì |No |
-| [Visualizzazione pagina e dati utente](../../azure-monitor/app/javascript.md) |Sì |No |
+| [Integrazione log di traccia](../../azure-monitor/app/asp-net-trace-logs.md) |Yes |No |
+| [Visualizzazione pagina e dati utente](../../azure-monitor/app/javascript.md) |Yes |No |
 | Ricompilazione del codice necessaria |Sì | No |
 
 
@@ -64,7 +64,7 @@ Se l'app è ospitata in un server IIS, abilitare Application Insights usando Sta
 2. Se Application Insights Status Monitor non è già installato, [scaricare ed eseguire il programma di installazione](#download)
 3. In Status Monitor selezionare l'applicazione Web installata o il sito Web da monitorare. Accedere con le credenziali di Azure.
 
-    Configurare la risorsa in cui si vogliono visualizzare i risultati nel portale di Application Insights. È in genere consigliabile creare una nuova risorsa. Selezionare una risorsa esistente se sono già presenti [test][availability] or [client monitoring][client] Web per l'app. 
+    Configurare la risorsa in cui si vogliono visualizzare i risultati nel portale di Application Insights. È in genere consigliabile creare una nuova risorsa. Selezionare una risorsa esistente se sono già presenti [test Web][availability] o [monitoraggio client][client] per questa app. 
 
     ![Scegliere un'applicazione e una risorsa.](./media/monitor-performance-live-website-now/appinsights-036-configAIC.png)
 

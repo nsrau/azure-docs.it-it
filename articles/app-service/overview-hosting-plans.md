@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ab04d1288eb3a851774128b8aaaae03868c2ffa7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fef509d705d0b904586a86b7dc58decc54e7023d
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60839012"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716635"
 ---
 # <a name="azure-app-service-plan-overview"></a>Panoramica del piano di servizio app di Azure
 
@@ -113,7 +113,7 @@ Poiché le risorse di calcolo allocate dal piano di servizio app vengono fattura
 Isolare l'app in un nuovo piano di servizio app nei casi seguenti:
 
 - L'app usa molte risorse.
-- Si vuole ridimensionare l'app indipendentemente dalle altre app nel piano esistente.
+- Si vuole ridimensionare l'app in modo indipendente dalle altre app del piano esistente.
 - L'app necessita di risorse in un'area geografica diversa.
 
 In questo modo è possibile allocare un nuovo set di risorse per l'app e ottenere un maggiore controllo delle app.

@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, stein
-manager: craigg
 ms.date: 10/16/2018
-ms.openlocfilehash: 350e67f5a1e7e1eab7abe27a6ca851ed2420af84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ddb1fe40507da5caa218f73284a1095035df951
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978533"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570379"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Distribuire ed esplorare un'applicazione multi-tenant partizionata
 
@@ -33,7 +32,7 @@ L'app viene eseguita nel cloud di Azure e usa il database SQL di Azure. Nella se
 
 L'applicazione viene distribuita con i dati relativi a tre tenant di esempio, archiviati insieme in un unico database multi-tenant.
 
-Tutti gli utenti possono scaricare il codice sorgente C# e PowerShell per Wingtip Tickets dal [repository di GitHub][link-github-wingtip-multitenantdb-55g].
+Chiunque può scaricare il C# codice sorgente di e PowerShell per Wingtip Tickets dal [repository GitHub][link-github-wingtip-multitenantdb-55g].
 
 ## <a name="learn-in-this-tutorial"></a>Informazioni in questa esercitazione
 
@@ -58,7 +57,7 @@ Per completare questa esercitazione, verificare che i prerequisiti seguenti sian
 ### <a name="plan-the-names"></a>Pianificare i nomi
 
 Nei passaggi di questa sezione si forniscono un valore *utente* usato per assicurare che i nomi delle risorse siano univoci a livello globale e un nome per il *gruppo di risorse* contenente tutte le risorse create da una distribuzione dell'app. Per un utente di nome *Ann Finley* si consiglia:
-- *Utente:* **af1** *(le proprie iniziali, oltre a una cifra. Usare un valore diverso, ad esempio af2, se si distribuisce l'app una seconda volta.*
+- *Utente:* **AF1** *(Le iniziali, più una cifra.   Usare un valore diverso, ad esempio af2, se si distribuisce l'app una seconda volta.*
 - *Gruppo di risorse:* **wingtip-mt-af1** *: wingtip-mt indica che si tratta dell'app multi-tenant partizionata. L'aggiunta del nome utente af1 correla il nome del gruppo di risorse con i nomi delle risorse in esso contenute.*
 
 Scegliere ora i nomi e annotarli. 
@@ -68,7 +67,7 @@ Scegliere ora i nomi e annotarli.
 1. Fare clic sul pulsante azzurro **Distribuisci in Azure** illustrato di seguito.
    - Verrà aperto il portale di Azure con il modello di distribuzione SaaS Wingtip Tickets.
 
-     [![Pulsante per la distribuzione in Azure][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
+     [![Pulsante per la distribuzione in Azure.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
 
 1. Immettere i valori dei parametri necessari per la distribuzione.
 
@@ -116,7 +115,7 @@ Prima di eseguire qualsiasi script, impostare i valori *gruppo di risorse* e *ut
 
 I valori impostati in questo file vengono usati da tutti gli script ed è quindi importante che siano precisi. Se si ridistribuisce l'app, è necessario scegliere valori diversi per l'utente e il gruppo di risorse. Aggiornare quindi di nuovo il file UserConfig.psm1 con i nuovi valori.
 
-## <a name="run-the-application"></a>Eseguire l'applicazione
+## <a name="run-the-application"></a>Esecuzione dell'applicazione
 
 Nell'app Wingtip Tickets i tenant sono sedi. Una sede può essere una sala concerti, un club sportivo o qualsiasi altro luogo in cui vengono ospitati eventi. Le sedi vengono registrate nell'app come clienti e viene generato un identificatore di tenant per ogni sede. Per ogni sede sono elencati gli eventi imminenti in Wingtip Tickets per consentire al pubblico di acquistare i biglietti.
 

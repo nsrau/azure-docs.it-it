@@ -1,6 +1,6 @@
 ---
-title: L'aggiornamento automatico del servizio Mobility nel ripristino di emergenza da Azure ad Azure | Microsoft Docs
-description: Panoramica di aggiornamento automatico del servizio Mobility quando si replicano macchine virtuali di Azure usando Azure Site Recovery.
+title: Aggiornamento automatico del servizio Mobility in Azure al ripristino di emergenza di Azure | Microsoft Docs
+description: Panoramica dell'aggiornamento automatico del servizio Mobility durante la replica di macchine virtuali di Azure con Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: rochakm
@@ -8,65 +8,65 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: rajanaki
-ms.openlocfilehash: 1d36145b2a38c0f1106b4468eab226996e270ae1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 92a46f7be116d0664b438c9039e311f802c873e5
+ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65922132"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68708087"
 ---
-# <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Aggiornamento automatico del servizio Mobility nella replica di Azure ad Azure
+# <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Aggiornamento automatico del servizio Mobility nella replica da Azure ad Azure
 
-Azure Site Recovery Usa un ritmo di rilascio mensile per risolvere i problemi e migliorare le funzionalità esistenti o aggiungerne di nuovi. Per rimanere aggiornati con il servizio, è necessario pianificare la distribuzione delle patch ogni mese. Per evitare il sovraccarico associato a ogni aggiornamento, è invece possibile consentire Site Recovery gestire gli aggiornamenti dei componenti.
+Azure Site Recovery usa una cadenza mensile per risolvere eventuali problemi e migliorare le funzionalità esistenti o aggiungerne di nuove. Per rimanere aggiornati con il servizio, è necessario pianificare la distribuzione delle patch ogni mese. Per evitare il sovraccarico associato a ogni aggiornamento, è invece possibile consentire Site Recovery di gestire gli aggiornamenti dei componenti.
 
-Come indicato nella [architettura di ripristino di emergenza da Azure ad Azure](azure-to-azure-architecture.md), il servizio Mobility viene installato in tutte le macchine virtuali di Azure (VM) per cui è abilitata la replica, durante la replica di macchine virtuali da un'area di Azure a un altro. Quando si usano gli aggiornamenti automatici, ogni nuova versione consente di aggiornare l'estensione del servizio Mobility.
+Come indicato nell' [architettura di ripristino di emergenza da Azure ad Azure](azure-to-azure-architecture.md), il servizio Mobility viene installato in tutte le macchine virtuali (VM) di Azure per cui è abilitata la replica, durante la replica di VM da un'area di Azure a un'altra. Quando si usano gli aggiornamenti automatici, ogni nuova versione aggiorna l'estensione del servizio Mobility.
  
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="how-automatic-updates-work"></a>Lavoro degli aggiornamenti automatica
+## <a name="how-automatic-updates-work"></a>Funzionamento degli aggiornamenti automatici
 
-Quando si usa Site Recovery per gestire gli aggiornamenti, distribuisce un runbook globale (usato da servizi di Azure) tramite un account di automazione creato nella stessa sottoscrizione dell'insieme di credenziali. Ogni insieme di credenziali Usa un account di automazione. Il runbook controlla ogni macchina virtuale in un insieme di credenziali per gli aggiornamenti automatici attivi e consente di aggiornare l'estensione del servizio Mobility se è disponibile una versione più recente.
+Quando si usa Site Recovery per gestire gli aggiornamenti, distribuisce un Runbook globale (usato dai servizi di Azure) tramite un account di automazione, creato nella stessa sottoscrizione dell'insieme di credenziali. Ogni insieme di credenziali usa un account di automazione. Runbook verifica la presenza di ogni VM in un insieme di credenziali per gli aggiornamenti automatici attivi e aggiorna l'estensione del servizio Mobility se è disponibile una versione più recente.
 
-La pianificazione di runbook predefinita si ripete ogni giorno alle 12:00 AM nel fuso orario dell'area geografica della macchina virtuale replicata. È anche possibile modificare la pianificazione del runbook tramite l'account di automazione.
+La pianificazione predefinita di Runbook si ripete ogni giorno alle 12:00 del fuso orario della geo della VM replicata. È anche possibile modificare la pianificazione del Runbook tramite l'account di automazione.
 
 > [!NOTE]
-> A partire da 35 Rollup aggiornamento, è possibile scegliere un account di automazione esistente da utilizzare per gli aggiornamenti. Prima dell'aggiornamento, Site Recovery creato questo account per impostazione predefinita. Questa opzione è disponibile quando si abilita la replica per una macchina virtuale. Se si modifica l'impostazione, verrà applicata per tutte le macchine virtuali di Azure protette nel medesimo insieme di credenziali.
+> A partire dall'aggiornamento cumulativo 35, è possibile scegliere un account di automazione esistente da usare per gli aggiornamenti. Prima di questo aggiornamento, Site Recovery creato questo account per impostazione predefinita. Questa opzione è disponibile quando si Abilita la replica per una macchina virtuale. Se si modifica l'impostazione, questa verrà applicata a tutte le macchine virtuali di Azure protette nello stesso insieme di credenziali.
  
-> Attivazione degli aggiornamenti automatici non richiedono il riavvio delle VM di Azure o influire sulla replica in corso.
+> Per attivare gli aggiornamenti automatici non è necessario riavviare le macchine virtuali di Azure o influire sulla replica in corso.
 
-> Processo di fatturazione nell'account di automazione è basato sul numero di minuti di esecuzione processo usato in un mese. Per impostazione predefinita, 500 minuti di esecuzione sono inclusi come unità gratuite per un account di automazione. L'esecuzione del processo richiede alcuni secondi a circa un minuto, ogni giorno e viene illustrata come unità gratuite.
+> La fatturazione dei processi nell'account di automazione è basata sul numero di minuti di runtime del processo usati in un mese. Per impostazione predefinita, 500 minuti sono inclusi come unità gratuite per un account di automazione. L'esecuzione del processo richiede alcuni secondi a circa un minuto al giorno ed è coperta da unità gratuite.
 
 | Unità gratuite incluse (ogni mese) | Prezzo |
 |---|---|
-| 500 minuti di esecuzione di processi di runtime | ₹0.14 al minuto
+| Runtime processo 500 minuti | ₹ 0,14 al minuto
 
 ## <a name="enable-automatic-updates"></a>Abilitare gli aggiornamenti automatici
 
-È possibile consentire a Site Recovery gestire gli aggiornamenti nei modi seguenti.
+È possibile consentire Site Recovery di gestire gli aggiornamenti nei modi seguenti.
 
-### <a name="manage-as-part-of-the-enable-replication-step"></a>Gestisci come parte del passaggio abilita la replica
+### <a name="manage-as-part-of-the-enable-replication-step"></a>Gestire come parte del passaggio abilitazione della replica
 
-Quando si abilita la replica per una macchina virtuale di avvio [dalla visualizzazione macchina virtuale](azure-to-azure-quickstart.md) oppure [dall'insieme di credenziali di servizi di ripristino](azure-to-azure-how-to-enable-replication.md), è possibile consentire il ripristino del sito gestire gli aggiornamenti per l'estensione Site Recovery o gestirlo manualmente.
+Quando si Abilita la replica per una macchina virtuale a partire [dalla visualizzazione della macchina virtuale](azure-to-azure-quickstart.md) o dall'insieme di credenziali di [servizi di ripristino](azure-to-azure-how-to-enable-replication.md), è possibile consentire Site Recovery di gestire gli aggiornamenti per l'estensione Site Recovery o gestirli manualmente.
 
-![Impostazioni dell'estensione](./media/azure-to-azure-autoupdate/enable-rep.png)
+![Impostazioni estensione](./media/azure-to-azure-autoupdate/enable-rep.png)
 
 ### <a name="toggle-the-extension-update-settings-inside-the-vault"></a>Attivare o disattivare le impostazioni di aggiornamento dell'estensione nell'insieme di credenziali
 
-1. Nell'insieme di credenziali, andare al **Manage** > **infrastruttura di Site Recovery**.
-2. Sotto **per le macchine virtuali di Azure** > **impostazioni di aggiornamento dell'estensione**, attivare il **consentire a Site Recovery per gestire** attiva/disattiva. Per gestire manualmente, disattivare tale funzionalità. 
+1. All'interno dell'insieme di credenziali > passare a Gestisci**Site Recovery infrastruttura**.
+2. In per**le impostazioni di aggiornamento dell'estensione** **per macchine** > virtuali di Azure, attivare l'interruttore **Consenti Site Recovery di gestire** . Per gestire manualmente, disattivarla. 
 3. Selezionare **Salva**.
 
-![Impostazioni di aggiornamento dell'estensione](./media/azure-to-azure-autoupdate/vault-toggle.png)
+![Impostazioni aggiornamento estensione](./media/azure-to-azure-autoupdate/vault-toggle.png)
 
 > [!Important]
-> Quando si sceglie **consentire a Site Recovery per gestire**, l'impostazione viene applicata a tutte le macchine virtuali nell'insieme di credenziali corrispondente.
+> Quando si sceglie **consenti Site Recovery di gestire**, l'impostazione viene applicata a tutte le macchine virtuali nell'insieme di credenziali corrispondente.
 
 
 > [!Note]
-> Entrambe le opzioni di notifica dell'account di automazione usato per la gestione degli aggiornamenti. Se si usa questa funzionalità in un insieme di credenziali per la prima volta, per impostazione predefinita viene creato un nuovo account di automazione. In alternativa, è possibile personalizzare l'impostazione e scegliere un account di automazione esistente. Tutte le repliche enable successivi nel medesimo insieme di credenziali usano quello creato in precedenza.
+> Entrambe le opzioni inviano una notifica all'utente dell'account di automazione usato per la gestione degli aggiornamenti. Se si usa questa funzionalità in un insieme di credenziali per la prima volta, per impostazione predefinita viene creato un nuovo account di automazione. In alternativa, è possibile personalizzare l'impostazione e scegliere un account di automazione esistente. Tutte le repliche di abilitazione successive nello stesso insieme di credenziali usano quella creata in precedenza. Attualmente nell'elenco a discesa verranno elencati solo gli account di automazione che si trovano nello stesso gruppo di risorse dell'insieme di credenziali.  
 
-Per un account di automazione personalizzata, usare lo script seguente:
+Per un account di automazione personalizzato, usare lo script seguente:
 
 ```azurepowershell
 param(
@@ -503,46 +503,46 @@ elseif($JobsCompletedSuccessList.Count -ne $ContainerMappingList.Count)
 Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -DisplayMessageToUser
 ```
 
-### <a name="manage-updates-manually"></a>Gestire gli aggiornamenti manualmente
+### <a name="manage-updates-manually"></a>Gestione manuale degli aggiornamenti
 
-1. Se sono presenti nuovi aggiornamenti per il servizio Mobility installato nella VM, verrà visualizzata la notifica seguente: "Nuovo aggiornamento dell'agente Site recovery replica è disponibile. Fare clic per installare"
+1. Se sono presenti nuovi aggiornamenti per il servizio Mobility installato nelle VM, verrà visualizzata la notifica seguente: "È disponibile un nuovo aggiornamento dell'agente di replica di Site Recovery. Fare clic per installare "
 
      ![Finestra Elementi replicati](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 2. Selezionare la notifica per aprire la pagina di selezione della macchina virtuale.
-3. Scegliere le macchine virtuali si vuole aggiornare e quindi selezionare **OK**. Verrà avviato il servizio Mobility di aggiornamento per ogni macchina virtuale selezionata.
+3. Scegliere le macchine virtuali da aggiornare e quindi fare clic su **OK**. Il servizio di aggiornamento Mobility si avvierà per ogni macchina virtuale selezionata.
 
      ![Elenco delle macchine virtuali in Elementi replicati](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
 
 ## <a name="common-issues-and-troubleshooting"></a>Problemi comuni e risoluzione dei problemi
 
-Se si verifica un problema con gli aggiornamenti automatici, verrà visualizzata una notifica di errore sotto **problemi di configurazione** nel dashboard dell'insieme di credenziali.
+Se si verifica un problema con gli aggiornamenti automatici, verrà visualizzata una notifica di errore in **problemi di configurazione** nel dashboard dell'insieme di credenziali.
 
-Se si non è stato possibile abilitare gli aggiornamenti automatici, vedere i seguenti errori comuni e le azioni consigliate:
+Se non è stato possibile abilitare gli aggiornamenti automatici, vedere gli errori comuni e le azioni consigliate seguenti:
 
-- **Errore**: non si è autorizzati a creare un account RunAs di Azure (entità servizio) e a concedere il ruolo Collaboratore all'entità servizio.
+- **Errore**: Non si è autorizzati a creare un account RunAs (entità servizio) e a concedere il ruolo Collaboratore all'entità servizio.
 
-   **Azione consigliata**: Assicurarsi che sia assegnato l'account di accesso come collaboratore e ripetere l'operazione. Vedere la sezione delle autorizzazioni necessarie nel [usare il portale per creare un'entità applicazione e del servizio che può accedere alle risorse di Azure AD](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) per altre informazioni sull'assegnazione di autorizzazioni.
+   **Azione consigliata**: Verificare che l'account connesso sia assegnato come collaboratore e riprovare. Per ulteriori informazioni sull'assegnazione di autorizzazioni, vedere la sezione autorizzazioni necessarie in [usare il portale per creare un'applicazione Azure ad e un'entità servizio che possano accedere alle risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) .
  
-   Per risolvere la maggior parte dei problemi dopo aver abilitato aggiornamenti automatici, selezionare **Repair**. Se il pulsante di ripristino non è disponibile, vedere il messaggio di errore visualizzato nel riquadro Impostazioni estensione update.
+   Per risolvere la maggior parte dei problemi dopo aver abilitato gli aggiornamenti automatici, selezionare **Ripristina**. Se il pulsante Ripristina non è disponibile, vedere il messaggio di errore visualizzato nel riquadro Impostazioni aggiornamento estensioni.
 
-   ![Site Recovery service Ripara nelle impostazioni di aggiornamento dell'estensione](./media/azure-to-azure-autoupdate/repair.png)
+   ![Pulsante di ripristino del servizio Site Recovery nelle impostazioni di aggiornamento dell'estensione](./media/azure-to-azure-autoupdate/repair.png)
 
 - **Errore**: l'account RunAs non ha l'autorizzazione per accedere alla risorsa dei servizi di ripristino.
 
-    **Azione consigliata**: Eliminare e quindi [ricreare l'account RunAs](https://docs.microsoft.com/azure/automation/automation-create-runas-account). In alternativa, assicurarsi che l'applicazione di Azure Active Directory dell'account RunAs di automazione abbia accesso alla risorsa di servizi di ripristino.
+    **Azione consigliata**: Eliminare e quindi [ricreare l'account RunAs](https://docs.microsoft.com/azure/automation/automation-create-runas-account). In alternativa, assicurarsi che l'applicazione Azure Active Directory dell'account RunAs di automazione abbia accesso alla risorsa dei servizi di ripristino.
 
 - **Errore**: impossibile trovare l'account RunAs. È possibile che uno degli elementi seguenti (applicazione di Azure Active Directory, entità servizio, ruolo, asset di certificato di Automazione, asset di connessione di Automazione) o l'identificazione personale non siano identici tra certificato e connessione. 
 
     **Azione consigliata**: Eliminare e quindi [ricreare l'account RunAs](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
 
--  **Errore**: L'esecuzione di Azure come certificato usata dall'account di automazione sta per scadere. 
+-  **Errore**: Il certificato RunAs di Azure usato dall'account di automazione sta per scadere. 
 
-    Il certificato autofirmato che viene creato per l'account RunAs scade un anno dalla data di creazione. È possibile rinnovarlo in qualsiasi momento prima della scadenza. Se hanno effettuato l'iscrizione per le notifiche di posta elettronica, riceverai anche messaggi di posta elettronica quando un'azione è richiesta da parte dell'utente. Questo errore verrà visualizzato 2 mesi prima della data di scadenza e passerà a un errore critico se il certificato è scaduto. Dopo che il certificato è scaduto, l'aggiornamento automatico non sarà funzionante finché non si rinnova lo stesso.
+    Il certificato autofirmato creato per l'account RunAs scade un anno dalla data di creazione. È possibile rinnovarlo in qualsiasi momento prima della scadenza. Se è stata effettuata l'iscrizione per le notifiche tramite posta elettronica, si riceveranno anche messaggi di posta elettronica quando è richiesta un'azione da parte dell'utente. Questo errore verrà visualizzato 2 mesi prima della data di scadenza e cambierà in un errore critico se il certificato è scaduto. Una volta scaduto il certificato, l'aggiornamento automatico non funzionerà finché non si rinnova lo stesso.
 
-   **Azione consigliata**: Fare clic su 'Ripristina' e 'Rinnova certificato' per risolvere il problema.
+   **Azione consigliata**: Fare clic su "Ripristina" e quindi su "Rinnova certificato" per risolvere il problema.
     
-   ![rinnovare-cert](media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG)
+   ![rinnovo-certificato](media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG)
 
 > [!NOTE]
-> Una volta che si rinnova il certificato, aggiornare la pagina in modo che lo stato corrente viene aggiornato.
+> Dopo aver rinnovato il certificato, aggiornare la pagina in modo che lo stato corrente venga aggiornato.

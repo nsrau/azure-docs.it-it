@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: dc17cb48f7e06757dacdca5f291ed4604bfc10ee
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 923859fdb0b398d04e710810a96c33fb1c3cd9da
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414411"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698575"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Sviluppare moduli di IoT Edge personalizzati
 
@@ -79,7 +79,7 @@ Per tutte le lingue elencate nella tabella seguente, IoT Edge supporta lo svilup
 | Python | Visual Studio Code |
 
 >[!NOTE]
->Il supporto per lo sviluppo e il debug per i dispositivi Linux ARM64 è in [anteprima pubblica](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Per altre informazioni, vedere [sviluppare ed eseguire il debug di moduli ARM64 IOT Edge in Visual Studio Code (anteprima)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
+>Il supporto per lo sviluppo e il debug per i dispositivi Linux ARM64 è in [anteprima pubblica](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Per altre informazioni, vedere [Sviluppare ed eseguire il debug di moduli IoT Edge ARM64 in Visual Studio Code (anteprima)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
 
 ### <a name="windows"></a>Windows
 
@@ -98,4 +98,4 @@ Per tutte le lingue elencate nella tabella seguente, IoT Edge supporta lo svilup
 
 [Usare Visual Studio Code per sviluppare moduli per IoT Edge](how-to-vs-code-develop-module.md)
 
-[Comprendere e usare gli SDK dell'hub Azure.](/iot-hub/iot-hub-devguide-sdks.md)
+[Comprendere e usare gli SDK dell'hub Azure.](../iot-hub/iot-hub-devguide-sdks.md)

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: danlep
 ms.openlocfilehash: 0672fb71ba4f56d0faf332df029100cb48741c8b
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68309879"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Usare un'identità gestita di Azure per eseguire l'autenticazione a un registro contenitori di Azure 
@@ -28,7 +28,7 @@ L'articolo fornisce altre informazioni sulle identità gestite e spiega come:
 
 Per creare risorse di Azure, questo articolo richiede che sia eseguita l'interfaccia della riga di comando di Azure versione 2.0.55 o successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
 
-Per configurare un registro contenitori ed eseguire il push di un'immagine del contenitore su di esso, è necessario disporre anche di un Docker installato localmente. Docker offre pacchetti che consentono di configurare facilmente Docker in qualsiasi sistema [MacOS][docker-mac], [Windows][docker-windows]o [Linux][Docker-Linux] .
+Per configurare un registro contenitori ed eseguire il push di un'immagine del contenitore su di esso, è necessario disporre anche di un Docker installato localmente. Docker offre pacchetti che consentono di configurare facilmente Docker in qualsiasi sistema [MacOS][docker-mac], [Windows][docker-windows]o [Linux][docker-linux] .
 
 ## <a name="why-use-a-managed-identity"></a>Perché usare un'identità gestita?
 

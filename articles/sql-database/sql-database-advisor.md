@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik
-manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: d09adbfa7cb2782d710ef3116cbd7bc68ee247b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08def3ac2fd94f01586bc690d867c04758b8856b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61417584"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569521"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Raccomandazioni per le prestazioni per il database SQL
 
@@ -77,7 +76,7 @@ Con "Problemi dello schema" si indica una classe di errori di sintassi in SQL Se
 
 Le raccomandazioni relative alla "correzione di problemi di schema" vengono visualizzate quando il servizio di database SQL di Azure rileva un'anomalia nel numero di errori SQL correlati al database SQL. La tabella seguente illustra gli errori correlati ai problemi di schema:
 
-| Codice di errore SQL | `Message` |
+| Codice errore di SQL | Messaggio |
 | --- | --- |
 | 201 |La procedura o funzione ' *' richiede il parametro '* ', che non è stato specificato. |
 | 207 |Il nome di colonna '*' non è valido. |
@@ -88,7 +87,7 @@ Le raccomandazioni relative alla "correzione di problemi di schema" vengono visu
 
 ## <a name="custom-applications"></a>Applicazioni personalizzate
 
-Gli sviluppatori potrebbero considerare lo sviluppo di applicazioni personalizzate tramite raccomandazioni sulle prestazioni per Database SQL di Azure. Tutti i consigli elencati nel portale per un database è accessibile tramite [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) API.
+Gli sviluppatori potrebbero prendere in considerazione lo sviluppo di applicazioni personalizzate usando consigli sulle prestazioni per il database SQL di Azure. È possibile accedere a tutte le raccomandazioni elencate nel portale per un database tramite l'API [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 Monitorare le raccomandazioni e continuare ad applicarle in modo da migliorare le prestazioni. I carichi di lavoro dei database sono dinamici e cambiano in modo continuo. Advisor per database SQL continua a monitorare e a offrire raccomandazioni potenzialmente utili per migliorare le prestazioni del database. 

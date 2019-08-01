@@ -11,14 +11,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 963d7d44ef3ef77604fc5a9faac479a9e4c91ee6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca534d3ffcfd1d4caeb9cf755934a846fafae26e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61487368"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570102"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>L'applicazione SaaS Wingtip Tickets
 
@@ -36,13 +35,13 @@ Sono disponibili tre versioni dell'app. Ognuna esplora un diverso modello di ten
 
 Il modello di app autonoma per ogni tenant usa un'applicazione a tenant singolo con un database per ogni tenant. L'app di ciascun tenant, incluso il relativo database, viene distribuita in un gruppo di risorse di Azure separato. Il gruppo di risorse può essere distribuito nella sottoscrizione del provider di servizi o in quella del tenant ed essere gestito dal provider per conto del tenant. Il modello di applicazione autonoma per ogni tenant fornisce il massimo isolamento dei tenant, ma è in genere il più costoso perché non esiste alcuna possibilità di condividere le risorse tra più tenant.  Questo modello è particolarmente adatto ad applicazioni che potrebbero essere più complesse e che vengono distribuite in un numero inferiore di tenant.  Con le distribuzioni autonome, l'app può essere più facilmente personalizzata per ogni tenant rispetto ad altri modelli.  
 
-Vedere le [esercitazioni][docs-tutorials-for-wingtip-sa] e il codice su GitHub [.../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa].
+Vedere le [esercitazioni][docs-tutorials-for-wingtip-sa] e il codice su GitHub [. ../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa].
 
 ## <a name="database-per-tenant-pattern"></a>Modello con un database per ogni tenant
 
 Il modello con un database per ogni tenant è utile per i provider di servizi che si occupano di isolamento dei tenant e vogliono eseguire un servizio centralizzato che consente un utilizzo efficiente delle risorse condivise. Viene creato un database per ogni locale di ritrovo, o tenant, e tutti i database sono gestiti centralmente. I database possono essere ospitati in pool elastici per offrire una gestione delle prestazioni economica e semplice, che sfrutta i modelli di carico di lavoro imprevisto dei tenant. Un database di catalogo contiene il mapping tra i tenant e i relativi database. Questo mapping viene gestito mediante le funzionalità di gestione mappe partizioni della [libreria client dei database elastici](sql-database-elastic-database-client-library.md), il che offre una gestione efficiente delle connessioni all'applicazione.
 
-Vedere le [esercitazioni][docs-tutorials-for-wingtip-dpt] e il codice in GitHub [.../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt].
+Vedere le [esercitazioni][docs-tutorials-for-wingtip-dpt] e il codice su GitHub [. ../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt].
 
 ## <a name="sharded-multi-tenant-database-pattern"></a>Modello con database multi-tenant partizionati
 
@@ -50,27 +49,27 @@ I database multi-tenant sono efficaci per i provider di servizi che cercano un c
 
 Questo modello consente anche uno schema *ibrido* in cui è possibile ottimizzare i costi con più tenant in un database o ottimizzare l'isolamento con un singolo tenant nel proprio database. La scelta può essere effettuata tenant per tenant, quando viene eseguito il provisioning del tenant o in seguito, senza alcun impatto sull'applicazione.  Questo modello può essere usato in modo efficace quando è necessario trattare in modo diverso i gruppi di tenant. Ad esempio, i tenant a basso costo possono essere assegnati a database condivisi, mentre i tenant premium possono essere assegnati ai propri database. 
 
-Vedere le [esercitazioni][docs-tutorials-for-wingtip-mt] e il codice su GitHub [.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
+Vedere le [esercitazioni][docs-tutorials-for-wingtip-mt] e il codice su GitHub [. ../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 #### <a name="conceptual-descriptions"></a>Descrizioni concettuali
 
-- Una spiegazione più dettagliata dei modelli di tenancy dell'applicazione è disponibile nell'articolo [Criteri di tenancy di database delle applicazioni SaaS multi-tenant][saas-tenancy-app-design-patterns-md]
+- Una spiegazione più dettagliata dei modelli di tenant dell'applicazione è disponibile in modelli di tenant di [database SaaS multi-tenant][saas-tenancy-app-design-patterns-md]
 
 #### <a name="tutorials-and-code"></a>Esercitazioni e codice
 
 - Applicazione autonoma per ogni tenant:
     - [Esercitazioni per l'app autonoma][docs-tutorials-for-wingtip-sa].
-    - [Codice per l'app autonoma, in GitHub][github-code-for-wingtip-sa].
+    - [Codice per l'app autonoma su GitHub][github-code-for-wingtip-sa].
 
 - Un database per ogni tenant:
-    - [Esercitazioni per un database per ogni tenant][docs-tutorials-for-wingtip-dpt].
-    - [Codice per un database per ogni tenant, in GitHub][github-code-for-wingtip-dpt].
+    - [Esercitazioni per il database per ogni tenant][docs-tutorials-for-wingtip-dpt].
+    - [Codice per il database per ogni tenant, su GitHub][github-code-for-wingtip-dpt].
 
 - Multi-tenant partizionati:
     - [Esercitazioni per multi-tenant partizionati][docs-tutorials-for-wingtip-mt].
-    - [Codice per multi-tenant partizionati, in GitHub][github-code-for-wingtip-mt].
+    - [Codice per multi-tenant partizionati su GitHub][github-code-for-wingtip-mt].
 
 
 

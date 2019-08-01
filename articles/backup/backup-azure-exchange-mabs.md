@@ -1,18 +1,19 @@
 ---
 title: Eseguire il backup di un server Exchange in Backup di Azure con il server di Backup di Azure
 description: Informazioni su come eseguire il backup di un server di Exchange in Backup di Azure con il server di Backup di Azure
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.author: kasinh
-ms.openlocfilehash: 0eacd295e279a3b3bcfbdad2c67cac7160f8dcb3
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 89ad5cac462384e8c688ae9ca68c5ae309249a71
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466388"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689293"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Eseguire il backup di un server Exchange in Azure con il server di Backup di Azure
 Questo articolo descrive come configurare il server di Backup di Microsoft Azure (MABS) per eseguire il backup di un server Microsoft Exchange in Azure.  

@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: cfa94fc1c75bcd1eaa9a076cfe63369f60ce5f1c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24e340d25cb57f9a35f06f6dbd5a394d60a14fad
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66693089"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566430"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL
 
@@ -32,7 +31,7 @@ La sincronizzazione dei dati è utile nei casi in cui i dati devono essere mante
 
 - **Sincronizzazione dei dati ibrida:** con la sincronizzazione dei dati è possibile mantenere sincronizzati i dati tra i database locali e i database SQL di Azure per rendere possibili applicazioni ibride. Questa funzionalità può essere interessante per i clienti che stanno valutando il passaggio al cloud e vorrebbero trasferire alcune applicazioni in Azure.
 - **Applicazioni distribuite:** in molti casi è utile separare carichi di lavoro diversi in database differenti. Ad esempio, se si dispone di un database di produzione di grandi dimensioni, ma è anche necessario eseguire un carico di lavoro di report o analisi su tali dati, può essere utile avere un secondo database per questo carico di lavoro aggiuntivo. Questo approccio riduce al minimo l'impatto a livello di prestazioni sul carico di lavoro di produzione. È possibile usare la sincronizzazione dati per mantenere sincronizzati i due database.
-- **Applicazioni distribuite a livello globale:** Molte aziende sono estese a più aree e anche diversi paesi/aree geografiche. Per ridurre al minimo la latenza di rete, è consigliabile posizionare i dati in un'area vicina. Con sincronizzazione dati è possibile mantenere facilmente sincronizzati i database in aree in tutto il mondo.
+- **Applicazioni distribuite a livello globale:** Molte aziende si estendono in diverse aree geografiche e anche in diversi paesi. Per ridurre al minimo la latenza di rete, è consigliabile posizionare i dati in un'area vicina. Con sincronizzazione dati è possibile mantenere facilmente sincronizzati i database in aree in tutto il mondo.
 
 La sincronizzazione dei dati non è la soluzione preferita per gli scenari seguenti:
 
@@ -76,10 +75,10 @@ Di seguito sono elencate le proprietà di un gruppo di sincronizzazione:
 
 ## <a name="compare-data-sync-with-transactional-replication"></a>Confrontare la sincronizzazione dati con la replica transazionale
 
-| | Sincronizzazione dei dati | Replica transazionale |
+| | Sincronizzazione dati | Replica transazionale |
 |---|---|---|
 | Vantaggi | - Supporto attivo/attivo<br/>- Bidirezionale tra database locali e database SQL di Azure | - Latenza inferiore<br/>- Coerenza delle transazioni<br/>- Riutilizzo topologia esistente dopo la migrazione |
-| Svantaggi: | - Latenza 5 min o superiore<br/>- Nessuna coerenza delle transazioni<br/>- Maggiore impatto sulle prestazioni | - Impossibilità di pubblicare da database singolo o in pool di Database SQL di Azure<br/>- Alti costi di manutenzione |
+| Svantaggi | - Latenza 5 min o superiore<br/>- Nessuna coerenza delle transazioni<br/>- Maggiore impatto sulle prestazioni | - Impossibilità di pubblicare da database singolo o in pool di Database SQL di Azure<br/>- Alti costi di manutenzione |
 | | | |
 
 ## <a name="get-started-with-sql-data-sync"></a>Introduzione alla sincronizzazione dati SQL
@@ -129,7 +128,7 @@ Sulle prestazioni del database possono incidere anche il provisioning e il depro
 - I nomi degli oggetti (database, tabelle e colonne) non possono contenere i caratteri stampabili punto (.), parentesi quadra aperta ([) o parentesi quadra chiusa (]).
 - L'autenticazione di Azure Active Directory non è supportata.
 - Le tabelle con lo stesso nome ma con schema diverso (ad esempio, dbo.customers e sales.customers) non sono supportate.
-- Non sono supportate le colonne con tipi di dati definiti dall'utente
+- Le colonne con tipi di dati definiti dall'utente non sono supportate
 
 #### <a name="unsupported-data-types"></a>Tipi di dati non supportati
 

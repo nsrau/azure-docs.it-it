@@ -9,25 +9,27 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 7d216a3706c13a5fff312850e244a521ab22ae9e
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 9e62dd25c3ff16e280eda1ad11053ef520a85e4d
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68386538"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706518"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Creare modelli di Azure Resource Manager per automatizzare la distribuzione per le app per la logica di Azure
 
 Per semplificare l'automazione della creazione e della distribuzione dell'app per la logica, in questo articolo vengono descritte le modalità di creazione di un [modello di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) per l'app per la logica. Per una panoramica della struttura e della sintassi di un modello che include la definizione del flusso di lavoro e altre risorse necessarie per [la distribuzione, vedere Panoramica: Automatizzare la distribuzione per le app per la](logic-apps-azure-resource-manager-templates-overview.md)logica con i modelli Azure Resource Manager.
 
-App per la logica di Azure offre un modello di app per la [logica predefinite Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) che è possibile riutilizzare, non solo per la creazione di app per la logica, ma anche per definire le risorse e i parametri da usare per la distribuzione. È possibile usare questo modello per i propri scenari aziendali o personalizzarlo in base alle esigenze. Per ulteriori informazioni sui modelli di Azure Resource Manager, vedere gli argomenti seguenti:
+App per la logica di Azure offre un [modello di Azure Resource Manager di app](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) per la logica predefinito che è possibile riutilizzare, non solo per la creazione di app per la logica, ma anche per definire le risorse e i parametri da usare per la distribuzione. È possibile usare questo modello per i propri scenari aziendali o personalizzarlo in base alle esigenze.
+
+> [!IMPORTANT]
+> Assicurarsi che le connessioni nel modello usino lo stesso gruppo di risorse e la stessa località di Azure dell'app per la logica.
+
+Per ulteriori informazioni sui modelli di Azure Resource Manager, vedere gli argomenti seguenti:
 
 * [Struttura e sintassi del modello di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Sviluppare i modelli di Azure Resource Manager per la coerenza cloud](../azure-resource-manager/templates-cloud-consistency.md)
-
-> [!IMPORTANT]
-> Le connessioni nel modello devono usare lo stesso gruppo di risorse e la stessa località di Azure dell'app per la logica.
 
 <a name="visual-studio"></a>
 
@@ -47,6 +49,13 @@ Scaricando l'app per la logica, si ottiene un modello che include le definizioni
 È possibile creare modelli di Gestione risorse usando Azure PowerShell con il [modulo LogicAppTemplate](https://github.com/jeffhollan/LogicAppTemplateCreator). Questo modulo Open Source valuta prima di tutto l'app per la logica e tutte le connessioni usate dall'app per la logica. Il modulo genera quindi le risorse del modello con i parametri necessari per la distribuzione.
 
 Si supponga, ad esempio, di avere un'app per la logica che riceve un messaggio da una coda del bus di servizio di Azure e carica i dati in un database SQL di Azure. Il modulo conserva tutta la logica di orchestrazione e parametrizza le stringhe di connessione SQL e Service Bus, in modo da poter fornire e modificare i valori in base alle esigenze di distribuzione.
+
+Questi esempi illustrano come creare e distribuire app per la logica usando modelli di Azure Resource Manager, Azure Pipelines in Azure DevOps e Azure PowerShell:
+
+* [Esempio: Connettersi alle code del bus di servizio di Azure da app per la logica di Azure](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Esempio: Connettersi agli account di archiviazione di Azure da app per la logica di Azure](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Esempio: Configurare un'azione dell'app per le funzioni per app per la logica di Azure](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Esempio: Connettersi a un account di integrazione da app per la logica di Azure](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
 
 ### <a name="install-powershell-modules"></a>Installare i moduli di PowerShell
 
@@ -100,7 +109,7 @@ PS> Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $f
 
 | Parametri | Obbligatoria | DESCRIZIONE |
 |------------|----------|-------------|
-| TemplateFile | Sì | Percorso del file del modello |
+| TemplateFile | Yes | Percorso del file del modello |
 | Insieme di credenziali delle chiavi | No | Enumerazione che descrive come gestire i possibili valori di Key Vault. Il valore predefinito è `None`. |
 ||||
 

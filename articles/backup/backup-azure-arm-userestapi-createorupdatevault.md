@@ -1,20 +1,21 @@
 ---
 title: "Backup di Azure: creare insiemi di credenziali di Servizi di ripristino con l'API REST"
 description: Gestire le operazioni di backup e ripristino delle macchine virtuali di Backup di Azure con l'API REST
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: API REST, backup di macchine virtuali di Azure, ripristino di macchine virtuali di Azure;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/21/2018
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: 0373098dd344df79be79871227f20c8a995958fa
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: f60a675b87d989f12ac3e6181f580b8acffa640b
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466934"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688705"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Creare l'insieme di credenziali di Servizi di ripristino di Azure con l'API REST
 
@@ -43,7 +44,7 @@ Per altre informazioni su come creare la richiesta, vedere [Componenti di una ri
 
 Per compilare un corpo della richiesta vengono usate le definizioni comuni seguenti:
 
-|NOME  |Obbligatoria  |Type  |Descrizione  |
+|Name  |Obbligatoria  |Type  |Descrizione  |
 |---------|---------|---------|---------|
 |eTag     |         |   String      |  eTag facoltativo       |
 |location     |  true       |String         |   Posizione risorsa      |
@@ -71,7 +72,7 @@ Il corpo di esempio riportato di seguito viene usato per creare un insieme di cr
 
 Esistono due risposte che indicano l'esito positivo dell'operazione di creazione o aggiornamento di un insieme di credenziali di Servizi di ripristino:
 
-|Name  |Type  |DESCRIZIONE  |
+|Name  |Type  |Descrizione  |
 |---------|---------|---------|
 |200 - OK     |   [Insieme di credenziali](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)      | OK        |
 |201 Creato     | [Insieme di credenziali](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Data creazione      |

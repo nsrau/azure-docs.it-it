@@ -1,6 +1,6 @@
 ---
-title: Sicurezza di Azure Blockchain Service
-description: Azure Blockchain Service protezione e accesso ai concetti di data
+title: Sicurezza del servizio Azure blockchain
+description: Concetti relativi all'accesso ai dati e alla sicurezza del servizio blockchain di Azure
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
@@ -10,30 +10,30 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
-ms.openlocfilehash: dd0a33364ed9395a85478798e47352c533bd47dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00d4911c0f2541ea5c64eccca3ab1b1505e06390
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65028201"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608537"
 ---
-# <a name="azure-blockchain-service-security"></a>Sicurezza di Azure Blockchain Service
+# <a name="azure-blockchain-service-security"></a>Sicurezza del servizio Azure blockchain
 
-Azure Blockchain Service Usa diverse funzionalità di Azure per mantenere i dati protetti e disponibile. Dati sono protetti tramite l'isolamento, la crittografia e autenticazione.
+Il servizio Azure blockchain usa diverse funzionalità di Azure per garantire la sicurezza e la disponibilità dei dati. I dati sono protetti tramite isolamento, crittografia e autenticazione.
 
 ## <a name="isolation"></a>Isolamento
 
-Le risorse di Azure Blockchain Service vengono isolate in una rete virtuale privata. Ogni nodo di transazione e la convalida è una macchina virtuale (VM). Macchine virtuali in una rete virtuale può comunicare direttamente con le macchine virtuali in una rete virtuale diversa. L'isolamento garantisce la comunicazione rimane privata all'interno della rete virtuale. Per altre informazioni sull'isolamento di rete virtuale di Azure, vedere [isolamento nel Cloud pubblico di Azure](../../security/azure-isolation.md#networking-isolation).
+Le risorse del servizio Azure blockchain sono isolate in una rete virtuale privata. Ogni nodo di transazione e convalida è una macchina virtuale (VM). Le macchine virtuali in una rete virtuale non possono comunicare direttamente con le VM in una rete virtuale diversa. L'isolamento garantisce che la comunicazione rimanga privata all'interno della rete virtuale. Per altre informazioni sull'isolamento della rete virtuale di Azure, vedere [isolamento nel cloud pubblico di Azure](../../security/fundamentals/isolation-choices.md#networking-isolation).
 
-![Diagramma tra reti VIRTUALI](./media/data-security/vnet.png)
+![Diagramma VNET](./media/data-security/vnet.png)
 
 ## <a name="encryption"></a>Crittografia
 
-Dati utente vengono archiviati in archiviazione di Azure. I dati utente vengono crittografati in transito e inattivi per la sicurezza e la riservatezza. Per altre informazioni, vedere: [Guida alla sicurezza di archiviazione Azure](../../storage/common/storage-security-guide.md).
+I dati utente vengono archiviati in archiviazione di Azure. I dati utente vengono crittografati in movimento e inattivi per la sicurezza e la riservatezza. Per altre informazioni, vedere: [Guida alla sicurezza di Archiviazione di Azure](../../storage/common/storage-security-guide.md).
 
 ## <a name="authentication"></a>Authentication
 
-Le transazioni possono essere inviate ai nodi di blockchain tramite un endpoint RPC. I client comunicano con un nodo transazione utilizzando un server proxy inverso che gestisce l'autenticazione utente e crittografa i dati tramite SSL.
+È possibile inviare le transazioni ai nodi blockchain tramite un endpoint RPC. I client comunicano con un nodo di transazione utilizzando un server proxy inverso che gestisce l'autenticazione utente e crittografa i dati tramite SSL.
 
 ![Diagramma di autenticazione](./media/data-security/authentication.png)
 
@@ -41,28 +41,28 @@ Sono disponibili tre modalità di autenticazione per l'accesso RPC.
 
 ### <a name="basic-authentication"></a>Autenticazione di base
 
-L'autenticazione di base usa un'intestazione di autenticazione HTTP che contiene il nome utente e password. Nome utente è il nome del nodo di blockchain. Password viene impostata durante il provisioning di un membro o un nodo. La password può essere modificata tramite il portale di Azure o della riga di comando.
+L'autenticazione di base usa un'intestazione di autenticazione HTTP contenente il nome utente e la password. Nome utente è il nome del nodo blockchain. La password viene impostata durante il provisioning di un membro o di un nodo. La password può essere modificata usando il portale di Azure o l'interfaccia della riga di comando.
 
 ### <a name="access-keys"></a>Chiavi di accesso
 
-Le chiavi di accesso usano una stringa generata casualmente inclusa nell'URL dell'endpoint. Due chiavi di accesso come abilitare la rotazione della chiave. Le chiavi possono essere rigenerate dal portale di Azure e della riga di comando.
+Le chiavi di accesso usano una stringa generata in modo casuale incluso nell'URL dell'endpoint. Due tasti di accesso consentono di abilitare la rotazione della chiave. Le chiavi possono essere rigenerate dal portale di Azure e dall'interfaccia della riga di comando.
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-Azure Active Directory (Azure AD) usa un basata sulle attestazioni meccanismo di autenticazione in cui l'utente è autenticato da Azure AD usando le credenziali utente di Azure AD. Azure AD fornisce la gestione delle identità basato sul cloud e consente ai clienti di usare un'unica identità attraverso un intere applicazioni dell'organizzazione e accesso nel cloud. Azure Blockchain Service si integra con Azure AD, l'abilitazione della federazione di ID, l'autenticazione single sign-on e a più fattori. È possibile assegnare gli utenti, gruppi e ruoli dell'applicazione all'interno dell'organizzazione per l'accesso di membro e nodo blockchain.
+Azure Active Directory (Azure AD) utilizza un meccanismo di autenticazione basato sulle attestazioni in cui l'utente viene autenticato da Azure AD utilizzando Azure AD credenziali utente. Azure AD offre la gestione delle identità basata sul cloud e consente ai clienti di usare una singola identità in un'intera azienda e di accedere alle applicazioni nel cloud. Il servizio Azure blockchain si integra con Azure AD abilitando la Federazione degli ID, Single Sign-on e autenticazione a più fattori. È possibile assegnare utenti, gruppi e ruoli applicazione all'interno dell'organizzazione per l'accesso ai membri e ai nodi di blockchain.
 
-Il proxy client di Azure AD è disponibile nel [GitHub](https://github.com/Microsoft/azure-blockchain-connector/releases). Il proxy client indirizza l'utente alla pagina di accesso AD Azure e ottiene un token di connessione al termine dell'autenticazione. Successivamente, l'utente si connette un'applicazione client Ethereum, ad esempio Geth o Truffle all'endpoint del proxy client. Infine, quando viene inviata una transazione, il proxy client viene inserito il token di connessione nell'intestazione http e il proxy inverso convalida il token usando il protocollo OAuth.
+Il proxy client Azure AD è disponibile in [GitHub](https://github.com/Microsoft/azure-blockchain-connector/releases). Il proxy client indirizza l'utente alla pagina di accesso Azure AD e ottiene una bearer token al completamento dell'autenticazione. Successivamente, l'utente connette un'applicazione client Ethereum, ad esempio Geth o tartufo, all'endpoint del proxy client. Infine, quando viene inviata una transazione, il proxy client inserisce il bearer token nell'intestazione HTTP e il proxy inverso convalida il token tramite il protocollo OAuth.
 
-## <a name="keys-and-ethereum-accounts"></a>Le chiavi e gli account Ethereum
+## <a name="keys-and-ethereum-accounts"></a>Chiavi e account Ethereum
 
-Durante il provisioning di un membro del servizio di Azure Blockchain, viene generato un account Ethereum e una coppia di chiavi pubblica e privata. La chiave privata viene utilizzata per inviare le transazioni per la blockchain. L'account Ethereum corrisponde agli ultimi 20 byte dell'algoritmo hash della chiave pubblica. L'account Ethereum viene chiamato anche un portafoglio.
+Quando si esegue il provisioning di un membro del servizio Azure blockchain, viene generato un account Ethereum e una coppia di chiavi pubblica e privata. La chiave privata viene usata per inviare transazioni a blockchain. L'account Ethereum è costituito dagli ultimi 20 byte dell'hash della chiave pubblica. L'account Ethereum è denominato anche portafogli.
 
-La coppia di chiavi pubblica e privata verrà archiviata come un file di chiave in formato JSON. La chiave privata viene crittografata usando la password immessa quando viene creato il servizio di contabilità blockchain.
+La coppia di chiavi pubblica e privata viene archiviata come un file di chiave in formato JSON. La chiave privata viene crittografata con la password immessa al momento della creazione del servizio Ledger blockchain.
 
-Le chiavi private vengono utilizzate per firmare digitalmente transazioni. In privato blockchain, un contratto smart firmato da una chiave privata rappresenta l'identità del firmatario. Per verificare la validità della firma, il ricevitore può confrontare la chiave pubblica del firmatario con l'indirizzo calcolato dalla firma.
+Le chiavi private vengono usate per firmare digitalmente le transazioni. In blockchain privato, un contratto intelligente firmato da una chiave privata rappresenta l'identità del firmatario. Per verificare la validità della firma, il ricevitore può confrontare la chiave pubblica del firmatario con l'indirizzo calcolato dalla firma.
 
-Constellation chiavi vengono usate per identificare in modo univoco un nodo di Quorum. Le chiavi di constellation generate al momento del provisioning di nodi e vengono specificate nel parametro privateFor di una transazione privata di quorum.
+Le chiavi della costellazione vengono usate per identificare in modo univoco un nodo quorum. Le chiavi della costellazione vengono generate al momento del provisioning dei nodi e vengono specificate nel parametro privateFor di una transazione privata nel quorum.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Configurare i nodi delle transazioni di servizio di Azure Blockchain](configure-transaction-nodes.md)
+[Configurare i nodi delle transazioni del servizio blockchain di Azure](configure-transaction-nodes.md)

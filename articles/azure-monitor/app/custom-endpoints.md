@@ -9,14 +9,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 07/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: c086f94a161853cba3a9ed2b98f13ea17b90dd20
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 662594f3ef0e4d5598b52cb07006b513e7f3c35a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478809"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564965"
 ---
  # <a name="application-insights-overriding-default-endpoints"></a>Application Insights l'override degli endpoint predefiniti
 
@@ -150,7 +150,7 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 
 Attualmente le uniche aree che richiedono modifiche all'endpoint sono [Azure per enti pubblici](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights) e [Azure Cina](https://docs.microsoft.com/azure/china/resources-developer-guide).
 
-|Region |  Nome endpoint | Value |
+|Region |  Nome endpoint | Valore |
 |-----------------|:------------|:-------------|
 | Azure Cina | Canale di telemetria | `https://dc.applicationinsights.azure.cn/v2/track` |
 | Azure Cina | QuickPulse (metriche attive) |`https://live.applicationinsights.azure.cn/QuickPulseService.svc` |
@@ -158,6 +158,14 @@ Attualmente le uniche aree che richiedono modifiche all'endpoint sono [Azure per
 | Azure Government | Canale di telemetria |`https://dc.applicationinsights.us/v2/track` |
 | Azure Government | QuickPulse (metriche attive) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
 | Azure Government | Query del profilo |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
+
+Se attualmente si usa l' [API](https://dev.applicationinsights.io/
+) REST di Application Insights, a cui si accede in genere tramite "API.applicationinsights.io", sarà necessario usare un endpoint locale per l'area:
+
+|Region |  Nome endpoint | Value |
+|-----------------|:------------|:-------------|
+| Azure Cina | API REST | `api.applicationinsights.azure.cn` |
+| Azure Government | API REST | `api.applicationinsights.us`|
 
 > [!NOTE]
 > Il monitoraggio di agenti/estensioni senza codice per i servizi di app Azure **non è attualmente supportato** in queste aree. Non appena questa funzionalità diventa disponibile, questo articolo verrà aggiornato.

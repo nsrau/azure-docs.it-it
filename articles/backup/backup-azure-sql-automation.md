@@ -1,20 +1,21 @@
 ---
 title: 'Backup di Azure: Eseguire il backup e il ripristino di database SQL in macchine virtuali di Azure con backup di Azure e PowerShell'
 description: Eseguire il backup e il ripristino di database SQL in macchine virtuali di Azure con backup di Azure e PowerShell.
-author: pvrk
-manager: vijayts
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: Backup di Azure; SQL
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/15/2019
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 9d3f71eb83609d09d6e4f42b15163dbfae4fca32
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: b31043ad445f0ac1459772fe630358fc38eaa9c2
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465399"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689068"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure--vms-with-powershell"></a>Eseguire il backup e il ripristino di database SQL in macchine virtuali di Azure con PowerShell
 
@@ -109,7 +110,7 @@ L'insieme di credenziali di Servizi di ripristino è una risorsa di Resource Man
 3. Specificare il tipo di ridondanza da usare per l'archiviazione dell'insieme di credenziali.
 
     * È possibile usare l'[archiviazione con ridondanza locale](../storage/common/storage-redundancy-lrs.md) o l'[archiviazione con ridondanza geografica](../storage/common/storage-redundancy-grs.md).
-    * Nell'esempio seguente viene impostata l'opzione **-BackupStorageRedundancy** per[set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd per **testvault** impostato su georidondante.
+    * Nell'esempio seguente viene impostata l'opzione **-BackupStorageRedundancy** per[set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd per **testvault** impostato sugeoridondante.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"

@@ -5,13 +5,13 @@ ms.author: rimman
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.openlocfilehash: 1bfa7104425b5013f9cdf36ff3c1dd88107d3ec7
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.date: 08/01/2019
+ms.openlocfilehash: e80e548ceae2149fe7061da42c71ee8b61f00a72
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467850"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717566"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Partizionamento in Azure Cosmos DB
 
@@ -39,7 +39,7 @@ Di seguito sono riportate informazioni utili per la scelta di una chiave di part
 
 * Una singola partizione logica ha un limite massimo di 10 GB di spazio di archiviazione.  
 
-* I contenitori di Azure Cosmos hanno una velocità effettiva minima di 400 unità richiesta al secondo (UR/sec). Le richieste alla stessa chiave di partizione non possono superare la velocità effettiva allocata a una partizione. Se le richieste superano la velocità effettiva allocata, le richieste sono con limitazione della frequenza. È quindi importante scegliere una chiave di partizione che non generi "aree sensibili" nell'applicazione.
+* I contenitori di Azure Cosmos hanno una velocità effettiva minima di 400 unità richiesta al secondo (UR/sec). Quando viene effettuato il provisioning della velocità effettiva in un database, le UR minime per ogni contenitore sono 100 unità richiesta al secondo (UR/sec). Le richieste alla stessa chiave di partizione non possono superare la velocità effettiva allocata a una partizione. Se le richieste superano la velocità effettiva allocata, le richieste sono con limitazione della frequenza. È quindi importante scegliere una chiave di partizione che non generi "aree sensibili" nell'applicazione.
 
 * Scegliere una chiave di partizione con una vasta gamma di valori e modelli di accesso distribuiti uniformemente tra le partizioni logiche. Ciò consente di distribuire i dati e l'attività nel contenitore attraverso il set di partizioni logiche, in modo che sia possibile distribuire le risorse per l'archiviazione e la velocità effettiva dei dati tra le partizioni logiche.
 

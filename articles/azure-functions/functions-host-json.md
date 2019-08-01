@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: ecb2059e529347b7eff72bf6af74b82558a4c251
-ms.sourcegitcommit: 83a89c45253b0d432ce8dcd70084c18e9930b1fd
+ms.openlocfilehash: 4688cf6fb82eb8f726205d54d0c852fd3daf8dfb
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371687"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564786"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Informazioni di riferimento su host.json per Funzioni di Azure 2.x  
 
@@ -147,7 +147,10 @@ Un elenco di funzioni eseguite dall'host di processo. Una matrice vuota indica l
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Indica la durata del timeout per tutte le funzioni. In un piano di consumo serverless l'intervallo valido va da 1 secondo a 10 minuti e il valore predefinito è 5 minuti. In un piano di servizio app non è previsto alcun limite complessivo e il valore predefinito varia a seconda della versione del runtime. Nella versione 2.x il valore predefinito per un piano di servizio app è di 30 minuti. Nella versione 1.x il valore è *null*, che indica nessun timeout. Non può essere impostato come infinito. Se questo valore non viene impostato in modo esplicito, il valore predefinito è pari a 30 minuti.
+Indica la durata del timeout per tutte le funzioni. Segue il formato stringa TimeSpan. In un piano di consumo serverless l'intervallo valido va da 1 secondo a 10 minuti e il valore predefinito è 5 minuti.  
+In un piano dedicato (servizio app) non esiste alcun limite globale e il valore predefinito dipende dalla versione runtime: 
++ Versione 1. x: il valore predefinito è *null*, che indica nessun timeout.   
++ Versione 2. x: il valore predefinito è 30 minuti. Il valore `-1` indica l'esecuzione non vincolata.
 
 ```json
 {
@@ -205,7 +208,7 @@ Controlla i comportamenti di registrazione dell'app per le funzioni, tra cui App
 }
 ```
 
-|Proprietà  |Predefinito | Descrizione |
+|Proprietà  |Predefinito | DESCRIZIONE |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Definisce il livello di registrazione dei file abilitato.  Le opzioni sono `never`, `always`, `debugOnly`. |
 |logLevel|n/d|Oggetto che definisce il filtro delle categorie di log per le funzioni nell'app. La versione 2.x segue il layout di ASP.NET Core per il filtro delle categorie di log. Ciò consente di filtrare la registrazione per funzioni specifiche. Per altre informazioni, vedere [Filtro dei log](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) nella documentazione di ASP.NET Core. |
@@ -228,7 +231,7 @@ Questa impostazione è un elemento figlio di [logging](#logging). Controlla la r
 }
 ```
 
-|Proprietà  |Predefinito | Descrizione |
+|Proprietà  |Predefinito | DESCRIZIONE |
 |---------|---------|---------| 
 |isEnabled|false|Abilita o disabilita la registrazione nella console.| 
 

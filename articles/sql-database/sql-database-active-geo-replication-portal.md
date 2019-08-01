@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 8bada96c648881a9943176c45115627a829fcc58
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 058afdbc4aa134b5b3c4c8cc5e9e2f2ae6f53084
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60864133"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569645"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurare la replica geografica attiva per il database SQL di Azure nel portale di Azure e avviare il failover
 
@@ -73,7 +72,7 @@ Il database secondario può diventare il database primario.
     ![Failover](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. Fare clic su **Sì** per avviare il failover.
 
-Il comando passa immediatamente il database secondario al ruolo di database primario. In genere, questo processo deve essere completata entro 30 secondi o meno.
+Il comando passa immediatamente il database secondario al ruolo di database primario. Questo processo normalmente dovrebbe essere completato entro 30 secondi o meno.
 
 Per un breve periodo, da 0 a 25 secondi, entrambi i database non sono disponibili mentre vengono scambiati i ruoli. Se il database primario ha più database secondari, il comando riconfigura automaticamente gli altri database secondari per la connessione al nuovo database primario. Il completamento dell'intera operazione dovrebbe richiedere meno di un minuto in circostanze normali.
 

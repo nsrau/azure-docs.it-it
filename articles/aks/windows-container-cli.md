@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
 ms.openlocfilehash: 305901007180cfb197cf5c0dfb338800449560a1
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68382041"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Anteprima: creare un contenitore di Windows Server in un cluster Azure Kubernetes Service (AKS) usando l'interfaccia della riga di comando di Azure
@@ -42,7 +42,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ### <a name="install-aks-preview-cli-extension"></a>Installare l'estensione dell'interfaccia della riga comando di aks-preview
 
-Per usare i contenitori di Windows Server, è necessaria l'estensione dell'interfaccia della riga di comando *AKS-Preview* 0.4.1 o versione successiva. Installare l'estensione dell'interfaccia della riga di comando di Azure *AKS-Preview* usando il comando [AZ Extension Add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] ::
+Per usare i contenitori di Windows Server, è necessaria l'estensione dell'interfaccia della riga di comando *AKS-Preview* 0.4.1 o versione successiva. Installare l'estensione dell'interfaccia della riga di comando di Azure *AKS-Preview* usando il comando [AZ Extension Add][az-extension-add] , quindi verificare la presenza di eventuali aggiornamenti disponibili usando il comando [AZ Extension Update][az-extension-update] ::
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -120,7 +120,7 @@ L'output di esempio seguente mostra il gruppo di risorse creato correttamente:
 
 ## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Container
 
-Per eseguire un cluster AKS che supporta i pool di nodi per i contenitori di Windows Server, il cluster deve usare un criterio di rete che usa [Azure CNI][azure-cni-about] (advanced) network plugin. For more detailed information to help plan out the required subnet ranges and network considerations, see [configure Azure CNI networking][use-advanced-networking]. Usare il comando [AZ AKS create][AZ-AKS-create] per creare un cluster AKS denominato *myAKSCluster*. Questo comando creerà le risorse di rete necessarie se non esistono.
+Per eseguire un cluster AKS che supporta i pool di nodi per i contenitori di Windows Server, il cluster deve usare un criterio di rete che usa il plug-in di rete [Azure CNI][azure-cni-about] (Advanced). Per informazioni più dettagliate che consentono di pianificare gli intervalli di subnet e le considerazioni sulla rete richiesti, vedere Configurare la rete [CNI di Azure][use-advanced-networking]. Usare il comando [AZ AKS create][az-aks-create] per creare un cluster AKS denominato *myAKSCluster*. Questo comando creerà le risorse di rete necessarie se non esistono.
   * Il cluster è configurato con un nodo
   * I parametri *Windows-admin-password* e *Windows-admin-username* impostano le credenziali di amministratore per tutti i contenitori di Windows Server creati nel cluster.
 
@@ -194,7 +194,7 @@ aksnpwin987654                      Ready    agent   108s   v1.14.1
 
 ## <a name="run-the-application"></a>Esecuzione dell'applicazione
 
-Un file manifesto di Kubernetes definisce uno stato desiderato per il cluster, ad esempio le immagini del contenitore da eseguire. In questo articolo viene usato un manifesto per creare tutti gli oggetti necessari per eseguire l'applicazione di esempio ASP.NET in un contenitore di Windows Server. Questo manifesto include una [distribuzione][kubernetes-deployment] for the ASP.NET sample application and an external [Kubernetes service][kubernetes-service] Kubernetes per accedere all'applicazione da Internet.
+Un file manifesto di Kubernetes definisce uno stato desiderato per il cluster, ad esempio le immagini del contenitore da eseguire. In questo articolo viene usato un manifesto per creare tutti gli oggetti necessari per eseguire l'applicazione di esempio ASP.NET in un contenitore di Windows Server. Questo manifesto include una [distribuzione Kubernetes][kubernetes-deployment] per l'applicazione di esempio ASP.NET e un [servizio Kubernetes][kubernetes-service] esterno per accedere all'applicazione da Internet.
 
 L'applicazione di esempio ASP.NET viene fornita come parte dell' [.NET Framework esempi][dotnet-samples] ed è in esecuzione in un contenitore di Windows Server. AKS richiede che i contenitori di Windows Server siano basati su immagini di *Windows server 2019* o versione successiva. Il file manifesto Kubernetes deve anche definire un selettore di [nodo][node-selector] per indicare al cluster AKS di eseguire il Pod dell'applicazione di esempio ASP.NET in un nodo che può eseguire i contenitori di Windows Server.
 

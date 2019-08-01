@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 07/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: f39c914bce3fbc47775a76f1c3a1fb64de560505
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: ade107f51fabb133e8e4046bf645f4dff284102b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498329"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565104"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Note sulla versione del servizio Azure Machine Learning
 
@@ -28,7 +28,7 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
 ### <a name="azure-machine-learning-sdk-for-python-v1053"></a>SDK di Azure Machine Learning per Python v 1.0.53
 
 + **Nuove funzionalità**
-    + Machine Learning automatizzato supporta ora i modelli ONNX di training nella destinazione di calcolo remota
+  + Machine Learning automatizzato supporta ora i modelli ONNX di training nella destinazione di calcolo remota
   + Azure Machine Learning ora offre la possibilità di riprendere il training da un'esecuzione precedente, un checkpoint o un file di modello.
     + Informazioni su come [usare gli estimatori per riprendere il training da un'esecuzione precedente](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb)
 
@@ -80,9 +80,6 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
     + La descrizione del modello può ora essere aggiornata correttamente dopo la registrazione
     + L'eliminazione di modelli e immagini offre ora ulteriori informazioni sugli oggetti upstream che dipendono da tali oggetti, causando l'esito negativo dell'eliminazione
     + Migliorare l'utilizzo delle risorse delle esecuzioni remote con azureml. mlflow.
-  + **azureml-dataprep**
-    + È ora possibile eseguire l'iterazione degli oggetti del flusso di dati, producendo una sequenza di record.
-    + Aggiungere `_summarize_each` come funzionalità sperimentale `azureml.dataprep.Dataflow`a.
   + **azureml-explain-model**
     + Correzione dell'argomento relativo alle trasformazioni per l'importanza della funzionalità RAW in azureml-contrib-explain-Model Package
     + Aggiunta del supporto di SciPy sparse per LimeExplainer
@@ -115,6 +112,15 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
   + **azureml-train-core**
     + Le stringhe sono ora accettate come destinazione di calcolo per l'ottimizzazione automatica degli iperparametri
     + L'impostazione RunConfiguration non usata auto_prepare_environment è stata contrassegnata come deprecata.
+
+### <a name="azure-machine-learning-data-prep-sdk-v119"></a>Azure Machine Learning data Prep SDK v 1.1.9
+
++ **Nuove funzionalità**
+  + Aggiunta del supporto per la lettura di un file direttamente da un URL http o HTTPS.
+
++ **Correzioni di bug e miglioramenti**
+  + Messaggio di errore migliorato durante il tentativo di lettura di un set di dati parquet da un'origine remota, che non è attualmente supportata.
+  + Correzione di un bug durante la scrittura in un formato di file parquet in ADLS gen 2 e l'aggiornamento del nome del contenitore ADLS gen 2 nel percorso.
 
 ## <a name="2019-07-09"></a>2019-07-09
 

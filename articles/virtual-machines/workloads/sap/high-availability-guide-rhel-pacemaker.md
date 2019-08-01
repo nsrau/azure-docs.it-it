@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: cd56df8e88a84f52933e5ee43fecd598252ba6c0
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: bffb92e37ccddd43c2a64466282084bb6226c338
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479768"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570559"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configurazione di Pacemaker in Red Hat Enterprise Linux in Azure
 
@@ -39,8 +39,6 @@ ms.locfileid: "68479768"
 
 [virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 
-> [!TIP]
-> Pacemaker in Red Hat Enterprise Linux usa l'agente di isolamento di Azure per isolare un nodo del cluster, se necessario. Una nuova versione di Azure Fence Agent è disponibile e il failover non richiede più molto tempo, in caso di errore di una risorsa o se i nodi del cluster non sono più in grado di comunicare tra loro. Per altre informazioni, vedere la pagina relativa all'[esecuzione della macchina virtuale di Azure come membro del cluster RHEL a disponibilità elevata in cui la delimitazione richiede molto tempo oppure non riesce o viene messa in timeout prima che la macchina virtuale si arresti](https://access.redhat.com/solutions/3408711)
 
 Leggere prima di tutto i documenti e le note SAP seguenti:
 

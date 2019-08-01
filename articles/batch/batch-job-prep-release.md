@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: a85ced787529db7e6d607665d81632ab1c450dfe
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68466980"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Eseguire attività di preparazione e rilascio del processo in nodi di calcolo di Batch
@@ -31,7 +31,7 @@ Prima dell'esecuzione delle attività di un processo, viene eseguita l'attività
 
 Le attività di preparazione e rilascio dei processi offrono funzionalità di attività batch comuni, ad esempio download di file ([file di risorse][net_job_prep_resourcefiles]), esecuzione con privilegi elevati, variabili di ambiente personalizzate, durata massima di esecuzione, numero di tentativi e tempo di conservazione dei file.
 
-Nelle sezioni seguenti si apprenderà come usare le classi [JobPreparationTask][net_job_prep] and [JobReleaseTask][net_job_release] disponibili nella libreria [batch .NET][api_net] .
+Nelle sezioni seguenti si apprenderà come usare le classi [JobPreparationTask][net_job_prep] e [JobReleaseTask][net_job_release] disponibili nella libreria [batch .NET][api_net] .
 
 > [!TIP]
 > Le attività di preparazione e rilascio del processo sono particolarmente utili in ambienti con "pool condivisi", in cui un pool di nodi di calcolo viene mantenuto durante l'esecuzione di un processo e viene usato da più processi.
@@ -64,7 +64,7 @@ Prima dell'esecuzione delle attività di un processo, Batch esegue l'attività d
 L'attività di preparazione del processo viene eseguita solo su nodi pianificati per l'esecuzione di un'attività. Ciò impedisce l'esecuzione di un'attività di preparazione non necessaria nel caso in cui a un nodo non venga assegnata un'attività. Questa situazione può verificarsi quando il numero di attività per un processo è inferiore al numero di nodi in un pool o quando è abilitata l'[esecuzione di attività simultanee](batch-parallel-node-tasks.md). In quest'ultimo caso, alcuni nodi rimangono inattivi se il numero delle attività è inferiore a quello totale delle attività simultanee possibili. Se non si esegue l'attività di preparazione dei processi sui inattivi nodi, è possibile risparmiare sui costi di trasferimento dati.
 
 > [!NOTE]
-> [JobPreparationTask][net_job_prep_cloudjob] differs from [CloudPool.StartTask][pool_starttask] in quanto JobPreparationTask viene eseguito all'inizio di ogni processo, mentre StartTask viene eseguito solo quando un nodo di calcolo viene unito per la prima volta a un pool o viene riavviato.
+> [JobPreparationTask][net_job_prep_cloudjob] differisce da [CloudPool. StartTask][pool_starttask] in quanto JobPreparationTask viene eseguito all'inizio di ogni processo, mentre StartTask viene eseguito solo quando un nodo di calcolo viene unito per la prima volta a un pool o viene riavviato.
 > 
 > 
 
@@ -79,7 +79,7 @@ Le attività di rilascio dei processi possono essere eseguite per un massimo di 
 > 
 
 ## <a name="job-prep-and-release-tasks-with-batch-net"></a>Attività di preparazione e di rilascio del processo con Batch .NET
-Per utilizzare un'attività di preparazione del processo, assegnare una proprietà [JobPreparationTask][net_job_prep] object to your job's [CloudJob.JobPreparationTask][net_job_prep_cloudjob] . Analogamente, inizializzare un[Net_job_release] [JobReleaseTask]e assegnarlo alla proprietà [CloudJob. JobReleaseTask][net_job_prep_cloudjob] del processo per impostare l'attività di rilascio del processo.
+Per usare un'attività di preparazione del processo, assegnare un oggetto [JobPreparationTask][net_job_prep] alla proprietà [CloudJob. JobPreparationTask][net_job_prep_cloudjob] del processo. Analogamente, inizializzare un [JobReleaseTask][net_job_release] e assegnarlo alla proprietà [CloudJob. JobReleaseTask][net_job_prep_cloudjob] del processo per impostare l'attività di rilascio del processo.
 
 In questo frammento `myBatchClient` di codice è un'istanza di [BatchClient][net_batch_client]ed `myPool` è un pool esistente nell'account batch.
 
@@ -107,7 +107,7 @@ myJob.JobReleaseTask =
 await myJob.CommitAsync();
 ```
 
-Come indicato prima, l'attività di rilascio viene eseguita quando un processo viene concluso o eliminato. Terminare un processo con [JobOperations. TerminateJobAsync][net_job_terminate]. Delete a job with [JobOperations.DeleteJobAsync][net_job_delete]. In genere si termina o si elimina un processo quando le attività vengono completate o quando si raggiunge un timeout definito dall'utente.
+Come indicato prima, l'attività di rilascio viene eseguita quando un processo viene concluso o eliminato. Terminare un processo con [JobOperations. TerminateJobAsync][net_job_terminate]. Eliminare un processo con [JobOperations. DeleteJobAsync][net_job_delete]. In genere si termina o si elimina un processo quando le attività vengono completate o quando si raggiunge un timeout definito dall'utente.
 
 ```csharp
 // Terminate the job to mark it as Completed; this will initiate the

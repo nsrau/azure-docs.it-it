@@ -11,14 +11,13 @@ keywords: SQL Server cloud, SQL Server nel cloud, database PaaS, cloud SQL Serve
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/11/2019
-ms.openlocfilehash: 9e95569ba3fe65ea5bce7d6a95a24324235e9a7f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 344d201489a409824bb52f928ba5a87bd968500a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447746"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567094"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>Scegliere l'opzione SQL Server più adatta in Azure
 
@@ -91,7 +90,7 @@ La tabella seguente riepiloga le caratteristiche principali del database SQL di 
 Esistono molti fattori che possono influenzare la decisione di scegliere PaaS o IaaS per ospitare i database SQL:
 
 - [Costo](#cost): entrambe le opzioni PaaS e IaaS includono un prezzo base che copre l'infrastruttura e le licenze sottostanti. Tuttavia, con l'opzione IaaS è necessario investire tempo e risorse aggiuntivi per la gestione del database, mentre nelle soluzioni PaaS queste funzionalità di amministrazione sono incluse nel prezzo. L'opzione IaaS consente di arrestare le risorse quando non vengono usate per ridurre i costi, mentre la versione PaaS è sempre in esecuzione, a meno che le risorse non vengano eliminate e ricreate quando sono necessarie.
-- [Amministrazione](#administration): le opzioni PaaS riducono la quantità di tempo da investire per amministrare il database. Tuttavia, limita anche la gamma di attività di amministrazione personalizzate e gli script che è possibile eseguire o eseguire. Ad esempio, CLR non è supportato con database singolo o in pool, ma è supportato per un'istanza gestita. Inoltre, nessuna opzione di distribuzione nelle soluzioni PaaS supportano l'utilizzo dei flag di traccia.
+- [Amministrazione](#administration): le opzioni PaaS riducono la quantità di tempo da investire per amministrare il database. Tuttavia, limita anche la gamma di script e attività di amministrazione personalizzati che è possibile eseguire o eseguire. Il CLR, ad esempio, non è supportato con database singoli o in pool, ma è supportato per un'istanza gestita. Inoltre, nessuna opzione di distribuzione in PaaS supporta l'utilizzo dei flag di traccia.
 - [Contratto di servizio](#service-level-agreement-sla): sia PaaS che IaaS forniscono un contratto di servizio elevato e standard del settore. L'opzione PaaS garantisce un contratto di servizio del 99,99%, mentre l'opzione IaaS garantisce un contratto di servizio del 99,95% per l'infrastruttura, ovvero è necessario implementare meccanismi aggiuntivi per garantire la disponibilità dei database. Nel caso estremo, se si vuole implementare una soluzione a disponibilità elevata che corrisponda a PaaS, è necessario creare sistemi SQL Server aggiuntivi nelle macchine virtuali e configurare gruppi di disponibilità AlwaysOn, che potrebbero raddoppiare il costo del database.
 - [Tempo per il trasferimento ad Azure](#market): SQL Server in Macchine virtuali di Azure corrisponde esattamente all'ambiente del cliente, pertanto la migrazione dall'ambiente locale alla macchina virtuale SQL di Azure non è diversa dallo spostamento dei database da un server locale a un altro. Un'istanza gestita consente anche la migrazione in modo molto semplice. Prima della migrazione a un'istanza gestita, tuttavia, può essere necessario apportare alcune modifiche.
 
@@ -139,7 +138,7 @@ Per altre informazioni sui prezzi, vedere le seguenti risorse:
 - [Prezzi delle macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/) per [SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#sql) e per [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#windows)
 - [Calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator/)
 
-### <a name="administration"></a>Administration
+### <a name="administration"></a>Amministrazione
 
 Per molte aziende, la decisione di passare a un servizio cloud riguarda sia la possibilità di ridurre la complessità dell'amministrazione sia i costi. Con IaaS e PaaS, Microsoft amministra l'infrastruttura sottostante e replica automaticamente tutti i dati per fornire il ripristino di emergenza, configura e aggiorna il software del database, gestisce il bilanciamento del carico ed esegue un failover trasparente in caso di errore del server all'interno di un data center.
 
@@ -167,4 +166,4 @@ L'**istanza gestita di database SQL** semplifica notevolmente la migrazione dell
 - Per un'introduzione asi database SQL, vedere [Il primo database SQL di Azure](sql-database-single-database-get-started.md).
 - Vedere [Prezzi di Database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 - Per un'introduzione a SQL Server nelle macchine virtuali di Azure, vedere [Effettuare il provisioning di una macchina virtuale di SQL Server nel portale di Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md) .
-- [Identificare lo a destra SKU istanza gestita/Database di SQL Azure per il database locale](/sql/dma/dma-sku-recommend-sql-db/).
+- [Identificare l'istanza gestita/database SQL di Microsoft Azure idoneo per il database locale](/sql/dma/dma-sku-recommend-sql-db/).

@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 33a7b27d065fc0383e4693053f7bfb6d56e2d33b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae82c0e72287ee4c89cb3fb2294bf4bd79aec8c3
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61480069"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598637"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Simulazione di trading ad alta frequenza con Analisi di flusso
 La combinazione di linguaggio SQL, funzioni definite dall'utente di JavaScript e aggregazioni definite dall'utente in Analisi di flusso di Azure consente agli utenti di eseguire analisi avanzate. Le analisi avanzate possono includere il training e l'assegnazione dei punteggi di Machine Learning online, oltre alla simulazione di processi con stato. Questo articolo illustra come eseguire la regressione lineare in un processo di Analisi di flusso di Azure che esegue il training e l'assegnazione di punteggi in modo continuo in uno scenario di trading ad alta frequenza.
@@ -65,7 +65,7 @@ Di seguito sono riportati alcuni eventi di esempio generati:
 >Il timestamp dell'evento è **lastUpdated**, sotto forma di valore epoch.
 
 ### <a name="predictive-model-for-high-frequency-trading"></a>Modello predittivo per il trading ad alta frequenza
-A scopo di dimostrazione verrà usato un modello lineare descritto da Darryl Shen in [questo documento](http://eprints.maths.ox.ac.uk/1895/1/Darryl%20Shen%20%28for%20archive%29.pdf).
+A scopo di dimostrazione verrà usato un modello lineare descritto da Darryl Shen in [questo documento](https://docplayer.net/23038840-Order-imbalance-based-strategy-in-high-frequency-trading.html).
 
 Lo squilibrio negli ordini di volumi (VOI, Volume Order Imbalance) è una funzione di prezzo e volume di offerta/richiesta correnti e prezzo e volume di offerta/richiesta dell'ultimo tick. Il documento identifica una correlazione tra VOI e variazione di prezzo futura e definisce un modello lineare tra gli ultimi 5 valori VOI e il cambiamento di prezzo nei 10 tick successivi. Il training del modello viene eseguito usando i dati del giorno precedente con regressione lineare. 
 

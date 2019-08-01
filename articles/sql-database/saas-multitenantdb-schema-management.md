@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 07e8fce5fd8db5d2070b8e382a0eba2ae7187b0d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: db6f471438324e984434704a2cab01d57c800ba5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242783"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570265"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Gestire lo schema in un'applicazione SaaS che usa più database SQL multi-tenant
 
@@ -53,7 +52,7 @@ In questa esercitazione si apprenderà come:
 - Azure PowerShell deve essere installato. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 > [!NOTE]
-> Questa esercitazione usa funzionalità del servizio database SQL di Azure incluse in un'anteprima limitata ([processi di database elastico](sql-database-elastic-database-client-library.md)). Se si vuole eseguire questa esercitazione, fornire l'ID sottoscrizione a *SaaSFeedback\@microsoft.com* con soggetto = Elastic Jobs Preview. Dopo aver ricevuto conferma che la sottoscrizione è stata abilitata, [scaricare e installare i cmdlet più recenti della versione preliminare](https://github.com/jaredmoo/azure-powershell/releases). Questa versione di anteprima è limitata, contattare *SaaSFeedback\@microsoft.com* per eventuali domande o assistenza.
+> Questa esercitazione usa funzionalità del servizio database SQL di Azure incluse in un'anteprima limitata ([processi di database elastico](sql-database-elastic-database-client-library.md)). Se si vuole eseguire questa esercitazione, fornire l'ID sottoscrizione a *SaaSFeedback\@Microsoft.com* con Subject = Elastic Jobs Preview. Dopo aver ricevuto conferma che la sottoscrizione è stata abilitata, [scaricare e installare i cmdlet più recenti della versione preliminare](https://github.com/jaredmoo/azure-powershell/releases). Questa versione di anteprima è limitata, quindi contattare *SaaSFeedback\@Microsoft.com* per domande o supporto tecnico.
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introduzione ai modelli di gestione dello schema SaaS
 
@@ -172,5 +171,5 @@ In questa esercitazione si è appreso come:
 > * Aggiornare i dati di riferimento in tutti i database tenant
 > * Creare un indice su una tabella in tutti i database tenant
 
-Successivamente, provare il [reporting Ad hoc esercitazione](saas-multitenantdb-adhoc-reporting.md) per esaminare l'esecuzione di query distribuite tra tenant di database.
+Successivamente, provare l' [esercitazione per la creazione di report ad hoc](saas-multitenantdb-adhoc-reporting.md) per esplorare l'esecuzione di query distribuite tra database tenant.
 

@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
-manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: b1b281c7beac6b6cb48834e636edff818f89bf12
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2e6b18e53358cad1bfe89e8c0ae7fbacec24d179
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304150"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570214"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Distribuire ed esplorare un'applicazione autonoma a singolo tenant che usa il database SQL di Azure
 
@@ -25,9 +24,9 @@ In questa esercitazione, si distribuisce ed esplora l'applicazione di esempio Sa
 
 L'applicazione autonoma o un modello di applicazione per tenant consente di distribuire un'istanza di applicazione per ogni tenant.  Ogni applicazione è configurata per un tenant specifico e distribuita in un gruppo di risorse di Azure separato. È possibile effettuare il provisioning di più istanze dell'applicazione per offrire una soluzione multi-tenant. Questo modello è più adatto per piccoli numeri di tenant, in cui l'isolamento è una priorità. Azure offre programmi partner che consentono di distribuire risorse nella sottoscrizione del tenant e di gestirle tramite un provider di servizi per conto del tenant. 
 
-In questa esercitazione verrà distribuito tre applicazioni autonome per tre tenant nella sottoscrizione di Azure.  Si ottiene l'accesso completo per l'esplorazione e l'uso dei singoli componenti dell'applicazione.
+In questa esercitazione verranno distribuite tre applicazioni autonome per tre tenant nella sottoscrizione di Azure.  Si ottiene l'accesso completo per l'esplorazione e l'uso dei singoli componenti dell'applicazione.
 
-Il codice sorgente e gli script di gestione dell'applicazione sono disponibili nel repository [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) di GitHub. L'applicazione è stata creata con Visual Studio 2015 e non è stata aprire e compilare in Visual Studio 2019 senza l'aggiornamento.
+Il codice sorgente e gli script di gestione dell'applicazione sono disponibili nel repository [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) di GitHub. L'applicazione è stata creata con Visual Studio 2015 e non viene aperta e compilata correttamente in Visual Studio 2019 senza aggiornamenti.
 
 
 In questa esercitazione si apprenderà:
@@ -37,7 +36,7 @@ In questa esercitazione si apprenderà:
 > * Dove ottenere gli script di gestione e il codice sorgente dell'applicazione
 > * Informazioni su server e database che costituiscono l'app
 
-Verranno rese disponibili esercitazioni aggiuntive Verrà consentono di esplorare diversi scenari di gestione basati su questo modello di applicazione.   
+Verranno rese disponibili esercitazioni aggiuntive Consentono di esplorare una gamma di scenari di gestione basati su questo modello di applicazione.   
 
 ## <a name="deploy-the-wingtip-tickets-saas-standalone-application"></a>Distribuire l'applicazione SaaS autonoma Wingtip Tickets
 
@@ -56,7 +55,7 @@ Distribuire l'app per i tre tenant specificati:
     > Alcune impostazioni di autenticazione e per i firewall server sono intenzionalmente non protette a scopo dimostrativo. **Creare un nuovo gruppo di risorse** per ogni distribuzione di applicazione.  Non usare un gruppo di risorse esistente. Non utilizzare l'applicazione o le risorse che crea per la produzione. Eliminare tutti i gruppi di risorse quando non è più necessario usare le applicazioni, per interrompere la fatturazione correlata.
 
     È consigliabile usare solo lettere minuscole, numeri e trattini nei nomi delle risorse.
-    * Per **Gruppo di risorse** selezionare Crea nuovo e quindi specificare un valore in minuscolo in Nome. **Wingtip-sa -\<venueName\>-\<user\>**  è il modello consigliato.  Per la \<venueName\>, sostituire il nome della sede senza spazi. Per la \<utente\>, sostituire il valore dell'utente dal codice seguente.  Utilizzando questo modello, i possibili nomi dei gruppi di risorse sono *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*.
+    * Per **Gruppo di risorse** selezionare Crea nuovo e quindi specificare un valore in minuscolo in Nome. **Wingtip-sa -\<venueName\>-\<user\>**  è il modello consigliato.  \<Per\>LocationName, sostituire il nome del luogo senza spazi. Per \<User\>, sostituire il valore dell'utente riportato di seguito.  Utilizzando questo modello, i possibili nomi dei gruppi di risorse sono *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*.
     * Selezionare un **percorso** nell'elenco a discesa.
 
     * Per **User** è consigliabile un valore breve, ad esempio le iniziali seguite da una cifra, ad esempio *af1*.
@@ -126,6 +125,6 @@ In questa esercitazione si è appreso:
 > * Informazioni su server e database che costituiscono l'app
 > * Come eliminare le risorse di esempio per interrompere la fatturazione correlata
 
-Successivamente, provare il [Provision and Catalog](saas-standaloneapp-provision-and-catalog.md) esercitazione in cui si esamineranno l'uso di un catalogo di tenant che consente a una gamma di scenari tra tenant, ad esempio analitica di gestione e tenant dello schema.
+Successivamente, provare l'esercitazione sul provisioning [e il catalogo](saas-standaloneapp-provision-and-catalog.md) in cui verrà illustrato l'uso di un catalogo di tenant che Abilita una gamma di scenari tra tenant come la gestione dello schema e l'analisi dei tenant.
  
 

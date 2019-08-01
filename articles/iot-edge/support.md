@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 62b8ed553e3b4cec3750dae4f0426b6f0dd38855
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 9b9acac829fd128a66e3ceea603bb804adf2a88b
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414380"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598595"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Sistemi supportati da Azure IoT Edge
 
@@ -61,9 +61,9 @@ I sistemi elencati nella tabella seguente sono supportati da Microsoft, disponib
 
 | Sistema operativo | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
-| Raspbian-stretch |  | ![Raspbian stretch + ARM32v7](./media/tutorial-c-module/green-check.png) | Anteprima pubblica |
-| Ubuntu Server 16.04 | ![Ubuntu Server 16,04 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| Ubuntu Server 18.04 | ![Ubuntu server 18,04 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
+| Raspbian-stretch |  | ![Raspbian stretch + ARM32v7](./media/tutorial-c-module/green-check.png) |  |
+| Ubuntu Server 16.04 | ![Ubuntu Server 16,04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Anteprima pubblica  |
+| Ubuntu Server 18.04 | ![Ubuntu server 18,04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Anteprima pubblica |
 | Windows 10 Internet Internet (Enterprise), Build 17763 | ![Windows 10 Internet Internet e AMD64 Enterprise](./media/tutorial-c-module/green-check.png) |  |  |
 | Windows Server 2019, Build 17763 | ![Windows Server 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 | Windows Server 2019, Build 17763 | ![Windows Server 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |

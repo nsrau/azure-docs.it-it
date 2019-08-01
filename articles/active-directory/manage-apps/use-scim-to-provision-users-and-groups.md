@@ -17,10 +17,10 @@ ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b7e28e92da319580baa9b4cadc4bc17f862b69e2
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68494515"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Uso di System for Cross-Domain Identity Management (SCIM) per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory ad applicazioni
@@ -667,7 +667,7 @@ Il modo più semplice per implementare un endpoint SCIM in grado di accettare ri
     FileSvc.exe http://<ip-address>:9000 TargetFile.csv
    ```
 
-1. In impostazioni di  > Windows in Windows impostazioni**Internet & rete**selezionare le**Impostazioni avanzate** **Windows Firewall** > e creare una **regola in ingresso** che consenta l'accesso in ingresso alla porta 9000.
+1. In impostazioni di > Windows in Windows impostazioni**Internet & rete**selezionare le**Impostazioni avanzate** **Windows Firewall** > e creare una **regola in ingresso** che consenta l'accesso in ingresso alla porta 9000.
 1. Se il computer Windows si trova dietro un router, è necessario configurare il router in modo che esegua la conversione di accesso alla rete tra la porta 9000 esposta a Internet e la porta 9000 nel computer Windows. Questa configurazione è necessaria per Azure AD accedere a questo endpoint nel cloud.
 
 #### <a name="to-register-the-sample-scim-endpoint-in-azure-ad"></a>Per registrare l'endpoint SCIM di esempio in Azure AD

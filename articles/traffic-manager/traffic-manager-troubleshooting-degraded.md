@@ -3,20 +3,20 @@ title: Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traf
 description: Come risolvere i problemi relativi ai profili di Gestione traffico quando risulta uno stato Danneggiato.
 services: traffic-manager
 documentationcenter: ''
-author: chadmath
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
-ms.author: genli
-ms.openlocfilehash: 19a654215377ba0fac7dacf800bf87a3481679c0
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: rohink
+ms.openlocfilehash: f8f457623dff7840ca839ef57580b744a4d916c7
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68357219"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565874"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico
 
@@ -30,11 +30,11 @@ Se lo stato di integrità di Gestione traffico è **Inattivo**, entrambi gli end
 
 ## <a name="understanding-traffic-manager-probes"></a>Informazioni sui probe di Gestione traffico
 
-* Gestione traffico considera un endpoint Online solo se il probe ottiene una risposta HTTP 200 dal percorso probe. Qualsiasi risposta diversa da 200 viene considerata un errore.
-* Un reindirizzamento 30x avrà esito negativo anche se l'URL reindirizzato restituisce 200.
+* Gestione traffico considera un endpoint Online solo se il probe ottiene una risposta HTTP 200 dal percorso probe. Se l'applicazione restituisce qualsiasi altro codice di risposta HTTP, è necessario aggiungere il codice di risposta agli [intervalli di codice di stato previsti](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) del profilo di gestione traffico.
+* Una risposta di reindirizzamento 30x viene considerata come un errore a meno che non sia stato specificato come codice di risposta valido negli [intervalli di codice di stato previsti](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) del profilo di gestione traffico. Gestione traffico non esegue il probe della destinazione di reindirizzamento.
 * Per i probe HTTPS, gli errori di certificati vengono ignorati.
 * Il contenuto effettivo del percorso probe non è importante, purché venga restituito 200. Una tecnica comune consiste nell'impostare il percorso su un valore simile a "/favicon.ico". Il contenuto dinamico, ad esempio le pagine ASP, non può sempre restituire 200, anche quando l'applicazione è integra.
-* La procedura consigliata prevede di impostare il percorso probe su un valore con logica sufficiente a determinare se il sito sia attivo o non attivo. Nell'esempio precedente, impostando il percorso su "/favicon.ico", si verifica solo che w3wp.exe risponda. Questo probe non indica necessariamente che l'applicazione Web è integra. Un'opzione migliore prevede di impostare un percorso su un valore simile a "/Probe.aspx", che è dotato della logica necessaria a determinare l'integrità del sito. Ad esempio, si potrebbero usare i contatori delle prestazioni per verificare l'utilizzo della CPU o misurare il numero di richieste con esito negativo, o tentare di accedere a risorse come lo stato del database o della sessione per assicurarsi che l'applicazione Web funzioni correttamente.
+* Una procedura consigliata consiste nell'impostare il percorso Probe su un elemento con una logica sufficiente per determinare se il sito è attivo o inattivo. Nell'esempio precedente, impostando il percorso su "/favicon.ico", si verifica solo che w3wp.exe risponda. Questo probe non indica necessariamente che l'applicazione Web è integra. Un'opzione migliore prevede di impostare un percorso su un valore simile a "/Probe.aspx", che è dotato della logica necessaria a determinare l'integrità del sito. Ad esempio, si potrebbero usare i contatori delle prestazioni per verificare l'utilizzo della CPU o misurare il numero di richieste con esito negativo, o tentare di accedere a risorse come lo stato del database o della sessione per assicurarsi che l'applicazione Web funzioni correttamente.
 * Se tutti gli endpoint di un profilo sono danneggiati, Gestione traffico li gestirà come integri e indirizzerà il traffico a tutti gli endpoint. In questo modo si evita che eventuali problemi con il meccanismo di probe non comportino un'interruzione completa del servizio.
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi

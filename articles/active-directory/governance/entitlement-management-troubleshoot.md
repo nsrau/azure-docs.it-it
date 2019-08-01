@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39ec27c75ff5ba9164b44b0524f90a4e28ab20f1
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 420a7079a7961868277a2d78ffbac4adba240d9f
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488983"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678067"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management-preview"></a>Risolvere i problemi di Azure AD gestione dei diritti (anteprima)
 
@@ -41,7 +41,7 @@ Questo articolo descrive alcuni elementi da controllare per semplificare la riso
 
 * Affinché un'applicazione sia una risorsa in un pacchetto di accesso, deve disporre di almeno un ruolo di risorsa che può essere assegnato. I ruoli vengono definiti dall'applicazione stessa e gestiti in Azure AD. Si noti che i portale di Azure possono anche visualizzare entità servizio per i servizi che non possono essere selezionati come applicazioni.  In particolare, **Exchange Online** e **SharePoint Online** sono servizi, non applicazioni con ruoli delle risorse nella directory, quindi non possono essere inclusi in un pacchetto di Access.  Usare invece le licenze basate sui gruppi per stabilire una licenza appropriata per un utente che deve accedere a tali servizi.
 
-* Affinché un gruppo sia una risorsa in un pacchetto di accesso, deve essere in grado di essere modificabile in Azure AD.  I gruppi che hanno origine in un Active Directory locale non possono essere assegnati come risorse perché i relativi attributi proprietario o membro non possono essere modificati nel Azure AD.  
+* Affinché un gruppo sia una risorsa in un pacchetto di accesso, deve essere in grado di essere modificabile in Azure AD.  I gruppi che hanno origine in un Active Directory locale non possono essere assegnati come risorse perché i relativi attributi proprietario o membro non possono essere modificati nel Azure AD.   I gruppi che provengono da Exchange Online come gruppi di distribuzione non possono essere modificati in Azure AD. 
 
 * Non è possibile aggiungere le raccolte documenti di SharePoint Online e i singoli documenti come risorse.  Al contrario, creare un gruppo di sicurezza Azure AD, includere il gruppo e un ruolo del sito nel pacchetto di accesso e in SharePoint Online utilizzare tale gruppo per controllare l'accesso alla raccolta documenti o al documento.
 
@@ -55,9 +55,9 @@ Questo articolo descrive alcuni elementi da controllare per semplificare la riso
 
 ## <a name="checklist-for-request-issues"></a>Elenco di controllo per problemi di richiesta
 
-* Quando un utente desidera richiedere l'accesso a un pacchetto di accesso, assicurarsi che usi il **collegamento portale di accesso personale** per il pacchetto di accesso. Per altre informazioni, vedere [il collegamento copiare il portale di accesso](entitlement-management-access-package-edit.md#copy-my-access-portal-link).
+* Quando un utente desidera richiedere l'accesso a un pacchetto di accesso, assicurarsi che usi il **collegamento portale di accesso personale** per il pacchetto di accesso. Per altre informazioni, vedere [il collegamento copiare il portale di accesso](entitlement-management-access-package-edit.md#copy-my-access-portal-link).  Se un utente esterno Visita **MyAccess.Microsoft.com**, visualizzerà i pacchetti di accesso disponibili nella propria organizzazione.
 
-* Quando un utente accede al portale di accesso personale per richiedere un pacchetto di accesso, assicurarsi di eseguire l'autenticazione usando il proprio account aziendale. L'account aziendale può essere un account nella directory delle risorse o in una directory inclusa in uno dei criteri del pacchetto di accesso. Se l'account dell'utente non è un account aziendale o la directory non è inclusa nel criterio, l'utente non visualizzerà il pacchetto di accesso. Per altre informazioni, vedere [richiedere l'accesso a un pacchetto di accesso](entitlement-management-request-access.md).
+* Quando un utente che non è ancora presente nella directory accede al portale di accesso personale per richiedere un pacchetto di accesso, assicurarsi di eseguire l'autenticazione usando il proprio account aziendale. L'account aziendale può essere un account nella directory delle risorse o in una directory inclusa in uno dei criteri del pacchetto di accesso. Se l'account dell'utente non è un account aziendale o la directory in cui viene eseguita l'autenticazione non è inclusa nel criterio, l'utente non visualizzerà il pacchetto di accesso. Per altre informazioni, vedere [richiedere l'accesso a un pacchetto di accesso](entitlement-management-request-access.md).
 
 * Se un utente non accede alla directory delle risorse, non sarà in grado di richiedere l'accesso nel portale di accesso personale. Prima che l'utente possa richiedere l'accesso, è necessario rimuovere il blocco di accesso dal profilo dell'utente. Per rimuovere il blocco di accesso, nella portale di Azure fare clic su **Azure Active Directory**, fare clic su **utenti**, fare clic sull'utente e quindi su **profilo**. Modificare la sezione **Impostazioni** e modificare **Accedi** a **No**. Per altre informazioni, vedere [aggiungere o aggiornare le informazioni sul profilo di un utente usando Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  È anche possibile controllare se l'utente è stato bloccato a causa di un [criterio di Identity Protection](../identity-protection/howto-unblock-user.md).
 

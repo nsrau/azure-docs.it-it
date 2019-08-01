@@ -1,20 +1,18 @@
 ---
 title: Obiettivi di scalabilità e prestazioni per i dischi delle VM in Linux - Microsoft Azure | Microsoft Docs
 description: Informazioni sugli obiettivi di scalabilità e prestazioni per dischi di macchine virtuali collegati a VM che eseguono Linux.
-services: virtual-machines-linux,storage
 author: roygara
 ms.author: rogarana
 ms.date: 11/15/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: virtual-machines-linux
-ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 39e0a36b50a9e222e6016140967336ccda167514
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5c1bdecdfc755db530be71a09b18542ade4519c5
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60771635"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68695890"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-linux"></a>Obiettivi di scalabilità e prestazioni per i dischi delle VM in Linux
 

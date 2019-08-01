@@ -10,14 +10,14 @@ ms.author: tsikiksr
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 07/23/2019
-ms.openlocfilehash: 7c7d90d4ca1625edecc9d84e1ff7beec50032884
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 30dc731efdb6016f505b7a16860e0cb9c6480333
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444760"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716587"
 ---
-# <a name="tutorial-train-and-deploy-a-classification-model-with-automated-machine-learning-in-the-azure-portal-preview"></a>Esercitazione: Eseguire il training e distribuire un modello di classificazione con Machine Learning automatizzato nel portale di Azure (anteprima)
+# <a name="tutorial-use-automated-machine-learning-to-train-and-deploy-your-first-classification-model-preview"></a>Esercitazione: Usare Machine Learning automatizzato per eseguire il training e distribuire il primo modello di classificazione (anteprima)
 
 Questa esercitazione illustra come creare il primo esperimento di Machine Learning automatizzato nel portale di Azure. In questo esempio viene creato un modello di classificazione per stimare se un client sottoscriverà un deposito di termini con la banca. 
 
@@ -143,7 +143,7 @@ I file di distribuzione sono più grandi dei file di dati e di esperimento, quin
 
 Eliminare solo l'istanza di distribuzione dalla portale di Azure, se si desidera lasciare il gruppo di risorse e l'area di lavoro per altre esercitazioni ed esplorazione. 
 
-1. Passare al riquadro **Asset** a sinistra e selezionare distribuzioni . 
+1. Passare al riquadro **Asset** a sinistra e selezionare distribuzioni. 
 
 1. Selezionare la distribuzione che si desidera eliminare e selezionare **Elimina**. 
 

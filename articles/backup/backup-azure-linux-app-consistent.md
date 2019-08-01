@@ -1,19 +1,20 @@
 ---
 title: 'Backup di Azure: backup coerenti con le applicazioni di macchine virtuali Linux'
 description: In Azure creare backup coerenti con le applicazioni per le macchine virtuali Linux. In questo articolo viene illustrata la configurazione di framework di script per eseguire il backup di macchine virtuali Linux distribuite in Azure. In questo articolo sono incluse anche le informazioni sulla risoluzione dei problemi.
-author: anuragmehrotra
-manager: shivamg
+ms.reviewer: anuragm
+author: dcurwin
+manager: carmonm
 keywords: backup coerente delle app; backup coerente delle applicazioni di VM di Azure; backup di VM Linux; Backup di Azure
 ms.service: backup
 ms.topic: conceptual
 ms.date: 1/12/2018
-ms.author: anuragm
-ms.openlocfilehash: adcadf0de2480b0f231dd8808d84cb2907685842
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: dae2268abc3771e43d717c65c19eed37b9f48e8e
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466133"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689245"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Backup coerente con le applicazioni per macchine virtuali Linux in Azure
 

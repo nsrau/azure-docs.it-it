@@ -14,18 +14,18 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a1dafb8e4c16a59bfed51016ce9ccb0ec3eb7d6c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 460ea15b0827ea307d64d1bd92d9bd14d5919d73
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754756"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704387"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hub eventi di Azure - Ripristino di emergenza geografico 
 
 In caso di tempo di inattività di interi data center o aree di Azure (se non vengono usate [zone di disponibilità](../availability-zones/az-overview.md)), è essenziale che l'elaborazione dei dati continui in un'area o in un data center diverso. Il *ripristino di emergenza geografico* e la *replica geografica* sono quindi funzionalità importanti per qualsiasi azienda. Il servizio Hub eventi di Azure supporta il ripristino di emergenza geografico e la replica geografica a livello di spazio dei nomi. 
 
-La funzionalità di ripristino di emergenza geografico è disponibile a livello globale per Standard di hub eventi e lo SKU dedicato. Si noti che è possibile solo spazi dei nomi di associazione geografica attraverso lo stesso livello di SKU. Ad esempio, se si dispone di uno spazio dei nomi in un cluster di cui è disponibile solo nello SKU nostro dedicato, si può solo essere abbinato a uno spazio dei nomi in un altro cluster. 
+La funzionalità di ripristino di emergenza geografico è disponibile a livello globale per gli hub eventi standard e lo SKU dedicato. Si noti che è possibile associare gli spazi dei nomi solo a una coppia geografica nello stesso livello dello SKU. Se, ad esempio, si dispone di uno spazio dei nomi in un cluster disponibile solo nello SKU dedicato, è possibile associarlo solo a uno spazio dei nomi in un altro cluster. 
 
 ## <a name="outages-and-disasters"></a>Emergenze e interruzioni
 
@@ -84,7 +84,7 @@ Se si commette un errore, ad esempio associando le aree non corrette durante la 
 
 ## <a name="samples"></a>Esempi
 
-L'[esempio su GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) illustra come configurare e avviare un failover. L'esempio illustra i concetti seguenti:
+L'[esempio su GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) illustra come configurare e avviare un failover. L'esempio illustra i concetti seguenti:
 
 - Impostazioni necessarie in Azure Active Directory per usare Azure Resource Manager con Hub eventi. 
 - Passaggi necessari per eseguire il codice di esempio. 
@@ -115,7 +115,7 @@ Usando il portale di Azure, è possibile abilitare le zone di disponibilità sol
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* L'[esempio disponibile in GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) illustra in dettaglio un semplice flusso di lavoro per la creazione di un'associazione geografica e l'avvio di un failover per uno scenario di ripristino di emergenza.
+* L'[esempio disponibile in GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) illustra in dettaglio un semplice flusso di lavoro per la creazione di un'associazione geografica e l'avvio di un failover per uno scenario di ripristino di emergenza.
 * Nella [informazioni di riferimento sulle API del servizio REST](/rest/api/eventhub/disasterrecoveryconfigs) sono descritte le API che consentono di eseguire la configurazione del ripristino di emergenza geografico.
 
 Per altre informazioni su Hub eventi, vedere i collegamenti seguenti:

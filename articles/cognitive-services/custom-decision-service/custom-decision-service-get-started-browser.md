@@ -10,12 +10,13 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: slivkins
-ms.openlocfilehash: 2b356e2f0fe9235d49dffa7417cd3894059f9caf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 28ad4681242765bf2da9b1f13dc828e23cce1794
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60829158"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707276"
 ---
 # <a name="call-api-from-a-browser"></a>Chiamare l'API da un browser
 
@@ -23,7 +24,7 @@ Questo articolo consente di effettuare chiamate alle API del Servizio decisional
 
 Assicurarsi per prima cosa di [Registrare l'applicazione](custom-decision-service-get-started-register.md).
 
-Di seguito sono riportati i requisiti iniziali. L'applicazione viene modellata per avere una pagina di riepilogo con collegamenti a più pagine di articoli. La pagina di riepilogo usa il Servizio decisionale personalizzato per specificare l'ordinamento delle relative pagine di articolo. Inserire il codice seguente nell'intestazione HTML della pagina di riepilogo:
+Ma veniamo al dunque. L'applicazione viene modellata per avere una pagina di riepilogo con collegamenti a più pagine di articoli. La pagina di riepilogo usa il Servizio decisionale personalizzato per specificare l'ordinamento delle relative pagine di articolo. Inserire il codice seguente nell'intestazione HTML della pagina di riepilogo:
 
 ```html
 // Define the "callback function" to render UI

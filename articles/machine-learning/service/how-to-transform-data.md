@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 07/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 08cf646d63e1a295a1bc2ff28180983cc462f084
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: add5584ccf3d9d6837e328bbf70d71598e5c0839
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360925"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68694302"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Trasformare i dati con Azure Machine Learning Data Prep SDK
 
@@ -102,7 +102,7 @@ dflow.head(3)
 
 Nel terzo record mancano i valori di latitudine e longitudine. Per imputare i valori mancanti, utilizzare [`ImputeMissingValuesBuilder`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputemissingvaluesbuilder?view=azure-dataprep-py) per apprendere un'espressione fissa. È possibile attribuire le colonne con un valore calcolato `MIN`, `MAX` o `MEAN` o con un valore `CUSTOM`. Quando `group_by_columns` viene specificato, verranno attribuiti i valori mancanti dal gruppo con `MIN`, `MAX` e `MEAN` calcolati per ogni gruppo.
 
-Controllare il `MEAN` valore della colonna Latitudine utilizzando la [`summarize()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow-summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow) funzione. Questa funzione accetta una matrice di colonne nel parametro `group_by_columns` per specificare il livello di aggregazione. Il parametro `summary_columns` accetta una chiamata `SummaryColumnsValue`. Questa chiamata di funzione specifica il nome della colonna corrente, il nome del nuovo campo calcolato e la `SummaryFunction` da eseguire.
+Controllare il `MEAN` valore della colonna Latitudine utilizzando la [`summarize()`](/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-ml-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow--summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow) funzione. Questa funzione accetta una matrice di colonne nel parametro `group_by_columns` per specificare il livello di aggregazione. Il parametro `summary_columns` accetta una chiamata `SummaryColumnsValue`. Questa chiamata di funzione specifica il nome della colonna corrente, il nome del nuovo campo calcolato e la `SummaryFunction` da eseguire.
 
 ```python
 dflow_mean = dflow.summarize(group_by_columns=['Arrest'],

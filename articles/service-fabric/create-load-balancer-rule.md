@@ -3,7 +3,7 @@ title: Creare una regola di Azure Load Balancer per un cluster
 description: Configurare un'istanza di Azure Load Balancer per aprire le porte per un cluster di Azure Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
-ms.author: aljo
-ms.openlocfilehash: d95d2802398a61b948ff6c59fb3eab0e1ddddbc5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 440d5e37e03e58a39275e715ebce4fa07961cc84
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66147472"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598576"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Aprire le porte per un cluster di Service Fabric
 
@@ -61,7 +61,7 @@ az network lb rule create --backend-port 40000 --frontend-port 39999 --protocol 
 
 Il comando dell'interfaccia della riga di comando di Azure include alcuni parametri descritti nella tabella seguente:
 
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 | --------- | ----------- |
 | `--backend-port`  | Porta su cui è in ascolto l'applicazione di Service Fabric. |
 | `--frontend-port` | Porta esposta dal servizio di bilanciamento del carico per le connessioni esterne. |
@@ -111,4 +111,4 @@ Nel comando `New-AzLoadBalancerRuleConfig`, `-FrontendPort` rappresenta la porta
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sulle [funzionalità di rete in Service Fabric](service-fabric-patterns-networking.md).rvice-fabric-modelli-networking.md).
+Altre informazioni sulle [reti in Service Fabric](service-fabric-patterns-networking.md). rvice-Fabric-patterns-networking.MD).

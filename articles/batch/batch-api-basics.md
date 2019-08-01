@@ -16,10 +16,10 @@ ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: bead5f0bec6d57c0f4aaddc6537e00c466d987f1
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68323891"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Sviluppare soluzioni di calcolo parallele su larga scala con Batch
@@ -234,7 +234,7 @@ Un processo è una raccolta di attività. Gestisce la modalità di esecuzione de
     Si noti che il servizio Batch considera un processo *senza* attività quando ha tutte le relative attività completate. Di conseguenza, questa opzione viene usata più comunemente con un' [attività del gestore di processi](#job-manager-task). Se si vuole usare la chiusura automatica di processi senza un gestore di processi, è necessario impostare inizialmente la proprietà **onAllTasksComplete** di un nuovo processo su *noaction*, quindi impostarlo su *terminatejob* solo dopo aver completato l'aggiunta di attività al processo.
 
 ### <a name="job-priority"></a>Priorità del processo
-È possibile assegnare una priorità ai processi creati in Batch. Il servizio Batch usa il valore di priorità del processo per determinare l'ordine di programmazione dei processi in un account, da non confondere con un [processo pianificato](#scheduled-jobs). I valori di priorità sono compresi in un intervallo da -1000 a 1000, dove -1000 è la priorità più bassa e 1000 la più alta. Per aggiornare la priorità di un processo, chiamare l' [aggiornamento delle proprietà di un processo][rest_update_job] operation (Batch REST), or modify the [CloudJob.Priority][net_cloudjob_priority] (batch .NET).
+È possibile assegnare una priorità ai processi creati in Batch. Il servizio Batch usa il valore di priorità del processo per determinare l'ordine di programmazione dei processi in un account, da non confondere con un [processo pianificato](#scheduled-jobs). I valori di priorità sono compresi in un intervallo da -1000 a 1000, dove -1000 è la priorità più bassa e 1000 la più alta. Per aggiornare la priorità di un processo, chiamare l' [aggiornamento delle proprietà di un'operazione del processo][rest_update_job] (batch Rest) o modificare la proprietà [CloudJob. Priority][net_cloudjob_priority] (batch .NET).
 
 All'interno dello stesso account i processi con priorità più alta hanno precedenza di pianificazione rispetto ai processi con priorità inferiori. Un processo con un valore di priorità più elevato in un account non ha tale precedenza di pianificazione rispetto a un altro processo con un valore di priorità inferiore in un account diverso.
 
@@ -335,14 +335,14 @@ Con le relazioni tra attività, è possibile configurare scenari come i seguenti
 * L'*attivitàC* dipende sia dall'*attivitàA* che dall'*attivitàB*.
 * L'*attivitàD* dipende da un intervallo di attività, ad esempio le attività da *1* a *10*, prima che venga eseguita.
 
-Per informazioni più dettagliate su questa funzionalità, vedere le [dipendenze delle attività in Azure batch](batch-task-dependencies.md) e nel repository GitHub [TaskDependencies][github_sample_taskdeps] code sample in the [azure-batch-samples][github_samples] .
+Per informazioni dettagliate su questa funzionalità, vedere le [dipendenze delle attività in Azure batch](batch-task-dependencies.md) e l'esempio di codice [TaskDependencies][github_sample_taskdeps] nel repository GitHub [Azure-batch-Samples][github_samples] .
 
 ## <a name="environment-settings-for-tasks"></a>Impostazioni di ambiente per le attività
 Ogni attività eseguita dal servizio Batch ha accesso a variabili di ambiente che imposta sui nodi di calcolo. Sono incluse le variabili di ambiente definite dal servizio batch ([definite dal servizio][msdn_env_vars]) e le variabili di ambiente personalizzate che è possibile definire per le attività. Le applicazioni e gli script eseguiti dalle attività hanno accesso a queste variabili di ambiente durante l'esecuzione.
 
-È possibile impostare variabili di ambiente personalizzate a livello di attività o di processo popolando le proprietà delle *impostazioni di ambiente* per queste entità. Vedere ad esempio le proprietà [Aggiungi un'attività a un processo][rest_add_task] operation (Batch REST API), or the [CloudTask.EnvironmentSettings][net_cloudtask_env] e [CloudJob. CommonEnvironmentSettings][net_job_env] in batch .NET.
+È possibile impostare variabili di ambiente personalizzate a livello di attività o di processo popolando le proprietà delle *impostazioni di ambiente* per queste entità. Vedere ad esempio l'operazione [Aggiungi un'attività a un processo][rest_add_task] (API batch Rest) o le proprietà [CloudTask. EnvironmentSettings][net_cloudtask_env] e [CloudJob. CommonEnvironmentSettings][net_job_env] in batch .NET.
 
-L'applicazione o il servizio client può ottenere le variabili di ambiente di un'attività, sia definite dal servizio sia personalizzate, usando la proprietà [ottenere informazioni su un'attività][rest_get_task_info] operation (Batch REST) or by accessing the [CloudTask.EnvironmentSettings][net_cloudtask_env] (batch .NET). I processi eseguiti in un nodo di calcolo possono accedere a queste e ad altre variabili di ambiente nel nodo, ad esempio usando la sintassi familiare `%VARIABLE_NAME%` (Windows) o `$VARIABLE_NAME` (Linux).
+L'applicazione o il servizio client può ottenere le variabili di ambiente di un'attività, sia definite dal servizio sia personalizzate, usando l'operazione [ottenere informazioni su un'attività][rest_get_task_info] (batch Rest) o accedendo alla proprietà [CloudTask. EnvironmentSettings][net_cloudtask_env] ( Batch .NET). I processi eseguiti in un nodo di calcolo possono accedere a queste e ad altre variabili di ambiente nel nodo, ad esempio usando la sintassi familiare `%VARIABLE_NAME%` (Windows) o `$VARIABLE_NAME` (Linux).
 
 È possibile trovare un elenco completo di tutte le variabili di ambiente definite dal servizio nelle [variabili di ambiente del nodo di calcolo][msdn_env_vars].
 
@@ -425,7 +425,7 @@ Per altre informazioni sulla scalabilità automatica di un'applicazione, vedere 
 ## <a name="security-with-certificates"></a>Sicurezza con certificati
 In genere è necessario usare i certificati per crittografare o decrittografare le informazioni riservate per le attività, ad esempio la chiave per un [account di archiviazione di Azure][azure_storage]. Per supportare questa funzionalità, è possibile installare certificati nei nodi. I segreti crittografati vengono passati alle attività nei parametri della riga di comando o incorporati in una delle risorse dell'attività e i certificati installati possono essere usati per decrittografarli.
 
-Usare il metodo [Add certificate][rest_add_cert] operation (Batch REST) or [CertificateOperations.CreateCertificate][net_create_cert] (batch .NET) per aggiungere un certificato a un account batch. È quindi possibile associare il certificato a un pool nuovo o esistente. Quando un certificato è associato a un pool, il servizio Batch installa il certificato in ogni nodo del pool. Il servizio Batch installa i certificati appropriati all'avvio del nodo, prima di avviare le attività, incluse quelle di avvio e del gestore di processi.
+Usare il metodo [Add certificate][rest_add_cert] Operation (batch Rest) o [il metodo certificateoperations. CreateCertificate][net_create_cert] (batch .NET) per aggiungere un certificato a un account batch. È quindi possibile associare il certificato a un pool nuovo o esistente. Quando un certificato è associato a un pool, il servizio Batch installa il certificato in ogni nodo del pool. Il servizio Batch installa i certificati appropriati all'avvio del nodo, prima di avviare le attività, incluse quelle di avvio e del gestore di processi.
 
 Se si aggiungono certificati a un pool *esistente*, è necessario riavviare i relativi nodi di calcolo per applicare i certificati ai nodi.
 
@@ -462,7 +462,7 @@ Gli errori delle attività rientrano nelle categorie seguenti:
 ### <a name="debugging-application-failures"></a>Debug degli errori delle applicazioni
 * `stderr` e `stdout`
 
-    Durante l'esecuzione un'applicazione può generare un output di diagnostica che può essere usato per la risoluzione dei problemi. Come indicato nella sezione precedente [File e directory](#files-and-directories), il servizio Batch scrive l'output standard e l'output degli errori standard nei file `stdout.txt` e `stderr.txt` nella directory dell'attività nel nodo di calcolo. Per scaricare questi file, è possibile usare il portale di Azure oppure uno degli SDK di Batch. Ad esempio, è possibile recuperare questi e altri file a scopo di risoluzione dei problemi usando [ComputeNode. GetNodeFile][net_getfile_node] and [CloudTask.GetNodeFile][net_getfile_task] nella libreria batch .NET.
+    Durante l'esecuzione un'applicazione può generare un output di diagnostica che può essere usato per la risoluzione dei problemi. Come indicato nella sezione precedente [File e directory](#files-and-directories), il servizio Batch scrive l'output standard e l'output degli errori standard nei file `stdout.txt` e `stderr.txt` nella directory dell'attività nel nodo di calcolo. Per scaricare questi file, è possibile usare il portale di Azure oppure uno degli SDK di Batch. Ad esempio, è possibile recuperare questi e altri file a scopo di risoluzione dei problemi usando [ComputeNode. GetNodeFile][net_getfile_node] e [CloudTask. GetNodeFile][net_getfile_task] nella libreria batch .NET.
 
 * **Codici di uscita delle attività**
 
@@ -477,7 +477,7 @@ In alcuni casi, le attività non riescono o vengono interrotte. È possibile che
 È possibile eseguire altre operazioni di debug e di risoluzione dei problemi accedendo a un nodo di calcolo in remoto. È possibile usare il portale di Azure per scaricare un file Remote Desktop Protocol (RDP) per i nodi Windows e ottenere informazioni sulla connessione SSH (Secure Shell) per i nodi Linux. È anche possibile eseguire questa operazione usando le API batch, ad esempio con [batch .NET][net_rdpfile] o [batch Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).
 
 > [!IMPORTANT]
-> Per connettersi a un nodo tramite RDP o SSH, è necessario creare prima di tutto un utente nel nodo. A tale scopo, è possibile usare la portale di Azure, [aggiungere un account utente a un metodo node][rest_create_user] by using the Batch REST API, call the [ComputeNode.CreateComputeNodeUser][net_create_user] in batch .NET oppure chiamare il metodo [add_user][py_add_user] nel modulo batch Python.
+> Per connettersi a un nodo tramite RDP o SSH, è necessario creare prima di tutto un utente nel nodo. A tale scopo, è possibile usare l'portale di Azure, [aggiungere un account utente a un nodo][rest_create_user] usando l'API REST di batch, chiamare il metodo [ComputeNode. CreateComputeNodeUser][net_create_user] in batch .NET oppure chiamare il metodo [Add_user][py_add_user] nel modulo Python di batch.
 >
 >
 
@@ -500,7 +500,7 @@ Nei casi in cui alcune attività non riescono, il servizio o l'applicazione clie
     In questo modo il nodo in realtà passa offline e non è possibile assegnargli altre attività, ma può rimanere in esecuzione e nel pool. È quindi possibile eseguire altre indagini sulla causa degli errori senza perdere i dati delle attività non riuscite e senza che il nodo generi altri errori delle attività. È ad esempio possibile disabilitare la pianificazione delle attività nel nodo, quindi [accedere in remoto](#connecting-to-compute-nodes) per esaminare i log eventi del nodo o eseguire altre operazioni di risoluzione dei problemi. Al termine dell'indagine, è possibile riportare il nodo online abilitando la pianificazione delle attività ([Rest][rest_online] | [.NET][net_online]) o eseguire una delle altre azioni descritte in precedenza.
 
 > [!IMPORTANT]
-> Con ogni azione illustrata in questa sezione, ovvero riavvio, ricreazione dell'immagine, rimozione, disabilitazione della pianificazione delle attività, è possibile specificare come gestire le attività attualmente in esecuzione nel nodo quando si esegue l'azione. Ad esempio, quando si disabilita la pianificazione delle attività in un nodo usando la libreria client batch .NET, è possibile specificare un valore enum [DisableComputeNodeSchedulingOption][net_offline_option] per specificare se **terminare** le attività in esecuzione  , riaccodarle per pianificazione in altri nodi oppure consentire il completamento delle attività in esecuzione prima di eseguire l'azione (**TaskCompletion**).
+> Con ogni azione illustrata in questa sezione, ovvero riavvio, ricreazione dell'immagine, rimozione, disabilitazione della pianificazione delle attività, è possibile specificare come gestire le attività attualmente in esecuzione nel nodo quando si esegue l'azione. Ad esempio, quando si disabilita la pianificazione delle attività in un nodo usando la libreria client batch .NET, è possibile specificare un valore enum [DisableComputeNodeSchedulingOption][net_offline_option] per specificare se **terminare** le attività in esecuzione , riaccodarle per pianificazione in altri nodi oppure consentire il completamento delle attività in esecuzione prima di eseguire l'azione (**TaskCompletion**).
 >
 >
 

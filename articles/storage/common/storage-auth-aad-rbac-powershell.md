@@ -1,28 +1,28 @@
 ---
-title: Usare Azure PowerShell per gestire i diritti di accesso di Azure AD per i dati blob e coda con RBAC - archiviazione di Azure
-description: Usare Azure PowerShell per assegnare l'accesso a contenitori e le code di controllo di accesso basato sui ruoli (RBAC). Archiviazione di Azure supporta i ruoli RBAC predefiniti e personalizzati per l'autenticazione tramite Azure AD.
+title: Usare Azure PowerShell per gestire i diritti di accesso Azure AD ai dati BLOB e di Accodamento con RBAC-archiviazione di Azure
+description: Usare Azure PowerShell per assegnare l'accesso a contenitori e code con il controllo degli accessi in base al ruolo (RBAC). Archiviazione di Azure supporta ruoli RBAC predefiniti e personalizzati per l'autenticazione tramite Azure AD.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 07/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: bf888b72cca806822ca7a37542e71a5be0c8d5c3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f34e82a0011260ace4ffeed095903b033529a58d
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443731"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514988"
 ---
-# <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-powershell"></a>Concedere l'accesso a dati blob e di Accodamento di Azure con RBAC tramite PowerShell
+# <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-powershell"></a>Concedere l'accesso ai dati di Accodamento e BLOB di Azure con RBAC usando PowerShell
 
 Azure Active Directory (Azure AD) autorizza diritti di accesso a risorse protette tramite il [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md). Archiviazione di Azure definisce un set di ruoli di controllo degli accessi in base al ruolo predefiniti che includono un set comune di autorizzazioni usate per accedere a contenitori o code. 
 
-Quando viene assegnato un ruolo RBAC a un'entità di sicurezza di Azure AD, Azure concede l'accesso a tali risorse per tale entità di sicurezza. È possibile definire l'ambito dell'accesso a livello di sottoscrizione, gruppo di risorse, account di archiviazione o singolo contenitore o coda. Un'entità di sicurezza di Azure AD può essere un utente, un gruppo, un'entità servizio dell'applicazione, o un [identità per le risorse di Azure gestito](../../active-directory/managed-identities-azure-resources/overview.md).
+Quando un ruolo RBAC viene assegnato a un'entità di sicurezza Azure AD, Azure concede l'accesso a tali risorse per l'entità di sicurezza. È possibile definire l'ambito dell'accesso a livello di sottoscrizione, gruppo di risorse, account di archiviazione o singolo contenitore o coda. Un Azure AD entità di sicurezza può essere un utente, un gruppo, un'entità servizio dell'applicazione o un' [identità gestita per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-Questo articolo descrive come usare Azure PowerShell per elencare i ruoli RBAC predefiniti e assegnarle agli utenti. Per altre informazioni sull'uso di Azure PowerShell, vedere [Panoramica di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+Questo articolo descrive come usare Azure PowerShell per elencare i ruoli RBAC predefiniti e assegnarli agli utenti. Per ulteriori informazioni sull'utilizzo di Azure PowerShell, vedere [Panoramica di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -30,19 +30,19 @@ Questo articolo descrive come usare Azure PowerShell per elencare i ruoli RBAC p
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-## <a name="determine-resource-scope"></a>Determinare l'ambito di risorse
+## <a name="determine-resource-scope"></a>Determinare l'ambito della risorsa
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 
 ## <a name="list-available-rbac-roles"></a>Elencare i ruoli RBAC disponibili
 
-Per elencare i ruoli RBAC predefiniti disponibili con Azure PowerShell, usare il [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) comando:
+Per elencare i ruoli RBAC predefiniti disponibili con Azure PowerShell, usare il comando [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) :
 
 ```powershell
 Get-AzRoleDefinition | FT Name, Description
 ```
 
-Si noterà i ruoli predefiniti di dati di archiviazione di Azure elencati insieme altri ruoli predefiniti per Azure:
+Verranno visualizzati i ruoli di dati di archiviazione di Azure predefiniti elencati insieme ad altri ruoli predefiniti per Azure:
 
 ```Example
 Storage Blob Data Contributor             Allows for read, write and delete access to Azure Storage blob containers and data
@@ -56,17 +56,17 @@ Storage Queue Data Reader                 Allows for read access to Azure Storag
 
 ## <a name="assign-an-rbac-role-to-a-security-principal"></a>Assegnare un ruolo RBAC a un'entità di sicurezza
 
-Per assegnare un ruolo RBAC a un'entità di sicurezza, usare il [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) comando. Il formato del comando può differire a seconda dell'ambito di assegnazione. Gli esempi seguenti illustrano come assegnare un ruolo a un utente a vari ambiti, ma è possibile usare lo stesso comando per assegnare un ruolo a qualsiasi entità di sicurezza.
+Per assegnare un ruolo RBAC a un'entità di sicurezza, usare il comando [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) . Il formato del comando può variare in base all'ambito dell'assegnazione. Gli esempi seguenti illustrano come assegnare un ruolo a un utente in vari ambiti, ma è possibile usare lo stesso comando per assegnare un ruolo a un'entità di sicurezza.
 
 ### <a name="container-scope"></a>Ambito del contenitore
 
-Per assegnare un ruolo con ambito limitato a un contenitore, specificare una stringa che contiene l'ambito del contenitore per il `--scope` parametro. L'ambito per un contenitore è nel formato:
+Per assegnare un ruolo con ambito a un contenitore, specificare una stringa contenente l'ambito del contenitore per il `--scope` parametro. L'ambito di un contenitore è nel formato seguente:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container-name>
 ```
 
-L'esempio seguente assegna il **collaboratore ai dati di archiviazione Blob** ruolo a un utente, come ambito un contenitore denominato *esempio-container*. Assicurarsi di sostituire i valori di esempio e i valori segnaposto racchiusi tra parentesi con i propri valori: 
+L'esempio seguente assegna il ruolo di **collaboratore dati BLOB di archiviazione** a un utente, con ambito a un contenitore denominato *Sample-Container*. Assicurarsi di sostituire i valori di esempio e i valori segnaposto tra parentesi con valori personalizzati: 
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
@@ -74,15 +74,15 @@ New-AzRoleAssignment -SignInName <email> `
     -Scope  "/subscriptions/<subscription>/resourceGroups/sample-resource-group/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/sample-container"
 ```
 
-### <a name="queue-scope"></a>Ambito di coda
+### <a name="queue-scope"></a>Ambito della coda
 
-Per assegnare un ruolo con ambito limitato a una coda, specificare una stringa che contiene l'ambito di coda per il `--scope` parametro. L'ambito per una coda è nel formato:
+Per assegnare un ruolo con ambito a una coda, specificare una stringa contenente l'ambito della coda per il `--scope` parametro. L'ambito di una coda è nel formato seguente:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/<queue-name>
 ```
 
-L'esempio seguente assegna il **collaboratore ai dati di archiviazione coda** ruolo a un utente, nell'ambito di una coda denominata *coda di esempio*. Assicurarsi di sostituire i valori di esempio e i valori segnaposto racchiusi tra parentesi con i propri valori: 
+Nell'esempio seguente il ruolo di **collaboratore dei dati della coda di archiviazione** viene assegnato a un utente, con ambito a una coda denominata *Sample-Queue*. Assicurarsi di sostituire i valori di esempio e i valori segnaposto tra parentesi con valori personalizzati: 
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
@@ -90,15 +90,15 @@ New-AzRoleAssignment -SignInName <email> `
     -Scope  "/subscriptions/<subscription>/resourceGroups/sample-resource-group/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/sample-queue"
 ```
 
-### <a name="storage-account-scope"></a>Ambito di account di archiviazione
+### <a name="storage-account-scope"></a>Ambito dell'account di archiviazione
 
-Per assegnare un ruolo con ambito limitato all'account di archiviazione, specificare l'ambito della risorsa account di archiviazione per il `--scope` parametro. L'ambito per un account di archiviazione è nel formato:
+Per assegnare un ruolo nell'ambito dell'account di archiviazione, specificare l'ambito della risorsa dell'account di archiviazione per `--scope` il parametro. L'ambito di un account di archiviazione è nel formato seguente:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 
-L'esempio seguente mostra come ambito il **lettore di dati Blob di archiviazione** ruolo a un utente a livello di account di archiviazione. Assicurarsi di sostituire i valori di esempio con i propri valori: 
+Nell'esempio seguente viene illustrato come definire l'ambito del ruolo **lettore dati BLOB di archiviazione** per un utente a livello di account di archiviazione. Assicurarsi di sostituire i valori di esempio con i propri valori: 
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
@@ -106,9 +106,9 @@ New-AzRoleAssignment -SignInName <email> `
     -Scope  "/subscriptions/<subscription>/resourceGroups/sample-resource-group/providers/Microsoft.Storage/storageAccounts/<storage-account>"
 ```
 
-### <a name="resource-group-scope"></a>Ambito di gruppo di risorse
+### <a name="resource-group-scope"></a>Ambito del gruppo di risorse
 
-Per assegnare un ruolo nell'ambito del gruppo di risorse, specificare il nome del gruppo di risorse o l'ID per il `--resource-group` parametro. L'esempio seguente assegna il **lettore dati di archiviazione coda** ruolo a un utente a livello di gruppo di risorse. Assicurarsi di sostituire i valori di esempio e i valori segnaposto racchiusi tra parentesi con i propri valori: 
+Per assegnare un ruolo con ambito al gruppo di risorse, specificare il nome o l'ID del gruppo di `--resource-group` risorse per il parametro. L'esempio seguente assegna il ruolo di **lettore dati della coda di archiviazione** a un utente a livello del gruppo di risorse. Assicurarsi di sostituire i valori di esempio e i segnaposto tra parentesi con valori personalizzati: 
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
@@ -118,13 +118,13 @@ New-AzRoleAssignment -SignInName <email> `
 
 ### <a name="subscription-scope"></a>Ambito della sottoscrizione
 
-Per assegnare un ruolo con ambito limitato alla sottoscrizione, specificare l'ambito per la sottoscrizione per il `--scope` parametro. L'ambito per una sottoscrizione è nel formato:
+Per assegnare un ruolo con ambito alla sottoscrizione, specificare l'ambito per la sottoscrizione per il `--scope` parametro. L'ambito di una sottoscrizione è nel formato seguente:
 
 ```
 /subscriptions/<subscription>
 ```
 
-Nell'esempio seguente viene illustrato come assegnare i **lettore di dati Blob di archiviazione** ruolo a un utente a livello di account di archiviazione. Assicurarsi di sostituire i valori di esempio con i propri valori: 
+Nell'esempio seguente viene illustrato come assegnare il ruolo **lettore dati BLOB di archiviazione** a un utente a livello di account di archiviazione. Assicurarsi di sostituire i valori di esempio con i propri valori: 
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
@@ -135,5 +135,5 @@ New-AzRoleAssignment -SignInName <email> `
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-- [Concedere l'accesso a dati blob e di Accodamento di Azure con RBAC tramite la CLI di Azure](storage-auth-aad-rbac-cli.md)
-- [Concedere l'accesso a Azure blob e Accodamento dei dati con accessi nel portale di Azure](storage-auth-aad-rbac-portal.md)
+- [Concedere l'accesso ai dati di code e BLOB di Azure con il controllo degli accessi in base al ruolo tramite l'interfaccia della riga di comando di Azure](storage-auth-aad-rbac-cli.md)
+- [Concedere l'accesso ai dati di code e BLOB di Azure con il controllo degli accessi in base al ruolo nel portale di Azure](storage-auth-aad-rbac-portal.md)

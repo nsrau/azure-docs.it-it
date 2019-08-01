@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 06/26/2019
-ms.openlocfilehash: ac57e873a6948e85e78849bd4e22db85491c4bfb
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 39c19661a71a8b466aa6ff25be9e895189dfbfb3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441553"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566367"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Introduzione alle tabelle temporali nel database SQL di Azure
 
@@ -29,7 +28,7 @@ Questo articolo illustra la procedura per l'utilizzo delle tabelle temporali in 
 
 Il modello di database per questo scenario è molto semplice: la metrica dell'attività utente è rappresentata con un singolo campo integer, **PageVisited**, e viene acquisita insieme alle informazioni di base sul profilo utente. Inoltre, per l'analisi basata sul tempo si usa anche una serie di righe per ogni utente e ognuna di esse rappresenta il numero di pagine visitate da un determinato utente in un arco di tempo specifico.
 
-![SCHEMA](./media/sql-database-temporal-tables/AzureTemporal1.png)
+![Schema](./media/sql-database-temporal-tables/AzureTemporal1.png)
 
 Per mantenere le informazioni sulle attività non è necessario eseguire alcuna operazione nell'app. Con le tabelle temporali questo processo è automatizzato e offre piena flessibilità in fase di progettazione del sito Web e più tempo da dedicare all'analisi dei dati vera e propria. L'unica cosa da fare è assicurarsi che la tabella **WebSiteInfo** sia configurata come [temporale con controllo delle versioni di sistema](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_0). Di seguito sono descritti i passaggi necessari per usare le tabelle temporali in questo scenario.
 
@@ -109,7 +108,7 @@ WITH (DROP_EXISTING = ON);
 ## <a name="step-2-run-your-workload-regularly"></a>Passaggio 2: Eseguire regolarmente il carico di lavoro
 Il vantaggio principale delle tabelle temporali è che non è necessario modificare il sito Web in alcun modo per eseguire il rilevamento delle modifiche. Dopo la creazione, le tabelle temporali mantengono in modo trasparente le versioni precedenti delle righe ogni volta che si apportano modifiche ai dati. 
 
-Per sfruttare rilevamento modifiche automatico per questo particolare scenario, è sufficiente aggiornare la colonna **PagesVisited** ogni volta che un utente termina la sessione sul sito Web:
+Per sfruttare il rilevamento automatico delle modifiche per questo particolare scenario, è sufficiente aggiornare la colonna **PagesVisited** ogni volta che un utente termina la sessione nel sito Web:
 
 ```
 UPDATE WebsiteUserInfo  SET [PagesVisited] = 5 
@@ -196,6 +195,6 @@ Con le tabelle temporali con controllo delle versioni di sistema, la tabella del
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni su tabelle temporali, vedere check-out [tabelle temporali](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables).
+- Per altre informazioni sulle tabelle temporali, vedere Estrai [tabelle temporali](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables).
 - Andare su Channel 9 per ascoltare una [storia di successo reale relativa all'implementazione temporale di un cliente](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) e guardare una [dimostrazione temporale in tempo reale](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
 
