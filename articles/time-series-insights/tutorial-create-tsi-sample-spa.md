@@ -8,12 +8,12 @@ ms.date: 06/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 8ee4cd30d5742896df96ccfd714d85ebbab194f9
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: bd50fb4a28aa0ab71c1fb0aeba772a2bd7d1df9d
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595707"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677737"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Esercitazione: Creare un'app Web a singola pagina Azure Time Series Insights
 
@@ -30,9 +30,9 @@ In questa esercitazione si vedrà:
 > * Il codice sorgente completo per questa esercitazione è disponibile in [GitHub](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
 > * È ospitata l'[app di esempio client](https://insights.timeseries.azure.com/clientsample) Time Series Insights per mostrare l'app completata usata in questa esercitazione.
 
-## <a name="prerequisites"></a>Prerequisiti
+Registrarsi per creare una [sottoscrizione di Azure gratuita](https://azure.microsoft.com/free/), se non è già stato fatto.
 
-* Registrarsi per creare una [sottoscrizione di Azure gratuita](https://azure.microsoft.com/free/), se non è già stato fatto.
+## <a name="prerequisites"></a>Prerequisiti
 
 * Copia gratuita di Visual Studio. Scaricare la [versione Community 2017 o 2019](https://www.visualstudio.com/downloads/) per iniziare.
 
@@ -57,7 +57,7 @@ Questa esercitazione usa anche i dati dall'ambiente Time Series Insights dell'ap
 1. Creare una directory dove memorizzare i file di progetto dell'applicazione. Passare quindi a ognuno degli URL seguenti. Fare clic con il pulsante destro del mouse sul collegamento **Non elaborato** nell'angolo in alto a destra della pagina e quindi selezionare **Salva con nome** per salvare i file nella directory del progetto.
 
    - [*index.html*](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html): HTML e JavaScript per la pagina
-   - [*sampleStyles.css*]( https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css): foglio di stile CSS
+   - [*sampleStyles.css*](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css): foglio di stile CSS
 
    > [!NOTE]
    > A seconda del browser, può essere necessario modificare le estensioni in html o css prima di salvare il file.
@@ -105,7 +105,7 @@ Questa esercitazione usa anche i dati dall'ambiente Time Series Insights dell'ap
 
       [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-153&highlight=4-5)]
 
-      Ad esempio: 
+      Ad esempio:
 
       ```javascript
       clientId: '8884d4ca-b9e7-403a-bd8a-366d0ce0d460',

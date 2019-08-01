@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Progetto Anteprima URL, Node.js'
+title: 'Guida introduttiva: Progetto Anteprima URL, Node.js'
 titlesuffix: Azure Cognitive Services
 description: Introduzione all'uso di URL Preview in Servizi cognitivi Microsoft in Azure.
 services: cognitive-services
@@ -10,20 +10,20 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 5c373505cd381108366206c21ff09f25516d7969
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 92124a53c871be7a83d7b276e31f000d7c674358
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884291"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698018"
 ---
-# <a name="quickstart-url-preview-with-nodejs"></a>Avvio rapido: Anteprima URL con Node.js 
+# <a name="quickstart-url-preview-with-nodejs"></a>Guida introduttiva: Anteprima URL con Node.js 
 
 L'esempio in Node seguente crea un'anteprima URL per il sito Web SwiftKey: https://swiftkey.com/en.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Ottenere una chiave di accesso per la versione di valutazione gratuita di [Lab di Servizi cognitivi](https://aka.ms/answersearchsubscription)
+Ottenere una chiave di accesso per la versione di valutazione gratuita di [Lab di Servizi cognitivi](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 ## <a name="code-scenario"></a>Scenario di codice 
 

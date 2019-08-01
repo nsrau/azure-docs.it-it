@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/26/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7aa0fd328e923df5882a2b6354dc61aac7ca4feb
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 1c83cd869142967b358aa5d234d7d487b3c54b4c
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67695587"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607997"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Esercitazione: Monitorare e aggiornare una macchina virtuale Linux in Azure
 
@@ -313,4 +313,4 @@ In questa esercitazione sono stati configurati, esaminati e gestiti gli aggiorna
 Passare all'esercitazione successiva per informazioni sul Centro sicurezza di Azure.
 
 > [!div class="nextstepaction"]
-> [Gestire la sicurezza delle VM](./tutorial-azure-security.md)
+> [Gestire la sicurezza delle VM](../../security/fundamentals/overview.md)

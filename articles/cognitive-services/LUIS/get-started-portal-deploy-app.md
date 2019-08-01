@@ -1,6 +1,6 @@
 ---
-title: "Avvio rapido: Distribuire un'app con il portale LUIS"
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: "Guida introduttiva: Distribuire un'app con il portale LUIS"
+titleSuffix: Azure Cognitive Services
 description: Informazioni su come distribuire un'app LUIS nell'endpoint di stima quando l'app è pronta a restituire stime di espressioni a un'applicazione client, ad esempio un chatbot. Questo argomento di avvio rapido illustra come distribuire un'applicazione creando una risorsa endpoint di stima, assegnandola all'app e quindi eseguendo il training e la pubblicazione dell'app.
 services: cognitive-services
 author: diberry
@@ -10,14 +10,14 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: db2b543fa8e5429cc8d50d7789b03239173f563d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 5c310c1943eaf23423be873c6172e27c621fe109
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154516"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564072"
 ---
-# <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Avvio rapido: Distribuire un'app nel portale LUIS
+# <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Guida introduttiva: Distribuire un'app nel portale LUIS
 
 Quando l'app LUIS è pronta a restituire stime di espressioni a un'applicazione client, ad esempio un chatbot, è necessario distribuirla nell'endpoint di stima.
 
@@ -41,10 +41,10 @@ La risorsa endpoint di stima viene creata nel portale di Azure. Dovrà essere us
    |Impostazione|Valore|Scopo|
    |--|--|--|
    |NOME|`my-cognitive-service-resource`|Il nome della risorsa di Azure. Questo nome è necessario quando si assegna la risorsa all'app nel portale LUIS.|
-   |Sottoscrizione|Sottoscrizione in uso|Selezionare una delle sottoscrizioni associate all'account.|
-   |Località|**Stati Uniti occidentali**|L'area di Azure per questa risorsa.|
+   |Subscription|Sottoscrizione in uso|Selezionare una delle sottoscrizioni associate all'account.|
+   |Location|**Stati Uniti occidentali**|L'area di Azure per questa risorsa.|
    |Piano tariffario|**S0**|Il piano tariffario predefinito per questa risorsa.|
-   |Gruppo di risorse|`my-cognitive-service-resource-group`|Creare un nuovo gruppo di risorse per tutte le risorse dei servizi cognitivi. Quando le risorse non sono più necessarie, è possibile eliminare il gruppo per pulire la sottoscrizione. |
+   |Resource group|`my-cognitive-service-resource-group`|Creare un nuovo gruppo di risorse per tutte le risorse dei servizi cognitivi. Quando le risorse non sono più necessarie, è possibile eliminare il gruppo per pulire la sottoscrizione. |
    | | | |
 
    ![Scelta dell'API di Azure](./media/get-started-portal-deploy-app/create-cognitive-services-resource.png)

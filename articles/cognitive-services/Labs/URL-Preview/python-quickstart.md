@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Progetto Anteprima URL, Python'
+title: 'Guida introduttiva: Progetto Anteprima URL, Python'
 titlesuffix: Azure Cognitive Services
 description: Esempio di script per iniziare a usare rapidamente Progetto Anteprima URL con Python.
 services: cognitive-services
@@ -10,20 +10,20 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: afb64b799e826abc3e6aad661a97211b43304dc6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 19a226fb580f3d4215b7c3f04f17c3f92505987e
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873275"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697986"
 ---
-# <a name="quickstart-url-preview-with-python"></a>Avvio rapido: Anteprima URL con Python
+# <a name="quickstart-url-preview-with-python"></a>Guida introduttiva: Anteprima URL con Python
 
 L'esempio in Python seguente crea un'anteprima URL per il sito Web SwiftKey: https://swiftkey.com/en.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Ottenere una chiave di accesso per la versione di valutazione gratuita di [Lab di Servizi cognitivi](https://aka.ms/answersearchsubscription)
+Ottenere una chiave di accesso per la versione di valutazione gratuita di [Lab di Servizi cognitivi](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 Questo esempio usa Python 3.6.
 

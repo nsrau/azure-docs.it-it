@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Project Answer Search, Node'
+title: 'Guida introduttiva: Project Answer Search, Node'
 description: Guida introduttiva a Project Answer Search con Node.
 services: cognitive-services
 author: mikedodaro
@@ -9,20 +9,20 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: c44be9779cf2b856ac2f5e9e017fd9d1040a018b
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 21dda323cf465f56fb3f43160dd04c27a81d5590
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294043"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698083"
 ---
-# <a name="quickstart-project-answer-search-with-node"></a>Avvio rapido: Project Answer Search con Node
+# <a name="quickstart-project-answer-search-with-node"></a>Guida introduttiva: Project Answer Search con Node
 
 L'esempio seguente di Node crea una query per ottenere informazioni su Yosemite National Park.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Ottenere una chiave di accesso per la versione di valutazione gratuita di [Lab di Servizi cognitivi](https://aka.ms/answersearchsubscription)
+Ottenere una chiave di accesso per la versione di valutazione gratuita di [Lab di Servizi cognitivi](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 Questo esempio usa Node v8.9.4
 

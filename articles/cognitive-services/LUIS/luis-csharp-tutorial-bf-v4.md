@@ -1,6 +1,6 @@
 ---
 title: Bot LUIS (Language Understanding) C# v4
-titleSuffix: Language Understanding - Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Usando C#, creare un chat bot integrato con Language Understanding (LUIS). Il bot viene creato con Bot Framework versione 4 e il servizio bot app Web di Azure.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: diberry
-ms.openlocfilehash: 8a03d87441f26d3116aff8af33fd94da0ef9a909
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 210724e8a8b9b585a3e308b8e321d809e4e897a1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67438446"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560663"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Esercitazione: Usare un bot app Web abilitato con Language Understanding in C#
 
@@ -47,9 +47,9 @@ Usare C# per creare un chatbot integrato con Language Understanding (LUIS). Il b
     |Impostazione|Scopo|Impostazione consigliata|
     |--|--|--|
     |Nome bot|Nome risorsa|`luis-csharp-bot-` + `<your-name>`, ad esempio, `luis-csharp-bot-johnsmith`|
-    |Sottoscrizione|Sottoscrizione in cui creare bot.|Chiave di sottoscrizione primaria.
-    |Gruppo di risorse|Gruppo logico di risorse di Azure|Creare un nuovo gruppo per archiviare tutte le risorse usate con questo bot, denominare il gruppo `luis-csharp-bot-resource-group`.|
-    |Località|Area di Azure - non deve essere la stessa della creazione o dell'area di pubblicazione di LUIS.|`westus`|
+    |Subscription|Sottoscrizione in cui creare bot.|Chiave di sottoscrizione primaria.
+    |Resource group|Gruppo logico di risorse di Azure|Creare un nuovo gruppo per archiviare tutte le risorse usate con questo bot, denominare il gruppo `luis-csharp-bot-resource-group`.|
+    |Location|Area di Azure - non deve essere la stessa della creazione o dell'area di pubblicazione di LUIS.|`westus`|
     |Piano tariffario|Utilizzato per la fatturazione e i limiti delle richieste di servizio.|`F0` è il livello gratuito.
     |Nome app|Il nome viene usato come sottodominio durante la distribuzione del bot nel cloud, (ad esempio humanresourcesbot.azurewebsites.net).|`luis-csharp-bot-` + `<your-name>`, ad esempio, `luis-csharp-bot-johnsmith`|
     |Modello del bot|Impostazioni di Bot framework - vedere la tabella seguente|

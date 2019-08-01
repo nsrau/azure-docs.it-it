@@ -1,6 +1,6 @@
 ---
 title: 'Guida introduttiva: Analizzare il contenuto di testo in Python - Content Moderator'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Come analizzare il contenuto del testo alla ricerca di materiale non appropriato di diverso tipo usando Content Moderator SDK per Python
 services: cognitive-services
 author: PatrickFarley
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: bb0e44f83e2101a7b21e7b7ec6fdc75974c6d6d8
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: ceaaa9bdb5f6e5c977e0c1a71af080f22d52a5e7
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333601"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561217"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-python"></a>Avvio rapido: Analizzare il contenuto del testo per individuare materiale non appropriato in Python
 

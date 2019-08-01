@@ -1,21 +1,21 @@
 ---
 title: 'Esercitazione: Usare un rilevatore di logo personalizzato per riconoscere i servizi di Azure - Visione personalizzata'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: In questa esercitazione verrà illustrata un'app di esempio che usa lo strumento Visione personalizzata di Azure in uno scenario di rilevamento di logo. Informazioni su come usare lo strumento Visione personalizzata con altri componenti per realizzare un'applicazione end-to-end.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: b4b10591069b71a4e70769f5bdcd6149768c5007
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b0a5b110951d7b13110fab935d5ca1333f7f8c1e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604012"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564210"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Esercitazione: Riconoscere i logo dei servizi di Azure nelle immagini della fotocamera
 

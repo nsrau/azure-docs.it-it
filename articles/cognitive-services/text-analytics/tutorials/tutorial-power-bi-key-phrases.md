@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 07/24/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: e56926b9a23e0dd649fb85347e521a6dda7863a3
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: dba65e68e7c2204a4d4d7f80a603de607bba7609
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479882"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697353"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Esercitazione: Integrare Power BI con il servizio cognitivo Analisi del testo
 
@@ -36,7 +36,7 @@ In questa esercitazione si apprenderà come:
 - Microsoft Power BI Desktop. [Download gratuito](https://powerbi.microsoft.com/get-started/).
 - Un account Microsoft Azure. [Avviare una versione di valutazione gratuita](https://azure.microsoft.com/free/) o [eseguire l'accesso](https://portal.azure.com/).
 - Un account API Servizi cognitivi con l'API Analisi del testo. Se non se ne ha uno, è possibile [iscriversi](../../cognitive-services-apis-create-account.md) e usare il livello gratuito per 5.000 transazioni al mese (vedere i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)) per completare questa esercitazione.
-- La [chiave di accesso di Analisi del testo](../how-tos/text-analytics-how-to-access-key.md) generata durante l'iscrizione.
+- La [chiave di accesso di Analisi del testo](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) generata durante l'iscrizione.
 - Commenti dei clienti. È possibile usare i [nostri dati di esempio](https://aka.ms/cogsvc/ta) o i propri dati. Questa esercitazione presuppone che si usino i nostri dati di esempio.
 
 ## <a name="load-customer-data"></a>Caricare i dati dei clienti

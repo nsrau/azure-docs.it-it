@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Project Answer Search, Python'
+title: 'Guida introduttiva: Project Answer Search, Python'
 titlesuffix: Azure Cognitive Services
 description: Esempio di Python per iniziare a usare Project Answer Search.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 2eaf07e041998efade1091861144a2dc4d78c56d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c0da596e84ac827b55affd5545c516e7623980f5
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860304"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698056"
 ---
 # <a name="quickstart-project-answer-search-with-python"></a>Guida introduttiva: Project Answer Search con Python
 
@@ -23,7 +23,7 @@ L'esempio in Python seguente crea e invia una richiesta di informazioni su "Rock
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Ottenere una chiave di accesso per la versione di valutazione gratuita di [Lab di Servizi cognitivi](https://aka.ms/answersearchsubscription)
+Ottenere una chiave di accesso per la versione di valutazione gratuita di [Lab di Servizi cognitivi](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 Questo esempio usa Python 3.6.4
 
