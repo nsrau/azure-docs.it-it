@@ -54,6 +54,14 @@
     - name: Informazioni sulle identità gestite
       href: ../hdinsight-managed-identities.md
       maintainContext: true
+    - name: Risolvere problemi
+      items:
+        - name: Non è possibile aggiungere nodi al cluster HDInsight
+          href: ./hdinsight-troubleshoot-unable-add-nodes.md
+        - name: InvalidNetworkSecurityGroupSecurityRules - creazione del cluster non riuscita
+          href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
+        - name: Conversione del certificato dell'entità servizio
+          href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
 - name: Procedure
   items:
     - name: Usare un sandbox Apache Hadoop

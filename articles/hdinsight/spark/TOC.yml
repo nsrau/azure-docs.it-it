@@ -58,6 +58,8 @@
               href: ./apache-spark-troubleshoot-outofmemory-heap.md
             - name: Spazio dell'heap di Java
               href: ./apache-spark-troubleshoot-outofmemory-heap-space.md
+            - name: Non è possibile avviare il server Livy
+              href: ./apache-spark-troubleshoot-outofmemory-native-thread.md
         - name: Processi Apache Spark lenti - contenitore di archiviazione
           href: ./apache-spark-troubleshoot-job-slowness-container.md
         - name: Eccezione IllegalArgumentException
@@ -68,6 +70,8 @@
           href: ./apache-spark-troubleshoot-rpctimeoutexception.md
         - name: Blocco delle richieste multiorigine nell'API
           href: ./apache-spark-troubleshoot-blocking-cross-origin.md
+        - name: Serializzazione di Kryo non riuscita
+          href: ./apache-spark-troubleshoot-sparkexception-kryo-serialization-failed.md
 - name: Procedure
   items:
     - name: Usare l'archiviazione cluster

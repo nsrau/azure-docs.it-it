@@ -175,7 +175,7 @@
           href: sql-database-service-tier-hyperscale-faq.md
     - name: Database singoli
       items:
-        - name: Panoramica del database singolo
+        - name: Documentazione sul database singolo
           href: sql-database-single-index.yml
         - name: Funzionalità del database singolo
           href: sql-database-single-database.md
@@ -215,7 +215,7 @@
           href: sql-database-elastic-pool-manage.md
     - name: Istanze gestite
       items:
-        - name: Panoramica di Istanze gestite
+        - name: Documentazione sull'istanza gestita
           href: sql-database-managed-instance-index.yml
         - name: Funzionalità dell'istanza gestita
           href: sql-database-managed-instance.md
@@ -235,7 +235,7 @@
           href: sql-database-managed-instance-public-endpoint-securely.md
     - name: Piattaforma distribuita come servizio
       items:
-        - name: 'Panoramica della piattaforma distribuita come servizio (PaaS, Platform as a Service)'
+        - name: 'Documentazione sulla piattaforma distribuita come servizio (PaaS, Platform as a Service)'
           href: sql-database-paas.yml
         - name: Continuità aziendale
           href: sql-database-business-continuity.md
@@ -324,7 +324,7 @@
           href: sql-database-feature-restrictions.md
     - name: Scalabilità
       items:
-        - name: Panoramica della scalabilità
+        - name: Documentazione sulla scalabilità
           href: sql-database-scalability-index.yml
         - name: Aumentare/Ridurre le prestazioni
           href: sql-database-scale-resources.md
@@ -354,7 +354,7 @@
           href: sql-database-elastic-transactions-overview.md
     - name: Monitoraggio e ottimizzazione
       items:
-        - name: Panoramica di monitoraggio e ottimizzazione
+        - name: Documentazione su monitoraggio e ottimizzazione
           href: sql-database-monitoring-tuning-index.yml
         - name: Monitoraggio e ottimizzazione delle prestazioni
           href: sql-database-monitor-tune-overview.md
@@ -378,7 +378,7 @@
               href: sql-database-advisor.md
     - name: Funzionalità dei database
       items:
-        - name: Panoramica
+        - name: Documentazione sulle funzionalità del database SQL
           href: sql-database-features-index.yml
         - name: Confronto delle funzionalità SQL
           href: sql-database-features.md
