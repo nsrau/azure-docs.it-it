@@ -4,7 +4,7 @@ description: Gli scenari analitici e i componenti chiave per le macchine virtual
 keywords: apprendimento avanzato, AI, strumenti di data science, macchina virtuale per data science, strumenti per data science, data science per Linux
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.assetid: d4f91270-dbd2-4290-ab2b-b7bfad0b2703
 ms.service: machine-learning
@@ -12,15 +12,15 @@ ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 03/16/2018
-ms.author: gokuma
-ms.openlocfilehash: 879f5939f110fb841ad160bf09f597edcdd86d31
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.author: vijetaj
+ms.openlocfilehash: ddf1169d94c3e71b92e8b1835040ab5738bf94b8
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60502197"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68591883"
 ---
 # <a name="introduction-to-the-deep-learning-virtual-machine"></a>Introduzione alla macchina virtuale per l'apprendimento avanzato - Azure
 
@@ -31,7 +31,7 @@ Gli algoritmi di apprendimento avanzato e le reti neurali profonde compaiono sem
 ## <a name="what-is-deep-learning-virtual-machine"></a>Cos'è la macchina virtuale per l'apprendimento avanzato? 
 La macchina virtuale per l'apprendimento avanzato è una variante configurata in modo particolare della [macchina virtuale per data science](overview.md) (DSVM) che semplifica l'utilizzo delle istanze di VM basate su GPU per l'addestramento dei modelli di apprendimento avanzato. È supportata in Windows 2016 e nella macchina virtuale per data science Ubuntu.  Condivide le stesse immagini di VM di base (e pertanto tutto il ricco set di strumenti) della DSVM ma è configurata in modo da semplificare l'apprendimento avanzato. Sono forniti anche esempi end-to-end per la comprensione di immagini e testo, che sono ampiamente applicabili a molti scenari AI reali. La macchina virtuale per l'apprendimento avanzato tenta inoltre di facilitare l'individuazione della vasta gamma di strumenti ed esempi della DSVM presentando un catalogo degli strumenti ed esempi nella macchina virtuale. In termini di strumenti, la macchina virtuale per l'apprendimento avanzato fornisce numerosi framework di apprendimento diffusi, strumenti per acquisire e pre-elaborare immagini e dati di testo. Per un elenco completo degli strumenti, vedere la [pagina della panoramica relativa alla macchina virtuale per data science](overview.md#whats-included-in-the-data-science-vm). 
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 Per iniziare con la macchina virtuale per l'apprendimento avanzato, eseguire i passaggi seguenti:
 

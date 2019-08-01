@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 370771d44e2fbbf0fca7af453f7425ebc1b1bdcd
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 99d17b354e267d003e23e507ca190b951e3ed4a0
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612606"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608087"
 ---
 # <a name="what-is-conditional-access"></a>Informazioni sull'accesso condizionale
 
@@ -73,7 +73,7 @@ Con un approccio basato su criteri per la protezione dell'accesso alle app cloud
 
 ## <a name="azure-ad-conditional-access-and-federated-authentication"></a>Autenticazione federata e accesso condizionale di Azure AD
 
-I criteri di accesso condizionale interagiscono senza problemi con l'[autenticazione federata](../../security/azure-ad-choose-authn.md#federated-authentication). Tale interazione include tutti i controlli e le condizioni supportati e la visibilità del modo in cui i criteri vengono applicati agli accessi utente attivi con i [report di Azure AD](../reports-monitoring/concept-sign-ins.md).
+I criteri di accesso condizionale interagiscono senza problemi con l'[autenticazione federata](../../security/fundamentals/choose-ad-authn.md#federated-authentication). Tale interazione include tutti i controlli e le condizioni supportati e la visibilità del modo in cui i criteri vengono applicati agli accessi utente attivi con i [report di Azure AD](../reports-monitoring/concept-sign-ins.md).
 
 Con l'*autenticazione federata con Azure AD*, l'autenticazione degli utenti ad Azure AD viene gestita da un servizio di autenticazione attendibile, come ad esempio Active Directory Federation Services (AD FS) o qualsiasi altro servizio federativo. In questa configurazione, l'autenticazione utente primaria viene eseguita nel servizio, quindi viene usato Azure AD per l'accesso alle singole applicazioni. L'accesso condizionale di Azure AD viene applicato prima della concessione dell'accesso all'applicazione a cui l'utente tenta di accedere. 
 

@@ -5,7 +5,7 @@ description: La Data Science Virtual Machine con intelligenza artificiale geogra
 keywords: apprendimento avanzato, AI, strumenti di data science, macchina virtuale per data science, analisi geospaziale
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -14,15 +14,15 @@ ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 03/05/2018
-ms.author: gokuma
-ms.openlocfilehash: 6588690629d2e266469a4b8ea533c5650f3fc0ea
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.author: vijetaj
+ms.openlocfilehash: 2f9572e58ec53d53025a02e42818488a838732d0
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60502184"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68591962"
 ---
 # <a name="introduction-to-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Introduzione alla macchina virtuale di data science con intelligenza artificiale geografica
 

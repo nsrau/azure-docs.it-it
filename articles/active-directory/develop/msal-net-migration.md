@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9be13ac22e6eda32668d635032ebcccf417b6c7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 3ea45056b0112769105ddd997ce1abc79f59679f
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785210"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663352"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrazione di applicazioni a MSAL.NET
 
@@ -55,7 +55,7 @@ In MSAL.NET è anche possibile accedere alle risorse v1.0. Per informazioni dett
 
 - ADAL.NET usa [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD) come rappresentazione della connessione al Servizio token di sicurezza (STS) o al server di autorizzazione, tramite un'autorità. Al contrario, MSAL.NET è basato sulle [applicazioni client](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications). Fornisce due classi distinte: `PublicClientApplication` e `ConfidentialClientApplication`
 
-- Acquisizione dei token: ADAL.NET e MSAL.NET hanno le stesse chiamate di autenticazione (`AcquireTokenAsync` e `AcquireTokenSilentAsync` per ADAL.NET e `AqquireTokenInteractive` e `AcquireTokenSilent` in MSAL.NET), ma con diversi parametri richiesti. Una differenza è il fatto che, in MSAL.NET, è non è più necessario passare il `ClientID` dell'applicazione in ogni chiamata AcquireTokenXX. Di fatto, `ClientID` viene impostato una sola volta durante la creazione di `IPublicClientApplication` o `IConfidentialClientApplication`.
+- Acquisizione dei token: ADAL.NET e MSAL.NET hanno le stesse chiamate di autenticazione (`AcquireTokenAsync` e `AcquireTokenSilentAsync` per ADAL.NET e `AcquireTokenInteractive` e `AcquireTokenSilent` in MSAL.NET), ma con diversi parametri richiesti. Una differenza è il fatto che, in MSAL.NET, è non è più necessario passare il `ClientID` dell'applicazione in ogni chiamata AcquireTokenXX. Di fatto, `ClientID` viene impostato una sola volta durante la creazione di `IPublicClientApplication` o `IConfidentialClientApplication`.
 
 ### <a name="iaccount-not-iuser"></a>IAccount invece di IUser
 
@@ -139,7 +139,7 @@ MSAL.NET rende la cache dei token una classe sealed, eliminando la possibilità 
 
 ## <a name="signification-of-the-common-authority"></a>Significato dell'autorità comune
 
-Nella versione 1.0, se si usa l'autorità https://login.microsoftonline.com/common, si consente agli utenti di accedere con qualsiasi account AAD (per qualsiasi organizzazione). Vedere [Convalida dell'autorità in ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD#authority-validation)
+Nella versione 1.0, se si usa l'autorità https://login.microsoftonline.com/common , si consente agli utenti di accedere con qualsiasi account AAD (per qualsiasi organizzazione). Vedere [Convalida dell'autorità in ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD#authority-validation)
 
 Se si usa l'autorità https://login.microsoftonline.com/common nella versione 2.0, si consentirà agli utenti di accedere con qualsiasi organizzazione AAD o account Microsoft personale. In MSAL.NET, se si vuole limitare l'accesso a qualsiasi account AAD (stesso comportamento di ADAL.NET), è necessario usare https://login.microsoftonline.com/organizations. Per informazioni dettagliate, vedere il parametro `authority` nell'[applicazione client pubblica](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications#publicclientapplication).
 
@@ -161,7 +161,7 @@ Le autorizzazioni OAuth2 sono ambiti di autorizzazione che l'applicazione dell'A
 
 ### <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Ambiti per richiedere l'accesso a specifiche autorizzazioni OAuth2 di un'applicazione v1.0
 
-Se si vuole acquisire i token per gli ambiti specifici di un'applicazione v1.0 (ad esempio, Graph di AAD, ovvero https://graph.windows.net)), è necessario creare `scopes` concatenando un identificatore di risorsa con un'autorizzazione OAuth2 per tale risorsa.
+Se si vuole acquisire i token per gli ambiti specifici di un'applicazione v1.0 (ad esempio, Graph di AAD, ovvero https://graph.windows.net) ), è necessario creare `scopes` concatenando un identificatore di risorsa con un'autorizzazione OAuth2 per tale risorsa.
 
 Ad esempio, per accedere al nome dell'utente in un'API Web v1.0 il cui URI dell'ID App è `ResourceId`, è possibile usare:
 
@@ -169,7 +169,7 @@ Ad esempio, per accedere al nome dell'utente in un'API Web v1.0 il cui URI dell'
 var scopes = new [] {  ResourceId+"/user_impersonation"};
 ```
 
-Per eseguire operazioni di lettura e scrittura con Azure Active Directory in MSAL.NET tramite l'API Graph di AAD (https://graph.windows.net/), è possibile creare un elenco di ambiti come nel frammento di codice seguente:
+Per eseguire operazioni di lettura e scrittura con Azure Active Directory in MSAL.NET tramite l'API Graph di AAD (https://graph.windows.net/) , è possibile creare un elenco di ambiti come nel frammento di codice seguente:
 
 ```csharp
 ResourceId = "https://graph.windows.net/";
@@ -178,7 +178,7 @@ var scopes = new [] { ResourceId + “Directory.Read”, ResourceID + “Directo
 
 #### <a name="warning-should-you-have-one-or-two-slashes-in-the-scope-corresponding-to-a-v10-web-api"></a>Avviso: devono essere presenti una o due barre nell'ambito corrispondente a un'API Web v1.0
 
-Per eseguire operazioni di scrittura nell'ambito corrispondente all'API di Azure Resource Manager (https://management.core.windows.net/), è necessario richiedere l'ambito seguente (si notino le due barre) 
+Per eseguire operazioni di scrittura nell'ambito corrispondente all'API di Azure Resource Manager (https://management.core.windows.net/) , è necessario richiedere l'ambito seguente (si notino le due barre) 
 
 ```csharp
 var scopes = new[] {"https://management.core.windows.net//user_impersonation"};
@@ -192,7 +192,7 @@ Questo perché l'API di Resource Manager prevede una barra nell'attestazione dei
 La logica usata da Azure AD è la seguente:
 - Per l'endpoint ADAL (v1.0) con un token di accesso v1.0 (l'unico possibile), aud=resource
 - Per MSAL (endpoint v2.0) che richiede un token di accesso per una risorsa che accetta i token v2.0, aud=resource.AppId
-- Per MSAL (endpoint v2.0) che richiede un token di accesso per una risorsa che accetta un token di accesso v1.0 (come nel caso precedente), Azure AD analizza i destinatari desiderati dall'ambito richiesto, prendendo tutto ciò che precede l'ultima barra e usandolo come identificatore della risorsa. Di conseguenza, se https:\//database.windows.net prevede un gruppo di destinatari "https://database.windows.net/", è necessario richiedere un ambito di https:\//database.windows.net//.default. Vedere anche il problema n. [747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): se la barra finale dell'URL della risorsa viene omessa, si verifica un errore di autenticazione SQL n. 747
+- Per MSAL (endpoint v2.0) che richiede un token di accesso per una risorsa che accetta un token di accesso v1.0 (come nel caso precedente), Azure AD analizza i destinatari desiderati dall'ambito richiesto, prendendo tutto ciò che precede l'ultima barra e usandolo come identificatore della risorsa. Di conseguenza, se https:\//database.windows.net prevede un gruppo di destinatari "https://database.windows.net/ ", è necessario richiedere un ambito di https:\/ /database.windows.net//.default. Vedere anche il problema n. [747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): se la barra finale dell'URL della risorsa viene omessa, si verifica un errore di autenticazione SQL n. 747
 
 
 ### <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>Ambiti per richiedere l'accesso a tutte le autorizzazioni di un'applicazione v1.0

@@ -5,14 +5,14 @@ ms.subservice: single-database
 ms.topic: include
 ms.date: 06/19/2019
 ms.author: mathoma
-ms.openlocfilehash: ae2dd7d88f07d75115eabd6a0069a981936f1b47
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: dd511375c6b007222185f25610aecbd9931a742b
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444458"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640041"
 ---
-In questo passaggio si creeranno il gruppo di risorse e un database singolo di database SQL di Azure. 
+In questo passaggio si creeranno il gruppo di risorse e un database singolo di database SQL di Azure.
 
 > [!IMPORTANT]
 > Assicurarsi di configurare le regole del firewall in modo da usare l'indirizzo IP pubblico del computer in cui si eseguono i passaggi descritti in questo articolo. 
@@ -20,7 +20,8 @@ In questo passaggio si creeranno il gruppo di risorse e un database singolo di d
 > Per informazioni, vedere [Creare una regola del firewall a livello di database](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) o per determinare l'indirizzo IP usato per la regola del firewall a livello di server per il proprio computer, vedere [Creare una regola del firewall a livello di server](../sql-database-server-level-firewall-rule.md).  
 
 # <a name="azure-portaltabazure-portal"></a>[Portale di Azure](#tab/azure-portal)
-Creare il gruppo di risorse e il database singolo usando il portale di Azure. 
+
+Creare il gruppo di risorse e il database singolo usando il portale di Azure.
 
 1. Selezionare **Crea risorsa** nell'angolo superiore sinistro del portale di Azure.
 2. Selezionare **Database** e quindi **Database SQL** per aprire la pagina **Crea database SQL**.
@@ -47,7 +48,7 @@ Creare il gruppo di risorse e il database singolo usando il portale di Azure.
 
       > [!IMPORTANT]
       > Ricordarsi di prendere nota dell'account di accesso amministratore del server e della password per poter accedere al server e ai database per questa e le altre guide introduttive. Se si dimentica l'account di accesso o la password, è possibile recuperare il nome di accesso o reimpostare la password nella pagina **SQL Server**. Per aprire la pagina **SQL Server**, selezionare il nome del server nella pagina **Panoramica** del database dopo che questo è stato creato.
-        
+
    - **Usare il pool elastico SQL?** : selezionare l'opzione **No**.
    - **Calcolo e archiviazione**: selezionare **Configura database**. 
 
@@ -62,7 +63,7 @@ Creare il gruppo di risorse e il database singolo usando il portale di Azure.
    - Selezionare **Applica**.
 
 5. Selezionare la scheda **Impostazioni aggiuntive**. 
-6. Nella sezione **Origine dati**, in **Usa dati esistenti**, selezionare `Sample`. 
+6. Nella sezione **Origine dati**, in **Usa dati esistenti**, selezionare `Sample`.
 
    ![Impostazioni aggiuntive del database SQL](../media/sql-database-get-started-portal/create-sql-database-additional-settings.png)
 
@@ -78,7 +79,7 @@ Creare il gruppo di risorse e il database singolo usando il portale di Azure.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Creare il gruppo di risorse e il database singolo usando PowerShell. 
+Creare il gruppo di risorse e il database singolo usando PowerShell.
 
    ```powershell-interactive
    # Set variables for your server and database
@@ -89,8 +90,7 @@ Creare il gruppo di risorse e il database singolo usando PowerShell.
    $password = "PWD27!"+(New-Guid).Guid
    $serverName = "mysqlserver-$(Get-Random)"
    $databaseName = "mySampleDatabase"
-   
-   
+
    # The ip address range that you want to allow to access your server 
    # (leaving at 0.0.0.0 will prevent outside-of-azure connections to your DB)
    $startIp = "0.0.0.0"
@@ -100,18 +100,18 @@ Creare il gruppo di risorse e il database singolo usando PowerShell.
    Write-host "Resource group name is" $resourceGroupName 
    Write-host "Password is" $password  
    Write-host "Server name is" $serverName 
-   
+
    # Connect to Azure
    Connect-AzAccount
 
    # Set subscription ID
    Set-AzContext -SubscriptionId $subscriptionId 
-   
+
    # Create a resource group
    Write-host "Creating resource group..."
    $resourceGroup = New-AzResourceGroup -Name $resourceGroupName -Location $location -Tag @{Owner="SQLDB-Samples"}
    $resourceGroup
-   
+
    # Create a server with a system wide unique server name
    Write-host "Creating primary logical server..."
    $server = New-AzSqlServer -ResourceGroupName $resourceGroupName `
@@ -120,14 +120,14 @@ Creare il gruppo di risorse e il database singolo usando PowerShell.
       -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
       -ArgumentList $adminLogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
    $server
-   
+
    # Create a server firewall rule that allows access from the specified IP range
    Write-host "Configuring firewall for primary logical server..."
    $serverFirewallRule = New-AzSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
       -ServerName $serverName `
       -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
    $serverFirewallRule
-   
+
    # Create General Purpose Gen4 database with 1 vCore
    Write-host "Creating a gen5 2 vCore database..."
    $database = New-AzSqlDatabase  -ResourceGroupName $resourceGroupName `
@@ -142,8 +142,8 @@ Creare il gruppo di risorse e il database singolo usando PowerShell.
    ```
 
 # <a name="az-clitabbash"></a>[Interfaccia della riga di comando AZ](#tab/bash)
-Creare il gruppo di risorse e il database singolo usando l'interfaccia della riga di comando AZ. 
 
+Creare il gruppo di risorse e il database singolo usando l'interfaccia della riga di comando AZ.
 
    ```azurecli-interactive
    #!/bin/bash
@@ -158,7 +158,7 @@ Creare il gruppo di risorse e il database singolo usando l'interfaccia della rig
    drLocation=NorthEurope
    drServerName=mysqlsecondary-$RANDOM
    failoverGroupName=failovergrouptutorial-$RANDOM
-   
+
    # The ip address range that you want to allow to access your DB. 
    # Leaving at 0.0.0.0 will prevent outside-of-azure connections to your DB
    startip=0.0.0.0
@@ -169,14 +169,14 @@ Creare il gruppo di risorse e il database singolo usando l'interfaccia della rig
 
    # Set the subscription context for the Azure account
    az account set -s $subscriptionID
-   
+
    # Create a resource group
    echo "Creating resource group..."
    az group create \
       --name $resourceGroupName \
       --location $location \
       --tags Owner[=SQLDB-Samples]
-   
+
    # Create a logical server in the resource group
    echo "Creating primary logical server..."
    az sql server create \
@@ -185,7 +185,7 @@ Creare il gruppo di risorse e il database singolo usando l'interfaccia della rig
       --location $location  \
       --admin-user $adminLogin \
       --admin-password $password
-   
+
    # Configure a firewall rule for the server
    echo "Configuring firewall..."
    az sql server firewall-rule create \
@@ -194,7 +194,7 @@ Creare il gruppo di risorse e il database singolo usando l'interfaccia della rig
       -n AllowYourIp \
       --start-ip-address $startip \
       --end-ip-address $endip
-   
+
    # Create a gen5 1vCore database in the server 
    echo "Creating a gen5 2 vCore database..."
    az sql db create \

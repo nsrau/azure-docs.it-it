@@ -2,23 +2,23 @@
 title: Guida di avvio rapido per la visualizzazione di gruppi e membri - Azure Active Directory | Microsoft Docs
 description: Istruzioni su come cercare e visualizzare i gruppi dell'organizzazione e i membri a essi assegnati.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8eef6f7a363fe7b020a3ef18ae26799d7d5452ed
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bd3719e63b19066d61647b90ccae03ed841f3c6c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881011"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561899"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -50,7 +50,7 @@ Creare un nuovo gruppo denominato _MDM policy - West_. Per altre informazioni su
     
     - **Tipo di appartenenza:** Selezionare **Assegnato**.
 
-3. Selezionare **Create**.
+3. Selezionare **Create** (Crea).
 
 ## <a name="create-a-new-user"></a>Creare un nuovo utente
 Creare un nuovo utente denominato _Alain Charon_. Un utente deve esistere prima di essere aggiunto come membro di un gruppo. Per altre informazioni sulla creazione di un utente, vedere [Come aggiungere o eliminare utenti](add-users-azure-active-directory.md).
