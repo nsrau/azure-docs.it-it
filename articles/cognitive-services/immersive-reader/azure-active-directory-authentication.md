@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: 8af56d0d7c0f320e607421f12effdb9b37d5f78d
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: de6a29e1c4c102aa7d4038185c1635544ba9dfe2
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444615"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688800"
 ---
 # <a name="use-azure-active-directory-azure-ad-authentication-with-the-immersive-reader-service"></a>Usare l'autenticazione Azure Active Directory (Azure AD) con il servizio di lettura immersiva
 
@@ -29,7 +29,7 @@ Nelle sezioni seguenti si userà l'ambiente Azure Cloud Shell o l'interfaccia de
    Select-AzSubscription -SubscriptionName <YOUR_SUBSCRIPTION>
    ```
 
-2. Successivamente, [creare una risorsa Reader immersiva](https://docs.microsoft.com/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) con un sottodominio personalizzato. 
+2. Successivamente, [creare una risorsa Reader immersiva](https://docs.microsoft.com/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) con un sottodominio personalizzato.
 
    >[!NOTE]
    > Il nome del sottodominio viene usato in immersive Reader SDK quando si avvia il Reader con la funzione launchAsync.
@@ -37,7 +37,7 @@ Nelle sezioni seguenti si userà l'ambiente Azure Cloud Shell o l'interfaccia de
    -SkuName può essere F0 (livello gratuito) o S0 (livello standard, anche gratuito durante l'anteprima pubblica). Il livello S0 ha un limite di frequenza delle chiamate superiore e nessuna quota mensile per il numero di chiamate.
 
    -Location può essere uno dei seguenti: `eastus`, `westus`, `australiaeast`, `centralindia`, `japaneast`, `northeurope`,`westeurope`
-   
+
    -CustomSubdomainName deve essere globalmente univoco e non può includere caratteri speciali, ad esempio: ".", "!", ",".
 
 
@@ -63,7 +63,7 @@ Nelle sezioni seguenti si userà l'ambiente Azure Cloud Shell o l'interfaccia de
 
    // Display the Resource info
    $resource
-   ```   
+   ```
 
 ## <a name="assign-a-role-to-a-service-principal"></a>Assegnare un ruolo a un'entità servizio
 
@@ -83,7 +83,7 @@ Ora che si dispone di un sottodominio personalizzato associato alla risorsa, è 
    $aadApp
    ```
 
-   Qui viene acquisito l'oggetto app Azure AD appena creato in una variabile **$aadApp** da usare nel passaggio successivo.   
+   Qui viene acquisito l'oggetto app Azure AD appena creato in una variabile **$aadApp** da usare nel passaggio successivo.
 
 2. Successivamente, è necessario [creare un'entità servizio](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-1.8.0) per l'applicazione Azure ad.
 
@@ -128,11 +128,11 @@ In questo esempio, la password viene usata per autenticare l'entità servizio pe
    ```
 
    >[!NOTE]
-   > L'SDK immersive Reader usa la proprietà AccessToken del token, ad esempio $token. AccessToken. Per informazioni dettagliate, vedere gli [esempi](https://github.com/microsoft/immersive-reader-sdk/tree/master/samples) di codice e di [riferimento](reference.md) dell'SDK.
+   > L'SDK immersive Reader usa la proprietà AccessToken del token, ad esempio $token. AccessToken. Per informazioni dettagliate, vedere gli [esempi](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples) di codice e di [riferimento](reference.md) dell'SDK.
 
 In alternativa, l'entità servizio può essere autenticata con un certificato. Oltre a un'entità servizio, le entità utente sono supportate anche con le autorizzazioni delegate tramite un'altra applicazione Azure AD. In questo caso, anziché le password o i certificati, agli utenti viene richiesto di eseguire l'autenticazione a due fattori durante l'acquisizione dei token.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Accedere all'[esercitazione](./tutorial.md) per scoprire quali altri operazioni è possibile eseguire con Immersive Reader SDK
-* Esplorare [Immersive Reader SDK](https://github.com/Microsoft/immersive-reader-sdk) e le [informazioni di riferimento su Immersive Reader SDK](./reference.md)
+* Esplorare [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) e le [informazioni di riferimento su Immersive Reader SDK](./reference.md)

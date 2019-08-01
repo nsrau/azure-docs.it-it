@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: diberry
-ms.openlocfilehash: bae772e9fcc9f275fcf593cfd5bf9d0506a89f7c
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: d7049c729140591717782b191f970f4295140cb8
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594678"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697934"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Servizi cognitivi e Machine Learning
 
@@ -105,11 +105,11 @@ I dati seguenti categorizzano ogni servizio in base al tipo di dati che consente
 |[QnA Maker](./QnAMaker/Overview/overview.md)||x||
 |[Riconoscimento voce](./speaker-recognition/home.md)||x||
 |[Sintesi vocale (TTS)](speech-service/text-to-speech.md)|x|x||
-|[Riconoscimento vocale vocale (STT)](/speech-service/speech-to-text.md)|x|x||
+|[Riconoscimento vocale vocale (STT)](speech-service/speech-to-text.md)|x|x||
 |[Traduzione vocale](speech-service/speech-translation.md)|x|||
 |[Analisi del testo](./text-analytics/overview.md)|x|||
 |[Traduzione testuale](./translator/translator-info-overview.md)|x|||
-|[Traduzione testuale-convertitore personalizzato]()||x||
+|[Traduzione testuale-convertitore personalizzato](./translator/custom-translator/overview.md)||x||
 
 \* Il Personalizzatore necessita solo dei dati di training raccolti dal servizio (in quanto Funziona in tempo reale) per valutare i criteri e i dati. Il Personalizzatore non necessita di set di impostazioni cronologici di grandi dimensioni per il training iniziale o di batch. 
 

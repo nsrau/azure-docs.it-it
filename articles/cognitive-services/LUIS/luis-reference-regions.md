@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 07/31/2019
 ms.author: diberry
-ms.openlocfilehash: 44742d2a3d545af6c3f141500ed4d41cabd3d548
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 115489621865767ebe35a9adc1a9e53db5a3204c
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563354"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698124"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Creazione e pubblicazione di aree e chiavi associate
 
@@ -38,7 +38,7 @@ Per le aree di creazione sono state [associate aree di failover](https://docs.mi
 <a name="regions-and-azure-resources"></a>
 
 ## <a name="publishing-regions-and-azure-resources"></a>Aree di pubblicazione e risorse di Azure
-L'app è pubblicata in tutte le regioni associate alle risorse LUIS aggiunte nel portale di LUIS. Per un'app creata in [www.Luis.ai][www.luis.ai], ad esempio, se si crea una risorsa Luis o cognitive Service  in westus e la si [aggiunge all'app come risorsa](luis-how-to-azure-subscription.md), l'app viene pubblicata in tale area. 
+L'app è pubblicata in tutte le regioni associate alle risorse LUIS aggiunte nel portale di LUIS. Per un'app creata in [www.Luis.ai][www.luis.ai], ad esempio, se si crea una risorsa Luis o cognitive Service in westus e la si [aggiunge all'app come risorsa](luis-how-to-azure-subscription.md), l'app viene pubblicata in tale area. 
 
 ## <a name="public-apps"></a>App pubbliche
 Un'app pubblica viene pubblicata in tutte le regioni in modo che un utente con una chiave di risorsa LUIS basata su regione possa accedere all'app in qualsiasi regione associata la propria chiave di risorsa.
@@ -82,6 +82,7 @@ Per eseguire la pubblicazione in altre aree, è possibile creare app [https://ww
 
  Regione globale | Regione di API di creazione e sito Web di creazione| Regione di pubblicazione e query<br>`API region name`   |  Formato URL endpoint   |
 |-----|------|------|------|
+| Africa | `westus`<br>[www.luis.ai][www.luis.ai]| Sudafrica settentrionale<br>`southafricanorth` |  https://southafricanorth.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 | Asia | `westus`<br>[www.luis.ai][www.luis.ai]| India centrale<br>`centralindia` |  https://centralindia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 | Asia | `westus`<br>[www.luis.ai][www.luis.ai]| Asia orientale<br>`eastasia`     |  https://eastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 | Asia | `westus`<br>[www.luis.ai][www.luis.ai]| Giappone orientale<br>`japaneast`     |   https://japaneast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
