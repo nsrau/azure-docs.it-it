@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 0778814d4a228afe3a986426684c7d1f2080b517
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 14a360e7dc672266e8445a5ae5eb2168ae766af8
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553229"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741871"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installare ed eseguire i contenitori dei servizi vocali
 
@@ -169,7 +169,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), seguire questa procedura per usare il contenitore.
 
-1. [Eseguire il contenitore](#run-the-container-with-docker-run), con le impostazioni di fatturazione necessarie, ma non usate. Sono disponibili altri [esempi](speech-container-configuration.md#example-docker-run-commands) del comando `docker run`.
+1. [Eseguire il contenitore](#run-the-container-with-docker-run), con le impostazioni di fatturazione necessarie. Sono disponibili altri [esempi](speech-container-configuration.md#example-docker-run-commands) del comando `docker run`.
 1. [Eseguire le query sull'endpoint di stima del contenitore](#query-the-containers-prediction-endpoint).
 
 ## <a name="run-the-container-with-docker-run"></a>Eseguire il contenitore con `docker run`
@@ -178,7 +178,7 @@ Usare il comando [docker run](https://docs.docker.com/engine/reference/commandli
 
 **Durante l'anteprima**, le impostazioni di fatturazione devono essere valide per avviare il contenitore, ma non viene addebitato l'utilizzo.
 
-| Segnaposto | Value |
+| Segnaposto | Valore |
 |-------------|-------|
 |{API_KEY} | Questa chiave viene usata per avviare il contenitore ed è disponibile nella pagina relativa alle chiavi vocali del portale di Azure.  |
 |{ENDPOINT_URI} | Il valore dell'URI dell'endpoint di fatturazione è disponibile nella pagina di panoramica del discorso del portale di Azure.|

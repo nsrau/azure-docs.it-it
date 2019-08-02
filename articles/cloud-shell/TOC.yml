@@ -7,9 +7,7 @@
     - name: PowerShell - Guida introduttiva
       href: quickstart-powershell.md
 - name: Strumenti e funzionalità
-  items:
-    - name: Strumenti e funzionalità
-      href: features.md
+  href: features.md
 - name: Esercitazioni
   items:
     - name: Ansible

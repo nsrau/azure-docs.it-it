@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: d03abee7c7a4adb65e1d6146501ee5b7d9e1534c
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 3db63be8856b5bd57323ecd0be767d09032404e9
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348672"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741881"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Installare ed eseguire i contenitori Riconoscimento modulo
 
@@ -97,14 +97,14 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-form-recogn
 
 Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), seguire questa procedura per usarlo.
 
-1. [Eseguire il contenitore](#run-the-container-by-using-the-docker-run-command), con le impostazioni di fatturazione necessarie, ma non usate. Sono disponibili altri [esempi](form-recognizer-container-configuration.md#example-docker-run-commands) del comando `docker run`.
+1. [Eseguire il contenitore](#run-the-container-by-using-the-docker-run-command), con le impostazioni di fatturazione necessarie. Sono disponibili altri [esempi](form-recognizer-container-configuration.md#example-docker-run-commands) del comando `docker run`.
 1. [Eseguire le query sull'endpoint di stima del contenitore](#query-the-containers-prediction-endpoint).
 
 ## <a name="run-the-container-by-using-the-docker-run-command"></a>Eseguire il contenitore con il comando docker run
 
 Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire uno qualsiasi dei tre contenitori. Il comando usa i parametri seguenti:
 
-| Placeholder | Valore |
+| Segnaposto | Value |
 |-------------|-------|
 |{FORM_RECOGNIZER_API_KEY} | Questa chiave viene usata per avviare il contenitore. È disponibile nella pagina **Form Recognizer Keys** (Chiavi di Riconoscimento modulo) del portale di Azure.  |
 |{FORM_RECOGNIZER_ENDPOINT_URI} | Il valore dell'URI dell'endpoint di fatturazione è disponibile nella pagina **Form Recognizer Overview** (Panoramica di Riconoscimento modulo) del portale di Azure.|
