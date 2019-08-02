@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 0e7405e48307091ff5df12096d49a00c011e2de3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d0fd26da81c4f59f16b5f0364cf165ec36a6ea39
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480441"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516340"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambienti di calcolo supportati da Azure Data Factory
 Questo articolo spiega i diversi ambienti di calcolo che è possibile utilizzare per elaborare o una trasformare dati. Fornisce inoltre informazioni dettagliate sulle diverse configurazioni (on-demand e bring your own) supportate da Data Factory durante la configurazione di servizi collegati che collegano questi ambienti a una data factory di Azure.
@@ -291,7 +291,7 @@ Questo tipo di configurazione è supportato per gli ambienti di calcolo seguenti
 | username          | Specifica il nome dell'utente da utilizzare per connettersi a un cluster HDInsight esistente. | Sì      |
 | password          | Specifica la password per l'account utente.                       | Sì      |
 | linkedServiceName | Nome del servizio collegato all'archiviazione di Azure che fa riferimento all'archiviazione BLOB di Azure usata dal cluster HDInsight. <p>Attualmente non è possibile specificare un servizio collegato di Azure Data Lake Store per questa proprietà. Se il cluster HDInsight dispone di accesso a Data Lake Store, è possibile accedere ai dati in Azure Data Lake Store da script Hive/Pig. </p> | Sì      |
-| isEspEnabled      | Specificare "*true*" se il cluster HDInsight è abilitato per [Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction). L'impostazione predefinita è "*false*". | No       |
+| isEspEnabled      | Specificare "*true*" se il cluster HDInsight è abilitato per [Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-architecture). L'impostazione predefinita è "*false*". | No       |
 | connectVia        | Il runtime di integrazione da usare per inviare le attività a questo servizio collegato. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted. Se non specificato, viene usato il runtime di integrazione di Azure predefinito. <br />Per un cluster HDInsight abilitato per Enterprise Security Package (ESP), usare un runtime di integrazione self-hosted che comunichi con il cluster oppure distribuirlo all'interno della stessa rete virtuale del cluster HDInsight ESP. | No       |
 
 > [!IMPORTANT]
@@ -311,8 +311,8 @@ Questo tipo di configurazione è supportato per gli ambienti di calcolo seguenti
 Vedere i seguenti argomenti se non si ha familiarità con il servizio di Azure Batch:
 
 * [Nozioni di base di Azure Batch](../batch/batch-technical-overview.md) per una panoramica del servizio Azure Batch.
-* [Nuovo AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) cmdlet per creare un account Azure Batch (o) [portale di Azure](../batch/batch-account-create-portal.md) per creare l'account Azure Batch usando il portale di Azure. Per istruzioni dettagliate sull'utilizzo del cmdlet, consultare [Utilizzo di Azure PowerShell per gestire l'account di Azure Batch](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) .
-* [Nuovo AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet per creare un pool di Batch di Azure.
+* Cmdlet [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) per creare un account di Azure batch (o) [portale di Azure](../batch/batch-account-create-portal.md) per creare l'account Azure batch usando portale di Azure. Per istruzioni dettagliate sull'utilizzo del cmdlet, consultare [Utilizzo di Azure PowerShell per gestire l'account di Azure Batch](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) .
+* Cmdlet [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) per creare un pool di Azure batch.
 
 ### <a name="example"></a>Esempio
 
@@ -494,7 +494,7 @@ Creare un servizio collegato di **Azure Data Lake Analytics** per collegare un s
 | newClusterNumOfWorker| Numero di nodi del ruolo di lavoro che il cluster dovrebbe avere. Un cluster ha un driver Spark e num_ruoli_lavoro executor per un totale di num_ruoli_lavoro + 1 nodi Spark. Una stringa in formato Int32, come "1", significa che numOfWorker ha valore 1 oppure "1:10" indica il ridimensionamento automatico da 1 come valore minimo e 10 come valore massimo.  | No                |
 | newClusterNodeType   | Questo campo codifica, con un solo valore, le risorse disponibili in ognuno dei nodi Spark del cluster. Ad esempio, è possibile effettuare il provisioning e l'ottimizzazione della memoria dei nodi Spark o calcolare i carichi di lavoro intensivi. Questo campo è obbligatorio per i nuovi cluster.                | No               |
 | newClusterSparkConf  | Set di coppia chiave-valore di configurazione Spark facoltative specificate dall'utente. Gli utenti possono anche passare una stringa di opzioni JVM aggiuntive al driver e agli executor rispettivamente tramite spark.driver.extraJavaOptions e spark.executor.extraJavaOptions. | No  |
-| newClusterInitScripts| un set di script di inizializzazione facoltativa definita dall'utente per il nuovo cluster. Che specifica il percorso DBFS gli script di inizializzazione. | No  |
+| newClusterInitScripts| set di script facoltativi di inizializzazione definiti dall'utente per il nuovo cluster. Specifica del percorso DBFS per gli script init. | No  |
 
 
 ## <a name="azure-sql-database-linked-service"></a>Servizio collegato per il database SQL di Azure

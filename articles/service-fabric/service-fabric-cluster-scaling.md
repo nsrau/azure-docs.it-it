@@ -3,9 +3,8 @@ title: Ridimensionamento di un cluster di Azure Service Fabric | Microsoft Docs
 description: Informazioni sul ridimensionamento dei cluster di Azure Service Fabric in orizzontale o in verticale.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
-editor: aljo
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
-ms.author: aljo
-ms.openlocfilehash: cb9cb3998ed8208ff7b19aee8a984e4c057408ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: c4d7027438f19cd16fd87d629364cdf725e91607
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66302253"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599854"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Ridimensionamento di cluster di Azure Service Fabric
 Un cluster di Service Fabric è un set di computer fisici o macchine virtuali connessi in rete, in cui vengono distribuiti e gestiti i microservizi. Un computer o una macchina virtuale che fa parte di un cluster viene detto nodo. I cluster possono contenere migliaia di nodi. Dopo aver creato un cluster di Service Fabric, è possibile scalare il cluster in orizzontale (modificare il numero di nodi) o in verticale (modificare le risorse dei nodi).  È possibile ridimensionare il cluster in qualsiasi momento, anche quando sono in esecuzione carichi di lavoro nel cluster.  Quando si ridimensiona il cluster, vengono automaticamente ridimensionate anche le applicazioni.
@@ -47,7 +46,7 @@ Poiché i tipi di nodi di Service Fabric nel cluster sono costituiti da set di s
 ### <a name="programmatic-scaling"></a>Scalabilità a livello di codice
 In molti scenari, le opzioni di [ridimensionamento di un cluster in modo manuale o mediante regole di scalabilità automatica](service-fabric-cluster-scale-up-down.md) rappresentano soluzioni valide. In scenari più avanzati, tuttavia, potrebbero non essere la scelta adatta. Alcuni potenziali svantaggi di questi approcci sono:
 
-- Scalabilità manuale richiede accedere e richiedere in modo esplicito le operazioni di scalabilità. Questo approccio potrebbe non essere una soluzione valida se le operazioni di scalabilità vengono richieste di frequente oppure in momenti imprevisti.
+- Per la scalabilità manuale è necessario eseguire l'accesso e richiedere in modo esplicito le operazioni di ridimensionamento. Questo approccio potrebbe non essere una soluzione valida se le operazioni di scalabilità vengono richieste di frequente oppure in momenti imprevisti.
 - Quando le regole di scalabilità automatica rimuovono un'istanza da un set di scalabilità di macchine virtuali, non rimuovono automaticamente le informazioni di questo nodo dal cluster Service Fabric associato, a meno che il tipo di nodo non disponga di un livello di durabilità Silver o Gold. Poiché funzionano a livello di set di scalabilità anziché a livello di Service Fabric, le regole di scalabilità automatica possono rimuovere i nodi Service Fabric senza arrestarli in modo normale. Questo tipo di rimozione dei nodi lascerà il nodo Service Fabric nello stato "ghost" dopo le operazioni di riduzione delle istanze. Un utente o un servizio dovrà pulire periodicamente lo stato del nodo rimosso nel cluster Service Fabric.
 - Un tipo di nodo con un livello di durabilità Gold o Silver esegue automaticamente la pulizia dei nodi rimossi. Non è necessaria una pulizia aggiuntiva.
 - Anche se le regole di scalabilità automatica supportano [molte metriche](../azure-monitor/platform/autoscale-common-metrics.md), si tratta comunque di un set limitato. Se lo scenario richiede la scalabilità basata su alcune metriche non incluse in questo set, le regole di scalabilità automatica potrebbero non essere una soluzione valida.
@@ -81,7 +80,7 @@ Quando si ridimensiona un cluster di Azure, tenere presenti le linee guida segue
 Il processo di ridimensionamento verticale di un tipo di nodo varia a seconda del fatto che si tratti di un tipo di nodo primario o non primario.
 
 ### <a name="scaling-non-primary-node-types"></a>Ridimensionamento di tipi di nodo non primari
-Creare un nuovo tipo di nodo con le risorse necessarie.  Aggiornare i vincoli di posizionamento dei servizi in esecuzione in modo da includere il nuovo tipo di nodo.  Gradualmente (una alla volta), ridurre a zero il numero di istanze del tipo di nodo precedente, in modo che l'affidabilità del cluster rimanga invariata.  Servizi verranno gradualmente la migrazione nel nuovo tipo di nodo come il tipo di nodo precedente è state rimosse.
+Creare un nuovo tipo di nodo con le risorse necessarie.  Aggiornare i vincoli di posizionamento dei servizi in esecuzione in modo da includere il nuovo tipo di nodo.  Gradualmente (una alla volta), ridurre a zero il numero di istanze del tipo di nodo precedente, in modo che l'affidabilità del cluster rimanga invariata.  I servizi eseguiranno gradualmente la migrazione al nuovo tipo di nodo Man mano che il vecchio tipo di nodo viene ritirato.
 
 ### <a name="scaling-the-primary-node-type"></a>Ridimensionamento del tipo di nodo primario
 È consigliabile non modificare lo SKU VM del tipo di nodo primario. Se è necessario aumentare la capacità del cluster, è consigliabile aggiungere più istanze. 

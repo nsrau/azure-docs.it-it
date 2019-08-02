@@ -1,5 +1,5 @@
 ---
-title: Integrazione di writeback delle password con Azure AD SSPR - Azure Active Directory locale
+title: Integrazione del writeback delle password locale con Azure AD SSPR-Azure Active Directory
 description: Writeback delle password del cloud nell'infrastruttura AD locale
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dbf27301e738978e7f03d2423a4d23fd63c97b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 07069d22d57540c6a16472bc7278821e14f1f18e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113505"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561281"
 ---
 # <a name="what-is-password-writeback"></a>Che cos'è il writeback delle password?
 
@@ -43,7 +43,7 @@ Il writeback delle password offre:
 * **Non richiede regole del firewall in entrata**: il writeback delle password usa un bus di servizio di Azure come canale di comunicazione sottostante. Tutte le comunicazioni sono in uscita tramite la porta 443.
 
 > [!NOTE]
-> Gli account utente presenti all'interno di gruppi protetti in Active Directory locale non possono essere usati con il writeback delle password. Gli account amministratore presenti all'interno di gruppi protetti nell'istanza locale di AD possono essere usati con il writeback delle password. Per altre informazioni sui gruppi protetti, vedere l'articolo relativo ad [account e gruppi protetti in Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
+> Gli account amministratore presenti all'interno di gruppi protetti nell'istanza locale di AD possono essere usati con il writeback delle password. Gli amministratori possono modificare la propria password nel cloud, ma non possono usare la reimpostazione della password per reimpostare una password dimenticata. Per altre informazioni sui gruppi protetti, vedere l'articolo relativo ad [account e gruppi protetti in Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory).
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Requisiti di licenza per il writeback delle password
 
@@ -51,7 +51,7 @@ Il writeback delle password offre:
 
 Per usare il writeback delle password, è necessario disporre una delle licenze seguenti assegnate nel tenant:
 
-* Azure AD Premium P1
+* Azure AD P1 Premium
 * Azure AD P2 Premium
 * Enterprise Mobility + Security E3 o A3
 * Enterprise Mobility + Security E5 o A5
@@ -161,10 +161,10 @@ Il writeback delle password *non* viene eseguito nelle situazioni seguenti:
    * Qualsiasi reimpostazione, da parte dell'utente finale, della propria password tramite PowerShell versione 1, versione 2 o l'API Graph di Azure AD
 * **Operazioni degli amministratori non supportate**
    * Qualsiasi reimpostazione della password dell'utente finale avviata dall'amministratore da PowerShell versione 1, versione 2 o dall'API Graph di Azure AD
-   * Qualsiasi password dell'utente finale avviata dall'amministratore di reimpostare la password dal [interfaccia di amministrazione di Microsoft 365](https://admin.microsoft.com)
+   * Qualsiasi reimpostazione della password dell'utente finale avviata dall'amministratore dall'interfaccia di [amministrazione di Microsoft 365](https://admin.microsoft.com)
 
 > [!WARNING]
-> Utilizzo della casella di controllo "Cambiamento obbligatorio password all'accesso successivo" in strumenti di amministrazione Active Directory in locale come Active Directory Users e computer o il centro di amministrazione di Active Directory non è supportato. Quando si modifica una password locale non selezionare questa opzione.
+> Uso della casella di controllo "l'utente deve modificare la password all'accesso successivo" in locale Active Directory strumenti di amministrazione come Active Directory utenti e computer oppure il Centro di amministrazione di Active Directory non è supportato. Quando si modifica una password in locale, non selezionare questa opzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.openlocfilehash: 66719d43db277e6c82d89ee17c602309d16140f8
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 89d4dc789da7fc719b61342bbf0683e99c45a72c
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489978"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698255"
 ---
 # <a name="develop-a-secure-web-app"></a>Sviluppare un'app Web sicura
 
@@ -137,7 +137,7 @@ Per fare in modo che l'applicazione sia in esecuzione, è necessario installare 
 - [Git](https://git-scm.com/) nel sistema. Git viene usato per clonare il codice sorgente localmente.
 - [JQ](https://stedolan.github.io/jq/), uno strumento UNIX per l'esecuzione di query su JSON in modo semplice e intuitivo.
 
-Per distribuire le risorse dell'app di esempio, è necessaria una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile [creare un account gratuito](https://azure.microsoft.com/en-us/free/) per testare l'app di esempio.
+Per distribuire le risorse dell'app di esempio, è necessaria una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile [creare un account gratuito](https://azure.microsoft.com/free/) per testare l'app di esempio.
 
 Dopo l'installazione di questi strumenti, si è pronti per distribuire l'app in Azure.
 
@@ -353,7 +353,7 @@ Per altre informazioni su come configurare la verifica di SSL e dell'autorità d
 Un certificato radice è incluso nel contenitore. I passaggi necessari per ottenere il certificato sono:
 
 1. Scaricare il file del certificato dall' [autorità di certificazione](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt).
-2. [Scaricare e installare OpenSSL nel computer](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security#download-and-install-openssl-on-your-machine).
+2. [Scaricare e installare OpenSSL nel computer](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security).
 3. Decodificare il file di certificato:
 
    ```powershell

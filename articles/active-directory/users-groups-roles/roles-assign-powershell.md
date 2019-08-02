@@ -1,6 +1,6 @@
 ---
-title: Assegnare e rimuovere l'assegnazione di ruoli di amministratore con Azure PowerShell - Azure Active Directory | Microsoft Docs
-description: Per coloro che spesso gestire assegnazioni di ruolo, è ora possibile gestire i membri di un ruolo di amministratore di Azure AD con Azure PowerShell.
+title: Assegnare e rimuovere l'assegnazione di ruoli di amministratore con Azure PowerShell-Azure Active Directory | Microsoft Docs
+description: Per coloro che gestiscono spesso le assegnazioni di ruolo, è ora possibile gestire i membri di un ruolo amministratore Azure AD con Azure PowerShell.
 services: active-directory
 author: curtand
 manager: mtillman
@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 07/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6877c3e547d625cf58129a546dae798b37a24ae
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: aa4bddf84720265afe361dff665f10ff8184f6f6
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60469095"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706491"
 ---
-# <a name="assign-azure-active-directory-admin-roles-using-powershell"></a>Assegnare ruoli di amministratore di Azure Active Directory usando PowerShell
+# <a name="assign-azure-active-directory-admin-roles-using-powershell"></a>Assegnare i ruoli di amministratore di Azure Active Directory tramite PowerShell
 
-È possibile automatizzare come si assegnano ruoli agli account utente tramite Azure PowerShell. Questo articolo usa il [Azure Active Directory PowerShell versione 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) modulo.
+È possibile automatizzare il modo in cui si assegnano i ruoli agli account utente usando Azure PowerShell. Questo articolo usa il modulo [Azure Active Directory PowerShell versione 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) .
 
 ## <a name="prepare-powershell"></a>Preparare PowerShell
 
@@ -50,11 +50,11 @@ A questo punto è possibile iniziare a usare i cmdlet nel modulo. Per una descri
 
 ## <a name="permissions-required"></a>Autorizzazioni necessarie
 
-Connettersi al tenant di Azure AD con un account di amministratore globale per assegnare o rimuovere i ruoli.
+Connettersi al tenant di Azure AD usando un account di amministratore globale per assegnare o rimuovere i ruoli.
 
 ## <a name="assign-a-single-role"></a>Assegnare un singolo ruolo
 
-Per assegnare un ruolo, è innanzitutto necessario ottenere il nome visualizzato e il nome del ruolo che si desidera assegnare. Quando sono presenti il nome visualizzato dell'account e il nome del ruolo, usare i cmdlet seguenti per assegnare il ruolo all'utente.
+Per assegnare un ruolo, è innanzitutto necessario ottenere il nome visualizzato e il nome del ruolo che si sta assegnando. Quando si dispone del nome visualizzato dell'account e del nome del ruolo, utilizzare i cmdlet seguenti per assegnare il ruolo all'utente.
 
 ``` PowerShell
 # Fetch user to assign to role
@@ -103,7 +103,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADServicePrin
 
 ## <a name="multiple-role-assignments"></a>Più assegnazioni di ruolo
 
-Esempi di assegnazione e la rimozione di più ruoli contemporaneamente.
+Esempi di assegnazione e rimozione di più ruoli contemporaneamente.
 
 ```powershell
 #File name
@@ -141,7 +141,7 @@ for ($i=2; $i -le $count; $i++)
 
 ## <a name="remove-a-role-assignment"></a>Rimuovere un'assegnazione di ruolo
 
-Questo esempio rimuove un'assegnazione di ruolo per l'utente specificato.
+In questo esempio viene rimossa un'assegnazione di ruolo per l'utente specificato.
 
 ```powershell
 # Fetch user to assign to role
@@ -149,16 +149,16 @@ $roleMember = Get-AzureADUser -ObjectId "username@contoso.com"
 
 #Fetch list of all directory roles with object id
 Get-AzureADDirectoryRole
- 
+
 # Fetch a directory role by id
 $role = Get-AzureADDirectoryRole -ObjectId "5b3fe201-fa8b-4144-b6f1-875829ff7543"
- 
+
 # Remove user from role
 Remove-AzureADDirectoryRoleMember -ObjectId $role.ObjectId -MemberId $roleMember.ObjectId 
 
 # Fetch role membership for role to confirm
 Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADUser
- 
+
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

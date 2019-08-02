@@ -10,12 +10,13 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: b679f1da0ada3e61fca79cdb985a43dc445877ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: d960aff109e0eca70cb87463770620093e563f63
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61338453"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706682"
 ---
 # <a name="interpret-method"></a>Metodo Interpret
 
@@ -27,9 +28,9 @@ Per fornire un'esperienza interattiva, è possibile chiamare ripetutamente quest
 
     https://westus.api.cognitive.microsoft.com/academic/v1.0/interpret?
 
-## <a name="request-parameters"></a>Parametri della richiesta
+## <a name="request-parameters"></a>Parametri richiesta
 
-NOME     | Value | Obbligatorio?  | Descrizione
+NOME     | Valore | Obbligatorio?  | Descrizione
 ---------|---------|---------|---------
 **query**    | Stringa di testo | Yes | Query immessa dall'utente.  Se complete è impostato su 1, la query verrà interpretata come un prefisso per la generazione dei suggerimenti di completamento automatico della query.        
 **model**    | Stringa di testo | No  | Nome del modello su cui si vuole eseguire la query.  Attualmente il valore predefinito è *latest*.        
@@ -42,7 +43,7 @@ NOME     | Value | Obbligatorio?  | Descrizione
   
 ## <a name="response-json"></a>Risposta (JSON)
 
-NOME     | Descrizione
+Name     | Descrizione
 ---------|---------
 **query** |Parametro *query* della richiesta.
 **interpretations** |Matrice di 0 o più metodi diversi di confronto dell'input utente rispetto alla grammatica.

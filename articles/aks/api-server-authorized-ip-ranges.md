@@ -1,5 +1,5 @@
 ---
-title: API server autorizzato intervalli di indirizzi IP in Azure Kubernetes Service (AKS)
+title: Intervalli IP autorizzati del server API in Azure Kubernetes Service (AKS)
 description: Informazioni su come proteggere il cluster usando un intervallo di indirizzi IP per l'accesso al server API in Azure Kubernetes Service (AKS)
 services: container-service
 author: mlearned
@@ -8,33 +8,33 @@ ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
 ms.openlocfilehash: 6516bbcb4ea879279812d61d9fe31f1ea4268280
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67616247"
 ---
-# <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Anteprima - proteggere l'accesso al server API usando autorizzato intervalli di indirizzi IP in Azure Kubernetes Service (AKS)
+# <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Anteprima-proteggere l'accesso al server API usando gli intervalli di indirizzi IP autorizzati in Azure Kubernetes Service (AKS)
 
-In Kubernetes, il server API riceve le richieste per eseguire azioni nel cluster, ad esempio per creare risorse oppure aumentare il numero di nodi. Il server API è lo strumento centrale per interagire con e gestire un cluster. Per migliorare la sicurezza del cluster e ridurre al minimo gli attacchi, è possibile che solo il server API deve essere accessibile da un set limitato di intervalli di indirizzi IP.
+In Kubernetes, il server API riceve le richieste per eseguire le azioni nel cluster, ad esempio per creare risorse o ridimensionare il numero di nodi. Il server API è il modo centrale per interagire con e gestire un cluster. Per migliorare la sicurezza del cluster e ridurre al minimo gli attacchi, il server API deve essere accessibile solo da un set limitato di intervalli di indirizzi IP.
 
-Questo articolo illustra come usare gli intervalli di indirizzi IP di server autorizzato di API per limitare le richieste al piano di controllo. Questa funzionalità è attualmente in anteprima.
+Questo articolo illustra come usare gli intervalli di indirizzi IP autorizzati del server API per limitare le richieste di controllo del piano. Questa funzionalità è attualmente in anteprima.
 
 > [!IMPORTANT]
-> Funzionalità di anteprima del servizio contenitore di AZURE sono self-service, fornire il consenso esplicito. Vengono fornite per raccogliere commenti e suggerimenti e bug dalla community. In fase di anteprima, queste funzionalità non sono destinate all'uso di produzione. Le funzionalità in anteprima pubblica rientrano nel supporto "best effort". Assistenza dai team di supporto tecnico di AKS è disponibile durante le ore lavorative Pacifico (PST) solo timezone. Per altre informazioni, vedere i seguenti articoli di supporto:
+> Le funzionalità di anteprima di AKS sono self-service e acconsentino esplicitamente. Sono disponibili per raccogliere commenti e suggerimenti e bug dalla community. In anteprima, queste funzionalità non sono destinate all'uso in produzione. Le funzionalità nella versione di anteprima pubblica rientrano nel supporto "Best Effort". L'assistenza dei team di supporto tecnico AKS è disponibile solo durante l'orario di ufficio Pacific TimeZone (PST). Per ulteriori informazioni, consultare gli articoli di supporto seguenti:
 >
-> * [Criteri di supporto servizio contenitore di AZURE][aks-support-policies]
+> * [Criteri di supporto AKS][aks-support-policies]
 > * [Domande frequenti relative al supporto tecnico Azure][aks-faq]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Server dell'API funzionano solo per i nuovi cluster servizio contenitore di AZURE che creano gli intervalli IP autorizzati. Questo articolo illustra come creare un cluster AKS usando il comando di Azure.
+Gli intervalli IP autorizzati del server API funzionano solo per i nuovi cluster AKS creati dall'utente. Questo articolo illustra come creare un cluster AKS usando l'interfaccia della riga di comando di Azure.
 
-È necessario la CLI di Azure versione 2.0.61 o versione successiva installato e configurato. Eseguire  `az --version` per trovare la versione. Se è necessario installare o eseguire l'aggiornamento, vedere [installare CLI Azure][install-azure-cli].
+È necessaria l'interfaccia della riga di comando di Azure versione 2.0.61 o successiva installata e configurata. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [installare l'interfaccia][install-azure-cli]della riga di comando di Azure.
 
 ### <a name="install-aks-preview-cli-extension"></a>Installare l'estensione dell'interfaccia della riga comando di aks-preview
 
-Per configurare gli intervalli IP di server autorizzato, API, sono necessari i *aks-preview* CLI versione dell'estensione 0.4.1 o versione successiva. Installare il *aks-preview* estensione di comando di Azure usando la [Aggiungi estensione az][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] comando:
+Per configurare gli intervalli IP autorizzati del server API, è necessaria la versione dell'estensione dell'interfaccia della riga di comando *AKS-Preview* 0.4.1 o successiva. Installare l'estensione dell'interfaccia della riga di comando di Azure *AKS-Preview* usando il comando [AZ Extension Add][az-extension-add] , quindi verificare la disponibilità di eventuali aggiornamenti tramite il comando [AZ Extension Update][az-extension-update] :
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -44,24 +44,24 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-### <a name="register-feature-flag-for-your-subscription"></a>Registrare i flag funzionalità per la sottoscrizione
+### <a name="register-feature-flag-for-your-subscription"></a>Registra flag funzionalità per la sottoscrizione
 
-Per usare l'API server autorizzato intervalli di indirizzi IP, abilitare prima di tutto un flag funzionalità per la sottoscrizione. Per registrare il *APIServerSecurityPreview* flag delle funzionalità, utilizzare il [register funzionalità az][az-feature-register] seguente come mostrato nell'esempio seguente:
+Per usare gli intervalli IP autorizzati del server API, abilitare prima di tutto un flag funzionalità per la sottoscrizione. Per registrare il flag della funzionalità *APIServerSecurityPreview* , usare il comando [AZ feature Register][az-feature-register] , come illustrato nell'esempio seguente:
 
 > [!CAUTION]
-> Quando si registra una funzionalità in una sottoscrizione, attualmente non è possibile annullare la registrazione tale funzionalità. Dopo aver abilitato alcune funzionalità di anteprima, potrebbero essere utilizzati i valori predefiniti per tutti i cluster AKS quindi creati nella sottoscrizione. Non abilitare la funzionalità di anteprima nella sottoscrizione di produzione. Usare una sottoscrizione separata per le funzionalità di anteprima di test e raccogliere commenti e suggerimenti.
+> Quando si registra una funzionalità in una sottoscrizione, attualmente non è possibile annullare la registrazione di tale funzionalità. Dopo aver abilitato alcune funzionalità di anteprima, è possibile usare i valori predefiniti per tutti i cluster AKS, quindi creati nella sottoscrizione. Non abilitare le funzionalità di anteprima nelle sottoscrizioni di produzione. Usare una sottoscrizione separata per testare le funzionalità di anteprima e raccogliere commenti e suggerimenti.
 
 ```azurecli-interactive
 az feature register --name APIServerSecurityPreview --namespace Microsoft.ContainerService
 ```
 
-Sono necessari alcuni minuti per visualizzare lo stato *Registered*. È possibile controllarne lo stato di registrazione usando il [elenco delle funzionalità az][az-feature-list] comando:
+Sono necessari alcuni minuti per visualizzare lo stato *Registered*. È possibile controllare lo stato della registrazione usando il comando [AZ feature list][az-feature-list] :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/APIServerSecurityPreview')].{Name:name,State:properties.state}"
 ```
 
-Quando si è pronti, aggiornare la registrazione dei *containerservice* provider di risorse usando la [register di az provider][az-provider-register] comando:
+Quando si è pronti, aggiornare la registrazione del provider di risorse *Microsoft. servizio contenitore* usando il comando [AZ provider Register][az-provider-register] :
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -69,23 +69,23 @@ az provider register --namespace Microsoft.ContainerService
 
 ## <a name="limitations"></a>Limitazioni
 
-Le limitazioni seguenti si applicano quando si configurano gli intervalli IP di server autorizzato API:
+Quando si configurano gli intervalli IP autorizzati del server API, si applicano le limitazioni seguenti:
 
-* Attualmente, è possibile usare spazi di sviluppo di Azure perché la comunicazione con il server dell'API viene ugualmente bloccata.
+* Attualmente non è possibile usare Azure Dev Spaces perché è bloccata anche la comunicazione con il server API.
 
-## <a name="overview-of-api-server-authorized-ip-ranges"></a>Panoramica dell'API del server autorizzati intervalli di indirizzi IP
+## <a name="overview-of-api-server-authorized-ip-ranges"></a>Panoramica degli intervalli IP autorizzati del server API
 
-Il server API Kubernetes è come vengono esposte le APIs Kubernetes sottostante. Questo componente fornisce l'interazione per gli strumenti di gestione, ad esempio `kubectl` o il dashboard di Kubernetes. Servizio contenitore di AZURE fornisce un master a tenant singolo cluster, con un server API dedicato. Per impostazione predefinita, il server dell'API viene assegnato un indirizzo IP pubblico e si deve controllare l'accesso usando i controlli di accesso basato sui ruoli (RBAC).
+Il server API Kubernetes è il modo in cui vengono esposte le API Kubernetes sottostanti. Questo componente fornisce l'interazione per gli strumenti di gestione, ad esempio `kubectl` o il dashboard di Kubernetes. AKS fornisce un master cluster a tenant singolo con un server API dedicato. Per impostazione predefinita, al server API viene assegnato un indirizzo IP pubblico ed è necessario controllare l'accesso tramite i controlli degli accessi in base al ruolo (RBAC).
 
-Per proteggere l'accesso al piano di controllo servizio contenitore di AZURE in caso contrario, è accessibile pubblicamente / API del server, è possibile abilitare e usare intervalli di indirizzi IP autorizzati. Questi intervalli IP autorizzati consentono solo definito gli intervalli di indirizzi IP comunicare con il server API. Una richiesta effettuata al server API da un indirizzo IP che non fa parte di questi intervalli IP autorizzati viene bloccata. È consigliabile continuare a usare RBAC quindi autorizzare gli utenti e le azioni che richiedono.
+Per proteggere l'accesso al server API o al piano di controllo AKS accessibile pubblicamente, è possibile abilitare e usare gli intervalli di indirizzi IP autorizzati. Questi intervalli IP autorizzati consentono solo gli intervalli di indirizzi IP definiti per la comunicazione con il server API. Una richiesta effettuata al server API da un indirizzo IP che non fa parte di questi intervalli IP autorizzati è bloccata. È necessario continuare a usare il controllo degli accessi in base al ruolo per autorizzare gli utenti e le azioni richieste.
 
-Per altre informazioni sul server di API e altri componenti del cluster, vedere [Kubernetes concetti fondamentali per AKS][concepts-clusters-workloads].
+Per altre informazioni sul server API e altri componenti cluster, vedere [concetti di base di Kubernetes per AKS][concepts-clusters-workloads].
 
 ## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Container
 
-Gli intervalli IP di server autorizzato di API funzionano solo per i nuovi cluster AKS. Come parte del cluster creare operazione non è possibile abilitare gli intervalli IP autorizzati. Se si prova ad abilitare gli intervalli IP autorizzati come parte del cluster creare il processo, i nodi del cluster sono in grado di accedere al server API durante la distribuzione, come l'indirizzo IP in uscita non è definito a quel punto.
+Gli intervalli IP autorizzati del server API funzionano solo per i nuovi cluster AKS. Non è possibile abilitare gli intervalli IP autorizzati come parte dell'operazione di creazione del cluster. Se si prova ad abilitare gli intervalli IP autorizzati come parte del processo di creazione del cluster, i nodi del cluster non sono in grado di accedere al server API durante la distribuzione perché l'indirizzo IP in uscita non è definito in quel momento.
 
-Innanzitutto, creare un cluster usando il [az aks create][az-aks-create] comando. L'esempio seguente crea un cluster a nodo singolo denominato *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup*.
+Per prima cosa, creare un cluster usando il comando [AZ AKS create][az-aks-create] . Nell'esempio seguente viene creato un cluster a nodo singolo denominato *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup*.
 
 ```azurecli-interactive
 # Create an Azure resource group
@@ -104,12 +104,12 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 ## <a name="create-outbound-gateway-for-firewall-rules"></a>Creare un gateway in uscita per le regole del firewall
 
-Per garantire che i nodi in un cluster in modo affidabile possono comunicare con il server dell'API quando si abilita autorizzati gli intervalli IP nella sezione successiva, creare un firewall di Azure per l'uso del gateway in uscita. L'indirizzo IP del firewall di Azure viene quindi aggiunto all'elenco di indirizzi IP del server API autorizzati nella sezione successiva.
+Per assicurarsi che i nodi in un cluster possano comunicare in modo affidabile con il server API quando si abilitano gli intervalli IP autorizzati nella sezione successiva, creare un firewall di Azure da usare come gateway in uscita. L'indirizzo IP del firewall di Azure viene quindi aggiunto all'elenco degli indirizzi IP del server API autorizzati nella sezione successiva.
 
 > [!WARNING]
-> L'uso di Firewall di Azure può comportare costi significativi su un ciclo di fatturazione mensile. La necessità di usare il Firewall di Azure solo non è necessaria in questo periodo di anteprima iniziale. Per altre informazioni e la pianificazione dei costi, vedere [prezzi di Azure Firewall][azure-firewall-costs].
+> L'uso del firewall di Azure può comportare costi significativi in un ciclo di fatturazione mensile. Il requisito di usare il firewall di Azure dovrebbe essere necessario solo in questo periodo di anteprima iniziale. Per altre informazioni e per la pianificazione dei costi, vedere [prezzi di Azure firewall][azure-firewall-costs].
 
-Innanzitutto, ottenere il *MC _* nome gruppo di risorse per il cluster AKS e la rete virtuale. Quindi, creare una subnet mediante il [subnet di az network vnet create][az-network-vnet-subnet-create] comando. L'esempio seguente crea una subnet denominata *AzureFirewallSubnet* con l'intervallo CIDR della *10.200.0.0/16*:
+Per prima cosa, ottenere il nome del gruppo di risorse *MC_* per il cluster AKS e la rete virtuale. Quindi, creare una subnet usando il comando [AZ Network VNET subnet create][az-network-vnet-subnet-create] . Nell'esempio seguente viene creata una subnet denominata *AzureFirewallSubnet* con l'intervallo CIDR di *10.200.0.0/16*:
 
 ```azurecli-interactive
 # Get the name of the MC_ cluster resource group
@@ -131,7 +131,7 @@ az network vnet subnet create \
     --address-prefixes 10.200.0.0/16
 ```
 
-Per creare un Firewall di Azure, installare il *firewall di azure* estensione dell'interfaccia della riga usando la [Aggiungi estensione az][az-extension-add] command. Then, create a firewall using the [az network firewall create][az-network-firewall-create] comando. L'esempio seguente crea un firewall di Azure denominato *myAzureFirewall*:
+Per creare un firewall di Azure, installare l'estensione dell'interfaccia della riga di comando di *Azure-firewall* usando il comando [AZ Extension Add][az-extension-add] . Quindi, creare un firewall usando il comando [AZ Network Firewall create][az-network-firewall-create] . L'esempio seguente crea un firewall di Azure denominato *myAzureFirewall*:
 
 ```azurecli-interactive
 # Install the CLI extension for Azure Firewall
@@ -143,7 +143,7 @@ az network firewall create \
     --name myAzureFirewall
 ```
 
-Un firewall di Azure viene assegnato un indirizzo IP pubblico che attraversa il traffico in uscita. Creare un indirizzo pubblico usando il [az network public-ip create][az-network-public-ip-create] command, then create an IP configuration on the firewall using the [az network firewall ip-config create][az-network-firewall-ip-config-create] che applica l'indirizzo IP pubblico:
+A un firewall di Azure viene assegnato un indirizzo IP pubblico in uscita dal traffico. Creare un indirizzo pubblico usando il comando [AZ Network Public-IP create][az-network-public-ip-create] , quindi creare una configurazione IP nel firewall usando il comando [AZ network firewall IP-config create][az-network-firewall-ip-config-create] che applica l'IP pubblico:
 
 ```azurecli-interactive
 # Create a public IP address for the firewall
@@ -162,7 +162,7 @@ az network firewall ip-config create \
     --public-ip-address myAzureFirewallPublicIP
 ```
 
-Ora creare la regola firewall di Azure network *consentire* tutte le *TCP* traffico utilizzando il [az network firewall network-rule create][az-network-firewall-network-rule-create] comando. L'esempio seguente crea una regola di rete denominata *AllowTCPOutbound* per il traffico con un indirizzo di origine o di destinazione:
+Creare ora la regola di rete del firewall di Azure per *consentire* tutto il traffico *TCP* usando il comando [AZ Network Firewall Network-Rule create][az-network-firewall-network-rule-create] . Nell'esempio seguente viene creata una regola di rete denominata *AllowTCPOutbound* per il traffico con qualsiasi indirizzo di origine o di destinazione:
 
 ```azurecli-interactive
 az network firewall network-rule create \
@@ -178,7 +178,7 @@ az network firewall network-rule create \
     --destination-ports '*'
 ```
 
-Per associare il firewall di Azure con la route di rete, ottenere le informazioni sulla tabella di route esistenti, l'indirizzo IP interno del firewall di Azure e quindi l'indirizzo IP del server API. Questi indirizzi IP vengono specificati nella sezione successiva per controllare la modalità deve essere indirizzato il traffico per le comunicazioni del cluster.
+Per associare il firewall di Azure alla route di rete, ottenere le informazioni sulla tabella di route esistente, l'indirizzo IP interno del firewall di Azure e quindi l'indirizzo IP del server API. Questi indirizzi IP vengono specificati nella sezione successiva per controllare come deve essere indirizzato il traffico per la comunicazione del cluster.
 
 ```azurecli-interactive
 # Get the AKS cluster route table
@@ -196,7 +196,7 @@ FIREWALL_INTERNAL_IP=$(az network firewall show \
 K8S_ENDPOINT_IP=$(kubectl get endpoints -o=jsonpath='{.items[?(@.metadata.name == "kubernetes")].subsets[].addresses[].ip}')
 ```
 
-Infine, creare una route nel esistente AKS rete route nella tabella usando il [route di az network route-table create][az-network-route-table-route-create] comando che consente il traffico all'uso dell'appliance firewall di Azure per la comunicazione tra server API.
+Infine, creare una route nella tabella di route di rete AKS esistente usando il comando [AZ Network Route-Table Route create][az-network-route-table-route-create] che consente al traffico di usare l'appliance del firewall di Azure per la comunicazione del server API.
 
 ```azurecli-interactive
 az network route-table route create \
@@ -210,15 +210,15 @@ az network route-table route create \
 echo "Public IP address for the Azure Firewall instance that should be added to the list of API server authorized addresses is:" $FIREWALL_PUBLIC_IP
 ```
 
-Prendere nota dell'indirizzo IP pubblico dell'appliance Firewall di Azure. Questo indirizzo viene aggiunto all'elenco di intervalli IP server autorizzato API nella sezione successiva.
+Prendere nota dell'indirizzo IP pubblico dell'appliance del firewall di Azure. Questo indirizzo viene aggiunto all'elenco degli intervalli di indirizzi IP autorizzati del server API nella sezione successiva.
 
-## <a name="enable-authorized-ip-ranges"></a>Consentire intervalli di indirizzi IP autorizzati
+## <a name="enable-authorized-ip-ranges"></a>Abilita intervalli IP autorizzati
 
-Per consentire gli intervalli IP di server autorizzato, API, è fornire un elenco di intervalli di indirizzi IP autorizzati. Quando si specifica un intervallo CIDR, iniziare con il primo indirizzo IP compreso nell'intervallo. Ad esempio, *137.117.106.90/29* è un intervallo valido, ma assicurarsi di specificare il primo indirizzo IP dell'intervallo, ad esempio *137.117.106.88/29*.
+Per abilitare gli intervalli IP autorizzati del server API, fornire un elenco di intervalli di indirizzi IP autorizzati. Quando si specifica un intervallo CIDR, iniziare con il primo indirizzo IP compreso nell'intervallo. Ad esempio, *137.117.106.90/29* è un intervallo valido, ma assicurarsi di specificare il primo indirizzo IP nell'intervallo, ad esempio *137.117.106.88/29*.
 
-Usare [aggiornare az aks][az-aks-update] comando e specificare il *- api-server-autorizzato a intervalli di indirizzi ip* consentire o meno. Questi intervalli di indirizzi IP sono in genere gli intervalli di indirizzi usati per le reti locali. Aggiungere l'indirizzo IP pubblico del proprio firewall Azure ottenuto nel passaggio precedente, ad esempio *20.42.25.196/32*.
+Usare il comando [AZ AKS Update][az-aks-update] e specificare *--API-server-Authorized-IP-Ranges* per consentire. Questi intervalli di indirizzi IP sono in genere intervalli di indirizzi usati dalle reti locali. Aggiungere l'indirizzo IP pubblico del firewall di Azure ottenuto nel passaggio precedente, ad esempio *20.42.25.196/32*.
 
-L'esempio seguente Abilita gli intervalli IP di server autorizzato API nei cluster denominato *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup*. Sono gli intervalli di indirizzi IP per autorizzare *20.42.25.196/32* (il firewall di Azure indirizzo IP pubblico), quindi *172.0.0.10/16* e *168.10.0.10/18*:
+L'esempio seguente abilita gli intervalli IP autorizzati del server API nel cluster denominato *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup*. Gli intervalli di indirizzi IP da autorizzare sono *20.42.25.196/32* (l'indirizzo IP pubblico del firewall di Azure), quindi *172.0.0.10/16* e *168.10.0.10/18*:
 
 ```azurecli-interactive
 az aks update \
@@ -227,9 +227,9 @@ az aks update \
     --api-server-authorized-ip-ranges 20.42.25.196/32,172.0.0.10/16,168.10.0.10/18
 ```
 
-## <a name="update-or-disable-authorized-ip-ranges"></a>Aggiornare o disabilitare intervalli di indirizzi IP autorizzati
+## <a name="update-or-disable-authorized-ip-ranges"></a>Aggiornare o disabilitare gli intervalli IP autorizzati
 
-Per aggiornare o disabilitare intervalli di indirizzi IP autorizzati, anche in questo caso usare [az aks aggiornare][az-aks-update] comando. Specificare l'intervallo CIDR aggiornato che si vuole consentire o specificare un intervallo vuoto per disabilitare il server API autorizzato gli intervalli IP, come illustrato nell'esempio seguente:
+Per aggiornare o disabilitare gli intervalli IP autorizzati, usare di nuovo il comando [AZ AKS Update][az-aks-update] . Specificare l'intervallo CIDR aggiornato che si desidera consentire oppure specificare un intervallo vuoto per disabilitare gli intervalli IP autorizzati del server API, come illustrato nell'esempio seguente:
 
 ```azurecli-interactive
 az aks update \
@@ -240,9 +240,9 @@ az aks update \
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato abilitato API intervalli di indirizzi IP server autorizzato. Questo approccio è una parte del modo in cui è possibile eseguire un cluster AKS sicuro.
+In questo articolo sono stati abilitati gli intervalli di indirizzi IP autorizzati del server API. Questo approccio è una parte del modo in cui è possibile eseguire un cluster AKS sicuro.
 
-Per altre informazioni, vedere [concetti relativi alla sicurezza per le applicazioni e i cluster di AKS][concepts-security] and [Best practices for cluster security and upgrades in AKS][operator-best-practices-cluster-security].
+Per altre informazioni, vedere [concetti relativi alla sicurezza per le applicazioni e i cluster in AKS][concepts-security] e [procedure consigliate per la sicurezza e gli aggiornamenti del cluster in AKS][operator-best-practices-cluster-security].
 
 <!-- LINKS - external -->
 [azure-firewall-costs]: https://azure.microsoft.com/pricing/details/azure-firewall/

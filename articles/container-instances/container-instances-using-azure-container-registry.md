@@ -10,10 +10,10 @@ ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 502f178b66e7ba233552d7db4e095363c8bb8628
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68325554"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Eseguire la distribuzione in Istanze di Azure Container da Registro Azure Container
@@ -32,7 +32,7 @@ In qualsiasi scenario di produzione l'accesso a un registro contenitori di Azure
 
 Nella sezione seguente vengono creati un insieme di credenziali delle chiavi e un'entità servizio di Azure e le credenziali dell'entità servizio vengono archiviate nell'insieme. 
 
-### <a name="create-key-vault"></a>Creare un insieme di credenziali delle chiavi
+### <a name="create-key-vault"></a>Crea un insieme di credenziali delle chiavi
 
 Se non si ha già un insieme di credenziali delle chiavi in [Azure Key Vault](../key-vault/key-vault-overview.md), crearne uno usando i comandi seguenti nell'interfaccia della riga di comando di Azure.
 
@@ -50,7 +50,7 @@ az keyvault create -g $RES_GROUP -n $AKV_NAME
 
 A questo punto occorre creare un'entità servizio e archiviarne le credenziali nell'insieme di credenziali delle chiavi.
 
-Il comando seguente usa [AZ ad SP create-for-RBAC][az-ad-sp-create-for-rbac] to create the service principal, and [az keyvault secret set][az-keyvault-secret-set] per archiviare la **password** dell'entità servizio nell'insieme di credenziali.
+Il comando seguente usa [AZ ad SP create-for-RBAC][az-ad-sp-create-for-rbac] per creare l'entità servizio e [AZ Keys Vault Secret impostati][az-keyvault-secret-set] per archiviare la **password** dell'entità servizio nell'insieme di credenziali.
 
 ```azurecli
 # Create service principal, store its password in AKV (the registry *password*)
@@ -94,7 +94,7 @@ Per prima cosa, ottenere il nome del server di accesso del registro di sistema u
 ACR_LOGIN_SERVER=$(az acr show --name $ACR_NAME --resource-group $RES_GROUP --query "loginServer" --output tsv)
 ```
 
-Eseguire il comando [AZ container create][az-container-create] seguente per distribuire un'istanza di contenitore. Il comando usa le credenziali dell'entità servizio archiviate in Azure Key Vault per eseguire l'autenticazione con il registro contenitori e presuppone che sia stato precedentemente eseguito il push dell'immagine [aci-helloworld](container-instances-quickstart.md) nel registro. Aggiornare il valore di `--image` se si vuole usare un'immagine del registro diversa.
+Eseguire il comando [az container create][az-container-create] seguente per distribuire un'istanza di contenitore. Il comando usa le credenziali dell'entità servizio archiviate in Azure Key Vault per eseguire l'autenticazione con il registro contenitori e presuppone che sia stato precedentemente eseguito il push dell'immagine [aci-helloworld](container-instances-quickstart.md) nel registro. Aggiornare il valore di `--image` se si vuole usare un'immagine del registro diversa.
 
 ```azurecli
 az container create \

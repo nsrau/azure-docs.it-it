@@ -1,19 +1,18 @@
 ---
 title: Usare una condivisione file di Azure con Windows | Microsoft Docs
 description: Informazioni su come usare una condivisione file di Azure con Windows e Windows Server.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 02a8b825a513c75ef7c037348ccaecdf5026ded2
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: d2bad808d0bcbbd5dc8052db0f8fd32fc4c1180a
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560485"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699482"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Usare una condivisione file di Azure con Windows
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere usate facilmente in Windows e Windows Server. Questo articolo illustra le considerazioni relative all'uso di una condivisione file di Azure con Windows e Windows Server.
@@ -24,14 +23,14 @@ Per usare una condivisione file di Azure al di fuori dell'area di Azure in cui �
 
 | Versione di Windows        | Versione di SMB | Montabile in una VM di Azure | Montabile in locale |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows Server 2019    | SMB 3.0 | Yes | Yes |
-| Windows 10<sup>1</sup> | SMB 3.0 | Yes | Yes |
-| Canale semestrale di Windows Server<sup>2</sup> | SMB 3.0 | Yes | Yes |
-| Windows Server 2016    | SMB 3.0     | Yes                   | Yes                  |
-| Windows 8.1            | SMB 3.0     | Yes                   | Yes                  |
-| Windows Server 2012 R2 | SMB 3.0     | Yes                   | Yes                  |
-| Windows Server 2012    | SMB 3.0     | Yes                   | Yes                  |
-| Windows 7              | SMB 2.1     | Yes                   | No                   |
+| Windows Server 2019    | SMB 3.0 | Sì | Sì |
+| Windows 10<sup>1</sup> | SMB 3.0 | Yes | Sì |
+| Canale semestrale di Windows Server<sup>2</sup> | SMB 3.0 | Yes | Sì |
+| Windows Server 2016    | SMB 3.0     | Sì                   | Yes                  |
+| Windows 8.1            | SMB 3.0     | Sì                   | Sì                  |
+| Windows Server 2012 R2 | SMB 3.0     | Sì                   | Sì                  |
+| Windows Server 2012    | SMB 3.0     | Sì                   | Yes                  |
+| Windows 7              | SMB 2.1     | Sì                   | No                   |
 | Windows Server 2008 R2 | SMB 2.1     | Yes                   | No                   |
 
 <sup>1</sup>Windows 10 versioni 1507, 1607, 1703, 1709, 1803 e 1809.  
@@ -48,9 +47,9 @@ Per usare una condivisione file di Azure al di fuori dell'area di Azure in cui �
 
 * **Chiave dell'account di archiviazione**: per montare una condivisione file di Azure, sarà necessaria la chiave di archiviazione primaria (o secondaria). Le chiavi di firma di accesso condiviso non sono attualmente supportate per il montaggio.
 
-* **Assicurarsi che la porta 445 sia aperta**: il protocollo SMB richiede che la porta TCP 445 sia aperta. Se la porta 445 è bloccata, le connessioni non riusciranno. È possibile verificare se la porta 445 è bloccata dal firewall con il cmdlet `Test-NetConnection`. Sono disponibili informazioni [vari modi per risolvere il problema bloccata la porta 445 qui](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
+* **Assicurarsi che la porta 445 sia aperta**: il protocollo SMB richiede che la porta TCP 445 sia aperta. Se la porta 445 è bloccata, le connessioni non riusciranno. È possibile verificare se la porta 445 è bloccata dal firewall con il cmdlet `Test-NetConnection`. Qui è possibile ottenere informazioni sui [vari modi per aggirare la porta bloccata 445](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
 
-    Il comando PowerShell seguente si presuppone che il modulo Azure PowerShell installata, vedere [installare Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) per altre informazioni. Ricordarsi di sostituire `<your-storage-account-name>` e `<your-resource-group-name>` con i nomi pertinenti per il proprio account di archiviazione.
+    Il codice di PowerShell seguente presuppone che sia installato il modulo Azure PowerShell. per altre informazioni, vedere [Install Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps) . Ricordarsi di sostituire `<your-storage-account-name>` e `<your-resource-group-name>` con i nomi pertinenti per il proprio account di archiviazione.
 
     ```powershell
     $resourceGroupName = "<your-resource-group-name>"
@@ -240,13 +239,13 @@ La tabella seguente offre informazioni dettagliate sullo stato di SMB 1 in ogni 
 | Windows Server 2016                       | Enabled              | Rimuovere con funzionalità di Windows |
 | Windows 10 versioni 1507, 1607 e 1703 | Enabled              | Rimuovere con funzionalità di Windows |
 | Windows Server 2012 R2                    | Enabled              | Rimuovere con funzionalità di Windows | 
-| Windows 8.1                               | Enabled              | Rimuovere con funzionalità di Windows | 
+| Windows 8.1                               | Enabled              | Rimuovere con funzionalità di Windows | 
 | Windows Server 2012                       | Enabled              | Disabilitare con Registro di sistema       | 
 | Windows Server 2008 R2                    | Enabled              | Disabilitare con Registro di sistema       |
 | Windows 7                                 | Enabled              | Disabilitare con Registro di sistema       | 
 
 ### <a name="auditing-smb-1-usage"></a>Controllo dell'utilizzo di SMB 1
-> Si applica a Windows Server 2019, canale semestrale (versione 1709 e 1803) Windows Server, Windows Server 2016, Windows 10 (versioni 1507, 1607, 1703, 1709 e 1803), Windows Server 2012 R2 e Windows 8.1
+> Si applica a Windows Server 2019, canale semestrale di Windows Server (versioni 1709 e 1803), Windows Server 2016, Windows 10 (versioni 1507, 1607, 1703, 1709 e 1803), Windows Server 2012 R2 e Windows 8.1
 
 Prima di rimuovere SMB 1 nell'ambiente, può essere opportuno controllare l'utilizzo di SMB 1 per verificare se la modifica causerà un'interruzione per eventuali client. Se vengono eseguite richieste per condivisioni SMB con SMB 1, nel log eventi verrà registrato un evento di controllo in `Applications and Services Logs > Microsoft > Windows > SMBServer > Audit`. 
 
@@ -260,7 +259,7 @@ Set-SmbServerConfiguration –AuditSmb1Access $true
 ```
 
 ### <a name="removing-smb-1-from-windows-server"></a>Rimozione di SMB 1 da Windows Server
-> Si applica a Windows Server 2019, Windows Server canale semestrale (versione 1709 e 1803), Windows Server 2016, Windows Server 2012 R2
+> Si applica a Windows Server 2019, canale semestrale di Windows Server (versioni 1709 e 1803), Windows Server 2016, Windows Server 2012 R2
 
 Per rimuovere SMB 1 da un'istanza di Windows Server, eseguire questo cmdlet da una sessione di PowerShell con privilegi elevati:
 

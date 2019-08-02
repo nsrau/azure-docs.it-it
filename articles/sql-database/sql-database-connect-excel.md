@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: joseidz
 ms.author: craigg
 ms.reviewer: ''
-manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: a6e0adc6b4abbb58504b6f56c8def72440ad370d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8711d8f7ebc00b2d0fa51ff9f420293e96766d1c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061393"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569360"
 ---
 # <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Connettere Excel a un database singolo in database SQL di Azure e creare un report
 
@@ -39,7 +38,7 @@ Sarà necessaria anche una copia di Excel. In questa esercitazione viene usato [
    Si apre la Connessione guidata dati.
 3. Nella finestra di dialogo **Connessione al server di database** digitare il **Nome del server** per il database SQL a cui si vuole stabilire la connessione nel formato <*nomeserver*> **.database.windows.net**. Ad esempio, **msftestserver.database.windows.net**. Se si vuole, immettere il nome del database. Scegliere **OK** per aprire la finestra delle credenziali. 
 
-   ![Connettersi alla finestra di dialogo Server di Database](media/sql-database-connect-excel/server-name.png)
+   ![Finestra di dialogo Connetti al server di database](media/sql-database-connect-excel/server-name.png)
 
 4. Nella finestra di dialogo **Database SQL Server** selezionare **Database** sul lato sinistro e quindi immettere il **nome utente** e la **password** per il server di database SQL a cui ci si vuole connettere. Selezionare **Connetti** per aprire lo **Strumento di navigazione**. 
 
@@ -78,7 +77,7 @@ Per salvare i dettagli della connessione in modo permanente, è possibile creare
    1. Selezionare **Sfoglia** per aprire la finestra di dialogo **Seleziona origine dati**.   
    2. Selezionare il file **+NewSqlServerConnection.odc** e quindi scegliere **Apri** per aprire la **Connessione guidata dati**.
 
-      ![Nuova finestra di dialogo di connessione](media/sql-database-connect-excel/new-connection.png)
+      ![Finestra di dialogo nuova connessione](media/sql-database-connect-excel/new-connection.png)
 
 2. In **Connessione guidata dati** digitare il nome del server e le credenziali del database SQL. Selezionare **Avanti**. 
    1. Nell'elenco a discesa selezionare il database che contiene i dati. 

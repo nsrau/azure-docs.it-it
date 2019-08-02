@@ -1,5 +1,5 @@
 ---
-title: Guida alla pubblicazione dell'offerta il modello di soluzione di applicazioni di Azure | Azure Marketplace
+title: Guida alla pubblicazione dell'offerta del modello di soluzione applicazioni Azure | Azure Marketplace
 description: Questo articolo descrive i requisiti per pubblicare un modello di soluzione in Azure Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: ellacroi
@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/15/2018
 ms.author: ellacroi
-ms.openlocfilehash: c2393b6ea9f1a2c2b35be63272743e081f4ae240
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d02d942fce7bd51a116cc4c19eac9faca0060ef
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937757"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561494"
 ---
 # <a name="azure-applications-solution-template-offer-publishing-guide"></a>Applicazioni Azure: Guida alla pubblicazione dell'offerta di modello di soluzione
 
@@ -31,7 +31,7 @@ Questi modelli di soluzione sono offerte di transazioni che vengono distribuite 
 |Fatturazione e misurazione    |  Verrà eseguito il provisioning di risorse nella sottoscrizione di Azure del cliente. Le transazioni delle macchine virtuali con pagamento in base al consumo (PAYGO) verranno effettuate con il cliente tramite Microsoft e fatturate tramite la sottoscrizione di Azure del cliente (PAYGO).  <br/> Nel caso del modello BYOL (Bring Your Own License), mentre Microsoft addebiterà i costi di infrastruttura sostenuti nella sottoscrizione del cliente, le transazioni relative alle tariffe delle licenze software verranno effettuate direttamente con il cliente.   |
 |Disco rigido virtuale (VHD) compatibile con Azure  |   Le macchine virtuali devono essere compilate in Windows o Linux.  Per altre informazioni, [vedere Creare un disco rigido virtuale compatibile con Azure](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md). |
 | Attribuzione dell'utilizzo da parte dei clienti | L'abilitazione dell'attribuzione dell'utilizzo da parte del cliente è necessaria in tutti i modelli di soluzione pubblicati in Azure Marketplace. Per altre informazioni sull'attribuzione dell'utilizzo da parte del cliente e su come abilitarla, vedere [Attribuzione dell'utilizzo da parte del cliente dei partner di Azure](./azure-partner-customer-usage-attribution.md).  |
-|  |  |
+| Usa il servizio Managed Disks | [Managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) è l'opzione predefinita per i dischi salvati in permanenza di macchine virtuali IaaS in Azure. È necessario usare Managed Disks nei modelli di soluzione. <br> <br> 1. Per aggiornare i modelli di soluzione, seguire le [istruzioni](https://docs.microsoft.com/azure/virtual-machines/windows/using-managed-disks-template-deployments) e gli [esempi](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md) per l'uso di Managed disks nei modelli ARM di Azure. <br> <br> 2. Seguire le istruzioni seguenti per importare il VHD sottostante del Managed Disks in un account di archiviazione per pubblicare il disco rigido virtuale come immagine nel Marketplace: <br> <ul> <li> [PowerShell](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd?toc=%2fpowershell%2fmodule%2ftoc.json) </li> <li> [CLI](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-vhd?toc=%2fcli%2fmodule%2ftoc.json) </li> </ul> |
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se non è già stato fatto, [eseguire la registrazione](https://azuremarketplace.microsoft.com/sell) nel marketplace.

@@ -1,19 +1,18 @@
 ---
 title: Pianificazione per la distribuzione dei File di Azure | Microsoft Docs
 description: Informazioni sugli aspetti da considerare quando si pianifica una distribuzione di File di Azure.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6282ce426b08c4ad9c44bead0bd4ec3d259f65fe
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 59a97e8a6e34aba8639c7f12b52e42f2c97b7dca
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501425"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704462"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 
@@ -98,7 +97,7 @@ Attualmente, non è possibile eseguire la conversione diretta tra una condivisio
 > [!IMPORTANT]
 > Le condivisioni file Premium sono disponibili solo con con ridondanza locale e sono disponibili nella maggior parte delle aree che offrono account di archiviazione. Per scoprire se le condivisioni file Premium sono attualmente disponibili nella propria area geografica, vedere la pagina [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=storage) per Azure.
 
-### <a name="provisioned-shares"></a>Condivisioni con provisioning
+#### <a name="provisioned-shares"></a>Condivisioni con provisioning
 
 Il provisioning delle condivisioni file premium viene effettuato in base a un rapporto fisso tra GiB, operazioni di I/O al secondo e velocità effettiva. Per ogni GiB di cui viene effettuato il provisioning, alla condivisione viene assegnata un'operazione di I/O al secondo con 0,1 MiB/s di velocità effettiva fino ai limiti massimi per singola condivisione. Il valore minimo di provisioning consentito è 100 GiB con il minimo di operazioni di I/O al secondo e velocità effettiva.
 
@@ -135,7 +134,7 @@ La tabella seguente illustra alcuni esempi di queste formule per le dimensioni d
 > [!NOTE]
 > Le prestazioni delle condivisioni file sono soggette a limiti di rete del computer, larghezza di banda di rete disponibile, dimensioni i/o, parallelismo, tra molti altri fattori. Per ottenere la massima scalabilità delle prestazioni, suddividere il carico tra più macchine virtuali. Consultare la [Guida alla risoluzione dei](storage-troubleshooting-files-performance.md) problemi relativi a problemi di prestazioni e soluzioni alternative comuni.
 
-### <a name="bursting"></a>Espansione nel
+#### <a name="bursting"></a>Espansione nel
 
 Le condivisioni file Premium possono aumentare il valore di IOPS fino a un fattore pari a tre. L'espansione è automatizzata e funziona in base a un sistema di credito. La funzione di espansione è basata sul massimo sforzo e il limite di espansione non è una garanzia, le condivisioni file possono *aumentare fino al* limite.
 
@@ -206,11 +205,15 @@ Questa sezione si applica solo alle condivisioni file standard. Tutte le condivi
 
 Le condivisioni file standard sono disponibili in tutte le aree fino a 5 TiB. In determinate aree, è disponibile con un limite di 100 TiB, le aree sono elencate nella tabella seguente:
 
-|Region  |Ridondanza supportata  |Supporta gli account di archiviazione esistenti  |
-|---------|---------|---------|
-|Asia sudorientale     |Archiviazione con ridondanza locale|No         |
-|Europa occidentale     |CON RIDONDANZA LOCALE, ZRS|No         |
-|Stati Uniti occidentali 2     |CON RIDONDANZA LOCALE, ZRS|No         |
+|Region |Ridondanza supportata |Supporta gli account di archiviazione esistenti |Supporto del portale *   |
+|-------|---------|---------|---------|
+|Australia orientale  |Archiviazione con ridondanza locale|No         |Sì|
+|Francia centrale  |Archiviazione con ridondanza locale|No         |Non ancora|
+|Asia sudorientale  |Archiviazione con ridondanza locale|No         |Solo con ridondanza locale, ZRS-non ancora|
+|Europa occidentale     |CON RIDONDANZA LOCALE, ZRS|No       |Sì|
+|Stati Uniti occidentali 2       |CON RIDONDANZA LOCALE, ZRS|No         |Yes|
+
+\* Per le aree senza supporto per il portale, è comunque possibile usare PowerShell o l'interfaccia della riga di comando di Azure per creare più di 5 condivisioni TiB. Altenatively creare una nuova condivisione tramite il portale senza specificare la quota. Verrà creata una condivisione con le dimensioni predefinite 100 TiB, che può essere aggiornata in un secondo momento tramite PowerShell o l'interfaccia della riga di comando di Azure.
 
 Per aiutarci a classificare in ordine di priorità nuove aree e funzionalità, compila questo [sondaggio](https://aka.ms/azurefilesatscalesurvey).
 

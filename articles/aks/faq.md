@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: mlearned
 ms.openlocfilehash: 7aff0fe47d1586b63157d5df7882fc338637f714
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68381973"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative al servizio Azure Kubernetes
@@ -25,7 +25,7 @@ Per un elenco completo delle aree disponibili, vedere la pagina relativa alla [d
 
 ## <a name="does-aks-support-node-autoscaling"></a>servizio Azure Kubernetes supporta la scalabilità automatica dei nodi?
 
-Sì, la possibilità di ridimensionare automaticamente i nodi agente orizzontalmente in AKS è attualmente disponibile in anteprima. Vedere [ridimensionare automaticamente un cluster per soddisfare le esigenze dell'applicazione in AKS][aks-cluster-autoscaler] for instructions. AKS autoscaling is based on the [Kubernetes autoscaler][auto-scaler].
+Sì, la possibilità di ridimensionare automaticamente i nodi agente orizzontalmente in AKS è attualmente disponibile in anteprima. Per istruzioni, vedere [ridimensionare automaticamente un cluster per soddisfare le richieste dell'applicazione in AKS][aks-cluster-autoscaler] . La scalabilità automatica AKS si basa su [Kubernetes][auto-scaler]AutoScaler.
 
 ## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>È possibile distribuire servizio Azure Kubernetes nella rete virtuale esistente?
 
@@ -48,7 +48,7 @@ Sì, è possibile usare dimensioni diverse per le macchine virtuali nel cluster 
 Azure applica automaticamente le patch di sicurezza ai nodi Linux del cluster in base a una pianificazione notturna. Tuttavia, l'utente è responsabile di assicurarsi che questi nodi Linux vengano riavviati in modo obbligatorio. Sono disponibili diverse opzioni per il riavvio dei nodi:
 
 - Manualmente tramite il portale di Azure o l'interfaccia della riga di comando di Azure.
-- Aggiornando il cluster servizio Azure Kubernetes. Il cluster aggiorna i automatically and then bring a new node online with the latest Ubuntu image and a new patch version or a minor Kubernetes version. For more information, see [Upgrade an AKS cluster][aks-upgrade] [nodi Cordon e drain][cordon-drain] .
+- Aggiornando il cluster servizio Azure Kubernetes. Il cluster aggiorna automaticamente i [nodi Cordon e drain][cordon-drain] , quindi riporta un nuovo nodo online con l'immagine Ubuntu più recente e una nuova versione patch o una versione secondaria di Kubernetes. Per altre informazioni, vedere [aggiornare un cluster AKS][aks-upgrade].
 - Usando [KURED](https://github.com/weaveworks/kured), un daemon di riavvio open source per Kubernetes. KURED viene eseguito come [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) e monitora ogni nodo per la presenza di un file che indica che è necessario riavviare il computer. Nel cluster, i riavvii del sistema operativo vengono gestiti dallo stesso [processo di Cordon e svuotamento][cordon-drain] di un aggiornamento del cluster.
 
 Per altre informazioni sull'uso di KURED, vedere [applicare aggiornamenti di sicurezza e kernel ai nodi in AKS][node-updates-kured].

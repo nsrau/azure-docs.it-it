@@ -1,6 +1,6 @@
 ---
-title: Autenticazione e autorizzazione per gli ancoraggi spaziale di Azure | Microsoft Docs
-description: Scopri i vari modi che un'app o un servizio può eseguire l'autenticazione di Azure spaziali Anchor e i livelli di controllo che è necessario controllare l'accesso agli ancoraggi spaziale di Azure.
+title: Autenticazione e autorizzazione per gli ancoraggi spaziali di Azure | Microsoft Docs
+description: Informazioni sui vari modi in cui un'app o un servizio è in grado di eseguire l'autenticazione agli ancoraggi spaziali di Azure e i livelli di controllo di cui è necessario controllare l'accesso agli ancoraggi spaziali di Azure.
 author: julianparismorgan
 manager: vriveras
 services: azure-spatial-anchors
@@ -8,42 +8,42 @@ ms.author: pmorgan
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: c7ffa432c9311ba9d4ecf4ba82c375e2dad988d0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 850748462f0273f2dfb1522d900ce9f1b2156d2a
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478538"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68517060"
 ---
-# <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticazione e autorizzazione per gli ancoraggi spaziale di Azure
+# <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticazione e autorizzazione per gli ancoraggi spaziali di Azure
 
-In questa sezione e saranno trattati i vari modi, che è possibile eseguire l'autenticazione agli ancoraggi spaziale di Azure da app o servizio web, i modi in cui è possibile usare controllo degli accessi in base al ruolo nella Directory di Azure (Azure AD) per controllare l'accesso agli account Anchor spaziale.  
+In questa sezione vengono illustrati i vari modi in cui è possibile eseguire l'autenticazione a ancoraggi spaziali di Azure dall'app o dal servizio Web e i modi in cui è possibile usare il controllo degli accessi in base al ruolo nella directory di Azure (Azure AD) per controllare l'accesso agli account di ancoraggio spaziali.  
 
 ## <a name="overview"></a>Panoramica
 
-![Una panoramica dell'autenticazione per gli ancoraggi spaziale di Azure](./media/spatial-anchors-authentication-overview.png)
+![Panoramica dell'autenticazione per gli ancoraggi spaziali di Azure](./media/spatial-anchors-authentication-overview.png)
 
-Per accedere a un determinato account di Azure gli ancoraggi spaziali, i client devono innanzitutto ottenere un token di accesso da Azure misto realtà Security Token Service (STS). I token ottenuti dal servizio token di sicurezza in tempo reale per 24 ore e contengono informazioni per i servizi spaziali ancoraggi prendere decisioni di autorizzazione per l'account e garantire che solo le entità autorizzate possono accedere a quell'account. 
+Per accedere a un account di ancoraggio spaziale di Azure specificato, i client devono prima ottenere un token di accesso dal servizio token di sicurezza di Azure Mixed Reality (STS). I token ottenuti da STS Live per 24 ore e contengono informazioni per i servizi di ancoraggio spaziali per prendere decisioni di autorizzazione per l'account e assicurarsi che solo le entità autorizzate possano accedere a tale account. 
 
-I token di accesso possono essere ottenuti di exchange da entrambe le chiavi dell'account o i token rilasciati AD Azure. 
+I token di accesso possono essere ottenuti in Exchange da chiavi di account o da token rilasciati da Azure AD. 
 
-Le chiavi dell'account consentono di iniziare rapidamente a usare sull'uso del servizio di Azure gli ancoraggi spaziali; Tuttavia, prima di distribuire l'applicazione nell'ambiente di produzione, è consigliabile aggiornare l'app per usare l'autenticazione basata su Active Directory di Azure. 
+Le chiavi dell'account consentono di iniziare rapidamente a usare il servizio ancoraggi spaziali di Azure. Tuttavia, prima di distribuire l'applicazione in produzione, è consigliabile aggiornare l'app per l'uso dell'autenticazione basata su Azure AD. 
 
-I token di autenticazione di Azure AD sono disponibili due modi:
+Azure AD token di autenticazione possono essere ottenuti in due modi:
 
-- Se si compila un'applicazione aziendale e l'azienda Usa Azure AD come il sistema di identità, basata sull'utente di Azure è possibile usare l'autenticazione di Active Directory nell'app e concedere l'accesso agli account Anchor spaziali usando gruppi di sicurezza di Azure AD esistenti, o direttamente agli utenti dell'organizzazione. 
-- In caso contrario, si consiglia di ottenere i token di Azure AD da un servizio web che supporta l'app. Utilizzo di un servizio web di supporto è il metodo di autenticazione consigliato per le applicazioni di produzione, in quanto evita di incorporare le credenziali per l'accesso a Azure gli ancoraggi spaziale nell'applicazione client. 
+- Se si compila un'applicazione aziendale e l'azienda USA Azure AD come sistema di identità, è possibile usare l'autenticazione Azure AD basata sull'utente nell'app e concedere l'accesso agli account di ancoraggio spaziali usando i gruppi di sicurezza di Azure AD esistenti oppure direttamente agli utenti dell'organizzazione. 
+- In caso contrario, è consigliabile ottenere Azure AD token da un servizio Web che supporta l'app. L'uso di un servizio Web di supporto è il metodo consigliato per l'autenticazione per le applicazioni di produzione, in quanto evita di incorporare le credenziali per l'accesso agli ancoraggi spaziali di Azure nell'applicazione client. 
 
 ## <a name="account-keys"></a>Chiavi dell'account
 
-Usando le chiavi dell'account per l'accesso all'account di Azure gli ancoraggi spaziali è il modo più semplice per iniziare. Sono disponibili le chiavi dell'account nel portale di Azure. Passare all'account, quindi selezionare la scheda "Chiavi".
+L'uso delle chiavi dell'account per l'accesso all'account degli ancoraggi spaziali di Azure è il modo più semplice per iniziare. Le chiavi dell'account sono disponibili nella portale di Azure. Passare all'account e selezionare la scheda "chiavi".
 
-![Una panoramica dell'autenticazione per gli ancoraggi spaziale di Azure](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
+![Panoramica dell'autenticazione per gli ancoraggi spaziali di Azure](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
 
 
-Due chiavi vengono resi disponibili, che sono entrambi contemporaneamente valide per l'accesso all'account Anchor spaziale. È consigliabile aggiornare regolarmente la chiave utilizzata per accedere all'account; Grazie a due separare enable chiavi valide tali aggiornamenti senza tempi di inattività; è sufficiente per l'aggiornamento, in alternativa, la chiave primaria e chiave secondaria. 
+Sono disponibili due chiavi, entrambe simultaneamente valide per l'accesso all'account degli ancoraggi spaziali. Si consiglia di aggiornare regolarmente la chiave usata per accedere all'account. la presenza di due chiavi valide separate Abilita tali aggiornamenti senza tempi di inattività; è necessario solo aggiornare in alternativa la chiave primaria e la chiave secondaria. 
 
-il SDK include il supporto incorporato per l'autenticazione con le chiavi dell'account; è sufficiente impostare la proprietà AccountKey per l'oggetto cloudSession. 
+L'SDK include il supporto predefinito per l'autenticazione con le chiavi dell'account. è sufficiente impostare la proprietà AccountKey nell'oggetto cloudSession. 
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -76,42 +76,42 @@ auto configuration = cloudSession_->Configuration();
 configuration->AccountKey(R"(MyAccountKey)");
 ```
 
-# <a name="c-winrttabcppwinrt"></a>[C++ WinRT](#tab/cppwinrt)
+# <a name="c-winrttabcppwinrt"></a>[C++WinRT](#tab/cppwinrt)
 
 ```cpp
 auto configuration = m_cloudSession.Configuration();
 configuration.AccountKey(LR"(MyAccountKey)");
 ```
 
-***
+---
 
-Al termine dell'operazione, il SDK gestisce lo scambio di chiave dell'account per un token di accesso e la necessaria memorizzazione nella cache dei token per l'app. 
+Al termine dell'operazione, l'SDK gestirà lo scambio della chiave dell'account per un token di accesso e la memorizzazione nella cache dei token necessari per l'app. 
 
 > [!WARNING] 
-> È consigliabile usare le chiavi dell'account per l'onboarding veloce, ma durante lo sviluppo o la creazione di prototipi solo. Si consiglia di non rendere disponibile l'applicazione nell'ambiente di produzione usando una chiave dell'account incorporato in esso e usare invece il basata sugli utenti o basata su servizi di Azure l'autenticazione AD approcci successivo elencato.
+> L'uso delle chiavi dell'account è consigliato per il caricamento rapido, ma solo durante lo sviluppo e la creazione di prototipi. Si consiglia di non spedire l'applicazione alla produzione usando una chiave dell'account incorporata e di usare invece gli approcci di autenticazione Azure AD basati sull'utente o sul servizio elencati di seguito.
 
-## <a name="azure-ad-user-authentication"></a>Autenticazione utente di Azure AD
+## <a name="azure-ad-user-authentication"></a>Autenticazione utente Azure AD
 
-Per le applicazioni destinate a utenti di Azure Active Directory, l'approccio consigliato consiste nell'utilizzare un token di Azure AD per l'utente, che è possibile ottenere usando la libreria ADAL, come descritto nella documentazione seguente: [ https://docs.microsoft.com/azure/active-directory/develop/v1-overview ](../../active-directory/develop/v1-overview.md); è deve seguire la procedura indicata in "Guide introduttive", tra cui:
+Per le applicazioni destinate a Azure Active Directory utenti, l'approccio consigliato consiste nell'usare un token Azure ad per l'utente, che è possibile ottenere usando la libreria Adal, come descritto nella documentazione [https://docs.microsoft.com/azure/active-directory/develop/v1-overview](../../active-directory/develop/v1-overview.md)seguente:. attenersi alla procedura elencata in "avvio rapido", che includono:
 
-1. Configurazione nel portale di Azure
-    1.  Registrare l'applicazione in Azure AD lo stesso **applicazione nativa**. Durante la registrazione, sarà necessario determinare se l'applicazione deve essere multi-tenant o non e fornire il reindirizzamento di URL consentiti per l'applicazione.  
-    2.  Concedere l'accesso dell'applicazione o gli utenti alla risorsa: 
-        1.  Passare alla risorsa Anchor spaziale nel portale di Azure
-        2.  Passare al **controllo di accesso (IAM)** scheda
-        3.  Riscontri **aggiungere un'assegnazione di ruolo**
+1. Configurazione in portale di Azure
+    1.  Registrare l'applicazione in Azure AD come **applicazione nativa**. Nell'ambito della registrazione, è necessario determinare se l'applicazione deve essere multi-tenant o meno e fornire gli URL di reindirizzamento consentiti per l'applicazione.  
+    2.  Concedere all'applicazione o agli utenti l'accesso alla risorsa: 
+        1.  Passare alla risorsa ancoraggi spaziali in portale di Azure
+        2.  Passa alla scheda **controllo di accesso (IAM)**
+        3.  Hit **Aggiungi assegnazione di ruolo**
             1.  [Selezionare un ruolo](#role-based-access-control)
-            2.  Nel **seleziona** immettere il nome di utente/i, gruppi e/o applicazioni a cui si desidera assegnare l'accesso. 
-            3.  Hit **salvare**.
+            2.  Nel campo **Seleziona** , immettere il nome degli utenti, i gruppi e/o le applicazioni a cui si desidera assegnare l'accesso... 
+            3.  Fare clic su **Salva**.
 2. Nel codice:
-    1.  Assicurarsi di usare la **ID applicazione** e **Uri di reindirizzamento** dell'applicazione di Azure AD come la **ID client** e **RedirectUri** parametri in ADAL
-    2.  Impostare le informazioni del tenant:
-        1.  Se l'applicazione supporta **mia organizzazione solo**, sostituire questo valore con il **ID Tenant** oppure **nome Tenant** (ad esempio, contoso.microsoft.com)
-        2.  Se l'applicazione supporta **gli account in qualsiasi directory dell'organizzazione**, sostituire questo valore con **organizzazioni**
-        3.  Se l'applicazione supporta **gli utenti con account Microsoft tutte**, sostituire questo valore con **comuni**
-    3.  Nella richiesta del token, impostare il **resource** a "https://sts.mixedreality.azure.com". "Risorsa" indica ad Azure AD che l'applicazione sta richiedendo un token per il servizio di Azure gli ancoraggi spaziale.  
+    1.  Assicurarsi di usare l' **ID applicazione** e l' **URI di reindirizzamento** dell'applicazione Azure ad come **ID client** e parametri **RedirectUri** in Adal
+    2.  Impostare le informazioni sul tenant:
+        1.  Se l'applicazione supporta **solo l'organizzazione**, sostituire questo valore con l' **ID tenant** o il **nome del tenant** (ad esempio, contoso.Microsoft.com)
+        2.  Se l'applicazione supporta gli **account in qualsiasi directory organizzativa**, sostituire questo valore con le **organizzazioni**
+        3.  Se l'applicazione supporta **tutti gli utenti account Microsoft**, sostituire questo valore con **Common**
+    3.  Nella richiesta di token impostare la **risorsa** su "https://sts.mixedreality.azure.com". Questa "risorsa" indicherà Azure AD che l'applicazione richiede un token per il servizio Azure Spatial Anchors.  
 
-Con questo, l'applicazione deve essere in grado di ottenere da ADAL un token di Azure AD. è possibile impostare tale token di Azure AD come la **authenticationToken** nell'oggetto configurazione di sessione del cloud. 
+In questo modo, l'applicazione deve essere in grado di ottenere da ADAL un token di Azure AD; è possibile impostare il token Azure AD come **authenticationToken** nell'oggetto config della sessione cloud. 
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -144,44 +144,44 @@ auto configuration = cloudSession_->Configuration();
 configuration->AuthenticationToken(R"(MyAuthenticationToken)");
 ```
 
-# <a name="c-winrttabcppwinrt"></a>[C++ WinRT](#tab/cppwinrt)
+# <a name="c-winrttabcppwinrt"></a>[C++WinRT](#tab/cppwinrt)
 
 ```cpp
 auto configuration = m_cloudSession.Configuration();
 configuration.AuthenticationToken(LR"(MyAuthenticationToken)");
 ```
 
-***
+---
 
 ## <a name="azure-ad-service-authentication"></a>Autenticazione del servizio Azure AD
 
-L'opzione consigliata per la distribuzione delle App sfruttando Azure Anchor spaziali nell'ambiente di produzione è sfruttare un servizio back-end che verrà broker Rifiuta richieste di autenticazione. Lo schema generale dovrebbe essere come descritto nella figura seguente:
+L'opzione consigliata per la distribuzione di app che sfruttano gli ancoraggi spaziali di Azure alla produzione consiste nell'utilizzare un servizio back-end che effettuerà il broker delle richieste di autenticazione. Lo schema generale dovrebbe essere come descritto in questo diagramma:
 
-![Una panoramica dell'autenticazione per gli ancoraggi spaziale di Azure](./media/spatial-anchors-aad-authentication.png)
+![Panoramica dell'autenticazione per gli ancoraggi spaziali di Azure](./media/spatial-anchors-aad-authentication.png)
 
-In questo caso, si presuppone che l'app Usa un proprio meccanismo di (ad esempio: Account Microsoft, PlayFab, Facebook, Google ID, nome utente e password personalizzata e così via.) Per eseguire l'autenticazione al servizio back-end. Dopo che gli utenti vengono autenticati al servizio back-end, che servizio può recuperare un token di Azure AD, scambiarlo con un token di accesso per Azure spaziali ancoraggi e restituirlo all'applicazione client.
+In questo caso si presuppone che l'app usi un proprio meccanismo, ad esempio: Account Microsoft, PlayFab, Facebook, ID Google, nome utente/password personalizzato e così via) per eseguire l'autenticazione al servizio back-end. Una volta che gli utenti vengono autenticati nel servizio back-end, il servizio può recuperare un token di Azure AD, scambiarlo per un token di accesso per gli ancoraggi spaziali di Azure e restituirlo all'applicazione client.
 
-Il token di accesso di Azure AD viene recuperato usando la libreria ADAL, come descritto nella documentazione seguente: [ https://docs.microsoft.com/azure/active-directory/develop/v1-overview ](../../active-directory/develop/v1-overview.md); è necessario seguire i passaggi elencati in "Guide introduttive", che includono:
+Il token di accesso Azure ad viene recuperato tramite la libreria adal come descritto nella documentazione seguente: [https://docs.microsoft.com/azure/active-directory/develop/v1-overview](../../active-directory/develop/v1-overview.md). attenersi alla procedura riportata in "avvio rapido", che include:
 
-1.  Configurazione nel portale di Azure:
+1.  Configurazione in portale di Azure:
     1.  Registrare l'applicazione in Azure AD:
-        1.  Nel portale di Azure, passare a **Azure Active Directory**e selezionare **registrazioni per l'app**
+        1.  In portale di Azure passare a **Azure Active Directory**e selezionare registrazioni per l' **app**
         2.  Selezionare **registrazione nuova applicazione**
-        3.  Immettere il nome dell'applicazione, seleziona **app Web / API** come tipo di applicazione e immettere l'URL di autenticazione per il servizio. Quindi premere **Create**.
-        4.  In tale applicazione, premere **le impostazioni**, quindi selezionare la **chiavi** scheda. Immettere il nome della chiave, selezionare una durata e hit **salvare**. Assicurarsi di salvare il valore della chiave che viene visualizzato in quel momento, perché sarà necessario includerla nel codice del servizio web.
-    2.  Concedere l'accesso dell'applicazione e/o gli utenti alla risorsa:
-        1.  Passare alla risorsa Anchor spaziale nel portale di Azure
-        2.  Passare al **controllo di accesso (IAM)** scheda
-        3.  Riscontri **aggiungere un'assegnazione di ruolo**
+        3.  Immettere il nome dell'applicazione, selezionare **app Web/API** come tipo di applicazione e immettere l'URL di autenticazione per il servizio. Quindi fare clic su **Crea**.
+        4.  In tale applicazione, fare clic su **Impostazioni**, quindi selezionare la scheda **chiavi** . Immettere il nome della chiave, selezionare una durata e quindi fare clic su **Salva**. Assicurarsi di salvare il valore della chiave visualizzato in quel momento, in quanto sarà necessario includerlo nel codice del servizio Web.
+    2.  Concedere all'applicazione e/o agli utenti l'accesso alla risorsa:
+        1.  Passare alla risorsa ancoraggi spaziali in portale di Azure
+        2.  Passa alla scheda **controllo di accesso (IAM)**
+        3.  Hit **Aggiungi assegnazione di ruolo**
         1.  [Selezionare un ruolo](#role-based-access-control)
-        2.  Nel **seleziona** campo immettere il nome delle applicazioni è stato creato e per cui si desidera assegnare l'accesso. Se si desidera che gli utenti dell'app hanno ruoli diversi rispetto all'account Anchor spaziale, è consigliabile registrare più applicazioni in Azure AD e assegnare a ogni ruolo separato. Quindi implementare la logica di autorizzazione per usare il ruolo più appropriato per gli utenti.  
-    3.  Hit **salvare**.
-2.  Nel codice (Nota: è possibile usare il servizio di esempio incluso in GitHub):
-    1.  Assicurarsi di usare l'ID dell'applicazione, il segreto dell'applicazione e Uri di reindirizzamento dell'applicazione di Azure AD come l'ID client, segreto e i parametri URI di reindirizzamento in ADAL
-    2.  Impostare l'ID tenant per il proprio ID tenant AAAzure aggiungere nel parametro autorità ADAL
-    3.  Nella richiesta del token, impostare il **resource** a "https://sts.mixedreality.azure.com" 
+        2.  Nel campo **Seleziona** immettere il nome dell'applicazione o delle applicazioni create e a cui si desidera assegnare l'accesso. Se si vuole che gli utenti dell'app abbiano ruoli diversi rispetto all'account degli ancoraggi spaziali, è necessario registrare più applicazioni nel Azure AD e assegnare a ognuno un ruolo separato. Implementare quindi la logica di autorizzazione per usare il ruolo appropriato per gli utenti.  
+    3.  Fare clic su **Salva**.
+2.  Nel codice (Nota: è possibile usare l'esempio di servizio incluso in GitHub):
+    1.  Assicurarsi di usare l'ID applicazione, il segreto applicazione e l'URI di reindirizzamento dell'applicazione Azure AD come parametri ID client, segreto e RedirectUri in ADAL
+    2.  Impostare l'ID tenant sul proprio AAAzure Aggiungi ID tenant nel parametro Authority in ADAL
+    3.  Nella richiesta di token impostare la **risorsa** su "https://sts.mixedreality.azure.com" 
 
-Con questo, il servizio back-end può recuperare un token di Azure AD. Può quindi scambiare un token di MR che verrà restituito al client. Utilizzando un token di Azure AD per recuperare un token di MR viene eseguita tramite una chiamata REST. Di seguito è una chiamata di esempio:
+In questo modo, il servizio back-end può recuperare un token di Azure AD. Può quindi scambiarlo per un token MR che tornerà al client. L'uso di un token di Azure AD per recuperare un token MR viene eseguito tramite una chiamata REST. Di seguito è riportato un esempio di chiamata:
 
 ```
 GET https://mrc-auth-prod.trafficmanager.net/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
@@ -198,11 +198,11 @@ MS-CV: 05JLqWeKFkWpbdY944yl7A.0
 {"AccessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjI2MzYyMTk5ZTI2NjQxOGU4ZjE3MThlM2IyMThjZTIxIiwidHlwIjoiSldUIn0.eyJqdGkiOiJmMGFiNWIyMy0wMmUxLTQ1MTQtOWEzNC0xNzkzMTA1NTc4NzAiLCJjYWkiOiIzNWQ4MzBjYi1mMDYyLTQwNjItOTc5Mi1kNjMxNjAzOWRmNTYiLCJ0aWQiOiIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiLCJhaWQiOiIzNWQ4MzBjYi1mMDYyLTQwNjItOTc5Mi1kNjMxNjAzOWRmNTYiLCJhYW8iOi0xLCJhcHIiOiJlYXN0dXMyIiwicmlkIjoiL3N1YnNjcmlwdGlvbnMvNzIzOTdlN2EtNzA4NC00ODJhLTg3MzktNjM5Y2RmNTMxNTI0L3Jlc291cmNlR3JvdXBzL3NhbXBsZV9yZXNvdXJjZV9ncm91cC9wcm92aWRlcnMvTWljcm9zb2Z0Lk1peGVkUmVhbGl0eS9TcGF0aWFsQW5jaG9yc0FjY291bnRzL2RlbW9fYWNjb3VudCIsIm5iZiI6MTU0NDU0NzkwMywiZXhwIjoxNTQ0NjM0MzAzLCJpYXQiOjE1NDQ1NDc5MDMsImlzcyI6Imh0dHBzOi8vbXJjLWF1dGgtcHJvZC50cmFmZmljbWFuYWdlci5uZXQvIiwiYXVkIjoiaHR0cHM6Ly9tcmMtYW5jaG9yLXByb2QudHJhZmZpY21hbmFnZXIubmV0LyJ9.BFdyCX9UJj0i4W3OudmNUiuaGgVrlPasNM-5VqXdNAExD8acFJnHdvSf6uLiVvPiQwY1atYyPbOnLYhEbIcxNX-YAfZ-xyxCKYb3g_dbxU2w8nX3zDz_X3XqLL8Uha-rkapKbnNgxq4GjM-EBMCill2Svluf9crDmO-SmJbxqIaWzLmlUufQMWg_r8JG7RLseK6ntUDRyDgkF4ex515l2RWqQx7cw874raKgUO4qlx0cpBAB8cRtGHC-3fA7rZPM7UQQpm-BC3suXqRgROTzrKqfn_g-qTW4jAKBIXYG7iDefV2rGMRgem06YH_bDnpkgUa1UgJRRTckkBuLkO2FvA"}
 ```
 
-In cui l'intestazione dell'autorizzazione è formattato come segue: `Bearer <accoundId>:<accountKey>`
+Dove l'intestazione di autorizzazione è formattata come segue:`Bearer <accoundId>:<accountKey>`
 
 E la risposta contiene il token MR in testo normale.
  
-Token MR viene quindi restituito al client. L'app client può quindi impostarlo come relativo token di accesso nel file di configurazione di sessione di cloud.
+Il token MR viene quindi restituito al client. L'app client può quindi impostarla come token di accesso nella configurazione della sessione cloud.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -235,26 +235,26 @@ auto configuration = cloudSession_->Configuration();
 configuration->AccessToken(R"(MyAccessToken)");
 ```
 
-# <a name="c-winrttabcppwinrt"></a>[C++ WinRT](#tab/cppwinrt)
+# <a name="c-winrttabcppwinrt"></a>[C++WinRT](#tab/cppwinrt)
 
 ```cpp
 auto configuration = m_cloudSession.Configuration();
 configuration.AccessToken(LR"(MyAccessToken)");
 ```
 
-***
+---
 
 ## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
 
-Per controllare il livello di accesso concesse alle applicazioni, servizi o agli utenti di Azure AD del servizio, i ruoli seguenti sono stati creati per assegnare in base alle necessità per gli account di Azure gli ancoraggi spaziale:
+Per controllare il livello di accesso concesso a applicazioni, servizi o Azure AD utenti del servizio, sono stati creati i seguenti ruoli per l'assegnazione in base alle esigenze per gli account di ancoraggio spaziali di Azure:
 
-- **Proprietario dell'Account Anchor spaziali**: applicazioni o utenti che dispongono di questo ruolo sono in grado di creare ancoraggi spaziali, eseguire una query per tali ed eliminarli. Quando si esegue l'autenticazione a un account usando le chiavi dell'account, il **proprietario dell'Account Anchor spaziali** ruolo viene assegnato per l'entità autenticata. 
-- **Collaboratore Account di ancoraggi spaziali**: applicazioni o utenti che dispongono di questo ruolo sono in grado di creare ancoraggi spaziali, query, ma non eliminarle. 
-- **Spaziali Anchor Account lettore**: le applicazioni o gli utenti che dispongono di questo ruolo sono in grado di eseguire una query per gli ancoraggi spaziali, ma non è possibile crearne uno nuovo, eliminare quelli esistenti o aggiornare i metadati su Anchor spaziali solo. In genere viene utilizzato per le applicazioni in cui alcuni utenti curare dell'ambiente, mentre altri utenti solo possibile richiamare gli ancoraggi precedentemente spostati in quell'ambiente.
+- **Proprietario dell'account di ancoraggi spaziali**: le applicazioni o gli utenti con questo ruolo sono in grado di creare ancoraggi spaziali, eseguire query per tali elementi ed eliminarli. Quando si esegue l'autenticazione all'account usando le chiavi dell'account, il ruolo di **proprietario dell'account di ancoraggi spaziali** viene assegnato all'entità autenticata. 
+- **Collaboratore account ancoraggi spaziali**: le applicazioni o gli utenti che dispongono di questo ruolo sono in grado di creare ancoraggi spaziali, eseguire query per tali elementi, ma non eliminarli. 
+- **Lettore di account di ancoraggio spaziale**: le applicazioni o gli utenti con questo ruolo sono in grado di eseguire query solo per gli ancoraggi spaziali, ma non possono crearne di nuovi, eliminare quelli esistenti o aggiornare i metadati negli ancoraggi spaziali. Questa operazione viene in genere usata per le applicazioni in cui alcuni utenti curano l'ambiente, mentre altri possono richiamare solo gli ancoraggi precedentemente posizionati in quell'ambiente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Creare la prima app con Azure Anchor spaziale.
+Creare la prima app con gli ancoraggi spaziali di Azure.
 
 > [!div class="nextstepaction"]
 > [Unity](../unity-overview.yml)

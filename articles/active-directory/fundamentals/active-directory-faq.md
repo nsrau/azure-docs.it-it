@@ -2,7 +2,7 @@
 title: Domande frequenti (FAQ) - Azure Active Directory | Microsoft Docs
 description: Domande frequenti su Azure e Azure Active Directory, sulla gestione delle password e sull'accesso alle applicazioni.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
@@ -10,15 +10,15 @@ ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c67eec3a17e949d630bedf920c690f9f5a36424d
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 4c1ee5e849d8004f828a2d92d728ad7925fc05c4
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204558"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68693958"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Domande frequenti su Azure Active Directory
 Azure Active Directory (Azure AD) è una soluzione IDaaS (Identity as a Service) completa che si estende a tutti gli aspetti relativi a identità, gestione degli accessi e sicurezza.
@@ -59,7 +59,7 @@ I servizi a pagamento di Azure AD, ad esempio Enterprise Mobility + Security, so
 ---
 **D: È disponibile un report che indica la scadenza delle licenze utente di Azure AD?**
 
-**R:**  No.  Non è attualmente disponibile.
+**R:** No.  Non è attualmente disponibile.
 
 ---
 
@@ -68,7 +68,8 @@ I servizi a pagamento di Azure AD, ad esempio Enterprise Mobility + Security, so
 
 **D: Come si abbandona un tenant quando si viene aggiunti come collaboratore?**
 
-<a name="a-when-you-are-added-to-another-organizations-tenant-as-a-collaborator-you-can-use-the-tenant-switcher-in-the-upper-right-to-switch-between-tenants--currently-there-is-no-way-to-leave-the-inviting-organization-and-microsoft-is-working-on-providing-this-functionality--until-this-feature-is-available-you-can-ask-the-inviting-organization-to-remove-you-from-their-tenant"></a>**R:** Quando si viene aggiunti a un altro tenant dell'organizzazione come collaboratore, è possibile usare la "selezione tenant" in alto a destra per passare da un tenant all'altro.  Non è attualmente possibile abbandonare l'organizzazione che ha emesso l'invito, ma Microsoft prevede di offrire questa funzionalità in futuro.  Fino a quando questa funzionalità non sarà disponibile, è possibile rivolgersi all'organizzazione che ha emesso l'invito per chiedere di essere rimossi dal tenant.
+**R:** Quando si viene aggiunti a un altro tenant dell'organizzazione come collaboratore, è possibile usare la "selezione tenant" in alto a destra per passare da un tenant all'altro.  Non è attualmente possibile abbandonare l'organizzazione che ha emesso l'invito, ma Microsoft prevede di offrire questa funzionalità in futuro.  Fino a quando questa funzionalità non sarà disponibile, è possibile rivolgersi all'organizzazione che ha emesso l'invito per chiedere di essere rimossi dal tenant.
+
 ---
 **D: Come si può connettere la directory locale ad Azure AD?**
 
@@ -88,7 +89,7 @@ Per altre informazioni, vedere [Integrazione delle identità locali con Azure Ac
 ---
 **D: Azure AD offre un portale self-service per gli utenti dell'organizzazione?**
 
-**R:** Sì, in Azure AD è disponibile il [pannello di accesso di Azure AD](https://myapps.microsoft.com) per l'accesso degli utenti alle funzionalità self-service e alle applicazioni. Se sei un cliente di Office 365, è possibile trovare molte funzionalità analoghe nel [portale di Office 365](https://portal.office.com).
+**R:** Sì, in Azure AD è disponibile il [pannello di accesso di Azure AD](https://myapps.microsoft.com) per l'accesso degli utenti alle funzionalità self-service e alle applicazioni. Per i clienti di Office 365 è possibile trovare molte delle stesse funzionalità del [portale di office 365](https://portal.office.com).
 
 Per altre informazioni, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
@@ -196,7 +197,7 @@ Per altre informazioni, vedere [Come fornire l'accesso remoto sicuro alle applic
 ---
 **D: Come si richiede l'autenticazione a più fattori per gli utenti che accedono a un'applicazione specifica?**
 
-**R:** Grazie all'accesso condizionale di Azure AD, è possibile assegnare un criterio di accesso univoco per ogni applicazione. Nel criterio è possibile richiedere sempre l'autenticazione Multi-Factor Authentication o solo quando gli utenti non sono connessi alla rete locale.  
+**R:** Con l'accesso condizionale Azure AD, è possibile assegnare un criterio di accesso univoco per ogni applicazione. Nel criterio è possibile richiedere sempre l'autenticazione Multi-Factor Authentication o solo quando gli utenti non sono connessi alla rete locale.  
 
 Per altre informazioni, vedere [Protezione dell'accesso a Office 365 e ad altre app connesse ad Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 
@@ -210,4 +211,4 @@ Per altre informazioni, vedere [Automatizzare il provisioning e il deprovisionin
 ---
 **D:  È possibile configurare una connessione LDAP sicura con Azure AD?**
 
-**R:**   No. Azure AD non supporta direttamente il protocollo Lightweight Directory Access Protocol (LDAP) o l'accesso LDAP sicuro. Tuttavia, è possibile abilitare l'istanza di Azure AD Domain Services (Azure AD DS) nel tenant di Azure AD con gruppi di sicurezza di rete configurate correttamente attraverso la rete di Azure per ottenere connettività LDAP. Per altre informazioni, vedere https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.
+**R:**  No. Azure AD non supporta direttamente il protocollo LDAP (Lightweight Directory Access Protocol) o LDAP sicuro. Tuttavia, è possibile abilitare l'istanza Azure AD Domain Services (Azure AD DS) nel tenant Azure AD con i gruppi di sicurezza di rete configurati correttamente tramite la rete di Azure per ottenere la connettività LDAP. Per altre informazioni, vedere https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.

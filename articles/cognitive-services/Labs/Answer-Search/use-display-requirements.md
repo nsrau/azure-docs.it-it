@@ -10,12 +10,13 @@ ms.subservice: answer-search
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 085cb20e4dad92ed55b5ba0914c677aa50f3ac97
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2b42d61fd887f166a08b78510d5eaacb8a7cdcb8
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60345754"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706714"
 ---
 # <a name="project-answer-search-use-and-display-requirements"></a>Requisiti per l'uso e la visualizzazione di Project Answer Search
 
@@ -36,7 +37,7 @@ Non:
 - Per "API di ricerca" si intendono collettivamente le API Ricerca personalizzata Bing, Ricerca entità, Ricerca immagini, Ricerca notizie, Ricerca video, Ricerca visiva e Ricerca Web. 
 
 
-## <a name="3-search-apis"></a>3. API di ricerca
+## <a name="3-search-apis"></a>3. Cerca API
 
 Alle API di ricerca si applicano i requisiti descritti in questa sezione.
 

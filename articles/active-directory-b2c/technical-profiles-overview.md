@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f3be6cebafb6d0f50b5ac9a9e40e5707202ea643
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: cdb1b49af5d3a85dc1853e5964c1cdfdd5c3a7cd
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849432"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716681"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Informazioni sui profili tecnici nei criteri personalizzati di Azure Active Directory B2C
 
@@ -32,9 +32,9 @@ Un profilo tecnico supporta i tipi di scenario riportati di seguito.
 - **Provider PhoneFactor**: autenticazione a più fattori.
 - [OAuth1](oauth1-technical-profile.md): federazione con qualsiasi provider di identità con protocollo OAuth 1.0.
 - [OAuth2](oauth2-technical-profile.md): federazione con qualsiasi provider di identità con protocollo OAuth 2.0.
-- [OpenID Connect](openid-connect-technical-profile.md): federazione con qualsiasi provider di identità con protocollo OpenID Connect.
+- [OpenID Connect](openid-connect-technical-profile.md) -Federazione con qualsiasi provider di identità del protocollo OpenID Connect.
 - [Trasformazione delle attestazioni](claims-transformation-technical-profile.md): chiamata di trasformazioni delle attestazioni di output per convalidare le attestazioni, modificarne i valori o impostare valori predefiniti per un set di attestazioni di output.
-- [Provider RESTful](restful-technical-profile.md): chiamata di servizi API REST, ad esempio per la convalida dell'input utente, l'arricchimento dei dati utente o l'integrazione con applicazioni line-of-business.
+- [Provider RESTful](restful-technical-profile.md) : è possibile chiamare i servizi API REST, ad esempio convalidare l'input dell'utente, arricchire i dati utente o integrarsi con applicazioni line-of-business.
 - [SAML2](saml-technical-profile.md): federazione con qualsiasi provider di identità con protocollo SAML.
 - [Autocertificazione](self-asserted-technical-profile.md): interazione con l'utente, ad esempio per raccogliere le credenziali dell'utente per l'accesso, eseguire il rendering della pagina di iscrizione o reimpostare la password.
 - **WsFed**: federazione con qualsiasi provider di identità con protocollo WsFed.

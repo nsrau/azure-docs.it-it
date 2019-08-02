@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 4ba3109460616be98b5330ec7175f161a6a3b750
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68326176"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Acquisire eventi tramite Hub eventi di Azure in Archiviazione BLOB di Azure o Azure Data Lake Storage
@@ -73,7 +73,7 @@ I file generati da Acquisizione di Hub eventi hanno lo schema Avro seguente:
 
 ![Schema Avro][3]
 
-Un modo semplice per esplorare i file avro consiste nell'usare gli [strumenti][Avro Tools] jar from Apache. You can also use [Apache Drill][Apache Drill] avro per un'esperienza semplificata basata su SQL o [Apache Spark][Apache Spark] per eseguire un'elaborazione distribuita complessa sui dati inseriti. 
+Per esplorare facilmente i file di Avro, è possibile usare il file JAR [Avro Tools][Avro Tools] di Apache. È anche possibile usare [Apache drill][Apache Drill] per un'esperienza Lightweight basata su SQL o [Apache Spark][Apache Spark] per eseguire un'elaborazione distribuita complessa sui dati inseriti. 
 
 ### <a name="use-apache-drill"></a>Usare Apache Drill
 
@@ -129,7 +129,7 @@ Questo comando restituisce
 
 Per eseguire operazioni di elaborazione più avanzate, scaricare e installare Avro per la propria piattaforma. Al momento della stesura di questo articolo, sono disponibili implementazioni per C, C++, C\#, Java, NodeJS, Perl, PHP, Python e Ruby.
 
-Apache avro include guide Introduzione complete per [Java][Java] and [Python][Python]. È anche possibile leggere l'articolo [Acquisizione di Hub eventi di Azure](event-hubs-capture-python.md).
+Apache avro offre guide Introduzione complete per [Java][Java] e [Python][Python]. È anche possibile leggere l'articolo [Acquisizione di Hub eventi di Azure](event-hubs-capture-python.md).
 
 ## <a name="how-event-hubs-capture-is-charged"></a>Come viene addebitato l'uso di Acquisizione di Hub eventi
 

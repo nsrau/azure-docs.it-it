@@ -1,18 +1,18 @@
 ---
 title: Matrice di supporto del servizio Backup di Azure per il backup di macchine virtuali di Azure
 description: Informazioni riepilogative su impostazioni e limitazioni del supporto durante il backup di macchine virtuali di Azure con il servizio Backup di Azure.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/02/2019
-ms.author: raynew
-ms.openlocfilehash: 3b979b6bcf2078e83564a8f008d392fd8e0a7c78
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 2556887008ecbe081168d3fc81fa07b45cda4bcb
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464895"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639609"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
 È possibile usare il [servizio backup di Azure](backup-overview.md) per eseguire il backup di computer e carichi di lavoro locali e di macchine virtuali (VM) di Azure. Questo articolo riepiloga le impostazioni e le limitazioni del supporto quando si esegue il backup di macchine virtuali di Azure con backup di Azure.
@@ -215,7 +215,7 @@ Sicurezza dei dati:
 --- | --- | ---
 Computer Windows locali senza DPM/MABS | ![Sì][green] | ![Sì][green]
 Macchine virtuali di Azure | ![Sì][green] | ![Yes][green]
-Computer locali/VM di Azure con DPM | ![Sì][green] | ![Sì][green]
+Computer locali/VM di Azure con DPM | ![Yes][green] | ![Sì][green]
 Computer locali/VM di Azure con MABS | ![Sì][green] | ![Sì][green]
 
 
@@ -231,7 +231,7 @@ Backup supporta la compressione del traffico di backup, come riepilogato nella t
 --- | --- | ---
 Computer Windows locali senza DPM/MABS | ND | ![Yes][green]
 Macchine virtuali di Azure | ND | ND
-Computer locali/VM di Azure con DPM | ![Sì][green] | ![Yes][green]
+Computer locali/VM di Azure con DPM | ![Sì][green] | ![Sì][green]
 Computer locali/VM di Azure con MABS | ![Sì][green] | ![Sì][green]
 
 

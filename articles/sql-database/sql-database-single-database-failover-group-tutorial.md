@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
-manager: jroth
 ms.date: 06/19/2019
-ms.openlocfilehash: 6125fd087d40f9ac6ae24d9200fc0cd1e7843f82
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: d11dd72c65ea32fb5a262f325bdcad0b5a8ab863
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444981"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566652"
 ---
 # <a name="tutorial-add-an-azure-sql-database-single-database-to-a-failover-group"></a>Esercitazione: Aggiungere un database singolo di database SQL di Azure a un gruppo di failover
 
@@ -43,7 +42,7 @@ Per completare l'esercitazione, verificare che siano disponibili gli elementi se
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 
-# <a name="az-clitabbash"></a>[INTERFACCIA DELLA RIGA DI COMANDO AZ](#tab/bash)
+# <a name="az-clitabbash"></a>[Interfaccia della riga di comando AZ](#tab/bash)
 Per completare l'esercitazione, verificare che siano disponibili gli elementi seguenti:
 
 - Una sottoscrizione di Azure. [Creare un account gratuito](https://azure.microsoft.com/free/) se non ne è già disponibile uno.
@@ -147,7 +146,7 @@ Creare il gruppo di failover e aggiungervi il database singolo usando PowerShell
    Write-host "Successfully added the database to the failover group..." 
    ```
 
-# <a name="az-clitabbash"></a>[INTERFACCIA DELLA RIGA DI COMANDO AZ](#tab/bash)
+# <a name="az-clitabbash"></a>[Interfaccia della riga di comando AZ](#tab/bash)
 Creare il gruppo di failover e aggiungervi il singolo database usando AZ CLI. 
 
    > [!NOTE]
@@ -263,7 +262,7 @@ Ripristinare il gruppo di failover nel server primario:
    Write-host "Failed failover group to successfully to back to" $serverName
    ```
 
-# <a name="az-clitabbash"></a>[INTERFACCIA DELLA RIGA DI COMANDO AZ](#tab/bash)
+# <a name="az-clitabbash"></a>[Interfaccia della riga di comando AZ](#tab/bash)
 Failover di test con l'interfaccia della riga di comando AZ. 
 
 
@@ -342,7 +341,7 @@ Eliminare il gruppo di risorse usando PowerShell.
    Write-host "Resource group removed =" $resourceGroupName
    ```
 
-# <a name="az-clitabbash"></a>[INTERFACCIA DELLA RIGA DI COMANDO AZ](#tab/bash)
+# <a name="az-clitabbash"></a>[Interfaccia della riga di comando AZ](#tab/bash)
 Eliminare il gruppo di risorse usando AZ CLI. 
 
 
@@ -366,7 +365,7 @@ Eliminare il gruppo di risorse usando AZ CLI.
 
 [!code-powershell-interactive[main](../../powershell_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-ps.ps1 "Add single database to a failover group")]
 
-# <a name="az-clitabbash"></a>[INTERFACCIA DELLA RIGA DI COMANDO AZ](#tab/bash)
+# <a name="az-clitabbash"></a>[Interfaccia della riga di comando AZ](#tab/bash)
 
 [!code-azurecli-interactive[main](../../cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh "Create SQL Database")]
 

@@ -4,16 +4,16 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 04/14/2019
 ms.author: glenga
-ms.openlocfilehash: e319356d555f26354ea29dc7be068bf6168abb17
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fef5cd38461fec67790fb67faf8e466d46b247fc
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67455156"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68669682"
 ---
 ## <a name="local-settings-file"></a>File di impostazioni locali
 
-Il file local archivia le impostazioni dell'app, le stringhe di connessione e le impostazioni utilizzate dagli strumenti di sviluppo locale. Impostazioni nel file local vengono usate solo durante l'esecuzione locale. Il file di impostazioni locali presenta la struttura seguente:
+Il file local. Settings. JSON archivia le impostazioni dell'app, le stringhe di connessione e le impostazioni usate dagli strumenti di sviluppo locali. Le impostazioni nel file local. Settings. JSON vengono usate solo quando i progetti sono in esecuzione in locale. La struttura del file di impostazioni locale è la seguente:
 
 ```json
 {
@@ -35,16 +35,16 @@ Il file local archivia le impostazioni dell'app, le stringhe di connessione e le
 }
 ```
 
-Quando si esegue localmente, sono supportate le seguenti impostazioni:
+Queste impostazioni sono supportate quando si eseguono progetti in locale:
 
 | Impostazione      | Descrizione                            |
 | ------------ | -------------------------------------- |
-| **`IsEncrypted`** | Se impostato su `true`, tutti i valori sono crittografati usando una chiave del computer locale. Usato con i comandi `func settings`. Il valore predefinito è `false`. |
-| **`Values`** | Matrice di stringhe di connessione utilizzate durante l'esecuzione locale e le impostazioni dell'applicazione. Queste coppie chiave-valore (stringa-stringa) corrispondono alle impostazioni dell'applicazione nell'app per le funzioni in Azure, ad esempio [ `AzureWebJobsStorage` ]. Molti trigger e associazioni presentano una proprietà che fa riferimento a un'impostazione app stringa di connessione, ad esempio `Connection` per il [trigger di archiviazione Blob](../articles/azure-functions/functions-bindings-storage-blob.md#trigger---configuration). Per tali proprietà, è necessario un'impostazione dell'applicazione definita nel `Values` matrice. <br/>[`AzureWebJobsStorage`] è l'impostazione app obbligatoria per i trigger diversi da HTTP. <br/>Versione 2.x del runtime di funzioni richiede il [`FUNCTIONS_WORKER_RUNTIME`] impostazione, che viene generato per il progetto da strumenti di base. <br/> Quando si dispone di [emulatore di archiviazione di Azure](../articles/storage/common/storage-use-emulator.md) installato in locale, è possibile impostare [ `AzureWebJobsStorage` ] a `UseDevelopmentStorage=true` e strumenti di base usa l'emulatore. Ciò è utile durante lo sviluppo, ma è consigliabile testare con una connessione di archiviazione reale prima della distribuzione.<br/> Valori devono essere stringhe e non JSON oggetti o matrici. I nomi delle impostazioni non può includere i due punti (`:`) o un carattere di sottolineatura doppio (`__`); sono riservate dal runtime.  |
-| **`Host`** | Le impostazioni in questa sezione consentono di personalizzare il processo host di Funzioni durante l'esecuzione in locale. Questi sono separati dalle impostazioni dell'host. JSON, che si applicano anche durante l'esecuzione in Azure. |
-| **`LocalHttpPort`** | Consente di impostare la porta predefinita usata durante l'esecuzione nell'host locale di Funzioni, ovvero `func host start` e `func run`. L'opzione `--port` della riga di comando ha la precedenza su questo valore. |
+| **`IsEncrypted`** | Quando questa impostazione è impostata su `true`, tutti i valori vengono crittografati con una chiave del computer locale. Usato con i comandi `func settings`. Il valore predefinito è `false`. |
+| **`Values`** | Matrice delle impostazioni dell'applicazione e delle stringhe di connessione utilizzate quando un progetto viene eseguito localmente. Queste coppie chiave-valore (stringa-stringa) corrispondono alle impostazioni dell'applicazione nell'app per le funzioni in Azure [`AzureWebJobsStorage`], ad esempio. Molti trigger e associazioni hanno una proprietà che fa riferimento a un'impostazione dell'app per la stringa `Connection` di connessione, ad esempio per il [trigger di archiviazione BLOB](../articles/azure-functions/functions-bindings-storage-blob.md#trigger---configuration). Per queste proprietà, è necessaria un'impostazione dell'applicazione definita nella `Values` matrice. <br/>[`AzureWebJobsStorage`]è un'impostazione di app obbligatoria per trigger diversi da HTTP. <br/>La versione 2. x del runtime di funzioni richiede l'`FUNCTIONS_WORKER_RUNTIME`impostazione [], generata per il progetto dagli strumenti di base. <br/> Quando l'emulatore di [archiviazione di Azure](../articles/storage/common/storage-use-emulator.md) è installato localmente e [`AzureWebJobsStorage`] si `UseDevelopmentStorage=true`imposta su, core tools usa l'emulatore. L'emulatore è utile durante lo sviluppo, ma è consigliabile eseguire il test con una connessione di archiviazione effettiva prima della distribuzione.<br/> I valori devono essere stringhe e non oggetti o matrici JSON. I nomi delle impostazioni non possono includere`:`i due punti () o`__`una doppia sottolineatura (). Questi caratteri sono riservati dal runtime.  |
+| **`Host`** | Le impostazioni in questa sezione consentono di personalizzare il processo host di funzioni quando si eseguono progetti localmente. Queste impostazioni sono separate dalle impostazioni host. JSON, che si applicano anche quando si eseguono progetti in Azure. |
+| **`LocalHttpPort`** | Consente di impostare la porta predefinita usata durante l'esecuzione nell'host locale di Funzioni, ovvero `func host start` e `func run`. L' `--port` opzione della riga di comando ha la precedenza su questa impostazione. |
 | **`CORS`** | Definisce le origini consentite per la [condivisione di risorse tra le origini (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Le origini sono elencate in un elenco delimitato dalla virgola senza spazi. È supportato il valore del carattere jolly (\*) che consente le richieste di qualsiasi origine. |
-| **`CORSCredentials`** |  Impostarla su true per consentire `withCredentials` richieste. |
-| **`ConnectionStrings`** | Non usare questa raccolta per le stringhe di connessione usate per l'associazione di funzione. Questa raccolta viene usata solo da parte di Framework che in genere ottengono le stringhe di connessione dal `ConnectionStrings` sezione di configurazione di una file, ad esempio [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Le stringhe di connessione in questo oggetto vengono aggiunte all'ambiente con il tipo di provider di [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Gli elementi in questa raccolta non vengono pubblicati in Azure con altre impostazioni di app. È necessario aggiungere in modo esplicito questi valori per il `Connection strings` raccolta di impostazioni dell'app di funzione. Se si sta creando un [ `SqlConnection` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) nel codice della funzione, è consigliabile archiviare il valore di stringa di connessione nel **le impostazioni dell'applicazione** nel portale con le altre connessioni. |
+| **`CORSCredentials`** |  Quando è impostato `true`su, `withCredentials` consente richieste. |
+| **`ConnectionStrings`** | Raccolta. Non usare questa raccolta per le stringhe di connessione usate dalle associazioni di funzioni. Questa raccolta viene usata solo dai Framework che in genere ottengono stringhe di connessione dalla `ConnectionStrings` sezione di un file di configurazione, ad esempio [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Le stringhe di connessione in questo oggetto vengono aggiunte all'ambiente con il tipo di provider di [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Gli elementi in questa raccolta non vengono pubblicati in Azure con altre impostazioni dell'app. È necessario aggiungere in modo esplicito questi valori `Connection strings` alla raccolta delle impostazioni dell'app per le funzioni. Se si sta creando un [`SqlConnection`](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) oggetto nel codice della funzione, è necessario archiviare il valore della stringa di connessione con le altre connessioni nelle **impostazioni dell'applicazione** nel portale. |
 
 [`AzureWebJobsStorage`]: ../articles/azure-functions/functions-app-settings.md#azurewebjobsstorage

@@ -2,26 +2,26 @@
 title: Aggiungere un dominio personalizzato - Azure Active Directory | Microsoft Docs
 description: Istruzioni su come aggiungere un dominio personalizzato usando il portale di Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb29fb5ef2e755ff456ad177b66349792b2fa21c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b3f90e594e69c58364b699299964273ce371e525
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60248355"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561725"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Aggiungere un nome di dominio personalizzato usando il portale di Azure Active Directory
-Ogni nuovo tenant di Azure AD include un nome di dominio iniziale, *nomedominio*.onmicrosoft.com. Non è possibile modificare o eliminare il nome di dominio iniziale, ma è possibile aggiungere i nomi dell'organizzazione all'elenco. Aggiunta di nomi di dominio personalizzato consente di creare nomi utente familiari agli utenti, ad esempio *alain\@contoso.com*.
+Ogni nuovo tenant di Azure AD include un nome di dominio iniziale, *nomedominio*.onmicrosoft.com. Non è possibile modificare o eliminare il nome di dominio iniziale, ma è possibile aggiungere i nomi dell'organizzazione all'elenco. L'aggiunta di nomi di dominio personalizzati consente di creare nomi utente familiari agli utenti, ad esempio *Alain\@contoso.com*.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Prima di poter aggiungere un nome di dominio personalizzato, è necessario crearlo con un registrar. Per un registrar accreditato, vedere [ICANN-Accredited Registrars](https://www.icann.org/registrar-reports/accredited-list.html) (Registrar accreditati da ICANN).
@@ -31,7 +31,7 @@ Dopo avere ottenuto il nome di dominio, è possibile creare la prima directory d
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) della directory usando un account con ruolo di **Proprietario** della sottoscrizione e quindi selezionare **Azure Active Directory**. Per altre informazioni sui ruoli della sottoscrizione, vedere [Ruoli di amministratore sottoscrizione classico, di controllo degli accessi in base al ruolo di Azure e di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles).
 
-    ![Schermata del portale Azure, che mostra l'opzione Azure AD](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+    ![Portale di Azure schermata che mostra l'opzione Azure AD](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
     >[!TIP]
     > Se si intende eseguire la federazione dell'istanza locale di Active Directory di Windows Server con Azure AD, è necessario selezionare la casella di controllo **Desidero configurare questo dominio per l'accesso Single Sign-On con l'istanza di Active Directory locale** quando si esegue lo strumento Azure AD Connect per la sincronizzazione delle directory. È anche necessario registrare lo stesso nome di dominio selezionato per la federazione con la directory locale nel passaggio **Dominio di Azure AD** della procedura guidata. Per verificare come si presenta il passaggio nella procedura guidata, vedere [queste istruzioni](../hybrid/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation). Se non si ha lo strumento Azure AD Connect, è possibile [scaricarlo da questa pagina](https://go.microsoft.com/fwlink/?LinkId=615771).
@@ -46,7 +46,7 @@ Dopo aver creato la directory, è possibile aggiungere il nome di dominio person
 
 1. Selezionare **Nomi di dominio personalizzati** e quindi selezionare **Aggiungi dominio personalizzato**.
 
-    ![Pagina di nomi di dominio personalizzato, con Aggiungi dominio personalizzato visualizzato](media/add-custom-domain/add-custom-domain.png)
+    ![Pagina nomi di dominio personalizzati con Aggiungi dominio personalizzato visualizzato](media/add-custom-domain/add-custom-domain.png)
 
 2. Digitare il nuovo nome di dominio dell'organizzazione nella casella **Nome dominio personalizzato** (ad esempio, _contoso.com_) e quindi selezionare **Aggiungi dominio**.
 
@@ -55,7 +55,7 @@ Dopo aver creato la directory, è possibile aggiungere il nome di dominio person
     >[!Important]
     >Per il corretto funzionamento, è necessario includere .com, .net o un'altra estensione di primo livello.
 
-    ![Pagina di nomi di dominio personalizzato, con la pagina Aggiungi dominio personalizzato](media/add-custom-domain/add-custom-domain-blade.png)
+    ![Pagina nomi di dominio personalizzati, con la pagina Aggiungi dominio personalizzato](media/add-custom-domain/add-custom-domain-blade.png)
 
 4. Copiare le informazioni sul DNS dalla pagina **Contoso**. Ad esempio, MS=ms64983159.
 

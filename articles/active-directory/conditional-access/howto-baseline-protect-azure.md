@@ -1,6 +1,6 @@
 ---
-title: Criterio di base per richiedere il MFA per la gestione dei servizi (anteprima) - Azure Active Directory
-description: Criteri di accesso condizionale per richiedere l'autenticazione MFA per Azure Resource Manager
+title: I criteri di base richiedono l'autenticazione a più fattori per la gestione dei servizi (anteprima)-Azure Active Directory
+description: Criteri di accesso condizionale per richiedere l'autenticazione a più fattori per Azure Resource Manager
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,28 +11,28 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 203b752f9da67ebf60e373fe7ce0893b4fd7fcb5
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: aab2aa4415345747a0e87b90ef0a7ee770ef3465
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560953"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608130"
 ---
-# <a name="baseline-policy-require-mfa-for-service-management-preview"></a>Criterio di base: Richiedere l'autenticazione MFA per la gestione dei servizi (anteprima)
+# <a name="baseline-policy-require-mfa-for-service-management-preview"></a>Criteri di base: Richiedi autenticazione a più fattori per la gestione dei servizi (anteprima)
 
-Si stia utilizzando un'ampia gamma di servizi di Azure all'interno dell'organizzazione. Questi servizi possono essere gestiti tramite l'API Azure Resource Manager:
+È possibile che si stia usando un'ampia gamma di servizi di Azure nell'organizzazione. Questi servizi possono essere gestiti tramite Azure Resource Manager API:
 
 * Portale di Azure
 * Azure PowerShell
 * Interfaccia della riga di comando di Azure
 
-Tramite Azure Resource Manager per gestire i servizi è un'azione con privilegiata elevati. Azure Resource Manager può modificare le configurazioni a livello di tenant, ad esempio le impostazioni del servizio e la fatturazione di sottoscrizione. Autenticazione a fattore singolo è vulnerabile a numerosi attacchi, ad esempio spray phishing e la password. Pertanto, è importante verificare l'identità degli utenti che desiderano accedere a Azure Resource Manager e aggiornare le configurazioni, richiedendo l'autenticazione a più fattori prima di consentire l'accesso.
+L'uso di Azure Resource Manager per gestire i servizi è un'azione con privilegi elevati. Azure Resource Manager possibile modificare le configurazioni a livello di tenant, ad esempio le impostazioni del servizio e la fatturazione della sottoscrizione. L'autenticazione a fattore singolo è vulnerabile a una serie di attacchi come phishing e spray per la password. È quindi importante verificare l'identità degli utenti che vogliono accedere alle configurazioni di Azure Resource Manager e aggiornamento, richiedendo l'autenticazione a più fattori prima di consentire l'accesso.
 
-**Richiedere l'autenticazione MFA per la gestione dei servizi** è un [criterio di base](concept-baseline-protection.md) che richiede MFA per qualsiasi utente che accede al portale di Azure, Azure PowerShell o CLI di Azure. Questo criterio si applica a tutti gli utenti l'accesso a Azure Resource Manager, indipendentemente se si è amministratore.
+**Richiedi** autenticazione a più fattori per la gestione dei servizi è un [criterio di base](concept-baseline-protection.md) che richiede l'autenticazione a più fattori per tutti gli utenti che accedono a portale di Azure, Azure PowerShell o CLI di Azure. Questo criterio si applica a tutti gli utenti che accedono a Azure Resource Manager, indipendentemente dal fatto che si tratti di un amministratore.
 
-Dopo aver abilitato questo criterio in un tenant, verranno visualizzata una richiesta tutti gli utenti che accedono alle risorse di gestione di Azure multi-factor Authentication. Se l'utente non è registrato per MFA, l'utente sarà necessario registrare con l'App Microsoft Authenticator per continuare.
+Quando questo criterio è abilitato in un tenant, tutti gli utenti che accedono alle risorse di gestione di Azure verranno verificati con multi-factor authentication. Se l'utente non è registrato per l'autenticazione a più fattori, l'utente dovrà eseguire la registrazione usando l'app Microsoft Authenticator per continuare.
 
-Per eseguire interactive sign-in usando [Azure Powershell](https://docs.microsoft.com/powershell/azure/authenticate-azureps), utilizzare il [Connect AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet.
+Per eseguire l'accesso interattivo con [Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps), usare il cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) .
 
 ```PowerShell
 Connect-AzAccount
@@ -40,34 +40,34 @@ Connect-AzAccount
 
 Quando viene eseguito, questo cmdlet visualizzerà una stringa del token. Per accedere, copiare questa stringa e incollarla [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin)  in un browser. La sessione di PowerShell verrà autenticata per connettersi ad Azure.
 
-Per eseguire interactive sign-in usando [Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest), eseguire il [login az](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) comando.
+Per eseguire l'accesso interattivo usando l' [interfaccia](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)della riga di comando di Azure, eseguire il comando [AZ login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) .
 
 ```azurecli
 az login
 ```
 
-Se l'interfaccia della riga di comando può aprire il browser predefinito, eseguirà questa operazione e caricherà una pagina di accesso. In caso contrario, è necessario aprire una pagina del browser e seguire le istruzioni nella riga di comando per immettere un codice di autorizzazione dopo l'accesso alla [ https://aka.ms/devicelogin ](https://aka.ms/devicelogin) nel browser. Successivamente, accedere con le credenziali dell'account nel browser.
+Se l'interfaccia della riga di comando può aprire il browser predefinito, eseguirà questa operazione e caricherà una pagina di accesso. In caso contrario, è necessario aprire una pagina del browser e seguire le istruzioni nella riga di comando per immettere un codice di autorizzazione dopo [https://aka.ms/devicelogin](https://aka.ms/devicelogin) lo spostamento nel browser. Successivamente, accedere con le credenziali dell'account nel browser.
 
 ## <a name="deployment-considerations"></a>Considerazioni sulla distribuzione
 
-Poiché il **Richiedi autenticazione a più fattori per la gestione dei servizi** criteri si applicano a tutti gli utenti di Azure Resource Manager, è necessario apportare per garantire una regolare distribuzione diverse considerazioni. Queste considerazioni includono l'identificazione degli utenti e oggetti entità servizio in Azure AD che non è possibile o non devono eseguire MFA, nonché applicazioni e client usati dall'organizzazione che non supportano l'autenticazione moderna.
+Poiché il criterio Richiedi autenticazione a più fattori **per la gestione dei servizi** si applica a tutti gli utenti di Azure Resource Manager, è necessario tenere presenti alcune considerazioni per garantire una distribuzione uniforme. Queste considerazioni includono l'identificazione degli utenti e dei principi di servizio in Azure AD che non possono o non devono eseguire l'autenticazione a più fattori, nonché le applicazioni e i client usati dall'organizzazione che non supportano l'autenticazione moderna.
 
-## <a name="enable-the-baseline-policy"></a>Abilitare il criterio di base
+## <a name="enable-the-baseline-policy"></a>Abilitare i criteri di base
 
-I criteri **criterio di base: Richiedere l'autenticazione MFA per la gestione dei servizi (anteprima)** è preconfigurata e verrà visualizzata nella parte superiore quando si passa al pannello di accesso condizionale nel portale di Azure.
+Criteri di **base dei criteri: Richiedi autenticazione a più fattori per gestione servizi** (anteprima) è preconfigurata e verrà visualizzata nella parte superiore quando si passa al pannello accesso condizionale in portale di Azure.
 
 Per abilitare questo criterio e proteggere gli amministratori:
 
-1. Accedi per il **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore di accesso condizionale.
+1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
 1. Passare a **Azure Active Directory** > **accesso condizionale**.
-1. Nell'elenco dei criteri, selezionare **criterio di base: Richiedere l'autenticazione MFA per la gestione dei servizi (anteprima)** .
-1. Impostare **abilitare i criteri** al **Usa i criteri immediatamente**.
-1. Fare clic su **salvare**.
+1. Nell'elenco dei criteri selezionare **criteri di base: Richiedi autenticazione a più fattori per la gestione**dei servizi (anteprima).
+1. Impostare **Abilita criterio** per **usare immediatamente i criteri**.
+1. Fare clic su **Salva**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni, vedere:
 
-* [Criteri di protezione della linea di base di accesso condizionale](concept-baseline-protection.md)
-* [Cinque passaggi per proteggere l'infrastruttura di identità](../../security/azure-ad-secure-steps.md)
+* [Criteri di protezione di base per l'accesso condizionale](concept-baseline-protection.md)
+* [Cinque passaggi per proteggere l'infrastruttura di identità](../../security/fundamentals/steps-secure-identity.md)
 * [Che cos'è l'accesso condizionale in Azure Active Directory?](overview.md)

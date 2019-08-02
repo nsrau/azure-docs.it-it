@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
-ms.openlocfilehash: ef9c46c0b55f97b8931f16d751f1b1e6099e6c9d
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 8b25d2395811a2197aff6d653c5038a4380021e9
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328617"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68669703"
 ---
 È possibile aggiungere un numero di dischi dati a una macchina virtuale di Azure. In base agli obiettivi di scalabilità e prestazioni per i dischi dati di una macchina virtuale, è possibile determinare il numero e il tipo di disco necessari per soddisfare i requisiti di prestazioni e capacità.
 
@@ -18,13 +18,13 @@ ms.locfileid: "68328617"
 
 **Per Azure Managed disks:**
 
-La tabella seguente illustra i limiti predefiniti e massimi del numero di risorse per area per sottoscrizione
+La tabella seguente illustra i limiti predefiniti e massimi del numero di risorse per area per sottoscrizione. Non esiste alcun limite per il numero di Managed Disks, snapshot e immagini per gruppo di risorse.  
 
 > | Risorsa | Limite predefinito  | Limite massimo |
 > | --- | --- | --- |
 > | Dischi gestiti Standard | 50,000 | 50,000 |
-> | SDD Standard Managed Disks | 50,000 | 50,000 |
-> | Managed disks Premium | 50,000 | 50,000 |
+> | Managed Disks SSD Standard | 50,000 | 50,000 |
+> | Managed Disks Premium | 50,000 | 50,000 |
 > | Snapshot Standard_LRS | 50,000 | 50,000 |
 > | Snapshot Standard_ZRS | 50,000 | 50,000 |
 > | Immagine gestita | 50,000 | 50,000 |

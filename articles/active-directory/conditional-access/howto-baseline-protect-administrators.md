@@ -1,5 +1,5 @@
 ---
-title: Criterio di base per richiedere il MFA per gli amministratori - Azure Active Directory
+title: I criteri di base richiedono l'autenticazione a più fattori per gli amministratori-Azure Active Directory
 description: Criteri di accesso condizionale per richiedere l'autenticazione a più fattori per gli amministratori
 services: active-directory
 ms.service: active-directory
@@ -11,60 +11,60 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4474283b9a233e39497cd05f0f04ea0984f02401
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: 213540a5b6c77146155365133f2cca08eea25351
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560944"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608166"
 ---
-# <a name="baseline-policy-require-mfa-for-admins-preview"></a>Criterio di base: Richiedere l'autenticazione MFA per gli amministratori (anteprima)
+# <a name="baseline-policy-require-mfa-for-admins-preview"></a>Criteri di base: Richiedi autenticazione a più fattori per gli amministratori (anteprima)
 
 Gli utenti con accesso ad account con privilegi hanno accesso illimitato all'ambiente. Considerate le facoltà di questi account, è consigliabile trattarli con particolare attenzione. Un metodo comune per migliorare la protezione degli account con privilegi consiste nel richiedere una forma di verifica degli account più avanzata quando vengono usati per l'accesso. In Azure Active Directory è possibile richiedere l'autenticazione a più fattori (MFA) per ottenere una verifica degli account più avanzata.
 
-**Richiedere l'autenticazione MFA per gli amministratori (anteprima)**  è un [criterio di base](concept-baseline-protection.md) che richiede l'autenticazione a più fattori ogni volta che uno dei seguenti ruoli con privilegi di amministratore accede:
+**Richiedi autenticazione a più fattori per gli amministratori (anteprima)**  è un [criterio di base](concept-baseline-protection.md) che richiede l'autenticazione a più fattori ogni volta che uno dei seguenti ruoli di amministratore con privilegi esegue l'accesso:
 
 * Amministratore globale
 * Amministratore di SharePoint
 * Amministratore di Exchange
-* Amministratore di accesso condizionale
+* Amministratore accesso condizionale
 * Amministratore della sicurezza
-* Amministratore supporto tecnico o amministratore Password
+* Amministratore helpdesk/amministratore password
 * Amministratore fatturazione
 * Amministratore utenti
 
-Con l'abilitazione dell'autenticazione a più fattori richiedono per criteri di gruppo admins, i ruoli di nove amministratore precedente saranno necessario effettuare la registrazione per MFA usando l'App Authenticator. Dopo aver completata la registrazione MFA, gli amministratori dovranno eseguire autenticazione a più fattori ogni volta che accedi.
+Quando si Abilita il criterio Richiedi autenticazione a più fattori per gli amministratori, verranno richiesti i nove ruoli di amministratore precedenti per la registrazione per l'autenticazione a più fattori tramite l'app Authenticator. Una volta completata la registrazione dell'autenticazione a più fattori, gli amministratori dovranno eseguire l'autenticazione a più fattori ogni volta che accedono.
 
 ## <a name="deployment-considerations"></a>Considerazioni sulla distribuzione
 
-Poiché il **Richiedi autenticazione a più fattori per gli amministratori (anteprima)** criteri si applicano a tutti gli amministratori critico, è necessario apportare per garantire una regolare distribuzione diverse considerazioni. Queste considerazioni includono l'identificazione degli utenti e oggetti entità servizio in Azure AD che non è possibile o non devono eseguire MFA, nonché applicazioni e client usati dall'organizzazione che non supportano l'autenticazione moderna.
+Poiché il criterio Richiedi autenticazione a più fattori **per amministratori (anteprima)** si applica a tutti gli amministratori critici, è necessario tenere presenti alcune considerazioni per garantire una distribuzione uniforme. Queste considerazioni includono l'identificazione degli utenti e dei principi di servizio in Azure AD che non possono o non devono eseguire l'autenticazione a più fattori, nonché le applicazioni e i client usati dall'organizzazione che non supportano l'autenticazione moderna.
 
 ### <a name="legacy-protocols"></a>Protocolli legacy
 
-Protocolli di autenticazione legacy (IMAP, SMTP, POP3, e così via) usati dai client di posta elettronica per effettuare richieste di autenticazione. Questi protocolli non supportano l'autenticazione a più fattori. La maggior parte dei rischi di compromissione di account rilevati da Microsoft sono causata da cattivi attori esegue gli attacchi contro i protocolli legacy, il tentativo di ignorare MFA. Per garantire che è richiesta la MFA quando accedono a un account amministrativo e cattivi attori non sono in grado di ignorare MFA, questo criterio blocca tutte le richieste di autenticazione apportate agli account amministratore da protocolli legacy.
+I protocolli di autenticazione legacy (IMAP, SMTP, POP3 e così via) vengono usati dai client di posta per eseguire richieste di autenticazione. Questi protocolli non supportano l'autenticazione a più fattori. La maggior parte dei compromessi per gli account visualizzati da Microsoft è causata da cattivi attori che eseguono attacchi contro i protocolli legacy che tentano di ignorare l'autenticazione a più fattori. Per assicurarsi che l'autenticazione a più fattori sia necessaria quando si esegue l'accesso a un account amministrativo e gli attori malintenzionati non sono in grado di ignorare l'autenticazione a più fattori, questo criterio blocca tutte le richieste di autenticazione effettuate agli account
 
 > [!WARNING]
-> Prima di abilitare questo criterio, assicurarsi che gli amministratori non usano protocolli di autenticazione legacy. Vedere l'articolo [come: L'autenticazione legacy di blocco con Azure AD con accesso condizionale](howto-baseline-protect-legacy-auth.md#identify-legacy-authentication-use) per altre informazioni.
+> Prima di abilitare questo criterio, assicurarsi che gli amministratori non utilizzino protocolli di autenticazione legacy. Vedere l'articolo [procedura: Per ulteriori informazioni, bloccare l'autenticazione legacy](howto-baseline-protect-legacy-auth.md#identify-legacy-authentication-use) per Azure ad con accesso condizionale.
 
-## <a name="enable-the-baseline-policy"></a>Abilitare il criterio di base
+## <a name="enable-the-baseline-policy"></a>Abilitare i criteri di base
 
-I criteri **criterio di base: Richiedere l'autenticazione MFA per gli amministratori (anteprima)** è preconfigurata e verrà visualizzata nella parte superiore quando si passa al pannello di accesso condizionale nel portale di Azure.
+Criteri di **base dei criteri: Richiedi autenticazione a più fattori per gli amministratori** (anteprima) è preconfigurata e verrà visualizzata nella parte superiore quando si passa al pannello accesso condizionale in portale di Azure.
 
 Per abilitare questo criterio e proteggere gli amministratori:
 
-1. Accedi per il **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore di accesso condizionale.
+1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
 1. Passare a **Azure Active Directory** > **accesso condizionale**.
-1. Nell'elenco dei criteri, selezionare **criterio di base: Richiedere l'autenticazione MFA per gli amministratori (anteprima)** .
-1. Impostare **abilitare i criteri** al **Usa i criteri immediatamente**.
-1. Fare clic su **salvare**.
+1. Nell'elenco dei criteri selezionare **criteri di base: Richiedi l'autenticazione a più fattori per gli**amministratori (anteprima).
+1. Impostare **Abilita criterio** per **usare immediatamente i criteri**.
+1. Fare clic su **Salva**.
 
 > [!WARNING]
-> Si è verificato percorribile **abilita automaticamente i criteri in futuro** quando questo criterio è stato in fase di anteprima. È stata rimossa questa opzione per ridurre al minimo impatto sugli utenti improvvisi. Se si seleziona questa opzione quando era disponibile **non usare i criteri** viene automaticamente dopo aver selezionato. Se si vuole usare questo criterio di base, vedere i passaggi precedenti per abilitarlo.
+> Quando il criterio era in anteprima, era possibile **abilitare automaticamente i criteri in futuro** . Questa opzione è stata rimossa per ridurre al minimo l'effetto improvviso dell'utente. Se è stata selezionata questa opzione quando era disponibile, non **usare i criteri** è ora selezionata automaticamente. Per usare i criteri di base, vedere la procedura precedente per abilitarla.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni, vedere:
 
-* [Criteri di protezione della linea di base di accesso condizionale](concept-baseline-protection.md)
-* [Cinque passaggi per proteggere l'infrastruttura di identità](../../security/azure-ad-secure-steps.md)
+* [Criteri di protezione di base per l'accesso condizionale](concept-baseline-protection.md)
+* [Cinque passaggi per proteggere l'infrastruttura di identità](../../security/fundamentals/steps-secure-identity.md)
 * [Che cos'è l'accesso condizionale in Azure Active Directory?](overview.md)

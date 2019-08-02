@@ -10,12 +10,13 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: marossi
-ms.openlocfilehash: b5f8c853218a1db53f4dd23e7254b35990a7132b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: e6e8e7d0d5b969464ba9183ccae9080f58f786a0
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60829175"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707290"
 ---
 # <a name="experimentation"></a>Sperimentazione
 
@@ -61,7 +62,7 @@ Per una spiegazione dettagliata degli argomenti precedenti, vedere [gli argoment
 - Repository *Microsoft/mwt-ds*: [clonare il repository](https://github.com/Microsoft/mwt-ds).
 - File di log JSON del servizio decisionale: per impostazione predefinita, il comando base include `--dsjson`, che abilita l'analisi JSON del servizio decisionale del file di dati di input. [Ottenere un esempio di questo formato](https://github.com/JohnLangford/vowpal_wabbit/blob/master/test/train-sets/decisionservice.json).
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 Passare a `mwt-ds/DataScience` ed eseguire `Experimentation.py` con gli argomenti pertinenti, come indicato in dettaglio nel codice seguente:
 
 ```cmd
@@ -77,10 +78,10 @@ python Experimentation.py [-h] -f FILE_PATH [-b BASE_COMMAND] [-p N_PROC]
 Un log dei risultati viene accodato al file *mwt-ds/DataScience/experiments.csv*.
 
 ### <a name="parameters"></a>Parametri
-| Input | Descrizione | Predefinito |
+| Input | DESCRIZIONE | Predefinito |
 | --- | --- | --- |
 | `-h`, `--help` | Mostra il messaggio di aiuto ed esce. | |
-| `-f FILE_PATH`, `--file_path FILE_PATH` | Percorso file di dati (formato `.json` o `.json.gz` - ogni riga è un `dsjson`). | Obbligatorio |  
+| `-f FILE_PATH`, `--file_path FILE_PATH` | Percorso file di dati (formato `.json` o `.json.gz` - ogni riga è un `dsjson`). | Obbligatoria |  
 | `-b BASE_COMMAND`, `--base_command BASE_COMMAND` | Comando base di Vowpal Wabbit.  | `vw --cb_adf --dsjson -c` |  
 | `-p N_PROC`, `--n_proc N_PROC` | Numero di processi paralleli da usare. | Processori logici |  
 | `-s SHARED_NAMESPACES, --shared_namespaces SHARED_NAMESPACES` | Spazi dei nomi delle funzioni condivise (ad esempio `abc` corrisponde agli spazi dei nomi `a`, `b` e `c`).  | Rilevamento automatico dal file di dati |  

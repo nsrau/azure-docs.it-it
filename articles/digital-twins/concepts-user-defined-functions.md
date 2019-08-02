@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 07/29/2019
 ms.author: alinast
-ms.openlocfilehash: 4db515a931bc7f423eb11ae31b7304a602f0da46
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4aa7e6660e3febdca6e0e5b1ad9f11bebaa48ea
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60925876"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638464"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Elaborazione dati e funzioni definite dall'utente
 
@@ -94,7 +94,7 @@ I matcher definiscono un set di condizioni che valutano quali azioni vengono ese
 
 Una funzione definita dall'utente è una funzione personalizzata eseguita all'interno di un ambiente di Gemelli digitali di Azure isolato. Le funzioni definite dall'utente hanno accesso al messaggio di telemetria del sensore non elaborato al momento della ricezione. Hanno inoltre accesso al grafico spaziale e al servizio dispatcher. Dopo che la funzione definita dall'utente viene registrata in un grafico, deve venire creato un matcher (descritto in dettaglio [sopra](#matcher)) per specificare quando viene eseguita la funzione. Ad esempio, quando Gemelli digitali di Azure riceve nuovi dati di telemetria da un sensore specifico, la funzione definita dall'utente associata può calcolare una media mobile delle ultime letture del sensore.
 
-Le funzioni definite dall'utente possono essere scritte in JavaScript. I metodi helper interagiscono con il grafico nell'ambiente di esecuzione definito dall'utente. Gli sviluppatori possono eseguire frammenti di codice personalizzati sui messaggi di telemetria dei sensori. Tra gli esempi sono inclusi:
+Le funzioni definite dall'utente possono essere scritte in JavaScript. I metodi helper interagiscono con il grafico nell'ambiente di esecuzione definito dall'utente. Gli sviluppatori possono eseguire frammenti di codice personalizzati sui messaggi di telemetria dei sensori. Ecco alcuni esempi:
 
 - Impostare la lettura del sensore direttamente nell'oggetto del sensore all'interno del grafico.
 - Eseguire un'azione in base a letture del sensore diverse all'interno di uno spazio nel grafico.

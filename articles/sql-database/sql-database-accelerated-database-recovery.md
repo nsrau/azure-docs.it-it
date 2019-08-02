@@ -9,18 +9,17 @@ ms.topic: conceptual
 author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 1d556c82f47868f4ee06694e23092f10029d619d
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: d516dc51a25cbef92ff9fa22012773507b528a99
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839841"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569628"
 ---
-# <a name="accelerated-database-recovery"></a>Ripristino accelerato del Database
+# <a name="accelerated-database-recovery"></a>Recupero accelerato del database
 
-Il **ripristino accelerato del database (Accelerated Database Recovery, ADR)** è una nuova funzionalità del motore di database SQL che migliora notevolmente la disponibilità dei database, specialmente in presenza di transazioni a esecuzione prolungata, grazie alla riprogettazione del processo di ripristino del motore di database SQL. Regola di distribuzione automatica è attualmente disponibile per i database singoli e i database in pool di Database SQL di Azure e i database in Azure SQL Data Warehouse (attualmente in anteprima pubblica). I vantaggi principali del ripristino accelerato del database (ADR) sono:
+Il **ripristino accelerato del database (Accelerated Database Recovery, ADR)** è una nuova funzionalità del motore di database SQL che migliora notevolmente la disponibilità dei database, specialmente in presenza di transazioni a esecuzione prolungata, grazie alla riprogettazione del processo di ripristino del motore di database SQL. ADR è attualmente disponibile per i database singoli e i database in pool nel database SQL di Azure e i database in Azure SQL Data Warehouse (attualmente in anteprima pubblica). I vantaggi principali del ripristino accelerato del database (ADR) sono:
 
 - **Ripristino rapido e coerente del database**
 
@@ -42,11 +41,11 @@ Il ripristino del database in SQL Server segue il modello di ripristino [ARIES](
 
 - **Fase di analisi**
 
-  Inoltrare analisi del log delle transazioni dall'inizio dell'ultimo checkpoint valido (o il LSN della pagina dirty meno recente) fino alla fine, per determinare lo stato di ogni transazione al momento che SQL Server è stato arrestato.
+  Eseguire l'analisi del log delle transazioni a partire dall'inizio dell'ultimo checkpoint riuscito (o dall'LSN di pagina dirty meno recente) fino al termine, per determinare lo stato di ogni transazione al momento dell'arresto SQL Server.
 
 - **Fase di rollforward**
 
-  Analisi del rollforward del log delle transazioni dalla transazione meno recente non sottoposte a commit fino alla fine, per portare il database in stato in cui era al momento dell'arresto anomalo per rollforward di tutte le operazioni di commit.
+  Eseguire l'analisi del log delle transazioni dalla transazione di cui non è stato eseguito il commit meno recente fino alla fine, per portare il database allo stato in cui si trovava al momento dell'arresto anomalo del sistema ripetendo tutte le operazioni di commit.
 
 - **Fase di rollback**
 
@@ -56,16 +55,16 @@ In base a questa progettazione, il tempo necessario per il ripristino del motore
 
 In base a questa progettazione, anche l'annullamento o il rollback di una transazione di grandi dimensioni può richiedere molto tempo poiché viene usata la stessa fase di rollback descritta sopra.
 
-Inoltre, il motore di database SQL non può troncare il log delle transazioni quando sono presenti transazioni a esecuzione prolungata poiché i record del log corrispondenti sono necessari per i processi di ripristino e rollback. In seguito a questa struttura del motore di database SQL, alcuni clienti affrontano il problema che le dimensioni del log delle transazioni raggiunge dimensioni eccessive e consuma enormi quantità di spazio su disco.
+Inoltre, il motore di database SQL non può troncare il log delle transazioni quando sono presenti transazioni a esecuzione prolungata poiché i record del log corrispondenti sono necessari per i processi di ripristino e rollback. In seguito a questa progettazione del motore di database SQL, alcuni clienti affrontano il problema che le dimensioni del log delle transazioni crescono molto e consumano grandi quantità di spazio su disco.
 
 ## <a name="the-accelerated-database-recovery-process"></a>Processo di ripristino accelerato del database
 
 Il ripristino accelerato del database (ADR) risolve i problemi descritti sopra riprogettando completamente il processo di ripristino del motore di database SQL per:
 
-- Renderlo costante in termini di tempo o istantaneo senza la necessità di dover analizzare il log da o fino alla transazione attiva meno recente. Con ADR, il log delle transazioni viene elaborato solo dall'ultimo checkpoint valido (o numero di sequenza del file del Log (LSN) della pagina dirty meno recente). Di conseguenza, il tempo di ripristino non viene influenzato dalle transazioni a esecuzione prolungata.
+- Renderlo costante in termini di tempo o istantaneo senza la necessità di dover analizzare il log da o fino alla transazione attiva meno recente. Con ADR, il log delle transazioni viene elaborato solo dall'ultimo checkpoint completato o dal numero di sequenza del file di log (LSN) della pagina dirty più recente. Di conseguenza, il tempo di ripristino non viene influenzato dalle transazioni a esecuzione prolungata.
 - Ridurre al minimo lo spazio del log delle transazioni necessario poiché non è più necessario elaborare il log per l'intera transazione. Di conseguenza, il log delle transazioni può essere troncato in modo aggressivo quando vengono eseguiti checkpoint e backup.
 
-A livello generale, ADR consente di ottenere il recupero rapido del database dal controllo delle versioni di tutte le modifiche di database fisico e sole annullare le operazioni logiche, che sono limitati e possono essere annullate quasi istantaneamente. Tutte le transazioni attive al momento dell'arresto anomalo vengono contrassegnate come interrotte e, pertanto, tutte le versioni generate da queste transazioni possono essere ignorate dalle query utente simultanee.
+A un livello elevato, ADR consente il ripristino rapido del database tramite il controllo delle versioni di tutte le modifiche fisiche del database e l'annullamento di operazioni logiche, che sono limitate e che possono essere annullate quasi immediatamente. Tutte le transazioni attive al momento dell'arresto anomalo vengono contrassegnate come interrotte e, pertanto, tutte le versioni generate da queste transazioni possono essere ignorate dalle query utente simultanee.
 
 Il processo di ripristino accelerato del database (ADR) prevede le stesse tre fasi del processo di ripristino corrente. Il funzionamento delle tre fasi del ripristino accelerato del database (ADR) è illustrato nella figura seguente e descritto nel dettaglio di seguito.
 
@@ -73,7 +72,7 @@ Il processo di ripristino accelerato del database (ADR) prevede le stesse tre fa
 
 - **Fase di analisi**
 
-  Il processo rimane identico oggi con l'aggiunta di ricostruzione sLog e copia dei record di log per operazioni senza versione.
+  Il processo resta identico a quello odierno, con l'aggiunta della ricostruzione e della copia dei record di log per le operazioni senza controllo delle versioni.
   
 - **Fase di rollforward**
 
@@ -100,7 +99,7 @@ I quattro componenti del ripristino accelerato del database (ADR) sono:
 
 - **Ripristino logico**
 
-  Ripristino logico è responsabile dell'esecuzione dell'annullamento basata sulla versione a livello di riga, che fornisce il rollback della transazione immediata e annullamento per tutte le operazioni con controllo delle versioni del processo asincrono.
+  Il ripristino logico è il processo asincrono responsabile dell'esecuzione dell'annullamento basato sulla versione a livello di riga che fornisce il rollback della transazione immediata e Annulla per tutte le operazioni con versione.
 
   - Tiene traccia di tutte le transazioni interrotte
   - Esegue il rollback usando l'archivio versioni permanente (PVS) per tutte le transazioni utente

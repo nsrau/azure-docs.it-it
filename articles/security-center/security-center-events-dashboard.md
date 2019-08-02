@@ -14,20 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: rkarlin
-ms.openlocfilehash: bc0fd83bd45e7c5c671b387d124cdddc75244ade
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 389aaee621251890cd3f75744a94b9c9b29c5695
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64573517"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662389"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Monitoraggio ed elaborazione degli eventi di sicurezza nel Centro sicurezza di Azure
 Il dashboard degli eventi offre una panoramica del numero di eventi di sicurezza raccolti nel tempo e un elenco di eventi importanti che potrebbero richiedere l'attenzione dell'utente.  
 
 > [!NOTE]
-> Dashboard degli eventi di sicurezza verrà ritirato il 31 luglio 2019. Per altre informazioni e servizi alternativi, vedere [ritiro del Centro sicurezza di funzionalità (luglio 2019)](security-center-features-retirement-july2019.md#menu_events).
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+> Il dashboard degli eventi di sicurezza è stato ritirato il 31 luglio 2019. Per ulteriori informazioni e servizi alternativi, vedere [ritiro delle funzionalità del Centro sicurezza (luglio 2019)](security-center-features-retirement-july2019.md#menu_events).
 
 ## <a name="what-is-a-security-event"></a>Definizione di evento di sicurezza
 Il Centro sicurezza usa Microsoft Monitoring Agent per raccogliere diverse configurazione ed eventi correlati alla sicurezza dai computer e archivia questi eventi nelle aree di lavoro dell'utente. Ecco alcuni esempi di dati: log del sistema operativo, ovvero log eventi di Windows, processi in esecuzione ed eventi delle soluzioni di sicurezza integrati nel Centro sicurezza. Microsoft Monitoring Agent copia anche i file di dump di arresto anomalo del sistema nelle aree di lavoro.
@@ -73,7 +71,7 @@ Il **dashboard Eventi** offre una panoramica del numero di eventi elaborati nel 
    ![Ricerca log][6]
 
 ## <a name="add-a-notable-event"></a>Aggiungere un evento rilevante
-Il Centro sicurezza contiene eventi rilevanti predefiniti. È possibile aggiungere eventi rilevanti basati alle proprie query usando il [linguaggio di query Kusto](../log-analytics/log-analytics-search-reference.md). Per aggiungere un evento significativo, è necessario tornare a **Dashboard Eventi**.
+Il Centro sicurezza contiene eventi rilevanti predefiniti. È possibile aggiungere eventi rilevanti in base alla propria query usando il [linguaggio di query kusto](../log-analytics/log-analytics-search-reference.md). Per aggiungere un evento significativo, è necessario tornare a **Dashboard Eventi**.
 
 1. Selezionare **Add Notable Event** (Aggiungi un evento rilevante).
 
@@ -97,7 +95,7 @@ Se la riga dell'area di lavoro:
 - è vuoto, l'area di lavoro soddisfa i requisiti e per aprire il dashboard basta selezionare un'area di lavoro
 
 > [!NOTE]
-> In **Dashboard Eventi** la colonna **EVENTI** indica la quantità di eventi in ogni area di lavoro.  Questa colonna è vuota per alcune aree di lavoro perché il livello Gratuito del Centro sicurezza viene applicato all'area di lavoro. Nel livello gratuito, Centro sicurezza raccoglierà gli eventi ma gli eventi non vengono salvati in log di monitoraggio di Azure e non sono disponibili nel dashboard.
+> In **Dashboard Eventi** la colonna **EVENTI** indica la quantità di eventi in ogni area di lavoro.  Questa colonna è vuota per alcune aree di lavoro perché il livello Gratuito del Centro sicurezza viene applicato all'area di lavoro. Nel livello gratuito, il Centro sicurezza raccoglie gli eventi, ma gli eventi non vengono salvati nei log di monitoraggio di Azure e non sono disponibili nel dashboard.
 >
 >
 
@@ -122,9 +120,9 @@ Se la riga dell'area di lavoro:
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo è stato descritto come usare il dashboard Eventi nel Centro sicurezza. Per altre informazioni sul funzionamento del dashboard e su come scrivere le proprie query di eventi, vedere:
 
-- [Che cos'è log di monitoraggio di Azure?](../log-analytics/log-analytics-overview.md) : I log Panoramica di monitoraggio di Azure
-- [Informazioni sulle ricerche log in Kusto](../log-analytics/log-analytics-log-search-new.md) : descrive come vengono usate le ricerche log in log di monitoraggio di Azure e illustra i concetti con cui occorre avere familiarità prima di creare una ricerca log
-- [Riferimento alla ricerca di Kusto](../log-analytics/log-analytics-search-reference.md) – informazioni su come scrivere le query di eventi usando il linguaggio di query nel registro eventi
+- [Che cosa sono i log di monitoraggio di Azure?](../log-analytics/log-analytics-overview.md) -Panoramica sui log di monitoraggio di Azure
+- [Informazioni sulle ricerche nei log in kusto](../log-analytics/log-analytics-log-search-new.md) : descrive come usare le ricerche nei log nei log di monitoraggio di Azure e fornisce i concetti da comprendere prima di creare una ricerca nei log
+- Guida di [riferimento alla ricerca di Kusto](../log-analytics/log-analytics-search-reference.md) : informazioni su come scrivere query di evento personalizzate usando il linguaggio di query in log
 
 Per altre informazioni sul Centro sicurezza, vedere:
 

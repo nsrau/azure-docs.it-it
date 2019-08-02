@@ -12,14 +12,14 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0a482ae44c796e1519ffad0a604510166b1ac63c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 4f2bb4a6d10f9e45a27b8b5e082b3cbec475b531
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165616"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677811"
 ---
-# <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Gestire i dati di riferimento disponibile a livello generale per un ambiente Azure Time Series Insights tramiteC#
+# <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Gestire i dati di riferimento di GA per un ambiente Azure Time Series Insights usandoC#
 
 Questo articolo descrive un progetto C# di esempio che è possibile compilare per gestire i dati di riferimento per un ambiente Azure Time Series Insights.
 
@@ -36,7 +36,7 @@ Prima di compilare ed eseguire lo script di esempio, completare questa procedura
 1. Modificare il codice di esempio per sostituire le costanti di esempio, designate a **#DUMMY#** , in prossimità dell'inizio del codice.
 
 > [!NOTE]
-> Visualizzare il codice di esempio disponibile a livello generale nella [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
+> Visualizzare il codice di esempio GA [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample)all'indirizzo.
 
 ## <a name="project-dependencies"></a>Dipendenze progetto
 
@@ -247,4 +247,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Leggere il [fanno riferimento a dati API](/rest/api/time-series-insights/ga-reference-data-api).
+- Leggere l' [API dati di riferimento](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2019
+ms.date: 07/31/2019
 ms.author: rkarlin
-ms.openlocfilehash: fef9fa128d2ebb84fb82579f254735fdb9aa7ee2
-ms.sourcegitcommit: 1b7b0e1c915f586a906c33d7315a5dc7050a2f34
+ms.openlocfilehash: dad74410562aa54aeb61675e7dc1c0adccc44797
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67881075"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68679216"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Connettere la soluzione esterna usando syslog
 
@@ -47,6 +47,9 @@ Per altre informazioni, vedere [origini dati syslog in monitoraggio di Azure](..
 1. Nel portale di Azure Sentinel selezionare **connettori dati** e selezionare la riga **syslog** nella tabella e nel riquadro syslog a destra fare clic su **Apri pagina connettore**.
 2. Se il computer Linux si trova in Azure, selezionare **scaricare e installare l'agente nella macchina virtuale Linux di Azure**. Nella finestra macchine virtuali selezionare i computer in cui si desidera installare l'agente e fare clic su **Connetti** nella parte superiore.
 1. Se il computer Linux non è incluso in Azure, selezionare **scaricare e installare l'agente in una macchina Linux non Azure**. Nella finestra **agente diretto** copiare il comando in **Scarica e caricare l'agente per Linux** ed eseguirlo nel computer. 
+   > [!NOTE]
+   > Assicurarsi di configurare la sicurezza del computer in base ai criteri di sicurezza dell'organizzazione. Ad esempio, è possibile configurare la rete in modo che venga allineata ai criteri di sicurezza della rete aziendale e modificare le porte e i protocolli nel daemon per allinearli ai propri requisiti. 
+
 1. In **configurare i log da connettere** nella finestra di configurazione del connettore syslog, seguire le istruzioni:
     1. Fare clic sul collegamento per **aprire la configurazione delle impostazioni avanzate dell'area di lavoro**. 
     1. Selezionare **dati**, seguito da **syslog**.
@@ -55,7 +58,7 @@ Per altre informazioni, vedere [origini dati syslog in monitoraggio di Azure](..
        > Se si seleziona la casella di controllo per **applicare la configurazione seguente alle macchine virtuali**, questa configurazione verrà applicata a tutti i computer Linux connessi all'area di lavoro. È possibile visualizzare questa configurazione nel computer syslog in 
 1. Fare clic su **premere qui per aprire il pannello di configurazione**.
 1. Selezionare **dati** e quindi **syslog**.
-   - Verificare che ogni funzionalità inviata da syslog si trovi nella tabella. Per ogni struttura che si intende monitorare, impostare una gravità. Fare clic su **Apply**.
+   - Verificare che ogni funzionalità inviata da syslog si trovi nella tabella. Per ogni struttura si prevede di monitorare e impostare un livello di gravità. Fare clic su **Apply**.
 1. Nel computer syslog assicurarsi di inviare tali strutture. 
 
 1. Per usare lo schema pertinente in Log Analytics per i log syslog, cercare **syslog**.

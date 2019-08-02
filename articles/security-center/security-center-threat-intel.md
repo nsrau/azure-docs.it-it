@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 36201bad64e5516375afe1ec9ce141c3fd311d48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0740beb3b1ffc200c36ca4b5c15b25017821587e
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64574343"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662349"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>Mappa degli avvisi di sicurezza e intelligence per le minacce
 Questo articolo illustra come usare la mappa degli avvisi di sicurezza e la mappa dell'intelligence per le minacce basata su eventi di sicurezza del Centro sicurezza di Azure per risolvere i problemi relativi alla sicurezza.
 
 > [!NOTE]
-> La sicurezza *eventi* pulsante mappa verrà ritirato il 31 luglio 2019. Per altre informazioni e servizi alternativi, vedere [ritiro del Centro sicurezza di funzionalità (luglio 2019)](security-center-features-retirement-july2019.md#menu_securityeventsmap).
+> Il pulsante mappa *eventi* di sicurezza è stato ritirato il 31 luglio 2019. Per ulteriori informazioni e servizi alternativi, vedere [ritiro delle funzionalità del Centro sicurezza (luglio 2019)](security-center-features-retirement-july2019.md#menu_securityeventsmap).
 
 
 ## <a name="how-the-security-alerts-map-works"></a>Funzionamento della mappa degli avvisi di sicurezza
@@ -55,51 +55,6 @@ La mappa degli avvisi di sicurezza è costituita da avvisi. Questi avvisi si bas
 Gli avvisi presenti nella mappa vengono visualizzati in base alla posizione geografica di cui è stata rilevata la provenienza e sono colorati in base alla gravità. 
     ![Informazioni di intelligence per le minacce](./media/security-center-threat-intel/security-center-alert-map.png)
 
-## <a name="viewing-the-event-based-threat-intelligence-dashboard"></a>Visualizzazione del dashboard di intelligence per le minacce basata su eventi
-Per visualizzare la mappa dell'intelligence per le minacce basata su eventi di sicurezza non elaborati, è possibile seguire questa procedura. In questa mappa vengono visualizzati solo gli eventi che riguardano un indirizzo IP considerato come rischioso, ad esempio l'indirizzo IP di una botnet nota.
-
-1. Aprire il dashboard **Centro sicurezza**.
-
-1. Nel riquadro sinistro selezionare **Mappa degli avvisi di sicurezza** in **Protezione dalle minacce**. Si apre la mappa.
-2. Nell'angolo in alto a destra fare clic su **Vai alla mappa degli eventi di sicurezza**.
-3. Selezionare l'area di lavoro di cui si vuole visualizzare il dashboard.
-4. Nella parte superiore della mappa, selezionare **Visualizza Intelligence per le minacce classico**. Verrà visualizzato il dashboard **Intelligence per le minacce**.
-
-   > [!NOTE]
-   > Se nella colonna a destra viene visualizzato **PIANO DI AGGIORNAMENTO**, questa area di lavoro usa una sottoscrizione gratuita. Eseguire l'aggiornamento al piano Standard per usare questa funzionalità. Se la colonna all'estrema destra mostra **richiede l'aggiornamento**, aggiornare [monitoraggio di Azure registra](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) per usare questa funzionalità. Per altre informazioni sul piano tariffario, vedere i prezzi del Centro sicurezza di Azure.
-   >
-5. Se sono presenti più aree di lavoro da analizzare, classificare l'indagine in ordine di priorità in base alla colonna **Indirizzi IP dannosi**. Mostra il numero attuale di indirizzi IP dannosi nell'area di lavoro. Selezionare l'area di lavoro da usare per visualizzare il dashboard **Intelligence per le minacce**.
-
-    ![Informazioni di intelligence sulle minacce](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
-
-6. Questo dashboard è suddiviso in quattro riquadri:
-
-    a.  **Tipi di minacce**. Offre un riepilogo dei tipi di minacce rilevati nell'area di lavoro selezionata.
-
-    b.  **Paese di origine**. Aggrega la quantità di traffico in base alla località di origine.
-
-    c.  **Posizione minaccia**. Consente di identificare le località nel mondo che attualmente comunicano con l'ambiente. Nella mappa visualizzata le frecce arancioni (in ingresso) e rosse (in uscita) identificano le direzioni del traffico. Se si seleziona una di queste frecce, vengono visualizzati il tipo di minaccia e la direzione del traffico.
-
-    d.  **Dettagli minaccia**. Mostra altri dettagli sulla minaccia selezionata nella mappa.
-
-Indipendentemente dal riquadro di opzione selezionato, il dashboard visualizzato è basato sulla query di ricerca log. L'unica differenza è costituita dal tipo di query e dal risultato.
-
-### <a name="threat-types"></a>Tipi di minacce
-Selezionare il riquadro **Tipi di minacce** per aprire il dashboard **Ricerca log**. Le opzioni relative ai filtri vengono visualizzate a sinistra e i risultati della query a destra.
-
-![Ricerca log](./media/security-center-threat-intel/security-center-threat-intel-fig3.png)
-
-Il risultato della query mostra le minacce ordinate per nome. È possibile usare il riquadro sinistro per selezionare l'attributo da filtrare. Per visualizzare, ad esempio, solo le minacce attualmente connesse ai computer, in **STATO SESSIONE** selezionare **Connesso** > **Applica**.
-
-![Stato della sessione](./media/security-center-threat-intel/security-center-threat-intel-fig4.png)
-
-Per le VM di Azure, nel dashboard **Intelligence per le minacce** vengono visualizzati solo i dati di rete che passano attraverso l'agente. Nell'intelligence per le minacce vengono usati anche i tipi di dati seguenti:
-
-- Dati CEF (Type=CommonSecurityLog)
-- Dati in transito (Type= WireData)
-- Log di IIS (Type=W3CIISLog)
-- Windows Firewall (Type=WindowsFirewall)
-- Eventi DNS (Type=DnsEvents)
 
 
 ## <a name="see-also"></a>Vedere anche

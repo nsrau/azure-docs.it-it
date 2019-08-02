@@ -1,5 +1,5 @@
 ---
-title: 'Protezione domande frequenti: Password di Azure AD Azure Active Directory locale'
+title: Domande frequenti sulla protezione della password Azure AD locale-Azure Active Directory
 description: Domande frequenti sulla protezione password di Azure AD locale
 services: active-directory
 ms.service: active-directory
@@ -11,14 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b4879093ed80a554219b053cc5a2bc895126725
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 9f1f2e06eb6b5f8d402515ff1c07a4163174495d
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702884"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666350"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>protezione password di Azure AD locale - Domande frequenti
+
+In questa sezione vengono fornite le risposte a molte domande frequenti sulla protezione Azure AD password.
 
 ## <a name="general-questions"></a>Domande generali
 
@@ -36,17 +38,21 @@ No, la protezione password di Azure AD locale è supportata solo nel cloud pubbl
 
 Non supportati. Dopo la distribuzione e l'abilitazione, Password di protezione di Azure AD non prevede alcuna discriminazione: tutti gli utenti ottengono uguali vantaggi per la sicurezza.
 
-**D: Che cos'è la differenza tra una modifica della password e un set di password (o reset)?**
+**D: Qual è la differenza tra una modifica della password e un set di password (o reimpostazione)?**
 
-Una modifica della password è quando un utente sceglie una nuova password dopo dimostrando che e conoscono la vecchia password. Ad esempio, questo è ciò che accade quando un utente accede a Windows e viene quindi richiesto di scegliere una nuova password.
+Una modifica della password si verifica quando un utente sceglie una nuova password dopo avere dimostrato la conoscenza della vecchia password. Ad esempio, questo è ciò che accade quando un utente accede a Windows e viene quindi richiesto di scegliere una nuova password.
 
-Quando un amministratore sostituisce la password per un account con una nuova password, ad esempio usando lo strumento di gestione di Active Directory Users and Computers è una serie di password (operazione talvolta denominata la reimpostazione della password). Questa operazione richiede un elevato livello di privilegio (in genere un amministratore di dominio) e la persona che esegue l'operazione in genere non conoscono la vecchia password. Scenari di help desk spesso eseguire questa operazione, ad esempio quando un utente che ha dimenticato la password di ad assistere. Si vedrà anche la password impostata gli eventi di creazione di un nuovo account utente in corso per la prima volta con una password.
+Un set di password (talvolta denominato reimpostazione della password) si verifica quando un amministratore sostituisce la password di un account con una nuova password, ad esempio tramite lo strumento di gestione Active Directory utenti e computer. Questa operazione richiede un livello elevato di privilegi (in genere amministratore di dominio) e la persona che esegue l'operazione in genere non conosce la vecchia password. Gli scenari di supporto tecnico spesso eseguono questa operazione, ad esempio quando si assiste a un utente che ha dimenticato la password. Gli eventi di impostazione della password vengono visualizzati anche quando viene creato un nuovo account utente per la prima volta con una password.
 
-I criteri di convalida delle password esattamente lo stesso indipendentemente dal fatto che viene eseguita una modifica della password o un set. Il servizio agente di protezione controller di dominio di Password di Azure AD accedere a diversi eventi per segnalare se una modifica della password o è stata eseguita l'operazione di impostazione.  Visualizzare [protezione di Password di Azure AD, monitoraggio e registrazione](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
+I criteri di convalida della password si comportano allo stesso modo, indipendentemente dal fatto che sia stata eseguita una modifica o un set di password. Il servizio Azure AD Password Protection Agent esegue il log di eventi diversi per indicare se è stata eseguita una modifica della password o un'operazione di impostazione.  Vedere [Azure ad monitoraggio e registrazione per la protezione delle password](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
 
-**D: Il motivo per cui gli eventi di rifiuto duplicati password registrati durante il tentativo di impostare una password vulnerabile siano utilizzando lo snap-in Gestione Active Directory Users and Computers?**
+**D: Perché si registrano eventi di rifiuto delle password duplicati quando si tenta di impostare una password vulnerabile usando lo snap-in gestione Active Directory utenti e computer?**
 
-Utenti di Active Directory e snap-in Gestione computer tenterà prima di impostare la nuova password utilizzando il protocollo Kerberos. In caso di errore lo snap-in farà un secondo tentativo di impostare la password usando un protocollo (SAM RPC) legacy (i protocolli specifici utilizzati non sono importanti). Se la nuova password viene considerata debole da protezione con Password di Azure AD, si verificherà in due set di eventi di rifiuto di reimpostazione della password in corso la registrazione.
+Lo snap-in gestione utenti e computer Active Directory tenterà innanzitutto di impostare la nuova password utilizzando il protocollo Kerberos. In caso di errore, lo snap-in effettuerà un secondo tentativo di impostazione della password usando un protocollo legacy (SAM RPC) (i protocolli specifici usati non sono importanti). Se la nuova password viene considerata debole da Azure AD la protezione con password, questo comporterà la registrazione di due set di eventi di rifiuto di reimpostazione della password.
+
+**D: Perché vengono registrati gli eventi di convalida password Azure AD Password Protection con un nome utente vuoto?**
+
+Active Directory supporta la possibilità di testare una password per verificare se supera i requisiti di complessità della password correnti del dominio, ad esempio usando l'API [NetValidatePasswordPolicy](https://docs.microsoft.com/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy) . Quando una password viene convalidata in questo modo, il test include anche la convalida da parte di prodotti basati su dll con filtro password, ad esempio Azure AD la protezione con password, ma i nomi utente passati a una determinata DLL di filtro password saranno vuoti. In questo scenario Azure AD la protezione con password convaliderà ancora la password usando i criteri della password attualmente in vigore ed emetterà un messaggio del registro eventi per acquisire il risultato, ma il messaggio del registro eventi avrà campi nome utente vuoti.
 
 **D: l'installazione della protezione password di Azure AD è supportata in affiancamento ad altri prodotti basati su filtri password?**
 
@@ -86,9 +92,9 @@ No. Poiché il server proxy è senza stato, non ha importanza quale server proxy
 
 Sì. Il servizio proxy di Password di protezione di Azure AD e Azure AD Connect non devono essere mai direttamente in conflitto l'uno con l'altro.
 
-**D: In quale ordine devono gli agenti di DC e proxy essere installati e registrati?**
+**D: In quale ordine devono essere installati e registrati gli agenti e i proxy del controller di dominio?**
 
-È supportato alcun tipo di ordinamento di installazione dell'agente Proxy, l'installazione dell'agente controller di dominio, la registrazione dell'insieme di strutture e registrazione del Proxy.
+Sono supportati gli ordini di installazione dell'agente proxy, l'installazione dell'agente DC, la registrazione della foresta e la registrazione del proxy.
 
 **D: La distribuzione di questa funzionalità può avere un impatto preoccupante sulle prestazioni dei controller di dominio?**
 
@@ -114,15 +120,15 @@ In sintesi, la distribuzione del servizio agente del controller di dominio di Pa
 
 No.
 
-**D: Il motivo per cui Azure ancora Rifiuta password vulnerabili anche se è stata configurata il criteri in modalità di controllo?**
+**D: Perché Azure rifiuta ancora le password vulnerabili anche se i criteri sono stati configurati in modalità di controllo?**
 
-Modalità di controllo è supportata solo nell'ambiente di Active Directory locale. Azure è implicitamente sempre in modalità "Applica" quando valuta le password.
+La modalità di controllo è supportata solo nell'ambiente di Active Directory locale. Azure è sempre in modo implicito in modalità "applica" quando valuta le password.
 
 ## <a name="additional-content"></a>Contenuto aggiuntivo
 
 Gli articoli a cui si accede tramite i collegamenti seguenti non fanno parte della documentazione di base relativa a Password di protezione di Azure AD, ma possono essere una fonte utile di informazioni aggiuntive su tale funzionalità.
 
-[Protezione tramite Password di Azure AD è ora disponibile a livello generale.](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-is-now-generally-available/ba-p/377487)
+[Azure AD la protezione con password è ora disponibile a livello generale.](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-is-now-generally-available/ba-p/377487)
 
 [Email Phishing Protection Guide - Part 15: Implement the Microsoft Azure AD Password Protection Service (for On-Premises too!)](https://blogs.technet.microsoft.com/cloudready/2018/10/14/email-phishing-protection-guide-part-15-implement-the-microsoft-azure-ad-password-protection-service-for-on-premises-too/) (Guida alla protezione dal phishing via posta elettronica - Parte 15: Implementare il servizio Password di protezione di Microsoft Azure AD (anche in locale))
 

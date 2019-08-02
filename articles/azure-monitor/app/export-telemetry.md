@@ -10,21 +10,21 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 07/25/2019
 ms.author: mbullwin
-ms.openlocfilehash: 71e70962a8c55d397b6261571cfef4a126d3e8b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3238abcbcbc4d776e3736b13d5b32149c642649c
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60899427"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516954"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Esportare i dati di telemetria da Application Insights
-Si vogliono mantenere i dati di telemetria per un periodo più lungo del periodo di mantenimento standard o elaborarli in un modo particolare? A tale scopo, l'esportazione continua è ideale. Gli eventi visualizzati nel portale di Application Insights possono essere esportati nella risorsa di archiviazione di Microsoft Azure in formato JSON. Da qui è possibile scaricare i dati e scrivere qualsiasi tipo di codice necessario per elaborarli.  
+Si vogliono mantenere i dati di telemetria per un periodo più lungo del periodo di mantenimento standard o elaborarli in un modo particolare? A tale scopo, l'esportazione continua è ideale. Gli eventi visualizzati nel portale di Application Insights possono essere esportati nella risorsa di archiviazione di Microsoft Azure in formato JSON. Da qui è possibile scaricare i dati e scrivere il codice necessario per elaborarlo.  
 
 Prima di configurare l'esportazione continua, è necessario prendere in considerazione alcune alternative:
 
-* Il pulsante Esporta nella parte superiore del pannello delle metriche o di ricerca consente di esportare tabelle e grafici in un foglio di calcolo di Excel.
+* Il pulsante Esporta nella parte superiore di una scheda metrica o ricerca consente di trasferire tabelle e grafici in un foglio di calcolo di Excel.
 
 * [Dati di analisi](../../azure-monitor/app/analytics.md) offre un linguaggio avanzato di query per la telemetria che consente anche di esportare i risultati.
 * Se si vogliono [esplorare i dati in Power BI](../../azure-monitor/app/export-power-bi.md ), non è necessario usare l'esportazione continua.
@@ -33,31 +33,30 @@ Prima di configurare l'esportazione continua, è necessario prendere in consider
 
 Con l'esportazione continua i dati vengono copiati nella risorsa di archiviazione, in cui possono rimanere fino a quando si desidera, ma sono ancora disponibili in Application Insights per il [periodo di conservazione](../../azure-monitor/app/data-retention-privacy.md) usuale.
 
-## <a name="continuous-export-advanced-storage-configuration"></a>Configurazione dell'archiviazione avanzata esportazione continua
+## <a name="continuous-export-advanced-storage-configuration"></a>Configurazione dell'archiviazione avanzata per l'esportazione continua
 
-L'esportazione continua **nepodporuje** la funzionalità di archiviazione di Azure seguente e le configurazioni:
+L'esportazione continua non **supporta** le seguenti funzionalità/configurazioni di archiviazione di Azure:
 
-* Sfrutta [firewall di rete virtuale di Azure/archiviazione](https://docs.microsoft.com/azure/storage/common/storage-network-security) in combinazione con archiviazione Blob di Azure.
+* Uso di [VNET/firewall di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security) in combinazione con l'archiviazione BLOB di Azure.
 
-* [Archiviazione non modificabile](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) per l'archiviazione Blob di Azure.
+* [Archiviazione](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) non modificabile per archiviazione BLOB di Azure.
 
-* [Azure Data Lake Store Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
+* [Azure Data Lake storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
 
 ## <a name="setup"></a> Creare un'esportazione continua
-1. Nella risorsa di Application Insights per l'app aprire Esportazione continua e scegliere **Aggiungi**:
+
+1. Nella Application Insights risorsa per l'app in configurazione a sinistra aprire esportazione continua e scegliere **Aggiungi**:
 
 2. Scegliere i tipi di dati di telemetria da esportare.
 
-3. Creare o selezionare un [account di archiviazione di Azure](../../storage/common/storage-introduction.md) in cui memorizzare i dati. Per altre informazioni sulle opzioni per i prezzi dell'archiviazione, vedere la [pagina dei prezzi ufficiale](https://azure.microsoft.com/pricing/details/storage/).
+3. Creare o selezionare un [account di archiviazione di Azure](../../storage/common/storage-introduction.md) in cui memorizzare i dati. Per ulteriori informazioni sulle opzioni relative ai prezzi di archiviazione, visitare la [pagina dei prezzi ufficiale](https://azure.microsoft.com/pricing/details/storage/).
+
+     Fare clic su Aggiungi, Esporta destinazione, account di archiviazione, quindi creare un nuovo archivio o scegliere un archivio esistente.
 
     > [!Warning]
     > Per impostazione predefinita, il percorso di archiviazione verrà impostato sulla stessa area geografica della risorsa di Application Insights. Se si esegue l'archiviazione in un'area differente, è possibile che vengano applicati addebiti per il trasferimento.
 
-    ![Fare clic su Aggiungi, Destinazione di esportazione, Account di archiviazione e quindi creare un nuovo archivio o scegliere un archivio esistente](./media/export-telemetry/02-add.png)
-
-4. Creare o selezionare un contenitore nella risorsa di archiviazione:
-
-    ![Fare clic su Scegli tipi di eventi](./media/export-telemetry/create-container.png)
+4. Creare o selezionare un contenitore nella risorsa di archiviazione.
 
 Dopo averla creata, l'esportazione viene avviata. Si ottengono solo i dati ricevuti dopo avere creato l'esportazione.
 
@@ -65,9 +64,7 @@ Può verificarsi un ritardo di circa un'ora prima che i dati vengano visualizzat
 
 ### <a name="to-edit-continuous-export"></a>Per modificare l'esportazione continua
 
-Se si vogliono modificare i tipi di eventi in un secondo momento, è sufficiente modificare l'esportazione:
-
-![Fare clic su Scegli tipi di eventi](./media/export-telemetry/05-edit.png)
+Fare clic su esportazione continua e selezionare l'account di archiviazione da modificare.
 
 ### <a name="to-stop-continuous-export"></a>Per interrompere l'esportazione continua
 
@@ -76,10 +73,10 @@ Per interrompere l'esportazione, fare clic su Disabilita. Quando si fa clic di n
 Per interrompere l'esportazione in modo permanente, eliminare l'esportazione. Questa operazione non elimina i dati dalla risorsa di archiviazione.
 
 ### <a name="cant-add-or-change-an-export"></a>Non si riesce ad aggiungere o modificare un'esportazione?
-* Per aggiungere o modificare le esportazioni, è necessario avere i diritti di accesso proprietario, collaboratore o collaboratore di Application Insights. [Informazioni sui ruoli][roles].
+* Per aggiungere o modificare le esportazioni, è necessario disporre dei diritti di accesso proprietario, collaboratore o Application Insights collaboratore. Informazioni [sui ruoli][roles].
 
 ## <a name="analyze"></a> Quali eventi si ottengono?
-I dati esportati sono dati di telemetria non elaborati ricevuti dall'applicazione, tranne che per l'aggiunta di dati del percorso calcolati dall'indirizzo IP del client.
+I dati esportati sono i dati di telemetria non elaborati ricevuti dall'applicazione, con la differenza che si aggiungono dati sulla posizione, calcolati dall'indirizzo IP del client.
 
 I dati che il [campionamento](../../azure-monitor/app/sampling.md) ha rimosso non sono inclusi nei dati esportati.
 
@@ -93,7 +90,7 @@ I dati includono anche i risultati di ogni [test Web di disponibilità](../../az
 >
 
 ## <a name="get"></a> Esaminare i dati
-È possibile esaminare lo spazio di archiviazione direttamente nel portale. Fare clic su **Sfoglia**, selezionare l'account di archiviazione e quindi aprire i **Contenitori**.
+È possibile esaminare lo spazio di archiviazione direttamente nel portale. Fare clic su Home nel menu a sinistra, in alto dove "servizi di Azure" selezionare **account di archiviazione**, selezionare il nome dell'account di archiviazione, nella pagina Panoramica selezionare **BLOB** in servizi e infine selezionare il nome del contenitore.
 
 Per esaminare l'archiviazione di Azure in Visual Studio, aprire **Visualizza**, **Cloud Explorer**. Se tale comando di menu non è disponibile, è necessario installare Azure SDK: aprire la finestra di dialogo **Nuovo progetto**, espandere Visual C#/Cloud e scegliere **Get Microsoft Azure SDK for .NET** (Ottieni Microsoft Azure SDK per .NET).
 
@@ -147,17 +144,15 @@ Su scala ridotta è possibile scrivere codice per separare i dati, leggerli in u
       }
     }
 
-Per un esempio di codice più esaustivo, vedere l'articolo relativo all'[uso di un ruolo di lavoro][exportasa].
+Per un esempio di codice più ampio, vedere [uso di un ruolo di lavoro][exportasa].
 
 ## <a name="delete"></a>Eliminare i vecchi dati
-Sei deve gestire la capacità di archiviazione ed eliminazione di vecchi dati se necessario.
+Se necessario, l'utente è responsabile della gestione della capacità di archiviazione e dell'eliminazione dei dati precedenti.
 
 ## <a name="if-you-regenerate-your-storage-key"></a>Se si rigenera la chiave di archiviazione...
 Se si modifica la chiave per l'archiviazione, l'esportazione continua non funzionerà più. Verrà visualizzata una notifica nell'account Azure.
 
-Aprire il pannello Esportazione continua e modificare l'esportazione. Modificare la destinazione di esportazione, ma lasciare selezionata la stessa risorsa di archiviazione. Fare clic su OK per confermare.
-
-![Modificare l'esportazione continua, aprire e chiudere tre destinazioni di esportazione.](./media/export-telemetry/07-resetstore.png)
+Aprire la scheda esportazione continua e modificare l'esportazione. Modificare la destinazione di esportazione, ma lasciare selezionata la stessa risorsa di archiviazione. Fare clic su OK per confermare.
 
 L'esportazione continua verrà riavviata.
 
@@ -171,7 +166,7 @@ Su scala più estesa considerare la possibilità di usare cluster [HDInsight](ht
 ## <a name="q--a"></a>Domande e risposte
 * *Si intende scaricare semplicemente un grafico.*  
 
-    Questa operazione è consentita. Nella parte superiore del pannello fare clic sul **pulsante di esportazione dati**.
+    Questa operazione è consentita. Nella parte superiore della scheda fare clic su **Esporta dati**.
 * *È stata impostata un'esportazione, ma non sono presenti dati nell'archivio personale.*
 
     Application Insights ha ricevuto eventuali dati di telemetria dall'app dal momento in cui si è impostata l'esportazione? Si riceveranno solo nuovi dati.
@@ -187,10 +182,10 @@ Su scala più estesa considerare la possibilità di usare cluster [HDInsight](ht
 * *Quanti BLOB dovrebbero essere visualizzati nella risorsa di archiviazione?*
 
   * Per ogni tipi di dati selezionato per l'esportazione, viene creato un nuovo BLOB ogni minuto, se sono disponibili dati.
-  * Per le applicazioni con traffico elevato, inoltre, vengono allocate unità di partizione aggiuntive. In questo caso, ogni unità crea un blob ogni minuto.
+  * Per le applicazioni con traffico elevato, inoltre, vengono allocate unità di partizione aggiuntive. In questo caso ogni unità crea un BLOB ogni minuto.
 * *La chiave per la risorsa di archiviazione è stata rigenerata o il nome del contenitore è stato modificato, ma l'esportazione non funziona.*
 
-    Modificare l'esportazione e aprire il pannello di destinazione dell'esportazione. Lasciare la stessa risorsa di archiviazione selezionata come in precedenza e fare clic su OK per confermare. L'esportazione verrà riavviata. Se la modifica è stata eseguita negli ultimi giorni, non si perderanno i dati.
+    Modificare l'esportazione e aprire la scheda Esporta destinazione. Lasciare la stessa risorsa di archiviazione selezionata come in precedenza e fare clic su OK per confermare. L'esportazione verrà riavviata. Se la modifica è stata eseguita negli ultimi giorni, non si perderanno i dati.
 * *È possibile sospendere l'esportazione?*
 
     Sì. Fare clic su Disabilita.

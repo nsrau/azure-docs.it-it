@@ -1,24 +1,22 @@
 ---
-title: Selezionare un tipo di disco per le macchine virtuali Windows di IaaS di Azure - i dischi gestiti
-description: Informazioni sui tipi di dischi di Azure disponibili per le macchine virtuali Windows, tra cui unità SSD extra, unità SSD premium, standard unità SSD e HDD Standard.
-services: virtual-machines-windows,storage
+title: Selezionare un tipo di disco per le macchine virtuali Windows di Azure IaaS-dischi gestiti
+description: Informazioni sui tipi di dischi di Azure disponibili per le macchine virtuali Windows, tra cui ultra SSD, SSD Premium, SSD standard e HDD standard.
 author: roygara
 ms.author: rogarana
 ms.date: 05/10/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: virtual-machines-windows
-ms.tgt_pltfrm: windows
 ms.subservice: disks
-ms.openlocfilehash: 74dbe12a2df07218fbb369097b566a9dad4921c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 99337c633f2bce9ed7b41b36cb54037d4c201a78
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539502"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698730"
 ---
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-overview.md)]
 
-Se vuoi iniziare a usare unità SSD extra, vedere l'articolo sull'argomento: [Abilitazione Azure SSDs extra](disks-enable-ultra-ssd.md).
+Per iniziare a usare ultra SSD, vedere l'articolo sull'argomento: [Abilitazione di Azure ultra SSD](disks-enable-ultra-ssd.md).
 
 [!INCLUDE [virtual-machines-managed-disks-types-ga](../../../includes/virtual-machines-managed-disks-types-ga.md)]
 

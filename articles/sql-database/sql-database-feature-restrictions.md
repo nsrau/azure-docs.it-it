@@ -1,6 +1,6 @@
 ---
-title: Restrizioni di funzionalità del Database SQL di Azure | Microsoft Docs
-description: Restrizioni di funzionalità del Database SQL di Azure consente di migliorare la sicurezza del database da limitare le funzionalità del database che possono essere dagli utenti malintenzionati per accedere alle informazioni in essi contenuti.
+title: Limitazioni delle funzionalità del database SQL di Azure | Microsoft Docs
+description: Limitazioni delle funzionalità del database SQL di Azure consente di migliorare la sicurezza del database limitando le funzionalità del database che possono essere da utenti malintenzionati per ottenere l'accesso alle informazioni in esse contenute.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,140 +10,139 @@ ms.topic: conceptual
 author: vainolo
 ms.author: arib
 ms.reviewer: vanto
-manager: craigg
 ms.date: 03/22/2019
-ms.openlocfilehash: ac7a074e78def504a10b4daa07971f919f414a88
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f5123624b5b9388baf799b48127b5b796eec21b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66259453"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568225"
 ---
-# <a name="azure-sql-database-feature-restrictions"></a>Restrizioni di funzionalità del Database SQL di Azure
+# <a name="azure-sql-database-feature-restrictions"></a>Limitazioni delle funzionalità del database SQL di Azure
 
-Una causa comune di attacchi di SQL Server è tramite le applicazioni web che accedono al database in cui vengono utilizzati varie forme di attacchi SQL injection per estrapolare informazioni relative al database.  In teoria, il codice dell'applicazione viene sviluppato in modo che non consente di attacchi SQL injection.  Tuttavia, nelle grandi-codebase che includono il codice legacy ed esterno, uno può mai essere assicurarsi che siano stati risolti tutti i casi, in modo che SQL injection siano della vita disponibili per la protezione da.  L'obiettivo di restrizioni di funzionalità è per evitare alcuni tipi di attacchi SQL injection dalla divulgazione di informazioni sul database, anche quando l'attacco SQL injection è riuscita.
+Una fonte comune di attacchi SQL Server è costituita dalle applicazioni Web che accedono al database in cui vengono usate diverse forme di attacchi SQL Injection per raccogliere informazioni sul database.  Idealmente, il codice dell'applicazione viene sviluppato in modo da non consentire l'inserimento SQL injection.  Tuttavia, nelle basi di codice di grandi dimensioni che includono codice legacy ed esterno, non si può mai essere sicuri che tutti i case siano stati risolti, quindi gli inserimenti SQL sono un fatto di vita in cui è necessario proteggersi.  L'obiettivo delle restrizioni di funzionalità è impedire che alcune forme di attacchi SQL injection riportino informazioni sul database, anche in caso di esito positivo dell'attacco SQL injection.
 
-## <a name="enabling-feature-restrictions"></a>Abilitazione delle restrizioni di funzionalità
+## <a name="enabling-feature-restrictions"></a>Abilitazione delle restrizioni delle funzionalità
 
-Abilitazione delle restrizioni di funzionalità avviene tramite il `sp_add_feature_restriction` stored procedure come segue:
+L'abilitazione delle restrizioni delle funzionalità `sp_add_feature_restriction` viene eseguita usando il stored procedure come indicato di seguito:
 
 ```sql
 EXEC sp_add_feature_restriction <feature>, <object_class>, <object_name>
 ```
 
-È possibile limitare le funzionalità seguenti:
+Le funzionalità seguenti possono essere limitate:
 
 | Funzionalità          | Descrizione |
 |------------------|-------------|
-| N'ErrorMessages' | Quando la limitata, verranno applicata la maschera dati utente all'interno del messaggio di errore. Vedere [restrizione di funzionalità di messaggi di errore](#error-messages-feature-restriction) |
-| N'Waitfor'       | Quando la limitata, il comando restituirà immediatamente senza alcun ritardo. Vedere [WAITFOR restrizione di funzionalità](#waitfor-feature-restriction) |
+| N'ErrorMessages' | Con restrizioni, eventuali dati utente all'interno del messaggio di errore verranno mascherati. Vedere la [limitazione delle funzionalità dei messaggi di errore](#error-messages-feature-restriction) |
+| N'Waitfor'       | Quando viene limitato, il comando restituisce immediatamente un risultato senza alcun ritardo. Vedere [restrizione delle funzionalità di aspetter](#waitfor-feature-restriction) |
 
-Il valore di `object_class` può essere rappresentata `N'User'` oppure `N'Role'` per indicare se `object_name` è un nome utente o un nome di ruolo nel database.
+Il valore di `object_class` può `N'User'` essere o `N'Role'` per indicare se `object_name` è un nome utente o un nome di ruolo nel database.
 
-Nell'esempio seguente causa tutti i messaggi di errore per l'utente `MyUser` a essere mascherati:
+Nell'esempio seguente verranno mascherati tutti i messaggi di `MyUser` errore per l'utente:
 
 ```sql
 EXEC sp_add_feature_restriction N'ErrorMessages', N'User', N'MyUser'
 ```
 
-## <a name="disabling-feature-restrictions"></a>La disabilitazione delle limitazioni delle funzionalità
+## <a name="disabling-feature-restrictions"></a>Disabilitazione delle restrizioni delle funzionalità
 
-La disabilitazione delle limitazioni delle caratteristiche viene eseguita usando il `sp_drop_feature_restriction` stored procedure come segue:
+La disabilitazione delle restrizioni delle funzionalità viene `sp_drop_feature_restriction` eseguita utilizzando il stored procedure come indicato di seguito:
 
 ```sql
 EXEC sp_drop_feature_restriction <feature>, <object_class>, <object_name>
 ```
 
-Nell'esempio seguente disabilita il mascheramento di messaggio di errore per l'utente `MyUser`:
+Nell'esempio seguente viene disabilitata la maschera dei messaggi di errore `MyUser`per l'utente:
 
 ```sql
 EXEC sp_drop_feature_restriction N'ErrorMessages', N'User', N'MyUser'
 ```
 
-## <a name="viewing-feature-restrictions"></a>Limitazioni delle caratteristiche di visualizzazione
+## <a name="viewing-feature-restrictions"></a>Visualizzazione delle restrizioni delle funzionalità
 
-Il `sys.sql_feature_restrictions` Vista presenta tutte le restrizioni di funzionalità attualmente definiti nel database. Include le colonne seguenti:
+La `sys.sql_feature_restrictions` vista presenta tutte le restrizioni sulle funzionalità attualmente definite nel database. Sono incluse le colonne seguenti:
 
 | Nome colonna | Tipo di dati | Descrizione |
 |-------------|-----------|-------------|
-| class       | nvarchar(128) | Classe dell'oggetto a cui viene applicata la restrizione |
+| classe       | nvarchar(128) | Classe dell'oggetto a cui viene applicata la restrizione |
 | object      | nvarchar(256) | Nome dell'oggetto a cui viene applicata la restrizione |
-| Funzionalità     | nvarchar(128) | Funzionalità limitata |
+| dell'applicazione     | nvarchar(128) | Funzionalità con restrizioni |
 
 ## <a name="feature-restrictions"></a>Limitazioni delle funzionalità
 
-### <a name="error-messages-feature-restriction"></a>Restrizione di funzionalità dei messaggi di errore
+### <a name="error-messages-feature-restriction"></a>Restrizione della funzionalità dei messaggi di errore
 
-Un metodo attacco injection comune di SQL è inserire il codice che causa un errore.  Esaminando il messaggio di errore, un utente malintenzionato può per raccogliere informazioni relative al sistema, l'abilitazione di altri attacchi più mirati.  Questo attacco può essere particolarmente utile in cui l'applicazione non vengono visualizzati i risultati di una query, ma visualizzare messaggi di errore.
+Un metodo comune di attacco SQL injection consiste nell'inserire codice che causa un errore.  Esaminando il messaggio di errore, un utente malintenzionato può apprendere informazioni sul sistema, consentendo ulteriori attacchi mirati.  Questo attacco può essere particolarmente utile quando l'applicazione non Visualizza i risultati di una query, ma Visualizza i messaggi di errore.
 
-Si consideri un'applicazione web che dispone di una richiesta sotto forma di:
+Si consideri un'applicazione Web con una richiesta sotto forma di:
 
 ```html
 http://www.contoso.com/employee.php?id=1
 ```
 
-Che esegue la query di database seguenti:
+Che esegue la query di database seguente:
 
 ```sql
 SELECT Name FROM EMPLOYEES WHERE Id=$EmpId
 ```
 
-Se il valore passato come il `id` parametro per la richiesta di applicazione web viene copiato per sostituire $EmpId nella query del database, un utente malintenzionato potrebbe eseguire la richiesta seguente:
+Se il valore passato come `id` parametro alla richiesta dell'applicazione Web viene copiato per sostituire $empid nella query del database, un utente malintenzionato potrebbe effettuare la richiesta seguente:
 
 ```html
 http://www.contoso.com/employee.php?id=1 AND CAST(DB_NAME() AS INT)=0
 ```
 
-E verrebbe restituito l'errore seguente, che gli consente di conoscere il nome del database:
+Viene restituito l'errore seguente, che consente all'autore dell'attacco di apprendere il nome del database:
 
 ```sql
 Conversion failed when converting the nvarchar value 'HR_Data' to data type int.
 ```
 
-Dopo l'abilitazione dei messaggi di errore delle funzionalità restrizione per l'utente dell'applicazione nel database, il messaggio di errore restituito è nascosta, in modo che non va persa alcuna informazione interna sul database:
+Una volta abilitata la restrizione delle funzionalità dei messaggi di errore per l'utente dell'applicazione nel database, il messaggio di errore restituito viene mascherato in modo che non vengano perse informazioni interne sul database:
 
 ```sql
 Conversion failed when converting the ****** value '******' to data type ******.
 ```
 
-Analogamente, l'autore dell'attacco è stato possibile eseguire la richiesta seguente:
+Analogamente, l'autore dell'attacco potrebbe effettuare la richiesta seguente:
 
 ```html
 http://www.contoso.com/employee.php?id=1 AND CAST(Salary AS TINYINT)=0
 ```
 
-E verrebbe restituito l'errore seguente, che consente all'utente malintenzionato di informazioni sullo stipendio del dipendente:
+Viene restituito l'errore seguente, che consente all'autore dell'attacco di apprendere lo stipendio del dipendente:
 
 ```sql
 Arithmetic overflow error for data type tinyint, value = 140000.
 ```
 
-Usa restrizioni di funzionalità dei messaggi di errore, il database restituisce:
+Utilizzando la restrizione della funzionalità dei messaggi di errore, il database restituirà:
 
 ```sql
 Arithmetic overflow error for data type ******, value = ******.
 ```
 
-### <a name="waitfor-feature-restriction"></a>Restrizione di funzionalità WAITFOR
+### <a name="waitfor-feature-restriction"></a>Restrizione della funzionalità ASPETTER
 
-Nascosta SQL Injection è quando un'applicazione non fornisce un utente malintenzionato con i risultati SQL inserito o con un messaggio di errore, ma l'autore dell'attacco può dedurre informazioni dal database mediante la costruzione di una query condizionale in cui i due rami condizionali richiedere una quantità di tempo di esecuzione diversa. Confrontando il tempo di risposta, l'autore dell'attacco puoi sapere quali branch è stato eseguito e in tal modo per raccogliere informazioni relative al sistema. Usa la variante di questo tipo di attacco più semplice la `WAITFOR` istruzione per introdurre il ritardo.
+Un attacco SQL cieco si verifica quando un'applicazione non fornisce un utente malintenzionato con i risultati dell'istruzione SQL inserita o con un messaggio di errore, ma l'autore dell'attacco può dedurre le informazioni dal database creando una query condizionale in cui i due branch condizionali richiedere una quantità di tempo diversa per l'esecuzione. Confrontando il tempo di risposta, l'autore dell'attacco può sapere quale ramo è stato eseguito e quindi ottenere informazioni sul sistema. La variante più semplice di questo attacco consiste nell'utilizzare `WAITFOR` l'istruzione per introdurre il ritardo.
 
-Si consideri un'applicazione web che dispone di una richiesta sotto forma di:
+Si consideri un'applicazione Web con una richiesta sotto forma di:
 
 ```html
 http://www.contoso.com/employee.php?id=1
 ```
 
-Che esegue la query di database seguenti:
+che esegue la query di database seguente:
 
 ```sql
 SELECT Name FROM EMPLOYEES WHERE Id=$EmpId
 ```
 
-Se il valore passato come parametro id per le richieste dell'applicazione web viene copiato per sostituire $EmpId nella query del database, un utente malintenzionato può eseguire la richiesta seguente:
+Se il valore passato come parametro ID alle richieste dell'applicazione Web viene copiato per sostituire $EmpId nella query del database, un utente malintenzionato può effettuare la richiesta seguente:
 
 ```html
 http://www.contoso.com/employee.php?id=1; IF SYSTEM_USER='sa' WAITFOR DELAY '00:00:05'
 ```
 
-E la query richiederebbe un 5 secondi aggiuntivi se il `sa` account è stato utilizzato. Se `WAITFOR` restrizione di funzionalità è disabilitata nel database, il `WAITFOR` istruzione verrà ignorata e perdita delle informazioni non utilizzando questo tipo di attacco.
+E la query richiederebbe altri 5 secondi se è stato `sa` usato l'account. Se `WAITFOR` la restrizione della funzionalità è disabilitata nel `WAITFOR` database, l'istruzione verrà ignorata e non verrà persa alcuna informazione con questo attacco.

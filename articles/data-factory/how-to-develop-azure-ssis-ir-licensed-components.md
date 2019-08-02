@@ -7,17 +7,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/13/2018
+ms.date: 08/01/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 80d4fff03422beacccd3aff3cdd8cb1047d5f5af
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1c574578e6ed6ee032be01718eb3e8afd27fdf6f
+ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61344643"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68708015"
 ---
 # <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Installare componenti personalizzati a pagamento o concessi in licenza per il runtime di integrazione Azure-SSIS
 
@@ -76,7 +76,7 @@ Il diagramma seguente mostra i flussi tipici di installazione, attivazione, asso
 
 ## <a name="isv-partners"></a>Partner ISV
 
-È possibile trovare un elenco di partner fornitori software indipendenti che hanno adattato i componenti e le estensioni per il runtime di integrazione SSIS Azure alla fine di questo post di blog: [Enterprise Edition, Custom Setup, and 3rd Party Extensibility for SSIS in ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/) (Enterprise Edition, installazione personalizzata ed estendibilità di terze parti SSIS in Azure Data Factory).
+È possibile trovare un elenco di partner fornitori software indipendenti che hanno adattato i componenti e le estensioni per il runtime di integrazione SSIS Azure alla fine di questo post di blog: [Enterprise Edition, Custom Setup, and 3rd Party Extensibility for SSIS in ADF](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Enterprise-Edition-Custom-Setup-and-3rd-Party-Extensibility-for/ba-p/388360) (Enterprise Edition, installazione personalizzata ed estendibilità di terze parti SSIS in Azure Data Factory).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

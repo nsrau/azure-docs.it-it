@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: e3da856efd7d44f15f9de27c9e38375d40dc211d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 10b661f0c4b7dc45284b907e83df3c0372f97cab
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60850962"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561543"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>Come configurare l’applicazione del servizio app per usare l'account di accesso Microsoft
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -29,7 +29,7 @@ Questo argomento descrive come configurare il servizio app di Azure per usare l'
 
 ## <a name="register-microsoft-account"></a>Registrare l'app con l'account Microsoft
 1. Accedere al [portale di Azure], e passare all'applicazione. Copiare l' **URL**, che verrà usato in un secondo momento per configurare l'app con Account Microsoft.
-2. Passare alla pagina [My Applications] di Microsoft Account Developer Center e, se necessario, accedere con il proprio account Microsoft.
+2. Passare a [**registrazioni app**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)e accedere con il account Microsoft, se richiesto.
 3. Fare clic su **Aggiungi un'app**, digitare il nome di un'applicazione e quindi fare clic su **Crea**.
 4. Prendere nota dell' **ID applicazione**perché sarà necessario in un secondo momento. 
 5. In "Piattaforme" fare clic su **Aggiungi piattaforma** e quindi selezionare "Web".

@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: ba7d412e9bfc29a53cd0aa47a926f60580b45490
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5b861ef17648f3efbe1f378f2bf253d5bf3ece44
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237648"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677801"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Creare risorse di Time Series Insights tramite i modelli di Azure Resource Manager
 
@@ -24,14 +24,14 @@ Questo articolo descrive come creare e distribuire risorse di Time Series Insigh
 
 Time Series Insights supporta le risorse seguenti:
 
-   | Resource | Descrizione |
+   | Risorsa | DESCRIZIONE |
    | --- | --- |
-   | Environment | Un ambiente Time Series Insights è un raggruppamento logico di eventi che vengono letti dai gestori di eventi, archiviati e resi disponibili per query. Per altre informazioni, vedere [pianificare l'ambiente Azure Time Series Insights](time-series-insights-environment-planning.md) |
+   | Ambiente | Un ambiente Time Series Insights è un raggruppamento logico di eventi che vengono letti dai broker di eventi, archiviati e resi disponibili per la query. Per altre informazioni, vedere [pianificare l'ambiente di Azure Time Series Insights](time-series-insights-environment-planning.md) |
    | Origine evento | Un'origine evento è una connessione a un gestore eventi da cui Time Series Insights legge e inserisce gli eventi nell'ambiente. Le origini eventi attualmente supportate sono hub IoT e hub eventi. |
    | Set di dati di riferimento | I set di dati di riferimento forniscono metadati sugli eventi nell'ambiente. I metadati nei set di dati di riferimento verranno aggiunto agli eventi durante l'ingresso. I set di dati di riferimento sono definiti come risorse dalle relative proprietà chiave evento. I metadati effettivi che costituiscono il set di dati di riferimento vengono caricati o modificati tramite le API del piano dati. |
-   | Criterio di accesso | I criteri di accesso concedono le autorizzazioni per eseguire query sui dati, modificare i dati di riferimento nell'ambiente e condividere le prospettive e le query salvate associate all'ambiente. Per altre informazioni, leggere [concedere l'accesso ai dati in un ambiente Time Series Insights usando il portale di Azure](time-series-insights-data-access.md) |
+   | Criterio di accesso | I criteri di accesso concedono le autorizzazioni per eseguire query sui dati, modificare i dati di riferimento nell'ambiente e condividere le prospettive e le query salvate associate all'ambiente. Per altre informazioni, vedere [concedere l'accesso ai dati a un ambiente Time Series Insights usando portale di Azure](time-series-insights-data-access.md) |
 
-Un modello di Resource Manager è un file JSON che definisce l'infrastruttura e la configurazione delle risorse in un gruppo di risorse. I documenti seguenti descrivono i file di modello in modo più dettagliato:
+Un modello di Resource Manager è un file JSON che definisce l'infrastruttura e la configurazione delle risorse in un gruppo di risorse. I documenti seguenti descrivono i file modello in modo più dettagliato:
 
 - [Panoramica di Azure Resource Manager - Distribuzione modelli](../azure-resource-manager/resource-group-overview.md#template-deployment)
 - [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
@@ -41,11 +41,11 @@ Il modello di avvio rapido [201-timeseriesinsights-environment-with-eventhub](ht
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="specify-deployment-template-and-parameters"></a>Specificare i parametri e modello di distribuzione
+## <a name="specify-deployment-template-and-parameters"></a>Specificare il modello e i parametri di distribuzione
 
 La procedura seguente descrive come usare PowerShell per distribuire un modello di Azure Resource Manager che crea un ambiente Time Series Insights, un origine evento figlio configurato per usare gli eventi da un hub eventi e i criteri di accesso che concedono l'accesso ai dati dell'ambiente. Se non è specificato un hub eventi esistente, ne verrà creato uno con la distribuzione.
 
-1. Installare Azure PowerShell seguendo le istruzioni riportate in [Introduzione ai cmdlet di Azure PowerShell](/powershell/azure/get-started-azureps).
+1. Installare Azure PowerShell seguendo le istruzioni riportate in [Introduzione ai cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 1. Clone o copiare il modello [201-timeseriesinsights-environment-with-eventhub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) da GitHub.
 
@@ -64,25 +64,25 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
      | eventHubNamespaceName | Lo spazio dei nomi dello hub eventi di origine. |
      | eventHubName | Il nome dello hub eventi di origine. |
      | consumerGroupName | Il nome del gruppo di consumer che verrà usato dal servizio Time Series Insights per leggere i dati dall'hub eventi. **NOTA:** per evitare conflitti di risorse, questo gruppo di consumer deve essere dedicato al servizio Time Series Insights e non condiviso con altri lettori. |
-     | environmentName | Il nome dell'ambiente. Il nome non può includere: `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/`, né caratteri di controllo. Sono consentiti tutti gli altri caratteri.|
-     | eventSourceName | Specificare il nome della risorsa figlio dell'origine evento. Il nome non può includere: `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/`, né caratteri di controllo. Sono consentiti tutti gli altri caratteri. |
+     | environmentName | Il nome dell'ambiente. Il nome non può includere `<`: `>`, `%`, `&`, `:`, `\\`, ,`?` ,`/`e qualsiasi carattere di controllo. Sono consentiti tutti gli altri caratteri.|
+     | eventSourceName | Specificare il nome della risorsa figlio dell'origine evento. Il nome non può includere `<`: `>`, `%`, `&`, `:`, `\\`, ,`?` ,`/`e qualsiasi carattere di controllo. Sono consentiti tutti gli altri caratteri. |
 
     <div id="optional-parameters"></div>
 
    * Parametri facoltativi
 
-     | Parametro | Descrizione |
+     | Parametro | DESCRIZIONE |
      | --- | --- |
      | existingEventHubResourceId | Un ID di risorsa facoltativo di un hub eventi esistente che verrà connesso all'ambiente di Time Series Insights tramite l'origine evento. **NOTA:** l'utente che distribuisce il modello deve disporre delle autorizzazioni necessarie per eseguire l'operazione listkey nell'hub eventi di origine. Se non viene superato alcun valore, verrà creato un nuovo hub eventi dal modello. |
      | environmentDisplayName | Un nome descrittivo facoltativo da visualizzare nelle interfacce degli strumenti o utente al posto del nome dell'ambiente. |
      | environmentSkuName | Il nome dello SKU. Per altre informazioni, vedere la [pagina dedicata al tariffario di Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
      | environmentSkuCapacity | La capacità unità dello Sku. Per altre informazioni, vedere la [pagina dedicata al tariffario di Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).|
-     | environmentDataRetentionTime | L'intervallo di tempo minimo in cui gli eventi dell'ambiente saranno disponibili per la query. Il valore deve essere specificato nel formato ISO 8601, ad esempio `P30D` per criteri di conservazione di 30 giorni. |
+     | environmentDataRetentionTime | L'intervallo di tempo minimo in cui gli eventi dell'ambiente saranno disponibili per la query. Il valore deve essere specificato nel formato ISO 8601, ad esempio `P30D` per i criteri di conservazione di 30 giorni. |
      | eventSourceDisplayName | Un nome descrittivo facoltativo da visualizzare nelle interfacce degli strumenti o utente al posto del nome dell'origine evento. |
      | eventSourceTimestampPropertyName | La proprietà di evento che verrà usata come timestamp dell'origine evento. Se non è specificato un valore per timestampPropertyName o se viene specificato null o una stringa vuota, verrà usata l'ora di creazione dell'evento. |
      | eventSourceKeyName | Il nome della chiave di accesso condivisa che verrà usata dal servizio Time Series Insights per connettersi all'hub eventi. |
-     | accessPolicyReaderObjectIds | Un elenco di ID oggetto degli utenti o delle applicazioni in Azure AD che devono disporre dell'accesso in lettura all'ambiente. L'objectId dell'entità servizio può essere ottenuto chiamando il **Get-AzADUser** o il **Get-AzADServicePrincipal** cmdlet. La creazione di criteri di accesso per i gruppi di Azure AD non è ancora supportata. |
-     | accessPolicyContributorObjectIds | Un elenco di ID oggetto degli utenti o delle applicazioni in Azure AD che devono disporre dell'accesso per collaboratori all'ambiente. L'objectId dell'entità servizio può essere ottenuto chiamando il **Get-AzADUser** o il **Get-AzADServicePrincipal** cmdlet. La creazione di criteri di accesso per i gruppi di Azure AD non è ancora supportata. |
+     | accessPolicyReaderObjectIds | Un elenco di ID oggetto degli utenti o delle applicazioni in Azure AD che devono disporre dell'accesso in lettura all'ambiente. È possibile ottenere l'objectId dell'entità servizio chiamando il cmdlet **Get-AzADUser** o **Get-AzADServicePrincipal** . La creazione di criteri di accesso per i gruppi di Azure AD non è ancora supportata. |
+     | accessPolicyContributorObjectIds | Un elenco di ID oggetto degli utenti o delle applicazioni in Azure AD che devono disporre dell'accesso per collaboratori all'ambiente. È possibile ottenere l'objectId dell'entità servizio chiamando il cmdlet **Get-AzADUser** o **Get-AzADServicePrincipal** . La creazione di criteri di accesso per i gruppi di Azure AD non è ancora supportata. |
 
    * Ad esempio, per creare un ambiente verrebbe usato il file dei parametri seguente e un'origine evento che legge gli eventi da un hub eventi esistente. Crea inoltre due criteri di accesso che concedono l'accesso per i collaboratori all'ambiente.
 
@@ -124,7 +124,7 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>Distribuire il modello di avvio rapido in locale tramite PowerShell
 
 > [!IMPORTANT]
-> Vengono descritte le operazioni da riga di comando visualizzate sotto il [modulo di PowerShell di Az](https://docs.microsoft.com/powershell/azure/overview).
+> Le operazioni da riga di comando visualizzate di seguito descrivono il [modulo AZ PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 1. In PowerShell accedere all'account Azure.
 
@@ -148,7 +148,7 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
 
 1. Se non esiste, creare un nuovo gruppo di risorse.
 
-   * Se non è una risorsa esistente di gruppo, creare un nuovo gruppo di risorse con il **New-AzResourceGroup** comando. Specificare il nome del gruppo di risorse e la posizione che si vuole usare, Ad esempio:
+   * Se non si dispone di un gruppo di risorse esistente, creare un nuovo gruppo di risorse con il comando **New-AzResourceGroup** . Specificare il nome del gruppo di risorse e la posizione che si vuole usare, Ad esempio:
 
      ```powershell
      New-AzResourceGroup -Name MyDemoRG -Location "West US"

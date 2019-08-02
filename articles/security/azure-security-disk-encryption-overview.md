@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 07/17/2019
+ms.date: 07/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: a67f19f0823827dad74e7aba15a92d696fbf580b
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: c5e568dd073376295e4865994fba8ae5b5ac59a0
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304274"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68641003"
 ---
 # <a name="azure-disk-encryption-overview"></a>Panoramica di crittografia dischi di Azure
 
@@ -72,6 +72,7 @@ Crittografia dischi di Azure non funziona per gli scenari, le funzionalità e le
 * File di Azure (file system condiviso).
 * NFS (Network File System).
 * Volumi dinamici.
+* Dischi del sistema operativo effimeri.
 
 ## <a name="encryption-features"></a>Funzionalità di crittografia
 
@@ -153,7 +154,7 @@ La tabella seguente definisce alcuni dei termini comuni usati nella documentazio
 | Terminologia | Definizione |
 | --- | --- |
 | Azure AD | Un account [Azure AD](https://azure.microsoft.com/documentation/services/active-directory/) è usato per autenticare, archiviare e recuperare i segreti da un insieme di credenziali delle chiavi. |
-| Azure Key Vault | Key Vault è un servizio di crittografia e gestione delle chiavi basato su moduli di sicurezza hardware convalidati dagli standard FIPS (Federal Information Processing Standards). Questi standard consentono di proteggere le chiavi crittografiche e i segreti sensibili. Per altre informazioni, vedere la documentazione di [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). |
+| Insieme di credenziali delle chiavi di Azure | Key Vault è un servizio di crittografia e gestione delle chiavi basato su moduli di sicurezza hardware convalidati dagli standard FIPS (Federal Information Processing Standards). Questi standard consentono di proteggere le chiavi crittografiche e i segreti sensibili. Per altre informazioni, vedere la documentazione di [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). |
 | BitLocker |[BitLocker](https://technet.microsoft.com/library/hh831713.aspx) è una tecnologia di crittografia del volume di Windows riconosciuta nel settore, usata per abilitare la crittografia dei dischi nelle macchine virtuali Windows. |
 | BEK | Le chiavi di crittografia BitLocker (BEK, Bitlocker Encryption Key) vengono usate per crittografare il volume di avvio del sistema operativo e i volumi dati. Le chiavi BEK sono protette nell'insieme di credenziali delle chiavi come segreti. |
 | Interfaccia della riga di comando di Azure | [L'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) è ottimizzata per la gestione e l'amministrazione delle risorse di Azure dalla riga di comando.|

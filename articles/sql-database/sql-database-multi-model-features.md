@@ -10,27 +10,26 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
-manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 84efdb0297a2dc69497baee5fb746fb51d02b1b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e319daf322d688828c7d05d78dacd2359273223f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939525"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567124"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Funzionalità multimodello del database SQL di Azure
 
 I database multimodello consentono di archiviare e usare i dati rappresentati in più formati di dati, come ad esempio dati relazionali, grafi, documenti JSON/XML, coppie chiave-valore e così via.
 
-## <a name="when-to-use-multi-model-capabilities"></a>Quando usare le funzionalità di multi-modello
+## <a name="when-to-use-multi-model-capabilities"></a>Quando usare le funzionalità multimodello
 
 Il database SQL di Azure è progettato per funzionare con il modello relazionale che offre le prestazioni migliori nella maggior parte dei casi per un'ampia gamma di applicazioni per utilizzo generico. Tuttavia, il database SQL di Azure non è limitato ai soli dati relazionali. Il database SQL di Azure consente di usare un'ampia gamma di formati non relazionali strettamente integrati nel modello relazionale.
-È opportuno considerare con funzionalità multi-modello di Database SQL di Azure nei casi seguenti:
-- Si dispone di alcune informazioni o le strutture che meglio si adattano per i modelli di NoSQL e si non vuole usare database NoSQL separato.
-- La maggior parte dei dati è ideale per il modello relazionale e necessità di modellare alcune parti dei dati in stile NoSQL.
-- Si desidera sfruttare avanzato linguaggio Transact-SQL per eseguire query e analizzare sia relazionali e dati NoSQL e integrarla con un'ampia gamma di strumenti e applicazioni che possono usare il linguaggio SQL.
-- Si desidera applicare le funzionalità di database, ad esempio [tecnologie in memoria](sql-database-in-memory.md) per migliorare le prestazioni dell'analisi o l'elaborazione di strucutres i dati NoSQL, usare [la replica transazionale](sql-database-managed-instance-transactional-replication.md) o[repliche leggibili](sql-database-read-scale-out.md) creare copie dei dati in altra posizione e l'offload di alcuni carichi di lavoro analitici dal database primario.
+È consigliabile usare le funzionalità multimodello del database SQL di Azure nei casi seguenti:
+- Sono disponibili alcune informazioni o strutture più adatte per i modelli NoSQL e non si vuole usare un database NoSQL separato.
+- La maggior parte dei dati è adatta per il modello relazionale ed è necessario modellare alcune parti dei dati nello stile NoSQL.
+- Si desidera sfruttare il linguaggio Transact-SQL avanzato per eseguire query e analizzare i dati relazionali e NoSQL e integrarli con un'ampia gamma di strumenti e applicazioni in grado di utilizzare il linguaggio SQL.
+- Si desidera applicare funzionalità di database come le [tecnologie in memoria](sql-database-in-memory.md) per migliorare le prestazioni dell'analisi o dell'elaborazione dei dati NoSQL strutture, utilizzare la [replica](sql-database-managed-instance-transactional-replication.md) transazionale o [repliche leggibili](sql-database-read-scale-out.md) per creare una copia dei dati in l'altra posizione e l'offload di alcuni carichi di lavoro analitici dal database primario.
 
 ## <a name="overview"></a>Panoramica
 
@@ -90,7 +89,7 @@ In alcuni scenari specifici è possibile usare i modelli di documento invece dei
 
 ## <a name="spatial-features"></a>Funzionalità spaziali
 
-I dati spaziali rappresentano informazioni sulla posizione fisica e sulla forma degli oggetti geometrici. Questi oggetti possono essere posizioni dei punti oppure oggetti più complessi, ad esempio paesi, strade o laghi.
+I dati spaziali rappresentano informazioni sulla posizione fisica e sulla forma degli oggetti geometrici. Questi oggetti possono essere percorsi di punti o più oggetti complessi, ad esempio paesi/aree geografiche, strade o laghi.
 
 Il database SQL di Azure supporta due tipi di dati spaziali: il tipo di dati geometria e il tipo di dati geografia.
 - Il tipo geometria rappresenta i dati in un sistema di coordinate Euclideo (piano).

@@ -9,14 +9,14 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: f78f53f259234dc949ce5b18ccc7714b32e239f9
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: da97dde43a6ef13db204f1d3be1229a0dfc30af5
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404039"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668045"
 ---
-# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Caricare file da un dispositivo al cloud con l'hub IoT
+# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-nodejs"></a>Caricare i file dal dispositivo al cloud con l'hub Internet (node. js)
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 

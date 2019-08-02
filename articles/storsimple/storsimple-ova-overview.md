@@ -12,16 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/14/2019
+ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: e5713af737a6d9d190814b4155a8e772deea06bc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cbfc69c7d8d9354ae4e727b9eb0180583165abab
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60630314"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516715"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introduzione a StorSimple Virtual Array
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
 ## <a name="overview"></a>Panoramica
 
@@ -101,7 +103,7 @@ StorSimple Virtual Array è particolarmente adatto per i flussi di lavoro seguen
 ![Gestione dell'archiviazione basata su cloud](./media/storsimple-ova-overview/cloud-based-storage-management.png)
 
 ### <a name="location-independent-backup"></a>Backup indipendente dalla posizione
-Con l'array virtuale, gli snapshot cloud forniscono una copia indipendente dalla posizione e temporizzata di un volume o di una condivisione. Gli snapshot cloud sono abilitati per impostazione predefinita e non possono essere disabilitati. Tutti i volumi e condivisioni vengono backup contemporaneamente tramite un singolo criterio di backup giornaliero, ed è possibile eseguire backup ad hoc aggiuntivi quando necessario.
+Con l'array virtuale, gli snapshot cloud forniscono una copia indipendente dalla posizione e temporizzata di un volume o di una condivisione. Gli snapshot cloud sono abilitati per impostazione predefinita e non possono essere disabilitati. Tutti i volumi e tutte le condivisioni vengono sottoposto a backup contemporaneamente tramite un singolo criterio di backup giornaliero ed è possibile eseguire ulteriori backup ad hoc ogni volta che è necessario.
 
 ### <a name="data-protection-and-disaster-recovery"></a>Protezione dati e ripristino di emergenza
 L'array virtuale supporta i seguenti scenari di protezione dei dati e ripristino di emergenza:

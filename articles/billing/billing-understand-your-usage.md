@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: 66b54c027cde6341b23aef2c10b43fa21bf357da
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 1afd78a0525be523f677cf0146c8a120155130ea
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383455"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68554687"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Informazioni sui termini del file di utilizzo e degli addebiti di Azure
 
@@ -26,9 +26,9 @@ La tabella seguente illustra gli addebiti inclusi per ogni tipo di conto.
 
 Tipo di account | Utilizzo di Azure | Utilizzo del Marketplace | Acquisti | Rimborsi
 --- | --- | --- | --- | ---
-Contratto Enterprise Agreement (EA) | Sì | Sì | Sì | No
-Contratto del cliente Microsoft | Sì | Sì | Sì | Sì
-Pagamento in base al consumo | Yes | No | No | No
+Contratto Enterprise Agreement (EA) | Yes | Sì | Sì | No
+Contratto del cliente Microsoft | Sì | Sì | Sì | Yes
+Pagamento in base al consumo | Sì | Sì | No | No
 
 Per altre informazioni sugli ordini del Marketplace (noti anche come servizi esterni), vedere informazioni sugli addebiti per [i servizi esterni di Azure](billing-understand-your-azure-marketplace-charges.md).
 
@@ -40,7 +40,7 @@ Per istruzioni sul download, vedere [come ottenere la fattura e i dati di utiliz
 La tabella seguente descrive i termini importanti usati nella versione più recente del file di utilizzo e degli addebiti di Azure.
 L'elenco include gli account con pagamento in base al consumo (PAYG), Enterprise Agreement (EA) e Microsoft Customer Agreement (MCA).
 
-Termine | Tipo di account | DESCRIZIONE
+Termine | Tipo di account | Descrizione
 --- | --- | ---
 AccountName | EA, PAYG | Nome visualizzato dell'account di registrazione EA o dell'account di fatturazione PAYG.
 AccountOwnerId | EA, PAYG | Identificatore univoco per l'account di registrazione EA o l'account di fatturazione PAYG.
@@ -65,8 +65,6 @@ EffectivePrice | Tutti | Prezzo unitario misto per il periodo. I prezzi combinat
 ExchangeRateDate | MCA | Data di creazione del tasso di cambio.
 ExchangeRatePricingToBilling | MCA | Tasso di cambio utilizzato per convertire il costo della valuta per la fatturazione.
 Frequenza | Tutti | Indica se è previsto un addebito per la ripetizione. Gli addebiti possono essere effettuati una sola volta (un**periodo),** ripetuti su base mensile o annuale (**ricorrente**) o in base all'utilizzo (**UsageBased**).
-IncludedQuantity | PAYG | Quantità di contatori inclusa gratuitamente nel periodo di fatturazione corrente.
-InstanceId | PAGY | Vedere ResourceId.
 InvoiceId | PAYG, MCA | ID univoco del documento elencato nel PDF della fattura.
 InvoiceSection | MCA | Vedere InvoiceSectionName.
 InvoiceSectionId | EA, MCA | Identificatore univoco per la sezione del reparto EA o della fattura MCA.
@@ -105,6 +103,7 @@ ServicePeriodStartDate | MCA | Data di inizio del periodo di valutazione che ha 
 SubscriptionId | Tutti | Identificatore univoco per la sottoscrizione di Azure.
 Nome della sottoscrizione | Tutti | Nome della sottoscrizione di Azure.
 Tag | Tutti | Tag assegnati alla risorsa. Non include i tag del gruppo di risorse. Può essere usato per raggruppare o distribuire i costi per il chargeback interno. Per altre informazioni, vedere [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) (Organizzare le risorse di Azure con i tag).
+Termine | Tutti | Visualizza il termine per la validità dell'offerta. Ad esempio:  Nel caso di istanze riservate, Visualizza 12 mesi come termine. Per gli acquisti monouso o gli acquisti periodici, il termine è 1 mese (SaaS, supporto del Marketplace). Questa operazione non è applicabile per il consumo di Azure.
 Unità di misura | Tutti | Unità di misura per la fatturazione per il servizio. I servizi di calcolo, ad esempio, vengono fatturati all'ora.
 PrezzoUnitario | EA, PAYG | Prezzo per unità per l'addebito.
 

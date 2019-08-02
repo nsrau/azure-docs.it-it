@@ -10,14 +10,15 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 15aa3a8346087908cf77f1f68db916cc2c184448
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 51eab34f32a20a86445da0ac44d94a31d6694b40
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389882"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703400"
 ---
-# <a name="demo-password-reset"></a>Demo: Reimpostazione delle password
+# <a name="demo-password-reset"></a>Demo: Reimpostazione password
 Questa esercitazione illustra un bot di supporto tecnico semplice che possa facilitare la reimpostazione della password con tecnologia Conversation Learner. Il modello di bot può apprendere flussi di dialogo non elementari e sequenze di più turni, includendo una classe fuori dominio. L'attività può essere eseguita senza codice o entità.
 
 ## <a name="video"></a>Video

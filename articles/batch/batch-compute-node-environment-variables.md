@@ -13,10 +13,10 @@ ms.workload: big-compute
 ms.date: 04/23/2019
 ms.author: lahugh
 ms.openlocfilehash: 2b9d6832422b98c1064a4e9e99774c4788e801e5
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68323662"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variabili di ambiente di runtime Azure Batch
@@ -67,7 +67,7 @@ Le righe di comando eseguite dalle attività sui nodi di calcolo non vengono ese
 | AZ_BATCH_POOL_ID                | ID del pool in cui è in esecuzione l'attività. | Tutte le attività. | batchpool001 |
 | AZ_BATCH_TASK_DIR               | Percorso completo della directory delle [attività][files_dirs] nel nodo. Questa directory contiene `stdout.txt` e `stderr.txt` per l'attività e AZ_BATCH_TASK_WORKING_DIR. | Tutte le attività. | C:\user\tasks\workitems\batchjob001\job-1\task001 |
 | AZ_BATCH_TASK_ID                | ID dell'attività corrente. | Tutte le attività tranne l'attività di avvio. | task001 |
-| AZ_BATCH_TASK_SHARED_DIR | Un percorso di directory identico per l'attività primaria e per ogni sottoattività di un' [attività][multi_instance] . The path exists on every node on which the multi-instance task runs, and is read/write accessible to the task commands running on that node (both the [coordination command][coord_cmd] a istanze multipli e il comando dell' [applicazione][app_cmd]). Le sottoattività o un'attività principale eseguite su altri nodi non dispongono dell'accesso remoto per questa directory (non è una directory di rete "condivisa"). | Principale multi-istanza e sottoattività. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
+| AZ_BATCH_TASK_SHARED_DIR | Un percorso di directory identico all'attività primaria e a ogni sottoattività di un' [attività a istanze diverse][multi_instance]. Il percorso esiste in ogni nodo in cui viene eseguita l'attività a istanze multipli ed è accessibile in lettura/scrittura per i comandi delle attività in esecuzione su tale nodo, sia il [comando di coordinamento][coord_cmd] che il [comando dell'applicazione][app_cmd]. Le sottoattività o un'attività principale eseguite su altri nodi non dispongono dell'accesso remoto per questa directory (non è una directory di rete "condivisa"). | Principale multi-istanza e sottoattività. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
 | AZ_BATCH_TASK_WORKING_DIR       | Percorso completo della directory di [lavoro dell'attività][files_dirs] nel nodo. L'attività attualmente in esecuzione ha accesso in lettura/scrittura per questa directory. | Tutte le attività. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
 | CCP_NODES                       | Elenco di nodi e numero di core per nodo allocati a un' [attività a istanze diverse][multi_instance]. I nodi e i core sono elencati nel formato`numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, dove il numero di nodi è seguito da uno o più indirizzi IP di nodo e dal numero di core per ognuno. |  Principale multi-istanza e sottoattività. |`2 10.0.0.4 1 10.0.0.5 1` |
 

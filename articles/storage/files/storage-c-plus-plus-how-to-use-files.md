@@ -1,19 +1,18 @@
 ---
 title: Sviluppare per File di Azure con C++ | Microsoft Docs
 description: Informazioni su come sviluppare applicazioni e servizi C++ che usano File di Azure per archiviare i dati dei file.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 424db4435c569475f9463894b5364fc22190689a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97af40bd1f57acb5b26d3b6216984dfb8e3a5181
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64717928"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699790"
 ---
 # <a name="develop-for-azure-files-with-c"></a>Sviluppare per File di Azure con C++
 
@@ -186,7 +185,7 @@ for (auto it = directory.list_files_and_directories(); it != end_of_results; ++i
 }
 ```
 
-## <a name="upload-a-file"></a>Caricare un file
+## <a name="upload-a-file"></a>Carica un file
 
 Una condivisione file di Azure contiene come minimo una directory radice che può contenere file. In questa sezione verrà illustrato come caricare un file dall'archiviazione locale nella directory radice di una condivisione.
 
@@ -219,7 +218,7 @@ azure::storage::cloud_file file4 =
 file4.upload_from_file(_XPLATSTR("DataFile.txt"));
 ```
 
-## <a name="download-a-file"></a>Scaricare un file
+## <a name="download-a-file"></a>Scarica file
 
 Per scaricare i file, recuperare prima un riferimento al file e quindi chiamare il metodo **download_to_stream** per trasferire il contenuto del file in un oggetto flusso che è possibile memorizzare in modo permanente in un file locale. In alternativa, è possibile usare il metodo **download_to_file** per scaricare il contenuto di un file in un file locale. È possibile usare il metodo **download_text** per scaricare il contenuto di un file come stringa di testo.
 

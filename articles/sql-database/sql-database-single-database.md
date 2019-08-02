@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: 36b1fb96ac1dd89375588a65063ce729f6ac825d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1dc1d2780dcaf27e0c60cfffe84581c0278491dd
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65794400"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566532"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Informazioni sull'opzione database singolo del database SQL di Azure
 
@@ -30,7 +29,7 @@ L'opzione di distribuzione database singolo crea un database nel database SQL di
 
 ## <a name="dynamic-scalability"></a>Scalabilità dinamica
 
-È possibile compilare la prima app in un database di piccole dimensioni, singolo a basso costo nel livello di calcolo senza server (anteprima) o una dimensione di calcolo piccole nel livello di calcolo sottoposte a provisioning. Si modifica il [calcolo o livello di servizio](sql-database-single-database-scale.md) manualmente o a livello di codice in qualsiasi momento per soddisfare le esigenze della soluzione. È possibile regolare le prestazioni senza tempi di inattività per l'app o per i clienti. La scalabilità dinamica consente al database di rispettare i requisiti in continua evoluzione relativi alle risorse e di pagare solo le risorse necessarie quando necessario.
+Puoi creare la tua prima app in un database di piccole dimensioni, a basso costo nel livello di calcolo senza server (anteprima) o in una piccola dimensione di calcolo nel livello di calcolo con provisioning. È possibile modificare il [livello di calcolo o di servizio](sql-database-single-database-scale.md) manualmente o a livello di codice in qualsiasi momento per soddisfare le esigenze della soluzione. È possibile regolare le prestazioni senza tempi di inattività per l'app o per i clienti. La scalabilità dinamica consente al database di rispettare i requisiti in continua evoluzione relativi alle risorse e di pagare solo le risorse necessarie quando necessario.
 
 ## <a name="single-databases-and-elastic-pools"></a>Database singoli e pool elastici
 
@@ -42,7 +41,7 @@ Usare gli strumenti di [monitoraggio delle prestazioni](sql-database-performance
 
 ## <a name="availability-capabilities"></a>Funzionalità per la disponibilità
 
-I database singoli, i pool elastici e tutte le istanze gestite forniscono molte caratteristiche di disponibilità. Per informazioni, vedere [Caratteristiche di disponibilità](sql-database-technical-overview.md#availability-capabilities).
+Tutti i database singoli, i pool elastici e le istanze gestite offrono molte caratteristiche di disponibilità. Per informazioni, vedere [Caratteristiche di disponibilità](sql-database-technical-overview.md#availability-capabilities).
 
 ## <a name="transact-sql-differences"></a>Differenze di Transact-SQL
 
@@ -56,7 +55,7 @@ Per altre informazioni, vedere [Risoluzione delle differenze di Transact-SQL dur
 Il database SQL offre un'ampia gamma di [funzionalità predefinite per sicurezza e conformità](sql-database-security-overview.md) utili per fare in modo che le applicazioni possano soddisfare svariati requisiti di sicurezza e conformità.
 
 > [!IMPORTANT]
-> Database SQL di Azure (tutte le opzioni di distribuzione), ha ottenuto la certificazione per numerosi standard di conformità. Per altre informazioni, vedere la [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) in cui è possibile trovare l'elenco più aggiornato delle certificazioni di conformità di Database SQL.
+> Il database SQL di Azure (tutte le opzioni di distribuzione) è stato certificato rispetto a una serie di standard di conformità. Per ulteriori informazioni, vedere la [Microsoft Azure Centro protezione](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) in cui è possibile trovare l'elenco più aggiornato delle certificazioni di conformità del database SQL.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

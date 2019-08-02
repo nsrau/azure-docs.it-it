@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2019
+ms.date: 07/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 174184993e40b60dc89022d360f0c09fb31bc60b
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: a928640aa6d56f0a39011a2cabcf979b4d907a46
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501277"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561465"
 ---
 # <a name="protect-your-content-by-using-media-services-dynamic-encryption"></a>Proteggere i contenuti usando la crittografia dinamica di servizi multimediali
 
@@ -170,7 +170,7 @@ I browser comuni supportano i client DRM seguenti:
 
 Quando si vuole rilasciare la licenza a chiunque senza autorizzazione, è possibile usare un criterio di chiave simmetrica con restrizioni aperte. Ad esempio, se i ricavi sono basati su Active Directory e non basati su sottoscrizioni.  
 
-Con i criteri della chiave simmetrica con restrizioni dei token, la chiave simmetrica viene inviata solo a un client che presenta un token JWT valido o un token Web semplice nella richiesta di licenza/chiave. Questo token deve essere emesso da un servizio token di servizio. 
+Con i criteri della chiave simmetrica con restrizioni dei token, la chiave simmetrica viene inviata solo a un client che presenta un token JWT valido o un token SWT (Simple Web Token) nella richiesta di licenza/chiave. Questo token deve essere emesso da un servizio token di servizio. 
 
 È possibile utilizzare Azure AD come STS o distribuire un servizio token di servizio personalizzato. Il servizio token di sicurezza deve essere configurato in modo da creare un token firmato con la chiave specificata e rilasciare le attestazioni specificate nella configurazione della restrizione token. Il servizio di distribuzione di licenze/chiavi di servizi multimediali restituisce la licenza o la chiave richiesta al client se sono presenti entrambe le condizioni seguenti:
 
@@ -196,8 +196,10 @@ La funzionalità di *prevenzione della riproduzione dei token* consente ai clien
 
 Un cliente può scegliere di usare un STS personalizzato per fornire i token. I motivi includono:
 
-* Il provider di identità usato dal cliente non supporta il servizio token di sicurezza. In questo caso, può essere opportuno usare un servizio token di sicurezza personalizzato.
-* Il cliente può avere bisogno di un controllo più flessibile o più rigido nell'integrazione del servizio token di sicurezza con il sistema di fatturazione sottoscrittore del cliente. Un operatore MVPD, ad esempio, può offrire più pacchetti sottoscrittore OTT: Premium, Basic, Sport e così via. L'operatore può associare le attestazioni in un token al pacchetto di un sottoscrittore in modo che siano disponibili solo i contenuti del pacchetto corretto. In questo caso, un servizio token di sicurezza personalizzato fornisce la flessibilità e il controllo necessari.
+* Il provider di identità (IDP) utilizzato dal cliente non supporta STS. In questo caso, può essere opportuno usare un servizio token di sicurezza personalizzato.
+* Il cliente può avere bisogno di un controllo più flessibile o più rigido nell'integrazione del servizio token di sicurezza con il sistema di fatturazione sottoscrittore del cliente. 
+
+   Ad esempio, un operatore di servizio [ott](https://en.wikipedia.org/wiki/Over-the-top_media_services) può offrire più pacchetti di sottoscrittori, ad esempio Premium, Basic e Sports. L'operatore può associare le attestazioni in un token al pacchetto di un sottoscrittore in modo che siano disponibili solo i contenuti del pacchetto corretto. In questo caso, un servizio token di sicurezza personalizzato fornisce la flessibilità e il controllo necessari.
 * Per includere le attestazioni personalizzate nel token per scegliere tra ContentKeyPolicyOptions diversi con diversi parametri di licenza DRM (una licenza di sottoscrizione e una licenza di noleggio).
 * Per includere un'attestazione che rappresenta l'identificatore della chiave simmetrica della chiave a cui il token concede l'accesso.
 

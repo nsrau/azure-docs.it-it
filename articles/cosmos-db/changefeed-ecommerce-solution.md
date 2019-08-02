@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: a53a62a7bc7a5c7f8d9bdabdf411588fdf7bd5e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7923ce10912ebb6f09c1c3d8390dd51b4f876bea
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257064"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552002"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Usare il feed di modifiche di Azure Cosmos DB per visualizzare l'analisi dei dati in tempo reale
 
@@ -41,7 +41,7 @@ Il diagramma seguente rappresenta il flusso di dati e i componenti coinvolti nel
    }
    ```
 
-2. **Azure Cosmos DB:** i dati generati sono archiviati in una raccolta di Azure Cosmos DB.  
+2. **Azure Cosmos DB:** I dati generati vengono archiviati in una raccolta di Azure Cosmos DB.  
 
 3. **Feed di modifiche:** il feed di modifiche sarà in ascolto per le modifiche alla raccolta di Azure Cosmos DB. Ogni volta che viene aggiunto un nuovo documento nella raccolta (ovvero quando si verifica un evento ad esempio un utente che visualizza un elemento, aggiunge un elemento al carrello o acquista un elemento), il feed di modifiche attiverà una [funzione di Azure](../azure-functions/functions-overview.md).  
 
@@ -169,7 +169,7 @@ Per vedere come feed di modifiche elabora nuove azioni in un sito di e-commerce,
 
 3. Aggiungere i nomi della **raccolta** e del **database**. (Questi nomi devono essere **changefeedlabcollection** e **changefeedlabdatabase** a meno che non si scelga di assegnare un nome diverso.)
 
-   ![Aggiornare le stringhe di connessione](./media/changefeed-ecommerce-solution/update-connection-string.png)
+   ![Aggiorna stringhe di connessione](./media/changefeed-ecommerce-solution/update-connection-string.png)
  
 4. Salvare le modifiche su tutti i file modificati.  
 
@@ -221,7 +221,7 @@ Analisi di flusso di Azure è un servizio cloud completamente gestito per l'elab
 
 8. Tornare quindi a **streamjob1** e selezionare **Modifica query**.
 
-   ![Edit query](./media/changefeed-ecommerce-solution/edit-query.png)
+   ![Modifica query](./media/changefeed-ecommerce-solution/edit-query.png)
  
 9. Incollare la seguente query nella relativa finestra. La query **PREZZO MEDIO** calcola il prezzo medio di tutti gli elementi visualizzati da utenti, il prezzo medio di tutti gli elementi che vengono aggiunti ai carrelli degli utenti e il prezzo medio di tutti gli elementi che vengono acquistati dagli utenti. Questa metrica può aiutare le società di e-commerce a decidere a quali prezzi vendere gli elementi e in quale inventario investire. Ad esempio, se il prezzo medio degli elementi visualizzati è molto superiore al prezzo medio degli elementi acquistati, una società potrebbe scegliere di aggiungere elementi meno costosi per l'inventario.
 

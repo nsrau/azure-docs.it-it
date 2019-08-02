@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 07/28/2019
 ms.author: jowargo
-ms.openlocfilehash: dd625dba0e125ccf993af524a0ab0c0cc66555fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f83afa62859dee5963749daf2555af08cf6a0e0b
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60873175"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663830"
 ---
 # <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Esercitazione: Eseguire il push di notifiche a dispositivi iOS specifici con Hub di notifica di Azure
 
@@ -41,7 +41,7 @@ In questa esercitazione vengono completati i passaggi seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questo argomento si basa sull'app creata in [Esercitazione: Effettuare il push di notifiche alle app iOS con Hub di notifica di Azure][get-started]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Esercitazione: Effettuare il push di notifiche alle app iOS con Hub di notifica di Azure][get-started].
+Questo argomento si basa sull'app creata in [Esercitazione: Inviare notifiche push alle app iOS usando hub][get-started]di notifica di Azure. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Esercitazione: Inviare notifiche push alle app iOS usando hub][get-started]di notifica di Azure.
 
 ## <a name="add-category-selection-to-the-app"></a>Aggiungere la selezione delle categorie all'app
 
@@ -174,10 +174,10 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 
     A questo punto, non dovrebbe essere presente altro codice nel metodo `didRegisterForRemoteNotificationsWithDeviceToken`.
 
-10. I metodi seguenti devono essere già presenti in `AppDelegate.m`, in seguito al completamento dell'esercitazione [Introduzione ad Hub di notifica][get-started]. In caso contrario, aggiungerli.
+10. I metodi seguenti devono essere già presenti in `AppDelegate.m` dal completamento dell'esercitazione Introduzione [ad hub di notifica][get-started] . In caso contrario, aggiungerli.
 
     ```objc
-    -(void)MessageBox:(NSString *)title message:(NSString *)messageText
+    - (void)MessageBox:(NSString *)title message:(NSString *)messageText
     {
 
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageText delegate:self
@@ -185,7 +185,7 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
         [alert show];
     }
 
-    * (void)application:(UIApplication *)application didReceiveRemoteNotification:
+    - (void)application:(UIApplication *)application didReceiveRemoteNotification:
        (NSDictionary *)userInfo {
        NSLog(@"%@", userInfo);
        [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
@@ -212,7 +212,9 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 
     [notifications storeCategoriesAndSubscribeWithCategories:categories completion: ^(NSError* error) {
         if (!error) {
-            [(AppDelegate*)[[UIApplication sharedApplication]delegate] MessageBox:@"Notification" message:@"Subscribed!"];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:"Notification" message:"Subscribed" delegate:self
+            cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alert show];
         } else {
             NSLog(@"Error subscribing: %@", error);
         }
@@ -248,7 +250,7 @@ Se non si ha accesso a Visual Studio, è possibile passare alla sezione successi
 
 ## <a name="optional-send-notifications-from-the-device"></a>(facoltativo) Inviare notifiche dal dispositivo
 
-In genere le notifiche vengono inviate da un servizio di back-end ma per questa esercitazione è possibile inviare notifiche relative alle ultime notizie direttamente dall'applicazione. A tale scopo si aggiorna il metodo `SendNotificationRESTAPI` definito nell'esercitazione [Introduzione ad Hub di notifica][get-started].
+In genere le notifiche vengono inviate da un servizio di back-end ma per questa esercitazione è possibile inviare notifiche relative alle ultime notizie direttamente dall'applicazione. A tale scopo, è necessario aggiornare `SendNotificationRESTAPI` il metodo definito nell'esercitazione Introduzione [ad hub di notifica][get-started] .
 
 1. In `ViewController.m` aggiornare il metodo `SendNotificationRESTAPI` come segue in modo che accetti un parametro per il tag di categoria e invii la notifica [modello](notification-hubs-templates-cross-platform-push-messages.md) appropriata.
 

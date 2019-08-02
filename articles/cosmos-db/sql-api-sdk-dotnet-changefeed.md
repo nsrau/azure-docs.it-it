@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: 2a4d636ccb03e36f7c495f3c10c90033d7c3c93c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ea6de5f42910457efa5ca6c458d7af63faa38e18
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417906"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637744"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET Change Feed Processor SDK: download e note sulla versione
 
@@ -29,8 +29,8 @@ ms.locfileid: "66417906"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Provider di risorse REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Executor in blocco-.NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Executor in blocco-Java](sql-api-sdk-bulk-executor-java.md)
 
 |   |   |
 |---|---|
@@ -44,9 +44,9 @@ ms.locfileid: "66417906"
 ### <a name="v2-builds"></a>Build della seconda versione
 
 ### <a name="a-name227227"></a><a name="2.2.7"/>2.2.7
-* Migliorato il bilanciamento del carico strategia per lo scenario durante il recupero di tutti i lease richiede più tempo rispetto a intervallo di scadenza del lease, ad esempio a causa di problemi di rete:
-  * In questo scenario bilanciamento algoritmo utilizzato per negando quindi tenere in considerazione per i lease scaduti, causando l'acquisizione del lease dai proprietari active. Ciò potrebbe attivare inutili nuovo bilanciamento del carico di una grande quantità di lease.
-  * Questo problema viene risolto in questa versione, evitando di ripetizione dei tentativi in caso di conflitto durante l'acquisizione del lease scaduto non è stato modificato il proprietario e l'acquisizione posponing scaduta del lease successivo caricamento del bilanciamento del carico di iterazione.
+* Strategia di bilanciamento del carico migliorata per lo scenario quando il recupero di tutti i lease richiede più tempo rispetto all'intervallo di scadenza del lease, ad esempio a causa di problemi di rete:
+  * In questo scenario, l'algoritmo di bilanciamento del carico usato per considerare erroneamente i lease come scaduti, causando il furto dei lease dai proprietari attivi. Questo potrebbe attivare il ribilanciamento superfluo di un numero elevato di lease.
+  * Questo problema è stato risolto in questa versione, evitando i tentativi in caso di conflitto durante l'acquisizione del lease scaduto quale proprietario non è stato modificato e posponing acquisisce il lease scaduto alla successiva iterazione del bilanciamento del carico.
 
 ### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
 * Gestione delle eccezioni di Observer migliorata.
@@ -137,7 +137,7 @@ ms.locfileid: "66417906"
 
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * Miglioramenti della stabilità.
-  * Correzione di gestione delle attività annullate che potrebbe causare agli Observer arrestate in alcune partizioni.
+  * Correzione per la gestione dei problemi relativi alle attività annullate che potrebbero causare l'arresto di osservatori in alcune partizioni.
 * Supporto per la creazione di checkpoint manuale.
 * Compatibile con [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21 e versioni successive.
 

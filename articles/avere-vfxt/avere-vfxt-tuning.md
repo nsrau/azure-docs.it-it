@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: f5e780dcab20befe19ca34020908eee93c290516
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 17e55dbe84cda87ee902c94e0024c9a3aad8b31b
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409164"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698334"
 ---
 # <a name="cluster-tuning"></a>Ottimizzazione del cluster
 
@@ -46,8 +46,6 @@ Queste modifiche possono essere consigliabili a seconda della qualità del set d
 Per sfruttare le maggiori velocità dei dati tra il cluster vFXT e la risorsa di archiviazione cloud in uno scenario gateway o NAS cloud (dove il cluster vFXT fornisce un accesso di tipo NAS a un contenitore), il rappresentante potrebbe consigliare di modificare impostazioni come le seguenti per eseguire un push dei dati più aggressivo nel volume di archiviazione dalla cache:
 
 * Aumentare il numero di connessioni TCP tra il cluster e il contenitore di archiviazione
-* Diminuire il valore di timeout REST per la comunicazione tra il cluster e la risorsa di archiviazione per ripetere più rapidamente le operazioni di scrittura se non riescono immediatamente  
-* Aumentare le dimensioni del segmento in modo che ogni segmento di scrittura back-end trasferisca un blocco di dati da 8 MB invece che da 1 MB
 
 ## <a name="cloud-bursting-or-hybrid-wan-optimizations"></a>Burst nel cloud o ottimizzazioni della rete WAN ibrida
 

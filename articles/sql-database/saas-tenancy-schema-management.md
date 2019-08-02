@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: eb461367d58f7cadeccd434c0e4ab452b7fc640e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7b238044fd3795ae2f49c2fa21367e6499a65672
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241906"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570126"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gestire lo schema in un'applicazione SaaS usando il modello con un database per ogni tenant con il database SQL di Azure
  
@@ -73,7 +72,7 @@ Lo script *Demo-SchemaManagement.ps1* chiama lo script *Deploy-SchemaManagement.
 
 ## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>Creare un processo per distribuire nuovi dati di riferimento a tutti i tenant
 
-Nell'app Wingtip Tickets ogni database tenant include un set di tipi di sedi supportati. Ogni sede è di un tipo specifico, che definisce il tipo di eventi che possono essere ospitati e determina l'immagine di sfondo usata nell'app. Per fare in modo che l'applicazione supporti nuovi tipi di eventi, è necessario aggiornare i dati di riferimento e aggiungere nuovi tipi di sede.  In questo esercizio, si distribuisce un aggiornamento per tutti i database tenant per aggiungere due tipi di eventi aggiuntivi: *Motorcycle Racing* (Gare motociclistiche) e *Swimming Club* (Club nuoto).
+Nell'app Wingtip Tickets ogni database tenant include un set di tipi di sedi supportati. Ogni sede è di un tipo specifico, che definisce il tipo di eventi che possono essere ospitati e determina l'immagine di sfondo usata nell'app. Per fare in modo che l'applicazione supporti nuovi tipi di eventi, è necessario aggiornare i dati di riferimento e aggiungere nuovi tipi di sede.  In questo esercizio verrà distribuito un aggiornamento a tutti i database tenant per aggiungere altri due tipi di sede: *Motorcycle Racing* (Gare motociclistiche) e *Swimming Club* (Club nuoto).
 
 Esaminare prima i tipi di sede inclusi in ogni database tenant. Connettersi a uno dei database tenant in SQL Server Management Studio (SSMS) ed esaminare la tabella VenueTypes.  È anche possibile eseguire query su questa tabella nell'editor di query nel portale di Azure, accessibile dalla pagina di database. 
 
@@ -86,8 +85,8 @@ Per creare un nuovo processo, usare un set di stored procedure di sistema per i 
 
 1. In SSMS connettersi al server di catalogo *catalog-dpt-&lt;user&gt;.database.windows.net* nel server 
 1. In SSMS, aprire il file …\\Learning Modules\\Schema Management\\DeployReferenceData.sql
-1. Modificare l'istruzione: IMPOSTARE @wtpUser = &lt;utente&gt; e sostituire il valore utente usato durante la distribuzione dell'app Wingtip Tickets SaaS Database Per Tenant
-1. Assicurarsi di essere connessi per il _jobagent_ database e premere **F5** per eseguire lo script
+1. Modificare l'istruzione: SET @wtpUser = &lt;User&gt; e sostituisce il valore utente usato durante la distribuzione dell'app SaaS di database per tenant Wingtip Tickets
+1. Assicurarsi di essere connessi al database _jobagent_ e premere **F5** per eseguire lo script
 
 Esaminare gli elementi seguenti nello script *DeployReferenceData.sql*:
 * **sp\_add\_target\_group** crea il nome del gruppo di destinazione DemoServerGroup.
@@ -127,7 +126,7 @@ In questa esercitazione si è appreso come:
 > * Aggiornare i dati di riferimento in tutti i database tenant
 > * Creare un indice su una tabella in tutti i database tenant
 
-Successivamente, provare il [reporting Ad hoc esercitazione](saas-tenancy-cross-tenant-reporting.md) per esaminare l'esecuzione di query distribuite tra tenant di database.
+Successivamente, provare l' [esercitazione per la creazione di report ad hoc](saas-tenancy-cross-tenant-reporting.md) per esplorare l'esecuzione di query distribuite tra database tenant.
 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive

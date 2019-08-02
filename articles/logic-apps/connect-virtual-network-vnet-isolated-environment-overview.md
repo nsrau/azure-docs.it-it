@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 07/19/2019
-ms.openlocfilehash: 3e14604955a64c7a146a947c5c320b42ea3ebcba
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.date: 07/26/2019
+ms.openlocfilehash: 831a1457d865429fd53af1887a14c363b806300c
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325403"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516614"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Accedere alle risorse di Rete virtuale di Azure da App per la logica di Azure usando ambienti del servizio di integrazione (ISE)
 
@@ -80,7 +80,22 @@ Quando si crea ISE, è possibile selezionare lo SKU per sviluppatori o lo SKU Pr
 
   Fornisce un ISE che è possibile usare per la produzione e include supporto del contratto di servizio, trigger e azioni predefiniti, connettori standard, connettori aziendali, un unico account di integrazione del [livello standard](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) , opzioni per la scalabilità verticale della capacità e ridondanza durante riciclaggio per un prezzo mensile fisso.
 
+> [!IMPORTANT]
+> L'opzione SKU è disponibile solo alla creazione di ISE e non può essere modificata in un secondo momento.
+
 Per informazioni sui prezzi, vedere [prezzi di app](https://azure.microsoft.com/pricing/details/logic-apps/)per la logica. Per informazioni sul funzionamento dei prezzi e della fatturazione per ISEs, vedere il [modello di prezzi di app](../logic-apps/logic-apps-pricing.md#fixed-pricing)per la logica.
+
+<a name="endpoint-access"></a>
+
+## <a name="ise-endpoint-access"></a>Accesso endpoint ISE
+
+Quando si crea ISE, è possibile scegliere di usare endpoint di accesso interni o esterni. Questi endpoint determinano se i trigger di richiesta o webhook nelle app per la logica in ISE possono ricevere chiamate dall'esterno della rete virtuale. Questi endpoint influiscono anche sull'accesso a input e output nella cronologia di esecuzione dell'app per la logica.
+
+* **Interna**: Endpoint privati che consentono chiamate alle app per la logica in ISE e l'accesso agli input e agli output nella cronologia di esecuzione solo *dall'interno della rete virtuale*
+* **Esterna**: Endpoint pubblici che consentono chiamate alle app per la logica in ISE e l'accesso a input e output nella cronologia di esecuzione *dall'esterno della rete virtuale*
+
+> [!IMPORTANT]
+> L'opzione endpoint di accesso è disponibile solo alla creazione di ISE e non può essere modificata in un secondo momento.
 
 <a name="on-premises"></a>
 
@@ -106,6 +121,8 @@ Per i sistemi locali che non sono connessi a una rete virtuale o non hanno conne
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni su come [connettersi alle reti virtuali di Azure da app per la logica isolate](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
+* [Connettersi alle reti virtuali di Azure da app per la logica isolate](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
+* [Aggiungere elementi agli ambienti del servizio di integrazione](../logic-apps/add-artifacts-integration-service-environment-ise.md)
+* [Gestire gli ambienti del servizio di integrazione](../logic-apps/ise-manage-integration-service-environment.md)
 * Altre informazioni su [Rete virtuale di Azure](../virtual-network/virtual-networks-overview.md)
 * Informazioni sull'[integrazione della rete virtuale per i servizi di Azure](../virtual-network/virtual-network-for-azure-services.md)

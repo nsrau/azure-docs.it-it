@@ -3,7 +3,7 @@ title: Distribuire in un contenitore i servizi di Azure Service Fabric in Window
 description: Informazioni su come distribuire in un contenitore i servizi Reliable Services di Service Fabric e Reliable Actors in Windows.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: anmolah
 editor: roroutra
 ms.assetid: 0b41efb3-4063-4600-89f5-b077ea81fa3a
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/23/2018
 ms.author: anmola
-ms.openlocfilehash: 1210b34590484379ae487ad1b87e76a433e4582a
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 0cb48a2272ce854005f9f3db5b6a9abf62cc7015
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621810"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599198"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Distribuire in un contenitore Reliable Services di Service Fabric e Reliable Actors in Windows
 
@@ -121,7 +121,7 @@ Questo documento fornisce linee guida per eseguire il servizio all'interno di un
    ```
 
 > [!NOTE] 
-> Per impostazione predefinita, le applicazioni di Service Fabric hanno accesso al runtime di Service Fabric, sotto forma di un endpoint che accetta le richieste specifiche dell'applicazione. Provare a disabilitare l'accesso quando l'applicazione include codice non attendibile. Per altre informazioni, vedi [le procedure consigliate in Service Fabric](service-fabric-best-practices-security.md#platform-isolation). Per disabilitare l'accesso al runtime di Service Fabric, aggiungere l'impostazione seguente nella sezione dei criteri del manifesto dell'applicazione corrispondente al manifesto del servizio importato, come indicato di seguito:
+> Per impostazione predefinita, le applicazioni Service Fabric hanno accesso al runtime di Service Fabric, sotto forma di un endpoint che accetta richieste specifiche dell'applicazione. Provare a disabilitare questo accesso quando l'applicazione ospita codice non attendibile. Per ulteriori informazioni, vedere la pagina relativa alle procedure consigliate per la [sicurezza in Service Fabric](service-fabric-best-practices-security.md#platform-isolation). Per disabilitare l'accesso al runtime di Service Fabric, aggiungere l'impostazione seguente nella sezione criteri del manifesto dell'applicazione corrispondente al manifesto del servizio importato, come indicato di seguito:
 >
 ```xml
   <Policies>

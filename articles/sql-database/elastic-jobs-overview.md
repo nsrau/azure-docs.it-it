@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: srinia
 ms.author: srinia
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 62efee57f3663f1dad0446da659de16d2800bf75
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c5905716c0aada4a5070b9968c330eafaffb741
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61482959"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561334"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Creare, configurare e gestire processi elastici
 
@@ -76,7 +75,7 @@ Attualmente, l'anteprima è limitata a 100 processi simultanei.
 
 Per garantire che le risorse non siano sovraccariche quando si eseguono processi sul database in un pool elastico SQL, è possibile configurare i processi in modo da limitare il numero di database in cui un processo può essere eseguito contemporaneamente.
 
-Impostare il numero di database simultanei, un processo viene eseguito, impostando il `sp_add_jobstep` stored della procedure `@max_parallelism` parametro in T-SQL o `Add-AzSqlElasticJobStep -MaxParallelism` in PowerShell.
+Impostare il numero di database simultanei in cui viene eseguito un processo `sp_add_jobstep` impostando `@max_parallelism` il parametro del stored procedure in T- `Add-AzSqlElasticJobStep -MaxParallelism` SQL o in PowerShell.
 
 ## <a name="best-practices-for-creating-jobs"></a>Procedure consigliate per la creazione di processi
 

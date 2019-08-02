@@ -10,12 +10,13 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: kylsto
-ms.openlocfilehash: ba7c71c666ae8f90d499bfe52303537aeb112a77
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ROBOTS: NOINDEX
+ms.openlocfilehash: e237a010bfecc038816c1eedf94e2f94b1e12472
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296706"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704865"
 ---
 # <a name="project-acoustics-bake-resolution"></a>Risoluzione dei problemi di soluzione acustica del progetto
 Questa panoramica concettuale descrive la differenza tra risoluzioni grossolane e fini durante la cottura di acustica. È possibile scegliere questa impostazione durante il passaggio dei probe del flusso di lavoro di cottura.

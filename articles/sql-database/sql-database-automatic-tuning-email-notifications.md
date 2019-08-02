@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 06/03/2019
-ms.openlocfilehash: 0050745ea9d624adb6b7a28d5db91924d1c54b0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: df9390c00c34fce82de8cc17efb5cc3bce2e4e3d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479439"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569440"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notifiche tramite posta elettronica per l'ottimizzazione automatica
 
@@ -27,7 +26,7 @@ I suggerimenti di ottimizzazione automatica per database SQL possono essere visu
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Il modulo Azure PowerShell per Resource Manager è ancora supportato dal Database SQL di Azure, ma i progetti di sviluppo future è per il modulo Az.Sql. Per questi cmdlet, vedere [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRm sono sostanzialmente identici.
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>Automatizzare le notifiche tramite posta elettronica per i suggerimenti di ottimizzazione automatica
 
@@ -59,9 +58,9 @@ Se si hanno più sottoscrizioni di Azure per le quali si vuole creare la stessa 
 
 ## <a name="update-azure-automation-modules"></a>Aggiornare i moduli di Automazione di Azure
 
-Usa lo script di PowerShell per recuperare i suggerimenti di ottimizzazione automatica [Get-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource) e [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction) i comandi per il modulo di Azure versione 4 e versioni successive è obbligatorio.
+Lo script di PowerShell per recuperare la raccomandazione di ottimizzazione automatica usa i comandi [Get-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource) e [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction) per i quali è richiesto il modulo Azure 4 e versioni successive.
 
-- Nel caso in cui i moduli di Azure devono essere aggiornati, vedere [supporto del modulo in automazione di Azure Az](../automation/az-modules.md).
+- Nel caso in cui i moduli di Azure debbano essere aggiornati, vedere [AZ Module Support in automazione di Azure](../automation/az-modules.md).
 
 ## <a name="create-azure-automation-runbook"></a>Creare un runbook di Automazione di Azure
 

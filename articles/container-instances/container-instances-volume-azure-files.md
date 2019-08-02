@@ -10,10 +10,10 @@ ms.date: 07/08/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 25cac6a66baeb1587e4b5ba3f0923ca9c4394706
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68325496"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montare una condivisione file di Azure in Istanze di Azure Container
@@ -83,13 +83,13 @@ Il `--dns-name-label` valore deve essere univoco all'interno dell'area di Azure 
 
 ## <a name="manage-files-in-mounted-volume"></a>Gestire i file nel volume montato
 
-Quando il contenitore viene avviato, è possibile usare l'app Web semplice distribuita tramite il comando Microsoft [ACI-hellofiles][aci-hellofiles] image to create small text files in the Azure file share at the mount path you specified. Obtain the web app's fully qualified domain name (FQDN) with the [az container show][az-container-show] :
+Quando il contenitore viene avviato, è possibile usare l'app Web semplice distribuita tramite l'immagine Microsoft [ACI-hellofiles][aci-hellofiles] per creare piccoli file di testo nella condivisione file di Azure nel percorso di montaggio specificato. Ottenere il nome di dominio completo (FQDN) dell'app Web con il comando [AZ container Show][az-container-show] :
 
 ```azurecli-interactive
 az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.fqdn --output tsv
 ```
 
-Dopo aver salvato il testo con l'app, è possibile usare il [portale di Azure][portal] or a tool like the [Microsoft Azure Storage Explorer][storage-explorer] per recuperare e ispezionare il file scritto nella condivisione file.
+Dopo aver salvato il testo con l'app, è possibile usare il [portale di Azure][portal] o uno strumento come il [Microsoft Azure Storage Explorer][storage-explorer] per recuperare e ispezionare il file scritto nella condivisione file.
 
 ## <a name="deploy-container-and-mount-volume---yaml"></a>Distribuire il contenitore e montare volume-YAML
 

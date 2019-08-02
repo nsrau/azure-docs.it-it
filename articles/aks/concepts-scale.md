@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: 3230d85dfcf57bfd4e2e1684f4f5620600ec4e3a
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: c25bc316a345404c759b346b4fb877de42ee4d13
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424195"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561549"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opzioni di ridimensionamento per le applicazioni nel servizio Azure Kubernetes
 
@@ -45,9 +45,9 @@ Per iniziare a usare il servizio di scalabilità automatica di Pod orizzontali i
 
 Dato che il ridimensionamento automatico orizzontale dei pod controlla l'API Metriche ogni 30 secondi, è possibile che eventi di ridimensionamento precedenti non siano stati completati prima dell'esecuzione del controllo successivo. A causa di questo comportamento, il ridimensionamento automatico orizzontale dei pod potrebbe modificare il numero di repliche prima che l'evento di ridimensionamento precedente sia riuscito a ricevere il carico di lavoro dell'applicazione e le richieste di risorse da modificare di conseguenza.
 
-Per ridurre al minimo questi eventi di race condition, è possibile impostare valori di raffreddamento o ritardo. Questi valori indicano il tempo di attesa di un evento di ridimensionamento da parte del ridimensionamento automatico orizzontale dei pod prima che possa essere attivato un altro evento di ridimensionamento. Questo comportamento consente al nuovo numero di repliche di diventare effettivo e all'API Metriche di rispecchiare il carico di lavoro distribuito. Per impostazione predefinita, il ritardo per gli eventi di aumento delle risorse è di 3 minuti e il ritardo per gli eventi di riduzione delle risorse è di 5 minuti.
+Per ridurre al minimo questi eventi di corsa, vengono impostati i valori di ricarica o ritardo. Questi valori indicano il tempo di attesa di un evento di ridimensionamento da parte del ridimensionamento automatico orizzontale dei pod prima che possa essere attivato un altro evento di ridimensionamento. Questo comportamento consente al nuovo numero di repliche di diventare effettivo e all'API Metriche di rispecchiare il carico di lavoro distribuito. Per impostazione predefinita, il ritardo per gli eventi di aumento delle risorse è di 3 minuti e il ritardo per gli eventi di riduzione delle risorse è di 5 minuti.
 
-Potrebbe essere necessario regolare questi valori di raffreddamento. I valori di raffreddamento predefiniti potrebbero dare l'impressione che il ridimensionamento automatico orizzontale dei pod non intervenga in modo sufficientemente rapido sul numero delle repliche. Ad esempio, per aumentare più rapidamente il numero di repliche in uso, ridurre `--horizontal-pod-autoscaler-upscale-delay` quando si creano le definizioni per il ridimensionamento automatico orizzontale dei pod con `kubectl`.
+Attualmente, non è possibile ottimizzare i valori di cooldown dal valore predefinito.
 
 ## <a name="cluster-autoscaler"></a>Ridimensionamento automatico del cluster
 
@@ -93,7 +93,7 @@ I nodi virtuali vengono distribuiti in una subnet aggiuntiva nella stessa rete v
 
 Per iniziare a ridimensionare le applicazioni, seguire prima la [Guida introduttiva per creare un cluster AKS con l'interfaccia della riga di][aks-quickstart]comando di Azure. È quindi possibile iniziare a ridimensionare manualmente o automaticamente le applicazioni nel cluster servizio Azure Kubernetes:
 
-- Ridimensionare manualmente i [Pod][aks-manually-scale-pods] or [nodes][aks-manually-scale-nodes]
+- Ridimensionare manualmente i [Pod][aks-manually-scale-pods] o i [nodi][aks-manually-scale-nodes]
 - Usare il ridimensionamento automatico del [Pod orizzontale][aks-hpa]
 - Usare il ridimensionamento automatico del [cluster][aks-cluster-autoscaler]
 

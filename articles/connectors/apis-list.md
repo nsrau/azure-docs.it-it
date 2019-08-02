@@ -9,16 +9,16 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: ab2413cfce8b87fbe1899a0b7c465c6e6c27a3f5
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 126c3fb348b1d53769a818ae4b21fcdbbef65615
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277650"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68517229"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Connettori per App per la logica di Azure
 
-I connettori consentono di accedere rapidamente da app per la logica di Azure a eventi, dati e azioni in altre app, servizi, sistemi, protocolli e piattaforme. Usando i connettori nelle app per la logica, è possibile espandere le funzionalità per le app cloud e locali per eseguire attività con i dati creati e già disponibili.
+I connettori consentono di accedere rapidamente da App per la logica di Azure a eventi, dati e azioni tra app, servizi, sistemi, protocolli e piattaforme diversi. Usando i connettori delle app per la logica è possibile espandere le capacità delle applicazioni locali e cloud per eseguire attività con i dati creati e già disponibili.
 
 Sebbene app per la logica offra [centinaia di connettori](https://docs.microsoft.com/connectors), in questo articolo vengono descritti i connettori più diffusi e comunemente usati da migliaia di app e milioni di esecuzioni per l'elaborazione di dati e informazioni. Per trovare l'elenco completo dei connettori e le informazioni di riferimento di ogni connettore, ad esempio trigger, azioni e limiti, vedere le pagine di riferimento del connettore in [Panoramica dei connettori](https://docs.microsoft.com/connectors). Altre informazioni sui [trigger e le azioni](#triggers-actions), il [modello di prezzi di app](../logic-apps/logic-apps-pricing.md)per la logica e [i dettagli prezzi di app](https://azure.microsoft.com/pricing/details/logic-apps/)per la logica. 
 
@@ -35,7 +35,7 @@ I connettori sono disponibili come trigger e azioni predefiniti oppure come conn
   > Le app per la logica in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) possono accedere direttamente alle risorse in una rete virtuale di Azure.
   > Quando si usa ISE, i trigger e le azioni predefiniti che visualizzano l'etichetta **principale** vengono eseguiti nello stesso ISE delle app per la logica. Le app per la logica, i trigger predefiniti e le azioni predefinite eseguite in ISE usano un piano tariffario diverso dal piano tariffario in base al consumo.
   >
-  > Per altre informazioni sulla creazione di ISEs, vedere [connettersi alle reti virtuali di Azure da app](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment)per la logica di Azure. 
+  > Per altre informazioni sulla creazione di ISEs, vedere [connettersi alle reti virtuali di Azure da app](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)per la logica di Azure. 
   > Per altre informazioni sui prezzi, vedere [modello di determinazione prezzi per app](../logic-apps/logic-apps-pricing.md)per la logica.
 
 <a name="managed-connectors"></a>
@@ -63,7 +63,7 @@ I connettori sono disponibili come trigger e azioni predefiniti oppure come conn
   >
   > Per i sistemi locali connessi a una rete virtuale di Azure, inserire ISE nella rete in modo che le app per la logica possano accedere direttamente a tali sistemi usando un connettore con un'etichetta **ISE** , un'azione http o un [connettore personalizzato](#custom). Le app per la logica e i connettori eseguiti in ISE usano un piano tariffario diverso dal piano tariffario in base al consumo. 
   >
-  > Per altre informazioni sulla creazione di ISEs, vedere [connettersi alle reti virtuali di Azure da app](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment)per la logica di Azure.
+  > Per altre informazioni sulla creazione di ISEs, vedere [connettersi alle reti virtuali di Azure da app](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)per la logica di Azure.
   > Per altre informazioni sui prezzi, vedere [modello di determinazione prezzi per app](../logic-apps/logic-apps-pricing.md)per la logica.
 
   Per l'elenco completo dei connettori e per le informazioni di riferimento di ogni connettore, ad esempio azioni e tutti i trigger, definiti da una descrizione di OpenAPI (in precedenza spavalderia), oltre a qualsiasi limite, è possibile trovare l'elenco completo nella [Panoramica dei connettori](/connectors/). Per informazioni sui prezzi, vedere il [modello di prezzi di app](../logic-apps/logic-apps-pricing.md)per la logica e [Dettagli prezzi di app](https://azure.microsoft.com/pricing/details/logic-apps/)per la logica. 
@@ -128,7 +128,7 @@ Di seguito sono riportati alcuni connettori standard usati comunemente dalle app
 
 |   |   |   |   |   | 
 |---|---|---|---|---| 
-| ![Icona API][biztalk-server-icon]<br/>**BizTalk**</br> **Server** | [![Icona][file-system-icon]<br/>API**file</br> System**][file-system-doc] | [![Icona][ibm-db2-icon]<br/>API**IBM DB2**][ibm-db2-doc] | [![Icona][ibm-informix-icon]<br/>API**IBM** Informix</br> ][ibm-informix-doc] | ![Icona API][mysql-icon]<br/>**MySQL** | 
+| ![Icona API][biztalk-server-icon]<br/>**BizTalk**</br> **Server** | [![Icona][file-system-icon]<br/>API**file</br> System**][file-system-doc] | [![Icona][ibm-db2-icon]<br/>API**IBM DB2**][ibm-db2-doc] | [![Icona][ibm-informix-icon]<br/>API**IBM** Informix</br>][ibm-informix-doc] | ![Icona API][mysql-icon]<br/>**MySQL** | 
 | [![Icona][oracle-db-icon]<br/>API**Oracle DB**][oracle-db-doc] | ![Icona API][postgre-sql-icon]<br/>**PostgreSQL** | [![Icona][sharepoint-server-icon]<br/>API**SharePoint</br> server**][sharepoint-server-doc] | [![Icona][sql-server-icon]<br/>API**SQL</br> server**][sql-server-doc] | ![Icona API][teradata-icon]<br/>**Teradata** | 
 |||||
 
@@ -196,7 +196,7 @@ Per rendere pubblici i connettori o le app per le API personalizzate da utilizza
 >
 > I connettori personalizzati creati in un ISE non funzionano con il gateway dati locale. Tuttavia, questi connettori possono accedere direttamente alle origini dati locali connesse a una rete virtuale di Azure che ospita ISE. Quindi, le app per la logica in un ISE probabilmente non necessitano del gateway dati durante la comunicazione con tali risorse.
 >
-> Per altre informazioni sulla creazione di ISEs, vedere [connettersi alle reti virtuali di Azure da app](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment)per la logica di Azure.
+> Per altre informazioni sulla creazione di ISEs, vedere [connettersi alle reti virtuali di Azure da app](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)per la logica di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: a73938c98ebaea310875f0db8b665d0f1aed55e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cc59d7cb1ce09aad834130818e5af533719e04c1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60556279"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568613"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Creare report in database cloud con numero maggiore di istanze (anteprima)
 
@@ -71,7 +70,7 @@ Questi vengono utilizzati per la connessione per la gestione di gestore di mappe
 
     "nome utente" e "password" devono essere uguali alle informazioni di accesso usate nel passaggio 6 della sezione [Scaricare ed eseguire l'app di esempio](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app) in [Iniziare a utilizzare gli strumenti di database elastici](sql-database-elastic-scale-get-started.md).
 
-### <a name="external-data-sources"></a>DROP EXTERNAL DATA SOURCE
+### <a name="external-data-sources"></a>Origini dati esterne
 Per creare un'origine dati esterna, eseguire il comando seguente sul database ElasticDBQuery:
 
     CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH
@@ -105,7 +104,7 @@ Eseguire questa query sul database ElasticDBQuery:
 
 Si noterà che la query di aggregare i risultati di tutte le partizioni e produce il seguente output:
 
-![Dettagli dell'output][4]
+![Dettagli output][4]
 
 ## <a name="import-elastic-database-query-results-to-excel"></a>Importare i risultati della query database elastica in Excel
  È possibile importare i risultati da di una query a un file di Excel.
@@ -115,7 +114,7 @@ Si noterà che la query di aggregare i risultati di tutte le partizioni e produc
 3. Fare clic su **Da altre origini** e quindi su **Da SQL Server**.
 
    ![Importazione di Excel da altre origini][5]
-4. In **Connessione guidata dati** digitare le credenziali di accesso e il nome del server. Quindi fare clic su **Next**.
+4. In **Connessione guidata dati** digitare le credenziali di accesso e il nome del server. Scegliere quindi **Avanti**.
 5. Nella finestra di dialogo **Selezionare il database contenente i dati desiderati** selezionare il database **ElasticDBQuery**.
 6. Selezionare la tabella **Customers** nella visualizzazione elenco e fare clic su **Avanti**. Fare clic su **Fine**.
 7. Nel modulo **Importa dati** in **Specificare come visualizzare i dati nella cartella di lavoro** selezionare **Tabella** e fare clic su **OK**.

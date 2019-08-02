@@ -16,14 +16,14 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 896cc495d6f369c034171833a9b90aa53e6477b6
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 12452b4e9cc6caa64d4c81a310fbccb5d1717817
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234642"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678149"
 ---
-# <a name="what-is-azure-ad-entitlement-management-preview"></a>Che cos'è Azure AD gestione dei diritti? (Anteprima)
+# <a name="what-is-azure-ad-entitlement-management-preview"></a>Che cos'è Azure AD gestione dei diritti? (anteprima)
 
 > [!IMPORTANT]
 > Gestione entitlement di Azure Active Directory (Azure AD) è attualmente in anteprima pubblica.
@@ -90,7 +90,7 @@ Con un pacchetto di accesso e i relativi criteri, gestione pacchetti di Access d
 
 - Risorse
 - Ruoli necessari agli utenti per le risorse
-- Utenti interni e utenti esterni idonei per richiedere l'accesso
+- Utenti interni e organizzazioni partner di utenti esterni idonei per richiedere l'accesso
 - Processo di approvazione e utenti che possono approvare o negare l'accesso
 - Durata dell'accesso dell'utente
 
@@ -121,13 +121,13 @@ Per comprendere meglio la gestione dei diritti e la relativa documentazione, è 
 | pacchetto di accesso | Raccolta di autorizzazioni e criteri per le risorse che gli utenti possono richiedere. Un pacchetto di accesso è sempre contenuto in un catalogo. |
 | richiesta di accesso | Richiesta di accesso a un pacchetto di accesso. Una richiesta viene in genere attraversata da un flusso di lavoro. |
 | policy | Set di regole che definisce il ciclo di vita dell'accesso, ad esempio il modo in cui gli utenti ottengono l'accesso, gli utenti che possono approvare e il tempo di accesso degli utenti. I criteri di esempio includono l'accesso dei dipendenti e l'accesso esterno. |
-| catalog | Contenitore di risorse correlate e pacchetti di accesso. |
+| catalogo | Contenitore di risorse correlate e pacchetti di accesso. |
 | Catalogo generale | Catalogo incorporato che è sempre disponibile. Per aggiungere risorse al catalogo generale, è necessario disporre di determinate autorizzazioni. |
-| resource | Un asset o un servizio, ad esempio un gruppo, un'applicazione o un sito, a cui un utente può concedere le autorizzazioni. |
-| Tipo di risorsa | Tipo di risorsa, che include i gruppi, le applicazioni e i siti di SharePoint Online. |
+| resource | Un asset o un servizio, ad esempio un gruppo di Office, un gruppo di sicurezza, un'applicazione o un sito di SharePoint Online, a cui un utente può concedere le autorizzazioni. |
+| tipo di risorsa | Tipo di risorsa, che include i gruppi, le applicazioni e i siti di SharePoint Online. |
 | ruolo risorsa | Raccolta di autorizzazioni associate a una risorsa. |
 | Directory delle risorse | Una directory che dispone di una o più risorse da condividere. |
-| utenti assegnati | Assegnazione di un pacchetto di accesso a un utente o a un gruppo. |
+| utenti assegnati | Assegnazione di un pacchetto di accesso a un utente, in modo che l'utente disponga di tutti i ruoli delle risorse del pacchetto di accesso. |
 | enable | Il processo di creazione di un pacchetto di accesso disponibile per gli utenti da richiedere. |
 
 ## <a name="license-requirements"></a>Requisiti relativi alle licenze

@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: fbc68b551db1f68fe253a833ad26c88de1b92f30
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f4db353e3c2f625478df6a547d1b67c5d074d18a
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055363"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640625"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Comprendere e usare dispositivi gemelli nell'hub IoT
 
@@ -182,7 +182,7 @@ Il back-end della soluzione opera sul dispositivo gemello tramite le seguenti op
 
   - Properties
 
-    | Name | Value |
+    | Name | Valore |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  Data e ora in cui è stata inviata la notifica |
@@ -231,7 +231,7 @@ Oltre a queste operazioni, il back-end della soluzione può:
 
 Il dispositivo opera sul dispositivo gemello usando le seguenti operazioni atomiche:
 
-* **Recuperare un dispositivo gemello**. Questa operazione restituisce il documento del dispositivo gemello, inclusi tag e proprietà di sistema desiderate e segnalate, del dispositivo attualmente connesso.
+* **Recuperare un dispositivo gemello**. Questa operazione restituisce il documento del dispositivo gemello (incluse le proprietà di sistema desiderate e segnalate) per il dispositivo attualmente connesso. I tag non sono visibili per le app per dispositivi.
 
 * **Aggiornamento parziale delle proprietà segnalate**. Questa operazione consente l'aggiornamento parziale delle proprietà segnalate del dispositivo attualmente connesso. Questa operazione usa lo stesso formato di aggiornamento JSON che il back-end della soluzione usa per un aggiornamento parziale delle proprietà desiderate.
 

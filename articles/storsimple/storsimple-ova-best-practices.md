@@ -12,17 +12,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/08/2018
+ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b8e9f12a549f71971c2da3b9865f6a74dad58f61
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b5ffc16a7c9dacef3036ca5ce225265252dcdf5d
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60630139"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516754"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Procedure consigliate per l'array virtuale StorSimple
+
 ## <a name="overview"></a>Panoramica
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
+
 Array virtuale Microsoft Azure StorSimple è una soluzione di archiviazione integrata che consente di gestire le attività di archiviazione tra un dispositivo virtuale locale eseguito in un hypervisor e la risorsa di archiviazione cloud di Microsoft Azure. L'array virtuale StorSimple è un'alternativa efficace e conveniente all'array fisico serie 8000. L'array virtuale può essere eseguito nell'infrastruttura di hypervisor esistente, supporta i protocolli iSCSI e SMB ed è adatto per scenari con uffici remoti o succursali. Per altre informazioni sulle soluzioni StorSimple, vedere [Microsoft Azure StorSimple Overview](https://www.microsoft.com/en-us/server-cloud/products/storsimple/overview.aspx)(Panoramica di Microsoft Azure StorSimple).
 
 Questo articolo descrive le procedure consigliate implementate durante l'installazione, la distribuzione e la gestione iniziali dell'array virtuale StorSimple. Le procedure consigliate forniscono le linee guida convalidate per l'installazione e la gestione dell'array virtuale. L'articolo è destinato agli amministratori IT che si occupano della distribuzione e gestione di array virtuali nei data center.
@@ -75,9 +79,9 @@ Prima di tutto, per ogni volume o condivisione a livelli la prenotazione locale 
 * Prenotazione locale di 120 GB (per un volume o una condivisione a livelli di 1 TB)
 * 330 GB per un volume o una condivisione aggiunti in locale (con l'aggiunta del 10% della prenotazione locale ai 300 GB delle dimensioni con provisioning)
 
-Lo spazio totale richiesto a livello locale fino a questo momento è: 240 GB + 120 GB + 330 GB = 690 GB.
+Lo spazio totale richiesto a livello locale fino a questo momento è il seguente: 240 GB + 120 GB + 330 GB = 690 GB.
 
-È quindi necessaria una quantità di spazio a livello locale pari alla singola prenotazione più grande. Questa quantità aggiuntiva viene usata nel caso in cui sia necessario eseguire il ripristino da uno snapshot cloud. In questo esempio, la prenotazione locale più grande è di 330 GB (inclusa la prenotazione per il file system), quindi sarà necessario aggiungere che questo spazio ai 690 GB: 690 GB + 330 GB = 1020 GB.
+È quindi necessaria una quantità di spazio a livello locale pari alla singola prenotazione più grande. Questa quantità aggiuntiva viene usata nel caso in cui sia necessario eseguire il ripristino da uno snapshot cloud. In questo esempio, la prenotazione locale più grande è 330 GB (inclusa la prenotazione per file system), quindi è necessario aggiungerla a 690 GB: 690 GB + 330 GB = 1020 GB.
 Se sono stati eseguiti altri ripristini successivi, è sempre possibile liberare spazio dall'operazione di ripristino precedente.
 
 Fino a questo punto è quindi necessario il 15% dello spazio locale totale per archiviare gli snapshot locali, perciò è disponibile solo l'85%. In questo esempio saranno circa 1020 GB = 0,85&ast;TB del disco dati con provisioning. Di conseguenza, il disco dati con provisioning sarà pari a (1020&ast;(1/0,85)) = 1200 GB = 1,20 TB ~ 1,25 TB (con arrotondamento al quartile più vicino)
@@ -211,7 +215,7 @@ Non è possibile modificare le impostazioni di frequenza e conservazione associa
 * Pianificare i backup per le ore non di punta. L'ora di inizio del backup non deve coincidere con numerose operazioni di I/O dell'host.
 * Avviare un backup manuale su richiesta quando si prevede di eseguire un failover del dispositivo o prima della finestra di manutenzione, per proteggere i dati nell'array virtuale.
 
-### <a name="restore"></a>Restore
+### <a name="restore"></a>Ripristina
 È possibile eseguire il ripristino da un set di backup in due modi: eseguire il ripristino in un altro volume o un'altra condivisione file o eseguire un ripristino a livello di elemento, disponibile solo in un array virtuale configurato come file server. Il ripristino a livello di elemento consente un ripristino granulare di file e cartelle da un backup cloud di tutte le condivisioni nel dispositivo StorSimple. Per altre informazioni, vedere [Ripristinare da un backup dell'array virtuale StorSimple](storsimple-virtual-array-clone.md).
 
 Quando si esegue un ripristino, tenere presenti queste linee guida:

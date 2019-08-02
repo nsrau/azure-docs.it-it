@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: aed63e332375be4f8ed939cf162545c9f366f329
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eb3d5fea68b5b1b6e648943cb3dbaab5857e9e07
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66143446"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608015"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personalizzare l'acceleratore di soluzioni di monitoraggio remoto
 
@@ -37,7 +37,7 @@ I passaggi seguenti illustrano il processo per configurare un ambiente locale pe
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
 
-    Abilitare l'accesso SSH solo durante il test e lo sviluppo. Se si abilita SSH, [disabilitarlo appena si termina di usarlo](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-virtual-machines).
+    Abilitare l'accesso SSH solo durante il test e lo sviluppo. Se si abilita SSH, [disabilitarlo appena si termina di usarlo](../security/fundamentals/network-best-practices.md#disable-rdpssh-access-to-virtual-machines).
 
 1. Usare il portale di Azure o Azure Cloud Shell per trovare il nome e l'indirizzo IP pubblico della macchina virtuale. Ad esempio:
 
@@ -73,7 +73,7 @@ I passaggi seguenti illustrano il processo per configurare un ambiente locale pe
     npm start
     ```
 
-1. Il comando precedente esegue l'interfaccia utente in locale in http:\//localhost:3000 / dashboard. È possibile modificare il codice mentre il sito è in esecuzione e visualizzarne gli aggiornamenti in modo dinamico.
+1. Il comando precedente esegue l'interfaccia utente localmente all'indirizzo\/http:/localhost: 3000/dashboard. È possibile modificare il codice mentre il sito è in esecuzione e visualizzarne gli aggiornamenti in modo dinamico.
 
 ## <a name="customize-the-layout"></a>Personalizzare il layout
 

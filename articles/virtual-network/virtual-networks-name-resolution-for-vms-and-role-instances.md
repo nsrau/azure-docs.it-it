@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: e0f3de95cfd4a18294e5e8e2adcf3b52a7487dbb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64f79b3e72a8655f8d704ffd531d9e34485832b0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65411367"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570609"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Risoluzione dei nomi per le risorse in reti virtuali di Azure
 
@@ -44,7 +44,7 @@ Il tipo di risoluzione dei nomi usato dipende dal modo in cui le risorse devono 
 | Risoluzione dei nomi di servizi e computer locali da istanze del ruolo o macchine virtuali in Azure. |Server DNS gestiti dal cliente (ad esempio, controller di dominio locale, controller di dominio di sola lettura locale o server DNS secondario sincronizzati con trasferimenti di zona). Vedere [Risoluzione dei nomi usando il server DNS](#name-resolution-that-uses-your-own-dns-server). |Solo nome di dominio completo |
 | Risoluzione di nomi host di Azure da computer locali. |Inoltra le query a un server proxy DNS gestito dal cliente nella rete virtuale corrispondente. Il server proxy trasferisce le query ad Azure per la risoluzione. Vedere [Risoluzione dei nomi usando il server DNS](#name-resolution-that-uses-your-own-dns-server). |Solo nome di dominio completo |
 | DNS inversi per indirizzi IP interni. |[Risoluzione dei nomi usando il server DNS](#name-resolution-that-uses-your-own-dns-server). |Non applicabile |
-| Risoluzione dei nomi tra macchine virtuali o istanze del ruolo situate in servizi cloud diversi e non in una rete virtuale. |Non applicabile Connettività tra macchine virtuali e istanze del ruolo in servizi cloud diversi non è supportata esternamente a una rete virtuale. |Non applicabile|
+| Risoluzione dei nomi tra macchine virtuali o istanze del ruolo situate in servizi cloud diversi e non in una rete virtuale. |Non applicabile. Connettività tra macchine virtuali e istanze del ruolo in servizi cloud diversi non è supportata esternamente a una rete virtuale. |Non applicabile|
 
 ## <a name="azure-provided-name-resolution"></a>Risoluzione dei nomi fornita da Azure
 
@@ -74,7 +74,7 @@ Ecco gli aspetti da prendere in considerazione quando si usa la risoluzione dei 
 * I nomi host devono essere compatibili con DNS. I nomi devono includere solo i numeri 0-9, le lettere a-z e il segno - e non possono iniziare o terminare con il segno -.
 * Il traffico di query DNS è limitato per ogni VM. La limitazione in genere non comporta alcun impatto sulla maggior parte delle applicazioni. Se viene osservata la limitazione delle richieste, assicurarsi che la memorizzazione nella cache sul lato client sia abilitata. Per altre informazioni, vedere [Configurazione del client DNS](#dns-client-configuration).
 * Solo le VM nei primi 180 servizi cloud sono registrate per ogni rete virtuale in un modello di distribuzione classica. Questo limite non si applica alle reti virtuali in Azure Resource Manager.
-* L'indirizzo IP di DNS di Azure è 168.63.129.16. Questo è un indirizzo IP statico e non verrà modificato.
+* L'indirizzo IP DNS di Azure è 168.63.129.16. Si tratta di un indirizzo IP statico che non verrà modificato.
 
 ## <a name="dns-client-configuration"></a>Configurazione del client DNS
 
@@ -96,7 +96,7 @@ Sono disponibili alcuni pacchetti di memorizzazione nella cache DNS diversi, tra
   * Avviare il servizio dnsmasq con `systemctl start dnsmasq.service`. 
   * Modificare **/etc/sysconfig/network/config** e sostituire *NETCONFIG_DNS_FORWARDER=""* con *dnsmasq*.
   * Aggiornare resolv.conf con `netconfig update` per impostare la cache come resolver DNS locale.
-* **CentOS (Usa NetworkManager)** :
+* **CentOS (USA NetworkManager)** :
   * Installare il pacchetto dnsmasq con `sudo yum install dnsmasq`.
   * Abilitare il servizio dnsmasq con `systemctl enable dnsmasq.service`.
   * Avviare il servizio dnsmasq con `systemctl start dnsmasq.service`.
@@ -129,7 +129,7 @@ Il file resolv.conf viene di solito generato automaticamente e non deve essere m
 * **SUSE** (usa netconf):
   1. Aggiungere *timeout:1 attempts:5* al parametro **NETCONFIG_DNS_RESOLVER_OPTIONS=""** in **/etc/sysconfig/network/config**.
   2. Eseguire `netconfig update` per aggiornare.
-* **CentOS** (Usa NetworkManager):
+* **CentOS** (USA NetworkManager):
   1. Aggiungere *echo "options timeout:1 attempts:5"* a **/etc/NetworkManager/dispatcher.d/11-dhclient**.
   2. Aggiornare con `service network restart`.
 
@@ -158,7 +158,7 @@ Quando si usa la risoluzione dei nomi fornita da Azure, il protocollo DHCP (Dyna
 
 Se necessario, è possibile determinare il suffisso DNS interno usando PowerShell o l'API:
 
-* Per le reti virtuali nei modelli di distribuzione Azure Resource Manager, il suffisso è disponibile tramite il [interfaccia di rete l'API REST](https://docs.microsoft.com/rest/api/virtualnetwork/networkinterfaces), il [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) cmdlet di PowerShell e il [ presentazione di AZ network nic](/cli/azure/network/nic#az-network-nic-show) comando di Azure.
+* Per le reti virtuali nei modelli di distribuzione Azure Resource Manager, il suffisso è disponibile tramite l' [API REST dell'interfaccia di rete](https://docs.microsoft.com/rest/api/virtualnetwork/networkinterfaces), il cmdlet di PowerShell [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) e il comando [AZ Network NIC Show](/cli/azure/network/nic#az-network-nic-show) Azure cli.
 * Nei modelli di distribuzione classica il suffisso è disponibile tramite la chiamata all'[API Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) o il cmdlet [Get-AzureVM -Debug](/powershell/module/servicemanagement/azure/get-azurevm).
 
 Se l'inoltro delle query ad Azure non soddisfa le esigenze specifiche, sarà necessario offrire una soluzione DNS personalizzata. La soluzione DNS deve:
@@ -192,7 +192,7 @@ Se è necessario eseguire la risoluzione dei nomi dall'app Web realizzata tramit
 Quando si usano i propri server DNS, Azure offre la possibilità di specificare più server DNS per ogni rete virtuale. È anche possibile specificare più server DNS per ogni interfaccia di rete (per Azure Resource Manager) o per ogni servizio cloud (per il modello di distribuzione classica). I server DNS specificati per un'interfaccia di rete o un servizio cloud hanno la precedenza su quelli specificati per la rete virtuale.
 
 > [!NOTE]
-> Le proprietà della connessione di rete, ad esempio gli IP del server DNS, non devono essere modificate direttamente nelle macchine virtuali Windows. Potrebbero infatti essere cancellate durante la correzione del servizio, quando la scheda di rete virtuale viene sostituita.
+> Le proprietà di connessione di rete, ad esempio gli IP del server DNS, non devono essere modificate direttamente all'interno delle macchine virtuali. Potrebbero infatti essere cancellate durante la correzione del servizio, quando la scheda di rete virtuale viene sostituita. Questo vale per le macchine virtuali Windows e Linux.
 >
 >
 

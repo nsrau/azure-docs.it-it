@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25ad17f4c4d338e1d0b8118c1a172e0aaad7118e
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: eb5f322d8bc974274f7f2da7811b124499224635
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489093"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678138"
 ---
 # <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management-preview"></a>Richiedere il processo e le notifiche tramite posta elettronica in Azure AD gestione dei diritti (anteprima)
 
@@ -40,14 +40,14 @@ Un utente che deve accedere a un pacchetto di accesso può inviare una richiesta
 
 ![Diagramma del processo di approvazione](./media/entitlement-management-process/request-process.png)
 
-| Stato | DESCRIZIONE |
+| Stato | Descrizione |
 | --- | --- |
 | Inviato | L'utente invia una richiesta. |
 | In attesa di approvazione | Se il criterio per un pacchetto di accesso richiede l'approvazione, una richiesta passa a approvazione in sospeso. |
 | Scaduto | Se nessun approvatore approva una richiesta entro il timeout della richiesta di approvazione, la richiesta scade. Per riprovare, l'utente dovrà inviare di nuovo la richiesta. |
 | Negata | Il responsabile approvazione nega una richiesta. |
 | Approvata | Il responsabile approvazione approva una richiesta. |
-| Distribuzione | All'utente **non** è stato assegnato l'accesso a tutte le risorse nel pacchetto di accesso. Se si tratta di un utente esterno, l'utente non ha ancora eseguito l'accesso alla directory delle risorse e ha accettato la richiesta di autorizzazioni. |
+| Distribuzione | All'utente **non** è stato assegnato l'accesso a tutte le risorse nel pacchetto di accesso. Se si tratta di un utente esterno, è possibile che l'utente non abbia ancora eseguito l'accesso alla directory delle risorse e abbia accettato la richiesta di consenso. |
 | Recapitati | All'utente è stato assegnato l'accesso a tutte le risorse nel pacchetto di accesso. |
 | Accesso esteso | Se nel criterio sono consentite le estensioni, l'utente ha esteso l'assegnazione. |
 | Accesso scaduto | L'accesso dell'utente al pacchetto di accesso è scaduto. Per ottenere nuovamente l'accesso, l'utente dovrà inviare una richiesta. |

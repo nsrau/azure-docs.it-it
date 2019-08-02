@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9f854e1771eec1d02fd14e040510688bf33c59c8
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 9465c1991418c7ebef8c4eed825affc7b1d93492
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442440"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68693336"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un account LinkedIn usando criteri personalizzati in Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ Questo articolo illustra come consentire agli utenti l'accesso da un account Lin
 
 - Completare le procedure illustrate in [Introduzione ai criteri personalizzati in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 - Account LinkedIn: se non ne è già stato creato uno, [creare un account](https://www.linkedin.com/start/join).
-- Pagina LinkedIn: è necessaria una [pagina di LinkedIn](https://www.linkedin.com/company/setup/new/) da associare all'applicazione LinkedIn creata nella sezione successiva.
+- Pagina LinkedIn: è necessaria una [pagina di LinkedIn](https://www.linkedin.com/help/linkedin/answer/710/creating-a-linkedin-company-page) da associare all'applicazione LinkedIn creata nella sezione successiva.
 
 ## <a name="create-an-application"></a>Creare un'applicazione
 

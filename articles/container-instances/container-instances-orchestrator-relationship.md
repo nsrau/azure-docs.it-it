@@ -10,10 +10,10 @@ ms.date: 04/15/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: c83648124f616670423b2ef459530c191d7e17e4
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68325768"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Istanze di Azure Container e agenti di orchestrazione dei contenitori
@@ -61,7 +61,7 @@ Per ridimensionare rapidamente i carichi di lavoro dell'applicazione in un clust
 
 I nodi virtuali supportano attualmente le istanze di contenitore di Linux. Per imparare a usare i nodi virtuali usare l'[interfaccia della riga di comando di Azure](https://go.microsoft.com/fwlink/?linkid=2047538) o il [portale di Azure](https://go.microsoft.com/fwlink/?linkid=2047545).
 
-I nodi virtuali usano il [Kubelet][aci-connector-k8s] to mimic the Kubernetes [kubelet][kubelet-doc] virtuale Open Source eseguendo la registrazione come nodo con capacità illimitata. Il Kubelet virtuale Invia la [creazione di][Pod Pod-doc] come gruppi di contenitori in istanze di contenitore di Azure.
+I nodi virtuali usano il [Kubelet virtuale][aci-connector-k8s] open source per simulare il [Kubelet][kubelet-doc] Kubernetes registrando come nodo con capacità illimitata. Il Kubelet virtuale Invia la creazione di [Pod][pod-doc] come gruppi di contenitori in istanze di contenitore di Azure.
 
 Vedere il progetto [Virtual Kubelet](https://github.com/virtual-kubelet/virtual-kubelet) (Kubelet virtuale) per altri esempi di estensione dell'API Kubernetes nelle piattaforme di contenitori senza server.
 

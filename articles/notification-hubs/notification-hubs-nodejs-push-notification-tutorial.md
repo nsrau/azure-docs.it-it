@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 129127a2a43cd9a86e0a1e1cf538358b62381257
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67706221"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Invio di notifiche push con Hub di notifica di Azure e Node.js
@@ -46,7 +46,7 @@ Hub di notifica di Azure offre un'infrastruttura scalabile, multipiattaforma e d
 
 ## <a name="create-a-nodejs-application"></a>Creazione di un'applicazione Node.js
 
-Il primo passaggio in questa esercitazione consiste nel creare una nuova applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node. js, vedere [creare e distribuire un'applicazione Node. js al sito Web di Azure][nodejswebsite] , [Node.js Cloud Service][Node.js Cloud Service] usando Windows PowerShell, o [sito Web con WebMatrix] [webmatrix].
+Il primo passaggio in questa esercitazione consiste nel creare una nuova applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node. js, vedere [creare e distribuire un'applicazione Node. js in un sito Web di Azure][nodejswebsite], [servizio cloud node. js][Node.js Cloud Service] con Windows PowerShell o [sito Web con WebMatrix][webmatrix].
 
 ## <a name="configure-your-application-to-use-notification-hubs"></a>Configurare l'applicazione per l'uso di Hub di notifica
 
@@ -80,7 +80,7 @@ var notificationHubService = azure.createNotificationHubService('hubname','conne
 Ottenere il valore `connectionstring` della connessione dal [portale di Azure] seguendo questa procedura:
 
 1. Nel riquadro di spostamento a sinistra fare clic su **Sfoglia**.
-2. Selezionare **Hub di notifica**e quindi individuare l'hub da utilizzare per l'esempio. È possibile vedere il [esercitazione introduttiva introduzione di Windows Store](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) se ti serve assistenza con la creazione di un nuovo Hub di notifica.
+2. Selezionare **Hub di notifica**e quindi individuare l'hub da utilizzare per l'esempio. Se è necessario assistenza per la creazione di un nuovo hub di notifica, è possibile fare riferimento all' [esercitazione su Windows Store Introduzione](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) .
 3. Selezionare **Impostazioni**.
 4. Fare clic su **Criteri di accesso**. Vengono visualizzate la stringhe di connessione di accesso completo e condiviso.
 
@@ -106,7 +106,7 @@ L'oggetto `GcmService` specifica un metodo `send` che è possibile usare per inv
 - **Payload** : il payload JSON o la stringa non elaborata del messaggio.
 - **Callback** : la funzione di richiamata.
 
-Per altre informazioni sul formato di payload, vedere la [documentazione di Payload](https://distriqt.github.io/ANE-PushNotifications/m.FCM-GCM%20Payload).
+Per ulteriori informazioni sul formato di payload, vedere la [documentazione del payload](https://distriqt.github.io/ANE-PushNotifications/m.FCM-GCM%20Payload).
 
 Nel codice seguente viene usata l'istanza di `GcmService` esposta da `NotificationHubService` per inviare una notifica push a tutti i client registrati.
 

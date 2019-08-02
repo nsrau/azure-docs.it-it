@@ -1,6 +1,6 @@
 ---
-title: Informazioni sul Centro sicurezza di Azure per l'architettura dell'agente di sicurezza IoT Preview | Microsoft Docs
-description: Comprendere l'architettura dell'agente di protezione per gli agenti utilizzati nel Centro sicurezza di Azure per il servizio IoT.
+title: Informazioni sul centro sicurezza di Azure per l'architettura dell'agente Security Microsoft Docs
+description: Comprendere l'architettura dell'agente di sicurezza per gli agenti usati nel centro sicurezza di Azure per il servizio Internet delle cose.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,58 +13,54 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 7f4ca9a2689ab9e09b4ebff903e757f5c352b556
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 998aeab197931a75579fc39b28e3a248b85fc57b
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616575"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596900"
 ---
-# <a name="security-agent-reference-architecture"></a>Architettura di riferimento di sicurezza dell'agente
+# <a name="security-agent-reference-architecture"></a>Architettura di riferimento dell'agente di sicurezza
 
-> [!IMPORTANT]
-> Centro sicurezza di Azure per IoT è attualmente in versione di anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Il Centro sicurezza di Azure offre un'architettura di riferimento per gli agenti di sicurezza che registrano, elaborano, aggregano e inviano i dati di sicurezza tramite l'hub Internet.
 
+Gli agenti di sicurezza sono progettati per funzionare in un ambiente di gestione delle risorse umane vincolato e sono altamente personalizzabili in termini di valori forniti rispetto alle risorse che utilizzano.
 
-Il Centro sicurezza di Azure (ASC) per IoT fornisce l'architettura di riferimento per gli agenti di protezione di log, elaborano, aggregano e inviino i dati di sicurezza tramite l'hub IoT.
+Gli agenti di sicurezza supportano le funzionalità seguenti:
 
-Gli agenti di protezione sono progettati per funzionare in un ambiente vincolato IoT e sono altamente personalizzabili in termini di valori che forniscono quando confrontato con le risorse utilizzate.
+- Raccogliere gli eventi di sicurezza non elaborati dal sistema operativo sottostante (Linux, Windows). Per altre informazioni sugli agenti di raccolta dati di sicurezza disponibili, vedere il [Centro sicurezza di Azure per la configurazione dell'agente](how-to-agent-configuration.md)Internet.
 
-Gli agenti di protezione supportano le funzionalità seguenti:
+- Aggregare gli eventi di sicurezza non elaborati in messaggi inviati tramite l'hub.
 
-- Raccogli eventi di sicurezza non elaborati dal sistema operativo sottostante (Linux, Windows). Per altre informazioni sugli agenti di raccolta dati sicurezza disponibili, vedere [Centro sicurezza di AZURE per la configurazione dell'agente di IoT](how-to-agent-configuration.md).
+- Eseguire l'autenticazione con l'identità del dispositivo esistente o un'identità del modulo dedicata. Per altre informazioni, vedere [metodi di autenticazione dell'agente di sicurezza](concept-security-agent-authentication-methods.md) .
 
-- Aggregare eventi di sicurezza non elaborati in messaggi inviati tramite l'hub IoT.
+- Configurare in modalità remota tramite l'uso del dispositivo gemello del modulo **azureiotsecurity** . Per altre informazioni, vedere [configurare un centro sicurezza di Azure per l'agente](how-to-agent-configuration.md).
 
-- Eseguire l'autenticazione con l'identità del dispositivo esistente o un'identità del modulo dedicato. Visualizzare [metodi di autenticazione di sicurezza dell'agente](concept-security-agent-authentication-methods.md) per altre informazioni.
+Il Centro sicurezza di Azure per gli agenti di sicurezza è stato sviluppato come progetto open source e disponibile da GitHub: 
 
-- Configurare in remoto tramite l'uso del **azureiotsecurity** modulo gemello. Per altre informazioni, vedere [configurare un Centro sicurezza di AZURE per l'agente di IoT](how-to-agent-configuration.md).
+- [Centro sicurezza di Azure per l'agente basato su C](https://github.com/Azure/Azure-IoT-Security-Agent-C) 
+- [Centro sicurezza di Azure per C#l'agente basato su Internet](https://github.com/Azure/Azure-IoT-Security-Agent-CS)
 
-Centro sicurezza di AZURE per gli agenti di sicurezza IoT vengono sviluppate come progetti open source e disponibili da GitHub: 
+## <a name="agent-supported-platforms"></a>Piattaforme supportate dagli agenti
 
-- [Centro sicurezza di AZURE per l'agente basato su IoT C](https://github.com/Azure/Azure-IoT-Security-Agent-C) 
-- [Centro sicurezza di AZURE per IoT C#-agente basato su](https://github.com/Azure/Azure-IoT-Security-Agent-CS)
+Il Centro sicurezza di Azure offre diversi agenti di installazione per le finestre a 32 bit e 64 bit e lo stesso per Linux a 32 bit e 64 bit. Verificare che sia installato il programma di installazione dell'agente corretto per ogni dispositivo in base alla tabella seguente:
 
-## <a name="agent-supported-platforms"></a>Piattaforme supportate dell'agente
-
-Centro sicurezza di AZURE per IoT offre programma di installazione diversi agenti a 32 bit e a 64 bit di Windows e gli stessi per Linux a 64 bit e a 32 bit. Assicurarsi di avere il programma di installazione corretta dell'agente per ognuno dei dispositivi in base alla tabella riportata di seguito:
-
-| 32 bit o 64 bit | Linux | Windows |    Dettagli|
+| Architettura | Linux | Windows |    Dettagli|
 |----------|----------------------------------------------|-------------|-------------------------------------------|
 | a 32 bit  | C  | C#  ||
-| a 64 bit  | C#o C           | C#      | Usare l'agente di C per i dispositivi con risorse minime|
+| a 64 bit  | C#o C           | C#      | È consigliabile usare l'agente C per i dispositivi con risorse del dispositivo più limitate o minime.|
+|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo si è appreso sul Centro sicurezza di AZURE per l'architettura dell'agente di sicurezza IoT e i programmi di installazione disponibili.
+In questo articolo si è appreso come il Centro sicurezza di Azure per l'architettura dell'agente sicurezza di Internet e i programmi di installazione disponibili.
 
-Per altre informazioni sul con Centro sicurezza di AZURE per la distribuzione IoT, usare gli articoli seguenti:
+Per continuare a usare il Centro sicurezza di Azure per la distribuzione di Internet delle cose, vedere gli articoli seguenti:
 
-- Comprendere [i metodi di autenticazione di sicurezza dell'agente](concept-security-agent-authentication-methods.md)
-- Selezionare e distribuire un [agente protezione](how-to-deploy-agent.md)
-- Esaminare il Centro sicurezza di AZURE per IoT [prerequisiti del servizio](service-prerequisites.md)
-- Informazioni su come [Abilita Centro sicurezza di AZURE per il servizio IoT nell'IoT Hub](quickstart-onboard-iot-hub.md)
-- Altre informazioni sul servizio dal [ASC per domande frequenti su IoT](resources-frequently-asked-questions.md)
+- Informazioni sui [metodi di autenticazione dell'agente di sicurezza](concept-security-agent-authentication-methods.md)
+- Selezionare e distribuire un [agente di sicurezza](how-to-deploy-agent.md)
+- Esaminare il Centro sicurezza di Azure per i [prerequisiti del servizio](service-prerequisites.md) Internet
+- Informazioni su come [abilitare il Centro sicurezza di Azure per il servizio](quickstart-onboard-iot-hub.md) Internet delle cose nell'hub Internet delle cose
+- Per altre informazioni sul servizio, vedere [domande frequenti sul centro sicurezza di Azure](resources-frequently-asked-questions.md)

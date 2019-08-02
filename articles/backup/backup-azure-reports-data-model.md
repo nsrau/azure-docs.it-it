@@ -1,18 +1,19 @@
 ---
 title: Modello di dati per Backup di Microsoft Azure
 description: Questo articolo illustra i dettagli del modello di dati di Power BI per i report di Backup di Azure.
-author: adigan
-manager: shivamg
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/26/2017
-ms.author: adigan
-ms.openlocfilehash: 66245a25af000d999ded87c58e3ba225b373b101
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 53051c88d5723f61fa08e431bdf7ab531e88123e
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465604"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689158"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Modello di dati per i report di Backup di Azure
 Questo articolo descrive il modello di dati di Power BI usato per creare report di Backup di Azure. Con questo modello di dati è possibile filtrare report esistenti in base ai campi di interesse e, soprattutto, creare report personalizzati usando le tabelle e i campi del modello. 
@@ -26,7 +27,7 @@ Per creare nuovi report e personalizzare report esistenti, è possibile usare i 
 ### <a name="alert"></a>Avviso
 Questa tabella presenta i campi e le aggregazioni di base per diversi campi correlati agli avvisi.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | #AlertsCreatedInPeriod |Numero intero |Numero di avvisi creati nel periodo di tempo selezionato |
 | %ActiveAlertsCreatedInPeriod |Percentuale |Percentuale di avvisi attivi nel periodo di tempo selezionato |
@@ -43,7 +44,7 @@ Questa tabella presenta i campi e le aggregazioni di base per diversi campi corr
 ### <a name="backup-item"></a>Elementi di backup
 Questa tabella presenta i campi e le aggregazioni di base per diversi campi correlati agli elementi di backup.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | #BackupItems |Numero intero |Numero di elementi di backup |
 | #UnprotectedBackupItems |Numero intero |Numero di elementi di backup arrestati per protezione o configurati per il backup, ma con backup non avviato|
@@ -78,7 +79,7 @@ Questa tabella offre dettagli sui campi relativi al calendario.
 ### <a name="job"></a>Processo
 Questa tabella presenta i campi e le aggregazioni di base per diversi campi correlati ai processi.
 
-| Campo | Tipo di dati | DESCRIZIONE |
+| Campo | Tipo di dati | Descrizione |
 | --- | --- | --- |
 | #JobsCreatedInPeriod |Numero intero |Numero di processi creati nel periodo di tempo selezionato |
 | %FailuresForJobsCreatedInPeriod |Percentuale |Percentuale complessiva degli errori dei processi nel periodo di tempo selezionato |
@@ -98,7 +99,7 @@ Questa tabella presenta i campi e le aggregazioni di base per diversi campi corr
 ### <a name="policy"></a>Criteri
 Questa tabella presenta i campi e le aggregazioni di base per diversi campi correlati ai criteri.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | #Policies |Numero intero |Numero di criteri di backup presenti nel sistema |
 | #PoliciesInUse |Numero intero |Numero di criteri attualmente in uso per la configurazione di backup |
@@ -132,7 +133,7 @@ Questa tabella presenta i campi e le aggregazioni di base per diversi campi corr
 ### <a name="protected-server"></a>Server protetti
 Questa tabella presenta i campi e le aggregazioni di base per diversi campi correlati ai server protetti.
 
-| Campo | Tipo di dati | DESCRIZIONE |
+| Campo | Tipo di dati | Descrizione |
 | --- | --- | --- |
 | #ProtectedServers |Numero intero |Numero di server protetti |
 | AsOnDateTime |Data/ora |Data e ora dell'aggiornamento più recente della riga selezionata |
@@ -151,7 +152,7 @@ Questa tabella presenta i campi e le aggregazioni di base per diversi campi corr
 ### <a name="storage"></a>Archiviazione
 Questa tabella presenta i campi e le aggregazioni di base per diversi campi correlati all'archiviazione.
 
-| Campo | Tipo di dati | DESCRIZIONE |
+| Campo | Tipo di dati | Descrizione |
 | --- | --- | --- |
 | #ProtectedInstances |Numero decimale |Numero di istanze protette usato per il calcolo dell'archiviazione front-end a scopo di fatturazione, calcolato in base al valore più recente nel periodo selezionato |
 | AsOnDateTime |Data/ora |Data e ora dell'aggiornamento più recente della riga selezionata |

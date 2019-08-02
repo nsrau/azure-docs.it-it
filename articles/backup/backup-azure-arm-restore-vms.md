@@ -1,19 +1,20 @@
 ---
 title: 'Backup di Azure: Ripristinare macchine virtuali tramite il portale di Azure'
 description: Ripristinare una macchina virtuale di Azure da un punto di ripristino con il portale di Azure
-author: geethalakshmig
-manager: vijayts
+ms.reviewer: geg
+author: dcurwin
+manager: carmonm
 keywords: ripristinare il backup; come ripristinare; punto di ripristino.
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.author: geg
-ms.openlocfilehash: 951e42c4eb7a9d897140a7422364cdbfe83e57cc
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 0130dde483db4563926076f9bf9e641c14b1c117
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466892"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688757"
 ---
 # <a name="restore-azure-vms"></a>Ripristinare VM di Azure
 

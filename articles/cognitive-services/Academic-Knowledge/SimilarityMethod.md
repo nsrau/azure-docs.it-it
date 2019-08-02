@@ -10,12 +10,13 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
-ms.openlocfilehash: 7f692c08f8af322bf7e6ab576e2e6f516594a6c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 855d29d2c55b841bbbe4e9eadce8c29ad85fad90
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61336518"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704859"
 ---
 # <a name="similarity-method"></a>Metodo Similarity
 
@@ -27,19 +28,19 @@ L'API REST **Similarity** viene usata per calcolare la similarità accademica tr
 https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?
 ```
 
-## <a name="request-parameters"></a>Parametri della richiesta
+## <a name="request-parameters"></a>Parametri richiesta
 
-Parametro        |Tipo di dati      |Obbligatorio | Descrizione
+Parametro        |Tipo di dati      |Obbligatoria | Descrizione
 ----------|----------|----------|------------
 **s1**        |String   |Yes  |Stringa* da confrontare
-**s2**        |String   |Yes  |Stringa* da confrontare
+**s2**        |String   |Sì  |Stringa* da confrontare
 
 <sub> *Le stringhe da confrontare possono avere una lunghezza massima pari a 1 MB. </sub>
 <br>
 
 ## <a name="response"></a>Risposta
 
-NOME | Descrizione
+Name | Descrizione
 --------|---------
 **SimilarityScore**        |Valore a virgola mobile che rappresenta la similarità del coseno di s1 e s2. I valori più vicini a 1,0 indicano maggiore similarità e i valori più vicini a -1,0 indicano minore similarità
 

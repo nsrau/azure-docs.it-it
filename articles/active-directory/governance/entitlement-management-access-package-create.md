@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83eee019ee8530297689b85e6f3300fed4392610
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 9f033cf57c5a285e94372728677c91e021065fa9
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489186"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678208"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Creare un nuovo pacchetto di accesso in Azure AD gestione dei diritti (anteprima)
 
@@ -44,7 +44,7 @@ Il diagramma seguente illustra il processo di alto livello per la creazione di u
 
 ## <a name="start-new-access-package"></a>Avvia nuovo pacchetto di accesso
 
-**Ruolo prerequisito:** Amministratore utente o proprietario del catalogo
+**Ruolo prerequisito:** Amministratore globale, amministratore utente o proprietario del catalogo
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
@@ -64,21 +64,20 @@ Nella scheda **nozioni di base** assegnare un nome al pacchetto di accesso e spe
 
 1. Nell'elenco a discesa **Catalogo** selezionare il catalogo in cui si vuole creare il pacchetto di accesso. Ad esempio, si potrebbe avere un proprietario del catalogo che gestisce tutte le risorse di marketing che possono essere richieste. In questo caso, è possibile selezionare il catalogo marketing.
 
-    Vengono visualizzati solo i cataloghi per i quali si dispone dell'autorizzazione per creare pacchetti di accesso in. Per creare un pacchetto di accesso in un catalogo esistente, è necessario essere almeno un amministratore utente, un proprietario del catalogo o un gestore di pacchetti di accesso.
+    Vengono visualizzati solo i cataloghi per i quali si dispone dell'autorizzazione per creare pacchetti di accesso in. Per creare un pacchetto di accesso in un catalogo esistente, è necessario essere almeno un amministratore globale, un amministratore utente, un proprietario del catalogo nel catalogo oppure accedere a gestione pacchetti in tale catalogo.
 
     ![Accedere a Package-nozioni di base](./media/entitlement-management-access-package-create/basics.png)
 
-    Se si desidera creare il pacchetto di accesso in un nuovo catalogo, fare clic su **Crea nuovo**. Immettere il nome del catalogo e la descrizione, quindi fare clic su **Crea**.
+    Se si è un amministratore globale o un amministratore utente e si desidera creare il pacchetto di accesso in un nuovo catalogo non elencato, fare clic su **Crea nuovo**. Immettere il nome del catalogo e la descrizione, quindi fare clic su **Crea**.
 
-    Il pacchetto di accesso che si sta creando e le eventuali risorse incluse verranno aggiunte al nuovo catalogo. Inoltre, si diventerà automaticamente il primo proprietario del catalogo. È possibile aggiungere altri proprietari del catalogo.
+    Il pacchetto di accesso che si sta creando e le eventuali risorse incluse verranno aggiunte al nuovo catalogo. È anche possibile aggiungere altri proprietari del catalogo in un secondo momento.
 
-    Per creare un nuovo catalogo, è necessario essere almeno un amministratore utente o un creatore del catalogo.
 
 1. Fare clic su **Avanti**.
 
 ## <a name="resource-roles"></a>Ruoli delle risorse
 
-Nella scheda **ruoli risorsa** selezionare le risorse da includere nel pacchetto di accesso.
+Nella scheda **ruoli risorsa** selezionare le risorse da includere nel pacchetto di accesso.  Gli utenti che richiedono e ricevono il pacchetto di accesso riceveranno tutti i ruoli delle risorse nel pacchetto di accesso.
 
 1. Fare clic sul tipo di risorsa che si desidera aggiungere (**gruppi**, **applicazioni**o **siti di SharePoint**).
 
@@ -86,11 +85,11 @@ Nella scheda **ruoli risorsa** selezionare le risorse da includere nel pacchetto
 
     ![Accedere ai ruoli delle risorse del pacchetto](./media/entitlement-management-access-package-create/resource-roles.png)
 
-    Se si sta creando il pacchetto di accesso nel catalogo generale o in un nuovo catalogo, sarà possibile scegliere qualsiasi risorsa dalla directory di cui si è proprietari. È necessario essere almeno un amministratore utente o un creatore del catalogo.
+    Se si sta creando il pacchetto di accesso nel catalogo generale o in un nuovo catalogo, sarà possibile scegliere qualsiasi risorsa dalla directory di cui si è proprietari. È necessario essere almeno un amministratore globale, un amministratore utente o un creatore del catalogo.
 
     Se si sta creando il pacchetto di accesso in un catalogo esistente, è possibile selezionare qualsiasi risorsa già presente nel catalogo senza possederla.
 
-    Se si è un amministratore utente o un proprietario del catalogo, è possibile selezionare le risorse di cui si è proprietari e che non sono ancora presenti nel catalogo. Se si selezionano risorse non presenti nel catalogo selezionato, queste risorse verranno aggiunte anche al catalogo per consentire ad altri amministratori del catalogo di compilare pacchetti di accesso con. Se si desidera solo selezionare le risorse attualmente presenti nel catalogo selezionato, selezionare la casella di controllo **Visualizza solo** nella parte superiore del riquadro di selezione.
+    Se si è un amministratore globale, un amministratore utente o un proprietario del catalogo, è possibile selezionare le risorse di cui si è proprietari e che non sono ancora presenti nel catalogo. Se si selezionano risorse non presenti nel catalogo selezionato, queste risorse verranno aggiunte anche al catalogo per consentire ad altri amministratori del catalogo di compilare pacchetti di accesso con. Se si desidera solo selezionare le risorse attualmente presenti nel catalogo selezionato, selezionare la casella di controllo **Visualizza solo** nella parte superiore del riquadro di selezione.
 
 1. Dopo aver selezionato le risorse, nell'elenco **ruolo** selezionare il ruolo che si desidera assegnare agli utenti per la risorsa.
 

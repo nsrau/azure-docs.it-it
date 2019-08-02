@@ -10,18 +10,17 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 06/25/2019
-ms.openlocfilehash: d8949f63dfa9b409cc14fe9c3bbed70f23a73c86
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: abc6f8a7a2fda3578bbcf2947188752f8f3373cd
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357142"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566817"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Ridimensionare in modo dinamico le risorse di database con tempo di inattività minimo
 
-Database SQL di Azure consente di aggiungere dinamicamente altre risorse al database con il minimo [tempi di inattività](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/); tuttavia, vi è un'opzione nel periodo in cui la connettività viene interrotta al database per un breve periodo di tempo, che può essere mitigati utilizzando la logica di ripetizione dei tentativi.
+Il database SQL di Azure consente di aggiungere in modo dinamico altre risorse al database con [tempi](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/)di inattività minimi. Tuttavia, esiste un passaggio rispetto al periodo in cui la connettività viene persa nel database per un breve intervallo di tempo, che può essere mitigato usando la logica di ripetizione dei tentativi.
 
 ## <a name="overview"></a>Panoramica
 
@@ -36,12 +35,12 @@ Non è necessario acquistare un hardware o modificare o l'infrastruttura di base
 Per il database SQL di Azure è disponibile il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) o il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
 
 - Il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) offre un insieme di risorse di calcolo, memoria e risorse IO in tre livelli di servizio per supportare carichi di lavoro di database da leggeri a pesanti: Basic, Standard e Premium. I livelli delle prestazioni di ogni livello forniscono una diversa combinazione di queste risorse, a cui è possibile aggiungere altre risorse di archiviazione.
-- Il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md) consente di scegliere il numero di vCore, la quantità di memoria e la quantità e la velocità della risorsa di archiviazione. Questo modello di acquisto offre tre livelli di servizio: Generico, Business Critical e su scala molto vasta.
+- Il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md) consente di scegliere il numero di vCore, la quantità di memoria e la quantità e la velocità della risorsa di archiviazione. Questo modello di acquisto offre tre livelli di servizio: Per utilizzo generico, business critical e iperscalabilità.
 
 È possibile creare la prima app in un singolo database di piccole dimensioni a un costo mensile contenuto nel livello di servizio Basic, Standard o Utilizzo generico e quindi modificare il livello di servizio manualmente o tramite codice in qualsiasi momento passando al livello di servizio Premium o Business Critical in base alle esigenze della soluzione. È possibile regolare le prestazioni senza tempi di inattività per l'app o per i clienti. La scalabilità dinamica consente al database di rispettare i requisiti in continua evoluzione relativi alle risorse e di pagare solo le risorse necessarie quando necessario.
 
 > [!NOTE]
-> La scalabilità dinamica è diversa dalla scalabilità automatica. Scalabilità automatica è quando un servizio viene ridimensionato automaticamente in base ai criteri, mentre la scalabilità dinamica consente un ridimensionamento manuale con un tempo di inattività minimo.
+> La scalabilità dinamica è diversa dalla scalabilità automatica. La scalabilità automatica è quando un servizio viene ridimensionato automaticamente in base ai criteri, mentre la scalabilità dinamica consente la scalabilità manuale con tempi di inattività minimi.
 
 Un singolo database SQL di Azure supporta la scalabilità dinamica manuale, ma non la scalabilità automatica. Per un'esperienza più *automatica*, valutare la possibilità di usare i pool elastici, che consentono ai database di condividere le risorse in un pool in base alle esigenze dei singoli database.
 Esistono comunque script utili per automatizzare la scalabilità per un singolo database SQL di Azure. Per un esempio, vedere [Usare PowerShell per monitorare e ridimensionare un singolo database SQL](scripts/sql-database-monitor-and-scale-database-powershell.md).
@@ -57,7 +56,7 @@ Tutte le tre versioni di Database SQL di Azure offrono la capacità di ridimensi
 - I [pool elastici](sql-database-elastic-pool-scale.md) consentono di definire il limite massimo di risorse per ogni gruppo di database nel pool.
 
 > [!NOTE]
-> È possibile prevedere un'interruzione di una connessione di breve quando la scalabilità verticale/processo di riduzione è terminata. Se è stata implementata [logica di tentativi per errori temporanei standard](sql-database-connectivity-issues.md#retry-logic-for-transient-errors), non si noterà il failover.
+> È possibile che si verifichi un breve intervallo di connessione al termine del processo di scalabilità verticale/orizzontale. Se è stata implementata la [logica di ripetizione dei tentativi per gli errori temporanei standard](sql-database-connectivity-issues.md#retry-logic-for-transient-errors), il failover non sarà noto.
 
 ## <a name="alternative-scale-methods"></a>Metodi alternativi di scalabilità
 

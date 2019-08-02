@@ -1,5 +1,5 @@
 ---
-title: "Azure Cosmos DB: API, SDK e risorse dell'executor bulk .NET"
+title: "Azure Cosmos DB: API .NET dell'executor in blocco, risorse & SDK"
 description: Informazioni complete sull'SDK e sull'API .NET per l'executor bulk, incluse le date di rilascio e di ritiro e le modifiche apportate tra le singole versioni di Azure Cosmos DB Bulk Executor .NET SDK.
 author: tknandu
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: 74eddadd7fd967daa1eebb9d7cb223fdc708025f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 098cc3d76fff69b6b213514ac85835e7474b6233
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66471429"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637733"
 ---
-# <a name="net-bulk-executor-library-download-information"></a>Libreria dell'executor bulk .NET: informazioni sul download 
+# <a name="net-bulk-executor-library-download-information"></a>Libreria di esecuzioni bulk di .NET: informazioni sul download 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
@@ -28,12 +28,12 @@ ms.locfileid: "66471429"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Provider di risorse REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Executor bulk - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Executor bulk - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Executor in blocco-.NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Executor in blocco-Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
-| **Descrizione**| La libreria dell'executor bulk consente alle applicazioni client di eseguire operazioni in blocco su account di Azure Cosmos DB. La libreria dell'executor bulk rende disponibili gli spazi dei nomi BulkImport, BulkUpdate e BulkDelete. Il modulo BulkImport può inserire in blocco i documenti in maniera ottimizzata, in modo che la velocità effettiva di cui è stato eseguito il provisioning per una raccolta venga utilizzata nella misura massima consentita. Il modulo BulkUpdate può aggiornare in blocco i dati esistenti nei contenitori di Azure Cosmos DB come patch. Il modulo BulkDelete può eliminare in blocco i documenti in maniera ottimizzata, in modo che la velocità effettiva di cui è stato eseguito il provisioning per una raccolta venga utilizzata nella misura massima consentita.|
+| **Descrizione**| La libreria di esecuzioni bulk di .NET consente alle applicazioni client di eseguire operazioni bulk sugli account Azure Cosmos DB. Questa libreria fornisce gli spazi dei nomi BulkImport, BulkUpdate e BulkDelete. Il modulo BulkImport può inserire in blocco i documenti in maniera ottimizzata, in modo che la velocità effettiva di cui è stato eseguito il provisioning per una raccolta venga utilizzata nella misura massima consentita. Il modulo BulkUpdate può aggiornare in blocco i dati esistenti nei contenitori di Azure Cosmos DB come patch. Il modulo BulkDelete può eliminare in blocco i documenti in maniera ottimizzata, in modo che la velocità effettiva di cui è stato eseguito il provisioning per una raccolta venga utilizzata nella misura massima consentita.|
 |**Download dell'SDK**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
 | **Libreria BulkExecutor in GitHub**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
 |**Documentazione sull'API**|[Documentazione di riferimento API .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
@@ -44,15 +44,15 @@ ms.locfileid: "66471429"
 
 ### <a name="a-name230-preview2230-preview2"></a><a name="2.3.0-preview2"/>2.3.0-preview2
 
-* Aggiunta del supporto per executor bulk graph accettare durata (TTL) su vertici e archi
+* Aggiunta del supporto per l'esecutore bulk del grafo per accettare la durata (TTL) in vertici e bordi
 
 ### <a name="a-name220-preview2220-preview2"></a><a name="2.2.0-preview2"/>2.2.0-preview2
 
-* Risolto un problema, che hanno generato eccezioni durante il ridimensionamento elastico di Azure Cosmos DB durante l'esecuzione in modalità Gateway. Questa correzione rende funzionalmente equivalente a 1.4.1 di rilascio.
+* È stato risolto un problema che causava eccezioni durante il ridimensionamento elastico di Azure Cosmos DB durante l'esecuzione in modalità gateway. Questa correzione lo rende equivalente dal punto di vista funzionale alla versione 1.4.1.
 
 ### <a name="a-name210-preview2210-preview2"></a><a name="2.1.0-preview2"/>2.1.0-preview2
 
-* Riuscite aggiunto il supporto per gli account API SQL di accettare una chiave di partizione, le tuple id documento da eliminare. Questa modifica rende funzionalmente equivalente a 1.4.0 di rilascio.
+* Aggiunto il supporto BulkDelete per gli account API SQL per accettare la chiave di partizione e le tuple ID documento da eliminare. Questa modifica lo rende equivalente dal punto di vista funzionale alla versione 1.4.0.
 
 ### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
 
@@ -64,19 +64,19 @@ ms.locfileid: "66471429"
 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 
-* Aggiornata l'esecutore di blocco per l'uso la versione più recente di Azure Cosmos DB .NET SDK (versione 2.4.0)
+* Aggiornamento dell'executor bulk per l'utilizzo della versione più recente di Azure Cosmos DB .NET SDK (2.4.0)
 
 ### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
 
-* Aggiunta del supporto per executor bulk graph accettare durata (TTL) su vertici e archi
+* Aggiunta del supporto per l'esecutore bulk del grafo per accettare la durata (TTL) in vertici e bordi
 
 ### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
 
-* Risolto un problema, che hanno generato eccezioni durante il ridimensionamento elastico di Azure Cosmos DB durante l'esecuzione in modalità Gateway.
+* È stato risolto un problema che causava eccezioni durante il ridimensionamento elastico di Azure Cosmos DB durante l'esecuzione in modalità gateway.
 
 ### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
 
-* Riuscite aggiunto il supporto per gli account API SQL di accettare una chiave di partizione, le tuple id documento da eliminare.
+* Aggiunto il supporto BulkDelete per gli account API SQL per accettare la chiave di partizione e le tuple ID documento da eliminare.
 
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 
@@ -114,6 +114,6 @@ ms.locfileid: "66471429"
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulla libreria Java BulkExecutor, vedere l'articolo seguente:
+Per ulteriori informazioni sulla libreria Java per esecuzioni bulk, vedere l'articolo seguente:
 
-[Libreria Java BulkExecutor: informazioni sul download](sql-api-sdk-bulk-executor-java.md)
+[Java bulk Executor Library SDK e informazioni sulla versione](sql-api-sdk-bulk-executor-java.md)

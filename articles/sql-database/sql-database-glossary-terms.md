@@ -10,21 +10,20 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 04/26/2019
-ms.openlocfilehash: 057c764a46508804bee6aa8f9912fdedc69e811f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d940cfa91890d26a48b682a6eb09410b3b7de045
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65762707"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568075"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Glossario dei termini relativi al database SQL di Azure
 
-|Context|Nome|Altre informazioni|
+|Contesto|Termine|Altre informazioni|
 |:---|:---|:---|
 |Nome del servizio di Azure|Database SQL di Azure o database SQL|[Servizio database SQL di Azure](sql-database-technical-overview.md)|
-|Livello di calcolo|Infrastruttura senza server (anteprima)|[Livello di calcolo senza server](sql-database-serverless.md)
+|Livello di calcolo|Senza server (anteprima)|[Livello di calcolo senza server](sql-database-serverless.md)
 ||Sottoposto a provisioning|[Livello di calcolo senza server](sql-database-serverless.md)
 |Opzioni di distribuzione |Database singolo|[Database singoli](sql-database-single-database.md)|
 ||Pool elastico|[Pool elastico](sql-database-elastic-pool.md)|
@@ -41,7 +40,7 @@ Oggetti di database|Database SQL di Azure|Qualsiasi database nel database SQL di
 ||Database di utilizzo generico|Database creato o spostato nel livello di servizio di utilizzo generico del modello di acquisto basato su vCore|
 ||Database Hyperscale|Database creato o spostato nel livello di servizio con iperscalabilità del modello di acquisto basato su vCore|
 ||Database Business Critical|Database creato o spostato nel livello di servizio Business Critical del modello di acquisto basato su vCore|
-||Database sottoposto a provisioning|Un database configurato nel livello di calcolo sottoposte a provisioning|
+||Database sottoposti a provisioning|Un database configurato nel livello di calcolo di cui è stato effettuato il provisioning|
 |[Modelli e risorse di acquisto](sql-database-purchase-models.md)|modello di acquisto basato su DTU|[Modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md)|
 ||Modello di acquisto basato su vCore|[Modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md)|
 ||vCore|Core fornito al sistema operativo guest dall'hypervisor.|

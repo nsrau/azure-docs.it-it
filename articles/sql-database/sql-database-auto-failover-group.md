@@ -10,21 +10,20 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 07/18/2019
-ms.openlocfilehash: bd68909f51ff6cead8484ae4ab9f2557e9d6554e
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 5d79edc4db07a2c5916725efc312d9f94fe985dc
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443314"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640099"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 
 I gruppi di failover automatico sono una funzionalità del database SQL che consente di gestire la replica e il failover di un gruppo di database in un server di database SQL o di tutti i database in un'istanza gestita in un'altra area. Si tratta di un'astrazione dichiarativa basata sulla funzionalità di [replica geografica attiva](sql-database-active-geo-replication.md) esistente, progettata per semplificare la distribuzione e la gestione di database con replica geografica su larga scala. È possibile avviare manualmente il failover oppure delegarlo al servizio del database SQL in base a criteri definiti dall'utente. Grazie a questa seconda opzione è possibile ripristinare automaticamente più database correlati in un'area secondaria dopo un errore irreversibile o un altro evento imprevisto che comporta la perdita parziale o completa di disponibilità del servizio del database SQL nell'area primaria. Un gruppo di failover può includere uno o più database, in genere utilizzati dalla stessa applicazione. È inoltre possibile usare i database secondari leggibili per l'offload dei carichi di lavoro delle query di sola lettura. Poiché i gruppi di failover automatico coinvolgono più database, questi ultimi devono essere configurati nel server primario. I server primario e secondario per i database nel gruppo di failover devono trovarsi nella stessa sottoscrizione. I gruppi di failover automatico supportano la replica di tutti i database nel gruppo in un solo server secondario in un'area diversa.
 
 > [!NOTE]
-> Se si usano database singoli o in pool in un server di database SQL e si intende avere più database secondari nella stessa area geografica o in aree diverse, usare la [replica geografica attiva](sql-database-active-geo-replication.md).
+> Se si usano database singoli o in pool in un server di database SQL e si intende avere più database secondari nella stessa area geografica o in aree diverse, usare la [replica geografica attiva](sql-database-active-geo-replication.md). 
 
 Se si usano gruppi di failover automatico con criteri di failover automatico, eventuali interruzioni che influiscono su uno o più database nel gruppo determinano un failover automatico. I gruppi di failover automatico forniscono anche endpoint di listener di sola lettura e di sola scrittura che rimangono invariati durante i failover. Se si usa l'attivazione di failover manuale o automatica, il failover trasforma tutti i database secondari nel gruppo in database primari. Dopo aver completato il failover del database, il record DNS viene automaticamente aggiornato per reindirizzare gli endpoint alla nuova area. Per i dati RPO e RTO specifici consultare la [panoramica della continuità aziendale](sql-database-business-continuity.md).
 
@@ -256,14 +255,14 @@ La configurazione appena illustrata garantisce che il failover automatico non bl
 
 ## <a name="enabling-geo-replication-between-managed-instances-and-their-vnets"></a>Abilitazione della replica geografica tra le istanze gestite e i relativi reti virtuali
 
-Quando si configura un gruppo di failover tra istanze gestite primarie e secondarie in due aree diverse, ogni istanza viene isolata usando un VNet indipendente. Per consentire il traffico di replica tra questi reti virtuali, verificare che siano soddisfatti i prerequisiti seguenti:
+Quando si configura un gruppo di failover tra istanze gestite primarie e secondarie in due aree diverse, ogni istanza viene isolata usando una rete virtuale indipendente. Per consentire il traffico di replica tra questi reti virtuali, verificare che siano soddisfatti i prerequisiti seguenti:
 
 1. Le due istanze gestite devono trovarsi in aree di Azure diverse.
-2. Il database secondario deve essere vuoto (nessun database utente).
-3. Le istanze gestite primarie e secondarie devono trovarsi nello stesso gruppo di risorse.
-4. Il reti virtuali di cui fanno parte le istanze gestite deve essere connesso tramite un [gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). Il peering di reti virtuali globale non è supportato.
-5. I due reti virtuali istanza gestita non possono avere indirizzi IP sovrapposti.
-6. È necessario configurare i gruppi di sicurezza di rete (NSG) in modo che le porte 5022 e l'intervallo 11000 ~ 12000 siano aperte in ingresso e in uscita per le connessioni dall'altra subnet istanza gestita. per consentire il traffico di replica tra le istanze
+1. È necessario che le due istanze gestite siano lo stesso livello di servizio e abbiano le stesse dimensioni di archiviazione. 
+1. L'istanza gestita secondaria deve essere vuota (nessun database utente).
+1. Le reti virtuali usate dalle istanze gestite devono essere connesse tramite un [gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) o Express route. Quando due reti virtuali si connettono tramite una rete locale, assicurarsi che non siano presenti porte di blocco della regola firewall 5022 e 11000-11999. Il peering di reti virtuali globale non è supportato.
+1. I due reti virtuali istanza gestita non possono avere indirizzi IP sovrapposti.
+1. È necessario configurare i gruppi di sicurezza di rete (NSG) in modo che le porte 5022 e l'intervallo 11000 ~ 12000 siano aperte in ingresso e in uscita per le connessioni dall'altra subnet istanza gestita. per consentire il traffico di replica tra le istanze
 
    > [!IMPORTANT]
    > Regole di sicurezza dei gruppi di sicurezza di rete non configurate correttamente determinano il blocco delle operazioni di copia del database.
@@ -369,9 +368,9 @@ Come indicato in precedenza, i gruppi di failover automatico e la replica geogra
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per script di esempio, vedere:
-  - [Configurare un database singolo ed eseguirne il failover usando la replica geografica attiva](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-  - [Configurare un database in pool ed eseguirne il failover usando la replica geografica attiva](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
-  - [Eseguire la configurazione e il failover di un gruppo di failover per un database singolo](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
+  - [Usare PowerShell per configurare la replica geografica attiva per un database singolo nel database SQL di Azure](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+  - [Usare PowerShell per configurare la replica geografica attiva per un database in pool nel database SQL di Azure](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
+  - [Usare PowerShell per aggiungere un database singolo di database SQL di Azure a un gruppo di failover](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
 - Per la panoramica e gli scenari della continuità aziendale, vedere [Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md)
 - Per informazioni sui backup automatici del database SQL di Azure, vedere [Backup automatici del database SQL](sql-database-automated-backups.md).
 - Per altre informazioni sull'uso dei backup automatici per il ripristino, vedere l'articolo relativo al [ripristino di un database dai backup avviati dal servizio](sql-database-recovery-using-backups.md).

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: magoedte
-ms.openlocfilehash: a55a4b2f3045aac8dfe9e46a50074585ab3ef491
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: 2acaba4e82f499ce1ca08a0ce17469ccb0a7e541
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827783"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698437"
 ---
-# <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gestire aree di lavoro di Log Analitica usando i modelli di Azure Resource Manager
+# <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gestire Log Analytics area di lavoro con modelli di Azure Resource Manager
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-È possibile usare [modelli di Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) per creare e configurare aree di lavoro di Log Analitica in Monitoraggio di Azure. Ecco alcuni esempi di attività eseguibili con i modelli:
+È possibile usare i [modelli di Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) per creare e configurare aree di lavoro log Analytics in monitoraggio di Azure. Ecco alcuni esempi di attività eseguibili con i modelli:
 
 * Creare un'area di lavoro inclusa l'impostazione del piano tariffario 
 * Aggiungere una soluzione
@@ -52,7 +52,7 @@ La tabella seguente elenca la versione dell'API per le risorse usate in questo e
 
 ## <a name="create-a-log-analytics-workspace"></a>Creare un'area di lavoro Log Analytics
 
-L'esempio seguente crea un'area di lavoro usando un modello dal computer locale. Il modello JSON è configurato per richiedere solo il nome e il percorso della nuova area di lavoro (usando i valori predefiniti per gli altri parametri, ad esempio piano tariffario e memorizzazione area di lavoro).  
+L'esempio seguente crea un'area di lavoro usando un modello dal computer locale. Il modello JSON è configurato in modo da richiedere solo il nome e il percorso della nuova area di lavoro (usando i valori predefiniti per gli altri parametri dell'area di lavoro, ad esempio il piano tariffario e la conservazione).  
 
 ### <a name="create-and-deploy-template"></a>Creare e distribuire il modello
 
@@ -120,7 +120,7 @@ L'esempio seguente crea un'area di lavoro usando un modello dal computer locale.
 
 2. Modificare il modello in base alle esigenze. Rivedere il riferimento del [modello Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) per informazioni sulle proprietà e sui valori supportati. 
 3. Salvare questo file come **deploylaworkspacetemplate.json** in una cartella locale.
-4. A questo punto è possibile distribuire il modello. Usare PowerShell o la riga di comando per creare l'area di lavoro, specificando il nome dell'area di lavoro e il percorso come parte del comando.
+4. A questo punto è possibile distribuire il modello. Usare PowerShell o la riga di comando per creare l'area di lavoro, specificando il nome e la posizione dell'area di lavoro come parte del comando.
 
    * Per PowerShell usare i comandi seguenti dalla cartella che contiene il modello:
    
@@ -186,7 +186,6 @@ Il modello di esempio seguente illustra come:
         "description": "Number of days of retention. Workspaces in the legacy Free pricing tier can only have 7 days."
       }
     },
-    {
     "immediatePurgeDataOn30Days": {
       "type": "bool",
       "metadata": {

@@ -1,7 +1,7 @@
 ---
 title: Interfaccia visiva grafica
 titleSuffix: Azure Machine Learning service
-description: Informazioni sui concetti, le condizioni e del flusso di lavoro che costituiscono l'interfaccia visiva (anteprima) per il servizio di Azure Machine Learning.
+description: Informazioni su termini, concetti e flussi di lavoro che costituiscono l'interfaccia visiva (anteprima) per il servizio Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,72 +9,71 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/15/2019
-ms.openlocfilehash: be07e0f3438ea93312d4eb440e7e63b8f98e11b8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1cb56386f52d1c7b1ec357b912c648c1961b4c1d
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077366"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677978"
 ---
-# <a name="what-is-the-visual-interface-for-azure-machine-learning-service"></a>Che cos'è l'interfaccia visiva per il servizio di Azure Machine Learning? 
+# <a name="what-is-the-visual-interface-for-azure-machine-learning-service"></a>Che cos'è l'interfaccia visiva per il servizio Azure Machine Learning? 
 
-L'interfaccia visiva (anteprima) per il servizio Azure Machine Learning consente di preparare i dati, eseguire il training, testare, distribuire, gestire e tenere traccia di modelli di machine learning senza scrivere codice.
+L'interfaccia visiva (anteprima) per il servizio Azure Machine Learning consente di preparare i dati, eseguire il training, testare, distribuire, gestire e tenere traccia dei modelli di Machine Learning senza scrivere codice.
 
-Non è richiesta alcuna programmazione, quindi ci si connette visivamente [set di dati](#dataset) e [moduli](#module) per costruire il modello.
+Non è necessaria alcuna programmazione. i [set di impostazioni](#dataset) e i [moduli](#module) vengono collegati visivamente per costruire il modello.
 
-L'interfaccia visiva Usa il servizio Azure Machine Learning [dell'area di lavoro](concept-workspace.md) per:
+L'interfaccia visiva usa l'area di [lavoro](concept-workspace.md) del servizio Azure Machine Learning per:
 
-+ Scrivere gli elementi della [sperimentare](#experiment) viene eseguita nell'area di lavoro.
-+ L'accesso [set di dati](#dataset).
-+ Usare la [risorse di calcolo](#compute) nell'area di lavoro per eseguire l'esperimento. 
-+ Registrare [modelli](concept-azure-machine-learning-architecture.md#models).
-+ [Distribuire](#deployment) modelli come servizi web su risorse nell'area di lavoro di calcolo.
++ Gli artefatti di scrittura dell' [esperimento](#experiment) vengono eseguiti nell'area di lavoro.
++ Accedere ai [set di impostazioni](#dataset).
++ Usare le [risorse di calcolo](#compute) nell'area di lavoro per eseguire l'esperimento. 
++ Registrare i [modelli](concept-azure-machine-learning-architecture.md#models).
++ [Distribuire](#deployment) i modelli come servizi Web nelle risorse di calcolo nell'area di lavoro.
 
-![Panoramica dell'interfaccia visiva](media/ui-concept-visual-interface/overview.png)
+![Cenni preliminari sull'interfaccia visiva](media/ui-concept-visual-interface/overview.png)
 
 ## <a name="workflow"></a>Flusso di lavoro
 
-L'interfaccia visiva ti offre un'area di disegno interattiva, visual per compilare, testare e l'iterazione su un modello. 
+L'interfaccia visiva offre un'area di disegno interattiva visiva per compilare, testare ed eseguire rapidamente un'iterazione su un modello. 
 
-+ È di trascinamento e rilascio [moduli](#module) nell'area di disegno.
-+ Connettere tra loro i moduli per creare un [sperimentare](#experiment).
++ È possibile trascinare i [moduli](#module) nell'area di disegno.
++ Connettere i moduli per formare un [esperimento](#experiment).
 + Eseguire l'esperimento usando la risorsa di calcolo dell'area di lavoro del servizio Machine Learning.
-+ L'iterazione del progetto di modello per modificare l'esperimento ed eseguirlo nuovamente.
-+ Quando si è pronti, convertire le **esperimento di training** a un **esperimento predittivo**.
-+ [Distribuire](#deployment) l'esperimento predittivo come un sito web del servizio in modo che il modello sarà accessibile da altri utenti.
++ Per eseguire l'iterazione sulla progettazione del modello, modificare l'esperimento ed eseguirlo di nuovo.
++ Quando si è pronti, convertire l' **esperimento di training** in un **esperimento predittivo**.
++ [Distribuire](#deployment) l'esperimento predittivo come servizio Web in modo che sia possibile accedere al modello da altri utenti.
 
 ## <a name="experiment"></a>Esperimento
 
-Creare un esperimento da zero, oppure usare un esperimento di esempio esistente come modello.  Ogni volta che si esegue un esperimento, gli elementi vengono memorizzati nell'area di lavoro.
+Creare un esperimento da zero oppure usare un esperimento di esempio esistente come modello.  Ogni volta che si esegue un esperimento, gli artefatti vengono archiviati nell'area di lavoro.
 
-Un esperimento costituito da set di dati e moduli di analisi, che sono collegati tra loro per costruire un modello. In particolare, un esperimento valido ha le caratteristiche seguenti:
+Un esperimento è costituito da set di impostazioni e moduli analitici, che è possibile connettere insieme per costruire un modello. In particolare, un esperimento valido ha le caratteristiche seguenti:
 
-* I set di dati possono essere collegati solo ai moduli.
-* I moduli possono essere collegati al set di dati o altri moduli.
-* Tutte le porte di input per i moduli devono avere un collegamento al flusso di dati.
-* Tutte le necessarie, è necessario impostare parametri per ogni modulo.
+* I set di impostazioni possono essere connessi solo ai moduli.
+* I moduli possono essere connessi a set di impostazioni o ad altri moduli.
+* Tutte le porte di input per i moduli devono disporre di una connessione al flusso di dati.
+* È necessario impostare tutti i parametri obbligatori per ogni modulo.
 
-Per un esempio di un semplice esperimento, vedere [Guida introduttiva: Preparare e visualizzare i dati senza scrivere codice in Azure Machine Learning](ui-quickstart-run-experiment.md).
 
-Per una procedura dettagliata più completa di una soluzione analitica predittiva, vedere [esercitazione: Stimare il prezzo di un'automobile con l'interfaccia visiva](ui-tutorial-automobile-price-train-score.md).
+Per informazioni su come iniziare a usare l'interfaccia visiva, vedere [esercitazione: Stimare il prezzo dell'automobile con](ui-tutorial-automobile-price-train-score.md)l'interfaccia visiva.
 
 ## <a name="dataset"></a>Set di dati
 
-Un set di dati sono dati che sono stati caricati per l'interfaccia visiva da usare nel processo di modellazione. Un numero di set di dati di esempio è incluso per poter sperimentare ed è possibile caricare più set di dati necessari in qualsiasi momento.
+Un set di dati è costituito dai dati caricati nell'interfaccia visiva da usare nel processo di modellazione. Sono inclusi numerosi set di impostazioni di esempio che consentono di sperimentare ed è possibile caricare più set di impostazioni in modo che siano necessari.
 
 ## <a name="module"></a>Modulo
 
-Un modulo è un algoritmo che è possibile applicare ai dati. L'interfaccia visiva è un numero di moduli, da funzioni di inserimento dei dati di training, assegnazione dei punteggi e processi di convalida.
+Un modulo è un algoritmo che è possibile applicare ai dati. L'interfaccia visiva include un numero di moduli che vanno dalle funzioni di ingresso dei dati ai processi di training, valutazione e convalida.
 
-Un modulo può avere un set di parametri che è possibile usare per configurare gli algoritmi interni del modulo. Quando si seleziona un modulo nell'area di disegno, i parametri del modulo vengono visualizzati nel riquadro delle proprietà a destra dell'area di disegno. È possibile modificare i parametri in questo riquadro per ottimizzare il modello.
+Un modulo può avere un set di parametri che è possibile usare per configurare gli algoritmi interni del modulo. Quando si seleziona un modulo nell'area di disegno, i parametri del modulo vengono visualizzati nel riquadro proprietà a destra dell'area di disegno. È possibile modificare i parametri in questo riquadro per ottimizzare il modello.
 
 ![Proprietà del modulo](media/ui-concept-visual-interface/properties.png)
 
-Per altre informazioni di riferimento tramite la libreria di algoritmi di machine learning disponibili, vedere [Panoramica di riferimento di algoritmi e moduli](../algorithm-module-reference/module-reference.md)
+Per informazioni sull'esplorazione della libreria di algoritmi di machine learning disponibili, vedere [Cenni preliminari sui moduli di & algoritmi](../algorithm-module-reference/module-reference.md)
 
-## <a name="compute"></a> Le risorse di calcolo
+## <a name="compute"></a>Risorse di calcolo
 
-Utilizzo di calcolo delle risorse dall'area di lavoro per eseguire l'esperimento o host di modelli distribuiti come servizi web. Le destinazioni di calcolo supportate sono:
+Usare le risorse di calcolo dall'area di lavoro per eseguire l'esperimento o ospitare i modelli distribuiti come servizi Web. Le destinazioni di calcolo supportate sono:
 
 
 | Destinazione del calcolo | Formazione | Distribuzione |
@@ -82,22 +81,22 @@ Utilizzo di calcolo delle risorse dall'area di lavoro per eseguire l'esperimento
 | Ambiente di calcolo di Azure Machine Learning | ✓ | |
 | Servizio Azure Kubernetes | | ✓ |
 
-Calcolare le destinazioni sono associate per il Machine Learning [dell'area di lavoro](concept-workspace.md). Gestire le destinazioni di calcolo nell'area di lavoro nel [portale di Azure](https://portal.azure.com).
+Le destinazioni di calcolo sono collegate all' [area di lavoro](concept-workspace.md)Machine Learning. È possibile gestire le destinazioni di calcolo nell'area di lavoro nel [portale di Azure](https://portal.azure.com).
 
 ## <a name="deployment"></a>Distribuzione
 
-Quando il modello di analitica predittiva è pronto, si distribuirlo come servizio web direttamente dall'interfaccia visiva.
+Quando il modello di analisi predittiva è pronto, lo si distribuisce come servizio Web direttamente dall'interfaccia visiva.
 
-I servizi web forniscono un'interfaccia tra un'applicazione e il modello di punteggio. Un'applicazione esterna può comunicare con il modello di punteggio in tempo reale. Una chiamata a un servizio web restituisce i risultati della stima a un'applicazione esterna. Per effettuare una chiamata a un servizio Web, passare una chiave API creata al momento della distribuzione del servizio Web. Il servizio web è basato su REST, la scelta di architettura diffusa per progetti di programmazione web.
+I servizi Web forniscono un'interfaccia tra un'applicazione e il modello di assegnazione dei punteggi. Un'applicazione esterna può comunicare con il modello di assegnazione dei punteggi in tempo reale. Una chiamata a un servizio Web restituisce i risultati della stima a un'applicazione esterna. Per effettuare una chiamata a un servizio Web, passare una chiave API creata al momento della distribuzione del servizio Web. Il servizio Web è basato su REST, una scelta di architettura diffusa per progetti di programmazione Web.
 
-Per informazioni su come distribuire il modello, vedere [esercitazione: Distribuire un modello di machine learning con l'interfaccia visiva](ui-tutorial-automobile-price-deploy.md).
+Per informazioni su come distribuire il modello, vedere [esercitazione: Distribuire un modello di Machine Learning con l'interfaccia](ui-tutorial-automobile-price-deploy.md)visiva.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Nozioni di base analitica predittiva e machine learning con [Guida introduttiva: Preparare e visualizzare i dati senza scrivere codice in Azure Machine Learning](ui-quickstart-run-experiment.md).
-* Usare uno degli esempi e modificare a suite le proprie esigenze:
-    * [Esempio 1: regressione: Stimare il prezzo](ui-sample-regression-predict-automobile-price-basic.md)
+* Scopri le nozioni di base sull'analisi predittiva e [l'apprendimento automatico con l'esercitazione: Stimare il prezzo di un'automobile con l'interfaccia visiva grafica](ui-tutorial-automobile-price-train-score.md)
+* Usare uno degli esempi e modificare il gruppo in base alle esigenze:
+    * [Esempio 1: regressione: Prezzo stimato](ui-sample-regression-predict-automobile-price-basic.md)
     * [Esempio 2: regressione: Stimare il prezzo e confrontare gli algoritmi](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-    * [Esempio 3: classificazione: Prevedere il rischio di credito](ui-sample-classification-predict-credit-risk-basic.md)
-    * [Esempio 4: classificazione: Prevedere il rischio di credito (costo sensibile)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-    * [Esempio 5 - classificazione: Prevedere la varianza, stime sui desideri e up-selling](ui-sample-classification-predict-churn.md)
+    * [Esempio 3-classificazione: Stima del rischio di credito](ui-sample-classification-predict-credit-risk-basic.md)
+    * [Esempio 4-Classificazione: Stimare il rischio di credito (costo sensibile)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+    * [Esempio 5-classificazione: Prevedere varianza, appetency e vendita](ui-sample-classification-predict-churn.md)

@@ -5,14 +5,14 @@ author: mattwojo
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
-ms.topic: how-to
+ms.topic: guide
 ms.date: 07/05/2019
-ms.openlocfilehash: 24ed03cde967f0fef7abdc4c2df1f8e5d6bdb6ab
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 16ed52aa2b56a97469ae8fc47299f09593b19c45
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327132"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668335"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Creare un account Marketplace commerciale nel centro per i partner
 
@@ -52,7 +52,7 @@ In modo da poter collegare il dominio dell'account di posta elettronica aziendal
 
 #### <a name="agree-to-terms-and-conditions"></a>Accetto i termini e le condizioni
 
-È necessario accettare due set di termini e condizioni, inclusi i [contratto di sottoscrizione Microsoft Online](https://go.microsoft.com/fwlink/?LinkId=870457)e il [contratto di Microsoft Marketplace Publisher](https://go.microsoft.com/fwlink/?linkid=843476).
+È necessario accettare i termini e le condizioni nel [contratto Microsoft Marketplace Publisher](http://go.microsoft.com/fwlink/?LinkID=699560).
 
 #### <a name="provide-your-publisher-profile"></a>Specificare il profilo di pubblicazione
 

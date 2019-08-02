@@ -10,18 +10,17 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: fff4aa947f878974d2d0f18f373b8c0917ed7d70
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9f6b20806f75cc28b5f4f740ffb67faae491ae84
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60703494"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567909"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Risolvere i problemi di prestazioni del database SQL di Azure con Intelligent Insights
 
-Questa pagina contiene informazioni sui problemi di prestazioni del database SQL di Azure e dell'istanza gestita rilevati tramite il log di diagnostica delle prestazioni del database di [Intelligent Insights](sql-database-intelligent-insights.md). I dati di telemetria di log di diagnostica possono essere trasmessi al [log di monitoraggio di Azure](../azure-monitor/insights/azure-sql.md), [hub eventi di Azure](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [archiviazione di Azure](sql-database-metrics-diag-logging.md#stream-into-storage), o una soluzione di terze parti per gli avvisi personalizzati di DevOps e funzionalità di creazione di report.
+Questa pagina contiene informazioni sui problemi di prestazioni del database SQL di Azure e dell'istanza gestita rilevati tramite il log di diagnostica delle prestazioni del database di [Intelligent Insights](sql-database-intelligent-insights.md). I dati di telemetria del log di diagnostica possono essere trasmessi a [log di monitoraggio di Azure](../azure-monitor/insights/azure-sql.md), [Hub eventi](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)di Azure, [archiviazione di Azure](sql-database-metrics-diag-logging.md#stream-into-storage)o una soluzione di terze parti per le funzionalità di avvisi e report di DevOps personalizzati.
 
 > [!NOTE]
 > Per una rapida guida alla risoluzione dei problemi di prestazioni del database SQL tramite Intelligent Insights, vedere il diagramma [Flusso di risoluzione dei problemi consigliato](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) in questo documento.

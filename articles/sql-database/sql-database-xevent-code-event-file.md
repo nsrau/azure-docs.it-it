@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: ce559e50d5a34ebad9113f0e21dcb732adc40dd2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f0994f92444da338b18447eb1b248c74df9aa2d2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233776"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566106"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Codice di destinazione del file evento per eventi estesi nel database SQL
 
@@ -39,7 +38,7 @@ Questo argomento presenta un esempio di codice in due fasi:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Il modulo Azure PowerShell per Resource Manager è ancora supportato dal Database SQL di Azure, ma i progetti di sviluppo future è per il modulo Az.Sql. Per questi cmdlet, vedere [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRm sono sostanzialmente identici.
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
 
 * Un account e una sottoscrizione di Azure. È possibile iscriversi per una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Qualsiasi database in cui è possibile creare una tabella.
@@ -52,7 +51,7 @@ Questo argomento presenta un esempio di codice in due fasi:
   * [Un collegamento diretto al download.](https://go.microsoft.com/fwlink/?linkid=616025)
 * È necessario che i [moduli di Azure PowerShell](https://go.microsoft.com/?linkid=9811175) siano installati.
   
-  * I moduli forniscono comandi come - **New-AzStorageAccount**.
+  * I moduli forniscono comandi come- **New-AzStorageAccount**.
 
 ## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Fase 1: codice di PowerShell per il contenitore di archiviazione di Azure
 
@@ -72,7 +71,7 @@ Lo script inizia con comandi di pulitura dopo un'eventuale esecuzione precedente
 
 ### <a name="powershell-code"></a>Codice PowerShell
 
-Questo script di PowerShell presuppone di che aver installato il modulo di Az. Per informazioni, vedere [installare il modulo Azure PowerShell](/powershell/azure/install-Az-ps).
+Questo script di PowerShell presuppone che sia già stato installato il modulo AZ. Per informazioni, vedere [installare il modulo Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ```powershell
 ## TODO: Before running, find all 'TODO' and make each edit!!
@@ -464,9 +463,9 @@ GO
 
 ## <a name="output"></a>Output
 
-Al termine dell'esecuzione dello script Transact-SQL, fare clic su una cella sotto l'intestazione della colonna **event_data_XML**. Uno  **\<evento >** elemento viene visualizzato che mostra un'istruzione UPDATE.
+Al termine dell'esecuzione dello script Transact-SQL, fare clic su una cella sotto l'intestazione della colonna **event_data_XML**. Viene visualizzato un  **\<elemento > evento** che mostra un'istruzione Update.
 
-Ecco uno  **\<evento >** elemento è stato generato durante il test:
+Di seguito è riportato un  **\<evento >** elemento generato durante il test:
 
 
 ```xml

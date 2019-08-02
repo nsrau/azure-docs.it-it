@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 1ec7fd4116aa848a9c431df386997cb23f405f1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5c156e30f4fa0270082cd1108958c3472130a460
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925421"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640828"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete
 
@@ -77,8 +77,6 @@ La versione 2 dei log introduce lo stato del flusso. È possibile configurare la
 
 Lo stato del flusso *B* viene registrato quando viene avviato un flusso. Gli stati del flusso *C* ed *E* contrassegnano rispettivamente la continuazione e la fine di un flusso. Gli stati *C* ed *E* contengono informazioni sulla larghezza di banda del traffico.
 
-Per gli stati *C* ed *E* del flusso, i conteggi di byte e pacchetti sono conteggi aggregati dal momento della registrazione della tupla del flusso precedente. Facendo riferimento alla conversazione di esempio precedente, il numero totale di pacchetti trasferiti è 1021+52+8005+47=9125. Il numero totale di byte trasferiti è 588096+29952+4610880+27072=5256000.
-
 **Esempio**: tuple dei flussi da una conversazione TCP tra 185.170.185.105:35370 e 10.2.0.4:23:
 
 "1493763938,185.170.185.105,10.2.0.4,35370,23,T,I,A,B,,,," "1493695838,185.170.185.105,10.2.0.4,35370,23,T,I,A,C,1021,588096,8005,4610880" "1493696138,185.170.185.105,10.2.0.4,35370,23,T,I,A,E,52,29952,47,27072"
@@ -93,7 +91,7 @@ Di seguito è riportato un testo di esempio di log dei flussi. Come si può osse
 
 **Costi di registrazione dei flussi**: i costi per la registrazione dei flussi dei gruppi di sicurezza di rete vengono addebitati in base al volume dei log generati. Un volume di traffico elevato può avere come effetto un volume elevato dei log dei flussi, con i conseguenti costi associati. I prezzi dei log dei flussi dei gruppi di sicurezza di rete non includono i costi di archiviazione sottostanti. L'uso della funzionalità dei criteri di conservazione insieme alla registrazione dei flussi dei gruppi di sicurezza di rete può avere come effetto un volume elevato di operazioni di archiviazione, con i conseguenti costi associati. Se non è necessario usare la funzionalità dei criteri di conservazione, è consigliabile impostare questo valore su 0. Per altre informazioni, vedere [Prezzi di Network Watcher](https://azure.microsoft.com/pricing/details/network-watcher/) e [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-**Connessioni in entrata flussi effettuato l'accesso da internet, gli indirizzi IP alle macchine virtuali senza gli indirizzi IP pubblici**: Le macchine virtuali che non hanno un indirizzo IP pubblico assegnato tramite un indirizzo IP pubblico associato con l'interfaccia di rete come un indirizzo IP pubblico a livello di istanza, o che fanno parte di un pool di back-end del servizio di bilanciamento carico di base, usare [SNAT predefinito](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) , hanno un indirizzo IP assegnato da Azure per facilitare la connettività in uscita. Di conseguenza, si potrebbero vedere voci di log di flusso per i flussi da internet indirizzi IP, se il flusso è destinato a una porta nell'intervallo di porte assegnate per SNAT. Anche se Azure non consentirà tali flussi nella macchina virtuale, il tentativo viene registrato e visualizzato nel log di Network Watcher NSG flow per impostazione predefinita. È consigliabile che il traffico internet in ingresso indesiderato bloccato in modo esplicito con NSG.
+**Flussi in ingresso registrati da indirizzi IP Internet alle VM senza IP pubblici**: Le macchine virtuali che non dispongono di un indirizzo IP pubblico assegnato tramite un indirizzo IP pubblico associato alla scheda di interfaccia di rete come IP pubblico a livello di istanza o che fanno parte di un pool back-end di bilanciamento del carico di base, usano [SNAT predefiniti](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) e hanno un indirizzo IP assegnato da Azure per semplificare connettività in uscita. Di conseguenza, è possibile visualizzare le voci del log di flusso per i flussi da indirizzi IP Internet, se il flusso è destinato a una porta nell'intervallo di porte assegnate per SNAT. Sebbene Azure non consenta questi flussi alla macchina virtuale, il tentativo viene registrato e viene visualizzato nel log di flusso NSG di Network Watcher in base alla progettazione. È consigliabile che il traffico Internet in ingresso indesiderato venga bloccato in modo esplicito con NSG.
 
 ## <a name="sample-log-records"></a>Record di log di esempio
 
@@ -288,5 +286,5 @@ Di seguito è riportato un testo di esempio di log dei flussi. Come si può osse
 
 - Per informazioni su come abilitare i log dei flussi, vedere l'argomento relativo all'[abilitazione della registrazione dei flussi dei gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-portal.md).
 - Per informazioni su come leggere i log di flusso, vedere [Leggere i log dei flussi del gruppo di sicurezza di rete](network-watcher-read-nsg-flow-logs.md).
-- Per altre informazioni sulla registrazione di sicurezza di rete, vedere [monitoraggio di Azure Registra per gruppi di sicurezza di rete (Nsg)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- Per altre informazioni sulla registrazione NSG, vedere [log di monitoraggio di Azure per i gruppi di sicurezza di rete (gruppi)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - Per determinare se il traffico è consentito o negato da o verso una macchina virtuale, vedere l'argomento relativo a [come diagnosticare un problema di filtro del traffico di rete di una macchina virtuale](diagnose-vm-network-traffic-filtering-problem.md)

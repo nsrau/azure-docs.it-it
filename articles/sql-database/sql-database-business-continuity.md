@@ -11,14 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 06/25/2019
-ms.openlocfilehash: 361613c52c00b7a7e468eccbb52bf113b6adb434
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: e57427fbb7e0d3c67fc4fcbab1a50f14ef8c9501
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444500"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569340"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Panoramica della continuità aziendale del database SQL di Azure
 
@@ -68,9 +67,9 @@ I [gruppi di failover automatico](sql-database-auto-failover-group.md#auto-failo
 | Eseguire contemporaneamente il failover di più database  |     No          |      Yes         |
 | Aggiornare la stringa di connessione dopo il failover      |     Sì         |      No          |
 | Istanza gestita supportata                   |     No          |      Sì         |
-| Può trovarsi nella stessa area del database primario             |     Sì         |      No          |
-| Più repliche                            |     Sì         |      No          |
-| Supporta la scalabilità in lettura                          |     Sì         |      Sì         |
+| Può trovarsi nella stessa area del database primario             |     Yes         |      No          |
+| Più repliche                            |     Yes         |      No          |
+| Supporta la scalabilità in lettura                          |     Yes         |      Yes         |
 | &nbsp; | &nbsp; | &nbsp; |
 
 

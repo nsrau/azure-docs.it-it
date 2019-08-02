@@ -9,12 +9,12 @@ ms.date: 09/06/2017
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 6d80bc71c01d0f1c887d9161edee5516d6b0925b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 14cbc076f4c9eebd2647cd667acc856b393e4d93
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443691"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68665744"
 ---
 # <a name="azure-storage-client-tools"></a>Strumento client di Archiviazione di Azure
 Gli utenti dell'Archiviazione di Azure possono visualizzare o interagire con i propri dati utilizzando lo strumento client di Archiviazione di Azure. Nelle tabelle seguenti sono elencati numerosi strumenti che consentono di eseguire questa operazione. Con una "X" in ogni blocco viene indicata la possibilità di enumerare e/o accedere all'astrazione dei dati. Viene inoltre specificato se lo strumento è gratuito o meno. "Prova" indica che esiste una versione di valutazione gratuita, ma il prodotto completo non è gratuito. "S/N" indica che è disponibile una versione gratuita, mentre è possibile acquistare una versione diversa.
@@ -28,9 +28,9 @@ Si tratta unicamente di un riepilogo degli strumenti client di Archiviazione di 
     <th rowspan="2">Strumento client di Archiviazione di Azure</th>
     <th rowspan="2">BLOB in blocchi</th>
     <th rowspan="2">BLOB di pagine</th>
-    <th rowspan="2">Append Blob</th>
+    <th rowspan="2">Aggiungi BLOB</th>
     <th rowspan="2">Tabelle</th>
-    <th rowspan="2">Queues</th>
+    <th rowspan="2">Code</th>
     <th rowspan="2">File</th>
     <th rowspan="2">Free</th>
     <th colspan="4">Piattaforma</th>
@@ -49,7 +49,7 @@ Si tratta unicamente di un riepilogo degli strumenti client di Archiviazione di 
     <td>X</td>
     <td>X</td>
     <td>X</td>
-    <td>S</td>
+    <td>Y</td>
     <td>X</td>
     <td></td>
     <td></td>
@@ -63,7 +63,7 @@ Si tratta unicamente di un riepilogo degli strumenti client di Archiviazione di 
     <td>X</td>
     <td>X</td>
     <td>X</td>
-    <td>S</td>
+    <td>Y</td>
     <td></td>
     <td>X</td>
     <td>X</td>
@@ -77,7 +77,7 @@ Si tratta unicamente di un riepilogo degli strumenti client di Archiviazione di 
     <td>X</td>
     <td>X</td>
     <td></td>
-    <td>S</td>
+    <td>Y</td>
     <td></td>
     <td>X</td>
     <td></td>
@@ -94,9 +94,9 @@ La funzionalità o la qualità dichiarate per i seguenti strumenti di terze part
     <th rowspan="2">Strumento client di Archiviazione di Azure</th>
     <th rowspan="2">BLOB in blocchi</th>
     <th rowspan="2">BLOB di pagine</th>
-    <th rowspan="2">Append Blob</th>
+    <th rowspan="2">Aggiungi BLOB</th>
     <th rowspan="2">Tabelle</th>
-    <th rowspan="2">Queues</th>
+    <th rowspan="2">Code</th>
     <th rowspan="2">File</th>
     <th rowspan="2">Free</th>
     <th colspan="4">Piattaforma</th>
@@ -115,7 +115,7 @@ La funzionalità o la qualità dichiarate per i seguenti strumenti di terze part
     <td>X</td>
     <td>X</td>
     <td>X</td>
-    <td>Versione di valutazione</td>
+    <td>Versione di prova</td>
     <td></td>
     <td>X</td>
     <td></td>
@@ -129,7 +129,7 @@ La funzionalità o la qualità dichiarate per i seguenti strumenti di terze part
     <td></td>
     <td></td>
     <td></td>
-    <td>S</td>
+    <td>Y</td>
     <td></td>
     <td>X</td>
     <td></td>
@@ -142,10 +142,10 @@ La funzionalità o la qualità dichiarate per i seguenti strumenti di terze part
     <td></td>
     <td>X</td>
     <td>X</td>
-    <td></td>
-    <td>S</td>
-    <td></td>
     <td>X</td>
+    <td>Y</td>
+    <td>X</td>
+    <td></td>
     <td></td>
     <td></td>
   </tr>
@@ -171,7 +171,7 @@ La funzionalità o la qualità dichiarate per i seguenti strumenti di terze part
     <td>X</td>
     <td>X</td>
     <td></td>
-    <td>Versione di valutazione</td>
+    <td>Versione di prova</td>
     <td></td>
     <td>X</td>
     <td></td>
@@ -185,7 +185,7 @@ La funzionalità o la qualità dichiarate per i seguenti strumenti di terze part
     <td>X</td>
     <td>X</td>
     <td>X</td>
-    <td>S</td>
+    <td>Y</td>
     <td></td>
     <td>X</td>
     <td></td>
@@ -199,7 +199,7 @@ La funzionalità o la qualità dichiarate per i seguenti strumenti di terze part
     <td></td>
     <td></td>
     <td></td>
-    <td>Versione di valutazione</td>
+    <td>Versione di prova</td>
     <td></td>
     <td>X</td>
     <td></td>

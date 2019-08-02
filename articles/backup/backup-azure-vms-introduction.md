@@ -1,18 +1,18 @@
 ---
 title: Informazioni sul backup di macchine virtuali di Azure
 description: Informazioni sul backup di macchine virtuali di Azure e su alcune procedure consigliate.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
-ms.author: raynew
-ms.openlocfilehash: bf6aa07319b8029744a5c8898a4104d330fbb1d1
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 7a470674fa9ccdde2b33bb33bfb52bead1822895
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465226"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639739"
 ---
 # <a name="about-azure-vm-backup"></a>Informazioni sul backup di macchine virtuali di Azure
 
@@ -111,8 +111,8 @@ Questi scenari comuni possono influire sul tempo di backup totale:
 Quando si configurano i backup delle VM, è consigliabile seguire queste procedure:
 
 - Modificare i tempi di pianificazione predefiniti impostati in un criterio. Se, ad esempio, l'ora predefinita nel criterio è 12:00 AM, incrementare l'intervallo di alcuni minuti in modo che le risorse vengano utilizzate in modo ottimale.
-- Per il backup di macchine virtuali che usano archiviazione Premium, è consigliabile eseguire la versione più recente di backup di Azure ([ripristino immediato](backup-instant-restore-capability.md)). Se non si sta eseguendo la versione più recente, il backup alloca circa il 50% dello spazio di archiviazione totale. Il servizio di backup richiede questo spazio per copiare lo snapshot nello stesso account di archiviazione e per trasferirlo nell'insieme di credenziali.
 - Se si ripristinano le macchine virtuali da un unico insieme di credenziali, è consigliabile usare [account di archiviazione di uso generico V2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) diversi per assicurarsi che l'account di archiviazione di destinazione non venga limitato. Ogni macchina virtuale, ad esempio, deve avere un account di archiviazione diverso. Se, ad esempio, vengono ripristinate 10 macchine virtuali, usare 10 account di archiviazione diversi.
+- Per il backup delle macchine virtuali che usano archiviazione Premium, con il ripristino immediato è consigliabile allocare lo spazio disponibile del *50%* dello spazio di archiviazione totale allocato, che è necessario **solo** per il primo backup. Il 50% di spazio disponibile non è un requisito per i backup dopo il completamento del primo backup
 - Il ripristino da un livello di archiviazione V1 per utilizzo generico (snapshot) verrà completato in pochi minuti perché lo snapshot si trova nello stesso account di archiviazione. Il ripristino dal livello di archiviazione per utilizzo generico V2 (Vault) può richiedere ore. Nei casi in cui i dati sono disponibili nell'archiviazione per utilizzo generico V1, è consigliabile usare la funzionalità di [ripristino immediato](backup-instant-restore-capability.md) per i ripristini più veloci. Se è necessario ripristinare i dati da un insieme di credenziali, il tempo necessario è maggiore.
 - Il limite per il numero di dischi per account di archiviazione è relativo alla frequenza di accesso ai dischi da parte delle applicazioni in esecuzione in una macchina virtuale IaaS (Infrastructure as a Service). Come procedura generale, se in un singolo account di archiviazione sono presenti 5-10 o più dischi, bilanciare il carico spostando alcuni dischi in account di archiviazione separati.
 
@@ -124,7 +124,7 @@ La fatturazione non viene avviata fino al completamento del primo backup complet
 
 La fatturazione relativa a una macchina virtuale specifica viene interrotta solo se viene arrestata la protezione e vengono eliminati i dati di backup. Quando si arresta la protezione e non vi sono processi di backup attivi, la dimensione dell'ultimo backup della macchina virtuale completato correttamente diventa la dimensione dell'istanza protetta usata per la fatturazione mensile.
 
-Il calcolo delle dimensioni dell'istanza protetta è basato sulle  dimensioni effettive della macchina virtuale. Le dimensioni della VM corrispondono alla somma di tutti i dati della macchina virtuale, esclusa l'archiviazione temporanea. I prezzi sono basati sui dati effettivi archiviati nei dischi dati, non sulle dimensioni massime supportate per ogni disco dati collegato alla macchina virtuale.
+Il calcolo delle dimensioni dell'istanza protetta è basato sulle dimensioni effettive della macchina virtuale. Le dimensioni della VM corrispondono alla somma di tutti i dati della macchina virtuale, esclusa l'archiviazione temporanea. I prezzi sono basati sui dati effettivi archiviati nei dischi dati, non sulle dimensioni massime supportate per ogni disco dati collegato alla macchina virtuale.
 
 Analogamente, la fattura relativa all'archiviazione dei backup è basata sulla quantità di dati archiviati in backup di Azure, ovvero la somma dei dati effettivi in ogni punto di ripristino.
 

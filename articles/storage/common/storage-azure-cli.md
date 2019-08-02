@@ -10,12 +10,12 @@ ms.date: 06/02/2017
 ms.author: tamram
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: ea7e4757aac0fccf60a44c70e9de6a63c1ec9498
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3338bed8cd8067d58eb2600854de6c0d8e34d1a3
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65147016"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668470"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Utilizzo dell'interfaccia della riga di comando di Azure con archiviazione di Azure
 
@@ -26,6 +26,8 @@ Questa guida illustra come usare l'[interfaccia della riga di comando di Azure](
 Gli esempi di questa guida presuppongono l'uso della shell Bash in Ubuntu, ma la procedura dovrebbe funzionare in modo simile anche nelle altre piattaforme. 
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
+
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 Questa guida si presuppone che si conoscano i concetti di base dell'archiviazione di Azure. e possa soddisfare i requisiti di creazione dell'account specificati di seguito per Azure e per il servizio Archiviazione.
@@ -173,7 +175,7 @@ Done
 
 ## <a name="manage-storage-accounts"></a>Gestire gli account di archiviazione
 
-### <a name="create-a-new-storage-account"></a>Creare un nuovo account di archiviazione.
+### <a name="create-a-new-storage-account"></a>Crea un nuovo account di archiviazione
 Per usare Archiviazione di Azure, è necessario un account di archiviazione. Dopo aver configurato il computer affinché si connetta alla sottoscrizione, è possibile creare un nuovo account di Archiviazione di Azure.
 
 ```azurecli
@@ -325,6 +327,17 @@ Per eliminare un BLOB, usare il comando `blob delete`:
 az storage blob delete --container-name <container_name> --name <blob_name>
 ```
 
+### <a name="set-the-content-type"></a>Impostare il tipo di contenuto
+
+Il tipo di contenuto, chiamato anche tipo MIME, identifica il formato dei dati nel BLOB. I browser e altri software usano il tipo di contenuto per determinare come devono essere elaborati i dati. Ad esempio, il tipo di contenuto per le immagini `image/png`png è. Per impostare il tipo di contenuto, usare `blob update` il comando:
+
+```azurecli
+az storage blob update
+    --container-name <container_name> 
+    --name <blob_name>
+    --content-type <content_type>
+```
+
 ## <a name="create-and-manage-file-shares"></a>Creare e gestire condivisioni di file
 File di Azure offre un'archiviazione condivisa per le applicazioni che usano il protocollo Server Message Block. Macchine virtuali di Microsoft Azure e servizi cloud, nonché applicazioni locali, possono condividere i dati di file tra condivisioni montate. È possibile gestire condivisioni di file e dati di file tramite la CLI di Azure. Per altre informazioni su File di Azure, vedere [Introduzione a File di Azure](../files/storage-files-introduction.md).
 
@@ -389,7 +402,7 @@ az storage file copy start \
 az storage share snapshot -n <share name>
 ```
 
-Output di esempio
+Esempio di output
 ```json
 {
   "metadata": {},
@@ -512,7 +525,7 @@ az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --sn
 az storage share delete -n <share name> --snapshot '2017-10-04T23:28:35.0000000Z' 
 ```
 
-Output di esempio
+Esempio di output
 ```json
 {
   "deleted": true

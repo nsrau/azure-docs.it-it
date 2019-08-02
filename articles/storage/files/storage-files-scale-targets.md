@@ -1,19 +1,18 @@
 ---
 title: Obiettivi di ridimensionamento e prestazioni di File di Azure | Microsoft Docs
 description: Informazioni sugli obiettivi di scalabilità e prestazioni di File di Azure, incluse la capacità, la velocità di richiesta e la larghezza di banda in entrata e in uscita.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 91ec65e17b77ccb3864fce45e30729ff420a48b6
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: ed4aa832c4ec7ccda760d535aa920be8d5c4e2e3
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542664"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699633"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Obiettivi di scalabilità e prestazioni per File di Azure
 
@@ -30,30 +29,30 @@ La risorsa padre per una condivisione file di Azure è un account di archiviazio
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
 > [!Important]  
-> Utilizzo di account di archiviazione generico da altri servizi di archiviazione interessa le condivisioni file di Azure nell'account di archiviazione. Ad esempio, se si raggiunge la capacità massima dell'account di archiviazione con Archiviazione BLOB di Azure, non sarà più possibile creare nuovi file nella condivisione file di Azure, anche se questa non ha ancora raggiunto la dimensione massima.
+> L'utilizzo dell'account di archiviazione per utilizzo generico da altri servizi di archiviazione influiscono sulle condivisioni file di Azure nell'account di archiviazione. Ad esempio, se si raggiunge la capacità massima dell'account di archiviazione con Archiviazione BLOB di Azure, non sarà più possibile creare nuovi file nella condivisione file di Azure, anche se questa non ha ancora raggiunto la dimensione massima.
 
 ## <a name="azure-files-scale-targets"></a>Obiettivi di scalabilità di File di Azure
 
-Esistono tre categorie di limitazioni da considerare per i file di Azure: account di archiviazione, condivisioni e file.
+Esistono tre categorie di limitazioni da considerare per File di Azure: account di archiviazione, condivisioni e file.
 
-Ad esempio: Con le condivisioni file premium, una singola condivisione può raggiungere 100.000 IOPS e un singolo file possono aumentare fino a 5.000 IOPS. Pertanto, se si dispone di tre file in una condivisione, il numero massimo di IOPS è possibile ottenere da tale condivisione è 15.000.
+Ad esempio:  Con le condivisioni file Premium, una singola condivisione può raggiungere 100.000 IOPS e un singolo file può essere scalato fino a 5.000 IOPS. Quindi, se si dispone di tre file in una condivisione, il numero massimo di IOPS che è possibile ottenere da tale condivisione è 15.000.
 
 ### <a name="standard-storage-account-limits"></a>Limiti dell'account di archiviazione standard
 
-Vedere le [obiettivi di scalabilità di account di archiviazione di Azure](#azure-storage-account-scale-targets) sezione per questi limiti.
+Per questi limiti, vedere la sezione obiettivi di scalabilità dell' [account di archiviazione di Azure](#azure-storage-account-scale-targets) .
 
-### <a name="premium-filestorage-account-limits"></a>Limiti dell'account FileStorage Premium
+### <a name="premium-filestorage-account-limits"></a>Limiti dell'account filestorage Premium
 
 [!INCLUDE [azure-storage-limits-filestorage](../../../includes/azure-storage-limits-filestorage.md)]
 
 > [!IMPORTANT]
-> Limiti dell'account di archiviazione si applicano a tutte le condivisioni. Scalabilità per il numero massimo per gli account FileStorage solo è realizzabile se è presente solo una condivisione per ogni account FileStorage.
+> I limiti dell'account di archiviazione sono validi per tutte le condivisioni. La scalabilità fino al valore massimo per gli account filestorage è ottenibile solo se è presente una sola condivisione per ogni account di archiviazione filestorage.
 
-### <a name="file-share-and-file-scale-targets"></a>Obiettivi di scalabilità di file e condivisione file
+### <a name="file-share-and-file-scale-targets"></a>Destinazioni di condivisione file e scala file
 
 > [!NOTE]
-> Le condivisioni di file standard di dimensioni superiori a 5 TiB sono disponibili in anteprima e presentano alcune limitazioni.
-> Per un elenco di limitazioni e per eseguire l'onboarding per l'anteprima di queste dimensioni di condivisione file più grandi, vedere la [condivisioni di file Standard](storage-files-planning.md#standard-file-shares) sezione della Guida alla pianificazione.
+> Le condivisioni file standard più grandi di 5 TiB sono in anteprima e presentano alcune limitazioni.
+> Per un elenco delle limitazioni e per l'onboarding nell'anteprima di queste dimensioni di condivisione file più grandi, vedere la sezione relativa alle [condivisioni file standard](storage-files-planning.md#standard-file-shares) della Guida alla pianificazione.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
@@ -87,8 +86,8 @@ Per semplificare la pianificazione della distribuzione per ognuna delle fasi, di
 | Provisioning monouso iniziale  |  |
 |-|-|
 | Numero di oggetti | 25 milioni di oggetti |
-| Dimensioni del set di dati| ~4.7 TiB |
-| Dimensioni medie dei file | ~ 200 KiB (File più grande: 100 GiB) |
+| Dimensioni del set di dati| ~ 4,7 TiB |
+| Dimensioni medie dei file | ~ 200 KiB (file più grande: 100 GiB) |
 | Velocità effettiva di caricamento | 20 oggetti al secondo |
 | Velocità effettiva di download dello spazio dei nomi* | 400 oggetti al secondo |
 

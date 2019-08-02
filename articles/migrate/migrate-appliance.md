@@ -1,78 +1,78 @@
 ---
-title: Architettura di appliance Azure Migrate | Microsoft Docs
-description: Viene fornita una panoramica dell'appliance Azure Migrate
+title: Architettura Azure Migrate Appliance | Microsoft Docs
+description: Viene fornita una panoramica del dispositivo Azure Migrate
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: raynew
-ms.openlocfilehash: c2c9ca3082aa9c2067a63f8d6304e8a229dac14a
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 6537bfe5df8de298593428fb21448181ad8075fc
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67811453"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663471"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
-Questo articolo descrive l'appliance Azure Migrate. Si distribuisce il dispositivo quando si usano strumenti di migrazione e valutazione di Azure Migrate per individuare, valutare ed eseguire la migrazione di App, infrastruttura e i carichi di lavoro in Microsoft Azure. 
+Questo articolo descrive l'appliance Azure Migrate. Si distribuisce l'appliance quando si usano Azure Migrate strumenti di valutazione e migrazione per individuare, valutare ed eseguire la migrazione di app, infrastruttura e carichi di lavoro a Microsoft Azure. 
 
-[Azure Migrate](migrate-services-overview.md) fornisce un hub centrale per tenere traccia di individuazione, valutazione e migrazione delle App in locale e i carichi di lavoro e cloud privati/pubblici macchine virtuali di Azure. L'hub fornisce gli strumenti di Azure Migrate per la valutazione e migrazione, nonché le offerte di fornitori di software indipendenti di terze parti.
+[Azure migrate](migrate-services-overview.md) offre un hub centrale per tenere traccia dell'individuazione, della valutazione e della migrazione delle app e dei carichi di lavoro locali e delle macchine virtuali del cloud privato/pubblico in Azure. L'hub fornisce gli strumenti di Azure Migrate per la valutazione e la migrazione, nonché offerte di ISV terzi.
 
 
 
-## <a name="appliance-overview"></a>Panoramica delle Appliance
+## <a name="appliance-overview"></a>Panoramica dell'appliance
 
-I tipi di dispositivo di Azure Migrate e utilizzo sono i seguenti.
+I tipi di appliance Azure Migrate e l'utilizzo sono i seguenti.
 
 **Distribuito come** | **Usata per** | **Dettagli**
 --- | --- |  ---
-Macchina virtuale VMware | Valutazione delle VM VMware con lo strumento di valutazione di Azure Migrate.<br/><br/> Migrazione senza agente VM VMware con lo strumento di migrazione del Server eseguire la migrazione di Azure | Scaricare il modello con estensione OVA e importare in vCenter Server per la creazione della macchina virtuale dell'appliance.
-Macchina virtuale Hyper-V | Valutazione delle VM Hyper-V con lo strumento di valutazione di Azure Migrate. | Scaricare un file VHD compresso e importare in Hyper-V per creare l'appliance della macchina virtuale.
+Macchina virtuale VMware | Valutazione delle VM VMware con lo strumento Azure Migrate assessment.<br/><br/> Migrazione senza agente di macchine virtuali VMware con lo strumento di migrazione di Azure Migrate server | Scaricare il modello OVA e importarlo in server vCenter per creare la macchina virtuale dell'appliance.
+Macchina virtuale Hyper-V | Valutazione delle VM Hyper-V con lo strumento Azure Migrate assessment. | Scaricare il disco rigido virtuale compresso e importarlo in Hyper-V per creare la macchina virtuale dell'appliance.
 
-## <a name="appliance-access"></a>Accesso dispositivo
+## <a name="appliance-access"></a>Accesso Appliance
 
-Dopo aver configurato l'appliance, è possibile accedere in remoto all'appliance di macchina virtuale tramite la porta TCP 3389. È possibile accedere in modalità remota l'app web di gestione per l'appliance, sulla porta 44368 con URL: ``` https://<appliance-ip-or-name>:44368 ```.
+Dopo aver configurato il dispositivo, è possibile accedere in modalità remota alla macchina virtuale dell'appliance tramite la porta TCP 3389. È anche possibile accedere in remoto all'app di gestione Web per l'appliance sulla porta 44368 con URL: `https://<appliance-ip-or-name>:44368`.
 
-## <a name="appliance-license"></a>Licenza dispositivo
-L'appliance viene fornito con una licenza di valutazione di Windows Server 2016, questa operazione è valida per 180 giorni. Se il periodo di valutazione sta scadenza, è consigliabile scaricare e distribuire una nuova appliance oppure di attivare la licenza del sistema operativo della macchina virtuale dell'appliance.
+## <a name="appliance-license"></a>Licenza Appliance
+L'Appliance viene fornita con una licenza di valutazione di Windows Server 2016, valida per 180 giorni. Se il periodo di valutazione è prossimo alla scadenza, è consigliabile scaricare e distribuire una nuova appliance oppure attivare la licenza del sistema operativo della VM del dispositivo.
 
-## <a name="appliance-agents"></a>Agenti di Appliance
-L'appliance abbia questi agenti installati.
+## <a name="appliance-agents"></a>Agenti Appliance
+Nell'appliance sono installati questi agenti.
 
 **Agent** | **Dettagli**
 --- | ---
-Agente di individuazione | Raccoglie i dati di configurazione da macchine virtuali locali.
-Agente di valutazione | Profila l'ambiente locale per raccogliere dati sulle prestazioni della macchina virtuale.
-Scheda di migrazione | Orchestra la replica delle macchine Virtuali e coordina le comunicazioni tra le macchine virtuali e Azure.
-Gateway di migrazione | Invia replicati i dati della macchina virtuale in Azure.
+Agente di individuazione | Raccoglie i dati di configurazione dalle macchine virtuali locali.
+Agente di valutazione | Consente di profilare l'ambiente locale per raccogliere i dati sulle prestazioni della macchina virtuale.
+Adapter di migrazione | Orchestra la replica della macchina virtuale e coordina la comunicazione tra le macchine virtuali e Azure.
+Gateway di migrazione | Invia i dati della macchina virtuale replicata in Azure.
 
 
-## <a name="appliance-deployment-requirements"></a>Requisiti di distribuzione del dispositivo
+## <a name="appliance-deployment-requirements"></a>Requisiti di distribuzione dell'appliance
 
-- [Revisione](migrate-support-matrix-vmware.md#assessment-appliance-requirements) i requisiti di distribuzione per un'appliance di VMware e gli URL che l'appliance deve accedere.
-- [Revisione](migrate-support-matrix-hyper-v.md#assessment-appliance-requirements) i requisiti di distribuzione per un'appliance di Hyper-V e gli URL che l'appliance deve accedere.
+- [Esaminare](migrate-support-matrix-vmware.md#assessment-appliance-requirements) i requisiti di distribuzione per un appliance VMware e gli URL a cui l'appliance deve accedere.
+- [Esaminare](migrate-support-matrix-hyper-v.md#assessment-appliance-requirements) i requisiti di distribuzione per un appliance Hyper-V e gli URL a cui l'appliance deve accedere.
 
 
-## <a name="collected-performance-data-vmware"></a>I dati sulle prestazioni raccolti-VMware
+## <a name="collected-performance-data-vmware"></a>Dati sulle prestazioni raccolti-VMware
 
-Ecco i dati sulle prestazioni di VM VMware che l'appliance raccoglie e invia ad Azure.
+Ecco i dati sulle prestazioni delle macchine virtuali VMware che l'appliance raccoglie e Invia ad Azure.
 
-**Dati** | **Contatore** | **Impatto sulla valutazione**
+**Dati** | **Contatore** | **Impatto valutazione**
 --- | --- | ---
-Uso della CPU | cpu.usage.average | Le dimensioni e i costi della VM
-Utilizzo della memoria | mem.usage.average | Le dimensioni e i costi della VM
-Velocità effettiva (MB al secondo) letti da disco | virtualDisk.read.average | Calcolo per le dimensioni del disco, costi di archiviazione, le dimensioni della macchina virtuale
-Velocità effettiva di scrittura disco (MB al secondo) | virtualDisk.write.average | Calcolo per le dimensioni del disco, costi di archiviazione, le dimensioni della macchina virtuale
-Operazioni al secondo letti da disco | virtualDisk.numberReadAveraged.average | Calcolo per le dimensioni del disco, costi di archiviazione, le dimensioni della macchina virtuale
-Scritture disco/operazioni al secondo | virtualDisk.numberWriteAveraged.average  | Calcolo per le dimensioni del disco, costi di archiviazione, le dimensioni della macchina virtuale
-Interfaccia di rete letti velocità effettiva (MB al secondo) | net.received.average | Calcolo di dimensioni della macchina virtuale
-Velocità effettiva di scrittura di interfaccia di rete (MB al secondo) | net.transmitted.average  |Calcolo di dimensioni della macchina virtuale
+Uso della CPU | cpu.usage.average | Costo/dimensioni VM consigliate
+Utilizzo memoria | mem.usage.average | Costo/dimensioni VM consigliate
+Velocità effettiva lettura disco (MB al secondo) | virtualDisk.read.average | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni della macchina virtuale
+Velocità effettiva scrittura disco (MB al secondo) | virtualDisk.write.average | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni della macchina virtuale
+Operazioni di lettura disco al secondo | virtualDisk.numberReadAveraged.average | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni della macchina virtuale
+Operazioni di scrittura su disco al secondo | virtualDisk.numberWriteAveraged.average  | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni della macchina virtuale
+Velocità effettiva di lettura NIC (MB al secondo) | net.received.average | Calcolo delle dimensioni della macchina virtuale
+Velocità effettiva scrittura NIC (MB al secondo) | net.transmitted.average  |Calcolo delle dimensioni della macchina virtuale
 
 
-## <a name="collected-metadata-vmware"></a>I metadati raccolti-VMware
+## <a name="collected-metadata-vmware"></a>Metadati raccolti-VMware
 
-Ecco l'elenco completo dei metadati di VM VMware che l'appliance raccoglie e invia ad Azure.
+Di seguito è riportato l'elenco completo dei metadati delle macchine virtuali VMware che l'appliance raccoglie e Invia ad Azure.
 
 **Dati** | **Contatore**
 --- | --- 
@@ -86,128 +86,128 @@ Tipo di sistema operativo | vm.SummaryConfig.GuestFullName
 Tipo di avvio | vm.Config.Firmware
 Numero di core | vm.Config.Hardware.NumCPU
 Memoria (MB) | vm.Config.Hardware.MemoryMB
-Numero di dischi | vm.Config.Hardware.Device.ToList().FindAll(x => is VirtualDisk).count
-Elenco dimensioni disco | vm.Config.Hardware.Device.ToList().FindAll(x => is VirtualDisk)
-Elenco schede di rete | vm.Config.Hardware.Device.ToList().FindAll(x => is VirtualEthernet).count
+Numero di dischi | VM. Config. hardware. Device. ToList (). FindAll (x = > è VirtualDisk). Count
+Elenco dimensioni disco | VM. Config. hardware. Device. ToList (). FindAll (x = > è VirtualDisk)
+Elenco schede di rete | VM. Config. hardware. Device. ToList (). FindAll (x = > è VirtualEthernet). Count
 Uso della CPU | cpu.usage.average
-Utilizzo della memoria |mem.usage.average
-**Dettagli disco** | 
+Utilizzo memoria |mem.usage.average
+**Dettagli per disco** | 
 Valore chiave disco | disk.Key
 Numero Dikunit | disk.UnitNumber
 Valore chiave controller del disco | disk.ControllerKey.Value
 Gigabyte con provisioning | virtualDisk.DeviceInfo.Summary
-Nome del disco | Valore generato utilizzo disco. UnitNumber, disco. Chiave, disco. ControllerKey.VAlue
+Nome del disco | Valore generato tramite disco. UnitNumber, disco. Chiave, disco. ControllerKey. VAlue
 Operazioni di lettura per secondo | virtualDisk.numberReadAveraged.average
 Operazioni di scrittura per secondo | virtualDisk.numberWriteAveraged.average
-Velocità effettiva di lettura (MB al secondo) | virtualDisk.read.average
-Scrivere la velocità effettiva (MB al secondo) | virtualDisk.write.average
-**Per informazioni dettagliate di interfaccia di rete** | 
+Velocità effettiva lettura (MB al secondo) | virtualDisk.read.average
+Velocità effettiva scrittura (MB al secondo) | virtualDisk.write.average
+**Dettagli per NIC** | 
 Nome scheda di rete | nic.Key
 Indirizzo MAC | ((VirtualEthernetCard)nic).MacAddress
 Indirizzi IPv4 | vm.Guest.Net
 Indirizzi IPv6 | vm.Guest.Net
-Velocità effettiva di lettura (MB al secondo) | net.received.average
-Scrivere la velocità effettiva (MB al secondo) | net.transmitted.average
-**Dettagli del percorso di inventario** | 
+Velocità effettiva lettura (MB al secondo) | net.received.average
+Velocità effettiva scrittura (MB al secondo) | net.transmitted.average
+**Dettagli percorso inventario** | 
 Name | container.GetType().Name
 Tipo di oggetto figlio | container.ChildType
 Informazioni di riferimento | container.MoRef
 Dettagli elemento padre | Container.Parent
-Dettagli della cartella per ogni macchina virtuale | ((Folder)container).ChildEntity.Type
-Informazioni dettagliate di Data Center per ogni macchina virtuale | ((Datacenter)container).VmFolder
-Informazioni dettagliate di Data Center per ogni cartella host | ((Datacenter)container).HostFolder
-Dettagli dei cluster per ogni host | ((ClusterComputeResource)container).Host
-Dettagli dell'host per macchina virtuale | ((HostSystem)container).VM
+Dettagli cartella per macchina virtuale | ((Folder)container).ChildEntity.Type
+Dettagli Data Center per macchina virtuale | ((Datacenter)container).VmFolder
+Dettagli Data Center per cartella host | ((Datacenter)container).HostFolder
+Dettagli cluster per host | ((ClusterComputeResource)container).Host
+Dettagli host per macchina virtuale | ((HostSystem)container).VM
 
 
 
-## <a name="collected-performance-data-hyper-v"></a>Sulle prestazioni raccolti dati Hyper-V
+## <a name="collected-performance-data-hyper-v"></a>Dati sulle prestazioni raccolti-Hyper-V
 
-Ecco i dati sulle prestazioni di VM VMware che l'appliance raccoglie e invia ad Azure.
+Ecco i dati sulle prestazioni delle macchine virtuali VMware che l'appliance raccoglie e Invia ad Azure.
 
-**Classe del contatore delle prestazioni** | **Contatore** | **Impatto sulla valutazione**
+**Classe del contatore delle prestazioni** | **Contatore** | **Impatto valutazione**
 --- | --- | ---
-Processore virtuale Hypervisor Hyper-V | % Tempo di esecuzione Guest | Le dimensioni e i costi della VM
-Memoria dinamica di Hyper-V della macchina virtuale | Utilizzo elevato corrente (%)<br/> Memoria fisica visibile guest (MB) | Le dimensioni e i costi della VM
-Dispositivo di archiviazione virtuale Hyper-V | Leggere i byte al secondo | Calcolo per le dimensioni del disco, costi di archiviazione, le dimensioni della macchina virtuale
-Dispositivo di archiviazione virtuale Hyper-V | Scrivere byte al secondo | Calcolo per le dimensioni del disco, costi di archiviazione, le dimensioni della macchina virtuale
-Scheda di rete virtuale di Hyper-V | Byte ricevuti al secondo | Calcolo di dimensioni della macchina virtuale
-Scheda di rete virtuale di Hyper-V | Byte inviati al secondo | Calcolo di dimensioni della macchina virtuale
+Processore virtuale hypervisor Hyper-V | % Tempo di esecuzione Guest | Costo/dimensioni VM consigliate
+VM memoria dinamica Hyper-V | Pressione corrente (%)<br/> Memoria fisica visibile Guest (MB) | Costo/dimensioni VM consigliate
+Dispositivo di archiviazione virtuale Hyper-V | Byte letti al secondo | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni della macchina virtuale
+Dispositivo di archiviazione virtuale Hyper-V | Byte scritti al secondo | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni della macchina virtuale
+Scheda di rete virtuale Hyper-V | Byte ricevuti al secondo | Calcolo delle dimensioni della macchina virtuale
+Scheda di rete virtuale Hyper-V | Byte inviati al secondo | Calcolo delle dimensioni della macchina virtuale
 
-- Utilizzo della CPU è la somma di tutti gli utilizzi, per tutti i processori virtuali collegati a una macchina virtuale.
-- Utilizzo della memoria è (pressione corrente * memoria fisica visibile Guest) / 100.
-- I valori di utilizzo del disco e rete vengono raccolti dai contatori delle prestazioni Hyper-V elencati.
+- L'utilizzo della CPU è la somma di tutti i dati di utilizzo, per tutti i processori virtuali collegati a una macchina virtuale.
+- L'utilizzo della memoria è (pressione corrente * memoria fisica visibile Guest)/100.
+- I valori di utilizzo del disco e della rete vengono raccolti dai contatori delle prestazioni di Hyper-V elencati.
 
-## <a name="collected-metadata-hyper-v"></a>Raccogliere i metadati Hyper-V
+## <a name="collected-metadata-hyper-v"></a>Metadati raccolti-Hyper-V
 
-Ecco l'elenco completo dei metadati di macchina virtuale Hyper-V che l'appliance raccoglie e invia ad Azure.
+Ecco l'elenco completo dei metadati della macchina virtuale Hyper-V che l'appliance raccoglie e Invia ad Azure.
 
 **Dati** | **Classe WMI** | **Proprietà della classe WMI**
 --- | --- | ---
 **Dettagli computer** | 
 Numero di serie del BIOS _ Msvm_BIOSElement | BIOSSerialNumber
-Tipo di macchina virtuale (generazione 1 o 2) | Msvm_VirtualSystemSettingData | VirtualSystemSubType
+Tipo di macchina virtuale (gen 1 o 2) | Msvm_VirtualSystemSettingData | VirtualSystemSubType
 Nome visualizzato della macchina virtuale | Msvm_VirtualSystemSettingData | ElementName
-Versione della macchina virtuale | Msvm_ProcessorSettingData | VirtualQuantity
+Versione VM | Msvm_ProcessorSettingData | VirtualQuantity
 Memoria (byte) | Msvm_MemorySettingData | VirtualQuantity
-Quantità massima di memoria che possono essere usati dalla macchina virtuale | Msvm_MemorySettingData | Limite
+Memoria massima che può essere utilizzata dalla macchina virtuale | Msvm_MemorySettingData | Limite
 Memoria dinamica abilitata | Msvm_MemorySettingData | DynamicMemoryEnabled
-Nome di sistema operativo/versione/FQDN | Msvm_KvpExchangeComponent | Nome GuestIntrinsciExchangeItems dati
+Nome/versione/FQDN del sistema operativo | Msvm_KvpExchangeComponent | GuestIntrinsicExchangeItems i dati del nome
 Stato di alimentazione della macchina virtuale | Msvm_ComputerSystem | EnabledState
-**Dettagli disco** | 
-Identificatore del disco | Msvm_VirtualHardDiskSettingData | VirtualDiskId
+**Dettagli per disco** | 
+Identificatore disco | Msvm_VirtualHardDiskSettingData | VirtualDiskId
 Tipo di disco rigido virtuale | Msvm_VirtualHardDiskSettingData | Type
 Dimensioni del disco rigido virtuale | Msvm_VirtualHardDiskSettingData | MaxInternalSize
-Disco rigido virtuale padre | Msvm_VirtualHardDiskSettingData | ParentPath
-**Per informazioni dettagliate di interfaccia di rete** | 
+Padre del disco rigido virtuale | Msvm_VirtualHardDiskSettingData | ParentPath
+**Dettagli per NIC** | 
 Indirizzi IP (schede di rete sintetiche) | Msvm_GuestNetworkAdapterConfiguration | IPAddresses
 DHCP abilitato (schede di rete sintetiche) | Msvm_GuestNetworkAdapterConfiguration | DHCPEnabled
-ID di interfaccia di rete (NIC sintetica) | Msvm_SyntheticEthernetPortSettingData | InstanceID
-Indirizzo MAC di interfaccia di rete (NIC sintetica) | Msvm_SyntheticEthernetPortSettingData | Indirizzo
-ID di interfaccia di rete (NIC legacy) | Dati MsvmEmulatedEthernetPortSetting | InstanceID
-ID MAC di interfaccia di rete (NIC legacy) | Dati MsvmEmulatedEthernetPortSetting | Indirizzo
+ID NIC (schede di interfaccia di rete sintetiche) | Msvm_SyntheticEthernetPortSettingData | InstanceID
+Indirizzo MAC NIC (schede di interfaccia di rete sintetiche) | Msvm_SyntheticEthernetPortSettingData | Indirizzo
+ID NIC (schede di interfaccia di rete legacy) | Dati MsvmEmulatedEthernetPortSetting | InstanceID
+ID MAC NIC (schede di interfaccia di rete legacy) | Dati MsvmEmulatedEthernetPortSetting | Indirizzo
 
 
 
 
-## <a name="discovery-and-collection-process"></a>Processo di individuazione e la raccolta
+## <a name="discovery-and-collection-process"></a>Processo di individuazione e raccolta
 
-L'appliance comunica con il server vCenter e host/cluster Hyper-V usando la procedura seguente.
+L'appliance comunica con i server vCenter e gli host/cluster Hyper-V usando il processo seguente.
 
 
-1. **Avviare l'individuazione**:
-    - Quando si avvia l'individuazione nell'appliance di Hyper-V, comunica con gli host Hyper-V su porte WinRM 5985 (HTTP) e 5986 (HTTPS).
-    - Quando si avvia individuazione nell'appliance di VMware, comunica con il server vCenter sulla porta TCP 443 per impostazione predefinita. Se il server vCenter è in ascolto su una porta diversa, è possibile configurarlo nell'app web di appliance.
-2. **Raccogliere i dati dei metadati e le prestazioni**:
-    - L'appliance utilizza una sessione di modello CIM (Common Information) per raccogliere i dati della macchina virtuale Hyper-V dall'host Hyper-V su porte 5985 e 5986.
-    - L'appliance comunica con la porta 443 per impostazione predefinita, per raccogliere dati di VM VMware dal Server vCenter.
-3. **Inviare dati**: L'appliance invia i dati raccolti alla valutazione di Azure Migrate Server e la migrazione di Server eseguire la migrazione di Azure tramite la porta SSL 443.
+1. **Avvia individuazione**:
+    - Quando si avvia l'individuazione nell'appliance Hyper-V, comunica con gli host Hyper-V sulle porte WinRM 5985 (HTTP) e 5986 (HTTPS).
+    - Quando si avvia l'individuazione nell'appliance VMware, per impostazione predefinita comunica con il server vCenter sulla porta TCP 443. Se il server vCenter è in ascolto su una porta diversa, è possibile configurarla nell'app Web Appliance.
+2. **Raccogliere i metadati e i dati sulle prestazioni**:
+    - L'appliance usa una sessione di Common Information Model (CIM) per raccogliere i dati delle macchine virtuali Hyper-V dall'host Hyper-V sulle porte 5985 e 5986.
+    - Per impostazione predefinita, l'appliance comunica con la porta 443 per raccogliere i dati delle macchine virtuali VMware dal server vCenter.
+3. **Invia dati**: Il dispositivo invia i dati raccolti alla valutazione Azure Migrate server e alla migrazione del server Azure Migrate sulla porta SSL 443.
     - Per i dati sulle prestazioni, l'appliance raccoglie i dati di utilizzo in tempo reale.
-        - I dati sulle prestazioni vengono raccolti ogni 20 secondi per VMware e ogni 30 secondi per Hyper-V, per ogni metrica di prestazioni.
-        - I dati raccolti viene eseguito il rollup per creare un singolo punto dati per dieci minuti.
-        - Il valore di utilizzo di picco è selezionato da tutti i 20 o 30 secondo punto dati e inviati ad Azure per il calcolo della valutazione.
-        - Basato sul valore percentile specificato nelle proprietà della valutazione (50 ° / 90 º / 95 ° / 99. °), i punti di dieci minuti vengono ordinati in ordine crescente e il valore percentile appropriato viene utilizzato per calcolare la valutazione
-    - Per la migrazione di Server, il dispositivo avvia la raccolta dei dati della macchina virtuale ed è la replica in Azure.
-4. **Valutazione e la migrazione**: È ora possibile creare le valutazioni dai metadati raccolti dall'appliance usando Azure eseguire la migrazione di Server Assessment. Inoltre, è anche possibile avviare la migrazione di macchine virtuali VMware tramite migrazione del Server eseguire la migrazione di Azure per orchestrare la replica delle macchine Virtuali senza agente.
+        - I dati sulle prestazioni vengono raccolti ogni 20 secondi per VMware e ogni 30 secondi per Hyper-V per ogni metrica delle prestazioni.
+        - Viene eseguito il rollup dei dati raccolti per creare un singolo punto dati per dieci minuti.
+        - Il valore di picco dell'utilizzo viene selezionato da tutti i punti dati di 20/30 secondi e inviato ad Azure per il calcolo della valutazione.
+        - In base al valore percentile specificato nelle proprietà di valutazione (cinquantesimo/90/95/99 °), i punti di dieci minuti sono ordinati in ordine crescente e il valore percentile appropriato viene usato per calcolare la valutazione
+    - Per la migrazione del server, l'appliance avvia la raccolta dei dati della macchina virtuale e la replica in Azure.
+4. **Valutazione e migrazione**: È ora possibile creare valutazioni dei metadati raccolti dal dispositivo utilizzando Azure Migrate server assessment. Inoltre, è possibile avviare la migrazione di macchine virtuali VMware con Azure Migrate migrazione del server per orchestrare la replica di VM senza agenti.
 
 
 ![Architettura](./media/migrate-appliance/architecture.png)
 
 
-## <a name="appliance-upgrades"></a>Aggiornamenti delle Appliance
+## <a name="appliance-upgrades"></a>Aggiornamenti Appliance
 
-L'appliance viene aggiornata perché gli agenti di Azure Migrate in esecuzione nell'appliance sono aggiornati.
+Il dispositivo viene aggiornato quando vengono aggiornati gli agenti Azure Migrate in esecuzione nell'appliance.
 
-- Ciò avviene automaticamente perché l'aggiornamento automatico è abilitato nell'appliance per impostazione predefinita.
+- Questa operazione viene eseguita automaticamente perché per impostazione predefinita l'aggiornamento automatico è abilitato nell'appliance.
 - È possibile modificare questa impostazione predefinita per aggiornare manualmente gli agenti.
-- Per disabilitare gli aggiornamenti automatici, impostare la chiave del Registro di sistema Appliance, aggiornamento automatico, in HKLM\SOFTWAREMicrosoft\Azure.
+- Per disabilitare gli aggiornamenti automatici, impostare aggiornamento automatico Appliance chiave del registro di sistema, in HKLM\SOFTWAREMicrosoft\Azure.
 
-### <a name="set-agent-updates-to-manual"></a>Set di aggiornamenti degli agenti su manuale
+### <a name="set-agent-updates-to-manual"></a>Impostare gli aggiornamenti dell'agente su manuale
 
-Per gli aggiornamenti manuali, assicurarsi di aggiornare tutti gli agenti nell'appliance nello stesso momento, usando il **aggiornare** pulsante per ogni agente obsoleti nell'appliance. È possibile passare all'impostazione di aggiornamento agli aggiornamenti automatici in qualsiasi momento.
+Per gli aggiornamenti manuali, assicurarsi di aggiornare contemporaneamente tutti gli agenti nell'appliance, usando il pulsante **Aggiorna** per ogni agente obsoleto nell'appliance. È possibile riportare l'aggiornamento automatico degli aggiornamenti in qualsiasi momento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Informazioni su come](tutorial-assess-vmware.md#set-up-the-appliance-vm) per configurare l'appliance per VMware.
-[Informazioni su come](tutorial-assess-hyper-v.md#set-up-the-appliance-vm) per configurare l'appliance per Hyper-V.
+[Informazioni su come](tutorial-assess-vmware.md#set-up-the-appliance-vm) configurare l'appliance per VMware.
+[Informazioni su come](tutorial-assess-hyper-v.md#set-up-the-appliance-vm) configurare l'appliance per Hyper-V.
 

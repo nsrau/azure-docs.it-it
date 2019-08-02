@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: glenga
-ms.openlocfilehash: 587d8040039080e15c61292279c5e5637d296b08
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: f5591a3e0ca73649b1ffc51c75aa95e86e286768
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68351356"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639098"
 ---
 # <a name="deploy-python-to-azure-functions-with-visual-studio-code"></a>Distribuisci Python in funzioni di Azure con Visual Studio Code
 
@@ -253,7 +253,7 @@ In questa procedura si userà l'estensione funzioni per creare un'app per le fun
 1. L'estensione esegue le azioni seguenti, che è possibile osservare in Visual Studio Code messaggi popup e nella finestra di **output** (il processo richiede alcuni minuti):
 
     - Creare un gruppo di risorse usando il nome assegnato (rimuovendo i trattini).
-    - In tale gruppo di risorse, creare l'account di archiviazione, il piano di hosting e l'app per le funzioni. Per impostazione predefinita, viene creato un [piano a consumo](functions-scale.md#consumption-plan) . Per eseguire le funzioni in un piano dedicato, è necessario [abilitare la pubblicazione con le opzioni di creazione avanzate](functions-develop-vs-code.md#enabled-publishing-with-advanced-create-options).
+    - In tale gruppo di risorse, creare l'account di archiviazione, il piano di hosting e l'app per le funzioni. Per impostazione predefinita, viene creato un [piano a consumo](functions-scale.md#consumption-plan) . Per eseguire le funzioni in un piano dedicato, è necessario [abilitare la pubblicazione con le opzioni di creazione avanzate](functions-develop-vs-code.md).
     - Distribuire il codice nell'app per le funzioni.
 
     **Azure: Esplora** funzioni Mostra anche lo stato di avanzamento:

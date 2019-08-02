@@ -8,20 +8,20 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 06/30/2019
+ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: 937dc6eefbbfc37aaeee0801f410f9f99cb0c787
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: ec3c7379c8c7f28765fbc4396d3e9804a6c127f6
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67488677"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663754"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Incorporare i widget di Video Indexer nelle applicazioni
 
-Questo articolo illustra come incorporare i widget di Video Indexer nelle applicazioni. Video Indexer supporta l'incorporamento nelle applicazioni di due tipi di widget: **Cognitive Insights** e **Player**. 
+Questo articolo illustra come incorporare i widget di Video Indexer nelle applicazioni. Video Indexer supporta l'incorporamento di tre tipi di widget nell'applicazione: **Cognitive Insights**, **Player**e **Editor**. 
 
-A partire dalla versione 2, l'URL di base del widget include l'area dell'account. Ad esempio, un account nell'area Stati Uniti occidentali genera: `https://wus2.videoindexer.ai/embed/insights/...`.
+A partire dalla versione 2, l'URL di base del widget include l'area dell'account specificato. Ad esempio, un account nell'area Stati Uniti occidentali genera: `https://wus2.videoindexer.ai/embed/insights/...`.
 
 ## <a name="widget-types"></a>Tipi di widget
 
@@ -29,24 +29,36 @@ A partire dalla versione 2, l'URL di base del widget include l'area dell'account
 
 Un widget **Cognitive Insights** include tutte le informazioni dettagliate visive estratte dal processo di indicizzazione del video. Il widget delle informazioni dettagliate supporta i parametri URL facoltativi seguenti:
 
-|NOME|Definizione|Descrizione|
+|NOME|Definizione|DESCRIZIONE|
 |---|---|---|
-|widgets|Stringhe separate da virgola|Consente di controllare le informazioni dettagliate di cui si vuole eseguire il rendering. <br/>Esempio: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` esegue il rendering solo delle informazioni dettagliate su persone e marchi<br/>Le opzioni disponibili sono: people, keywords, annotations, brands, sentiments, transcript, search.<br/>Non supportato tramite URL con version=2<br/><br/>**Nota:** Il parametro URL widget non è supportato nella versione 2. |
-|locale|Un codice breve della lingua|Controlla la lingua di insights. Il valore predefinito è `en`. Ad esempio: `language=de`.|
-|TAB|La scheda selezionata predefinita|Consente di controllare la scheda di insights a cui viene eseguito il rendering per impostazione predefinita. `tab=timeline` esegue il rendering di insights con la scheda della sequenza temporale selezionata.|
+|`widgets`|Stringhe separate da virgola|Consente di controllare le informazioni dettagliate di cui si vuole eseguire il rendering. <br/>Esempio: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` esegue il rendering solo delle informazioni dettagliate su persone e marchi<br/>Le opzioni disponibili sono: people, keywords, annotations, brands, sentiments, transcript, search.<br/>Non supportato tramite URL con version=2<br/><br/>**Nota:** Il parametro widgets URL non è supportato nella versione 2. |
+|`locale`|Un codice di lingua breve|Controlla il linguaggio Insights. Il valore predefinito è `en`. Ad esempio: `language=de`.|
+|`tab`|Scheda selezionata predefinita|Controlla la scheda Insights di cui viene eseguito il rendering per impostazione predefinita. `tab=timeline`esegue il rendering delle informazioni dettagliate con la scheda sequenza temporale selezionata.|
 
 ### <a name="player-widget"></a>Widget Player
 
 Un widget **Player** consente di eseguire lo streaming del video a bitrate adattivo. Il widget del lettore supporta i parametri URL facoltativi seguenti:
 
-|NOME|Definizione|Descrizione|
+|Name|Definizione|DESCRIZIONE|
 |---|---|---|
-|t|Secondi dall'inizio|Fa partire il lettore dal tempo specificato.<br/>Esempio: `t=60`.|
-|captions|Un codice di lingua|Recupera i sottotitoli nella lingua specificata durante il caricamento del widget in modo che siano disponibili nel menu dei sottotitoli.<br/>Esempio: `captions=en-US`.|
-|showCaptions|Valore booleano|Carica il lettore con i sottotitoli già abilitati.<br/>Esempio: `showCaptions=true`.|
-|type||Attiva un'interfaccia del lettore audio (la parte video viene rimossa).<br/>Esempio: `type=audio`.|
-|autoplay|Valore booleano|Indica se il lettore deve iniziare la riproduzione del video al caricamento (il valore predefinito è true).<br/>Esempio: `autoplay=false`.|
-|language|Un codice di lingua|Controlla la lingua del lettore (il valore predefinito è en-US)<br/>Esempio: `language=de-DE`.|
+|`t`|Secondi dall'inizio|Fa partire il lettore dal tempo specificato.<br/>Esempio: `t=60`.|
+|`captions`|Codice lingua|Recupera i sottotitoli nella lingua specificata durante il caricamento del widget in modo che siano disponibili nel menu dei sottotitoli.<br/>Esempio: `captions=en-US`.|
+|`showCaptions`|Un valore booleano|Carica il lettore con i sottotitoli già abilitati.<br/>Esempio: `showCaptions=true`.|
+|`type`||Attiva un'interfaccia del lettore audio (la parte video viene rimossa).<br/>Esempio: `type=audio`.|
+|`autoplay`|Un valore booleano|Indica se il lettore deve iniziare la riproduzione del video al caricamento (il valore predefinito è true).<br/>Esempio: `autoplay=false`.|
+|`language`|Codice lingua|Controlla la lingua del lettore (il valore predefinito è en-US)<br/>Esempio: `language=de-DE`.|
+
+### <a name="editor-widget"></a>Widget editor 
+
+Il widget **Editor** consente di creare nuovi progetti e gestire le informazioni dettagliate del video.
+
+|Name|Definizione|Descrizione|
+|---|---|---|
+|`accessToken`<sup>*</sup>|String|Il `accessToken` parametro è obbligatorio quando si usa il widget dell'editor.<br/>Il token di accesso consente di accedere ai video che si trovano solo nell'account usato per incorporare il widget. |
+|`language`|Codice lingua|Controlla la lingua del lettore (il valore predefinito è en-US)<br/>Esempio: `language=de-DE`.|
+|`locale`|Un codice di lingua breve|Controlla il linguaggio Insights. Il valore predefinito è `en`. Ad esempio: `language=de`.|
+
+<sup>*</sup>Il proprietario deve `accessToken` prestare attenzione. 
 
 ## <a name="embedding-public-content"></a>Incorporamento di contenuto pubblico
 
@@ -57,15 +69,15 @@ Un widget **Player** consente di eseguire lo streaming del video a bitrate adatt
     ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
 
     Dopo aver fatto clic sul pulsante verrà visualizzata una finestra modale di incorporamento in cui è possibile scegliere il widget da incorporare nell'applicazione.
-    La selezione di un widget (**Player** oppure **Cognitive Insights**) genera il codice di incorporamento da incollare nell'applicazione.
+    Selezionando un widget(cognitive Insights, **Player**o **Editor**), viene generato il codice incorporato da incollare nell'applicazione.
  
-4. Scegliere il tipo di widget desiderato (**Cognitive Insights** oppure **Player**).
+4. Scegliere il tipo di widget desiderato (**cognitive Insights**, **Player**o **Editor**).
 5. Copiare il codice di incorporamento e aggiungerlo all'applicazione. 
 
     ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
 
 > [!NOTE]
-> Se hai problemi con gli URL di video di condivisione, provare ad aggiungere il parametro 'location' del collegamento. Il parametro deve essere impostato il [aree di Azure in cui si trova Video Indexer](regions.md). Ad esempio: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+> Se si verificano problemi con la condivisione degli URL video, provare ad aggiungere il parametro ' location ' al collegamento. Il parametro deve essere impostato sulle [aree di Azure in cui video Indexer esiste](regions.md). Ad esempio `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
 ## <a name="embedding-private-content"></a>Incorporamento di contenuto privato
 
@@ -94,7 +106,7 @@ Per fare in modo che i widget di Video Indexer comunichino con altri componenti,
 
 Se si sceglie di implementare il codice del proprio lettore ed eseguire l'integrazione con i widget **Cognitive Insights**, è responsabilità dell'utente convalidare l'origine del messaggio proveniente da VideoIndexer.ai.
 
-### <a name="embed-both-types-of-widgets-in-your-application--blog-recommended"></a>Incorporare entrambi i tipi di widget nell'applicazione/blog (scelta consigliata) 
+### <a name="embed-widgets-in-your-application--blog-recommended"></a>Incorporare i widget nell'applicazione/Blog (scelta consigliata) 
 
 Questa sezione illustra come ottenere l'interazione tra due widget di Video Indexer in modo che, quando un utente fa clic sul controllo delle informazioni dettagliate nell'applicazione, il lettore passi al momento pertinente.
 
@@ -213,7 +225,7 @@ Per altre informazioni, vedere [questa demo](https://codepen.io/videoindexer/pen
 
 ## <a name="adding-subtitles"></a>Aggiunta di sottotitoli
 
-Se si incorporano informazioni dettagliate di Video Indexer in un lettore AMP, è possibile usare il metodo **GetVttUrl** per ottenere i sottotitoli codificati. Si può anche chiamare un metodo javascript dal plug-in AMP di Video Indexer **getSubtitlesUrl** (come illustrato in precedenza). 
+Se si incorpora Video Indexer Insights con il proprio [Azure Media Player](https://aka.ms/azuremediaplayer), è possibile usare il metodo **GetVttUrl** per ottenere didascalie chiuse (sottotitoli). Si può anche chiamare un metodo javascript dal plug-in AMP di Video Indexer **getSubtitlesUrl** (come illustrato in precedenza). 
 
 ## <a name="customizing-embeddable-widgets"></a>Personalizzazione di widget incorporabili
 
@@ -260,4 +272,4 @@ Per impostazione predefinita il lettore all'avvio inizia a riprodurre il video. 
 
 Per informazioni su come visualizzare e modificare le informazioni dettagliate di Video Indexer, vedere [questo](video-indexer-view-edit.md) articolo.
 
-Inoltre, consultare [Video indexer CodePen](https://codepen.io/videoindexer/pen/eGxebZ).
+Vedere anche [video Indexer CodePen](https://codepen.io/videoindexer/pen/eGxebZ).

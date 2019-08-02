@@ -1,18 +1,19 @@
 ---
 title: Gestire e monitorare i backup delle macchine virtuali di Azure usando il servizio backup di Azure
 description: Informazioni su come gestire e monitorare i backup delle macchine virtuali di Azure usando il servizio backup di Azure.
-author: sogup
-manager: vijayts
+ms.reviewer: sogup
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: sogup
-ms.openlocfilehash: 3a958e2397071407f6283938382ad7dd8c07bc09
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: bfc9d01284bb5623989676afbdeadc1c91c14ab0
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466263"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688388"
 ---
 # <a name="manage-azure-vm-backups"></a>Gestire i backup delle macchine virtuali di Azure
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 904893d4881de6be2c9055fefa9a8267cb045afd
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: b8b2cad95929d6132a4f0ae52597fb1633874ff1
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849417"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592121"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -38,12 +38,12 @@ Un criterio personalizzato è rappresentato come uno o più file in formato XML 
 
 L'elemento **TrustFrameworkPolicy** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 |---------- | -------- | ----------- |
-| PolicySchemaVersion | Yes | La versione dello schema che deve essere usata per eseguire il criterio. Il valore deve essere `0.3.0.0`. |
+| PolicySchemaVersion | Sì | La versione dello schema che deve essere usata per eseguire il criterio. Il valore deve essere `0.3.0.0`. |
 | TenantObjectId | No | L'identificatore di oggetto univoco del tenant di Azure Active Directory (Azure AD) B2C. |
 | TenantId | Sì | L'identificatore univoco del tenant a cui appartiene questo criterio. |
-| `PolicyId` | Yes | L'identificatore univoco del criterio. Questo identificatore deve essere preceduto da *B2C_1A_* |
+| `PolicyId` | Sì | L'identificatore univoco del criterio. Questo identificatore deve essere preceduto da *B2C_1A_* |
 | PublicPolicyUri | Sì | L'URI per il criterio, ovvero la combinazione dell'ID del tenant e l'ID del criterio. |
 | DeploymentMode | No | I valori possibili sono: `Production`, `Debugging` o `Development`. `Production` è l'impostazione predefinita. Usare questa proprietà per eseguire il debug del criterio. Per altre informazioni, vedere [Raccolta dei log](active-directory-b2c-troubleshoot-custom.md). |
 | UserJourneyRecorderEndpoint | No | L'endpoint che viene usata quando **DeploymentMode** è impostato su `Development`. Il valore deve essere `urn:journeyrecorder:applicationinsights`. Per altre informazioni, vedere [Raccolta dei log](active-directory-b2c-troubleshoot-custom.md). |
@@ -138,7 +138,7 @@ B2C_1A_TrustFrameWorkBase o B2C_1A_TrustFrameworkExtensionPolicy:
 
 Un percorso utente definisce la logica di business di ciò che un utente effettua. Ogni percorso utente è un set di passaggi di orchestrazione che esegue una serie di azioni, in sequenza in termini di autenticazione e raccolta di informazioni.
 
-Il file di criteri **SocialAndLocalAccounts** nel [pacchetto starter](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) contiene i percorsi utente SignUpOrSignIn, ProfileEdit, PasswordReset. È possibile aggiungere altri percorsi utente per altri scenari, ad esempio la modifica di un indirizzo di posta elettronica o il collegamento e lo scollegamento di un account di social networking.
+Il file di criteri **SocialAndLocalAccounts** nel [pacchetto starter](active-directory-b2c-get-started-custom.md#custom-policy-starter-pack) contiene i percorsi utente SignUpOrSignIn, ProfileEdit, PasswordReset. È possibile aggiungere altri percorsi utente per altri scenari, ad esempio la modifica di un indirizzo di posta elettronica o il collegamento e lo scollegamento di un account di social networking.
 
 I passaggi di orchestrazione possono chiamare un [profilo tecnico](technicalprofiles.md). Un profilo tecnico offre un framework con un meccanismo incorporato per comunicare con diversi tipi di entità. Ad esempio, un profilo tecnico può eseguire queste azioni tra le altre:
 

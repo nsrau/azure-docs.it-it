@@ -4,7 +4,7 @@ description: Informazioni su strumenti e ambienti di sviluppo integrato preinsta
 keywords: strumenti di analisi scientifica dei dati, macchina virtuale per l'analisi scientifica dei dati, strumenti per l'analisi scientifica dei dati, analisi scientifica dei dati per Linux
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.author: gokuma
-ms.openlocfilehash: c4e101e45dc1641c5731e246f7fdeeb37ebc0823
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: vijetaj
+ms.openlocfilehash: 3b8eaae63f0e316d82dd5a1238a802eefd756d9e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65864408"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68557799"
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Strumenti di sviluppo nella macchina virtuali per data science
 
@@ -31,7 +31,7 @@ La macchina virtuale per data science offre un ambiente di produzione per lo svi
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | IDE di uso generale      |
+| Informazioni   | IDE di uso generale      |
 | Versioni supportate della macchina virtuale per data science      | Windows      |
 | Usi tipici      | Sviluppo di software    |
 | Come viene configurata o installata sulla macchina virtuale per data science?      | Carico di lavoro di data science (strumenti Python e R), carico di lavoro di Azure (Hadoop e Data Lake), Node.js, strumenti di SQL Server, [Azure Machine Learning per Visual Studio Code](https://github.com/Microsoft/vs-tools-for-ai)    |
@@ -42,7 +42,7 @@ La macchina virtuale per data science offre un ambiente di produzione per lo svi
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | IDE di uso generale      |
+| Informazioni   | IDE di uso generale      |
 | Versioni supportate della macchina virtuale per data science      | Windows, Linux     |
 | Usi tipici      | Editor di codice e integrazione di Git   |
 | Come usarla o eseguirla?      | Collegamento sul desktop (`C:\Program Files (x86)\Microsoft VS Code\Code.exe`) in Windows, collegamento sul desktop o terminale (`code`) in Linux    |
@@ -52,7 +52,7 @@ La macchina virtuale per data science offre un ambiente di produzione per lo svi
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | Client IDE per R    |
+| Informazioni   | Client IDE per R    |
 | Versioni supportate della macchina virtuale per data science      | Windows, Linux      |
 | Usi tipici      |  Sviluppo R     |
 | Come usarla o eseguirla?      | Collegamento sul desktop (`C:\Program Files\RStudio\bin\rstudio.exe`) in Windows, collegamento sul desktop (`/usr/bin/rstudio`) in Linux      |
@@ -62,17 +62,17 @@ La macchina virtuale per data science offre un ambiente di produzione per lo svi
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | IDE basato sul Web per R    |
+| Informazioni   | IDE basato sul Web per R    |
 | Versioni supportate della macchina virtuale per data science      | Linux      |
 | Usi tipici      |  Sviluppo R     |
-| Come usarla o eseguirla?      | Abilitare il servizio con _systemctl enable rstudio-server_, quindi avviare il servizio con _systemctl start rstudio-server_. È quindi possibile accedere a RStudio Server http:\// i-vm-ip:8787.       |
+| Come usarla o eseguirla?      | Abilitare il servizio con _systemctl enable rstudio-server_, quindi avviare il servizio con _systemctl start rstudio-server_. È quindi possibile accedere a rstudio server all'indirizzo http:\//your-VM-IP: 8787.       |
 | Strumenti correlati nella macchina virtuale per data science      |   Visual Studio 2019, Visual Studio Code, RStudio Desktop      |
 
 ## <a name="juno"></a>Juno 
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | IDE client per il linguaggio Julia   |
+| Informazioni   | IDE client per il linguaggio Julia   |
 | Versioni supportate della macchina virtuale per data science      | Windows, Linux      |
 | Usi tipici      |  Sviluppo di Julia     |
 | Come usarla o eseguirla?      | Collegamento sul desktop (`C:\JuliaPro-0.5.1.1\Juno.bat`) in Windows, collegamento sul desktop (`/opt/JuliaPro-VERSION/Juno`) in Linux      |
@@ -82,7 +82,7 @@ La macchina virtuale per data science offre un ambiente di produzione per lo svi
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | IDE client per il linguaggio Python    |
+| Informazioni   | IDE client per il linguaggio Python    |
 | Versioni supportate della macchina virtuale per data science      | Linux      |
 | Usi tipici      |  Sviluppo Python     |
 | Come usarla o eseguirla?      | Collegamento sul desktop (`/usr/bin/pycharm`) in Linux      |
@@ -94,7 +94,7 @@ La macchina virtuale per data science offre un ambiente di produzione per lo svi
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | Strumento di visualizzazione dei dati interattivo e di BI    |
+| Informazioni   | Strumento di visualizzazione dei dati interattivo e di BI    |
 | Versioni supportate della macchina virtuale per data science      | Windows  |
 | Usi tipici      |  Visualizzazione dei dati e creazione di dashboard   |
 | Come usarla o eseguirla?      | Collegamento sul desktop (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
