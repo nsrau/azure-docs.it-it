@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
+ms.date: 07/17/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81b7030d0f45222a1641e34b341885d2ecc051e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6121ca6c1636c8839110712310a1b94fe7fada49
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107656"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619228"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di accesso nel portale di Azure Active Directory
 
@@ -66,7 +66,7 @@ Un log di accesso ha una visualizzazione elenco predefinita che include:
 
 - Data di accesso
 - Utente correlato
-- Applicazione a cui l'utente ha eseguito l'accesso
+- Applicazione a cui l'utente ha effettuato l'accesso
 - Stato dell'accesso
 - Stato di rilevamento rischi
 - Stato del requisito di autenticazione a più fattori (MFA)
@@ -86,21 +86,14 @@ Selezionare un elemento nella visualizzazione elenco per ottenere maggiori infor
 ![Attività di accesso](./media/concept-sign-ins/03.png "Attività di accesso")
 
 > [!NOTE]
-> I clienti possono ora risolvere i problemi di criteri di accesso condizionale tramite tutti i report di accesso. Facendo clic sui **accesso condizionale** scheda per un record di accesso, i clienti possono esaminare lo stato di accesso condizionale e approfondire i dettagli dei criteri applicati per l'accesso e il risultato per ogni criterio.
+> I clienti possono ora risolvere i problemi relativi ai criteri di accesso condizionale tramite tutti i report di accesso. Facendo clic sulla scheda **accesso condizionale** per un record di accesso, i clienti possono esaminare lo stato di accesso condizionale e approfondire i dettagli dei criteri applicati all'accesso e il risultato per ogni criterio.
 > Per altre informazioni, vedere [Domande frequenti sulle informazioni di CA in tutti gli accessi](reports-faq.md#conditional-access).
 
-![Attività di accesso](./media/concept-sign-ins/ConditionalAccess.png "Attività di accesso")
 
 
 ## <a name="filter-sign-in-activities"></a>Filtrare le attività di accesso
 
-Per limitare i dati segnalati in base alle esigenze, è possibile filtrare i dati di accesso usando i campi predefiniti seguenti:
-
-- Utente
-- Applicazione
-- Stato accesso
-- Accesso condizionale
-- Date
+Per limitare i dati segnalati a un livello che funziona automaticamente, è possibile filtrare i dati di accesso usando il campo data come filtro predefinito. Azure AD offre inoltre un'ampia gamma di filtri aggiuntivi che è possibile impostare.
 
 ![Attività di accesso](./media/concept-sign-ins/04.png "Attività di accesso")
 
@@ -112,14 +105,14 @@ Il filtro **Stato accesso** permette di selezionare:
 
 - Tutti
 - Riuscito
-- Esito negativo
+- Errore
 
 Il filtro **Accesso condizionale** consente di selezionare lo stato dei criteri di accesso condizionale per l'accesso:
 
 - Tutti
 - Non applicato
 - Riuscito
-- Esito negativo
+- Errore
 
 Il filtro **Date** (Data) permette di definire un intervallo di tempo per i dati restituiti.  
 I valori possibili sono:
@@ -135,28 +128,28 @@ Se si aggiungono altri campi alla visualizzazione degli accessi, questi campi ve
 ![Attività di accesso](./media/concept-sign-ins/12.png "Attività di accesso")
 
 - **Browser**  
-    Questo filtro Mostra tutti gli eventi in cui tentativi di accesso sono stati eseguiti usando i flussi del browser.
+    Questo filtro Mostra tutti gli eventi in cui sono stati eseguiti tentativi di accesso usando i flussi del browser.
 - **Exchange ActiveSync (supportato)**  
-    Questo filtro Mostra tutti i tentativi di accesso in cui il protocollo Exchange ActiveSync (EAS) è stato tentato da piattaforme supportate, ad esempio iOS, Android e Windows Phone.
+    Questo filtro Mostra tutti i tentativi di accesso in cui è stato eseguito il tentativo del protocollo di Exchange ActiveSync (EAS) dalle piattaforme supportate come iOS, Android e Windows Phone.
 - **Exchange ActiveSync (non supportato)**  
-    Questo filtro Mostra tutti i tentativi di accesso in cui è stato tentato il protocollo EAS da piattaforme non supportate, ad esempio, distribuzioni di Linux.
-- **App per dispositivi mobili e client Desktop** questo filtro Mostra tutti i tentativi di accesso riusciti che non usavano i flussi del browser. Può trattarsi di App per dispositivi mobili da qualsiasi piattaforma con qualsiasi protocollo o dalle App client per Desktop, ad esempio Office in Windows o MacOS.
+    Questo filtro Mostra tutti i tentativi di accesso in cui il protocollo EAS è stato provato da piattaforme non supportate come le distribuzioni Linux.
+- **App per dispositivi mobili e client desktop** Questo filtro Mostra tutti i tentativi di accesso che non usavano i flussi del browser. Può trattarsi di app per dispositivi mobili da qualsiasi piattaforma che usa qualsiasi protocollo o da app client desktop come Office in Windows o MacOS.
   
 - **Altri client**
     - **IMAP**  
-        Un client di posta elettronica legacy tramite IMAP per recuperare la posta elettronica.
+        Un client di posta legacy che usa IMAP per recuperare la posta elettronica.
     - **MAPI**  
-        Office 2013, in cui è abilitato ADAL e viene utilizzato MAPI.
-    - **Client Office precedenti**  
-        Office 2013 nella sua configurazione predefinita in cui ADAL non è abilitato e si utilizza MAPI oppure Office 2016, in cui è stata disabilitata ADAL.
+        Office 2013, in cui ADAL è abilitato e utilizza MAPI.
+    - **Client Office meno recenti**  
+        Office 2013 nella configurazione predefinita in cui ADAL non è abilitato ed è in uso MAPI oppure Office 2016 dove ADAL è stato disabilitato.
     - **POP**  
-        Un client di posta elettronica legacy utilizzando POP3 per recuperare la posta elettronica.
+        Un client di posta legacy che usa POP3 per recuperare la posta elettronica.
     - **SMTP**  
-        Un client legacy di posta elettronica tramite SMTP per inviare posta elettronica.
+        Un client di posta legacy che usa SMTP per inviare messaggi di posta elettronica.
 
 ## <a name="download-sign-in-activities"></a>Scaricare le attività di accesso
 
-È possibile [scaricare i dati relativi agli accessi](quickstart-download-sign-in-report.md) per usarli esternamente al portale di Azure. Facendo clic **scaricare** ti offre la possibilità di creare un file CSV o JSON dei record di 250.000 più recente.  
+È possibile [scaricare i dati relativi agli accessi](quickstart-download-sign-in-report.md) per usarli esternamente al portale di Azure. Se si fa clic su **download** è possibile creare un file CSV o JSON dei record 250.000 più recenti.  
 
 ![Download](./media/concept-sign-ins/71.png "Download")
 
@@ -175,7 +168,7 @@ Oltre ad Azure AD, il portale di Azure fornisce altri punti di ingresso ai dati 
 
 ### <a name="users-sign-ins-data-in-identity-security-protection"></a>Dati degli accessi degli utenti in Identity Security e Protection
 
-Il grafico di accesso utente nel **Identity protection sicurezza** pagina di panoramica Mostra le aggregazioni settimanali degli accessi per tutti gli utenti in un determinato periodo di tempo. Il periodo di tempo predefinito è di 30 giorni.
+Il grafo di accesso utente nella pagina Panoramica della **protezione della sicurezza delle identità** Mostra le aggregazioni settimanali degli accessi per tutti gli utenti in un determinato periodo di tempo. Il periodo di tempo predefinito è di 30 giorni.
 
 ![Attività di accesso](./media/concept-sign-ins/06.png "Attività di accesso")
 
@@ -192,14 +185,14 @@ Facendo clic su un elemento, si ottengono altri dettagli sull'operazione di acce
 
 - ID utente
 - Utente
-- Username
+- Nome utente
 - ID applicazione
 - Applicazione
 - Client
-- Località
+- Location
 - Indirizzo IP
 - Date
-- Autenticazione a più fattori obbligatoria
+- Autenticazione MFA obbligatoria
 - Stato accesso
 
 > [!NOTE]
@@ -221,7 +214,7 @@ Il punto di ingresso a questi dati sono le prime 3 applicazioni nell'organizzazi
 
 ![Attività di accesso](./media/concept-sign-ins/10.png "Attività di accesso")
 
-L'app utilizzo grafico le aggregazioni settimanali degli accessi per le prime 3 applicazioni in un determinato periodo di tempo. Il periodo di tempo predefinito è di 30 giorni.
+Le aggregazioni settimanali del grafico sull'utilizzo delle app degli accessi per le prime 3 applicazioni in un determinato periodo di tempo. Il periodo di tempo predefinito è di 30 giorni.
 
 ![Attività di accesso](./media/concept-sign-ins/47.png "Attività di accesso")
 
@@ -237,9 +230,9 @@ L'opzione **Accessi** offre una panoramica completa di tutti gli eventi di acces
 
 ## <a name="office-365-activity-logs"></a>Log attività di Office 365
 
-È possibile visualizzare i log attività di Office 365 dal [interfaccia di amministrazione di Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Anche se le attività di Office 365 e i log attività di Azure AD condividano numerose risorse della directory, solo l'interfaccia di amministrazione di Microsoft 365 offre una visualizzazione completa dei log attività di Office 365. 
+È possibile visualizzare i log attività di Office 365 dall'interfaccia di [amministrazione di Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Anche se l'attività di Office 365 e i log attività Azure AD condividono numerose risorse della directory, solo l'interfaccia di amministrazione di Microsoft 365 fornisce una visualizzazione completa dei log attività di Office 365. 
 
-È possibile accedere ai log attività di Office 365 anche a livello di codice tramite le [API di gestione di Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
+È anche possibile accedere ai log attività di Office 365 a livello di codice usando le [API di gestione di office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

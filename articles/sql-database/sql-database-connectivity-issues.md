@@ -11,14 +11,13 @@ ms.topic: conceptual
 author: dalechen
 ms.author: ninarn
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 06/14/2019
-ms.openlocfilehash: adbe8dfd41725c11516f820656b0476ed1aa8881
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: da2107a0573fafd10394931be21fb446f83fd5f2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144043"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569065"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Gestione dei problemi di connessione e degli errori temporanei del database SQL
 
@@ -77,7 +76,7 @@ Per i client che usano ADO.NET, è disponibile una discussione sul periodo di bl
 
 Esempi di codice di logica di ripetizione dei tentativi sono disponibili in:
 
-- [Connettersi in modo resiliente a SQL con ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- [Connettersi in modo resiliente a SQL tramite ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
 - [Connettersi in modo resiliente a SQL tramite PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
@@ -91,9 +90,9 @@ Per testare la logica di ripetizione dei tentativi, è necessario simulare o pro
 Uno dei modi per testare la logica di ripetizione dei tentativi consiste nel disconnettere il computer client dalla rete mentre il programma è in esecuzione. L'errore è:
 
 - **SqlException.Number** = 11001
-- Messaggio: "Host sconosciuto"
+- Messaggio: "Nessun host di questo tipo è noto"
 
-Come parte del primo tentativo di ripetizione dei tentativi, è possibile riconnettere il computer client alla rete e quindi provare a connettersi.
+Come parte del primo tentativo, è possibile riconnettere il computer client alla rete, quindi tentare di connettersi.
 
 Per semplificare il test, disconnettere il computer dalla rete prima di avviare il programma. Il programma riconoscerà quindi un parametro di runtime che ha le conseguenze seguenti sul programma:
 
@@ -109,7 +108,7 @@ Per semplificare il test, disconnettere il computer dalla rete prima di avviare 
 Il programma può intenzionalmente digitare in modo errato il nome utente prima del primo tentativo di connessione. L'errore è:
 
 - **SqlException.Number** = 18456
-- Messaggio: "Accesso non riuscito per l'utente 'WRONG_MyUserName'".
+- Messaggio: "Accesso non riuscito per l'utente ' WRONG_MyUserName '".
 
 Come parte del primo tentativo, il programma può correggere l'errore di digitazione e quindi provare a connettersi.
 
@@ -134,12 +133,12 @@ Se il programma client si connette al database SQL usando la classe .NET Framewo
 Quando si crea la [stringa di connessione](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) per l'oggetto **SqlConnection**, coordinare i valori tra i parametri seguenti:
 
 - **ConnectRetryCount**:&nbsp;&nbsp;Il valore predefinito è 1. L'intervallo consentito è tra 0 e 255.
-- **ConnectRetryInterval**:&nbsp;&nbsp;predefinito è 10 secondi. L'intervallo consentito è tra 1 e 60.
+- **ConnectRetryInterval**&nbsp;:&nbsp;il valore predefinito è 10 secondi. L'intervallo consentito è tra 1 e 60.
 - **Timeout di connessione**:&nbsp;&nbsp;Il valore predefinito è 15 secondi. L'intervallo consentito è tra 0 e 2147483647.
 
 In particolare, i valori scelti devono rendere vera l'eguaglianza seguente: Timeout di connessione = ConnectRetryCount * ConnectionRetryInterval
 
-Ad esempio, se il numero = 3 e l'intervallo = 10 secondi, un timeout di soli 29 secondi non garantisce al sistema il tempo sufficiente per il terzo e ultimo tentativo di connessione: 29 < 3 * 10.
+Se ad esempio il conteggio è uguale a 3 e l'intervallo è uguale a 10 secondi, un timeout di soli 29 secondi non concede al sistema il tempo sufficiente per il terzo e il tentativo finale di connessione: 29 < 3 * 10.
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -196,7 +195,7 @@ Per informazioni generali sulla configurazione di porte e indirizzi IP, vedere [
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
-### <a name="connection-adonet-462-or-later"></a>Connessione: ADO.NET 4.6.2 o versioni successive
+### <a name="connection-adonet-462-or-later"></a>Connessione: ADO.NET 4.6.2 o versione successiva
 
 Se il programma usa classi ADO.NET come **System.Data.SqlClient.SqlConnection** per la connessione al database SQL, è consigliabile usare .NET Framework 4.6.2 o versioni successive.
 
@@ -219,7 +218,7 @@ Se si usa ADO.NET 4.0 o versioni precedenti, è consigliabile eseguire l'aggiorn
 
 <a id="d-test-whether-utilities-can-connect" name="d-test-whether-utilities-can-connect"></a>
 
-### <a name="diagnostics-test-whether-utilities-can-connect"></a>Diagnostica: Verificare se possono connettersi le utilità
+### <a name="diagnostics-test-whether-utilities-can-connect"></a>Diagnostics Verificare se le utilità possono connettersi
 
 Se il programma non riesce a connettersi al database SQL, un'opzione di diagnostica consente di provare a connettersi mediante un programma di utilità. Idealmente l'utilità si connette mediante la stessa libreria usata dal programma.
 
@@ -232,7 +231,7 @@ Dopo la connessione del programma, verificare il funzionamento di una breve quer
 
 <a id="f-diagnostics-check-open-ports" name="f-diagnostics-check-open-ports"></a>
 
-### <a name="diagnostics-check-the-open-ports"></a>Diagnostica: Verificare le porte aperte
+### <a name="diagnostics-check-the-open-ports"></a>Diagnostics Controllare le porte aperte
 
 Se si ritiene che i tentativi di connessione abbiano esito negativo a causa di problemi di porta, è possibile eseguire sul computer un'utilità che segnala le configurazioni delle porte.
 
@@ -261,17 +260,17 @@ TCP port 1433 (ms-sql-s service): LISTENING
 
 <a id="g-diagnostics-log-your-errors" name="g-diagnostics-log-your-errors"></a>
 
-### <a name="diagnostics-log-your-errors"></a>Diagnostica: Registrare gli errori
+### <a name="diagnostics-log-your-errors"></a>Diagnostics Registrare gli errori
 
 La diagnosi di un problema intermittente è spesso agevolata dal rilevamento di uno schema generale nel corso di giorni o settimane.
 
 Il client può supportare l'analisi tramite la registrazione di tutti gli errori rilevati. È possibile che si riesca a correlare le voci del log con i dati di errore registrati internamente dal database SQL.
 
-Enterprise Library 6 (EntLib60) offre classi .NET gestite per semplificare la registrazione. Per altre informazioni, vedere [5 - più facile che mai un log: Usare il blocco applicazione per la registrazione](https://msdn.microsoft.com/library/dn440731.aspx).
+Enterprise Library 6 (EntLib60) offre classi .NET gestite per semplificare la registrazione. Per altre informazioni, vedere [5-facile quanto il calo di un log: Usare il blocco](https://msdn.microsoft.com/library/dn440731.aspx)applicazione di registrazione.
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 
-### <a name="diagnostics-examine-system-logs-for-errors"></a>Diagnostica: Esaminare i registri di sistema per gli errori
+### <a name="diagnostics-examine-system-logs-for-errors"></a>Diagnostics Esaminare i registri di sistema per individuare eventuali errori
 
 Ecco alcune istruzioni Transact-SQL SELECT che eseguono query nei log degli errori e alla ricerca di altre informazioni.
 
@@ -282,7 +281,7 @@ Ecco alcune istruzioni Transact-SQL SELECT che eseguono query nei log degli erro
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
-### <a name="diagnostics-search-for-problem-events-in-the-sql-database-log"></a>Diagnostica: Cercare agli eventi problematici nel log del Database SQL
+### <a name="diagnostics-search-for-problem-events-in-the-sql-database-log"></a>Diagnostics Ricerca di eventi di problema nel log del database SQL
 
 È possibile cercare voci relative agli eventi problematici nel log del database SQL. Provare a eseguire l'istruzione Transact-SQL SELECT seguente nel database *master* :
 
@@ -327,7 +326,7 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 
 Enterprise Library 6 (EntLib60) è un framework di classi .NET che semplifica l'implementazione di client affidabili dei servizi cloud, ad esempio il servizio database SQL. Gli argomenti dedicati a ogni area per cui EntLib60 può risultare utile sono disponibili in [Enterprise Library 6 - Aprile 2013](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx).
 
-Logica di ripetizione dei tentativi per la gestione degli errori temporanei è un'area in cui EntLib60 può essere utile. Per altre informazioni, vedere [4 - Perseveranza, segreto di tutti i successi: Usare il blocco applicazione di gestione degli errori temporanei](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
+Logica di ripetizione dei tentativi per la gestione degli errori temporanei è un'area in cui EntLib60 può essere utile. Per ulteriori informazioni, vedere [4-perseveranza, segreto di tutti i trionfi: Utilizzare il blocco](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)applicazione per la gestione degli errori temporanei.
 
 > [!NOTE]
 > Il codice sorgente per EntLib60 è disponibile per il download pubblico nell'[Area download](https://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft non prevede di fornire altre funzionalità o aggiornamenti di manutenzione per EntLib.
@@ -354,13 +353,13 @@ Nello spazio dei nomi **Microsoft.Practices.EnterpriseLibrary.TransientFaultHand
 
 Ecco alcuni collegamenti alle informazioni relative a EntLib60:
 
-- Download gratuito dell'eBook: [Guida per sviluppatori di Microsoft Enterprise Library, 2nd edition](https://www.microsoft.com/download/details.aspx?id=41145).
-- Procedure consigliate: [Indicazioni generali ripetizione di tentativi](../best-practices-retry-general.md) è un'eccellente discussione approfondita della logica di ripetizione dei tentativi.
-- Download di NuGet: [Libreria Enterprise - blocco applicazione per la gestione degli errori temporanei 6.0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
+- Download del libro gratuito: [Guida per gli sviluppatori di Microsoft Enterprise Library, 2a edizione](https://www.microsoft.com/download/details.aspx?id=41145).
+- Procedure consigliate: Il materiale sussidiario per la [ripetizione dei tentativi](../best-practices-retry-general.md) offre un'eccellente discussione approfondita sulla logica di ripetizione dei tentativi.
+- Download di NuGet: [Libreria Enterprise-blocco applicazione per la gestione di errori temporanei 6,0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>
 
-### <a name="entlib60-the-logging-block"></a>EntLib60: Il blocco di registrazione
+### <a name="entlib60-the-logging-block"></a>EntLib60 Il blocco di registrazione
 
 - Il blocco di registrazione è una soluzione a flessibilità e configurabilità elevata che consente di:
   - Creare e archiviare messaggi di log in diverse posizioni.
@@ -368,7 +367,7 @@ Ecco alcuni collegamenti alle informazioni relative a EntLib60:
   - Raccogliere informazioni contestuali utili per il debug e la traccia, oltre che per i requisiti di controllo e di registrazione generale.
 - Il blocco di registrazione astrae la funzionalità di registrazione dalla destinazione di registrazione, in modo che il codice applicazione sia coerente, indipendentemente dalla posizione e dal tipo di archivio di registrazione di destinazione.
 
-Per altre informazioni, vedere [5 - più facile che mai un log: Usare il blocco applicazione per la registrazione](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx).
+Per altre informazioni, vedere [5-facile quanto il calo di un log: Usare il blocco](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)applicazione di registrazione.
 
 <a id="entlib60-istransient-method-source-code" name="entlib60-istransient-method-source-code"></a>
 

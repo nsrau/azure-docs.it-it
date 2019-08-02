@@ -3,7 +3,7 @@ title: Configurare le modalità di rete per i servizi del contenitore di Azure S
 description: Informazioni su come configurare le diverse modalità di rete supportate da Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 2dcb678e8350ae0de3317db3682f0e51e27ab6f5
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: d749e1355e69ad93c8c211474043f88127ec76f0
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621929"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599398"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modalità di rete del contenitore di Service Fabric
 
@@ -30,7 +30,7 @@ Se nel manifesto del servizio è presente un servizio contenitore con un endpoin
 Quando un servizio contenitore viene riavviato o spostato in un altro nodo del cluster, l'indirizzo IP cambia. Per individuare i servizi contenitore, quindi, non è consigliabile usare l'indirizzo IP assegnato dinamicamente, ma solo Service Fabric Naming Service o il servizio DNS. 
 
 >[!WARNING]
->Azure consente a un totale di indirizzi IP 65,356 per ogni rete virtuale. La somma del numero di nodi e il numero di istanze del servizio contenitore (che utilizzano la modalità Open) non può superare 65,356 gli indirizzi IP all'interno di una rete virtuale. Per gli scenari ad alta densità, è consigliabile la modalità di rete nat. Inoltre, le altre dipendenze, ad esempio servizio di bilanciamento del carico verranno sono presenti altri [limitazioni](https://docs.microsoft.com/azure/azure-subscription-service-limits) da prendere in considerazione. Attualmente fino a 50 indirizzi IP per ogni nodo sono stati testati e collaudati stabile. 
+>Azure consente un totale di 65.356 indirizzi IP per ogni rete virtuale. La somma del numero di nodi e del numero di istanze del servizio contenitore (che usano la modalità di apertura) non può superare 65.356 indirizzi IP all'interno di una rete virtuale. Per gli scenari ad alta densità, è consigliabile la modalità di rete nat. Inoltre, altre dipendenze, ad esempio il servizio di bilanciamento del carico, dovranno prendere in considerazione altre [limitazioni](https://docs.microsoft.com/azure/azure-subscription-service-limits) . Attualmente fino a 50 IP per nodo sono stati testati e collaudati stabili. 
 >
 
 ## <a name="set-up-open-networking-mode"></a>Configurare la modalità di rete Open
@@ -202,9 +202,9 @@ Quando un servizio contenitore viene riavviato o spostato in un altro nodo del c
 
    |Impostazione |Value | |
    | --- | --- | --- |
-   |Priorità |2000 | |
+   |Priority |2000 | |
    |Name |Custom_Dns  | |
-   |`Source` |VirtualNetwork | |
+   |Source |VirtualNetwork | |
    |Destination | VirtualNetwork | |
    |Service | DNS (UDP/53) | |
    |Azione | Allow  | |

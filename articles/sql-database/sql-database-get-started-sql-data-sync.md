@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 01/14/2019
-ms.openlocfilehash: 82b85ffd685df52e702db15e5a5b57a53a3b4f64
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 37b8f64360e871236be7a8623460bbe75bd1d8b5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60342176"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568163"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Esercitazione: Configurare la sincronizzazione dati SQL tra il database SQL di Azure e SQL Server in locale
 
@@ -49,7 +48,7 @@ Per esempi di PowerShell su come configurare la sincronizzazione dati SQL, veder
 
    Nella pagina **Crea gruppo di sincronizzazione dati** cambiare le impostazioni seguenti:
 
-   | Impostazione                        | Descrizione |
+   | Impostazione                        | DESCRIZIONE |
    | ------------------------------ | ------------------------------------------------- |
    | **Nome gruppo di sincronizzazione** | Immettere un nome per il nuovo gruppo di sincronizzazione. Questo nome è distinto dal nome del database stesso. |
    | **Database dei metadati di sincronizzazione** | Scegliere di creare un database (scelta consigliata) o usare un database esistente.<br/><br/>Se si sceglie **Nuovo database**, selezionare **Crea nuovo database**. Nella pagina **Database SQL**, quindi, specificare un nome per il nuovo database, configurarlo e selezionare **OK**.<br/><br/>Se si sceglie **Usa database esistente**, selezionare il database dall'elenco. |
@@ -226,7 +225,7 @@ Per le domande frequenti sull'agente client, vedere [Domande frequenti sull'agen
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-A questo punto è stato creato un gruppo di sincronizzazione che include sia un'istanza di database SQL che un database SQL Server.
+Il visualizzatore è stato creato un gruppo di sincronizzazione che include sia un'istanza di database SQL che un database SQL Server.
 
 Per altre informazioni sulla sincronizzazione dati SQL, vedere:
 

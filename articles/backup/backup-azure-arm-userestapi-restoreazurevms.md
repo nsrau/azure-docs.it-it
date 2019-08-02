@@ -1,20 +1,21 @@
 ---
 title: "Backup di Azure: ripristinare le macchine virtuali di Azure con l'API REST"
 description: Gestire le operazioni di ripristino delle macchine virtuali di Backup di Azure con l'API REST
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: API REST, backup di macchine virtuali di Azure, ripristino di macchine virtuali di Azure;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 09/12/2018
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 1b2e7994fa52e8fcbbd4fa32a6203181ad9735e5
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 6525be97d9317791f39cb51a8fa819d38bd49c73
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466756"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689442"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Ripristinare le macchine virtuali di Azure con l'API REST
 
@@ -136,7 +137,7 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 
 Di seguito vengono indicati i componenti del corpo della richiesta necessari per attivare il ripristino di un disco da un backup di macchine virtuali di Azure.
 
-|Name  |Type  |Descrizione  |
+|Name  |Type  |DESCRIZIONE  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -170,7 +171,7 @@ L'attivazione di un disco di ripristino è un'[operazione asincrona](https://doc
 
 L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
-|Name  |Type  |Descrizione  |
+|NOME  |Type  |Descrizione  |
 |---------|---------|---------|
 |202 - Accettato     |         |     Accettato    |
 

@@ -1,5 +1,5 @@
 ---
-title: Configurare la replica in un database di istanza gestita di Database SQL di Azure | Microsoft Docs
+title: Configurare la replica in un database dell'istanza gestita di database SQL di Azure | Microsoft Docs
 description: Informazioni sulla configurazione della replica transazionale in un database dell'istanza gestita di database SQL di Azure
 services: sql-database
 ms.service: sql-database
@@ -10,39 +10,38 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
-manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: e4d056aacf8f3969b645747e2303574f3fea3bda
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 96571b55158733f8189ddf87402fb634330ca80d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357114"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570465"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configurare la replica in un database dell'istanza gestita di database SQL di Azure
 
 La replica transazionale consente di replicare i dati in un database dell'istanza gestita di database SQL di Azure da un database di SQL Server o da un altro database dell'istanza. 
 
-È possibile utilizzare anche la replica transazionale per il push delle modifiche apportate in un database dell'istanza in istanza gestita di Database SQL di Azure per:
+È anche possibile usare la replica transazionale per eseguire il push delle modifiche apportate in un database di istanza nell'istanza gestita di database SQL di Azure per:
 
-- Un database di SQL Server.
-- Un singolo database nel Database SQL di Azure.
-- Un database in pool in un pool elastico di Database SQL di Azure.
+- Un database SQL Server.
+- Un database singolo nel database SQL di Azure.
+- Un database in pool in un pool elastico del database SQL di Azure.
  
-La replica transazionale è in anteprima pubblica nel [istanza gestita di Database SQL di Azure](sql-database-managed-instance.md). Un'istanza gestita può ospitare database di pubblicazione, distribuzione e sottoscrittore. Per le configurazioni disponibili, vedere [Configurazioni di replica transazionale](sql-database-managed-instance-transactional-replication.md#common-configurations).
+La replica transazionale è in anteprima pubblica nell' [istanza gestita di database SQL di Azure](sql-database-managed-instance.md). Un'istanza gestita può ospitare database di pubblicazione, distribuzione e sottoscrittore. Per le configurazioni disponibili, vedere [Configurazioni di replica transazionale](sql-database-managed-instance-transactional-replication.md#common-configurations).
 
   > [!NOTE]
-  > Questo articolo è concepito come guida un utente di configurazione della replica con un Database di Azure per istanza gestita di dall'inizio alla fine, inizia con la creazione del gruppo di risorse. Se già gestito istanze distribuite, andare direttamente al [passaggio 4](#4---create-a-publisher-database) per creare il database del server di pubblicazione, o [passaggio 6](#6---configure-distribution) se già dispone di un database di pubblicazione e nel sottoscrittore e sono pronti per iniziare configurazione della replica.  
+  > Questo articolo ha lo scopo di guidare un utente nella configurazione della replica con un'istanza gestita di database di Azure da end-to-end, a partire dalla creazione del gruppo di risorse. Se sono già state distribuite istanze gestite, procedere con il [passaggio 4](#4---create-a-publisher-database) per creare il database del server di pubblicazione oppure il [passaggio 6](#6---configure-distribution) se si dispone già di un server di pubblicazione e di un database Sottoscrittore e si è pronti per iniziare la configurazione della replica.  
 
 ## <a name="requirements"></a>Requisiti
 
-Configurare un'istanza gestita per funzionare come un server di pubblicazione e/o un server di distribuzione sono necessari:
+La configurazione di un'istanza gestita per fungere da server di pubblicazione e/o da un server di distribuzione richiede:
 
 - L'istanza gestita non deve essere coinvolta in una relazione di replica geografica.
-- Che il server di pubblicazione l'istanza gestita è nella stessa rete virtuale come server di distribuzione e nel Sottoscrittore, oppure [peering reti virtuali](../virtual-network/tutorial-connect-virtual-networks-powershell.md) è stata stabilita tra le reti virtuali di tutte le tre entità. 
+- Che l'istanza gestita del server di pubblicazione si trovi nella stessa rete virtuale del server di distribuzione e nel Sottoscrittore oppure che sia stato stabilito il [peering vNet](../virtual-network/tutorial-connect-virtual-networks-powershell.md) tra le reti virtuali di tutte e tre le entità. 
 - Per la connettività viene usata l'autenticazione SQL tra i partecipanti alla replica.
 - Una condivisione di account di archiviazione di Azure per la directory di lavoro della replica.
-- Porta 445 (TCP in uscita) sia aperta nelle regole di sicurezza del gruppo sicurezza di rete per le istanze gestite di accedere alla condivisione file di Azure. 
+- La porta 445 (TCP in uscita) è aperta nelle regole di sicurezza di NSG per le istanze gestite per accedere alla condivisione file di Azure. 
 
 
  > [!NOTE]
@@ -54,40 +53,40 @@ Configurare un'istanza gestita per funzionare come un server di pubblicazione e/
 Supporta:
 
 - Combinazione di replica transazionale e replica snapshot di istanze locali e gestite di SQL Server nel database SQL di Azure.
-- I sottoscrittori possono trovarsi in database di SQL Server in locale, i database singola/managed istanze nel Database SQL di Azure o in pool di database nei pool elastici di Database SQL di Azure.
+- I sottoscrittori possono trovarsi in database SQL Server locali, in database singoli/istanze gestite nel database SQL di Azure o in pool di database in pool elastici del database SQL di Azure.
 - Replica unidirezionale o bidirezionale.
 
 In un'istanza gestita del database SQL di Azure non sono supportate le funzionalità seguenti:
 
 - [Sottoscrizioni aggiornabili](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication).
-- [Replica geografica attiva](sql-database-active-geo-replication.md) e [gruppi di failover automatico](sql-database-auto-failover-group.md) non deve essere usato se è configurata la replica transazionale.
+- Non usare la [replica geografica attiva](sql-database-active-geo-replication.md) e i [gruppi di failover automatico](sql-database-auto-failover-group.md) se è configurata la replica transazionale.
  
-## <a name="1---create-a-resource-group"></a>1 - creare un gruppo di risorse
+## <a name="1---create-a-resource-group"></a>1-creare un gruppo di risorse
 
-Usare la [portale di Azure](https://portal.azure.com) per creare un gruppo di risorse con il nome `SQLMI-Repl`.  
+Usare il [portale di Azure](https://portal.azure.com) per creare un gruppo di risorse con il `SQLMI-Repl`nome.  
 
-## <a name="2---create-managed-instances"></a>2 - creare le istanze gestite
+## <a name="2---create-managed-instances"></a>2-creare istanze gestite
 
-Usare la [portale di Azure](https://portal.azure.com) per creare due [istanze gestite](sql-database-managed-instance-create-tutorial-portal.md) sulla stessa rete virtuale e subnet. Le due istanze gestite devono essere denominate:
+Usare il [portale di Azure](https://portal.azure.com) per creare due [istanze gestite](sql-database-managed-instance-create-tutorial-portal.md) nella stessa rete virtuale e nella stessa subnet. Le due istanze gestite devono essere denominate:
 
 - `sql-mi-pub`
 - `sql-mi-sub`
 
-È necessario anche per [configurare una macchina virtuale di Azure per la connessione](sql-database-managed-instance-configure-vm.md) al Database SQL di Azure le istanze gestite. 
+Sarà anche necessario [configurare una macchina virtuale di Azure per la connessione](sql-database-managed-instance-configure-vm.md) alle istanze gestite del database SQL di Azure. 
 
-## <a name="3---create-azure-storage-account"></a>3 - creare Account di archiviazione di Azure
+## <a name="3---create-azure-storage-account"></a>3: creare un account di archiviazione di Azure
 
-[Creare un Account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) per la directory di lavoro e quindi creare un [condivisione file](../storage/files/storage-how-to-create-file-share.md) all'interno dell'account di archiviazione. 
+[Creare un account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) per la directory di lavoro e quindi creare una [condivisione file](../storage/files/storage-how-to-create-file-share.md) nell'account di archiviazione. 
 
-Copiare il percorso della condivisione file nel formato: `\\storage-account-name.file.core.windows.net\file-share-name`
+Copiare il percorso della condivisione file nel formato:`\\storage-account-name.file.core.windows.net\file-share-name`
 
-Copiare le chiavi di accesso di archiviazione nel formato: `DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
+Copiare le chiavi di accesso alle archiviazione nel formato:`DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
 
  Per altre informazioni, vedere [Gestire le chiavi di accesso alle risorse di archiviazione](../storage/common/storage-account-manage.md#access-keys). 
 
-## <a name="4---create-a-publisher-database"></a>4 - creare un database di pubblicazione
+## <a name="4---create-a-publisher-database"></a>4-creare un database del server di pubblicazione
 
-Connettersi al `sql-mi-pub` gestiti istanza utilizzando SQL Server Management Studio ed eseguire il seguente codice Transact-SQL (T-SQL) per creare il database del server di pubblicazione:
+Connettersi all' `sql-mi-pub` istanza gestita usando SQL Server Management Studio ed eseguire il codice Transact-SQL (T-SQL) seguente per creare il database del server di pubblicazione:
 
 ```sql
 USE [master]
@@ -119,9 +118,9 @@ SELECT * FROM ReplTest
 GO
 ```
 
-## <a name="5---create-a-subscriber-database"></a>5 - creare un database del sottoscrittore
+## <a name="5---create-a-subscriber-database"></a>5-creare un database Sottoscrittore
 
-Connettersi al `sql-mi-sub` gestiti istanza utilizzando SQL Server Management Studio ed eseguire il codice T-SQL seguente per creare il database del sottoscrittore vuoto:
+Connettersi all' `sql-mi-sub` istanza gestita usando SQL Server Management Studio ed eseguire il codice T-SQL seguente per creare il database del Sottoscrittore vuoto:
 
 ```sql
 USE [master]
@@ -140,9 +139,9 @@ CREATE TABLE ReplTest (
 GO
 ```
 
-## <a name="6---configure-distribution"></a>6: configurare la distribuzione
+## <a name="6---configure-distribution"></a>6-configurare la distribuzione
 
-Connettersi al `sql-mi-pub` gestiti istanza utilizzando SQL Server Management Studio ed eseguire il codice T-SQL seguente per configurare il database di distribuzione. 
+Connettersi all' `sql-mi-pub` istanza gestita usando SQL Server Management Studio ed eseguire il codice T-SQL seguente per configurare il database di distribuzione. 
 
 ```sql
 USE [master]
@@ -153,9 +152,9 @@ EXEC sp_adddistributiondb @database = N'distribution';
 GO
 ```
 
-## <a name="7---configure-publisher-to-use-distributor"></a>7: configurare i server di pubblicazione per l'utilizzo del server di distribuzione 
+## <a name="7---configure-publisher-to-use-distributor"></a>7-configurare Publisher per l'utilizzo del server di distribuzione 
 
-Nel server di pubblicazione istanza gestita `sql-mi-pub`, modificare l'esecuzione della query al [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) modalità ed eseguire il codice seguente per registrare il nuovo server di distribuzione con il server di pubblicazione. 
+Nell'istanza `sql-mi-pub`gestita del server di pubblicazione modificare l'esecuzione della query in modalità [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) ed eseguire il codice seguente per registrare il nuovo server di distribuzione nel server di pubblicazione. 
 
 ```sql
 :setvar username loginUsedToAccessSourceManagedInstance
@@ -175,11 +174,11 @@ EXEC sp_adddistpublisher
   @storage_connection_string = N'$(file_storage_key)'; -- Remove this parameter for on-premises publishers
 ```
 
-Questo script consente di configurare un server di pubblicazione locale sull'istanza gestita, aggiunge un server collegato e crea un set di processi di SQL Server Agent. 
+Questo script configura un server di pubblicazione locale nell'istanza gestita, aggiunge un server collegato e crea un set di processi per la SQL Server Agent. 
 
-## <a name="8---create-publication-and-subscriber"></a>8 - creare pubblicazione e sottoscrittore
+## <a name="8---create-publication-and-subscriber"></a>8-creare una pubblicazione e un Sottoscrittore
 
-Usando [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) modalità, eseguire lo script T-SQL seguente per abilitare la replica per il database e configurare la replica tra il server di pubblicazione, server di distribuzione e sottoscrittore. 
+Utilizzando la modalità [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) , eseguire lo script T-SQL seguente per abilitare la replica per il database e configurare la replica tra server di pubblicazione, server di distribuzione e Sottoscrittore. 
 
 ```sql
 -- Set variables
@@ -256,9 +255,9 @@ EXEC sp_startpublication_snapshot
   @publication = N'$(publication_name)';
 ```
 
-## <a name="9---modify-agent-parameters"></a>9 - modificare i parametri dell'agente
+## <a name="9---modify-agent-parameters"></a>9-modificare i parametri dell'agente
 
-Istanza gestita di Database SQL Azure si sono verificati alcuni problemi di back-end con la connettività con gli agenti di replica. Anche se il problema è indirizzata risolto, la soluzione alternativa per aumentare il valore di timeout di accesso per gli agenti di replica. 
+Istanza gestita di database SQL di Azure sta attualmente riscontrando problemi di back-end con la connettività con gli agenti di replica. Anche se il problema viene risolto, la soluzione alternativa per aumentare il valore di timeout di accesso per gli agenti di replica. 
 
 Eseguire il comando T-SQL seguente nel server di pubblicazione per aumentare il timeout di accesso: 
 
@@ -268,7 +267,7 @@ update msdb..sysjobsteps set command = command + N' -LoginTimeout 150'
 where subsystem in ('Distribution','LogReader','Snapshot') and command not like '%-LoginTimeout %'
 ```
 
-Eseguire il comando T-SQL seguente per impostare il timeout di accesso al valore predefinito, è necessario a questo scopo:
+Eseguire di nuovo il comando T-SQL seguente per impostare di nuovo il timeout di accesso sul valore predefinito, se necessario:
 
 ```sql
 -- Increase login timeout to 30
@@ -276,19 +275,19 @@ update msdb..sysjobsteps set command = command + N' -LoginTimeout 30'
 where subsystem in ('Distribution','LogReader','Snapshot') and command not like '%-LoginTimeout %'
 ```
 
-Riavviare tutti gli agenti di tre per applicare queste modifiche. 
+Riavviare tutti e tre gli agenti per applicare le modifiche. 
 
-## <a name="10---test-replication"></a>10: testare la replica
+## <a name="10---test-replication"></a>10-replica di test
 
-Dopo aver configurata la replica, è possibile testarla inserendo nuovi elementi disponibili nel server di pubblicazione e la visione le modifiche vengono propagate al sottoscrittore. 
+Una volta configurata la replica, è possibile eseguirne il test inserendo i nuovi elementi nel server di pubblicazione e osservando la propagazione delle modifiche al Sottoscrittore. 
 
-Eseguire il seguente frammento di T-SQL per visualizzare le righe nel Sottoscrittore:
+Eseguire il frammento di codice T-SQL seguente per visualizzare le righe nel Sottoscrittore:
 
 ```sql
 select * from dbo.ReplTest
 ```
 
-Eseguire il seguente frammento di T-SQL per inserire righe aggiuntive nel server di pubblicazione e quindi selezionare le righe nuovamente nel Sottoscrittore. 
+Eseguire il frammento di codice T-SQL seguente per inserire righe aggiuntive nel server di pubblicazione, quindi controllare di nuovo le righe nel Sottoscrittore. 
 
 ```sql
 INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
@@ -323,7 +322,7 @@ EXEC sp_dropdistributor @no_checks = 1
 GO
 ```
 
-È possibile pulire le risorse di Azure da [eliminare le risorse di istanza gestita dal gruppo di risorse](../azure-resource-manager/manage-resources-portal.md#delete-resources) e quindi eliminando il gruppo di risorse `SQLMI-Repl`. 
+È possibile eseguire la pulizia delle risorse di Azure eliminando [le risorse dell'istanza gestita dal gruppo di risorse](../azure-resource-manager/manage-resources-portal.md#delete-resources) e quindi eliminando il gruppo `SQLMI-Repl`di risorse. 
 
    
 ## <a name="see-also"></a>Vedere anche

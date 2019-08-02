@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7095992253fbbe5aafce1eab889965250f5d59a8
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 8216aee1c27fd5bcb722648aa6380044e1431452
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551382"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662483"
 ---
-# <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personalizzare le configurazioni di sicurezza del sistema operativo nel Centro sicurezza di Azure (anteprima)
+# <a name="customize-os-security-configurations-in-azure-security-center-retired"></a>Personalizzare le configurazioni di sicurezza del sistema operativo nel centro sicurezza di Azure (ritirata)
 
-Questa procedura dettagliata illustra come personalizzare le valutazioni delle configurazioni di sicurezza del sistema operativo nel Centro sicurezza di Azure.
+Questa procedura dettagliata illustra come personalizzare le valutazioni della configurazione della sicurezza del sistema operativo (anteprima) nel centro sicurezza di Azure.
 
 > [!NOTE]
-> La possibilità di personalizzare le configurazioni di sicurezza del sistema operativo verrà ritirata il 31 luglio 2019. Per altre informazioni e servizi alternativi, vedere [ritiro del Centro sicurezza di funzionalità (luglio 2019)](security-center-features-retirement-july2019.md#menu_securityconfigurations).
+> La possibilità di personalizzare le configurazioni di sicurezza del sistema operativo (funzionalità di anteprima) è stata ritirata il 31 luglio 2019. Per ulteriori informazioni e servizi alternativi, vedere [ritiro delle funzionalità del Centro sicurezza (luglio 2019)](security-center-features-retirement-july2019.md#menu_securityconfigurations).
 
 ## <a name="what-are-os-security-configurations"></a>Informazioni sulle configurazioni di sicurezza del sistema operativo
 
@@ -56,11 +56,11 @@ Per personalizzare la configurazione di sicurezza predefinita del sistema operat
 
 1.  Aprire il dashboard **Centro sicurezza**.
 
-2.  Nel riquadro sinistro, selezionare **Pricing Impo & stazioni**.
+2.  Nel riquadro sinistro selezionare **prezzi & impostazioni**.
 
     ![Elenco Criteri di sicurezza](media/security-center-customize-os-security-config/manual-provision.png)
 
-4. Selezionare la sottoscrizione applicabile e selezionare **modificare le configurazioni di sicurezza**.  
+4. Selezionare la sottoscrizione applicabile e selezionare **Modifica configurazioni di sicurezza**.  
 
     ![Finestra "Modifica le configurazioni della sicurezza"](media/security-center-customize-os-security-config/blade.png)
 
@@ -113,7 +113,7 @@ Ogni categoria ha il proprio set di attributi. È possibile modificare gli attri
 
     - Elenco di gruppi utenti consentiti, ad esempio: *Administrators*, *Backup Operators*
 
--   **state**: la stringa può contenere le opzioni *Disabled* o *Enabled*. Per questa versione, la stringa è tra maiuscole e minuscole.
+-   **state**: la stringa può contenere le opzioni *Disabled* o *Enabled*. Per questa versione, la stringa fa distinzione tra maiuscole e minuscole.
 
 Questi sono gli unici campi che possono essere configurati. In caso di violazione del formato o delle dimensioni del file, non sarà possibile salvare le modifiche. Si visualizza un messaggio di errore che informa che è necessario caricare un file di configurazione JSON valido.
 
@@ -291,10 +291,10 @@ Tutti i potenziali errori sono elencati nella tabella seguente:
 | BaselineRuleNotInPlace                   | La regola corrisponde a una regola predefinita con il tipo {0} ed è inclusa nell'elenco {1}.                                                                       |
 | BaselineRulePropertyTooLong              | La proprietà *{0}* è troppo lunga. Lunghezza massima consentita: {1}.                                                                                        |
 | BaselineRuleRegTypeInvalidError          | Il valore previsto *{0}* non corrisponde al tipo valore del registro definito.                                                              |
-| BaselineRulesetAdded                     | Il set di regole con l'identificatore *{0}* non è stato trovato nella configurazione predefinita. Il set di regole non può essere aggiunto.                                               |
+| BaselineRulesetAdded                     | Il set di regole con *{0}* l'identificatore non è stato trovato nella configurazione predefinita. Il set di regole non può essere aggiunto.                                               |
 | BaselineRulesetIdMustBeUnique            | Il set di regole di base specificato *{0}* deve essere univoco.                                                                                           |
-| BaselineRulesetNotFound                  | Il set di regole con identificatore *{0}* e il nome *{1}* non è stato trovato nella configurazione specificata. Il set di regole non può essere eliminato.                                |
-| BaselineRuleSourceNotMatch               | La regola con identificatore *{0}* è già definito.                                                                                                       |
+| BaselineRulesetNotFound                  | Il set di regole *{0}* con identificatore *{1}* e nome non è stato trovato nella configurazione specificata. Il set di regole non può essere eliminato.                                |
+| BaselineRuleSourceNotMatch               | La regola con identificatore *{0}* è già definita.                                                                                                       |
 | BaselineRuleTypeDoesntMatch              | Il tipo di regola predefinito è *{0}* .                                                                                                              |
 | BaselineRuleTypeDoesntMatchError         | Il tipo effettivo della regola è *{0}* , ma la proprietà *ruleType* è *{1}* .                                                                          |
 | BaselineRuleUnpermittedChangesError      | È consentito modificare solo le proprietà *expectedValue* e *state*.                                                                       |

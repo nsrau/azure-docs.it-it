@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 04/17/2019
-ms.openlocfilehash: 255f118d6dc6873364c2f8d4569e23c3e54ea83e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 38ecd7797452c9a16b859da921287b8026f0660d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66164324"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567787"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gestire la conservazione a lungo termine dei backup del database SQL di Azure
 
@@ -45,7 +44,7 @@ Le sezioni seguenti mostrano come usare il portale di Azure per configurare il p
 3. Al termine, fare clic su **Applica**.
 
 > [!IMPORTANT]
-> Quando si abilita un criterio di conservazione dei backup a lungo termine, potrebbe richiedere fino a 7 giorni per il backup prima di diventare visibile e disponibile per il ripristino. Per i dettagli di cadance backup con conservazione a lungo termine, vedere [conservazione backup a lungo termine](sql-database-long-term-retention.md).
+> Quando si Abilita un criterio di conservazione dei backup a lungo termine, potrebbe essere necessario attendere fino a 7 giorni prima che il primo backup diventi visibile e disponibile per il ripristino. Per informazioni dettagliate sul backup Cadance di LTR, vedere [conservazione dei backup a lungo termine](sql-database-long-term-retention.md).
 
 ### <a name="view-backups-and-restore-from-a-backup-using-azure-portal"></a>Visualizzare i backup e ripristinare da un backup usando il portale di Azure
 
@@ -79,7 +78,7 @@ Visualizzare i backup conservati per un database specifico con i criteri di cons
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Il modulo Azure PowerShell per Resource Manager è ancora supportato dal Database SQL di Azure, ma i progetti di sviluppo future è per il modulo Az.Sql. Per questi cmdlet, vedere [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRm sono sostanzialmente identici.
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
 
 Le sezioni seguenti illustrano come usare PowerShell per configurare la conservazione a lungo termine dei backup, visualizzare i backup nella risorsa di archiviazione di Azure SQL ed eseguire il ripristino da un backup nella risorsa di archiviazione di Azure SQL.
 
@@ -93,11 +92,11 @@ Per gestire i backup di conservazione a lungo termine, è necessario avere uno s
 
 Se è necessario un controllo più granulare, è possibile creare ruoli Controllo degli accessi in base al ruolo personalizzati e assegnarli nell'ambito **Sottoscrizione**. 
 
-Per la **Get-AzSqlDatabaseLongTermRetentionBackup** e **Restore-AzSqlDatabase** il ruolo deve avere le autorizzazioni seguenti:
+Per **Get-AzSqlDatabaseLongTermRetentionBackup** e **Restore-AzSqlDatabase** , il ruolo deve avere le autorizzazioni seguenti:
 
 Microsoft.Sql/locations/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/read
  
-Per la **Remove-AzSqlDatabaseLongTermRetentionBackup** il ruolo è necessario avere le autorizzazioni seguenti:
+Per **Remove-AzSqlDatabaseLongTermRetentionBackup,** il ruolo deve avere le autorizzazioni seguenti:
 
 Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
 

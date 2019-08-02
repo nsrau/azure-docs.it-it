@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: 7af43d24b03a4c548925bdca4189fd0524c701a4
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: bf89d419bcd97c276df35701bc4fd808f599094a
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341644"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637701"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK Java di Azure Cosmos DB per API SQL: note sulla versione e risorse
 > [!div class="op_single_selector"]
@@ -27,8 +27,8 @@ ms.locfileid: "67341644"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Provider di risorse REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Executor in blocco-.NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Executor in blocco-Java](sql-api-sdk-bulk-executor-java.md)
 
 SQL API Java SDK supporta operazioni sincrone. Per il supporto di operazioni asincrone, usare [SQL API Async Java SDK](sql-api-sdk-async-java.md). 
 
@@ -44,22 +44,22 @@ SQL API Java SDK supporta operazioni sincrone. Per il supporto di operazioni asi
 ## <a name="release-notes"></a>Note sulla versione
 
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
-* Correzione del bug in PartitionKey per la versione 2 Hash.
+* Correzione di un bug in PartitionKey per hash V2.
 
 ### <a name="a-name212212"></a><a name="2.1.2"/>2.1.2
-* Aggiunta del supporto per gli indici composti.
-* Correzione del bug nella console di gestione endpoint globale per forzare l'aggiornamento.
-* Correzione del bug per gli Upsert con pre-condizioni in modalità diretta.
+* Aggiunta del supporto per gli indici compositi.
+* Correzione del bug in Gestione endpoint globale per forzare l'aggiornamento.
+* Correzione del bug per Upsert con le condizioni preliminari in modalità diretta.
 
 ### <a name="a-name211211"></a><a name="2.1.1"/>2.1.1
-* Correzione del bug nella cache di indirizzo di gateway.
+* Correzione del bug nella cache degli indirizzi del gateway.
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Aggiunto il supporto per la scrittura in più aree per la modalità diretta.
 * Aggiunto il supporto per la gestione di IOExceptions generate come eccezioni ServiceUnavailable, da un proxy.
 * Risolto un bug nei criteri di ripetizione dei tentativi di individuazione degli endpoint.
 * Risolto un bug per assicurare che non vengano generate eccezioni del puntatore Null in BaseDatabaseAccountConfigurationProvider.
-* Risolto un bug per garantire che queryiterator non restituisce valori null.
+* Correzione di un bug per assicurarsi che QueryIterator non restituisca valori null.
 * Risolto un bug per garantire che sia consentito PartitionKey ampio
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
@@ -127,7 +127,7 @@ SQL API Java SDK supporta operazioni sincrone. Per il supporto di operazioni asi
 * Aggiunta del supporto per la modifica del feed.
 * Aggiunta del supporto per informazioni sulla quota della raccolta tramite RequestOptions.setPopulateQuotaInfo.
 * Aggiunta del supporto per la registrazione dello script della procedura archiviata tramite RequestOptions.setScriptLoggingEnabled.
-* Risolto un bug in cui query in modalità DirectHttps smetta di rispondere quando si verificano errori di limitazione.
+* Correzione di un bug in cui la query in modalità DirectHttps potrebbe smettere di rispondere quando si verificano errori di limitazione.
 * Risoluzione di un bug in modalità di coerenza di sessione.
 * Risoluzione di un bug che potrebbe causare l'eccezione NullReferenceException in HttpContext quando la frequenza delle richieste è elevata.
 * Miglioramento delle prestazioni della modalità DirectHttps.
@@ -215,7 +215,7 @@ Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte so
 Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal servizio.
 
 > [!WARNING]
-> Tutte le versioni **1.x** di SQL SDK per Java verrà ritirato **30 maggio 2020**.
+> Tutte le versioni **1. x** di SQL SDK per Java verranno ritirate il **30 maggio 2020**.
 > 
 >
 
@@ -228,10 +228,10 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
-| [2.1.3](#2.1.3) |13 marzo 2018 |--- |
-| [2.1.2](#2.1.2) |09 marzo 2018 |--- |
+| [2.1.3](#2.1.3) |13 marzo, 2018 |--- |
+| [2.1.2](#2.1.2) |9 mar 2018 |--- |
 | [2.1.1](#2.1.1) |13 dicembre 2018 |--- |
-| [2.1.0](#2.1.0) |Nov 20, 2018 |--- |
+| [2.1.0](#2.1.0) |20 nov, 2018 |--- |
 | [2.0.0](#2.0.0) |21 settembre 2018 |--- |
 | [1.16.4](#1.16.4) |10 settembre 2018 |30 maggio 2020 |
 | [1.16.3](#1.16.3) |9 settembre 2018 |30 maggio 2020 |

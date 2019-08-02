@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 083770c24a6c8939f8d1ff9f0efd5d18aff9dcb0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b425db761375c705d3c810002234a937bac46d78
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60487085"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610158"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory: considerazioni sulla sicurezza dello spostamento dei dati
 
@@ -50,7 +50,7 @@ In questo articolo vengono prese in esame le considerazioni sulla sicurezza nei 
 
 ## <a name="cloud-scenarios"></a>Scenari cloud
 ### <a name="securing-data-store-credentials"></a>Proteggere le credenziali dell'archivio dati
-Azure Data Factory protegge le credenziali dell'archivio dati **crittografandoli** con i **certificati gestiti da Microsoft**. Questi certificati ruotano ogni **due anni** (in questo arco temporale è compreso il rinnovo del certificato e la migrazione delle credenziali). Queste credenziali crittografate vengono archiviate in modo sicuro all'interno di un'**Archiviazione di Azure gestita dai servizi di gestione di Azure Data Factory**. Per altre informazioni sulla sicurezza di Archiviazione di Azure, vedere [Panoramica sulla sicurezza di Archiviazione di Azure](../../security/security-storage-overview.md).
+Azure Data Factory protegge le credenziali dell'archivio dati **crittografandoli** con i **certificati gestiti da Microsoft**. Questi certificati ruotano ogni **due anni** (in questo arco temporale è compreso il rinnovo del certificato e la migrazione delle credenziali). Queste credenziali crittografate vengono archiviate in modo sicuro all'interno di un'**Archiviazione di Azure gestita dai servizi di gestione di Azure Data Factory**. Per altre informazioni sulla sicurezza di Archiviazione di Azure, vedere [Panoramica sulla sicurezza di Archiviazione di Azure](../../security/fundamentals/storage-overview.md).
 
 ### <a name="data-encryption-in-transit"></a>Crittografia di dati in transito
 Se l'archivio dati cloud supporta HTTPS o TLS, tutti i trasferimenti di dati tra i servizi di spostamento dei dati in Data Factory e un archivio dati cloud avvengono tramite un canale TLS o HTTPS sicuro.
@@ -95,7 +95,7 @@ Le credenziali per gli archivi dati locali vengono salvate in locale (non nel cl
 - Usando **testo normale** (meno sicuro) tramite HTTPS dal portale di Azure/Copia guidata. Le credenziali vengono trasferite al gateway locale in testo normale.
 - Usando la **libreria JavaScript per la crittografia da Copia guidata**.
 - Usando l'**app di gestione delle credenziali basata su un solo clic**. L'applicazione con un solo clic viene eseguita nel computer locale che ha accesso al gateway e imposta le credenziali per l'archivio dati. Questa opzione e la successiva sono le opzioni più sicure. Per impostazione predefinita, l'app di gestione delle credenziali usa la porta 8050 nella macchina con il gateway per la comunicazione sicura.  
-- Uso [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue) cmdlet di PowerShell per crittografare le credenziali. Questo cmdlet consente di crittografare le credenziali mediante il certificato usato dal gateway. È possibile usare le credenziali crittografate restituite da questo cmdlet e aggiungerlo al **EncryptedCredential** elemento delle **connectionString** nel file JSON che si usa con la [ Nuovo AzDataFactoryLinkedService](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) cmdlet o nel frammento di codice JSON nell'Editor di Data Factory nel portale. Questa opzione e l'applicazione con un clic sono le opzioni più sicure. 
+- Usare il cmdlet di PowerShell [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue) per crittografare le credenziali. Questo cmdlet consente di crittografare le credenziali mediante il certificato usato dal gateway. È possibile usare le credenziali crittografate restituite da questo cmdlet e aggiungerlo all'elemento **EncryptedCredential** di **CONNECTIONSTRING** nel file JSON usato con il cmdlet [New-AzDataFactoryLinkedService](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) o nel frammento di codice JSON nel Data Factory Editor nel portale. Questa opzione e l'applicazione con un clic sono le opzioni più sicure. 
 
 #### <a name="javascript-cryptography-library-based-encryption"></a>Crittografia basata sulla libreria JavaScript per la crittografia
 È possibile crittografare le credenziali di archivio dati usando la [libreria JavaScript per la crittografia](https://www.microsoft.com/download/details.aspx?id=52439) da [Copia guidata](data-factory-copy-wizard.md). Quando si seleziona questa opzione, Copia guidata recupera la chiave pubblica del gateway e la usa per crittografare le credenziali dell'archivio dati. Le credenziali vengono decrittografate dal computer del gateway e protetta da Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx).
@@ -127,7 +127,7 @@ La rete virtuale è una rappresentazione logica della propria rete nel cloud. È
 
 La tabella seguente riassume i consigli di configurazione di rete e del gateway in base alle diverse combinazioni di percorsi di origine e destinazione per lo spostamento dei dati ibridi.
 
-| `Source` | Destination | Configurazione di rete | Configurazione del gateway |
+| Source | Destination | Configurazione di rete | Configurazione del gateway |
 | ------ | ----------- | --------------------- | ------------- | 
 | Locale | Servizi cloud e macchine virtuali distribuiti nelle reti virtuali | VPN IPSec (da punto a sito o da sito a sito) | Il gateway può essere installato in locale o in una VM di Azure nella VNet | 
 | Locale | Servizi cloud e macchine virtuali distribuiti nelle reti virtuali | ExpressRoute (peering privato) | Il gateway può essere installato in locale o in una macchina virtuale di Azure nella VNet | 
@@ -150,7 +150,7 @@ In un'azienda il **firewall aziendale** viene eseguito nel router centrale dell'
 
 La tabella seguente indica la **porta in uscita** e i requisiti di dominio per il **firewall aziendale**.
 
-| Nomi di dominio | Porte in uscita | Descrizione |
+| Nomi di dominio | Porte in uscita | DESCRIZIONE |
 | ------------ | -------------- | ----------- | 
 | `*.servicebus.windows.net` | 443, 80 | Richieste dal gateway per connettersi ai servizi di spostamento dei dati in Data Factory |
 | `*.core.windows.net` | 443 | Usata dal gateway per connettersi all'account di Archiviazione di Azure quando si usa la funzionalità di [ copia temporanea](data-factory-copy-activity-performance.md#staged-copy). | 

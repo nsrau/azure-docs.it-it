@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 84b93005941acf625d05a48f0df7b685e1bea0bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f64642d04504770415c0d2243ec77b44bde05f2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65785504"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566295"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Risoluzione delle differenze di Transact-SQL durante la migrazione al database SQL
 
@@ -85,7 +84,7 @@ Per altre informazioni sulla grammatica e l'uso di Transact-SQL e per alcuni ese
 
 Le informazioni di riferimento su Transact-SQL includono articoli correlati alle versioni di SQL Server dalla 2008 a quella attuale. Sotto il titolo dell'articolo è presente una barra di icone in cui sono elencate le quattro piattaforme SQL Server e la relativa applicabilità. Ad esempio, i gruppi di disponibilità sono stati introdotti in SQL Server 2012. L'articolo  [CREATE AVAILABILITY GROUP](https://msdn.microsoft.com/library/ff878399.aspx)  indica che l'istruzione si applica a  **SQL Server (a partire dalla versione 2012)** . L'istruzione non si applica a SQL Server 2008, SQL Server 2008 R2, Database SQL di Azure, Azure SQL Data Warehouse o Parallel Data Warehouse.
 
-In alcuni casi, il tema generale di un articolo può essere usato in un prodotto, ma esistono differenze minime tra prodotti. Le differenze sono indicate in punti centrali nell'articolo come appropriato. In alcuni casi, il tema generale di un articolo può essere usato in un prodotto, ma esistono differenze minime tra prodotti. Le differenze sono indicate in punti centrali nell'articolo come appropriato. Ad esempio l'articolo CREATE TRIGGER è disponibile nel database SQL. Tuttavia, l'opzione **ALL SERVER** per i trigger a livello di server indica che i trigger a livello di server non possono essere usati nel database SQL. Usare i trigger a livello di database.
+In alcuni casi, l'oggetto generale di un articolo può essere usato in un prodotto, ma esistono differenze minime tra i prodotti. Le differenze sono indicate in punti centrali nell'articolo come appropriato. In alcuni casi, l'oggetto generale di un articolo può essere usato in un prodotto, ma esistono differenze minime tra i prodotti. Le differenze sono indicate in punti centrali nell'articolo come appropriato. Ad esempio l'articolo CREATE TRIGGER è disponibile nel database SQL. Tuttavia, l'opzione **ALL SERVER** per i trigger a livello di server indica che i trigger a livello di server non possono essere usati nel database SQL. Usare i trigger a livello di database.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

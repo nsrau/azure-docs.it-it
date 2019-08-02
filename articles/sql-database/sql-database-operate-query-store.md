@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 3ceb8569d952f2947870ce7314f869623b2d87f9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b4f999818fe3b3517ee3fb48c22e616ee50f2d88
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60584744"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567148"
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>Uso dell'archivio query nel database SQL di Azure
 
@@ -32,7 +31,7 @@ Archivio query è [disponibile a livello globale](https://azure.microsoft.com/up
 
 Questa sezione descrive impostazioni di configurazione predefinite ottimali progettate per garantire un funzionamento affidabile dell'archivio query e delle funzionalità dipendenti, come indicato nell'articolo [Advisor per database SQL e dashboard delle prestazioni](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). La configurazione predefinita è ottimizzata per la raccolta di dati continua, ossia per un tempo minimo di OFF/READ_ONLY.
 
-| Configurazione | Descrizione | Predefinito | Commento |
+| Configurazione | DESCRIZIONE | Predefinito | Commento |
 | --- | --- | --- | --- |
 | MAX_STORAGE_SIZE_MB |Specifica il limite per lo spazio dati che Query Store occupa all'interno del database del cliente |100 |Applicato per i nuovi database |
 | INTERVAL_LENGTH_MINUTES |Definisce la dimensione dell'intervallo di tempo durante il quale le statistiche di runtime raccolte per i piani di query vengono aggregate e rese persistenti. Tutti i piani di query attivi hanno al massimo una riga per un periodo di tempo definito con questa configurazione |60 |Applicato per i nuovi database |

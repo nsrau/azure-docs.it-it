@@ -2,28 +2,28 @@
 title: Comprendere la fattura di Azure
 description: Informazioni su come leggere e comprendere l'utilizzo e la fatturazione per la sottoscrizione di Azure.
 author: bandersmsft
-manager: jureid
+manager: dougeby
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/22/2019
+ms.date: 07/28/2019
 ms.author: banders
-ms.openlocfilehash: 69659e700ee47c8961ec21f0fb23573e13d72588
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 51143644a62a77a61c4540d9f2ad3dce401c496b
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383623"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610127"
 ---
 # <a name="understand-your-microsoft-azure-bill"></a>Informazioni sulla fattura Microsoft Azure
 Per comprendere la fattura di Azure, confrontare la fattura con il file di utilizzo giornaliero dettagliato e con i report di gestione dei costi nel portale di Azure.
 
-Questo articolo non si applica ai clienti di Azure con Contratto Enterprise (clienti EA). Per i clienti con contratto Enterprise, vedere [comprendere la fattura per i clienti di Azure con un Enterprise Agreement](billing-understand-your-bill-ea.md).
-
-Questo articolo non si applica ai clienti di Azure con un contratto per i clienti [Microsoft](#check-access-to-a-microsoft-customer-agreement). Se si dispone di un contratto per i clienti Microsoft, vedere [informazioni sugli addebiti di Azure per la fattura del contratto clienti Microsoft](billing-mca-understand-your-bill.md).
+Questo articolo non si applica ai clienti seguenti:
+- Clienti di Azure con un Enterprise Agreement (clienti EA). Per i clienti con contratto Enterprise, vedere [comprendere la fattura per i clienti di Azure con un Enterprise Agreement](billing-understand-your-bill-ea.md).
+- Clienti di Azure con un contratto per i [clienti Microsoft](#check-access-to-a-microsoft-customer-agreement). Se si dispone di un contratto per i clienti Microsoft, vedere [informazioni sugli addebiti di Azure per la fattura del contratto clienti Microsoft](billing-mca-understand-your-bill.md).
 
 Per una spiegazione sul funzionamento della fatturazione nel programma Azure Cloud Solution Provider (Azure CSP), inclusi ciclo di fatturazione, prezzi e utilizzo, vedere [Panoramica della fatturazione di Azure CSP](/azure/cloud-solution-provider/billing/azure-csp-billing-overview/).
 
@@ -42,7 +42,7 @@ Gli addebiti relativi all'utilizzo vengono visualizzati a livello di contatore. 
  | Fattura (PDF) | Dettagli di utilizzo (CSV)|
  | --- | --- |
 |Ciclo di fatturazione | Periodo di fatturazione |
- |Name |Categoria misuratore |
+ |NOME |Categoria misuratore |
  |Type |Sottocategoria contatore |
  |Risorsa |Nome misuratore |
  |Region |Area a consumo |
@@ -88,7 +88,7 @@ Per altre informazioni, vedere [Evitare costi imprevisti con la gestione dei cos
 
 ## <a name="external"></a>Servizi esterni fatturati separatamente
 
-I servizi esterni, o addebiti per Marketplace, si riferiscono alle risorse che sono state create dai fornitori di software di terze parti e sono disponibili per l'uso tramite Marketplace. Ad esempio, un firewall Barracuda è una risorsa di Marketplace offerta da terze parti. Tutti gli addebiti per il firewall e i relativi contatori corrispondenti verranno visualizzati come addebiti per servizi esterni.
+I servizi esterni o gli addebiti per il Marketplace sono destinati a risorse create da fornitori di software di terze parti. Queste risorse sono disponibili per l'uso da Azure Marketplace. Ad esempio, un Firewall Barracuda è una risorsa di Azure Marketplace offerta da terze parti. Tutti gli addebiti per il firewall e i relativi contatori corrispondenti verranno visualizzati come addebiti per servizi esterni.
 
 Gli addebiti per i servizi esterni vengono fatturati separatamente. Questi addebiti non compaiono nella fattura di Azure. Per altre informazioni, vedere [Informazioni sugli addebiti per i servizi esterni](billing-understand-your-azure-marketplace-charges.md).
 
@@ -130,7 +130,7 @@ Per verificare lo stato del pagamento, [creare un ticket di supporto](https://po
   - [Calcolatore prezzi di Azure](https://azure.microsoft.com/pricing/calculator/)
   - [Calcolatore del costo totale di proprietà](https://aka.ms/azure-tco-calculator)
   - [Informazioni dettagliate sui prezzi di ogni servizio](https://azure.microsoft.com/pricing/)
-- [Controllare regolarmente utilizzo e costi nel portale di Azure](billing-getting-started.md#costs).
+- [Esaminare regolarmente l'utilizzo e i costi nell'portale di Azure](billing-getting-started.md#costs)
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Controllare l'accesso a un contratto per i clienti Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]

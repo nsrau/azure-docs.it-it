@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 06/26/2019
-ms.openlocfilehash: 4e63e1e477ce82221e5121815b609326cc2c1112
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b84e317745b7bd20f4862bd04584e42254a660d1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447176"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566187"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Limiti delle risorse per i pool elastici secondo il modello di acquisto basato su vCore
 
@@ -31,7 +30,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 È possibile impostare il livello di servizio, le dimensioni di calcolo e lo spazio di archiviazione mediante il [portale di Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), l'[interfaccia della riga di comando di Azure](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) o l'[API REST](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 
 > [!IMPORTANT]
-> Per la scalabilità indicazioni e considerazioni, vedere [ridimensionare un pool elastico](sql-database-elastic-pool-scale.md)
+> Per indicazioni e considerazioni sulla scalabilità, vedere [ridimensionare un pool elastico](sql-database-elastic-pool-scale.md)
 > [!NOTE]
 > I limiti di risorse di singoli database nei pool elastici sono in genere gli stessi di quelli per i database singoli al di fuori dei pool che hanno le stesse dimensioni di calcolo. Ad esempio, il numero massimo di ruoli di lavoro simultanei per un database GP_Gen4_1 è 200. Di conseguenza, anche il numero massimo di ruoli di lavoro per un database in un pool GP_Gen4_1 è 200. Si noti che il numero totale di ruoli di lavoro simultanei in un pool GP_Gen4_1 è 210.
 
@@ -56,9 +55,9 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Target IOPS (64 KB)|500|1000|1500|2000|2500|3000|
-|Registrare i limiti di velocità (MBps)|4.6875|9.375|14.0625|18.75|23.4375|28.125|
+|Limiti di velocità del log (MBps)|4,6875|9,375|14,0625|18,75|23,4375|28,125|
 |Numero massimo di ruoli di lavoro simultanei per pool (richieste) * |210|420|630|840|1050|1260|
-|Numero massimo di accessi simultanei per ogni pool * |210|420|630|840|1050|1260|
+|Numero massimo di accessi simultanei per pool * |210|420|630|840|1050|1260|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|
 |Numero minimo/massimo di opzioni vCore del pool elastico per database|0, 0,25, 0,5, 1|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1...3|0, 0,25, 0,5, 1...4|0, 0,25, 0,5, 1...5|0, 0,25, 0,5, 1...6|
 |Numero di repliche|1|1|1|1|1|1|
@@ -84,9 +83,9 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Target IOPS (64 KB)|3500|4000|4500|5000|7000|7000|
-|Registrare i limiti di velocità (MBps)|32.8125|37.5|37.5|37.5|37.5|37.5|
+|Limiti di velocità del log (MBps)|32,8125|37,5|37,5|37,5|37,5|37,5|
 |Numero massimo di ruoli di lavoro simultanei per pool (richieste) *|1470|1680|1890|2100|3360|5040|
-|Pool di numero massimo di accessi simultanei (richieste) *|1470|1680|1890|2100|3360|5040|
+|Numero massimo di accessi simultanei (richieste) *|1470|1680|1890|2100|3360|5040|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|
 |Numero minimo/massimo di opzioni vCore del pool elastico per database|0, 0,25, 0,5, 1...7|0, 0,25, 0,5, 1...8|0, 0,25, 0,5, 1...9|0, 0,25, 0,5, 1...10|0, 0,25, 0,5, 1...10, 16|0, 0,25, 0,5, 1...10, 16, 24|
 |Numero di repliche|1|1|1|1|1|1|
@@ -112,7 +111,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Target IOPS (64 KB)|1000|2000|3000|4000|5000|6000|7000|
-|Registrare i limiti di velocità (MBps)|4.6875|9.375|14.0625|18.75|23.4375|28.125|32.8125|
+|Limiti di velocità del log (MBps)|4,6875|9,375|14,0625|18,75|23,4375|28,125|32,8125|
 |Numero massimo di ruoli di lavoro simultanei per pool (richieste) *|210|420|630|840|1050|1260|1470|
 |Numero massimo di accessi simultanei per pool (richieste) *|210|420|630|840|1050|1260|1470|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|30000|
@@ -140,7 +139,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Target IOPS (64 KB)|7000|7000|7000|7000|7000|7000|7000|
-|Registrare i limiti di velocità (MBps)|37.5|37.5|37.5|37.5|37.5|37.5|37.5|
+|Limiti di velocità del log (MBps)|37,5|37,5|37,5|37,5|37,5|37,5|37,5|
 |Numero massimo di ruoli di lavoro simultanei per pool (richieste) *|1680|1890|2100|2520|33600|4200|8400|
 |Numero massimo di accessi simultanei per pool (richieste) *|1680|1890|2100|2520|33600|4200|8400|
 |Numero minimo/massimo di opzioni vCore del pool elastico per database|0, 0,25, 0,5, 1...16|0, 0,25, 0,5, 1...18|0, 0,25, 0,5, 1...20|0, 0,25, 0,5, 1...20, 24|0, 0,25, 0,5, 1...20, 24, 32|0, 0,25, 0,5, 1...16, 24, 32, 40|0, 0,25, 0,5, 1...16, 24, 32, 40, 80|
@@ -172,7 +171,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Dimensioni di TempDB (GB)|32|64|96|128|160|192|
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
 |Target IOPS (64 KB)|5000|10000|15000|20000|25000|30000|
-|Registrare i limiti di velocità (MBps)|10|20|30|40|50|60|
+|Limiti di velocità del log (MBps)|10|20|30|40|50|60|
 |Numero massimo di ruoli di lavoro simultanei per pool (richieste) *|210|420|630|840|1050|1260|
 |Numero massimo di accessi simultanei per pool (richieste) *|210|420|630|840|1050|1260|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|
@@ -200,7 +199,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Dimensioni di TempDB (GB)|224|256|288|320|384|384|
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
 |Target IOPS (64 KB)|35000|40000|45000|50000|80000|120000|
-|Registrare i limiti di velocità (MBps)|70|80|80|80|80|80|
+|Limiti di velocità del log (MBps)|70|80|80|80|80|80|
 |Numero massimo di ruoli di lavoro simultanei per pool (richieste) *|1470|1680|1890|2100|3360|5040|
 |Numero massimo di accessi simultanei per pool (richieste) *|1470|1680|1890|2100|3360|5040|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|
@@ -228,7 +227,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
 |Target IOPS (64 KB)|5000|10000|15000|20000|25000|30000|35000|
-|Registrare i limiti di velocità (MBps)|15|30|45|60|75|90|105|
+|Limiti di velocità del log (MBps)|15|30|45|60|75|90|105|
 |Numero massimo di ruoli di lavoro simultanei per pool (richieste) *|210|420|630|840|1050|1260|1470|
 |Numero massimo di accessi simultanei per pool (richieste) *|210|420|630|840|1050|1260|1470|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|30000|
@@ -256,7 +255,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
 |Target IOPS (64 KB)|40000|45000|50000|60000|80000|100000|200000|
-|Registrare i limiti di velocità (MBps)|120|120|120|120|120|120|120|
+|Limiti di velocità del log (MBps)|120|120|120|120|120|120|120|
 |Numero massimo di ruoli di lavoro simultanei per pool (richieste) *|1680|1890|2100|2520|3360|4200|8400|
 |Numero massimo di accessi simultanei per pool (richieste) *|1680|1890|2100|2520|3360|4200|8400|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|30000|

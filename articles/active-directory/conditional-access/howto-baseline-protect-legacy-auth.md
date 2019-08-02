@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a313240685e539b613dee1c7ff8bd56bb24eb2ba
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 91cc2707034eabf85afae70278f2448b77d3ee14
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227313"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608079"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Criteri di base: Blocca autenticazione legacy (anteprima)
 
@@ -117,5 +117,5 @@ Per abilitare questo criterio e proteggere l'organizzazione:
 Per altre informazioni, vedere:
 
 * [Criteri di protezione di base per l'accesso condizionale](concept-baseline-protection.md)
-* [Cinque passaggi per proteggere l'infrastruttura di identità](../../security/azure-ad-secure-steps.md)
+* [Cinque passaggi per proteggere l'infrastruttura di identità](../../security/fundamentals/steps-secure-identity.md)
 * [Che cos'è l'accesso condizionale in Azure Active Directory?](overview.md)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 286c5850400242224e710a7883d3d3dc175cef12
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: bee8c1d2a1cd313c7fe59d8e53379dc57554e98c
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273213"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618580"
 ---
 # <a name="duplicate-detection"></a>Rilevamento duplicati
 
@@ -37,9 +37,9 @@ Per un processo di business in cui vengono inviati più messaggi durante la gest
 Il *MessageId* può sempre essere un GUID, ma ancorare l'identificatore al processo di business garantisce una ripetibilità prevedibile, necessaria per sfruttare la funzionalità di rilevamento dei duplicati in modo efficace.
 
 > [!NOTE]
-> Se è abilitato il rilevamento dei duplicati e chiave di partizione o ID di sessione non sono impostate, l'ID del messaggio viene utilizzato come chiave di partizione. Se l'ID del messaggio non è impostata, le librerie .NET e AMQP generano automaticamente un ID di messaggio per il messaggio. Per altre informazioni, vedere [uso di chiavi di partizione](service-bus-partitioning.md#use-of-partition-keys).
+> Se il rilevamento dei duplicati è abilitato e l'ID di sessione o la chiave di partizione non sono impostati, l'ID del messaggio viene usato come chiave di partizione. Se anche l'ID del messaggio non è impostato, le librerie .NET e AMQP generano automaticamente un ID di messaggio per il messaggio. Per altre informazioni, vedere [uso delle chiavi di partizione](service-bus-partitioning.md#use-of-partition-keys).
 
-## <a name="enable-duplicate-detection"></a>Abilitare il rilevamento dei duplicati
+## <a name="enable-duplicate-detection"></a>Abilita rilevamento duplicati
 
 Nel portale la funzionalità si attiva durante la creazione di entità tramite la casella di controllo **Abilita rilevamento duplicati**, che per impostazione predefinita è deselezionata. L'impostazione per la creazione di nuovi argomenti è equivalente.
 

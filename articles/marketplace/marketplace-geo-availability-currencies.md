@@ -1,24 +1,24 @@
 ---
-title: Disponibilità a livello geografico e supporto per la valuta | Azure
-description: Disponibilità a livello geografico in Azure Marketplace e AppSource
+title: Disponibilità geografica e supporto della valuta | Azure
+description: Disponibilità geografica in Azure Marketplace e AppSource
 services: Azure, Marketplace, Compute, Storage, Networking
 author: qianw211
 ms.service: marketplace
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: ellacroi
-ms.openlocfilehash: 215a15da2868a4543ba1108899981f40f7bf4e07
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 344479a270119137a256620304d88f139d0b0322
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938266"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619975"
 ---
-# <a name="geographic-availability-and-currency-support"></a>Disponibilità a livello geografico e supporto per la valuta
+# <a name="geographic-availability-and-currency-support"></a>Disponibilità geografica e supporto della valuta
 
-Le offerte di Azure Marketplace possono essere acquistate in aree 141 geografiche come definito dall'indirizzo di fatturazione del cliente e le transazioni possono essere completate in 17 valute. Posizione geografica, è supportata la tabella seguente vengono elencati tutti relativi [il codice ISO 3166 a due cifre alfa](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)e la valuta assegnata.
+Le offerte di Azure Marketplace e AppSource possono essere acquistate in aree geografiche 141 come definito dall'indirizzo di fatturazione del cliente e le transazioni possono essere completate in 17 valute. Nella tabella seguente sono elencate tutte le posizioni geografiche supportate, il [codice alfa ISO 3166 2 cifre](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)e la valuta assegnata.
 
-|   Nome di paese/area geografica               |   ISO-2   |   Currency   |
+|   Nome del paese/area geografica               |   ISO-2   |   Currency   |
 |-------------------------------------|-----------|--------------|
 | Afghanistan                         | AF        | USD          |
 | Albania                             | AL        | USD          |
@@ -46,23 +46,23 @@ Le offerte di Azure Marketplace possono essere acquistate in aree 141 geografich
 | Camerun                            | CM        | USD          |
 | Canada                              | CA        | CAD          |
 | Cabo Verde                          | CV        | USD          |
-| Isole Cayman                      | KY        | USD          |
+| Cayman                      | KY        | USD          |
 | Cile                               | CL        | USD          |
 | Colombia                            | CO        | USD          |
 | Costa Rica                          | CR        | USD          |
-| Côte d’Ivoire (Costa d'Avorio)                       | CI        | USD          |
+| Côte d'Ivoire (Costa d'Avorio)                       | CI        | USD          |
 | Croazia                             | HR        | EUR          |
 | Curaçao                             | CW        | USD          |
 | Cipro                              | CY        | EUR          |
-| Repubblica ceca                      | CZ        | EUR          |
+| Ceca, Repubblica                      | CZ        | EUR          |
 | Danimarca                             | DK        | DKK          |
-| Repubblica dominicana                  | DO        | USD          |
+| Dominicana, Repubblica                  | DO        | USD          |
 | Ecuador                             | EC        | USD          |
 | Egitto                               | EG        | USD          |
 | El Salvador                         | SV        | USD          |
 | Estonia                             | EE        | EUR          |
 | Etiopia                            | ET        | USD          |
-| Isole Fær Øer                       | FO        | DKK          |
+| Fær Øer                       | FO        | DKK          |
 | Figi                                | FJ        | AUD          |
 | Finlandia                             | FI        | EUR          |
 | Francia                              | VF        | EUR          |
@@ -76,7 +76,7 @@ Le offerte di Azure Marketplace possono essere acquistate in aree 141 geografich
 | Ungheria                             | HU        | EUR          |
 | Islanda                             | IS        | EUR          |
 | India                               | IN        | INR          |
-| Indonesia                           | ID        | USD          |
+| Indonesia                           | id        | USD          |
 | Iraq                                | IQ        | USD          |
 | Irlanda                             | IE        | EUR          |
 | Israele                              | IL        | USD          |
@@ -86,7 +86,7 @@ Le offerte di Azure Marketplace possono essere acquistate in aree 141 geografich
 | Giordania                              | JO        | USD          |
 | Kazakhstan                          | KZ        | USD          |
 | Kenya                               | KE        | USD          |
-| Corea (sud)                       | KR        | KRW          |
+| Corea (Sud)                       | KR        | KRW          |
 | Kuwait                              | KW        | USD          |
 | Kirghizistan                          | KG        | USD          |
 | Lettonia                              | LV        | EUR          |
@@ -106,7 +106,7 @@ Le offerte di Azure Marketplace possono essere acquistate in aree 141 geografich
 | Mongolia                            | MN        | USD          |
 | Montenegro                          | ME        | USD          |
 | Marocco                             | MA        | USD          |
-| Namibia                             | NA        | USD          |
+| Namibia                             | ND        | USD          |
 | Nepal                               | NP        | USD          |
 | Paesi Bassi                         | NL        | EUR          |
 | Nicaragua                           | NI        | USD          |
@@ -134,7 +134,7 @@ Le offerte di Azure Marketplace possono essere acquistate in aree 141 geografich
 | Singapore                           | SG        | USD          |
 | Slovacchia                            | SK        | EUR          |
 | Slovenia                            | SI        | EUR          |
-| Sud Africa                        | ZA        | USD          |
+| Sudafrica                        | ZA        | USD          |
 | Spagna                               | ES        | EUR          |
 | Sri Lanka                           | LK        | USD          |
 | Svezia                              | SE        | SEK          |
@@ -147,7 +147,7 @@ Le offerte di Azure Marketplace possono essere acquistate in aree 141 geografich
 | Tunisia                             | TN        | USD          |
 | Turchia                              | TR        | USD          |
 | Turkmenistan                        | TM        | USD          |
-| Città del Vaticano (Santa)             | VA        | EUR          |
+| Città del Vaticano (Santa Sede)             | VA        | EUR          |
 | Isole Vergini Americane | VI        | USD          |
 | Uganda                              | UG        | USD          |
 | Ucraina                             | UA        | USD          |
@@ -163,4 +163,4 @@ Le offerte di Azure Marketplace possono essere acquistate in aree 141 geografich
 | Zimbabwe                            | ZW        | USD          |
 |   |   |   |
 
-\* Per i clienti in Brasile, Marketplace tramite Cloud Solution Provider (CSP) Usa USD.
+\*Per i clienti in Brasile, il Marketplace tramite Cloud Solution Provider (CSP) USA USD.

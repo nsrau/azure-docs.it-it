@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 462625ce61f4538aa0769667648e07cc6307cbb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c38b11ceda010c122e17a7fad3df1684e0a1cf42
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61023611"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68696281"
 ---
 # <a name="manage-database-roles-and-users"></a>Gestire ruoli del database e utenti
 
@@ -26,10 +26,10 @@ Le autorizzazioni di ruoli includono:
 *  **Elabora**: utenti che possono connettersi ed eseguire operazioni di elaborazione nel database e analizzare i dati del database modello.
 *  **Lettura**: utenti che possono usare un'applicazione client per connettersi e analizzare i dati del database modello.
 
-Quando si crea un progetto di modello tabulare, si creano ruoli e si aggiungono utenti o gruppi a questi ruoli usando Gestione ruoli in SSDT. Quando si esegue la distribuzione in un server, si usano SQL Server Management Studio (SSMS), [i cmdlet di PowerShell per Analysis Services](/sql/analysis-services/powershell/analysis-services-powershell-reference) o [Tabular Model Scripting Language](https://msdn.microsoft.com/library/mt614797.aspx) (TMSL) per aggiungere o rimuovere ruoli e membri utente.
+Quando si crea un progetto di modello tabulare, è possibile creare ruoli e aggiungere utenti o gruppi a tali ruoli utilizzando Gestione ruoli in SQL Server Data Tools (SSDT). Quando si esegue la distribuzione in un server, si usano SQL Server Management Studio (SSMS), [Analysis Services cmdlet di PowerShell](/sql/analysis-services/powershell/analysis-services-powershell-reference)o TMSL ( [Tabular Model Scripting Language](https://msdn.microsoft.com/library/mt614797.aspx) ) per aggiungere o rimuovere ruoli e membri utente.
 
-> [!NOTE]
-> La proprietà `MailEnabled` dei gruppi di sicurezza deve essere impostata su `True`.
+I **gruppi di sicurezza** devono essere abilitati per la [posta elettronica](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) con la `MailEnabled` proprietà impostata su. `True` Quando si specifica un gruppo in base all' `obj:groupid@tenantid`indirizzo di posta elettronica, usare.
+
 
 ## <a name="to-add-or-manage-roles-and-users-in-ssdt"></a>Per aggiungere o gestire ruoli e utenti in SSDT  
   
@@ -43,7 +43,7 @@ Quando si crea un progetto di modello tabulare, si creano ruoli e si aggiungono 
   
 4.  Selezionare una delle seguenti autorizzazioni:  
   
-    |Autorizzazione|Descrizione|  
+    |Autorizzazioni|DESCRIZIONE|  
     |----------------|-----------------|  
     |**Nessuno**|I membri non possono modificare lo schema del modello e non possono eseguire query sui dati.|  
     |**Lettura**|I membri possono eseguire query su dati, in base ai filtri di riga, ma non possono modificare lo schema del modello.|  
@@ -72,7 +72,7 @@ Per aggiungere ruoli e utenti a un database modello distribuito, è necessario c
 
 3. Selezionare un'autorizzazione.
 
-   |Autorizzazione|Descrizione|  
+   |Autorizzazioni|DESCRIZIONE|  
    |----------------|-----------------|  
    |**Controllo completo (amministratore)**|I membri possono modificare lo schema del modello, eseguire operazioni di elaborazione e query su tutti i dati.| 
    |**Elabora database**|I membri possono eseguire operazioni Elabora ed Elabora tutto. Non possono modificare lo schema del modello ed eseguire query sui dati.|  
@@ -80,7 +80,7 @@ Per aggiungere ruoli e utenti a un database modello distribuito, è necessario c
   
 4. Fare clic su **Appartenenza**, quindi immettere un utente o un gruppo nel tenant di Azure AD dall'indirizzo e-mail.
 
-     ![Add user](./media/analysis-services-database-users/aas-roles-adduser-ssms.png)
+     ![Aggiungi utente](./media/analysis-services-database-users/aas-roles-adduser-ssms.png)
 
 5. Se il ruolo che si sta creando dispone dell'autorizzazione Lettura, è possibile aggiungere filtri di riga usando una formula DAX. Fare clic su **Filtri di riga**, selezionare una tabella e quindi digitare una formula DAX nel campo **Filtro DAX**. 
 

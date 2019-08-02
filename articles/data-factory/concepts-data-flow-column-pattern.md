@@ -6,21 +6,24 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 076c3318a68a50e6bd1b4f9f2a4a4b9a034533c6
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 8f1fa6f7823c643278e52ffd0faa1c0ce4972ef8
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68346580"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640244"
 ---
-# <a name="azure-data-factory-mapping-data-flows-column-patterns"></a>Modelli di colonna di flussi di dati di Azure data factory mapping
+# <a name="mapping-data-flows-column-patterns"></a>Mapping dei flussi di dati modelli di colonna
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 Diverse trasformazioni del flusso di dati di Azure Data Factory supportano il concetto di "Criteri delle colonne" in modo che sia possibile creare colonne modello basate su criteri anziché su nomi di colonna impostati come hardcoded. Questa funzionalità può essere utilizzata all'interno del generatore di espressioni per definire i modelli corrispondenti alle colonne per la trasformazione, anziché richiedere nomi di campo esatti e specifici. I modelli sono utili se i campi di origine in ingresso cambiano spesso, in particolare in caso di modifica delle colonne nei file di testo o nei database NoSQL. Questa condizione viene a volte definita "Drift schema".
 
+Questa gestione "Schema flessibile" è attualmente disponibile nella colonna derivata e nelle trasformazioni di aggregazione, nonché nelle trasformazioni selezione e sink come "mapping basato su regole".
+
 ![criteri della colonna](media/data-flow/columnpattern2.png "Criteri della colonna")
 
+## <a name="column-patterns"></a>Criteri delle colonne
 I criteri della colonna sono utili per gestire sia gli scenari Deviazione schema sia gli scenari generici. Sono consigliabili per le condizioni in cui non è possibile conoscere tutti i nomi della colonna. È possibile creare criteri di corrispondenza sul nome della colonna e sul tipo di dati della colonna, che eseguirà l'operazione rispetto qualsiasi campo nel flusso di dati che corrisponde ai propri criteri `name` & `type`.
 
 Quando si aggiunge un'espressione a una trasformazione che accetta i criteri, scegliere "Add Column Pattern" (Aggiungi un criterio della colonna). I criteri della colonna consentono di abbinare la colonna delle deviazioni schema ai criteri.
@@ -38,5 +41,11 @@ Per compilare modelli basati su colonne, è possibile trovare la corrispondenza 
 
 ![posizione colonna](media/data-flow/position.png "Posizione colonna")
 
+## <a name="rule-based-mapping"></a>Mapping basato su regole
+Quando si esegue il mapping delle colonne nell'origine e si selezionano le trasformazioni, sarà possibile scegliere "mapping fisso" o "mapping basato su regole". Quando si conosce lo schema dei dati e si prevede che le colonne specifiche del set di dati di origine corrispondano sempre a nomi statici specifici, è possibile usare il mapping fisso. Tuttavia, quando si utilizzano schemi flessibili, utilizzare il mapping basato sulle regole. Sarà possibile creare una corrispondenza dei modelli usando le regole descritte in precedenza.
+
+![mapping basato su regole](media/data-flow/rule2.png "Mapping basato su regole")
+
 ## <a name="next-steps"></a>Passaggi successivi
-Altre informazioni sul [linguaggio delle espressioni](https://aka.ms/dataflowexpressions) del flusso di dati del mapping di ADF per le trasformazioni dei dati
+* Altre informazioni sul [linguaggio delle espressioni](http://aka.ms/dataflowexpressions) del flusso di dati del mapping di ADF per le trasformazioni dei dati
+* Usare i modelli di colonna nella [trasformazione sink](data-flow-sink.md) e [selezionare trasformazione](data-flow-select.md) con mapping basato su regole

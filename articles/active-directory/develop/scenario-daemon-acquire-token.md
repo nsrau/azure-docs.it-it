@@ -1,6 +1,6 @@
 ---
-title: "Chiamare il metodo app daemon web API (l'acquisizione dei token per l'app): piattaforma delle identità Microsoft"
-description: Informazioni su come compilare un'applicazione daemon che chiama web API (l'acquisizione dei token)
+title: App daemon che chiama API Web (acquisizione di token per l'app)-piattaforma di identità Microsoft
+description: Informazioni su come creare un'app daemon che chiama API Web (acquisizione di token)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,20 +16,20 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa4f5dc7a5aceaf81f71eacd36d131471a57e5c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a5f15aa5264c0abf87cb15f0468e8a3a924e0b5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65075371"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562361"
 ---
-# <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>App daemon che chiama le API - web acquisire un token
+# <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>App daemon che chiama le API Web-Acquisisci un token
 
-Una volta costruito l'applicazione client riservata, è possibile acquisire un token per l'app tramite la chiamata ``AcquireTokenForClient``, passando l'ambito e forzando o non un aggiornamento del token.
+Una volta creata l'applicazione client riservata, è possibile acquisire un token per l'app chiamando ``AcquireTokenForClient``, passando l'ambito e forzando o meno un aggiornamento del token.
 
-## <a name="scopes-to-request"></a>Ambiti per richiedere
+## <a name="scopes-to-request"></a>Ambiti da richiedere
 
-L'ambito per la richiesta di un flusso di credenziali client è il nome della risorsa seguito dal `/.default`. Questa notazione indica ad Azure AD da usare la **le autorizzazioni a livello di applicazione** dichiarato in modo statico durante la registrazione dell'applicazione. Come visto in precedenza, queste autorizzazioni API devono essere concesso anche da un amministratore del tenant
+L'ambito da richiedere per un flusso di credenziali client è il nome della risorsa seguita da `/.default`. Questa notazione indica Azure AD di utilizzare le **autorizzazioni a livello di applicazione** dichiarate in modo statico durante la registrazione dell'applicazione. Inoltre, come illustrato in precedenza, queste autorizzazioni API devono essere concesse da un amministratore tenant
 
 ### <a name="net"></a>.NET
 
@@ -40,7 +40,7 @@ var scopes = new [] {  ResourceId+"/.default"};
 
 ### <a name="python"></a>Python
 
-In MSAL. Python, file di configurazione sarà simile al frammento di codice seguente:
+In MSAL. Python, il file di configurazione sarà simile al frammento di codice seguente:
 
 ```Python
 {
@@ -59,15 +59,15 @@ public final static String KEYVAULT_DEFAULT_SCOPE = "https://vault.azure.net/.de
 
 ### <a name="all"></a>Tutti
 
-L'ambito utilizzato per le credenziali del client deve essere sempre resourceId + "/. Default"
+L'ambito usato per le credenziali client deve essere sempre resourceId + "/.default"
 
-### <a name="case-of-v10-resources"></a>Caso di risorse v1.0
+### <a name="case-of-azure-ad-v10-resources"></a>Caso di risorse Azure AD (v 1.0)
 
 > [!IMPORTANT]
-> Per MSAL (endpoint v2.0) che richiede un token di accesso per una risorsa di accettare un token di accesso di v1.0, Azure AD analizza i destinatari desiderati dall'ambito richiesto prendendo tutto ciò che precede l'ultima barra e usato come identificatore di risorsa.
-> Pertanto se, ad esempio SQL di Azure ( **https://database.windows.net** ) la risorsa si aspetta che un gruppo di destinatari che terminano con una barra (per SQL di Azure: `https://database.windows.net/` ), è necessario richiedere un ambito di `https://database.windows.net//.default` (si noti la barra doppia). Vedere anche MSAL.NET problema [747 #](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Barra finale dell'url della risorsa viene omesso, che ha causato un errore di autenticazione sql.
+> Per MSAL (Microsoft Identity Platform endpoint) che richiede un token di accesso per una risorsa che accetta un token di accesso v 1.0, Azure AD analizza i destinatari desiderati dall'ambito richiesto, prendendo tutti gli elementi prima dell'ultima barra e usandola come identificatore di risorsa.
+> Se, ad esempio, Azure SQL **https://database.windows.net** () la risorsa prevede un pubblico che termina con una barra (per Azure SQL `https://database.windows.net/`:), è necessario richiedere un ambito di `https://database.windows.net//.default` (si noti la barra doppia). Vedere anche [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747)problema di MSAL.NET: La barra finale dell'URL della risorsa viene omessa, causando un errore di autenticazione SQL.
 
-## <a name="acquiretokenforclient-api"></a>AcquireTokenForClient API
+## <a name="acquiretokenforclient-api"></a>API AcquireTokenForClient
 
 ### <a name="net"></a>.NET
 
@@ -98,9 +98,9 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
 }
 ```
 
-#### <a name="application-token-cache"></a>Cache dei token dell'applicazione
+#### <a name="application-token-cache"></a>Cache del token dell'applicazione
 
-In MSAL.NET, `AcquireTokenForClient` Usa il **cache dei token dell'applicazione** (tutti gli altri metodi AcquireTokenXX usano la cache dei token utente) non chiamano `AcquireTokenSilent` prima di chiamare `AcquireTokenForClient` come `AcquireTokenSilent` utilizza il **utente** cache dei token. `AcquireTokenForClient` Controlla il **applicazione** token nella cache se stesso e lo aggiorna.
+In MSAL.NET, `AcquireTokenForClient` usa la **cache del token dell'applicazione** (tutti gli altri metodi AcquireTokenXX usano la cache dei token utente `AcquireTokenSilent` ) `AcquireTokenForClient` non chiamare `AcquireTokenSilent` prima di chiamare As usa la cache dei token **utente** . `AcquireTokenForClient`Controlla la cache del token **dell'applicazione** e la Aggiorna.
 
 ### <a name="python"></a>Python
 
@@ -130,7 +130,7 @@ AuthenticationResult result = future.get();
 
 ### <a name="protocol"></a>Protocol
 
-Se non hai ancora una libreria per il linguaggio scelto, è possibile usare direttamente il protocollo:
+Se non si dispone ancora di una libreria per la lingua scelta, è possibile usare direttamente il protocollo:
 
 #### <a name="first-case-access-token-request-with-a-shared-secret"></a>Primo caso: richiesta del token di accesso con un segreto condiviso
 
@@ -161,18 +161,18 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 ### <a name="learn-more-about-the-protocol"></a>Altre informazioni sul protocollo
 
-Per altre informazioni, vedere la documentazione del protocollo: [Flusso di credenziali di Azure Active Directory v2.0 e il client di OAuth 2.0](v2-oauth2-client-creds-grant-flow.md).
+Per ulteriori informazioni, vedere la documentazione del protocollo: [Microsoft Identity Platform e il flusso di credenziali client OAuth 2,0](v2-oauth2-client-creds-grant-flow.md).
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
-### <a name="did-you-use-the-resourcedefault-scope"></a>È stata usata l'ambito di risorse /. default?
+### <a name="did-you-use-the-resourcedefault-scope"></a>Si è usato l'ambito Resource/. default?
 
-Se viene visualizzato un messaggio di errore che informa che è stato utilizzato un ambito non valido, probabilmente, non è stato usato il `resource/.default` ambito.
+Se viene restituito un messaggio di errore che informa che è stato utilizzato un ambito non valido, probabilmente non `resource/.default` è stato utilizzato l'ambito.
 
-### <a name="did-you-forget-to-provide-admin-consent-daemon-apps-need-it"></a>Si è omesso di fornire il consenso dell'amministratore? Le app daemon serve!
+### <a name="did-you-forget-to-provide-admin-consent-daemon-apps-need-it"></a>Si è omesso di fornire il consenso dell'amministratore? Le app daemon ti servono!
 
-Se si verifica un errore quando si chiama l'API **dispone di privilegi sufficienti per completare l'operazione**, l'amministratore del tenant deve concedere le autorizzazioni per l'applicazione. Vedere il passaggio 6 di registrare l'app client precedente.
-In genere si noterà ed errore, ad esempio la descrizione dell'errore seguente:
+Se viene ricevuto un errore quando si chiama l'API **privilegi insufficienti per completare l'operazione**, l'amministratore tenant deve concedere le autorizzazioni all'applicazione. Vedere il passaggio 6 di registrare l'app client sopra.
+In genere viene visualizzato un errore simile al seguente:
 
 ```JSon
 Failed to call the web API: Forbidden
@@ -191,4 +191,4 @@ Content: {
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [App daemon: chiamare un'API web](scenario-daemon-call-api.md)
+> [App daemon: chiamata di un'API Web](scenario-daemon-call-api.md)

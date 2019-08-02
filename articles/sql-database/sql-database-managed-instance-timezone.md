@@ -1,6 +1,6 @@
 ---
-title: Istanza gestita di Database SQL Azure fusi orari | Microsoft Docs"
-description: Informazioni sulle specifiche fuso orario dell'istanza gestita di Azure SQL Database
+title: Fusi orari Istanza gestita di database SQL di Azure | Microsoft Docs "
+description: Informazioni sulle specifiche del fuso orario di Istanza gestita di database SQL di Azure
 services: sql-database
 ms.service: sql-database
 ms.custom: ''
@@ -9,49 +9,48 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
-manager: craigg
 ms.date: 07/05/2019
-ms.openlocfilehash: 05ec49c98c5bcfe40346550f5570c03a8fb3f881
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 33c844374d6d2b8e64cde6c7c9633e54a292d95f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657983"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567290"
 ---
-# <a name="time-zones-in-azure-sql-database-managed-instance"></a>Fusi orari in istanza gestita di Azure SQL Database
+# <a name="time-zones-in-azure-sql-database-managed-instance"></a>Fusi orari in Istanza gestita di database SQL di Azure
 
-Coordinated Universal Time (UTC) è il fuso orario consigliato per il livello di dati di soluzioni cloud. Istanza gestita del Database SQL Azure offre anche una scelta dei fusi orari per soddisfare le esigenze delle applicazioni esistenti che archiviano i valori di data e ora e chiamano le funzioni di data e ora con un contesto implicita di un fuso orario specifico.
+Coordinated Universal Time (UTC) è il fuso orario consigliato per il livello dati di soluzioni cloud. Istanza gestita di database SQL di Azure offre anche una scelta dei fusi orari per soddisfare le esigenze delle applicazioni esistenti che archiviano i valori di data e ora e chiamano funzioni di data e ora con un contesto implicito di un fuso orario specifico.
 
-T-SQL funziona in modo analogo [GETDATE ()](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql) o codice CLR osservare il fuso orario impostato sull'istanza. Processi di SQL Server Agent seguono anche le pianificazioni in base al fuso orario dell'istanza.
+Le funzioni T-SQL come [GETDATE ()](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql) o il codice CLR osservano il fuso orario impostato a livello di istanza. SQL Server Agent processi seguono anche le pianificazioni in base al fuso orario dell'istanza.
 
   >[!NOTE]
-  > Istanza gestita è l'opzione di distribuzione solo del Database SQL di Azure che supporta l'impostazione del fuso orario. Altre opzioni di distribuzione seguono sempre UTC.
-Uso [AT TIME ZONE](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql) nel database SQL singoli e in pool se è necessario interpretare le informazioni di data e ora in un fuso orario non-UTC.
+  > Istanza gestita è l'unica opzione di distribuzione del database SQL di Azure che supporta l'impostazione del fuso orario. Altre opzioni di distribuzione seguono sempre l'ora UTC.
+Usare [at Time zone](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql) nei database SQL singoli e in pool se è necessario interpretare le informazioni di data e ora in un fuso orario non UTC.
 
 ## <a name="supported-time-zones"></a>Fusi orari supportati
 
-Un set di zone ora supportate verrà ereditato dal sistema operativo sottostante dell'istanza gestita. Venga aggiornata regolarmente per ottenere le nuove definizioni di fuso orario e riflettere le modifiche a quelli esistenti.
+Un set di fusi orari supportati viene ereditato dal sistema operativo sottostante dell'istanza gestita. Viene regolarmente aggiornata per ottenere nuove definizioni di fuso orario e riflettere le modifiche apportate a quelle esistenti.
 
-[Modifica i criteri di ora legale all'ora/fuso orario](https://aka.ms/time) garantisce la precisione cronologica da inoltrare 2010.
+I [criteri per le modifiche dell'ora legale e del fuso orario](https://aka.ms/time) garantiscono l'accuratezza cronologica da 2010 in poi.
 
-Un elenco con i nomi dei fusi orari supportati viene esposta tramite il [Sys. time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) vista di sistema.
+Un elenco con i nomi dei fusi orari supportati viene esposto tramite la vista di sistema [sys. time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) .
 
 ## <a name="set-a-time-zone"></a>Impostare un fuso orario
 
-Un fuso orario di un'istanza gestita può essere impostato durante la creazione di istanze soltanto. Il fuso orario predefinito è UTC.
+Un fuso orario di un'istanza gestita può essere impostato solo durante la creazione dell'istanza. Il fuso orario predefinito è UTC.
 
   >[!NOTE]
-  > Impossibile modificare il fuso orario di un'istanza gestita esistente.
+  > Il fuso orario di un'istanza gestita esistente non può essere modificato.
 
-### <a name="set-the-time-zone-through-the-azure-portal"></a>Impostare il fuso orario nel portale di Azure
+### <a name="set-the-time-zone-through-the-azure-portal"></a>Impostare il fuso orario tramite il portale di Azure
 
-Quando si immettono i parametri per una nuova istanza, selezionare un fuso orario dall'elenco dei fusi orari supportati.
+Quando si immettono i parametri per una nuova istanza, selezionare un fuso orario nell'elenco dei fusi orari supportati.
   
-![Impostazione di un fuso orario durante la creazione di istanze](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
+![Impostazione di un fuso orario durante la creazione dell'istanza](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
 
 ### <a name="azure-resource-manager-template"></a>Modello di Azure Resource Manager
 
-Specificare la proprietà timezoneId nel [modello di Resource Manager](https://aka.ms/sql-mi-create-arm-posh) per impostare il fuso orario durante la creazione dell'istanza.
+Specificare la proprietà timezoneId nel [modello di gestione risorse](https://aka.ms/sql-mi-create-arm-posh) per impostare il fuso orario durante la creazione dell'istanza.
 
 ```json
 "properties": {
@@ -68,196 +67,196 @@ Specificare la proprietà timezoneId nel [modello di Resource Manager](https://a
 
 ```
 
-Un elenco dei valori supportati per la proprietà timezoneId è alla fine di questo articolo.
+Alla fine di questo articolo è presente un elenco di valori supportati per la proprietà timezoneId.
 
-Se non specificato, il fuso orario è impostato su UTC.
+Se non è specificato, il fuso orario è impostato su UTC.
 
 ## <a name="check-the-time-zone-of-an-instance"></a>Controllare il fuso orario di un'istanza
 
-Il [CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql) funzione restituisce un nome visualizzato del fuso orario dell'istanza.
+La funzione [CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql) restituisce un nome visualizzato del fuso orario dell'istanza.
 
-## <a name="cross-feature-considerations"></a>Considerazioni sulla tra funzionalità
+## <a name="cross-feature-considerations"></a>Considerazioni tra funzionalità
 
-### <a name="restore-and-import"></a>Ripristino e l'importazione
+### <a name="restore-and-import"></a>Ripristino e importazione
 
-È possibile ripristinare un file di backup o importare dati in un'istanza gestita da un'istanza o un server con le impostazioni di fuso orario diverso. Assicurarsi di eseguire questa operazione con cautela. Analizzare il comportamento dell'applicazione e i risultati delle query e report, proprio come quando si trasferiscono dati tra due istanze di SQL Server con le impostazioni di fuso orario diverso.
+È possibile ripristinare un file di backup o importare dati in un'istanza gestita da un'istanza di o da un server con diverse impostazioni di fuso orario. Assicurarsi di eseguire questa operazione con cautela. Analizzare il comportamento dell'applicazione e i risultati di query e report, proprio come quando si trasferiscono dati tra due istanze di SQL Server con impostazioni di fuso orario diverse.
 
 ### <a name="point-in-time-restore"></a>Ripristino temporizzato
 
-<del>Quando si esegue un ripristino temporizzato in, il tempo per il ripristino viene interpretato come ora UTC. Questa impostazione consente di evitare qualsiasi ambiguità a causa dell'ora legale e le relative modifiche potenziali.<del>
+<del>Quando si esegue un ripristino temporizzato, il tempo necessario per il ripristino viene interpretato come ora UTC. Questa impostazione consente di evitare ambiguità a causa dell'ora legale e delle relative modifiche potenziali.<del>
 
  >[!WARNING]
-  > Comportamento corrente non è in linea con l'istruzione precedente e tempo per il ripristino viene interpretato secondo il fuso orario dell'istanza gestita origine da cui vengono prelevati i backup automatici del database. Stiamo lavorando sulla risoluzione di questo comportamento per interpretare dato punto nel tempo come ora UTC. Visualizzare [problemi noti](sql-database-managed-instance-timezone.md#known-issues) per altri dettagli.
+  > Il comportamento corrente non è in linea con l'istruzione precedente e il tempo per il ripristino in viene interpretato in base al fuso orario dell'istanza gestita di origine in cui vengono eseguiti i backup automatici del database. Stiamo lavorando per correggere questo comportamento per interpretare il momento specificato come ora UTC. Per altri dettagli, vedere [problemi noti](sql-database-managed-instance-timezone.md#known-issues) .
 
 ### <a name="auto-failover-groups"></a>Gruppi di failover automatico
 
-Usando lo stesso fuso orario su un'istanza primaria e secondaria in un gruppo di failover non è applicata, ma è consigliabile utilizzarla.
+L'utilizzo dello stesso fuso orario in un'istanza primaria e secondaria in un gruppo di failover non viene applicato, ma è consigliabile.
 
   >[!WARNING]
-  > È consigliabile usare lo stesso fuso orario per l'istanza primaria e secondaria in un gruppo di failover. A causa di alcuni scenari rari, mantenendo lo stesso fuso orario per le istanze principale e secondarie non è applicata. È importante comprendere che in caso di failover manuale o automatico, nell'istanza secondaria verrà mantenuto il fuso orario originale.
+  > Si consiglia vivamente di utilizzare lo stesso fuso orario per l'istanza primaria e secondaria in un gruppo di failover. A causa di alcuni rari scenari, non viene applicato lo stesso fuso orario tra le istanze primarie e secondarie. È importante comprendere che in caso di failover manuale o automatico, l'istanza secondaria manterrà il fuso orario originale.
 
 ## <a name="limitations"></a>Limitazioni
 
-- Impossibile modificare il fuso orario dell'istanza gestita esistente.
-- I processi esterni avviati da processi di SQL Server Agent non osservare il fuso orario dell'istanza.
+- Il fuso orario dell'istanza gestita esistente non può essere modificato.
+- I processi esterni avviati dal SQL Server Agent processi non osservano il fuso orario dell'istanza.
 
 ## <a name="known-issues"></a>Problemi noti
 
-Quando point-in-time restore (PITR) viene eseguita l'operazione, il tempo per il ripristino viene interpretato in base al fuso orario impostato sull'istanza gestita in cui vengono eseguiti i backup automatici del database, anche se la pagina del portale per PITR suggerisce che il tempo viene interpretato come ora UTC.
+Quando viene eseguita l'operazione di ripristino temporizzato (ripristino temporizzato), il tempo necessario per il ripristino viene interpretato come per fuso orario impostato sull'istanza gestita da cui vengono ricavati i backup automatici del database, anche se la pagina del portale per ripristino temporizzato suggerisce che l'ora viene interpretata come UTC.
 
 Esempio:
 
-Ad esempio quell'istanza in cui i backup automatici vengono eseguiti da dispone di set di fuso orario ora solare fuso orientale (UTC-5).
-Pagina del portale per il ripristino temporizzato in suggerisce che il tempo in cui che si sceglie di ripristinare è ora UTC:
+Si può dire che l'istanza in cui sono stati eseguiti i backup automatici dal fuso orario ora solare fuso orientale (UTC-5) è impostata.
+La pagina del portale per il ripristino temporizzato suggerisce che l'ora in cui si sceglie di eseguire il ripristino è l'ora UTC:
 
-![Ripristino Temporizzato con l'ora locale tramite portale](media/sql-database-managed-instance-timezone/02-pitr-with-nonutc-timezone.png)
+![RIPRISTINO temporizzato con l'ora locale usando il portale](media/sql-database-managed-instance-timezone/02-pitr-with-nonutc-timezone.png)
 
-Tuttavia, il tempo necessario per ripristinare in realtà viene interpretato come ora solare fuso orientale e in questo esempio specifico database verrà ripristinato lo stato 9 ora solare fuso orientale di AM e non all'ora UTC.
+Tuttavia, il tempo per il ripristino in viene effettivamente interpretato come ora solare fuso orientale e in questo database di esempio specifico verrà ripristinato lo stato a 9 ora solare fuso orientale e non l'ora UTC.
 
-Se si desidera eseguire Ripristino point-in-time a un momento specifico in formato UTC, calcolare il tempo equivalente nel fuso orario dell'istanza di origine e utilizzare quel momento nel portale o uno script di PowerShell/CLI.
+Se si desidera eseguire il ripristino temporizzato in un punto specifico dell'ora UTC, è necessario innanzitutto calcolare l'ora equivalente nel fuso orario dell'istanza di origine e utilizzare tale ora nello script del portale o PowerShell/CLI.
 
-## <a name="list-of-supported-time-zones"></a>Elenco dei fusi orari supportati
+## <a name="list-of-supported-time-zones"></a>Elenco di fusi orari supportati
 
 | **ID fuso orario** | **Nome visualizzato del fuso orario** |
 | --- | --- |
-| Ora Standard | (UTC-12.00) Linea cambiamento data internazionale (occidentale) |
-| UTC-11 | (UTC-11.00) Coordinated Universal Time-11 |
-| Ora solare Aleutine | (UTC-10.00) Isole Aleutine |
-| Ora solare Hawaii | (UTC-10.00) Hawaii |
-| Marquesas Standard Time | (UTC-09.30) Isole Marquesas |
-| Alaskan Standard Time | (UTC-09.00) Alaska |
-| UTC-09 | (UTC-09.00) Coordinated Universal Time-09 |
-| Ora solare Pacifico (Messico) | (UTC-08.00) Bassa California |
-| UTC-08 | (UTC-08.00) Coordinated Universal Time-08 |
-| Ora solare Pacifico | (UTC-08.00) Pacifico (USA e Canada) |
-| Ora solare fuso occidentale Stati Uniti | (UTC-07.00) Arizona |
-| Ora solare fuso occidentale (Messico) | (UTC-07.00) Chihuahua, La Paz, Mazatlan |
-| Ora solare fuso occidentale | (UTC-07.00) Fuso occidentale (USA e Canada) |
-| Ora solare America centrale | (UTC-06.00) America centrale |
-| Ora solare fuso centrale | (UTC-06.00) Fuso centrale (USA e Canada) |
-| Ora solare isola di Pasqua | (UTC-06.00) Isola di Pasqua |
-| Ora solare fuso centrale (Messico) | (UTC-06.00) Guadalajara, Città del Messico, Monterrey |
-| Ora solare Canada centrale | (UTC-06.00) Saskatchewan |
-| Ora solare America del Sud Pacifico | (UTC-05.00) Bogotá, Lima, Quito, Rio Branco |
-| Ora solare fuso orientale (Messico) | (UTC-05.00) Chetumal |
-| Ora solare fuso orientale | (UTC-05.00) Fuso orientale (USA e Canada) |
-| Ora solare Haiti | (UTC-05.00) Haiti |
-| Cuba Standard Time | (UTC-05.00) L'Avana |
-| Ora solare fuso orientale degli Stati Uniti | (UTC-05.00) Indiana (Est) |
-| Isole Turks e Caicos solare | (UTC-05:00) Isole Turks e Caicos |
-| Ora solare Paraguay | (UTC-04.00) Asunción |
-| Ora solare costa atlantica | (UTC-04.00) Ora costa atlantica (Canada) |
-| Venezuela Standard Time | (UTC-04.00) Caracas |
-| Central Brazilian Standard Time | (UTC-04.00) Cuiaba |
-| Ora solare America del sud occidentale | (UTC-04.00) Georgetown, La Paz, Manaus, San Juan |
-| Ora solare America del Sud Pacifico | (UTC-04.00) Santiago |
-| Newfoundland Standard Time | (UTC-03.30) Terranova |
-| Tocantins Standard Time | (UTC-03.00) Araguaina |
-| E. Ora solare America del Sud | (UTC-03.00) Brasilia |
-| Ora solare fuso orientale SA | (UTC-03.00) Caienna, Fortaleza |
-| Ora solare Argentina | (UTC-03.00) Buenos Aires |
-| Ora solare Groenlandia | (UTC-03.00) Groenlandia |
-| Montevideo Standard Time | (UTC-03.00) Montevideo |
-| Ora solare Magallanes | (UTC-03:00) Punta Arenas |
-| Ora solare Saint Pierre | (UTC-03.00) Saint Pierre e Miquelon |
-| Bahia Standard Time | (UTC-03.00) El Salvador |
-| UTC-02 | (UTC-02.00) Coordinated Universal Time-02 |
-| Ora solare Medioatlantico | (UTC-02.00) Medioatlantico - Vecchio |
-| Azores Standard Time | (UTC-01.00) Azzorre |
-| Ora solare Cabo Verde | (UTC-01.00) Is. di Cabo Verde |
+| Ora solare linea cambiamento data | (UTC - 12.00 h) Linea cambiamento data internazionale (occidentale) |
+| UTC-11 | (UTC - 11.00 h) Coordinated Universal Time-11 |
+| Ora solare Aleutine | (UTC - 10.00) Isole Aleutine |
+| Ora solare Hawaii | (UTC - 3.00 h) Hawaii |
+| Ora solare Marquesas | (UTC - 09.30) Isole Marquesas |
+| Ora solare Alaska | (UTC + 6.00 h) Dacca |
+| UTC-09 | (UTC - 09.00) Coordinated Universal Time-09 |
+| Ora solare Pacifico (Messico) | (UTC - 8.00 h) Bassa California |
+| UTC-08 | (UTC - 08.00) Coordinated Universal Time-08 |
+| Ora solare Pacifico | (UTC - 8.00 h) Pacifico (USA e Canada) |
+| Ora solare fuso occidentale Stati Uniti | (UTC - 7.00 h) Arizona |
+| Ora solare fuso occidentale (Messico) | (UTC - 7.00 h) Chihuahua, La Paz, Mazatlan |
+| Ora solare fuso occidentale | (UTC - 7.00 h) Fuso occidentale (USA e Canada) |
+| Ora solare America centrale | (UTC-06:00) America centrale |
+| Ora solare fuso centrale | (UTC - 6.00 h) Fuso centrale (USA e Canada) |
+| Ora solare Isola di Pasqua | (UTC - 06.00) Isola di Pasqua |
+| Ora solare fuso centrale (Messico) | (UTC - 6.00 h) Guadalajara, Città del Messico, Monterrey |
+| Ora solare Canada centrale | (UTC - 6.00 h) Saskatchewan |
+| Ora solare America del Sud Pacifico | (UTC - 05.00 h) Bogotá, Lima, Quito, Rio Branco |
+| Ora solare fuso orientale (Messico) | (UTC - 05.00) Chetumal |
+| Ora solare fuso orientale | (UTC - 5.00 h) Fuso orientale (USA e Canada) |
+| Ora solare Haiti | (UTC - 05.00) Haiti |
+| Ora solare Cuba | (UTC - 05.00) L'Avana |
+| Ora solare Stati Uniti orientali | (UTC - 5.00 h) Indiana (Est) |
+| Ora solare Turks e Caicos | (UTC - 5.00 h) Turks e Caicos |
+| Ora solare Paraguay | (UTC - 4.00 h) Asuncion |
+| Ora solare costa atlantica | (UTC - 4.00 h) Ora costa atlantica (Canada) |
+| Ora solare Venezuela | (UTC - 04.00) Caracas |
+| Ora solare Brasile centrale | (UTC - 4.00 h) Cuiaba |
+| Ora solare America del Sud occidentale | (UTC - 4.00 h) Georgetown, La Paz, Manaus, San Juan |
+| Ora solare America del Sud Pacifico | (UTC - 4.00 h) Santiago |
+| Ora solare Terranova | (UTC - 3.30 h) Terranova |
+| Ora solare Tocantins | (UTC - 03.00) Araguaina |
+| E. Ora solare America del sud | (UTC - 3.00 h) Brasilia |
+| Ora solare America del Sud orientale | (UTC - 3.00 h) Caienna, Fortaleza |
+| Ora solare Argentina | (UTC - 03.00) Città di Buenos Aires |
+| Ora solare Groenlandia | (UTC-03:00) Groenlandia |
+| Ora solare Montevideo | (UTC - 3.00 h) Montevideo |
+| Ora solare Magallanes | (UTC - 03.00 h) Punta Arenas |
+| Ora solare Saint-Pierre | (UTC - 03.00) Saint-Pierre e Miquelon |
+| Ora solare Bahia | (UTC + 3.00 h) El Salvador |
+| UTC-02 | (UTC - 2.00 h) Coordinated Universal Time-02 |
+| Ora solare Medioatlantico | (UTC - 2.00 h) Medioatlantico - Obsoleto |
+| Ora solare Azzorre | (UTC-01:00) Azzorre |
+| Ora solare Cabo verde | (UTC - 1.00 h) Is. di Cabo Verde |
 | UTC | (UTC) Coordinated Universal Time |
-| GMT Standard Time | (UTC+00.00) Dublino, Edimburgo, Lisbona, Londra |
-| Ora solare di Greenwich | (UTC+00.00) Monrovia, Reykjavik |
-| W. Ora solare Europa | (UTC+01.00) Amsterdam, Berlino, Berna, Roma, Stoccolma, Vienna |
-| Ora solare Europa centrale | (UTC+01.00) Belgrado, Bratislava, Budapest, Lubiana, Praga |
-| Ora solare romanze | (UTC+01.00) Bruxelles, Copenaghen, Madrid, Parigi |
-| Morocco Standard Time | (UTC + 01:00) Casablanca |
-| Ora solare Sao Tomè | (UTC + 01:00) Sao Tomè |
-| Ora solare Europa centrale | (UTC+01.00) Sarajevo, Skopje, Varsavia, Zagabria |
-| W. Ora solare Africa Central | (UTC+01.00) Africa centro-occidentale |
-| Jordan Standard Time | (UTC+02.00) Amman |
-| Ora solare GTB | (UTC+02.00) Atene, Bucarest |
-| Ora solare Medio Oriente | (UTC+02.00) Beirut |
-| Ora solare Egitto | (UTC+02.00) Cairo |
-| E. Ora solare Europa | (UTC+02.00) Chisinau |
-| Ora solare Siria | (UTC+02.00) Damasco |
-| Ora solare Cisgiordania | (UTC+02.00) Hebron |
-| Ora solare Sudafrica | (UTC+02.00) Harare, Pretoria |
-| Ora solare fle | (UTC+02.00) Helsinki, Kiev, Riga, Sofia, Tallinn, Vilnius |
-| Israel Standard Time | (UTC+02.00) Gerusalemme |
-| Ora solare Kaliningrad | (UTC+02.00) Kaliningrad |
-| Sudan Standard Time | (UTC + 02.00) Khartoum |
-| Ora solare Libia | (UTC+02.00) Tripoli |
-| Ora solare Namibia | (UTC + 02.00) Windhoek |
-| Ora solare Arabia Saudita | (UTC+03.00) Baghdad |
-| Ora solare Turchia | (UTC + 03.00 H) Istanbul di Servicenow |
-| Arab Standard Time | (UTC+03.00) Kuwait, Riyadh |
-| Belarus Standard Time | (UTC+03.00) Minsk |
-| Ora solare Russia | (UTC + 03.00 H) Mosca, s. Pietroburgo |
-| E. Africa Standard Time | (UTC+03.00) Nairobi |
-| Iran Standard Time | (UTC+03.30) Teheran |
-| Arabian Standard Time | (UTC+04.00) Abu Dhabi, Mascate |
-| Astrakhan Standard Time | (UTC+04.00) Astrakhan, Ulyanovsk |
-| Ora solare Azerbaigian | (UTC+04.00) Baku |
-| Fuso orario Russia 3 | (UTC+04.00) Izhevsk, Samara |
-| Ora solare Mauritius | (UTC+04.00) Port Louis |
-| Ora solare Saratov | (UTC + 04.00) Saratov |
-| Georgian Standard Time | (UTC+04.00) Tbilisi |
-| Ora solare Volgograd | (UTC + 04.00) Volgograd |
-| Ora solare Caucaso | (UTC+04.00) Erevan |
-| Afghanistan Standard Time | (UTC+04.30) Kabul |
-| Ora solare Asia occidentale | (UTC+05.00) Ashgabat, Tashkent |
-| Ora solare Ekaterinburg | (UTC+05.00) Ekaterinburg |
-| Pakistan Standard Time | (UTC+05.00) Islamabad, Karachi |
-| Ora solare India | (UTC+05.30) Chennai, Kolkata (Calcutta), Mumbai, Nuova Delhi |
-| Sri Lanka Standard Time | (UTC+05.30) Sri Jayawardenepura |
-| Nepal Standard Time | (UTC+05.45) Katmandu |
-| Ora solare Asia centrale | (UTC+06.00) Astana |
-| Ora solare Bangladesh | (UTC+06.00) Dacca |
-| Ora solare Omsk | (UTC + 06.00 H) Omsk |
-| Ora solare myanmar | (UTC+06.30) Yangon (Rangoon) |
-| Ora solare Asia sud-orientale | (UTC+07.00) Bangkok, Hanoi, Giacarta |
-| Ora solare Altai | (UTC+07.00) Barnaul, Gorno-Altaysk |
-| W. Ora solare Mongolia | (UTC+07.00) Hovd |
-| Ora solare Asia settentrionale | (UTC+07.00) Krasnoyarsk |
-| N. Ora solare Asia centrale | (UTC + 07.00) Novosibirsk |
-| Ora solare Tomsk | (UTC+07.00) Tomsk |
-| Ora solare Cina | (UTC+08:00) Beijing (Pechino), Chongqing, Hong Kong - R.A.S., Urumqi |
-| Ora solare Asia nordorientale | (UTC+08.00) Irkutsk |
-| Singapore Standard Time | (UTC+08.00) Kuala Lumpur, Singapore |
-| W. Ora solare Europa occidentale | (UTC+08.00) Perth |
-| Taipei Standard Time | (UTC+08.00) Taipei |
-| Ulaanbaatar Standard Time | (UTC+08.00) Ulan-Bator |
-| Aus Central W. Standard Time | (UTC+08.45) Eucla |
-| Transbaikal Standard Time | (UTC+09.00) Chita |
-| Tokyo Standard Time | (UTC+09.00) Osaka, Sapporo, Tokyo |
+| Ora solare di Greenwich | (UTC + 00.00) Dublino, Edimburgo, Lisbona, Londra |
+| Ora solare di Greenwich | (UTC + 00.00) Reykjavik |
+| W. Ora solare Europa | (UTC + 1.00 h) Amsterdam, Berlino, Berna, Roma, Stoccolma, Vienna |
+| Ora solare Europa Centrale | (UTC + 1.00 h) Belgrado, Bratislava, Budapest, Lubiana, Praga |
+| Ora solare Bruxelles, Copenaghen, Madrid, Parigi | (UTC + 1.00 h) Bruxelles, Copenaghen, Madrid, Parigi |
+| Ora solare Marocco | (UTC+01:00) Casablanca |
+| Ora solare São Tomé | (UTC + 01.00) São Tomé |
+| Ora solare Europa Centrale | (UTC + 1.00 h) Sarajevo, Skopje, Varsavia, Zagabria |
+| W. Ora solare Africa centrale | (UTC + 1.00 h) Africa centro-occidentale |
+| Ora solare Giordania | (UTC + 2.00 h) Amman |
+| Ora solare GTB | (UTC + 2.00 h) Atene, Bucarest |
+| Ora solare Medio Oriente | (UTC + 2.00 h) Beirut |
+| Ora solare Egitto | (UTC + 2.00 h) Il Cairo |
+| E. Ora solare Europa | (UTC + 02.00) Chişinău |
+| Ora solare Siria | (UTC + 2.00 h) Damasco |
+| Ora solare Cisgiordania | (UTC + 02.00) Gaza, Hebron |
+| Ora solare Sudafrica | (UTC + 2.00 h) Harare, Pretoria |
+| Ora solare FLE | (UTC + 2.00 h) Helsinki, Kiev, Riga, Sofia, Tallinn, Vilnius |
+| Ora solare Israele | (UTC + 2.00 h) Gerusalemme |
+| Ora solare Kaliningrad | (UTC + 02.00) Kaliningrad |
+| Ora solare Sudan | (UTC + 2.00 h) Khartoum |
+| Ora solare Libia | (UTC + 2.00 h) Tripoli |
+| Ora solare Namibia | (UTC + 2.00 h) Windhoek |
+| Ora solare Arabia Saudita | (UTC + 3.00 h) Baghdad |
+| Ora solare Turchia | (UTC + 03.00 h) Istanbul |
+| Ora solare Arabia | (UTC + 3.00 h) Kuwait, Riyadh |
+| Ora solare Bielorussia | (UTC + 3.00 h) Minsk |
+| Ora solare russo | (UTC+03:00) Mosca, S. Pietroburgo |
+| E. Ora solare Africa | (UTC + 3.00 h) Nairobi |
+| Ora solare Iran | (UTC + 3.30 h) Teheran |
+| Ora solare Emirati Arabi Uniti | (UTC + 4.00 h) Abu Dhabi, Mascate |
+| Ora solare Astrakhan | (UTC + 04.00) Astrakhan, Ulyanovsk |
+| Ora solare Azerbaigian | (UTC + 4.00 h) Baku |
+| Tempo di Russia Zona 3 | (UTC + 04.00) Izhevsk, Samara |
+| Ora solare Mauritius | (UTC + 4.00 h) Port Louis |
+| Ora solare Saratov | (UTC + 4.00 h) Saratov |
+| Ora solare Georgia | (UTC + 4.00 h) Tbilisi |
+| Ora solare Volgograd | (UTC+04:00) Volgograd |
+| Ora solare Caucaso | (UTC + 4.00 h) Erevan |
+| Ora solare Afghanistan | (UTC + 4.30 h) Kabul |
+| Ora solare Asia occidentale | (UTC + 5.00 h) Ashkhabat, Tashkent |
+| Ora solare Ekaterinburg | (UTC + 05.00) Ekaterinburg |
+| Ora solare Pakistan | (UTC + 5.00 h) Islamabad, Karachi |
+| Ora solare India | (UTC + 5.30 h) Chennai, Kolkata (Calcutta), Mumbai, Nuova Delhi |
+| Ora solare Sri Lanka | (UTC + 05.30 h) Sri Jayawardenepura |
+| Ora solare Nepal | (UTC + 5.45) Katmandu |
+| Ora solare Asia centrale | (UTC + 6.00 h) Astana |
+| Ora solare Bangladesh | (UTC + 6.00 h) Dacca |
+| Ora solare Omsk | (UTC + 06.00 h) Omsk |
+| Ora solare Myanmar | (UTC+06:30) Yangon (Rangoon) |
+| Ora solare Asia sud-orientale | (UTC + 7.00 h) Bangkok, Hanoi, Giacarta |
+| Ora solare Altai | (UTC + 07.00) Barnaul, Gorno-Altaysk |
+| W. Ora solare Mongolia | (UTC + 07.00) Hovd |
+| Ora solare Asia settentrionale | (UTC + 07.00) Krasnoyarsk |
+| N. Ora solare Asia centrale | (UTC + 07.00 h) Novosibirsk |
+| Ora solare Tomsk | (UTC + 07.00) Tomsk |
+| Ora solare Cina | (UTC+08:00) Pechino, Chongqing, Hong Kong, Urumqi |
+| Ora solare Nord Asia orientale | (UTC + 08.00) Irkutsk |
+| Ora solare Singapore | (UTC + 8.00 h) Kuala Lumpur, Singapore |
+| W. Ora solare Australia | (UTC + 8.00 h) Perth |
+| Ora solare Taipei | (UTC + 8.00 h) Taipei |
+| Ora solare Ulan-Bator | (UTC + 8.00 h) Ulan-Bator |
+| Ora solare Austr. centro-occ. | (UTC + 08.45) Eucla |
+| Ora solare Transbaikal | (UTC + 09.00) Chita |
+| Ora solare Tokyo | (UTC + 9.00 h) Osaka, Sapporo, Tokyo |
 | Ora solare Corea del Nord | (UTC + 09.00) Pyongyang |
-| Ora solare Corea | (UTC+09.00) Seoul |
-| Ora solare Yakutsk | (UTC+09.00) Yakutsk |
-| Cen. Ora solare Europa occidentale | (UTC+09.30) Adelaide |
-| Ora solare Australia centrale | (UTC+09.30) Darwin |
-| E. Ora solare Europa occidentale | (UTC+10.00) Brisbane |
-| Ora solare Australia orientale | (UTC+10.00) Canberra, Melbourne, Sydney |
-| Ora solare Pacifico occidentale | (UTC+10.00) Guam, Port Moresby |
-| Ora solare Tasmania | (UTC+10.00) Hobart |
-| Vladivostok Standard Time | (UTC+10.00) Vladivostok |
-| Ora solare Lord Howe | (UTC+10.30) Isola Lord Howe |
-| Ora solare Bougainville | (UTC+11.00) Bougainville |
-| Fuso orario Russia 10 | (UTC+11.00) Chokurdakh |
-| Magadan Standard Time | (UTC+11.00) Magadan |
-| Ora solare Norfolk | (UTC+11.00) Norfolk |
-| Ora solare Sakhalin | (UTC+11.00) Sakhalin |
-| Ora solare Pacifico centrale | (UTC+11.00) Is. Salomone, Nuova Caledonia |
-| Fuso orario Russia 11 | (UTC+12.00) Anadyr, Petropavlovsk-Kamčatskij |
-| Ora solare Nuova Zelanda | (UTC+12.00) Auckland, Wellington |
-| UTC+12 | (UTC+12.00) Coordinated Universal Time+12 |
-| Ora solare Figi | (UTC+12.00) Figi |
-| Kamchatka Standard Time | (UTC+12.00) Petropavlovsk-Kamčatskij - Vecchio |
-| Ora solare isole Chatham | (UTC+12.45) Isole Chatham |
-| UTC+13 | (UTC + 13.00 H) Coordinated Universal Time+13 |
-| Tonga Standard Time | (UTC+13.00) Nuku'alofa |
-| Samoa Standard Time | (UTC+13.00) Samoa |
-| Ora solare isole line | (UTC+14.00) Isola di Kiritimati |
+| Ora solare Corea | (UTC + 9.00 h) Seoul |
+| Ora solare Yakutsk | (UTC + 09.00) Yakutsk |
+| CEN. Ora solare Australia | (UTC + 9.30 h) Adelaide |
+| Ora solare Australia centrale | (UTC + 9.30 h) Darwin |
+| E. Ora solare Australia | (UTC + 10.00 h) Brisbane |
+| Ora solare Australia orientale | (UTC + 10.00 h) Canberra, Melbourne, Sydney |
+| Ora solare Pacifico occidentale | (UTC + 10.00 h) Guam, Port Moresby |
+| Ora solare Tasmania | (UTC + 10.00 h) Hobart |
+| Ora solare Vladivostok | (UTC + 10.00) Vladivostok |
+| Ora solare Lord Howe | (UTC + 10.30) Isola Lord Howe |
+| Ora solare Bougainville | (UTC + 11.00) Bougainville |
+| Fuso orario Russia 10 | (UTC + 11.00) Chokurdakh |
+| Ora solare Magadan | (UTC + 11.00) Magadan |
+| Ora solare Norfolk | (UTC + 11.00) Norfolk |
+| Ora solare Sakhalin | (UTC + 11.00) Sakhalin |
+| Ora solare Pacifico centrale | (UTC+11:00) Is. Salomone, Nuova Caledonia |
+| Fuso orario Russia 11 | (UTC + 12.00) Anadyr, Petropavlovsk-Kamčatskij |
+| Ora solare Nuova Zelanda | (UTC + 12.00 h) Auckland, Wellington |
+| UTC+12 | (UTC + 12.00 h) Coordinated Universal Time+12 |
+| Ora solare Figi | (UTC + 12.00 h) Figi |
+| Ora solare Kamchatka | (UTC + 12.00 h) Petropavlovsk-Kamčatskij - Obsoleto |
+| Ora solare Isole Chatham | (UTC + 12.45) Isole Chatham |
+| UTC+13 | (UTC + 13.00 h) Coordinated Universal Time+13 |
+| Ora solare Tonga | (UTC + 13.00 h) Nuku'alofa |
+| Ora solare Samoa | (UTC+13:00) Samoa |
+| Ora solare Isole Line | (UTC + 14.00 h) Isola di Kiritimati |
 
 ## <a name="see-also"></a>Vedere anche 
 

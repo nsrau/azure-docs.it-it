@@ -5,7 +5,7 @@ description: Informazioni sui linguaggi di programma e gli strumenti correlati p
 keywords: strumenti di analisi scientifica dei dati, macchina virtuale per l'analisi scientifica dei dati, strumenti per l'analisi scientifica dei dati, analisi scientifica dei dati per Linux
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.author: gokuma
-ms.openlocfilehash: 586f37ff972a6102da351794365f719a185857fc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: vijetaj
+ms.openlocfilehash: 1df3c986132de2a3e7ec9547a996abef60ea04ac
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60502245"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558127"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Linguaggi supportati dalla macchina virtuali per data science 
 
@@ -222,7 +222,7 @@ La posizione predefinita di Julia è un ambiente globale leggibile da tutti gli 
 Aprire il terminale ed eseguire `julia`. 
 * Utilizzo in un IDE
 
-Usare `Juno` l'IDE di Julia installato nella DSVM e disponibile come un collegamento di menu dell'applicazione.
+Usare `Juno` l'IDE di Julia installato nella DSVM e disponibile come collegamento al menu di un'applicazione.
 
 * Utilizzo in Jupyter
 

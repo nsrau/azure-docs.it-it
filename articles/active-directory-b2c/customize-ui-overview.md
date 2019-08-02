@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 13ae1b74acbcab8d623c24d6a7b8d7e1355b80e8
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: bbce41271914df4bb8a75804bc66ae538fe766fa
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227146"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716758"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Informazioni sulla personalizzazione dell'interfaccia utente in Azure Active Directory B2C
 
@@ -124,7 +124,7 @@ La tabella seguente elenca i frammenti HTML che Azure AD B2C unisce nell'element
 
 ## <a name="how-do-i-localize-content"></a>Come localizzare il contenuto
 
-Si può localizzare il contenuto HTML abilitando la [personalizzazione della lingua](active-directory-b2c-reference-language-customization.md) nel tenant di Azure AD B2C. L'abilitazione di questa funzionalità consente ad Azure AD B2C di inoltrare il parametro Open ID Connect `ui-locales` all'endpoint. Il server di contenuti può usare questo parametro per fornire pagine HTML personalizzate specifiche della lingua.
+Si può localizzare il contenuto HTML abilitando la [personalizzazione della lingua](active-directory-b2c-reference-language-customization.md) nel tenant di Azure AD B2C. L'abilitazione di questa funzionalità consente Azure ad B2C di inviare il `ui-locales` parametro OpenID Connect all'endpoint. Il server di contenuti può usare questo parametro per fornire pagine HTML personalizzate specifiche della lingua.
 
 È possibile eseguire il pull del contenuto da posizioni diverse in base alle impostazioni locali in uso. Nell'endpoint abilitato per CORS, configurare una struttura di cartelle in cui ospitare il contenuto per specifiche lingue. Se si inserisce il valore del carattere jolly {Culture:RFC5646} verrà chiamata la lingua corretta. Ad esempio, l'URI della pagina personalizzata potrebbe essere simile a `https://contoso.blob.core.windows.net/{Culture:RFC5646}/myHTML/unified.html`. È possibile caricare la pagina in francese eseguendo il pull del contenuto da `https://contoso.blob.core.windows.net/fr/myHTML/unified.html`
 

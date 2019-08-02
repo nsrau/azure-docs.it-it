@@ -1,45 +1,45 @@
 ---
 title: Funzioni di sistema
-description: Altre informazioni sulle funzioni di sistema SQL in Azure Cosmos DB.
+description: Informazioni sulle funzioni di sistema SQL in Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: 11a6fdad187670bcb5af4c56198fd7343680690d
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: b0e9c751d46f805af75196da464a39783c95ae6a
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342845"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619984"
 ---
 # <a name="system-functions"></a>Funzioni di sistema
 
  In Cosmos DB sono disponibili molte funzioni SQL predefinite. Le categorie di funzioni predefinite sono elencate di seguito.  
   
-|Funzione|Descrizione|  
+|Funzione|DESCRIZIONE|  
 |--------------|-----------------|  
 |[Funzioni matematiche](#mathematical-functions)|Le funzioni matematiche eseguono un calcolo basato in genere su valori di input passati come argomenti e restituiscono un valore numerico.|  
 |[Funzioni di controllo del tipo](#type-checking-functions)|Le funzioni di controllo del tipo consentono di controllare il tipo di un'espressione nell'ambito delle query SQL.|  
 |[Funzioni stringa](#string-functions)|Le funzioni stringa eseguono un'operazione su un valore di stringa di input e restituiscono una stringa, il valore numerico o booleano.|  
 |[Funzioni di matrice](#array-functions)|Le funzioni di matrice eseguono un'operazione su un valore di input di matrice e restituiscono un valore numerico, booleano o matrice.|
-|[Funzioni data e ora](#date-time-functions)|Le funzioni di data e ora consentono di ottenere la data UTC corrente e l'ora in due forme; timestamp numerico il cui valore è espresso in millisecondi o sotto forma di stringa conforme al formato ISO 8601 epoca Unix.|
+|[Funzioni di data e ora](#date-time-functions)|Le funzioni di data e ora consentono di ottenere la data e l'ora UTC correnti in due formati; timestamp numerico il cui valore è l'EPOCH UNIX in millisecondi o come stringa conforme al formato ISO 8601.|
 |[Funzioni spaziali](#spatial-functions)|Le funzioni spaziali eseguono un'operazione su un valore di input di oggetto spaziale e restituiscono un valore numerico o booleano.|  
 
-Ecco un elenco di funzioni all'interno di ogni categoria:
+Di seguito è riportato un elenco di funzioni all'interno di ogni categoria:
 
 | Gruppo di funzioni | Operazioni |
 |---------|----------|
-| Funzioni matematiche | ABS, CEILING, EXP, FLOOR, LOG, LOG10, POWER, ROUND, SIGN, SQRT, SQUARE, TRUNC, ACOS, ASIN, ATAN, ATN2, COS, COT, DEGREES, PI, RADIANS, SIN, TAN |
-| Funzioni di controllo di tipo | IS_ARRAY, IS_BOOL, IS_NULL, IS_NUMBER, IS_OBJECT, IS_STRING, IS_DEFINED, IS_PRIMITIVE |
+| Funzioni matematiche | ABS, CEILING, EXP, FLOOR, LOG, LOG10, POWER, ROUND, SIGN, SQRT, SQUARE, TRONCA, ARCCOS, ASIN, ATAN, ATN2, COS, COT, DEGREES, PI, RADIANTI, RAND, SIN, TAN |
+| Funzioni di controllo dei tipi | IS_ARRAY, IS_BOOL, IS_NULL, IS_NUMBER, IS_OBJECT, IS_STRING, IS_DEFINED, IS_PRIMITIVE |
 | Funzioni stringa | CONCAT, CONTAINS, ENDSWITH, INDEX_OF, LEFT, LENGTH, LOWER, LTRIM, REPLACE, REPLICATE, REVERSE, RIGHT, RTRIM, STARTSWITH, SUBSTRING, UPPER |
 | Funzioni di matrice | ARRAY_CONCAT, ARRAY_CONTAINS, ARRAY_LENGTH e ARRAY_SLICE |
-| Funzioni data e ora | GETCURRENTDATETIME, GETCURRENTTIMESTAMP,  |
+| Funzioni di data e ora | GETCURRENTDATETIME, GETCURRENTTIMESTAMP,  |
 | Funzioni spaziali | ST_DISTANCE, ST_WITHIN, ST_INTERSECTS, ST_ISVALID, ST_ISVALIDDETAILED |
 
-Se attualmente si usa una funzione definita dall'utente (UDF) per i quali è ora disponibile una funzione predefinita, la corrispondente funzione predefinita sarà più rapido per l'esecuzione ed efficiente.
+Se attualmente si usa una funzione definita dall'utente (UDF) per cui è ora disponibile una funzione predefinita, la funzione predefinita corrispondente sarà più veloce da eseguire e più efficiente.
 
-La differenza principale tra le funzioni di Cosmos DB e funzioni ANSI SQL è che le funzioni di Cosmos DB sono progettate per funzionare bene con i dati senza schema e con schema misto. Ad esempio, se una proprietà manca o con un valore non numerico come `unknown`, l'elemento viene ignorato invece di restituire un errore.
+La differenza principale tra funzioni Cosmos DB e funzioni SQL ANSI è che le funzioni Cosmos DB sono progettate per funzionare correttamente con dati senza schema e con schema misto. Se, ad esempio, una proprietà è mancante o presenta un valore non numerico come `unknown`, l'elemento viene ignorato anziché restituire un errore.
 
 ##  <a name="mathematical-functions"></a> Funzioni matematiche  
 
@@ -66,9 +66,9 @@ Di seguito è riportata una tabella delle funzioni matematiche predefinite suppo
 |[COS](#bk_cos)|[COT](#bk_cot)|[DEGREES](#bk_degrees)|  
 |[EXP](#bk_exp)|[FLOOR](#bk_floor)|[LOG](#bk_log)|  
 |[LOG10](#bk_log10)|[PI](#bk_pi)|[POWER](#bk_power)|  
-|[RADIANS](#bk_radians)|[ROUND](#bk_round)|[SIN](#bk_sin)|  
-|[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|[SIGN](#bk_sign)|  
-|[TAN](#bk_tan)|[TRUNC](#bk_trunc)||  
+|[RADIANS](#bk_radians)|[ROUND](#bk_round)|[RAND](#bk_rand)|
+|[SIN](#bk_sin)|[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|
+|[SIGN](#bk_sign)|[TAN](#bk_tan)|[TRUNC](#bk_trunc)||  
   
 ####  <a name="bk_abs"></a> ABS  
  Restituisce il valore assoluto (positivo) dell'espressione numerica specificata.  
@@ -555,13 +555,7 @@ SELECT LOG10(100) AS log10
 ```  
 PI ()  
 ```  
-  
- **Argomenti**  
-  
-- `numeric_expression`  
-  
-   È un'espressione numerica.  
-  
+   
   **Tipi restituiti**  
   
   Restituisce un'espressione numerica.  
@@ -677,14 +671,14 @@ ROUND(<numeric_expression>)
   
   **Osservazioni:**
   
-  L'operazione di arrotondamento eseguita segue punto medio arrotondamento lontano da zero. Se l'input è un'espressione numerica compresa tra due interi, il risultato sarà il valore integer più vicino lontano da zero.  
+  L'operazione di arrotondamento eseguita segue l'arrotondamento a zero. Se l'input è un'espressione numerica che rientra esattamente tra due numeri interi, il risultato sarà il valore integer più vicino a zero.  
   
   |<numeric_expression>|Arrotondato|
   |-|-|
-  |-6.5000|-7|
-  |-0.5|-1|
+  |-6,5000|-7|
+  |-0,5|-1|
   |0,5|1|
-  |6.5000|7||
+  |6,5000|7||
   
   **esempi**  
   
@@ -699,7 +693,34 @@ SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, 
 ```  
 [{r1: 2, r2: 3, r3: 3, r4: -2, r5: -3}]  
 ```  
+
+#### <a name="bk_rand"></a>RAND
+ Restituisce un valore numerico generato in modo casuale da [0, 1).
+ 
+ **Sintassi**  
   
+```  
+RAND ()  
+```  
+
+  **Tipi restituiti**  
+  
+  Restituisce un'espressione numerica.  
+  
+  **esempi**  
+  
+  Nell'esempio seguente viene restituito un valore numerico generato in modo casuale.  
+  
+```  
+SELECT RAND() AS rand 
+```  
+  
+ Questo è il set di risultati.  
+  
+```  
+[{"rand": 0.87860053195618093}]  
+``` 
+
 ####  <a name="bk_sign"></a> SIGN  
  Restituisce il segno positivo (+1), zero (0) o negativo (-1) dell'espressione numerica specificata.  
   
@@ -898,9 +919,9 @@ SELECT TRUNC(2.4) AS t1, TRUNC(2.6) AS t2, TRUNC(2.5) AS t3, TRUNC(-2.4) AS t4, 
 [{t1: 2, t2: 2, t3: 2, t4: -2, t5: -2}]  
 ```
 
-## <a id="type-checking-functions"></a>Tipo di funzioni di controllo
+## <a id="type-checking-functions"></a>Funzioni di controllo dei tipi
 
-Le funzioni di controllo del tipo consentono di controllare il tipo di un'espressione all'interno di una query SQL. È possibile usare funzioni di controllo di tipo per determinare i tipi di proprietà all'interno di elementi in tempo reale, quando si trovano variabile o sconosciuto. Ecco una tabella di funzioni di controllo del tipo supportate predefinite:
+Le funzioni di controllo del tipo consentono di controllare il tipo di un'espressione all'interno di una query SQL. È possibile utilizzare le funzioni di controllo del tipo per determinare i tipi di proprietà all'interno di elementi in tempo reale, quando sono variabili o sconosciute. Ecco una tabella delle funzioni di controllo dei tipi predefinite supportate:
 
 Le funzioni seguenti supportano il controllo del tipo per i valori di input e ogni funzione restituisce un valore booleano.  
   
@@ -1225,7 +1246,7 @@ SELECT
 
 ## <a id="string-functions"></a>Funzioni stringa
 
-Le funzioni scalari seguenti eseguono un'operazione su un valore di input stringa e restituiscono un valore stringa, numerica o booleana:
+Le funzioni scalari seguenti eseguono un'operazione su un valore di input stringa e restituiscono un valore stringa, numerico o booleano:
   
 ||||  
 |-|-|-|  
@@ -1717,7 +1738,7 @@ SELECT STARTSWITH("abc", "b") AS s1, STARTSWITH("abc", "a") AS s2
 ```  
 
   ####  <a name="bk_stringtoarray"></a> StringToArray  
- Restituisce l'espressione convertita in una matrice. Se l'espressione non può essere convertita, restituisce non definita.  
+ Restituisce l'espressione convertita in una matrice. Se l'espressione non può essere convertita, restituisce undefined.  
   
  **Sintassi**  
   
@@ -1729,17 +1750,17 @@ StringToArray(<expr>)
   
 - `expr`  
   
-   È qualsiasi espressione scalare valida deve essere valutata come un'espressione di matrice JSON. Si noti che i valori stringa annidata devono essere scritte con le virgolette doppie per essere valido. Per informazioni dettagliate sul formato JSON, vedere [json.org](https://json.org/)
+   Qualsiasi espressione scalare valida da valutare come espressione di matrice JSON. Si noti che i valori di stringa annidati devono essere scritti con virgolette doppie per essere validi. Per informazioni dettagliate sul formato JSON, vedere [JSON.org](https://json.org/)
   
   **Tipi restituiti**  
   
-  Restituisce un'espressione di matrice o non definito.  
+  Restituisce un'espressione di matrice o undefined.  
   
   **esempi**  
   
-  Nell'esempio seguente mostra il comportamento StringToArray in tipi diversi. 
+  Nell'esempio seguente viene illustrato il comportamento di StringToArray tra tipi diversi. 
   
- Di seguito è riportati esempi con un input valido.
+ Di seguito sono riportati esempi con input valido.
 
 ```
 SELECT 
@@ -1758,8 +1779,8 @@ Questo è il set di risultati.
 
 Di seguito è riportato un esempio di input non valido. 
    
- Le virgolette singole all'interno della matrice non sono un file JSON valido.
-Anche se sono valide all'interno di una query, non verranno analizzati alle matrici valide. Le stringhe all'interno della stringa di matrice sia necessario utilizzare caratteri di escape "[\\"\\"]" oppure la virgoletta circostante deve avere una sola ' [""]'.
+ Le virgolette singole all'interno della matrice non sono JSON valide.
+Anche se sono valide all'interno di una query, non verranno analizzate in matrici valide. Per le stringhe all'interno della stringa di matrice deve essere preceduto\\da un carattere di escape "[\\" "]" oppure la virgoletta circostante deve essere singola "[" "]".
 
 ```
 SELECT
@@ -1772,9 +1793,9 @@ Questo è il set di risultati.
 [{}]
 ```
 
-Di seguito è riportati esempi di input non valido.
+Di seguito sono riportati alcuni esempi di input non valido.
    
- L'espressione passata verrà analizzata come una matrice JSON. di seguito non valuta tipo matrice e restituire in questo modo non definito.
+ L'espressione passata verrà analizzata come matrice JSON. gli elementi seguenti non restituiscono una matrice di tipi e pertanto restituiscono undefined.
    
 ```
 SELECT
@@ -1792,7 +1813,7 @@ Questo è il set di risultati.
 ```
 
 ####  <a name="bk_stringtoboolean"></a> StringToBoolean  
- Restituisce l'espressione convertita in un valore booleano. Se l'espressione non può essere convertita, restituisce non definita.  
+ Restituisce l'espressione convertita in un valore booleano. Se l'espressione non può essere convertita, restituisce undefined.  
   
  **Sintassi**  
   
@@ -1804,19 +1825,19 @@ StringToBoolean(<expr>)
   
 - `expr`  
   
-   È qualsiasi espressione scalare valida deve essere valutata come un'espressione booleana.  
+   Qualsiasi espressione scalare valida da valutare come espressione booleana.  
   
   **Tipi restituiti**  
   
-  Restituisce un'espressione booleana o non definito.  
+  Restituisce un'espressione booleana o undefined.  
   
   **esempi**  
   
-  Nell'esempio seguente mostra il comportamento StringToBoolean in tipi diversi. 
+  Nell'esempio seguente viene illustrato il comportamento di StringToBoolean tra tipi diversi. 
  
- Di seguito è riportati esempi con un input valido.
+ Di seguito sono riportati esempi con input valido.
 
-Lo spazio vuoto è consentito solo prima o dopo "true"/ "false".
+Gli spazi vuoti sono consentiti solo prima o dopo "true"/"false".
 
 ```  
 SELECT 
@@ -1831,9 +1852,9 @@ SELECT
 [{"b1": true, "b2": false, "b3": false}]
 ```  
 
-Di seguito è riportati esempi con input non valido.
+Di seguito sono riportati esempi con input non valido.
 
- Valori booleani sono tra maiuscole e minuscole e devono essere scritte con tutti i caratteri minuscoli, ad esempio "true" e "false".
+ I valori booleani fanno distinzione tra maiuscole e minuscole e devono essere scritti con caratteri minuscoli, ad esempio "true" e "false".
 
 ```  
 SELECT 
@@ -1847,7 +1868,7 @@ Questo è il set di risultati.
 [{}]
 ``` 
 
-L'espressione passata verrà analizzata come un'espressione booleana; i dati di input non restituiscono il tipo booleano e restituire in questo modo non definito.
+L'espressione passata verrà analizzata come espressione booleana. questi input non restituiscono il tipo booleano e pertanto restituiscono undefined.
 
 ```  
 SELECT 
@@ -1865,7 +1886,7 @@ Questo è il set di risultati.
 ```  
 
 ####  <a name="bk_stringtonull"></a> StringToNull  
- Restituisce l'espressione convertita su null. Se l'espressione non può essere convertita, restituisce non definita.  
+ Restituisce l'espressione convertita in null. Se l'espressione non può essere convertita, restituisce undefined.  
   
  **Sintassi**  
   
@@ -1877,19 +1898,19 @@ StringToNull(<expr>)
   
 - `expr`  
   
-   È qualsiasi espressione scalare valida deve essere valutata come un'espressione null.
+   Qualsiasi espressione scalare valida da valutare come espressione null.
   
   **Tipi restituiti**  
   
-  Restituisce un'espressione null o non definito.  
+  Restituisce un'espressione null o non definita.  
   
   **esempi**  
   
-  Nell'esempio seguente mostra il comportamento StringToNull in tipi diversi. 
+  Nell'esempio seguente viene illustrato il comportamento di StringToNull tra tipi diversi. 
 
-Di seguito è riportati esempi con un input valido.
+Di seguito sono riportati esempi con input valido.
 
- Lo spazio vuoto è consentito solo prima o dopo "null".
+ Gli spazi vuoti sono consentiti solo prima o dopo "null".
 
 ```  
 SELECT 
@@ -1904,9 +1925,9 @@ SELECT
 [{"n1": null, "n2": null, "n3": true}]
 ```  
 
-Di seguito è riportati esempi con input non valido.
+Di seguito sono riportati esempi con input non valido.
 
-Null viene fatta distinzione tra maiuscole e minuscole e devono essere scritte con tutti i caratteri minuscoli, ad esempio "null".
+Null fa distinzione tra maiuscole e minuscole e deve essere scritto con caratteri minuscoli, ovvero "null".
 
 ```  
 SELECT    
@@ -1920,7 +1941,7 @@ SELECT
 [{}]
 ```  
 
-L'espressione passata verrà analizzata come un'espressione null. non valutano i dati di input da digitare null e pertanto restituisce non definito.
+L'espressione passata verrà analizzata come espressione null; questi input non restituiscono il tipo null e pertanto restituiscono undefined.
 
 ```  
 SELECT    
@@ -1937,7 +1958,7 @@ SELECT
 ```  
 
 ####  <a name="bk_stringtonumber"></a> StringToNumber  
- Restituisce l'espressione convertita in un numero. Se l'espressione non può essere convertita, restituisce non definita.  
+ Restituisce l'espressione convertita in un numero. Se l'espressione non può essere convertita, restituisce undefined.  
   
  **Sintassi**  
   
@@ -1949,17 +1970,17 @@ StringToNumber(<expr>)
   
 - `expr`  
   
-   È qualsiasi espressione scalare valida deve essere valutata come un'espressione del numero JSON. I numeri in formato JSON devono essere un numero intero o a virgola mobile. Per informazioni dettagliate sul formato JSON, vedere [json.org](https://json.org/)  
+   Qualsiasi espressione scalare valida da valutare come espressione numerica JSON. I numeri in JSON devono essere un numero intero o un punto a virgola mobile. Per informazioni dettagliate sul formato JSON, vedere [JSON.org](https://json.org/)  
   
   **Tipi restituiti**  
   
-  Restituisce un'espressione numerica o non definito.  
+  Restituisce un'espressione numerica o non definita.  
   
   **esempi**  
   
-  Nell'esempio seguente mostra il comportamento StringToNumber in tipi diversi. 
+  Nell'esempio seguente viene illustrato il comportamento di StringToNumber tra tipi diversi. 
 
-Lo spazio vuoto è consentito solo prima o dopo il numero.
+Gli spazi vuoti sono consentiti solo prima o dopo il numero.
 
 ```  
 SELECT 
@@ -1975,7 +1996,7 @@ SELECT
 {{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
 ```  
 
-In JSON deve essere un numero valido da un numero intero o mobile numero a virgola.
+In JSON un numero valido deve essere un numero intero o un numero a virgola mobile.
 
 ```  
 SELECT   
@@ -1988,7 +2009,7 @@ SELECT
 {{}}
 ```  
 
-L'espressione passata verrà analizzata come un'espressione numerica. i dati di input non valutano tipo numero e restituire in questo modo non definito. 
+L'espressione passata verrà analizzata come espressione numerica. questi input non restituiscono il tipo Number e pertanto restituiscono undefined. 
 
 ```  
 SELECT 
@@ -2006,8 +2027,8 @@ SELECT
 {{}}
 ```  
 
-####  <a name="bk_stringtoobject"></a> StringToObject  
- Restituisce l'espressione convertita in un oggetto. Se l'espressione non può essere convertita, restituisce non definita.  
+####  <a name="bk_stringtoobject"></a>StringToObject  
+ Restituisce l'espressione convertita in un oggetto. Se l'espressione non può essere convertita, restituisce undefined.  
   
  **Sintassi**  
   
@@ -2019,17 +2040,17 @@ StringToObject(<expr>)
   
 - `expr`  
   
-   È qualsiasi espressione scalare valida deve essere valutata come un'espressione di oggetto JSON. Si noti che i valori stringa annidata devono essere scritte con le virgolette doppie per essere valido. Per informazioni dettagliate sul formato JSON, vedere [json.org](https://json.org/)  
+   Qualsiasi espressione scalare valida da valutare come espressione di oggetto JSON. Si noti che i valori di stringa annidati devono essere scritti con virgolette doppie per essere validi. Per informazioni dettagliate sul formato JSON, vedere [JSON.org](https://json.org/)  
   
   **Tipi restituiti**  
   
-  Restituisce un'espressione di oggetto o non definito.  
+  Restituisce un'espressione di oggetto o non definita.  
   
   **esempi**  
   
-  Nell'esempio seguente mostra il comportamento StringToObject in tipi diversi. 
+  Nell'esempio seguente viene illustrato il comportamento di StringToObject tra tipi diversi. 
   
- Di seguito è riportati esempi con un input valido.
+ Di seguito sono riportati esempi con input valido.
 
 ``` 
 SELECT 
@@ -2048,10 +2069,10 @@ Questo è il set di risultati.
   "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
 ```
 
- Di seguito è riportati esempi con input non valido.
-Anche se sono valide all'interno di una query, non verranno analizzati per oggetti validi. Le stringhe all'interno della stringa dell'oggetto sia necessario utilizzare caratteri di escape "{\\" una\\":\\" str\\"}" o l'offerta circostante deve avere una sola ' {"a": "str"}'.
+ Di seguito sono riportati esempi con input non valido.
+Anche se sono valide all'interno di una query, non verranno analizzate in oggetti validi. Le stringhe all'interno della stringa dell'oggetto devono essere precedute\\da un carattere di\\Escape "\\{" a\\":" Str "}" oppure la virgoletta circostante deve essere singola ' {"a": "Str"}'.
 
-Virgolette che racchiudono i nomi di proprietà non sono un file JSON valido.
+Le virgolette singole che racchiudono i nomi delle proprietà non sono JSON valide.
 
 ``` 
 SELECT 
@@ -2064,7 +2085,7 @@ Questo è il set di risultati.
 [{}]
 ```  
 
-I nomi delle proprietà senza virgolette non sono un file JSON valido.
+I nomi di proprietà senza virgolette circostanti non sono JSON validi.
 
 ``` 
 SELECT 
@@ -2077,9 +2098,9 @@ Questo è il set di risultati.
 [{}]
 ``` 
 
-Di seguito è riportati esempi con input non valido.
+Di seguito sono riportati esempi con input non valido.
 
- L'espressione passata verrà analizzata come oggetto JSON. tipo di oggetto e restituire in questo modo non definito non valutano i dati di input.
+ L'espressione passata verrà analizzata come un oggetto JSON. questi input non restituiscono un oggetto di tipo e pertanto restituiscono undefined.
 
 ``` 
 SELECT 
@@ -2282,7 +2303,7 @@ SELECT UPPER("Abc") AS upper
 
 ## <a id="array-functions"></a>Funzioni di matrice
 
-Le funzioni scalari seguenti eseguono un'operazione su un valore di input di matrice e restituiscono numerico, valore booleano o matrice:
+Le funzioni scalari seguenti eseguono un'operazione su un valore di input di matrice e restituiscono un valore numerico, booleano o matrice:
   
 ||||  
 |-|-|-|  
@@ -2473,16 +2494,16 @@ SELECT
            "s7": [] 
 }]  
 ```  
-## <a id="date-time-functions"></a>Data e ora (funzione)
+## <a id="date-time-functions"></a>Funzione data e ora
 
-Le funzioni scalari seguenti consentono di ottenere la data UTC corrente e l'ora in due forme; timestamp numerico il cui valore è espresso in millisecondi o sotto forma di stringa conforme al formato ISO 8601 epoca Unix. 
+Le funzioni scalari seguenti consentono di ottenere la data e l'ora UTC correnti in due formati; timestamp numerico il cui valore è l'EPOCH UNIX in millisecondi o come stringa conforme al formato ISO 8601. 
 
 |||
 |-|-|
 |[GETCURRENTDATETIME](#bk_get_current_date_time)|[GETCURRENTTIMESTAMP](#bk_get_current_timestamp)||
 
 ####  <a name="bk_get_current_date_time"></a> GETCURRENTDATETIME
- Restituisce la data UTC corrente e l'ora sotto forma di stringa ISO 8601.
+ Restituisce la data e l'ora UTC correnti come stringa ISO 8601.
   
  **Sintassi**
   
@@ -2492,23 +2513,23 @@ GETCURRENTDATETIME ()
   
   **Tipi restituiti**
   
-  Restituisce l'ora UTC data e ora ISO 8601 stringa valore corrente. 
+  Restituisce la data e l'ora UTC correnti del valore stringa ISO 8601. 
 
-  Questo valore viene espresso nel formato AAAA-MM-DDThh:mm:ss.sssZ dove:
+  Questa operazione è espressa nel formato AAAA-MM-GGThh: mm: SS. sssZ dove:
   
   |||
   |-|-|
   |AAAA|anno a quattro cifre|
-  |MM|mese a due cifre (01 = gennaio, ecc.)|
-  |GG|giorno a due cifre del mese (da 01 a 31)|
-  |T|signifier per inizio degli elementi temporali|
-  |hh|ora a 2 cifre (da 00 a 23)|
+  |MM|mese a due cifre (01 = gennaio e così via)|
+  |GG|giorno del mese a due cifre (da 01 a 31)|
+  |T|significato per l'inizio degli elementi Time|
+  |hh|ora a due cifre (da 00 a 23)|
   |MM|minuti a due cifre (da 00 a 59)|
-  |ss|secondi a due cifre (da 00 a 59)|
-  |. SSS|tre cifre del numero decimale frazioni di secondo|
-  |Z|Designatore UTC (Coordinated Universal Time)||
+  |SS|secondi a due cifre (da 00 a 59)|
+  |. sss|tre cifre di frazioni decimali di secondo|
+  |Z|Indicatore UTC (Coordinated Universal Time)||
   
-  Per altre informazioni sul formato ISO 8601, vedere [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
+  Per ulteriori informazioni sul formato ISO 8601, vedere [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 
   **Osservazioni:**
 
@@ -2518,13 +2539,13 @@ GETCURRENTDATETIME ()
 
   **esempi**  
   
-  Nell'esempio seguente viene illustrato come ottenere l'ora della data UTC corrente usando la funzione predefinita GetCurrentDateTime.
+  Nell'esempio seguente viene illustrato come ottenere la data e ora UTC correnti utilizzando la funzione predefinita GetCurrentDateTime.
   
 ```  
 SELECT GETCURRENTDATETIME() AS currentUtcDateTime
 ```  
   
- Di seguito è riportato un set di risultati di esempio.
+ Di seguito è riportato un esempio di set di risultati.
   
 ```  
 [{
@@ -2532,8 +2553,8 @@ SELECT GETCURRENTDATETIME() AS currentUtcDateTime
 }]  
 ```  
 
-####  <a name="bk_get_current_timestamp"></a> GETCURRENTTIMESTAMP
- Restituisce il numero di millisecondi trascorsi 00:00:00 giovedì, dell'1 gennaio 1970. 
+####  <a name="bk_get_current_timestamp"></a>GETCURRENTTIMESTAMP
+ Restituisce il numero di millisecondi trascorsi dal 00:00:00 giovedì, 1 gennaio 1970. 
   
  **Sintassi**  
   
@@ -2543,7 +2564,7 @@ GETCURRENTTIMESTAMP ()
   
   **Tipi restituiti**  
   
-  Restituisce un valore numerico, il numero corrente di millisecondi trascorsi dall'epoca Unix, ovvero il numero di millisecondi trascorsi 00:00:00 giovedì, dell'1 gennaio 1970.
+  Restituisce un valore numerico, il numero corrente di millisecondi trascorsi dal periodo UNIX, ovvero il numero di millisecondi trascorsi dal 00:00:00 giovedì, 1 gennaio 1970.
 
   **Osservazioni:**
 
@@ -2553,13 +2574,13 @@ GETCURRENTTIMESTAMP ()
 
   **esempi**  
   
-  Nell'esempio seguente viene illustrato come ottenere il timestamp corrente usando la funzione predefinita GetCurrentTimestamp.
+  Nell'esempio seguente viene illustrato come ottenere il timestamp corrente utilizzando la funzione predefinita GetCurrentTimestamp.
   
 ```  
 SELECT GETCURRENTTIMESTAMP() AS currentUtcTimestamp
 ```  
   
- Di seguito è riportato un set di risultati di esempio.
+ Di seguito è riportato un esempio di set di risultati.
   
 ```  
 [{
@@ -2777,6 +2798,6 @@ SELECT ST_ISVALIDDETAILED({
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Introduzione ad Azure Cosmos DB](introduction.md)
-- [UDFs](sql-query-udfs.md)
-- [funzioni di aggregazione](sql-query-aggregates.md)
+- [Introduzione a Azure Cosmos DB](introduction.md)
+- [UDF](sql-query-udfs.md)
+- [Aggregati](sql-query-aggregates.md)

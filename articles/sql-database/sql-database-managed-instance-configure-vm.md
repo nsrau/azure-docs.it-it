@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
-manager: craigg
 ms.date: 02/18/2019
-ms.openlocfilehash: 59088ad53e923f1303c0e800df9c25f70e63812f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ddcac56671e145728f02d31bf23c657ea172e4c0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60701886"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567654"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Avvio rapido: Configurare una macchina virtuale di Azure per la connessione a un'istanza gestita di database SQL di Azure
 
@@ -84,7 +83,7 @@ Il modo più semplice per creare una macchina virtuale client con tutti gli stru
    |**Password**|Qualsiasi password valida|La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Questa password viene usata ogni volta che ci si [connette alla macchina virtuale](#connect-to-virtual-machine).|
    | **Dimensioni macchina virtuale** | Qualsiasi dimensione valida | Il valore predefinito in questo modello, **Standard_B2s**, è sufficiente per questo argomento di avvio rapido. |
    | **Location**|[resourceGroup().location].| Non modificare questo valore. |
-   | **Nome rete virtuale**|La rete virtuale in cui viene creata l'istanza gestita.|
+   | **Nome rete virtuale**|Rete virtuale in cui è stato creato il Istanza gestita.|
    | **Nome della subnet**|Nome della subnet creata nella procedura precedente| Non scegliere la subnet in cui è stata creata l'istanza gestita.|
    | **artifacts Location** (Posizione elementi) | [deployment().properties.templateLink.uri] | Non modificare questo valore. |
    | **artifacts location SAS token** (Token di firma di accesso condiviso posizione elementi) | lasciare vuoto | Non modificare questo valore. |
@@ -100,7 +99,7 @@ Il modo più semplice per creare una macchina virtuale client con tutti gli stru
 > [!IMPORTANT]
 > Non continuare finché non sono trascorsi circa 15 minuti dalla creazione della macchina virtuale per dare agli script di post-creazione il tempo di installare SQL Server Management Studio.
 
-## <a name="connect-to-virtual-machine"></a>Connettersi alla macchina virtuale
+## <a name="connect-to-virtual-machine"></a>Connetti alla macchina virtuale in corso
 
 La procedura seguente illustra come connettersi alla macchina virtuale appena creata con una connessione Desktop remoto.
 

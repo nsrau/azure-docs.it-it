@@ -7,18 +7,18 @@ manager: jhubbard
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: 3a7eaacc4c234ec7d1d3d88455bd423256a07e90
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cf8b917b72362465c3273f80db61b681ffd0c4d7
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60614875"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610363"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Usare gli endpoint servizio e le regole di rete virtuale per Database di Azure per MySQL
 
 Le *regole di rete virtuale* rappresentano una funzionalità di sicurezza del firewall che consente di definire se il server di Database di Azure per MySQL accetta le comunicazioni inviate da subnet specifiche nelle reti virtuali. Questo articolo spiega i motivi per cui la funzione delle regole di rete virtuale è talvolta la scelta ideale per consentire le comunicazioni con il server di Database di Azure per MySQL.
 
-Per creare una regola di rete virtuale, devono innanzitutto essere disponibili una [rete virtuale][vm-virtual-network-overview] (VNet) e un [endpoint servizio di rete virtuale][vm-virtual-network-service-endpoints-overview-649d] a cui la regola possa fare riferimento. La figura seguente illustra il funzionamento di un endpoint servizio di rete virtuale con Database di Azure per MySQL:
+Per creare una regola della rete virtuale, è necessario prima di tutto una [rete virtuale][vm-virtual-network-overview] (VNet) e un [endpoint del servizio di rete virtuale][vm-virtual-network-service-endpoints-overview-649d] per la regola a cui fare riferimento. La figura seguente illustra il funzionamento di un endpoint servizio di rete virtuale con Database di Azure per MySQL:
 
 ![Esempio del funzionamento di un endpoint di servizio di rete virtuale](media/concepts-data-access-and-security-vnet/vnet-concept.png)
 
@@ -60,7 +60,7 @@ Il riquadro Sicurezza connessione contiene un pulsante **ON/OFF** con l'etichett
 
 Il firewall di Database di Azure per MySQL consente di specificare gli intervalli di indirizzi IP da cui vengono accettate le comunicazioni nell'istanza di Database di Azure per MySQL. Questo approccio è ideale per gli indirizzi IP stabili esterni alla rete privata di Azure, ma molti nodi all'interno della rete privata di Azure sono configurati con indirizzi IP *dinamici*. Gli indirizzi IP dinamici potrebbero cambiare, ad esempio al riavvio di una macchina virtuale. Sarebbe inutile specificare un indirizzo IP dinamico in una regola del firewall, in un ambiente di produzione.
 
-È possibile recuperare l'opzione IP ottenendo un indirizzo IP *statico* per la macchina virtuale. Per i dettagli, vedere [Configurare indirizzi IP privati per una VM mediante il portale di Azure][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w].
+È possibile recuperare l'opzione IP ottenendo un indirizzo IP *statico* per la macchina virtuale. Per informazioni dettagliate, vedere [configurare indirizzi IP privati per una macchina virtuale usando il portale di Azure][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w].
 
 Tuttavia, l'approccio IP statico può diventare difficile da gestire ed è dispendioso a livello di scalabilità. Le regole di rete virtuale sono più semplici da creare e gestire.
 
@@ -97,36 +97,37 @@ I ruoli di sicurezza sono distinti nell'amministrazione degli endpoint servizio 
 
 I ruoli di amministratore di rete e amministratore di database hanno più funzionalità di quelle necessarie a gestire le regole di rete virtuale. È necessario solo un subset delle relative funzionalità.
 
-È possibile scegliere di usare il [controllo degli accessi in base al ruolo (RBAC)] [ rbac-what-is-813s] in Azure per creare un singolo ruolo personalizzato che contiene solo il subset necessario di funzionalità. È possibile usare il ruolo personalizzato anziché coinvolgere l'amministratore di rete o di database. La superficie di attacco dell'esposizione a rischi per la sicurezza è ridotta se si aggiunge un utente a un ruolo personalizzato, anziché aggiungere l'utente agli altri due ruoli di amministratore principali.
+È possibile scegliere di usare il [controllo degli accessi in base al ruolo (RBAC)][rbac-what-is-813s] in Azure per creare un singolo ruolo personalizzato con solo il subset di funzionalità necessario. È possibile usare il ruolo personalizzato anziché coinvolgere l'amministratore di rete o di database. La superficie di attacco dell'esposizione a rischi per la sicurezza è ridotta se si aggiunge un utente a un ruolo personalizzato, anziché aggiungere l'utente agli altri due ruoli di amministratore principali.
 
 > [!NOTE]
 > In alcuni casi, Database di Azure per MySQL e la subnet della rete virtuale sono in sottoscrizioni diverse. In questi casi è necessario garantire le configurazioni seguenti:
 > - Entrambe le sottoscrizioni devono essere nello stesso tenant di Azure Active Directory.
 > - L'utente ha le autorizzazioni necessarie per avviare le operazioni, ad esempio abilitare gli endpoint di servizio e aggiungere una subnet della rete virtuale al server specificato.
+> - Assicurarsi che la sottoscrizione disponga del provider di risorse **Microsoft. SQL** registrato. Per altre informazioni, vedere [Resource-Manager-Registration][resource-manager-portal]
 
 ## <a name="limitations"></a>Limitazioni
 
 Per Database di Azure per MySQL, la funzionalità delle regole di rete virtuale presenta le limitazioni seguenti:
 
-- Un'app Web può essere mappata a un indirizzo IP privato in una rete virtuale/subnet. Anche se gli endpoint di servizio sono attivati dalla rete virtuale/subnet specificata, le connessioni dall'app Web al server avranno come origine l'indirizzo IP pubblico di Azure, non la rete virtuale/subnet. Per abilitare la connettività da un'App Web a un server con le regole del firewall della rete virtuale, è necessario consentire Azure services per accedere ai server nel server.
+- Un'app Web può essere mappata a un indirizzo IP privato in una rete virtuale/subnet. Anche se gli endpoint di servizio sono attivati dalla rete virtuale/subnet specificata, le connessioni dall'app Web al server avranno come origine l'indirizzo IP pubblico di Azure, non la rete virtuale/subnet. Per abilitare la connettività da un'app Web a un server che dispone di regole del firewall VNet, è necessario consentire ai servizi di Azure di accedere al server nel server.
 
 - Nel firewall per Database di Azure per MySQL ogni regola di rete virtuale fa riferimento a una subnet. Tutte queste subnet cui viene fatto riferimento devono essere ospitate nella stessa area geografica che ospita Database di Azure per MySQL.
 
 - Ogni server di Database di Azure per MySQL può includere fino a 128 voci ACL per qualsiasi rete virtuale specificata.
 
-- Le regole di rete virtuale si applicano solo alle reti virtuali di Azure Resource Manager e non alle reti con un [modello di distribuzione classica][arm-deployment-model-568f].
+- Le regole della rete virtuale si applicano solo alle reti virtuali Azure Resource Manager; e non alle reti di [modelli di distribuzione classica][arm-deployment-model-568f] .
 
 - L'attivazione degli endpoint servizio di rete virtuale in Database di Azure per MySQL con il tag di servizio **Microsoft.Sql** abilita gli endpoint anche per tutti i servizi di Database di Azure: Database di Azure per MySQL, Database di Azure per PostgreSQL, database SQL di Azure e Azure SQL Data Warehouse.
 
 - Gli endpoint di servizio di rete virtuale sono supportati solo per i server per utilizzo generico e ottimizzati per la memoria.
 
 - Nel firewall, gli intervalli di indirizzi IP si applicano ai seguenti elementi di rete, ma non le regole di rete virtuale:
-    - [VPN (rete privata virtuale) da sito a sito (S2S)][vpn-gateway-indexmd-608y]
-    - Ambiente locale tramite [ExpressRoute][expressroute-indexmd-744v]
+    - [Rete privata virtuale (VPN) da sito a sito (S2S)][vpn-gateway-indexmd-608y]
+    - Locale tramite [ExpressRoute][expressroute-indexmd-744v]
 
 ## <a name="expressroute"></a>ExpressRoute
 
-Se la rete è connessa alla rete di Azure con [ExpressRoute][expressroute-indexmd-744v], ogni circuito è configurato con due indirizzi IP pubblici in Microsoft Edge. I due indirizzi IP vengono usati per connettersi ai servizi Microsoft, ad esempio ad Archiviazione di Azure, usando il peering pubblico di Azure.
+Se la rete è connessa alla rete di Azure tramite l'uso di [ExpressRoute][expressroute-indexmd-744v], ogni circuito viene configurato con due indirizzi IP pubblici in Microsoft Edge. I due indirizzi IP vengono usati per connettersi ai servizi Microsoft, ad esempio ad Archiviazione di Azure, usando il peering pubblico di Azure.
 
 Per consentire le comunicazioni tra il circuito e Database di Azure per MySQL, è necessario creare regole di rete IP per gli indirizzi IP pubblici dei circuiti. Per trovare gli indirizzi IP pubblici del circuito ExpressRoute, aprire un ticket di supporto in ExpressRoute tramite il portale di Azure.
 
@@ -138,7 +139,7 @@ La semplice impostazione di una regola del firewall non consente di proteggere i
 
 ## <a name="related-articles"></a>Articoli correlati
 - [Reti virtuali di Azure][vm-virtual-network-overview]
-- [Endpoint del servizio Rete virtuale di Azure][vm-virtual-network-service-endpoints-overview-649d]
+- [Endpoint del servizio rete virtuale di Azure][vm-virtual-network-service-endpoints-overview-649d]
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per articoli relativi alla creazione di regole di rete virtuale, vedere:
@@ -159,3 +160,5 @@ Per articoli relativi alla creazione di regole di rete virtuale, vedere:
 [vpn-gateway-indexmd-608y]: ../vpn-gateway/index.yml
 
 [expressroute-indexmd-744v]: ../expressroute/index.yml
+
+[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md

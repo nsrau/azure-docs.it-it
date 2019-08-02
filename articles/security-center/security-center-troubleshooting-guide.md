@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 63275db36bdb64985625c3789d558bd09e2d47bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 93656578fac52e4ba5ff96e655ea51678f2292cd
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60912062"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609915"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guida alla risoluzione dei problemi del Centro sicurezza di Azure
 Questa guida è destinata a professionisti IT, analisti della sicurezza delle informazioni e amministratori cloud le cui organizzazioni usano il Centro sicurezza di Azure e devono risolvere i problemi correlati.
@@ -40,7 +40,7 @@ Questa guida illustra come risolvere i problemi correlati al Centro sicurezza. L
 Il log di controllo contiene tutte le operazioni di scrittura (PUT, POST, DELETE) eseguite sulle risorse, ma non include quelle di lettura (GET).
 
 ## <a name="microsoft-monitoring-agent"></a>Microsoft Monitoring Agent
-Centro sicurezza Usa Microsoft Monitoring Agent, questo è lo stesso agente usato dal servizio monitoraggio di Azure, per raccogliere dati sulla sicurezza dalle macchine virtuali di Azure. Dopo avere abilitato la raccolta dei dati e installato correttamente l'agente nel computer di destinazione, sarà in esecuzione il processo seguente:
+Il Centro sicurezza usa il Microsoft Monitoring Agent, ovvero lo stesso agente usato dal servizio monitoraggio di Azure, per raccogliere i dati di sicurezza dalle macchine virtuali di Azure. Dopo avere abilitato la raccolta dei dati e installato correttamente l'agente nel computer di destinazione, sarà in esecuzione il processo seguente:
 
 * HealthService.exe
 
@@ -74,7 +74,7 @@ Esistono due scenari di installazione che possono produrre risultati diversi qua
 | L'agente di macchine virtuali di Azure è mancante o non valido | Microsoft Monitoring Agent non è stato ancora installato.  Un agente di macchine virtuali di Azure è necessario per l'installazione dell'estensione da parte del Centro sicurezza. | Installare, reinstallare o aggiornare l'agente di macchine virtuali di Azure sulla VM. |
 | Lo stato della VM non è pronto per l'installazione  | Microsoft Monitoring Agent non è ancora installato perché la VM non è pronta per l'installazione. La macchina virtuale non è pronta per l'installazione a causa di un problema con l'agente di macchine virtuali o con il provisioning della VM. | Controllare lo stato della VM. Tornare a **Macchine virtuali** nel portale e selezionare la VM per ottenere informazioni sullo stato. |
 |L'installazione non è riuscita - Errore generale | Microsoft Monitoring Agent è stato installato ma l'operazione non è riuscita a causa di un errore. | [Installare manualmente l'estensione](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) o disinstallare l'estensione in modo che il Centro sicurezza possa provare a reinstallarla. |
-| L'installazione non è riuscita - L'agente locale è già installato | Non è stato possibile installare Microsoft Monitoring Agent. Centro sicurezza ha identificato un agente locale (Log Analitica o System Center Operations Manager) già installato nella macchina virtuale. Per evitare una configurazione multihosting, in cui la VM invia report a due aree di lavoro separate, l'installazione di Microsoft Monitoring Agent è stata arrestata. | È possibile risolvere il problema in due modi: [installare manualmente l'estensione](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) e connetterla all'area di lavoro specifica. In alternativa, configurare l'area di lavoro da usare come area di lavoro predefinita e abilitare il provisioning automatico dell'agente.  Vedere [Abilitare il provisioning automatico](security-center-enable-data-collection.md). |
+| L'installazione non è riuscita - L'agente locale è già installato | Non è stato possibile installare Microsoft Monitoring Agent. Il Centro sicurezza ha identificato un agente locale (Log Analytics o System Center Operations Manager) già installato nella macchina virtuale. Per evitare una configurazione multihosting, in cui la VM invia report a due aree di lavoro separate, l'installazione di Microsoft Monitoring Agent è stata arrestata. | È possibile risolvere il problema in due modi: [installare manualmente l'estensione](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) e connetterla all'area di lavoro specifica. In alternativa, configurare l'area di lavoro da usare come area di lavoro predefinita e abilitare il provisioning automatico dell'agente.  Vedere [Abilitare il provisioning automatico](security-center-enable-data-collection.md). |
 | L'agente non riesce a connettersi all'area di lavoro | Microsoft Monitoring Agent è stato installato ma l'operazione non è riuscita a causa di un errore di connettività di rete.  Verificare che sia disponibile l'accesso a Internet o che un proxy HTTP corretto sia stato configurato per l'agente. | Vedere Requisiti di rete di Monitoring Agent. |
 | L'agente è connesso a un'area di lavoro mancante o sconosciuta | Il Centro sicurezza ha rilevato che l'istanza di Microsoft Monitoring Agent installata nella macchina virtuale è connessa a un'area di lavoro a cui non riesce ad accedere. | Questo problema può dipendere da due cause. L'area di lavoro è stata eliminata e non esiste più. Reinstallare l'agente con l'area di lavoro corretta o disinstallare l'agente e consentire al Centro sicurezza di completare l'installazione del provisioning automatico. In alternativa è possibile che l'area di lavoro sia parte di una sottoscrizione a cui il Centro sicurezza non è autorizzato ad accedere. Il Centro sicurezza necessita che le sottoscrizioni consentano l'accesso al provider di risorse per la sicurezza Microsoft. Per abilitare l'accesso, registrare la sottoscrizione nel provider di risorse per la sicurezza Microsoft. È possibile eseguire questa operazione tramite API, PowerShell, portale o semplicemente filtrando la sottoscrizione nel dashboard **Panoramica** del Centro sicurezza. Per altre informazioni, vedere [Provider e tipi di risorse](../azure-resource-manager/resource-manager-supported-services.md#azure-portal). |
 | L'agente non risponde o l'ID è mancante | Il Centro sicurezza non riesce a recuperare i dati di sicurezza analizzati dalla macchina virtuale, anche se l'agente è installato. | L'agente non segnala alcun dato, incluso l'heartbeat. È possibile che l'agente sia danneggiato o che il traffico sia bloccato. È anche possibile che l'agente segnali i dati ma sia privo di un ID risorsa di Azure, quindi non è possibile associare i dati alla macchina virtuale di Azure. Per risolvere i problemi relativi a Linux, vedere [Troubleshooting Guide for Log Analytics Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal) (Guida alla risoluzione dei problemi per l'agente di Log Analytics per Linux). Per risolvere i problemi relativi a Windows, vedere[Troubleshooting Windows Virtual Machines](https://github.com/MicrosoftDocs/azure-docs/blob/8c53ac4371d482eda3d85819a4fb8dac09996a89/articles/log-analytics/log-analytics-azure-vm-extension.md#troubleshooting-windows-virtual-machines) (Risoluzione dei problemi delle macchine virtuali Windows). |
@@ -91,17 +91,17 @@ Nella tabella seguente vengono visualizzate le risorse necessarie per la comunic
 
 | Risorsa agente | Porte | Ignorare l'analisi HTTPS |
 |---|---|---|
-| *.ods.opinsights.azure.com | 443 | Yes |
+| *.ods.opinsights.azure.com | 443 | Sì |
 | *.oms.opinsights.azure.com | 443 | Yes |
 | *.blob.core.windows.net | 443 | Sì |
-| *.azure-automation.net | 443 | Yes |
+| *.azure-automation.net | 443 | Sì |
 
 Se si verificano problemi di caricamento con l'agente, assicurarsi di leggere l'articolo [Risoluzione dei problemi di integrazione di Operations Management Suite](https://support.microsoft.com/en-us/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 
 
 ## <a name="troubleshooting-endpoint-protection-not-working-properly"></a>Risoluzione dei problemi relativi al mancato funzionamento della protezione degli endpoint
 
-L'agente guest è il processo padre di tutte le operazioni eseguite dall'estensione [Microsoft Antimalware](../security/azure-security-antimalware.md). Quando il processo dell'agente guest non riesce, anche Microsoft Antimalware che viene eseguito come processo figlio dell'agente guest potrebbe non riuscire.  In scenari come questi è consigliabile verificare le opzioni seguenti:
+L'agente guest è il processo padre di tutte le operazioni eseguite dall'estensione [Microsoft Antimalware](../security/fundamentals/antimalware.md). Quando il processo dell'agente guest non riesce, anche Microsoft Antimalware che viene eseguito come processo figlio dell'agente guest potrebbe non riuscire.  In scenari come questi è consigliabile verificare le opzioni seguenti:
 
 - Che la macchina virtuale di destinazione sia un'immagine personalizzata e che l'autore della macchina virtuale non abbia mai installato l'agente guest.
 - Che la destinazione sia una VM di Linux e non una VM di Windows per cui l'installazione della versione di Windows dell'estensione antimalware su una VM Linux avrebbe esito negativo. L'agente guest Linux presenta requisiti specifici per quanto riguarda la versione del sistema operativo e i pacchetti necessari e se questi requisiti non vengono soddisfatti l'agente della VM non funzionerà.

@@ -2,16 +2,16 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 03/05/2019
+ms.date: 07/26/2019
 ms.author: alkohli
-ms.openlocfilehash: 7058d7f46373f8adaacbcbf90e5ea591a15f8f37
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f3bb391dceb1948820d00c0d09229f2c106ffc0b
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180605"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68601344"
 ---
-In un dispositivo al bordo casella dei dati con il ruolo di calcolo configurato, un subset di docker sono disponibili per monitorare o risolvere i moduli di comandi. Per visualizzare un elenco di comandi disponibili, [connettersi all'interfaccia di PowerShell](#connect-to-the-powershell-interface) e usare il `dkrdbe` (funzione).
+In un dispositivo Data Box Edge in cui è configurato il ruolo di calcolo, è disponibile un subset di comandi di Docker per monitorare o risolvere i problemi relativi ai moduli. Per visualizzare un elenco dei comandi disponibili, [connettersi all'interfaccia di PowerShell](#connect-to-the-powershell-interface) e utilizzare la `dkrdbe` funzione.
 
 ```powershell
 [10.100.10.10]: PS>dkrdbe -?
@@ -37,24 +37,24 @@ Commands:
 ```
 La tabella seguente contiene una breve descrizione dei comandi disponibili per `dkrdbe`:
 
-|command  |Descrizione |
+|command  |DESCRIZIONE |
 |---------|---------|
-|`image`     | Gestire le immagini       |
+|`image`     | Gestire le immagini. Per rimuovere le immagini inutilizzate, usare:`dkrdbe image prune -a -f`       |
 |`images`     | Elencare le immagini         |
-|`inspect`     | Restituisce informazioni di basso livello per gli oggetti di Docker         |
+|`inspect`     | Restituisce informazioni di basso livello sugli oggetti Docker         |
 |`login`     | Accedere a un registro Docker         |
 |`logout`     | Disconnettersi da un registro Docker         |
 |`logs`     | Recuperare i log di un contenitore        |
-|`port`     | Elenca i mapping di porta o un mapping specifico per il contenitore        |
+|`port`     | Elencare i mapping delle porte o un mapping specifico per il contenitore        |
 |`ps`     | Elencare i contenitori        |
-|`pull`     | Pull di un'immagine o un repository da un registro di sistema         |
+|`pull`     | Effettuare il pull di un'immagine o di un repository da un registro         |
 |`start`     | Avviare uno o più contenitori arrestati         |
-|`stats`     | Visualizzare un flusso in tempo reale delle statistiche di utilizzo di risorse di contenitore/i         |
-|`stop`     | Arrestare una o più contenitori in esecuzione        |
-|`system`     | Gestire Docker         |
+|`stats`     | Visualizzare un flusso live di statistiche di utilizzo delle risorse dei contenitori         |
+|`stop`     | Arrestare uno o più contenitori in esecuzione        |
+|`system`     | Gestisci Docker         |
 |`top`     | Visualizzare i processi in esecuzione di un contenitore         |
 
-Per ottenere assistenza per qualsiasi comando disponibile, usare `dkrdbe <command-name> --help`.
+Per ottenere informazioni della Guida per qualsiasi comando disponibile `dkrdbe <command-name> --help`, usare.
 
 Ad esempio, per comprendere l'utilizzo del `port` comando, digitare:
 
@@ -78,13 +78,13 @@ Options:
 [10.100.10.10]: PS>
 ```
 
-I comandi disponibili per il `dkrdbe` funzione Usa gli stessi parametri come quelli usati per i comandi di docker normali. Per le opzioni e parametri usati con il comando di docker, visitare [usare la riga di comando di Docker](https://docs.docker.com/engine/reference/commandline/docker/).
+I comandi disponibili per la `dkrdbe` funzione usano gli stessi parametri di quelli usati per i normali comandi di Docker. Per le opzioni e i parametri usati con il comando Docker, vedere [usare la riga](https://docs.docker.com/engine/reference/commandline/docker/)di comando di Docker.
 
-### <a name="to-check-if-the-module-deployed-successfully"></a>Per verificare se il modulo distribuito correttamente
+### <a name="to-check-if-the-module-deployed-successfully"></a>Per verificare se il modulo è stato distribuito correttamente
 
-Questi moduli sono contenitori che hanno una logica di business implementata. Per controllare se un modulo di calcolo viene distribuito correttamente, eseguire il `ps` di comandi e verificare se il contenitore, che corrisponde al modulo di calcolo, è in esecuzione.
+I moduli di calcolo sono contenitori per i quali è implementata una logica di business. Per verificare se un modulo di calcolo è stato distribuito correttamente, eseguire `ps` il comando e verificare se il contenitore, corrispondente al modulo di calcolo, è in esecuzione.
 
-Per ottenere l'elenco di tutti i contenitori (incluse quelle che sono in pausa), eseguire il `ps -a` comando.
+Per ottenere l'elenco di tutti i contenitori, inclusi quelli sospesi, eseguire il `ps -a` comando.
 
 ```powershell
 [10.100.10.10]: P> dkrdbe ps -a
@@ -96,9 +96,9 @@ acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/s
 [10.100.10.10]: PS>
 ```
 
-Se si è verificato un errore nella creazione dell'immagine del contenitore o mentre il pull dell'immagine, eseguire `logs edgeAgent`.  `EdgeAgent` è il contenitore di runtime di IoT Edge responsabile per il provisioning di altri contenitori.
+Se si è verificato un errore durante la creazione dell'immagine del contenitore o durante il pull dell' `logs edgeAgent`immagine, eseguire.  `EdgeAgent`è il contenitore IoT Edge runtime responsabile del provisioning di altri contenitori.
 
-In quanto `logs edgeAgent` tutti i log, un buon metodo per visualizzare gli errori recenti consiste nell'usare l'opzione di dump `--tail 20`.
+Poiché `logs edgeAgent` esegue il dump di tutti i log, un modo efficace per visualizzare gli errori recenti consiste nell'usare `--tail 20`l'opzione.
 
 
 ```powershell
@@ -117,12 +117,12 @@ reateOptions":"{\"HostConfig\":{\"Binds\":[\"/home/hcsshares/share4-dl460:/home/
 2019-02-28 23:38:28.480 +00:00 [DBG] [Microsoft.Azure.Devices.Edge.Agent.Core.Planners.HealthRestartPlanner] - HealthRestartPlanner created Plan, with 0 command(s).
 ```
 
-### <a name="to-get-container-logs"></a>Per ottenere i log dei contenitori
+### <a name="to-get-container-logs"></a>Per ottenere i log del contenitore
 
-Per ottenere i log per un contenitore specifico, elencare innanzitutto il contenitore e quindi ottenere i log per il contenitore in cui si è interessati.
+Per ottenere i log per un contenitore specifico, elencare prima il contenitore e quindi ottenere i log per il contenitore a cui si è interessati.
 
 1. [Connettersi all'interfaccia di PowerShell](#connect-to-the-powershell-interface).
-2. Per ottenere l'elenco dei contenitori in esecuzione, eseguire il `ps` comando.
+2. Per ottenere l'elenco dei contenitori in esecuzione, eseguire `ps` il comando.
 
     ```powershell
     [10.100.10.10]: P> dkrdbe ps
@@ -133,7 +133,7 @@ Per ottenere i log per un contenitore specifico, elencare innanzitutto il conten
     acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/sh -c 'echo \"$â€¦"   2 days ago          Up 2 days                                                                                  edgeAgent
     ```
 
-3. Prendere nota dell'ID del contenitore per il contenitore che è necessario per i log.
+3. Prendere nota dell'ID contenitore per il contenitore per il quale sono necessari i log.
 
 4. Per ottenere i log per un contenitore specifico, eseguire il `logs` comando specificando l'ID del contenitore.
 
@@ -152,10 +152,10 @@ Per ottenere i log per un contenitore specifico, elencare innanzitutto il conten
 
 ### <a name="to-monitor-the-usage-statistics-of-the-device"></a>Per monitorare le statistiche di utilizzo del dispositivo
 
-Per monitorare la memoria, utilizzo della CPU e i/o nel dispositivo, usare il `stats` comando.
+Per monitorare la memoria, l'utilizzo della CPU e l'i/o nel dispositivo `stats` , utilizzare il comando.
 
 1. [Connettersi all'interfaccia di PowerShell](#connect-to-the-powershell-interface).
-2. Eseguire il `stats` comando in modo da disabilitare il flusso live e il pull solo il primo risultato.
+2. Eseguire il `stats` comando in modo da disabilitare il flusso live ed effettuare il pull solo del primo risultato.
 
    ```powershell
    dkrdbe stats --no-stream

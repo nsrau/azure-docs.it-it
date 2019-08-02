@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 116a465a0ddc913e342e0ffcc1fb29f5bf969419
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a6a87f90586dc4392dc1304a83349bc386590ee4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60307445"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568596"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Introduzione alle query tra database (partizionamento verticale) (anteprima)
 
@@ -74,7 +73,7 @@ Eseguire quindi la query seguente sul database **Customers** per creare la tabel
     Il nome utente e la password devono corrispondere al nome utente e alla password usati per l'accesso al database Customers.
     L'autenticazione tramite Azure Active Directory con query elastiche non è attualmente supportata.
 
-### <a name="external-data-sources"></a>DROP EXTERNAL DATA SOURCE
+### <a name="external-data-sources"></a>Origini dati esterne
 
 Per creare un'origine dati esterna, eseguire il comando seguente sul database Orders:
 

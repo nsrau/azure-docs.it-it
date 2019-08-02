@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 55def52d248babd439227cdcd4170c0a3ca91bb1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 476bdd50a56b953585a8a4e9cea05975c9922e0f
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64569834"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662962"
 ---
-# <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Analizzare gli eventi imprevisti e gli avvisi nel Centro sicurezza di Azure (anteprima)
-Questo documento illustra come usare la funzionalità di indagine nel Centro sicurezza di Azure per analizzare gli eventi imprevisti e gli avvisi relativi alla sicurezza.
+# <a name="investigate-incidents-and-alerts-in-azure-security-center-retired"></a>Esaminare gli eventi imprevisti e gli avvisi nel centro sicurezza di Azure (ritirato)
+Questo documento consente di usare la funzionalità di analisi (anteprima) nel centro sicurezza di Azure per analizzare gli eventi imprevisti e gli avvisi relativi alla sicurezza.
 
 > [!NOTE]
-> L'esperienza di analisi di avvisi ed eventi imprevisti verrà ritirato il 31 luglio 2019. Per altre informazioni e servizi alternativi, vedere [ritiro del Centro sicurezza di funzionalità (luglio 2019)](security-center-features-retirement-july2019.md#menu_investigate).
+> L'esperienza di analisi degli avvisi e degli eventi imprevisti (anteprima) è stata ritirata il 31 luglio 2019. Per ulteriori informazioni e servizi alternativi, vedere [ritiro delle funzionalità del Centro sicurezza (luglio 2019)](security-center-features-retirement-july2019.md#menu_investigate).
 
 ## <a name="what-is-investigation-in-security-center"></a>Informazioni sull'indagine nel Centro sicurezza
 La funzionalità Indagine del Centro sicurezza consente di valutare, determinare l'ambito e individuare la causa radice di un potenziale [evento imprevisto relativo alla sicurezza](https://docs.microsoft.com/azure/security-center/security-center-incident).
@@ -35,7 +35,7 @@ L'obiettivo consiste nel semplificare il processo di indagine collegando tutte l
 
 > [!NOTE]
 > * Gli [avvisi personalizzati](security-center-custom-alert.md) non sono supportati nelle funzionalità di indagine del Centro sicurezza.
-> * Indagine è supportata solo per avvisi basati sui dati raccolti dai server di Windows.
+> * L'analisi è supportata solo per gli avvisi basati sui dati raccolti dai server Windows.
 
 
 ## <a name="how-investigation-works"></a>Funzionamento della funzionalità Indagine
@@ -65,11 +65,11 @@ La scheda **Entità** mostra tutte le entità correlate raggruppate per tipo. È
 
 ![Entità](./media/security-center-investigation/security-center-investigation-fig4.png)
 
-### <a name="search"></a>Ricerca
+### <a name="search"></a>Cerca
 
 La scheda **Ricerca** presenta tutti i tipi di log disponibili per l'entità. Per ogni tipo di log è possibile visualizzare il numero di record disponibili. La selezione di ogni tipo di log consente di visualizzare la schermata di ricerca. Nella schermata di ricerca è possibile perfezionare la ricerca e usare le diverse funzionalità di ricerca, ad esempio la configurazione degli avvisi. Nella versione corrente la scheda Ricerca è disponibile solo per entità di tipo utenti e computer.
 
-![Ricerca](./media/security-center-investigation/security-center-investigation-fig5.png)
+![Cerca](./media/security-center-investigation/security-center-investigation-fig5.png)
 
 ### <a name="exploration"></a>Esplorazione
 
@@ -99,7 +99,7 @@ Gli elementi seguenti vengono presentati indipendentemente dall'ambito temporale
 
 ## <a name="how-to-perform-an-investigation"></a>Procedura per l'esecuzione di un'indagine
 
-È possibile avviare l'indagine da un evento imprevisto di sicurezza o da un avviso. L'opzione scelta dipenderà dalle esigenze specifiche. I passaggi che seguono vengono utilizzati per avviare un'indagine da un avviso:
+È possibile avviare l'indagine da un evento imprevisto di sicurezza o da un avviso. L'opzione scelta dipenderà dalle esigenze specifiche. I passaggi seguenti vengono usati per avviare un'indagine da un avviso:
 
 1.  Aprire il dashboard del **Centro sicurezza**.
 2.  Fare clic su **Avvisi di sicurezza** e selezionare l'evento imprevisto da analizzare.

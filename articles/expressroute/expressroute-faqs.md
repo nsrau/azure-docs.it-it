@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: e5674ffb4325eb27af8d0673b2d6ad5ba3a6195e
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 9a5e5dc414d487efd5f6762c89cecb77da74e3d5
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854355"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592068"
 ---
 # <a name="expressroute-faq"></a>Domande frequenti su ExpressRoute
 
@@ -139,7 +139,7 @@ Per la progettazione per la disponibilità elevata, vedere [qui](https://docs.mi
 
 È necessario implementare l'attributo *preferenza locale* nei router per assicurarsi che il percorso dall'ambiente locale ad Azure sia sempre preferito nei circuiti ExpressRoute in uso.
 
-Per [ulteriori informazioni,](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#path-selection-of-microsoft-and-public-peerings) vedere la selezione del percorso BGP e le configurazioni del router comune. 
+Per [ulteriori informazioni,](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#path-selection-on-microsoft-and-public-peerings) vedere la selezione del percorso BGP e le configurazioni del router comune. 
 
 ### <a name="onep2plink"></a>Se non si condivide un percorso in un'infrastruttura Cloud Exchange e il provider di servizi offre una connessione punto a punto, è necessario ordinare due connessioni fisiche tra la rete locale e Microsoft?
 

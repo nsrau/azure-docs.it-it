@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 5/2/2019
-ms.openlocfilehash: 8e3ae84242a1a9b76fbb18a8d8164c97a62a97d9
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: a6e5cd69a0655bf8235bf5755ab596ca2bde0387
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68003919"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716167"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Livello di compatibilità per i processi di Analisi di flusso di Azure
 
@@ -90,6 +90,12 @@ Il comportamento di Upsert è *Insert o Replace*.
 **Livelli precedenti:** I valori sono stati troncati in base al tipo di destinazione.
 
 **livello 1,2:** I valori che non rientrano nel tipo di destinazione vengono gestiti in base ai criteri di errore di output.
+
+### <a name="record-and-array-serialization-when-writing-to-sql-output"></a>Serializzazione di record e matrici durante la scrittura nell'output SQL
+
+**Livelli precedenti:** I record sono stati scritti come "record" e le matrici sono state scritte come "Array".
+
+**livello 1,2:** I record e le matrici vengono serializzati in formato JSON.
 
 ### <a name="strict-validation-of-prefix-of-functions"></a>Convalida rigorosa del prefisso delle funzioni
 

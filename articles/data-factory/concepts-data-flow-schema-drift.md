@@ -6,14 +6,14 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 562daa024985a546ffb49c4da11eace3bc81a659
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: b5777300f5033569caf3868218e747df3ff83a76
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314815"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640223"
 ---
-# <a name="mapping-data-flow-schema-drift"></a>Deviazione dello schema dei flussi di dati di mapping
+# <a name="mapping-data-flow-schema-drift"></a>Mapping della deriva dello schema del flusso di dati
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -65,7 +65,7 @@ Verranno quindi arrotondati e sommati i valori per ognuna delle colonne corrispo
 
 ```round(sum ($$))```
 
-È possibile verificare tutto questo con l'esempio di flusso di dati di Azure Data Factory "Taxi Demo". Attivare la sessione di debug usando l'interruttore Debug nella parte superiore dell'area di progettazione del flusso di dati in modo da visualizzare i risultati in modo interattivo:
+Questa funzionalità di drifting dello schema è visibile al lavoro con l'esempio di flusso di dati Azure Data Factory "taxi demo". Attivare la sessione di debug usando l'interruttore Debug nella parte superiore dell'area di progettazione del flusso di dati in modo da visualizzare i risultati in modo interattivo:
 
 <img src="media/data-flow/taxidrift2.png" width="800">
 
@@ -75,6 +75,9 @@ Quando si generano nuove colonne con modelli di colonna, è possibile accedere a
 * Usare "byPosition" per identificare le nuove colonne in base al numero di posizione.
 * Usare "byName" per identificare le nuove colonne in base al nome.
 * Negli schemi di colonna usare "Name", "Stream", "position" o "Type" o qualsiasi combinazione di questi per trovare la corrispondenza con le nuove colonne.
+
+## <a name="rule-based-mapping"></a>Mapping basato su regole
+La trasformazione Select e sink supporta il pattern matching tramite il mapping basato su regole. In questo modo sarà possibile creare regole che consentono di eseguire il mapping tra le colonne e gli alias di colonna e di affondare tali colonne nella destinazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Nel [linguaggio delle espressioni del flusso di dati](data-flow-expression-functions.md) sono disponibili ulteriori funzionalità per i modelli di colonna e la deriva dello schema, inclusi "byName" e "byPosition".

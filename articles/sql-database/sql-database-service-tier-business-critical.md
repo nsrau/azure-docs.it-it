@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 90989a9105405f1784b3be9ab59f55cd3433feaf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 208224e10c3acfb17bc5fd89d2d66152943811dc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479218"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566762"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>Livello Business critical - Servizio di database SQL di Azure
 
@@ -49,7 +48,7 @@ Il livello di servizio Business critical è progettato per le applicazioni che r
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Trovare le caratteristiche delle risorse (numero di core, IO, memorie) del livello Business Critical in [istanza gestita](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)singola del database in [modello basato su vCore](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute-tier) oppure [modello basato su DTU](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier), o elastico pool di applicazioni [modello basato su vCore](sql-database-vcore-resource-limits-elastic-pools.md#business-critical-service-tier-storage-sizes-and-compute-sizes) e [modello basato su DTU](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits).
+- Trovare le caratteristiche delle risorse (numero di core, i/o, memoria) del livello business critical in [istanza gestita](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), database singolo nel modello [Vcore](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute-tier) o [modello DTU](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier)o pool elastico nel modello [vCore](sql-database-vcore-resource-limits-elastic-pools.md#business-critical-service-tier-storage-sizes-and-compute-sizes) e [modello DTU](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits).
 - Informazioni sui livelli [Utilizzo generico](sql-database-service-tier-general-purpose.md) e [Hyperscale](sql-database-service-tier-hyperscale.md).
 - Informazioni su [Service Fabric](../service-fabric/service-fabric-overview.md).
 - Per altre opzioni relative a disponibilità elevata e ripristino di emergenza, vedere [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).

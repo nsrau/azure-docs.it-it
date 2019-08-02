@@ -3,7 +3,7 @@ title: Linee guida e consigli per Reliable Collections in Azure Service Fabric |
 description: Linee guida e consigli per l'uso di Reliable Collections in Service Fabric
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: masnider,rajak,zhol
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
-ms.author: aljo
-ms.openlocfilehash: 810427c394c3912142e0a21cf1b5c29b81620afb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: dc7d60cb846aa16f2facd41f5b6b7ce52bcc8f41
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60774098"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599346"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Linee guida e consigli per Reliable Collections in Azure Service Fabric
 Questa sezione fornisce le linee guida per l'uso di Reliable State Manager e Reliable Collections. L'obiettivo è quello di aiutare gli utenti a evitare errori comuni.
@@ -32,7 +32,7 @@ Le linee guida sono organizzate come semplici consigli*su cosa fare* , *prendere
 * Non usare una transazione dopo che ne è stato eseguito il commit, è stata interrotta o eliminata.
 * Non usare un'enumerazione all'esterno dell'ambito di transazione nella quale è stata creata.
 * Non creare una transazione all'interno dell'istruzione `using` di un'altra transazione. Questa operazione può causare deadlock.
-* Non creare lo stato affidabile con `IReliableStateManager.GetOrAddAsync` e usare lo stato affidabile nella stessa transazione. Ciò comporta un'eccezione InvalidOperationException.
+* Non creare lo stato affidabile con `IReliableStateManager.GetOrAddAsync` e utilizzare lo stato affidabile nella stessa transazione. Viene restituito un valore InvalidOperationException.
 * Verificare che l'implementazione di `IComparable<TKey>` sia corretta. Il sistema presenta dipendenze su `IComparable<TKey>` per l'unione di checkpoint e righe.
 * Usare il blocco di aggiornamento durante la lettura di un elemento con l'intenzione di aggiornarlo in modo da evitare una determinata classe di deadlock.
 * Si consiglia di mantenere un numero di raccolte Reliable Collections per partizione inferiore a 1000. Preferire le raccolte Reliable Collections con più elementi.

@@ -3,18 +3,18 @@ title: Aggiungere un livello riquadro in Mappe di Azure | Microsoft Docs
 description: Come aggiungere un livello riquadro alla mappa Javascript
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/3/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 3a773c24993d229f20df698113ff7535fea634ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e288e03b9e2c02ba963595f192dea7225c6d5762
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60769227"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638994"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Aggiungere un livello riquadro a una mappa
 
@@ -73,4 +73,4 @@ Per altre informazioni sulle classi e sui metodi usati in questo articolo, veder
 Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguenti:
 
 > [!div class="nextstepaction"]
-> [Aggiungere un livello di immagine](./map-add-image-layer.md)
+> [Aggiungere un livello immagine](./map-add-image-layer.md)

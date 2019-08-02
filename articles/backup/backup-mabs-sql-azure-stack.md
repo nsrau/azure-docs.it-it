@@ -1,18 +1,19 @@
 ---
 title: Eseguire il backup di carichi di lavoro di SQL Server in Azure Stack
 description: Usare il server di Backup di Azure per proteggere il carico di lavoro di SQL Server in Azure Stack.
-author: adigan
-manager: shivamg
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
-ms.author: adigan
-ms.openlocfilehash: 11d03a9c5cc81b915f48bc66f5a0e5ab034662ed
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 3b116e25635873429dd164288c2764fd76c8f7a7
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465150"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688989"
 ---
 # <a name="back-up-sql-server-on-stack"></a>Eseguire il backup di SQL Server in Stack
 Usare questo articolo per configurare il server di Backup di Microsoft Azure (MABS) per proteggere i database di SQL Server in Azure Stack.

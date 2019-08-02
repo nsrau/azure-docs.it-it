@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2b5e9bfe6eaa9b84e259d941760792635a2994f4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf8d4889c277d59d0c42894281a89345fbf90a84
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512846"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716683"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -54,7 +54,7 @@ L'esempio seguente mostra un elemento **RelyingParty** nel file dei criteri *B2C
     </UserJourneyBehaviors>
     <TechnicalProfile Id="PolicyProfile">
       <DisplayName>PolicyProfile</DisplayName>
-      <Description>The policy profile</Description> 
+      <Description>The policy profile</Description>
       <Protocol Name="OpenIdConnect" />
       <Metadata>collection of key/value pairs of data</Metadata>
       <OutputClaims>
@@ -104,13 +104,13 @@ L'elemento **DefaultUserJourney** contiene l'attributo seguente:
 
 | Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| ReferenceId | Yes | Identificatore del percorso utente nei criteri. Per altre informazioni, consultare [Percorsi utente](userjourneys.md) |
+| ReferenceId | Sì | Identificatore del percorso utente nei criteri. Per altre informazioni, consultare [Percorsi utente](userjourneys.md) |
 
 ## <a name="userjourneybehaviors"></a>UserJourneyBehaviors
 
 L'elemento **UserJourneyBehaviors** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | DESCRIZIONE |
 | ------- | ----------- | ----------- |
 | SingleSignOn | 0:1 | Ambito del comportamento della sessione di Single Sign-On (SSO) di un percorso utente. |
 | SessionExpiryType |0:1 | Comportamento di autenticazione della sessione. I valori possibili sono: `Rolling` o `Absolute`. Il valore `Rolling` (predefinito) indica che l'utente rimane connesso, purché sia continuamente attivo nell'applicazione. Il valore `Absolute` indica che l'utente è obbligato a ripetere l'autenticazione una volta superato il periodo di tempo specificato dalla durata della sessione dell'applicazione. |
@@ -124,7 +124,7 @@ L'elemento **SingleSignOn** contiene l'attributo seguente:
 
 | Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| `Scope` | Yes | Ambito del comportamento di Single Sign-On (SSO). I valori possibili sono: `Suppressed`, `Tenant`, `Application` o `Policy`. Il valore `Suppressed` indica che il comportamento viene eliminato. Ad esempio, nel caso di una sessione di Single Sign-On, non viene mantenuta alcuna sessione per l'utente, a cui viene sempre richiesta la selezione di un provider di identità. Il valore `TrustFramework` indica che il comportamento viene applicato per tutti i criteri del framework attendibilità. Ad esempio, a un utente che naviga in due percorsi di criteri per un framework attendibilità non viene richiesto di selezionare un provider di identità. Il valore `Tenant` indica che il comportamento viene applicato a tutti i criteri nel tenant. Ad esempio, a un utente che naviga in due percorsi di criteri per un tenant non viene richiesto di selezionare un provider di identità. Il valore `Application` indica che il comportamento viene applicato a tutti i criteri per l'applicazione che esegue la richiesta. Ad esempio, a un utente che naviga in due percorsi di criteri per un'applicazione non viene richiesto di selezionare un provider di identità. Il valore `Policy` indica che il comportamento si applica solo a un criterio. Ad esempio, a un utente che naviga in due percorsi di criteri per un framework attendibilità viene richiesto di selezionare un provider di identità in caso passaggio da un criterio a un altro. |
+| Ambito | Yes | Ambito del comportamento di Single Sign-On (SSO). I valori possibili sono: `Suppressed`, `Tenant`, `Application` o `Policy`. Il valore `Suppressed` indica che il comportamento viene eliminato. Ad esempio, nel caso di una sessione di Single Sign-On, non viene mantenuta alcuna sessione per l'utente, a cui viene sempre richiesta la selezione di un provider di identità. Il valore `TrustFramework` indica che il comportamento viene applicato per tutti i criteri del framework attendibilità. Ad esempio, a un utente che naviga in due percorsi di criteri per un framework attendibilità non viene richiesto di selezionare un provider di identità. Il valore `Tenant` indica che il comportamento viene applicato a tutti i criteri nel tenant. Ad esempio, a un utente che naviga in due percorsi di criteri per un tenant non viene richiesto di selezionare un provider di identità. Il valore `Application` indica che il comportamento viene applicato a tutti i criteri per l'applicazione che esegue la richiesta. Ad esempio, a un utente che naviga in due percorsi di criteri per un'applicazione non viene richiesto di selezionare un provider di identità. Il valore `Policy` indica che il comportamento si applica solo a un criterio. Ad esempio, a un utente che naviga in due percorsi di criteri per un framework attendibilità viene richiesto di selezionare un provider di identità in caso passaggio da un criterio a un altro. |
 | KeepAliveInDays | Yes | Controlla per quanto tempo l'utente rimane connesso. Se si imposta il valore su 0, la funzionalità KMSI viene disattivata. Per altre informazioni, vedere [Mantenere l'accesso](active-directory-b2c-reference-kmsi-custom.md). |
 
 ## <a name="journeyinsights"></a>JourneyInsights
@@ -133,18 +133,18 @@ L'elemento **JourneyInsights** contiene gli attributi seguenti:
 
 | Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| TelemetryEngine | Yes | Il valore deve essere `ApplicationInsights`. | 
+| TelemetryEngine | Yes | Il valore deve essere `ApplicationInsights`. |
 | InstrumentationKey | Yes | Stringa che contiene la chiave di strumentazione per l'elemento Application Insights. |
 | DeveloperMode | Yes | I valori possibili sono: `true` o `false`. Se il valore è `true`, Application Insights velocizza la telemetria nella pipeline di elaborazione. Questa impostazione è utile per lo sviluppo, ma vincolata a volumi elevati. I log attività dettagliati sono concepiti solo per supportare lo sviluppo di criteri personalizzati. Non usare la modalità di sviluppo in fase di produzione. I log raccolgono tutte le attestazioni inviate verso e dai provider di identità durante lo sviluppo. Se usato in fase di produzione, lo sviluppatore si assume la responsabilità delle informazioni personali raccolte nel log di App Insights di cui è proprietario. Questi log dettagliati vengono raccolti solo quando il valore è impostato su `true`.|
-| ClientEnabled | Yes | I valori possibili sono: `true` o `false`. Se il valore è `true`, invia lo script di Application Insights lato client per tenere traccia della visualizzazione della pagina e degli errori del client. | 
-| ServerEnabled | Yes | I valori possibili sono: `true` o `false`. Se il valore è `true`, invia l'elemento JSON UserJourneyRecorder esistente come evento personalizzato ad Application Insights. | 
-| TelemetryVersion | Yes | Il valore deve essere `1.0.0`. | 
+| ClientEnabled | Sì | I valori possibili sono: `true` o `false`. Se il valore è `true`, invia lo script di Application Insights lato client per tenere traccia della visualizzazione della pagina e degli errori del client. |
+| ServerEnabled | Yes | I valori possibili sono: `true` o `false`. Se il valore è `true`, invia l'elemento JSON UserJourneyRecorder esistente come evento personalizzato ad Application Insights. |
+| TelemetryVersion | Yes | Il valore deve essere `1.0.0`. |
 
 Per altre informazioni, vedere [Raccolta dei log](active-directory-b2c-troubleshoot-custom.md)
 
 ## <a name="contentdefinitionparameters"></a>ContentDefinitionParameters
 
-I criteri personalizzati di Azure AD B2C consentono di inviare un parametro in una stringa di query. Passando il parametro all'endpoint HTML, è possibile modificare dinamicamente il contenuto della pagina. È ad esempio possibile modificare l'immagine di sfondo della pagina di accesso o di iscrizione ad Azure AD B2C in base a un parametro passato dall'applicazione Web o per dispositivi mobili. Azure AD B2C passa i parametri delle stringhe di query al file HTML dinamico, ad esempio il file con estensione aspx. 
+I criteri personalizzati di Azure AD B2C consentono di inviare un parametro in una stringa di query. Passando il parametro all'endpoint HTML, è possibile modificare dinamicamente il contenuto della pagina. È ad esempio possibile modificare l'immagine di sfondo della pagina di accesso o di iscrizione ad Azure AD B2C in base a un parametro passato dall'applicazione Web o per dispositivi mobili. Azure AD B2C passa i parametri delle stringhe di query al file HTML dinamico, ad esempio il file con estensione aspx.
 
 L'esempio seguente passa un parametro denominato `campaignId` con un valore `hawaii` nella stringa di query:
 
@@ -152,7 +152,7 @@ L'esempio seguente passa un parametro denominato `campaignId` con un valore `haw
 
 L'elemento **ContentDefinitionParameters** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | DESCRIZIONE |
 | ------- | ----------- | ----------- |
 | ContentDefinitionParameter | 0:n | Stringa che contiene la coppia chiave-valore accodata alla stringa di query di un URI di caricamento della definizione del contenuto. |
 
@@ -160,7 +160,7 @@ L'elemento **ContentDefinitionParameter** contiene l'attributo seguente:
 
 | Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| Name | Yes | Nome della coppia chiave-valore. |
+| Name | Sì | Nome della coppia chiave-valore. |
 
 Per altre informazioni, vedere [Configurare l'interfaccia utente con contenuto dinamico usando criteri personalizzati](active-directory-b2c-ui-customization-custom-dynamic.md)
 
@@ -168,9 +168,9 @@ Per altre informazioni, vedere [Configurare l'interfaccia utente con contenuto d
 
 L'elemento **TechnicalProfile** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Descrizione |
-| --------- | -------- | ----------- | 
-| ID | Yes | Il valore deve essere `PolicyProfile`. |
+| Attributo | Obbligatorio | DESCRIZIONE |
+| --------- | -------- | ----------- |
+| ID | Sì | Il valore deve essere `PolicyProfile`. |
 
 L'elemento **TechnicalProfile** contiene gli elementi seguenti:
 
@@ -199,7 +199,7 @@ L'elemento **OutputClaims** contiene l'elemento seguente:
 
 L'elemento **OutputClaim** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Yes | Riferimento a un **ClaimType** già definito nella sezione **ClaimsSchema** nel file dei criteri. |
 | DefaultValue | No | Valore predefinito che può essere usato se il valore dell'attestazione è vuoto. |
@@ -208,7 +208,7 @@ L'elemento **OutputClaim** contiene gli attributi seguenti:
 ### <a name="subjectnaminginfo"></a>SubjectNamingInfo
 
 Con l'elemento **SubjectNameingInfo** viene controllato il valore del soggetto del token:
-- **Token JWT** - il `sub` attestazione. Indica l'entità di sicurezza su cui il token rilascia informazioni, ad esempio l'utente di un'applicazione. Questo valore non è modificabile e non può essere riassegnato o riutilizzato. Può essere usato per eseguire controlli di autorizzazione sicuri, ad esempio quando il token viene usato per accedere a una risorsa. Per impostazione predefinita, l'attestazione dell'oggetto viene popolata con l'ID oggetto dell'utente nella directory. Per altre informazioni, vedere [Configurazione di token, sessione e accesso Single Sign-On](active-directory-b2c-token-session-sso.md).
+- **Token JWT** : `sub` attestazione. Indica l'entità di sicurezza su cui il token rilascia informazioni, ad esempio l'utente di un'applicazione. Questo valore non è modificabile e non può essere riassegnato o riutilizzato. Può essere usato per eseguire controlli di autorizzazione sicuri, ad esempio quando il token viene usato per accedere a una risorsa. Per impostazione predefinita, l'attestazione dell'oggetto viene popolata con l'ID oggetto dell'utente nella directory. Per altre informazioni, vedere [Configurazione di token, sessione e accesso Single Sign-On](active-directory-b2c-token-session-sso.md).
 - **Token SAML** - Elemento `<Subject><NameID>` che identifica il soggetto.
 
 L'elemento **SubjectNamingInfo** contiene l'attributo seguente:
@@ -217,7 +217,7 @@ L'elemento **SubjectNamingInfo** contiene l'attributo seguente:
 | --------- | -------- | ----------- |
 | ClaimType | Yes | Riferimento all'elemento **PartnerClaimType** di un'attestazione di output. Le attestazioni di output devono essere definite nella raccolta **OutputClaims** di criteri della relying party. |
 
-L'esempio seguente indica come definire una relying party OpenId Connect. Le informazioni sul nome del soggetto sono configurate come `objectId`:
+Nell'esempio seguente viene illustrato come definire un relying party OpenID Connect. Le informazioni sul nome del soggetto sono configurate come `objectId`:
 
 ```XML
 <RelyingParty>

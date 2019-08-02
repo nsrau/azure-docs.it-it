@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3661b3f7fd37a329857a74d32d292678d98f5aef
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 3c6793581b797892c0bb468906d4f8ae72182618
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499822"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562114"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procedura: Gestire i dispositivi non aggiornati in Azure AD
 
@@ -47,7 +47,7 @@ La valutazione del timestamp dell'attività viene attivata da un tentativo di au
 - I dispositivi Windows 10 che sono aggiunti ad Azure AD o aggiunti ad Azure AD ibrido sono attivi nella rete. 
 - I dispositivi gestiti da Intune sono stati archiviati nel servizio.
 
-Se il delta tra il valore esistente del timestamp dell'attività e il valore corrente è superiore a 14 giorni, il valore esistente viene sostituito con quello nuovo.
+Se il delta tra il valore esistente del timestamp dell'attività e il valore corrente è maggiore di 14 giorni (varianza +/-5 giorni), il valore esistente viene sostituito con il nuovo valore.
 
 ## <a name="how-do-i-get-the-activity-timestamp"></a>Come si ottiene il timestamp dell'attività?
 
@@ -77,7 +77,7 @@ Nel criterio di pulizia selezionare gli account con i ruoli richiesti assegnati.
 
 ### <a name="timeframe"></a>Intervallo di tempo
 
-Definire un intervallo di tempo che è l'indicatore per un dispositivo non aggiornato. Quando si definisce l'intervallo di tempo, fattorizzare la finestra di 14 giorni per l'aggiornamento del timestamp dell'attività nel valore. Ad esempio, non si deve considerare un timestamp inferiore a 14 giorni come indicatore di un dispositivo non aggiornato. Esistono scenari in cui un dispositivo può sembrare non aggiornato ma non lo è. Ad esempio, il proprietario del dispositivo interessato potrebbe essere in vacanza o in malattia.  che supera l'intervallo di tempo per i dispositivi non aggiornati.
+Definire un intervallo di tempo che è l'indicatore per un dispositivo non aggiornato. Quando si definisce l'intervallo di tempo, fattorizzare la finestra indicata per l'aggiornamento del timestamp dell'attività nel valore. Ad esempio, non è consigliabile considerare un timestamp minore di 21 giorni (inclusa la varianza) come indicatore per un dispositivo non aggiornato. Esistono scenari in cui un dispositivo può sembrare non aggiornato ma non lo è. Ad esempio, il proprietario del dispositivo interessato potrebbe essere in vacanza o in malattia.  che supera l'intervallo di tempo per i dispositivi non aggiornati.
 
 ### <a name="disable-devices"></a>Disabilitare i dispositivi
 
@@ -89,7 +89,7 @@ Se il dispositivo è sotto il controllo di Intune o di qualsiasi altra soluzione
 
 ### <a name="system-managed-devices"></a>Dispositivi gestiti dal sistema
 
-Non eliminare i dispositivi gestiti dal sistema. Si tratta in genere di dispositivi come il pilota automatico e, una volta eliminati, non possono essere sottoposti a nuovo provisioning. Per impostazione predefinita, il nuovo cmdlet `get-msoldevice` esclude i dispositivi gestiti dal sistema. 
+Non eliminare i dispositivi gestiti dal sistema. Si tratta in genere di dispositivi come il pilota automatico e, Una volta eliminati, non è possibile effettuare nuovamente il provisioning di questi dispositivi. Per impostazione predefinita, il nuovo cmdlet `get-msoldevice` esclude i dispositivi gestiti dal sistema. 
 
 ### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivi aggiunti all'identità ibrida di Azure AD
 
@@ -98,15 +98,30 @@ I dispositivi aggiunti ad Azure AD ibrido devono seguire i criteri per la gestio
 Per eseguire la pulizia di Azure AD:
 
 - **Dispositivi Windows 10**: disabilitare o eliminare i dispositivi Windows 10 nell'istanza di AD locale e consentire ad Azure AD Connect di sincronizzare lo stato del dispositivo modificato in Azure AD.
-- **Windows 7/8**: disabilitare o eliminare i dispositivi Windows 7/8 in Azure AD. Non è possibile usare Azure AD Connect per disabilitare o eliminare i dispositivi Windows 7/8 in Azure AD.
+- **Windows 7/8** : disabilitare o eliminare prima i dispositivi Windows 7/8 in Active Directory locale. Non è possibile usare Azure AD Connect per disabilitare o eliminare i dispositivi Windows 7/8 in Azure AD. Al contrario, quando si apportano le modifiche in locale, è necessario disabilitare/eliminare in Azure AD.
+
+> [!NOTE]
+>* L'eliminazione dei dispositivi nell'istanza locale di AD o Azure AD non esegue la registrazione nel client. L'accesso alle risorse verrà impedito solo usando il dispositivo come identità, ad esempio l'accesso condizionale. Leggere altre informazioni su come [rimuovere la registrazione nel client](faq.md#hybrid-azure-ad-join-faq).
+>* L'eliminazione di un dispositivo Windows 10 solo in Azure AD sincronizza nuovamente il dispositivo dal locale usando Azure AD Connect ma come nuovo oggetto in stato "in sospeso". Nel dispositivo è necessaria una nuova registrazione.
+>* La rimozione del dispositivo dall'ambito di sincronizzazione per i dispositivi Windows 10/server 2016 eliminerà il dispositivo Azure AD. Se si aggiunge di nuovo all'ambito di sincronizzazione, verrà inserito un nuovo oggetto in stato "in sospeso". È necessaria una nuova registrazione del dispositivo.
+>* Se non si usa Azure AD Connect per sincronizzare i dispositivi Windows 10, ad esempio usando solo AD FS per la registrazione, è necessario gestire il ciclo di vita in modo analogo ai dispositivi Windows 7/8.
+
 
 ### <a name="azure-ad-joined-devices"></a>Dispositivi aggiunti ad Azure AD
 
 Disabilitare o eliminare i dispositivi aggiunti ad Azure AD in Azure AD.
 
+> [!NOTE]
+>* L'eliminazione di un dispositivo Azure AD non comporta la rimozione della registrazione nel client. L'accesso alle risorse verrà impedito solo usando il dispositivo come identità, ad esempio l'accesso condizionale. 
+>* Ulteriori informazioni su [come separare il Azure ad](faq.md#azure-ad-join-faq) 
+
 ### <a name="azure-ad-registered-devices"></a>Dispositivi registrati in Azure AD
 
 Disabilitare o eliminare i dispositivi registrati in Azure AD in Azure AD.
+
+> [!NOTE]
+>* L'eliminazione di un dispositivo registrato Azure AD in Azure AD non comporta la rimozione della registrazione nel client. L'accesso alle risorse verrà impedito solo usando il dispositivo come identità, ad esempio l'accesso condizionale.
+>* Altre informazioni su [come rimuovere una registrazione nel client](faq.md#azure-ad-register-faq)
 
 ## <a name="clean-up-stale-devices-in-the-azure-portal"></a>Eseguire la pulizia dei dispositivi non aggiornati nel portale di Azure  
 
@@ -148,7 +163,7 @@ Quando sono configurate, le chiavi BitLocker per i dispositivi Windows 10 vengon
 
 ### <a name="why-should-i-worry-about-windows-autopilot-devices"></a>Perché è necessario preoccuparsi dei dispositivi Windows Autopilot?
 
-Quando un dispositivo Azure AD è stato associato a un oggetto di Windows Autopilot, possono verificarsi i tre scenari seguenti se il dispositivo verrà riutilizzato in futuro:
+Quando un dispositivo Azure AD è stato associato a un oggetto di Windows Autopilot, possono verificarsi i tre scenari seguenti se il dispositivo verrà reimpiegato in futuro:
 - Con le distribuzioni basate sugli utenti di Windows Autopilot senza usare il guanto bianco, viene creato un nuovo dispositivo Azure AD, che però non verrà contrassegnato con ZTDID.
 - Con le distribuzioni in modalità self-Deploying di Windows Autopilot, avranno esito negativo perché non è possibile trovare un dispositivo associato Azure AD.  (Si tratta di un meccanismo di sicurezza per assicurarsi che nessun dispositivo "imposto" provi a partecipare Azure AD senza credenziali). L'errore indicherà una mancata corrispondenza ZTDID.
 - Con le distribuzioni del guanto bianco di Windows Autopilot, non riusciranno perché non è possibile trovare un dispositivo Azure AD associato. (In background, le distribuzioni di guanti bianchi usano lo stesso processo di distribuzione automatica, quindi applicano gli stessi meccanismi di sicurezza).

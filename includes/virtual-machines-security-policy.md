@@ -4,18 +4,18 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: c44b39effdc6d8fcdc144915ec7b51489e3798cd
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f289da08c63f655006801d89f82640c6e3c6b7be
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180112"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68622617"
 ---
 È importante garantire la protezione delle macchine virtuali (VM) per le applicazioni che si intende eseguire. La protezione delle macchine virtuali può includere uno o più servizi o funzionalità di Azure che gestiscono l'accesso sicuro alle macchine virtuali e l'archiviazione sicura dei dati. Questo articolo contiene informazioni che permettono di mantenere sicure le macchine virtuali e le applicazioni.
 
 ## <a name="antimalware"></a>Antimalware
 
-L'attuale panorama delle minacce per gli ambienti cloud è dinamico e impone sempre di più una protezione efficace e continua per soddisfare i requisiti di conformità e sicurezza. [Microsoft Antimalware per Azure](../articles/security/azure-security-antimalware.md) è una funzionalità di protezione in tempo reale gratuita che aiuta a identificare e rimuovere virus, spyware e altro software dannoso. Gli avvisi possono essere configurati in modo da ricevere notifiche quando software dannoso o indesiderato prova a installare o eseguire se stesso nella macchina virtuale.
+L'attuale panorama delle minacce per gli ambienti cloud è dinamico e impone sempre di più una protezione efficace e continua per soddisfare i requisiti di conformità e sicurezza. [Microsoft Antimalware per Azure](../articles/security/fundamentals/antimalware.md) è una funzionalità di protezione in tempo reale gratuita che aiuta a identificare e rimuovere virus, spyware e altro software dannoso. Gli avvisi possono essere configurati in modo da ricevere notifiche quando software dannoso o indesiderato prova a installare o eseguire se stesso nella macchina virtuale.
 
 ## <a name="azure-security-center"></a>Centro sicurezza di Azure
 
@@ -53,4 +53,4 @@ Usando il [controllo degli accessi in base al ruolo](../articles/role-based-acce
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Eseguire la procedura per il monitoraggio della sicurezza delle macchine virtuali tramite il Centro sicurezza di Azure per [Linux](../articles/virtual-machines/linux/tutorial-azure-security.md) o [Windows](../articles/virtual-machines/windows/tutorial-azure-security.md).
+- Eseguire la procedura per il monitoraggio della sicurezza delle macchine virtuali tramite il Centro sicurezza di Azure per [Linux](../articles/security/fundamentals/overview.md) o [Windows](../articles/virtual-machines/windows/tutorial-azure-security.md).

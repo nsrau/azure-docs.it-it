@@ -10,12 +10,13 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 82e6a5b66342e58e62da029d617cbd1d74c28149
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 333875472d9b859196c4d828061301b9d32c4d5a
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61340520"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705107"
 ---
 # <a name="affiliation-entity"></a>Entità Affiliation
 
@@ -23,11 +24,11 @@ ms.locfileid: "61340520"
 
 NOME    |Descrizione                            |Type       | Operazioni
 ------- | ------------------------------------- | --------- | ----------------------------
-ID      |ID entità                              |Int64      |Uguale a
-AfN     |Nome normalizzato dell'affiliazione        |String     |Uguale a
-DAfN    |Nome visualizzato dell'affiliazione       |String     |Nessuno
-CC      |Numero totale delle citazioni dell'affiliazione           |Int32      |Nessuno  
-ECC     |Numero totale stimato delle citazioni dell'affiliazione |Int32      |Nessuno
+ID      |ID entità                              |Int64      |Equals
+AfN     |Nome normalizzato dell'affiliazione        |String     |Equals
+DAfN    |Nome visualizzato dell'affiliazione       |String     |none
+Cc      |Numero totale delle citazioni dell'affiliazione           |Int32      |none  
+ECC     |Numero totale stimato delle citazioni dell'affiliazione |Int32      |none
 
 ## <a name="extended-metadata-attributes"></a>Attributi dei metadati estesi ##
 

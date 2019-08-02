@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: be7dbe35800bbe911bc56d1883462534a16499a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50fab6afe837ad409f05dbb0f3a8a44d089a894e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61485600"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570326"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorare e gestire le prestazioni di un database SQL di Azure multi-tenant partizionato in un'app SaaS multi-tenant
 
@@ -52,7 +51,7 @@ La gestione delle prestazioni dei database comprende la compilazione e l'analisi
 
 Il [portale di Azure](https://portal.azure.com) include funzionalità di monitoraggio e avviso predefinite per la maggior parte delle risorse. Per il database SQL, le funzionalità di monitoraggio e avviso sono disponibili sui database. Le funzionalità di monitoraggio e avviso predefinite sono specifiche delle risorse, quindi è comodo usarle per un numero limitato di risorse, mentre non sono utili quando si usano molte risorse.
 
-Per scenari con volumi elevati, in cui si lavora con molte risorse, [monitoraggio di Azure registra](https://azure.microsoft.com/services/log-analytics/) può essere utilizzato. Si tratta di un servizio di Azure separato che fornisce funzionalità analitica di log di diagnostica e dati di telemetria raccolti in un'area di lavoro di Log Analitica. Log di monitoraggio di Azure può raccogliere i dati di telemetria da molti servizi e consente di eseguire query e impostare gli avvisi.
+Per gli scenari con volumi elevati, in cui si lavora con molte risorse, è possibile usare i [log di monitoraggio di Azure](https://azure.microsoft.com/services/log-analytics/) . Si tratta di un servizio di Azure separato che fornisce analisi su log di diagnostica e telemetria emessi raccolti in un'area di lavoro Log Analytics. I log di monitoraggio di Azure possono raccogliere dati di telemetria da molti servizi e possono essere usati per eseguire query e impostare avvisi.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Ottenere gli script e il codice sorgente dell'applicazione SaaS di database multi-tenant Wingtip Tickets
 
@@ -78,10 +77,10 @@ Per simulare l'esecuzione di un carico di lavoro sul database multi-tenant è di
 
 | Demo | Scenario |
 |:--|:--|
-| 2 | Generare un carico di intensità normale (circa 30 DTU) |
+| 2 | Genera un carico di intensità normale (circa 30 DTU) |
 | 3 | Generare un carico con picchi di maggiore durata per ogni tenant|
-| 4 | Generare un carico con picchi DTU maggiori per ogni tenant (circa 70 DTU)|
-| 5 | Generare un'ad alta intensità (circa 90 DTU) su un singolo tenant e un carico di normale intensità su tutti gli altri tenant |
+| 4 | Genera il carico con picchi di DTU più elevati per ogni tenant (approssimativamente 70 DTU)|
+| 5 | Generare un'intensità elevata (approssimativamente 90 DTU) in un singolo tenant e un carico di intensità normale per tutti gli altri tenant |
 
 Il generatore di carico applica un carico di solo CPU *sintetico* a ogni database tenant. Il generatore avvia un processo per ogni database tenant, che chiama periodicamente una stored procedure che genera il carico. I livelli di carico, espressi in DTU, la durata e gli intervalli sono diversi per i vari database, in modo da simulare un'attività imprevedibile dei tenant.
 

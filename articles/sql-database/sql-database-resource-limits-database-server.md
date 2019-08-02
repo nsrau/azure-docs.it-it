@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
-manager: craigg
 ms.date: 04/18/2019
-ms.openlocfilehash: 4e4c0a6cd25587b33c06526b57e6acdbebb69c8b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 175f694cbe46f871349136c9ce91888b6de48d21
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445638"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566855"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Limiti delle risorse del database SQL per il server di database SQL di Azure
 
@@ -28,7 +27,7 @@ Questo articolo offre una panoramica dei limiti delle risorse del database SQL p
 
 ## <a name="maximum-resource-limits"></a>Limiti massimi delle risorse
 
-| Resource | Limite |
+| Risorsa | Limite |
 | :--- | :--- |
 | Database per server | 5000 |
 | Numero predefinito di server per sottoscrizione in ogni area | 20 |
@@ -45,8 +44,8 @@ Questo articolo offre una panoramica dei limiti delle risorse del database SQL p
 > - Latenza in aumento nelle query in esecuzione nel database master.  Ciò include le visualizzazioni delle statistiche di utilizzo delle risorse, ad esempio sys.resource_stats.
 > - Latenza in aumento nelle operazioni di gestione e nel portale di esecuzione del rendering dei punti di visualizzazione che coinvolgono l'enumerazione dei database nel server.
 
-### <a name="storage-size"></a>Dimensioni della risorsa di archiviazione
-- Per i database singoli rources consultare uno [limiti delle risorse basate su DTU](sql-database-dtu-resource-limits-single-databases.md) oppure [limiti delle risorse basate su vCore](sql-database-vcore-resource-limits-single-databases.md) per i limiti delle dimensioni di archiviazione per ogni piano tariffario.
+### <a name="storage-size"></a>Dimensioni archiviazione
+- Per i database singoli rources, vedere i limiti [delle risorse basate su DTU](sql-database-dtu-resource-limits-single-databases.md) o i [limiti delle risorse basate su vCore](sql-database-vcore-resource-limits-single-databases.md) per i limiti delle dimensioni di archiviazione per ogni piano tariffario.
 
 ## <a name="what-happens-when-database-resource-limits-are-reached"></a>Cosa accade quando vengono raggiunti i limiti delle risorse del database?
 
@@ -77,33 +76,33 @@ In caso di uso elevato di sessioni o ruoli di lavoro, le opzioni di mitigazione 
 - Aumento del livello di servizio o delle dimensioni di calcolo del database o del pool elastico. Vedere [Ridimensionare le risorse del database singolo](sql-database-single-database-scale.md) e [Ridimensionare le risorse del pool elastico](sql-database-elastic-pool-scale.md).
 - Ottimizzazione delle query per ridurre l'uso delle risorse di ogni query, se l'aumento dell'uso di ruoli di lavoro è dovuto a un conflitto delle risorse di elaborazione. Per altre informazioni, vedere la sezione [Hint/ottimizzazione di query](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-## <a name="transaction-log-rate-governance"></a>Governance delle velocità di Log delle transazioni 
-Governance delle velocità di log delle transazioni è un processo in Azure SQL Database usate per limitare i tassi di inserimento elevati per carichi di lavoro, ad esempio bulk insert, SELECT INTO, e le compilazioni di indici. Questi limiti vengono registrati e applicati a livello di frazioni di secondo per la frequenza di generazione di record di log, limitazione della velocità effettiva indipendentemente dal numero IOs può essere emesso per i file di dati.  Frequenza di generazione del log delle transazioni attualmente una scalabilità lineare fino a un punto che dipende dall'hardware, con il log massimo consentita da 96 MB/s con il modello di acquisto di Vcore per velocità. 
+## <a name="transaction-log-rate-governance"></a>Governance della frequenza del log delle transazioni 
+La gestione della frequenza dei log delle transazioni è un processo nel database SQL di Azure usato per limitare le velocità di inserimento elevate per i carichi di lavoro, ad esempio le compilazioni BULK INSERT, SELECT INTO e index. Questi limiti vengono rilevati e applicati al livello di sottosecondo alla frequenza di generazione dei record di log, limitando la velocità effettiva indipendentemente dal numero di IOs che possono essere emessi sui file di dati.  Le frequenze di generazione del log delle transazioni attualmente si scalano in modo lineare fino a un punto dipendente dall'hardware, con la frequenza massima di log consentita di 96 MB/s con il modello di acquisto vCore. 
 
 > [!NOTE]
-> IOs fisico effettivo nei file di log delle transazioni non sono regolate o limitate. 
+> Il valore effettivo di IOs per i file di log delle transazioni non è regolato o limitato. 
 
-Tassi di log vengono impostate in modo che possano essere ottenute e mantenute in una vasta gamma di scenari, mentre tutto il sistema può gestire le funzionalità con un impatto ridotto a icona per il carico utente. Log frequenza governance assicura che i backup vengano mantenute all'interno di recuperabilità pubblicata i contratti di servizio il log delle transazioni.  La governance impedisce anche un backlog eccessivo sulle repliche secondarie.
+Le frequenze dei log sono impostate in modo che possano essere realizzate e prolungate in diversi scenari, mentre il sistema generale può mantenerne le funzionalità con un effetto ridotto al carico dell'utente. La governance della frequenza dei log garantisce che i backup del log delle transazioni restino entro i contratti di sicurezza di ripristino pubblicati.  Questa governance impedisce anche un backlog eccessivo nelle repliche secondarie.
 
-Quando vengono generati i record del log, ogni operazione viene valutata e valutato per indica se deve essere ritardato per mantenere una frequenza massima del registro desiderato (MB/s al secondo). I ritardi non vengono aggiunti quando i record del log vengono scaricati da archiviazione, piuttosto log frequenza governance viene applicata durante la generazione della velocità del log stesso.
+Quando vengono generati i record di log, ogni operazione viene valutata e valutata per determinare se deve essere ritardata al fine di mantenere una velocità massima di log desiderata (MB/s al secondo). I ritardi non vengono aggiunti quando i record del log vengono scaricati nella risorsa di archiviazione, ma la governance della frequenza dei log viene applicata durante la generazione della velocità del log.
 
-La generazione di log effettivo tassi di imposte in fase di esecuzione potrebbero anche essere influenzate da meccanismi di commenti e suggerimenti, ridurre temporaneamente le frequenze consentite per il log in modo che il sistema può stabilizzarsi. Gestione dello spazio file di log, evitando in esecuzione in condizioni di spazio di log e il gruppo di disponibilità di meccanismi di replica può ridurre temporaneamente i limiti di sistema complessivo. 
+Le velocità effettive di generazione dei log imposte in fase di esecuzione possono anche essere influenzate dai meccanismi di feedback, riducendo temporaneamente le frequenze di log consentite in modo che il sistema possa stabilizzarsi Gestione dello spazio del file di log, evitando che le condizioni di spazio del log e i meccanismi di replica dei gruppi di disponibilità possano ridurre temporaneamente i limiti di sistema complessivi. 
 
-La conformazione del traffico di log frequenza governor viene esposto tramite i seguenti tipi di attesa (esposto nel [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) DMV):
+Il data shaping di log rate Governor viene esposto tramite i tipi di attesa seguenti (esposti nella DMV [sys. dm _db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) ):
 
 | Tipo di attesa | Note |
 | :--- | :--- |
-| LOG_RATE_GOVERNOR | La limitazione del database |
-| POOL_LOG_RATE_GOVERNOR | Limitazione di pool |
-| INSTANCE_LOG_RATE_GOVERNOR | La limitazione a livello di istanza |  
-| HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Controllo di commenti e suggerimenti, replica fisico di gruppo di disponibilità in Premium/Business Critical non bastano |  
-| HADR_THROTTLE_LOG_RATE_LOG_SIZE | Controllo di commenti e suggerimenti, limitazione della velocità per evitare di log dello spazio insufficiente |
+| LOG_RATE_GOVERNOR | Limitazione del database |
+| POOL_LOG_RATE_GOVERNOR | Limitazione del pool |
+| INSTANCE_LOG_RATE_GOVERNOR | Limitazione a livello di istanza |  
+| HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Controllo feedback, replica fisica del gruppo di disponibilità in Premium/business critical non in linea |  
+| HADR_THROTTLE_LOG_RATE_LOG_SIZE | Controllo feedback, limitazione delle tariffe per evitare una condizione di spazio del log esaurita |
 |||
 
-In presenza di un limite di frequenza di log che è intralciano la scalabilità desiderata, prendere in considerazione le opzioni seguenti:
-- Aumentare le prestazioni a un livello di dimensioni maggiori per ottenere la velocità massima di 96 MB/s log. 
-- Se i dati in fase di caricamento sono temporanei, ad esempio gestione temporanea dei dati in un processo ETL, può essere caricato in tempdb (che è a registrazione minima). 
-- Per gli scenari analitici, caricare in una tabella columnstore cluster coperto. In questo modo si riduce la velocità necessaria log a causa della compressione. Questa tecnica comporta un aumento utilizzo della CPU ed è applicabile solo ai set di dati che traggono vantaggio dagli indici columnstore cluster. 
+Quando si verifica un limite di velocità di log che ostacola la scalabilità desiderata, prendere in considerazione le opzioni seguenti:
+- Scalabilità verticale a un livello superiore per ottenere la velocità massima di log di 96 MB/s. 
+- Se i dati caricati sono temporanei, ad esempio i dati di staging in un processo ETL, possono essere caricati in tempdb (con registrazione minima). 
+- Per gli scenari di analisi, caricare in una tabella analizzata columnstore cluster. In questo modo si riduce la velocità di log necessaria a causa della compressione. Questa tecnica aumenta l'utilizzo della CPU ed è applicabile solo ai set di dati che traggono vantaggio dagli indici columnstore cluster. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

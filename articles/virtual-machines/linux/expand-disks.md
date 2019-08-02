@@ -1,33 +1,25 @@
 ---
 title: Espandere i dischi rigidi virtuali in una macchina virtuale Linux in Azure | Microsoft Docs
 description: Informazioni su come espandere i dischi rigidi virtuali in una macchina virtuale Linux con l'interfaccia della riga di comando di Azure
-services: virtual-machines-linux
-documentationcenter: ''
 author: roygara
-manager: gwallace
-editor: ''
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
+ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: cc61ad7fb6fb741c03fe8395b4cd460c3bd33c53
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: f892857d74150ee42cc2ea4b5c996feac3d1cfa2
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67667831"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68695621"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Espandere dischi rigidi virtuali in una macchina virtuale Linux con l'interfaccia della riga di comando di Azure
 
 Questo articolo descrive come espandere i dischi gestiti di una macchina virtuale Linux tramite l'interfaccia della riga di comando di Azure. È possibile [aggiungere dischi dati](add-disk.md) per fornire spazio di archiviazione aggiuntivo ed è anche possibile espandere un disco dati esistente. Le dimensioni predefinite del disco rigido virtuale per il sistema operativo sono in genere di 30 GB in una macchina virtuale Linux in Azure. 
 
 > [!WARNING]
-> Assicurarsi sempre che il file System è in uno stato integro, il tipo di tabella di partizione disco supporterà le nuove dimensioni e assicurarsi che i dati viene eseguito il backup prima di eseguire operazioni di ridimensionamento del disco. Per altre informazioni, vedere [Eseguire il backup di macchine virtuali Linux in Azure](tutorial-backup-vms.md). 
+> Assicurarsi sempre che il file System sia in uno stato integro, che il tipo di tabella della partizione del disco supporti le nuove dimensioni e assicurarsi che venga eseguito il backup dei dati prima di eseguire operazioni di ridimensionamento del disco. Per altre informazioni, vedere [Eseguire il backup di macchine virtuali Linux in Azure](tutorial-backup-vms.md). 
 
 ## <a name="expand-an-azure-managed-disk"></a>Espandere un disco gestito di Azure
 Assicurarsi di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e di aver eseguito l'accesso a un account Azure tramite [az login](/cli/azure/reference-index#az-login).
@@ -141,7 +133,7 @@ Per usare il disco espanso, espandere la partizione e il file system sottostanti
     sudo mount /dev/sdc1 /datadrive
     ```
 
-1. Per verificare il disco dati è stato ridimensionato, usare `df -h`. L'output di esempio seguente mostra che l'unità dati */dev/sdc1* è ora di 200 GB:
+1. Per verificare che il disco dati sia stato ridimensionato, usare `df -h`. L'output di esempio seguente mostra che l'unità dati */dev/sdc1* è ora di 200 GB:
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on

@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 07/17/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59f716ccd7b2e02c9064f13cf1ffd6e8180858c9
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: c872d5151ac0b7bb650e2de68b9e631e8254ba94
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827903"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618993"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di controllo nel portale di Azure Active Directory 
 
@@ -41,21 +41,21 @@ Questo articolo fornisce una panoramica del report di controllo.
  
 ## <a name="who-can-access-the-data"></a>Chi può accedere ai dati?
 
-* Gli utenti nel **amministratore della sicurezza**, **lettura per la sicurezza**, **lettore del Report** oppure **amministratore globale** ruoli
+* Utenti nei ruoli amministratore **sicurezza**, **lettore sicurezza**, **lettore report** o **amministratore globale**
 * Inoltre, tutti gli utenti (non amministratori) possono visualizzare le proprie attività di controllo
 
 ## <a name="audit-logs"></a>Log di controllo
 
 I log di controllo di Azure AD forniscono i record delle attività di sistema per la conformità. Per accedere ai log di controllo, selezionare **Log di controllo** nella sezione **Attività** di **Azure Active Directory**. Si noti che i log di controllo possono avere una latenza fino a un'ora, pertanto la visualizzazione dei dati di attività di controllo nel portale potrebbe richiedere un tempo di attesa simile dopo aver completato l'attività.
 
-![Log di controllo](./media/concept-audit-logs/61.png "Log di controllo")
+
 
 Un log di controllo è una visualizzazione elenco predefinita che include:
 
 - Data e ora dell'occorrenza.
 - il servizio che ha registrato l'occorrenza
-- la categoria e il nome dell'attività (*cosa*) 
-- lo stato dell'attività (esito positivo o negativo)
+- categoria e nome dell'attività (*cosa*) 
+- stato dell'attività (esito positivo o negativo)
 - Destinazione
 - Iniziatore/attore di un'attività (chi)
 
@@ -88,25 +88,25 @@ Selezionare un elemento nella visualizzazione elenco per ottenere maggiori infor
 
 ![Log di controllo](./media/concept-audit-logs/filter.png "Log di controllo")
 
-Il **servizio** filtro consente di selezionare da un elenco a discesa dei servizi seguenti:
+Il filtro del **servizio** consente di effettuare una selezione da un elenco a discesa dei servizi seguenti:
 
 - Tutti
 - Verifiche di accesso
-- Provisioning degli account 
-- Applicazione SSO
+- Provisioning account 
+- SSO applicazione
 - Metodi di autenticazione
 - B2C
 - Accesso condizionale
 - Directory principale
-- Gestione dei diritti
+- Gestione entitlement
 - Identity Protection
 - Utenti invitati
 - PIM
 - Gestione gruppi self-service
-- Gestione self-service Passord
+- Gestione delle password self-service
 - Condizioni per l'utilizzo
 
-Il **categoria** filtro consente di selezionare uno dei filtri indicati di seguito:
+Il filtro **Category** consente di selezionare uno dei filtri seguenti:
 
 - Tutti
 - AdministrativeUnit
@@ -120,26 +120,26 @@ Il **categoria** filtro consente di selezionare uno dei filtri indicati di segui
 - EntitlementManagement
 - GroupManagement
 - Altro
-- Policy
-- Gestione
+- Criteri
+- ResourceManagement
 - RoleManagement
-- Gestione utente
+- UserManagement
 
-Il **attività** filtro è basato sulla categoria e attività risorsa tipo selezione effettuata. È possibile selezionare un'attività specifica da visualizzare o selezionarle tutte. 
+Il filtro **attività** è basato sulla selezione del tipo di risorsa Activity e Category effettuata dall'utente. È possibile selezionare un'attività specifica da visualizzare o selezionarle tutte. 
 
-È possibile ottenere l'elenco di tutte le attività di controllo usando l'API Graph https://graph.windows.net/ $tenantdomain/activities/auditActivityTypes?api-version=beta, dove $tenantdomain è il nome del dominio. In alternativa, vedere l'articolo relativo agli [eventi del report di controllo](reference-audit-activities.md).
+È possibile ottenere l'elenco di tutte le attività di controllo usando il API Graph:`https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
 
-Il **stato** filtro consente di filtrare in base allo stato di un'operazione di controllo. Lo stato può essere uno dei seguenti:
+Il filtro di **stato** consente di filtrare in base allo stato di un'operazione di controllo. Lo stato può essere uno dei seguenti:
 
 - Tutti
 - Riuscito
-- Esito negativo
+- Errore
 
-Il **destinazione** filtro consente di cercare una determinata destinazione dal nome o il nome dell'entità utente (UPN). Il nome di destinazione e il nome UPN di maiuscole e minuscole. 
+Il filtro di **destinazione** consente di cercare una determinata destinazione in base al nome o al nome dell'entità utente (UPN). Il nome di destinazione e l'UPN fanno distinzione tra maiuscole e minuscole. 
 
-Il **avviate da** filtro consente di definire il nome di un attore o un nome universale principale (UPN). Il nome e l'UPN di maiuscole e minuscole.
+Il filtro **avviato da** consente di definire il nome di un attore o un nome dell'entità universale (UPN). Il nome e l'UPN fanno distinzione tra maiuscole e minuscole.
 
-Il **intervallo di Date** filtro permette di definire un intervallo di tempo per i dati restituiti.  
+Il filtro **intervallo di date** consente di definire un intervallo di tempo per i dati restituiti.  
 I valori possibili sono:
 
 - 1 mese
@@ -149,7 +149,7 @@ I valori possibili sono:
 
 Quando si seleziona un intervallo di tempo personalizzato, è possibile configurare un'ora di inizio e un'ora di fine.
 
-È anche possibile scegliere di scaricare i dati filtrati, record di dimensioni fino a 250.000, selezionando il **scaricare** pulsante. È possibile scegliere di scaricare i log in formato CSV o JSON. Il numero di record che è possibile scaricare è limitato dai [criteri di conservazione dei report di Azure Active Directory](reference-reports-data-retention.md).
+È anche possibile scegliere di scaricare i dati filtrati, fino a 250.000 record, selezionando il pulsante **download** . È possibile scaricare i log in formato CSV o JSON. Il numero di record che è possibile scaricare è limitato dai [criteri di conservazione dei report di Azure Active Directory](reference-reports-data-retention.md).
 
 ![Log di controllo](./media/concept-audit-logs/download.png "Log di controllo")
 
@@ -180,11 +180,11 @@ Con i report di controllo basati su utenti e gruppi, è possibile ottenere rispo
 
 - Quali licenze sono state assegnate a un gruppo o a un utente?
 
-Se si desidera solo esaminare i dati di controllo sono correlati agli utenti, è possibile trovare una visualizzazione filtrata in **log di controllo** nel **attività** sezione del **utenti** scheda. In questo punto di ingresso **Gestione utente** categoria preselezionate.
+Per rivedere solo i dati di controllo relativi agli utenti, è possibile trovare una visualizzazione filtrata in **log di controllo** nella sezione **attività** della scheda **utenti** . Questo punto di ingresso ha **UserManagement** come categoria preselezionata.
 
 ![Log di controllo](./media/concept-audit-logs/users.png "Log di controllo")
 
-Se si desidera solo esaminare i dati di controllo sono correlati ai gruppi, è possibile trovare una visualizzazione filtrata in **log di controllo** nel **attività** sezione del **gruppi** scheda. In questo punto di ingresso **GroupManagement** categoria preselezionate.
+Per rivedere solo i dati di controllo relativi ai gruppi, è possibile trovare una visualizzazione filtrata in **log di controllo** nella sezione **attività** della scheda **gruppi** . Questo punto di ingresso ha **GroupManagement** come categoria preselezionata.
 
 ![Log di controllo](./media/concept-audit-logs/groups.png "Log di controllo")
 
@@ -198,15 +198,15 @@ Con i report di controllo basati sulle applicazioni, è possibile ottenere rispo
 * I nomi delle applicazioni sono stati modificati?
 * Chi ha dato il consenso a un'applicazione?
 
-Per esaminare i dati di controllo relativi alle applicazioni, è disponibile una visualizzazione filtrata in **Log di controllo** nella sezione **Attività** del pannello **Applicazioni aziendali**. In questo punto di ingresso **applicazioni aziendali** preselezionate come le **tipo di applicazione**.
+Per esaminare i dati di controllo relativi alle applicazioni, è disponibile una visualizzazione filtrata in **Log di controllo** nella sezione **Attività** del pannello **Applicazioni aziendali**. Questo punto di ingresso dispone di **applicazioni aziendali** preselezionate come **tipo di applicazione**.
 
 ![Log di controllo](./media/concept-audit-logs/enterpriseapplications.png "Log di controllo")
 
 ## <a name="office-365-activity-logs"></a>Log attività di Office 365
 
-È possibile visualizzare i log attività di Office 365 dal [interfaccia di amministrazione di Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Anche se le attività di Office 365 e i log attività di Azure AD condividano numerose risorse della directory, solo l'interfaccia di amministrazione di Microsoft 365 offre una visualizzazione completa dei log attività di Office 365. 
+È possibile visualizzare i log attività di Office 365 dall'interfaccia di [amministrazione di Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Anche se l'attività di Office 365 e i log attività Azure AD condividono numerose risorse della directory, solo l'interfaccia di amministrazione di Microsoft 365 fornisce una visualizzazione completa dei log attività di Office 365. 
 
-È possibile accedere ai log attività di Office 365 anche a livello di codice tramite le [API di gestione di Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
+È anche possibile accedere ai log attività di Office 365 a livello di codice usando le [API di gestione di office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

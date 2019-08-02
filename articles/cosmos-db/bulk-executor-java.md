@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 68c83809cba0585d99751760c0e4f51893806170
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f8cb7458deddc95f33fa5e4582ffa7c25c3c64e6
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257205"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619822"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Usare la libreria Java dell'executor bulk per eseguire operazioni in blocco sui dati di Azure Cosmos DB
 
 Questa esercitazione fornisce le istruzioni per importare e aggiornare i documenti in Azure Cosmos DB usando la libreria Java BulkExecutor di Azure Cosmos DB. Per informazioni sulla libreria dell'executor bulk e su come consente di sfruttare il livello elevatissimo di velocità effettiva e archiviazione, vedere l'articolo [Panoramica della libreria dell'executor bulk](bulk-executor-overview.md). In questa esercitazione si compilerà un'applicazione Java che genera documenti casuali che verranno importati in blocco in un contenitore di Azure Cosmos DB. Dopo l'importazione alcune proprietà di un documento verranno aggiornate in blocco. 
 
-Attualmente la libreria dell'executor bulk è supportata solo dagli account delle API SQL e Gremlin di Azure Cosmos DB. Questo articolo descrive come usare la libreria .NET dell'executor bulk con account API SQL. Per informazioni sull'uso della libreria .NET dell'executor bulk con l'API Gremlin, vedere [Eseguire operazioni bulk nell'API Gremlin di Azure Cosmos DB](bulk-executor-graph-dotnet.md).
+Attualmente, la libreria dell'executor bulk è supportata solo dagli account Azure Cosmos DB API SQL e Gremlin. Questo articolo descrive come usare la libreria Java dell'executor bulk con gli account API SQL. Per informazioni sull'uso della libreria .NET dell'executor bulk con l'API Gremlin, vedere [Eseguire operazioni bulk nell'API Gremlin di Azure Cosmos DB](bulk-executor-graph-dotnet.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.  
 
-* È possibile [provare Microsoft Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure, gratuitamente e senza impegno. In alternativa è possibile usare l'[emulatore di Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) con l'endpoint `https://localhost:8081`. La chiave primaria viene fornita in [Autenticazione delle richieste](local-emulator.md#authenticating-requests).  
+* Puoi [provare Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) gratuitamente senza una sottoscrizione di Azure, gratuitamente e senza impegno. In alternativa è possibile usare l'[emulatore di Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) con l'endpoint `https://localhost:8081`. La chiave primaria viene fornita in [Autenticazione delle richieste](local-emulator.md#authenticating-requests).  
 
 * [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)  
   - In Ubuntu eseguire `apt-get install default-jdk` per installare JDK.  
@@ -37,7 +37,7 @@ Attualmente la libreria dell'executor bulk è supportata solo dagli account dell
   
   - In Ubuntu è possibile eseguire `apt-get install maven` per installare Maven.
 
-* Creare un account API SQL Azure Cosmos DB seguendo la procedura descritta nella sezione [Creare un account di database](create-sql-api-java.md#create-a-database-account) dell'articolo sulla guida introduttiva per Java.
+* Creare un account dell'API SQL di Azure Cosmos DB usando la procedura descritta nella sezione [creare un account di database](create-sql-api-java.md#create-a-database-account) dell'articolo introduttivo su Java.
 
 ## <a name="clone-the-sample-application"></a>Clonare l'applicazione di esempio
 
@@ -118,8 +118,8 @@ Il repository clonato contiene due esempi "bulkimport" e "bulkupdate" relativi a
    |int getNumberOfDocumentsImported()  |   Il numero totale di documenti importati correttamente rispetto ai documenti forniti alla chiamata API di importazione in blocco.      |
    |double getTotalRequestUnitsConsumed()   |  Le unità richiesta (UR) totali usate dalla chiamata API di importazione in blocco.       |
    |Duration getTotalTimeTaken()   |    Il tempo totale impiegato dalla chiamata API di importazione in blocco per completare l'esecuzione.     |
-   |Elenco\<eccezione > getErrors() |  L'elenco di errori se alcuni documenti del batch fornito alla chiamata API di importazione in blocco non vengono inseriti.       |
-   |Elenco\<oggetto > getBadInputDocuments()  |    L'elenco di documenti con formato non valido che non sono stati importati correttamente nella chiamata API di importazione in blocco. L'utente deve correggere il problema nei documenti restituiti e ripetere l'importazione. I documenti con formato non valido includono i documenti con un valore ID diverso da stringa, ad esempio con un valore null o con qualsiasi altro tipo di dati.     |
+   |Elenco\<eccezioni > GetErrors () |  L'elenco di errori se alcuni documenti del batch fornito alla chiamata API di importazione in blocco non vengono inseriti.       |
+   |Oggetto\<list > getBadInputDocuments ()  |    L'elenco di documenti con formato non valido che non sono stati importati correttamente nella chiamata API di importazione in blocco. L'utente deve correggere il problema nei documenti restituiti e ripetere l'importazione. I documenti con formato non valido includono i documenti con un valore ID diverso da stringa, ad esempio con un valore null o con qualsiasi altro tipo di dati.     |
 
 5. Dopo avere preparato l'applicazione di importazione in blocco, compilare lo strumento da riga di comando dall'origine usando il comando "mvn clean package". Questo comando genera un file jar nella cartella di destinazione:  
 
@@ -182,7 +182,7 @@ Il repository clonato contiene due esempi "bulkimport" e "bulkupdate" relativi a
    |int getNumberOfDocumentsUpdated()  |   Il numero totale di documenti aggiornati correttamente rispetto ai documenti forniti alla chiamata API di aggiornamento in blocco.      |
    |double getTotalRequestUnitsConsumed() |  Le unità richiesta (UR) totali usate dalla chiamata API di aggiornamento in blocco.       |
    |Duration getTotalTimeTaken()  |   Il tempo totale impiegato dalla chiamata API di aggiornamento in blocco per completare l'esecuzione.      |
-   |Elenco\<eccezione > getErrors()   |    L'elenco di errori se alcuni documenti del batch fornito alla chiamata API di aggiornamento in blocco non vengono inseriti.      |
+   |Elenco\<eccezioni > GetErrors ()   |    L'elenco di errori se alcuni documenti del batch fornito alla chiamata API di aggiornamento in blocco non vengono inseriti.      |
 
 3. Dopo avere preparato l'applicazione di aggiornamento in blocco, compilare lo strumento da riga di comando dall'origine usando il comando "mvn clean package". Questo comando genera un file jar nella cartella di destinazione:  
 

@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c07f9dbcc21840bec4b4487225dfb8108586865e
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 17c85d53d05193313f9e166b88beb2a0f82eb197
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489197"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618365"
 ---
 # <a name="edit-and-manage-an-existing-access-package-in-azure-ad-entitlement-management-preview"></a>Modificare e gestire un pacchetto di accesso esistente in Azure AD gestione dei diritti (anteprima)
 
@@ -38,7 +38,7 @@ Questo articolo descrive come modificare e gestire i pacchetti di accesso esiste
 
 Un ruolo di risorsa è una raccolta di autorizzazioni associate a una risorsa. Per rendere le risorse disponibili per gli utenti da richiedere è possibile aggiungere i ruoli delle risorse al pacchetto di accesso. È possibile aggiungere ruoli delle risorse per gruppi, applicazioni e siti di SharePoint.
 
-**Ruolo prerequisito:** Amministratore utenti, proprietario del catalogo o gestione pacchetti di accesso
+**Ruolo prerequisito:** Amministratore globale, Amministratore utenti, proprietario del catalogo o gestione pacchetti di accesso
 
 1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
@@ -62,7 +62,7 @@ Un ruolo di risorsa è una raccolta di autorizzazioni associate a una risorsa. P
 È possibile selezionare qualsiasi gruppo di Office 365 o Azure AD gruppo di sicurezza.  Gli amministratori possono aggiungere qualsiasi gruppo a un catalogo. i proprietari del catalogo possono aggiungere qualsiasi gruppo al catalogo se sono proprietari del gruppo. Quando si seleziona un gruppo, tenere presenti i seguenti vincoli di Azure AD:
 
 - Quando un utente, incluso un Guest, viene aggiunto come membro di un gruppo, può visualizzare tutti gli altri membri del gruppo.
-- Azure AD non è possibile modificare l'appartenenza di un gruppo sincronizzato da Windows Server Active Directory utilizzando Azure AD Connect.  
+- Azure AD non è possibile modificare l'appartenenza di un gruppo sincronizzato da Windows Server Active Directory utilizzando Azure AD Connect o creato in Exchange Online come gruppo di distribuzione.  
 - Non è possibile aggiornare l'appartenenza dei gruppi dinamici tramite l'aggiunta o la rimozione di un membro, quindi l'appartenenza dinamica ai gruppi non è adatta per l'uso con la gestione dei diritti.
 
 1. Nella pagina **Aggiungi ruoli risorse per accedere al pacchetto** fare clic su **gruppi** per aprire il riquadro Seleziona gruppi.
@@ -136,7 +136,7 @@ Azure AD possibile assegnare automaticamente agli utenti l'accesso a un sito di 
 
 ## <a name="remove-resource-roles"></a>Rimuovere i ruoli delle risorse
 
-**Ruolo prerequisito:** Amministratore utenti, proprietario del catalogo o gestione pacchetti di accesso
+**Ruolo prerequisito:** Amministratore globale, Amministratore utenti, proprietario del catalogo o gestione pacchetti di accesso
 
 1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
@@ -158,7 +158,7 @@ Il diagramma seguente illustra il processo di alto livello per la creazione di u
 
 ![Creazione di un processo di criteri](./media/entitlement-management-access-package-edit/policy-process.png)
 
-**Ruolo prerequisito:** Amministratore utenti, proprietario del catalogo o gestione pacchetti di accesso
+**Ruolo prerequisito:** Amministratore globale, Amministratore utenti, proprietario del catalogo o gestione pacchetti di accesso
 
 1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
@@ -178,7 +178,7 @@ Il diagramma seguente illustra il processo di alto livello per la creazione di u
 
 È possibile modificare i criteri in qualsiasi momento. Se si modifica la data di scadenza di un criterio, la data di scadenza per le richieste che si trovano già in uno stato di approvazione in sospeso o approvato non verrà modificata.
 
-**Ruolo prerequisito:** Amministratore utenti, proprietario del catalogo o gestione pacchetti di accesso
+**Ruolo prerequisito:** Amministratore globale, Amministratore utenti, proprietario del catalogo o gestione pacchetti di accesso
 
 1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
@@ -200,13 +200,13 @@ Il diagramma seguente illustra il processo di alto livello per la creazione di u
 
 In alcuni casi, potrebbe essere necessario assegnare direttamente utenti specifici a un pacchetto di accesso in modo che gli utenti non debbano eseguire il processo di richiesta del pacchetto di accesso. Per assegnare direttamente gli utenti, il pacchetto di accesso deve disporre di un criterio che consenta l'assegnazione diretta dell'amministratore.
 
-**Ruolo prerequisito:** Amministratore utenti, proprietario del catalogo o gestione pacchetti di accesso
+**Ruolo prerequisito:** Amministratore globale, Amministratore utenti, proprietario del catalogo o gestione pacchetti di accesso
 
 1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
 1. Nel menu a sinistra fare clic su **Access Packages** , quindi aprire il pacchetto Access.
 
-1. Nel menu a sinistra fare clic su assegnazioni.
+1. Nel menu a sinistra fare clicsu assegnazioni.
 
 1. Fare clic su **nuova assegnazione** per aprire Aggiungi utente per accedere al pacchetto.
 
@@ -228,13 +228,13 @@ In alcuni casi, potrebbe essere necessario assegnare direttamente utenti specifi
 
 ## <a name="view-who-has-an-assignment"></a>Visualizza chi ha un'assegnazione
 
-**Ruolo prerequisito:** Amministratore utenti, proprietario del catalogo o gestione pacchetti di accesso
+**Ruolo prerequisito:** Amministratore globale, Amministratore utenti, proprietario del catalogo o gestione pacchetti di accesso
 
 1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
 1. Nel menu a sinistra fare clic su **Access Packages** , quindi aprire il pacchetto Access.
 
-1. Fare  clic su assegnazioni per visualizzare un elenco di assegnazioni attive.
+1. Fare clic su assegnazioni per visualizzare un elenco di assegnazioni attive.
 
 1. Fare clic su un'assegnazione specifica per visualizzare altri dettagli.
 
@@ -248,7 +248,7 @@ In alcuni casi, potrebbe essere necessario assegnare direttamente utenti specifi
 
 ## <a name="view-requests"></a>Visualizza richieste
 
-**Ruolo prerequisito:** Amministratore utenti, proprietario del catalogo o gestione pacchetti di accesso
+**Ruolo prerequisito:** Amministratore globale, Amministratore utenti, proprietario del catalogo o gestione pacchetti di accesso
 
 1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
@@ -260,7 +260,7 @@ In alcuni casi, potrebbe essere necessario assegnare direttamente utenti specifi
 
 ## <a name="view-a-requests-delivery-errors"></a>Visualizzare gli errori di recapito di una richiesta
 
-**Ruolo prerequisito:** Amministratore utenti, proprietario del catalogo o gestione pacchetti di accesso
+**Ruolo prerequisito:** Amministratore globale, Amministratore utenti, proprietario del catalogo o gestione pacchetti di accesso
 
 1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
@@ -280,7 +280,7 @@ In alcuni casi, potrebbe essere necessario assegnare direttamente utenti specifi
 
 È possibile annullare una richiesta in sospeso che non è ancora stata recapitata.
 
-**Ruolo prerequisito:** Amministratore utenti, proprietario del catalogo o gestione pacchetti di accesso
+**Ruolo prerequisito:** Amministratore globale, Amministratore utenti, proprietario del catalogo o gestione pacchetti di accesso
 
 1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
@@ -296,7 +296,7 @@ In alcuni casi, potrebbe essere necessario assegnare direttamente utenti specifi
 
 La maggior parte degli utenti nella directory può accedere al portale di accesso personale e visualizzare automaticamente un elenco di pacchetti di accesso che possono richiedere. Tuttavia, per gli utenti di partner commerciali esterni che non si trovano ancora nella directory, è necessario inviare loro un collegamento che possono usare per richiedere un pacchetto di accesso. Finché il pacchetto di accesso è abilitato per gli utenti esterni e si dispone di un criterio per la directory dell'utente esterno, l'utente esterno può usare il collegamento portale di accesso personale per richiedere il pacchetto di accesso.
 
-**Ruolo prerequisito:** Amministratore utenti, proprietario del catalogo o gestione pacchetti di accesso
+**Ruolo prerequisito:** Amministratore globale, Amministratore utenti, proprietario del catalogo o gestione pacchetti di accesso
 
 1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
@@ -312,7 +312,7 @@ La maggior parte degli utenti nella directory può accedere al portale di access
 
 Per impostazione predefinita, i pacchetti di Access sono individuabili. Ciò significa che se un criterio consente a un utente di richiedere il pacchetto di accesso, visualizzerà automaticamente il pacchetto di accesso elencato nel portale di accesso personale.
 
-**Ruolo prerequisito:** Amministratore utenti, proprietario del catalogo o gestione pacchetti di accesso
+**Ruolo prerequisito:** Amministratore globale, Amministratore utenti, proprietario del catalogo o gestione pacchetti di accesso
 
 1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
@@ -330,13 +330,13 @@ Per impostazione predefinita, i pacchetti di Access sono individuabili. Ciò sig
 
 Un pacchetto di accesso può essere eliminato solo se non sono presenti assegnazioni utente attive.
 
-**Ruolo prerequisito:** Amministratore utenti, proprietario del catalogo o gestione pacchetti di accesso
+**Ruolo prerequisito:** Amministratore globale, Amministratore utenti, proprietario del catalogo o gestione pacchetti di accesso
 
 1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
 1. Nel menu a sinistra fare clic su **Access Packages** , quindi aprire il pacchetto Access.
 
-1. Nel menu a sinistra fare clic  su assegnazioni e rimuovere l'accesso per tutti gli utenti.
+1. Nel menu a sinistra fare clic su assegnazioni e rimuovere l'accesso per tutti gli utenti.
 
 1. Nel menu a sinistra fare clic su **Panoramica** e quindi su **Elimina**.
 

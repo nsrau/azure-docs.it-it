@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 3/20/2019
+ms.date: 7/29/2019
 ms.author: mayg
-ms.openlocfilehash: cbea6785239c70a3cdb229d0811497f051224238
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4b63cfc67e20158e434e1a401d47144c3e0f90c
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61472486"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618750"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analizzare il report di Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure
 
@@ -41,9 +41,6 @@ Il foglio di lavoro On-premises summary (Riepilogo ambiente locale) offre una pa
 **La varianza tipica dei dati osservata al giorno (GB)** : La varianza media dei dati osservata in tutti i giorni di profilatura. Questo numero viene usato come uno degli input per stabilire il numero di server di configurazione e di server di elaborazione aggiuntivi da usare nella distribuzione.
 
 ## <a name="recommendations"></a>Consigli
-
->[!Note]
->Quando la replica direttamente in dischi gestiti, ignorare la raccomandazione per il numero di account di archiviazione.
 
 Il foglio Recommendations (Raccomandazioni) del report per lo scenario da VMware ad Azure contiene i dettagli seguenti, in base al valore RPO desiderato che è stato selezionato:
 
@@ -95,7 +92,7 @@ Se si esegue lo strumento in un server di configurazione o in un server di elabo
 Per tutte le distribuzioni aziendali di Site Recovery è consigliabile usare [ExpressRoute](https://aka.ms/expressroute).
 
 ### <a name="required-storage-accounts"></a>Account di archiviazione necessari
-Il grafico seguente indica il numero totale di account di archiviazione (Standard e Premium) necessari per proteggere tutte le VM compatibili. Per informazioni sull'account di archiviazione da usare per ogni VM, vedere la sezione "Selezione host di archiviazione delle VM".
+Il grafico seguente indica il numero totale di account di archiviazione (Standard e Premium) necessari per proteggere tutte le VM compatibili. Per informazioni sull'account di archiviazione da usare per ogni VM, vedere la sezione "Selezione host di archiviazione delle VM". Se si usa la versione 2.5 di Deployment Planner, questa raccomandazione Mostra solo il numero di account di archiviazione della cache standard necessari per la replica poiché i dati vengono scritti direttamente nel Managed Disks.
 
 ![Account di archiviazione necessari in Deployment Planner](media/site-recovery-vmware-deployment-planner-analyze-report/required-storage-accounts-v2a.png)
 
@@ -160,21 +157,19 @@ Si possono verificare situazioni in cui non è possibile impostare una larghezza
 ## <a name="vm-storage-placement"></a>Selezione host di archiviazione delle VM
 
 >[!Note]
->Quando la replica direttamente in dischi gestiti, non occorre preoccuparsi di numero di account di archiviazione. Per l'archiviazione, usare solo le indicazioni sul tipo di archiviazione (Standard o Premium). È applicabile per i dischi gestiti dello stesso tipo.
+>Deployment Planner versione 2.5 e successive consiglia la posizione di archiviazione per i computer che eseguiranno la replica direttamente nei dischi gestiti.
 
 ![Selezione host di archiviazione delle VM](media/site-recovery-vmware-deployment-planner-analyze-report/vm-storage-placement-v2a.png)
 
-**Tipo di archiviazione su disco**: account di archiviazione standard o premium usato per replicare tutte le macchine virtuali corrispondenti indicate nella colonna **macchine virtuali da posizionare**.
+**Tipo di archiviazione di replica**: Un disco gestito standard o Premium, usato per replicare tutte le macchine virtuali corrispondenti indicate nella colonna **VM da inserire** .
 
-**Prefisso suggerito**: il prefisso di tre caratteri che può essere usato per la denominazione dell'account di archiviazione. È possibile usare un prefisso personalizzato, ma il suggerimento dello strumento segue la [convenzione di denominazione delle partizioni per gli account di archiviazione](https://aka.ms/storage-performance-checklist).
+**Tipo di account di archiviazione di log**: tutti i log di replica vengono archiviati in un account di archiviazione standard.
 
-**Nome account suggerito**: il nome dell'account di archiviazione dopo avere incluso il prefisso suggerito. Sostituire il nome nelle parentesi acute (< e >) con l'input personalizzato.
+**Prefisso suggerito per l'account di archiviazione**: Prefisso a tre caratteri suggerito che può essere usato per assegnare un nome all'account di archiviazione della cache. È possibile usare un prefisso personalizzato, ma il suggerimento dello strumento segue la [convenzione di denominazione delle partizioni per gli account di archiviazione](https://aka.ms/storage-performance-checklist).
 
-**Account di archiviazione log**: tutti i log di replica vengono archiviati in un account di archiviazione standard. Per le VM che eseguono la replica in un account di archiviazione Premium, configurare un account di archiviazione Standard aggiuntivo per l'archiviazione log. Un singolo account di archiviazione log Standard può essere usato da più account di archiviazione di replica Premium. Le VM replicate negli account di archiviazione Standard usano lo stesso account di archiviazione per i log.
+**Nome account log suggerito**: il nome dell'account di archiviazione dopo avere incluso il prefisso suggerito. Sostituire il nome nelle parentesi acute (< e >) con l'input personalizzato.
 
-**Nome account log suggerito**: il nome dell'account log di archiviazione dopo avere incluso il prefisso suggerito. Sostituire il nome nelle parentesi acute (< e >) con l'input personalizzato.
-
-**Riepilogo di posizionamento**: riepilogo del carico totale delle VM nell'account di archiviazione al momento della replica e del failover di test o del failover. Comprende il numero totale di VM mappate all'account di archiviazione, il numero totale di operazioni di I/O al secondo in lettura/scrittura per tutte le VM inserite in questo account di archiviazione, il totale delle operazioni di I/O al secondo in scrittura (replica), le dimensioni totali configurate per tutti i dischi e il numero totale di dischi.
+**Riepilogo di posizionamento**: Riepilogo dei dischi necessari per proteggere le macchine virtuali in base al tipo di archiviazione. Include il numero totale di macchine virtuali, le dimensioni totali di cui è stato effettuato il provisioning in tutti i dischi e il numero totale di dischi.
 
 **Macchine virtuali da inserire**: elenco di tutte le VM da inserire nell'account di archiviazione specificato per ottenere uso e prestazioni ottimali.
 
@@ -195,9 +190,7 @@ Se in virtù delle caratteristiche del carico di lavoro un disco appartiene alla
 
 **Tipo di archiviazione**: standard o premium.
 
-**Prefisso suggerito**: il prefisso di tre caratteri dell'account di archiviazione.
-
-**Account di archiviazione**: il nome che usa il prefisso dell'account di archiviazione suggerito.
+**Asrseeddisk (disco gestito) creato per la replica**: Nome del disco creato quando si Abilita la replica. Archivia i dati e i relativi snapshot in Azure.
 
 **Picco di operazioni di I/O al secondo in lettura/scrittura (con fattore di crescita)** : picco di operazioni di I/O al secondo in lettura/scrittura del carico di lavoro nel disco (il valore predefinito è 95° percentile), incluso il fattore di crescita futuro (il valore predefinito è 30%). Si noti che il numero totale di operazioni di I/O al secondo in lettura/scrittura di una VM non è sempre costituito dalla somma delle operazioni di I/O al secondo in lettura/scrittura dei singoli dischi della VM, perché il picco di operazioni di I/O al secondo in lettura/scrittura della VM è il picco della somma delle operazioni di I/O al secondo in lettura/scrittura dei singoli dischi per ogni minuto del periodo di profilatura.
 
@@ -238,7 +231,7 @@ Se in virtù delle caratteristiche del carico di lavoro un disco appartiene alla
 
 * Le operazioni di I/O al secondo di origine superano il limite supportato di archiviazione di 80.000 operazioni per ogni VM.
 
-* La varianza media dei dati supera il limite supportato da Site Recovery di 10 MB/s per le dimensioni I/O medie del disco.
+* La varianza media dei dati supera il limite supportato Site Recovery limite di 20 MB/s per le dimensioni I/O medie del disco.
 
 * La varianza media dei dati supera il limite supportato da Site Recovery di 25 MB/s per le dimensioni di I/O medie della VM (somma della varianza di tutti i dischi).
 

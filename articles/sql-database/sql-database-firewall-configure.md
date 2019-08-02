@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 513836257a292069da709ad7a71e480f2b4d069d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 39d2dae28bde8ff35408733a1af886c302ec79bf
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66158325"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568185"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Regole del firewall IP per il database SQL di Azure e SQL Data Warehouse
 
@@ -151,7 +150,7 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Il modulo Azure PowerShell per Resource Manager è ancora supportato dal Database SQL di Azure, ma i progetti di sviluppo future è per il modulo Az.Sql. Per questi cmdlet, vedere [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRm sono sostanzialmente identici.
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
 
 | Cmdlet | Level | DESCRIZIONE |
 | --- | --- | --- |
@@ -244,12 +243,12 @@ Quando l'accesso al servizio di database SQL di Microsoft Azure non si comporta 
 
   Se si dispone di una connessione Internet con indirizzi IP dinamici e si verificano problemi di comunicazione attraverso il firewall, è possibile provare una delle soluzioni seguenti:
   
-  - Chiedere al Provider di servizi Internet (ISP) per l'intervallo di indirizzi IP assegnato ai computer client che accedono al server di Database SQL di Azure e quindi aggiungere l'intervallo di indirizzi IP come una regola del firewall IP.
+  - Chiedere al provider di servizi Internet (ISP) l'intervallo di indirizzi IP assegnato ai computer client che accedono al server di database SQL di Azure e quindi aggiungere l'intervallo di indirizzi IP come regola del firewall IP.
   - Ottenere indirizzi IP statici per i computer client, quindi aggiungere gli indirizzi IP come regole del firewall IP.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Verificare che l'ambiente di rete aziendali consenta le comunicazioni in ingresso dagli intervalli di indirizzi IP di calcolo (inclusi gli intervalli SQL) usate dai Data Center di Azure di Microsoft. Potrebbe essere necessario all'elenco elementi consentiti questi indirizzi IP, vedere [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653)  
+- Verificare che l'ambiente di rete aziendale consenta le comunicazioni in ingresso dagli intervalli di indirizzi IP di calcolo (inclusi gli intervalli SQL) usati dai Data Center Microsoft Azure. Potrebbe essere necessario inserire nell'elenco elementi consentiti questi indirizzi IP, vedere [Microsoft Azure intervalli IP del Data Center](https://www.microsoft.com/download/details.aspx?id=41653)  
 - Per una guida di avvio rapido sulla creazione di un database e di una regola del firewall IP a livello di server, vedere [Creare un database SQL di Azure nel portale di Azure](sql-database-single-database-get-started.md).
 - Per informazioni sulla connessione a un database SQL di Azure da applicazioni open source o di terze parti, vedere [Esempi di codice di avvio rapido del client per il database SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 - Per altre informazioni sulle porte aggiuntive che può essere necessario aprire, vedere la sezione **Esterno rispetto all'interno** di [Porte successive alla 1433 per ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md)

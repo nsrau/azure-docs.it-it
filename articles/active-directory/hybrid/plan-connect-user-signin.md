@@ -16,12 +16,12 @@ ms.date: 05/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb44c64540cc461bca4e305f7783f7c6b612591b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dbcc05093d801261493745c61dc5f68878d338b0
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60296460"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607675"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opzioni di accesso utente di Azure AD Connect
 Azure Active Directory (Azure AD) Connect consente agli utenti di accedere alle risorse cloud e locali usando le stesse password. Questo articolo descrive i concetti chiave di ciascun modello di identità per facilitare la scelta dell'identità da usare per l'accesso ad Azure AD.
@@ -49,7 +49,7 @@ Azure Active Directory supporta i metodi di autenticazione descritti di seguito:
 
 Per la maggior parte delle organizzazioni che vogliono semplicemente abilitare l'accesso utente a Office 365, alle applicazioni SaaS e ad altre risorse basate su Azure AD, è consigliabile l'opzione di sincronizzazione dell'hash delle password predefinita.
  
-Per informazioni dettagliate sulla scelta di un metodo di autenticazione, vedere [Scegliere il metodo di autenticazione appropriato per la soluzione di identità ibrida di Azure Active Directory](../../security/azure-ad-choose-authn.md)
+Per informazioni dettagliate sulla scelta di un metodo di autenticazione, vedere [Scegliere il metodo di autenticazione appropriato per la soluzione di identità ibrida di Azure Active Directory](../../security/fundamentals/choose-ad-authn.md)
 
 ### <a name="password-hash-synchronization"></a>Sincronizzazione dell'hash delle password
 Con la sincronizzazione dell'hash delle password, gli hash delle password degli utenti vengono sincronizzati da Active Directory locale ad Azure AD. Quando le password vengono modificate o reimpostate localmente, i nuovi hash delle password vengono sincronizzati immediatamente in Azure AD in modo che gli utenti possano usare sempre la stessa password per le risorse cloud, come avviene localmente. Le password non vengono mai inviate ad Azure AD né archiviate in Azure AD in testo non crittografato. La sincronizzazione dell'hash delle password può essere usata insieme al writeback delle password per consentire la reimpostazione autonoma delle password del servizio in Azure AD.
@@ -126,9 +126,9 @@ L'esperienza di accesso ad Azure AD dipende dalla possibilità per Azure AD di a
 Azure AD Connect elenca i suffissi UPN definiti per i domini e tenta di associarli a un dominio personalizzato in Azure AD. A quel punto, offre assistenza per eseguire gli interventi appropriati.
 Nella pagina di accesso di Azure AD sono riportati i suffissi UPN definiti per l'istanza locale di Active Directory ed è visualizzato lo stato corrispondente per ogni suffisso. I valori dello stato possono essere i seguenti:
 
-| Stato | Descrizione | Azione necessaria |
+| Stato | DESCRIZIONE | Azione necessaria |
 |:--- |:--- |:--- |
-| Verified |Azure AD Connect ha rilevato un dominio verificato in Azure AD. Tutti gli utenti di questo dominio possono accedere usando le credenziali locali. |Non è richiesto alcun intervento. |
+| Verificato |Azure AD Connect ha rilevato un dominio verificato in Azure AD. Tutti gli utenti di questo dominio possono accedere usando le credenziali locali. |Non è necessaria alcuna azione. |
 | Non verificato |Azure AD Connect ha rilevato un dominio corrispondente in Azure AD ma tale dominio non è verificato. Se il dominio non è verificato, dopo la sincronizzazione il suffisso UPN degli utenti di questo dominio verrà modificato nel prefisso predefinito .onmicrosoft.com. | [Verificare il dominio personalizzato in Azure AD.](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) |
 | Non aggiunto |Azure AD Connect non ha rilevato un dominio personalizzato corrispondente al suffisso UPN. Se il dominio non è aggiunto e verificato in Azure, il suffisso UPN degli utenti di questo dominio verrà modificato nel prefisso predefinito .onmicrosoft.com. | [Aggiungere e verificare un dominio personalizzato corrispondente al suffisso UPN.](../fundamentals/add-custom-domain.md) |
 
@@ -159,7 +159,7 @@ Per le informazioni seguenti, si supponga di usare il suffisso UPN contoso.com n
 |:---:|:--- |
 | Non aggiunto |In questo caso non è stato aggiunto alcun dominio personalizzato per contoso.com nella directory di Azure AD. Gli utenti che usano UPN locali con suffisso @contoso.com non potranno usare il proprio UPN locale per effettuare l'accesso ad Azure. Dovranno invece usare un nuovo UPN disponibile in Azure AD aggiungendo il suffisso per la directory predefinita di Azure AD. Ad esempio, se si sincronizzano gli utenti con la directory di Azure AD azurecontoso.onmicrosoft.com, all'utente locale user@contoso.com verrà assegnato l'UPN user@azurecontoso.onmicrosoft.com. |
 | Non verificato |In questo caso il dominio personalizzato contoso.com viene aggiunto nella directory di Azure AD, ma non è ancora verificato. Se si procede con la sincronizzazione degli utenti senza verificare il dominio, agli utenti verrà assegnato un nuovo UPN da Azure AD esattamente come accade nello scenario "Non aggiunto". |
-| Verified |In questo caso il dominio personalizzato contoso.com è già stato aggiunto e verificato in Azure AD per il suffisso UPN. Gli utenti potranno usare i propri nomi di entità utente locali, ad esempio user@contoso.com, per accedere ad Azure dopo la sincronizzazione con Azure AD. |
+| Verificato |In questo caso il dominio personalizzato contoso.com è già stato aggiunto e verificato in Azure AD per il suffisso UPN. Gli utenti potranno usare i propri nomi di entità utente locali, ad esempio user@contoso.com, per accedere ad Azure dopo la sincronizzazione con Azure AD. |
 
 ###### <a name="ad-fs-federation"></a>Federazione AD FS
 Non è possibile creare una federazione con il dominio predefinito .onmicrosoft.com in Azure AD o un dominio personalizzato non verificato in Azure AD. Quando si esegue la procedura guidata di Azure AD Connect, se si seleziona un dominio non verificato per creare una federazione con Azure AD Connect verrà richiesto di creare i record necessari dove è ospitato il servizio DNS per il dominio. Per altre informazioni, vedere [Verificare il dominio di Azure AD selezionato per la federazione](how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation).
