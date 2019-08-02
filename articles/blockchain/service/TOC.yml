@@ -21,7 +21,7 @@
           href: connect-truffle.md
 - name: Esercitazioni
   items:
-    - name: Inviare transazioni
+    - name: Usare contratti intelligenti
       href: send-transaction.md
 - name: Concetti
   items:

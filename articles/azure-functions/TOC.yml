@@ -65,6 +65,8 @@
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Creare un'app Web senza server
       href: /learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr
+    - name: Machine Learning con TensorFlow
+      href: functions-machine-learning-tensorflow.md
     - name: Creare un'immagine Linux personalizzata
       href: functions-create-function-linux-custom-image.md
     - name: Funzioni nel dispositivo IoT Edge

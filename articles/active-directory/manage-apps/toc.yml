@@ -221,6 +221,8 @@
           items:
             - name: Provisioning utenti per le app della raccolta
               href: application-provisioning-config-how-to.md
+            - name: Abilitare il provisioning utenti automatico per app multi-tenant
+              href: isv-automatic-provisioning-multi-tenant-apps.md
             - name: Configurare il provisioning automatico degli utenti
               href: configure-automatic-user-provisioning-portal.md
             - name: Personalizzare gli attributi dell'applicazione

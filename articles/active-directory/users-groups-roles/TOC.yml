@@ -2,7 +2,7 @@
   href: index.yml
 - name: Panoramica
   items:
-    - name: 'Utenti, gruppi, licenze e ruoli'
+    - name: 'Utenti, gruppi, licenze e ruoli di Azure AD'
       href: directory-overview-user-model.md
 - name: Guide introduttive
   items:
@@ -10,6 +10,8 @@
       href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Assegnare licenze agli utenti
       href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Assegnare un ruolo con ambito di risorsa
+      href: roles-quickstart-app-registration-limits.md
     - name: Impostare la scadenza dei gruppi
       href: groups-quickstart-expiration.md
     - name: Impostare i criteri di denominazione dei gruppi
@@ -126,10 +128,24 @@
           href: directory-assign-admin-roles.md
         - name: Visualizzare e assegnare i ruoli
           href: directory-manage-roles-portal.md
-        - name: Assegnare ruoli con PowerShell
+        - name: Assegnare ruoli personalizzati nell'API Graph
           href: roles-assign-powershell.md
-        - name: Delegare i ruoli di amministrazione di app
-          href: roles-delegate-app-roles.md
+        - name: Ruoli personalizzati (anteprima)
+          items:
+            - name: Ruoli personalizzati (anteprima)
+              href: roles-custom-overview.md
+            - name: Creare un ruolo personalizzato
+              href: roles-create-custom.md
+            - name: Visualizzare le assegnazioni di ruolo personalizzate
+              href: roles-view-assignments.md
+            - name: Assegnare ruoli nell'interfaccia di amministrazione di Azure AD
+              href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+            - name: Assegnare ruoli personalizzati nell'API Graph
+              href: roles-assign-graph.md
+            - name: Autorizzazioni per ruoli personalizzati (anteprima)
+              href: roles-custom-available-permissions.md
+            - name: Delegare le autorizzazioni di amministrazione di app
+              href: roles-delegate-app-roles.md
         - name: Ruoli con privilegi minimi per attività
           href: roles-delegate-by-task.md
         - name: Ruoli di Microsoft 365

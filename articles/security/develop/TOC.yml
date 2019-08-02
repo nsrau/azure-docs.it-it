@@ -18,3 +18,17 @@
           href: secure-develop.md
         - name: Distribuire app sicure
           href: secure-deploy.md
+- name: Soluzioni
+  expanded: true
+  items:
+    - name: Analisi del codice di sicurezza Microsoft
+      expanded: true
+      items:
+        - name: Panoramica
+          href: security-code-analysis-overview.md
+        - name: Onboarding e installazione
+          href: security-code-analysis-onboard.md
+        - name: Configurazione
+          href: security-code-analysis-customize.md
+        - name: Domande frequenti
+          href: security-code-analysis-faq.md

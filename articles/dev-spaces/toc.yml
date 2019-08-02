@@ -9,18 +9,18 @@
       items:
         - name: Sviluppo in team
           href: quickstart-team-development.md
-        - name: Eseguire un'applicazione
+        - name: Debug e iterazione
+          items:
+            - name: Usare Visual Studio Code e Java
+              href: quickstart-java.md
+            - name: Usare Visual Studio Code e .NET Core
+              href: quickstart-netcore.md
+            - name: Usare Visual Studio Code e Node.js
+              href: quickstart-nodejs.md
+            - name: Usare Visual Studio e .NET Core
+              href: quickstart-netcore-visualstudio.md
+        - name: Sviluppare con l'interfaccia della riga di comando
           href: quickstart-cli.md
-        - name: Eseguire un'applicazione con un Dockerfile
-          href: quickstart-cli-dockerfile.md
-        - name: Eseguire Java ed eseguirne il debug con VS Code
-          href: quickstart-java.md
-        - name: Eseguire .NET Core ed eseguirne il debug con VS Code
-          href: quickstart-netcore.md
-        - name: Eseguire Node.js ed eseguirne il debug con VS Code
-          href: quickstart-nodejs.md
-        - name: Eseguire .NET Core ed eseguirne il debug con Visual Studio
-          href: quickstart-netcore-visualstudio.md
     - name: Esercitazioni
       items:
         - name: Java (Visual Studio Code & interfaccia della riga di comando)
