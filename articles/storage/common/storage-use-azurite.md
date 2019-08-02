@@ -1,19 +1,18 @@
 ---
 title: Usare l'emulatore open source azzurrite per lo sviluppo e il test dell'archiviazione BLOB (anteprima)
 description: L'emulatore open source azzurrite (anteprima) fornisce un ambiente locale gratuito per il test delle applicazioni di archiviazione BLOB di Azure.
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.topic: article
-ms.date: 06/12/2019
 ms.author: mhopkins
+ms.date: 06/12/2019
+ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: 2ccb19253c762bad69875a7b7bba7cd11d46e132
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.topic: conceptual
+ms.openlocfilehash: ebecd6cf9af5395e4da2b395ca9b2ff974a75409
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67869794"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721706"
 ---
 # <a name="use-the-azurite-open-source-emulator-for-blob-storage-development-and-testing-preview"></a>Usare l'emulatore open source azzurrite per lo sviluppo e il test dell'archiviazione BLOB (anteprima)
 
@@ -228,7 +227,7 @@ azurite -d path/debug.log
 
 ## <a name="authorization-for-tools-and-sdks"></a>Autorizzazione per strumenti e SDK
 
-Connettersi a azzurrite da SDK o strumenti di archiviazione di Azure, ad esempio [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), usando qualsiasi strategia di autenticazione. L'autenticazione è obbligatoria. Azzurrite supporta l'autorizzazione con la chiave condivisa e le firme di accesso condiviso (SAS). Azzurrite supporta anche l'accesso anonimo ai contenitori pubblici.
+Connettersi a azzurrite da SDK o strumenti di archiviazione di Azure, ad esempio [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), usando qualsiasi strategia di autenticazione. Autenticazione necessaria. Azzurrite supporta l'autorizzazione con la chiave condivisa e le firme di accesso condiviso (SAS). Azzurrite supporta anche l'accesso anonimo ai contenitori pubblici.
 
 ### <a name="well-known-storage-account-and-key"></a>Chiave e account di archiviazione ben noti
 

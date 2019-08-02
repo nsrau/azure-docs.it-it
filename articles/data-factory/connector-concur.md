@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: f57a83fb83152055692e6f614b7958d099b6c70d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 48ebdca1b6abf57a84927e25bca1f85b023fa208
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60808927"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726166"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Copiare dati da Concur tramite Azure Data Factory (anteprima)
 
@@ -47,9 +47,9 @@ Per il servizio collegato di Concur sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Concur** | Yes |
+| type | La proprietà type deve essere impostata su: **Concur** | Sì |
 | clientId | ID client dell'applicazione fornito dal servizio di gestione delle app Concur.  | Yes |
-| username | Nome utente usato per accedere al servizio Concur.  | Yes |
+| userName | Nome utente usato per accedere al servizio Concur.  | Sì |
 | password | Password corrispondente al nome utente specificato nel campo username. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No |
 | useHostVerification | Specifica se è necessario che il nome host nel certificato del server corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è true.  | No |
@@ -82,7 +82,7 @@ Per copiare dati da Concur, impostare la proprietà type del set di dati su **Co
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **ConcurObject** | Yes |
+| type | La proprietà type del set di dati deve essere impostata su: **ConcurObject** | Sì |
 | tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 
@@ -93,11 +93,12 @@ Per copiare dati da Concur, impostare la proprietà type del set di dati su **Co
     "name": "ConcurDataset",
     "properties": {
         "type": "ConcurObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Concur linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```

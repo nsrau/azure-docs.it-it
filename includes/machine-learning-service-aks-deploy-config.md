@@ -4,16 +4,16 @@ ms.service: machine-learning
 ms.topic: include
 ms.date: 07/26/2019
 ms.author: larryfr
-ms.openlocfilehash: d59482c04c4875cb6b17ceb405e9d3ab97a741d6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
-ms.translationtype: HT
+ms.openlocfilehash: b8913836baffdad200c198afa11475d617fe5d50
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565151"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68729346"
 ---
 Le voci nel `deploymentconfig.json` documento vengono mappate ai parametri per [AksWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). La tabella seguente descrive il mapping tra le entità nel documento JSON e i parametri per il metodo:
 
-| Entità JSON | Parametro del metodo | DESCRIZIONE |
+| Entità JSON | Parametro del metodo | Descrizione |
 | ----- | ----- | ----- |
 | `computeType` | ND | La destinazione di calcolo. Per AKS, il valore deve essere `aks`. |
 | `autoScaler` | ND | Contiene gli elementi di configurazione per la scalabilità automatica. Vedere la tabella scalabilità automatica. |
@@ -24,7 +24,8 @@ Le voci nel `deploymentconfig.json` documento vengono mappate ai parametri per [
 | &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | Utilizzo di destinazione (in percentuale di 100) che il ridimensionatore automatico deve tentare di gestire per questo servizio Web. Impostazione predefinita `70`. |
 | `dataCollection` | ND | Contiene elementi di configurazione per la raccolta di dati. |
 | &emsp;&emsp;`storageEnabled` | `collect_model_data` | Indica se abilitare la raccolta dei dati del modello per il servizio Web. Impostazione predefinita `False`. |
-| `authEnabled` | `auth_enabled` | Indica se abilitare l'autenticazione per il servizio Web. Impostazione predefinita `True`. |
+| `authEnabled` | `auth_enabled` | Indica se abilitare o meno l'autenticazione della chiave per il servizio Web. E non possono essere`True`. `authEnabled` `tokenAuthEnabled` Impostazione predefinita `True`. |
+| `tokenAuthEnabled` | `token_auth_enabled` | Indica se abilitare o meno l'autenticazione del token per il servizio Web. E non possono essere`True`. `authEnabled` `tokenAuthEnabled` Impostazione predefinita `False`. |
 | `containerResourceRequirements` | ND | Contenitore per le entità CPU e memoria. |
 | &emsp;&emsp;`cpu` | `cpu_cores` | Numero di core CPU da allocare per questo servizio Web. Impostazioni predefinite`0.1` |
 | &emsp;&emsp;`memoryInGB` | `memory_gb` | Quantità di memoria (in GB) da allocare per questo servizio Web. Default, `0.5` |

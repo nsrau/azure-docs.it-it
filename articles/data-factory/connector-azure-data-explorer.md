@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/24/2019
+ms.date: 08/01/2019
 ms.author: orspodek
-ms.openlocfilehash: 438adcd70c1be308c2b5779de0442486b303cfdd
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a7ac0bdc2bd5eed802f6959a628dee4c8141dbd1
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449643"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720794"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Copiare dati in o da Esplora dati di Azure usando Azure Data Factory
 
@@ -29,7 +29,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 È possibile copiare dati da qualsiasi archivio dati di origine supportato in Esplora dati di Azure. È anche possibile copiare dati da Esplora dati di Azure in un qualsiasi archivio dati sink supportato. Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md).
 
 >[!NOTE]
->Copiare dati da e in Esplora dati di Azure da/in un archivio dati usando il Runtime di integrazione Self-Hosted è supportata dalla versione 3,14.
+>La copia dei dati da e verso l'archivio dati di Azure Esplora dati da/a quello locale usando la Integration Runtime self-hosted è supportata a partire dalla versione 3,14.
 
 Il connettore di Esplora dati di Azure consente di eseguire le operazioni seguenti:
 
@@ -40,7 +40,7 @@ Il connettore di Esplora dati di Azure consente di eseguire le operazioni seguen
 ## <a name="getting-started"></a>Introduzione
 
 >[!TIP]
->Per una procedura dettagliata dell'utilizzo di connettore di Esplora dati di Azure, vedere [copiare dati da/in Esplora dati di Azure usando Azure Data Factory](../data-explorer/data-factory-load-data.md).
+>Per una procedura dettagliata sull'uso di Azure Esplora dati Connector, vedere [copiare dati da e verso azure Esplora dati con Azure Data Factory](../data-explorer/data-factory-load-data.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -48,7 +48,7 @@ Le sezioni seguenti offrono informazioni dettagliate sulle proprietà usate per 
 
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 
-Il connettore di Esplora dati di Azure Usa l'autenticazione dell'entità servizio. Seguire questi passaggi per ottenere un'entità servizio e concedere le autorizzazioni:
+Il connettore Azure Esplora dati usa l'autenticazione basata su entità servizio. Per ottenere un'entità servizio e concedere le autorizzazioni, attenersi alla procedura seguente:
 
 1. Registrare un'entità applicazione in Azure Active Directory (Azure AD) seguendo le indicazioni fornite in [Registrare l'applicazione con un tenant di Azure AD](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Prendere nota dei valori seguenti che si usano per definire il servizio collegato:
 
@@ -56,13 +56,13 @@ Il connettore di Esplora dati di Azure Usa l'autenticazione dell'entità servizi
     - Chiave applicazione
     - ID tenant
 
-2. Concedere l'autorizzazione appropriata dell'entità servizio in Esplora dati di Azure. Fare riferimento a [autorizzazioni di database di gestire Azure Data Explorer](../data-explorer/manage-database-permissions.md) con informazioni dettagliate su ruoli e autorizzazioni, nonché procedura dettagliata sulla gestione delle autorizzazioni. In generale, è necessario
+2. Concedere all'entità servizio l'autorizzazione appropriata in Esplora dati di Azure. Per informazioni dettagliate su ruoli e autorizzazioni e per la gestione delle autorizzazioni, vedere [gestire le autorizzazioni del database di Azure Esplora dati](../data-explorer/manage-database-permissions.md) . In generale, è necessario
 
-    - **Come origine**, concedere almeno **Visualizzatore Database** ruolo al database.
-    - **Come sink**, concedere almeno **ingestor Database** ruolo al database.
+    - **Come origine**, concedere almeno il ruolo **Visualizzatore database** al database.
+    - **Come sink**, concedere almeno il ruolo di inserimento del **database** al database.
 
 >[!NOTE]
->Quando si usa la UI ADF per creare, le operazioni di elenco dei database nel servizio collegato o un elenco delle tabelle nel set di dati potrebbero richiedono autorizzazione di livello superiore con privilegi concessi per l'entità servizio. In alternativa, è possibile immettere manualmente il nome di database e il nome di tabella. Copiare attività esecuzione works, purché l'entità servizio viene concesso con le autorizzazioni appropriate per leggere o scrivere dati.
+>Quando si usa l'interfaccia utente di ADF per creare, l'account utente di accesso viene usato per elencare i cluster, i database e le tabelle di Azure Esplora dati. Immettere manualmente il nome se non si è autorizzati a eseguire tale operazione.
 
 Per il servizio collegato Esplora dati di Azure sono supportate le proprietà seguenti:
 
@@ -71,9 +71,9 @@ Per il servizio collegato Esplora dati di Azure sono supportate le proprietà se
 | type | La proprietà **type** deve essere impostata su **AzureDataExplorer** | Sì |
 | endpoint | URL dell'endpoint del cluster di Esplora dati di Azure con il formato `https://<clusterName>.<regionName>.kusto.windows.net`. | Sì |
 | database | Nome del database. | Sì |
-| tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Questo è ciò che in genere noto come "**ID autorità**" nella [stringa di connessione di Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Recuperarle passando il puntatore del mouse sull'angolo superiore destro del portale di Azure. | Sì |
-| servicePrincipalId | Specificare l'ID client dell'applicazione. Questo è ciò che in genere noto come "**ID client dell'applicazione AAD**" nella [stringa di connessione di Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Sì |
-| servicePrincipalKey | Specificare la chiave dell'applicazione. Questo è ciò che in genere noto come "**chiave dell'applicazione AAD**" nella [stringa di connessione di Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Questo è ciò che normalmente si conosce come "**ID autorità**" nella [stringa di connessione kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Recuperarle passando il puntatore del mouse sull'angolo superiore destro del portale di Azure. | Sì |
+| servicePrincipalId | Specificare l'ID client dell'applicazione. Questo è ciò che normalmente si conosce come "**ID client dell'applicazione AAD**" nella [stringa di connessione kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Sì |
+| servicePrincipalKey | Specificare la chiave dell'applicazione. Questo è ciò che normalmente si conosce come "**chiave dell'applicazione AAD**" nella [stringa di connessione kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 
 **Esempio di proprietà del servizio collegato:**
 
@@ -116,12 +116,13 @@ Sono supportate le proprietà seguenti:
    "name": "AzureDataExplorerDataset",
     "properties": {
         "type": "AzureDataExplorerTable",
+        "typeProperties": {
+            "table": "<table name>"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Azure Data Explorer linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "table": "<table name>"
         }
     }
 }
@@ -140,10 +141,10 @@ Per copiare dati da Esplora dati di Azure, impostare la proprietà **type** nell
 | type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su: **AzureDataExplorerSource** | Sì |
 | query | Richiesta di sola lettura in [formato KQL](/azure/kusto/query/). Usare la query KQL personalizzata come riferimento. | Sì |
 | queryTimeout | Il tempo di attesa prima del timeout della richiesta di query. Il valore predefinito è 10 minuti (00:10:00); il valore massimo consentito è 1 ora (01:00:00). | No |
-| noTruncation | Indica se troncare il set di risultati restituito. Per impostazione predefinita, risultato viene troncato dopo 500.000 record o da 64MB. Il troncamento è fortemente consigliato per un corretto comportamento dell'attività. |No |
+| notroncamento | Indica se troncare il set di risultati restituito. Per impostazione predefinita, il risultato viene troncato dopo 500.000 record o 64 MB. Il troncamento è fortemente consigliato per un comportamento appropriato dell'attività. |No |
 
 >[!NOTE]
->Codice sorgente di Esplora dati di Azure per impostazione predefinita prevede un limite di dimensioni di 500.000 record oppure 64 MB. Per recuperare tutti i record senza troncamento, è possibile specificare `set notruncation;` all'inizio della query. Fare riferimento a [eseguire una Query dei limiti](https://docs.microsoft.com/azure/kusto/concepts/querylimits) altri dettagli.
+>Per impostazione predefinita, Azure Esplora dati Source ha un limite di dimensioni pari a 500.000 record o 64 MB. Per recuperare tutti i record senza troncamento, è possibile specificare `set notruncation;` all'inizio della query. Per ulteriori informazioni, fare riferimento ai [limiti delle query](https://docs.microsoft.com/azure/kusto/concepts/querylimits) .
 
 **Esempio:**
 
@@ -185,7 +186,7 @@ Per copiare dati in Esplora dati di Azure, impostare la proprietà type nel sink
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà **type** del sink dell'attività di copia deve essere impostata su: **AzureDataExplorerSink** | Sì |
-| ingestionMappingName | Nome di una creata in precedenza **[mapping](/azure/kusto/management/mappings#csv-mapping)** in una tabella di Kusto. Per eseguire il mapping di colonne dall'origine da Esplora dati di Azure - che viene applicato a **[tutte le versioni di origine/formati di archivi](copy-activity-overview.md#supported-data-stores-and-formats)** tra cui CSV/JSON/Avro formatta e così via, è possibile usare l'attività di copia [colonna mapping](copy-activity-schema-and-type-mapping.md) (implicitamente dal nome o in modo esplicito, come configurato) e/o dei mapping di Esplora dati di Azure. | No |
+| ingestionMappingName | Nome di un **[mapping](/azure/kusto/management/mappings#csv-mapping)** creato in precedenza in una tabella kusto. Per eseguire il mapping delle colonne dall'origine al Esplora dati di Azure, che si applica a **[tutti i formati/archivi di origine supportati](copy-activity-overview.md#supported-data-stores-and-formats)** , inclusi i formati CSV/JSON/Avro e così via, è possibile usare il [mapping](copy-activity-schema-and-type-mapping.md) delle colonne dell'attività di copia (in modo implicito per nome o in modo esplicito come configurato) e o mapping del Esplora dati di Azure. | No |
 
 **Esempio:**
 
@@ -223,4 +224,4 @@ Per copiare dati in Esplora dati di Azure, impostare la proprietà type nel sink
 
 * Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
-* Altre informazioni sulle [copiare dati da Azure Data Factory in Esplora dati di Azure](/azure/data-explorer/data-factory-load-data).
+* Altre informazioni sulla [copia di dati da Azure Data Factory ad Azure Esplora dati](/azure/data-explorer/data-factory-load-data).

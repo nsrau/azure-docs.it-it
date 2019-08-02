@@ -1,21 +1,19 @@
 ---
-title: Introduzione all'archiviazione code di Azure con .NET - archiviazione di Azure
+title: Introduzione all'archiviazione code di Azure con .NET-archiviazione di Azure
 description: Le code di Azure forniscono una messaggistica asincrona affidabile tra i componenti dell'applicazione. La messaggistica cloud consente di ridimensionare i componenti dell'applicazione in modo indipendente.
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.date: 05/21/2019
 ms.author: mhopkins
-ms.reviewer: cbrooks
+ms.date: 05/21/2019
+ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 59995715ab42b4682befa7d1512b14427740dea2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.topic: conceptual
+ms.reviewer: cbrooks
+ms.openlocfilehash: aa92b72b09ed28b41d85ac7c7605077761657d40
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446847"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721569"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Introduzione all'archiviazione code di Azure con .NET
 
@@ -36,8 +34,8 @@ Questa esercitazione illustra come scrivere codice .NET per alcuni scenari comun
 ### <a name="prerequisites"></a>Prerequisiti
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Azure comune libreria client di archiviazione per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
-* [Libreria client di coda di archiviazione Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
+* [Libreria client comune di archiviazione di Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+* [Libreria client della coda di archiviazione di Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
 * [Gestione configurazione di Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
 * Un [account di archiviazione di Azure](../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 
@@ -54,35 +52,35 @@ Configurare quindi l'ambiente di sviluppo in Visual Studio per poter provare gli
 In Visual Studio creare una nuova applicazione console di Windows. La procedura seguente illustra come creare un'applicazione console in Visual Studio 2019. La procedura è simile per le altre versioni di Visual Studio.
 
 1. Selezionare **File** > **Nuovo** > **Progetto**
-2. Selezionare **piattaforma** > **Windows**
+2. Selezionare le**finestre** della **piattaforma** > 
 3. Selezionare **App console (.NET Framework)**
 4. Selezionare **Avanti**
-5. Nel **nome progetto** immettere un nome per l'applicazione
+5. Nel campo **nome progetto** , immettere un nome per l'applicazione
 6. Selezionare **Crea**
 
-Tutti gli esempi di codice in questa esercitazione possono essere aggiunti al **Main ()** metodo dell'applicazione console **Program.cs** file.
+Tutti gli esempi di codice in questa esercitazione possono essere aggiunti al metodo **Main ()** del file **Program.cs** dell'applicazione console.
 
-È possibile usare le librerie client di archiviazione di Azure in qualsiasi tipo di applicazione .NET, ad esempio un'app web o servizio di cloud di Azure e applicazioni desktop e per dispositivi mobili. Per semplicità, in questa guida si usa un'applicazione console.
+È possibile usare le librerie client di archiviazione di Azure in qualsiasi tipo di applicazione .NET, tra cui un servizio cloud o un'app Web di Azure, nonché applicazioni desktop e per dispositivi mobili. Per semplicità, in questa guida si usa un'applicazione console.
 
 ### <a name="use-nuget-to-install-the-required-packages"></a>Usare NuGet per installare i pacchetti necessari
 
-È necessario fare riferimento i seguenti tre pacchetti nel progetto per completare questa esercitazione:
+Per completare questa esercitazione, è necessario fare riferimento ai tre pacchetti seguenti nel progetto:
 
-* [Microsoft Azure Storage Common Client Library per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): questo pacchetto fornisce l'accesso a livello di codice alle risorse dati nell'account di archiviazione.
-* [Libreria di coda di archiviazione di Microsoft Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/): La libreria client consente di lavorare con il servizio di archiviazione code di Microsoft Azure per archiviare messaggi accessibili da un client.
+* [Archiviazione di Microsoft Azure libreria client comune per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): questo pacchetto fornisce l'accesso a livello di codice alle risorse dati nell'account di archiviazione.
+* [Archiviazione di Microsoft Azure libreria di Accodamento per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/): Questa libreria client consente di utilizzare il Archiviazione di Microsoft Azure Servizio di accodamento per archiviare i messaggi a cui è possibile accedere da un client.
 * [Libreria Gestione configurazione di Microsoft Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): questo pacchetto fornisce una classe per l'analisi di una stringa di connessione in un file di configurazione, indipendentemente dalla posizione in cui viene eseguita l'applicazione.
 
-È possibile usare NuGet per ottenere questi pacchetti. A tale scopo, seguire questa procedura:
+È possibile usare NuGet per ottenere questi pacchetti. Attenersi ai passaggi riportati di seguito.
 
 1. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**.
 2. Selezionare **Esplora**
-3. Cercare online "Microsoft.Azure.Storage.Queue" e selezionare **installare** per installare la libreria client di archiviazione e le relative dipendenze. Verrà anche installato con la libreria Storage. Common, che è una dipendenza della libreria di coda.
-4. Cercare online "Microsoft.Azure.ConfigurationManager" e selezionare **installare** per installare Gestione configurazione di Azure.
+3. Cercare online "Microsoft. Azure. storage. Queue" e selezionare **Installa** per installare la libreria client di archiviazione e le relative dipendenze. Verrà installata anche la libreria Microsoft. Azure. storage. Common, che è una dipendenza della libreria di Accodamento.
+4. Cercare online "Microsoft. Azure. ConfigurationManager" e selezionare **Installa** per installare il Configuration Manager di Azure.
 
 > [!NOTE]
-> I pacchetti di librerie client di archiviazione sono inclusi anche i [Azure SDK per .NET](https://azure.microsoft.com/downloads/). Tuttavia, è consigliabile installare anche librerie client di archiviazione da NuGet per assicurarsi di avere sempre le versioni più recenti.
+> I pacchetti delle librerie client di archiviazione sono inclusi anche in [Azure SDK per .NET](https://azure.microsoft.com/downloads/). Tuttavia, è consigliabile installare anche le librerie client di archiviazione da NuGet per assicurarsi di avere sempre le versioni più recenti.
 >
-> Le dipendenze ODataLib nelle librerie client di archiviazione per .NET vengono risolte dai pacchetti ODataLib disponibili in NuGet, non da WCF Data Services. È possibile scaricare le librerie ODataLib direttamente oppure farvi riferimento nel progetto del codice tramite NuGet. I pacchetti ODataLib specifici usati da parte delle librerie client di archiviazione vengono [OData](https://nuget.org/packages/Microsoft.Data.OData/), [Edm](https://nuget.org/packages/Microsoft.Data.Edm/), e [spaziale](https://nuget.org/packages/System.Spatial/). Queste librerie vengono utilizzate dalle classi di archiviazione tabelle di Azure, ma sono dipendenze necessarie per la programmazione con librerie client di archiviazione.
+> Le dipendenze ODataLib nelle librerie client di archiviazione per .NET vengono risolte dai pacchetti ODataLib disponibili in NuGet, non da WCF Data Services. È possibile scaricare le librerie ODataLib direttamente oppure farvi riferimento nel progetto del codice tramite NuGet. I pacchetti ODataLib specifici usati dalle librerie client di archiviazione sono [OData](https://nuget.org/packages/Microsoft.Data.OData/), [EDM](https://nuget.org/packages/Microsoft.Data.Edm/)e [Spatial](https://nuget.org/packages/System.Spatial/). Sebbene queste librerie vengano usate dalle classi di archiviazione tabelle di Azure, sono dipendenze necessarie per la programmazione con le librerie client di archiviazione.
 
 ### <a name="determine-your-target-environment"></a>Determinare l'ambiente di destinazione
 
@@ -98,14 +96,14 @@ Se si specifica come destinazione un account di archiviazione nel cloud, immette
 
 ### <a name="configure-your-storage-connection-string"></a>Configurare la stringa di connessione di archiviazione
 
-Le librerie client di archiviazione di Azure per il supporto di .NET usando una stringa di connessione di archiviazione per configurare endpoint e credenziali per l'accesso ai servizi di archiviazione. Per gestire nel modo migliore la stringa di connessione di archiviazione, usare un file di configurazione.
+Le librerie client di archiviazione di Azure per .NET supportano l'uso di una stringa di connessione di archiviazione per configurare gli endpoint e le credenziali per l'accesso ai servizi di archiviazione. Per gestire nel modo migliore la stringa di connessione di archiviazione, usare un file di configurazione.
 
 Per altre informazioni sulle stringhe di connessione, vedere [Configurare le stringhe di connessione di archiviazione di Azure](../common/storage-configure-connection-string.md).
 
 > [!NOTE]
 > La chiave dell’account di archiviazione è simile alla password radice per l'account di archiviazione. È consigliabile proteggere sempre la chiave dell'account di archiviazione. Evitare di distribuirla ad altri utenti, impostarla come hardcoded o salvarla in un file di testo normale accessibile ad altri. Rigenerare la chiave tramite il portale di Azure se si ritiene che possa essere stata compromessa.
 
-Per configurare la stringa di connessione, aprire il **app. config** file da Esplora soluzioni in Visual Studio. Aggiungere il contenuto del **\<appSettings\>** elemento illustrato di seguito. Sostituire *account-name* con il nome dell'account di archiviazione, e *account-key* con la chiave di accesso di account:
+Per configurare la stringa di connessione, aprire il file **app. config** da Esplora soluzioni in Visual Studio. Aggiungere il contenuto dell'elemento **\<appSettings\>** illustrato di seguito. Sostituire *account-name* con il nome dell'account di archiviazione e la *chiave di account* con la chiave di accesso dell'account:
 
 ```xml
 <configuration>
@@ -165,7 +163,7 @@ CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
 A questo punto si è pronti a scrivere codice che legge e scrive i dati nell'archivio code.
 
-## <a name="create-a-queue"></a>Creare una coda
+## <a name="create-a-queue"></a>Crea una coda
 
 Questo esempio illustra come creare una coda, se non esiste già:
 

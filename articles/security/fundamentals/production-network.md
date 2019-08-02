@@ -8,18 +8,19 @@ manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 10e2608b8fb7eca8e3dd45eadb6e8046ee0efbf1
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 7c0748e4ff1531649274834cb1e602c228f102e8
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68614862"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726699"
 ---
 # <a name="the-azure-production-network"></a>La rete di produzione di Azure
 Gli utenti della rete di produzione di Azure includono i clienti esterni che accedono alle proprie applicazioni di Microsoft Azure, nonché il personale di supporto interno di Azure che gestisce la rete di produzione. In questo articolo vengono descritti i metodi di accesso di sicurezza e i meccanismi di protezione per stabilire connessioni alla rete di produzione di Azure.

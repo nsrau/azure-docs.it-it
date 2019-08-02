@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/02/2019
-ms.openlocfilehash: 7fdef246e4fcffafa626fa16e3bcecaf480c16ab
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: eb6ae11bb4ffb39d9e9bcc692f17559fa2cde674
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716870"
+ms.locfileid: "68720245"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Crea, Esplora e Distribuisci esperimenti di Machine Learning automatici nel portale di Azure (anteprima)
 
@@ -50,7 +50,7 @@ Selezionare **Crea esperimento** e popolare il modulo **Crea un nuovo esperiment
 
 1. Selezionare **Crea nuovo calcolo** per configurare il contesto di calcolo per questo esperimento.
 
-    Campo|DESCRIZIONE
+    Campo|Descrizione
     ---|---
     Nome dell'ambiente di calcolo| Immettere un nome univoco che identifichi il contesto di calcolo.
     Dimensioni delle macchine virtuali| Selezionare le dimensioni della macchina virtuale per il calcolo.
@@ -100,7 +100,7 @@ Selezionare **Crea esperimento** e popolare il modulo **Crea un nuovo esperiment
 
 <a name="profile"></a>
 
-### <a name="data-profiling"></a>Profiling dati
+## <a name="data-profiling--summary-stats"></a>Statistiche di riepilogo & Profiling dati
 
 È possibile ottenere un'ampia gamma di statistiche di riepilogo nel set di dati per verificare se il set di dati è pronto per ML. Per le colonne non numeriche, includono solo le statistiche di base come min, Max e il numero di errori. Per le colonne numeriche, è anche possibile esaminare i relativi momenti statistici e stimare quantili. In particolare, il profilo dati include:
 
@@ -126,11 +126,11 @@ Curtosi| Misura della quantità di dati di questa colonna rispetto a una distrib
 
 <a name="preprocess"></a>
 
-### <a name="advanced-preprocessing"></a>Pre-elaborazione avanzata
+## <a name="advanced-preprocessing-options"></a>Opzioni di pre-elaborazione avanzate
 
 Quando si configurano gli esperimenti, è possibile abilitare `Preprocess`l'impostazione avanzate. In questo modo, vengono eseguiti automaticamente i passaggi di pre-elaborazione e di conteggi dei dati seguenti.
 
-|&nbsp;Passaggi di pre-elaborazione| DESCRIZIONE |
+|&nbsp;Passaggi di pre-elaborazione| Descrizione |
 | ------------- | ------------- |
 |Eliminazione delle caratteristiche con elevata cardinalità o senza varianza|Eliminarli dai set di training e di convalida, incluse le funzionalità con tutti i valori mancanti, lo stesso valore in tutte le righe o con cardinalità estremamente elevata (ad esempio, hash, ID o GUID).|
 |Attribuire i valori mancanti|Per le funzionalità numeriche, imputare alla media dei valori nella colonna.<br/><br/>Per le funzionalità categoriche, imputare il valore più frequente.|
@@ -173,7 +173,7 @@ Automatizzato ML semplifica la distribuzione del modello senza scrivere codice:
     + Opzione 2: Per distribuire un'iterazione del modello specifica da questo esperimento, eseguire il drill-down sul modello per aprire la pagina dei dettagli dell'esecuzione e selezionare Distribuisci modello.
 1. Popolare il riquadro **Distribuisci modello** ,
 
-    Campo| Valore
+    Campo| Value
     ----|----
     Nome distribuzione| Immettere un nome univoco per la distribuzione.
     Descrizione della distribuzione| Immettere una descrizione per identificare meglio le finalità della distribuzione.

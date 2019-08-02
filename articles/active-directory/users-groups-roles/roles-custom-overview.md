@@ -13,18 +13,20 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf6c0c68d13cf179f0635085296fe9953a45a255
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
-ms.translationtype: HT
+ms.openlocfilehash: 546abdae5d7c03bb0d4b49f9485fe06b521fdc1d
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707695"
+ms.locfileid: "68722203"
 ---
 # <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Ruoli di amministratore personalizzato in Azure Active Directory (anteprima)
 
-Questo articolo descrive come comprendere i nuovi ruoli personalizzati in Azure Active Directory (Azure AD). Azure AD consente di assegnare privilegi amministrativi limitati a un ambito di risorse Azure AD personalizzato. I ruoli personalizzati, ad esempio, fanno parte di una versione di anteprima del modello di controllo degli accessi in base al ruolo Azure AD. I [ruoli predefiniti](directory-assign-admin-roles.md) offrono una granularità adeguata per molte situazioni, ma quando si desiderano autorizzazioni più granulari, è possibile creare ruoli personalizzati per ridurre l'ambito di controllo del ruolo al livello di una singola risorsa Azure ad.
+Questo articolo descrive come comprendere il nuovo controllo degli accessi in base al ruolo (controllo degli accessi in base al ruolo) e gli ambiti delle risorse in Azure Active Directory (Azure AD). I ruoli RBAC personalizzati consentono di visualizzare le autorizzazioni sottostanti dei [ruoli predefiniti, in](directory-assign-admin-roles.md) modo da poter creare e organizzare ruoli personalizzati. Gli ambiti delle risorse consentono di assegnare il ruolo personalizzato per gestire alcune risorse (ad esempio, un'applicazione) senza concedere l'accesso a tutte le risorse (tutte le applicazioni).
 
-La versione di anteprima di Azure AD controllo degli accessi in base al ruolo espone due ambiti, ovvero un ambito a livello di organizzazione (che consente le azioni consentite per tutte le risorse Azure AD nell'organizzazione) e un ambito personalizzato, con autorizzazioni limitate alle registrazioni delle applicazioni . In questo ruolo personalizzato è possibile modificare le autorizzazioni di registrazione dell'app. Nel corso del tempo verranno aggiunte ulteriori autorizzazioni per le risorse dell'organizzazione, come applicazioni aziendali, utenti e dispositivi.
+La concessione di autorizzazioni tramite ruoli di controllo degli accessi in base al ruolo è un processo in due fasi. Innanzitutto, è necessario creare una definizione di ruolo personalizzata e aggiungervi le autorizzazioni dall'elenco dei set di impostazioni. Si tratta delle stesse autorizzazioni utilizzate nei ruoli predefiniti. Dopo aver creato il ruolo, assegnarlo a un utente creando un'assegnazione di ruolo. Questo processo in due passaggi consente di creare un ruolo e assegnarlo molte volte in ambiti diversi. Un ruolo personalizzato può essere assegnato all'ambito della directory oppure può essere assegnato a un ambito dell'oggetto. Un esempio di ambito di un oggetto è costituito da una singola applicazione. In questo modo, lo stesso ruolo può essere assegnato a Sally su tutte le applicazioni nella directory e quindi su un solo l'app Contoso Expense Reports.
+
+Questa prima versione dei ruoli personalizzati di controllo degli accessi in base al ruolo include la possibilità di creare un ruolo per assegnare le autorizzazioni per la gestione delle registrazioni dell'app Nel corso del tempo verranno aggiunte ulteriori autorizzazioni per le risorse dell'organizzazione, come applicazioni aziendali, utenti e dispositivi.
 
 Funzionalità di anteprima:
 

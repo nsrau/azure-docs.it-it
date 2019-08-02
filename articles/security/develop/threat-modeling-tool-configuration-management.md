@@ -8,18 +8,19 @@ manager: jegeib
 editor: jegeib
 ms.assetid: na
 ms.service: security
+ms.subservice: security-develop
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 284d0e888b89d340088f770af22c026a861a4685
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: dbe3526444bc35815dd4323a3a5290696619e3f9
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68621377"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68728338"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Infrastruttura di sicurezza: Gestione della configurazione - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
@@ -75,7 +76,7 @@ Example: var str="alert(1)"; eval(str);
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
 | **Riferimenti**              | [XSS Protection Filter](https://www.owasp.org/index.php/List_of_useful_HTTP_headers#X-XSS-Protection) (Filtro di protezione XSS) |
-| **Passaggi** | <p>La configurazione dell'intestazione della risposta X-XSS-Protection controlla il filtro di cross-site scripting del browser. Questa intestazione della risposta può avere i valori seguenti:</p><ul><li>`0:` Disabilita il filtro.</li><li>`1: Filter enabled` Se viene rilevato un attacco di tipo cross-site scripting, per arrestare l'attacco, il browser purifica la pagina.</li><li>[https://login.microsoftonline.com/consumers/](`1: mode=block : Filter enabled`). Invece di purificare la pagina, quando viene rilevato un attacco XSS, il browser impedisce il rendering della pagina</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`. Il browser purificherà la pagina e segnalerà la violazione.</li></ul><p>Si tratta di una funzione di Chromium che utilizza i report sulle violazioni CSP per inviare i dettagli all'URI scelto. Le ultime 2 opzioni sono considerate valori sicuri.</p>|
+| **Passaggi** | <p>La configurazione dell'intestazione della risposta X-XSS-Protection controlla il filtro di cross-site scripting del browser. Questa intestazione della risposta può avere i valori seguenti:</p><ul><li>`0:` Disabilita il filtro.</li><li>`1: Filter enabled` Se viene rilevato un attacco di tipo cross-site scripting, per arrestare l'attacco, il browser purifica la pagina.</li><li>`1: mode=block : Filter enabled`. Invece di purificare la pagina, quando viene rilevato un attacco XSS, il browser impedisce il rendering della pagina</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`. Il browser purificherà la pagina e segnalerà la violazione.</li></ul><p>Si tratta di una funzione di Chromium che utilizza i report sulle violazioni CSP per inviare i dettagli all'URI scelto. Le ultime 2 opzioni sono considerate valori sicuri.</p>|
 
 ## <a id="trace-deploy"></a>Le applicazioni ASP.NET devono disabilitare la traccia e il debug prima della distribuzione
 

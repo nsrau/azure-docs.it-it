@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: ad7d4dceefcaa06effa6b2974b0a8a03ad641372
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9a3c4875f01c650485034fe46f53bb5aa1fd75b
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60794017"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722645"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Copertura per il traffico in Mappe di Azure
 
@@ -62,7 +62,9 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 |---------|:---------:|:---------:|
 |Andorra   |✓         |✓         |
 |Austria     |✓         |✓         |
+|Bielorussia    |✓         |✓         |
 |Belgio     |✓         |✓         |
+|Bosnia ed Erzegovina    |✓         |✓         |
 |Bulgaria     |✓         |✓         |
 |Croazia     |✓         |✓         |
 |Repubblica ceca     |✓         |✓         |
@@ -78,6 +80,7 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 |Islanda     |✓         |✓         |
 |Irlanda     |✓         |✓         |
 |Italia     |✓         |✓        |
+|Kazakhstan    |✓         |✓        |
 |Lettonia     |✓         |✓         |
 |Lesotho     |✓         |✓         |
 |Liechtenstein      |✓         |✓         |
@@ -93,6 +96,7 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 |Romania     |✓         |✓         |
 |Federazione russa     |✓         |✓         |
 |San Marino    |✓         |✓         |
+|Serbia   |✓         |✓         |
 |Slovacchia     |✓         |✓         |
 |Slovenia     |✓         |✓         |
 |Spagna     |✓         |✓         |
@@ -106,7 +110,7 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 |Regno Unito     |✓         |✓         |
 |+Gibilterra     |✓         |✓         |
 |\+ Guernsey & Jersey     |✓         |✓         |
-|\+ Isola di Man     |✓         |✓         |
+|\+ Isle of Man     |✓         |✓         |
 |Città del Vaticano   |✓         |✓         |
 
 
@@ -125,7 +129,7 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 |Oman     |✓         |✓         |
 |Qatar     |✓         |✓         |
 |Arabia Saudita     |✓         |✓         |
-|Sud Africa     |✓         |✓         |
+|Sudafrica     |✓         |✓         |
 |Emirati Arabi Uniti  |✓         |✓         |
 
 ## <a name="next-steps"></a>Passaggi successivi

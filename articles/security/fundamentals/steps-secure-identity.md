@@ -1,21 +1,21 @@
 ---
 title: Cinque passaggi per proteggere l'infrastruttura di identità in Azure Active Directory
 description: Questo documento descrive un elenco di azioni importanti che gli amministratori devono implementare per proteggere meglio l'organizzazione con le funzionalità di Azure AD
-services: active-directory
 author: martincoetzer
 manager: manmeetb
 tags: azuread
-ms.service: active-directory
+ms.service: security
+ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martinco
-ms.openlocfilehash: 78d26dffa1d60ad41c46ed449f35d82b6dedb82e
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
-ms.translationtype: HT
+ms.openlocfilehash: 0ccd2ee8b2c9f542eabe7a297f4c99a3993a47e9
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68614745"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726750"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinque passaggi per proteggere l'infrastruttura di identità
 
