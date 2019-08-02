@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: shlo
-ms.openlocfilehash: df684860cd3d1b6a002a300682ca4c6398461ba6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53ead1caed47ae442670f0b6bcd54cd84956a759
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60716899"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720610"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Monitorare visivamente le data factory di Azure
 Azure Data Factory è un servizio di integrazione di dati basato sul cloud che consente di creare flussi di lavoro basati sui dati nel cloud per orchestrare e automatizzare lo spostamento e la trasformazione dei dati stessi. Usando Azure Data Factory è possibile creare e pianificare flussi di lavoro (denominati pipeline) basati sui dati che possono inserire dati da archivi diversi, elaborarli e trasformarli tramite servizi di calcolo come Hadoop di Azure HDInsight, Spark, Azure Data Lake Analytics e Azure Machine Learning e pubblicare l'output in archivi come Azure SQL Data Warehouse per l'uso da parte di applicazioni di business intelligence (BI).
@@ -46,7 +46,7 @@ Vista elenco che illustra ogni esecuzione di pipeline per la data factory versio
 | Attivato da | Trigger manuale o pianificato |
 | Stato | Non riuscito, riuscito, in corso |
 | Parametri | Parametri di esecuzione della pipeline (nome, coppie di valori) |
-| Tipi di errore | Eventuale errore di esecuzione della pipeline |
+| Errore | Eventuale errore di esecuzione della pipeline |
 | ID esecuzione | ID dell'esecuzione pipeline |
 
 ![Monitorare le esecuzioni di pipeline](media/monitor-visually/pipeline-runs.png)
@@ -63,7 +63,7 @@ Visualizzazione elenco che illustra le esecuzioni di attività corrispondenti a 
 | Stato | Non riuscito, riuscito, in corso |
 | Input | Matrice JSON con la descrizione degli input dell'attività |
 | Output | Matrice JSON con la descrizione degli output dell'attività |
-| Tipi di errore | Eventuale errore di esecuzione dell'attività |
+| Errore | Eventuale errore di esecuzione dell'attività |
 
 ![Monitorare le esecuzioni delle attività](media/monitor-visually/activity-runs.png)
 
@@ -89,7 +89,7 @@ Passare il mouse sull'icona **Data factory** nella parte superiore sinistra. Far
 | Inizio esecuzione | Data e ora di inizio dell'esecuzione della pipeline |
 | Stato dell'esecuzione | Esecuzioni di filtri in base allo stato, ad esempio riuscito, non riuscito, in corso |
 
-![Filtro](media/monitor-visually/filter.png)
+![Applica filtro](media/monitor-visually/filter.png)
 
 ### <a name="add-or-remove-columns"></a>Aggiungere o rimuovere le colonne
 Fare clic con il pulsante destro del mouse sull'intestazione della vista elenco e scegliere le colonne da visualizzare all'interno di questa
@@ -133,6 +133,18 @@ Dopo aver creato le proprietà utente, è possibile monitorarle successivamente 
 È anche possibile visualizzare la cronologia di riesecuzione per una specifica esecuzione della pipeline.
 
 ![Visualizzare la cronologia di un'esecuzione della pipeline](media/monitor-visually/rerun-history-image2.png)
+
+## <a name="gantt-views"></a>Visualizzazioni Gantt
+
+Usare le visualizzazioni Gantt per visualizzare rapidamente le pipeline e le esecuzioni delle attività. È possibile esaminare la visualizzazione Gantt per pipeline o raggruppare le annotazioni/tag creati nelle pipeline.
+
+![Diagramma di Gantt](media/monitor-visually/gantt1.png)
+
+![Annotazioni diagramma di Gantt](media/monitor-visually/gantt2.png)
+
+La lunghezza della barra informa la durata della pipeline. È anche possibile fare clic sulla barra per visualizzare altri dettagli.
+
+![Durata diagramma di Gantt](media/monitor-visually/gantt3.png)
 
 ## <a name="guided-tours"></a>Presentazioni guidate
 Fare clic sull'icona 'Informazioni' nella parte inferiore sinistra e quindi su 'Presentazione guidata' per ottenere istruzioni dettagliate su come monitorare le esecuzioni di pipeline e attività.

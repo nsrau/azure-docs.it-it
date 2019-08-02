@@ -8,18 +8,19 @@ manager: barbkess
 editor: TomSh
 ms.assetid: ''
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: e269981c97f226ea43c745311238c4578f3d3dd4
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
-ms.translationtype: HT
+ms.openlocfilehash: 62fd2c3f46104fdf3193f105c234f1dae417b0fd
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68614953"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726873"
 ---
 # <a name="introduction-to-azure-security"></a>Introduzione alla sicurezza in Azure
 ## <a name="overview"></a>Panoramica

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: cbb18212f70343d8b9933bd2c787ce6aae8b145d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61cdcb98fc5c0947a25954161676c55ebf902688
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61400998"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720741"
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory-preview"></a>Copiare dati da Jira tramite Azure Data Factory (anteprima)
 
@@ -44,11 +44,11 @@ Per il servizio collegato di Jira sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Jira** | Yes |
-| host | Indirizzo IP o nome host del servizio Jira, ad esempio jira.example.com.  | Yes |
+| type | La proprietà type deve essere impostata su: **Jira** | Sì |
+| host | Indirizzo IP o nome host del servizio Jira, ad esempio jira.example.com.  | Sì |
 | port | Porta TCP che il server Jira usa per l'ascolto delle connessioni client. Il valore predefinito è 443 se la connessione avviene tramite HTTPS oppure 8080 se la connessione avviene tramite HTTP.  | No |
-| username | Nome utente usato per accedere al servizio Jira.  | Yes |
-| password | Password corrispondente al nome utente specificato nel campo username. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| userName | Nome utente usato per accedere al servizio Jira.  | Sì |
+| password | Password corrispondente al nome utente specificato nel campo username. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No |
 | useHostVerification | Specifica se è necessario che il nome host nel certificato del server corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è true.  | No |
 | usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite SSL. Il valore predefinito è true.  | No |
@@ -81,7 +81,7 @@ Per copiare dati da Jira, impostare la proprietà type del set di dati su **Jira
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **JiraObject** | Yes |
+| type | La proprietà type del set di dati deve essere impostata su: **JiraObject** | Sì |
 | tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
@@ -91,11 +91,12 @@ Per copiare dati da Jira, impostare la proprietà type del set di dati su **Jira
     "name": "JiraDataset",
     "properties": {
         "type": "JiraObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Jira linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -110,7 +111,7 @@ Per copiare dati da Jira, impostare il tipo di origine nell'attività di copia s
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **JiraSource** | Yes |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **JiraSource** | Sì |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: bb0e146ef32ba24c3911bae86806c84768c005ef
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b62cbe6be7f48aa05bf3756580df0777aeee8cae
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60405954"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726092"
 ---
 # <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-preview"></a>Copiare dati da Oracle Eloqua Azure Data Factory (anteprima)
 
@@ -44,10 +44,10 @@ Per il servizio collegato di Oracle Eloqua sono supportate le proprietà seguent
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Eloqua** | Yes |
-| endpoint | Endpoint del server Eloqua, Eloqua supporta più data center. Per determinare l'endpoint, eseguire l'accesso a https://login.eloqua.com con le credenziali utente, quindi copiare la sezione **URL di base** dell'URL di reindirizzamento con il modello `xxx.xxx.eloqua.com`. | Yes |
-| username | Nome sito e nome utente dell'account Eloqua nel formato: `SiteName\Username`, ad esempio `Eloqua\Alice`.  | Yes |
-| password | Password corrispondente al nome utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| type | La proprietà type deve essere impostata su: **Eloqua** | Sì |
+| endpoint | Endpoint del server Eloqua, Eloqua supporta più data center. Per determinare l'endpoint, eseguire l'accesso a https://login.eloqua.com con le credenziali utente, quindi copiare la sezione **URL di base** dell'URL di reindirizzamento con il modello `xxx.xxx.eloqua.com`. | Sì |
+| userName | Nome sito e nome utente dell'account Eloqua nel formato: `SiteName\Username`, ad esempio `Eloqua\Alice`.  | Sì |
+| password | Password corrispondente al nome utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No |
 | useHostVerification | Specifica se è necessario che il nome host nel certificato del server corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è true.  | No |
 | usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite SSL. Il valore predefinito è true.  | No |
@@ -79,7 +79,7 @@ Per copiare dati da Oracle Eloqua, impostare la proprietà type del set di dati 
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **EloquaObject** | Yes |
+| type | La proprietà type del set di dati deve essere impostata su: **EloquaObject** | Sì |
 | tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
@@ -89,11 +89,12 @@ Per copiare dati da Oracle Eloqua, impostare la proprietà type del set di dati 
     "name": "EloquaDataset",
     "properties": {
         "type": "EloquaObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Eloqua linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -108,7 +109,7 @@ Per copiare dati da Oracle Eloqua, impostare il tipo di origine nell'attività d
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **EloquaSource** | Yes |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **EloquaSource** | Sì |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM Accounts"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**

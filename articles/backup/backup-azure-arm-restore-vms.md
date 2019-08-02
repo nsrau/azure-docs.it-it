@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: 0130dde483db4563926076f9bf9e641c14b1c117
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: f961f472c0b00932bf5ee6302af58f39fa8421ed
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688757"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720436"
 ---
 # <a name="restore-azure-vms"></a>Ripristinare VM di Azure
 
@@ -112,7 +112,8 @@ Tra le [opzioni di ripristino](#restore-options) è possibile creare un disco da
 
 4. In **Configurazione di ripristino** selezionare **OK**. In **Ripristino** fare clic su **Ripristina** per attivare l'operazione di ripristino.
 
-Durante il ripristino della macchina virtuale, backup di Azure non usa l'account di archiviazione. Tuttavia, in caso di **ripristino dei dischi** e di **ripristino istantaneo**, viene usato l'account di archiviazione per archiviare il modello.
+Quando la macchina virtuale usa dischi gestiti e si seleziona l'opzione **Crea macchina virtuale** , backup di Azure non usa l'account di archiviazione specificato. Nel caso di **ripristino dei dischi** e del **ripristino immediato**, l'account di archiviazione viene usato solo per l'archiviazione del modello. I dischi gestiti vengono creati nel gruppo di risorse specificato.
+Quando la macchina virtuale usa dischi non gestiti, questi vengono ripristinati come BLOB nell'account di archiviazione.
 
 ### <a name="use-templates-to-customize-a-restored-vm"></a>Usare i modelli per personalizzare una VM ripristinata
 
@@ -163,7 +164,7 @@ Esistono diversi scenari comuni in cui potrebbe essere necessario ripristinare l
 **VM bloccate della zona** | Backup di Azure supporta il backup e il ripristino di VM bloccate in zone. [Altre informazioni](https://azure.microsoft.com/global-infrastructure/availability-zones/)
 
 ## <a name="track-the-restore-operation"></a>Tenere traccia dell'operazione di ripristino
-Dopo l'attivazione dell'operazione di ripristino, il servizio di backup crea un processo per tenerne traccia. Backup di Azure consente di visualizzare le notifiche relative al processo nel portale. Se non sono visibili, fare clic sul simbolo **Notifiche** per visualizzarle.
+Dopo l'attivazione dell'operazione di ripristino, il servizio di backup crea un processo per tenerne traccia. Backup di Azure consente di visualizzare le notifiche relative al processo nel portale. Se non sono visibili, selezionare il simbolo **notifiche** e quindi selezionare **Visualizza tutti i processi** per visualizzare lo stato del processo di ripristino.
 
 ![Ripristino attivato](./media/backup-azure-arm-restore-vms/restore-notification1.png)
 

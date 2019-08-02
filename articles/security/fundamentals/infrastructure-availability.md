@@ -8,18 +8,19 @@ manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 7dadd9c56c0ec85843748df741ad2fa8c55720af
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: c50c4faf47caf0a7519d61fdc8989ec9fd809d78
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68613406"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68727223"
 ---
 # <a name="azure-infrastructure-availability"></a>Disponibilità dell'infrastruttura di Azure
 Questo articolo fornisce informazioni sulle operazioni svolte da Microsoft per proteggere l'infrastruttura di Azure e fornire la massima disponibilità dei dati dei clienti. Azure offre una solida disponibilità, basata su un'estesa ridondanza ottenuta grazie alla tecnologia di virtualizzazione.

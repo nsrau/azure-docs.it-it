@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 0f68627e2db3c08049f0273045906057526bd6aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 615a2dedd8a4698bab5eaa237184266e5bef1a1b
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61094919"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720781"
 ---
 # <a name="copy-data-from-google-adwords-using-azure-data-factory-preview"></a>Copiare i dati da Google AdWords usando Azure Data Factory (Anteprima)
 
@@ -44,10 +44,10 @@ Per il servizio collegato a Google AdWords sono supportate le proprietà seguent
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **GoogleAdWords** | Yes |
+| type | La proprietà type deve essere impostata su: **GoogleAdWords** | Sì |
 | clientCustomerID | L'ID cliente Client dell'account AdWords di cui si desidera recuperare i dati del report.  | Yes |
 | developerToken | Il token degli sviluppatori associato all'account di gestione che si usa per concedere l'accesso all'API AdWords.  È possibile scegliere di contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory o archiviare la password in Azure Key Vault e consentire all'attività di copia di ADF di eseguire il pull da tale posizione durante l'esecuzione della copia dei dati. Per altre informazioni, consultare [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| authenticationType | Meccanismo di autenticazione OAuth 2.0 usato per l'autenticazione. È possibile usare ServiceAuthentication solo su runtime di integrazione self-hosted. <br/>I valori consentiti sono i seguenti: **ServiceAuthentication**, **UserAuthentication** | Yes |
+| authenticationType | Meccanismo di autenticazione OAuth 2.0 usato per l'autenticazione. È possibile usare ServiceAuthentication solo su runtime di integrazione self-hosted. <br/>I valori consentiti sono i seguenti: **ServiceAuthentication**, **UserAuthentication** | Sì |
 | refreshToken | Il token di aggiornamento ottenuto da Google per autorizzare l'accesso a AdWords per UserAuthentication. È possibile scegliere di contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory o archiviare la password in Azure Key Vault e consentire all'attività di copia di ADF di eseguire il pull da tale posizione durante l'esecuzione della copia dei dati. Per altre informazioni, consultare [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | clientId | L'id client dell'applicazione google usato per acquisire il token di aggiornamento. È possibile scegliere di contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory o archiviare la password in Azure Key Vault e consentire all'attività di copia di ADF di eseguire il pull da tale posizione durante l'esecuzione della copia dei dati. Per altre informazioni, consultare [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | clientSecret | Il segreto client dell'applicazione google usata per acquisire il token di aggiornamento. È possibile scegliere di contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory o archiviare la password in Azure Key Vault e consentire all'attività di copia di ADF di eseguire il pull da tale posizione durante l'esecuzione della copia dei dati. Per altre informazioni, consultare [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). | No |
@@ -110,11 +110,12 @@ Per copiare dati da Google AdWords, impostare la proprietà tipo del set di dati
     "name": "GoogleAdWordsDataset",
     "properties": {
         "type": "GoogleAdWordsObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<GoogleAdWords linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 

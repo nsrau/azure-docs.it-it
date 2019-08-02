@@ -8,18 +8,19 @@ manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 7430f69136a79cc36817afae9bc4d8e8992c09d3
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
-ms.translationtype: HT
+ms.openlocfilehash: 84b675f72666b85aa837250b942bdebcf6b12dab
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68612782"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726876"
 ---
 # <a name="azure-operational-security-checklist"></a>Elenco di controllo per la sicurezza operativa di Azure
 La distribuzione di un'applicazione in Azure è rapida, semplice ed economica. Prima di distribuire l'applicazione cloud nell'ambiente di produzione è utile disporre di un elenco di controllo per facilitare la valutazione dell'applicazione in un elenco di azioni di sicurezza operative essenziali e consigliate da prendere in considerazione.
@@ -36,7 +37,7 @@ Azure fornisce una suite di servizi di infrastruttura che è possibile usare per
 
 Questo elenco di controllo ha lo scopo di aiutare la aziende a valutare diverse considerazioni di sicurezza operative nel momento in cui distribuiscono applicazioni aziendali sofisticate in Azure. Può anche essere usato per facilitare la compilazione di una strategia di migrazione sicura e operativa per l'organizzazione.
 
-|Categoria dell'elenco di controllo| DESCRIZIONE|
+|Categoria dell'elenco di controllo| Descrizione|
 | ------------ | -------- |
 | [<br>Ruoli di sicurezza e Controlli di accesso](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)|<ul><li>Usare il [Controllo degli accessi in base al ruolo (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) per fornire una specifica-utente che assegni autorizzazioni a utenti, gruppi e applicazioni in un determinato ambito.</li></ul> |
 | [<br>Raccolta dati e Archiviazione](https://docs.microsoft.com/azure/storage/storage-security-guide)|<ul><li>Usare Gestione del piano di sicurezza per proteggere l'account di archiviazione tramite il [Controllo degli accessi in base al ruolo (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).</li><li>Piano di sicurezza dei dati per la protezione dell'accesso ai dati tramite le [Firme di accesso condiviso (SAS)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) e i Criteri di accesso archiviati.</li><li>Usare la crittografia a livello di trasporto: uso di HTTPS e la crittografia usata da [SMB (Protocolli Server Message Block) 3.0](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) per le [condivisioni dei File di Azure](https://docs.microsoft.com/azure/storage/storage-dotnet-how-to-use-files).</li><li>Usare [Crittografia lato client](https://docs.microsoft.com/azure/storage/storage-client-side-encryption) per proteggere i dati da inviare agli account di archiviazione quando si richiede il controllo esclusivo delle chiavi di crittografia. </li><li>Usare [Crittografia del servizio di archiviazione (SSE)](https://docs.microsoft.com/azure/storage/storage-service-encryption) per crittografare automaticamente i dati in archiviazione di Azure e [Crittografia dischi di Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) per crittografare i file di disco della macchina virtuale per i dischi dei dati e del sistema operativo.</li><li>Usare [Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/storage-analytics) (Analitica di archiviazione) di Azure per monitorare il tipo di autorizzazione; ad esempio con archiviazione BLOB è possibile vedere se gli utenti hanno usato una firma di accesso condiviso o le chiavi dell'account di archiviazione.</li><li>Usare [Condivisione di risorse tra le origini (CORS)](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) per accedere alle risorse di archiviazione da domini diversi.</li></ul> |

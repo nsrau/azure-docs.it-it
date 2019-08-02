@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/19/2019
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 6056df9aa9079887bfb06ca20ad564eb52baff38
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 625f31252942c3d8dea9ca9b4772af19f60e17ab
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60546573"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720719"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiare dati da e in Salesforce usando Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-salesforce-connector.md)
 > * [Versione corrente](connector-salesforce.md)
 
@@ -35,7 +35,7 @@ In particolare, il connettore Salesforce supporta:
 - Le edizioni Developer, Professional, Enterprise o Unlimited di Salesforce.
 - La copia di dati da e nell'ambiente di produzione, nella sandbox e nel dominio personalizzato di Salesforce.
 
-Il connettore Salesforce è basato su API REST/blocco di Salesforce, con [R45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) per copiare dati da e [R40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) per copiare i dati.
+Il connettore Salesforce è basato sull'API REST/bulk di Salesforce, con [V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) per la copia dei dati da e [V40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) per la copia dei dati in.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -155,12 +155,13 @@ Per copiare dati da e in Salesforce, impostare la proprietà type del set di dat
     "name": "SalesforceDataset",
     "properties": {
         "type": "SalesforceObject",
+        "typeProperties": {
+            "objectApiName": "MyTable__c"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Salesforce linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "objectApiName": "MyTable__c"
         }
     }
 }
@@ -291,7 +292,7 @@ Quando si copiano dati da Salesforce, è possibile usare una query SOQL o SQL. S
 
 | Sintassi | Modalità SOQL | Modalità SQL |
 |:--- |:--- |:--- |
-| Selezione di colonne | È necessario enumerare i campi da copiare nella query, ad esempio `SELECT field1, filed2 FROM objectname` | `SELECT *` è supportata oltre alla selezione della colonna. |
+| Selezione di colonne | È necessario enumerare i campi da copiare nella query, ad esempio`SELECT field1, filed2 FROM objectname` | `SELECT *` è supportata oltre alla selezione della colonna. |
 | Virgolette | I nomi di campo/oggetto non possono essere racchiusi tra virgolette. | I nomi di campo/oggetto non possono essere racchiusi tra virgolette, ad es. `SELECT "id" FROM "Account"` |
 | Formato Datetime |  Fare riferimento a informazioni dettagliate [qui](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) ed esempi nella sezione successiva. | Fare riferimento a informazioni dettagliate [qui](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) ed esempi nella sezione successiva. |
 | Valori booleani | Rappresentati come `False` e `True`, ad esempio `SELECT … WHERE IsDeleted=True`. | Rappresentati come 0 o 1, ad esempio `SELECT … WHERE IsDeleted=1`. |
@@ -307,7 +308,7 @@ Quando si specifica la query SOQL o SQL, prestare attenzione alla differenza di 
 
 ### <a name="error-of-malformedquerytruncated"></a>Errore di MALFORMED_QUERY: troncato
 
-Se si riscontra errori di "MALFORMED_QUERY: Troncato", in genere è dovuto a è presente JunctionIdList tipo colonna nei dati e Salesforce è limitazioni al supporto di tali dati con un numero elevato di righe. Per ridurre, provare a escludere la colonna JunctionIdList o limitare il numero di righe per la copia (è possibile eseguire il partizionamento per più esecuzioni di attività di copia).
+Se viene raggiunto l'errore "MALFORMED_QUERY: Troncato ", in genere è dovuto alla presenza di una colonna di tipo JunctionIdList nei dati e a Salesforce è possibile limitare il supporto di tali dati con un numero elevato di righe. Per attenuare, provare a escludere la colonna JunctionIdList o a limitare il numero di righe da copiare (è possibile partizionare in più esecuzioni di attività di copia).
 
 ## <a name="data-type-mapping-for-salesforce"></a>Mapping dei tipi di dati per Salesforce
 

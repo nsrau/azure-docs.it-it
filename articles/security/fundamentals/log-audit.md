@@ -8,18 +8,19 @@ manager: barbkess
 editor: TomSh
 ms.assetid: ''
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: a99cb67bddb9b2310648ac9b06c6ee6a839f4c34
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: b916e3073d5f6843b58980ce49c7b7c5871d218d
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68615304"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68727085"
 ---
 # <a name="azure-logging-and-auditing"></a>Registrazione e controllo di Azure
 
@@ -373,8 +374,8 @@ Integrazione log supporta attualmente l'integrazione dei log attività di Azure,
 
 | Tipo di log | Log di monitoraggio di Azure che supportano JSON (Splunk, ArcSight e IBM QRadar) |
 | :------- | :-------------------------------------------------------- |
-|Log di controllo di Azure AD|   Sì|
-|Log attività| Yes|
+|Log di controllo di Azure AD|   Yes|
+|Log attività| Sì|
 |Avvisi del Centro sicurezza |Yes|
 |Log di diagnostica (log di risorse)|  Sì|
 |Log VM|   Sì, tramite eventi inoltrati e non attraverso JSON|

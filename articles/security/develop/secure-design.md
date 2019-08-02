@@ -1,322 +1,323 @@
 ---
-title: Progettazione di applicazioni sicure in Microsoft Azure
-description: Questo articolo illustra le procedure consigliate da prendere in considerazione durante le fasi di progettazione di un requisito del progetto di applicazione web.
+title: Progettare applicazioni sicure in Microsoft Azure
+description: Questo articolo illustra le procedure consigliate da prendere in considerazione durante le fasi di requisiti e progettazione del progetto di applicazione Web.
 author: TerryLanfear
 manager: barbkess
 ms.author: terrylan
 ms.date: 06/11/2019
 ms.topic: article
 ms.service: security
+ms.subservice: security-develop
 services: azure
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 12b9793cabb261368c437bd2ae2dbb39cf078bef
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 67687e217372c17b007982ef99bf1f80c3e6be5f
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653292"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68728707"
 ---
-# <a name="design-secure-applications-on-azure"></a>Progettazione di applicazioni sicure in Azure
-In questo articolo ti presentiamo le attività di sicurezza e controlli da considerare quando si progettano applicazioni per il cloud. Risorse e concetti per prendere in considerazione durante i requisiti e la progettazione delle fasi di Microsoft e domande di sicurezza per il training [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) vengono analizzati. L'obiettivo è che consentono di definire le attività e i servizi di Azure che è possibile utilizzare per progettare un'applicazione più sicura.
+# <a name="design-secure-applications-on-azure"></a>Progettare applicazioni sicure in Azure
+In questo articolo vengono presentate le attività e i controlli di sicurezza da prendere in considerazione quando si progettano applicazioni per il cloud. Vengono analizzate le risorse di formazione e le domande e i concetti di sicurezza da prendere in considerazione durante i requisiti e le fasi di progettazione di Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) . L'obiettivo è consentire di definire le attività e i servizi di Azure che è possibile usare per progettare un'applicazione più protetta.
 
-Le seguenti fasi SDL sono illustrate in questo articolo:
+Le fasi SDL seguenti sono descritte in questo articolo:
 
 - Formazione
 - Requisiti
 - Progettazione
 
 ## <a name="training"></a>Formazione
-Prima di iniziare lo sviluppo dell'applicazione cloud, è opportuno per informazioni sulla sicurezza e privacy in Azure. Adottando questo passaggio, è possibile ridurre il numero e la gravità delle vulnerabilità sfruttabili nell'applicazione. Sarà più preparati a rispondere in modo appropriato al panorama delle minacce in continua evoluzione.
+Prima di iniziare a sviluppare l'applicazione cloud, è necessario prendere tempo per comprendere la sicurezza e la privacy in Azure. Eseguendo questo passaggio, è possibile ridurre il numero e la gravità delle vulnerabilità sfruttabili nell'applicazione. Si sarà più pronti a rispondere in modo appropriato al panorama delle minacce in continua evoluzione.
 
-Usare le risorse seguenti durante la fase di formazione per acquisire familiarità con i servizi di Azure disponibili per gli sviluppatori e alle procedure consigliate di sicurezza in Azure:
+Usare le risorse seguenti durante la fase di training per acquisire familiarità con i servizi di Azure disponibili per gli sviluppatori e con le procedure di sicurezza consigliate in Azure:
 
-  - [Guida per sviluppatori Azure](https://azure.microsoft.com/campaigns/developer-guide/) illustra come iniziare a usare Azure. La guida illustra quali servizi è possibile usare per eseguire le applicazioni archiviano i dati, incorporare l'intelligenza, crea App IoT e distribuire le soluzioni in modo più efficiente e sicuro.
+  - La [Guida per gli sviluppatori di Azure](https://azure.microsoft.com/campaigns/developer-guide/) illustra come iniziare a usare Azure. La Guida Mostra i servizi che è possibile usare per eseguire le applicazioni, archiviare i dati, incorporare l'intelligence, compilare app per Internet e distribuire le soluzioni in modo più efficiente e sicuro.
 
-  - [Guida introduttiva per sviluppatori Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide) fornisce informazioni essenziali per gli sviluppatori che desiderano iniziare a usare la piattaforma Azure per esigenze di relativi allo sviluppo.
+  - [Guida introduttiva per gli sviluppatori di Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide) fornisce informazioni essenziali per gli sviluppatori che vogliono iniziare a usare la piattaforma Azure per le proprie esigenze di sviluppo.
 
-  - [SDK e strumenti](https://docs.microsoft.com/azure/index#pivot=sdkstools) vengono descritti gli strumenti disponibili in Azure.
+  - Gli [SDK e gli strumenti](https://docs.microsoft.com/azure/index#pivot=sdkstools) descrivono gli strumenti disponibili in Azure.
 
-  - [Servizi di Azure DevOps](https://docs.microsoft.com/azure/devops/) fornisce gli strumenti di collaborazione di sviluppo. Gli strumenti includono le pipeline a prestazioni elevate, repository Git gratuiti, lavagne Kanban configurabili e il test di carico automatizzato e basato sul cloud completo.
-    Il [Centro risorse di DevOps](https://docs.microsoft.com/azure/devops/learn/) combina le nostre risorse di apprendimento DevOps procedure consigliate, Git controllo della versione, le metodologie agile, come lavoriamo con DevOps presso Microsoft e come è possibile valutare il proprio progressione DevOps.
+  - [Azure DevOps Services](https://docs.microsoft.com/azure/devops/) offre strumenti per la collaborazione dello sviluppo. Gli strumenti includono pipeline ad alte prestazioni, repository git gratuiti, lavagne Kanban configurabili e test di carico completi automatizzati e basati sul cloud.
+    Il [Centro risorse di DevOps](https://docs.microsoft.com/azure/devops/learn/) combina le risorse per l'apprendimento delle procedure di DevOps, il controllo della versione di Git, i metodi Agile, il modo in cui collaboriamo con DevOps in Microsoft e come è possibile valutare la progressione del DevOps.
 
-  - [Primi 5 elementi di sicurezza da considerare prima di eseguire il push in produzione](https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider/index?WT.mc_id=Learn-Blog-tajanca) illustra come proteggere le applicazioni web in Azure e per proteggere le app contro gli attacchi di applicazioni web più comuni e pericoloso.
+  - I [5 elementi di sicurezza da considerare prima di eseguire il push nell'](https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider/index?WT.mc_id=Learn-Blog-tajanca) ambiente di produzione illustrano come proteggere le applicazioni Web in Azure e proteggere le app dagli attacchi alle applicazioni Web più comuni e pericolose.
 
-  - [Secure DevOps Kit per Azure](https://azsk.azurewebsites.net/index.html) è una raccolta di script, strumenti, estensioni e automazioni che affronta complete Azure sottoscrizioni e risorse alle esigenze di sicurezza di team DevOps che utilizzano l'automazione completa. Il Secure DevOps Kit per Azure Mostra come integrare senza problemi di sicurezza nei flussi di lavoro DevOps nativi. Il kit risolve gli strumenti come un test di verifica della sicurezza (SVTs), che consentono agli sviluppatori di scrivere codice protetto e testare la configurazione protetta delle applicazioni cloud in più fasi di sviluppo iniziali e di codifica.
+  - [Secure DevOps kit per Azure](https://azsk.azurewebsites.net/index.html) è una raccolta di script, strumenti, estensioni e automazione che soddisfano le esigenze complete di sottoscrizione di Azure e di sicurezza delle risorse dei team DevOps che usano l'automazione estesa. Il kit Secure DevOps per Azure consente di illustrare come integrare agevolmente la sicurezza nei flussi di lavoro DevOps nativi. Il kit si rivolge a strumenti come i test di verifica della sicurezza (SVTs), che consentono agli sviluppatori di scrivere codice sicuro e testare la configurazione sicura delle applicazioni cloud nel codice e nelle fasi iniziali di sviluppo.
 
-  - [Le procedure consigliate per le soluzioni Azure](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions) fornisce una raccolta di sicurezza consigliate da usare come progettare, distribuire e gestire le soluzioni cloud con Azure.
+  - [Procedure consigliate per la sicurezza per le soluzioni di Azure](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions) offre una raccolta di procedure consigliate per la sicurezza da usare durante la progettazione, la distribuzione e la gestione delle soluzioni cloud con Azure.
 
 ## <a name="requirements"></a>Requisiti
-La fase di definizione dei requisiti è un passaggio fondamentale nella definizione di ciò che l'applicazione è e cosa farà quando viene rilasciato. La fase dei requisiti è anche un tempo per pensare ai controlli di sicurezza che si compilerà l'applicazione. Durante questa fase, è anche possibile iniziare i passaggi che vengono intraprese in tutto il processo SDL per assicurare di rilasciare e distribuire un'applicazione protetta.
+La fase di definizione dei requisiti è un passaggio fondamentale per definire l'applicazione e le operazioni che verrà eseguita quando viene rilasciata. La fase dei requisiti è anche un tempo per considerare i controlli di sicurezza che si compileranno nell'applicazione. Durante questa fase, verranno inoltre illustrati i passaggi da eseguire in tutto il processo SDL per assicurarsi di rilasciare e distribuire un'applicazione protetta.
 
 ### <a name="consider-security-and-privacy-issues"></a>Prendere in considerazione i problemi di sicurezza e privacy
-Questa fase è il momento migliore per prendere in considerazione i problemi di privacy e sicurezza fondamentale. Definire livelli accettabili di sicurezza e privacy all'inizio di un progetto consente un team:
+Questa fase rappresenta il momento migliore per prendere in considerazione i problemi di sicurezza e privacy di base. Definire livelli accettabili di sicurezza e privacy all'inizio di un progetto aiuta un team:
 
-- Comprendere i rischi associati a problemi di sicurezza.
-- Identificare e correggere gli errori di protezione durante lo sviluppo.
-- Applicare stabiliti i livelli di sicurezza e privacy in tutta l'intero progetto.
+- Individuare i rischi associati ai problemi di sicurezza.
+- Identificare e correggere i bug di sicurezza durante lo sviluppo.
+- Applicare livelli di sicurezza e privacy stabiliti nell'intero progetto.
 
-Quando si scrivono i requisiti per l'applicazione, assicurarsi di prendere in considerazione i controlli di sicurezza che consentono di proteggere l'applicazione e dati.
+Quando si scrivono i requisiti per l'applicazione, assicurarsi di prendere in considerazione i controlli di sicurezza che consentono di garantire la sicurezza dell'applicazione e dei dati.
 
 ### <a name="ask-security-questions"></a>Porre domande di sicurezza
 Porre domande di sicurezza, ad esempio:
 
-  - L'applicazione contenga dati sensibili?
+  - L'applicazione contiene dati sensibili?
 
-  - La mia applicazione raccogliere o archiviare i dati che richiede di essere conformi agli standard del settore e programmi di conformità, ad esempio la [Federal finanziari istituto esame Council (FFIEC)](https://docs.microsoft.com/azure/security/blueprints/ffiec-analytics-overview) o il [Payment Card settore Data Security standard (PCI DSS)](https://docs.microsoft.com/azure/security/blueprints/pcidss-analytics-overview)?
+  - L'applicazione raccoglie o archivia i dati che richiedono l'adesione agli standard del settore e ai programmi di conformità come il [Council (FFIEC)](https://docs.microsoft.com/azure/security/blueprints/ffiec-analytics-overview) o gli [standard di sicurezza dei dati del settore della carta di pagamento (PCI DSS) ](https://docs.microsoft.com/azure/security/blueprints/pcidss-analytics-overview)?
 
-  - La mia applicazione raccogliere o contengono dati sensibili cliente o personale che possono essere utilizzati, in modo autonomo o con altre informazioni, per identificare, contattare o di individuare una singola persona?
+  - L'applicazione raccoglie o contiene dati sensibili personali o del cliente che possono essere usati, in modo autonomo o con altre informazioni, per identificare, contattare o individuare una singola persona?
 
-  - La mia applicazione raccogliere o contenere dati che possono essere utilizzati per accedere ai medici di un individuo, didattici, finanziari, o posti di lavoro? Che identifica la riservatezza dei dati durante la fase dei requisiti consente di classificare i dati e identificare il metodo di protezione dati che si utilizzerà per l'applicazione.
+  - L'applicazione raccoglie o contiene dati che possono essere usati per accedere alle informazioni mediche, didattiche, finanziarie o di lavoro di un utente? Identificando la riservatezza dei dati durante la fase dei requisiti, è possibile classificare i dati e identificare il metodo di protezione dati che si utilizzerà per l'applicazione.
 
-  - Come e dove vengono archiviati i dati? Si consideri come monitorare i servizi di archiviazione usate dall'applicazione per riscontrare eventuali cambiamenti inattesi (ad esempio tempi di risposta). Sarà in grado di influenzare la registrazione per raccogliere dati più dettagliati e analizzare i problemi in modo approfondito?
+  - Dove e come vengono archiviati i dati? Si consideri come monitorare i servizi di archiviazione utilizzati dall'applicazione per eventuali modifiche impreviste, ad esempio tempi di risposta più lenti. Sarà possibile influenzare la registrazione per raccogliere dati più dettagliati e analizzare un problema in modo approfondito?
 
-  - L'applicazione sarà disponibile al pubblico (in internet) o internamente solo? Se l'applicazione è disponibile al pubblico, come proteggere i dati che potrebbero essere raccolte perché non venga usato in modo errato? Se l'applicazione è disponibile internamente solo, prendere in considerazione quali utenti dell'organizzazione devono avere accesso all'applicazione e quanto tempo hanno accesso.
+  - L'applicazione sarà disponibile per il pubblico (su Internet) o solo internamente? Se l'applicazione è disponibile per il pubblico, come proteggere i dati che potrebbero essere usati in modo errato? Se l'applicazione è disponibile solo a livello interno, prendere in considerazione chi all'interno dell'organizzazione deve avere accesso all'applicazione e per quanto tempo deve avere accesso.
 
-  - Sei consapevole il modello di identità prima di iniziare la progettazione dell'applicazione? Come si determina che gli utenti siano chi affermano sono e ciò che l'utente è autorizzato a eseguire?
+  - Si comprende il modello di identità prima di iniziare a progettare l'applicazione? In che modo è possibile determinare che gli utenti sono quelli che dicono di essere e quali sono le autorizzazioni di un utente?
 
-  - L'applicazione esegue le attività sensibili o importanti (ad esempio, il trasferimento di denaro, sbloccare le porte o recapito medicina)?
-    Prendere in considerazione come si verificherà che l'utente che esegue un'attività sensibile è autorizzato a eseguire l'attività e modalità di autenticazione che l'utente sia chi dice che sono. L'autorizzazione (AuthZ) è l'atto di concessione di un'autorizzazione dell'entità di sicurezza autenticata per eseguire un'operazione. L'autenticazione (AuthN) è l'atto di credenziali legittime a una parte.
+  - L'applicazione esegue attività riservate o importanti, ad esempio il trasferimento di denaro, lo sblocco di porte o la distribuzione di medicinali?
+    Si consideri come verrà convalidato che l'utente che esegue un'attività sensibile è autorizzato a eseguire l'attività e come si eseguirà l'autenticazione che la persona è chi dice di essere. Authorization (AuthZ) consente di concedere a un'entità di sicurezza autenticata un'autorizzazione per eseguire un'operazione. L'autenticazione (AuthN) è l'atto di sfidare un'entità per le credenziali legittime.
 
-  - L'applicazione esegue qualsiasi attività di software a rischio, ad esempio consentire agli utenti di caricare o scaricare file o altri dati? Se l'applicazione esegue attività rischiose, prendere in considerazione l'applicazione verrà protezione gli utenti da come la gestione di file dannosi o dati.
+  - L'applicazione esegue attività software rischiose, ad esempio consentendo agli utenti di caricare o scaricare file o altri dati? Se l'applicazione esegue attività rischiose, valutare il modo in cui l'applicazione proteggerà gli utenti dalla gestione di file o dati dannosi.
 
-### <a name="review-owasp-top-10"></a>10 principali OWASP di revisione
-È consigliabile rivedere le [ <span class="underline">rischi per la sicurezza delle applicazioni per Top 10 OWASP</span>](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project).
-Top 10 OWASP risolve i rischi di sicurezza critico per le applicazioni web.
-La consapevolezza di tali rischi di sicurezza consentono di prendere decisioni di progettazione di un requisito che riducono al minimo tali rischi nell'applicazione.
+### <a name="review-owasp-top-10"></a>Esaminare i primi 10 OWASP
+Prendere in considerazione la revisione dei [<span class="underline">primi 10 rischi per la sicurezza delle applicazioni OWASP</span>](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project).
+OWASP Top 10 risolve i rischi di sicurezza critici per le applicazioni Web.
+La conoscenza di questi rischi per la sicurezza può aiutare a prendere decisioni di requisito e progettazione che riducono al minimo questi rischi nell'applicazione.
 
-È importante considerare i controlli di sicurezza per impedire violazioni della sicurezza.
-Tuttavia, si vogliono [presumerne una](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/security-in-devops) si verificherà. Supponendo che una violazione consente di individuare alcune importanti domande sulla sicurezza in anticipo, in modo che non è necessario rispondere in caso di emergenza:
+È importante considerare i controlli di sicurezza per impedire violazioni.
+Si supponga, tuttavia, che si verifichi [una violazione](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/security-in-devops) . Supponendo che una violazione contribuisca a rispondere ad alcune domande importanti sulla sicurezza in anticipo, non è necessario rispondere in caso di emergenza:
 
-  - Come rileverà un attacco?
+  - Come si rileva un attacco?
 
-  - Cosa verrà? se si verifica un attacco o violazione
+  - Cosa si può fare se si verifica un attacco o una violazione?
 
-  - Modo mi connetterò per il ripristino dall'attacco, ad esempio dati divulgazione o alterazione?
+  - In che modo verrà ripristinato l'attacco, ad esempio la perdita o la manomissione dei dati?
 
 ## <a name="design"></a>Progettazione
 
-La fase di progettazione è fondamentale per stabilire le procedure consigliate per la progettazione e le specifiche funzionali. Inoltre è fondamentale per l'esecuzione di analisi dei rischi che consente di ridurre i problemi di sicurezza e privacy in tutto il progetto.
+La fase di progettazione è fondamentale per la definizione di procedure consigliate per la progettazione e le specifiche funzionali. È anche fondamentale per eseguire un'analisi dei rischi che consente di ridurre i problemi di sicurezza e privacy in un progetto.
 
-Quando si siano soddisfatti i requisiti di sicurezza e utilizzare i concetti di progettazione protetta, è possibile evitare o ridurre al minimo le opportunità per un difetto di protezione. Una vulnerabilità di sicurezza è considerata una distrazione nella progettazione dell'applicazione che potrebbe consentire a un utente di eseguire azioni dannose o impreviste, dopo il rilascio dell'applicazione.
+Quando si hanno requisiti di sicurezza e si usano concetti di progettazione sicuri, è possibile evitare o ridurre al minimo le opportunità di un problema di sicurezza. Un difetto di sicurezza è una supervisione della progettazione dell'applicazione che potrebbe consentire a un utente di eseguire azioni dannose o impreviste dopo il rilascio dell'applicazione.
 
-Durante la fase di progettazione, anche considerare come si può applicare la sicurezza nei livelli; un livello di difesa non è necessariamente sufficiente. Cosa accade se un utente malintenzionato riesce a superare il web application firewall (WAF). È necessario un altro controllo di sicurezza in grado di difesa da tale attacco.
+Durante la fase di progettazione, si può anche pensare a come applicare la sicurezza nei livelli; un livello di difesa non è necessariamente sufficiente. Cosa accade se un utente malintenzionato supera il web application firewall (WAF)? Si vuole che un altro controllo di sicurezza sia in grado di difendersi da tale attacco.
 
-Con questa premessa, illustreremo i seguenti concetti infrastruttura protetta e i controlli di sicurezza che è necessario tenere presente durante la progettazione di applicazioni sicure:
+Tenendo presente questo aspetto, verranno illustrati i concetti di progettazione protetti seguenti e i controlli di sicurezza da affrontare quando si progettano applicazioni protette:
 
-- Usare una libreria di codifica sicura e un framework software.
-- Analisi per i componenti vulnerabili.
-- Usare durante la progettazione di applicazioni di modellazione delle minacce.
+- Usare una libreria di codifica protetta e un Framework software.
+- Esegue l'analisi dei componenti vulnerabili.
+- Usare la modellazione delle minacce durante la progettazione dell'applicazione.
 - Ridurre la superficie di attacco.
 - Adottare un criterio di identità come perimetro di sicurezza primario.
-- Richiedere una nuova autenticazione per le transazioni importanti.
-- Usare una soluzione di gestione delle chiavi per proteggere le chiavi, credenziali e altri segreti.
+- È necessario rieseguire l'autenticazione per transazioni importanti.
+- Usare una soluzione di gestione delle chiavi per proteggere chiavi, credenziali e altri segreti.
 - Proteggere i dati sensibili.
-- Implementazione di misure in modalità provvisoria.
-- Sfruttare i vantaggi di errore e la gestione delle eccezioni.
+- Implementare misure non sicure.
+- Sfruttare i vantaggi della gestione degli errori e delle eccezioni.
 - Usare la registrazione e gli avvisi.
 
-### <a name="use-a-secure-coding-library-and-a-software-framework"></a>Usare una libreria di codifica sicura e un framework software
+### <a name="use-a-secure-coding-library-and-a-software-framework"></a>Usare una libreria di codifica protetta e un Framework software
 
-Per lo sviluppo, usare una libreria di codifica sicura e un framework software che dispone di sicurezza incorporati. Gli sviluppatori possono usare esistenti, comprovate funzionalità (crittografia, depurazione input, la codifica dell'output, le chiavi o le stringhe di connessione e qualsiasi altro elemento che possa essere considerato un controllo di sicurezza) rispetto allo sviluppo di controlli di sicurezza da zero. Ciò consente di salvaguardarsi da progettazione relative alla sicurezza e ai punti deboli di implementazione.
+Per lo sviluppo, usare una libreria di codifica protetta e un Framework software con sicurezza incorporata. Gli sviluppatori possono usare le funzionalità esistenti e collaudate (crittografia, igiene di input, codifica di output, chiavi o stringhe di connessione e qualsiasi altro elemento che verrebbe considerato un controllo di sicurezza) invece di sviluppare controlli di sicurezza da zero. Questo consente di evitare problemi di progettazione e implementazione correlati alla sicurezza.
 
-Assicurarsi che si usa la versione più recente di tutte le funzionalità di sicurezza disponibili nel framework e il framework. Microsoft offre una serie completa [set di strumenti di sviluppo](https://azure.microsoft.com/product-categories/developer-tools/) per tutti gli sviluppatori, in qualsiasi piattaforma o linguaggio, per offrire applicazioni cloud. È possibile scrivere codice con il linguaggio di propria scelta, scegliendo da vari [SDK](https://azure.microsoft.com/downloads/).
-È possibile sfruttare i vantaggi di ambienti completi di sviluppo integrato (IDE) ed editor che hanno avanzate funzionalità di debug e supporto di Azure predefinito.
+Assicurarsi di usare la versione più recente del Framework e tutte le funzionalità di sicurezza disponibili nel Framework. Microsoft offre un [set completo di strumenti di sviluppo](https://azure.microsoft.com/product-categories/developer-tools/) per tutti gli sviluppatori, che lavorano su qualsiasi piattaforma o linguaggio, per offrire applicazioni cloud. È possibile scrivere codice con la lingua scelta scegliendo tra diversi [SDK](https://azure.microsoft.com/downloads/).
+È possibile trarre vantaggio dagli ambienti di sviluppo integrato (IDE) e dagli editor completi con funzionalità di debug avanzate e supporto incorporato di Azure.
 
-Microsoft offre un'ampia gamma [linguaggi, Framework e strumenti](https://docs.microsoft.com/azure/index#pivot=sdkstools&panel=sdkstools-all) che è possibile usare per sviluppare applicazioni in Azure. Ad esempio [Azure per sviluppatori .NET e .NET Core](https://docs.microsoft.com/dotnet/azure/). Per ciascuna lingua e framework che offriamo, troverai guide introduttive, esercitazioni e riferimento sulle API che consentono di iniziare rapidamente.
+Microsoft offre un'ampia gamma di [linguaggi, Framework e strumenti](https://docs.microsoft.com/azure/index#pivot=sdkstools&panel=sdkstools-all) che è possibile usare per sviluppare applicazioni in Azure. Un esempio è [Azure per gli sviluppatori .NET e .NET Core](https://docs.microsoft.com/dotnet/azure/). Per ogni linguaggio e Framework offerto, sono disponibili guide introduttive, esercitazioni e informazioni di riferimento sulle API per iniziare rapidamente.
 
-Azure offre un'ampia gamma di servizi che è possibile usare per ospitare applicazioni e siti web. Questi servizi consentono di sviluppare nel tuo linguaggio preferito, ovvero .NET, .NET Core, Java, Ruby, Node. js, PHP o Python.
-[App Web di Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (app Web) è uno di questi servizi.
+Azure offre un'ampia gamma di servizi che è possibile usare per ospitare siti Web e applicazioni Web. Questi servizi consentono di sviluppare nel linguaggio preferito, sia .NET, .NET Core, Java, Ruby, node. js, PHP o Python.
+[App Web del servizio app Azure](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (App Web) è uno di questi servizi.
 
-Siti Web di Azure aggiunge la potenza di Microsoft Azure all'applicazione. Include sicurezza, bilanciamento del carico, la scalabilità automatica e gestione automatizzata. È possibile anche sfruttare le funzionalità DevOps nelle App Web, come Gestione pacchetti, gli ambienti, i domini personalizzati, certificati SSL/TLS e distribuzione continua da DevOps di Azure, GitHub, Hub Docker e altre origini di gestione temporanea.
+App Web aggiunge la potenza di Microsoft Azure all'applicazione. Include sicurezza, bilanciamento del carico, scalabilità automatica e gestione automatizzata. Puoi anche sfruttare le funzionalità di DevOps nelle app Web, come la gestione dei pacchetti, gli ambienti di staging, i domini personalizzati, i certificati SSL/TLS e la distribuzione continua da Azure DevOps, GitHub, Docker Hub e altre origini.
 
-Azure offre altri servizi che è possibile usare per ospitare applicazioni e siti web. Per la maggior parte degli scenari App Web è la scelta migliore. Per un'architettura di microservizi, prendere in considerazione [Azure Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric).
+Azure offre altri servizi che è possibile usare per ospitare siti Web e applicazioni Web. Per la maggior parte degli scenari App Web è la scelta migliore. Per un'architettura di microservizi, prendere in considerazione [Service fabric di Azure](https://azure.microsoft.com/documentation/services/service-fabric).
 Se è necessario un maggiore controllo sulle VM in cui viene eseguito il codice, prendere in considerazione l'uso delle [Macchine virtuali di Azure](https://azure.microsoft.com/documentation/services/virtual-machines/).
-Per altre informazioni su come scegliere tra questi servizi di Azure, vedere una [confronto tra servizio App di Azure, macchine virtuali, Service Fabric e servizi Cloud](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm).
+Per altre informazioni su come scegliere tra questi servizi di Azure, vedere [confronto tra app Azure Service, macchine virtuali, Service Fabric e servizi cloud](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm).
 
 ### <a name="apply-updates-to-components"></a>Applicare gli aggiornamenti ai componenti
 
-Per evitare le vulnerabilità, è necessario continuamente effettuare l'inventario sia i componenti lato client e lato server (ad esempio, Framework e librerie) e le relative dipendenze per gli aggiornamenti. Nuove vulnerabilità e le versioni di aggiornamento del software vengono rilasciate costantemente. Assicurarsi che si dispone di un piano in corso il monitoraggio, valutare e applicare gli aggiornamenti o modifiche di configurazione per le librerie e i componenti usati.
+Per evitare vulnerabilità, è necessario eseguire l'inventario continuo dei componenti lato client e lato server (ad esempio, Framework e librerie) e le relative dipendenze per gli aggiornamenti. Nuove vulnerabilità e versioni aggiornate del software vengono rilasciate continuamente. Assicurarsi di disporre di un piano continuo per il monitoraggio, la valutazione e l'applicazione di aggiornamenti o modifiche di configurazione per le librerie e i componenti utilizzati.
 
-Vedere le [Open Web Application Security Project (OWASP)](https://www.owasp.org/index.php/Main_Page) pagina [usando i componenti con vulnerabilità note ottenute](https://www.owasp.org/index.php/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities) per suggerimenti dello strumento. È inoltre possibile sottoscrivere gli avvisi di posta elettronica per le vulnerabilità di sicurezza che riguardano i componenti usati.
+Vedere la pagina [Open Web Application Security Project (OWASP)](https://www.owasp.org/index.php/Main_Page) per l' [uso di componenti con vulnerabilità note](https://www.owasp.org/index.php/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities) per i suggerimenti degli strumenti. È anche possibile sottoscrivere gli avvisi di posta elettronica per le vulnerabilità di sicurezza correlate ai componenti usati.
 
 ### <a name="use-threat-modeling-during-application-design"></a>Usare la modellazione delle minacce durante la progettazione delle applicazioni
 
-La modellazione delle minacce è il processo di identificazione di potenziali minacce alla sicurezza per il business e l'applicazione e assicurarsi che soluzioni di attenuazione appropriate siano soddisfatti. Il processo SDL specifica che i team devono partecipare rischi durante la fase di progettazione, quando la risoluzione dei problemi potenziali è relativamente semplice ed economicamente conveniente. Uso delle minacce modellazione delle minacce nella fase di progettazione può ridurre notevolmente il costo totale di sviluppo.
+La modellazione delle minacce è il processo di identificazione delle potenziali minacce alla sicurezza per l'azienda e l'applicazione e quindi la verifica della correttezza delle mitigazioni. Il processo SDL specifica che i team devono partecipare alla modellazione delle minacce durante la fase di progettazione, quando la risoluzione di potenziali problemi è relativamente semplice ed economicamente conveniente. L'uso della modellazione delle minacce nella fase di progettazione può ridurre notevolmente il costo totale di sviluppo.
 
-È stato progettato per semplificare il processo di modellazione, la [SDL Threat Modeling Tool](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool) con pensando agli esperti non relativi alla sicurezza. Questo strumento semplifica la modellazione delle minacce per tutti gli sviluppatori fornendo istruzioni chiare su come creare e analizzare i modelli di rischio.
+Per semplificare il processo di modellazione delle minacce, abbiamo progettato il processo [SDL Threat Modeling Tool](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool) con gli esperti di non sicurezza. Questo strumento semplifica la modellazione delle minacce per tutti gli sviluppatori fornendo istruzioni chiare su come creare e analizzare i modelli di rischio.
 
-La progettazione di applicazioni di modellazione e l'enumerazione [STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy) minacce, ovvero Spoofing, manomissione, ripudio, diffusione di informazioni, Denial of Service e l'elevazione dei privilegi, ovvero in tutti i trust dei limiti ha dimostrato in modo efficace per intercettare gli errori di progettazione sin dall'inizio. Nella tabella seguente sono elencate le minacce STRIDE e offre alcune mitigazioni di esempio che usano le funzionalità fornite da Azure. Queste mitigazioni dei rischi non funzioneranno in tutte le situazioni.
+Modellazione della progettazione dell'applicazione ed enumerazione delle minacce [stride](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy) , ovvero spoofing, manomissioni, ripudio, divulgazione di informazioni, Denial of Service ed elevazione dei privilegi, in tutti i confini di trust si è dimostrato un modo efficace per individuare gli errori di progettazione inizio. La tabella seguente elenca le minacce STRIDE e fornisce alcune attenuazioni di esempio che usano le funzionalità fornite da Azure. Queste mitigazioni dei rischi non funzioneranno in tutte le situazioni.
 
-| Threat | Proprietà di sicurezza | Mitigazione di potenziale della piattaforma Azure |
+| Threat | Proprietà di sicurezza | Mitigazione potenziale della piattaforma Azure |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Spoofing               | Authentication        | [Richiedi connessioni HTTPS](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
-| Manomissione              | Integrità             | Convalidare i certificati SSL/TLS. Le applicazioni che usano SSL/TLS devono verificare completamente i certificati X.509 delle entità di che cui si connettono. Usare i certificati di Azure Key Vault per [gestire x509 i certificati](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates). |
+| Spoofing               | Authentication        | [Richiedere connessioni HTTPS](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
+| Manomissione              | Integrità             | Convalidare i certificati SSL/TLS. Le applicazioni che usano SSL/TLS devono verificare completamente i certificati X. 509 delle entità a cui si connettono. Usare i certificati Azure Key Vault per [gestire i certificati X509](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates). |
 | Ripudio            | Non ripudio       | Abilitazione del [monitoraggio e diagnostica](https://docs.microsoft.com/azure/architecture/best-practices/monitoring) di Azure.|
-| Diffusione di informazioni | Riservatezza       | Crittografare i dati sensibili [inattivi](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest) e [durante il transito](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit). |
-| Denial of Service      | Disponibilità          | Monitorare le metriche delle prestazioni per potenziali condizioni di DOS. Implementare i filtri di connessione. [Protezione DDoS di Azure](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview#next-steps), combinati con procedure consigliate per progettazione dell'applicazione, che fornisce una difesa contro gli attacchi DDoS.|
-| Elevazione dei privilegi | Authorization         | Usare Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure).|
+| Diffusione di informazioni | Riservatezza       | Crittografare i [dati](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest) sensibili inattivi e [in transito](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit). |
+| Denial of Service      | Disponibilità          | Monitorare le metriche delle prestazioni per le potenziali condizioni di tipo Denial of Service. Implementare i filtri di connessione. [Protezione DDoS di Azure](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview#next-steps), in combinazione con le procedure consigliate per la progettazione di applicazioni, fornisce una difesa contro gli attacchi DDoS.|
+| Elevazione dei privilegi | Authorization         | Utilizzare Azure Active Directory <span class="underline"></span> [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure).|
 
 ### <a name="reduce-your-attack-surface"></a>Ridurre la superficie di attacco
 
-Una superficie di attacco è il totale Somma di in cui potrebbero verificarsi le potenziali vulnerabilità. In questo white paper, focalizzata sulla superficie di attacco di un'applicazione.
-Lo stato attivo è sulla protezione di un'applicazione da attacchi esterni. Un modo semplice e rapido per ridurre al minimo la superficie di attacco consiste nel rimuovere le risorse inutilizzate e il codice dall'applicazione. Il valore più piccolo dell'applicazione, il valore più piccolo la superficie di attacco. Ad esempio, rimuovere:
+Una superficie di attacco è la somma totale di dove potrebbero verificarsi potenziali vulnerabilità. Questo articolo è incentrato sulla superficie di attacco di un'applicazione.
+L'obiettivo è quello di proteggere un'applicazione da un attacco. Un modo semplice e rapido per ridurre al minimo la superficie di attacco consiste nel rimuovere le risorse e il codice non usati dall'applicazione. Minore è l'applicazione, minore è la superficie di attacco. Ad esempio, rimuovere:
 
-- Codice per la funzionalità che ancora stato ancora rilasciato.
+- Codice per le funzionalità non ancora rilasciate.
 - Debug del codice di supporto.
-- Interfacce di rete e protocolli che non vengono usate o che sono state deprecate.
-- Le macchine virtuali e altre risorse che non è in uso.
+- Interfacce di rete e protocolli non usati o deprecati.
+- Macchine virtuali e altre risorse che non vengono usate.
 
-Eseguire operazioni regolari di pulizia delle risorse e verificare di rimuovere codice inutilizzato sono grandi occasioni per assicurarsi che siano minori possibilità di attori dannosi agli attacchi.
+Eseguire una pulizia regolare delle risorse e assicurarsi di rimuovere il codice inutilizzato è un ottimo modo per assicurarsi che vi sia un minor numero di opportunità di attacco da attori dannosi.
 
-Un modo più dettagliato e approfondito per ridurre la superficie di attacco è per completare un'analisi della superficie di attacco. Un'analisi della superficie di attacco consente di mappare le parti di un sistema che devono essere controllati e testati per le vulnerabilità di sicurezza.
+Un modo più dettagliato e dettagliato per ridurre la superficie di attacco consiste nel completare un'analisi della superficie di attacco. Un'analisi della superficie di attacco consente di eseguire il mapping delle parti di un sistema che devono essere esaminate e testate per le vulnerabilità della sicurezza.
 
-Lo scopo di un'analisi della superficie di attacco consiste nel comprendere le aree di rischio in un'applicazione in modo che gli sviluppatori e gli specialisti della protezione sono a conoscenza di quali parti dell'applicazione sono vulnerabili agli attacchi. Quindi, è possibile trovare modi per ridurre al minimo questa traccia potenziale, come e quando cambia la superficie di attacco, il che significa una prospettiva di rischio.
+Lo scopo di un'analisi della superficie di attacco consiste nel comprendere le aree di rischio in un'applicazione, in modo che gli sviluppatori e gli specialisti della sicurezza conoscano quali parti dell'applicazione sono aperte ad attacchi. Quindi, è possibile trovare modi per ridurre al minimo questo potenziale, verificare quando e come la superficie di attacco cambia e cosa significa da una prospettiva di rischio.
 
 Un'analisi della superficie di attacco consente di identificare:
 
-- Funzioni e le parti del sistema è necessario esaminare e testare le vulnerabilità di sicurezza.
-- Aree ad alto rischio di codice che richiedono la protezione di difesa in profondità (parti del sistema che è necessario per la difesa).
-- Quando si modifica la superficie di attacco e necessario aggiorna una valutazione delle minacce.
+- Funzioni e parti del sistema è necessario esaminare e testare le vulnerabilità della sicurezza.
+- Aree ad alto rischio di codice che richiedono la protezione della difesa in profondità (parti del sistema che è necessario difendere).
+- Quando si modifica la superficie di attacco ed è necessario aggiornare una valutazione delle minacce.
 
-Riducendo le opportunità per gli utenti malintenzionati di sfruttare un potenziale punto debole o vulnerabilità è necessario analizzare accuratamente superficie di attacco complessiva dell'applicazione. Include inoltre la disabilitazione o la limitazione dell'accesso ai servizi di sistema, applicare il principio del privilegio minimo, e utilizzo di difese su più livelli laddove possibile.
+Riducendo le opportunità per gli utenti malintenzionati di sfruttare una potenziale vulnerabilità o una vulnerabilità, è necessario analizzare accuratamente la superficie di attacco complessiva dell'applicazione. Include anche la disabilitazione o la limitazione dell'accesso ai servizi di sistema, l'applicazione del principio del privilegio minimo e l'utilizzo di difese a più livelli laddove possibile.
 
-Illustreremo [condurre una revisione della superficie di attacco](secure-develop.md#conduct-attack-surface-review) durante la fase di verifica del processo SDL.
+Viene illustrato [come eseguire una](secure-develop.md#conduct-attack-surface-review) verifica della superficie di attacco durante la fase di verifica del processo SDL.
 
 > [!NOTE]
-> **Che cos'è la differenza tra la modellazione delle minacce e analisi della superficie di attacco?**
-La modellazione delle minacce è il processo di identificazione di potenziali minacce alla sicurezza per l'applicazione e garantire la corretta mitigazioni contro le minacce posto. Analisi della superficie di attacco identifica le aree ad alto rischio di codice che sono vulnerabili agli attacchi. Questa operazione implica la ricerca di modi per difendere le aree ad alto rischio dell'applicazione e la revisione e le aree di codice di test prima di distribuire l'applicazione.
+> **Qual è la differenza tra la modellazione delle minacce e l'analisi della superficie di attacco?**
+La modellazione delle minacce è il processo di identificazione delle potenziali minacce per la sicurezza per l'applicazione e la garanzia che siano applicate le mitigazioni appropriate per le minacce. L'analisi della superficie di attacco identifica aree ad alto rischio di codice aperte ad attacchi. Si tratta di trovare modi per difendere le aree ad alto rischio dell'applicazione e di esaminare e testare le aree di codice prima di distribuire l'applicazione.
 
 ### <a name="adopt-a-policy-of-identity-as-the-primary-security-perimeter"></a>Adottare dei criteri di identità come perimetro di sicurezza primario
 
-Quando si progettano le applicazioni cloud, è importante espandere il protezione perimetrale lo stato attivo da un approccio incentrato sulla rete per un approccio incentrato sulle identità. In passato, il perimetro di sicurezza locale primario era una rete dell'organizzazione. La maggior parte delle progettazioni di sicurezza di un'istanza locale di usare la rete come punto pivot di sicurezza primario. Per le applicazioni cloud, meglio vengono gestite da passare all'identità come perimetro di sicurezza primario.
+Quando si progettano applicazioni cloud, è importante espandere il perimetro di sicurezza da un approccio basato sulla rete a un approccio incentrato sulle identità. Storicamente, il perimetro di sicurezza locale primario era la rete di un'organizzazione. La maggior parte delle progettazioni di sicurezza locali usano la rete come pivot di sicurezza primario. Per le applicazioni cloud, è preferibile prendere in considerazione l'identità come perimetro di sicurezza primario.
 
-Cose da fare per sviluppare un approccio incentrato sulle identità per lo sviluppo di applicazioni web:
+Cosa è possibile fare per sviluppare un approccio incentrato sull'identità allo sviluppo di applicazioni Web:
 
-- Applicare multi-factor authentication per gli utenti.
+- Applicare l'autenticazione a più fattori per gli utenti.
 - usare piattaforme di autenticazione e autorizzazione avanzate.
 - Applicare il principio del privilegio minimo.
 - Implementare l'accesso just-in-time.
 
-#### <a name="enforce-multi-factor-authentication-for-users"></a>Applicare multi-factor authentication per gli utenti
+#### <a name="enforce-multi-factor-authentication-for-users"></a>Applicare l'autenticazione a più fattori per gli utenti
 
-Usare l'autenticazione a due fattori. L'autenticazione a due fattori è lo standard corrente per l'autenticazione e autorizzazione perché evita di protezioni inerenti nei tipi di nome utente e password di autenticazione. Accesso alle interfacce di gestione di Azure (portale/istanza remota di Azure PowerShell) e ai servizi per i clienti deve essere progettata e configurata per l'utilizzo [Azure multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication).
+Usare l'autenticazione a due fattori. L'autenticazione a due fattori è lo standard corrente per l'autenticazione e l'autorizzazione perché evita i punti deboli di sicurezza intrinseci nei tipi di autenticazione nome utente e password. L'accesso alle interfacce di gestione di Azure (portale di Azure/PowerShell remoto) e ai servizi rivolti ai clienti deve essere progettato e configurato per l'uso di [Azure Multifactor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication).
 
-#### <a name="use-strong-authentication-and-authorization-platforms"></a>Utilizzare le piattaforme di autenticazione e autorizzazione sicuri
+#### <a name="use-strong-authentication-and-authorization-platforms"></a>Usare piattaforme di autenticazione e autorizzazione complesse
 
-Usare i meccanismi di autenticazione e autorizzazione forniti dalla piattaforma invece di un codice personalizzato. Questo avviene perché lo sviluppo di codice di autenticazione personalizzato può essere soggetto a errori. Il codice commerciale (ad esempio, da Microsoft) spesso viene esaminata in modo esteso per la sicurezza. [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) è la soluzione di Microsoft Azure per la gestione delle identità e degli accessi. Questi strumenti di Azure AD e servizi utili per lo sviluppo sicuro:
+Usare i meccanismi di autenticazione e autorizzazione forniti dalla piattaforma invece di un codice personalizzato. Questo è dovuto al fatto che lo sviluppo di codice di autenticazione personalizzato può essere soggetto a errori. Il codice commerciale, ad esempio da Microsoft, spesso viene ampiamente esaminato per la sicurezza. [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) è la soluzione di Microsoft Azure per la gestione delle identità e degli accessi. Questi strumenti e servizi Azure AD sono utili per lo sviluppo sicuro:
 
-- [Azure piattaforma delle identità di Active Directory (Azure AD per sviluppatori)](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform) è un servizio di identità cloud usato dagli sviluppatori per compilare App che gli utenti di accedere in modo sicuro. Azure AD consente agli sviluppatori che compilano a tenant singolo le app line-of-business (LOB) e gli sviluppatori in cerca di sviluppare App multi-tenant. Oltre all'accesso aggiuntivo di base, le app che vengono compilate tramite Azure AD possono chiamare APIs Microsoft e le API personalizzate che si basano sulla piattaforma di Azure AD. La piattaforma delle identità di Azure AD supporta i protocolli standard del settore come OAuth 2.0 e OpenID Connect.
+- [Azure ad Identity Platform (Azure ad per sviluppatori)](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform) è un servizio di identità cloud che gli sviluppatori usano per creare app che assicurano l'accesso agli utenti in modo sicuro. Azure AD assiste gli sviluppatori che sviluppano app LOB (line-of-business) a tenant singolo e sviluppatori che vogliono sviluppare app multi-tenant. Oltre all'accesso di base, le app compilate con Azure AD possono chiamare le API Microsoft e le API personalizzate basate sulla piattaforma di Azure AD. La piattaforma di identità Azure AD supporta protocolli standard di settore come OAuth 2,0 e OpenID Connect.
 
-- [Azure Active B2C di Directory (Azure AD B2C)](https://docs.microsoft.com/azure/active-directory-b2c/) è un servizio di gestione di identità è possibile usare per personalizzare e controllare come i clienti di effettuare l'iscrizione, accesso e gestiscono i rispettivi profili quando usano le applicazioni. Ciò include le applicazioni sviluppate per iOS, Android e .NET, tra gli altri. Azure AD B2C consente queste azioni proteggendo le identità dei clienti.
+- [Azure Active Directory B2C (Azure ad B2C)](https://docs.microsoft.com/azure/active-directory-b2c/) è un servizio di gestione delle identità che è possibile usare per personalizzare e controllare la modalità di iscrizione, accesso e gestione dei profili dei clienti quando usano le applicazioni. Sono incluse le applicazioni sviluppate per iOS, Android e .NET, tra le altre. Azure AD B2C Abilita queste azioni proteggendo al tempo stesso le identità dei clienti.
 
-#### <a name="apply-the-principle-of-least-privilege"></a>Applicazione del principio del privilegio minimo
+#### <a name="apply-the-principle-of-least-privilege"></a>Applicare il principio dei privilegi minimi
 
-Il concetto di [privilegio](https://en.wikipedia.org/wiki/Principle_of_least_privilege) significa fornendo agli utenti il livello esatto di accesso e controllo necessarie per svolgere il proprio lavoro e nient'altro.
+Il concetto di [privilegio minimo](https://en.wikipedia.org/wiki/Principle_of_least_privilege) significa fornire agli utenti il livello di accesso e controllo preciso necessari per svolgere il proprio lavoro e nient'altro.
 
-Uno sviluppatore di software deve disporre dei diritti di amministratore di dominio? Un Assistente amministrativo è necessario accedere a controlli amministrativi sui propri computer personali? La valutazione dell'accesso al software non è diverso. Se si usa [controllo di accesso basato sui ruoli (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) per fornire capacità diversi utenti e l'autorità nell'applicazione, non sarebbe di dare a ogni accesso a tutti gli elementi. Limitando l'accesso a quelle necessarie per ogni ruolo, si limita il rischio di un problema di sicurezza in corso.
+Uno sviluppatore di software necessita di diritti di amministratore di dominio? Un assistente amministrativo deve poter accedere ai controlli amministrativi nei propri personal computer? La valutazione dell'accesso al software non è diversa. Se si usa il controllo degli accessi in [base al ruolo (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) per fornire agli utenti diverse capacità e autorità nell'applicazione, non si darebbe accesso a tutti gli elementi. Limitando l'accesso agli elementi necessari per ogni ruolo, si limita il rischio di un problema di sicurezza che si verifica.
 
-Assicurarsi che l'applicazione garantisce [privilegio](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications) tutta relativi modelli di accesso.
+Assicurarsi che l'applicazione applichi il [privilegio minimo](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications) per tutti i modelli di accesso.
 
 > [!NOTE]
->  Le regole del privilegio minimo necessario applicare al software e alle persone la creazione del software. Gli sviluppatori di software possono essere un enorme rischi alla sicurezza IT se dispongono di accesso eccessivo. Le conseguenze possono essere gravi se uno sviluppatore ha dannosi o viene assegnato l'accesso eccessivo. È consigliabile che le regole del privilegio minimo essere applicate per gli sviluppatori in tutto il ciclo di vita di sviluppo.
+>  Le regole del privilegio minimo devono essere valide per il software e per gli utenti che creano il software. Gli sviluppatori di software possono essere un grosso rischio per la sicurezza IT se hanno un accesso troppo elevato. Le conseguenze possono essere gravi se uno sviluppatore ha finalità dannose o ha un accesso troppo elevato. Si consiglia di applicare le regole con privilegi minimi agli sviluppatori durante tutto il ciclo di vita di sviluppo.
 
-#### <a name="implement-just-in-time-access"></a>Implementare l'accesso just-in-time
+#### <a name="implement-just-in-time-access"></a>Implementare l'accesso just-in-Time
 
-Implementare *just-in-time* accesso (JIT) per ridurre ulteriormente il tempo di esposizione dei privilegi. Uso [Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure#stage-3-build-visibility-and-take-full-control-of-admin-activity) per:
+Implementare l'accesso JIT ( *just-in-Time* ) per ridurre ulteriormente il tempo di esposizione dei privilegi. Usare [Azure ad Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure#stage-3-build-visibility-and-take-full-control-of-admin-activity) per:
 
-- Concedere agli utenti le autorizzazioni necessarie solo JIT.
+- Fornire agli utenti le autorizzazioni necessarie solo per JIT.
 - Assegnare i ruoli per un periodo di tempo ridotto sapendo che i privilegi vengono revocati automaticamente.
 
-### <a name="require-re-authentication-for-important-transactions"></a>Richiedere una nuova autenticazione per le transazioni importanti
+### <a name="require-re-authentication-for-important-transactions"></a>Richiedi nuova autenticazione per transazioni importanti
 
-[Richiesta intersito falsa](https://docs.microsoft.com/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (noto anche come *XSRF* oppure *CSRF*) è un attacco contro applicazioni ospitate sul web in cui un'app web dannoso influenza l'interazione tra un browser client e un sito web App che consideri attendibile tale browser. Richiesta intersito falsa attacchi sono possibili in quanto i browser web inviano alcuni tipi di token di autenticazione automaticamente con ogni richiesta a un sito Web.
-Questo modulo di sfruttamento è noto anche come un *attacco di un solo clic* oppure *sessione puntato* perché l'attacco sfrutta l'utente autenticato del precedentemente sessione.
+[Richiesta tra siti falsa](https://docs.microsoft.com/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (noto anche come *XSRF* o *CSRF*) è un attacco contro app ospitate da Web in cui un'app Web dannosa influisce sull'interazione tra un browser client e un'app Web che considera attendibile il browser. Gli attacchi di richiesta intersito falsificazione sono possibili perché i Web browser inviano automaticamente alcuni tipi di token di autenticazione con ogni richiesta a un sito Web.
+Questa forma di sfruttamento è nota anche come *attacco con un solo clic* o per la *sessione* , perché l'attacco sfrutta la sessione precedentemente autenticata dell'utente.
 
-Il modo migliore per evitare questo tipo di attacco consiste nel chiedere all'utente per qualcosa che può fornire solo l'utente prima di ogni transazione importanti, ad esempio un acquisto, la disattivazione di account o una modifica della password. Si potrebbe chiedere all'utente di immettere nuovamente la password, completare un captcha o invia un token segreto che potrebbe avere solo l'utente. L'approccio più comune è il token del segreto.
+Il modo migliore per difendersi da questo tipo di attacco è chiedere all'utente un elemento che solo l'utente può fornire prima di ogni transazione importante, ad esempio un acquisto, la disattivazione dell'account o una modifica della password. È possibile chiedere all'utente di immettere nuovamente la password, completare un CAPTCHA o inviare un token segreto che avrebbe solo l'utente. L'approccio più comune è il token segreto.
 
-### <a name="use-a-key-management-solution-to-secure-keys-credentials-and-other-secrets"></a>Usare una soluzione di gestione delle chiavi per proteggere le chiavi, le credenziali e altri segreti
+### <a name="use-a-key-management-solution-to-secure-keys-credentials-and-other-secrets"></a>Usare una soluzione di gestione delle chiavi per proteggere chiavi, credenziali e altri segreti
 
-Perdere chiavi e credenziali è un problema comune. un rischio ben peggiore della perdita di chiavi e credenziali consiste negli accessi non autorizzati. Gli utenti malintenzionati possono sfruttare i vantaggi delle tecniche automatizzati e manuali per trovare le chiavi e segreti archiviati nel repository di codice come GitHub. Non inserire chiavi e segreti in questi archivi di codice pubblica o in qualsiasi altro server.
+Perdere chiavi e credenziali è un problema comune. un rischio ben peggiore della perdita di chiavi e credenziali consiste negli accessi non autorizzati. Gli utenti malintenzionati possono sfruttare le tecniche automatizzate e manuali per trovare chiavi e segreti archiviati in repository di codice, ad esempio GitHub. Non inserire chiavi e segreti in questi repository di codice pubblico o in un altro server.
 
-Inserire sempre le chiavi, i certificati, i segreti e le stringhe di connessione in una soluzione di gestione delle chiavi. È possibile usare una soluzione centralizzata in cui sono archiviati le chiavi e segreti in moduli di protezione hardware (HSM). Azure offre un modulo di protezione hardware nel cloud con [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis).
+Inserire sempre chiavi, certificati, segreti e stringhe di connessione in una soluzione di gestione delle chiavi. È possibile utilizzare una soluzione centralizzata in cui le chiavi e i segreti sono archiviati in moduli di protezione hardware (HSM). Azure fornisce un modulo di protezione hardware nel cloud con [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis).
 
-Key Vault è un *archivio segreto*: si tratta di un servizio cloud centralizzata per l'archiviazione dei segreti dell'applicazione. Key Vault mantiene i dati riservati sicuro mantenendo i segreti dell'applicazione in un'unica posizione centrale e fornire accesso sicuro, il controllo delle autorizzazioni e la registrazione di accesso.
+Key Vault è un *Archivio segreto*: si tratta di un servizio cloud centralizzato per l'archiviazione dei segreti delle applicazioni. Key Vault mantiene i dati riservati in modo sicuro mantenendo i segreti dell'applicazione in un'unica posizione centrale e fornendo accesso sicuro, controllo delle autorizzazioni e registrazione di accesso.
 
-I segreti vengono memorizzati in singoli *insiemi di credenziali*. Ogni insieme di credenziali ha la propria configurazione e criteri di sicurezza per controllare l'accesso. Accedere ai dati tramite un'API REST o tramite un SDK che è disponibile per la maggior parte dei linguaggi di programmazione client.
+I segreti vengono archiviati in *singoli insiemi*di credenziali. Ogni insieme di credenziali dispone di criteri di configurazione e di sicurezza per controllare l'accesso. È possibile accedere ai dati tramite un'API REST o un SDK client disponibile per la maggior parte dei linguaggi di programmazione.
 
 > [!IMPORTANT]
-> Azure Key Vault è progettato per archiviare i segreti di configurazione per le applicazioni server. Non è destinato l'archiviazione dei dati che appartengono agli utenti di app. Questo si riflette nelle relative caratteristiche di prestazioni, API e modello di costo.
+> Azure Key Vault è progettato per archiviare i segreti di configurazione per le applicazioni server. Non è destinato all'archiviazione dei dati che appartengono agli utenti dell'app. Ciò si riflette nelle caratteristiche di prestazioni, nell'API e nel modello di costo.
 >
-> I dati utente devono essere archiviati altrove, ad esempio in un'istanza di Database SQL di Azure con Transparent Data Encryption (TDE) oppure in un account di archiviazione che utilizza la crittografia del servizio di archiviazione di Azure. È possono mantenere i segreti utilizzati dall'applicazione per accedere a questi archivi dati in Azure Key Vault.
+> I dati utente devono essere archiviati in un'altra posizione, ad esempio in un'istanza del database SQL di Azure con Transparent Data Encryption (Transparent Data Encryption) o in un account di archiviazione che usa crittografia del servizio di archiviazione di Azure. I segreti usati dall'applicazione per accedere a questi archivi dati possono essere conservati in Azure Key Vault.
 
 ### <a name="protect-sensitive-data"></a>Proteggere i dati sensibili
 
 La protezione dei dati è una parte essenziale della strategia di sicurezza.
-Classificazione dei dati e identificare la protezione dei dati deve consente di progettare l'app con tenendo conto della sicurezza dei dati. Classificazione (categorizzazione) i dati archiviati dalla sensibilità e impatto aziendale consente agli sviluppatori di determinare i rischi associati a dati.
+La classificazione dei dati e l'identificazione delle esigenze di protezione dei dati ti permettono di progettare la tua app tenendo presente la sicurezza dei dati. La classificazione (categorizzazione) dei dati archiviati in base alla sensibilità e all'effetto aziendale consente agli sviluppatori di determinare i rischi associati ai dati.
 
-Tutti i dati applicabili etichetta sensibile quando si progettano i formati di dati. Assicurarsi che l'applicazione gestisce i dati applicabili come sensibili. Queste procedure consentono di proteggere i dati sensibili:
+Etichettare tutti i dati applicabili come sensibili quando si progettano i formati di dati. Assicurarsi che l'applicazione consideri i dati applicabili come sensibili. Queste procedure consentono di proteggere i dati sensibili:
 
-- Usare la crittografia.
-- Evitare di impostare come hardcoded i segreti, ad esempio le chiavi e password.
-- Assicurarsi che siano presenti i controlli di accesso e controllo.
+- Utilizzare la crittografia.
+- Evitare segreti a livello di codice come chiavi e password.
+- Verificare che i controlli di accesso e il controllo siano disponibili.
 
-#### <a name="use-encryption"></a>Usare la crittografia
+#### <a name="use-encryption"></a>Usa crittografia
 
 La protezione dei dati deve essere una parte essenziale della strategia di sicurezza.
-Se i dati sono archiviati in un database o se sposta avanti e indietro tra i percorsi, usare la crittografia dei [dati inattivi](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest) (all'interno di database) e la crittografia dei [i dati in transito](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit) (in modo da e verso l'utente, il database, un'API o endpoint di servizio). È consigliabile usare sempre i protocolli SSL/TLS per lo scambio di dati. Assicurarsi di usare la versione più recente di TLS per la crittografia (attualmente, questa è la versione 1.2).
+Se i dati vengono archiviati in un database o si spostano da una posizione all'altra, usare la crittografia dei [dati](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest) inattivi (nel database) e la crittografia dei [dati in transito](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit) (in modo da e verso l'utente, il database, un'API o un endpoint di servizio). È consigliabile usare sempre i protocolli SSL/TLS per lo scambio di dati. Assicurarsi di usare la versione più recente di TLS per la crittografia (attualmente, questa è la versione 1,2).
 
-#### <a name="avoid-hard-coding"></a>Evitare di impostare come hardcoded
+#### <a name="avoid-hard-coding"></a>Evitare la programmazione a livello di codice
 
-Alcuni elementi non devono essere mai impostate come hardcoded nel software. Alcuni esempi sono i nomi host o IP indirizzi, URL, gli indirizzi di posta elettronica, i nomi utente, password, chiavi dell'account di archiviazione e altre chiavi di crittografia. È consigliabile implementare i requisiti di tutto ciò che può o non possono essere impostate come hardcoded nel codice, inclusi nelle sezioni commento del codice.
+Alcune operazioni non dovrebbero mai essere hardcoded nel software. Alcuni esempi sono nomi host o indirizzi IP, URL, indirizzi di posta elettronica, nomi utente, password, chiavi dell'account di archiviazione e altre chiavi crittografiche. Prendere in considerazione l'implementazione dei requisiti relativi a quanto può o non può essere hardcoded nel codice, incluse le sezioni relative ai commenti del codice.
 
-Quando si inseriscono commenti nel codice, assicurarsi di non salvare le informazioni riservate. Ciò include l'indirizzo di posta elettronica, password, stringhe di connessione, informazioni sull'applicazione che potrebbe essere nota solo da un utente nell'organizzazione e altri elementi che è possibile assegnare un utente malintenzionato un vantaggio in attaccare l'applicazione o l'organizzazione .
+Quando si inseriscono commenti nel codice, assicurarsi di non salvare le informazioni riservate. Sono inclusi l'indirizzo di posta elettronica, le password, le stringhe di connessione, le informazioni sull'applicazione che saranno note solo da un utente dell'organizzazione e qualsiasi altra cosa che potrebbe dare a un utente malintenzionato un vantaggio nell'attacco dell'applicazione o dell'organizzazione .
 
-In pratica, si presuppone che tutti gli elementi di progetto di sviluppo saranno pubblici della Knowledge base quando viene distribuita. Evitare di includere dati sensibili di qualsiasi tipo nel progetto.
+In pratica, si supponga che tutti gli elementi del progetto di sviluppo saranno una conoscenza pubblica al momento della distribuzione. Evitare di includere dati sensibili di qualsiasi tipo nel progetto.
 
-Versioni precedenti, abbiamo discusso [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis). È possibile usare Key Vault per archiviare i segreti, ad esempio le chiavi e password, anziché a livello di codice. Quando si usa Key Vault in combinazione con identità gestite per le risorse di Azure, app web di Azure possono accedere i valori di configurazione segreto semplice e sicuro senza archiviare tutti i segreti nel controllo del codice sorgente o configurazione. Per altre informazioni, vedere [gestire i segreti nelle tue App server con Azure Key Vault](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/).
+In precedenza, abbiamo discusso [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis). È possibile usare Key Vault per archiviare segreti quali chiavi e password anziché impostarli come hardcoded. Quando si usa Key Vault in combinazione con le identità gestite per le risorse di Azure, l'app Web di Azure può accedere ai valori di configurazione segreta in modo semplice e sicuro senza archiviare segreti nel controllo del codice sorgente o nella configurazione. Per altre informazioni, vedere [gestire i segreti nelle app Server con Azure Key Vault](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/).
 
-### <a name="implement-fail-safe-measures"></a>Implementazione di misure in modalità provvisoria
+### <a name="implement-fail-safe-measures"></a>Implementare misure non sicure
 
-L'applicazione deve essere in grado di gestire [errori](https://docs.microsoft.com/dotnet/standard/exceptions/) che si verificano durante l'esecuzione in modo coerente. L'applicazione deve rilevare tutti gli errori e uno esito negativo chiusi o sicuri.
+L'applicazione deve essere in grado di gestire in modo coerente gli [errori](https://docs.microsoft.com/dotnet/standard/exceptions/) che si verificano durante l'esecuzione. L'applicazione deve intercettare tutti gli errori e non può essere chiusa o chiusa.
 
-È anche necessario assicurarsi che gli errori vengono registrati con il contesto utente sufficienti per identificare attività sospette o dannoso. I log devono essere mantenuti per un tempo sufficiente consentire le analisi forensi ritardata. I log devono essere in un formato che può essere facilmente utilizzato da una soluzione di gestione di log. Assicurarsi che vengono generati avvisi per gli errori correlati alla sicurezza. Insufficiente di registrazione e monitoraggio consente agli utenti malintenzionati attaccare i sistemi e mantenere la persistenza ulteriormente.
+È inoltre necessario assicurarsi che gli errori vengano registrati con un contesto utente sufficiente per identificare attività sospette o dannose. I log devono essere conservati per un periodo di tempo sufficiente per consentire l'analisi forense ritardata. I log devono essere in un formato che può essere facilmente utilizzato da una soluzione di gestione dei log. Verificare che vengano attivati gli avvisi relativi a errori correlati alla sicurezza. La registrazione e il monitoraggio insufficienti consentono agli utenti malintenzionati di eseguire ulteriori attacchi e mantenere la persistenza.
 
-### <a name="take-advantage-of-error-and-exception-handling"></a>Sfruttare i vantaggi di errore e la gestione delle eccezioni
+### <a name="take-advantage-of-error-and-exception-handling"></a>Sfruttare i vantaggi della gestione degli errori e delle eccezioni
 
-Implementazione di correggere l'errore e [la gestione delle eccezioni](https://docs.microsoft.com/dotnet/standard/exceptions/best-practices-for-exceptions) è una parte importante di codifica difensive. Errore e la gestione delle eccezioni sono essenziali per prendere un sistema affidabile e sicura. Diversi tipi di vulnerabilità di sicurezza, ad esempio verifica una perdita di informazioni a utenti malintenzionati e aiuta gli utenti malintenzionati di comprendere meglio la piattaforma e la progettazione possono causare errori nella gestione degli errori.
+L'implementazione della corretta [gestione](https://docs.microsoft.com/dotnet/standard/exceptions/best-practices-for-exceptions) degli errori e delle eccezioni è una parte importante del codice difensivo. La gestione degli errori e delle eccezioni è fondamentale per rendere un sistema affidabile e sicuro. Gli errori nella gestione degli errori possono comportare diversi tipi di vulnerabilità della sicurezza, ad esempio la perdita di informazioni per gli utenti malintenzionati e gli utenti malintenzionati a comprendere meglio la piattaforma e la progettazione.
 
 Assicurarsi che:
 
-- Gestire le eccezioni in modo centralizzato per evitare duplicati [blocchi try/catch](https://docs.microsoft.com/dotnet/standard/exceptions/how-to-use-the-try-catch-block-to-catch-exceptions) nel codice.
+- È possibile gestire le eccezioni in modo centralizzato per evitare [blocchi try/catch](https://docs.microsoft.com/dotnet/standard/exceptions/how-to-use-the-try-catch-block-to-catch-exceptions) duplicati nel codice.
 
 - Tutti i comportamenti imprevisti vengono gestiti all'interno dell'applicazione.
 
-- I messaggi che vengono visualizzati agli utenti non determinare una perdita di dati critici, ma forniscono informazioni sufficienti per spiegare il problema.
+- I messaggi visualizzati dagli utenti non perdono i dati critici ma forniscono informazioni sufficienti per spiegare il problema.
 
-- Le eccezioni vengono registrate e che forniscono informazioni sufficienti per consentire ai team di risposta forensi o un evento imprevisto da analizzare.
+- Le eccezioni vengono registrate e forniscono informazioni sufficienti per analizzare i team forensi o di risposta agli eventi imprevisti.
 
-[Le app di Azure per la logica](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview) offre un'esperienza all'avanguardia per [gestione di errori ed eccezioni](https://docs.microsoft.com/azure/logic-apps/logic-apps-exception-handling) che sono causati da sistemi dipendenti. È possibile usare App per la logica per creare flussi di lavoro per automatizzare le attività e processi che si integrano App, dati, sistemi e servizi tra aziende e organizzazioni.
+[App](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview) per la logica di Azure offre un'esperienza di prima classe per la [gestione di errori ed eccezioni](https://docs.microsoft.com/azure/logic-apps/logic-apps-exception-handling) causati da sistemi dipendenti. Puoi usare app per la logica per creare flussi di lavoro per automatizzare attività e processi che integrano app, dati, sistemi e servizi tra aziende e organizzazioni.
 
-### <a name="use-logging-and-alerting"></a>Usare la registrazione e gestione degli avvisi
+### <a name="use-logging-and-alerting"></a>Usare la registrazione e gli avvisi
 
-[Log](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1) rilascia la sicurezza per le indagini di sicurezza e attivare gli avvisi sui problemi per garantire che le persone conoscono i problemi in modo tempestivo. Abilitare il controllo e la registrazione su tutti i componenti. I log di controllo devono acquisire il contesto utente e identificare tutti gli eventi importanti.
+[Registrare](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1) i problemi di sicurezza per le indagini di sicurezza e attivare gli avvisi sui problemi per assicurarsi che gli utenti conoscano i problemi in modo tempestivo. Abilitare il controllo e la registrazione su tutti i componenti. I log di controllo devono acquisire il contesto utente e identificare tutti gli eventi importanti.
 
-Verificare di non accedere i dati sensibili che un utente invia al sito. Esempi di dati sensibili:
+Verificare che non vengano registrati dati sensibili che un utente invia al sito. Esempi di dati sensibili:
 
-- Credenziali dell'utente
+- Credenziali utente
 - Numeri di previdenza sociale o altre informazioni di identificazione
 - Numeri di carta di credito o altre informazioni finanziarie
 - Informazioni sulla salute
-- Le chiavi private o altri dati che possono essere usati per decrittografare le informazioni crittografate
+- Chiavi private o altri dati che possono essere usati per decrittografare le informazioni crittografate
 - Informazioni sul sistema o sull'applicazione che possono essere usate per attaccare l'applicazione in modo più efficace
 
-Assicurarsi che l'applicazione monitori gli eventi di gestione utente, ad esempio gli accessi utente riusciti e non riusciti, la reimpostazione della password, le modifiche delle password, il blocco degli account e registrazione dell'utente. La registrazione per questi eventi consente di rilevare e rispondere a potenziali comportamenti sospetti. Inoltre, consente di raccogliere dati operativi, ad esempio chi accede all'applicazione.
+Verificare che l'applicazione monitori gli eventi di gestione utenti, ad esempio gli accessi utente riusciti e non riusciti, le reimpostazioni della password, le modifiche alle password, il blocco degli account e la registrazione dell'utente. La registrazione di questi eventi consente di rilevare e reagire a comportamenti potenzialmente sospetti. Consente inoltre di raccogliere dati sulle operazioni, ad esempio gli utenti che accedono all'applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere gli articoli seguenti, si consiglia di controlli di sicurezza e le attività che consentono di sviluppano e distribuiscono applicazioni sicure.
+Negli articoli seguenti si consigliano i controlli di sicurezza e le attività che consentono di sviluppare e distribuire applicazioni sicure.
 
-- [Sviluppo di applicazioni sicure](secure-develop.md)
-- [Distribuisci applicazioni sicure](secure-deploy.md)
+- [Sviluppare applicazioni sicure](secure-develop.md)
+- [Distribuire applicazioni sicure](secure-deploy.md)

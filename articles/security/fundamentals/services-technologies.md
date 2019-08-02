@@ -8,18 +8,19 @@ manager: barbkess
 editor: TomSh
 ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: barclayn
-ms.openlocfilehash: 621e466b286c155459211c35990811f9e018e5fe
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 741e6b9cad20645fdfc085623fd9492a12ac1dfc
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68612509"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726554"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Servizi e tecnologie per la sicurezza disponibili in Azure
 
@@ -30,7 +31,7 @@ Queste informazioni sono utili ai fini della valutazione delle opzioni per la sc
 L'elenco verrà modificato e accresciuto nel corso del tempo, parallelamente ad Azure. Ricordare di controllare regolarmente questa pagina per essere sempre aggiornati sulle tecnologie e i servizi relativi alla sicurezza.
 
 ## <a name="general-azure-security"></a>Sicurezza di Azure generale
-|Service|DESCRIZIONE|
+|Service|Descrizione|
 |--------|--------|
 |[Centro&nbsp;sicurezza&nbsp;di Azure](/azure/security-center/security-center-intro)| Soluzione di protezione dei carichi di lavoro nel cloud che supporta la gestione della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro cloud ibridi.|
 |[Insieme di credenziali chiave Azure](/azure/key-vault/key-vault-overview)| Archivio di segreti sicuro per password, stringhe di connessione e altre informazioni necessarie per il funzionamento delle app. |
@@ -64,7 +65,7 @@ L'elenco verrà modificato e accresciuto nel corso del tempo, parallelamente ad 
 
 
 ## <a name="identity-and-access-management"></a>Gestione delle identità e dell'accesso
-|Service|DESCRIZIONE|
+|Service|Descrizione|
 |------|--------|
 | [Controllo degli accessi&nbsp;in base&nbsp;al ruolo&nbsp;di Azure](/azure/active-directory/role-based-access-control-configure)|Funzionalità di controllo di accesso progettata per consentire agli utenti di accedere solo alle risorse necessarie in base ai rispettivi ruoli all'interno dell'organizzazione.  |
 | [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)|Repository di autenticazione basato sul cloud che supporta una directory multi-tenant basata sul cloud e più servizi di gestione delle identità all'interno di Azure.  |

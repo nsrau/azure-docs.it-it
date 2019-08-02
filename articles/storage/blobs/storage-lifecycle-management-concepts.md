@@ -1,20 +1,19 @@
 ---
 title: Gestione del ciclo di vita di archiviazione di Azure
 description: Informazioni su come creare regole dei criteri del ciclo di vita per la transizione dei dati da livelli di archiviazione ad accesso frequente a livelli di archiviazione ad accesso sporadico e archivio.
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.topic: conceptual
-ms.date: 05/21/2019
 ms.author: mhopkins
-ms.reviewer: yzheng
+ms.date: 05/21/2019
+ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: cd02051c0ef1dfe93b1ee67a0a9605e1611f336b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.topic: conceptual
+ms.reviewer: yzheng
+ms.openlocfilehash: 77ed643afaf5e69f41224af68f5e9f8a93fcace5
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565981"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722087"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gestire il ciclo di vita dell'archiviazione BLOB di Azure
 
@@ -285,7 +284,7 @@ I filtri includono:
 
 | Nome filtro | Tipo filtro | Note | Obbligatorio |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Una matrice di valori di enumerazione predefiniti. | La versione corrente supporta `blockBlob`. | Yes |
+| blobTypes   | Una matrice di valori di enumerazione predefiniti. | La versione corrente supporta `blockBlob`. | Sì |
 | prefixMatch | Una matrice di stringhe per i prefissi corrispondenti. Ogni regola può definire un massimo di 10 prefissi. Una stringa di prefisso deve iniziare con un nome di contenitore. Se ad esempio si desidera trovare la corrispondenza di tutti i `https://myaccount.blob.core.windows.net/container1/foo/...` BLOB in per una regola, prefixMatch `container1/foo`è. | Se non si definisce prefixMatch, la regola si applica a tutti i BLOB all'interno dell'account di archiviazione.  | No |
 
 ### <a name="rule-actions"></a>Azioni regola
@@ -305,7 +304,7 @@ La gestione del ciclo di vita supporta la suddivisione in livelli e l'eliminazio
 
 Le condizioni di esecuzione sono basate sull'età. Per tenere traccia del tempo trascorso, i BLOB di base usano la data/ora dell'ultima modifica, mentre gli snapshot dei BLOB usano la data/ora di creazione dello snapshot.
 
-| Condizione di esecuzione azione             | Valore della condizione                          | Descrizione                             |
+| Condizione di esecuzione azione             | Valore della condizione                          | DESCRIZIONE                             |
 |----------------------------------|------------------------------------------|-----------------------------------------|
 | daysAfterModificationGreaterThan | Valore intero che indica il tempo trascorso in giorni | Condizione per le azioni BLOB di base     |
 | daysAfterCreationGreaterThan     | Valore intero che indica il tempo trascorso in giorni | Condizione per le azioni snapshot BLOB |

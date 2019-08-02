@@ -1,28 +1,26 @@
 ---
 title: Elencare le risorse di archiviazione di Azure con la libreria client di archiviazione per C++ | Documentazione Microsoft
 description: Imparare a utilizzare le API elencate nella libreria Client di archiviazione di Microsoft Azure per C++ per enumerare contenitori, BLOB, code, tabelle ed entità.
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.topic: article
-ms.date: 01/23/2017
 ms.author: mhopkins
-ms.reviewer: dineshm
+ms.date: 01/23/2017
+ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: edf50b97ff25a67b41bad266df9236145f288409
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.reviewer: dineshm
+ms.openlocfilehash: 3a87e39c9435ba02357b4b655e95e96666242b71
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65146886"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721926"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Elenco delle risorse di archiviazione di Azure in C++
+
 Elenco operazioni fondamentali per numerosi scenari di sviluppo con la risorsa di archiviazione di Azure. In questo articolo viene descritto come enumerare in modo più efficiente gli oggetti in archiviazione di Azure utilizzando l'elenco interfacce API fornito nella libreria client di archiviazione di Microsoft Azure per C++.
 
 > [!NOTE]
 > Questa guida fa riferimento alla libreria client di Archiviazione di Azure per la versione 2.x di C++, disponibile tramite [NuGet](https://www.nuget.org/packages/wastorage) o [GitHub](https://github.com/Azure/azure-storage-cpp).
-> 
-> 
 
 La libreria Client di archiviazione fornisce un'ampia gamma di metodi per elencare o effettuare una query degli oggetti nel servizio di archiviazione Azure. In questo articolo vengono affrontati i seguenti scenari:
 
@@ -35,6 +33,7 @@ La libreria Client di archiviazione fornisce un'ampia gamma di metodi per elenca
 Ognuno di questi metodi viene visualizzato utilizzando diversi overload per scenari diversi.
 
 ## <a name="asynchronous-versus-synchronous"></a>Asincrono o sincrono
+
 Poiché la libreria client di archiviazione per C++ viene compilata sopra la [libreria REST C++](https://github.com/Microsoft/cpprestsdk), le operazioni asincrone sono intrinsecamente supportate tramite [pplx::task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Ad esempio:
 
 ```cpp
@@ -53,13 +52,14 @@ list_blob_item_segment list_blobs_segmented(const continuation_token& token) con
 Se si lavora con più applicazioni o servizi di threading, è consigliabile utilizzare direttamente l'API asincrona anziché creare un thread per chiamare le API sincrone, poiché quest’ultima operazione influisce notevolmente sulle prestazioni.
 
 ## <a name="segmented-listing"></a>Elenco segmentato
+
 La scalabilità di archiviazione cloud richiede un elenco segmentato. Ad esempio, è possibile avere più di un milione di BLOB in un contenitore di blob di Azure o più di un miliardo di entità in una tabella di Azure. Non sono numeri teorici, ma casi di utilizzo di clienti reali.
 
 Pertanto non è pratico elencare tutti gli oggetti in un'unica risposta. Al contrario, è possibile elencare gli oggetti utilizzando la paginazione. Ogni elenco API ha un overload *segmentato* .
 
 La risposta per un'operazione elenco segmentato include:
 
-* <i>_segment</i>che contiene il set di risultati restituiti per una singola chiamata all'elenco API.
+* *_segment*che contiene il set di risultati restituiti per una singola chiamata all'elenco API.
 * *continuation_token* che viene passato alla chiamata successiva per ottenere la pagina successiva dei risultati. Quando non sono presenti ulteriori risultati da restituire, il token di continuazione è nullo.
 
 Ad esempio, una chiamata tipica per ottenere un elenco di tutti i BLOB in un contenitore può essere simile al seguente frammento di codice. Il codice è disponibile nei nostri [esempi](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp):
@@ -102,6 +102,7 @@ Si noti anche che una query sull'archiviazione di tabelle di Azure può non rest
 Il modello di codifica consigliato per la maggior parte degli scenari è l’elenco segmentato, che fornisce lo stato di avanzamento esplicito di elenco o di una query e informazioni su come il servizio risponde a ciascuna richiesta. In particolare per le applicazioni o i servizi C++, il controllo a basso livello dello stato dell'elenco può aiutare a controllare memoria e prestazioni.
 
 ## <a name="greedy-listing"></a>Elenco greedy
+
 Le versioni precedenti della libreria Client di archiviazione per C++ (versioni 0.5.0 anteprima e versioni precedenti) includevano API ad elenco non segmentato per tabelle e code, come nell'esempio seguente:
 
 ```cpp
@@ -147,6 +148,7 @@ Specificando il parametro *max_results* del segmento, è possibile bilanciare nu
 Se si usano anche API a elenco segmentato, ma si memorizzano i dati in una raccolta locale in stile "greedy", è consigliabile effettuare il refactoring del codice per gestire l'archiviazione dei dati in una raccolta locale facendo attenzione alla scalabilità.
 
 ## <a name="lazy-listing"></a>Elenco Lazy
+
 Benché l’elenco greedy generi potenziali problemi, è conveniente non avere troppi oggetti nel contenitore.
 
 Se si usa anche C# o Oracle Java SDK, è necessario conoscere il modello di programmazione enumerabile, che offre un elenco in stile lazy, in cui i dati in un determinato offset vengono recuperati solo se necessario. In C++, il modello basato sull’iteratore offre inoltre un approccio simile.
@@ -181,7 +183,8 @@ Un elenco lazy rispetto a un elenco greedy, recupera i dati solo quando necessar
 
 Le API ad elenco lazy sono incluse nella libreria client di archiviazione per C++ nella versione 2.2.0.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
+
 In questo articolo, abbiamo parlato di diversi overload per elencare le API per vari oggetti nella libreria Client di archiviazione per C++. Per riepilogare:
 
 * Le API asincrone sono fortemente consigliate in più scenari di threading.
@@ -190,6 +193,7 @@ In questo articolo, abbiamo parlato di diversi overload per elencare le API per 
 * L’elenco greedy non è consigliato ed è stato rimosso dalla libreria.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Per ulteriori informazioni sull'archiviazione di Azure e sulla libreria Client per C++, vedere le risorse seguenti.
 
 * [Come usare l’archiviazione BLOB da C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
@@ -198,4 +202,3 @@ Per ulteriori informazioni sull'archiviazione di Azure e sulla libreria Client p
 * [Documentazione relativa alla libreria Client di archiviazione Azure per API C++.](https://azure.github.io/azure-storage-cpp/)
 * [Blog del team di Archiviazione di Azure](https://blogs.msdn.com/b/windowsazurestorage/)
 * [Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
-

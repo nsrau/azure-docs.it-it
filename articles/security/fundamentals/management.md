@@ -8,18 +8,19 @@ manager: barbkess
 editor: TomSh
 ms.assetid: 2431feba-3364-4a63-8e66-858926061dd3
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 9bf6878ee5f269dfc5be8aee218342d78a34a154
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: ca0067090924428a50ad2360f23a86576fff6cd3
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68615161"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68727017"
 ---
 # <a name="security-management-in-azure"></a>Gestione della sicurezza in Azure
 I sottoscrittori di Azure possono gestire i propri ambienti cloud da più dispositivi, tra cui workstation di gestione, PC per sviluppatori e dispositivi di utenti finali con privilegi elevati con autorizzazioni specifiche per le attività. In alcuni casi le funzioni amministrative vengono eseguite tramite console basate sul Web, ad esempio il [portale di Azure](https://azure.microsoft.com/features/azure-portal/). In altri casi è possibile che vengano usate connessioni dirette ad Azure da sistemi locali su reti private virtuali (VPN), Servizi terminal, protocolli applicativi client oppure, a livello di codice, l'API Gestione dei servizi di Azure (SMAPI). Gli endpoint client possono essere inoltre aggiunti a un dominio o isolati e non gestiti, ad esempio tablet o smartphone.

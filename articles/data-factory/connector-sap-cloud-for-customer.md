@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/17/2018
+ms.date: 08/01/2018
 ms.author: jingwang
-ms.openlocfilehash: e4625b934f9e1cf98254f3dee59f9c26e8e16fb5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 30025499ae3073a04863d711423bd9556e7fc6c4
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60578709"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726029"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Copiare dati da SAP Cloud for Customer (C4C) usando Azure Data Factory
 
@@ -42,8 +42,8 @@ Per il servizio collegato di SAP Cloud for Customer sono supportate le propriet�
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **SapCloudForCustomer**. | Yes |
-| url | URL del servizio SAP C4C OData. | Yes |
-| username | Specificare il nome utente per la connessione a SAP C4C. | Yes |
+| url | URL del servizio SAP C4C OData. | Sì |
+| userName | Specificare il nome utente per la connessione a SAP C4C. | Sì |
 | password | Specificare la password dell'account utente specificato per il nome utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No per l'origine, Sì per il sink |
 
@@ -81,7 +81,7 @@ Per copiare dati da SAP Cloud for Customer, impostare la proprietà type del set
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **SapCloudForCustomerResource** |Yes |
+| type | La proprietà type del set di dati deve essere impostata su: **SapCloudForCustomerResource** |Sì |
 | path | Specificare il percorso dell'entità SAP C4C OData. |Yes |
 
 **Esempio:**
@@ -94,6 +94,7 @@ Per copiare dati da SAP Cloud for Customer, impostare la proprietà type del set
         "typeProperties": {
             "path": "<path e.g. LeadCollection>"
         },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SAP C4C linked service>",
             "type": "LinkedServiceReference"

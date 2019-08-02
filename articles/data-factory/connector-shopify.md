@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: c25232abf20bbe3d01672b7620e5d2f5e31d5c8a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b4bb56155e925f9e19570d89d091342afd594009
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60343512"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725972"
 ---
 # <a name="copy-data-from-shopify-using-azure-data-factory-preview"></a>Copiare dati da Shopify tramite Azure Data Factory (anteprima)
 
@@ -44,9 +44,9 @@ Per il servizio collegato Shopify sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Shopify** | Yes |
+| type | La proprietà type deve essere impostata su: **Shopify** | Sì |
 | host | Endpoint del server Shopify, ovvero mystore.myshopify.com  | Yes |
-| accessToken | Token di accesso all'API che permette di accedere ai dati di Shopify. Il token non scade se è in modalità offline. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| accessToken | Token di accesso all'API che permette di accedere ai dati di Shopify. Il token non scade se è in modalità offline. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No |
 | useHostVerification | Specifica se è necessario che il nome host nel certificato del server corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è true.  | No |
 | usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite SSL. Il valore predefinito è true.  | No |
@@ -77,7 +77,7 @@ Per copiare dati da Shopify, impostare la proprietà type del set di dati su **S
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **ShopifyObject** | Yes |
+| type | La proprietà type del set di dati deve essere impostata su: **ShopifyObject** | Sì |
 | tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
@@ -87,11 +87,12 @@ Per copiare dati da Shopify, impostare la proprietà type del set di dati su **S
     "name": "ShopifyDataset",
     "properties": {
         "type": "ShopifyObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Shopify linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 59a97e8a6e34aba8639c7f12b52e42f2c97b7dca
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 93c36ccb244931c12d8b038f448fbda4eff77f16
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704462"
+ms.locfileid: "68721718"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 
@@ -209,9 +209,9 @@ Le condivisioni file standard sono disponibili in tutte le aree fino a 5 TiB. In
 |-------|---------|---------|---------|
 |Australia orientale  |Archiviazione con ridondanza locale|No         |Sì|
 |Francia centrale  |Archiviazione con ridondanza locale|No         |Non ancora|
-|Asia sudorientale  |Archiviazione con ridondanza locale|No         |Solo con ridondanza locale, ZRS-non ancora|
+|Asia sudorientale  |CON RIDONDANZA LOCALE, ZRS|No         |Solo con ridondanza locale, ZRS-non ancora|
 |Europa occidentale     |CON RIDONDANZA LOCALE, ZRS|No       |Sì|
-|Stati Uniti occidentali 2       |CON RIDONDANZA LOCALE, ZRS|No         |Yes|
+|Stati Uniti occidentali 2       |CON RIDONDANZA LOCALE, ZRS|No         |Sì|
 
 \* Per le aree senza supporto per il portale, è comunque possibile usare PowerShell o l'interfaccia della riga di comando di Azure per creare più di 5 condivisioni TiB. Altenatively creare una nuova condivisione tramite il portale senza specificare la quota. Verrà creata una condivisione con le dimensioni predefinite 100 TiB, che può essere aggiornata in un secondo momento tramite PowerShell o l'interfaccia della riga di comando di Azure.
 

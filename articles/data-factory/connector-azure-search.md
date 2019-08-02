@@ -10,18 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: faf0cab55ec0cef034638d218f2172f3676ff39b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: edf475ac11168c33a6b11ccda3482ac44579e8d8
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66245116"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726213"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Copiare dati in un indice di Ricerca di Azure usando Azure Data Factory
 
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-azure-search-connector.md)
 > * [Versione corrente](connector-azure-search.md)
 
@@ -49,7 +49,7 @@ Per il servizio collegato di Ricerca di Azure sono supportate le proprietà segu
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 > [!IMPORTANT]
-> Quando si copiano dati da un archivio dati cloud nell'indice di ricerca di Azure, in ricerca di Azure, servizio collegato, è necessario fare riferimento a un Runtime di integrazione di Azure con area esplicita in connactVia. Impostare l'area in base a quella in cui si trova Ricerca di Azure. Altre informazioni da [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime).
+> Quando si copiano dati da un archivio dati cloud a un indice di ricerca di Azure, nel servizio collegato di ricerca di Azure è necessario fare riferimento a un Azure Integration Runtime con area esplicita in connactVia. Impostare l'area in base a quella in cui si trova Ricerca di Azure. Altre informazioni da [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime).
 
 **Esempio:**
 
@@ -91,12 +91,13 @@ Per copiare dati in ricerca di Azure, sono supportate le proprietà seguenti:
     "name": "AzureSearchIndexDataset",
     "properties": {
         "type": "AzureSearchIndex",
+        "typeProperties" : {
+            "indexName": "products"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Azure Search linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties" : {
-            "indexName": "products"
         }
    }
 }

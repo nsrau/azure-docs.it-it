@@ -1,21 +1,19 @@
 ---
-title: Come usare archiviazione di Accodamento (C++)-archiviazione di Azure
+title: Come usare l'archiviazione di Accodamento (C++)-archiviazione di Azure
 description: Informazioni su come usare il servizio di archiviazione di Accodamento in Azure. Gli esempi sono scritti in C++.
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.devlang: cpp
-ms.topic: article
-ms.date: 05/11/2017
 ms.author: mhopkins
-ms.reviewer: cbrooks
+ms.date: 05/11/2017
+ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 440033233bbd60421cc3245a04544cd04caec6f4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.reviewer: cbrooks
+ms.openlocfilehash: e268e30e8f8c512dd6efb5a50da45f173e526b62
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153114"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721651"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>Come usare l'archiviazione delle code da C++
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -83,7 +81,7 @@ Per visualizzare le informazioni dell'account di archiviazione, è possibile usa
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
-## <a name="how-to-create-a-queue"></a>Procedura: Creare una coda
+## <a name="how-to-create-a-queue"></a>Procedura: Crea una coda
 L'oggetto **cloud_queue_client** consente di ottenere oggetti di riferimento per le code. Il codice seguente crea un oggetto **cloud_queue_client**.
 
 ```cpp

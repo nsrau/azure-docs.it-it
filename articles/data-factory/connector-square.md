@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: f22311af277f860c1501287b5be0f5dc149880b9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a88c58bd52ea816aaef1c628913ccbd7fcf1cd35
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61462361"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720624"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Copiare dati da Square tramite Azure Data Factory (anteprima)
 
@@ -46,9 +46,9 @@ Per il servizio collegato di Square sono supportate le proprietà seguenti:
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **Square** | Yes |
 | host | URL dell'istanza di Square, ad esempio mystore.mysquare.com.  | Yes |
-| clientId | ID client associato all'applicazione Square.  | Yes |
+| clientId | ID client associato all'applicazione Square.  | Sì |
 | clientSecret | Segreto client associato all'applicazione Square. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| redirectUri | URL di reindirizzamento assegnato nel dashboard dell'applicazione Square, (ad esempio http:\//localhost:2500)  | Yes |
+| redirectUri | URL di reindirizzamento assegnato nel dashboard dell'applicazione Square, (ad esempio, http\/:/localhost: 2500)  | Yes |
 | useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No |
 | useHostVerification | Specifica se è necessario che il nome host nel certificato del server corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è true.  | No |
 | usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite SSL. Il valore predefinito è true.  | No |
@@ -91,11 +91,12 @@ Per copiare dati da Square, impostare la proprietà type del set di dati su **Sq
     "name": "SquareDataset",
     "properties": {
         "type": "SquareObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Square linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
