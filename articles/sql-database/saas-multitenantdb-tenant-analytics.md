@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
-manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 4bf97c0c447bfabc1454959d457bbd50f3490299
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b36911d274a3afb3582d60ea7e85b5afd5f52ece
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242791"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570298"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Analisi su più tenant con dati estratti in un'app multi-tenant
  
@@ -92,9 +91,9 @@ Nei passaggi seguenti si distribuiscono l'archivio di analisi, denominato **tena
 2. Impostare la variabile $DemoScenario nello script in base all'archivio di analisi scelto. Ai fini dell'apprendimento, è consigliabile un database SQL senza columnstore.
     - Per usare un database SQL senza columnstore, impostare **$DemoScenario** = **2**
     - Per usare un database SQL con columnstore, impostare **$DemoScenario** = **3**  
-3. Premere **F5** per eseguire lo script della demo (che chiama il *Deploy-TenantAnalytics\<XX > con estensione ps1* script) che consente di creare l'archivio di analitica di tenant. 
+3. Premere **F5** per eseguire lo script demo (che chiama lo script *deploy-\<TenantAnalytics XX >. ps1* ) che crea l'archivio di analisi dei tenant. 
 
-Dopo aver distribuito l'applicazione e avervi inserito i dati tenant interessanti, usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) connettersi **tenants1-mt -\<utente\>**  e **catalog-mt -\<utente\>**  server usando l'account di accesso = *developer*, Password = *P\@ssword1*.
+Ora che l'applicazione è stata distribuita e compilata con dati del tenant interessanti, usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) per connettere **tenants1\<-\> mt-User** e **Catalog\<-mt-user\>** server che usano login = *Developer*, password *=\@P ssword1*.
 
 ![architectureOverView](media/saas-multitenantdb-tenant-analytics/ssmsSignIn.png)
 
@@ -176,7 +175,7 @@ Seguire questa procedura per connettersi a Power BI e importare le viste create 
 
     ![powerBISignIn](media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
 
-5. Selezionare **Database** nel riquadro sinistro, quindi immettere nome utente = *developer*, quindi immettere la password = *P\@ssword1*. Fare clic su **Connetti**.  
+5. Selezionare **database** nel riquadro sinistro, quindi immettere nome utente = *Developer*e immettere password = *P\@ssword1*. Fare clic su **Connetti**.  
 
     ![DatabaseSignIn](media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
 

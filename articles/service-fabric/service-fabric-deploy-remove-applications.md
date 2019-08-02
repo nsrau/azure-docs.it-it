@@ -3,7 +3,7 @@ title: Distribuzione dell'applicazione Azure Service Fabric | Microsoft Docs
 description: Come distribuire e rimuovere applicazioni in Service Fabric con PowerShell.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: b120ffbf-f1e3-4b26-a492-347c29f8f66b
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
-ms.author: aljo
-ms.openlocfilehash: f0f66cd32721e277cbd6e4578b0e58bb201ee966
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: 3cfebadf6dadeb81b1b57e671b19594b75645e31
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393271"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599603"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Distribuire e rimuovere applicazioni con PowerShell
 
@@ -31,7 +31,7 @@ ms.locfileid: "60393271"
 
 <br/>
 
-Dopo aver creato il [pacchetto di un tipo di applicazione][10], è possibile distribuirlo in un cluster di Azure Service Fabric. La distribuzione prevede i tre passaggi seguenti:
+Una volta creato il pacchetto, un [tipo di applicazione][10]è pronto per la distribuzione in un cluster di Azure Service Fabric. La distribuzione prevede i tre passaggi seguenti:
 
 1. Caricare il pacchetto dell'applicazione nell'archivio immagini.
 2. Registrare il tipo di applicazione con il percorso relativo dell'archivio immagini.
@@ -357,14 +357,14 @@ Per informazioni agguntive sull'archivio di immagini e ImageStoreConnectionStrin
 
 ### <a name="deploy-large-application-package"></a>Distribuire un pacchetto dell'applicazione di grandi dimensioni
 
-Problema: [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) verifica il timeout per un pacchetto di applicazione di grandi dimensioni (nell'ordine di GB).
+Problema: Si verifica il timeout di [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) per un pacchetto di applicazioni di grandi dimensioni (ordine di GB).
 Soluzione:
 - Specificare un timeout maggiore per il comando [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps), con il parametro `TimeoutSec`. Il timeout è di 30 minuti per impostazione predefinita.
 - Controllare la connessione di rete tra il computer di origine e il cluster. Se la connessione è lenta, provare a usare una macchina con una connessione di rete più veloce.
 Se il computer client si trova in un'area diversa dal cluster, si consiglia di usare un computer cliente in un'area più vicina o nella stessa area del cluster.
 - Controllare se si stiano raggiungendo le limitazioni esterne. Ad esempio, quando l'archivio immagini è configurato per usare l'archiviazione di Azure, il caricamento potrebbe essere limitato.
 
-Problema: Caricare il pacchetto è stato tuttavia [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) verifica il timeout. Soluzione:
+Problema: Il pacchetto di caricamento è stato completato correttamente, ma si verifica il timeout di [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) . Soluzione:
 - [Comprimere il pacchetto](service-fabric-package-apps.md#compress-a-package) prima di copiarlo nell'archivio immagini.
 La compressione riduce le dimensioni e il numero di file, cosa che a sua volta riduce il traffico e le operazioni di Service Fabric. L'operazione di caricamento potrebbe risultare più lenta (specialmente se si include il tempo di compressione), ma registrazione e relativo annullamento del tipo dell'applicazione saranno più veloci.
 - Specificare un timeout maggiore per il comando [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps), con il parametro `TimeoutSec`.
@@ -383,7 +383,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 
 ### <a name="deploy-application-package-with-many-files"></a>Distribuire un pacchetto di applicazione con numerosi file
 
-Problema: [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) raggiunge il timeout per un pacchetto di applicazione con molti file (nell'ordine di migliaia).
+Problema: Si verifica il timeout di [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) per un pacchetto di applicazione con molti file (ordine di migliaia).
 Soluzione:
 - [Comprimere il pacchetto](service-fabric-package-apps.md#compress-a-package) prima di copiarlo nell'archivio immagini. La compressione riduce il numero dei file.
 - Specificare un timeout maggiore per il comando [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps), con il parametro `TimeoutSec`.

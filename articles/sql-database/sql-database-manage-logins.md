@@ -11,14 +11,13 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 03/26/2019
-ms.openlocfilehash: af6cec22ae455e6a6ead4c45fead2d7ff5b708d2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3a59e276c3ec9717634c8f0f3634b7337ebc47d8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070513"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567700"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Controllo e concessione dell'accesso al database SQL e a SQL Data Warehouse
 
@@ -64,7 +63,7 @@ Quando è configurato un firewall a livello di server per un singolo indirizzo I
 
 Quando il firewall a livello di server è configurato correttamente, l'**amministratore del server SQL** e l'**amministratore di Azure Active Directory** possono connettersi usando strumenti client come SQL Server Management Studio o SQL Server Data Tools. Solo gli strumenti più recenti offrono tutte le caratteristiche e le funzionalità. Il diagramma seguente illustra una configurazione tipica per i due account amministratore.
 
-![configurazione degli account di amministrazione di due](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
+![configurazione dei due account di amministrazione](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
 
 Quando viene usata una porta aperta nel firewall a livello di server, gli amministratori possono connettersi a qualsiasi database SQL.
 
@@ -205,7 +204,7 @@ Quando si gestiscono gli accessi e gli utenti nel database SQL, prendere in cons
   GO
   ```
   
-  In alternativa, usare l'istruzione Transact-SQL seguente:
+  Usare invece l'istruzione Transact-SQL seguente:
   
   ```sql
   DROP DATABASE IF EXISTS [database_name]

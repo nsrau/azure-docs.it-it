@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: e578b3a6b3905569567b568b0130c1ed1b90d915
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 09de2919b22ebb088b23c1ab59f60d182657a2f1
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60557766"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720417"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Copiare dati da Tabella Web usando Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-web-table-connector.md)
 > * [Versione corrente](connector-web-table.md)
 
@@ -56,7 +56,7 @@ Per il servizio collegato di Tabella Web sono supportate le proprietà seguenti:
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **Web** |Yes |
 | url | URL dell'origine Web |Sì |
-| authenticationType | Il valore consentito è: **Anonymous**. |Yes |
+| authenticationType | Il valore consentito è: **Anonymous**. |Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Sì |
 
 **Esempio:**
@@ -86,7 +86,7 @@ Per copiare dati da Tabella Web, impostare la proprietà type del set di dati su
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **WebTable** | Yes |
+| type | La proprietà type del set di dati deve essere impostata su: **WebTable** | Sì |
 | path |URL relativo della risorsa che contiene la tabella. |No. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. |
 | index |Indice della tabella nella risorsa. Per i passaggi per ottenere l'indice di una tabella in una pagina HTML, vedere la sezione [Ottenere l'indice di una tabella in una pagina HTML](#get-index-of-a-table-in-an-html-page) . |Yes |
 
@@ -97,13 +97,14 @@ Per copiare dati da Tabella Web, impostare la proprietà type del set di dati su
     "name": "WebTableInput",
     "properties": {
         "type": "WebTable",
-        "linkedServiceName": {
-            "referenceName": "<Web linked service name>",
-            "type": "LinkedServiceReference"
-        },
         "typeProperties": {
             "index": 1,
             "path": "AFI's_100_Years...100_Movies"
+        },
+        "schema": [],
+        "linkedServiceName": {
+            "referenceName": "<Web linked service name>",
+            "type": "LinkedServiceReference"
         }
     }
 }

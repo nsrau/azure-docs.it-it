@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/19/2019
+ms.date: 07/26/2019
 ms.author: bwren
-ms.openlocfilehash: 56dd1c29d5606da96bbc6d519b70caf580852446
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 397272c3a47aca2aa73394f443d76dead66308e0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273071"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68555333"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Log personalizzati in Monitoraggio di Azure
 L'origine dati dei log personalizzati in Monitoraggio di Azure consente di raccogliere gli eventi dai file di testo nei computer Windows e Linux. Molte applicazioni registrano le informazioni nei file di testo invece di usare servizi di registrazione standard come il registro eventi di Windows o Syslog. Al termine della raccolta, è possibile analizzare i dati nei singoli campi nelle query o estrarli durante la raccolta in singoli campi.
@@ -71,14 +71,11 @@ Se viene usato un delimitatore Timestamp, la proprietà TimeGenerated di ogni re
 4. Modificare il delimitatore usato per identificare un nuovo record e selezionare il delimitatore che identifica meglio i record nel file di log.
 5. Fare clic su **Avanti**.
 
-### <a name="step-3-add-log-collection-paths"></a>Passaggio 3. Aggiungere percorsi di raccolta di log
+### <a name="step-3-add-log-collection-paths"></a>Passaggio 3. Aggiungi percorsi raccolta log
 È necessario definire uno o più percorsi nell'agente in cui è possibile individuare il log personalizzato.  È possibile fornire un percorso specifico e un nome per il file di log oppure specificare un percorso con un carattere jolly per il nome. Questa opzione è utile per le applicazioni che creano un nuovo file ogni giorno o quando un file raggiunge una determinata dimensione. È anche possibile fornire più percorsi per un singolo file di log.
 
 Ad esempio, un'applicazione potrebbe creare un file di log ogni giorno con la data inclusa nel nome, come in log20100316.txt. Un modello per questo log potrebbe essere *log\*.txt*, applicabile a qualsiasi file di log in base allo schema di denominazione dell'applicazione.
 
->[!NOTE]
-> Se l'applicazione crea un nuovo file di log ogni giorno o quando raggiunge una dimensione specifica, l'agente di Log Analytics per Linux non esegue l'individuazione di questo finché non viene riavviato. Questo avviene perché l'agente esegue l'enumerazione e inizia il monitoraggio dei criteri con i log specificati solo all'avvio. Per questo motivo è necessario pianificare tali operazioni automatizzando il riavvio dell'agente.  Questa limitazione non riguarda l'agente di Log Analytics per Windows.  
->
 
 La tabella seguente fornisce esempi di percorsi validi per specificare file di log diversi.
 

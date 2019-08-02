@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-manager: craigg
 ms.date: 07/01/2019
-ms.openlocfilehash: 5188862c50895c8e3f1bdecb4e08d39409bb5f9e
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 313e8af0e42f5108a22261a475b5340208adb7bf
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491658"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568550"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Panoramica delle query elastiche del database SQL di Azure (anteprima)
 
@@ -140,10 +139,10 @@ Le query elastiche sono incluse nei costi dei database SQL di Azure. Sono suppor
 * La creazione di script di origini dati esterne o tabelle esterne da SSMS o SSDT non è ancora supportata.
 * L'importazione/esportazione per il database SQL non supporta ancora origini dati esterne e tabelle esterne. Se è necessario usare l'importazione/esportazione, eliminare questi oggetti prima dell'esportazione e quindi crearli di nuovo dopo l'importazione.
 * La query elastica supporta attualmente solo l'accesso in sola lettura alle tabelle esterne. È tuttavia possibile usare la funzionalità T-SQL completa nel database in cui viene definita la tabella esterna. Ciò può risultare utile, ad esempio, per rendere permanenti i risultati temporanei usando, ad esempio SELECT <elenco_colonne> INTO <tabella_locale>, oppure per definire stored procedure nel database sottoposto a query elastiche che fanno riferimento a tabelle esterne.
-* Ad eccezione di nvarchar (max), tipi LOB (inclusi i tipi spaziali) non sono supportati nelle definizioni di tabella esterna. Come soluzione alternativa, è possibile creare una visualizzazione nel database remoto che esegue il cast del tipo LOB in nvarchar(max), definire una tabella esterna sulla visualizzazione invece della tabella di base e quindi eseguirne di nuovo il cast nel tipo LOB originale nelle query.
+* Ad eccezione di nvarchar (max), i tipi LOB (inclusi i tipi spaziali) non sono supportati nelle definizioni di tabella esterna. Come soluzione alternativa, è possibile creare una visualizzazione nel database remoto che esegue il cast del tipo LOB in nvarchar(max), definire una tabella esterna sulla visualizzazione invece della tabella di base e quindi eseguirne di nuovo il cast nel tipo LOB originale nelle query.
 * Le colonne del tipo di dati nvarchar (max) nel set di risultati disattivano le tecniche di invio in batch avanzate usate nell'implementazione di query elastiche e possono influire sulle prestazioni della query per un ordine di grandezza o addirittura due ordini di grandezza in casi d'uso non canonici dove grandi quantità di dati non aggregati vengono trasferiti come risultato della query.
 * Le statistiche di colonna sulle tabelle esterne non sono attualmente supportate. Le statistiche di tabella sono supportate ma devono essere create manualmente.
-* La query elastica funziona solo con Database SQL di Azure. Si può essere utilizzato per l'esecuzione di query in SQL Server locale o SQL Server in una macchina virtuale.
+* La query elastica funziona solo con il database SQL di Azure. Non è possibile usarlo per eseguire query su SQL Server locali o SQL Server in una macchina virtuale.
 
 ## <a name="feedback"></a>Commenti e suggerimenti
 

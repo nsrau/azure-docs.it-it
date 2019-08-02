@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: a9c857ab9e9a3cfc0d1314600b612c4e6293173d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3e7e2294938179da83fb5ad03db177c1142ad096
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60332314"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568343"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Aumentare il numero di istanze dei database con il gestore delle mappe partizioni
 
@@ -54,7 +53,7 @@ La scalabilità elastica supporta i tipi seguenti come chiavi di partizionamento
 
 | .NET | Java |
 | --- | --- |
-| numero intero |numero intero |
+| integer |integer |
 | long |long |
 | GUID |uuid |
 | byte[]  |byte[] |

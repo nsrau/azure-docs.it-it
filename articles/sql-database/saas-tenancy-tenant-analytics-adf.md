@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: MightyPen, sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: a658e2fe32ec95dfabad54684a0c9095af7a341d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b22a9cf8c79530fd931cbe944ef5bfc876a02243
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61485084"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570140"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Esplorare l'analisi basata su SaaS con il database SQL di Azure, SQL Data Warehouse, Data Factory e Power BI
 
@@ -94,7 +93,7 @@ In questo passaggio si distribuiscono le risorse aggiuntive usate nell'esercitaz
 
 Esaminare ora le risorse di Azure distribuite.
 #### <a name="tenant-databases-and-analytics-store"></a>Database tenant e archivio di analisi
-Usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) per connettersi ai server **tenants1-dpt-&lt;utente&gt;** e **catalog-dpt-&lt;utente&gt;** . Sostituire &lt;utente&gt; con il valore usato al momento della distribuzione dell'app. Usare account di accesso = *sviluppatore* e la Password = *P\@ssword1*. Per altre indicazioni, vedere l'[esercitazione introduttiva](saas-dbpertenant-wingtip-app-overview.md).
+Usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) per connettersi ai server **tenants1-dpt-&lt;utente&gt;** e **catalog-dpt-&lt;utente&gt;** . Sostituire &lt;utente&gt; con il valore usato al momento della distribuzione dell'app. Usare login = *Developer* and password = *P\@ssword1*. Per altre indicazioni, vedere l'[esercitazione introduttiva](saas-dbpertenant-wingtip-app-overview.md).
 
 ![Connettersi al server di database SQL da SSMS](media/saas-tenancy-tenant-analytics/ssmsSignIn.JPG)
 
@@ -195,7 +194,7 @@ Seguire questa procedura per connettersi a Power BI e importare le viste create 
 
     ![sign-in-to-power-bi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Selezionare **Database** nel riquadro sinistro, quindi immettere nome utente = *developer*, quindi immettere la password = *P\@ssword1*. Fare clic su **Connetti**.  
+5. Selezionare **database** nel riquadro sinistro, quindi immettere nome utente = *Developer*e immettere password = *P\@ssword1*. Fare clic su **Connetti**.  
 
     ![database-sign-in](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
