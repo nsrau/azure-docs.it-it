@@ -12,17 +12,17 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/17/2019
-ms.openlocfilehash: 12738b63be92420c5f3afea6c133522cbd97f849
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.date: 07/29/2019
+ms.openlocfilehash: 9f16ebc5acff7bbccc9de28e2fab0d223c6e244b
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420229"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640005"
 ---
 # <a name="tutorial-build-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Esercitazione: Creare un modello di clustering in R con Machine Learning Services del database SQL di Azure (anteprima)
 
-Nella seconda parte di questa serie di esercitazioni in tre parti verrà creato un modello K-means per eseguire il clustering in R con Machine Learning Services del database SQL di Azure (anteprima).
+Nella seconda parte di questa serie di esercitazioni in tre parti verrà creato un modello K-means in R per eseguire il clustering. Nella parte successiva di questa serie questo modello verrà distribuito in un database SQL con Machine Learning Services di Database SQL di Azure (anteprima).
 
 L'articolo spiega come:
 
@@ -31,9 +31,9 @@ L'articolo spiega come:
 > * Eseguire il clustering
 > * Analizzare i risultati
 
-Nella [prima parte](sql-database-tutorial-clustering-model-prepare-data.md) si è appreso come preparare i dati di un database SQL di Azure per eseguire il clustering in R.
+Nella [prima parte](sql-database-tutorial-clustering-model-prepare-data.md) si è appreso come preparare i dati di un database SQL di Azure per eseguire il clustering.
 
-Nella [terza parte](sql-database-tutorial-clustering-model-deploy.md) si è appreso come creare una stored procedure in un database SQL di Azure in grado di eseguire il clustering in base ai nuovi dati.
+Nella [terza parte](sql-database-tutorial-clustering-model-deploy.md) si apprenderà come creare una stored procedure in un database SQL di Azure in grado di eseguire il clustering in base ai nuovi dati.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 

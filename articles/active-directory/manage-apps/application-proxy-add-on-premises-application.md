@@ -12,12 +12,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecff60d1a1f808c4021476d136fe014175451672
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.openlocfilehash: c890288539a8abebe688ca4571ffa6c152e992ee
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723970"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68694048"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Esercitazione: Aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory
 
@@ -85,8 +85,6 @@ Aprire le porte seguenti al traffico **in uscita**.
    | 443 | Tutte le comunicazioni in uscita con il servizio proxy di applicazione |
 
 Se il firewall regola il traffico in base agli utenti di origine, aprire anche le porte 80 e 443 per il traffico proveniente da servizi di Windows in esecuzione come servizio di rete.
-
-Se si usa già il proxy di applicazione, potrebbe essere installata una versione precedente del connettore. Seguire questa esercitazione per installare la versione più recente del connettore. Le versioni precedenti a 1.5.132.0 richiedono anche di aprire le porte seguenti: 5671, 8080, 9090-9091, 9350, 9352, 10100–10120.
 
 ### <a name="allow-access-to-urls"></a>Consentire l'accesso agli URL
 
@@ -180,7 +178,7 @@ Dopo aver preparato l'ambiente e aver installato un connettore, si è pronti per
 
     | Campo | DESCRIZIONE |
     | :---- | :---------- |
-    | **Timeout applicazione back-end** | Impostare questo valore su **Lungo** solo se l'applicazione è lenta nell'autenticazione e nella connessione. |
+    | **Timeout applicazione back-end** | Impostare questo valore su **Lungo** solo se l'applicazione è lenta nell'autenticazione e nella connessione. Per impostazione predefinita, il timeout dell'applicazione back-end ha una durata di 85 secondi. Se viene impostato su Lungo, il timeout del back-end viene aumentato a 180 secondi. |
     | **Usa cookie solo HTTP** | Impostare questo valore su **Sì** per includere nei cookie del proxy di applicazione il flag HTTPOnly nell'intestazione della risposta HTTP. Se si usa Servizi Desktop remoto, impostare questo valore su **No**.|
     | **Usa cookie protetti**| Impostare questo valore su **Sì** per trasmettere i cookie tramite un canale protetto, ad esempio una richiesta HTTPS crittografata.
     | **Usa cookie persistente**| Mantenere questo valore impostato su **No**. Usare questa impostazione solo per le applicazioni che non possono condividere cookie tra processi. Per altre informazioni sulle impostazioni dei cookie, vedere [Cookie settings for accessing on-premises applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings) (Impostazioni dei cookie per l'accesso alle applicazioni locali in Azure Active Directory).

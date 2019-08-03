@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Traduzione vocale, C# (.NET Core - Windows)'
+title: 'Guida introduttiva: Traduzione vocale, C# (.NET Core Windows) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si creerà una semplice applicazione .NET Core per acquisire i contenuti vocali dell'utente, convertirli in un'altra lingua e restituire il testo nella riga di comando. Questa guida è destinata agli utenti di Windows.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 8ab76a786f11677f5d8f0715b257bd2fb04e50bf
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 81e652e6456b049c2f4fca938d02d1b0724f2ffd
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602802"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609681"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-core"></a>Guida introduttiva: Traduzione vocale con Speech SDK per .NET Core
 
 Sono disponibili guide di avvio rapido anche per il [riconoscimento vocale](quickstart-csharp-dotnet-windows.md) e la [sintesi vocale](quickstart-text-to-speech-dotnetcore.md).
 
-In questa guida introduttiva si creerà una semplice applicazione .NET Core per acquisire i contenuti vocali dell'utente dal microfono del computer, tradurli e trascrivere il testo tradotto nella riga di comando in tempo reale. L'applicazione è progettata per l'esecuzione in Windows a 64 bit e si basa sul pacchetto [NuGet Speech SDK](https://aka.ms/csspeech/nuget) e su Microsoft Visual Studio 2017.
+In questa guida introduttiva si creerà una semplice applicazione .NET Core per acquisire i contenuti vocali dell'utente dal microfono del computer, tradurli e trascrivere il testo tradotto nella riga di comando in tempo reale. L'applicazione è progettata per l'esecuzione in Windows a 64 bit e si basa sul pacchetto [NuGet Speech SDK](https://aka.ms/csspeech/nuget) e su Microsoft Visual Studio 2017 o versioni successive.
 
 Per un elenco completo di lingue disponibili per la traduzione vocale, vedere [Supporto per le lingue](language-support.md).
 
@@ -30,7 +30,7 @@ Per un elenco completo di lingue disponibili per la traduzione vocale, vedere [S
 Questa guida introduttiva richiede:
 
 * [ASP.NET Core SDK](https://dotnet.microsoft.com/download)
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) o versioni successive
 * Una chiave di sottoscrizione di Azure per il servizio Voce. [È possibile ottenerne una gratuitamente](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Creare un progetto di Visual Studio

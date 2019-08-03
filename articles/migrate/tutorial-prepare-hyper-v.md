@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/11/2019
+ms.date: 07/24/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9e0d29770aa36f8e79bf08b7c5435ea2dbc4ae38
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 514905bf2db1c0c58faa131eeb916af033b2c830
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840377"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640848"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Preparare le VM Hyper-V per la valutazione e la migrazione ad Azure
 
@@ -40,20 +40,13 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ### <a name="azure-permissions"></a>Autorizzazioni di Azure
 
-Per distribuire Azure Migrate, sono necessarie un paio di autorizzazioni:
+È necessario configurare le autorizzazioni per la distribuzione di Azure Migrate.
 
-- L'account Azure deve avere le autorizzazioni per creare un progetto di Azure Migrate per la valutazione e la migrazione. 
-- L'account Azure deve avere le autorizzazioni per registrare l'appliance di Azure Migrate.
-    - Per la valutazione, Azure Migrate esegue un'appliance leggera che individua le VM Hyper-V e invia i relativi metadati e i dati sulle prestazioni ad Azure Migrate.
-    - Durante la registrazione dell'appliance, Azure Migrate crea due app Azure Active Directory (Azure AD) che la identificano in modo univoco:
-        - La prima app comunica con gli endpoint del servizio Azure Migrate.
-        - La seconda app accede a un'istanza di Azure Key Vault creata durante la registrazione per archiviare le informazioni delle app Azure AD e le impostazioni di configurazione dell'appliance.
-    - È possibile assegnare le autorizzazioni per consentire ad Azure Migrate di creare queste app Azure AD usando uno dei metodi seguenti:
-        - Un amministratore tenant/globale può concedere agli utenti del tenant le autorizzazioni per creare e registrare app Azure AD.
-        - Un amministratore tenant/globale può assegnare il ruolo Sviluppatore di applicazioni (che include le autorizzazioni) all'account.
-    - Vale la pena notare che:
-        - Le app non hanno altre autorizzazioni di accesso per la sottoscrizione oltre a quelle descritte sopra.
-        - Queste autorizzazioni sono necessarie solo quando si registra una nuova appliance. Dopo la configurazione dell'appliance è possibile rimuoverle. 
+- Autorizzazioni per l'account Azure per la creazione di un progetto Azure Migrate. 
+- Autorizzazioni per l'account per la registrazione dell'appliance di Azure Migrate. L'appliance viene usato per l'individuazione e la migrazione di Hyper-V. Durante la registrazione dell'appliance, Azure Migrate crea due app Azure Active Directory (Azure AD) che la identificano in modo univoco:
+    - La prima app comunica con gli endpoint del servizio Azure Migrate.
+    - La seconda app accede a un'istanza di Azure Key Vault creata durante la registrazione per archiviare le informazioni delle app Azure AD e le impostazioni di configurazione dell'appliance.
+
 
 
 ### <a name="assign-permissions-to-create-project"></a>Assegnare le autorizzazioni per creare il progetto
@@ -61,7 +54,7 @@ Per distribuire Azure Migrate, sono necessarie un paio di autorizzazioni:
 Verificare di avere le autorizzazioni per creare un progetto di Azure Migrate.
 
 1. Nel portale di Azure aprire la sottoscrizione e selezionare **Controllo di accesso (IAM)** .
-2. In **Verifica l'accesso**  trovare l'account pertinente e fare clic su di esso per visualizzare le autorizzazioni.
+2. In **Verifica l'accesso** trovare l'account pertinente e fare clic su di esso per visualizzare le autorizzazioni.
 3. È necessario avere le autorizzazioni di **Collaboratore** o **Proprietario**.
     - Se è appena stato creato un account Azure gratuito, si è proprietari della propria sottoscrizione.
     - Se non si ha il ruolo di proprietario della sottoscrizione, collaborare con il proprietario per assegnare il ruolo.
@@ -69,19 +62,15 @@ Verificare di avere le autorizzazioni per creare un progetto di Azure Migrate.
 
 ### <a name="assign-permissions-to-register-the-appliance"></a>Assegnare le autorizzazioni per registrare l'appliance
 
-Se si intende distribuire l'appliance di Azure Migrate per valutare le VM, è necessario registrarla.
+È possibile assegnare le autorizzazioni per consentire ad Azure Migrate di creare le app Azure AD create durante la registrazione dell'appliance usando uno dei metodi seguenti:
 
-- Durante la registrazione dell'appliance, Azure Migrate crea due app Azure Active Directory (Azure AD) che la identificano in modo univoco
-    - La prima app comunica con gli endpoint del servizio Azure Migrate.
-    - La seconda app accede a un'istanza di Azure Key Vault creata durante la registrazione per archiviare le informazioni delle app Azure AD e le impostazioni di configurazione dell'appliance.
-- È possibile assegnare le autorizzazioni per consentire ad Azure Migrate di creare queste app Azure AD usando uno dei metodi seguenti:
-    - Un amministratore tenant/globale può concedere agli utenti del tenant le autorizzazioni per creare e registrare app Azure AD.
-    - Un amministratore tenant/globale può assegnare il ruolo Sviluppatore di applicazioni (che include le autorizzazioni) all'account.
+- Un amministratore tenant/globale può concedere agli utenti del tenant le autorizzazioni per creare e registrare app Azure AD.
+- Un amministratore tenant/globale può assegnare il ruolo Sviluppatore di applicazioni (che include le autorizzazioni) all'account.
 
 Vale la pena notare che:
 
 - Le app non hanno altre autorizzazioni di accesso per la sottoscrizione oltre a quelle descritte sopra.
-- Queste autorizzazioni sono necessarie solo quando si registra una nuova appliance. Dopo la configurazione dell'appliance è possibile rimuoverle. 
+- Queste autorizzazioni sono necessarie solo quando si registra una nuova appliance. Dopo la configurazione dell'appliance è possibile rimuovere le autorizzazioni. 
 
 
 #### <a name="grant-account-permissions"></a>Concedere le autorizzazioni all'account
@@ -105,7 +94,63 @@ L'amministratore tenant/globale può assegnare il ruolo Sviluppatore di applicaz
 
 ## <a name="prepare-for-hyper-v-assessment"></a>Preparare la valutazione di Hyper-V
 
-Per preparare la valutazione di Hyper-V, verificare le impostazioni degli host e delle VM Hyper-V, nonché le impostazioni per la distribuzione dell'appliance.
+Per preparare la valutazione di Hyper-V, eseguire le operazioni seguenti:
+
+1. Verificare le impostazioni degli host Hyper-V.
+2. Configurare la comunicazione remota di PowerShell in ogni host, in modo che l'appliance di Azure Migrate possa eseguire i comandi di PowerShell nell'host, tramite una connessione WinRM.
+3. Se i dischi delle macchine virtuali si trovano nell'archiviazione SMB remota, è necessaria la delega delle credenziali. 
+    - Abilitare la delega CredSSP in modo che l'appliance di Azure Migrate possa fungere da client, delegando le credenziali a un host. T
+    - Abilitare ogni host in modo che funga da delegato per l'appliance, come descritto di seguito.
+    - Successivamente, quando si configura il dispositivo, si abiliterà la delega nell'appliance.
+4. Esaminare i requisiti dell'appliance e l'accesso a URL/porte necessario per l'appliance.
+5. Configurare un account che l'appliance userà per individuare le macchine virtuali.
+6. Configurare Integration Services Hyper-V in ogni macchina virtuale che si vuole individuare e valutare.
+
+
+È possibile configurare queste impostazioni manualmente usando le procedure seguenti. In alternativa, è possibile eseguire lo script di configurazione dei prerequisiti di Hyper-V.
+
+### <a name="hyper-v-prerequisites-configuration-script"></a>Script di configurazione dei prerequisiti di Hyper-V
+
+Lo script convalida gli host Hyper-V e configura le impostazioni necessarie per individuare e valutare le macchine virtuali Hyper-V. Vengono eseguite le operazioni seguenti:
+
+- Verifica che lo script sia in esecuzione in una versione di PowerShell supportata.
+- Verifica che l'utente che esegue lo script disponga dei privilegi amministrativi per l'host Hyper-V.
+- Consente di creare un account utente locale (non amministratore) usato per la comunicazione tra il servizio Azure Migrate e l'host Hyper-V. Questo account utente viene aggiunto ai gruppi seguenti nell'host:
+    - Utenti gestione remota
+    - Amministratori di Hyper-V
+    - Performance Monitor Users
+- Verifica che l'host esegua una versione supportata di Hyper-V e il ruolo Hyper-V.
+- Abilita il servizio Gestione remota Windows e apre le porte 5985 (HTTP) e 5986 (HTTPS) nell'host (necessario per la raccolta dei metadati).
+- Abilita la comunicazione remota di PowerShell nell'host.
+- Verifica che il servizio di integrazione Hyper-V sia abilitato in tutte le macchine virtuali gestite dall'host. 
+- Se necessario, abilita CredSSP nell'host.
+
+Eseguire lo script nel modo seguente:
+
+1. Assicurarsi che PowerShell 4.0 o versioni successive sia installato nell'host Hyper-V.
+2. Scaricare lo script dall'[Area download Microsoft](https://aka.ms/migrate/script/hyperv). Lo script è firmato da Microsoft per la crittografia.
+3. Convalidare l'integrità dello script usando i file hash MD5 o SHA256. Eseguire questo comando per generare l'hash per lo script:
+    ```
+    C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]
+    ```
+    Esempio di utilizzo: 
+    ```
+    C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1
+    SHA256
+    ```
+    
+    I valori degli hash sono:
+    Hash | Valore
+    --- | ---
+    **Hash MD5** | 0ef418f31915d01f896ac42a80dc414e
+    **Hash SHA256** | 0ef418f31915d01f896ac42a80dc414e0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2
+
+
+4.  Dopo aver convalidato l'integrità dello script, eseguire lo script in ogni host Hyper-V con questo comando di PowerShell:
+    ```
+    PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
+    ```
+
 
 ### <a name="verify-hyper-v-host-settings"></a>Verificare le impostazioni degli host Hyper-V
 
@@ -125,7 +170,12 @@ Configurare la comunicazione remota di PowerShell in ogni host, come indicato di
 
 ### <a name="enable-credssp-on-hosts"></a>Abilitare CredSSP negli host
 
-Se i dischi delle VM virtuali si trovano in condivisioni SMB, completare questo passaggio in ogni host Hyper-V pertinente. Questo passaggio consente di individuare le informazioni di configurazione per le VM Hyper-V con dischi situati in condivisioni SMB. Se non si hanno dischi delle VM in condivisioni SMB, è possibile ignorare il passaggio.
+Se nell'host sono presenti macchine virtuali con dischi che si trovano in condivisioni SMB, completare questo passaggio nell'host.
+
+- È possibile eseguire questo comando in remoto in tutti gli host Hyper-V.
+- I nuovi nodi host eventualmente aggiunti in un cluster vengono aggiunti automaticamente per l'individuazione, ma è necessario abilitare manualmente CredSSP, se applicabile.
+
+Abilitarlo nel modo seguente:
 
 1. Identificare gli host Hyper-V che eseguono le VM Hyper-V con dischi situati in condivisioni SMB.
 2. Eseguire il comando seguente in ogni host Hyper-V identificato:
@@ -134,9 +184,8 @@ Se i dischi delle VM virtuali si trovano in condivisioni SMB, completare questo 
     Enable-WSManCredSSP -Role Server -Force
     ```
 
-- L'autenticazione CredSSP consente all'host Hyper-V di delegare le credenziali per conto del client Azure Migrate.
-- È possibile eseguire questo comando in remoto in tutti gli host Hyper-V.
-- I nuovi nodi host eventualmente aggiunti in un cluster vengono aggiunti automaticamente per l'individuazione, ma è necessario abilitare manualmente CredSSP, se applicabile.
+Quando si configura l'appliance, si completa la configurazione di CredSSP [abilitandolo nell'appliance](tutorial-assess-hyper-v.md#delegate-credentials-for-smb-vhds). Questa operazione viene descritta nell'esercitazione successiva di questa serie.
+
 
 ### <a name="verify-appliance-settings"></a>Verificare le impostazioni dell'appliance
 
@@ -165,7 +214,7 @@ Azure Migrate necessita delle autorizzazioni per individuare le macchine virtual
 
 I servizi di integrazione devono essere abilitati in ogni VM, in modo che Azure Migrate possa acquisire informazioni sul relativo sistema operativo.
 
-- In ogni VM da individuare e valutare abilitare [Servizi di integrazione Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services). 
+In ogni VM da individuare e valutare abilitare [Servizi di integrazione Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services). 
 
 ## <a name="prepare-for-hyper-v-migration"></a>Preparare la migrazione di Hyper-V
 

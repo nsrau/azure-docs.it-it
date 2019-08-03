@@ -8,13 +8,13 @@ ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
-ms.date: 02/08/2019
-ms.openlocfilehash: bbd009d127eecc4df357fc1073ba4055d13a8b2c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 07/29/2019
+ms.openlocfilehash: c6ad1cd7af02f281c53ece23a018f8b5ec0c7da9
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569008"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640948"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Esercitazione: Progettare un database relazionale in un database singolo in Database SQL di Azure con SSMS
 
@@ -30,6 +30,8 @@ Il database SQL di Azure è un database relazionale distribuito come servizio in
 
 *Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
+> [!TIP]
+> Il modulo gratuito seguente di Microsoft Learn contiene informazioni su come [sviluppare e configurare un'applicazione ASP.NET che esegue query su un database SQL di Azure](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), inclusa la creazione di un database semplice.
 > [!NOTE]
 > Per le finalità di questa esercitazione viene usato un database singolo. È anche possibile usare un database in un pool elastico o un database di un'istanza gestita. Per la connettività a un'istanza gestita, vedere queste guide introduttive relative alle istanze gestite: [Guida introduttiva: Configurare una macchina virtuale di Azure per la connessione a Istanza gestita di database SQL di Azure](sql-database-managed-instance-configure-vm.md) e [Guida introduttiva: Configurare una connessione da punto a sito a Istanza gestita di database SQL di Azure da un computer locale](sql-database-managed-instance-configure-p2s.md).
 

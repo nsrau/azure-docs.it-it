@@ -8,30 +8,30 @@ ms.topic: include
 ms.date: 04/06/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 9c519fc2db020b8df22275c6b276c6ec23d10b1c
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b1bbc11d7772e4f56d7dc6ead580b0a0cbd3cd8d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67608233"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68669683"
 ---
 Funzioni semplifica l'aggiunta dell'integrazione di Application Insights a un'app per le funzioni dal [portale di Azure].
 
-1. Nel [portale][portale di Azure], selezionare **Tutti i servizi > App per le funzioni**, selezionare la propria app per le funzioni, quindi scegliere il banner **Application Insights** in alto nella finestra
+1. Nel [portale][portale di Azure] selezionare **Tutti i servizi > App per le funzioni**, selezionare la propria app per le funzioni e quindi il banner **Application Insights** in alto nella finestra
 
     ![Abilitare Application Insights nel portale](media/functions-connect-new-app-insights/enable-application-insights.png)
 
-1. Creare una risorsa di Application Insights usando le impostazioni specificate nella tabella sotto l'immagine:
+1. Creare una risorsa di Application Insights usando le impostazioni specificate nella tabella sotto l'immagine.
 
    ![Creare una risorsa di Application Insights](media/functions-connect-new-app-insights/ai-general.png)
 
     | Impostazione      | Valore consigliato  | Descrizione                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nome** | Nome app univoco | È più facile usare lo stesso nome dell'app per le funzioni, che deve essere univoco nella sottoscrizione. | 
-    | **Posizione** | Europa occidentale | Se possibile, usare la stessa [regione](https://azure.microsoft.com/regions/) dell'app per le funzioni o una limitrofa. |
+    | **Posizione** | Europa occidentale | Se possibile, usare la stessa [area](https://azure.microsoft.com/regions/) dell'app per le funzioni oppure una vicina a tale area. |
 
-1. Scegliere **OK**. La risorsa di Application Insights viene creata nella stesso gruppo di risorse e nella stessa sottoscrizione dell'app per le funzioni. Dopo aver completato la creazione, chiudere la finestra di Application Insights.
+1. Selezionare **OK**. La risorsa di Application Insights viene creata nella stesso gruppo di risorse e nella stessa sottoscrizione dell'app per le funzioni. Dopo aver creato la risorsa, chiudere la finestra di Application Insights.
 
-1. Nell'app per le funzioni, selezionare **Impostazioni applicazione** e scorrere fino a **Impostazioni applicazione**. Quando viene visualizzata un'impostazione denominata `APPINSIGHTS_INSTRUMENTATIONKEY`, significa che l'integrazione di Application Insights è abilitata per l'app per le funzioni in esecuzione in Azure.
+1. Nell'app per le funzioni selezionare **Impostazioni applicazione** e scorrere fino a **Impostazioni applicazione**. Se viene visualizzata un'impostazione denominata `APPINSIGHTS_INSTRUMENTATIONKEY`, l'integrazione di Application Insights è abilitata per l'app per le funzioni in esecuzione in Azure.
 
 [Portale di Azure]: https://portal.azure.com

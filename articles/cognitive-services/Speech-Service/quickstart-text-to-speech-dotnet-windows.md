@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Eseguire la sintesi vocale, .NET Framework (Windows) - Servizi Voce'
+title: 'Guida introduttiva: Sintesi vocale, .NET Framework (Windows) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida per creare un'applicazione console di sintesi vocale con .NET Framework per Windows e Speech SDK. Al termine, è possibile sintetizzare la voce dal testo e ascoltarla dall'altoparlante in tempo reale.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: yinhew
-ms.openlocfilehash: 352d3f5f34bd46d8ee1ba2ed45dcc28af2b430ef
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 3c925e0160a4c57f7e43c3463fc1db7098a6e606
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605018"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553599"
 ---
 # <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Guida introduttiva: Eseguire la sintesi vocale con Speech SDK per .NET Framework (Windows)
 

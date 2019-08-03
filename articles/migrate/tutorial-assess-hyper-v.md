@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 83567a45980b29931f9b68bd6d60df0d427b09de
-ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
+ms.openlocfilehash: c790667c73adfed061b97b14ebb7df4c68461786
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813027"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663792"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Valutare le VM Hyper-V con Valutazione server di Azure Migrate
 
@@ -73,7 +73,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
     - Quando si esegue la migrazione delle VM, è possibile selezionare un'area di destinazione di Azure diversa. Tutte le aree di Azure sono supportate per la destinazione della migrazione.
 
 7. Fare clic su **Avanti**.
-8. In **Selezionare lo strumento di valutazione**  selezionare **Azure Migrate: Valutazione server** > **Avanti**.
+8. In **Selezionare lo strumento di valutazione** selezionare **Azure Migrate: Valutazione server** > **Avanti**.
 
     ![Creare un progetto di Azure Migrate](./media/tutorial-assess-hyper-v/assessment-tool.png)
 
@@ -110,15 +110,17 @@ Scaricare il modello di disco rigido virtuale compresso per l'appliance.
 Prima di distribuire il file compresso, verificarne la sicurezza.
 
 1. Nel computer in cui è stato scaricato il file aprire una finestra di comando con privilegi di amministratore.
-2. Eseguire il comando seguente per generare il codice hash per il disco rigido virtuale
-    - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Esempio di utilizzo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+
+2. Eseguire il comando di PowerShell seguente per generare il codice hash per il file ZIP
+    - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
+    - Esempio di utilizzo: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
+
 3.  Per la versione 1.19.06.27 dell'appliance, l'hash generato deve corrispondere a queste impostazioni.
 
   **Algoritmo** | **Valore hash**
   --- | ---
-  MD5 | 3681f745fa2b0a0a6910707d85161ec5
-  SHA256 | e6ca109afab9657bdcfb291c343b3e3abced9a273d25273059171f9954d25832
+  MD5 | 3681F745FA2B0A0A6910707D85161EC5
+  SHA256 | E6CA109AFAB9657BDCFB291C343B3E3ABCED9A273D25273059171F9954D25832
 
 
 
@@ -158,9 +160,9 @@ Configurare l'appliance per la prima volta.
 1. Nell'app Web selezionare **Set up prerequisites** (Configura i prerequisiti) ed eseguire le operazioni seguenti:
     - **License** (Licenza): Accettare le condizioni di licenza e leggere le informazioni di terze parti.
     - **Connectivity** (Connettività): l'app verifica che la macchina virtuale abbia accesso a Internet. Se la VM usa un proxy:
-        - Fare clic su **Proxy settings** (Impostazioni proxy) e specificare l'indirizzo e la porta di ascolto del proxy in formato http://ProxyIPAddress o http://ProxyFQDN.
-        - Se il proxy richiede l'autenticazione, specificare le credenziali.
-        - È supportato solo il proxy HTTP.
+      - Fare clic su **Proxy settings** (Impostazioni proxy) e specificare l'indirizzo e la porta di ascolto del proxy in formato http://ProxyIPAddress o http://ProxyFQDN.
+      - Se il proxy richiede l'autenticazione, specificare le credenziali.
+      - È supportato solo il proxy HTTP.
     - **Time sync** (Sincronizzazione ora): viene verificata l'ora. Per il corretto funzionamento dell'individuazione di VM, l'ora dell'appliance deve essere sincronizzata con l'ora di Internet.
     - **Install updates** (Installa aggiornamenti): Valutazione server di Azure Migrate verifica che nell'appliance siano installati gli aggiornamenti più recenti.
 
@@ -178,19 +180,31 @@ Configurare l'appliance per la prima volta.
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>Delegare le credenziali per i dischi rigidi virtuali SMB
 
-Se i dischi rigidi virtuali sono in esecuzione in SMB, è necessario abilitare la delega delle credenziali dall'appliance agli host Hyper-V. Se questa operazione non è stata eseguita in ogni host nell'[esercitazione precedente](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts), eseguirla ora dall'appliance:
+Se i dischi rigidi virtuali sono in esecuzione in SMB, è necessario abilitare la delega delle credenziali dall'appliance agli host Hyper-V. A questo scopo è necessario:
 
-1. Nell'appliance VM eseguire questo comando. HyperVHost1/HyperVHost2 sono nomi host di esempio.
+- Abilitare ogni host in modo che funga da delegato per l'appliance. Questa operazione dovrebbe essere eseguita nell'esercitazione precedente, quando si è preparato Hyper-V per la valutazione e la migrazione. È necessario aver configurato CredSSP per gli host [manualmente](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts) oppure [eseguendo lo script di configurazione dei prerequisiti di Hyper-V](tutorial-prepare-hyper-v.md#hyper-v-prerequisites-configuration-script).
+- Abilitare la delega CredSSP in modo che l'appliance di Azure Migrate possa fungere da client, delegando le credenziali a un host.
 
-    ```
-    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
-    ```
+Eseguire l'abilitazione nell'appliance nel modo seguente:
 
-2. In alternativa, eseguire questa operazione nell'editor Criteri di gruppo locali dell'appliance:
-    - In **Criteri del computer locale** > **Configurazione computer** fare clic su **Modelli amministrativi** > **Sistema** > **Delega di credenziali**.
-    - Fare doppio clic su **Consenti delega credenziali nuove** e selezionare **Abilitata**.
-    - In **Opzioni** fare clic su **Mostra** e aggiungere all'elenco ogni host Hyper-V da individuare, con **wsman/** come prefisso.
-    - In **Delega di credenziali** fare doppio clic su **Consenti delega credenziali nuove solo con autenticazione server NTLM**. Anche in questo caso, aggiungere all'elenco ogni host Hyper-V da individuare, con **wsman/** come prefisso.
+#### <a name="option-1"></a>Opzione 1
+
+Nell'appliance VM eseguire questo comando. HyperVHost1/HyperVHost2 sono nomi host di esempio.
+
+```
+Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
+```
+
+Esempio: ` Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force `
+
+#### <a name="option-2"></a>Opzione 2
+
+In alternativa, eseguire questa operazione nell'editor Criteri di gruppo locali dell'appliance:
+
+1. In **Criteri del computer locale** > **Configurazione computer** fare clic su **Modelli amministrativi** > **Sistema** > **Delega di credenziali**.
+2. Fare doppio clic su **Consenti delega credenziali nuove** e selezionare **Abilitata**.
+3. In **Opzioni** fare clic su **Mostra** e aggiungere all'elenco ogni host Hyper-V da individuare, con **wsman/** come prefisso.
+4. A questo punto, in **Delega di credenziali** fare doppio clic su **Consenti delega credenziali nuove solo con autenticazione server NTLM**. Anche in questo caso, aggiungere all'elenco ogni host Hyper-V da individuare, con **wsman/** come prefisso.
 
 ## <a name="start-continuous-discovery"></a>Avviare l'individuazione continua
 
@@ -266,7 +280,7 @@ Una valutazione descrive:
     ![Riepilogo della valutazione](./media/tutorial-assess-hyper-v/assessment-summary.png)
 
 
-### <a name="review-azure-readiness"></a>Rivedere l'idoneità per Azure
+### <a name="review-azure-readiness"></a>Esaminare l'idoneità per Azure
 
 1. In **Idoneità per Azure** verificare se le VM sono pronte per la migrazione ad Azure.
 2. Verificare lo stato delle VM:
@@ -297,7 +311,7 @@ Quando si eseguono valutazioni basate sulle prestazioni, alla valutazione viene 
 
 ![Classificazione di attendibilità](./media/tutorial-assess-hyper-v/confidence-rating.png)
 
-- La classificazione è compresa tra1 stella (minima) e 5 stelle (massima).
+- La classificazione è compresa tra 1 stella (minima) e 5 stelle (massima).
 - La classificazione di attendibilità aiuta a stimare l'affidabilità delle indicazioni relative alle dimensioni fornite dalla valutazione.
 - La classificazione di attendibilità è basata sulla disponibilità dei punti dati necessari per calcolare la valutazione.
 

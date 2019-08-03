@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7a592a7d0d8c9d32de83c92b258c4678dc3f8166
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2d743b53f5ca74299c865d381f0832729fc956f4
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188285"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677601"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Esercitazione: Scalare automaticamente un set di scalabilità di una macchina virtuale con Azure PowerShell
 
@@ -137,7 +137,7 @@ $myScaleProfile = New-AzureRmAutoscaleProfile `
 ```
 
 
-## <a name="apply-autoscale-rules-to-a-scale-set"></a>Applicare le regole di scalabilità automatica a un set di scalabilità
+## <a name="apply-autoscale-profile-to-a-scale-set"></a>Applicare il profilo di scalabilità automatica a un set di scalabilità
 Il passaggio finale consiste nell'applicare il profilo di scalabilità automatica al set di scalabilità. Il numero di istanze nel set di scalabilità potrà quindi essere ridotto o aumentato automaticamente in base alle esigenze delle applicazioni. Applicare il profilo di scalabilità automatica con [Add-AzureRmAutoscaleSetting](/powershell/module/AzureRM.Insights/Add-AzureRmAutoscaleSetting) come indicato di seguito:
 
 ```azurepowershell-interactive
@@ -188,7 +188,7 @@ IpAddress
 52.168.121.216
 ```
 
-Creare una connessione remota alla prima istanza di VM. Specificare l'indirizzo IP pubblico e il numero di porta dell'istanza di VM richiesta, in base a quanto visualizzato dai comandi precedenti. Quando richiesto, immettere le credenziali usate durante la creazione del set di scalabilità. Per impostazione predefinita, nei comandi di esempio le credenziali sono *azureuser* e *P\@ssw0rd!*. Se si usa Azure Cloud Shell, eseguire questo passaggio da un prompt di PowerShell in locale o da un client Desktop remoto. L'esempio seguente stabilisce la connessione all'istanza di VM *0*:
+Creare una connessione remota alla prima istanza di VM. Specificare l'indirizzo IP pubblico e il numero di porta dell'istanza di VM richiesta, in base a quanto visualizzato dai comandi precedenti. Quando richiesto, immettere le credenziali usate durante la creazione del set di scalabilità. Per impostazione predefinita, nei comandi di esempio le credenziali sono *azureuser* e *P\@ssw0rd!* . Se si usa Azure Cloud Shell, eseguire questo passaggio da un prompt di PowerShell in locale o da un client Desktop remoto. L'esempio seguente stabilisce la connessione all'istanza di VM *0*:
 
 ```powershell
 mstsc /v 52.168.121.216:50001

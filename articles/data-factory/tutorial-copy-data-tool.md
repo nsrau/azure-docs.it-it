@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 553e87cacf407da2333da3105647719679feaabf
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a4d5941091c3cf6516380c4d6384951d886e0e7f
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544206"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640333"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copiare dati da un archivio BLOB di Azure a un database SQL con lo strumento Copia dati
-> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory usato:"]
 > * [Versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versione corrente](tutorial-copy-data-tool.md)
 
@@ -72,7 +72,7 @@ Preparare l'archivio BLOB e il database SQL per l'esercitazione seguendo questa 
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Consentire ai servizi di Azure di accedere a SQL Server. Verificare che per il server che esegue il database SQL sia abilitata l'impostazione **Consenti l'accesso a Servizi di Azure**, che consente a Data Factory di scrivere dati nell'istanza di database. Per verificare e attivare l'impostazione, passare a: server di Azure SQL > **Sicurezza** > **Firewall e reti virtuali** > impostare l'opzione **Consenti l'accesso a Servizi di Azure** su **ON**.
+2. Consentire ai servizi di Azure di accedere a SQL Server. Verificare che per il server che esegue il database SQL sia abilitata l'impostazione **Consenti l'accesso a Servizi di Azure**, che consente a Data Factory di scrivere dati nell'istanza di database. Per verificare e attivare l'impostazione, passare a Server di Azure SQL > Panoramica > Imposta firewall server > impostare l'opzione **Consenti l'accesso a Servizi di Azure** su **SÌ**.
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
 
@@ -87,7 +87,7 @@ Preparare l'archivio BLOB e il database SQL per l'esercitazione seguendo questa 
     
     ![Messaggio di errore per nuova data factory](./media/tutorial-copy-data-tool/name-not-available-error.png)
 
-    Se viene visualizzato un messaggio di errore relativo al valore del nome, immettere un nome diverso per la data factory. Ad esempio, usare il nome _**nomeutente**_**ADFTutorialDataFactory**. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere [Azure Data Factory - Regole di denominazione](naming-rules.md).
+    Se viene visualizzato un messaggio di errore relativo al valore del nome, immettere un nome diverso per la data factory. Ad esempio, usare il nome _**nomeutente**_ **ADFTutorialDataFactory**. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere [Azure Data Factory - Regole di denominazione](naming-rules.md).
 1. Selezionare la **sottoscrizione** di Azure in cui creare la nuova data factory.
 1. In **Gruppo di risorse** eseguire una di queste operazioni:
     
@@ -100,7 +100,7 @@ Preparare l'archivio BLOB e il database SQL per l'esercitazione seguendo questa 
 1. In **Versione** selezionare la versione **V2**.
 1. In **Località** selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (ad esempio, Archiviazione di Azure e il database SQL) e le risorse di calcolo (ad esempio, Azure HDInsight) usati dalla data factory possono trovarsi in altre località e aree.
 1. Selezionare **Aggiungi al dashboard**.
-1. Selezionare **Create**.
+1. Selezionare **Create** (Crea).
 1. Il riquadro **Deploying Data Factory** (Distribuzione della data factory) nel dashboard mostra lo stato del processo.
 
     ![Riquadro Deploying data factory (Distribuzione della data factory)](media/tutorial-copy-data-tool/deploying-data-factory.png)

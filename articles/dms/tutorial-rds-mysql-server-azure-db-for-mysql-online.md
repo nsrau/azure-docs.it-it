@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: 09b90f4b53750b94c0ecee7290d6b5405c984ff9
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.date: 07/31/2019
+ms.openlocfilehash: 5848465033ca0b4df3bc7f63e7cef06059f5c3c5
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154878"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667761"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Esercitazione: Eseguire la migrazione di RDS MySQL a Database di Azure per MySQL online con il Servizio Migrazione del database
 
@@ -24,6 +24,7 @@ ms.locfileid: "67154878"
 
 In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
+>
 > * Eseguire la migrazione dello schema di esempio usando le utilità mysqldump e mysql.
 > * Creare un'istanza del Servizio Migrazione del database di Azure.
 > * Creare un progetto di migrazione tramite il Servizio Migrazione del database di Azure.
@@ -56,8 +57,8 @@ Per completare questa esercitazione, è necessario:
 * Creare un'istanza di [Database di Azure per MySQL](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal).
 * Creare una rete virtuale di Azure per il Servizio Migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager, che offre la connettività da sito a sito per i server di origine locali con [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Per altre informazioni sulla creazione di una rete virtuale, vedere [Documentazione sulla rete virtuale](https://docs.microsoft.com/azure/virtual-network/) e in particolare gli articoli di avvio rapido con istruzioni dettagliate.
 * Verificare che le regole del gruppo di sicurezza di rete per la rete virtuale non blocchino le porte di comunicazione in ingresso nel Servizio Migrazione del database di Azure: 443, 53, 9354, 445 e 12000. Per informazioni dettagliate sui filtri del traffico dei gruppi di sicurezza di rete relativi alla rete virtuale di Azure, vedere l'articolo [Filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
-* Configurare [Windows Firewall per l'accesso al motore di database](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-* Aprire Windows Firewall per consentire al Servizio Migrazione del database di Azure di accedere al server MySQL di origine (per impostazione predefinita attraverso la porta TCP 3306).
+* Configurare [Windows Firewall](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) (o il firewall Linux) per consentire l'accesso al motore di database. Per il server MySQL consentire la connettività della porta 3306.
+* Aprire Windows Firewall per consentire a Servizio Migrazione del database di Azure di accedere al server MySQL di origine (la porta TCP predefinita è la 3306).
 * Quando si usa un'appliance firewall all'ingresso dei database di origine, potrebbe essere necessario aggiungere regole del firewall per consentire al Servizio Migrazione del database di Azure di accedere ai database di origine per la migrazione.
 * Creare una [regola del firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) per il server di Database di Azure per MySQL per consentire al servizio Migrazione del database di Azure di accedere ai database di destinazione. Specificare l'intervallo di subnet della rete virtuale usato per il Servizio Migrazione del database di Azure.
 

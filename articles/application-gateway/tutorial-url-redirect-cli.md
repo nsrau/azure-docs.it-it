@@ -3,19 +3,17 @@ title: 'Esercitazione: Creare un gateway applicazione con reindirizzamento basat
 description: Questa esercitazione illustra come creare un gateway applicazione con traffico reindirizzato in base ai percorsi URL usando l'interfaccia della riga di comando di Azure.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 7/30/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e0b7995a8234ddb5927c4ef3e1ddd31fab9a00b3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8453c236f83c4501587789e96545599f1e976eea
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57996407"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608064"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Esercitazione: Creare un gateway applicazione con reindirizzamento basato su percorsi URL usando l'interfaccia della riga di comando di Azure
 
@@ -39,7 +37,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessario eseguire la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successive. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -72,7 +70,9 @@ az network vnet subnet create \
 
 az network public-ip create \
   --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress \
+  --allocation-method Static \
+  --sku Standard
 ```
 
 ## <a name="create-an-application-gateway"></a>Creare un gateway applicazione
@@ -87,7 +87,7 @@ az network application-gateway create \
   --vnet-name myVNet \
   --subnet myAGsubnet \
   --capacity 2 \
-  --sku Standard_Medium \
+  --sku Standard_v2 \
   --http-settings-cookie-based-affinity Disabled \
   --frontend-port 80 \
   --http-settings-port 80 \
@@ -157,7 +157,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-default-url-path-map"></a>Aggiunta della mappa del percorso URL predefinito
 
-Le mappe di percorso URL assicurano che specifici URL vengano instradati a specifici pool back-end. È possibile creare mappe di percorso URL denominate *imagePathRule* e *videoPathRule* tramite [az network application-gateway url-path-map create](/cli/azure/network/application-gateway/url-path-map) e [az network application-gateway url-path-map rule create](/cli/azure/network/application-gateway/url-path-map/rule)
+I mapping dei percorsi URL garantiscono che URL specifici vengano instradati a determinati pool back-end. È possibile creare mappe di percorso URL denominate *imagePathRule* e *videoPathRule* tramite [az network application-gateway url-path-map create](/cli/azure/network/application-gateway/url-path-map) e [az network application-gateway url-path-map rule create](/cli/azure/network/application-gateway/url-path-map/rule)
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -299,18 +299,18 @@ Modificare l'URL in http://&lt;indirizzo-ip&gt;:8080/video/test.htm, sostituendo
 
 ![Testare l'URL delle immagini nel gateway applicazione](./media/tutorial-url-redirect-cli/application-gateway-nginx-images.png)
 
-Modificare l'URL in http://&lt;ip-address&gt;:8080/video/test.html sostituendo &lt;ip-address&gt; con l'indirizzo IP usato come nell'esempio seguente:
+Modificare l'URL in http://&lt;indirizzo-ip&gt;:8080/video/test.html sostituendo &lt;indirizzo-ip&gt; con l'indirizzo IP usato come nell'esempio seguente:
 
 ![Testare l'URL video nel gateway applicazione](./media/tutorial-url-redirect-cli/application-gateway-nginx-video.png)
 
-A questo punto modificare l'URL in http://&lt;ip-address&gt;:8081/images/test.htm e sostituendo &lt;ip-address&gt; con l'indirizzo IP usato dovrebbe essere possibile visualizzare il traffico reindirizzato al pool back-end delle immagini in http://&lt;ip-address&gt;:8080/images.
+A questo punto modificare l'URL in http://&lt;indirizzo-ip&gt;:8081/images/test.htm e sostituendo &lt;indirizzo-ip&gt; con l'indirizzo IP usato dovrebbe essere possibile visualizzare il traffico reindirizzato al pool back-end delle immagini in http://&lt;indirizzo-ip&gt;:8080/images.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando non sono più necessari, rimuovere il gruppo di risorse, il gateway applicazione e tutte le risorse correlate.
 
 ```azurecli-interactive
-az group delete --name myResourceGroupAG --location eastus
+az group delete --name myResourceGroupAG
 ```
 ## <a name="next-steps"></a>Passaggi successivi
 

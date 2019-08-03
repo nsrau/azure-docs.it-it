@@ -1,21 +1,18 @@
 ---
 title: Scaricare grandi quantità di dati casuali da Archiviazione di Azure | Microsoft Docs
 description: Informazioni su come usare Azure SDK per scaricare grandi quantità di dati casuali da un account di Archiviazione di Azure
-services: storage
 author: roygara
 ms.service: storage
-ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
-ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 541d406d7416ff5f50fdcca7e85b8f87f6f377df
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8d270485cef9fb6859de056bc364a36c054c0121
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794588"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699024"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Scaricare grandi quantità di dati casuali da Archiviazione di Azure
 

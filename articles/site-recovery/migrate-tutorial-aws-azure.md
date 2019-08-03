@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6d2b9c8dd8fb89e201cff5155b1dec0857204752
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: bb60fa216c10b11b6a47c029fbef3698c6f7bd6d
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400059"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663506"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Eseguire la migrazione di macchine virtuali Amazon Web Services (AWS) ad Azure
 
@@ -96,8 +96,10 @@ Le macchine virtuali di Azure create dopo la migrazione (failover) vengono aggiu
 6. Per **Gruppo di risorse** selezionare **Usa esistente** e quindi selezionare **migrationRG**.
 7. Per **Posizione** selezionare **Europa occidentale**.
 8. In **Subnet** lasciare i valori predefiniti per **Nome** e **Intervallo IP**.
-9. Lasciare l'opzione **Endpoint di servizio** disabilitata.
-10. Al termine, selezionare **Crea**.
+9. Aggiungere le istruzioni per le impostazioni di Protezione DDoS.
+10. Lasciare l'opzione **Endpoint di servizio** disabilitata.
+11. Aggiungere le istruzioni per le impostazioni di Firewall.
+12. Al termine, selezionare **Crea**.
 
 ## <a name="prepare-the-infrastructure"></a>Preparare l'infrastruttura
 
@@ -157,7 +159,7 @@ In questa sezione vengono immesse informazioni sulle risorse create nella sezion
 
 Prima di abilitare la replica è necessario creare i criteri di replica.
 
-1. Selezionare **+ Replicate and Associate** (+ Replica e associa).
+1. Selezionare **Crea e associa**.
 2. In **Nome** immettere **myReplicationPolicy**.
 3. Lasciare le altre impostazioni predefinite e quindi selezionare **OK** per creare i criteri. I nuovi criteri vengono associati automaticamente al server di configurazione.
 

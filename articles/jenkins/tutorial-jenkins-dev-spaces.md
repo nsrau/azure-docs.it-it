@@ -6,13 +6,13 @@ ms.author: tarcher
 ms.service: jenkins
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/18/2019
-ms.openlocfilehash: f5f74ebeb803a5c493f1dbedb6501adf3a88c215
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.date: 07/31/2019
+ms.openlocfilehash: 10ff8f4645ee1e7023c96174236243a3b85de938
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67785659"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68679132"
 ---
 <!-- GMinchAQ, 06/18/19 -->
 
@@ -30,7 +30,7 @@ In questa esercitazione si completeranno le attività seguenti:
 > * Preparare il server Jenkins
 > * Usare il plug-in Azure Dev Spaces in una pipeline Jenkins per visualizzare in anteprima le modifiche del codice prima di unirle nel progetto
 
-Questa esercitazione presuppone una conoscenza di livello intermedio dei principali servizi di Azure, ossia Azure Kubernetes, Registro Azure Container, Azure Dev Spaces, [pipeline](https://jenkins.io/doc/book/pipeline/) e plug-in Jenkins e GitHub. È utile avere una familiarità di base con gli strumenti di supporto come kubectl e Helm.
+Questa esercitazione presuppone una conoscenza di livello intermedio dei principali servizi di Azure, ossia servizio Azure Kubernetes, Registro Azure Container, Azure Dev Spaces, [pipeline](https://jenkins.io/doc/book/pipeline/) e plug-in Jenkins e GitHub. È utile avere una familiarità di base con gli strumenti di supporto come kubectl e Helm.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -175,10 +175,10 @@ In questa sezione il server Jenkins viene preparato per l'esecuzione della pipel
 * Installare l'interfaccia della riga di comando di Helm e Kubernetes
 * Aggiungere le credenziali
 
-### <a name="install-plugins"></a>Installare i plug-in
+### <a name="install-plug-ins"></a>Installare i plug-in
 
 1. Accedere al server Jenkins. Scegliere **Gestisci Jenkins > Gestisci plug-in**.
-2. Nella scheda **Disponibili** selezionare questi plug-in:
+2. Nella scheda **Disponibili** selezionare i plug-in seguenti:
     * [Azure Dev Spaces](https://plugins.jenkins.io/azure-dev-spaces)
     * [Attività del Registro Azure Container](https://plugins.jenkins.io/azure-container-registry-tasks)
     * [Environment Injector](https://plugins.jenkins.io/envinject)
@@ -415,7 +415,7 @@ az group delete -y --no-wait -n MyResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo ha decritto come usare il plug-in Azure Dev Spaces per Jenkins e il plug-in Registro Azure Container per compilare codice e distribuirlo in un'istanza di Dev Spaces.
+In questo articolo è stato descritto come usare il plug-in Azure Dev Spaces per Jenkins e il plug-in Registro Azure Container per compilare codice e distribuirlo in un'istanza di Dev Spaces.
 
 Le risorse riportate nell'elenco seguente contengono altre informazioni su Azure Dev Spaces, Attività del Registro Azure Container e CI/CD con Jenkins.
 

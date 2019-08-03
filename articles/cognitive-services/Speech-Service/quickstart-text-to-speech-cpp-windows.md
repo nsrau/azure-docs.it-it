@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Eseguire la sintesi vocale, C++ (Windows) - Servizi Voce'
+title: 'Guida introduttiva: Sintesi vocale, C++ (Windows) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come seguire la sintesi vocale in C++ su Windows Desktop con Speech SDK
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: yinhew
-ms.openlocfilehash: dfad425d6da2e3dabec138ef4f108957ebea7ee9
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: fdc5e540dd7e84d47aa139768fbfc2614f38b376
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602922"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607723"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Guida introduttiva: Eseguire la sintesi vocale in C++ su Windows con Speech SDK
 
 Sono disponibili guide di avvio rapido anche per il [riconoscimento vocale](quickstart-cpp-windows.md) e la [traduzione vocale](quickstart-translate-speech-cpp-windows.md).
 
-In questo articolo, viene creata un'applicazione console C++ per Windows. È possibile usare [Speech SDK](speech-sdk.md) di Servizi cognitivi per eseguire la sintesi vocale in tempo reale e riprodurre la voce dall'altoparlante del PC. L'applicazione si basa sul [pacchetto NuGet Speech SDK](https://aka.ms/csspeech/nuget) e su Microsoft Visual Studio 2017 (qualsiasi edizione).
+In questo articolo, viene creata un'applicazione console C++ per Windows. È possibile usare [Speech SDK](speech-sdk.md) di Servizi cognitivi per eseguire la sintesi vocale in tempo reale e riprodurre la voce dall'altoparlante del PC. L'applicazione si basa sul [pacchetto NuGet Speech SDK](https://aka.ms/csspeech/nuget) e su Microsoft Visual Studio 2017 o versioni successive (qualsiasi edizione).
 
 La funzionalità disponibile in questo articolo è disponibile in [Speech SDK 1.5.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/1.5.0).
 
