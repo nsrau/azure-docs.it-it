@@ -16,12 +16,12 @@ ms.date: 03/28/2019
 ms.author: cephalin
 ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 95a848ff7d74d35203c7e8377405c709f7fc7bd7
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 222ded620610957e752e2081bda638d78eba4867
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617383"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619448"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Configurare un'app Ruby in Linux per il Servizio app di Azure
 
@@ -122,7 +122,7 @@ Per impostazione predefinita, il contenitore Ruby avvia il server Rails nella se
 Per impostazione predefinita, il server Rails nel contenitore Ruby viene eseguito in modalità di produzione e [presuppone che gli asset vengano precompilati e siano gestiti dal server Web](https://guides.rubyonrails.org/asset_pipeline.html#in-production). Per gestire asset statici dal server Rails, è necessario eseguire due operazioni:
 
 - **Precompilare gli asset** - [Precompilare gli asset statici localmente](https://guides.rubyonrails.org/asset_pipeline.html#local-precompilation) e distribuirli manualmente. In alternativa, possono essere gestiti dal motore di distribuzione (vedere [Precompilare gli asset](#precompile-assets).
-- **Abilitare la gestione di file statici** - Per gestire gli asset statici dal contenitore Ruby, impostare `RAILS_SERVE_STATIC_FILES` [impostare l'`RAILS_SERVE_STATIC_FILES`impostazione dell'app](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) su `true`. Ad esempio:
+- **Abilitare la gestione di file statici** - Per gestire asset statici dal contenitore Ruby, [impostare l'impostazione `RAILS_SERVE_STATIC_FILES` dell'app](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) su `true`. Ad esempio:
 
     ```azurecli-interactive
     az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings RAILS_SERVE_STATIC_FILES=true

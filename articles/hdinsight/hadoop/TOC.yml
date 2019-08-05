@@ -56,6 +56,8 @@
       maintainContext: true
     - name: Risolvere problemi
       items:
+        - name: Non è possibile accedere al cluster HDInsight
+          href: ./hdinsight-troubleshoot-unable-log-in-cluster.md
         - name: Non è possibile aggiungere nodi al cluster HDInsight
           href: ./hdinsight-troubleshoot-unable-add-nodes.md
         - name: InvalidNetworkSecurityGroupSecurityRules - creazione del cluster non riuscita

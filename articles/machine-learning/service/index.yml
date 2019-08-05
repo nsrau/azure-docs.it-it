@@ -43,6 +43,9 @@ sections:
       - type: list
         style: unordered
         items:
+          - html: 'Per iniziare: <a href="tutorial-first-experiment-automated-ml">Eseguire il training e distribuire</a> il primo modello automatizzato di Machine Learning nel portale di Azure.'
+          - html: 'Per iniziare: <a href="tutorial-1st-experiment-sdk-setup">Configurare l''ambiente di sviluppo</a> ed <a href="tutorial-1st-experiment-sdk-train">eseguire il training del primo modello di Machine Learning</a> usando un notebook Jupyter (<b>serie in due parti</b>).'
+          - html: 'Per iniziare: <a href="ui-tutorial-automobile-price-train-score">Eseguire training</a> e <a href="ui-tutorial-automobile-price-deploy">distribuire</a> il primo esperimento di Machine Learning con l''interfaccia visiva grafica di trascinamento della selezione (<b>serie in due parti</b>).'
           - html: <a href="tutorial-train-models-with-aml">Eseguire il training</a> e <a href="tutorial-deploy-models-with-aml">distribuire</a> modelli di classificazione delle immagini (<b>serie in due parti</b>).
           - html: <a href="tutorial-data-prep">Preparare i dati</a> e <a href="tutorial-auto-train-models">usare tecniche automatizzate di Machine Learning</a> per eseguire il training e ottimizzare i modelli di regressione (<b>serie in due parti</b>).
           - html: <a href="ui-tutorial-automobile-price-train-score">Stimare il prezzo di un'automobile</a> con l'interfaccia visiva grafica e <a href="ui-tutorial-automobile-price-deploy">distribuire</a> il modello di regressione.

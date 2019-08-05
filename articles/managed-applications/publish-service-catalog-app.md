@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: dc86943924cd0c47c465e9d3bac4ca91b73a3ff5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf6ae32a61504dc344e140a0e27c5a17b5422073
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66171560"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609885"
 ---
 # <a name="create-and-publish-a-managed-application-definition"></a>Creare e pubblicare una definizione di applicazione gestita
 
@@ -85,20 +85,20 @@ Aggiungere il codice JSON seguente al file. Definisce i parametri per la creazio
 
 Salvare il file mainTemplate.json.
 
-## <a name="create-the-user-interface-definition"></a>Creare la definizione dell'interfaccia utente
+## <a name="defining-your-create-experience-using-createuidefinitionjson"></a>Definizione dell'esperienza di creazione con createUiDefinition.json
 
-Il portale di Azure usa il file **createUiDefinition.json** per generare l'interfaccia utente per gli utenti che creano l'applicazione gestita. È possibile definire la modalità con cui gli utenti inseriscono l'input per ogni parametro. È possibile usare opzioni come un elenco a discesa, una casella di testo, una casella per la password e altri strumenti di input. Per informazioni sulla creazione di un file di definizione dell'interfaccia utente per un'applicazione gestita, vedere [Introduzione a CreateUiDefinition](create-uidefinition-overview.md).
+L'editore definisce l'esperienza di creazione usando il file **createUiDefinition.json**, che genera l'interfaccia per gli utenti che creano applicazioni gestite. È possibile definire il modo in cui gli utenti specificheranno l'input per ogni parametro usando [elementi di controllo] (create-uidefinition-elements.md), ad esempio elenchi a discesa, caselle di testo e caselle per password.
 
-Creare un file denominato **createUiDefinition.json**. Il nome distingue tra maiuscole e minuscole.
+Creare un file denominato **createUiDefinition.json**. Per il nome viene fatta distinzione tra maiuscole e minuscole.
 
-Aggiungere il codice JSON seguente al file.
+Aggiungere il codice JSON di base seguente e salvare il file.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
-    "handler": "Microsoft.Compute.MultiVm",
-    "version": "0.1.2-preview",
-    "parameters": {
+   "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+   "handler": "Microsoft.Azure.CreateUIDef",
+   "version": "0.1.2-preview",
+   "parameters": {
         "basics": [
             {}
         ],
@@ -139,10 +139,9 @@ Aggiungere il codice JSON seguente al file.
             "location": "[location()]"
         }
     }
-}
 ```
 
-Salvare il file createUiDefinition.json.
+Per altre informazioni, vedere [Introduzione a CreateUiDefinition](create-uidefinition-overview.md).
 
 ## <a name="package-the-files"></a>Creare il pacchetto dei file
 

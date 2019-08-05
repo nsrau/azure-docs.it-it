@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Rilevare anomalie nei dati usando la libreria di Rilevamento anomalie e Python'
+title: 'Guida introduttiva: Rilevare anomalie nei dati con la libreria client di Rilevamento anomalie per Python'
 titleSuffix: Azure Cognitive Services
 description: Usare l'API Rilevamento anomalie per rilevare le anomalie nelle serie di dati sia come batch che nei dati in streaming.
 services: cognitive-services
@@ -8,20 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 07/01/2019
+ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: 9176ab84dd3f493604bd655e0498f5ad476776d0
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: b78d19841bdca100211378f71e45a41dd37aad28
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721523"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639321"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-python"></a>Guida introduttiva: Libreria client di Rilevamento anomalie per Python
 
 Questo argomento include informazioni introduttive sulla libreria client di Rilevamento anomalie per .NET. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. Il servizio Rilevamento anomalie consente di trovare le anomalie nei dati delle serie temporali applicando automaticamente i modelli di mapping più appropriati, indipendentemente dal settore, dallo scenario o dal volume di dati.
-
-## <a name="key-concepts"></a>Concetti chiave
 
 Usare la libreria client di Rilevamento anomalie per Python per:
 
@@ -42,6 +40,18 @@ Usare la libreria client di Rilevamento anomalie per Python per:
 
 [!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
+Dopo aver ottenuto una chiave dalla sottoscrizione di valutazione o dalla risorsa, [creare una variabile di ambiente](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) per la chiave, denominata `ANOMALY_DETECTOR_KEY`.
+
+### <a name="create-a-new-python-application"></a>Creare una nuova applicazione Python
+
+ Creare una nuova applicazione Python nell'ambiente di sviluppo integrato o nell'editor preferito. Importare quindi le librerie seguenti.
+
+[!code-python[import declarations](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=imports)]
+
+Creare le variabili per la chiave in forma di una variabile di ambiente, il percorso a un file di dati della serie temporale e la località di Azure della sottoscrizione. Ad esempio: `westus2`. 
+
+[!code-python[Vars for the key, path location and data path](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=initVars)]
+
 ### <a name="install-the-client-library"></a>Installare la libreria client
 
 Dopo l'installazione di Python, è possibile installare la libreria client con:
@@ -57,19 +67,6 @@ Il client di Rilevamento anomalie è un oggetto [AnomalyDetectorClient](https://
 I dati delle serie temporali vengono inviati come serie di oggetti [Point](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.point(class)?view=azure-python) in un oggetto [Request](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.request(class)?view=azure-python). L'oggetto `Request` contiene le proprietà per la descrizione dei dati (ad esempio, [Granularity](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.granularity?view=azure-python)) e i parametri per il rilevamento delle anomalie. 
 
 La risposta del servizio Rilevamento anomalie è un oggetto [LastDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.lastdetectresponse?view=azure-python) o [EntireDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.entiredetectresponse?view=azure-python), a seconda del metodo usato. 
-
-## <a name="getting-started"></a>Introduzione
-
-Creare una nuova applicazione Python nell'ambiente di sviluppo integrato o nell'editor preferito. Aggiungere quindi le dichiarazioni import seguenti al file. 
-
-[!code-python[import declarations](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=imports)]
-
-> [!NOTE]
-> Questo argomento di avvio rapido presuppone che sia stata [creata una variabile di ambiente](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) per la chiave di Rilevamento anomalie, denominata `ANOMALY_DETECTOR_KEY`.
-
-Creare le variabili per la chiave in forma di una variabile di ambiente, il percorso a un file di dati della serie temporale e la località di Azure della sottoscrizione. Ad esempio: `westus2`. 
-
-[!code-python[Vars for the key, path location and data path](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=initVars)]
 
 ## <a name="code-examples"></a>Esempi di codice 
 
@@ -89,8 +86,8 @@ Aggiungere la variabile della località di Azure all'endpoint e autenticare il c
 ### <a name="load-time-series-data-from-a-file"></a>Caricare i dati di una serie temporale da un file
 
 Scaricare i dati di esempio per questo avvio rapido da [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/example-data/request-data.csv):
-1. Nel browser fare clic con il pulsante destro del mouse su **Raw**
-2. Fare clic su **Salva collegamento con nome**
+1. Nel browser fare clic con il pulsante destro del mouse su **Raw** (Non elaborato).
+2. Fare clic su **Salva link con nome**.
 3. Salvare il file nella directory dell'applicazione come file con estensione csv.
 
 I dati della serie temporale vengono formattati come file con estensione csv e vengono inviati all'API Rilevamento anomalie.
@@ -125,12 +122,6 @@ Se si vuole pulire e rimuovere una sottoscrizione a Servizi cognitivi, è possib
 
 * [Portale](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Interfaccia della riga di comando di Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
-
-È anche possibile eseguire il comando di Cloud Shell seguente per rimuovere il gruppo di risorse e le risorse associate. Questa operazione richiederà qualche minuto. 
-
-```azurecli-interactive
-az group delete --name example-anomaly-detector-resource-group
-```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

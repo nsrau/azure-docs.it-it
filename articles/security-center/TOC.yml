@@ -43,6 +43,8 @@
       href: security-center-incident.md
     - name: Risposta agli eventi imprevisti
       href: security-center-incident-response.md
+    - name: Gestione tra tenant
+      href: security-center-cross-tenant-management.md
 - name: Guide alle procedure
   items:
     - name: Migliorare il punteggio di sicurezza
@@ -81,6 +83,8 @@
       items:
         - name: Informazioni sulle raccomandazioni di sicurezza
           href: security-center-recommendations.md
+        - name: Raccomandazioni per la correzione
+          href: security-center-remediate-recommendations.md
         - name: Migliorare il comportamento di sicurezza
           href: security-center-monitoring.md
         - name: Proteggere i computer e le app

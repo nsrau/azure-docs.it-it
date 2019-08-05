@@ -36,6 +36,26 @@ sections:
           - html: <a href="service/quickstart-run-local-notebook">Eseguire un esperimento usando un server di notebook locale</a> (installazione dell'SDK locale)
         style: unordered
         type: list
+      - text: '<b>Esercitazione: Eseguire il training e distribuire il primo modello automatizzato di Machine Learning nel portale di Azure:</b>'
+        type: paragraph
+      - items:
+          - html: <a href="service/tutorial-first-experiment-automated-ml">Usare un modello automatizzato di Machine Learning per eseguire il training e distribuire il primo modello di classificazione</a>
+        style: unordered
+        type: list
+      - text: '<b>Esercitazione: Eseguire il training del primo modello di Machine Learning con SDK:</b>'
+        type: paragraph
+      - items:
+          - html: 'Parte 1: <a href="service/tutorial-1st-experiment-sdk-setup">Configurare l''ambiente e l''area di lavoro</a>'
+          - html: 'Parte 2: <a href="service/tutorial-1st-experiment-sdk-train">Eseguire il training del primo modello</a>'
+        style: unordered
+        type: list
+      - text: '<b>Esercitazione: Eseguire il training e distribuire il primo esperimento usando l''interfaccia visiva grafica:</b>'
+        type: paragraph
+      - items:
+          - html: 'Parte 1: <a href="service/ui-tutorial-automobile-price-train-score">Eseguire il training del modello di regressione</a>'
+          - html: 'Parte 2: <a href="service/ui-tutorial-automobile-price-deploy">Distribuire il modello</a>'
+        style: unordered
+        type: list
       - text: '<b>Esercitazione: </b>Classificazione delle immagini dei dati di MNIST con SDK:'
         type: paragraph
       - items:

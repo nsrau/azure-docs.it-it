@@ -25,6 +25,10 @@
       href: ../hdinsight-component-versioning.md
     - name: HDInsight 4.0
       href: ../hdinsight-version-release.md
+    - name: Risolvere problemi
+      items:
+        - name: Timeout con comando 'hbase hbck'
+          href: ./hbase-troubleshoot-timeouts-hbase-hbck.md
 - name: Procedure
   items:
     - name: Usare l'archiviazione cluster

@@ -1,21 +1,21 @@
 ---
 title: 'Esercitazione: Creare una pagina Web di ricerca personalizzata | Ricerca personalizzata Bing'
 titleSuffix: Azure Cognitive Services
-description: Descrive come configurare un'istanza di ricerca personalizzata e integrarla in una pagina Web.
+description: Informazioni su come configurare un'istanza di Ricerca personalizzata Bing e integrarla in una pagina Web.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: tutorial
-ms.date: 03/04/2019
+ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: 3a8d6a831adf24212191a103dcf356bbe74d7962
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: aee84a4d9203d80b81f773df30d68c3539e5ec7c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405222"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564702"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Esercitazione: Compilare una pagina Web di Ricerca personalizzata
 

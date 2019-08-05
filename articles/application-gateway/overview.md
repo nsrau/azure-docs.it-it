@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 5/31/2019
 ms.author: victorh
-ms.openlocfilehash: e2e29bf0068fae5d6f4987ec5c3f2a52b883e4bd
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 5f7fd47a096ddd57150a466f85fabcfc2f7045d9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66418122"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564867"
 ---
 # <a name="what-is-azure-application-gateway"></a>Cos'è il gateway applicazione di Azure?
 
@@ -111,7 +111,7 @@ Lo svuotamento delle connessioni aiuta a rimuovere in modo controllato i membri 
 
 Il gateway applicazione consente di creare pagine di errore personalizzate da visualizzare al posto delle pagine di errore predefinite. Se si usa una pagina di errore personalizzata, è possibile usare il proprio layout e marchio aziendali.
 
-Per altre informazioni, vedere [Riscrivere le intestazioni HTTP](rewrite-http-headers.md).
+Per altre informazioni, vedere [Errori personalizzati](custom-error.md).
 
 ## <a name="rewrite-http-headers"></a>Riscrivere le intestazioni HTTP
 

@@ -6,16 +6,16 @@ author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.topic: overview
-ms.date: 05/08/2019
+ms.date: 07/31/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fafa7bd95801be46025727b2261fc95bc539988
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: c3087f0ac69126c6d509eee77abe15cc35319dfb
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67440539"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68693909"
 ---
 # <a name="what-is-azure-active-directory"></a>Informazioni su Azure Active Directory
 
@@ -41,16 +41,14 @@ Azure AD è destinato agli utenti seguenti:
 
 I servizi aziendali di Microsoft Online, come Office 365 o Microsoft Azure, richiedono Azure AD per l'accesso e per la protezione delle identità. Se si sottoscrive un servizio aziendale di Microsoft Online, si ottiene quindi automaticamente Azure AD con accesso a tutte le funzionalità gratuite.
 
-Per migliorare l'implementazione di Azure AD, è anche possibile aggiungere funzionalità a pagamento effettuando l'aggiornamento alle licenze di Azure Active Directory Basic Edition, Premium P1 Edition o Premium P2. Le licenze a pagamento di Azure AD sono basate sulla directory gratuita esistente e offrono agli utenti mobili funzionalità di monitoraggio self-service avanzato, creazione di report di sicurezza e accesso sicuro.
+Per migliorare l'implementazione di Azure AD, è anche possibile aggiungere funzionalità a pagamento eseguendo l'aggiornamento a licenze Azure Active Directory Premium P1 o Premium P2. Le licenze a pagamento di Azure AD sono basate sulla directory gratuita esistente e offrono agli utenti mobili funzionalità di monitoraggio self-service avanzato, creazione di report di sicurezza e accesso sicuro.
 
 >[!Note]
 >Per le opzioni relative ai prezzi di queste licenze, vedere [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 >
->Le edizioni Azure Active Directory Premium P1 e Premium P2 e Azure Active Directory Basic non sono attualmente supportate in Cina. Per altre informazioni sui prezzi di Azure AD, visitare il [forum di Azure Active Directory](https://azure.microsoft.com/support/community/?product=active-directory).
+>Azure Active Directory Premium P1 e Premium P2 non sono attualmente supportati in Cina. Per altre informazioni sui prezzi di Azure AD, visitare il [forum di Azure Active Directory](https://azure.microsoft.com/support/community/?product=active-directory).
 
 - **Azure Active Directory Free.** Offre funzionalità di gestione di utenti e gruppi, sincronizzazione di directory locali, report di base, modifica self-service della password per utenti cloud e accesso Single Sign-On in Azure, Office 365 e molte delle app SaaS più diffuse.
-
-- **Azure Active Directory Basic.** Oltre alle funzionalità del livello Gratuito, il livello Basic offre anche l'accesso alle app incentrato sul cloud, la gestione dell'accesso basata sui gruppi, la reimpostazione della password self-service per app cloud e Azure AD Application Proxy, che consente di pubblicare app Web locali con Azure AD.
 
 - **Azure Active Directory Premium P1.** Oltre alle funzionalità dei livelli Gratuito e Basic, il livello P1 consente agli utenti ibridi di accedere alle risorse locali e sul cloud. Supporta anche funzionalità di amministrazione avanzate, tra cui gruppi dinamici, gestione dei gruppi self-service, Microsoft Identity Manager (famiglia di programmi per la gestione delle identità e dell'accesso in locale) e funzionalità di writeback cloud, che consentono la reimpostazione della password self-service per gli utenti locali.
 

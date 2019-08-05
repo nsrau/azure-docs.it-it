@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentazione di Backup di Azure
+title: Documentazione del servizio Backup di Azure
 metadata:
   title: Documentazione di Backup di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
   description: 'Backup di Azure consente di eseguire il backup dei dati per server locali, macchine virtuali, carichi di lavoro virtualizzati, istanze di SQL Server, SharePoint Server e altro ancora. Questo articolo contiene informazioni su come eseguire il backup e ripristino dei dati con guide introduttive, esercitazioni ed esempi.'

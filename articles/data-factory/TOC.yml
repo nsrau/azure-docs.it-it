@@ -536,6 +536,8 @@
           href: how-to-schedule-azure-ssis-integration-runtime.md
         - name: Aggiungere il runtime di integrazione SSIS di Azure a una rete virtuale
           href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: Configurare Integration Runtime (self-hosted) come proxy per Azure-SSIS IR
+          href: self-hosted-integration-runtime-proxy-ssis.md
         - name: Abilitare l'autenticazione di Azure AD per il runtime di integrazione SSIS di Azure
           href: enable-aad-authentication-azure-ssis-ir.md
         - name: Eseguire il provisioning della Enterprise Edition per il runtime di integrazione SSIS di Azure
