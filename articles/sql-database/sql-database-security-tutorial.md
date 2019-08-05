@@ -8,14 +8,14 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 02/08/2019
+ms.date: 07/29/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: ce9ba7c197bb604b9d71e2bf501ca67d32865f38
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9850285482db4f5981c183b51152ba1a3ac4975c
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566880"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640136"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Esercitazione: Proteggere un database singolo o in pool
 
@@ -38,6 +38,9 @@ Database SQL di Azure protegge i dati in un database singolo o in pool consenten
 > Per proteggere un database SQL di Azure in un'istanza gestita si usano regole di sicurezza di rete ed endpoint privati come descritto in [Istanza gestita di database SQL di Azure](sql-database-managed-instance-index.yml) e in [Architettura della connettività di Istanza gestita di database SQL di Azure](sql-database-managed-instance-connectivity-architecture.md).
 
 Per altre informazioni, vedere gli articoli [Database SQL di Azure - Sicurezza avanzata](/azure/sql-database/sql-database-security-index) e [Panoramica della funzionalità di sicurezza del database SQL di Azure](sql-database-security-overview.md).
+
+> [!TIP]
+> Il modulo seguente di Microsoft Learn consente di imparare gratuitamente come [proteggere il database SQL di Azure](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
