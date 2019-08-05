@@ -54,8 +54,6 @@
           href: cloudsimple-faq.md
     - name: Esercitazioni
       items:
-        - name: Abilitare il provider di risorse
-          href: enable-cloudsimple-service.md
         - name: Creare il servizio CloudSimple
           href: create-cloudsimple-service.md
         - name: Accedere al portale di CloudSimple

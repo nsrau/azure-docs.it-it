@@ -29,7 +29,7 @@
         - name: Informazioni su Azure AD Connect e Connect Health
           href: whatis-azure-ad-connect.md
         - name: Scegliere l'autenticazione appropriata
-          href: 'https://docs.microsoft.com/azure/security/azure-ad-choose-authn'
+          href: 'https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn'
         - name: Sincronizzazione delle identità e resilienza degli attributi duplicati
           href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
     - name: Sincronizzazione dell'hash delle password
