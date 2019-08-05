@@ -4,7 +4,7 @@ description: Scenari e componenti chiave dell'analisi per le macchine virtuali d
 keywords: strumenti di analisi scientifica dei dati, macchina virtuale per l'analisi scientifica dei dati, strumenti per l'analisi scientifica dei dati, analisi scientifica dei dati per Linux
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.assetid: d4f91270-dbd2-4290-ab2b-b7bfad0b2703
 ms.service: machine-learning
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 02/22/2019
-ms.author: gokuma
-ms.openlocfilehash: 384cb274496670e0b0b5a33e001e78a0babed3f0
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.author: vijetaj
+ms.openlocfilehash: 5816f53115f3ec54cbd9784894a5262b68dd6e95
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427786"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565181"
 ---
-# <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introduzione alla macchina virtuale data science di Azure per Linux e Windows
+# <a name="what-is-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introduzione a Data Science Virtual Machine per Linux e Windows
 
 La macchina virtuale per l'analisi scientifica dei dati (DSVM) è un'immagine VM personalizzata nel cloud di Microsoft Azure creata in modo specifico per l'analisi scientifica dei dati. Include diversi strumenti comuni per l'analisi scientifica dei dati e altri strumenti preinstallati e preconfigurati per implementare rapidamente la creazione di applicazioni intelligenti per l'analisi avanzata. È disponibile in Windows Server e in Linux. L'edizione della DSVM per Windows è disponibile in Windows Server 2016 e Windows Server 2012. Le edizioni della DSVM per Linux sono disponibili in Ubuntu 16.04 LTS e CentOS 7.4.
 
@@ -48,7 +48,7 @@ Gli hackathon e i concorsi di analisi scientifica dei dati o la modellazione e l
 
 ### <a name="custom-compute-power-for-azure-notebooks"></a>Potenza di calcolo personalizzata per Azure Notebooks
 
-[Azure Notebooks](/azure/notebooks/azure-notebooks-overview) è un servizio ospitato gratuito che consente di sviluppare, eseguire e condividere notebook di Jupyter nel cloud senza alcuna installazione. Il livello di servizio gratuito però è limitato a 4 GB di memoria e 1 GB di dati. Per eliminare tutti i limiti, è quindi possibile collegare un progetto di Notebooks a una macchina virtuale di data science o a qualsiasi altra macchina virtuale che esegua il server Jupyter. Se si accede ad Azure Notebooks con un account che usa Azure Active Directory (come nel caso di un account aziendale), Notebooks mostrerà automaticamente le macchine virtuali di data science incluse in qualsiasi sottoscrizione associata a tale account. Per altre informazioni, vedere [Gestire e configurare progetti - Livello di calcolo](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
+[Azure Notebooks](../../notebooks/azure-notebooks-overview.md) è un servizio ospitato gratuito che consente di sviluppare, eseguire e condividere notebook di Jupyter nel cloud senza alcuna installazione. Il livello di servizio gratuito però è limitato a 4 GB di memoria e 1 GB di dati. Per eliminare tutti i limiti, è quindi possibile collegare un progetto di Notebooks a una macchina virtuale di data science o a qualsiasi altra macchina virtuale che esegua il server Jupyter. Se si accede ad Azure Notebooks con un account che usa Azure Active Directory (come nel caso di un account aziendale), Notebooks mostrerà automaticamente le macchine virtuali di data science incluse in qualsiasi sottoscrizione associata a tale account. Per altre informazioni, vedere [Gestire e configurare progetti - Livello di calcolo](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ### <a name="short-term-experimentation-and-evaluation"></a>Valutazione e sperimentazione a breve termine
 La VM per l'analisi scientifica dei dati può essere usata per valutare o imparare a usare strumenti quali Microsoft ML Server, SQL Server, strumenti di Visual Studio, Jupyter, toolkit di deep learning/ML e i nuovi strumenti popolari nella comunità con il minimo sforzo di installazione. Grazie alla rapidità di configurazione, la Data Science VM può essere applicata ad altri scenari di utilizzo a breve termine, come la replica di esperimenti pubblicati, l'esecuzione di demo, l'esecuzione di procedure dettagliate nelle sessioni online e le esercitazioni in conferenza.
@@ -64,7 +64,7 @@ La macchina virtuale per l'analisi scientifica dei dati ha già installati e con
 | :------------------------------------------------------------------ |:-------------------:|:------------------:|
 | [Microsoft R Open](https://mran.microsoft.com/open/) con i pacchetti più diffusi pre-installati   |S                      | S             |
 | [Microsoft ML Server (R, Python)](https://docs.microsoft.com/machine-learning-server/) Developer Edition include <br />  Framework &nbsp;&nbsp;&nbsp;&nbsp;* [RevoScaleR/revoscalepy](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-revoscaler) in parallelo e a prestazioni elevate (R e Python)<br />  &nbsp;&nbsp;&nbsp;&nbsp;* [MicrosoftML](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-the-microsoftml-package): nuovi algoritmi ML all'avanguardia da Microsoft <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [Operazionalizzazione R e Python](https://docs.microsoft.com/machine-learning-server/what-is-operationalization)                                            |S                      | S |
-| [Microsoft Office](https://products.office.com/en-us/business/office-365-proplus-business-software) Pro-Plus con attivazione condivisa - Excel, Word e PowerPoint   |S                      |N              |
+| [Microsoft Office](https://products.office.com/business/office-365-proplus-business-software) Pro-Plus con attivazione condivisa - Excel, Word e PowerPoint   |S                      |N              |
 | [Anaconda Python](https://www.continuum.io/) 2.7, 3.5 con i pacchetti più diffusi pre-installati    |S                      |S              |
 | [JuliaPro](https://juliacomputing.com/products/juliapro.html) con i pacchetti più diffusi pre-installati per il linguaggio di programmazione Julia                         |S                      |S              |
 | Database relazionali                                                            | [SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/) (CentOS),<br/>[SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition (Ubuntu) |

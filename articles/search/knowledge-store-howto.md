@@ -1,5 +1,5 @@
 ---
-title: Introduzione al knowledge mining (anteprima) - Ricerca di Azure
+title: Introduzione al knowledge store (anteprima) - Ricerca di Azure
 description: Informazioni sulla procedura per inviare documenti arricchiti creati da pipeline di indicizzazione basate sull'intelligenza artificiale in Ricerca di Azure a un knowledge store nell'account di archiviazione di Azure, da cui è possibile visualizzare, trasformare e utilizzare i documenti arricchiti in Ricerca di Azure e in altre applicazioni.
 manager: cgronlun
 author: HeidiSteen
@@ -8,19 +8,19 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 06/29/2019
 ms.author: heidist
-ms.openlocfilehash: e50dfcdc5ac2fbe2435066546a340874e1b8f682
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 5794a24931b613bf1bdddd983799367bb02cf44d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551060"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68641019"
 ---
-# <a name="how-to-get-started-with-knowledge-mining-in-azure-search"></a>Introduzione al knowledge mining in Ricerca di Azure
+# <a name="how-to-get-started-with-knowledge-store-in-azure-search"></a>Introduzione al knowledge store in Ricerca di Azure
 
 > [!Note]
 > Il knowledge store è in anteprima e non ne è previsto l'uso in ambienti di produzione. Questa funzionalità viene fornita dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). Non è attualmente disponibile alcun supporto di .NET SDK.
 >
-L'[archivio conoscenze](knowledge-store-concept-intro.md) consente di salvare documenti arricchiti con intelligenza artificiale creati durante l'indicizzazione nell'account di archiviazione di Azure per il knowledge mining downstream in altre app. È anche possibile usare gli arricchimenti salvati per comprendere e ottimizzare una pipeline di indicizzazione di Ricerca di Azure. 
+L'[archivio conoscenze](knowledge-store-concept-intro.md) consente di salvare i documenti arricchiti con intelligenza artificiale creati durante l'indicizzazione nell'account di archiviazione di Azure per il data mining downstream in altre app. È anche possibile usare gli arricchimenti salvati per comprendere e ottimizzare una pipeline di indicizzazione di Ricerca di Azure. 
 
 Un archivio conoscenze è definito da un *set di competenze* e viene creato da un *indicizzatore*. L'espressione fisica di un archivio conoscenze viene specificato tramite *proiezioni* che determinano le strutture dei dati nell'archiviazione. In questa procedura dettagliata si creeranno tutti questi oggetti e si otterranno informazioni sulla loro interazione. 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Eseguire la sintesi vocale, C# (.NET Core) - Servizi Voce'
+title: 'Guida introduttiva: Eseguire la sintesi vocale, C# (.NET Core) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni sulla sintesi vocale in C# per .NET Core in Windows con Speech SDK
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 6/24/2019
 ms.author: yinhew
-ms.openlocfilehash: 7b4a018e38ca625e38dc1658a95d3ce0e677f711
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: ccb6ec5b6f29c57a6136c571558d4126d0607710
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467194"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607686"
 ---
 # <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-core"></a>Guida introduttiva: Eseguire la sintesi vocale con Speech SDK per .NET Core
 
 Sono disponibili guide di avvio rapido anche per il [riconoscimento vocale](quickstart-csharp-dotnetcore-windows.md) e la [traduzione vocale](quickstart-translate-speech-dotnetcore-windows.md).
 
-In questo articolo, si crea un'applicazione console C# per .NET Core su Windows usando [Speech SDK](speech-sdk.md) di Servizi cognitivi. La sintesi vocale dal testo viene eseguita in tempo reale nell'altoparlante del PC. L'applicazione si basa sul [pacchetto NuGet Speech SDK](https://aka.ms/csspeech/nuget) e su Microsoft Visual Studio 2017 (qualsiasi edizione).
+In questo articolo, si crea un'applicazione console C# per .NET Core su Windows usando [Speech SDK](speech-sdk.md) di Servizi cognitivi. La sintesi vocale dal testo viene eseguita in tempo reale nell'altoparlante del PC. L'applicazione si basa sul [pacchetto NuGet Speech SDK](https://aka.ms/csspeech/nuget) e su Microsoft Visual Studio 2017 o versione successiva (qualsiasi edizione).
 
 > [!NOTE]
 > .NET core è una multipiattaforma open source, multipiattaforma di .NET che implementa la specifica [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard).
@@ -33,7 +33,7 @@ In questo articolo, si crea un'applicazione console C# per .NET Core su Windows 
 Questa guida introduttiva richiede:
 
 * [ASP.NET Core SDK](https://dotnet.microsoft.com/download)
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) o versione successiva
 * Una chiave di sottoscrizione di Azure per il servizio Voce. [È possibile ottenerne una gratuitamente](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Creare un progetto di Visual Studio

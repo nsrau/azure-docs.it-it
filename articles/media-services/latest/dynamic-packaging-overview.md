@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/03/2019
+ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: 4836ec4bb66bbf8ced921dd1095665d004f8a28b
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 5979e34e7c186a0484c8db2d432a3c57a5ed1d15
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542582"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68679164"
 ---
 # <a name="dynamic-packaging"></a>creazione dinamica dei pacchetti
 
@@ -26,7 +26,7 @@ Servizi multimediali di Microsoft Azure può essere usato per distribuire molti 
 
 In Servizi multimediali un [endpoint di streaming](streaming-endpoint-concept.md) rappresenta un servizio di origine e per la creazione dinamica (just-in-time) dei pacchetti che può distribuire contenuti live e on demand direttamente a un'applicazione lettore client, usando uno dei protocolli più comuni per i flussi multimediali (HLS o DASH). La creazione dinamica dei pacchetti è una funzionalità fornita con tutti gli **endpoint di streaming** (Standard o Premium). 
 
-Per sfruttare i vantaggi della creazione dinamica dei pacchetti, è necessario disporre di un **asset** con un set di file MP4 a bitrate adattivo e di file di configurazione di streaming necessari per la creazione dinamica dei pacchetti di Servizi multimediali. Un modo per ottenere i file consiste nel codificare il file mezzanine (di origine) con Servizi multimediali. Per rendere i video nell'asset codificato disponibili per la riproduzione da parte dei client, è necessario creare un **localizzatore di streaming** e quindi definire gli URL di streaming. Quindi, in base al formato specificato nel manifesto del client di streaming (HLS, DASH o Smooth), si riceverà il flusso nel protocollo scelto.
+Per sfruttare i vantaggi della creazione dinamica dei pacchetti, è necessario avere un [asset](assets-concept.md) con un set di file MP4 a bitrate adattivo e file di configurazione di streaming (con estensione ism, ismc, mpi e così via). Un modo per ottenere i file consiste nel codificare il file mezzanine (di origine) con Servizi multimediali. Per rendere i video nell'asset codificato disponibili per la riproduzione da parte dei client, è necessario creare un [localizzatore di streaming](streaming-locators-concept.md) e quindi definire gli URL di streaming. Quindi, in base al formato specificato nel manifesto del client di streaming (HLS, DASH o Smooth), si riceverà il flusso nel protocollo scelto.
 
 Di conseguenza, si archiviano e si pagano solo i file in un singolo formato di archiviazione e il servizio Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client. 
 
@@ -41,12 +41,22 @@ Ecco un flusso di lavoro comune per lo streaming on demand di Servizi multimedia
 
 1. Caricare un file di input o di origine (detto *file in formato intermedio*). Alcuni esempi sono un file MP4, MOV o MXF. 
 1. Codificare il file in formato intermedio in set MP4 a velocità in bit adattiva H.264. 
-1. Pubblicare l'asset contenente il set MP4 a bitrate adattivo. La pubblicazione avviene creando un localizzatore di streaming.
+1. Pubblicare l'asset di output contenente il set MP4 a bitrate adattivo. La pubblicazione avviene creando un localizzatore di streaming.
 1. Creare URL destinati a formati diversi (HLS, MPEG-DASH e Smooth Streaming). L'endpoint di streaming si occupa di gestire il manifesto corretto e le richieste per i diversi formati.
 
 Il diagramma seguente illustra il flusso di lavoro per lo streaming on demand con creazione dinamica dei pacchetti:
 
 ![Diagramma di un flusso di lavoro per lo streaming on demand con creazione dinamica dei pacchetti](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
+
+### <a name="encoding-to-adaptive-bitrate-mp4s"></a>Eseguire la codifica in MP4 a bitrate adattivo
+
+Gli articoli seguenti illustrano alcuni esempi di [come codificare un video con Servizi multimediali](encoding-concept.md):
+
+* [Eseguire la codifica da un URL HTTPS tramite i set di impostazioni predefiniti](job-input-from-http-how-to.md)
+* [Eseguire la codifica di un file locale tramite i set di impostazioni predefiniti](job-input-from-local-file-how-to.md)
+* [Creare un set di impostazioni personalizzato per i requisiti specifici di uno scenario o un dispositivo](customize-encoder-presets-how-to.md)
+
+Consultare l'elenco di [codec e formati](media-encoder-standard-formats.md) di Media Encoder Standard.
 
 ## <a name="live-streaming-workflow"></a>Flusso di lavoro dello streaming live
 
@@ -83,30 +93,23 @@ Per informazioni sullo streaming live in Servizi multimediali v3, vedere [Panora
 |MPEG-DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
 |Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
 
-## <a name="encode-to-adaptive-bitrate-mp4s"></a>Eseguire la codifica in MP4 a velocità in bit adattiva
+## <a name="delivery-codecs-support"></a>Supporto per codec di distribuzione 
 
-Gli articoli seguenti illustrano alcuni esempi di [come codificare un video con Servizi multimediali](encoding-concept.md):
-
-* [Eseguire la codifica da un URL HTTPS tramite i set di impostazioni predefiniti](job-input-from-http-how-to.md)
-* [Eseguire la codifica di un file locale tramite i set di impostazioni predefiniti](job-input-from-local-file-how-to.md)
-* [Creare un set di impostazioni personalizzato per i requisiti specifici di uno scenario o un dispositivo](customize-encoder-presets-how-to.md)
-
-Consultare l'elenco di [codec e formati](media-encoder-standard-formats.md) di Media Encoder Standard.
-
-## <a name="video-codecs"></a>Codec video
+### <a name="video-codecs"></a>Codec video
 
 La creazione dinamica dei pacchetti supporta i seguenti codec video:
 * File MP4 contenenti video codificati con [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC o AVC1) oppure [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1 o hvc1).
 
-## <a name="audio-codecs"></a>Codec audio
+### <a name="audio-codecs"></a>Codec audio
 
 La creazione dinamica dei pacchetti supporta i seguenti protocolli audio:
+
 * File MP4
 * Più tracce audio
 
 La creazione dinamica dei pacchetti non supporta file contenenti audio [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) perché si tratta di un codec legacy.
 
-### <a name="mp4-files"></a>File MP4
+#### <a name="mp4-files"></a>File MP4
 
 La creazione dinamica dei pacchetti supporta i file MP4 che contengono audio codificato con i protocolli seguenti: 
 
@@ -123,21 +126,19 @@ La creazione dinamica dei pacchetti supporta i file MP4 che contengono audio cod
     * DTS Express (dtse)
     * DTS-HD Lossless (senza core) (dtsl)
 
-### <a name="multiple-audio-tracks"></a>Più tracce audio
+#### <a name="multiple-audio-tracks"></a>Più tracce audio
 
 La creazione dinamica dei pacchetti supporta più tracce audio per l'output HLS (versione 4 o successiva) per lo streaming di asset che hanno diverse tracce audio con più codec e lingue.
 
-## <a name="dynamic-encryption"></a>Crittografia dinamica
-
-È possibile usare la *crittografia dinamica* per crittografare dinamicamente i contenuti live o on demand tramite AES-128 o con uno dei tre principali sistemi DRM (Digital Rights Management): Microsoft PlayReady, Google Widevine e Apple FairPlay. Servizi multimediali fornisce inoltre un servizio per la distribuzione di chiavi AES e licenze Digital Rights Management ai client autorizzati. Per altre informazioni, vedere [Crittografia dinamica](content-protection-overview.md).
-
-## <a name="manifest-examples"></a>Esempi di manifesto 
+## <a name="manifests"></a>Manifesti 
  
 Nella creazione dinamica dei pacchetti di Servizi multimediali, i manifesti dei client di streaming per HLS, MPEG-DASH e Smooth Streaming vengono generati dinamicamente in base al selettore di formato nell'URL. Per altre informazioni, vedere [Protocolli di recapito](#delivery-protocols). 
 
 Un file manifesto include alcuni metadati di streaming, tra cui il tipo di traccia (audio, video o testo), il nome della traccia, l'ora di inizio e di fine, la velocità in bit (qualità), le lingue della traccia, la finestra di presentazione (finestra scorrevole di durata fissa) e un codec video (FourCC). Indica inoltre al lettore come recuperare il frammento successivo fornendo informazioni sui successivi frammenti video riproducibili disponibili e il relativo percorso. I frammenti (o segmenti) sono i "blocchi" effettivi di un contenuto video.
 
-### <a name="hls"></a>HLS
+### <a name="examples"></a>Esempi
+
+#### <a name="hls"></a>HLS
 
 Di seguito è riportato un esempio di file manifesto HLS, detto anche playlist master HLS: 
 
@@ -164,7 +165,7 @@ QualityLevels(3579827)/Manifest(video,format=m3u8-aapl)
 QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)
 ```
 
-### <a name="mpeg-dash"></a>MPEG-DASH
+#### <a name="mpeg-dash"></a>MPEG-DASH
 
 Di seguito è riportato un esempio di file manifesto MPEG-DASH, detto anche MPEG-DASH MPD (Media Presentation Description):
 
@@ -197,7 +198,7 @@ Di seguito è riportato un esempio di file manifesto MPEG-DASH, detto anche MPEG
    </Period>
 </MPD>
 ```
-### <a name="smooth-streaming"></a>Smooth Streaming
+#### <a name="smooth-streaming"></a>Smooth Streaming
 
 Di seguito è riportato un esempio di file manifesto Smooth Streaming:
 
@@ -221,9 +222,37 @@ Di seguito è riportato un esempio di file manifesto Smooth Streaming:
 </SmoothStreamingMedia>
 ```
 
+### <a name="naming-of-tracks-in-the-manifest"></a>Denominazione delle tracce nel manifesto
+
+Se nel file con estensione ism viene specificato un nome di traccia audio, Servizi multimediali aggiunge un elemento `Label` all'interno di `AdaptationSet` per specificare le informazioni di texturing per la traccia audio specifica. Esempio del manifesto DASH di output:
+
+```xml
+<AdaptationSet codecs="mp4a.40.2" contentType="audio" lang="en" mimeType="audio/mp4" subsegmentAlignment="true" subsegmentStartsWithSAP="1">
+  <Label>audio_track_name</Label>
+  <Role schemeIdUri="urn:mpeg:dash:role:2011" value="main"/>
+  <Representation audioSamplingRate="48000" bandwidth="131152" id="German_Forest_Short_Poem_english-en-68s-2-lc-128000bps_seg">
+    <BaseURL>German_Forest_Short_Poem_english-en-68s-2-lc-128000bps_seg.mp4</BaseURL>
+  </Representation>
+</AdaptationSet>
+```
+
+Il lettore può usare l'elemento `Label` da visualizzare nell'interfaccia utente.
+
+### <a name="signaling-audio-description-tracks"></a>Segnalazione delle tracce di descrizione audio
+
+Un cliente potrebbe contrassegnare una traccia audio come descrizione audio nel manifesto. A questo scopo, aggiungerebbe i parametri "accessibility" e "role" al file con estensione ism. Servizi multimediali riconoscerà la descrizione audio se una traccia audio contiene il parametro "accessibility" con valore "description" e il parametro "role" con valore "alternate". Se Servizi multimediali rileva la descrizione audio nel file con estensione ism, le informazioni della descrizione audio vengono passate al manifesto client come attributi `Accessibility="description"` e `Role="alternate"` nell'elemento `StreamIndex`.
+
+Se la combinazione di "accessibility" = "description" e "role" = "alternate" è impostata nel file con estensione ism, il manifesto DASH e il manifesto Smooth contengono i valori come impostati nei parametri "accessibility" e "role". È responsabilità del cliente impostare correttamente questi due valori e contrassegnare una traccia audio come descrizione audio. In base alle specifiche DASH, la combinazione "accessibility" = "description" e "role" = "alternate" indica che una traccia audio è una descrizione audio.
+
+Per HLS v7 e versioni successive (`format=m3u8-cmaf`), la playlist contiene `CHARACTERISTICS="public.accessibility.describes-video"` solo se la combinazione "accessibility" = "description" e "role" = "alternate" è impostata nel file con estensione ism. 
+
 ## <a name="dynamic-manifest"></a>Manifesto dinamico
 
 Per controllare il numero di tracce, i formati, la velocità in bit e gli intervalli di tempo di presentazione che vengono inviati ai lettori, è possibile usare i filtri dinamici con la creazione dinamica dei pacchetti di Servizi multimediali. Per altre informazioni, vedere [Filtro preliminare dei manifesti con la creazione dinamica dei pacchetti](filters-dynamic-manifest-overview.md).
+
+## <a name="dynamic-encryption"></a>Crittografia dinamica
+
+È possibile usare la *crittografia dinamica* per crittografare dinamicamente i contenuti live o on demand tramite AES-128 o con uno dei tre principali sistemi DRM (Digital Rights Management): Microsoft PlayReady, Google Widevine e Apple FairPlay. Servizi multimediali fornisce inoltre un servizio per la distribuzione di chiavi AES e licenze Digital Rights Management ai client autorizzati. Per altre informazioni, vedere [Crittografia dinamica](content-protection-overview.md).
 
 ## <a name="more-information"></a>Altre informazioni
 

@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Riconoscere i contenuti vocali, C# (UWP) - Servizi di riconoscimento vocale'
+title: 'Guida introduttiva: Riconoscimento vocale, C# (piattaforma UWP) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: In questo articolo viene creata un'applicazione della piattaforma UWP (Universal Windows Platform) C# usando Speech SDK di Servizi cognitivi. Trascrizione riconoscimento vocale in tempo reale dal microfono del dispositivo. L'applicazione si basa sul pacchetto NuGet Speech SDK e su Microsoft Visual Studio 2017.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: lisaweixu
 ms.custom: seodec18
-ms.openlocfilehash: 25b3474e33351d6365af37d78f442768aba88625
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: b4c3c0979f3fea491ad8b04285973517423eaeeb
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405919"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607799"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Avvio rapido: Riconoscere i contenuti vocali in un'app UWP con Speech SDK
 
@@ -25,7 +25,7 @@ Sono disponibili guide di avvio rapido anche per la [sintesi vocale](quickstart-
 Se si vuole, è possibile scegliere un linguaggio di programmazione e/o un ambiente diverso:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In questo articolo viene sviluppata un'applicazione della piattaforma UWP (Universal Windows Platform; Windows versione 1709 o successiva) C# usando [Speech SDK](speech-sdk.md) di Servizi cognitivi. Il programma trascriverà in tempo reale i contenuti vocali dal microfono del dispositivo. L'applicazione si basa sul [pacchetto NuGet Speech SDK](https://aka.ms/csspeech/nuget) e su Microsoft Visual Studio 2017 (qualsiasi edizione).
+In questo articolo viene sviluppata un'applicazione della piattaforma UWP (Universal Windows Platform; Windows versione 1709 o successiva) C# usando [Speech SDK](speech-sdk.md) di Servizi cognitivi. Il programma trascriverà in tempo reale i contenuti vocali dal microfono del dispositivo. L'applicazione si basa sul [pacchetto NuGet Speech SDK](https://aka.ms/csspeech/nuget) e su Microsoft Visual Studio 2017 o versione successiva (qualsiasi edizione).
 
 > [!NOTE]
 > La piattaforma UWP (Universal Windows Platform) consente di sviluppare applicazioni eseguibili su qualsiasi dispositivo che supporta Windows 10, inclusi PC, Xbox, Surface Hub e altri dispositivi.
@@ -34,7 +34,7 @@ In questo articolo viene sviluppata un'applicazione della piattaforma UWP (Unive
 
 Questa guida introduttiva richiede:
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) o versione successiva
 * Una chiave di sottoscrizione di Azure per il servizio Voce. [È possibile ottenerne una gratuitamente](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Creare un progetto di Visual Studio

@@ -7,14 +7,14 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: overview
-ms.date: 05/02/2019
+ms.date: 08/02/2019
 ms.author: heidist
-ms.openlocfilehash: 4a27e4d8f2fbaafe6d27a3e3cabd31aa715b9d80
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 6cbf8dfe51e8b553fd84e9eb81a2ea37a65c387e
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540740"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668297"
 ---
 # <a name="what-is-knowledge-store-in-azure-search"></a>Che cos'è il knowledge store in Ricerca di Azure?
 
@@ -22,11 +22,13 @@ ms.locfileid: "65540740"
 > Il knowledge store è in anteprima e non ne è previsto l'uso in ambienti di produzione. Questa funzionalità viene fornita dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). Non è attualmente disponibile alcun supporto di .NET SDK.
 >
 
-Il knowledge store è una funzionalità facoltativa di Ricerca di Azure che consente di salvare metadati e documenti arricchiti creati da una pipeline di indicizzazione basata su intelligenza artificiale [(ricerca cognitiva)](cognitive-search-concept-intro.md). Il knowledge store è supportato da un account di archiviazione di Azure configurato come parte della pipeline. Quando è abilitato, il servizio di ricerca usa questo account di archiviazione per memorizzare nella cache una rappresentazione di ogni documento arricchito. 
+L'archivio conoscenze è una funzionalità di Ricerca di Azure che consente di salvare metadati e documenti arricchiti creati da una pipeline di indicizzazione basata su intelligenza artificiale [(ricerca cognitiva)](cognitive-search-concept-intro.md). Un documento arricchito è l'output di una pipeline, creato da contenuto che è stato estratto, strutturato e analizzato usando le risorse di Servizi cognitivi. In una pipeline standard basata su intelligenza artificiale, i documenti arricchiti sono transitori, ossia vengono usati solo durante l'indicizzazione per poi essere rimossi. Con l'archivio conoscenze, i documenti vengono salvati per successive attività di valutazione ed esplorazione e possono diventare potenzialmente gli input di un carico di lavoro di data science downstream. 
 
-Se è stata usata la ricerca cognitiva in precedenza, si sa già che è possibile usare i set di competenze per spostare un documento attraverso una sequenza di arricchimenti. Il risultato può essere rappresentato da un indice di Ricerca di Azure o (novità in questa anteprima) da proiezioni in un knowledge store.
+Se in passato è stata usata la ricerca cognitiva, si sa già che è possibile usare i set di competenze per spostare un documento attraverso una sequenza di arricchimenti. Il risultato può essere rappresentato da un indice di Ricerca di Azure o (novità in questa anteprima) da proiezioni in un knowledge store. I due output, l'indice di ricerca e l'archivio conoscenze, sono fisicamente distinti tra loro. Condividono lo stesso contenuto, ma vengono archiviati e usati in modi molto diversi.
 
-Le proiezioni sono un meccanismo per strutturare i dati per l'utilizzo in un'app downstream. È possibile usare [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) creato per l'archiviazione di Azure o per qualsiasi app che si connette all'archiviazione di Azure che apre nuove possibilità per l'utilizzo di documenti arricchiti. Alcuni esempi sono le pipeline di data science e le analisi personalizzate.
+A livello fisico, l'archivio conoscenze viene creato in un account di archiviazione di Azure, come archiviazione tabelle o archiviazione BLOB di Azure, a seconda della configurazione della pipeline. Qualsiasi strumento o processo in grado di connettersi ad archiviazione di Azure può usare il contenuto di un archivio conoscenze.
+
+Le proiezioni sono un meccanismo per strutturare i dati in un archivio conoscenze. Ad esempio, tramite le proiezioni è possibile scegliere se l'output viene salvato come singolo BLOB o come raccolta di tabelle correlate. Un modo semplice per visualizzare il contenuto dell'archivio conoscenze è tramite lo strumento predefinito [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) per archiviazione di Azure.
 
 ![Diagramma del knowledge store nella pipeline](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Diagramma del knowledge store nella pipeline")
 

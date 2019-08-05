@@ -1,5 +1,5 @@
 ---
-title: Creare avvisi personalizzati per il Centro sicurezza di Azure per IoT - Anteprima | Microsoft Docs
+title: Creare avvisi personalizzati per il Centro sicurezza di Azure per IoT | Microsoft Docs
 description: Creare e assegnare avvisi del dispositivo personalizzati per il Centro sicurezza di Azure per IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -13,28 +13,25 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/19/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 12559af013d49e557ba0132bef24867867745c16
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: ed10cbf89f878f8d27b43476d26ac93dd373ed66
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618036"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597017"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Guida introduttiva: Creare avvisi personalizzati
 
-> [!IMPORTANT]
-> Centro sicurezza di Azure per IoT è attualmente in versione di anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-L'uso di gruppi di sicurezza e avvisi personalizzati sfrutta al meglio le informazioni di sicurezza end-to-end e la conoscenza categorica del dispositivo per garantire una migliore sicurezza nell'intera soluzione IoT. 
+L'uso di gruppi di sicurezza e avvisi personalizzati sfrutta al meglio le informazioni di sicurezza end-to-end e la conoscenza categoriale dei dispositivi per garantire una maggiore sicurezza nell'intera soluzione IoT. 
 
 ## <a name="why-use-custom-alerts"></a>Perché usare gli avvisi personalizzati? 
 
 Solo il proprietario conosce bene i propri dispositivi.
 
-Per i clienti che comprendono appieno il comportamento del dispositivo previsto, il Centro di sicurezza di Azure per IoT consente di tradurre questa conoscenza in un criterio di comportamento di un dispositivo, avvisando in caso di eventuali deviazioni dal normale comportamento previsto.
+Per i clienti che conoscono perfettamente il comportamento previsto dei dispositivi, il Centro di sicurezza di Azure per IoT consente di tradurre questa conoscenza in criteri di comportamento dei dispositivi, avvisando in caso di eventuali deviazioni dalla norma.
 
 ## <a name="security-groups"></a>Gruppi di sicurezza
 
@@ -42,19 +39,40 @@ I gruppi di sicurezza consentono di definire gruppi logici di dispositivi e di g
 
 Questi gruppi possono rappresentare i dispositivi con hardware specifico, i dispositivi distribuiti in un determinato percorso o qualsiasi altro gruppo adatto a esigenze specifiche.
 
-I gruppi di sicurezza sono definiti da una proprietà tag del modulo gemello di sicurezza denominata **SecurityGroup**. Modificare il valore di questa proprietà per modificare il gruppo di sicurezza di un dispositivo.  
+I gruppi di sicurezza sono definiti da una proprietà tag dei dispositivi gemelli denominata **SecurityGroup**. Per impostazione predefinita, ogni soluzione IoT sull'hub IoT ha un gruppo di sicurezza denominato **default**. Per cambiare il gruppo di sicurezza di un dispositivo, cambiare il valore della proprietà **SecurityGroup**.
+ 
+Ad esempio:
 
-Per impostazione predefinita, ogni soluzione IoT sull'hub IoT ha un gruppo di sicurezza denominato **default**.
+```
+{
+  "deviceId": "VM-Contoso12",
+  "etag": "AAAAAAAAAAM=",
+  "deviceEtag": "ODA1BzA5QjM2",
+  "status": "enabled",
+  "statusUpdateTime": "0001-01-01T00:00:00",
+  "connectionState": "Disconnected",
+  "lastActivityTime": "0001-01-01T00:00:00",
+  "cloudToDeviceMessageCount": 0,
+  "authenticationType": "sas",
+  "x509Thumbprint": {
+    "primaryThumbprint": null,
+    "secondaryThumbprint": null
+  },
+  "version": 4,
+  "tags": {
+    "SecurityGroup": "default"
+  }, 
+```
 
-Usare i gruppi di sicurezza per raggruppare i dispositivi in categorie logiche. Dopo aver creato i gruppi, assegnarli agli avvisi personalizzati di propria scelta, per ottenere la soluzione end-to-end più efficace. 
+Usare i gruppi di sicurezza per raggruppare i dispositivi in categorie logiche. Dopo aver creato i gruppi, assegnarli agli avvisi personalizzati a scelta, per ottenere la soluzione di sicurezza per IoT end-to-end più efficace. 
 
 ## <a name="customize-an-alert"></a>Personalizzare un avviso
 
 1. Aprire l'hub IoT. 
 2. Fare clic su **Avvisi personalizzati** nella sezione **Sicurezza**. 
 3. Scegliere un gruppo di sicurezza a cui si vuole applicare la personalizzazione. 
-4. Fare clic su **Aggiungi un avviso personalizzato** 
-5. Selezionare un comportamento dell'avviso personalizzato nell'elenco a discesa. 
+4. Fare clic su **Aggiungi un avviso personalizzato**.
+5. Selezionare un avviso personalizzato nell'elenco a discesa. 
 6. Modificare le proprietà necessarie e fare clic su **OK**.
 7. Assicurarsi di fare clic su **SALVA**. Se non si salva il nuovo avviso, l'avviso verrà eliminato la volta successiva che si chiude l'hub IoT.
 
@@ -63,27 +81,30 @@ Usare i gruppi di sicurezza per raggruppare i dispositivi in categorie logiche. 
 
 La tabella seguente fornisce un riepilogo degli avvisi disponibili per la personalizzazione.
 
-| Gravità | NOME                                                                                                    | origine dati | DESCRIZIONE                                                                                                                                     |
-|----------|---------------------------------------------------------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| Basso      | Avviso personalizzato: il numero di messaggi dal cloud al dispositivo nel protocollo AMQP non è compreso nell'intervallo consentito          | Hub IoT     | La quantità di messaggi dal cloud al dispositivo (protocollo AMQP) in un intervallo di tempo non è compreso nell'intervallo consentito configurato                                  |
-| Basso      | Avviso personalizzato: il numero di messaggi rifiutati dal cloud al dispositivo nel protocollo AMQP non è compreso nell'intervallo consentito | Hub IoT     | La quantità di messaggi dal cloud al dispositivo (protocollo AMQP) che sono stati rifiutati dal dispositivo in un intervallo di tempo non è compreso nell'intervallo consentito configurato |
-| Basso      | Avviso personalizzato: il numero di messaggi dal dispositivo al cloud nel protocollo AMQP non è compreso nell'intervallo consentito          | Hub IoT     | La quantità di messaggi dal dispositivo al cloud (protocollo AMQP) in un intervallo di tempo non è compreso nell'intervallo consentito configurato                                  |
-| Basso      | Avviso personalizzato: il numero di chiamate del metodo diretto non è compreso nell'intervallo consentito                              | Hub IoT     | La quantità di chiamate del metodo diretto in un intervallo di tempo non è compreso nell'intervallo consentito configurato                                                     |
-| Basso      | Avviso personalizzato: il numero di caricamenti di file non è compreso nell'intervallo consentito                                       | Hub IoT     | La quantità di caricamenti di file in un intervallo di tempo non è compreso nell'intervallo consentito configurato                                                              |
-| Basso      | Avviso personalizzato: il numero di messaggi dal cloud al dispositivo nel protocollo HTTP non è compreso nell'intervallo consentito          | Hub IoT     | La quantità di messaggi dal cloud al dispositivo (protocollo HTTP) in un intervallo di tempo non è compreso nell'intervallo consentito configurato                                  |
-| Basso      | Avviso personalizzato: il numero di messaggi rifiutati dal cloud al dispositivo nel protocollo HTTP non è compreso nell'intervallo consentito | Hub IoT     | La quantità di messaggi dal cloud al dispositivo (protocollo HTTP) che sono stati rifiutati dal dispositivo in un intervallo di tempo non è compreso nell'intervallo consentito configurato |
-| Basso      | Avviso personalizzato: il numero di messaggi dal dispositivo al cloud nel protocollo HTTP non è compreso nell'intervallo consentito          | Hub IoT     | La quantità di messaggi dal dispositivo al cloud (protocollo HTTP) in un intervallo di tempo non è compreso nell'intervallo consentito configurato                                  |
-| Basso      | Avviso personalizzato: il numero di messaggi dal cloud al dispositivo nel protocollo MQTT non è compreso nell'intervallo consentito          | Hub IoT     | La quantità di messaggi dal cloud al dispositivo (protocollo MQTT) in un intervallo di tempo non è compreso nell'intervallo consentito configurato                                  |
-| Basso      | Avviso personalizzato: il numero di messaggi rifiutati dal cloud al dispositivo nel protocollo MQTT non è compreso nell'intervallo consentito | Hub IoT     | La quantità di messaggi dal cloud al dispositivo (protocollo MQTT) che sono stati rifiutati dal dispositivo in un intervallo di tempo non è compreso nell'intervallo consentito configurato |
-| Basso      | Avviso personalizzato: il numero di messaggi dal dispositivo al cloud nel protocollo MQTT non è compreso nell'intervallo consentito          | Hub IoT     | La quantità di messaggi dal dispositivo al cloud (protocollo MQTT) in un intervallo di tempo non è compreso nell'intervallo consentito configurato                                  |
-| Basso      | Avviso personalizzato: il numero di pulizie della coda dei comandi non è compreso nell'intervallo consentito                               | Hub IoT     | La quantità di pulizie della coda dei comandi in un intervallo di tempo non è compreso nell'intervallo consentito configurato                                                      |
-| Basso      | Avviso personalizzato: il numero di aggiornamenti dei dispositivi gemelli non è compreso nell'intervallo consentito                                       | Hub IoT     | La quantità di aggiornamenti dei dispositivi gemelli in un intervallo di tempo non è compreso nell'intervallo consentito configurato                                                              |
-| Basso      | Avviso personalizzato: il numero di operazioni non autorizzate non è compreso nell'intervallo consentito                            | Hub IoT     | La quantità di operazioni non autorizzate in un intervallo di tempo non è compreso nell'intervallo consentito configurato                                                   |
-| Basso      | Avviso personalizzato: il numero di connessioni attive non è compreso nell'intervallo consentito                                        | Agente       | La quantità di connessioni attive in un intervallo di tempo non è compreso nell'intervallo consentito configurato                                                        |
-| Basso      | Avviso personalizzato: è stata creata una connessione in uscita a un indirizzo IP non consentito                              | Agente       | È stata creata una connessione in uscita a un indirizzo IP non consentito                                                                                  |
-| Basso      | Avviso personalizzato: il numero di accessi locali non riusciti non è compreso nell'intervallo consentito                                | Agente       | La quantità di accessi locali non riusciti in un intervallo di tempo non è compreso nell'intervallo consentito configurato                                                       |
-| Basso      | Avviso personalizzato: accesso di un utente non consentito                                                      | Agente       | Un utente locale a cui non è consentito l'accesso al dispositivo                                                                                        |
-| Basso      | Avviso personalizzato: esecuzione di un processo non consentito                                               | Agente       | È stato eseguito un processo non consentito sul dispositivo |          |
+
+| Gravità | NOME | origine dati | DESCRIZIONE | Correzione consigliata|
+|---|---|---|---|---|
+| Basso      | Avviso personalizzato: il numero di messaggi da cloud a dispositivo nel protocollo AMQP non rientra nell'intervallo consentito          | Hub IoT     | Il numero di messaggi da cloud a dispositivo (protocollo AMQP) in una finestra temporale specifica non rientra nell'intervallo attualmente configurato e consentito.||
+| Basso      | Avviso personalizzato: il numero di messaggi rifiutati da cloud a dispositivo nel protocollo AMQP non rientra nell'intervallo consentito | Hub IoT     | Il numero di messaggi da cloud a dispositivo (protocollo AMQP) rifiutati dal dispositivo in una finestra temporale specifica non rientra nell'intervallo attualmente configurato e consentito.||
+| Basso      | Avviso personalizzato: il numero di messaggi da dispositivo a cloud nel protocollo AMQP non rientra nell'intervallo consentito      | Hub IoT     | La quantità di messaggi da dispositivo a cloud (protocollo AMQP) in una finestra temporale specifica non rientra nell'intervallo attualmente configurato e consentito.|   |
+| Basso      | Avviso personalizzato: il numero di chiamate del metodo diretto non rientra nell'intervallo consentito | Hub IoT     | La quantità di richiami al metodo diretto in una finestra temporale specifica non rientra nell'intervallo attualmente configurato e consentito.||
+| Basso      | Avviso personalizzato: il numero di caricamenti di file non rientra nell'intervallo consentito | Hub IoT     | La quantità di caricamenti di file in una finestra temporale specifica non rientra nell'intervallo attualmente configurato e consentito.| |
+| Basso      | Avviso personalizzato: il numero di messaggi da cloud a dispositivo nel protocollo HTTP non rientra nell'intervallo consentito | Hub IoT     | La quantità di messaggi dal cloud al dispositivo (protocollo HTTP) in un intervallo di tempo non è compreso nell'intervallo consentito configurato                                  |
+| Basso      | Avviso personalizzato: il numero di messaggi rifiutati da cloud a dispositivo nel protocollo HTTP non rientra nell'intervallo consentito | Hub IoT     | La quantità di messaggi da cloud a dispositivo (protocollo HTTP) in una finestra temporale specifica non rientra nell'intervallo attualmente configurato e consentito. |
+| Basso      | Avviso personalizzato: il numero di messaggi da dispositivo a cloud nel protocollo HTTP non rientra nell'intervallo consentito | Hub IoT| La quantità di messaggi da dispositivo a cloud (protocollo HTTP) in una finestra temporale specifica non rientra nell'intervallo attualmente configurato e consentito.|    |
+| Basso      | Avviso personalizzato: il numero di messaggi da cloud a dispositivo nel protocollo MQTT non rientra nell'intervallo consentito | Hub IoT     | La quantità di messaggi da cloud a dispositivo (protocollo MQTT) in una finestra temporale specifica non rientra nell'intervallo attualmente configurato e consentito.|   |
+| Basso      | Avviso personalizzato: il numero di messaggi rifiutati da cloud a dispositivo nel protocollo MQTT non rientra nell'intervallo consentito | Hub IoT     | La quantità di messaggi da cloud a dispositivo (protocollo MQTT) rifiutati dal dispositivo in una finestra temporale specifica non rientra nell'intervallo attualmente configurato e consentito. |
+| Basso      | Avviso personalizzato: il numero di messaggi da dispositivo a cloud nel protocollo MQTT non rientra nell'intervallo consentito          | Hub IoT     | La quantità di messaggi da dispositivo a cloud (protocollo MQTT) in una finestra temporale specifica non rientra nell'intervallo attualmente configurato e consentito.|
+| Basso      | Avviso personalizzato: il numero di pulizie della coda dei comandi non rientra nell'intervallo consentito                               | Hub IoT     | La quantità di pulizie della coda di comando in una finestra temporale specifica non rientra nell'intervallo attualmente configurato e consentito.||
+| Basso      | Avviso personalizzato: il numero di aggiornamenti dei moduli gemelli non rientra nell'intervallo consentito                                       | Hub IoT     | La quantità di aggiornamenti di moduli gemelli in una finestra temporale specifica non rientra nell'intervallo attualmente configurato e consentito.|
+| Basso      | Avviso personalizzato: il numero di operazioni non autorizzate non rientra nell'intervallo consentito  | Hub IoT     | La quantità di operazioni non autorizzate in una finestra temporale specifica non rientra nell'intervallo attualmente configurato e consentito.|
+| Basso      | Avviso personalizzato: il numero di connessioni attive non rientra nell'intervallo consentito  | Agente       | Il numero connessioni attive in una finestra temporale specifica non rientra nell'intervallo attualmente configurato e consentito.|  Esaminare i log del dispositivo. Scoprire l'origine della connessione e determinare se è dannosa o meno. Se è dannosa, rimuovere il possibile malware e identificare l'origine. Se non è dannosa, aggiungere l'origine all'elenco di connessioni consentite.  |
+| Basso      | Avviso personalizzato: è stata creata una connessione in uscita a un indirizzo IP non consentito                             | Agente       | È stata creata una connessione in uscita a un IP che non rientra nell'elenco di indirizzi IP consentiti. |Esaminare i log del dispositivo. Scoprire l'origine della connessione e determinare se è dannosa o meno. Se è dannosa, rimuovere il possibile malware e identificare l'origine. Se non è dannosa, aggiungere l'origine all'elenco di indirizzi IP consentiti.                        |
+| Basso      | Avviso personalizzato: il numero di accessi locali non riusciti non rientra nell'intervallo consentito                               | Agente       | La quantità di accessi locali non riusciti in una finestra temporale specifica non rientra nell'intervallo attualmente configurato e consentito. |   |
+| Basso      | Avviso personalizzato: accesso di un utente non incluso nell'elenco di utenti consentiti | Agente       | Un utente locale non incluso nell'elenco di utenti consentiti ha effettuato l'accesso al dispositivo.|  Se si salvano dati non elaborati, passare all'account di Log Analytics e usare i dati per esaminare il dispositivo, identificare l'origine e quindi correggere l'elenco di elementi consentiti/bloccati per tali impostazioni. Se attualmente non si salvano dati non elaborati, passare al dispositivo e correggere l'elenco di elementi consentiti/bloccati per tali impostazioni.|
+| Basso      | Avviso personalizzato: è stato eseguito un processo non consentito | Agente       | Nel dispositivo è stato eseguito un processo non consentito. |Se si salvano dati non elaborati, passare all'account di Log Analytics e usare i dati per esaminare il dispositivo, identificare l'origine e quindi correggere l'elenco di elementi consentiti/bloccati per tali impostazioni. Se attualmente non si salvano dati non elaborati, passare al dispositivo e correggere l'elenco di elementi consentiti/bloccati per tali impostazioni.  |
+|
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

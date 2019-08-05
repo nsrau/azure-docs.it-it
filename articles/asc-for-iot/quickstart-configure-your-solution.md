@@ -1,5 +1,5 @@
 ---
-title: Configurare la soluzione Centro sicurezza di Azure per IoT - Anteprima | Microsoft Docs
+title: Configurare la soluzione Centro sicurezza di Azure per IoT | Microsoft Docs
 description: Informazioni su come configurare la soluzione IoT end-to-end con il Centro sicurezza di Azure per IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -13,32 +13,29 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 7f90dba899651b677740e9ceb88bdd579ebb073c
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 15c8aabbcb19d009bb202d111dc7f80da4cebff1
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616649"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597022"
 ---
 # <a name="quickstart-configure-your-iot-solution"></a>Guida introduttiva: Configurare la soluzione IoT
 
-> [!IMPORTANT]
-> Centro sicurezza di Azure per IoT è attualmente in versione di anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Questo articolo spiega come eseguire la configurazione iniziale della soluzione di sicurezza IoT con il Centro sicurezza di Azure per IoT. 
 
-## <a name="azure-security-center-asc-for-iot"></a>Centro sicurezza di Azure per IoT
+## <a name="azure-security-center-for-iot"></a>Centro sicurezza di Azure per IoT
 
-Il Centro sicurezza di AZURE per IoT offre la sicurezza end-to-end completa per soluzioni IoT basate su Azure.
+Il Centro sicurezza di Azure per IoT offre sicurezza end-to-end completa per soluzioni IoT basate su Azure.
 
 Con il Centro sicurezza di Azure per IoT è possibile monitorare l'intera soluzione IoT in un unico dashboard, visualizzando tutti i dispositivi IoT, le piattaforme IoT e le risorse di back-end in Azure.
 
 Dopo l'abilitazione sull'hub IoT, il Centro sicurezza di Azure per IoT identifica automaticamente gli altri servizi di Azure, anch'essi connessi all'hub IoT e correlati alla soluzione IoT.
 
-Oltre al rilevamento automatico delle relazioni, è anche possibile scegliere quali altre risorse di Azure contrassegnare come parte della soluzione IoT.
+Oltre al rilevamento automatico delle relazioni, è anche possibile scegliere quali altri gruppi di risorse di Azure contrassegnare come parte della soluzione IoT.
+
 Le opzioni selezionate consentono di aggiungere intere sottoscrizioni, gruppi di risorse o singole risorse.
 
 Dopo aver definito tutte le relazioni delle risorse, il Centro sicurezza di Azure per IoT sfrutta il Centro sicurezza di Azure per fornire raccomandazioni e avvisi di sicurezza per tali risorse.
@@ -49,13 +46,12 @@ Per aggiungere una nuova risorsa alla soluzione IoT, eseguire le operazioni segu
 
 1. Aprire l'**hub IoT** nel portale di Azure. 
 2. Selezionare e aprire **Risorse** in **Sicurezza** nel menu a sinistra. 
-3. Selezionare **Aggiungi risorse**.
-4. Scegliere le risorse che appartengono alla soluzione IoT.
+3. Selezionare **Modifica** e scegliere i gruppi di risorse che appartengono alla soluzione IoT.
 5. Fare clic su **Aggiungi**. 
 
-Congratulazioni! È stata aggiunta una nuova risorsa alla soluzione IoT.
+Congratulazioni! È stato aggiunto un nuovo gruppo di risorse alla soluzione IoT.
 
-Il Centro sicurezza di Azure per IoT ora monitora le risorse appena aggiunte e visualizza le raccomandazioni e gli avvisi di sicurezza rilevanti come parte della soluzione IoT.
+Il Centro sicurezza di Azure per IoT ora monitora i gruppi di risorse appena aggiunti e visualizza le raccomandazioni e gli avvisi di sicurezza pertinenti come parte della soluzione IoT.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

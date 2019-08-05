@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 07/01/2019
+ms.date: 07/25/2019
 ms.author: pafarley
-ms.openlocfilehash: e064faf3017b95cb3a5f3d9b89f178fb7f846766
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: b07201556f08bde4ef8c7a7904c6619a126d7765
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592613"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594551"
 ---
 # <a name="what-is-form-recognizer"></a>Informazioni su Riconoscimento modulo
 
@@ -26,7 +26,7 @@ Il modello personalizzato di Riconoscimento modulo esegue il training in base ai
 
 L'apprendimento non supervisionato consente al modello di riconoscere il layout e le relazioni tra campi e voci senza assegnazione manuale di etichette dati o impegnative attività di creazione di codice e manutenzione. Al contrario, i modelli di Machine Learning con training preliminare richiedono dati standardizzati sono meno accurati se usati con materiale di input che si discosta dai formati tradizionali, come i moduli specifici del settore.
 
-## <a name="pre-built-receipt-model"></a>Modello di ricevuta predefinito
+## <a name="prebuilt-receipt-model"></a>Modello di ricevute predefinito
 
 Riconoscimento modulo include anche un modello per la lettura delle ricevute di vendita. Questo modello consente di estrarre le informazioni principali, come la data e l'ora della transazione, i dati del rivenditore, gli importi di imposte e totali e altro ancora. Il training del modello di ricevute predefinito è stato inoltre eseguito in modo che il modello possa riconoscere e restituire tutto il testo di una ricevuta.
 
@@ -34,9 +34,20 @@ Riconoscimento modulo include anche un modello per la lettura delle ricevute di 
 
 Riconoscimento modulo è disponibile come API REST. È possibile creare, eseguire il training e assegnare un punteggio a un modello personalizzato oppure accedere al modello predefinito richiamando queste API. Se necessario, è possibile eseguire il training e avviare modelli personalizzati anche in un contenitore Docker locale.
 
-## <a name="input-requirements-custom-model"></a>Requisiti di input (modello personalizzato)
+## <a name="input-requirements"></a>Requisiti di input
+### <a name="custom-model"></a>Modello personalizzato
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
+
+### <a name="prebuilt-receipt-model"></a>Modello di ricevute predefinito
+
+I requisiti di input per il modello di ricevuta sono leggermente diversi.
+
+* Il formato deve essere JPEG, PNG, BMP, PDF (testo o digitalizzato) o TIFF.
+* Le dimensioni dei file devono essere minori di 20 MB.
+* Per le immagini, le dimensioni devono essere comprese tra 50 x 50 pixel e 10000 x 10000 pixel. 
+* Le dimensioni dei PDF devono essere al massimo di 17 x 17 pollici, corrispondenti a formati della carta Legal o A3 e inferiori.
+* Per PDF e TIFF, vengono elaborate solo le prime 200 pagine (con una sottoscrizione di livello gratuito, vengono elaborate solo le prime due pagine).
 
 ## <a name="request-access"></a>Richiedere l'accesso
 

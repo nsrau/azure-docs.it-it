@@ -11,20 +11,20 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: c2565a5549cbca08b987883e5905f09070b5ab2c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 34ec7c678410b2e0814f8dbb7a69257886cb891d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443193"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639125"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Aggiungere un binding della coda di archiviazione di Azure alla funzione Python
 
-La soluzione Funzioni di Azure consente di connettere i servizi di Azure e altre risorse alle funzioni senza la necessità di scrivere codice di integrazione personalizzato. Questi *binding*, che rappresentano sia input che output, vengono dichiarati all'interno della definizione di funzione. I dati dei binding vengono forniti alla funzione come parametri. Un trigger è un tipo speciale di binding di input. Anche se una funzione include un solo trigger, può avere più binding di input e output. Per altre informazioni, vedere [Concetti su trigger e binding di Funzioni di Azure](functions-triggers-bindings.md).
+La soluzione Funzioni di Azure consente di connettere i servizi di Azure e altre risorse alle funzioni senza la necessità di scrivere codice di integrazione personalizzato. Questi *binding*, che rappresentano sia input che output, vengono dichiarati all'interno della definizione di funzione. I dati dei binding vengono forniti alla funzione come parametri. Un *trigger* è un tipo speciale di binding di input. Anche se una funzione include un solo trigger, può avere più binding di input e output. Per altre informazioni, vedere [Concetti su trigger e binding di Funzioni di Azure](functions-triggers-bindings.md).
 
-Questo articolo illustra come integrare la funzione creata nel [precedente articolo di avvio rapido](functions-create-first-function-python.md) con una coda di archiviazione di Azure. Il binding di output che si aggiunge a questa funzione scrive i dati della richiesta HTTP in un messaggio della coda. 
+Questo articolo illustra come integrare la funzione creata nel [precedente articolo di avvio rapido](functions-create-first-function-python.md) con una coda di archiviazione di Azure. Il binding di output che si aggiunge a questa funzione scrive i dati di una richiesta HTTP in un messaggio della coda.
 
-La maggior parte dei binding richiede una stringa di connessione archiviata che verrà usata da Funzioni per accedere al servizio associato. Per semplicità, usare l'account di archiviazione creato con l'app per le funzioni. La connessione a questo account è già archiviata in un'impostazione dell'app denominata `AzureWebJobsStorage`.  
+La maggior parte dei binding richiede una stringa di connessione archiviata che verrà usata da Funzioni per accedere al servizio associato. Per semplificare questa connessione, usare l'account di archiviazione creato con l'app per le funzioni. La connessione a questo account è già archiviata in un'impostazione dell'app denominata `AzureWebJobsStorage`.  
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -32,13 +32,13 @@ Prima di iniziare con questo articolo, completare i passaggi della [parte 1 dell
 
 ## <a name="download-the-function-app-settings"></a>Scaricare le impostazioni dell'app per le funzioni
 
-Nel precedente articolo di avvio rapido è stata creata un'app per le funzioni in Azure insieme all'account di archiviazione necessario. La stringa di connessione per questo account è archiviata in modo sicuro nelle impostazioni dell'app in Azure. In questo articolo verranno scritti messaggi in una coda di archiviazione dello stesso account. Per connettersi all'account di archiviazione durante l'esecuzione della funzione in locale, è necessario scaricare le impostazioni dell'app nel file local.settings.json. Eseguire il comando di Azure Functions Core Tools seguente per scaricare le impostazioni nel file local.settings.json, sostituendo `<APP_NAME>` con il nome dell'app per le funzioni specificato nell'articolo precedente:
+Nel precedente argomento di avvio rapido è stata creata un'app per le funzioni in Azure insieme all'account di archiviazione necessario. La stringa di connessione per questo account è archiviata in modo sicuro nelle impostazioni dell'app in Azure. In questo articolo verranno scritti messaggi in una coda di archiviazione dello stesso account. Per connettersi all'account di archiviazione durante l'esecuzione della funzione in locale, è necessario scaricare le impostazioni dell'app nel file local.settings.json. Eseguire il comando di Azure Functions Core Tools seguente per scaricare le impostazioni nel file local.settings.json, sostituendo `<APP_NAME>` con il nome dell'app per le funzioni specificato nell'articolo precedente:
 
 ```bash
 func azure functionapp fetch-app-settings <APP_NAME>
 ```
 
-Può essere necessario accedere all'account Azure.
+Potrebbe essere necessario accedere all'account Azure.
 
 > [!IMPORTANT]  
 > Il file local.settings.json contiene segreti, quindi non viene mai pubblicato e dovrà essere escluso dal controllo del codice sorgente.
@@ -49,23 +49,23 @@ Può essere necessario accedere all'account Azure.
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
-Ora è possibile aggiungere il binding di output di Archiviazione nel progetto.
+È ora possibile aggiungere il binding di output di archiviazione nel progetto.
 
 ## <a name="add-an-output-binding"></a>Aggiungere un binding di output
 
 In Funzioni ogni tipo di binding richiede di definire `direction`, `type` e un valore univoco `name` nel file function.json. A seconda del tipo di binding, potrebbero essere necessarie altre proprietà. La tabella di [configurazione dell'output della coda](functions-bindings-storage-queue.md#output---configuration) indica i campi necessari per un binding della coda di archiviazione di Azure.
 
-Per creare un binding, aggiungere un oggetto configurazione di binding al file `function.json`. Modificare il file function.json nella cartella HttpTrigger per aggiungere un oggetto alla matrice `bindings` che include le proprietà seguenti:
+Per creare un binding, aggiungere un oggetto configurazione di binding al file function.json. Modificare il file function.json nella cartella HttpTrigger per aggiungere un oggetto alla matrice `bindings` che include queste proprietà:
 
 | Proprietà | Valore | DESCRIZIONE |
 | -------- | ----- | ----------- |
-| **`name`** | `msg` | Nome che identifica il parametro di binding a cui viene fatto riferimento nel codice. |
+| **`name`** | `msg` | Il nome che identifica il parametro di binding a cui viene fatto riferimento nel codice. |
 | **`type`** | `queue` | Il binding è un binding della coda di archiviazione di Azure. |
 | **`direction`** | `out` | Il binding è un binding di output. |
-| **`queueName`** | `outqueue` | Il nome della coda in cui scrive il binding. Se *queueName* non esiste, il binding lo crea al primo utilizzo. |
+| **`queueName`** | `outqueue` | Il nome della coda in cui scrive il binding. Se `queueName` non esiste, il binding lo crea al primo utilizzo. |
 | **`connection`** | `AzureWebJobsStorage` | Il nome dell'impostazione dell'app che contiene la stringa di connessione dell'account di archiviazione. L'impostazione `AzureWebJobsStorage` contiene la stringa di connessione per l'account di archiviazione creato con l'app per le funzioni. |
 
-Il file function.json dovrà avere un aspetto simile all'esempio seguente:
+Il file function.json dovrà avere un aspetto simile a questo esempio:
 
 ```json
 {
@@ -99,7 +99,7 @@ Il file function.json dovrà avere un aspetto simile all'esempio seguente:
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Aggiungere il codice che usa l'associazione di output
 
-Una volta configurato, è possibile usare il valore `name` del binding per accedervi come attributo di metodo nella firma della funzione. Nell'esempio seguente `msg` è un'istanza della [`azure.functions.InputStream class`](/python/api/azure-functions/azure.functions.httprequest).
+Una volta configurato, è possibile usare il valore `name` per accedere al binding come attributo di metodo nella firma della funzione. Nell'esempio seguente `msg` è un'istanza della [`azure.functions.InputStream class`](/python/api/azure-functions/azure.functions.httprequest).
 
 ```python
 import logging
@@ -128,7 +128,7 @@ def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
         )
 ```
 
-Usando un binding di output, non è necessario usare il codice di Azure Storage SDK per l'autenticazione, per recuperare un riferimento alla coda o per scrivere dati. Queste attività vengono eseguite automaticamente dal runtime di Funzioni e dal binding di output.
+Quando si usa un binding di output, non è necessario usare il codice di Azure Storage SDK per l'autenticazione, per recuperare un riferimento alla coda o per scrivere dati. Queste attività vengono eseguite automaticamente dal runtime di Funzioni e dal binding di output.
 
 ## <a name="run-the-function-locally"></a>Eseguire la funzione in locale
 
@@ -139,9 +139,9 @@ func host start
 ```
 
 > [!NOTE]  
-> Nell'articolo precedente è stato necessario abilitare i bundle di estensioni nel file host.json, quindi durante l'avvio è stata scaricata e configurata l'[estensione di binding di archiviazione](functions-bindings-storage-blob.md#packages---functions-2x), nonché altre estensioni di binding di Microsoft.
+> Nell'argomento di avvio rapido precedente è stato necessario abilitare i bundle di estensioni nel file host.json, quindi durante l'avvio è stata scaricata e configurata l'[estensione di binding di archiviazione](functions-bindings-storage-blob.md#packages---functions-2x), nonché altre estensioni di binding di Microsoft.
 
-Copiare l'URL della funzione `HttpTrigger` dall'output del runtime e incollarlo nella barra degli indirizzi del browser. Aggiungere la stringa di query `?name=<yourname>` all'URL ed eseguire la richiesta. Nel browser dovrebbe essere visualizzata la stessa risposta dell'articolo precedente.
+Copiare l'URL della funzione `HttpTrigger` dall'output del runtime e incollarlo nella barra degli indirizzi del browser. Aggiungere la stringa di query `?name=<yourname>` a questo URL ed eseguire la richiesta. Nel browser dovrebbe essere visualizzata la stessa risposta dell'articolo precedente.
 
 Questa volta il binding di output crea anche una coda denominata `outqueue` nell'account di archiviazione e aggiunge un messaggio con questa stessa stringa.
 
@@ -167,7 +167,7 @@ az storage queue list --output tsv
 
 L'output di questo comando include una coda denominata `outqueue`, che è la coda creata quando è stata eseguita la funzione.
 
-Usare quindi il comando [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) per visualizzare i messaggi inclusi in questa coda, come indicato nell'esempio seguente.
+Usare quindi il comando [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) per visualizzare i messaggi inclusi in questa coda, come indicato in questo esempio:
 
 ```azurecli-interactive
 echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
@@ -182,7 +182,7 @@ Ora è il momento di ripubblicare l'app per le funzioni aggiornata in Azure.
 
 [!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
 
-Anche in questo caso, è possibile usare cURL o un browser per testare la funzione distribuita. Come prima, aggiungere la stringa di query `&name=<yourname>` all'URL, come nell'esempio seguente:
+Anche in questo caso, è possibile usare cURL o un browser per testare la funzione distribuita. Come prima, aggiungere la stringa di query `&name=<yourname>` all'URL, come indicato in questo esempio:
 
 ```bash
 curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....&name=<yourname>

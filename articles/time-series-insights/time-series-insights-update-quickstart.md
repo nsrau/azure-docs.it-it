@@ -1,6 +1,6 @@
 ---
 title: "Avvio rapido: Esplorare l'ambiente demo Anteprima di Azure Time Series Insights | Microsoft Docs"
-description: Informazioni sull'ambiente demo Anteprima di Azure Time Series Insights.
+description: Guida di avvio rapido sull'ambiente demo Anteprima di Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -10,15 +10,15 @@ ms.reviewer: dpalled
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 04/22/2019
-ms.openlocfilehash: 547edb194ffdf52a805f573d338f61edff80623a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 07/29/2019
+ms.openlocfilehash: 3d098b1806e4fdf5b45030dfebf3dfe5959b7d5c
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164888"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677705"
 ---
-# <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Avvio rapido: Esplorare l'ambiente demo Anteprima di Azure Time Series Insights
+# <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Guida introduttiva: Esplorare l'ambiente demo Anteprima di Azure Time Series Insights
 
 Questa guida di avvio rapido offre informazioni introduttive sull'ambiente di anteprima di Azure Time Series Insights. La demo gratuita offre una panoramica delle funzionalità principali aggiunte ad Anteprima di Time Series Insights.
 
@@ -26,11 +26,12 @@ L'ambiente demo di Anteprima di Time Series Insights contiene una società fitti
 
 Questa guida di avvio rapido illustra come usare Time Series Insights per trovare informazioni dettagliate di utilità pratica nei dati di Contoso. Si condurrà anche una breve analisi della causa radice per agevolare la previsione dei guasti critici e la manutenzione.
 
+> [!IMPORTANT]
+> Creare un [account di Azure gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) se non se ne ha già uno.
+
 ## <a name="explore-the-time-series-insights-explorer-in-a-demo-environment"></a>Esaminare lo strumento di esplorazione di Time Series Insights in un ambiente demo
 
 Lo strumento di esplorazione di Anteprima di Time Series Insights Preview consente di visualizzare i dati cronologici e di eseguire un'analisi delle cause radice. Attività iniziali
-
-1. Creare un [account di Azure gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) se non se ne ha già uno.
 
 1. Passare all'ambiente  [demo di Contoso Wind Farm](https://insights.timeseries.azure.com/preview/samples).  
 
@@ -73,10 +74,9 @@ Lo strumento di esplorazione di Anteprima di Time Series Insights Preview consen
 
 Usando Time Series Insights e i dati di telemetria dei sensori, è emersa una tendenza problematica e a lungo termine nascosta nei dati cronologici. Con queste nuove informazioni dettagliate, è possibile:
 
-> [!div class="checklist"]
-> * Illustrare ciò che è effettivamente accaduto.
-> * Risolvere il problema.
-> * Implementare sistemi di notifica degli avvisi più efficienti.
+* Illustrare ciò che è effettivamente accaduto.
+* Risolvere il problema.
+* Implementare sistemi di notifica degli avvisi più efficienti.
 
 ## <a name="root-cause-analysis"></a>Analisi della causa radice
 
@@ -115,6 +115,13 @@ Usando Time Series Insights e i dati di telemetria dei sensori, è emersa una te
     * Cambiare la visualizzazione in modo da sovrapporre tutti i sensori di **Generator System** sulla stessa scala del grafico.
 
       [![Cambiare la visualizzazione per includere tutti i dati](media/v2-update-quickstart/quickstart-ten.png)](media/v2-update-quickstart/quickstart-ten.png#lightbox)
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Ora che è stata completata l'esercitazione, pulire le risorse create:
+
+1. Nel [portale di Azure](https://portal.azure.com) selezionare **Tutte le risorse** nel menu a sinistra e individuare il gruppo di risorse di Azure Time Series Insights.
+1. Per eliminare l'intero gruppo di risorse e tutte le risorse in esso contenute, selezionare **Elimina** oppure rimuovere ogni risorsa singolarmente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

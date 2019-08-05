@@ -1,5 +1,5 @@
 ---
-title: Creare la prima funzione in Azure con Java e Maven | Microsoft Docs
+title: Usare Java e Maven per pubblicare una funzione - Funzioni di Azure
 description: Creare e pubblicare una semplice funzione attivata HTTP in Azure con Java e Maven.
 services: functions
 documentationcenter: na
@@ -12,13 +12,13 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw
 ms.reviewer: glenga
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 20327e64080182518fd28b1d367ffe37be5ce9a4
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.custom: mvc, devcenter, seo-java-july2019
+ms.openlocfilehash: 9ed954eaf96196fdaa944778db8ea47dd5e6da9f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323959"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564801"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Creare la prima funzione con Java e Maven
 

@@ -1,6 +1,6 @@
 ---
-title: Modificare, eseguire il training dell'app, Python
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Cambiare l'app ed eseguirne il training, Python - LUIS
+titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva per Python si aggiungono espressioni di esempio in un'app Home Automation e si esegue il training dell'app.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: diberry
-ms.openlocfilehash: 517f9f89d7733aaa066c3fb2b487be0a67994d4e
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 96f4d251b0ccc76ef33c86f6661cc9b94098a967
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357106"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560532"
 ---
 # <a name="quickstart-change-model-using-python"></a>Avvio rapido: Modificare il modello usando Python
 

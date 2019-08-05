@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Assistente virtuale voice-first personalizzato (anteprima), Java (Windows, Linux) - Servizi Voce'
+title: 'Guida introduttiva: Assistente virtuale voice-first personalizzato (anteprima), Java (Windows, Linux) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Questa guida di avvio rapido spiega come usare Speech SDK di Servizi cognitivi in un'applicazione console Java. Viene spiegato come connettere l'applicazione client a un bot di Bot Framework creato in precedenza e configurato per l'uso del canale Direct Line Speech e abilitare un'esperienza di assistente virtuale voice-first.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: bidishac
-ms.openlocfilehash: 78e80b276a13ee6e27fdf0515f2901fdeaa20c5d
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b1be09a2af712277ccaad827b8e84e24ed9f5c5c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604917"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553275"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-java"></a>Guida introduttiva: Creare un assistente virtuale voice-first con Speech SDK, Java
 
@@ -479,6 +479,6 @@ Esempi aggiuntivi, ad esempio per eseguire il riconoscimento vocale da un file a
 
 - [Informazioni sugli assistenti virtuali voice-first](voice-first-virtual-assistants.md)
 - [Ottieni gratuitamente una chiave di sottoscrizione per i servizi Voce](get-started.md)
-- [Parola di attivazione personalizzate](speech-devices-sdk-create-kws.md)
-- [Collegare Direct Line Speech nel bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Parole di attivazione personalizzate](speech-devices-sdk-create-kws.md)
+- [Collegare Direct Line Speech al bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 - [Esaminare gli esempi di codice Java su GitHub](https://aka.ms/csspeech/samples)

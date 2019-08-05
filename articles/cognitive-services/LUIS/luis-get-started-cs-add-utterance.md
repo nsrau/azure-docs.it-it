@@ -1,6 +1,6 @@
 ---
-title: Modificare l'app ed eseguirne il training, C#
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Cambiare l'app ed eseguirne il training, C# - LUIS
+titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva per C# si aggiungono espressioni di esempio in un'app Home Automation e si esegue il training dell'app.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: d44877e35687745ddba51d4d015729e62106c9ca
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 55251a553921e947e7c6522677e51e4eb1d3fa5b
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348443"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619947"
 ---
 # <a name="quickstart-change-model-using-c"></a>Guida introduttiva: Modificare il modello tramite C#
 
@@ -115,7 +115,7 @@ Per gestire gli argomenti della riga di comando, aggiungere il codice main. Aggi
 
 ### <a name="copy-utterancesjson-to-output-directory"></a>Copiare utterances.json nella directory di output
 
-In Esplora soluzioni aggiungere `utterances.json` facendo clic con il pulsante destro del mouse sul nome del progetto e scegliendo **Aggiungi**, quindi selezionando **Elemento esistente**. Selezionare il file `utterances.json`. Il file viene aggiunto al progetto. Quindi deve essere aggiunto alla direzione di output. Fare clic con il pulsante destro del mouse su `utterances.json` e scegliere **Proprietà**. Nelle finestre delle proprietà contrassegnare **Azione di compilazione** di `Content` e **Copia nella directory di output** di `Copy Always`.  
+In Esplora soluzioni aggiungere `utterances.json` facendo clic con il pulsante destro del mouse sul nome del progetto e scegliendo **Aggiungi**, quindi selezionando **Elemento esistente**. Selezionare il file `utterances.json`. Il file viene aggiunto al progetto. Quindi deve essere aggiunto alla directory di output. Fare clic con il pulsante destro del mouse su `utterances.json` e scegliere **Proprietà**. Nelle finestre delle proprietà contrassegnare **Azione di compilazione** di `Content` e **Copia nella directory di output** di `Copy Always`.  
 
 ![Contrassegnare il file JSON come contenuto](./media/luis-quickstart-cs-add-utterance/content-properties.png)
 

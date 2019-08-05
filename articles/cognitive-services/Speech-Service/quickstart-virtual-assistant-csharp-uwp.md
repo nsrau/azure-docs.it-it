@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Assistente virtuale voice-first personalizzato (anteprima), C# (piattaforma UWP) - Servizi Voce'
+title: 'Guida introduttiva: Assistente virtuale voice-first personalizzato (anteprima), C# (piattaforma UWP) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: In questo articolo viene creata un'applicazione della piattaforma UWP (Universal Windows Platform) C# usando Speech SDK (Speech Software Development Kit) di Servizi cognitivi. L'applicazione client viene connessa a un bot di Bot Framework creato in precedenza e configurato per l'uso del canale Direct Line Speech. L'applicazione si basa sul pacchetto NuGet Speech SDK e su Microsoft Visual Studio 2017.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 22c18b573e7107163f858c79956ca6f5380f6834
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 6d88bcc6d9d2c2e46ef3a3cb841c9268a544e37c
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604968"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609698"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>Guida introduttiva: Creare un assistente virtuale voice-first con Speech SDK, piattaforma UWP
 
 Sono disponibili guide di avvio rapido anche per il [riconoscimento vocale](quickstart-csharp-uwp.md), la [sintesi vocale](quickstart-text-to-speech-csharp-uwp.md) e la [traduzione vocale](quickstart-translate-speech-uwp.md).
 
-In questo articolo viene sviluppata un'applicazione della piattaforma UWP (Universal Windows Platform) C# usando [Speech SDK](speech-sdk.md). Il programma si connetterà a un bot creato e configurato in precedenza per abilitare un'esperienza di assistente virtuale voice-first dall'applicazione client. L'applicazione si basa sul [pacchetto NuGet Speech SDK](https://aka.ms/csspeech/nuget) e su Microsoft Visual Studio 2017 (qualsiasi edizione).
+In questo articolo viene sviluppata un'applicazione della piattaforma UWP (Universal Windows Platform) C# usando [Speech SDK](speech-sdk.md). Il programma si connetterà a un bot creato e configurato in precedenza per abilitare un'esperienza di assistente virtuale voice-first dall'applicazione client. L'applicazione si basa sul [pacchetto NuGet Speech SDK](https://aka.ms/csspeech/nuget) e su Microsoft Visual Studio 2017 o versione successiva (qualsiasi edizione).
 
 > [!NOTE]
 > La piattaforma UWP (Universal Windows Platform) consente di sviluppare applicazioni eseguibili su qualsiasi dispositivo che supporta Windows 10, inclusi PC, Xbox, Surface Hub e altri dispositivi.
@@ -30,7 +30,7 @@ In questo articolo viene sviluppata un'applicazione della piattaforma UWP (Unive
 
 Questa guida introduttiva richiede:
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) o versione successiva
 * Una chiave di sottoscrizione di Azure per i servizi Voce. [È possibile ottenerne una gratuitamente](get-started.md) o crearla nel [portale di Azure](https://portal.azure.com).
 * Un bot creato in precedenza e configurato per l'uso del [canale Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
@@ -361,6 +361,6 @@ Questa guida di avvio rapido descrive in dettaglio come creare una semplice appl
 
 - [Informazioni sugli assistenti virtuali voice-first](voice-first-virtual-assistants.md)
 - [Ottieni gratuitamente una chiave di sottoscrizione per i servizi Voce](get-started.md)
-- [Parola di attivazione personalizzate](speech-devices-sdk-create-kws.md)
+- [Parole di attivazione personalizzate](speech-devices-sdk-create-kws.md)
 - [Collegare Direct Line Speech nel bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 - [Esaminare gli esempi di codice C# su GitHub](https://aka.ms/csspeech/samples)

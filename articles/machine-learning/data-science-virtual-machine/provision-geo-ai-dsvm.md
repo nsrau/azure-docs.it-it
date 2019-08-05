@@ -4,7 +4,7 @@ description: Informazioni su come creare e configurare la Data Science Virtual M
 keywords: apprendimento avanzato, AI, strumenti di data science, macchina virtuale per data science, analisi geospaziale
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 03/05/2018
-ms.author: gokuma
-ms.openlocfilehash: dde9b71c3615a592f8c08e040c5e9ba7bc756bd6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.author: vijetaj
+ms.openlocfilehash: 4772bf8341196485a91b3df30801b9714a4a64a8
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60578550"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68591881"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Eseguire il provisioning di una macchina virtuale con intelligenza artificiale geografica in Azure 
 
@@ -87,7 +87,7 @@ In caso contrario, è possibile iscriversi per ricevere un nuovo account ArcGIS 
 
 ![ArcGIS-Free-Trial](./media/provision-geo-ai-dsvm/ArcGIS-Free-Trial.png)
 
-Dopo l'iscrizione per entrambi un a pagamento o gratuito di valutazione account ArcGIS, è possibile autorizzare ArcGIS Pro per l'account seguendo le istruzioni disponibili nel [Guida introduttiva a ArcGIS Pro](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
+Dopo aver effettuato l'iscrizione per un account ArcGIS a pagamento o di valutazione gratuita, è possibile autorizzare ArcGIS Pro per l'account seguendo le istruzioni riportate nella [documentazione introduttiva di ArcGIS Pro](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
 
 Una volta eseguito l'accesso ad ArcGIS Pro desktop con l'account ArcGIS, si è pronti per iniziare a usare gli strumenti di data science installati e configurati nella macchina virtuale per progetti di analisi geospaziale e apprendimento automatico.
 

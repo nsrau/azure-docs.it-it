@@ -4,8 +4,8 @@ titleSuffix: Azure
 description: Configurare e creare una macchina virtuale per l'analisi scientifica dei dati per Linux (Ubuntu) in Azure per attività di analisi e Machine Learning.
 services: machine-learning
 documentationcenter: ''
-author: gopitk
-ms.author: gokuma
+author: vijetajo
+ms.author: vijetaj
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
@@ -14,14 +14,14 @@ ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.openlocfilehash: 5a9fdebc8db0c2a1acc20a894f80cfcc87fb89d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 8a19f414f31c307111edad876ed973ff4027d907
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236482"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68591927"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Effettuare il provisioning di una macchina virtuale per l'analisi scientifica dei dati per Linux (Ubuntu)
 
@@ -101,7 +101,7 @@ Di seguito sono elencati i passaggi per la creazione di un'istanza della macchin
 
    b. **Dimensione**:
 
-   * Selezionare uno dei tipi di server che soddisfa i requisiti funzionali e vincoli di costo. Selezionare un controller di rete o VM ND-classe per le istanze di macchina virtuale basata su GPU. Nella pagina [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/) sono elencate le aree con GPU.
+   * Selezionare uno dei tipi di server che soddisfa i requisiti funzionali e vincoli di costo. Selezionare una macchina virtuale di classe NC o ND per le istanze di VM basate su GPU. Nella pagina [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/) sono elencate le aree con GPU.
 
    c. **Impostazioni**:
 
@@ -121,7 +121,7 @@ Per il provisioning sono necessari circa 5 minuti. Lo stato del provisioning vie
 1. X2Go per le sessioni grafiche
 1. JupyterHub e JupyterLab per i notebook di Jupyter
 
-È anche possibile collegare una macchina virtuale Data Science per i notebook di Azure per eseguire i notebook di Jupyter nella VM e ignorare le limitazioni del livello di servizio gratuito. Per altre informazioni, vedere [gestire e configurare progetti di notebook - livello di calcolo](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
+È anche possibile aggiungere una Data Science VM in Azure Notebooks per eseguire notebook di Jupyter nella VM e ignorare le limitazioni del livello di servizio gratuito. Per altre informazioni, vedere [Gestire e configurare i progetti di Azure Notebooks - Livello di calcolo](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ### <a name="ssh"></a>SSH
 
@@ -148,9 +148,9 @@ Dopo aver eseguito l'accesso alla VM con il client SSH o il desktop con interfac
 
 ### <a name="jupyterhub-and-jupyterlab"></a>JupyterHub e JupyterLab
 
-La DSVM Ubuntu esegue [JupyterHub](https://github.com/jupyterhub/jupyterhub), un server Jupyter multiutente. Per connettersi, passare a https:\// i-vm-ip:8000 su un portatile o desktop, immettere il nome utente e password usati per creare la macchina virtuale ed eseguire l'accesso. Molti notebook di esempio sono disponibili da esplorare e provare a usare.
+La DSVM Ubuntu esegue [JupyterHub](https://github.com/jupyterhub/jupyterhub), un server Jupyter multiutente. Per connettersi, passare a https:\//ip-vm:8000 su un portatile o desktop, immettere il nome utente e la password usati per creare la macchina virtuale ed effettuare l'accesso. Molti notebook di esempio sono disponibili da esplorare e provare a usare.
 
-Sono disponibili anche JupyterLab, la prossima generazione di notebook Jupyter e JupyterHub. Per l'accesso, accedi a JupyterHub, quindi passare all'URL https:\// i-vm-ip:8000/utente/del-nome utente/lab. È possibile impostare JupyterLab come server notebook predefinito aggiungendo questa riga in */etc/jupyterhub/jupyterhub_config.py*:
+Sono disponibili anche JupyterLab, la prossima generazione di notebook Jupyter e JupyterHub. Per accedervi, accedere a JupyterHub, quindi passare all'URL https:\//ip-vm:8000/user/nome-utente/lab. È possibile impostare JupyterLab come server notebook predefinito aggiungendo questa riga al file */etc/jupyterhub/jupyterhub_config.py*:
 
 ```python
 c.Spawner.default_url = '/lab'
@@ -209,7 +209,7 @@ DIGITS viene anche installato come modulo Python nell'ambiente root Conda.
 
 #### <a name="tensorflow"></a>TensorFlow
 
-TensorFlow è la libreria di apprendimento avanzato di Google. È una libreria di software open source per calcoli numerici con grafici di flusso di dati. TensorFlow è disponibile nell'ambiente py35 Python e alcuni notebook di esempio sono inclusi in JupyterHub.
+TensorFlow è la libreria di apprendimento avanzato di Google. Si tratta di una libreria software open source per calcoli numerici con grafici del flusso di dati. TensorFlow è disponibile nell'ambiente py35 Python e alcuni notebook di esempio sono inclusi in JupyterHub.
 
 #### <a name="theano"></a>Theano
 
@@ -225,7 +225,7 @@ PyTorch è disponibile nell'ambiente root Anaconda. Esempi sono disponibili in /
 
 R è uno dei linguaggi più diffusi per l'analisi dei dati e il Machine Learning. Se si vuole usare R per l'esecuzione di analisi, è necessario che nella macchina virtuale sia installato Microsoft R Server (MRS) con Microsoft R Open (MRO) con Math Kernel Library (MKL). La libreria MKL ottimizza le operazioni matematiche comuni negli algoritmi di analisi. MRO è totalmente compatibile con CRAN-R e tutte le librerie R pubblicate in CRAN possono essere installate in MRO. MRS garantisce scalabilità e messa in funzione dei modelli R nei servizi Web. È possibile modificare i programmi R in uno degli editor predefiniti, ad esempio RStudio, VI o Emacs. Se si preferisce usare l'editor Emacs, è stato pre-installato. Il pacchetto ESS di Emacs (Emacs Speaks Statistics) semplifica il lavoro con i file R all'interno dell'editor Emacs.
 
-Per avviare la console R è sufficiente digitare **R** nella shell. Questo comando consente a un ambiente interattivo. Per sviluppare il programma R, si usa in genere un editor come Emacs o VI e quindi si eseguono gli script all'interno di R. Con RStudio si ottiene un ambiente IDE con interfaccia grafica completo per sviluppare il programma R.
+Per avviare la console R è sufficiente digitare **R** nella shell. Questo comando consente di accedere a un ambiente interattivo. Per sviluppare il programma R, si usa in genere un editor come Emacs o VI e quindi si eseguono gli script all'interno di R. Con RStudio si ottiene un ambiente IDE con interfaccia grafica completo per sviluppare il programma R.
 
 È anche disponibile uno script R per installare i [20 pacchetti R più popolari](https://www.kdnuggets.com/2015/06/top-20-r-packages.html) , se necessario. Questo script può essere eseguito una volta nell'interfaccia interattiva R, a cui è possibile accedere digitando **R** nella shell, come indicato sopra.  
 
@@ -286,11 +286,11 @@ Nel pacchetto sono inclusi alcuni notebook di esempio: uno in Python e uno in R.
 
 ### <a name="apache-spark-standalone"></a>Apache Spark autonomo
 
-Un'istanza autonoma di Apache Spark è preinstallata in DSVM di Linux per contribuire allo sviluppo delle applicazioni Spark inizialmente in locale, prima di eseguire i test e la distribuzione in cluster di grandi dimensioni. È possibile eseguire programmi PySpark attraverso il kernel Jupyter. Quando si apre Jupyter, fare clic sul pulsante **Nuovo** e verrà visualizzato un elenco di kernel disponibili. "Spark - Python" è il kernel PySpark che consente di creare applicazioni Spark usando il linguaggio Python. È anche possibile usare un IDE Python come PyCharm o Spyder per compilare il programma Spark. In questa istanza autonoma, lo stack di Spark viene eseguito all'interno del programma client chiamante, che rende più veloce e semplice risolvere i problemi rispetto allo sviluppo in un cluster Spark.
+Un'istanza autonoma di Apache Spark è preinstallata in DSVM di Linux per contribuire allo sviluppo delle applicazioni Spark inizialmente in locale, prima di eseguire i test e la distribuzione in cluster di grandi dimensioni. È possibile eseguire programmi PySpark attraverso il kernel Jupyter. Quando si apre Jupyter, fare clic sul pulsante **Nuovo** e verrà visualizzato un elenco di kernel disponibili. "Spark - Python" è il kernel PySpark che consente di creare applicazioni Spark usando il linguaggio Python. È anche possibile usare un IDE Python come PyCharm o Spyder per creare un programma Spark. In questa istanza autonoma lo stack Spark viene eseguito all'interno del programma client chiamante, che velocizza e semplifica la risoluzione dei problemi rispetto allo sviluppo in un cluster Spark.
 
 Su Jupyter viene assicurato un blocco di appunti di esempio PySpark che è possibile trovare nella directory "SparkML" nella home directory di Jupyter ($HOME/notebooks/SparkML/pySpark). 
 
-Se per la programmazione in R per Spark, è possibile usare Microsoft R Server, SparkR o sparklyr. 
+Se si programma in R per Spark, è possibile usare Microsoft R Server, SparkR o sparklyr. 
 
 Prima di eseguire nel contesto Spark in Microsoft R Server, è necessario eseguire un unico passaggio di configurazione per abilitare un solo nodo locale Hadoop HDFS e un'istanza Yarn. Per impostazione predefinita, i servizi Hadoop sono installati ma disabilitati su DSVM. Per attivarli, è necessario eseguire i comandi seguenti come radice la prima volta:
 
@@ -304,13 +304,13 @@ chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
 systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 ```
 
-È possibile arrestare il Hadoop relativi servizi quando non servono eseguendo ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```
+È possibile arrestare i servizi correlati a Hadoop quando non sono necessari eseguendo ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```
 
-Un esempio che illustra come sviluppare e verificare che MRS nel contesto di Spark remoto, ovvero l'istanza di Spark autonoma nel DSVM, sia implementato e disponibile nel */dsvm/samples/MRS* directory.
+Un esempio che illustra come sviluppare e testare MRS nel contesto di Spark remoto, ovvero l'istanza di Spark autonoma nel DSVM, è disponibile nella directory */dsvm/samples/MRS*.
 
 ### <a name="ides-and-editors"></a>IDE ed editor
 
-È necessario scegliere tra diversi editor di codice, tra cui vi/VIM, Emacs, PyCharm, RStudio e IntelliJ. IntelliJ, RStudio e PyCharm sono editor grafici e per usarli è necessario essere connessi a un desktop con interfaccia grafica. Per avviare questi editor sono disponibili collegamenti di menu delle applicazioni e sul desktop.
+È possibile scegliere tra diversi editor di codice, tra cui vi/VIM, Emacs, PyCharm, RStudio e IntelliJ. IntelliJ, RStudio e PyCharm sono editor grafici e per usarli è necessario essere connessi a un desktop con interfaccia grafica. Per avviare questi editor sono disponibili collegamenti di menu delle applicazioni e sul desktop.
 
 **VIM** e **Emacs** sono editor basati su testo. In Emacs è installato un pacchetto di componenti aggiuntivi denominato Emacs Speaks Statistics (ESS) che facilita l'utilizzo di R nell'editor Emacs. Altre informazioni sono disponibili nella pagina relativa a [ESS](https://ess.r-project.org/).
 
@@ -320,7 +320,7 @@ Un esempio che illustra come sviluppare e verificare che MRS nel contesto di Spa
 
 #### <a name="graphical-sql-client"></a>Client SQL grafico
 
-Il client SQL grafico **SQuirreL SQL** viene fornito per la connessione a diversi database, come Microsoft SQL Server e MySQL, e per l'esecuzione di query SQL. È possibile eseguire SQuirrel SQL da una sessione di desktop con interfaccia grafica (tramite il client X2Go, ad esempio) usando un'icona sul desktop, oppure tramite il comando seguente nella shell di:
+Il client SQL grafico **SQuirreL SQL** viene fornito per la connessione a diversi database, come Microsoft SQL Server e MySQL, e per l'esecuzione di query SQL. È possibile eseguire SQuirrel SQL da una sessione desktop con interfaccia grafica (ad esempio, tramite il client X2Go) usando un'icona del desktop oppure eseguendo il comando seguente nella shell:
 
 ```bash
 /usr/local/squirrel-sql-3.7/squirrel-sql.sh
@@ -359,7 +359,7 @@ In R e Python sono disponibili librerie per accedere ai database.
 Nella VM sono installati gli strumenti di Azure seguenti:
 
 * **Interfaccia della riga di comando di Azure**: consente di creare e gestire risorse di Azure tramite i comandi della shell. Per richiamare gli strumenti di Azure, digitare semplicemente **azure help**. Per altre informazioni, vedere la [pagina di documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* **Microsoft Azure Storage Explorer**: è uno strumento grafico usato per esplorare gli oggetti archiviati nell'account di archiviazione di Azure e per caricare o scaricare dati rispettivamente in o da BLOB di Azure. È possibile accedere a Esplora archivi dall'icona del collegamento sul desktop. Questo strumento può essere richiamato da un prompt della shell digitando **StorageExplorer**. È necessario eseguire l'accesso da un client X2Go o avere l'inoltro di X11.
+* **Microsoft Azure Storage Explorer**: è uno strumento grafico usato per esplorare gli oggetti archiviati nell'account di archiviazione di Azure e per caricare o scaricare dati rispettivamente in o da BLOB di Azure. È possibile accedere a Esplora archivi dall'icona del collegamento sul desktop. Questo strumento può essere richiamato da un prompt della shell digitando **StorageExplorer**. È necessario essere connessi da un client X2Go o avere configurato X11 Forwarding.
 * **Librerie di Azure**: di seguito sono elencate alcune delle librerie preinstallate.
   
   * **Python**: le librerie installate correlate ad Azure in Python sono **azure**, **azureml**, **pydocumentdb** e **pyodbc**. Le prime tre librerie consentono di accedere ai servizi di archiviazione di Azure, Azure Machine Learning e Azure Cosmos DB, ovvero un database NoSQL in Azure. La quarta libreria, pyodbc (insieme ai driver Microsoft ODBC per SQL Server), consente l'accesso da Python a SQL Server, al database SQL di Azure e ad Azure SQL Data Warehouse tramite un'interfaccia ODBC. Immettere **pip list** per vedere elencate tutte le librerie. Assicurarsi di eseguire questo comando in Python sia nell'ambiente 2.7 che 3.5.
@@ -372,7 +372,7 @@ Nella VM sono installati gli strumenti di Azure seguenti:
 
 Azure Machine Learning è un servizio cloud completamente gestito che consente di creare, distribuire e condividere soluzioni di analisi predittiva. Si possono creare esperimenti e modelli da Azure Machine Learning Studio, a cui è possibile accedere da un Web browser nella macchina virtuale di analisi scientifica dei dati, visitando il sito [Microsoft Azure Machine Learning](https://studio.azureml.net).
 
-Dopo aver eseguito l'accesso ad Azure Machine Learning Studio, si può accedere a un'area di sperimentazione che consente di compilare un flusso logico per gli algoritmi di Machine Learning. È anche possibile accedere a un notebook di Jupyter ospitato in Azure Machine Learning e usare direttamente gli esperimenti in Machine Learning Studio. È possibile rendere operativi i modelli di Machine Learning creati eseguendone il wrapping in un'interfaccia del servizio Web. Rendere operativi i modelli di machine learning consente ai client scritti in qualsiasi linguaggio di richiamare le stime da tali modelli. Per altre informazioni, vedere [Documentazione su Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
+Dopo aver eseguito l'accesso ad Azure Machine Learning Studio, si può accedere a un'area di sperimentazione che consente di compilare un flusso logico per gli algoritmi di Machine Learning. È anche possibile accedere a un notebook di Jupyter ospitato in Azure Machine Learning e usare direttamente gli esperimenti in Machine Learning Studio. È possibile rendere operativi i modelli di Machine Learning creati eseguendone il wrapping in un'interfaccia del servizio Web. In questo modo i client scritti in qualsiasi linguaggio possono richiamare le stime dai modelli di Machine Learning. Per altre informazioni, vedere [Documentazione su Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 È anche possibile creare modelli personalizzati in R o Python nella VM e quindi distribuirli nell'ambiente di produzione in Azure Machine Learning. Per abilitare questa funzionalità sono state installate librerie in R (**AzureML**) e Python (**azureml**).
 
@@ -400,7 +400,7 @@ Ecco alcune informazioni aggiuntive sui primi tre strumenti di Machine Learning 
 
 Vowpal Wabbit è un sistema di apprendimento automatico che usa tecniche come hash, allreduce, reduction, learning2search, nonché apprendimento online, attivo e interattivo.
 
-Per eseguire lo strumento in un esempio di base, usare i comandi seguenti:
+Per eseguire lo strumento con un esempio di base, usare i comandi seguenti:
 
 ```bash
 cp -r /dsvm/tools/VowpalWabbit/demo vwdemo
@@ -455,7 +455,7 @@ library(rattle)
 rattle()
 ```
 
-Si apre un'interfaccia grafica con un set di schede. Ecco i passaggi di avvio rapido in Rattle per usare un set di dati meteo di esempio e compilare un modello. In alcune delle procedure illustrate di seguito viene chiesto di installare automaticamente e caricare alcuni pacchetti R necessari non ancora disponibili nel sistema.
+Si apre un'interfaccia grafica con un set di schede. Qui è disponibile una procedura di avvio rapido in Rattle per l'uso di un set di dati meteo di esempio e la creazione di un modello. In alcune delle procedure illustrate di seguito viene chiesto di installare automaticamente e caricare alcuni pacchetti R necessari non ancora disponibili nel sistema.
 
 > [!NOTE]
 > Se non si dispone di accesso per l'installazione del pacchetto nella directory predefinita, è possibile che venga visualizzata la richiesta sulla console R di Windows per l'installazione dei pacchetti nella libreria personale. Se vengono visualizzate queste richieste, rispondere *y* (Sì).

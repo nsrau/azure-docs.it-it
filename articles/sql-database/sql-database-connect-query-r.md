@@ -1,7 +1,7 @@
 ---
-title: Usare R per eseguire query su un database SQL di Azure
+title: Usare R con Machine Learning Services per eseguire query su un database SQL di Azure
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: Questo articolo illustra come usare uno script R per la connessione a un database SQL di Azure ed eseguire query usando istruzioni Transact-SQL.
+description: Questo articolo illustra come usare uno script R con Machine Learning Services di Database SQL di Azure per connettersi a un database SQL di Azure ed eseguire query usando istruzioni Transact-SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -13,16 +13,16 @@ ms.author: garye
 ms.reviewer: davidph, carlrab
 manager: cgronlun
 ms.date: 05/29/2019
-ms.openlocfilehash: 1d4b17cf1e0349bf877c676cb4e591fc20ad4113
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: ff38346a9b3bd14db51383c116240b030d3ee42a
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66416356"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514849"
 ---
-# <a name="quickstart-use-r-to-query-an-azure-sql-database-preview"></a>Guida introduttiva: Usare R per eseguire query su un database SQL di Azure (anteprima)
+# <a name="quickstart-use-r-with-machine-learning-services-to-query-an-azure-sql-database-preview"></a>Guida introduttiva: Usare R con Machine Learning Services per eseguire query su un database SQL di Azure (anteprima)
 
- Questo Avvio rapido illustra come usare [R](https://www.r-project.org/) con Machine Learning Services per connettersi a un database SQL di Azure e usare istruzioni Transact-SQL per eseguire query sui dati. Machine Learning Services è una funzionalità del database SQL di Azure, usata per l'esecuzione di script R nel database. Per altre informazioni, vedere [Machine Learning Services (con R) nel database SQL di Azure](sql-database-machine-learning-services-overview.md).
+Questo Avvio rapido illustra come usare [R](https://www.r-project.org/) con Machine Learning Services per connettersi a un database SQL di Azure e usare istruzioni Transact-SQL per eseguire query sui dati. Machine Learning Services è una funzionalità del database SQL di Azure, usata per l'esecuzione di script R nel database. Per altre informazioni, vedere [Machine Learning Services (con R) nel database SQL di Azure](sql-database-machine-learning-services-overview.md).
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 

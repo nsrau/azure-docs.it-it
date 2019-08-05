@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: Configurare e creare una macchina virtuale di Data Science in Azure per l'analisi dei dati e l'apprendimento automatico.
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
@@ -12,15 +12,15 @@ ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/22/2019
-ms.author: gokuma
-ms.openlocfilehash: 57768fc463f5ea1d2f1ec386f3f0975758220013
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
-ms.translationtype: MT
+ms.author: vijetaj
+ms.openlocfilehash: dfb3e9f6390d4c80b8f3c37b87f2659c671fa823
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626391"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68591829"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Effettuare un provisioning di una macchina virtuale di Data Science Windows di Azure
 
@@ -96,7 +96,7 @@ Per creare un'istanza di DSVM:
    1. **Impostazioni**:  
       * **Usa il servizio Managed Disks**. Scegliere **Gestito** se si vuole che Azure gestisca i dischi per la VM. In caso contrario, è necessario specificare un account di archiviazione nuovo o esistente.  
       * **Altri parametri**. È possibile usare i valori predefiniti. Se si vuole usare valori non predefiniti, è possibile passare il puntatore sul collegamento informativo per visualizzare informazioni sui campi specifici.
-   1. **Riepilogo**: Verificare che tutte le informazioni immesse siano corrette. Selezionare **Create**.
+   1. **Riepilogo**: Verificare che tutte le informazioni immesse siano corrette. Selezionare **Create** (Crea).
 
 > [!NOTE]
 > * La macchina virtuale non prevede costi aggiuntivi oltre a quelli per il calcolo delle dimensioni del server scelto nel passaggio **Dimensioni**.
@@ -106,7 +106,7 @@ Per creare un'istanza di DSVM:
 
 Dopo aver creato la VM ed averne effettuare il provisioning, è possibile connettersi tramite desktop remoto usando le credenziali dell'account amministratore configurato nella sezione **Nozioni di base** precedente. Si è pronti per iniziare a usare gli strumenti installati e configurati nella VM. Molti degli strumenti sono accessibili tramite i riquadri del menu di avvio e le icone del desktop.
 
-È anche possibile collegare una macchina virtuale Data Science per i notebook di Azure per eseguire i notebook di Jupyter nella VM e ignorare le limitazioni del livello di servizio gratuito. Per altre informazioni, vedere [gestire e configurare progetti di notebook - livello di calcolo](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
+È anche possibile aggiungere una Data Science VM in Azure Notebooks per eseguire notebook di Jupyter nella VM e ignorare le limitazioni del livello di servizio gratuito. Per altre informazioni, vedere [Gestire e configurare i progetti di Azure Notebooks - Livello di calcolo](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Strumenti installati nella macchina virtuale per l'analisi scientifica dei dati di Microsoft
 

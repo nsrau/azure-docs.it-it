@@ -1,6 +1,6 @@
 ---
-title: Pubblicare la knowledge base, REST, Node.js
-titleSuffix: QnA Maker - Azure Cognitive Services
+title: 'Guida introduttiva: Pubblicare una knowledge base in REST, Node.js - QnA Maker'
+titleSuffix: Azure Cognitive Services
 description: Questa guida introduttiva di Node.js illustra la procedura di pubblicazione della knowledge base (KB) a livello di codice. Con la pubblicazione viene eseguito il push dell'ultima versione della knowledge base in un indice dedicato di Ricerca di Azure e viene creato un endpoint che può essere chiamato nell'applicazione o nel chatbot.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 915d5223b99f530978ade41f69420766cf591021
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d47359f92a2cebef10514b3746fbf32f7e952132
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787898"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562920"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-nodejs"></a>Guida introduttiva: pubblicare una knowledge base in QnA Maker usando Node.js
 
