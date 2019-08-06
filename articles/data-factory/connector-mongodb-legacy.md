@@ -227,8 +227,8 @@ Le tabelle seguenti illustrano le tabelle virtuali che rappresentano le matrici 
 
 | _id | ExampleTable_Invoices_dim1_idx | invoice_id | item | price | Discount |
 | --- | --- | --- | --- | --- | --- |
-| 1111 |0 |123 |toaster |456 |0,2 |
-| 1111 |1 |124 |oven |1235 |0,2 |
+| 1111 |0 |123 |toaster |456 |0.2 |
+| 1111 |1 |124 |oven |1235 |0.2 |
 | 2222 |0 |135 |fridge |12543 |0.0 |
 
 **Tabella "ExampleTable_Ratings":**
