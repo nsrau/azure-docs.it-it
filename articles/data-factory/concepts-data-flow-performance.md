@@ -54,7 +54,7 @@ Se si fa clic su tale icona, viene visualizzato il piano di esecuzione e il prof
 
 ### <a name="set-batch-size-and-query-on-source"></a>Imposta le dimensioni del batch e la query sull'origine
 
-![Origine] dati (media/data-flow/source4.png "Origine") dati
+![Origine](media/data-flow/source4.png "Origine") dati
 
 * Impostando dimensioni batch si indicherà ad ADF di archiviare i dati in set in memoria anziché riga per riga. Si tratta di un'impostazione facoltativa che può esaurire le risorse nei nodi di calcolo, se non sono dimensionate correttamente.
 * L'impostazione di una query consente di filtrare le righe direttamente nell'origine prima che arrivino per il flusso di dati per l'elaborazione, operazione che consente di velocizzare l'acquisizione iniziale dei dati.
