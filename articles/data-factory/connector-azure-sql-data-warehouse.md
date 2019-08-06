@@ -421,7 +421,7 @@ Se i requisiti non vengono soddisfatti, Azure Data Factory controlla le impostaz
 
     | Tipo di archivio dati di origine supportato                             | Tipo di autenticazione di origine supportato                        |
     | :----------------------------------------------------------- | :---------------------------------------------------------- |
-    | [BLOB di Azure](connector-azure-blob-storage.md)                | Autenticazione con chiave dell'account, autenticazione di identità gestita |
+    | [Azure Blob](connector-azure-blob-storage.md)                | Autenticazione con chiave dell'account, autenticazione di identità gestita |
     | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | Autenticazione di un'entità servizio                            |
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Autenticazione con chiave dell'account, autenticazione di identità gestita |
 
