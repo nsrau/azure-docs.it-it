@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 031367a8a05defad475ae077f9b38b7294837460
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ac3cb1d637eae1b4ee0a7db59efe631c7eb1ac6f
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559391"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815268"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Supporto per lingua e area per i servizi di riconoscimento vocale
 
@@ -31,12 +31,12 @@ Microsoft Speech Recognition SDK e l'API REST supportano le seguenti lingue (imp
  ar-EG | Arabo (Egitto), standard moderno | No | Sì | No
  ca-ES | Catalano | No | No | No
  da-DK | Danese (Danimarca) | No | No | No
- de-DE | Tedesco (Germania) | Sì | Sì | No
- en-AU | Inglese (Australia) | No | Yes | Sì
- en-CA | Inglese (Canada) | No | Yes | Sì
- en-GB | Inglese (Regno Unito) | No | Yes | Sì
- en-IN | Inglese (India) | Sì | Sì | Sì
- en-NZ | Inglese (Nuova Zelanda) | No | Yes | Sì  
+ de-DE | Tedesco (Germania) | Yes | Sì | Sì
+ en-AU | Inglese (Australia) | No | Sì | No
+ en-CA | Inglese (Canada) | No | Sì | No
+ en-GB | Inglese (Regno Unito) | No | Sì | No
+ en-IN | Inglese (India) | Sì | Sì | No
+ en-NZ | Inglese (Nuova Zelanda) | No | Sì | No 
  en-US | Inglese (Stati Uniti) | Sì | Sì | Sì
  es-ES | Spagnolo (Spagna) | Yes | Sì | No
  es-MX | Spagnolo (Messico) | No | Sì | No
@@ -44,7 +44,7 @@ Microsoft Speech Recognition SDK e l'API REST supportano le seguenti lingue (imp
  fr-CA | Francese (Canada) | No | Sì | No
  fr-FR | Francese (Francia) | Sì | Sì | No
  hi-IN | Hindi (India) | No | Sì | No
- it-IT | Italiano (Italia) | Yes | Sì | No
+ it-IT | Italiano (Italia) | Sì | Sì | No
  ja-JP | Giapponese (Giappone) | No | Sì | No
  ko-KR | Coreano (Corea del Sud) | No | Sì | No
  nb-NO | Norvegese (Bokmål) (Norvegia) | No | No | No
@@ -54,7 +54,7 @@ Microsoft Speech Recognition SDK e l'API REST supportano le seguenti lingue (imp
  pt-PT | Portoghese (Portogallo) | No | Sì | No
  ru-RU | Russo (Russia) | Yes | Sì | No
  sv-SE | Svedese (Svezia) | No | No | No
- zh-CN | Cinese (mandarino, semplificato) | Yes | Sì | No
+ zh-CN | Cinese (mandarino, semplificato) | Sì | Sì | No
  zh-HK | Cinese (cantonese, tradizionale) | No | Sì | No
  zh-TW | Cinese (mandarino taiwanese) | No | Sì | No
  th-TH | Thai (Tailandia) | No | No | No
