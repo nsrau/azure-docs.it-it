@@ -287,8 +287,6 @@
       items:
         - name: Aggiornamento a Gen2
           href: upgrade-to-latest-generation.md
-        - name: Ripristinare il data warehouse
-          href: sql-data-warehouse-restore.md
         - name: Monitorare il carico di lavoro - Portale
           href: sql-data-warehouse-monitor-workload-portal.md
         - name: Monitorare il carico di lavoro - DMV

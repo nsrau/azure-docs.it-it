@@ -29,7 +29,7 @@ sections:
             image:
               src: ../media/index/i_overview.svg
             title: Informazioni su Analisi del testo
-          - href: /azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-signup
+          - href: /azure/cognitive-services/cognitive-services-apis-create-account
             html: <p>Informazioni su come eseguire la registrazione per l'API Analisi del testo.</p>
             image:
               src: ../media/index/i_get-started.svg
