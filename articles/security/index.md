@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 06/11/2019
 ms.author: angrobe
-ms.openlocfilehash: d921e529140bc7446e3c9f97b33ba226431d7b91
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 7c41b09c35de7ef8694f9215b8f3dc271e243de2
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67143520"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780486"
 ---
 # <a name="azure-security-documentation"></a>Documentazione sulla sicurezza di Azure
 
@@ -49,7 +49,7 @@ La sicurezza è integrata in ogni aspetto di Azure. Azure offre vantaggi esclusi
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
                         <div class="cardText">
-                            <p style="font-size: 1.12rem;">Si sta valutando Azure per la propria azienda. Quali sono le funzionalità per la sicurezza offerte da Azure?</p>
+                            <p style="font-size: 1.12rem;">L'organizzazione sta valutando Azure. Quali sono le funzionalità per la sicurezza offerte da Azure?</p>
                         </div>
                     </div>
                 </div>
@@ -70,7 +70,7 @@ La sicurezza è integrata in ogni aspetto di Azure. Azure offre vantaggi esclusi
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/security/azure-security-infrastructure">
+        <a href="/azure/security/fundamentals/infrastructure">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
@@ -88,7 +88,7 @@ La sicurezza è integrata in ogni aspetto di Azure. Azure offre vantaggi esclusi
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
                         <div class="cardText">
-                            <p style="font-size: 1.12rem;">Panoramica della sicurezza di Archiviazione</p>
+                            <p style="font-size: 1.12rem;">Panoramica della sicurezza dell'archiviazione</p>
                         </div>
                     </div>
                 </div>
@@ -135,7 +135,7 @@ La sicurezza è integrata in ogni aspetto di Azure. Azure offre vantaggi esclusi
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/security/azure-security-encryption-atrest">
+        <a href="/azure/security/fundamentals/encryption-atrest">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
@@ -192,13 +192,13 @@ La sicurezza è integrata in ogni aspetto di Azure. Azure offre vantaggi esclusi
                                 <a class="barLink" href="https://aka.ms/SecurityResponsepaper">Azure security response in the cloud</a>
                              (Risposta della sicurezza di Azure sul cloud)</li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-threat-detection">Rilevamento delle minacce avanzato in Azure</a>
+                                <a class="barLink" href="/azure/security/fundamentals/threat-detection">Rilevamento delle minacce avanzato in Azure</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/abstract-azure-network-security">Sicurezza della rete di Azure</a>
+                                <a class="barLink" href="/azure/security/fundamentals/abstract-network-security>Azure network security"</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/abstract-develop-secure-apps">Sviluppare applicazioni sicure in Azure</a>
+                                <a class="barLink" href="/azure/security/fundamentals/abstract-develop-secure-apps">Sviluppare applicazioni sicure in Azure</a>
                             </li>
                         </ul>
                     </div>
@@ -218,25 +218,25 @@ La sicurezza è integrata in ogni aspetto di Azure. Azure offre vantaggi esclusi
                                 <a class="barLink" href="https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions/">Procedure consigliate per la sicurezza per Azure</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-security-network-security-best-practices">Sicurezza di rete</a>
+                                <a class="barLink" href="/azure/security/fundamentals/network-best-practices">Sicurezza di rete</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-security-data-encryption-best-practices">Sicurezza dei dati</a>
+                                <a class="barLink" href="/azure/security/fundamentals/data-encryption-best-practices">Sicurezza dei dati</a>
                             </li>
                             <li style="list-style: none;">
                                 <a class="barLink" href="/azure/security/azure-security-best-practices-vms">Sicurezza delle macchine virtuali</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-security-identity-management-best-practices">Identità e accesso</a>
+                                <a class="barLink" href="/azure/security/fundamentals/identity-management-best-practices">Identità e accesso</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-security-iaas">Sicurezza IaaS</a>
+                                <a class="barLink" href="/azure/security/fundamentals/iaas">Sicurezza IaaS</a>
                             </li>
                             <li style="list-style: none;">
                                 <a class="barLink" href="/azure/security/security-paas-deployments">Proteggere le distribuzioni PaaS</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-security-global-admin">Proteggere gli account amministratore di Azure</a>
+                                <a class="barLink" href="/azure/security/fundamentals/global-admin">Proteggere gli account amministratore di Azure</a>
                             </li>
                         </ul>
                     </div>
@@ -380,12 +380,12 @@ La sicurezza è integrata in ogni aspetto di Azure. Azure offre vantaggi esclusi
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/security/azure-security-cyber-services">
+        <a href="/azure/security/fundamentals/cyber-services">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
                         <div class="cardText">
-                            <p style="font-size: 1.12rem;">Consulenza sulla sicurezza informatica</p>
+                            <p style="font-size: 1.12rem;">Consulenza sulla cybersecurity</p>
                         </div>
                     </div>
                 </div>
@@ -393,7 +393,7 @@ La sicurezza è integrata in ogni aspetto di Azure. Azure offre vantaggi esclusi
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/security/azure-security-pen-testing">
+        <a href="/azure/security/fundamentals/pen-testing">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
@@ -463,7 +463,7 @@ La sicurezza è integrata in ogni aspetto di Azure. Azure offre vantaggi esclusi
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
                         <div class="cardText">
-                            <p style="font-size: 1.12rem;">Multi-Factor Authentication (MFA)</p>
+                            <p style="font-size: 1.12rem;">Multi-factor authentication (MFA)</p>
                         </div>
                     </div>
                 </div>

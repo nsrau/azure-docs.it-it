@@ -13,7 +13,7 @@
   items:
     - name: Rilevare minacce sospette
       href: tutorial-detect-threats.md
-    - name: Analizzare i casi
+    - name: Analizzare gli eventi imprevisti
       href: tutorial-investigate-cases.md
     - name: Rispondere alle minacce
       href: tutorial-respond-threats-playbook.md

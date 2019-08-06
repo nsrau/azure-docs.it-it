@@ -28,6 +28,8 @@
           items:
             - name: Limite del sovraccarico di GC superato
               href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
+        - name: ZooKeeperHiveClientException - Configurazioni HiveServer2
+          href: ./interactive-query-troubleshoot-zookeeperhiveclientexception-hiveserver-configs.md
         - name: Prestazioni delle query LLAP di Apache Hive
           href: ./interactive-query-troubleshoot-query-performance.md
 - name: Procedure

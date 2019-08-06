@@ -64,6 +64,8 @@
           href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
         - name: Conversione del certificato dell'entità servizio
           href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
+        - name: Problemi di heartbeat di Apache Ambari
+          href: ./apache-ambari-troubleshoot-heartbeat-issues.md
 - name: Procedure
   items:
     - name: Usare un sandbox Apache Hadoop
