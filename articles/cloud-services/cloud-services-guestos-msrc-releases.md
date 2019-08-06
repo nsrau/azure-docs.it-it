@@ -11,47 +11,89 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/14/2019
+ms.date: 7/26/2019
 ms.author: raiye
-ms.openlocfilehash: f10290024f9bd46a1de4bdfa6e12f841ddd1c4ed
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
-ms.translationtype: MT
+ms.openlocfilehash: dd0adbe7cc27389e3b1d6533b038042824daea22
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67150991"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592439"
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
-La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamento vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
+La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamenti sono sempre disponibili per la [famiglia][family-explain] specifica in cui sono stati introdotti.
 
-## <a name="june-2019-guest-os"></a>Sistema operativo Guest di giugno 2019
+## <a name="july-2019-guest-os"></a>Sistema operativo guest 2019 luglio
 
->[!NOTE]
->Il sistema operativo Guest di giugno è in corso l'implementazione di macchine virtuali del servizio Cloud che vengono configurati gli aggiornamenti automatici. Una volta completata l'implementazione, questa versione sarà resa disponibile per gli aggiornamenti manuali tramite i file di configurazione e il portale di Azure. Sono incluse le seguenti patch del sistema operativo Guest di giugno. L'elenco è soggetto a variazioni.
+| Categoria prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| --- | --- | --- | --- | --- |
+|  Rel 19-07   |  [4507434]  |  Internet Explorer   |  2,88, 3,75, 4,68  |  9 luglio 2019  |
+|  Rel 19-07   |  [4506621]  |  Windows Security   |  2,88, 3,75, 4,68  |  9 luglio 2019  |
+|  Rel 19-07   |  [4506966]  |  Sicurezza 4.5.2 .NET   |  2,88  |  9 luglio 2019  |
+|  Rel 19-07   |  [4506976]  |  Sicurezza di .NET 3.5.1   |  2,88  |  9 luglio 2019  |
+|  Rel 19-07   |  [4507456]  |  Windows Security   |  2,88  |  9 luglio 2019  |
+|  Rel 19-07   |  [4506965]  |  Sicurezza 4.5.2 .NET   |  3,75  |  9 luglio 2019  |
+|  Rel 19-07   |  [4506974]  |  Sicurezza di .NET 3,5   |  3,75  |  9 luglio 2019  |
+|  Rel 19-07   |  [4507464]  |  Windows Security   |  3,75  |  9 luglio 2019  |
+|  Rel 19-07   |  [4506964]  |  Sicurezza 4.5.2 .NET   |  4,68  |  9 luglio 2019  |
+|  Rel 19-07   |  [4506977]  |  Sicurezza di .NET 3,5   |  4,68  |  9 luglio 2019  |
+|  Rel 19-07   |  [4507457]  |  Windows Security   |  4,68  |  9 luglio 2019  |
+|  Rel 19-07   |  [4507460]  |  Windows Security   |  5,33  |  9 luglio 2019  |
+|  Rel 19-07   |  [4506998]  |  .NET 3,5 & sicurezza 4.7.2   |  6.9  |  9 luglio 2019  |
+|  Rel 19-07   |  [4507469]  |  Windows Security   |  6.9  |  9 luglio 2019  |
+|  N/D  |  [4503537]  |  Giugno '19 aggiornamento dello stack di manutenzione per (server 2016)   |  5,33  |  14 maggio 2019  |
+|  N/D  |  [4504369]  |  Giugno '19 aggiornamento dello stack di manutenzione per (server 2019)   |  6.9  |  14 maggio 2019  |
+|  N/D  |  [4503292]  |  Giugno '19 non-sicurezza (Server 2008 R2)   |  2,88  |  20 maggio 2019  |
+|  N/D  |  [4503285]  |  Giugno '19 non-sicurezza (Server 2012)   |  3,75  |  14 maggio 2019  |
+|  N/D  |  [4503276]  |  Giugno '19 non-sicurezza (Server 2012 R2)   |  4,68  |  14 maggio 2019  |
 
-| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+[4507434]: https://support.microsoft.com/kb/4507434
+[4506621]: https://support.microsoft.com/kb/4506621
+[4506966]: https://support.microsoft.com/kb/4506966
+[4506976]: https://support.microsoft.com/kb/4506976
+[4507456]: https://support.microsoft.com/kb/4507456
+[4506965]: https://support.microsoft.com/kb/4506965
+[4506974]: https://support.microsoft.com/kb/4506974
+[4507464]: https://support.microsoft.com/kb/4507464
+[4506964]: https://support.microsoft.com/kb/4506964
+[4506977]: https://support.microsoft.com/kb/4506977
+[4507457]: https://support.microsoft.com/kb/4507457
+[4507460]: https://support.microsoft.com/kb/4507460
+[4506998]: https://support.microsoft.com/kb/4506998
+[4507469]: https://support.microsoft.com/kb/4507469
+[4503537]: https://support.microsoft.com/kb/4503537
+[4504369]: https://support.microsoft.com/kb/4504369
+[4503292]: https://support.microsoft.com/kb/4503292
+[4503285]: https://support.microsoft.com/kb/4503285
+[4503276]: https://support.microsoft.com/kb/4503276
+
+
+## <a name="june-2019-guest-os"></a>Sistema operativo guest di giugno 2019
+
+| Categoria prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 |  Rel 19-06   |  [4503327]  |  Sicurezza di Windows 10   |  6.8  |  11 giugno 2019  |
-|  Rel 19-06   |  [4503267]  |  Sicurezza di Windows 10   |  5.32  |  11 giugno 2019  |
-|  Rel 19-06   |  [4503290]  |  Windows Security   |  4.67  |  11 giugno 2019  |
-|  Rel 19-06   |  [4503263]  |  Windows Security   |  3.74  |  11 giugno 2019  |
+|  Rel 19-06   |  [4503267]  |  Sicurezza di Windows 10   |  5,32  |  11 giugno 2019  |
+|  Rel 19-06   |  [4503290]  |  Windows Security   |  4,67  |  11 giugno 2019  |
+|  Rel 19-06   |  [4503263]  |  Windows Security   |  3,74  |  11 giugno 2019  |
 |  Rel 19-06   |  [4503269]  |  Windows Security   |  2.87  |  11 giugno 2019  |
-|  Rel 19-06   |  [4494174]  |  Aggiornamento del microcodice   |  6.8  |  11 giugno 2019  |
-|  Rel 19-06   |  [4494175]  |  Aggiornamento del microcodice   |  5.32  |  3 giugno 2019  |
+|  Rel 19-06   |  [4494174]  |  Aggiornamento microcodice   |  6.8  |  11 giugno 2019  |
+|  Rel 19-06   |  [4494175]  |  Aggiornamento microcodice   |  5,32  |  3 giugno 2019  |
 |  Rel 19-06   |  [4503308]  |  Lampeggiante   |  3.74, 4.67, 5.32, 6.8  |  11 giugno 2019  |
-|  Rel 19-06   |  [4503259]  |  Internet Explorer   |  2.87, 3.74, 4.67  |  13 giugno 2019  |
-|  N/D  |  [4499164]  |  ' 19 maggio Non correlato alla protezione  |  2.87  |  14 maggio 2019  |
-|  N/D  |  [4495606]  |  .NET 3.5 maggio ' 19 non correlato alla sicurezza  |  2.87  |  14 maggio 2019  |
-|  N/D  |  [4495596]  |  Maggio ' 19 .NET 4.5 non correlato alla sicurezza  |  2.87  |  20 maggio 2019  |
-|  N/D  |  [4499171]  |  ' 19 maggio Non correlato alla protezione  |  3.74  |  14 maggio 2019  |
-|  N/D  |  [4495602]  |  .NET 3.5 maggio ' 19 non correlato alla sicurezza  |  3.74  |  14 maggio 2019  |
-|  N/D  |  [4495594]  |  ' 19 maggio .NET 4.x non correlato alla sicurezza  |  4.67  |  14 maggio 2019  |
-|  N/D  |  [4499151]  |  ' 19 maggio Non correlato alla protezione  |  4.67  |  14 maggio 2019  |
-|  N/D  |  [4495608]  |  .NET 3.5 maggio ' 19 non correlato alla sicurezza  |  4.67  |  14 maggio 2019  |
-|  N/D  |  [4495592]  |  Maggio ' 19 .NET 4.5.2 non correlato alla sicurezza  |  4.67  |  14 maggio 2019  |
-|  N/D  |  [4495610]  |  Maggio ' 19 .NET 4.8 cumulativo  |  6.8  |  14 maggio 2019  |
-|  N/D  |  [4495618]  |  Maggio ' 19 .NET 4.8 cumulativo  |  6.8  |  14 maggio 2019  |
-|  N/D  |  [4501226]  |  Aggiornamenti di fuso orario dell'ora legale per Marocco e l'Autorità Palestinese  |  2.87, 3.74, 4.67  |  23 maggio 2019  |
-|  N/D  |  [4490128]  |  Aggiornamenti di fuso orario dell'ora legale per São Tomé e Príncipe e Qyzylorda  |  2.87, 3.74, 4.67  |  17 aprile 2019  |
+|  Rel 19-06   |  [4503259]  |  Internet Explorer   |  2,87, 3,74, 4,67  |  13 giugno, 2019  |
+|  N/D  |  [4499164]  |  Maggio '19 non-sicurezza  |  2.87  |  14 maggio 2019  |
+|  N/D  |  [4495606]  |  Maggio '19 .NET 3,5 senza sicurezza  |  2.87  |  14 maggio 2019  |
+|  N/D  |  [4495596]  |  Maggio '19 .NET 4,5 senza sicurezza  |  2.87  |  20 maggio 2019  |
+|  N/D  |  [4499171]  |  Maggio '19 non-sicurezza  |  3,74  |  14 maggio 2019  |
+|  N/D  |  [4495602]  |  Maggio '19 .NET 3,5 senza sicurezza  |  3,74  |  14 maggio 2019  |
+|  N/D  |  [4495594]  |  Maggio '19 .NET 4. x non-sicurezza  |  4,67  |  14 maggio 2019  |
+|  N/D  |  [4499151]  |  Maggio '19 non-sicurezza  |  4,67  |  14 maggio 2019  |
+|  N/D  |  [4495608]  |  Maggio '19 .NET 3,5 senza sicurezza  |  4,67  |  14 maggio 2019  |
+|  N/D  |  [4495592]  |  Maggio '19 4.5.2 .NET non-Security  |  4,67  |  14 maggio 2019  |
+|  N/D  |  [4495610]  |  Maggio '19 .NET 4,8 cumulativo  |  6.8  |  14 maggio 2019  |
+|  N/D  |  [4495618]  |  Maggio '19 .NET 4,8 cumulativo  |  6.8  |  14 maggio 2019  |
+|  N/D  |  [4501226]  |  Aggiornamenti del fuso orario dell'ora legale per il Marocco e l'autorità palestinese  |  2,87, 3,74, 4,67  |  23 maggio, 2019  |
+|  N/D  |  [4490128]  |  Aggiornamenti del fuso orario dell'ora legale per São Tomé e Príncipe e Qyzylorda  |  2,87, 3,74, 4,67  |  17 aprile 2019  |
 
 [4503327]: https://support.microsoft.com/kb/4503327
 [4503267]: https://support.microsoft.com/kb/4503267
@@ -76,30 +118,30 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [4501226]: https://support.microsoft.com/kb/KB4501226
 [4490128]: https://support.microsoft.com/kb/KB4490128
 
-## <a name="may-2019-guest-os"></a>Sistema operativo Guest di maggio 2019
+## <a name="may-2019-guest-os"></a>Maggio 2019 sistema operativo guest
 
-| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| Categoria prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-|  Rel 19-05   |  [4498206]  |  Potrebbe Rollup di inserimento/espulsione   |  2.86, 3.73, 4.66  |  14 maggio 2019  |
-|  Rel 19-05   |  [4505050]  |  Potrebbe Rollup di inserimento/espulsione   |  2.86, 3.73, 4.66  |  18 maggio 2019  |
-|  Rel 19-05   |  [4497932]  |  Potrebbe lampeggiare Update   |  3.73, 4.66, 5.31  |  14 maggio 2019  |
-|  Rel 19-05   |  [4499175]  |  Rollup della sicurezza potrebbe   |  2.86  |  14 maggio 2019  |
-|  Rel 19-05   |  [4495612]  |  Potrebbe rollup della sicurezza .NET 3.5   |  2.86  |  14 maggio 2019  |
-|  Rel 19-05   |  [4495593]  |  Rollup della sicurezza .NET 4.5.2 potrebbe   |  2.86  |  14 maggio 2019  |
-|  Rel 19-05   |  [4499158]  |  Rollup della sicurezza potrebbe   |  3,73  |  14 maggio 2019  |
-|  Rel 19-05   |  [4495607]  |  Potrebbe rollup della sicurezza .NET 3.5   |  3,73  |  14 maggio 2019  |
-|  Rel 19-05   |  [4495591]  |  Rollup della sicurezza .NET 4.5.2 potrebbe   |  3,73  |  14 maggio 2019  |
-|  Rel 19-05   |  [4492872]  |  Rollup di inserimento/espulsione   |  3,73  |  16 aprile 2019  |
-|  Rel 19-05   |  [4499165]  |  Rollup della sicurezza del mese di marzo   |  4.66  |  14 maggio 2019  |
-|  Rel 19-05   |  [4495615]  |  Potrebbe rollup della sicurezza .NET 3.5   |  4.66  |  14 maggio 2019  |
-|  Rel 19-05   |  [4495589]  |  Rollup della sicurezza .NET 4.5.2 potrebbe   |  4.66  |  14 maggio 2019  |
-|  Rel 19-05   |  [4498947]  |  SSU di maggio   |  5.31  |  14 maggio 2019  |
-|  Rel 19-05   |  [4494175]  |  Abilitare il microcodice aggiornamento di maggio   |  5.31  |  14 maggio 2019  |
-|  Rel 19-05   |  [4505052]  |  Rollup della sicurezza potrebbe   |  5.31  |  19 maggio 2019  |
+|  Rel 19-05   |  [4498206]  |  Rollup di IE possibile   |  2,86, 3,73, 4,66  |  14 maggio 2019  |
+|  Rel 19-05   |  [4505050]  |  Rollup di IE possibile   |  2,86, 3,73, 4,66  |  18 maggio 2019  |
+|  Rel 19-05   |  [4497932]  |  Aggiornamento flash di maggio   |  3,73, 4,66, 5,31  |  14 maggio 2019  |
+|  Rel 19-05   |  [4499175]  |  Rollup della sicurezza di maggio   |  2,86  |  14 maggio 2019  |
+|  Rel 19-05   |  [4495612]  |  Rollup della sicurezza di maggio .NET 3,5   |  2,86  |  14 maggio 2019  |
+|  Rel 19-05   |  [4495593]  |  Rollup della sicurezza di 4.5.2 .NET   |  2,86  |  14 maggio 2019  |
+|  Rel 19-05   |  [4499158]  |  Rollup della sicurezza di maggio   |  3,73  |  14 maggio 2019  |
+|  Rel 19-05   |  [4495607]  |  Rollup della sicurezza di maggio .NET 3,5   |  3,73  |  14 maggio 2019  |
+|  Rel 19-05   |  [4495591]  |  Rollup della sicurezza di 4.5.2 .NET   |  3,73  |  14 maggio 2019  |
+|  Rel 19-05   |  [4492872]  |  Rollup di IE   |  3,73  |  16 aprile 2019  |
+|  Rel 19-05   |  [4499165]  |  Rollup della sicurezza di marzo   |  4,66  |  14 maggio 2019  |
+|  Rel 19-05   |  [4495615]  |  Rollup della sicurezza di maggio .NET 3,5   |  4,66  |  14 maggio 2019  |
+|  Rel 19-05   |  [4495589]  |  Rollup della sicurezza di 4.5.2 .NET   |  4,66  |  14 maggio 2019  |
+|  Rel 19-05   |  [4498947]  |  SSU di maggio   |  5,31  |  14 maggio 2019  |
+|  Rel 19-05   |  [4494175]  |  Aggiornamento microcodice maggio   |  5,31  |  14 maggio 2019  |
+|  Rel 19-05   |  [4505052]  |  Rollup della sicurezza di maggio   |  5,31  |  19 maggio 2019  |
 |  Rel 19-05   |  [4499728]  |  SSU di maggio   |  6.7  |  19 maggio 2019  |
-|  Rel 19-05   |  [4505056]  |  Rollup della sicurezza potrebbe   |  6.7  |  19 maggio 2019  |
-|  Rel 19-05   |  [4494174]  |  Abilitare il microcodice aggiornamento di maggio   |  6.7  |  14 maggio 2019  |
-|  Rel 19-05   |  [4495590]  |  Rollup della sicurezza .NET può   |  6.7  |  14 maggio 2019  |
+|  Rel 19-05   |  [4505056]  |  Rollup della sicurezza di maggio   |  6.7  |  19 maggio 2019  |
+|  Rel 19-05   |  [4494174]  |  Aggiornamento microcodice maggio   |  6.7  |  14 maggio 2019  |
+|  Rel 19-05   |  [4495590]  |  Rollup della sicurezza di maggio .NET   |  6.7  |  14 maggio 2019  |
 
 [4498206]: https://support.microsoft.com/kb/4498206
 [4505050]: https://support.microsoft.com/kb/4505050
@@ -123,22 +165,22 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [4495590]: https://support.microsoft.com/kb/4495590
 
 
-## <a name="april-2019-guest-os"></a>Sistema operativo Guest di aprile 2019
+## <a name="april-2019-guest-os"></a>Sistema operativo guest di aprile 2019
 
-| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| Categoria prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | Rel 19-04 | [4493509] | Sicurezza di Windows 10 | 6.6 | 9 aprile 2019 |
-| Rel 19-04 | [4493470] | Sicurezza di Windows 10 | 5.30 | 9 aprile 2019 |
-| Rel 19-04 | [4493467] | Windows Security | 4.65 | 9 aprile 2019 |
-| Rel 19-04 | [4493450] | Windows Security | 3.72 | 9 aprile 2019 |
-| Rel 19-04 | [4493448] | Windows Security | 2.85 | 9 aprile 2019 |
-| Rel 19-04 | [4493478] | Lampeggiante | 3.72, 4.65, 5.30, 6.6 | 9 aprile 2019 |
-| Rel 19-04 | [4493435] | Internet Explorer | 2.85, 3.72, 4.65 | 9 aprile 2019 |
-| Rel 19-04 | [4490628] | Aggiornamento dello stack di manutenzione | 2.85 | 12 marzo 2019 |
-| Rel 19-04 | [4474419] | Supporto di SHA-2 | 2.85 | 12 marzo 2019 |
-| Rel 19-04 | [4489878] | Rollup non correlato alla sicurezza di marzo | 2.85 | 12 marzo 2019 |
-| Rel 19-04 | [4489891] | Rollup non correlato alla sicurezza di marzo | 3.72 | 12 marzo 2019 |
-| Rel 19-04 | [4489881] | Rollup non correlato alla sicurezza di marzo | 4.65 | 12 marzo 2019 |
+| Rel 19-04 | [4493470] | Sicurezza di Windows 10 | 5,30 | 9 aprile 2019 |
+| Rel 19-04 | [4493467] | Windows Security | 4,65 | 9 aprile 2019 |
+| Rel 19-04 | [4493450] | Windows Security | 3,72 | 9 aprile 2019 |
+| Rel 19-04 | [4493448] | Windows Security | 2,85 | 9 aprile 2019 |
+| Rel 19-04 | [4493478] | Lampeggiante | 3,72, 4,65, 5,30, 6,6 | 9 aprile 2019 |
+| Rel 19-04 | [4493435] | Internet Explorer | 2,85, 3,72, 4,65 | 9 aprile 2019 |
+| Rel 19-04 | [4490628] | Aggiornamento dello stack di manutenzione | 2,85 | 12 marzo 2019 |
+| Rel 19-04 | [4474419] | Supporto di SHA2 | 2,85 | 12 marzo 2019 |
+| Rel 19-04 | [4489878] | Rollup non della sicurezza di marzo | 2,85 | 12 marzo 2019 |
+| Rel 19-04 | [4489891] | Rollup non della sicurezza di marzo | 3,72 | 12 marzo 2019 |
+| Rel 19-04 | [4489881] | Rollup non della sicurezza di marzo | 4,65 | 12 marzo 2019 |
 
 [4493509]: https://support.microsoft.com/kb/4493509
 [4493470]: https://support.microsoft.com/kb/4493470
@@ -153,28 +195,28 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [4489891]: https://support.microsoft.com/kb/KB4489891
 [4489881]: https://support.microsoft.com/kb/KB4489881
 
-## <a name="march-2019-guest-os"></a>Sistema operativo Guest di marzo 2019
+## <a name="march-2019-guest-os"></a>Sistema operativo guest di marzo 2019
 
-| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| Categoria prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-| Rel 19-03 | [4489873] | Internet Explorer | 2.84, 3.71, 4.64 | 12 marzo 2019 |
-| Rel 19-03 | [4489907] | Lampeggiante | 3.71, 4.64, 5.29, 6.5 | 12 marzo 2019 |
-| Rel 19-03 | [4489885] | Windows Security | 2.84 | 12 marzo 2019 |
-| Rel 19-03 | [4489884] | Windows Security | 3.71 | 12 marzo 2019 |
-| Rel 19-03 | [4489883] | Windows Security | 4.64 | 12 marzo 2019 |
-| Rel 19-03 | [4489882] | Sicurezza di Windows 10 | 5.29 | 12 marzo 2019 |
+| Rel 19-03 | [4489873] | Internet Explorer | 2,84, 3,71, 4,64 | 12 marzo 2019 |
+| Rel 19-03 | [4489907] | Lampeggiante | 3,71, 4,64, 5,29, 6,5 | 12 marzo 2019 |
+| Rel 19-03 | [4489885] | Windows Security | 2,84 | 12 marzo 2019 |
+| Rel 19-03 | [4489884] | Windows Security | 3,71 | 12 marzo 2019 |
+| Rel 19-03 | [4489883] | Windows Security | 4,64 | 12 marzo 2019 |
+| Rel 19-03 | [4489882] | Sicurezza di Windows 10 | 5,29 | 12 marzo 2019 |
 | Rel 19-03 | [4489899] | Sicurezza di Windows 10 | 6,5 | 12 marzo 2019 |
-| Rel 19-03 | [4486563] | Rollup di febbraio non correlato alla protezione | 2.84 | 12 febbraio 2019 |
-| Rel 19-03 | [4483458] | Rollup di febbraio non correlato alla protezione .NET 3.x | 2.84 | 12 febbraio 2019 |
-| Rel 19-03 | [4483455] | Rollup di febbraio non correlato alla protezione .NET 4.x | 2.84 | 12 febbraio 2019 |
-| Rel 19-03 | [4487025] | Rollup di febbraio non correlato alla protezione | 3.71 | 12 febbraio 2019 |
-| Rel 19-03 | [4483456] | Rollup di febbraio non correlato alla protezione .NET 3.x | 3.71 | 12 febbraio 2019 |
-| Rel 19-03 | [4483454] | Rollup di febbraio non correlato alla protezione .NET 4.x | 3.71 | 12 febbraio 2019 |
-| Rel 19-03 | [4487000] | Rollup di febbraio non correlato alla protezione | 4.64 | 12 febbraio 2019 |
-| Rel 19-03 | [4483459] | Rollup di febbraio non correlato alla protezione .NET 3.x | 4.64 | 12 febbraio 2019 |
-| Rel 19-03 | [4483453] | Rollup di febbraio non correlato alla protezione .NET 4.x | 4.64 | 12 febbraio 2019 |
-| Rel 19-03 | [4485447] | Aggiornamento Stack di manutenzione di febbraio | 5.29 | 12 febbraio 2019 |
-| Rel 19-03 | [4486459] | Aggiornamento del fuso orario | 2.84, 3.71, 4.64 | 12 febbraio 2019 |
+| Rel 19-03 | [4486563] | Rollup non della sicurezza di febbraio | 2,84 | 12 febbraio 2019 |
+| Rel 19-03 | [4483458] | Rollup non di sicurezza di febbraio .NET 3. x | 2,84 | 12 febbraio 2019 |
+| Rel 19-03 | [4483455] | Rollup non di sicurezza di febbraio .NET 4. x | 2,84 | 12 febbraio 2019 |
+| Rel 19-03 | [4487025] | Rollup non della sicurezza di febbraio | 3,71 | 12 febbraio 2019 |
+| Rel 19-03 | [4483456] | Rollup non di sicurezza di febbraio .NET 3. x | 3,71 | 12 febbraio 2019 |
+| Rel 19-03 | [4483454] | Rollup non di sicurezza di febbraio .NET 4. x | 3,71 | 12 febbraio 2019 |
+| Rel 19-03 | [4487000] | Rollup non della sicurezza di febbraio | 4,64 | 12 febbraio 2019 |
+| Rel 19-03 | [4483459] | Rollup non di sicurezza di febbraio .NET 3. x | 4,64 | 12 febbraio 2019 |
+| Rel 19-03 | [4483453] | Rollup non di sicurezza di febbraio .NET 4. x | 4,64 | 12 febbraio 2019 |
+| Rel 19-03 | [4485447] | Aggiornamento dello stack di manutenzione di febbraio | 5,29 | 12 febbraio 2019 |
+| Rel 19-03 | [4486459] | Aggiornamento del fuso orario | 2,84, 3,71, 4,64 | 12 febbraio 2019 |
 
 [4489873]: https://support.microsoft.com/kb/4489873
 [4489907]: https://support.microsoft.com/kb/4489907
@@ -195,33 +237,33 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [4485447]: https://support.microsoft.com/kb/4485447
 [4486459]: https://support.microsoft.com/kb/4486459
 
-## <a name="february-2019-guest-os"></a>Sistema operativo Guest di febbraio 2019
+## <a name="february-2019-guest-os"></a>Sistema operativo guest di febbraio 2019
 
-| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| Categoria prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-| Rel 19-02 | [4486474] | Internet Explorer | 2.83, 3.70, 4.63 | 12 febbraio 2019 |
-| Rel 19-02 | [4487038] | Lampeggiante | 3.70, 4.63, 5.28, 6.4 | 12 febbraio 2019 |
-| Rel 19-02 | [4486564] | Windows Security | 2.83 | 12 febbraio 2019 |
-| Rel 19-02 | [4483483] | .NET 3.5.1 sicurezza | 2.83 | 12 febbraio 2019 |
-| Rel 19-02 | [4483474] | .NET 4.5.2 sicurezza | 2.83 | 12 febbraio 2019 |
-| Rel 19-02 | [4486993] | Windows Security | 3.70 | 12 febbraio 2019 |
-| Rel 19-02 | [4483481] | .NET 3.5 sicurezza | 3.70 | 12 febbraio 2019 |
-| Rel 19-02 | [4483473] | .NET 4.5.2 sicurezza | 3.70 | 12 febbraio 2019 |
-| Rel 19-02 | [4487028] | Windows Security | 4.63 | 12 febbraio 2019 |
-| Rel 19-02 | [4483484] | .NET 3.5 sicurezza | 4.63 | 12 febbraio 2019 |
-| Rel 19-02 | [4483472] | .NET 4.5.2 sicurezza | 4.63 | 12 febbraio 2019 |
+| Rel 19-02 | [4486474] | Internet Explorer | 2,83, 3,70, 4,63 | 12 febbraio 2019 |
+| Rel 19-02 | [4487038] | Lampeggiante | 3,70, 4,63, 5,28, 6,4 | 12 febbraio 2019 |
+| Rel 19-02 | [4486564] | Windows Security | 2,83 | 12 febbraio 2019 |
+| Rel 19-02 | [4483483] | Sicurezza di .NET 3.5.1 | 2,83 | 12 febbraio 2019 |
+| Rel 19-02 | [4483474] | Sicurezza 4.5.2 .NET | 2,83 | 12 febbraio 2019 |
+| Rel 19-02 | [4486993] | Windows Security | 3,70 | 12 febbraio 2019 |
+| Rel 19-02 | [4483481] | Sicurezza di .NET 3,5 | 3,70 | 12 febbraio 2019 |
+| Rel 19-02 | [4483473] | Sicurezza 4.5.2 .NET | 3,70 | 12 febbraio 2019 |
+| Rel 19-02 | [4487028] | Windows Security | 4,63 | 12 febbraio 2019 |
+| Rel 19-02 | [4483484] | Sicurezza di .NET 3,5 | 4,63 | 12 febbraio 2019 |
+| Rel 19-02 | [4483472] | Sicurezza 4.5.2 .NET | 4,63 | 12 febbraio 2019 |
 | Rel 19-02 | [4487026] | Windows Security | 5,28 | 12 febbraio 2019 |
 | Rel 19-02 | [4487044] | Windows Security | 6.4 | 12 febbraio 2019 |
-| Rel 19-02 | [4483452] | .NET 3.5, 4.7.2 sicurezza | 6.4 | 12 febbraio 2019 |
-| N/D | [4480970] | Rollup di gennaio non correlato alla protezione | 2.83 | 8 gennaio 2019 |
-| N/D | [4483483] | Rollup di gennaio non correlato alla protezione .NET 3.5.1  | 2.83 | 8 gennaio 2019 |
-| N/D | [4480059] | Rollup di gennaio non correlato alla protezione .NET 4.5.2  | 2.83 | 8 gennaio 2019 |
-| N/D | [4480975] | Rollup di gennaio non correlato alla protezione | 3.70 | 8 gennaio 2019 |
-| N/D | [4480061] | Rollup di gennaio non correlato alla protezione .NET 3.5 | 3.70 | 8 gennaio 2019 |
-| N/D | [4480058] | Rollup di gennaio non correlato alla protezione .NET 4.5.2 | 3.70 | 8 gennaio 2019 |
-| N/D | [4480963] | Rollup di gennaio non correlato alla protezione | 4.63 | 8 gennaio 2019 |
-| N/D | [4480064] | Rollup di gennaio non correlato alla protezione .NET 3.5 | 4.63 | 8 gennaio 2019 |
-| N/D | [4480057] | Rollup di gennaio non correlato alla protezione .NET 4.5.2 | 4.63 | 8 gennaio 2019 |
+| Rel 19-02 | [4483452] | .NET 3,5, sicurezza 4.7.2 | 6.4 | 12 febbraio 2019 |
+| N/D | [4480970] | Rollup non della sicurezza di gennaio | 2,83 | 8 gennaio 2019 |
+| N/D | [4483483] | Rollup non della sicurezza di gennaio .NET 3.5.1  | 2,83 | 8 gennaio 2019 |
+| N/D | [4480059] | Rollup non della sicurezza di gennaio .NET 4.5.2  | 2,83 | 8 gennaio 2019 |
+| N/D | [4480975] | Rollup non della sicurezza di gennaio | 3,70 | 8 gennaio 2019 |
+| N/D | [4480061] | Rollup non della sicurezza di gennaio .NET 3,5 | 3,70 | 8 gennaio 2019 |
+| N/D | [4480058] | Rollup non della sicurezza di gennaio .NET 4.5.2 | 3,70 | 8 gennaio 2019 |
+| N/D | [4480963] | Rollup non della sicurezza di gennaio | 4,63 | 8 gennaio 2019 |
+| N/D | [4480064] | Rollup non della sicurezza di gennaio .NET 3,5 | 4,63 | 8 gennaio 2019 |
+| N/D | [4480057] | Rollup non della sicurezza di gennaio .NET 4.5.2 | 4,63 | 8 gennaio 2019 |
 
 [4486474]: https://support.microsoft.com/kb/4486474
 [4487038]: https://support.microsoft.com/kb/4487038
@@ -249,7 +291,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 
 ## <a name="january-2019-guest-os"></a>Sistema operativo guest di gennaio 2019
 
-| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| Categoria prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | Rel 19-01 | [4480116] | Sicurezza di Windows 10 | 6.3 | 8 gennaio 2019 |
 | Rel 19-01 | [4480961] | Sicurezza di Windows 10 | 5.27 | 8 gennaio 2019 |
@@ -257,12 +299,12 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | Rel 19-01 | [4480972] | Windows Security | 3.69 | 8 gennaio 2019 |
 | Rel 19-01 | [4480960] | Windows Security | 2.82 | 8 gennaio 2019 |
 | Rel 19-01 | [4480056] | Sicurezza .NET | 6.3 | 8 gennaio 2019 |
-| Rel 19-01 | [4480074] | Sicurezza di .NET 4.x | 4.62 | 8 gennaio 2019 |
-| Rel 19-01 | [4480075] | Sicurezza di .NET 4.x | 3.69 | 8 gennaio 2019 |
-| Rel 19-01 | [4480076] | Sicurezza di .NET 4.x | 2.82 | 8 gennaio 2019 |
-| Rel 19-01 | [4480086] | Sicurezza 3.x di .NET | 4.62 | 8 gennaio 2019 |
-| Rel 19-01 | [4480083] | Sicurezza 3.x di .NET | 3.69 | 8 gennaio 2019 |
-| Rel 19-01 | [4480085] | Sicurezza 3.x di .NET | 2.82 | 8 gennaio 2019 |
+| Rel 19-01 | [4480074] | Sicurezza di .NET 4. x | 4.62 | 8 gennaio 2019 |
+| Rel 19-01 | [4480075] | Sicurezza di .NET 4. x | 3.69 | 8 gennaio 2019 |
+| Rel 19-01 | [4480076] | Sicurezza di .NET 4. x | 2.82 | 8 gennaio 2019 |
+| Rel 19-01 | [4480086] | Sicurezza di .NET 3. x | 4.62 | 8 gennaio 2019 |
+| Rel 19-01 | [4480083] | Sicurezza di .NET 3. x | 3.69 | 8 gennaio 2019 |
+| Rel 19-01 | [4480085] | Sicurezza di .NET 3. x | 2.82 | 8 gennaio 2019 |
 | Rel 19-01 | [4480979] | Lampeggiante | 3.69, 4.62, 5.27, 6.3 | 8 gennaio 2019 |
 | Rel 19-01 | [4480965] | Internet Explorer | 2.82, 3.69, 4.62 | 8 gennaio 2019 |
 | N/D | [4471318] | Rollup del mese di dicembre non correlato alla sicurezza | 2.82 | 11 dicembre 2018 |
@@ -301,18 +343,18 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 
 ## <a name="december-2018-guest-os"></a>Sistema operativo guest di dicembre 2018
 
-| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| Categoria prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | Rel 18-12 | [4471321] | Sicurezza di Windows 10 | 5.26 | 11 dicembre 2018 |
 | Rel 18-12 | [4471328] | Windows Security   | 2.81 | 11 dicembre 2018 |
 | Rel 18-12 | [4471326] | Windows Security   | 3.68 | 11 dicembre 2018 |
 | Rel 18-12 | [4471322] | Windows Security   | 4.61 | 11 dicembre 2018 |
-| Rel 18-12 | [4470600] | Sicurezza 3.x di .NET  | 2.81 | 11 dicembre 2018 |
-| Rel 18-12 | [4470601] | Sicurezza 3.x di .NET  | 3.68 | 11 dicembre 2018|
-| Rel 18-12 | [4470602] | Sicurezza 3.x di .NET  | 4.61 | 11 dicembre 2018 |
-| Rel 18-12 | [4470493] | Sicurezza di .NET 4.x  | 2.81 | 11 dicembre 2018 |
-| Rel 18-12 | [4470492] | Sicurezza di .NET 4.x  | 3.68 | 11 dicembre 2018 |
-| Rel 18-12 | [4470491] | Sicurezza di .NET 4.x  | 4.61| 11 dicembre 2018 |
+| Rel 18-12 | [4470600] | Sicurezza di .NET 3. x  | 2.81 | 11 dicembre 2018 |
+| Rel 18-12 | [4470601] | Sicurezza di .NET 3. x  | 3.68 | 11 dicembre 2018|
+| Rel 18-12 | [4470602] | Sicurezza di .NET 3. x  | 4.61 | 11 dicembre 2018 |
+| Rel 18-12 | [4470493] | Sicurezza di .NET 4. x  | 2.81 | 11 dicembre 2018 |
+| Rel 18-12 | [4470492] | Sicurezza di .NET 4. x  | 3.68 | 11 dicembre 2018 |
+| Rel 18-12 | [4470491] | Sicurezza di .NET 4. x  | 4.61| 11 dicembre 2018 |
 | Rel 18-12 | [4471331] | Lampeggiante  | 3.68, 4.61, 5.26 | 5 dicembre 2018  |
 | Rel 18-12 | [4470199] | Internet Explorer  | 2.81, 3.68, 4.61 | 11 dicembre 2018 |
 | N/D | [4468323] | Aggiornamento del fuso orario    | 2.81, 3.68, 4.61 | 13 dicembre 2018 |
@@ -339,7 +381,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 
 ## <a name="november-2018-guest-os"></a>Sistema operativo guest di novembre 2018
 
-| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| Categoria prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | Rel 18-11 | [4466536] | Internet Explorer | 2.80, 3.67, 4.60 | 13 novembre 2018 |
 | Rel 18-11 | [4467694] | Lampeggiante | 3.67, 4.60, 5.25 | 13 novembre 2018 |
@@ -371,7 +413,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 
 ## <a name="october-2018-guest-os"></a>Sistema operativo guest di ottobre 2018
 
-| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| Categoria prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | Rel 18-10 | [4462917] | Sicurezza di Windows 10 | 5.24 | 9 ottobre 2018 |
 | Rel 18-10 | [4462915] | Windows Security | 2.79 | 9 ottobre 2018 |
@@ -408,7 +450,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [4457036]: https://support.microsoft.com/kb/4457036
 
 ## <a name="september-2018-guest-os"></a>Sistema operativo guest di settembre 2018
-| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| Categoria prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | Rel 18-09 | [4457131] | Sicurezza di Windows 10 | 5.23 | 11 settembre 2018 |
 | Rel 18-09 | [4457145] | Solo sicurezza di Windows | 2.78 | 11 settembre 2018 |
@@ -430,7 +472,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D | [4344147] | Rollup di .NET 4x del mese di agosto non correlato alla sicurezza | 4,58 | 14 agosto 2018 |
 
 ## <a name="august-2018-guest-os"></a>Sistema operativo guest di agosto 2018
-| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| Categoria prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | Rel 18-08 | [4343887] | Sicurezza di Windows 10 | 5.22 | 14 agosto 2018 |
 | Rel 18-08 | [4343899] | Solo sicurezza di Windows | 2.77 | 14 agosto 2018 |
@@ -453,7 +495,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D | [4338415] |Rollup di .NET 4x del mese di luglio non correlato alla sicurezza |3.64 | 10 luglio 2018 |
 
 ## <a name="july-2018-guest-os"></a>Sistema operativo guest di luglio 2018
-| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| Categoria prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | Rel 18-07 | [4338814] |Sicurezza di Windows 10 |5.21 |10 luglio 2018 |
 | Rel 18-07 | [4338823] |Solo sicurezza di Windows |2.76 |10 luglio 2018 |
@@ -473,7 +515,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D | [4284815] |Rollup del mese di giugno non correlato alla sicurezza |4.56 |12 giugno 2018 |
 
 ## <a name="june-2018-guest-os"></a>Sistema operativo guest di giugno 2018
-| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| Categoria prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | Rel 18-06 | [4284880] |Sicurezza di Windows 10 |5.20 |12 giugno 2018 |
 | Rel 18-06 | [4284867] |Solo sicurezza di Windows |2.75 |12 giugno 2018 |
@@ -498,7 +540,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D | [4132216] |SSU di maggio |5.20 |8 maggio 2018 |
 
 ## <a name="may-2018-guest-os"></a>Sistema operativo guest di maggio 2018
-| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| Categoria prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | Rel 18-05 | [4103721], [4103727], [4103723] |Sicurezza di Windows 10 |5.19 |8 maggio 2018 |
 | Rel 18-05 | [4103712] |Solo sicurezza di Windows |2.74 |8 maggio 2018 |
@@ -518,7 +560,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 
 
 ## <a name="april-2018-guest-os"></a>Sistema operativo guest di aprile 2018
-| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| Categoria prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | Rel 18-04 | [4093119] |Sicurezza di Windows 10 |5.18 |10 aprile 2018 |
 | Rel 18-04 | [4093108] |Solo sicurezza di Windows |2.73 |10 aprile 2018 |
@@ -532,7 +574,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D | [4088876] |Rollup del mese di marzo non correlato alla sicurezza |4.53 |13 marzo 2018 |
 
 ## <a name="march-2018-guest-os"></a>Sistema operativo guest di marzo 2018
-| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| Categoria prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | Rel 18-03 | [4088787], [4088776] |Sicurezza di Windows 10 |5.17 |13 marzo 2018 |
 | Rel 18-03 | [4088878], [4088880], [4088879] |Solo sicurezza di Windows |2.72, 3.59, 4.52 |13 marzo 2018 |
@@ -545,7 +587,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 
 
 ## <a name="february-2018-guest-os"></a>Sistema operativo guest di febbraio 2018
-| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| Categoria prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | Rel 18-02 | [4074590], [4074588] |Sicurezza di Windows 10 |5.16 |13 febbraio 2018 |
 | Rel 18-02 | [4074587], [4074589], [4074597] |Solo sicurezza di Windows |2.71, 3.58, 4.51 |13 febbraio 2018 |
@@ -559,7 +601,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D | [4054177], [4054170] |Rollup del mese di gennaio correlato a .NET |4.51 |4 gennaio 2018 |
 
 ## <a name="january-2018-guest-os"></a>Sistema operativo guest di gennaio 2018
-| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| Categoria prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | Rel 18-01 | [4056898], [4056897], [4056899] |Solo sicurezza di Windows |2.70, 3.57, 4.50 |3 gennaio 2018 |
 | Rel 18-01 | [4056890], [4056892] |Solo sicurezza di Windows |5.15 |3 gennaio 2018 |
@@ -571,7 +613,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 
 
 ## <a name="december-2017-guest-os"></a>Sistema operativo guest di dicembre 2017
-| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| Categoria prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | Rel 17-12 | [4053579], [4054517] |Aggiornamenti della sicurezza di Windows 10 |4.49, 5.14 |12 dicembre 2017 |
 | Rel 17-12 | [4054521], [4054522], [4054523] |Solo sicurezza di Windows |2.69, 3.56, 4.49 |12 dicembre 2017 |
@@ -583,7 +625,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D | [4049068] |Aggiornamento del fuso orario - Dicembre |2.69, 3.56, 4.49 |12 dicembre 2017 |
 
 ## <a name="november-2017-guest-os"></a>Sistema operativo guest di novembre 2017
-| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| Categoria prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | Rel 17-11 | [4048953] |Aggiornamenti di Windows 10 |5.13 |14 novembre 2017 |
 | Rel 17-11 | [4048960], [4048962], [4048961] |Solo sicurezza di Windows |2.68, 3.55, 4.48 |14 novembre 2017 |
@@ -597,7 +639,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D | [3191564] |Aggiornamento per Windows Management Framework 5.1  |4.48 |14 novembre 2017 |
 
 ## <a name="october-2017-guest-os"></a>Sistema operativo guest di ottobre 2017
-| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| Categoria prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | Rel 17-10 | [4041691] |Aggiornamenti di Windows 10 |5.12 |10 ottobre 2017 |
 | Rel 17-10 | [4041678], [4041679], [4041687] |Solo sicurezza di Windows |2.67, 3.54, 4.47 |10 ottobre 2017 |
@@ -611,7 +653,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D | [4040981] |Rollup .NET del mese di settembre non correlato alla sicurezza |4.47 |12 settembre 2017 |
 
 ## <a name="september-2017-guest-os"></a>Sistema operativo guest di settembre 2017
-| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| Categoria prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | Rel 17-09 | [4038782] |Aggiornamenti di Windows 10 |5.11 |12 settembre 2017 |
 | Rel 17-09 | [4038779], [4038786], [4038793] |Solo sicurezza di Windows |2.66, 3.53, 4.46 |12 settembre 2017 |
@@ -623,7 +665,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D | [4034681] |Rollup del mese di agosto non correlato alla sicurezza |4.46 |8 agosto 2017 |
 
 ## <a name="august-2017-guest-os"></a>Sistema operativo guest di agosto 2017
-| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| Categoria prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | Rel 17-07 | [4034658] |Aggiornamenti di Windows 10 |5.10 |8 agosto 2017 |
 | Rel 17-07 | [4034679] |Solo sicurezza di Windows |2.65 |8 agosto 2017 |
@@ -637,7 +679,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | Rel 17-07 | [4025336] |Rollup del mese di luglio non correlato alla sicurezza |4.45 |11 luglio 2017 |
 
 ## <a name="july-2017-guest-os"></a>Sistema operativo guest di luglio 2017
-| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| Categoria prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | Rel 17-07 | [4025339] |Aggiornamenti di Windows 10 |5.9 |11 luglio 2017 |
 | Rel 17-07 | [4025337] |Solo sicurezza di Windows |2.64 |11 luglio 2017 |
@@ -651,7 +693,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D | [4022726] |Rollup del mese di giugno non correlato alla sicurezza |4.44 |13 giugno 2017 |
 
 ## <a name="june-2017-guest-os"></a>Sistema operativo guest di giugno 2017
-| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| Categoria prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | Rel 17-06 | [4019472] |Miglioramenti alla qualità del sistema operativo WS 2016 |5.8 |9 maggio 2017 |
 | Rel 17-06 | [4022722] |Solo sicurezza di Windows |2.63 |13 giugno 2017 |
@@ -667,11 +709,11 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D | [4014508] |Rollup .NET del mese di maggio non correlato alla sicurezza |2.63 |9 maggio 2017 |
 | N/D | [4014511] |Rollup .NET del mese di maggio non correlato alla sicurezza |2.63 |9 maggio 2017 |
 | N/D | [4014514] |Rollup .NET del mese di maggio non correlato alla sicurezza |2.63 |9 maggio 2017 |
-| N/D | [4019216] |Rollup del mese di maggio non correlato alla sicurezza |3.50 |9 maggio 2017 |
-| N/D | [4014503] |Rollup .NET del mese di maggio non correlato alla sicurezza |3.50 |9 maggio 2017 |
-| N/D | [4014506] |Rollup .NET del mese di maggio non correlato alla sicurezza |3.50 |9 maggio 2017 |
-| N/D | [4014509] |Rollup .NET del mese di maggio non correlato alla sicurezza |3.50 |9 maggio 2017 |
-| N/D | [4014513] |Rollup .NET del mese di maggio non correlato alla sicurezza |3.50 |9 maggio 2017 |
+| N/D | [4019216] |Rollup del mese di maggio non correlato alla sicurezza |3,50 |9 maggio 2017 |
+| N/D | [4014503] |Rollup .NET del mese di maggio non correlato alla sicurezza |3,50 |9 maggio 2017 |
+| N/D | [4014506] |Rollup .NET del mese di maggio non correlato alla sicurezza |3,50 |9 maggio 2017 |
+| N/D | [4014509] |Rollup .NET del mese di maggio non correlato alla sicurezza |3,50 |9 maggio 2017 |
+| N/D | [4014513] |Rollup .NET del mese di maggio non correlato alla sicurezza |3,50 |9 maggio 2017 |
 | N/D | [4019215] |Rollup del mese di maggio non correlato alla sicurezza |4.43 |9 maggio 2017 |
 | N/D | [4014505] |Rollup .NET del mese di maggio non correlato alla sicurezza |4.43 |9 maggio 2017 |
 | N/D | [4014507] |Rollup .NET del mese di maggio non correlato alla sicurezza |4.43 |9 maggio 2017 |
@@ -679,7 +721,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D | [4014512] |Rollup .NET del mese di maggio non correlato alla sicurezza |4.43 |9 maggio 2017 |
 
 ## <a name="may-2017-guest-os"></a>Sistema operativo guest di maggio 2017
-| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| Categoria prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | Rel 17-05 | [4019472] |Miglioramenti alla qualità del sistema operativo WS 2016 |5.7 | 9 maggio 2017 |
 | Rel 17-05 | [4019263] |Solo sicurezza di Windows |2.62 | 9 maggio 2017 |
@@ -689,7 +731,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | Rel 17-05 | [4010323] |Avviso su SHA1 |2.62, 4.42, 5.7 | 9 maggio 2017 |
 | Rel 17-05 | [4022344] |Advisory Microsoft sulla sicurezza |5.7 | 9 maggio 2017 |
 | Rel 17-05 | [4022345] |Advisory Microsoft sulla sicurezza |5.7 | 9 maggio 2017 |
-| Rel 17-05 | [4021279] |.NET/ASP.NET core Advisory |2.62, 3.49, 4.42, 5.7 | 9 maggio 2017 |
+| Rel 17-05 | [4021279] |Consulenza .NET/ASP.NET Core |2.62, 3.49, 4.42, 5.7 | 9 maggio 2017 |
 | N/D | [4012864] |Aggiornamento del fuso orario |2.62, 3.49, 4.42 | 9 maggio 2017 |
 | N/D | [4014565] |Rollup .NET del mese di aprile non correlato alla sicurezza |2.62 | 11 aprile 2017 |
 | N/D | [4014559] |Rollup .NET del mese di aprile non correlato alla sicurezza |2.62 | 11 aprile 2017 |
@@ -707,7 +749,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D | [4013418] |Aggiornamento dello stack di manutenzione |5.7 | 14 marzo 2017 |
 
 ## <a name="april-2017-guest-os"></a>Sistema operativo guest di aprile 2017
-| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| Categoria prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | Rel 17-04 |  [4015217]  |Miglioramenti alla qualità del sistema operativo WS 2016 | 5.6 | 11 aprile 2017 |
 | Rel 17-04 |  [4015546]  |Solo sicurezza di Windows |2.61 | 11 aprile 2017 |
@@ -727,7 +769,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | Rel 17-04 |  [4012216]  |Rollup di qualità mensile per la sicurezza di marzo 2017 per Windows 8.1 e Windows Server 2012 R2 |4.41 | 11 aprile 2017 |
 
 ## <a name="march-2017-guest-os"></a>Sistema operativo guest di marzo 2017
-| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| Categoria prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | Rel 17-03 |  [4013429] |Miglioramenti e correzioni | 5.5 | 14 marzo 2017 |
 | Rel 17-03 |  [4012212] |Unico aggiornamento di qualità della sicurezza del mese di marzo 2017 per Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.60 |14 marzo 2017 |
@@ -1020,7 +1062,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | MS15-075 |[3072633] |Le vulnerabilità in OLE potrebbero consentire l'elevazione dei privilegi |4.22, 3.29, 2.41 |14 luglio 2015 |
 | MS15-076 |[3067505] |La vulnerabilità in Windows Remote Procedure Call potrebbe consentire l'elevazione dei privilegi |4.22, 3.29, 2.41 |14 luglio 2015 |
 | MS15-077 |[3077657] |La vulnerabilità in ATM Font Driver potrebbe consentire l'elevazione dei privilegi |4.22, 3.29, 2.41 |14 luglio 2015 |
-| NA |[3057154] |Aggiornamento per limitare l'uso della crittografia DES |4.22, 3.29, 2.41 |14 luglio 2015 |
+| ND |[3057154] |Aggiornamento per limitare l'uso della crittografia DES |4.22, 3.29, 2.41 |14 luglio 2015 |
 
 ## <a name="june-2015-guest-os"></a>Sistema operativo guest di giugno 2015
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
@@ -1053,7 +1095,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | MS15-040 |[3045711] |La vulnerabilità in ADFS potrebbe consentire la diffusione di informazioni |4.20, 3.27, 2.39 |17 aprile 2015 |
 | MS15-041 |[3048010] |La vulnerabilità in.NET Framework potrebbe consentire la diffusione di informazioni |4.20, 3.27, 2.39 |17 aprile 2015 |
 | MS15-042 |[3047234] |La vulnerabilità in Windows Hyper V potrebbe consentire un attacco Denial of Service |4.20, 3.27, 2.39 |17 aprile 2015 |
-| NA |[3045755] |Aggiornamento per migliorare l'autenticazione PKU2U |4.20, 3.27, 2.39 |17 aprile 2015 |
+| ND |[3045755] |Aggiornamento per migliorare l'autenticazione PKU2U |4.20, 3.27, 2.39 |17 aprile 2015 |
 
 ## <a name="april-2015-guest-os"></a>Sistema operativo guest di aprile 2015
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |

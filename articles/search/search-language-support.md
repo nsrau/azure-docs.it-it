@@ -6,69 +6,52 @@ manager: jlembicz
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/11/2019
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: cc9f271c1c79f34ba62fa22d6ce4fd6bf16738f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 403febfcb54194602051aaebe2952265c0675e9d
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65025260"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854409"
 ---
-# <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Creare un indice per i documenti in più lingue in Ricerca di Azure
-> [!div class="op_single_selector"]
->
-> * [Portale](search-language-support.md)
-> * [REST](https://msdn.microsoft.com/library/azure/dn879793.aspx)
-> * [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.analyzername.aspx)
->
->
+# <a name="how-to-create-an-index-for-multiple-languages-in-azure-search"></a>Come creare un indice per più lingue in ricerca di Azure
 
-Consentire l'espressione della potenza degli analizzatori delle lingue è semplice come l'impostazione di una proprietà in un campo di ricerca nella definizione dell'indice. Questo passaggio può ora essere eseguito nel portale.
+Gli indici possono includere campi che contengono contenuto da più linguaggi, ad esempio la creazione di singoli campi per stringhe specifiche della lingua. Per ottenere risultati ottimali durante l'indicizzazione e l'esecuzione di query, assegnare un analizzatore del linguaggio che fornisca le regole linguistiche appropriate. 
 
-Di seguito sono riportate schermate dei pannelli del portale di Azure relativi a Ricerca di Azure che consentono agli utenti di definire uno schema di indice. Da questi pannelli, gli utenti possono creare tutti i campi e impostare la proprietà analyzer per ognuno di essi.
+Ricerca di Azure offre un'ampia gamma di analizzatori di linguaggio sia da Lucene che da Microsoft che possono essere assegnati a singoli campi usando la proprietà dell'analizzatore. È anche possibile specificare un analizzatore del linguaggio nel portale, come descritto in questo articolo.
 
-> [!IMPORTANT]
-> È possibile impostare solo un analizzatore della lingua durante la definizione del campo, come quando si crea un nuovo indice da zero o si aggiunge un nuovo campo a un indice esistente. Assicurarsi di specificare completamente tutti gli attributi, incluso l'analizzatore, durante la creazione del campo. Non sarà possibile modificare gli attributi o cambiare il tipo di analizzatore dopo avere salvato le modifiche.
->
->
+## <a name="add-analyzers-to-fields"></a>Aggiungere analizzatori a campi
 
-## <a name="define-a-new-field-definition"></a>Definire una nuova definizione di campo
-1. Accedere al [portale di Azure](https://portal.azure.com) e aprire il pannello del servizio di ricerca.
-2. Fare clic su **Aggiungi un indice** nella barra di comando del dashboard del servizio per avviare un nuovo indice oppure aprire un indice esistente per impostare un analizzatore nei nuovi campi aggiunti a un indice esistente.
-3. Viene visualizzato il pannello Campi, con opzioni per la definizione dello schema dell'indice, inclusa la scheda Analizzatore usata per la scelta di un analizzatore della lingua.
-4. In Campi avviare una definizione di campo fornendo un nome, scegliendo il tipo di dati e impostando gli attributi per contrassegnare il campo come disponibile per la ricerca full-text, recuperabile nei risultati della ricerca, utilizzabile nelle strutture di navigazione facet, ordinabile e così via.
-5. Prima di passare al campo successivo, aprire la scheda **Analizzatore** .
+Un analizzatore del linguaggio viene specificato quando viene creato un campo. L'aggiunta di un analizzatore a una definizione di campo esistente richiede la sovrascrittura e il ricaricamento dell'indice o la creazione di un nuovo campo identico all'originale, ma con un'assegnazione dell'analizzatore. È quindi possibile eliminare il campo inutilizzato per praticità.
 
-![][1]
-*Per selezionare un analizzatore, fare clic sulla scheda Analizzatore nel pannello Campi*
+1. Accedere al [portale di Azure](https://portal.azure.com) e trovare il servizio di ricerca.
+1. Fare clic su **Aggiungi un indice** nella barra di comando del dashboard del servizio per avviare un nuovo indice oppure aprire un indice esistente per impostare un analizzatore nei nuovi campi aggiunti a un indice esistente.
+1. Avviare una definizione di campo fornendo un nome.
+1. Scegliere il tipo di dati EDM. String. Solo i campi stringa sono disponibili per la ricerca full-text.
+1. Impostare l' attributo ricercabile per abilitare la proprietà dell'analizzatore. Un campo deve essere basato su testo per poter usare un analizzatore del linguaggio.
+1. Scegliere uno degli analizzatori disponibili. 
 
-## <a name="choose-an-analyzer"></a>Scegliere un analizzatore
-1. Scorrere per trovare il campo che si sta definendo.
-2. Se il campo non è stato contrassegnato come ricercabile, fare clic sulla casella di controllo per contrassegnarlo come **Ricercabile**.
-3. Fare clic sull'area dell'analizzatore per visualizzare l'elenco degli analizzatori disponibili.
-4. Scegliere l'analizzatore che si desidera usare.
+![Assegnazione degli analizzatori di lingua durante la definizione del campo](media/search-language-support/select-analyzer.png "Assegnazione degli analizzatori di lingua durante la definizione del campo")
 
-![][2]
-*Selezionare uno degli analizzatori supportati per ogni campo*
+Per impostazione predefinita, tutti i campi disponibili per la ricerca usano l' [analizzatore Lucene standard](https://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) , indipendente dal linguaggio. Per visualizzare l'elenco completo degli analizzatori supportati, vedere [aggiungere analizzatori di lingua a un indice di ricerca di Azure](index-add-language-analyzers.md).
 
-Per impostazione predefinita, tutti i campi di ricerca usano l' [analizzatore Standard Lucene](https://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) che è indipendente dalla lingua. Per visualizzare l'elenco completo degli analizzatori supportati, vedere il post di blog relativo alle [lingue supportate in Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn879793.aspx).
+Nel portale gli analizzatori sono destinati a essere usati così come sono. Se è necessaria una personalizzazione o una configurazione specifica di filtri e Tokenizer, è necessario [creare un analizzatore personalizzato](index-add-custom-analyzers.md) nel codice. Il portale non supporta la selezione o la configurazione di analizzatori personalizzati.
 
-Dopo aver selezionato l'analizzatore della lingua per un campo, verrà usato per ogni richiesta di ricerca e indicizzazione relativa a quel campo. Quando viene eseguita una query su più campi usando analizzatori diversi, la query verrà elaborata in modo indipendente dagli analizzatori specifici di ciascun campo.
+## <a name="query-language-specific-fields"></a>Campi specifici del linguaggio di query
 
-Molte applicazioni Web e per dispositivi mobili vengono sfruttate dagli utenti in tutto il mondo in diverse lingue. È possibile definire un indice per uno scenario simile al seguente mediante la creazione di un campo per ogni lingua supportata.
-
-![][3]
-*Definizione di indice con un campo di descrizione per ogni lingua supportata*
+Dopo aver selezionato l'analizzatore della lingua per un campo, verrà usato per ogni richiesta di ricerca e indicizzazione relativa a quel campo. Quando una query viene eseguita su più campi utilizzando analizzatori diversi, la query verrà elaborata in modo indipendente dagli analizzatori assegnati per ogni campo.
 
 Se la lingua dell'agente che esegue una query è nota, è possibile definire per una richiesta di ricerca un ambito relativo a un campo specifico usando il parametro di query **searchFields** . La query seguente verrà generata solo per la descrizione in polacco:
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=description_pl&api-version=2019-05-06`
+`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=PolishContent&api-version=2019-05-06`
 
-È possibile eseguire query sull'indice dal portale, usando **Esplora ricerche** per incollare una query simile a quello illustrata in precedenza. Esplora ricerche è disponibile nella barra dei comandi nel pannello del servizio. Per informazioni dettagliate, vedere [Eseguire query su un indice di Ricerca di Azure](search-explorer.md) .
+È possibile eseguire query sull'indice dal portale, usando [**Esplora ricerche**](search-explorer.md) per incollare una query simile a quella illustrata sopra.
 
-È possibile che la lingua dell'agente che esegue una query non sia nota, in tal caso la query può essere inviata a tutti i campi contemporaneamente. Se necessario, è possibile definire delle preferenze per i risultati in una determinata lingua usando i [profili di punteggio](https://msdn.microsoft.com/library/azure/dn798928.aspx). Nell'esempio seguente, alle corrispondenze trovate nella descrizione in inglese viene assegnato un punteggio più elevato rispetto alle corrispondenze in polacco e francese:
+## <a name="boost-language-specific-fields"></a>Aumentare i campi specifici della lingua
+
+È possibile che la lingua dell'agente che esegue una query non sia nota, in tal caso la query può essere inviata a tutti i campi contemporaneamente. Se necessario, è possibile definire delle preferenze per i risultati in una determinata lingua usando i [profili di punteggio](index-add-scoring-profiles.md). Nell'esempio seguente, alle corrispondenze trovate nella descrizione in inglese viene assegnato un punteggio più elevato rispetto alle corrispondenze in polacco e francese:
 
     "scoringProfiles": [
       {
@@ -81,9 +64,6 @@ Se la lingua dell'agente che esegue una query è nota, è possibile definire per
 
 `https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2019-05-06`
 
-Per gli sviluppatori .NET, si noti che è possibile configurare analizzatori delle lingue mediante l' [SDK .NET di Ricerca di Azure](https://www.nuget.org/packages/Microsoft.Azure.Search). La versione più recente supporta anche gli analizzatori delle lingue di Microsoft.
+## <a name="next-steps"></a>Passaggi successivi
 
-<!-- Image References -->
-[1]: ./media/search-language-support/AnalyzerTab.png
-[2]: ./media/search-language-support/SelectAnalyzer.png
-[3]: ./media/search-language-support/IndexDefinition.png
+Gli sviluppatori .NET possono configurare gli analizzatori della lingua usando [Azure search .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search) e la proprietà [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet) . 

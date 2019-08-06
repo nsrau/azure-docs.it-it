@@ -3,16 +3,16 @@ title: Creare un modello di generatore di immagini di Azure (anteprima)
 description: Informazioni su come creare un modello da usare con Azure Image Builder.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/10/2019
+ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 065962614d0b85c4c50f86bef0b610c9b3577e07
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
-ms.translationtype: MT
+ms.openlocfilehash: a623aa98cd26e1636e47cb0e2831eeced17935b9
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248142"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68695393"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Anteprima: Creare un modello di generatore di immagini di Azure 
 
@@ -185,6 +185,19 @@ Imposta l'immagine di origine in una versione di immagine esistente in una racco
 
 `imageVersionId` Deve essere ResourceId della versione dell'immagine. Usare [AZ sig Image-Version list](/cli/azure/sig/image-version#az-sig-image-version-list) per elencare le versioni delle immagini.
 
+## <a name="properties-buildtimeoutinminutes"></a>Proprietà: buildTimeoutInMinutes
+Per impostazione predefinita, il generatore di immagini viene eseguito per 240 minuti. Successivamente, il timeout e l'arresto, indipendentemente dal fatto che la compilazione dell'immagine sia stata completata o meno. Se viene raggiunto il timeout, verrà visualizzato un errore simile al seguente:
+
+```text
+[ERROR] Failed while waiting for packerizer: Timeout waiting for microservice to
+[ERROR] complete: 'context deadline exceeded'
+```
+
+Se non si specifica un valore buildTimeoutInMinutes o lo si imposta su 0, verrà utilizzato il valore predefinito. È possibile aumentare o diminuire il valore, fino al massimo di 960mins (16hrs). Per Windows, non è consigliabile impostare questo valore al di sotto di 60 minuti. Se si rileva il timeout, esaminare i [log](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-image-build-logs)per verificare se il passaggio di personalizzazione è in attesa di un input dell'utente. 
+
+Se è necessario più tempo per il completamento delle personalizzazioni, impostarlo su quello che si ritiene necessario, con un lieve overhead. Tuttavia, non impostarla troppo elevata perché potrebbe essere necessario attendere il timeout prima di visualizzare un errore. 
+
+
 ## <a name="properties-customize"></a>Proprietà: Personalizza
 
 
@@ -194,7 +207,6 @@ Quando si `customize`USA:
 - È possibile usare più personalizzatori, ma devono avere un valore univoco `name`.
 - I personalizzatori vengono eseguiti nell'ordine specificato nel modello.
 - Se un verbi ha esito negativo, l'intero componente di personalizzazione avrà esito negativo e segnalerà un errore.
-- Prendere in considerazione la quantità di tempo necessaria per la compilazione dell'immagine e modificare la proprietà' buildTimeoutInMinutes ' per consentire il completamento del tempo necessario per il generatore di immagini.
 - Si consiglia vivamente di testare accuratamente lo script prima di utilizzarlo in un modello. Il debug dello script nella propria macchina virtuale sarà più semplice.
 - Non inserire dati sensibili negli script. 
 - I percorsi di script devono essere accessibili pubblicamente, a meno che non si usi [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
