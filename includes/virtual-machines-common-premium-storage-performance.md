@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d3d4679703f6d98cb2062144cfde7d11fe44130c
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 8aeb32ecddc0ef368b615a201179f17178ececad
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68386899"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68817226"
 ---
 ## <a name="application-performance-indicators"></a>Indicatori di prestazioni dell'applicazione
 
@@ -268,6 +268,9 @@ Configurando la memorizzazione nella cache ReadOnly nei dischi dati di Archiviaz
 
 *ReadWrite*  
 Per impostazione predefinita, la memorizzazione nella cache ReadWrite è abilitata nei dischi sistema operativo. È stato recentemente aggiunto il supporto per la memorizzazione nella cache ReadWrite anche sui dischi dati. Se si usa la memorizzazione nella cache ReadWrite, è necessario scrivere in modo corretto i dati dalla cache ai dischi persistenti. Ad esempio, SQL Server gestisce automaticamente la scrittura di dati memorizzati nella cache nei dischi di archiviazione permanente. L'uso della cache di tipo ReadWrite con un'applicazione che non gestisce la persistenza dei dati necessari può provocare la perdita dei dati, in caso di arresto anomalo della VM.
+
+*None*  
+Attualmente, **None** è supportato solo nei dischi dati. Non è supportata nei dischi del sistema operativo. Se si imposta **None** su un disco del sistema operativo, quest'operazione verrà sostituita internamente e impostata su **ReadOnly**.
 
 È ad esempio possibile applicare queste indicazioni a SQL Server in esecuzione sull'Archiviazione Premium seguendo questa procedura:
 

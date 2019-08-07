@@ -10,13 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: f10ac45266eefac41f3ba9ac442c3be3f5106ef3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.subservice: cognitive-search
+ms.openlocfilehash: ebff47360aa78a7774be50bcce8518f6e30ca073
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388418"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841069"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Competenza cognitiva di Analisi delle immagini
 
@@ -38,13 +38,13 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 | Nome parametro     | Descrizione |
 |--------------------|-------------|
 | defaultLanguageCode   |  Stringa che indica la lingua di restituzione. Il servizio restituisce i risultati di riconoscimento nella lingua specificata. Se questo parametro non è specificato, il valore predefinito è "en". <br/><br/>Le lingue supportate sono: <br/>*en* - Inglese (predefinito) <br/> *zh* - Cinese semplificato|
-|visualFeatures |   Matrice di stringhe che indica i tipi di caratteristiche visive da restituire. I tipi di caratteristiche visive valide comprendono:  <ul><li> *categorie* - suddivide l'immagine in categorie in base a una tassonomia definita nella [documentazione](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy) Servizi cognitivi.</li><li> *tag* - contrassegna l'immagine con un elenco dettagliato delle parole correlate con il contenuto dell'immagine.</li><li>*Descrizione* -viene descritto il contenuto con una frase inglese completa dell'immagine.</li><li>*I volti* -rileva se sono presenti i volti. Se presenti, genera le coordinate, il genere e l'età.</li><li> *ImageType* -rileva se l'immagine è ClipArt o un disegno di linee.</li><li>  *Colore* -determina il colore, colore dominante, e se un'immagine è nera e bianco.</li><li>*Per adulti* -rileva se l'immagine è pornografiche natura (illustra oscenità o un atto sesso). Viene rilevato anche il contenuto che presenta riferimenti sessuali.</li></ul> I nomi delle caratteristiche visive fanno distinzione tra maiuscole e minuscole.|
-| dettagli   | Matrice di stringhe che indica quali dettagli specifici del dominio restituire. I tipi di caratteristiche visive valide comprendono: <ul><li>*Celebrità* -identifica celebrità se rilevato nell'immagine.</li><li>*Punti di riferimento* -identifica i punti di riferimento se rilevato nell'immagine.</li></ul>
+|visualFeatures |   Matrice di stringhe che indica i tipi di caratteristiche visive da restituire. I tipi di caratteristiche visive valide comprendono:  <ul><li> *categorie* - suddivide l'immagine in categorie in base a una tassonomia definita nella [documentazione](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy) Servizi cognitivi.</li><li> *tag* - contrassegna l'immagine con un elenco dettagliato delle parole correlate con il contenuto dell'immagine.</li><li>*Descrizione* : descrive il contenuto dell'immagine con una frase inglese completa.</li><li>*visi* : rileva se sono presenti visi. Se presenti, genera le coordinate, il genere e l'età.</li><li> *ImageType* : rileva se image è clip art o un disegno a linee.</li><li>  *colore* : determina il colore dell'accento, il colore dominante e se un'immagine è nera & bianco.</li><li>*Adult* : rileva se l'immagine è di natura pornografica (raffigurato nudità o un sex Act). Viene rilevato anche il contenuto che presenta riferimenti sessuali.</li></ul> I nomi delle caratteristiche visive fanno distinzione tra maiuscole e minuscole.|
+| details   | Matrice di stringhe che indica quali dettagli specifici del dominio restituire. I tipi di caratteristiche visive valide comprendono: <ul><li>*celebrità* : identifica le celebrità se rilevate nell'immagine.</li><li>*punti di riferimento* : identifica i punti di riferimento se vengono rilevati nell'immagine.</li></ul>
  |
 
 ## <a name="skill-inputs"></a>Input competenze
 
-| Nome input      | Descrizione                                          |
+| Nome di input      | Descrizione                                          |
 |---------------|------------------------------------------------------|
 | image         | Tipo complesso. Attualmente funziona solo con il campo "/document/normalized_images", prodotto dall'indicizzatore di BLOB di Azure quando ```imageAction``` è impostato su un valore diverso da ```none```. Per altre informazioni, vedere [esempio](#sample-output).|
 
@@ -85,7 +85,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
             ]
         }
 ```
-### <a name="sample-index-for-only-the-categories-description-faces-and-tags-fields"></a>Indice di esempio (per solo i campi categorie, descrizione, i visi e tag)
+### <a name="sample-index-for-only-the-categories-description-faces-and-tags-fields"></a>Indice di esempio (solo per le categorie, i campi Descrizione, visi e tag)
 ```json
 {
     "fields": [
@@ -297,7 +297,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 }
 
 ```
-### <a name="sample-output-field-mapping-for-the-above-index"></a>Mapping di campi di output di esempio (per l'indice precedente)
+### <a name="sample-output-field-mapping-for-the-above-index"></a>Esempio di mapping dei campi di output (per l'indice precedente)
 ```json
     "outputFieldMappings": [
         {
@@ -333,7 +333,8 @@ I parametri fanno distinzione tra maiuscole e minuscole.
                     "originalWidth": 5000,
                     "originalHeight": 3000,
                     "rotationFromOriginal": 90,
-                    "contentOffset": 500
+                    "contentOffset": 500,
+                    "pageNumber": 2
                 }
             }
         }
@@ -341,7 +342,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 }
 ```
 
-##  <a name="sample-output"></a>Output di esempio
+##  <a name="sample-output"></a>Esempio di output
 
 ```json
 {
@@ -484,7 +485,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 ## <a name="error-cases"></a>Casi di errore
 Nei seguenti casi di errore, non viene estratto nessun elemento.
 
-| Codice di errore | Descrizione |
+| Codice di errore | DESCRIZIONE |
 |------------|-------------|
 | NotSupportedLanguage | La lingua fornita non è supportata. |
 | InvalidImageUrl | L'URL dell'immagine è formattato in modo errato o non è accessibile.|

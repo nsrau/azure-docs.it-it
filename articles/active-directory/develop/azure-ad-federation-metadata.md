@@ -12,18 +12,18 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: ryanwi
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32f105c0d4f8807b53d400a1c198edd504c0aef3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fefaf618ff29cc2186dc555eb6f452223f4cd097
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544497"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835122"
 ---
 # <a name="federation-metadata"></a>Metadati della federazione
 Azure Active Directory (Azure AD) pubblica un documento di metadati della federazione per i servizi configurati per accettare i token di sicurezza rilasciati da Azure AD. Il formato del documento di metadati della federazione è descritto in [Web Services Federation Language (WS-Federation) Version 1.2](https://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html) (Linguaggio Web Services Federation (WS-Federation) versione 1.2), che estende la pubblicazione [Metadata for the OASIS Security Assertion Markup Language (SAML) v2.0](https://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf) (Metadati per il linguaggio SAML (Security Assertion Markup Language) OASIS v 2.0).
@@ -73,7 +73,7 @@ entityID="https://sts.windows.net/{tenant}/">
 ```
 
 ### <a name="token-signing-certificates"></a>Certificati per la firma di token
-Quando un servizio riceve un token emesso da un tenant di Azure AD, con una chiave di firma che viene pubblicata nel documento di metadati della federazione deve convalidare la firma del token. I metadati di federazione includono la parte pubblica dei certificati utilizzati dai tenant per la firma dei token. I byte non elaborati del certificato vengono visualizzati nell'elemento `KeyDescriptor` . Il certificato per la firma di token è valido per la firma solo quando il valore dell'attributo `use` è `signing`.
+Quando un servizio riceve un token emesso da un tenant di Azure AD, è necessario convalidare la firma del token con una chiave di firma pubblicata nel documento di metadati della Federazione. I metadati di federazione includono la parte pubblica dei certificati utilizzati dai tenant per la firma dei token. I byte non elaborati del certificato vengono visualizzati nell'elemento `KeyDescriptor` . Il certificato per la firma di token è valido per la firma solo quando il valore dell'attributo `use` è `signing`.
 
 Un documento di metadati della federazione pubblicato da Azure AD può avere più chiavi per la firma, ad esempio quando Azure AD sta per aggiornare il certificato di firma. Quando un documento di metadati di federazione include certificati, un servizio che convalida i token deve supportare tutti i certificati nel documento.
 

@@ -12,18 +12,18 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f5930f2d3db94f615321eda480aed0d4d196911
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 0c0625a233b3b4a949feff2e289361a26fc8dc5a
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380822"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835350"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali
 
@@ -59,7 +59,7 @@ Se la richiesta SAML non contiene un elemento per NameIDPolicy, Azure AD emetter
 
 Dall'elenco a discesa **Scegli formato identificatore nome** è possibile selezionare una delle opzioni seguenti.
 
-| Formato NameID | Descrizione |
+| Formato NameID | DESCRIZIONE |
 |---------------|-------------|
 | **Default** | Azure AD utilizzerà il formato di origine predefinito. |
 | **Persistente** | Azure AD utilizzerà il formato persistente come NameID. |
@@ -73,7 +73,7 @@ Per altre informazioni sull'attributo NameIDPolicy, vedere [protocollo SAML per 
 
 Selezionare l'origine desiderata per l'attestazione `NameIdentifier` (o NameID). Si può scegliere fra le opzioni seguenti.
 
-| Name | DESCRIZIONE |
+| Name | Descrizione |
 |------|-------------|
 | Email | Indirizzo di posta elettronica dell'utente |
 | userprincipalName | Nome dell'entità utente (UPN) dell'utente |
@@ -108,7 +108,7 @@ Per aggiungere attestazioni specifiche dell'applicazione:
 
 È inoltre possibile utilizzare le funzioni di trasformazioni delle attestazioni.
 
-| Funzione | Descrizione |
+| Funzione | DESCRIZIONE |
 |----------|-------------|
 | **ExtractMailPrefix()** | Rimuove il suffisso di dominio dall'indirizzo di posta elettronica o dal nome dell'entità utente. In questo modo viene estratta solo la prima parte del nome utente passata, ad esempio "joe_smith" anziché joe_smith@contoso.com. |
 | **Join()** | Crea un nuovo valore creando un join tra due attributi. Facoltativamente, è possibile utilizzare un separatore tra i due attributi. |

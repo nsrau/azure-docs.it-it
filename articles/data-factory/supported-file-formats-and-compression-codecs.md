@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 9f6edc45316eaeceb75da643ed64b39382712852
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2ffd88b21d8cf331435a030199b562e6b5b979f
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66165948"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840260"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formati di file e codec di compressione supportati in Azure Data Factory
 
@@ -27,18 +27,19 @@ Per **copiare i file così come sono** tra archivi basati su file (copia binaria
 * [Formato Parquet](#parquet-format)
 * [Formato ORC](#orc-format)
 * [Formato Avro](#avro-format)
+* [Formato binario](#binary-format)
 
 > [!TIP]
-> Informazioni su mapping dei dati di origine al sink dall'attività di copia [mapping dello Schema nell'attività di copia](copy-activity-schema-and-type-mapping.md).
+> Informazioni su come l'attività di copia esegue il mapping dei dati di origine al sink dal [mapping dello schema nell'attività di copia](copy-activity-schema-and-type-mapping.md).
 
 ## <a name="text-format"></a>Formato testo
 
 >[!NOTE]
->Data Factory introdotto nuovo delimitato da set di dati di testo formato, vedere [formato di testo delimitato](format-delimited-text.md) articolo con i dettagli. Le configurazioni seguenti nel set di dati di archivio dati basato su file è ancora supportata come-per compabitility con le versioni precedenti. Consigliabile per usare il nuovo modello in futuro.
+>Data Factory introdotto un nuovo formato di testo delimitato insieme alle, vedere l'articolo [formato testo delimitato](format-delimited-text.md) con i dettagli. Le configurazioni seguenti nel set di dati dell'archivio dati basato su file sono ancora supportate così come sono per le Compabitility precedenti. Si consiglia di utilizzare il nuovo modello in futuro.
 
 Se si vuole leggere da un file di testo o scrivere in un file di testo, impostare la proprietà `type` nella sezione `format` del set di dati **TextFormat**. È anche possibile specificare le proprietà **facoltative** seguenti nella sezione `format`. Vedere la sezione [Esempio di TextFormat](#textformat-example) sulla configurazione.
 
-| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
+| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | columnDelimiter |Il carattere usato per separare le colonne in un file. È possibile usare un carattere non stampabile raro che potrebbe non esistere nei dati. Ad esempio, specificare "\u0001", che rappresenta l'inizio intestazione (SOH). |È consentito un solo carattere. Il valore **predefinito** è la **virgola (",")** . <br/><br/>Per usare un carattere Unicode, vedere i [caratteri Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) per ottenere il codice corrispondente. |No |
 | rowDelimiter |Il carattere usato per separare le righe in un file. |È consentito un solo carattere. Sono consentiti i seguenti valori **predefiniti** in lettura: **["\r\n", "\r", "\n"]** e **"\r\n"** in scrittura. |No |
@@ -91,7 +92,7 @@ Per **importare/esportare un file JSON senza modifiche in/da Azure Cosmos DB**, 
 
 Per analizzare i file JSON o scrivere i dati in formato JSON, impostare la proprietà `type` nella sezione `format` su **JsonFormat**. È anche possibile specificare le proprietà **facoltative** seguenti nella sezione `format`. Vedere la sezione [Esempio JsonFormat](#jsonformat-example) sulla configurazione.
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | filePattern |Indicare il modello dei dati archiviati in ogni file JSON. I valori consentiti sono: **setOfObjects** e **arrayOfObjects**. Il valore **predefinito** è **setOfObjects**. Vedere la sezione [Modelli di file JSON](#json-file-patterns) per i dettagli su questi modelli. |No |
 | jsonNodeReference | Per eseguire l'iterazione dei dati ed estrarli dagli oggetti presenti nel campo di una matrice con lo stesso modello, specificare il percorso JSON di tale matrice. Questa proprietà è supportata solo quando si copiano dati **da** file JSON. | No |
@@ -100,7 +101,7 @@ Per analizzare i file JSON o scrivere i dati in formato JSON, impostare la propr
 | nestingSeparator |Carattere utilizzato per separare i livelli di nidificazione. Il valore predefinito è "." (punto). |No |
 
 >[!NOTE]
->Nel caso di applicazione incrociata dei dati nella matrice in più righe (caso 1 -> esempio di 2 in [esempi di JsonFormat](#jsonformat-example)), è possibile scegliere solo espandere singola matrice utilizzando proprietà `jsonNodeReference`.
+>Per il caso di applicazione incrociata di dati in una matrice in più righe (caso 1-> esempio 2 in [JsonFormat esempi](#jsonformat-example)), è possibile scegliere di espandere solo una `jsonNodeReference`singola matrice usando la proprietà.
 
 ### <a name="json-file-patterns"></a>Modelli di file JSON
 
@@ -227,7 +228,7 @@ In questo esempio si prevede che un oggetto JSON radice esegua il mapping a un s
 
 e lo si vuole copiare in una tabella SQL di Azure nel formato seguente, estraendo i dati sia dagli oggetti che dalla matrice:
 
-| ID | deviceType | targetResourceType | resourceManagementProcessRunId | occurrenceTime |
+| id | deviceType | targetResourceType | resourceManagementProcessRunId | occurrenceTime |
 | --- | --- | --- | --- | --- |
 | ed0e4960-d9c5-11e6-85dc-d7996816aad3 | PC | Microsoft.Compute/virtualMachines | 827f8aaa-ab72-437c-ba48-d8917a7336a3 | 1/13/2017 11:24:37 AM |
 
@@ -359,7 +360,7 @@ Il set di dati di input con il tipo **JsonFormat** è definito come segue (defin
 
 Se nel database SQL è presente la tabella seguente:
 
-| ID | order_date | order_price | order_by |
+| id | order_date | order_price | order_by |
 | --- | --- | --- | --- |
 | 1 | 20170119 | 2000 | David |
 | 2 | 20170120 | 3500 | Patrick |
@@ -412,7 +413,7 @@ Il set di dati di output con il tipo **JsonFormat** è definito come segue (defi
 ## <a name="parquet-format"></a>Formato Parquet
 
 >[!NOTE]
->Data Factory introdotto nuovo set di dati Parquet formato, vedere [formato Parquet](format-parquet.md) articolo con i dettagli. Le configurazioni seguenti nel set di dati di archivio dati basato su file è ancora supportata come-per compabitility con le versioni precedenti. Consigliabile per usare il nuovo modello in futuro.
+>Data Factory introdotto un nuovo formato parquet insieme alle, vedere l'articolo relativo al [formato parquet](format-parquet.md) con i dettagli. Le configurazioni seguenti nel set di dati dell'archivio dati basato su file sono ancora supportate così come sono per le Compabitility precedenti. Si consiglia di utilizzare il nuovo modello in futuro.
 
 Per analizzare i file Parquet o scrivere i dati in formato Parquet, impostare la proprietà `format` `type` su **ParquetFormat**. Non è necessario specificare le proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
 
@@ -500,12 +501,12 @@ Per la copia in esecuzione nel runtime di integrazione self-hosted con la serial
 |:--- |:--- |
 | Boolean | Boolean |
 | SByte | Byte |
-| Byte | Breve |
-| Int16 | Breve |
+| Byte | Short |
+| Int16 | Short |
 | UInt16 | Int |
 | Int32 | Int |
-| UInt32 | long |
-| Int64 | long |
+| UInt32 | Long |
+| Int64 | Long |
 | UInt64 | String |
 | Single | Float |
 | Double | Double |
@@ -534,6 +535,10 @@ Per usare il formato Avro in una tabella Hive, fare riferimento all' [esercitazi
 Tenere presente quanto segue:
 
 * I [tipi di dati complessi](https://avro.apache.org/docs/current/spec.html#schema_complex) non sono supportati (record, enumerazioni, matrici, mappe, unioni e dati fissi).
+
+## <a name="binary-format"></a>Formato binario
+
+Per informazioni dettagliate, vedere l'articolo [formato binario](format-binary.md) .
 
 ## <a name="compression-support"></a>Supporto della compressione
 
@@ -583,14 +588,14 @@ La sezione **compression** ha due proprietà:
 > [!NOTE]
 > Le impostazioni di compressione non sono attualmente supportate per i dati in **AvroFormat**, **OrcFormat** o **ParquetFormat**. Quando si leggono file in questi formati, Data Factory rileva e usa il codec di compressione nei metadati. Quando si scrive in un file che si presenta in uno di questi formati, Data Factory sceglie il codice di compressione predefinito per il formato specifico. ad esempio ZLIB per OrcFormat e SNAPPY per ParquetFormat.
 
-## <a name="unsupported-file-types-and-compression-formats"></a>Tipi di file non supportati e formati di compressione
+## <a name="unsupported-file-types-and-compression-formats"></a>Tipi di file e formati di compressione non supportati
 
-È possibile usare le funzionalità di estendibilità di Azure Data Factory per trasformare i file che non sono supportati.
-Due opzioni includono funzioni di Azure e le attività personalizzate usando Azure Batch.
+È possibile utilizzare le funzionalità di estendibilità di Azure Data Factory per trasformare i file non supportati.
+Due opzioni includono funzioni di Azure e attività personalizzate usando Azure Batch.
 
-È possibile visualizzare un esempio che usa una funzione di Azure per [estrarre il contenuto di un file con estensione tar](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction). Per altre informazioni, vedere [Azure Functions activity](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity).
+È possibile vedere un esempio che usa una funzione di Azure per [estrarre il contenuto di un file tar](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction). Per altre informazioni, vedere [attività di funzioni di Azure](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity).
 
-È anche possibile compilare questa funzionalità con un'attività personalizzata dotnet. Sono disponibili altre informazioni [qui](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity)
+È anche possibile compilare questa funzionalità usando un'attività DotNet personalizzata. Altre informazioni sono disponibili [qui](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

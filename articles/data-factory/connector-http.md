@@ -10,18 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: a668bb2e0e3381abefaac93a0fb63f0d33bac5a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d6cc131c0c2baf7cc0a6600946870615d99e030
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65234055"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839795"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copiare dati da un endpoint HTTP tramite Azure Data Factory
 
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-http-connector.md)
 > * [Versione corrente](connector-http.md)
 
@@ -162,23 +162,23 @@ Se si usa **certThumbprint** per l'autenticazione e il certificato è installato
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md). 
 
-- Per la **Parquet e del formato di testo delimitato**, fare riferimento a [set di dati di formato Parquet e testo delimitato](#parquet-and-delimited-text-format-dataset) sezione.
-- Per altri formati, ad esempio **formato ORC/Avro/JSON/binario**, fare riferimento a [altri set di dati di formato](#other-format-dataset) sezione.
+- Per **parquet, testo delimitato e formato binario**, fare riferimento alla sezione [set di dati in formato parquet, testo delimitato e formato binario](#format-based-dataset) .
+- Per altri formati come il **formato ORC/avro/JSON**, vedere la sezione [altro set di dati di formato](#other-format-dataset) .
 
-### <a name="parquet-and-delimited-text-format-dataset"></a>Set di dati di formato parquet e testo delimitato
+### <a name="format-based-dataset"></a>Set di dati in formato testo e binario delimitato in parquet
 
-Per copiare dati da HTTP nel **Parquet o formato di testo delimitato**, fare riferimento a [formato Parquet](format-parquet.md) e [formato di testo delimitato](format-delimited-text.md) articolo nel set di dati in base al formato e supportate Impostazioni. Sono supportate le proprietà seguenti per il protocollo HTTP in `location` impostazioni nel set di dati in base al formato:
+Per copiare dati da e verso **parquet, formato testo o binario delimitato**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md) e [formato binario](format-binary.md) su set di dati basato su formato e impostazioni supportate. Le proprietà seguenti sono supportate per http `location` in impostazioni nel set di dati basato sul formato:
 
 | Proprietà    | Descrizione                                                  | Obbligatoria |
 | ----------- | ------------------------------------------------------------ | -------- |
-| type        | La proprietà del tipo sotto `location` nel set di dati deve essere impostata su **HttpServerLocation**. | Sì      |
+| type        | La proprietà `location` Type nel set di dati deve essere impostata su **HttpServerLocation**. | Sì      |
 | relativeUrl | URL relativo della risorsa che contiene i dati.       | N.       |
 
 > [!NOTE]
 > Le dimensioni del payload della richiesta HTTP supportate sono circa 500 KB. Se le dimensioni del payload da passare all'endpoint Web sono maggiori di 500 KB, provare a inviare in batch il payload in blocchi più piccoli.
 
 > [!NOTE]
-> **HttpFile** tipo set di dati con formato Parquet, Text indicato nella sezione successiva è ancora supportata come-per attività di copia/ricerca per la compatibilità con le versioni precedenti. Consigliabile per usare questo nuovo modello in futuro e Azure Data factory di creazione dell'interfaccia utente è stata attivata per la generazione di questi nuovi tipi.
+> Il set di dati di tipo **HttpFile** con formato parquet/testo indicato nella sezione successiva è ancora supportato così com'è per l'attività di copia/ricerca per la compatibilità con le versioni precedenti. Si consiglia di usare questo nuovo modello in futuro e l'interfaccia utente di creazione di ADF ha cambiato la generazione di questi nuovi tipi.
 
 **Esempio:**
 
@@ -206,9 +206,9 @@ Per copiare dati da HTTP nel **Parquet o formato di testo delimitato**, fare rif
 }
 ```
 
-### <a name="other-format-dataset"></a>Altri set di dati di formato
+### <a name="other-format-dataset"></a>Set di dati di altri formati
 
-Per copiare dati da HTTP nel **formato ORC/Avro/JSON/binario**, sono supportate le proprietà seguenti:
+Per copiare dati da HTTP in **formato ORC/avro/JSON**, sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
@@ -270,24 +270,24 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 ### <a name="http-as-source"></a>HTTP come origine
 
-- Per la copia da **Parquet e del formato di testo delimitato**, fare riferimento a [Parquet e testo delimitato formato origine](#parquet-and-delimited-text-format-source) sezione.
-- Per la copia da altri formati, ad esempio **formato ORC/Avro/JSON/binario**, fare riferimento a [altra origine formato](#other-format-source) sezione.
+- Per eseguire la copia da **parquet, testo delimitato e formato binario**, vedere la sezione relativa all' [origine del formato binario e del testo delimitato in parquet](#format-based-source) .
+- Per eseguire la copia da altri formati, ad esempio il **formato ORC/avro/JSON**, vedere la sezione [altra origine del formato](#other-format-source) .
 
-#### <a name="parquet-and-delimited-text-format-source"></a>Parquet e testo delimitato formato origine
+#### <a name="format-based-source"></a>Parquet, testo delimitato e origine del formato binario
 
-Per copiare dati da HTTP nel **Parquet o formato di testo delimitato**, fare riferimento a [formato Parquet](format-parquet.md) e [formato di testo delimitato](format-delimited-text.md) articolo sull'origine dell'attività copy in base al formato e impostazioni supportate. Sono supportate le proprietà seguenti per il protocollo HTTP in `storeSettings` le impostazioni di origine della copia in base al formato:
+Per copiare dati da **parquet, formato testo delimitato o binario**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md) e [formato binario](format-binary.md) in origine dell'attività di copia basata su formato e impostazioni supportate. Le proprietà seguenti sono supportate per http `storeSettings` in impostazioni in origine copia basata sul formato:
 
 | Proprietà                 | Descrizione                                                  | Obbligatoria |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | La proprietà del tipo sotto `storeSettings` deve essere impostata su **HttpReadSetting**. | Sì      |
+| type                     | La proprietà Type in `storeSettings` deve essere impostata su **HttpReadSetting**. | Sì      |
 | requestMethod            | Metodo HTTP. <br>I valori consentiti sono **Get** (predefinito) e **Post**. | N.       |
 | addtionalHeaders         | Intestazioni richiesta HTTP aggiuntive.                             | N.       |
 | requestBody              | Corpo della richiesta HTTP.                               | N.       |
 | requestTimeout           | Timeout (valore di **TimeSpan**) durante il quale la richiesta HTTP attende una risposta. Si tratta del timeout per ottenere una risposta, non per leggere i dati della risposta. Il valore predefinito è **00:01:40**. | N.       |
-| maxConcurrentConnections | Il numero delle connessioni per connettersi all'archivio di archiviazione simultaneamente. Specificare solo quando si desidera limitare le connessioni simultanee all'archivio dati. | N.       |
+| maxConcurrentConnections | Numero di connessioni simultanee per la connessione all'archivio di archiviazione. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | N.       |
 
 > [!NOTE]
-> Per formato di testo delimitato/Parquet **HttpSource** origine dell'attività copy tipo indicato nella sezione successiva è ancora supportata come-sia per compatibilità con le versioni precedenti. Consigliabile per usare questo nuovo modello in futuro e Azure Data factory di creazione dell'interfaccia utente è stata attivata per la generazione di questi nuovi tipi.
+> Per il formato di testo parquet/delimitato, l'origine dell'attività di copia di tipo **HttpSource** citata nella sezione successiva è ancora supportata così com'è per la compatibilità con le versioni precedenti. Si consiglia di usare questo nuovo modello in futuro e l'interfaccia utente di creazione di ADF ha cambiato la generazione di questi nuovi tipi.
 
 **Esempio:**
 
@@ -330,9 +330,9 @@ Per copiare dati da HTTP nel **Parquet o formato di testo delimitato**, fare rif
 ]
 ```
 
-#### <a name="other-format-source"></a>Altra origine di formato
+#### <a name="other-format-source"></a>Altra origine del formato
 
-Per copiare dati da HTTP nel **formato ORC/Avro/JSON/binario**, nell'attività di copia sono supportate le proprietà seguenti **origine** sezione:
+Per copiare dati da HTTP in **formato ORC/avro/JSON**, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |

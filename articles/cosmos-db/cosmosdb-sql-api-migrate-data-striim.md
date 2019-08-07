@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: b1817b54e16d77c41b5d5e80776c92eedfec7fc6
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: dba29ea2d4d0ad18f021e0271c6131f9473cbe8b
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600696"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827808"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-sql-api-account-using-striim"></a>Migrare i dati in Azure Cosmos DB account API SQL tramite StriIm
  
@@ -22,7 +22,7 @@ Questo articolo illustra come usare StriIm per eseguire la migrazione dei dati d
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Se non si ha una [sottoscrizione di Azure](/azure/guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
+* Se non si ha una [sottoscrizione di Azure](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 
 * Un database Oracle in esecuzione in locale con alcuni dati.
 
@@ -40,7 +40,7 @@ Questo articolo illustra come usare StriIm per eseguire la migrazione dei dati d
 
 1. Nel riquadro **Impostazioni cluster StriIm** scegliere il tipo di distribuzione di StriIm e le dimensioni della macchina virtuale.
 
-   |Impostazione | Valore | DESCRIZIONE |
+   |Impostazione | Valore | Descrizione |
    | ---| ---| ---|
    |Tipo di distribuzione StriIm |Autonomi | StriIm può essere eseguito in un tipo di distribuzione autonomo o **cluster** . La modalità autonoma distribuirà il server StriIm in una singola macchina virtuale ed è possibile selezionare le dimensioni delle VM a seconda del volume di dati. La modalità cluster distribuirà il server StriIm in due o più macchine virtuali con le dimensioni selezionate. Gli ambienti cluster con più di 2 nodi offrono disponibilità elevata e failover automatici.</br></br> In questa esercitazione è possibile selezionare l'opzione autonoma. Usare la VM di dimensioni predefinite "Standard_F4s".  | 
    | Nome del cluster StriIm|    < Striim_cluster_Name >|  Nome del cluster StriIm.|

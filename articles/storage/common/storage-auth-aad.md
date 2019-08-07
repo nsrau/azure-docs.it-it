@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 08/02/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 236d880af780114dfb906021f53d5c09aee75332
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: f33193e3102afca73344fcd640d14d9af9c1d46e
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514886"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775352"
 ---
 # <a name="authorize-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Autorizzare l'accesso a BLOB e code di Azure usando Azure Active Directory
 
@@ -22,7 +22,7 @@ Archiviazione di Azure supporta l'uso di Azure Active Directory (AD) per autoriz
 
 L'autorizzazione di utenti o applicazioni tramite un token OAuth 2,0 restituito da Azure AD offre sicurezza e facilità d'uso superiori rispetto alle firme di accesso condiviso (SAS). Con Azure AD, non è necessario archiviare la chiave di accesso dell'account con il codice e rischiare potenziali vulnerabilità della sicurezza. Mentre con le applicazioni è possibile continuare a usare l'autorizzazione con chiave condivisa, l'uso di Azure AD consente di evitare la necessità di archiviare la chiave di accesso dell'account con il codice. È anche possibile continuare a usare le firme di accesso condiviso per concedere accesso specifico alle risorse dell'account di archiviazione, ma Azure AD offre funzionalità simili senza la necessità di gestire i token di firma di accesso condiviso o di occuparsi della revoca di una di firma di accesso condiviso compromessa. Microsoft consiglia di usare Azure AD autorizzazione con le applicazioni di archiviazione di Azure, quando possibile.
 
-L'autorizzazione con Azure AD è disponibile per tutti gli account di archiviazione BLOB e per utilizzo generico in tutte le aree pubbliche e nei cloud nazionali. Solo gli account di archiviazione creati con il modello di distribuzione Azure Resource Manager supportano Azure AD autorizzazione.
+L'autorizzazione con Azure AD è disponibile per tutti gli account di archiviazione BLOB e per utilizzo generico in tutte le aree pubbliche e nei cloud nazionali. Solo gli account di archiviazione creati con il modello di distribuzione Azure Resource Manager supportano Azure AD autorizzazione. L'autorizzazione con Azure AD non è supportata per l'archiviazione tabelle di Azure.
 
 ## <a name="overview-of-azure-ad-for-blobs-and-queues"></a>Panoramica di Azure AD per BLOB e code
 

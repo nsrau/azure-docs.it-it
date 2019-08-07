@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/21/2019
 ms.author: shvija
-ms.openlocfilehash: dfdeee9591b5d6ccbadadaef83c6598dd0e850d8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 117b7d4adb508628ee768bb9531d0bbc52f61121
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448151"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816068"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Controllo degli accessi in base al ruolo di Active Directory (anteprima)
 
@@ -27,19 +27,19 @@ Per Hub eventi di Azure, la gestione degli spazi dei nomi e di tutte le risorse 
 Per un'applicazione che usa Controllo degli accessi in base al ruolo di Azure AD non è necessario gestire le chiavi e le regole di firma di accesso condiviso o altri token di accesso specifici di Hub eventi. L'app client interagisce con Azure AD per stabilire un contesto di autenticazione e acquisisce un token di accesso per Hub eventi. Con gli account utente di dominio che richiedono l'accesso interattivo, l'applicazione non gestisce mai le credenziali direttamente.
 
 ## <a name="event-hubs-roles-and-permissions"></a>Ruoli e autorizzazioni di Hub eventi
-Azure offre i seguenti ruoli RBAC predefiniti per autorizzare l'accesso a uno spazio dei nomi di hub eventi:
+Azure fornisce i seguenti ruoli predefiniti RBAC per autorizzare l'accesso a uno spazio dei nomi di hub eventi:
 
-Il [proprietario dei dati di hub eventi Azure (anteprima)](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner-preview) ruolo consente l'accesso a uno spazio dei nomi di hub eventi e le sue entità (code, argomenti, sottoscrizioni e i filtri)
+Il ruolo di [proprietario dei dati di hub eventi di Azure (anteprima)](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner-preview) consente l'accesso ai dati a uno spazio dei nomi di hub eventi e alle relative entità (code, argomenti, sottoscrizioni e filtri)
 
 >[!IMPORTANT]
-> È supportato in precedenza aggiungendo identità gestita per il **proprietario** oppure **collaboratore** ruolo. Accesso ai dati, tuttavia, i privilegi per **Owner** e **collaboratore** ruolo non vengono rispettate. Se si usa la **proprietario** o **collaboratore** ruolo, passare all'uso di **proprietario dei dati di hub eventi Azure (anteprima)** ruolo.
+> In precedenza era supportata l'aggiunta dell'identità gestita al ruolo **proprietario** o **collaboratore** . Tuttavia, i privilegi di accesso ai dati per il **proprietario** e il ruolo **collaboratore** non vengono più rispettati. Se si usa il ruolo **proprietario** o **collaboratore** , passare a usare il ruolo **proprietario dati di hub eventi di Azure (anteprima)** .
 
 
 ## <a name="use-event-hubs-with-an-azure-ad-domain-user-account"></a>Usare Hub eventi con un account utente di dominio di Azure AD
 
 La sezione seguente descrive i passaggi necessari per creare ed eseguire un'applicazione di esempio che richiede a un utente interattivo di Azure AD di eseguire l'accesso e illustra come concedere a Hub eventi l'accesso a tale account utente e come usare tale identità per accedere a Hub eventi. 
 
-Questa introduzione descrive una semplice applicazione console, il cui [codice è disponibile su GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Rbac/EventHubsSenderReceiverRbac/)
+Questa introduzione descrive una semplice applicazione console, il cui [codice è disponibile su GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/AzureEventHubsSDK)
 
 ### <a name="create-an-active-directory-user-account"></a>Creare un account utente di Active Directory
 
@@ -49,7 +49,7 @@ Se si vuole comunque creare un account specifico per questo scenario, [seguire q
 
 ### <a name="create-an-event-hubs-namespace"></a>Creare uno spazio dei nomi di Hub eventi
 
-Successivamente [creare uno spazio dei nomi di hub eventi](event-hubs-create.md). 
+Successivamente, [creare uno spazio dei nomi di hub eventi](event-hubs-create.md). 
 
 Una volta creato lo spazio dei nomi, passare alla relativa pagina **Controllo di accesso (IAM)** nel portale e quindi fare clic su **Aggiungi assegnazione ruolo** per aggiungere l'account utente di Azure AD al ruolo Proprietario. Se si usa il proprio account utente e si è creato lo spazio dei nomi, si sta già usando il ruolo Proprietario. Per aggiungere un account utente diverso al ruolo, cercare il nome dell'applicazione Web nel campo **Seleziona** del pannello **Aggiungi autorizzazioni** e quindi fare clic sulla voce. Fare quindi clic su **Salva**. L'account utente dispone ora dell'accesso allo spazio dei nomi di Hub eventi e all'hub eventi creato in precedenza.
  
@@ -61,7 +61,7 @@ Poiché l'applicazione di esempio è un'applicazione console, è necessario regi
 
 I passaggi di registrazione dettagliati sono illustrati in [questa esercitazione](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). Seguire i passaggi per registrare un'app **nativa** e quindi seguire le istruzioni di aggiornamento per aggiungere l'API **Microsoft.EventHub** alle autorizzazioni necessarie. Mentre si esegue la procedura, prendere nota di **TenantId** e **ApplicationId**, perché questi valori saranno necessari per eseguire l'applicazione.
 
-### <a name="run-the-app"></a>Esecuzione dell'app
+### <a name="run-the-app"></a>Eseguire l'app
 
 Prima di eseguire l'esempio, modificare il file App.config e, a seconda dello scenario, impostare i valori seguenti:
 

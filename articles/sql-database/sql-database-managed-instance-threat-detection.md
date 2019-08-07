@@ -1,6 +1,6 @@
 ---
-title: Configurare il rilevamento delle minacce - Istanza gestita di database SQL di Azure | Microsoft Docs
-description: La funzionalità di rilevamento delle minacce individua le attività di database anomale che possono indicare la presenza di minacce alla sicurezza del database in Istanza gestita.
+title: Configurare Advanced Threat Protection-istanza gestita di database SQL di Azure | Microsoft Docs
+description: Advanced Threat Protection rileva le attività anomale del database che indicano potenziali minacce alla sicurezza per il database in un'istanza gestita.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,38 +10,42 @@ ms.topic: conceptual
 author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
-ms.date: 02/04/2019
-ms.openlocfilehash: 6d1f2a9547f01de91a8e7739d827a91154842d7b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/05/2019
+ms.openlocfilehash: eb6d8229e85e54a6a3fc8591dc4688a73773fd8b
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567304"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816566"
 ---
-# <a name="configure-threat-detection-preview-in-azure-sql-database-managed-instance"></a>Configurare il rilevamento delle minacce (anteprima) in Istanza gestita di database SQL di Azure
+# <a name="configure-advanced-threat-protection-in-azure-sql-database-managed-instance"></a>Configurare Advanced Threat Protection nell'istanza gestita di database SQL di Azure
 
-[Rilevamento delle minacce](sql-database-threat-detection-overview.md) per [Istanza gestita](sql-database-managed-instance-index.yml) rileva le attività anomale che possono indicare tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database. Rilevamento delle minacce può identificare **potenziali attacchi SQL injection**, **accesso da una posizione o un data center insoliti**, **accesso da un'entità di sicurezza insolita o da un'applicazione potenzialmente dannosa** e **attacco di forza bruta a credenziali SQL**. Per altre informazioni dettagliate, vedere [Avvisi di rilevamento minacce](sql-database-threat-detection-overview.md#advanced-threat-protection-alerts).
+La [protezione avanzata dalle minacce](sql-database-threat-detection-overview.md) per un' [istanza gestita](sql-database-managed-instance-index.yml) rileva le attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database. Advanced Threat Protection è in grado di identificare **potenziali attacchi SQL injection**, **accesso da posizioni insolite o Data Center**, **accesso da un'applicazione principale o potenzialmente dannosa**e forza bruta per le **credenziali SQL** . vedere Altre informazioni sugli [avvisi di Advanced Threat Protection](sql-database-threat-detection-overview.md#advanced-threat-protection-alerts).
 
 È possibile ricevere notifiche sulle minacce rilevate tramite [posta elettronica](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) o il [portale di Azure](sql-database-threat-detection-overview.md#explore-advanced-threat-protection-alerts-for-your-database-in-the-azure-portal)
 
-[Rilevamento delle minacce](sql-database-threat-detection-overview.md) fa parte dell'offerta [Sicurezza dei dati avanzata](sql-database-advanced-data-security.md) (ADS), un pacchetto unificato per le funzionalità di sicurezza avanzate SQL. È possibile accedere e gestire Rilevamento delle minacce tramite il portale centrale Sicurezza dei dati avanzata ADS di SQL. Il servizio di rilevamento delle minacce viene addebitato alla tariffa di $ 15/mese per ogni istanza gestita. I primi 30 giorni non vengono addebiti.
+[Advanced Threat Protection](sql-database-threat-detection-overview.md) fa parte dell'offerta [Advanced Data Security](sql-database-advanced-data-security.md) (ADS), che è un pacchetto unificato per le funzionalità avanzate di sicurezza di SQL. È possibile accedere a Advanced Threat Protection e gestirlo tramite il portale SQL ADS centrale.
 
-## <a name="set-up-threat-detection-for-your-managed-instance-in-the-azure-portal"></a>Configurare Rilevamento minacce per l'istanza gestita tramite il portale di Azure
+## <a name="set-up-advanced-threat-protection-in-the-azure-portal"></a>Configurare Advanced Threat Protection nella portale di Azure
 
 1. Avviare il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
-2. Passare alla pagina di configurazione dell'istanza gestita che si vuole proteggere. Nella pagina **Impostazioni** selezionare **Rilevamento minacce**.
-3. Nella pagina di configurazione del rilevamento delle minacce
-   - Impostare il rilevamento delle minacce su **SÌ** .
+2. Passare alla pagina di configurazione dell'istanza gestita che si vuole proteggere. Nella pagina **Impostazioni** selezionare **sicurezza avanzata dei dati**.
+3. Nella pagina di configurazione Advanced Data Security
+   - Attivare la sicurezza dei dati avanzata.
    - Configurare l'**elenco di indirizzi di posta elettronica** che riceveranno avvisi di sicurezza in caso di rilevamento di attività di database anomale.
    - Selezionare l'**account di archiviazione di Azure** in cui vengono salvati i record di controllo delle minacce anomali.
-4. Fare clic su **Salva** per salvare i criteri di rilevamento delle minacce nuovi o aggiornati.
+   - Selezionare i **tipi di Advanced Threat Protection** che si desidera configurare. Altre informazioni sugli [avvisi di Advanced Threat Protection](sql-database-threat-detection-overview.md).
+4. Fare clic su **Salva** per salvare i criteri di sicurezza dei dati avanzati nuovi o aggiornati.
 
-   ![rilevamento delle minacce](./media/sql-database-managed-instance-threat-detection/threat-detection.png)
+   ![Advanced Threat Protection](./media/sql-database-managed-instance-threat-detection/threat-detection.png)
+
+   > [!NOTE]
+   > I prezzi nelle schermate non riflettono sempre il prezzo corrente e sono un esempio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sul [Rilevamento delle minacce](sql-database-threat-detection-overview.md).
+- Altre informazioni su [Advanced Threat Protection](sql-database-threat-detection-overview.md).
 - Per informazioni in proposito, vedere [Informazioni su Istanza gestita](sql-database-managed-instance.md).
-- Altre informazioni sul [rilevamento delle minacce per database singolo](sql-database-threat-detection.md).
+- Altre informazioni sulla [protezione avanzata dalle minacce per un database singolo](sql-database-threat-detection.md).
 - Altre informazioni sul [Controllo di Istanza gestita](https://go.microsoft.com/fwlink/?linkid=869430).
 - Altre informazioni sul [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro).

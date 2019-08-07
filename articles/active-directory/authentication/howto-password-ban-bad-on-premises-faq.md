@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f1f2e06eb6b5f8d402515ff1c07a4163174495d
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 8ccefec9e548b7981f696712bb4a983f4b577a9b
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68666350"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779640"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>protezione password di Azure AD locale - Domande frequenti
 
@@ -40,19 +40,19 @@ Non supportati. Dopo la distribuzione e l'abilitazione, Password di protezione d
 
 **D: Qual è la differenza tra una modifica della password e un set di password (o reimpostazione)?**
 
-Una modifica della password si verifica quando un utente sceglie una nuova password dopo avere dimostrato la conoscenza della vecchia password. Ad esempio, questo è ciò che accade quando un utente accede a Windows e viene quindi richiesto di scegliere una nuova password.
+Una modifica della password si verifica quando un utente sceglie una nuova password dopo avere dimostrato la conoscenza della vecchia password. Ad esempio, una modifica della password è ciò che accade quando un utente accede a Windows e viene quindi richiesto di scegliere una nuova password.
 
-Un set di password (talvolta denominato reimpostazione della password) si verifica quando un amministratore sostituisce la password di un account con una nuova password, ad esempio tramite lo strumento di gestione Active Directory utenti e computer. Questa operazione richiede un livello elevato di privilegi (in genere amministratore di dominio) e la persona che esegue l'operazione in genere non conosce la vecchia password. Gli scenari di supporto tecnico spesso eseguono questa operazione, ad esempio quando si assiste a un utente che ha dimenticato la password. Gli eventi di impostazione della password vengono visualizzati anche quando viene creato un nuovo account utente per la prima volta con una password.
+Un set di password (talvolta denominato reimpostazione della password) si verifica quando un amministratore sostituisce la password di un account con una nuova password, ad esempio tramite lo strumento di gestione Active Directory utenti e computer. Questa operazione richiede un livello elevato di privilegi (in genere amministratore di dominio) e la persona che esegue l'operazione in genere non conosce la vecchia password. Gli scenari di supporto tecnico eseguono spesso set di password, ad esempio quando si assiste a un utente che ha dimenticato la password. Gli eventi di impostazione della password vengono visualizzati anche quando viene creato un nuovo account utente per la prima volta con una password.
 
 I criteri di convalida della password si comportano allo stesso modo, indipendentemente dal fatto che sia stata eseguita una modifica o un set di password. Il servizio Azure AD Password Protection Agent esegue il log di eventi diversi per indicare se è stata eseguita una modifica della password o un'operazione di impostazione.  Vedere [Azure ad monitoraggio e registrazione per la protezione delle password](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
 
 **D: Perché si registrano eventi di rifiuto delle password duplicati quando si tenta di impostare una password vulnerabile usando lo snap-in gestione Active Directory utenti e computer?**
 
-Lo snap-in gestione utenti e computer Active Directory tenterà innanzitutto di impostare la nuova password utilizzando il protocollo Kerberos. In caso di errore, lo snap-in effettuerà un secondo tentativo di impostazione della password usando un protocollo legacy (SAM RPC) (i protocolli specifici usati non sono importanti). Se la nuova password viene considerata debole da Azure AD la protezione con password, questo comporterà la registrazione di due set di eventi di rifiuto di reimpostazione della password.
+Lo snap-in gestione utenti e computer Active Directory tenterà innanzitutto di impostare la nuova password utilizzando il protocollo Kerberos. In caso di errore, lo snap-in effettuerà un secondo tentativo di impostazione della password utilizzando un protocollo legacy (SAM RPC) (i protocolli specifici utilizzati non sono importanti). Se la nuova password viene considerata debole dalla protezione Azure AD password, questo comportamento dello snap-in comporterà la registrazione di due set di eventi di rifiuto di reimpostazione della password.
 
 **D: Perché vengono registrati gli eventi di convalida password Azure AD Password Protection con un nome utente vuoto?**
 
-Active Directory supporta la possibilità di testare una password per verificare se supera i requisiti di complessità della password correnti del dominio, ad esempio usando l'API [NetValidatePasswordPolicy](https://docs.microsoft.com/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy) . Quando una password viene convalidata in questo modo, il test include anche la convalida da parte di prodotti basati su dll con filtro password, ad esempio Azure AD la protezione con password, ma i nomi utente passati a una determinata DLL di filtro password saranno vuoti. In questo scenario Azure AD la protezione con password convaliderà ancora la password usando i criteri della password attualmente in vigore ed emetterà un messaggio del registro eventi per acquisire il risultato, ma il messaggio del registro eventi avrà campi nome utente vuoti.
+Active Directory supporta la possibilità di testare una password per verificare se supera i requisiti di complessità della password correnti del dominio, ad esempio usando l'API [NetValidatePasswordPolicy](https://docs.microsoft.com/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy) . Quando una password viene convalidata in questo modo, il test include anche la convalida da parte di prodotti basati su dll con filtro password, ad esempio Azure AD la protezione con password, ma i nomi utente passati a una determinata DLL di filtro password saranno vuoti. In questo scenario, Azure AD la protezione con password convaliderà la password usando i criteri della password attualmente in vigore ed emetterà un messaggio del registro eventi per acquisire il risultato, ma il messaggio del registro eventi avrà campi nome utente vuoti.
 
 **D: l'installazione della protezione password di Azure AD è supportata in affiancamento ad altri prodotti basati su filtri password?**
 
@@ -115,6 +115,10 @@ Un modo per raggiungere parzialmente questo obiettivo consiste nel distribuire P
 No. Quando la password di un utente viene modificata in un determinato controller di dominio non primario, la password non crittografata non viene mai inviata al controller di dominio primario (questa è un'idea errata molto diffusa). Dopo che una nuova password viene accettata in un controller di dominio, quest'ultimo usa tale password per crearne i vari hash specifici del protocollo di autenticazione e quindi rende permanenti gli hash nella directory. La password non crittografata non diventa permanente. Gli hash aggiornati vengono poi replicati nel controller di dominio primario. Le password utente possono in alcune circostanze essere modificate direttamente nel controller di dominio primario, anche in questo caso in base a vari fattori come la topologia di rete e la struttura del sito di Active Directory. Vedere la domanda precedente.
 
 In sintesi, la distribuzione del servizio agente del controller di dominio di Password di protezione di Azure AD nel controller di dominio primario è necessaria per raggiungere una copertura di sicurezza della funzionalità pari al 100% all'interno del dominio. La distribuzione della funzionalità nel solo controller di dominio primario non offre i vantaggi di sicurezza di Password di protezione di Azure AD per gli altri controller di dominio presenti nel dominio.
+
+**D: Perché il blocco Smart personalizzato non funziona anche dopo che gli agenti sono stati installati nell'ambiente di Active Directory locale?**
+
+Il blocco intelligente personalizzato è supportato solo in Azure. Le modifiche apportate alle impostazioni di blocco Smart personalizzato nel portale di gestione di Azure non hanno alcun effetto sull'ambiente di Active Directory locale, anche con gli agenti installati.
 
 **D: è disponibile un Management Pack di System Center Operations Manager per Password di protezione di Azure AD?**
 

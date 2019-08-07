@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory per la panoramica di sviluppatori (v1.0)
+title: Panoramica di Azure Active Directory for Developers (v 1.0)
 description: Questo articolo offre una panoramica dell'accesso degli account Microsoft aziendali e dell'istituto di istruzione tramite la piattaforma e l'endpoint v1.0 di Azure Active Directory.
 services: active-directory
 author: rwike77
@@ -9,7 +9,7 @@ ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/24/2018
@@ -17,14 +17,14 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13cc5c7ae428f74f2892e6066dfdcd7efb73efbb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 91f406198418571ec0d2c4d488909d3baaa494b1
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545228"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834677"
 ---
-# <a name="azure-active-directory-for-developers-v10-overview"></a>Azure Active Directory per la panoramica di sviluppatori (v1.0)
+# <a name="azure-active-directory-for-developers-v10-overview"></a>Panoramica di Azure Active Directory for Developers (v 1.0)
 
 Azure Active Directory (Azure AD) è un servizio cloud di gestione delle identità che consente agli sviluppatori di creare app che permettono l'accesso sicuro agli utenti con un account Microsoft aziendale o dell'istituto di istruzione. Azure AD supporta gli sviluppatori che creano app line-of-business (LOB) a singolo tenant e gli sviluppatori che vogliono sviluppare app multi-tenant. Oltre all'accesso di base, Azure AD consente alle app di chiamare anche API Microsoft come [Microsoft Graph](https://docs.microsoft.com/graph/overview) e API personalizzate create sulla piattaforma di Azure AD. Questa documentazione illustra come aggiungere il supporto di Azure AD all'applicazione tramite protocolli standard di settore, come OAuth2.0 e OpenID Connect.
 

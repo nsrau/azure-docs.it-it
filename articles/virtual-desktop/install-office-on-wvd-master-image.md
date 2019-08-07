@@ -2,17 +2,17 @@
 title: Installare Office in un'immagine del disco rigido virtuale Master-Azure
 description: Come installare e personalizzare Office in un'immagine master di Windows Virtual Desktop Preview in Azure.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.author: v-chjenk
-ms.openlocfilehash: 9243b3e6ae9e164930373960757109ae8a4512e4
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.author: helohr
+ms.openlocfilehash: 79fe541d1bb3bea8447cf095673111362cec74d2
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501182"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816440"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Installare Office in un'immagine master di disco rigido virtuale
 

@@ -2,17 +2,17 @@
 title: Creazione di un tenant e di un pool host per desktop virtuale Windows-Azure
 description: Come risolvere i problemi e risolvere i problemi del pool di tenant e host durante l'installazione di un ambiente tenant di desktop virtuali Windows.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 07/10/2019
-ms.author: v-chjenk
-ms.openlocfilehash: 9e58c3bfc0e74f9aac61085608a843954b0923c0
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.author: helohr
+ms.openlocfilehash: 7ab8ec9536af74102d2c9384ea3d0d0503f58f63
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249566"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816488"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Creazione di pool di host e tenant
 

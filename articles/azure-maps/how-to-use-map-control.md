@@ -1,6 +1,6 @@
 ---
-title: Introduzione a controllo mappa web nelle mappe di Azure | Microsoft Docs
-description: Informazioni su come usare la libreria JavaScript lato client del controllo mappa di Mappe di Azure.
+title: Introduzione al controllo della mappa Web nelle mappe di Azure | Microsoft Docs
+description: Informazioni su come usare la libreria JavaScript lato client del controllo mappa di Azure maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 10/08/2018
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: aa923fa7e2d5e673e6a2db2b349e54d433d1817b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fdbd8092abcc51fc03e8b00106b7e25ec4be905
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65957280"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839394"
 ---
-# <a name="use-the-azure-maps-map-control"></a>Usare il controllo mappa di Mappe di Azure
+# <a name="use-the-azure-maps-map-control"></a>Usare il controllo mappa di mappe di Azure
 
 La libreria JavaScript lato client del controllo mappa consente di eseguire il rendering delle mappe e delle funzionalità incorporate di Mappe di Azure nelle applicazioni Web e per dispositivi mobili.
 
@@ -68,7 +68,7 @@ La libreria JavaScript lato client del controllo mappa consente di eseguire il r
     </body>
     ```
 
-5. Per inizializzare il controllo mappa, definire una nuova sezione nel corpo HTML e creare uno script. Passare il `id` della mappa `<div>` o un' `HTMLElement` (ad esempio, `document.getElementById('myMap')`) come primo parametro quando si crea un'istanza del `Map` classe. Usare la propria chiave dell'account di Mappe di Azure oppure le credenziali di Azure Active Directory (AAD) per autenticare la mappa usando le [opzioni di autenticazione](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). Se è necessario creare un account o trovare la chiave, vedere [Come gestire l'account e le chiavi dell'account Mappe di Azure](how-to-manage-account-keys.md). L'opzione **language** specifica la lingua da usare per le etichette e i controlli mappa. Per altre informazioni sulle lingue supportate, vedere [Lingue supportate](supported-languages.md). Se si usa una chiave di sottoscrizione per l'autenticazione:
+5. Per inizializzare il controllo mappa, definire una nuova sezione nel corpo HTML e creare uno script. Passare `id` l'oggetto della mappa `HTMLElement` `<div>` o un (ad esempio, `document.getElementById('myMap')` `Map` ) come primo parametro durante la creazione di un'istanza della classe. Usare la propria chiave dell'account di Mappe di Azure oppure le credenziali di Azure Active Directory (AAD) per autenticare la mappa usando le [opzioni di autenticazione](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). Se è necessario creare un account o trovare la chiave, vedere [Come gestire l'account e le chiavi dell'account Mappe di Azure](how-to-manage-account-keys.md). L'opzione **language** specifica la lingua da usare per le etichette e i controlli mappa. Per altre informazioni sulle lingue supportate, vedere [Lingue supportate](supported-languages.md). Se si usa una chiave di sottoscrizione per l'autenticazione:
 
     ```HTML
     <script type="text/javascript">
@@ -102,7 +102,7 @@ La libreria JavaScript lato client del controllo mappa consente di eseguire il r
     </script>
     ```
 
-    Per altre informazioni, vedere [l'autenticazione con le mappe di Azure](azure-maps-authentication.md) per altri dettagli.
+    Per altre informazioni, vedere [autenticazione con mappe di Azure](azure-maps-authentication.md) .
 
 6. Facoltativamente, può risultare utile aggiungere gli elementi di tag meta seguenti all'inizio della pagina:
 
@@ -114,7 +114,7 @@ La libreria JavaScript lato client del controllo mappa consente di eseguire il r
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     ```
 
-7. Riassumendo file HTML avrà un aspetto analogo al seguente:
+7. L'inserimento di tutti i file HTML dovrebbe avere un aspetto simile al codice seguente:
 
     ```HTML
     <!DOCTYPE html>
@@ -164,10 +164,44 @@ La libreria JavaScript lato client del controllo mappa consente di eseguire il r
     </html>
     ```
 
-8. Aprire il file nel Web browser e visualizzare la mappa di cui è stato eseguito il rendering. Sarà simile al seguente:
+8. Aprire il file nel Web browser e visualizzare la mappa di cui è stato eseguito il rendering. Il codice dovrebbe essere simile al seguente:
 
-    <iframe height="700" style="width: 100%;" scrolling="no" title="Come usare il controllo mappa" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">Vedere la penna <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>come usare il controllo mappa</a> dalle mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) su <a href='https://codepen.io'>CodePen</a>.
+    <iframe height="700" style="width: 100%;" scrolling="no" title="Come usare il controllo mappa" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">Vedere la pagina relativa <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>a come usare il controllo mappa</a> da mappe di<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure () in <a href='https://codepen.io'>CodePen</a>.
     </iframe>
+
+## <a name="localizing-the-map"></a>Localizzazione della mappa
+
+Azure Maps offre due modi diversi per impostare la lingua e la visualizzazione a livello di area della mappa. La prima opzione consiste nell'aggiungere queste informazioni allo spazio dei `atlas` nomi globale, che comporterà l'impostazione predefinita di tutte le istanze del controllo mappa nell'app. Il codice seguente imposta la lingua in francese ("fr-FR") e la vista regionale su "auto":
+
+```javascript
+atlas.setLanguage('fr-FR');
+atlas.setView('auto');
+```
+
+La seconda opzione consiste nel passare queste informazioni nelle opzioni della mappa quando si carica la mappa, ad esempio:
+
+```javascript
+map = new atlas.Map('myMap', {
+    language: 'fr-FR',
+    view: 'auto',
+
+    authOptions: {
+        authType: 'aad',
+        clientId: '<Your AAD Client Id>',
+        aadAppId: '<Your AAD App Id>',
+        aadTenant: 'msft.ccsctp.net'
+    }
+});
+```
+
+> [!Note]
+> Con il Web SDK è possibile caricare più istanze della mappa nella stessa pagina con impostazioni diverse per lingua e area geografica. Inoltre, è possibile aggiornare queste impostazioni dopo il caricamento della mappa utilizzando la `setStyle` funzione della mappa. 
+
+Di seguito è riportato un esempio di mappe di Azure con la lingua impostata su "fr-FR" e la visualizzazione regionale impostata su "auto".
+
+![Immagine mappa che mostra le etichette in francese](./media/how-to-use-map-control/websdk-localization.png)
+
+Un elenco completo delle lingue supportate e delle viste internazionali è documentato [qui](supported-languages.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

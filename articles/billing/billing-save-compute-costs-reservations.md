@@ -5,14 +5,14 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/19/2019
+ms.date: 08/06/2019
 ms.author: banders
-ms.openlocfilehash: c63447ff0a3329e0cc0dc0605984ae4f26e9c25f
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 2e595fbee90b710ec6b8090a770d93e688a04818
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359224"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839987"
 ---
 # <a name="what-are-azure-reservations"></a>Informazioni sulle prenotazioni di Azure
 
@@ -38,7 +38,7 @@ Per le macchine virtuali Windows e il database SQL, i costi delle licenze posson
 
 Per acquistare un piano, è necessario avere un ruolo di proprietario della sottoscrizione in una sottoscrizione Enterprise (MS-AZR-0017P o MS-AZR-0148P) o con pagamento in base al consumo (MS-AZR-003P o MS-AZR-0023P). I provider di soluzioni cloud possono usare il portale di Azure o il [centro](/partner-center/azure-reservations) per i partner per acquistare prenotazioni di Azure.
 
-I clienti Enterprise Agreement (EA) possono limitare gli acquisti agli amministratori EA. A tale scopo, Disabilita l'opzione **Aggiungi istanze riservate** nel portale EA. Gli amministratori EA devono essere un proprietario della sottoscrizione per almeno una sottoscrizione EA per l'acquisto di una prenotazione. Questa opzione è utile per le aziende che desiderano che un team centralizzato acquisti prenotazioni per diversi centri di costo. Dopo l'acquisto, i team centralizzati possono aggiungere i proprietari del centro di costo alle prenotazioni. I proprietari possono quindi definire l'ambito della prenotazione per le sottoscrizioni. Il team centrale non deve avere l'accesso al proprietario della sottoscrizione in cui viene acquistata la prenotazione.
+I clienti Enterprise Agreement (EA) possono limitare gli acquisti agli amministratori EA disabilitando l'opzione **Aggiungi istanze riservate** nel portale EA. Gli amministratori EA devono essere un proprietario della sottoscrizione per almeno una sottoscrizione EA per l'acquisto di una prenotazione. Questa opzione è utile per le aziende che desiderano che un team centralizzato acquisti prenotazioni per diversi centri di costo. Dopo l'acquisto, i team centralizzati possono aggiungere i proprietari del centro di costo alle prenotazioni. I proprietari possono quindi definire l'ambito della prenotazione per le sottoscrizioni. Il team centrale non deve avere l'accesso al proprietario della sottoscrizione in cui viene acquistata la prenotazione.
 
 Uno sconto sulla prenotazione si applica solo alle risorse associate alle sottoscrizioni acquistate tramite Enterprise, Cloud Solution Provider (CSP) e singoli piani con tariffe con pagamento in base al consumo.
 

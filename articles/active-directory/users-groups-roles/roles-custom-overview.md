@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 546abdae5d7c03bb0d4b49f9485fe06b521fdc1d
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 82638e3e102f7b8e39cd797960a11f3193132bc1
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722203"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779381"
 ---
 # <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Ruoli di amministratore personalizzato in Azure Active Directory (anteprima)
 
@@ -72,7 +72,11 @@ Una definizione di ruolo, o Role, è una raccolta di autorizzazioni. In una defi
 
 ### <a name="scope"></a>Ambito
 
-Un ambito è la restrizione delle azioni consentite su una determinata risorsa Azure AD. Quando si assegna un ruolo, è possibile personalizzare il ruolo per limitare le azioni consentite dell'amministratore definendo un ambito di azione. Se, ad esempio, gli sviluppatori non devono gestire completamente tutte le applicazioni, è possibile usare Azure AD ruoli personalizzati per consentire loro di gestire solo le registrazioni dell'app.
+Un ambito è la restrizione delle azioni consentite a una determinata risorsa Azure AD. Quando si assegna un ruolo, è possibile specificare un ambito che limita le azioni consentite dell'amministratore a una risorsa specifica. Ad esempio, se si vuole concedere a uno sviluppatore un ruolo personalizzato, ma solo per gestire una registrazione di applicazione specifica, è possibile includere la registrazione dell'applicazione specifica come ambito nell'assegnazione di ruolo.
+
+  > [!Note]
+  > I ruoli personalizzati possono essere assegnati nell'ambito della directory e nell'ambito della risorsa. Non possono ancora essere assegnati in ambito di unità amministrative.
+  > I ruoli predefiniti possono essere assegnati nell'ambito della directory e, in alcuni casi, nell'ambito di unità amministrative. Non possono ancora essere assegnati nell'ambito dell'oggetto.
 
 ## <a name="required-license-plan"></a>Piano di licenza obbligatorio
 

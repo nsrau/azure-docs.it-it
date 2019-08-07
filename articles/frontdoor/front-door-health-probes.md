@@ -11,16 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 59a3bac39437b91eeee3b005bd23476a34a308b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 289b05a2c50a2b4af50eb2114515a49bb653cf1a
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736582"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742398"
 ---
-# <a name="health-probes"></a>Probe di integrità
+# <a name="health-probes"></a>Probe integrità
 
-Per determinare l'integrità di ogni back-end, ogni ambiente Frontdoor invia periodicamente una richiesta HTTP/HTTPS sintetica a ciascuno dei back-end configurati. Frontdoor usa quindi le risposte ricevute da questi probe per determinare i "migliori" back-end a cui indirizzare le richieste client reali.
+Per determinare l'integrità di ogni back-end, ogni ambiente Frontdoor invia periodicamente una richiesta HTTP/HTTPS sintetica a ciascuno dei back-end configurati. Frontdoor usa quindi le risposte ricevute da questi probe per determinare i "migliori" back-end a cui indirizzare le richieste client reali. Si noti che poiché la porta anteriore presenta molti ambienti perimetrali a livello globale, il volume delle richieste di probe di integrità per i backend può essere più alto di una richiesta al secondo dipende dalla frequenza del probe di integrità configurata. 
+
 
 
 ## <a name="supported-protocols"></a>Protocolli supportati

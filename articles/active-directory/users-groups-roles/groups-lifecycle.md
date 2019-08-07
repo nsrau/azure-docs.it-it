@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 08/06/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54418fa90e6c16f34647d0fdb5126bb352dbc7ab
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
-ms.translationtype: HT
+ms.openlocfilehash: 074b9ec06818363a97253a587ac451a38999832f
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774853"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68837928"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurare i criteri di scadenza per i gruppi di Office 365
 
-È ora possibile gestire il ciclo di vita dei gruppi di Office 365 impostando specifici criteri di scadenza. È possibile impostare i criteri di scadenza dei soli gruppi di Office 365 in Azure Active Directory (Azure AD).
+Questo articolo descrive come gestire il ciclo di vita dei gruppi di Office 365 impostando i criteri di scadenza. È possibile impostare i criteri di scadenza dei soli gruppi di Office 365 in Azure Active Directory (Azure AD).
 
 Dopo l'impostazione della scadenza di un gruppo:
 
@@ -63,8 +63,8 @@ Per altre informazioni sulle autorizzazioni per ripristinare un gruppo eliminato
   - Impostare la durata del gruppo in giorni. È possibile selezionare uno dei valori predefiniti oppure un valore personalizzato (che deve essere di 31 giorni o più).
   - Specificare un indirizzo e-mail per l'invio delle notifiche di rinnovo e di scadenza quando un gruppo non ha un proprietario.
   - Selezionare i gruppi di Office 365 che scadono. È possibile impostare la scadenza per:
-    - **Tutto** Gruppi di Office 365 e nuovi gruppi
-    - Elenco di gruppi di Office 365 **selezionati** (nessun nuovo gruppo)
+    - **Tutto** Gruppi di Office 365
+    - Elenco di gruppi di Office 365 **selezionati**
     - **Nessuno** per limitare la scadenza per tutti i gruppi
   - Al termine salvare le impostazioni facendo clic su **Salva**.
 

@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 9906fe5de9c24f1b1a8c3f713fa772e56ed4e13f
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 135855ee33f783e85b398c7f9716c2c897633de9
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68441951"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779547"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Pianificare una rete virtuale per Azure HDInsight
 
@@ -117,7 +117,7 @@ Azure assicura la risoluzione dei nomi per i servizi di Azure che vengono instal
 
 * Qualsiasi risorsa disponibile in Internet, ad esempio microsoft.com o windowsupdate.com.
 
-* Qualsiasi risorsa che si trovi nella stessa rete virtuale di Azure tramite l'utilizzo del __nome DNS interno__ della risorsa. Quando ad esempio si usa la risoluzione dei nomi predefinita, i seguenti sono nomi DNS interni di esempio assegnati a nodi del ruolo di lavoro di HDInsight:
+* Qualsiasi risorsa che si trovi nella stessa rete virtuale di Azure tramite l'utilizzo del __nome DNS interno__ della risorsa. Ad esempio, quando si usa la risoluzione dei nomi predefinita, di seguito sono riportati alcuni esempi di nomi DNS interni assegnati ai nodi HDInsight Worker:
 
   * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
   * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
@@ -234,7 +234,7 @@ Per altre informazioni sul controllo del traffico in uscita dai cluster HDInsigh
 
 #### <a name="forced-tunneling-to-on-premise"></a>Tunneling forzato a un'istanza locale
 
-Il tunneling forzato è una configurazione di routing definita dall'utente in cui tutto il traffico da una subnet viene spinto verso una rete o un percorso specifico, ad esempio la rete locale. HDInsight non __supporta il__ tunneling forzato del traffico verso le reti locali. 
+Il tunneling forzato è una configurazione di routing definita dall'utente in cui tutto il traffico da una subnet viene spinto verso una rete o un percorso specifico, ad esempio la rete locale. HDInsight non supporta il tunneling forzato del traffico verso le reti locali. 
 
 ## <a id="hdinsight-ip"></a> Indirizzi IP richiesti
 

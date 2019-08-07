@@ -5,18 +5,19 @@ services: search
 manager: pablocas
 author: luiscabrer
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 637edc0e45daa37a753fbaa15313b076e8af4d7c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1868e9fd3a7dde5d6302753986019f481a577007
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65023866"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841294"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Come fare riferimento alle annotazioni in un insieme di competenze di ricerca cognitiva
 
@@ -28,7 +29,7 @@ Gli esempi in questo articolo si basano sul campo *contenuto* generato automatic
 
 Prima di esaminare la sintassi, è opportuno rivedere alcuni concetti importanti per comprendere meglio gli esempi forniti più avanti in questo articolo.
 
-| Nome | Descrizione |
+| Termine | DESCRIZIONE |
 |------|-------------|
 | Documento arricchito | Un documento arricchito è una struttura interna creata e utilizzata dalla pipeline per contenere tutte le annotazioni correlate a un documento. Un documento arricchito può essere paragonato a una struttura di annotazioni. In genere, un'annotazione creata da un'annotazione precedente diventa il corrispettivo elemento figlio.<p/>I documenti arricchiti esistono solo per la durata dell'esecuzione di un insieme di competenze. Dopo che il contenuto è stato mappato all'indice di ricerca, il documento arricchito non è più necessario. Anche se si non interagisce direttamente con i documenti arricchiti, è utile disporre di un modello mentale dei documenti quando si crea un insieme di competenze. |
 | Contesto di arricchimento | Il contesto in cui avviene l'arricchimento, in riferimento ai termini con cui esso è stato arricchito. Per impostazione predefinita, il contesto di arricchimento è impostato al `"/document"` livello e definito per l'ambito dei singoli documenti. Quando viene eseguita una competenza, gli output di tale competenza diventano [proprietà del contesto definito](#example-2).|
@@ -36,7 +37,7 @@ Prima di esaminare la sintassi, è opportuno rivedere alcuni concetti importanti
 <a name="example-1"></a>
 ## <a name="example-1-simple-annotation-reference"></a>Esempio 1: Riferimento di annotazione semplice
 
-Nell'archivio Blob di Azure, si supponga di che avere un'ampia gamma di file che contiene riferimenti ai nomi delle persone che si desidera estrarre tramite riconoscimento di entità. Nella definizione di competenza riportata di seguito, `"/document/content"` è la rappresentazione testuale dell'intero documento e "persone" è l'estrazione di nomi e cognome per le entità identificate come persone.
+Nell'archivio BLOB di Azure, si supponga di disporre di un'ampia gamma di file contenenti riferimenti ai nomi di persone che si desidera estrarre utilizzando il riconoscimento delle entità. Nella definizione di competenza riportata di seguito, `"/document/content"` è la rappresentazione testuale dell'intero documento e "persone" è l'estrazione di nomi e cognome per le entità identificate come persone.
 
 Poiché il contesto predefinito è `"/document"`, è ora possibile fare riferimento all'elenco delle persone come `"/document/people"`. In questo caso specifico `"/document/people"` è un'annotazione, che potrebbe ora essere mappata a un campo in un indice o utilizzata in un'altra competenza nello stesso insieme di competenze.
 
@@ -98,7 +99,7 @@ Quando le annotazioni sono matrici o raccolte di stringhe, è possibile fare rif
 
 In alcuni casi è necessario raggruppare tutte le annotazioni di un determinato tipo per trasmetterle a una determinata competenza. Prendere in considerazione un’ipotetica competenza personalizzata che identifica il cognome più comune da tutti i cognomi estratti nell'esempio 2. Per fornire alla competenza personalizzata solo i cognomi, specificare il contesto come `"/document"` e l'input come `"/document/people/*/lastname"`.
 
-Si noti che la cardinalità del `"/document/people/*/lastname"` è superiore a quella del documento. Potrebbero essere presenti 10 nodi dei cognomi mentre esserci un solo nodo del documento per questo documento. In tal caso, verranno automaticamente creati una matrice di `"/document/people/*/lastname"` contenente tutti gli elementi nel documento.
+Si noti che la cardinalità `"/document/people/*/lastname"` di è maggiore di quella del documento. Potrebbero essere presenti 10 nodi dei cognomi mentre esserci un solo nodo del documento per questo documento. In tal caso, verranno automaticamente creati una matrice di `"/document/people/*/lastname"` contenente tutti gli elementi nel documento.
 
 ```json
   {

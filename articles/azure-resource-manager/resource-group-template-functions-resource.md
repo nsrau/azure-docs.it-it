@@ -4,14 +4,14 @@ description: Informazioni sulle funzioni da usare in un modello di Azure Resourc
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 07/31/2019
+ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7548b75f201c896e3a5248cb9d0154a9a676a86f
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 2ec6e58438e7be953e1f672fb815ff3f68a7f252
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698206"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839266"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funzioni delle risorse per i modelli di Azure Resource Manager
 
@@ -39,8 +39,8 @@ La sintassi per questa funzione varia in base al nome delle operazioni list. Ogn
 
 | Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| resourceName o resourceIdentifier |Yes |string |Identificatore univoco della risorsa. |
-| apiVersion |Sì |string |Versione dell'API dello stato di runtime della risorsa. In genere il formato è **aaaa-mm-gg**. |
+| resourceName o resourceIdentifier |Sì |string |Identificatore univoco della risorsa. |
+| apiVersion |Yes |string |Versione dell'API dello stato di runtime della risorsa. In genere il formato è **aaaa-mm-gg**. |
 | functionValues |No |object | Oggetto che contiene valori per la funzione. Specificare solo questo oggetto per le funzioni che supportano la ricezione di un oggetto con valori di parametro, ad esempio **listAccountSas** per un account di archiviazione. Questo articolo illustra un esempio di passaggio dei valori di funzione. | 
 
 ### <a name="implementations"></a>Implementazioni
@@ -265,9 +265,9 @@ Restituisce informazioni su un provider di risorse e i relativi tipi di risorse 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatorio | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Sì |string |Spazio dei nomi del provider |
+| providerNamespace |Yes |string |Spazio dei nomi del provider |
 | resourceType |No |string |Il tipo di risorsa all'interno dello spazio dei nomi specificato. |
 
 ### <a name="return-value"></a>Valore restituito
@@ -342,8 +342,8 @@ Restituisce un oggetto che rappresenta lo stato di runtime di una risorsa.
 
 | Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| resourceName o resourceIdentifier |Sì |string |Nome o identificatore univoco di una risorsa. |
-| apiVersion |No |string |Versione dell'API della risorsa specificata. Includere questo parametro quando non viene effettuato il provisioning della risorsa nello stesso modello. In genere il formato è **aaaa-mm-gg**. |
+| resourceName o resourceIdentifier |Sì |string |Nome o identificatore univoco di una risorsa. Quando si fa riferimento a una risorsa nel modello corrente, specificare solo il nome della risorsa come parametro. Quando si fa riferimento a una risorsa distribuita in precedenza, fornire l'ID risorsa. |
+| apiVersion |No |string |Versione dell'API della risorsa specificata. Includere questo parametro quando non viene effettuato il provisioning della risorsa nello stesso modello. In genere il formato è **aaaa-mm-gg**. Per le versioni API valide per la risorsa, vedere [riferimento ai modelli](/azure/templates/). |
 | 'Full' |No |string |Valore che specifica se restituire l'oggetto risorsa completo. Se non si specifica `'Full'`, viene restituito solo l'oggetto proprietà della risorsa. L'oggetto completo include valori quali l'ID e la posizione della risorsa. |
 
 ### <a name="return-value"></a>Valore restituito
@@ -352,17 +352,7 @@ Ogni tipo di risorsa restituisce proprietà diverse per la funzione di riferimen
 
 ### <a name="remarks"></a>Note
 
-La funzione reference recupera lo stato di runtime di una risorsa distribuita in precedenza o di una risorsa distribuita nel modello corrente. Questo articolo contiene esempi relativi a entrambi gli scenari. Quando si fa riferimento a una risorsa nel modello corrente, specificare solo il nome della risorsa come parametro. Quando si fa riferimento a una risorsa distribuita in precedenza, fornire l'ID della risorsa e una versione dell'API per tale risorsa. È possibile individuare le versioni delle API valide per la risorsa nella [documentazione di riferimento per il modello](/azure/templates/).
-
-La funzione reference può essere usata solo nelle proprietà di una definizione di risorsa e nella sezione outputs di un modello o una distribuzione. Quando viene usata con l'iterazione della [Proprietà](resource-group-create-multiple.md#property-iteration), è possibile usare `input` la funzione Reference per perché l'espressione viene assegnata alla proprietà della risorsa. Non è possibile usarlo `count` con perché è necessario determinare il conteggio prima che la funzione di riferimento venga risolta.
-
-Non è possibile usare la funzione Reference negli output di un [modello annidato](resource-group-linked-templates.md#nested-template) per restituire una risorsa distribuita nel modello annidato. Usare invece un [modello collegato](resource-group-linked-templates.md#external-template-and-external-parameters).
-
-Usando la funzione di riferimento, si dichiara implicitamente che una risorsa dipende da un'altra se il provisioning della risorsa cui si fa riferimento viene effettuato nello stesso modello e si fa riferimento alla risorsa tramite il nome, non tramite l'ID risorsa. Non è necessario usare anche la proprietà dependsOn. La funzione non viene valutata fino a quando la risorsa cui si fa riferimento ha completato la distribuzione.
-
-Se si usa la funzione **Reference** in una risorsa distribuita in modo condizionale, la funzione viene valutata anche se la risorsa non viene distribuita.  Viene ricevuto un errore se la funzione **Reference** fa riferimento a una risorsa che non esiste. Usare la funzione **if** per assicurarsi che la funzione venga valutata solo quando la risorsa viene distribuita. Vedere la [funzione If](resource-group-template-functions-logical.md#if) per un modello di esempio che usa if e Reference con una risorsa distribuita in modo condizionale.
-
-Per visualizzare i nomi e i valori delle proprietà per un tipo di risorsa, creare un modello che restituisca l'oggetto nella sezione outputs. Se si dispone di una risorsa esistente di quel tipo, il modello restituisce l'oggetto senza distribuire nuove risorse. 
+La funzione reference recupera lo stato di runtime di una risorsa distribuita in precedenza o di una risorsa distribuita nel modello corrente. Questo articolo contiene esempi relativi a entrambi gli scenari.
 
 In genere, la funzione **reference** viene usata per restituire un valore specifico da un oggetto, ad esempio l'URI dell'endpoint BLOB o il nome di dominio completo.
 
@@ -403,7 +393,45 @@ Usare `'Full'` se sono necessari valori della risorsa che non fanno parte dello 
     ...
 ```
 
-Per l'esempio completo del modello precedente, vedere [WindowsToKeyvault](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo08.msiWindowsToKeyvault.json). Un esempio simile è disponibile per [Linux](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo07.msiLinuxToArm.json).
+### <a name="valid-uses"></a>Usi validi
+
+La funzione reference può essere usata solo nelle proprietà di una definizione di risorsa e nella sezione outputs di un modello o una distribuzione. Quando viene usata con l'iterazione della [Proprietà](resource-group-create-multiple.md#property-iteration), è possibile usare `input` la funzione Reference per perché l'espressione viene assegnata alla proprietà della risorsa. Non è possibile usarlo `count` con perché è necessario determinare il conteggio prima che la funzione di riferimento venga risolta.
+
+Non è possibile usare la funzione Reference negli output di un [modello annidato](resource-group-linked-templates.md#nested-template) per restituire una risorsa distribuita nel modello annidato. Usare invece un [modello collegato](resource-group-linked-templates.md#external-template-and-external-parameters).
+
+Se si usa la funzione **Reference** in una risorsa distribuita in modo condizionale, la funzione viene valutata anche se la risorsa non viene distribuita.  Viene ricevuto un errore se la funzione **Reference** fa riferimento a una risorsa che non esiste. Usare la funzione **if** per assicurarsi che la funzione venga valutata solo quando la risorsa viene distribuita. Vedere la [funzione If](resource-group-template-functions-logical.md#if) per un modello di esempio che usa if e Reference con una risorsa distribuita in modo condizionale.
+
+### <a name="implicit-dependency"></a>Dipendenza implicita
+
+Usando la funzione di riferimento, si dichiara implicitamente che una risorsa dipende da un'altra se il provisioning della risorsa cui si fa riferimento viene effettuato nello stesso modello e si fa riferimento alla risorsa tramite il nome, non tramite l'ID risorsa. Non è necessario usare anche la proprietà dependsOn. La funzione non viene valutata fino a quando la risorsa cui si fa riferimento ha completato la distribuzione.
+
+### <a name="resource-name-or-identifier"></a>Nome della risorsa o identificatore
+
+Quando si fa riferimento a una risorsa distribuita nello stesso modello, specificare il nome della risorsa.
+
+```json
+"value": "[reference(parameters('storageAccountName'))]"
+```
+
+Quando si fa riferimento a una risorsa che non viene distribuita nello stesso modello, fornire l'ID risorsa.
+
+```json
+"value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
+```
+
+Per evitare ambiguità sulla risorsa a cui viene fatto riferimento, è possibile specificare un nome di risorsa completo.
+
+```json
+"value": "[reference(concat('Microsoft.Network/publicIPAddresses/', parameters('ipAddressName')))]"
+```
+
+Quando si crea un riferimento completo a una risorsa, l'ordine di combinazione dei segmenti dal tipo e dal nome non è semplicemente una concatenazione dei due elementi. Dopo lo spazio dei nomi, usare invece una sequenza di coppie *tipo/nome* dal meno specifico al più specifico:
+
+**{Resource-Provider-Namespace}/{Parent-Resource-Type}/{parent-Resource-Name} [/{Child-Resource-Type}/{Child-Resource-Name}]**
+
+Ad esempio:
+
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` è corretto `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` non è corretto
 
 ### <a name="example"></a>Esempio
 
@@ -539,7 +567,9 @@ L'oggetto restituito è nel formato seguente:
 {
   "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
   "name": "{resourceGroupName}",
+  "type":"Microsoft.Resources/resourceGroups",
   "location": "{resourceGroupLocation}",
+  "managedBy": "{identifier-of-managing-resource}",
   "tags": {
   },
   "properties": {
@@ -547,6 +577,8 @@ L'oggetto restituito è nel formato seguente:
   }
 }
 ```
+
+La proprietà **ManagedBy** viene restituita solo per i gruppi di risorse che contengono risorse gestite da un altro servizio. Per le applicazioni gestite, databricks e AKS, il valore della proprietà è l'ID risorsa della risorsa di gestione.
 
 ### <a name="remarks"></a>Note
 
@@ -592,6 +624,7 @@ L'esempio precedente restituisce un oggetto nel formato seguente:
 {
   "id": "/subscriptions/{subscription-id}/resourceGroups/examplegroup",
   "name": "examplegroup",
+  "type":"Microsoft.Resources/resourceGroups",
   "location": "southcentralus",
   "properties": {
     "provisioningState": "Succeeded"
@@ -611,8 +644,8 @@ Restituisce l'identificatore univoco di una risorsa. Questa funzione viene usata
 |:--- |:--- |:--- |:--- |
 | subscriptionId |No |Stringa (in formato GUID) |Il valore predefinito è la sottoscrizione corrente. Specificare questo valore quando si vuole recuperare una risorsa in un'altra sottoscrizione. |
 | resourceGroupName |No |string |Il valore predefinito è il gruppo di risorse corrente. Specificare questo valore quando si vuole recuperare una risorsa in un altro gruppo di risorse. |
-| resourceType |Yes |string |Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse. |
-| resourceName1 |Yes |string |Nome della risorsa. |
+| resourceType |Sì |string |Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse. |
+| resourceName1 |Sì |string |Nome della risorsa. |
 | resourceName2 |No |string |Segmento successivo del nome della risorsa se la risorsa è annidata. |
 
 ### <a name="return-value"></a>Valore restituito

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: kevidal
-ms.openlocfilehash: 92c3452e07dee126666e6ee1fe0c46b1f8f6dfa4
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: f9ff6e19a0f0091cb5b831279eee90727bbb89fd
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876525"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742265"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guida alla pubblicazione dell'offerta di applicazioni SaaS
 
@@ -32,7 +32,7 @@ Le applicazioni SaaS sono disponibili in entrambe le vetrine di Azure. La tabell
 
 | Offerta di app SaaS | Requisiti aziendali | Requisiti tecnici |  
 | --- | --- | --- |  
-| **Contatta** | Sì | No |  
+| **Contatta** | Yes | No |  
 | **PowerBI/Dynamics** | Yes | Sì (integrazione di Azure AD) |  
 | **App SaaS**| Sì | Sì (integrazione di Azure AD) |     
 
@@ -126,13 +126,13 @@ Se non si ha familiarità con l'accesso SSO federato di Azure AD, eseguire quest
 ## <a name="saas-subscriptions"></a>Sottoscrizioni SaaS
 
 Usare il tipo di offerta di app SaaS per consentire ai clienti di acquistare la soluzione tecnica basata su SaaS come una sottoscrizione. Per l'app SaaS è necessario soddisfare i requisiti seguenti:
-- Prezzo e costi del servizio con tariffe fisse mensili.
+- Prezzo e fatturazione per il servizio a un piano (mensile o annuale) o a una tariffa per utente.
 - Fornire un metodo per aggiornare o annullare il servizio in qualsiasi momento.
-Microsoft gestisce la transazione commerciale. Microsoft invia gli addebiti al cliente per conto dell'utente. Per usare un'app SaaS sotto forma di sottoscrizione, è necessario abilitare la propria API del servizio di gestione della sottoscrizione. L'API del servizio di gestione della sottoscrizione deve comunicare direttamente con le API di Azure Resource Manager. L'API del servizio di gestione della sottoscrizione deve supportare il provisioning, l'aggiornamento e l'annullamento del servizio.
+Microsoft gestisce la transazione commerciale. Microsoft invia gli addebiti al cliente per conto dell'utente. Per offrire un'app SaaS come sottoscrizione, è necessario eseguire l'integrazione con le API di evasione SaaS.  Il servizio deve supportare il provisioning, l'aggiornamento e l'annullamento.
 
 | Requisito | Dettagli |  
 |:--- |:--- |  
-|Fatturazione e misurazione | Per l'offerta è prevista una tariffa fissa mensile. Non sono attualmente supportati prezzi basati sull'utilizzo e funzionalità per il calcolo dell'utilizzo effettivo. |  
+|Fatturazione e misurazione | Il prezzo dell'offerta è basato sul modello di determinazione dei prezzi selezionato prima della pubblicazione (tariffa fissa o per utente).  Se si usa il modello di frequenza fissa, è possibile includere facoltativamente dimensioni aggiuntive usate per addebitare ai clienti l'utilizzo non incluso nella tariffa fissa. |  
 |Annullamento | L'offerta può essere annullata dal cliente in qualsiasi momento. |  
 |Pagina di destinazione delle transazioni | L'editore ospita una pagina di destinazione delle transazioni di Azure con co-branding in cui gli utenti possono creare e gestire il proprio account per il servizio SaaS. |   
 | API della sottoscrizione | L'editore espone un servizio che può interagire con la sottoscrizione SaaS per creare, aggiornare ed eliminare un account utente e un piano di servizio. Le modifiche critiche all'API devono essere supportate entro 24 ore. Le modifiche non critiche all'API verranno rilasciate periodicamente. |  

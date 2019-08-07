@@ -1,90 +1,90 @@
 ---
-title: Preparare per la migrazione di avvisi classici di monitoraggio di Azure tramite l'aggiornamento di App per la logica e i runbook
-description: Informazioni su come modificare i webhook, App per la logica e i runbook per prepararsi alla migrazione volontaria.
+title: Preparare la migrazione degli avvisi classici di monitoraggio di Azure aggiornando le app per la logica e manuali operativi
+description: Informazioni su come modificare i webhook, le app per la logica e manuali operativi per prepararsi alla migrazione volontaria.
 author: snehithm
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: bdbd45c2b10dec8f1c0a85110747a470e818dbf9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5235db5cab39be6e36bdf145d3edc7c73fe9da54
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66015616"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827397"
 ---
-# <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Preparare l'App per la logica e i runbook per la migrazione delle regole di avviso classiche
+# <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Preparare le app per la logica e manuali operativi per la migrazione delle regole di avviso classiche
 
-Come [annunciate in precedenza](monitoring-classic-retirement.md), gli avvisi classici in Monitoraggio di Azure verranno ritirati nel mese di settembre 2019 (è stato originariamente 2019 luglio). Uno strumento di migrazione è disponibile nel portale di Azure per i clienti che usano le regole di avviso di classiche e che desiderano migrazione si attivano automaticamente.
+Come [annunciato in precedenza](monitoring-classic-retirement.md), gli avvisi classici in monitoraggio di Azure verranno ritirati a settembre 2019 (in origine il 2019 luglio). Uno strumento di migrazione è disponibile nel portale di Azure ai clienti che utilizzano le regole di avviso classiche e che desiderano attivare la migrazione autonomamente.
 
 > [!NOTE]
-> A causa di un ritardo nell'implementazione dello strumento di migrazione, la data di ritiro per la migrazione di avvisi classici è stata estesa al 31 agosto 2019 dalla data di originariamente annunciata del 30 giugno 2019.
+> A causa del ritardo nell'implementazione dello strumento di migrazione, la data di ritiro per la migrazione degli avvisi classica è stata estesa al 31 agosto 2019 dalla data di annuncio iniziale del 30 giugno 2019.
 
-Se si sceglie di migrare volontariamente le regole di avviso classiche alle nuove regole di avviso, tenere presente che esistono alcune differenze tra i due sistemi. Questo articolo illustra tali differenze e come è possibile preparare per la modifica.
+Se si sceglie di migrare volontariamente le regole di avviso classiche alle nuove regole di avviso, tenere presente che esistono alcune differenze tra i due sistemi. In questo articolo vengono illustrate le differenze e il modo in cui è possibile prepararsi per la modifica.
 
 ## <a name="api-changes"></a>Modifiche all'API
 
-Le API che creano e gestiscono le regole di avviso di classiche (`microsoft.insights/alertrules`) sono diverse dalle API che creano e gestiscono i nuovi avvisi delle metriche (`microsoft.insights/metricalerts`). Se è a livello di programmazione creare e gestire le regole di avviso di classiche oggi, aggiornare gli script di distribuzione per lavorare con le nuove API.
+Le API che creano e gestiscono le regole di`microsoft.insights/alertrules`avviso classiche () sono diverse dalle API che creano e gestiscono`microsoft.insights/metricalerts`nuovi avvisi delle metriche (). Se si creano e si gestiscono le regole di avviso classiche a livello di codice, aggiornare gli script di distribuzione in modo che funzionino con le nuove API.
 
-Nella tabella seguente è un riferimento a interfacce di programmazione per gli avvisi sia classiche e nuove:
+La tabella seguente è un riferimento alle interfacce programmatiche per gli avvisi classici e nuovi:
 
 |         |Avvisi classici  |Nuovi avvisi delle metriche |
 |---------|---------|---------|
 |API REST     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
-|Interfaccia della riga di comando di Azure     | [avviso di monitoraggio AZ](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [avviso delle metriche di monitoraggio AZ](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
+|Interfaccia della riga di comando di Azure     | [avviso AZ monitor](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [AZ monitor Metrics-avviso](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
 |PowerShell      | [Riferimento](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [Riferimento](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Modello di Azure Resource Manager | [Per gli avvisi classici](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[Per i nuovi avvisi delle metriche](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
 
-## <a name="notification-payload-changes"></a>Modifiche di payload di notifica
+## <a name="notification-payload-changes"></a>Modifiche payload notifica
 
-Il formato di payload di notifica è leggermente diverso tra [regole di avviso classiche](alerts-webhooks.md) e [nuovi avvisi delle metriche](alerts-metric-near-real-time.md#payload-schema). Se si dispone di qualsiasi webhook, app per la logica o le azioni di runbook che vengono generate da regole di avviso classiche, è necessario aggiornare gli endpoint di notifica per accettare il formato di payload di nuovi avvisi delle metriche.
+Il formato del payload di notifica è leggermente diverso tra [le regole di avviso classiche](alerts-webhooks.md) e i [nuovi avvisi delle metriche](alerts-metric-near-real-time.md#payload-schema). Se sono presenti azioni webhook, app per la logica o Runbook attivate dalle regole di avviso classiche, è necessario aggiornare gli endpoint di notifica per accettare il formato di payload dei nuovi avvisi delle metriche.
 
-Usare la tabella seguente per eseguire il mapping i campi di payload di webhook dal formato classico al nuovo formato:
+Usare la tabella seguente per eseguire il mapping dei campi di payload del webhook dal formato classico al nuovo formato:
 
 |  |Avvisi classici  |Nuovi avvisi delle metriche |
 |---------|---------|---------|
-|L'avviso è stato attivato o è stato risolto?    | **status**       | **data.status** |
-|Informazioni contestuali relative all'avviso     | **context**        | **data.context**        |
-|Timestamp in corrispondenza del quale l'avviso è stato attivato o risolto     | **context.timestamp**       | **data.context.timestamp**        |
+|L'avviso è stato attivato o risolto?    | **status**       | **data.status** |
+|Informazioni contestuali sull'avviso     | **context**        | **data.context**        |
+|Timestamp in cui l'avviso è stato attivato o risolto     | **context.timestamp**       | **data.context.timestamp**        |
 | ID regola di avviso | **context.id** | **data.context.id** |
 | Nome regola di avviso | **context.name** | **data.context.name** |
 | Descrizione della regola di avviso | **context.description** | **data.context.description** |
-| Condizione di regola di avviso | **context.condition** | **data.context.condition** |
-| Nome metrica | **context.condition.metricName** | **data.context.condition.allOf[0].metricName** |
-| Aggregazione temporale (come la metrica viene aggregata nell'intervallo di valutazione)| **data.context.condition.timeAggregation** | **data.context.condition.timeAggregation** |
+| Condizione della regola di avviso | **context.condition** | **data.context.condition** |
+| Nome della metrica | **context.condition.metricName** | **data.context.condition.allOf[0].metricName** |
+| Aggregazione temporale (modalità di aggregazione della metrica sulla finestra di valutazione)| **context. Condition. timeAggregation** | **context. Condition. timeAggregation** |
 | Periodo di valutazione | **context.condition.windowSize** | **data.context.condition.windowSize** |
-| Operatore (come il valore della metrica aggregato viene confrontato con la soglia di) | **context.condition.operator** | **data.context.condition.operator** |
+| Operatore (come il valore della metrica aggregata viene confrontato con la soglia) | **context.condition.operator** | **data.context.condition.operator** |
 | Soglia | **context.condition.threshold** | **data.context.condition.allOf[0].threshold** |
-| Valore della metrica | **context.condition.metricValue** | **data.context.condition.allOf[0].metricValue** |
+| Valore metrica | **context.condition.metricValue** | **data.context.condition.allOf[0].metricValue** |
 | ID sottoscrizione | **context.subscriptionId** | **data.context.subscriptionId** |
 | Gruppo di risorse della risorsa interessata | **context.resourceGroup** | **data.context.resourceGroup** |
 | Nome della risorsa interessata | **context.resourceName** | **data.context.resourceName** |
-| Tipo della risorsa interessata | **context.resourceType** | **data.context.resourceType** |
+| Tipo di risorsa interessata | **context.resourceType** | **data.context.resourceType** |
 | ID risorsa della risorsa interessata | **context.resourceId** | **data.context.resourceId** |
 | Collegamento diretto alla pagina di riepilogo delle risorse del portale | **context.portalLink** | **data.context.portalLink** |
-| Campi di payload personalizzato da passare all'app per la logica o webhook | **properties** | **data.properties** |
+| Campi di payload personalizzati da passare al webhook o all'app per la logica | **properties** | **data.properties** |
 
-I payload sono simili, come si può notare. Sono disponibili nella sezione seguente:
+I payload sono simili, come si può vedere. La sezione seguente offre:
 
-- Informazioni dettagliate sulla modifica di App per la logica per lavorare con il nuovo formato.
-- Un esempio di runbook che consente di analizzare il payload della notifica per nuovi avvisi.
+- Informazioni dettagliate sulla modifica delle app per la logica per l'uso con il nuovo formato.
+- Esempio Runbook che analizza il payload delle notifiche per i nuovi avvisi.
 
-## <a name="modify-a-logic-app-to-receive-a-metric-alert-notification"></a>Modificare un'app per la logica per ricevere una notifica di avviso metrica
+## <a name="modify-a-logic-app-to-receive-a-metric-alert-notification"></a>Modificare un'app per la logica per ricevere una notifica di avviso per la metrica
 
-Se si usa App per la logica con gli avvisi classici, è necessario modificare il codice di app per la logica per analizzare il nuovo payload avvisi delle metriche. A tale scopo, seguire questa procedura:
+Se si usano app per la logica con avvisi classici, è necessario modificare il codice dell'app per la logica per analizzare il nuovo payload degli avvisi delle metriche. Attenersi ai passaggi riportati di seguito.
 
 1. Creare una nuova app per la logica.
 
-1. Usare il modello "Azure Monitor – metriche avviso gestore". Questo modello ha un **richiesta HTTP** trigger con lo schema appropriato definito.
+1. Usare il modello "monitoraggio di Azure-gestore avvisi metriche". Questo modello include un trigger di **richiesta http** con lo schema appropriato definito.
 
-    ![modello di app per la logica](media/alerts-migration/logic-app-template.png "modello di avviso metrica")
+    ![logica-app-modello](media/alerts-migration/logic-app-template.png "Modello di avviso della metrica")
 
 1. Aggiungere un'azione per ospitare la logica di elaborazione.
 
-## <a name="use-an-automation-runbook-that-receives-a-metric-alert-notification"></a>Usare un runbook di automazione che riceve una notifica di avviso metrica
+## <a name="use-an-automation-runbook-that-receives-a-metric-alert-notification"></a>Usare un Runbook di automazione che riceve una notifica di avviso per la metrica
 
-Nell'esempio seguente viene fornito codice di PowerShell da usare nel runbook. Questo codice consente di analizzare il payload per le regole di avviso delle metriche classiche e nuove regole di avviso delle metriche.
+Nell'esempio seguente viene fornito il codice di PowerShell da usare in Runbook. Questo codice può analizzare i payload per le regole di avviso delle metriche classiche e per le nuove regole di avviso della metrica.
 
 ```PowerShell
 ## Example PowerShell code to use in a runbook to handle parsing of both classic and new metric alerts.
@@ -151,19 +151,19 @@ else {
 
 ```
 
-Per un esempio completo di un runbook che si arresta una macchina virtuale quando viene attivato un avviso, vedere la [documentazione di automazione di Azure](https://docs.microsoft.com/azure/automation/automation-create-alert-triggered-runbook).
+Per un esempio completo di Runbook che interrompe una macchina virtuale quando viene attivato un avviso, vedere la documentazione di [automazione di Azure](https://docs.microsoft.com/azure/automation/automation-create-alert-triggered-runbook).
 
-## <a name="partner-integration-via-webhooks"></a>Integrazione dei partner tramite webhook
+## <a name="partner-integration-via-webhooks"></a>Integrazione di partner tramite webhook
 
-La maggior parte degli [partner che si integrano con gli avvisi classici](https://docs.microsoft.com/azure/azure-monitor/platform/partners) supportano già i nuovi avvisi delle metriche attraverso le integrazioni. Integrazioni note che usano già con i nuovi avvisi delle metriche sono:
+La maggior parte dei [partner che si integrano con gli avvisi classici](https://docs.microsoft.com/azure/azure-monitor/platform/partners) supporta già avvisi di metrica più recenti tramite le loro integrazioni. Le integrazioni note che già funzionano con nuovi avvisi delle metriche sono:
 
 - [PagerDuty](https://www.pagerduty.com/docs/guides/azure-integration-guide/)
 - [OpsGenie](https://docs.opsgenie.com/docs/microsoft-azure-integration)
 - [Signl4](https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/)
 
-Se si usa un'integrazione di partner che non è elencata qui, verificare con il provider di integrazione che l'integrazione funziona con i nuovi avvisi delle metriche.
+Se si usa un'integrazione partner non elencata, verificare con il provider di integrazione che l'integrazione funzioni con i nuovi avvisi delle metriche.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Come usare lo strumento di migrazione](alerts-using-migration-tool.md)
-- [Comprendere il funzionamento dello strumento di migrazione](alerts-understand-migration.md)
+- [Informazioni sul funzionamento dello strumento di migrazione](alerts-understand-migration.md)

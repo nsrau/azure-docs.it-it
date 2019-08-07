@@ -7,12 +7,12 @@ ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: a623aa98cd26e1636e47cb0e2831eeced17935b9
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
-ms.translationtype: HT
+ms.openlocfilehash: abaf96b11abee0bf519a276f825b9c47cd333c1b
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68695393"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816314"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Anteprima: Creare un modello di generatore di immagini di Azure 
 
@@ -65,7 +65,11 @@ Il percorso è l'area in cui verrà creata l'immagine personalizzata. Per l'ante
 ```json
     "location": "<region>",
 ```
-    
+
+## <a name="tags"></a>Tag
+
+Si tratta di coppie chiave/valore che è possibile specificare per l'immagine generata.
+
 ## <a name="depends-on-optional"></a>Dipende da (facoltativo)
 
 Questa sezione facoltativa può essere usata per garantire che le dipendenze vengano completate prima di procedere. 
@@ -344,7 +348,8 @@ Questa operazione è supportata da directory Windows e percorsi Linux, ma esisto
  
 Se si verifica un errore durante il tentativo di scaricare il file o inserirlo in una directory specificata, il passaggio di personalizzazione avrà esito negativo e sarà presente nel file customization. log.
 
->> Si noti! Il file verbi è adatto solo per il download di file di piccole dimensioni, < 20MB. Per i download di file di grandi dimensioni usare uno script o un comando inline, usare il codice per scaricare i `wget` file `curl`, ad esempio `Invoke-WebRequest`, Linux o, Windows.
+> [!NOTE]
+> Il file verbi è adatto solo per il download di file di piccole dimensioni, < 20MB. Per i download di file di grandi dimensioni usare uno script o un comando inline, usare il codice per scaricare i `wget` file `curl`, ad esempio `Invoke-WebRequest`, Linux o, Windows.
 
 I file nel file verbi possono essere scaricati dall'archiviazione di Azure tramite [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 

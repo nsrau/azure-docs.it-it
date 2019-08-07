@@ -1,6 +1,6 @@
 ---
-title: Usare DevTest Labs nelle pipeline di compilazione e rilascio di Azure DevOps | Microsoft Docs
-description: Informazioni su come usare Azure DevTest Labs nelle pipeline di compilazione e versione di Azure DevOps.
+title: Usare DevTest Labs in Azure Pipelines pipeline di compilazione e versione | Microsoft Docs
+description: Informazioni su come usare Azure DevTest Labs in Azure Pipelines le pipeline di compilazione e rilascio.
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: spelluru
-ms.openlocfilehash: 606563cd7d7adcdd79bf9561876eb0640fb68b21
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 032f598fed765b281d4a6a124f8855abc201ee94
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620896"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774461"
 ---
-# <a name="use-devtest-labs-in-azure-devops-build-and-release-pipelines"></a>Usare DevTest Labs nelle pipeline di compilazione e versione di Azure DevOps
-Questo articolo fornisce informazioni sul modo in cui è possibile usare DevTest Labs nelle pipeline di compilazione e rilascio di Azure DevOps. 
+# <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Usare DevTest Labs in Azure Pipelines pipeline di compilazione e rilascio
+Questo articolo fornisce informazioni sul modo in cui è possibile usare DevTest Labs in Azure Pipelines pipeline di compilazione e rilascio. 
 
 ## <a name="overall-flow"></a>Flusso generale
 Il flusso di base consiste nel disporre di una **pipeline di compilazione** che esegue le attività seguenti:
@@ -49,7 +49,7 @@ Utilizzando DevTest Labs durante la fase di compilazione/test, è possibile aggi
 La pipeline di compilazione creerà un ambiente DevTest Labs e distribuirà il codice per il test.
 
 ## <a name="set-up-a-build-pipeline"></a>Configurare una pipeline di compilazione
-In Azure DevOps creare una pipeline di compilazione usando il codice [dell'esercitazione: Creare un'app Web .NET Core e database SQL nel servizio](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md)app Azure. Usare il modello di **ASP.NET Core** , che consente di popolare l'attività necessaria per compilare, testare e pubblicare il codice.
+In Azure Pipelines creare una pipeline di compilazione usando il codice [dell'esercitazione: Creare un'app Web .NET Core e database SQL nel servizio](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md)app Azure. Usare il modello di **ASP.NET Core** , che consente di popolare l'attività necessaria per compilare, testare e pubblicare il codice.
 
 ![Selezionare il modello ASP.NET](./media/use-devtest-labs-build-release-pipelines/select-asp-net.png)
 
@@ -67,7 +67,7 @@ Nell'attività crea ambiente (**Azure DevTest Labs attività crea ambiente** ) u
 
 Si consiglia di utilizzare elenchi a discesa nella pagina anziché immettere manualmente le informazioni. Se si immettono manualmente le informazioni, immettere ID di risorsa di Azure completi. L'attività Visualizza i nomi descrittivi anziché gli ID risorsa. 
 
-Il nome dell'ambiente è il nome visualizzato in DevTest Labs. Deve essere un nome univoco per ogni compilazione. Ad esempio:  **TestEnv $ (Build. ID compilazione)** . 
+Il nome dell'ambiente è il nome visualizzato in DevTest Labs. Deve essere un nome univoco per ogni compilazione. Ad esempio: **TestEnv $ (Build. ID compilazione)** . 
 
 È possibile specificare il file dei parametri o i parametri per passare le informazioni nel modello di Gestione risorse. 
 
@@ -85,7 +85,7 @@ La terza attività è l'attività di **distribuzione del servizio app Azure** . 
 
 ![Attività di distribuzione del servizio app](./media/use-devtest-labs-build-release-pipelines/app-service-deploy.png)
 
-## <a name="setup-release-pipeline"></a>Installazione della pipeline di rilascio
+## <a name="set-up-release-pipeline"></a>Configurare la pipeline di rilascio
 Si crea una pipeline di rilascio con due attività: **Distribuzione di Azure: Creare o aggiornare il gruppo** di risorse e **distribuire app Azure servizio**. 
 
 Per la prima attività, specificare il nome e il percorso del gruppo di risorse. Il percorso del modello è un artefatto collegato. Se il modello di Gestione risorse include modelli collegati, è necessario implementare una distribuzione del gruppo di risorse personalizzata. Il modello si trova nell'artefatto di rilascio pubblicato. Eseguire l'override dei parametri di modello per il modello di Gestione risorse. È possibile lasciare le impostazioni rimanenti con i valori predefiniti. 
@@ -98,5 +98,5 @@ Ora che entrambe le pipeline sono configurate, accodare manualmente una compilaz
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti:
 
-- [Integrare Azure DevTest Labs nella pipeline di integrazione e recapito continua di Azure DevOps](devtest-lab-integrate-ci-cd-vsts.md)
-- [Integra gli ambienti nelle pipeline CI/CD di Azure DevOps](integrate-environments-devops-pipeline.md)
+- [Integrare Azure DevTest Labs nella pipeline di integrazione e recapito Azure Pipelines continua](devtest-lab-integrate-ci-cd-vsts.md)
+- [Integra gli ambienti nelle pipeline di integrazione continua/recapito continuo Azure Pipelines](integrate-environments-devops-pipeline.md)

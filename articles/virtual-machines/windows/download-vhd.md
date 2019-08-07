@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 7128413e48fdeef9b9284bc6db11649016a06153
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: ebcc8301fa3693880974e45b594be218905e8311
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722810"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775403"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Scaricare un disco rigido virtuale Linux da Azure
 
@@ -52,11 +52,11 @@ Per usare il disco rigido virtuale come disco in cui creare una nuova istanza di
 Per scaricare il file VHD, è necessario generare un URL di [firma di accesso condiviso (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Quando viene generato, all'URL viene assegnata una scadenza.
 
 1.  Nel menu del pannello della macchina virtuale fare clic su **Dischi**.
-2.  Selezionare il disco del sistema operativo per la VM e quindi fare clic su **Esporta**.
+2.  Selezionare il disco del sistema operativo per la macchina virtuale e quindi fare clic su **esportazione disco**.
 3.  Impostare la scadenza dell'URL su *36000*.
 4.  Fare clic su **Genera URL**.
 
-    ![Generare l'URL](./media/download-vhd/export-generate.png)
+    ![Generare l'URL](./media/download-vhd/export-generate-new.png)
 
 > [!NOTE]
 > La scadenza viene aumentata rispetto all'impostazione predefinita per fornire un tempo sufficiente a scaricare il file VHD di grandi dimensioni di un sistema operativo Windows Server. A seconda della connessione, il download di un file VHD che contiene il sistema operativo Windows Server può richiedere alcune ore. Se si scarica un disco rigido virtuale per un disco dati, il tempo predefinito è sufficiente. 

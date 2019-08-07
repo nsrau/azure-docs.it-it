@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 05d9dc8f676589dcb301c19b0a2e80e9fd4c1fa0
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: cc0fcbb2005ce2aaa70c9e1d2a9993d341169209
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249750"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814231"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Raccogliere i log di IIS in Monitoraggio di Azure
 Internet Information Services (IIS) archivia le attività utente in file di log che possono essere raccolti da Monitoraggio di Azure e archiviati come [dati di log](data-platform.md).
@@ -34,7 +34,7 @@ Configurare i log di IIS in Monitoraggio di Azure dal [menu Impostazioni avanzat
 
 
 ## <a name="data-collection"></a>Raccolta dei dati
-Monitoraggio di Azure raccoglie le voci di log di IIS da ogni agente ogni volta che viene modificato il timestamp del log o viene creato un nuovo file. Il log viene letto ogni 5 minuti. La frequenza di creazione di nuovi file è controllata dall'impostazione della **pianificazione del rollover dei file di log** per il sito IIS, che è una volta al giorno per impostazione predefinita. Se per qualsiasi motivo IIS non aggiorna il timestamp prima del tempo di rollover, se l'impostazione è ogni **ora**, monitoraggio di Azure raccoglie il log ogni ora. Se l'impostazione è **giornaliera**, monitoraggio di Azure raccoglie il log ogni 24 ore.
+Monitoraggio di Azure raccoglie le voci di log di IIS da ogni agente ogni volta che viene modificato il timestamp del log. Il log viene letto ogni **5 minuti**. Se per qualsiasi motivo IIS non aggiorna il timestamp prima dell'ora di rollover quando viene creato un nuovo file, le voci verranno raccolte in seguito alla creazione del nuovo file. La frequenza di creazione di nuovi file è controllata dall'impostazione della **pianificazione del rollover dei file di log** per il sito IIS, che è una volta al giorno per impostazione predefinita. Se l'impostazione è ogni **ora**, monitoraggio di Azure raccoglie il log ogni ora. Se l'impostazione è **giornaliera**, monitoraggio di Azure raccoglie il log ogni 24 ore.
 
 
 ## <a name="iis-log-record-properties"></a>Proprietà dei record del log di IIS
@@ -67,7 +67,7 @@ I record dei log di IIS sono di tipo **W3CIISLog**; la tabella seguente descrive
 ## <a name="log-queries-with-iis-logs"></a>Query di log con i log di IIS
 La tabella seguente mostra alcuni esempi di query nei log che recuperano i record dei log di IIS.
 
-| Query | Descrizione |
+| Query | DESCRIZIONE |
 |:--- |:--- |
 | W3CIISLog |Tutti i record del log di IIS. |
 | W3CIISLog &#124; where scStatus==500 |Tutti i record del log IIS con stato restituito pari a 500. |

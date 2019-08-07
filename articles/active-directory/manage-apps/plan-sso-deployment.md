@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0602de13fefbf105e69ba42651216fb479c4c86
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 733b0d7650d68bddae60cf524947590c2b689968
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477118"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779371"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Pianificare una distribuzione di Single Sign-On
 
@@ -95,7 +95,7 @@ Dal punto di vista dell'accesso, le applicazioni con account condivisi non sono 
 
 La scelta del metodo di autenticazione appropriato è una prima decisione fondamentale nella configurazione di una soluzione ibrida di gestione delle identità di Azure AD. Implementare il metodo di autenticazione configurato mediante Azure AD Connect, che esegue anche il provisioning degli utenti nel cloud.
 
-Per scegliere un metodo di autenticazione è necessario prendere in considerazione il tempo, l'infrastruttura esistente, la complessità e i costi di implementazione della propria scelta. Questi fattori variano in base all'organizzazione e possono cambiare nel corso del tempo. È consigliabile scegliere quella più adatta per lo scenario specifico. Per altre informazioni, vedere [scegliere il metodo di autenticazione appropriato per la soluzione di identità ibrida Azure Active Directory](https://docs.microsoft.com/azure/security/azure-ad-choose-authn).
+Per scegliere un metodo di autenticazione è necessario prendere in considerazione il tempo, l'infrastruttura esistente, la complessità e i costi di implementazione della propria scelta. Questi fattori variano in base all'organizzazione e possono cambiare nel corso del tempo. È consigliabile scegliere quella più adatta per lo scenario specifico. Per altre informazioni, vedere [scegliere il metodo di autenticazione appropriato per la soluzione di identità ibrida Azure Active Directory](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn).
 
 ## <a name="plan-your-security-and-governance"></a>Pianificare sicurezza e governance 
 

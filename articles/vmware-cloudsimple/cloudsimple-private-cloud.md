@@ -1,127 +1,127 @@
 ---
-title: Cloud privati nella soluzione di VMware da CloudSimple - Azure
-description: Informazioni sui concetti e i cloud privati CloudSimple.
+title: Cloud privati nella soluzione VMware di CloudSimple-Azure
+description: Informazioni sui cloud privati e i concetti relativi a CloudSimple.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e3ab53466cae5bd39d85f8d846c8e59ad94f1f2d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 9885366d5987870fe2739083ff47abaae9ef6ed1
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165752"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816200"
 ---
 # <a name="cloudsimple-private-cloud-overview"></a>Panoramica del cloud privato CloudSimple
 
-CloudSimple Trasforma ed estende i carichi di lavoro VMware ai cloud pubblici in pochi minuti. Usa il servizio CloudSimple, è possibile distribuire VMware in modalità nativa in Azure infrastruttura bare metal bare. La distribuzione si trova in posizioni di Azure e si integra completamente con il resto del cloud di Azure.
+CloudSimple trasforma ed estende i carichi di lavoro VMware in cloud pubblici in pochi minuti. Con il servizio CloudSimple è possibile distribuire VMware in modo nativo nell'infrastruttura bare metal di Azure. La distribuzione si trova in località di Azure e si integra completamente con il resto del cloud di Azure.
 
-* La soluzione CloudSimple fornisce la continuità operativa VMware completata. Questa soluzione offre i vantaggi di cloud pubblico di:
+* La soluzione CloudSimple fornisce la continuità operativa VMware completa. Questa soluzione offre i vantaggi del cloud pubblico di:
   * Elasticità
   * Innovazione
   * Efficienza
-* Con CloudSimple, trarre vantaggio da un modello di consumo cloud che consente di ridurre il costo totale di proprietà. Offre anche on demand il provisioning, pagamento come-di-aumento delle dimensioni e ottimizzazione della capacità.
+* Con CloudSimple è possibile trarre vantaggio da un modello di consumo cloud che riduce il costo totale di proprietà. Offre anche il provisioning su richiesta, il pagamento in base al consumo e l'ottimizzazione della capacità.
 * CloudSimple è completamente compatibile con:
   * Strumenti esistenti
   * Competenze
   * Processi
-* Questa compatibilità consente ai team di gestire carichi di lavoro nel cloud di Azure, senza interrompere i criteri:
+* Questa compatibilità consente ai team di gestire i carichi di lavoro nel cloud di Azure, senza compromettere i criteri:
   * Rete
   * Security  
   * Protezione dati  
   * Audit
-* CloudSimple gestisce l'infrastruttura e tutte le funzionalità di rete e gestione dei servizi necessari. Il servizio CloudSimple consente al team di concentrarsi su:
-  * Valore di Business
-  * Il provisioning dell'applicazione
+* CloudSimple gestisce l'infrastruttura e tutti i servizi di rete e gestione necessari. Il servizio CloudSimple consente al team di concentrarsi su:
+  * Valore di business
+  * Provisioning delle applicazioni
   * Continuità aziendale
   * Supporto
-  * Imposizione dei criteri
+  * Applicazione dei criteri
 
-## <a name="private-cloud-environment-overview"></a>Panoramica sull'ambiente di cloud privato
+## <a name="private-cloud-environment-overview"></a>Panoramica dell'ambiente del cloud privato
 
-Un cloud privato è uno stack VMware isolato, ad esempio in questi ambienti:
+Un cloud privato è uno stack VMware isolato, ad esempio questi ambienti:
 
 * Host ESXi
 * vCenter
 * vSAN
 * NSX
 
-I cloud privati gestiti da un server vCenter nel proprio dominio di gestione.
+I cloud privati vengono gestiti da un server vCenter nel proprio dominio di gestione.
 
-Lo stack di esecuzione in:
+Lo stack viene eseguito in:
 
 * Nodi dedicati
-* Nodi di tipo isolato hardware bare metal
+* Nodi hardware bare metal isolati
 
-Gli utenti utilizzano lo stack di tramite native strumenti VMware, tra cui:
+Gli utenti utilizzano lo stack tramite strumenti VMware nativi, tra cui:
 
 * vCenter
-* NSX Manager
+* Gestione NSX
 
-È possibile distribuire i nodi dedicati nella località di Azure. È quindi possibile gestirli con Azure e CloudSimple. Un cloud privato è costituito da uno o più cluster vSphere e ogni cluster contiene 3 a 16 nodi.
+È possibile distribuire nodi dedicati in località di Azure. È quindi possibile gestirli con Azure e CloudSimple. Un cloud privato è costituito da uno o più cluster vSphere e ogni cluster contiene da 3 a 16 nodi.
 
-È possibile creare un cloud privato utilizzando nodi sottoposte a provisioning:
+È possibile creare un cloud privato usando i nodi di cui è stato effettuato il provisioning:
 
-* Nodi con pagamento a consumo
-* Nodi riservati e prenotati
+* Nodi con pagamento in base al consumo
+* Nodi dedicati riservati
 
-È possibile connettersi al cloud privato per l'ambiente locale e rete di Azure Usa le connessioni seguenti:
+È possibile connettere il cloud privato all'ambiente locale e alla rete di Azure usando le connessioni seguenti:
 
 * Proteggere
-* VPN privato
+* VPN privata
 * Azure ExpressRoute
 
 L'ambiente cloud privato è progettato per eliminare un singolo punto di errore:
 
-* I cluster ESXi sono configurati con la disponibilità elevata di vSphere e vengono ridimensionati e hanno almeno un nodo di riserva per garantire la resilienza.
-* rete vSAN fornisce archiviazione primaria ridondanti. rete vSan richiede almeno tre nodi per garantire la protezione contro un singolo errore. È possibile configurare una rete vSAN per fornire maggiore resilienza per cluster di maggiori dimensioni.
-* È possibile configurare vCenter PSC e le macchine virtuali NSX Manager con i criteri di archiviazione RAID 10 per proteggere dagli errori di archiviazione. Quindi, che sono protette da vSphere a disponibilità elevata in caso di errori di nodo e di rete.
+* I cluster ESXi sono configurati con la disponibilità elevata di vSphere e sono dimensionati per avere almeno un nodo di riserva per la resilienza.
+* Rete VSAN fornisce archiviazione primaria ridondante. Rete VSAN richiede almeno tre nodi per garantire la protezione da un singolo errore. È possibile configurare rete VSAN per fornire una resilienza maggiore per i cluster più grandi.
+* È possibile configurare le VM vCenter, PSC e NSX Manager con i criteri di archiviazione RAID-10 per proteggersi da errori di archiviazione. Quindi, sono protetti da vSphere HA in caso di errori di nodo e di rete.
 
 ## <a name="scenarios-for-deploying-a-private-cloud"></a>Scenari per la distribuzione di un cloud privato
 
-* **Ritiro di centro dati o la migrazione**
+* **Ritiro o migrazione del Data Center**
 
-  * Ottenere capacità aggiuntiva quando si raggiungono i limiti del tuo Data Center esistente o l'aggiornamento dell'hardware.
-  * Aggiungere la capacità necessaria in the cloud ed eliminare le difficoltà legate alla gestione di aggiornamento dei componenti hardware.
-  * Ridurre i rischi e costi di migrazioni cloud, rispetto alle conversioni che richiedono molto tempo o rielaborazione.
-  * Usa familiari strumenti di VMware e le competenze per accelerare le migrazioni cloud. Nel cloud, utilizzare servizi di Azure per modernizzare le applicazioni in base alle esigenze.
+  * Ottenere capacità aggiuntiva quando si raggiungono i limiti del data center esistente o si aggiorna l'hardware.
+  * Aggiungere la capacità necessaria nel cloud ed eliminare i problemi di gestione degli aggiornamenti dell'hardware.
+  * Riduci il rischio e i costi delle migrazioni cloud, rispetto alle conversioni o alla riarchitettura dispendiose in termini di tempo.
+  * Usa strumenti e competenze VMware comuni per accelerare le migrazioni cloud. Nel cloud usare i servizi di Azure per modernizzare le applicazioni in modo più veloce.
 
-* **Espandere su richiesta**
+* **Espandi su richiesta**
 
-  * Espandere il cloud per soddisfare le esigenze di impreviste, ad esempio nuovi ambienti di sviluppo o picchi stagionali di capacità.
-  * Creare la nuova capacità su richiesta e mantenerla solo fino a quando ti serve.
-  * Ridurre l'investimento iniziale, accelerare la velocità di provisioning e ridurre la complessità con la stessa architettura e i criteri sia in locale e nel cloud.
+  * Espandersi nel cloud per soddisfare le esigenze impreviste, ad esempio nuovi ambienti di sviluppo o picchi di capacità stagionali.
+  * È possibile creare una nuova capacità su richiesta e mantenerla solo se necessario.
+  * Riduci gli investimenti iniziali, accelera la velocità di provisioning e Riduci la complessità con la stessa architettura e criteri sia in locale che nel cloud.
 
 * **Ripristino di emergenza e desktop virtuali nel cloud di Azure**
 
-  * Stabilire l'accesso remoto ai dati, App e i desktop nel cloud di Azure. Con connessioni a banda larga, caricare / scaricare i dati di velocità per il ripristino da eventi imprevisti. Assegnare le reti a bassa latenza veloce risposta volte per cui gli utenti si aspettano da un'app desktop.
+  * Consente di stabilire l'accesso remoto ai dati, alle app e ai desktop nel cloud di Azure. Con le connessioni a larghezza di banda elevata, i dati vengono caricati o scaricati velocemente per il ripristino dagli eventi imprevisti. Le reti a bassa latenza offrono tempi di risposta rapidi che gli utenti si aspettano da un'app desktop.
 
-  * Replicare tutti i criteri e la rete nel cloud usando il portale di CloudSimple e familiari strumenti VMware. La replica consente di ridurre il lavoro richiesto e il rischio di creare e gestire le implementazioni di ripristino di emergenza e VDI.
+  * Replicare tutti i criteri e le funzionalità di rete nel cloud usando il portale di CloudSimple e gli strumenti di VMware noti. Questa replica riduce l'impegno e il rischio di creare e gestire le implementazioni di ripristino di emergenza e di ripristino di emergenza.
 
-* **I database e applicazioni a prestazioni elevate**
+* **Applicazioni e database ad alte prestazioni**
 
-  * Eseguire i carichi di lavoro più impegnativi, con l'architettura iperconvergente fornita da CloudSimple.
-  * Eseguire Oracle, Microsoft SQL server, i sistemi di middleware e i database ad alte prestazioni. no-SQL.
+  * Esegui i tuoi carichi di lavoro più impegnativi con l'architettura iperconvergente fornita da CloudSimple.
+  * Eseguire Oracle, Microsoft SQL Server, i sistemi middleware e i database no-SQL ad alte prestazioni.
 
-  * Esperienza cloud come il proprio data center con connessioni di rete ad alta velocità da 25 Gbps. Connessioni ad alta velocità che consentono di eseguire App ibride che risiedono in locale, VMware in Azure, e i carichi di lavoro della privata Azure, senza compromettere le prestazioni.
+  * Scopri il cloud come data center con connessioni di rete a 25 Gbps ad alta velocità. Le connessioni ad alta velocità consentono di eseguire app ibride che si estendono in locale, VMware in Azure e carichi di lavoro privati di Azure, senza compromettere le prestazioni.
 
-* **Ibrido davvero**
+* **Vero ibrido**
 
-  * Unificare DevOps in tutti i servizi di Azure e VMware.
-  * Ottimizzare l'amministrazione di VMware per le soluzioni che possono essere applicate a tutti i tuoi carichi di lavoro e servizi di Azure.
-  * Accedere ai servizi di cloud pubblico senza la necessità di espandere il data center o ridefinizione dell'architettura delle applicazioni.
-  * Centralizzare le identità e criteri di controllo di accesso, registrazione e monitoraggio per le applicazioni di VMware in Azure.
+  * Unificare DevOps tra i servizi VMware e Azure.
+  * Ottimizza l'amministrazione VMware per i servizi e le soluzioni di Azure che possono essere applicati a tutti i tuoi carichi di lavoro.
+  * Accedi ai servizi cloud pubblici senza dover espandere il data center o riprogettare le tue applicazioni.
+  * Centralizzare le identità, i criteri di controllo degli accessi, la registrazione e il monitoraggio per le applicazioni VMware in Azure.
 
 ## <a name="limits"></a>Limiti
 
-Nella tabella seguente mostra i limiti di nodo per le risorse di un cloud privato.
+La tabella seguente illustra i limiti dei nodi sulle risorse di un cloud privato.
 
-| Resource | Limite |
+| Risorsa | Limite |
 |----------|-------|
-| Numero minimo di nodi per creare un cloud privato | 3 |
+| Numero minimo di nodi per la creazione di un cloud privato | 3 |
 | Numero massimo di nodi in un cluster in un cloud privato | 16 |
 | Numero massimo di nodi in un cloud privato | 64 |
 | Numero minimo di nodi in un nuovo cluster | 3 |

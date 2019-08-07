@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/13/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: c938d0badfdd23e78e7cf042b719d924aa4d3857
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
-ms.translationtype: MT
+ms.openlocfilehash: 58272bc1cceba6203445f011d7268471239b8ce7
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509869"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827457"
 ---
 | Category | Archivio dati | Supportato come origine | Supportato come sink | Supportato dal [runtime di integrazione di Azure](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Supportato dal [runtime di integrazione self-hosted](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) |
 |:--- |:--- |:--- |:--- |:--- |:--- |
@@ -28,7 +28,7 @@ ms.locfileid: "67509869"
 | &nbsp; |[Database di Azure per PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |✓ | |✓ |✓  |
 | &nbsp; |[Archiviazione file di Azure](../articles/data-factory/connector-azure-file-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Database SQL di Azure](../articles/data-factory/connector-azure-sql-database.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Istanza gestita di database SQL di Azure](../articles/data-factory/connector-azure-sql-database-managed-insance.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Istanza gestita di database SQL di Azure](../articles/data-factory/connector-azure-sql-database-managed-instance.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Indice di Ricerca di Azure](../articles/data-factory/connector-azure-search.md) | |✓ |✓ |✓  |
 | &nbsp; |[Archiviazione tabelle di Azure](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓ |✓ |✓  |

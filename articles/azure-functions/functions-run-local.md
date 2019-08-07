@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: cee91de9e0a5d75be258705f636248a6a6213664
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 16e12021a65a09376293f28efe9a6e9ef74ef5c2
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444057"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839562"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Usare Strumenti di base di Funzioni di Azure
 
@@ -279,7 +279,7 @@ Il comando `host` è richiesto solo nella versione 1.x.
 
 `func host start` supporta le opzioni seguenti:
 
-| Opzione     | DESCRIZIONE                            |
+| Opzione     | Descrizione                            |
 | ------------ | -------------------------------------- |
 | **`--no-build`** | Per il progetto corrente non viene creata una build prima dell'esecuzione. Solo per progetti dotnet. Il valore predefinito è false. Solo versione 2.x. |
 | **`--cert`** | Il percorso in un file con estensione pfx che contiene una chiave privata. Usato solo con `--useHttps`. Solo versione 2.x. |
@@ -314,7 +314,7 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 Per testare le funzioni localmente, [avviare l'host di Funzioni](#start) e chiamare gli endpoint nel server locale usando richieste HTTP. L'endpoint chiamato dipende dal tipo di funzione.
 
 >[!NOTE]
-> Gli esempi in questo argomento usano lo strumento cURL per inviare richieste HTTP dal terminale o da un prompt dei comandi. È possibile usare lo strumento preferito per inviare richieste HTTP al server locale. Lo strumento cURL è disponibile per impostazione predefinita nei sistemi basati su Linux. In Windows è necessario prima scaricare e installare lo [strumento cURL](https://curl.haxx.se/).
+> Gli esempi in questo argomento usano lo strumento cURL per inviare richieste HTTP dal terminale o da un prompt dei comandi. È possibile usare lo strumento preferito per inviare richieste HTTP al server locale. Lo strumento cURL è disponibile per impostazione predefinita nei sistemi basati su Linux e in Windows 10 Build 17063 e versioni successive. Nelle finestre precedenti è necessario prima scaricare e installare lo [strumento curl](https://curl.haxx.se/).
 
 Per informazioni più generali sui test delle funzioni, vedere [Strategie per il test del codice in Funzioni di Azure](functions-test-a-function.md).
 
@@ -412,7 +412,7 @@ Le seguenti opzioni di pubblicazione si applicano a entrambe le versioni, 1. x e
 
 Le opzioni di pubblicazione seguenti sono supportate solo nella versione 2.x:
 
-| Opzione     | Descrizione                            |
+| Opzione     | DESCRIZIONE                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only -o`** |  Pubblicare solo le impostazioni e ignorare il contenuto. Viene suggerito il valore predefinito. |
 |**`--list-ignored-files`** | Visualizza un elenco di file che vengono ignorati durante la pubblicazione basato sul file con estensione funcignore. |

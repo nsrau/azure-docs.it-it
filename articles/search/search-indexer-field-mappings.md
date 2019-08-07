@@ -10,31 +10,31 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 3546e342b535a122ea4ed3f844cd5e28a76d551a
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 771a6e413cd08a338da41c09cd6a0da35e28e5e4
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147799"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840648"
 ---
-# <a name="field-mappings-and-transformations-using-azure-search-indexers"></a>Mapping dei campi e le trasformazioni usando gli indicizzatori di ricerca di Azure
+# <a name="field-mappings-and-transformations-using-azure-search-indexers"></a>Mapping dei campi e trasformazioni usando gli indicizzatori di ricerca di Azure
 
-Quando si usano gli indicizzatori di ricerca di Azure, a volte si scopre che i dati di input non corrispondano allo schema dell'indice di destinazione. In questi casi, è possibile usare **mapping dei campi** per modificare la forma dei dati durante il processo di indicizzazione.
+Quando si usano gli indicizzatori di ricerca di Azure, talvolta si scopre che i dati di input non corrispondono esattamente allo schema dell'indice di destinazione. In questi casi, è possibile usare i **mapping dei campi** per modificare la forma dei dati durante il processo di indicizzazione.
 
 Alcune situazioni in cui i mapping dei campi sono utili:
 
-* L'origine dati include un campo denominato `_id`, ma ricerca di Azure non consente i nomi dei campi che iniziano con un carattere di sottolineatura. Un mapping dei campi consente di rinominare in modo efficace un campo.
-* Si vuole popolare diversi campi nell'indice dei dati di origine dati stessa. Ad esempio, voler applicare diversi analizzatori a questi campi.
-* Si vuole popolare un campo di indice con dati provenienti da più di un'origine dati e origini dati usano nomi campo diversi.
+* L'origine dati include un campo denominato `_id`, ma ricerca di Azure non consente i nomi di campo che iniziano con un carattere di sottolineatura. Un mapping dei campi consente di rinominare in modo efficace un campo.
+* Si desidera popolare più campi nell'indice dagli stessi dati dell'origine dati. Ad esempio, potrebbe essere necessario applicare diversi analizzatori a tali campi.
+* Si desidera popolare un campo di indice con dati da più di un'origine dati e le origini dati utilizzano nomi di campo diversi.
 * È necessaria la codifica o decodifica Base64 dei dati. I mapping dei campi supportano diverse **funzioni di mapping**, incluse quelle per la codifica e decodifica Base64.
 
 > [!NOTE]
-> La caratteristica di mapping campi di indicizzatori di ricerca di Azure fornisce un modo semplice per eseguire il mapping dei campi dati ai campi dell'indice, con alcune opzioni per la conversione dei dati. Dati più complessi potrebbe essere necessario pre-elaborazione per modificarne la forma in un form che è facile da indicizzare.
+> La funzionalità di mapping dei campi degli indicizzatori di ricerca di Azure offre un modo semplice per eseguire il mapping dei campi dati ai campi dell'indice, con alcune opzioni per la conversione dei dati. I dati più complessi potrebbero richiedere la pre-elaborazione per riformarli in un formato semplice da indicizzare.
 >
-> Microsoft Azure Data Factory è una potente soluzione basata sul cloud per l'importazione e la trasformazione dei dati. È anche possibile scrivere codice per trasformare i dati di origine prima dell'indicizzazione. Per esempi di codice, vedere [modellare dati relazionali](search-example-adventureworks-modeling.md) e [modellare facet multilivello](search-example-adventureworks-multilevel-faceting.md).
+> Microsoft Azure Data Factory è una potente soluzione basata sul cloud per l'importazione e la trasformazione dei dati. È anche possibile scrivere codice per trasformare i dati di origine prima dell'indicizzazione. Per esempi di codice, vedere modellare i facet [dei dati relazionali](search-example-adventureworks-modeling.md) e del modello a più [livelli](search-example-adventureworks-multilevel-faceting.md).
 >
 
-## <a name="set-up-field-mappings"></a>Configurare mapping dei campi
+## <a name="set-up-field-mappings"></a>Configurare i mapping dei campi
 
 Un mapping dei campi è costituito da tre parti:
 
@@ -42,11 +42,11 @@ Un mapping dei campi è costituito da tre parti:
 2. `targetFieldName`facoltativo, che rappresenta un campo nell'indice di ricerca. Se omesso, viene usato lo stesso nome nell'origine dati.
 3. `mappingFunction`facoltativo, che può trasformare i dati usando una delle varie funzioni predefinite. L'elenco completo delle funzioni è riportato [di seguito](#mappingFunctions).
 
-Mapping dei campi vengono aggiunti al `fieldMappings` matrice della definizione dell'indicizzatore.
+I mapping dei campi vengono aggiunti alla `fieldMappings` matrice della definizione dell'indicizzatore.
 
-## <a name="map-fields-using-the-rest-api"></a>Eseguire il mapping di campi usando l'API REST
+## <a name="map-fields-using-the-rest-api"></a>Eseguire il mapping dei campi con l'API REST
 
-È possibile aggiungere i mapping dei campi quando si crea un nuovo indicizzatore usando il [creare un indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-Indexer) richiesta dell'API. È possibile gestire i mapping dei campi di un indicizzatore esistente utilizzando il [aggiornamento dell'indicizzatore](https://docs.microsoft.com/rest/api/searchservice/update-indexer) richiesta dell'API.
+È possibile aggiungere i mapping dei campi quando si crea un nuovo indicizzatore usando la richiesta dell'API di [creazione](https://docs.microsoft.com/rest/api/searchservice/create-Indexer) dell'indicizzatore. È possibile gestire i mapping dei campi di un indicizzatore esistente usando la richiesta dell'API di [aggiornamento](https://docs.microsoft.com/rest/api/searchservice/update-indexer) dell'indicizzatore.
 
 Ad esempio, di seguito viene illustrato come eseguire il mapping di un campo di origine a un campo di destinazione con un nome diverso:
 
@@ -62,7 +62,7 @@ api-key: [admin key]
 }
 ```
 
-Un campo di origine può fare riferimento più mapping dei campi. Nell'esempio seguente viene illustrato come "biforcare" un campo, copiare lo stesso campo di origine in due campi di indice diverso:
+È possibile fare riferimento a un campo di origine in più mapping dei campi. Nell'esempio seguente viene illustrato come "biforcare" un campo, copiando lo stesso campo di origine in due campi di indice diversi:
 
 ```JSON
 
@@ -77,13 +77,13 @@ Un campo di origine può fare riferimento più mapping dei campi. Nell'esempio s
 >
 >
 
-## <a name="map-fields-using-the-net-sdk"></a>Eseguire il mapping di campi usando .NET SDK
+## <a name="map-fields-using-the-net-sdk"></a>Eseguire il mapping di campi con .NET SDK
 
-Si definiscono i mapping dei campi in .NET SDK usando il [FieldMapping](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.fieldmapping) classe, che presenta le proprietà `SourceFieldName` e `TargetFieldName`ed eventualmente `MappingFunction` riferimento.
+I mapping dei campi vengono definiti in .NET SDK usando la classe [FieldMapping](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.fieldmapping) , che include le proprietà `SourceFieldName` e `TargetFieldName`e un riferimento facoltativo `MappingFunction` .
 
-È possibile specificare i mapping dei campi quando si costruisce l'indicizzatore o in un secondo momento impostando direttamente i `Indexer.FieldMappings` proprietà.
+È possibile specificare i mapping dei campi quando si costruisce l'indicizzatore o in un secondo momento `Indexer.FieldMappings` impostando direttamente la proprietà.
 
-Il seguente C# esempio imposta i mapping dei campi quando si crea un indicizzatore.
+Nell'esempio C# seguente vengono impostati i mapping dei campi quando si costruisce un indicizzatore.
 
 ```csharp
   List<FieldMapping> map = new List<FieldMapping> {
@@ -107,12 +107,14 @@ Il seguente C# esempio imposta i mapping dei campi quando si crea un indicizzato
 
 ## <a name="field-mapping-functions"></a>Funzioni del mapping dei campi
 
-Una funzione di mapping di campo trasforma il contenuto di un campo prima di essere archiviato nell'indice. Attualmente sono supportate le funzioni di mapping seguente:
+Una funzione di mapping dei campi trasforma il contenuto di un campo prima di archiviarlo nell'indice. Attualmente sono supportate le funzioni di mapping seguenti:
 
 * [base64Encode](#base64EncodeFunction)
 * [base64Decode](#base64DecodeFunction)
 * [extractTokenAtPosition](#extractTokenAtPositionFunction)
 * [jsonArrayToStringCollection](#jsonArrayToStringCollectionFunction)
+* [urlEncode](#urlEncodeFunction)
+* [urlDecode](#urlDecodeFunction)
 
 <a name="base64EncodeFunction"></a>
 
@@ -120,11 +122,11 @@ Una funzione di mapping di campo trasforma il contenuto di un campo prima di ess
 
 Esegue la codifica Base64 *sicura per gli URL* della stringa di input. Si presuppone che l'input sia con codifica UTF-8.
 
-#### <a name="example---document-key-lookup"></a>Esempio: ricerca delle chiavi di documento
+#### <a name="example---document-key-lookup"></a>Esempio-ricerca chiave documento
 
-Caratteri solo sicuri per gli URL possono essere visualizzati in una chiave di documento di ricerca di Azure (perché i clienti devono essere in grado di risolvere il documento usando il [API di ricerca](https://docs.microsoft.com/rest/api/searchservice/lookup-document) ). Se il campo di origine per la chiave contiene caratteri non sicuri URL, è possibile usare il `base64Encode` funzione per convertirlo in fase di indicizzazione.
+In una chiave del documento di ricerca di Azure è possibile visualizzare solo i caratteri con URL sicuri, perché i clienti devono essere in grado di indirizzare il documento tramite l' [API di ricerca](https://docs.microsoft.com/rest/api/searchservice/lookup-document) . Se il campo di origine della chiave contiene caratteri non sicuri per gli URL, è possibile usare `base64Encode` la funzione per convertirlo in fase di indicizzazione.
 
-Quando si recupera la chiave codificata in fase di ricerca, è quindi possibile usare il `base64Decode` funzione per ottenere il valore della chiave originale e usarlo per recuperare il documento di origine.
+Quando si recupera la chiave codificata in fase di ricerca, è possibile usare la `base64Decode` funzione per ottenere il valore di chiave originale e usarlo per recuperare il documento di origine.
 
 ```JSON
 
@@ -139,19 +141,19 @@ Quando si recupera la chiave codificata in fase di ricerca, è quindi possibile 
   }]
  ```
 
-Se non si include una proprietà di parametri per la funzione di mapping, per impostazione predefinita al valore `{"useHttpServerUtilityUrlTokenEncode" : true}`.
+Se non si include una proprietà Parameters per la funzione di mapping, per impostazione predefinita viene impostato `{"useHttpServerUtilityUrlTokenEncode" : true}`il valore.
 
-Ricerca di Azure supporta due diverse codifiche Base64. È consigliabile usare gli stessi parametri durante la codifica e decodifica lo stesso campo. Per altre informazioni, vedere [opzioni di codifica base64](#base64details) per decidere quali parametri da usare.
+Ricerca di Azure supporta due codifiche Base64 diverse. Quando si codifica e decodifica lo stesso campo, è necessario utilizzare gli stessi parametri. Per ulteriori informazioni, vedere [Opzioni di codifica Base64](#base64details) per decidere quali parametri utilizzare.
 
 <a name="base64DecodeFunction"></a>
 
 ### <a name="base64decode-function"></a>base64Decode (funzione)
 
-Esegue la decodifica Base64 della stringa di input. L'input viene considerato come un *sicuri per gli URL* stringa con codifica Base64.
+Esegue la decodifica Base64 della stringa di input. Si presuppone che l'input sia una stringa con codifica Base64 sicura per gli *URL* .
 
-#### <a name="example---decode-blob-metadata-or-urls"></a>Esempio: decodificare i metadati del blob o URL
+#### <a name="example---decode-blob-metadata-or-urls"></a>Esempio: decodificare i metadati o gli URL del BLOB
 
-I dati di origine potrebbero contenere le stringhe con codifica Base64, ad esempio le stringhe dei metadati di blob o gli URL web, che si desidera eseguire la ricerca come testo normale. È possibile usare il `base64Decode` funzione per riconvertire i dati codificati in stringhe regolari durante il popolamento dell'indice di ricerca.
+I dati di origine potrebbero contenere stringhe con codifica Base64, ad esempio stringhe di metadati BLOB o URL Web, che si desidera rendere disponibili per la ricerca come testo normale. È possibile utilizzare la `base64Decode` funzione per trasformare i dati codificati nuovamente in stringhe regolari durante il popolamento dell'indice di ricerca.
 
 ```JSON
 
@@ -166,19 +168,19 @@ I dati di origine potrebbero contenere le stringhe con codifica Base64, ad esemp
   }]
 ```
 
-Se non si include una proprietà di parametri, per impostazione predefinita al valore `{"useHttpServerUtilityUrlTokenEncode" : true}`.
+Se non si include una proprietà Parameters, per impostazione predefinita viene impostato il `{"useHttpServerUtilityUrlTokenEncode" : true}`valore.
 
-Ricerca di Azure supporta due diverse codifiche Base64. È consigliabile usare gli stessi parametri durante la codifica e decodifica lo stesso campo. Per altre informazioni, vedere [opzioni di codifica base64](#base64details) per decidere quali parametri da usare.
+Ricerca di Azure supporta due codifiche Base64 diverse. Quando si codifica e decodifica lo stesso campo, è necessario utilizzare gli stessi parametri. Per informazioni dettagliate, vedere [Opzioni di codifica Base64](#base64details) per decidere quali parametri usare.
 
 <a name="base64details"></a>
 
 #### <a name="base64-encoding-options"></a>opzioni di codifica Base64
 
-Ricerca di Azure supporta due diverse codifiche Base64: **Token URL HttpServerUtility**, e **codifica base 64 sicura per gli URL senza spaziatura interna**. Una stringa con codifica base64 durante l'indicizzazione deve essere decodificata in un secondo momento con le stesse opzioni di codifica, altrimenti il risultato non corrisponde all'originale.
+Ricerca di Azure supporta due codifiche Base64 diverse: **Token URL HttpServerUtility**e **codifica Base64 con URL sicuro senza spaziatura interna**. Una stringa con codifica Base64 durante l'indicizzazione deve essere decodificata in un secondo momento con le stesse opzioni di codifica; in caso contrario, il risultato non corrisponderà a quello originale.
 
-Se il `useHttpServerUtilityUrlTokenEncode` oppure `useHttpServerUtilityUrlTokenDecode` parametri per la codifica e decodifica rispettivamente vengono impostati `true`, quindi `base64Encode` si comporta come [HttpServerUtility. UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) e `base64Decode` si comporta come [UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
+Se rispettivamente `useHttpServerUtilityUrlTokenEncode` i `useHttpServerUtilityUrlTokenDecode` parametri o per la codifica e la `base64Encode` decodifica sono impostati `true`su, si comporta come [HttpServerUtility. UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) e `base64Decode` si comporta come [ HttpServerUtility. UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
 
-Se non si usa la versione completa di .NET Framework (vale a dire, si usa un altro framework o .NET Core) per produrre i valori delle chiavi per emulare il comportamento di ricerca di Azure, è necessario impostare `useHttpServerUtilityUrlTokenEncode` e `useHttpServerUtilityUrlTokenDecode` a `false`. A seconda della libreria usata, la codifica base64 e la decodifica funzioni potrebbero essere diversi da quelli usati da ricerca di Azure.
+Se non si usa la .NET Framework completa (ovvero si usa .NET Core o un altro Framework) per produrre i valori chiave per emulare il comportamento di ricerca di Azure, è necessario impostare `useHttpServerUtilityUrlTokenEncode` e `useHttpServerUtilityUrlTokenDecode` su `false`. A seconda della libreria in uso, le funzioni di codifica e decodifica Base64 potrebbero essere diverse da quelle usate da ricerca di Azure.
 
 La tabella seguente confronta diverse codifiche Base64 della stringa `00>00?00`. Per determinare l'eventuale elaborazione aggiuntiva necessaria per le funzioni Base64, applicare la funzione di codifica della libreria nella stringa `00>00?00` e confrontare l'output con l'output previsto `MDA-MDA_MDA`.
 
@@ -195,14 +197,14 @@ La tabella seguente confronta diverse codifiche Base64 della stringa `00>00?00`.
 
 Divide un campo stringa usando il delimitatore specificato e sceglie il token nella posizione specificata della divisione risultante.
 
-Questa funzione Usa i parametri seguenti:
+Questa funzione usa i parametri seguenti:
 
 * `delimiter`: stringa da usare come separatore quando si divide la stringa di input.
 * `position`: posizione in base zero di tipo integer del token da scegliere dopo la divisione della stringa di input.
 
 Ad esempio, se l'input è `Jane Doe`, `delimiter` è `" "` (spazio) e `position` è 0, il risultato è `Jane`; se `position` è 1, il risultato è `Doe`. Se la posizione fa riferimento a un token che non esiste, viene restituito un errore.
 
-#### <a name="example---extract-a-name"></a>Esempio - extract un nome
+#### <a name="example---extract-a-name"></a>Esempio: estrarre un nome
 
 L'origine dati contiene un campo `PersonName` e si vuole indicizzarla come due campi separati, `FirstName` e `LastName`. È possibile usare questa funzione per dividere l'input usando il carattere spazio come delimitatore.
 
@@ -223,15 +225,15 @@ L'origine dati contiene un campo `PersonName` e si vuole indicizzarla come due c
 
 <a name="jsonArrayToStringCollectionFunction"></a>
 
-### <a name="jsonarraytostringcollection-function"></a>jsonArrayToStringCollection function
+### <a name="jsonarraytostringcollection-function"></a>jsonArrayToStringCollection (funzione)
 
 Trasforma una stringa formattata come matrice di stringhe JSON in una matrice di stringhe che può essere usata per popolare un campo `Collection(Edm.String)` nell'indice.
 
 Ad esempio, se la stringa di input è `["red", "white", "blue"]`, il campo di destinazione di tipo `Collection(Edm.String)` viene popolato con i tre valori `red`, `white` e `blue`. Per i valori di input che non possono essere analizzati come matrici di stringhe JSON, viene restituito un errore.
 
-#### <a name="example---populate-collection-from-relational-data"></a>Esempio - popolare raccolta da dati relazionali
+#### <a name="example---populate-collection-from-relational-data"></a>Esempio: popolare la raccolta da dati relazionali
 
-Database SQL di Azure non ha un tipo di dati incorporato che esegue normalmente il mapping a `Collection(Edm.String)` campi in ricerca di Azure. Per popolare i campi stringa della raccolta, è possibile pre-elaborare i dati di origine come matrice di stringhe JSON e quindi usare il `jsonArrayToStringCollection` funzione di mapping.
+Il database SQL di Azure non ha un tipo di dati incorporato che esegue naturalmente `Collection(Edm.String)` il mapping ai campi in ricerca di Azure. Per popolare i campi della raccolta di stringhe, è possibile pre-elaborare i dati di origine come una matrice di stringhe `jsonArrayToStringCollection` JSON e quindi usare la funzione di mapping.
 
 ```JSON
 
@@ -242,4 +244,52 @@ Database SQL di Azure non ha un tipo di dati incorporato che esegue normalmente 
   }]
 ```
 
-Per un esempio dettagliato che trasforma i dati relazionali in campi di raccolta dell'indice, vedere [modellare dati relazionali](search-example-adventureworks-modeling.md).
+Per un esempio dettagliato che trasforma dati relazionali in campi di raccolta di indici, vedere [modellare dati relazionali](search-example-adventureworks-modeling.md).
+
+<a name="urlEncodeFunction"></a>
+
+### <a name="urlencode-function"></a>funzione urlEncode
+
+Questa funzione può essere usata per codificare una stringa in modo che sia "URL sicuro". Quando viene usato con una stringa che contiene caratteri non consentiti in un URL, questa funzione convertirà tali caratteri "unsafe" in equivalenti di entità carattere. Questa funzione usa il formato di codifica UTF-8.
+
+#### <a name="example---document-key-lookup"></a>Esempio-ricerca chiave documento
+
+`urlEncode`la funzione può essere usata come alternativa alla funzione `base64Encode` , se devono essere convertiti solo i caratteri unsafe URL, mantenendo gli altri caratteri così come sono.
+
+Supponiamo che la stringa di `<hello>` input sia, quindi il campo di `(Edm.String)` destinazione di tipo verrà popolato con il valore`%3chello%3e`
+
+Quando si recupera la chiave codificata in fase di ricerca, è possibile usare la `urlDecode` funzione per ottenere il valore di chiave originale e usarlo per recuperare il documento di origine.
+
+```JSON
+
+"fieldMappings" : [
+  {
+    "sourceFieldName" : "SourceKey",
+    "targetFieldName" : "IndexKey",
+    "mappingFunction" : {
+      "name" : "urlEncode"
+    }
+  }]
+ ```
+
+ <a name="urlDecodeFunction"></a>
+
+ ### <a name="urldecode-function"></a>urlDecode (funzione)
+
+ Questa funzione converte una stringa codificata in URL in una stringa decodificata usando il formato di codifica UTF-8.
+
+ ### <a name="example---decode-blob-metadata"></a>Esempio: decodifica dei metadati del BLOB
+
+ Alcuni client di archiviazione di Azure URL codificano automaticamente i metadati del BLOB se contengono caratteri non ASCII. Tuttavia, se si desidera rendere tali metadati ricercabili (come testo normale), è possibile utilizzare la `urlDecode` funzione per trasformare i dati codificati in stringhe regolari durante il popolamento dell'indice di ricerca.
+
+ ```JSON
+
+"fieldMappings" : [
+  {
+    "sourceFieldName" : "UrlEncodedMetadata",
+    "targetFieldName" : "SearchableMetadata",
+    "mappingFunction" : {
+      "name" : "urlDecode"
+    }
+  }]
+ ```

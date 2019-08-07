@@ -12,18 +12,18 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed4e7559ff6c3b76bbdf49b538ffebf3ad09cc58
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0aa63a8f06b71455b7f00d2ce5842f0da851789b
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66001223"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835463"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Credenziali del certificato per l'autenticazione dell'applicazione
 
@@ -98,10 +98,10 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ### <a name="uploading-the-certificate-file"></a>Caricamento del file del certificato
 
 Nella registrazione dell'app di Azure per l'applicazione client:
-1. Selezionare **certificati e i segreti**. 
-2. Fare clic su **carica certificato** e selezionare il file di certificato da caricare.
+1. Selezionare **Certificati e segreti**. 
+2. Fare clic su **Carica certificato** e selezionare il file di certificato da caricare.
 3. Fare clic su **Aggiungi**.
-  Dopo il caricamento del certificato, l'identificazione personale, data di inizio e scadenza valori vengono visualizzati. 
+  Una volta caricato il certificato, vengono visualizzati i valori di identificazione personale, data di inizio e scadenza. 
 
 ### <a name="updating-the-application-manifest"></a>Aggiornamento del manifesto dell'applicazione
 

@@ -10,7 +10,7 @@ ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/15/2019
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf5ee766a1db51e14ca5bc6ee2d447e3db374683
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 4bc671080a05e2c4e27fabcbab5cc40b9717dc85
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276783"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834887"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Esempi di codice di Azure Active Directory (endpoint v1.0)
 
@@ -81,14 +81,14 @@ Gli esempi seguenti illustrano le applicazioni client pubbliche (applicazioni de
 
 Applicazione client | Piattaforma | Flusso/Concessione | Chiama Microsoft Graph | Chiama un'API Web ASP.NET Core 2.x o ASP.NET
 ------------------ | -------- | ---------- | -------------------- | -------------------------
-Desktop (WPF)           | ![Questa immagine mostra il logo .NETC# /](media/sample-v2-code/logo_NET.png)  | Interattività | Parte di [dotnet-native-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) | [dotnet-native-desktop](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop) </p> [dotnet-native-aspnetcore](https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore/)</p> [dotnet-webapi-manual-jwt-validation](https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation)
-Dispositivi mobili (UWP)            | .![Questa immagine mostra .NET/C#/UWP](media/sample-v2-code/logo_Windows.png)   | Interattività | [dotnet-native-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) </p> Questo esempio usa [WAM](/windows/uwp/security/web-account-manager), non [ADAL.NET](https://aka.ms/adalnet)|  [dotnet-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-windows-store) (applicazione UWP che usa ADAL.NET per chiamare un'API Web a tenant singolo) </p> [dotnet-webapi-multitenant-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store) (applicazione UWP che usa ADAL.NET per chiamare un'API Web multi-tenant)|
-Dispositivi mobili (Android, iOS, UWP)   | ![Questa immagine mostra .NET/C# (Novell)](media/sample-v2-code/logo_xamarin.png) | Interattività | [dotnet-native-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) |
-Dispositivi mobili (Android)           | ![Questa immagine mostra il logo Android](media/sample-v2-code/logo_Android.png) | Interattività |   [android](https://github.com/Azure-Samples/active-directory-android) |
-Dispositivi mobili (iOS)           | ![Questa immagine mostra iOS/Objective C o SWIFT](media/sample-v2-code/logo_iOS.png) | Interattività |   [nativeClient-iOS](https://github.com/azureadquickstarts/nativeclient-ios) |
-Desktop (Console)          | ![Questa immagine mostra il logo .NETC# /](media/sample-v2-code/logo_NET.png) | Nome utente/password </p>  Autenticazione integrata di Windows | | [dotnet-native-headless](https://github.com/azure-samples/active-directory-dotnet-native-headless)
+Desktop (WPF)           | ![Questa immagine mostra il logo .NETC# /](media/sample-v2-code/logo_NET.png)  | Interattivo | Parte di [dotnet-native-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) | [dotnet-native-desktop](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop) </p> [dotnet-native-aspnetcore](https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore/)</p> [dotnet-webapi-manual-jwt-validation](https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation)
+Dispositivi mobili (UWP)            | .![Questa immagine mostra .NET/C#/UWP](media/sample-v2-code/logo_Windows.png)   | Interattivo | [dotnet-native-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) </p> Questo esempio usa [WAM](/windows/uwp/security/web-account-manager), non [ADAL.NET](https://aka.ms/adalnet)|  [dotnet-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-windows-store) (applicazione UWP che usa ADAL.NET per chiamare un'API Web a tenant singolo) </p> [dotnet-webapi-multitenant-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store) (applicazione UWP che usa ADAL.NET per chiamare un'API Web multi-tenant)|
+Dispositivi mobili (Android, iOS, UWP)   | ![Questa immagine mostra .NET/C# (Novell)](media/sample-v2-code/logo_xamarin.png) | Interattivo | [dotnet-native-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) |
+Dispositivi mobili (Android)           | ![Questa immagine mostra il logo Android](media/sample-v2-code/logo_Android.png) | Interattivo |   [android](https://github.com/Azure-Samples/active-directory-android) |
+Dispositivi mobili (iOS)           | ![Questa immagine mostra iOS/Objective C o SWIFT](media/sample-v2-code/logo_iOS.png) | Interattivo |   [nativeClient-iOS](https://github.com/azureadquickstarts/nativeclient-ios) |
+Desktop (Console)          | ![Questa immagine mostra il logo .NETC# /](media/sample-v2-code/logo_NET.png) | Nome utente/password </p>  Autenticazione di Windows integrata | | [dotnet-native-headless](https://github.com/azure-samples/active-directory-dotnet-native-headless)
 Desktop (Console)          | ![Questa immagine mostra il logo Java](media/sample-v2-code/logo_Java.png) | Nome utente/password | | [java-native-headless](https://github.com/Azure-Samples/active-directory-java-native-headless)
-Desktop (Console)           | ![Questa immagine mostra il logo eC# .NET Core](media/sample-v2-code/logo_NETcore.png) | Flusso del codice del dispositivo | | [dotnet-deviceprofile](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
+Desktop (Console)           | ![Questa immagine mostra il logo eC# .NET Core](media/sample-v2-code/logo_NETcore.png) | Flusso di codice del dispositivo | | [dotnet-deviceprofile](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
 
 ## <a name="daemon-applications-accessing-web-apis-with-the-applications-identity"></a>Applicazioni daemon (accesso alle API Web con l'identità dell'applicazione)
 
@@ -98,7 +98,7 @@ Applicazione client | Piattaforma | Flusso/Concessione | Chiama un'API Web ASP.N
 ------------------ | -------- | ---------- | -------------------- 
 App daemon (Console)          | ![Questa immagine mostra il logo .NET](media/sample-v2-code/logo_NETframework.png) | Credenziali del client con certificato o segreto dell'app | [dotnet-daemon](https://github.com/azure-samples/active-directory-dotnet-daemon)</p> [dotnet-daemon-certificate-credential](https://github.com/azure-samples/active-directory-dotnet-daemon-certificate-credential)
 App daemon (Console)         | ![Questa immagine mostra il logo .NET](media/sample-v2-code/logo_NETcore.png) | Credenziali del client con certificato| [dotnetcore-daemon-certificate-credential](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-certificate-credential)
-App Web ASP.NET  | ![Questa immagine mostra il logo .NET](media/sample-v2-code/logo_NETframework.png) | Credenziali del client | [dotnet-webapp-webapi-oauth2-appidentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-appidentity)
+App Web ASP.NET  | ![Questa immagine mostra il logo .NET](media/sample-v2-code/logo_NETframework.png) | Credenziali client | [dotnet-webapp-webapi-oauth2-appidentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-appidentity)
 
 ## <a name="web-apis"></a>API Web
 

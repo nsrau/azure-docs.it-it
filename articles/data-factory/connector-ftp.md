@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 0e1127d90aeb4c59687ac4df7fb7ebae1901cee8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e07d976ba1d4fbb77a995056b3596967b686200b
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65228437"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839829"
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Copiare dati da un server FTP usando Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 >
 > * [Versione 1](v1/data-factory-ftp-connector.md)
 > * [Versione corrente](connector-ftp.md)
@@ -29,9 +29,9 @@ Questo articolo illustra come copiare dati da un server FTP. Per altre informazi
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
-Il connettore FTP è supportato per le attività seguenti:
+Questo connettore FTP è supportato per le attività seguenti:
 
-- [Attività di copia](copy-activity-overview.md) con [supportata matrice di origine/sink](copy-activity-overview.md)
+- [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
 - [Attività GetMetadata](control-flow-get-metadata-activity.md)
 
@@ -52,7 +52,7 @@ Per il servizio collegato di FTP sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **FtpServer**. | Yes |
+| type | La proprietà type deve essere impostata su: **FtpServer**. | Sì |
 | host | Specificare il nome o indirizzo IP del server FTP. | Yes |
 | port | Specificare la porta su cui è in ascolto il server FTP.<br/>I valori consentiti sono: integer; il valore predefinito è **21**. | No |
 | enableSsl | Specificare se usare FTP su un canale SSL/TLS.<br/>I valori consentiti sono: **true** (predefinito), **false**. | No |
@@ -118,21 +118,21 @@ Per il servizio collegato di FTP sono supportate le proprietà seguenti:
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md). 
 
-- Per la **Parquet e del formato di testo delimitato**, fare riferimento a [set di dati di formato Parquet e testo delimitato](#parquet-and-delimited-text-format-dataset) sezione.
-- Per altri formati, ad esempio **formato ORC/Avro/JSON/binario**, fare riferimento a [altri set di dati di formato](#other-format-dataset) sezione.
+- Per **parquet, testo delimitato e formato binario**, fare riferimento alla sezione [set di dati in formato parquet, testo delimitato e formato binario](#format-based-dataset) .
+- Per altri formati come il **formato ORC/avro/JSON**, vedere la sezione [altro set di dati di formato](#other-format-dataset) .
 
-### <a name="parquet-and-delimited-text-format-dataset"></a>Set di dati di formato parquet e testo delimitato
+### <a name="format-based-dataset"></a>Set di dati in formato testo e binario delimitato in parquet
 
-Per copiare dati da FTP in **Parquet o formato di testo delimitato**, fare riferimento a [formato Parquet](format-parquet.md) e [formato di testo delimitato](format-delimited-text.md) articolo nel set di dati in base al formato e le impostazioni supportate . Sono supportate le proprietà seguenti per il FTP in `location` impostazioni nel set di dati in base al formato:
+Per copiare dati da **parquet, formato testo delimitato o binario**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md) e [formato binario](format-binary.md) nel set di dati basato su formato e impostazioni supportate. Le proprietà seguenti sono supportate per FTP `location` in impostazioni nel set di dati basato su formato:
 
 | Proprietà   | Descrizione                                                  | Obbligatoria |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | La proprietà del tipo sotto `location` nel set di dati deve essere impostata su **FtpServerLocation**. | Yes      |
-| folderPath | Il percorso di cartella. Se si desidera utilizzare con caratteri jolly alla cartella di filtro, ignorare questa impostazione e specificare nelle impostazioni di origine di attività. | No       |
-| fileName   | Il nome del file in folderPath specificato. Se si desidera utilizzare con caratteri jolly per filtrare i file, ignorare questa impostazione e specificare nelle impostazioni di origine di attività. | No       |
+| type       | La proprietà `location` Type nel set di dati deve essere impostata su **FtpServerLocation**. | Sì      |
+| folderPath | Percorso della cartella. Se si vuole usare il carattere jolly per filtrare la cartella, ignorare questa impostazione e specificare nelle impostazioni dell'origine dell'attività. | No       |
+| fileName   | Nome del file sotto il folderPath specificato. Se si vuole usare il carattere jolly per filtrare i file, ignorare questa impostazione e specificare nelle impostazioni dell'origine dell'attività. | No       |
 
 > [!NOTE]
-> **Condivisione file** tipo set di dati con formato Parquet, Text indicato nella sezione successiva è ancora supportata come-per attività di copia/ricerca/GetMetadata per garantire la compatibilità con le versioni precedenti. Consigliabile per usare questo nuovo modello in futuro e Azure Data factory di creazione dell'interfaccia utente è stata attivata per la generazione di questi nuovi tipi.
+> Il set di dati di tipo FileShare con formato parquet/testo indicato nella sezione successiva è ancora supportato così com'è per l'attività di copia/ricerca/GetMetadata per la compatibilità con le versioni precedenti. Si consiglia di usare questo nuovo modello in futuro e l'interfaccia utente di creazione di ADF ha cambiato la generazione di questi nuovi tipi.
 
 **Esempio:**
 
@@ -160,9 +160,9 @@ Per copiare dati da FTP in **Parquet o formato di testo delimitato**, fare rifer
 }
 ```
 
-### <a name="other-format-dataset"></a>Altri set di dati di formato
+### <a name="other-format-dataset"></a>Set di dati di altri formati
 
-Per copiare dati da FTP in **formato ORC/Avro/JSON/binario**, sono supportate le proprietà seguenti:
+Per copiare dati da FTP in **formato ORC/avro/JSON**, sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
@@ -213,26 +213,26 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 ### <a name="ftp-as-source"></a>FTP come origine
 
-- Per la copia da **Parquet e del formato di testo delimitato**, fare riferimento a [Parquet e testo delimitato formato origine](#parquet-and-delimited-text-format-source) sezione.
-- Per la copia da altri formati, ad esempio **formato ORC/Avro/JSON/binario**, fare riferimento a [altra origine formato](#other-format-source) sezione.
+- Per eseguire la copia da **parquet, testo delimitato e formato binario**, vedere la sezione relativa all' [origine del formato binario e del testo delimitato in parquet](#format-based-source) .
+- Per eseguire la copia da altri formati, ad esempio il **formato ORC/avro/JSON**, vedere la sezione [altra origine del formato](#other-format-source) .
 
-#### <a name="parquet-and-delimited-text-format-source"></a>Parquet e testo delimitato formato origine
+#### <a name="format-based-source"></a>Parquet, testo delimitato e origine del formato binario
 
-Per copiare dati da FTP in **Parquet o formato di testo delimitato**, fare riferimento a [formato Parquet](format-parquet.md) e [formato di testo delimitato](format-delimited-text.md) articolo sull'origine dell'attività copy in base al formato e impostazioni supportate. Sono supportate le proprietà seguenti per il FTP in `storeSettings` le impostazioni di origine della copia in base al formato:
+Per copiare dati da **parquet, formato testo delimitato o binario**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md) e [formato binario](format-binary.md) in origine dell'attività di copia basata su formato e impostazioni supportate. Le proprietà seguenti sono supportate per FTP `storeSettings` in impostazioni in origine copia basata sul formato:
 
 | Proprietà                 | Descrizione                                                  | Obbligatoria                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | La proprietà del tipo sotto `storeSettings` deve essere impostata su **FtpReadSetting**. | Yes                                           |
+| type                     | La proprietà Type in `storeSettings` deve essere impostata su **FtpReadSetting**. | Sì                                           |
 | recursive                | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che quando la proprietà recursive è impostata su true e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. I valori consentiti sono **true** (predefinito) e **false**. | No                                            |
-| wildcardFolderPath       | Il percorso della cartella con caratteri jolly per filtrare le cartelle di origine. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape. <br>Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | No                                            |
-| wildcardFileName         | Il nome di file con caratteri jolly in folderPath/wildcardFolderPath specificata per filtrare i file di origine. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape.  Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | Sì se `fileName` non è specificato nel set di dati |
+| wildcardFolderPath       | Percorso della cartella con caratteri jolly per filtrare le cartelle di origine. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape. <br>Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | No                                            |
+| wildcardFileName         | Nome file con caratteri jolly sotto il folderPath/wildcardFolderPath specificato per filtrare i file di origine. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape.  Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | Sì se `fileName` non è specificato nel DataSet |
 | modifiedDatetimeStart    | Filtro di file basato sull'attributo: Ultima modifica. I file vengono selezionati se l'ora dell'ultima modifica è inclusa nell'intervallo di tempo tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata con il fuso orario UTC e il formato "2018-12-01T05:00:00Z". <br> Le proprietà possono essere NULL, a indicare che al set di dati non viene applicato alcun filtro di attributo di file.  Quando `modifiedDatetimeStart` ha un valore datetime ma `modifiedDatetimeEnd` è NULL, vengono selezionati i file il cui ultimo attributo modificato è maggiore o uguale al valore datetime.  Quando `modifiedDatetimeEnd` ha un valore datetime ma `modifiedDatetimeStart` è NULL vengono selezionati i file il cui ultimo attributo modificato è minore del valore datetime. | No                                            |
 | modifiedDatetimeEnd      | Come sopra.                                               | No                                            |
-| useBinaryTransfer        | Specificare se utilizzare la modalità di trasferimento binario per gli archivi di FTP. I valori sono true per la modalità binaria (predefinita) e false per ASCII. | No                                            |
-| maxConcurrentConnections | Il numero delle connessioni per connettersi all'archivio di archiviazione simultaneamente. Specificare solo quando si desidera limitare le connessioni simultanee all'archivio dati. | N.                                            |
+| useBinaryTransfer        | Specificare se utilizzare la modalità di trasferimento binario per gli archivi FTP. I valori sono true per la modalità binaria (predefinita) e false per ASCII. | No                                            |
+| maxConcurrentConnections | Numero di connessioni simultanee per la connessione all'archivio di archiviazione. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | N.                                            |
 
 > [!NOTE]
-> Per formato di testo delimitato/Parquet **FileSystemSource** origine dell'attività copy tipo indicato nella sezione successiva è ancora supportata come-sia per compatibilità con le versioni precedenti. Consigliabile per usare questo nuovo modello in futuro e Azure Data factory di creazione dell'interfaccia utente è stata attivata per la generazione di questi nuovi tipi.
+> Per il formato di testo parquet/delimitato, l'origine dell'attività di copia di tipo **FileSystemSource** citata nella sezione successiva è ancora supportata così com'è per la compatibilità con le versioni precedenti. Si consiglia di usare questo nuovo modello in futuro e l'interfaccia utente di creazione di ADF ha cambiato la generazione di questi nuovi tipi.
 
 **Esempio:**
 
@@ -275,15 +275,15 @@ Per copiare dati da FTP in **Parquet o formato di testo delimitato**, fare rifer
 ]
 ```
 
-#### <a name="other-format-source"></a>Altra origine di formato
+#### <a name="other-format-source"></a>Altra origine del formato
 
-Per copiare dati da FTP in **formato ORC/Avro/JSON/binario**, nell'attività di copia sono supportate le proprietà seguenti **origine** sezione:
+Per copiare dati da FTP in **formato ORC/avro/JSON**, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine di attività di copia deve essere impostata su: **FileSystemSource** |Sì |
 | recursive | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che se recursive è impostata su true e il sink è un archivio basato su file, la cartella o la sottocartella vuota non verrà copiata o creata nel sink.<br/>I valori consentiti sono: **true** (predefinito), **false** | No |
-| maxConcurrentConnections | Il numero delle connessioni per connettersi all'archivio di archiviazione simultaneamente. Specificare solo quando si desidera limitare le connessioni simultanee all'archivio dati. | No |
+| maxConcurrentConnections | Numero di connessioni simultanee per la connessione all'archivio di archiviazione. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No |
 
 **Esempio:**
 
@@ -323,10 +323,10 @@ Questa sezione descrive il comportamento risultante del percorso cartella e del 
 
 | folderPath | fileName | recursive | Struttura delle cartelle di origine e risultato del filtro (i file in **grassetto** sono stati recuperati)|
 |:--- |:--- |:--- |:--- |
-| `Folder*` | (vuoto, usare valore predefinito) | false | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>AltraCartellaB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
-| `Folder*` | (vuoto, usare valore predefinito) | true | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File4.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>AltraCartellaB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
-| `Folder*` | `*.csv` | false | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>AltraCartellaB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
-| `Folder*` | `*.csv` | true | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>AltraCartellaB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
+| `Folder*` | (vuoto, usare valore predefinito) | false | CartellaA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>AltraCartellaB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
+| `Folder*` | (vuoto, usare valore predefinito) | true | CartellaA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File4.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>AltraCartellaB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
+| `Folder*` | `*.csv` | false | CartellaA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>AltraCartellaB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
+| `Folder*` | `*.csv` | true | CartellaA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>AltraCartellaB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md##supported-data-stores-and-formats).

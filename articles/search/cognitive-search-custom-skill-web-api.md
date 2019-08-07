@@ -10,22 +10,23 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seojan2018
-ms.openlocfilehash: e1ca8a5ce7b615ed8d84c91d8a0d72098c175c44
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.subservice: cognitive-search
+ms.openlocfilehash: 0451778d9b3bb29d06551c881b9f674ef7a74ab3
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672125"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841216"
 ---
 # <a name="custom-web-api-skill"></a>Competenza API Web personalizzata
 
-Il **API Web personalizzata** competenze consente di estendere ricerca cognitiva chiamando un endpoint dell'API Web che fornisce operazioni personalizzate. Analogamente alle competenze predefinite, una competenza **API Web personalizzata** ha input e output. In base agli input, l'API Web riceve un payload JSON durante le esecuzioni dell'indicizzatore e restituisce un payload JSON sotto forma di risposta, con un codice di stato di esito positivo. È previsto che la risposta abbia gli output specificati dalla competenza personalizzata. Qualsiasi altra risposta è considerata un errore e non vengono eseguiti arricchimenti.
+La competenza dell' **API Web personalizzata** consente di estendere la ricerca cognitiva chiamando un endpoint API Web che fornisce operazioni personalizzate. Analogamente alle competenze predefinite, una competenza **API Web personalizzata** ha input e output. A seconda degli input, l'API Web riceve un payload JSON quando l'indicizzatore viene eseguito e restituisce un payload JSON come risposta, insieme a un codice di stato di esito positivo. È previsto che la risposta abbia gli output specificati dalla competenza personalizzata. Qualsiasi altra risposta è considerata un errore e non vengono eseguiti arricchimenti.
 
 La struttura dei payload JSON è descritta in dettaglio più avanti in questo documento.
 
 > [!NOTE]
 > L'indicizzatore riproverà due volte per determinati codici di stato HTTP standard restituiti dall'API Web. Questi codici di stato HTTP sono: 
+> * `502 Bad Gateway`
 > * `503 Service Unavailable`
 > * `429 Too Many Requests`
 
@@ -36,12 +37,12 @@ Microsoft.Skills.Custom.WebApiSkill
 
 I parametri fanno distinzione tra maiuscole e minuscole.
 
-| Nome parametro     | Descrizione |
+| Nome parametro     | DESCRIZIONE |
 |--------------------|-------------|
-| Uri | L'URI dell'API Web a cui il _JSON_ payload verrà inviato. È consentito solo lo schema URI **https** |
+| URI | URI dell'API Web a cui verrà inviato il payload _JSON_ . È consentito solo lo schema URI **https** |
 | httpMethod | Metodo da usare per l'invio del payload. I metodi consentiti sono `PUT` o `POST` |
 | httpHeaders | Raccolta di coppie chiave-valore in cui le chiavi corrispondono ai nomi di intestazione e i valori rappresentano i valori di intestazione che verranno inviati all'API Web insieme al payload. In questa raccolta è proibito l'uso delle intestazioni seguenti: `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
-| timeout | (facoltativo) Se specificato, indica il timeout per il client HTTP che effettua la chiamata API. Il valore deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore [duration ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Ad esempio, `PT60S` per 60 secondi. Se non impostato, viene scelto un valore predefinito di 30 secondi. Il timeout può essere impostato su un massimo di 90 secondi e un minimo di 1 secondo. |
+| timeout | (facoltativo) Se specificato, indica il timeout per il client HTTP che effettua la chiamata API. Il valore deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore [duration ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Ad esempio, `PT60S` per 60 secondi. Se non impostato, viene scelto un valore predefinito di 30 secondi. Il timeout può essere impostato su un massimo di 230 secondi e un minimo di 1 secondo. |
 | batchSize | (facoltativo) Indica quanti "record di dati" (vedere la struttura del payload _JSON_ più avanti) verranno inviati per ogni chiamata API. Se non impostato, viene scelto un valore predefinito di 1000. È consigliabile usare questo parametro per ottenere un compromesso accettabile tra velocità effettiva di indicizzazione e carico sull'API |
 
 ## <a name="skill-inputs"></a>Input competenze
@@ -139,10 +140,10 @@ Seguirà sempre questi vincoli:
 
 ## <a name="sample-output-json-structure"></a>Struttura JSON di output di esempio
 
-Il "output" corrisponde alla risposta restituita dall'API Web. L'API Web deve restituire solo un _JSON_ payload (verificato esaminando il `Content-Type` intestazione della risposta) e devono soddisfare i vincoli seguenti:
+L'output corrisponde alla risposta restituita dall'API Web. L'API Web deve restituire solo un payload _JSON_ (verificato osservando l'intestazione `Content-Type` della risposta) e deve soddisfare i vincoli seguenti:
 
 * Deve contenere un'entità di primo livello denominata `values` che deve essere una matrice di oggetti.
-* Il numero di oggetti nella matrice deve essere lo stesso come il numero di oggetti inviate all'API Web.
+* Il numero di oggetti nella matrice deve essere uguale al numero di oggetti inviati all'API Web.
 * Ogni oggetto deve avere:
    * Una proprietà `recordId`
    * Una proprietà `data`, che è un oggetto in cui i campi sono arricchimenti corrispondenti ai "nomi" nell'`output` e il cui valore viene considerato l'arricchimento.
@@ -205,4 +206,4 @@ Nei casi in cui l'API Web non è disponibile o restituisce un errore HTTP, un er
 
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)
 + [Come aggiungere una competenza personalizzata a una pipeline di ricerca cognitiva](cognitive-search-custom-skill-interface.md)
-+ [Esempio: Creazione di una competenza personalizzata per la ricerca cognitiva](cognitive-search-create-custom-skill-example.md)
++ [Esempio: Creare una competenza personalizzata per la ricerca cognitiva](cognitive-search-create-custom-skill-example.md)

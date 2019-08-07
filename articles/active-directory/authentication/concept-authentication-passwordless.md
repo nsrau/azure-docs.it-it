@@ -1,57 +1,61 @@
 ---
-title: Accesso senza password ad Azure Active Directory (anteprima)
-description: Accesso senza password con Azure AD usando le chiavi di sicurezza FIDO2 o l'app Microsoft Authenticator (anteprima)
+title: Azure Active Directory l'accesso senza password (anteprima)
+description: Accesso senza password per Azure AD usando le chiavi di sicurezza FIDO2 o l'app Microsoft Authenticator (anteprima)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 08/05/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d80b359be0a6249327ba1ba1d51ffbc330bb073
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 3ae8f6854241240249cb3b7494872cbbd8fd41e6
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67712085"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68823746"
 ---
-# <a name="what-is-passwordless"></a>Che cos'è senza password?
+# <a name="what-is-passwordless"></a>Che cosa sono le password?
 
-Multi-factor authentication (MFA) è un ottimo modo per proteggere l'organizzazione, ma gli utenti ottengono frustrati con il livello aggiuntive nella parte superiore di dover ricordare le password. Metodi di autenticazione senza password sono più comodi perché la password viene rimossa e sostituita con, bisogna oltre a essere qualcosa o un elemento che noto.
+Multi-factor authentication è un ottimo modo per proteggere l'organizzazione, ma gli utenti si sentono frustrati con il livello aggiuntivo oltre a dover ricordare le password. I metodi di autenticazione senza password sono più convenienti perché la password viene rimossa e sostituita da un elemento che si ha più o da un elemento che si conosce.
 
-|   | È necessario | Un elemento che si sta o conoscere |
+|   | Un elemento | Un elemento o una conoscenza |
 | --- | --- | --- |
-| Accesso senza password | Chiave di sicurezza o telefono | Biometrico o PIN |
+| Accesso senza password | Telefono o chiave di sicurezza | Biometrico o PIN |
 
-È possibile riconoscere che ogni organizzazione ha esigenze diverse per l'autenticazione. Microsoft offre attualmente Windows Hello, la nostra esperienza senza password premier per i PC Windows. Sono state aggiunte le nuove credenziali per la famiglia senza password: Chiavi di sicurezza FIDO2 e app Microsoft Authenticator.
+Ogni organizzazione ha esigenze diverse per quanto riguarda l'autenticazione. Microsoft offre attualmente Windows Hello, il nostro per PC Windows. Si aggiungono l'app Microsoft Authenticator e le chiavi di sicurezza FIDO2 alla famiglia di password.
 
 ## <a name="microsoft-authenticator-app"></a>App Microsoft Authenticator
 
-Consente di telefono dei dipendenti diventare un metodo di autenticazione senza password. Si potrebbe già essere usando l'App Microsoft Authenticator come opzione di autenticazione a più fattori pratico oltre a una password. Ma a questo punto, è disponibile come opzione senza password.
+Consentire al telefono del dipendente di diventare un metodo di autenticazione con password. È possibile che si stia già usando l'app Microsoft Authenticator come comoda opzione di autenticazione a più fattori, oltre a una password. Ma ora è disponibile come opzione senza password.
 
-Si trasforma qualsiasi iOS o Android phone in una credenziale senza password, sicura, consentendo agli utenti di accedere a qualsiasi piattaforma o browser come ottenere una notifica al telefono, corrispondenza di un numero visualizzato nella schermata a quella sul telefono e quindi usare loro (biometrica Touch o in una situazione) o un PIN per confermare.
+![Accedere a Microsoft Edge con l'app Microsoft Authenticator](./media/concept-authentication-passwordless/concept-web-sign-in-microsoft-authenticator-app.png)
+
+Ogni telefono iOS o Android viene trasformato in una credenziale complessa e senza password, consentendo agli utenti di accedere a qualsiasi piattaforma o browser ricevendo una notifica al telefono, abbinando un numero visualizzato sullo schermo a quello sul telefono e quindi usando la relativa biometrica ( touch o faccia) o PIN da confermare.
 
 ## <a name="fido2-security-keys"></a>Chiavi di sicurezza FIDO2
 
-Le chiavi di sicurezza FIDO2 sono un metodo di autenticazione senza password basati su standard unphishable che può verificarsi in qualsiasi fattore di forma. Fast Identity Online (FIDO) è uno standard aperto per l'autenticazione senza password. Consente agli utenti e organizzazioni di sfruttare lo standard accedere alle risorse senza un nome utente o password usando una chiave di protezione esterne o una chiave di piattaforma incorporato in un dispositivo.
+Le chiavi di sicurezza di FIDO2 sono un metodo di autenticazione senza password basato su standard unphishable che può provenire da qualsiasi fattore di forma. Fast Identity online (FIDO) è uno standard aperto per l'autenticazione con password. Consente a utenti e organizzazioni di sfruttare lo standard per accedere alle risorse senza nome utente o password usando una chiave di sicurezza esterna o una chiave della piattaforma incorporata in un dispositivo.
 
-Per l'anteprima pubblica, i dipendenti possono usare le chiavi di sicurezza esterni per accedere alle macchine di Azure Active Directory Windows 10 aggiunti ad (in esecuzione versione 1809 o versione successiva) e ottenere single sign-on le risorse cloud. È possibile anche accedere al browser supportati.
+Per la versione di anteprima pubblica, i dipendenti possono usare chiavi di sicurezza esterne per accedere ai computer Windows 10 con Azure Active Directory aggiunti (versione 1809 o successiva) e ottenere l'accesso Single Sign-on alle risorse cloud. Possono anche accedere ai browser supportati.
 
-Sebbene vi siano molte le chiavi FIDO2 certificata da FIDO Alliance, Microsoft richiede alcune estensioni facoltative della specifica FIDO2 CTAP per essere implementata dal fornitore per garantire la massima sicurezza e un'esperienza ottimale.
+![Accedere a Microsoft Edge con una chiave di sicurezza](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
-Una chiave di sicurezza **necessario** implementare le funzionalità e le estensioni del protocollo FIDO2 CTAP sia compatibile con Microsoft seguenti:
+Sebbene esistano molte chiavi FIDO2 certificate dall'alleanza di FIDO, Microsoft richiede che alcune estensioni facoltative della specifica FIDO2 CTAP siano implementate dal fornitore per garantire la massima sicurezza e la migliore esperienza.
 
-| # | Funzionalità / estensione attendibile | Il motivo per cui è richiesta? |
+Una chiave di sicurezza **deve** implementare le seguenti funzionalità ed estensioni dal protocollo CTAP di FIDO2 per essere compatibile con Microsoft:
+
+| # | Funzionalità/attendibilità dell'estensione | Perché questa funzionalità o estensione è necessaria? |
 | --- | --- | --- |
-| 1 | Chiave residente | Questa funzionalità consente la chiave di sicurezza per garantire la portabilità, in cui sono memorizzate le credenziali per la chiave di sicurezza. |
-| 2 | Aggiungi client | Questa funzionalità consente di proteggere le credenziali con un secondo fattore e si applica alle chiavi di sicurezza che non è un'interfaccia utente. |
-| 3 | HMAC-secret | Questa estensione assicura che è possibile accedere al dispositivo quando è offline o in modalità aereo. |
-| 4 | Più account per ogni applicazione relying Party | In questo modo che è possibile usare la stessa chiave di sicurezza tra più servizi, ad esempio Account Microsoft e Azure Active Directory. |
+| 1 | Chiave residente | Questa funzionalità consente la portabilità della chiave di sicurezza, in cui le credenziali sono archiviate nella chiave di sicurezza. |
+| 2 | PIN client | Questa funzionalità consente di proteggere le credenziali con un secondo fattore e si applica alle chiavi di sicurezza che non dispongono di un'interfaccia utente. |
+| 3 | HMAC-segreto | Questa estensione garantisce che sia possibile accedere al dispositivo quando è offline o in modalità aereo. |
+| 4 | Più account per RP | Questa funzionalità garantisce la possibilità di usare la stessa chiave di sicurezza tra più servizi, ad esempio l'account Microsoft e Azure Active Directory. |
 
-I provider seguenti offrono FIDO2 le chiavi di sicurezza di diversi fattori di forma che sono noti per essere compatibile con l'esperienza paswordless. Microsoft invita i clienti a valutare le proprietà di sicurezza di queste chiavi, contattare il fornitore, nonché FIDO Alliance.
+I provider seguenti offrono chiavi di sicurezza FIDO2 di diversi fattori di forma che sono noti come compatibili con l'esperienza Paswordless. Microsoft consiglia ai clienti di valutare le proprietà di sicurezza di queste chiavi contattando il fornitore e l'Alleanza FIDO.
 
 | Provider | Contatto |
 | --- | --- |
@@ -61,22 +65,24 @@ I provider seguenti offrono FIDO2 le chiavi di sicurezza di diversi fattori di f
 | Ensurity | [https://ensurity.com/contact-us.html](https://ensurity.com/contact-us.html) |
 | eWBM | [https://www.ewbm.com/page/sub1_5](https://www.ewbm.com/page/sub1_5) |
 
-Se sei un fornitore e si desidera ottenere il dispositivo in questo elenco, rivolgersi [ Fido2Request@Microsoft.com ](mailto:Fido2Request@Microsoft.com).
+Se si è un fornitore e si desidera ottenere il dispositivo in questo elenco, contattare [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com).
 
-Le chiavi di sicurezza FIDO2 sono un'ottima opzione per le aziende che sono molto sensibili alla sicurezza o avere scenari o i dipendenti che non sono disposti o in grado di usare il proprio telefono come secondo fattore.
+Le chiavi di sicurezza di FIDO2 sono un'ottima opzione per le aziende che hanno una sicurezza molto sensibile o hanno scenari o dipendenti che non sono disposti o in grado di usare il telefono come secondo fattore.
 
-## <a name="what-scenarios-work-with-the-preview"></a>Quali scenari sono compatibili con l'anteprima?
+## <a name="what-scenarios-work-with-the-preview"></a>Quali scenari funzionano con l'anteprima?
 
-1. Gli amministratori possono abilitare metodi di autenticazione senza password per il tenant
-1. Gli amministratori possono tutti gli utenti di destinazione o selezionare utenti o gruppi nel tenant per ogni metodo
-1. Gli utenti finali possono registrare e gestire questi metodi di autenticazione senza password nel portale di account
-1. Gli utenti finali possono accedere con questi metodi di autenticazione senza password
-   1. App Microsoft Authenticator: Verranno work in tutti gli scenari in cui viene utilizzata l'autenticazione di Azure AD, inclusi i browser, nelle finestre di 10 orizzontale della configurazione guidata (OOBE) e con integrati App per dispositivi mobili su qualsiasi sistema operativo.
-   1. Chiavi di sicurezza: Funzionerà nella schermata di blocco per Windows 10 versione 1809 o versione successiva e il web browser supportati, ad esempio Microsoft Edge.
+- Gli amministratori possono abilitare i metodi di autenticazione con password per il tenant
+- Gli amministratori possono fare riferimento a tutti gli utenti o selezionare utenti/gruppi nel tenant per ogni metodo
+- Gli utenti finali possono registrare e gestire questi metodi di autenticazione con password nel portale per gli account
+- Gli utenti finali possono accedere con questi metodi di autenticazione senza password
+   - App Microsoft Authenticator: Funzionerà negli scenari in cui viene usata l'autenticazione Azure AD, inclusi tutti i browser, durante l'installazione di Windows 10 fuori programma (OOBE) e con app per dispositivi mobili integrate in qualsiasi sistema operativo.
+   - Chiavi di sicurezza: Funzionerà sulla schermata di blocco per Windows 10 versione 1809 o successiva e il Web in browser supportati come Microsoft Edge.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Abilitare le opzioni senza password nell'organizzazione](howto-authentication-passwordless-enable.md)
+[Abilitare le opzioni di passwordlesss della chiave di sicurezza FIDO2 nell'organizzazione](howto-authentication-passwordless-security-key.md)
+
+[Abilita le opzioni per le password basate su telefono nell'organizzazione](howto-authentication-passwordless-phone.md)
 
 ### <a name="external-links"></a>Collegamenti esterni
 

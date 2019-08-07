@@ -10,7 +10,7 @@ ms.assetid: 90e42ff9-43b0-4b4f-a222-51df847b2a8d
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fe0ee8021ae7e70654a161e37d072195bbc035f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e30bd940d3312a16f2dd30b175deb6622cb8c01
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545248"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834737"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Informazioni sul flusso di concessione implicita OAuth2 in Azure Active Directory (AD)
 
@@ -62,7 +62,7 @@ Questo modello concede all'applicazione JavaScript la possibilità di rinnovare 
 
 ## <a name="is-the-implicit-grant-suitable-for-my-app"></a>La concessione implicita è adatta all'app?
 
-La concessione implicita presenta maggiori rischi rispetto ad altre concessioni e le aree è necessario prestare attenzione sono ben documentate, ad esempio, nel paragrafo relativo all'[uso improprio dei token di accesso per rappresentare il proprietario della risorsa nel flusso implicito][OAuth2-Spec-Implicit-Misuse] e nel documento relativo al [modello di minaccia OAuth 2.0 e alle considerazioni sulla sicurezza][OAuth2-Threat-Model-And-Security-Implications]. Tuttavia il profilo di rischio maggiore è per lo più generato dal fatto che lo scopo è abilitare le applicazioni che eseguono codice attivo, fornito da una risorsa remota a un browser. Se si pianifica un'architettura di applicazione a singola pagina, non si hanno componenti back-end o si intende richiamare un'API Web tramite JavaScript, è consigliabile usare il flusso implicito per l'acquisizione dei token.
+La concessione implicita presenta maggiori rischi rispetto ad altre concessioni e le aree a cui è necessario prestare attenzione sono ben documentate (ad esempio, [uso improprio del token di accesso per rappresentare il proprietario delle risorse nel flusso implicito][OAuth2-Spec-Implicit-Misuse] e il [modello di minaccia OAuth 2,0 e la sicurezza Considerazioni][OAuth2-Threat-Model-And-Security-Implications]). Tuttavia il profilo di rischio maggiore è per lo più generato dal fatto che lo scopo è abilitare le applicazioni che eseguono codice attivo, fornito da una risorsa remota a un browser. Se si pianifica un'architettura di applicazione a singola pagina, non si hanno componenti back-end o si intende richiamare un'API Web tramite JavaScript, è consigliabile usare il flusso implicito per l'acquisizione dei token.
 
 Se l'applicazione è un client nativo, il flusso implicito non è la soluzione ideale. L'assenza del cookie della sessione di Azure AD nel contesto di un client nativo non consente all'applicazione di mantenere una sessione di lunga durata. Di conseguenza, 'applicazione chiederà ripetutamente l'interazione dell'utente per ottenere i token di accesso per le nuove risorse.
 
@@ -70,8 +70,8 @@ Se si sta sviluppando un'applicazione Web che include un back-end e utilizza un'
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per un elenco completo di risorse per sviluppatori, incluse le informazioni di riferimento per i protocolli e il supporto dei flussi di concessione delle autorizzazioni OAuth2 in Azure AD, vedere la [Guida per gli sviluppatori di Azure Active Directory][AAD-Developers-Guide].
-* Per altre informazioni sul processo di integrazione di un'applicazione, vedere [Come integrare un'applicazione con Azure AD][ACOM-How-To-Integrate].
+* Per un elenco completo delle risorse per gli sviluppatori, incluse le informazioni di riferimento per i protocolli e il supporto dei flussi di concessione di autorizzazione OAuth2 da Azure AD, vedere la guida per gli [sviluppatori di Azure ad][AAD-Developers-Guide]
+* Per ulteriori informazioni dettagliate sul processo di integrazione dell'applicazione, vedere [come integrare un'applicazione con Azure ad][ACOM-How-To-Integrate] .
 
 <!--Image references-->
 

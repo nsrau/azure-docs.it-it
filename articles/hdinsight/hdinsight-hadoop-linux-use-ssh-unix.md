@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 91104b36b4821d8b1e0350d4eeb20d652de1242b
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 934300351c05b1709dc9df38909edb1bb4ae73ea
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68406243"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779579"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>Connettersi a HDInsight (Apache Hadoop) con SSH
 
@@ -171,7 +171,9 @@ I nodi del ruolo di lavoro e i nodi Zookeeper non sono direttamente accessibili 
 
 2. Dalla connessione SSH al nodo head o perimetrale, usare il comando `ssh` per connettersi a un nodo di lavoro nel cluster:
 
+        ```bash
         ssh sshuser@wn0-myhdi
+        ```
 
     Per recuperare un elenco dei nomi di nodo, vedere il documento [Gestire i cluster HDInsight con l'API REST Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes).
 

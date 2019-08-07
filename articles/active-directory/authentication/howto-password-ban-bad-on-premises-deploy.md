@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ebeed3636ea6da77e05a9a790e51c7771ebe685
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 596020952fd02a414c050ac7fe7ab37d7137c391
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68666294"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779654"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Distribuire la protezione delle password di Azure AD
 
@@ -282,12 +282,29 @@ Per la protezione Azure AD password sono disponibili due programmi di installazi
 
    È possibile automatizzare l'installazione del software utilizzando le procedure MSI standard. Ad esempio:
 
-   `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn`
+   `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`
 
-   > [!WARNING]
-   > Il comando msiexec di esempio causa un riavvio immediato. Per evitare tale uso, usare `/norestart` il flag.
+   È possibile omettere `/norestart` il flag se si preferisce che il programma di installazione riavvii automaticamente il computer.
 
 L'installazione è stata completata dopo l'installazione del software dell'agente controller di dominio in un controller di dominio e il riavvio del computer. Non è necessario né possibile eseguire altre configurazioni.
+
+## <a name="upgrading-the-proxy-agent"></a>Aggiornamento dell'agente proxy
+
+Quando è disponibile una versione più recente del software proxy Azure ad Password Protection, l'aggiornamento viene eseguito eseguendo la versione più recente del programma `AzureADPasswordProtectionProxySetup.exe` di installazione software. Non è necessario disinstallare la versione corrente del software proxy. il programma di installazione eseguirà un aggiornamento sul posto. Quando si aggiorna il software proxy, non è necessario riavviare il computer. È possibile automatizzare l'aggiornamento del software utilizzando le procedure MSI standard, `AzureADPasswordProtectionProxySetup.exe /quiet`ad esempio:.
+
+L'agente proxy supporta l'aggiornamento automatico. L'aggiornamento automatico usa il servizio Microsoft Azure AD Connect Agent Updater, installato side-by-side con il servizio proxy. L'aggiornamento automatico è attivato per impostazione predefinita e può essere abilitato o disabilitato usando il cmdlet Set-AzureADPasswordProtectionProxyConfiguration. È possibile eseguire query sull'impostazione corrente usando il cmdlet Get-AzureADPasswordProtectionProxyConfiguration. Microsoft consiglia di lasciare abilitata l'aggiornamento automatico.
+
+Il `Get-AzureADPasswordProtectionProxy` cmdlet può essere utilizzato per eseguire una query sulla versione software di tutti gli agenti proxy attualmente installati in una foresta.
+
+## <a name="upgrading-the-dc-agent"></a>Aggiornamento dell'agente del controller di dominio
+
+Quando è disponibile una versione più recente del software dell'agente del controller di dominio Azure ad Password Protection, l'aggiornamento viene eseguito eseguendo la versione `AzureADPasswordProtectionDCAgentSetup.msi` più recente del pacchetto software. Non è necessario disinstallare la versione corrente del software dell'agente del controller di dominio. il programma di installazione eseguirà un aggiornamento sul posto. Quando si aggiorna il software dell'agente del controller di dominio, è sempre necessario riavviare il sistema. questa situazione è causata dal comportamento principale di Windows. 
+
+È possibile automatizzare l'aggiornamento del software utilizzando le procedure MSI standard, `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`ad esempio:.
+
+È possibile omettere `/norestart` il flag se si preferisce che il programma di installazione riavvii automaticamente il computer.
+
+Il `Get-AzureADPasswordProtectionDCAgent` cmdlet può essere utilizzato per eseguire una query sulla versione software di tutti gli agenti DC attualmente installati in una foresta.
 
 ## <a name="multiple-forest-deployments"></a>Distribuzioni di più foreste
 
@@ -301,7 +318,7 @@ Le modifiche/set di password non vengono elaborate e rese permanente nei control
 
 Il problema di disponibilità principale per la protezione delle password è la disponibilità dei server proxy quando i controller di dominio in una foresta tentano di scaricare nuovi criteri o altri dati da Azure. Ogni agente del controller di dominio usa un semplice algoritmo di tipo Round Robin per decidere quale server proxy chiamare. L'agente ignora i server proxy che non rispondono. Per la maggior parte delle distribuzioni di Active Directory completamente connesse con una replica corretta dello stato di directory e di cartella SYSVOL, due server proxy sono sufficienti per garantire la disponibilità. Ciò comporta il download tempestivo dei nuovi criteri e di altri dati. Ma è possibile distribuire altri server proxy.
 
-La progettazione del software dell'agente di controller di dominio attenua i normali problemi associati alla disponibilità elevata. L'agente del controller di dominio gestisce una cache locale dei criteri password scaricati più di recente. Anche se tutti i server proxy registrati diventano non disponibili, gli agenti del controller di dominio continuano a applicare i criteri password memorizzati nella cache. Una frequenza di aggiornamento ragionevole per i criteri password in una distribuzione di grandi dimensioni è in genere di *giorni*, non di ore o meno. Quindi, le brevi interruzioni dei server proxy non influiscono in modo significativo Azure AD la protezione delle password.
+La progettazione del software dell'agente di controller di dominio attenua i normali problemi associati alla disponibilità elevata. L'agente del controller di dominio gestisce una cache locale dei criteri password scaricati più di recente. Anche se tutti i server proxy registrati diventano non disponibili, gli agenti del controller di dominio continuano a applicare i criteri password memorizzati nella cache. Una frequenza di aggiornamento ragionevole per i criteri password in una distribuzione di grandi dimensioni è in genere di giorni, non di ore o meno. Quindi, le brevi interruzioni dei server proxy non influiscono in modo significativo Azure AD la protezione delle password.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

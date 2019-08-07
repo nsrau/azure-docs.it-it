@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: bb2d5733704b0b31dc010cec2a90e99e1be07b56
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 7d4f36be51591d6be2b4c42eb8a8950ab52a0258
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68592020"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782572"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection per Archiviazione di Azure
 
@@ -117,62 +117,7 @@ L'e-mail fornisce inoltre informazioni sulle possibili cause e le azioni consigl
 
 ## <a name="protection-alerts"></a>Avvisi di protezione
 
-Gli avvisi sono generati dai tentativi insoliti e potenzialmente dannosi di accesso o sfruttamento degli account di archiviazione. Questi eventi possono attivare gli avvisi seguenti:
-
-### <a name="anomalous-access-pattern-alerts"></a>Avvisi del criterio di accesso anomalo
-
-* **Accesso da una posizione**insolita: Questo avviso viene generato quando un utente ha eseguito l'accesso a un account di archiviazione da una posizione geografica insolita.
-Possibili cause:
-   * Un utente malintenzionato ha eseguito l'accesso all'account di archiviazione
-   * Un utente legittimo ha eseguito l'accesso all'account di archiviazione da una nuova posizione
- 
-* **Anomalia applicazione**: Questo avviso indica che è stato eseguito l'accesso all'account di archiviazione da un'applicazione insolita. Possibili cause:
-   * Un utente malintenzionato ha eseguito l'accesso all'account di archiviazione usando una nuova applicazione.
-   * Un utente legittimo ha usato una nuova applicazione/browser per accedere all'account di archiviazione.
-
-* **Accesso anonimo**: Questo avviso indica che è stato eseguito l'accesso anonimo a questo account, ovvero senza alcuna autenticazione, che è imprevisto rispetto al modello di accesso recente su questo account.
-Possibili cause:
-   * Un utente malintenzionato ha sfruttato l'accesso in lettura pubblico a un contenitore.
-   * Un utente legittimo o un'applicazione ha usato l'accesso in lettura pubblico a un contenitore.
-
-* **Anomalia Tor**: Questo avviso indica che l'accesso a questo account è stato eseguito correttamente da un indirizzo IP noto come nodo di uscita attivo di Tor (un proxy anonime). La gravità di questo avviso considera il tipo di autenticazione usato, se presente, e se questo è il primo caso di tale accesso.
-Possibili cause:
-   * Un utente malintenzionato ha eseguito l'accesso all'account di archiviazione usando Tor.
-   * Un utente legittimo ha eseguito l'accesso all'account di archiviazione usando Tor.
-
-
-### <a name="anomalous-extractupload-alerts"></a>Avvisi di estrazione/caricamento anomali
-
-* **Exfiltration dati**: Questo avviso indica che è stata estratta una quantità insolitamente elevata di dati rispetto alle attività recenti sul contenitore di archiviazione. Possibili cause:
-   * Un utente malintenzionato ha estratto una grande quantità di dati da un contenitore. (Ad esempio: exfiltration/violazione dei dati, trasferimento di dati non autorizzato)
-   * Un utente legittimo o un'applicazione ha estratto una quantità insolita di dati da un contenitore. (Ad esempio, attività di manutenzione)
-
-* **Eliminazione imprevista**: Questo avviso indica che si è verificata una o più operazioni di eliminazione impreviste in un account di archiviazione, rispetto alle attività recenti di questo account. Possibili cause:
-   * Un utente malintenzionato ha eliminato i dati dall'account di archiviazione.
-   * Un utente legittimo ha eseguito un'eliminazione insolita.
-
-* **Caricare il pacchetto del servizio cloud di Azure**: Questo avviso indica che un pacchetto del servizio cloud di Azure (file con estensione cspkg) è stato caricato in un account di archiviazione in modo insolito, rispetto alle attività recenti di questo account. Possibili cause: 
-   * Un utente malintenzionato sta preparando la distribuzione di codice dannoso dall'account di archiviazione a un servizio cloud di Azure.
-   * Un utente legittimo è stato preparato per una distribuzione del servizio legittima.
-
-### <a name="suspicious-storage-activities-alerts"></a>Avvisi relativi alle attività di archiviazione sospette
-
-* **Modifica delle autorizzazioni di accesso**: Questo avviso indica che le autorizzazioni di accesso di questo contenitore di archiviazione sono state modificate in modo insolito. Possibili cause: 
-   * Un utente malintenzionato ha modificato le autorizzazioni del contenitore per indebolirne la sicurezza.
-   * Un utente legittimo ha modificato le autorizzazioni del contenitore.
-
-* **Ispezione**degli accessi: Questo avviso indica che le autorizzazioni di accesso di un account di archiviazione sono state ispezionate in modo insolito, rispetto alle attività recenti di questo account. Possibili cause: 
-   * Un utente malintenzionato ha eseguito la ricognizione per un attacco futuro.
-   * Un utente legittimo ha eseguito la manutenzione dell'account di archiviazione.
-
-* **Esplorazione dei dati**: Questo avviso indica che i BLOB o i contenitori in un account di archiviazione sono stati enumerati in modo insolito, rispetto alle attività recenti di questo account. Possibili cause: 
-   * Un utente malintenzionato ha eseguito la ricognizione per un attacco futuro.
-   * Un utente legittimo o una logica dell'applicazione ha esplorato i dati nell'account di archiviazione.
-
-
-
-
-
+Gli avvisi sono generati dai tentativi insoliti e potenzialmente dannosi di accesso o sfruttamento degli account di archiviazione. Per un elenco di questi avvisi, vedere avvisi di [archiviazione di Azure](../../security-center/security-center-alerts-data-services.md#azure-storage)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

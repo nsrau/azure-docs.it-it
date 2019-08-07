@@ -12,18 +12,18 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/19/2017
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06fd36935c1f43cc14697748666eccd9e6d31168
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66c509b1b901889241d6837611a2c373750fdb3a
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545956"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834785"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Protocollo SAML per Single Sign-Out
 
@@ -50,7 +50,7 @@ L'elemento `LogoutRequest` inviato ad Azure AD richiede gli attributi seguenti:
 * `Version`: impostare il valore di questo elemento su **2.0**. Questo valore è obbligatorio.
 * `IssueInstant`: è una stringa `DateTime` con un valore di UTC (Coordinate Universal Time) e il [formato round trip ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD prevede un valore di questo tipo, ma non lo impone.
 
-### <a name="issuer"></a>Issuer
+### <a name="issuer"></a>Rilasciato da
 L'elemento `Issuer` in una `LogoutRequest` deve corrispondere esattamente a uno dei **ServicePrincipalNames** nel servizio cloud in Azure AD. Viene in genere impostato sull' **URI ID app** specificato durante la registrazione dell'applicazione.
 
 ### <a name="nameid"></a>NameID
@@ -71,8 +71,8 @@ Azure AD invia un elemento `LogoutResponse` in risposta a un elemento `LogoutReq
 ### <a name="logoutresponse"></a>LogoutResponse
 Azure AD imposta i valori `ID`, `Version` e `IssueInstant` nell'elemento `LogoutResponse`. Imposta anche l'elemento `InResponseTo` sul valore dell'attributo `ID` dell'elemento `LogoutRequest` che ha provocato la risposta.
 
-### <a name="issuer"></a>Issuer
-Azure AD imposta questo valore su `https://login.microsoftonline.com/<TenantIdGUID>/` in cui \<TenantIdGUID > è l'ID tenant del tenant di Azure AD.
+### <a name="issuer"></a>Rilasciato da
+Azure ad imposta questo valore su `https://login.microsoftonline.com/<TenantIdGUID>/` dove \<TenantIdGUID > è l'ID tenant del tenant di Azure ad.
 
 Per valutare il valore dell'elemento `Issuer` usare il valore dell' **URI ID app** specificato durante la registrazione dell'applicazione.
 

@@ -7,30 +7,30 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 3be075b78d8388b7146a9a3180ca825fc6476108
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 02bafb7fe2e0689beee8919594fcbd3f87235b2e
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206040"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840342"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copiare dati da e in Archiviazione BLOB di Azure usando Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-azure-blob-connector.md)
 > * [Versione corrente](connector-azure-blob-storage.md)
 
-Questo articolo illustra come copiare dati da e verso archiviazione Blob di Azure. Per altre informazioni su Azure Data Factory, vedere l'[articolo introduttivo](introduction.md).
+Questo articolo illustra come copiare dati da e verso l'archiviazione BLOB di Azure. Per altre informazioni su Azure Data Factory, vedere l'[articolo introduttivo](introduction.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
-Questo connettore Blob di Azure è supportato per le attività seguenti:
+Questo connettore BLOB di Azure è supportato per le attività seguenti:
 
-- [Attività di copia](copy-activity-overview.md) con [supportata matrice di origine/sink](copy-activity-overview.md)
-- [Mapping di flusso di dati](concepts-data-flow-overview.md)
+- [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
+- [Mapping del flusso di dati](concepts-data-flow-overview.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
 - [Attività GetMetadata](control-flow-get-metadata-activity.md)
 
@@ -42,7 +42,7 @@ In particolare, il connettore di Archiviazione BLOB supporta:
 - La copia di BLOB così come sono o l'analisi o generazione di BLOB con i [formati di file e i codec di compressione supportati](supported-file-formats-and-compression-codecs.md).
 
 >[!NOTE]
->Se si abilita il _"Consenti attendibili i servizi Microsoft per accedere a questo account di archiviazione"_ opzione impostazioni firewall archiviazione di Azure, tramite Azure Integration Runtime per connettersi all'archiviazione Blob avrà esito negativo con un errore non consentito, perché non è Azure Data factory considerato come un servizio Microsoft attendibile. Connettersi tramite un Runtime di integrazione Self-Hosted invece.
+>Se si Abilita l'opzione _"Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione"_ nelle impostazioni del firewall di archiviazione di Azure, l'uso di Azure Integration Runtime per connettersi all'archiviazione BLOB avrà esito negativo con un errore non consentito, perché ADF non viene considerato attendibile Servizio Microsoft. Connettersi tramite un Integration Runtime self-hosted.
 
 ## <a name="get-started"></a>Attività iniziali
 
@@ -60,10 +60,10 @@ Il connettore BLOB di Azure supporta i seguenti tipi di autenticazione. Vedere l
 - [Autenticazione di identità gestite per le risorse di Azure](#managed-identity)
 
 >[!NOTE]
->Quando si usa PolyBase per caricare dati in SQL Data Warehouse, se l'origine o un archivio Blob di staging è configurato con endpoint di rete virtuale, è necessario usare l'autenticazione identità gestita come richiesto da PolyBase e usare il Runtime di integrazione Self-Hosted con la versione 3.18 o versione successiva. Vedere le [autenticazione identità gestita](#managed-identity) sezione con ulteriori prerequisiti di configurazione.
+>Quando si usa la polibase per caricare i dati in SQL Data Warehouse, se l'archiviazione BLOB di origine o di gestione temporanea è configurata con l'endpoint di rete virtuale, è necessario usare l'autenticazione di identità gestita come richiesto da polibase e usare Integration Runtime indipendenti con la versione 3,18 o versione successiva. Vedere la sezione [autenticazione di identità gestita](#managed-identity) con altri prerequisiti di configurazione.
 
 >[!NOTE]
->Le attività di HDInsights e Azure Machine Learning supportano solo l'autenticazione chiave dell'account di archiviazione Blob di Azure.
+>Le attività HDInsights e Azure Machine Learning supportano solo l'autenticazione con chiave dell'account di archiviazione BLOB di Azure.
 
 ### <a name="account-key-authentication"></a>Autenticazione basata sulla chiave dell'account
 
@@ -146,7 +146,7 @@ Per usare l'autenticazione basata sulla firma di accesso condiviso, sono support
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà tipo deve essere impostata su **AzureBlobStorage** (consigliato) o **AzureStorage** (vedere le note sottostanti). |Sì |
-| sasUri | Specificare l'URI della firma di accesso condiviso per le risorse di archiviazione come BLOB o contenitore. <br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire il token di firma di accesso condiviso in Azure Key Vault per sfruttare rotazione automatica e rimuovere la parte del token. Vedere gli esempi seguenti e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. |Sì |
+| sasUri | Specificare l'URI della firma di accesso condiviso per le risorse di archiviazione come BLOB o contenitore. <br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire il token SAS in Azure Key Vault per sfruttare la rotazione automatica e rimuovere la parte del token. Vedere gli esempi seguenti e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. |Sì |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare Azure Integration Runtime o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 >[!NOTE]
@@ -265,11 +265,11 @@ Per un servizio collegato ad Archiviazione BLOB di Azure sono supportate queste 
 
 ### <a name="managed-identity"></a>Autenticazione di identità gestite per le risorse di Azure
 
-Una data factory può essere associata a un'[identità gestita per le risorse di Azure](data-factory-service-identity.md), che rappresenta la data factory specifica. È possibile usare direttamente questa identità gestita per l'autenticazione di archiviazione Blob simile all'uso dell'entità del servizio. Consente alla factory designata di accedere e copiare i dati da/nella risorsa di archiviazione BLOB.
+Una data factory può essere associata a un'[identità gestita per le risorse di Azure](data-factory-service-identity.md), che rappresenta la data factory specifica. È possibile usare direttamente questa identità gestita per l'autenticazione dell'archiviazione BLOB in modo analogo all'uso della propria entità servizio. Consente alla factory designata di accedere e copiare i dati da/nella risorsa di archiviazione BLOB.
 
-Fare riferimento a [autenticare l'accesso all'archiviazione di Azure con Azure Active Directory](../storage/common/storage-auth-aad.md) per l'autenticazione di archiviazione di Azure in generale. Per usare l'autenticazione di identità gestite per le risorse di Azure, seguire questa procedura:
+Per informazioni generali, vedere autenticazione dell' [accesso ad archiviazione di Azure tramite Azure Active Directory](../storage/common/storage-auth-aad.md) per l'autenticazione di archiviazione di Azure. Per usare l'autenticazione di identità gestite per le risorse di Azure, seguire questa procedura:
 
-1. [Recuperare informazioni di identità di data factory gestiti](data-factory-service-identity.md#retrieve-managed-identity) copiando il valore di "SERVICE IDENTITY APPLICATION ID" generato con la factory.
+1. [Recuperare data factory informazioni sull'identità gestita](data-factory-service-identity.md#retrieve-managed-identity) copiando il valore di "ID applicazione dell'identità del servizio" generato insieme alla Factory.
 
 2. Concedere l'autorizzazione appropriata per l'identità gestita in Archiviazione BLOB di Azure. Fare riferimento a [Gestire i diritti di accesso ai dati di Archiviazione di Azure con RBAC](../storage/common/storage-auth-aad-rbac.md) per altri dettagli sui ruoli.
 
@@ -277,7 +277,7 @@ Fare riferimento a [autenticare l'accesso all'archiviazione di Azure con Azure A
     - **Come sink**, in Controllo di accesso (IAM), concedere almeno il ruolo **Collaboratore dei dati dei BLOB di archiviazione**.
 
 >[!IMPORTANT]
->Se si usa PolyBase per caricare dati dal Blob (come origine o gestione temporanea) in SQL Data Warehouse, quando si usa l'autenticazione identità gestita per Blob, assicurarsi che è anche seguire i passaggi 1 e 2 nella [questo materiale sussidiario](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) su 1) registrare il Database SQL server con Azure Active Directory (Azure AD) e 2) assegnare il ruolo di collaboratore ai dati Blob di archiviazione al server di Database SQL; il resto sono gestite da Data Factory. Se l'archivio Blob è configurato con un endpoint di rete virtuale di Azure, per usare PolyBase per caricare i dati da esso, è necessario utilizzare l'autenticazione identità gestita come richiesto da PolyBase.
+>Se si usa la polibase per caricare i dati da un BLOB (come origine o come gestione temporanea) in SQL Data Warehouse, quando si usa l'autenticazione di identità gestita per il BLOB, assicurarsi di seguire anche i passaggi 1 e 2 in [questa guida](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) a 1) registrare il server di database SQL con Azure Active Directory (Azure AD) e 2) assegnare il ruolo di collaboratore dati BLOB di archiviazione al server del database SQL. il resto viene gestito da Data Factory. Se l'archiviazione BLOB è configurata con un endpoint di rete virtuale di Azure, per usare la polibase per il caricamento dei dati, è necessario usare l'autenticazione di identità gestita come richiesto da polibase.
 
 Per un servizio collegato ad Archiviazione BLOB di Azure sono supportate queste proprietà:
 
@@ -312,23 +312,23 @@ Per un servizio collegato ad Archiviazione BLOB di Azure sono supportate queste 
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md). 
 
-- Per la **Parquet e del formato di testo delimitato**, fare riferimento a [set di dati di formato Parquet e testo delimitato](#parquet-and-delimited-text-format-dataset) sezione.
-- Per altri formati, ad esempio **formato ORC/Avro/JSON/binario**, fare riferimento a [altri set di dati di formato](#other-format-dataset) sezione.
+- Per **parquet, testo delimitato e formato binario**, fare riferimento alla sezione [set di dati in formato parquet, testo delimitato e formato binario](#format-based-dataset) .
+- Per altri formati come il **formato ORC/avro/JSON**, vedere la sezione [altro set di dati di formato](#other-format-dataset) .
 
-### <a name="parquet-and-delimited-text-format-dataset"></a>Set di dati di formato parquet e testo delimitato
+### <a name="format-based-dataset"></a>Set di dati in formato testo e binario delimitato in parquet
 
-Per copiare dati da e verso archiviazione Blob in formato testo delimitato o Parquet, fare riferimento a [formato Parquet](format-parquet.md) e [formato di testo delimitato](format-delimited-text.md) articolo nel set di dati in base al formato e le impostazioni supportate. Sono supportate le proprietà seguenti per il Blob di Azure in `location` impostazioni nel set di dati in base al formato:
+Per copiare dati da e verso l'archiviazione BLOB in parquet, formato testo o binario delimitato, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md) e [formato binario](format-binary.md) su set di dati basato su formato e impostazioni supportate. Le proprietà seguenti sono supportate per il BLOB di `location` Azure in impostazioni nel set di dati basato sul formato:
 
 | Proprietà   | Descrizione                                                  | Obbligatoria |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | La proprietà type della posizione nel set di dati deve essere impostata su **AzureBlobStorageLocation**. | Sì      |
-| container  | Il contenitore blob.                                          | Sì      |
-| folderPath | Il percorso di cartella nel contenitore specificato. Se si desidera utilizzare con caratteri jolly alla cartella di filtro, ignorare questa impostazione e specificare nelle impostazioni di origine di attività. | No       |
-| fileName   | Il nome del file sotto il contenitore specificato + folderPath. Se si desidera utilizzare con caratteri jolly per filtrare i file, ignorare questa impostazione e specificare nelle impostazioni di origine di attività. | No       |
+| type       | La proprietà Type del percorso nel set di dati deve essere impostata su **AzureBlobStorageLocation**. | Sì      |
+| container  | Contenitore BLOB.                                          | Sì      |
+| folderPath | Percorso della cartella nel contenitore specificato. Se si vuole usare il carattere jolly per filtrare la cartella, ignorare questa impostazione e specificare nelle impostazioni dell'origine dell'attività. | No       |
+| fileName   | Nome del file nel contenitore specificato + folderPath. Se si vuole usare il carattere jolly per filtrare i file, ignorare questa impostazione e specificare nelle impostazioni dell'origine dell'attività. | No       |
 
 > [!NOTE]
 >
-> **AzureBlob** tipo set di dati con formato Parquet, Text indicato nella sezione successiva è ancora supportata come-per attività di copia/ricerca/GetMetadata per compatibilità con le versioni precedenti, ma non funziona con il Mapping di flusso di dati. Consigliabile per usare questo nuovo modello in futuro e Azure Data factory di creazione dell'interfaccia utente è stata attivata per la generazione di questi nuovi tipi.
+> Il set di dati di tipo **AzureBlob** con formato parquet/testo indicato nella sezione successiva è ancora supportato così com'è per l'attività copia/ricerca/GetMetadata per la compatibilità con le versioni precedenti, ma non funziona con il flusso di dati di mapping. Si consiglia di usare questo nuovo modello in futuro e l'interfaccia utente di creazione di ADF ha cambiato la generazione di questi nuovi tipi.
 
 **Esempio:**
 
@@ -357,17 +357,17 @@ Per copiare dati da e verso archiviazione Blob in formato testo delimitato o Par
 }
 ```
 
-### <a name="other-format-dataset"></a>Altri set di dati di formato
+### <a name="other-format-dataset"></a>Set di dati di altri formati
 
-Per copiare dati da e verso archiviazione Blob in formato ORC/Avro/JSON/binario, impostare la proprietà type del set di dati **AzureBlob**. Sono supportate le proprietà seguenti.
+Per copiare dati da e verso l'archiviazione BLOB in formato ORC/avro/JSON, impostare la proprietà Type del set di dati su **AzureBlob**. Sono supportate le proprietà seguenti.
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type del set di dati deve essere impostata su **AzureBlob**. |Sì |
 | folderPath | Percorso del contenitore e della cartella nell'archivio BLOB. <br/><br/>Il filtro con caratteri jolly è supportato per il percorso escluso il nome del contenitore. I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape. <br/><br/>Esempi: myblobcontainer/myblobfolder/. Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). |Sì per l'attività Copy/Lookup, no per l'attività GetMetadata |
-| fileName | **Filtro con nome o carattere jolly** per i BLOB nell'elemento "folderPath" specificato. Se non si specifica alcun valore per questa proprietà, il set di dati punta a tutti i BLOB nella cartella. <br/><br/>Per un filtro, i caratteri jolly consentiti sono: `*` (corrispondenza di zero o più caratteri) e `?` (corrispondenza di zero caratteri o di un carattere singolo).<br/>- Esempio 1: `"fileName": "*.csv"`<br/>- Esempio 2: `"fileName": "???20180427.txt"`<br/>Usare `^` per il carattere escape se il nome effettivo del file include caratteri jolly o escape.<br/><br/>Se non si specifica fileName per un set di dati di output e **preserveHierarchy** non è specificato nel sink dell'attività, l'attività di copia genera automaticamente il nome del BLOB con lo schema seguente: "*Dei dati. [GUID dell'ID esecuzione attività]. [GUID se FlattenHierarchy]. [format se configurata]. [la compressione se configurata]* ", ad esempio, "Dati.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz"; se si copia da un'origine tabulare usando il nome tabella anziché la query, il criterio del nome è " *[nome tabella].[formato].[compressione se configurata]* ", per esempio "MyTable.csv". |No |
-| modifiedDatetimeStart | Filtro di file basato sull'attributo: Ultima modifica. I file vengono selezionati se l'ora dell'ultima modifica è inclusa nell'intervallo di tempo tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata con il fuso orario UTC e il formato "2018-12-01T05:00:00Z". <br/><br/> Tenere presente che le prestazioni complessive di spostamento dei dati ne risentirà abilitando questa impostazione quando si desidera filtro file da elevate quantità di file. <br/><br/> La proprietà può essere NULL che indicano che alcun filtro di attributi file non verrà applicato al set di dati.  Quando `modifiedDatetimeStart` ha un valore datetime ma `modifiedDatetimeEnd` è NULL, vengono selezionati i file il cui ultimo attributo modificato è maggiore o uguale al valore datetime.  Quando `modifiedDatetimeEnd` ha un valore datetime ma `modifiedDatetimeStart` è NULL vengono selezionati i file il cui ultimo attributo modificato è minore del valore datetime.| No |
-| modifiedDatetimeEnd | Filtro di file basato sull'attributo: Ultima modifica. I file vengono selezionati se l'ora dell'ultima modifica è inclusa nell'intervallo di tempo tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata con il fuso orario UTC e il formato "2018-12-01T05:00:00Z". <br/><br/> Tenere presente che le prestazioni complessive di spostamento dei dati ne risentirà abilitando questa impostazione quando si desidera filtro file da elevate quantità di file. <br/><br/> La proprietà può essere NULL che indicano che alcun filtro di attributi file non verrà applicato al set di dati.  Quando `modifiedDatetimeStart` ha un valore datetime ma `modifiedDatetimeEnd` è NULL, vengono selezionati i file il cui ultimo attributo modificato è maggiore o uguale al valore datetime.  Quando `modifiedDatetimeEnd` ha un valore datetime ma `modifiedDatetimeStart` è NULL vengono selezionati i file il cui ultimo attributo modificato è minore del valore datetime.| No |
+| fileName | **Filtro con nome o carattere jolly** per i BLOB nell'elemento "folderPath" specificato. Se non si specifica alcun valore per questa proprietà, il set di dati punta a tutti i BLOB nella cartella. <br/><br/>Per un filtro, i caratteri jolly consentiti sono: `*` (corrispondenza di zero o più caratteri) e `?` (corrispondenza di zero caratteri o di un carattere singolo).<br/>- Esempio 1: `"fileName": "*.csv"`<br/>- Esempio 2: `"fileName": "???20180427.txt"`<br/>Usare `^` per il carattere escape se il nome effettivo del file include caratteri jolly o escape.<br/><br/>Se non si specifica fileName per un set di dati di output e **preserveHierarchy** non è specificato nel sink dell'attività, l'attività di copia genera automaticamente il nome del BLOB con lo schema seguente: "*Dati. [GUID ID esecuzione attività]. [GUID se FlattenHierarchy]. [format se configurato]. [compressione se configurata]* ", ad esempio "Dati.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz"; se si copia da un'origine tabulare usando il nome tabella anziché la query, il criterio del nome è " *[nome tabella].[formato].[compressione se configurata]* ", per esempio "MyTable.csv". |No |
+| modifiedDatetimeStart | Filtro di file basato sull'attributo: Ultima modifica. I file vengono selezionati se l'ora dell'ultima modifica è inclusa nell'intervallo di tempo tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata con il fuso orario UTC e il formato "2018-12-01T05:00:00Z". <br/><br/> Tenere presente che le prestazioni complessive dello spostamento dei dati saranno influenzate dall'abilitazione di questa impostazione quando si desidera eseguire il filtro file da grandi quantità di file. <br/><br/> Le proprietà possono essere NULL che significa che al set di dati non verrà applicato alcun filtro di attributi di file.  Quando `modifiedDatetimeStart` ha un valore datetime ma `modifiedDatetimeEnd` è NULL, vengono selezionati i file il cui ultimo attributo modificato è maggiore o uguale al valore datetime.  Quando `modifiedDatetimeEnd` ha un valore datetime ma `modifiedDatetimeStart` è NULL vengono selezionati i file il cui ultimo attributo modificato è minore del valore datetime.| No |
+| modifiedDatetimeEnd | Filtro di file basato sull'attributo: Ultima modifica. I file vengono selezionati se l'ora dell'ultima modifica è inclusa nell'intervallo di tempo tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata con il fuso orario UTC e il formato "2018-12-01T05:00:00Z". <br/><br/> Tenere presente che le prestazioni complessive dello spostamento dei dati saranno influenzate dall'abilitazione di questa impostazione quando si desidera eseguire il filtro file da grandi quantità di file. <br/><br/> Le proprietà possono essere NULL che significa che al set di dati non verrà applicato alcun filtro di attributi di file.  Quando `modifiedDatetimeStart` ha un valore datetime ma `modifiedDatetimeEnd` è NULL, vengono selezionati i file il cui ultimo attributo modificato è maggiore o uguale al valore datetime.  Quando `modifiedDatetimeEnd` ha un valore datetime ma `modifiedDatetimeStart` è NULL vengono selezionati i file il cui ultimo attributo modificato è minore del valore datetime.| No |
 | format | Per copiare i file così come sono tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output.<br/><br/>Se si vuole analizzare o generare file con un formato specifico, sono supportati i tipi di formato file seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** in **format** su uno di questi valori. Per altre informazioni, vedere le sezioni [Formato testo](supported-file-formats-and-compression-codecs.md#text-format), [Formato JSON](supported-file-formats-and-compression-codecs.md#json-format), [Formato AVRO](supported-file-formats-and-compression-codecs.md#avro-format), [Formato OCR](supported-file-formats-and-compression-codecs.md#orc-format) e [Formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |No (solo per uno scenario di copia binaria) |
 | compression | Specificare il tipo e il livello di compressione dei dati. Per altre informazioni, vedere l'articolo sui [formati di file supportati e i codec di compressione](supported-file-formats-and-compression-codecs.md#compression-support).<br/>I tipi supportati sono **GZip**, **Deflate**, **BZip2** e **ZipDeflate**.<br/>I livelli supportati sono **Ottimale** e **Più veloce**. |No |
 
@@ -410,25 +410,25 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 ### <a name="blob-storage-as-a-source-type"></a>Archiviazione BLOB come tipo di origine
 
-- Per la copia da **Parquet e del formato di testo delimitato**, fare riferimento a [Parquet e testo delimitato formato origine](#parquet-and-delimited-text-format-source) sezione.
-- Per la copia da altri formati, ad esempio **formato ORC/Avro/JSON/binario**, fare riferimento a [altra origine formato](#other-format-source) sezione.
+- Per **parquet, testo delimitato e formato binario**, fare riferimento alla sezione [set di dati in formato parquet, testo delimitato e formato binario](#format-based-dataset) .
+- Per altri formati come il **formato ORC/avro/JSON**, vedere la sezione [altro set di dati di formato](#other-format-dataset) .
 
-#### <a name="parquet-and-delimited-text-format-source"></a>Parquet e testo delimitato formato origine
+### <a name="format-based-dataset"></a>Set di dati in formato testo e binario delimitato in parquet
 
-Per copiare dati dall'archivio Blob in formato testo delimitato o Parquet, fare riferimento a [formato Parquet](format-parquet.md) e [formato di testo delimitato](format-delimited-text.md) articolo sull'origine dell'attività copy in base al formato e le impostazioni supportate. Sono supportate le proprietà seguenti per il Blob di Azure in `storeSettings` le impostazioni di origine della copia in base al formato:
+Per copiare dati da e verso l'archiviazione BLOB in **parquet, formato testo o binario delimitato**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md) e [formato binario](format-binary.md) su set di dati basato su formato e impostazioni supportate. Le proprietà seguenti sono supportate per il BLOB di `storeSettings` Azure in impostazioni in origine copia basata sul formato:
 
 | Proprietà                 | Descrizione                                                  | Obbligatoria                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | La proprietà del tipo sotto `storeSettings` deve essere impostata su **AzureBlobStorageReadSetting**. | Sì                                           |
+| type                     | La proprietà Type in `storeSettings` deve essere impostata su **AzureBlobStorageReadSetting**. | Sì                                           |
 | recursive                | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che quando la proprietà recursive è impostata su true e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. I valori consentiti sono **true** (predefinito) e **false**. | No                                            |
-| wildcardFolderPath       | Il percorso della cartella con caratteri jolly all'interno del contenitore specificato configurato nel set di dati nelle cartelle di origine di filtro. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape. <br>Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | No                                            |
-| wildcardFileName         | Il nome di file con caratteri jolly sotto il contenitore specificato + folderPath/wildcardFolderPath per filtrare i file di origine. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape.  Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | Sì se `fileName` non è specificato nel set di dati |
+| wildcardFolderPath       | Il percorso della cartella con caratteri jolly nel contenitore specificato configurato nel set di dati per filtrare le cartelle di origine. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape. <br>Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | No                                            |
+| wildcardFileName         | Nome file con caratteri jolly nel contenitore specificato + folderPath/wildcardFolderPath per filtrare i file di origine. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape.  Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | Sì se `fileName` non è specificato nel DataSet |
 | modifiedDatetimeStart    | Filtro di file basato sull'attributo: Ultima modifica. I file vengono selezionati se l'ora dell'ultima modifica è inclusa nell'intervallo di tempo tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata con il fuso orario UTC e il formato "2018-12-01T05:00:00Z". <br> Le proprietà possono essere NULL, a indicare che al set di dati non viene applicato alcun filtro di attributo di file.  Quando `modifiedDatetimeStart` ha un valore datetime ma `modifiedDatetimeEnd` è NULL, vengono selezionati i file il cui ultimo attributo modificato è maggiore o uguale al valore datetime.  Quando `modifiedDatetimeEnd` ha un valore datetime ma `modifiedDatetimeStart` è NULL vengono selezionati i file il cui ultimo attributo modificato è minore del valore datetime. | No                                            |
 | modifiedDatetimeEnd      | Come sopra.                                               | No                                            |
-| maxConcurrentConnections | Il numero delle connessioni per connettersi all'archivio di archiviazione simultaneamente. Specificare solo quando si desidera limitare le connessioni simultanee all'archivio dati. | No                                            |
+| maxConcurrentConnections | Numero di connessioni simultanee per la connessione all'archivio di archiviazione. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No                                            |
 
 > [!NOTE]
-> Per formato di testo delimitato/Parquet **BlobSource** origine dell'attività copy tipo indicato nella sezione successiva è ancora supportata come-sia per compatibilità con le versioni precedenti. Consigliabile per usare questo nuovo modello in futuro e Azure Data factory di creazione dell'interfaccia utente è stata attivata per la generazione di questi nuovi tipi.
+> Per il formato di testo parquet/delimitato, l'origine dell'attività di copia di tipo **BlobSource** citata nella sezione successiva è ancora supportata così com'è per la compatibilità con le versioni precedenti. Si consiglia di usare questo nuovo modello in futuro e l'interfaccia utente di creazione di ADF ha cambiato la generazione di questi nuovi tipi.
 
 **Esempio:**
 
@@ -471,15 +471,15 @@ Per copiare dati dall'archivio Blob in formato testo delimitato o Parquet, fare 
 ]
 ```
 
-#### <a name="other-format-source"></a>Altra origine di formato
+#### <a name="other-format-source"></a>Altra origine del formato
 
-Per copiare dati dall'archivio Blob in formato ORC/Avro/JSON/binario, impostare il tipo di origine nell'attività di copia su **BlobSource**. Nella sezione **source** dell'attività di copia sono supportate le proprietà seguenti.
+Per copiare dati da un archivio BLOB in **formato ORC, avro o JSON**, impostare il tipo di origine nell'attività di copia su **BlobSource**. Nella sezione **source** dell'attività di copia sono supportate le proprietà seguenti.
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **BlobSource**. |Sì |
 | recursive | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che quando la proprietà recursive è impostata su true e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink.<br/>I valori consentiti sono **true** (predefinito) e **false**. | No |
-| maxConcurrentConnections | Il numero delle connessioni per connettersi all'archivio di archiviazione simultaneamente. Specificare solo quando si desidera limitare le connessioni simultanee all'archivio dati. | No |
+| maxConcurrentConnections | Numero di connessioni simultanee per la connessione all'archivio di archiviazione. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No |
 
 **Esempio:**
 
@@ -515,21 +515,21 @@ Per copiare dati dall'archivio Blob in formato ORC/Avro/JSON/binario, impostare 
 
 ### <a name="blob-storage-as-a-sink-type"></a>Archiviazione BLOB come tipo di sink
 
-- Per la copia negli **Parquet e del formato di testo delimitato**, fare riferimento a [Parquet e testo delimitato formato sink](#parquet-and-delimited-text-format-sink) sezione.
-- Per la copia in altri formati, ad esempio **formato ORC/Avro/JSON/binario**, fare riferimento a [altri sink formato](#other-format-sink) sezione.
+- Per eseguire la copia da **parquet, testo delimitato e formato binario**, vedere la sezione relativa all' [origine del formato binario e del testo delimitato in parquet](#format-based-source) .
+- Per eseguire la copia da altri formati, ad esempio il **formato ORC/avro/JSON**, vedere la sezione [altra origine del formato](#other-format-source) .
 
-#### <a name="parquet-and-delimited-text-format-sink"></a>Parquet e il sink di formato di testo delimitato
+#### <a name="format-based-source"></a>Parquet, testo delimitato e origine del formato binario
 
-Per copiare dati nell'archiviazione Blob in formato testo delimitato o Parquet, fare riferimento a [formato Parquet](format-parquet.md) e [formato di testo delimitato](format-delimited-text.md) articolo nel sink dell'attività Copia in base al formato e le impostazioni supportate. Sono supportate le proprietà seguenti per il Blob di Azure in `storeSettings` impostazioni nel sink di copia in base al formato:
+Per copiare dati da un archivio BLOB in **parquet, formato testo o binario delimitato**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md) e [formato binario](format-binary.md) in origine dell'attività di copia basata su formato e impostazioni supportate. Le proprietà seguenti sono supportate per il BLOB di `storeSettings` Azure in impostazioni in sink di copia basato sul formato:
 
 | Proprietà                 | Descrizione                                                  | Obbligatoria |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | La proprietà del tipo sotto `storeSettings` deve essere impostata su **AzureBlobStorageWriteSetting**. | Sì      |
+| type                     | La proprietà Type in `storeSettings` deve essere impostata su **AzureBlobStorageWriteSetting**. | Sì      |
 | copyBehavior             | Definisce il comportamento di copia quando l'origine è costituita da file di un archivio dati basato su file.<br/><br/>I valori consentiti sono i seguenti:<br/><b>- PreserveHierarchy (impostazione predefinita)</b>: mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><b>- FlattenHierarchy</b>: tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. I nomi dei file di destinazione vengono generati automaticamente. <br/><b>- MergeFiles</b>: unisce tutti i file della cartella di origine in un solo file. Se viene specificato il nome del file o del BLOB , il nome del file unito sarà il nome specificato. In caso contrario, verrà usato un nome di file generato automaticamente. | No       |
-| maxConcurrentConnections | Il numero delle connessioni per connettersi all'archivio di archiviazione simultaneamente. Specificare solo quando si desidera limitare le connessioni simultanee all'archivio dati. | No       |
+| maxConcurrentConnections | Numero di connessioni simultanee per la connessione all'archivio di archiviazione. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No       |
 
 > [!NOTE]
-> Per formato di testo delimitato/Parquet **BlobSink** sink dell'attività Copia tipo indicato nella sezione successiva è ancora supportata come-sia per compatibilità con le versioni precedenti. Consigliabile per usare questo nuovo modello in futuro e Azure Data factory di creazione dell'interfaccia utente è stata attivata per la generazione di questi nuovi tipi.
+> Per il formato di testo parquet/delimitato, il sink dell'attività di copia di tipo **BlobSink** indicato nella sezione successiva è ancora supportato così com'è per la compatibilità con le versioni precedenti. Si consiglia di usare questo nuovo modello in futuro e l'interfaccia utente di creazione di ADF ha cambiato la generazione di questi nuovi tipi.
 
 **Esempio:**
 
@@ -566,15 +566,15 @@ Per copiare dati nell'archiviazione Blob in formato testo delimitato o Parquet, 
 ]
 ```
 
-#### <a name="other-format-sink"></a>Altri sink di formato
+#### <a name="other-format-sink"></a>Altro sink di formato
 
-Per copiare dati in Archiviazione BLOB, impostare il tipo di sink nell'attività di copia su **BlobSink**. Nella sezione **sink** sono supportate le proprietà seguenti.
+Per copiare dati in un archivio BLOB in **formato ORC/avro/JSON**, impostare il tipo di sink nell'attività di copia su **BlobSink**. Nella sezione **sink** sono supportate le proprietà seguenti.
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type del sink dell'attività di copia deve essere impostata su **BlobSink**. |Sì |
 | copyBehavior | Definisce il comportamento di copia quando l'origine è costituita da file di un archivio dati basato su file.<br/><br/>I valori consentiti sono i seguenti:<br/><b>- PreserveHierarchy (impostazione predefinita)</b>: mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><b>- FlattenHierarchy</b>: tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. I nomi dei file di destinazione vengono generati automaticamente. <br/><b>- MergeFiles</b>: unisce tutti i file della cartella di origine in un solo file. Se viene specificato il nome del file o del BLOB , il nome del file unito sarà il nome specificato. In caso contrario, verrà usato un nome di file generato automaticamente. | No |
-| maxConcurrentConnections | Il numero delle connessioni per connettersi all'archivio di archiviazione simultaneamente. Specificare solo quando si desidera limitare le connessioni simultanee all'archivio dati. | No |
+| maxConcurrentConnections | Numero di connessioni simultanee per la connessione all'archivio di archiviazione. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No |
 
 **Esempio:**
 
@@ -625,16 +625,16 @@ In questa sezione viene descritto il comportamento derivante dell'operazione di 
 
 | recursive | copyBehavior | Struttura della cartella di origine | Destinazione risultante |
 |:--- |:--- |:--- |:--- |
-| true |preserveHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File5 | La cartella di destinazione Cartella1 viene creata con la stessa struttura dell'origine:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File5 |
-| true |flattenHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File5 | La Cartella1 di destinazione viene creata con la struttura seguente: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome generato automaticamente per File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome generato automaticamente per File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome generato automaticamente per File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome generato automaticamente per File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome generato automaticamente per File5 |
-| true |mergeFiles | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File5 | La Cartella1 di destinazione viene creata con la struttura seguente: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Il contenuto di File1 + File2 + File3 + File4 + File 5 viene unito in un file con nome generato automaticamente. |
-| false |preserveHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File5 | La Cartella1 di destinazione viene creata con la struttura seguente: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>La sottocartella1 con File3, File4 e File5 non viene considerata. |
-| false |flattenHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File5 | La Cartella1 di destinazione viene creata con la struttura seguente: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome generato automaticamente per File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome generato automaticamente per File2<br/><br/>La sottocartella1 con File3, File4 e File5 non viene considerata. |
-| false |mergeFiles | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File5 | La Cartella1 di destinazione viene creata con la struttura seguente<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Il contenuto di File1 + File2 viene unito in un file con un nome di file generato automaticamente. Nome generato automaticamente per File1<br/><br/>La sottocartella1 con File3, File4 e File5 non viene considerata. |
+| true |preserveHierarchy | Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File5 | La cartella di destinazione Cartella1 viene creata con la stessa struttura dell'origine:<br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File5 |
+| true |flattenHierarchy | Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File5 | La Cartella1 di destinazione viene creata con la struttura seguente: <br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome generato automaticamente per File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome generato automaticamente per File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome generato automaticamente per File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome generato automaticamente per File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome generato automaticamente per File5 |
+| true |mergeFiles | Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File5 | La Cartella1 di destinazione viene creata con la struttura seguente: <br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Il contenuto di File1 + File2 + File3 + File4 + File 5 viene unito in un file con nome generato automaticamente. |
+| false |preserveHierarchy | Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File5 | La Cartella1 di destinazione viene creata con la struttura seguente: <br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>La sottocartella1 con File3, File4 e File5 non viene considerata. |
+| false |flattenHierarchy | Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File5 | La Cartella1 di destinazione viene creata con la struttura seguente: <br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome generato automaticamente per File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome generato automaticamente per File2<br/><br/>La sottocartella1 con File3, File4 e File5 non viene considerata. |
+| false |mergeFiles | Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File5 | La Cartella1 di destinazione viene creata con la struttura seguente<br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Il contenuto di File1 + File2 viene unito in un file con un nome di file generato automaticamente. Nome generato automaticamente per File1<br/><br/>La sottocartella1 con File3, File4 e File5 non viene considerata. |
 
 ## <a name="mapping-data-flow-properties"></a>Mapping delle proprietà del flusso di dati
 
-Informazioni dettagliate dal [trasformazione sorgente](data-flow-source.md) e [sink trasformazione](data-flow-sink.md) nel Mapping di flusso di dati.
+Per informazioni dettagliate, vedere [trasformazione origine](data-flow-source.md) e [trasformazione sink](data-flow-sink.md) nel flusso di dati del mapping.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

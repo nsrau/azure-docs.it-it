@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Eseguire la migrazione da federazione a PHS per Azure AD | Microsoft Docs'
+title: 'Azure AD Connect: Eseguire la migrazione da Federazione a pH per Azure AD | Microsoft Docs'
 description: Questo articolo include informazioni sulla migrazione di un ambiente ibrido di gestione delle identità dalla federazione alla sincronizzazione dell'hash delle password.
 services: active-directory
 author: billmath
@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ce9c0c6d4f9002b061afd2ad09f02266d452979
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1b291f2243dfe28a8e866796e0b7375f94fa4f2e
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109270"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779433"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Eseguire la migrazione dalla federazione alla sincronizzazione degli hash delle password per Azure Active Directory
 
@@ -113,7 +113,7 @@ Per altre informazioni, vedere questi articoli:
 * [Set-MsolDomainAuthentication](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
 
 > [!NOTE]
-> Se **SupportsMfa** è impostato su **True**, si sta usando una soluzione di autenticazione a più fattori locale per inserire una richiesta di verifica come secondo fattore nel flusso di autenticazione utente. Questa configurazione non è più adatto a scenari di autenticazione AD Azure dopo la conversione di questo dominio da federato a gestito l'autenticazione. Dopo aver disabilitato la federazione, si interrompe la relazione per la federazione locale e sono inclusi gli adapter MFA in locale. 
+> Se **SupportsMfa** è impostato su **True**, si sta usando una soluzione di autenticazione a più fattori locale per inserire una richiesta di verifica come secondo fattore nel flusso di autenticazione utente. Questa configurazione non funziona più per gli scenari di autenticazione Azure AD dopo la conversione del dominio dall'autenticazione federata a quella gestita. Dopo la disabilitazione della Federazione, la relazione viene troncata alla Federazione locale e sono incluse le schede di autenticazione a più fattori locali. 
 >
 > In alternativa, usare il servizio Azure Multi-Factor Authentication basato sul cloud per eseguire la stessa funzione. Valutare attentamente i requisiti di autenticazione a più fattori prima di continuare. Prima di convertire i domini, assicurarsi di comprendere come usare Azure Multi-Factor Authentication, le implicazioni relative alla gestione delle licenze e il processo di registrazione utente.
 
@@ -139,9 +139,9 @@ Prima di poter procedere alla conversione dell'identità da federata a gestita, 
 |-|-|
 | Si prevede di continuare a usare AD FS con altre applicazioni (diverse da Azure AD e Office 365). | Dopo la conversione dei domini, si useranno sia AD FS che Azure AD. Considerare l'esperienza utente. È possibile che in alcuni scenari gli utenti debbano eseguire due volte l'autenticazione: una per accedere ad Azure AD (dove un utente ottiene l'accesso Single Sign-On ad altre applicazioni, come Office 365) e l'altra per le applicazioni ancora associate ad AD FS come trust della relying party. |
 | L'istanza di AD FS è un componente altamente personalizzabile e si basa su specifiche impostazioni di personalizzazione definite nel file onload.js, ad esempio se si è modificata l'esperienza di accesso per consentire agli utenti di usare il proprio nome solo nel formato **SamAccountName**, invece di un nome di entità utente (UPN), o se l'organizzazione visualizza informazioni personalizzate distintive dell'azienda. Il file onload.js non può essere duplicato in Azure AD. | Prima di continuare, è necessario verificare che Azure AD possa soddisfare i requisiti di personalizzazione corrente. Per altre informazioni e indicazioni, vedere le sezioni relative alla personalizzazione di AD FS e all'uso di informazioni personalizzate distintive dell'azienda in AD FS.|
-| Si usa AD FS per bloccare le versioni precedenti dei client di autenticazione.| Provare a sostituire i controlli di AD FS che bloccano le versioni precedenti dei client di autenticazione utilizzando una combinazione di [controlla l'accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) e [regole di accesso di Exchange Online Client](https://aka.ms/EXOCAR). |
+| Si usa AD FS per bloccare le versioni precedenti dei client di autenticazione.| Provare a sostituire AD FS controlli che bloccano le versioni precedenti dei client di autenticazione usando una combinazione di [controlli di accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) e [regole di accesso client di Exchange Online](https://aka.ms/EXOCAR). |
 | Si richiede agli utenti di eseguire l'autenticazione a più fattori in una soluzione server di autenticazione a più fattori locale quando gli utenti eseguono l'autenticazione ad AD FS.| In un dominio con identità gestite, non è possibile inserire una richiesta di autenticazione a più fattori tramite la soluzione di autenticazione a più fattori locale nel flusso di autenticazione. È tuttavia possibile usare il servizio Azure Multi-Factor Authentication per l'autenticazione a più fattori dopo aver convertito il dominio.<br /><br /> Se gli utenti attualmente non usano Azure Multi-Factor Authentication, è necessario un unico passaggio di registrazione utente. È necessario eseguire le opportune operazioni preliminari e comunicare agli utenti la registrazione pianificata. |
-| Per controllare l'accesso a Office 365, si usano attualmente i criteri di controllo di accesso (regole AuthZ) in AD FS.| Provare a sostituire i criteri di Azure ad equivalenti [criteri di accesso condizionale](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) e [regole di accesso di Exchange Online Client](https://aka.ms/EXOCAR).|
+| Per controllare l'accesso a Office 365, si usano attualmente i criteri di controllo di accesso (regole AuthZ) in AD FS.| Prendere in considerazione la sostituzione dei criteri con i [criteri di accesso condizionale](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) Azure ad equivalenti e le regole di [accesso client di Exchange Online](https://aka.ms/EXOCAR).|
 
 ### <a name="common-ad-fs-customizations"></a>Personalizzazioni di AD FS comuni
 
@@ -153,13 +153,13 @@ AD FS rilascia l'attestazione **InsideCorporateNetwork** se l'utente che esegue 
 
 L'attestazione **InsideCorporateNetwork** non è disponibile dopo che i domini vengono convertiti alla sincronizzazione dell'hash delle password. In alternativa a questa funzionalità è possibile usare [Posizioni specifiche in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-named-locations).
 
-Dopo aver configurato località denominate, è necessario aggiornare tutti i criteri di accesso condizionale che sono stati configurati per includere o escludere la rete **tutte le posizioni attendibili** oppure **indirizzi IP attendibili MFA** valori riflettere la nuova località denominate.
+Dopo aver configurato le località denominate, è necessario aggiornare tutti i criteri di accesso condizionale configurati in modo da includere o escludere la rete **tutti i percorsi attendibili** o i valori **IP attendibili** dell'autenticazione a più fattori per riflettere le nuove posizioni
 
-Per altre informazioni sul **posizione** condizione nell'accesso condizionale, vedere [posizioni di accesso condizionale di Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
+Per ulteriori informazioni sulla condizione di **posizione** nell'accesso condizionale, vedere [Active Directory percorsi di accesso condizionale](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
 
 #### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivi aggiunti ad Azure AD ibrido
 
-Quando si aggiunge un dispositivo ad Azure AD, è possibile creare regole di accesso condizionale che impongono che i dispositivi soddisfino gli standard di accesso per la sicurezza e conformità. Gli utenti possono anche accedere a un dispositivo usando un account aziendale o dell'istituto di istruzione invece di un account personale. Quando si usano dispositivi aggiunti ad Azure AD ibrido, è possibile aggiungere ad Azure AD i dispositivi aggiunti a un dominio di Active Directory. L'ambiente federato potrebbe essere stato configurato per usare questa funzionalità.
+Quando si aggiunge un dispositivo a Azure AD, è possibile creare regole di accesso condizionale che impongono che i dispositivi soddisfino gli standard di accesso per la sicurezza e la conformità. Gli utenti possono anche accedere a un dispositivo usando un account aziendale o dell'istituto di istruzione invece di un account personale. Quando si usano dispositivi aggiunti ad Azure AD ibrido, è possibile aggiungere ad Azure AD i dispositivi aggiunti a un dominio di Active Directory. L'ambiente federato potrebbe essere stato configurato per usare questa funzionalità.
 
 Per assicurarsi che la funzionalità di aggiunta a un ambiente ibrido continui a funzionare per eventuali dispositivi aggiunti al dominio dopo che i domini sono stati convertiti alla sincronizzazione dell'hash delle password, per i client Windows 10, è necessario usare Azure AD Connect per sincronizzare con Azure AD gli account computer di Active Directory. 
 
@@ -337,7 +337,7 @@ Usare questa opzione se non si sono inizialmente configurati i domini federati u
 
    Prima di abilitare la sincronizzazione degli hash delle password: ![Screenshot che mostra l'opzione Non configurare nella pagina Accesso utente](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image12.png)<br />
 
-   Dopo aver abilitato la sincronizzazione degli hash delle password: ![Screenshot che mostra le opzioni di nuovo nella pagina di accesso utente](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image13.png)<br />
+   Dopo aver abilitato la sincronizzazione degli hash delle password: ![Screenshot che mostra le nuove opzioni nella pagina di accesso dell'utente](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image13.png)<br />
    
    > [!NOTE]
    > A partire da Azure AD Connect versione 1.1.880.0, la casella di controllo **Accesso Single Sign-On facile** è selezionata per impostazione predefinita.
@@ -474,5 +474,5 @@ Per altre informazioni, vedere [Come è possibile rinnovare la chiave di decritt
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni, vedere [Concetti relativi alla progettazione per Azure AD Connect](plan-connect-design-concepts.md).
-* Scegliere l'[autenticazione appropriata](https://docs.microsoft.com/azure/security/azure-ad-choose-authn).
+* Scegliere l'[autenticazione appropriata](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn).
 * Vedere le informazioni sulle [topologie supportate](plan-connect-design-concepts.md).

@@ -1,85 +1,85 @@
 ---
-title: VLAN e subnet nella soluzione di VMware da CloudSimple - Azure
-description: Informazioni sulle VLAN e subnet in un cloud privato CloudSimple
+title: VLAN e subnet nella soluzione VMware di CloudSimple-Azure
+description: Informazioni sulle VLAN e sulle subnet in un cloud privato CloudSimple
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9d29445054848d798476fed8184b89f9b6c1210f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d6659c50b79237907cf596d65e0ba9fb72113246
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66497558"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812468"
 ---
 # <a name="vlans-and-subnets-overview"></a>Panoramica di VLAN e subnet
 
-CloudSimple fornisce una rete per ogni area in cui viene distribuito il servizio CloudSimple.  La rete è un singolo spazio di indirizzi TCP Layer 3 con routing abilitato per impostazione predefinita.  Tutti i cloud privati e le subnet create in quest'area possono comunicare tra loro senza alcuna configurazione aggiuntiva.  È possibile creare gruppi di porte distribuite in vCenter con le reti VLAN.
+CloudSimple fornisce una rete per area in cui viene distribuito il servizio CloudSimple.  La rete è un singolo spazio di indirizzi TCP di livello 3 con routing abilitato per impostazione predefinita.  Tutti i cloud privati e le subnet creati in questa area possono comunicare tra loro senza alcuna configurazione aggiuntiva.  È possibile creare gruppi di porte distribuite in vCenter usando le VLAN.
 
 ![Topologia di rete CloudSimple](media/cloudsimple-network-topology.png)
 
 ## <a name="vlans"></a>VLAN
 
-VLAN (rete di livello 2) vengono create per ogni cloud privato.  Il traffico di livello 2 rimane all'interno del limite di un cloud privato, permettendo di isolare il traffico locale nel cloud privato.  Una VLAN creata nel cloud privato è utilizzabile per creare i gruppi di porte distribuite solo nel cloud privato.  Una VLAN creata in un cloud privato viene configurata automaticamente in tutte le opzioni connessione agli host di un cloud privato.
+Le VLAN (rete di livello 2) vengono create per ogni cloud privato.  Il traffico di livello 2 rimane entro i limiti di un cloud privato, consentendo di isolare il traffico locale all'interno del cloud privato.  Una VLAN creata nel cloud privato può essere utilizzata per creare gruppi di porte distribuiti solo in tale cloud privato.  Una VLAN creata in un cloud privato viene configurata automaticamente in tutti i commutatori connessi agli host di un cloud privato.
 
 ## <a name="subnets"></a>Subnet
 
-Quando si crea una VLAN, definendo lo spazio degli indirizzi della subnet, è possibile creare una subnet. Come gateway subnet viene assegnato un indirizzo IP dallo spazio degli indirizzi. Un singolo spazio di indirizzi privato di livello 3 viene assegnato a singoli clienti e area geografica. È possibile configurare spazio indirizzi non sovrapposti qualsiasi RFC 1918 con la rete locale o una rete virtuale di Azure nella propria area di rete.
+È possibile creare una subnet quando si crea una VLAN, definendo lo spazio degli indirizzi della subnet. Un indirizzo IP dallo spazio di indirizzi viene assegnato come gateway della subnet. Per ogni cliente e area viene assegnato un singolo spazio di indirizzi privato di livello 3. È possibile configurare qualsiasi spazio di indirizzi non sovrapposto RFC 1918, con la rete locale o la rete virtuale di Azure, nell'area di rete.
 
-Tutte le subnet possono comunicare tra loro per impostazione predefinita, riducendo la configurazione di un sovraccarico per il routing tra cloud privati. Est-ovest dati tra i computer nella stessa area rimangano nella stessa rete di livello 3 e trasferisce l'infrastruttura di rete locale all'interno dell'area. Nessun traffico in uscita è obbligatorio per la comunicazione tra cloud privati in un'area. Questo approccio consente di eliminare eventuali problemi di prestazioni WAN/in uscita nella distribuzione di carichi di lavoro diversi in diversi cloud privati.
+Per impostazione predefinita, tutte le subnet possono comunicare tra loro, riducendo il sovraccarico della configurazione per il routing tra cloud privati. I dati East-West tra PC nella stessa area rimangono nella stessa rete di livello 3 e vengono trasferiti tramite l'infrastruttura di rete locale all'interno dell'area. Non è necessario alcun uscita per la comunicazione tra cloud privati in un'area. Questo approccio elimina qualsiasi riduzione delle prestazioni della rete WAN/in uscita per la distribuzione di carichi di lavoro diversi in cloud privati diversi.
 
-## <a name="vspherevsan-subnets-cidr-range"></a>intervallo CIDR subnet vSphere/vSAN
+## <a name="vspherevsan-subnets-cidr-range"></a>intervallo CIDR delle subnet vSphere/rete VSAN
 
-Viene creato un Cloud privato come uno stack VMware isolato (host ESXi vCenter, vSAN e NSX) ambiente gestito da un server vCenter.  Gestione componenti vengono distribuiti nella rete selezionata per **vSphere/vSAN subnet CIDR**.  Intervallo CIDR della rete è suddivisa in subnet diverse durante la distribuzione.
+Un cloud privato viene creato come ambiente VMware stack isolato (host ESXi, vCenter, rete VSAN e NSX) gestito da un server vCenter.  I componenti di gestione vengono distribuiti nella rete selezionata per la **CIDR delle subnet vSphere/rete VSAN**.  L'intervallo CIDR di rete è diviso in subnet diverse durante la distribuzione.
 
-Prefisso di intervallo minima vSphere/vSAN subnet CIDR: **/24** intervallo di subnet di vSphere/vSAN massimo CIDR prefisso:   **/21**
+Prefisso intervallo CIDR per le subnet vSphere/rete VSAN minime: **/24** numero massimo di subnet vSphere/rete VSAN numero prefisso intervallo CIDR: **/21**
 
 > [!CAUTION]
-> Gli indirizzi IP nell'intervallo CIDR vSphere/vSAN sono riservati per l'utilizzo dall'infrastruttura di Cloud privato. Non usare un indirizzo IP in questo intervallo su qualsiasi macchina virtuale.
+> Gli indirizzi IP nell'intervallo CIDR vSphere/rete VSAN sono riservati per l'uso da parte dell'infrastruttura di cloud privato. Non usare un indirizzo IP in questo intervallo in una macchina virtuale.
 
 
-### <a name="vspherevsan-subnets-cidr-range-limits"></a>i limiti di intervallo vSphere/vSAN subnet CIDR
+### <a name="vspherevsan-subnets-cidr-range-limits"></a>limiti di intervallo CIDR per le subnet vSphere/rete VSAN
 
-Selezionare le dimensioni dell'intervallo CIDR subnet vSphere/vSAN influisce sulla dimensione della Cloud privata.  Nella tabella seguente mostra il numero massimo di nodi che è possibile avere in base alla dimensione di vSphere/vSAN subnet CIDR.
+Selezionando le subnet vSphere/rete VSAN, le dimensioni dell'intervallo CIDR influiscano sulle dimensioni del cloud privato.  La tabella seguente mostra il numero massimo di nodi che è possibile avere in base alle dimensioni del CIDR di vSphere/rete VSAN subnet.
 
-| Lunghezza del prefisso subnet specificata di vSphere/vSAN CIDR | Numero massimo di nodi |
+| Lunghezza prefisso CIDR per le subnet vSphere/rete VSAN specificata | Numero massimo di nodi |
 |---------------------------------------------------|-------------------------|
 | /24 | 26 |
 | /23 | 58 |
 | /22 | 118 |
 | /21 | 220 |
 
-### <a name="management-subnets-created-on-a-private-cloud"></a>Subnet di gestione creata in un Cloud privato
+### <a name="management-subnets-created-on-a-private-cloud"></a>Subnet di gestione create in un cloud privato
 
-Subnet di gestione seguenti vengono create quando si crea un Cloud privato. 
+Quando si crea un cloud privato, vengono create le subnet di gestione seguenti. 
 
-* **Gestione del sistema** -VLAN e subnet per la gestione degli host ESXi di rete, server DNS, server vCenter.
-* **VMotion** -VLAN e subnet per rete vMotion degli host ESXi.
-* **Rete VSAN** -VLAN e subnet per la rete vSAN degli host ESXi.
-* **NsxtEdgeUplink1** -VLAN e subnet per uplink VLAN a una rete esterna.
-* **NsxtEdgeUplink2** -VLAN e subnet per uplink VLAN a una rete esterna.
-* **NsxtEdgeTransport** -VLAN e subnet per le zone di trasporto controllano la copertura delle reti di livello 2 in NSX-T.
-* **NsxtHostTransport** -VLAN e subnet per l'host del trasporto zona.
+* **Gestione del sistema** : VLAN e subnet per la rete di gestione, il server DNS e il server vCenter degli host ESXi.
+* **VMotion** -VLAN e subnet per gli host ESXi di rete.
+* **Rete VSAN** -VLAN e subnet per la rete rete VSAN degli host ESXi.
+* **NsxtEdgeUplink1** -VLAN e subnet per il collegamento VLAN a una rete esterna.
+* **NsxtEdgeUplink2** -VLAN e subnet per il collegamento VLAN a una rete esterna.
+* **NsxtEdgeTransport** -VLAN e subnet per le zone di trasporto controllano la portata delle reti di livello 2 in NSX-T.
+* **NsxtHostTransport** -VLAN e subnet per la zona di trasporto host.
 
 ### <a name="management-network-cidr-range-breakdown"></a>Suddivisione intervallo CIDR rete di gestione
 
-intervallo CIDR subnet vSphere/vSAN specificato è suddiviso in più subnet.  Tabella riportata di seguito viene illustrato un esempio mostra la scomposizione di prefissi consentiti.  Nell'esempio viene usato **192.168.0.0** come intervallo CIDR.
+l'intervallo CIDR delle subnet vSphere/rete VSAN specificato è diviso in più subnet.  La tabella seguente illustra un esempio di suddivisione dei prefissi consentiti.  Nell'esempio viene utilizzato **192.168.0.0** come intervallo CIDR.
 
 Esempio:
 
-| Specificato vSphere/vSAN subnet/prefisso della CIDR | 192.168.0.0/21 | 192.168.0.0/22 | 192.168.0.0/23 | 192.168.0.0/24 |
+| Prefisso/CIDR della subnet vSphere/rete VSAN specificato | 192.168.0.0/21 | 192.168.0.0/22 | 192.168.0.0/23 | 192.168.0.0/24 |
 |---------------------------------|----------------|----------------|----------------|----------------|
 | Gestione del sistema | 192.168.0.0/24 | 192.168.0.0/24 | 192.168.0.0/25 | 192.168.0.0/26 |
 | vMotion | 192.168.1.0/24 | 192.168.1.0/25 | 192.168.0.128/26 | 192.168.0.64/27 |
 | vSAN | 192.168.2.0/24 | 192.168.1.128/25 | 192.168.0.192/26 | 192.168.0.96/27 |
-| Trasporto Host NSX-T | 192.168.4.0/23 | 192.168.2.0/24 | 192.168.1.0/25 | 192.168.0.128/26 |
+| Trasporto host NSX-T | 192.168.4.0/23 | 192.168.2.0/24 | 192.168.1.0/25 | 192.168.0.128/26 |
 | Trasporto Edge NSX-T | 192.168.7.208/28 | 192.168.3.208/28 | 192.168.1.208/28 | 192.168.0.208/28 |
-| NSX-T Edge Uplink1 | 192.168.7.224/28 | 192.168.3.224/28 | 192.168.1.224/28 | 192.168.0.224/28 |
+| Uplink1 Edge NSX-T | 192.168.7.224/28 | 192.168.3.224/28 | 192.168.1.224/28 | 192.168.0.224/28 |
 | Uplink2 Edge NSX-T | 192.168.7.240/28 | 192.168.3.240/28 | 192.168.1.240/28 | 192.168.0.240/28 |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Creare e gestire le VLAN e subnet](https://docs.azure.cloudsimple.com/create-vlan-subnet/)
+* [Creare e gestire VLAN e subnet](https://docs.azure.cloudsimple.com/create-vlan-subnet/)

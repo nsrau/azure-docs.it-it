@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 99bfab5a5f80fc0a49c7cc6405154394391f43e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3a55de2d5f47274ea112e52ddbcc0d946db56470
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60908230"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775325"
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>Uso del Centro sicurezza di Azure per rispondere a un evento imprevisto
 Molte organizzazioni imparano a rispondere agli eventi imprevisti della sicurezza solo dopo aver subito un attacco. Per ridurre i costi e i danni è importante implementare un piano di risposta agli eventi imprevisti prima di un attacco. Centro sicurezza di Azure può essere usato nelle diverse fasi della risposta agli eventi imprevisti.
@@ -51,12 +51,12 @@ Ai fini di questo scenario verranno presi in esame i ruoli degli utenti seguenti
 
 ![Ciclo di vita della risposta agli eventi imprevisti](./media/security-center-incident-response/security-center-incident-response-fig2.png)
 
-Alice si occupa delle attività di sicurezza. Le sue responsabilità includono:
+Alice si occupa delle attività di sicurezza. Le loro responsabilità includono:
 
 * Monitoraggio e risposta alle minacce per la sicurezza 24 ore su 24.
 * Escalation al proprietario dei carichi di lavoro nel cloud o all'analista della sicurezza in base alle esigenze.
 
-Guido è un analista della sicurezza e le sue responsabilità includono:
+Sam è un analista della sicurezza e le loro responsabilità includono:
 
 * Analisi degli attacchi.
 * Risoluzione degli avvisi.
@@ -65,17 +65,17 @@ Guido è un analista della sicurezza e le sue responsabilità includono:
 Come si può notare, Alice e Guido hanno responsabilità diverse e devono interagire tra loro per condividere le informazioni del Centro sicurezza.
 
 ## <a name="recommended-solution"></a>Soluzione consigliata
-Avendo ruoli diversi, Alice e Guido useranno aree diverse del Centro sicurezza per ottenere informazioni attinenti alle proprie attività quotidiane. Alice userà gli **avvisi di sicurezza** nell'ambito delle attività di monitoraggio giornaliere.
+Avendo ruoli diversi, Alice e Guido useranno aree diverse del Centro sicurezza per ottenere informazioni attinenti alle proprie attività quotidiane. Judy utilizzerà gli **avvisi di sicurezza** come parte del monitoraggio giornaliero.
 
-![Avvisi di sicurezza](./media/security-center-incident-response/security-center-incident-response-fig3.png)
+![Avvisi sicurezza](./media/security-center-incident-response/security-center-incident-response-fig3.png)
 
-Alice userà gli avvisi di sicurezza durante le fasi di rilevamento e valutazione. Quando avrà terminato la valutazione iniziale, Alice potrà inoltrare il problema a Guido, se sono necessarie altre analisi. Guido userà a questo punto le informazioni messe a disposizione dal Centro sicurezza, a volte in combinazione con altre fonti di dati, per passare alla fase di diagnosi.
+Alice userà gli avvisi di sicurezza durante le fasi di rilevamento e valutazione. Al termine della valutazione iniziale, Judy potrebbe inoltrare il problema a Sam se è necessaria un'indagine aggiuntiva. Guido userà a questo punto le informazioni messe a disposizione dal Centro sicurezza, a volte in combinazione con altre fonti di dati, per passare alla fase di diagnosi.
 
 ## <a name="how-to-implement-this-solution"></a>Come implementare questa soluzione
 Per vedere come usare il Centro sicurezza di Azure in uno scenario di risposta agli eventi imprevisti della sicurezza, verranno seguite le attività di Alice nelle fasi di rilevamento e valutazione, quindi le attività svolte da Guido per la diagnosi del problema.
 
 ### <a name="detect-and-assess-incident-response-stages"></a>Fasi di rilevamento e valutazione nella risposta agli eventi imprevisti della sicurezza
-Alice ha effettuato l'accesso al portale di Azure e si trova nella console del Centro sicurezza. Nell'ambito delle proprie attività di monitoraggio giornaliere, ha iniziato a esaminare avvisi di sicurezza ad alta priorità seguendo questa procedura:
+Alice ha effettuato l'accesso al portale di Azure e si trova nella console del Centro sicurezza. Come parte delle attività di monitoraggio quotidiane, ha iniziato a esaminare gli avvisi di sicurezza con priorità alta attenendosi alla procedura seguente:
 
 1. Fare clic sul riquadro **Avvisi di sicurezza** e accedere al pannello **Avvisi di sicurezza**.
     ![Pannello Avvisi di sicurezza](./media/security-center-incident-response/security-center-incident-response-fig4.png)
@@ -89,7 +89,7 @@ Alice ha effettuato l'accesso al portale di Azure e si trova nella console del C
     In questo pannello Alice può vedere le risorse che hanno subito l'attacco, quante volte si è verificato l'attacco e quando è stato rilevato.
 3. Fare clic sulla **risorsa che ha subito l'attacco** per ottenere altre informazioni sull'attacco.
 
-Dopo aver letto la descrizione, Alice è convinta che non si tratti di un falso positivo e che è necessario inoltrare questo caso a Guido.
+Dopo aver letto la descrizione, Judy è convinta che non si tratti di un falso positivo e che l'escalation di questo caso a Sam.
 
 ### <a name="diagnose-incident-response-stage"></a>Fase di diagnosi nella risposta agli eventi imprevisti della sicurezza
 Guido riceve il caso da Alice e inizia a esaminare la procedura correttiva consigliata dal Centro sicurezza.
@@ -99,5 +99,5 @@ Guido riceve il caso da Alice e inizia a esaminare la procedura correttiva consi
 ### <a name="additional-resources"></a>Risorse aggiuntive
 Le aziende che usano la propria soluzione SIEM (Security Information and Event Management, Sistema di gestione delle informazioni e degli eventi di sicurezza) durante il processo di analisi possono anche [integrare il Centro sicurezza con la propria soluzione](security-center-integrating-alerts-with-log-integration.md). È anche possibile integrare i log di controllo di Azure e gli eventi di sicurezza delle macchine virtuali con lo [strumento di integrazione dei log di Azure](https://azure.microsoft.com/blog/introducing-hdinsight-integration-with-azure-log-analytics/). Queste informazioni possono essere usate insieme a quelle messe a disposizione dal Centro sicurezza per analizzare un attacco. È anche possibile usare la funzionalità di [indagine](https://docs.microsoft.com/azure/security-center/security-center-investigation) nel Centro sicurezza per determinare la causa radice di un incidente.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 La creazione di un team prima che si verifichi un evento imprevisto è molto importante per l'organizzazione e avrà effetti positivi sulla gestione degli eventi imprevisti. Con gli strumenti giusti per monitorare le risorse, questo team potrà prendere provvedimenti mirati per la risoluzione di un evento imprevisto della sicurezza. Le [funzionalità di rilevamento](security-center-detection-capabilities.md) del Centro sicurezza consentono all'IT di rispondere rapidamente agli eventi imprevisti della sicurezza e di attuare interventi correttivi per i problemi di sicurezza.

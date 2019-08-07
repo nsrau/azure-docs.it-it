@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: elioda
-ms.openlocfilehash: eb8b7c62e765ab233b50310dca9c21e9728ed56a
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: edbeffebd1f4ee41d8a2bdaddcdc7d84cbe1affe
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668008"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780940"
 ---
 # <a name="get-started-with-device-twins-nodejs"></a>Introduzione ai dispositivi gemelli (node. js)
 
@@ -38,6 +38,8 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+## <a name="register-a-new-device-in-the-iot-hub"></a>Registrare un nuovo dispositivo nell'hub IoT
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 

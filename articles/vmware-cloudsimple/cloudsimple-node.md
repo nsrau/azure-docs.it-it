@@ -1,61 +1,61 @@
 ---
-title: Panoramica di nodi per la soluzione VMware da CloudSimple - Azure
-description: Informazioni sui concetti e i nodi CloudSimple.
+title: Panoramica dei nodi per la soluzione VMware di CloudSimple-Azure
+description: Informazioni sui nodi e concetti relativi a CloudSimple.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fb82e31d58d9955efc3b147eccf2b82b8768aeee
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 346bd046810ebae5142bc23400419857000d0c8e
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165792"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812584"
 ---
-# <a name="cloudsimple-nodes-overview"></a>Panoramica di nodi CloudSimple
+# <a name="cloudsimple-nodes-overview"></a>Panoramica sui nodi CloudSimple
 
 Un nodo è:
 
-* Un computer bare metal di dedicato in cui è installato hypervisor VMware ESXi host di calcolo  
-* Un'unità di calcolo è possibile eseguire il provisioning o da riservare per creare cloud privati  
-* Disponibile per il provisioning o da riservare in un'area in cui è disponibile il servizio CloudSimple
+* Un host di calcolo bare metal dedicato in cui è installato VMware ESXi hypervisor  
+* Unità di calcolo di cui è possibile effettuare il provisioning o la riserva per la creazione di cloud privati  
+* Disponibile per il provisioning o la riserva in un'area in cui è disponibile il servizio CloudSimple
 
-I nodi sono blocchi predefiniti di un cloud privato.  Per creare un cloud privato, è necessario un minimo di tre nodi dello stesso SKU.  Per espandere un cloud privato, aggiungere altri nodi.  È possibile aggiungere nodi a un cluster esistente. In alternativa, è possibile creare un nuovo cluster, il provisioning di nodi nel portale di Azure e associandoli con il servizio CloudSimple.  Tutti i nodi il provisioning sono visibili nel servizio CloudSimple.  Dai nodi con provisioning nel portale CloudSimple è creare un cloud privato.
+I nodi sono blocchi predefiniti di un cloud privato.  Per creare un cloud privato, sono necessari almeno tre nodi dello stesso SKU.  Per espandere un cloud privato, aggiungere altri nodi.  È possibile aggiungere nodi a un cluster esistente. In alternativa, è possibile creare un nuovo cluster eseguendo il provisioning di nodi nel portale di Azure e associando i nodi al servizio CloudSimple.  Tutti i nodi di cui è stato effettuato il provisioning sono visibili nel servizio CloudSimple.  Si crea un cloud privato dai nodi sottoposti a provisioning nel portale di CloudSimple.
 
-## <a name="provisioned-nodes"></a>Nodi con provisioning
+## <a name="provisioned-nodes"></a>Nodi sottoposti a provisioning
 
-Nodi con provisioning offrono capacità di pagamento a consumo. Il provisioning di nodi consente di ridimensionare rapidamente il cluster VMware su richiesta. È possibile aggiungere i nodi in base alle necessità, o eliminare un nodo con provisioning per ridurre i cluster VMware. nodi con provisioning sono fatturati su base mensile e addebitati alla sottoscrizione in cui si esegue il provisioning:
+I nodi di cui è stato effettuato il provisioning forniscono capacità con pagamento in base al consumo. I nodi di provisioning consentono di ridimensionare rapidamente il cluster VMware su richiesta. È possibile aggiungere nodi in base alle esigenze o eliminare un nodo di cui è stato effettuato il provisioning per ridurre il cluster VMware. i nodi di cui è stato effettuato il provisioning vengono fatturati su base mensile e addebitati alla sottoscrizione in cui viene effettuato il provisioning:
 
-* Se effettua un pagamento della sottoscrizione di Azure tramite carta di credito, la scheda viene fatturata immediatamente.
-* Se la fatturazione tramite fattura, gli addebiti vengono visualizzati nella fattura successiva.
+* Se si paga per la sottoscrizione di Azure tramite carta di credito, la carta verrà fatturata immediatamente.
+* Se la fatturazione è fatturata, i costi vengono visualizzati nella fattura successiva.
 
-## <a name="vmware-solution-by-cloudsimple-nodes-sku"></a>Soluzione VMware dai nodi CloudSimple SKU
+## <a name="vmware-solution-by-cloudsimple-nodes-sku"></a>SKU della soluzione VMware per nodi CloudSimple
 
-I tipi di nodi seguenti sono disponibili per il provisioning o prenotazione.
+I nodi dei tipi seguenti sono disponibili per il provisioning o la prenotazione.
 
-| SKU | CS28 - nodo | CS36 - nodo |
+| SKU | CS28-nodo | CS36-nodo |
 |-----|-------------|-------------|
-| CPU | 2x2.2 GHz, 28 core (56 Hyper-Threading) | 2x2.3 GHz, 36 core (72 Hyper-Threading) |
+| CPU | 2x 2.2 GHz, 28 Core (56 HT) | 2x 2,3 GHz, 36 core (72 HT) |
 | RAM | 256 GB | 512 GB |
-| Disco della cache |  NVMe 1,6 TB | 3.2-TB NVMe |
-| Capacità disco | 5.625 TB non elaborati | 11,25 TB non elaborati |
-| Tipo di archiviazione | Tutti i Flash | Tutti i Flash |
+| Disco della cache |  1,6-TB NVMe | 3,2-TB NVMe |
+| Disco di capacità | 5,625 TB raw | 11,25 TB raw |
+| Tipo di archiviazione | Tutti i flash | Tutti i flash |
 
 ## <a name="limits"></a>Limiti
 
-I limiti di nodo seguenti si applicano ai cloud privati.
+I limiti dei nodi seguenti si applicano ai cloud privati.
 
-| Resource | Limite |
+| Risorsa | Limite |
 |----------|-------|
-| Numero minimo di nodi per creare un cloud privato | 3 |
-| Numero massimo di nodi in un Cluster in un cloud privato | 16 |
+| Numero minimo di nodi per la creazione di un cloud privato | 3 |
+| Numero massimo di nodi in un cluster in un cloud privato | 16 |
 | Numero massimo di nodi in un cloud privato | 64 |
-| Numero minimo di nodi in un nuovo Cluster | 3 |
+| Numero minimo di nodi in un nuovo cluster | 3 |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni su come [il provisioning dei nodi](create-nodes.md)
-* Informazioni su [del Cloud privato Microsoft](cloudsimple-private-cloud.md)
+* Informazioni su come eseguire il provisioning di [nodi](create-nodes.md)
+* Informazioni sul [cloud privato](cloudsimple-private-cloud.md)

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/05/2019
 ms.author: aschhab
-ms.openlocfilehash: bd2a594bfd7fbac53deacc767ace3cd44484798e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: faf0a5893b7de276b9a411745500daef4d39da6b
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058098"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816072"
 ---
 # <a name="service-bus-management-libraries"></a>Librerie di gestione del bus di servizio
 
@@ -50,7 +50,7 @@ Il modello di modifica delle risorse del bus di servizio segue un protocollo com
    ```csharp
    var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
-   var result = await context.AcquireTokenAsync("https://management.core.windows.net/", new ClientCredential(clientId, clientSecret));
+   var result = await context.AcquireTokenAsync("https://management.azure.com/", new ClientCredential(clientId, clientSecret));
    ```
 2. Creare l'oggetto `ServiceBusManagementClient`:
 
@@ -76,8 +76,8 @@ Il modello di modifica delle risorse del bus di servizio segue un protocollo com
    await sbClient.Queues.CreateOrUpdateAsync(resourceGroupName, namespaceName, QueueName, queueParams);
    ```
 
-## <a name="complete-code-to-create-a-queue"></a>Codice completo per creare una coda
-Ecco il codice completo per creare una coda del Bus di servizio: 
+## <a name="complete-code-to-create-a-queue"></a>Completare il codice per creare una coda
+Ecco il codice completo per creare una coda del bus di servizio: 
 
 ```csharp
 using System;
@@ -139,7 +139,7 @@ namespace SBusADApp
                 var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
                 var result = await context.AcquireTokenAsync(
-                    "https://management.core.windows.net/",
+                    "https://management.azure.com/",
                     new ClientCredential(clientId, clientSecret)
                 );
 
@@ -164,7 +164,7 @@ namespace SBusADApp
 ```
 
 > [!IMPORTANT]
-> Per un esempio completo, vedere la [esempio di gestione .NET su GitHub](https://github.com/Azure-Samples/service-bus-dotnet-management/). 
+> Per un esempio completo, vedere l'esempio di [gestione .NET su GitHub](https://github.com/Azure-Samples/service-bus-dotnet-management/). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Informazioni di riferimento sull'API Microsoft.Azure.Management.ServiceBus](/dotnet/api/Microsoft.Azure.Management.ServiceBus)

@@ -1,23 +1,23 @@
 ---
-title: Gestire Azure soluzione VMware da CloudSimple Private Cloud
-description: Descrive le funzionalità disponibili per la gestione di risorse del Cloud privato CloudSimple e dell'attività
+title: Gestire la soluzione VMware di Azure con il cloud privato CloudSimple
+description: Descrive le funzionalità disponibili per gestire le risorse e le attività del cloud privato CloudSimple
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 06/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 05a2fb451b3acce1011c1d5f4cf17f0a865d57d0
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 620c0226d3aca907352658ebbe1b94c7673d91cd
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67333115"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812276"
 ---
-# <a name="manage-private-cloud-resources-and-activity"></a>Gestisce le attività e le risorse del Cloud privato Microsoft
+# <a name="manage-private-cloud-resources-and-activity"></a>Gestione delle risorse e delle attività del cloud privato
 
-I cloud privati sono gestiti dal portale CloudSimple.  Controllare lo stato, le risorse disponibili, l'attività sul cloud privato e altre impostazioni dal portale CloudSimple.
+I cloud privati vengono gestiti dal portale di CloudSimple.  Verificare lo stato, le risorse disponibili, l'attività nel cloud privato e altre impostazioni dal portale di CloudSimple.
 
 ## <a name="sign-in-to-azure"></a>Accedi ad Azure
 
@@ -25,70 +25,70 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 ## <a name="access-the-cloudsimple-portal"></a>Accedere al portale di CloudSimple
 
-Accesso di [CloudSimple portale](access-cloudsimple-portal.md).
+Accedere al [portale di CloudSimple](access-cloudsimple-portal.md).
 
 ## <a name="view-the-list-of-private-clouds"></a>Visualizzare l'elenco dei cloud privati
 
-Il **cloud privati** scheda le **risorse** pagina vengono elencati tutti i cloud privati nella sottoscrizione. Le informazioni includono il nome, numero di vSphere di cluster, località, stato corrente della finestra di private cloud, le informazioni e risorse.
+Nella scheda **cloud privati** della pagina **risorse** sono elencati tutti i cloud privati nella sottoscrizione. Le informazioni includono il nome, il numero di cluster vSphere, la posizione, lo stato corrente del cloud privato e le informazioni sulle risorse.
 
-![Pagina del Cloud privato Microsoft](media/manage-private-cloud.png)
+![Pagina del cloud privato](media/manage-private-cloud.png)
 
-Selezionare un Cloud privato per le azioni e informazioni aggiuntive.
+Selezionare un cloud privato per ulteriori informazioni e azioni.
 
-## <a name="private-cloud-summary"></a>Riepilogo del Cloud privato Microsoft
+## <a name="private-cloud-summary"></a>Riepilogo del cloud privato
 
-Visualizzare un riepilogo completo del Cloud privato selezionato.  Pagina di riepilogo include i server DNS distribuiti sul Cloud privato.  È possibile impostare il servizio DNS di inoltro dal server DNS locali per i server DNS di Cloud privato.  Per ulteriori informazioni sull'inoltro di DNS, vedere [configurare DNS per la risoluzione dei nomi per un Cloud privato vCenter locale](https://docs.azure.cloudsimple.com/on-premises-dns-setup/).
+Visualizza un riepilogo completo del cloud privato selezionato.  Nella pagina Riepilogo sono inclusi i server DNS distribuiti nel cloud privato.  È possibile configurare l'invio DNS da server DNS locali ai server DNS del cloud privato.  Per altre informazioni sull'invio DNS, vedere [configurare DNS per la risoluzione dei nomi per il cloud privato vCenter da locale](https://docs.azure.cloudsimple.com/on-premises-dns-setup/).
 
-![Riepilogo di Cloud privato](media/private-cloud-summary.png)
-
-### <a name="available-actions"></a>Azioni disponibili
-
-* [Avviare il client di vSphere](https://docs.azure.cloudsimple.com/vsphere-access/). Accesso di vCenter per questo Cloud privato.
-* [Acquisto nodi](create-nodes.md). Aggiungere nodi a questo Cloud privato.
-* [Espandere](expand-private-cloud.md). Aggiungere nodi a questo Cloud privato.
-* **Aggiorna**. Aggiornare le informazioni in questa pagina.
-* **Delete**. È possibile eliminare il Cloud privato in qualsiasi momento. **Prima dell'eliminazione, assicurarsi che è stato eseguito il backup di tutti i sistemi e dati.** L'eliminazione di un Cloud privato consente di eliminare tutte le macchine virtuali, configurazione di vCenter e dati. Fare clic su **eliminare** nella sezione di riepilogo per il Cloud privato selezionato. Dopo l'eliminazione, vengono cancellati tutti i dati di Cloud privato in un processo di cancellazione sicura, altamente compatibile.
-* [Modificare i diritti di vSphere](escalate-private-cloud-privileges.md).  Eseguire l'escalation dei privilegi in questo Cloud privato.
-
-## <a name="private-cloud-vlanssubnets"></a>Subnet/VLAN Private Cloud
-
-Visualizzare l'elenco di VLAN/subnet definita per il Cloud privato selezionato.  L'elenco include la gestione VLAN/subnet creata quando è stato creato il cloud privato.
-
-![Cloud privato - VLAN/subnet](media/private-cloud-vlans-subnets.png) 
+![Riepilogo del cloud privato](media/private-cloud-summary.png)
 
 ### <a name="available-actions"></a>Azioni disponibili
 
-* [Aggiungere VLAN/subnet](https://docs.azure.cloudsimple.com/create-vlan-subnet/). Aggiungere un VLAN/subset in questo Cloud privato.
+* [Avviare vSphere client](https://docs.azure.cloudsimple.com/vsphere-access/). Accedere a vCenter per questo cloud privato.
+* [Acquistare i nodi](create-nodes.md). Aggiungere nodi a questo cloud privato.
+* [Espandi](expand-private-cloud.md). Aggiungere nodi a questo cloud privato.
+* **Aggiornamento**. Aggiornare le informazioni in questa pagina.
+* **Delete**. È possibile eliminare il cloud privato in qualsiasi momento. **Prima di eliminare, verificare di aver eseguito il backup di tutti i sistemi e i dati.** L'eliminazione di un cloud privato comporta l'eliminazione di tutte le macchine virtuali, la configurazione di vCenter e i dati. Fare clic su **Elimina** nella sezione Riepilogo per il cloud privato selezionato. Dopo l'eliminazione, tutti i dati del cloud privato vengono cancellati in un processo di cancellazione sicuro e altamente conforme.
+* [Modificare i privilegi vSphere](escalate-private-cloud-privileges.md).  Escalation dei privilegi in questo cloud privato.
 
-Selezionare una Subnet/VLAN per le azioni seguenti
-* [Collegare tabella firewall](https://docs.azure.cloudsimple.com/firewall/). Collegare una tabella di firewall per questo Cloud privato.
+## <a name="private-cloud-vlanssubnets"></a>VLAN/subnet del cloud privato
+
+Visualizza l'elenco di VLAN/subnet definite per il cloud privato selezionato.  L'elenco include le VLAN di gestione/subnet create durante la creazione del cloud privato.
+
+![Cloud privato-VLAN/subnet](media/private-cloud-vlans-subnets.png) 
+
+### <a name="available-actions"></a>Azioni disponibili
+
+* [Aggiungere VLAN/subnet](https://docs.azure.cloudsimple.com/create-vlan-subnet/). Aggiungere una VLAN/subset al cloud privato.
+
+Selezionare una VLAN/subnet per le azioni seguenti
+* [Connettersi alla tabella del firewall](https://docs.azure.cloudsimple.com/firewall/). Consente di alleghi una tabella del firewall a questo cloud privato.
 * **Modifica**
-* **Eliminare** (solo dall'utente VLAN/subnet)
+* **Elimina** (solo VLAN/subnet definite dall'utente)
 
-## <a name="private-cloud-activity"></a>Attività di Cloud privato
+## <a name="private-cloud-activity"></a>Attività del cloud privato
 
-Visualizzare le informazioni seguenti per il Cloud privato selezionato.  Le informazioni sull'attività è un elenco filtrato di tutte le attività per il Cloud privato selezionato.  Questa pagina illustra le attività recenti fino a 25.
+Per il cloud privato selezionato, visualizzare le informazioni seguenti.  Le informazioni sulle attività sono un elenco filtrato di tutte le attività per il cloud privato selezionato.  Questa pagina mostra fino a 25 attività recenti.
 
 * Avvisi recenti
 * Eventi recenti
-* Attività recente
-* Controllo recenti
+* Attività recenti
+* Controllo recente
 
-![Cloud privato - attività](media/private-cloud-activity.png)
+![Cloud privato-attività](media/private-cloud-activity.png)
 
-## <a name="cloud-racks"></a>Rack di cloud
+## <a name="cloud-racks"></a>Rack cloud
 
-Cloud rack sono i blocchi predefiniti di Cloud privato. Ogni rack fornisce un'unità di capacità. CloudSimple configura automaticamente rack cloud sulla base delle selezioni quando si crea o espansione di un Cloud privato.  Visualizzare l'elenco completo dei rack cloud, tra cui il Cloud privato da ciascuna è assegnato a.
+I rack cloud sono i componenti costitutivi del cloud privato. Ogni rack fornisce un'unità di capacità. CloudSimple configura automaticamente i rack cloud in base alle selezioni effettuate durante la creazione o l'espansione di un cloud privato.  Consente di visualizzare l'elenco completo dei rack cloud, incluso il cloud privato a cui sono assegnati.
 
-![Cloud privato - Cloud rack](media/private-cloud-cloudracks.png)
+![Cloud privato-rack cloud](media/private-cloud-cloudracks.png)
 
-## <a name="vsphere-management-network"></a>vSphere rete di gestione
+## <a name="vsphere-management-network"></a>Rete di gestione vSphere
 
-Elenco di macchine virtuali attualmente configurate sul Cloud privato e le risorse di gestione di VMware. Le informazioni includono la versione del software, un nome di dominio completo (FQDN) e un indirizzo IP delle risorse.
+Elenco delle risorse di gestione VMware e delle macchine virtuali attualmente configurate nel cloud privato. Le informazioni includono la versione del software, il nome di dominio completo (FQDN) e l'indirizzo IP delle risorse.
 
-![Cloud privato - vSphere rete di gestione](media/private-cloud-vsphere-management-network.png)
+![Cloud privato-rete di gestione vSphere](media/private-cloud-vsphere-management-network.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Utilizzare le macchine virtuali VMware in Azure](quickstart-create-vmware-virtual-machine.md)
-* Altre informazioni su [cloud privati](cloudsimple-private-cloud.md)
+* [Utilizzare macchine virtuali VMware in Azure](quickstart-create-vmware-virtual-machine.md)
+* Altre informazioni sui [cloud privati](cloudsimple-private-cloud.md)

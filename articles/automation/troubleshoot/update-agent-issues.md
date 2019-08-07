@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 3555ec74b7e7c8a0f7606f24f8c6f2c4fe36b52d
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: bbccb9beab374a4a514d527c22b3861f0752d5fd
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477089"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782392"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Comprendere i risultati del controllo dell'agente Windows in Gestione aggiornamenti
 
@@ -27,7 +27,7 @@ L'elenco seguente indica i tre possibili stati di conformità di un computer:
 * **Non configurato**: l'agente di aggiornamento non viene trovato o non è stato completato l'onboarding.
 
 > [!NOTE]
-> Potrebbe esserci un leggero ritardo tra i quali viene illustrato il portale di Azure e lo stato corrente della macchina.
+> È possibile che si verifichi un lieve ritardo tra il portale di Azure visualizzato e lo stato corrente del computer.
 
 ## <a name="start-the-troubleshooter"></a>Avviare la risoluzione dei problemi
 
@@ -55,15 +55,15 @@ Il controllo del sistema operativo verifica se il ruolo di lavoro ibrido per run
 |Sistema operativo  |Note  |
 |---------|---------|
 |Windows Server 2008 R2 RTM, Windows Server 2008 | Supporta solo le valutazioni degli aggiornamenti.         |
-|Windows Server 2008 R2 SP1 e versioni successive |È necessario .NET Framework 4.5.1 o versione successiva. ([Scaricare .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> È necessario Windows PowerShell 4.0 o versioni successive. ([Scaricare Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 è consigliato per la sua maggiore affidabilità.  ([Scaricare Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 e versioni successive |È necessario .NET Framework 4.6.1 o versione successiva. ([Scaricare .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 5,1 è obbligatorio.  ([Scaricare Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 
-### <a name="net-451"></a>.NET 4.5.1
+### <a name="net-461"></a>4\.6.1 .NET +
 
-Il controllo di .NET Framework verifica se nel sistema è installato almeno [.NET Framework 4.5.1](https://www.microsoft.com/download/details.aspx?id=30653).
+Il controllo .NET Framework verifica che nel sistema sia installato almeno [.NET Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981) .
 
 ### <a name="wmf-51"></a>WMF 5.1
 
-Il controllo WMF verifica se nel sistema è disponibile la versione richiesta di Windows Management Framework (WMF). [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) è la versione minima supportata. Si consiglia di installare [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616) per una maggiore affidabilità del ruolo di lavoro ibrido per runbook.
+Il controllo WMF verifica che il sistema disponga della versione richiesta di Windows Management Framework (WMF)- [Windows Management framework 5,1](https://www.microsoft.com/download/details.aspx?id=54616).
 
 ### <a name="tls-12"></a>TLS 1.2
 
@@ -144,7 +144,7 @@ RuleId                      : AutomationAgentServiceConnectivityCheck1
 RuleGroupId                 : connectivity
 RuleName                    : Registration endpoint
 RuleGroupName               : connectivity
-RuleDescription             : 
+RuleDescription             :
 CheckResult                 : Failed
 CheckResultMessage          : Unable to find Workspace registration information in registry
 CheckResultMessageId        : AutomationAgentServiceConnectivityCheck1.Failed.NoRegistrationFound

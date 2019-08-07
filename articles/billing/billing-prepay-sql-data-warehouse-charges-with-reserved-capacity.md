@@ -6,14 +6,14 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/19/2019
+ms.date: 08/02/2019
 ms.author: banders
-ms.openlocfilehash: 08c9f958f5103da9961f4c2d29be97f455cecc4b
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 6ee7a661434bb756c6cf196937229db19d06b373
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359256"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779975"
 ---
 # <a name="prepay-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Pagamento anticipato per addebiti SQL Data Warehouse con capacità riservata
 
@@ -61,15 +61,11 @@ Si supponga, ad esempio, che il consumo totale di SQL Data Warehouse sia DW3000c
 8. Selezionare **Acquisto**.
 9. Selezionare **Visualizza questa prenotazione** per visualizzare lo stato di acquisto.
 
-## <a name="cancellations-and-exchanges"></a>Annullamenti e scambi
+## <a name="cancel-exchange-or-refund-reservations"></a>Prenotazioni per annullamento, scambio o rimborso
 
-Se è necessario annullare la SQL Data Warehouse capacità riservata, potrebbe essere prevista una tariffa per la terminazione del 12%. I rimborsi si basano sul prezzo più basso tra il prezzo di acquisto o il prezzo corrente della prenotazione. I rimborsi sono limitati a $50.000,00 all'anno. Il rimborso ricevuto è il saldo proporzionale rimanente meno il 12% della tariffa per la terminazione anticipata. Per annullare, passare alla prenotazione nel portale di Azure e selezionare **rimborso**.
+È possibile annullare, scambiare o rimborsare le prenotazioni con determinate limitazioni. Per altre informazioni, vedere [scambi e rimborsi self-service per le prenotazioni di Azure](billing-azure-reservations-self-service-exchange-and-refund.md).
 
-Se è necessario modificare la capacità riservata SQL Data Warehouse in un'altra area o termine, è possibile scambiarla per un'altra prenotazione con un valore uguale o superiore. Come data di inizio del periodo della nuova prenotazione non viene conservata quella della prenotazione scambiata. Il termine uno o tre anni inizia quando si crea la nuova prenotazione. Per scambiare, aprire la prenotazione nel portale di Azure e selezionare **Exchange**.
-
-Per ulteriori informazioni su come scambiare o rimborsare le prenotazioni, vedere la pagina relativa agli [scambi di prenotazione e](billing-azure-reservations-self-service-exchange-and-refund.md)ai rimborsi.
-
-Lo sconto relativo alla prenotazione viene applicato automaticamente al numero di istanze SQL Data Warehouse che corrispondono all'ambito della capacità riservata SQL Data Warehouse e all'area. È possibile aggiornare l'ambito del SQL Data Warehouse capacità riservata con l' [portale di Azure](https://portal.azure.com/), PowerShell, l'interfaccia della riga di comando o tramite l'API.
+Uno sconto di prenotazione viene applicato automaticamente al numero di istanze SQL Data Warehouse che corrispondono all'ambito della capacità riservata SQL Data Warehouse e all'area. È possibile aggiornare l'ambito del SQL Data Warehouse capacità riservata con l' [portale di Azure](https://portal.azure.com/), PowerShell, l'interfaccia della riga di comando o tramite l'API.
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
 

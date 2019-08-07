@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 69e95a9e6c76da5d502314a7190e99fc10e968f7
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 5f51c1166364a3470a1cc943e66d429c32cdc49b
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639074"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839487"
 ---
 # <a name="clustering-point-data"></a>Dati punto di clustering
 
@@ -35,7 +35,7 @@ var datasource = new atlas.source.DataSource(null, {
 
     //The maximum zoom level in which clustering occurs.
     //If you zoom in more than this, all points are rendered as symbols.
-    clusterMaxZoom: 15 
+    clusterMaxZoom: 15
 });
 ```
 
@@ -44,7 +44,7 @@ var datasource = new atlas.source.DataSource(null, {
 
 La `DataSource` classe dispone inoltre dei seguenti metodi correlati al clustering:
 
-| Metodo | Tipo restituito | Descrizione |
+| Metodo | Tipo restituito | DESCRIZIONE |
 |--------|-------------|-------------|
 | getClusterChildren (clusterId: numero) | Geometria&lt;della&lt;funzionalità&gt; della matrice Promise, qualsiasi \|forma &lt;&gt;&gt; | Recupera gli elementi figlio del cluster specificato al livello di zoom successivo. Questi elementi figlio possono essere costituiti da una combinazione di forme e sottocluster. I sottocluster saranno funzionalità con proprietà corrispondenti a ClusteredProperties. |
 | getClusterExpansionZoom (clusterId: numero) | Numero&lt;promessa&gt; | Calcola un livello di zoom in corrispondenza del quale il cluster inizierà ad espandersi o suddividere. |
@@ -107,6 +107,16 @@ I dati del punto rappresentati da un cluster vengono distribuiti in un'area. In 
 
  <iframe height="500" style="width: 100%;" scrolling="no" title="Guscio convesso area cluster" src="//codepen.io/azuremaps/embed/QoXqWJ/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Vedere l'area del cluster di penna <a href='https://codepen.io/azuremaps/pen/QoXqWJ/'>convessa Hull</a> di Azure<a href='https://codepen.io/azuremaps'>@azuremaps</a>Maps () in <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+## <a name="aggregating-data-in-clusters"></a>Aggregazione dei dati nei cluster
+
+Spesso i cluster sono rappresentati usando un simbolo con il numero di punti all'interno del cluster, tuttavia talvolta è preferibile personalizzare ulteriormente lo stile dei cluster in base a una metrica, ad esempio il ricavo totale di tutti i punti all'interno di un cluster. Con le aggregazioni di cluster è possibile creare e popolare proprietà personalizzate utilizzando un calcolo di [espressione](data-driven-style-expressions-web-sdk.md#aggregate-expression) di aggregazione.  `clusterProperties` Le`DataSource`aggregazioni del cluster possono essere definite in un'opzione di.
+
+Nell'esempio seguente viene utilizzata un'espressione di aggregazione per calcolare un conteggio in base alla proprietà del tipo di entità di ogni punto dati in un cluster.
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Aggregazioni cluster" src="//codepen.io/azuremaps/embed/jgYyRL/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Vedere le aggregazioni del <a href='https://codepen.io/azuremaps/pen/jgYyRL/'>cluster</a> Pen di Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Passaggi successivi

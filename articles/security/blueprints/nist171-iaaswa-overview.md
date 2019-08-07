@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: b30094e264086f018acbf84144300df46c60ac4e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9e5c894cedcbfd006d9406ce2c07fc0b17033d7c
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60610304"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68781045"
 ---
 # <a name="azure-security-and-compliance-blueprint---iaas-web-application-for-nist-sp-800-171"></a>Progetto per la sicurezza e la conformità di Azure - Applicazione Web IaaS per NIST SP 800-171
 
@@ -57,7 +57,7 @@ Questa soluzione usa i servizi di Azure seguenti. Per altre informazioni, vedere
         - Set di regole: OWASP 3.0
         - Porta listener: 443
 - Azure Active Directory
-- Azure Key Vault
+- Insieme di credenziali delle chiavi di Azure
 - Azure Load Balancer
 - Monitoraggio di Azure (log)
 - Azure Resource Manager
@@ -70,10 +70,10 @@ Questa soluzione usa i servizi di Azure seguenti. Per altre informazioni, vedere
 ## <a name="deployment-architecture"></a>Architettura di distribuzione
 La sezione seguente descrive in modo dettagliato gli elementi di sviluppo e implementazione.
 
-**Bastion host**: L'host bastion è il singolo punto di ingresso che gli utenti possono usare per accedere alle risorse distribuite in questo ambiente. Il bastion host fornisce una connessione sicura alle risorse distribuite consentendo solo il traffico remoto dagli indirizzi IP pubblici inclusi in un elenco di indirizzi attendibili. Per consentire il traffico di desktop remoto, l'origine del traffico deve essere definita nel gruppo di sicurezza di rete (NSG).
+**Bastion host**: L'host Bastion è il singolo punto di ingresso che gli utenti possono usare per accedere alle risorse distribuite in questo ambiente. Il bastion host fornisce una connessione sicura alle risorse distribuite consentendo solo il traffico remoto dagli indirizzi IP pubblici inclusi in un elenco di indirizzi attendibili. Per consentire il traffico di desktop remoto, l'origine del traffico deve essere definita nel gruppo di sicurezza di rete (NSG).
 
 Questa soluzione crea una macchina virtuale come bastion host aggiunto al dominio con le configurazioni seguenti:
--   [Estensione antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware).
+-   [Estensione antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware).
 -   [Estensione di Diagnostica di Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template).
 -   [Crittografia dischi di Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) tramite Key Vault.
 -   [Criteri di arresto automatico](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) per ridurre il consumo di risorse della macchina virtuale quando non è in uso.
@@ -82,7 +82,7 @@ Questa soluzione crea una macchina virtuale come bastion host aggiunto al domini
 ### <a name="virtual-network"></a>Rete virtuale
 L'architettura definisce una rete privata virtuale con spazio degli indirizzi 10.200.0.0/16.
 
-**Gruppi di sicurezza di rete**: Questa soluzione distribuisce risorse in un'architettura con subnet separate per web, database, Active Directory e gestione all'interno di una rete virtuale. Le subnet sono separate logicamente da regole dei gruppi di sicurezza di rete applicate alle singole subnet. Le regole limitano il traffico tra subnet esclusivamente a quello necessario per la funzionalità e la gestione di sistema.
+**Gruppi di sicurezza di rete**: Questa soluzione distribuisce le risorse in un'architettura con subnet separate per il Web, il database, la Active Directory e la gestione all'interno di una rete virtuale. Le subnet sono separate logicamente da regole dei gruppi di sicurezza di rete applicate alle singole subnet. Le regole limitano il traffico tra subnet esclusivamente a quello necessario per la funzionalità e la gestione di sistema.
 
 Vedere la configurazione per i [gruppi di sicurezza di rete](https://github.com/Azure/fedramp-iaas-webapp/blob/master/nestedtemplates/virtualNetworkNSG.json) distribuita con questa soluzione. Le organizzazioni possono configurare i gruppi di sicurezza di rete modificando il file indicato in precedenza usando [questa documentazione](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) come riferimento.
 
@@ -101,7 +101,7 @@ L'architettura protegge i dati inattivi tramite misure diverse, ad esempio critt
 
 **Archiviazione di Azure**: per soddisfare i requisiti dei dati inattivi crittografati, tutte le [risorse di archiviazione](https://azure.microsoft.com/services/storage/) usano la [crittografia del servizio di archiviazione](https://docs.microsoft.com/azure/storage/storage-service-encryption). Questa funzionalità consente di proteggere e salvaguardare i dati, supportando l'impegno a livello di sicurezza dell'organizzazione e i requisiti di conformità definiti da NIST SP 800-171.
 
-**Crittografia dischi di Azure**: Crittografia dischi è usata per dischi di VM IaaS Windows crittografati. [Crittografia dischi](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) usa la funzionalità BitLocker di Windows per fornire la crittografia del volume per i dischi dati e del sistema operativo. La soluzione è integrata con Key Vault per semplificare il controllo e la gestione delle chiavi di crittografia dei dischi.
+**Crittografia dischi di Azure**: La crittografia del disco viene usata per crittografare i dischi delle macchine virtuali IaaS Windows. [Crittografia dischi](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) usa la funzionalità BitLocker di Windows per fornire la crittografia del volume per i dischi dati e del sistema operativo. La soluzione è integrata con Key Vault per semplificare il controllo e la gestione delle chiavi di crittografia dei dischi.
 
 **SQL Server**: L'istanza di SQL Server usa le misure di sicurezza del database seguenti:
 -   [Controllo di SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine?view=sql-server-2017) tiene traccia degli eventi di database e li scrive nei log di controllo.
@@ -119,7 +119,7 @@ Le tecnologie seguenti offrono le funzionalità necessarie per gestire l'accesso
 - [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) rileva le potenziali vulnerabilità che interessano le identità dell'organizzazione e configura le risposte automatizzate alle azioni sospette rilevate correlate alle identità di un'organizzazione. Esamina anche gli eventi imprevisti sospetti per eseguire l'azione appropriata per risolverli.
 
 ### <a name="security"></a>Security
-**Gestione dei segreti**: La soluzione Usa [Key Vault](https://azure.microsoft.com/services/key-vault/) per la gestione delle chiavi e segreti. Key Vault consente di proteggere i segreti e le chiavi di crittografia usati da servizi e applicazioni cloud. Le funzionalità di Key Vault seguenti aiutano gli utenti a proteggere i dati:
+**Gestione dei segreti**: La soluzione USA [Key Vault](https://azure.microsoft.com/services/key-vault/) per la gestione di chiavi e segreti. Key Vault consente di proteggere i segreti e le chiavi di crittografia usati da servizi e applicazioni cloud. Le funzionalità di Key Vault seguenti aiutano gli utenti a proteggere i dati:
 - I criteri di accesso avanzati vengono configurati in base alle necessità.
 - I criteri di accesso di Key Vault sono definiti con le autorizzazioni minime necessarie per le chiavi e i segreti.
 - Tutti i segreti e le chiavi in Key Vault hanno date di scadenza.
@@ -129,9 +129,9 @@ Le tecnologie seguenti offrono le funzionalità necessarie per gestire l'accesso
 - Le operazioni di crittografia consentite per le chiavi sono limitate a quelle necessarie.
 - Questa soluzione è integrata con Key Vault per gestire le chiavi e i segreti di crittografia dei dischi delle macchine virtuali IaaS.
 
-**Gestione delle patch**: Le macchine virtuali Windows distribuite come parte di questa architettura di riferimento sono configurate per impostazione predefinita per ricevere aggiornamenti automatici dal servizio di Windows Update. Questa soluzione include anche il servizio [Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-intro) che consente di creare distribuzioni aggiornate per applicare patch alle macchine virtuali quando è necessario.
+**Gestione delle patch**: Le macchine virtuali Windows distribuite come parte di questa architettura di riferimento sono configurate per impostazione predefinita per ricevere aggiornamenti automatici dal servizio Windows Update. Questa soluzione include anche il servizio [Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-intro) che consente di creare distribuzioni aggiornate per applicare patch alle macchine virtuali quando è necessario.
 
-**Protezione antimalware**: [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) per le macchine virtuali fornisce funzionalità di protezione in tempo reale che consente di identificare e rimuovere virus, spyware e altro software dannoso. I clienti possono configurare avvisi che vengono generati in caso di tentativo di installazione o di esecuzione di software dannoso o indesiderato nelle macchine virtuali protette.
+**Protezione antimalware**: [Microsoft antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) per macchine virtuali offre funzionalità di protezione in tempo reale che consentono di identificare e rimuovere virus, spyware e altro software dannoso. I clienti possono configurare avvisi che vengono generati in caso di tentativo di installazione o di esecuzione di software dannoso o indesiderato nelle macchine virtuali protette.
 
 **Centro sicurezza di Azure**: con il [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro), i clienti possono applicare e gestire centralmente i criteri di sicurezza nei carichi di lavoro, limitare l'esposizione alle minacce, rilevare e rispondere agli attacchi. Il Centro sicurezza accede inoltre alle configurazioni esistenti dei servizi di Azure in modo da fornire elementi consigliati di configurazione e servizi utili per migliorare le condizioni di sicurezza e proteggere i dati.
 
@@ -141,7 +141,7 @@ Il Centro sicurezza dispone avvisi di sicurezza ed eventi imprevisti in ordine d
 
 Questa architettura di riferimento usa la funzionalità di [valutazione della vulnerabilità](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations) nel Centro sicurezza. Dopo la configurazione, un agente del partner, ad esempio Qualys, crea report sui dati di vulnerabilità per la piattaforma di gestione del partner, che a propria volta trasmette i dati di vulnerabilità e monitoraggio dell'integrità al Centro Sicurezza. I clienti possono usare queste informazioni per identificare rapidamente le macchine virtuali vulnerabili.
 
-**Gateway applicazione di Azure**: L'architettura riduce il rischio di vulnerabilità della sicurezza tramite un gateway applicazione con un web application firewall configurato e il set di regole OWASP abilitati. Altre funzionalità:
+**Gateway applicazione di Azure**: L'architettura riduce il rischio di vulnerabilità della sicurezza usando un gateway applicazione con un web application firewall configurato e il set di regole OWASP abilitato. Altre funzionalità:
 
 - [SSL end-to-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
 - Abilitazione di [Offload SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal).
@@ -156,9 +156,9 @@ Questa architettura di riferimento usa la funzionalità di [valutazione della vu
 
 **Disponibilità elevata**: La soluzione distribuisce tutte le macchine virtuali in un [set di disponibilità](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). I set di disponibilità assicurano che le macchine virtuali vengano distribuite in più cluster hardware isolati per migliorare la disponibilità. Almeno una macchina virtuale è disponibile durante un evento di manutenzione pianificato o non pianificato, in conformità al Contratto di servizio di Azure con disponibilità garantita del 99,95%.
 
-**Insieme di credenziali di Recovery Services**: l'[insieme di credenziali di Servizi di ripristino](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) ospita i dati di backup e protegge tutte le configurazioni delle macchine virtuali di Azure in questa architettura. Con un insieme di credenziali di Servizi di ripristino i clienti possono ripristinare file e cartelle da una macchina virtuale IaaS senza ripristinare l'intera macchina virtuale. Questo processo consente tempi di ripristino più rapidi.
+Insieme di credenziali di **servizi di ripristino**: l'[insieme di credenziali di Servizi di ripristino](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) ospita i dati di backup e protegge tutte le configurazioni delle macchine virtuali di Azure in questa architettura. Con un insieme di credenziali di Servizi di ripristino i clienti possono ripristinare file e cartelle da una macchina virtuale IaaS senza ripristinare l'intera macchina virtuale. Questo processo consente tempi di ripristino più rapidi.
 
-**Cloud di controllo**: [Cloud di controllo](https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness) è un tipo di controllo del quorum di cluster di failover in Windows Server 2016 che usa Azure come punto di arbitraggio. Il cloud di controllo, come qualsiasi altro controllo del quorum, ottiene un voto e può partecipare ai calcoli del quorum. Usa l'Archiviazione BLOB di Azure standard disponibile pubblicamente. Ciò consente di evitare il sovraccarico di manutenzione per le macchine virtuali ospitate in un cloud pubblico.
+**Cloud di controllo**: [Cloud Witness](https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness) è un tipo di quorum di controllo del cluster di failover in Windows Server 2016 che usa Azure come punto di arbitraggio. Il cloud di controllo, come qualsiasi altro controllo del quorum, ottiene un voto e può partecipare ai calcoli del quorum. Usa l'Archiviazione BLOB di Azure standard disponibile pubblicamente. Ciò consente di evitare il sovraccarico di manutenzione per le macchine virtuali ospitate in un cloud pubblico.
 
 ### <a name="logging-and-auditing"></a>Registrazione e controllo
 
@@ -166,9 +166,9 @@ I servizi di Azure registrano in modo completo le attività di sistema e degli u
 - **Log attività**: i [log attività](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) offrono informazioni dettagliate sulle operazioni eseguite sulle risorse di una sottoscrizione. I log attività possono essere utili per determinare l'iniziatore di un'operazione, l'ora in cui si è verificata e lo stato.
 - **Log di diagnostica**: i [log di diagnostica](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) includono tutti i log generati da ogni risorsa. ovvero i registri di sistema per gli eventi Windows, i log di Archiviazione di Azure, i log di controllo di Key Vault e i log degli accessi e del firewall del gateway applicazione. Tutti i log di diagnostica eseguono operazioni di scrittura in un account di archiviazione di Azure centralizzato e crittografato per finalità di archiviazione. Gli utenti possono configurare il periodo di conservazione, fino a 730 giorni, per soddisfare requisiti specifici.
 
-**Log di Monitoraggio di Azure**: Questi log vengono consolidati [monitoraggio di Azure registra](https://azure.microsoft.com/services/log-analytics/) per l'elaborazione, l'archiviazione e i report del dashboard. Dopo la raccolta, i dati vengono organizzati in tabelle separate per ogni tipo di dati all'interno di aree di lavoro di Log Analytics. In questo modo tutti i dati possono essere analizzati insieme, indipendentemente dall'origine. Il Centro sicurezza si integra con i log di monitoraggio di Azure. I clienti possono usare le query Kusto per accedere ai propri dati di eventi di sicurezza e combinarli con dati provenienti da altri servizi.
+**Log di Monitoraggio di Azure**: Questi log vengono consolidati nei [log di monitoraggio di Azure](https://azure.microsoft.com/services/log-analytics/) per l'elaborazione, l'archiviazione e la creazione di report del dashboard. Dopo la raccolta, i dati vengono organizzati in tabelle separate per ogni tipo di dati all'interno di aree di lavoro di Log Analytics. In questo modo tutti i dati possono essere analizzati insieme, indipendentemente dall'origine. Il Centro sicurezza si integra con i log di monitoraggio di Azure. I clienti possono usare le query kusto per accedere ai dati degli eventi di sicurezza e combinarli con i dati di altri servizi.
 
-Azure riportati di seguito [soluzioni di monitoraggio](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) sono inclusi come parte di questa architettura:
+Come parte di questa architettura sono incluse le [soluzioni di monitoraggio](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) di Azure seguenti:
 -   [Valutazione Active Directory](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): la soluzione Controllo integrità Active Directory Domain Services valuta i rischi e l'integrità degli ambienti server a intervalli regolari. e offre un elenco con priorità di elementi consigliati specifici per l'infrastruttura distribuita dei server.
 - [Valutazione SQL](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): la soluzione Controllo integrità SQL consente di valuta i rischi e l'integrità degli ambienti server a intervalli regolari. e offre ai clienti un elenco con priorità di elementi consigliati specifici per l'infrastruttura distribuita dei server.
 - [Integrità agente](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): la soluzione Integrità agente indica quanti agenti vengono distribuiti e la relativa distribuzione geografica. Indica anche quanti agenti non rispondono e il numero di agenti che inviano dati operativi.

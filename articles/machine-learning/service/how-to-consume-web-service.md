@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7799b62b2c330610663e361bbb3930340b1ebdaf
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: a007e3adb72148cfde1590e996f7df9082159445
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726291"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840504"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Come usare un modello di Azure Machine Learning distribuito come servizio Web
 
@@ -29,6 +29,9 @@ Il flusso di lavoro generale per creare un client che usa un servizio Web di Mac
 1. Ottenere le informazioni di connessione usando l'SDK.
 1. Determinare il tipo di dati della richiesta usati dal modello.
 1. Creare un'applicazione che chiama il servizio Web.
+
+> [!TIP]
+> Gli esempi in questo documento vengono creati manualmente senza usare le specifiche OpenAPI (spavalderia). Se è stata abilitata una specifica OpenAPI per la distribuzione, è possibile usare strumenti come [spavalderia-codegen](https://github.com/swagger-api/swagger-codegen) per creare librerie client per il servizio.
 
 ## <a name="connection-information"></a>Informazioni di connessione
 

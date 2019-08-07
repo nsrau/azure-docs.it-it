@@ -2,17 +2,17 @@
 title: Diagnosi dei problemi di prestazioni della grafica in Desktop remoto-Azure
 description: Questo articolo descrive come usare i contatori grafici RemoteFX nelle sessioni Remote Desktop Protocol per diagnosticare problemi di prestazioni con la grafica nel desktop virtuale di Windows.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/23/2019
-ms.author: v-chjenk
-ms.openlocfilehash: 8cd24861b9d7432a582d1b635b8ffcf0d8d2b9e6
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.author: helohr
+ms.openlocfilehash: de849701365438b21244d1e46ae657495d16c307
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233630"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816398"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnosticare problemi di prestazioni grafica in Desktop remoto
 
@@ -77,7 +77,7 @@ Poiché RDP supporta un tempo di codifica medio di 33 ms, supporta una frequenza
 
 Usare il contatore qualità del frame per diagnosticare i problemi di qualità dei frame. Questo contatore esprime la qualità del frame di output come percentuale della qualità del frame di origine. La perdita di qualità può essere dovuta a RemoteFX o può essere insita nell'origine grafica. Se RemoteFX ha causato la perdita di qualità, il problema potrebbe essere dovuto alla mancanza di risorse di rete o del server per l'invio di contenuti con maggiore fedeltà.
 
-## <a name="mitigation"></a>Mitigazione
+## <a name="mitigation"></a>Attenuazione
 
 Se le risorse del server causano il collo di bottiglia, provare uno degli approcci seguenti per migliorare le prestazioni:
 

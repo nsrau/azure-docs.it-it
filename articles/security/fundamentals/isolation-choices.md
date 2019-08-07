@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 4115964533072e5d8f1760c8c5cdf0f20c9b7625
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 0c07cbd9fef865f3fc7b782210ef44094df9f629
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727133"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779824"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento nel cloud pubblico di Azure
 ##  <a name="introduction"></a>Introduzione
@@ -240,7 +240,7 @@ La crittografia in transito è un meccanismo di protezione dei dati durante la t
 -   [Crittografia lato client](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage), per crittografare i dati prima che siano trasferiti nella risorsa di archiviazione e decrittografarli dopo il trasferimento dalla risorsa di archiviazione.
 
 #### <a name="encryption-at-rest"></a>Crittografia di dati inattivi
-Per molte organizzazioni, [la crittografia dei dati inattivi](https://docs.microsoft.com/azure/security/azure-isolation) è un passaggio obbligatorio per assicurare la privacy dei dati, la conformità e la sovranità dei dati. Esistono tre funzionalità di Azure che consentono di crittografare dati inattivi:
+Per molte organizzazioni, [la crittografia dei dati inattivi](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices) è un passaggio obbligatorio per assicurare la privacy dei dati, la conformità e la sovranità dei dati. Esistono tre funzionalità di Azure che consentono di crittografare dati inattivi:
 
 -   [Crittografia del servizio di archiviazione](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) consente di richiedere che il servizio di archiviazione crittografi automaticamente i dati durante la scrittura in Archiviazione di Azure.
 

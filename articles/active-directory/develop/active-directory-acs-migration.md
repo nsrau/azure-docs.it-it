@@ -11,19 +11,19 @@ ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3daf44ee29a2f7b29eec9215876ca6edc18a5800
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 59a2cc971fbc1df967bc2655c672ab8f419eef71
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325051"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835529"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procedura: Eseguire la migrazione dal Servizio di controllo di accesso di Azure
 
@@ -190,7 +190,7 @@ La tabella seguente confronta le funzionalità di Controllo di accesso rilevanti
 
 A livello generale, *Azure Active Directory è probabilmente la scelta migliore per la migrazione se si consente agli utenti di accedere solo con i rispettivi account Microsoft aziendali e dell'istituto di istruzione*.
 
-| Funzionalità | Supporto di Controllo di accesso | Supporto di Azure AD |
+| Capacità | Supporto di Controllo di accesso | Supporto di Azure AD |
 | ---------- | ----------- | ---------------- |
 | **Tipi di account** | | |
 | Account Microsoft aziendali o dell'istituto di istruzione | Supportato | Supportato |
@@ -204,10 +204,10 @@ A livello generale, *Azure Active Directory è probabilmente la scelta migliore 
 | OAuth 2.0 | Supporto per la bozza 13 | Supporto per RFC 6749, la specifica più moderna |
 | WS-Trust | Supportato | Non supportate |
 | **Formati del token** | | |
-| Token JSON Web | Supportato nella versione Beta | Supportato |
+| JWT | Supportato nella versione Beta | Supportato |
 | SAML 1.1 | Supportato | Anteprima |
 | SAML 2.0 | Supportato | Supportato |
-| Token Web semplice | Supportato | Non supportate |
+| SWT | Supportato | Non supportate |
 | **Personalizzazioni** | | |
 | Individuazione dell'area di autenticazione principale/interfaccia utente per la scelta dell'account personalizzabili | Codice scaricabile che può essere incorporato nelle app | Non supportate |
 | Caricare certificati per la firma di token personalizzati | Supportato | Supportato |
@@ -241,7 +241,7 @@ Azure AD B2C, tuttavia, non supporta la varietà di protocolli di autenticazione
 
 La tabella seguente confronta le funzionalità di Controllo di accesso rilevanti per le applicazioni Web con le funzionalità disponibili in Azure AD B2C. A livello generale, *Azure AD B2C è probabilmente la scelta ottimale per la migrazione se l'applicazione è rivolta ai consumer o se supporta molti tipi diversi di account*.
 
-| Funzionalità | Supporto di Controllo di accesso | Supporto di Azure AD B2C |
+| Capacità | Supporto di Controllo di accesso | Supporto di Azure AD B2C |
 | ---------- | ----------- | ---------------- |
 | **Tipi di account** | | |
 | Account Microsoft aziendali o dell'istituto di istruzione | Supportato | Supportato tramite criteri personalizzati  |
@@ -255,10 +255,10 @@ La tabella seguente confronta le funzionalità di Controllo di accesso rilevanti
 | OAuth 2.0 | Supporto per la bozza 13 | Supporto per RFC 6749, la specifica più moderna |
 | WS-Trust | Supportato | Non supportate |
 | **Formati del token** | | |
-| Token JSON Web | Supportato nella versione Beta | Supportato |
+| JWT | Supportato nella versione Beta | Supportato |
 | SAML 1.1 | Supportato | Non supportate |
 | SAML 2.0 | Supportato | Non supportate |
-| Token Web semplice | Supportato | Non supportate |
+| SWT | Supportato | Non supportate |
 | **Personalizzazioni** | | |
 | Individuazione dell'area di autenticazione principale/interfaccia utente per la scelta dell'account personalizzabili | Codice scaricabile che può essere incorporato nelle app | Interfaccia utente completamente personalizzabile tramite CSS personalizzati |
 | Caricare certificati per la firma di token personalizzati | Supportato | Chiavi di accesso personalizzate, non certificati, supportati tramite criteri personalizzati |
@@ -320,7 +320,7 @@ Per questo tipo di flusso di autenticazione è consigliabile eseguire la migrazi
 
 Azure AD può essere usato anche per l'autenticazione S2S tramite l'implementazione di Azure AD della concessione delle credenziali client OAuth. La tabella seguente confronta le funzionalità di Controllo di accesso per l'autenticazione S2S con quelle disponibili in Azure AD.
 
-| Funzionalità | Supporto di Controllo di accesso | Supporto di Azure AD |
+| Capacità | Supporto di Controllo di accesso | Supporto di Azure AD |
 | ---------- | ----------- | ---------------- |
 | Come registrare un servizio Web | Creare un relying party nel portale di gestione di Controllo di accesso | Creare un'applicazione Web di Azure AD nel portale di Azure |
 | Come registrare un client | Creare un'identità del servizio nel portale di gestione di Controllo di accesso | Creare un'altra applicazione Web di Azure AD nel portale di Azure |

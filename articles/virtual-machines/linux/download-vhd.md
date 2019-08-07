@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: e7325282c6442a927f47df3e50efbfda481754fd
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 5639571739f3eb6263f62444e7ab02186e2ca945
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67667916"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742587"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Scaricare un disco rigido virtuale Linux da Azure
 
@@ -69,7 +69,7 @@ Per usare il disco rigido virtuale come disco in cui creare una nuova istanza di
 Per scaricare il file VHD, è necessario generare un URL di [firma di accesso condiviso (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Quando viene generato, all'URL viene assegnata una scadenza.
 
 1.  Nel menu del pannello della macchina virtuale fare clic su **Dischi**.
-2.  Selezionare il disco del sistema operativo relativo alla macchina virtuale e quindi fare clic su **Esporta**.
+2.  Selezionare il disco del sistema operativo per la macchina virtuale e quindi fare clic su **esportazione disco**.
 3.  Fare clic su **Genera URL**.
 
     ![Generare l'URL](./media/download-vhd/export-generate.png)

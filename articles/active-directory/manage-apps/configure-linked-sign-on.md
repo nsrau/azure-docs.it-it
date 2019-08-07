@@ -9,15 +9,15 @@ ms.subservice: app-mgmt
 ms.topic: article
 ms.workload: identity
 ms.date: 05/08/2019
-ms.author: msmimart
+ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2d9035adb70ab4a5877f3e55dc4115a5ec1f7f5
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: cc1e26a3c7d284a60b830f6f66cdcecef97db4d6
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68426564"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834628"
 ---
 # <a name="configure-linked-sign-on"></a>Configurare l'accesso collegato
 
@@ -25,7 +25,7 @@ Quando si aggiunge una raccolta o un'applicazione Web non raccolta, una delle op
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Se l'applicazione non è stata aggiunta al tenant di Azure AD, vedere [aggiungere un'app della raccolta](add-gallery-app.md) o [aggiungere un'app non della raccolta](add-non-gallery-app.md).
+Se l'applicazione non è stata aggiunta al tenant di Azure AD, vedere [Aggiungere un'app della raccolta](add-gallery-app.md) oppure [Aggiungere un'app non della raccolta](add-non-gallery-app.md).
 
 ### <a name="open-the-app-and-select-linked-sign-on"></a>Aprire l'app e selezionare accesso collegato
 
@@ -35,7 +35,7 @@ Se l'applicazione non è stata aggiunta al tenant di Azure AD, vedere [aggiunger
 
 1. Nel menu **Tipo di applicazione** selezionare **Tutte le applicazioni** e quindi **Applica**.
 
-1. Immettere il nome dell'applicazione nella casella di ricerca e quindi selezionare l'applicazione dai risultati.
+1. Immettere il nome dell'applicazione nella casella di ricerca, quindi selezionarla nei risultati.
 
 1. Nella sezione **Gestisci** selezionare **Single Sign-On**. 
 

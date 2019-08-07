@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: magoedte
-ms.openlocfilehash: ce1e107c397f791e4863a90b5622c961d42d6aa5
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
-ms.translationtype: HT
+ms.openlocfilehash: 05b022be3bd460809de77945710ed0bdcd275648
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814217"
+ms.locfileid: "68839304"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Gestire i dati di log e le aree di lavoro in monitoraggio di Azure
 
-Monitoraggio di Azure archivia i dati di log in un'area di lavoro Log Analytics, che in pratica è un contenitore che include dati e informazioni di configurazione. Per gestire l'accesso ai dati di log, è necessario eseguire diverse attività amministrative correlate all'area di lavoro.
+Monitoraggio di Azure archivia i dati di [log](data-platform-logs.md) in un'area di lavoro log Analytics, che è essenzialmente un contenitore che include informazioni sulla configurazione e sui dati. Per gestire l'accesso ai dati di log, è necessario eseguire diverse attività amministrative correlate all'area di lavoro.
 
 Questo articolo illustra come gestire l'accesso ai log e per amministrare le aree di lavoro che li contengono, tra cui:
 

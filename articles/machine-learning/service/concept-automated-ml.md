@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: c563278a9d23810a5e6f0adc8082c8cfc5a0510c
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 064fd0e2bf503d917c809aa576bbc332b5b18a77
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358862"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742367"
 ---
 # <a name="what-is-automated-machine-learning"></a>Informazioni sulle funzionalità automatizzate di Machine Learning
 
@@ -71,7 +71,7 @@ In ogni esperimento di Machine Learning automatizzato, i dati vengono pre-elabor
 
 In ogni esperimento di Machine Learning automatizzato, i dati vengono ridimensionati o normalizzati automaticamente per consentire agli algoritmi di ottenere risultati ottimali.  Durante il training del modello, viene applicata una delle tecniche di ridimensionamento o di normalizzazione seguenti a ogni modello.
 
-|Normalizzazione scalabile&nbsp;&&nbsp;| DESCRIZIONE |
+|Normalizzazione scalabile&nbsp;&&nbsp;| Descrizione |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Standardizzare le funzionalità rimuovendo la media e il ridimensionamento in varianza unità  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Trasforma le funzionalità ridimensionando ogni funzionalità in base al valore minimo e massimo della colonna  |
@@ -91,15 +91,22 @@ Sono disponibili anche funzionalità avanzate di pre-elaborazione e conteggi, ad
 
 
 ## <a name="time-series-forecasting"></a>Previsione di serie temporali
-La compilazione di previsioni è parte integrante di qualsiasi azienda, sia che si tratti di ricavi, scorte, vendite o richieste dei clienti. È possibile utilizzare Machine Learning Machine Learning per combinare tecniche e approcci e ottenere una previsione della serie temporale consigliata e di alta qualità. 
+La compilazione di previsioni è parte integrante di qualsiasi azienda, sia che si tratti di ricavi, scorte, vendite o richieste dei clienti. È possibile utilizzare Machine Learning Machine Learning per combinare tecniche e approcci e ottenere una previsione della serie temporale consigliata e di alta qualità.
 
-Un esperimento di serie temporali automatizzato viene considerato un problema di regressione MultiVariante. I valori delle serie temporali precedenti sono "trasformati tramite pivot" per diventare dimensioni aggiuntive per il regressore insieme ad altri predittori. Questo approccio, a differenza dei metodi classici della serie temporale, ha il vantaggio di incorporare naturalmente più variabili contestuali e la relazione tra loro durante il training. Machine Learning Machine Learning apprende un singolo modello, ma spesso con rami internamente, per tutti gli elementi del set di dati e gli orizzonti di stima. Sono pertanto disponibili più dati per stimare i parametri del modello e la generalizzazione per la serie non visibile diventa possibile. 
+Un esperimento di serie temporali automatizzato viene considerato un problema di regressione MultiVariante. I valori delle serie temporali precedenti sono "trasformati tramite pivot" per diventare dimensioni aggiuntive per il regressore insieme ad altri predittori. Questo approccio, a differenza dei metodi classici della serie temporale, ha il vantaggio di incorporare naturalmente più variabili contestuali e la relazione tra loro durante il training. Machine Learning Machine Learning apprende un singolo modello, ma spesso con rami internamente, per tutti gli elementi del set di dati e gli orizzonti di stima. Sono pertanto disponibili più dati per stimare i parametri del modello e la generalizzazione per la serie non visibile diventa possibile.
 
 Per altre informazioni, vedere un esempio di [Machine Learning automatizzato per la previsione delle serie temporali](how-to-auto-train-forecast.md).
 
-## <a name="ensemble-models"></a>Modelli di ensemble
+## <a name="ensemble"></a>Modelli di ensemble
 
-È possibile eseguire il training di modelli di ensemble usando Machine Learning automatizzato con l' [algoritmo di selezione dell'ensemble di Caruana con l'inizializzazione di ensemble ordinati](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) L'apprendimento di ensemble migliora i risultati di machine learning e le prestazioni predittive mediante la pettinatura di molti modelli anziché l'uso di singoli modelli. L'iterazione insieme viene visualizzata come ultima iterazione dell'esecuzione.
+Machine Learning automatizzato supporta i modelli di Ensemble, che sono abilitati per impostazione predefinita. Ensemble Learning migliora i risultati di machine learning e le prestazioni predittive combinando più modelli anziché l'uso di singoli modelli. Le iterazioni insieme vengono visualizzate come le iterazioni finali dell'esecuzione. Il Machine Learning automatico usa i metodi Ensemble di voto e di stacking per combinare i modelli:
+
+* **Voto**: stima in base alla media ponderata delle probabilità della classe stimata (per le attività di classificazione) o alle destinazioni di regressione stimate (per le attività di regressione).
+* **Stacking**: lo stacking combina i modelli eterogeneo e addestra un metamodello in base all'output dei singoli modelli. I metadati predefiniti correnti sono LogisticRegression per le attività di classificazione e ElasticNet per le attività di regressione/previsione.
+
+L' [algoritmo di selezione dell'ensemble di Caruana](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) con inizializzazione dell'insieme ordinato viene usato per decidere quali modelli usare nell'insieme. A un livello elevato, questo algoritmo Inizializza l'insieme con un massimo di 5 modelli con i punteggi individuali migliori e verifica che questi modelli siano entro il 5% di soglia del punteggio migliore per evitare un insieme iniziale scadente. Per ogni iterazione di ensemble viene quindi aggiunto un nuovo modello all'insieme esistente e il punteggio risultante viene calcolato. Se un nuovo modello ha migliorato il Punteggio di ensemble esistente, l'insieme viene aggiornato in modo da includere il nuovo modello.
+
+Vedere le [procedure](how-to-configure-auto-train.md#ensemble) per modificare le impostazioni di ensemble predefinite in Machine Learning automatico.
 
 ## <a name="use-with-onnx-in-c-apps"></a>Usare con ONNX nelle C# app
 
@@ -109,7 +116,7 @@ Con Azure Machine Learning, è possibile usare il Machine Learning automatico pe
 
 Il Machine Learning automatico è disponibile anche in altre soluzioni Microsoft, ad esempio:
 
-|Integrazioni|DESCRIZIONE|
+|Integrazioni|Descrizione|
 |------------|-----------|
 |[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Selezione e training automatici dei modelli nelle app .NET con Visual Studio e Visual Studio Code con ML.NET Automatic Machine Learning (anteprima).|
 |[HDInsight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|Ridimensionare i processi di training di Machine Learning automatici in Spark nei cluster HDInsight in parallelo.|

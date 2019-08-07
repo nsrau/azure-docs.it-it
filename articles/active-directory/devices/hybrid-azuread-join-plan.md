@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee3309bdd3629057d174866dde58ffd95e9e5ca8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 49f8d0e418f43648665b95f5bf1f672e9f9dae28
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562126"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779464"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure Active Directory ibrido
 
@@ -111,12 +111,18 @@ Questi scenari non richiedono la configurazione di un server federativo per l'au
 
 ### <a name="federated-environment"></a>Ambiente federato
 
-Un ambiente federato deve avere un provider di identità che supporta i requisiti seguenti:
+Un ambiente federato deve disporre di un provider di identità che supporta i requisiti seguenti. Se si dispone di un ambiente federato che usa Active Directory Federation Services (AD FS), i requisiti seguenti sono già supportati.
 
-- **Protocollo WS-Trust:** Questo protocollo è necessario per autenticare i dispositivi Windows Current Hybrid Azure AD aggiunti con Azure AD.
 - **Attestazione WIAORMULTIAUTHN alla:** Questa attestazione è necessaria per eseguire un join ibrido Azure AD per i dispositivi Windows di livello inferiore.
+- **Protocollo WS-Trust:** Questo protocollo è necessario per autenticare i dispositivi Windows Current Hybrid Azure AD aggiunti con Azure AD. Quando si utilizza AD FS, è necessario abilitare gli endpoint WS-Trust seguenti:`/adfs/services/trust/2005/windowstransport`  
+`/adfs/services/trust/13/windowstransport`  
+  `/adfs/services/trust/2005/usernamemixed` 
+  `/adfs/services/trust/13/usernamemixed`
+  `/adfs/services/trust/2005/certificatemixed` 
+  `/adfs/services/trust/13/certificatemixed` 
 
-Se si dispone di un ambiente federato che usa Active Directory Federation Services (AD FS), i requisiti precedenti sono già supportati.
+> [!WARNING] 
+> **ADFS/Services/Trust/2005/windowstransport** o **ADFS/Services/Trust/13/windowstransport** devono essere abilitati solo come endpoint con rete Intranet e non devono essere esposti come endpoint con rete Extranet tramite il proxy applicazione Web. Per ulteriori informazioni su come disabilitare gli endpoint di WIndows WS-Trust, vedere [disabilitare gli endpoint di Windows WS-Trust sul proxy](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). È possibile verificare gli endpoint abilitati nella console di gestione di AD FS, in **Servizio** > **Endpoint**.
 
 > [!NOTE]
 > Azure AD non supporta certificati o smart card nei domini gestiti.
@@ -130,7 +136,7 @@ In base allo scenario che corrisponde all'infrastruttura di identità, vedere:
 
 ## <a name="review-on-premises-ad-upn-support-for-hybrid-azure-ad-join"></a>Verificare il supporto di AD UPN locale per Azure AD ibrido join
 
-I nomi dell'entità utente di AD locale a volte possono essere diversi da quelli di Azure AD. In questi casi l'aggiunta ad Azure AD ibrido di Windows 10 offre supporto limitato per i nomi dell'entità utente di AD locale in base al [metodo di autenticazione](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), al tipo di dominio e alla versione di Windows 10. Nell'ambiente possono essere presenti due tipi di nomi dell'entità utente di AD locale:
+I nomi dell'entità utente di AD locale a volte possono essere diversi da quelli di Azure AD. In questi casi l'aggiunta ad Azure AD ibrido di Windows 10 offre supporto limitato per i nomi dell'entità utente di AD locale in base al [metodo di autenticazione](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn), al tipo di dominio e alla versione di Windows 10. Nell'ambiente possono essere presenti due tipi di nomi dell'entità utente di AD locale:
 
 - Nome dell'entità utente instradabile: ha un dominio verificato valido, registrato con un registrar. Ad esempio, se contoso.com è il dominio primario in Azure AD, contoso.org è il dominio primario in AD locale di proprietà di Contoso e [verificato in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain).
 - Nome dell'entità utente non instradabile: non ha un dominio verificato. È applicabile solo all'interno della rete privata dell'organizzazione. Ad esempio, se contoso.com è il dominio primario in Azure AD, contoso.local è il dominio primario in AD locale, ma non è un dominio verificabile in Internet e viene usato solo nella rete di Contoso.

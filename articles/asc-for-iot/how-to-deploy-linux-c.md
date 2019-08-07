@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 3fd4287c6dd1cc42f419cfa6b252c1d276d1d5a5
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 7578811c37cd0bbe47821dadacce5fa5974f56cf
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597232"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812722"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Distribuire il Centro sicurezza di Azure per l'agente di sicurezza basato su tutto il linguaggio C per Linux
 
@@ -48,7 +48,7 @@ Per installare e distribuire l'agente sicurezza, utilizzare il flusso di lavoro 
 
 1. Scaricare la versione più recente nel computer da [GitHub](https://aka.ms/iot-security-github-c).
 
-1. Estrarre il contenuto del pacchetto e passare alla cartella _/Install_.
+1. Estrarre il contenuto del pacchetto e passare alla cartella _/src/Installation_
 
 1. Aggiungere le autorizzazioni in esecuzione allo **script InstallSecurityAgent** eseguendo il comando seguente:
     

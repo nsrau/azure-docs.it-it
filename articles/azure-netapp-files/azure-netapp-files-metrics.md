@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 08/06/2019
 ms.author: b-juche
-ms.openlocfilehash: 1563b60ef26ac5e4d40f45095d0109dd9dd71570
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9a56fb27fdf9e196291942041d68b249d7f16648
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61084940"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839244"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Metriche per Azure NetApp Files
 
@@ -27,19 +27,25 @@ Azure NetApp Files fornisce metriche relative a spazio di archiviazione allocato
 
 ## <a name="capacity_pools"></a>Metriche di utilizzo per i pool di capacità
 
-- *Dimensioni allocate del pool di volumi*  
-    Dimensioni (GiB) del pool di capacità di cui è stato effettuato il provisioning.  
+<!-- 
+- *Volume pool allocated size*  
+    This is the size (GiB) of the provisioned capacity pool.  
+--> 
 - *Dimensioni usate del pool di volumi*  
     Totale della quota del volume (GiB) in un determinato pool di capacità (ossia, totale delle dimensioni dei volumi di cui è stato effettuato il provisioning nel pool di capacità). Corrisponde alle dimensioni selezionate durante la creazione del volume.  
 - *Dimensioni logiche totale del pool di volumi*  
     Totale dello spazio logico (GiB) usato nei diversi volumi in un pool di capacità.  
-- *Dimensioni totali degli snapshot del pool di volumi*  
-    Totale dello spazio logico incrementale usato dagli snapshot.  
+<!-- 
+- *Volume pool total snapshot size*  
+    This is the total of incremental logical space used by the snapshots.  
+-->
 
 ## <a name="volumes"></a>Metriche di utilizzo per i volumi
 
-- *Dimensioni allocate del volume*   
-    Dimensioni del volume (quota) di cui è stato effettuato il provisioning in GiB.  
+<!-- 
+- *Volume allocated size*   
+    This is the volume size (quota) provisioned in GiB.  
+--> 
 - *Dimensioni logiche del volume*   
     Totale dello spazio logico usato in un volume (GiB). Queste dimensioni includono lo spazio logico usato dai file system e gli snapshot attivi.  
 - *Dimensioni dello snapshot del volume*   

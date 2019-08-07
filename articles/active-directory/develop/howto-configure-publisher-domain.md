@@ -1,6 +1,6 @@
 ---
 title: Configurare il dominio di pubblicazione di un'applicazione | Azure
-description: Informazioni su come configurare il dominio di pubblicazione di un'applicazione per informare gli utenti in cui vengono inviate le informazioni.
+description: Informazioni su come configurare il dominio del server di pubblicazione di un'applicazione per consentire agli utenti di sapere dove vengono inviate le informazioni.
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -9,7 +9,7 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/05/2019
@@ -17,61 +17,61 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d47075f9e18b299341a98983ffb8a47389fd7063
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 291de1fa9bbb43ff9393a3163d1cd21dd7cd1b01
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540229"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835149"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain-preview"></a>Procedura: Configurare il dominio di pubblicazione di un'applicazione (anteprima)
 
-Dominio di pubblicazione di un'applicazione viene visualizzata agli utenti nel [richiesta di consenso dell'applicazione](application-consent-experience.md) per informare gli utenti in cui vengono inviate le informazioni. Applicazioni multi-tenant registrate dopo 21 maggio 2019 che non dispongono di un dominio di pubblicazione visualizzato come **non verificati**. Applicazioni multi-tenant sono applicazioni che supportano gli account di fuori di una singola directory dell'organizzazione; ad esempio, supporta tutti gli account Azure AD, o tutti gli account di Azure AD e gli account Microsoft personali.
+Il dominio di pubblicazione di un'applicazione viene visualizzato agli utenti nella [richiesta di consenso dell'applicazione](application-consent-experience.md) per consentire agli utenti di stabilire dove vengono inviate le informazioni. Le applicazioni multi-tenant registrate dopo il 21 maggio 2019 che non hanno un dominio di pubblicazione vengono visualizzate comenon verificate. Le applicazioni multi-tenant sono applicazioni che supportano account esterni a una singola directory organizzativa; ad esempio, supporta tutti gli account Azure AD o supporta tutti gli account Azure AD e gli account Microsoft personali.
 
 ## <a name="new-applications"></a>Nuove applicazioni
 
-Quando si registra una nuova app, il dominio del server di pubblicazione dell'app può essere impostato su un valore predefinito. Il valore dipende in cui è registrata l'app, in particolare se l'app viene registrata in un tenant e indica se il tenant dispone del tenant di domini verificati.
+Quando si registra una nuova app, il dominio dell'editore dell'app può essere impostato su un valore predefinito. Il valore dipende dalla posizione in cui è registrata l'app, in particolare se l'app viene registrata in un tenant e se il tenant ha domini verificati dal tenant.
 
-Se sono presenti domini verificati tenant, il dominio di pubblicazione dell'app predefinita sarà il dominio verificato primario del tenant. Se sono disponibili tenant non verificato domini (che è il caso quando l'applicazione non è registrata in un tenant), dominio di pubblicazione dell'app verrà impostato su null.
+Se sono presenti domini verificati dal tenant, per impostazione predefinita il dominio di pubblicazione dell'app verrà impostato sul dominio primario verificato del tenant. Se non sono presenti domini verificati dal tenant, ad esempio quando l'applicazione non è registrata in un tenant, il dominio del server di pubblicazione dell'applicazione verrà impostato su null.
 
-La tabella seguente riepiloga il comportamento predefinito del valore del dominio di pubblicazione.  
+Nella tabella seguente viene riepilogato il comportamento predefinito del valore di dominio del server di pubblicazione.  
 
-| Domini verificati tenant | Valore predefinito di dominio di pubblicazione |
+| Domini verificati dal tenant | Valore predefinito del dominio di pubblicazione |
 |-------------------------|----------------------------|
 | Null | Null |
-| *.onmicrosoft.com | *.onmicrosoft.com |
-| - *.onmicrosoft.com<br/>- domain1.com<br/>-domain2.com (primario) | domain2.com |
+| *. onmicrosoft.com | *. onmicrosoft.com |
+| -*. onmicrosoft.com<br/>-domain1.com<br/>-domain2.com (primario) | domain2.com |
 
-Se non è impostato alcun dominio di pubblicazione di un'applicazione multi-tenant o se è impostato su un dominio che termina con. onmicrosoft.com, richiesta di consenso dell'app mostrerà **non verificati** al posto del dominio di pubblicazione.
+Se non è impostato un dominio di pubblicazione di un'applicazione multi-tenant o se è impostato su un dominio che termina con. onmicrosoft.com, la richiesta di consenso dell'app verrà visualizzata non verificata al posto del dominio del server di pubblicazione.
 
-## <a name="grandfathered-applications"></a>Applicazioni grandfathered
+## <a name="grandfathered-applications"></a>Applicazioni con nonno
 
-Se l'app è stata registrata prima del 21 maggio 2019, richiesta di consenso dell'applicazione non visualizzerà **non verificati** se non è stato impostato un dominio di pubblicazione. È consigliabile impostare il server di pubblicazione dominio valore in modo che gli utenti possono visualizzare queste informazioni nella richiesta di consenso dell'app.
+Se l'app è stata registrata prima del 21 maggio 2019, la richiesta di consenso dell'applicazione non verrà visualizzata se non è stato impostato un dominio del server di pubblicazione. È consigliabile impostare il valore di dominio del server di pubblicazione in modo che gli utenti possano visualizzare queste informazioni nella richiesta di consenso dell'app.
 
-## <a name="configure-publisher-domain-using-the-azure-portal"></a>Configurare il dominio di pubblicazione nel portale di Azure
+## <a name="configure-publisher-domain-using-the-azure-portal"></a>Configurare il dominio di pubblicazione utilizzando il portale di Azure
 
-Per impostare il dominio dell'app server di pubblicazione, seguire questa procedura.
+Per impostare il dominio del server di pubblicazione dell'applicazione, attenersi alla seguente procedura.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 
 1. Se l'account è presente in più di un tenant di Azure AD:
-   1. Selezionare il profilo dal menu nell'angolo superiore destro della pagina e quindi **Cambia directory**.
-   1. Modificare la sessione per il tenant di Azure AD in cui si desidera creare l'applicazione.
+   1. Selezionare il profilo dal menu nell'angolo superiore destro della pagina, quindi **passare alla directory**.
+   1. Modificare la sessione nel tenant Azure AD in cui si desidera creare l'applicazione.
 
-1. Passare a [Azure Active Directory > registrazioni per l'App](https://go.microsoft.com/fwlink/?linkid=2083908) per trovare e selezionare l'app che si desidera configurare.
+1. Passare a [Azure Active Directory > registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) per trovare e selezionare l'app che si vuole configurare.
 
-   Dopo aver selezionato l'app, si noterà l'app **Panoramica** pagina.
+   Dopo aver selezionato l'app, verrà visualizzata la pagina **Panoramica** dell'app.
 
-1. Dell'app **Overview** pagina, selezionare la **Branding** sezione.
+1. Dalla pagina **Panoramica** dell'app selezionare la sezione **personalizzazione** .
 
-1. Trovare il **dominio di pubblicazione** campo e selezionare una delle opzioni seguenti:
+1. Individuare il campo **Publisher Domain** e selezionare una delle opzioni seguenti:
 
-   - Selezionare **configurare un dominio** se è stato configurato un dominio già.
-   - Selezionare **dominio di aggiornamento** se è già stato configurato un dominio.
+   - Selezionare **configura un dominio** se non è già stato configurato un dominio.
+   - Selezionare **Aggiorna dominio** se è già stato configurato un dominio.
 
-Se l'app viene registrata in un tenant, si noterà due schede selezionare da: **Selezionare un dominio verificato** e **verificare un nuovo dominio**.
+Se l'app è registrata in un tenant, verranno visualizzate due schede per la selezione: **Selezionare un dominio verificato** e **verificare un nuovo dominio**.
 
-Se l'app non è registrato in un tenant, verrà visualizzata solo l'opzione per verificare un nuovo dominio dell'applicazione.
+Se l'app non è registrata in un tenant, verrà visualizzata solo l'opzione per verificare un nuovo dominio per l'applicazione.
 
 ### <a name="to-verify-a-new-domain-for-your-app"></a>Per verificare un nuovo dominio per l'app
 
@@ -87,51 +87,51 @@ Se l'app non è registrato in un tenant, verrà visualizzata solo l'opzione per 
     }
    ```
 
-1. Sostituire il segnaposto *{YOUR-APP-ID-HERE}* con l'ID applicazione (client) che corrisponde all'app.
+1. Sostituire il segnaposto *{Your-App-ID-here}* con l'ID dell'applicazione (client) che corrisponde all'app.
 
-1. Ospitare il file in: `https://{YOUR-DOMAIN-HERE}.com/.well-known/microsoft-identity-association.json`. Sostituire il segnaposto *{YOUR-DOMAIN-HERE}* corrisponda al dominio verificato.
+1. Ospitare il file in: `https://{YOUR-DOMAIN-HERE}.com/.well-known/microsoft-identity-association.json`. Sostituire il segnaposto *{Your-Domain-here}* in modo che corrisponda al dominio verificato.
 
-1. Scegliere il **verificare e salvare dominio** pulsante.
+1. Fare clic sul pulsante **Verifica e salva dominio** .
 
 ### <a name="to-select-a-verified-domain"></a>Per selezionare un dominio verificato
 
-- Se il tenant dispone di domini verificati, selezionare uno dei domini dal **selezionare un dominio verificato** elenco a discesa.
+- Se il tenant ha verificato domini, selezionare uno dei domini dall'elenco **a discesa selezionare un dominio verificato** .
 
-## <a name="implications-on-the-app-consent-prompt"></a>Implicazioni per l'app richiesta di consenso
+## <a name="implications-on-the-app-consent-prompt"></a>Implicazioni sulla richiesta di consenso dell'app
 
-Configurazione del dominio di pubblicazione ha un impatto su cosa vedono gli utenti quando viene richiesto il consenso dell'app. Per comprendere completamente i componenti della richiesta di consenso, vedere [informazioni sulle esperienze di consenso dell'applicazione](application-consent-experience.md).
+La configurazione del dominio di pubblicazione ha un effetto sugli elementi visualizzati dagli utenti nella richiesta di consenso dell'app. Per comprendere completamente i componenti della richiesta di consenso, vedere [informazioni sull'esperienza di consenso dell'applicazione](application-consent-experience.md).
 
-Nella tabella seguente descrive il comportamento per le applicazioni create prima del 21 maggio 2019.
+Nella tabella seguente viene descritto il comportamento per le applicazioni create prima del 21 maggio 2019.
 
 ![Richiesta di consenso per le app create prima del 21 maggio 2019](./media/howto-configure-publisher-domain/old-app-behavior-table.png)
 
-Il comportamento per le nuove applicazioni create dopo il 21 maggio 2019 varia in base al tipo di applicazione e il dominio del server di pubblicazione. Nella tabella seguente vengono descritte le modifiche si prevedibili con le diverse combinazioni di configurazioni.
+Il comportamento per le nuove applicazioni create dopo il 21 maggio 2019 dipenderà dal dominio del server di pubblicazione e dal tipo di applicazione. Nella tabella seguente vengono descritte le modifiche che ci si aspetta di vedere con le diverse combinazioni di configurazioni.
 
 ![Richiesta di consenso per le app create dopo il 21 maggio 2019](./media/howto-configure-publisher-domain/new-app-behavior-table.png)
 
-## <a name="implications-on-redirect-uris"></a>Implicazioni relative gli URI di reindirizzamento
+## <a name="implications-on-redirect-uris"></a>Implicazioni sugli URI di Reindirizzamento
 
-Le applicazioni che consentono l'accesso degli utenti con qualsiasi account aziendale o dell'istituto di istruzione o account Microsoft personale ([multi-tenant](single-and-multi-tenant-apps.md)) sono soggetti a poche restrizioni quando si specificano URI di reindirizzamento.
+Le applicazioni che eseguono l'accesso agli utenti con un account aziendale o dell'Istituto di istruzione o account Microsoft personali ([multi-tenant](single-and-multi-tenant-apps.md)) sono soggette ad alcune restrizioni quando si specificano gli URI di reindirizzamento.
 
-### <a name="single-root-domain-restriction"></a>Restrizione di dominio di sola radice
+### <a name="single-root-domain-restriction"></a>Restrizione singolo dominio radice
 
-Quando il valore di dominio server di pubblicazione per le app multi-tenant è impostato su null, App sono limitate a condividere un unico dominio principale per l'URI di reindirizzamento. Ad esempio, la seguente combinazione di valori non è consentita perché il dominio radice, contoso.com, non corrisponde a fabrikam.com.
+Quando il valore di dominio del server di pubblicazione per le app multi-tenant è impostato su null, le app sono limitate a condividere un singolo dominio radice per gli URI di reindirizzamento. La seguente combinazione di valori, ad esempio, non è consentita perché il dominio radice, contoso.com, non corrisponde a fabrikam.com.
 
 ```
 "https://contoso.com",
 "https://fabrikam.com",
 ```
 
-### <a name="subdomain-restrictions"></a>Restrizioni di sottodominio
+### <a name="subdomain-restrictions"></a>Restrizioni del sottodominio
 
-Sono consentiti i sottodomini, ma è necessario registrare in modo esplicito il dominio radice. Ad esempio, mentre gli URI seguenti condividono un unico dominio principale, non è consentita la combinazione.
+Sono consentiti sottodomini, ma è necessario registrare in modo esplicito il dominio radice. Ad esempio, mentre gli URI seguenti condividono un solo dominio radice, la combinazione non è consentita.
 
 ```
 "https://app1.contoso.com",
 "https://app2.contoso.com",
 ```
 
-Tuttavia, se lo sviluppatore aggiunge in modo esplicito il dominio radice, è consentita la combinazione.
+Tuttavia, se lo sviluppatore aggiunge in modo esplicito il dominio radice, la combinazione è consentita.
 
 ```
 "https://contoso.com",
@@ -141,12 +141,12 @@ Tuttavia, se lo sviluppatore aggiunge in modo esplicito il dominio radice, è co
 
 ### <a name="exceptions"></a>Eccezioni
 
-I casi seguenti non sono soggette alle restrizioni di dominio di sola radice:
+I casi seguenti non sono soggetti alla restrizione del dominio radice singolo:
 
-- App a tenant singolo, o le app che gli account in una singola directory di destinazione
-- Uso di localhost come URI di reindirizzamento
-- URI di reindirizzamento con schemi personalizzati (diversi da HTTP o HTTPS)
+- App a tenant singolo o app destinate ad account in una singola directory
+- Uso di localhost come URI di Reindirizzamento
+- Reindirizza gli URI con schemi personalizzati (non HTTP o HTTPS)
 
-## <a name="configure-publisher-domain-programmatically"></a>Configurare il dominio di pubblicazione a livello di codice
+## <a name="configure-publisher-domain-programmatically"></a>Configurare il dominio del server di pubblicazione a livello di codice
 
-Attualmente, non vi è alcun supporto di API REST o PowerShell per configurare a livello di codice di dominio di pubblicazione.
+Attualmente non è disponibile un'API REST o il supporto di PowerShell per configurare il dominio del server di pubblicazione a livello di codice.

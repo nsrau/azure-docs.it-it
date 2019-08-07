@@ -10,7 +10,7 @@ ms.assetid: 3321d130-f2a8-4e38-b35e-0959693f3576
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/04/2019
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1b92b174d48c710a763857951d66d00956fa0f9
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 6bb3ef2a86c523d7cda5bc7da5d83ec4ac741abf
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483079"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835381"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Come vengono aggiunte le applicazioni in Azure AD e perché
 
@@ -82,7 +82,7 @@ Come gli oggetti applicazione, anche gli oggetti entità servizio possono essere
 
 Un'applicazione ha un oggetto applicazione nella relativa home directory a cui fanno riferimento una o più entità di servizio in ognuna delle directory in cui è in funzione (inclusa la home directory dell'applicazione).
 
-![Mostra la relazione tra oggetti applicazione ed entità servizio][apps_service_principals_directory]
+![Mostra la relazione tra oggetti app ed entità servizio][apps_service_principals_directory]
 
 Nel diagramma precedente Microsoft mantiene internamente due directory (visualizzate a sinistra) usate per pubblicare le applicazioni:
 

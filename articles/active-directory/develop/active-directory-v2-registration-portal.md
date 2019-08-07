@@ -12,24 +12,24 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec615e1c6229539958f66d0dca15cf7eb788e597
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 357ef290bd24d1d0f48830913511b8cc8944a239
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65546103"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835224"
 ---
 # <a name="app-registration-reference"></a>Riferimento alla registrazione delle app
 Questo documento contiene il contesto e le descrizioni di varie funzionalità disponibili nel [portale di registrazione delle applicazioni](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).
 
 > [!NOTE]
-> Verrà non è più supportata la registrazione e la gestione di applicazioni AD convergente e Azure nel [portale di registrazione applicazione](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/) avvio maggio 2019. Si consiglia di gestire le applicazioni esistenti e registrare nuove applicazioni usando il [registrazioni per l'App](https://aka.ms/appregistrations) esperienza nel portale di Azure.
+> Non sarà più supportata la registrazione e la gestione delle applicazioni convergenti e Azure AD nel [portale di registrazione delle applicazioni](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/) a partire dal 2019 maggio. Si consiglia di gestire le applicazioni esistenti e di registrare nuove applicazioni usando l'esperienza [registrazioni app](https://aka.ms/appregistrations) nel portale di Azure.
 
 ## <a name="my-applications-or-converged-applications"></a>Applicazioni personali o con convergenza
 Questo elenco include tutte le applicazioni registrate per l'uso con l'endpoint Azure AD 2.0. Queste applicazioni permettono di eseguire l'accesso sia con account Microsoft personali che aziendali o dell'istituto d'istruzione da Azure Active Directory. Per altre informazioni sull'endpoint Azure AD 2.0, vedere la [panoramica della versione 2.0](active-directory-appmodel-v2-overview.md). Queste applicazioni possono essere usate anche per l'integrazione con l'endpoint di autenticazione dell'account Microsoft, `https://login.live.com`.
@@ -49,7 +49,7 @@ Al momento nel portale di registrazione delle app sono consentiti solo due tipi 
 È necessario caricare un certificato che contiene una chiave pubblica.
 
 ## <a name="profile"></a>Profilo
-È possibile usare la sezione relativa al profilo del portale di registrazione delle app per personalizzare la pagina di accesso dell'applicazione. Attualmente si può modificare il logo dell'applicazione della pagina di accesso, l'URL delle condizioni del servizio e quello dell'informativa sulla privacy. Il logo deve essere un'immagine trasparente da 48 x 48 o 50 x 50 pixel in un file GIF, PNG o JPEG di dimensioni non superiori a 15 KB. Provare a modificare i valori e a visualizzare la pagina di accesso risultante!
+È possibile usare la sezione relativa al profilo del portale di registrazione delle app per personalizzare la pagina di accesso dell'applicazione. Attualmente si può modificare il logo dell'applicazione della pagina di accesso, l'URL delle condizioni del servizio e quello dell'informativa sulla privacy. Il logo deve essere un'immagine trasparente di 48 x 48 o 50 x 50 pixel in un file in formato GIF, PNG o JPEG e con dimensione massima di 15 KB. Provare a modificare i valori e a visualizzare la pagina di accesso risultante!
 
 ## <a name="live-sdk-support"></a>Supporto Live SDK
 Quando si abilita il supporto Live SDK, per qualsiasi segreto applicazione creato viene eseguito il provisioning sia in Azure AD che negli archivi dati dell'account Microsoft. In questo modo l'applicazione può integrarsi direttamente con il servizio account Microsoft (login.live.com). Se si vuole compilare un'app usando direttamente l'account Microsoft, anziché l'endpoint di Azure AD 2.0, assicurarsi che il supporto Live SDK sia abilitato.

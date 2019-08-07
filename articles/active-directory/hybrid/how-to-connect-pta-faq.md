@@ -16,12 +16,12 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd41bdfb90e5e8428a747832c10fe23a2cac4560
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6c7199cd8e5dbde1f6ff2f5cea56a4191211c853
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109395"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779075"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticazione pass-through di Azure Active Directory: Domande frequenti
 
@@ -29,7 +29,7 @@ Questo articolo risponde alle domande frequenti sull'autenticazione pass-through
 
 ## <a name="which-of-the-methods-to-sign-in-to-azure-ad-pass-through-authentication-password-hash-synchronization-and-active-directory-federation-services-ad-fs-should-i-choose"></a>Quale metodo di accesso a Azure AD è preferibile usare tra autenticazione pass-through, sincronizzazione dell'hash delle password e Active Directory Federation Services (AD FS)?
 
-Riesaminare [questa guida](https://docs.microsoft.com/azure/security/azure-ad-choose-authn) per confrontare i vari metodi di accesso di Azure AD e per scoprire come scegliere il metodo di accesso appropriato per l'organizzazione.
+Riesaminare [questa guida](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn) per confrontare i vari metodi di accesso di Azure AD e per scoprire come scegliere il metodo di accesso appropriato per l'organizzazione.
 
 ## <a name="is-pass-through-authentication-a-free-feature"></a>L'autenticazione pass-through è una funzionalità gratuita?
 
@@ -41,7 +41,7 @@ No. L'autenticazione pass-through è disponibile solo nell'istanza di Azure AD a
 
 ## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>L'[accesso condizionale](../active-directory-conditional-access-azure-portal.md) funziona con l'autenticazione pass-through?
 
-Sì. Tutte le funzionalità di accesso condizionale, incluso Azure multi-Factor Authentication, funzionano con l'autenticazione pass-through.
+Sì. Tutte le funzionalità di accesso condizionale, inclusa l'autenticazione a più fattori di Azure, funzionano con l'autenticazione pass-through.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>L'autenticazione pass-through supporta "Alternate ID" come nome utente, al posto di "userPrincipalName"?
 
@@ -51,9 +51,9 @@ Sì, l'autenticazione pass-through supporta `Alternate ID` come nome utente quan
 
 No. L'autenticazione pass-through _non_ esegue automaticamente il failover sulla sincronizzazione dell'hash delle password. Per evitare errori di accesso dell'utente, è consigliabile configurare l'autenticazione pass-through per la [disponibilità elevata](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
 
-## <a name="what-happens-when-i-switch-from-password-hash-synchronization-to-pass-through-authentication"></a>Cosa accade quando si disattiva la sincronizzazione dell'hash delle password per l'autenticazione pass-through?
+## <a name="what-happens-when-i-switch-from-password-hash-synchronization-to-pass-through-authentication"></a>Cosa accade quando si passa dalla sincronizzazione dell'hash delle password all'autenticazione pass-through?
 
-Quando si usa Azure AD Connect per cambiare il metodo di accesso dalla sincronizzazione dell'hash delle password per l'autenticazione pass-through, l'autenticazione pass-through diventa il metodo di accesso primario per gli utenti nei domini gestiti. Si noti che gli hash delle password di tutti gli utenti che sono stati sincronizzati in precedenza tramite la sincronizzazione hash password restano archiviati in Azure AD.
+Quando si usa Azure AD Connect per cambiare il metodo di accesso dalla sincronizzazione dell'hash delle password all'autenticazione pass-through, l'autenticazione pass-through diventa il metodo di accesso primario per gli utenti in domini gestiti. Si noti che gli hash delle password di tutti gli utenti che sono stati sincronizzati in precedenza con la sincronizzazione dell'hash delle password rimangono archiviati in Azure AD.
 
 ## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>È possibile installare un connettore del [proxy di applicazione di Azure AD](../manage-apps/application-proxy.md) nello stesso server in cui è presente un agente di autenticazione pass-through?
 

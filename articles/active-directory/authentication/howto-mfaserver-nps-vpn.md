@@ -1,48 +1,48 @@
 ---
-title: Scenari avanzati con Azure MFA e VPN di terze parti - Azure Active Directory
-description: Guide di configurazione dettagliate per l'integrazione di Azure MFA con Cisco, Citrix e Juniper.
+title: 'Scenari avanzati con server di autenticazione a più fattori di Azure e VPN di terze parti: Azure Active Directory'
+description: Guide dettagliate per la configurazione del server di autenticazione a più fattori di Azure per l'integrazione con Cisco, Citrix e Juniper.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/05/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ad2b3075ae9d5ccd7e32f039fbbbc8583cde73c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f99df5daf559ef0d08b18104331c688503719e9b
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055970"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68811803"
 ---
-# <a name="advanced-scenarios-with-azure-multi-factor-authentication-and-third-party-vpn-solutions"></a>Scenari avanzati con Azure Multi-Factor Authentication e soluzioni VPN di terze parti
+# <a name="advanced-scenarios-with-azure-mfa-server-and-third-party-vpn-solutions"></a>Scenari avanzati con server di autenticazione a più fattori di Azure e soluzioni VPN di terze parti
 
-È possibile usare Azure Multi-Factor Authentication per connettersi rapidamente a varie soluzioni VPN di terze parti. Questo articolo illustra in particolare i dispositivi VPN Cisco® ASA, Citrix NetScaler SSL e Juniper Networks Secure Access/Pulse Secure Connect Secure SSL. Sono disponibili guide alla configurazione utili per questi tre dispositivi comuni. Il server Multi-Factor Authentication può anche integrarsi con la maggior parte di altri sistemi che usano RADIUS, LDAP, IIS o l'autenticazione basata su attestazioni per AD FS. Per informazioni più dettagliate, vedere la sezione relativa alle [configurazioni del server Multi-Factor Authentication](howto-mfaserver-deploy.md#next-steps).
+Il server Azure multi-factor authentication (server Azure AMF) può essere usato per connettersi facilmente a diverse soluzioni VPN di terze parti. Questo articolo illustra in particolare i dispositivi VPN Cisco® ASA, Citrix NetScaler SSL e Juniper Networks Secure Access/Pulse Secure Connect Secure SSL. Sono disponibili guide alla configurazione utili per questi tre dispositivi comuni. Il server di autenticazione a più fattori di Azure può anche essere integrato con la maggior parte dei sistemi che usano RADIUS, LDAP, IIS o l'autenticazione basata sulle attestazioni per AD FS. Altre informazioni sono disponibili in [configurazioni del server](howto-mfaserver-deploy.md#next-steps)di autenticazione a più fattori di Azure.
 
 > [!IMPORTANT]
-> A partire dal 1 ° luglio 2019, Microsoft non offrirà non è più Server MFA per le nuove distribuzioni. Nuovi clienti che si vuole richiedere l'autenticazione mfa agli utenti devono usare Azure multi-Factor Authentication basato sul cloud. I clienti esistenti che hanno attivato il Server MFA prima del 1 ° luglio sarà in grado di scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
+> A partire dal 1 ° luglio 2019, Microsoft non offrirà più il server multi-factor authentication per le nuove distribuzioni. I nuovi clienti che desiderano richiedere l'autenticazione a più fattori dagli utenti devono usare Azure a più fattori basato sul cloud. I clienti esistenti che hanno attivato il server di autenticazione a più fattori prima del 1 ° luglio potranno scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
 
-## <a name="cisco-asa-vpn-appliance-and-azure-multi-factor-authentication"></a>Dispositivo VPN Cisco ASA e Azure Multi-Factor Authentication
-Azure Multi-Factor Authentication si integra con i dispositivi VPN Cisco® ASA per fornire protezione aggiuntiva per gli account di accesso al client VPN Cisco AnyConnect® e l'accesso al portale.  È possibile usare il protocollo LDAP o RADIUS.  Selezionare una delle opzioni seguenti per scaricare le guide dettagliate per la configurazione.
+## <a name="cisco-asa-vpn-appliance-and-azure-mfa-server"></a>Appliance VPN Cisco ASA e server di autenticazione a più fattori di Azure
+Il server di autenticazione a più fattori di Azure si integra con l'appliance VPN Cisco® ASA per fornire sicurezza aggiuntiva per Cisco AnyConnect® gli accessi VPN e il portale.  È possibile usare il protocollo LDAP o RADIUS.  Selezionare una delle opzioni seguenti per scaricare le guide dettagliate per la configurazione.
 
 | Guida alla configurazione | Descrizione |
 | --- | --- |
 | [Configurazione del dispositivo VPN Cisco ASA con Anyconnect e Azure MFA per LDAP](https://download.microsoft.com/download/A/2/0/A201567C-C3DE-4227-AF89-4567A470899E/Cisco_ASA_Azure_MFA_LDAP.docx) | Integrare il dispositivo VPN Cisco ASA con Azure MFA tramite LDAP |
 | [Configurazione del dispositivo VPN Cisco ASA con Anyconnect e Azure MFA per RADIUS](https://download.microsoft.com/download/4/5/7/4579C1CF-35B0-4FBE-8A1A-B49CB2CC0382/Cisco_ASA_Azure_MFA_RADIUS.docx) | Integrare il dispositivo VPN Cisco ASA con Azure MFA tramite RADIUS |
 
-## <a name="citrix-netscaler-ssl-vpn-and-azure-multi-factor-authentication"></a>Dispositivo VPN Citrix NetScaler SSL e Azure Multi-Factor Authentication
-Azure Multi-Factor Authentication si integra con i dispositivi VPN SSL Citrix NetScaler per fornire protezione aggiuntiva per gli account di accesso al client SSL Citrix NetScaler e l'accesso al portale.  È possibile usare il protocollo LDAP o RADIUS.  Selezionare una delle opzioni seguenti per scaricare le guide dettagliate per la configurazione.
+## <a name="citrix-netscaler-ssl-vpn-and-azure-mfa-server"></a>VPN SSL Citrix NetScaler e server di autenticazione a più fattori di Azure
+Il server di autenticazione a più fattori di Azure si integra con il dispositivo VPN SSL Citrix NetScaler per fornire sicurezza aggiuntiva per gli accessi VPN SSL Citrix NetScaler e l'accesso al portale.  È possibile usare il protocollo LDAP o RADIUS.  Selezionare una delle opzioni seguenti per scaricare le guide dettagliate per la configurazione.
 
 | Guida alla configurazione | Descrizione |
 | --- | --- |
 | [Configurazione del dispositivo VPN SSL Citrix NetScaler e Azure MFA per LDAP](https://download.microsoft.com/download/2/4/E/24E1E722-72DF-471F-A88A-D1338DB1AF83/Citrix_NS_Azure_MFA_LDAP.docx) | Integrare il dispositivo VPN SSL Citrix NetScaler con Azure MFA tramite LDAP |
 | [Configurazione del dispositivo VPN SSL Citrix NetScaler e Azure MFA per RADIUS](https://download.microsoft.com/download/1/A/4/1A482764-4A63-45C2-A5EC-2B673ACCDD12/Citrix_NS_Azure_MFA_RADIUS.docx) | Integrare il dispositivo VPN SSL Citrix NetScaler con Azure MFA tramite RADIUS |
 
-## <a name="juniperpulse-secure-ssl-vpn-appliance-and-azure-multi-factor-authentication"></a>Client VPN SSL Juniper/Pulse Secure e Azure Multi-Factor Authentication
-Azure Multi-Factor Authentication si integra con i client VPN SSL Juniper/Pulse Secure per fornire protezione aggiuntiva per gli account di accesso al client Juniper/Pulse Secure e l'accesso al portale.  È possibile usare il protocollo LDAP o RADIUS.  Selezionare una delle opzioni seguenti per scaricare le guide dettagliate per la configurazione.
+## <a name="juniperpulse-secure-ssl-vpn-appliance-and-azure-mfa-server"></a>Appliance VPN SSL Juniper/Pulse Secure e server di autenticazione a più fattori di Azure
+Il server di autenticazione a più fattori di Azure si integra con il dispositivo VPN SSL Juniper/Pulse Secure per fornire sicurezza aggiuntiva per gli accessi VPN SSL/Pulse Secure e l'accesso al portale.  È possibile usare il protocollo LDAP o RADIUS.  Selezionare una delle opzioni seguenti per scaricare le guide dettagliate per la configurazione.
 
 | Guida alla configurazione | Descrizione |
 | --- | --- |

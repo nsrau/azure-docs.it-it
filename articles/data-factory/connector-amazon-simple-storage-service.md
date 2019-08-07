@@ -8,17 +8,17 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 088dfdbfbadfa43dc2bd161f56f0e2a6dbb94bb7
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 7b47aadc28a5e2ea6dbf2a7a8a23cdb713a0b981
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312004"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839894"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copiare dati da Amazon Simple Storage Service usando Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 >
 > * [Versione 1](v1/data-factory-amazon-simple-storage-service-connector.md)
 > * [Versione corrente](connector-amazon-simple-storage-service.md)
@@ -27,13 +27,13 @@ Questo articolo illustra come copiare dati da Amazon Simple Storage Service (Ama
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
-Il connettore Amazon S3 è supportato per le attività seguenti:
+Questo connettore Amazon S3 è supportato per le attività seguenti:
 
-- [Attività di copia](copy-activity-overview.md) con [supportata matrice di origine/sink](copy-activity-overview.md)
+- [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
 - [Attività GetMetadata](control-flow-get-metadata-activity.md)
 
-In particolare, il connettore Amazon S3 supporta la copia dei file così come sono e l'analisi dei file con i [formati di file supportati e i codec di compressione](supported-file-formats-and-compression-codecs.md). Viene utilizzato [AWS firma versione 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) per autenticare le richieste al livello S3.
+In particolare, il connettore Amazon S3 supporta la copia dei file così come sono e l'analisi dei file con i [formati di file supportati e i codec di compressione](supported-file-formats-and-compression-codecs.md). Usa la [firma AWS versione 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) per autenticare le richieste a S3.
 
 >[!TIP]
 >È possibile usare il connettore Amazon S3 per copiare dati da **qualsiasi provider di archiviazione compatibile con S3**, ad esempio [Google Cloud Storage](connector-google-cloud-storage.md). Specificare l'URL del servizio corrispondente nella configurazione del servizio collegato.
@@ -98,23 +98,23 @@ Di seguito è fornito un esempio:
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md). 
 
-- Per la **Parquet e del formato di testo delimitato**, fare riferimento a [set di dati di formato Parquet e testo delimitato](#parquet-and-delimited-text-format-dataset) sezione.
-- Per altri formati, ad esempio **formato ORC/Avro/JSON/binario**, fare riferimento a [altri set di dati di formato](#other-format-dataset) sezione.
+- Per **parquet, testo delimitato e formato binario**, fare riferimento alla sezione [set di dati in formato parquet, testo delimitato e formato binario](#format-based-dataset) .
+- Per altri formati come il **formato ORC/avro/JSON**, vedere la sezione [altro set di dati di formato](#other-format-dataset) .
 
-### <a name="parquet-and-delimited-text-format-dataset"></a>Set di dati di formato parquet e testo delimitato
+### <a name="format-based-dataset"></a>Set di dati in formato testo e binario delimitato in parquet
 
-Per copiare dati da Amazon S3 nella **Parquet o formato di testo delimitato**, fare riferimento a [formato Parquet](format-parquet.md) e [formato di testo delimitato](format-delimited-text.md) articolo nel set di dati in base al formato e supportate Impostazioni. Sono supportate le proprietà seguenti per Amazon S3 in `location` impostazioni nel set di dati in base al formato:
+Per copiare dati da Amazon S3 in **parquet, formato testo o binario delimitato**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md) e [formato binario](format-binary.md) su set di dati basato su formato e impostazioni supportate. Le proprietà seguenti sono supportate per Amazon S3 in `location` impostazioni nel set di dati basato sul formato:
 
 | Proprietà   | Descrizione                                                  | Obbligatoria |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | La proprietà del tipo sotto `location` nel set di dati deve essere impostata su **AmazonS3Location**. | Sì      |
+| type       | La proprietà `location` Type nel set di dati deve essere impostata su **AmazonS3Location**. | Sì      |
 | bucketName | Il nome del bucket S3.                                          | Sì      |
-| folderPath | Percorso cartella sotto il bucket specificato. Se si desidera utilizzare con caratteri jolly alla cartella di filtro, ignorare questa impostazione e specificare nelle impostazioni di origine di attività. | No       |
-| fileName   | Il nome del file sotto il bucket specificato + folderPath. Se si desidera utilizzare con caratteri jolly per filtrare i file, ignorare questa impostazione e specificare nelle impostazioni di origine di attività. | No       |
-| version | La versione dell'oggetto S3 se è stato abilitato il controllo delle versioni S3. Se non specificato, verrà recuperata la versione più recente. |No |
+| folderPath | Percorso della cartella nel bucket specificato. Se si vuole usare il carattere jolly per filtrare la cartella, ignorare questa impostazione e specificare nelle impostazioni dell'origine dell'attività. | No       |
+| fileName   | Nome del file nel bucket specificato + folderPath. Se si vuole usare il carattere jolly per filtrare i file, ignorare questa impostazione e specificare nelle impostazioni dell'origine dell'attività. | No       |
+| version | La versione dell'oggetto S3 se è stato abilitato il controllo delle versioni S3. Se non è specificato, verrà recuperata la versione più recente. |No |
 
 > [!NOTE]
-> **AmazonS3Object** tipo set di dati con formato Parquet, Text indicato nella sezione successiva è ancora supportata come-per attività di copia/ricerca/GetMetadata per compatibilità con le versioni precedenti, ma non funziona con il Mapping di flusso di dati. Consigliabile per usare questo nuovo modello in futuro e Azure Data factory di creazione dell'interfaccia utente è stata attivata per la generazione di questi nuovi tipi.
+> Il set di dati di tipo **AmazonS3Object** con formato parquet/testo indicato nella sezione successiva è ancora supportato così com'è per l'attività copia/ricerca/GetMetadata per la compatibilità con le versioni precedenti, ma non funziona con il flusso di dati di mapping. Si consiglia di usare questo nuovo modello in futuro e l'interfaccia utente di creazione di ADF ha cambiato la generazione di questi nuovi tipi.
 
 **Esempio:**
 
@@ -143,9 +143,9 @@ Per copiare dati da Amazon S3 nella **Parquet o formato di testo delimitato**, f
 }
 ```
 
-### <a name="other-format-dataset"></a>Altri set di dati di formato
+### <a name="other-format-dataset"></a>Set di dati di altri formati
 
-Per copiare dati da Amazon S3 nella **formato ORC/Avro/JSON/binario**, sono supportate le proprietà seguenti:
+Per copiare dati da Amazon S3 in **formato ORC/avro/JSON**, sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
@@ -153,9 +153,9 @@ Per copiare dati da Amazon S3 nella **formato ORC/Avro/JSON/binario**, sono supp
 | bucketName | Il nome del bucket S3. Il filtro con caratteri jolly non è supportato. |Sì per l'attività Copy/Lookup, no per l'attività GetMetadata |
 | key | Il **nome o il filtro con caratteri jolly** della chiave dell'oggetto S3 nel bucket specificato. Si applica solo se la proprietà "prefix" non è specificata. <br/><br/>Il filtro con caratteri jolly è supportato sia per la parte della cartella che per la parte del nome file. I caratteri jolly consentiti sono: `*` (corrispondenza di zero o più caratteri) e `?` (corrispondenza di zero caratteri o di un carattere singolo).<br/>- Esempio 1: `"key": "rootfolder/subfolder/*.csv"`<br/>- Esempio 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). Usare `^` per applicare una sequenza di escape se il nome effettivo del file o della cartella include caratteri jolly o tale carattere escape. |No |
 | prefix | Il prefisso per la chiave dell'oggetto S3. Vengono selezionati gli oggetti le cui chiavi iniziano con questo prefisso. Si applica solo se la proprietà "key" non è specificata. |No |
-| version | La versione dell'oggetto S3 se è stato abilitato il controllo delle versioni S3. Se non specificato, verrà recuperata la versione più recente. |No |
-| modifiedDatetimeStart | Filtro di file basato sull'attributo: Ultima modifica. I file vengono selezionati se l'ora dell'ultima modifica è inclusa nell'intervallo di tempo tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata con il fuso orario UTC e il formato "2018-12-01T05:00:00Z". <br/><br/> Tenere presente che le prestazioni complessive di spostamento dei dati ne risentirà abilitando questa impostazione quando si desidera filtro file da elevate quantità di file. <br/><br/> Le proprietà possono essere NULL, a indicare che al set di dati non viene applicato alcun filtro di attributo di file.  Quando `modifiedDatetimeStart` ha un valore datetime ma `modifiedDatetimeEnd` è NULL, vengono selezionati i file il cui ultimo attributo modificato è maggiore o uguale al valore datetime.  Quando `modifiedDatetimeEnd` ha un valore datetime ma `modifiedDatetimeStart` è NULL vengono selezionati i file il cui ultimo attributo modificato è minore del valore datetime.| No |
-| modifiedDatetimeEnd | Filtro di file basato sull'attributo: Ultima modifica. I file vengono selezionati se l'ora dell'ultima modifica è inclusa nell'intervallo di tempo tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata con il fuso orario UTC e il formato "2018-12-01T05:00:00Z". <br/><br/> Tenere presente che le prestazioni complessive di spostamento dei dati ne risentirà abilitando questa impostazione quando si desidera filtro file da elevate quantità di file. <br/><br/> Le proprietà possono essere NULL, a indicare che al set di dati non viene applicato alcun filtro di attributo di file.  Quando `modifiedDatetimeStart` ha un valore datetime ma `modifiedDatetimeEnd` è NULL, vengono selezionati i file il cui ultimo attributo modificato è maggiore o uguale al valore datetime.  Quando `modifiedDatetimeEnd` ha un valore datetime ma `modifiedDatetimeStart` è NULL vengono selezionati i file il cui ultimo attributo modificato è minore del valore datetime.| No |
+| version | La versione dell'oggetto S3 se è stato abilitato il controllo delle versioni S3. Se non è specificato, verrà recuperata la versione più recente. |No |
+| modifiedDatetimeStart | Filtro di file basato sull'attributo: Ultima modifica. I file vengono selezionati se l'ora dell'ultima modifica è inclusa nell'intervallo di tempo tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata con il fuso orario UTC e il formato "2018-12-01T05:00:00Z". <br/><br/> Tenere presente che le prestazioni complessive dello spostamento dei dati saranno influenzate dall'abilitazione di questa impostazione quando si desidera eseguire il filtro file da grandi quantità di file. <br/><br/> Le proprietà possono essere NULL, a indicare che al set di dati non viene applicato alcun filtro di attributo di file.  Quando `modifiedDatetimeStart` ha un valore datetime ma `modifiedDatetimeEnd` è NULL, vengono selezionati i file il cui ultimo attributo modificato è maggiore o uguale al valore datetime.  Quando `modifiedDatetimeEnd` ha un valore datetime ma `modifiedDatetimeStart` è NULL vengono selezionati i file il cui ultimo attributo modificato è minore del valore datetime.| No |
+| modifiedDatetimeEnd | Filtro di file basato sull'attributo: Ultima modifica. I file vengono selezionati se l'ora dell'ultima modifica è inclusa nell'intervallo di tempo tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata con il fuso orario UTC e il formato "2018-12-01T05:00:00Z". <br/><br/> Tenere presente che le prestazioni complessive dello spostamento dei dati saranno influenzate dall'abilitazione di questa impostazione quando si desidera eseguire il filtro file da grandi quantità di file. <br/><br/> Le proprietà possono essere NULL, a indicare che al set di dati non viene applicato alcun filtro di attributo di file.  Quando `modifiedDatetimeStart` ha un valore datetime ma `modifiedDatetimeEnd` è NULL, vengono selezionati i file il cui ultimo attributo modificato è maggiore o uguale al valore datetime.  Quando `modifiedDatetimeEnd` ha un valore datetime ma `modifiedDatetimeStart` è NULL vengono selezionati i file il cui ultimo attributo modificato è minore del valore datetime.| No |
 | format | Per **copiare i file così come sono** tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output.<br/><br/>Se si vuole analizzare o generare file con un formato specifico, sono supportati i tipi di formato file seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [TextFormat](supported-file-formats-and-compression-codecs.md#text-format), [JsonFormat](supported-file-formats-and-compression-codecs.md#json-format), [AvroFormat](supported-file-formats-and-compression-codecs.md#avro-format), [OrcFormat](supported-file-formats-and-compression-codecs.md#orc-format) e [ParquetFormat](supported-file-formats-and-compression-codecs.md#parquet-format). |No (solo per uno scenario di copia binaria) |
 | compression | Specificare il tipo e il livello di compressione dei dati. Per altre informazioni, vedere l'articolo sui [formati di file supportati e i codec di compressione](supported-file-formats-and-compression-codecs.md#compression-support).<br/>I tipi supportati sono: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**.<br/>I livelli supportati sono: **Optimal** (Ottimale) e **Fastest** (Più veloce). |No |
 
@@ -227,26 +227,26 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 ### <a name="amazon-s3-as-source"></a>Amazon S3 come origine
 
-- Per la copia da **Parquet e del formato di testo delimitato**, fare riferimento a [Parquet e testo delimitato formato origine](#parquet-and-delimited-text-format-source) sezione.
-- Per la copia da altri formati, ad esempio **formato ORC/Avro/JSON/binario**, fare riferimento a [altra origine formato](#other-format-source) sezione.
+- Per eseguire la copia da **parquet, testo delimitato e formato binario**, vedere la sezione [parquet, testo delimitato e origine del formato binario](#format-based-source) .
+- Per eseguire la copia da altri formati, ad esempio il **formato ORC/avro/JSON**, vedere la sezione [altra origine del formato](#other-format-source) .
 
-#### <a name="parquet-and-delimited-text-format-source"></a>Parquet e testo delimitato formato origine
+#### <a name="format-based-source"></a>Parquet, testo delimitato e origine del formato binario
 
-Per copiare dati da Amazon S3 nella **Parquet o formato di testo delimitato**, fare riferimento a [formato Parquet](format-parquet.md) e [formato di testo delimitato](format-delimited-text.md) articolo sull'origine dell'attività copy in base al formato e impostazioni supportate. Sono supportate le proprietà seguenti per Amazon S3 in `storeSettings` le impostazioni di origine della copia in base al formato:
+Per copiare dati da Amazon S3 in **parquet, formato testo o binario delimitato**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md) e [formato binario](format-binary.md) sull'origine dell'attività di copia basata su formato e le impostazioni supportate. Le proprietà seguenti sono supportate per Amazon S3 in `storeSettings` impostazioni in origine copia basata sul formato:
 
 | Proprietà                 | Descrizione                                                  | Obbligatoria                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
-| type                     | La proprietà del tipo sotto `storeSettings` deve essere impostata su **AmazonS3ReadSetting**. | Sì                                                         |
+| type                     | La proprietà Type in `storeSettings` deve essere impostata su **AmazonS3ReadSetting**. | Sì                                                         |
 | recursive                | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che quando la proprietà recursive è impostata su true e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. I valori consentiti sono **true** (predefinito) e **false**. | No                                                          |
-| prefix                   | Prefisso per la chiave dell'oggetto S3 sotto il bucket specificato configurato nel set di dati per filtrare gli oggetti di origine. Vengono selezionati gli oggetti le cui chiavi iniziano con questo prefisso. <br>Si applica solo quando `wildcardFolderPath` e `wildcardFileName` non siano specificate proprietà. | No                                                          |
-| wildcardFolderPath       | Il percorso della cartella con caratteri jolly con il bucket specificato configurato nel set di dati nelle cartelle di origine di filtro. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape. <br>Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | No                                                          |
-| wildcardFileName         | Il nome di file con caratteri jolly con il bucket specificato + folderPath/wildcardFolderPath per filtrare i file di origine. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape.  Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | Se Sì `fileName` nel set di dati e `prefix` non sono specificati |
+| prefix                   | Prefisso per la chiave dell'oggetto S3 nel bucket specificato configurato nel set di dati per filtrare gli oggetti di origine. Vengono selezionati gli oggetti le cui chiavi iniziano con questo prefisso. <br>Si applica solo `wildcardFolderPath` quando `wildcardFileName` le proprietà e non sono specificate. | No                                                          |
+| wildcardFolderPath       | Percorso della cartella con caratteri jolly nel bucket specificato configurati nel set di dati per filtrare le cartelle di origine. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape. <br>Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | No                                                          |
+| wildcardFileName         | Nome file con caratteri jolly nel bucket specificato + folderPath/wildcardFolderPath per filtrare i file di origine. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape.  Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | Sì se `fileName` nel set di `prefix` dati e non sono specificati |
 | modifiedDatetimeStart    | Filtro di file basato sull'attributo: Ultima modifica. I file vengono selezionati se l'ora dell'ultima modifica è inclusa nell'intervallo di tempo tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata con il fuso orario UTC e il formato "2018-12-01T05:00:00Z". <br> Le proprietà possono essere NULL, a indicare che al set di dati non viene applicato alcun filtro di attributo di file.  Quando `modifiedDatetimeStart` ha un valore datetime ma `modifiedDatetimeEnd` è NULL, vengono selezionati i file il cui ultimo attributo modificato è maggiore o uguale al valore datetime.  Quando `modifiedDatetimeEnd` ha un valore datetime ma `modifiedDatetimeStart` è NULL vengono selezionati i file il cui ultimo attributo modificato è minore del valore datetime. | No                                                          |
 | modifiedDatetimeEnd      | Come sopra.                                               | No                                                          |
-| maxConcurrentConnections | Il numero delle connessioni per connettersi all'archivio di archiviazione simultaneamente. Specificare solo quando si desidera limitare le connessioni simultanee all'archivio dati. | N.                                                          |
+| maxConcurrentConnections | Numero di connessioni simultanee per la connessione all'archivio di archiviazione. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | N.                                                          |
 
 > [!NOTE]
-> Per formato di testo delimitato/Parquet **FileSystemSource** origine dell'attività copy tipo indicato nella sezione successiva è ancora supportata come-sia per compatibilità con le versioni precedenti. Consigliabile per usare questo nuovo modello in futuro e Azure Data factory di creazione dell'interfaccia utente è stata attivata per la generazione di questi nuovi tipi.
+> Per il formato di testo parquet/delimitato, l'origine dell'attività di copia di tipo **FileSystemSource** citata nella sezione successiva è ancora supportata così com'è per la compatibilità con le versioni precedenti. Si consiglia di usare questo nuovo modello in futuro e l'interfaccia utente di creazione di ADF ha cambiato la generazione di questi nuovi tipi.
 
 **Esempio:**
 
@@ -289,15 +289,15 @@ Per copiare dati da Amazon S3 nella **Parquet o formato di testo delimitato**, f
 ]
 ```
 
-#### <a name="other-format-source"></a>Altra origine di formato
+#### <a name="other-format-source"></a>Altra origine del formato
 
-Per copiare dati da Amazon S3 nella **formato ORC/Avro/JSON/binario**, nell'attività di copia sono supportate le proprietà seguenti **origine** sezione:
+Per copiare dati da Amazon S3 in **formato ORC/avro/JSON**, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine di attività di copia deve essere impostata su: **FileSystemSource** |Sì |
 | recursive | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che se recursive è impostata su true e il sink è un archivio basato su file, la cartella o la sottocartella vuota non verrà copiata o creata nel sink.<br/>I valori consentiti sono: **true** (predefinito), **false** | No |
-| maxConcurrentConnections | Il numero delle connessioni per connettersi all'archivio dati contemporaneamente. Specificare solo quando si desidera limitare le connessioni simultanee all'archivio dati. | No |
+| maxConcurrentConnections | Numero di connessioni per la connessione all'archivio dati contemporaneamente. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No |
 
 **Esempio:**
 

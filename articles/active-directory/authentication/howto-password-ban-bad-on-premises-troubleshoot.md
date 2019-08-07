@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d96f5bb189dfd20c65fc6fc6ddcb8fff66d52ff
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 07c035f4823ea8c8eaa96ca9bda22450246811cd
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68666227"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779633"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Risoluzione dei problemi relativi a Password di protezione di Azure AD
 
@@ -32,7 +32,7 @@ La causa usuale di questo problema è che un proxy non è ancora stato registrat
 
 Il sintomo principale di questo problema è 30018 eventi nel registro eventi di amministrazione dell'agente del controller di dominio. Questo problema può avere diverse cause possibili:
 
-1. L'agente del controller di dominio si trova in una parte isolata della rete che non consente la connettività di rete ai proxy registrati. Questo problema può pertanto essere benigno purché altri agenti del controller di dominio possano comunicare con i proxy per scaricare i criteri password da Azure, che verranno quindi ottenuti dal controller di dominio isolato tramite la replica dei file di criteri nella condivisione SYSVOL.
+1. L'agente del controller di dominio si trova in una parte isolata della rete che non consente la connettività di rete ai proxy registrati. Questo problema può essere benigno purché altri agenti del controller di dominio possano comunicare con i proxy per scaricare i criteri password da Azure. Una volta scaricati, i criteri verranno ottenuti dal controller di dominio isolato tramite la replica dei file di criteri nella condivisione SYSVOL.
 
 1. Il computer host proxy blocca l'accesso all'endpoint di mapping degli endpoint RPC (porta 135)
 
@@ -48,7 +48,7 @@ Il sintomo principale di questo problema è 30018 eventi nel registro eventi di 
 
 1. Verificare che la foresta e tutti i server proxy siano registrati nello stesso tenant di Azure.
 
-   È possibile verificare questo requisito eseguendo i `Get-AzureADPasswordProtectionProxy` cmdlet e `Get-AzureADPasswordProtectionDCAgent` di PowerShell, quindi confrontare la `AzureTenant` proprietà di ogni elemento restituito. Per un'operazione corretta, il nome del tenant segnalato deve essere lo stesso in tutti gli agenti controller di dominio e i server proxy.
+   È possibile verificare questo requisito eseguendo i `Get-AzureADPasswordProtectionProxy` cmdlet e `Get-AzureADPasswordProtectionDCAgent` di PowerShell, quindi confrontare la `AzureTenant` proprietà di ogni elemento restituito. Per il corretto funzionamento, il nome del tenant restituito deve essere lo stesso in tutti gli agenti controller di dominio e i server proxy.
 
    Se esiste una condizione di mancata corrispondenza della registrazione del tenant di Azure, questo problema può essere `Register-AzureADPasswordProtectionProxy` risolto eseguendo i `Register-AzureADPasswordProtectionForest` cmdlet di e/o PowerShell in base alle esigenze, assicurandosi di usare le credenziali dello stesso tenant di Azure per tutte le registrazioni.
 
@@ -69,6 +69,8 @@ La causa principale più comune per l'avvio del servizio KDS è che l'oggetto co
 ## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Le password vulnerabili vengono accettate, ma non devono essere
 
 Questo problema può avere diverse cause.
+
+1. Gli agenti del controller di dominio eseguono una versione di anteprima pubblica del software scaduta. Vedere [l'anteprima pubblica. il software dell'agente DC è scaduto](howto-password-ban-bad-on-premises-troubleshoot.md#public-preview-dc-agent-software-has-expired).
 
 1. Gli agenti del controller di dominio non possono scaricare un criterio oppure non è in grado di decrittografare i criteri esistenti. Verificare la presenza di possibili cause negli argomenti precedenti.
 
@@ -99,7 +101,7 @@ Setting password failed.
         Error Message: Password doesn't meet the requirements of the filter dll's
 ```
 
-Quando Azure AD Password Protection registra gli eventi del registro eventi di convalida della password per una password Active Directory ripristino servizi directory, si prevede che i messaggi del registro eventi non includano un nome utente. Questo problema si verifica perché l'account della modalità ripristino servizi directory è un account locale che non fa parte del dominio Active Directory effettivo.  
+Quando Azure AD Password Protection registra gli eventi del registro eventi di convalida della password per una password Active Directory ripristino servizi directory, si prevede che i messaggi del registro eventi non includano un nome utente. Questo comportamento si verifica perché l'account della modalità ripristino servizi directory è un account locale che non fa parte del dominio Active Directory effettivo.  
 
 ## <a name="domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password"></a>La promozione della replica del controller di dominio non riesce a causa di una password ripristino servizi directory
 
@@ -119,7 +121,67 @@ Al termine dell'abbassamento di livello e quando il controller di dominio è sta
 
 ## <a name="booting-into-directory-services-repair-mode"></a>Avvio in modalità di ripristino dei servizi directory
 
-Se il controller di dominio viene avviato in modalità di ripristino dei servizi directory, il servizio agente controller di dominio rileva questa condizione e causerà la disabilitazione di tutte le attività di convalida o di applicazione della password, indipendentemente dalla configurazione dei criteri attualmente attiva.
+Se il controller di dominio viene avviato in modalità ripristino servizi directory, la dll del filtro password agente controller di dominio rileva questa condizione e causerà la disabilitazione di tutte le attività di convalida o di applicazione della password, indipendentemente dal criterio attualmente attivo configurazione. La dll del filtro della password dell'agente controller di dominio registrerà un evento di avviso 10023 nel registro eventi di amministrazione, ad esempio:
+
+```text
+The password filter dll is loaded but the machine appears to be a domain controller that has been booted into Directory Services Repair Mode. All password change and set requests will be automatically approved. No further messages will be logged until after the next reboot.
+```
+## <a name="public-preview-dc-agent-software-has-expired"></a>Il software dell'agente DC di anteprima pubblica è scaduto
+
+Durante il periodo di anteprima pubblica di Azure AD Password Protection, il software dell'agente DC è stato hardcoded per arrestare l'elaborazione delle richieste di convalida delle password nelle date seguenti:
+
+* La versione 1.2.65.0 smetterà di elaborare le richieste di convalida delle password il 1 2019 settembre.
+* Versione 1.2.25.0 e precedente arrestata elaborazione delle richieste di convalida delle password il 1 2019 luglio.
+
+Come si avvicina la scadenza, tutte le versioni dell'agente del controller di dominio con limitazioni temporali generano un evento 10021 nel registro eventi di amministrazione dell'agente del controller di dominio al momento dell'avvio, simile al seguente:
+
+```text
+The password filter dll has successfully loaded and initialized.
+
+The allowable trial period is nearing expiration. Once the trial period has expired, the password filter dll will no longer process passwords. Please contact Microsoft for an newer supported version of the software.
+
+Expiration date:  9/01/2019 0:00:00 AM
+
+This message will not be repeated until the next reboot.
+```
+
+Una volta superata la scadenza, tutte le versioni dell'agente del controller di dominio con limitazioni temporali generano un evento 10022 nel registro eventi di amministrazione dell'agente del controller di dominio al momento dell'avvio, simile al seguente:
+
+```text
+The password filter dll is loaded but the allowable trial period has expired. All password change and set requests will be automatically approved. Please contact Microsoft for a newer supported version of the software.
+
+No further messages will be logged until after the next reboot.
+```
+
+Poiché la scadenza viene controllata solo all'avvio iniziale, è possibile che questi eventi non vengano visualizzati fino a quando la scadenza del calendario non è stata superata. Una volta riconosciuta la scadenza, nessun effetto negativo sul controller di dominio o sull'ambiente più grande si verificherà solo se tutte le password verranno approvate automaticamente.
+
+> [!IMPORTANT]
+> Microsoft consiglia di aggiornare immediatamente gli agenti del controller di dominio di anteprima pubblica scaduti alla versione più recente.
+
+Un modo semplice per individuare gli agenti DC nell'ambiente che devono essere aggiornati è eseguire il `Get-AzureADPasswordProtectionDCAgent` cmdlet, ad esempio:
+
+```powershell
+PS C:\> Get-AzureADPasswordProtectionDCAgent
+
+ServerFQDN            : bpl1.bpl.com
+SoftwareVersion       : 1.2.125.0
+Domain                : bpl.com
+Forest                : bpl.com
+PasswordPolicyDateUTC : 8/1/2019 9:18:05 PM
+HeartbeatUTC          : 8/1/2019 10:00:00 PM
+AzureTenant           : bpltest.onmicrosoft.com
+```
+
+Per questo argomento, il campo SoftwareVersion è ovviamente la proprietà chiave da esaminare. È anche possibile usare il filtro di PowerShell per filtrare gli agenti del controller di dominio che sono già alla versione Baseline obbligatoria, ad esempio:
+
+```powershell
+PS C:\> $LatestAzureADPasswordProtectionVersion = "1.2.125.0"
+PS C:\> Get-AzureADPasswordProtectionDCAgent | Where-Object {$_.SoftwareVersion -lt $LatestAzureADPasswordProtectionVersion}
+```
+
+Il software proxy per la protezione Azure AD password non è limitato da tempo in alcuna versione. Microsoft consiglia comunque di aggiornare gli agenti controller di dominio e proxy alle versioni più recenti non appena vengono rilasciati. Il `Get-AzureADPasswordProtectionProxy` cmdlet può essere utilizzato per trovare agenti proxy che richiedono aggiornamenti, in modo analogo all'esempio precedente per gli agenti DC.
+
+Per ulteriori informazioni sulle procedure di aggiornamento specifiche, vedere [aggiornamento dell'agente del controller](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) di dominio e [aggiornamento dell'agente proxy](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-agent) .
 
 ## <a name="emergency-remediation"></a>Correzione di emergenza
 

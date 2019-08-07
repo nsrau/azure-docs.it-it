@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martinco
-ms.openlocfilehash: 0ccd2ee8b2c9f542eabe7a297f4c99a3993a47e9
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: c5cdd12c3075d48ff32c40d686b32a650ec43d8e
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726750"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779772"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinque passaggi per proteggere l'infrastruttura di identità
 
@@ -74,7 +74,7 @@ Microsoft consiglia di adottare i criteri moderni di impostazione delle password
 Se l'organizzazione usa una soluzione di identità ibrida con la federazione o l'autenticazione pass-through, è consigliabile abilitare la sincronizzazione dell'hash delle password per i due motivi seguenti:
 
 * Il report [Utenti con credenziali perse](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events) nella gestione di Azure AD avvisa l'utente di coppie di nome utente e password esposte nel Dark Web. Una quantità incredibile di password viene persa tramite phishing, malware e riuso delle password nei siti di terze parti che verranno sottoposti a violazioni in un secondo momento. Microsoft individua molte di queste credenziali perse e, in questo report, indica se corrispondono alle credenziali di un'organizzazione, ma solo se l'utente [abilita la sincronizzazione dell'hash delle password](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization).
-* In caso di interruzione locale (ad esempio, in un attacco ransomware), l'utente è in grado di passare all'[autenticazione cloud usando la sincronizzazione dell'hash delle password](https://docs.microsoft.com/azure/security/azure-ad-choose-authn). Questo metodo di autenticazione di backup consente di continuare ad accedere alle app configurate per l'autenticazione con Azure Active Directory, incluso Office 365. In questo caso, il personale IT non deve ricorrere agli account di posta elettronica personali per condividere i dati, fino a quando non viene risolta l'interruzione del servizio in locale.
+* In caso di interruzione locale (ad esempio, in un attacco ransomware), l'utente è in grado di passare all'[autenticazione cloud usando la sincronizzazione dell'hash delle password](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn). Questo metodo di autenticazione di backup consente di continuare ad accedere alle app configurate per l'autenticazione con Azure Active Directory, incluso Office 365. In questo caso, il personale IT non deve ricorrere agli account di posta elettronica personali per condividere i dati, fino a quando non viene risolta l'interruzione del servizio in locale.
 
 Altre informazioni sul funzionamento della [sincronizzazione dell'hash delle password](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization).
 
@@ -146,7 +146,7 @@ Il controllo e la registrazione di eventi relativi alla sicurezza e di avvisi co
 
 ### <a name="monitor-azure-ad"></a>Monitorare Azure AD
 
-Le funzionalità e i servizi di Microsoft Azure offrono opzioni di controllo e registrazione di sicurezza configurabili che consentono di identificare e correggere i gap nei meccanismi e nei criteri di sicurezza per evitare violazioni. È possibile usare le funzionalità di [registrazione e controllo di Azure](https://docs.microsoft.com/azure/security/azure-log-audit) e i [report delle attività di controllo nel portale di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs).
+Le funzionalità e i servizi di Microsoft Azure offrono opzioni di controllo e registrazione di sicurezza configurabili che consentono di identificare e correggere i gap nei meccanismi e nei criteri di sicurezza per evitare violazioni. È possibile usare le funzionalità di [registrazione e controllo di Azure](https://docs.microsoft.com/azure/security/fundamentals/log-audit) e i [report delle attività di controllo nel portale di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs).
 
 ### <a name="monitor-azure-ad-connect-health-in-hybrid-environments"></a>Monitorare Azure AD Connect Health in ambienti ibridi
 

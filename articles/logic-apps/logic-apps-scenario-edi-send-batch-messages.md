@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: d6d3a7111f3a5e49e32eba8ca4f09d692538cb87
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: c2b0e2ed801724b682e0c4a60d6d7dff9645aab3
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64715794"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827424"
 ---
 # <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Inviare i messaggi EDI in batch ai partner commerciali con le App per la logica di Azure
 
@@ -55,7 +55,7 @@ Prima di poter inviare messaggi a un batch, il batch deve esistere come destinaz
 
 Per questo ricevitore di batch, è necessario specificare la modalità di batch, il nome del batch, i criteri di rilascio, il contratto X12 e altre impostazioni. 
 
-1. Nel [portale di Azure](https://portal.azure.com) o in Visual Studio creare un'app per la logica con questo nome: "BatchX12Messages"
+1. Nel [portale di Azure](https://portal.azure.com) o in Visual Studio creare un'app per la logica con questo nome: BatchX12Messages
 
 2. [Collegare l'app per la logica a un account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
@@ -84,7 +84,7 @@ Per questo ricevitore di batch, è necessario specificare la modalità di batch,
 
    1. Nel trigger batch scegliere **Nuovo passaggio**.
 
-   2. Nella casella di ricerca immettere "X batch X12" come filtro e selezionare l'azione (qualsiasi versione): **Codifica in batch <*versione*>-X12** 
+   2. Nella casella di ricerca digitare "X12 batch" come filtro e selezionare questa azione (qualsiasi versione): **Codifica batch <*versione*>-X12** 
 
       ![Selezionare l'azione di codifica batch X12](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-encode-action.png)
 
@@ -114,7 +114,7 @@ Per questo ricevitore di batch, è necessario specificare la modalità di batch,
 
 ### <a name="test-your-logic-app"></a>Testare l'app per la logica
 
-Per assicurarsi che il ricevitore di batch funzioni nel modo previsto, è possibile aggiungere un'azione HTTP per scopi di test e inviare un messaggio in batch al [servizio contenitore richieste](https://requestbin.fullcontact.com/). 
+Per assicurarsi che il ricevitore di batch funzioni nel modo previsto, è possibile aggiungere un'azione HTTP per scopi di test e inviare un messaggio in batch al [servizio contenitore richieste](https://requestbin.com/). 
 
 1. Sotto l’azione di codifica X12, scegliere **Nuovo passaggio**. 
 

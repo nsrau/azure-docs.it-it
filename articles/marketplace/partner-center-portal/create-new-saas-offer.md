@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: a4947349e64d5f9bf95a9213701dc62a0e018b8f
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 300dd634cc99e5203145619b475d813705f09553
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501317"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815685"
 ---
 # <a name="create-a-new-saas-offer"></a>Creare una nuova offerta SaaS
 
@@ -271,7 +271,7 @@ Per rendere più accattivante la descrizione dell'offerta, è possibile usare i 
         <li> aggiungere qui il testo </li> 
     </ul> 
 
-1. Per  il contenuto in grassetto, aggiungere `<b>` all'inizio del testo che si desidera grassetto `</b>` e aggiungere alla fine del testo che si desidera grassetto. 
+1. Per il contenuto in grassetto, aggiungere `<b>` all'inizio del testo che si desidera grassetto `</b>` e aggiungere alla fine del testo che si desidera grassetto. 
 
     **Esempio**: `<b>`VERSIONE DI VALUTAZIONE GRATUITA`</b>`
     
@@ -431,7 +431,7 @@ Se sono già stati impostati i prezzi per il piano in Stati Uniti dollari (USD) 
 
 **Frequenza flat:** Consente di accedere all'offerta con un prezzo tariffario singolo mensile o annuale. Questa operazione viene a volte definita prezzi basati sul sito. Con questo modello di determinazione dei prezzi, è possibile definire facoltativamente piani a consumo che usano l'API del servizio di misurazione del Marketplace per addebitare i clienti in base alle unità non standard.  Per altre informazioni sulla fatturazione a consumo, vedere [fatturazione a consumo con il servizio di misurazione del Marketplace](./saas-metered-billing.md).
 
-**Basato su postazione:** Consentire l'accesso all'offerta con il prezzo in base al numero di utenti che accedono all'offerta o occupano le *postazioni*. Questo modello basato sulla postazione consente di impostare il numero minimo e massimo di postazioni consentite in base al prezzo. In questo modo, è possibile configurare punti di prezzo diversi in base al numero di utenti configurando più piani.  Questi campi sono facoltativi. Se lasciato vuoto, il numero di postazioni verrà interpretato in modo da non avere un limite (min 1 e max of a quanti ne può supportare il sistema). Questi campi possono essere modificati come parte di un aggiornamento del piano.
+**Per utente:** Consentire l'accesso all'offerta con il prezzo in base al numero di utenti che accedono all'offerta o occupano le postazioni. Questo modello basato sull'utente consente di impostare il numero minimo e massimo di utenti consentiti in base al prezzo. In questo modo, è possibile configurare punti di prezzo diversi in base al numero di utenti configurando più piani.  Questi campi sono facoltativi. Se viene lasciato deselezionato, il numero di utenti verrà interpretato in modo da non avere un limite (minimo 1 e massimo di quanti ne può supportare il sistema). Questi campi possono essere modificati come parte di un aggiornamento del piano.
 
 Dopo la pubblicazione, non è possibile modificare la scelta del modello di determinazione prezzi per la fatturazione. Inoltre, tutti i piani per la stessa offerta devono condividere lo stesso modello di determinazione prezzi.
 
@@ -495,9 +495,9 @@ Un modello di distribuzione che contiene tutte le risorse di Azure che costituis
 
 - **Instances**: Selezionare il tipo (Hot o Cold) e il numero di istanze disponibili, che verranno moltiplicate per il numero di aree in cui è disponibile l'offerta.
 
-A **caldo**: Questo tipo di istanza viene distribuito e in attesa di accesso per area selezionata. I clienti possono accedere immediatamente alle istanze a *caldo* di una test drive, anziché dover attendere una distribuzione. Il compromesso è che queste istanze sono sempre in esecuzione nella sottoscrizione di Azure, comportando quindi un costo relativo al tempo di attività più elevato. Si consiglia di disporre di almeno *un'istanza di* accesso frequente, in quanto la maggior parte dei clienti non desidera attendere le distribuzioni complete, causando un calo nell'utilizzo del cliente se non è disponibile un'istanza a *caldo* .
+A **caldo**: Questo tipo di istanza viene distribuito e in attesa di accesso per area selezionata. I clienti possono accedere immediatamente alle istanze a *caldo* di una test drive, anziché dover attendere una distribuzione. Il compromesso è che queste istanze sono sempre in esecuzione nella sottoscrizione di Azure, comportando quindi un costo relativo al tempo di attività più elevato. Si consiglia di disporre di almeno un'istanza di accesso frequente, in quanto la maggior parte dei clienti non desidera attendere le distribuzioni complete, causando un calo nell'utilizzo del cliente se non è disponibile un'istanza a *caldo* .
 
-A **freddo**: Questo tipo di istanza rappresenta il numero totale di istanze che possono essere distribuite per ogni area. Per le istanze a freddo è necessario che l'intero test drive Gestione risorse modello venga distribuito quando un cliente richiede l'test drive, in modo che le istanze a *freddo* risultino molto più lente del caricamento rispetto alle istanze a *caldo* . Il compromesso è dovuto al fatto che è necessario pagare solo per la durata del test drive, *non* è sempre in esecuzione nella sottoscrizione di Azure come con *un'istanza* attiva.
+A **freddo**: Questo tipo di istanza rappresenta il numero totale di istanze che possono essere distribuite per ogni area. Per le istanze a freddo è necessario che l'intero test drive Gestione risorse modello venga distribuito quando un cliente richiede l'test drive, in modo che le istanze a *freddo* risultino molto più lente del caricamento rispetto alle istanze a *caldo* . Il compromesso è dovuto al fatto che è necessario pagare solo per la durata del test drive, *non* è sempre in esecuzione nella sottoscrizione di Azure come con un'istanza attiva.
 
 - **Modello di Azure Resource Manager Test Drive**: Caricare il file zip contenente il modello di Azure Resource Manager.  Per altre informazioni sulla creazione di un modello di Azure Resource Manager, vedere l'articolo introduttivo [creare e distribuire modelli di Azure Resource Manager tramite il portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
@@ -541,7 +541,7 @@ I prodotti che vogliono dimostrare un oggetto visivo Power BI interattivo posson
 
 Per distribuire il test drive per conto dell'utente, creare e fornire una sottoscrizione di Azure separata e univoca. (Non necessario per Power BI test drive).
 
-- **ID sottoscrizione di Azure** (obbligatorio per Azure Resource Manager e app per la logica): Immettere l'ID sottoscrizione per concedere l'accesso ai servizi dell'account di Azure per la fatturazione e la creazione di report sull'utilizzo delle risorse. È consigliabile [creare una sottoscrizione di Azure separata](https://docs.microsoft.com/azure/billing/billing-create-subscription) da usare per le unità di test se non ne è già presente uno. È possibile trovare l'ID sottoscrizione di Azure accedendo al [portale di Azure](https://portal.azure.com/) e passando alla scheda Sottoscrizioni  del menu a sinistra. Selezionando la scheda, viene visualizzato l'ID sottoscrizione, ad esempio "a83645ac-1234-5AB6-6789-1h234g764ghty".
+- **ID sottoscrizione di Azure** (obbligatorio per Azure Resource Manager e app per la logica): Immettere l'ID sottoscrizione per concedere l'accesso ai servizi dell'account di Azure per la fatturazione e la creazione di report sull'utilizzo delle risorse. È consigliabile [creare una sottoscrizione di Azure separata](https://docs.microsoft.com/azure/billing/billing-create-subscription) da usare per le unità di test se non ne è già presente uno. È possibile trovare l'ID sottoscrizione di Azure accedendo al [portale di Azure](https://portal.azure.com/) e passando alla scheda Sottoscrizioni del menu a sinistra. Selezionando la scheda, viene visualizzato l'ID sottoscrizione, ad esempio "a83645ac-1234-5AB6-6789-1h234g764ghty".
 
 - **ID tenant Azure ad** (obbligatorio): Immettere l' [ID tenant](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)di Azure Active Directory (ad). Per trovare questo ID, accedere al [portale di Azure](https://portal.azure.com/), selezionare la scheda Active Directory nel menu a sinistra, selezionare **Proprietà** , quindi cercare il numero **ID directory** elencato (ad esempio 50c464d3-4930-494c-963C-1e951d15360e). È anche possibile cercare l'ID tenant dell'organizzazione usando l'URL del nome di dominio in [https://www.whatismytenantid.com](https://www.whatismytenantid.com):.
 

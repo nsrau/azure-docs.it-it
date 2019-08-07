@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: ef02c8120775aa119aff44ff7a06bccf2bc70a21
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 962c28c8b081980c2715d4d78739662e86748bd1
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377336"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814442"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Trigger timer per Funzioni di Azure 
 
@@ -125,7 +125,7 @@ La funzione di esempio seguente si attiva e viene eseguita ogni cinque minuti. L
 ```java
 @FunctionName("keepAlive")
 public void keepAlive(
-  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo,
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
       ExecutionContext context
  ) {
      // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
@@ -225,7 +225,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**type** | n/d | Il valore deve essere impostato su "timerTrigger". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
 |**direction** | n/d | Il valore deve essere impostato su "in". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
 |**name** | n/d | Nome della variabile che rappresenta l'oggetto timer nel codice della funzione. | 
-|**schedule**|**ScheduleExpression**|[Espressione CRON](#cron-expressions) o valore [TimeSpan](#timespan). `TimeSpan` può essere usato solo per un'app per le funzioni in esecuzione in un piano di servizio app. È possibile inserire l'espressione schedule in un'impostazione dell'app e definire per questa proprietà il nome dell'impostazione dell'app racchiuso tra simboli **%** , come in questo esempio: "%ImpostazioneAppSchedule%". |
+|**schedule**|**ScheduleExpression**|[Espressione CRON](#ncrontab-expressions) o valore [TimeSpan](#timespan). `TimeSpan` può essere usato solo per un'app per le funzioni in esecuzione in un piano di servizio app. È possibile inserire l'espressione schedule in un'impostazione dell'app e definire per questa proprietà il nome dell'impostazione dell'app racchiuso tra simboli **%** , come in questo esempio: "%ImpostazioneAppSchedule%". |
 |**runOnStartup**|**RunOnStartup**|Se `true`, la funzione viene richiamata all'avvio del runtime. Ad esempio, il runtime viene avviato quando l'app per le funzioni si riattiva dopo un periodo di inattività, quando l'app per le funzioni viene riavviata a causa di modifiche alla funzione e quando l'app per le funzioni viene scalata orizzontalmente. **runOnStartup** dovrebbe quindi essere impostato su `true` solo in rari casi o mai, specialmente in ambienti di produzione. |
 |**useMonitor**|**UseMonitor**|Impostata su `true` o `false` per indicare se monitorare la pianificazione. Il monitoraggio della pianificazione rende persistenti le occorrenze della pianificazione per garantire che la pianificazione venga gestita correttamente anche quando le istanze dell'app per le funzioni vengono riavviate. Se la proprietà non è impostata in modo esplicito, il valore predefinito è `true` per le pianificazioni che hanno un intervallo di ricorrenza maggiore di 1 minuto. Per le pianificazioni attivate più di una volta al minuto, il valore predefinito è `false`.
 
@@ -253,9 +253,9 @@ Quando viene richiamata una funzione di trigger del timer, nella funzione viene 
 
 La proprietà `IsPastDue` è `true` quando la chiamata della funzione corrente avviene successivamente al momento pianificato. Ad esempio, un riavvio dell'app per le funzioni può causare la mancata riuscita di una chiamata.
 
-## <a name="cron-expressions"></a>Espressioni CRON 
+## <a name="ncrontab-expressions"></a>Espressioni NCRONTAB 
 
-Funzioni di Azure usa la raccolta [NCronTab](https://github.com/atifaziz/NCrontab) per interpretare le espressioni CRON. Un'espressione CRON include sei campi:
+Funzioni di Azure usa la libreria [NCronTab](https://github.com/atifaziz/NCrontab) per interpretare le espressioni NCronTab. Un exppression NCRONTAB è simile a un'espressione CRON con la differenza che include un sesto campo aggiuntivo all'inizio da usare per la precisione temporale in secondi:
 
 `{second} {minute} {hour} {day} {month} {day-of-week}`
 
@@ -271,9 +271,9 @@ Ogni campo può avere uno dei tipi di valori seguenti:
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
-### <a name="cron-examples"></a>Esempi CRON
+### <a name="ncrontab-examples"></a>Esempi di NCRONTAB
 
-Ecco alcuni esempi di espressioni CRON che è possibile usare per il trigger timer in Funzioni di Azure.
+Di seguito sono riportati alcuni esempi di espressioni NCRONTAB che è possibile usare per il trigger timer in funzioni di Azure.
 
 |Esempio|Quando viene attivato  |
 |---------|---------|
@@ -284,25 +284,24 @@ Ecco alcuni esempi di espressioni CRON che è possibile usare per il trigger tim
 |`"0 30 9 * * *"`|Alle 9.30 di ogni giorno|
 |`"0 30 9 * * 1-5"`|Alle 9.30 di ogni giorno feriale|
 |`"0 30 9 * Jan Mon"`|Alle 9.30 di ogni lunedì di gennaio|
->[!NOTE]   
->Alcuni esempi di espressioni CRON sono disponibili online, ma molti omettono il campo `{second}`. Se si copia una di queste espressioni, aggiungere il campo `{second}` mancante. In genere è preferibile impostare uno zero in questo campo, anziché un asterisco.
 
-### <a name="cron-time-zones"></a>Fusi orari CRON
+
+### <a name="ncrontab-time-zones"></a>Fusi orari NCRONTAB
 
 I numeri in un'espressione CRON fanno riferimento a una data e a un'ora e non a un intervallo di tempo. Ad esempio, il valore 5 nel campo `hour` fa riferimento alle 5.00 e non a ogni 5 ore.
 
 Il fuso orario predefinito usato con le espressioni CRON è Coordinated Universal Time (UTC). Per fare in modo che l'espressione CRON sia basata su un altro fuso orario, creare un'impostazione per l'app per le funzioni denominata `WEBSITE_TIME_ZONE`. Impostare il valore sul nome del fuso orario prescelto come illustrato nell'[indice dei fusi orari di Microsoft](https://technet.microsoft.com/library/cc749073). 
 
-Ad esempio, *Ora solare fuso orientale* (EST) è UTC-05:00. Per attivare il timer trigger ogni giorno alle 10:00 EST, usare la seguente espressione CRON che rappresenta il fuso orario UTC:
+Ad esempio, *Ora solare fuso orientale* (EST) è UTC-05:00. Per attivare il trigger del timer alle 10:00 AM EST ogni giorno, usare l'espressione NCRONTAB seguente che rappresenta il fuso orario UTC:
 
-```json
-"schedule": "0 0 15 * * *"
+```
+"0 0 15 * * *"
 ``` 
 
-In alternativa, è possibile creare un'impostazione per l'app per le funzioni denominata `WEBSITE_TIME_ZONE` e impostare il valore su **Ora solare fuso orientale**.  Usare quindi l'espressione CRON seguente: 
+In alternativa, è possibile creare un'impostazione per l'app per le funzioni denominata `WEBSITE_TIME_ZONE` e impostare il valore su **Ora solare fuso orientale**.  USA quindi l'espressione NCRONTAB seguente: 
 
-```json
-"schedule": "0 0 10 * * *"
+```
+"0 0 10 * * *"
 ``` 
 
 Quando si usa `WEBSITE_TIME_ZONE`, l'ora viene regolata per modifiche all'ora nel fuso orario specifico, ad esempio l'ora legale. 

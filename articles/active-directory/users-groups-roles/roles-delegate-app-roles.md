@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 08/06/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 896bd7f9af3c319ec4190131036d8aa8ee49bb79
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: e15fa8c79663fc2517039124f9be8c1ecd57b8a8
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68705425"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68837887"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegare le autorizzazioni di registrazione all'app in Azure Active Directory
 
@@ -29,7 +29,7 @@ Questo articolo descrive come usare le autorizzazioni dell'app nei ruoli persona
 - [Limitazione degli utenti che possono creare applicazioni](#restrict-who-can-create-applications) e gestire le applicazioni create. Per impostazione predefinita, in Azure AD, tutti gli utenti possono registrare le registrazioni dell'applicazione e gestire tutti gli aspetti delle applicazioni che creano. Questo può essere limitato in modo da consentire solo a utenti selezionati tale autorizzazione.
 - [Assegnazione di uno o più proprietari a un'applicazione](#assign-application-owners). Si tratta di un modo semplice per concedere a un utente la possibilità di gestire tutti gli aspetti della configurazione Azure AD per un'applicazione specifica.
 - [Assegnazione di un ruolo amministrativo predefinito](#assign-built-in-application-admin-roles) che concede l'accesso per gestire la configurazione in Azure ad per tutte le applicazioni. Questo è il modo consigliato per concedere agli esperti IT l'accesso per gestire le autorizzazioni di configurazione delle applicazioni generali senza concedere l'accesso per gestire altre parti di Azure AD non correlate alla configurazione dell'applicazione.
-- [Creazione di un ruolo personalizzato](#create-and-assign-a-custom-role) che definisce autorizzazioni molto specifiche e relativa assegnazione a un utente nell'ambito di una singola applicazione come proprietario limitato oppure nell'ambito di directory (tutte le applicazioni) come amministratore con limitazioni.
+- [Creazione di un ruolo personalizzato](#create-and-assign-a-custom-role-preview) che definisce autorizzazioni molto specifiche e relativa assegnazione a un utente nell'ambito di una singola applicazione come proprietario limitato oppure nell'ambito di directory (tutte le applicazioni) come amministratore con limitazioni.
 
 È importante considerare la possibilità di concedere l'accesso usando uno dei metodi descritti in precedenza per due motivi. Innanzitutto, delegare la possibilità di eseguire attività amministrative riduce il sovraccarico dell'amministratore globale. In secondo luogo, l'utilizzo di autorizzazioni limitate migliora il comportamento di sicurezza e riduce il rischio di accesso non autorizzato. Per indicazioni generali e informazioni sui problemi relativi alla delega, vedere [Delegare i ruoli di amministratore in Azure Active Directory](roles-concept-delegation.md).
 
@@ -86,16 +86,21 @@ Seguire le istruzioni riportate nella Guida per l' [assegnazione di ruoli agli u
 > Gli amministratori di applicazioni e gli amministratori di applicazioni cloud possono aggiungere credenziali a un'applicazione e usare tali credenziali per rappresentare l'identità dell'applicazione. È possibile che l'applicazione disponga di autorizzazioni che rappresentano un'elevazione dei privilegi rispetto alle autorizzazioni del ruolo di amministratore. Un amministratore in questo ruolo potrebbe potenzialmente creare o aggiornare utenti o altri oggetti durante la rappresentazione dell'applicazione, a seconda delle autorizzazioni dell'applicazione.
 > Nessuno dei ruoli consente di gestire le impostazioni di accesso condizionale.
 
-## <a name="create-and-assign-a-custom-role"></a>Creare e assegnare un ruolo personalizzato
+## <a name="create-and-assign-a-custom-role-preview"></a>Creare e assegnare un ruolo personalizzato (anteprima)
 
 La creazione di ruoli personalizzati e l'assegnazione di ruoli personalizzati sono passaggi distinti:
 
 - [Creare una *definizione di ruolo* personalizzata](roles-create-custom.md) e aggiungervi le [autorizzazioni da un elenco di set di impostazioni](roles-custom-available-permissions.md). Si tratta delle stesse autorizzazioni utilizzate nei ruoli predefiniti.
-- [Creare un' *assegnazione di ruolo* ](roles-assign-graph.md) per assegnare il ruolo personalizzato.
+- [Creare un' *assegnazione di ruolo* ](roles-assign-powershell.md) per assegnare il ruolo personalizzato.
 
 Questa separazione consente di creare una singola definizione di ruolo e di assegnarla più volte in *ambiti*diversi. Un ruolo personalizzato può essere assegnato a livello di organizzazione oppure può essere assegnato all'ambito se un singolo oggetto Azure AD. Un esempio di ambito di un oggetto è costituito da una singola registrazione dell'app. Con ambiti diversi, la stessa definizione di ruolo può essere assegnata a Sally su tutte le registrazioni dell'app nell'organizzazione e quindi a Naver solo per la registrazione di app per la spesa di contoso.
 
-Per ulteriori informazioni sulle nozioni di base dei ruoli personalizzati, vedere [Cenni preliminari sui ruoli personalizzati](roles-custom-overview.md), nonché come [creare un ruolo personalizzato](roles-create-custom.md) e come [assegnare un ruolo](roles-assign-graph.md).
+Suggerimenti per la creazione e l'utilizzo di ruoli personalizzati per la delega della gestione delle applicazioni:
+- I ruoli personalizzati concedono l'accesso solo nei pannelli di registrazione delle app più recenti del portale di Azure AD. Non concedono l'accesso nei pannelli registrazioni di app legacy.
+- I ruoli personalizzati non concedono l'accesso al portale di Azure AD quando l'impostazione utente "limita l'accesso al portale di amministrazione di Azure AD" è impostata su Sì.
+- Registrazioni app l'utente ha accesso a usando le assegnazioni di ruolo vengono visualizzate solo nella scheda ' tutte le applicazioni ' della pagina di registrazione dell'app. Non vengono visualizzati nella scheda "applicazioni di proprietà".
+
+Per ulteriori informazioni sulle nozioni di base dei ruoli personalizzati, vedere [Cenni preliminari sui ruoli personalizzati](roles-custom-overview.md), nonché come [creare un ruolo personalizzato](roles-create-custom.md) e come [assegnare un ruolo](roles-assign-powershell.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

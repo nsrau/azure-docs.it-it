@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: vijetaj
-ms.openlocfilehash: 81aac356f49f7bf8dc57f77054d10aa3e09d473f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 40b8f101d968514ac599b43a79b7e62b7fd837a4
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565272"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779471"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Ambiente di intelligenza artificiale e analisi di collaborazione in team basato su Data Science Virtual Machine 
 [Data Science Virtual Machine](overview.md) (DSVM) fornisce un ambiente avanzato nella piattaforma Azure con software precompilato per l'intelligenza artificiale e l'analisi dei dati. 
@@ -43,12 +43,12 @@ Alcuni degli elementi chiave di un ambiente di analisi di un team aziendale sono
 
 Questa serie di articoli fornisce linee guida e indicazioni per ognuno degli elementi precedenti. Non illustra tutte le esigenze e le considerazioni relative alla distribuzione di DSVM nelle configurazioni aziendali di grandi dimensioni. Ecco altri esempi di documentazione su Azure che è possibile usare durante l'implementazione di istanze di DSVM nell'azienda: 
 
-* [Sicurezza di rete](https://docs.microsoft.com/azure/security/azure-network-security)
+* [Sicurezza di rete] (https://docs.microsoft.com/azure/security/fundamentals/network-security
 * [Monitoraggio](https://docs.microsoft.com/azure/virtual-machines/windows/monitor) e [gestione](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)
-* [Registrazione e controllo](https://docs.microsoft.com/azure/security/azure-log-audit)
+* [Registrazione e controllo](https://docs.microsoft.com/azure/security/fundamentals/log-audit)
 * [Controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/overview)
 * [Imposizione e impostazione di criteri](../../governance/policy/overview.md)
-* [Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware)
+* [Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 * [Crittografia](https://docs.microsoft.com/azure/virtual-machines/windows/encrypt-disks)
 * [Governance e individuazione dei dati](https://docs.microsoft.com/azure/data-catalog/)
 

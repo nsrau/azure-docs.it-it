@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 96169f8f52ea9d45d8804a7d4fc08827a4f1ea03
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: ed9eb990fff3a0901f3fa26526b30e8cb8a2fe66
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668406"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779409"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Come creare un'immagine di una macchina virtuale o un disco rigido virtuale
 
@@ -30,9 +30,9 @@ Per creare più copie di una macchina virtuale da usare in Azure, acquisire un'i
 
 Per creare una copia della macchina virtuale Linux esistente per il backup o il debug o per caricare un disco rigido virtuale Linux specializzato da una macchina virtuale locale, vedere [Caricare e creare una VM Linux da un'immagine disco personalizzata](upload-vhd.md).  
 
-È possibile usare la **generatore di immagini di macchina virtuale di Azure (anteprima pubblica)** del servizio per compilare l'immagine personalizzata, non devi imparare a usare eventuali strumenti o il programma di installazione crea pipeline, è sufficiente fornire una configurazione dell'immagine, e verrà creato dal generatore di immagini dell'immagine. Per altre informazioni, vedere [Introduzione a Azure VM Image Builder](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
+È possibile usare il servizio **Generatore di immagini VM di Azure (anteprima pubblica)** per creare un'immagine personalizzata, non è necessario apprendere alcun strumento o configurare pipeline di compilazione, fornire semplicemente una configurazione di immagine e il generatore di immagini creerà l'immagine. Per altre informazioni, vedere [Introduzione con generatore di immagini di VM di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
 
-Inoltre, utilizzare **Packer** per creare la configurazione personalizzata. Per altre informazioni, vedere [Come usare Packer per creare immagini di macchine virtuali di Linux in Azure](build-image-with-packer.md).
+Additonally, usare **Packer** per creare la configurazione personalizzata. Per altre informazioni, vedere [Come usare Packer per creare immagini di macchine virtuali di Linux in Azure](build-image-with-packer.md).
 
 Prima di poter creare un'immagine, è necessario:
 
@@ -63,13 +63,15 @@ Per prima cosa, eseguire il deprovisioning della macchina virtuale usando l'agen
 ## <a name="step-2-create-vm-image"></a>Passaggio 2: Creare l'immagine della macchina virtuale
 Usare l'interfaccia della riga di comando di Azure per contrassegnare la macchina virtuale come generalizzata e acquisire l'immagine. Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myVnet* e *myVM*.
 
-1. Deallocare la macchina virtuale su cui è stato eseguito il deprovisioning con [az vm deallocate](/cli/azure/vm). L'esempio seguente dealloca la macchina virtuale denominata *myVM* nel gruppo di risorse denominato *myResourceGroup*.
+1. Deallocare la macchina virtuale su cui è stato eseguito il deprovisioning con [az vm deallocate](/cli/azure/vm). L'esempio seguente dealloca la macchina virtuale denominata *myVM* nel gruppo di risorse denominato *myResourceGroup*.  
    
     ```azurecli
     az vm deallocate \
       --resource-group myResourceGroup \
       --name myVM
     ```
+    
+    Attendere che la macchina virtuale venga completamente deallocata prima di procedere. Questa operazione richiederà qualche minuto.
 
 2. Contrassegnare la macchina virtuale come generalizzata con il comando [az vm generalize](/cli/azure/vm). Nell'esempio seguente la macchina virtuale denominata *myVM* viene contrassegnata come generalizzata nel gruppo di risorse *myResourceGroup*.
    

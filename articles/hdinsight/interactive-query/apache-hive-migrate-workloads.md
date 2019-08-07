@@ -7,12 +7,12 @@ ms.author: tacox
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: b9bf3b41bcd0a79027c5dd9a4f3df979fb0bd9f0
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: eb6b42a88e47e3fcb35700ec542c8ca642e17a6a
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250159"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815799"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Eseguire la migrazione di carichi di lavoro hive di Azure HDInsight 3,6 a HDInsight 4,0
 
@@ -99,9 +99,7 @@ In HDInsight 3,6, il client GUI per interagire con il server hive è la visualiz
 
 Avviare un'azione script nel cluster con "nodi head" come tipo di nodo per l'esecuzione. Incollare l'URI seguente nella casella di testo contrassegnata come "bash script URI": https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh
 
-È possibile avviare Data Analytics studio con URL: https://\<clustername >. azurehdinsight. NET/das/
-
-
+Attendere da 5 a 10 minuti, quindi avviare Data Analytics studio usando questo URL: https://\<clustername >. azurehdinsight. NET/das/
 
 Dopo aver installato DAS, se non vengono visualizzate le query eseguite nel Visualizzatore query, seguire questa procedura:
 

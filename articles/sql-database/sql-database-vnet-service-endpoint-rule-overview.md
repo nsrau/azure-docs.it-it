@@ -7,16 +7,16 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: oslake
-ms.author: moslake
+author: rohitnayakmsft
+ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 03/12/2019
-ms.openlocfilehash: fbe6c4cc82272c7ab82931b089dbc3c70b07bee0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9b28a8efcc09954d9046ad1dda3ba5f10f45bdfa
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566229"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840464"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Usare endpoint servizio e regole di rete virtuale per server di database
 

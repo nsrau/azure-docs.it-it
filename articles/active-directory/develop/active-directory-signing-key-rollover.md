@@ -11,21 +11,21 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f809fa856d39096a85dcc205d8211ba3551eeb48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f20a10f7c6f98b352e8a2d794fabc3b6b3b57319
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962864"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835305"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Rollover della chiave di firma in Azure Active Directory
-Questo articolo illustra che cosa è necessario sapere sulle chiavi pubbliche usate per la firma dei token di sicurezza in Azure Active Directory (Azure AD). È importante notare che queste chiavi periodicamente il rollover e, in caso di emergenza, potrebbero essere eseguite immediatamente. Tutte le applicazioni che usano Azure AD devono poter gestire a livello di codice il processo di rollover della chiave o stabilire un processo di rollover manuale periodico. Continuare la lettura per comprendere il funzionamento delle chiavi, come valutare l'impatto del rollover nell'applicazione e come aggiornare l'applicazione o stabilire un processo di rollover manuale periodico per gestire il rollover della chiave, se necessario.
+Questo articolo illustra che cosa è necessario sapere sulle chiavi pubbliche usate per la firma dei token di sicurezza in Azure Active Directory (Azure AD). È importante sottolineare che queste chiavi si riattivano periodicamente e, in caso di emergenza, possono essere immediatamente sottoposte a rollback. Tutte le applicazioni che usano Azure AD devono poter gestire a livello di codice il processo di rollover della chiave o stabilire un processo di rollover manuale periodico. Continuare la lettura per comprendere il funzionamento delle chiavi, come valutare l'impatto del rollover nell'applicazione e come aggiornare l'applicazione o stabilire un processo di rollover manuale periodico per gestire il rollover della chiave, se necessario.
 
 ## <a name="overview-of-signing-keys-in-azure-ad"></a>Informazioni generali sulle chiavi di firma in Azure AD
 Azure AD usa la crittografia a chiave pubblica basata su standard di settore per stabilire una relazione di trust tra se stesso e le applicazioni che usano Azure AD. In pratica funziona nel modo seguente: Azure AD usa una chiave per la firma costituita da una coppia di chiavi pubblica e privata. Quando un utente accede a un'applicazione che usa Azure AD per l'autenticazione, Azure AD crea un token di sicurezza contenente informazioni sull'utente. Questo token viene firmato da Azure AD con la chiave privata prima che venga inviato di nuovo all'applicazione. Per verificare che il token sia valido e sia stato originato da Azure AD, l'applicazione deve convalidare la firma del token usando la chiave pubblica esposta da Azure AD contenuta nel [documento di individuazione di OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html) del tenant o nel [documento dei metadati della federazione](azure-ad-federation-metadata.md) SAML/WS-Fed.
@@ -43,7 +43,7 @@ Il modo in cui l'applicazione gestisce il rollover della chiave dipende da varia
 * [API / applicazioni Web che proteggono le risorse usando middleware .NET OWIN OpenID Connect, WS-Fed o WindowsAzureActiveDirectoryBearerAuthentication](#owin)
 * [API / applicazioni Web che proteggono le risorse usando middleware .NET Core OpenID Connect o JwtBearerAuthentication](#owincore)
 * [API / applicazioni Web che proteggono le risorse usando il modulo Node.js passport-azure-ad](#passport)
-* [Le applicazioni Web / API di protezione delle risorse e creato con Visual Studio 2015 o versione successiva](#vs2015)
+* [API/applicazioni Web che proteggono le risorse e sono state create con Visual Studio 2015 o versioni successive](#vs2015)
 * [Applicazioni Web che proteggono le risorse e sono state create con Visual Studio 2013](#vs2013)
 * API Web che proteggono le risorse e sono state create con Visual Studio 2013
 * [Applicazioni Web che proteggono le risorse e sono state create con Visual Studio 2012](#vs2012)
@@ -56,12 +56,12 @@ Queste indicazioni **non** sono valide per:
 * Applicazioni locali pubblicate tramite il proxy di applicazione, che non prevedono le chiavi di firma.
 
 ### <a name="nativeclient"></a>Applicazioni client native che accedono alle risorse
-Le applicazioni che si limitano ad accedere alle risorse, come Microsoft Graph, Key Vault, API Outlook e altre APIs Microsoft) in genere solo ottenere un token e lo passano al proprietario della risorsa. Dato che tali applicazioni non proteggono risorse, il token non viene controllato e quindi non è necessario assicurarsi che sia firmato correttamente.
+Le applicazioni che si limitano ad accedere alle risorse, come Microsoft Graph, l'insieme di credenziali delle credenziali, l'API di Outlook e altre API Microsoft) in genere ottengono solo un token e lo passano al proprietario della risorsa. Dato che tali applicazioni non proteggono risorse, il token non viene controllato e quindi non è necessario assicurarsi che sia firmato correttamente.
 
 Le applicazioni client native, sia per desktop che per dispositivi mobili, rientrano in questa categoria e quindi non sono interessate dal rollover.
 
 ### <a name="webclient"></a>API / applicazioni Web che accedono alle risorse
-Le applicazioni che si limitano ad accedere alle risorse, come Microsoft Graph, Key Vault, API Outlook e altre APIs Microsoft) in genere solo ottenere un token e lo passano al proprietario della risorsa. Dato che tali applicazioni non proteggono risorse, il token non viene controllato e quindi non è necessario assicurarsi che sia firmato correttamente.
+Le applicazioni che si limitano ad accedere alle risorse, come Microsoft Graph, l'insieme di credenziali delle credenziali, l'API di Outlook e altre API Microsoft) in genere ottengono solo un token e lo passano al proprietario della risorsa. Dato che tali applicazioni non proteggono risorse, il token non viene controllato e quindi non è necessario assicurarsi che sia firmato correttamente.
 
 Le applicazioni Web e le API Web che usano il flusso solo app (credenziali client / certificato client) rientrano in questa categoria e quindi non sono interessate dal rollover.
 
@@ -128,8 +128,8 @@ passport.use(new OIDCStrategy({
 ));
 ```
 
-### <a name="vs2015"></a>Le applicazioni Web / API di protezione delle risorse e creato con Visual Studio 2015 o versione successiva
-Se l'applicazione è stata creata usando un modello di applicazione web in Visual Studio 2015 o versione successiva ed è selezionata **account aziendali o dell'istituto di istruzione** dalle **Modifica autenticazione** menu, già disponga delle necessarie per la logica per gestire automaticamente il rollover della chiave. Questa logica, incorporata nel middleware OWIN OpenID Connect, recupera e memorizza nella cache le chiavi dal documento di individuazione di OpenID Connect e le aggiorna periodicamente.
+### <a name="vs2015"></a>API/applicazioni Web che proteggono le risorse e sono state create con Visual Studio 2015 o versioni successive
+Se l'applicazione è stata creata usando un modello di applicazione Web in Visual Studio 2015 o versione successiva e sono stati selezionati **account aziendali o dell'Istituto di istruzione** dal menu **Modifica autenticazione** , è già presente la logica necessaria per gestire automaticamente il rollover della chiave. Questa logica, incorporata nel middleware OWIN OpenID Connect, recupera e memorizza nella cache le chiavi dal documento di individuazione di OpenID Connect e le aggiorna periodicamente.
 
 Se l'autenticazione è stata aggiunta alla soluzione manualmente, l'applicazione potrebbe non avare la logica di rollover della chiave necessaria. Sarà necessario scriverla oppure seguire i passaggi illustrati in [API/Applicazioni Web che proteggono le risorse usando qualsiasi altra libreria o con implementazione manuale di qualsiasi protocollo supportato](#other).
 
@@ -278,7 +278,7 @@ Dopo aver eseguito questi passaggi, il file Web.config dell'applicazione verrà 
 
 Seguire questa procedura per verificare che la logica di rollover della chiave funzioni.
 
-1. Dopo aver verificato che l'applicazione usi il codice riportato sopra, aprire il **Web. config** del file e passare al  **\<issuerNameRegistry >** blocco, verificando in particolare il Dopo alcune righe:
+1. Dopo aver verificato che l'applicazione usa il codice precedente, aprire il file **Web. config** e passare al  **\<blocco > IssuerNameRegistry** , cercando in modo specifico le righe seguenti:
    ```
    <issuerNameRegistry type="System.IdentityModel.Tokens.ValidatingIssuerNameRegistry, System.IdentityModel.Tokens.ValidatingIssuerNameRegistry">
         <authority name="https://sts.windows.net/ec4187af-07da-4f01-b18f-64c2f5abecea/">
@@ -286,7 +286,7 @@ Seguire questa procedura per verificare che la logica di rollover della chiave f
             <add thumbprint="3A38FA984E8560F19AADC9F86FE9594BB6AD049B" />
           </keys>
    ```
-2. Nel  **\<aggiungere l'identificazione personale = "" >** impostazione, modificare il valore di identificazione personale sostituendo ogni carattere con uno diverso. Salvare il file **Web.config** .
+2. Nell'impostazione Aggiungi identificazione **digitale = "" > modificare il valore di identificazione personale sostituendo qualsiasi carattere con uno diverso. \<** Salvare il file **Web.config** .
 3. Compilare l'applicazione ed eseguirla. Se è possibile completare il processo di accesso, l'applicazione aggiorna in modo corretto la chiave scaricando le informazioni necessarie dal documento di metadati della federazione della directory. In caso di problemi di accesso verificare che le modifiche nell'applicazione siano corrette leggendo l'articolo [Adding Sign-On to Your Web Application Using Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) (Aggiunta del processo di accesso nell'applicazione Web tramite Azure AD) oppure scaricando ed esaminando l'esempio di codice seguente: [Multi-Tenant Cloud Application for Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b) (Applicazione cloud multi-tenant per Azure Active Directory).
 
 ### <a name="vs2010"></a>Applicazioni Web che proteggono le risorse e sono state create con Visual Studio 2008 o 2010 o con Windows Identity Foundation (WIF) v1.0 per .NET 3.5

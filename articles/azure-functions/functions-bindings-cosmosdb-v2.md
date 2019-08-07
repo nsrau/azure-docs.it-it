@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 3c0a10bf03106bc7e1b89e4664dfed9fc76fc34f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 67b70a67065bfc66639b0f6911f66111829c9a0f
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564831"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774919"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Associazioni di Azure Cosmos DB per Funzioni di Azure 2.x
 
@@ -1745,6 +1745,7 @@ Vedere gli esempi specifici per ciascun linguaggio:
 * [F#](#output---f-examples)
 * [Java](#output---java-examples)
 * [JavaScript](#output---javascript-examples)
+* [Python](#output---python-examples)
 
 Vedere anche l'[esempio di input](#input---c-examples) che usa `DocumentClient`.
 
@@ -2274,6 +2275,57 @@ L'esempio seguente mostra una funzione Java che scrive più documenti in Cosmos 
 
 Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime), usare l'annotazione `@CosmosDBOutput` per i parametri che saranno scritti su Cosmos DB.  Il tipo di parametro di annotazione deve essere ```OutputBinding<T>```, dove T è un tipo nativo di Java o un oggetto POJO.
 
+### <a name="output---python-examples"></a>Output-esempi Python
+
+Nell'esempio seguente viene illustrato come scrivere un documento in un database CosmosDB di Azure come output di una funzione.
+
+La definizione di associazione è definita in *Function. JSON,* dove *Type* è `cosmosDB`impostato su.
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "out",
+      "name": "doc",
+      "databaseName": "demodb",
+      "collectionName": "data",
+      "createIfNotExists": "true",
+      "connectionStringSetting": "AzureCosmosDBConnectionString"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+  ]
+}
+```
+
+Per scrivere nel database, passare un oggetto Document al `set` metodo del parametro database.
+
+```python
+import azure.functions as func
+
+def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpResponse:
+
+    request_body = req.get_body()
+
+    doc.set(func.Document.from_json(request_body))
+
+    return 'OK'
+```
 
 ## <a name="output---attributes"></a>Output - attributi
 

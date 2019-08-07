@@ -5,18 +5,19 @@ services: search
 manager: pablocas
 author: luiscabrer
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 589f8c8f11138b4fb5c3c3096229e28c633efb0d
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: e60eeb601a0a5796609b9c38b7394c2de0610cdf
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423018"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841290"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Come elaborare ed estrarre informazioni da immagini in scenari di ricerca cognitiva
 
@@ -32,7 +33,7 @@ Nell'ambito del processo di individuazione dei documenti, è disponibile un nuov
 
 Non è possibile disattivare la normalizzazione delle immagini. Le competenze che prevedono l'iterazione sulle immagini richiedono immagini normalizzate. Per abilitare la normalizzazione delle immagini in un indicizzatore, è necessario associare un skillt a tale indicizzatore.
 
-| Parametro di configurazione | DESCRIZIONE |
+| Parametro di configurazione | Descrizione |
 |--------------------|-------------|
 | imageAction   | Impostare su "none" se non deve essere eseguita alcuna operazione quando vengono rilevate immagini incorporate o file di immagine. <br/>Impostare su "generateNormalizedImages" per generare una matrice di immagini durante l'individuazione dei documenti.<br/>Impostare su "generateNormalizedImagePerPage" per generare una matrice di immagini normalizzate in cui, per i file PDF nell'origine dati, per ogni pagina viene eseguito il rendering in una sola immagine di output.  Per i tipi di file diversi da PDF, la funzionalità è la stessa di "generateNormalizedImages".<br/>Per qualsiasi opzione diversa da "none", le immagini verranno esposte nel campo *normalized_images*. <br/>Il valore predefinito è "none". Questa configurazione è pertinente solo alle origini dati BLOB, quando "dataToExtract" è impostato su "contentAndMetadata". <br/>Verrà estratto un massimo di 1000 immagini da un documento specifico. Se sono presenti più di 1000 immagini in un documento, il primo 1000 verrà estratto e verrà generato un avviso. |
 |  normalizedImageMaxWidth | La larghezza massima (in pixel) per le immagini normalizzate generate. Il valore predefinito è 2000.|
@@ -72,7 +73,8 @@ Se *imageAction* è impostato su un valore diverso da "none", il nuovo campo *no
 | originalWidth      | Larghezza originale dell'immagine prima della normalizzazione. |
 | originalHeight      | Altezza originale dell'immagine prima della normalizzazione. |
 | rotationFromOriginal |  Rotazione in senso antiorario, espressa in gradi, effettuata per creare l'immagine normalizzata. Un valore compreso tra 0 e 360 gradi. Questo passaggio legge i metadati dall'immagine generata da una fotocamera o da uno scanner. In genere, è un multiplo di 90 gradi. |
-| contentOffset |L'offset di carattere all'interno del campo di contenuto da cui è stata estratta l'immagine. Questo campo è applicabile solo ai file con immagini incorporate. |
+| contentOffset | L'offset di carattere all'interno del campo di contenuto da cui è stata estratta l'immagine. Questo campo è applicabile solo ai file con immagini incorporate. |
+| pageNumber | Se l'immagine è stata estratta o sottoposta a rendering da un file PDF, questo campo contiene il numero di pagina nel file PDF da cui è stato estratto o sottoposto a rendering, a partire da 1.  Se l'immagine non è stata da un file PDF, questo campo sarà 0.  |
 
  Valore di esempio di *normalized_images*:
 ```json
@@ -84,7 +86,8 @@ Se *imageAction* è impostato su un valore diverso da "none", il nuovo campo *no
     "originalWidth": 5000,  
     "originalHeight": 3000,
     "rotationFromOriginal": 90,
-    "contentOffset": 500  
+    "contentOffset": 500,
+    "pageNumber": 2
   }
 ]
 ```

@@ -10,7 +10,7 @@ ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/21/2018
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc42ab8a8cfb0d182c69bd0940e23cffdb2be0af
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 034c02c89c6e720311b3dc36428035e8cbdd2b3b
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807244"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835207"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Come ottenere la certificazione AppSource per Azure Active Directory
 
@@ -58,7 +58,7 @@ Le applicazioni a tenant singolo possono consentire l'esperienza *Desidero esser
 
 ### <a name="free-trial-customer-led-trial-experience"></a>Versione di valutazione gratuita (esperienza di valutazione gestita dal cliente)
 
-La valutazione gestita dal cliente è l'esperienza consigliata da AppSource che offre accesso all'applicazione con un solo clic. Nell'esempio seguente viene illustrato ciò che questa esperienza è simile a:
+La valutazione gestita dal cliente è l'esperienza consigliata da AppSource che offre accesso all'applicazione con un solo clic. L'esempio seguente mostra l'aspetto di questa esperienza:
 
 <table >
 <tr>

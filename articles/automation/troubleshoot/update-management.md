@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 23139755af812f99bce8c2c255805eaf9e30b2da
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 884ded67c25aca78225baef2d7e4c5de1cc94fd0
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477071"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782279"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Risoluzione dei problemi con Gestione aggiornamenti
 
@@ -44,10 +44,10 @@ Questo errore può dipendere dalle cause seguenti:
 
 1. Vedere [Configurare la rete](../automation-hybrid-runbook-worker.md#network-planning) per informazioni sugli indirizzi e sulle porte da abilitare per il funzionamento di Gestione aggiornamenti.
 2. Se si usa un'immagine clonata:
-   1. Nell'area di lavoro di Log Analitica, rimuovere la macchina virtuale dalla ricerca salvata per la configurazione dell'ambito `MicrosoftDefaultScopeConfig-Updates` se viene visualizzato. Le ricerche salvate sono disponibili in **Generale** nell'area di lavoro.
+   1. Nell'area di lavoro log Analytics rimuovere la macchina virtuale dalla ricerca salvata per la configurazione `MicrosoftDefaultScopeConfig-Updates` dell'ambito, se visualizzata. Le ricerche salvate sono disponibili in **Generale** nell'area di lavoro.
    2. Eseguire `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`
    3. Eseguire `Restart-Service HealthService` per riavviare `HealthService`. In questo modo viene ricreata la chiave e viene creato un nuovo UUID.
-   4. Se il problema persiste, eseguire sysprep sull'immagine prima e installare l'agente MMA al termine dell'attività.
+   4. Se questa operazione non funziona, eseguire prima Sysprep l'immagine e installare l'agente MMA dopo il fatto.
 
 ### <a name="multi-tenant"></a>Scenario: viene visualizzato un errore di sottoscrizione collegata durante la creazione di una distribuzione degli aggiornamenti per i computer in un altro tenant di Azure.
 
@@ -78,42 +78,42 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
-### <a name="nologs"></a>Scenario: Le macchine non vengono visualizzati nel portale nella gestione degli aggiornamenti
+### <a name="nologs"></a>Scenario: I computer non vengono visualizzati nel portale in Gestione aggiornamenti
 
 #### <a name="issue"></a>Problema
 
-Può essere eseguito tra gli scenari seguenti:
+È possibile che si verifichino negli scenari seguenti:
 
-* Mostra la macchina **non è configurato** dalla vista a Gestione aggiornamento di una macchina virtuale
+* Il computer visualizzato **non è configurato** dalla visualizzazione Gestione aggiornamenti di una macchina virtuale
 
-* Le macchine non sono presenti la vista di gestione degli aggiornamenti dell'Account di automazione
+* Il computer non è presente nella visualizzazione Gestione aggiornamenti dell'account di automazione
 
-* Si hanno macchine che mostrano come **non valutati** sotto **conformità**, ma vengono visualizzati i dati di heartbeat nei log di monitoraggio di Azure per il lavoro ibrido per Runbook ma non la gestione degli aggiornamenti.
+* Sono presenti computer che non sono **valutati** in **conformità**, ma i dati heartbeat nei log di monitoraggio di Azure per il ruolo di lavoro ibrido per Runbook, ma non gestione aggiornamenti.
 
 #### <a name="cause"></a>Causa
 
-Ciò può essere causato da potenziali problemi di configurazione locale o da configurati erroneamente la configurazione dell'ambito.
+Questa situazione può essere causata da problemi di configurazione locali potenziali o da una configurazione non corretta dell'ambito.
 
 È possibile che il ruolo di lavoro ibrido per runbook debba essere registrato nuovamente e reinstallato.
 
-È stata definita una quota nell'area di lavoro che è stato raggiunti e arresto dei dati dall'archiviazione.
+È possibile che sia stata definita una quota nell'area di lavoro raggiunta e l'interruzione dell'archiviazione dei dati.
 
 #### <a name="resolution"></a>Risoluzione
 
-* Verificare che il computer segnala all'area di lavoro corretta. Verificare quali Invia report a nel computer dell'area di lavoro. Per istruzioni su come effettuare questa verifica, vedere [verificare la connettività dell'agente per Log Analitica](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics). Quindi, verificare che questo sia l'area di lavoro collegata all'account di automazione di Azure. Per verificarlo, passare all'Account di automazione e fare clic su **dell'area di lavoro collegato** sotto **le risorse correlate**.
+* Verificare che il computer stia segnalando l'area di lavoro corretta. Verificare l'area di lavoro a cui viene segnalato il computer. Per istruzioni su come verificare questo problema, vedere [verificare la connettività dell'agente a log Analytics](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics). Assicurarsi quindi che questa sia l'area di lavoro collegata all'account di automazione di Azure. Per confermarlo, passare all'account di automazione e fare clic su **area di lavoro collegata** in **risorse correlate**.
 
-* Verificare che i computer visualizzati nell'area di lavoro di Log Analitica. Eseguire la query seguente nell'area di lavoro di Log Analitica che viene collegata all'Account di automazione. Se non è possibile visualizzare i computer nei risultati della query, la macchina non funzione di heartbeat, quindi che è probabile che un problema di configurazione locale. È possibile eseguire la risoluzione dei problemi per [Windows](update-agent-issues.md#troubleshoot-offline) oppure [Linux](update-agent-issues-linux.md#troubleshoot-offline) a seconda del sistema operativo, oppure è possibile [reinstallare l'agente](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows). Se il computer viene visualizzato nei risultati della query, quindi è necessario molto la configurazione dell'ambito specificata al punto seguente.
+* Verificare che le macchine virtuali vengano visualizzate nell'area di lavoro Log Analytics. Eseguire la query seguente nell'area di lavoro di Log Analytics collegata all'account di automazione. Se il computer non viene visualizzato nei risultati della query, il computer non è in stato di heartbeat, il che significa che è probabile che si verifichi un problema di configurazione locale. È possibile eseguire lo strumento di risoluzione dei problemi per [Windows](update-agent-issues.md#troubleshoot-offline) o [Linux](update-agent-issues-linux.md#troubleshoot-offline) a seconda del sistema operativo oppure [reinstallare l'agente](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows). Se il computer viene visualizzato nei risultati della query, è necessario specificare la configurazione dell'ambito specificata nel seguente elenco.
 
   ```loganalytics
   Heartbeat
   | summarize by Computer, Solutions
   ```
 
-* Verificare i problemi di configurazione di ambito. [La configurazione dell'ambito](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determina quali macchine attività di configurazione per la soluzione. Se il computer viene visualizzato nell'area di lavoro ma non è visualizzato è necessario configurare la configurazione di ambito per i computer di destinazione. Per informazioni su come eseguire questa operazione, vedere [onboarding nell'area di lavoro](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
+* Verificare la presenza di problemi di configurazione dell'ambito. La [configurazione dell'ambito](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determina quali computer vengono configurati per la soluzione. Se il computer viene visualizzato nell'area di lavoro ma non viene visualizzato, sarà necessario configurare la configurazione dell'ambito per le macchine virtuali. Per informazioni su come eseguire questa operazione, vedere l'articolo relativo all'onboarding [dei computer nell'area di lavoro](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
 
-* Se i passaggi precedenti non risolvono il problema, seguire i passaggi descritti in [distribuire Windows Hybrid Runbook Workers](../automation-windows-hrw-install.md) reinstallare il ruolo di lavoro ibridi per Windows o [distribuire Linux Hybrid Runbook Workers](../automation-linux-hrw-install.md) per Linux.
+* Se i passaggi precedenti non risolvono il problema, seguire la procedura descritta in [distribuire un ruolo di lavoro ibrido per Runbook Windows](../automation-windows-hrw-install.md) per reinstallare il ruolo di lavoro ibrido per Windows o distribuire un ruolo di lavoro ibrido per [Runbook Linux](../automation-linux-hrw-install.md) per Linux.
 
-* Nell'area di lavoro, eseguire la query seguente. Se viene visualizzato il risultato `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` è presente una quota definita sull'area di lavoro che è stato raggiunto ed è stato arrestato i dati non vengono salvate. Nell'area di lavoro, passare a **informazioni sull'utilizzo e costi stimati** > **gestione del volume dati** e controllare la quota o rimuovere la quota è necessario.
+* Nell'area di lavoro eseguire la query seguente. Se viene visualizzato il risultato `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` , è stata definita una quota nell'area di lavoro che è stata raggiunta ed è stato interrotto il salvataggio dei dati. Nell'area di lavoro passare a **utilizzo e costi** > stimati**gestione del volume di dati** e verificare la quota o rimuovere la quota.
 
   ```loganalytics
   Operation
@@ -189,11 +189,11 @@ Il ruolo di lavoro ibrido per runbook non è stato in grado di generare un certi
 
 Verificare che l'account di sistema abbia accesso in lettura alla cartella **C:\ProgramData\Microsoft\Crypto\RSA** e riprovare.
 
-### <a name="failed-to-start"></a>Scenario: Una macchina Mostra non è stato possibile avviare in una distribuzione degli aggiornamenti
+### <a name="failed-to-start"></a>Scenario: Non è stato possibile avviare un computer in una distribuzione di aggiornamenti
 
 #### <a name="issue"></a>Problema
 
-Un computer con lo stato **non è stato possibile avviare** per una macchina. Quando si visualizzano i dettagli specifici per il computer viene visualizzato l'errore seguente:
+Lo stato di un computer **non** è stato avviato per un computer. Quando si visualizzano i dettagli specifici per il computer, viene visualizzato l'errore seguente:
 
 ```error
 Failed to start the runbook. Check the parameters passed. RunbookName Patch-MicrosoftOMSComputer. Exception You have requested to create a runbook job on a hybrid worker group that does not exist.
@@ -203,19 +203,19 @@ Failed to start the runbook. Check the parameters passed. RunbookName Patch-Micr
 
 Questo errore può verificarsi a causa di uno dei motivi seguenti:
 
-* La macchina non esiste più.
-* La macchina è disattivata disattivato e non raggiungibile.
-* Il computer disponga di un problema di connettività di rete e il ruolo di lavoro ibrido nel computer non raggiungibile.
-* Si è verificato un aggiornamento a Microsoft Monitoring Agent che è stato modificato il SourceComputerId
-* Operazione di aggiornamento potrebbe avere limitato se si raggiunge il limite di 2.000 processi simultanei in un Account di automazione. Ogni distribuzione è considerata un processo e ogni computer in un numero di distribuzioni di aggiornamento come processo. Qualsiasi altra automazione processi o aggiornamento distribuzione attualmente in esecuzione il numero di Account di automazione ai fini del limite di processi simultanei.
+* Il computer non esiste più.
+* Il computer è disattivato e non è raggiungibile.
+* Il computer ha un problema di connettività di rete e il ruolo di lavoro ibrido nel computer non è raggiungibile.
+* Si è verificato un aggiornamento per la Microsoft Monitoring Agent che ha modificato il SourceComputerId
+* L'esecuzione dell'aggiornamento potrebbe essere stata limitata se si raggiunge il limite di 2.000 di processi simultanei in un account di automazione. Ogni distribuzione viene considerata un processo e ogni computer in una distribuzione di aggiornamenti viene conteggiato come un processo. Qualsiasi altro processo di automazione o distribuzione di aggiornamenti attualmente in esecuzione nell'account di automazione viene conteggiato per il limite di processi simultanei.
 
 #### <a name="resolution"></a>Risoluzione
 
-Quando si usa applicabile [i gruppi dinamici](../automation-update-management.md#using-dynamic-groups) per le distribuzioni di aggiornamento.
+Quando applicabile, usare i [gruppi dinamici](../automation-update-management.md#using-dynamic-groups) per le distribuzioni degli aggiornamenti.
 
-* Verificare la macchina esista e sia raggiungibile. Se non esiste, modificare la distribuzione e rimuove il computer.
-* Vedere la sezione sulla [pianificazione di rete](../automation-update-management.md#ports) per un elenco di porte e indirizzi che sono necessari per la gestione degli aggiornamenti e verificare che il computer soddisfi questi requisiti.
-* Eseguire la query seguente nel Log Analitica per individuare dei computer nell'ambiente in uso la cui proprietà `SourceComputerId` modificato. Cercare i computer che hanno gli stessi `Computer` valore, ma con una diversa `SourceComputerId` valore. Dopo aver trovato i computer interessati, è necessario modificare le distribuzioni di aggiornamento che tali macchine, di destinazione e rimuovere e aggiungere nuovamente le macchine in modo che il `SourceComputerId` riflette il valore corretto.
+* Verificare che il computer esista ancora e che sia raggiungibile. Se non esiste, modificare la distribuzione e rimuovere il computer.
+* Vedere la sezione relativa alla [pianificazione della rete](../automation-update-management.md#ports) per un elenco di porte e indirizzi necessari per gestione aggiornamenti e verificare che il computer soddisfi questi requisiti.
+* Eseguire la query seguente in log Analytics per trovare i computer nell'ambiente in `SourceComputerId` cui sono stati modificati. Cercare i computer con lo stesso `Computer` valore, ma con un valore diverso. `SourceComputerId` Una volta individuati i computer interessati, è necessario modificare le distribuzioni degli aggiornamenti destinate a tali computer, quindi rimuovere e aggiungere nuovamente i computer `SourceComputerId` in modo che riflettano il valore corretto.
 
    ```loganalytics
    Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
@@ -240,12 +240,12 @@ Fare doppio clic sull'eccezione in rosso per visualizzare il messaggio completo.
 |`Exception from HRESULT: 0x……C`     | Per maggiori dettagli sulla causa dell'eccezione, cercare il codice di errore pertinente nell'[elenco codici di errore relativi a Windows Update](https://support.microsoft.com/help/938205/windows-update-error-code-list).        |
 |`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Sono problemi di connettività di rete. Assicurarsi che il computer disponga della connettività di rete appropriata per Gestione aggiornamenti. Per un elenco di porte e indirizzi necessari, vedere la sezione sulla [pianificazione della rete](../automation-update-management.md#ports).        |
 |`0x8024001E`| L'operazione di aggiornamento non è stata completata perché il servizio o il sistema è stato arrestato.|
-|`0x8024002E`| Servizio Windows Update è disabilitato.|
+|`0x8024002E`| Il servizio Windows Update è disabilitato.|
 |`0x8024402C`     | Se si usa un server WSUS, assicurarsi che i valori del Registro di sistema per `WUServer` e `WUStatusServer` nella chiave del Registro di sistema `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` contengano il server WSUS corretto.        |
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Assicurarsi che il servizio Windows Update (wuauserv) sia in esecuzione e non sia disattivato.        |
 |Qualsiasi altra eccezione generica     | Ricercare possibili soluzioni in Internet e collaborare con il supporto tecnico IT locale.         |
 
-Esaminare il `windowsupdate.log` possono aiutarti a provare a determinare le possibili cause. Per altre informazioni sulla lettura del log, vedere [come leggere il file di windowsupdate. log](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file).
+La `windowsupdate.log` revisione di può aiutare a determinare anche la possibile cause. Per ulteriori informazioni su come leggere il log, vedere [come leggere il file windowsupdate. log](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file).
 
 È inoltre possibile scaricare ed eseguire lo [strumento di risoluzione dei problemi di Windows Update](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) per verificare se sono presenti problemi con Windows Update nel computer.
 
@@ -296,6 +296,27 @@ Se non è possibile risolvere un problema di patch, creare una copia del seguent
 
 ```bash
 /var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
+```
+
+### <a name="other"></a>Scenario: il problema non è incluso in questo elenco
+
+### <a name="issue"></a>Problema
+
+Si è riscontrato un problema che non viene risolto dagli altri scenari elencati.
+
+### <a name="cause"></a>Causa
+
+Le chiavi del registro di sistema non configurate correttamente o mancanti possono causare problemi con Gestione aggiornamenti.
+
+### <a name="resolution"></a>Risoluzione
+
+Eliminare la chiave `HKLM:\SOFTWARE\Microsoft\HybridRunbookWorker` del registro di sistema e riavviare il **HealthService**.
+
+È anche possibile usare i comandi di PowerShell seguenti.
+
+```powershell
+Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force
+Restart-Service healthservice
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

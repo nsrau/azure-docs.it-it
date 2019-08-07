@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: grgale
-ms.openlocfilehash: 808a615885129af1be9b7fdcdb64d5a8c5a25e40
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3885b9fa346047a50a49c7b2f9b96b6a8f95e51f
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571653"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779359"
 ---
 # <a name="controlling-ingress-traffic-in-azure-australia"></a>Controllo del traffico in ingresso in Azure Australia
 
@@ -31,7 +31,7 @@ Il Microsoft [Cloud Computing Security per i tenant di Microsoft Azure](https://
 
 I seguenti requisiti chiave, identificati nelle pubblicazioni da ACSC, sono importanti per il controllo del traffico in ingresso in Azure:
 
-|Descrizione|Source|
+|DESCRIZIONE|Source|
 |---|---|
 |**Implementare la segmentazione e la separazione della rete, ad esempio l'architettura a più livelli, usando firewall basati su host e i controlli di accesso alla rete del CSP per limitare la connettività di rete delle macchine virtuali in ingresso e in uscita solo alle porte/protocolli richiesti.**| _Cloud computing per tenant_|
 |**Implementare una larghezza di banda sufficientemente elevata, bassa latenza, connettività di rete affidabile** tra il tenant (inclusi gli utenti remoti del tenant) e il servizio cloud per soddisfare i requisiti di disponibilità del tenant  | _Cloud computing per tenant_|
@@ -67,7 +67,7 @@ Il diagramma dell'architettura illustrato di seguito illustra i possibili percor
 
 ### <a name="iaas-ingress-components"></a>Componenti in ingresso IaaS
 
-|Componente | DESCRIZIONE|
+|Componente | Descrizione|
 |---|---|
 |**Interfaccia di rete** | Un'interfaccia di rete è una risorsa esistente in Azure. Viene collegato a una macchina virtuale a cui è stato assegnato un indirizzo IP instradabile privato non Internet dalla subnet a cui è associato. Questo indirizzo IP viene assegnato in modo dinamico o statico tramite Azure Resource Manager.|
 |**Subnet** | Una subnet è un intervallo di indirizzi IP creato all'interno di un VNet. È possibile creare più subnet all'interno di una VNet per la segmentazione della rete.|
@@ -146,7 +146,7 @@ Standard offre funzionalità di mitigazione aggiuntive per il livello di servizi
 |Risorsa|Collegamento|
 |---|---|
 |Panoramica di protezione DDoS di Azure|[https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview)|
-|Procedure consigliate per DDoS di Azure|[https://docs.microsoft.com/azure/security/azure-ddos-best-practices](https://docs.microsoft.com/azure/security/azure-ddos-best-practices)|
+|Procedure consigliate per DDoS di Azure|[https://docs.microsoft.com/azure/security/fundamentals/ddos-best-practices](https://docs.microsoft.com/azure/security/fundamentals/ddos-best-practices)|
 |Gestione della protezione DDoS|[https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)|
 |
 

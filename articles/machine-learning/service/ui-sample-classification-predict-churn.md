@@ -1,7 +1,7 @@
 ---
-title: 'Classificazione: Prevedere la varianza, stime sui desideri e up-selling '
+title: Classificazione Stima varianza + appetency + up-selling
 titleSuffix: Azure Machine Learning service
-description: Questo esperimento di esempio di interfaccia visiva Mostra stima classificatore binario della varianza, un'attività molto comune per la gestione delle relazioni dei clienti (CRM).
+description: Questo esperimento di esempio dell'interfaccia visiva mostra la stima del classificatore binario della varianza, un'attività comune per la gestione delle relazioni con i clienti (CRM).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,62 +10,62 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: 7d10d996febd0e31c9085bf5cb82324cce101c80
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 172089d5371d8c3e38a2a22b3285b5eb180baf00
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606149"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742295"
 ---
-# <a name="sample-5---classification-predict-churn-appetency-and-up-selling"></a>Esempio 5 - classificazione: Prevedere la varianza, stime sui desideri e up-selling 
+# <a name="sample-5---classification-predict-churn-appetency-and-up-selling"></a>Esempio 5-classificazione: Prevedere varianza, appetency e vendita 
 
-Informazioni su come creare un esperimento di apprendimento automatico complessi senza scrivere una singola riga di codice usando l'interfaccia visiva.
+Informazioni su come creare un esperimento di apprendimento automatico complesso senza scrivere una singola riga di codice usando l'interfaccia visiva.
 
-Questo esperimento esegue il training, tre **albero delle decisioni con Boosting a due classi** classificatori per stimare le attività comuni per sistemi customer relationship management (CRM): varianza, stime sui desideri e up-selling. I valori dei dati e le etichette vengono suddivise tra più origini dati e li assemblò per anonimizza le informazioni dei clienti, tuttavia, è possibile usare ancora l'interfaccia visiva per combinare set di dati e il training di un modello usando i valori codificati.
+Questo esperimento addestra tre classificatori di albero delle decisioni con boosting a **due classi** per prevedere le attività comuni per i sistemi CRM (Customer Relationship Management): varianza, appetency e vendita. I valori e le etichette dei dati sono suddivisi in più origini dati e sono ripartiti in anonimato informazioni sui clienti. Tuttavia, è comunque possibile usare l'interfaccia visiva per combinare i set di dati ed eseguire il training di un modello usando i valori con codifica.
 
-Poiché stiamo tentando di rispondere alla domanda "Quale uno?" si tratta di un problema di classificazione. Tuttavia, è possibile applicare la stessa procedura descritta in questo esperimento di affrontare qualsiasi tipo di apprendimento automatico che si tratti di regressione, classificazione, clustering e così via.
+Poiché si sta provando a rispondere alla domanda "quale?" si tratta di un problema di classificazione. Tuttavia, è possibile applicare gli stessi passaggi in questo esperimento per risolvere qualsiasi tipo di problema di Machine Learning, indipendentemente dal fatto che si tratti di regressione, classificazione, clustering e così via.
 
-Ecco il grafico completato per questo esperimento:
+Ecco il grafo completato per questo esperimento:
 
-![Grafico esperimento](./media/ui-sample-classification-predict-churn/experiment-graph.png)
+![Grafico dell'esperimento](./media/ui-sample-classification-predict-churn/experiment-graph.png)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Selezionare il **aperto** pulsante per l'esperimento di esempio 5.
+4. Selezionare il pulsante **Apri** per l'esperimento Sample 5.
 
     ![Aprire l'esperimento](media/ui-sample-classification-predict-churn/open-sample5.png)
 
 ## <a name="data"></a>Data
 
-I dati che si userà per questo esperimento sono dalla competizione KDD Cup 2009. Il set di dati contiene 50.000 righe e colonne di funzioni 230. L'attività consiste nel prevedere la varianza, stime sui desideri e up-selling per i clienti che usano queste funzionalità. Per altre informazioni sui dati e l'attività, vedere la [sito Web KDD](https://www.kdd.org/kdd-cup/view/kdd-cup-2009).
+I dati usati per questo esperimento sono di KDD Cup 2009. Il set di dati contiene 50.000 righe e 230 colonne di funzionalità. L'attività consiste nel prevedere la varianza, il appetency e il selling per i clienti che usano queste funzionalità. Per ulteriori informazioni sui dati e sull'attività, vedere il [sito Web KDD](https://www.kdd.org/kdd-cup/view/kdd-cup-2009).
 
-## <a name="experiment-summary"></a>Riepilogo di esperimento
+## <a name="experiment-summary"></a>Riepilogo esperimento
 
-Questo esperimento di esempio di interfaccia visiva Mostra stima classificatore binario di varianza, stime sui desideri e up-selling, un'attività molto comune per la gestione delle relazioni dei clienti (CRM).
+Questo esperimento di esempio dell'interfaccia visiva mostra la stima del classificatore binario della varianza, della appetency e della vendita, un'attività comune per la gestione delle relazioni con i clienti (CRM).
 
-Prima di tutto, facciamo alcune semplici operazioni di elaborazione di dati.
+In primo luogo, viene eseguita una semplice elaborazione dei dati.
 
-- Il set di dati non elaborati contiene un numero elevato di valori mancanti. Usiamo il **Clean Missing Data** valori di modulo per sostituire il mancanti con 0.
+- Il set di dati non elaborato contiene molti valori mancanti. Viene usato il modulo **Clean Missing data** per sostituire i valori mancanti con 0.
 
     ![Pulire il set di dati](./media/ui-sample-classification-predict-churn/cleaned-dataset.png)
 
-- Le funzionalità e le corrispondenti della varianza, stime sui desideri, e per proporre le etichette sono nel set di dati diversi. Usiamo il **Add Columns** modulo per aggiungere le colonne di etichetta per le colonne di funzioni. La prima colonna, **Col1**, la colonna di etichetta. Il resto delle colonne, **Var1**, **Var2**e così via, sono le colonne di funzioni.
+- Le funzionalità e le etichette varianza, appetency e selling corrispondenti si trovano in set di impostazioni diversi. Viene usato il modulo **Add columns** per aggiungere le colonne Label alle colonne feature. La prima colonna, **col1**, è la colonna Label. Le altre colonne, **var1**, **var2**e così via, sono le colonne della funzionalità.
 
-    ![Aggiungere il set di dati colonna](./media/ui-sample-classification-predict-churn/added-column1.png)
+    ![Aggiungere il set di dati della colonna](./media/ui-sample-classification-predict-churn/added-column1.png)
 
-- Usiamo il **Split Data** modulo suddividere il set di dati in training e set di test.
+- Viene usato il modulo **Split data** per suddividere il set di dati in set di training e set di test.
 
-    Utilizziamo la classificazione binaria Boosted Decision Tree con i parametri predefiniti per creare i modelli di stima. Abbiamo creato un modello per ogni attività, vale a dire, un modello per stimare up-selling, stime sui desideri e la varianza.
+    Viene quindi utilizzato il classificatore binario dell'albero delle decisioni con boosting con i parametri predefiniti per compilare i modelli di stima. Si compila un modello per ogni attività, ovvero un modello ciascuno per stimare il selling, appetency e la varianza.
 
 ## <a name="results"></a>Risultati
 
-Visualizzare l'output del **Evaluate Model** modulo per visualizzare le prestazioni del modello nel set di test. Per l'attività di up-selling, la curva ROC indica che il modello non è migliore rispetto a un modello casuale. L'area sottesa alla curva (AUC) è 0.857. Nella soglia di 0,5, la precisione è 0,7, il richiamo è 0.463 e il punteggio F1 è 0.545.
+Visualizzare l'output del modulo **Evaluate Model** per visualizzare le prestazioni del modello nel set di test. Per l'attività di vendita, la curva ROC indica che il modello è migliore rispetto a un modello casuale. L'area sotto la curva (AUC) è 0,857. Alla soglia 0,5, la precisione è 0,7, il richiamo è 0,463 e il Punteggio F1 è 0,545.
 
 ![Valutare i risultati](./media/ui-sample-classification-predict-churn/evaluate-result.png)
 
- È possibile spostare le **soglia** dispositivo di scorrimento e modificare le metriche per l'attività di classificazione binaria, vedere.
+ È possibile spostare il dispositivo di scorrimento della **soglia** e visualizzare la modifica delle metriche per l'attività di classificazione binaria.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -76,7 +76,7 @@ Visualizzare l'output del **Evaluate Model** modulo per visualizzare le prestazi
 Esplorare gli altri esempi disponibili per l'interfaccia visiva:
 
 - [Esempio 1: regressione: Stimare il prezzo di un'automobile](ui-sample-regression-predict-automobile-price-basic.md)
-- [Esempio 2: regressione: Confrontare gli algoritmi per la stima di prezzo di un'automobile](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-- [Esempio 3: classificazione: Prevedere il rischio di credito](ui-sample-classification-predict-credit-risk-basic.md)
-- [Esempio 4: classificazione: Prevedere il rischio di credito (costo sensibile)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-- [Esempio 6: classificazione: Prevedere i ritardi dei voli](ui-sample-classification-predict-flight-delay.md)
+- [Esempio 2: regressione: Confrontare gli algoritmi per la stima del prezzo dell'automobile](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [Esempio 3-classificazione: Stima del rischio di credito](ui-sample-classification-predict-credit-risk-basic.md)
+- [Esempio 4-Classificazione: Stimare il rischio di credito (costo sensibile)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Esempio 6-Classificazione: Stimare i ritardi dei voli](ui-sample-classification-predict-flight-delay.md)

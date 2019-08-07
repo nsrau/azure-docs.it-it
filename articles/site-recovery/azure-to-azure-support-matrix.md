@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 08/06/2019
 ms.author: raynew
-ms.openlocfilehash: 87362b785ecbb17c5a49a8c087b6a70715480877
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: d0e24d7621218ccac23842072a5f08be94c80d9d
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679387"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840580"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matrice di supporto per la replica di macchine virtuali di Azure da un'area a un'altra
 
@@ -117,7 +117,7 @@ Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5,
 14.04 LTS | 9,25 | 3.13.0-24-generico per 3.13.0-169-generico,<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>4.4.0-21-generico per 4.4.0-146-generico,<br/>4.15.0-1023-da Azure a 4.15.0-1042-Azure |
 14.04 LTS | 9,24 | 3.13.0-24-generico per 3.13.0-167-generico,<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>4.4.0-21-generico per 4.4.0-143-generico,<br/>4.15.0-1023-Azure a 4.15.0-1040-Azure |
 |||
-16.04 LTS | 9,27 | 4.4.0-21-generico a 4.4.0-154-Generic,<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>da 4.15.0-13-generico a 4.15.0-54-generico<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>4.15.0-1012-Azure a 4.15.0-1050-Azure|
+16.04 LTS | 9,27 | 4.4.0-21-generico a 4.4.0-154-Generic,<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>4.15.0-13-generico a 4.15.0-55-generico<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>4.15.0-1012-Azure in 4.15.0-1051-Azure|
 16.04 LTS | 9,26 | 4.4.0-21-generico per 4.4.0-148-generico,<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>da 4.15.0-13-generico a 4.15.0-50-generico<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>4.15.0-1012-Azure a 4.15.0-1045-Azure|
 16.04 LTS | 9,25 | 4.4.0-21-generico per 4.4.0-146-generico,<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>da 4.15.0-13-generico a 4.15.0-48-generico<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>4.15.0-1012-Azure a 4.15.0-1042-Azure|
 16.04 LTS | 9,24 | 4.4.0-21-generico per 4.4.0-143-generico,<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>da 4.15.0-13-generico a 4.15.0-46-generico<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>4.15.0-1012-Azure a 4.15.0-1040-Azure|
@@ -136,7 +136,7 @@ Debian 8 | 9,24 | Da 3.16.0-4-amd64 a 3.16.0-7-amd64, da 4.9.0-0.bpo.4-amd64 a 4
 
 **Versione** | **Versione del servizio Mobility** | **Versione del kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,27 | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> SP1 (LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.115-default</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>SP2 (LTSS) 4.4.121-92.73-default a 4.4.121-92.114-default</br></br>SP3 4.4.73-5-il valore predefinito è 4.4.180-94.97-default</br></br>SP3 4.4.138-4.7-da Azure a 4.4.180-4.31-Azure</br></br>SP4 4.12.14-94.41-impostazione predefinita per 4.12.14-95.19-impostazione predefinita</br>SP4 4.12.14-6.3-Azure per 4.12.14-6.15-Azure |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,27 | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> SP1 (LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.115-default</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>SP2 (LTSS) 4.4.121-92.73-default a 4.4.121-92.117-default</br></br>SP3 4.4.73-5-il valore predefinito è 4.4.180-94.97-default</br></br>SP3 4.4.138-4.7-da Azure a 4.4.180-4.31-Azure</br></br>SP4 4.12.14-94.41-impostazione predefinita per 4.12.14-95.24-impostazione predefinita</br>SP4 4.12.14-6.3-Azure per 4.12.14-6.18-Azure |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,26 | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> SP1 (LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.110-default</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>SP2 (LTSS) 4.4.121-92.73-default a 4.4.121-92.109-default</br></br>SP3 4.4.73-5-il valore predefinito è 4.4.178-94.91-default</br></br>SP3 4.4.138-4.7-da Azure a 4.4.178-4,28-Azure</br></br>SP4 4.12.14-94.41-impostazione predefinita per 4.12.14-95.16-impostazione predefinita</br>SP4 4.12.14-6.3-da Azure a 4.12.14-6.9-Azure |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,25 | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> Da 3.12.74-60.64.45 SP1 (LTSS) predefinita a 3.12.74-60.64.107 predefinita</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>SP2 (LTSS) 4.4.121-92.73-default a 4.4.121-92.104-default</br></br>SP3 4.4.73-5-il valore predefinito è 4.4.176-94.88-default</br></br>SP3 4.4.138-4.7-da Azure a 4.4.176-4.25-Azure</br></br>SP4 4.12.14-94.41-impostazione predefinita per 4.12.14-95.13-impostazione predefinita</br>SP4 4.12.14-6.3-da Azure a 4.12.14-6.9-Azure |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,24 | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> Da 3.12.74-60.64.45 SP1 (LTSS) predefinita a 3.12.74-60.64.107 predefinita</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>SP2 (LTSS) 4.4.121-92.73-default a 4.4.121-92.104-default</br></br>SP3 4.4.73-5-il valore predefinito è 4.4.176-94.88-default</br></br>SP4 4.12.14-94.41-impostazione predefinita per 4.12.14-95.13-impostazione predefinita |
@@ -197,7 +197,7 @@ Ridondanza | Sono supportate le archiviazioni con ridondanza locale e geografica
 Archiviazione ad accesso frequente e sporadico | Non supportate | I dischi delle macchine virtuali non sono supportati per l'archiviazione ad accesso frequente e sporadico
 Spazi di archiviazione | Supportato |
 Crittografia per dati inattivi (SSE) | Supportato | La crittografia per dati inattivi (SSE) è l'impostazione predefinita per gli account di archiviazione.   
-Crittografia dischi di Azure (ADE) per sistema operativo Windows | Le macchine virtuali abilitate per [la crittografia con l'app di Azure AD](https://aka.ms/ade-aad-app) sono supportate |
+Crittografia dischi di Azure (ADE) per sistema operativo Windows | Supportato |
 Crittografia dischi di Azure (ADE) per sistema operativo Linux | Non supportate |
 Aggiunta a caldo | Supportato | L'abilitazione della replica per un disco dati aggiunto a una macchina virtuale di Azure replicata è supportata per le macchine virtuali che usano dischi gestiti.
 Disco di rimozione a caldo | Non supportate | Se si rimuove un disco dati nella macchina virtuale, è necessario disabilitare la replica e abilitare di nuovo la replica per la macchina virtuale.

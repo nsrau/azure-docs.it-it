@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d2bad808d0bcbbd5dc8052db0f8fd32fc4c1180a
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 831c771da385ef6faeba194878ca53ede34ccc0a
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699482"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816648"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Usare una condivisione file di Azure con Windows
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere usate facilmente in Windows e Windows Server. Questo articolo illustra le considerazioni relative all'uso di una condivisione file di Azure con Windows e Windows Server.
@@ -24,17 +24,17 @@ Per usare una condivisione file di Azure al di fuori dell'area di Azure in cui �
 | Versione di Windows        | Versione di SMB | Montabile in una VM di Azure | Montabile in locale |
 |------------------------|-------------|-----------------------|----------------------|
 | Windows Server 2019    | SMB 3.0 | Sì | Sì |
-| Windows 10<sup>1</sup> | SMB 3.0 | Yes | Sì |
-| Canale semestrale di Windows Server<sup>2</sup> | SMB 3.0 | Yes | Sì |
-| Windows Server 2016    | SMB 3.0     | Sì                   | Yes                  |
+| Windows 10<sup>1</sup> | SMB 3.0 | Sì | Sì |
+| Canale semestrale di Windows Server<sup>2</sup> | SMB 3.0 | Yes | Yes |
+| Windows Server 2016    | SMB 3.0     | Yes                   | Sì                  |
 | Windows 8.1            | SMB 3.0     | Sì                   | Sì                  |
 | Windows Server 2012 R2 | SMB 3.0     | Sì                   | Sì                  |
-| Windows Server 2012    | SMB 3.0     | Sì                   | Yes                  |
+| Windows Server 2012    | SMB 3.0     | Sì                   | Sì                  |
 | Windows 7              | SMB 2.1     | Sì                   | No                   |
 | Windows Server 2008 R2 | SMB 2.1     | Yes                   | No                   |
 
-<sup>1</sup>Windows 10 versioni 1507, 1607, 1703, 1709, 1803 e 1809.  
-<sup>2</sup>Windows Server versioni 1709 e 1803.
+<sup>1</sup> Windows 10, versioni 1507, 1607, 1703, 1709, 1803, 1809 e 1903.  
+<sup>2</sup> Windows Server, versioni 1803, 1809 e 1903.
 
 > [!Note]  
 > È sempre consigliabile seguire l'articolo della KB più recente per la propria versione di Windows.

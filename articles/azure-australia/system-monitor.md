@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: grgale
-ms.openlocfilehash: b68bdb6d1c349df67943889b511eac87c940b531
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f7f78dbde9810c8786e2344555444efabcc989b0
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571887"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779316"
 ---
 # <a name="system-monitoring-for-security-in-azure-australia"></a>Monitoraggio del sistema per la sicurezza in Azure Australia
 
@@ -74,7 +74,7 @@ Le informazioni raccolte da Azure Advisor forniscono agli amministratori:
 
 Se vengono applicati i criteri specifici o se l'effetto del criterio è in corso di controllo, la conformità dei criteri viene continuamente monitorata e le informazioni di conformità complessive e specifiche delle risorse vengono fornite agli amministratori. I dati di conformità dei criteri di Azure vengono forniti al centro sicurezza di Azure e formano parte del Punteggio sicuro.
 
-## <a name="key-design-considerations"></a>Considerazioni di progettazione principali
+## <a name="key-design-considerations"></a>Principali considerazioni sulla progettazione
 
 Quando si implementa una strategia di registro eventi, ACSC ISM evidenzia le considerazioni seguenti:
 
@@ -108,7 +108,7 @@ I log raccolti in Azure rientrano in una delle tre categorie seguenti:
 
 Il monitoraggio delle macchine virtuali di Azure viene migliorato mediante la distribuzione dell'agente di macchine virtuali sia per Windows che per Linux. Questo aumenta notevolmente le informazioni di registrazione raccolte. La distribuzione di questo agente può essere configurata in modo che venga eseguita automaticamente tramite il Centro sicurezza di Azure.
 
-Microsoft fornisce informazioni dettagliate sui log specifici delle risorse di Azure e sui relativi [schemi](https://docs.microsoft.com/azure/security/azure-log-audit).
+Microsoft fornisce informazioni dettagliate sui log specifici delle risorse di Azure e sui relativi [schemi](https://docs.microsoft.com/azure/security/fundamentals/log-audit).
 
 ### <a name="log-retention-and-protection"></a>Conservazione e protezione dei log
 

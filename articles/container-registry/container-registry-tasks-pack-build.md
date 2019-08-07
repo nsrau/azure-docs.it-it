@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 08/06/2019
 ms.author: danlep
-ms.openlocfilehash: 5100418651e24d74ad747e8c436ffce53c899a92
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4e41bcaff8faef2c4eaec9ae852955d4b7ce354b
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68500906"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839901"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Compilare ed eseguire il push di un'immagine da un'app usando una Buildpack nativa cloud
 
@@ -44,11 +44,13 @@ Nell'esempio seguente viene compilata un'immagine del contenitore dall'app node.
 az acr pack build \
     --registry myregistry \
     --image {{.Run.Registry}}/node-app:1.0 \
-    --builder cloudfoundry/cnb:bionic \
+    --pull --builder cloudfoundry/cnb:bionic \
     https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
 In questo esempio l' `node-app` immagine viene compilata con il `1.0` tag e ne viene creato il push nel registro contenitori registro di *sistema* . In questo caso, il nome del registro di sistema di destinazione viene anteposto in modo esplicito al nome dell'immagine. Se non specificato, l'URL del registro di sistema viene anteposto automaticamente al nome dell'immagine.
+
+Il `--pull` parametro specifica che il comando esegue il pull dell'immagine del compilatore più recente.
 
 L'output del comando Mostra lo stato di avanzamento della compilazione e del push dell'immagine. 
 
@@ -80,7 +82,7 @@ az acr pack build \
 
 In questo esempio viene `java-app` compilata l'immagine contrassegnata con l'ID esecuzione del comando e ne viene eseguito il push nel registro contenitori *Registro di sistema* .
 
-Il `--pull` parametro specifica che il comando esegue il pull dell'immagine del compilatore più recente, operazione necessaria perché l'immagine del generatore Heroku non è memorizzata nella cache da attività ACR.
+Il `--pull` parametro specifica che il comando esegue il pull dell'immagine del compilatore più recente.
 
 L'output del comando Mostra lo stato di avanzamento della compilazione e del push dell'immagine. 
 

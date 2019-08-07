@@ -10,12 +10,12 @@ ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 91a074cf98291b105864a69730314efff3482254
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61ea7eb0b81c5489ad2bf20e8148d2481bb4fb13
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62126410"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840174"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Distribuire i moduli di Azure IoT Edge da Visual Studio Code
 
@@ -71,7 +71,7 @@ Di seguito è riportato un esempio di manifesto della distribuzione di base con 
              }
            },
            "modules": {
-             "tempSensor": {
+             "SimulatedTemperatureSensor": {
                "version": "1.0",
                "type": "docker",
                "status": "running",
@@ -95,7 +95,7 @@ Di seguito è riportato un esempio di manifesto della distribuzione di base con 
            }
          }
        },
-       "tempSensor": {
+       "SimulatedTemperatureSensor": {
          "properties.desired": {}
        }
      }

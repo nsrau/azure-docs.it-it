@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 07/30/2019
-ms.openlocfilehash: d97c3d47a277ecd8b1de635e3d835f9ee1f42057
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.date: 08/07/2019
+ms.openlocfilehash: 4b66d015e8a182e305a36dacaa2e082288a3e19e
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68700353"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840534"
 ---
 # <a name="introduction-to-deep-learning-vs-machine-learning"></a>Introduzione a Deep Learning e Machine Learning
 
@@ -43,9 +43,9 @@ Ora che si dispone della Panoramica di machine learning e di Deep Learning, conf
 
 Nella tabella seguente vengono confrontate le due tecniche in modo più dettagliato:
 
-| |Machine learning |Apprendimento avanzato|
+| |Tutti i computer Learning |Solo Deep Learning|
 |---|---|---|
-|  **Numero di punti dati** | Può utilizzare quantità di dati ridotte fornite dagli utenti | Richiede una grande quantità di dati di training senza etichetta per creare conclusioni concise |
+|  **Numero di punti dati** | Può utilizzare quantità di dati ridotte fornite dagli utenti | Richiede una grande quantità di dati di training per creare conclusioni concise |
 |  **Dipendenze hardware** | Può funzionare nei computer di fascia bassa. Non è necessaria una grande quantità di potenza di calcolo | Dipende da computer di fascia alta. Esegue intrinsecamente un numero elevato di operazioni di moltiplicazione di matrici. Queste operazioni possono essere ottimizzate in modo efficiente tramite una GPU |
 |  **Processo conteggi** | Richiede che le funzionalità siano identificate e create accuratamente dagli utenti | Apprende le funzionalità di alto livello dai dati e crea nuove funzionalità da solo |
 |  **Approccio alla formazione** | Divide le attività in piccole parti, quindi combina i risultati ricevuti in un'unica conclusione | Risolve il problema su base end-to-end |

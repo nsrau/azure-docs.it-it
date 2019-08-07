@@ -1,92 +1,92 @@
 ---
-title: Sicurezza dei servizi CloudSimple
-description: Vengono descritti i modelli di responsabilità condivisa per la sicurezza dei servizi CloudSimple
+title: Sicurezza per i servizi CloudSimple
+description: Descrive i modelli di responsabilità condivisa per la sicurezza dei servizi CloudSimple
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 04/27/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 325915aae43c905236910382f650730a6daa127a
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: ff1bd3c6e1f3cf98e92e10eecf972681ed6c7819
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595331"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816183"
 ---
 # <a name="cloudsimple-security-overview"></a>Panoramica della sicurezza CloudSimple
 
-Questo articolo fornisce una panoramica del modo in cui viene implementata la sicurezza la soluzione VMware Azure CloudSimple service, infrastruttura e Data Center. Informazioni sulla protezione dei dati e sicurezza, sicurezza di rete e gestione delle vulnerabilità e le patch.
+Questo articolo fornisce una panoramica del modo in cui la sicurezza è implementata nella soluzione VMware di Azure dal servizio CloudSimple, dall'infrastruttura e dal Data Center. Vengono fornite informazioni sulla protezione dei dati e sulla sicurezza, sulla sicurezza della rete e sulle modalità di gestione delle vulnerabilità e delle patch.
 
 ## <a name="shared-responsibility"></a>Responsabilità condivisa
 
-Soluzione Azure di VMware da CloudSimple Usa un modello di responsabilità condivisa per la sicurezza. Sicurezza con attendibilità nel cloud avviene attraverso le responsabilità condivise di clienti e Microsoft come provider di servizi. Questa matrice di responsabilità offre una maggiore sicurezza ed elimina i singoli punti di errore.
+La soluzione VMware di Azure di CloudSimple usa un modello di responsabilità condivisa per la sicurezza. Una sicurezza attendibile nel cloud viene realizzata attraverso le responsabilità condivise dei clienti e di Microsoft come provider di servizi. Questa matrice di responsabilità offre una maggiore sicurezza ed Elimina singoli punti di errore.
 
 ## <a name="azure-infrastructure"></a>Infrastruttura di Azure 
 
-Considerazioni sulla sicurezza dell'infrastruttura di Azure includono la posizione di apparecchiature e Data Center.
+Le considerazioni sulla sicurezza dell'infrastruttura di Azure includono i Data Center e il percorso delle apparecchiature.
 
-### <a name="datacenter-security"></a>Sicurezza dei Data Center 
+### <a name="datacenter-security"></a>Sicurezza del Data Center 
 
-Microsoft vanta un'intera divisione dedicati alla progettazione, compilazione e gestione le strutture fisiche che supportano Azure. Questo team viene usato per mantenere la sicurezza fisica d'avanguardia. Per altre informazioni sulla sicurezza fisica, vedere [funzionalità di Azure, ai locali e la sicurezza fisica](https://docs.microsoft.com/azure/security/azure-physical-security).
+Microsoft dispone di un'intera divisione dedicata alla progettazione, compilazione e gestione delle funzionalità fisiche che supportano Azure. Questo team viene usato per mantenere la sicurezza fisica d'avanguardia. Per ulteriori informazioni sulla sicurezza fisica, vedere [funzionalità di Azure, locali e sicurezza fisica] (https://docs.microsoft.com/azure/security/fundamentals/physical-security.
 
-### <a name="equipment-location"></a>Posizione delle apparecchiature
+### <a name="equipment-location"></a>Località attrezzature
 
-Le apparecchiature hardware bare metal che esegue dei cloud privati sono ospitata in posizioni dei Data Center di Azure. L'autenticazione a due fattori basata su biometria è necessario effettuare l'accesso per i cabine in cui si trovano tale apparecchiature.
+Le apparecchiature hardware bare metal che eseguono i cloud privati sono ospitate in località del Data Center di Azure. L'autenticazione a due fattori basata su biometrica è necessaria per ottenere l'accesso alle gabbie in cui si trovano le apparecchiature.
 
 ## <a name="dedicated-hardware"></a>Hardware dedicato
 
-Come parte del servizio CloudSimple, tutti i clienti CloudSimple ha host bare metal dedicato con dischi locali collegati sono fisicamente isolati da altri componenti hardware di tenant. Un hypervisor ESXi con vSAN viene eseguito in ogni nodo. I nodi vengono gestiti tramite dedicato al cliente VMware vCenter e NSX. Non viene condivisa hardware tra i tenant fornisce un ulteriore livello di isolamento e protezione.
+Come parte del servizio CloudSimple, tutti i clienti di CloudSimple ricevono host bare metal dedicati con dischi collegati locali che sono fisicamente isolati dall'hardware di altri tenant. Un hypervisor ESXi con rete VSAN viene eseguito in ogni nodo. I nodi vengono gestiti tramite VMware, vCenter e NSX dedicati ai clienti. La mancata condivisione dell'hardware tra i tenant offre un ulteriore livello di isolamento e protezione della sicurezza.
 
 ## <a name="data-security"></a>Sicurezza dei dati
 
-I clienti di mantenere il controllo e la proprietà dei propri dati. Amministrazione dei dati dei dati dei clienti è responsabilità del cliente.
+I clienti mantengono il controllo e la proprietà dei dati. L'amministrazione dei dati dei clienti è responsabilità del cliente.
 
-### <a name="data-protection-for-data-at-rest-and-data-in-motion-within-internal-networks"></a>Protezione dei dati per dati inattivi e i dati in transito all'interno delle reti interne
+### <a name="data-protection-for-data-at-rest-and-data-in-motion-within-internal-networks"></a>Protezione dei dati inattivi e dati in movimento nelle reti interne
 
-Per i dati inattivi nell'ambiente di cloud privato, è possibile usare la crittografia di rete vSAN. la crittografia di rete vSAN funziona con i server di gestione delle chiavi esterne certified VMware (KMS) nella propria rete virtuale o in locale. È possibile controllare le chiavi di crittografia dei dati manualmente. Per i dati in movimento nell'ambito del cloud privato, vSphere supporta la crittografia dei dati trasmessi in rete per tutto il traffico VMkernel, che include il traffico di vMotion.
+Per i dati inattivi nell'ambiente cloud privato, è possibile usare la crittografia rete VSAN. la crittografia rete VSAN funziona con i server di gestione delle chiavi esterne (KMS) certificati da VMware nella propria rete virtuale o in locale. Si controllano le chiavi di crittografia dei dati. Per i dati in movimento nel cloud privato, vSphere supporta la crittografia dei dati in transito per tutto il traffico VMkernel, che include il traffico vMotion.
 
-### <a name="data-protection-for-data-thats-required-to-move-through-public-networks"></a>Protezione dei dati per i dati necessari per spostarsi tra le reti pubbliche
+### <a name="data-protection-for-data-thats-required-to-move-through-public-networks"></a>Protezione dei dati per i dati necessari per spostarsi attraverso le reti pubbliche
 
-Per proteggere i dati che si spostano attraverso reti pubbliche, è possibile creare IPsec e SSL VPN tunnel per i cloud privati. Sono supportati i metodi di crittografia più comuni, tra cui AES 128 e 256 byte. I dati in transito, che include l'autenticazione, l'accesso amministrativo e i dati del cliente, viene crittografati con meccanismi di crittografia standard, ad esempio SSH e TLS 1.2 RDP sicuro. La comunicazione che trasporta informazioni riservate vengono utilizzati i meccanismi di crittografia standard.
+Per proteggere i dati che si spostano attraverso le reti pubbliche, è possibile creare tunnel VPN IPsec e SSL per i cloud privati. Sono supportati i metodi di crittografia comuni, inclusi AES a 128 byte e 256 byte. I dati in transito, che includono l'autenticazione, l'accesso amministrativo e i dati del cliente, vengono crittografati con meccanismi di crittografia standard, ad esempio SSH, TLS 1,2 e RDP protetto. Comunicazione che trasporta informazioni riservate utilizza i meccanismi di crittografia standard.
 
 ### <a name="secure-disposal"></a>Eliminazione sicura 
 
-Se il servizio CloudSimple scade o viene terminato, ha la responsabilità per la rimozione o l'eliminazione dei dati. CloudSimple coopera pertanto con è possibile eliminare o restituire tutti i dati del cliente come specificati nel contratto dei clienti, tranne nella misura massima CloudSimple è richiesto dalla legge applicabile per mantenere alcuni o tutti i dati personali. Se è necessario conservare i dati personali, CloudSimple archivia i dati e implementa misure ragionevoli per impedire che i dati del cliente un'ulteriore elaborazione.
+Se il servizio CloudSimple scade o è terminato, si è responsabili della rimozione o dell'eliminazione dei dati. CloudSimple coopera con l'utente per eliminare o restituire tutti i dati dei clienti come indicato nel contratto del cliente, ad eccezione della misura in cui CloudSimple è richiesto dalla legge applicabile per conservare alcuni o tutti i dati personali. Se necessario per conservare i dati personali, CloudSimple archivia i dati e implementa misure ragionevoli per impedire ai dati dei clienti di eseguire ulteriori elaborazioni.
 
 ### <a name="data-location"></a>Posizione dei dati
 
-Quando si configura dei cloud privati, si sceglie l'area di Azure in cui vengono implementate. Dati della macchina virtuale VMware non vero spostati dal Data Center fisici solo se si esegue la migrazione dei dati o il backup dei dati fuori sede. È anche possibile ospitare i carichi di lavoro e archiviare i dati in più aree di Azure se è adatta alle proprie esigenze.
+Quando si configurano i cloud privati, è possibile scegliere l'area di Azure in cui vengono distribuiti. I dati della macchina virtuale VMware non vengono spostati dal data center fisico a meno che non si esegua la migrazione dei dati o il backup dei dati fuori sede. È anche possibile ospitare i carichi di lavoro e archiviare i dati in più aree di Azure, se appropriato per le proprie esigenze.
 
-I dati dei clienti che risiedono in nodi di cloud privato iperconvergente non attraversa posizioni senza l'azione esplicita dell'amministratore del tenant. È responsabilità dell'utente per implementare i carichi di lavoro in modalità a disponibilità elevata.
+I dati dei clienti residenti in nodi iperconvergenti del cloud privato non attraversano i percorsi senza l'azione esplicita dell'amministratore tenant. È responsabilità dell'utente implementare i carichi di lavoro in modo estremamente disponibile.
 
 ### <a name="data-backups"></a>Backup dei dati
-CloudSimple non eseguire il backup o archiviare i dati dei clienti. CloudSimple comporta l'esecuzione di backup periodico dei dati NSX e vCenter per garantire un'elevata disponibilità dei server di gestione. Prima del backup, tutti i dati vengono crittografati quando l'origine di vCenter usando APIs VMware. I dati crittografati sono trasportati e archiviati in un blob di Azure. Le chiavi di crittografia per i backup vengono archiviate in un archivio gestito altamente sicuro CloudSimple che viene eseguito nella rete virtuale CloudSimple in Azure.
+CloudSimple non esegue il backup o l'archiviazione dei dati dei clienti. CloudSimple esegue un backup periodico dei dati vCenter e NSX per garantire la disponibilità elevata dei server di gestione. Prima del backup, tutti i dati vengono crittografati nell'origine vCenter usando le API VMware. I dati crittografati vengono trasportati e archiviati in un BLOB di Azure. Le chiavi di crittografia per i backup sono archiviate in un insieme di credenziali gestito CloudSimple altamente sicuro che viene eseguito nella rete virtuale CloudSimple in Azure.
 
 ## <a name="network-security"></a>Sicurezza di rete
 
-La soluzione CloudSimple si basa sui livelli di sicurezza di rete.
+La soluzione CloudSimple si basa sui livelli di sicurezza della rete.
 
-### <a name="azure-edge-security"></a>Sicurezza di Azure edge
+### <a name="azure-edge-security"></a>Sicurezza di Azure Edge
 
-I servizi CloudSimple sono basati sulla protezione di rete di base fornita da Azure. Azure applica tecniche di difesa in profondità per il rilevamento e risposta tempestiva da attacchi basati sulla rete associati con traffico in ingresso anomala o i modelli di traffico in uscita e gli attacchi di distributed denial of service (DDoS). Questo controllo di sicurezza sono valide per ambienti cloud privati e il software del piano di controllo sviluppato da CloudSimple.
+I servizi CloudSimple sono basati sulla sicurezza di rete di base fornita da Azure. Azure applica tecniche di difesa approfondita per il rilevamento e la risposta tempestiva agli attacchi basati sulla rete associati a modelli di traffico in ingresso o in uscita anomali e attacchi di tipo Denial of Service (DDoS) distribuiti. Questo controllo di sicurezza si applica agli ambienti cloud privati e al software del piano di controllo sviluppato da CloudSimple.
 
 ### <a name="segmentation"></a>Segmentazione
 
-Il servizio CloudSimple presenta reti logicamente separate di livello 2 che limitano l'accesso alle reti private nel proprio ambiente cloud privato. È possibile proteggere ulteriormente le reti cloud privato con un firewall. Nel portale di CloudSimple, si definiscono le regole di controllo del traffico di rete est-ovest e Nord-Sud per tutto il traffico di rete, che include il traffico del cloud privato all'interno della stessa, il traffico del cloud privato tra, generale del traffico a Internet e il traffico di rete in locale tramite connessione VPN IPsec o ExpressRoute di Azure.
+Il servizio CloudSimple ha separato logicamente le reti di livello 2 che limitano l'accesso alle proprie reti private nell'ambiente cloud privato. È possibile proteggere ulteriormente le reti cloud private usando un firewall. Nel portale di CloudSimple si definiscono le regole di controllo del traffico di rete est-ovest e nord-sud per tutto il traffico di rete, che include il traffico di cloud interno-privato, il traffico cloud tra più privati, il traffico generale verso Internet e il traffico di rete verso l'ambiente locale sulla connessione VPN IPsec o Azure ExpressRoute.
 
-## <a name="vulnerability-and-patch-management"></a>Una vulnerabilità e gestione delle patch 
+## <a name="vulnerability-and-patch-management"></a>Vulnerabilità e gestione delle patch 
 
-CloudSimple è responsabile per l'applicazione delle patch di sicurezza periodico del software di VMware gestito, ad esempio NSX ESXi e vCenter.
+CloudSimple è responsabile della patch di sicurezza periodica del software VMware gestito, ad esempio ESXi, vCenter e NSX.
 
 ## <a name="identity-and-access-management"></a>Gestione delle identità e dell'accesso
 
-I clienti possono eseguire l'autenticazione al proprio account Azure (in Azure Active Directory) mediante l'autenticazione a più fattori o SSO come preferito. Dal portale di Azure, è possibile avviare il portale CloudSimple senza immettere di nuovo le credenziali.
+I clienti possono eseguire l'autenticazione al proprio account Azure (in Azure Active Directory) usando l'autenticazione a più fattori o SSO come preferito. Dal portale di Azure è possibile avviare il portale di CloudSimple senza immettere nuovamente le credenziali.
 
-CloudSimple supporta la configurazione facoltativa di un'origine di identità per il cloud privato di vCenter. È possibile usare un [origine delle identità in locale](https://docs.azure.cloudsimple.com/set-vcenter-identity), una nuova origine di identità per il cloud privato, oppure [Azure Active Directory](https://docs.azure.cloudsimple.com/azure-ad).
+CloudSimple supporta la configurazione facoltativa di un'origine di identità per il cloud privato vCenter. È possibile usare un' [origine di identità locale](https://docs.azure.cloudsimple.com/set-vcenter-identity), una nuova origine di identità per il cloud privato o [Azure Active Directory](https://docs.azure.cloudsimple.com/azure-ad).
 
-Per impostazione predefinita, i clienti ha i privilegi necessari per le operazioni quotidiane di vCenter nel cloud privato. Questo livello di autorizzazione non include l'accesso amministrativo a vCenter. Se l'accesso amministrativo sia temporaneamente necessario, è possibile [l'escalation dei privilegi](https://docs.azure.cloudsimple.com/escalate-private-cloud-privileges) per un periodo limitato fino al completamento di attività amministrative.
+Per impostazione predefinita, ai clienti vengono assegnati i privilegi necessari per le operazioni quotidiane di vCenter all'interno del cloud privato. Questo livello di autorizzazione non include l'accesso amministrativo a vCenter. Se l'accesso amministrativo è temporaneamente necessario, è possibile eseguire l'escalation dei [privilegi](https://docs.azure.cloudsimple.com/escalate-private-cloud-privileges) per un periodo di tempo limitato durante le attività amministrative.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

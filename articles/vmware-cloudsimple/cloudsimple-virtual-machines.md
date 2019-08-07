@@ -1,40 +1,40 @@
 ---
-title: Soluzione VMware da CloudSimple - Panoramica di macchine virtuali di Azure
-description: Informazioni sulle macchine virtuali CloudSimple e i relativi vantaggi.
+title: Soluzione VMware di CloudSimple-Panoramica delle macchine virtuali di Azure
+description: Informazioni sulle macchine virtuali CloudSimple e sui relativi vantaggi.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 77a2901ae2d81f42780110b1576c1f32c7ff397b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f4967bbd12107bf6a04cb80537d4425c75c5f46
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65209496"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812484"
 ---
 # <a name="cloudsimple-virtual-machines-overview"></a>Panoramica delle macchine virtuali CloudSimple
 
-CloudSimple consente di gestire le macchine virtuali VMware nel portale di Azure.  Un cluster o un pool di risorse dal cluster vSphere viene gestito tramite Azure eseguendone il mapping alla sottoscrizione.  Macchina virtuale CloudSimple offre gestione self-service delle macchine virtuali VMware nel portale di Azure.  
+CloudSimple consente di gestire le macchine virtuali VMware dal portale di Azure.  Un cluster o un pool di risorse dal cluster vSphere viene gestito tramite Azure eseguendone il mapping alla sottoscrizione.  La macchina virtuale CloudSimple offre la gestione self-service di macchine virtuali VMware dal portale di Azure.  
 
-Per creare una VM CloudSimple da Azure, un modello di macchina virtuale deve esistere nel vCenter del Cloud privato.  Il modello viene usato per personalizzare il sistema operativo e applicazioni.  Il modello di macchina virtuale può essere finalizzato per soddisfare i criteri di sicurezza dell'organizzazione.  È possibile utilizzare il modello per creare macchine virtuali e il loro uso dal portale di Azure con un modello self-service.
+Per creare una macchina virtuale CloudSimple da Azure, è necessario che esista un modello di macchina virtuale nel cloud privato vCenter.  Il modello viene usato per personalizzare il sistema operativo e le applicazioni.  La macchina virtuale modello può essere finalizzata per soddisfare i criteri di sicurezza aziendali.  È possibile usare il modello per creare macchine virtuali e utilizzarle da portale di Azure usando un modello Self-Service.
 
 ## <a name="benefits"></a>Vantaggi
 
-Le macchine virtuali CloudSimple dal portale di Azure forniscono un meccanismo self-service agli utenti di creare e gestire macchine virtuali VMware.
+Le macchine virtuali CloudSimple da portale di Azure offrono un meccanismo self-service per consentire agli utenti di creare e gestire macchine virtuali VMware.
 
-* Creare una VM CloudSimple in vCenter del Cloud privato Microsoft
-* Gestire le proprietà della macchina virtuale
-  * Aggiungere o rimuovere dischi
-  * Aggiungere o rimuovere interfacce di rete
-* Operazioni di potenza della VM CloudSimple
+* Creare una macchina virtuale CloudSimple nel cloud privato vCenter
+* Gestisci proprietà VM
+  * Aggiungi/Rimuovi dischi
+  * Aggiungi/Rimuovi NIC
+* Operazioni di risparmio energia della VM CloudSimple
   * Accensione e spegnimento
-  * Reimpostazione della macchina virtuale
+  * Ripristina macchina virtuale
 * Elimina macchina virtuale
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni su come [utilizzare macchine virtuali VMware in Azure](quickstart-create-vmware-virtual-machine.md)
-* Informazioni su come [eseguire il mapping della sottoscrizione di Azure](https://docs.azure.cloudsimple.com/azure-subscription-mapping/)
+* Informazioni su come usare [macchine virtuali VMware in Azure](quickstart-create-vmware-virtual-machine.md)
+* Informazioni su come eseguire [il mapping della sottoscrizione di Azure](https://docs.azure.cloudsimple.com/azure-subscription-mapping/)

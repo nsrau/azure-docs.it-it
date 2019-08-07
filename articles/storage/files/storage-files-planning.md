@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 93c36ccb244931c12d8b038f448fbda4eff77f16
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 287902c149fd3a8732ce9ce95b05b0d9fa36147b
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721718"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816599"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 
@@ -62,7 +62,7 @@ File di Azure offre diverse opzioni predefinite per garantire la sicurezza dei d
     * I client che non supportano SMB 3,0 con crittografia possono comunicare intra-datacenter su SMB 2,1 o SMB 3,0 senza crittografia. Ai client SMB non è consentita la comunicazione tra più data center su SMB 2.1 o SMB 3.0 senza crittografia.
     * I client possono comunicare su REST di File con HTTP o HTTPS.
 * Crittografia dei dati inattivi ([Crittografia del servizio Archiviazione di Azure](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): La crittografia del servizio di archiviazione è abilitata per tutti gli account di archiviazione. Crittografia dei dati inattivi con chiavi completamente gestite. La crittografia dei dati inattivi non aumenta i costi di archiviazione, né riduce le prestazioni. 
-* Requisito facoltativo di dati crittografati in transito: quando è selezionato, File di Azure non consente l'accesso ai dati tramite canali non crittografati. In particolare, vengono consentiti solo HTTPS e SMB 3.0 con connessioni di crittografia.
+* Requisito facoltativo di dati crittografati in transito: quando è selezionato, File di Azure rifiuta l'accesso ai dati tramite canali non crittografati. In particolare, vengono consentiti solo HTTPS e SMB 3.0 con connessioni di crittografia.
 
     > [!Important]  
     > La richiesta di trasferimento protetto dei dati non consentirà la comunicazione tra le vecchie versioni dei client SMB e SMB 3.0 con crittografia. Per altre informazioni, vedere [Montare su Windows](storage-how-to-use-files-windows.md), [Montare su Linux](storage-how-to-use-files-linux.md) e [Montare su macOS](storage-how-to-use-files-mac.md).
@@ -207,11 +207,12 @@ Le condivisioni file standard sono disponibili in tutte le aree fino a 5 TiB. In
 
 |Region |Ridondanza supportata |Supporta gli account di archiviazione esistenti |Supporto del portale *   |
 |-------|---------|---------|---------|
-|Australia orientale  |Archiviazione con ridondanza locale|No         |Sì|
-|Francia centrale  |Archiviazione con ridondanza locale|No         |Non ancora|
-|Asia sudorientale  |CON RIDONDANZA LOCALE, ZRS|No         |Solo con ridondanza locale, ZRS-non ancora|
-|Europa occidentale     |CON RIDONDANZA LOCALE, ZRS|No       |Sì|
-|Stati Uniti occidentali 2       |CON RIDONDANZA LOCALE, ZRS|No         |Sì|
+|Australia orientale  |Archiviazione con ridondanza locale     |No    |Yes|
+|Francia centrale  |Archiviazione con ridondanza locale     |No    |Non ancora|
+|Francia meridionale    |Archiviazione con ridondanza locale     |No    |Non ancora|
+|Asia sudorientale  |CON RIDONDANZA LOCALE, ZRS|No    |Sì|
+|Europa occidentale     |CON RIDONDANZA LOCALE, ZRS|No    |Sì|
+|Stati Uniti occidentali 2       |CON RIDONDANZA LOCALE, ZRS|No    |Yes|
 
 \* Per le aree senza supporto per il portale, è comunque possibile usare PowerShell o l'interfaccia della riga di comando di Azure per creare più di 5 condivisioni TiB. Altenatively creare una nuova condivisione tramite il portale senza specificare la quota. Verrà creata una condivisione con le dimensioni predefinite 100 TiB, che può essere aggiornata in un secondo momento tramite PowerShell o l'interfaccia della riga di comando di Azure.
 

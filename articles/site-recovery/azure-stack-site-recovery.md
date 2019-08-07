@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 05/30/2019
+ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: 11d409f904c43c0df4bbbd44fdb24531f2f989f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1932221e18241d8a2d921f61375019f969e61912
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399587"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782670"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicare le macchine virtuali di Azure Stack in Azure
 
@@ -202,7 +202,7 @@ Selezionare e verificare le risorse di destinazione.
 3. Site Recovery verifica la disponibilità di uno o più account di archiviazione di Azure e reti compatibili. Se non li trova, per completare la procedura guidata è necessario creare almeno un account di archiviazione e una rete virtuale.
 
 
-## <a name="step-5-enable-replication"></a>Passaggio 5: Abilitare la replica
+## <a name="step-5-enable-replication"></a>Passaggio 5: Abilita replica
 
 ### <a name="create-a-replication-policy"></a>Creare un criterio di replica
 
@@ -214,7 +214,7 @@ Selezionare e verificare le risorse di destinazione.
 4. In **Conservazione del punto di ripristino** specificare il tempo di conservazione di ogni punto di ripristino. Le macchine virtuali replicate possono essere ripristinate in qualsiasi punto dell'intervallo di tempo specificato.
 5. In **Frequenza snapshot coerenti con l'app** specificare la frequenza di snapshot coerenti con l'applicazione.
 
-    - Uno snapshot coerente con l'app è uno snapshot del punto nel tempo dei dati dell'app all'interno della VM.
+    - Uno snapshot coerente con l'app è uno snapshot temporizzato dei dati dell'app all'interno della macchina virtuale.
     - Il servizio Copia Shadow del volume (VSS) assicura che lo stato delle app nella macchina virtuale sia coerente quando viene creato lo snapshot.
 6. Fare clic su **OK** per creare i criteri.
 
@@ -225,7 +225,7 @@ Selezionare e verificare le risorse di destinazione.
 
 
 
-### <a name="enable-replication"></a>Abilitare la replica
+### <a name="enable-replication"></a>Abilita replica
 
 Verificare di aver completato tutte le attività nel [Passaggio 1: Preparare la macchina](#step-1-prepare-azure-stack-vms). Abilitare la replica nel modo indicato di seguito:
 
@@ -340,7 +340,7 @@ Quando il sito primario è operativo, è possibile eseguire il failback da Azure
 A questo punto il failback è stato completato.
 
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 In questo articolo le macchine virtuali di Azure Stack sono state replicate in Azure. Dopo che la replica è stata completata, è stato eseguito un ripristino di emergenza per verificare che il failover in Azure funzioni come previsto. L'articolo contiene anche i passaggi per eseguire un failover completo in Azure e per eseguire il failback in Azure Stack.
 

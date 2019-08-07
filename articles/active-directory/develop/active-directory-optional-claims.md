@@ -9,7 +9,7 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/03/2019
@@ -17,16 +17,16 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98b0ec2e1defc4701bff798b2fa93900ec8a9a64
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: b6e097df21051019495b3bf9bb6c83cb3dba03c8
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595153"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835339"
 ---
-# <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procedura: Fornire attestazioni facoltative per l'app di Azure AD
+# <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procedura: Fornire attestazioni facoltative all'app Azure AD
 
-Gli sviluppatori di applicazioni possono usare le attestazioni facoltative nelle proprie app di Azure AD per specificare le attestazioni da includere nei token inviati all'applicazione. 
+Gli sviluppatori di applicazioni possono utilizzare attestazioni facoltative nelle app Azure AD per specificare le attestazioni desiderate nei token inviati alla propria applicazione. 
 
 Le attestazioni facoltative possono essere usate per:
 
@@ -34,9 +34,9 @@ Le attestazioni facoltative possono essere usate per:
 - Modificare il comportamento di determinate attestazioni che Azure AD restituisce nei token.
 - Aggiungere e accedere ad attestazioni personalizzate per l'applicazione.
 
-Per gli elenchi di attestazioni standard, vedere la [token di accesso](access-tokens.md) e [id_token](id-tokens.md) documentazione di attestazioni. 
+Per gli elenchi di attestazioni standard, vedere la documentazione relativa ai [token di accesso e alle](access-tokens.md) attestazioni [token ID](id-tokens.md) . 
 
-Attestazioni facoltative sono supportate in sia v1.0 e v2.0 i token di formato, nonché i token SAML, ma offrono la maggior parte del loro valore quando si spostano da v1.0, v2.0. Uno degli obiettivi del [endpoint di v2.0 Microsoft identity platform](active-directory-appmodel-v2-overview.md) sia token di dimensioni minori per garantire prestazioni ottimali dai client. Di conseguenza, diverse attestazioni incluse in precedenza nei token ID e di accesso non sono più presenti nei token v2.0 e devono essere richieste espressamente per ogni applicazione.
+Mentre le attestazioni facoltative sono supportate nei token di formato v 1.0 e v 2.0, oltre che nei token SAML, forniscono la maggior parte del valore durante il passaggio dalla versione 1.0 alla versione 2.0. Uno degli obiettivi dell'endpoint della [piattaforma di identità Microsoft v 2.0](active-directory-appmodel-v2-overview.md) è costituito da dimensioni di token inferiori per garantire prestazioni ottimali da parte dei client. Di conseguenza, diverse attestazioni incluse in precedenza nei token ID e di accesso non sono più presenti nei token v2.0 e devono essere richieste espressamente per ogni applicazione.
 
 **Tabella 1: applicabilità**
 
@@ -45,43 +45,43 @@ Attestazioni facoltative sono supportate in sia v1.0 e v2.0 i token di formato, 
 | Account Microsoft personale  | N/D  | Supportato |
 | Account Azure AD      | Supportato | Supportato |
 
-## <a name="v10-and-v20-optional-claims-set"></a>set di attestazioni facoltative v1.0 e v2.0
+## <a name="v10-and-v20-optional-claims-set"></a>set di attestazioni facoltative v 1.0 e v 2.0
 
-Il set di attestazioni facoltative disponibili per impostazione predefinita per l'uso da parte delle applicazioni è riportato di seguito. Per aggiungere attestazioni facoltative personalizzate per l'applicazione, vedere le [estensioni della directory](#configuring-directory-extension-optional-claims) più avanti in questo articolo. Quando si aggiungono attestazioni per il **token di accesso**, verranno applicate ai token di accesso richiesto *per* dell'applicazione (un'API web), non quelle *da* l'applicazione. Ciò garantisce che, indipendentemente dal client che accede all'API, il token di accesso usato per l'autenticazione nell'API contenga i dati corretti.
+Il set di attestazioni facoltative disponibili per impostazione predefinita per l'uso da parte delle applicazioni è riportato di seguito. Per aggiungere attestazioni facoltative personalizzate per l'applicazione, vedere le [estensioni della directory](#configuring-directory-extension-optional-claims) più avanti in questo articolo. Quando si aggiungono le attestazioni al **token di accesso**, questo verrà applicato ai token di accesso richiesti *per* l'applicazione (un'API Web ), non a quelli dell'applicazione. Ciò garantisce che, indipendentemente dal client che accede all'API, il token di accesso usato per l'autenticazione nell'API contenga i dati corretti.
 
 > [!NOTE]
-> La maggior parte di queste attestazioni può essere inclusa in token JWT per v1.0 e v2.0, ma non in token SAML, salvo dove diversamente indicato nella colonna Tipo di token. Consumer account supportano un subset di tali attestazioni, contrassegnate nella colonna "Tipo di utente".  Molte delle attestazioni elencate non si applicano agli utenti di consumer (non dispongono di alcun tenant, pertanto `tenant_ctry` non ha alcun valore).  
+> La maggior parte di queste attestazioni può essere inclusa in token JWT per v1.0 e v2.0, ma non in token SAML, salvo dove diversamente indicato nella colonna Tipo di token. Gli account utente supportano un subset di tali attestazioni, contrassegnato nella colonna "tipo di utente".  Molte delle attestazioni elencate non si applicano agli utenti consumer (non hanno tenant, `tenant_ctry` quindi non ha alcun valore).  
 
-**Tabella 2: v1.0 e v2.0 facoltativo set di attestazioni**
+**Tabella 2: set di attestazioni facoltativo v 1.0 e v 2.0**
 
 | Name                       |  DESCRIZIONE   | Tipo di token | Tipo di utente | Note  |
 |----------------------------|----------------|------------|-----------|--------|
-| `auth_time`                | Ora dell'ultima autenticazione dell'utente. Vedere la specifica di OpenID Connect.| Token JSON Web        |           |  |
-| `tenant_region_scope`      | Area del tenant della risorsa. | Token JSON Web        |           | |
-| `home_oid`                 | Per gli utenti guest, l'ID oggetto dell'utente nel tenant home dell'utente.| Token JSON Web        |           | |
-| `sid`                      | ID di sessione, usato per l'accesso utente per ogni sessione out. | Token JSON Web        |  Personale e gli account Azure AD.   |         |
-| `platf`                    | Piattaforma del dispositivo.    | Token JSON Web        |           | Limitato ai dispositivi gestiti che possono verificare il tipo di dispositivo.|
-| `verified_primary_email`   | Originato da PrimaryAuthoritativeEmail dell'utente.      | Token JSON Web        |           |         |
-| `verified_secondary_email` | Originato da SecondaryAuthoritativeEmail dell'utente.   | Token JSON Web        |           |        |
-| `enfpolids`                | ID criteri applicati. Elenco degli ID criteri valutati per l'utente corrente. | Token JSON Web |  |  |
-| `vnet`                     | Informazioni sull'identificatore di rete virtuale. | Token JSON Web        |           |      |
-| `fwd`                      | Indirizzo IP.| Token JSON Web    |   | Aggiunge l'indirizzo IPv4 originale del client richiedente (quando si trova in una rete virtuale). |
-| `ctry`                     | Paese dell'utente. | Token JSON Web |  | Azure AD restituisce l'attestazione facoltativa `ctry` se presente e il valore dell'attestazione è un codice paese di due lettere standard, ad esempio FR, JP, SZ e così via. |
-| `tenant_ctry`              | Paese del tenant della risorsa. | Token JSON Web | | |
-| `xms_pdl`          | Posizione dei dati preferita   | Token JSON Web | | Per i tenant di Multi-Geo Capabilities, questo è il codice di 3 lettere che mostra l'area geografica, che l'utente appartiene. Per altre informazioni, vedere la [documentazione di Azure AD Connect sul percorso dati preferito](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation).<br/>Ad esempio: `APC` per Asia Pacifico. |
-| `xms_pl`                   | Lingua preferita dell'utente  | Token JSON Web ||La lingua preferita dell'utente, se impostata. Originato dal proprio tenant principale, negli scenari di accesso guest. LL-CC formattato ("en-us"). |
-| `xms_tpl`                  | Lingua preferita del tenant| Token JSON Web | | La lingua preferita del tenant risorse, se impostata. LL formattato ("en"). |
-| `ztdid`                    | ID distribuzione completamente automatico | Token JSON Web | | L'identità del dispositivo usata per [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
+| `auth_time`                | Ora dell'ultima autenticazione dell'utente. Vedere la specifica di OpenID Connect.| JWT        |           |  |
+| `tenant_region_scope`      | Area del tenant della risorsa. | JWT        |           | |
+| `home_oid`                 | Per gli utenti guest, l'ID oggetto dell'utente nel tenant home dell'utente.| JWT        |           | |
+| `sid`                      | ID sessione, usato per la disconnessione utente per sessione. | JWT        |  Account personali e Azure AD.   |         |
+| `platf`                    | Piattaforma del dispositivo    | JWT        |           | Limitato ai dispositivi gestiti che possono verificare il tipo di dispositivo.|
+| `verified_primary_email`   | Originato da PrimaryAuthoritativeEmail dell'utente.      | JWT        |           |         |
+| `verified_secondary_email` | Originato da SecondaryAuthoritativeEmail dell'utente.   | JWT        |           |        |
+| `enfpolids`                | ID criteri applicati. Elenco degli ID criteri valutati per l'utente corrente. | JWT |  |  |
+| `vnet`                     | Informazioni sull'identificatore di rete virtuale. | JWT        |           |      |
+| `fwd`                      | Indirizzo IP.| JWT    |   | Aggiunge l'indirizzo IPv4 originale del client richiedente (quando si trova in una rete virtuale). |
+| `ctry`                     | Paese dell'utente. | JWT |  | Azure AD restituisce l'attestazione facoltativa `ctry` se presente e il valore dell'attestazione è un codice paese di due lettere standard, ad esempio FR, JP, SZ e così via. |
+| `tenant_ctry`              | Paese del tenant della risorsa. | JWT | | |
+| `xms_pdl`          | Posizione dei dati preferita   | JWT | | Per i tenant multi-Geo, questo è il codice di tre lettere che mostra l'area geografica in cui si trova l'utente. Per ulteriori informazioni, vedere la [documentazione Azure ad Connect sul percorso dati preferito](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation).<br/>Ad esempio: `APC` per Asia Pacifico. |
+| `xms_pl`                   | Lingua preferita dell'utente  | JWT ||La lingua preferita dell'utente, se impostata. Originato dal proprio tenant principale, negli scenari di accesso guest. LL-CC formattato ("en-us"). |
+| `xms_tpl`                  | Lingua preferita del tenant| JWT | | La lingua preferita del tenant risorse, se impostata. LL formattato ("en"). |
+| `ztdid`                    | ID distribuzione completamente automatico | JWT | | L'identità del dispositivo usata per [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
 | `email`                    | Indirizzo di posta elettronica di riferimento, se l'utente ne ha uno.  | JWT, SAML | MSA, Azure AD | Questo valore è incluso per impostazione predefinita se l'utente è un ospite nel tenant.  Per gli utenti gestiti (quelli all'interno del tenant) deve essere richiesto tramite questa attestazione facoltativa oppure, solo per la versione 2.0, con l'ambito OpenID.  Per gli utenti gestiti, l'indirizzo di posta elettronica deve essere impostato nel [portale di amministrazione di Office](https://portal.office.com/adminportal/home#/users).| 
-| `groups`| Facoltativo di formattazione per le attestazioni di gruppo |JWT, SAML| |Usato in combinazione con l'impostazione GroupMembershipClaims nel [manifesto dell'applicazione](reference-app-manifest.md), che deve essere impostata anche. Per informazioni dettagliate, vedere [attestazioni di gruppo](#Configuring-group-optional claims) sotto. Per altre informazioni sulle attestazioni di gruppo vedere [come configurare le attestazioni di gruppo](../hybrid/how-to-connect-fed-group-claims.md)
+| `groups`| Formattazione facoltativa per le attestazioni di gruppo |JWT, SAML| |Usato in combinazione con l'impostazione GroupMembershipClaims nel [manifesto dell'applicazione](reference-app-manifest.md), che è necessario impostare anche. Per informazioni dettagliate, vedere il [gruppo Claims](#Configuring-group-optional claims) below. Per ulteriori informazioni sulle attestazioni di gruppo [, vedere How to configure Group Claims](../hybrid/how-to-connect-fed-group-claims.md)
 | `acct`             | Stato dell'account degli utenti nel tenant. | JWT, SAML | | Se l'utente è membro del tenant, il valore è `0`. Se si tratta di un utente guest, il valore è `1`. |
 | `upn`                      | Attestazione UserPrincipalName. | JWT, SAML  |           | Benché questa attestazione sia inclusa automaticamente, è possibile specificarla come attestazione facoltativa per collegare proprietà aggiuntive in modo da modificarne il comportamento nel caso dell'utente guest.  |
 
 ### <a name="v20-optional-claims"></a>Attestazioni facoltative v2.0
 
-Queste attestazioni sono sempre incluse nei token di AD Azure v1.0, ma non incluse nei token v2.0 a meno che non richiesto. Queste attestazioni sono applicabili solo per i token Jwt (token ID e token di accesso). 
+Queste attestazioni sono sempre incluse nei token di Azure AD v 1.0, ma non sono inclusi nei token v 2.0, a meno che non vengano richiesti. Queste attestazioni sono applicabili solo a token JWT (token ID e token di accesso). 
 
-**Tabella 3: attestazioni facoltative v2.0-only**
+**Tabella 3: attestazioni facoltative solo v 2.0**
 
 | Attestazione JWT     | Name                            | Descrizione                                | Note |
 |---------------|---------------------------------|-------------|-------|
@@ -89,10 +89,10 @@ Queste attestazioni sono sempre incluse nei token di AD Azure v1.0, ma non inclu
 | `onprem_sid`  | ID di sicurezza locale |                                             |       |
 | `pwd_exp`     | Ora di scadenza della password        | Data e ora in cui scade la password. |       |
 | `pwd_url`     | URL per la modifica della password             | URL che l'utente può visitare per cambiare la password.   |   |
-| `in_corp`     | All'interno della rete aziendale        | Segnala se il client sta effettuando l'accesso dalla rete aziendale. In caso contrario, l'attestazione non è inclusa.   |  In base alle impostazioni degli [indirizzi IP attendibili](../authentication/howto-mfa-mfasettings.md#trusted-ips) nell'autenticazione a più fattori.    |
-| `nickname`    | Nome alternativo                        | Nome aggiuntivo per l'utente, distinto dal nome o dal cognome. | 
-| `family_name` | Cognome                       | Fornisce l'ultimo nome, cognome o cognome dell'utente, come definito nell'oggetto utente. <br>"family_name":"Miller" | Supportato in account del servizio gestito e Azure AD   |
-| `given_name`  | Nome                      | Fornisce il primo o "base" nome dell'utente, come set nell'oggetto utente.<br>"given_name": "Frank"                   | Supportato in account del servizio gestito e Azure AD  |
+| `in_corp`     | All'interno della rete aziendale        | Segnala se il client sta effettuando l'accesso dalla rete aziendale. In caso contrario, l'attestazione non viene inclusa.   |  In base alle impostazioni degli [indirizzi IP attendibili](../authentication/howto-mfa-mfasettings.md#trusted-ips) nell'autenticazione a più fattori.    |
+| `nickname`    | Soprannome                        | Nome aggiuntivo per l'utente, distinto dal nome o dal cognome. | 
+| `family_name` | Cognome                       | Fornisce il cognome, il cognome o il nome della famiglia dell'utente come definito nell'oggetto utente. <br>"family_name":"Miller" | Supportato in MSA e Azure AD   |
+| `given_name`  | Nome                      | Fornisce il primo o il nome "specificato" dell'utente, come impostato nell'oggetto utente.<br>"given_name": "Frank"                   | Supportato in MSA e Azure AD  |
 | `upn`         | Nome entità utente | Identificatore dell'utente che può essere usato con il parametro username_hint.  Non si tratta di un identificatore permanente per l'utente, pertanto non deve essere usato per inserire dati. | Per la configurazione dell'attestazione, vedere le [proprietà aggiuntive](#additional-properties-of-optional-claims) seguenti. |
 
 ### <a name="additional-properties-of-optional-claims"></a>Proprietà aggiuntive delle attestazioni facoltative
@@ -101,7 +101,7 @@ Alcuni attestazioni facoltative possono essere configurate per modificare il mod
 
 **Tabella 4: valori per la configurazione di attestazioni facoltative**
 
-| Nome proprietà  | Nome proprietà aggiuntiva | Descrizione |
+| Nome proprietà  | Nome proprietà aggiuntiva | DESCRIZIONE |
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Utilizzabile per le risposte SAML e JWT e per i token v1.0 e v2.0. |
 |                | `include_externally_authenticated_upn`  | Include l'UPN guest così come è archiviato nel tenant della risorsa. Ad esempio: `foo_hometenant.com#EXT#@resourcetenant.com` |             
@@ -126,10 +126,10 @@ Questo oggetto OptionalClaims fa in modo che il token ID restituito al client in
 
 ## <a name="configuring-optional-claims"></a>Configurazione di attestazioni facoltative
 
-È possibile configurare attestazioni facoltative per l'applicazione modificando il manifesto dell'applicazione (vedere l'esempio riportato di seguito). Per altre informazioni, vedere la [comprendere l'articolo del manifesto dell'applicazione di Azure AD](reference-app-manifest.md).
+È possibile configurare attestazioni facoltative per l'applicazione modificando il manifesto dell'applicazione (vedere l'esempio riportato di seguito). Per altre informazioni, vedere l' [articolo informazioni sul manifesto dell'applicazione Azure ad](reference-app-manifest.md).
 
 > [!IMPORTANT]
-> I token di accesso vengono **sempre** generato usando il manifesto della risorsa, non dal client.  In questo caso nella richiesta `...scope=https://graph.microsoft.com/user.read...` la risorsa è Graph.  Di conseguenza, il token di accesso viene creato utilizzando il manifesto di grafico, non manifesto del client.  Modificare il manifesto dell'applicazione non causerà mai i token per Graph in modo diverso.  Per convalidare che la `accessToken` le modifiche sono in effetti, richiedere un token per l'applicazione, non in un'altra app.  
+> I token di accesso vengono **sempre** generati usando il manifesto della risorsa, non il client.  Quindi, nella richiesta `...scope=https://graph.microsoft.com/user.read...` la risorsa è Graph.  Il token di accesso viene pertanto creato utilizzando il manifesto del grafo, non il manifesto del client.  La modifica del manifesto per l'applicazione non causerà mai l'aspetto diverso dei token per Graph.  Per verificare che le `accessToken` modifiche siano attive, richiedere un token per l'applicazione, non un'altra app.  
 
 **Schema di esempio:**
 
@@ -168,7 +168,7 @@ Dichiara le attestazioni facoltative richieste da un'applicazione. Un'applicazio
 
 **Tabella 5: Proprietà del tipo OptionalClaims**
 
-| Name        | Type                       | Descrizione                                           |
+| NOME        | Type                       | Descrizione                                           |
 |-------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Raccolta (OptionalClaim) | Attestazioni facoltative restituite nel token ID JWT. |
 | `accessToken` | Raccolta (OptionalClaim) | Attestazioni facoltative restituite nel token di accesso JWT. |
@@ -181,48 +181,48 @@ Se supportato da un'attestazione specifica, è inoltre possibile modificare il c
 
 **Tabella 6: Proprietà del tipo OptionalClaim**
 
-| Name                 | Type                    | DESCRIZIONE                                                                                                                                                                                                                                                                                                   |
+| Name                 | Type                    | Descrizione                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | Nome dell'attestazione facoltativa.                                                                                                                                                                                                                                                                           |
 | `source`               | Edm.String              | Origine (oggetto directory) dell'attestazione. Sono presenti attestazioni predefinite e attestazioni definite dall'utente dalla proprietà delle estensioni. Se il valore di origine è Null, l'attestazione è un'attestazione facoltativa predefinita. Se il valore di origine è user, il valore della proprietà name è la proprietà dell'estensione dall'oggetto utente. |
 | `essential`            | Edm.Boolean             | Se il valore è True, l'attestazione specificata dal client è necessaria per garantire un'esperienza di autorizzazione uniforme per l'attività specifica richiesta dall'utente finale. Il valore predefinito è False.                                                                                                             |
 | `additionalProperties` | Raccolta (Edm.String) | Proprietà aggiuntive dell'attestazione. Se esiste una proprietà in questa raccolta, modificherà il comportamento dell'attestazione facoltativa specificata nella proprietà name.                                                                                                                                               |
-## <a name="configuring-directory-extension-optional-claims"></a>Configurazione di attestazioni facoltative di estensioni di directory
+## <a name="configuring-directory-extension-optional-claims"></a>Configurazione delle attestazioni facoltative dell'estensione di directory
 
-Oltre al set di attestazioni facoltative standard, è anche possibile configurare i token in modo da includere le estensioni dello schema di directory. Per altre informazioni, vedi [estensioni dello schema di Directory](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions). Questa funzionalità è utile per il collegamento di altre informazioni sull'utente utilizzabili dall'app, ad esempio un identificatore aggiuntivo o un'opzione di configurazione importante impostata dall'utente. 
+Oltre al set di attestazioni facoltative standard, è anche possibile configurare i token per includere le estensioni dello schema di directory. Per altre informazioni, vedere [estensioni dello schema di directory](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions). Questa funzionalità è utile per il collegamento di altre informazioni sull'utente utilizzabili dall'app, ad esempio un identificatore aggiuntivo o un'opzione di configurazione importante impostata dall'utente. 
 
 > [!Note]
-> - Le estensioni dello schema di directory sono una funzionalità solo AD Azure, pertanto se il manifesto dell'applicazione richieste di un'estensione personalizzata e un utente di account del servizio gestito accede all'app, queste estensioni non verranno restituite.
-> - Attestazioni facoltative di Azure Active Directory funzionano solo con l'estensione Azure AD e non funziona con l'estensione di directory di Microsoft Graph. Entrambe le API richiedono il `Directory.ReadWriteAll` autorizzazione, che può essere concessa solo dagli amministratori.
+> - Le estensioni dello schema di directory sono una funzionalità di solo Azure AD, quindi se il manifesto dell'applicazione richiede un'estensione personalizzata e un utente MSA accede all'app, queste estensioni non verranno restituite.
+> - Azure AD le attestazioni facoltative funzionano solo con l'estensione Azure AD e non funzionano con l'estensione di Microsoft Graph directory. Entrambe le API richiedono `Directory.ReadWriteAll` l'autorizzazione, che può essere concessa solo dagli amministratori.
 
-### <a name="directory-extension-formatting"></a>Estensione di directory di formattazione
+### <a name="directory-extension-formatting"></a>Formattazione estensione directory
 
-Per gli attributi dell'estensione, usare il nome completo dell'estensione (nel formato `extension_<appid>_<attributename>`) nel manifesto dell'applicazione. Il `<appid>` deve corrispondere all'ID dell'applicazione che richiede l'attestazione. 
+Per gli attributi dell'estensione, usare il nome completo dell'estensione (nel formato `extension_<appid>_<attributename>`) nel manifesto dell'applicazione. `<appid>` Deve corrispondere all'ID dell'applicazione che richiede l'attestazione. 
 
 Nei token JWT queste attestazioni verranno emesse con il formato del nome seguente: `extn.<attributename>`.
 
 Nei token SAML queste attestazioni verranno emesse con il formato URI seguente: `http://schemas.microsoft.com/identity/claims/extn.<attributename>`.
 
-## <a name="configuring-group-optional-claims"></a>Configurazione di attestazioni facoltative di gruppo
+## <a name="configuring-group-optional-claims"></a>Configurazione delle attestazioni facoltative del gruppo
 
    > [!NOTE]
-   > La capacità di emettere i nomi dei gruppi di utenti e gruppi sincronizzati dall'istanza locale è una versione di anteprima pubblica.
+   > La possibilità di creare nomi di gruppi per gli utenti e i gruppi sincronizzati dall'ambiente locale è un'anteprima pubblica.
 
-Questa sezione descrive le opzioni di configurazione in attestazioni facoltative per la modifica degli attributi di gruppo usati nelle attestazioni di gruppo dall'objectID del gruppo predefinito di attributi sincronizzati da Active Directory di Windows in locale.
+In questa sezione vengono illustrate le opzioni di configurazione in attestazioni facoltative per la modifica degli attributi di gruppo utilizzati nelle attestazioni del gruppo dal gruppo predefinito objectID agli attributi sincronizzati da Active Directory Windows locale.
 
 > [!IMPORTANT]
-> Visualizzare [configurare le attestazioni di gruppo per le applicazioni con Azure AD](../hybrid/how-to-connect-fed-group-claims.md) per altri dettagli, incluse importanti indicazioni per l'anteprima pubblica di attestazioni di gruppo di attributi in locale.
+> Vedere [configurare le attestazioni di gruppo per le applicazioni con Azure ad](../hybrid/how-to-connect-fed-group-claims.md) per altri dettagli, inclusi importanti avvertenze per l'anteprima pubblica delle attestazioni del gruppo dagli attributi locali.
 
-1. Nel portale -> Azure Active Directory -> applicazione le registrazioni -> selezionare applicazione -> manifesto
+1. Nel portale-> Azure Active Directory-> registrazioni dell'applicazione-> selezionare applicazione-> manifesto
 
 2. Abilitare le attestazioni di appartenenza al gruppo modificando il groupMembershipClaim
 
    I valori validi sono:
 
-   - "Tutti"
-   - "SecurityGroup"
-   - "DistributionList"
-   - "DirectoryRole"
+   - Tutti
+   - SecurityGroup
+   - DistributionList
+   - DirectoryRole
 
    Ad esempio:
 
@@ -230,20 +230,20 @@ Questa sezione descrive le opzioni di configurazione in attestazioni facoltative
    "groupMembershipClaims": "SecurityGroup"
    ```
 
-   Per impostazione predefinita che verranno emesse ObjectIDs gruppo nel gruppo valore di attestazione.  Per modificare il valore dell'attestazione per contenere gli attributi di gruppo locale o per modificare il tipo di attestazione ruolo, usare configurazione OptionalClaims come segue:
+   Per impostazione predefinita, il gruppo ObjectID verrà emesso nel valore dell'attestazione del gruppo.  Per modificare il valore dell'attestazione in modo che contenga gli attributi del gruppo locale o per modificare il tipo di attestazione in role, usare la configurazione di OptionalClaims come indicato di seguito:
 
-3. Set di attestazioni facoltative configurazione nome di gruppo.
+3. Imposta la configurazione del nome del gruppo attestazioni facoltative.
 
-   Se si desidera gruppi nel token per contenere gli attributi di gruppo AD nella sezione attestazioni facoltative specificano quale attestazione facoltativa di tipo di token deve essere applicato a locale, il nome dell'attestazione facoltativa richiesto ed eventuali proprietà aggiuntive desiderate.  È possibile specificare più tipi di token:
+   Se si vuole raggruppare nel token gli attributi di gruppo AD locali nella sezione attestazioni facoltative, specificare a quale tipo di token deve essere applicata l'attestazione facoltativa, il nome dell'attestazione facoltativa richiesta ed eventuali proprietà aggiuntive desiderate.  È possibile elencare più tipi di token:
 
    - idToken per il token ID OIDC
-   - per il token di accesso di OAuth/OIDC accessToken
+   - accessToken per il token di accesso OAuth/OIDC
    - Saml2Token per i token SAML.
 
    > [!NOTE]
-   > Il tipo Saml2Token si applica SAML1.1 sia SAML2.0 i token di formato
+   > Il tipo Saml2Token si applica ai token di formato SAML 1.1 e SAML 2.0
 
-   Per ogni tipo di token pertinente, modificare l'attestazione relativa ai gruppi per usare la sezione OptionalClaims nel manifesto. Come indicato di seguito è riportato lo schema OptionalClaims:
+   Per ogni tipo di token pertinente, modificare l'attestazione groups in modo da usare la sezione OptionalClaims nel manifesto. Lo schema OptionalClaims è il seguente:
 
    ```json
    {
@@ -254,21 +254,21 @@ Questa sezione descrive le opzioni di configurazione in attestazioni facoltative
    }
    ```
 
-   | Schema di attestazioni facoltative | Value |
+   | Schema delle attestazioni facoltativo | Valore |
    |----------|-------------|
-   | **Nome:** | Deve essere "groups" |
-   | **source:** | Non usato. Omettere o specificare null |
-   | **essential:** | Non usato. Omettere oppure specificare false |
+   | **nome** | Deve essere "groups" |
+   | **origine** | Non usato. Omettere o specificare null |
+   | **essenziale** | Non usato. Omettere o specificare false |
    | **additionalProperties:** | Elenco di proprietà aggiuntive.  Le opzioni valide sono "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" |
 
-   In additionalProperties solo uno dei "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name" sono obbligatori.  Se è presentano più di uno, viene usato il primo e tutte le altre ignorato.
+   In additionalProperties è necessario solo uno dei "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name".  Se è presente più di un oggetto, viene usato il primo e tutti gli altri vengono ignorati.
 
-   Alcune applicazioni richiedono informazioni sul gruppo sull'utente nell'attestazione basata su ruolo.  Per modificare il tipo di attestazione da un gruppo a un'attestazione di ruolo, aggiungere "emit_as_roles" alle proprietà aggiuntive.  I valori del gruppo verranno generati nell'attestazione basata su ruolo.
+   Per alcune applicazioni sono necessarie informazioni sul gruppo relative all'utente nell'attestazione del ruolo.  Per modificare il tipo di attestazione in da un'attestazione di gruppo a un'attestazione di ruolo, aggiungere "emit_as_roles" alle proprietà aggiuntive.  I valori del gruppo verranno emessi nell'attestazione del ruolo.
 
    > [!NOTE]
-   > Se viene usato "emit_as_roles" tutti i ruoli applicazione configurato che l'utente sia assegnata will non visualizzata nell'attestazione basata su ruolo
+   > Se viene usato "emit_as_roles", tutti i ruoli applicazione configurati che l'utente è assegnato non verranno visualizzati nell'attestazione del ruolo
 
-**Esempi:** Creare i gruppi come i nomi dei gruppi nei token di accesso di OAuth nel formato dnsDomainName\sAMAccountName
+**Esempi:** Creare gruppi come nomi di gruppo nei token di accesso OAuth in formato dnsDomainName\sAMAccountName
 
 ```json
 "optionalClaims": {
@@ -279,7 +279,7 @@ Questa sezione descrive le opzioni di configurazione in attestazioni facoltative
 }
  ```
 
-Per generare nomi di gruppo venga restituito nel formato netbiosDomain\sAMAccountName come i ruoli di attestazione nel token ID di OIDC e SAML:
+Per creare i nomi dei gruppi da restituire nel formato netbiosDomain\sAMAccountName come attestazione dei ruoli nei token ID SAML e OIDC:
 
 ```json
 "optionalClaims": {
@@ -300,7 +300,7 @@ Per generare nomi di gruppo venga restituito nel formato netbiosDomain\sAMAccoun
 
 In questa sezione è riportato uno scenario che mostra come usare la funzionalità delle attestazioni facoltative per l'applicazione.
 Sono disponibili più opzioni per l'aggiornamento delle proprietà di configurazione di un'identità di applicazione per abilitare e configurare le attestazioni facoltative:
--   È possibile modificare il manifesto dell'applicazione. L'esempio seguente userà questo metodo per eseguire la configurazione. Leggere prima il documento [Informazioni sul manifesto dell'applicazione di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) per un'introduzione al manifesto.
+-   È possibile modificare il manifesto dell'applicazione. Nell'esempio seguente viene usato questo metodo per eseguire la configurazione. Leggere prima il documento [Informazioni sul manifesto dell'applicazione di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) per un'introduzione al manifesto.
 -   È anche possibile scrivere un'applicazione che usa l'[API Graph](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api) per aggiornare l'applicazione. Il [riferimento per entità e tipi complessi](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) nella guida di riferimento sull'API Graph consente di configurare le attestazioni facoltative.
 
 **Esempio:** nell'esempio seguente si modificherà il manifesto di un'applicazione per aggiungere attestazioni ai token di accesso, ID e SAML specifici per l'applicazione.

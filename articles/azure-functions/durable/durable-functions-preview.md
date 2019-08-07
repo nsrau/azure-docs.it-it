@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 7356541ed6288603a66d5caa43138284d8d4d918
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 1609931cd5fcab0977ff64f680fbb1f253f3caaf
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320477"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782180"
 ---
 # <a name="durable-functions-20-preview-azure-functions"></a>Durable Functions 2,0 Preview (funzioni di Azure)
 
@@ -26,7 +26,7 @@ Durable Functions 1. x è una funzionalità GA (disponibile a livello generale) 
 > [!NOTE]
 > Queste funzionalità di anteprima fanno parte di una versione di Durable Functions 2,0, che attualmente è una **versione di anteprima** con diverse modifiche di rilievo. Le compilazioni di pacchetti di estensione durevoli di funzioni di Azure sono reperibili in nuget.org con versioni nel formato **2.0.0-betaX**. Queste compilazioni non sono destinate ai carichi di lavoro di produzione e le versioni successive possono contenere ulteriori modifiche di rilievo.
 
-## <a name="breaking-changes"></a>Modifiche di rilievo
+## <a name="breaking-changes"></a>Modifiche che causano un'interruzione
 
 In Durable Functions 2,0 sono state introdotte diverse modifiche di rilievo. Non è previsto che le applicazioni esistenti siano compatibili con Durable Functions 2,0 senza modifiche al codice. In questa sezione sono elencate alcune delle modifiche:
 
@@ -242,6 +242,16 @@ public static async Task AddValueClient(
 ```
 
 Nell'esempio precedente, `proxy` il parametro è un'istanza generata dinamicamente di `ICounter`, che converte internamente la chiamata a `Add` nella chiamata equivalente (non tipizzata) a `SignalEntityAsync`.
+
+Il parametro di tipo `SignalEntityAsync<T>` per presenta le restrizioni seguenti:
+
+* Il parametro di tipo deve essere un'interfaccia.
+* Nell'interfaccia è possibile definire solo metodi. Proprietà non supportate.
+* Ogni metodo deve definire uno o nessun parametro.
+* Ogni metodo deve `void`restituire, `Task`o `Task<T>` dove `T` è un tipo serializzabile in JSON.
+* L'interfaccia deve essere implementata esattamente da un tipo all'interno dell'assembly dell'interfaccia.
+
+Nella maggior parte dei casi, le interfacce che non soddisfano questi requisiti genereranno un'eccezione in fase di esecuzione.
 
 > [!NOTE]
 > È importante notare che i metodi `ReadEntityStateAsync` `IDurableOrchestrationClient` e `SignalEntityAsync` per definire la priorità delle prestazioni rispetto alla coerenza. `ReadEntityStateAsync`può restituire un valore non aggiornato e `SignalEntityAsync` può restituire prima del completamento dell'operazione.

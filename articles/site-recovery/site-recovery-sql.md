@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/30/2019
+ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 7ee7d6434058da63883f8db0eae6a3f91c778338
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 14fbca6dea735ed1ee13fca20f19379cc2c4d0a9
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325125"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742334"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configurare il ripristino di emergenza per SQL Server
 
@@ -39,7 +39,7 @@ SQL Server in una macchina virtuale IaaS di Azure o in locale.| [Clustering di f
 SQL Server in una macchina virtuale IaaS di Azure o in locale.| [Mirroring del database (modalità a prestazioni elevate)](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-2017) | Tempo impiegato per forzare il servizio, che utilizza il server mirror come server warm standby. | La replica è asincrona. È possibile che il database mirror sia in ritardo rispetto al database principale. Il ritardo è in genere di piccole dimensioni. Tuttavia, può diventare grande se il sistema del server principale o del server mirror è sottoposto a un carico elevato.<br/><br/>Il log shipping può essere un supplemento al mirroring del database. Si tratta di un'alternativa favorevole al mirroring asincrono del database.
 SQL come piattaforma distribuita come servizio (PaaS) in Azure.<br/><br/>Questo tipo di distribuzione include i pool elastici e i server del database SQL di Azure. | Replica geografica attiva | 30 secondi dopo l'attivazione del failover.<br/><br/>Quando si attiva il failover per uno dei database secondari, tutti gli altri database secondari vengono collegati automaticamente al nuovo database primario. | RPO di cinque secondi.<br/><br/>La replica geografica attiva Usa la tecnologia Always On di SQL Server. Replica in modo asincrono le transazioni di cui è stato eseguito il commit nel database primario in un database secondario tramite l'isolamento dello snapshot.<br/><br/>Per i dati secondari si garantisce che non siano mai presenti transazioni parziali.
 SQL come PaaS configurato con la replica geografica attiva in Azure.<br/><br/>Questo tipo di distribuzione include un'istanza gestita di database SQL, pool elastici e server di database SQL. | Gruppi di failover automatico | RTO di un'ora. | RPO di cinque secondi.<br/><br/>I gruppi di failover automatico forniscono la semantica del gruppo sulla replica geografica attiva. Viene tuttavia utilizzato lo stesso meccanismo di replica asincrona.
-SQL Server in una macchina virtuale IaaS di Azure o in locale.| Replica con Azure Site Recovery | RTO è in genere inferiore a 15 minuti. Per altre informazioni, leggere il [contratto di RTO fornito da Site Recovery](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). | Un'ora per la coerenza dell'applicazione e cinque minuti per la coerenza dell'arresto anomalo.
+SQL Server in una macchina virtuale IaaS di Azure o in locale.| Replica con Azure Site Recovery | RTO è in genere inferiore a 15 minuti. Per altre informazioni, leggere il [contratto di RTO fornito da Site Recovery](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). | Un'ora per la coerenza dell'applicazione e cinque minuti per la coerenza dell'arresto anomalo. Se si sta cercando una RPO più bassa, usare altre tecnologie BCDR.
 
 > [!NOTE]
 > Di seguito sono riportate alcune considerazioni importanti per la protezione dei carichi di lavoro SQL con Site Recovery:
@@ -54,7 +54,7 @@ Site Recovery orchestra il failover di test e il failover dell'intera applicazio
 
 Ci sono alcuni prerequisiti per garantire che il piano di ripristino sia completamente personalizzato in base alle esigenze. Qualsiasi distribuzione di SQL Server richiede in genere una distribuzione di Active Directory. È necessaria anche la connettività per il livello applicazione.
 
-### <a name="step-1-set-up-active-directory"></a>Passaggio 1: Configurare Active Directory
+### <a name="step-1-set-up-active-directory"></a>Passaggio 1: Configurazione Active Directory
 
 Configurare Active Directory nel sito di ripristino secondario affinché SQL Server venga eseguito correttamente.
 

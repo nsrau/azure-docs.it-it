@@ -10,12 +10,12 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 8337c8672eb886d79b38b2a38a74037f88604497
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f27484fd1d47a2e29aa5083a7d440e5c7dba11c1
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448555"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839657"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Distribuire i moduli di Azure IoT Edge dal portale di Azure
 
@@ -43,9 +43,9 @@ Nel portale di Azure è disponibile una procedura guidata che consente di creare
 
 ### <a name="add-modules"></a>Aggiungere moduli
 
-1. Nel **impostazioni del Registro di sistema del contenitore** sezione della pagina, fornire le credenziali per accedere a qualsiasi registri contenitori privati che contengono le immagini del modulo.
+1. Nella sezione **impostazioni container Registry** della pagina fornire le credenziali per accedere ai registri di contenitori privati contenenti le immagini del modulo.
 
-1. Nel **moduli di distribuzione** sezione della pagina, seleziona **Add**.
+1. Nella sezione **moduli di distribuzione** della pagina selezionare **Aggiungi**.
 
 1. Scorrere i tipi di modulo dall'elenco a discesa:
 
@@ -57,7 +57,7 @@ Nel portale di Azure è disponibile una procedura guidata che consente di creare
 
 1. Specificare un nome per il modulo e quindi l'immagine del contenitore. Ad esempio:
 
-   * **Nome**: tempSensor
+   * **Nome** : SimulatedTemperatureSensor
    * **URI immagine**: mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
 
 1. Specificare i campi facoltativi, se necessario. Per altre informazioni sulle opzioni di creazione dei contenitore, i criteri di riavvio e lo stato desiderato, vedere [Proprietà desiderate di EdgeAgent](module-edgeagent-edgehub.md#edgeagent-desired-properties). Per altre informazioni sul modulo gemello, vedere [Definire o aggiornare le proprietà desiderate](module-composition.md#define-or-update-desired-properties).
