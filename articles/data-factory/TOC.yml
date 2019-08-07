@@ -203,7 +203,7 @@
         - name: Database SQL di Azure
           href: connector-azure-sql-database.md
         - name: Istanza gestita di database SQL di Azure
-          href: connector-azure-sql-database-managed-insance.md
+          href: connector-azure-sql-database-managed-instance.md
         - name: Azure SQL Data Warehouse
           href: connector-azure-sql-data-warehouse.md
         - name: Archiviazione tabelle di Azure
@@ -592,6 +592,8 @@
       items:
         - name: Perché Azure Data Factory?
           href: data-migration-guidance-overview.md
+        - name: Eseguire la migrazione dei dati da AWS S3 ad Azure
+          href: data-migration-guidance-s3-azure-storage.md
 - name: riferimento
   items:
     - name: .NET

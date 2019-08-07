@@ -27,64 +27,31 @@ sections:
         style: cards
         type: list
   - items:
-      - text: 'Configurare e iniziare a usare il servizio Azure Machine Learning:'
+      - text: Configurare e iniziare a usare il servizio Azure Machine Learning.
         type: paragraph
-      - text: '<b>Guide introduttive:</b>'
-        type: paragraph
-      - items:
-          - html: <a href="service/quickstart-run-cloud-notebook">Eseguire un esperimento nel cloud</a> (nessuna installazione necessaria)
-          - html: <a href="service/quickstart-run-local-notebook">Eseguire un esperimento usando un server di notebook locale</a> (installazione dell'SDK locale)
-        style: unordered
-        type: list
-      - text: '<b>Esercitazione: Eseguire il training e distribuire il primo modello automatizzato di Machine Learning nel portale di Azure:</b>'
+      - text: 'Usa il portale di Azure, un''interfaccia intuitiva e senza codice per eseguire il training, la distribuzione e la gestione di modelli di Machine Learning:'
         type: paragraph
       - items:
+          - html: <a href="service/ui-tutorial-automobile-price-train-score">Eseguire il training del primo esperimento nell'interfaccia utente di trascinamento della selezione dell'interfaccia visiva grafica</a>
           - html: <a href="service/tutorial-first-experiment-automated-ml">Usare un modello automatizzato di Machine Learning per eseguire il training e distribuire il primo modello di classificazione</a>
         style: unordered
         type: list
-      - text: '<b>Esercitazione: Eseguire il training del primo modello di Machine Learning con SDK:</b>'
+      - text: 'Usare Python SDK in script e notebook per eseguire il training, la distribuzione e la gestione di modelli di Machine Learning:'
         type: paragraph
       - items:
-          - html: 'Parte 1: <a href="service/tutorial-1st-experiment-sdk-setup">Configurare l''ambiente e l''area di lavoro</a>'
-          - html: 'Parte 2: <a href="service/tutorial-1st-experiment-sdk-train">Eseguire il training del primo modello</a>'
+          - html: <a href="service/tutorial-1st-experiment-sdk-setup">Configurare l'ambiente ed eseguire il training del primo esperimento di Machine Learning</a>
+          - html: <a href="service/tutorial-train-models-with-aml">Eseguire il training e distribuire i modelli di classificazione delle immagini</a>
+          - html: <a href="service/tutorial-data-prep">Preparare i dati e usare un processo automatizzata di Machine Learning per stimare le tariffe dei taxi</a>
         style: unordered
         type: list
-      - text: '<b>Esercitazione: Eseguire il training e distribuire il primo esperimento usando l''interfaccia visiva grafica:</b>'
-        type: paragraph
-      - items:
-          - html: 'Parte 1: <a href="service/ui-tutorial-automobile-price-train-score">Eseguire il training del modello di regressione</a>'
-          - html: 'Parte 2: <a href="service/ui-tutorial-automobile-price-deploy">Distribuire il modello</a>'
-        style: unordered
-        type: list
-      - text: '<b>Esercitazione: </b>Classificazione delle immagini dei dati di MNIST con SDK:'
-        type: paragraph
-      - items:
-          - html: 'Parte 1: <a href="service/tutorial-train-models-with-aml">Eseguire il training del modello</a>'
-          - html: 'Parte 2: <a href="service/tutorial-deploy-models-with-aml">Distribuire il modello</a>'
-        style: unordered
-        type: list
-      - text: '<b>Esercitazione: Stimare la tariffa della corsa del taxi con SDK:</b>'
-        type: paragraph
-      - items:
-          - html: 'Parte 1: <a href="service/tutorial-data-prep">Preparare i dati per la modellazione</a>'
-          - html: 'Parte 2: <a href="service/tutorial-auto-train-models">Consentire al servizio Machine Learning automatizzato di eseguire automaticamente il training dei modelli</a>'
-        style: unordered
-        type: list
-      - text: '<b>Esercitazione: Stimare il prezzo di un''automobile con l''interfaccia visiva grafica:</b>'
-        type: paragraph
-      - items:
-          - html: 'Parte 1: <a href="service/ui-tutorial-automobile-price-train-score">Stimare il prezzo di un automobile</a>'
-          - html: 'Parte 2: <a href="service/ui-tutorial-automobile-price-deploy">Distribuire il modello di regressione</a>'
-        style: unordered
-        type: list
-      - text: '<b>Utilizzare i modelli:</b>'
+      - text: 'Utilizzare i modelli:'
         type: paragraph
       - items:
           - html: <a href="service/how-to-consume-web-service">Utilizzo dei modelli di tipo richiesta-risposta</a>
           - html: <a href="service/how-to-run-batch-predictions">Stime in batch con le pipeline di Machine Learning</a>
         style: unordered
         type: list
-    title: Guide introduttive ed esercitazioni
+    title: Esercitazioni dettagliate
   - items:
       - className: cardsM
         columns: 2

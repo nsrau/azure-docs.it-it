@@ -131,6 +131,8 @@
   items:
     - name: Gestire Monitoraggio di Azure
       items:
+        - name: Progettare la distribuzione di un'area di lavoro
+          href: platform/design-logs-deployment.md
         - name: Autorizzazioni e sicurezza dei ruoli
           href: platform/roles-permissions-security.md
         - name: Indirizzi IP

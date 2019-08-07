@@ -56,14 +56,20 @@
       maintainContext: true
     - name: Risolvere problemi
       items:
+        - name: Blocco software - CPU
+          href: ./hdinsight-troubleshoot-soft-lockup-cpu.md
+        - name: InvalidNetworkConfigurationErrorCode - creazione del cluster non riuscita
+          href: ./troubleshoot-invalidnetworkconfigurationerrorcode-cluster-creation-fails.md
+        - name: InvalidNetworkSecurityGroupSecurityRules - creazione del cluster non riuscita
+          href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
         - name: Non è possibile accedere al cluster HDInsight
           href: ./hdinsight-troubleshoot-unable-log-in-cluster.md
         - name: Non è possibile aggiungere nodi al cluster HDInsight
           href: ./hdinsight-troubleshoot-unable-add-nodes.md
-        - name: InvalidNetworkSecurityGroupSecurityRules - creazione del cluster non riuscita
-          href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
         - name: Conversione del certificato dell'entità servizio
           href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
+        - name: HDFS locale bloccato in modalità provvisoria
+          href: ./hdinsight-hdfs-troubleshoot-safe-mode.md
         - name: Problemi di heartbeat di Apache Ambari
           href: ./apache-ambari-troubleshoot-heartbeat-issues.md
 - name: Procedure

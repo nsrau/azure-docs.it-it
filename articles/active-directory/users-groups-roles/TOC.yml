@@ -128,8 +128,6 @@
           href: directory-assign-admin-roles.md
         - name: Visualizzare e assegnare i ruoli
           href: directory-manage-roles-portal.md
-        - name: Assegnare ruoli personalizzati nell'API Graph
-          href: roles-assign-powershell.md
         - name: Ruoli personalizzati (anteprima)
           items:
             - name: Ruoli personalizzati (anteprima)
@@ -142,6 +140,8 @@
               href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
             - name: Assegnare ruoli personalizzati nell'API Graph
               href: roles-assign-graph.md
+            - name: Assegnare ruoli personalizzati in PowerShell
+              href: roles-assign-powershell.md
             - name: Autorizzazioni per ruoli personalizzati (anteprima)
               href: roles-custom-available-permissions.md
             - name: Delegare le autorizzazioni di amministrazione di app

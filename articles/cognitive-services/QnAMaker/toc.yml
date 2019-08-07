@@ -70,6 +70,8 @@
     - name: Knowledge Base
       href: Concepts/knowledge-base.md
       displayName: 'metadata, pair'
+    - name: Uso di LUIS e QnA Maker
+      href: ../luis/choose-natural-language-processing-service.md?toc=/azure/cognitive-services/qnamaker/toc.json
     - name: Ciclo di vita di sviluppo di una knowledge base
       href: Concepts/development-lifecycle-knowledge-base.md
     - name: Procedure consigliate
