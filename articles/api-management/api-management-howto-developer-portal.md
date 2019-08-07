@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: apimpm
-ms.openlocfilehash: d902a65c4e36ff698e486e2af899d055de1afca0
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 2756444db010e23f7114e99f474de9ce6614aaee
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638547"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68837916"
 ---
 # <a name="access-and-customize-the-new-developer-portal-in-azure-api-management"></a>Accesso e personalizzazione del nuovo portale per sviluppatori in gestione API di Azure
 
@@ -77,6 +77,10 @@ Sì, verrà deprecato dopo che il nuovo diventa disponibile a livello generale. 
 L'obiettivo della disponibilità generale è fornire una parità di funzionalità basata sullo scenario con il vecchio portale. Fino ad allora, è possibile che nella versione di anteprima non siano state implementate le funzionalità selezionate.
 
 Le eccezioni sono le *applicazioni* e i *problemi* del vecchio portale, che non saranno disponibili nel nuovo portale. Se si usano *problemi* nel portale precedente e ne sono necessari in una nuova, pubblicare un commento in [un problema di GitHub dedicato](https://github.com/Azure/api-management-developer-portal/issues/122).
+
+### <a name="ive-found-bugs-andor-id-like-to-request-a-feature"></a>Ho trovato bug e/o desidero richiedere una funzionalità.
+
+L'installazione è riuscita. È possibile fornire commenti e suggerimenti, inviare una richiesta di funzionalità o archiviare un report sui bug tramite [la sezione problemi del repository GitHub](https://github.com/Azure/api-management-developer-portal/issues). Anche in questo caso, si apprezzeranno i commenti e i suggerimenti sui problemi contrassegnati con `community` l'etichetta.
 
 ### <a name="i-want-to-move-the-content-of-the-new-portal-between-environments-how-can-i-do-that-and-do-i-need-to-go-with-the-self-hosted-version"></a>Si desidera spostare il contenuto del nuovo portale tra gli ambienti. Come è possibile eseguire questa operazione ed è necessario procedere con la versione self-hosted?
 

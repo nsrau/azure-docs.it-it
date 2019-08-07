@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: danlep
-ms.openlocfilehash: 285d5592ce667f7b4d84f26d67a00af0698c2967
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 88b6da4e9bd2938adadadc1ef0e696399fc3c75e
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620961"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828013"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Configurare le regole per accedere a un registro contenitori di Azure dietro un firewall
 
@@ -123,9 +123,9 @@ Ad esempio, creare una regola del gruppo di sicurezza di rete in uscita con **Az
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sulle [procedure consigliate di Azure per la sicurezza di rete](../security/azure-security-network-security-best-practices.md)
+* Informazioni sulle [procedure consigliate di Azure per la sicurezza di rete](../security/fundamentals/network-best-practices.md)
 
-* Altre informazioni sui [gruppi di sicurezza](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview.md) in una rete virtuale di Azure
+* Altre informazioni sui [gruppi di sicurezza](/azure/virtual-network/security-overview) in una rete virtuale di Azure
 
 
 

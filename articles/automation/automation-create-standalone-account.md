@@ -9,16 +9,16 @@ ms.author: robreed
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dcebb26bdebd52da8c48dbf06815a23ce9d38477
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 32fafaeb6332ca0e76dbc8d72f11872a82ca1cbe
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478450"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779148"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Creare un account di Automazione di Azure autonomo
 
-Questo articolo mostra come creare un account di Automazione di Azure nel portale di Azure. È possibile usare l'account di automazione del portale per valutare e ottenere informazioni su automazione di senza dover usare soluzioni di gestione aggiuntive o l'integrazione con i log di monitoraggio di Azure. È possibile aggiungere tali soluzioni di gestione o integrare i log di monitoraggio di Azure per il monitoraggio avanzato dei processi dei runbook in qualsiasi momento nel futuro.
+Questo articolo mostra come creare un account di Automazione di Azure nel portale di Azure. È possibile usare l'account di automazione del portale per valutare e ottenere informazioni sull'automazione senza usare soluzioni di gestione aggiuntive o l'integrazione con i log di monitoraggio di Azure. È possibile aggiungere tali soluzioni di gestione oppure integrarsi con i log di monitoraggio di Azure per il monitoraggio avanzato dei processi di Runbook in qualsiasi momento in futuro.
 
 Con un account di Automazione è possibile autenticare i runbook gestendo le risorse in Azure Resource Manager o nel modello di distribuzione classico. Un account di Automazione può gestire le risorse in tutte le aree e le sottoscrizioni di uno specifico tenant.
 
@@ -37,7 +37,7 @@ Con questi account già creati è possibile iniziare rapidamente la compilazione
 Per creare o aggiornare un account di Automazione e completare le attività descritte in questo articolo, è necessario disporre dei privilegi e delle autorizzazioni seguenti:
 
 * Per creare un account di automazione, l'account utente di Azure AD deve essere aggiunto a un ruolo con autorizzazioni equivalenti al ruolo Proprietario per le risorse**Microsoft. Automation**. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo in Automazione di Azure](automation-role-based-access-control.md).
-* Nel portale di Azure, in **Azure Active Directory** > **Gestisci** > **Registrazioni per l'app**, se l'opzione **Registrazioni per l'app** è impostata su **Sì**, gli utenti senza privilegi di amministratore nel tenant di Azure AD possono [registrare applicazioni Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). Se l'opzione **Registrazioni per l'app** è impostata su **No**, l'utente che esegue questa azione deve essere un amministratore globale in Azure AD.
+* Nel portale di Azure, in **Azure Active Directory** > **gestire** > **le impostazioni utente**, se **registrazioni app** è impostata su **Sì**, gli utenti non amministratori nel tenant di Azure ad possono [registrare Active Applicazioni di directory](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). Se l'opzione **Registrazioni per l'app** è impostata su **No**, l'utente che esegue questa azione deve essere un amministratore globale in Azure AD.
 
 Se l'utente non è membro dell'istanza di Active Directory della sottoscrizione prima dell'aggiunta al ruolo di amministratore globale/coamministratore della sottoscrizione, viene aggiunto ad Active Directory come guest. In questo scenario, viene visualizzato questo messaggio nella pagina **Aggiungi account di Automazione**: "Non si hanno le autorizzazioni per aprire il file."
 
@@ -89,7 +89,7 @@ Per creare un account di Automazione di Azure nel portale di Azure, seguire ques
 
 Quando la creazione dell'account di Automazione viene completata, vengono create automaticamente diverse risorse. Dopo la creazione, è possibile eliminare questi runbook in tutta sicurezza, se non li si vuole mantenere. Gli account RunAs possono essere usati per l'autenticazione dell'account in un runbook e devono essere lasciati, a meno che non se ne crei un altro o non ce ne sia bisogno. La tabella seguente offre un riepilogo delle risorse per l'account RunAs.
 
-| Resource | Descrizione |
+| Risorsa | Descrizione |
 | --- | --- |
 | Runbook AzureAutomationTutorial |Runbook grafico di esempio che illustra come eseguire l'autenticazione con l'account RunAs. Il runbook ottiene tutte le risorse di Resource Manager. |
 | Runbook AzureAutomationTutorialScript |Runbook di PowerShell di esempio che illustra come eseguire l'autenticazione con l'account RunAs. Il runbook ottiene tutte le risorse di Resource Manager. |
@@ -99,7 +99,7 @@ Quando la creazione dell'account di Automazione viene completata, vengono create
 
 La tabella seguente offre un riepilogo delle risorse per l'account RunAs classico.
 
-| Resource | Descrizione |
+| Risorsa | DESCRIZIONE |
 | --- | --- |
 | Runbook AzureClassicAutomationTutorial |Runbook grafico di esempio. Il runbook ottiene tutte le macchine virtuali classiche in una sottoscrizione tramite l'account RunAs classico (certificato). Visualizza quindi i nomi e lo stato delle macchine virtuali. |
 | Runbook di script AzureClassicAutomationTutorial |Runbook di PowerShell di esempio. Il runbook ottiene tutte le macchine virtuali classiche in una sottoscrizione tramite l'account RunAs classico (certificato). Visualizza quindi i nomi e lo stato delle macchine virtuali. |
