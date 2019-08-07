@@ -1,5 +1,5 @@
 ---
-title: 'Backup di Azure: backup offline o seeding iniziale con il servizio Importazione/Esportazione di Azure'
+title: Seeding del backup offline con il servizio di importazione/esportazione di backup di Azure
 description: Informazioni sull'uso di Backup di Azure per l'invio di dati offline tramite il servizio Importazione/Esportazione di Azure. Questo articolo illustra il seeding offline dei dati del backup iniziale tramite il servizio Importazione/Esportazione di Azure.
 ms.reviewer: saurse
 author: dcurwin
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: dacurwin
-ms.openlocfilehash: 2c628b94879e54616f294e4c5f349f241fbbb98b
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: a59cff3b2edc4d5b94cc0a44472665c95652f868
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689465"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736683"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flusso di lavoro del backup offline in Backup di Azure
 In Backup di Azure sono incorporate diverse funzionalità che consentono di ridurre in modo efficiente i costi di archiviazione e di rete durante i backup completi iniziali dei dati in Azure. I backup completi iniziali comportano in genere il trasferimento di grandi quantità di dati e richiedono una larghezza di banda di rete superiore rispetto ai backup successivi con cui vengono trasferiti solo backup differenziali/incrementali. Con il processo di seeding offline, Backup di Azure può usare i dischi per caricare in Azure i dati di backup offline.

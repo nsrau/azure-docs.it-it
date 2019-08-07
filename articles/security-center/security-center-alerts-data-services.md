@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/24/2019
 ms.author: v-mohabe
-ms.openlocfilehash: f33b69ac443a1bb8f6b7d6e1b19f2f077bf38f58
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 8812ac325e6bfd5ee019f6ddd6bf86c846ed5c10
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501473"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782456"
 ---
 # <a name="threat-detection-for-data-services-in-azure-security-center"></a>Rilevamento delle minacce per i servizi dati nel centro sicurezza di Azure
 
@@ -33,7 +33,7 @@ ms.locfileid: "68501473"
 
 Il rilevamento delle minacce SQL rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database. Il Centro sicurezza analizza i log di controllo SQL ed esegue in modalità nativa nel motore di SQL.
 
-|Avviso|DESCRIZIONE|
+|Avviso|Descrizione|
 |---|---|
 |**Vulnerabilità a SQL injection**|Un'applicazione ha generato un'istruzione SQL non corretta nel database. Questo può indicare una possibile vulnerabilità agli attacchi intrusivi nel codice SQL. Ci sono due possibili motivi per la generazione di un'istruzione non corretta: Un difetto nel codice dell'applicazione ha creato un'istruzione SQL non funzionante. In alternativa, il codice dell'applicazione o le stored procedure non hanno purificato l'input dell'utente durante la creazione dell'istruzione SQL difettosa, che può essere sfruttata per SQL injection.|
 |**Potenziale attacco SQL injection**|Si è verificato un exploit attivo in un'applicazione identificata vulnerabile a SQL injection. Ciò significa che un utente malintenzionato sta provando a inserire istruzioni SQL dannose usando il codice dell'applicazione vulnerabile o le stored procedure.|
@@ -60,6 +60,7 @@ Il Centro sicurezza analizza i log di diagnostica delle richieste di lettura, sc
 |**Anomalia di accesso al percorso insolito**|L'analisi del traffico di rete campionata ha rilevato una comunicazione in uscita Remote Desktop Protocol (RDP) anomala originata da una risorsa nella distribuzione. Questa attività viene considerata anomala per questo ambiente e può indicare che la risorsa è stata compromessa e viene ora utilizzata per la forza bruta dell'endpoint RDP esterno. Si noti che in seguito a questo tipo di attività l'IP può venire contrassegnato come dannoso dalle entità esterne.|
 |**Anomalie di accesso all'applicazione**|Indica che l'account di archiviazione ha eseguito l'accesso a un'applicazione insolita. Una causa potenziale è che un utente malintenzionato ha eseguito l'accesso all'account di archiviazione utilizzando una nuova applicazione.|
 |**Anomalia accesso anonimo**|Indica la presenza di una modifica nel modello di accesso a un account di archiviazione. Ad esempio, è stato eseguito l'accesso anonimo all'account (senza autenticazione), che è imprevisto rispetto al modello di accesso recente su questo account. Una possibile provocazione è che un utente malintenzionato ha sfruttato l'accesso in lettura pubblico a un contenitore che contiene l'archiviazione BLOB (s).|
+|**Anomalia Tor**|Indica che l'accesso a questo account è stato eseguito correttamente da un indirizzo IP noto come nodo di uscita attivo di Tor (un proxy anonime). La gravità di questo avviso considera il tipo di autenticazione usato, se presente, e se questo è il primo caso di tale accesso. Le possibili cause possono essere che un utente malintenzionato abbia eseguito l'accesso all'account di archiviazione usando Tor o che l'account di archiviazione sia stato eseguito con Tor.|
 |**Anomalia exfiltration dati**|Indica che è stata estratta una quantità insolitamente elevata di dati rispetto alle attività recenti sul contenitore di archiviazione. Una possibile provocazione è che un utente malintenzionato ha estratto una grande quantità di dati da un contenitore che contiene l'archiviazione BLOB.|
 |**Anomalia di eliminazione imprevista**|Indica che una o più operazioni di eliminazione impreviste si sono verificate in un account di archiviazione, rispetto alle attività recenti di questo account. Una causa potenziale è che un utente malintenzionato ha eliminato i dati dall'account di archiviazione.|
 |**Caricare il pacchetto del servizio cloud di Azure**|Indica che un pacchetto del servizio cloud di Azure (file con estensione cspkg) è stato caricato in un account di archiviazione in modo insolito, rispetto alle attività recenti di questo account. Una possibile causa è che un utente malintenzionato sta preparando la distribuzione di codice dannoso dall'account di archiviazione a un servizio cloud di Azure.|
@@ -70,7 +71,7 @@ Il Centro sicurezza analizza i log di diagnostica delle richieste di lettura, sc
 >[!NOTE]
 >Advanced Threat Protection per archiviazione di Azure non è attualmente disponibile in Azure per enti pubblici e aree cloud sovrane.
 
-Per altre informazioni sugli avvisi per l'archiviazione, vedere l'articolo [Advanced Threat Protection per archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection) ed esaminare la sezione avvisi di protezione.
+Per altre informazioni sugli avvisi per l'archiviazione, vedere l'articolo [Advanced Threat Protection per archiviazione di Azure](../storage/common/storage-advanced-threat-protection.md) ed esaminare la sezione avvisi di protezione.
 
 ## Cosmos DB<a name="cosmos-db"></a>
 

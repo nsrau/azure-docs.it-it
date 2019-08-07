@@ -138,8 +138,6 @@
               href: roles-view-assignments.md
             - name: Assegnare ruoli nell'interfaccia di amministrazione di Azure AD
               href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-            - name: Assegnare ruoli personalizzati nell'API Graph
-              href: roles-assign-graph.md
             - name: Assegnare ruoli personalizzati in PowerShell
               href: roles-assign-powershell.md
             - name: Autorizzazioni per ruoli personalizzati (anteprima)
