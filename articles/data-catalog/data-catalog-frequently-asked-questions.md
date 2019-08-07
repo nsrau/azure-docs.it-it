@@ -5,13 +5,13 @@ author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 07/01/2019
-ms.openlocfilehash: 6ab5c67129b16cde5ca74e72effdf56ec0a22711
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.date: 08/01/2019
+ms.openlocfilehash: 754e967a1be0b00f7ce7448744ec90690fd9f0c3
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508898"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736417"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Domande frequenti sul Catalogo dati di Azure
 Questo articolo fornisce le risposte alle domande frequenti relative al servizio Azure Data Catalog.
@@ -25,10 +25,10 @@ Data Catalog risolve la richiesta di individuazione dell'origine dati e dei cosi
 ## <a name="what-are-its-target-audiences"></a>A chi è destinato?
 Data Catalog è progettato per gli utenti tecnici e non tecnici, tra cui:
 
-* Gli sviluppatori di dati e i professionisti di Business Intelligence e analitica: Agli utenti che sono responsabili della produzione di dati e analitica contenuti altri utenti possano usarlo.
-* Amministratori dei dati: Utenti dispongono di informazioni sui dati, che cosa significa e come deve essere utilizzato.
-* Consumer di dati: Gli utenti che dovranno essere in grado di individuare facilmente, comprendere e connettersi per i dati necessari per svolgere il lavoro, tramite lo strumento di propria scelta.
-* Centrale IT: Utenti che necessitano di rendere individuabili centinaia di origini dei dati dagli utenti aziendali e che vogliono mantenere supervisione sul modo in cui vengono usati dati e da chi.
+* Sviluppatori di dati e professionisti di analisi e Business Intelligence: Persone responsabili della produzione di dati e contenuti analitici per l'utilizzo da altri utenti.
+* Amministratori dei dati: Utenti che conoscono i dati, cosa significa e come sono destinati a essere usati.
+* Consumer di dati: Utenti che devono essere in grado di individuare, comprendere e connettersi facilmente ai dati necessari per svolgere il proprio lavoro, usando lo strumento di propria scelta.
+* IT centrale: Persone che devono rendere individuabili centinaia di origini dati dagli utenti aziendali e che devono mantenere la supervisione della modalità d'uso dei dati e da chi.
 
 ## <a name="what-is-its-availability-by-region"></a>Qual è la disponibilità per area?
 Attualmente i servizi di Data Catalog sono disponibili nei data center seguenti:
@@ -66,7 +66,7 @@ Per registrare i dati in Data Catalog:
 Le proprietà specifiche variano in base all'origine dati, ma in genere il servizio di pubblicazione di Data Catalog estrae le informazioni seguenti:
 
 * Nome dell’asset
-* Tipo di risorsa
+* Tipo di asset
 * Descrizione dell’asset
 * Nomi di colonna/attributo
 * Tipi di dati di colonna/attributo

@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: 787bcf28a64c98f82deb0725e2362bf8144d6c4e
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: da68c0ae1dc92f5b854c30c90b93856248c43281
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640861"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828344"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Matrice di supporto per la valutazione e la migrazione di Hyper-V
 
@@ -36,14 +36,18 @@ Nella tabella sono riepilogati gli scenari supportati per le macchine virtuali H
 **Supporto** | **Dettagli**
 --- | ---
 Autorizzazioni di Azure | Per creare un progetto di Azure Migrate, è necessario disporre delle autorizzazioni Collaboratore o proprietario nella sottoscrizione.
-VM Hyper-V | Valutazione di un massimo di 10.000 macchine virtuali Hyper-V in un singolo progetto. È possibile avere più progetti in una sottoscrizione di Azure. Un progetto può includere sia macchine virtuali VMware che macchine virtuali Hyper-V, fino ai limiti di valutazione.
+VM Hyper-V | Valutazione di un massimo di 35.000 macchine virtuali Hyper-V in un singolo progetto. È possibile avere più progetti in una sottoscrizione di Azure. Un progetto può includere sia macchine virtuali VMware che macchine virtuali Hyper-V, fino ai limiti di valutazione.
 Geografia | È possibile creare progetti Azure Migrate in diverse aree geografiche. Sebbene sia possibile creare progetti in ographies specifici, è possibile valutare o migrare i computer per altri percorsi di destinazione. L'area geografica del progetto viene usata solo per archiviare i metadati individuati.
 
   **Area geografica** | **Posizione di archiviazione dei metadati**
   --- | ---
   Azure per enti pubblici | US Gov Virginia
-  Asia/Pacifico | Asia sud-orientale o Asia orientale
-  Europa | Europa meridionale o Europa occidentale
+  Asia/Pacifico | Asia orientale o Asia sud-orientale
+  Australia | Australia orientale o Australia sudorientale
+  Canada | Canada centrale o Canada orientale
+  Europa | Europa settentrionale o Europa occidentale
+  India | India centrale o India meridionale
+  Giappone |  Giappone orientale o Giappone occidentale
   Regno Unito | Regno Unito meridionale o Regno Unito occidentale
   Stati Uniti | Stati Uniti centrali o Stati Uniti occidentali 2
 
@@ -84,7 +88,7 @@ Per la valutazione, Azure Migrate esegue un appliance leggero per individuare le
 | **Supporto**                | **Dettagli**               
 | :-------------------       | :------------------- |
 | **Progetto Azure Migrate**  |  Un appliance può essere associato a un singolo progetto.<br/> È possibile individuare fino a 5000 VM Hyper-V con un unico dispositivo.
-| **Hyper-V**    |  Si distribuisce l'appliance come macchina virtuale Hyper-V.<br/> La macchina virtuale dell'appliance fornita è la macchina virtuale Hyper-V versione 5,0.<br/> L'host della macchina virtuale deve eseguire Windows Server 2012 R2 o versione successiva.<br/> Richiede spazio sufficiente per allocare 16 GB di RAM, 4 processori virtuali e 1 compartitore esterno per la macchina virtuale dell'appliance.<br/> Il dispositivo richiede un indirizzo IP statico o dinamico e l'accesso a Internet.
+| **Hyper-V**    |  Si distribuisce l'appliance come macchina virtuale Hyper-V.<br/> La macchina virtuale dell'appliance fornita è la macchina virtuale Hyper-V versione 5,0.<br/> L'host della macchina virtuale deve eseguire Windows Server 2012 R2 o versione successiva.<br/> Richiede spazio sufficiente per allocare 16 GB di RAM, 8 vCPU e 1 compartitore esterno per la macchina virtuale dell'appliance.<br/> Il dispositivo richiede un indirizzo IP statico o dinamico e l'accesso a Internet.
 
 
 ## <a name="assessment-appliance-url-access"></a>Valutazione-accesso con URL dell'appliance

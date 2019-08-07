@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 2df1ac6325f692e2d433238ae0b92d8e3f8482b5
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: acb001417b85b8ff45b2617e148e8b1961f3cbfa
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472292"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772981"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Servizi di dominio Azure Active Directory
 Questo articolo offre suggerimenti per la risoluzione dei problemi che possono verificarsi quando si configura o si amministra Servizi di dominio di Azure Active Directory (AD).
@@ -147,6 +147,9 @@ Se uno o più utenti nel tenant di Azure AD non sono in grado di accedere al dom
     1. net stop 'Microsoft Azure AD Sync'
     2. net start 'Microsoft Azure AD Sync'
 * **Account solo cloud**: se l'account utente interessato è un account utente solo cloud, assicurarsi che l'utente abbia modificato la password dopo l'abilitazione di Azure AD Domain Services. Questa operazione comporta la generazione degli hash delle credenziali necessari per Servizi di dominio di Azure AD.
+* **Verificare che l'account utente sia attivo**: Se un account utente è bloccato, non potrà eseguire l'accesso finché il relativo account non sarà nuovamente attivo. Dopo 5 tentativi di inserimento di password non valide in 2 minuti per il dominio gestito, l'account utente viene bloccato per 30 minuti. Dopo 30 minuti l'account utente viene sbloccato automaticamente.
+  * I tentativi di password non validi nel dominio gestito non bloccano l'account utente in Azure AD. L'account utente viene bloccato solo all'interno del dominio gestito di Azure AD Domain Services. Controllare lo stato dell'account utente usando la console di amministrazione di Active Directory per il dominio gestito Azure AD DS, non in Azure AD.
+  * È anche possibile [configurare i criteri granulari per le password che consentono di modificare la soglia e la durata di blocco predefinite](https://docs.microsoft.com/azure/active-directory-domain-services/password-policy).
 
 ## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>Sono presenti uno o più avvisi nel dominio gestito
 

@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 07/29/2019
 ms.author: lyhughes
-ms.openlocfilehash: 33e09ad52722665e6162b18159012d69ec1463bd
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 6602a4df2c6e313156010102780240ba19fbac95
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849283"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815576"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Controllo degli accessi in base al ruolo in Gemelli digitali di Azure
 
@@ -70,7 +70,7 @@ Gli articoli della documentazione di riferimento seguenti descrivono:
 - Come [ottenere l'ID oggetto per un'entità servizio](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal).
 - Come [recuperare l'ID oggetto per un tenant di Azure AD](../active-directory/develop/quickstart-create-new-tenant.md).
 
-## <a name="role-assignments"></a>Assegnazioni di ruoli
+## <a name="role-assignments"></a>Assegnazioni di ruolo
 
 Un'assegnazione di ruolo di Gemelli digitali di Azure associa un oggetto, ad esempio un utente o un tenant di Azure AD, a un ruolo e a uno spazio. Vengono quindi concesse le autorizzazioni a tutti gli oggetti che appartengono a tale spazio, incluso l'intero grafico spaziale sottostante.
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: rajanaki
-ms.openlocfilehash: 305ff610c0f8962f2b50789d8af0a5f6e2fbf046
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: e06cd77a1d46208fe0f7aa166be3ccd3b9b7dbb4
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717364"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828607"
 ---
 # <a name="service-updates-in-site-recovery"></a>Aggiornamenti del servizio in Site Recovery
 
@@ -72,7 +72,7 @@ Seguire lo stesso processo per tutti i componenti pertinenti.
 
 1. Prima di aggiornare il sistema operativo o le versioni del kernel, verificare se la versione di destinazione è supportata Site Recovery. 
 
-    - Supporto per le [macchine virtuali di Azure](/azure-to-azure-support-matrix.md#replicated-machine-operating-systems) .
+    - Supporto per le [macchine virtuali di Azure](azure-to-azure-support-matrix.md#replicated-machine-operating-systems) .
     - Supporto di [VMware/server fisici](vmware-physical-azure-support-matrix.md#replicated-machines)
     - Supporto [di Hyper-V](hyper-v-azure-support-matrix.md#replicated-vms) .
 2. Esaminare [gli aggiornamenti disponibili](site-recovery-whats-new.md) per scoprire cosa si vuole aggiornare.

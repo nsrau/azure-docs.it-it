@@ -3,13 +3,13 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 07/19/2019
-ms.openlocfilehash: 763d424d9d462c4a9531df84f3e5e26bfc1b0a14
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.date: 08/02/2019
+ms.openlocfilehash: 5c300cb7d5416ada435811872e2cea8865e3c657
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68502299"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68781252"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances-ri"></a>Pagamento anticipato per le macchine virtuali con istanze di VM riservate di Azure
 
@@ -36,7 +36,7 @@ Le prenotazioni della macchina virtuale possono essere applicate all'utilizzo de
 
 L'impostazione della flessibilità delle dimensioni dell'istanza determina quali servizi ottengono gli sconti per le istanze riservate.
 
-Se l'impostazione è on o off, gli sconti per la prenotazione si applicano automaticamente a qualsiasi  utilizzo di `Microsoft.Compute`VM corrispondente quando il ConsumedService è. Controllare quindi i dati di utilizzo per il valore *ConsumedService* . Di seguito sono riportati alcuni esempi:
+Se l'impostazione è on o off, gli sconti per la prenotazione si applicano automaticamente a qualsiasi utilizzo di `Microsoft.Compute`VM corrispondente quando il ConsumedService è. Controllare quindi i dati di utilizzo per il valore *ConsumedService* . Di seguito sono riportati alcuni esempi:
 
 - Macchine virtuali
 - set di scalabilità di macchine virtuali
@@ -95,7 +95,7 @@ Per acquistare un'istanza:
 1. Selezionare **Aggiungi** per acquistare una nuova prenotazione e quindi fare clic su **macchina virtuale**.
 1. Immettere i campi obbligatori. Lo sconto relativo alla prenotazione viene applicato alle istanze di macchine virtuali in esecuzione che corrispondono agli attributi. Il numero di istanze di macchine virtuali a cui viene applicato lo sconto dipende dall'ambito e dalla quantità selezionati.
 
-| Campo      | DESCRIZIONE|
+| Campo      | Descrizione|
 |------------|--------------|
 |Sottoscrizione|La sottoscrizione usata per pagare la prenotazione. L'acquisto delle istanze di macchina virtuale riservate viene addebitato in base al metodo di pagamento associato alla sottoscrizione. Il tipo di sottoscrizione deve essere un contratto Enterprise (numeri offerta: MS-AZR-0017P o MS-AZR-0148P) o una singola sottoscrizione con tariffe con pagamento in base al consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Per una sottoscrizione con tariffe con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione.|    
 |Ambito       |L'ambito della prenotazione può coprire una o più sottoscrizioni (ambito condiviso). Se si seleziona: <ul><li>**Ambito del gruppo di risorse singolo** : applica lo sconto di prenotazione alle risorse corrispondenti solo nel gruppo di risorse selezionato.</li><li>**Singolo ambito di sottoscrizione** : applica lo sconto di prenotazione alle risorse corrispondenti nella sottoscrizione selezionata.</li><li>**Ambito condiviso** : applica lo sconto di prenotazione alle risorse corrispondenti nelle sottoscrizioni idonee presenti nel contesto di fatturazione. Per i clienti con contratto Enterprise, il contesto di fatturazione è la registrazione. Per le singole sottoscrizioni con tariffe con pagamento in base al consumo, l'ambito di fatturazione è costituito da tutte le sottoscrizioni idonee create dall'amministratore account.</li></ul>|
@@ -132,13 +132,9 @@ Non è possibile apportare i seguenti tipi di modifiche dopo l'acquisto, diretta
 
 Tuttavia, se si desidera apportare modifiche, è possibile *scambiare* una prenotazione.
 
-## <a name="cancellations-and-exchanges"></a>Annullamenti e scambi
+## <a name="cancel-exchange-or-refund-reservations"></a>Prenotazioni per annullamento, scambio o rimborso
 
-Se è necessario annullare la prenotazione, potrebbe venire applicata una quota del 12% per l'interruzione anticipata. I rimborsi si basano sul prezzo più basso tra il prezzo di acquisto o il prezzo corrente della prenotazione. I rimborsi sono limitati a $50.000 dollari all'anno. Il rimborso ricevuto corrisponde al saldo ripartito rimanente meno il costo per la risoluzione del 12%. Per annullare, passare alla prenotazione nel portale di Azure e selezionare **rimborso**.
-
-Se è necessario modificare la prenotazione delle istanze di VM riservate in un'altra area, gruppo di dimensioni della macchina virtuale o termine, è possibile scambiarlo. Lo scambio deve essere per un'altra prenotazione con un valore uguale o maggiore. Come data di inizio del periodo della nuova prenotazione non viene conservata quella della prenotazione scambiata. Il termine uno o tre anni inizia da quando si crea la nuova prenotazione. Per scambiare, passare alla prenotazione nella portale di Azure e selezionare **Exchange**.
-
-Per ulteriori informazioni su come scambiare o rimborsare le prenotazioni, vedere la pagina relativa agli [scambi di prenotazione e](../articles/billing/billing-azure-reservations-self-service-exchange-and-refund.md)ai rimborsi.
+È possibile annullare, scambiare o rimborsare le prenotazioni con determinate limitazioni. Per altre informazioni, vedere [scambi e rimborsi self-service per le prenotazioni di Azure](../articles/billing/billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 

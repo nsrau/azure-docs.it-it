@@ -9,14 +9,14 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 07/01/2019
+ms.date: 08/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 9eb03be5cd9704c3b124bfb16fd30c5c3466890d
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: b3513ab2583939943ff188b582f57f49530e5ded
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326130"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736249"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurare un nome di dominio personalizzato
 
@@ -40,17 +40,19 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>Usare il portale di Azure per impostare un nome di dominio personalizzato
 
 1. Passare all'istanza di gestione API nel [portale di Azure](https://portal.azure.com/).
-1. Selezionare **Domini e SSL personalizzati**.
+1. Selezionare **domini personalizzati**.
 
     Sono disponibili diversi endpoint a cui è possibile assegnare un nome di dominio personalizzato. Attualmente sono disponibili gli endpoint seguenti:
 
-    - **Proxy** (il valore predefinito è: `<apim-service-name>.azure-api.net`),
+    - **Gateway** (il valore predefinito `<apim-service-name>.azure-api.net`è:),
     - **Portale** (il valore predefinito è: `<apim-service-name>.portal.azure-api.net`),
     - **Gestione** (il valore predefinito è: `<apim-service-name>.management.azure-api.net`),
     - **SCM** (il valore predefinito è: `<apim-service-name>.scm.azure-api.net`).
 
     > [!NOTE]
-    > È possibile aggiornare tutti gli endpoint o alcuni di essi. In genere, i clienti aggiornano **Proxy** (questo URL viene usato per chiamare l'API esposta tramite Gestione API) e **Portale** (l'URL del portale per sviluppatori). Gli endpoint di **gestione** e **SCM** vengono usati internamente dai proprietari dell'istanza di gestione API e pertanto vengono assegnati con minore frequenza a un nome di dominio personalizzato. Nella maggior parte dei casi è possibile impostare solo un singolo nome di dominio personalizzato per un determinato endpoint. Tuttavia, il livello **Premium** supporta l'impostazione di più nomi host per l'endpoint **proxy** .
+    > Solo l'endpoint del **gateway** disponibile per la configurazione nel livello di consumo.
+    > È possibile aggiornare tutti gli endpoint o alcuni di essi. In genere, i clienti aggiornano il **gateway** (questo URL viene usato per chiamare l'API esposta tramite gestione API) e il **portale** (l'URL del portale per sviluppatori).
+    > Gli endpoint di **gestione** e **SCM** vengono usati internamente dai proprietari dell'istanza di gestione API e pertanto vengono assegnati con minore frequenza a un nome di dominio personalizzato. Il livello **Premium** supporta l'impostazione di più nomi host per l'endpoint del **gateway** .
 
 1. Selezionare l'endpoint che si vuole aggiornare.
 1. Nella finestra di destra fare clic su **Personalizzato**.

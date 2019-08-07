@@ -6,14 +6,14 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/16/2019
+ms.date: 08/02/2019
 ms.author: banders
-ms.openlocfilehash: 40ccee7a993ce39a9b4c7a86309b0554daa56026
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: f122ec2474c09cdd6c9ada4ddc59b1adb44f619f
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68298269"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780016"
 ---
 # <a name="prepay-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>Pagamento in anticipo per il timbro del servizio app Azure con capacità riservata
 
@@ -62,13 +62,9 @@ Acquistare le prenotazioni di Windows Stamp se uno o più ruoli di lavoro di Win
 
 Dopo l'acquisto, passare a [prenotazioni](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) per visualizzare lo stato di acquisto e monitorarlo in qualsiasi momento.
 
-## <a name="cancellations-and-exchanges"></a>Annullamenti e scambi
+## <a name="cancel-exchange-or-refund-reservations"></a>Prenotazioni per annullamento, scambio o rimborso
 
-Se è necessario annullare la capacità riservata dei timbri isolati, potrebbe essere prevista una tariffa per l'interruzione anticipata del 12%. I rimborsi si basano sul prezzo più basso tra il prezzo di acquisto o il prezzo corrente della prenotazione. I rimborsi sono limitati a $50.000,00 all'anno. Il rimborso ricevuto è il saldo proporzionale rimanente meno il 12% della tariffa per la terminazione anticipata. Per annullare, passare alla prenotazione nel portale di Azure e selezionare **rimborso**.
-
-Se è necessario spostare la capacità riservata dei timbri isolati in un'altra area, è possibile scambiarla per un'altra prenotazione con un valore uguale o superiore. Come data di inizio del periodo della nuova prenotazione non viene conservata quella della prenotazione scambiata. Un termine di tre anni inizia quando si crea la nuova prenotazione. Per scambiare, passare alla portale di Azure, selezionare la prenotazione che si vuole scambiare e selezionare **Exchange**.
-
-Per ulteriori informazioni su come scambiare o rimborsare le prenotazioni, vedere la pagina relativa agli [scambi di prenotazione e](billing-azure-reservations-self-service-exchange-and-refund.md)ai rimborsi.
+È possibile annullare, scambiare o rimborsare le prenotazioni con determinate limitazioni. Per altre informazioni, vedere [scambi e rimborsi self-service per le prenotazioni di Azure](billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## <a name="discount-application-shown-in-usage-data"></a>Applicazione Discount mostrata nei dati di utilizzo
 

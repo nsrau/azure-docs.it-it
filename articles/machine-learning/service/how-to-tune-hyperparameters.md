@@ -1,7 +1,7 @@
 ---
 title: Ottimizzare gli iperparametri per il modello
 titleSuffix: Azure Machine Learning service
-description: Ottimizzare in modo efficiente gli iperparametri per il modello di apprendimento avanzato/apprendimento automatico mediante il servizio Azure Machine Learning. Verrà illustrato come definire lo spazio di ricerca dei parametri, specificare una metrica primaria da ottimizzare e terminare in modo anticipato le esecuzioni con scarse prestazioni.
+description: Ottimizzare in modo efficiente gli iperparametri per il modello di apprendimento avanzato/apprendimento automatico mediante il servizio Azure Machine Learning. Si apprenderà come definire lo spazio di ricerca dei parametri, come specificare una metrica primaria da ottimizzare e come terminare le esecuzioni con prestazioni scarse.
 ms.author: swatig
 author: swatig007
 ms.reviewer: sgilley
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 730f39bf0b05ef33bbbca150532f96f1e495a9ed
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: cb4378047f34f3f635b2f1dd2425bbee28f91178
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302357"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815715"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning-service"></a>Ottimizzare gli iperparametri per il modello con il servizio Azure Machine Learning
 
@@ -45,7 +45,7 @@ Ottimizzare automaticamente gli iperparametri esplorando l'intervallo di valori 
 
 ### <a name="types-of-hyperparameters"></a>Tipi di iperparametri
 
-Ogni iperparametro può essere discreto o continuo.
+Ogni iperparametro può essere discreto o continuo e presenta una distribuzione dei valori descritti da un' [espressione di parametro](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.parameter_expressions?view=azure-ml-py).
 
 #### <a name="discrete-hyperparameters"></a>Iperparametri discreti 
 
@@ -129,7 +129,7 @@ Il [campionamento bayesiano](https://docs.microsoft.com/python/api/azureml-train
 
 Quando si usa il campionamento bayesiano, il numero di esecuzioni simultanee influisce sull'efficacia del processo di ottimizzazione. In genere, un numero minore di esecuzioni simultanee può migliorare la convergenza di campionamento, poiché il minor grado di parallelismo aumenta il numero di esecuzioni che traggono vantaggio dalle esecuzioni precedentemente completate.
 
-Il campionamento bayesiano supporta solo le distribuzioni `choice` e `uniform` nello spazio di ricerca. 
+Il campionamento bayesiano `choice`supporta `uniform`solo le `quniform` distribuzioni, e tramite lo spazio di ricerca.
 
 ```Python
 from azureml.train.hyperdrive import BayesianParameterSampling
@@ -179,7 +179,7 @@ Lo script di training calcola `val_accuracy` e lo registra come precisione, che 
 
 ## <a name="specify-early-termination-policy"></a>Specificare i criteri per la terminazione anticipata
 
-Termina le esecuzioni con prestazioni non soddisfacenti automaticamente con un [criterio di terminazione anticipato. Questa terminazione riduce gli sprechi di risorse, impiegandole per l'esplorazione di altre configurazioni dei parametri.
+Terminare automaticamente le esecuzioni con scarse prestazioni con criteri di terminazione anticipata. Questa terminazione riduce gli sprechi di risorse, impiegandole per l'esplorazione di altre configurazioni dei parametri.
 
 Quando si usano criteri di terminazione anticipata, è possibile configurare i parametri seguenti che consentono di controllare quando vengono applicati i criteri:
 
@@ -234,7 +234,7 @@ from azureml.train.hyperdrive import TruncationSelectionPolicy
 early_termination_policy = TruncationSelectionPolicy(evaluation_interval=1, truncation_percentage=20, delay_evaluation=5)
 ```
 
-In questo esempio, i criteri di terminazione anticipata vengono applicati a ogni intervallo, a partire dall'intervallo di valutazione 5. Un'esecuzione verrà terminata nell'intervallo 5 se le relative prestazioni nell'intervallo 5 rientrano nel 20% inferiore delle prestazioni di tutte le esecuzioni nell'intervallo 5.
+In questo esempio, i criteri di terminazione anticipata vengono applicati a ogni intervallo, a partire dall'intervallo di valutazione 5. Un'esecuzione verrà terminata in corrispondenza dell'intervallo 5 se le prestazioni con intervallo 5 sono nel 20% delle prestazioni più basso di tutte le esecuzioni all'intervallo 5.
 
 ### <a name="no-termination-policy"></a>Criteri senza terminazione
 
@@ -246,7 +246,7 @@ policy=None
 
 ### <a name="default-policy"></a>Criteri predefiniti
 
-Se non viene specificato alcun criterio, il servizio di ottimizzazione degli iperparametri consentirà di eseguire tutte le esecuzioni del training fino al completamento.
+Se non viene specificato alcun criterio, il servizio di ottimizzazione iperparametri consente di eseguire tutte le esecuzioni di training fino al completamento.
 
 >[!NOTE] 
 >Se si sta cercando un criterio conservativo che consenta un risparmio senza terminare i processi promettenti, è possibile usare un criterio di arresto con valore mediano con `evaluation_interval` 1 e `delay_evaluation` 5. Queste sono impostazioni conservative, che possono garantire circa il 25-35% di risparmio senza alcuna perdita sulla metrica primaria (in base ai dati di valutazione).
@@ -275,7 +275,7 @@ max_total_runs=20,
 max_concurrent_runs=4
 ```
 
-Con questo codice, l'esperimento di ottimizzazione degli iperparametri verrà configurato per l'uso di un massimo di 20 esecuzioni totali, eseguendo 4 configurazioni alla volta.
+Questo codice configura l'esperimento di ottimizzazione degli iperparametri in modo da usare un massimo di 20 esecuzioni totali, eseguendo quattro configurazioni alla volta.
 
 ## <a name="configure-experiment"></a>Configurare l'esperimento
 

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/22/2019
+ms.date: 08/02/2019
 ms.author: magoedte
-ms.openlocfilehash: 96a312630c92048f36f79e3bec18f83ed5a445ff
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: e1fca1532352c4955f478df70f818ee3151053c1
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414139"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742215"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Panoramica di Monitoraggio di Azure per contenitori
 
@@ -40,9 +40,11 @@ Monitoraggio di Azure per i contenitori offre un'esperienza di monitoraggio comp
 * Configurare gli avvisi per notificare in modo proattivo o registrarlo quando l'utilizzo della CPU e della memoria nei nodi o nei contenitori supera le soglie.
 * Eseguire l'integrazione con [Prometeo](https://prometheus.io/docs/introduction/overview/) per visualizzare le metriche dell'applicazione e del carico di lavoro che raccoglie da nodi e Kubernetes usando le [query](container-insights-log-search.md) per creare avvisi personalizzati, dashboard ed eseguire analisi dettagliate.
 
->[!NOTE]
->Il supporto per Prometheus è una funzionalità di anteprima pubblica al momento.
->
+    >[!NOTE]
+    >Il supporto per Prometheus è una funzionalità di anteprima pubblica al momento.
+    >
+
+* Monitorare i carichi di lavoro dei contenitori [distribuiti nel motore AKS](https://github.com/microsoft/OMS-docker/tree/aks-engine).
 
 Per informazioni sul monitoraggio del cluster AKS con monitoraggio di Azure per i contenitori, vedere il video seguente che fornisce un approfondimento di livello intermedio.
 

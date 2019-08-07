@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
-ms.openlocfilehash: ed3c5790dcb51d12a38b85aa95e9c9178b6f44cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6bafd5ed5f2d7080b0f2a2db71ac96e4f97a1f76
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65408852"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774933"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Aggiornare e ridimensionare un'istanza di Gestione API di Azure  
 
@@ -54,7 +54,7 @@ Il livello **Premium** consente di distribuire un'unica istanza di Gestione API 
 È possibile effettuare aggiornamenti e downgrade da e verso qualsiasi livello. L'aggiornamento o il downgrade può rimuovere alcune funzionalità. Se ad esempio si effettua il downgrade dal livello Premium al livello Standard o Basic, possono essere rimosse le reti virtuali o la distribuzione in più aree.
 
 >[!NOTE]
->Il processo di aggiornamento o ridimensionamento può richiedere da 15 a 45 minuti. Si riceva una notifica al termine.
+>Il processo di aggiornamento o ridimensionamento può richiedere da 15 a 45 minuti. Si riceverà una notifica al termine dell'operazione.
 
 ## <a name="use-the-azure-portal-to-upgrade-and-scale"></a>Eseguire l'aggiornamento e il ridimensionamento tramite il portale di Azure
 
@@ -66,6 +66,10 @@ Il livello **Premium** consente di distribuire un'unica istanza di Gestione API 
 4. Specificare il numero di **unità** da aggiungere. A tale scopo, è possibile usare il dispositivo di scorrimento o digitare il numero di unità.  
     Se si sceglie il livello **Premium**, è prima necessario selezionare un'area.
 5. Premere **Salva**.
+
+## <a name="downtime-during-scaling-up-and-down"></a>Tempo di inattività durante il ridimensionamento
+Se si esegue il ridimensionamento da o verso il livello Developer, si verifica un tempo di inattività. In caso contrario, non sono previsti tempi di inattività. 
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

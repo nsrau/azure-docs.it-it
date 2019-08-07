@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 6516bbcb4ea879279812d61d9fe31f1ea4268280
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7dcf962345a2453fca52825c4be33a439d25df54
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67616247"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68740924"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Anteprima-proteggere l'accesso al server API usando gli intervalli di indirizzi IP autorizzati in Azure Kubernetes Service (AKS)
 
@@ -218,13 +218,13 @@ Per abilitare gli intervalli IP autorizzati del server API, fornire un elenco di
 
 Usare il comando [AZ AKS Update][az-aks-update] e specificare *--API-server-Authorized-IP-Ranges* per consentire. Questi intervalli di indirizzi IP sono in genere intervalli di indirizzi usati dalle reti locali. Aggiungere l'indirizzo IP pubblico del firewall di Azure ottenuto nel passaggio precedente, ad esempio *20.42.25.196/32*.
 
-L'esempio seguente abilita gli intervalli IP autorizzati del server API nel cluster denominato *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup*. Gli intervalli di indirizzi IP da autorizzare sono *20.42.25.196/32* (l'indirizzo IP pubblico del firewall di Azure), quindi *172.0.0.10/16* e *168.10.0.10/18*:
+L'esempio seguente abilita gli intervalli IP autorizzati del server API nel cluster denominato *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup*. Gli intervalli di indirizzi IP da autorizzare sono *20.42.25.196/32* (l'indirizzo IP pubblico del firewall di Azure), quindi *172.0.0.0/16* e *168.10.0.0/18*:
 
 ```azurecli-interactive
 az aks update \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --api-server-authorized-ip-ranges 20.42.25.196/32,172.0.0.10/16,168.10.0.10/18
+    --api-server-authorized-ip-ranges 20.42.25.196/32,172.0.0.0/16,168.10.0.0/18
 ```
 
 ## <a name="update-or-disable-authorized-ip-ranges"></a>Aggiornare o disabilitare gli intervalli IP autorizzati

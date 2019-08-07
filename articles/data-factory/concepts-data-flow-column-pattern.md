@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 8f1fa6f7823c643278e52ffd0faa1c0ce4972ef8
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 41037e0687274d123bea742cee5cf2887548aa0f
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640244"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775216"
 ---
 # <a name="mapping-data-flows-column-patterns"></a>Mapping dei flussi di dati modelli di colonna
 
@@ -45,6 +45,16 @@ Per compilare modelli basati su colonne, è possibile trovare la corrispondenza 
 Quando si esegue il mapping delle colonne nell'origine e si selezionano le trasformazioni, sarà possibile scegliere "mapping fisso" o "mapping basato su regole". Quando si conosce lo schema dei dati e si prevede che le colonne specifiche del set di dati di origine corrispondano sempre a nomi statici specifici, è possibile usare il mapping fisso. Tuttavia, quando si utilizzano schemi flessibili, utilizzare il mapping basato sulle regole. Sarà possibile creare una corrispondenza dei modelli usando le regole descritte in precedenza.
 
 ![mapping basato su regole](media/data-flow/rule2.png "Mapping basato su regole")
+
+Compilare le regole usando il generatore di espressioni. Le espressioni restituiranno un valore booleano per trovare la corrispondenza con le colonne (true) o escludere le colonne (false).
+
+## <a name="pattern-matching-special-columns"></a>Colonne speciali di criteri di ricerca
+
+* `$$`viene convertito nel nome di ogni corrispondenza in fase di progettazione in modalità di debug e durante l'esecuzione in fase di esecuzione
+* `name`rappresenta il nome di ogni colonna in ingresso
+* `type`rappresenta il tipo di dati di ogni colonna in ingresso
+* `stream`rappresenta il nome associato a ogni flusso o trasformazione nel flusso
+* `position`posizione ordinale delle colonne nel flusso di dati
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sul [linguaggio delle espressioni](http://aka.ms/dataflowexpressions) del flusso di dati del mapping di ADF per le trasformazioni dei dati

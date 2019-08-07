@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 6/1/2019
 ms.author: victorh
-ms.openlocfilehash: dc3b9cceda10ae1ff648306236d5ac4868b5b426
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 5bfb3a093cd101f30daf4439dc8f58b5b4f693ca
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722164"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68740876"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Domande frequenti sul gateway applicazione
 
@@ -101,7 +101,7 @@ Sì. Vedere le modifiche apportate [a una richiesta](https://docs.microsoft.com/
 
 Nuove distribuzioni di SKU versione 1 del gateway applicazione possono richiedere fino a 20 minuti per effettuare il provisioning. Le modifiche apportate alle dimensioni o al conteggio delle istanze non vengono interrotte e il gateway rimane attivo durante questo periodo di tempo.
 
-Le distribuzioni che usano lo SKU V2 possono richiedere fino a 6 minuti per il provisioning.
+Per la maggior parte delle distribuzioni che usano lo SKU V2 sono necessari circa 6 minuti per il provisioning. Tuttavia, può richiedere più tempo a seconda del tipo di distribuzione. Ad esempio, le distribuzioni in più zone di disponibilità con molte istanze possono richiedere più di 6 minuti. 
 
 ### <a name="can-i-use-exchange-server-as-a-backend-with-application-gateway"></a>È possibile usare Exchange Server come back-end con il gateway applicazione?
 
@@ -323,10 +323,6 @@ Sì. È possibile abilitare la protezione DDoS nella rete virtuale in cui è dis
 ### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Sono disponibili linee guida per la migrazione dallo SKU V1 allo SKU V2?
 
 Sì. Per informazioni dettagliate, vedere [eseguire la migrazione di applicazione Azure gateway e del Web Application Firewall da V1 a V2](migrate-v1-v2.md).
-
-### <a name="does-waf-support-non-utf-8-encoding"></a>WAF supporta la codifica non UTF-8?
-
-No. WAF supporta attualmente solo la codifica UTF-8.
 
 ## <a name="diagnostics-and-logging"></a>Diagnostica e registrazione
 

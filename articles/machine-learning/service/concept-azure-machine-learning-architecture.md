@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 82d3656e0adc03157de57b700f8f0be6bde1f2ee
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 59ce6719c117db53b02ed6594de219010ee08ee6
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663480"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828224"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Come funziona il servizio Azure Machine Learning: Architettura e concetti
 
@@ -40,13 +40,13 @@ Il flusso di lavoro del modello di Machine Learning segue generalmente questa se
 
 1. **Monitoraggio** : monitorare la **tendenza dei dati** tra il set di dati di training e i dati di inferenza di un modello distribuito. Quando necessario, eseguire il loopback al passaggio 1 per ripetere il training del modello con i nuovi dati di training.
 
-## <a name="tools-for-azure-machine-learning"></a>Strumenti per Azure Machine Learning 
+## <a name="tools-for-azure-machine-learning"></a>Strumenti per Azure Machine Learning
 
 Usare questi strumenti per Azure Machine Learning:
 
 +  Interagire con il servizio in qualsiasi ambiente Python con [Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + Automatizzare le attività di Machine Learning con l'interfaccia della riga di comando [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
-+ Scrivere codice in Visual Studio Code con [Azure Machine Learning estensione vs code](how-to-vscode-tools.md) 
++ Scrivere codice in Visual Studio Code con [Azure Machine Learning estensione vs code](how-to-vscode-tools.md)
 + Usare l' [interfaccia visiva (anteprima) per il servizio Azure Machine Learning](ui-concept-visual-interface.md) per eseguire i passaggi del flusso di lavoro senza scrivere codice.
 
 ## <a name="glossary-of-concepts"></a>Glossario dei concetti
@@ -87,7 +87,7 @@ Per ulteriori informazioni sulle aree di lavoro, vedere [che cos'è un'area di l
 
 Un esperimento è un raggruppamento di più esecuzioni da uno script specifico. Appartiene sempre a un'area di lavoro. Quando si invia un'esecuzione, si fornisce un nome dell'esperimento. Le informazioni per l'esecuzione vengono archiviate in tale esperimento. Se si invia un'esecuzione e si specifica un nome dell'esperimento che non esiste, viene creato automaticamente un nuovo esperimento il nuovo nome specificato.
 
-Per un esempio d'uso di un esperimento, vedere [Avvio rapido: Introduzione al servizio Azure Machine Learning](quickstart-run-cloud-notebook.md).
+Per un esempio dell'uso di un esperimento, [vedere Esercitazione: Eseguire il training del](tutorial-1st-experiment-sdk-train.md)primo modello.
 
 ### <a name="models"></a>Modelli
 
@@ -132,9 +132,9 @@ Un **archivio dati** è un'astrazione di archiviazione in un account di archivia
 
 ### <a name="compute-targets"></a>Destinazioni di calcolo
 
-Una [destinazione di calcolo](concept-compute-target.md) consente di specificare la risorsa di calcolo in cui si esegue lo script di training o si ospita la distribuzione del servizio. Questo percorso può essere il computer locale o una risorsa di calcolo basata sul cloud. Le destinazioni di calcolo facilitano la modifica dell'ambiente di calcolo senza modificare il codice. 
+Una [destinazione di calcolo](concept-compute-target.md) consente di specificare la risorsa di calcolo in cui si esegue lo script di training o si ospita la distribuzione del servizio. Questo percorso può essere il computer locale o una risorsa di calcolo basata sul cloud. Le destinazioni di calcolo facilitano la modifica dell'ambiente di calcolo senza modificare il codice.
 
-Altre informazioni sulle [destinazioni di calcolo disponibili per il training e la distribuzione](concept-compute-target.md). 
+Altre informazioni sulle [destinazioni di calcolo disponibili per il training e la distribuzione](concept-compute-target.md).
 
 ### <a name="training-scripts"></a>Script di training
 
@@ -153,7 +153,6 @@ Un'esecuzione è un record contenente le seguenti informazioni:
 
 Un'esecuzione viene generata quando si invia uno script per eseguire il training di un modello. Un'esecuzione può avere zero o più esecuzioni figlio. L'esecuzione di primo livello, ad esempio, potrebbe avere due esecuzioni figlio, ognuna delle quali può avere a sua volte le proprie esecuzioni figlio.
 
-Per un esempio di visualizzazione delle esecuzioni generate dal training di un modello, vedere [Avvio rapido: Introduzione al servizio Azure Machine Learning](quickstart-run-cloud-notebook.md).
 
 ### <a name="github-tracking-and-integration"></a>Rilevamento e integrazione di GitHub
 
@@ -222,7 +221,9 @@ Azure IoT Edge garantisce che il modulo sia in esecuzione e monitora il disposit
 
 ### <a name="ml-pipelines"></a>Pipeline di Machine Learning
 
-Le pipeline di Machine Learning consentono di creare e gestire i flussi di lavoro in cui sono unite le varie fasi dell'apprendimento automatico. Una pipeline, ad esempio, può includere la preparazione dei dati, il training del modello, la distribuzione del modello e le fasi di inferenza/punteggio. Ogni fase può includere più passaggi, ciascuno dei quali può essere eseguito in modo automatico in varie destinazioni di calcolo.
+Le pipeline di Machine Learning consentono di creare e gestire i flussi di lavoro in cui sono unite le varie fasi dell'apprendimento automatico. Una pipeline, ad esempio, può includere la preparazione dei dati, il training del modello, la distribuzione del modello e le fasi di inferenza/punteggio. Ogni fase può includere più passaggi, ciascuno dei quali può essere eseguito in modo automatico in varie destinazioni di calcolo. 
+
+I passaggi della pipeline sono riutilizzabili e possono essere eseguiti senza eseguire nuovamente i passaggi successivi se l'output del passaggio non è stato modificato. Ad esempio, è possibile ripetere il training di un modello senza rieseguire i passaggi di preparazione dei dati costosi se i dati non sono stati modificati. Le pipeline consentono inoltre ai data scientist di collaborare mentre lavorano su aree separate di un flusso di lavoro di machine learning.
 
 Per altre informazioni sulle pipeline di apprendimento automatico, vedere [Pipeline e Azure Machine Learning](concept-ml-pipelines.md).
 

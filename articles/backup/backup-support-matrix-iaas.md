@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: dacurwin
-ms.openlocfilehash: 2556887008ecbe081168d3fc81fa07b45cda4bcb
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 369be73e2884594171419a66b94db64184582e58
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639609"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68813820"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
 È possibile usare il [servizio backup di Azure](backup-overview.md) per eseguire il backup di computer e carichi di lavoro locali e di macchine virtuali (VM) di Azure. Questo articolo riepiloga le impostazioni e le limitazioni del supporto quando si esegue il backup di macchine virtuali di Azure con backup di Azure.
@@ -130,7 +130,6 @@ Ripristino a livello di sottoscrizione/area/zona. | Non supportati.
 Ripristino in una macchina virtuale esistente | Usare l'opzione relativa alla sostituzione del disco.
 Ripristino del disco con un account di archiviazione abilitato per la crittografia del servizio di archiviazione di Azure | Non supportati.<br/><br/> Eseguire il ripristino in un account per cui la crittografia del servizio di archiviazione non sia abilitata.
 Ripristino in account di archiviazione misti | Non supportati.<br/><br/> A seconda del tipo di account di archiviazione, tutti i dischi ripristinati saranno Premium o Standard e non misti.
-Ripristinare l'account di archiviazione usando l'archiviazione con ridondanza della zona (ZRS) | Supportato (per la macchina virtuale di cui viene eseguito il backup dopo Jan 2019 e dove sono disponibili [zone di disponibilità](https://azure.microsoft.com/global-infrastructure/availability-zones/) )
 Ripristino della macchina virtuale direttamente in un set di disponibilità | Per Managed disks, è possibile ripristinare il disco e usare l'opzione set di disponibilità nel modello.<br/><br/> Non supportato per i dischi non gestiti. In tal caso, ripristinare il disco e quindi creare una macchina virtuale nel set di disponibilità.
 Ripristinare il backup di macchine virtuali non gestite dopo l'aggiornamento alla macchina virtuale gestita| Supportato.<br/><br/> È possibile ripristinare i dischi e quindi creare una macchina virtuale gestita.
 Ripristino di una macchina virtuale a un punto di ripristino prima della migrazione di tale macchina a dischi gestiti | Supportato.<br/><br/> È possibile eseguire il ripristino in dischi non gestiti (impostazione predefinita), convertire i dischi ripristinati in un disco gestito e creare una macchina virtuale con i dischi gestiti.
@@ -151,6 +150,7 @@ Eseguire il backup di macchine virtuali distribuite da un'immagine personalizzat
 Eseguire il backup di macchine virtuali di cui viene eseguita la migrazione in Azure  | Supportato.<br/><br/> Per eseguire il backup della macchina virtuale, l'agente di macchine virtuali deve essere installato nella macchina sottoposta a migrazione.
 Backup della coerenza tra più macchine virtuali | Backup di Azure non garantisce la coerenza dei dati e delle applicazioni tra più macchine virtuali.
 Backup con [impostazioni di diagnostica](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)  | Non supportato. <br/><br/> Se il ripristino della macchina virtuale di Azure con le impostazioni di diagnostica viene attivato usando [Crea nuova](backup-azure-arm-restore-vms.md#create-a-vm) opzione, il ripristino ha esito negativo.
+Ripristino di macchine virtuali con aggiunta di zona | Supportato (per la macchina virtuale di cui è stato eseguito il backup dopo Jan 2019 e la [zona di disponibilità](https://azure.microsoft.com/global-infrastructure/availability-zones/) è disponibile).<br/><br/>È attualmente supportato il ripristino nella stessa zona bloccata nelle VM. Tuttavia, se la zona non è disponibile, il ripristino ha esito negativo.
 
 
 ## <a name="vm-storage-support"></a>Supporto per l'archiviazione delle macchine virtuali
@@ -158,8 +158,8 @@ Backup con [impostazioni di diagnostica](https://docs.microsoft.com/azure/azure-
 **Componente** | **Supporto**
 --- | ---
 Dischi di dati delle VM di Azure | Backup di una macchina virtuale con un massimo di 16 dischi dati. <br/><br/> Supporto di dischi con dimensioni fino a 4 TB.
-Dimensioni del disco dati | Ogni singolo disco può avere dimensioni fino a 4095 GB.<br/><br/> Se gli insiemi di credenziali eseguono la versione più recente di backup di Azure (noto come ripristino istantaneo), sono supportate dimensioni del disco fino a 4 TB. [Altre informazioni](backup-instant-restore-capability.md)  
-Tipo di archiviazione | HDD Standard, unità SSD standard, unità SSD Premium. <br/><br/> SDD Standard è supportato se gli insiemi di credenziali vengono aggiornati alla versione più recente del backup delle macchine virtuali di Azure (noto come ripristino immediato). [Altre informazioni](backup-instant-restore-capability.md)
+Dimensioni del disco dati | Ogni singolo disco può avere dimensioni fino a 4095 GB.<br/><br/>Per iscriversi a un'anteprima privata del supporto per dischi di backup su disco di Azure di dimensioni superiori a 4 TB fino a 30TB, scrivere AskAzureBackupTeam@microsoft.comdi nuovo in Microsoft.  
+Tipo di archiviazione | HDD Standard, SDD Standard, SSD Premium.
 Dischi gestiti | Supportato.
 Dischi crittografati | Supportato.<br/><br/> È possibile eseguire il backup delle macchine virtuali di Azure abilitate con crittografia dischi di Azure (con o senza l'app Azure AD).<br/><br/> Le macchine virtuali crittografate non possono essere ripristinate a livello di file/cartella. È necessario ripristinare l'intera macchina virtuale.<br/><br/> È possibile abilitare la crittografia nelle macchine virtuali che sono già protette dal servizio Backup di Azure.
 Dischi con l'acceleratore di scrittura abilitato | Non supportati.<br/><br/> Backup di Azure esclude automaticamente i dischi con acceleratore di scrittura abilitati durante il backup. Poiché non viene eseguito il backup, non sarà possibile ripristinare questi dischi dal punto di ripristino della macchina virtuale.
@@ -167,7 +167,6 @@ Backup di dischi deduplicati | Non supportati.
 Aggiunta di un disco a una macchina virtuale protetta | Supportato.
 Ridimensionamento di un disco in una macchina virtuale protetta | Supportato.
 Archiviazione condivisa| Non è consigliabile eseguire il backup di macchine virtuali con Volume condiviso cluster (CSV) o file server di scalabilità orizzontale. Probabilmente i writer CSV avranno esito negativo durante il backup. Durante il ripristino, i dischi contenenti volumi CSV potrebbero non essere disponibili.
-
 
 
 ## <a name="vm-network-support"></a>Supporto della rete delle macchine virtuali
@@ -213,10 +212,10 @@ Sicurezza dei dati:
 
 **Computer** | **In movimento** | **Inattivi**
 --- | --- | ---
-Computer Windows locali senza DPM/MABS | ![Sì][green] | ![Sì][green]
-Macchine virtuali di Azure | ![Sì][green] | ![Yes][green]
-Computer locali/VM di Azure con DPM | ![Yes][green] | ![Sì][green]
-Computer locali/VM di Azure con MABS | ![Sì][green] | ![Sì][green]
+Computer Windows locali senza DPM/MABS | ![Sì][green] | ![Yes][green]
+Macchine virtuali di Azure | ![Sì][green] | ![Sì][green]
+Computer locali/VM di Azure con DPM | ![Sì][green] | ![Sì][green]
+Computer locali/VM di Azure con MABS | ![Sì][green] | ![Yes][green]
 
 
 
@@ -229,10 +228,10 @@ Backup supporta la compressione del traffico di backup, come riepilogato nella t
 
 **Computer** | **Compressione in MABS/DPM (TCP)** | **Comprimi nell'insieme di credenziali (HTTPS)**
 --- | --- | ---
-Computer Windows locali senza DPM/MABS | ND | ![Yes][green]
+Computer Windows locali senza DPM/MABS | ND | ![Sì][green]
 Macchine virtuali di Azure | ND | ND
 Computer locali/VM di Azure con DPM | ![Sì][green] | ![Sì][green]
-Computer locali/VM di Azure con MABS | ![Sì][green] | ![Sì][green]
+Computer locali/VM di Azure con MABS | ![Yes][green] | ![Sì][green]
 
 
 ## <a name="next-steps"></a>Passaggi successivi

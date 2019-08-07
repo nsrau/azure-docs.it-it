@@ -1,5 +1,5 @@
 ---
-title: Gestire e monitorare SQL Server database in una macchina virtuale di Azure di cui è stato eseguito il backup con backup di Azure | Microsoft Docs
+title: Gestire e monitorare SQL Server database in una macchina virtuale di Azure con backup di Azure
 description: Questo articolo descrive come gestire e monitorare SQL Server database in esecuzione in una macchina virtuale di Azure.
 author: dcurwin
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: dacurwin
-ms.openlocfilehash: c5f61c778849a57d9143580e0e1041c7fe992d52
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7cd916c8e52b40dee3ce2d63d43dc88f09001b32
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639580"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827570"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gestire e monitorare i database SQL Server di cui è stato eseguito il backup
 
@@ -120,7 +120,7 @@ Per riprendere la protezione per un database SQL:
 * Backup differenziale
 * Backup dei log
 
-Anche se è necessario specificare la durata di conservazione per il backup completo di sola copia, il periodo di mantenimento dati per gli altri tipi di backup viene impostato automaticamente su 30 giorni dall'ora corrente. <br/>
+Anche se è necessario specificare la durata di conservazione per il backup completo di sola copia, il periodo di mantenimento dati per il backup completo ad hoc verrà impostato automaticamente su 45 giorni dall'ora corrente. <br/>
 Per ulteriori informazioni, vedere [SQL Server tipi di backup](backup-architecture.md#sql-server-backup-types).
 
 ## <a name="unregister-a-sql-server-instance"></a>Annullare un’istanza SQL &Server

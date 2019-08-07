@@ -1,19 +1,17 @@
 ---
 title: Come annotare le origini dati in Azure Data Catalog
 description: Articolo sulle procedure di annotazione di asset di dati nel catalogo di dati di Azure, compresi esperti, tag, descrizioni e nomi descrittivi.
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 5a7e6bb2-863c-4eca-b614-1c814920d9ed
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 18dfd9eb66c1dc71ecb14bb748d9cdd6afeb00a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: 708c62971a20a7071accf7591a4e2914f7dbd9f3
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65953181"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736363"
 ---
 # <a name="how-to-annotate-data-sources"></a>Come annotare le origini dati
 ## <a name="introduction"></a>Introduzione
@@ -27,9 +25,9 @@ Data Catalog riconosce che utenti diversi hanno prospettive diverse sulle origin
 * L'amministratore del database conosce la pianificazione del backup per ogni database e le finestre di elaborazione ETL consentite.
 * Il proprietario del sistema conosce il processo di richiesta di accesso all'origine dati utilizzato dagli utenti.
 * L'amministratore dei dati conosce il modo in cui asset e attributi nell’origine dati si relazionano al modello di dati aziendali.
-* L'analista sa come i dati vengono utilizzati nel contesto di processi di business che supportano.
+* L'analista sa come vengono usati i dati nel contesto dei processi di business supportati.
 
-Ognuna di queste prospettive è utile e Data Catalog usa un approccio crowdsourcing ai metadati che consente di acquisirle tutte e usarle per offrire un quadro completo delle origini dati registrate. Tramite il portale di Data Catalog, ogni utente può aggiungere e modificare le proprie annotazioni, pur essendo in grado di visualizzare le annotazioni fornite dagli altri utenti.
+Ognuna di queste prospettive è utile e Data Catalog usa un approccio crowdsourcing ai metadati che consente di acquisirle tutte e usarle per offrire un quadro completo delle origini dati registrate. Usando il portale di Data Catalog, ogni utente può aggiungere e modificare le proprie annotazioni, pur essendo in grado di visualizzare le annotazioni fornite da altri utenti.
 
 ## <a name="different-types-of-annotations"></a>Diversi tipi di annotazioni
 Data Catalog supporta i tipi di annotazione seguenti:
@@ -37,11 +35,11 @@ Data Catalog supporta i tipi di annotazione seguenti:
 | Annotazione | Note |
 | --- | --- |
 | Nome descrittivo |È possibile fornire nomi descrittivi a livello di asset di dati, per rendere le risorse di dati più facilmente comprensibili. I nomi descrittivi sono particolarmente utili quando il nome dell'oggetto sottostante è di difficile interpretazione, abbreviato o non significativo per gli utenti. |
-| Descrizione |È possibile fornire descrizioni a livello asset di dati e attributo / colonna. Le descrizioni sono annotazioni di testo breve in formato libero che descrivono la prospettiva dell’utente sull’asset dati o sul relativo utilizzo. |
+| DESCRIZIONE |È possibile fornire descrizioni a livello asset di dati e attributo / colonna. Le descrizioni sono annotazioni di testo breve in formato libero che descrivono la prospettiva dell’utente sull’asset dati o sul relativo utilizzo. |
 | Tag (tag utente) |I tag possono essere forniti a livello asset di dati e attributo / colonna. I tag utente sono etichette definite dall'utente che possono essere usate per definire categorie di asset di dati o attributi. |
 | Tag (tag glossario) |I tag possono essere forniti a livello asset di dati e attributo / colonna. I tag di glossario sono termini di glossario definiti a livello centrale che possono essere usati per definire categorie di asset di dati o attributi tramite una tassonomia aziendale comune. Per altre informazioni, vedere [Come configurare il glossario aziendale per l'assegnazione di tag regolamentata](data-catalog-how-to-business-glossary.md) |
 | Esperti |Gli esperti possono essere forniti a livello di asset di dati. Gli esperti identificano utenti o gruppi con prospettive da esperti sui dati e possono fungere come punto di contatto per gli utenti che individuano le origini dei dati registrati e hanno domande le cui risposte non vengono fornite dalle annotazioni esistenti. |
-| Richiedere l'accesso |Le informazioni di richiesta di accesso possono essere fornite a livello di asset di dati. Queste informazioni sono per gli utenti che individuano un'origine dati per cui non dispongono di autorizzazioni di accesso. Gli utenti possono immettere l'indirizzo di posta elettronica dell'utente o del gruppo che concede l'accesso, l'URL del processo o lo strumento a cui gli utenti devono accedere, oppure immettere lo stesso processo come testo. |
+| Richiedi l'accesso |Le informazioni di richiesta di accesso possono essere fornite a livello di asset di dati. Queste informazioni sono per gli utenti che individuano un'origine dati per cui non dispongono di autorizzazioni di accesso. Gli utenti possono immettere l'indirizzo di posta elettronica dell'utente o del gruppo che concede l'accesso, l'URL del processo o lo strumento a cui gli utenti devono accedere, oppure immettere lo stesso processo come testo. |
 | Documentazione |La documentazione può essere fornita a livello di asset di dati. La documentazione degli asset è costituita da informazioni in formato RTF che possono includere collegamenti e immagini e fornire informazioni aggiuntive rispetto a descrizioni e tag. |
 
 ## <a name="annotating-multiple-assets"></a>Asset con più annotazioni

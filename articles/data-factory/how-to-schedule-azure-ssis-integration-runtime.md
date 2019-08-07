@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 1/9/2019
+ms.date: 8/2/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 54d7979f9fbe23e9372aa2702b46e42ca64496d2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d7a4a54f979cd4b14e12c5a57792241f1b2388d2
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60522506"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68734715"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Come avviare e arrestare Azure-SSIS Integration Runtime in base a una pianificazione
 Questo articolo descrive come pianificare l'avvio e l'arresto di Azure-SSIS Integration Runtime (IR) con Azure Data Factory (ADF). Azure-SSIS IR è una risorsa dell'ambiente di calcolo di ADF dedicata all'esecuzione di pacchetti di SQL Server Integration Services (SSIS). All'esecuzione di Azure-SSIS IR è associato un costo. Di conseguenza, è in genere opportuno eseguire il runtime di integrazione solo se si devono eseguire pacchetti SSIS in Azure e arrestarlo quando non è più necessario. Per [avviare o arrestare manualmente il runtime di integrazione](manage-azure-ssis-integration-runtime.md), è possibile usare l'interfaccia utente o l'app di ADF oppure Azure PowerShell.
@@ -94,7 +94,7 @@ Se si crea un terzo trigger programmato per essere eseguito ogni giorno a mezzan
   
     2. In **Metodo** selezionare **POST**. 
     3. In **Corpo** immettere `{"message":"Start my IR"}`. 
-    4. Per la **Authentication**, selezionare **MSI** per utilizzare l'identità gestita di Azure Data factory, vedere [identità gestita per Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) articolo per altre informazioni.
+    4. Per **l'autenticazione**, selezionare **MSI** per usare l'identità gestita per il file ADF. per ulteriori informazioni, vedere l'articolo [identità gestita per data factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) .
     5. In **Risorsa** immettere `https://management.azure.com/`.
     
        ![Attività Web di ADF per SSIS IR in base a una pianificazione](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png)
@@ -330,7 +330,7 @@ La sezione seguente descrive la procedura per creare un runbook di PowerShell. L
 
    ![Pulsante di avvio del runbook](./media/how-to-schedule-azure-ssis-integration-runtime/start-runbook-button.png)
     
-5. Nelle **avvia Runbook** riquadro, eseguire le operazioni seguenti: 
+5. Nel riquadro **Avvia Runbook** eseguire le operazioni seguenti: 
 
     1. In **RESOURCE GROUP NAME** immettere il nome del gruppo di risorse che contiene ADF con Azure-SSIS IR. 
     2. In **DATA FACTORY NAME** immettere il nome di ADF con Azure-SSIS IR. 
@@ -345,6 +345,8 @@ La sezione seguente descrive la procedura per creare un runbook di PowerShell. L
    ![Runtime di integrazione SSIS di Azure: avviato](./media/how-to-schedule-azure-ssis-integration-runtime/start-completed.png)
     
 7. Ripetere i due passaggi precedenti usando **STOP** come valore per **OPERATION**. Avviare nuovamente il runbook facendo clic sul pulsante **Avvia** sulla barra degli strumenti. Immettere i nomi del gruppo di risorse, di ADF e di Azure-SSIS IR. In **OPERATION** immettere **STOP**. Nella finestra di output attendere che venga visualizzato il messaggio **##### Completed #####** dopo il messaggio **##### Stopping #####** . L'arresto di Azure-SSIS IR non richiede tutto il tempo necessario per l'avvio. Chiudere la finestra **Processo** e visualizzare nuovamente la finestra **Runbook**.
+
+8. È anche possibile attivare la runbook tramite un webhook che può essere creato selezionando la voce di menu webhook o in base a una pianificazione che è possibile creare selezionando la voce di menu **pianificazioni** come specificato di seguito.  
 
 ## <a name="create-schedules-for-your-runbook-to-startstop-azure-ssis-ir"></a>Creare pianificazioni per consentire al runbook di avviare o arrestare Azure-SSIS IR
 
@@ -380,7 +382,7 @@ Nella sezione precedente è stato creato un runbook di Automazione di Azure capa
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere il post di blog seguente:
--   [Modernize and extend your ETL/ELT workflows with SSIS activities in ADF pipelines](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/) (Modernizzare ed estendere i flussi di lavoro ETL/ELT con attività SSIS nelle pipeline di Azure Data Factory)
+-   [Modernize and extend your ETL/ELT workflows with SSIS activities in ADF pipelines](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Modernize-and-Extend-Your-ETL-ELT-Workflows-with-SSIS-Activities/ba-p/388370) (Modernizzare ed estendere i flussi di lavoro ETL/ELT con attività SSIS nelle pipeline di Azure Data Factory)
 
 Vedere gli articoli seguenti della documentazione relativa a SSIS: 
 

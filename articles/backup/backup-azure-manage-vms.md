@@ -8,14 +8,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: bfc9d01284bb5623989676afbdeadc1c91c14ab0
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 025052a5005702232eb9eaf255e6aac2c58fec98
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688388"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735579"
 ---
-# <a name="manage-azure-vm-backups"></a>Gestire i backup delle macchine virtuali di Azure
+# <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gestire i backup delle macchine virtuali di Azure con il servizio backup di Azure
 
 Questo articolo descrive come gestire le macchine virtuali di Azure di cui viene eseguito il backup con il [servizio backup di Azure](backup-overview.md). Questo articolo riepiloga anche le informazioni di backup che è possibile trovare nel dashboard dell'insieme di credenziali.
 

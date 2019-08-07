@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 08/02/2019
 ms.author: alkohli
-ms.openlocfilehash: c2803ba598895834bb197f4a06ff0635354fcaca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 734ad263356ab9f91c7cb92ab174a14e0c5dd867
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64680886"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775183"
 ---
-# <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>Sviluppare un C# modulo di IoT Edge per spostare i file sul bordo di finestra di dati
+# <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>Sviluppare un C# modulo IOT Edge per spostare i file in data box Edge
 
 Questo articolo illustra come creare un modulo di IoT Edge per la distribuzione con il dispositivo Data Box Edge. Azure Data Box Edge è una soluzione di archiviazione che consente di elaborare i dati e inviarli in rete ad Azure.
 
@@ -33,7 +33,7 @@ In questo articolo viene spiegato come:
 Il dispositivo Data Box Edge può distribuire ed eseguire i moduli di IoT Edge. I moduli di Edge sono essenzialmente contenitori Docker che eseguono un'attività specifica, come inserire un messaggio da un dispositivo, trasformare un messaggio o inviare un messaggio a un hub IoT. In questo articolo si creerà un modulo che copia i file da una condivisione locale a una condivisione cloud nel dispositivo Data Box Edge.
 
 1. I file vengono scritti nella condivisione locale del dispositivo Data Box Edge.
-2. Il generatore di eventi del file crea un evento di file per ogni file scritto nella condivisione locale. Gli eventi di file vengono anche generati quando viene modificato un file. Gli eventi di file vengono quindi inviati all'hub di IoT Edge, nel runtime di IoT Edge.
+2. Il generatore di eventi del file crea un evento di file per ogni file scritto nella condivisione locale. Gli eventi di file vengono generati anche quando un file viene modificato. Gli eventi di file vengono quindi inviati all'hub di IoT Edge, nel runtime di IoT Edge.
 3. Il modulo personalizzato di IoT Edge elabora l'evento di file per creare un oggetto dell'evento di file che contiene anche un percorso relativo del file. Il modulo genera un percorso assoluto usando il percorso relativo del file e copia il file dalla condivisione locale alla condivisione cloud. Il modulo elimina quindi il file dalla condivisione locale.
 
 ![Funzionamento del modulo di Azure IoT Edge in Data Box Edge](./media/data-box-edge-create-iot-edge-module/how-module-works-1.png)
@@ -48,7 +48,7 @@ Prima di iniziare, verificare di avere:
 
     - Il dispositivo ha anche una risorsa dell'hub IoT associata.
     - Il dispositivo ha il ruolo di calcolo Edge configurato.
-    Per altre informazioni, visitare [Configura calcolo](data-box-edge-deploy-configure-compute.md#configure-compute) per il bordo della casella dei dati.
+    Per altre informazioni, vedere [configurare il calcolo](data-box-edge-deploy-configure-compute.md#configure-compute) per il data box Edge.
 
 - Le risorse di sviluppo seguenti:
 
@@ -73,7 +73,7 @@ Un registro contenitori di Azure è un registro Docker privato in Azure nel qual
    5. Impostare **Utente amministratore** su **Abilita**.
    6. Impostare lo SKU **Di base**.
 
-      ![Creare un registro contenitori](./media/data-box-edge-create-iot-edge-module/create-container-registry-1.png)
+      ![Crea registro contenitori](./media/data-box-edge-create-iot-edge-module/create-container-registry-1.png)
  
 4. Selezionare **Create**.
 5. Dopo aver creato il registro contenitori, passare al registro e selezionare **Chiavi di accesso**.
@@ -123,7 +123,7 @@ Creare un modello di soluzione C# che è possibile personalizzare con il proprio
 
 ### <a name="update-the-module-with-custom-code"></a>Aggiornare il modulo con il codice personalizzato
 
-1. In Visual Studio Code explorer, aprire **modules > FileCopyModule > Program.cs**.
+1. In Esplora VS Code aprire **moduli > FileCopyModule > Program.cs**.
 2. Nella parte superiore dello **spazio dei nomi CSharpModule** aggiungere le istruzioni using seguenti per i tipi che verranno usati in un secondo momento. **Microsoft.Azure.Devices.Client.Transport.Mqtt** è un protocollo per inviare messaggi all'hub di IoT Edge.
 
     ```
@@ -140,11 +140,11 @@ Creare un modello di soluzione C# che è possibile personalizzare con il proprio
             private const string OutputFolderPath = "/home/output";
     ```
 
-4. Aggiungere la classe **MessageBody** alla classe Program. Queste classi definiscono lo schema previsto per il corpo dei messaggi in arrivo.
+4. Aggiungere la classe fileEvent per definire il corpo del messaggio.
 
     ```
     /// <summary>
-    /// The MessageBody class defines the expected schema for the body of incoming messages. 
+    /// The FileEvent class defines the body of incoming messages. 
     /// </summary>
     private class FileEvent
     {
@@ -241,7 +241,7 @@ Creare un modello di soluzione C# che è possibile personalizzare con il proprio
 
 Nella sezione precedente è stata creata una soluzione IoT Edge ed è stato aggiunto il codice a FileCopyModule per copiare i file dalla condivisione locale alla condivisione cloud. È ora necessario compilare la soluzione come immagine del contenitore ed eseguirne il push nel registro contenitori.
 
-1. In Visual Studio code, andare al terminale > nuovo terminale per aprire un nuovo terminale integrato di Visual Studio Code.
+1. In VSCode passare a terminale > nuovo terminale per aprire un nuovo Visual Studio Code terminale integrato.
 2. Accedere a Docker immettendo il comando seguente nel terminale integrato.
 
     `docker login <ACR login server> -u <ACR username>`
@@ -273,4 +273,4 @@ Nella sezione precedente è stata creata una soluzione IoT Edge ed è stato aggi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per distribuire ed eseguire questo modulo sul bordo di finestra di dati, vedere la procedura descritta in [aggiungere un modulo](data-box-edge-deploy-configure-compute.md#add-a-module).
+Per distribuire ed eseguire questo modulo in Data Box Edge, vedere la procedura descritta in [aggiungere un modulo](data-box-edge-deploy-configure-compute.md#add-a-module).

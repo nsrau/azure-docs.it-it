@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: bbbec680cd2575cc63761c9fbe1335d548ec4d3b
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: ed7e53570127f12dbe41932481a3286a78865dde
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640798"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828286"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Matrice di supporto per la valutazione e la migrazione di VMware
 
@@ -42,8 +42,12 @@ Nella tabella sono riepilogati gli scenari supportati per le macchine virtuali V
 **Area geografica** | **Posizione di archiviazione dei metadati**
 --- | ---
 Azure per enti pubblici | US Gov Virginia
-Asia/Pacifico | Asia sud-orientale o Asia orientale
-Europa | Europa meridionale o Europa occidentale
+Asia/Pacifico | Asia orientale o Asia sud-orientale
+Australia | Australia orientale o Australia sudorientale
+Canada | Canada centrale o Canada orientale
+Europa | Europa settentrionale o Europa occidentale
+India | India centrale o India meridionale
+Giappone |  Giappone orientale o Giappone occidentale
 Regno Unito | Regno Unito meridionale o Regno Unito occidentale
 Stati Uniti | Stati Uniti centrali o Stati Uniti occidentali 2
 
@@ -70,7 +74,7 @@ Il Azure Migrate Appliance per VMware viene distribuito usando un modello OVA im
 
 **Supporto** | **Dettagli**
 --- | ---
-**server vCenter** | È necessario disporre di risorse sufficienti nel server vCenter per allocare una macchina virtuale con 32 GB di memoria, 4 vCPU e un Commuter virtuale esterno.<br/><br/> Il dispositivo richiede l'accesso a Internet, direttamente o tramite un proxy.
+**server vCenter** | È necessario disporre di risorse sufficienti nel server vCenter per allocare una macchina virtuale con 32 GB di RAM, 8 vCPU e un Commuter virtuale esterno.<br/><br/> Il dispositivo richiede l'accesso a Internet, direttamente o tramite un proxy.
 **ESXi** | La macchina virtuale dell'appliance deve essere distribuita in un host ESXi che esegue la versione 5,5 o successiva.
 **Progetto Azure Migrate** | Un appliance può essere associato a un singolo progetto.
 **server vCenter** | Un dispositivo può individuare fino a 10.000 VM VMware in una server vCenter.<br/> Un appliance può connettersi a una server vCenter.
@@ -78,7 +82,7 @@ Il Azure Migrate Appliance per VMware viene distribuito usando un modello OVA im
 
 ## <a name="assessment-url-access-requirements"></a>Valutazione-requisiti di accesso agli URL
 
-Il dispositivo Azure Migrate necessita della connettività Internet a Internet.
+Il dispositivo Azure Migrate richiede la connettività a Internet.
 
 - Quando si distribuisce il dispositivo, Azure Migrate esegue un controllo della connettività agli URL riepilogati nella tabella seguente.
 - Se si usa un proxy basato su URL per connettersi a Internet, consentire l'accesso a questi URL, assicurandosi che il proxy risolva tutti i record CNAME ricevuti durante la ricerca degli URL.
@@ -341,7 +345,7 @@ VHD condiviso | Non supportati. | Il controllo ha esito negativo se non supporta
 Disco FC | Non supportati. | Il controllo ha esito negativo se non supportato.
 BitLocker | Non supportati. | Prima di abilitare la replica per un computer, occorre disabilitare BitLocker.
 Nome della VM. | Da 1 a 63 caratteri.<br/> Limitato a lettere, numeri e trattini.<br/><br/> Il nome del computer deve iniziare e terminare con una lettera o un numero. |  Aggiornare il valore nelle proprietà del computer in Site Recovery.
-Connetti dopo la migrazione-Windows | Per connettersi alle macchine virtuali di Azure che eseguono Windows dopo la migrazione:<br/> -Prima della migrazione Abilita RDP nella macchina virtuale locale. Assicurarsi che siano aggiunte regole TCP e UDP per il profilo **Pubblico** e che RDP sia consentito in **Windows Firewall** > **App consentite** per tutti i profili.<br/> Per l'accesso VPN da sito a sito, abilitare RDP e consentire il protocollo RDP in **Windows Firewall** -> **app e funzionalità** consentite per le reti di **dominio e private** . Verificare inoltre che il criterio SAN del sistema operativo sia impostato su onlineal **.** [Altre informazioni](https://support.microsoft.com/kb/3031135) |
+Connetti dopo la migrazione-Windows | Per connettersi alle macchine virtuali di Azure che eseguono Windows dopo la migrazione:<br/> -Prima della migrazione Abilita RDP nella macchina virtuale locale. Assicurarsi che siano aggiunte regole TCP e UDP per il profilo **Pubblico** e che RDP sia consentito in **Windows Firewall** > **App consentite** per tutti i profili.<br/> Per l'accesso VPN da sito a sito, abilitare RDP e consentire il protocollo RDP in **Windows Firewall** -> **app e funzionalità** consentite per le reti di **dominio e private** . Verificare inoltre che il criterio SAN del sistema operativo sia impostato su onlineal. [Altre informazioni](https://support.microsoft.com/kb/3031135) |
 Connetti dopo la migrazione-Linux | Per connettersi alle macchine virtuali di Azure dopo la migrazione tramite SSH:<br/> Prima della migrazione, nel computer locale controllare che il servizio Secure Shell sia impostato su avvio e che le regole del firewall consentano una connessione SSH.<br/> Dopo il failover, nella macchina virtuale di Azure, consentire le connessioni in ingresso alla porta SSH per le regole del gruppo di sicurezza di rete nella macchina virtuale sottoposta a failover e per la subnet di Azure a cui è connessa. Aggiungere inoltre un indirizzo IP pubblico per la macchina virtuale. |  
 
 

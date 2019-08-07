@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 849065460acda36426f8a594a984ad1cc8590c34
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 323470adfe56ee20fe0fb64aeba38b6af4330351
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688830"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827591"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Risolvere i problemi di SQL Server backup del database con backup di Azure
 
@@ -29,7 +29,7 @@ Per configurare la protezione per un database di SQL Server in una macchina virt
 
 ### <a name="backup-type-unsupported"></a>Tipo di backup non supportato
 
-| severity | Descrizione | Possibili cause | Azione consigliata |
+| severity | DESCRIZIONE | Possibili cause | Azione consigliata |
 |---|---|---|---|
 | Avviso | Le impostazioni correnti per questo database non supportano determinati tipi di backup presenti nei criteri associati. | <li>Sul database master è possibile eseguire solo un'operazione di backup completo del database. Non è possibile eseguire il backup differenziale o il backup del log delle transazioni. </li> <li>Qualsiasi database nel modello di recupero con registrazione minima non consente il backup dei log delle transazioni.</li> | Modificare le impostazioni del database in modo che tutti i tipi di backup nei criteri siano supportati. In alternativa, modificare i criteri correnti in modo da includere solo i tipi di backup supportati. In caso contrario, i tipi di backup non supportati verranno ignorati durante il backup pianificato oppure il processo di backup non riuscirà per il backup ad hoc.
 
@@ -119,6 +119,19 @@ Per configurare la protezione per un database di SQL Server in una macchina virt
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
 | La finalità di protezione automatica è stata rimossa o non è più valida. | Quando si Abilita la protezione automatica in un'istanza di SQL Server, configurare i processi di **backup** eseguiti per tutti i database in tale istanza. Se si disabilita la protezione automatica mentre i processi sono in esecuzione, i processi **in corso** vengono annullati con questo codice di errore. | Abilitare di nuovo la protezione automatica per proteggere tutti i database rimanenti. |
+
+### <a name="clouddosabsolutelimitreached"></a>CloudDosAbsoluteLimitReached
+
+| Messaggio di errore | Possibili cause | Azione consigliata |
+|---|---|---|
+L'operazione è bloccata perché è stato raggiunto il limite per il numero di operazioni consentite nelle 24 ore. | Quando è stato raggiunto il limite massimo consentito per un'operazione in un intervallo di 24 ore, viene visualizzato questo errore. <br> Ad esempio:  Se è stato raggiunto il limite per il numero di processi di backup di configurazione che possono essere attivati al giorno e si tenta di configurare il backup su un nuovo elemento, verrà visualizzato questo errore. | In genere, la ripetizione dell'operazione dopo 24 ore risolve questo problema. Tuttavia, se il problema persiste, è possibile contattare il supporto tecnico Microsoft per assistenza.
+
+### <a name="clouddosabsolutelimitreachedwithretry"></a>CloudDosAbsoluteLimitReachedWithRetry
+
+| Messaggio di errore | Possibili cause | Azione consigliata |
+|---|---|---|
+L'operazione è bloccata perché l'insieme di credenziali ha raggiunto il limite massimo per le operazioni consentite in un intervallo di 24 ore. | Quando è stato raggiunto il limite massimo consentito per un'operazione in un intervallo di 24 ore, viene visualizzato questo errore. Questo errore si verifica in genere in caso di operazioni su larga scala, ad esempio la modifica dei criteri o la protezione automatica. A differenza di quanto accade per CloudDosAbsoluteLimitReached, non è possibile risolvere questo stato in realtà, il servizio backup di Azure tenterà di ritentare le operazioni internamente per tutti gli elementi in questione.<br> Ad esempio:  Se si dispone di un numero elevato di origini dati protette con un criterio e si tenta di modificare tale criterio, verrà attivata la configurazione dei processi di protezione per ogni elemento protetto e talvolta potrebbe verificarsi il limite massimo consentito per tali operazioni al giorno.| Il servizio backup di Azure tenterà automaticamente di ripetere l'operazione dopo 24 ore. 
+
 
 ## <a name="re-registration-failures"></a>Errori di ripetizione della registrazione
 

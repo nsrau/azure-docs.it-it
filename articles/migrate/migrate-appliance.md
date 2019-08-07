@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: raynew
-ms.openlocfilehash: 6537bfe5df8de298593428fb21448181ad8075fc
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: c31a9fde50de8190cdd7bc19600344a8e58cf60b
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663471"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827330"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -42,7 +42,7 @@ Nell'appliance sono installati questi agenti.
 
 **Agent** | **Dettagli**
 --- | ---
-Agente di individuazione | Raccoglie i dati di configurazione dalle macchine virtuali locali.
+Agente di individuazione | Raccoglie i dati di configurazione delle macchine virtuali locali
 Agente di valutazione | Consente di profilare l'ambiente locale per raccogliere i dati sulle prestazioni della macchina virtuale.
 Adapter di migrazione | Orchestra la replica della macchina virtuale e coordina la comunicazione tra le macchine virtuali e Azure.
 Gateway di migrazione | Invia i dati della macchina virtuale replicata in Azure.
@@ -200,8 +200,8 @@ Il dispositivo viene aggiornato quando vengono aggiornati gli agenti Azure Migra
 
 - Questa operazione viene eseguita automaticamente perché per impostazione predefinita l'aggiornamento automatico è abilitato nell'appliance.
 - È possibile modificare questa impostazione predefinita per aggiornare manualmente gli agenti.
-- Per disabilitare gli aggiornamenti automatici, impostare aggiornamento automatico Appliance chiave del registro di sistema, in HKLM\SOFTWAREMicrosoft\Azure.
-
+- Per disabilitare l'aggiornamento automatico, passare all'editor del registro di sistema > HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance e impostare la chiave del registro di sistema "AutoUpdate" su 0 (DWORD).
+ 
 ### <a name="set-agent-updates-to-manual"></a>Impostare gli aggiornamenti dell'agente su manuale
 
 Per gli aggiornamenti manuali, assicurarsi di aggiornare contemporaneamente tutti gli agenti nell'appliance, usando il pulsante **Aggiorna** per ogni agente obsoleto nell'appliance. È possibile riportare l'aggiornamento automatico degli aggiornamenti in qualsiasi momento.

@@ -1,52 +1,54 @@
 ---
-title: Eseguire il training e registrare scikit-informazioni su modelli
+title: Training di modelli di Machine Learning con Scikit-learn
 titleSuffix: Azure Machine Learning service
-description: Questo articolo illustra come eseguire il training e registrare un scikit-informazioni su modelli mediante il servizio di Azure Machine Learning.
+description: Informazioni su come eseguire gli script di training di Scikit-learn su scala aziendale usando la classe SKlearn Estimator di Azure Machine Learning. Gli script di esempio classificano le immagini fiore Iris per creare un modello di machine learning basato sul set di dati Iris Scikit-learn.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: maxluk
 author: maxluk
-ms.date: 06/30/2019
+ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: c9e983f7981c1155964617694d2cce86aba741b7
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 98c04c50bc4a52e9b2e4e267895fdd94888885f5
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840014"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775158"
 ---
-# <a name="train-and-register-scikit-learn-models-at-scale-with-azure-machine-learning-service"></a>Eseguire il training e di registrare modelli Scikit-learn su larga scala con il servizio di Azure Machine Learning
+# <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning-service"></a>Creazione di modelli Scikit-learn su larga scala con il servizio Azure Machine Learning
 
-Questo articolo illustra come eseguire il training e registrare un modello di Scikit-learn usando il servizio di Azure Machine Learning. Usa il diffuso [set di dati Iris](https://archive.ics.uci.edu/ml/datasets/iris) classificare le immagini in fiore iris con l'oggetto personalizzato [scikit-informazioni su](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) classe.
+Questo articolo illustra come eseguire gli script di training di Scikit-learn su scala aziendale usando la classe [SKlearn Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) di Azure Machine Learning. 
 
-Scikit-learn è un framework di elaborazione open source comunemente usato per machine learning. Con il servizio di Azure Machine Learning, è possibile aumentare rapidamente i processi di training open source con le risorse di calcolo cloud elastico. È inoltre possibile monitorare le esecuzioni di training, i modelli di versione, la distribuzione di modelli e molto altro ancora.
+Gli script di esempio in questo articolo vengono usati per classificare le immagini Flower Iris per creare un modello di machine learning basato sul [set di dati Iris](https://archive.ics.uci.edu/ml/datasets/iris)Scikit-learn.
 
-Se si sta sviluppando un modello Scikit-learn da zero o si desidera introdurre un modello esistente nel cloud, servizio Azure Machine Learning consentono di compilare modelli pronti per la produzione.
+Che tu stia eseguendo il training di un modello Scikit-learn di machine learning da zero o che crei un modello esistente nel cloud, puoi usare Azure Machine Learning per scalare in orizzontale processi di training open source con risorse di calcolo elastiche per il cloud. Con Azure Machine Learning è possibile creare, distribuire, eseguire la versione e monitorare i modelli a livello di produzione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Eseguire questo codice in uno dei due ambienti:
- - Azure Machine Learning Notebook VM - alcun download o installazione necessaria
+Eseguire questo codice in uno degli ambienti seguenti:
+ - Azure Machine Learning macchina virtuale Notebook-nessun download o installazione necessaria
 
-    - Completare la [Guida introduttiva di notebook basato su cloud](quickstart-run-cloud-notebook.md) per creare un server notebook dedicato precaricato con il SDK e il repository di esempio.
-    - Nella cartella samples nel server notebook, trovare un notebook completato ed espanso passando a questa directory: **how-to-uso-azureml > formazione > train-hyperparameter-tune-deploy-with-sklearn** cartella.
+    - Completare l'[Esercitazione: Configurare l'ambiente e](tutorial-1st-experiment-sdk-setup.md) l'area di lavoro per creare un server notebook dedicato precaricato con l'SDK e il repository di esempio.
+    - Nella cartella Training degli esempi sul server notebook trovare un notebook completato e espanso passando a questa directory: **How-to-use-azureml > training > Train-iperparameter-Tune-deploy-with-sklearn** Folder.
 
  - Server Jupyter Notebook personale
 
-    - [Installare Azure Machine Learning SDK per Python](setup-create-workspace.md#sdk)
+    - [Installare l'SDK di Azure Machine Learning per Python](setup-create-workspace.md#sdk)
     - [Creare un file di configurazione dell'area di lavoro](setup-create-workspace.md#write-a-configuration-file)
-    - [Scaricare il file di script di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn) `train_iris.py`
-    - È anche possibile trovare un completate [versione di Notebook di Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-sklearn.ipynb) di questa Guida nella pagina degli esempi di GitHub. Il notebook include una sezione espansa copertura intelligente degli iperparametri di ottimizzazione e il recupero del modello migliore con le metriche primarie.
+    - Scaricare il set di dati e il file di script di esempio 
+        - [set di dati Iris](https://archive.ics.uci.edu/ml/datasets/iris)
+        - [`train_iris.py`](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn)
+    - È anche possibile trovare una [versione di Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-deploy-with-sklearn.ipynb) completata di questa guida nella pagina degli esempi di GitHub. Il notebook include una sezione espansa che illustra l'ottimizzazione di iperparametri intelligenti e il recupero del modello migliore in base alle metriche primarie.
 
 ## <a name="set-up-the-experiment"></a>Configurare l'esperimento
 
-In questa sezione si configura l'esperimento di training per il caricamento di pacchetti python necessari, l'inizializzazione di un'area di lavoro, creazione di un esperimento e caricare i dati di training e gli script di training.
+Questa sezione Configura l'esperimento di training caricando i pacchetti Python necessari, inizializzando un'area di lavoro, creando un esperimento e caricando i dati di training e gli script di training.
 
 ### <a name="import-packages"></a>Importare pacchetti
 
-In primo luogo, importare le librerie di Python necessari.
+Prima di tutto, importare le librerie Python necessarie.
 
 ```Python
 import os
@@ -63,17 +65,17 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### <a name="initialize-a-workspace"></a>Inizializzare un'area di lavoro
 
-Il [dell'area di lavoro di Azure Machine Learning servizio](concept-workspace.md) è la risorsa di primo livello per il servizio. Offre una posizione centralizzata per lavorare con tutti gli elementi creati. In Python SDK, è possibile accedere gli elementi dell'area di lavoro mediante la creazione di un [ `workspace` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) oggetto.
+L' [area di lavoro del servizio Azure Machine Learning](concept-workspace.md) è la risorsa di livello superiore per il servizio. Offre una posizione centralizzata per lavorare con tutti gli artefatti creati. In Python SDK è possibile accedere agli elementi dell'area di lavoro creando un [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) oggetto.
 
-Crea un oggetto dell'area di lavoro dal `config.json` creato nel file il [sezione Prerequisiti](#prerequisites).
+Creare un oggetto dell'area di `config.json` lavoro dal file creato nella [sezione Prerequisiti](#prerequisites).
 
 ```Python
 ws = Workspace.from_config()
 ```
 
-### <a name="create-an-experiment"></a>Creare un esperimento
+### <a name="create-a-machine-learning-experiment"></a>Creare un esperimento di Machine Learning
 
-Creare un esperimento e una cartella per contenere gli script di training. In questo esempio, creare un esperimento denominato "iris-sklearn".
+Creare un esperimento e una cartella che contengano gli script di training. In questo esempio, creare un esperimento denominato "sklearn-Iris".
 
 ```Python
 project_folder = './sklearn-iris'
@@ -82,9 +84,9 @@ os.makedirs(project_folder, exist_ok=True)
 exp = Experiment(workspace=ws, name='sklearn-iris')
 ```
 
-### <a name="upload-dataset-and-scripts"></a>Caricare set di dati e gli script
+### <a name="upload-dataset-and-scripts"></a>Caricare DataSet e script
 
-Il [datastore](how-to-access-data.md) è una posizione in cui i dati possono essere archiviati e a cui accede il montaggio o copiare i dati nella destinazione di calcolo. Ogni area di lavoro fornisce un archivio dati predefinito. Caricare i dati e script di training per l'archivio dati in modo che sono facilmente accessibili durante il training.
+L' [Archivio](how-to-access-data.md) dati è una posizione in cui è possibile archiviare e accedere ai dati montando o copiando i dati nella destinazione di calcolo. Ogni area di lavoro fornisce un archivio dati predefinito. Caricare i dati e gli script di training nell'archivio dati in modo che possano essere facilmente accessibili durante il training.
 
 1. Creare la directory per i dati.
 
@@ -92,14 +94,14 @@ Il [datastore](how-to-access-data.md) è una posizione in cui i dati possono ess
     os.makedirs('./data/iris', exist_ok=True)
     ```
 
-1. Caricare il set di dati iris nell'archivio dati predefinito.
+1. Caricare il set di dati Iris nell'archivio dati predefinito.
 
     ```Python
     ds = ws.get_default_datastore()
     ds.upload(src_dir='./data/iris', target_path='iris', overwrite=True, show_progress=True)
     ```
 
-1. Script di training caricamento Scikit-learn, `train_iris.py`.
+1. Caricare lo script di formazione Scikit-learn `train_iris.py`,.
 
     ```Python
     shutil.copy('./train_iris.py', project_folder)
@@ -107,9 +109,9 @@ Il [datastore](how-to-access-data.md) è una posizione in cui i dati possono ess
 
 ## <a name="create-or-get-a-compute-target"></a>Creare o ottenere una destinazione di calcolo
 
-Creare una destinazione di calcolo per il processo da eseguire su Scikit-learn. Scikit altre supporta solo nodo, di elaborazione della CPU.
+Creare una destinazione di calcolo per il processo Scikit-learn da eseguire in. Scikit-learn supporta solo il singolo nodo, il calcolo della CPU.
 
-Il codice seguente, crea un calcolo gestita di Azure Machine Learning (AmlCompute) per la risorsa di calcolo remoto corsi di formazione. La creazione di AmlCompute richiede circa 5 minuti. Se il AmlCompute con lo stesso nome è già nell'area di lavoro, questo codice verrà eseguito il processo di creazione.
+Il codice seguente crea una Azure Machine Learning calcolo gestito (AmlCompute) per la risorsa di calcolo di training remoto. La creazione di AmlCompute richiede circa 5 minuti. Se il AmlCompute con lo stesso nome è già presente nell'area di lavoro, questo codice ignorerà il processo di creazione.
 
 ```Python
 cluster_name = "cpu-cluster"
@@ -127,13 +129,13 @@ except ComputeTargetException:
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
-Per altre informazioni sulle destinazioni di calcolo, vedere la [What ' s una destinazione di calcolo](concept-compute-target.md) articolo.
+Per altre informazioni sulle destinazioni di calcolo, vedere l'articolo [che cos'è un calcolo di destinazione](concept-compute-target.md) .
 
-## <a name="create-a-scikit-learn-estimator"></a>Creare un Estimatore Scikit-learn
+## <a name="create-a-scikit-learn-estimator"></a>Creare un Scikit-learn Estimator
 
-Il [estimator Scikit-learn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) fornisce un modo semplice per l'avvio di Scikit-learn processo di training in una destinazione di calcolo. Viene implementato tramite il [ `SKLearn` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) (classe), che può essere usato per supportare la formazione di CPU a nodo singolo.
+[Scikit-learn Estimator](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.sklearn?view=azure-ml-py) fornisce un modo semplice per avviare un processo di formazione Scikit-learn in una destinazione di calcolo. Viene implementato tramite la classe [`SKLearn`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) , che può essere utilizzata per supportare la formazione della CPU a nodo singolo.
 
-Se lo script di training deve aggiuntive pip o conda pacchetti da eseguire, è possibile usare i pacchetti installati nell'immagine docker risultante passando i nomi tramite il `pip_packages` e `conda_packages` argomenti.
+Se lo script di training richiede l'esecuzione di pacchetti PIP o conda aggiuntivi, è possibile fare in modo che i pacchetti siano installati nell'immagine Docker risultante passando `pip_packages` i `conda_packages` relativi nomi tramite gli argomenti e.
 
 ```Python
 from azureml.train.sklearn import SKLearn
@@ -153,28 +155,28 @@ estimator = SKLearn(source_directory=project_folder,
 
 ## <a name="submit-a-run"></a>Invia un'esecuzione
 
-Il [oggetto esecuzione](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) fornisce l'interfaccia per la cronologia di esecuzione durante l'esecuzione del processo e dopo il completamento.
+L' [oggetto Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) fornisce l'interfaccia alla cronologia di esecuzione mentre il processo è in esecuzione e dopo il completamento.
 
 ```Python
 run = experiment.submit(estimator)
 run.wait_for_completion(show_output=True)
 ```
 
-L'esecuzione viene eseguita, la chiamata passa attraverso le fasi seguenti:
+Quando l'esecuzione viene eseguita, vengono eseguite le fasi seguenti:
 
-- **Preparazione**: In base alla stima di TensorFlow viene creata un'immagine docker. L'immagine viene caricata in Registro contenitori dell'area di lavoro e memorizzato nella cache per le esecuzioni successive. I log vengono anche trasmessi per la cronologia di esecuzione e possono essere consultati per monitorare lo stato di avanzamento.
+- **Preparazione**in corso: Viene creata un'immagine Docker in base allo strumento di stima TensorFlow. L'immagine viene caricata nel registro contenitori dell'area di lavoro e memorizzata nella cache per le esecuzioni successive. Anche i log vengono trasmessi alla cronologia di esecuzione e possono essere visualizzati per monitorare lo stato di avanzamento.
 
-- **Ridimensionamento**: Il cluster tenta di aumentare le prestazioni se il cluster Batch per intelligenza artificiale richiede più nodi per l'esecuzione dell'esecuzione rispetto a quelli attualmente disponibili.
+- **Ridimensionamento**: Il cluster tenta di eseguire la scalabilità verticale se il cluster batch per intelligenza artificiale richiede un numero maggiore di nodi per eseguire l'esecuzione che attualmente sono disponibili.
 
-- **In esecuzione**: Tutti gli script nella cartella dello script vengono caricati nella destinazione di calcolo, archivi dati vengono montati o copiati e viene eseguito il entry_script. Gli output di stdout e. / cartella dei log vengono inviati nel flusso per la cronologia di esecuzione e può essere usato per monitorare l'esecuzione.
+- **In esecuzione**: Tutti gli script nella cartella script vengono caricati nella destinazione di calcolo, gli archivi dati vengono montati o copiati e viene eseguito entry_script. Gli output da stdout e la cartella./logs vengono trasmessi alla cronologia di esecuzione e possono essere usati per monitorare l'esecuzione.
 
-- **Post-elaborazione**: I. / output dell'esecuzione della cartella da copiare la cronologia di esecuzione.
+- **Post-elaborazione**: La cartella./Outputs dell'esecuzione viene copiata nella cronologia di esecuzione.
 
 ## <a name="save-and-register-the-model"></a>Salvare e registrare il modello
 
-Dopo aver eseguito il training modello, è possibile salvare e registrarlo per l'area di lavoro. Registrazione del modello consente di store e la versione dei modelli nell'area di lavoro per semplificare [modello di distribuzione e gestione](concept-model-management-and-deployment.md).
+Dopo aver eseguito il training del modello, è possibile salvarlo e registrarlo nell'area di lavoro. Con la registrazione del modello è possibile archiviare e deversionere i modelli nell'area di lavoro per semplificare la [gestione e la distribuzione del modello](concept-model-management-and-deployment.md).
 
-Aggiungere il codice seguente allo script di training, train_iris.py, salvare il modello. 
+Aggiungere il codice seguente allo script di training, train_iris. py, per salvare il modello. 
 
 ``` Python
 import joblib
@@ -190,10 +192,12 @@ model = run.register_model(model_name='sklearn-iris', model_path='model.joblib')
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo, viene sottoposto a training e registrato un modello Scikit-learn nel servizio di Azure Machine Learning.
+In questo articolo è stato eseguito il training e la registrazione di un modello di classificazione di Machine Learning con Scikit-learn sul servizio Azure Machine Learning.
 
-* Per informazioni su come distribuire un modello, passare al nostro [distribuzione del modello](how-to-deploy-and-where.md) articolo.
+* Per informazioni su come distribuire un modello, continuare con l'articolo sulla [distribuzione del modello](how-to-deploy-and-where.md) .
 
-* [Ottimizzare gli iperparametri](how-to-tune-hyperparameters.md)
+* [Ottimizzare](how-to-tune-hyperparameters.md)gli iperparametri.
 
-* [Tracciare le metriche di esecuzione durante il training](how-to-track-experiments.md)
+* [Rilevare le metriche di esecuzione durante il training](how-to-track-experiments.md).
+
+* Scopri di più sull'apprendimento avanzato [rispetto a Machine Learning](concept-deep-learning-vs-machine-learning.md).

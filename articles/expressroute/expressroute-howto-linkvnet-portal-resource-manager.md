@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 66c43556e698063b95ce1c3787458e40c9d71504
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1545e2e7eba23b0bedbfe297c292fc94e1659ae3
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60365591"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775272"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Connettere una rete virtuale a un circuito ExpressRoute usando il portale
 > [!div class="op_single_selector"]
@@ -95,7 +95,7 @@ Il proprietario del circuito crea un'autorizzazione. Questo comporta la creazion
 
 1. Nella pagina di ExpressRoute fare clic su **Autorizzazioni**, digitare un **nome** per l'autorizzazione e fare clic su **Salva**.
 
-   ![Authorizations](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
+   ![Autorizzazioni](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
 2. Dopo che la configurazione è stata salvata, copiare l'**ID risorsa** e la **chiave di autorizzazione**.
 
    ![Chiave di autorizzazione](./media/expressroute-howto-linkvnet-portal-resource-manager/authkey.png)
@@ -121,7 +121,7 @@ L'utente del circuito deve richiedere l'ID risorsa e una chiave di autorizzazion
 
    ![Pagina Informazioni di base](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
 5. Nella pagina **Impostazioni** selezionare **Gateway di rete virtuale** e selezionare la casella di controllo **Riscatta autorizzazione**.
-6. Immettere i valori nei campi **Authorization key** (Chiave di autorizzazione) e **Peer circuit URI** (URI circuito peer) e assegnare un nome di connessione. Fare clic su **OK**.
+6. Immettere i valori nei campi **Authorization key** (Chiave di autorizzazione) e **Peer circuit URI** (URI circuito peer) e assegnare un nome di connessione. Fare clic su **OK**. L' **URI del circuito peer** è l'ID di risorsa del circuito ExpressRoute, che è possibile trovare nel riquadro delle impostazioni delle proprietà del circuito ExpressRoute.
 
    ![Pagina Impostazioni](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
 7. Verificare le informazioni nella pagina **Riepilogo** e fare clic su **OK**.

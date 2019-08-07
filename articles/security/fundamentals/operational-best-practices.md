@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: e815c038cce2e792fe7ea39f1ee43342be0b679f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 97f061d94209d84b70626f8735d08f89870e7319
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726906"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828720"
 ---
 # <a name="azure-operational-security-best-practices"></a>Procedure consigliate per la sicurezza operativa di Azure
 Questo articolo fornisce un set di procedure consigliate operative per la protezione di dati, applicazioni e altre risorse in Azure.
@@ -118,7 +118,7 @@ Il Punteggio sicuro, che si basa su controlli di sicurezza di rete per Internet 
 **Dettagli**: La maggior parte delle organizzazioni con SIEM lo usa come centrale per gli avvisi di sicurezza che richiedono una risposta analista. Gli eventi elaborati generati dal centro sicurezza vengono pubblicati nel log attività di Azure, uno dei log disponibili tramite monitoraggio di Azure. Monitoraggio di Azure offre una pipeline consolidata per eseguire il routing dei dati di monitoraggio in uno strumento SIEM. Per istruzioni, vedere [integrare le soluzioni di sicurezza nel centro sicurezza](../../security-center/security-center-partner-integration.md#exporting-data-to-a-siem) . Se si usa Azure Sentinel, vedere [connettere il Centro sicurezza di Azure](../../sentinel/connect-azure-security-center.md).
 
 **Procedura consigliata**: Integrare i log di Azure con SIEM.   
-**Dettagli**: Usare [monitoraggio di Azure per raccogliere ed esportare dati](/azure/azure-monitor/overview.md#integrate-and-export-data). Questa procedura è fondamentale per l'abilitazione dell'analisi degli eventi imprevisti della sicurezza e la conservazione dei log online è limitata. Se si usa Sentinel di Azure, vedere [connettere le origini dati](../../sentinel/connect-data-sources.md).
+**Dettagli**: Usare [monitoraggio di Azure per raccogliere ed esportare dati](/azure/azure-monitor/overview#integrate-and-export-data). Questa procedura è fondamentale per l'abilitazione dell'analisi degli eventi imprevisti della sicurezza e la conservazione dei log online è limitata. Se si usa Sentinel di Azure, vedere [connettere le origini dati](../../sentinel/connect-data-sources.md).
 
 **Procedura consigliata**: Velocizzare i processi di analisi e caccia e ridurre i falsi positivi integrando le funzionalità di rilevamento e risposta degli endpoint nell'analisi degli attacchi.   
 **Dettagli**: [Abilitare l'integrazione di Windows Defender ATP](../../security-center/security-center-wdatp.md#enable-windows-defender-atp-integration) tramite i criteri di sicurezza del Centro sicurezza. È consigliabile usare Sentinel di Azure per la ricerca di minacce e la risposta agli eventi imprevisti

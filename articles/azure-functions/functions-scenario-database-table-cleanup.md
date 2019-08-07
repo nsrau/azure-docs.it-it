@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: glenga
-ms.openlocfilehash: 19a5fe4c087d477ff15d2237a36d1c4ecaa0e070
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f81337cea3ece822ea05bcc94f4e05d6e177bf93
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65908130"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735592"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Usare Funzioni di Azure per connettersi al database SQL di Azure
 
-Questo articolo illustra come usare Funzioni di Azure per creare un processo pianificato che si connette a un'istanza del database SQL di Azure. Il codice della funzione pulisce le righe in una tabella nel database. Il nuovo C# funzione viene creata in base a un modello di trigger del timer predefiniti in Visual Studio 2019. Per supportare questo scenario, è necessario anche impostare una stringa di connessione di database come impostazione app nell'app per le funzioni. Questo scenario esegue un'operazione in blocco sul database. 
+Questo articolo illustra come usare Funzioni di Azure per creare un processo pianificato che si connette a un'istanza del database SQL di Azure. Il codice della funzione pulisce le righe in una tabella nel database. La nuova C# funzione viene creata in base a un modello predefinito di attivazione del timer in Visual Studio 2019. Per supportare questo scenario, è necessario anche impostare una stringa di connessione di database come impostazione app nell'app per le funzioni. Questo scenario esegue un'operazione in blocco sul database. 
 
 Se si tratta della prima esperienza di utilizzo di funzioni C#, è consigliabile leggere la [Guida di riferimento per gli sviluppatori C# di Funzioni di Azure](functions-dotnet-class-library.md).
 
@@ -64,7 +64,7 @@ Un'app per le funzioni ospita l'esecuzione delle funzioni in Azure. Come procedu
 
 È necessario aggiungere il pacchetto NuGet che contiene la libreria SqlClient. Questa libreria di accesso ai dati è necessaria per connettersi a un database SQL.
 
-1. Aprire il progetto di app di funzione locale in Visual Studio 2019.
+1. Aprire il progetto di app per le funzioni locali in Visual Studio 2019.
 
 1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto di app per le funzioni e scegliere **Gestisci pacchetti NuGet**.
 
@@ -127,7 +127,7 @@ A questo punto, è possibile aggiungere il codice della funzione C# che si conne
 
     Alla prima esecuzione dovrebbero essere aggiornate 32 righe di dati. Le esecuzioni successive non aggiornano alcuna riga di dati, a meno che non si apportino modifiche ai dati della tabella SalesOrderHeader in modo che vengano selezionate altre righe dall'istruzione `UPDATE`.
 
-Se si intende [pubblicare questa funzione](functions-develop-vs.md#publish-to-azure), ricordarsi di modificare l'attributo `TimerTrigger` specificando una [pianificazione CRON](functions-bindings-timer.md#cron-expressions) più ragionevole rispetto a ogni 15 secondi.
+Se si intende [pubblicare questa funzione](functions-develop-vs.md#publish-to-azure), ricordarsi di modificare l'attributo `TimerTrigger` specificando una [pianificazione CRON](functions-bindings-timer.md#ncrontab-expressions) più ragionevole rispetto a ogni 15 secondi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

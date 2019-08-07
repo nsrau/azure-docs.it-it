@@ -5,18 +5,18 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 04/04/2018
+ms.date: 08/02/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 19ad4e39ca4e402c37b2cfa69c7c306b6e5a2766
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 5149973fe63f867b49e55c970779c005e12536b9
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180000"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780132"
 ---
-1. Individuare e aprire la pagina relativa al gateway di rete virtuale. Questa operazione può essere eseguita in vari modi. È possibile passare al gateway 'VNet1GW' passando a **TestVNet1 -> Panoramica -> Dispositivi connessi -> VNet1GW**.
-2. Nella pagina di VNet1GW fare clic su **Connessioni**. Nella parte superiore della pagina Connessioni fare clic su **+Aggiungi** per aprire la pagina **Aggiungi connessione**.
+1. Aprire la pagina per il gateway di rete virtuale. Questa operazione può essere eseguita in vari modi. È possibile passare al gateway passando al **nome della Panoramica di VNet->-> dispositivi connessi-> nome del gateway**.
+2. Nella pagina del gateway fare clic su **connessioni**. Nella parte superiore della pagina Connessioni fare clic su **+Aggiungi** per aprire la pagina **Aggiungi connessione**.
 
    ![Configurare una connessione da sito a sito](./media/vpn-gateway-add-site-to-site-connection-portal-include/configure-site-to-site-connection.png)
 3. Nella pagina **Aggiungi connessione** configurare i valori per la connessione.

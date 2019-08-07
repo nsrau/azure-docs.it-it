@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: rajanaki
-ms.openlocfilehash: a7fcd4deb0446577af310ff5380ffddf05ba87be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2cf43f8a235b112cfcf1fc6c9dba626a5a0c9b7e
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64719834"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828396"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Risolvere i problemi della replica e del failover da Hyper-V ad Azure
 
@@ -30,7 +30,7 @@ Se si verificano problemi quando si abilita la protezione per le macchine virtua
 5. Nella macchina virtuale guest verificare che WMI sia abilitato e accessibile.
    - [Informazioni](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) sul test WMI di base.
    - [Risolvere i problemi](https://aka.ms/WMiTshooting) di WMI.
-   - [Risolvere i problemi di](https://technet.microsoft.com/library/ff406382.aspx#H22) problemi con gli script WMI e servizi.
+   - [Risolvere](https://technet.microsoft.com/library/ff406382.aspx#H22) i problemi con gli script e i servizi WMI.
 6. Nella macchina virtuale guest verificare che sia in esecuzione la versione più recente di Integration Services.
     - [Controllare](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) che sia disponibile l'ultima versione.
     - [Mantenere](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) aggiornato Integration Services.
@@ -129,7 +129,7 @@ Uno snapshot coerente con l'app è uno snapshot temporizzato dei dati dell'appli
 
 2. Per generare gli snapshot VSS per la macchina virtuale, verificare che nella macchina virtuale sia installato Integration Services di Hyper-V e che il servizio di integrazione Backup (VSS) sia abilitato.
     - Controllare che il servizio/daemon VSS di Integration Services siano in esecuzione nel guest e si trovino in uno stato **OK**.
-    - È possibile verificare tale da una sessione di PowerShell con privilegi elevata nell'host Hyper-V con il comando **et-VMIntegrationService - VMName\<VMName >-Name VSS** è anche possibile ottenere queste informazioni eseguendo l'accesso alla macchina virtuale Guest. [Altre informazioni](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services)
+    - È possibile selezionare questa opzione da una sessione di PowerShell con privilegi elevati nell'host Hyper-V con il comando **get\<-VMIntegrationService-VMName VMName >-Name VSS** . è anche possibile ottenere queste informazioni eseguendo l'accesso alla macchina virtuale guest. [Altre informazioni](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services)
     - Verificare che Backup/VSS Integration Services nella macchina virtuale siano in esecuzione e si trovino in uno stato integro. In caso contrario, riavviare questi servizi e il servizio richiedente Copia Shadow del volume di Hyper-V nel server host Hyper-V.
 
 ### <a name="common-errors"></a>Errori comuni

@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 974243da07a2570e851b7d44eac2556c201c2782
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 3c81ec5e213364ed6f159fd20e12879a098caad4
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678523"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774997"
 ---
 # <a name="mapping-data-flow-select-transformation"></a>Trasformazione Selezione flusso di dati mapping
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
@@ -35,6 +35,8 @@ Nel diagramma precedente la trasformazione Selezione si trova nella parte superi
 * Scegliere Ignora duplicati per eliminare le colonne duplicate dai metadati di input o di output.
 
 ![Ignora duplicati](media/data-flow/select-skip-dup.png "Ignora duplicati")
+
+* Quando si sceglie di ignorare i duplicati, i risultati saranno visibili nella scheda controlla. ADF manterrà la prima occorrenza della colonna e si noterà che ogni occorrenza successiva della stessa colonna è stata rimossa dal flusso.
 
 > [!NOTE]
 > Per cancellare le regole di mapping, fare clic sul pulsante **Reimposta** .

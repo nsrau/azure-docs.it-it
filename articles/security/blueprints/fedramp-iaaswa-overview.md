@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1ba5b813843ce2f5d31f337ab4d3d94e521b0e0c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a0458525eaf985ac6b1ff2afde5726bbac45b4f2
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60586135"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68778781"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Progetto di sicurezza e conformità di Azure: Applicazione Web IaaS per FedRAMP
 
@@ -69,7 +69,7 @@ Questa soluzione usa i servizi di Azure seguenti. Per dettagli dell'architettura
     - (7) Account di archiviazione con ridondanza geografica
 - Cloud di controllo di Azure
 - Insieme di credenziali dei servizi di ripristino
-- Azure Key Vault
+- Insieme di credenziali delle chiavi di Azure
 - Azure Active Directory (Azure AD)
 - Azure Resource Manager
 - Monitoraggio di Azure (log)
@@ -127,7 +127,7 @@ Le tecnologie seguenti offrono funzionalità di gestione delle identità nell'am
 
 **Gestione delle patch**: Le macchine virtuali Windows distribuite tramite questo progetto di automazione Azure Security and Compliance Blueprint vengono configurate per impostazione predefinita per ricevere aggiornamenti automatici dal servizio Windows Update. Questa soluzione distribuisce anche la soluzione di automazione di Azure tramite la quale è possibile creare distribuzioni di aggiornamento per distribuire patch nei server Windows in base alle esigenze.
 
-**Protezione antimalware**: [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) per Macchine virtuali offre una funzionalità di protezione in tempo reale che consente di identificare e rimuovere virus, spyware e altro software dannoso con avvisi configurabili per i casi in cui un software dannoso o indesiderato tenta di installare o eseguire se stesso su macchine virtuali protette.
+**Protezione antimalware**: [Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) per Macchine virtuali offre una funzionalità di protezione in tempo reale che consente di identificare e rimuovere virus, spyware e altro software dannoso con avvisi configurabili per i casi in cui un software dannoso o indesiderato tenta di installare o eseguire se stesso su macchine virtuali protette.
 
 **Gateway applicazione**: L'architettura riduce il rischio di vulnerabilità della sicurezza tramite un gateway applicazione con web application firewall (WAF) e il set di regole OWASP abilitati. Altre funzionalità:
 
@@ -147,11 +147,11 @@ Le tecnologie seguenti offrono funzionalità di gestione delle identità nell'am
 
 ### <a name="logging-and-auditing"></a>Registrazione e controllo
 
-Log di monitoraggio di Azure offre registrazione completa delle attività di sistema e utente, nonché dell'integrità del sistema. Il [monitoraggio di Azure registra](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) soluzione raccoglie e analizza i dati generati dalle risorse di Azure e negli ambienti locali.
+Log di monitoraggio di Azure offre una registrazione completa delle attività del sistema e degli utenti, nonché dell'integrità del sistema. La soluzione [log di monitoraggio di Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) raccoglie e analizza i dati generati dalle risorse in Azure e negli ambienti locali.
 
 - **Log attività:**  i [log attività](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) offrono informazioni dettagliate sulle operazioni eseguite sulle risorse di una sottoscrizione. I log attività possono essere utili per determinare l'iniziatore di un'operazione, l'ora in cui si è verificata e lo stato.
 - **Log di diagnostica:**  I [log di diagnostica](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) sono tutti i log generati da ogni risorsa. Questi log includono log eventi del sistema Windows, log di archiviazione di Azure, log di controllo di Azure Key Vault e log degli accessi e del firewall del gateway applicazione.
-- **Archiviazione di log**:  Tutti i log di diagnostica eseguono operazioni di scrittura in un account di archiviazione di Azure centralizzato e crittografato per finalità di archiviazione. La conservazione può essere configurata dall'utente per un massimo di 730 giorni per soddisfare i requisiti di conservazione specifici dell'organizzazione. Questi log connettere ai log di monitoraggio di Azure per l'elaborazione, l'archiviazione e i report del dashboard.
+- **Archiviazione di log**:  Tutti i log di diagnostica eseguono operazioni di scrittura in un account di archiviazione di Azure centralizzato e crittografato per finalità di archiviazione. La conservazione può essere configurata dall'utente per un massimo di 730 giorni per soddisfare i requisiti di conservazione specifici dell'organizzazione. Questi log si connettono ai log di monitoraggio di Azure per l'elaborazione, l'archiviazione e il reporting del dashboard.
 
 Questa architettura include anche l'installazione delle soluzioni di monitoraggio seguenti. Si noti che è responsabilità del cliente configurare le soluzioni per allinearle ai controlli di sicurezza FedRAMP:
 -   [Valutazione Active Directory](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): la soluzione Controllo integrità Active Directory valuta il rischio e l'integrità degli ambienti server a intervalli regolari e fornisce un elenco di elementi consigliati specifici per l'infrastruttura di server distribuita, classificati in ordine di priorità.
@@ -180,11 +180,11 @@ Il [Progetto di conformità e sicurezza di Azure - Matrice di implementazione de
 
 ## <a name="deploy-the-solution"></a>Distribuire la soluzione
 
-Questo progetto di automazione Azure Security and Compliance Blueprint è costituito da file di configurazione JSON e script di PowerShell gestiti dal servizio API di Azure Resource Manager per distribuire risorse in Azure. Istruzioni di distribuzione dettagliate sono disponibili [qui](https://aka.ms/fedrampblueprintrepo).
+Questo progetto di automazione Azure Security and Compliance Blueprint è costituito da file di configurazione JSON e script di PowerShell gestiti dal servizio API di Azure Resource Manager per distribuire risorse in Azure. Per istruzioni dettagliate sulla distribuzione, vedere [qui](https://aka.ms/fedrampblueprintrepo).
 > [!NOTE]
 > Questa soluzione viene distribuita in Azure per enti pubblici.
 
-#### <a name="quickstart"></a>Guida introduttiva
+#### <a name="quickstart"></a>Avvio rapido
 1. Clonare o scaricare [questo](https://aka.ms/fedrampblueprintrepo) repository GitHub nella workstation locale.
 
 2. Eseguire lo script di PowerShell di predistribuzione: azure-blueprint/predeploy/Orchestration_InitialSetup.ps1.

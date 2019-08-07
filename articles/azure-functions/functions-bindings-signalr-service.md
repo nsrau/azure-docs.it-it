@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: 62d9319ae292c9f4ae22f8fcd83bdd8799dc6617
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: b4622321dc25025eb2f7752755490eb5bc105069
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480265"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741774"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Associazioni del servizio SignalR per Funzioni di Azure
 
@@ -30,14 +30,14 @@ Questo articolo illustra come autenticare e inviare messaggi in tempo reale ai c
 
 ## <a name="packages---functions-2x"></a>Pacchetti: Funzioni 2.x
 
-Le associazioni di SignalR Service sono incluse nel [Microsoft.Azure.WebJobs.Extensions.SignalRService](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService) pacchetto NuGet, versione 1. *. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-functions-signalrservice-extension](https://github.com/Azure/azure-functions-signalrservice-extension).
+Le associazioni del servizio SignalR sono incluse nel pacchetto NuGet [Microsoft. Azure. webjobs. Extensions. SignalRService](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService) , versione 1. *. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-functions-signalrservice-extension](https://github.com/Azure/azure-functions-signalrservice-extension).
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2-manual-portal.md)]
 
 
 ### <a name="java-annotations"></a>Annotazioni Java
 
-Per usare le annotazioni di SignalR Service in Java funzioni, è necessario aggiungere una dipendenza per il *azure-funzioni-java-libreria-signalr* artefatto (versione 1.0 o versione successiva) a POM. Xml.
+Per usare le annotazioni del servizio SignalR nelle funzioni Java, è necessario aggiungere una dipendenza all'artefatto di *Azure-Functions-Java-Library-SignalR* (versione 1,0 o successiva) al file POM. XML.
 
 ```xml
 <dependency>
@@ -50,9 +50,9 @@ Per usare le annotazioni di SignalR Service in Java funzioni, è necessario aggi
 > [!NOTE]
 > Per usare le associazioni del servizio SignalR in Java, verificare di usare la versione 2.4.419 o versione successiva di Azure Functions Core Tools (versione host 2.0.12332).
 
-## <a name="using-signalr-service-with-azure-functions"></a>Uso del servizio di SignalR con funzioni di Azure
+## <a name="using-signalr-service-with-azure-functions"></a>Uso del servizio SignalR con funzioni di Azure
 
-Per informazioni dettagliate su come configurare e utilizzare contemporaneamente SignalR Service e funzioni di Azure, consultare [lo sviluppo di funzioni di Azure e la configurazione con il servizio Azure SignalR](../azure-signalr/signalr-concept-serverless-development-config.md).
+Per informazioni dettagliate su come configurare e usare insieme il servizio SignalR e funzioni di Azure, vedere [sviluppo e configurazione di funzioni di Azure con il servizio Azure SignalR](../azure-signalr/signalr-concept-serverless-development-config.md).
 
 ## <a name="signalr-connection-info-input-binding"></a>Associazione di input delle informazioni di connessione a SignalR
 
@@ -62,11 +62,11 @@ Vedere l'esempio specifico per ciascun linguaggio:
 
 * [C# 2.x](#2x-c-input-examples)
 * [JavaScript 2.x](#2x-javascript-input-examples)
-* [2.x Java](#2x-java-input-examples)
+* [2. x Java](#2x-java-input-examples)
 
-Per altre informazioni sull'utilizzo di questa associazione per creare una funzione "negotiate" che può essere usata da un SDK del client SignalR, vedere la [articolo di sviluppo e la configurazione delle funzioni di Azure](../azure-signalr/signalr-concept-serverless-development-config.md) dei concetti di SignalR Service documentazione.
+Per altre informazioni su come questa associazione viene usata per creare una funzione "Negotiate" che può essere usata da un SDK client SignalR, vedere l' [articolo sviluppo e configurazione di funzioni di Azure](../azure-signalr/signalr-concept-serverless-development-config.md) nella documentazione relativa ai concetti del servizio SignalR.
 
-### <a name="2x-c-input-examples"></a>versione 2.x C# esempi di input
+### <a name="2x-c-input-examples"></a>esempi di input C# 2. x
 
 L'esempio seguente mostra una [funzione C#](functions-dotnet-class-library.md) che acquisisce le informazioni di connessione a SignalR usando l'associazione di input e le restituisce tramite HTTP.
 
@@ -82,7 +82,7 @@ public static SignalRConnectionInfo Negotiate(
 
 #### <a name="authenticated-tokens"></a>Token autenticati
 
-Se la funzione viene attivata da un client autenticato, è possibile aggiungere un'attestazione ID utente al token generato. È possibile aggiungere con facilità l'autenticazione a un'app di funzione usando [l'autenticazione del servizio App](../app-service/overview-authentication-authorization.md).
+Se la funzione viene attivata da un client autenticato, è possibile aggiungere un'attestazione ID utente al token generato. È possibile aggiungere facilmente l'autenticazione a un'app per le funzioni usando [l'autenticazione del servizio app](../app-service/overview-authentication-authorization.md).
 
 Autenticazione servizio App imposta le intestazioni HTTP denominate `x-ms-client-principal-id` e `x-ms-client-principal-name` contenenti rispettivamente l'ID e il nome dell'entità client dell'utente autenticato. È possibile impostare la proprietà `UserId` dell'associazione sul valore ottenuto da una delle intestazioni con un'[espressione di associazione](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` o `{headers.x-ms-client-principal-name}`. 
 
@@ -99,7 +99,7 @@ public static SignalRConnectionInfo Negotiate(
 }
 ```
 
-### <a name="2x-javascript-input-examples"></a>esempi di input JavaScript 2.x
+### <a name="2x-javascript-input-examples"></a>2. x esempi di input JavaScript
 
 L'esempio seguente mostra un'associazione di input delle informazioni di connessione a SignalR in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione per restituire le informazioni di connessione.
 
@@ -127,7 +127,7 @@ module.exports = async function (context, req, connectionInfo) {
 
 #### <a name="authenticated-tokens"></a>Token autenticati
 
-Se la funzione viene attivata da un client autenticato, è possibile aggiungere un'attestazione ID utente al token generato. È possibile aggiungere con facilità l'autenticazione a un'app di funzione usando [l'autenticazione del servizio App](../app-service/overview-authentication-authorization.md).
+Se la funzione viene attivata da un client autenticato, è possibile aggiungere un'attestazione ID utente al token generato. È possibile aggiungere facilmente l'autenticazione a un'app per le funzioni usando [l'autenticazione del servizio app](../app-service/overview-authentication-authorization.md).
 
 Autenticazione servizio App imposta le intestazioni HTTP denominate `x-ms-client-principal-id` e `x-ms-client-principal-name` contenenti rispettivamente l'ID e il nome dell'entità client dell'utente autenticato. È possibile impostare la proprietà `userId` dell'associazione sul valore ottenuto da una delle intestazioni con un'[espressione di associazione](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` o `{headers.x-ms-client-principal-name}`. 
 
@@ -154,9 +154,9 @@ module.exports = async function (context, req, connectionInfo) {
 };
 ```
 
-### <a name="2x-java-input-examples"></a>esempi di input Java 2.x
+### <a name="2x-java-input-examples"></a>2. x esempi di input Java
 
-L'esempio seguente mostra una [funzione Java](functions-reference-java.md) che acquisisce le informazioni di connessione di SignalR con l'associazione di input e lo restituisce tramite HTTP.
+Nell'esempio seguente viene illustrata una [funzione Java](functions-reference-java.md) che acquisisce le informazioni di connessione SignalR usando l'associazione di input e le restituisce tramite http.
 
 ```java
 @FunctionName("negotiate")
@@ -174,7 +174,7 @@ public SignalRConnectionInfo negotiate(
 
 #### <a name="authenticated-tokens"></a>Token autenticati
 
-Se la funzione viene attivata da un client autenticato, è possibile aggiungere un'attestazione ID utente al token generato. È possibile aggiungere con facilità l'autenticazione a un'app di funzione usando [l'autenticazione del servizio App](../app-service/overview-authentication-authorization.md).
+Se la funzione viene attivata da un client autenticato, è possibile aggiungere un'attestazione ID utente al token generato. È possibile aggiungere facilmente l'autenticazione a un'app per le funzioni usando [l'autenticazione del servizio app](../app-service/overview-authentication-authorization.md).
 
 Autenticazione servizio App imposta le intestazioni HTTP denominate `x-ms-client-principal-id` e `x-ms-client-principal-name` contenenti rispettivamente l'ID e il nome dell'entità client dell'utente autenticato. È possibile impostare la proprietà `UserId` dell'associazione sul valore ottenuto da una delle intestazioni con un'[espressione di associazione](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` o `{headers.x-ms-client-principal-name}`.
 
@@ -203,9 +203,9 @@ Vedere l'esempio specifico per ciascun linguaggio:
 
 * [C# 2.x](#2x-c-send-message-output-examples)
 * [JavaScript 2.x](#2x-javascript-send-message-output-examples)
-* [2.x Java](#2x-java-send-message-output-examples)
+* [2. x Java](#2x-java-send-message-output-examples)
 
-### <a name="2x-c-send-message-output-examples"></a>versione 2.x C# inviare esempi di messaggi di output
+### <a name="2x-c-send-message-output-examples"></a>2. x C# inviare esempi di output del messaggio
 
 #### <a name="broadcast-to-all-clients"></a>Trasmettere a tutti i client
 
@@ -249,7 +249,7 @@ public static Task SendMessage(
 
 #### <a name="send-to-a-group"></a>Invia a un gruppo
 
-È possibile inviare un messaggio solo per le connessioni che sono stati aggiunti a un gruppo impostando il `GroupName` proprietà del messaggio SignalR.
+È possibile inviare un messaggio solo alle connessioni aggiunte a un gruppo impostando la `GroupName` proprietà del messaggio SignalR.
 
 ```cs
 [FunctionName("SendMessage")]
@@ -268,55 +268,60 @@ public static Task SendMessage(
 }
 ```
 
-### <a name="2x-c-group-management-output-examples"></a>versione 2.x C# esempi di gestione dei gruppi di output
+### <a name="2x-c-group-management-output-examples"></a>2. x C# esempi di output di gestione dei gruppi
 
-SignalR Service consente agli utenti di essere aggiunti ai gruppi. I messaggi possono quindi essere inviati a un gruppo. È possibile usare la `SignalRGroupAction` classe con il `SignalR` per gestire l'appartenenza al gruppo dell'utente, un'associazione di output.
+Il servizio SignalR consente agli utenti di essere aggiunti ai gruppi. I messaggi possono quindi essere inviati a un gruppo. È possibile usare la `SignalRGroupAction` classe con l' `SignalR` associazione di output per gestire l'appartenenza a un gruppo di un utente.
 
-#### <a name="add-user-to-a-group"></a>Aggiungere utenti a un gruppo
+#### <a name="add-user-to-a-group"></a>Aggiungere un utente a un gruppo
 
-Nell'esempio seguente aggiunge un utente a un gruppo.
+Nell'esempio seguente viene aggiunto un utente a un gruppo.
 
 ```csharp
 [FunctionName("addToGroup")]
 public static Task AddToGroup(
     [HttpTrigger(AuthorizationLevel.Anonymous, "post")]HttpRequest req,
-    string userId,
+    ClaimsPrincipal claimsPrincipal,
     [SignalR(HubName = "chat")]
         IAsyncCollector<SignalRGroupAction> signalRGroupActions)
 {
+    var userIdClaim = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier);
     return signalRGroupActions.AddAsync(
         new SignalRGroupAction
         {
-            UserId = userId,
+            UserId = userIdClaim.Value,
             GroupName = "myGroup",
             Action = GroupAction.Add
         });
 }
 ```
 
-#### <a name="remove-user-from-a-group"></a>Rimuovere utenti da un gruppo
+#### <a name="remove-user-from-a-group"></a>Rimuovere un utente da un gruppo
 
-Nell'esempio seguente rimuove un utente da un gruppo.
+Nell'esempio seguente viene rimosso un utente da un gruppo.
 
 ```csharp
 [FunctionName("removeFromGroup")]
 public static Task RemoveFromGroup(
     [HttpTrigger(AuthorizationLevel.Anonymous, "post")]HttpRequest req,
-    string userId,
+    ClaimsPrincipal claimsPrincipal,
     [SignalR(HubName = "chat")]
         IAsyncCollector<SignalRGroupAction> signalRGroupActions)
 {
+    var userIdClaim = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier);
     return signalRGroupActions.AddAsync(
         new SignalRGroupAction
         {
-            UserId = userId,
+            UserId = userIdClaim.Value,
             GroupName = "myGroup",
             Action = GroupAction.Remove
         });
 }
 ```
 
-### <a name="2x-javascript-send-message-output-examples"></a>esempi di output 2.x JavaScript Invia messaggio
+> [!NOTE]
+> Per ottenere il `ClaimsPrincipal` corretto binding, è necessario aver configurato le impostazioni di autenticazione in funzioni di Azure.
+
+### <a name="2x-javascript-send-message-output-examples"></a>2. x esempi di output del messaggio di invio del messaggio
 
 #### <a name="broadcast-to-all-clients"></a>Trasmettere a tutti i client
 
@@ -366,7 +371,7 @@ module.exports = async function (context, req) {
 
 #### <a name="send-to-a-group"></a>Invia a un gruppo
 
-È possibile inviare un messaggio solo per le connessioni che sono stati aggiunti a un gruppo impostando il `groupName` proprietà del messaggio SignalR.
+È possibile inviare un messaggio solo alle connessioni aggiunte a un gruppo impostando la `groupName` proprietà del messaggio SignalR.
 
 *function.json* resta uguale. Ecco il codice JavaScript:
 
@@ -381,13 +386,13 @@ module.exports = async function (context, req) {
 };
 ```
 
-### <a name="2x-javascript-group-management-output-examples"></a>esempi di output 2.x gestione dei gruppi di JavaScript
+### <a name="2x-javascript-group-management-output-examples"></a>2. x esempi di output di gestione dei gruppi JavaScript
 
-SignalR Service consente agli utenti di essere aggiunti ai gruppi. I messaggi possono quindi essere inviati a un gruppo. È possibile usare il `SignalR` per gestire l'appartenenza al gruppo dell'utente, un'associazione di output.
+Il servizio SignalR consente agli utenti di essere aggiunti ai gruppi. I messaggi possono quindi essere inviati a un gruppo. È possibile usare l' `SignalR` associazione di output per gestire l'appartenenza a un gruppo di un utente.
 
-#### <a name="add-user-to-a-group"></a>Aggiungere utenti a un gruppo
+#### <a name="add-user-to-a-group"></a>Aggiungere un utente a un gruppo
 
-Nell'esempio seguente aggiunge un utente a un gruppo.
+Nell'esempio seguente viene aggiunto un utente a un gruppo.
 
 *function.json*
 
@@ -432,9 +437,9 @@ module.exports = async function (context, req) {
 };
 ```
 
-#### <a name="remove-user-from-a-group"></a>Rimuovere utenti da un gruppo
+#### <a name="remove-user-from-a-group"></a>Rimuovere un utente da un gruppo
 
-Nell'esempio seguente rimuove un utente da un gruppo.
+Nell'esempio seguente viene rimosso un utente da un gruppo.
 
 *function.json*
 
@@ -479,11 +484,11 @@ module.exports = async function (context, req) {
 };
 ```
 
-### <a name="2x-java-send-message-output-examples"></a>esempi di output invia messaggi di 2.x Java
+### <a name="2x-java-send-message-output-examples"></a>2. x esempi di output del messaggio di trasmissione Java
 
 #### <a name="broadcast-to-all-clients"></a>Trasmettere a tutti i client
 
-L'esempio seguente mostra una [funzione Java](functions-reference-java.md) che invia un messaggio utilizzando l'associazione di output per tutti i client connessi. `target` è il nome del metodo da richiamare su ogni client. La proprietà `arguments` è una matrice di zero o più oggetti da passare al metodo client.
+Nell'esempio seguente viene illustrata una [funzione Java](functions-reference-java.md) che invia un messaggio utilizzando l'associazione di output a tutti i client connessi. `target` è il nome del metodo da richiamare su ogni client. La proprietà `arguments` è una matrice di zero o più oggetti da passare al metodo client.
 
 ```java
 @FunctionName("sendMessage")
@@ -524,7 +529,7 @@ public SignalRMessage sendMessage(
 
 #### <a name="send-to-a-group"></a>Invia a un gruppo
 
-È possibile inviare un messaggio solo per le connessioni che sono stati aggiunti a un gruppo impostando il `groupName` proprietà del messaggio SignalR.
+È possibile inviare un messaggio solo alle connessioni aggiunte a un gruppo impostando la `groupName` proprietà del messaggio SignalR.
 
 ```java
 @FunctionName("sendMessage")
@@ -543,13 +548,13 @@ public SignalRMessage sendMessage(
 }
 ```
 
-### <a name="2x-java-group-management-output-examples"></a>esempi di output 2.x gestione gruppo Java
+### <a name="2x-java-group-management-output-examples"></a>2. x esempi di output di gestione dei gruppi Java
 
-SignalR Service consente agli utenti di essere aggiunti ai gruppi. I messaggi possono quindi essere inviati a un gruppo. È possibile usare la `SignalRGroupAction` classe con il `SignalROutput` per gestire l'appartenenza al gruppo dell'utente, un'associazione di output.
+Il servizio SignalR consente agli utenti di essere aggiunti ai gruppi. I messaggi possono quindi essere inviati a un gruppo. È possibile usare la `SignalRGroupAction` classe con l' `SignalROutput` associazione di output per gestire l'appartenenza a un gruppo di un utente.
 
-#### <a name="add-user-to-a-group"></a>Aggiungere utenti a un gruppo
+#### <a name="add-user-to-a-group"></a>Aggiungere un utente a un gruppo
 
-Nell'esempio seguente aggiunge un utente a un gruppo.
+Nell'esempio seguente viene aggiunto un utente a un gruppo.
 
 ```java
 @FunctionName("addToGroup")
@@ -569,9 +574,9 @@ public SignalRGroupAction addToGroup(
 }
 ```
 
-#### <a name="remove-user-from-a-group"></a>Rimuovere utenti da un gruppo
+#### <a name="remove-user-from-a-group"></a>Rimuovere un utente da un gruppo
 
-Nell'esempio seguente rimuove un utente da un gruppo.
+Nell'esempio seguente viene rimosso un utente da un gruppo.
 
 ```java
 @FunctionName("removeFromGroup")

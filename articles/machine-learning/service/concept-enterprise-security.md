@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/10/2019
-ms.openlocfilehash: f9fd9f88a0aa6af9cd4160bf5879b9b8f383dca1
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: f0fb6f0d2b2579679ee8a6ec43b3241377701d48
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720420"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780908"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Sicurezza aziendale per il servizio Azure Machine Learning
 
@@ -161,7 +161,7 @@ Tutte le immagini del contenitore nel registro di sistema (ACR) sono crittografa
 
 Il disco del sistema operativo per ogni nodo di calcolo viene archiviato in archiviazione di Azure viene crittografato usando chiavi gestite da Microsoft negli account di archiviazione del servizio Azure Machine Learning. Questo calcolo è effimero e i cluster vengono in genere ridimensionati in assenza di esecuzioni in coda. Viene effettuato il deprovisioning della macchina virtuale sottostante e il disco del sistema operativo è stato eliminato. Crittografia dischi di Azure non è supportata per il disco del sistema operativo.
 Ogni macchina virtuale dispone anche di un disco temporaneo locale per le operazioni del sistema operativo. Questo disco può anche essere utilizzato facoltativamente per organizzare i dati di training. Questo disco non è crittografato.
-Per altre informazioni sul funzionamento della crittografia dei dati inattivi in Azure, vedere [crittografia dei dati](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)inattivi di Azure.
+Per altre informazioni sul funzionamento della crittografia dei dati inattivi in Azure, vedere [crittografia dei dati](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)inattivi di Azure.
 
 ### <a name="encryption-in-transit"></a>Crittografia in transito
 

@@ -1,6 +1,6 @@
 ---
-title: Risorse utili quando si lavora con Sentinel anteprima di Azure | Microsoft Docs
-description: Questo documento fornisce un elenco di risorse utili quando si lavora con Azure Sentinel.
+title: Risorse utili quando si lavora con l'anteprima di Azure Sentinel | Microsoft Docs
+description: Questo documento fornisce un elenco di risorse utili quando si lavora con Sentinel di Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -15,34 +15,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 601e4651962010f7ee94f2349deb57f60db7990c
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: b5aae5f8e7195cfea7817b9e40e6f28d47fc3eff
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621209"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780414"
 ---
-# <a name="useful-resources-for-working-with-azure-sentinel-preview"></a>Risorse utili per l'utilizzo di anteprima di Azure Sentinel
+# <a name="useful-resources-for-working-with-azure-sentinel-preview"></a>Risorse utili per l'uso dell'anteprima di Azure Sentinel
 
 > [!IMPORTANT]
 > Azure Sentinel è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Questo articolo elenca le risorse che possono aiutarti a ottenere altre informazioni sull'uso di Azure Sentinel.
+Questo articolo elenca le risorse che consentono di ottenere altre informazioni sull'uso di Azure Sentinel.
 
-Connettori di App per la logica di Azure: <https://docs.microsoft.com/connectors/>
+Connettori per app per la logica di Azure:<https://docs.microsoft.com/connectors/>
 
-## <a name="vendor-documentation"></a>Documentazione del fornitore
+## <a name="vendor-documentation"></a>Documentazione fornitore
 
 
-| **Fornitore**  | **Caso d'uso in Azure Sentinel** | **Collegamento**|
+| **Fornitore**  | **Usare l'evento imprevisto in Sentinel di Azure** | **Collegamento**|
 |----|----|----|
-| GitHub| Utilizzato per accedere la pagina della Community| <https://github.com/Azure/Azure-Sentinel> |
-| PaloAlto| Configurare il formato CEF| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|
-| PluralSight | Corso di linguaggio di Query Kusto| [https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)|
+| GitHub| Usato per accedere alla pagina della community| <https://github.com/Azure/Azure-Sentinel> |
+| PaloAlto| Configurare CEF| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|
+| PluralSight | Corso del linguaggio di query kusto| [https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)|
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo documento è stato ottenuto un elenco di risorse che sono utili quando si lavora con Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli argomenti seguenti:
+In questo documento è stato ottenuto un elenco di risorse utili quando si lavora con Sentinel di Azure. Per altre informazioni su Sentinel di Azure, vedere gli argomenti seguenti:
 
 * [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/). Post di blog sulla sicurezza e sulla conformità di Azure.

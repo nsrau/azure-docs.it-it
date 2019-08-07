@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: grgale
-ms.openlocfilehash: 5971fe53f52725a88c484edcc9a5a672fceceb07
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 153b9d503dfece404455fbb7e8cb51c51686ec57
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571367"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824290"
 ---
 # <a name="gateway-logging-auditing-and-visibility-in-azure-australia"></a>Registrazione, controllo e visibilità del gateway in Azure Australia
 
@@ -149,7 +149,7 @@ Il gateway VPN è un potenziale punto di ingresso per un'ampia gamma di comunica
 |Risorse|Collegamento|
 |---|---|
 |Documentazione del gateway VPN|[https://docs.microsoft.com/azure/vpn-gateway/](https://docs.microsoft.com/azure/vpn-gateway)|
-|Linee guida specifiche del gateway VPN per il governo australiano|[https://aka.ms/AzGovAUSecurity](https://aka.ms/AzGovAUSecurity)|
+|Linee guida specifiche del gateway VPN per il governo australiano|[Configurazione del gateway VPN di Azure](vpn-gateway.md)|
 |
 
 ### <a name="azure-firewall"></a>Firewall di Azure

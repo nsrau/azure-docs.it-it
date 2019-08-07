@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti su Backup di Azure
+title: Risposte alle domande comuni sulle funzionalità di backup di Azure
 description: 'Risposte alle domande comuni su: funzionalità di Backup di Azure, inclusi insieme di credenziali di Servizi di ripristino, elementi di cui è possibile eseguire il backup, funzionamento, crittografia e limiti. '
 author: dcurwin
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: c60b2bfae0d974d454c03b7eba655cbdacab5943
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: c41381dd3e53c80e74da3dc0d0a08e1ac83daec6
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466680"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827626"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Domande frequenti su Backup di Azure
 Questo articolo risponde alle domande comuni sul servizio Backup di Azure.
@@ -24,6 +24,13 @@ Sì. Si possono creare fino a 500 insiemi di credenziali di Servizi di ripristin
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>Esistono limiti al numero di server/computer che possono essere registrati in ogni insieme di credenziali?
 È possibile registrare fino a 1000 macchine virtuali di Azure per insieme di credenziali. Se si usa l'agente di Backup di Microsoft Azure, è possibile registrare fino a 50 agenti di Backup di Microsoft Azure per insieme di credenziali. È possibile registrare 50 server MAB/server DPM in un insieme di credenziali.
+
+### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>Quante origini dati/elementi possono essere protetti in un insieme di credenziali? 
+Puoi proteggere fino a 2000 origini dati/elementi in tutti i carichi di lavoro (VM IaaS, SQL, AFS e così via) in un insieme di credenziali.<br>  
+Ad esempio, se sono già state protette 500 VM e 400 condivisioni File di Azure nell'insieme di credenziali, è possibile proteggere solo fino a 1100 database SQL. 
+
+### <a name="how-many-policies-can-i-create-per-vault"></a>Quanti criteri è possibile creare per ogni insieme di credenziali? 
+È possibile avere fino a 200 criteri per ogni insieme di credenziali.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-data-from-different-servers-in-the-vault-when-restoring-data"></a>Se l'organizzazione ha un insieme di credenziali, come è possibile isolare i dati di server diversi nell'insieme di credenziali durante il ripristino dei dati?
 I dati del server che si desidera ripristinare insieme usano la stessa passphrase durante la configurazione del backup. Se si desidera isolare il ripristino in uno o più server specifici, usare una passphrase solo per questi server. Ad esempio, per i server del reparto risorse umane può essere usata una passphrase, per quelli dell'ufficio contabilità un'altra e per quelli di archiviazione un'altra ancora.

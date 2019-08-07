@@ -5,13 +5,13 @@ author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: 3943332179a6d283a8ed3ca66ea559d5cea53a10
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: 38a9f3a7020e866ccb000ed0c54499258f5e651a
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65953186"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68734666"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Approccio e processo per l'adozione di Azure Data Catalog
 
@@ -54,7 +54,7 @@ Ecco alcuni suggerimenti per definire la visione:
 
 Ecco un esempio di dichiarazione della visione per un piano di adozione di Catalogo dati per la società fittizia Adventure Works:
 
-**Azure Data Catalog** permette al team Finanza di Adventure Works di collaborare alle origini dati chiave, in modo che ogni membro del team possa trovare con facilità e usare i dati necessari e possono condividere le proprie conoscenze con il team nel suo complesso.
+**Azure Data Catalog** consente al team finanza di Adventure Works di collaborare con le origini dati principali, in modo che ogni membro del team possa trovare e usare facilmente i dati necessari e condividere le proprie conoscenze con il team nel suo complesso.
 
 Una volta ottenuta una precisa dichiarazione della visione, è consigliabile identificare un progetto pilota per Catalogo dati. Poiché gli scenari per Data Catalog sono in genere più di uno, la prossima sezione offre alcuni suggerimenti per identificare i casi d'uso pertinenti.
 
@@ -91,7 +91,7 @@ Il piano pilota deve inserire gradualmente gli obiettivi di business che si vuol
 
 ### <a name="target-the-right-team"></a>Individuare il team appropriato
 
-Quando si sceglie il progetto pilota, selezionare il team con gli scenari più interessanti per risolvere un problema di business esistente. Un business analyst, ad esempio, crea report da un database SQL Server. Il problema è che è venuta a conoscenza dell'origine dati solo dopo avere parlato con diversi colleghi. Infine, dopo avere perso tempo tentando di trovare le origini dati da usare, essi trovato su una cartella di lavoro di Excel, che contiene una descrizione di ogni origine dati. Anche se la cartella di lavoro di Excel descrizione correttamente le tabelle a cui hanno bisogno, avrebbe trovate velocemente queste origini dati se fossero state registrate e annotate in **Azure Data Catalog**.
+Quando si sceglie il progetto pilota, selezionare il team con gli scenari più interessanti per risolvere un problema di business esistente. Un business analyst, ad esempio, crea report da un database SQL Server. Il problema è che sono diventati consapevoli dell'origine dati solo dopo la comunicazione con diversi colleghi. Infine, dopo aver perso tempo per cercare di individuare le origini dati da usare, hanno scoperto una cartella di lavoro di Excel contenente una descrizione di ogni origine dati. Sebbene la cartella di lavoro di Excel descriva in modo adeguato le tabelle necessarie, queste origini dati vengono rilevate rapidamente se sono state registrate e annotate in **Azure Data Catalog**.
 
 ### <a name="identify-data-heroes"></a>Identificare gli utenti principali dei dati
 
@@ -101,7 +101,7 @@ Il primo progetto pilota includerà poche persone che producono dati e che li ut
 
 **utilizzatori di dati** sono persone esperte nell'uso dei dati per risolvere i problemi di business. Ad esempio, Nancy è una business analyst e usa le origini dati di SQL Server di Adventure Works per analizzare i dati.
 
-Uno dei problemi di business risolti da **Azure Data Catalog** è la necessità di mettere in contatto i **produttori di dati** con gli **utilizzatori di dati**. Ottiene questo risultato fungendo da archivio centrale per le informazioni sulle origini dati aziendali. Usando Catalogo dati, David registra le origini dati di SQL Server e Adventure Works. Usando il crowdsourcing gli utenti che individuano questa origine dati possono condividere le proprie opinioni sui dati, oltre a usare i dati che si sono individuate. Nancy, ad esempio, trova le origini dati cercando nel catalogo e condivide le sue conoscenze specialistiche sui dati.  Ora gli altri utenti dell'organizzazione possono sfruttare le conoscenze condivise eseguendo una ricerca nel catalogo dati.
+Uno dei problemi di business risolti da **Azure Data Catalog** è la necessità di mettere in contatto i **produttori di dati** con gli **utilizzatori di dati**. Ottiene questo risultato fungendo da archivio centrale per le informazioni sulle origini dati aziendali. Usando Catalogo dati, David registra le origini dati di SQL Server e Adventure Works. L'uso del crowdsourcing per tutti gli utenti che individuano questa origine dati può condividere le proprie opinioni sui dati, oltre a usare i dati individuati. Nancy, ad esempio, trova le origini dati cercando nel catalogo e condivide le sue conoscenze specialistiche sui dati.  Ora gli altri utenti dell'organizzazione possono sfruttare le conoscenze condivise eseguendo una ricerca nel catalogo dati.
 
 * Per altre informazioni sulla registrazione delle origini dati, vedere [Registrare le origini dati](data-catalog-get-started.md).
 * Per altre informazioni sull'individuazione delle origini dati, vedere [Cercare le origini dati](data-catalog-get-started.md).
@@ -116,7 +116,7 @@ La sezione successiva descrive un progetto di esempio della società Adventure W
 
 ### <a name="an-example-project"></a>Progetto di esempio
 
-In questo esempio la business analyst Nancy crea report per il suo team, usando i dati di un database SQL Server. Il problema è che è venuta a conoscenza dell'origine dati solo dopo avere parlato con diversi colleghi. Avrebbe trovate velocemente queste origini dati se fossero state registrate e annotate in una posizione centrale, ad esempio **Azure Data Catalog**.
+In questo esempio la business analyst Nancy crea report per il suo team, usando i dati di un database SQL Server. Il problema è che sono diventati consapevoli dell'origine dati solo dopo la comunicazione con diversi colleghi. Queste origini dati sono state rilevate rapidamente se sono state registrate e annotate in una posizione centrale, ad esempio **Azure Data Catalog**.
 
 Per far capire con quanta facilità Nancy e il suo team possono trovare dati di valore elevato, si usa lo strumento di registrazione delle origini dati per popolare il catalogo con le informazioni (metadati) sulle origini dati. In questo modo le informazioni sul database sono disponibili per il team e l'organizzazione e non solo per poche persone. Una volta registrate in Data Catalog le origini dati, Nancy e il suo team possono usarle facilmente. Il risultato è un catalogo dati più completo e pertinente per il suo team e per l'organizzazione. Man mano che sempre più team adottano Data Catalog, le origini dati aziendali diventano più facili da trovare e da usare, favorendo così un approccio maggiormente basato sui dati per ottenere migliori risultati con i dati.
 
@@ -155,7 +155,7 @@ Il test finale per il progetto consiste nel verificare se gli utenti riescono a 
 
 Il training deve aiutare gli utenti a iniziare e deve basarsi sugli obiettivi specifici e sul livello di esperienza dei membri del team pilota. Per iniziare con il training, è possibile seguire i passaggi illustrati nell'articolo [Introduzione a Catalogo dati di Azure](data-catalog-get-started.md) . È anche possibile scaricare la [presentazione sul training per il progetto pilota di Catalogo dati di Azure](https://github.com/Azure-Samples/data-catalog-dotnet-get-started/blob/master/Azure%20Data%20Catalog%20Training.pptx?raw=true). Questa presentazione di PowerPoint è un valido aiuto per introdurre Catalogo dati ai membri del team pilota.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 Una volta che il team pilota inizia a lavorare con una certa facilità e gli obiettivi iniziali vengono raggiunti, è consigliabile espandere l'adozione di Catalogo dati ad altri team. Applicare e perfezionare quanto si è appreso dal progetto pilota per espandere Catalogo dati in tutta l'organizzazione.
 

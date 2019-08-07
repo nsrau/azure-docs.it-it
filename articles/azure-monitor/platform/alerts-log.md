@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 6dc8fcc32d7f05063da15eb6ca6bf7a7d69baebb
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: f4d3a4d9a5785ae350874c400384477da1a6c22e
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663129"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774724"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log tramite Monitoraggio di Azure
 
@@ -58,7 +58,7 @@ Di seguito è riportata una Guida dettagliata all'uso degli avvisi del log trami
 
    > [!NOTE]
    > 
-   > Avvisi può importare query di Analytics come tipo di segnale **Log (query salvata)** , come illustrato nella figura precedente. In questo modo gli utenti possono perfezionare la query in Analytics e salvarli per un uso futuro negli avvisi. per altri dettagli sull'uso del salvataggio della query, vedere [uso della query di log in monitoraggio di Azure](../log-query/log-query-overview.md) o [di query condivise in Application Insights Analytics](../log-query/log-query-overview.md).
+   > Avvisi può importare query di Analytics come tipo di segnale **Log (query salvata)** , come illustrato nella figura precedente. In questo modo gli utenti possono perfezionare la query in Analytics e salvarli per un uso futuro negli avvisi. per altri dettagli sull'uso del salvataggio della query, vedere [uso della query di log in monitoraggio di Azure](../log-query/log-query-overview.md) o [di query condivise in Application Insights Analytics](../app/app-insights-overview.md).
 
 1. *Avvisi relativi ai log*: una volta selezionata, la query per gli avvisi può essere immessa nel campo **Query di ricerca**. Se la sintassi della query non è corretta, nel campo viene visualizzato un errore in ROSSO. Se la sintassi della query è corretta, i dati cronologici della query specificata vengono visualizzati sotto forma di grafico come riferimento con un'opzione per modificare l'intervallo di tempo dalle ultime sei ore alla settimana precedente.
 

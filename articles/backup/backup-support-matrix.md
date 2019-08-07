@@ -7,14 +7,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7ee4cffea9c997e5fcd3631594d61e6d5383cb38
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 6b79b34b1db6c201a8f132e4c608e251edb3666a
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639487"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735416"
 ---
-# <a name="azure-backup-support-matrix"></a>Matrice di supporto di Backup di Azure
+# <a name="support-matrix-for-azure-backup"></a>Matrice di supporto per backup di Azure
 
 È possibile usare [backup di Azure](backup-overview.md) per eseguire il backup dei dati nella piattaforma Microsoft Azure cloud. Questo articolo riepiloga le impostazioni e le limitazioni generali del supporto per gli scenari e le distribuzioni di backup di Azure.
 
@@ -116,9 +116,9 @@ Backup di Azure supporta la crittografia per i dati in transito e inattivi.
 
 **Computer** | **In movimento** | **Inattivi**
 --- | --- | ---
-**Computer Windows locali senza DPM/MAB** | ![Yes][green] | ![Sì][green]
-**Macchine virtuali di Azure** | ![Yes][green] | ![Sì][green]
-**Computer Windows locali o macchine virtuali di Azure con DPM** | ![Yes][green] | ![Sì][green]
+**Computer Windows locali senza DPM/MAB** | ![Sì][green] | ![Sì][green]
+**Macchine virtuali di Azure** | ![Sì][green] | ![Sì][green]
+**Computer Windows locali o macchine virtuali di Azure con DPM** | ![Sì][green] | ![Sì][green]
 **Computer Windows locali o macchine virtuali di Azure con MAB** | ![Sì][green] | ![Sì][green]
 
 ## <a name="compression-support"></a>Supporto della compressione
@@ -132,7 +132,7 @@ Backup supporta la compressione del traffico di backup, come riepilogato nella t
 --- | --- | ---
 **Backup diretto di computer Windows locali** | ND | ![Sì][green]
 **Backup di macchine virtuali di Azure con l'estensione VM** | ND | ND
-**Eseguire il backup in computer locali o Azure usando MAB/DPM** | ![Sì][green] | ![Yes][green]
+**Eseguire il backup in computer locali o Azure usando MAB/DPM** | ![Yes][green] | ![Sì][green]
 
 ## <a name="retention-limits"></a>Limiti di conservazione
 

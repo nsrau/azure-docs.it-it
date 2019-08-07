@@ -1,6 +1,6 @@
 ---
 title: Attività Get Metadata in Azure Data Factory | Microsoft Docs
-description: Informazioni su come è possibile usare l'attività GetMetadata in una pipeline di Data Factory.
+description: Informazioni su come usare l'attività GetMetadata in una pipeline Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 78f63b4f46fe5479d4d0fd5849ad80536d8a137c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b819a990b9f607aaf70bf2e16a5857de3f7306cc
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61346903"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827489"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Attività Get Metadata in Azure Data Factory
 
@@ -43,49 +43,52 @@ L'attività GetMetadata accetta un set di dati come input obbligatorio e restitu
 
 **Archiviazione file:**
 
-| Connettore/Metadati | itemName<br>(file/cartella) | itemType<br>(file/cartella) | size<br>(file) | created<br>(file/cartella) | LastModified<br>(file/cartella) |childItems<br>(cartella) |contentMD5<br>(file) | structure<br/>(file) | columnCount<br>(file) | exists<br>(file/cartella) |
+| Connettore/Metadati | itemName<br>(file/cartella) | itemType<br>(file/cartella) | size<br>(file) | creato<br>(file/cartella) | LastModified<br>(file/cartella) |childItems<br>(cartella) |contentMD5<br>(file) | structure<br/>(file) | columnCount<br>(file) | esiste<br>(file/cartella) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| Amazon S3 | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| Google Cloud Storage | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| BLOB di Azure | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
-| Azure Data Lake Storage Gen1 | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
-| Azure Data Lake Storage Gen2 | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
-| Archiviazione file di Azure | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
-| File system | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
-| SFTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
-| FTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
+| [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
+| [Azure Blob](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
+| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Archiviazione file di Azure](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
+| [File system](connector-file-system.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
+| [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 
-- Per Amazon S3 e Google Sloud archiviazione, il `lastModified` si applica ai bucket e chiave, ma non virtuale cartella; e `exists` si applica ai bucket e chiave, ma non con prefisso o cartella virtuale.
+- Per Amazon S3 e Google Cloud Storage, `lastModified` si applica a bucket e Key ma non a una `exists` cartella virtuale; e si applica al bucket e alla chiave ma non al prefisso o alla cartella virtuale.
 - Per BLOB di Azure, `lastModified` si applica al contenitore e al BLOB, ma non alla cartella virtuale.
 
 **Database relazionale:**
 
-| Connettore/Metadati | structure | columnCount | exists |
+| Connettore/Metadati | structure | columnCount | esiste |
 |:--- |:--- |:--- |:--- |
-| Database SQL di Azure | √ | √ | √ |
-| Istanza gestita di database SQL di Azure | √ | √ | √ |
-| Azure SQL Data Warehouse | √ | √ | √ |
-| SQL Server | √ | √ | √ |
+| [Database SQL di Azure](connector-azure-sql-database.md) | √ | √ | √ |
+| [Istanza gestita di database SQL di Azure](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
+| [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md) | √ | √ | √ |
+| [SQL Server](connector-sql-server.md) | √ | √ | √ |
 
 ### <a name="metadata-options"></a>Opzioni dei metadati
 
 Nell'elenco dei campi attività GetMetadata da recuperare è possono specificare i tipi di metadati seguenti:
 
-| Tipo di metadati | Descrizione |
+| Tipo di metadati | DESCRIZIONE |
 |:--- |:--- |
 | itemName | Nome del file o della cartella. |
 | itemType | Tipo di file o di cartella. Il valore di output è `File` o `Folder`. |
 | size | Dimensioni del file in byte. Applicabile soltanto al file. |
-| created | Data/ora di creazione del file o della cartella. |
+| creato | Data/ora di creazione del file o della cartella. |
 | LastModified | Data/ora dell'ultima modifica del file o della cartella. |
 | childItems | Elenco di sottocartelle e file all'interno della cartella specificata. Applicabile solo alla cartella. Il valore di output è un elenco di nomi e tipo di ogni elemento figlio. |
 | contentMD5 | MD5 del file. Applicabile soltanto al file. |
 | structure | Struttura di dati all'interno del file o della tabella di database relazionale. Il valore di output è un elenco di nomi di colonna e di tipi di colonna. |
 | columnCount | Numero di colonne all'interno del file o della tabella relazionale. |
-| exists| Indica se una file/cartella/tabella esiste o meno. Notare che se exists viene specificato nell'elenco dei campi GetMetadata, l'attività non ha esito negativo anche se l'elemento (file/cartella/tabella) non esiste. Nell'output viene invece restituito il valore `exists: false`. |
+| esiste| Indica se una file/cartella/tabella esiste o meno. Notare che se exists viene specificato nell'elenco dei campi GetMetadata, l'attività non ha esito negativo anche se l'elemento (file/cartella/tabella) non esiste. Nell'output viene invece restituito il valore `exists: false`. |
 
 >[!TIP]
 >Per convalidare se un file/cartella/tabella esiste o meno, specificare `exists` nell'elenco dei campi attività GetMetadata; a questo punto è possibile controllare il risultato `exists: true/false` dell'output dell'attività. Se `exists` non è configurato nell'elenco dei campi, l'attività GetMetadata avrà esito negativo se l'oggetto non viene trovato.
+
+>[!NOTE]
+>Quando si ottengono metadati da archivi di file e `modifiedDatetimeStart` si configurano e `childItems` /o `modifiedDatetimeEnd`, l'oggetto nell'output restituisce solo i file nel percorso specificato con l'ora dell'Ultima modifica compresa tra l'intervallo, ma nessuna sottocartella.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -131,12 +134,14 @@ Nell'elenco dei campi attività GetMetadata da recuperare è possono specificare
 
 Attualmente l'attività GetMetadata può recuperare i tipi di informazioni dei metadati seguenti.
 
-Proprietà | Descrizione | Obbligatorio
+Proprietà | Descrizione | Obbligatoria
 -------- | ----------- | --------
-fieldList | Elenca i tipi di informazioni dei metadati necessarie. Vedere i dettagli nella sezione [Opzioni dei metadati](#metadata-options) sui metadati supportati. | Yes 
+fieldList | Elenca i tipi di informazioni dei metadati necessarie. Vedere i dettagli nella sezione [Opzioni dei metadati](#metadata-options) sui metadati supportati. | Sì 
 dataset | Set di dati di riferimento la cui attività dei metadati deve essere recuperata dall'attività GetMetadata. Vedere la sezione relativa alle [funzionalità supportate](#supported-capabilities) sui connettori supportati e fare riferimento all'argomento sui connettori nei dettagli sulla sintassi del set di dati. | Yes
+formatSettings | Applicare quando si usa il tipo di formato DataSet (parquet, DelimitedText). | No
+storeSettings | Applicare quando si usa il tipo di formato DataSet (parquet, DelimitedText). | No
 
-## <a name="sample-output"></a>Output di esempio
+## <a name="sample-output"></a>Esempio di output
 
 Il risultato di GetMetadata è mostrato nell'output dell'attività. Di seguito due esempi con opzioni di metadati complete selezionate nell'elenco dei campi come riferimento. Per usare il risultato in un'attività successiva, usare il criterio di `@{activity('MyGetMetadataActivity').output.itemName}`.
 

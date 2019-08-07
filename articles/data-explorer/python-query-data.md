@@ -1,24 +1,24 @@
 ---
-title: 'Guida introduttiva: Eseguire query sui dati usando la libreria di Esplora dati di Azure per Python'
-description: Questa guida introduttiva descrive come eseguire query sui dati da Esplora dati di Azure tramite Python.
+title: Eseguire query sui dati usando la libreria di Esplora dati di Azure per Python
+description: Questo articolo illustra come eseguire query sui dati da Azure Esplora dati usando Python.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 10/16/2018
-ms.openlocfilehash: 253629bab6b0985ab8f540c653f3671c49e6d278
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 08/05/2019
+ms.openlocfilehash: 2c32e67bb2b47a24036a341ea4e1b83037abbaee
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360226"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827526"
 ---
-# <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>Guida introduttiva: Eseguire query sui dati usando la libreria di Esplora dati di Azure per Python
+# <a name="query-data-using-the-azure-data-explorer-python-library"></a>Eseguire query sui dati usando la libreria di Esplora dati di Azure per Python
 
-Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora i dati di Azure mette a disposizione una [libreria client per i dati per Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Questa libreria consente di eseguire query sui dati dal codice. In questa guida introduttiva, per facilitare l'apprendimento ci si connetterà a una tabella nel *cluster della guida* configurato in precedenza. Si eseguirà quindi una query in tale cluster e si riceveranno i risultati.
+Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora i dati di Azure mette a disposizione una [libreria client per i dati per Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Questa libreria consente di eseguire query sui dati dal codice. In questo articolo viene stabilita una connessione a una tabella nel *cluster della Guida* configurata per facilitare l'apprendimento. Si eseguirà quindi una query in tale cluster e si riceveranno i risultati.
 
-Questa guida introduttiva è disponibile anche come [Notebook di Azure](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb).
+Questo articolo è disponibile anche come [notebook di Azure](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -98,4 +98,4 @@ I primi dieci risultati visualizzati provengono dalla tabella StormEvents.
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva: Inserire dati usando la libreria di Esplora dati di Azure per Python](python-ingest-data.md)
+> [Inserire dati usando la libreria di Esplora dati di Azure per Python](python-ingest-data.md)

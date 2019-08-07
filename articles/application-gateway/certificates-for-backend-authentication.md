@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: absha
-ms.openlocfilehash: 2d808548ef91ed416f27b0dbb3e3e93d79ade30c
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: ae1ac3df3da4e5c25e5538f0e8cc4cd12f9186c6
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382048"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774783"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Creare certificati per consentire il back-end con applicazione Azure gateway
 
@@ -73,7 +73,7 @@ Dal certificato SSL esportare il file con estensione cer della chiave pubblica (
 
 ## <a name="export-trusted-root-certificate-for-v2-sku"></a>Esporta certificato radice trusted (per lo SKU v2)
 
-Per consentire le istanze back-end nello SKU del gateway applicazione V2, è necessario un certificato radice attendibile. Il certificato radice è un X. 509 con codifica base 64 (. CER) formattare il certificato radice dai certificati del server back-end. In questo esempio viene usato un certificato SSL per il certificato back-end ed è stata esportata la relativa chiave pubblica. Si esporterà quindi il certificato radice della CA attendibile dalla chiave pubblica nel formato con codifica Base64 per ottenere il certificato radice attendibile. 
+Il certificato radice trusted è necessario per le istanze back-end dell'elenco elementi consentiti nello SKU del gateway applicazione Il certificato radice è un X. 509 con codifica base 64 (. CER) formattare il certificato radice dai certificati del server back-end. In questo esempio viene usato un certificato SSL per il certificato back-end, viene esportata la chiave pubblica e quindi viene esportato il certificato radice della CA attendibile dalla chiave pubblica nel formato con codifica Base64 per ottenere il certificato radice attendibile. I certificati intermedi devono essere aggregati con il certificato del server e installati nel server back-end.
 
 La procedura seguente consente di esportare il file con estensione CER per il certificato:
 
@@ -105,4 +105,5 @@ La procedura seguente consente di esportare il file con estensione CER per il ce
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-A questo punto è disponibile il certificato di autenticazione/certificato radice attendibile in base 64 con codifica X. 509 (. Formato CER). È possibile aggiungerlo al gateway applicazione per consentire ai server back-end la crittografia SSL end-to-end. Vedere [come configurare la crittografia SSL end-to-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+A questo punto è disponibile il certificato di autenticazione/certificato radice attendibile in base 64 con codifica X. 509 (. Formato CER). È possibile aggiungerlo al gateway applicazione per inserire nell'elenco elementi consentiti i server back-end per la crittografia SSL end-to-end. Vedere [come configurare la crittografia SSL end-to-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+

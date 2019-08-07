@@ -5,13 +5,13 @@ author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: 649a842c8c8890713bda938c8e11740c5c8be7aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: 6ecb481245484332221e45b8f27c776291ea532d
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61001920"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736402"
 ---
 # <a name="set-up-the-business-glossary-for-governed-tagging"></a>Come configurare il glossario aziendale per l'assegnazione di tag regolamentata
 
@@ -32,7 +32,7 @@ Usando il glossario aziendale di Data Catalog, un'organizzazione può spiegare i
 
 ## <a name="glossary-availability-and-privileges"></a>Disponibilità e privilegi del glossario
 
-Il glossario aziendale è disponibile nell'edizione Standard di Azure Data Catalog. L'edizione gratuita di Data Catalog non include un glossario e non fornisce funzionalità per regolamentata.
+Il glossario aziendale è disponibile nell'edizione Standard di Azure Data Catalog. L'edizione gratuita di Data Catalog non include un glossario e non fornisce funzionalità per l'assegnazione di tag regolamentata.
 
 È possibile accedere al glossario aziendale tramite l'opzione **Glossario** nel menu di spostamento del portale di Data Catalog.  
 
@@ -55,7 +55,7 @@ Facendo clic sul pulsante **Nuovo termine**, gli amministratori di Data Catalog 
 
 Usando il glossario aziendale di Data Catalog, un'organizzazione può descrivere il proprio vocabolario aziendale come gerarchia di termini e creare una classificazione dei termini che rappresentano meglio la tassonomia aziendale.
 
-Un termine deve essere univoco in un determinato livello della gerarchia. Non sono consentiti nomi duplicati. Non esiste alcun limite al numero di livelli in una gerarchia. Una gerarchia risulta tuttavia di più facile comprensione se è costituita da non oltre tre livelli.
+Un termine deve essere univoco in un determinato livello della gerarchia. I nomi duplicati non sono consentiti. Non esiste alcun limite al numero di livelli in una gerarchia. Una gerarchia risulta tuttavia di più facile comprensione se è costituita da non oltre tre livelli.
 
 L'uso delle gerarchie nel glossario aziendale è facoltativo. Se non viene specificato il campo del termine padre, viene creato un elenco semplice, vale a dire senza gerarchia, di termini di glossario.  
 

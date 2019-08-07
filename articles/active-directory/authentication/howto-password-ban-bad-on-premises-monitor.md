@@ -1,5 +1,5 @@
 ---
-title: Monitoraggio e registrazione in Azure AD Password di protezione - Azure Active Directory
+title: Monitoraggio e accesso con Azure AD password protection-Azure Active Directory
 description: Informazioni sul monitoraggio e la registrazione in Protezione password di Azure AD
 services: active-directory
 ms.service: active-directory
@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a029135da79d1a0b24b2941873a0fe3187ac9f7c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1bd6d3abc6080c0ab1b6137511af719b23e5bcd4
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60414801"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736829"
 ---
 # <a name="azure-ad-password-protection-monitoring-and-logging"></a>Monitoraggio e registrazione in Protezione password di Azure AD
 
 Dopo la distribuzione di Protezione password di Azure AD, il monitoraggio e la creazione di report sono attività essenziali. Questo articolo spiega nel dettaglio varie tecniche di monitoraggio, indicando i percorsi in cui ogni servizio registra le informazioni e illustrando come creare report sull'uso di Protezione password di Azure AD.
 
-Monitoraggio e creazione di report vengono eseguiti i messaggi di log eventi oppure eseguendo i cmdlet di PowerShell. I controller di dominio agente di servizi e proxy sia messaggi del registro eventi di log. Tutti i cmdlet di PowerShell descritti di seguito sono disponibili nel server proxy solo (vedere il modulo AzureADPasswordProtection PowerShell). Il software dell'agente controller di dominio non viene installato un modulo di PowerShell.
+Il monitoraggio e la creazione di report vengono eseguiti dai messaggi del registro eventi o eseguendo i cmdlet di PowerShell. L'agente controller di dominio e i servizi proxy registrano entrambi i messaggi del registro eventi. Tutti i cmdlet di PowerShell descritti di seguito sono disponibili solo nel server proxy (vedere il modulo AzureADPasswordProtection di PowerShell). Il software dell'agente di controller di dominio non installa un modulo di PowerShell.
 
 ## <a name="dc-agent-event-logging"></a>Registrazione eventi dell'agente del controller di dominio
 
@@ -63,9 +63,9 @@ Vengono registrati eventi discreti per acquisire informazioni riguardo a queste 
 
 Gli eventi principali relativi alla convalida delle password sono i seguenti:
 
-|   |Modifica della password |Impostazione della password|
+|   |Modifica password |Impostazione della password|
 | --- | :---: | :---: |
-|Pass |10014 |10015|
+|Superato |10014 |10015|
 |Non riuscita (a causa dei criteri per le password del cliente)| 10016, 30002| 10017, 30003|
 |Non riuscita (a causa dei criteri per le password di Microsoft)| 10016, 30004| 10017, 30005|
 |Non riuscita (a causa di una combinazione dei criteri per le password di Microsoft e del cliente)| 10016, 30026| 10017, 30027|
@@ -271,6 +271,27 @@ Se il valore HeartbeatUTC non viene aggiornato, il problema può essere dovuto a
 
 Se il valore PasswordPolicyDateUTC non viene aggiornato, il problema può essere dovuto al fatto che l'agente del controller di dominio di Protezione password di Azure AD in quel computer non funziona correttamente.
 
+## <a name="dc-agent-newer-version-available"></a>Versione più recente dell'agente DC disponibile
+
+Il servizio agente controller di dominio registrerà un evento di avviso 30034 nel registro operativo quando rileverà la disponibilità di una versione più recente del software dell'agente controller di dominio, ad esempio:
+
+```text
+An update for Azure AD Password Protection DC Agent is available.
+
+If autoupgrade is enabled, this message may be ignored.
+
+If autoupgrade is disabled, refer to the following link for the latest version available:
+
+https://aka.ms/AzureADPasswordProtectionAgentSoftwareVersions
+
+Current version: 1.2.116.0
+```
+
+L'evento precedente non specifica la versione del software più recente. Per tali informazioni, è necessario passare al collegamento nel messaggio dell'evento.
+
+> [!NOTE]
+> Nonostante i riferimenti a "AutoUpgrade" nel messaggio di evento precedente, il software dell'agente di controller di dominio non supporta attualmente questa funzionalità.
+
 ## <a name="proxy-service-event-logging"></a>Registrazione eventi del servizio proxy
 
 Il servizio proxy genera un set minimo di eventi per i log eventi seguenti:
@@ -314,7 +335,7 @@ La registrazione di testo è disabilitata per impostazione predefinita. Per rend
 
 I cmdlet di PowerShell che generano una modifica dello stato (ad esempio Register-AzureADPasswordProtectionProxy) normalmente registrano un evento risultato nel log operativo.
 
-Inoltre, la maggior parte dei cmdlet di protezione di Password di Azure AD PowerShell scriverà un registro di testo che si trova in:
+Inoltre, la maggior parte dei cmdlet di PowerShell per la protezione Azure AD password scriverà in un log di testo che si trova in:
 
 `%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
 
@@ -339,6 +360,27 @@ Le diverse proprietà vengono aggiornate da ogni servizio proxy all'incirca ogni
 L'ambito della query del cmdlet può essere ulteriormente definito usando il parametro –Forest o –Domain.
 
 Se il valore HeartbeatUTC non viene aggiornato, il problema può essere dovuto al fatto che il proxy di Protezione password di Azure AD in quel computer non è in esecuzione o è stato disinstallato.
+
+## <a name="proxy-agent-newer-version-available"></a>Versione più recente dell'agente proxy disponibile
+
+Il servizio proxy registrerà un evento di avviso 20002 nel registro operativo quando rileverà la disponibilità di una versione più recente del software proxy, ad esempio:
+
+```text
+An update for Azure AD Password Protection Proxy is available.
+
+If autoupgrade is enabled, this message may be ignored.
+
+If autoupgrade is disabled, refer to the following link for the latest version available:
+
+https://aka.ms/AzureADPasswordProtectionAgentSoftwareVersions
+
+Current version: 1.2.116.0
+.
+```
+
+L'evento precedente non specifica la versione del software più recente. Per tali informazioni, è necessario passare al collegamento nel messaggio dell'evento.
+
+Questo evento verrà generato anche se l'agente proxy è configurato con AutoUpgrade abilitato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

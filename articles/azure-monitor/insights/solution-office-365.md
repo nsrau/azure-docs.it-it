@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: bwren
-ms.openlocfilehash: 3f4b0ad8b7aad01472a76db67f2c07e03e978e41
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: d50b3ab68b406db47a4cc8fec081b2fc076071d1
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673052"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741667"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Soluzione Gestione di Office 365 in Azure (Anteprima)
 
@@ -25,11 +25,11 @@ ms.locfileid: "67673052"
 
 
 > [!NOTE]
-> Abilita il metodo consigliato per installare e configurare la soluzione Office 365 le [connettore Office 365](../../sentinel/connect-office-365.md) nelle [Sentinel Azure](../../sentinel/overview.md) invece di usare i passaggi descritti in questo articolo. Si tratta di una versione aggiornata della soluzione Office 365 con un'esperienza di configurazione migliorata. Per connettere i log di Azure AD, è possibile usare la [Sentinel Azure Azure AD connector](../../sentinel/connect-azure-active-directory.md) oppure [configurare le impostazioni di diagnostica di Azure AD](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md), che fornisce dati di log più complessi rispetto ai registri di gestione di Office 365. 
+> Il metodo consigliato per installare e configurare la soluzione Office 365 è l'abilitazione del [connettore office 365](../../sentinel/connect-office-365.md) in [Azure Sentinel](../../sentinel/overview.md) invece di usare la procedura descritta in questo articolo. Si tratta di una versione aggiornata della soluzione Office 365 con una migliore esperienza di configurazione. Per connettere i log di Azure AD, è possibile usare il [connettore Azure Sentinel Azure ad](../../sentinel/connect-azure-active-directory.md) o [configurare Azure ad impostazioni di diagnostica](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md), che forniscono dati di log più completi rispetto ai log di gestione di Office 365. 
 >
-> Quando si [eseguire l'onboarding Azure Sentinel](../../sentinel/quickstart-onboard.md), specificare l'area di lavoro di Log Analitica che si desidera che la soluzione Office 365 installata. Dopo aver abilitato il connettore, la soluzione sarà disponibile nell'area di lavoro e utilizzato esattamente come qualsiasi altra soluzione di monitoraggio che è stato installato.
+> Quando si esegue l'onboarding di [Azure Sentinel](../../sentinel/quickstart-onboard.md), specificare l'area di lavoro log Analytics in cui si vuole installare la soluzione Office 365. Dopo aver abilitato il connettore, la soluzione sarà disponibile nell'area di lavoro e usata esattamente come qualsiasi altra soluzione di monitoraggio installata.
 >
-> Gli utenti del cloud Azure per enti pubblici è necessario installare Office 365 usando i passaggi descritti in questo articolo, poiché Azure Sentinel non è ancora disponibile nel cloud per enti pubblici.
+> Gli utenti del cloud di Azure per enti pubblici devono installare Office 365 usando la procedura descritta in questo articolo, in quanto Azure Sentinel non è ancora disponibile nel cloud per enti pubblici.
 
 La soluzione di gestione di Office 365 consente di monitorare l'ambiente Office 365 in Monitoraggio di Azure.
 
@@ -86,7 +86,7 @@ Il primo passaggio consiste nel creare un'applicazione in Azure Active Directory
 1. Fare clic su **Registrazione nuova applicazione**.
 
     ![Aggiungere la registrazione per l'app](media/solution-office-365/add-app-registration.png)
-1. Impostare **Nome** e **URL di accesso** per l'applicazione.  Il nome deve essere descrittivo.  Uso `http://localhost` per l'URL e mantenere _app Web / API_ per il **tipo di applicazione**
+1. Impostare **Nome** e **URL di accesso** per l'applicazione.  Il nome deve essere descrittivo.  Usare `http://localhost` per l'URL e lasciare l' _app Web/API_ per il **tipo di applicazione**
     
     ![Creare l'applicazione](media/solution-office-365/create-application.png)
 1. Fare clic su **Crea** e convalidare le informazioni dell'applicazione.
@@ -571,12 +571,12 @@ Questi record vengono creati quando un utente di Active Directory tenta di acced
 
 | Proprietà | DESCRIZIONE |
 |:--- |:--- |
-| OfficeWorkload | AzureActiveDirectory |
-| RecordType     | AzureActiveDirectoryAccountLogon |
-| Applicazione | L'applicazione che attiva l'evento di accesso all'account, ad esempio Office 15. |
-| Client | Dettagli relativi al dispositivo del client, al sistema operativo del dispositivo e al browser del dispositivo usato per l'evento di accesso all'account. |
-| LoginStatus | Questa proprietà deriva direttamente da OrgIdLogon.LoginStatus. Il mapping di diversi errori di accesso interessanti potrebbe essere eseguito da algoritmi di avviso. |
-| UserDomain | Le informazioni sull'identità del tenant (TII). | 
+| `OfficeWorkload` | AzureActiveDirectory |
+| `RecordType`     | AzureActiveDirectoryAccountLogon |
+| `Application` | L'applicazione che attiva l'evento di accesso all'account, ad esempio Office 15. |
+| `Client` | Dettagli relativi al dispositivo del client, al sistema operativo del dispositivo e al browser del dispositivo usato per l'evento di accesso all'account. |
+| `LoginStatus` | Questa proprietà deriva direttamente da OrgIdLogon.LoginStatus. Il mapping di diversi errori di accesso interessanti potrebbe essere eseguito da algoritmi di avviso. |
+| `UserDomain` | Le informazioni sull'identità del tenant (TII). | 
 
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
@@ -743,7 +743,7 @@ La tabella seguente contiene esempi di ricerche log per i record di aggiornament
 | Query | DESCRIZIONE |
 | --- | --- |
 |Conteggio di tutte le operazioni per la sottoscrizione di Office 365 |OfficeActivity &#124; summarize count() by Operation |
-|Uso di siti di SharePoint|OfficeActivity &#124; in cui OfficeWorkload = ~ "sharepoint" &#124; riepilogo per SiteUrl \| Ordina per Count asc|
+|Uso di siti di SharePoint|OfficeActivity &#124; where OfficeWorkload = ~ "SharePoint" &#124; riepiloga Count () by SiteUrl \| sort by count ASC|
 |Operazioni di accesso ai file per tipo di utente|search in (OfficeActivity) OfficeWorkload =~ "azureactivedirectory" and "MyTest"|
 |Ricerca con una parola chiave specifica|Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"|
 |Azioni esterne di monitoraggio di Exchange|OfficeActivity &#124; where OfficeWorkload =~ "exchange" and ExternalAccess == true|

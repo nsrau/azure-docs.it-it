@@ -1,6 +1,6 @@
 ---
-title: Funzionalità di ricerca di Azure Sentinel Preview | Microsoft Docs
-description: Questo articolo descrive come usare le funzionalità di ricerca Sentinel di Azure.
+title: Funzionalità di ricerca nell'anteprima di Azure Sentinel | Microsoft Docs
+description: Questo articolo descrive come usare le funzionalità di ricerca di Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -16,136 +16,136 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 23e7db25e5ebed2a23b4d38bcfe9597b77c6b04b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 5e6ad3c0b415722349dc584434add1031b7c3cb1
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620734"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780454"
 ---
-# <a name="hunt-for-threats-with-in-azure-sentinel-preview"></a>Risposta per le minacce con nell'anteprima di Azure Sentinel
+# <a name="hunt-for-threats-with-in-azure-sentinel-preview"></a>Cercare le minacce con nell'anteprima di Azure Sentinel
 
 > [!IMPORTANT]
 > Azure Sentinel è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Se sei un responsabile dell'indagine che vogliono essere proattivi alla ricerca di minacce alla sicurezza, Azure Sentinel strumenti ricerca e query di ricerca potente cercare minacce per la sicurezza tra le origini dati dell'organizzazione. Ma i sistemi e dispositivi di sicurezza generano montagne di dati che possono essere difficili da analizzare e filtrare in eventi significativi. Sicurezza per gli analisti cercare in modo proattivo nuove anomalie che non venivano rilevate dall'App per la sicurezza, Azure Sentinel' le query di ricerca incorporate consentono a porre le domande corrette per individuare problemi nei dati è già nella rete. 
+Se sei un investigatore che vuole essere proattivo per la ricerca di minacce per la sicurezza, Azure Sentinel Cerca potenti strumenti di ricerca e query per cercare le minacce alla sicurezza nelle origini dati dell'organizzazione. Tuttavia, i sistemi e le appliance di sicurezza generano montagne di dati che possono risultare difficili da analizzare e filtrare in eventi significativi. Per aiutare gli analisti della sicurezza a cercare in modo proattivo nuove anomalie che non sono state rilevate dalle app per la sicurezza, le query di ricerca predefinite di Azure Sentinel consentono di porre le domande appropriate per individuare i problemi nei dati già presenti nella rete. 
 
-Ad esempio, una query predefinita fornisce i dati sui processi non più comuni eseguite sulla tua infrastruttura: è preferibile un avviso per ogni volta che vengono eseguiti, possono essere interamente inoffensivo, ma è possibile esaminare la query in alcuni casi per verificare se th ere's nulla di insolito. 
+Una query predefinita, ad esempio, fornisce dati relativi ai processi più comuni in esecuzione nell'infrastruttura. non è necessario un avviso per ogni volta che vengono eseguiti, ma possono essere completamente innocenti, ma è consigliabile esaminare la query in occasione per verificare se prima di tutto è insolito. 
 
 
 
-Con ricerca di Azure Sentinel, è possibile sfruttare le funzionalità seguenti:
+Con Azure Sentinel Hunting è possibile sfruttare le funzionalità seguenti:
 
-- Query predefinite: Per iniziare a usare, una pagina inizia vengono forniti esempi di query precaricati pensati per iniziare avviata e acquisire familiarità con le tabelle e il linguaggio di query. Queste query di ricerca predefinite sono sviluppate da ricercatori Microsoft sulla sicurezza in modo continuo, aggiunta di nuove query, e ottimizzazione esistente esegue una query per fornire un punto di ingresso per cercare i rilevamenti nuovi e capire da dove iniziare la ricerca per il degli albori dei nuovi attacchi. 
+- Query predefinite: Per iniziare, una pagina iniziale fornisce esempi di query precaricati progettati per iniziare e acquisire familiarità con le tabelle e il linguaggio di query. Queste query di caccia predefinite sono sviluppate dai ricercatori della sicurezza Microsoft su base continua, aggiungendo nuove query e ottimizzando le query esistenti per fornire un punto di ingresso per cercare nuovi rilevamenti e scoprire dove iniziare a cercare il inizia con nuovi attacchi. 
 
-- Linguaggio di query avanzato con IntelliSense: Basato su un linguaggio di query che ti offre la flessibilità che necessaria per rendere la caccia a un livello superiore.
+- Linguaggio di query avanzato con IntelliSense: Basato su un linguaggio di query che ti offre la flessibilità necessaria per passare al livello successivo.
 
-- Creare i propri segnalibri: Durante il processo di ricerca, è possibile imbattersi in corrispondenze o i risultati, i dashboard o le attività con un aspetto sospetta o insoliti oppure elementi. Per contrassegnare gli elementi in modo che è possibile tornare ad essi in futuro, usare la funzionalità di segnalibro. I segnalibri consentono di salvare gli elementi per un momento successivo, per essere utilizzato per creare un caso per l'analisi. Per altre informazioni sui segnalibri, vedere usare [i segnalibri in caccia].
+- Creare segnalibri personalizzati: Durante il processo di ricerca, è possibile che si trovino corrispondenze o risultati, dashboard o attività che hanno un aspetto insolito o sospetto. Per contrassegnare gli elementi in modo da poterli tornare in futuro, usare la funzionalità di segnalibro. I segnalibri consentono di salvare gli elementi per un momento successivo, da usare per creare un evento imprevisto per l'analisi. Per ulteriori informazioni sui segnalibri, vedere Use [Bookmarks in Hunting].
 
-- Usare i notebook per automatizzare l'analisi: I notebook sono simili a Playbook dettagliate che è possibile compilare per eseguire la procedura di un'indagine e di risposta.  I notebook incapsulano tutti i passaggi di ricerca in un playbook riutilizzabile che possono essere condivisi con altri utenti nell'organizzazione. 
-- Eseguire query sui dati archiviati: I dati sono accessibili nelle tabelle per poter eseguire query. Ad esempio, è possibile eseguire una query la creazione del processo, gli eventi di DNS e molti altri tipi di eventi.
+- Usare i notebook per automatizzare l'analisi: I notebook sono simili a schemi Step-by-step che è possibile compilare per esaminare i passaggi di un'indagine e una ricerca.  I notebook incapsulano tutti i passaggi di caccia in un PlayBook riutilizzabile che può essere condiviso con altri utenti dell'organizzazione. 
+- Eseguire una query sui dati archiviati: I dati sono accessibili nelle tabelle in cui è possibile eseguire una query. Ad esempio, è possibile eseguire query su creazione di processi, eventi DNS e molti altri tipi di evento.
 
-- Collegamenti alla community: Sfruttare le potenzialità della community di maggiore sono state trovate origini dati e query aggiuntive.
+- Collegamenti alla community: Sfrutta la potenza della community maggiore per trovare query e origini dati aggiuntive.
  
-## <a name="get-started-hunting"></a>Introduzione a ricerca di lavoro
+## <a name="get-started-hunting"></a>Inizia a cercare
 
-1. Nel portale di Azure Sentinel, fare clic su **caccia**.
-  ![Azure Sentinel Inizia ricerca](media/tutorial-hunting/hunting-start.png)
+1. Nel portale di Azure Sentinel fare clicsu Hunting.
+  ![Azure Sentinel avvia la ricerca](media/tutorial-hunting/hunting-start.png)
 
-2. Quando si apre la **caccia** pagina, tutte le query di ricerca vengono visualizzate in una singola tabella. La tabella elenca tutte le query scritte dal team di Microsoft di analisti della sicurezza, nonché eventuali query aggiuntive è stato creato o modificato. Ogni query viene fornita una descrizione di ciò che ricerca per e dal tipo di dati cui è in esecuzione. Questi modelli sono raggruppati per le diverse tattiche: le icone nella parte destra classificare il tipo di minaccia, ad esempio l'accesso iniziale, la persistenza e l'esfiltrazione. È possibile filtrare questi modelli di query di ricerca usando uno dei campi. È possibile salvare qualsiasi query ai Preferiti. Salvando una query ai Preferiti, la query viene eseguita automaticamente ogni volta che il **caccia** accedere alla pagina. È possibile creare proprie query di ricerca o la clonazione e personalizzare un modello di query di ricerca esistente. 
+2. Quando si apre la pagina di **ricerca** , tutte le query di ricerca vengono visualizzate in un'unica tabella. La tabella elenca tutte le query scritte dal team Microsoft degli analisti di sicurezza, nonché qualsiasi query aggiuntiva creata o modificata. Ogni query fornisce una descrizione di ciò che cerca e del tipo di dati in cui viene eseguito. Questi modelli sono raggruppati in base alle varie tattiche, ovvero le icone a destra categorizzano il tipo di minaccia, ad esempio l'accesso iniziale, la persistenza e la exfiltration. È possibile filtrare i modelli di query di caccia usando uno dei campi. È possibile salvare qualsiasi query nei Preferiti. Salvando una query nei Preferiti, la query viene eseguita automaticamente ogni volta che si accede alla pagina di **ricerca** . È possibile creare una query di ricerca personalizzata o clonare e personalizzare un modello di query di ricerca esistente. 
  
-2. Fare clic su **eseguire query** in ricerca di pagina dei dettagli di query per eseguire qualsiasi query senza uscire dalla pagina di ricerca.  Il numero di corrispondenze viene visualizzato all'interno della tabella. Esaminare l'elenco delle query di ricerca e le corrispondenze. Scopri quale fase della kill chain la corrispondenza è associata.
+2. Fare clic su **Esegui query** nella pagina dei dettagli della query di ricerca per eseguire qualsiasi query senza uscire dalla pagina di caccia.  Il numero di corrispondenze viene visualizzato all'interno della tabella. Esaminare l'elenco di query di ricerca e le relative corrispondenze. Verificare la fase della catena di Kill a cui è associata la corrispondenza.
 
-3. Eseguire un'analisi rapida di query sottostante nel riquadro dei dettagli query oppure fare clic su **visualizzare i risultati della query** per aprire la query in Log Analitica. Nella parte inferiore, esaminare le corrispondenze per la query.
+3. Eseguire una rapida verifica della query sottostante nel riquadro Dettagli query oppure fare clic su **Visualizza risultati query** per aprire la query in log Analytics. Nella parte inferiore esaminare le corrispondenze per la query.
 
-4.  Fare clic sulla riga e selezionare **Aggiungi segnalibro** per aggiungere le righe di essere esaminato - è possibile farlo per tutto ciò che risulta sospetto. 
+4.  Fare clic sulla riga e selezionare **Aggiungi segnalibro** per aggiungere le righe da analizzare. è possibile eseguire questa operazione per qualsiasi elemento che sembra sospetto. 
 
-5. Quindi, tornare alla finestra principale **caccia** e fare clic sui **segnalibri** scheda per visualizzare tutte le attività sospette. 
+5. Tornare quindi alla pagina principale di **Hunting** e fare clic sulla scheda **segnalibri** per visualizzare tutte le attività sospette. 
 
-6. Selezionare un segnalibro e quindi fare clic su **ricerca causa** per aprire l'esperienza di analisi. È possibile filtrare i segnalibri. Ad esempio, se si sta esaminando una campagna, è possibile creare un tag per la campagna e quindi filtrare tutti i segnalibri in base alla campagna.
+6. Selezionare un segnalibro e quindi fare clic su Cerca per aprire l'esperienza di analisi. È possibile filtrare i segnalibri. Ad esempio, se si sta esaminando una campagna, è possibile creare un tag per la campagna, quindi filtrare tutti i segnalibri in base alla campagna.
 
-1. Dopo che è stato individuato la query di ricerca fornisce informazioni approfondite di valore elevato di possibili attacchi, è possibile creare anche rilevamento personalizzata regole in base alla query e questi approfondimenti sotto forma di avvisi e i risponditori agli eventi imprevisti di sicurezza.
+1. Dopo aver individuato la query di ricerca che fornisce informazioni dettagliate sul valore di possibili attacchi, è anche possibile creare regole di rilevamento personalizzate basate sulla query e far emergere tali informazioni come avvisi per i risponditori degli eventi imprevisti della sicurezza.
 
  
 
 ## <a name="query-language"></a>Linguaggio di query 
 
-Ricerca di Azure Sentinel si basa sul linguaggio di query Analitica di Log di Azure. Per altre informazioni sul linguaggio di query e gli operatori supportati, vedere [riferimenti al linguaggio di Query](https://docs.loganalytics.io/docs/Language-Reference/).
+La ricerca in Sentinel di Azure è basata sul linguaggio di query di Azure Log Analytics. Per altre informazioni sul linguaggio di query e sugli operatori supportati, vedere [riferimento al linguaggio di query](https://docs.loganalytics.io/docs/Language-Reference/).
 
-## <a name="public-hunting-query-github-repository"></a>Repository di GitHub pubblico caccia query
+## <a name="public-hunting-query-github-repository"></a>Repository GitHub della query di ricerca pubblica
 
-Consultare il [repository di query di ricerca](https://github.com/Azure/Orion). Contribuire e usare le query di esempio viene condivise da parte dei clienti.
+Vedere il [repository di query di caccia](https://github.com/Azure/Orion). Collaborazione e utilizzo di query di esempio condivise dai clienti.
 
  
 
 ## <a name="sample-query"></a>Query di esempio
 
-Una query tipica inizia con un nome di tabella seguito da una serie di operatori separati dal \|.
+Una query tipica inizia con un nome di tabella seguito da una serie di operatori separati \|da.
 
-Nell'esempio precedente, iniziare con la tabella nome SecurityEvent e aggiungere inoltrato tramite pipe gli elementi in base alle esigenze.
+Nell'esempio precedente, iniziare con il nome della tabella SecurityEvent e aggiungere gli elementi inviati tramite pipe in base alle esigenze.
 
-1. Definire un filtro temporale per visualizzare solo i record da sette giorni precedenti.
+1. Definire un filtro temporale per esaminare solo i record dei sette giorni precedenti.
 
-2. Aggiungere un filtro nella query per mostrare solo l'evento ID 4688.
+2. Aggiungere un filtro nella query per visualizzare solo l'ID evento 4688.
 
-3. Aggiungere un filtro nella query nella riga di comando per contenere solo istanze di cscript.exe.
+3. Aggiungere un filtro nella query nella riga di comando per contenere solo le istanze di cscript. exe.
 
-4. Progetto solo le colonne è interessati a esplorare e limitare i risultati a 1000 e fare clic su **eseguire query**.
-5. Fare clic sul triangolo verde ed eseguire la query. È possibile testare la query ed eseguire la ricerca di comportamenti anomali.
+4. Proiettare solo le colonne a cui si è interessati a esplorare e limitare i risultati a 1000 e fare clic su **Esegui query**.
+5. Fare clic sul triangolo verde ed eseguire la query. È possibile testare la query ed eseguirla per cercare un comportamento anomalo.
 
 ## <a name="useful-operators"></a>Operatori utili
 
-Il linguaggio di query è potente e è disponibili molti operatori disponibili, alcune utili gli operatori sono elencati di seguito:
+Il linguaggio di query è potente ed è dotato di molti operatori disponibili. di seguito sono elencati alcuni operatori utili:
 
-**in cui** -filtrare una tabella per il subset di righe che soddisfano un predicato.
+**dove** -filtrare una tabella per il subset di righe che soddisfano un predicato.
 
-**riepilogare** -produrre una tabella che aggrega il contenuto della tabella di input.
+**riepilogare** : creare una tabella che aggrega il contenuto della tabella di input.
 
-**join** -unire le righe di due tabelle in modo da formare una nuova tabella facendo corrispondere i valori delle colonne specificate da ogni tabella.
+**join** : unisce le righe di due tabelle per formare una nuova tabella in base ai valori corrispondenti delle colonne specificate da ogni tabella.
 
-**conteggio** -restituisce il numero di record nel set di record di input.
+**count** : restituisce il numero di record nel set di record di input.
 
-**inizio** -restituire i primi N record ordinati in base alle colonne specificate.
+**Top** : restituisce i primi N record ordinati in base alle colonne specificate.
 
-**limite** -restituiscono fino al numero specificato di righe.
+**limit** -restituisce fino al numero di righe specificato.
 
-**progetto** : selezionare le colonne da includere, rinominare o rimuovere e inserire nuove colonne calcolate.
+**progetto** : selezionare le colonne da includere, rinominare o eliminare e inserire nuove colonne calcolate.
 
-**estendere** : creare colonne calcolate e li aggiunge al set di risultati.
+**extend** : consente di creare colonne calcolate e di aggiungerle al set di risultati.
 
-**makeset** -restituire una matrice dinamica (JSON) del set di valori distinct che accetta Expr nel gruppo
+**maket** : restituisce una matrice dinamica (JSON) del set di valori distinct che expr accetta nel gruppo
 
-**trovare** -trovare righe che soddisfano un predicato in un set di tabelle.
+**Find** : trova le righe che corrispondono a un predicato in un set di tabelle.
 
 ## <a name="save-a-query"></a>Salvare una query
 
-È possibile creare o modificare una query e salvarla come una query o condividerlo con gli utenti che sono nello stesso tenant.
+È possibile creare o modificare una query e salvarla come query o condividerla con utenti che si trovano nello stesso tenant.
 
    ![Salvare la query](./media/tutorial-hunting/save-query.png)
 
 Creare una nuova query di ricerca:
 
-1. Fare clic su **nuova query** e selezionare **salvare**.
-2. Compilare tutti i campi vuoti e selezionare **salvare**.
+1. Fare clic su **nuova query** e selezionare **Salva**.
+2. Compilare tutti i campi vuoti e selezionare **Salva**.
 
    ![Nuova query](./media/tutorial-hunting/new-query.png)
 
 Clonare e modificare una query di ricerca esistente:
 
-1. Selezionare la query di ricerca nella tabella che si desidera modificare.
-2. Selezionare i puntini di sospensione (...) nella riga della query si desidera modificare e quindi selezionare **Clona query**.
+1. Selezionare la query di ricerca nella tabella che si vuole modificare.
+2. Selezionare i puntini di sospensione (...) nella riga della query che si desidera modificare e selezionare **clona query**.
 
    ![Clona query](./media/tutorial-hunting/clone-query.png)
  
 
-3. Modificare la query e selezionare **Create**.
+3. Modificare la query e selezionare **Crea**.
 
    ![query personalizzata](./media/tutorial-hunting/custom-query.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo articolo si appreso come eseguire un'analisi di ricerca con Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
+In questo articolo si è appreso come eseguire un'indagine di caccia con Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 
 
-- [Usare i notebook per eseguire campagne caccia automatizzati](notebooks.md)
-- [Usare i segnalibri per salvare le informazioni interessante durante la ricerca](bookmarks.md)
+- [Usare i notebook per eseguire campagne di caccia automatiche](notebooks.md)
+- [Usare i segnalibri per salvare informazioni interessanti durante la ricerca](bookmarks.md)

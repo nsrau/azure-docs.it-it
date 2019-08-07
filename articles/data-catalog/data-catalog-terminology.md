@@ -5,13 +5,13 @@ author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: a6f2cf1dcee6a85376c8d767e57c504b6b246e5d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 08/01/2019
+ms.openlocfilehash: d6c813dec3922334f7462b1226ea22371fd5f43b
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60580460"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736286"
 ---
 # <a name="azure-data-catalog-terminology"></a>Terminologia del Catalogo dati di Azure
 
@@ -23,7 +23,7 @@ Il Catalogo dati di Azure è un repository di metadati basato su cloud in cui è
 
 ## <a name="data-source"></a>Origine dati
 
-Un'origine dati è un sistema o un contenitore che gestisce gli asset di dati. Sono esempi di database di SQL Server, Oracle database, i database di SQL Server Analysis Services (tabulari o multidimensionali) e i server di SQL Server Reporting Services.
+Un'origine dati è un sistema o un contenitore che gestisce gli asset di dati. Tra gli esempi sono inclusi database SQL Server, database Oracle, database SQL Server Analysis Services (tabulari o multidimensionali) e server SQL Server Reporting Services.
 
 ## <a name="data-asset"></a>Asset di dati
 
@@ -65,11 +65,11 @@ Un profilo dati nel Catalogo dati di Azure è uno snapshot di metadati a livello
 
 ## <a name="user-perspective"></a>Prospettiva dell'utente
 
-Nel Catalogo dati di Azure, qualsiasi utente può fornire metadati descrittivi per un asset di dati registrato. Ogni utente dispone di una prospettiva diversa sui dati e sul relativo uso. Ad esempio, l'amministratore responsabile di un server può fornire i dettagli delle finestre di backup o del contratto di servizio, un amministratore dei dati può fornire i collegamenti alla documentazione per i processi aziendali supportati dai dati e un analista può fornire una descrizione in termini rilevanti per altri analisti che può essere più significativa per gli utenti che necessitano di individuare e comprendere i dati.
+Nel Catalogo dati di Azure, qualsiasi utente può fornire metadati descrittivi per un asset di dati registrato. Ogni utente ha una prospettiva diversa sui dati e sul relativo utilizzo. Ad esempio, l'amministratore responsabile di un server può fornire i dettagli delle finestre di backup o del contratto di servizio, un amministratore dei dati può fornire i collegamenti alla documentazione per i processi aziendali supportati dai dati e un analista può fornire una descrizione in termini rilevanti per altri analisti che può essere più significativa per gli utenti che necessitano di individuare e comprendere i dati.
 
-Ognuna di queste prospettive è intrinsecamente utile e con Azure Data Catalog, ogni utente può fornire informazioni significative, mentre tutti gli utenti possono usare tali informazioni per comprendere i dati e il suo scopo.
+Ognuna di queste prospettive è intrinsecamente preziosa e con Azure Data Catalog ogni utente può fornire le informazioni significative, mentre tutti gli utenti possono utilizzare tali informazioni per comprendere i dati e il relativo scopo.
 
-## <a name="expert"></a>Esperto
+## <a name="expert"></a>Expert
 
 Un esperto è un utente che è stato identificato come avente una prospettiva informata "esperta" per un asset di dati. Qualsiasi utente può aggiungere se stesso o un altro utente come esperto di un asset. Essere elencato come esperto non apporta ulteriori privilegi nel Catalogo dati di Azure. Consente agli utenti di individuare facilmente le prospettive che con maggiore probabilità sono utili durante la revisione dei metadati descrittivi di un asset.
 

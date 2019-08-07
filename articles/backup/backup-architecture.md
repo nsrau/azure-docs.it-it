@@ -7,14 +7,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: dacurwin
-ms.openlocfilehash: 44bf85eafe3f5cfa801b6c845a51e3dcd5e1262a
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 3165183d4a5e0dcfecee62b128ee8cfa9d94209b
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466878"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736712"
 ---
-# <a name="azure-backup-architecture"></a>Architettura di Backup di Azure
+# <a name="azure-backup-architecture-and-components"></a>Architettura e componenti di backup di Azure
 
 È possibile usare il [servizio backup di Azure](backup-overview.md) per eseguire il backup dei dati nella piattaforma Microsoft Azure cloud. Questo articolo riepiloga l'architettura, i componenti e i processi di Backup di Azure. 
 
@@ -99,8 +99,8 @@ Nella tabella seguente sono riepilogate le funzionalità supportate per i divers
 **Funzionalità** | **Computer Windows Server locali (Direct)** | **Macchine virtuali di Azure** | **Computer o app con DPM/MAB**
 --- | --- | --- | ---
 Backup nell'insieme di credenziali | ![Sì][green] | ![Sì][green] | ![Yes][green] 
-Esegui il backup nel disco di DPM/MAB, quindi in Azure | | | ![Sì][green] 
-Compressione dei dati inviati per il backup | ![Yes][green] | Durante il trasferimento dei dati non viene usata alcuna compressione. Leggero aumento dello spazio di archiviazione richiesto, ma ripristino più veloce.  | ![Sì][green] 
+Esegui il backup nel disco di DPM/MAB, quindi in Azure | | | ![Yes][green] 
+Compressione dei dati inviati per il backup | ![Sì][green] | Durante il trasferimento dei dati non viene usata alcuna compressione. Leggero aumento dello spazio di archiviazione richiesto, ma ripristino più veloce.  | ![Sì][green] 
 Backup incrementale |![Sì][green] |![Sì][green] |![Yes][green] 
 Backup di dischi deduplicati | | | ![Parzialmente][yellow]<br/><br/> Solo per i server DPM/MABS distribuiti in locale. 
 

@@ -5,32 +5,29 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 08/02/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d9825ea41937dc9436fe8b465b48b378e13407c1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 9c18a2c74d03a636a0865f3008eb421ab8d7412d
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180019"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68781462"
 ---
-1. Nel portale fare clic su **+Aggiungi** in **Tutte le risorse**.
-2. Nella casella di ricerca della pagina **Tutto** digitare **Gateway di rete locale** e quindi fare clic per ottenere un elenco di risorse. Fare clic su **Gateway di rete locale** per aprire la pagina e quindi su **Crea** per aprire la pagina **Crea un gateway di rete locale**.
+1. Nel portale fare clic su **+Crea una risorsa**.
+2. Nella casella di ricerca digitare **Gateway di rete locale**, quindi premere **INVIO** per eseguire la ricerca. Verrà restituito un elenco di risultati. Fare clic su **Gateway di rete locale**, quindi sul pulsante **Crea** per aprire la pagina **Crea un gateway di rete locale**.
 
-   ![Creare il gateway di rete locale](./media/vpn-gateway-add-lng-rm-portal-include/lng.png)
+   ![Creare il gateway di rete locale](./media/vpn-gateway-add-lng-rm-portal-include/local-network-gateway.png "Creare il gateway di rete locale")
+
 3. Nella pagina **Crea un gateway di rete locale** specificare i valori per il gateway di rete locale.
 
-   - **Nome:** specificare un nome per l'oggetto gateway di rete locale. Se possibile, usare un nome intuitivo come **ClassicVNetLocal** o **TestVNet1Local**. In questo modo si potrà individuare più facilmente il gateway di rete locale nel portale.
-   - **Indirizzo IP**: Specificare un **indirizzo IP** pubblico valido il dispositivo VPN o il gateway di rete virtuale a cui ci si vuole connettere.
-
-     * **Se la rete locale rappresenta una posizione locale**, specificare l'indirizzo IP pubblico del dispositivo VPN a cui ci si vuole connettere. Non può essere protetto da NAT e deve essere raggiungibile da Azure.
-     * **Se la rete locale rappresenta un'altra rete virtuale**, specificare l'indirizzo IP pubblico assegnato al gateway di rete virtuale per tale rete virtuale.
-     * **Se non si dispone ancora dell'indirizzo IP**, è possibile creare un indirizzo IP segnaposto valido e modificare l'impostazione in un secondo momento prima di connettersi.
-   - **Spazio di indirizzi** fa riferimento agli intervalli di indirizzi per la rete rappresentata da questa rete locale. È possibile aggiungere più intervalli di spazi indirizzi. Assicurarsi che gli intervalli specificati non si sovrappongano con gli intervalli di altre reti a cui ci si connette.
+   - **Nome:** specificare un nome per l'oggetto gateway di rete locale.
+   - **Indirizzo IP**: l'indirizzo IP pubblico del dispositivo VPN a cui si vuole connettere Azure. Specificare un indirizzo IP pubblico valido: Se al momento non è disponibile l'indirizzo IP, è possibile usare i valori visualizzati nell'esempio, ma sarà necessario tornare indietro e sostituire l'indirizzo IP segnaposto con l'indirizzo IP pubblico del dispositivo VPN. In caso contrario, Azure non sarà in grado di connettersi.
+   - **Spazio di indirizzi** fa riferimento agli intervalli di indirizzi per la rete rappresentata da questa rete locale. È possibile aggiungere più intervalli di spazi indirizzi. Assicurarsi che gli intervalli specificati non si sovrappongano con gli intervalli di altre reti a cui ci si vuole connettere. Azure indirizzerà l'intervallo di indirizzi specificato all'indirizzo IP del dispositivo VPN locale. *Usare valori personalizzati se si vuole stabilire la connessione con il sito locale, non i valori mostrati nell'esempio*.
    - **Configura le impostazioni BGP:** usare solo quando si configura BGP. In caso contrario, non selezionare questa opzione.
    - **Sottoscrizione:** verificare che sia visualizzata la sottoscrizione corretta.
    - **Gruppo di risorse:** selezionare il gruppo di risorse che si vuole usare. È possibile creare un nuovo gruppo di risorse o selezionarne uno già creato.
    - **Località:** selezionare la località in cui verrà creato questo oggetto. È possibile, ma non necessario, selezionare la stessa località in cui risiede la rete virtuale.
 
-4. Fare clic su **Crea** per creare il gateway di rete locale.
+4. Al termine della specifica dei valori, fare clic sul pulsante **Crea** per creare il gateway.

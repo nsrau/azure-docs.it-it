@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 08/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8297a2b1e78da6685b3129071612dc4457990bc1
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 29188013b75dbefbaf80f3c59360f203ae5b5a82
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68696395"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736740"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Ridimensionamento orizzontale di Azure Analysis Services
 
@@ -143,9 +143,9 @@ Per SSMS ed SSDT, nonché per le stringhe di connessione in PowerShell, per le a
 
 ![Nomi dei server](media/analysis-services-scale-out/aas-scale-out-name.png)
 
-## <a name="scale-up--down-vs-scale-out"></a>Scalabilità verticale \ giù rispetto a Scalabilità orizzontale
+## <a name="scale-up-scale-down-vs-scale-out"></a>Scalabilità verticale, riduzione rispetto a Scalabilità orizzontale
 
-È possibile modificare il piano tariffario del server in un server con più repliche. Lo stesso piano tariffario si applica a tutte le repliche. Con la scalabilità verticale e verticale, prima di tutto tutte le repliche vengono arrestate tutte in una volta e quindi tutte le repliche vengono riportate nel nuovo piano tariffario.
+È possibile modificare il piano tariffario in un server con più repliche. Lo stesso piano tariffario si applica a tutte le repliche. Un'operazione di ridimensionamento arresterà prima tutte le repliche in una sola volta e quindi mostrerà tutte le repliche nel nuovo piano tariffario.
 
 ## <a name="troubleshoot"></a>Risolvere problemi
 
