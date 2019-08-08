@@ -24,10 +24,10 @@
       maintainContext: true
     - name: Risolvere problemi
       items:
-        - name: Eccezione OutOfMemoryError
-          items:
-            - name: Limite del sovraccarico di GC superato
-              href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
+        - name: Limite del sovraccarico di GC superato
+          href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
+        - name: Caricamento lento di Apache Ambari Tez View
+          href: ./interactive-query-troubleshoot-tez-view-slow.md
         - name: Messaggio di errore non mostrato nella visualizzazione Apache Hive
           href: ./interactive-query-troubleshoot-error-message-hive-view.md
         - name: Visualizzazione Apache Hive inaccessibile

@@ -56,6 +56,8 @@
       maintainContext: true
     - name: Risolvere problemi
       items:
+        - name: Spazio su disco insufficiente
+          href: ./hdinsight-troubleshoot-out-disk-space.md
         - name: Blocco software - CPU
           href: ./hdinsight-troubleshoot-soft-lockup-cpu.md
         - name: InvalidNetworkConfigurationErrorCode - creazione del cluster non riuscita
@@ -72,6 +74,8 @@
           href: ./hdinsight-hdfs-troubleshoot-safe-mode.md
         - name: Problemi di heartbeat di Apache Ambari
           href: ./apache-ambari-troubleshoot-heartbeat-issues.md
+        - name: Apache Ambari mostra host e servizi inattivi
+          href: ./apache-ambari-troubleshoot-down-hosts-services.md
 - name: Procedure
   items:
     - name: Usare un sandbox Apache Hadoop
