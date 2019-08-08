@@ -5,13 +5,13 @@ author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
-ms.date: 04/08/2019
-ms.openlocfilehash: 91f7967915fd19ae47ca207913f979aa56fcd27f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.date: 08/01/2019
+ms.openlocfilehash: 6dcf29c1bb98d15daf652671f31ed1647d66a81b
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011708"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735197"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Esercitazione: Registrare gli asset di dati in Azure Data Catalog
 
@@ -71,7 +71,7 @@ Il nome del database SQL di Azure usato in questa esercitazione è *RLSTest*.
 
     2. Selezionare **Product**, **ProductCategory**, **ProductDescription** e **ProductModel** usando CTRL+selezione.
 
-    3. Selezionare la **freccia verso destra** (**>**) per spostare la selezione. Questa azione sposta tutti gli oggetti selezionati nell'elenco **Oggetti da registrare** .
+    3. Selezionare la **freccia verso destra** ( **>** ) per spostare la selezione. Questa azione sposta tutti gli oggetti selezionati nell'elenco **Oggetti da registrare** .
 
           ![Esercitazione di Azure Data Catalog - Esplorare e selezionare gli oggetti](media/register-data-assets-tutorial/data-catalog-server-hierarchy.png)
 
