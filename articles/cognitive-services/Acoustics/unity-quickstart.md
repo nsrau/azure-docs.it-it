@@ -10,12 +10,13 @@ ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 1c790e0fa726c719d5b888d42b5f59739777566b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ROBOTS: NOINDEX
+ms.openlocfilehash: 93eb44bf91bc2c8346660a4d770ee6d83501c3ae
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917113"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706611"
 ---
 # <a name="project-acoustics-unity-quickstart"></a>Avvio rapido per Progetto Acustica in Unity
 Usare il contenuto di esempio di Progetto Acustica per Unity per sperimentare i controlli di progettazione supportati dalla simulazione.

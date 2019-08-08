@@ -2,17 +2,17 @@
 title: Creare un pool di host dell'anteprima di Desktop virtuale Windows per convalidare gli aggiornamenti del servizio - Azure
 description: Come creare un pool di host di convalida per monitorare gli aggiornamenti del servizio prima di implementare gli aggiornamenti in produzione.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 05/08/2019
-ms.author: v-chjenk
-ms.openlocfilehash: c9b2a593a6943fe2e9577acc61b1d5a7bcd98607
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: helohr
+ms.openlocfilehash: 732192e481f88c0cd3c78e9dac43970eb5be72e6
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070651"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840527"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Esercitazione: Creare un pool di host per convalidare gli aggiornamenti dei servizi
 
@@ -46,7 +46,7 @@ Set-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool" -ValidationEnv
 Eseguire il seguente comando cmdlet di PowerShell per verificare di aver impostato la proprietà di convalida. Sostituire i valori tra virgolette con i valori relativi alla sessione.
 
 ```powershell
-Get-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool" -ValidationEnv $true
+Get-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool"
 ```
 
 I risultati del comando cmdlet dovrebbero essere simili a questo output:

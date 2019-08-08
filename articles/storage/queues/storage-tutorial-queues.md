@@ -1,20 +1,19 @@
 ---
 title: Esercitazione - Usare le code di archiviazione di Azure - Archiviazione di Azure
 description: Esercitazione su come usare il Servizio di accodamento di Azure per creare code e per inserire, visualizzare ed eliminare messaggi.
-services: storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.reviewer: cbrooks
+ms.date: 04/24/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
-ms.date: 04/24/2019
-ms.openlocfilehash: 08ef140eb860637cc0c09619abe7051cc007e99f
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.reviewer: cbrooks
+ms.openlocfilehash: c8e1d5c1c11c4fdf902c7be7bc03be298e93a8b9
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540286"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721134"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>Esercitazione: Usare le code di archiviazione di Azure
 

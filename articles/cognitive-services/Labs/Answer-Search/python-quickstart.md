@@ -10,12 +10,13 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: c0da596e84ac827b55affd5545c516e7623980f5
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ROBOTS: NOINDEX
+ms.openlocfilehash: c35bf9649a0a22f3488c45d1f4f8729e211e0ddb
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698056"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707090"
 ---
 # <a name="quickstart-project-answer-search-with-python"></a>Guida introduttiva: Project Answer Search con Python
 

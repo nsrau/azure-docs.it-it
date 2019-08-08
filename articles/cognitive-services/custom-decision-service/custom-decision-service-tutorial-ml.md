@@ -10,12 +10,13 @@ ms.subservice: custom-decision-service
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: 9e091d3899132509d16854ebdbe14bcbc491deec
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX
+ms.openlocfilehash: 409dcf7dc224eaf2a3f51325010507b9182fadf2
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870232"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707051"
 ---
 # <a name="tutorial-featurization-and-feature-specification"></a>Esercitazione: Definizione e specifica di funzioni
 

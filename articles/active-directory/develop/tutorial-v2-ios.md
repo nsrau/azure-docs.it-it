@@ -3,7 +3,7 @@ title: Introduzione a iOS - Microsoft Identity Platform | Azure
 description: Informazioni su come le applicazioni iOS (Swift) possono chiamare un'API che richiede token di accesso tramite Microsoft Identity Platform
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: tylermsft
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -14,12 +14,12 @@ ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f22cf95fcf13f0038525b2cac282f01959fa7eb6
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 2432d35964134f240904060d2e3c9212905e0394
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335526"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68823835"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-app"></a>Accesso utenti e chiamata di Microsoft Graph da un'app iOS
 

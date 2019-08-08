@@ -10,12 +10,13 @@ ms.subservice: url-preview
 ms.topic: overview
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 7022c3b2d2f3618d55b0a70d2690abf1497ec6a6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ROBOTS: NOINDEX
+ms.openlocfilehash: 022fe002057f157d4d9fe6e6cad03fc79810888c
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "61473180"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706915"
 ---
 # <a name="what-is-project-url-preview"></a>Informazioni su Project URL Preview
 L'endpoint URL Preview accetta un parametro di query URL e restituisce una risposta JSON con il nome della risorsa di destinazione, una breve descrizione e un collegamento a un'immagine da visualizzare in un'anteprima. La risposta include anche il flag [isFamilyFriendly](url-preview-reference.md#query-parameters) che indica se l'URL presenta contenuti per adulti, pirata o altri contenuti illegali. 

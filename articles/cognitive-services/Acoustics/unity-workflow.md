@@ -10,12 +10,13 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 01783aa12f586f61583b1503c796f9b523770104
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ROBOTS: NOINDEX
+ms.openlocfilehash: f9ff4225e7e855ed666d3554631015b8ce51df37
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310626"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706582"
 ---
 # <a name="project-acoustics-unity-design-tutorial"></a>Esercitazione sulla progettazione in Unity per Progetto Acustica
 Questa esercitazione descrive gli strumenti e il flusso di lavoro della progettazione per Progetto Acustica in Unity.

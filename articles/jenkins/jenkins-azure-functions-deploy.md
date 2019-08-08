@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 02/23/2019
-ms.openlocfilehash: bd8fa10ca0a9809891efc67ff930ab01d502eda9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1ee5a8d5f55422c9f8a0f20f3c6eb039f080dc2d
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117082"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815747"
 ---
 # <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plugin"></a>Eseguire la distribuzione in Funzioni di Azure tramite il plug-in Jenkins per Funzioni di Azure
 
@@ -49,12 +49,6 @@ La procedura seguente mostra come creare una funzione Java tramite l'interfaccia
 
     ```cli
     az functionapp create --resource-group <resource_group> --consumption-plan-location eastus --name <function_app> --storage-account <storage_account>
-    ```
-    
-1. Eseguire l'aggiornamento al runtime versione 2.x, sostituendo i segnaposto con i valori appropriati.
-
-    ```cli
-    az functionapp config appsettings set --name <function_app> --resource-group <resource_group> --settings FUNCTIONS_EXTENSION_VERSION=~2
     ```
 
 ## <a name="prepare-jenkins-server"></a>Preparare il server Jenkins

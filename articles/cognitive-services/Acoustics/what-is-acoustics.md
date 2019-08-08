@@ -10,12 +10,13 @@ ms.subservice: acoustics
 ms.topic: overview
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 73b8980b0ea2d1adbd814026f026358e25dcbb55
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ROBOTS: NOINDEX
+ms.openlocfilehash: a654dd966c40b5b079f92b910ade52f4eda10344
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67502945"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704745"
 ---
 # <a name="what-is-project-acoustics"></a>Informazioni su Project Acoustics
 Progetto Acustica è un motore di acustica delle onde per esperienze interattive 3D. Modella effetti d'onda come diffrazione, portaling e riverbero in scene complesse senza markup manuale delle zone. Include anche l'integrazione di motori di gioco e middleware audio. La filosofia di Progetto Acustica è simile all'illuminazione statica: si effettua il bake della fisica dettagliata offline per fornire una baseline fisica e si usa il runtime leggero con controlli di progettazione espressivi per soddisfare gli obiettivi artistici.

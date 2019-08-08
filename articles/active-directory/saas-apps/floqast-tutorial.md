@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: b26133c64877bcac07d2e8ba10dbee05d4e36d34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 762e5ae1782ee037b33156e16a0503ed1e7391ff
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67102269"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68823736"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-floqast"></a>Esercitazione: Integrazione di Azure Active Directory con FloQast
 
@@ -112,7 +112,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con FloQast, seguire questa
 
     Nella casella di testo **URL di accesso** digitare un URL: `https://go.floqast.com/login/sso`
 
-6. L'applicazione FloQast prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aggiungere gli attributi.
+6. L'applicazione FloQast prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aggiungere gli attributi.
 
     ![image](common/edit-attribute.png)
 
@@ -223,7 +223,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 ### <a name="create-floqast-test-user"></a>Creare l'utente di test di FloQast
 
-In questa sezione viene creato un utente chiamato Britta Simon in FloQast. Collaborare con il [team di supporto di FloQast](mailto:support@floqast.com) per aggiungere gli utenti alla piattaforma FloQast. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente chiamato Britta Simon in FloQast. Collaborare con il [team di supporto di FloQast](mailto:support@floqast.com) per aggiungere gli utenti alla piattaforma FloQast. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

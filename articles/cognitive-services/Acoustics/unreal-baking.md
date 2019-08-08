@@ -10,12 +10,13 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: michem
-ms.openlocfilehash: 6b49a6b9e235414cd63eacdbad523bbda8646963
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 47946570db305ff3d54dfed9ea6f698e5deb7b72
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304301"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704780"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Esercitazione sul bake in Unreal con Progetto Acustica
 Questo documento descrive il processo di invio di un bake dell'acustica con l'estensione dell'editor Unreal.
