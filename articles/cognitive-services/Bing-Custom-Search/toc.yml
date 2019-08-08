@@ -56,7 +56,8 @@
     - name: Configurare un'esperienza di suggerimenti automatici personalizzati
       href: define-custom-suggestions.md
     - name: Gestire l'evidenziazione dei risultati
-      href: hit-highlighting.md
+      href: ../Bing-Web-Search/hit-highlighting.md
+      maintainContext: true
     - name: Sfogliare le pagine Web
       href: page-webpages.md
 - name: riferimento

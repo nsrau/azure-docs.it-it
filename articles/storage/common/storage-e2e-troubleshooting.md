@@ -1,21 +1,19 @@
 ---
 title: Risoluzione dei problemi di Archiviazione di Azure con le funzionalità di diagnostica e Message Analyzer | Documentazione Microsoft
 description: Esercitazione che illustra la risoluzione dei problemi end-to-end mediante Analisi archiviazione di Azure, AzCopy e Microsoft Message Analyzer
-services: storage
 author: normesta
 ms.service: storage
-ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/15/2017
 ms.author: normesta
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2707081adafa74237e3fb7730837f581e0c8b790
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ca81280bed52508c606a5a693fe0162837ac117
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65154231"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854620"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -80,7 +78,7 @@ In questa esercitazione viene usato Message Analyzer per utilizzare tre diversi 
 * Il **log di traccia di rete HTTP**, che raccoglie i dati relativi alle richieste e risposte HTTP/HTTPS, anche per le operazioni in Archiviazione di Azure. In questa esercitazione, la traccia di rete verrà generata mediante Message Analyzer.
 
 ### <a name="configure-server-side-logging-and-metrics"></a>Configurare le metriche e la registrazione sul lato server
-In primo luogo, è necessario configurare la registrazione di archiviazione di Azure e le metriche, in modo da disporre di dati dal lato del servizio per l'analisi. La registrazione e le metriche possono essere configurate in diversi modi: tramite il [portale di Azure](https://portal.azure.com), con PowerShell o a livello di codice. Visualizzare [abilitare le metriche](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) e [abilitare la registrazione](storage-analytics-logging.md#enable-storage-logging) per informazioni dettagliate sulla configurazione di registrazione e metrica.
+Prima di tutto, è necessario configurare la registrazione e le metriche di archiviazione di Azure, in modo da analizzare i dati dal lato del servizio. La registrazione e le metriche possono essere configurate in diversi modi: tramite il [portale di Azure](https://portal.azure.com), con PowerShell o a livello di codice. Per informazioni dettagliate sulla configurazione della registrazione e della metrica, vedere [abilitare le metriche](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) e [abilitare la registrazione](storage-analytics-logging.md#enable-storage-logging) .
 
 ### <a name="configure-net-client-side-logging"></a>Configurare la registrazione sul lato client .NET
 Per configurare la registrazione sul lato client per un'applicazione .NET, abilitare la diagnostica .NET nel file di configurazione dell'applicazione (web.config o app.config). Per informazioni dettagliate, vedere [Registrazione lato client con la libreria client di archiviazione .NET](https://msdn.microsoft.com/library/azure/dn782839.aspx) e [Registrazione lato client con Microsoft Azure Storage SDK per Java](https://msdn.microsoft.com/library/azure/dn782844.aspx) su MSDN.

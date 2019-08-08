@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 07/15/2019
+ms.date: 08/07/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 113e178d39ec776b63a0b38c55035f3493586ea2
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: f3aea108ed87debac56b18b5959d492f2bcb291d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233863"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853609"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federazione diretta con AD FS e provider di terze parti per utenti Guest (anteprima)
 |     |
@@ -46,7 +46,7 @@ Con la Federazione diretta, gli utenti guest possono accedere al tenant di Azure
 ## <a name="limitations"></a>Limitazioni
 
 ### <a name="dns-verified-domains-in-azure-ad"></a>Domini verificati DNS in Azure AD
-La Federazione diretta è consentita solo per i domini che ***non*** sono verificati DNS in Azure ad. La Federazione diretta è consentita per i tenant non gestiti (verificati tramite posta elettronica o "virali") Azure AD perché non sono verificati dal DNS.
+Il dominio con cui si vuole eseguire la federazione ***non*** deve essere verificato da DNS in Azure ad. È possibile configurare la Federazione diretta con tenant non gestiti (verificati tramite posta elettronica o "virali") Azure AD perché non sono verificati dal DNS.
 ### <a name="authentication-url"></a>URL di autenticazione
 La Federazione diretta è consentita solo per i criteri in cui il dominio dell'URL di autenticazione corrisponde al dominio di destinazione o in cui l'URL di autenticazione è uno dei provider di identità consentiti (questo elenco è soggetto a modifiche):
 -   accounts.google.com
@@ -66,7 +66,7 @@ Se si specifica l'URL dei metadati nelle impostazioni del provider di identità,
 Attualmente è supportato un massimo di 1.000 relazioni di Federazione. Questo limite include sia [federazioni interne](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) che federazioni dirette.
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 ### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>È possibile configurare la Federazione diretta con un dominio per il quale esiste un tenant non gestito (verificato tramite posta elettronica)? 
-Sì. Se il dominio non è stato verificato e il tenant non ha subito un' [acquisizione dell'amministratore](../users-groups-roles/domains-admin-takeover.md), è possibile configurare la Federazione diretta. I tenant non gestiti o verificati tramite posta elettronica vengono creati quando un utente Riscatta un invito B2B o esegue un'iscrizione self-service per Azure AD usando un dominio attualmente non esistente. È possibile configurare la Federazione diretta con questi domini. Se si tenta di configurare la Federazione diretta con un dominio verificato da DNS, nel portale di Azure o tramite PowerShell, verrà visualizzato un errore.
+Sì. Se il dominio non è stato verificato e il tenant non ha subito un' [acquisizione dell'amministratore](../users-groups-roles/domains-admin-takeover.md), è possibile configurare la Federazione diretta con tale dominio. I tenant non gestiti o verificati tramite posta elettronica vengono creati quando un utente Riscatta un invito B2B o esegue un'iscrizione self-service per Azure AD usando un dominio attualmente non esistente. È possibile configurare la Federazione diretta con questi domini. Se si tenta di configurare la Federazione diretta con un dominio verificato da DNS, nel portale di Azure o tramite PowerShell, verrà visualizzato un errore.
 ### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>Se sono entrambe abilitate la Federazione diretta e l'autenticazione con password monouso, il metodo avrà la precedenza?
 Quando la Federazione diretta viene stabilita con un'organizzazione partner, ha la precedenza sull'autenticazione del codice di posta elettronica monouso per i nuovi utenti guest di tale organizzazione. Se un utente Guest ha riscattato un invito usando l'autenticazione di una sola volta, prima di configurare la Federazione diretta, continuerà a usare l'autenticazione con un solo momento del codice. 
 ### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>I problemi di accesso diretti alla Federazione sono dovuti a una locazione parzialmente sincronizzata?
@@ -93,13 +93,13 @@ Attributi obbligatori per la risposta SAML 2,0 da IdP:
 |Attributo  |Value  |
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
-|Audience     |`urn:federation:MicrosoftOnline`         |
-|Issuer     |URI dell'autorità emittente dell'IdP partner, ad esempio`http://www.example.com/exk10l6w90DHM0yi...`         |
+|Destinatari     |`urn:federation:MicrosoftOnline`         |
+|Rilasciato da     |URI dell'autorità emittente dell'IdP partner, ad esempio`http://www.example.com/exk10l6w90DHM0yi...`         |
 
 
 Attestazioni necessarie per il token SAML 2,0 emesso da IdP:
 
-|Attributo  |Value  |
+|Attributo  |Valore  |
 |---------|---------|
 |Formato NameID     |`urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
@@ -116,24 +116,24 @@ Le tabelle seguenti illustrano i requisiti per attributi e attestazioni specific
 
 Attributi obbligatori nel messaggio WS-Fed dall'IdP:
  
-|Attributo  |Valore  |
+|Attributo  |Value  |
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
-|Audience     |`urn:federation:MicrosoftOnline`         |
-|Issuer     |URI dell'autorità emittente dell'IdP partner, ad esempio`http://www.example.com/exk10l6w90DHM0yi...`         |
+|Destinatari     |`urn:federation:MicrosoftOnline`         |
+|Rilasciato da     |URI dell'autorità emittente dell'IdP partner, ad esempio`http://www.example.com/exk10l6w90DHM0yi...`         |
 
 Attestazioni necessarie per il token WS-Fed emesso da IdP:
 
-|Attributo  |Value  |
+|Attributo  |Valore  |
 |---------|---------|
 |ImmutableID     |`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
 
 ## <a name="step-2-configure-direct-federation-in-azure-ad"></a>Passaggio 2: Configurare la Federazione diretta in Azure AD 
 Si configurerà quindi la Federazione con il provider di identità configurato nel passaggio 1 Azure AD. È possibile usare il portale di Azure AD o PowerShell. Potrebbero essere necessari 5-10 minuti prima che i criteri di federazione diretta abbiano effetto. Durante questo periodo, non tentare di riscattare un invito per il dominio federativo diretto. Gli attributi seguenti sono obbligatori:
-- URI dell'autorità emittente dell'IdP partner
+- URI dell'Autorità di certificazione dell'IdP partner
 - Endpoint di autenticazione passiva dell'IdP partner (è supportato solo HTTPS)
-- Certificate
+- Certificato
 
 ### <a name="to-configure-direct-federation-in-the-azure-ad-portal"></a>Per configurare la Federazione diretta nel portale di Azure AD
 
@@ -151,8 +151,8 @@ Si configurerà quindi la Federazione con il provider di identità configurato n
 6. È possibile caricare un file di metadati per popolare i dettagli dei metadati. Se si sceglie di immettere i metadati manualmente, immettere le informazioni seguenti:
    - Nome di dominio dell'IdP partner
    - ID entità dell'IdP partner
-   - Endpoint del richiedente passivo dell'IdP partner
-   - Certificate
+   - Endpoint richiedente passivo dell'IdP partner
+   - Certificato
    > [!NOTE]
    > L'URL dei metadati è facoltativo, ma è consigliabile. Se si specifica l'URL dei metadati, Azure AD possibile rinnovare automaticamente il certificato di firma al termine della scadenza. Se il certificato viene ruotato per qualsiasi motivo prima della data di scadenza o se non si specifica un URL dei metadati, Azure AD non sarà in grado di rinnovarlo. In questo caso, sarà necessario aggiornare manualmente il certificato di firma.
 

@@ -47,7 +47,8 @@
 - name: Guide alle procedure
   items:
     - name: Gestire l'evidenziazione dei risultati
-      href: hit-highlighting.md
+      href: ../Bing-Web-Search/hit-highlighting.md
+      maintainContext: true
     - name: Sfogliare le notizie
       href: paging-news.md
     - name: Ridimensionare e ritagliare le anteprime
