@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 61ae6cdf7c31c9a6e40860eb1dc4628bb2d37496
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 9fa6ad3c52e9b01fe9a62a2de52f62b1b1a95aa8
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67150896"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779516"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Guida introduttiva: Creare cluster Apache Kafka in HDInsight di Azure usando il portale di Azure
 
@@ -45,7 +45,7 @@ Per creare un cluster Apache Kafka in HDInsight seguire questa procedura:
     | Impostazione | Valore |
     | --- | --- |
     | Cluster Name | Un nome univoco per il cluster HDInsight. |
-    | Sottoscrizione | Selezionare la propria sottoscrizione. |
+    | Subscription | Selezionare la propria sottoscrizione. |
     
    Selezionare __Tipo di cluster__ per visualizzare **Configurazione cluster**.
    
@@ -70,7 +70,7 @@ Per creare un cluster Apache Kafka in HDInsight seguire questa procedura:
     | Password di accesso al cluster | La password dell'account di accesso quando si accede ai servizi Web o alle API REST ospitate nel cluster. |
     | Nome utente Secure Shell (SSH) | L'account di accesso usato quando si accede al cluster su SSH. Per impostazione predefinita, la password corrisponde alla password di accesso al cluster. |
     | Gruppo di risorse | Il gruppo di risorse in cui creare il cluster. |
-    | Località | Area di Azure in cui creare il cluster. |
+    | Location | Area di Azure in cui creare il cluster. |
 
     Ogni area (posizione) di Azure fornisce _domini di errore_. Un dominio di errore è un raggruppamento logico dell'hardware sottostante in un data center di Azure. Ogni dominio di errore condivide una fonte di alimentazione e un commutatore di rete comuni. Le macchine virtuali e i dischi gestiti che implementano i nodi in un cluster HDInsight sono distribuiti tra i domini di errore. Questa architettura limita il potenziale impatto dei guasti dell'hardware fisico.
 
@@ -122,7 +122,7 @@ Per creare un cluster Apache Kafka in HDInsight seguire questa procedura:
 
     Dopo avere eseguito la connessione, vengono visualizzate informazioni simili al testo seguente:
     
-    ```text
+    ```output
     Authorized uses only. All activity may be monitored and reported.
     Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
     
@@ -140,7 +140,6 @@ Per creare un cluster Apache Kafka in HDInsight seguire questa procedura:
     Welcome to Apache Kafka on HDInsight.
     
     Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
-    ssuhuser@hn0-mykafk:~$
     ```
 
 ## <a id="getkafkainfo"></a>Ottenere le informazioni sugli host Apache Zookeeper e broker
@@ -169,7 +168,7 @@ In questa sezione si ottengono le informazioni sull'host dall'API REST Apache Am
     echo $clusterName, $clusterNameA
     ```
 
-4. Per impostare una variabile di ambiente con le informazioni degli host Zookeeper, usare il comando seguente. Il comando recupera tutti gli host Zookeeper, quindi restituisce solo le prime due voci, per mantenere un certo livello di ridondanza nel caso in cui un host fosse irraggiungibile.
+4. Per impostare una variabile di ambiente con le informazioni degli host Zookeeper, usare il comando seguente. Il comando recupera tutti gli host Zookeeper, quindi restituisce solo le prime due voci. per mantenere un certo livello di ridondanza nel caso in cui un host fosse irraggiungibile.
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`

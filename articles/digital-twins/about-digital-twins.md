@@ -3,18 +3,18 @@ title: Panoramica di Gemelli digitali di Azure | Microsoft Docs
 description: Altre informazioni su Gemelli digitali di Azure, una soluzione Azure IoT per l'intelligenza spaziale.
 author: julieseto
 ms.author: jseto
-ms.date: 05/31/2019
+ms.date: 08/01/2019
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
 manager: bertvanhoof
 ms.custom: mvc
-ms.openlocfilehash: 0bbbb924cace93e44af84fd96926a2d7153dd5f8
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 6bd4e3bb688e92d30a21c39599e2e5bdb7b17dba
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67459012"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736975"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Panoramica di Gemelli digitali di Azure
 

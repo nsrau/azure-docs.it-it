@@ -5,15 +5,15 @@ author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
-ms.date: 04/05/2019
-ms.openlocfilehash: f00e9eaf56f3973b357792a8d1923a4b5998e0a2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.date: 08/01/2019
+ms.openlocfilehash: df2f536dc95dd74dbae1c8bda1a9934a73fd1fe0
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997734"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736485"
 ---
-# <a name="quickstart-create-an-azure-data-catalog"></a>Avvio rapido: Creare un'istanza di Azure Data Catalog
+# <a name="quickstart-create-an-azure-data-catalog"></a>Guida introduttiva: Creare un'istanza di Azure Data Catalog
 
 Azure Data Catalog è un servizio cloud completamente gestito che funge da sistema di registrazione e di individuazione per asset di dati aziendali. Per una panoramica dettagliata, vedere [Definizione di Azure Data Catalog](overview.md).
 
@@ -88,7 +88,7 @@ Per configurare Data Catalog, l'utente deve essere proprietario o comproprietari
 
     ![Azure Data Catalog - Esplorare Azure](media/data-catalog-get-started/data-catalog-browse-azure-portal.png)
 
-     Verrà visualizzato il catalogo dati creato.
+    Verrà visualizzato il catalogo dati creato.
 
     ![Azure Data Catalog - Visualizzare il catalogo nell'elenco](media/data-catalog-get-started/data-catalog-azure-portal-show-catalog.png)
 

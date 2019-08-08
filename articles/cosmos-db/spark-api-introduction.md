@@ -3,15 +3,15 @@ title: Introduzione all'analisi operativa predefinita in Azure Cosmos DB con Apa
 description: Informazioni su come usare il supporto predefinito di Apache Spark in Azure Cosmos DB per l'esecuzione di analisi operativa e intelligenza artificiale
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 05/23/2019
+ms.date: 08/01/2019
 author: rimman
 ms.author: rimman
-ms.openlocfilehash: 245df0632765c4000bdf5da3e428187d2b068866
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 3fd7990043543b92eb3daf8ec699ec58db3387ec
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68402040"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717578"
 ---
 # <a name="built-in-operational-analytics-in-azure-cosmos-db-with-apache-spark-preview"></a>Analisi operativa predefinita in Azure Cosmos DB con Apache Spark (anteprima) 
 

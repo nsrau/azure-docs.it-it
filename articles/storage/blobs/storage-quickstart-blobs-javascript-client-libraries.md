@@ -1,26 +1,23 @@
 ---
 title: Guida introduttiva di Azure - Creare un BLOB nell'archivio oggetti usando JavaScript e HTML nel browser
 description: Informazioni su come usare un'istanza di BlobService per caricare, elencare ed eliminare i BLOB usando JavaScript in una pagina HTML.
-services: storage
 keywords: archiviazione, javascript, html
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
 ms.author: mhopkins
-ms.reviewer: seguler
 ms.date: 11/14/2018
-ms.topic: quickstart
+ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: df697ab31875c8f806456c1e60820e7e8d752539
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.topic: quickstart
+ms.openlocfilehash: c9951a5fcfb30ed229b2bc7286b6d274649e6136
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149571"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722070"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
-# <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>Avvio rapido: Caricare, elencare ed eliminare BLOB usando JavaScript/HTML nel browser
+# <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>Guida introduttiva: Caricare, elencare ed eliminare BLOB usando JavaScript/HTML nel browser
 
 Questa guida introduttiva illustra come gestire i BLOB da codice eseguito interamente nel browser. L'approccio qui adottato mostra come usare le misure di sicurezza necessarie per garantire l'accesso protetto all'account di archiviazione BLOB. Per completare questa guida introduttiva è necessaria una [sottoscrizione di Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

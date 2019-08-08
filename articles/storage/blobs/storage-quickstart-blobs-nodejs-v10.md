@@ -1,20 +1,18 @@
 ---
 title: Caricare, scaricare, elencare ed eliminare BLOB usando Archiviazione di Azure v10 SDK per JavaScript
 description: Creare, caricare ed eliminare BLOB e contenitori in Node.js con Archiviazione di Azure
-services: storage
 author: mhopkins-msft
+ms.author: mhopkins
+ms.date: 11/14/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 11/14/2018
-ms.author: mhopkins
-ms.reviewer: seguler
-ms.openlocfilehash: e2deda6bc9a5d13a631e9917f3020cfa68ee1e10
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: cada5c3dd74832140fd76cbdd637554b5f829c33
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67536169"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721998"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript"></a>Guida introduttiva: Caricare, scaricare, elencare ed eliminare BLOB usando Archiviazione di Azure v10 SDK per JavaScript
 

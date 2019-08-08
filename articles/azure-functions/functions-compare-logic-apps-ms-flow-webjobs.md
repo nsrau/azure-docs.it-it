@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: d6abf266d4af5c79333819f5077009124fa28247
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 7bfe586294aec5938e2245c38fbe88aa5e57a66c
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348236"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839489"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>Informazioni su Microsoft Flow, App per la logica, Funzioni e Processi Web
 
@@ -89,7 +89,7 @@ Basandosi su WebJobs SDK, Funzioni di Azure condivide molti degli stessi trigger
 |[Pagamento a consumo](functions-scale.md#consumption-plan)|✔||
 |[Integrazione con App per la logica](functions-twitter-email.md)|✔||
 | Eventi di attivazione |[Timer](functions-bindings-timer.md)<br>[Code e BLOB di Archiviazione di Azure](functions-bindings-storage-blob.md)<br>[Code e argomenti del bus di servizio di Azure](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Hub eventi di Azure](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Griglia di eventi di Azure](functions-bindings-event-grid.md)|[Timer](functions-bindings-timer.md)<br>[Code e BLOB di Archiviazione di Azure](functions-bindings-storage-blob.md)<br>[Code e argomenti del bus di servizio di Azure](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Hub eventi di Azure](functions-bindings-event-hubs.md)<br>[File system](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
-| Lingue supportate  |C#<br>F#<br>JavaScript<br>Java (anteprima)<br>Python (anteprima) |C#<sup>1</sup>|
+| Lingue supportate  |C#<br>F#<br>JavaScript<br>Java<br>Python (anteprima) |C#<sup>1</sup>|
 |Gestione pacchetti|NPM e NuGet|NuGet<sup>2</sup>|
 
 <sup>1</sup> Processi Web (senza WebJobs SDK) supporta C#, Java, JavaScript, Bash, .cmd, .bat, PowerShell, PHP, TypeScript, Python e altro ancora. Questo elenco non è esaustivo. Un processo Web può eseguire qualsiasi programma o script eseguibile nella sandbox del servizio app.

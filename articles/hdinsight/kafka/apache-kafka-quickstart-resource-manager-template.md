@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 5f2a959bcea533174feedb324cecf20ca12bd39b
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 75b774a59d3a2a94f1f1132a79c26dcca7b4b6f7
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137192"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780789"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Guida introduttiva: Creare cluster Apache Kafka in Azure HDInsight con un modello di Resource Manager
 
@@ -40,9 +40,9 @@ Un client SSH. Per altre informazioni, vedere [Connettersi a HDInsight (Apache H
 
     | Proprietà | Valore |
     | --- | --- |
-    | Sottoscrizione | La sottoscrizione di Azure. |
-    | Gruppo di risorse | Il gruppo di risorse nel quale viene creato il cluster. |
-    | Località | L'area di Azure in cui viene creato il cluster. |
+    | Subscription | La sottoscrizione di Azure. |
+    | Resource group | Il gruppo di risorse nel quale viene creato il cluster. |
+    | Location | L'area di Azure in cui viene creato il cluster. |
     | Cluster Name | Nome del cluster Kafka. |
     | Nome utente dell'account di accesso del cluster | Il nome dell'account utilizzato per accedere ai servizi basati su HTTPs ospitati nel cluster. |
     | Password di accesso al cluster | La password per il nome utente di accesso. |
@@ -67,7 +67,7 @@ Un client SSH. Per altre informazioni, vedere [Connettersi a HDInsight (Apache H
 
     Dopo avere eseguito la connessione, vengono visualizzate informazioni simili al testo seguente:
     
-    ```text
+    ```output
     Authorized uses only. All activity may be monitored and reported.
     Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
     
@@ -85,7 +85,6 @@ Un client SSH. Per altre informazioni, vedere [Connettersi a HDInsight (Apache H
     Welcome to Kafka on HDInsight.
     
     Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
-    ssuhuser@hn0-mykafk:~$
     ```
 
 ## <a id="getkafkainfo"></a>Ottenere le informazioni sugli host Apache Zookeeper e broker

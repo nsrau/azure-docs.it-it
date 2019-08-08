@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 1f8972c89ecb0fc7d8cc7ceb9bfdeab9e905e862
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b6f5534bc4127e11d7be4b1a52b92a22b75cbb5a
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570614"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828085"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Guida introduttiva per gli operatori IT di Azure
 
@@ -73,7 +73,7 @@ Azure offre diverse soluzioni PaaS, ad esempio la funzionalità App Web del serv
 
 #### <a name="saas-software-as-a-service"></a>SaaS: Software come un servizio
 
-Un sistema SaaS (Software as a Service, software come un servizio) è costituito da software ospitato e gestito in modo centralizzato. Un sistema di questo tipo si basa in genere su un'architettura multi-tenant, in base alla quale viene usata un'unica versione dell'applicazione per tutti i clienti. È possibile scalare orizzontalmente questa architettura in più istanze, per garantire prestazioni ottimali in tutte le posizioni. Il software SaaS, in genere, viene concesso in licenza tramite una sottoscrizione mensile o annuale. Il software SaaS, in genere, viene concesso in licenza tramite una sottoscrizione mensile o annuale. I fornitori di software SaaS sono responsabili di tutti i componenti dello stack di software, in questo modo si gestiscono solo i servizi forniti.
+Un sistema SaaS (Software as a Service, software come un servizio) è costituito da software ospitato e gestito in modo centralizzato. Un sistema di questo tipo si basa in genere su un'architettura multi-tenant, in base alla quale viene usata un'unica versione dell'applicazione per tutti i clienti. È possibile scalare orizzontalmente questa architettura in più istanze, per garantire prestazioni ottimali in tutte le posizioni. Il software SaaS, in genere, viene concesso in licenza tramite una sottoscrizione mensile o annuale. I fornitori di software SaaS sono responsabili di tutti i componenti dello stack di software, in questo modo si gestiscono solo i servizi forniti.
 
 Microsoft Office 365 è un buon esempio di offerta SaaS. Pagando una quota di sottoscrizione mensile o annuale, i sottoscrittori possono usufruire di Microsoft Exchange, Microsoft OneDrive e delle altre applicazioni della famiglia di prodotti Microsoft Office come servizi. I sottoscrittori hanno sempre a disposizione la versione più recente delle applicazioni e non devono occuparsi della gestione del server di Exchange. Rispetto all'installazione e all'aggiornamento annuale di Office, questa soluzione è più economica e meno impegnativa.
 

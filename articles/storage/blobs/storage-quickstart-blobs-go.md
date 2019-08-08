@@ -1,22 +1,20 @@
 ---
 title: Guida introduttiva di Azure - Creare un BLOB nell'archivio oggetti con Go | Microsoft Docs
 description: In questa guida introduttiva si creano un account di archiviazione e un contenitore nell'archivio oggetti (BLOB). Si usa quindi la libreria client di archiviazione per Go per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB presenti in un contenitore.
-services: storage
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
-ms.topic: quickstart
-ms.date: 11/14/2018
 ms.author: mhopkins
-ms.reviewer: seguler
-ms.openlocfilehash: 5b5d0663166c6889d25c0fdd578aadbac3436931
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 11/14/2018
+ms.service: storage
+ms.subservice: blobs
+ms.topic: quickstart
+ms.openlocfilehash: f4016349e354c84e9e096ac6d5072a4870e9ef29
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152789"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726465"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Avvio rapido: Caricare, scaricare ed elencare BLOB con Go
+# <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con Go
 
 Questa guida rapida mostra come usare il linguaggio di programmazione di Go per caricare, scaricare ed elencare BLOB in blocchi in un contenitore di Archiviazione BLOB di Azure. 
 
@@ -112,7 +110,7 @@ Quando ContainerURL è disponibile, è necessario creare un'istanza dell'oggetto
 > [!IMPORTANT]
 > I nomi dei contenitori devono essere in minuscolo. Per altre informazioni sulla denominazione dei contenitori e dei BLOB vedere [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Denominazione e riferimento a contenitori, BLOB e metadati).
 
-In questa sezione viene creato un nuovo contenitore. Il contenitore è denominato **quickstartblobs-[stringa casuale]**. 
+In questa sezione viene creato un nuovo contenitore. Il contenitore è denominato **quickstartblobs-[stringa casuale]** . 
 
 ```go 
 // From the Azure portal, get your storage account name and key and set environment variables.
@@ -153,7 +151,7 @@ Per caricare un file in un BLOB, aprire il file usando **os.Open**. È quindi po
 
 In alternativa, l'SDK offre [API generali](https://github.com/Azure/azure-storage-blob-go/blob/master/azblob/highlevel.go) basate sulle API REST specifiche. Ad esempio, la funzione ***UploadFileToBlockBlob*** usa operazioni StageBlock (PutBlock) per caricare simultaneamente un file in blocchi in modo da ottimizzare la velocità effettiva. Se le dimensioni del file sono inferiori a 256 MB, la funzione usa invece Upload (PutBlob) per completare il trasferimento in una singola transazione.
 
-Nell'esempio seguente il file viene caricato in un contenitore denominato **quickstartblobs-[stringacasuale]**.
+Nell'esempio seguente il file viene caricato in un contenitore denominato **quickstartblobs-[stringacasuale]** .
 
 ```go
 // Create a file to test the upload and download.
