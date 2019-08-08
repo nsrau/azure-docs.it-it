@@ -168,7 +168,7 @@ Se nel file di testo non è definito alcuno schema, selezionare **rileva tipo di
 ### <a name="add-dynamic-content"></a>Aggiungi contenuto dinamico
 Quando si fa clic all'interno dei campi nel pannello delle impostazioni, viene visualizzato un collegamento ipertestuale per "Aggiungi contenuto dinamico". Quando si sceglie di avviare Generatore di espressioni, i valori vengono impostati in modo dinamico tramite espressioni, valori letterali statici o parametri.
 
-![Parametri] di (media/data-flow/params6.png "Parametri") di
+![Parametri](media/data-flow/params6.png "Parametri") di
 
 ## <a name="next-steps"></a>Passaggi successivi
 
