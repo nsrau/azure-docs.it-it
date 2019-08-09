@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/08/2019
+ms.date: 08/06/2019
 ms.author: alsin
-ms.openlocfilehash: 8a3be6420a91093e060850459ff22fc5823b8cf2
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 656bc8329d6273695e4da24a7e7d13c9df6a1080
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710592"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846600"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Usare la Console seriale per accedere a GRUB e alla modalità utente singolo
 GRUB (GRand Unified Bootloader) è probabilmente la prima funzionalità che viene visualizzata quando si avvia una macchina virtuale. Poiché viene visualizzata prima dell'avvio del sistema operativo, non è accessibile tramite SSH. Da GRUB è possibile, tra le altre cose, modificare la configurazione di avvio per eseguire l'avvio in modalità utente singolo.
@@ -132,6 +132,7 @@ Per impostazione predefinita, le immagini Ubuntu potrebbero non visualizzare aut
 1. Modificare il valore di `GRUB_TIMEOUT` impostando un valore diverso da zero
 1. Aprire `/etc/default/grub` in un editor di testo di propria scelta
 1. Impostare come commento la riga `GRUB_HIDDEN_TIMEOUT=1`
+1. Verificare che sia presente una riga che indica`GRUB_TIMEOUT_STYLE=menu`
 1. Eseguire `sudo update-grub`
 
 ### <a name="single-user-mode-in-ubuntu"></a>Modalità utente singolo in Ubuntu
@@ -184,7 +185,7 @@ L’accesso GRUB in SLES richiede la configurazione del caricatore di avvio tram
 Si passerà automaticamente alla shell di emergenza se non è possibile avviare normalmente SLES. Per accedere manualmente alla modalità utente singolo, seguire le istruzioni seguenti:
 
 1. Da GRUB, premere “e” per modificare la voce di avvio (la voce di SLES)
-1. Cercare la riga del kernel, verrà avviata con `linux`
+1. Cerca la riga del kernel, che inizierà con`linux`
 1. Aggiungere `systemd.unit=emergency.target` alla fine della riga
 1. Premere Ctrl + X per riavviare il sistema con queste impostazioni e accedere alla shell di emergenza
    > Si passerà alla shell di emergenza con file system di _sola lettura_. Se si vuole apportare le modifiche ai file, è necessario rimontare il file system con autorizzazioni di lettura/scrittura. A tale scopo, immettere `mount -o remount,rw /` nella shell
@@ -193,7 +194,7 @@ Si passerà automaticamente alla shell di emergenza se non è possibile avviare 
 Red Hat Enterprise Linux, modalità utente singolo in Oracle Linux richiede GRUB e l'utente root deve essere abilitato.
 
 ### <a name="grub-access-in-oracle-linux"></a>Accesso a GRUB in Oracle Linux
-Oracle Linux dotata di GRUB abilitata per impostazione predefinita. Per accedere a GRUB, riavviare la macchina virtuale con `sudo reboot` e premere “Esc”. Verrà visualizzata la schermata GRUB visualizzati.
+Oracle Linux dotata di GRUB abilitata per impostazione predefinita. Per accedere a GRUB, riavviare la macchina virtuale con `sudo reboot` e premere “Esc”. Verrà visualizzata la schermata GRUB visualizzati. Se grub non è visibile, verificare che il valore della `GRUB_TERMINAL` riga contenga "console seriale", come segue:. `GRUB_TERMINAL="serial console"`
 
 ### <a name="single-user-mode-in-oracle-linux"></a>Modalità utente singolo in Oracle Linux
 Seguire le istruzioni per RHEL sopra per abilitare la modalità utente singolo in Oracle Linux.

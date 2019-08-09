@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bd6d3abc6080c0ab1b6137511af719b23e5bcd4
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: a763f15b57bf7f23eeb52c81dd48de7f02adc5e4
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736829"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853548"
 ---
 # <a name="azure-ad-password-protection-monitoring-and-logging"></a>Monitoraggio e registrazione in Protezione password di Azure AD
 
@@ -269,7 +269,7 @@ L'ambito della query del cmdlet può essere ulteriormente definito usando il par
 
 Se il valore HeartbeatUTC non viene aggiornato, il problema può essere dovuto al fatto che l'agente del controller di dominio di Protezione password di Azure AD in quel controller di dominio non è in esecuzione o è stato disinstallato oppure il computer è stato abbassato di livello e non è più un controller di dominio.
 
-Se il valore PasswordPolicyDateUTC non viene aggiornato, il problema può essere dovuto al fatto che l'agente del controller di dominio di Protezione password di Azure AD in quel computer non funziona correttamente.
+Se il valore di PasswordPolicyDateUTC non è aggiornato, potrebbe trattarsi di un sintomo del mancato funzionamento dell'agente del controller di dominio Azure AD Password Protection nel computer.
 
 ## <a name="dc-agent-newer-version-available"></a>Versione più recente dell'agente DC disponibile
 

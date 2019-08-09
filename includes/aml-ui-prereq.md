@@ -8,16 +8,16 @@ ms.topic: include
 author: sgilley
 ms.author: sgilley
 ms.date: 05/06/2019
-ms.openlocfilehash: 43232dd181f9375b3f3eedc74fc499b0a8cc2965
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 5313c7be52beed7095bf019f74dcc811147ede77
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180563"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845951"
 ---
-1. Se non è presente, [creare un'area di lavoro di Azure Machine Learning](../articles/machine-learning/service/setup-create-workspace.md#portal).
+1. [Creare un'area di lavoro del servizio Azure Machine Learning](../articles/machine-learning/service/how-to-manage-workspace.md) se non è già presente.
 
-1. Aprire l'area di lavoro nel [portale di Azure](https://portal.azure.com/).  Se non si conosce come individuare l'area di lavoro nel portale, vedere [come trovare l'area di lavoro](../articles/machine-learning/service/how-to-manage-workspace.md#view).
+1. Aprire l'area di lavoro nel [portale di Azure](https://portal.azure.com/).  Se non si è certi di come individuare l'area di lavoro nel portale, vedere [come trovare l'](../articles/machine-learning/service/how-to-manage-workspace.md#view)area di lavoro.
 
 1. Nell'area di lavoro selezionare **Interfaccia visiva grafica**.  Selezionare quindi **Avvia interfaccia visiva grafica**.  
  

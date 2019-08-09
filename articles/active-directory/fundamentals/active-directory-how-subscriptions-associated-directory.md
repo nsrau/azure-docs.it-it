@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a64bad11f5b83ddd7f6d7236ffed4ff4a6e39c2c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fb4fa92d8b3c174cdf9b3695f8564cc11c1ad291
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561862"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851754"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associare o aggiungere una sottoscrizione di Azure al tenant di Azure Active Directory
 
@@ -66,7 +66,7 @@ Prima di poter associare o aggiungere la sottoscrizione, è necessario eseguire 
     La directory è stata modificata per la sottoscrizione e viene visualizzato un messaggio di operazione riuscita.
 
     ![Messaggio di operazione completata sulla modifica della directory](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)
-4. Usare la selezione **directory** per passare alla nuova directory. La visualizzazione corretta di tutti gli elementi può richiedere diverse ore. Se sembra richiedere troppo tempo, assicurarsi di controllare il **filtro della sottoscrizione globale** per la sottoscrizione spostata, per assicurarsi che non sia semplicemente nascosto.
+4. Usare la selezione **directory** per passare alla nuova directory. La visualizzazione corretta di tutti gli elementi può richiedere diverse ore. Se sembra richiedere troppo tempo, controllare il **filtro della sottoscrizione globale** per la sottoscrizione spostata per assicurarsi che non sia nascosto. Potrebbe essere necessario disconnettersi dal portale di Azure ed eseguire di nuovo l'accesso per visualizzare la nuova directory. 
 
     ![Pagina Switcher directory con informazioni di esempio](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 

@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/11/2019
-ms.openlocfilehash: f51c6bdc6cb2e381d5d5b855bf2f87b07d7fc180
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 0025f488f6a9b0af4e05a8bdf3ddf36c089d4d9f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638436"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856128"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-image"></a>Distribuire un modello usando un'immagine Docker personalizzata
 
@@ -40,8 +40,8 @@ Questo documento è suddiviso in due sezioni:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Gruppo di lavoro di Azure Machine Learning Service. Per altre informazioni, vedere l'articolo [creare un'area di lavoro](setup-create-workspace.md) .
-* SDK Azure Machine Learning. Per altre informazioni, vedere la sezione Python SDK dell'articolo [creare un'area di lavoro](setup-create-workspace.md#sdk) .
+* Gruppo di lavoro di Azure Machine Learning Service. Per altre informazioni, vedere l'articolo [creare un'area di lavoro](how-to-manage-workspace.md) .
+* [SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). 
 * [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * Estensione dell'interfaccia della riga [di comando per Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Un [container Registry di Azure](/azure/container-registry) o un altro registro Docker accessibile su Internet.

@@ -1,36 +1,36 @@
 ---
-title: 'Regressione: Prevedere il prezzo'
+title: Regressione Prevedere il prezzo
 titleSuffix: Azure Machine Learning service
-description: Informazioni su come creare un modello di machine learning per stimare il prezzo di un'automobile senza scrivere una singola riga di codice.
+description: Scopri come creare un modello di apprendimento automatico per stimare il prezzo di un'automobile senza scrivere una sola riga di codice.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: ddc7ae10581075127f72dd020c59cf28bbfc9ae2
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 95373bdd58332f49307004067cdd04b9c313b935
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606125"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845932"
 ---
 # <a name="sample-1---regression-predict-price"></a>Esempio 1: regressione: Prevedere il prezzo
 
-Informazioni su come creare un modello di regressione di apprendimento automatico senza dover scrivere una singola riga di codice usando l'interfaccia visiva.
+Informazioni su come creare un modello di regressione di Machine Learning senza scrivere una sola riga di codice usando l'interfaccia visiva.
 
-In questo esperimento treni una **Decision Trees regressore delle foreste** prevedere un'automobile del prezzo basato sulle funzionalità tecniche, come marca, modello, potenza e le dimensioni. Poiché stiamo tentando di rispondere alla domanda "Quanto di?" si tratta di un problema di regressione. Tuttavia, è possibile applicare gli stessi passaggi fondamentali in questo esperimento di affrontare qualsiasi tipo di apprendimento automatico che si tratti di regressione, classificazione, clustering e così via.
+Questo esperimento consente di eseguire il training di un regressore della **foresta delle decisioni** per stimare il prezzo di un'automobile in base a funzionalità tecniche quali marca, modello, potenza e dimensioni. Poiché stiamo provando a rispondere alla domanda "Qual è?" si tratta di un problema di regressione. Tuttavia, è possibile applicare gli stessi passaggi fondamentali in questo esperimento per risolvere qualsiasi tipo di problema di Machine Learning, sia che si tratti di regressione, classificazione, clustering e così via.
 
-I passaggi fondamentali per un training modello di machine learning sono:
+I passaggi fondamentali di un modello di apprendimento automatico del training sono:
 
 1. Ottenere i dati
 1. Pre-elaborare i dati
 1. Eseguire il training del modello
 1. Valutare il modello
 
-Ecco il grafico finale, completato dell'esperimento che si lavorerà nella. Verranno fornite le basi per tutti i moduli in modo che è possibile prendere simili decisioni per conto proprio.
+Di seguito è riportato il grafico finale e completato dell'esperimento su cui si lavorerà. Verranno fornite le logiche per tutti i moduli, in modo da poter prendere decisioni simili.
 
 ![Grafico dell'esperimento](media/ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
@@ -38,43 +38,43 @@ Ecco il grafico finale, completato dell'esperimento che si lavorerà nella. Verr
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Selezionare il **aperto** pulsante per l'esperimento di esempio 1:
+4. Selezionare il pulsante **Apri** per l'esperimento di esempio 1:
 
     ![Aprire l'esperimento](media/ui-sample-regression-predict-automobile-price-basic/open-sample1.png)
 
 ## <a name="get-the-data"></a>Ottenere i dati
 
-In questo esperimento, viene usato il **dati sui prezzi di Automobile (Raw)** set di dati dal Repository UCI Machine Learning. Il set di dati contiene 26 colonne contenenti informazioni sulle automobili, tra cui marca, modello, prezzo, caratteristiche del veicolo (ad esempio, il numero di cilindri), MPG e un punteggio di rischio assicurativo. L'obiettivo di questo esperimento è stimare il prezzo dell'automobile.
+In questo esperimento viene usato il set di **dati automobile price data (RAW)** , che si trova nel Repository UCI Machine Learning. Il set di dati contiene 26 colonne contenenti informazioni sulle automobili, incluse le funzionalità marca, modello, prezzo, veicolo (ad esempio il numero di cilindri), MPG e un punteggio di rischio assicurativo. L'obiettivo di questo esperimento è stimare il prezzo dell'auto.
 
 ## <a name="pre-process-the-data"></a>Pre-elaborare i dati
 
-L'attività di preparazione dei dati principali includono pulizia dei dati, integrazione, trasformazione, la riduzione e discretizzazione o la quantizzazione. Dell'interfaccia visiva grafica, è possibile trovare i moduli per eseguire queste operazioni e altri dati di attività di pre-elaborazione il **Data Transformation** gruppo nel riquadro sinistro.
+Le attività di preparazione dei dati principali includono la pulizia, l'integrazione, la trasformazione, la riduzione e la discretizzazione o la quantizzazione dei dati. Nell'interfaccia visiva è possibile trovare moduli per eseguire queste operazioni e altre attività di pre-elaborazione dei dati nel gruppo di **trasformazione dati** nel pannello di sinistra.
 
-Usiamo il **Select Columns in Dataset** modulo Escludi normalized-losses con numerosi valori mancanti. Quindi, utilizziamo **Clean Missing Data** per rimuovere le righe contenenti valori mancanti. Ciò consente di creare un set di dati di training pulito.
+Viene usato il modulo **Select Columns in DataSet** per escludere le perdite normalizzate con molti valori mancanti. Si usano quindi **Clean Missing data** per rimuovere le righe con valori mancanti. Questo consente di creare un set di dati di training puliti.
 
 ![Pre-elaborazione dei dati](./media/ui-sample-regression-predict-automobile-price-basic/data-processing.png)
 
 ## <a name="train-the-model"></a>Eseguire il training del modello
 
-Problemi di Machine learning variano. Attività comuni di machine learning include la classificazione, clustering, la regressione e sistemi di raccomandazione, ognuno dei quali potrebbe richiedere un algoritmo diverso. La scelta dell'algoritmo spesso dipende dai requisiti del caso di utilizzo. Quando si seleziona un algoritmo, è necessario ottimizzare i parametri per il training di un modello più accurato. È quindi necessario valutare tutti i modelli basati sulla metrica, ad esempio precisione, la comprensione e l'efficienza.
+I problemi di Machine Learning variano. Le attività comuni di Machine Learning includono sistemi di classificazione, clustering, regressione e raccomandazione, ciascuno dei quali potrebbe richiedere un algoritmo diverso. La scelta dell'algoritmo dipende spesso dai requisiti del caso d'uso. Dopo aver selezionato un algoritmo, è necessario ottimizzarne i parametri per eseguire il training di un modello più accurato. È quindi necessario valutare tutti i modelli in base alle metriche come accuratezza, intelligibilità ed efficienza.
 
-Poiché l'obiettivo di questo esperimento consiste nello stimare i prezzi delle automobili e perché la colonna di etichetta (prezzo) contiene i numeri reali, un modello di regressione è una buona scelta. Si considera che il numero di funzionalità è relativamente piccolo (minore di 100) e queste funzionalità non sono sparse, il limite di decisione è probabilmente non lineare. Quindi utilizziamo **Decision Forest Regression** per questo esperimento.
+Dato che l'obiettivo di questo esperimento è stimare i prezzi delle automobili e perché la colonna Label (price) contiene numeri reali, un modello di regressione è una scelta ottimale. Poiché il numero di funzionalità è relativamente ridotto (inferiore a 100) e queste funzionalità non sono di tipo sparse, è probabile che il limite della decisione sia non lineare. Quindi usiamo la **regressione della foresta delle decisioni** per questo esperimento.
 
-Usiamo il **Split Data** modulo per dividere in modo casuale i dati di input in modo che il set di dati di training contiene il 70% dei dati originali e i set di dati di test contiene 30% dei dati originali.
+Viene usato il modulo **Split data** per dividere in modo casuale i dati di input in modo che il set di dati di training contenga il 70% dei dati originali e il set di dati di testing contenga il 30% dei dati originali.
 
-## <a name="test-evaluate-and-compare"></a>Test, valutare e confrontare
+## <a name="test-evaluate-and-compare"></a>Test, valutazione e confronto
 
- Si suddivide il set di dati e usare diversi set di dati per il training e test del modello per semplificare la valutazione del modello di obiettivo di altre.
+ Il set di dati viene suddiviso e vengono utilizzati set di dati diversi per eseguire il training e il test del modello, in modo da rendere più obiettivo la valutazione del modello.
 
-Dopo il training del modello, viene usato il **Score Model** e **Evaluate Model** moduli per generare i risultati stimati e valutare i modelli.
+Dopo aver eseguito il training del modello, si utilizzano i moduli **Score Model** e **Evaluate Model** per generare risultati stimati e valutare i modelli.
 
-**Score Model** genera stime per il set di dati di test usando il modello con training. Per controllare il risultato, selezionare la porta di output del **Score Model** e quindi selezionare **Visualize**.
+**Score Model** genera stime per il set di dati di test usando il modello sottoposto a training. Per controllare il risultato, selezionare la porta di output di **Score Model** e quindi selezionare Visualize ( **Visualizza**).
 
-![Risultato di assegnazione](./media/ui-sample-regression-predict-automobile-price-basic/score-result.png)
+![Risultato del Punteggio](./media/ui-sample-regression-predict-automobile-price-basic/score-result.png)
 
-Viene quindi passato i punteggi per la **Evaluate Model** modulo per generare metriche di valutazione. Per controllare il risultato, selezionare la porta di output del **Evaluate Model** e quindi selezionare **Visualize**.
+Vengono quindi passati i punteggi al modulo **Evaluate Model** per generare le metriche di valutazione. Per controllare il risultato, selezionare la porta di output del **modello Evaluate** e quindi selezionare **Visualize (Visualizza**).
 
-![Valutare i risultati](./media/ui-sample-regression-predict-automobile-price-basic/evaluate-result.png)
+![Risultato della valutazione](./media/ui-sample-regression-predict-automobile-price-basic/evaluate-result.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -84,8 +84,8 @@ Viene quindi passato i punteggi per la **Evaluate Model** modulo per generare me
 
 Esplorare gli altri esempi disponibili per l'interfaccia visiva:
 
-- [Esempio 2: regressione: Confrontare gli algoritmi per la stima di prezzo di un'automobile](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-- [Esempio 3: classificazione: Prevedere il rischio di credito](ui-sample-classification-predict-credit-risk-basic.md)
-- [Esempio 4: classificazione: Prevedere il rischio di credito (costo sensibile)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-- [Esempio 5 - classificazione: Prevedere la varianza](ui-sample-classification-predict-churn.md)
-- [Esempio 6: classificazione: Prevedere i ritardi dei voli](ui-sample-classification-predict-flight-delay.md)
+- [Esempio 2: regressione: Confrontare gli algoritmi per la stima del prezzo dell'automobile](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [Esempio 3-classificazione: Stima del rischio di credito](ui-sample-classification-predict-credit-risk-basic.md)
+- [Esempio 4-Classificazione: Stimare il rischio di credito (costo sensibile)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Esempio 5-classificazione: Varianza stima](ui-sample-classification-predict-churn.md)
+- [Esempio 6-Classificazione: Stimare i ritardi dei voli](ui-sample-classification-predict-flight-delay.md)

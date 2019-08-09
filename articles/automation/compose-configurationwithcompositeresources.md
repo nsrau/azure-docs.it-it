@@ -10,18 +10,19 @@ ms.author: robreed
 ms.date: 08/21/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 64588829cec964e52dcb44465869e0090f36f9f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e153186a3917be3aa94cb663dec58bc3db46aae9
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61303968"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850404"
 ---
 # <a name="composing-dsc-configurations-in-azure-automation-state-configuration-dsc-using-composite-resources"></a>Creazione di configurazioni DSC in Desired State Configuration (DSC) di Automazione di Azure usando risorse composite
 
 Se si deve gestire una risorsa con più di una configurazione DSC, è consigliabile usare le [risorse composite](/powershell/dsc/authoringresourcecomposite). Una risorsa composita è una configurazione annidata e con parametri usata come risorsa DSC all'interno di un'altra configurazione. Consente di creare configurazioni complesse e al tempo stesso gestire e creare singolarmente le risorse composite sottostanti, vale a dire le configurazioni con parametri.
 
-Automazione di Azure consente l'[importazione e la compilazione di risorse composite](automation-dsc-compile.md#composite-resources). Dopo aver importato le risorse composite nell'account di Automazione, è possibile usare l'esperienza **Crea configurazione** nella pagina **Configurazione stato (DSC)** .
+Automazione di Azure consente l'[importazione e la compilazione di risorse composite](automation-dsc-compile.md#compiling-configurations-in-azure-automation-that-contain-composite-resources).
+Dopo aver importato le risorse composite nell'account di Automazione, è possibile usare l'esperienza **Crea configurazione** nella pagina **Configurazione stato (DSC)** .
 
 ## <a name="composing-a-configuration-from-composite-resources"></a>Creazione di una configurazione da risorse composite
 
@@ -35,7 +36,7 @@ Prima di poter assegnare una configurazione costituita da risorse composite nel 
    ![Screenshot delle informazioni di base nella pagina di creazione della configurazione](./media/compose-configurationwithcompositeresources/compose-configuration-basics.png)
 1. Nel passaggio **Codice sorgente** viene visualizzato l'aspetto della configurazione creata con le risorse composite selezionate. È possibile notare che tutti parametri sono stati uniti e passati alla risorsa composita. Dopo aver esaminato il nuovo codice sorgente, fare clic su **Avanti** oppure fare clic sul passaggio **Parametri**.
    ![Screenshot del codice sorgente nella pagina di creazione della configurazione](./media/compose-configurationwithcompositeresources/compose-configuration-sourcecode.png)
-1. Nel passaggio **Parametri** viene esposto il parametro di ogni risorsa composita in modo che sia possibile specificarli. Se per il parametro esiste una descrizione, questa viene visualizzata accanto al campo del parametro. Se un campo è un parametro di tipo **PSCredential**, l'elenco a discesa per la configurazione offre un elenco di oggetti **Credential** nell'account di Automazione corrente. È anche disponibile l'opzione **+Aggiungi credenziali**. Dopo aver specificato tutti i parametri necessari, fare clic su **Salva e compila**.
+1. Nel passaggio **Parametri** viene esposto il parametro di ogni risorsa composita in modo che sia possibile specificarli. Se per il parametro esiste una descrizione, questa viene visualizzata accanto al campo del parametro. Se un campo è un parametro di tipo **PSCredential**, l'elenco a discesa per la configurazione offre un elenco di oggetti **Credential** nell'account di Automazione corrente. È disponibile anche un'opzione **+ Add an Credential** . Dopo aver specificato tutti i parametri necessari, fare clic su **Salva e compila**.
    ![Screenshot dei parametri nella pagina di creazione della configurazione](./media/compose-configurationwithcompositeresources/compose-configuration-parameters.png)
 
 Dopo averla salvata, la configurazione viene inoltrata per essere compilata. Lo stato del processo di visualizzazione viene visualizzato come per una qualsiasi configurazione importata. Per altre informazioni, vedere [Visualizzazione di un processo di compilazione](automation-dsc-getting-started.md#viewing-a-compilation-job).

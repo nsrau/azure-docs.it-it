@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 5380713af17a751ab695fee90895b4f6b0d2369b
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: f19454868ad7be21777d725f61e09a84f6c7a313
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542819"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854733"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Tipi e struttura delle risposte dell'API Ricerca Web Bing  
 
@@ -123,7 +123,7 @@ La risposta [relatedSearches](https://docs.microsoft.com/rest/api/cognitiveservi
 
 Usare la stringa di query `displayText` e l'URL `webSearchUrl` per creare un collegamento ipertestuale che indirizzi l'utente alla pagina di risultati di ricerca di Bing per la query. È anche possibile usare la stringa di query `text` nella query dell'API Ricerca Web e visualizzare i risultati.
 
-Per informazioni su come gestire i marcatori di evidenziazione in `displayText`, vedere l'articolo relativo all'[evidenziazione](./hit-highlighting.md).
+Per informazioni su come gestire i marcatori di evidenziazione in `displayText`, vedere l'articolo relativo all'[evidenziazione](../bing-web-search/hit-highlighting.md).
 
 Di seguito è riportato un esempio di utilizzo delle query correlate in Bing.com.
 
@@ -292,7 +292,7 @@ Un'espressione matematica può contenere i simboli seguenti:
 
 |Simbolo|Descrizione|
 |------------|-----------------|
-|+|Addizione|
+|+|Aggiunta|
 |-|Sottrazione|
 |/|Divisione|
 |*|Moltiplicazione|
@@ -314,7 +314,7 @@ Un'espressione matematica può contenere le costanti seguenti:
 
 Un'espressione matematica può contenere le funzioni seguenti:
 
-|Simbolo|Descrizione|
+|Simbolo|DESCRIZIONE|
 |------------|-----------------|
 |Ordina|Radice quadrata|
 |Sin[x], Cos[x], Tan[x]<br />Csc[x], Sec[x], Cot[x]|Funzioni trigonometriche con argomenti in radianti|
@@ -332,7 +332,7 @@ Se si immette una query di ora o data, la risposta può contenere una risposta [
 
 La risposta `timeZone` include il nome della posizione, la data e l'ora UTC corrente nella posizione specificata e la differenza dall'ora UTC. Se all'interno dei confini della posizione sono presenti più fusi orari, la risposta contiene la data e l'ora UTC corrente di tutti i fusi orari presenti. Lo Stato della Florida rientra ad esempio in due fusi orari, pertanto la risposta contiene la data e l'ora locali di entrambi i fusi orari.  
 
-Se la query richiede il tempo di uno stato o paese/area geografica, Bing determina la città primaria all'interno di confine geografico del percorso e lo restituisce nel `primaryCityTime` campo. Se il confine contiene più fusi orari, i fusi orari rimanenti vengono restituiti nel campo `otherCityTimes`.
+Se la query richiede l'ora di uno stato o paese/area geografica, Bing determina la città primaria entro il confine geografico della località e la `primaryCityTime` restituisce nel campo. Se il confine contiene più fusi orari, i fusi orari rimanenti vengono restituiti nel campo `otherCityTimes`.
 
 Di seguito sono riportate query di esempio che restituiscono la risposta `timeZone`.
 

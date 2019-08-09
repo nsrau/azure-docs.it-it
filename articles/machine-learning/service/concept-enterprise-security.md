@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 07/10/2019
-ms.openlocfilehash: f0fb6f0d2b2579679ee8a6ec43b3241377701d48
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.date: 08/07/2019
+ms.openlocfilehash: d1ad89943f6acfec6e42199ef399643be12e2b8b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780908"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856224"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Sicurezza aziendale per il servizio Azure Machine Learning
 
@@ -176,12 +176,24 @@ Key Vault istanza associata all'area di lavoro viene utilizzata dal servizio Azu
 * Password per le istanze del repository contenitore di Azure
 * Stringhe di connessione agli archivi dati.
 
-Le password e le chiavi SSH per le destinazioni di calcolo, ad esempio HDInsight HDI e VM, vengono archiviate in un Key Vault separato associato alla sottoscrizione Microsoft. Azure Machine Learning servizio archivia le password o le chiavi fornite dall'utente, ma genera, autorizza e archivia le proprie chiavi SSH per connettersi alla macchina virtuale/HDInsight per eseguire gli esperimenti.
+Le password e le chiavi SSH per le destinazioni di calcolo, ad esempio HDInsight HDI e VM, vengono archiviate in un Key Vault separato associato alla sottoscrizione Microsoft. Azure Machine Learning servizio non archivia le password o le chiavi fornite dall'utente, ma genera, autorizza e archivia le proprie chiavi SSH per potersi connettere a VM/HDInsight per eseguire gli esperimenti.
 A ogni area di lavoro è associata un'identità gestita assegnata dal sistema (con lo stesso nome dell'area di lavoro) che ha accesso a tutte le chiavi, i segreti e i certificati presenti nel Key Vault.
 
 ## <a name="monitoring"></a>Monitoraggio
 
-Gli utenti possono visualizzare il log attività nell'area di lavoro per visualizzare varie operazioni eseguite nell'area di lavoro e ottenere le informazioni di base, ad esempio il nome dell'operazione, l'evento avviato da, il timestamp e così via.
+### <a name="metrics"></a>metrics
+
+Le metriche di monitoraggio di Azure possono essere usate per visualizzare e monitorare le metriche per l'area di lavoro del servizio Azure Machine Learning. Dal [portale di Azure](https://portal.azure.com)selezionare l'area di lavoro e quindi usare il collegamento __metrica__ .
+
+![Screenshot che mostra le metriche di esempio per un'area di lavoro](./media/enterprise-readiness/workspace-metrics.png)
+
+Le metriche includono informazioni sulle esecuzioni, le distribuzioni e le registrazioni.
+
+Per altre informazioni, vedere [metriche in monitoraggio di Azure](/azure/azure-monitor/platform/data-platform-metrics).
+
+### <a name="activity-log"></a>Log attività
+
+È possibile visualizzare il log attività nell'area di lavoro per visualizzare le varie operazioni eseguite nell'area di lavoro e ottenere le informazioni di base, ad esempio il nome dell'operazione, l'evento avviato da, il timestamp e così via.
 
 La schermata seguente mostra il log attività per un'area di lavoro:
 

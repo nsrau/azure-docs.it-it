@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: c01e138c8afcdd59fcb0c87f189d98bec10e16d7
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 13f80b42ef6dfd0c70067a3ecf5f3e172527a63f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828134"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846540"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contenitori di profili FSLogix e file di Azure
 
@@ -47,9 +47,9 @@ La tabella seguente illustra i vantaggi e le limitazioni delle tecnologie dei pr
 
 | Tecnologia | Impostazioni moderne | Impostazioni Win32 | Impostazioni del sistema operativo | Dati utente | Supportato nello SKU del server | Archiviazione back-end in Azure | Archiviazione back-end locale | Supporto della versione | Ora di accesso successiva |Note|
 | ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |-----|
-| **Dischi del profilo utente (UPD)** | Sì | Sì | Sì | Sì | Sì | No | Yes | Win 7 + | Sì | |
-| **Profilo utente mobile (RUP), modalità manutenzione** | No | Yes | Sì | Sì | Sì| No | Yes | Win 7 + | No | |
-| **Enterprise State Roaming (ESR)** | Yes | No | Sì | No | Vedere le note | Yes | No | Windows 10 | No | Funzioni nello SKU del server ma nessuna interfaccia utente di supporto |
+| **Dischi del profilo utente (UPD)** | Yes | Sì | Sì | Sì | Sì | No | Yes | Win 7 + | Yes | |
+| **Profilo utente mobile (RUP), modalità manutenzione** | No | Yes | Sì | Sì | Sì| No | Sì | Win 7 + | No | |
+| **Enterprise State Roaming (ESR)** | Yes | No | Sì | No | Vedere le note | Sì | No | Windows 10 | No | Funzioni nello SKU del server ma nessuna interfaccia utente di supporto |
 | **Virtualizzazione dell'esperienza utente (UE-V)** | Yes | Sì | Sì | No | Sì | No | Sì | Win 7 + | No |  |
 | **File Cloud OneDrive** | No | No | No | Sì | Vedere le note | Vedere le note  | Vedere le note | Win 10 RS3 | No | Non testato nello SKU del server. L'archiviazione back-end in Azure dipende dal client di sincronizzazione. Per l'archiviazione back-end locale è necessario un client di sincronizzazione. |
 
@@ -75,13 +75,13 @@ Il 19 novembre 2018 Microsoft ha [acquisito FSLogix](https://blogs.microsoft.com
 
 Dall'acquisizione, Microsoft ha iniziato a sostituire le soluzioni del profilo utente esistenti, ad esempio UPD, con i contenitori del profilo FSLogix.
 
-## <a name="azure-files-integration-with-azure-active-directory"></a>Integrazione di File di Azure con Azure Active Directory
+## <a name="azure-files-integration-with-azure-active-directory-domain-service"></a>Integrazione di File di Azure con Azure Active Directory servizio del dominio
 
-Le prestazioni e le funzionalità dei contenitori del profilo FSLogix sfruttano il cloud. Il 24 settembre 2018, i file di Microsoft Azure hanno annunciato un'anteprima pubblica di [file di Azure che supportano l'autenticazione Azure Active Directory](https://azure.microsoft.com/blog/azure-active-directory-integration-for-smb-access-now-in-public-preview/). Affrontando il sovraccarico amministrativo e costi, File di Azure con l'autenticazione Azure Active Directory è una soluzione Premium per i profili utente nel nuovo servizio desktop virtuale di Windows.
+Le prestazioni e le funzionalità dei contenitori del profilo FSLogix sfruttano il cloud. Il 7 agosto 2019, i file di Microsoft Azure annunciano la disponibilità a livello generale dell' [autenticazione file di Azure con Azure Active Directory Domain Service (ad DS)](/articles/storage/files/storage-files-active-directory-overview.md). Affrontando il sovraccarico amministrativo e costi, File di Azure con l'autenticazione di Azure AD DS è una soluzione Premium per i profili utente nel servizio desktop virtuale di Windows.
 
 ## <a name="best-practices-for-windows-virtual-desktop"></a>Procedure consigliate per desktop virtuale Windows
 
-Desktop virtuale di Windows offre il controllo completo sulle dimensioni, il tipo e il numero di macchine virtuali utilizzate dai clienti. Per ulteriori informazioni, vedere [che cos'è l'anteprima di desktop virtuale Windows?](https://docs.microsoft.com/azure/virtual-desktop/overview).
+Desktop virtuale di Windows offre il controllo completo sulle dimensioni, il tipo e il numero di macchine virtuali utilizzate dai clienti. Per ulteriori informazioni, vedere [che cos'è l'anteprima di desktop virtuale Windows?](overview.md).
 
 Per assicurarsi che l'ambiente desktop virtuale di Windows segua le procedure consigliate:
 
@@ -94,11 +94,11 @@ Per assicurarsi che l'ambiente desktop virtuale di Windows segua le procedure co
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Utilizzare le istruzioni seguenti per configurare un ambiente desktop virtuale di Windows.
+Utilizzare le seguenti guide per configurare un ambiente desktop virtuale di Windows.
 
-- Per iniziare a creare la soluzione di virtualizzazione desktop, vedere [creare un tenant in un desktop virtuale di Windows](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory).
-- Per creare un pool di host nel tenant del desktop virtuale Windows, vedere [creare un pool di host con Azure Marketplace](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace).
-- Per configurare condivisioni file completamente gestite nel cloud, vedere [configurare file di Azure condivisione](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable).
-- Per configurare i contenitori di profili FSLogix, vedere [configurare una condivisione del profilo utente per un pool host](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-user-profile).
-- Per assegnare gli utenti a un pool di host, vedere [gestire i gruppi di app per desktop virtuale di Windows](https://docs.microsoft.com/azure/virtual-desktop/manage-app-groups).
-- Per accedere alle risorse del desktop virtuale di Windows da un Web browser, vedere [connettersi al desktop virtuale di Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-web).
+- Per iniziare a creare la soluzione di virtualizzazione desktop, vedere [creare un tenant in un desktop virtuale di Windows](tenant-setup-azure-active-directory.md).
+- Per creare un pool di host nel tenant del desktop virtuale Windows, vedere [creare un pool di host con Azure Marketplace](create-host-pools-azure-marketplace.md).
+- Per configurare condivisioni file completamente gestite nel cloud, vedere [configurare file di Azure condivisione](/articles/storage/files/storage-files-active-directory-enable.md).
+- Per configurare i contenitori di profili FSLogix, vedere [configurare una condivisione del profilo utente per un pool host](create-host-pools-user-profile.md).
+- Per assegnare gli utenti a un pool di host, vedere [gestire i gruppi di app per desktop virtuale di Windows](manage-app-groups.md).
+- Per accedere alle risorse del desktop virtuale di Windows da un Web browser, vedere [connettersi al desktop virtuale di Windows](connect-web.md).

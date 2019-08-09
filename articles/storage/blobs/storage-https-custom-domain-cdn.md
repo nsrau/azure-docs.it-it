@@ -1,20 +1,19 @@
 ---
 title: Usare Rete CDN di Azure per accedere ai BLOB con domini personalizzati tramite HTTPS
 description: Informazioni su come integrare Rete CDN di Azure con l'archiviazione BLOB per accedere ai BLOB con domini personalizzati tramite HTTPS
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: normesta
-ms.reviewer: seguler
+ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: da3a6dcb0d125ac4666bc375e843c57cf12fb2fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3ad599182191e41ea43d38260692a7ab46e1af6f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148400"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845009"
 ---
 # <a name="use-azure-cdn-to-access-blobs-with-custom-domains-over-https"></a>Usare Rete CDN di Azure per accedere ai BLOB con domini personalizzati tramite HTTPS
 
@@ -25,7 +24,7 @@ Rete CDN di Azure aiuta a proteggere la riservatezza e l'integrità dei dati in 
 > [!NOTE]  
 > Oltre a fornire il supporto SSL per i nomi di dominio personalizzati, Rete CDN di Azure semplifica la scalabilità dell'applicazione per distribuire contenuto con esigenze di larghezza di banda elevata in tutto il mondo. Per altre informazioni, vedere [Panoramica di Rete CDN di Azure](../../cdn/cdn-overview.md).
 
-## <a name="quickstart"></a>Guida introduttiva
+## <a name="quickstart"></a>Avvio rapido
 
 Per abilitare HTTPS per l'endpoint di archiviazione BLOB personalizzato, eseguire le operazioni seguenti:
 

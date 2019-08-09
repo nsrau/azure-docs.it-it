@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e139b274ab8a1f7d91d46ec56171b84db4f5025e
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: a4d692110a304cbfbbfda69bb2b10e3a065b2450
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812825"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851538"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -200,9 +200,7 @@ Inoltre, l'utente può accedere ai report relativi all'adozione & uso di Kaizala
   > [!NOTE]
   > Nell'API Microsoft Graph, nell'API Graph di Azure AD e in Azure AD PowerShell questo ruolo è identificato come "Amministratore del servizio Power BI". È l'"Amministratore di Power BI" nel [portale di Azure](https://portal.azure.com).
 
-* **[Amministratore autenticazione privilegiata](#privileged-authentication-administrator)** : Gli utenti con questo ruolo possono impostare o reimpostare le credenziali non password per tutti gli utenti, inclusi gli amministratori globali, ed è possibile aggiornare le password per tutti gli utenti. Gli amministratori di autenticazione con privilegi possono forzare la ripetizione della registrazione per le credenziali senza password esistenti, ad esempio l'autenticazione a più fattori, la revoca dell'autenticazione a più fattori nel dispositivo e la richiesta di autenticazione a più fattori all'accesso successivo di tutti gli utenti. Gli amministratori di autenticazione con privilegi possono:
-  * Consente agli utenti di eseguire di nuovo la registrazione con credenziali non di password esistenti (ad esempio, autenticazione a più fattori, FIDO)
-  * Revoca l'autenticazione a più fattori nel dispositivo, richiedendo l'autenticazione a più fattori all'accesso successivo
+* **[Amministratore autenticazione privilegiata](#privileged-authentication-administrator)** : Gli utenti con questo ruolo possono impostare o reimpostare le credenziali non password per tutti gli utenti, inclusi gli amministratori globali, ed è possibile aggiornare le password per tutti gli utenti. Gli amministratori di autenticazione con privilegi possono forzare la ripetizione della registrazione per le credenziali senza password esistenti, ad esempio l'autenticazione a più fattori, la revoca dell'autenticazione a più fattori nel dispositivo e la richiesta di autenticazione a più fattori all'accesso successivo di tutti gli utenti.
 
 * **[Amministratore dei ruoli con privilegi](#privileged-role-administrator)** : gli utenti con questo ruolo possono gestire le assegnazioni di ruolo in Azure Active Directory e in Azure AD Privileged Identity Management. Inoltre, questo ruolo consente la gestione di tutti gli aspetti di Privileged Identity Management e delle unità amministrative.
 

@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 08/2/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4bc035ba061a65f6770136240d8867f82858e67e
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 545860a394c7eac953c1cbacc9dd05fc3737f6c1
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772722"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856178"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Accedere ai dati nei servizi di archiviazione di Azure
 
@@ -32,7 +32,7 @@ In questa procedura vengono illustrati esempi delle attività seguenti:
 
 Per usare archivi dati, è necessaria prima di tutto un'[area di lavoro](concept-workspace.md).
 
-Per iniziare, [creare una nuova area di lavoro](setup-create-workspace.md#sdk) o recuperarne una esistente:
+Per iniziare, [creare una nuova area di lavoro](how-to-manage-workspace.md) o recuperarne una esistente:
 
 ```Python
 import azureml.core
@@ -222,7 +222,7 @@ Gli archivi dati supportano attualmente l'archiviazione delle informazioni di co
 
 Il servizio Azure Machine Learning offre diversi modi per usare i modelli per l'assegnazione dei punteggi. Alcuni di questi metodi non forniscono l'accesso agli archivi dati. Usare la tabella seguente per informazioni sui metodi che consentono di accedere agli archivi dati durante il Punteggio:
 
-| Metodo | Accesso all'archivio dati | Descrizione |
+| Metodo | Accesso all'archivio dati | DESCRIZIONE |
 | ----- | :-----: | ----- |
 | [Stima in batch](how-to-run-batch-predictions.md) | ✔ | Eseguire stime su grandi quantità di dati in modo asincrono. |
 | [Servizio Web](how-to-deploy-and-where.md) | &nbsp; | Distribuire i modelli come servizio Web. |

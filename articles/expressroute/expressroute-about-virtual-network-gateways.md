@@ -8,17 +8,15 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 18615cf737eedcd188fd59d2aa98482210b9333a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fc614626131236361246664a1bcef34f82b54ec5
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991580"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848478"
 ---
 # <a name="expressroute-virtual-network-gateway-and-fastpath"></a>Gateway di rete virtuale ExpressRoute e FastPath
-Per connettere la rete virtuale di Azure e la rete locale tramite ExpressRoute, è necessario creare innanzitutto un gateway di rete virtuale. Un gateway di rete virtuale ha due scopi: exchange IP route tra le reti e instradare il traffico di rete. Questo articolo illustra i tipi di gateway, SKU del gateway e delle prestazioni stimato dallo SKU. Questo articolo illustra anche ExpressRoute [FastPath](#fastpath), una funzionalità che consente il traffico di rete dalla rete locale di ignorare il gateway di rete virtuale per migliorare le prestazioni.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Per connettere la rete virtuale di Azure e la rete locale tramite ExpressRoute, è prima di tutto necessario creare un gateway di rete virtuale. Un gateway di rete virtuale svolge due finalità: le route IP di Exchange tra le reti e il traffico di rete instradato. Questo articolo illustra i tipi di gateway, gli SKU del gateway e le prestazioni stimate in base allo SKU. Questo articolo illustra anche ExpressRoute [FastPath](#fastpath), una funzionalità che consente al traffico di rete dalla rete locale di ignorare il gateway di rete virtuale per migliorare le prestazioni.
 
 ## <a name="gateway-types"></a>Tipi di gateway
 
@@ -33,7 +31,7 @@ Ogni rete virtuale può avere un solo gateway di rete virtuale per tipo di gatew
 ## <a name="gwsku"></a>SKU del gateway
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-Se si desidera aggiornare il gateway a uno SKU del gateway più potente, nella maggior parte dei casi è possibile usare il cmdlet di PowerShell 'Resize-AzVirtualNetworkGateway'. Questa tecnica funziona per gli aggiornamenti agli SKU Standard e HighPerformance. Tuttavia, per eseguire l'aggiornamento per allo SKU UltraPerformance sarà necessario ricreare il gateway. La ricreazione di un gateway comporta tempi di inattività.
+Se si vuole aggiornare il gateway a uno SKU del gateway più potente, nella maggior parte dei casi è possibile usare il cmdlet di PowerShell ' Resize-AzVirtualNetworkGateway '. Questa tecnica funziona per gli aggiornamenti agli SKU Standard e HighPerformance. Tuttavia, per eseguire l'aggiornamento per allo SKU UltraPerformance sarà necessario ricreare il gateway. La ricreazione di un gateway comporta tempi di inattività.
 
 ### <a name="aggthroughput"></a>Prestazioni stimate in base allo SKU del gateway
 La tabella seguente illustra i tipi di gateway e le prestazioni stimate. La tabella è valida per entrambi i modelli di distribuzione classica e di Gestione risorse.
@@ -60,13 +58,13 @@ I gateway con ridondanza della zona usano nuovi SKU gateway specifici per il gat
 I nuovi SKU gateway supportano anche altre opzioni di distribuzione per soddisfare meglio le esigenze. Quando si crea un gateway di rete virtuale usando i nuovi SKU gateway, è anche possibile distribuire il gateway in una zona specifica. In questo caso si parla di gateway a livello di zona. Quando si distribuisce un gateway a livello di zona, tutte le istanze del gateway vengono distribuite nella stessa zona di disponibilità.
 
 ## <a name="fastpath"></a>FastPath
-Gateway di rete virtuale ExpressRoute è progettato per scambiare le route di rete e instradare il traffico di rete. FastPath è progettato per migliorare le prestazioni di percorso dei dati tra la rete locale e la rete virtuale. Quando abilitata, FastPath invia il traffico di rete direttamente alle macchine virtuali nella rete virtuale, ignorando il gateway. 
+Il gateway di rete virtuale ExpressRoute è progettato per scambiare le route di rete e instradare il traffico di rete. FastPath è progettato per migliorare le prestazioni del percorso dati tra la rete locale e la rete virtuale. Se abilitata, FastPath invia il traffico di rete direttamente alle macchine virtuali nella rete virtuale, ignorando il gateway. 
 
-Sono disponibili sul FastPath [ExpressRoute Direct](expressroute-erdirect-about.md) solo. In altre parole, è possibile abilitare solo se questa funzionalità si [connettere la rete virtuale](expressroute-howto-linkvnet-arm.md) a un circuito ExpressRoute creato su una porta diretta di ExpressRoute. FastPath richiede comunque un gateway di rete virtuale deve essere creato per lo scambio delle route tra la rete virtuale e rete locale. Il gateway di rete virtuale deve essere con prestazioni extra o ErGw3AZ.
+FastPath è disponibile solo in [ExpressRoute Direct](expressroute-erdirect-about.md) . In altre parole, è possibile abilitare questa funzionalità solo se si [connette la rete virtuale](expressroute-howto-linkvnet-arm.md) a un circuito ExpressRoute creato in una porta ExpressRoute Direct. FastPath richiede ancora la creazione di un gateway di rete virtuale per scambiare le route tra la rete virtuale e la rete locale. Il gateway di rete virtuale deve essere ultra performance o ErGw3AZ.
 
 FastPath non supporta le funzionalità seguenti:
-* Route definite dall'utente nella subnet del Gateway: se si applica una route definita dall'utente alla subnet del Gateway della rete virtuale il traffico di rete dalla rete locale continuerà a essere inviato al gateway di rete virtuale.
-* Peering reti virtuali: se si dispone di altre reti virtuali con peering con quello che è connessa a ExpressRoute il traffico di rete dalla rete locale alle altre reti virtuali (vale a dire le cosiddette "Spoke" reti virtuali) continueranno a essere inviato alla rete virtuale gateway. La soluzione alternativa consiste nel connettere tutte le reti virtuali al circuito ExpressRoute direttamente.
+* UDR sulla subnet del gateway: se si applica un UDR alla subnet del gateway della rete virtuale, il traffico di rete proveniente dalla rete locale continuerà a essere inviato al gateway di rete virtuale.
+* Peering VNet: se si dispone di altre reti virtuali con peering con quello connesso a ExpressRoute, il traffico di rete dalla rete locale alle altre reti virtuali (ad esempio, il cosiddetto "spoke" reti virtuali) continuerà a essere inviato alla rete virtuale Gateway. La soluzione alternativa consiste nel connettere direttamente tutte le reti virtuali al circuito ExpressRoute.
 
 ## <a name="resources"></a>API REST e cmdlet PowerShell
 Per altre risorse tecniche e requisiti di sintassi specifici quando si usano le API REST e i cmdlet PowerShell per le configurazioni di gateway di rete virtuale, vedere le pagine seguenti:
@@ -83,4 +81,4 @@ Per altre informazioni sulla creazione di gateway ExpressRoute, vedere [Create a
 
 Per altre informazioni sulla configurazione di gateway con ridondanza della zona, vedere [Creare un gateway di rete virtuale con ridondanza della zona](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md).
 
-Visualizzare [collegamento di rete virtuale al circuito ExpressRoute](expressroute-howto-linkvnet-arm.md) per altre informazioni su come abilitare FastPath. 
+Per ulteriori informazioni su come abilitare FastPath, vedere [collegare una rete virtuale a ExpressRoute](expressroute-howto-linkvnet-arm.md) . 

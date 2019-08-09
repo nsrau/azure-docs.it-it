@@ -1,20 +1,19 @@
 ---
 title: Come monitorare un account di archiviazione di Azure | Microsoft Docs
 description: Informazioni su come monitorare un account di archiviazione in Azure usando il portale di Azure.
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 5a28d69ae5ba9f3b7eeb28b6824ad9a458832bb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 912c1c3403191f40dac054f99f29ac60ba84ce8f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153624"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68844909"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorare un account di archiviazione nel portale di Azure
 
@@ -42,7 +41,7 @@ ms.locfileid: "65153624"
    Per impostare i criteri di conservazione dei dati, spostare il dispositivo di scorrimento **Conservazione (in giorni)** oppure immettere il numero desiderato di giorni, da 1 a 365. L'impostazione predefinita per i nuovi account di archiviazione è sette giorni. Se non si desidera impostare criteri di conservazione, immettere zero. Se non vengono impostati criteri di conservazione, i dati di monitoraggio dovranno essere eliminati manualmente.
 
    > [!WARNING]
-   > Quando si eliminano manualmente i dati di metrica, viene applicato un addebito. I dati di analisi obsoleti, che hanno superato l'intervallo di tempo dei criteri di conservazione, vengono eliminati dal sistema gratuitamente. È consigliabile impostare i criteri di conservazione in base al periodo di tempo per il quale si vogliono conservare i dati di analisi dell'archiviazione per l'account. Visualizzare [fatturazione per le metriche di archiviazione](storage-analytics-metrics.md#billing-on-storage-metrics) per altre informazioni.
+   > Quando si eliminano manualmente i dati di metrica, viene applicato un addebito. I dati di analisi obsoleti, che hanno superato l'intervallo di tempo dei criteri di conservazione, vengono eliminati dal sistema gratuitamente. È consigliabile impostare i criteri di conservazione in base al periodo di tempo per il quale si vogliono conservare i dati di analisi dell'archiviazione per l'account. Per ulteriori informazioni, vedere [fatturazione sulle metriche di archiviazione](storage-analytics-metrics.md#billing-on-storage-metrics) .
    >
 
 1. Al termine della configurazione del monitoraggio, selezionare **Salva**.
@@ -139,7 +138,7 @@ Dopo che sono stati aggiunti al dashboard, i grafici possono essere ulteriorment
 
 I log di diagnostica sono salvati in un contenitore blob denominato *$logs* nell'account di archiviazione. È possibile visualizzare i dati dei log con uno strumento di esplorazione di archiviazione come [Microsoft Azure Storage Explorer](https://storageexplorer.com) oppure a livello di codice usando la libreria client di archiviazione o PowerShell.
 
-Per informazioni sull'accesso al contenitore $logs, vedere [la registrazione analitica dell'archiviazione](storage-analytics-logging.md).
+Per informazioni sull'accesso al contenitore $logs, vedere [registrazione di analisi archiviazione](storage-analytics-logging.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

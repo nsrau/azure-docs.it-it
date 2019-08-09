@@ -5,16 +5,16 @@ description: Avviare TensorBoard per visualizzare le cronologie di esecuzione de
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
 ms.date: 06/28/2019
-ms.openlocfilehash: f65882cb851f8e35bb1d6c319d52fcfadb36ae91
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 2e4527ba167076935505b668a7879e5f1446b25e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772703"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856063"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualizzare le esecuzioni e le metriche degli esperimenti con TensorBoard e Azure Machine Learning
 
@@ -42,9 +42,9 @@ La modalità di avvio di TensorBoard con Azure Machine Learning esperimenti dipe
         * tensorboard.ipynb
 
     * Il proprio server Juptyer notebook
-      * Usare l' [articolo creare un'area di lavoro](setup-create-workspace.md) per
           * [Installare l'SDK di Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) con `tensorboard` il
-          * Creare un'area di lavoro e il relativo file di configurazione (config. Json)
+          * [Creare un'area di lavoro del servizio Azure Machine Learning](how-to-manage-workspace.md).  
+          * [Creare un file di configurazione dell'area di lavoro](how-to-configure-environment.md#workspace).
   
 <a name="direct"></a>
 ## <a name="option-1-directly-view-run-history-in-tensorboard"></a>Opzione 1: Visualizzazione diretta della cronologia di esecuzione in TensorBoard

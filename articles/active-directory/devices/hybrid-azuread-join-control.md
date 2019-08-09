@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5d8cd7799dd23dabc2cbb423e82b8c7203b7bed
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: c897d52c10efdb8824f676d7640dcc7275915a9e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834640"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851784"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Convalida controllata dell'aggiunta ad Azure AD ibrido
 
@@ -72,7 +72,7 @@ Usare l'esempio seguente per creare un oggetto Criteri di gruppo (GPO) per distr
       1. Percorso chiave: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Nome valore: **TenantName**
       1. Tipo valore: **REG_SZ**
-      1. Dati valore: Il **nome di dominio** verificato se si utilizza un ambiente federato, ad esempio ad FS. Il * * nome di dominio verificato "" o il nome di dominio onmicrosoft.com, `contoso.onmicrosoft.com` ad esempio, se si usa l'ambiente gestito
+      1. Dati valore: Il **nome di dominio** verificato se si utilizza un ambiente federato, ad esempio ad FS. Il **nome di dominio** verificato o il nome di dominio onmicrosoft.com, `contoso.onmicrosoft.com` ad esempio, se si usa l'ambiente gestito
    1. Fare clic su **OK**.
 1. Chiudere l'editor per l'oggetto Criteri di gruppo appena creato
 1. Collegare l'oggetto Criteri di gruppo appena creato all'unità organizzativa desiderata contenente i computer aggiunti a un dominio che appartengono al popolamento di implementazione controllato

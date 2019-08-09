@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 1bd1882218630aca0707a792d120045c06dea127
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 89b8b5f8c574de033fabf6861e24fc7d2b31e171
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552674"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855095"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Speech Synthesis Markup Language (SSML)
 
@@ -71,7 +71,7 @@ L' `voice` elemento è obbligatorio. Viene usato per specificare la voce usata p
 
 **Attributes (Attributi)**
 
-| Attributo | DESCRIZIONE | Obbligatoria / Facoltativa |
+| Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
 | name | Identifica la voce utilizzata per l'output da sintesi vocale. Per un elenco completo delle voci supportate, vedere [supporto](language-support.md#text-to-speech)per le lingue. | Obbligatoria |
 
@@ -132,7 +132,7 @@ Le modifiche vengono applicate a livello di frase e lo stile varia in base alla 
 
 **Attributes (Attributi)**
 
-| Attributo | Descrizione | Obbligatoria / Facoltativa |
+| Attributo | DESCRIZIONE | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
 | type | Specifica lo stile di pronuncia. Attualmente, gli stili di pronuncia sono specifici della voce. | Obbligatorio se si modifica lo stile di pronuncia per una voce neurale. Se si `mstts:express-as`USA, è necessario fornire il tipo. Se viene specificato un valore non valido, questo elemento verrà ignorato. |
 
@@ -175,12 +175,12 @@ Usare l' `break` elemento per inserire pause (o interruzioni) tra parole oppure 
 
 **Attributes (Attributi)**
 
-| Attributo | Descrizione | Obbligatoria / Facoltativa |
+| Attributo | DESCRIZIONE | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
 | forza | Specifica la durata relativa di una pausa utilizzando uno dei valori seguenti:<ul><li>none</li><li>x-debole</li><li>vulnerabile</li><li>media (impostazione predefinita)</li><li>complessa</li><li>x-forte</li></ul> | Facoltativo |
 | time | Specifica la durata assoluta di una pausa in secondi o millisecondi. Esempi di valori validi sono 2S e 500 | Facoltativo |
 
-| Forza | Descrizione |
+| Forza | DESCRIZIONE |
 |----------|-------------|
 | None oppure se non viene specificato alcun valore | 0 ms |
 | x-debole | 250 ms |
@@ -246,7 +246,7 @@ Gli alfabeti fonetici sono costituiti da telefoni, che sono costituiti da letter
 
 **Attributes (Attributi)**
 
-| Attributo | DESCRIZIONE | Obbligatoria / Facoltativa |
+| Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
 | alfabeto | Specifica l'alfabeto fonetico da usare quando si sintetizza la pronuncia della stringa nell' `ph` attributo. La stringa che specifica l'alfabeto deve essere specificata in lettere minuscole. Di seguito sono riportati gli alfabeti possibili che è possibile specificare.<ul><li>alfabeto &ndash; fonetico internazionale IPA</li><li>Set &ndash; di telefono Speech API SAPI</li><li>Set &ndash; di telefonia universale UPS</li></ul>L'alfabeto si applica solo al fonema nell'elemento. Per ulteriori informazioni, vedere [riferimento all'alfabeto fonetico](https://msdn.microsoft.com/library/hh362879(v=office.14).aspx). | Facoltativo |
 | pH | Stringa contenente i telefoni che specificano la pronuncia della parola nell' `phoneme` elemento. Se la stringa specificata contiene telefoni non riconosciuti, il servizio di sintesi vocale rifiuta l'intero documento SSML e non genera alcun output vocale specificato nel documento. | Obbligatorio se si utilizzano fonemi. |
@@ -376,7 +376,7 @@ Qualsiasi audio incluso nel documento SSML deve soddisfare i requisiti seguenti:
 
 **Attributes (Attributi)**
 
-| Attributo | Descrizione | Obbligatoria / Facoltativa |
+| Attributo | DESCRIZIONE | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
 | src | Specifica il percorso o l'URL del file audio. | Obbligatorio se si usa l'elemento audio nel documento di SSML. |
 
@@ -409,12 +409,12 @@ Per ogni documento SSML è consentito un solo file audio di sfondo. Tuttavia, è
 
 **Attributes (Attributi)**
 
-| Attributo | DESCRIZIONE | Obbligatoria / Facoltativa |
+| Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
 | src | Specifica il percorso o l'URL del file audio in background. | Obbligatorio se si usa l'audio in background nel documento di SSML. |
 | volume | Specifica il volume del file audio in background. **Valori**accettati `0` : `100` per l'inclusione. Il valore predefinito è `1`. | Facoltativo |
-| fadein | Specifica la durata della dissolvenza audio in background. **Valori**accettati `0` : `10000` per l'inclusione.  | Facoltativo |
-| fadeout | Specifica la durata della dissolvenza dell'audio in background. **Valori**accettati `0` : `10000` per l'inclusione.  | Facoltativo |
+| fadein | Specifica la durata in millisecondi della dissolvenza audio in background. Il valore predefinito è `0`, che equivale a nessuna dissolvenza in. **Valori**accettati `0` : `10000` per l'inclusione.  | Facoltativo |
+| fadeout | Specifica la durata della dissolvenza dell'audio in background in millisecondi. Il valore predefinito è `0`, che equivale a nessuna dissolvenza in uscita. **Valori**accettati `0` : `10000` per l'inclusione.  | Facoltativo |
 
 **Esempio**
 

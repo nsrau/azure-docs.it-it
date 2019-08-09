@@ -1,29 +1,29 @@
 ---
-title: 'Regressione: Stimare il prezzo e confrontare gli algoritmi'
+title: Regressione Stimare il prezzo e confrontare gli algoritmi
 titleSuffix: Azure Machine Learning service
-description: Questo articolo illustra come creare un esperimento di apprendimento automatico complessi senza scrivere una singola riga di codice usando l'interfaccia visiva. Informazioni su come eseguire il training e confrontare più modelli di regressione per prevedere il prezzo dell'automobile in base alle funzionalità tecniche
+description: Questo articolo illustra come creare un esperimento di apprendimento automatico complesso senza scrivere una sola riga di codice usando l'interfaccia visiva. Informazioni su come eseguire il training e il confronto di più modelli di regressione per stimare il prezzo di un'automobile in base alle funzionalità tecniche
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: aa0a1fc2acdc9687030040c23cdb1781e9529169
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 28af7b814a8d214c3529ecb12ffe25ede78b1cb6
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605681"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855925"
 ---
 # <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>Esempio 2: regressione: Stimare il prezzo e confrontare gli algoritmi
 
-Informazioni su come creare un esperimento di apprendimento automatico complessi senza scrivere una singola riga di codice usando l'interfaccia visiva. In questo esempio esegue il training e confronta più modelli di regressione per prevedere il prezzo dell'automobile in base alle relative funzionalità tecniche. Forniremo la base logica per le scelte effettuate in questo esperimento, pertanto è possibile affrontare propri problemi di apprendimento.
+Informazioni su come creare un esperimento di apprendimento automatico complesso senza scrivere una singola riga di codice usando l'interfaccia visiva. Questo esempio consente di eseguire il training e confrontare più modelli di regressione per stimare il prezzo di un'automobile in base alle funzionalità tecniche. Forniremo la logica per le scelte effettuate in questo esperimento, in modo da poter affrontare i problemi di apprendimento automatico.
 
-Se si sta appena iniziando a usare machine Learning, è possibile esaminare i [versione di base](ui-sample-regression-predict-automobile-price-basic.md) di questo esperimento per vedere una regressione base esperimento.
+Se si sta iniziando a usare Machine Learning, è possibile esaminare la [versione di base](ui-sample-regression-predict-automobile-price-basic.md) di questo esperimento per vedere un esperimento di regressione di base.
 
-Ecco il grafico completato per questo esperimento:
+Ecco il grafo completato per questo esperimento:
 
 [![Grafico dell'esperimento](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
@@ -31,58 +31,58 @@ Ecco il grafico completato per questo esperimento:
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Selezionare il **aperto** pulsante per l'esperimento di esempio 2:
+4. Selezionare il pulsante **Apri** per l'esperimento di esempio 2:
 
     ![Aprire l'esperimento](media/ui-sample-regression-predict-automobile-price-compare-algorithms/open-sample2.png)
 
-## <a name="experiment-summary"></a>Riepilogo di esperimento
+## <a name="experiment-summary"></a>Riepilogo esperimento
 
-Utilizziamo questa procedura per creare l'esperimento:
+Questi passaggi vengono usati per compilare l'esperimento:
 
 1. Ottenere i dati.
 1. Pre-elaborare i dati.
-1. Il training del modello.
-1. Test, valutare e confrontare i modelli.
+1. Eseguire il training del modello.
+1. Testare, valutare e confrontare i modelli.
 
 ## <a name="get-the-data"></a>Ottenere i dati
 
-In questo esperimento, viene usato il **dati sui prezzi di Automobile (Raw)** set di dati dal Repository UCI Machine Learning. Questo set di dati contiene 26 colonne contenenti informazioni sulle automobili, tra cui marca, modello, prezzo, caratteristiche del veicolo (ad esempio, il numero di cilindri), MPG e un punteggio di rischio assicurativo. L'obiettivo di questo esperimento è stimare il prezzo di un'automobile.
+In questo esperimento viene usato il set di **dati automobile price data (RAW)** , che si trova nel Repository UCI Machine Learning. Questo set di dati contiene 26 colonne contenenti informazioni sulle automobili, incluse le funzionalità marca, modello, prezzo, veicolo (ad esempio il numero di cilindri), MPG e un punteggio di rischio assicurativo. L'obiettivo di questo esperimento è stimare il prezzo di un'automobile.
 
 ## <a name="pre-process-the-data"></a>Pre-elaborare i dati
 
-L'attività di preparazione dei dati principali includono pulizia dei dati, integrazione, trasformazione, la riduzione e discretizzazione o la quantizzazione. Nell'interfaccia visiva grafica, è possibile trovare i moduli per eseguire queste operazioni e altri dati di attività di pre-elaborazione il **Data Transformation** gruppo nel riquadro sinistro.
+Le attività di preparazione dei dati principali includono la pulizia, l'integrazione, la trasformazione, la riduzione e la discretizzazione o la quantizzazione dei dati. In interfaccia visiva è possibile trovare moduli per eseguire queste operazioni e altre attività di pre-elaborazione dei dati nel gruppo di **trasformazione dati** nel pannello di sinistra.
 
-In questo esperimento, viene usato il **Select Columns in Dataset** modulo Escludi normalized-losses con numerosi valori mancanti. Quindi, utilizziamo **Clean Missing Data** per rimuovere le righe contenenti valori mancanti. Ciò consente di creare un set di dati di training pulito.
+In questo esperimento viene usato il modulo **Select Columns in DataSet** per escludere le perdite normalizzate con molti valori mancanti. Si usano quindi **Clean Missing data** per rimuovere le righe con valori mancanti. Questo consente di creare un set di dati di training puliti.
 
 ![Pre-elaborazione dei dati](media/ui-sample-regression-predict-automobile-price-compare-algorithms/data-processing.png)
 
 ## <a name="train-the-model"></a>Eseguire il training del modello
 
-Problemi di Machine learning variano. Attività comuni di machine learning include la classificazione, clustering, la regressione e sistemi di raccomandazione, ognuno dei quali potrebbe richiedere un algoritmo diverso. La scelta dell'algoritmo spesso dipende dai requisiti del caso di utilizzo. Quando si seleziona un algoritmo, è necessario ottimizzare i parametri per il training di un modello più accurato. È quindi necessario valutare tutti i modelli basati sulla metrica, ad esempio precisione, la comprensione e l'efficienza.
+I problemi di Machine Learning variano. Le attività comuni di Machine Learning includono sistemi di classificazione, clustering, regressione e raccomandazione, ciascuno dei quali potrebbe richiedere un algoritmo diverso. La scelta dell'algoritmo dipende spesso dai requisiti del caso d'uso. Dopo aver selezionato un algoritmo, è necessario ottimizzarne i parametri per eseguire il training di un modello più accurato. È quindi necessario valutare tutti i modelli in base alle metriche come accuratezza, intelligibilità ed efficienza.
 
-Poiché l'obiettivo di questo esperimento consiste nello stimare i prezzi delle automobili e perché la colonna di etichetta (prezzo) contiene i numeri reali, un modello di regressione è una buona scelta. Si considera che il numero di funzionalità è relativamente piccolo (minore di 100) e queste funzionalità non sono sparse, il limite di decisione è probabilmente non lineare.
+Dato che l'obiettivo di questo esperimento è stimare i prezzi delle automobili e perché la colonna Label (price) contiene numeri reali, un modello di regressione è una scelta ottimale. Poiché il numero di funzionalità è relativamente ridotto (inferiore a 100) e queste funzionalità non sono di tipo sparse, è probabile che il limite della decisione sia non lineare.
 
-Per confrontare le prestazioni di diversi algoritmi, usiamo due algoritmi non lineari **Boosted Decision Tree Regression** e **Decision Forest Regression**, compilare i modelli. Entrambi gli algoritmi contengono parametri che è possibile modificare, ma vengono usati i valori predefiniti per questo esperimento.
+Per confrontare le prestazioni di algoritmi diversi, vengono usati due algoritmi non lineari, la **regressione dell'albero delle decisioni** con boosting e la regressione della **foresta delle decisioni**, per la compilazione dei modelli. Entrambi gli algoritmi hanno parametri che è possibile modificare, ma si usano i valori predefiniti per questo esperimento.
 
-Usiamo il **Split Data** modulo per dividere in modo casuale i dati di input in modo che il set di dati di training contiene il 70% dei dati originali e i set di dati di test contiene 30% dei dati originali.
+Viene usato il modulo **Split data** per dividere in modo casuale i dati di input in modo che il set di dati di training contenga il 70% dei dati originali e il set di dati di testing contenga il 30% dei dati originali.
 
-## <a name="test-evaluate-and-compare-the-models"></a>Test, valutare e confrontare i modelli
+## <a name="test-evaluate-and-compare-the-models"></a>Testare, valutare e confrontare i modelli
 
-Usiamo i due diversi set di dati selezionati a caso eseguire il training e quindi testare il modello, come descritto nella sezione precedente. Si suddivide il set di dati e usare diversi set di dati per il training e test del modello per semplificare la valutazione del modello di obiettivo di altre.
+Vengono usati due diversi set di dati scelti in modo casuale per eseguire il training e il test del modello, come descritto nella sezione precedente. Il set di dati viene suddiviso e vengono utilizzati set di dati diversi per eseguire il training e il test del modello, in modo da rendere più obiettivo la valutazione del modello.
 
-Dopo il training del modello, viene usato il **Score Model** e **Evaluate Model** moduli per generare i risultati stimati e valutare i modelli. **Score Model** genera stime per il set di dati di test usando il modello con training. Viene quindi passato per i punteggi **Evaluate Model** per generare metriche di valutazione.
+Dopo aver eseguito il training del modello, si utilizzano i moduli **Score Model** e **Evaluate Model** per generare risultati stimati e valutare i modelli. **Score Model** genera stime per il set di dati di test usando il modello sottoposto a training. Vengono quindi passati i punteggi per **valutare il modello** per generare metriche di valutazione.
 
-In questo esperimento vengono usate due istanze del **Evaluate Model** per confrontare due coppie di modelli.
+In questo esperimento vengono usate due istanze di **Evaluate Model** per confrontare due coppie di modelli.
 
-Prima di tutto è confrontare due algoritmi sul set di dati di training.
-In secondo luogo, si confronta due algoritmi nel set di dati di test.
+In primo luogo, vengono confrontati due algoritmi nel set di dati di training.
+In secondo luogo, vengono confrontati due algoritmi nel set di dati di testing.
 Ecco i risultati:
 
 ![Confrontare i risultati](media/ui-sample-regression-predict-automobile-price-compare-algorithms/result.png)
 
-Questi risultati mostrano che il modello compilato con **Boosted Decision Tree Regression** ha un'inferiore radice errore quadratico medio rispetto al modello basato su **Decision Forest Regression**.
+Questi risultati mostrano che il modello compilato con la **regressione dell'albero delle decisioni** con boosting ha un errore quadratico medio più basso rispetto al modello basato sulla regressione della **foresta delle decisioni**.
 
-Entrambi gli algoritmi presente un errore più basso nel training set rispetto al set di dati di test non visti.
+Entrambi gli algoritmi hanno un errore inferiore nel set di dati di training rispetto al set di dati di test non visibile.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -93,7 +93,7 @@ Entrambi gli algoritmi presente un errore più basso nel training set rispetto a
 Esplorare gli altri esempi disponibili per l'interfaccia visiva:
 
 - [Esempio 1: regressione: Stimare il prezzo di un'automobile](ui-sample-regression-predict-automobile-price-basic.md)
-- [Esempio 3: classificazione: Prevedere il rischio di credito](ui-sample-classification-predict-credit-risk-basic.md)
-- [Esempio 4: classificazione: Prevedere il rischio di credito (costo sensibile)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-- [Esempio 5 - classificazione: Prevedere la varianza](ui-sample-classification-predict-churn.md)
-- [Esempio 6: classificazione: Prevedere i ritardi dei voli](ui-sample-classification-predict-flight-delay.md)
+- [Esempio 3-classificazione: Stima del rischio di credito](ui-sample-classification-predict-credit-risk-basic.md)
+- [Esempio 4-Classificazione: Stimare il rischio di credito (costo sensibile)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Esempio 5-classificazione: Varianza stima](ui-sample-classification-predict-churn.md)
+- [Esempio 6-Classificazione: Stimare i ritardi dei voli](ui-sample-classification-predict-flight-delay.md)

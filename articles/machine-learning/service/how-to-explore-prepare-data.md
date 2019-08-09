@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/23/2019
-ms.openlocfilehash: 31a367fcde909f393efa4fea65b25716f95c56ee
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: dbdd088e5a78a4f78eec27b5ee74856c6aecc209
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828427"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847917"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Esplorare e preparare i dati con la classe DataSet (anteprima)
 
@@ -31,7 +31,7 @@ Per esplorare e preparare i dati, è necessario:
 
 * Una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Un'area di lavoro del servizio Azure Machine Learning. Vedere [creare un'area di lavoro del servizio Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
+* Un'area di lavoro del servizio Azure Machine Learning. Vedere [creare un'area di lavoro del servizio Azure Machine Learning](how-to-manage-workspace.md).
 
 * SDK Azure Machine Learning per Python (versione 1.0.21 o successiva), che include il pacchetto azureml-DataSets. Per eseguire l'installazione o l'aggiornamento alla versione più recente dell'SDK, vedere [installare o aggiornare l'SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
@@ -125,7 +125,7 @@ Date|FieldType. DATE|2016-04-04 23:56:00 + 00:00|2016-04-15 17:00:00 + 00:00|10,
 Blocca|FieldType.STRING|004XX S KILBOURN AVE|AVE 113XX S PRAIRIE|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
 IUCR|FieldType. INTEGER|810|1154|10,0|0.0|10,0|0.0|0.0|0.0|810|850|810|890|1136|1153|1154|1154|1154|1058,5|137,285|18847,2|-0,785501|-1,3543
 Tipo principale|FieldType.STRING|PRATICA INGANNEVOLE|FURTO|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
-Descrizione|FieldType.STRING|CONTROLLO FASULLO|OLTRE $500|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
+DESCRIZIONE|FieldType.STRING|CONTROLLO FASULLO|OLTRE $500|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
 Descrizione della posizione|FieldType.STRING||SCUOLA, PUBBLICO, COMPILAZIONE|10,0|0.0|10,0|0.0|0.0|1.0||||||||||||||
 Arresto|FieldType. BOOLEAN|False|False|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
 Nazionale|FieldType. BOOLEAN|False|False|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||

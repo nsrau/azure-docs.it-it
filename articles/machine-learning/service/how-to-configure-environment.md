@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: efe5829ffbe4db304f9ffab0a259ab9d10279b27
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: d2f60b496594946e9175ecf5c1948b08c9065b1b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772697"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848190"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurare un ambiente di sviluppo per Azure Machine Learning
 
@@ -40,7 +40,7 @@ Questo articolo fornisce anche suggerimenti sull'utilizzo aggiuntivi per gli str
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Un'area di lavoro del servizio Azure Machine Learning. Per creare l'area di lavoro, vedere [creare un'area di lavoro del servizio Azure Machine Learning](setup-create-workspace.md). Un'area di lavoro è sufficiente per iniziare a usare il proprio [Server notebook basato sul cloud](#notebookvm), un [DSVM](#dsvm), [Azure Databricks](#aml-databricks)o [Azure Notebooks](#aznotebooks).
+Un'area di lavoro del servizio Azure Machine Learning. Per creare l'area di lavoro, vedere [creare un'area di lavoro del servizio Azure Machine Learning](how-to-manage-workspace.md). Un'area di lavoro è sufficiente per iniziare a usare il proprio [Server notebook basato sul cloud](#notebookvm), un [DSVM](#dsvm), [Azure Databricks](#aml-databricks)o [Azure Notebooks](#aznotebooks).
 
 Per installare l'ambiente SDK per il [computer locale](#local), [Jupyter Notebook server](#jupyter) o [Visual Studio Code](#vscode) sono necessari anche:
 
@@ -294,7 +294,7 @@ Creare un [cluster](https://docs.microsoft.com/azure/azure-databricks/quickstart
 
 Usare le impostazioni seguenti:
 
-| Impostazione |Si applica a| Valore |
+| Impostazione |Si applica a| Value |
 |----|---|---|
 | Nome cluster |sempre| nomecluster |
 | Databricks Runtime |sempre| Qualsiasi runtime non ML (non ML 4.x, 5.x) |
@@ -377,7 +377,7 @@ Per usare questo file dal codice, usare `ws=Workspace.from_config()`. Questo cod
 
 È possibile creare il file di configurazione in tre modi:
 
-* **Eseguire la procedura descritta in [creare un'area di lavoro del servizio Azure Machine Learning](setup-create-workspace.md#sdk)** : nella libreria di Azure Notebooks viene creato un file *config.json* che contiene le informazioni di configurazione per l'area di lavoro. È possibile scaricare o copiare il file *config.json* in altri ambienti di sviluppo.
+* **Usare [WS. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)** : per scrivere un file *config. JSON* . che contiene le informazioni di configurazione per l'area di lavoro. È possibile scaricare o copiare il file *config.json* in altri ambienti di sviluppo.
 
 * **Scaricare il file**: Nel [portale di Azure](https://ms.portal.azure.com) selezionare **Scarica config.json** nella sezione **Panoramica** dell'area di lavoro.
 

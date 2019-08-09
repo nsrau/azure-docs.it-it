@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/07/2019
 ms.author: b-juche
-ms.openlocfilehash: 9a56fb27fdf9e196291942041d68b249d7f16648
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 7cf382f511d2ba8452d77bf207f36b749cb31e94
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839244"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848798"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Metriche per Azure NetApp Files
 
@@ -29,27 +29,40 @@ Azure NetApp Files fornisce metriche relative a spazio di archiviazione allocato
 
 <!-- 
 - *Volume pool allocated size*  
-    This is the size (GiB) of the provisioned capacity pool.  
+    The size (GiB) of the provisioned capacity pool  
 --> 
 - *Dimensioni usate del pool di volumi*  
-    Totale della quota del volume (GiB) in un determinato pool di capacità (ossia, totale delle dimensioni dei volumi di cui è stato effettuato il provisioning nel pool di capacità). Corrisponde alle dimensioni selezionate durante la creazione del volume.  
+    Totale della quota del volume (GiB) in un determinato pool di capacità, ovvero il totale delle dimensioni di provisioning dei volumi nel pool di capacità.  
+    Corrisponde alle dimensioni selezionate durante la creazione del volume.  
 - *Dimensioni logiche totale del pool di volumi*  
-    Totale dello spazio logico (GiB) usato nei diversi volumi in un pool di capacità.  
+    Totale dello spazio logico (GiB) usato tra i volumi in un pool di capacità  
 <!-- 
 - *Volume pool total snapshot size*  
-    This is the total of incremental logical space used by the snapshots.  
+    The total of incremental logical space used by the snapshots  
 -->
 
 ## <a name="volumes"></a>Metriche di utilizzo per i volumi
 
 <!-- 
 - *Volume allocated size*   
-    This is the volume size (quota) provisioned in GiB.  
+    The volume size (quota) provisioned in GiB  
 --> 
 - *Dimensioni logiche del volume*   
-    Totale dello spazio logico usato in un volume (GiB). Queste dimensioni includono lo spazio logico usato dai file system e gli snapshot attivi.  
+    Lo spazio logico totale usato in un volume (GiB)  
+    Queste dimensioni includono lo spazio logico usato dai file system e gli snapshot attivi.  
 - *Dimensioni dello snapshot del volume*   
-    Spazio logico incrementale usato dagli snapshot in un volume.  
+   Lo spazio logico incrementale usato dagli snapshot in un volume  
+
+## <a name="performance-metrics-for-volumes"></a>Metriche delle prestazioni per i volumi
+
+- *AverageReadLatency*   
+    Tempo medio per le letture dal volume in millisecondi
+- *AverageWriteLatency*   
+    Tempo medio per le scritture dal volume in millisecondi
+- *ReadIops*   
+    Numero di letture al volume al secondo
+- *WriteIops*   
+    Numero di scritture nel volume al secondo
 
 ## <a name="next-steps"></a>Passaggi successivi
 

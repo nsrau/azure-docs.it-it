@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
 ms.author: victorh
-ms.openlocfilehash: 39317c0448168bc2ed8fdd0455a210254887d496
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 3acae8f7d34bb02905e6e8d479b7de5ccab1bb7a
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67655399"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850989"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Integrità back-end, log di diagnostica e metriche per il gateway applicazione
 
@@ -131,7 +131,7 @@ Registrazione attività viene abilitata automaticamente per tutte le risorse di 
 
 ### <a name="enable-logging-through-the-azure-portal"></a>Abilitare la registrazione tramite il portale di Azure
 
-1. Nel portale di Azure, trovare la risorsa e selezionare **le impostazioni di diagnostica**.
+1. Nella portale di Azure trovare la risorsa e selezionare impostazioni di **diagnostica**.
 
    Per il gateway applicazione sono disponibili tre log:
 
@@ -139,7 +139,7 @@ Registrazione attività viene abilitata automaticamente per tutte le risorse di 
    * Log delle prestazioni
    * Log del firewall
 
-2. Per avviare la raccolta dei dati, selezionare **attivare la diagnostica**.
+2. Per avviare la raccolta dei dati, selezionare **attiva diagnostica**.
 
    ![Attivare la diagnostica][1]
 
@@ -147,7 +147,7 @@ Registrazione attività viene abilitata automaticamente per tutte le risorse di 
 
    ![Avvio del processo di configurazione][2]
 
-5. Digitare un nome per le impostazioni, verificare le impostazioni e selezionare **salvare**.
+5. Digitare un nome per le impostazioni, confermare le impostazioni e selezionare **Salva**.
 
 ### <a name="activity-log"></a>Log attività
 
@@ -155,7 +155,7 @@ Azure genera il log attività per impostazione predefinita. I log vengono conser
 
 ### <a name="access-log"></a>Log di accesso
 
-Il log di accesso viene generato solo se è stato abilitato in ogni istanza del gateway applicazione, come descritto nei passaggi precedenti. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. Ogni accesso del Gateway applicazione viene registrato in formato JSON, come illustrato nell'esempio seguente per la versione 1:
+Il log di accesso viene generato solo se è stato abilitato in ogni istanza del gateway applicazione, come descritto nei passaggi precedenti. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. Ogni accesso del gateway applicazione viene registrato in formato JSON, come illustrato nell'esempio seguente per V1:
 
 |Value  |Descrizione  |
 |---------|---------|
@@ -172,52 +172,8 @@ Il log di accesso viene generato solo se è stato abilitato in ogni istanza del 
 |sentBytes| Dimensione del pacchetto inviato, espressa in byte.|
 |timeTaken| Periodo di tempo in millisecondi impiegato per l'elaborazione di una richiesta e l'invio della risposta. Questo valore corrisponde all'intervallo di tempo intercorso dal momento in cui il gateway applicazione riceve il primo byte di una richiesta HTTP al termine dell'operazione di invio della risposta. È importante notare che il campo Tempo impiegato include in genere il tempo della trasmissione in rete dei pacchetti di richiesta e risposta. |
 |sslEnabled| Indica se la comunicazione con i pool back-end ha usato SSL. I valori validi sono on e off.|
-```json
-{
-    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
-    "operationName": "ApplicationGatewayAccess",
-    "time": "2017-04-26T19:27:38Z",
-    "category": "ApplicationGatewayAccessLog",
-    "properties": {
-        "instanceId": "ApplicationGatewayRole_IN_0",
-        "clientIP": "191.96.249.97",
-        "clientPort": 46886,
-        "httpMethod": "GET",
-        "requestUri": "/phpmyadmin/scripts/setup.php",
-        "requestQuery": "X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.4.0.4&X-AzureApplicationGateway-LOG-ID=874f1f0f-6807-41c9-b7bc-f3cfa74aa0b1&SERVER-STATUS=404",
-        "userAgent": "-",
-        "httpStatus": 404,
-        "httpVersion": "HTTP/1.0",
-        "receivedBytes": 65,
-        "sentBytes": 553,
-        "timeTaken": 205,
-        "sslEnabled": "off"
-    }
-}
-```
-Per il Gateway applicazione e versione 2 Web Application firewall, i log mostrano altre informazioni:
-
-|Value  |DESCRIZIONE  |
-|---------|---------|
-|instanceId     | Istanza del gateway applicazione che ha gestito la richiesta.        |
-|clientIP     | IP di origine della richiesta.        |
-|clientPort     | Porta di origine della richiesta.       |
-|httpMethod     | Metodo HTTP usato dalla richiesta.       |
-|requestUri     | URI della richiesta ricevuta.        |
-|RequestQuery     | **Server-Routed**: istanza del pool back-end a cui è stata inviata la richiesta.</br>**X-AzureApplicationGateway-LOG-ID**: ID correlazione usato per la richiesta. Può essere usato per risolvere i problemi di traffico nei server back-end. </br>**SERVER-STATUS**: codice di risposta HTTP che il gateway applicazione ha ricevuto dal back-end.       |
-|UserAgent     | Agente utente dell'intestazione della richiesta HTTP.        |
-|httpStatus     | Codice di stato HTTP restituito al client dal gateway applicazione.       |
-|httpVersion     | Versione HTTP della richiesta.        |
-|receivedBytes     | Dimensione del pacchetto ricevuto, espressa in byte.        |
-|sentBytes| Dimensione del pacchetto inviato, espressa in byte.|
-|timeTaken| Periodo di tempo in millisecondi impiegato per l'elaborazione di una richiesta e l'invio della risposta. Questo valore corrisponde all'intervallo di tempo intercorso dal momento in cui il gateway applicazione riceve il primo byte di una richiesta HTTP al termine dell'operazione di invio della risposta. È importante notare che il campo Tempo impiegato include in genere il tempo della trasmissione in rete dei pacchetti di richiesta e risposta. |
-|sslEnabled| Indica se la comunicazione con i pool back-end ha usato SSL. I valori validi sono on e off.|
-|sslCipher| Pacchetto di crittografia utilizzato per le comunicazioni SSL (se SSL è abilitato).|
-|sslProtocol| Protocollo SSL in uso (se SSL è abilitato).|
-|serverRouted| Il server back-end che il gateway applicazione instrada la richiesta a.|
-|serverStatus| Codice di stato HTTP del server back-end.|
-|serverResponseLatency| Latenza della risposta dal server back-end.|
-|host| Indirizzo elencato nell'intestazione host della richiesta.|
+|host| Nome host a cui è stata inviata la richiesta al server back-end. Se il nome host del back-end viene sottoposto a override, il nome lo rifletterà.|
+|originalHost| Nome host con cui la richiesta è stata ricevuta dal gateway applicazione dal client.|
 ```json
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
@@ -238,12 +194,58 @@ Per il Gateway applicazione e versione 2 Web Application firewall, i log mostran
         "sentBytes": 553,
         "timeTaken": 205,
         "sslEnabled": "off",
+        "host": "www.contoso.com",
+        "originalHost": "www.contoso.com"
+    }
+}
+```
+Per il gateway applicazione e WAF V2, i log mostrano alcune altre informazioni:
+
+|Valore  |Descrizione  |
+|---------|---------|
+|instanceId     | Istanza del gateway applicazione che ha gestito la richiesta.        |
+|clientIP     | IP di origine della richiesta.        |
+|clientPort     | Porta di origine della richiesta.       |
+|httpMethod     | Metodo HTTP usato dalla richiesta.       |
+|requestUri     | URI della richiesta ricevuta.        |
+|UserAgent     | Agente utente dell'intestazione della richiesta HTTP.        |
+|httpStatus     | Codice di stato HTTP restituito al client dal gateway applicazione.       |
+|httpVersion     | Versione HTTP della richiesta.        |
+|receivedBytes     | Dimensione del pacchetto ricevuto, espressa in byte.        |
+|sentBytes| Dimensione del pacchetto inviato, espressa in byte.|
+|timeTaken| Periodo di tempo in millisecondi impiegato per l'elaborazione di una richiesta e l'invio della risposta. Questo valore corrisponde all'intervallo di tempo intercorso dal momento in cui il gateway applicazione riceve il primo byte di una richiesta HTTP al termine dell'operazione di invio della risposta. È importante notare che il campo Tempo impiegato include in genere il tempo della trasmissione in rete dei pacchetti di richiesta e risposta. |
+|sslEnabled| Indica se la comunicazione con i pool back-end ha usato SSL. I valori validi sono on e off.|
+|sslCipher| Pacchetto di crittografia usato per la comunicazione SSL (se SSL è abilitato).|
+|sslProtocol| Protocollo SSL usato (se SSL è abilitato).|
+|serverRouted| Il server back-end a cui il gateway applicazione instrada la richiesta.|
+|serverStatus| Codice di stato HTTP del server back-end.|
+|serverResponseLatency| Latenza della risposta dal server back-end.|
+|host| Indirizzo elencato nell'intestazione host della richiesta.|
+```json
+{
+    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
+    "operationName": "ApplicationGatewayAccess",
+    "time": "2017-04-26T19:27:38Z",
+    "category": "ApplicationGatewayAccessLog",
+    "properties": {
+        "instanceId": "appgw_1",
+        "clientIP": "191.96.249.97",
+        "clientPort": 46886,
+        "httpMethod": "GET",
+        "requestUri": "/phpmyadmin/scripts/setup.php",
+        "userAgent": "-",
+        "httpStatus": 404,
+        "httpVersion": "HTTP/1.0",
+        "receivedBytes": 65,
+        "sentBytes": 553,
+        "timeTaken": 205,
+        "sslEnabled": "off",
         "sslCipher": "",
         "sslProtocol": "",
         "serverRouted": "104.41.114.59:80",
         "serverStatus": "200",
         "serverResponseLatency": "0.023",
-        "host": "52.231.230.101"
+        "host": "www.contoso.com",
     }
 }
 ```
@@ -253,13 +255,13 @@ Per il Gateway applicazione e versione 2 Web Application firewall, i log mostran
 Il log delle prestazioni viene generato solo se è stato abilitato in ogni istanza del gateway applicazione, come descritto nei passaggi precedenti. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. I dati del log delle prestazioni vengono generati a intervalli di un minuto. Vengono registrati i dati seguenti:
 
 
-|Value  |DESCRIZIONE  |
+|Value  |Descrizione  |
 |---------|---------|
 |instanceId     |  Istanza del gateway applicazione per cui vengono generati i dati delle prestazioni. Per un gateway applicazione a più istanze viene visualizzata una riga per ogni istanza.        |
 |healthyHostCount     | Numero di host integri nel pool back-end.        |
 |unHealthyHostCount     | Numero di host non integri nel pool back-end.        |
 |requestCount     | Numero di richieste gestite.        |
-|latency | Latenza media in millisecondi delle richieste dall'istanza al back-end che gestisce le richieste. |
+|latenza | Latenza media in millisecondi delle richieste dall'istanza al back-end che gestisce le richieste. |
 |failedRequestCount| Numero di richieste non riuscite.|
 |throughput| Velocità effettiva media dall'ultimo log, misurata in byte al secondo.|
 
@@ -290,7 +292,7 @@ Il log delle prestazioni viene generato solo se è stato abilitato in ogni istan
 Il log del firewall viene generato solo se è stato abilitato in ogni gateway applicazione, come descritto nei passaggi precedenti. Questo log richiede anche che il web application firewall sia configurato in un gateway applicazione. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. Vengono registrati i dati seguenti:
 
 
-|Value  |Descrizione  |
+|Valore  |Descrizione  |
 |---------|---------|
 |instanceId     | Istanza del gateway applicazione per cui vengono generati i dati del firewall. Per un gateway applicazione a più istanze viene visualizzata una riga per ogni istanza.         |
 |clientIp     |   IP di origine della richiesta.      |
@@ -379,7 +381,7 @@ Le metriche sono una funzionalità di alcune risorse di Azure che consente di vi
 
    È possibile filtrare in base al pool back-end per visualizzare gli host integri o non integri in un pool back-end specifico.
 
-Passare a un gateway applicazione, sotto **Monitoring** selezionate **metriche**. Per visualizzare i valori disponibili, selezionare l'elenco a discesa **METRICA**.
+Passare a un gateway applicazione, in **monitoraggio** selezionare **metriche**. Per visualizzare i valori disponibili, selezionare l'elenco a discesa **METRICA**.
 
 Nella figura seguente è illustrato un esempio con tre metriche visualizzate per gli ultimi 30 minuti:
 
@@ -393,11 +395,11 @@ Per un elenco delle metriche correnti, vedere [Metriche supportate con il monito
 
 L'esempio seguente illustra la creazione di una regola di avviso per l'invio di un messaggio di posta elettronica a un amministratore al superamento della soglia della velocità effettiva:
 
-1. Selezionare **Aggiungi avviso sulla metrica** per aprire il **Aggiungi regola** pagina. È anche possibile raggiungere questa pagina dalla pagina di metriche.
+1. Selezionare **Aggiungi avviso metrica** per aprire la pagina **Aggiungi regola** . È anche possibile accedere a questa pagina dalla pagina metrica.
 
    ![Pulsante "Aggiungi avviso per la metrica"][6]
 
-2. Nel **Aggiungi regola** pagina, immettere il nome, condizione e notifica sezioni e selezionare **OK**.
+2. Nella pagina **Aggiungi regola** , compilare le sezioni nome, condizione e notifica, quindi selezionare **OK**.
 
    * Nel selettore **Condizione** selezionare uno dei quattro valori seguenti: **Maggiore di**, **Maggiore di o uguale a**, **Minore di** o **Minore o uguale a**.
 
@@ -405,7 +407,7 @@ L'esempio seguente illustra la creazione di una regola di avviso per l'invio di 
 
    * Se si seleziona **Invia messaggio di posta elettronica a proprietari, collaboratori e lettori**, il messaggio di posta elettronica può essere dinamico basato sugli utenti che hanno accesso alla risorsa. In alternativa, è possibile inserire un elenco di utenti separato da virgole nella casella **Indirizzi di posta elettronica aggiuntivi dell'amministratore**.
 
-   ![Aggiungi pagina regola][7]
+   ![Pagina Aggiungi regola][7]
 
 Se la soglia viene superata, l'utente riceve un messaggio di posta elettronica simile al seguente:
 

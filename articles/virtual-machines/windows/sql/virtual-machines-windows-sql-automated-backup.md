@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2d30d044a26e6a092eba267f223be9b10c3a238b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5c9d2acf3e58d233bd789e335c585f61511b975d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075849"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846207"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Backup automatico per macchine virtuali SQL Server 2014 (Resource Manager)
 
@@ -77,7 +77,7 @@ Nella seguente tabella sono descritte le opzioni che possono essere configurate 
 
 Usare il portale di Azure per configurare il backup automatico quando si crea una nuova macchina virtuale di SQL Server 2014 nel modello di distribuzione di Resource Manager.
 
-Nel **impostazioni di SQL Server** scheda, scorrere verso il basso **backup automatico** e selezionare **abilitare**. È anche possibile specificare il periodo di conservazione e account di archiviazione, nonché abilitare la crittografia, backup dei database di sistema e la configurazione di una pianificazione di backup.  Nella seguente schermata del portale di Azure vengono mostrate le impostazioni del **Backup automatico di SQL**.
+Nella scheda **impostazioni SQL Server** scorrere fino a **backup automatico** e selezionare **Abilita**. È anche possibile specificare il periodo di memorizzazione e l'account di archiviazione, nonché abilitare la crittografia, il backup dei database di sistema e la configurazione di una pianificazione di backup.  Nella seguente schermata del portale di Azure vengono mostrate le impostazioni del **Backup automatico di SQL**.
 
 ![Configurazione del backup automatico di SQL nel Portale di Azure](./media/virtual-machines-windows-sql-automated-backup/azure-sql-arm-autobackup.png)
 
@@ -85,11 +85,11 @@ Nel **impostazioni di SQL Server** scheda, scorrere verso il basso **backup auto
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-Per le macchine virtuali SQL Server esistente, passare al [risorse di macchine virtuali SQL](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource) e quindi selezionare **backup**. 
+Per le macchine virtuali SQL Server esistenti, passare alla [risorsa macchine virtuali SQL](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) e selezionare **backup**. 
 
 ![Backup automatico di SQL per le VM esistenti](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-existing-vms.png)
 
-Al termine, selezionare il **applica** pulsante in fondo il **backup** pagina per salvare le modifiche.
+Al termine, selezionare il pulsante **applica** nella parte inferiore della pagina **backup** per salvare le modifiche.
 
 Se si intende abilitare il backup automatico per la prima volta, Azure configura l'agente IaaS di SQL Server in background. Durante questo periodo, nel portale di Azure potrebbe non essere visualizzata l'informazione relativa alla configurazione del backup automatico. Attendere alcuni minuti per l'installazione e la configurazione dell'agente. A questo punto, nel portale di Azure verranno visualizzate le nuove impostazioni.
 

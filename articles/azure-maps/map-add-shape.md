@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 0696eba4f3cca7beedc2efcda0182ab82b3d69d9
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 377cfbf93e45872e34242f9cd2432195b6ba6f92
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638704"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68849108"
 ---
 # <a name="add-a-shape-to-a-map"></a>Aggiungere una forma a una mappa
 
@@ -46,6 +46,9 @@ In questo esempio viene illustrato come aggiungere icone a freccia lungo una rig
 <iframe height="500" style="width: 100%;" scrolling="no" title="Mostra freccia lungo la linea" src="//codepen.io/azuremaps/embed/drBJwX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Per le mappe <a href='https://codepen.io/azuremaps/pen/drBJwX/'></a> di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>, vedere la freccia di visualizzazione della penna lungo la riga.
 </iframe>
+
+> [!TIP]
+> Azure Maps Web SDK offre diversi modelli di immagine personalizzabili che è possibile usare con il livello dei simboli. Per ulteriori informazioni, vedere il documento [come usare i modelli di immagine](how-to-use-image-templates-web-sdk.md) .
 
 ### <a name="line-stroke-gradient"></a>Aggiungere una sfumatura del tratto a una riga
 
@@ -113,6 +116,10 @@ Oltre a riempire un poligono con un colore, è possibile usare anche un modello 
 Vedere il <a href='https://codepen.io/azuremaps/pen/JzQpYX/'>modello di riempimento</a> del poligono di penna<a href='https://codepen.io/azuremaps'>@azuremaps</a>per mappe di Azure () in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+
+> [!TIP]
+> Azure Maps Web SDK offre diversi modelli di immagine personalizzabili che è possibile usare come modelli di riempimento. Per ulteriori informazioni, vedere il documento [come usare i modelli di immagine](how-to-use-image-templates-web-sdk.md) .
+
 ### <a name="customize-a-polygon-layer"></a>Personalizzare un livello poligono
 
 Il livello poligono include solo poche opzioni di stile. Lo strumento seguente consente di provarle.
@@ -179,3 +186,6 @@ Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguent
 
 > [!div class="nextstepaction"]
 > [Usare espressioni di stile basate sui dati](data-driven-style-expressions-web-sdk.md)
+
+> [!div class="nextstepaction"]
+> [Come usare i modelli di immagine](how-to-use-image-templates-web-sdk.md)

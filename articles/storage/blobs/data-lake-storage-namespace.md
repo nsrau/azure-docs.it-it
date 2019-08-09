@@ -1,7 +1,6 @@
 ---
 title: Spazio dei nomi gerarchico per Azure Data Lake Storage Gen2
 description: Descrive la nozione di spazio dei nomi gerarchico per Azure Data Lake Storage Gen2
-services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
@@ -9,12 +8,12 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: e0d888db5f8de137783a3f9282ca7f85d8a30fc3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b98892bd31b097e3dc217d54f52f12550599d32
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939449"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847139"
 ---
 # <a name="azure-data-lake-storage-gen2-hierarchical-namespace"></a>Spazio dei nomi gerarchico per Azure Data Lake Storage Gen2
 

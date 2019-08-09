@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5b861ef17648f3efbe1f378f2bf253d5bf3ece44
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: eaa169714006ec948a5790ed5841f9dcf52c2a23
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677801"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846656"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Creare risorse di Time Series Insights tramite i modelli di Azure Resource Manager
 
@@ -24,7 +24,7 @@ Questo articolo descrive come creare e distribuire risorse di Time Series Insigh
 
 Time Series Insights supporta le risorse seguenti:
 
-   | Risorsa | DESCRIZIONE |
+   | Risorsa | Descrizione |
    | --- | --- |
    | Ambiente | Un ambiente Time Series Insights è un raggruppamento logico di eventi che vengono letti dai broker di eventi, archiviati e resi disponibili per la query. Per altre informazioni, vedere [pianificare l'ambiente di Azure Time Series Insights](time-series-insights-environment-planning.md) |
    | Origine evento | Un'origine evento è una connessione a un gestore eventi da cui Time Series Insights legge e inserisce gli eventi nell'ambiente. Le origini eventi attualmente supportate sono hub IoT e hub eventi. |

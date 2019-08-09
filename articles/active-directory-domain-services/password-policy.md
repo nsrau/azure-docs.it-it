@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2019
 ms.author: iainfou
-ms.openlocfilehash: ecf38543b2c4e5187aa5c6593c3bccf6668b8a8a
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 8829f16e580d0b926781ce0a3e9f8e6a63cf3110
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472754"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853771"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Criteri password e di blocco dell'account nei domini gestiti
 Questo articolo illustra i criteri password predefiniti in un dominio gestito, oltre al modo in cui è possibile configurarli.
@@ -80,7 +80,7 @@ Di fatto, gli account degli utenti vengono bloccati per 30 minuti se vengono ins
 * Per configurare un'impostazione di durata password predefinita per il dominio gestito.
 
 Per creare un criterio granulare per le password personalizzato in un dominio gestito:
-1. Accedere alla macchina virtuale di Windows usata per amministrare il dominio gestito. Se non si dispone di uno, seguire le istruzioni per [gestire un dominio di Azure AD Domain Services](manage-domain.md).
+1. Accedere alla macchina virtuale Windows usata per amministrare il dominio gestito (deve essere almeno Windows Server 2012 R2). Se non si dispone di un dominio, seguire le istruzioni per [gestire un dominio Azure ad Domain Services](manage-domain.md).
 2. Avviare il **Centro di amministrazione di Active Directory** sulla macchina virtuale.
 3. Fare clic sul nome di dominio, ad esempio "contoso100.com".
 4. Fare doppio clic su **Sistema** per aprire il contenitore di sistema.
@@ -98,7 +98,7 @@ Per creare un criterio granulare per le password personalizzato in un dominio ge
 
 9. In **Directly Applies To** (Si applica direttamente a), fare clic sul pulsante **Add** (Aggiungi). Nella finestra di dialogo **Seleziona utenti o gruppi** fare clic sul pulsante **Località**.
 
-   ![Selezionare Utenti e gruppi](./media/how-to/fgpp-applies-to.png)
+   ![Seleziona utenti e gruppi](./media/how-to/fgpp-applies-to.png)
 
 10. Nella finestra di dialogo **Località** espandere il nome di dominio e fare clic su **AADDC Users** (Utenti AADDC). È ora possibile selezionare un gruppo dall'unità organizzativa degli utenti predefinita, a cui applicare i criteri granulari.
 

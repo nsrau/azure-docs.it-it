@@ -1,22 +1,22 @@
 ---
-title: Panoramica dell'autenticazione di Azure Active Directory tramite SMB per File di Azure (anteprima) - Archiviazione di Azure
-description: File di Azure supporta l'autenticazione basata su identità tramite SMB (Server Message Block) (anteprima) con Azure Active Directory (Azure AD) Domain Services. Le macchine virtuali di Windows aggiunte a dominio possono così accedere a condivisioni file di Azure tramite credenziali di Azure AD.
+title: Panoramica dell'autenticazione di Azure Active Directory su SMB per File di Azure-archiviazione di Azure
+description: File di Azure supporta l'autenticazione basata su identità su SMB (Server Message Block) tramite i servizi del dominio Azure Active Directory (Azure AD). Le macchine virtuali di Windows aggiunte a dominio possono così accedere a condivisioni file di Azure tramite credenziali di Azure AD.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
-ms.date: 06/18/2019
+ms.topic: article
+ms.date: 07/30/2019
 ms.author: rogarana
-ms.openlocfilehash: b1bc7385751fbd1829b4aee2713621448f8aa505
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 604cf2bbe0cf8ab036c76ee9223d1ee34fd4bd3d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699727"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854557"
 ---
-# <a name="overview-of-azure-files-azure-active-directory-domain-service-aad-ds-authentication-support-for-smb-access-preview"></a>Panoramica del supporto per l'autenticazione di File di Azure Azure Active Directory Domain Service (AAD DS) per l'accesso SMB (anteprima)
+# <a name="overview-of-azure-files-azure-active-directory-domain-service-azure-ad-ds-authentication-support-for-smb-access"></a>Panoramica del supporto per l'autenticazione File di Azure Azure Active Directory Domain Service (Azure AD DS) per l'accesso SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
-Per informazioni su come abilitare l'autenticazione di AAD DS per File di Azure, vedere [abilitare l'autenticazione di Azure Active Directory Domain Services su SMB per file di Azure (anteprima)](storage-files-active-directory-enable.md).
+Per informazioni su come abilitare l'autenticazione di Azure AD DS per File di Azure, vedere [abilitare l'autenticazione del servizio di Azure Active Directory dominio su SMB per file di Azure](storage-files-active-directory-enable.md).
 
 ## <a name="glossary"></a>Glossario 
 È utile comprendere alcuni termini chiave relativi all'autenticazione Azure AD servizio del dominio su SMB per File di Azure:
@@ -41,7 +41,7 @@ Per informazioni su come abilitare l'autenticazione di AAD DS per File di Azure,
 Azure AD autenticazione del servizio del dominio per File di Azure offre diversi vantaggi rispetto all'uso dell'autenticazione con chiave condivisa:
 
 -   **Estendi la tradizionale esperienza di accesso alla condivisione file basata sull'identità al cloud con Azure AD e Azure AD servizio del dominio**  
-    Se si prevede di spostare l'applicazione nel cloud, sostituendo i file server tradizionali con File di Azure, è possibile che l'applicazione esegua l'autenticazione con Azure AD credenziali per accedere ai dati dei file. File di Azure supporta l'uso di credenziali di Azure AD per accedere File di Azure tramite SMB dalle macchine virtuali Windows aggiunti a un dominio di AAD DS. È anche possibile scegliere di sincronizzare tutti gli oggetti di Active Directory in locale ad Azure AD per mantenere nomi utente, password e altre assegnazioni di gruppo.
+    Se si prevede di spostare l'applicazione nel cloud, sostituendo i file server tradizionali con File di Azure, è possibile che l'applicazione esegua l'autenticazione con Azure AD credenziali per accedere ai dati dei file. File di Azure supporta l'uso di credenziali Azure AD per accedere File di Azure tramite SMB dalle macchine virtuali Windows Azure AD dominio. È anche possibile scegliere di sincronizzare tutti gli oggetti di Active Directory in locale ad Azure AD per mantenere nomi utente, password e altre assegnazioni di gruppo.
 
 -   **Applicare il controllo dell'accesso granulare sulle condivisioni file di Azure**  
     È possibile concedere autorizzazioni a un'identità specifica a livello di condivisione, directory o file. Si supponga, ad esempio, che più team usino una condivisione file di Azure singola per la collaborazione a progetti. È possibile concedere a tutti i team l'accesso alle directory non sensibili, ma limitare l'accesso alle directory contenenti i dati finanziari sensibili solo al team Finanza. 
@@ -61,18 +61,15 @@ Quando un'identità associata a un'applicazione in esecuzione in una macchina vi
 
 Prima di abilitare questa funzionalità, verificare che Azure AD Domain Services sia stata distribuita per il tenant di Azure AD primario a cui è associato l'account di archiviazione. Se Azure AD Domain Services non è stato ancora configurato, seguire passo passo la procedura descritta in [Abilitare Azure Active Directory Domain Services usando il portale di Azure](../../active-directory-domain-services/create-instance.md).
 
-La distribuzione di Azure AD Domain Services richiede in genere 10-15 minuti. Dopo la distribuzione di Azure AD Domain Services, è possibile abilitare l'autenticazione di Azure AD tramite SMB per File di Azure. Per altre informazioni, vedere [abilitare l'autenticazione del servizio Azure Active Directory dominio su SMB per file di Azure (anteprima)](storage-files-active-directory-enable.md). 
+La distribuzione di Azure AD Domain Services richiede in genere 10-15 minuti. Dopo la distribuzione di Azure AD Domain Services, è possibile abilitare l'autenticazione di Azure AD tramite SMB per File di Azure. Per ulteriori informazioni, vedere [abilitare l'autenticazione del servizio Azure Active Directory dominio su SMB per file di Azure](storage-files-active-directory-enable.md). 
 
 ### <a name="configure-share-level-permissions-for-azure-files"></a>Configurare le autorizzazioni a livello di condivisione per File di Azure
 Una volta abilitata l'autenticazione Azure AD servizio del dominio, è possibile configurare ruoli RBAC personalizzati per Azure AD identità e assegnare i diritti di accesso a tutte le condivisioni file nell'account di archiviazione.
 
-Quando un'applicazione in esecuzione in una macchina virtuale aggiunta a un dominio tenta di montare una condivisione file di Azure o di accedere a una directory o a un file, vengono verificate le credenziali dell'applicazione Azure AD per garantire le corrette autorizzazioni a livello di condivisione e le autorizzazioni NTFS. Per informazioni sulla configurazione delle autorizzazioni a livello di condivisione, vedere [abilitare Azure Active Directory autenticazione del servizio del dominio su SMB (anteprima)](storage-files-active-directory-enable.md).
+Quando un'applicazione in esecuzione in una macchina virtuale aggiunta a un dominio tenta di montare una condivisione file di Azure o di accedere a una directory o a un file, vengono verificate le credenziali dell'applicazione Azure AD per garantire le corrette autorizzazioni a livello di condivisione e le autorizzazioni NTFS. Per informazioni sulla configurazione delle autorizzazioni a livello di condivisione, vedere [abilitare Azure Active Directory autenticazione del servizio del dominio su SMB](storage-files-active-directory-enable.md).
 
 ### <a name="configure-directory--or-file-level-permissions-for-azure-files"></a>Configurare le autorizzazioni a livello di directory o di file per File di Azure 
-File di Azure applica autorizzazioni standard di file NTFS a livello di file e directory, persino alla directory radice. La configurazione delle autorizzazioni a livello di directory o di file è supportata solo tramite SMB. Montare la condivisione di file di destinazione dalla macchina virtuale e configurare le autorizzazioni tramite Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) oppure il comando [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl) (Imposta elenco di controllo di accesso). 
-
-> [!NOTE]
-> Configurazione delle autorizzazioni NTFS tramite File explorer di Windows non è supportata nell'anteprima.
+File di Azure applica autorizzazioni standard di file NTFS a livello di file e directory, persino alla directory radice. La configurazione delle autorizzazioni a livello di directory o di file è supportata solo tramite SMB. Montare la condivisione file di destinazione dalla macchina virtuale e configurare le autorizzazioni usando il comando Esplora file di Windows, Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) o [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl) . 
 
 ### <a name="use-the-storage-account-key-for-superuser-permissions"></a>Usare la chiave dell'account di archiviazione per le autorizzazioni di utente con privilegi avanzati 
 Un utente che dispone di una chiave dell'account di archiviazione può accedere a File di Azure con le autorizzazioni da utente con privilegi avanzati. Le autorizzazioni dell'utente con privilegi avanzati superano tutte le restrizioni del controllo di accesso configurate a livello di condivisione con RBCA e applicate da Azure AD. Le autorizzazioni dell'utente con privilegi avanzati sono necessarie per montare una condivisione file di Azure. 
@@ -86,9 +83,9 @@ File di Azure supporta ora la conservazione degli ACL di directory o file quando
 ## <a name="pricing"></a>Prezzi
 Non sono previsti ulteriori addebiti per abilitare l'autenticazione di Azure AD tramite SMB nell'account di archiviazione. Per altre informazioni sui prezzi, consultare le pagine [Prezzi di File di Azure](https://azure.microsoft.com/pricing/details/storage/files/) e [Prezzi di Azure AD Domain Services](https://azure.microsoft.com/pricing/details/active-directory-ds/).
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su File di Azure e sull'autenticazione di Azure AD tramite SMB, vedere queste risorse:
 
 - [Introduzione a File di Azure](storage-files-introduction.md)
-- [Abilitare l'autenticazione di Azure Active Directory tramite SMB per File di Azure (anteprima)](storage-files-active-directory-enable.md)
+- [Abilitare l'autenticazione Azure Active Directory su SMB per File di Azure](storage-files-active-directory-enable.md)
 - [Domande frequenti](storage-files-faq.md)

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: edc0da77fc1c2813c2485fca18d50952e3060db8
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: f7cd0125de886eed4b3e5c31503fdd4b7cbb76dd
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370481"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847829"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Metriche di log durante le esecuzioni di training in Azure Machine Learning
 
@@ -49,7 +49,7 @@ Se si vuole tenere traccia dell'esperimento o monitorarlo, è necessario aggiung
 ## <a name="set-up-the-workspace"></a>Configurare l'area di lavoro
 Prima di aggiungere la registrazione e inviare un esperimento, è necessario configurare l'area di lavoro.
 
-1. Caricare l'area di lavoro. Per altre informazioni sull'impostazione della configurazione dell'area di lavoro, seguire la procedura descritta in [creare un'area di lavoro del servizio Azure Machine Learning](setup-create-workspace.md#sdk).
+1. Caricare l'area di lavoro. Per ulteriori informazioni sull'impostazione della configurazione dell'area di lavoro, vedere [file di configurazione dell'area di lavoro](how-to-configure-environment.md#workspace).
 
    ```python
    from azureml.core import Experiment, Run, Workspace
@@ -58,7 +58,7 @@ Prima di aggiungere la registrazione e inviare un esperimento, è necessario con
    ws = Workspace.from_config()
    ```
   
-## <a name="option-1-use-startlogging"></a>Opzione 1: Usare start_logging
+## <a name="option-1-use-start_logging"></a>Opzione 1: Usare start_logging
 
 **start_logging** crea un'esecuzione interattiva per l'uso in scenari come i notebook. Le metriche registrate durante la sessione vengono aggiunte al record esecuzione nell'esperimento.
 

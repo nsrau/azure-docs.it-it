@@ -1,19 +1,19 @@
 ---
 title: Problemi noti con Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Informazioni sulle limitazioni e sui problemi noti relativi ad Azure Data Lake Storage Gen2
-services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: normesta
-ms.openlocfilehash: 910e23814b627233395a2f7a646513d9cb6874d8
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.reviewer: jamesbak
+ms.openlocfilehash: bacb677b8354c0b0e219ce7483a1446a96c28288
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699027"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855521"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemi noti con Azure Data Lake Storage Gen2
 
@@ -100,7 +100,7 @@ La tabella seguente elenca tutte le altre funzionalità e gli strumenti non anco
 | **Blobfuse** |Non ancora supportato|
 | **Domini personalizzati** |Non ancora supportato|
 | **Esplora file System** | Supporto limitato |
-| **Registrazione diagnostica** |I log di diagnostica sono supportati solo se si registra l'accesso con più [protocolli in data Lake storage](data-lake-storage-multi-protocol-access.md) anteprima. <br><br>L'abilitazione dei log nell'portale di Azure non è attualmente supportata. Di seguito è riportato un esempio di come abilitare i log usando PowerShell. <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>[https://login.microsoftonline.com/consumers/](`Set-AzureStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`). <br><br>Assicurarsi di specificare `Blob` come valore `-ServiceType` del parametro, come illustrato in questo esempio. 
+| **Registrazione diagnostica** |I log di diagnostica sono supportati solo se si registra l'accesso con più [protocolli in data Lake storage](data-lake-storage-multi-protocol-access.md) anteprima. <br><br>L'abilitazione dei log nell'portale di Azure non è attualmente supportata. Di seguito è riportato un esempio di come abilitare i log usando PowerShell. <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>[https://login.microsoftonline.com/common/](`Set-AzureStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`). <br><br>Assicurarsi di specificare `Blob` come valore `-ServiceType` del parametro, come illustrato in questo esempio. 
 | **Archiviazione non modificabile** |Non ancora supportato <br><br>L'archiviazione non modificabile offre la possibilità di archiviare i dati in un [worm (scrivere una sola volta, leggere molti)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) stato.|
 | **Livelli a livello di oggetto** |I livelli di accesso sporadico e archivio sono supportati solo se si esegue la registrazione nell'accesso con più [protocolli in data Lake storage](data-lake-storage-multi-protocol-access.md) anteprima. <br><br> Tutti gli altri livelli di accesso non sono ancora supportati.|
 | **Supporto di PowerShell e CLI** | Funzionalità limitate <br><br>Sono supportate le operazioni di gestione, ad esempio la creazione di un account. Le operazioni del piano dati, ad esempio il caricamento e il download di file, sono in anteprima pubblica come parte dell'accesso a più [protocolli su data Lake storage](data-lake-storage-multi-protocol-access.md). L'utilizzo delle directory e l'impostazione degli elenchi di controllo di accesso (ACL) non sono ancora supportati. |

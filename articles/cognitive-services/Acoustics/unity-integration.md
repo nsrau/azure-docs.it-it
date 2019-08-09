@@ -3,20 +3,20 @@ title: Integrazione e distribuzione in Project Acoustics Unity
 titlesuffix: Azure Cognitive Services
 description: Questa procedura spiega come integrare il plug-in Project Acoustics Unity nel progetto Unity.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1a90f6102d35dc1a3bb97c840f2955b54f35bbad
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: dffef5062e89ef725abcfda187f5e6159c676b9c
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706634"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854314"
 ---
 # <a name="project-acoustics-unity-integration"></a>Integrazione di unità acustiche del progetto
 Questa procedura spiega come integrare il plug-in Project Acoustics Unity nel progetto Unity.

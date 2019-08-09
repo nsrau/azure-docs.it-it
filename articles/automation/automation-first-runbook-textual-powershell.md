@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/27/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 10b93e54bc3f13c72889ab7c75b0e4f6e280e7d8
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 9718185b41795da6d95486972441ee20bc250316
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476746"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850694"
 ---
 # <a name="my-first-powershell-runbook"></a>Il primo runbook PowerShell
 
@@ -34,7 +34,7 @@ Per completare questa esercitazione è necessario soddisfare i prerequisiti segu
 * Sottoscrizione di Azure. Se non si ha ancora una sottoscrizione, è possibile [attivare i vantaggi dell'abbonamento MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Account di Automazione](automation-quickstart-create-account.md) che conterrà il runbook ed eseguirà l'autenticazione con le risorse di Azure. Questo account deve avere l'autorizzazione per avviare e arrestare la macchina virtuale.
 * Macchina virtuale di Azure. La macchina virtuale viene arrestata e avviata, quindi non deve essere una macchina virtuale di produzione.
-* Potresti dover [aggiornare i moduli Azure](automation-update-azure-modules.md) base i cmdlet da usare.
+* Potrebbe essere necessario [aggiornare i moduli di Azure](automation-update-azure-modules.md) in base ai cmdlet usati.
 
 ## <a name="create-new-runbook"></a>Creare un nuovo runbook
 
@@ -53,11 +53,11 @@ Si inizia creando un runbook semplice che restituisce il testo *Hello World*.
 
 1. Il runbook è attualmente vuoto; digitare *Write-Output "Hello World."* nel corpo dello script.
 
-   ![Hello World](media/automation-first-runbook-textual-powershell/automation-helloworld.png)  
+   ![Hello World](media/automation-first-runbook-textual-powershell/automation-helloworld.png)
 
 2. Salvare il runbook facendo clic su **Salva**.
 
-## <a name="step-3---test-the-runbook"> </a> Testare il runbook
+## <a name="step-3---test-the-runbook"></a> Testare il Runbook
 
 Prima di pubblicare il runbook per renderlo disponibile nell'ambiente di produzione, occorre testarlo per verificare che funzioni correttamente. Quando si testa un runbook, è necessario eseguire la versione **Bozza** e visualizzarne l'output in modo interattivo.
 
@@ -65,11 +65,11 @@ Prima di pubblicare il runbook per renderlo disponibile nell'ambiente di produzi
 2. Fare clic su **Avvia** per avviare il test. Questa deve essere l'unica opzione abilitata.
 3. Viene creato un [processo del runbook](automation-runbook-execution.md) e il relativo stato viene visualizzato.
 
-   Lo stato del processo sarà inizialmente *In coda* a indicare che è in attesa della disponibilità di un ruolo di lavoro per runbook nel cloud. Lo stato passa ad *Avvio in corso* quando un ruolo di lavoro richiede il processo e quindi a *In esecuzione* quando l'esecuzione del runbook viene effettivamente avviata.  
+   Lo stato del processo sarà inizialmente *In coda* a indicare che è in attesa della disponibilità di un ruolo di lavoro per runbook nel cloud. Lo stato passa ad *Avvio in corso* quando un ruolo di lavoro richiede il processo e quindi a *In esecuzione* quando l'esecuzione del runbook viene effettivamente avviata.
 
 4. Al termine del processo del runbook, viene visualizzato l'output. In questo caso dovrebbe essere visualizzato *Hello World*.
 
-   ![Output del riquadro di test](media/automation-first-runbook-textual-powershell/automation-testpane-output.png)  
+   ![Output del riquadro di test](media/automation-first-runbook-textual-powershell/automation-testpane-output.png)
 
 5. Chiudere il riquadro di test per tornare all'area di disegno.
 
@@ -79,7 +79,7 @@ Il runbook creato è ancora in modalità bozza. È necessario pubblicarlo prima 
 
 1. Fare clic su **Pubblica** per pubblicare il runbook, quindi su **Sì** quando richiesto.
 1. Se si scorre verso sinistra per visualizzare il runbook nella pagina **Runbook**, come **Stato di creazione** viene visualizzato **Pubblicato**.
-1. Scorrere verso destra per visualizzare il riquadro **MyFirstRunbook-PowerShell**.  
+1. Scorrere verso destra per visualizzare il riquadro **MyFirstRunbook-PowerShell**.
    Le opzioni nella parte superiore consentono di avviare il runbook, visualizzarlo, pianificarlo per l'avvio in un momento successivo o creare un [webhook](automation-webhooks.md) per poterlo avviare con una chiamata HTTP.
 1. Per avviare il runbook, fare clic su **Avvia** e quindi su **OK** quando si apre la pagina Avvia runbook.
 1. Verrà aperta una pagina per il processo del runbook creato. È possibile chiudere questo riquadro, ma in questo caso lo si lascerà aperto per poter controllare lo stato del processo.
@@ -99,7 +99,7 @@ Il runbook creato è ancora in modalità bozza. È necessario pubblicarlo prima 
 1. Chiudere la finestra Flussi e la pagina dei processi per tornare alla pagina MyFirstRunbook-PowerShell.
 1. In **Dettagli** fare clic su **Processi** per aprire la pagina dei processi per questo runbook. In questa pagina sono elencati tutti i processi creati da questo runbook. Dovrebbe essere elencato un solo processo, perché il processo è stato eseguito una sola volta.
 
-   ![Elenco dei processi](media/automation-first-runbook-textual-powershell/runbook-control-job-tile.png)  
+   ![Elenco processi](media/automation-first-runbook-textual-powershell/runbook-control-job-tile.png)
 
 1. È possibile fare clic su questo processo per aprire lo stesso pannello visualizzato quando è stato avviato il runbook. Questa azione consente di tornare indietro nel tempo e visualizzare i dettagli di tutti i processi creati per un runbook particolare.
 
@@ -110,7 +110,7 @@ Il runbook è stato testato e pubblicato, ma finora non esegue alcuna attività 
    ```powershell
    # Ensures you do not inherit an AzureRMContext in your runbook
    Disable-AzureRmContextAutosave –Scope Process
-   
+
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
 -ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
@@ -139,13 +139,13 @@ Il runbook è stato testato e pubblicato, ma finora non esegue alcuna attività 
 1. Fare clic su **Riquadro di test** in modo da testare il runbook.
 1. Fare clic su **Avvia** per avviare il test. Al termine verrà visualizzato un output simile al seguente, con le informazioni di base sull'account. Questo output conferma che l'account RunAs è valido.
 
-   ![Autentica](media/automation-first-runbook-textual-powershell/runbook-auth-output.png)
+   ![Esegui autenticazione](media/automation-first-runbook-textual-powershell/runbook-auth-output.png)
 
 ## <a name="add-code-to-start-a-virtual-machine"></a>Aggiungere il codice per avviare una macchina virtuale
 
 Ora che il runbook esegue l'autenticazione per la sottoscrizione di Azure è possibile gestire le risorse. Si aggiunge un comando per avviare una macchina virtuale. È possibile selezionare una macchina virtuale qualsiasi nella sottoscrizione di Azure. Per ora il nome sarà hardcoded nel runbook.
 
-1. Dopo *Connect-AzureRmAccount* digitare *Start-AzureRmVM -Name 'NomeVM' -ResourceGroupName 'NomeGruppoDiRisorse'* specificando il nome e il nome del gruppo di risorse della macchina virtuale da avviare.  
+1. Dopo *Connect-AzureRmAccount* digitare *Start-AzureRmVM -Name 'NomeVM' -ResourceGroupName 'NomeGruppoDiRisorse'* specificando il nome e il nome del gruppo di risorse della macchina virtuale da avviare.
 
    ```powershell
    # Ensures you do not inherit an AzureRMContext in your runbook
@@ -184,7 +184,7 @@ Ora il runbook avvia la macchina virtuale specificata nel runbook, ma sarebbe pi
 1. Chiudere il riquadro Test.
 1. Fare clic su **Pubblica** per pubblicare la nuova versione del runbook.
 1. Arrestare la macchina virtuale avviata nel passaggio precedente.
-1. Fare clic su **OK** per avviare il runbook. Digitare **VMName** e **ResourceGroupName** per la macchina virtuale da avviare.<br><br> ![Passare i parametri](media/automation-first-runbook-textual-powershell/automation-pass-params.png)<br>  
+1. Fare clic su **OK** per avviare il runbook. Digitare **VMName** e **ResourceGroupName** per la macchina virtuale da avviare.<br><br> ![Passare i parametri](media/automation-first-runbook-textual-powershell/automation-pass-params.png)<br>
 1. Quando il runbook viene completato, controllare che la macchina virtuale sia stata avviata.
 
 ## <a name="differences-from-powershell-workflow"></a>Differenze rispetto al flusso di lavoro PowerShell
@@ -198,6 +198,7 @@ I runbook PowerShell hanno lo stesso ciclo di vita, le stesse funzionalità e la
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+* Per altre informazioni su PowerShell, inclusi i moduli di riferimento e apprendimento del linguaggio, vedere la [documentazione di PowerShell](/powershell/scripting/overview).
 * Per iniziare a usare runbook grafici, vedere [Il primo runbook grafico](automation-first-runbook-graphical.md)
 * Per iniziare a usare runbook del flusso di lavoro PowerShell, vedere [Il primo runbook del flusso di lavoro PowerShell](automation-first-runbook-textual.md)
 * Per altre informazioni sui tipi di runbook, i relativi vantaggi e le limitazioni, vedere [Tipi di runbook di Automazione di Azure](automation-runbook-types.md)

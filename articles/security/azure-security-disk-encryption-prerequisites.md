@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 423fad943190232d9e5e674b98b62f4f0dffb8ae
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 2f7ad49fc56fc82955f79155838c69ff714aba2f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728761"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845871"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Prerequisiti di Crittografia dischi di Azure
 
@@ -28,7 +28,7 @@ Prima di abilitare Crittografia dischi di Azure nelle macchine virtuali IaaS di 
 
 ## <a name="supported-vm-sizes"></a>Dimensioni delle macchine virtuali supportate
 
-Crittografia dischi di Azure è disponibile nelle macchine virtuali che soddisfano i requisiti di memoria minimi seguenti:
+Crittografia dischi di Azure non è disponibile nelle [VM di base serie A](/pricing/details/virtual-machines/series/). Crittografia dischi di Azure è disponibile in altre macchine virtuali che soddisfano i requisiti di memoria minimi seguenti:
 
 | Macchina virtuale | Requisito memoria minima |
 |--|--|

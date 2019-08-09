@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 06/18/2019
-ms.openlocfilehash: e33f195ea821b34147c748e9c0aa64cb63b58fdc
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: a35e0496c7e36d42e28a64fef438fe56713d3c78
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249989"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854990"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Risolvere i problemi e gli errori comuni del servizio migrazione del database di Azure
 
@@ -54,11 +54,11 @@ Quando si esegue la migrazione da MySQL a database di Azure per MySQL usando il 
 
 Viene visualizzato l'errore seguente quando si arresta l'istanza del servizio migrazione del database di Azure:
 
-* **Errore**: Impossibile arrestare il servizio. Errore: {' Error ': {' code ':' InvalidRequest ',' message ':' una o più attività sono attualmente in esecuzione. Per arrestare il servizio, attendere che le attività siano state completate o arrestare manualmente tali attività e riprovare .'}}
+* **Errore**: Impossibile arrestare il servizio. Errore: {'error':{'code':'InvalidRequest','message':'Una o più attività sono attualmente in esecuzione. Per arrestare il servizio, attendere che le attività siano state completate o arrestare manualmente tali attività e riprovare .'}}
 
 | Causa         | Risoluzione |
 | ------------- | ------------- |
-| Questo errore viene visualizzato quando l'istanza del servizio che si sta tentando di arrestare include attività ancora in esecuzione o presenti nei progetti di migrazione. <br><br><br><br><br><br> | Assicurarsi che non siano presenti attività in esecuzione nell'istanza del servizio migrazione del database di Azure che si sta tentando di arrestare. È anche possibile eliminare le attività o i progetti prima di tentare di arrestare il servizio. Nei passaggi seguenti viene illustrato come rimuovere i progetti per la pulizia dell'istanza del servizio di migrazione eliminando tutte le attività in esecuzione:<br>1. Install-module-name AzureRM. DataMigration <br>2. Login-AzureRmAccount <br>3. Select-AzureRmSubscription-subscriptionname "\<subname >" <br> 4. Remove-AzureRmDataMigrationProject-Name \<NomeProgetto >-ResourceGroupName \< \<RgName >-ServiceName ServiceName >-DeleteRunningTask |
+| Questo errore viene visualizzato quando l'istanza del servizio che si sta tentando di arrestare include attività ancora in esecuzione o presenti nei progetti di migrazione. <br><br><br><br><br><br> | Assicurarsi che non siano presenti attività in esecuzione nell'istanza del servizio migrazione del database di Azure che si sta tentando di arrestare. È anche possibile eliminare le attività o i progetti prima di tentare di arrestare il servizio. Nei passaggi seguenti viene illustrato come rimuovere i progetti per la pulizia dell'istanza del servizio di migrazione eliminando tutte le attività in esecuzione:<br>1. Install-Module -Name AzureRM.DataMigration <br>2. Login-AzureRmAccount <br>3. Select-AzureRmSubscription-subscriptionname "\<subname >" <br> 4. Remove-AzureRmDataMigrationProject-Name \<NomeProgetto >-ResourceGroupName \< \<RgName >-ServiceName ServiceName >-DeleteRunningTask |
 
 ## <a name="error-when-attempting-to-start-azure-database-migration-service"></a>Errore durante il tentativo di avviare il servizio migrazione del database di Azure
 
@@ -98,7 +98,7 @@ Quando si cerca di connettersi all'origine nella procedura guidata del progetto 
 | ------------- | ------------- |
 | Quando si usa [ExpressRoute](https://azure.microsoft.com/services/expressroute/), il servizio migrazione del database di Azure [richiede](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) il provisioning di tre endpoint di servizio nella subnet della rete virtuale associata al servizio:<br> --Endpoint del bus di servizio<br> --Endpoint di archiviazione<br> --Endpoint database di destinazione (ad esempio, endpoint SQL, endpoint Cosmos DB)<br><br><br><br><br> | [Abilitare](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) gli endpoint di servizio necessari per la connettività ExpressRoute tra l'origine e il servizio migrazione del database di Azure. <br><br><br><br><br><br><br><br> |
 
-## <a name="timeout-error-when-migrating-a-mysql-database-to-azure-mysql"></a>Errore di timeout durante la migrazione di un database MySQL ad Azure MySQL
+## <a name="timeout-error-when-migrating-a-mysql-database-to-azure-db-for-mysql"></a>Errore di timeout durante la migrazione di un database MySQL nel database di Azure per MySQL
 
 Quando si esegue la migrazione di un database MySQL a un'istanza di database di Azure per MySQL tramite il servizio migrazione del database di Azure, la migrazione non riesce con il seguente errore di timeout:
 

@@ -8,19 +8,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5e5ae11a00b2a3656deceeeaf928536238a325fc
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: f00ad898ea45700b75607f89bc2c8e71288357c2
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840642"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847577"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replicare le macchine virtuali abilitate per crittografia dischi di Azure in un'altra area di Azure
 
 Questo articolo descrive come replicare le macchine virtuali abilitate per crittografia dischi di Azure da un'area di Azure a un'altra.
 
 >[!NOTE]
->Azure Site Recovery attualmente supporta solo le macchine virtuali di Azure che eseguono un sistema operativo Windows.
+>Azure Site Recovery attualmente supporta solo le macchine virtuali abilitate per la crittografia dischi di Azure che eseguono un sistema operativo Windows.
 
 ## <a id="required-user-permissions"></a>Autorizzazioni utente necessarie
 Site Recovery richiede che l'utente disponga delle autorizzazioni per la creazione dell'insieme di credenziali delle chiavi nell'area di destinazione e la copia delle chiavi dall'area di origine all'insieme di credenziali delle chiavi dell'area di destinazione.

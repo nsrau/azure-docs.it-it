@@ -4,23 +4,22 @@ description: Usare Visual Studio Code per sviluppare, compilare un modulo per Az
 services: iot-edge
 keywords: ''
 author: shizn
-manager: philmea
 ms.author: xshi
-ms.date: 07/23/2019
+ms.date: 08/07/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 39b8485ac3f98cb7ca6739fe31378726bea3452b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2efda0e506cf0525b1a8ea868acca48a929f8f41
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565341"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848295"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Usare Visual Studio Code per sviluppare moduli per Azure IoT Edge ed eseguirne il debug
 
 È possibile trasformare la logica di business in moduli per Azure IoT Edge. Questo articolo illustra il modo per usare Visual Studio Code come strumento principale per sviluppare moduli ed eseguirne il debug.
 
-Per i moduli scritti in C#, Node.js o Java, esistono due modi per eseguire il debug in Visual Studio Code: È possibile collegare un processo in un contenitore di moduli o avviare il codice del modulo in modalità di debug. Per i moduli scritti in Python o C, è possibile eseguire il debug solo tramite collegamento a un processo nei contenitori amd64 di Linux.
+Esistono due modi per eseguire il debug di moduli C#scritti in, node. js o Java in Visual Studio Code: È possibile collegare un processo in un contenitore di moduli o avviare il codice del modulo in modalità di debug. Per eseguire il debug di moduli scritti in Python o C, è possibile connettersi solo a un processo in contenitori amd64 Linux.
 
 Se non si ha ancora familiarità con le funzionalità di debug di Visual Studio Code, vedere le [informazioni sul debug](https://code.visualstudio.com/Docs/editor/debugging).
 
@@ -43,7 +42,7 @@ Prima installare [Visual Studio Code](https://code.visualstudio.com/) e poi aggi
   - Java: [Java Extension Pack per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
   - C: [estensione C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 
-Per sviluppare il modulo, è anche necessario installare alcuni strumenti aggiuntivi specifici del linguaggio:
+Sarà inoltre necessario installare alcuni strumenti aggiuntivi specifici del linguaggio per sviluppare il modulo:
 
 - C#, incluso Funzioni di Azure: [.NET Core 2.1 SDK](https://www.microsoft.com/net/download)
 
@@ -53,7 +52,7 @@ Per sviluppare il modulo, è anche necessario installare alcuni strumenti aggiun
 
 - Java: [Java SE Development Kit 10](https://aka.ms/azure-jdks) e [Maven](https://maven.apache.org/). È necessario [impostare la variabile di ambiente `JAVA_HOME` ](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) in modo che punti all'installazione di JDK.
 
-Per compilare e distribuire un'immagine del modulo, è necessario che Docker compili l'immagine del modulo e che un registro contenitori la memorizzi:
+Per compilare e distribuire l'immagine del modulo, è necessario Docker per compilare l'immagine del modulo e un registro contenitori in cui inserire l'immagine del modulo:
 
 - [Docker Community Edition](https://docs.docker.com/install/) nel computer di sviluppo.
 
@@ -107,7 +106,7 @@ Nella soluzione sono presenti quattro elementi:
   > [!NOTE]
   > Il file dell'ambiente viene creato solo se si specifica un repository di immagini per il modulo. Se sono state accettate le impostazioni predefinite di localhost per testare ed eseguire il debug in locale, non è necessario dichiarare le variabili di ambiente.
 
-- Un file **deployment.template.json** in cui sono elencati il nuovo modulo e un modulo **tempSensor** di esempio che simula i dati utilizzabili per il test. Per altre informazioni su come funzionano i manifesti di distribuzione, vedere [Informazioni su come usare i manifesti della distribuzione per distribuire moduli e definire route](module-composition.md).
+- Un file **Deployment. template. JSON** elenca il nuovo modulo insieme a un modulo **SimulatedTemperatureSensor** di esempio che simula i dati che è possibile usare per il test. Per altre informazioni su come funzionano i manifesti di distribuzione, vedere [Informazioni su come usare i manifesti della distribuzione per distribuire moduli e definire route](module-composition.md).
 
 ## <a name="add-additional-modules"></a>Aggiungere altri moduli
 
@@ -124,7 +123,7 @@ Il codice del modulo predefinito fornito con la soluzione si trova al percorso s
 - Java: **moduli > *&lt;nome del modulo&gt;* > src > main > java > com > edgemodulemodules > App.java**
 - C: **moduli > *&lt;nome del modulo&gt;* > main.c**
 
-Il modulo e il file deployment.template.json sono impostati in modo che sia possibile compilare la soluzione, inviarla al registro del contenitore e distribuirla in un dispositivo per avviare il test senza toccare alcun codice. Il modulo viene compilato solo per accettare l'input da un'origine (in questo caso, il modulo tempSensor che simula i dati) e collegarlo all'hub IoT.
+Il modulo e il file deployment.template.json sono impostati in modo che sia possibile compilare la soluzione, inviarla al registro del contenitore e distribuirla in un dispositivo per avviare il test senza toccare alcun codice. Il modulo è stato creato per l'input semplice da un'origine (in questo caso, il modulo SimulatedTemperatureSensor che simula i dati) e lo invia tramite pipe all'hub Internet.
 
 Quando si è pronti per personalizzare il modello con il proprio codice, usare gli [SDK per l'hub IoT di Azure](../iot-hub/iot-hub-devguide-sdks.md) per compilare moduli che rispondono alle esigenze chiave delle soluzioni IoT quali sicurezza, gestione dei dispositivi e affidabilità.
 
@@ -227,7 +226,7 @@ Nel computer di sviluppo è possibile avviare un simulatore di IoT Edge invece d
 
 1. Nella visualizzazione Explorer di Visual Studio Code fare clic con il pulsante destro del mouse sul file `deployment.debug.template.json` per la soluzione e quindi selezionare **Build and Run IoT Edge solution in Simulator** (Compila ed esegui la soluzione IoT Edge nel simulatore). È possibile esaminare tutti i log del contenitore del modulo nella stessa finestra. È anche possibile passare alla visualizzazione Docker per controllare lo stato del contenitore.
 
-   ![Variabili delle espressioni di controllo](media/how-to-develop-csharp-module/view-log.png)
+   ![Variabili delle espressioni di controllo](media/how-to-vs-code-develop-module/view-log.png)
 
 1. Passare alla visualizzazione Debug di Visual Studio Code e selezionare il file di configurazione del debug per il modulo. Il nome dell'opzione di debug deve essere simile a ***&lt;nome del modulo&gt;* Debug remoto**
 

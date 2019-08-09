@@ -1,6 +1,6 @@
 ---
-title: Protected Web API - Panoramica | Azure
-description: Informazioni su come creare un'API (panoramica) web protetta.
+title: API Web protetta-Panoramica | Azure
+description: Informazioni su come creare un'API Web protetta (panoramica).
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5bc0075e6604bd1f94531040f2e4a0628e70667
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02bd4b84cc7542714f6db45c12c4b5b13a7fb449
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074891"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852587"
 ---
 # <a name="scenario-protected-web-api"></a>Scenario: API Web protetta
 
-In questo scenario verrà illustrato come esporre un'API web e come è possibile proteggerli in modo che solo gli utenti autenticati possono accedere all'API. È opportuno consentire agli utenti autenticati con lavoro e dell'istituto di istruzione o account personali Microsoft a usare l'API web.
+In questo scenario verrà illustrato come è possibile esporre un'API Web e come proteggerla in modo che solo gli utenti autenticati possano accedere all'API. Per usare l'API Web, è possibile abilitare gli utenti autenticati con account aziendali o dell'Istituto di istruzione o con account personali Microsoft personali.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -32,10 +32,10 @@ In questo scenario verrà illustrato come esporre un'API web e come è possibile
 
 ## <a name="specifics"></a>Specifiche
 
-Ecco alcuni aspetti specifici che è necessario conoscere per proteggere le API web:
+Di seguito sono riportate alcune specifiche che è necessario tenere presente per proteggere le API Web:
 
-- La registrazione dell'app deve esporre almeno un ambito. La versione del token accettata dall'API web dipende dal segno nel gruppo di destinatari.
-- La configurazione del codice per l'API web deve convalidare il token viene usato quando si chiama l'API web.
+- La registrazione dell'app deve esporre almeno un ambito. La versione del token accettata dall'API Web dipende dal pubblico di accesso.
+- La configurazione del codice per l'API Web deve convalidare il token usato quando si chiama l'API Web.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

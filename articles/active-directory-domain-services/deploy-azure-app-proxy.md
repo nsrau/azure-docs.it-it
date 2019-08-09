@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: eca421697081310b1bf245172b3ff125e11c8728
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: b3fb5d665380bc15b61d3b4b7913a992915f9afb
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234180"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853849"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Distribuire il proxy di applicazione di Azure AD in un dominio gestito di Azure AD Domain Services
 Il proxy dell'applicazione di Azure Active Directory (AD) consente di supportare lavoratori remoti pubblicando applicazioni locali in modo che siano accessibili tramite Internet. Azure AD Domain Services ora consente di trasferire in modalità lift-and-shift le applicazioni legacy in esecuzione in locale nei servizi di infrastruttura di Azure. È quindi possibile pubblicare queste applicazioni con il proxy di applicazione di Azure AD per garantire l'accesso remoto sicuro agli utenti dell'organizzazione.
@@ -46,13 +46,10 @@ Per abilitare il proxy di applicazione di Azure AD per la directory di Azure AD,
 
 2. Fare clic su **Azure Active Directory** per visualizzare la panoramica della directory. Fare clic su **Applicazioni aziendali**.
 
-    ![Selezionare la directory di Azure AD](./media/app-proxy/app-proxy-enable-start.png)
-3. Fare clic su **Proxy di applicazione**. Se non è disponibile una sottoscrizione di Azure AD Basic o Azure AD Premium, viene visualizzata un'opzione per attivare una versione di valutazione. Impostare **Abilitare il proxy di applicazione?** su **Abilita** e fare clic su **Salva**.
+3. Fare clic su **Proxy di applicazione**.
 
-    ![Abilitare il proxy di applicazione](./media/app-proxy/app-proxy-enable-proxy-blade.png)
 4. Per scaricare il connettore, fare clic sul pulsante **Connettore**.
 
-    ![Scaricare il connettore](./media/app-proxy/app-proxy-enabled-download-connector.png)
 5. Nella pagina di download accettare le condizioni di licenza e l'informativa sulla privacy e fare clic sul pulsante **Scarica**.
 
     ![Confermare il download](./media/app-proxy/app-proxy-enabled-confirm-download.png)
@@ -75,7 +72,7 @@ In precedenza è stato effettuato il provisioning di una macchina virtuale Windo
 
     ![Accettare le condizione per l'installazione](./media/app-proxy/app-proxy-install-connector-terms.png)
 3. Durante l'installazione viene richiesto di registrare il connettore con il proxy di applicazione della directory di Azure AD.
-   * Specificare le **credenziali di amministratore globale di Azure AD**. Il tenant di amministratore globale può essere diverso dalle credenziali di Microsoft Azure.
+   * Fornire le **credenziali di amministratore dell'applicazione Azure ad**. Il tenant dell'amministratore dell'applicazione può essere diverso dalle credenziali Microsoft Azure.
    * L'account amministratore usato per registrare il connettore deve trovarsi nella stessa directory in cui è stato abilitato il servizio proxy dell'applicazione. Se il dominio del tenant è contoso.com, ad esempio, l'amministratore deve essere admin@contoso.com o qualsiasi altro alias valido di tale dominio.
    * Se la Sicurezza avanzata di Internet Explorer è abilitata per il server in cui si vuole installare il connettore, la schermata di registrazione potrebbe essere bloccata. Per consentire l'accesso, seguire le istruzioni contenute nel messaggio di errore. Verificare che Internet Explorer Enhanced Security Context sia disabilitato.
    * Se la registrazione del connettore non riesce, vedere [Risolvere i problemi del Proxy applicazione](../active-directory/manage-apps/application-proxy-troubleshoot.md).

@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: ae073e10331f07d9863da1d4ed97533f95b87c86
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 2cc89bf57167db75404c044f58d18ab48edfaf38
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405058"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854075"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurare l'esperienza dell'interfaccia utente ospitata
 
@@ -165,5 +165,5 @@ Le configurazioni seguenti si applicano solo se si usa l'interfaccia utente ospi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Usare indicatori di effetto per evidenziare il testo](./hit-highlighting.md)
+- [Usare indicatori di effetto per evidenziare il testo](../bing-web-search/hit-highlighting.md)
 - [Sfogliare pagine Web](./page-webpages.md)

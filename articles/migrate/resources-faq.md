@@ -4,14 +4,14 @@ description: Risposte alle domande frequenti su Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 08/07/2019
 ms.author: snehaa
-ms.openlocfilehash: 0708502087ae6880d9559cf17f0ba9982b2ba040
-ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
+ms.openlocfilehash: bf591306220b2c8c1e6c8166686836d96432fc7d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68372480"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856270"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Domande frequenti su Azure Migrate
 
@@ -71,7 +71,8 @@ L'appliance si connette al server vCenter (porta 443) usando le credenziali spec
 
 ### <a name="can-i-connect-the-same-appliance-to-multiple-vcenter-servers"></a>È possibile connettere lo stesso dispositivo a più server vCenter?
 
-Sì, è possibile usare una singola appliance Azure Migrate per individuare più server vCenter, ma non contemporaneamente. È necessario eseguire le individuazioni una dopo l'altra.
+No. Esiste un mapping uno-a-uno tra un appliance e server vCenter. Se è necessario individuare VM su più server vCenter, è necessario distribuire più appliance. 
+
 
 ### <a name="i-changed-my-machine-size-can-i-rerun-an-assessment"></a>Le dimensioni del computer sono state modificate. È possibile rieseguire una valutazione?
 

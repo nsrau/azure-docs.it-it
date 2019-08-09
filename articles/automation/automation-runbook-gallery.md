@@ -9,33 +9,33 @@ ms.author: robreed
 ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fcf48cfdb43473f99b139f0a0a07a5ace9a91642
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 5ef739a7053fffdd45c6d5e144ae736429597a4f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476959"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850485"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Raccolte di runbook e moduli per l'automazione di Azure
 
 Anziché creare runbook e moduli personalizzati in Automazione di Azure, si può ricorrere ad alcuni scenari già creati da Microsoft e dalla community.
 
-È possibile ottenere i runbook di PowerShell e [moduli](#modules-in-powershell-gallery) da PowerShell Gallery e [i runbook di Python](#python-runbooks) dalla raccolta Script Center. È anche possibile contribuire alla community condividendo gli scenari che si sviluppano, vedere Aggiunta di un runbook alla raccolta
+È possibile ottenere manuali operativi e [moduli](#modules-in-powershell-gallery) di PowerShell dal PowerShell Gallery e [manuali operativi Python](#python-runbooks) dalla raccolta di script Center. È anche possibile contribuire alla community condividendo gli scenari che si sviluppano, vedere Aggiunta di un Runbook alla raccolta
 
-## <a name="runbooks-in-powershell-gallery"></a>Runbook in PowerShell Gallery
+## <a name="runbooks-in-powershell-gallery"></a>Manuali operativi in PowerShell Gallery
 
-Il [PowerShell Gallery](https://www.powershellgallery.com/packages) offre un'ampia gamma di runbook da Microsoft e dalla community che è possibile importare in automazione di Azure. Per usare uno, scaricare un runbook dalla raccolta, o è possibile importare runbook direttamente dalla raccolta o dall'Account di automazione nel portale di Azure.
+Il [PowerShell Gallery](https://www.powershellgallery.com/packages) offre un'ampia gamma di manuali operativi di Microsoft e della community che è possibile importare in automazione di Azure. Per usarlo, scaricare un Runbook dalla raccolta oppure è possibile importare direttamente manuali operativi dalla raccolta oppure dall'account di automazione nel portale di Azure.
 
-È possibile importare solo direttamente da PowerShell Gallery usando il portale di Azure. È possibile eseguire questa funzione tramite PowerShell.
+È possibile importare solo direttamente dalla PowerShell Gallery usando il portale di Azure. Non è possibile eseguire questa funzione usando PowerShell.
 
 > [!NOTE]
-> È necessario convalidare il contenuto di qualsiasi runbook ottenuto da PowerShell Gallery e prestare particolare attenzione durante l'installazione ed esecuzione in un ambiente di produzione.
+> È necessario convalidare il contenuto di qualsiasi manuali operativi ottenuto dalla PowerShell Gallery e prestare particolare attenzione durante l'installazione e l'esecuzione in un ambiente di produzione.
 
-### <a name="to-import-a-powershell-runbook-from-the-runbook-gallery-with-the-azure-portal"></a>Per importare un runbook di PowerShell dalla raccolta di Runbook con il portale di Azure
+### <a name="to-import-a-powershell-runbook-from-the-runbook-gallery-with-the-azure-portal"></a>Per importare un Runbook di PowerShell dalla raccolta runbook con il portale di Azure
 
 1. Nel portale di Azure aprire l'account di automazione.
 2. In **Automazione processi** fare clic su **Raccolta di runbook**
-3. Selezionare **origine: PowerShell Gallery**.
+3. Selezionare **l'origine: PowerShell Gallery**.
 4. Individuare l'elemento della raccolta desiderato e selezionarlo per visualizzarne i dettagli. A sinistra è possibile immettere parametri di ricerca aggiuntivi per il server di pubblicazione e il tipo.
 
    ![Sfoglia raccolta](media/automation-runbook-gallery/browse-gallery.png)
@@ -48,16 +48,16 @@ Il [PowerShell Gallery](https://www.powershellgallery.com/packages) offre un'amp
 7. Facoltativamente, modificare il nome del runbook e quindi fare clic su **OK** per importare il runbook.
 8. Il runbook viene visualizzato nella scheda **Runbook** per l'account di automazione.
 
-### <a name="adding-a-powershell-runbook-to-the-gallery"></a>Aggiunta di un runbook di PowerShell per la raccolta
+### <a name="adding-a-powershell-runbook-to-the-gallery"></a>Aggiunta di un Runbook di PowerShell alla raccolta
 
-Microsoft consiglia di aggiungere i runbook in PowerShell Gallery che si ritiene potrebbero essere utili ad altri clienti. PowerShell Gallery accetta moduli e script di PowerShell. È possibile aggiungere un runbook [caricandolo in PowerShell Gallery](/powershell/gallery/how-to/publishing-packages/publishing-a-package).
+Microsoft consiglia di aggiungere manuali operativi al PowerShell Gallery che si ritiene utile ad altri clienti. Il PowerShell Gallery accetta i moduli di PowerShell e gli script di PowerShell. Per aggiungere un Runbook, è possibile caricarlo nell' [PowerShell Gallery](/powershell/gallery/how-to/publishing-packages/publishing-a-package).
 
 > [!NOTE]
-> I runbook grafici non sono supportati in PowerShell Gallery.
+> Manuali operativi grafici non supportati in PowerShell Gallery.
 
 ## <a name="modules-in-powershell-gallery"></a>Moduli in PowerShell Gallery
 
-I moduli di PowerShell contengono cmdlet che è possibile usare all'interno dei runbook, mentre in [PowerShell Gallery](https://www.powershellgallery.com)sono disponibili moduli esistenti che è possibile installare in Automazione di Azure. È possibile avviare questa raccolta dal portale di Azure e installare i moduli direttamente in Automazione di Azure oppure è possibile scaricarli e installarli manualmente.  
+I moduli di PowerShell contengono cmdlet che è possibile usare all'interno dei runbook, mentre in [PowerShell Gallery](https://www.powershellgallery.com)sono disponibili moduli esistenti che è possibile installare in Automazione di Azure. È possibile avviare questa raccolta dal portale di Azure e installare i moduli direttamente in Automazione di Azure oppure è possibile scaricarli e installarli manualmente.
 
 ### <a name="to-import-a-module-from-the-automation-module-gallery-with-the-azure-portal"></a>Per importare un modulo dalla raccolta di moduli di Automazione con il portale di Azure
 
@@ -74,7 +74,7 @@ I moduli di PowerShell contengono cmdlet che è possibile usare all'interno dei 
    * Autore
    * Nome della risorsa cmdlet/DSC
 
-5. Cercare il modulo desiderato e selezionarlo per visualizzarne i dettagli.  
+5. Cercare il modulo desiderato e selezionarlo per visualizzarne i dettagli.
 
    Eseguendo il drill-down di un modulo specifico si accede a ulteriori informazioni. Queste informazioni includono un collegamento che riporta alla PowerShell Gallery, le eventuali dipendenze necessarie e tutti i cmdlet o le risorse DSC contenute nel modulo.
 
@@ -91,10 +91,10 @@ I moduli di PowerShell contengono cmdlet che è possibile usare all'interno dei 
 
 ## <a name="python-runbooks"></a>Runbook di Python
 
-I runbook di Python sono disponibili nella [raccolta di Script Center](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B1%5D.Type=ProgrammingLanguage&f%5B1%5D.Value=Python&f%5B1%5D.Text=Python&sortBy=Date&username=). È possibile contribuire i runbook di Python nella raccolta di Script Center facendo **carica un contributo**. In tal caso, assicurarsi di aggiungere il tag **Python** quando si carica il contributo.
+I runbook di Python sono disponibili nella [raccolta di Script Center](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B1%5D.Type=ProgrammingLanguage&f%5B1%5D.Value=Python&f%5B1%5D.Text=Python&sortBy=Date&username=). È possibile aggiungere Python manuali operativi alla raccolta di script Center facendo clic su **carica un contributo**. In tal caso, assicurarsi di aggiungere il tag **Python** quando si carica il contributo.
 
 > [!NOTE]
-> Per caricare contenuti da [nello Script Center](https://gallery.technet.microsoft.com/scriptcenter) è necessario un minimo di 100 punti. 
+> Per caricare il contenuto in [Script Center](https://gallery.technet.microsoft.com/scriptcenter) sono necessari almeno 100 punti.
 
 ## <a name="requesting-a-runbook-or-module"></a>Richiesta di un runbook o un modulo
 
@@ -104,3 +104,4 @@ I runbook di Python sono disponibili nella [raccolta di Script Center](https://g
 
 * Per iniziare a usare i runbook, vedere [Manage runbook in Azure Automation](manage-runbooks.md) (Gestire i runbook in Automazione di Azure).
 * Per comprendere le differenze tra PowerShell e i flussi di lavoro di PowerShell con i runbook, vedere [Informazioni sul flusso di lavoro di Windows PowerShell](automation-powershell-workflow.md)
+* Per altre informazioni su PowerShell, inclusi i moduli di riferimento e apprendimento del linguaggio, vedere la [documentazione di PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview).

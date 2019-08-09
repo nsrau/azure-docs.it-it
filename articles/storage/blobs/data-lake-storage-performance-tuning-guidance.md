@@ -1,7 +1,6 @@
 ---
 title: Linee guida per l'ottimizzazione delle prestazioni di Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Linee guida per l'ottimizzazione delle prestazioni di Azure Data Lake Storage Gen2
-services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 6f831dd0cde4641eb48f3c23e010f8c5e8aa3fa2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b134842303bebdf10efdf388057c8ad7b3be61be
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939365"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855580"
 ---
 # <a name="tuning-azure-data-lake-storage-gen2-for-performance"></a>Ottimizzazione delle prestazioni di Azure Data Lake Storage Gen2
 
@@ -24,7 +23,7 @@ Azure Data Lake Storage Gen2 supporta la velocità effettiva elevata per l'anali
 
 Data Lake Storage Gen2 può essere ridimensionato per offrire la velocità effettiva necessaria per qualsiasi scenario di analisi. Per impostazione predefinita, un account Data Lake Storage Gen2 offre automaticamente la velocità effettiva sufficiente per soddisfare le esigenze di un'ampia categoria di casi d'uso. Per i casi in cui i clienti raggiungono il limite predefinito, è possibile contattare l'[assistenza Azure](https://azure.microsoft.com/support/faq/) per configurare l'account Data Lake Storage Gen2 in modo da ottenere maggiore velocità effettiva.
 
-## <a name="data-ingestion"></a>Inserimento di dati
+## <a name="data-ingestion"></a>Inserimento dati
 
 Durante l'inserimento di dati da un sistema di origine a Data Lake Storage Gen2, è importante tenere presente che l'hardware di origine, l'hardware di rete di origine e la connettività di rete a Data Lake Storage Gen2 possono costituire il collo di bottiglia.  
 
@@ -44,7 +43,7 @@ La connettività di rete tra i dati di origine e Data Lake Storage Gen2 può tal
 
 Dopo aver risolto i colli di bottiglia provocati dall'hardware di origine e dalla connettività di rete, si è pronti per configurare gli strumenti di inserimento. La tabella seguente presenta un riepilogo delle impostazioni delle chiavi per diversi strumenti di inserimento comuni e include collegamenti ad articoli di approfondimento sull'ottimizzazione delle prestazioni.  Per altre informazioni sullo strumento da usare per uno scenario specifico, vedere questo [articolo](data-lake-storage-data-scenarios.md).
 
-| Strumento               | Impostazioni     | Altre informazioni                                                                 |
+| Strumento               | Impostazioni     | Altri dettagli                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m (mapper)   | [Collegamento](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
 | Data factory di Azure| parallelCopies    | [Collegamento](../../data-factory/copy-activity-performance.md)                          |
@@ -54,7 +53,7 @@ Dopo aver risolto i colli di bottiglia provocati dall'hardware di origine e dall
 
 Quando i dati vengono archiviati in Data Lake Storage Gen2, le dimensioni dei file, il numero di file e la struttura della cartelle influiscono sulle prestazioni.  La sezione seguente descrive le procedure consigliate in queste aree.  
 
-### <a name="file-size"></a>Dimensioni complete
+### <a name="file-size"></a>Dimensione file
 
 I motori di analisi come HDInsight e Azure Data Lake Analytics in genere gestiscono il sovraccarico a livello di singolo file. Se quindi si archiviano i dati in molti file di piccole dimensioni, questo può influire negativamente sulle prestazioni. Per ottenere prestazioni migliori, è in genere opportuno organizzare i dati in file di dimensioni più grandi (da 256 MB a 100 GB). Alcuni motori e applicazioni potrebbero riscontrare problemi nell'elaborazione dei file di dimensioni superiori a 100 GB.
 

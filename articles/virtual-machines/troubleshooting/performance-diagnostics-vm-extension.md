@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 769305cc3d838832f8f445ac9623a1724603f968
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f9a50b0e5dd4e96c9235348bbfaae1d8a6e54d53
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60307907"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846609"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Estensione per macchine virtuali Diagnostica prestazioni di Azure per Windows
 
@@ -73,7 +73,7 @@ Il codice JSON seguente illustra lo schema dell'estensione per macchine virtuali
 |publisher|Microsoft.Azure.Performance.Diagnostics|Spazio dei nomi del server di pubblicazione per l'estensione.
 |type|AzurePerformanceDiagnostics|Tipo dell'estensione per macchine virtuali.
 |typeHandlerVersion|1.0|Versione del gestore dell'estensione.
-|performanceScenario|basic|Scenario di prestazioni per il quale acquisire i dati. I valori validi sono: **basic**, **vmslow**, **azurefiles** e **custom**.
+|performanceScenario|di base|Scenario di prestazioni per il quale acquisire i dati. I valori validi sono: **basic**, **vmslow**, **azurefiles** e **custom**.
 |traceDurationInSeconds|300|Durata delle tracce se è selezionata una delle opzioni di traccia.
 |perfCounterTrace|p|Opzione che abilita la traccia del contatore delle prestazioni. I valori validi sono **p** o un valore vuoto. Se non si vuole acquisire la traccia, lasciare vuoto il valore.
 |networkTrace|n|Opzione che abilita la traccia di rete. I valori validi sono **n** o un valore vuoto. Se non si vuole acquisire la traccia, lasciare vuoto il valore.
@@ -85,7 +85,7 @@ Il codice JSON seguente illustra lo schema dell'estensione per macchine virtuali
 |storageAccountName|mystorageaccount|Nome dell'account di archiviazione con cui archiviare i log di diagnostica e i risultati.
 |storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|Chiave per l'account di archiviazione.
 
-## <a name="install-the-extension"></a>Installare l'estensione
+## <a name="install-the-extension"></a>Installa l'estensione
 
 Per installare l'estensione in macchine virtuali Windows, seguire queste istruzioni:
 
@@ -99,7 +99,7 @@ Per installare l'estensione in macchine virtuali Windows, seguire queste istruzi
 4. Selezionare **Azure Performance Diagnostics** (Diagnostica prestazioni di Azure), rivedere i termini e le condizioni e selezionare **Crea**.
 
     ![Screenshot della schermata Nuova risorsa, con Azure Performance Diagnostics evidenziato](media/performance-diagnostics-vm-extension/create-azure-performance-diagnostics-extension.png)
-5. Specificare i valori per i parametri di installazione e fare clic su **OK** per installare l'estensione. Per altre informazioni sugli scenari supportati, vedere [Come usare PerfInsights](how-to-use-perfInsights.md#supported-troubleshooting-scenarios). 
+5. Specificare i valori per i parametri di installazione e fare clic su **OK** per installare l'estensione. Per altre informazioni sugli scenari supportati, vedere [Come usare PerfInsights](how-to-use-perfinsights.md#supported-troubleshooting-scenarios). 
 
     ![Screenshot della finestra di dialogo Installa estensione](media/performance-diagnostics-vm-extension/install-the-extension.png)
 6. Al termine dell'installazione viene visualizzato un messaggio che ne indica lo stato.

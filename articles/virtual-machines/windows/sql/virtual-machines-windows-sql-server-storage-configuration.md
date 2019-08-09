@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: ninarn
-ms.openlocfilehash: 360ffb3d2c682d6bd2344cb3ae95447ff3df278d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8d197bbf464038918dd083d14a1befa740c8ce0e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076849"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846083"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configurazione dell'archiviazione per le VM di SQL Server
 
@@ -55,7 +55,7 @@ A seconda delle scelte effettuate, Azure esegue le seguenti attività di configu
 * Associa il pool di archiviazione a una nuova unità nella macchina virtuale.
 * Ottimizza la nuova unità in base al tipo di carico di lavoro specificato (data warehousing, elaborazione transazionale o generale).
 
-Per ulteriori dettagli su come vengono configurate le impostazioni dell'archiviazione da Azure, vedere la [sezione Configurazione dell'archiviazione](#storage-configuration). Per una procedura dettagliata completa di come creare una VM SQL Server nel portale di Azure, vedere [esercitazione sul provisioning](virtual-machines-windows-portal-sql-server-provision.md).
+Per ulteriori dettagli su come vengono configurate le impostazioni dell'archiviazione da Azure, vedere la [sezione Configurazione dell'archiviazione](#storage-configuration). Per una procedura dettagliata completa su come creare una macchina virtuale SQL Server nella portale di Azure, vedere [l'esercitazione sul](virtual-machines-windows-portal-sql-server-provision.md)provisioning.
 
 ### <a name="resource-manage-templates"></a>Modelli di Resource Manager
 
@@ -69,14 +69,14 @@ Se si usano i modelli di Resource Manager seguenti, vengono collegati per impost
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-Per le VM di SQL Server esistenti, è possibile modificare alcune impostazioni di archiviazione nel portale di Azure. Aprire il [risorse di macchine virtuali SQL](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource)e selezionare **Panoramica**. La pagina di panoramica di SQL Server Mostra l'utilizzo di archiviazione corrente della macchina virtuale. In questo grafico vengono visualizzate tutte le unità esistenti nella VM. Per ogni unità, lo spazio di archiviazione viene visualizzato in quattro sezioni:
+Per le VM di SQL Server esistenti, è possibile modificare alcune impostazioni di archiviazione nel portale di Azure. Aprire la [risorsa macchine virtuali SQL](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource)e scegliere **Panoramica**. La pagina di panoramica SQL Server Mostra l'utilizzo di archiviazione corrente della VM. In questo grafico vengono visualizzate tutte le unità esistenti nella VM. Per ogni unità, lo spazio di archiviazione viene visualizzato in quattro sezioni:
 
 * Dati SQL
 * Log SQL
 * Altro (archiviazione non SQL)
 * Disponibile
 
-Per modificare le impostazioni di archiviazione, selezionare **Configure** sotto **impostazioni**. 
+Per modificare le impostazioni di archiviazione, selezionare **Configura** in **Impostazioni**. 
 
 ![Configurare l'archiviazione per le VM di SQL Server esistenti](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-existing.png)
 
@@ -109,7 +109,7 @@ L'altra opzione per l'espansione dell'archiviazione prevede l'estensione dell'un
 
 ## <a name="storage-configuration"></a>Configurazione dell'archiviazione
 
-In questa sezione fornisce un riferimento per le modifiche alla configurazione di archiviazione eseguite automaticamente da Azure durante il provisioning di VM di SQL o la configurazione nel portale di Azure.
+Questa sezione fornisce un riferimento per le modifiche di configurazione dell'archiviazione eseguite automaticamente da Azure durante il provisioning o la configurazione di macchine virtuali SQL nel portale di Azure.
 
 * Se sono stati selezionati meno di due TB di spazio di archiviazione per la VM, Azure non crea un pool di archiviazione.
 * Se sono stati selezionati almeno due TB di spazio di archiviazione per la VM, Azure configura un pool di archiviazione. La sezione successiva di questo argomento fornisce i dettagli della configurazione del pool di archiviazione.
@@ -121,7 +121,7 @@ Per informazioni sui prezzi, vedere la pagina [Prezzi di archiviazione](https://
 
 Azure usa le impostazioni seguenti per creare il pool di archiviazione nelle VM di SQL.
 
-| Impostazione | Value |
+| Impostazione | Valore |
 | --- | --- |
 | Dimensioni di striping |256 KB (data warehousing); 64 KB (transazionale) |
 | Dimensione disco |1 TB ciascuno |
@@ -141,7 +141,7 @@ Azure usa le impostazioni seguenti per creare il pool di archiviazione nelle VM 
 
 La tabella seguente descrive le tre opzioni disponibili per il tipo di carico di lavoro e le ottimizzazioni corrispondenti:
 
-| Tipo di carico di lavoro | Descrizione | Ottimizzazioni |
+| Tipo di carico di lavoro | DESCRIZIONE | Ottimizzazioni |
 | --- | --- | --- |
 | **Generale** |Impostazione predefinita che supporta la maggior parte dei carichi di lavoro |Nessuna |
 | **Elaborazione transazionale** |Ottimizza l'archiviazione per carichi di lavoro OLTP di database tradizionali |Flag di traccia 1117<br/>Flag di traccia 1118 |

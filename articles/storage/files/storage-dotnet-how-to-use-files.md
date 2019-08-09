@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/22/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 35f29e425fc471e4df4a037ef312af0fd041dcd7
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: da8e82652b5406cb4e5fe6438f721e3394a4cd96
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699774"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854597"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Eseguire lo sviluppo per File di Azure con .NET
 
@@ -55,10 +55,11 @@ Tutti gli esempi di codice in questa esercitazione possono essere aggiunti al me
 È possibile usare la libreria client di archiviazione di Azure in qualsiasi tipo di applicazione .NET, tra cui un servizio cloud o un'app Web di Azure e applicazioni desktop e per dispositivi mobili. Per semplicità, in questa guida si usa un'applicazione console.
 
 ## <a name="use-nuget-to-install-the-required-packages"></a>Usare NuGet per installare i pacchetti necessari
-Per completare questa esercitazione, è necessario fare riferimento a due pacchetti nel progetto:
+Per completare questa esercitazione, è necessario fare riferimento a questi pacchetti nel progetto:
 
 * [Archiviazione di Microsoft Azure libreria comune per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): Questo pacchetto fornisce l'accesso a livello di codice alle risorse comuni nell'account di archiviazione.
 * [Archiviazione di Microsoft Azure libreria BLOB per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/): Questo pacchetto fornisce l'accesso a livello di codice alle risorse BLOB nell'account di archiviazione.
+* [Libreria di File archiviazione di Microsoft Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/): Questo pacchetto fornisce l'accesso a livello di codice alle risorse file nell'account di archiviazione.
 * [Libreria Gestione configurazione di Microsoft Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): questo pacchetto fornisce una classe per l'analisi di una stringa di connessione in un file di configurazione, indipendentemente dalla posizione in cui viene eseguita l'applicazione.
 
 Per ottenere entrambi i pacchetti, è possibile usare NuGet. Attenersi ai passaggi riportati di seguito.

@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 07/22/2019
 ms.author: juliako
-ms.openlocfilehash: fd67e867b5eac58838551ac29e1fca5e860b15ff
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: b627a78edef1c0b0fe6b3ed011678145aea397ae
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414222"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845891"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Note sulla versione di servizi multimediali di Azure Video Indexer
 
@@ -27,6 +27,16 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 * Problemi noti
 * Correzioni di bug
 * Funzionalità deprecate
+
+## <a name="july-2019"></a>2019 luglio
+
+### <a name="editor-as-a-widget"></a>Editor come widget
+
+Il Video Indexer l'editor di intelligenza artificiale è ora disponibile come widget da incorporare nelle applicazioni dei clienti.
+
+### <a name="update-custom-language-model-from-closed-caption-file-from-the-portal"></a>Aggiornare il modello di lingua personalizzato dal file di sottotitoli chiuso dal portale
+
+I clienti possono fornire formati di file VTT, SRT e TTML come input per i modelli di linguaggio nella pagina Personalizzazione del portale.
 
 ## <a name="june-2019"></a>Giugno 2019
 

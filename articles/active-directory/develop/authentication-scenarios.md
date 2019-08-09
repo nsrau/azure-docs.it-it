@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 04/05/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7883c32e60a09c6fdfc4146c30472cfcdb57b689
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: cedfead26bd2a82792729853a2b8d038278b75f6
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835176"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853293"
 ---
 # <a name="what-is-authentication"></a>Informazioni sull'autenticazione
 
@@ -109,7 +109,7 @@ La tabella seguente fornisce una breve descrizione dei tipi di attestazione gene
 | Attestazione | DESCRIZIONE |
 | --- | --- |
 | ID applicazione | Identifica l'applicazione che usa il token. |
-| Audience | Identifica la risorsa di destinazione del token. |
+| Destinatari | Identifica la risorsa di destinazione del token. |
 | Riferimento alla classe contesto di autenticazione applicazione | Indica la modalità di autenticazione del client (client pubblico e client riservato). |
 | Istante di autenticazione | Registra la data e l'ora in cui è avvenuta l'autenticazione. |
 | Metodo di autenticazione | Indica la modalità di autenticazione dell'oggetto del token (password, certificato e così via). |
@@ -117,17 +117,17 @@ La tabella seguente fornisce una breve descrizione dei tipi di attestazione gene
 | Gruppi | Contiene gli ID oggetto dei gruppi di Azure AD di cui l'utente è membro. |
 | Provider di identità | Registra il provider di identità che ha autenticato l'oggetto del token. |
 | Issued At | Registra l'ora in cui il token è stato emesso. Spesso usata per l'aggiornamento del token. |
-| Issuer | Identifica il servizio token di sicurezza che ha emesso il token, nonché il tenant di Azure AD. |
+| Rilasciato da | Identifica il servizio token di sicurezza che ha emesso il token, nonché il tenant di Azure AD. |
 | Cognome | Fornisce il cognome dell'utente come è impostato in Azure AD. |
-| NOME | Fornisce un valore leggibile che identifica l'oggetto del token. |
+| Name | Fornisce un valore leggibile che identifica l'oggetto del token. |
 | ID oggetto | Contiene un identificatore univoco e non modificabile dell'oggetto in Azure AD. |
 | Ruoli | Contiene i nomi descrittivi dei ruoli applicazione di Azure AD concessi all'utente. |
-| Scope | Indica le autorizzazioni concesse all'applicazione client. |
-| Oggetto | Indica l'entità su cui il token rilascia informazioni. |
+| Ambito | Indica le autorizzazioni concesse all'applicazione client. |
+| Subject | Indica l'entità su cui il token rilascia informazioni. |
 | ID tenant | Contiene un identificatore univoco e non modificabile del tenant di directory che ha emesso il token. |
 | Durata del token | Definisce l'intervallo di tempo entro il quale un token è valido. |
-| Nome dell'entità utente | Contiene il nome dell'entità utente dell'oggetto. |
-| Versione | Contiene il numero di versione del token. |
+| Nome entità utente | Contiene il nome dell'entità utente dell'oggetto. |
+| Version | Contiene il numero di versione del token. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

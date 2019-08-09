@@ -1,29 +1,29 @@
 ---
-title: 'Classificazione: Prevedere il rischio di credito'
+title: Classificazione Prevedere il rischio di credito
 titleSuffix: Azure Machine Learning service
-description: Informazioni su come creare un classificatore di apprendimento automatico senza dover scrivere una singola riga di codice usando l'interfaccia visiva.
+description: Informazioni su come creare un classificatore di Machine Learning senza scrivere una singola riga di codice usando l'interfaccia visiva.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: 6ec91ca83d7aa1bc5e6c290d35b573a60cc0ed19
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: d1b3b8fa61492f3cf18e44e3e3046f32ea9c9b03
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605764"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855976"
 ---
-# <a name="sample-3---classification-predict-credit-risk"></a>Esempio 3: classificazione: Prevedere il rischio di credito
+# <a name="sample-3---classification-predict-credit-risk"></a>Esempio 3-classificazione: Prevedere il rischio di credito
 
-Informazioni su come creare un classificatore di apprendimento automatico senza dover scrivere una singola riga di codice usando l'interfaccia visiva. In questo esempio esegue il training di un **albero delle decisioni con Boosting a due classi** stimare credito basato sui rischi (alto o basso) sulle informazioni di carta di credito dell'applicazione come cronologia crediti, età e numero di carta di credito.
+Informazioni su come creare un classificatore di Machine Learning senza scrivere una singola riga di codice usando l'interfaccia visiva. Questo esempio consente di eseguire il training di un albero delle decisioni con boosting a **due classi** per stimare il rischio di credito (alto o basso) in base alle informazioni sulle applicazioni di credito, ad esempio la cronologia dei crediti, l'età e il numero di
 
-Poiché stiamo tentando di rispondere alla domanda "Quale uno?" si tratta di un problema di classificazione. Tuttavia, è possibile applicare lo stesso processo fondamentale per affrontare qualsiasi tipo di apprendimento automatico che si tratti di regressione, classificazione, clustering e così via.
+Poiché si sta provando a rispondere alla domanda "quale?" si tratta di un problema di classificazione. Tuttavia, è possibile applicare lo stesso processo fondamentale per risolvere qualsiasi tipo di problema di Machine Learning, indipendentemente dal fatto che si tratti di regressione, classificazione, clustering e così via.
 
-Ecco il grafico completato per questo esperimento:
+Ecco il grafo completato per questo esperimento:
 
 ![Grafico dell'esperimento](media/ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
 
@@ -31,32 +31,32 @@ Ecco il grafico completato per questo esperimento:
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Selezionare il **aperto** pulsante per l'esperimento di esempio 3:
+4. Selezionare il pulsante **Apri** per l'esperimento Sample 3:
 
     ![Aprire l'esperimento](media/ui-sample-classification-predict-credit-risk-basic/open-sample3.png)
 
 ## <a name="related-sample"></a>Esempio correlato
 
-[Esempio 4: classificazione: (Costo sensibili) previsione del rischio di credito](ui-sample-classification-predict-credit-risk-cost-sensitive.md) fornisce un esperimento avanzato che lo stesso problema di questo esperimento è stato risolto. Viene illustrato come eseguire _costo sensibile_ classificazione tramite un' **Execute Python Script** modulo e confrontare le prestazioni dei due algoritmi di classificazione binaria. Se si desidera per ulteriori informazioni su come creare esperimenti di classificazione, fare riferimento a esso.
+[Esempio 4-Classificazione: La stima del rischio di credito (sensibile](ui-sample-classification-predict-credit-risk-cost-sensitive.md) ai costi) fornisce un esperimento avanzato che risolve lo stesso problema di questo esperimento. Viene illustrato come eseguire una classificazione _sensibile ai costi_ usando un modulo **Execute Python script** e confrontare le prestazioni di due algoritmi di classificazione binaria. Per ulteriori informazioni su come compilare gli esperimenti di classificazione, vedere.
 
 ## <a name="data"></a>Data
 
-Viene usato il set di dati German Credit Card dal repository UC Irvine.
-Il set di dati contiene 1000 campioni con 1 etichetta e 20 funzionalità. Ogni esempio rappresenta una persona. Le funzionalità includono funzionalità numeriche e di categoria. Vedere le [sito Web UCI](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) per il significato delle funzionalità categoriche. L'ultima colonna è l'etichetta, che indica il rischio di credito e dispone di due soli valori possibili: rischio di credito elevato = 2 e a basso rischio di credito = 1.
+Il set di dati della carta di credito tedesco viene usato dal repository UC Irvine.
+Il set di dati contiene 1.000 esempi con 20 funzionalità e 1 etichetta. Ogni esempio rappresenta una persona. Le funzionalità includono le funzionalità numeriche e categoriche. Per il significato delle funzionalità categoriche, vedere il [sito Web UCI](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) . L'ultima colonna è l'etichetta, che indica il rischio di credito e dispone solo di due valori possibili: High Credit Risk = 2 e low Credit Risk = 1.
 
-## <a name="experiment-summary"></a>Riepilogo di esperimento
+## <a name="experiment-summary"></a>Riepilogo esperimento
 
-È seguire questi passaggi per creare l'esperimento:
+Per creare l'esperimento, attenersi alla procedura seguente:
 
-1. Trascinare il modulo di German Credit Card UCI Data set di dati nell'area di disegno dell'esperimento.
-1. Aggiungere un **Edit Metadata** modulo in modo che possiamo aggiungere nomi significativi per ogni colonna.
-1. Aggiungere un **Split Data** modulo per creare set di training e test. Impostare la frazione di righe del primo set di dati di output su 0,7. Questa impostazione specifica che il 70% dei dati sarà output alla porta di sinistra del modulo e le restanti verso la porta di destra. Usiamo il set di dati a sinistra per il training e quello giusto per il test.
-1. Aggiungere un **Two-Class Boosted Decision Tree** modulo per inizializzare un classificatore dell'albero delle decisioni con Boosting.
-1. Aggiungere un **Train Model** modulo. Connettere la funzione di classificazione nel passaggio precedente per la porta di input sinistra del **Train Model**. Aggiungere il set di training (porta di output sinistra di **Split Data**) alla porta di input destra del **Train Model**. Il **Train Model** eseguirà il training del classificatore.
-1. Aggiungere un **Score Model** modulo e connettere il **Train Model** modulo ad esso. Aggiungere quindi il set di test (porta di destra del **Split Data**) per il **Score Model**. Il **Score Model** apporterà le stime. È possibile selezionare la porta di output per visualizzare le stime e probabilità la classe positiva.
-1. Aggiungere un **Evaluate Model** modulo e connettere il set di dati con punteggio per la porta di input a sinistra. Per visualizzare i risultati della valutazione, selezionare la porta di output del **Evaluate Model** modulo e selezionare **Visualize**.
+1. Trascinare il modulo del set di dati di dati UCI della carta di credito tedesco nell'area di disegno dell'esperimento.
+1. Aggiungere un modulo **Modifica metadati** in modo che sia possibile aggiungere nomi significativi per ogni colonna.
+1. Aggiungere un modulo **Split data** per creare i set di training e di test. Impostare la frazione di righe nel primo set di dati di output su 0,7. Questa impostazione specifica che il 70% dei dati verrà restituito alla porta sinistra del modulo e il resto sulla porta destra. Il set di dati a sinistra viene usato per il training e quello giusto per i test.
+1. Aggiungere un modulo a albero delle decisioni con boosting a **due classi** per inizializzare un classificatore di albero delle decisioni con boosting.
+1. Aggiungere un modulo **Train Model** . Connettere il classificatore dal passaggio precedente alla porta di input sinistra del modello di **Training**. Aggiungere il set di training (la porta di output sinistra dei **dati di suddivisione**) alla porta di input destra del **modello Train**. Il training **Model** eseguirà il training del classificatore.
+1. Aggiungere un modulo **Score Model** e connettervi il modulo **Train Model** . Aggiungere quindi il set di test (la porta destra dei **dati di suddivisione**) al **modello di Punteggio**. Il **modello di Punteggio** effettuerà le stime. È possibile selezionare la relativa porta di output per visualizzare le stime e le probabilità della classe positiva.
+1. Aggiungere un modulo **Evaluate Model** e connettere il set di dati con punteggio alla relativa porta di input sinistra. Per visualizzare i risultati della valutazione, selezionare la porta di output del modulo **Evaluate Model** e selezionare Visualize ( **Visualizza**).
 
-Ecco il grafico completo esperimento:
+Ecco il grafico completo dell'esperimento:
 
 ![Grafico dell'esperimento](media/ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
 
@@ -64,7 +64,7 @@ Ecco il grafico completo esperimento:
 
 ![Valutare i risultati](media/ui-sample-classification-predict-credit-risk-basic/evaluate-result.png)
 
-Nei risultati della valutazione, si noterà che l'area sottesa alla curva del modello è 0.776. La precisione è 0.621 nella soglia di 0,5, il richiamo è 0,456 e il punteggio F1 è 0.526.
+Nei risultati della valutazione è possibile notare che l'AUC del modello è 0,776. Alla soglia 0,5, la precisione è 0,621, il richiamo è 0,456 e il Punteggio F1 è 0,526.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -75,7 +75,7 @@ Nei risultati della valutazione, si noterà che l'area sottesa alla curva del mo
 Esplorare gli altri esempi disponibili per l'interfaccia visiva:
 
 - [Esempio 1: regressione: Stimare il prezzo di un'automobile](ui-sample-regression-predict-automobile-price-basic.md)
-- [Esempio 2: regressione: Confrontare gli algoritmi per la stima di prezzo di un'automobile](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-- [Esempio 4: classificazione: Prevedere il rischio di credito (costo sensibile)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-- [Esempio 5 - classificazione: Prevedere la varianza](ui-sample-classification-predict-churn.md)
-- [Esempio 6: classificazione: Prevedere i ritardi dei voli](ui-sample-classification-predict-flight-delay.md)
+- [Esempio 2: regressione: Confrontare gli algoritmi per la stima del prezzo dell'automobile](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [Esempio 4-Classificazione: Stimare il rischio di credito (costo sensibile)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Esempio 5-classificazione: Varianza stima](ui-sample-classification-predict-churn.md)
+- [Esempio 6-Classificazione: Stimare i ritardi dei voli](ui-sample-classification-predict-flight-delay.md)

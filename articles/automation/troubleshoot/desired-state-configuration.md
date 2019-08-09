@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6de348a19081eba685deafebd8a7c9b9d6556444
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 67e5364996be2945d67aa1a95cbc3ab8137e077e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688120"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850247"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Risolvere i problemi della configurazione dello stato desiderato (DSC)
 
@@ -24,16 +24,17 @@ Questo articolo contiene informazioni sulla risoluzione dei problemi della confi
 
 Quando si verificano errori durante la compilazione o la distribuzione di configurazioni in Azure state Configuration, di seguito sono riportati alcuni passaggi che consentono di diagnosticare il problema.
 
-1. **Assicurarsi che la configurazione venga compilata correttamente nel computer locale:**  La configurazione dello stato di Azure si basa su PowerShell DSC. È possibile trovare la documentazione relativa alla sintassi e al linguaggio DSC in [PowerShell DSC docs](/powershell/dsc/overview/overview).
+1. **Assicurarsi che la configurazione venga compilata correttamente nel computer locale:**  La configurazione dello stato di Azure si basa su PowerShell DSC. È possibile trovare la documentazione relativa alla sintassi e al linguaggio DSC in [PowerShell DSC docs](https://docs.microsoft.com/en-us/powershell/scripting/overview).
 
-   Compilando la configurazione DSC nel computer locale, è possibile individuare e risolvere gli errori comuni, ad esempio:
+   Compilando la configurazione DSC nel computer locale è possibile individuare e risolvere gli errori comuni, ad esempio:
 
    - **Moduli mancanti**
    - **Errori di sintassi**
    - **Errori di logica**
+
 2. **Visualizzare i log DSC nel nodo:** Se la configurazione viene compilata correttamente, ma ha esito negativo quando viene applicata a un nodo, è possibile trovare informazioni dettagliate nei log. Per informazioni su dove trovare i log DSC, vedere [dove sono i registri eventi DSC](/powershell/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs).
 
-   Inoltre, [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) è in grado di semplificare l'analisi di informazioni dettagliate dai log DSC. Se si contatta il supporto tecnico, questi registri saranno necessari per dare il proprio problema.
+   Inoltre, [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) può essere utile per l'analisi di informazioni dettagliate dai log DSC. Se si contatta il supporto tecnico, questi registri saranno necessari per diagnosticare il problema.
 
    È possibile installare **xDscDiagnostics** nel computer locale usando le istruzioni disponibili in [installare il modulo versione stabile](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module).
 
@@ -130,7 +131,7 @@ Quando l'espressione che segue la parola chiave **Node** nella configurazione DS
 una qualsiasi delle soluzioni seguenti consente di correggere il problema:
 
 * Verificare che l'espressione accanto alla parola chiave **node** nella definizione di configurazione non stia valutando $null.
-* Se durante la compilazione della configurazione si passano dei dati di configurazione, verificare di specificare i valori previsti necessari per la configurazione da [ConfigurationData](../automation-dsc-compile.md#configurationdata).
+* Se durante la compilazione della configurazione si passano dei dati di configurazione, verificare di specificare i valori previsti necessari per la configurazione da [ConfigurationData](../automation-dsc-compile.md).
 
 ### <a name="dsc-in-progress"></a>Scenario: il report relativo al nodo DSC rimane bloccato nello stato "In corso"
 
@@ -166,7 +167,7 @@ Sono state usate le credenziali in una configurazione ma non è stato fornito un
 
 #### <a name="resolution"></a>Risoluzione
 
-* Assicurarsi di passare il **configurationData** appropriato per impostare **PSDscAllowPlainTextPassword** su true per ogni configurazione di nodo citata nella configurazione. Per altre informazioni, vedere la sezione relativa agli [asset in Automation DSC per Azure](../automation-dsc-compile.md#assets).
+* Assicurarsi di passare il **configurationData** appropriato per impostare **PSDscAllowPlainTextPassword** su true per ogni configurazione di nodo citata nella configurazione. Per altre informazioni, vedere la sezione relativa agli [asset in Automation DSC per Azure](../automation-dsc-compile.md#working-with-assets-in-azure-automation-during-compilation).
 
 ### <a name="failure-processing-extension"></a>Scenario: Caricamento dall'estensione DSC, errore dell'estensione per l'elaborazione degli errori
 
@@ -199,11 +200,27 @@ This event indicates that failure happens when LCM is processing the configurati
 
 #### <a name="cause"></a>Causa
 
-I clienti hanno identificato che se il percorso del/o è impostato su noexec, la versione corrente di DSC non sarà in grado di applicare le configurazioni.
+I clienti hanno identificato che se `/tmp` la località è impostata `noexec`su, la versione corrente di DSC non sarà in grado di applicare le configurazioni.
 
 #### <a name="resolution"></a>Risoluzione
 
-* Rimuovere l'opzione NOEXEC dalla posizione tmp.
+* Rimuovere l' `noexec` opzione `/tmp` dal percorso.
+
+### <a name="compilation-node-name-overlap"></a>Scenario: I nomi di configurazione del nodo che si sovrappongono possono causare una versione non valida
+
+#### <a name="issue"></a>Problema
+
+Se viene utilizzato un singolo script di configurazione per generare più configurazioni di nodo e alcune delle configurazioni del nodo hanno un nome che è un subset di altri, un problema nel servizio di compilazione può comportare l'assegnazione della configurazione errata.  Questo si verifica solo quando si usa un singolo script per generare configurazioni con i dati di configurazione per nodo e solo quando si verifica una sovrapposizione del nome all'inizio della stringa.
+
+Esempio, se viene utilizzato un singolo script di configurazione per generare configurazioni basate sui dati del nodo passati come Hashtable mediante i cmdlet e i dati del nodo includono un server denominato "Server" e "1Server".
+
+#### <a name="cause"></a>Causa
+
+Problema noto con il servizio di compilazione.
+
+#### <a name="resolution"></a>Risoluzione
+
+La soluzione migliore consiste nel compilare localmente o in una pipeline CI/CD e caricare i file MOF direttamente nel servizio.  Se la compilazione nel servizio è un requisito, la soluzione migliore successiva consiste nel suddividere i processi di compilazione in modo che non vi siano sovrapposizioni nei nomi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

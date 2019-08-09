@@ -1,21 +1,20 @@
 ---
 title: Failback durante il ripristino di emergenza con Azure Site Recovery | Microsoft Docs
 description: Questo articolo fornisce una panoramica dei diversi tipi di failback e delle avvertenze da tenere in considerazione quando si esegue il failback in locale durante il ripristino di emergenza con il servizio Azure Site Recovery.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/19/2019
+ms.date: 08/07/2019
 ms.author: raynew
-ms.openlocfilehash: 1e5dc91018df822c72381e4a162c5af5d74ed83c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0eaf28f9aeb4050fd35a6036a53e3e91d00f3eb
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399483"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847477"
 ---
-# <a name="failback-after-disaster-recovery-of-vmware-vms"></a>Failback dopo il ripristino di emergenza di macchine virtuali VMware
+# <a name="failback-of-vmware-vms-after-disaster-recovery-to-azure"></a>Failback delle macchine virtuali VMware dopo il ripristino di emergenza in Azure
 
 Dopo aver effettuato il failover in Azure, nell'ambito della procedura di ripristino di emergenza, è possibile eseguire il failback nel sito locale. Esistono due diversi tipi di failback con Azure Site Recovery: 
 
@@ -25,7 +24,7 @@ Dopo aver effettuato il failover in Azure, nell'ambito della procedura di ripris
 Se è stato eseguito il failover di una macchina virtuale VMware è possibile eseguire il failback nella stessa macchina virtuale di origine locale, se è ancora presente. In questo scenario viene eseguita la replica delle sole modifiche. Questo scenario è noto come **ripristino nel percorso originale**. Se la macchina virtuale locale non esiste, lo scenario è un **ripristino del percorso alternativo**.
 
 > [!NOTE]
-> È possibile solo eseguire il failback il vCenter originale e il server di configurazione. Non è possibile distribuire un server di configurazione ed eseguire il failback usandolo. Non è inoltre possibile aggiungere un nuovo vCenter al server di configurazione esistente ed eseguire il failback nel nuovo vCenter.
+> È possibile eseguire il failback solo al server vCenter e al server di configurazione originali. Non è possibile distribuire un server di configurazione ed eseguire il failback usandolo. Non è inoltre possibile aggiungere un nuovo vCenter al server di configurazione esistente ed eseguire il failback nel nuovo vCenter.
 
 ## <a name="original-location-recovery-olr"></a>Ripristino del percorso originale (OLR)
 Se si sceglie di eseguire il failback nella macchina virtuale originaria è necessario rispettare le condizioni seguenti:

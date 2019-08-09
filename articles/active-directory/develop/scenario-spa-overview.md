@@ -1,6 +1,6 @@
 ---
-title: Panoramica dello scenario di applicazione a singola pagina JavaScript - piattaforma delle identità Microsoft
-description: Informazioni su come compilare un'applicazione a pagina singola (panoramica dello scenario) che si integra piattaforma delle identità Microsoft.
+title: Panoramica dello scenario di applicazione a pagina singola JavaScript-piattaforma di identità Microsoft
+description: Informazioni su come creare un'applicazione a singola pagina (panoramica dello scenario) che integra la piattaforma di identità Microsoft.
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07a21e83f304f3e1acc0ed4033d832dd8e901ac9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c3c4e671473ff6c6fecdc13fe61dbde1d3fb3809
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65076361"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852508"
 ---
 # <a name="scenario-single-page-application"></a>Scenario: Applicazione a pagina singola
 
-Scopri tutto quello che dovete compilare un'applicazione a pagina singola (SPA).
+Scopri tutto quello che ti serve per creare un'applicazione a singola pagina (SPA).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -32,26 +32,26 @@ Scopri tutto quello che dovete compilare un'applicazione a pagina singola (SPA).
 
 ## <a name="getting-started"></a>Introduzione
 
-È possibile creare la prima applicazione seguendo la Guida introduttiva JavaScript SPA:
+È possibile creare la prima applicazione seguendo la Guida introduttiva a JavaScript SPA:
 
 > [!div class="nextstepaction"]
-> [Avvio rapido: Applicazione a singola pagina](./quickstart-v2-javascript.md)
+> [Avvio rapido: Applicazione a pagina singola](./quickstart-v2-javascript.md)
 
 ## <a name="overview"></a>Panoramica
 
-Molte applicazioni web moderne vengono compilate come applicazioni a pagina singola lato client scritte in JavaScript o un framework di applicazione a singola pagina, ad esempio VUE, Angular e React. js. Queste applicazioni eseguite in un web browser e dispongono di caratteristiche di autenticazione diverso rispetto alle applicazioni web tradizionali sul lato server. La piattaforma delle identità Microsoft consente alle applicazioni a pagina singola di accesso degli utenti e ottenere i token per accedere a servizi back-end o API web usando il [flusso implicito OAuth 2.0](./v2-oauth2-implicit-grant-flow.md). Il flusso implicito consente all'applicazione ottenere i token ID per rappresentare l'utente autenticato e anche i token necessari per chiamare le API protette di accesso.
+Molte applicazioni Web moderne vengono create come applicazioni a pagina singola sul lato client scritte usando JavaScript o un apposito framework come Angular, Vue.js e React.js. Queste applicazioni vengono eseguite in un Web browser e presentano caratteristiche di autenticazione diverse rispetto alle applicazioni Web tradizionali sul lato server. La piattaforma Microsoft Identity consente alle applicazioni a singola pagina di accedere agli utenti e ottenere i token per accedere ai servizi back-end o alle API Web usando il [flusso implicito OAuth 2,0](./v2-oauth2-implicit-grant-flow.md). Il flusso implicito consente all'applicazione di ottenere i token ID per rappresentare l'utente autenticato e anche i token di accesso necessari per chiamare le API protette.
 
 ![Applicazioni a pagina singola](./media/scenarios/spa-app.svg)
 
-Questo flusso di autenticazione non sono inclusi gli scenari di applicazione usando i framework JavaScript più piattaforme, ad esempio Electron, React-Native e così via. poiché richiedono altre funzionalità per l'interazione con piattaforme native.
+Questo flusso di autenticazione non include scenari di applicazioni che usano framework JavaScript multipiattaforma, ad esempio elettrone, React-native e così via. Poiché richiedono ulteriori funzionalità per l'interazione con le piattaforme native.
 
 ## <a name="specifics"></a>Specifiche
 
-Per abilitare questo scenario per l'applicazione sono necessari i seguenti aspetti:
+Per abilitare questo scenario per l'applicazione, sono necessari gli aspetti seguenti:
 
-* Registrazione dell'applicazione con Azure AD comporta abilitare il flusso implicito e impostazione di un URI di reindirizzamento a cui vengono restituiti i token.
-* Configurazione dell'applicazione con le proprietà dell'applicazione registrato, ad esempio l'ID applicazione.
-* Utilizzo libreria MSAL per eseguire il flusso di autenticazione per accedere e acquisire i token.
+* La registrazione dell'applicazione con Azure AD implica l'abilitazione del flusso implicito e l'impostazione di un URI di reindirizzamento a cui vengono restituiti i token.
+* Configurazione dell'applicazione con le proprietà dell'applicazione registrate, ad esempio l'ID applicazione.
+* Uso della libreria MSAL per eseguire il flusso di autenticazione per l'accesso e l'acquisizione di token.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

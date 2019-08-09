@@ -14,14 +14,14 @@ ms.workload: na
 ms.date: 05/17/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.custom: aaddev, seoapril2019
+ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 825966fbb0db537aad8de39e69e17418e6432b44
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a28354f54978e8ba776d8b0da294652ff462a05f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324673"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853449"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedura: usare il portale per creare un'applicazione Azure AD e un'entità servizio che possano accedere alle risorse
 
@@ -78,22 +78,22 @@ Quando si accede a livello di codice, è necessario specificare l'ID tenant con 
 1. Da **Registrazioni app** in Azure AD selezionare l'applicazione.
 1. Copiare l'ID directory (tenant) e archiviarlo nel codice dell'applicazione.
 
-    ![Copiare la directory (ID tenant) e archiviarla nel codice dell'app](./media/howto-create-service-principal-portal/copy-tenant-id.png)
+    ![Copiare il valore della directory (ID tenant) e archiviarla nel codice dell'app](./media/howto-create-service-principal-portal/copy-tenant-id.png)
 
 1. Copiare l'**ID applicazione** e archiviarlo nel codice dell'applicazione.
 
-   ![Copiare l'ID applicazione (client)](./media/howto-create-service-principal-portal/copy-app-id.png)
+   ![Copiare il valore di ID applicazione (client)](./media/howto-create-service-principal-portal/copy-app-id.png)
 
 ## <a name="certificates-and-secrets"></a>Certificati e segreti
 Le applicazioni daemon possono usare due forme di credenziali per eseguire l'autenticazione con Azure AD: certificati e segreti dell'applicazione.  È consigliabile usare un certificato, ma è anche possibile creare un nuovo segreto dell'applicazione.
 
-### <a name="upload-a-certificate"></a>Caricamento di un certificato
+### <a name="upload-a-certificate"></a>Carica un certificato
 
 Se si dispone di un certificato, è possibile utilizzarne uno esistente.  Facoltativamente, è possibile creare un certificato autofirmato a scopo di test. Aprire PowerShell ed eseguire [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) con i parametri seguenti per creare un certificato autofirmato nell'archivio certificati utente del computer: `$cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature`.  Esportare questo certificato usando lo snap-in MMC [Gestione certificati utente](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) accessibile dal pannello di controllo di Windows.
 
 Per caricare il certificato:
 
-1. Selezionare **certificati & segreti**.
+1. Selezionare **Certificati e segreti**.
 1. Selezionare **Carica certificato** e selezionare il certificato (un certificato esistente o il certificato autofirmato esportato).
 
     ![Selezionare Carica certificato e selezionare quello che si desidera aggiungere](./media/howto-create-service-principal-portal/upload-cert.png)
@@ -106,13 +106,13 @@ Dopo aver registrato il certificato con l'applicazione nel portale di registrazi
 
 Se si sceglie di non usare un certificato, è possibile creare un nuovo segreto dell'applicazione.
 
-1. Selezionare **certificati & segreti**.
-1. Selezionare **segreti client-> nuovo segreto client**.
-1. Fornire una descrizione del segreto e una durata. Al termine, selezionare **Aggiungi**.
+1. Selezionare **Certificati e segreti**.
+1. Selezionare **Segreti client -> Nuovo segreto client**.
+1. Specificare una descrizione del segreto e una durata. Al termine, fare clic su **Aggiungi**.
 
-   Dopo aver salvato il segreto client, viene visualizzato il valore del segreto client. Copiare il valore in quanto non sarà possibile recuperare la chiave in seguito. Il valore della chiave sarà fornito insieme all'ID applicazione per eseguire l'accesso come applicazione. Salvare il valore della chiave in una posizione in cui l'applicazione possa recuperarlo.
+   Il valore del segreto client verrà visualizzato dopo il salvataggio. Copiare il valore in quanto non sarà possibile recuperare la chiave in seguito. Il valore della chiave sarà fornito insieme all'ID applicazione per eseguire l'accesso come applicazione. Salvare il valore della chiave in una posizione in cui l'applicazione possa recuperarlo.
 
-   ![Copiare il valore del segreto perché non è possibile recuperarlo in un secondo momento](./media/howto-create-service-principal-portal/copy-secret.png)
+   ![Copiare il valore del segreto perché non sarà possibile recuperarlo in seguito](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="required-permissions"></a>Autorizzazioni necessarie
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 596020952fd02a414c050ac7fe7ab37d7137c391
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 4a745648f1b7abac7267d51cac9e1fe642ae13d8
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779654"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853692"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Distribuire la protezione delle password di Azure AD
 
@@ -102,7 +102,7 @@ Per la protezione Azure AD password sono disponibili due programmi di installazi
 
    * Per verificare che il servizio sia in esecuzione, usare il comando di PowerShell seguente:
 
-      `Get-Service AzureADPasswordProtectionProxy | fl`.
+      [https://login.microsoftonline.com/common/](`Get-Service AzureADPasswordProtectionProxy | fl`).
 
      Il risultato dovrebbe mostrare **lo stato** "Running".
 
@@ -290,7 +290,9 @@ L'installazione è stata completata dopo l'installazione del software dell'agent
 
 ## <a name="upgrading-the-proxy-agent"></a>Aggiornamento dell'agente proxy
 
-Quando è disponibile una versione più recente del software proxy Azure ad Password Protection, l'aggiornamento viene eseguito eseguendo la versione più recente del programma `AzureADPasswordProtectionProxySetup.exe` di installazione software. Non è necessario disinstallare la versione corrente del software proxy. il programma di installazione eseguirà un aggiornamento sul posto. Quando si aggiorna il software proxy, non è necessario riavviare il computer. È possibile automatizzare l'aggiornamento del software utilizzando le procedure MSI standard, `AzureADPasswordProtectionProxySetup.exe /quiet`ad esempio:.
+Quando è disponibile una versione più recente del software proxy Azure ad Password Protection, l'aggiornamento viene eseguito eseguendo la versione più recente del programma `AzureADPasswordProtectionProxySetup.exe` di installazione software. La versione più recente del software è disponibile nell' [area download Microsoft](https://www.microsoft.com/download/details.aspx?id=57071).
+
+Non è necessario disinstallare la versione corrente del software proxy. il programma di installazione eseguirà un aggiornamento sul posto. Quando si aggiorna il software proxy, non è necessario riavviare il computer. È possibile automatizzare l'aggiornamento del software utilizzando le procedure MSI standard, `AzureADPasswordProtectionProxySetup.exe /quiet`ad esempio:.
 
 L'agente proxy supporta l'aggiornamento automatico. L'aggiornamento automatico usa il servizio Microsoft Azure AD Connect Agent Updater, installato side-by-side con il servizio proxy. L'aggiornamento automatico è attivato per impostazione predefinita e può essere abilitato o disabilitato usando il cmdlet Set-AzureADPasswordProtectionProxyConfiguration. È possibile eseguire query sull'impostazione corrente usando il cmdlet Get-AzureADPasswordProtectionProxyConfiguration. Microsoft consiglia di lasciare abilitata l'aggiornamento automatico.
 
@@ -298,7 +300,9 @@ Il `Get-AzureADPasswordProtectionProxy` cmdlet può essere utilizzato per esegui
 
 ## <a name="upgrading-the-dc-agent"></a>Aggiornamento dell'agente del controller di dominio
 
-Quando è disponibile una versione più recente del software dell'agente del controller di dominio Azure ad Password Protection, l'aggiornamento viene eseguito eseguendo la versione `AzureADPasswordProtectionDCAgentSetup.msi` più recente del pacchetto software. Non è necessario disinstallare la versione corrente del software dell'agente del controller di dominio. il programma di installazione eseguirà un aggiornamento sul posto. Quando si aggiorna il software dell'agente del controller di dominio, è sempre necessario riavviare il sistema. questa situazione è causata dal comportamento principale di Windows. 
+Quando è disponibile una versione più recente del software dell'agente del controller di dominio Azure ad Password Protection, l'aggiornamento viene eseguito eseguendo la versione `AzureADPasswordProtectionDCAgentSetup.msi` più recente del pacchetto software. La versione più recente del software è disponibile nell' [area download Microsoft](https://www.microsoft.com/download/details.aspx?id=57071).
+
+Non è necessario disinstallare la versione corrente del software dell'agente del controller di dominio. il programma di installazione eseguirà un aggiornamento sul posto. Quando si aggiorna il software dell'agente del controller di dominio, è sempre necessario riavviare il sistema. questa situazione è causata dal comportamento principale di Windows. 
 
 È possibile automatizzare l'aggiornamento del software utilizzando le procedure MSI standard, `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`ad esempio:.
 

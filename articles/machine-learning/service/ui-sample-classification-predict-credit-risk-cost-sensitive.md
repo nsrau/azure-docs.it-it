@@ -1,31 +1,31 @@
 ---
-title: 'Classificazione: Prevedere il rischio di credito (costo sensibile)'
+title: Classificazione Stimare il rischio di credito (costo sensibile)
 titleSuffix: Azure Machine Learning service
-description: Questo articolo illustra come compilare un complesso esperimento di machine learning usando l'interfaccia visiva. Verrà illustrato come implementare gli script Python personalizzati e confrontare più modelli per scegliere l'opzione migliore.
+description: Questo articolo illustra come creare un esperimento di Machine Learning complesso usando l'interfaccia visiva. Si apprenderà come implementare script Python personalizzati e confrontare più modelli per scegliere l'opzione migliore.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: efed981b500ff14a66c2355a1d14bd762000622f
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 942d6fa6db7ee2fc07fd11d3448ac7ec96c3bd43
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606171"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845968"
 ---
-# <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>Esempio 4: classificazione: Prevedere il rischio di credito (costo sensibile)
+# <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>Esempio 4-Classificazione: Stimare il rischio di credito (costo sensibile)
 
-Questo articolo illustra come compilare un complesso esperimento di machine learning usando l'interfaccia visiva. Verrà illustrato come implementare la logica personalizzata usando script Python e confrontare più modelli per scegliere l'opzione migliore.
+Questo articolo illustra come creare un esperimento di Machine Learning complesso usando l'interfaccia visiva. Si apprenderà come implementare la logica personalizzata usando gli script Python e confrontare più modelli per scegliere l'opzione migliore.
 
-In questo esempio esegue il training di un classificatore per prevedere il rischio di credito utilizzando le informazioni di carta di credito dell'applicazione come cronologia crediti, età e numero di carta di credito. Tuttavia, è possibile applicare i concetti presentati in questo articolo per affrontare i propri problemi di apprendimento.
+Questo esempio consente di eseguire il training di un classificatore per stimare il rischio di credito usando le informazioni sull'applicazione di credito, ad esempio la cronologia dei crediti, l'età e il numero Tuttavia, è possibile applicare i concetti in questo articolo per risolvere i problemi di apprendimento automatico.
 
-Se si sta appena iniziando a usare machine Learning, è possibile esaminare i [esempio di classificazione base](ui-sample-classification-predict-credit-risk-basic.md) prima.
+Se si sta iniziando a usare Machine Learning, è possibile esaminare prima di tutto l'esempio di classificatore di [base](ui-sample-classification-predict-credit-risk-basic.md) .
 
-Ecco il grafico completato per questo esperimento:
+Ecco il grafo completato per questo esperimento:
 
 [![Grafico dell'esperimento](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
@@ -33,45 +33,45 @@ Ecco il grafico completato per questo esperimento:
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Selezionare il **aperto** pulsante per l'esperimento di esempio 4:
+4. Selezionare il pulsante **Apri** per l'esperimento 4 di esempio:
 
     ![Aprire l'esperimento](media/ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
 
 ## <a name="data"></a>Data
 
-Viene usato il set di dati German Credit Card dal repository UC Irvine. Questo set di dati contiene 1000 campioni con 1 etichetta e 20 funzionalità. Ogni esempio rappresenta una persona. Le funzionalità di 20 includono funzionalità numeriche e di categoria. Vedere le [sito Web UCI](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) per altre informazioni sul set di dati. L'ultima colonna è l'etichetta, che indica il rischio di credito e dispone di due soli valori possibili: rischio di credito elevato = 2 e a basso rischio di credito = 1.
+Il set di dati della carta di credito tedesco viene usato dal repository UC Irvine. Questo set di dati contiene 1.000 esempi con 20 funzionalità e 1 etichetta. Ogni esempio rappresenta una persona. Le 20 funzionalità includono le funzionalità numeriche e categoriche. Per ulteriori informazioni sul set di dati, vedere il [sito Web UCI](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) . L'ultima colonna è l'etichetta, che indica il rischio di credito e dispone solo di due valori possibili: High Credit Risk = 2 e low Credit Risk = 1.
 
-## <a name="experiment-summary"></a>Riepilogo di esperimento
+## <a name="experiment-summary"></a>Riepilogo esperimento
 
-In questo esperimento è confrontare due diversi approcci per la generazione di modelli per risolvere questo problema:
+In questo esperimento vengono confrontati due approcci diversi per la generazione di modelli per risolvere il problema:
 
-- Corsi di formazione con il set di dati originale.
-- Training di un set di dati replicati.
+- Training con il set di dati originale.
+- Training con un set di dati replicato.
 
-Con entrambi gli approcci, Valutiamo i modelli usando il set di dati di test con la replica per garantire che i risultati siano allineati con la funzione di costo. Si verifica due classificatori con entrambi gli approcci: **Two-Class Support Vector Machine** e **albero delle decisioni con Boosting a due classi**.
+Con entrambi gli approcci, i modelli vengono valutati usando il set di dati di test con la replica per assicurarsi che i risultati siano allineati con la funzione cost. Si testano due classificatori con entrambi gli approcci: **Macchina a vettori di supporto a due classi** e **albero delle decisioni**con boosting a due classi.
 
-Il costo di un'errata classificazione di un basso rischio esempio al livello più alto è 1 e il costo di un'errata classificazione di un esempio ad alto rischio come basso è 5. Si usa un' **Execute Python Script** modulo a prendere in considerazione questo errata dei costi.
+Il costo di un'errata classificazione di un esempio a basso rischio è pari a 1 e il costo di una classificazione errata di un esempio ad alto rischio come basso è 5. Viene usato un modulo **Execute Python script** per tenere conto di questo costo di classificazione errata.
 
 Ecco il grafico dell'esperimento:
 
 [![Grafico dell'esperimento](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
-## <a name="data-processing"></a>Elaborazione dei dati
+## <a name="data-processing"></a>Elaborazione dati
 
-Iniziamo con il **Metadata Editor** modulo per aggiungere i nomi delle colonne per sostituire i nomi di colonna predefiniti con nomi più significativi, ottenuto dalla descrizione del set di dati nel sito UCI. Vengono forniti i nuovi nomi di colonna con valori delimitati da virgole nel **nuova colonna** campo del nome del **Metadata Editor**.
+Si inizia usando il modulo **Metadata Editor** per aggiungere nomi di colonna per sostituire i nomi di colonna predefiniti con nomi più significativi, ottenuti dalla descrizione del set di dati nel sito UCI. I nuovi nomi di colonna vengono forniti come valori delimitati da virgole nel campo **nuovo nome colonna** dell' **Editor metadati**.
 
-Successivamente, si genera la formazione e usato per sviluppare il modello di previsione del rischio di set di test. Set di dati originale viene suddiviso in set di training e test delle stesse dimensioni usando il **Split Data** modulo. Per creare set di dimensioni uguali, impostiamo il **frazione di righe nel primo set di dati di output** opzione su 0,5.
+Si generano quindi i set di training e di test usati per sviluppare il modello di stima del rischio. Il set di dati originale viene suddiviso in set di training e di test con le stesse dimensioni usando il modulo **Split data** . Per creare set di uguale dimensione, è possibile impostare la **frazione di righe nel primo set di dati di output** su 0,5.
 
-### <a name="generate-the-new-dataset"></a>Generare il nuovo set di dati
+### <a name="generate-the-new-dataset"></a>Genera il nuovo set di dati
 
-Poiché il costo di una sottostima dei rischi è elevato, viene impostato il costo di errata classificazione come segue:
+Poiché il costo della sottostima del rischio è elevato, viene impostato il costo di una classificazione errata come la seguente:
 
-- Per i casi ad alto rischio classificato in modo errati come a basso rischio: 5
-- Per i casi a basso rischio classificato in modo errati come ad alto rischio: 1
+- Per i casi a rischio elevato non classificati come basso rischio: 5
+- Per i casi di basso rischio classificati come rischio elevato: 1
 
-Per riflettere questa funzione di costo, si genera un nuovo set di dati. Nel nuovo set di dati, ogni esempio a rischio elevato viene replicato cinque volte, ma non modifica il numero di esempi di basso rischio. I dati viene suddiviso in set di dati di training e test prima della replica per impedire la stessa riga in entrambi i set.
+Per riflettere questa funzione di costo, viene generato un nuovo set di dati. Nel nuovo set di dati, ogni esempio a rischio elevato viene replicato cinque volte, ma il numero di esempi a basso rischio non cambia. I dati vengono suddivisi in set di dati di training e di test prima della replica per impedire che la stessa riga venga eseguita in entrambi i set.
 
-Per replicare i dati ad alto rischio, inseriamo il codice Python in un' **Execute Python Script** modulo:
+Per replicare i dati ad alto rischio, inserire il codice Python in un modulo **Execute Python script** :
 
 ```Python
 import pandas as pd
@@ -85,42 +85,42 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     return result,
 ```
 
-Il **Execute Python Script** modulo vengono replicati i set di dati di training e di test.
+Il modulo **Execute Python script** replica i set di risultati di training e di test.
 
 ### <a name="feature-engineering"></a>Progettazione delle funzioni
 
-Il **Two-Class Support Vector Machine** algoritmo richiede dati normalizzati. Quindi viene usato il **Normalize Data** modulo di normalizzare gli intervalli di tutte le funzioni numeriche con un `tanh` trasformazione. Oggetto `tanh` trasformazione converte tutte le funzioni numeriche in valori all'interno di un intervallo pari a 0 e 1, mantenendo tuttavia la distribuzione complessiva dei valori.
+L'algoritmo di **macchina a vettori di supporto a due classi** richiede i dati normalizzati. Viene quindi usato il modulo **Normalize data** per normalizzare gli intervalli di tutte le funzionalità numeriche con `tanh` una trasformazione. Una `tanh` trasformazione converte tutte le funzionalità numeriche in valori compresi in un intervallo compreso tra 0 e 1, conservando la distribuzione complessiva dei valori.
 
-Il **Two-Class Support Vector Machine** modulo gestisce le funzionalità di stringa, convertendoli a funzionalità categoriche e quindi a binario con un valore pari a 0 o 1. È necessario per queste funzioni vengono normalizzate.
+Il modulo **Two-Class Support Vector Machine** gestisce le funzionalità di stringa, le converte in funzionalità categoriche e quindi in funzionalità binarie con un valore 0 o 1. Quindi, non è necessario normalizzare queste funzionalità.
 
 ## <a name="models"></a>Modelli
 
-Perché è di due classificatori, applicare **Two-Class Support Vector Machine** (SVM) e **Two-Class Boosted Decision Tree**e anche usare due set di dati, è possibile generare un totale di quattro modelli:
+Poiché si applicano due classificatori, SVM ( **Two-Class Support Vector Machine** ) e albero delle decisioni con boosting a **due classi**, e si usano anche due set di impostazioni, viene generato un totale di quattro modelli:
 
-- Eseguito il training SVM con i dati originali.
-- SVM sottoposti a training con i dati replicati.
-- Albero delle decisioni con Boosting sottoposto a training con i dati originali.
-- Albero delle decisioni con Boosting sottoposti a training con i dati replicati.
+- SVM è stato sottoposto a training con i dati originali.
+- SVM sottoposto a training con i dati replicati.
+- Albero delle decisioni con boosting con dati originali.
+- Albero delle decisioni con boosting sottoposto a training con i dati replicati.
 
-Utilizziamo il flusso di lavoro sperimentale standard per creare, eseguire il training e testare i modelli:
+Il flusso di lavoro sperimentale standard viene usato per creare, eseguire il training e testare i modelli:
 
-1. Inizializzare gli algoritmi di apprendimento, utilizzando **Two-Class Support Vector Machine** e **Two-Class Boosted Decision Tree**.
-1. Uso **Train Model** per applicare l'algoritmo ai dati e creare il modello effettivo.
-1. Uso **Score Model** per generare punteggi usando gli esempi di test.
+1. Inizializzare gli algoritmi di apprendimento usando la **macchina a vettori di supporto a due classi** e l'albero delle decisioni con boosting a **due classi**.
+1. Utilizzare **Train Model** per applicare l'algoritmo ai dati e creare il modello effettivo.
+1. Usare **Score Model** per produrre punteggi usando gli esempi di test.
 
-Il diagramma seguente illustra una parte di questo esperimento, in cui vengono utilizzati i set di training originale e replicato per il training di due diversi modelli SVM. **Eseguire il training del modello** è connesso al set di training, e **Score Model** è connesso al set di test.
+Il diagramma seguente illustra una parte di questo esperimento, in cui vengono usati i set di training originali e replicati per eseguire il training di due modelli SVM diversi. **Train Model** è connesso al set di training e **Score Model** è connesso al set di test.
 
-![Grafico esperimento](media/ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
+![Grafico dell'esperimento](media/ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
 
-Nella fase di valutazione dell'esperimento, è l'accuratezza della ognuno dei quattro modelli di calcolo. Per questo esperimento, usiamo **Evaluate Model** per confrontare gli esempi che hanno la stessa errata classificazione di costo.
+Nella fase di valutazione dell'esperimento, viene calcolata l'accuratezza di ognuno dei quattro modelli. Per questo esperimento viene usato **Evaluate Model** per confrontare esempi con lo stesso costo di classificazione non consentita.
 
-Il **Evaluate Model** modulo può calcolare le metriche delle prestazioni per un massimo di due modelli classificati. Pertanto si utilizza un'istanza di **Evaluate Model** per valutare i due modelli SVM e un'altra istanza di **Evaluate Model** per valutare i due modelli di albero delle decisioni con Boosting.
+Il modulo **Evaluate Model** consente di calcolare le metriche delle prestazioni per tutti i due modelli con punteggio. Si usa quindi un'istanza di **Evaluate Model** per valutare i due modelli SVM e un'altra istanza di **Evaluate Model** per valutare i due modelli di albero delle decisioni con boosting.
 
-Si noti che il set di dati di test replicata viene utilizzato come input per **Score Model**. In altre parole, i punteggi di accuratezza finale includono il costo per ottenere le etichette non corretto.
+Si noti che il set di dati di test replicato viene usato come input per il **modello di Punteggio**. In altre parole, i punteggi di accuratezza finale includono il costo per il recupero delle etichette errate.
 
 ## <a name="combine-multiple-results"></a>Combinare più risultati
 
-Il **Evaluate Model** il modulo genera una tabella con una sola riga che contiene diverse metriche. Per creare un singolo set di risultati di accuratezza, utilizziamo innanzitutto **Add Rows** per combinare i risultati in un'unica tabella. Usiamo quindi il seguente script di Python nella **Execute Python Script** modulo per aggiungere il nome del modello e l'approccio di training per ogni riga nella tabella dei risultati:
+Il modulo **Evaluate Model** produce una tabella con una singola riga che contiene diverse metriche. Per creare un singolo set di risultati di accuratezza, si usa prima di tutto **Aggiungi righe** per combinare i risultati in una singola tabella. Viene quindi usato lo script Python seguente nel modulo **Execute Python script (Esegui script Python** ) per aggiungere il nome del modello e l'approccio di training per ogni riga della tabella dei risultati:
 
 ```Python
 import pandas as pd
@@ -142,15 +142,15 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 ## <a name="results"></a>Risultati
 
-Per visualizzare i risultati dell'esperimento, è possibile fare doppio clic dell'ultimo output Visualize **Select Columns in Dataset** modulo.
+Per visualizzare i risultati dell'esperimento, è possibile fare clic con il pulsante destro del mouse sull'output di visualizzazione dell'ultimo modulo **Select Columns in DataSet** .
 
-![Visualizzare l'output](media/ui-sample-classification-predict-credit-risk-cost-sensitive/result.png)
+![Visualizza output](media/ui-sample-classification-predict-credit-risk-cost-sensitive/result.png)
 
-La prima colonna elenca l'algoritmo utilizzato per generare il modello di machine learning.
+La prima colonna elenca l'algoritmo di Machine Learning utilizzato per generare il modello.
 La seconda colonna indica il tipo del set di training.
-La terza colonna contiene il valore di precisione di risparmiare sui costi.
+La terza colonna contiene il valore di accuratezza sensibile ai costi.
 
-Da questi risultati, è possibile vedere che la precisione migliore è fornita dal modello che è stato creato con **Two-Class Support Vector Machine** e sottoposto a training sul set di dati di training replicata.
+Da questi risultati è possibile osservare che la precisione migliore viene fornita dal modello creato con una **macchina a vettori di supporto a due classi** e con training sul set di dati di training replicato.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -161,7 +161,7 @@ Da questi risultati, è possibile vedere che la precisione migliore è fornita d
 Esplorare gli altri esempi disponibili per l'interfaccia visiva:
 
 - [Esempio 1: regressione: Stimare il prezzo di un'automobile](ui-sample-regression-predict-automobile-price-basic.md)
-- [Esempio 2: regressione: Confrontare gli algoritmi per la stima di prezzo di un'automobile](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-- [Esempio 3: classificazione: Prevedere il rischio di credito](ui-sample-classification-predict-credit-risk-basic.md)
-- [Esempio 5 - classificazione: Prevedere la varianza](ui-sample-classification-predict-churn.md)
-- [Esempio 6: classificazione: Prevedere i ritardi dei voli](ui-sample-classification-predict-flight-delay.md)
+- [Esempio 2: regressione: Confrontare gli algoritmi per la stima del prezzo dell'automobile](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [Esempio 3-classificazione: Stima del rischio di credito](ui-sample-classification-predict-credit-risk-basic.md)
+- [Esempio 5-classificazione: Varianza stima](ui-sample-classification-predict-churn.md)
+- [Esempio 6-Classificazione: Stimare i ritardi dei voli](ui-sample-classification-predict-flight-delay.md)

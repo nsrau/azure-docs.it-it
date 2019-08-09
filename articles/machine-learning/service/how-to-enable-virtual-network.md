@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 08/05/2019
-ms.openlocfilehash: 7c4c4ff611b35cac9aa8be1a9697a0d11bc4dc8b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 9bd56984f088ab16fc5d80c588afce2cdc31240b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815957"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848108"
 ---
 # <a name="securely-run-experiments-and-inference-inside-an-azure-virtual-network"></a>Eseguire in modo sicuro gli esperimenti e l'inferenza all'interno di una rete virtuale di Azure
 
@@ -27,7 +27,7 @@ Questo articolo fornisce informazioni dettagliate sulle **impostazioni di sicure
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Creare un'area di [lavoro](setup-create-workspace.md) del servizio Azure Machine Learning se non ne è già presente uno. Questo documento presuppone che l'utente abbia familiarità con le reti virtuali di Azure e la rete IP in generale. Questo documento presuppone anche che siano state create una rete virtuale e una subnet da usare con le risorse di calcolo. Se non si ha familiarità con le reti virtuali di Azure, leggere gli articoli seguenti per informazioni sul servizio:
+Creare un'area di [lavoro](how-to-manage-workspace.md) del servizio Azure Machine Learning se non ne è già presente uno. Questo documento presuppone che l'utente abbia familiarità con le reti virtuali di Azure e la rete IP in generale. Questo documento presuppone anche che siano state create una rete virtuale e una subnet da usare con le risorse di calcolo. Se non si ha familiarità con le reti virtuali di Azure, leggere gli articoli seguenti per informazioni sul servizio:
 
 * [Indirizzamento IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
 * [Gruppi di sicurezza](https://docs.microsoft.com/azure/virtual-network/security-overview)
@@ -36,7 +36,7 @@ Creare un'area di [lavoro](setup-create-workspace.md) del servizio Azure Machine
 
 ## <a name="storage-account-for-your-workspace"></a>Account di archiviazione per l'area di lavoro
 
-Per usare l'account di archiviazione di Azure predefinito per l'area di lavoro in una rete virtuale, seguire questa procedura:
+Per usare un account di archiviazione di Azure per l'area di lavoro in una rete virtuale, seguire questa procedura:
 
 1. Creare un calcolo di sperimentazione, ad esempio. Ambiente di calcolo di Machine Learning dietro una rete virtuale o alleghi un calcolo di sperimentazione all'area di lavoro ex. Cluster HDInsight o macchina virtuale. Per altre informazioni, vedere [usare ambiente di calcolo di Machine Learning](#use-machine-learning-compute) e [usare una macchina virtuale o un cluster HDInsight](#use-a-virtual-machine-or-hdinsight-cluster) in questo documento.
 2. Passare alla risorsa di archiviazione collegata all'area di lavoro. ![Immagine del portale di Azure che mostra l'archiviazione di Azure collegata all'area di lavoro del servizio Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-storage.png)
@@ -55,7 +55,9 @@ Per usare l'account di archiviazione di Azure predefinito per l'area di lavoro i
 > [!IMPORTANT]
 > L' __account di archiviazione predefinito__ per il servizio Azure machine learning può essere inserito in una rete virtuale __solo durante__le sperimentazioni.
 >
-> Per gli __account di archiviazione non predefiniti per__la sperimentazione o se si usa un account di archiviazione per l'inferenza, è necessario avere __accesso illimitato all'account di archiviazione__.
+> Gli __account di archiviazione non predefiniti__ possono anche essere posizionati in una rete virtuale, ma __solo per la sperimentazione__.
+>
+> Gli account di archiviazione predefiniti o non predefiniti usati per l'inferenza devono avere __accesso illimitato all'account di archiviazione__.
 >
 > Se non si è certi che queste impostazioni siano state modificate, vedere la sezione __Modificare la regola predefinita di accesso alla rete__ in [Configurare i firewall e le reti virtuali di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security). Usare la procedura per consentire l'accesso da tutte le reti durante l'inferenza o il punteggio del modello.
 
@@ -266,7 +268,7 @@ Per aggiungere il servizio Kubernetes di Azure in una rete virtuale all'area di 
 
     - __Subnet__: Selezionare la subnet.
 
-    - __Intervallo di indirizzi del servizio Kubernetes__: selezionare l'intervallo di indirizzi del servizio Kubernetes. Questo intervallo di indirizzi usa un indirizzo IP in notazione CIDR per definire gli indirizzi IP disponibili per il cluster. Non deve sovrapporsi a nessun intervallo IP della subnet. Ad esempio:  10.0.0.0/16.
+    - __Intervallo di indirizzi del servizio Kubernetes__: selezionare l'intervallo di indirizzi del servizio Kubernetes. Questo intervallo di indirizzi usa un indirizzo IP in notazione CIDR per definire gli indirizzi IP disponibili per il cluster. Non deve sovrapporsi a nessun intervallo IP della subnet. Ad esempio: 10.0.0.0/16.
 
     - __Indirizzo IP del servizio DNS Kubernetes__: selezionare l'indirizzo IP del servizio DNS di Kubernetes. Questo indirizzo IP viene assegnato al servizio DNS di Kubernetes. Deve essere compreso nell'intervallo di indirizzi del servizio Kubernetes. Ad esempio:  10.0.0.10.
 
