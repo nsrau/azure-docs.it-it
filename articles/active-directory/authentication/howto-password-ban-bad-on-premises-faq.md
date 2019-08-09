@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ccefec9e548b7981f696712bb4a983f4b577a9b
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 8ece7f93b5397db16e03c1eab1d2dc1e568113d9
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779640"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879252"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>protezione password di Azure AD locale - Domande frequenti
 
@@ -33,6 +33,8 @@ Le indicazioni correnti di Microsoft su questo argomento sono disponibili nella 
 **D: la protezione password di Azure AD locale è supportata nei cloud non pubblici?**
 
 No, la protezione password di Azure AD locale è supportata solo nel cloud pubblico. Non è stata annunciata alcuna data per la disponibilità nei cloud non pubblici.
+
+Il portale di Azure AD consente di modificare la configurazione di "Password Protection for Windows Server Active Directory" specifica locale anche in cloud non pubblici. tali modifiche verranno rese permanente, ma in caso contrario non saranno mai effettive. La registrazione degli agenti o delle foreste proxy locali non è supportata quando si usano credenziali di cloud non pubbliche e tutti questi tentativi di registrazione avranno sempre esito negativo.
 
 **D: in che modo è possibile applicare i vantaggi della protezione password di Azure AD a un sottoinsieme di utenti in locale?**
 
@@ -64,7 +66,7 @@ Non supportati. Password di protezione di Azure AD è una funzionalità di Azure
 
 **D: in che modo è possibile modificare il contenuto dei criteri a livello di Active Directory?**
 
-Non supportati. È possibile amministrare i criteri solo tramite il portale di gestione di Azure AD. Vedere anche la domanda precedente.
+Non supportati. È possibile amministrare i criteri solo usando il portale di Azure AD. Vedere anche la domanda precedente.
 
 **D: perché è necessario il servizio DFSR per la replica di sysvol?**
 
@@ -118,15 +120,15 @@ In sintesi, la distribuzione del servizio agente del controller di dominio di Pa
 
 **D: Perché il blocco Smart personalizzato non funziona anche dopo che gli agenti sono stati installati nell'ambiente di Active Directory locale?**
 
-Il blocco intelligente personalizzato è supportato solo in Azure. Le modifiche apportate alle impostazioni di blocco Smart personalizzato nel portale di gestione di Azure non hanno alcun effetto sull'ambiente di Active Directory locale, anche con gli agenti installati.
+Il blocco Smart personalizzato è supportato solo in Azure AD. Le modifiche apportate alle impostazioni di blocco Smart personalizzato nel portale di Azure AD non hanno alcun effetto sull'ambiente Active Directory locale, anche con gli agenti installati.
 
 **D: è disponibile un Management Pack di System Center Operations Manager per Password di protezione di Azure AD?**
 
 No.
 
-**D: Perché Azure rifiuta ancora le password vulnerabili anche se i criteri sono stati configurati in modalità di controllo?**
+**D: Perché Azure AD continuano a rifiutare password vulnerabili anche se i criteri sono stati configurati in modalità di controllo?**
 
-La modalità di controllo è supportata solo nell'ambiente di Active Directory locale. Azure è sempre in modo implicito in modalità "applica" quando valuta le password.
+La modalità di controllo è supportata solo nell'ambiente di Active Directory locale. Azure AD è sempre in modo implicito in modalità "applica" quando valuta le password.
 
 ## <a name="additional-content"></a>Contenuto aggiuntivo
 

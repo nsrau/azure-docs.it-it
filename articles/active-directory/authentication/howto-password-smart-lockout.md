@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd03e2b98b1fd1a2a45b5feecc963bcfc7bfe83c
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 489ff1824c4bc45ee7ed31e9c96377975a32baa4
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499886"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879250"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Blocco intelligente di Azure Active Directory
 
@@ -31,7 +31,7 @@ Il blocco intelligente tiene traccia degli ultimi tre hash delle password non va
 
 Le distribuzioni federate con AD FS 2016 e AF FS 2019 possono offrire vantaggi simili utilizzando il [blocco ad FS Extranet e il blocco Smart Extranet](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection).
 
-Il blocco intelligente è sempre attivo per tutti i clienti di Azure AD con le impostazioni predefinite che offrono la giusta combinazione di sicurezza e usabilità. Per personalizzare le impostazioni del blocco intelligente con valori specifici per un'organizzazione, è necessario disporre di licenze Azure AD Basic o superiori per i propri utenti.
+Il blocco intelligente è sempre attivo per tutti i clienti di Azure AD con le impostazioni predefinite che offrono la giusta combinazione di sicurezza e usabilità. Per personalizzare le impostazioni di blocco Smart, con valori specifici per l'organizzazione, è necessario disporre di licenze a pagamento Azure AD per gli utenti.
 
 L'uso del blocco intelligente non garantisce che un utente originale non venga mai bloccato. Quando il blocco intelligente blocca un account utente, viene eseguito un tentativo di non bloccare l'utente originale. Il servizio di blocco cerca di garantire che gli utenti non autorizzati non possano accedere all'account degli utenti originali.  
 
@@ -63,7 +63,7 @@ Per verificare i criteri di blocco degli account di Active Directory, usare le i
 
 ## <a name="manage-azure-ad-smart-lockout-values"></a>Gestire i valori del blocco intelligente di Azure AD
 
-In base alle esigenze dell'organizzazione, può essere necessario personalizzare i valori del blocco intelligente. Per personalizzare le impostazioni del blocco intelligente con valori specifici per un'organizzazione, è necessario disporre di licenze Azure AD Basic o superiori per i propri utenti.
+In base alle esigenze dell'organizzazione, può essere necessario personalizzare i valori del blocco intelligente. Per personalizzare le impostazioni di blocco Smart, con valori specifici per l'organizzazione, è necessario disporre di licenze a pagamento Azure AD per gli utenti.
 
 Per verificare o modificare i valori del blocco intelligente per l'organizzazione, seguire questa procedura:
 

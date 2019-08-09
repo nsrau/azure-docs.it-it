@@ -1,29 +1,29 @@
 ---
 title: Posizioni dei partner della rete WAN virtuale di Azure | Microsoft Docs
-description: Questo articolo contiene un elenco dei partner Azure rete WAN virtuale e percorsi di hub.
+description: Questo articolo contiene un elenco di partner WAN virtuali di Azure e località dell'hub.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 08/08/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect find a Virtual WAN partner
-ms.openlocfilehash: f38cd0565b2e90fe0803d8e815c622e22e954a18
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a871a527a4f8440ea3e388b1a91c19355eab3676
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60459847"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879319"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Posizioni dei partner e degli hub virtuali della rete WAN virtuale di Azure
 
-Questo articolo fornisce informazioni sulla rete WAN virtuale supportati aree e i partner per la connettività all'Hub virtuale.
+Questo articolo fornisce informazioni sulle aree e i partner supportati da WAN virtuali per la connettività all'hub virtuale.
 
-La rete WAN virtuale di Azure è un servizio di rete che offre connettività tra succursali ottimizzata e automatizzata tramite Azure. La rete WAN virtuale consente di connettere e configurare i dispositivi delle succursali per la comunicazione con Azure. Questa operazione può essere eseguita manualmente oppure usando provider di dispositivi tramite un partner di rete WAN virtuale. Uso di dispositivi partner consente che la facilità d'uso, semplificare le operazioni di connettività e gestione della configurazione.
+La rete WAN virtuale di Azure è un servizio di rete che offre connettività tra succursali ottimizzata e automatizzata tramite Azure. La rete WAN virtuale consente di connettere e configurare i dispositivi delle succursali per la comunicazione con Azure. Questa operazione può essere eseguita manualmente o usando i dispositivi del provider tramite un partner WAN virtuale. L'uso di dispositivi partner consente di semplificare l'uso, la semplificazione della connettività e la gestione della configurazione.
 
 La connettività dal dispositivo locale viene stabilita in modo automatico per l'hub virtuale. Un hub virtuale è una rete virtuale gestita da Microsoft. L'hub contiene vari endpoint di servizio per abilitare la connettività dalla rete locale (vpnsite). È possibile avere solo un hub per area.
 
-## <a name="automation"></a>Automazione dei partner di connettività
+## <a name="automation"></a>Automazione da partner di connettività
 
 I dispositivi che si connettono alla rete WAN virtuale di Azure dispongono di un'automazione incorporata per la connessione. Questa è in genere impostata nell'interfaccia utente di gestione del dispositivo (o equivalente), che consente di impostare la gestione della configurazione e della connettività tra il dispositivo VPN della succursale e un endpoint VPN dell'hub virtuale di Azure (gateway VPN).
 
@@ -36,9 +36,11 @@ L'automazione di alto livello seguente è impostata nella console del dispositiv
 
 Alcuni partner di connettività possono estendere l'automazione in modo da includere la creazione della rete virtuale dell'hub virtuale di Azure e di un Gateway VPN. Se si vuole approfondire la conoscenza dell'automazione, vedere [Configurare l'automazione - partner WAN](virtual-wan-configure-automation-providers.md).
 
-## <a name="partners"></a>Connettività tramite i partner
+## <a name="partners"></a>Connettività tramite partner
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
+
+Per il prossimo futuro, i partner seguenti sono disponibili sulla nostra roadmap: Fortinet, Silver-Peak, Velocloud, versa, Nuage Nokia.
 
 ## <a name="locations"></a>Località
 

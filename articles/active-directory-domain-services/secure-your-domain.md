@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: iainfou
-ms.openlocfilehash: e94cd9ca049cfdfd2321ce046714506ed1f23390
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 923ecae9dc649b8f5cdcfd447b78fdec0805927a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483271"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879159"
 ---
 # <a name="secure-your-azure-ad-domain-services-managed-domain"></a>Proteggere il dominio gestito di Azure Active Directory Domain Services
 Questo articolo indica come proteggere il dominio gestito. È possibile disattivare l'utilizzo dei pacchetti di crittografia vulnerabili e disabilitare la sincronizzazione del codice hash delle credenziali NTLM.
@@ -36,9 +36,12 @@ Seguire le istruzioni nell'articolo per [installare il modulo Azure PowerShell e
 
 ## <a name="disable-weak-cipher-suites-and-ntlm-credential-hash-synchronization"></a>Disabilitare i pacchetti di crittografia vulnerabili e la sincronizzazione del codice hash delle credenziali NTLM
 Usare lo script di PowerShell seguente:
+
 1. Disabilitare il supporto per NTLM v1 nel dominio gestito.
 2. Disabilitare la sincronizzazione degli hash delle password NTLM dall'istanza di Active Directory locale.
 3. Disabilitare TLS v1 nel dominio gestito.
+
+Se viene visualizzato un errore con il `Get-AzResource` comando che la risorsa *Microsoft. AAD/DomainServices* non esiste, [elevare l'accesso per gestire tutti i gruppi di gestione e le sottoscrizioni di Azure](../role-based-access-control/elevate-access-global-admin.md).
 
 ```powershell
 // Login to your Azure AD tenant
@@ -58,7 +61,7 @@ Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySetti
 ```
 
 > [!IMPORTANT]
-> Gli utenti (e gli account del servizio) non possono eseguire binding LDAP semplice se è stata disabilitata sincronizzazione dell'hash delle password NTLM nell'istanza di Azure AD Domain Services.  Per altre informazioni sulla disabilitazione della sincronizzazione dell'hash delle password NTLM, leggere [proteggere il dominio gestito di Azure AD DOmain Services](secure-your-domain.md).
+> Gli utenti e gli account del servizio non possono eseguire binding semplici LDAP se la sincronizzazione dell'hash delle password NTLM è stata disabilitata nell'istanza di Azure AD Domain Services.  Per ulteriori informazioni sulla disabilitazione della sincronizzazione dell'hash delle password NTLM, vedere [proteggere il dominio gestito di Azure ad Domain Services](secure-your-domain.md).
 >
 >
 

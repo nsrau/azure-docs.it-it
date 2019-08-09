@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2019
 ms.author: iainfou
-ms.openlocfilehash: 8829f16e580d0b926781ce0a3e9f8e6a63cf3110
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 30f4558339bbfddd2296cd1cb918c6ef8999b67e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853771"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879184"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Criteri password e di blocco dell'account nei domini gestiti
 Questo articolo illustra i criteri password predefiniti in un dominio gestito, oltre al modo in cui è possibile configurarli.
@@ -38,7 +38,8 @@ Usare i criteri granulari per le password per specificare molti criteri password
     * Durata del blocco account
     * Numero di tentativi di accesso non riusciti consentiti
     * Reimpostare il numero di tentativi di accesso non riusciti dopo
-
+    
+FGPP influiscono solo sugli utenti creati direttamente in Azure AD DS. Gli utenti del cloud e gli utenti del dominio sincronizzati nel dominio gestito Azure AD DS da Azure AD non sono interessati dalle impostazioni di complessità delle password. FGPP viene distribuito tramite associazione di gruppi nel dominio gestito di Azure AD DS e tutte le modifiche apportate vengono applicate al successivo accesso dell'utente. La modifica dei criteri non comporta lo sblocco di un account utente già bloccato.
 
 ## <a name="default-fine-grained-password-policy-settings-on-a-managed-domain"></a>Impostazioni dei criteri granulari per le password predefiniti in un dominio gestito
 Lo screenshot seguente illustra i criteri granulari per le password predefiniti, configurati in un dominio gestito di Azure AD Domain Services.

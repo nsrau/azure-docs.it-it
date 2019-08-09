@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/08/2019
+ms.date: 08/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6972c91a18f9deb240871d8c64a14647474d9d78
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 4cbaa8f22335da083506a76ad1a791576b109a00
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377266"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879779"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Codici di errore del report delle attività di accesso 
 
@@ -127,6 +127,7 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 |50177|La richiesta di verifica esterna non è supportata per gli utenti pass-through.|
 |50178|Il controllo della sessione non è supportato per gli utenti pass-through.|
 |50180|È necessaria l'autenticazione integrata di Windows. Abilitare il tenant per Seamless SSO.|
+|50201|Questo messaggio di interrupt verrà visualizzato all'utente durante l'accesso quando verranno fornite informazioni aggiuntive all'utente.|
 |51001|Non è presente il suggerimento di dominio con l'ID di sicurezza locale o l'UPN locale.|
 |51004|L'account utente non è presente nella directory.|
 |51006|È necessaria l'autenticazione integrata di Windows. Utente che ha eseguito l'accesso con il token di sessione mancante tramite attestazione. Chiedere all'utente di eseguire di nuovo l'accesso.|
@@ -181,6 +182,9 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 |500121| Autenticazione non riuscita durante la richiesta di autenticazione avanzata.|
 |500133| L'asserzione non è compresa nell'intervallo di tempo valido. Assicurarsi che il token di accesso non sia scaduto prima di usarlo per l'asserzione utente o richiedere un nuovo token.|
 |530021|L'applicazione non soddisfa i requisiti dell'app approvata per l'accesso condizionale.|
+|530032|Bloccato dai criteri di sicurezza.| 
+|700016|L'applicazione con identificatore ' {appIdentifier}' non è stata trovata nella directory ' {TenantName}'. Questa situazione può verificarsi se l'applicazione non è stata installata dall'amministratore del tenant o non è consentita da uno degli utenti nel tenant. È possibile che sia stata inviata la richiesta di autenticazione al tenant errato.|
+|900432|Il client riservato non è supportato nella richiesta tra cloud.|
 |7000218|Il corpo della richiesta deve contenere il parametro seguente:' client_assertion ' o ' client_secret '.|
 
 
