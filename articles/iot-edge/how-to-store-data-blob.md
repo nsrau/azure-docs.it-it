@@ -5,26 +5,27 @@ author: arduppal
 manager: mchad
 ms.author: arduppal
 ms.reviewer: arduppal
-ms.date: 06/19/2019
+ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 5932d51ecaca3c827ae6de268711c7f4d1b28d0a
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: a40389ca378826aef1b6aa136f8f5d69783c638e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640660"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881226"
 ---
-# <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Archiviare i dati sui dispositivi perimetrali con l'archiviazione BLOB di Azure in IoT Edge (anteprima)
+# <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Archiviare dati sul perimetro con archiviazione BLOB di Azure in IoT Edge
 
 L'archiviazione BLOB di Azure in IoT Edge offre una soluzione di archiviazione [BLOB in blocchi](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) nei dispositivi perimetrali. Un modulo di archiviazione BLOB nel dispositivo IoT Edge si comporta come un servizio BLOB in blocchi di Azure, ad eccezione dei BLOB in blocchi archiviati localmente sul dispositivo IoT Edge. È possibile accedere ai BLOB usando gli stessi metodi di archiviazione di Azure SDK o bloccare le chiamate API BLOB che già utilizzate. Questo articolo illustra i concetti relativi all'archiviazione BLOB di Azure in IoT Edge contenitore che esegue un servizio BLOB sul dispositivo IoT Edge.
 
-Questo modulo è utile negli scenari in cui i dati devono essere archiviati localmente fino a quando non possono essere elaborati o trasferiti nel cloud. Questi dati possono essere video, immagini, dati finanziari, dati ospedalieri o altri dati non strutturati.
-
-> [!NOTE]
-> L'archiviazione BLOB di Azure in IoT Edge è in versione di [anteprima pubblica](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Questo modulo è utile negli scenari:
+* dove i dati devono essere archiviati localmente fino a quando non possono essere elaborati o trasferiti nel cloud. Questi dati possono essere video, immagini, dati finanziari, dati ospedalieri o altri dati non strutturati.
+* Quando i dispositivi si trovano in una posizione con connettività limitata.
+* Quando si desidera elaborare i dati in modo efficiente localmente per ottenere l'accesso a bassa latenza ai dati, in modo da poter rispondere alle emergenze il più rapidamente possibile.
+* Quando si vogliono ridurre i costi di larghezza di banda ed evitare il trasferimento di terabyte di dati nel cloud. È possibile elaborare i dati localmente e inviare solo i dati elaborati al cloud.
 
 Guarda il video per un'introduzione rapida
 > [!VIDEO https://www.youtube.com/embed/QhCYCvu3tiM]
@@ -60,16 +61,11 @@ Un dispositivo Azure IoT Edge:
 
 - È possibile usare il computer di sviluppo o una macchina virtuale come dispositivo IoT Edge seguendo la procedura descritta nella Guida introduttiva per i [dispositivi](quickstart.md) [Linux](quickstart-linux.md) o Windows.
 
-- L'archiviazione BLOB di Azure nel modulo di IoT Edge supporta le configurazioni di dispositivo seguenti:
-
-  | Sistema operativo | AMD64 | ARM32v7 | ARM64 |
-  | ---------------- | ----- | ----- | ---- |
-  | Raspbian-stretch | No | Sì | No |  
-  | Ubuntu Server 16.04 | Sì | No | Sì |
-  | Ubuntu Server 18.04 | Sì | No | Yes |
-  | Windows 10 Internet Internet (Enterprise), Build 17763 | Sì | No | No |
-  | Windows Server 2019, Build 17763 | Yes | No | No |
-  
+- Per un elenco dei sistemi operativi e delle architetture supportati, vedere [Azure IOT Edge sistemi supportati](support.md#operating-systems) . Archiviazione BLOB di Azure nel modulo IoT Edge supporta le architetture seguenti:
+    - Windows AMD64
+    - Linux AMD64
+    - Linux ARM32
+    - Linux ARM64 (anteprima)
 
 Risorse cloud:
 
@@ -104,7 +100,10 @@ Il nome di questa impostazione è`deviceAutoDeleteProperties`
 
 ## <a name="using-smb-share-as-your-local-storage"></a>Uso della condivisione SMB come archiviazione locale
 È possibile fornire una condivisione SMB come percorso di archiviazione locale, quando si distribuisce il contenitore di Windows di questo modulo nell'host Windows.
-È possibile eseguire `New-SmbGlobalMapping` il comando di PowerShell per eseguire il mapping della condivisione SMB localmente nel dispositivo Internet delle cose che esegue Windows. Verificare che il dispositivo Internet sia in grado di leggere/scrivere nella condivisione SMB remota.
+
+Verificare che la condivisione SMB e il dispositivo Internet sia in domini a reciprocamente attendibili.
+
+È possibile eseguire `New-SmbGlobalMapping` il comando di PowerShell per eseguire il mapping della condivisione SMB localmente nel dispositivo Internet delle cose che esegue Windows.
 
 Di seguito sono riportati i passaggi di configurazione:
 ```PowerShell
@@ -112,12 +111,44 @@ $creds = Get-Credential
 New-SmbGlobalMapping -RemotePath <remote SMB path> -Credential $creds -LocalPath <Any available drive letter>
 ```
 Esempio: <br>
-`$creds = Get-Credentials` <br>
+`$creds = Get-Credential` <br>
 `New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G: `
 
 Questo comando utilizzerà le credenziali per l'autenticazione con il server SMB remoto. Eseguire quindi il mapping del percorso della condivisione remota a G: lettera di unità (può essere qualsiasi altra lettera di unità disponibile). Al dispositivo Internet Internet è ora associato il volume di dati a un percorso nell'unità G:. 
 
-Per la distribuzione, il valore `<storage directory bind>` di può essere **G:/ContainerData: C:/BlobRoot**.
+Assicurarsi che l'utente nel dispositivo Internet sia in grado di leggere/scrivere nella condivisione SMB remota.
+
+Per la distribuzione, il valore `<storage mount>` di può essere **G:/ContainerData: C:/BlobRoot**. 
+
+## <a name="granting-directory-access-to-container-user-on-linux"></a>Concessione dell'accesso alla directory per l'utente contenitore in Linux
+Se è stato usato il [montaggio del volume](https://docs.docker.com/storage/volumes/) per l'archiviazione nelle opzioni di creazione per i contenitori Linux, non è necessario eseguire passaggi aggiuntivi, ma se è stato usato [Bind mount](https://docs.docker.com/storage/bind-mounts/) , questi passaggi sono necessari per eseguire correttamente il servizio.
+
+Secondo il principio dei privilegi minimi per limitare i diritti di accesso per gli utenti alle autorizzazioni minime necessarie per eseguire il lavoro, questo modulo include un utente (nome: Absie, ID: 11000) e un gruppo di utenti (nome: Absie, ID: 11000). Se il contenitore viene avviato come **radice** (l'utente predefinito è **root**), il servizio verrà avviato come utente **Absie** con privilegi limitati. 
+
+Questo comportamento rende la configurazione delle autorizzazioni in percorso host associa cruciale per il corretto funzionamento del servizio. in caso contrario, il servizio si arresterà in modo anomalo con errori di accesso negato. Il percorso usato nell'associazione di directory deve essere accessibile dall'utente del contenitore (ad esempio: Absie 11000). È possibile concedere all'utente del contenitore l'accesso alla directory eseguendo i comandi seguenti nell'host:
+
+```terminal
+sudo chown -R 11000:11000 <blob-dir> 
+sudo chmod -R 700 <blob-dir> 
+```
+
+Esempio:<br>
+`sudo chown -R 11000:11000 /srv/containerdata` <br>
+`sudo chmod -R 700 /srv/containerdata `
+
+
+Se è necessario eseguire il servizio come utente diverso da **Absie**, è possibile specificare l'ID utente personalizzato in CreateOptions nella proprietà "User" del manifesto della distribuzione. In tal caso, è necessario utilizzare l'ID `0`gruppo radice o predefinito.
+
+```json
+“createOptions”: { 
+  “User”: “<custom user ID>:0” 
+} 
+```
+A questo punto, concedere all'utente del contenitore l'accesso alla directory
+```terminal
+sudo chown -R <user ID>:<group ID> <blob-dir> 
+sudo chmod -R 700 <blob-dir> 
+```
 
 ## <a name="configure-log-files"></a>Configurare i file di log
 
@@ -142,9 +173,9 @@ La documentazione di archiviazione BLOB di Azure include il codice di esempio de
 Gli esempi di avvio rapido seguenti usano linguaggi supportati anche da IoT Edge, quindi è possibile distribuirli come moduli IoT Edge insieme al modulo di archiviazione BLOB:
 
 - [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
-- [Java](../storage/blobs/storage-quickstart-blobs-java.md)
+- [Java](../storage/blobs/storage-quickstart-blobs-java-v10.md)
 - [Python](../storage/blobs/storage-quickstart-blobs-python.md)
-- [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md)
+- [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs-v10.md)
 
 ## <a name="connect-to-your-local-storage-with-azure-storage-explorer"></a>Connettersi alla risorsa di archiviazione locale con Azure Storage Explorer
 
@@ -239,3 +270,5 @@ Puoi contattarci all'indirizzoabsiotfeedback@microsoft.com
 ## <a name="next-steps"></a>Passaggi successivi
 
 Informazioni su come [distribuire l'archiviazione BLOB di Azure in IOT Edge](how-to-deploy-blob.md)
+
+È possibile rimanere sempre aggiornati sugli aggiornamenti recenti e sull'annuncio nell' [Archivio BLOB di Azure nel blog IOT Edge](https://aka.ms/abs-iot-blogpost)

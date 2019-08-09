@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: dacurwin
-ms.openlocfilehash: 3165183d4a5e0dcfecee62b128ee8cfa9d94209b
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 9e67e063ed37c706ba172703f0a5483d8d4f68ca
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736712"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881861"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architettura e componenti di backup di Azure
 
@@ -98,9 +98,9 @@ Nella tabella seguente sono riepilogate le funzionalità supportate per i divers
 
 **Funzionalità** | **Computer Windows Server locali (Direct)** | **Macchine virtuali di Azure** | **Computer o app con DPM/MAB**
 --- | --- | --- | ---
-Backup nell'insieme di credenziali | ![Sì][green] | ![Sì][green] | ![Yes][green] 
-Esegui il backup nel disco di DPM/MAB, quindi in Azure | | | ![Yes][green] 
-Compressione dei dati inviati per il backup | ![Sì][green] | Durante il trasferimento dei dati non viene usata alcuna compressione. Leggero aumento dello spazio di archiviazione richiesto, ma ripristino più veloce.  | ![Sì][green] 
+Backup nell'insieme di credenziali | ![Sì][green] | ![Sì][green] | ![Sì][green] 
+Esegui il backup nel disco di DPM/MAB, quindi in Azure | | | ![Sì][green] 
+Compressione dei dati inviati per il backup | ![Sì][green] | Durante il trasferimento dei dati non viene usata alcuna compressione. Leggero aumento dello spazio di archiviazione richiesto, ma ripristino più veloce.  | ![Yes][green] 
 Backup incrementale |![Sì][green] |![Sì][green] |![Yes][green] 
 Backup di dischi deduplicati | | | ![Parzialmente][yellow]<br/><br/> Solo per i server DPM/MABS distribuiti in locale. 
 
@@ -120,7 +120,7 @@ Backup di dischi deduplicati | | | ![Parzialmente][yellow]<br/><br/> Solo per i 
     - Vengono copiati solo i blocchi di dati modificati dopo l'ultimo backup.
     - I dati non vengono crittografati. Backup di Azure può eseguire il backup di macchine virtuali di Azure crittografate tramite crittografia dischi di Azure.
     - I dati dello snapshot potrebbero non essere copiati immediatamente nell'insieme di credenziali. In momenti di picco, il backup potrebbe richiedere alcune ore. Il tempo totale di backup per una macchina virtuale sarà inferiore a 24 ore per i criteri di backup giornalieri.
-1. Dopo che i dati sono stati inviati all'insieme di credenziali, lo snapshot viene rimosso e viene creato un punto di ripristino.
+1. Dopo che i dati sono stati inviati all'insieme di credenziali, viene creato un punto di ripristino. Per impostazione predefinita, gli snapshot vengono conservati per due giorni prima di essere eliminati. Questa funzionalità consente l'operazione di ripristino da questi snapshot, riducendo così i tempi di ripristino. Riduce il tempo necessario per la trasformazione e la copia dei dati dall'insieme di credenziali. Vedere [funzionalità di ripristino immediato di backup di Azure](https://docs.microsoft.com/en-us/azure/backup/backup-instant-restore-capability).
 
 Le macchine virtuali di Azure richiedono l'accesso a Internet per i comandi di controllo. Se si esegue il backup dei carichi di lavoro all'interno della macchina virtuale, ad esempio SQL Server backup del database, anche i dati back-end necessitano di accesso a Internet. 
 

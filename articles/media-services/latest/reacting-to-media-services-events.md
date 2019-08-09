@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 08/08/2019
 ms.author: juliako
-ms.openlocfilehash: cb5d6474a0c830933c712e1008015b5220617c96
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64bf8f5c8de5f56ee1140e91d0472a33b35570cf
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60996158"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878782"
 ---
 # <a name="handling-event-grid-events"></a>Gestione degli eventi di Griglia di eventi
 
@@ -24,7 +24,7 @@ Gli eventi di Servizi multimediali consentono alle applicazioni di reagire a num
 
 La disponibilità degli eventi di Servizi multimediali è legata alla [disponibilità](../../event-grid/overview.md) di Griglia di eventi. Gli eventi saranno disponibili nelle aree geografiche in cui si renderà disponibile Griglia di eventi.  
 
-## <a name="media-services-events-and-schemas"></a>Gli schemi e gli eventi di servizi multimediali
+## <a name="media-services-events-and-schemas"></a>Eventi e schemi di servizi multimediali
 
 Griglia di eventi usa le [sottoscrizioni di eventi](../../event-grid/concepts.md#event-subscriptions) per instradare i messaggi di evento ai sottoscrittori. Gli eventi di Servizi multimediali contengono tutte le informazioni necessarie per rispondere alle modifiche dei dati. Un evento di Servizi multimediali è riconoscibile perché la proprietà eventType inizia con "Microsoft.Media".
 
@@ -41,4 +41,5 @@ Per le applicazioni che gestiscono gli eventi di Servizi multimediali è consigl
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Get job state events](job-state-events-cli-how-to.md) (Ottenere gli eventi relativi allo stato del processo)
+* [Monitorare gli eventi-portale](monitor-events-portal-how-to.md)
+* [Monitorare gli eventi-interfaccia della riga di comando](job-state-events-cli-how-to.md)

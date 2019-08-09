@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 08/07/2019
 ms.author: b-juche
-ms.openlocfilehash: fe8d46c897ef68563f2e0e5a1da106174ae504c5
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 763b3961bfd621f05ab5cd021526b0d6d109c020
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424081"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881713"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limiti delle risorse per Azure NetApp Files
 
@@ -32,8 +32,8 @@ La tabella seguente descrive i limiti delle risorse per Azure NetApp Files:
 |  Risorsa  |  Limite predefinito  |  Modificabile tramite richiesta di supporto  |
 |----------------|---------------------|--------------------------------------|
 |  Numero di account NetApp per sottoscrizione di Azure   |  10    |  Yes   |
-|  Numero di pool di capacità per account NetApp   |    25     |   Yes   |
-|  Numero di volumi per pool di capacità     |    500   |    Yes     |
+|  Numero di pool di capacità per account NetApp   |    25     |   Sì   |
+|  Numero di volumi per pool di capacità     |    500   |    Sì     |
 |  Numero di snapshot per volume       |    255     |    No        |
 |  Numero di subnet delegate a Azure NetApp Files (Microsoft. NetApp/volumes) per rete virtuale di Azure    |   1   |    No    |
 |  Numero massimo di indirizzi IP in uso in un VNet (incluso reti virtuali con peering) con Azure NetApp Files    |    1000   |    No   |
@@ -42,6 +42,7 @@ La tabella seguente descrive i limiti delle risorse per Azure NetApp Files:
 |  Dimensioni minime di un singolo volume    |    100 GiB    |    No    |
 |  Quota massima assegnata di un singolo volume *   |   92 TiB   |    No   |
 |  Dimensioni massime di un singolo volume *     |    100 TiB    |    No       |
+|  Numero massimo di file (inode) per volume     |    50 milioni    |    No    |    
 
 \* Un volume può essere creato manualmente o ridimensionato a un massimo di 92 TiB. Tuttavia, un volume può crescere fino a 100 TiB in uno scenario in eccedenza. Per informazioni dettagliate sull'eccedenza di capacità, vedere [modello di costo per Azure NetApp files](azure-netapp-files-cost-model.md) . 
 

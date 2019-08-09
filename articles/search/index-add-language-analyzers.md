@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: deea16b8670623acd2ae92ba62f579f5474d12ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88d229d33f549755479d7e1c7cf012d0391bccbb
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65790910"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881516"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Aggiungere analizzatori del linguaggio a un indice di Ricerca di Azure
 
@@ -63,7 +63,7 @@ Per altre informazioni sulle proprietà di indice, vedere [Create Index &#40;Azu
 |--------------|-----------------------------|--------------------------|  
 |Arabo|ar.microsoft|ar.lucene|  
 |Armeno||hy.lucene|  
-|Bengalese|bn.microsoft||  
+|Bengali|bn.microsoft||  
 |Basco||eu.lucene|  
 |Bulgaro|bg.microsoft|bg.lucene|  
 |Catalano|ca.microsoft|ca.lucene|  
@@ -89,7 +89,7 @@ Per altre informazioni sulle proprietà di indice, vedere [Create Index &#40;Azu
 |Irlandese||ga.lucene|  
 |Italiano|it.microsoft|it.lucene|  
 |Giapponese|ja.microsoft|ja.lucene|  
-|Kannada|kn.microsoft||  
+|Kannada|kN. Microsoft||  
 |Coreano|ko.Microsoft|ko.lucene|  
 |Lettone|lv.microsoft|lv.lucene|  
 |Lituano|lt.microsoft||  
@@ -118,7 +118,7 @@ Per altre informazioni sulle proprietà di indice, vedere [Create Index &#40;Azu
 |Urdu|ur.microsoft||  
 |Vietnamita|vi.microsoft||  
 
- Tutti gli analizzatori con nomi contenenti la parola **Lucene** sono basati sugli [analizzatori del linguaggio Apache Lucene](https://lucene.apache.org/core/4_9_0/core/overview-summary.html ).
+ Tutti gli analizzatori con nomi contenenti la parola **Lucene** sono basati sugli [analizzatori del linguaggio Apache Lucene](https://lucene.apache.org/core/6_6_1/core/overview-summary.html ).
 
 ## <a name="see-also"></a>Vedere anche  
  [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) (Creare indice API REST per il servizio Ricerca di Azure)  

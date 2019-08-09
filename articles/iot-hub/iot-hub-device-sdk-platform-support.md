@@ -1,18 +1,18 @@
 ---
 title: Supporto per la piattaforma di Azure IoT SDK per dispositivi | Microsoft Docs
 description: 'Concetti: elenco di piattaforme supportate da Azure IoT SDK per dispositivi'
-author: yzhong94
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.author: yizhon
-ms.openlocfilehash: 7bcc1bf6b734abe202c5fec5d515604f4bf8e4a7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: robinsh
+ms.openlocfilehash: 356962c76bf942c56ace0798ac3cca3d815bc507
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60398706"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883112"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Supporto della piattaforma Azure IoT SDK
 
@@ -83,7 +83,7 @@ Sono presenti diverse piattaforme supportate.
 | Ubuntu 16.04 LTS    | X64  | Java 8       |
 | Windows Server 2016 | X64  | Java 8       |
 | API Android 28 | X64  | Java 8       |
-| Operazioni di Android | X64  | Java 8      |
+| Android Things | X64  | Java 8      |
 
 ## <a name="partner-supported-platforms"></a>Piattaforme supportate del partner
 

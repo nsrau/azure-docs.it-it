@@ -11,16 +11,20 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3f0b764b16c1b550c9afa4107449c1b02815e8d1
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 497c4d9708a7b67bf0b5433c455d90dd277297d7
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668493"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68873616"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Creare ed eseguire una pipeline di Machine Learning con l'SDK di Azure Machine Learning
 
-Questo articolo illustra come creare, pubblicare, eseguire e monitorare una [pipeline di Machine Learning](concept-ml-pipelines.md) usando l'[SDK di Azure Machine Learning](https://aka.ms/aml-sdk).  Le pipeline consentono di creare e gestire i flussi di lavoro in cui sono unite le varie fasi di Machine Learning. Ogni fase di una pipeline, ad esempio la preparazione dei dati e il training del modello, può includere uno o più passaggi.
+Questo articolo illustra come creare, pubblicare, eseguire e monitorare una [pipeline di Machine Learning](concept-ml-pipelines.md) usando l'[SDK di Azure Machine Learning](https://aka.ms/aml-sdk).  Usare le **pipeline** di machine learning per creare un flusso di lavoro che unisce varie fasi di machine learning e quindi pubblicare tale pipeline nell'area di lavoro di Azure Machine Learning per accedere in un secondo momento o condividerla con altri.  
+
+Sebbene sia possibile usare una [pipeline di Azure](https://docs.microsoft.com/en-us/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) per automatizzare anche le attività di Machine Learning (ci/CD), ma questo tipo di pipeline non è archiviato nell'area di lavoro. [Confrontare questi tipi di pipeline](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
+
+Ogni fase di una pipeline, ad esempio la preparazione dei dati e il training del modello, può includere uno o più passaggi.
 
 Le pipeline create sono visibili ai membri dell'[area di lavoro](how-to-manage-workspace.md) del servizio Azure Machine Learning. 
 

@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 02/07/2019
-ms.openlocfilehash: 96571b55158733f8189ddf87402fb634330ca80d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3b76dc546b46718378d9b22ad80e17849eaf532d
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570465"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884070"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configurare la replica in un database dell'istanza gestita di database SQL di Azure
 
@@ -59,7 +59,7 @@ Supporta:
 In un'istanza gestita del database SQL di Azure non sono supportate le funzionalità seguenti:
 
 - [Sottoscrizioni aggiornabili](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication).
-- Non usare la [replica geografica attiva](sql-database-active-geo-replication.md) e i [gruppi di failover automatico](sql-database-auto-failover-group.md) se è configurata la replica transazionale.
+- [Replica geografica attiva](sql-database-active-geo-replication.md) con replica transazionale. Anziché la replica geografica attiva, usare i [gruppi di failover automatico](sql-database-auto-failover-group.md), ma si noti che la pubblicazione deve essere [eliminata manualmente](sql-database-managed-instance-transact-sql-information.md#replication) dall'istanza gestita primaria e ricreata nell'istanza gestita secondaria dopo il failover.  
  
 ## <a name="1---create-a-resource-group"></a>1-creare un gruppo di risorse
 

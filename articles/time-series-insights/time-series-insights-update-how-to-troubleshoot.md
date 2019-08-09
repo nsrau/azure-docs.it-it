@@ -8,26 +8,26 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: d18f8f4808d5ca9dd7eca1561b1ee08c2073f5fa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cdcbe62fdba4f111233451680f95abc757e80ee3
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237552"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883331"
 ---
 # <a name="diagnose-and-troubleshoot"></a>Diagnosticare e risolvere i problemi
 
 Questo articolo riepiloga i diversi problemi comuni che possono verificarsi quando si lavora nell'ambiente di anteprima di Azure Time Series Insights. L'articolo descrive anche possibili cause e soluzioni per ogni problema.
 
-## <a name="problem-i-cant-find-my-environment-in-the-preview-explorer"></a>Problema: Non è possibile trovare l'ambiente in Esplora l'anteprima
+## <a name="problem-i-cant-find-my-environment-in-the-preview-explorer"></a>Problema: Impossibile trovare l'ambiente in Esplora anteprime
 
 Questo problema può verificarsi se non si dispone delle autorizzazioni per accedere all'ambiente di Time Series Insights. Gli utenti necessitano di un ruolo di lettore a livello di accesso per visualizzare l'ambiente Time Series Insights. Per verificare i livelli di accesso correnti e concedere un accesso aggiuntivo, visitare la sezione relativa ai Criteri di accesso ai dati per la risorsa Time Series Insights nel [portale di Azure](https://portal.azure.com/).
 
   [![Ambiente](media/v2-update-diagnose-and-troubleshoot/environment.png)](media/v2-update-diagnose-and-troubleshoot/environment.png#lightbox)
 
-## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>Problema: in Esplora l'anteprima viene visualizzato alcun dato
+## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>Problema: non vengono visualizzati dati in Esplora anteprime
 
 Ecco alcuni motivi per cui i dati potrebbero non essere visualizzati nello [strumento di esplorazione dell'anteprima di Azure Time Series Insights](https://insights.timeseries.azure.com/preview).
 
@@ -35,7 +35,7 @@ Ecco alcuni motivi per cui i dati potrebbero non essere visualizzati nello [stru
 
     Verificare che l'origine evento, ovvero un hub eventi o un hub IoT, riceva dati da tag o istanze. Per verificare ciò, passare alla pagina di panoramica della risorsa nel portale di Azure.
 
-    [![Dashboard-insights](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png)](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png#lightbox)
+    [![Dashboard-informazioni dettagliate](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png)](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png#lightbox)
 
 - I dati dell'origine evento non sono in formato JSON.
 
@@ -62,7 +62,7 @@ Ecco alcuni motivi per cui i dati potrebbero non essere visualizzati nello [stru
 
     Questo problema può verificarsi se la proprietà ID di Time Series non è configurata in modo corretto al momento del provisioning dell'ambiente. Per altre informazioni, leggere [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md) (Procedure consigliate per la scelta di un ID Time Series). In questo momento, non è possibile aggiornare un ambiente Time Series Insights esistente per usare un ID Time Series differente.
 
-## <a name="problem-some-data-shows-but-some-is-missing"></a>Problema: alcuni dati illustrato, ma alcuni è mancante
+## <a name="problem-some-data-shows-but-some-is-missing"></a>Problema: alcuni dati risultano mancanti.
 
 È possibile che si stia inviando i dati senza ID Time Series.
 
@@ -73,7 +73,7 @@ Ecco alcuni motivi per cui i dati potrebbero non essere visualizzati nello [stru
     > [!NOTE]
     > Attualmente, Time Series Insights supporta una velocità di inserimento massima di 6 MB/s.
 
-## <a name="problem-my-event-sources-timestamp-property-name-doesnt-work"></a>Problema: nome della proprietà Timestamp dell'origine evento non funziona
+## <a name="problem-my-event-sources-timestamp-property-name-doesnt-work"></a>Problema: il nome della proprietà timestamp dell'origine evento non funziona
 
 Verificare che il nome e il valore siano conformi alle regole seguenti:
 
@@ -94,13 +94,13 @@ Se la proprietà Timestamp non è specificata in modo esplicito, l'hub IoT o hub
 
    I modelli Time Series sono supportati solo negli ambienti con pagamento in base al consumo. Per altre informazioni su come accedere all'ambiente S1 o S2 dallo strumento di esplorazione dell'anteprima di Time Series Insights, vedere [Visualizzare i dati nello strumento di esplorazione](./time-series-insights-update-explorer.md).
 
-   [![Access](media/v2-update-diagnose-and-troubleshoot/access.png)](media/v2-update-diagnose-and-troubleshoot/access.png#lightbox)
+   [![Accesso](media/v2-update-diagnose-and-troubleshoot/access.png)](media/v2-update-diagnose-and-troubleshoot/access.png#lightbox)
 
 - Non si dispone delle autorizzazioni per visualizzare e modificare il modello.
 
    Gli utenti devono accedere a livello di collaboratore per modificare e visualizzare il modello Time Series. Per verificare i livelli di accesso correnti e concedere un accesso aggiuntivo, visitare la sezione relativa ai Criteri di accesso ai dati per la risorsa Time Series Insights nel portale di Azure.
 
-## <a name="problem-all-my-instances-in-the-preview-explorer-lack-a-parent"></a>Problema: my tutte le istanze in Esplora l'anteprima non dispongono di un elemento padre
+## <a name="problem-all-my-instances-in-the-preview-explorer-lack-a-parent"></a>Problema: tutte le istanze personali in Esplora anteprime non dispongono di un elemento padre
 
 Questo problema può verificarsi se l'ambiente non dispone di una gerarchia di modelli Time Series definita. Per altre informazioni, vedere [Lavorare con modelli di Time Series](./time-series-insights-update-how-to-tsm.md).
 
@@ -110,4 +110,4 @@ Questo problema può verificarsi se l'ambiente non dispone di una gerarchia di m
 
 - Leggere [Lavorare con modelli di Time Series](./time-series-insights-update-how-to-tsm.md).
 
-- Scopri [forme JSON supportate](./how-to-shape-query-json.md).
+- Informazioni sulle [forme JSON supportate](./how-to-shape-query-json.md).

@@ -6,15 +6,14 @@ manager: jlembicz
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 08/08/2019
 ms.author: jlembicz
-ms.custom: seodec2018
-ms.openlocfilehash: 403febfcb54194602051aaebe2952265c0675e9d
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 5383ad44f665ce809772143e23817932c3e2b7e6
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854409"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883896"
 ---
 # <a name="how-to-create-an-index-for-multiple-languages-in-azure-search"></a>Come creare un indice per più lingue in ricerca di Azure
 
@@ -35,7 +34,7 @@ Un analizzatore del linguaggio viene specificato quando viene creato un campo. L
 
 ![Assegnazione degli analizzatori di lingua durante la definizione del campo](media/search-language-support/select-analyzer.png "Assegnazione degli analizzatori di lingua durante la definizione del campo")
 
-Per impostazione predefinita, tutti i campi disponibili per la ricerca usano l' [analizzatore Lucene standard](https://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) , indipendente dal linguaggio. Per visualizzare l'elenco completo degli analizzatori supportati, vedere [aggiungere analizzatori di lingua a un indice di ricerca di Azure](index-add-language-analyzers.md).
+Per impostazione predefinita, tutti i campi disponibili per la ricerca usano l' [analizzatore Lucene standard](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) , indipendente dal linguaggio. Per visualizzare l'elenco completo degli analizzatori supportati, vedere [aggiungere analizzatori di lingua a un indice di ricerca di Azure](index-add-language-analyzers.md).
 
 Nel portale gli analizzatori sono destinati a essere usati così come sono. Se è necessaria una personalizzazione o una configurazione specifica di filtri e Tokenizer, è necessario [creare un analizzatore personalizzato](index-add-custom-analyzers.md) nel codice. Il portale non supporta la selezione o la configurazione di analizzatori personalizzati.
 

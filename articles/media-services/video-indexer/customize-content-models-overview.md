@@ -1,7 +1,7 @@
 ---
-title: Personalizzazione di modelli di contenuto in indicizzatore Video di servizi multimediali di Azure
+title: Personalizzazione dei modelli di contenuto in servizi multimediali di Azure Video Indexer
 titlesuffix: Azure Media Services
-description: Questo articolo vengono forniti collegamenti ad articoli concettuali che illustrano i vantaggi di ogni tipo di personalizzazione. Questo articolo contiene anche collegamenti a guide alle procedure che illustrano come è possibile implementare la personalizzazione di ogni modello.
+description: Questo articolo fornisce i collegamenti agli articoli concettuali che illustrano i vantaggi di ogni tipo di personalizzazione. Questo articolo contiene anche collegamenti alle guide pratiche che illustrano come è possibile implementare la personalizzazione di ogni modello.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -10,36 +10,36 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: anzaman
-ms.openlocfilehash: 855004c23df933fc2ebc71455b7b946d667fe7dc
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8499e816f60b9d6605bdbdc392f6d2b3e134b863
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67454048"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878806"
 ---
-# <a name="customizing-content-models-in-video-indexer"></a>Personalizzazione di modelli di contenuto in Video Indexer
+# <a name="customizing-content-models-in-video-indexer"></a>Personalizzazione dei modelli di contenuto in Video Indexer
 
-Video Indexer consente di personalizzare alcuni dei relativi modelli da adattare al proprio caso d'uso specifico. Questi modelli includono [marchi](customize-brands-model-overview.md), [language](customize-language-model-overview.md), e [persona](customize-person-model-overview.md). È possibile personalizzare facilmente tali modelli, usando il sito Web di indicizzatore Video o l'API.
+Video Indexer consente di personalizzare alcuni dei modelli da adattare al caso d'uso specifico. Questi modelli includono [marchi](customize-brands-model-overview.md), [lingua](customize-language-model-overview.md)e [persona](customize-person-model-overview.md). È possibile personalizzare facilmente questi modelli usando il sito Web o l'API Video Indexer.
 
-Questo articolo vengono forniti collegamenti ad articoli concettuali che illustrano i vantaggi di ogni tipo di personalizzazione. Questo articolo contiene anche collegamenti a guide alle procedure che illustrano come è possibile implementare la personalizzazione di ogni modello.
+Questo articolo fornisce i collegamenti agli articoli concettuali che illustrano i vantaggi di ogni tipo di personalizzazione. Questo articolo contiene anche collegamenti alle guide pratiche che illustrano come è possibile implementare la personalizzazione di ogni modello.
  
-## <a name="brands-model"></a>Modello marchi
+## <a name="brands-model"></a>Modello di marchi
 
-* [Personalizzazione di panoramica del modello marchi](customize-brands-model-overview.md)
-* [Personalizzazione del modello di marchi usando il sito Web indicizzatore Video](customize-brands-model-with-website.md)
-* [Personalizzazione del modello di marchi usando l'API indicizzatore Video](customize-brands-model-with-api.md)
+* [Panoramica sulla personalizzazione del modello di marchi](customize-brands-model-overview.md)
+* [Personalizzazione del modello di marchi tramite il sito Web Video Indexer](customize-brands-model-with-website.md)
+* [Personalizzazione del modello di marchi con l'API Video Indexer](customize-brands-model-with-api.md)
  
 ## <a name="language-model"></a>Modello linguistico
 
-* [Personalizzazione della panoramica di modelli di linguaggio](customize-language-model-overview.md)
-* [Personalizzazione di modelli di linguaggio tramite il sito Web indicizzatore Video](customize-language-model-with-website.md)
-* [Personalizzazione di modelli di lingua tramite l'API indicizzatore Video](customize-language-model-with-api.md)
+* [Panoramica sulla personalizzazione dei modelli di linguaggio](customize-language-model-overview.md)
+* [Personalizzazione dei modelli di linguaggio tramite il sito Web Video Indexer](customize-language-model-with-website.md)
+* [Personalizzazione dei modelli di linguaggio con l'API Video Indexer](customize-language-model-with-api.md)
  
-## <a name="person-model"></a>Modello di persona
+## <a name="person-model"></a>Modello person
 
-* [Personalizzazione della panoramica di modelli di linguaggio](customize-person-model-overview.md)
-* [Personalizzazione di modelli di linguaggio tramite il sito Web indicizzatore Video](customize-language-model-with-website.md)
-* [Personalizzazione di modelli di lingua tramite l'API indicizzatore Video](customize-person-model-with-api.md)
+* [Panoramica sulla personalizzazione dei modelli di persona](customize-person-model-overview.md)
+* [Personalizzazione dei modelli di persona tramite il sito Web Video Indexer](customize-person-model-with-website.md)
+* [Personalizzazione dei modelli di persona con l'API Video Indexer](customize-person-model-with-api.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

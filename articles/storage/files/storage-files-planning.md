@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 287902c149fd3a8732ce9ce95b05b0d9fa36147b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: eece1520a4b7e3bf37e1d209c58b5019921fdb98
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816599"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884389"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "68816599"
 
 * **Account di archiviazione**: l'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Per informazioni dettagliate sulla capacità degli account di archiviazione, vedere gli [obiettivi di scalabilità e prestazioni](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-* **Condivisione**: una condivisione di archiviazione file è una condivisione file SMB in Azure. Tutte le directory e i file devono essere creati in una condivisione padre. Un account può contenere un numero illimitato di condivisioni e una condivisione può archiviare un numero illimitato di file, fino a una capacità totale di 5 TiB di condivisione del file.
+* **Condivisione**: una condivisione di archiviazione file è una condivisione file SMB in Azure. Tutte le directory e i file devono essere creati in una condivisione padre. Un account può contenere un numero illimitato di condivisioni e una condivisione può archiviare un numero illimitato di file, fino alla capacità totale della condivisione file. Per le condivisioni file standard, la capacità totale è fino a 5 TiB (GA) o 100 TiB (anteprima), per le condivisioni file Premium, la capacità totale è fino a 100 TiB.
 
 * **Directory**: una gerarchia di directory facoltativa.
 
@@ -210,7 +210,7 @@ Le condivisioni file standard sono disponibili in tutte le aree fino a 5 TiB. In
 |Australia orientale  |Archiviazione con ridondanza locale     |No    |Yes|
 |Francia centrale  |Archiviazione con ridondanza locale     |No    |Non ancora|
 |Francia meridionale    |Archiviazione con ridondanza locale     |No    |Non ancora|
-|Asia sudorientale  |CON RIDONDANZA LOCALE, ZRS|No    |Sì|
+|Asia sudorientale  |CON RIDONDANZA LOCALE, ZRS|No    |Yes|
 |Europa occidentale     |CON RIDONDANZA LOCALE, ZRS|No    |Sì|
 |Stati Uniti occidentali 2       |CON RIDONDANZA LOCALE, ZRS|No    |Yes|
 

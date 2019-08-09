@@ -4,15 +4,15 @@ description: AzCopy è un'utilità da riga di comando che è possibile usare per
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 08/08/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 9dc53867cb780b2c40e76cc6f24f7e6cf882b407
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0c30225e9b5412fe1515e8503d1134dcad44871f
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68844873"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879988"
 ---
 # <a name="get-started-with-azcopy"></a>Introduzione ad AzCopy
 
@@ -259,7 +259,9 @@ Per trovare i comandi di esempio, vedere uno di questi articoli.
 
 ## <a name="use-azcopy-in-a-script"></a>Usare AzCopy in uno script
 
-Nel corso del tempo, il collegamento per il [download](#download-and-install-azcopy) di AzCopy punterà alle nuove versioni di AzCopy. Se lo script Scarica AzCopy, lo script potrebbe smettere di funzionare se una versione più recente di AzCopy modifica le funzionalità da cui dipende lo script. 
+### <a name="obtain-a-static-download-link"></a>Ottenere un collegamento di download statico
+
+Nel corso del tempo, il collegamento per il [download](#download-and-install-azcopy) di AzCopy punterà alle nuove versioni di AzCopy. Se lo script Scarica AzCopy, lo script potrebbe smettere di funzionare se una versione più recente di AzCopy modifica le funzionalità da cui dipende lo script.
 
 Per evitare questi problemi, ottenere un collegamento statico (non modificabile) alla versione corrente di AzCopy. In questo modo, lo script Scarica la stessa versione esatta di AzCopy ogni volta che viene eseguito.
 
@@ -280,9 +282,13 @@ L'URL viene visualizzato nell'output di questo comando. Lo script può quindi sc
 | **Linux** | `wget -O azcopyv10.tar https://azcopyvnext.azureedge.net/release20190301/azcopy_linux_amd64_10.0.8.tar.gz tar -xf azcopyv10.tar --strip-components=1 ./azcopy` |
 | **Windows** | `Invoke-WebRequest https://azcopyvnext.azureedge.net/release20190517/azcopy_windows_amd64_10.1.2.zip -OutFile azcopyv10.zip <<Unzip here>>` |
 
+### <a name="escape-special-characters-in-sas-tokens"></a>Escape di caratteri speciali nei token SAS
+
+Nei file `.cmd` batch con estensione è necessario eseguire l'escape dei `%` caratteri visualizzati nei token SAS. È possibile eseguire questa operazione aggiungendo un carattere `%` aggiuntivo accanto ai caratteri `%` esistenti nella stringa del token SAS.
+
 ## <a name="use-azcopy-in-storage-explorer"></a>Usare AzCopy in Storage Explorer
 
-Se si vogliono sfruttare i vantaggi delle prestazioni di AzCopy, ma si preferisce usare Storage Explorer anziché la riga di comando per interagire con i file, quindi abilitare AzCopy in Storage Explorer. 
+Se si vogliono sfruttare i vantaggi delle prestazioni di AzCopy, ma si preferisce usare Storage Explorer anziché la riga di comando per interagire con i file, quindi abilitare AzCopy in Storage Explorer.
 
 In Storage Explorer scegliere **Anteprima**->**USA AzCopy per migliorare il caricamento e il download di BLOB**.
 

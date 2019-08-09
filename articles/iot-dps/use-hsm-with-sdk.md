@@ -1,20 +1,19 @@
 ---
 title: Procedure di Azure - Come usare meccanismi di attestazione diversi con Device Provisioning Service Client SDK in Azure
 description: Procedure di Azure - Come usare meccanismi di attestazione diversi con Device Provisioning Service Client SDK in Azure
-author: yzhong94
-ms.author: yizhon
+author: robinsh
+ms.author: robinsh
 ms.date: 03/30/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: arjmands
 ms.custom: mvc
-ms.openlocfilehash: af59ccc6d14dce49d06e178aac3ecafc29bd982c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7dd93298c96842e4e5417a0b2ba023bb71a4e7ba
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61248131"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884429"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Come usare meccanismi di attestazione diversi con Device Provisioning Service Client SDK per C
 
@@ -30,7 +29,7 @@ In qualità di produttore di dispositivi, è necessario prima di tutto scegliere
 
 - [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): Il modulo TPM è uno standard stabilito per la maggior parte delle piattaforme per dispositivi basati su Windows, nonché per alcuni dispositivi basati su Linux/Ubuntu. In qualità di produttore di dispositivi, è possibile scegliere questo meccanismo di attestazione se nei dispositivi è installato uno di questi sistemi operativi e si è alla ricerca di uno standard consolidato. Con i chip TPM è possibile registrare solo ogni dispositivo individualmente nel servizio Device Provisioning. Ai fini dello sviluppo è possibile usare il simulatore TPM nel computer di sviluppo Windows o Linux.
 
-- [X.509](https://cryptography.io/en/latest/x509/): I certificati X.509 possono essere archiviati in chip relativamente più recenti chiamato [moduli di protezione Hardware (HSM)](concepts-security.md#hardware-security-module). In Microsoft si sta lavorando inoltre sui chip RIoT o DICE, che implementano i certificati X.509. I chip X.509 consentono di eseguire registrazioni di dispositivi in blocco nel portale. Supportano anche determinati sistemi operativi diversi da Windows, ad esempio embedOS. Ai fini dello sviluppo, l'SDK client del servizio Device Provisioning supporta il simulatore di dispositivi X.509. 
+- [X.509](https://cryptography.io/en/latest/x509/): I certificati X. 509 possono essere archiviati in chip relativamente più recenti, detti [moduli di protezione hardware (HSM)](concepts-security.md#hardware-security-module). In Microsoft si sta lavorando inoltre sui chip RIoT o DICE, che implementano i certificati X.509. I chip X.509 consentono di eseguire registrazioni di dispositivi in blocco nel portale. Supportano anche determinati sistemi operativi diversi da Windows, ad esempio embedOS. Ai fini dello sviluppo, l'SDK client del servizio Device Provisioning supporta il simulatore di dispositivi X.509. 
 
 Per altre informazioni, vedere i [concetti relativi alla sicurezza](concepts-security.md) e i [concetti relativi al provisioning automatico](/azure/iot-dps/concepts-auto-provisioning) del servizio Device Provisioning in hub IoT.
 
@@ -149,8 +148,8 @@ Se si usa TPM, seguire le istruzioni disponibili in ["Creare ed effettuare il pr
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
 2. Accedere al portale di Azure, fare clic sul pulsante **Tutte le risorse** nel menu a sinistra e aprire il servizio Device Provisioning.
-   - X **.** Registrazione singola 509: Nel Pannello di riepilogo servizio provisioning, selezionare **gestire le registrazioni dei**. Selezionare la scheda **Individual Enrollments** (Registrazioni singole) e fare clic sul pulsante **Aggiungi** in alto. Selezionare **X**.**509** come *meccanismo* di attestazione dell'identità e caricare il certificato foglia come richiesto dal pannello. Al termine, fare clic sul pulsante **Save** (Salva). 
-   - X **.** Registrazione di gruppo 509: Nel Pannello di riepilogo servizio provisioning, selezionare **gestire le registrazioni dei**. Selezionare la scheda **Group Enrollments** (Registrazioni di gruppo) e fare clic sul pulsante **Aggiungi** in alto. Selezionare **X**.**509** come *meccanismo* di attestazione dell'identità, immettere un nome di gruppo e un nome di certificato e caricare il certificato della CA/intermedio come richiesto dal pannello. Al termine, fare clic sul pulsante **Save** (Salva). 
+   - X **.** 509 registrazione singola: Nel pannello di riepilogo del servizio di provisioning selezionare **Gestisci registrazioni**. Selezionare la scheda **Individual Enrollments** (Registrazioni singole) e fare clic sul pulsante **Aggiungi** in alto. Selezionare **X**.**509** come *meccanismo* di attestazione dell'identità e caricare il certificato foglia come richiesto dal pannello. Al termine, fare clic sul pulsante **Save** (Salva). 
+   - X **.** 509 registrazione di gruppo: Nel pannello di riepilogo del servizio di provisioning selezionare **Gestisci registrazioni**. Selezionare la scheda **Group Enrollments** (Registrazioni di gruppo) e fare clic sul pulsante **Aggiungi** in alto. Selezionare **X**.**509** come *meccanismo* di attestazione dell'identità, immettere un nome di gruppo e un nome di certificato e caricare il certificato della CA/intermedio come richiesto dal pannello. Al termine, fare clic sul pulsante **Save** (Salva). 
 
 ## <a name="enable-authentication-for-devices-using-a-custom-attestation-mechanism-optional"></a>Abilitare l'autenticazione per i dispositivi usando un meccanismo di attestazione personalizzato (facoltativo)
 

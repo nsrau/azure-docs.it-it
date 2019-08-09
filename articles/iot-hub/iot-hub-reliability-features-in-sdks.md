@@ -2,17 +2,17 @@
 title: Come gestire le funzionalità di connettività e messaggistica affidabile con gli Azure IoT Hub SDK per dispositivi
 description: Informazioni su come migliorare le funzionalità di connettività e messaggistica dei dispositivi quando si usano gli SDK per dispositivi dell'hub IoT di Azure
 services: iot-hub
-author: yzhong94
-ms.author: yizhon
+author: robinsh
+ms.author: robinsh
 ms.date: 07/07/2018
 ms.topic: article
 ms.service: iot-hub
-ms.openlocfilehash: 838d0cd4f40666bc3fced22a607b9f94f27b08d3
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: e881dffbd1f286047ffcff226eb3dede7a138a0c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67535503"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884351"
 ---
 # <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Gestire le funzionalità di connettività e messaggistica affidabile con gli Azure IoT Hub SDK per dispositivi
 
@@ -28,7 +28,7 @@ I dettagli di implementazione possono variare in base alla lingua. Per altre inf
 
 * [C/Python/iOS SDK](https://github.com/azure/azure-iot-sdk-c)
 
-* [.NET SDK](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/requirements/retrypolicy.md)
+* [.NET SDK](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/retrypolicy.md)
 
 * [SDK per Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md)
 
@@ -36,7 +36,7 @@ I dettagli di implementazione possono variare in base alla lingua. Per altre inf
 
 ## <a name="designing-for-resiliency"></a>Progettazione per la resilienza
 
-I dispositivi IoT si basano spesso su connessioni di rete discontinue e/o instabili, ad esempio GSM o satellitari. Quando i dispositivi interagiscono con servizi basati sul cloud, possono verificarsi errori dovuti a una disponibilità intermittente del servizio ed errori a livello di infrastruttura o errori temporanei. Un'applicazione che viene eseguito in un dispositivo ha gestire i meccanismi per la logica di ripetizione dei tentativi per l'invio e ricezione di messaggi, connessione e riconnessione. I requisiti della strategia di ripetizione dei tentativi, inoltre, dipendono principalmente dallo scenario IoT, dal contesto e dalle funzionalità del dispositivo.
+I dispositivi IoT si basano spesso su connessioni di rete discontinue e/o instabili, ad esempio GSM o satellitari. Quando i dispositivi interagiscono con servizi basati sul cloud, possono verificarsi errori dovuti a una disponibilità intermittente del servizio ed errori a livello di infrastruttura o errori temporanei. Un'applicazione eseguita in un dispositivo deve gestire i meccanismi per la connessione, la riconnessione e la logica di ripetizione dei tentativi per l'invio e la ricezione di messaggi. I requisiti della strategia di ripetizione dei tentativi, inoltre, dipendono principalmente dallo scenario IoT, dal contesto e dalle funzionalità del dispositivo.
 
 Gli Azure IoT Hub SDK per dispositivi hanno lo scopo di semplificare le connessioni e le comunicazioni da cloud a dispositivo e da dispositivo a cloud. Offrono infatti la possibilità di connettersi all'hub IoT di Azure in modo affidabile e una gamma completa di opzioni per l'invio e la ricezione di messaggi. Gli sviluppatori possono anche modificare l'implementazione esistente per personalizzare la strategia di ripetizione dei tentativi per un determinato scenario.
 
@@ -44,7 +44,7 @@ Nelle sezioni seguenti sono illustrate le funzionalità SDK pertinenti che suppo
 
 ## <a name="connection-and-retry"></a>Connessione e ripetizione dei tentativi
 
-In questa sezione fornisce una panoramica degli schemi riconnessione e ripetizione dei tentativi disponibili quando si gestiscono le connessioni. Offre inoltre indicazioni di implementazione per l'uso dei vari criteri di ripetizione dei tentativi nell'applicazione per dispositivi ed elenca le API pertinenti per gli SDK per dispositivi.
+Questa sezione offre una panoramica dei modelli di riconnessione e ripetizione dei tentativi disponibili per la gestione delle connessioni. Offre inoltre indicazioni di implementazione per l'uso dei vari criteri di ripetizione dei tentativi nell'applicazione per dispositivi ed elenca le API pertinenti per gli SDK per dispositivi.
 
 ### <a name="error-patterns"></a>Modelli di errore
 

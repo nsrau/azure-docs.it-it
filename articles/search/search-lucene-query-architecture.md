@@ -7,15 +7,14 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 08/08/2019
 ms.author: jlembicz
-ms.custom: seodec2018
-ms.openlocfilehash: bc183cb8ac2155b8dd31dc603d70506ad3d5e20a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e54bc91ff60ce4f3c2340282410923225601df4
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65797476"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883903"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Funzionamento della ricerca full-text in Ricerca di Azure
 
@@ -253,7 +252,7 @@ Per produrre i termini in un indice inverso, il motore di ricerca esegue l'anali
 
 Ritornando all'esempio precedente, per il campo **titolo**, l'indice invertito è simile al seguente:
 
-| Nome | Elenco di documenti |
+| Termine | Elenco di documenti |
 |------|---------------|
 | atman | 1 |
 | spiaggia | 2 |
@@ -267,7 +266,7 @@ Nel campo del titolo, solo *hotel* viene visualizzato in due documenti: 1 e 3.
 
 Per il campo **descrizione**, l'indice è il seguente:
 
-| Nome | Elenco di documenti |
+| Termine | Elenco di documenti |
 |------|---------------|
 | aria | 3
 | e | 4
@@ -281,14 +280,14 @@ Per il campo **descrizione**, l'indice è il seguente:
 | nord | 2
 | oceano | 1, 2, 3
 | di | 2
-| in |2
+| sì |2
 | tranquillo | 4
 | camere  | 1, 3
 | appartato | 4
 | costa | 2
 | spazioso | 1
 | il | 1, 2
-| to | 1
+| in | 1
 | view | 1, 2, 3
 | passeggiata | 1
 | con | 3
@@ -351,7 +350,7 @@ search=Spacious, air-condition* +"Ocean view"
 }
 ~~~~
 
-Il documento 1 corrisponde alla query migliore poiché sia il termine *spazioso* sia la frase richiesta *vista sull'oceano* si verificano nel campo descrizione. I due documenti successivi corrispondono solo per la frase *vista sull'oceano*. È sorprendente constatare che il punteggio di pertinenza per i documenti 2 e 3 è diverso, anche se essi corrispondono alla query nello stesso modo. Ciò avviene perché la formula di assegnazione del punteggio include più componenti rispetto a TF/IDF. In questo caso al documento 3 è stato assegnato un punteggio leggermente maggiore perché la sua descrizione è più breve. Informazioni sulla [formula Lucene per il punteggio pratico](https://lucene.apache.org/core/4_0_0/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html) per comprendere in che modo la lunghezza del campo e altri fattori possono influenzare il punteggio di pertinenza.
+Il documento 1 corrisponde alla query migliore poiché sia il termine *spazioso* sia la frase richiesta *vista sull'oceano* si verificano nel campo descrizione. I due documenti successivi corrispondono solo per la frase *vista sull'oceano*. È sorprendente constatare che il punteggio di pertinenza per i documenti 2 e 3 è diverso, anche se essi corrispondono alla query nello stesso modo. Ciò avviene perché la formula di assegnazione del punteggio include più componenti rispetto a TF/IDF. In questo caso al documento 3 è stato assegnato un punteggio leggermente maggiore perché la sua descrizione è più breve. Informazioni sulla [formula Lucene per il punteggio pratico](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html) per comprendere in che modo la lunghezza del campo e altri fattori possono influenzare il punteggio di pertinenza.
 
 Alcuni tipi di query (carattere jolly, prefisso, regex) contribuiscono sempre con un punteggio costante al punteggio complessivo del documento. Questo permette alle corrispondenze trovate tramite l'espansione della query di essere incluse nei risultati, ma senza modificare la classifica. 
 
@@ -373,7 +372,7 @@ Ciò significa che un punteggio di pertinenza *potrebbe* essere diverso per docu
 
 In genere, il punteggio del documento non è l'attributo migliore per l'ordinamento dei documenti se la stabilità dell'ordine è importante. Ad esempio, dati due documenti con un punteggio identico, non vi sono garanzie circa quale sarà visualizzato per primo in esecuzioni successive della stessa query. Il punteggio del documento deve solo dare un'idea generale della pertinenza del documento relativo ad altri documenti nel set di risultati.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 Il successo dei motori di ricerca Internet ha generato aspettative per la ricerca full-text su dati privati. Per quasi tutti i tipi di esperienza di ricerca, è ora previsto che il motore comprenda il nostro obiettivo, anche quando i termini sono errati o incompleti. Si possono anche prevedere delle corrispondenze basate su termini quasi equivalenti o sinonimi che non abbiamo mai specificato.
 

@@ -7,12 +7,12 @@ ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 5e707fb004af7bbce915baf4b059514fcae8e52b
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 7dd053e3a9824ac0817db528b8b053666e1ded04
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725934"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881825"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Come creare i criteri di configurazione Guest
 
@@ -321,6 +321,14 @@ Dopo aver pubblicato un criterio personalizzato di Azure usando il pacchetto di 
 
 Il modo più semplice per rilasciare un pacchetto aggiornato consiste nel ripetere il processo descritto in questo articolo e fornire un numero di versione aggiornato.
 In questo modo si garantisce che tutte le proprietà siano state aggiornate correttamente.
+
+## <a name="converting-windows-group-policy-content-to-azure-policy-guest-configuration"></a>Conversione del contenuto di Windows Criteri di gruppo nella configurazione Guest di criteri di Azure
+
+La configurazione Guest, quando si controllano i computer Windows, è un'implementazione della sintassi di PowerShell DSC (Desired state Configuration).
+La community DSC ha pubblicato strumenti per convertire i modelli esportati Criteri di gruppo in formato DSC.
+Usando questo strumento con i cmdlet di configurazione Guest descritti in precedenza, è possibile convertire il contenuto di Windows Criteri di gruppo e il pacchetto/pubblicarlo per il controllo di criteri di Azure.
+Per informazioni dettagliate sull'uso dello strumento, vedere l' [articolo Guida introduttiva: Convertire Criteri di gruppo in DSC](/powershell/dsc/quickstarts/gpo-quickstart).
+Una volta che il contenuto è stato convertito, i passaggi precedenti per creare un pakcage e pubblicarlo come criterio di Azure saranno identici a quelli per qualsiasi contenuto DSC.
 
 ## <a name="optional-signing-guest-configuration-packages"></a>FACOLTATIVO: Firma dei pacchetti di configurazione Guest
 

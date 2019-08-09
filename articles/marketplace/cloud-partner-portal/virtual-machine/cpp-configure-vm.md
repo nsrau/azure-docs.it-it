@@ -1,5 +1,5 @@
 ---
-title: Configurare la macchina virtuale ospitata in Azure di Microsoft per Azure Marketplace
+title: Configurare la macchina virtuale ospitata da Microsoft Azure per Azure Marketplace
 description: Illustra come ridimensionare, aggiornare e generalizzare una macchina virtuale ospitata in Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pabutler
-ms.openlocfilehash: 0637491a1d7799bcaef594123aab53f89690c86f
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 1270dff0bcb8de117247a454ab9c144250cfb17c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67654040"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880351"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Configurare la macchina virtuale ospitata in Azure
 
@@ -22,7 +22,7 @@ Questo articolo illustra come ridimensionare, aggiornare e generalizzare una mac
 ## <a name="sizing-the-vhds"></a>Ridimensionamento dei dischi rigidi virtuali
 
 <!--TD: Check if the following assertion is true. I didn't understand the original content. -->
-Se è stata selezionata una delle macchine virtuali preconfigurate con un sistema operativo (e facoltativamente altri servizi), allora si è già stata prelevata una dimensione di macchina virtuale di Azure standard, come descritto in [scheda SKU delle macchine virtuali](./cpp-skus-tab.md).  Avviare una soluzione con un sistema operativo preconfigurato è l'approccio consigliato.  Se tuttavia si intende installare un sistema operativo manualmente, è necessario ridimensionare il disco rigido virtuale principale nell'immagine di macchina virtuale:
+Se è stata selezionata una delle macchine virtuali preconfigurate con un sistema operativo e, facoltativamente, altri servizi, è già stata selezionata una dimensione standard di VM di Azure, come descritto nella [scheda SKU macchina virtuale](./cpp-skus-tab.md).  Avviare una soluzione con un sistema operativo preconfigurato è l'approccio consigliato.  Se tuttavia si intende installare un sistema operativo manualmente, è necessario ridimensionare il disco rigido virtuale principale nell'immagine di macchina virtuale:
 
 - Per Windows, il disco rigido virtuale del sistema operativo deve essere creato come disco rigido virtuale con formato fisso da 127-128 GB. 
 - Per Linux, questo disco rigido virtuale deve essere creato come disco rigido virtuale con formato fisso da 30-50 GB.
@@ -66,11 +66,11 @@ La generalizzazione dei dischi con sistema operativo Windows viene eseguita con 
 > [!WARNING]
 >  Poiché gli aggiornamenti possono essere eseguiti automaticamente, dopo aver eseguito sysprep, è necessario arrestare la macchina virtuale finché non viene distribuita.  Questo arresto eviterà che gli aggiornamenti successivi possano apportare modifiche specifiche di istanza al sistema operativo o ai servizi installati nel disco rigido virtuale.
 
-Per altre informazioni sull'esecuzione di sysprep, vedere [questa procedura per generalizzare un disco rigido virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep)
+Per ulteriori informazioni sull'esecuzione di Sysprep, vedere la pagina relativa [alla procedura per generalizzare un disco rigido virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep)
 
 ### <a name="linux"></a>Linux
 
-Il processo in due passaggi seguente generalizza una macchina virtuale Linux e la ridistribuisce come macchina virtuale separata.  Per altre informazioni, vedere [Come creare un'immagine di una macchina virtuale o un disco rigido virtuale](../../../virtual-machines/linux/capture-image.md). 
+Il processo in due passaggi seguente generalizza una VM Linux e la ridistribuisce come macchina virtuale separata. Questi due passaggi sono solo gli elementi essenziali del processo. Per ulteriori informazioni su questi due passaggi e sul motivo per cui è necessario eseguire questa operazione, vedere [come creare un'immagine di una macchina virtuale o di un disco rigido](../../../virtual-machines/linux/capture-image.md)virtuale. Ai fini della creazione del disco rigido virtuale per l'offerta di Azure Marketplace, è possibile arrestare quando si raggiunge la sezione "creare una macchina virtuale dall'immagine acquisita".
 
 #### <a name="remove-the-azure-linux-agent"></a>Rimuovere l'agente Linux di Azure
 1.  Connettersi alla VM Linux tramite un client SSH.
@@ -95,4 +95,4 @@ La creazione di copie della macchina virtuale è spesso utile a scopo di backup,
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo la configurazione della macchina virtuale, è possibile [distribuire la macchina virtuale da un disco rigido virtuale](./cpp-deploy-vm-vhd.md).
+Dopo che la macchina virtuale è stata generalizzata, è stata deallocata ed è stata creata un'immagine della VM, si è pronti per [distribuire una macchina virtuale da un disco rigido virtuale](./cpp-deploy-vm-vhd.md).

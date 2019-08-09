@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7b9a24161c76f9fbb0993ffb6719c1ea1b51dc55
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 846b4d95c7eb32af7c1c0ff42c2526612075a033
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775708"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882403"
 ---
 # <a name="move-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery-services"></a>Spostare SQL Server VM in un'altra area all'interno di Azure con Azure Site Recovery Services
 
@@ -54,7 +54,7 @@ Preparare la macchina virtuale di origine SQL Server e l'area di destinazione pe
 - Per le macchine virtuali Linux, seguire le indicazioni fornite dal distributore di Linux per ottenere i certificati radice trusted più recenti e l'elenco di revoche di certificati nella macchina virtuale. 
 - Assicurarsi che non si stia usando un proxy di autenticazione per controllare la connettività di rete per le macchine virtuali che si desidera spostare. 
 - Se la macchina virtuale che si sta tentando di spostare non ha accesso a Internet o se usa un proxy firewall per controllare l'accesso in uscita, verificare i requisiti. 
-- Identificare il layout di rete di origine e tutte le risorse attualmente utilizzate da your ' e. tra cui i servizi di bilanciamenti del carico, i gruppi di sicurezza di rete e gli indirizzi IP pubblici. 
+- Identificare il layout di rete di origine e tutte le risorse attualmente in uso, tra cui i servizi di bilanciamenti del carico, i gruppi di sicurezza di rete e gli indirizzi IP pubblici. 
 
 ### <a name="prepare-the-target-region"></a>Preparare l'area di destinazione
 

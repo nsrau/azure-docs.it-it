@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 3f22da9eabc6f539ef37009f565f073b9de89319
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 8227aa366c8f5149d4212e6cdd00e2745db84814
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706737"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881946"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Estensioni della macchina virtuale e funzionalità per Linux
 
@@ -86,7 +86,7 @@ Per eseguire un'estensione in una macchina virtuale esistente, è possibile usar
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Le estensioni macchina virtuale di Azure possono essere eseguite in una VM esistente con il comando [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set). L'esempio seguente esegue l'estensione di script personalizzato su una VM denominata *myVM* in un gruppo di risorse denominato *myResourceGroup*:
+Le estensioni macchina virtuale di Azure possono essere eseguite in una VM esistente con il comando [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set). Nell'esempio seguente viene eseguita l'estensione script personalizzata in una macchina virtuale denominata *myVM* in un gruppo di risorse denominato *myResourceGroup*. Sostituire il nome del gruppo di risorse di esempio, il nome della macchina https://raw.githubusercontent.com/me/project/hello.sh) virtuale e lo script da eseguire (con le informazioni personali. 
 
 ```azurecli
 az vm extension set `
@@ -337,7 +337,7 @@ I passaggi seguenti per la risoluzione dei problemi sono validi per tutte le est
 
 1. Per controllare il log dell'agente Linux, esaminare l'attività di quando il provisioning dell'estensione è stato eseguito in */var/log/waagent.log*
 
-2. Controllare i log dell'estensione effettivo per altre informazioni, vedere */var/log/azure/\<extensionName >*
+2. Per altri dettagli, vedere i log di estensione effettivi */var/log/Azure/\<>*
 
 3. Controllare le sezioni della documentazione sulla risoluzione dei problemi specifica per l'estensione relative a codici di errore, problemi noti e così via.
 

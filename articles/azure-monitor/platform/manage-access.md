@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 05b022be3bd460809de77945710ed0bdcd275648
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: c6fa4df1fb2fc7559f706d81621ea198f5ca7cdc
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839304"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881420"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Gestire i dati di log e le aree di lavoro in monitoraggio di Azure
 
@@ -32,7 +32,17 @@ Questo articolo illustra come gestire l'accesso ai log e per amministrare le are
 
 * Come concedere l'accesso agli utenti che devono accedere ai dati di log in una tabella specifica nell'area di lavoro usando il controllo degli accessi in base al ruolo di Azure
 
-## <a name="define-access-control-mode-in-azure-portal"></a>Definire la modalità di controllo di accesso in portale di Azure
+## <a name="define-access-control-mode"></a>Definire la modalità di controllo di accesso
+
+È possibile visualizzare la modalità di controllo di accesso configurata in un'area di lavoro dal portale di Azure o con Azure PowerShell.  È possibile modificare questa impostazione usando uno dei metodi supportati seguenti:
+
+* Portale di Azure
+
+* Azure PowerShell
+
+* Modello di Azure Resource Manager
+
+### <a name="configure-from-the-azure-portal"></a>Configurare dal portale di Azure
 
 È possibile visualizzare la modalità di controllo di accesso dell'area di lavoro corrente nella pagina **Panoramica** dell'area di lavoro nel menu **log Analytics area di lavoro** . 
 
@@ -45,7 +55,7 @@ Questo articolo illustra come gestire l'accesso ai log e per amministrare le are
 
 ![Modificare la modalità di accesso all'area di lavoro](media/manage-access/change-access-control-mode.png)
 
-## <a name="define-access-control-mode-using-powershell"></a>Definire la modalità di controllo di accesso tramite PowerShell
+### <a name="configure-using-powershell"></a>Configurare con PowerShell
 
 Usare il comando seguente per esaminare la modalità di controllo di accesso per tutte le aree di lavoro nella sottoscrizione:
 
@@ -89,7 +99,7 @@ else
 Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
 ```
 
-## <a name="define-access-mode-using-resource-manager-template"></a>Definire la modalità di accesso usando il modello di Gestione risorse
+### <a name="configure-using-a-resource-manager-template"></a>Configurare usando un modello di Gestione risorse
 
 Per configurare la modalità di accesso in un modello di Azure Resource Manager, impostare il flag della funzionalità **enableLogAccessUsingOnlyResourcePermissions** nell'area di lavoro su uno dei valori seguenti.
 

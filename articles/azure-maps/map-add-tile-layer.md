@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: e288e03b9e2c02ba963595f192dea7225c6d5762
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: d872cd78b3fd04512fcaee706e54bffa1cf9fcc1
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638994"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882092"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Aggiungere un livello riquadro a una mappa
 
 Questo articolo illustra come sovrapporre un livello riquadro sulla mappa. I livelli riquadro consentono di sovrapporre immagini sopra i riquadri mappa di base in Mappe di Azure. Altre informazioni sul sistema di riquadri di Mappe di Azure sono reperibili nella documentazione [Livelli di Zoom e griglia riquadri](zoom-levels-and-tile-grid.md).
 
-Un livello riquadro viene caricato in riquadri da un server. Queste immagini possono essere sottoposte a pre-rendering e archiviate come qualsiasi altra immagine in un server utilizzando una convenzione di denominazione che il livello riquadro comprenda o un servizio dinamico che generi le immagini immediatamente. Ci sono tre diverse convenzioni di denominazione dei servizi di riquadri supportate dalla classe [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) di Mappe di Azure; 
+Un livello sezione viene caricato in riquadri da un server. Queste immagini possono essere sottoposte a pre-rendering e archiviate come qualsiasi altra immagine in un server utilizzando una convenzione di denominazione che il livello riquadro comprenda o un servizio dinamico che generi le immagini immediatamente. Sono supportate tre diverse convenzioni di denominazione del servizio affiancate dalla classe [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) di Azure Maps: 
 
 * Notazione zoom di X, Y: in base al livello di zoom, x è la posizione nella colonna e y è la posizione nella riga del riquadro nella griglia dei riquadri.
 * Notazione Quadkey: combinazione delle informazioni x, y e zoom in un singolo valore stringa che sia un identificatore univoco per un riquadro.
@@ -40,7 +40,7 @@ L'URL di riquadro passato in un livello riquadro deve essere un URL http/https i
 
 ## <a name="add-a-tile-layer"></a>Aggiungere un livello per i riquadri
 
- Questo esempio illustra come creare un livello riquadro che punta a una serie di riquadri che usano il sistema di riquadri x, y e zoom. L'origine di questo livello riquadro è una sovrapposizione di radar meteo dall'[Iowa Environmental Mesonet dell'Iowa State University](https://mesonet.agron.iastate.edu/ogc/).
+ Questo esempio illustra come creare un livello riquadro che punta a una serie di riquadri che usano il sistema di riquadri x, y e zoom. L'origine di questo livello riquadro è una sovrapposizione di radar meteo dall'[Iowa Environmental Mesonet dell'Iowa State University](https://mesonet.agron.iastate.edu/ogc/). 
 
 <br/>
 
@@ -53,7 +53,7 @@ Nel secondo blocco di codice, un [TileLayer](https://docs.microsoft.com/javascri
 
 ## <a name="customize-a-tile-layer"></a>Personalizzare un livello riquadro
 
-Il livello riquadro ha solo un numero finito di opzioni di stile. Lo strumento seguente consente di provarle.
+La classe del livello sezione presenta molte opzioni di stile. Lo strumento seguente consente di provarle.
 
 <br/>
 

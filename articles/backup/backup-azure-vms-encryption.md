@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 4/3/2019
 ms.author: dacurwin
-ms.openlocfilehash: 71a33b7263cd7a3b2f5e39ce9d24df11a7d6283c
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 5c6e3ef74ea2d77ba03526e05145fe6faa61c050
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688611"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882051"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Eseguire il backup e il ripristino di VM di Azure crittografate
 
@@ -33,7 +33,7 @@ Backup di Azure può eseguire il backup e il ripristino di macchine virtuali di 
 **Tipo di disco VM** | **ADE (BEK/dm-crypt)** | **ADE e KEK**
 --- | --- | ---
 **Gestito** | Sì | Sì
-**Gestito**  | Sì | Sì
+**Gestito**  | Sì | Yes
 
 - Scopri di più su [Ade](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/key-vault-overview.md)e [KEKs](https://blogs.msdn.microsoft.com/cclayton/2017/01/03/creating-a-key-encrypting-key-kek/).
 - Leggere le [domande frequenti](../security/azure-security-disk-encryption-faq.md) sulla crittografia del disco della macchina virtuale di Azure.
@@ -154,10 +154,11 @@ Ripristinare le macchine virtuali crittografate come indicato di seguito:
 2. Effettua una delle seguenti operazioni:
     - Usare il modello generato durante l'operazione di ripristino per personalizzare le impostazioni della macchina virtuale e attivare la distribuzione della macchina virtuale. [Altre informazioni](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm)
     - Creare una nuova macchina virtuale dai dischi ripristinati usando PowerShell. [Altre informazioni](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)
+    - Per le macchine virtuali Linux, reimpostare l'estensione ADE in modo che i dischi dati siano aperti e montati. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In caso di problemi, vedere
+In caso di problemi, vedere gli articoli seguenti:
 
 - [Errori comuni](backup-azure-vms-troubleshoot.md) durante il backup e il ripristino di VM di Azure crittografate.
 - Problemi dell' [estensione di backup e dell'agente VM di Azure](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) .

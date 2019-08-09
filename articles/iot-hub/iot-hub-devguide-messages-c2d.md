@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: b0057815bee46d6708886302ff5b598c89b47e8f
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 4b8df538110f6c0b17a1ed37a2a6063a5b89a6e4
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335725"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880989"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Inviare messaggi da cloud a dispositivo da un hub Internet delle cose
 
@@ -35,17 +35,17 @@ Il grafico di stato del ciclo di vita viene visualizzato nel diagramma seguente:
 
 ![Ciclo di vita dei messaggi da cloud a dispositivo](./media/iot-hub-devguide-messages-c2d/lifecycle.png)
 
-Quando il servizio hub Internet delle cose Invia un messaggio a un dispositivo, il servizio imposta lo stato del messaggio su accodato. Quando un dispositivo vuole *ricevere* un messaggio, l'hub Internet delle cose *blocca* il messaggio impostando lo stato su *invisibile*. Questo stato consente agli altri thread sul dispositivo di iniziare a ricevere altri messaggi. Al termine dell'elaborazione di un messaggio da parte di un thread del dispositivo, viene inviata una notifica  all'hub delle cose completando il messaggio. L'hub Internet delle cose imposta quindi lo stato su *completato*.
+Quando il servizio hub Internet delle cose Invia un messaggio a un dispositivo, il servizio imposta lo statodel messaggio su accodato. Quando un dispositivo vuole *ricevere* un messaggio, l'hub Internet delle cose *blocca* il messaggio impostando lo stato su *invisibile*. Questo stato consente agli altri thread sul dispositivo di iniziare a ricevere altri messaggi. Al termine dell'elaborazione di un messaggio da parte di un thread del dispositivo, viene inviata una notifica all'hub delle cose completando il messaggio. L'hub Internet delle cose imposta quindi lo stato su *completato*.
 
 Un dispositivo può anche:
 
-* *Rifiutare* il messaggio, che fa sì che l'hub Internet sia impostato sullo  stato non recapitabile. I dispositivi che si connettono tramite il protocollo di trasporto di telemetria di Accodamento messaggi (MQTT) non possono rifiutare i messaggi da cloud a dispositivo.
+* *Rifiutare* il messaggio, che fa sì che l'hub Internet sia impostato sullo stato non recapitabile. I dispositivi che si connettono tramite il protocollo di trasporto di telemetria di Accodamento messaggi (MQTT) non possono rifiutare i messaggi da cloud a dispositivo.
 
 * *Abbandonare* il messaggio, che fa in modo che l'hub di Internet delle cose riporti il messaggio nella coda, con lo stato impostato su *accodato*. I dispositivi che si connettono tramite il protocollo MQTT non possono abbandonare i messaggi da cloud a dispositivo.
 
 Un thread potrebbe non riuscire a elaborare un messaggio senza notificare l'hub. In questo caso, i messaggi passano automaticamente dallo stato *invisibile* allo stato *accodato* dopo un timeout di *visibilità* (o il timeout del *blocco* ). Il valore di questo timeout è di un minuto e non può essere modificato.
 
-La proprietà **Max Delivery count** nell'hub Internet determina il numero massimo di volte in cui un messaggio può passare  tra gli stati accodati e quelli invisibili. Dopo tale numero di transizioni, l'hub Internet viene impostato sullo stato del messaggio non recapitabile. Analogamente, l'hub di Internet delle cose imposta lo stato  di un messaggio su messaggi non recapitabili dopo la data di scadenza. Per ulteriori informazioni, vedere [durata (TTL](#message-expiration-time-to-live)).
+La proprietà **Max Delivery count** nell'hub Internet determina il numero massimo di volte in cui un messaggio può passare tra gli stati accodati e quelli invisibili. Dopo tale numero di transizioni, l'hub Internet viene impostato sullo stato del messaggio nonrecapitabile. Analogamente, l'hub di Internet delle cose imposta lo stato di un messaggio su messaggi non recapitabili dopo la data di scadenza. Per ulteriori informazioni, vedere [durata (TTL](#message-expiration-time-to-live)).
 
 L'articolo [come inviare messaggi da cloud a dispositivo con l'hub](iot-hub-csharp-csharp-c2d.md) di questo articolo illustra come inviare messaggi da cloud a dispositivo dal cloud e riceverli in un dispositivo.
 
@@ -77,14 +77,18 @@ Quando si invia un messaggio da cloud a dispositivo, il servizio può richiedere
 | ------------ | -------- |
 | none     | L'hub Internet delle cose non genera un messaggio di feedback (comportamento predefinito). |
 | positivo | Se il messaggio da cloud a dispositivo raggiunge lo stato *completato* , l'hub Internet genera un messaggio di feedback. |
-| negativo | Se il messaggio da cloud a dispositivo raggiunge lo stato  non recapitabile, l'hub Internet genera un messaggio di feedback. |
+| negativo | Se il messaggio da cloud a dispositivo raggiunge lo stato non recapitabile, l'hub Internet genera un messaggio di feedback. |
 | completo     | In entrambi i casi l'hub Internet genera un messaggio di feedback. |
 
 Se il valore **ACK** è *pieno*e non si riceve un messaggio di feedback, significa che il messaggio di feedback è scaduto. Il servizio non può sapere cosa è successo al messaggio originale. In pratica, un servizio deve garantire che sia possibile elaborare i commenti prima della scadenza. Il tempo di scadenza massimo è di due giorni, che lascia il tempo per riportare il servizio in caso di errore.
 
+> [!NOTE]
+> Quando il dispositivo viene eliminato, vengono eliminati anche eventuali commenti in sospeso.
+>
+
 Come illustrato negli [endpoint](iot-hub-devguide-endpoints.md), l'hub Internet delle cose fornisce feedback tramite un endpoint per il servizio, */messages/servicebound/feedback*, come messaggi. La semantica di ricezione per i commenti è uguale a quella dei messaggi da cloud a dispositivo. Quando è possibile, i commenti sui messaggio vengono riuniti in batch in un unico messaggio con il formato seguente:
 
-| Proprietà     | Descrizione |
+| Proprietà     | DESCRIZIONE |
 | ------------ | ----------- |
 | EnqueuedTime | Timestamp che indica quando il messaggio di feedback è stato ricevuto dall'hub |
 | UserId       | `{iot hub name}` |
@@ -92,7 +96,7 @@ Come illustrato negli [endpoint](iot-hub-devguide-endpoints.md), l'hub Internet 
 
 Il corpo è una matrice serializzata con JSON dei record, ognuno con le proprietà seguenti:
 
-| Proprietà           | Descrizione |
+| Proprietà           | DESCRIZIONE |
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | Timestamp che indica quando si è verificato il risultato del messaggio (ad esempio, l'hub ha ricevuto il messaggio di feedback o il messaggio originale è scaduto) |
 | OriginalMessageId  | *MessageID* del messaggio da cloud a dispositivo a cui si riferiscono le informazioni sul feedback |

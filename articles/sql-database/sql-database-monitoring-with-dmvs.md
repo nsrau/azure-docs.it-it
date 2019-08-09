@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 5bddcb89d26566bd2024cbde086b6e35ddaf94ef
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a630ceb1748f38dc169a4ebabcbb4e021de4273c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567173"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881568"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Monitoraggio delle prestazioni del database SQL di Azure tramite DMV
 
@@ -28,7 +28,7 @@ Il database SQL supporta parzialmente tre categorie di visualizzazioni a gestion
 - Visualizzazioni a gestione dinamica relative all'esecuzione.
 - Visualizzazioni a gestione dinamica relative alle transazioni.
 
-Per informazioni dettagliate sulle visualizzazioni a gestione dinamica, vedere [Visualizzazioni a gestione dinamica e funzioni (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) nella documentazione Online di SQL Server.
+Per informazioni dettagliate sulle visualizzazioni a gestione dinamica, vedere [Visualizzazioni a gestione dinamica e funzioni (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) nella documentazione Online di SQL Server. 
 
 ## <a name="permissions"></a>Autorizzazioni
 
@@ -237,7 +237,7 @@ GO
 
 ## <a name="identify-tempdb-performance-issues"></a>Identificare i problemi di prestazioni di `tempdb`
 
-Quando si identificano i problemi di prestazioni di IO, il tipo di attesa più frequente associato a problemi di `tempdb` è `PAGELATCH_*` (non `PAGEIOLATCH_*`). Tuttavia, le attese `PAGELATCH_*` non indicano sempre una contesa di `tempdb`.  Questo tipo di attesa può anche indicare una contesa della pagina di dati utente-oggetto causata da richieste simultanee che puntano alla stessa pagina di dati. Per confermare la contesa di `tempdb`, usare [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) per confermare che il valore wait_resource inizia con `2:x:y` dove 2 è `tempdb` è l'ID database, `x` è l'ID file e `y` è l'ID pagina.  
+Quando si identificano i problemi di prestazioni di IO, il tipo di attesa più frequente associato a problemi di `tempdb` è `PAGELATCH_*` (non `PAGEIOLATCH_*`). Tuttavia, le attese `PAGELATCH_*` non indicano sempre una contesa di `tempdb`.  Questo tipo di attesa può anche indicare una contesa della pagina di dati utente-oggetto causata da richieste simultanee che puntano alla stessa pagina di dati. `tempdb` Per confermare ulteriormente la contesa, utilizzare [sys. dm _exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) per verificare che il valore di wait_resource `2:x:y` inizi con dove `tempdb` 2 è l'ID del `x` database, è l'ID del `y` file e è l'ID della pagina.  
 
 Per la contesa di tempdb, un metodo comune consiste nel ridurre o riscrivere il codice dell'applicazione che si basa su `tempdb`.  Le aree di utilizzo di `tempdb` comuni includono:
 
@@ -334,7 +334,7 @@ ORDER BY start_time ASC;
 
 Se il tipo di attesa più frequente è `RESOURCE_SEMAHPORE` e non si riscontra un problema di utilizzo elevato della CPU, è possibile che si stia verificando un problema di attesa della concessione di memoria.
 
-### <a name="determine-if-a-resourcesemahpore-wait-is-a-top-wait"></a>Determinare se un'attesa `RESOURCE_SEMAHPORE` è una delle attese più frequenti
+### <a name="determine-if-a-resource_semahpore-wait-is-a-top-wait"></a>Determinare se un'attesa `RESOURCE_SEMAHPORE` è una delle attese più frequenti
 
 Usare la query seguente per determinare se un'attesa `RESOURCE_SEMAHPORE` è una delle attese più frequenti
 
@@ -512,7 +512,7 @@ WHERE c.session_id = @@SPID;
 - [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 - [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
-### <a name="sysdmdbresourcestats"></a>sys.dm_db_resource_stats
+### <a name="sysdm_db_resource_stats"></a>sys.dm_db_resource_stats
 
 È possibile usare la vista [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) in ogni database SQL. La vista **sys.dm_db_resource_stats** mostra i dati recenti sull'uso delle risorse rispetto al livello di servizio. Le percentuali medie relative a CPU, I/O dei dati, scritture nei log e memoria vengono registrate ogni 15 secondi e vengono mantenute per un'ora.
 
@@ -533,7 +533,7 @@ FROM sys.dm_db_resource_stats;
 
 Per altre query, vedere gli esempi in [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
 
-### <a name="sysresourcestats"></a>sys.resource_stats
+### <a name="sysresource_stats"></a>sys.resource_stats
 
 La vista [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) nel database **master** fornisce informazioni aggiuntive utili per il monitoraggio dell'uso delle prestazioni del database SQL ai relativi livello di servizio e dimensioni di calcolo. I dati vengono raccolti ogni 5 minuti e conservati per circa 14 giorni. Questa vista è utile per analisi cronologiche a lungo termine dell'uso delle risorse del database SQL.
 

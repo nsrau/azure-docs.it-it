@@ -6,21 +6,24 @@ author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 08/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: f00ad898ea45700b75607f89bc2c8e71288357c2
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 1bb94b70510be30d676ad707ab2fbfbbcbf50833
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847577"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884120"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replicare le macchine virtuali abilitate per crittografia dischi di Azure in un'altra area di Azure
 
 Questo articolo descrive come replicare le macchine virtuali abilitate per crittografia dischi di Azure da un'area di Azure a un'altra.
 
 >[!NOTE]
->Azure Site Recovery attualmente supporta solo le macchine virtuali abilitate per la crittografia dischi di Azure che eseguono un sistema operativo Windows.
+>Azure Site Recovery attualmente supporta solo le macchine virtuali abilitate per la crittografia dischi di Azure che eseguono un sistema operativo Windows. Le macchine virtuali abilitate per crittografia dischi di Azure senza Azure AD app sono supportate solo se usano dischi gestiti. Le macchine virtuali con dischi non gestiti non sono supportate.
+
+>[!NOTE]
+>Se si passa da ADE V1 (con Azure AD app) ad ADE V2 (senza Azure AD app), è necessario disabilitare la replica e abilitare la replica dopo l'abilitazione di ADE V2.
 
 ## <a id="required-user-permissions"></a>Autorizzazioni utente necessarie
 Site Recovery richiede che l'utente disponga delle autorizzazioni per la creazione dell'insieme di credenziali delle chiavi nell'area di destinazione e la copia delle chiavi dall'area di origine all'insieme di credenziali delle chiavi dell'area di destinazione.

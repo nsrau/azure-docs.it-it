@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 92d44ef3d0db8e93d4babd7441238c7fa105dbd5
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: caf661faf00d1d32664b7958a14a8719a37ab36e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639011"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882103"
 ---
 # <a name="add-a-popup-to-the-map"></a>Aggiungere un popup alla mappa
 
@@ -24,26 +24,40 @@ Questo articolo illustra come aggiungere un pop a un punto in una mappa.
 
 <a id="addAPopup"></a>
 
+Il codice seguente aggiunge alla mappa una funzionalità punto, `name` con `description` proprietà e, usando un livello di simboli. Viene creata un'istanza della [classe popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) che non viene visualizzata. Gli eventi del mouse vengono aggiunti al livello del simbolo per attivare l'apertura e la chiusura del popup quando il mouse passa sopra e fuori dal marcatore del simbolo. Quando il simbolo del marcatore viene spostato, la `position` proprietà del popup viene aggiornata con la posizione del marcatore e l' `content` opzione viene aggiornata con un codice HTML che esegue `description` il wrapping delle `name` proprietà e della funzionalità punto al passaggio del mouse. Il popup viene quindi visualizzato sulla mappa usando la relativa `open` funzione.
+
+<br/>
+
 <iframe height='500' scrolling='no' title='Aggiungere un popup usando Mappe di Azure' src='//codepen.io/azuremaps/embed/MPRPvz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento Pen <a href='https://codepen.io/azuremaps/pen/MPRPvz/'>Add a pop up using Azure Maps</a> (Aggiungere un popup usando Mappe di Azure) di Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Nel codice precedente il primo blocco di codice costruisce un oggetto mappa. Per le istruzioni è possibile vedere [Creare una mappa](./map-create.md). Crea anche il contenuto HTML da visualizzare nel popup.
-
-Il secondo blocco di codice crea un oggetto di origine dati usando la classe [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Un punto è una [funzionalità](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) della classe [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest). Un oggetto punto con le proprietà name e description viene quindi creato e aggiunto all'origine dati.
-
-Un [livello simbolo](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) usa testo o icone per il rendering dei dati basati su punti di cui viene eseguito il wrapping in [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) come simboli sulla mappa.  Nel terzo blocco di codice viene creato un livello simbolo. L'origine dati viene aggiunta al livello simbolo, che viene quindi aggiunto alla mappa.
-
-Il quarto blocco di codice crea un [oggetto popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) tramite `new atlas.Popup()`. Le proprietà del popup, ad esempio position e pixelOffset, fanno parte di [PopupOptions](/javascript/api/azure-maps-control/atlas.popupoptions). La classe PopupOptions può essere definita nel costruttore del popup tramite la funzione [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) della classe Popup. Viene quindi creato un listener di eventi `mouseover` per il livello simbolo.
-
-L'ultimo blocco di codice crea una funzione che viene attivata dal listener di eventi `mouseover`. Imposta il contenuto e le proprietà del popup e aggiunge l'oggetto popup alla mappa.
-
 ## <a name="reusing-a-popup-with-multiple-points"></a>Riutilizzare un popup con più punti
 
-Quando si hanno molti punti e si vuole visualizzare un solo popup alla volta, l'approccio migliore è creare un popup e riutilizzarlo anziché crearne uno per ogni funzionalità punto. In questo modo, il numero di elementi DOM creati dall'applicazione è notevolmente ridotto, il che può fornire prestazioni migliori. Questo esempio crea tre funzionalità punto. Se si fa clic su una di esse, verrà visualizzato un popup con il contenuto di tale funzionalità punto.
+Quando si dispone di un numero elevato di punti e si desidera visualizzare solo un popup alla volta, l'approccio migliore consiste nel creare un popup e riutilizzarlo anziché creare un popup per ogni funzionalità del punto. Riutilizzando il popup, il numero di elementi DOM creati dall'applicazione è notevolmente ridotto, che può offrire prestazioni migliori. Nell'esempio seguente vengono create le funzionalità di 3 punti. Se si fa clic su una di esse, verrà visualizzato un popup con il contenuto di tale funzionalità punto.
 
 <br/>
 
 <iframe height='500' scrolling='no' title='Riutilizzo di popup con più segnaposto' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento Pen <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>Reusing Popup with Multiple Pins</a> (Riutilizzo di popup con più segnaposto) di Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) su <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+## <a name="customizing-a-popup"></a>Personalizzazione di un popup
+
+Per impostazione predefinita, il popup presenta uno sfondo bianco, una freccia del puntatore in basso e un pulsante Chiudi nell'angolo superiore destro. Nell'esempio seguente il colore di sfondo viene modificato in nero `fillColor` utilizzando l'opzione del popup. Il pulsante Chiudi viene rimosso impostando l' `shoCloseButton` opzione su false. Il contenuto HTML del popup USA 10 pixel riempiti dai bordi del popup e il testo viene reso bianco, in modo che venga visualizzato perfettamente sullo sfondo nero.  
+
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Popup personalizzato" src="//codepen.io/azuremaps/embed/ymKgdg/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Vedere il <a href='https://codepen.io/azuremaps/pen/ymKgdg/'>popup personalizzato</a> della penna di Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() in <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+## <a name="popup-events"></a>Eventi popup
+
+I popup possono essere aperti, chiusi e trascinati. La classe popup fornisce eventi per aiutare gli sviluppatori a rispondere a queste azioni. Nell'esempio seguente vengono evidenziati gli eventi che vengono generati quando si apre, si chiude o si trascina il popup. 
+
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Eventi popup" src="//codepen.io/azuremaps/embed/BXrpvB/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Vedere gli <a href='https://codepen.io/azuremaps/pen/BXrpvB/'>eventi popup</a> della penna di Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Passaggi successivi

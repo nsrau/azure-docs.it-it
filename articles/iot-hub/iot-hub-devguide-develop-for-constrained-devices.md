@@ -1,24 +1,24 @@
 ---
 title: Hub IoT di Azure - Sviluppare per dispositivi vincolati tramite IoT Hub C SDK | Microsoft Docs
 description: 'Guida per sviluppatori: materiale sussidiario sulle modalità di sviluppo tramite Azure IoT SDK per i dispositivi vincolati.'
-author: yzhong94
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 05/24/2018
-ms.author: yizhon
-ms.openlocfilehash: 7788bca621a59ec8cdfe36edf73a99efca8c460c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: robinsh
+ms.openlocfilehash: d69fe6b845d3af04e42ee91daa9359dcb9a88fc5
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61320934"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880974"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Sviluppare per dispositivi vincolati tramite Azure IoT C SDK
 
 L'SDK C dell'hub IoT di Azure è scritto in ANSI C (C99), che lo rende particolarmente adatto per il funzionamento su una vasta gamma di piattaforme con footprint di memoria e disco ridotto. La quantità di RAM consigliata è almeno 64 KB, ma il footprint di memoria esatto varia in base al protocollo usato, al numero di connessioni aperte e alla piattaforma di destinazione.
 > [!NOTE]
-> * Azure IoT C SDK pubblica regolarmente le informazioni sul consumo di risorse per facilitare lo sviluppo.  Visitare il [repository GitHub](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md) ed esaminare il benchmark più recente.
+> * Azure le informazioni sul consumo di risorse di Azure sono regolarmente pubblicate per semplificare lo sviluppo.  Visitare il [repository GitHub](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md) ed esaminare il benchmark più recente.
 >
 
 L'SDK C è disponibile in forma di pacchetto da apt-get, NuGet e MBED. Per fare riferimento ai dispositivi vincolati, è possibile compilare l'SDK in locale per la piattaforma di destinazione. Questa documentazione illustra come rimuovere alcune funzionalità per ridurre il footprint dell'SDK C usando [cmake](https://cmake.org/). Inoltre, questa documentazione presenta i modelli di programmazione consigliati per l'uso con i dispositivi vincolati.
@@ -33,7 +33,7 @@ Seguire questa [guida all'installazione dell'SDK C](https://github.com/Azure/azu
 
 ### <a name="remove-additional-protocol-libraries"></a>Rimuovere le librerie di protocollo aggiuntive
 
-C SDK supporta cinque protocolli oggi stesso: MQTT, MQTT su WebSocket, AMQPs, AMQP su WebSocket e HTTPS. La maggior parte degli scenari richiede uno o due protocolli in esecuzione in un client, pertanto è possibile rimuovere dall'SDK la libreria di protocollo non usata. Altre informazioni sulla scelta del protocollo di comunicazione appropriato per uno specifico scenario sono disponibili in [Scegliere un protocollo di comunicazione](iot-hub-devguide-protocols.md). Ad esempio, MQTT è un protocollo leggero che spesso è più indicato per i dispositivi vincolati.
+C SDK supporta attualmente cinque protocolli: MQTT, MQTT su WebSocket, AMQPs, AMQP su WebSocket e HTTPS. La maggior parte degli scenari richiede uno o due protocolli in esecuzione in un client, pertanto è possibile rimuovere dall'SDK la libreria di protocollo non usata. Altre informazioni sulla scelta del protocollo di comunicazione appropriato per uno specifico scenario sono disponibili in [Scegliere un protocollo di comunicazione](iot-hub-devguide-protocols.md). Ad esempio, MQTT è un protocollo leggero che spesso è più indicato per i dispositivi vincolati.
 
 È possibile rimuovere le librerie AMQP e HTTP usando il comando cmake seguente:
 
@@ -73,7 +73,7 @@ Di seguito verranno illustrati i modelli di programmazione per i dispositivi vin
 
 L'SDK C dispone di un [serializzatore SDK C](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer) facoltativo che consente di usare tabelle di mapping dichiarative per definire i metodi e le proprietà dei dispositivi gemelli. Il serializzatore è progettato per semplificare lo sviluppo, ma aggiunge un sovraccarico, non indicato per i dispositivi vincolati. In questo caso, provare a usare le API client primitive e analizzare JSON tramite un parser leggero come [parson](https://github.com/kgabis/parson).
 
-### <a name="use-the-lower-layer-ll"></a>Usare il livello inferiore (_LL_)
+### <a name="use-the-lower-layer-_ll_"></a>Usare il livello inferiore (_LL_)
 
 L'SDK C supporta due modelli di programmazione. Un set dispone di API con un infisso _LL_, che indica il livello inferiore. Questo set di API è più leggero e non avvia thread di lavoro, il che significa che l'utente deve controllare manualmente la pianificazione. Ad esempio, per il client del dispositivo, le API _LL_ sono disponibili in questo [file di intestazione](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_device_client_ll.h). 
 

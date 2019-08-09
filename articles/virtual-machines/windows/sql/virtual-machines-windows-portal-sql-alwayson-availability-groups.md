@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: bddc83d55c8909412f7f935a4324a6f316a82cd7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9751ae97f96d2041a4106a41bb782a80dd9c8ba9
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62129554"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884392"
 ---
-# <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Configurare i gruppi di disponibilità AlwaysOn in macchine virtuali di Azure automaticamente: Gestione risorse
+# <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Configurare automaticamente Gruppi di disponibilità Always On in macchine virtuali di Azure: Gestione risorse
 
 Questa esercitazione illustra come creare un gruppo di disponibilità di SQL Server che usa macchine virtuali di Azure Resource Manager. L'esercitazione usa pannelli di Azure per configurare un modello. Nel corso dell'esercitazione l'utente rivedrà le impostazioni predefinite, digiterà i valori necessari e aggiornerà i pannelli nel portale.
 
@@ -44,10 +44,10 @@ Prima di iniziare questa esercitazione, verificare quanto segue:
 
 * Si dispone già di un account Azure. In caso contrario, [iscriversi per ottenere un account di valutazione](https://azure.microsoft.com/pricing/free-trial/).
 * Si sa già come usare l'interfaccia utente grafica per effettuare il provisioning di una macchina virtuale di SQL Server dalla raccolta delle macchine virtuali. Per altre informazioni, vedere [Effettuare il provisioning di una macchina virtuale di SQL Server nel portale di Azure](virtual-machines-windows-portal-sql-server-provision.md).
-* Si ha già una conoscenza approfondita dei gruppi di disponibilità. Per altre informazioni, vedere [Gruppi di disponibilità AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
+* Si ha già una conoscenza approfondita dei gruppi di disponibilità. Per altre informazioni, vedere [Gruppi di disponibilità AlwaysOn (SQL Server)](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
 
 > [!NOTE]
-> Se si è interessati all'uso di gruppi di disponibilità con SharePoint, vedere anche [Configurare gruppi di disponibilità AlwaysOn di SQL Server 2012 per SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
+> Se si è interessati all'uso di gruppi di disponibilità con SharePoint, vedere anche [Configurare gruppi di disponibilità AlwaysOn di SQL Server 2012 per SharePoint 2013](/SharePoint/administration/configure-an-alwayson-availability-group).
 >
 >
 
@@ -71,7 +71,7 @@ Azure offre un'immagine della raccolta per l'intera soluzione. Per individuare i
    ![Modello AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
 5. In **Selezionare un modello di distribuzione** scegliere **Resource Manager**.
 
-### <a name="basics"></a>Nozioni di base
+### <a name="basics"></a>Generale
 Fare clic su **Nozioni di base** e configurare le impostazioni seguenti:
 
 * **Nome utente amministratore**: è un account utente con autorizzazioni di amministratore di dominio ed è anche membro del ruolo del server predefinito come amministratore di sistema di SQL Server in entrambe le istanze di SQL Server. Per questa esercitazione, usare **DomainAdmin**.
@@ -82,7 +82,7 @@ Fare clic su **Nozioni di base** e configurare le impostazioni seguenti:
 
 L'immagine è una schermata del pannello **Nozioni di base** completato:
 
-![Nozioni di base](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/1-basics.png)
+![Generale](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/1-basics.png)
 
 Fare clic su **OK**.
 

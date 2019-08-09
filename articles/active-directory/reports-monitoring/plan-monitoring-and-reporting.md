@@ -2,27 +2,22 @@
 title: Pianificare un Azure Active Directory la distribuzione di report e monitoraggio
 description: Viene descritto come pianificare ed eseguire implmentation di Reporting e monitoraggio.
 services: active-directory
-documentationcenter: ''
 author: BarbaraSelden
 manager: daveba
-editor: ''
-ms.assetid: ''
 ms.service: active-directory
-ms.devlang: na
-ms.topic: plan
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f68b3a312ff7681fde65154542a66767c5195ff
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: f974b3564857a439f1ac1c40ddd572633b761862
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68406457"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879855"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Pianificare un Azure Active Directory la distribuzione di report e monitoraggio
 
@@ -104,7 +99,7 @@ La creazione di report e il monitoraggio vengono usati per soddisfare i requisit
 * Ideale per soddisfare le esigenze aziendali
 * Non applicabile
 
-|Area |DESCRIZIONE |
+|Area |Descrizione |
 |-|-|
 |Fidelizzazione| **Conservazione dei log di più di 30 giorni**. A causa dei requisiti legali o aziendali, è necessario archiviare i log di controllo e i log di accesso di Azure AD più di 30 giorni. |
 |Analisi| **I log devono essere disponibili per la ricerca**. È necessario eseguire ricerche nei log archiviati con gli strumenti di analisi. |

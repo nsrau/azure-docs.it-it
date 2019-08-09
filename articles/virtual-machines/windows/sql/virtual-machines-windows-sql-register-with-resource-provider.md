@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 87db36936ee4aee45b7e8d83e1512d22c2a49eee
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 552caf0f09dcfa291981ef73152cf4febfc4a840
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68846145"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882368"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registrare una macchina virtuale SQL Server in Azure con il provider di risorse VM SQL
 
@@ -41,9 +41,14 @@ Per registrare la macchina virtuale di SQL Server con il provider di risorse, è
 - Una [macchina virtuale SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). 
 - L' [interfaccia](/cli/azure/install-azure-cli) della riga di comando di Azure e [PowerShell](/powershell/azure/new-azureps-module-az). 
 
-## <a name="register-with-the-sql-vm-resource-provider"></a>Eseguire la registrazione con il provider di risorse VM SQL
-Se la [SQL Server estensione agente IaaS](virtual-machines-windows-sql-server-agent-extension.md) è già installata nella macchina virtuale, la registrazione con il provider di risorse VM SQL crea semplicemente una risorsa di metadati di tipo Microsoft. SqlVirtualMachine/SqlVirtualMachines. 
 
+## <a name="register-with-sql-vm-resource-provider"></a>Eseguire la registrazione con il provider di risorse VM SQL
+Se l' [estensione dell'agente IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md) non è installata nella macchina virtuale, è possibile eseguire la registrazione con il provider di risorse VM SQL specificando la modalità di gestione SQL Lightweight. In modalità di gestione SQL Lightweight, il provider di risorse VM SQL installerà automaticamente l'estensione IaaS di SQL in [modalità Lightweight](virtual-machines-windows-sql-server-agent-extension.md#install-in-lightweight-mode) e verificherà SQL Server metadati dell'istanza; il servizio SQL Server non verrà riavviato. È necessario specificare il tipo di licenza SQL Server desiderata per la registrazione con il provider di risorse VM SQL come ' PAYG ' o ' vantaggio Ahu '.
+
+La registrazione con il provider di risorse VM SQL in [modalità Lightweight](virtual-machines-windows-sql-server-agent-extension.md#install-in-lightweight-mode) garantisce la conformità e Abilita le licenze flessibili, nonché gli aggiornamenti sul posto SQL Server edizione. Le istanze del cluster di failover e le distribuzioni a istanze diverse possono essere registrate con il provider di risorse VM SQL solo in modalità lightweight. È possibile seguire le istruzioni disponibili nella portale di Azure per eseguire l'aggiornamento alla [modalità completa](virtual-machines-windows-sql-server-agent-extension.md#install-in-full-mode) e abilitare la funzionalità di gestibilità completa con un SQL Server riavviare in qualsiasi momento. 
+
+
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 Usare il frammento di codice seguente per eseguire la registrazione con il provider di risorse VM SQL se l'estensione SQL Server IaaS è già installata nella macchina virtuale. Per la registrazione con il provider di risorse VM SQL è necessario specificare il tipo di licenza di SQL Server, ovvero con pagamento in base al consumo (`PAYG`) o vantaggio Azure Hybrid (`AHUB`). 
 
 Registrare la macchina virtuale SQL Server usando il frammento di codice di PowerShell seguente:
@@ -52,33 +57,49 @@ Registrare la macchina virtuale SQL Server usando il frammento di codice di Powe
      # Get the existing compute VM
      $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
           
-     # Register with the SQL VM resource provider
-     New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
-        -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
-        -Properties @{virtualMachineResourceId=$vm.Id;SqlServerLicenseType='AHUB'}  
-  
-  ```
-
-Se la SQL Server estensione IaaS non è installata nella macchina virtuale, è possibile eseguire la registrazione con il provider di risorse VM SQL specificando la modalità di gestione leggera. In modalità di gestione Lightweight, il provider di risorse VM SQL installerà automaticamente l'estensione IaaS SQL Server in [modalità Lightweight](virtual-machines-windows-sql-server-agent-extension.md#install-in-lightweight-mode) e verificherà SQL Server metadati dell'istanza. Il servizio SQL Server non verrà riavviato. Per la registrazione con il provider di risorse VM SQL è necessario specificare il tipo di licenza di SQL Server, ovvero con pagamento in base al consumo (`PAYG`) o vantaggio Azure Hybrid (`AHUB`). 
-
-Registrare la macchina virtuale SQL Server in modalità di gestione semplice usando il frammento di codice di PowerShell seguente:
-
-  ```powershell-interactive
-     # Get the existing compute VM
-     $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
-          
-     # Register the SQL VM with the lightweight SQL IaaS agent
+     # Register SQL VM with 'Lightweight' SQL IaaS agent
      New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
         -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
         -Properties @{virtualMachineResourceId=$vm.Id;SqlServerLicenseType='AHUB';sqlManagement='LightWeight'}  
   
   ```
 
-La registrazione con il provider di risorse VM SQL in [modalità Lightweight](virtual-machines-windows-sql-server-agent-extension.md#install-in-lightweight-mode) garantisce la conformità e Abilita le licenze flessibili, nonché gli aggiornamenti sul posto SQL Server edizione. Le istanze del cluster di failover e le distribuzioni a più istanze possono essere registrate con il provider di risorse VM SQL solo in modalità lightweight. In qualsiasi momento, è possibile seguire le istruzioni disponibili nella portale di Azure per eseguire l'aggiornamento alla [modalità completa](virtual-machines-windows-sql-server-agent-extension.md#install-in-full-mode) e abilitare una funzionalità di gestibilità completa con un riavvio del SQL Server. 
+# <a name="az-clitabbash"></a>[Interfaccia della riga di comando AZ](#tab/bash)
+
+Per le edizioni a pagamento (Enterprise o standard):
+
+  ```azurecli-interactive
+  # Register Enterprise or Standard self-installed VM in Lightweight mode
+
+  az sql vm create --name <vm_name> --resource-group <resource_group_name> --location <vm_location> --license-type AHUB 
+
+  ```
+
+Per le edizioni gratuite (Developer, Web o Express):
+
+  ```azurecli-interactive
+  # Register Developer, Web, or Express self-installed VM in Lightweight mode
+
+  az sql vm create --name <vm_name> --resource-group <resource_group_name> --location <vm_location> --license-type PAYG 
+  ```
+---
+
+Se l'estensione SQL IaaS è già installata nella macchina virtuale, la registrazione con il provider di risorse VM SQL crea semplicemente una risorsa di metadati di tipo Microsoft. SqlVirtualMachine/SqlVirtualMachines. Di seguito è riportato il frammento di codice da registrare con il provider di risorse VM SQL se l'estensione IaaS SQL è già installata nella macchina virtuale. È necessario specificare il tipo di licenza SQL Server desiderata per la registrazione con il provider di risorse VM SQL come ' PAYG ' o ' vantaggio Ahu '.
+
+  ```powershell-interactive
+  # Get the existing  Compute VM
+   $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+        
+   # Register with SQL VM resource provider
+   New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
+      -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
+      -Properties @{virtualMachineResourceId=$vm.Id;SqlServerLicenseType='AHUB'}
+  ```
+
 
 ## <a name="register-sql-server-2008-or-2008-r2-on-windows-server-2008-vms"></a>Registrare SQL Server 2008 o 2008 R2 in macchine virtuali Windows Server 2008
 
-SQL Server 2008 e 2008 R2 installati in Windows Server 2008 possono essere registrati con il provider di risorse VM SQL nella modalità ([Nessun agente](virtual-machines-windows-sql-server-agent-extension.md)). Questa opzione assicura la conformità e consente il monitoraggio della macchina virtuale SQL Server nel portale di Azure con funzionalità limitate.
+SQL Server 2008 e 2008 R2 installati in Windows Server 2008 possono essere registrati con il provider di risorse VM SQL in modalità [senza agenti](virtual-machines-windows-sql-server-agent-extension.md) . Questa opzione assicura la conformità e consente il monitoraggio della macchina virtuale SQL Server nel portale di Azure con funzionalità limitate.
 
 La tabella seguente illustra in dettaglio i valori accettabili per i parametri forniti durante la registrazione:
 
@@ -89,8 +110,9 @@ La tabella seguente illustra in dettaglio i valori accettabili per i parametri f
 | &nbsp;             | &nbsp;                                   |
 
 
-Per registrare l'istanza di SQL Server 2008 o 2008 R2 in Windows Server 2008, usare il frammento di codice di PowerShell seguente:  
+Per registrare l'istanza di SQL Server 2008 o 2008 R2 nell'istanza di Windows Server 2008, usare il frammento di codice PowerShell o AZ CLI seguente:  
 
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
   ```powershell-interactive
      # Get the existing compute VM
      $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
@@ -100,6 +122,16 @@ Per registrare l'istanza di SQL Server 2008 o 2008 R2 in Windows Server 2008, us
       -Properties @{virtualMachineResourceId=$vm.Id;SqlServerLicenseType='AHUB'; `
        sqlManagement='NoAgent';sqlImageSku='Standard';sqlImageOffer='SQL2008R2-WS2008'}
   ```
+
+# <a name="az-clitabbash"></a>[Interfaccia della riga di comando AZ](#tab/bash)
+
+  ```azurecli-interactive
+   az sql vm create -n sqlvm -g myresourcegroup -l eastus |
+   --license-type AHUB --sql-mgmt-type NoAgent 
+   --image-sku Enterprise --image-offer SQL2008-WS2008R2
+ ```
+
+---
 
 ## <a name="verify-registration-status"></a>Verificare lo stato della registrazione
 È possibile verificare se la macchina virtuale SQL Server è già stata registrata con il provider di risorse VM SQL usando il portale di Azure, l'interfaccia della riga di comando di Azure o PowerShell. 
@@ -111,21 +143,28 @@ Per registrare l'istanza di SQL Server 2008 o 2008 R2 in Windows Server 2008, us
 1. Selezionare il SQL Server VM dall'elenco. Se la macchina virtuale SQL Server non è inclusa nell'elenco, è probabile che non sia stata registrata con il provider di risorse della macchina virtuale SQL. 
 1. Visualizzare il valore in **stato**. Se **lo stato** è **succeeded**, la macchina virtuale SQL Server è stata registrata correttamente con il provider di risorse della macchina virtuale SQL. 
 
-    ![Verificare lo stato con la registrazione di SQL RP](media/virtual-machines-windows-sql-register-with-rp/verify-registration-status.png)
+![Verificare lo stato con la registrazione di SQL RP](media/virtual-machines-windows-sql-register-with-rp/verify-registration-status.png)
 
-### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+### <a name="command-line"></a>Riga di comando
+
+Verificare lo stato di registrazione della macchina virtuale SQL Server corrente usando AZ CLI o PowerShell. `ProvisioningState`indicherà `Succeeded` se la registrazione è stata completata. 
+
+# <a name="az-clitabbash"></a>[Interfaccia della riga di comando AZ](#tab/bash)
+
 
   ```azurecli-interactive
   az sql vm show -n <vm_name> -g <resource_group>
-  ```
-`ProvisioningState`indicherà `Succeeded` se la registrazione è stata completata. 
+ ```
 
-### <a name="powershell"></a>PowerShell
+
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
   ```powershell-interactive
-  Get-AzResource -ResourceName <vm_name> -ResourceGroupName <resource_group> -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines
+  Get-AzResource -ResourceName <vm_name> -ResourceGroupName <resource_group> `
+  -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines
   ```
-`ProvisioningState`indicherà `Succeeded` se la registrazione è stata completata.
+
+---
 
 Un errore indica che la macchina virtuale SQL Server non è stata registrata con il provider di risorse. 
 
@@ -143,25 +182,33 @@ Per registrare la macchina virtuale di SQL Server con il provider di risorse VM 
 
 ![Modificare il provider](media/virtual-machines-windows-sql-ahb/select-resource-provider-sql.png)
 
-### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+
+### <a name="command-line"></a>Riga di comando
+
+Registrare il provider di risorse VM SQL nella sottoscrizione di Azure usando AZ CLI o PowerShell. 
+
+# <a name="az-clitabbash"></a>[Interfaccia della riga di comando AZ](#tab/bash)
+Il frammento di codice seguente registrerà il provider di risorse VM SQL nella sottoscrizione di Azure. 
 
 ```azurecli-interactive
 # Register the new SQL VM resource provider to your subscription 
 az provider register --namespace Microsoft.SqlVirtualMachine 
 ```
 
-### <a name="powershell"></a>PowerShell
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell-interactive
 # Register the new SQL VM resource provider to your subscription
 Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 ```
+---
 
 ## <a name="remarks"></a>Note
 
 - Il provider di risorse VM SQL supporta solo SQL Server macchine virtuali distribuite tramite Azure Resource Manager. SQL Server macchine virtuali distribuite con il modello classico non sono supportate. 
 - Il provider di risorse VM SQL supporta solo SQL Server macchine virtuali distribuite nel cloud pubblico. Le distribuzioni nel cloud privato o per enti pubblici non sono supportate. 
  
+
 ## <a name="frequently-asked-questions"></a>Domande frequenti 
 
 **È necessario registrare la macchina virtuale SQL Server sottoposta a provisioning da un'immagine di SQL Server in Azure Marketplace?**
@@ -188,7 +235,7 @@ Non sono previsti prerequisiti per la registrazione con il provider di risorse V
 
 Sì, è possibile eseguire la registrazione con il provider di risorse VM SQL in modalità di gestione Lightweight se non è stata installata l'estensione SQL Server IaaS nella macchina virtuale. In modalità Lightweight, il provider di risorse VM SQL userà un'app console per verificare la versione e l'edizione dell'istanza di SQL Server. 
 
-L'app console si arresterà automaticamente dopo aver verificato che sia presente almeno un'istanza di SQL Server in esecuzione nella macchina virtuale. La registrazione con il provider di risorse VM SQL in modalità Lightweight non viene riavviata SQL Server e non creerà un agente nella macchina virtuale.
+La modalità di gestione SQL predefinita durante la registrazione con il provider di risorse VM SQL è _piena_. Se la proprietà di gestione SQL non è impostata quando si esegue la registrazione con il provider di risorse VM SQL, la modalità verrà impostata come piena gestibilità. L'installazione di SQL IaaS Extension nella VM è il prerequisito per la registrazione con il provider di risorse VM SQL in modalità di gestione completa.
 
 **Si registrerà con il provider di risorse VM SQL per installare un agente nella macchina virtuale?**
 
