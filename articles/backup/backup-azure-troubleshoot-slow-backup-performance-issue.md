@@ -63,7 +63,7 @@ L'indicazione migliore in questo scenario consiste nel disattivare l'altro progr
 Per i programmi antivirus è consigliabile escludere i file e percorsi seguenti:
 
 * C:\Programmi\Agente di Servizi di ripristino di Microsoft Azure\bin\cbengine.exe come processo
-* Cartelle in C:\Programmi\Agente di Servizi di ripristino di Microsoft Azure\
+* Cartelle in C:\Programmi\Agente di Servizi di ripristino di Microsoft Azure
 * Spazio di lavoro, se non si usa il percorso standard precedente
 
 <a id="cause3"></a>
