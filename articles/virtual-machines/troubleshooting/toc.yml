@@ -65,13 +65,19 @@
       href: detailed-troubleshoot-ssh-connection.md
 - name: Messaggi di errore comuni
   href: error-messages.md
-- name: Problemi di prestazioni delle VM Windows
+- name: Problemi di prestazioni con le macchine virtuali
   href: performance-diagnostics.md
   items:
-    - name: Come usare PerfInsights
-      href: how-to-use-perfInsights.md
-    - name: Estensione per la diagnostica delle prestazioni
-      href: performance-diagnostics-vm-extension.md
+    - name: Windows
+      items:
+        - name: Come usare PerfInsights
+          href: how-to-use-perfinsights.md
+        - name: Estensione per la diagnostica delle prestazioni
+          href: performance-diagnostics-vm-extension.md
+    - name: Linux
+      items:
+        - name: Come usare PerfInsights
+          href: how-to-use-perfinsights-linux.md
 - name: Installare l'agente di macchine virtuali Windows offline
   href: install-vm-agent-offline.md
 - name: Ridistribuire una VM

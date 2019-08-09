@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2018
+ms.date: 08/07/2019
 ms.author: chkuhtz
-ms.openlocfilehash: b9a140314b8eba6386c37bdbcf2bb3de58589335
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b109e87a8fcbef0bfca356c83716509ebc6cecd4
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60594159"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884218"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Più front-end per Azure Load Balancer
 
@@ -30,7 +30,7 @@ Quando si definisce un'istanza di Azure Load Balancer, viene connessa una config
 
 La tabella seguente contiene alcune configurazioni front-end di esempio:
 
-| Front-end | Indirizzo IP | protocol | port |
+| Front-end | Indirizzo IP | protocollo | port |
 | --- | --- | --- | --- |
 | 1 |65.52.0.1 |TCP |80 |
 | 2 |65.52.0.1 |TCP |*8080* |
@@ -54,7 +54,7 @@ Questi scenari verranno approfonditi iniziando con il comportamento predefinito.
 
 In questo scenario i front-end sono configurati nel modo seguente:
 
-| Front-end | Indirizzo IP | protocol | port |
+| Front-end | Indirizzo IP | protocollo | port |
 | --- | --- | --- | --- |
 | ![front-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |
 | ![front-end viola](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |*65.52.0.2* |TCP |80 |
@@ -66,11 +66,11 @@ Si definiscono due regole:
 | Regola | Mapping frontend | Al pool back-end |
 | --- | --- | --- |
 | 1 |![front-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
-| 2 |![Indirizzo VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
+| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
 
 Il mapping completo in Azure Load Balancer sarà ora il seguente:
 
-| Regola | Indirizzo IP front-end | protocol | port | Destination | port |
+| Regola | Indirizzo IP front-end | protocollo | port | Destination | port |
 | --- | --- | --- | --- | --- | --- |
 | ![regola verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |Indirizzo IP DIP |80 |
 | ![regola viola](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |Indirizzo IP DIP |81 |
@@ -104,7 +104,7 @@ Per questo scenario, ogni macchina virtuale nel pool back-end ha tre interfacce 
 
 Si supponga la stessa configurazione front-end dello scenario precedente:
 
-| Front-end | Indirizzo IP | protocol | port |
+| Front-end | Indirizzo IP | protocollo | port |
 | --- | --- | --- | --- |
 | ![front-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |
 | ![front-end viola](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |*65.52.0.2* |TCP |80 |
@@ -113,12 +113,12 @@ Si definiscono due regole:
 
 | Regola | Front-end | Mapping al pool back-end |
 | --- | --- | --- |
-| 1 |![Regola](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (in VM1 e VM2) |
-| 2 |![Regola](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (in VM1 e VM2) |
+| 1 |![rule](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (in VM1 e VM2) |
+| 2 |![rule](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (in VM1 e VM2) |
 
 La tabella seguente illustra il mapping completo nel servizio di bilanciamento del carico:
 
-| Regola | Indirizzo IP front-end | protocol | port | Destination | port |
+| Regola | Indirizzo IP front-end | protocollo | port | Destination | port |
 | --- | --- | --- | --- | --- | --- |
 | ![regola verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |uguale a front-end (65.52.0.1) |uguale a front-end (80) |
 | ![regola viola](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |uguale a front-end (65.52.0.2) |uguale a front-end (80) |
@@ -132,7 +132,7 @@ Il tipo di regola con indirizzo IP mobile è alla base di diversi modelli di con
 ## <a name="limitations"></a>Limitazioni
 
 * Le configurazioni di più front-end sono supportate solo con le macchine virtuali IaaS.
-* Con la regola dell'indirizzo IP mobile, l'applicazione deve usare la configurazione IP primaria per i flussi in uscita. Se l'applicazione si associa all'indirizzo IP del front-end configurato nell'interfaccia di loopback del sistema operativo guest, SNAT di Azure non potrà riscrivere il flusso in uscita e il flusso avrà esito negativo.
+* Con la regola dell'indirizzo IP mobile, l'applicazione deve usare la configurazione IP primaria per i flussi SNAT in uscita. Se l'applicazione si associa all'indirizzo IP front-end configurato nell'interfaccia di loopback del sistema operativo guest, il SNAT in uscita di Azure non è disponibile per riscrivere il flusso in uscita e il flusso ha esito negativo.  Esaminare gli [scenari in uscita](load-balancer-outbound-connections.md).
 * Gli indirizzi IP pubblici hanno un effetto sulla fatturazione. Per altre informazioni, vedere [Prezzi per gli indirizzi IP](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Si applicano i limiti delle sottoscrizioni. Per altre informazioni, vedere i [limiti del servizio](../azure-subscription-service-limits.md#networking-limits) .
 
