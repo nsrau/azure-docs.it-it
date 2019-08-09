@@ -12,7 +12,7 @@ ms.date: 03/26/2019
 ms.author: aahi
 ms.openlocfilehash: 4b97c52ec0ed076e1ab8aeada90f430b8ed87514
 ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/08/2019
 ms.locfileid: "68854802"
@@ -41,7 +41,7 @@ Inviando contemporaneamente i dati delle serie temporali, l'API genererà un mod
 
 Per rilevare continuamente le anomalie nei dati di streaming, usare l'URI della richiesta seguente con il punto dati più recente: 
 
-[https://login.microsoftonline.com/consumers/](`/timeseries/last/detect'`). 
+`/timeseries/last/detect'`. 
 
 Inviando nuovi punti dati durante la generazione, è possibile monitorare i dati in tempo reale. Verrà generato un modello con i punti dati inviati e l'API determinerà se il punto più recente della serie temporale è un'anomalia.
 

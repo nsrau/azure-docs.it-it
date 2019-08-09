@@ -166,6 +166,8 @@
       items:
         - name: Creare data factory con strumenti visivi
           href: author-visually.md
+        - name: Controllo del codice sorgente
+          href: source-control.md
         - name: Integrazione continua e recapito continuo
           href: continuous-integration-deployment.md
         - name: Sviluppo e debug iterativi

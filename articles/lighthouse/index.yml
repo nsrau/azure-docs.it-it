@@ -53,6 +53,8 @@ sections:
         style: cards
         className: cardsD
         items:
+          - title: Riga di comando
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/managedservices?view=azure-cli-latest">Interfaccia della riga di comando di Azure</a></p><p><a href="https://docs.microsoft.com/powershell/module/az.managedservices/?view=azps-2.4.0#managed_services">Azure PowerShell</a></p>'
           - title: Languages
             html: '<p><a href="/dotnet/api/Microsoft.Azure.Management.ManagedServices">Azure SDK per .NET</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/">Azure SDK per .NET (NuGet)</a></p><p><a href="https://docs.microsoft.com/python/api/azure-mgmt-managedservices">Azure SDK per Python</a></p><p><a href="https://pypi.org/project/azure-mgmt-managedservices/">Azure SDK per Python (PyPi)</a></p>'
           - title: REST
