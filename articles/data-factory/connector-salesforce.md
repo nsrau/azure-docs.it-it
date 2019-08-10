@@ -320,20 +320,20 @@ Quando si copiano dati da Salesforce, vengono usati i mapping seguenti tra i tip
 | Checkbox |Boolean |
 | Currency |Decimal |
 | Date |DateTime |
-| Data/ora |DateTime |
+| Date/Time |DateTime |
 | Email |String |
-| ID |String |
-| Relazione di ricerca |String |
-| Elenco a discesa seleziona multipla |String |
+| Id |String |
+| Lookup Relationship |String |
+| Multi-Select Picklist |String |
 | Number |Decimal |
 | Percent |Decimal |
-| Telefono |String |
-| Elenco a discesa |String |
+| Phone |String |
+| Picklist |String |
 | Text |String |
-| Area di testo |String |
-| Area di testo (Long) |String |
-| Area di testo (Rich) |String |
-| Testo (Crittografato) |String |
+| Text Area |String |
+| Text Area (Long) |String |
+| Text Area (Rich) |String |
+| Text (Encrypted) |String |
 | URL |String |
 
 ## <a name="next-steps"></a>Passaggi successivi
