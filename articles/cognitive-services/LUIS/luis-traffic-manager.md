@@ -8,15 +8,15 @@ ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 10ddbed710d3055e66bd3cb0b06cfa7949a9a1c5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 72a7b383d224936e3d22ee9e7acb5db28fe63c4e
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563381"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945135"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Usare Gestione traffico di Microsoft Azure per gestire la quota di endpoint tra le chiavi
 Language Understanding (LUIS) offre la possibilità di aumentare la quota di endpoint oltre la quota della singola chiave. Questa operazione viene eseguita creando più chiavi per LUIS e aggiungendole all'applicazione LUIS sulla pagina **Publish** (Pubblica) nella sezione **Resources and Keys** (Risorse e chiavi). 
@@ -48,7 +48,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
 
     ![Screenshot del portale di Azure con due chiavi LUIS nel gruppo di risorse luis-traffic-manager](./media/traffic-manager/luis-keys.png)
 
-2. Nella sezione Gestisci del sito Web  [Luis][LUIS] , nella pagina **chiavi ed endpoint** , assegnare chiavi all'app e ripubblicare l'app selezionando il pulsante **pubblica** nel menu in alto a destra. 
+2. Nella sezione Gestisci del sito Web [Luis][LUIS] , nella pagina **chiavi ed endpoint** , assegnare chiavi all'app e ripubblicare l'app selezionando il pulsante **pubblica** nel menu in alto a destra. 
 
     L'URL di esempio nella colonna **endpoint** usa una richiesta GET con la chiave endpoint come parametro di query. Copiare gli URL degli endpoint delle due nuove chiavi. Verranno usati come parte della configurazione di Gestione traffico più avanti in questo articolo.
 
@@ -58,7 +58,7 @@ Gestione traffico crea un nuovo punto di accesso DNS per gli endpoint. Non opera
 ### <a name="polling-uses-luis-endpoint"></a>Il polling usa l'endpoint LUIS
 Gestione traffico esegue il polling degli endpoint periodicamente per verificare che l'endpoint sia ancora disponibile. L'URL di Gestione traffico sottoposto a polling deve essere accessibile con una richiesta GET e restituire un valore 200. L'URL dell'endpoint sulla pagina **Publish** (Pubblica) esegue questa operazione. Poiché ogni chiave endpoint ha una route e parametri di stringa di query diversi, per ogni chiave endpoint è necessario un percorso di polling diverso. Ogni volta che Gestione traffico esegue il polling, comporta un costo in termini di richiesta di quota. Il parametro della stringa di query **q** dell'endpoint LUIS è l'espressione inviata a LUIS. Questo parametro, anziché inviare un'espressione, viene usato per aggiungere il polling di Gestione traffico al registro di endpoint LUIS come tecnica di debug mentre Gestione traffico viene configurato.
 
-Poiché ogni endpoint LUIS deve avere il proprio percorso, ha bisogno di un proprio profilo di Gestione traffico. Per la gestione tra i profili, creare un'architettura di [Gestione traffico _nidificata_](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-nested-profiles). Un profilo padre punta ai profili figlio e gestisce il traffico tra di loro.
+Poiché ogni endpoint LUIS deve avere il proprio percorso, ha bisogno di un proprio profilo di Gestione traffico. Per la gestione tra i profili, creare un'architettura di [Gestione traffico _nidificata_ ](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-nested-profiles). Un profilo padre punta ai profili figlio e gestisce il traffico tra di loro.
 
 Dopo aver configurato Gestione traffico, ricordarsi di modificare il percorso per usare il parametro della stringa di query logging=false, in modo che tutto lo spazio del registro non venga occupato con il polling.
 

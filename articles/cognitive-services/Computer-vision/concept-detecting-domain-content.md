@@ -1,5 +1,5 @@
 ---
-title: Rilevare contenuti specifici di dominio - Visione artificiale
+title: Contenuto specifico di dominio-Visione artificiale
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come specificare un dominio di classificazione delle immagini per restituire informazioni più dettagliate su un'immagine.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e4b64e00f71768a8821c83a73b019f77089e1b3a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8d6dc91ae7bb0f6d7a24064749d9295558a7d39c
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60368077"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946330"
 ---
 # <a name="detect-domain-specific-content"></a>Rilevare contenuti specifici di dominio
 
@@ -30,7 +30,7 @@ Oltre all'assegnazione di tag e alla classificazione di primo livello, Visione a
 
 Di seguito è riportata una risposta JSON di esempio restituita dall'API **models/celebrities/analyze** per l'immagine specificata:
 
-![Satya Nadella permanente, sorridenti](./images/satya.jpeg)
+![NADELLA in piedi, sorridente](./images/satya.jpeg)
 
 ```json
 {
@@ -100,7 +100,7 @@ La risposta JSON seguente mostra come includere l'analisi specifica di dominio c
 
 Visione artificiale supporta attualmente i modelli specifici di dominio seguenti:
 
-| NOME | Descrizione |
+| Name | DESCRIZIONE |
 |------|-------------|
 | celebrities | Riconoscimento di personaggi famosi, supportato per le immagini classificate nella categoria `people_` |
 | landmarks | Riconoscimento di luoghi di interesse, supportato per le immagini classificate nella categoria `outdoor_` o `building_` |
