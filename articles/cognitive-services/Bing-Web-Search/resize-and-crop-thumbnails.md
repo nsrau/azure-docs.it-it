@@ -1,122 +1,122 @@
 ---
 title: Ridimensionare e ritagliare le anteprime delle immagini - API Ricerca Web Bing
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come ridimensionare e ritagliare le anteprime fornite dalle API di ricerca di Bing.
+description: Informazioni su come ridimensionare e ritagliare le anteprime fornite dal API di ricerca Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.assetid: 05A08B01-89FF-4781-AFE7-08DA92F25047
 ms.service: cognitive-services
 ms.subservice: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: aahi
-ms.openlocfilehash: 6a5b2dada254a0bfc7fa60172f56221ba67ad279
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: ecc6eb86e7115143fa63b44f9191b1fe8d3703b8
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67867934"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881808"
 ---
 # <a name="resize-and-crop-thumbnail-images"></a>Ridimensionare e ritagliare le immagini di anteprima
 
-Alcune risposte dalle API di ricerca Bing includono gli URL delle immagini di anteprima servite da Bing, che è possibile ridimensionare e ritagliare e possono contenere parametri di query. Ad esempio:
+Alcune risposte dalla API di ricerca Bing includono gli URL per le immagini di anteprima gestite da Bing, che è possibile ridimensionare e ritagliare e possono contenere parametri di query. Ad esempio:
 
 `https://<host>/th?id=AMMS_92772df988...&w=110&h=73&rs=1&qlt=80&cdv=1&pid=16.1`
 
-Se si visualizza un sottoinsieme delle anteprime, offrono un'opzione per visualizzare le immagini rimanenti.
+Se si visualizza un subset di queste anteprime, specificare un'opzione per visualizzare le immagini rimanenti.
 
 > [!NOTE]
-> Assicurarsi che il ritaglio e ridimensionamento delle immagini di anteprima fornirà uno scenario di ricerca che rispettino i diritti di terze parti, come richiesto dall'API di ricerca Bing [utilizzare e visualizzare i requisiti](use-display-requirements.md).
+> Assicurarsi che le immagini di anteprima di ritaglio e ridimensionamento forniscano uno scenario di ricerca che rispetta i diritti di terze parti, come richiesto dai [requisiti di utilizzo e visualizzazione](use-display-requirements.md)dell'API ricerca Bing.
 
-## <a name="resize-a-thumbnail"></a>Ridimensionare un'immagine di anteprima 
+## <a name="resize-a-thumbnail"></a>Ridimensionare un'anteprima 
 
-Per ridimensionare un'immagine di anteprima, Bing consiglia di specificare un solo il `w` (larghezza) o `h` i parametri di query (altezza) nell'URL dell'anteprima. Specificando solo l'altezza o larghezza consente a Bing di mantenere l'aspetto originale dell'immagine. Specificare la larghezza e l'altezza in pixel. 
+Per ridimensionare un'anteprima, Bing consiglia di specificare solo un `w` parametro di query (width) o `h` (Height) nell'URL dell'anteprima. Se si specifica solo l'altezza o la larghezza, Bing mantiene l'aspetto originale dell'immagine. Specificare la larghezza e l'altezza in pixel. 
 
-Ad esempio, se l'anteprima originale è 620 x 480:
+Ad esempio, se l'anteprima originale è 480x620:
 
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=480&h=620`
 
-E si vuole ridurre la dimensione, impostare il `w` parametro per un nuovo valore (ad esempio `336`) e rimuovere il `h` parametro:
+E si desidera ridurne le dimensioni, impostare il `w` parametro su un nuovo valore (ad esempio `336`) e rimuovere il `h` parametro:
 
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=336`
 
-Se si specifica solo l'altezza o larghezza di un'anteprima, verranno mantenute le proporzioni originali dell'immagine. Se si specificano entrambi i parametri e non sono mantenute le proporzioni, Bing aggiungerà spaziatura interna bianca al bordo dell'immagine.
+Se si specifica solo l'altezza o la larghezza di un'anteprima, le proporzioni originali dell'immagine verranno mantenute. Se si specificano entrambi i parametri e le proporzioni non vengono mantenute, Bing aggiungerà spaziatura bianca al bordo dell'immagine.
 
-Ad esempio, se si ridimensiona un' 480x359 immagine a 200x200 senza ritagliarla, la larghezza completa contiene l'immagine ma l'altezza contiene 25 pixel di spaziatura interna bianca nella parte superiore e inferiore dell'immagine. Se l'immagine è stata 359 x 480, i bordi sinistro e destro conterrebbe spaziatura interna bianca. Se si ritaglia l'immagine, la spaziatura interna bianca non viene aggiunta.  
+Se ad esempio si ridimensiona un'immagine 480x359 in 200x200 senza ritaglio, l'intera larghezza conterrà l'immagine, ma l'altezza conterrà 25 pixel di riempimento bianco nella parte superiore e inferiore dell'immagine. Se l'immagine è 359x480, i bordi sinistro e destro contengono spaziatura interna bianca. Se si ritaglia l'immagine, la spaziatura interna bianca non viene aggiunta.  
 
 La figura seguente illustra le dimensioni originali di un'immagine di anteprima (480x300).  
   
 ![Immagine orizzontale originale](./media/resize-crop/bing-resize-crop-landscape.png)  
   
-La figura seguente illustra l'immagine ridimensionata a 200x200. Le proporzioni vengono mantenute e i bordi superiore e inferiore vengono riempiti di bianco (in questo caso il bordo nero è incluso per mostrare la spaziatura interna).  
+La figura seguente illustra l'immagine ridimensionata a 200x200. Le proporzioni vengono mantenute e i bordi superiore e inferiore vengono riempiti con il bianco (il bordo nero è incluso per mostrare la spaziatura interna).  
   
 ![Immagine orizzontale ridimensionata](./media/resize-crop/bing-resize-crop-landscape-resized.png)  
 
-Se si specificano dimensioni maggiori di larghezza e altezza originali dell'immagine, Bing aggiunge un riempimento bianco per i bordi sinistro e superiore.  
+Se si specificano dimensioni maggiori della larghezza e dell'altezza originali dell'immagine, in Bing verrà aggiunta la spaziatura bianca ai bordi sinistro e superiore.  
 
-## <a name="request-different-thumbnail-sizes"></a>Richiedere le diverse dimensioni delle anteprime
+## <a name="request-different-thumbnail-sizes"></a>Richiedi dimensioni di anteprima diverse
 
-Per richiedere una dimensione diversa immagine di anteprima, rimuovere tutti i parametri di query dall'URL dell'anteprima, ad eccezione di `id` e `pid` parametri. Quindi aggiungere il `&w` (larghezza) o `&h` parametro di query (altezza) con le dimensioni desiderate relativa all'immagine in pixel, ma non entrambi. Bing manterrà le proporzioni originali dell'immagine. 
+Per richiedere una dimensione diversa dell'immagine di anteprima, rimuovere tutti i parametri di query dall'URL dell'anteprima `id` , `pid` eccetto i parametri e. Quindi, aggiungere il `&w` parametro di query ( `&h` Width) o (Height) con la dimensione dell'immagine desiderata in pixel, ma non entrambi. Bing manterrà le proporzioni originali dell'immagine. 
 
-Per aumentare la larghezza dell'immagine specificato dall'URL precedente a 165 pixel di distanza, usare l'URL seguente:
+Per aumentare la larghezza dell'immagine specificata dall'URL precedente a 165 pixel, usare l'URL seguente:
 
 `https://<host>/th?id=AMMS_92772df988...&w=165&pid=16.1`
 
-Se si richiede un'immagine di dimensioni maggiore rispetto alle dimensioni originali dell'immagine, Bing aggiunge spaziatura interna bianca intorno all'immagine in base alle esigenze. Ad esempio, se l'immagine originale del dimensione è 474 x 316 e si imposta `&w` su 500, Bing restituirà un'immagine di 500 x 333. Questa immagine avrà 8,5 pixel di spaziatura interna bianca lungo i bordi superiore e inferiore e 13 pixel di spaziatura interna ai bordi sinistro e destro.
+Se si richiede un'immagine di dimensioni superiori a quelle originali dell'immagine, Bing aggiunge la spaziatura bianca intorno all'immagine in base alle esigenze. Se, ad esempio, le dimensioni originali dell'immagine sono 474x316 e si `&w` imposta su 500, Bing restituirà un'immagine 500x333. Questa immagine avrà 8,5 pixel di riempimento bianco lungo i bordi superiore e inferiore e 13 pixel di riempimento sui bordi sinistro e destro.
 
-Per impedire l'aggiunta di spaziatura interna bianca se la dimensione richiesta è superiore alle dimensioni originali dell'immagine di Bing, impostare il `&p` query parametro su 0. Ad esempio, se si include il `&p=0` parametro nell'URL precedente, Bing restituirà un'immagine di 474 x 316 anziché un'immagine di 500 x 333:
+Per impedire a Bing di aggiungere spaziatura interna bianca se le dimensioni richieste sono maggiori delle dimensioni originali dell'immagine, `&p` impostare il parametro di query su 0. Ad esempio, se si include il `&p=0` parametro nell'URL precedente, Bing restituirà un'immagine 474x316 anziché un'immagine 500x333:
 
 `https://<host>/th?id=AMMS_92772df988...&w=500&p=0&pid=16.1`
 
-Se si specificano entrambe `&w` e `&h` manterrà le proporzioni dell'immagine di parametri di query, Bing e aggiunge spaziatura interna bianca in base alle esigenze. Ad esempio, se l'immagine originale del dimensioni sono 474 x 316 e impostare i parametri width e height a 200x200 (`&w=200&h=200`), Bing restituisce un'immagine che contiene 33 pixel di spaziatura interna bianca nella parte superiore e inferiore. Se si include il `&p` parametro di query Bing restituisce un'immagine di 200 x 134.
+Se si specificano `&w` entrambi `&h` i parametri di query e, Bing manterrà le proporzioni dell'immagine e aggiungerà la spaziatura interna in base alle esigenze. Se, ad esempio, le dimensioni originali dell'immagine sono 474x316 e si impostano i parametri width e Height`&w=200&h=200`su 200x200 (), Bing restituisce un'immagine che contiene 33 pixel di riempimento bianco nella parte superiore e inferiore. Se si include il `&p` parametro di query, Bing restituisce un'immagine 200x134.
 
-## <a name="crop-a-thumbnail"></a>Ritagliare un'immagine di anteprima 
+## <a name="crop-a-thumbnail"></a>Ritagliare un'anteprima 
 
-Per ritagliare un'immagine, includere il `c` parametro di query (ritaglio). È possibile usare i valori seguenti:
+Per ritagliare un'immagine, includere `c` il parametro di query (crop). È possibile utilizzare i valori seguenti:
   
-- `4` &mdash; Proporzioni  
-- `7` &mdash; Proporzioni intelligenti  
+- `4`&mdash; Percentuale di cecità  
+- `7`&mdash; Rapporto intelligente  
 
-### <a name="smart-ratio-cropping"></a>Smart ritaglio con proporzioni
+### <a name="smart-ratio-cropping"></a>Ritaglio con proporzioni intelligenti
 
-Se si richiede di ritaglio con proporzioni intelligenti (impostando il `c` parametro per `7`), Bing verrà ritagliare un'immagine dal centro del relativa area di interesse verso l'esterno, mantenendo le proporzioni dell'immagine. L'area di interesse è la parte dell'immagine che secondo Bing contiene gli elementi più importanti. Il seguente è un esempio di area di interesse.  
+Se si richiede il ritaglio con proporzioni intelligenti `c` , impostando il parametro su `7`, Bing ridurrà un'immagine dal centro dell'area di interesse verso l'esterno, mantenendo al tempo stesso le proporzioni dell'immagine. L'area di interesse è la parte dell'immagine che secondo Bing contiene gli elementi più importanti. Il seguente è un esempio di area di interesse.  
   
 ![Area di interesse](./media/resize-crop/bing-resize-crop-regionofinterest.png)
 
-Se si ridimensiona un'immagine e richiedere ritaglio con proporzioni intelligenti, Bing riduce l'immagine a dimensioni richieste mantenendo le proporzioni. Bing è quindi Ritaglia l'immagine in base alle dimensioni modificate. Ad esempio, se la larghezza ridimensionata è minore o uguale all'altezza, Bing verrà ritagliare l'immagine a sinistra e a destra del centro dell'area di interesse. In caso contrario, Bing verrà ritagliarla nella parte superiore e inferiore del centro dell'area di interesse.  
+Se si ridimensiona un'immagine e si richiede il ritaglio con proporzioni intelligenti, Bing riduce l'immagine alla dimensione richiesta mantenendo le proporzioni. Bing quindi ritaglia l'immagine in base alle dimensioni ridimensionate. Se, ad esempio, la larghezza ridimensionata è minore o uguale all'altezza, Bing ridurrà l'immagine a sinistra e a destra del centro dell'area di interesse. In caso contrario, Bing lo Ritaglia nella parte superiore e inferiore del centro dell'area di interesse.  
   
  
-La seguente è l'immagine ridotta a 200x200 usando il ritaglio con proporzioni intelligenti. Poiché Bing misura l'immagine nell'angolo in alto a sinistra, la parte inferiore dell'immagine viene ritagliata. 
+La seguente è l'immagine ridotta a 200x200 usando il ritaglio con proporzioni intelligenti. Poiché Bing misura l'immagine dall'angolo superiore sinistro, la parte inferiore dell'immagine viene ritagliata. 
   
 ![Immagine orizzontale ritagliata a 200x200](./media/resize-crop/bing-resize-crop-landscape200x200c7.png) 
   
-La seguente è l'immagine ridotta a 200x100 usando il ritaglio con proporzioni intelligenti. Poiché Bing misura l'immagine nell'angolo in alto a sinistra, la parte inferiore dell'immagine viene ritagliata. 
+La seguente è l'immagine ridotta a 200x100 usando il ritaglio con proporzioni intelligenti. Poiché Bing misura l'immagine dall'angolo superiore sinistro, la parte inferiore dell'immagine viene ritagliata. 
    
 ![Immagine orizzontale ritagliata a 200x100](./media/resize-crop/bing-resize-crop-landscape200x100c7.png)
   
-La seguente è l'immagine ridotta a 100x200 usando il ritaglio con proporzioni intelligenti. Poiché l'immagine dal centro di misure di Bing, vengono ritagliate le parti sinistra e destra dell'immagine.
+La seguente è l'immagine ridotta a 100x200 usando il ritaglio con proporzioni intelligenti. Poiché Bing misura l'immagine dal centro, le parti sinistra e destra dell'immagine vengono ritagliate.
   
 ![Immagine orizzontale ritagliata a 100x200](./media/resize-crop/bing-resize-crop-landscape100x200c7.png) 
 
-Se Bing non è possibile determinare l'area di interesse dell'immagine, il servizio userà ritaglio con proporzioni casuali.  
+Se Bing non è in grado di determinare l'area di interesse dell'immagine, il servizio utilizzerà il ritaglio con proporzioni cieche.  
 
-### <a name="blind-ratio-cropping"></a>Ritaglio con proporzioni nascosta
+### <a name="blind-ratio-cropping"></a>Ritaglio con proporzioni cieche
 
-Se si richiede di ritaglio con proporzioni casuali (impostando il `c` parametro per `4`), Bing Usa le regole seguenti per ritagliare l'immagine.  
+Se si richiede il ritaglio con proporzioni cieche ( `4`impostando il `c` parametro su), Bing usa le regole seguenti per ritagliare l'immagine.  
   
-- Se `(Original Image Width / Original Image Height) < (Requested Image Width / Requested Image Height)`, l'immagine viene misurata dall'angolo in alto a sinistra e ritagliata in basso.  
+- Se `(Original Image Width / Original Image Height) < (Requested Image Width / Requested Image Height)`, l'immagine viene misurata dall'angolo superiore sinistro e ritagliata in basso.  
 - Se `(Original Image Width / Original Image Height) > (Requested Image Width / Requested Image Height)`, l'immagine viene misurata dal centro e ritagliata a sinistra e a destra.  
 
 La seguente è un'immagine verticale 225x300.  
   
 ![Immagine di girasole originale](./media/resize-crop/bing-resize-crop-sunflower.png)
   
-La seguente è l'immagine ridotta a 200x200 usando il ritaglio con proporzioni casuali. L'immagine viene misurata dall'angolo superiore sinistro risultante nella parte inferiore dell'immagine viene ritagliata.  
+La seguente è l'immagine ridotta a 200x200 usando il ritaglio con proporzioni casuali. L'immagine viene misurata dall'angolo superiore sinistro e la parte inferiore dell'immagine viene ritagliata.  
   
 ![Immagine di girasole ritagliata a 200x200](./media/resize-crop/bing-resize-crop-sunflower200x200c4.png)
   
-La seguente è l'immagine ridotta a 200x100 usando il ritaglio con proporzioni casuali. L'immagine viene misurata dall'angolo superiore sinistro risultante nella parte inferiore dell'immagine viene ritagliata.  
+La seguente è l'immagine ridotta a 200x100 usando il ritaglio con proporzioni casuali. L'immagine viene misurata dall'angolo superiore sinistro e la parte inferiore dell'immagine viene ritagliata.  
   
 ![Immagine di girasole ritagliata a 200x100](./media/resize-crop/bing-resize-crop-sunflower200x100c4.png)
   
@@ -126,5 +126,5 @@ La seguente è l'immagine ridotta a 100x200 usando il ritaglio con proporzioni c
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Quali sono le API di ricerca Bing?](bing-api-comparison.md)
-* [API ricerca Bing utilizzare e visualizzare i requisiti](use-display-requirements.md)
+* [Quali sono i API di ricerca Bing?](bing-api-comparison.md)
+* [Requisiti per l'uso e la visualizzazione dell'API Ricerca Bing](use-display-requirements.md)

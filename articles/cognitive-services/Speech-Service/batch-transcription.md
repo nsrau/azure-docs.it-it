@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: 088b6ef93631cb964979de3621453caa430c5b1e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e98ac335f475e4a6db6b17d5954512f5749e6aec
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559708"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881148"
 ---
 # <a name="why-use-batch-transcription"></a>Perché usare la trascrizione batch?
 
@@ -86,8 +86,8 @@ Usare queste proprietà facoltative per configurare la trascrizione:
 
 | Parametro | Descrizione |
 |-----------|-------------|
-| `ProfanityFilterMode` | Specifica come gestire il linguaggio volgare nei risultati del riconoscimento. I valori accettati sono `none` che disabilita i filtri del contenuto volgare, `masked` che sostituisce il contenuto volgare con gli asterischi, `removed` che rimuove tutto il contenuto volgare dal risultato, o `tags` che aggiunge tag "contenuti volgari". L'impostazione predefinita è `masked`. |
-| `PunctuationMode` | Specifica come gestire la punteggiatura nei risultati del riconoscimento. I valori accettati sono `none` che consente di disattivare la punteggiatura, `dictated` che implica la punteggiatura esplicita, `automatic` che permette al decodificatore di occuparsi della punteggiatura, o `dictatedandautomatic` che implica segni di punteggiatura dettata o automatica. |
+| `ProfanityFilterMode` | Specifica come gestire il linguaggio volgare nei risultati del riconoscimento. I valori accettati sono `None` che disabilita i filtri del contenuto volgare, `masked` che sostituisce il contenuto volgare con gli asterischi, `removed` che rimuove tutto il contenuto volgare dal risultato, o `tags` che aggiunge tag "contenuti volgari". L'impostazione predefinita è `masked`. |
+| `PunctuationMode` | Specifica come gestire la punteggiatura nei risultati del riconoscimento. I valori accettati sono `None` che consente di disattivare la punteggiatura, `dictated` che implica la punteggiatura esplicita, `automatic` che permette al decodificatore di occuparsi della punteggiatura, o `dictatedandautomatic` che implica segni di punteggiatura dettata o automatica. |
  | `AddWordLevelTimestamps` | Specifica se i timestamp a livello di parola devono essere aggiunti all'output. I valori accettati sono `true`, che abilita i timestamp a livello di parola, e `false` (valore predefinito), che li disabilita. |
  | `AddSentiment` | Specifica che il sentimento deve essere aggiunto all'espressione. I valori accettati sono `true` che Abilita il sentimento per ogni espressione e `false` (il valore predefinito) per disabilitarlo. |
  | `AddDiarization` | Specifica che è necessario eseguire la alalysis di diarizzazione nell'input, che dovrebbe essere canale mono contenente due voci. I valori accettati sono `true` che consentono di eseguire la diaria e `false` (il valore predefinito) per disabilitarla. È anche necessario `AddWordLevelTimestamps` che sia impostato su true.|

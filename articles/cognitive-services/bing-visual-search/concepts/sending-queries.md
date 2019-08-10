@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 7/01/2019
 ms.author: aahi
-ms.openlocfilehash: b0b26c771f19edeb45fd4fb6aa3f24c335d0f51e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6604e5d5b3b77955c9e5f78df5d2a5b804bf09ef
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562720"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883586"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Invio di query di ricerca all'API Ricerca visiva Bing
 
@@ -76,7 +76,7 @@ Di seguito vengono indicati i parametri di query da specificare nella richiesta.
 | Name | Value | Type | Obbligatoria |
 | --- | --- | --- | --- |
 | <a name="cc" />cc  | Codice paese a due caratteri che rappresenta la provenienza dei risultati.<br /><br /> Se si imposta questo parametro, è necessario specificare anche l'intestazione [Accept-Language](#acceptlanguage). Bing usa la prima lingua supportata individuata nell'elenco delle lingue e combina la lingua con il codice paese specificato per determinare il mercato da cui restituire i risultati. Se nell'elenco non è presenta alcuna lingua supportata, Bing rileva la lingua e il mercato più vicini che supportano la richiesta. In alternativa, Bing può usare un mercato aggregato o predefinito per i risultati anziché quello specificato.<br /><br /> È necessario usare questo parametro di query e il parametro di query `Accept-Language` solo se si specificano più lingue. In caso contrario, è necessario usare i parametri di query `mkt` e `setLang`.<br /><br /> Tale parametro e il parametro di query [mkt](#mkt) si escludono a vicenda&mdash;non specificarli entrambi. | String | No       |
-| <a name="mkt" />mkt   | Mercato dal quale provengono i risultati. <br /><br /> **NOTA:** È necessario specificare sempre il mercato, se noto. La specifica del mercato consente a Bing indirizzare la richiesta e di restituire una risposta appropriata e ottimale.<br /><br /> Tale parametro e il parametro di query [cc](#cc) si escludono a vicenda&mdash;non specificarli entrambi. | String | Sì      |
+| <a name="mkt" />mkt   | Mercato dal quale provengono i risultati. <br /><br /> **NOTA:** È necessario specificare sempre il mercato, se noto. La specifica del mercato consente a Bing indirizzare la richiesta e di restituire una risposta appropriata e ottimale.<br /><br /> Tale parametro e il parametro di query [cc](#cc) si escludono a vicenda&mdash;non specificarli entrambi. | String | Yes      |
 | <a name="safesearch" />safeSearch | Filtro per contenuti per adulti. Di seguito sono indicati i possibili valori di filtro con distinzione tra maiuscole e minuscole.<br /><ul><li>Off&mdash;Vengono restituite pagine Web con testo o immagini per adulti.<br /><br/></li><li>Moderate&mdash;Vengono restituite pagine Web con testo per adulti, ma non con immagini per adulti.<br /><br/></li><li>Strict&mdash;Non viene restituita alcuna pagina Web con testo o immagini per adulti.</li></ul><br /> Il valore predefinito è Moderate.<br /><br /> **NOTA:** se la richiesta proviene da un mercato in cui il criterio per adulti di Bing richiede che `safeSearch` sia impostato su Strict, Bing ignora il valore di `safeSearch` e usa il valore Strict.<br/><br/>**NOTA:** Se si usa l' `site:` operatore di query, è possibile che la risposta contenga contenuto per adulti indipendentemente dall'impostazione del `safeSearch` parametro di query. Usare `site:` solo se si è a conoscenza del contenuto del sito e lo scenario prevede la possibilità di contenuto per adulti.  | String | No       |
 | <a name="setlang" />setLang  | Lingua da usare per le stringhe dell'interfaccia utente. Specificare la lingua usando il codice di lingua ISO 639-1 di due lettere. Ad esempio, il codice lingua per l'inglese è EN. L'impostazione predefinita è EN (inglese).<br /><br /> Sebbene sia facoltativo, è opportuno specificare sempre la lingua. In genere, si imposta `setLang` sulla stessa lingua specificata da `mkt`, a meno che non si intenda visualizzare le stringhe dell'interfaccia utente in un'altra lingua.<br /><br /> Questo parametro e l'intestazione [Accept-Language](#acceptlanguage) si escludono a vicenda&mdash;non specificare entrambi.<br /><br /> Una stringa di interfaccia utente è una stringa usata come etichetta in un'interfaccia utente. Gli oggetti di risposta JSON contengono poche stringhe di interfaccia utente. Eventuali collegamenti alle proprietà Bing.com negli oggetti risposta si applicano anche alla lingua specificata. | String | No   |
 
@@ -84,7 +84,7 @@ Di seguito vengono indicati i parametri di query da specificare nella richiesta.
 
 Di seguito vengono indicate le intestazioni che la richiesta deve specificare. Le `Content-Type` intestazioni `Ocp-Apim-Subscription-Key` e sono le uniche intestazioni obbligatorie, ma è `X-MSEdge-ClientIP`necessario includere `User-Agent`anche, `X-MSEdge-ClientID`, e `X-Search-Location`.
 
-| Intestazione | DESCRIZIONE |
+| Intestazione | Descrizione |
 | --- | --- |
 | <a name="acceptlanguage" />Accept-Language  | Intestazione di richiesta facoltativa.<br /><br /> Elenco delimitato da virgole di lingue da usare per le stringhe dell'interfaccia utente. L'elenco è in ordine decrescente di preferenza. Per altre informazioni, incluso il formato previsto, vedere [RFC2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Questa intestazione e il parametro di query [setLang](#setlang) si escludono a vicenda&mdash;non specificare entrambi.<br /><br /> Se si imposta questa intestazione, è necessario anche specificare il parametro di query [cc](#cc). Per determinare il mercato per cui restituire i risultati, Bing usa la prima lingua supportata individuata nell'elenco e la combina con il valore del parametro `cc`. Se l'elenco non include una lingua supportata, Bing trova la corrispondenza più vicina della lingua e il mercato che supporta la richiesta oppure usa un mercato aggregato o predefinito per i risultati. Per determinare il mercato usato da Bing, vedere l' `BingAPIs-Market` intestazione.<br /><br /> Usare questa intestazione e il parametro di query `cc` solo se si specificano più lingue. In caso contrario, usare i parametri di query [mkt](#mkt) e [setLang](#setlang).<br /><br /> Una stringa di interfaccia utente è una stringa usata come etichetta in un'interfaccia utente. Gli oggetti di risposta JSON contengono poche stringhe di interfaccia utente. Eventuali collegamenti alle proprietà Bing.com negli oggetti di risposta si applicano alla lingua specificata.  |
 | <a name="contenttype" />Content-Type  |     |

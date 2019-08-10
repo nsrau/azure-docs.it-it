@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: ab42ee29e508bfa62e2dba7a6e6a06baa0da2489
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2f67bf0951ef8928297c71e8fc9f924cf05c63f4
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560318"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932684"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guida alla migrazione delle API da v1 a v2 per le app LUIS
 La versione 1 delle API dell'[endpoint](https://aka.ms/v1-endpoint-api-docs) e di [creazione](https://aka.ms/v1-authoring-api-docs) è deprecata. Usare questa guida per imparare a migrare le API [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) e [creazione](https://go.microsoft.com/fwlink/?linkid=2092087) alla versione 2. 

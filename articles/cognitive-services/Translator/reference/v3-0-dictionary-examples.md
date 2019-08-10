@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: 15d23016df9b0c85b9d252b4c4a9ea48d3608f75
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 419e11862b2c584686922cfc8d1db72ee4751a03
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595058"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934027"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>API Traduzione testuale 3.0: Esempi di dizionari
 
@@ -35,7 +35,7 @@ I parametri della richiesta inviati a una stringa di query sono:
 
 <table width="100%">
   <th width="20%">Parametro di query</th>
-  <th>DESCRIZIONE</th>
+  <th>Descrizione</th>
   <tr>
     <td>api-version</td>
     <td>*Parametro obbligatorio*.<br/>Versione dell'API richiesta dal client. Il valore deve essere `3.0`.</td>
@@ -54,7 +54,7 @@ Le intestazioni della richiesta includono:
 
 <table width="100%">
   <th width="20%">Intestazioni</th>
-  <th>DESCRIZIONE</th>
+  <th>Descrizione</th>
   <tr>
     <td>Intestazione/e di autenticazione</td>
     <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
@@ -123,13 +123,9 @@ Una risposta corretta è una matrice JSON con un risultato per ogni stringa nell
 
 Questo esempio illustra come ricercare esempi per la coppia formata dal termine inglese `fly` e la sua traduzione in spagnolo `volar`.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly', 'Translation':'volar'}]"
 ```
-
----
 
 Il corpo della risposta (abbreviato per maggiore chiarezza) è:
 

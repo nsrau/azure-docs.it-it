@@ -7,15 +7,15 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: 71b7be74ca7b6ac072dfd7c9fa6b8efa72361dfa
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: cb93cf1b7a5338058c6f2d93b4bb27f60286882e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561201"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881198"
 ---
 # <a name="define-and-use-moderation-workflows-rest"></a>Definire e usare flussi di lavoro di moderazione (REST)
 
@@ -98,7 +98,7 @@ Per recuperare i dettagli relativi a un flusso di lavoro esistente, passare alla
 
 ![Selezione dell'area in Workflow - Get (Flusso di lavoro - Acquisizione)](images/test-drive-region.png)
 
-Immettere i parametri di chiamata REST come nella sezione precedente. Verificare che questa volta WorkflowName  sia il nome di un flusso di lavoro esistente.
+Immettere i parametri di chiamata REST come nella sezione precedente. Verificare che questa volta WorkflowName sia il nome di un flusso di lavoro esistente.
 
 ![Ottenere parametri di query e intestazioni](images/workflow-get-default.PNG)
 

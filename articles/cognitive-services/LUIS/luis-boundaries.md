@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 6d4991a0a05bbdd7143987bfa227cc40732cda35
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 3fd593ff199ff87b1c69e1097852a81a21adc1dd
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639241"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883950"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limiti per il modello LUIS e le chiavi
 LUIS dispone di diverse aree di limiti. La prima è il [limite modello](#model-boundaries), che controlla finalità, entità e funzionalità in LUIS. La seconda area è [limiti di quota](#key-limits) basata sul tipo di chiave. Una terza area di limiti è rappresentata dalla [combinazione di tasti](#keyboard-controls) per il controllo del sito Web LUIS. Una quarta area è data dal [mapping dell'area globale](luis-reference-regions.md) tra il sito Web di creazione LUIS e le API dell'[endpoint LUIS](luis-glossary.md#endpoint). 
@@ -80,7 +80,7 @@ La chiave di creazione presenta diversi limiti per creazione e endpoint. La chia
 
 ## <a name="keyboard-controls"></a>Controlli tastiera
 
-|Input tastiera | DESCRIZIONE | 
+|Input tastiera | Descrizione | 
 |--|--|
 |Controllo + E|passa dai token alle entità nell'elenco delle espressioni|
 

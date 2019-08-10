@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3ec839c1a930ffbe73989149360f1b02866a3c50
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: f28b60d67e84e3e2e39cc647045a6dfca473b810
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68705318"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932101"
 ---
-## <a name="control-flow"></a>Flusso di controllo
+# <a name="control-flow"></a>Flusso di controllo
 
 Questo documento descrive il flusso di controllo di Conversation Learner, illustrato nel diagramma seguente.
 

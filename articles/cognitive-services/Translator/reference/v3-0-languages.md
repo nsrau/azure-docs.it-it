@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: c5298c038f056942ddc754482cbf4ec8cd77b48b
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 3dd875fbf9a8da464abe1b6312cec84c030dc624
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595018"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934006"
 ---
 # <a name="translator-text-api-30-languages"></a>API Traduzione testuale 3.0: Lingue
 
@@ -230,7 +230,7 @@ L'elenco delle lingue supportate non subirà spesso modifiche. Per risparmiare l
 
 <table width="100%">
   <th width="20%">Intestazioni</th>
-  <th>Descrizione</th>
+  <th>DESCRIZIONE</th>
   <tr>
     <td>ETag</td>
     <td>Valore corrente del tag di entità per i gruppi di lingue supportate richiesti. Per rendere più efficienti le richieste successive, il client può inviare il valore di `ETag` in un campo dell'intestazione `If-None-Match`.
@@ -281,10 +281,6 @@ Se si verifica un errore, la richiesta restituirà anche una risposta di errore 
 
 L'esempio seguente mostra come recuperare le lingue supportate per la traduzione del testo.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation"
 ```
-
----

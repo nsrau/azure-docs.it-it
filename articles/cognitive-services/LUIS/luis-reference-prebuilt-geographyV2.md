@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 2628dd30e09f4c52517ccb0a284cda235fb0c33f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e28b541c1b5aa8f733c9f4ed44fd2ea5296b34d8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560235"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933534"
 ---
 # <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>Entità predefinita geographyV2 per un'app LUIS
 L'entità predefinita geographyV2 rileva le località. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti geographyV2 per le finalità dell'applicazione. L'entità geographyV2 è supportata solo nelle [impostazioni cultura](luis-reference-prebuilt-entities.md) inglese.

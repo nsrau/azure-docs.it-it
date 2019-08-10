@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 0be56bbd421bcd12e3c494a671db2f322e07c575
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 58c9399b3701e2d8f0737b48c00336159e9688a8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594932"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931991"
 ---
 # <a name="translator-text-api-30-transliterate"></a>API Traduzione testuale 3.0: Transliterate
 
@@ -128,7 +128,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
 
 <table width="100%">
   <th width="20%">Codice di stato</th>
-  <th>DESCRIZIONE</th>
+  <th>Descrizione</th>
   <tr>
     <td>200</td>
     <td>Riuscite.</td>
@@ -165,11 +165,9 @@ Se si verifica un errore, la richiesta restituirà anche una risposta di errore 
 
 L'esempio seguente illustra come convertire due stringhe in lingua giapponese in giapponese romanizzato.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
 Il payload JSON per la richiesta in questo esempio:
 
-```
+```json
 [{"text":"こんにちは","script":"jpan"},{"text":"さようなら","script":"jpan"}]
 ```
 
@@ -178,5 +176,3 @@ Se si usa cUrl in una finestra della riga di comando che non supporta i caratter
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d @request.txt
 ```
-
----

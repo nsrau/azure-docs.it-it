@@ -6,15 +6,15 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: 36d87ee9db68c47ee96519cb6b04ff24478427d6
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 9030d85ff5bc83bb54f4a67a9f319a1670a6c2ad
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423396"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881855"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Informazioni di riferimento per l'API Bing Local Business Search v7
 
@@ -49,7 +49,7 @@ La richiesta deve usare il protocollo HTTPS.
 ## <a name="headers"></a>Intestazioni  
 Di seguito sono riportate le intestazioni che una richiesta e una risposta possono includere.  
   
-|Intestazione|Descrizione|  
+|Intestazione|DESCRIZIONE|  
 |------------|-----------------|  
 |Accetta|Intestazione di richiesta facoltativa.<br /><br /> Il tipo di contenuto multimediale predefinito è application/json. Per specificare che la risposta usi [JSON-LD](https://json-ld.org/), impostare l'intestazione Accept su application/ld+json.|  
 |<a name="acceptlanguage" />Accept-Language|Intestazione di richiesta facoltativa.<br /><br /> Elenco delimitato da virgole di lingue da usare per le stringhe dell'interfaccia utente. L'elenco è in ordine decrescente di preferenza. Per altre informazioni, incluso il formato previsto, vedere [RFC2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Questa intestazione e il parametro di query [setLang](#setlang) si escludono a vicenda&mdash;non specificare entrambi.<br /><br /> Se si imposta questa intestazione, è necessario inoltre specificare il parametro di query cc. Per determinare il mercato per cui restituire i risultati, Bing usa la prima lingua supportata individuata nell'elenco e la combina con il valore del parametro `cc`. Se l'elenco non include una lingua supportata, Bing trova la corrispondenza più vicina della lingua e il mercato che supporta la richiesta oppure usa un mercato aggregato o predefinito per i risultati. Per determinare il mercato usato da Bing, vedere l'intestazione BingAPIs-Market.<br /><br /> Usare questa intestazione e il parametro di query `cc` solo se si specificano più lingue. In caso contrario, usare i parametri di query [mkt](#mkt) e [setLang](#setlang).<br /><br /> Una stringa di interfaccia utente è una stringa usata come etichetta in un'interfaccia utente. Gli oggetti di risposta JSON contengono poche stringhe di interfaccia utente. Eventuali collegamenti alle proprietà Bing.com negli oggetti di risposta si applicano alla lingua specificata.|  
@@ -74,7 +74,7 @@ La richiesta può includere i parametri di query seguenti. Vedere i parametri ob
 |----------|-----------|----------|--------------|
 |<a name="count" />count|Numero di risultati da restituire, a partire dall'indice specificato dal `offset` parametro.|String|No|   
 |<a name="localCategories" />localCategories|Elenco di opzioni che definiscono una ricerca in base alla categoria di attività commerciale.  Vedere [Ricerca in base a categorie di attività commerciali](local-categories.md).|String|No|  
-|<a name="mkt" />mkt|Mercato dal quale provengono i risultati. <br /><br />Per un elenco di possibili valori di mercato, consultare Market Codes (Codici di mercato).<br /><br /> **NOTA:** attualmente l'API per la ricerca di aziende locali supporta solo la lingua e il mercato en-us.<br /><br />|String|Sì|
+|<a name="mkt" />mkt|Mercato dal quale provengono i risultati. <br /><br />Per un elenco di possibili valori di mercato, consultare Market Codes (Codici di mercato).<br /><br /> **NOTA:** attualmente l'API per la ricerca di aziende locali supporta solo la lingua e il mercato en-us.<br /><br />|String|Yes|
 |<a name="offset"/>offset|Indice per definire l'inizio dei risultati specificati dal parametro `count`.|Integer|No|  
 |<a name="query" />q|Termine di ricerca dell'utente.|String|No|  
 |<a name="responseformat" />responseFormat|Tipo di contenuto multimediale da usare per la risposta. Di seguito sono riportati i valori possibili senza distinzione tra maiuscole e minuscole.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> Il valore predefinito è JSON. Per informazioni sugli oggetti JSON contenuti nella risposta, vedere [Oggetti risposta](#response-objects).<br /><br />  Se si specifica JsonLd, il corpo della risposta include gli oggetti JSON-LD contenenti i risultati della ricerca. Per informazioni su JSON-LD, vedere [JSON-LD](https://json-ld.org/).|String|No|  
@@ -86,7 +86,7 @@ La richiesta può includere i parametri di query seguenti. Vedere i parametri ob
 Di seguito sono indicati gli oggetti JSON che può includere la risposta. Se la richiesta ha esito positivo, l'oggetto di livello più alto nella risposta è [SearchResponse](#searchresponse). Se la richiesta ha esito negativo, l'oggetto di livello superiore è [ErrorResponse](#errorresponse).
 
 
-|Object|Descrizione|  
+|Object|DESCRIZIONE|  
 |------------|-----------------|  
 |[Place](#place)|Definisce le informazioni su un'attività commerciale locale, ad esempio un ristorante o un hotel.|  
 
@@ -94,7 +94,7 @@ Di seguito sono indicati gli oggetti JSON che può includere la risposta. Se la 
 ### <a name="error"></a>Errore  
 Definisce l'errore che si è verificato.  
   
-|Elemento|DESCRIZIONE|Type|  
+|Elemento|Descrizione|Type|  
 |-------------|-----------------|----------|  
 |<a name="error-code" />code|Codice di errore che identifica la categoria di errore. Per un elenco di codici possibili, vedere [Codici di errore ](#error-codes).|String|  
 |<a name="error-message" />message|Descrizione dell'errore.|String|  
@@ -107,7 +107,7 @@ Definisce l'errore che si è verificato.
 ### <a name="errorresponse"></a>ErrorResponse  
 Oggetto di livello superiore incluso nella risposta in caso di richiesta con esito negativo.  
   
-|Name|Valore|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
 |_type|Hint per il tipo.|String|  
 |<a name="errors" />errors|Un elenco di errori che descrivono i motivi per cui la richiesta non ha avuto esito positivo.|[Error](#error)[]|  
@@ -117,7 +117,7 @@ Oggetto di livello superiore incluso nella risposta in caso di richiesta con esi
 ### <a name="license"></a>License  
 Definisce la licenza ai sensi della quale è possibile usare il testo o la foto.  
   
-|Name|Valore|Type|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |name|Il nome della licenza.|String|  
 |url|L'URL di un sito Web in cui l'utente può ottenere ulteriori informazioni sulla licenza.<br /><br /> Usare il nome e l'URL per creare un collegamento ipertestuale.|String|  
@@ -140,7 +140,7 @@ Definisce un editore.
   
 Si noti che un editore può fornire il proprio nome e/o il sito Web.  
   
-|Name|Value|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
 |name|Nome dell'editore.|String|  
 |url|L'URL del sito Web dell'editore.<br /><br /> Si noti che l'editore potrebbe non fornire un sito Web.|String|  
@@ -150,7 +150,7 @@ Si noti che un editore può fornire il proprio nome e/o il sito Web.
 ### <a name="place"></a>Sul posto  
 Definisce le informazioni su un'attività commerciale locale, ad esempio un ristorante o un hotel.  
   
-|NOME|Valore|Type|  
+|Name|Valore|Type|  
 |----------|-----------|----------|  
 |_type|Hint per il tipo, che può essere impostato su uno dei valori seguenti:<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>Ristorante</ul><li>|String|  
 |Address|Indirizzo postale del luogo in cui si trova l'entità.|PostalAddress|  
@@ -164,7 +164,7 @@ Definisce le informazioni su un'attività commerciale locale, ad esempio un rist
 ### <a name="querycontext"></a>QueryContext  
 Definisce il contesto di query usato da Bing per la richiesta.  
   
-|Elemento|Descrizione|Type|  
+|Elemento|DESCRIZIONE|Type|  
 |-------------|-----------------|----------|  
 |adultIntent|Valore booleano che indica se la query specificata ha finalità per adulti. Il valore è **true** se la query ha finalità per adulti; in caso contrario, è **false** .|Boolean|  
 |alterationOverrideQuery|Stringa di query da usare per forzare l'utilizzo della stringa originale in Bing. Ad esempio, se la stringa di query è *saling downwind*, questa stringa di query sarà *+saling downwind*. Ricordarsi di codificare la stringa di query che risulta in *%2Bsaling+downwind*.<br /><br /> Questo campo viene incluso solo se la stringa di query originale contiene un errore di ortografia.|String|  
@@ -181,14 +181,14 @@ Definisce il contesto di query usato da Bing per la richiesta.
 ### <a name="rankinggroup"></a>RankingGroup
 Definisce un gruppo di risultati di ricerca, ad esempio la riga principale.
 
-|Name|Value|Type|  
+|NOME|Value|Type|  
 |-------------|-----------------|----------|
 |elementi|Elenco di risultati della ricerca da visualizzare nel gruppo.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Definisce un elemento dei risultati della ricerca da visualizzare.
 
-|NOME|Value|Type|  
+|Name|Value|Type|  
 |-------------|-----------------|----------|
 |resultIndex|Indice in base zero dell'elemento nella risposta da visualizzare. Se l'elemento non include questo campo, visualizzare tutti gli elementi nella risposta. Ad esempio, visualizzare tutti gli articoli sulle notizie nella risposta di Ricerca notizie.|Integer|
 |answerType|Risposta che contiene l'elemento da visualizzare, ad esempio, Ricerca notizie.<br /><br />Usare il tipo per trovare la risposta nell'oggetto SearchResponse. Il tipo è il nome di un campo SearchResponse.<br /><br /> Tuttavia, usare il tipo di risposta solo se questo oggetto include il campo del valore; in caso contrario, ignorarlo.|String|
@@ -198,7 +198,7 @@ Definisce un elemento dei risultati della ricerca da visualizzare.
 ### <a name="rankingresponse"></a>RankingResponse  
 Definisce il punto in cui il contenuto della pagina dei risultati della ricerca deve essere posizionato e in quale ordine.  
   
-|NOME|Value|  
+|Name|Valore|  
 |----------|-----------|  
 |<a name="ranking-mainline" />mainline|I risultati della ricerca da visualizzare nella riga principale.|  
 |<a name="ranking-pole" />pole|I risultati della ricerca che devono ottenere il trattamento più visibile, ad esempio la visualizzazione sopra la riga principale e la barra laterale.|  
@@ -209,7 +209,7 @@ Definisce l'oggetto di livello superiore incluso nella risposta quando la richie
   
 Si noti che se il servizio sospetta un attacco Denial of Service, la richiesta avrà esito positivo (con codice di stato HTTP 200 OK), ma il corpo della risposta sarà vuoto.  
   
-|Name|Value|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
 |_type|Hint per il tipo, che è impostato su SearchResponse.|String|  
 |places|Elenco di entità che sono rilevanti per la query di ricerca.|Oggetto JSON|  
@@ -220,7 +220,7 @@ Si noti che se il servizio sospetta un attacco Denial of Service, la richiesta a
 
 Di seguito sono riportati i possibili codici di stato HTTP restituiti da una richiesta.  
   
-|Codice di stato|DESCRIZIONE|  
+|Codice di stato|Descrizione|  
 |-----------------|-----------------|  
 |200|Riuscite.|  
 |400|Uno dei parametri di query manca o non è valido.|  
@@ -260,7 +260,7 @@ Se la richiesta non ha esito positivo, la risposta contiene un oggetto [ErrorRes
 
 Di seguito sono riportati i valori dei codici di errore e dei codici di errore secondari.
 
-|Codice|Sottocodice|Descrizione
+|Codice|Sottocodice|DESCRIZIONE
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Il codice di stato HTTP è 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloccato|Bing restituisce InvalidRequest ogni volta che una parte della richiesta non è valida, ad esempio quando non è specificato un parametro obbligatorio o un valore di parametro non è valido.<br/><br/>Se l'errore è ParameterMissing o ParameterInvalidValue, il codice di stato HTTP è 400.<br/><br/>Se si usa il protocollo HTTP anziché HTTPS, Bing restituisce HttpNotAllowed e il codice di stato HTTP è 410.

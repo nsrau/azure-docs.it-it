@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 18b124ca7f6f270488fa8e010d2b1c0404f8e9e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9425de6e75a9a46d71ff85ce49b0650c8e7a9a16
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384767"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882684"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Lingua e regioni supportate dall'API Ricerca Web Bing
 
@@ -27,7 +27,7 @@ In alternativa, è possibile specificare il mercato usando il parametro di query
 
 ## <a name="countriesregions"></a>Paesi/aree geografiche
 
-|Paese/Area geografica|Codice|
+|Paese/area geografica|Codice|
 |-------|----|
 |Argentina|AR|
 |Australia|AU|
@@ -42,7 +42,7 @@ In alternativa, è possibile specificare il mercato usando il parametro di query
 |Germania|DE|
 |RAS di Hong Kong|HK|
 |India|IN|
-|Indonesia|ID|
+|Indonesia|id|
 |Italia|IT|
 |Giappone|JP|
 |Corea del Sud|KR|
@@ -57,7 +57,7 @@ In alternativa, è possibile specificare il mercato usando il parametro di query
 |Filippine|PH|
 |Russia|RU|
 |Arabia Saudita|SA|
-|Sud Africa|ZA|
+|Sudafrica|ZA|
 |Spagna|ES|
 |Svezia|SE|
 |Svizzera|CH|
@@ -68,7 +68,7 @@ In alternativa, è possibile specificare il mercato usando il parametro di query
 
 ## <a name="markets"></a>Mercati
 
-|Paese/Area geografica|Linguaggio|Codice di mercato|
+|Paese/area geografica|Linguaggio|Codice di mercato|
 |-------|--------|-----------|
 |Argentina|Spagnolo|es-AR|
 |Australia|Inglese|en-AU|
@@ -100,7 +100,7 @@ In alternativa, è possibile specificare il mercato usando il parametro di query
 |Filippine|Inglese|en-PH|
 |Russia|Russo|ru-RU|
 |Arabia Saudita|Arabo|ar-SA|
-|Sud Africa|Inglese|en-ZA|
+|Sudafrica|Inglese|en-ZA|
 |Spagna|Spagnolo|es-ES|
 |Svezia|Svedese|sv-SE|
 |Svizzera|Francese|fr-CH|

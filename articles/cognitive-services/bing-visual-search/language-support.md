@@ -7,15 +7,15 @@ author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: scottwhi
-ms.openlocfilehash: 1639b8066f3c9943bc42f5151fcb456585441baf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b17341bc234ff3dfecc2c6dcd84ef77116a95d61
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64866238"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883555"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Lingua e regioni supportate dall'API Ricerca visiva Bing
 
@@ -36,7 +36,7 @@ In alternativa è possibile specificare il paese/l'area usando il parametro di q
 
 ## <a name="countriesregions"></a>Paesi/aree geografiche
 
-|Paese/Area geografica|Codice|
+|Paese/area geografica|Codice|
 |-------|----|
 |Argentina|AR|
 |Australia|AU|
@@ -51,7 +51,7 @@ In alternativa è possibile specificare il paese/l'area usando il parametro di q
 |Germania|DE|
 |RAS di Hong Kong|HK|
 |India|IN|
-|Indonesia|ID|
+|Indonesia|id|
 |Italia|IT|
 |Giappone|JP|
 |Corea del Sud|KR|
@@ -66,7 +66,7 @@ In alternativa è possibile specificare il paese/l'area usando il parametro di q
 |Filippine|PH|
 |Russia|RU|
 |Arabia Saudita|SA|
-|Sud Africa|ZA|
+|Sudafrica|ZA|
 |Spagna|ES|
 |Svezia|SE|
 |Svizzera|CH|
@@ -78,7 +78,7 @@ In alternativa è possibile specificare il paese/l'area usando il parametro di q
 
 ## <a name="markets"></a>Mercati
 
-|Paese/Area geografica|Linguaggio|Codice di mercato|
+|Paese/area geografica|Linguaggio|Codice di mercato|
 |-------|--------|-----------|
 |Argentina|Spagnolo|es-AR|
 |Australia|Inglese|en-AU|
@@ -109,7 +109,7 @@ In alternativa è possibile specificare il paese/l'area usando il parametro di q
 |Filippine|Inglese|en-PH|
 |Russia|Russo|ru-RU|
 |Arabia Saudita|Arabo|ar-SA|
-|Sud Africa|Inglese|en-ZA|
+|Sudafrica|Inglese|en-ZA|
 |Spagna|Spagnolo|es-ES|
 |Svezia|Svedese|sv-SE|
 |Svizzera|Francese|fr-CH|

@@ -8,21 +8,21 @@ manager: nitinme
 ms.assetid: E8827BEB-4379-47CE-B67B-6C81AD7DAEB1
 ms.service: cognitive-services
 ms.subservice: bing-web-search
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: e3d78a1b7488e7489b02e34e9733a5d741213855
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2133cd59c524112ae8a77c0a20cbce1d1336a38d
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384899"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881312"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Aggiornare l'API Ricerca Web Bing dalla versione 5 alla versione 7
 
 Questa guida all'aggiornamento indica le differenze tra la versione 5 e la versione 7 dell'API Ricerca Web Bing. Usare questa guida per identificare le parti dell'applicazione da aggiornare per usare la versione 7.
 
-## <a name="breaking-changes"></a>Modifiche di rilievo
+## <a name="breaking-changes"></a>Modifiche che causano un'interruzione
 
 ### <a name="endpoints"></a>Endpoint
 
@@ -73,7 +73,7 @@ Bloccato|InvalidRequest.Blocked
 
 ## <a name="non-breaking-changes"></a>Modifiche che non causano un'interruzione  
 
-### <a name="headers"></a>Headers
+### <a name="headers"></a>Intestazioni
 
 - È stata aggiunta l'intestazione di richiesta facoltativa [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma). Per impostazione predefinita, Bing restituisce il contenuto memorizzato nella cache, se disponibile. Per impedire a Bing di restituire il contenuto memorizzato nella cache, impostare l'intestazione Pragma su no-cache, ad esempio, Pragma: no-cache.
 

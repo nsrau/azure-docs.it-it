@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: e70e7b79be7dd4ea55c56898eaf8007d25732366
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f222d9d4cf6c56dea0832938dcb132cf711491bc
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60513966"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934067"
 ---
 # <a name="troubleshooting-bing-speech"></a>Risoluzione dei problemi di Riconoscimento vocale Bing
 

@@ -7,15 +7,15 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: sajagtap
-ms.openlocfilehash: 581ab488337cfecae3f5dd97610c7f92c75af8b5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ec45f182e24f44c2222d64f18e2aa0aeea845727
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564343"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882338"
 ---
 # <a name="create-human-reviews-rest"></a>Creare recensioni umane (REST)
 
@@ -25,7 +25,7 @@ ms.locfileid: "68564343"
 
 - Accedere o creare un account nel sito [dello strumento di revisione](https://contentmoderator.cognitive.microsoft.com/) content moderator.
 
-## <a name="create-a-review"></a>Crea una recensione
+## <a name="create-a-review"></a>Creare una revisione
 
 Per creare una verifica, passare alla pagina **[Verifica-crea](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4)** riferimento all'API e selezionare il pulsante per l'area della chiave (è possibile trovarlo nell'URL dell'endpoint nella pagina **credenziali** dello [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/)). Viene avviata la console API, in cui è possibile creare ed eseguire facilmente chiamate API REST.
 
@@ -33,7 +33,7 @@ Per creare una verifica, passare alla pagina **[Verifica-crea](https://westus2.d
 
 ### <a name="enter-rest-call-parameters"></a>Immettere i parametri delle chiamate REST
 
-Immettere i valori per TeamName e **OCP-gestione API-Subscription-Key**:
+Immettere i valoriper TeamName e **OCP-gestione API-Subscription-Key**:
 
 - **teamName**: ID del team creato quando si configura l'account [dello strumento di revisione](https://contentmoderator.cognitive.microsoft.com/) (disponibile nel campo **ID** nella schermata delle credenziali dello strumento di verifica).
 - **Ocp-Apim-Subscription-Key**: Chiave Content Moderator. È possibile trovarlo nella scheda **Impostazioni** dello strumento di [Revisione](https://contentmoderator.cognitive.microsoft.com).
@@ -139,7 +139,7 @@ Nello [strumento di revisione](https://contentmoderator.cognitive.microsoft.com)
 
 ![Immagine di un pallone da calcio nello strumento di revisione](images/test-drive-review-5.PNG)
 
-## <a name="get-review-details"></a>Ottenere i dettagli della verifica
+## <a name="get-review-details"></a>Ottenere i dettagli della revisione
 
 Per recuperare i dettagli relativi a una revisione esistente, passare alla pagina di riferimento per la [Verifica](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c2) dell'API e selezionare il pulsante per l'area geografica (area in cui viene amministrata la chiave).
 

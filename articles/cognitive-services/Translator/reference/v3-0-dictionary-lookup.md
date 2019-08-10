@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: 9a06c8e3b50c3f54971694f8d3924a3a5ba5f071
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 0bbdba343888bc91521245d0c9a0e4eaa87c5538
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595030"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932012"
 ---
 # <a name="translator-text-api-30-dictionary-lookup"></a>API Traduzione testuale 3.0: Ricerca nel dizionario
 
@@ -54,7 +54,7 @@ Le intestazioni della richiesta includono:
 
 <table width="100%">
   <th width="20%">Intestazioni</th>
-  <th>DESCRIZIONE</th>
+  <th>Descrizione</th>
   <tr>
     <td>Intestazione/e di autenticazione</td>
     <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
@@ -140,13 +140,9 @@ Una risposta corretta è una matrice JSON con un risultato per ogni stringa nell
 
 Questo esempio illustra come eseguire la ricerca di traduzioni spagnole alternative per il termine inglese `fly`.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly'}]"
 ```
-
----
 
 Il corpo della risposta (abbreviato per maggiore chiarezza) è:
 
@@ -191,13 +187,9 @@ Il corpo della risposta (abbreviato per maggiore chiarezza) è:
 
 Questo esempio illustra cosa succede quando il termine cercato non esiste per la coppia di dizionario valida.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly123456'}]"
 ```
-
----
 
 Poiché il termine non viene trovato nel dizionario, il corpo della risposta include un elenco `translations` vuoto.
 

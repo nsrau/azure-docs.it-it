@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: a70d9ea1090f1c518f804dd28f3461918af965cd
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 37084480423de90f50beced187eda202b39f8bf1
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854291"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933058"
 ---
 # <a name="project-acoustics-known-issues"></a>Problemi noti dei progetti acustici
 Durante l'utilizzo della versione Designer Preview di Project Acoustics possono verificarsi i problemi noti descritti di seguito.
@@ -24,10 +24,6 @@ Durante l'utilizzo della versione Designer Preview di Project Acoustics possono 
 ## <a name="acoustic-parameters-are-lost-when-you-rename-a-scene"></a>Quando si rinomina una scena, i parametri acustici vanno persi
 
 Se si rinomina una scena, tutti i parametri acustici che appartengono a tale scena non verranno trasferiti automaticamente alla nuova scena. Ma continueranno a esistere nel vecchio file di asset. Cercare il file **SceneName_AcousticParameters.asset** all'interno della directory **Editor** accanto al file della scena. Rinominare il file in modo da riflettere il nuovo nome della scena.
-
-## <a name="unity-crashes-when-closing-project"></a>Arresto anomalo di Unity alla chiusura del progetto
-
-Nelle versioni più recenti di Unity (2018.2+) esiste un bug noto per cui alla chiusura del progetto l'applicazione si arresta in modo anomalo. Questo caso è segnalato in [questo problema di Unity](https://issuetracker.unity3d.com/issues/crash-on-assetdatabase-getassetimporterversions-when-closing-a-specific-unity-project).
 
 ## <a name="deploying-to-android-from-some-unity-versions"></a>Distribuzione in Android da alcune versioni di Unity
 

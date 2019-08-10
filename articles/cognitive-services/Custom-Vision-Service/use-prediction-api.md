@@ -7,15 +7,15 @@ author: anrothMSFT
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: 8564095cc84a3f124ca41efd2e19787cd16902ab
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 22955ba4b885b264210dc8788f2a410b785b28b4
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564116"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883973"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Usare il modello con l'API di stima
 
@@ -38,7 +38,7 @@ Una volta che il modello è stato pubblicato correttamente, verrà visualizzata 
 
 ## <a name="get-the-url-and-prediction-key"></a>Ottenere l'URL e la chiave di stima
 
-Una volta pubblicato il modello, è possibile recuperare le informazioni richieste selezionando __URL stima__. Verrà visualizzata una finestra di dialogo con le informazioni per l'utilizzo dell'API di stima, inclusi l' __URL__ di stima e la __chiave di stima__.
+Una volta pubblicato il modello, è possibile recuperare le informazioni richieste selezionando __URL stima__ . Verrà visualizzata una finestra di dialogo con le informazioni per l'utilizzo dell'API di stima, inclusi l' __URL__ di stima e la __chiave di stima__ .
 
 ![La scheda prestazioni viene visualizzata con un rettangolo rosso che circonda il pulsante URL di stima.](./media/use-prediction-api/published-iteration-prediction-url.png)
 
@@ -53,7 +53,7 @@ In questa guida verrà usata un'immagine locale, quindi copiare l'URL in **se si
 
 1. In Visual Studio creare una nuova C# applicazione console.
 
-1. Usare il codice seguente come corpo del file __Program.cs__.
+1. Usare il codice seguente come corpo del file __Program.cs__ .
 
     ```csharp
     using System;

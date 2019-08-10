@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: b3851b572dedde48540444873590f7a682a4853c
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 184677589b3aa777ec556215455f8018e0d71f3f
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595204"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934047"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>API Traduzione testuale 3.0: BreakSentence
 
@@ -54,7 +54,7 @@ Le intestazioni della richiesta includono:
 
 <table width="100%">
   <th width="20%">Intestazioni</th>
-  <th>Descrizione</th>
+  <th>DESCRIZIONE</th>
   <tr>
     <td>Intestazione/e di autenticazione</td>
     <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
@@ -122,7 +122,7 @@ Una risposta JSON di esempio è:
 
 <table width="100%">
   <th width="20%">Intestazioni</th>
-  <th>Descrizione</th>
+  <th>DESCRIZIONE</th>
   <tr>
     <td>X-RequestId</td>
     <td>Valore generato dal servizio per identificare la richiesta. Viene usato per la risoluzione dei problemi.</td>
@@ -172,11 +172,7 @@ Se si verifica un errore, la richiesta restituirà anche una risposta di errore 
 
 L'esempio seguente mostra come ottenere i delimitatori di frase per una singola frase. La lingua della frase viene rilevata automaticamente dal servizio.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"
 ```
-
----
 

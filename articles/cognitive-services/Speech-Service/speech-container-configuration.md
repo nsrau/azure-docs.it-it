@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: dapine
-ms.openlocfilehash: 8a8b0e18c1db7a2e2fc08819aa2f2d64d650ded6
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: c4598e5e99012694a798e44c0d37e9578486751b
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321361"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932114"
 ---
 # <a name="configure-speech-service-containers"></a>Configurare i contenitori di servizi vocali
 
@@ -23,7 +23,7 @@ I contenitori di sintesi vocale consentono ai clienti di creare un'architettura 
 
 L'ambiente di runtime del contenitore **vocale** viene configurato `docker run` usando gli argomenti del comando. Questo contenitore ha diverse impostazioni obbligatorie e alcune impostazioni facoltative. Sono disponibili numerosi [esempi](#example-docker-run-commands) del comando. Le impostazioni specifiche del contenitore sono le impostazioni di fatturazione. 
 
-# <a name="configuration-settings"></a>Impostazioni di configurazione
+## <a name="configuration-settings"></a>Impostazioni di configurazione
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
@@ -50,7 +50,7 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 * Portale di Azure: **Sintesi vocale** Panoramica, con etichetta`Endpoint`
 
-|Obbligatoria| NOME | Tipo di dati | Descrizione |
+|Obbligatoria| Name | Tipo di dati | Descrizione |
 |--|------|-----------|-------------|
 |Yes| `Billing` | String | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westus.api.cognitive.microsoft.com/sts/v1.0` |
 
@@ -78,7 +78,7 @@ I contenitori di riconoscimento vocale non usano montaggi di input o output per 
 
 La sintassi esatta della posizione di montaggio host varia a seconda del sistema operativo host. Inoltre, il percorso di montaggio del [computer host](speech-container-howto.md#the-host-computer) potrebbe non essere accessibile a causa di un conflitto tra le autorizzazioni utilizzate dall'account del servizio docker e le autorizzazioni del percorso di montaggio dell'host. 
 
-|Facoltativo| Name | Tipo di dati | Descrizione |
+|Facoltativo| NOME | Tipo di dati | Descrizione |
 |-------|------|-----------|-------------|
 |Non consentito| `Input` | String | I contenitori di sintesi vocale non lo usano.|
 |Facoltativo| `Output` | String | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -90,9 +90,9 @@ Gli esempi seguenti usano le impostazioni di configurazione per illustrare come 
 * **Carattere di continuazione di riga**: I comandi di Docker nelle sezioni seguenti usano la barra rovesciata, `\`, come carattere di continuazione di riga. Sostituirla o rimuoverla in base ai requisiti del sistema operativo host. 
 * **Ordine degli argomenti**: Non modificare l'ordine degli argomenti se non si ha dimestichezza con i contenitori Docker.
 
-Sostituire {_nome_argomento_} con i propri valori:
+Sostituire { _} con i propri valori:
 
-| Placeholder | Value | Formato o esempio |
+| Segnaposto | Valore | Formato o esempio |
 |-------------|-------|---|
 |{API_KEY} | Chiave API della risorsa di sintesi vocale. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{ENDPOINT_URI} | Valore dell'endpoint che include l'area.|`https://westus.api.cognitive.microsoft.com/sts/v1.0`|

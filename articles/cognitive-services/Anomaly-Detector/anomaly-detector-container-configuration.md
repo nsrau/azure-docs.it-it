@@ -10,27 +10,27 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 886c93871a719770cbcbbcef2f536fd7515da34e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a2f743b2b7e63df8b81a1024b20e3e27a3f247a9
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854224"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933002"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Configurare i contenitori del rilevamento anomalie
 
 L' ambiente di runtime del contenitore del rilevatore `docker run` di anomalie viene configurato utilizzando gli argomenti del comando. Questo contenitore ha diverse impostazioni obbligatorie e alcune impostazioni facoltative. Sono disponibili numerosi [esempi](#example-docker-run-commands) del comando. Le impostazioni specifiche del contenitore sono le impostazioni di fatturazione. 
 
-# <a name="configuration-settings"></a>Impostazioni di configurazione
+## <a name="configuration-settings"></a>Impostazioni di configurazione
 
 Questo contenitore ha le impostazioni di configurazione seguenti:
 
 |Obbligatoria|Impostazione|Scopo|
 |--|--|--|
-|Yes|[ApiKey](#apikey-configuration-setting)|Si usa per rilevare le informazioni di fatturazione.|
+|Sì|[ApiKey](#apikey-configuration-setting)|Si usa per rilevare le informazioni di fatturazione.|
 |No|[ApplicationInsights](#applicationinsights-setting)|Consente di aggiungere al contenitore il supporto per i dati di telemetria di [Azure Application Insights](https://docs.microsoft.com/azure/application-insights).|
-|Yes|[Fatturazione](#billing-configuration-setting)|Specifica l'URI dell'endpoint della risorsa del servizio in Azure.|
-|Yes|[Eula](#eula-setting)| Indica che è stata accettata la licenza per il contenitore.|
+|Sì|[Fatturazione](#billing-configuration-setting)|Specifica l'URI dell'endpoint della risorsa del servizio in Azure.|
+|Sì|[Eula](#eula-setting)| Indica che è stata accettata la licenza per il contenitore.|
 |No|[Fluentd](#fluentd-settings)|Scrivere il log e, facoltativamente, i dati delle metriche in un server Fluentd.|
 |No|[Proxy HTTP](#http-proxy-credentials-settings)|Configurare un proxy HTTP per le richieste in uscita.|
 |No|[registrazione](#logging-settings)|Fornisce il supporto di registrazione ASP.NET Core per il contenitore. |
@@ -61,7 +61,7 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 |Obbligatoria| Name | Tipo di dati | DESCRIZIONE |
 |--|------|-----------|-------------|
-|Sì| `Billing` | String | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westus2.api.cognitive.microsoft.com` |
+|Yes| `Billing` | String | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westus2.api.cognitive.microsoft.com` |
 
 ## <a name="eula-setting"></a>Impostazione Eula
 

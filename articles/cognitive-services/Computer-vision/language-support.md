@@ -1,37 +1,37 @@
 ---
-title: Supporto di Language - visione artificiale
+title: Supporto per la lingua-Visione artificiale
 titleSuffix: Azure Cognitive Services
-description: Un elenco dei linguaggi naturali supportate dalle caratteristiche di visione artificiale.
+description: Elenco di linguaggi naturali supportati da Visione artificiale funzionalità.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 1a70d1b2ea504d0ccfba925810a2d19d0c7583cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 516d21bc69bbc20f924a3bdf39eda7245fc08a28
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60759606"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882973"
 ---
-# <a name="language-support-for-computer-vision"></a>Supporto del linguaggio per visione artificiale
+# <a name="language-support-for-computer-vision"></a>Supporto delle lingue per Visione artificiale
 
-Alcune funzionalità di visione artificiale supporta più linguaggi. le funzionalità non indicate di seguito supportano solo in lingua inglese.
+Alcune funzionalità di Visione artificiale supportano più lingue; le funzionalità non indicate in questo documento supportano solo l'inglese.
 
 ## <a name="text-recognition"></a>Riconoscimento di testo
 
-Visione artificiale può riconoscere il testo in molte lingue. In particolare, il [OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) API supporta un'ampia gamma di linguaggi, mentre le [lettura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) API e [riconoscere testo](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) API supportano solo in lingua inglese. Visualizzare [Riconosci il testo scritto a mano e stampato](concept-recognizing-text.md) per altre informazioni su questa funzionalità e i vantaggi di ogni API.
+Visione artificiale possibile riconoscere il testo in molte lingue. In particolare, l'API [OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) supporta un'ampia gamma di linguaggi, mentre l'API di [lettura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) e l'API di [riconoscimento del testo](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) supportano solo l'inglese. Per altre informazioni su questa funzionalità e sui vantaggi di ogni API, vedere [riconoscere testo stampato e scritto a mano](concept-recognizing-text.md) .
 
-OCR rileva automaticamente la lingua del materiale di input, pertanto non è necessario specificare un codice di lingua nella chiamata API. Tuttavia, i codici di lingua vengono sempre restituiti come il valore della `"language"` nodo nella risposta JSON.
+OCR rileva automaticamente la lingua del materiale di input, pertanto non è necessario specificare un codice della lingua nella chiamata API. Tuttavia, i codici di lingua vengono sempre restituiti come valore del `"language"` nodo nella risposta JSON.
 
-|Linguaggio| Codice lingua | OCR API |
+|Linguaggio| Codice lingua | API OCR |
 |:-----|:----:|:-----:|
 |Arabo | `ar`|✔ |
-|Cinese (semplificato) | `zh-Hans`|✔ |
-|Cinese (tradizionale) | `zh-Hant`|✔ |
+|Cinese semplificato | `zh-Hans`|✔ |
+|Cinese tradizionale | `zh-Hant`|✔ |
 |Ceco | `cs` |✔ |
 |Danese | `da` |✔ |
 |Olandese | `nl` |✔ |
@@ -56,11 +56,11 @@ OCR rileva automaticamente la lingua del materiale di input, pertanto non è nec
 |Svedese | `sw` |✔ |
 |Turco | `tr` |✔ |
 
-## <a name="image-analysis"></a>Analisi delle immagini
+## <a name="image-analysis"></a>Analisi immagini
 
-Alcune operazioni dei [analizzare - immagine](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API possono restituire risultati in altri linguaggi, specificati con il `language` parametro di query. Altre azioni restituiscono i risultati in inglese indipendentemente da quale lingua è specificata, e ad altri utenti genera un'eccezione per le lingue non supportate. Le azioni vengono specificate con il `visualFeatures` e `details` i parametri di query, vedere la [Panoramica](home.md) per un elenco di tutte le azioni eseguibili con analisi delle immagini.
+Alcune azioni dell'API [Analyze-image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) possono restituire i risultati in altri linguaggi, specificati con `language` il parametro di query. Altre azioni restituiscono i risultati in inglese indipendentemente dalla lingua specificata e altre generano un'eccezione per le lingue non supportate. Le azioni vengono specificate con `visualFeatures` i `details` parametri di query e. per un elenco di tutte le azioni che è possibile eseguire con l'analisi delle immagini, vedere la [Panoramica](home.md) .
 
-|Linguaggio | Codice lingua | Categories | `Tags` | Descrizione | Per adulti | Marchi | Colore | Visi | ImageType | Oggetti | Celebrità | Punti di riferimento |
+|Linguaggio | Codice lingua | Categories | Tag | DESCRIZIONE | Adulto | Marchi | Colore | Visi | ImageType | Oggetti | Celebrità | Punti di riferimento |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |Cinese | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Inglese | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|
@@ -70,7 +70,7 @@ Alcune operazioni dei [analizzare - immagine](https://westus.dev.cognitive.micro
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Iniziare a usare le funzionalità di visione artificiale citate in questa Guida.
+Iniziare a usare le funzionalità di Visione artificiale citate in questa guida.
 
 * [Analizzare un'immagine locale (REST)](./quickstarts/csharp-analyze.md)
 * [Estrai testo stampato (REST)](./quickstarts/csharp-print-text.md)

@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 88f36fb6d73e2ec88940e7eb53d982824e194074
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f2868610bf9215b1414ea3ba342e3064b9c54f63
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560202"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933512"
 ---
 # <a name="number-prebuilt-entity-for-a-luis-app"></a>Entità predefinita numero per un'app LUIS
 I modi in cui i valori numerici vengono usati per quantificare, esprimere e descrivere i tipi di informazioni sono diversi. Questo articolo illustra solo alcuni degli esempi possibili. LUIS interpreta le variazioni nelle espressioni utente e restituisce valori numerici coerenti. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti il numero per le finalità dell'applicazione. 
