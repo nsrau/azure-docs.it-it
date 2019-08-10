@@ -121,7 +121,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 ### <a name="sap-bw-as-source"></a>SAP BW come origine
 
-Per copiare dati da SAP BW, impostare il tipo di origine nell'attività di copia su **RelationalSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
+Per copiare dati da SAP BW, impostare il tipo di origine nell'attività di copia su **RelationalSource**. Nella sezione **source** dell'attività di copia sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
