@@ -43,7 +43,7 @@ Per il servizio collegato di SAP Cloud for Customer sono supportate le propriet�
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **SapCloudForCustomer**. | Yes |
 | url | URL del servizio SAP C4C OData. | Sì |
-| userName | Specificare il nome utente per la connessione a SAP C4C. | Sì |
+| username | Specificare il nome utente per la connessione a SAP C4C. | Sì |
 | password | Specificare la password dell'account utente specificato per il nome utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No per l'origine, Sì per il sink |
 
