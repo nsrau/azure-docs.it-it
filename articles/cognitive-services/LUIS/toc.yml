@@ -25,6 +25,10 @@
           href: sdk-csharp-quickstart-authoring-app.md
         - name: Eseguire query sull'endpoint di stima
           href: sdk-csharp-quickstart-query-prediction-endpoint.md
+    - name: Usare Python SDK
+      items:
+        - name: Creare e gestire app
+          href: sdk-python-quickstart-authoring-app.md
     - name: Usare le API REST
       items:
         - name: Ottenere la finalità

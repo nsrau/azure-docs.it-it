@@ -107,29 +107,29 @@
       href: Tutorials/storage-lab-tutorial.md
 - name: Concetti
   items:
-    - name: Assegnazione di tag alle immagini
+    - name: Tag di contenuto
       href: concept-tagging-images.md
     - name: Rilevamento di oggetti
       href: concept-object-detection.md
-    - name: Rilevamento dei marchi
+    - name: Rilevamento del marchio
       href: concept-brand-detection.md
-    - name: Classificazione delle immagini
+    - name: Categorizzazione delle immagini
       href: concept-categorizing-images.md
-    - name: Descrizione delle immagini
+    - name: Descrizioni delle immagini
       href: concept-describing-images.md
-    - name: Rilevamento dei visi
+    - name: Rilevamento del viso
       href: concept-detecting-faces.md
-    - name: Rilevamento dei tipi di immagine
+    - name: Rilevamento del tipo di immagine
       href: concept-detecting-image-types.md
-    - name: Rilevamento di contenuti specifici del dominio
+    - name: Contenuto specifico del dominio
       href: concept-detecting-domain-content.md
-    - name: Rilevamento delle combinazioni di colori
+    - name: Rilevamento della combinazione di colori
       href: concept-detecting-color-schemes.md
-    - name: Generazione di anteprime
+    - name: Anteprime ritagliate in modo intelligente
       href: concept-generating-thumbnails.md
-    - name: Riconoscere il testo stampato e scritto a mano
+    - name: Riconoscimento del testo stampato e scritto a mano
       href: concept-recognizing-text.md
-    - name: Rilevamento di contenuti audaci e per adulti
+    - name: Rilevamento di contenuti per adulti e spinti
       href: concept-detecting-adult-content.md
 - name: Guide alle procedure
   items:

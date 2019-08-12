@@ -7,12 +7,12 @@ ms.service: blueprints
 ms.topic: sample
 ms.date: 06/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: c5541eab6707bab12fb75f4d0eaf8bae1f025ebb
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: e1bafdaa2883afb44aa3c609c0ccba0ce9d0a4ab
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816050"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934170"
 ---
 # <a name="azure-blueprints-samples"></a>Esempi di Azure Blueprints
 
@@ -22,6 +22,7 @@ La tabella seguente include collegamenti a esempi per Azure Blueprints. Ogni ese
 
 |  |  |
 |---------|---------|
+|[IRS 1075](./irs-1075/index.md)| Fornisce misure di tutela per la conformità a IRS 1075.|
 | [ISO 27001](./iso27001/index.md) | Fornisce misure di tutela per la conformità a ISO 27001. |
 | [Servizi condivisi ISO 27001](./iso27001-shared/index.md) | Offre un set di modelli di infrastrutture conformi e limiti di criteri utili per ottenere l'attestazione ISO 27001. |
 | [Carico di lavoro dell'ambiente del servizio app/database SQL ISO 27001](./iso27001-ase-sql-workload/index.md) | Offre un'infrastruttura aggiuntiva per il progetto di esempio [Servizi condivisi ISO 27001](./iso27001-shared/index.md). |
