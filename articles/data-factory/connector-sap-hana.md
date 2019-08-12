@@ -221,14 +221,14 @@ Quando si copiano dati da SAP HANA, vengono usati i mapping seguenti tra i tipi 
 | ------------------ | ------------------------------ |
 | ALPHANUM           | String                         |
 | BIGINT             | Int64                          |
-| BINARIO             | Byte[]                         |
+| BINARY             | Byte[]                         |
 | BINTEXT            | String                         |
 | BLOB               | Byte[]                         |
 | BOOL               | Byte                           |
 | CLOB               | String                         |
 | DATE               | DateTime                       |
 | DECIMAL            | Decimal                        |
-| Double             | Double                         |
+| DOUBLE             | Double                         |
 | FLOAT              | Double                         |
 | INTEGER            | Int32                          |
 | NCLOB              | String                         |
