@@ -211,14 +211,14 @@ Quando si copiano dati da SAP BW Open Hub, vengono usati i mapping seguenti tra 
 
 | Tipo SAP ABAP | Tipo di dati provvisori di Data Factory |
 |:--- |:--- |
-| C (String) | string |
+| C (String) | String |
 | I (integer) | Int32 |
 | F (Float) | Double |
-| D (Date) | string |
-| T (Time) | string |
+| D (Date) | String |
+| T (Time) | String |
 | P (BCD Packed, Currency, Decimal, Qty) | Decimal |
-| N (Numc) | string |
-| X (Binary e Raw) | string |
+| N (Numc) | String |
+| X (Binary and Raw) | String |
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
