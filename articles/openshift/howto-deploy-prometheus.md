@@ -182,7 +182,7 @@ Per consentire a Prometheus per raccogliere metriche da se stesso, applicare le 
 
 ## <a name="optional-deploy-example-application"></a>Facoltativo: Distribuire l'applicazione di esempio
 
-Tutto funziona, ma non sono presenti origini delle metriche. Passare all'URL di Prometheus (https://prom-prometheus-project.apps. *id casuale*. *area*.azmosa.io/). È possibile trovarlo tramite il seguente comando:
+Tutto funziona, ma non sono presenti origini delle metriche. Passare all'URL di Prometheus (https://prom-prometheus-project.apps.*id casuale*.*area*.azmosa.io/). È possibile trovarlo tramite il seguente comando:
 
 ```
 oc get route prom -n prometheus-project

@@ -228,8 +228,8 @@ Quando si copiano dati da SAP HANA, vengono usati i mapping seguenti tra i tipi 
 | CLOB               | String                         |
 | DATE               | DateTime                       |
 | DECIMAL            | Decimal                        |
-| DOUBLE             | Double                         |
-| FLOAT              | Double                         |
+| DOUBLE             | DOUBLE                         |
+| FLOAT              | DOUBLE                         |
 | INTEGER            | Int32                          |
 | NCLOB              | String                         |
 | NVARCHAR           | String                         |
