@@ -8,9 +8,12 @@
       displayName: 'loop, context, feature, action, rank, reward, developer, use case'
 - name: Guide introduttive
   items:
-    - name: Creare e usare un ciclo di feedback
+    - name: 'Uso di C#'
       href: csharp-quickstart-commandline-feedback-loop.md
       displayName: 'code, sample, quickstart, c#'
+    - name: Uso di Python
+      href: python-quickstart-commandline-feedback-loop.md
+      displayName: 'code, sample, quickstart, python'
 - name: Concetti
   items:
     - name: Funzionamento di Personalizza esperienze

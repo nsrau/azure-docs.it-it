@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: c14c607e4c563bbeeaff02b2c2478cc4b4d96ee5
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: afc50a5adb591550f6e988a572d1ac9a8c4439cb
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165128"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955189"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Punteggio di attendibilità di una knowledge base di QnA Maker
 Quando una query dell'utente viene confrontata con una knowledge base, QnA Maker restituisce le risposte pertinenti insieme a un punteggio di attendibilità. Questo punteggio indica la probabilità che la risposta corrisponda perfettamente alla query dell'utente specificata. 
@@ -46,22 +46,22 @@ La tabella seguente indica l'attendibilità tipica associata a un determinato pu
 |0|Nessuna corrispondenza, perciò non viene restituita alcuna risposta.|"Quanto costa il servizio?"|
 
 ## <a name="choose-a-score-threshold"></a>Scegliere un punteggio soglia
-La tabella precedente illustra i punteggi previsti nella maggior parte delle knowledge base. Tuttavia, poiché ogni KB è diverso e dispone di diversi tipi di parole, finalità e obiettivi-è consigliabile testare e scelgono la soglia che meglio funziona automaticamente. Per impostazione predefinita la soglia è impostata su 0, in modo che vengano restituite tutte le risposte possibili. La soglia consigliata che dovrebbe funzionare per la maggior parte delle Knowledge Base, viene **50**.
+La tabella precedente illustra i punteggi previsti nella maggior parte delle knowledge base. Tuttavia, poiché ogni KB è diverso e presenta tipi diversi di parole, finalità e obiettivi, è consigliabile testare e scegliere la soglia più adatta alle proprie esigenze. Per impostazione predefinita, la soglia è impostata su 0, in modo che vengano restituite tutte le risposte possibili. La soglia consigliata che dovrebbe funzionare per la maggior parte delle KB è **50**.
 
 Quando si sceglie la soglia, tenere presente il bilanciamento tra Accuracy (Precisione) e Coverage (Attinenza) e modificare la soglia in base alle esigenze.
 
 - Quando **Accuracy** (Precisione) è più importante, aumentare la soglia. In questo modo, ogni volta che una risposta viene restituita, essa sarà molto più ATTENDIBILE e avrà una probabilità molto maggiore di essere quella che l'utente sta cercando. In questo modo molte domande potrebbero rimanere senza risposta. *Ad esempio:* se si imposta la soglia su **70**, si potrebbe escludere alcuni esempi ambigui come "Cosa fa la funzione Save and train (Salva ed esegui training)?".
 
-- Se **Coverage** (Attinenza) è più importante e si desidera rispondere al massimo numero di domande possibile, anche se la risposta ha una relazione solo parziale con la domanda dell'utente, ABBASSARE la soglia. In questo modo potrebbero esserci più casi in cui la risposta non risponde all'effettiva query dell'utente ma offre informazioni attinenti alla domanda. *Ad esempio:* se si apporta la soglia **30**, si potrebbero fornire risposte per query, ad esempio "In cui è possibile modificare la KB?"
+- Se **Coverage** (Attinenza) è più importante e si desidera rispondere al massimo numero di domande possibile, anche se la risposta ha una relazione solo parziale con la domanda dell'utente, ABBASSARE la soglia. In questo modo potrebbero esserci più casi in cui la risposta non risponde all'effettiva query dell'utente ma offre informazioni attinenti alla domanda. *Ad esempio* , se si esegue la soglia **30**, è possibile fornire risposte per le query quali "dove è possibile modificare la mia KB?"
 
 > [!NOTE]
 > Le versioni più recenti di QnA Maker includono miglioramenti della logica di assegnazione dei punteggi e potrebbero influire sulla soglia. Ogni volta che si aggiorna il servizio, assicurarsi di testare e modificare la soglia, se necessario. È possibile controllare la versione del servizio QnA [qui](https://www.qnamaker.ai/UserSettings) e scoprire come ottenere gli aggiornamenti più recenti [qui](../How-To/troubleshooting-runtime.md).
 
-## <a name="set-threshold"></a>Soglia impostata 
+## <a name="set-threshold"></a>Imposta soglia 
 
-Impostare il punteggio di soglia come una proprietà del [corpo JSON API GenerateAnswer](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration). Ciò significa che è possibile impostare ogni chiamata a GenerateAnswer. 
+Impostare il punteggio soglia come proprietà del [corpo JSON dell'API GenerateAnswer](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration). Ciò significa che è possibile impostarlo per ogni chiamata a GenerateAnswer. 
 
-Dal bot framework, impostare il punteggio come parte dell'oggetto con le opzioni [ C# ](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) oppure [Node. js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
+Dal Framework bot, impostare il punteggio come parte dell'oggetto Options con [C#](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) o [node. js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
 
 ## <a name="improve-confidence-scores"></a>Migliorare i punteggi di attendibilità
 Per ottimizzare il punteggio di attendibilità di una particolare risposta a una query dell'utente, è possibile aggiungere la query alla Knowledge Base come domanda alternativa per tale risposta. È anche possibile usare [variazioni delle parole](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) senza distinzione tra maiuscole e minuscole per aggiungere i sinonimi alle parole chiave nella Knowledge Base.
@@ -78,7 +78,7 @@ Se si dispone di una Knowledge Base in aree diverse, ogni area usa il proprio in
 
 
 ## <a name="no-match-found"></a>Nessuna corrispondenza trovata
-Se lo strumento di classificazione non trova corrispondenze soddisfacenti, viene restituito il punteggio di attendibilità di 0.0 oppure "None" (Nessuno) e la risposta predefinita è "No good match found in the KB" (Nessuna buona corrispondenza trovata nella Knowledge Base). È possibile eseguire l'override di questo [risposta predefinita](#change-default-answer) nel codice dell'applicazione o bot chiamare l'endpoint. In alternativa è anche possibile impostare la risposta sostitutiva in Azure, modificando così la risposta predefinita per tutte le Knowledge Base distribuite in un particolare servizio QnA Maker.
+Se lo strumento di classificazione non trova corrispondenze soddisfacenti, viene restituito il punteggio di attendibilità di 0.0 oppure "None" (Nessuno) e la risposta predefinita è "No good match found in the KB" (Nessuna buona corrispondenza trovata nella Knowledge Base). È possibile eseguire l'override di questa [risposta predefinita](#change-default-answer) nel bot o nel codice dell'applicazione che chiama l'endpoint. In alternativa è anche possibile impostare la risposta sostitutiva in Azure, modificando così la risposta predefinita per tutte le Knowledge Base distribuite in un particolare servizio QnA Maker.
 
 ## <a name="change-default-answer"></a>Modificare la risposta predefinita
 

@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 6ffc8931f23835f096c99480b286422fc6e20119
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 97a4673be2a611149806855e792c5bf1f7a0942a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447610"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955162"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Ciclo di vita della knowledge base in QnA Maker
 QnA Maker apprende meglio in un ciclo iterativo di modifiche ai modelli, esempi di espressioni, pubblicazione e raccolta dei dati dalle query degli endpoint. 
@@ -28,14 +28,14 @@ L'endpoint della knowledge base (KB) di QnA Maker fornisce una risposta scelta i
 
 ## <a name="testing-and-updating-the-knowledge-base"></a>Test e aggiornamento della knowledge base
 
-La knowledge base è pronta per i test dopo essere stata popolata con il contenuto, a livello editoriale o tramite estrazione automatica. Test interattiva possono essere eseguiti nel portale di QnA Maker tramite il **Test** pannello immettendo le query utente comuni e verifica che le risposte restituite con la risposta corretta e il punteggio di confidenza sufficienti. 
+La knowledge base è pronta per i test dopo essere stata popolata con il contenuto, a livello editoriale o tramite estrazione automatica. Il test interattivo può essere eseguito nel portale di QnA Maker tramite il pannello di **test** immettendo query utente comuni e verificando che le risposte restituite con la risposta corretta e un punteggio di confidenza sufficiente. 
 
-* **Per correggere i punteggi di confidenza basso in**: aggiungere domande alternative. 
-* **Quando una query restituisce in modo errato il [risposta predefinita](confidence-score.md#change-default-answer)** : aggiungere nuove risposte per la domanda corretta. 
+* **Per correggere i punteggi di confidenza basso**: aggiungere domande alternative. 
+* **Quando una query restituisce erroneamente la [risposta predefinita](confidence-score.md#change-default-answer)** , aggiungere nuove risposte alla domanda corretta. 
 
 Questo ciclo serrato di test-aggiornamento continua finché non si è soddisfatti dei risultati. Leggere le informazioni su come [testare la knowledge base](../How-To/test-knowledge-base.md).
 
-Per la Knowledge base di grandi dimensioni, utilizzare test automatici con il [generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) e il `isTest` proprietà body le query che il `test` della knowledge base anziché knowledge base pubblicata. 
+Per la KBS di grandi dimensioni, utilizzare test automatizzati con l' `isTest` [API generateAnswer](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) e la proprietà `test` Body che esegue una query sulla Knowledge base invece che sulla Knowledge base pubblicata. 
 
 ```json
 {
@@ -51,7 +51,7 @@ Una volta testata la knowledge base, è possibile pubblicarla. La pubblicazione 
 
 In questo modo, eventuali modifiche apportate alla versione di test della knowledge base non influiscono sulla versione pubblicata, che potrebbe essere in uso in un'applicazione di produzione.
 
-Ognuna di queste knowledge base può essere scelta come destinazione per i test separatamente. Usando le API, è possibile assegnare la versione di prova della knowledge base con `isTest` proprietà nella chiamata generateAnswer body.
+Ognuna di queste knowledge base può essere scelta come destinazione per i test separatamente. Utilizzando le API, è possibile specificare come destinazione la versione di prova della Knowledge `isTest` base con la proprietà Body nella chiamata generateAnswer.
 
 Leggere le informazioni su come [pubblicare la knowledge base](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 

@@ -258,7 +258,7 @@
     - name: Creare flussi di lavoro riutilizzabili
       displayName: pipelines
       items:
-        - name: 'Pipeline di Machine Learning: batch, calcoli, riutilizzo, condivisione'
+        - name: Pipeline di apprendimento automatico
           href: how-to-create-your-first-pipeline.md
         - name: Pipeline di Azure per CI/CD
           displayName: 'continuous, integration, delivery'

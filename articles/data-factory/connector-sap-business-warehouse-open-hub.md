@@ -218,7 +218,7 @@ Quando si copiano dati da SAP BW Open Hub, vengono usati i mapping seguenti tra 
 | T (Time) | String |
 | P (BCD Packed, Currency, Decimal, Qty) | Decimal |
 | N (Numc) | String |
-| X (Binary and Raw) | String |
+| X (Binary e Raw) | String |
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

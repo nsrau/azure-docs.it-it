@@ -7,35 +7,35 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 60a17859fd74b1972e0905a830ba984838a94ffd
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a8ebd0b36c6ee8bf6762a70af9f4a7c09f6b118d
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447502"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955160"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Aggiungere chit chat a una knowledge base
 
 L’aggiunta di una chit chat al proprio bot lo rende più colloquiale e coinvolgente. La funzione chit chat di QnA Maker consente di aggiungere facilmente un set predefinito delle migliori chit chat nella knowledge base (KB). Può trattarsi di un punto di partenza per la personalità del bot e consentirà di risparmiare tempi e costi di scrittura da zero.  
 
-Questo set di dati ha circa 100 scenari di chit chat nella voce di più utenti, quali Professional, semplice e Witty. Scegliere l'utente tipo che rispecchia maggiormente il vocale del bot. Data una query dell'utente, QnA Maker cerca di farla corrispondere alla nota chit chat QnA più vicina.  
+Questo set di dati presenta circa 100 scenari di Chit-chat con la voce di più persone, ad esempio Professional, friendly e Witty. Scegliere l'utente tipo che rispecchia maggiormente il vocale del bot. Data una query dell'utente, QnA Maker cerca di farla corrispondere alla nota chit chat QnA più vicina.  
 
-Di seguito sono riportati alcuni esempi di personalità diverse. È possibile visualizzare tutti dalla personalità [set di dati](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets) con i dettagli della personalità.
+Di seguito sono riportati alcuni esempi delle diverse personali. È possibile visualizzare tutti i [set](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets) di dati di personalità insieme ai dettagli delle personali.
 
-Per la query dell'utente di `When is your birthday?`, ogni personalità dispone di una risposta con stile:
+Per la query utente di `When is your birthday?`, ogni personalità ha una risposta con stile:
 
 <!-- added quotes so acrolinx doesn't score these sentences -->
 |Personalità|Esempio|
 |--|--|
-|Professional|Durata non è applicabile all'utente.|
-|Gentile|Non è realmente necessario un'età.|
-|Dinamica, in gamba|Sono privi di età.|
-|Necessario|Non ho un'età.|
-|Fornendo informazioni|Ho un bot, in modo che non ho un'età.|
+|Professionale|Age non è effettivamente applicabile all'utente.|
+|Gentile|Non ho realmente un tempo.|
+|Spiritoso|Sono privo di età.|
+|Occuparsi|Non ho un periodo di tempo.|
+|Entusiasta|Sono un bot, quindi non ho un periodo di tempo.|
 ||
 
 > [!NOTE]
@@ -56,12 +56,12 @@ Quando si modifica la KB, si noterà una nuova origine per le chit chat, basata 
 
 ![Modificare QnA chit chat](../media/qnamaker-how-to-chit-chat/edit-chit-chat.png)
 
-Per visualizzare i metadati, selezionare **opzioni di visualizzazione** sulla barra degli strumenti, quindi selezionare **mostrano metadati**.
+Per visualizzare i metadati, selezionare Visualizza **Opzioni** sulla barra degli strumenti e quindi selezionare **Mostra metadati**.
 
 ## <a name="add-additional-chit-chat-questions-and-answers"></a>Aggiungere ulteriori domande e risposte alle chit chat
 È possibile aggiungere nuove QnA chit chat che non sono nel set predefinito. Assicurarsi che non venga duplicata una coppia di QnA già inclusa nel set di chit chat. Quando si aggiunge una nuova QnA chit chat, viene aggiunta al provider di origine **Editoriale.** Per assicurarsi che il classificatore riconosca che si tratta di una chit chat, aggiungere la coppia chiave/valore dei metadati "Editoriale: chit chat", come illustrato nell'immagine seguente:
    
-![! [Aggiungere chit chat con] (.. / media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
+![! [Aggiungere Chit-Chat QnAs] (.. /media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
 
 ## <a name="delete-chit-chat-from-an-existing-kb"></a>Eliminare una chit chat da una KB esistente
 Selezionare la KB e passare alla pagina **Impostazioni**. L'origine di una chit chat specifica è elencata come un file con il nome della personalità selezionata. È possibile eliminarla come un file di origine.
