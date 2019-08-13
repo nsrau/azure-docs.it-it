@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cb2ca7229524cf8d84041140129c7b9ca6876ea3
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 87216317a965e85d83aede468163f43b1716c45a
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417801"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827245"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Preparare le risorse di Azure per il ripristino di emergenza di computer locali
 
@@ -55,7 +55,7 @@ Per completare queste attività, è necessario che all'account sia assegnato il 
 ## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
 1. Nel portale di Azure fare clic su **+Crea una risorsa** e quindi cercare **Ripristino** nel Marketplace.
-2. Fare clic su **Backup e Site Recovery (OMS)** , quindi nella pagina Backup e Site Recovery fare clic su **Crea**. 
+2. Fare clic su **Backup e Site Recovery** e quindi nella pagina Backup e Site Recovery fare clic su **Crea**. 
 1. Nell'**insieme di credenziali di Servizi di ripristino** > **Nome** immettere un nome descrittivo per identificare l'insieme di credenziali. Per questo set di esercitazioni viene usato **ContosoVMVault**.
 2. In **Gruppo di risorse** selezionare un gruppo di risorse esistente o crearne uno nuovo. Per questa esercitazione, selezionare **contosoRG**.
 3. In **Località** selezionare l'area geografica in cui dovrà essere collocato l'insieme di credenziali. Viene usato **Europa occidentale**.

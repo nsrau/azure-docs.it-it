@@ -4,16 +4,17 @@ description: Creare un archivio conoscenze con la procedura guidata Importa dati
 author: heidisteen
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/30/2019
 ms.author: heidist
-ms.openlocfilehash: 04b04e8080590aa6e9fe1c17369e83fa5bb6b894
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 518a96ae8ace5c9630d594fe70487635b6ec1d2c
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668223"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840835"
 ---
 # <a name="create-an-azure-search-knowledge-store-and-connect-using-power-bi"></a>Creare un archivio conoscenze di Ricerca di Azure e connettersi con Power BI
 
@@ -156,7 +157,7 @@ Usare la procedura guidata Importa dati per creare l'archivio conoscenze. Si imp
 
 1. Fare clic su **Chiudi e applica** all'estrema sinistra della barra dei comandi di Power Query.
 
-1. Verificare che Power BI riconosca le relazioni create dall'archivio conoscenze all'interno dei dati. Fare clic sul riquadro delle relazioni nel riquadro di spostamento a sinistra. Tutte e tre le tabelle devono essere correlate.
+1. Verificare che Power BI riconosca le relazioni create dall'archivio conoscenze all'interno dei dati. Fare clic sul riquadro delle relazioni nel riquadro di spostamento a sinistra. Tutte e tre le tabelle devono essere correlate. Modificare le relazioni e verificare che l'opzione "Direzione filtro incrociato" sia impostata su Entrambi affinché tutti gli oggetti visivi vengano aggiornati quando viene applicato un filtro.
 
    ![Verificare le relazioni](media/knowledge-store-howto-powerbi/powerbi-relationships.png "Verificare le relazioni")
 

@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7fdf9c52df502bc94519ab6c65be2e9fb546ce48
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: e5088cfa417c76933be6785188f2b173b7b461d0
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699128"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772582"
 ---
 # <a name="explore-azure-machine-learning-service-with-jupyter-notebooks"></a>Esplorare il servizio Azure Machine Learning con notebook di Jupyter
 
@@ -35,7 +35,7 @@ Questo articolo illustra come accedere al repository dagli ambienti seguenti:
 <a name="notebookvm"></a>
 ## <a name="get-samples-on-azure-machine-learning-notebook-vm"></a>Ottenere esempi sulla macchina virtuale per notebook di Azure Machine Learning
 
-Il modo più semplice per iniziare a usare gli esempi consiste nel completare la [guida di avvio rapido per i notebook basati sul cloud](quickstart-run-cloud-notebook.md). Al termine, si avrà un server notebook dedicato in cui saranno precaricati l'SDK e il repository di esempio. Non saranno necessari download o installazioni.
+Il modo più semplice per iniziare a usare gli esempi consiste nel completare [Esercitazione: Configurare l'ambiente e l'area di lavoro](tutorial-1st-experiment-sdk-setup.md). Al termine, si avrà un server notebook dedicato in cui saranno precaricati l'SDK e il repository di esempio. Non saranno necessari download o installazioni.
 
 <a name="byo"></a>
 

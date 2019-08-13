@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 02/13/2019
+ms.date: 08/05/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c20256fb712d9381ba2adc90e2e68ce4fdc8911a
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: d4ca21ecf7ad0707ad33220a8e8c2700638f8e25
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382788"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824864"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Configurare le informazioni di sicurezza (anteprima) dal messaggio di richiesta della pagina di accesso
 
@@ -75,7 +75,7 @@ Seguire questa procedura per configurare le informazioni di sicurezza per l'acco
 
 8. Approvare la notifica nell'app Microsoft Authenticator, quindi selezionare **Avanti**.
 
-    ![Notifica di operazione riuscita e connessione dell'app e dell'account](media/security-info/securityinfo-prompt-auth-app-success.png).
+    ![Notifica di operazione riuscita e connessione dell'app e dell'account](media/security-info/securityinfo-prompt-auth-app-success.png)
 
     Le informazioni di sicurezza vengono aggiornate in modo da usare per impostazione predefinita l'app Microsoft Authenticator per verificare l'identità quando viene usata la verifica in due passaggi o la reimpostazione della password.
 
@@ -98,6 +98,40 @@ Seguire questa procedura per configurare le informazioni di sicurezza per l'acco
 12. Esaminare la pagina **Operazione riuscita** per verificare di aver configurato correttamente per le informazioni di sicurezza sia l'app Microsoft Authenticator sia un metodo tramite telefono (SMS o telefonata) e quindi selezionare **Fine**.
 
     ![Pagina di operazione completata della procedura guidata](media/security-info/securityinfo-prompt-setup-success.png)
+
+    >[!Note]
+    >Se l'organizzazione richiede l'uso di password delle app, in questa procedura guidata potrebbe essere visualizzata una sezione aggiuntiva per la relativa configurazione. Se viene visualizzata una terza sezione denominata **Password dell'app**, per poter completare la procedura guidata è prima necessario compilarla. Per informazioni sulla procedura per aggiungere una password dell'app, vedere la sezione [Gestire le password delle app](#manage-your-app-passwords) di questo articolo.
+
+### <a name="manage-your-app-passwords"></a>Gestire le password delle app
+
+Alcune app, come Outlook 2010, non supportano la verifica in due passaggi. L'assenza di supporto significa che se si usa la verifica in due passaggi nell'organizzazione, l'app non funzionerà. Per ovviare a questo problema, è possibile creare una password generata automaticamente da usare con ogni app non basata su browser, diversa dalla password normale.
+
+>[!Note]
+>Se questa opzione non viene visualizzata nella procedura guidata, significa che non è stata configurata dall'amministratore. Se l'opzione non è configurata ma si sa di dover usare password delle app, è possibile seguire la procedura descritta in [Configurare le password delle app dalla pagina Info di sicurezza (anteprima)](security-info-app-passwords.md).
+
+Quando si usano password per le app, è importante tenere presente quanto segue:
+
+- Le password delle app vengono generate automaticamente e immesse una sola volta per ogni app.
+
+- Il limite è di 40 password per utente. Se si prova a crearne un'altra oltre questo limite, verrà chiesto di eliminare una password esistente prima di poter creare quella nuova.
+
+- Usare una sola password per dispositivo, non per app. Ad esempio, creare una singola password per tutte le app del portatile e un'altra per tutte le app sul PC desktop.
+
+#### <a name="to-add-app-passwords-in-the-sign-in-wizard"></a>Per aggiungere password delle app nella procedura guidata per l'accesso
+
+1. Dopo aver completato le sezioni precedenti della procedura guidata, selezionare **Avanti** e completare la sezione **Password dell'app**.
+
+2. Digitare il nome dell'app per cui è necessaria la password, ad esempio `Outlook 2010`, e quindi selezionare **Avanti**.
+
+    ![Aggiungere il nome per la password dell'app nella procedura guidata](media/security-info/app-password-app-password.png)
+
+3. Copiare il codice della password dalla schermata **Password dell'app** e incollarlo nell'area **Password** dell'app, che in questo esempio è Outlook 2010.
+
+    ![Pagina Password dell'app con la password da copiare](media/security-info/app-password-copy-password.png)
+
+4. Dopo aver copiato la password e averla incollata nell'app, tornare a questa procedura guidata per verificare che tutte le informazioni sul metodo di accesso siano corrette e quindi selezionare **Fine**.
+
+    ![Pagina Password dell'app con notifica di completamento](media/security-info/app-password-complete.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

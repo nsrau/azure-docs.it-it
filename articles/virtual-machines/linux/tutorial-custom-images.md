@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 080d1d68c2f2fb757bb51471b91a807b2f00fa2d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 7fade5e73d7c571cea46c91cb952b590aca4b3c2
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709518"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780304"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>Esercitazione: Creare un'immagine personalizzata di una macchina virtuale di Azure con l'interfaccia della riga di comando di Azure
 
@@ -51,6 +51,9 @@ Per creare un'immagine di una macchina virtuale, è necessario preparare la macc
 ### <a name="deprovision-the-vm"></a>Eseguire il deprovisioning della macchina virtuale 
 
 Il deprovisioning generalizza la macchina virtuale rimuovendo le informazioni specifiche del computer. La generalizzazione rende possibile distribuire più macchine virtuali da una singola immagine. Durante il deprovisioning, il nome host viene reimpostato su *hostlocale.dominiolocale*. Vengono eliminati anche i lease DHCP memorizzati nella cache, le chiavi host SSH, le configurazioni nameserver e le password radicele.
+
+> [!WARNING]
+> Effettuando il deprovisioning e contrassegnando la VM come generalizzata, la VM di origine diventerà inutilizzabile e non potrà essere riavviata. 
 
 Per eseguire il deprovisioning della macchina virtuale, usare l'agente di macchine virtuali di Azure (waagent). L'agente di macchine virtuali di Azure viene installato sulla macchina virtuale e gestisce il provisioning e l'interazione con il controller di infrastruttura di Azure. Per altre informazioni, vedere [Guida dell'utente dell'agente Linux di Azure](../extensions/agent-linux.md).
 

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 05/28/2019
+ms.date: 08/05/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5b05755502ad5836a21080a122d2e1721825f10c
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 4b41772a4e904603309f45244cf4df22af876a32
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734678"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812752"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Creare e usare un ambiente del servizio app con bilanciamento del carico interno 
 
@@ -109,14 +109,14 @@ Per configurare il DNS:
 
 - creare una zona per *&lt;nome ambiente del servizio app&gt;.appserviceenvironment.net*
 - creare un record A in tale zona che punti * all'indirizzo IP del servizio ILB 
-- creare una zona in *&lt;nome ambiente del servizio app&gt;.scm.appserviceenvironment.net* denominata SCM
+- creare una zona in *&lt;nome ambiente del servizio app&gt;.appserviceenvironment.net* denominata SCM
 - creare un record A nella zona che punti * all'indirizzo IP del servizio ILB
 
 ## <a name="publish-with-an-ilb-ase"></a>Pubblicare con un ambiente del servizio app ILB
 
 Per ogni app creata sono disponibili due endpoint. In un ambiente del servizio app ILB sono presenti *&lt;nome app&gt;.&lt;Dominio ambiente del servizio app ILB&gt;* e *&lt;nome app&gt;.scm.&lt;Dominio ambiente del servizio app ILB&gt;* . 
 
-Il nome del sito di gestione controllo servizi consente di passare alla console Kudu, denominata **Advanced Portal** (Portale avanzato) all'interno del portale di Azure. La console Kudu consente di visualizzare le variabili di ambiente, esplorare il disco, usare una console e molto altro ancora. Per informazioni, vedere [Kudu console for Azure App Service][Kudu] (Console Kudu per il servizio app di Azure). 
+Il nome del sito di gestione controllo servizi consente di passare alla console Kudu, denominata **Advanced Portal** (Portale avanzato) all'interno del portale di Azure. La console Kudu consente di visualizzare le variabili di ambiente, esplorare il disco, usare una console e molto altro ancora. Per altre informazioni, vedere [Console Kudu per il servizio app di Azure][Kudu]. 
 
 I sistemi di integrazione continua basati su Internet, come GitHub e Azure DevOps, continueranno a funzionare con un ambiente del servizio app ILB se l'agente di compilazione è accessibile da Internet e si trova nella stessa rete dell'ambiente del servizio app ILB. Quindi, nel caso di Azure DevOps, se l'agente di compilazione viene creato nella stessa rete virtuale dell'ambiente del servizio app ILB (anche se la subnet è diversa), potrà eseguire il pull del codice dal GIT di Azure DevOps e distribuirlo nell'ambiente del servizio app ILB. Se non si vuole creare il proprio agente di compilazione, è necessario usare un sistema di integrazione continua che adotta un modello pull, ad esempio Dropbox.
 
@@ -126,7 +126,7 @@ Gli endpoint di pubblicazione per le app in un ambiente del servizio app con bil
 
 È possibile combinare un dispositivo web application firewall (WAF) con l'ambiente del servizio app ILB in modo da esporre a Internet solo le app desiderate e mantenere le altre accessibili solo dall'interno della rete virtuale. Questo consente, tra l'altro, di creare applicazioni multilivello sicure.
 
-Per altre informazioni sulla configurazione dell'ambiente del servizio app ILB con un dispositivo WAF, vedere [Configurazione di un Web application firewall (WAF) per l'ambiente del servizio app][ASEWAF]. Questo articolo spiega come usare un'appliance virtuale Barracuda con il proprio ambiente del servizio app. Un'altra opzione consiste nell'usare il gateway applicazione Azure. Il gateway applicazione usa le regole di base OWASP per proteggere le applicazioni associate allo stesso. Per altre informazioni sul gateway applicazione Azure, vedere [Web application firewall (WAF)][AppGW].
+Per altre informazioni su come configurare l'ambiente del servizio app ILB con un dispositivo WAF, vedere [Configurazione di un Web application firewall (WAF) per l'ambiente del servizio app][ASEWAF]. Questo articolo spiega come usare un'appliance virtuale Barracuda con il proprio ambiente del servizio app. Un'altra opzione consiste nell'usare il gateway applicazione Azure. Il gateway applicazione usa le regole di base OWASP per proteggere le applicazioni associate allo stesso. Per altre informazioni sul gateway applicazione, vedere [Introduzione al Web application firewall di Azure][AppGW].
 
 ## <a name="ilb-ases-made-before-may-2019"></a>Ambienti del servizio app creati prima del maggio 2019
 
@@ -134,7 +134,7 @@ Gli ambienti del servizio app con bilanciamento del carico interno creati prima 
 
 ## <a name="get-started"></a>Attività iniziali ##
 
-* Per iniziare a usare gli ambienti del servizio app, vedere [Introduzione ad Ambiente del servizio app][Intro]. 
+* Per iniziare a usare gli ambienti del servizio app, vedere [Introduzione agli ambienti del servizio app][Intro]. 
 
 <!--Image references-->
 [1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png

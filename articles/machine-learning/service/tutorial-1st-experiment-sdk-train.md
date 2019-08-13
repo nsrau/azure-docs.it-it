@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: 8b89f5572ae94986590fe76096daeb0ad088fe59
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 66a0c625d300a74787e3640992675d5a3f31610c
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668578"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828517"
 ---
 # <a name="tutorial-train-your-first-model"></a>Esercitazione: Eseguire il training del primo modello
 
@@ -111,7 +111,7 @@ Al termine del training, chiamare la variabile `experiment` per recuperare un co
 experiment
 ```
 
-<table style="width:100%"><tr><th>NOME</th><th>Area di lavoro</th><th>Pagina report</th><th>Pagina documentazione</th></tr><tr><td>diabetes-experiment</td><td>nome-area-lavoro</td><td><a href="" target="_blank" rel="noopener">Collegamento al portale di Azure</a></td><td><a href="" target="_blank" rel="noopener">Collegamento alla documentazione</a></td></tr></table>
+<table style="width:100%"><tr><th>NOME</th><th>Area di lavoro</th><th>Pagina report</th><th>Pagina documentazione</th></tr><tr><td>diabetes-experiment</td><td>nome-area-lavoro</td><td>Collegamento al portale di Azure</td><td>Collegamento alla documentazione</td></tr></table>
 
 ## <a name="view-training-results-in-portal"></a>Visualizzare i risultati del training nel portale
 
@@ -181,7 +181,7 @@ Se si è usato un server notebook cloud, per ridurre i costi arrestare la macchi
 
 1. Nell'area di lavoro selezionare **Macchine virtuali per notebook**.
 
-   ![Arrestare il server di macchine virtuali](./media/quickstart-run-cloud-notebook/stop-server.png)
+   ![Arrestare il server di macchine virtuali](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
 
 1. Selezionare la macchina virtuale dall'elenco.
 

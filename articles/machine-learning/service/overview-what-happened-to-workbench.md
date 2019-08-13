@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: a164276d41d182c5b439efc691d80693f1ac831e
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 2bc036fcde7ac541dbf7d8511f82080e52135777
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360123"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772630"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Che cosa è successo ad Azure Machine Learning Workbench?
 
@@ -120,8 +120,8 @@ I pacchetti di domini relativi a Visione artificiale, Analisi del testo e Previs
 
 Informazioni sull'[architettura più recente per il servizio Azure Machine Learning](concept-azure-machine-learning-architecture.md). 
 
-Per una panoramica del servizio, leggere [Informazioni sul servizio Azure Machine Learning](overview-what-is-azure-ml.md).
+Per una panoramica del servizio, vedere [Informazioni sul servizio Azure Machine Learning](overview-what-is-azure-ml.md).
 
-Per un argomento di avvio rapido che illustra come eseguire uno script ed esplorare la cronologia di esecuzione dello script con la versione più recente del servizio Azure Machine Learning, vedere [Get started with Azure Machine Learning service](quickstart-run-cloud-notebook.md) (Introduzione al servizio Azure Machine Learning).
+Creare il primo esperimento con l'esercitazione in due parti per [configurare l'ambiente e l'area di lavoro](tutorial-1st-experiment-sdk-setup.md) ed [eseguire il training del primo modello](tutorial-1st-experiment-sdk-train.md).
 
 Per un'analisi più approfondita del flusso di lavoro, svolgere l'[esercitazione completa](tutorial-train-models-with-aml.md) che contiene i passaggi dettagliati per eseguire il training e distribuire i modelli con il servizio Azure Machine Learning. 

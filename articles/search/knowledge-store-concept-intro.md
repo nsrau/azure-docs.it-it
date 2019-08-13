@@ -1,20 +1,21 @@
 ---
-title: Introduzione e panoramica del knowledge store (anteprima) - Ricerca di Azure
+title: Introduzione all'archivio conoscenze (anteprima) - Ricerca di Azure
 description: Inviare documenti arricchiti nell'archiviazione di Azure in cui è possibile visualizzare, rimodellare e utilizzare i documenti arricchiti in Ricerca di Azure e in altre applicazioni.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.topic: overview
 ms.date: 08/02/2019
 ms.author: heidist
-ms.openlocfilehash: 6cbf8dfe51e8b553fd84e9eb81a2ea37a65c387e
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 107478f7e2d3c6726d3b8fb9c503ef13271c6571
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668297"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840827"
 ---
 # <a name="what-is-knowledge-store-in-azure-search"></a>Che cos'è il knowledge store in Ricerca di Azure?
 

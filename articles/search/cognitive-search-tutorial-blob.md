@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Chiamare le API REST Servizi cognitivi in una pipeline di indicizzazione - Ricerca di Azure'
+title: 'Esercitazione REST: Chiamare Servizi cognitivi in una pipeline con arricchimento di intelligenza artificiale - Ricerca di Azure'
 description: Procedura di esempio di estrazione dei dati, linguaggio naturale ed elaborazione di immagini con intelligenza artificiale nell'indicizzazione di Ricerca di Azure per l'estrazione e la trasformazione dei dati su BLOB JSON con Postman e API REST.
 manager: pablocas
 author: luiscabrer
@@ -9,13 +9,13 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/28/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: cedcc1be5525cc6932ff168e6549de84fa02a4ca
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.subservice: cognitive-search
+ms.openlocfilehash: d431f0ced5b417e178e064dca347ae8d78f14e5d
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67669094"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840882"
 ---
 # <a name="rest-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Esercitazione REST: Chiamare le API Servizi cognitivi in una pipeline di indicizzazione di Ricerca di Azure
 
