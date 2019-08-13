@@ -1,5 +1,5 @@
 ---
-title: Sviluppare con Node.js in Kubernetes usando Azure Dev Spaces
+title: Debug e iterazione con Visual Studio Code e Node.js in Kubernetes usando Azure Dev Spaces
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
@@ -10,14 +10,14 @@ ms.topic: quickstart
 description: Sviluppo rapido Kubernetes con contenitori, microservizi e Node.js in Azure
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 3da6c015d46d2c83dd74c625e1e8eeaee81da2ae
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 4ee11b4bebe32ff4a9af38a0789823178f388e10
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707117"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725778"
 ---
-# <a name="quickstart-develop-with-nodejs-on-kubernetes-using-azure-dev-spaces"></a>Guida introduttiva: Sviluppare con Node.js in Kubernetes usando Azure Dev Spaces
+# <a name="quickstart-debug-and-iterate-with-visual-studio-code-and-nodejs-on-kubernetes-using-azure-dev-spaces"></a>Guida introduttiva: Debug e iterazione con Visual Studio Code e Node.js in Kubernetes usando Azure Dev Spaces
 
 In questa guida si apprenderà come:
 

@@ -11,14 +11,14 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: b80be0db41ea8bd3996a7b8843c80f510289545f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 12e433a146d8dd8a6fb7e1d7c40acc72e023047b
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570055"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736198"
 ---
-# <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>Usare l'interfaccia della riga di comando per spostare un database SQL di Azure in un pool elastico SQL
+# <a name="use-cli-to-add-an-azure-sql-database-single-database-into-a-failover-group"></a>Usare l'interfaccia della riga di comando per aggiungere un database singolo di database SQL di Azure a un gruppo di failover
 
 Questo esempio di script di PowerShell crea un database singolo, un gruppo di failover, aggiunge il database al gruppo di failover e testa il failover. 
 

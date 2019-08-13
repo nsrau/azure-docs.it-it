@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 29a842f7dfcf720f29fcff80d2e736893c824f5a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 9f7e0e23a04c6b141c6e0c5ff88b3d5ff2d76e1d
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949564"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840442"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Eseguire la distribuzione nel Servizio app di Azure con il plug-in Jenkins 
 
@@ -35,7 +35,7 @@ Se non è già disponibile un master Jenkins, iniziare con il [modello di soluzi
 * [Credenziali di Azure](https://plugins.jenkins.io/azure-credentials) versione 1.2
 * [Servizio app di Azure](https://plugins.jenkins.io/azure-app-service) versione 0.1
 
-Si può usare il plug-in Jenkins per distribuire un'app Web in qualsiasi linguaggio supportato da App Web, ad esempio C#, PHP, Java e Node.js. In questa esercitazione viene usata l'app di esempio [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample). Per creare il fork del repository nel proprio account GitHub, selezionare il pulsante **Fork** nell'angolo superiore destro dell'interfaccia GitHub.  
+Si può usare il plug-in Jenkins per distribuire un'app Web in qualsiasi linguaggio supportato da App Web, ad esempio C#, PHP, Python, Java e Node.js. In questa esercitazione viene usata l'app di esempio [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample). Per creare il fork del repository nel proprio account GitHub, selezionare il pulsante **Fork** nell'angolo superiore destro dell'interfaccia GitHub.  
 
 > [!NOTE]
 > Per compilare il progetto Java sono necessari Java JDK e Maven. Installare i componenti nel master Jenkins o nell'agente di macchine virtuali, se in uso per l'integrazione continua. Se si distribuisce un'applicazione Java SE, è necessario anche ZIP sul server di compilazione.

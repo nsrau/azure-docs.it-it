@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 2c2a2659b6b9c77b36001af1602c904e7d200b56
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 592aac7e66e1f0720a203c24ac9f000951cfe6f6
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433038"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839537"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Esercitazione: Distribuire funzioni di Azure come moduli IoT Edge
 
@@ -217,7 +217,7 @@ Visual Studio Code genera un messaggio di conferma quando viene eseguito il push
 
 3. Passare alla cartella della soluzione che contiene **CSharpFunction**. Aprire la cartella config, selezionare il file **deployment.json** e quindi scegliere **Select Edge Deployment Manifest** (Selezionare il manifesto della distribuzione IoT Edge).
 
-4. Aggiornare la sezione **Azure IoT Hub Devices** (Dispositivi dell'hub IoT di Azure). Dovrebbe essere visualizzata la nuova **CSharpFunction** in esecuzione insieme al modulo **TempSensor** e a **$edgeAgent** e **$edgeHub**. La visualizzazione dei nuovi moduli potrebbe richiedere un po' di tempo. Il dispositivo IoT Edge deve recuperare le informazioni sulla nuova distribuzione dall'hub IoT, avviare i nuovi contenitori e quindi segnalare lo stato all'hub IoT. 
+4. Aggiornare la sezione **Azure IoT Hub Devices** (Dispositivi dell'hub IoT di Azure). Dovrebbe essere visualizzata la nuova **CSharpFunction** in esecuzione insieme al modulo **SimulatedTemperatureSensor** e a **$edgeAgent** e **$edgeHub**. La visualizzazione dei nuovi moduli potrebbe richiedere un po' di tempo. Il dispositivo IoT Edge deve recuperare le informazioni sulla nuova distribuzione dall'hub IoT, avviare i nuovi contenitori e quindi segnalare lo stato all'hub IoT. 
 
    ![Visualizzare i moduli distribuiti in VS Code](./media/tutorial-deploy-function/view-modules.png)
 

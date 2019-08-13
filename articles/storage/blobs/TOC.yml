@@ -137,6 +137,8 @@
           items:
             - name: Livelli di accesso
               href: storage-blob-storage-tiers.md
+            - name: Riattivare i dati dallo spazio di archiviazione
+              href: storage-blob-rehydration.md
             - name: Gestione del ciclo di vita di archiviazione BLOB di Azure
               href: storage-lifecycle-management-concepts.md
         - name: Prestazioni e ridimensionamento

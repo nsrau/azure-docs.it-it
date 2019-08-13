@@ -1,5 +1,5 @@
 ---
-title: Eseguire il backup di condivisioni file di Azure
+title: Eseguire il backup e il ripristino di condivisioni file di Azure
 description: Questo articolo descrive come eseguire il backup e il ripristino delle condivisioni file di Azure e spiega le attività di gestione.
 author: dcurwin
 ms.author: dacurwin
@@ -7,14 +7,14 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 9cb0150efcb4860af98b47aa5da4cfd24d2e9de9
-ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
+ms.openlocfilehash: c2e78f6925ae8ff72e7f603c886376b32e40cd94
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602021"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68737250"
 ---
-# <a name="back-up-azure-file-shares"></a>Eseguire il backup di condivisioni file di Azure
+# <a name="back-up-and-restore-azure-file-shares"></a>Eseguire il backup e il ripristino di condivisioni file di Azure
 Questo articolo illustra come usare il portale di Azure per eseguire il backup e il ripristino delle [condivisioni file di Azure](../storage/files/storage-files-introduction.md).
 
 Questa guida illustra come eseguire queste operazioni:

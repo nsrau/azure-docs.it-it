@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d7ccce1f21b1caa2268317b7239617a80ddce10b
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 5a1e487b52cb6f146ccc7fd3208ecc90de9aa080
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485922"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840167"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Esercitazione: Sviluppare un modulo IoT Edge in C# per dispositivi Windows
 
@@ -268,7 +268,7 @@ Il codice del modulo predefinito riceve i messaggi in una coda di input e li pas
 
 8. Salvare il file Program.cs.
 
-9. Aprire il file **deployment.template.json** nella soluzione IoT Edge. Questo file indica all'agente di IoT Edge quali moduli distribuire, in questo caso **tempSensor** e **CSharpModule**, e indica all'hub di IoT Edge come indirizzare i messaggi tra i moduli.
+9. Aprire il file **deployment.template.json** nella soluzione IoT Edge. Questo file indica all'agente di IoT Edge quali moduli distribuire, in questo caso **SimulatedTemperatureSensor** e **CSharpModule**, e indica all'hub di IoT Edge come indirizzare i messaggi tra i moduli.
 
 10. Aggiungere il modulo gemello **CSharpModule** al manifesto della distribuzione. Inserire il contenuto JSON seguente alla fine della sezione **modulesContent** dopo il modulo gemello **$edgeHub**: 
 

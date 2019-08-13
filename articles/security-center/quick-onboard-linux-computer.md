@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9f4e001909fb739aa368e5201649e85cce9906d3
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 110dcb1531390b207ae741af07fe0ad18964aae1
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521921"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816128"
 ---
-# <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Avvio rapido: Caricare i computer Linux nel Centro sicurezza di Azure
-Dopo aver caricato le sottoscrizioni di Azure è possibile abilitare il Centro sicurezza per le risorse di Linux in esecuzione all'esterno di Azure, per esempio in locale o in altri cloud, effettuando il provisioning dell'agente Linux.
+# <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Guida introduttiva: Caricare i computer Linux nel Centro sicurezza di Azure
+Dopo aver caricato le sottoscrizioni di Azure è possibile abilitare il Centro sicurezza per le risorse di Linux in esecuzione all'esterno di Azure, per esempio in locale o in altri cloud, effettuando il provisioning di un agente. L'agente è denominato Microsoft Monitoring Agent (MMA), ma è anche noto come agente OMS.
 
-Questa guida introduttiva mostra come installare l'agente Linux in un computer Linux.
+Questo avvio rapido mostra come installare l'agente in un computer Linux.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per iniziare a usare Centro sicurezza, è necessario avere una sottoscrizione di Microsoft Azure. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
@@ -57,7 +57,7 @@ Prima di iniziare questa guida introduttiva, è necessario essere nel piano tari
 
    ![Installare l'agente][5]
 
-I log per l'agente del Centro sicurezza per Linux sono reperibili in: */var/opt/microsoft/omsagent/\<workspace id>/log/*
+I log per l'agente sono reperibili in: */var/opt/microsoft/omsagent/\<workspace id>/log/*
 
   ![Log per agente][6]
 

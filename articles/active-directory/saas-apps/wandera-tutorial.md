@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/04/2019
+ms.date: 07/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e556ce95107e820dc04d34c05bea3a2840aab7e8
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: d4f5004571c849d90b7d811906684e66c10ee487
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798534"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68825297"
 ---
 # <a name="tutorial-integrate-wandera-with-azure-active-directory"></a>Esercitazione: Integrare Wandera con Azure Active Directory
 
@@ -37,7 +37,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Acces
 
 Per iniziare, sono necessari gli elementi seguenti:
 
-* Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere una versione di valutazione gratuita per un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+* Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
 * Sottoscrizione di Wandera abilitata per l'accesso Single Sign-On (SSO).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
@@ -66,9 +66,9 @@ Per configurare e testare l'accesso SSO di Azure AD con Wandera, completare le p
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Wandera](#configure-wandera-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di Wandera](#create-wandera-test-user)** : per avere una controparte di Britta Simon in Wandera collegata alla rappresentazione dell'utente in Azure AD.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di Wandera](#create-wandera-test-user)** : per avere una controparte di B.Simon in Wandera collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
@@ -88,7 +88,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     > [!NOTE]
     > Poiché non è reale, è necessario aggiornare questo valore con l'URL di risposta effettivo. Per ottenere il valore, contattare il [team di supporto clienti di Wandera](https://www.wandera.com/about-wandera/contact/#supportsection). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **XML dei metadati** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer in uso.
+1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **XML metadati federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer in uso.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
@@ -106,7 +106,27 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 ### <a name="configure-wandera-sso"></a>Configurare l'accesso SSO per Wandera
 
-Per configurare l'accesso Single Sign-On sul lato **Wandera**, è necessario inviare il file **XML dei metadati** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Wandera](https://www.wandera.com/about-wandera/contact/#supportsection). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+1. Per automatizzare la configurazione all'interno di Wandera, è necessario installare l'**estensione del browser My Apps Secure Sign-in** facendo clic su **Installa l'estensione**.
+
+    ![Estensione My Apps](common/install-myappssecure-extension.png)
+
+2. Dopo aver aggiunto l'estensione al browser, fare clic su **Configura Wandera** per passare direttamente all'applicazione Wandera. Specificare quindi le credenziali di amministratore per accedere a Wandera. L'estensione del browser configurerà automaticamente l'applicazione e automatizzerà i passaggi da 3 a 4.
+
+    ![Eseguire la configurazione](common/setup-sso.png)
+
+3. Se si vuole configurare manualmente Wandera, aprire una nuova finestra del Web browser, accedere al sito aziendale di Wandera come amministratore e seguire questa procedura:
+
+4. Nell'angolo superiore destro della pagina fare clic su **Settings** (Impostazioni) > **Administration** (Amministrazione) > **Single Sign-On** e quindi selezionare l'opzione **Enable SAML 2.0** (Abilita SAML 2.0) per eseguire questa procedura.
+
+    ![Configurazione di Wandera](./media/wandera-tutorial/config01.png)
+
+    a. Fare clic su **Or manually enter the required fields** (In alternativa immettere manualmente i campi obbligatori).
+
+    b. Nella casella di testo **IdP EntityId** (ID entità IdP) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
+
+    c. Aprire il file XML dei metadati della federazione nel Blocco note, copiarne il contenuto e incollarlo nella casella di testo **IdP Public X.509 Certificate** (Certificato X.509 pubblico IdP).
+
+    d. Fare clic su **Save**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
@@ -140,7 +160,7 @@ In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di 
 
 ### <a name="create-wandera-test-user"></a>Creare l'utente di test di Wandera
 
-In questa sezione viene creato un utente di nome Britta Simon in Wandera. Collaborare con il  [team di supporto di Wandera](https://www.wandera.com/about-wandera/contact/#supportsection) per aggiungere gli utenti alla piattaforma Wandera. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione si crea un utente di nome B.Simon in Wandera. Collaborare con il  [team di supporto di Wandera](https://www.wandera.com/about-wandera/contact/#supportsection) per aggiungere gli utenti alla piattaforma Wandera. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-sso"></a>Testare l'accesso SSO
 

@@ -3,18 +3,18 @@ title: Creare un'applicazione Azure IoT Central | Microsoft Docs
 description: Creare una nuova applicazione Azure IoT Central. Creare un'applicazione di valutazione o con pagamento in base al consumo usando un modello di applicazione.
 author: viv-liu
 ms.author: viviali
-ms.date: 06/07/2019
+ms.date: 08/02/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: peterpr
-ms.openlocfilehash: 07b062bd39177f283bd38ed6b687b590c5c4fb46
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+manager: corywink
+ms.openlocfilehash: 4ce0606558cad981b183282bee026bdcef6b0cdd
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066025"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815796"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Creare un'applicazione Azure IoT Central
 
@@ -39,8 +39,6 @@ Per creare una nuova applicazione Azure IoT Central:
 
       Per altre informazioni sui prezzi, vedere la [pagina dei prezzi di Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
 
-1. Scegliere un nome descrittivo per l'applicazione, ad esempio **Contoso IoT**. Azure IoT Central genera un prefisso URL univoco. È possibile modificare questo prefisso URL in modo da renderlo più facile da ricordare.
-
 1. Scegliere un modello di applicazione. Un modello di applicazione può contenere elementi predefiniti, ad esempio modelli di dispositivi e dashboard che facilitano le cose.
 
     | Modello di applicazione | DESCRIZIONE |
@@ -49,7 +47,9 @@ Per creare una nuova applicazione Azure IoT Central:
     | Esempio Devkits       | Crea un'applicazione con modelli di dispositivo pronti per la connessione a un dispositivo MXChip o Raspberry Pi. Si consiglia di usare questo modello agli sviluppatori di dispositivi che vogliono fare pratica con questi tipi di dispositivi. |
     | Applicazione personalizzata   | Crea un'applicazione vuota per l'utente da popolare con i propri modelli di dispositivi e dispositivi. |
 
-1. Selezionare **Create** (Crea).
+1. Immettere un nome descrittivo per l'applicazione, ad esempio **Contoso IoT**. Azure IoT Central genera un prefisso URL univoco. È possibile modificare questo prefisso URL in modo da renderlo più facile da ricordare.
+
+1. Fare clic su **Create**(Crea).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,16 +7,16 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 04/05/2018
-ms.openlocfilehash: 63bd92aeea0ad85872c1165eab374e90de078d44
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 08/01/2019
+ms.openlocfilehash: 7a88686666d399d37229dd75897e0b926b655131
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275133"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68728872"
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mysql-server-using-azure-cli"></a>Monitorare a scalare un database di Azure per il server MySQL usando l'interfaccia della riga di comando di Azure
-Questo esempio di script dell'interfaccia della riga di comando di Azure scala un singolo database di Azure per il server MySQL a un diverso livello di prestazioni dopo le query sulle metriche.
+Questo esempio di script dell'interfaccia della riga di comando ridimensiona le risorse di calcolo e archiviazione per un singolo database di Azure per il server MySQL dopo le query sulle metriche.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
@@ -37,10 +37,11 @@ Questo script usa i comandi illustrati nella tabella seguente:
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az mysql server create](/cli/azure/mysql/server#az-mysql-server-create) | Crea un server MySQL che ospita i database. |
+| [az mysql server update](/cli/azure/mysql/server#az-mysql-server-update) | Aggiorna le proprietà del server MySQL. |
 | [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) | Elencare il valore metrico per le risorse. |
 | [az group delete](/cli/azure/group#az-group-delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per altre informazioni sull'interfaccia della riga di comando di Azure: [Documentazione dell'interfaccia della riga di comando di Azure](/cli/azure).
+- Altre informazioni sulle [risorse di calcolo e archiviazione del database di Azure per MySQL](../concepts-pricing-tiers.md)
 - Provare altri script: [Esempi dell'interfaccia della riga di comando di Azure per il database di Azure per MySQL](../sample-scripts-azure-cli.md)
-- Per altre informazioni sul ridimensionamento, vedere [Livelli di servizio](../concepts-service-tiers.md) e [Unità di calcolo e unità di archiviazione](../concepts-compute-unit-and-storage.md).
+- Altre informazioni sull'[interfaccia della riga di comando di Azure](/cli/azure)

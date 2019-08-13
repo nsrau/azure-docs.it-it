@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: aedace031eaedf2709993b5185979e8777821759
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0921a1ac7aa1192fae78f168c2eb51ee3e74e24a
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444829"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774613"
 ---
 # <a name="what-is-azure-private-dns"></a>Che cos'è DNS privato di Azure?
 
@@ -74,7 +74,8 @@ DNS di Azure presenta le limitazioni seguenti:
 * Una determinata rete virtuale può essere collegata a una sola zona privata se è abilitata la registrazione automatica dei record DNS delle macchine virtuali. È tuttavia possibile collegare più reti virtuali a una singola zona DNS.
 * Il DNS inverso funziona solo per lo spazio IP privato nella rete virtuale collegata
 * Il DNS inverso per un indirizzo IP privato per una rete virtuale collegata restituisce "internal.cloudapp.net" come suffisso predefinito per la macchina virtuale. Per le reti virtuali collegate a una zona privata con registrazione automatica abilitata, il DNS inverso per un indirizzo IP privato restituisce due nomi di dominio completi, uno con il suffisso predefinito *internal.cloudapp.net* e l'altro con il suffisso della zona privata.
-* L'inoltro condizionale al momento non è supportato in modo nativo. Per abilitare la risoluzione tra reti di Azure e locali, vedere [Risoluzione dei nomi per le risorse in reti virtuali di Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+* L'inoltro condizionale al momento non è supportato in modo nativo. Per abilitare la risoluzione tra Azure e le reti locali, vedere [Risoluzione dei nomi per le macchine virtuali e le istanze del ruolo](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+
  
 ## <a name="pricing"></a>Prezzi
 

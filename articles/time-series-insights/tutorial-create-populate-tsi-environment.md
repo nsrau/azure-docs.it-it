@@ -9,12 +9,12 @@ ms.date: 07/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 921528c50bae03b67800bf3ccab8b5cd9bb704f6
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 4c81daa1f55167fa868c69f3bff388dbaa4887cd
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677742"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725752"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Esercitazione: Creare un ambiente Azure Time Series Insights
 
@@ -34,7 +34,7 @@ Questa esercitazione illustra come creare un ambiente Azure Time Series Insights
 
 * L'account di accesso di Azure deve anche essere membro del ruolo **Proprietario** della sottoscrizione. Per altre informazioni, vedere [Gestire l'accesso mediante il controllo degli accessi in base al ruolo e il portale di Azure](../role-based-access-control/role-assignments-portal.md).
 
-## <a name="video"></a>Video
+## <a name="review-video"></a>Vedere il video
 
 ### <a name="learn-how-to-use-an-azure-iot-solution-accelerator-to-generate-data-and-get-started-with-time-series-insights-br"></a>Questo video illustra come usare un acceleratore di soluzione di Azure IoT per generare dati da usare per iniziare a usare Time Series Insights. </br>
 
@@ -116,7 +116,7 @@ Creare quindi un ambiente Time Series Insights nella sottoscrizione di Azure.
 
    [![Distribuzione dell'ambiente Time Series Insights riuscita](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png#lightbox)
 
-## <a name="run-device-simulation-to-stream-data"></a>Eseguire una simulazione di dispositivi per trasmettere dati
+## <a name="run-device-simulation"></a>Eseguire una simulazione di dispositivi
 
 Ora che la distribuzione e la configurazione iniziale sono state completate, popolare l'ambiente Time Series Insights con i dati di esempio dai [dispositivi simulati creati dall'acceleratore](#create-a-device-simulation).
 

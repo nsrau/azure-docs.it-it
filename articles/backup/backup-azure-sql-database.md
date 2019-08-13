@@ -1,5 +1,5 @@
 ---
-title: Eseguire il backup dei database di SQL Server in Azure | Microsoft Docs
+title: Eseguire un backup dei database SQL Server in Azure
 description: Questo tutorial spiega come eseguire il backup di SQL Server in Azure. L'articolo spiega inoltre il recupero di SQL Server.
 author: dcurwin
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: cddb540eb0d6892426c4857b152ab6caa746f6da
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7312821320084c766f5b3357fe64c061df83673b
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639811"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827654"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Informazioni sul backup di SQL Server in macchine virtuali di Azure
 
@@ -25,7 +25,7 @@ Questa soluzione sfrutta le API native SQL per eseguire i backup dei database SQ
 * Dopo aver specificato la macchina virtuale di SQL Server da proteggere e aver eseguito la query per trovare i database al suo interno, il servizio Backup di Azure installerà un'estensione di backup di carichi di lavoro nella macchina virtuale denominata `AzureBackupWindowsWorkload` extension.
 * Questa estensione è costituita da un coordinatore e da un plug-in SQL. Mentre il coordinatore è responsabile di attivare i flussi di lavoro per varie operazioni, come la configurazione del backup, il backup e il ripristino, il plug-in gestisce il flusso di dati effettivo.
 * Per individuare i database in questa VM, Backup di Azure crea l'account  `NT SERVICE\AzureWLBackupPluginSvc`. Questo account viene usato per il backup e il ripristino e richiede le autorizzazioni sysadmin SQL. Backup di Azure sfrutta l'account  `NT AUTHORITY\SYSTEM`  per l'individuazione o l'interrogazione dei database, quindi questo account deve essere un account di accesso pubblico in SQL. Se la VM di SQL Server non è stata creata da Azure Marketplace, si potrebbe ricevere un errore  **UserErrorSQLNoSysadminMembership**. In tal caso  [seguire queste istruzioni](backup-azure-sql-database.md).
-* Dopo aver attivato la configurazione della protezione nei database selezionati, il servizio di backup configura il coordinatore con le pianificazioni di backup e altri dettagli sui criteri, che l'estensione memorizza nella cache locale della VM. 
+* Dopo l'attivazione della configurazione della protezione nei database selezionati, il servizio di backup configura il coordinatore con le pianificazioni di backup e altri dettagli sui criteri, che l'estensione memorizza nella cache locale della VM.
 * Nell'orario pianificato il coordinatore comunica con il plug-in, che avvia lo streaming dei dati di backup dal server SQL tramite VDI.  
 * Il plug-in invia i dati direttamente all'insieme di credenziali dei servizi di ripristino, eliminando così la necessità di una posizione per la gestione temporanea. I dati vengono crittografati e archiviati dal servizio Backup di Azure negli account di archiviazione.
 * Al termine del trasferimento dei dati, il coordinatore conferma il commit con il servizio di backup.
@@ -45,7 +45,7 @@ Prima di iniziare, verificare quanto segue:
 **Supporto** | **Dettagli**
 --- | ---
 **Distribuzioni supportate** | Sono supportate VM di Azure del Marketplace SQL e non del Marketplace (SQL Server installato manualmente).
-**Aree geografiche supportate** | Australia sud-orientale (ASE), Australia orientale (AE) <br> Brasile meridionale (BRS)<br> Canada centrale (CNC), Canada orientale (CE)<br> Asia sud-orientale (SEA), Asia orientale (EA) <br> Stati Uniti orientali (EUS), Stati Uniti orientali 2 (EUS2), Stati Uniti centro-occidentali (WCUS), Stati Uniti occidentali (WUS), Stati Uniti occidentali 2 (WUS 2), Stati Uniti centro-settentrionali (NCUS), Stati Uniti centrali (CUS), Stati Uniti centro-meridionali (SCUS) <br> India centrale (INC), India meridionale (INS) <br> Giappone orientale (JPE), Giappone occidentale (JPW) <br> Corea centrale (KRC), Corea meridionale (KRS) <br> Europa settentrionale (NE), Europa occidentale <br> Regno Unito meridionale (UKS), Regno Unito occidentale (UKW)
+**Aree geografiche supportate** | Australia sud-orientale (ASE), Australia orientale (AE) <br> Brasile meridionale (BRS)<br> Canada centrale (CNC), Canada orientale (CE)<br> Asia sud-orientale (SEA), Asia orientale (EA) <br> Stati Uniti orientali (EUS), Stati Uniti orientali 2 (EUS2), Stati Uniti centro-occidentali (WCUS), Stati Uniti occidentali (WUS), Stati Uniti occidentali 2 (WUS 2), Stati Uniti centro-settentrionali (NCUS), Stati Uniti centrali (CUS), Stati Uniti centro-meridionali (SCUS) <br> India centrale (INC), India meridionale (INS) <br> Giappone orientale (JPE), Giappone occidentale (JPW) <br> Corea centrale (KRC), Corea meridionale (KRS) <br> Europa settentrionale (NE), Europa occidentale <br> Regno Unito meridionale (UKS), Regno Unito occidentale (UKW) <br> US Gov Arizona, US Gov Virginia, US Gov Texas, US DoD (area centrale), US DoD (area orientale)
 **Sistemi operativi supportati** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux non è attualmente supportato.
 **Versioni di SQL Server supportate** | SQL Server 2017, come descritto in dettaglio [qui](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 e SP, come descritto in dettaglio [qui](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
 **Versioni di .NET supportate** | .NET Framework 4.5.2 e versioni successive installato nella VM

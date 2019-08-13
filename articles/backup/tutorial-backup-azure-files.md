@@ -7,15 +7,15 @@ ms.date: 06/10/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: a06504438340f62d5b338165cb8b159459ae35dc
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: e63ad75effb03cf9dd5eb5c66b142cce629ea290
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467067"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736244"
 ---
-# <a name="back-up-azure-file-shares"></a>Eseguire il backup di condivisioni file di Azure
-Questo articolo illustra come usare il portale di Azure per eseguire il backup e il ripristino delle [condivisioni file di Azure](../storage/files/storage-files-introduction.md).
+# <a name="back-up-azure-file-shares-in-the-azure-portal"></a>Eseguire il backup di condivisioni file di Azure nel portale di Azure
+Questa esercitazione illustra come usare il portale di Azure per eseguire il backup di [condivisioni file di Azure](../storage/files/storage-files-introduction.md).
 
 Questa guida illustra come eseguire queste operazioni:
 > [!div class="checklist"]

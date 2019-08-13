@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eb4ce8cbbfec58d9c7980954691fd6c71266d23
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 7eae1c9a42547c73cc42868bac1f1f484b6354fa
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67588031"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717409"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skytap"></a>Esercitazione: Integrazione di Azure Active Directory con Skytap
 
@@ -191,7 +191,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 ### <a name="create-skytap-test-user"></a>Creare l'utente di test di Skytap
 
-In questa sezione viene creato un utente di nome Britta Simon in Skytap. Collaborare con il [team di supporto di Skytap](mailto:support@skytap.com) per aggiungere gli utenti nella piattaforma Skytap. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in Skytap. Gli utenti possono essere creati da qualsiasi amministratore o responsabile della gestione utenti in un account Skytap. Per altre informazioni su come eseguire questa operazione, vedere i file della Guida di Skytap all'indirizzo https://help.skytap.com/users-create.html.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

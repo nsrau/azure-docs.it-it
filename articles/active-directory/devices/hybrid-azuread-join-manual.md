@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8babf2a6a4f4a15c6d2979ea0d5ce558dfb0cd6a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6c9de4a9b72e446a7d2b6687af380ee910b58980
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052142"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741284"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Esercitazione: Configurare manualmente i dispositivi aggiunti ad Azure Active Directory ibrido
 
@@ -83,7 +83,7 @@ Per una panoramica dei passaggi necessari per il proprio scenario, vedere la tab
 | Configurare il punto di connessione del servizio | ![Controllo][1] | ![Controllo][1] | ![Controllo][1] |
 | Configurare il rilascio delle attestazioni |     | ![Controllo][1] | ![Controllo][1] |
 | Abilitare dispositivi non Windows 10 |       |        | ![Controllo][1] |
-| Verificare i dispositivi aggiunti | ![Controllo][1] | ![Controllo][1] | [Segno di spunta][1] |
+| Verificare i dispositivi aggiunti | ![Controllo][1] | ![Controllo][1] | [Controllo][1] |
 
 ## <a name="configure-a-service-connection-point"></a>Configurare un punto di connessione del servizio
 
@@ -174,10 +174,19 @@ In una configurazione federata di Azure AD, i dispositivi si basano su AD FS o s
 
 Per l'autenticazione, i dispositivi Windows correnti usano l'autenticazione integrata di Windows a un endpoint WS-Trust attivo (versione 1.3 o 2005) ospitato dal servizio federativo locale.
 
+Quando si usa AD FS, è necessario abilitare gli endpoint WS-Trust seguenti:
+- `/adfs/services/trust/2005/windowstransport`
+- `/adfs/services/trust/13/windowstransport`
+- `/adfs/services/trust/2005/usernamemixed`
+- `/adfs/services/trust/13/usernamemixed`
+- `/adfs/services/trust/2005/certificatemixed`
+- `/adfs/services/trust/13/certificatemixed`
+
+> [!WARNING]
+> Sia **adfs/services/trust/2005/windowstransport** che **adfs/services/trust/13/windowstransport** devono essere abilitati solo come endpoint per Intranet e NON devono essere esposti come endpoint per Extranet tramite Proxy applicazione Web. Per altre informazioni su come disabilitare gli endpoint Windows WS-Trust, vedere [Disabilitare gli endpoint Windows WS-Trust sul proxy](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). È possibile verificare gli endpoint abilitati nella console di gestione di AD FS, in **Servizio** > **Endpoint**.
+
 > [!NOTE]
-> Se si usa AD FS, è necessario abilitare **adfs/services/trust/13/windowstransport** o **adfs/services/trust/2005/windowstransport**. Se si usa il proxy per l'autenticazione Web, assicurarsi anche che l'endpoint venga pubblicato tramite il proxy. È possibile verificare gli endpoint abilitati nella console di gestione di AD FS, in **Servizio** > **Endpoint**.
->
-> Se non si usa AD FS come servizio federativo locale, seguire le istruzioni del fornitore per verificare che siano supportati endpoint WS-Trust 1.3 o 2005 e che questi vengano pubblicati tramite file Metadata Exchange (MEX).
+>Se non si usa AD FS come servizio federativo locale, seguire le istruzioni del fornitore per verificare che siano supportati endpoint WS-Trust 1.3 o 2005 e che questi vengano pubblicati tramite file Metadata Exchange (MEX).
 
 Per completare la registrazione dei dispositivi, nel token ricevuto dal servizio Registrazione dispositivo Azure devono essere presenti le attestazioni seguenti. Il servizio Registrazione dispositivo Azure creerà un oggetto dispositivo in Azure AD con alcune di queste informazioni. Azure AD Connect usa quindi le informazioni per associare l'oggetto dispositivo appena creato con l'account computer locale.
 

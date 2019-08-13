@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: lbosq
-ms.openlocfilehash: 18f54e64498c7809e662ceb71d1e497a0f275ad6
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 545f679b11295485567a817d144225b361a262ce
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480455"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815218"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Guida introduttiva: Creare un database a grafo in Azure Cosmos DB usando Python e il portale di Azure
 
@@ -173,13 +173,13 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
 <a id="add-sample-data"></a>
 ## <a name="review-and-add-sample-data"></a>Verificare e aggiungere dati di esempio
 
-È ora possibile tornare a Esplora dati e visualizzare i vertici aggiunti al grafo, quindi aggiungere altri punti dati.
+Dopo avere inserito i vertici e gli archi, è ora possibile tornare a Esplora dati e visualizzare i vertici aggiunti al grafo, quindi aggiungere altri punti dati.
 
 1. Fare clic su **Esplora dati**, espandere **sample-graph**, fare clic su **Grafo** e quindi su **Applica filtro**. 
 
    ![Creare nuovi documenti in Esplora dati nel portale di Azure](./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png)
 
-2. Nell'elenco **Risultati** verificare i nuovi utenti aggiunti al grafo. Selezionare **ben**. Come si può notare sono connessi a robin. È possibile spostare i vertici intorno mediante trascinamento della selezione, applicare lo zoom mediante lo scorrimento della rotellina del mouse ed espandere le dimensioni del grafo usando la doppia freccia. 
+2. Nell'elenco **Risultati** verificare i tre nuovi utenti aggiunti al grafo. È possibile spostare i vertici intorno mediante trascinamento della selezione, applicare lo zoom mediante lo scorrimento della rotellina del mouse ed espandere le dimensioni del grafo usando la doppia freccia. 
 
    ![Nuovi vertici nel grafo in Esplora dati nel portale di Azure](./media/create-graph-python/azure-cosmosdb-graph-explorer-new.png)
 
@@ -193,6 +193,7 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
 
     key|value|Note
     ----|----|----
+    pk|/pk| 
     id|ashley|Identificatore univoco per il vertice. Se non si specifica alcun ID, ne verrà generato automaticamente uno.
     gender|female| 
     tech | java | 
@@ -210,6 +211,7 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
 
     key|value|Note
     ----|----|----
+    pk|/pk| 
     id|rakesh|Identificatore univoco per il vertice. Se non si specifica alcun ID, ne verrà generato automaticamente uno.
     gender|male| 
     school|MIT| 

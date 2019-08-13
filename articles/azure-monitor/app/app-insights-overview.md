@@ -13,18 +13,18 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 06/03/2019
 ms.author: mbullwin
-ms.openlocfilehash: 5e42c36e6a321775e6017a2318857e20b7dcaf0d
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: d702b2f76531bad53e3fd98645d2b6bbf0582c54
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876470"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774731"
 ---
 # <a name="what-is-application-insights"></a>Informazioni su Azure Application Insights
 Application Insights è un servizio estendibile di gestione delle prestazioni delle applicazioni per sviluppatori Web su più piattaforme, che consente di monitorare un'applicazione Web live. Il servizio rileva automaticamente le anomalie nelle prestazioni e include avanzati strumenti di analisi che consentono di diagnosticare i problemi e conoscere come viene effettivamente usata l'app dagli utenti.  Il servizio è progettato per supportare il miglioramento continuo delle prestazioni e dell'usabilità. Funziona per le app su un'ampia gamma di piattaforme, tra cui .NET, Node.js e Java EE, ospitate in locale, ibride o in un cloud pubblico. Si integra con il processo DevOps e offre punti di connessione per diversi altri strumenti di sviluppo. Può monitorare e analizzare i dati di telemetria da app per dispositivi mobili grazie all'integrazione con Visual Studio App Center.
 
 ## <a name="how-does-application-insights-work"></a>Come funziona Application Insights?
-Si installa un piccolo pacchetto di strumentazione nell'applicazione e si configura una risorsa di Application Insights nel portale di Microsoft Azure. La strumentazione monitora l'app e invia i dati di telemetria al portale. L'applicazione può essere eseguita ovunque, non deve necessariamente essere ospitata in Azure.
+Si installa un piccolo pacchetto di strumentazione nell'applicazione e si configura una risorsa di Application Insights nel portale di Microsoft Azure. La strumentazione monitora l'app e invia i dati di telemetria a Monitoraggio di Azure. L'applicazione può essere eseguita ovunque, non deve necessariamente essere ospitata in Azure.
 
 È possibile instrumentare non solo l'applicazione di servizio web, ma anche i componenti in background e il codice JavaScript nelle pagine web stesse. 
 
@@ -32,8 +32,7 @@ Si installa un piccolo pacchetto di strumentazione nell'applicazione e si config
 
 Inoltre, è possibile effettuare il pull dei dati di telemetria dagli ambienti host, ad esempio i contatori delle prestazioni, la diagnostica di Azure o i log di Docker. È possibile configurare test web che inviano periodicamente richieste sintetiche al servizio web.
 
-Tutti i flussi di dati di telemetria sono integrati nel portale di Azure, dove è possibile applicare potenti strumenti di analisi e ricerca ai dati non elaborati.
-
+Tutti questi flussi di telemetria vengono integrati in Monitoraggio di Azure. Nel portale di Azure è possibile applicare potenti strumenti di analisi e ricerca ai dati non elaborati.
 
 ### <a name="whats-the-overhead"></a>Informazioni sul sovraccarico
 L'impatto sulle prestazioni dell'app è molto ridotto. Le chiamate di rilevamento non sono bloccanti e vengono riunite in batch e inviate in un thread separato.

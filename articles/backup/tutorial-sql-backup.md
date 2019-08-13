@@ -1,5 +1,5 @@
 ---
-title: Eseguire il backup dei database di SQL Server in Azure | Microsoft Docs
+title: Esercitazione - Eseguire il backup di database di SQL Server in Azure
 description: Questo tutorial spiega come eseguire il backup di SQL Server in Azure.
 author: dcurwin
 manager: carmonm
@@ -7,18 +7,18 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 99e1e8194594d204a5080287794362dbe028a1f5
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 729eb0d77cee85356e359dc475f4e439b8236ebb
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688412"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736559"
 ---
-# <a name="back-up-sql-server-databases-in-azure-vms"></a>Eseguire il backup di database SQL Server in macchine virtuali di Azure
+# <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Eseguire il backup di un database di SQL Server in una VM di Azure
 
 
 
-Questo articolo illustra come eseguire il backup di un database SQL Server in esecuzione in una macchina virtuale di Azure in un insieme di credenziali dei Servizi di ripristino di Backup di Azure. In questo articolo viene spiegato come:
+Questa esercitazione illustra come eseguire il backup di un database di SQL Server in esecuzione in una VM di Azure in un insieme di credenziali di Servizi di ripristino di Backup di Azure. In questo articolo viene spiegato come:
 
 > [!div class="checklist"]
 > * Creare e configurare un insieme di credenziali.

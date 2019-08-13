@@ -4,8 +4,6 @@ description: Informazioni su come distribuire estensioni di macchina virtuale co
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
@@ -13,12 +11,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5657ebb2a5b29e4ec5360480c1fef6cb92dad9c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a6d0c3e9daba6f4f37778fabde161751944e174a
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388532"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774867"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>Esercitazione: Distribuire le estensioni di macchina virtuale con i modelli di Azure Resource Manager
 
@@ -108,7 +106,7 @@ Aggiungere una risorsa estensione di macchina virtuale al modello esistente con 
 
 Per altre informazioni su questa definizione di risorsa, vedere il [materiale di riferimento dell'estensione](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines/extensions). Di seguito sono illustrati alcuni elementi importanti.
 
-* **name**: dato che la risorsa estensione è una risorsa figlio dell'oggetto macchina virtuale, il nome deve includere il nome della macchina virtuale come prefisso. Vedere [Risorse figlio](./resource-group-authoring-templates.md#child-resources).
+* **name**: dato che la risorsa estensione è una risorsa figlio dell'oggetto macchina virtuale, il nome deve includere il nome della macchina virtuale come prefisso. Vedere [Impostare il nome e il tipo per le risorse figlio](child-resource-name-type.md).
 * **dependsOn**: creare la risorsa estensione dopo aver creato la macchina virtuale.
 * **fileUris**: posizioni in cui risiedono i file di script. Se si sceglie di non usare la posizione indicata, è necessario aggiornare i valori.
 * **commandToExecute**: questo comando avvia lo script.  

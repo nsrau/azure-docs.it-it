@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: overview
-ms.date: 04/26/2019
+ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: ce18b0060fe0bd0f9d5a8308fe1358e300c04441
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: c0c65f364e9e72d87d6618944ab296354e03a1fc
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165634"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736185"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Informazioni su Azure Time Series Insights
 
@@ -33,7 +33,7 @@ Time Series Insights è caratterizzato da quattro processi chiavi:
 
 Se si compila un'applicazione per consumo interno o destinata ai clienti esterni, è possibile usare Time Series Insights come back-end. È possibile usarla per indicizzare, archiviare e aggregare i dati delle serie temporali. Per creare una visualizzazione e un'esperienza utente personalizzate, usare [Client SDK](tutorial-explore-js-client-lib.md). Time Series Insights include anche diverse [API di query](how-to-shape-query-json.md) per abilitare questi scenari personalizzati.
 
-I dati delle serie temporali rappresentano il modo in cui un asset o un processo varia nel corso del tempo. I dati delle serie temporali vengono indicizzati in base ai timestamp e l'ora è l'asse più significativo lungo il quale tali dati vengono organizzati. I dati delle serie temporali in genere vengono acquisiti in ordine sequenziale, quindi vengono considerati un inserimento nel database e non un suo aggiornamento.
+I dati delle serie temporali rappresentano il modo in cui un asset o un processo varia nel corso del tempo. I dati delle serie temporali vengono indicizzati in base ai timestamp e l'ora è l'asse più significativo lungo il quale tali dati vengono organizzati. I dati delle serie temporali in genere vengono acquisiti in ordine sequenziale, quindi vengono considerati un inserimento anziché un aggiornamento al database.
 
 Può essere difficile archiviare, indicizzare, eseguire query, analizzare e visualizzare i dati delle serie temporali in volumi di grandi dimensioni.
 Azure Time Series Insights acquisisce e archivia ogni nuovo evento sotto forma di riga e le variazioni vengono misurate in modo efficiente nel corso del tempo. Di conseguenza, è possibile analizzare i dati a ritroso per ottenere informazioni dal passato e prevedere variazioni future.

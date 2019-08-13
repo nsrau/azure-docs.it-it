@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 28e85f2e9caacc0cc30dcc1a073414c34bc2ab0e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7bd18ab0cedf94f0ecc08c3523a608a8d554e6b2
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064336"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827914"
 ---
 # <a name="what-is-azure-security-center"></a>Che cos'è il Centro sicurezza di Azure?
 
@@ -34,7 +34,7 @@ Centro sicurezza di Azure consente di risolvere le tre problematiche di sicurezz
 
 -   **Attacchi sempre più sofisticati** : ogni volta che si eseguono carichi di lavoro, gli attacchi diventano sempre più sofisticati. È necessario proteggere i carichi di lavoro su cloud pubblico, che sono in realtà carichi di lavoro su Internet che possono rendere più vulnerabili, se non si rispettano le procedure consigliate per la sicurezza.
 
--   **Le competenze di sicurezza sono scarse** : il numero di avvisi e di sistemi di avviso per la sicurezza superano di gran lunga il numero di amministratori con le conoscenze e l’esperienza necessarie per garantire che gli ambienti siano protetti. Rimanere aggiornati sugli attacchi più recenti è una sfida costante che rende impossibile rimanere fermi quando il mondo della sicurezza si muove in continuazione.
+-   **Le competenze di sicurezza sono scarse** : il numero di avvisi e di sistemi di avviso per la sicurezza superano di gran lunga il numero di amministratori con le conoscenze e l'esperienza necessarie per garantire che gli ambienti siano protetti. Rimanere aggiornati sugli attacchi più recenti è una sfida costante che rende impossibile rimanere fermi quando il mondo della sicurezza si muove in continuazione.
 
 Per garantire la protezione da questi problemi, Centro sicurezza offre gli strumenti necessari per:
 
@@ -126,9 +126,9 @@ Centro sicurezza consente di limitare l’esposizione agli attacchi di forza bru
 
 Centro sicurezza include funzionalità che consentono di classificare automaticamente i dati di SQL Azure. È anche possibile ottenere valutazioni per le potenziali vulnerabilità nei servizi di archiviazione e SQL di Azure e raccomandazioni su come attenuarle.
 
-### <a name="protect-iot-and-hybrid-cloud-workloads-preview"></a>Proteggere i carichi di lavoro di cloud ibrido e IoT (anteprima)
+### <a name="protect-iot-and-hybrid-cloud-workloads"></a>Proteggere i carichi di lavoro di cloud ibrido e IoT
 
-Il Centro sicurezza di Azure per IoT (Internet delle cose) semplifica la protezione carichi di lavoro ibrido offrendo visibilità unificata e controllo, prevenzione delle minacce adattiva, rilevamento delle minacce intelligente e risposta su carichi di lavoro in esecuzione in dispositivi perimetrali, in locale, in Azure e in altri cloud. Per altre informazioni, vedere [Centro sicurezza di Azure per IOT (anteprima)](https://docs.microsoft.com/azure/asc-for-iot/).
+Il Centro sicurezza di Azure per IoT (Internet delle cose) semplifica la protezione carichi di lavoro ibrido offrendo visibilità unificata e controllo, prevenzione delle minacce adattiva, rilevamento delle minacce intelligente e risposta su carichi di lavoro in esecuzione in dispositivi perimetrali, in locale, in Azure e in altri cloud. Per altre informazioni, vedere [Centro sicurezza di Azure per IOT](https://docs.microsoft.com/azure/asc-for-iot/).
 
 ## <a name="get-secure-faster"></a>Protezione più rapida
 

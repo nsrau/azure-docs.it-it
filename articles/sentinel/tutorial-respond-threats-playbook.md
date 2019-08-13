@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/25/2019
 ms.author: rkarlin
-ms.openlocfilehash: cdfe22b67585221e2d7e17f47c6a09ba929d68ef
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: cd3288e308308729cf9b97e3c699d489857840a8
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599022"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780382"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel-preview"></a>Esercitazione: Configurare le risposte automatiche alle minacce nell'anteprima di Azure Sentinel
 
@@ -90,7 +90,7 @@ Seguire questa procedura per creare un nuovo playbook di sicurezza in Azure Sent
 
 Per eseguire un playbook su richiesta:
 
-1. Nella pagina **Cases** (Casi) selezionare un caso e fare clic su **View full details** (Visualizza i dettagli completi).
+1. Nella pagina **incidents** (eventi imprevisti) selezionare un evento imprevisto e fare clic su **View full details** (Visualizza i dettagli completi).
 
 2. Nella scheda**Alerts** (Avvisi) fare clic sull'avviso sul quale eseguire il playbook, scorrere verso destra e fare clic su **View playbooks** (Visualizza i playbook). Selezionare quindi un playbook da **eseguire** dall'elenco di playbook disponibili nella sottoscrizione. 
 

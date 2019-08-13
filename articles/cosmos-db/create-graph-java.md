@@ -1,5 +1,5 @@
 ---
-title: Creare un database a grafo di Azure Cosmos DB con Java
+title: Creare un database a grafo con Java in Azure Cosmos DB
 description: Presenta un esempio di codice Java che permette di connettersi ai dati di un grafo ed eseguire query su di essi in Azure Cosmos DB tramite Gremlin.
 author: luisbosquez
 ms.service: cosmos-db
@@ -8,12 +8,13 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: lbosq
-ms.openlocfilehash: dd7d8658b8f1fbe01a8928963e7f78d2adbe1d74
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.custom: seo-java-july2019
+ms.openlocfilehash: 58356db2fbdf53bbd16e6fd20de54e022afb38b3
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325517"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736657"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-the-java-sdk"></a>Guida introduttiva: Creare un database a grafo in Azure Cosmos DB usando Java SDK 
 

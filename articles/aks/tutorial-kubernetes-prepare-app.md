@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 2b4ba646a037b2f5561dabf97dee14454c07c573
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 3ff93d006b7599eaa3f97c33efb047ce480c301c
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614236"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68740942"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Esercitazione: Preparare un'applicazione per il servizio Azure Kubernetes
 
@@ -34,7 +34,7 @@ In altre esercitazioni l'immagine del contenitore verrà caricata in un'istanza 
 
 Questa esercitazione presuppone una conoscenza di base dei concetti principali di Docker, ad esempio contenitori, immagini del contenitore e comandi `docker`. Per una panoramica sulle nozioni di base dei contenitori, vedere l'[introduzione a Docker][docker-get-started].
 
-Per completare questa esercitazione, è necessario un ambiente di sviluppo Docker locale in cui sono in esecuzione i contenitori Linux. Docker offre pacchetti che configurano Docker in un sistema [Mac][docker-for-mac], [Windows][docker-for-windows] o [Linux][docker-for-linux].
+Per completare questa esercitazione, è necessario un ambiente di sviluppo Docker locale in cui sono in esecuzione i contenitori Linux. Docker offre pacchetti che consentono di configurare Docker in un sistema [Mac][docker-for-mac], [Windows][docker-for-windows] o [Linux][docker-for-linux].
 
 Azure Cloud Shell non include i componenti di Docker necessari per completare ogni passaggio di queste esercitazioni. È pertanto consigliabile usare un ambiente di sviluppo completo di Docker.
 
@@ -103,7 +103,7 @@ Arrestare e rimuovere le istanze di contenitore e le risorse con il comando [doc
 docker-compose down
 ```
 
-Dopo che l'applicazione locale è stata rimossa, è disponibile un'immagine Docker contenente l'applicazione Azure Vote, *azure-front-front*, da usare nell'esercitazione successiva.
+Dopo che l'applicazione locale è stata rimossa, è disponibile un'immagine Docker contenente l'applicazione Azure Vote, *azure-vote-front*, da usare nell'esercitazione successiva.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

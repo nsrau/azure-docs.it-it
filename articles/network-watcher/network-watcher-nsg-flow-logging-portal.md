@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: bba263b65344672808487ae6de4c3f475a871842
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 3bc06a8903fbc431d991e6ef2a4aad8fbaff2365
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523949"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736859"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Esercitazione: Registrare il traffico di rete da e verso una macchina virtuale tramite il portale di Azure
 
@@ -48,9 +48,9 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
     |NOME|myVm|
     |Nome utente| Immettere un nome utente a scelta.|
     |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Sottoscrizione| Selezionare la propria sottoscrizione.|
+    |Subscription| Selezionare la propria sottoscrizione.|
     |Gruppo di risorse| Selezionare **Crea nuovo** e immettere **myResourceGroup**.|
-    |Località| Selezionare **Stati Uniti orientali**.|
+    |Location| Selezionare **Stati Uniti orientali**.|
 
 4. Selezionare una dimensione per la VM e quindi selezionare **Seleziona**.
 5. In **Impostazioni**  accettare tutte le impostazioni predefinite e scegliere **OK**.
@@ -89,10 +89,10 @@ La registrazione del flusso di NSG richiede il provider **Microsoft.Insights**. 
     | Impostazione        | Valore                                                        |
     | ---            | ---   |
     | NOME           | Può essere di lunghezza compresa tra 3 e 24 caratteri, può contenere solo lettere minuscole e numeri e deve essere univoco in tutti gli account di archiviazione di Azure.                                                               |
-    | Località       | Selezionare **Stati Uniti orientali**.                                           |
-    | Gruppo di risorse | Selezionare **Usa esistente** e quindi **myResourceGroup** |
+    | Location       | Selezionare **Stati Uniti orientali**.                                           |
+    | Resource group | Selezionare **Usa esistente** e quindi **myResourceGroup** |
 
-    La creazione dell'account di archiviazione può richiedere all'incirca un minuto. Non proseguire con i passaggi rimanenti finché non è stato creato l'account di archiviazione. Se si usa un account di archiviazione esistente invece di crearne uno, assicurarsi di selezionarne uno con l'impostazione predefinita **Tutte le reti** selezionata in **Firewall e reti virtuali** nelle **IMPOSTAZIONI** dell'account di archiviazione.
+    La creazione dell'account di archiviazione può richiedere all'incirca un minuto. Non proseguire con i passaggi rimanenti finché non è stato creato l'account di archiviazione. Se si usa un account di archiviazione esistente invece di crearne uno, assicurarsi di selezionarne uno con l'impostazione predefinita **Tutte le reti** selezionata in **Firewall e reti virtuali** nelle **IMPOSTAZIONI** dell'account di archiviazione. In tutti i casi, l'account di archiviazione deve trovarsi nella stessa area del gruppo di sicurezza di rete. 
     
     > [!NOTE]
     > Mentre i provider di Microsoft.Insight e Microsoft.Network sono attualmente supportati come servizi Microsoft considerati attendibili per l'Archiviazione di Azure, non è ancora stato eseguito l'onboarding completo dei log dei flussi del gruppo di sicurezza di rete. Per abilitare la registrazione del flusso del gruppo di sicurezza di rete, selezionare **Tutte le reti** fino a quando verrà eseguito l'onboarding completo di questa funzionalità. 
@@ -209,7 +209,7 @@ Il valore per **mac** negli output precedenti è l'indirizzo MAC dell'interfacci
 | 443         | Porta di destinazione       | La porta di destinazione del flusso. Poiché il traffico è destinato alla porta 443, il flusso è stato elaborato dalla regola denominata **UserRule_default-allow-rdp** nel file di log.                                                |
 | T            | Protocollo               | Indica se il protocollo del flusso era TCP (T) o UDP (U).                                  |
 | O            | Direzione              | Indica se il traffico era in ingresso (I) o in uscita (O).                                     |
-| Una             | Azione                 | Indica se il traffico è stato consentito (A) o negato (D).  
+| Una            | Azione                 | Indica se il traffico è stato consentito (A) o negato (D).  
 | C            | Stato del flusso **solo versione 2** | Acquisisce lo stato del flusso. Gli stati possibili sono **B**: indica la creazione di un flusso. Non vengono fornite statistiche. **C**: indica un flusso in corso. Vengono fornite statistiche a intervalli di 5 minuti. **E**: indica un flusso terminato. Vengono fornite statistiche. |
 | 30 | Pacchetti inviati - Da origine a destinazione **solo versione 2** | Numero totale di pacchetti TCP o UDP inviati dall'origine alla destinazione dall'ultimo aggiornamento. |
 | 16978 | Byte inviati - Da origine a destinazione **solo versione 2** | Numero totale di byte di pacchetti TCP o UDP inviati dall'origine alla destinazione dall'ultimo aggiornamento. I byte dei pacchetti includono l'intestazione del pacchetto e il payload. | 

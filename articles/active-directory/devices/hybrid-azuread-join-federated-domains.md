@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 738b4f47054081f0fb1b1a530bdf21cbf07a7726
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 05c81b5cde9e9c64d2d69bea1d14a18394f31e2a
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204704"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774591"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Esercitazione: configurare l'aggiunta all'identità ibrida di Azure Active Directory per i domini federati
 
@@ -28,10 +28,21 @@ Come gli utenti dell'organizzazione, anche i dispositivi rappresentano identità
 
 Con il trasferimento dei dispositivi in Azure AD si ottimizza la produttività degli utenti grazie all'accesso Single Sign-On (SSO) a tutte le risorse locali e cloud. Contemporaneamente, è possibile proteggere l'accesso alle risorse locali e cloud con l'[accesso condizionale](../active-directory-conditional-access-azure-portal.md).
 
-Questa esercitazione illustra come configurare l'aggiunta ad Azure AD ibrido per i dispositivi di computer aggiunti a un dominio di Active Directory in un ambiente federato con Active Directory Federation Services (AD FS).
+Un ambiente federato deve includere un provider di identità che supporta i requisiti riportati di seguito. Se l'ambiente federato usa Active Directory Federation Services (AD FS), i requisiti seguenti sono già supportati.
 
-> [!NOTE]
-> Se l'ambiente federato usa un provider di identità diverso da AD FS, è necessario verificare che il provider di identità supporti il protocollo WS-Trust. WS-Trust è necessario per l'autenticazione con Azure AD degli attuali dispositivi Windows aggiunti ad Azure AD ibrido. Se è necessario aggiungere ad Azure AD ibrido dispositivi Windows di livello inferiore, il provider di identità deve supportare l'attestazione WIAORMULTIAUTHN. 
+- **Attestazione WIAORMULTIAUTHN:** questa attestazione è necessaria per eseguire l'aggiunta ad Azure AD ibrido per dispositivi Windows di livello inferiore.
+- **Protocollo WS-Trust:** questo protocollo è necessario per l'autenticazione con Azure AD degli attuali dispositivi Windows aggiunti ad Azure AD ibrido.
+  Quando si usa AD FS, è necessario abilitare gli endpoint WS-Trust seguenti: `/adfs/services/trust/2005/windowstransport`
+   `/adfs/services/trust/13/windowstransport`
+   `/adfs/services/trust/2005/usernamemixed`
+   `/adfs/services/trust/13/usernamemixed`
+   `/adfs/services/trust/2005/certificatemixed`
+   `/adfs/services/trust/13/certificatemixed` 
+
+> [!WARNING] 
+> Sia **adfs/services/trust/2005/windowstransport** che **adfs/services/trust/13/windowstransport** devono essere abilitati solo come endpoint per Intranet e NON devono essere esposti come endpoint per Extranet tramite Proxy applicazione Web. Per altre informazioni su come disabilitare gli endpoint Windows WS-Trust, vedere [Disabilitare gli endpoint Windows WS-Trust sul proxy](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). È possibile verificare gli endpoint abilitati nella console di gestione di AD FS, in **Servizio** > **Endpoint**.
+
+Questa esercitazione illustra come configurare l'aggiunta ad Azure AD ibrido per i dispositivi di computer aggiunti a un dominio di Active Directory in un ambiente federato con AD FS.
 
 Si apprenderà come:
 

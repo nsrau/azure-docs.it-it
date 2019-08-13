@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6c94ca3a82095736ef7d242987d1fbf66a825950
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: f6304c554858a29e8c6c886bcdec3b51efd635b6
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306509"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840087"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-for-linux-devices"></a>Esercitazione: Sviluppare e distribuire un modulo Node.js per IoT Edge per dispositivi Linux
 
@@ -108,7 +108,7 @@ Attualmente, Visual Studio Code può sviluppare moduli Node.js per dispositivi L
 
 ### <a name="update-the-module-with-custom-code"></a>Aggiornare il modulo con il codice personalizzato
 
-In ogni modello è incluso il codice di esempio, che accetta i dati simulati del sensore dal modulo **tempSensor** e li indirizza all'hub IoT. In questa sezione aggiungere il codice per fare in modo che NodeModule analizzi i messaggi prima di inviarli. 
+In ogni modello è incluso il codice di esempio, che accetta i dati simulati del sensore dal modulo **SimulatedTemperatureSensor** e li indirizza all'hub IoT. In questa sezione aggiungere il codice per fare in modo che NodeModule analizzi i messaggi prima di inviarli. 
 
 1. Nello strumento di esplorazione di VS Code aprire **modules** > **NodeModule** > **app.js**.
 
@@ -212,7 +212,7 @@ Assicurarsi che il dispositivo IoT Edge sia in esecuzione.
 
 3. Selezionare il file **deployment.json** nella cartella **config** e quindi fare clic su **Select Edge Deployment Manifest** (Seleziona il manifesto della distribuzione di Edge). Non usare il file deployment.template.json.
 
-4. Fare clic sul pulsante Aggiorna. Dovrebbe essere visualizzato il nuovo **NodeModule** in esecuzione insieme al modulo **TempSensor** e a **$edgeAgent** e **$edgeHub**.
+4. Fare clic sul pulsante Aggiorna. Dovrebbe essere visualizzato il nuovo **NodeModule** in esecuzione insieme al modulo **SimulatedTemperatureSensor** e a **$edgeAgent** e **$edgeHub**.
 
 ## <a name="view-generated-data"></a>Visualizzare i dati generati
 
@@ -220,7 +220,7 @@ Dopo aver applicato il manifesto della distribuzione al dispositivo IoT Edge, il
 
 È possibile visualizzare lo stato del dispositivo IoT Edge tramite la sezione **Azure IoT Hub Devices** (Dispositivi hub IoT di Azure) della finestra di esplorazione di Visual Studio Code. Espandere i dettagli del dispositivo per visualizzare un elenco dei moduli distribuiti e in esecuzione.
 
-1. In Esplora risorse di Visual Studio Code fare clic con il pulsante destro del mouse sul nome del dispositivo IoT Edge e scegliere **Start Monitoring Built-in Event Endpoint** (Avvia il monitoraggio dell'endpoint evento predefinito).
+1. Nella finestra di esplorazione di Visual Studio Code fare clic con il pulsante destro del mouse sul nome del dispositivo IoT Edge e scegliere **Start Monitoring Built-in Event Endpoint** (Avvia monitoraggio endpoint eventi predefinito).
 
 2. Visualizzare i messaggi in arrivo nell'hub IoT. L'arrivo dei messaggi potrebbe richiedere del tempo, perché il dispositivo IoT Edge deve ricevere la nuova distribuzione e avviare tutti i moduli. In seguito, le modifiche apportate al codice fanno sì che NodeModule attenda che la temperatura della macchina raggiunga i 25 gradi prima di inviare messaggi. Ai messaggi che indicano il raggiungimento della soglia di temperatura viene aggiunto il tipo di messaggio **Alert**. 
 

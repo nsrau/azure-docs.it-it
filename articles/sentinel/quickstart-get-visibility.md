@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 75bfdce02313ab7e799f6535f247407c239653b8
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: c6434b4f5808c349d5e0ab04dafc5233f6ec63ac
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619799"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780477"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel-preview"></a>Guida introduttiva: Introduzione all'anteprima di Azure Sentinel
 
@@ -34,7 +34,7 @@ In questo argomento di avvio rapido si apprenderà come visualizzare e monitorar
 
 ## <a name="get-visualization"></a>Ottenere visualizzazioni
 
-Per visualizzare e ottenere analisi di ciò che accade nell'ambiente, in primo luogo esaminare il dashboard di panoramica per avere un'idea delle condizioni di sicurezza dell'organizzazione. È possibile fare clic su ogni elemento di questi riquadri per eseguire il drill-down ai dati non elaborati da cui vengono creati. Per ridurre i risultati non significativi e minimizzare il numero di avvisi da esaminare e di cui ricercare le cause, Azure Sentinel usa una tecnica di fusione per correlare gli avvisi in casi. I **casi** sono gruppi di avvisi correlati che insieme creano un evento imprevisto di utilità pratica ai fini delle indagini e della risoluzione.
+Per visualizzare e ottenere analisi di ciò che accade nell'ambiente, in primo luogo esaminare il dashboard di panoramica per avere un'idea delle condizioni di sicurezza dell'organizzazione. È possibile fare clic su ogni elemento di questi riquadri per eseguire il drill-down ai dati non elaborati da cui vengono creati. Per ridurre i risultati non significativi e minimizzare il numero di avvisi da esaminare e di cui ricercare le cause, Azure Sentinel usa una tecnica di fusione per correlare gli avvisi in eventi imprevisti. Gli **eventi imprevisti** sono gruppi di avvisi correlati che insieme creano un evento imprevisto di utilità pratica ai fini delle indagini e della risoluzione.
 
 - Nel portale di Azure selezionare Azure Sentinel e quindi selezionare l'area di lavoro che si vuole monitorare.
 
@@ -53,7 +53,7 @@ Il corpo principale della pagina di panoramica offre informazioni dettagliate a 
    ![Mappa di Azure Sentinel](./media/qs-get-visibility/map.png)
 
 
-- **Recent cases** (Casi recenti): per visualizzare i casi recenti, la loro gravità e il numero di avvisi associati al caso. La comparsa di un picco improvviso di un tipo specifico di avviso potrebbe indicare un attacco attivo in corso. Ad esempio, se è visibile un picco improvviso di 20 eventi Pass-the-Hash da Azure ATP, l'organizzazione potrebbe essere sotto attacco.
+- **Eventi imprevisti recenti**: per visualizzare gli eventi imprevisti recenti, la relativa gravità e il numero di avvisi associati all'evento imprevisto. La comparsa di un picco improvviso di un tipo specifico di avviso potrebbe indicare un attacco attivo in corso. Ad esempio, se è visibile un picco improvviso di 20 eventi Pass-the-Hash da Azure ATP, l'organizzazione potrebbe essere sotto attacco.
 
 - **Data source anomalies** (Anomalie dell'origine dati): gli analisti di dati di Microsoft hanno creato modelli che cercano continuamente anomalie nei dati provenienti dalle origini dati. Se non sono presenti anomalie, non compare nulla. Se vengono rilevate anomalie, è necessario approfondire per capire cosa è successo. Ad esempio, fare clic sul picco nelle attività di Azure. È possibile fare clic su **Chart** (Grafico) per vedere quando si è verificato il picco e quindi filtrare le attività che si sono verificate in quel periodo di tempo per vedere cosa ha causato il picco.
 

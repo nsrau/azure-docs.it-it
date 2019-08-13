@@ -7,14 +7,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
-ms.date: 10/04/2018
+ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1f80d7e63d994f0e3eb3733b99afaa1b056f4686
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 7682670131b0ef50a1480285bc379b634169e49e
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804913"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840613"
 ---
 # <a name="publish-an-azure-managed-application-definition"></a>Pubblicare una definizione di applicazione gestita di Azure
 
@@ -41,7 +41,7 @@ Quando si definisce l'applicazione gestita, si seleziona un utente, un gruppo o 
 Per ottenere l'ID oggetto dell'identità, specificare il nome dell'entità utente nel comando seguente:
 
 ```azurecli-interactive
-userid=$(az ad user show --upn-or-object-id example@contoso.org --query objectId --output tsv)
+userid=$(az ad user show --id example@contoso.org --query objectId --output tsv)
 ```
 
 Ora è necessario l'ID di definizione del ruolo Controllo degli accessi in base al ruolo predefinito a cui si vuole concedere l'accesso all'utente. Il comando seguente illustra come ottenere l'ID di definizione per il ruolo Proprietario:

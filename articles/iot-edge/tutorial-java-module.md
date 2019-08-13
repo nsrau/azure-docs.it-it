@@ -9,12 +9,12 @@ ms.date: 04/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 95fab84fb6472339c9d6b847f8c09139b55e1466
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 1aebe97b27902d37587ec6ac7009a5076b732f0f
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303836"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840118"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Esercitazione: Sviluppare un modulo IoT Edge in Java per dispositivi Linux
 
@@ -251,7 +251,7 @@ Assicurarsi che il dispositivo IoT Edge sia in esecuzione.
 
 3. Selezionare il file **deployment.json** nella cartella **config** e quindi fare clic su **Select Edge Deployment Manifest** (Seleziona il manifesto della distribuzione di Edge). Non usare il file deployment.template.json.
 
-4. Fare clic sul pulsante Aggiorna. Dovrebbe essere visualizzato il nuovo **JavaModule** in esecuzione insieme al modulo **TempSensor** e a **$edgeAgent** e **$edgeHub**.  
+4. Fare clic sul pulsante Aggiorna. Dovrebbe essere visualizzato il nuovo **JavaModule** in esecuzione insieme al modulo **SimulatedTemperatureSensor** e a **$edgeAgent** e **$edgeHub**.  
 
 ## <a name="view-generated-data"></a>Visualizzare i dati generati
 

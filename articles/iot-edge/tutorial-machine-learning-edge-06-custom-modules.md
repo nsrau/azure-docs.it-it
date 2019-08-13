@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 16c32fc14805ac8ae1412671b2bb400456b4ab7d
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 4d03e5ee5faf39425e1bf927a3c0557b0ad01b82
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603654"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840117"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Esercitazione: Creare e distribuire moduli IoT Edge personalizzati
 
@@ -92,11 +92,11 @@ Durante l'esecuzione del secondo dei due notebook di Azure, è stata creata e pu
        }
        ```
 
-     * **Modules:** questa sezione contiene il set di moduli definiti dall'utente usati con questa soluzione. Come si può notare, questa sezione attualmente contiene due moduli, tempSensor e turbofanRulClassifier. Il modulo tempSensor è stato installato dal modello di Visual Studio Code, ma non è necessario per questa soluzione. È possibile eliminarne la definizione dalla sezione modules. La definizione del modulo turbofanRulClassifier punta all'immagine del registro contenitori. Gli altri moduli aggiunti alla soluzione verranno visualizzati in questa sezione.
+     * **Modules:** questa sezione contiene il set di moduli definiti dall'utente usati con questa soluzione. Come si può notare, questa sezione attualmente contiene due moduli: SimulatedTemperatureSensor e turbofanRulClassifier. Il modulo SimulatedTemperatureSensor è stato installato dal modello di Visual Studio Code, ma non è necessario per questa soluzione. È possibile eliminarne la definizione dalla sezione modules. La definizione del modulo turbofanRulClassifier punta all'immagine del registro contenitori. Gli altri moduli aggiunti alla soluzione verranno visualizzati in questa sezione.
 
        ```json
        "modules": {
-         "tempSensor": {
+         "SimulatedTemperatureSensor": {
            "version": "1.0",
            "type": "docker",
            "status": "running",
@@ -119,7 +119,7 @@ Durante l'esecuzione del secondo dei due notebook di Azure, è stata creata e pu
        }
        ```
 
-     * **Routes:** le route verranno usate spesso in questa esercitazione. Definiscono il modo in cui i moduli comunicano tra loro. Le due route definite dal modello non corrispondono al routing necessario. La prima route invia tutti i dati di qualsiasi output del classificatore all'hub IoT ($upstream). L'altra è per tempSensor, che è stato appena eliminato. Eliminare le due route predefinite.
+     * **Routes:** le route verranno usate spesso in questa esercitazione. Definiscono il modo in cui i moduli comunicano tra loro. Le due route definite dal modello non corrispondono al routing necessario. La prima route invia tutti i dati di qualsiasi output del classificatore all'hub IoT ($upstream). L'altra è per SimulatedTemperatureSensor, che è stato appena eliminato. Eliminare le due route predefinite.
 
        ```json
        "$edgeHub": {
@@ -127,7 +127,7 @@ Durante l'esecuzione del secondo dei due notebook di Azure, è stata creata e pu
            "schemaVersion": "1.0",
            "routes": {
              "turbofanRulClassifierToIoTHub": "FROM /messages/modules/turbofanRulClassifier/outputs/\* INTO $upstream",
-             "sensorToturbofanRulClassifier": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\\"/modules/turbofanRulClassifier/inputs/input1\\")"
+             "sensorToturbofanRulClassifier": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\\"/modules/turbofanRulClassifier/inputs/input1\\")"
            },
            "storeAndForwardConfiguration": {
              "timeToLiveSecs": 7200

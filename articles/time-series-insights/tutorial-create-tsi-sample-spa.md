@@ -8,12 +8,12 @@ ms.date: 06/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: bd50fb4a28aa0ab71c1fb0aeba772a2bd7d1df9d
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 4d9af918c222107cfca5863309efb391b8e6d2e0
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677737"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720874"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Esercitazione: Creare un'app Web a singola pagina Azure Time Series Insights
 
@@ -38,7 +38,7 @@ Registrarsi per creare una [sottoscrizione di Azure gratuita](https://azure.micr
 
 * Componenti degli strumenti di base IIS Express, Distribuzione Web e Servizi cloud di Azure per Visual Studio. Aggiungere i componenti modificando l'installazione di Visual Studio.
 
-## <a name="application-design"></a>Progettazione di applicazioni
+## <a name="understand-application-design"></a>Comprendere la progettazione dell'applicazione
 
 L'applicazione a singola pagina Time Series Insights costituisce la base per la progettazione e il codice usati in questa esercitazione. Il codice usa la libreria client JavaScript per Time Series Insights. La libreria client per Time Series Insights fornisce un'astrazione per due categorie di API principali:
 
@@ -48,11 +48,11 @@ L'applicazione a singola pagina Time Series Insights costituisce la base per la 
 
 Questa esercitazione usa anche i dati dall'ambiente Time Series Insights dell'applicazione di esempio. Per informazioni dettagliate sulla struttura dell'applicazione di esempio Time Series Insights e su come usa la libreria client per Time Series Insights, vedere l'esercitazione [Esplorare la libreria client JavaScript per Azure Time Series Insights](tutorial-explore-js-client-lib.md).
 
-## <a name="register-the-application-with-azure-ad"></a>Registrare l'applicazione con Azure AD
+## <a name="register-with-azure-ad"></a>Effettuare la registrazione con Azure AD
 
 [!INCLUDE [Azure Active Directory app registration](../../includes/time-series-insights-aad-registration.md)]
 
-## <a name="build-and-publish-the-web-application"></a>Compilare e pubblicare l'applicazione Web
+## <a name="build-and-publish"></a>Compilare e pubblicare
 
 1. Creare una directory dove memorizzare i file di progetto dell'applicazione. Passare quindi a ognuno degli URL seguenti. Fare clic con il pulsante destro del mouse sul collegamento **Non elaborato** nell'angolo in alto a destra della pagina e quindi selezionare **Salva con nome** per salvare i file nella directory del progetto.
 
@@ -101,7 +101,7 @@ Questa esercitazione usa anche i dati dall'ambiente Time Series Insights dell'ap
       <link rel="stylesheet" type="text/css" href="../../dist/tsiclient.css"> -->
       ```
 
-   1. Per configurare l'app in modo da usare l'ID registrazione dell'app di Azure AD, modificare il valore di `clientID` in modo da usare il valore di **ID applicazione** copiato nel **passaggio 3** quando è stata [registrata l'applicazione per l'uso di Azure AD](#register-the-application-with-azure-ad). Se è stato specificato **URL disconnessione** in Azure AD, impostarlo come valore `postLogoutRedirectUri`.
+   1. Per configurare l'app in modo da usare l'ID registrazione dell'app di Azure AD, modificare il valore di `clientID` in modo da usare il valore di **ID applicazione** copiato nel **passaggio 3** quando è stata [registrata l'applicazione per l'uso di Azure AD](#register-with-azure-ad). Se è stato specificato **URL disconnessione** in Azure AD, impostarlo come valore `postLogoutRedirectUri`.
 
       [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-153&highlight=4-5)]
 
@@ -141,9 +141,9 @@ Questa esercitazione usa anche i dati dall'ambiente Time Series Insights dell'ap
 
 Codice di errore/condizione | DESCRIZIONE
 ---------------------| -----------
-*AADSTS50011: Nessun indirizzo di risposta registrato per l'applicazione.* | Nella registrazione in Azure AD manca la proprietà **URL di risposta**. Passare a **Impostazioni** > **URL di risposta** per la registrazione dell'applicazione in Azure AD. Verificare che sia presente il valore **URI di reindirizzamento** che è stato possibile specificare nel **passaggio 2** quando [è stata registrata l'applicazione per l'uso di Azure AD](#register-the-application-with-azure-ad).
-*AADSTS50011: The reply url specified in the request does not match the reply urls configured for the application (L'URL di risposta specificato nella richiesta non corrisponde agli URL di risposta configurati per l'applicazione): "\<GUID ID applicazione>".* | Il valore di `postLogoutRedirectUri` specificato nel **passaggio 6** in [Compilare e pubblicare l'applicazione Web](#build-and-publish-the-web-application) deve corrispondere al valore specificato in **Impostazioni** > **URL di risposta** nella registrazione dell'applicazione in Azure AD. Assicurarsi di modificare anche il valore per **URL di destinazione** in modo da usare *https* come indicato al **passaggio 5** in [Compilare e pubblicare l'applicazione Web](#build-and-publish-the-web-application).
-L'applicazione Web viene caricata, ma la pagina di accesso contiene solo testo senza stile, con uno sfondo bianco. | Verificare che i percorsi indicati nel **passaggio 4** in [Compilare e pubblicare l'applicazione Web](#build-and-publish-the-web-application) siano corretti. Se l'applicazione Web non trova i file CSS, non potrà applicare lo stile corretto alla pagina.
+*AADSTS50011: Nessun indirizzo di risposta registrato per l'applicazione.* | Nella registrazione in Azure AD manca la proprietà **URL di risposta**. Passare a **Impostazioni** > **URL di risposta** per la registrazione dell'applicazione in Azure AD. Verificare che sia presente il valore **URI di reindirizzamento** che è stato possibile specificare nel **passaggio 2** o **passaggio 4** quando [è stata registrata l'applicazione per l'uso di Azure AD](#register-with-azure-ad).
+*AADSTS50011: The reply url specified in the request does not match the reply urls configured for the application (L'URL di risposta specificato nella richiesta non corrisponde agli URL di risposta configurati per l'applicazione): "\<GUID ID applicazione>".* | Il valore di `postLogoutRedirectUri` specificato nel **passaggio 6.b** in [Compilare e pubblicare l'applicazione Web](#build-and-publish) deve corrispondere al valore specificato in **Impostazioni** > **URL di risposta** nella registrazione dell'applicazione in Azure AD. |
+L'applicazione Web viene caricata, ma la pagina di accesso contiene solo testo senza stile, con uno sfondo bianco. | Verificare che i percorsi indicati nel **passaggio 6** in [Compilare e pubblicare l'applicazione Web](#build-and-publish) siano corretti. Se l'applicazione Web non trova i file CSS, non potrà applicare lo stile corretto alla pagina.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

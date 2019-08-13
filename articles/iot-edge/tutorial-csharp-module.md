@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 305804682ede9833619837807d6f174ec670560e
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 7fca5709a1c7c3ecae11a5fc7de2109f1b20645e
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414254"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839584"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Esercitazione: Sviluppare un modulo IoT Edge in C# per dispositivi Linux
 
@@ -293,7 +293,7 @@ Assicurarsi che il dispositivo IoT Edge sia in esecuzione.
 
 5. Selezionare il file **deployment.json** nella cartella **config** e quindi fare clic su **Select Edge Deployment Manifest** (Seleziona il manifesto della distribuzione di Edge). Non usare il file deployment.template.json. 
 
-6. Fare clic sul pulsante Aggiorna. Dovrebbe essere visualizzato il nuovo **CSharpModule** in esecuzione insieme al modulo **TempSensor** e a **$edgeAgent** e **$edgeHub**.  
+6. Fare clic sul pulsante Aggiorna. Dovrebbe essere visualizzato il nuovo **CSharpModule** in esecuzione insieme al modulo **SimulatedTemperatureSensor** e a **$edgeAgent** e **$edgeHub**.  
 
 ## <a name="view-generated-data"></a>Visualizzare i dati generati
 

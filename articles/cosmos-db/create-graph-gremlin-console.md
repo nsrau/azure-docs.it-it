@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: lbosq
-ms.openlocfilehash: 0b5af9a2f244f64aa77252a5cef4cb3eb9b64a25
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0a6ddfe1337575f4f61f4bba4638a16e54b0cde6
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565461"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735265"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Guida introduttiva: Creare, eseguire query e attraversare un database a grafo di Azure Cosmos DB usando la console Gremlin
 
@@ -27,7 +27,7 @@ ms.locfileid: "68565461"
 
 Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile creare ed eseguire rapidamente query su database di documenti, coppie chiave-valore e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB. 
 
-Questa guida introduttiva illustra come creare un account, un database e un grafo (contenitore) dell'[API Gremlin](graph-introduction.md) in Azure Cosmos DB usando il portale di Azure e quindi usare la [console di Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) da [Apache TinkerPop](https://tinkerpop.apache.org) per usare i dati dell'API Gremlin (anteprima). Questa esercitazione descrive come creare ed eseguire query su vertici e archi, aggiornare la proprietà di un vertice, eseguire query sui vertici, attraversare il grafo ed eliminare un vertice.
+Questo avvio rapido illustra come creare un account, un database e un grafo (contenitore) dell'[API Gremlin](graph-introduction.md) in Azure Cosmos DB usando il portale di Azure e quindi usare la [console di Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) da [Apache TinkerPop](https://tinkerpop.apache.org) per usare i dati dell'API Gremlin. Questa esercitazione descrive come creare ed eseguire query su vertici e archi, aggiornare la proprietà di un vertice, eseguire query sui vertici, attraversare il grafo ed eliminare un vertice.
 
 ![Azure Cosmos DB dalla console Apache Gremlin](./media/create-graph-gremlin-console/gremlin-console.png)
 
@@ -76,7 +76,7 @@ password: your_primary_key
 connectionPool: {
   enableSsl: true
 }
-serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0, config: { serializeResultToString: true }}
+serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV2d0, config: { serializeResultToString: true }}
 ```
 
 assicurarsi di inserire il valore del parametro di host all'interno di parentesi quadre []. 

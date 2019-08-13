@@ -1,5 +1,5 @@
 ---
-title: Script dell'interfaccia della riga di comando di Azure - Ridimensionare Database di Azure per PostgreSQL
+title: Script dell'interfaccia della riga di comando di Azure - Ridimensionare e monitorare il database di Azure per PostgreSQL
 description: Esempio di script dell'interfaccia della riga di comando di Azure - Scalare il database di Azure per il server PostgreSQL a un diverso livello di prestazioni dopo le query sulle metriche.
 author: rachel-msft
 ms.author: raagyema
@@ -7,16 +7,16 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.custom: mvc
 ms.topic: sample
-ms.date: 04/05/2018
-ms.openlocfilehash: 65958eb1e2d7cc4492e0437b24db77f00ebc7eba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 08/01/2019
+ms.openlocfilehash: 6e1b6e5b09a3b9f3da5760fc50c531ee524dc8d4
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66154516"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68728767"
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Monitorare e scalare un singolo server PostgreSQL tramite l'interfaccia della riga di comando di Azure
-Questo esempio di script dell'interfaccia della riga di comando di Azure scala un singolo database di Azure per il server PostgreSQL a un diverso livello di prestazioni dopo le query sulle metriche. 
+Questo esempio di script dell'interfaccia della riga di comando ridimensiona le risorse di calcolo e archiviazione per un singolo database di Azure per il server PostgreSQL dopo le query sulle metriche. 
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
@@ -36,11 +36,12 @@ Questo script usa i comandi illustrati nella tabella seguente:
 | **Comando** | **Note** |
 |---|---|
 | [az group create](/cli/azure/group) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az postgres server create](/cli/azure/postgres/server) | Crea un server PostgreSQL che ospita i database. |
+| [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) | Crea un server PostgreSQL che ospita i database. |
+| [az postgres server update](/cli/azure/postgres/server#az-postgres-server-update) | Aggiorna le proprietà del server PostgreSQL. |
 | [az monitor metrics list](/cli/azure/monitor/metrics) | Elencare il valore metrico per le risorse. |
 | [az group delete](/cli/azure/group) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per altre informazioni sull'interfaccia della riga di comando di Azure: [Documentazione dell'interfaccia della riga di comando di Azure](/cli/azure)
+- Altre informazioni sulle [risorse di calcolo e archiviazione del database di Azure per PostgreSQL](../concepts-pricing-tiers.md)
 - Provare altri script: [Azure CLI samples for Azure Database for PostgreSQL](../sample-scripts-azure-cli.md) (Esempi di interfaccia della riga di comando di Azure per Database di Azure per PostgreSQL)
-- Altre informazioni sul ridimensionamento: [Livelli di servizio](../concepts-service-tiers.md) e [Unità di archiviazione e unità di calcolo](../concepts-compute-unit-and-storage.md)
+- Altre informazioni sull'[interfaccia della riga di comando di Azure](/cli/azure)

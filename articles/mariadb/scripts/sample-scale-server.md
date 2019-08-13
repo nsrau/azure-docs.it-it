@@ -7,16 +7,16 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 11/28/2018
-ms.openlocfilehash: 3fed332846c835106cbd2b8876d93aff1a97b0a3
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 08/01/2019
+ms.openlocfilehash: 99f85abe0c8f08bedb3e9808d2b740d4b7842257
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275015"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720351"
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mariadb-server-using-azure-cli"></a>Monitorare e ridimensionare un server Database di Azure per MariaDB usando l'interfaccia della riga di comando di Azure
-Questo esempio di script dell'interfaccia della riga di comando di Azure consente di ridimensionare un singolo server Database di Azure per MariaDB a un livello di prestazioni diverso dopo l'esecuzione di query sulle metriche.
+Questo esempio di script dell'interfaccia della riga di comando ridimensiona le risorse di calcolo e archiviazione per un singolo database di Azure per il server MariaDB dopo le query sulle metriche.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
@@ -37,10 +37,11 @@ Questo script usa i comandi illustrati nella tabella seguente:
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create) | Crea un server MariaDB che ospita i database. |
+| [az mariadb server update](/cli/azure/mariadb/server#az-mariadb-server-update) | Aggiorna le proprietà del server MariaDB. |
 | [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) | Elencare il valore metrico per le risorse. |
 | [az group delete](/cli/azure/group#az-group-delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per altre informazioni sull'interfaccia della riga di comando di Azure: [Documentazione dell'interfaccia della riga di comando di Azure](/cli/azure).
+- Altre informazioni sulle [risorse di calcolo e archiviazione del database di Azure per MariaDB](../concepts-pricing-tiers.md)
 - Provare altri script: [Esempi dell'interfaccia della riga di comando di Azure per Database di Azure per MariaDB](../sample-scripts-azure-cli.md)
-- Per altre informazioni sul ridimensionamento, vedere [Piani tariffari](../concepts-pricing-tiers.md.
+- Altre informazioni sull'[interfaccia della riga di comando di Azure](/cli/azure)

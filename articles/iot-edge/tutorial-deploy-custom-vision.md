@@ -9,12 +9,12 @@ ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 629b484d27d863727d180bb3e2d01b605ca539a6
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 63485a41016033b00f787fc8c938b8da7135d657
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850128"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840146"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Esercitazione: Eseguire la classificazione delle immagini nella rete perimetrale con il Servizio visione artificiale personalizzato
 
@@ -369,9 +369,9 @@ L'estensione IoT Edge per Visual Studio Code fornisce un modello in ogni soluzio
 
 1. Aprire il file **deployment.template.json** nella cartella della soluzione. 
 
-2. Trovare la sezione **modules**, che dovrebbe contenere tre moduli: i due creati nell'esercitazione, classifier e cameraCapture, e un terzo incluso per impostazione predefinita, tempSensor. 
+2. Trovare la sezione **modules**, che dovrebbe contenere tre moduli: i due creati nell'esercitazione, classifier e cameraCapture, e un terzo incluso per impostazione predefinita, SimulatedTemperatureSensor. 
 
-3. Eliminare il modulo **tempSensor** con tutti i suoi parametri. Lo scopo di questo modulo è fornire dati di esempio per gli scenari di test, che in questa distribuzione non sono necessari. 
+3. Eliminare il modulo **SimulatedTemperatureSensor** con tutti i relativi parametri. Lo scopo di questo modulo è fornire dati di esempio per gli scenari di test, che in questa distribuzione non sono necessari. 
 
 4. Se al modulo di classificazione delle immagini è stato assegnato un nome diverso da **classifier**, verificare che contenga solo lettere minuscole. Il modulo cameraCapture chiama il modulo Classifier mediante una libreria di richieste che formatta tutte le richieste in minuscolo, e IoT Edge rileva la differenza tra maiuscole e minuscole. 
 

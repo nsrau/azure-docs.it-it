@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: hamusa
-ms.openlocfilehash: 5f70037b1e6ce284b55ff5ff0ae38eb50c320122
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 7b27637ca63ec69d7f4c33f05e7c037d67676b2d
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868664"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828294"
 ---
 # <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>Valutare le macchine virtuali VMware con Azure Migrate: Valutazione server
 
@@ -83,7 +83,7 @@ Azure Migrate: Valutazione server esegue un'appliance VM VMware leggera.
 - L'appliance esegue l'individuazione delle macchine virtuali e ne invia i metadati e i dati sulle prestazioni allo strumento Valutazione server di Azure Migrate.
 - Per configurare l'appliance occorre:
     - Scaricare un file modello OVA e importarlo nel server vCenter.
-    - Creare l'appliance e verificare che riesca a connettersi allo strumento Valutazione server di Azure Migrate.
+    - Creare l'appliance e verificare che riesca a connettersi allo strumento di valutazione server di Azure Migrate.
     - Configurare l'appliance per la prima volta e registrarla con il progetto di Azure Migrate.
 - È possibile configurare più appliance per un singolo progetto di Azure Migrate. È supportata l'individuazione di un massimo di 35.000 VM fra tutte le appliance. Una singola appliance può individuare fino a 10.000 server.
 
@@ -104,12 +104,12 @@ Prima di distribuire il file OVA, verificarne la sicurezza.
 2. Eseguire il comando seguente per generare il valore hash per il file con estensione ova:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Esempio di utilizzo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. Per la versione 1.19.06.27 l'hash generato deve corrispondere a questi valori. 
+3. Per la versione 2.19.07.30 l'hash generato deve corrispondere a questi valori. 
 
   **Algoritmo** | **Valore hash**
   --- | ---
-  MD5 | 605d208ac5f4173383f616913441144e
-  SHA256 | 447d16bd55f20f945164a1189381ef6e98475b573d6d1c694f3e5c172cfc30d4
+  MD5 | 27230f3b012187860281b912ee661709
+  SHA256 | c0a5b5998b7f38ac6e57ea9a808ecc4295795e18f9ca99c367585068883f06e7
 
 
 ### <a name="create-the-appliance-vm"></a>Creare l'appliance VM
@@ -271,7 +271,7 @@ Questa visualizzazione mostra il costo stimato di calcolo e archiviazione associ
     - Vengono visualizzati i costi mensili stimati per il calcolo e l'archiviazione.
     - La stima dei costi è relativa all'esecuzione delle VM locali come VM IaaS. Valutazione server di Azure Migrate non considera i costi per PaaS o SaaS.
 
-2. È possibile esaminare le stime dei costi di archiviazione mensile. Questa visualizzazione mostra i costi di archiviazione aggregati per il gruppo valutato, suddivisi sui diversi tipi di dischi di archiviazione.
+2. È possibile esaminare le stime dei costi di archiviazione mensile. Questa visualizzazione mostra i costi di archiviazione aggregati per il gruppo valutato, suddivisi in base ai diversi tipi di dischi di archiviazione.
 3. È possibile eseguire il drill-down per visualizzare i dettagli relativi a VM specifiche.
 
 

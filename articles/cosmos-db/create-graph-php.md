@@ -8,12 +8,12 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2019
 ms.author: lbosq
-ms.openlocfilehash: 15d312ff4dfdb789cb0d9ee85941ea8760ddb08f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: e38f3e2029bdc8dc8c13ce330e37053d491317f3
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480610"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736639"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Guida introduttiva: Creare un database a grafo in Azure Cosmos DB usando PHP e il portale di Azure
 
@@ -113,7 +113,7 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
 
     ```php
     $db = new Connection([
-        'host' => 'testgraphacct.graphs.azure.com',
+        'host' => 'testgraphacct.gremlin.cosmosdb.azure.com',
         'username' => '/dbs/<db>/colls/<coll>',
         'password' => 'your_primary_key'
         ,'port' => '443'
@@ -123,9 +123,7 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
     ]);
     ```
 
-3. Se l'account di database Graph è stato creato il 20 dicembre 2017 o successivamente, sostituire `graphs.azure.com` nel nome host con `gremlin.cosmosdb.azure.com`.
-
-4. Modificare il parametro `username` nell'oggetto Connection con il nome del database e del grafo. Se sono stati usati i valori consigliati `sample-database` e `sample-graph`, il codice sarà simile al seguente:
+3. Modificare il parametro `username` nell'oggetto Connection con il nome del database e del grafo. Se sono stati usati i valori consigliati `sample-database` e `sample-graph`, il codice sarà simile al seguente:
 
     `'username' => '/dbs/sample-database/colls/sample-graph'`
 
@@ -133,7 +131,7 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
 
     ```php
     $db = new Connection([
-        'host' => 'testgraphacct.graphs.azure.com',
+        'host' => 'testgraphacct.gremlin.cosmosdb.azure.com',
         'username' => '/dbs/sample-database/colls/sample-graph',
         'password' => 'your_primary_key',
         'port' => '443'
@@ -143,7 +141,7 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
     ]);
     ```
 
-5. Nel portale di Azure usare il pulsante Copia per copiare la CHIAVE PRIMARIA e incollarla su `your_primary_key` nel parametro password.
+4. Nel portale di Azure usare il pulsante Copia per copiare la CHIAVE PRIMARIA e incollarla su `your_primary_key` nel parametro password.
 
     Il codice di inizializzazione dell'oggetto Connection sarà ora simile al seguente:
 
@@ -159,7 +157,7 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
     ]);
     ```
 
-6. Salvare il file.`connect.php`
+5. Salvare il file.`connect.php`
 
 ## <a name="run-the-console-app"></a>Eseguire l'app console
 
@@ -206,13 +204,13 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
 
 4. Immettere un'etichetta di *persona*.
 
-5. Fare clic su **Add property** (Aggiungi proprietà) per aggiungere ognuna delle proprietà seguenti. Si noti che è possibile creare proprietà univoche per ogni persona del grafo. È necessaria solo la chiave id.
+5. Fare clic su **Add property** (Aggiungi proprietà) per aggiungere ognuna delle proprietà seguenti. Si noti che è possibile creare proprietà univoche per ogni persona del grafo. È necessaria solo la chiave **id**.
 
-    key|value|Note
+    Chiave | Valore | Note
     ----|----|----
-    id|ashley|Identificatore univoco per il vertice. Se non si specifica alcun ID, ne verrà generato automaticamente uno.
-    gender|female| 
-    tech | java | 
+    **id** | ashley | Identificatore univoco per il vertice. Se non si specifica alcun ID, ne verrà generato automaticamente uno.
+    **gender** | female | 
+    **tech** | java | 
 
     > [!NOTE]
     > In questa esercitazione introduttiva si crea una raccolta non partizionata. Se tuttavia si crea una raccolta partizionata specificando una chiave di partizione durante la creazione della raccolta, sarà necessario includere la chiave di partizione come chiave in ogni nuovo vertice. 
@@ -224,12 +222,12 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
 8. Immettere un'etichetta di *persona*.
 
 9. Fare clic su **Add property** (Aggiungi proprietà) per aggiungere ognuna delle proprietà seguenti:
-
-    key|value|Note
+    
+    Chiave | Valore | Note
     ----|----|----
-    id|rakesh|Identificatore univoco per il vertice. Se non si specifica alcun ID, ne verrà generato automaticamente uno.
-    gender|male| 
-    school|MIT| 
+    **id** | rakesh | Identificatore univoco per il vertice. Se non si specifica alcun ID, ne verrà generato automaticamente uno.
+    **gender** | male | 
+    **school** | MIT | 
 
 10. Fare clic su **OK**. 
 

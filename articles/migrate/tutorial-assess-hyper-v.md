@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c790667c73adfed061b97b14ebb7df4c68461786
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 60e1db913336cc9f9e355c2e8f8466854de20389
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663792"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828335"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Valutare le VM Hyper-V con Valutazione server di Azure Migrate
 
@@ -115,12 +115,12 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
     - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
     - Esempio di utilizzo: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
 
-3.  Per la versione 1.19.06.27 dell'appliance, l'hash generato deve corrispondere a queste impostazioni.
+3.  Per la versione 2.19.07.30 dell'appliance, l'hash generato deve corrispondere a queste impostazioni.
 
   **Algoritmo** | **Valore hash**
   --- | ---
-  MD5 | 3681F745FA2B0A0A6910707D85161EC5
-  SHA256 | E6CA109AFAB9657BDCFB291C343B3E3ABCED9A273D25273059171F9954D25832
+  MD5 | d0a68e76ea24ba4e4a494c0dab95e90e
+  SHA256 | 0551221d2a9de75c352c201ccc88f7f10e87e5df1ecda42bfd4ec6c8defc57c0
 
 
 

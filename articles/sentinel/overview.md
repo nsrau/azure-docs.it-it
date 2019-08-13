@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2c730c240ed5ff68a1d48ef17d15de1aaa73ab1e
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 15cf770a372c9a1386dd0293abeac01fd3cacf63
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619913"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779737"
 ---
 # <a name="what-is-azure-sentinel-preview"></a>Cos'è l'anteprima di Azure Sentinel?
 
@@ -63,7 +63,7 @@ I dashboard forniscono una visualizzazione interattiva usando funzionalità di a
 
 ## <a name="analytics"></a>Analytics
 
-Per ridurre i risultati non significativi e minimizzare il numero di avvisi da esaminare e di cui ricercare le cause, Azure Sentinel usa [l'analisi per correlare gli avvisi in casi](tutorial-detect-threats.md). I **casi** sono gruppi di avvisi correlati che insieme creano una possibile minaccia di utilità pratica ai fini delle indagini e della risoluzione. È possibile usare le regole di correlazione predefinite così come sono o come punto di partenza per crearne di personalizzate. Azure Sentinel fornisce anche regole di Machine Learning per mappare il comportamento di rete e quindi cercare le anomalie in tutte le risorse. Queste funzionalità di analisi uniscono i puntini, combinando gli avvisi con un basso livello di affidabilità relativi a entità diverse in potenziali eventi imprevisti della sicurezza di affidabilità elevata.
+Per ridurre i risultati non significativi e minimizzare il numero di avvisi da esaminare e di cui ricercare le cause, Azure Sentinel usa [l'analisi per correlare gli avvisi in eventi imprevisti](tutorial-detect-threats.md). Gli **eventi imprevisti** sono gruppi di avvisi correlati che insieme creano una possibile minaccia di utilità pratica ai fini delle indagini e della risoluzione. È possibile usare le regole di correlazione predefinite così come sono o come punto di partenza per crearne di personalizzate. Azure Sentinel fornisce anche regole di Machine Learning per mappare il comportamento di rete e quindi cercare le anomalie in tutte le risorse. Queste funzionalità di analisi uniscono i puntini, combinando gli avvisi con un basso livello di affidabilità relativi a entità diverse in potenziali eventi imprevisti della sicurezza di affidabilità elevata.
 
 ![Casi](./media/overview/cases.png)
 

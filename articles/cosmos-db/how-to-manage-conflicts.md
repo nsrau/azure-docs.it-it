@@ -4,14 +4,14 @@ description: Informazioni su come gestire i conflitti in Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 06/25/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 96171d4729187ca03f1e9529551a7fb6a26c6976
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 77fb0e195cee03405c4a601fe8c57d4a2690a4b2
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360368"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815084"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Gestire i criteri di risoluzione dei conflitti in Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Con le scritture in più aree, se più client scrivono nello stesso elemento si 
 
 ## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Creare un criterio di risoluzione dei conflitti in cui prevale l'ultima scrittura
 
-Questi esempi illustrano come configurare un contenitore con un criterio di risoluzione dei conflitti in cui prevale l'ultima scrittura. Il percorso predefinito del criterio per cui prevale l'ultima scrittura corrisponde al campo timestamp o alla proprietà `_ts`. Può essere impostato su un percorso definito dall'utente per un tipo numerico. In un conflitto prevale il valore più alto. Se il percorso non è impostato o non è valido, per impostazione predefinita si usa `_ts`. I conflitti risolti con questo criterio non vengono visualizzati nel feed di conflitti. Questo criterio può essere usato da tutte le API.
+Questi esempi illustrano come configurare un contenitore con un criterio di risoluzione dei conflitti in cui prevale l'ultima scrittura. Il percorso predefinito del criterio per cui prevale l'ultima scrittura corrisponde al campo timestamp o alla proprietà `_ts`. Per l'API SQL può anche essere impostato su un percorso definito dall'utente con un tipo numerico. In un conflitto prevale il valore più alto. Se il percorso non è impostato o non è valido, per impostazione predefinita si usa `_ts`. I conflitti risolti con questo criterio non vengono visualizzati nel feed di conflitti. Questo criterio può essere usato da tutte le API.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK V2
 
@@ -114,7 +114,6 @@ Le stored procedure per la risoluzione personalizzata di conflitti devono essere
 
 > [!IMPORTANT]
 > Come per qualsiasi stored procedure, una procedura personalizzata di risoluzione dei conflitti può accedere ai dati con la stessa chiave di partizione e può eseguire qualsiasi operazione di inserimento, aggiornamento o eliminazione per risolvere i conflitti.
-
 
 Questo esempio di stored procedure risolve i conflitti selezionando il valore minimo dal percorso `/myCustomId`.
 
@@ -273,7 +272,6 @@ udp_collection = self.try_create_document_collection(
 
 Dopo aver creato il contenitore, è necessario creare la stored procedure `resolver`.
 
-
 ## <a name="create-a-custom-conflict-resolution-policy"></a>Creare un criterio di risoluzione dei conflitti personalizzato
 
 Questi esempi illustrano come configurare un contenitore con un criterio di risoluzione dei conflitti personalizzato. Questi conflitti vengono visualizzati nel feed dei conflitti.
@@ -428,10 +426,10 @@ while conflict:
 
 Apprendere i concetti di Azure Cosmos DB seguenti:
 
-* [Distribuzione globale - Informazioni sul funzionamento](global-dist-under-the-hood.md)
-* [Come configurare funzionalità multimaster nelle applicazioni](how-to-multi-master.md)
-* [Configurare i client per il multihoming](how-to-manage-database-account.md#configure-multiple-write-regions)
-* [Aggiungere o rimuovere aree dall'account Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-* [Come configurare funzionalità multimaster nelle applicazioni](how-to-multi-master.md).
-* [Partizionamento e distribuzione dei dati](partition-data.md)
-* [Indicizzazione in Azure Cosmos DB](indexing-policies.md)
+- [Distribuzione globale - Informazioni sul funzionamento](global-dist-under-the-hood.md)
+- [Come configurare funzionalità multimaster nelle applicazioni](how-to-multi-master.md)
+- [Configurare i client per il multihoming](how-to-manage-database-account.md#configure-multiple-write-regions)
+- [Aggiungere o rimuovere aree dall'account Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+- [Come configurare funzionalità multimaster nelle applicazioni](how-to-multi-master.md).
+- [Partizionamento e distribuzione dei dati](partition-data.md)
+- [Indicizzazione in Azure Cosmos DB](indexing-policies.md)

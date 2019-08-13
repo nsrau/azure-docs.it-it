@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b16d928e2e4fc4b5376d30b81eb39e5a46e54b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5b7cb8d6ab34a632e36ea2fd1c87005a038bc523
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67098036"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68823722"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>Esercitazione: Integrazione di Azure Active Directory con LinkedIn Elevate
 
@@ -120,11 +120,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con LinkedIn Elevate seguir
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=elevate&applicationInstanceId=<InstanceId>`
 
-6. L'applicazione LinkedIn Elevate richiede le asserzioni SAML in un formato specifico. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente illustra l'elenco degli attributi predefiniti in cui  **nameidentifier**  è associato a  **user.userprincipalname**. L'applicazione LinkedIn Elevate prevede il mapping di nameidentifier a  **user.mail**, di conseguenza per modificare il mapping degli attributi, è necessario fare clic sull'icona Modifica.
+6. L'applicazione LinkedIn Elevate richiede le asserzioni SAML in un formato specifico. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente illustra l'elenco degli attributi predefiniti in cui **nameidentifier** è associato a **user.userprincipalname**. Dato che l'applicazione LinkedIn Elevate prevede che nameidentifier sia associato a **user.mail**, è necessario modificare il mapping dell'attributo facendo clic sull'icona Modifica a tale scopo.
 
     ![image](common/edit-attribute.png)
 
-7. Oltre quelli elencati in precedenza, l'applicazione LinkedIn Elevate prevede il passaggio di qualche altro attributo nella risposta SAML. Nella sezione Attestazioni utente della finestra di dialogo  **Attributi utente**  eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
+7. Oltre quelli elencati in precedenza, l'applicazione LinkedIn Elevate prevede il passaggio di qualche altro attributo nella risposta SAML. Nella sezione Attestazioni utente della finestra di dialogo **Attributi utente** eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
 
     | NOME | Attributo di origine|
     | -------| -------------|
