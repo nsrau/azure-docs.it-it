@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33704c3392726ccd12ca0fd74f26465a54697e11
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 178f81cf42e5c57be4a0b69ada6560d46951a3a3
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722138"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942853"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Archivi dati relativi all'identità per i clienti europei - Azure Active Directory
 I dati di identità vengono archiviati da Azure AD in una posizione geografica in base all'indirizzo fornito dall'organizzazione quando si sottoscrive un servizio online Microsoft, ad esempio Office 365 e Azure. Per informazioni sul percorso di archiviazione dei dati di identità, è possibile usare la sezione [dove si trovano i dati?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) di Microsoft Trust Center.
@@ -43,6 +43,15 @@ Azure AD B2B archivia gli inviti con il collegamento di riscatto e le informazio
 ## <a name="microsoft-azure-active-directory-domain-services-azure-ad-ds"></a>Servizi di dominio Microsoft Azure Active Directory (Azure AD DS)
 
 Azure Active Directory Domain Services archivia i dati utente nella stessa posizione della rete virtuale di Azure selezionata dal cliente. Se quindi la rete non è in Europa, i dati vengono replicati e archiviati al di fuori dell'Europa.
+
+## <a name="federation-in-microsoft-exchange-server-2013"></a>Federazione in Microsoft Exchange Server 2013
+    
+- ID applicazione (AppID): numero univoco generato dal sistema di autenticazione Azure Active Directory per identificare le organizzazioni di Exchange.
+- Elenco di domini federati approvati per l'applicazione
+- Chiave pubblica per la firma di token dell'applicazione 
+
+Per ulteriori informazioni sulla Federazione in Microsoft Exchange Server, vedere [Federazione: Articolo della Guida](https://docs.microsoft.com/exchange/federation-exchange-2013-help) di Exchange 2013.
+
 
 ## <a name="other-considerations"></a>Altre considerazioni
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: 09610782f211b4cfb80a1291b73ab543328376a3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ef3e9a9c68ca524b7f7f86c92130a10952a9f065
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68424189"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949616"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Anteprima: ridimensiona automaticamente un cluster per soddisfare le richieste dell'applicazione in Azure Kubernetes Service (AKS)
 
@@ -102,7 +102,7 @@ Se è necessario creare un cluster AKS, usare il comando [AZ AKS create][az-aks-
 > [!IMPORTANT]
 > Il ridimensionamento automatico del cluster è un componente di Kubernetes. Anche se il cluster AKS usa un set di scalabilità per i nodi di macchine virtuali, non abilitare o modificare manualmente le impostazioni di scalabilità per il ridimensionamento automatico nel portale di Azure o tramite la CLI di Azure. Consentire il ridimensionamento automatico del cluster Kubernetes di gestire le impostazioni di scalabilità necessaria. Per altre informazioni, vedere è [possibile modificare le risorse AKS nel gruppo di risorse del nodo?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group)
 
-L'esempio seguente crea un cluster AKS con un set di scalabilità di macchine virtuali. Abilita anche il ridimensionamento automatico del cluster nel pool di nodi per il cluster e imposta un minimo di *1* e un massimo di *3* nodi:
+L'esempio seguente crea un cluster AKS con un pool a nodo singolo supportato da un set di scalabilità di macchine virtuali. Abilita anche il ridimensionamento automatico del cluster nel pool di nodi per il cluster e imposta un minimo di *1* e un massimo di *3* nodi:
 
 ```azurecli-interactive
 # First create a resource group
@@ -124,9 +124,24 @@ az aks create \
 
 Sono necessari alcuni minuti per creare il cluster e configurare le impostazioni del componente di scalabilità automatica del cluster.
 
-### <a name="enable-the-cluster-autoscaler-on-an-existing-node-pool-in-an-aks-cluster"></a>Abilitare il ridimensionamento automatico del cluster in un pool di nodi esistente in un cluster AKS
+### <a name="update-the-cluster-autoscaler-on-an-existing-node-pool-in-a-cluster-with-a-single-node-pool"></a>Aggiornare il ridimensionamento automatico del cluster in un pool di nodi esistente in un cluster con un pool a nodo singolo
 
-È possibile abilitare il ridimensionamento automatico del cluster in un pool di nodi all'interno di un cluster AKS che soddisfi i requisiti indicati nella sezione precedente [prima di iniziare](#before-you-begin) . Usare il comando [AZ AKS nodepool Update][az-aks-nodepool-update] per abilitare il ridimensionamento automatico del cluster nel pool di nodi.
+È possibile aggiornare le impostazioni di scalabilità automatica del cluster precedenti in un cluster che soddisfi i requisiti indicati nella sezione precedente [prima di iniziare](#before-you-begin) . Usare il comando [AZ AKS Update][az-aks-update] per abilitare il ridimensionamento automatico del cluster nel cluster con un pool a nodo *singolo* .
+
+```azurecli-interactive
+az aks update \
+  --resource-group myResourceGroup \
+  --name myAKSCluster \
+  --update-cluster-autoscaler \
+  --min-count 1 \
+  --max-count 5
+```
+
+Successivamente, è possibile abilitare o disabilitare il ridimensionamento automatico del `az aks update --enable-cluster-autoscaler` cluster `az aks update --disable-cluster-autoscaler` con i comandi o.
+
+### <a name="enable-the-cluster-autoscaler-on-an-existing-node-pool-in-a-cluster-with-multiple-node-pools"></a>Abilitare il ridimensionamento automatico del cluster in un pool di nodi esistente in un cluster con più pool di nodi
+
+Il ridimensionamento automatico del cluster può essere usato anche con la [funzionalità di anteprima di più pool di nodi](use-multiple-node-pools.md) abilitata. È possibile abilitare il ridimensionamento automatico del cluster nei singoli pool di nodi all'interno di un cluster AKS che include più pool di nodi e soddisfa i requisiti indicati nella sezione precedente [prima di iniziare](#before-you-begin) . Usare il comando [AZ AKS nodepool Update][az-aks-nodepool-update] per abilitare il ridimensionamento automatico del cluster in un singolo pool di nodi.
 
 ```azurecli-interactive
 az aks nodepool update \
@@ -138,7 +153,7 @@ az aks nodepool update \
   --max-count 3
 ```
 
-L'esempio precedente Abilita il ridimensionamento automatico del cluster nel pool di nodi *mynodepool* in *myAKSCluster* e imposta un minimo di *1* e un massimo di *3* nodi. Se il numero di nodi minimo è maggiore del numero di nodi esistente nel pool di nodi, la creazione dei nodi aggiuntivi richiede alcuni minuti.
+Successivamente, è possibile abilitare o disabilitare il ridimensionamento automatico del `az aks nodepool update --enable-cluster-autoscaler` cluster `az aks nodepool update --disable-cluster-autoscaler` con i comandi o.
 
 ## <a name="change-the-cluster-autoscaler-settings"></a>Modificare le impostazioni del componente di scalabilità automatica del cluster
 

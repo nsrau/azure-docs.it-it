@@ -1,8 +1,7 @@
 ---
-title: Gestire le impostazioni di verifica in due passaggi - Azure Active Directory | Microsoft Docs
-description: Gestire l'utilizzo di Azure Multi-Factor Authentication, inclusa la modifica delle informazioni di contatto e la configurazione dei dispositivi.
+title: Gestire le impostazioni di verifica a due fattori-Azure Active Directory | Microsoft Docs
+description: Informazioni su come modificare i dettagli del metodo di verifica della sicurezza in relazione alla verifica a due fattori.
 services: active-directory
-keywords: client di multi-factor authentication, problema di autenticazione, ID di correlazione
 author: eross-msft
 manager: daveba
 ms.reviewer: richagi
@@ -11,72 +10,131 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 05/23/2017
+ms.date: 08/06/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 433c2d712ca4867a5ec59f86c333511070b6d507
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7acfa31434534eb3618b8a279ea6cff543fae076
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60334489"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949834"
 ---
-# <a name="manage-your-settings-for-two-step-verification"></a>Gestire le impostazioni per la verifica in due passaggi
-Questo articolo risponde a domande su come aggiornare le impostazioni della verifica in due passaggi o della Multi-Factor Authentication. Se si sono verificati problemi di accesso all'account, vedere le informazioni relative ai [problemi con la verifica in due passaggi](multi-factor-authentication-end-user-troubleshoot.md) che potrebbero essere utili.
+# <a name="manage-your-two-factor-verification-method-settings"></a>Gestire le impostazioni del metodo di verifica a due fattori
 
-## <a name="where-to-find-the-settings-page"></a>Dove trovare la pagina delle impostazioni
-In base al modo in cui l'azienda ha configurato Azure Multi-Factor Authentication, le impostazioni come il numero di telefono possono essere modificate in diverse posizioni.
+Dopo aver configurato i metodi di verifica della sicurezza per l'account aziendale o dell'Istituto di istruzione, è possibile aggiornare i dettagli correlati, tra cui:
 
-Se il supporto tecnico aziendale ha fornito un URL o passaggi specifici per la gestione della verifica in due passaggi, seguire tali istruzioni. In caso contrario, le istruzioni seguenti dovrebbero funzionare per tutti gli utenti. Se si esegue questa procedura ma non vengono visualizzate le stesse opzioni, significa che l'azienda o l'istituto di istruzione ha personalizzato il proprio portale. Chiedere all'amministratore il collegamento al portale di Azure Multi-Factor Authentication.
+- Scelta del metodo di verifica di sicurezza predefinito.
 
-**Per visualizzare la pagina Verifica aggiuntiva di sicurezza**
+- Aggiunta o aggiornamento dei dettagli del metodo di verifica della sicurezza, ad esempio il numero di telefono.
 
-- Passare a https://aka.ms/MFASetup.
+- Configurazione di una nuova app Authenticator o eliminazione di un dispositivo dall'app Authenticator.
 
-    ![Verifica](./media/multi-factor-authentication-end-user-manage-settings/proofup.png)
+## <a name="using-the-additional-security-verification-page"></a>Utilizzo della pagina verifica aggiuntiva di sicurezza
 
-Se facendo clic su questo collegamento non si ottiene il risultato desiderato, è possibile accedere alla pagina **Verifica aggiuntiva di sicurezza** anche tramite questa procedura:
+Se l'organizzazione ha fornito passaggi specifici su come attivare e gestire la verifica a due fattori, è necessario seguire queste istruzioni. In caso contrario, è possibile ottenere le impostazioni del metodo di verifica della sicurezza dalla pagina [verifica aggiuntiva di sicurezza](https://aka.ms/mfasetup) .
 
-1. Accedere a [https://myapps.microsoft.com](https://myapps.microsoft.com).  
+>[!Note]
+>Se gli elementi visualizzati sullo schermo non corrispondono a quelli trattati in questo articolo, significa che l'amministratore ha attivato l'esperienza di sicurezza (anteprima) o che l'organizzazione dispone di un portale personalizzato. Per altre informazioni sull'esperienza di sicurezza, vedere [Panoramica delle informazioni di sicurezza (anteprima)](user-help-security-info-overview.md). Per ulteriori informazioni sul portale personalizzato dell'organizzazione, è necessario contattare il supporto tecnico.
 
-2. Selezionare il nome dell'account in alto a destra, quindi selezionare **profilo**.
+### <a name="to-get-to-the-additional-security-verification-page"></a>Per ottenere la pagina verifica aggiuntiva di sicurezza
 
-3. Selezionare **Verifica aggiuntiva di sicurezza**.  
+- Passare a https://aka.ms/mfasetup.
 
-    ![Myapps](./media/multi-factor-authentication-end-user-manage-settings/myapps1.png)
+    ![Schermata di verifica aggiuntiva di sicurezza con i dettagli del metodo di verifica sicurezza disponibile](./media/multi-factor-authentication-end-user-manage-settings/mfa-security-verification-page.png)
 
-4. La pagina Verifica aggiuntiva di sicurezza viene caricata e mostra le impostazioni attive.
+    Se facendo clic su questo collegamento non si ottiene il risultato desiderato, è possibile accedere alla pagina **Verifica aggiuntiva di sicurezza** anche tramite questa procedura:
 
-    ![Verifica](./media/multi-factor-authentication-end-user-manage-settings/proofup.png)
+    1. Accedere a [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
-## <a name="i-want-to-change-my-phone-number-or-add-a-secondary-number"></a>Si desidera modificare il numero di telefono o aggiungere un numero secondario
-È importante configurare un numero di telefono di autenticazione secondario.  Poiché il numero di telefono principale e l'app per dispositivi mobili si trovano probabilmente sullo stesso telefono, il numero di telefono secondario è il modo più rapido sarà possibile rientrare nel proprio account, se il telefono viene smarrito o rubato.
+    2. Selezionare il nome dell'account in alto a destra, quindi selezionare **profilo**.
 
-> [!NOTE]
-> Se non si ha accesso al proprio numero di telefono principale e si ha bisogno di assistenza per accedere al proprio account, vedere l'articolo [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md) (Informazioni sulla verifica in due passaggi).  
+    3. Selezionare **Verifica aggiuntiva di sicurezza**.  
 
-**Per modificare il numero di telefono principale:**  
+        ![Collegamento app personali alla pagina verifica aggiuntiva di sicurezza](./media/multi-factor-authentication-end-user-manage-settings/mfa-myapps-link.png)
 
-1. Nella pagina **Verifica aggiuntiva di sicurezza** selezionare la casella di testo con il numero di telefono corrente e modificarla con il nuovo numero di telefono.  
-2. Selezionare **Salva**.  
-3. Se questo è il numero usato per l'opzione di verifica preferita, è necessario verificare il nuovo numero prima di poterlo salvare.  
+>[!Note]
+>Per informazioni sull'uso della sezione **password app** della pagina **verifica aggiuntiva di sicurezza** , vedere gestire le password delle [app per la verifica a due fattori](multi-factor-authentication-end-user-app-passwords.md). Le password dell'app devono essere usate solo per le app che non supportano ancora la verifica a due fattori.
 
-**Per aggiungere un numero di telefono secondario:**  
+## <a name="change-your-default-security-verification-method"></a>Modificare il metodo di verifica di sicurezza predefinito
 
-1. Nella pagina Verifica aggiuntiva di sicurezza selezionare la casella di controllo accanto a **Telefono per l'autenticazione alternativo**.  
-2. Immettere il numero di telefono secondario nella casella di testo.  
-3. Selezionare **Salva** e le modifiche sono terminate.  
+Dopo aver effettuato l'accesso all'account aziendale o dell'Istituto di istruzione con il nome utente e la password, verrà visualizzato automaticamente il metodo di verifica della sicurezza scelto. A seconda dei requisiti dell'organizzazione, può trattarsi di un codice di notifica o di verifica tramite un'app di autenticazione, un SMS o una telefonata.
 
-## <a name="require-two-step-verification-again-on-a-device-youve-marked-as-trusted"></a>Richiedere di nuovo la verifica in due passaggi in un dispositivo che è stato contrassegnato come attendibile
+Se si decide di modificare il metodo di verifica di sicurezza predefinito in uso, è possibile farlo da qui.
 
-A seconda delle impostazioni dell'organizzazione si potrebbe avere una casella di controllo del tipo "Non mostrare più la richiesta per **X** giorni" quando si esegue la verifica in due passaggi nel browser. Se si seleziona la casella di controllo e poi si perde il dispositivo o si ritiene che l'account sia stato violato, si deve ripristinare la verifica in due passaggi per tutti i dispositivi.
+### <a name="to-change-your-default-security-verification-method"></a>Per modificare il metodo di verifica di sicurezza predefinito
 
-1. Nella pagina Verifica aggiuntiva di sicurezza selezionare **Ripristina Multi-Factor Authentication nei dispositivi precedentemente attendibili**.
-2. Al successivo accesso da qualsiasi dispositivo verrà richiesto di eseguire la verifica in due passaggi.
+1. Nella pagina **verifica aggiuntiva di sicurezza** selezionare il metodo da usare nell'elenco a discesa delle **opzioni preferite** . Verranno visualizzate tutte le opzioni, ma sarà possibile scegliere solo quelle disponibili all'utente dall'organizzazione in uso.
 
-## <a name="how-do-i-clean-up-microsoft-authenticator-from-my-old-device-and-move-to-a-new-one"></a>Come si rimuove Microsoft Authenticator dal dispositivo precedente per passare a un nuovo dispositivo?
-Quando si disinstalla l'app dal dispositivo o si ripristina il dispositivo, l'attivazione sul back-end non verrà rimossa. Per altre informazioni, vedere [Microsoft Authenticator](user-help-auth-app-download-install.md).
+    - **Invia una notifica tramite l'app.** Si riceverà una notifica tramite l'app Authenticator che è presente una richiesta di verifica in attesa.
+
+    - **Chiamare il telefono per l'autenticazione.** Si riceverà una telefonata sul dispositivo mobile, in cui viene chiesto di verificare le informazioni.
+
+    - **Scrivere il codice nel telefono per l'autenticazione.** Si otterrà un codice di verifica come parte di un SMS sul dispositivo mobile. È necessario immettere questo codice nella richiesta di verifica per l'account aziendale o dell'Istituto di istruzione.
+
+    - **Chiamare il telefono dell'ufficio.** Si riceverà una telefonata sul telefono dell'ufficio, in cui viene chiesto di verificare le informazioni.
+
+    - **Usare il codice di verifica dall'app.** Si userà l'app Authenticator per ottenere un codice di verifica che verrà digitato nella richiesta dall'account aziendale o dell'Istituto di istruzione.
+
+2. Selezionare **Salva**.
+
+## <a name="add-or-change-your-phone-number"></a>Aggiungere o modificare il numero di telefono
+
+È possibile aggiungere nuovi numeri di telefono o aggiornare i numeri esistenti dalla pagina **verifica aggiuntiva di sicurezza** .
+
+>[!Important]
+>Si consiglia vivamente di aggiungere un numero di telefono secondario per impedire che venga bloccato dall'account se il telefono primario viene smarrito o rubato o se si riceve un nuovo telefono e non è più disponibile il numero di telefono principale originale.
+
+### <a name="to-change-your-phone-numbers"></a>Per modificare i numeri di telefono
+
+1. Nella sezione **come si desidera rispondere?** della pagina **verifica aggiuntiva di sicurezza** aggiornare le informazioni sul numero di telefono per il telefono per **l'autenticazione** (il dispositivo mobile primario) e il **telefono dell'ufficio**.
+
+2. Selezionare la casella accanto all'opzione **telefono per l'autenticazione alternativo** , quindi digitare un numero di telefono secondario in cui è possibile ricevere messaggi di testo o telefonate se non è possibile accedere al dispositivo primario.
+
+3. Selezionare **Salva**.
+
+## <a name="add-a-new-account-to-the-microsoft-authenticator-app"></a>Aggiungere un nuovo account all'app Microsoft Authenticator
+
+È possibile configurare l'account aziendale o dell'Istituto di istruzione nell'app Microsoft Authenticator per [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) o [iOS](https://apps.apple.com/app/microsoft-authenticator/id983156458).
+
+Se in precedenza è stato configurato l'account aziendale o dell'Istituto di istruzione nell'app Microsoft Authenticator, non è necessario ripetere l'operazione.
+
+1. Nella sezione stabilire **come si desidera rispondere?** della pagina **verifica aggiuntiva di sicurezza** Selezionare il pulsante dell' **app per l'autenticazione** .
+
+    ![Configurare l'account aziendale o dell'Istituto di istruzione nell'app Microsoft Authenticator](./media/multi-factor-authentication-end-user-manage-settings/mfa-security-verification-page-auth-app.png)
+
+2. Seguire le istruzioni visualizzate, incluso l'uso del dispositivo mobile per eseguire la scansione del codice a matrice e quindi fare clic su **Avanti**.
+
+    Verrà richiesto di approvare una notifica tramite l'app Microsoft Authenticator per verificare le informazioni.
+
+3. Selezionare **Salva**.
+
+## <a name="delete-your-account-or-device-from-the-microsoft-authenticator-app"></a>Eliminare l'account o il dispositivo dall'app Microsoft Authenticator
+
+È possibile eliminare l'account dall'app Microsoft Authenticator ed è possibile eliminare il dispositivo dall'account aziendale o dell'Istituto di istruzione. In genere si elimina il dispositivo per rimuovere definitivamente un dispositivo perso, rubato o obsoleto dall'account e si elimina l'account per tentare di risolvere alcuni problemi di connessione o per risolvere una modifica dell'account, ad esempio un nuovo nome utente.
+
+### <a name="to-delete-your-device-from-your-work-or-school-account"></a>Per eliminare il dispositivo dall'account aziendale o dell'Istituto di istruzione
+
+1. Nella sezione stabilire **come si desidera rispondere?** della pagina **verifica aggiuntiva di sicurezza** Selezionare il pulsante dell' **app per l'autenticazione** .
+
+2. Selezionare **Salva**.
+
+### <a name="to-delete-your-account-from-the-microsoft-authenticator-app"></a>Per eliminare l'account dall'app Microsoft Authenticator
+
+- Dall'app Microsoft Authenticator selezionare il pulsante **Elimina** accanto al dispositivo che si vuole eliminare.
+
+## <a name="turn-on-two-factor-verification-prompts-on-a-trusted-device"></a>Attivare richieste di verifica a due fattori su un dispositivo attendibile
+
+A seconda delle impostazioni dell'organizzazione, è possibile che venga visualizzata una casella di controllo che indica **di non chiedere di nuovo per X giorni** quando si esegue la verifica a due fattori nel browser. Se è stata selezionata questa casella per arrestare i prompt di verifica a due fattori e si perde il dispositivo o il dispositivo è potenzialmente compromesso, è necessario attivare la richiesta di verifica a due fattori per proteggere l'account. Sfortunatamente, non è possibile attivare di nuovo i prompt per un singolo dispositivo. È necessario attivare i prompt per tutti i dispositivi contemporaneamente.
+
+### <a name="to-turn-two-factor-verification-prompts-back-on-for-your-devices"></a>Per attivare la richiesta di verifica a due fattori per i dispositivi
+
+- Nella pagina **verifica aggiuntiva di sicurezza** selezionare **Ripristina autenticazione a più fattori nei dispositivi precedentemente attendibili**.
+
+    Al successivo accesso a qualsiasi dispositivo, verrà richiesto di eseguire la verifica a due fattori.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Leggere le informazioni di guida relative ai [problemi con la verifica in due passaggi](multi-factor-authentication-end-user-troubleshoot.md)
-* Impostare [password di app](multi-factor-authentication-end-user-app-passwords.md) per tutte le applicazioni che non supportano la verifica in due passaggi.
+
+- Suggerimenti per la risoluzione dei problemi e assistenza per [problemi con la verifica a due fattori](multi-factor-authentication-end-user-troubleshoot.md)
+
+- [Gestire le password dell'app per la verifica a due fattori](multi-factor-authentication-end-user-app-passwords.md) per le app che non supportano la verifica a due fattori.

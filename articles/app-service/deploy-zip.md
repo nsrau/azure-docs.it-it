@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 08/12/2019
 ms.author: cephalin
 ms.reviewer: sisirap
 ms.custom: seodec18
-ms.openlocfilehash: 6cf46f96e84e8a00a478c3ad3edece10a36ce0bd
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 470caa37067b8429fd16e508c43383e4d3db3d41
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616995"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954066"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Distribuire l'app in Servizio app di Azure con un file ZIP o WAR
 
@@ -32,7 +32,7 @@ La distribuzione tramite file ZIP utilizza lo stesso servizio Kudu usato per le 
 - Opzione per attivare il processo di compilazione predefinito, che include il ripristino del pacchetto.
 - [Personalizzazione della distribuzione](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings), inclusa l'esecuzione di script di distribuzione.  
 - Log di distribuzione. 
-- Un limite di dimensioni di file di 2048 MB.
+- Limite delle dimensioni del file di 2048 MB.
 
 Per altre informazioni, vedere [Documentazione Kudu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
@@ -82,7 +82,7 @@ az webapp deployment source config-zip --resource-group myResourceGroup --name <
 
 Questo comando distribuisce i file e le directory del file ZIP nella cartella predefinita dell'applicazione del servizio app (`\home\site\wwwroot`) e riavvia l'app.
 
-Per impostazione predefinita, il motore di distribuzione presuppone che un file ZIP sia pronto per l'esecuzione come-è e non viene eseguita qualsiasi automazione della compilazione. Per abilitare lo stesso di compilazione automazione come in un [distribuzione Git](deploy-local-git.md), impostare il `SCM_DO_BUILD_DURING_DEPLOYMENT` impostazione dell'app eseguendo il comando seguente nel [Cloud Shell](https://shell.azure.com):
+Per impostazione predefinita, il motore di distribuzione presuppone che un file ZIP sia pronto per l'esecuzione così com'è e non esegue alcuna automazione della compilazione. Per abilitare la stessa automazione di compilazione di una [distribuzione git](deploy-local-git.md), impostare l' `SCM_DO_BUILD_DURING_DEPLOYMENT` impostazione dell'app eseguendo il comando seguente nel [cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
@@ -96,29 +96,24 @@ Per altre informazioni, vedere [Documentazione Kudu](https://github.com/projectk
 
 ## <a name="deploy-war-file"></a>Distribuire il file WAR
 
-Per distribuire un file WAR in servizio App, inviare una richiesta POST a `https://<app_name>.scm.azurewebsites.net/api/wardeploy`. La richiesta POST deve contenere il file WAR nel corpo del messaggio. Le credenziali di distribuzione per l'app vengono fornite nella richiesta usando l'autenticazione di base HTTP.
+Per distribuire un file WAR nel servizio app, inviare una richiesta POST a `https://<app_name>.scm.azurewebsites.net/api/wardeploy`. La richiesta POST deve contenere il file WAR nel corpo del messaggio. Le credenziali di distribuzione per l'app vengono fornite nella richiesta usando l'autenticazione di base HTTP.
 
 Per l'autenticazione HTTP di base sono necessarie le credenziali di distribuzione del servizio app. Per informazioni su come impostare le credenziali di distribuzione, vedere [Impostare e reimpostare le credenziali a livello di utente](deploy-configure-credentials.md#userscope).
 
 ### <a name="with-curl"></a>Con cURL
 
-L'esempio seguente usa lo strumento cURL per distribuire un file WAR. Sostituire i segnaposto `<username>`, `<war_file_path>` e `<app_name>`. Quando richiesto da cURL, digitare la password.
+L'esempio seguente usa lo strumento cURL per distribuire un file WAR. Sostituire i segnaposto `<username>`, `<war-file-path>` e `<app-name>`. Quando richiesto da cURL, digitare la password.
 
 ```bash
-curl -X POST -u <username> --data-binary @"<war_file_path>" https://<app_name>.scm.azurewebsites.net/api/wardeploy
+curl -X POST -u <username> --data-binary @"<war-file-path>" https://<app_name>.scm.azurewebsites.net/api/wardeploy
 ```
 
 ### <a name="with-powershell"></a>Con PowerShell
 
-L'esempio seguente usa [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) per inviare una richiesta contenente il file WAR. Sostituire i segnaposto `<deployment_user>`, `<deployment_password>`, `<zip_file_path>` e `<app_name>`.
+L'esempio seguente usa [Publish-AzWebapp](/powershell/module/az.websites/publish-azwebapp) per caricare il file con estensione War. Sostituire i segnaposto `<group-name>`, `<app-name>` e `<war-file-path>`.
 
 ```powershell
-$username = "<deployment_user>"
-$password = "<deployment_password>"
-$filePath = "<war_file_path>"
-$apiUrl = "https://<app_name>.scm.azurewebsites.net/api/wardeploy"
-$base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $username, $password)))
-Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -Method POST -InFile $filePath -ContentType "application/octet-stream"
+Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <war-file-path>
 ```
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]

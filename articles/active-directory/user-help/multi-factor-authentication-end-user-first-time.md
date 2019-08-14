@@ -14,19 +14,19 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2df72d03bae8987de4998276a0be0f3ce1ec0333
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 75bc067bfe8a98ef2337f368243b3221be1677d6
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65230058"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949899"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurare l'account per la verifica in due passaggi
 La verifica in due passaggi è un livello di sicurezza aggiuntiva che consente di proteggere l'account rendendo più difficile l'intromissione di altri utenti. Se si sta leggendo questo articolo, probabilmente è stato ricevuto un messaggio di posta elettronica su Multi-Factor Authentication inviato dall'amministratore dell'azienda o dell'istituto di istruzione. In alternativa, si è tentato di eseguire l'accesso ed è stato ricevuto un messaggio in cui viene chiesto di configurare una verifica aggiuntiva di sicurezza. In questo caso, **non è possibile accedere fino al completamento del processo di registrazione automatica**.
 
 Questo articolo consente di configurare l'**account aziendale o dell'istituto di istruzione**. Se si vuole abilitare la verifica in due passaggi di un account Microsoft personale, vedere [Informazioni sulla verifica in due passaggi](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification).
 
-## <a name="set-up-your-account"></a>Configurare l'account
+## <a name="set-up-your-account"></a>Configura l'account
 
 Quando il supporto tecnico dell'azienda richiede all'utente di iniziare a usare la verifica in due passaggi, verrà visualizzata una schermata con l'indicazione **L'amministratore ha richiesto la configurazione di questo account per un'altra verifica della sicurezza**:
 
@@ -34,7 +34,7 @@ Quando il supporto tecnico dell'azienda richiede all'utente di iniziare a usare 
 
 Per iniziare, selezionare **Set it up now.** (Avvia la configurazione adesso.)
 
-Se all'accesso non viene visualizzata una schermata simile alla seguente, seguire le istruzioni in [Gestire le impostazioni per la verifica in due passaggi](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) per trovare la pagina delle impostazioni in cui è possibile gestire le opzioni di verifica.
+Se all'accesso non viene visualizzata una schermata simile alla seguente, seguire le istruzioni in [Gestire le impostazioni per la verifica in due passaggi](multi-factor-authentication-end-user-manage-settings.md#using-the-additional-security-verification-page) per trovare la pagina delle impostazioni in cui è possibile gestire le opzioni di verifica.
 
 ## <a name="decide-how-you-want-to-verify-your-sign-ins"></a>Decidere come verificare gli accessi
 
@@ -69,7 +69,7 @@ L'uso di questo metodo richiede l'installazione di un'app di autenticazione sul 
    ![Casella per l'immissione di un PIN](./media/multi-factor-authentication-end-user-first-time/scan3.png)
 
 8. Al termine dell'immissione del PIN, selezionare **Chiudi**. A questo punto, la verifica avrà esito positivo.
-9. Si consiglia di immettere il proprio numero di telefono cellulare, nel caso in cui si perda l'accesso all'app per dispositivi mobili. Specificare il paese/regione nell'elenco a discesa e immettere il numero di telefono cellulare nella casella accanto al nome del paese/area geografica. Selezionare **Avanti**.
+9. Si consiglia di immettere il proprio numero di telefono cellulare, nel caso in cui si perda l'accesso all'app per dispositivi mobili. Specificare il paese/area geografica dall'elenco a discesa e immettere il numero di telefono cellulare nella casella accanto al nome del paese/area geografica. Selezionare **Avanti**.
 10. A questo punto viene chiesto di configurare le password dell'app per le app che non sono browser, come Outlook 2010 o versioni precedenti, o per l'app di posta elettronica nativa nei dispositivi Apple. Alcune app non supportano la verifica in due passaggi. Se non si usano queste app, fare clic su **Fine** e ignorare i passaggi successivi.
 11. Se si usano queste app, copiare la password dell'app fornita e incollare la password nell'applicazione, al posto della password regolare. È possibile usare la stessa password dell'app per più app. Per altre informazioni, vedere [Guida alle password per le app].
 12. Fare clic su **Done**.
@@ -87,7 +87,7 @@ Se si vuole aggiungere manualmente un account all'app per dispositivi mobili, an
 1. Selezionare **Telefono per l'autenticazione** dall'elenco a discesa.  
 
     ![Configurazione](./media/multi-factor-authentication-end-user-first-time/phone.png)  
-2. Scegliere il paese/regione nell'elenco a discesa e immettere il numero di telefono cellulare.
+2. Scegliere il paese/area geografica dall'elenco a discesa e immettere il numero di telefono cellulare.
 3. Selezionare il metodo preferito da usare con il telefono cellulare: SMS o telefonata.
 4. Selezionare **Contattami** per verificare il numero di telefono. In base alla modalità selezionata si riceverà un SMS o una telefonata. Seguire le istruzioni visualizzate, quindi selezionare **Verifica**.
 5. A questo punto viene chiesto di configurare le password dell'app per le app che non sono browser, come Outlook 2010 o versioni precedenti, o per l'app di posta elettronica nativa nei dispositivi Apple. Alcune app non supportano la verifica in due passaggi. Se non si usano queste app, fare clic su **Fine** e ignorare i passaggi successivi.

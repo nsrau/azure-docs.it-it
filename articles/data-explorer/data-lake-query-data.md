@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: cd53e1386d9d6f2a38beb1661554c8cc9116169d
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: ef4dfc4370c71eac1978a6f3535b571a5e6009b5
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494873"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950147"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer-preview"></a>Eseguire query sui dati in Azure Data Lake usando Esplora dati di Azure (anteprima)
 
@@ -45,8 +45,11 @@ Azure Esplora dati si integra con l'archiviazione BLOB di Azure e Azure Data Lak
     dataformat=csv (h@'http://storageaccount.blob.core.windows.net/container1;secretKey') 
     with (compressed = true)  
     ```
-
-    Questa query crea partizioni giornaliere *container1/aaaa/mm/gg/all_exported_blobs. csv*. È previsto un miglioramento delle prestazioni con il partizionamento più granulare. Ad esempio, le query su tabelle esterne con partizioni giornaliere, come quella precedente, avranno prestazioni migliori rispetto alle query con tabelle partizionate mensili.
+    
+    > [!NOTE]
+    > * È previsto un miglioramento delle prestazioni con il partizionamento più granulare. Ad esempio, le query su tabelle esterne con partizioni giornaliere avranno prestazioni migliori rispetto alle query con tabelle partizionate mensili.
+    > * Quando si definisce una tabella esterna con partizioni, la struttura di archiviazione dovrebbe essere identica.
+Se, ad esempio, la tabella è definita con una partizione DateTime nel formato AAAA/MM/GG (impostazione predefinita), il percorso del file di archiviazione URI deve essere *container1/aaaa/mm/gg/all_exported_blobs*. 
 
 1. La tabella esterna è visibile nel riquadro sinistro dell'interfaccia utente Web
 
@@ -73,7 +76,7 @@ Azure Esplora dati si integra con l'archiviazione BLOB di Azure e Azure Data Lak
     ) 
     ```
  
-1. Il formato JSON richiede un secondo passaggio della creazione del mapping alle colonne, come illustrato di seguito. Nella query seguente creare un mapping JSON specifico denominato MappingName :
+1. Il formato JSON richiede un secondo passaggio della creazione del mapping alle colonne, come illustrato di seguito. Nella query seguente creare un mapping JSON specifico denominato MappingName:
 
     ```kusto
     .create external table ExternalTableJson json mapping "mappingName" '[{ "column" : "rownumber", "datatype" : "int", "path" : "$.rownumber"},{ "column" : "rowguid", "path" : "$.rowguid" }]' 
