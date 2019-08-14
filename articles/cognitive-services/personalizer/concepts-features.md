@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 06/24/2019
+ms.date: 08/13/2019
 ms.author: diberry
-ms.openlocfilehash: 1960856ce2f15945d1b1bfa093f349771d481ffc
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: db54a71a6bd252c1ca60ae356cbf340bc660d142
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663834"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989096"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Le caratteristiche sono informazioni su azioni e contesto
 
@@ -25,7 +25,7 @@ Personalizza esperienze usa le **caratteristiche**, ossia informazioni sul **con
 
 Ad esempio, una **caratteristica** potrebbe riguardare:
 
-* L'_utente_, ad esempio un `UserID`. 
+* _Persona utente_ , ad esempio `Sports_Shopper`. Questo non deve essere un ID utente singolo. 
 * Il _contenuto_, ad esempio se un video è di tipo `Documentary`, `Movie` o `TV Series` oppure se un articolo è o meno disponibile per la vendita nel negozio.
 * Il periodo di tempo _corrente_, ad esempio il giorno della settimana.
 
@@ -150,7 +150,7 @@ Ad esempio:
 
 Ogni azione:
 
-* È associata a un ID.
+* Ha un ID _evento_ . Se si dispone già di un ID evento, è necessario inviarlo. Se non si dispone di un ID evento, non inviarne uno, il Personalizzatore ne crea uno e lo restituisce nella risposta della richiesta di rango. L'ID è associato all'evento Rank, non all'utente. Se si crea un ID, il GUID funziona in modo ottimale. 
 * Include un elenco di caratteristiche.
 * L'elenco di caratteristiche può essere lungo (centinaia di voci) ma è consigliabile valutarne l'efficacia per rimuovere quelle che non contribuiscono a ottenere ricompense. 
 * Le caratteristiche per le **azioni** possono avere o meno una correlazione con le caratteristiche per il **contesto** usate da Personalizza esperienze.

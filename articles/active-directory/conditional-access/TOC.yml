@@ -19,10 +19,6 @@
 - name: Concetti
   expanded: false
   items:
-    - name: Adozione dell'accesso condizionale
-      href: howto-conditional-access-adoption-kit.md
-    - name: Criteri di protezione di base
-      href: concept-baseline-protection.md
     - name: Condizioni
       href: conditions.md
     - name: Condizioni di posizione
@@ -33,6 +29,8 @@
       href: service-dependencies.md
     - name: Strumento What If
       href: what-if-tool.md
+    - name: Criteri di protezione di base
+      href: concept-baseline-protection.md
 - name: Guide alle procedure
   expanded: true
   items:
@@ -40,16 +38,6 @@
       href: plan-conditional-access.md
     - name: Procedure consigliate
       href: best-practices.md
-    - name: Criteri di base
-      items:
-        - name: Richiedere l'autenticazione a più fattori per gli amministratori
-          href: howto-baseline-protect-administrators.md
-        - name: Protezione dell'utente finale
-          href: howto-baseline-protect-end-users.md
-        - name: Bloccare l'autenticazione legacy
-          href: howto-baseline-protect-legacy-auth.md
-        - name: Richiedere MFA per la gestione dei servizi
-          href: howto-baseline-protect-azure.md
     - name: Bloccare l'autenticazione legacy
       href: block-legacy-authentication.md
     - name: Accesso condizionale per la registrazione MFA
@@ -68,6 +56,18 @@
       href: howto-conditional-access-session-lifetime.md
     - name: Eseguire la migrazione di criteri classici
       href: policy-migration.md
+    - name: Criteri di base
+      items:
+        - name: Richiedere l'autenticazione a più fattori per gli amministratori
+          href: howto-baseline-protect-administrators.md
+        - name: Protezione dell'utente finale
+          href: howto-baseline-protect-end-users.md
+        - name: Bloccare l'autenticazione legacy
+          href: howto-baseline-protect-legacy-auth.md
+        - name: Richiedere MFA per la gestione dei servizi
+          href: howto-baseline-protect-azure.md
+    - name: Adozione dell'accesso condizionale
+      href: howto-conditional-access-adoption-kit.md
     - name: risoluzione dei problemi
       items:
         - name: Risolvere i problemi durante l'uso dello strumento What If

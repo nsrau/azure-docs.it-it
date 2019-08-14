@@ -35,6 +35,8 @@
       href: powershell-samples.md
     - name: Interfaccia della riga di comando di Azure
       href: cli-samples.md
+    - name: Modelli di Gestione risorse
+      href: resource-manager-template-samples.md
 - name: Concetti
   items:
     - name: Nozioni di base
@@ -95,9 +97,6 @@
           href: tutorial-manage-web-traffic-powershell.md
         - name: Interfaccia della riga di comando di Azure
           href: tutorial-manage-web-traffic-cli.md
-        - name: Modello
-          displayName: 'ARM, Resource Manager, template'
-          href: create-vmss-template.md
     - name: Configurare il servizio di bilanciamento del carico interno
       items:
         - name: Portale di Azure

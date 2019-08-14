@@ -83,7 +83,7 @@
             - name: Eliminare un cloud privato
               href: delete-private-cloud.md
         - name: Monitorare l'attività di CloudSimple
-          href: 'https://docs.azure.cloudsimple.com/activity/'
+          href: monitor-activity.md
         - name: Configurare le funzionalità di rete del cloud privato
           items:
             - name: Creare e gestire VLAN e subnet

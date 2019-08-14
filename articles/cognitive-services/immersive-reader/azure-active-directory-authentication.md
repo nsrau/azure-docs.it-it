@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: 5a03c377a275fff489f1fb8371f9905411b67960
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e4b792a04b4926fdb56f37c089e73b90cde905d3
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881538"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990138"
 ---
 # <a name="use-azure-active-directory-azure-ad-authentication-with-the-immersive-reader-service"></a>Usare l'autenticazione Azure Active Directory (Azure AD) con il servizio di lettura immersiva
 
@@ -134,5 +134,7 @@ In alternativa, l'entità servizio può essere autenticata con un certificato. O
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Accedere all'[esercitazione](./tutorial.md) per scoprire quali altri operazioni è possibile eseguire con Immersive Reader SDK
+* Vedere l' [esercitazione su node. js](./tutorial-nodejs.md) per informazioni sulle altre operazioni che è possibile eseguire con l'SDK di immersive Reader usando node. js
+* Vedere l' [esercitazione su Python](./tutorial-python.md) per informazioni sulle altre operazioni che è possibile eseguire con l'SDK di immersive Reader con Python
+* Vedere l' [esercitazione Swift](./tutorial-ios-picture-immersive-reader.md) per informazioni sulle altre operazioni che è possibile eseguire con l'SDK di immersive Reader con Swift
 * Esplorare [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) e le [informazioni di riferimento su Immersive Reader SDK](./reference.md)

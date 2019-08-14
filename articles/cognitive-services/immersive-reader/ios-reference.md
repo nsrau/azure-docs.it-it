@@ -9,12 +9,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 08/01/2019
 ms.author: t-meroa
-ms.openlocfilehash: 47c2d772a3428594c84d3fe5e18262b5e5ab86f4
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: acdaaf0bf08644053e86343ae4b002002fee6a84
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951013"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966589"
 ---
 # <a name="immersive-reader-sdk-reference"></a>Guida di riferimento a immersive Reader SDK
 
@@ -34,7 +34,7 @@ public func launchImmersiveReader(navController: UINavigationController, token: 
 
 #### <a name="parameters"></a>Parametri
 
-| NOME | Type | Descrizione |
+| NOME | Type | DESCRIZIONE |
 | ---- | ---- |------------ |
 | `navController` | UINavigationController | Il controller di spostamento per l'applicazione iOS da cui viene chiamata la funzione. |
 | `token` | String | Token di autenticazione Azure AD. Vedere le [procedure per l'autenticazione Azure ad](./azure-active-directory-authentication.md). |
@@ -59,7 +59,7 @@ struct Content: Encodable {
 
 #### <a name="supported-mime-types"></a>Tipi MIME supportati
 
-| Tipo MIME | Descrizione |
+| Tipo MIME | DESCRIZIONE |
 | --------- | ----------- |
 | testo/normale | Testo normale. |
 | Application/MathML + XML | Linguaggio di markup matematico (MathML). [Altre informazioni](https://developer.mozilla.org/en-US/docs/Web/MathML)
@@ -102,5 +102,5 @@ Il Reader immersive iOS SDK è supportato per iOS 9,0 o versione successiva, su 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Esplora il [Reader immersive per iOS SDK su GitHub](https://github.com/microsoft/immersive-reader-sdk/iOS)
+* Esplora il [Reader immersive per iOS SDK su GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS)
 * [Avvio rapido: Creare un'app iOS che avvii il lettore immersivo (SWIFT)](./ios-quickstart.md)
