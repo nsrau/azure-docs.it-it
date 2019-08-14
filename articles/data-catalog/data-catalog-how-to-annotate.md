@@ -6,15 +6,17 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 708c62971a20a7071accf7591a4e2914f7dbd9f3
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: c1e022591ce1aee073330055744fbd78d97c0b1d
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736363"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950252"
 ---
-# <a name="how-to-annotate-data-sources"></a>Come annotare le origini dati
+# <a name="how-to-annotate-data-sources-in-azure-data-catalog"></a>Come annotare le origini dati in Azure Data Catalog
+
 ## <a name="introduction"></a>Introduzione
+
 **Microsoft Azure Data Catalog** è un servizio cloud completamente gestito che funge da sistema di registrazione e di individuazione per origini dati aziendali. In altre parole, Data Catalog permette agli utenti di individuare, comprendere e usare le origini dati e consente alle organizzazioni di ottenere maggior valore dai dati esistenti. Quando un'origine dati viene registrata in Data Catalog, i relativi metadati vengono copiati e indicizzati dal servizio, ma non è tutto. Data Catalog consente agli utenti di specificare propri metadati descrittivi, ad esempio descrizioni e tag, per integrare i metadati estratti dall'origine dati e rendere l'origine dati più comprensibile a un maggior numero di persone.
 
 ## <a name="annotation-and-crowdsourcing"></a>Annotazione e crowdsourcing
@@ -35,7 +37,7 @@ Data Catalog supporta i tipi di annotazione seguenti:
 | Annotazione | Note |
 | --- | --- |
 | Nome descrittivo |È possibile fornire nomi descrittivi a livello di asset di dati, per rendere le risorse di dati più facilmente comprensibili. I nomi descrittivi sono particolarmente utili quando il nome dell'oggetto sottostante è di difficile interpretazione, abbreviato o non significativo per gli utenti. |
-| DESCRIZIONE |È possibile fornire descrizioni a livello asset di dati e attributo / colonna. Le descrizioni sono annotazioni di testo breve in formato libero che descrivono la prospettiva dell’utente sull’asset dati o sul relativo utilizzo. |
+| Descrizione |È possibile fornire descrizioni a livello asset di dati e attributo / colonna. Le descrizioni sono annotazioni di testo breve in formato libero che descrivono la prospettiva dell’utente sull’asset dati o sul relativo utilizzo. |
 | Tag (tag utente) |I tag possono essere forniti a livello asset di dati e attributo / colonna. I tag utente sono etichette definite dall'utente che possono essere usate per definire categorie di asset di dati o attributi. |
 | Tag (tag glossario) |I tag possono essere forniti a livello asset di dati e attributo / colonna. I tag di glossario sono termini di glossario definiti a livello centrale che possono essere usati per definire categorie di asset di dati o attributi tramite una tassonomia aziendale comune. Per altre informazioni, vedere [Come configurare il glossario aziendale per l'assegnazione di tag regolamentata](data-catalog-how-to-business-glossary.md) |
 | Esperti |Gli esperti possono essere forniti a livello di asset di dati. Gli esperti identificano utenti o gruppi con prospettive da esperti sui dati e possono fungere come punto di contatto per gli utenti che individuano le origini dei dati registrati e hanno domande le cui risposte non vengono fornite dalle annotazioni esistenti. |

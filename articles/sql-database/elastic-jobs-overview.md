@@ -1,6 +1,6 @@
 ---
-title: Processi di database SQL elastici di Azure | Microsoft Docs
-description: Configurare i processi di database elastici per eseguire script Transact-SQL (T-SQL) in un set di uno o più database SQL di Azure
+title: Processi di database elastici SQL di Azure (anteprima) | Microsoft Docs
+description: Configurare i processi di database elastici (anteprima) per eseguire script Transact-SQL (T-SQL) in un set di uno o più database SQL di Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -11,12 +11,12 @@ author: srinia
 ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 7c5905716c0aada4a5070b9968c330eafaffb741
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3a0aa6e28ea4c40d5cad5ba99edec344c7979acf
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561334"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935086"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Creare, configurare e gestire processi elastici
 

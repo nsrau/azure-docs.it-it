@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: af540267e4afc1b248b66b1c6f4989b832c38b58
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7057ce27cbbba8d70835493fc91a88ad823369bb
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237570"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947195"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Procedure consigliate per la scelta di un ID serie temporale
 
@@ -42,13 +42,13 @@ Tenendo questo a mente, la selezione dell'ID serie temporale appropriato è un f
 
 Gli scenari seguenti descrivono la selezione di più di una proprietà chiave come ID serie temporale:  
 
-### <a name="scenario-one"></a>Scenario 1
+### <a name="scenario-one"></a>Scenario uno
 
 * Sono presenti flotte di asset legacy, ognuna con una chiave univoca.
 * Ad esempio, una flotta viene identificata in modo univoco dalla proprietà *deviceId* e un'altra dalla proprietà univoca *objectId*. Nessuna delle due flotte contiene la proprietà univoca dell'altra flotta. In questo esempio si selezionerebbero due chiavi, deviceId e objectId, come chiavi univoche.
 * I valori Null vengono accettati e la mancanza di una proprietà nel payload dell'evento viene è considerata come valore `null`. Questo è anche il modo appropriato di gestire l'invio di dati a due diverse origini evento dove i dati in ogni origine evento hanno un ID serie temporale univoco.
 
-### <a name="scenario-two"></a>Scenario 2
+### <a name="scenario-two"></a>Scenario due
 
 * È necessario che più proprietà siano univoche nella stessa flotta di asset. 
 * Si pensi, ad esempio, a un costruttore di edifici intelligenti che installa sensori in ogni stanza. In ogni stanza si hanno generalmente gli stessi valori per *sensorId*, ad esempio *sensor1*, *sensor2* e *sensor3*.

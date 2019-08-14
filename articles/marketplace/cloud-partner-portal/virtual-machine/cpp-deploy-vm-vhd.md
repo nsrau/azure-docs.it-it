@@ -1,18 +1,18 @@
 ---
-title: Distribuire una macchina virtuale dai VHD per Azure Marketplace
+title: Distribuire una macchina virtuale dai dischi rigidi virtuali per Azure Marketplace
 description: Questo articolo illustra come registrare una macchina virtuale da un disco rigido virtuale distribuito in Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 11/30/2018
-ms.author: pabutler
-ms.openlocfilehash: a393620f28d45ec494c4e899f01e7e9a92b3ceba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/08/2019
+ms.author: evansma
+ms.openlocfilehash: 1aa946c813de41423d4fb2ba5b3aa5274db90f39
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938297"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934973"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Distribuire una macchina virtuale dai VHD
 
@@ -59,12 +59,12 @@ Dopo aver distribuito la macchina virtuale, è possibile [certificare l'immagine
    |  -------------              |   ---------------                                                            |
    | Nome account di archiviazione utente   | Nome dell'account di archiviazione in cui si trova il disco rigido virtuale generalizzato                    |
    | Nome contenitore di archiviazione utente | Nome del contenitore in cui si trova il disco rigido virtuale generalizzato                          |
-   | Nome DNS per indirizzo IP pubblico      | Nome DNS dell'indirizzo IP pubblico                                                           |
+   | Nome DNS per indirizzo IP pubblico      | Nome DNS IP pubblico. Il nome DNS è della VM, che verrà definito nel portale di Azure, una volta distribuita l'offerta.  |
    | Nome utente amministratore             | Nome utente dell'account di amministratore per la nuova macchina virtuale                                  |
    | Password amministratore              | Password dell'account di amministratore per la nuova macchina virtuale                                  |
-   | OS Type (Tipo di sistema operativo)                     | Sistema operativo della macchina virtuale: `Windows` \| `Linux`                                    |
+   | Tipo di sistema operativo                     | Sistema operativo della macchina virtuale: `Windows` \| `Linux`                                    |
    | ID sottoscrizione             | Identificatore della sottoscrizione selezionata                                      |
-   | Località                    | Località geografica della distribuzione                                        |
+   | Location                    | Località geografica della distribuzione                                        |
    | Dimensioni macchina virtuale                     | [Dimensioni della macchina virtuale di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), ad esempio `Standard_A2` |
    | Nome indirizzo IP pubblico      | Nome dell'indirizzo IP pubblico dell'utente                                               |
    | Nome macchina virtuale                     | Nome della nuova macchina virtuale                                                           |

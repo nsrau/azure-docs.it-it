@@ -7,17 +7,17 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: 9b6089aa828b5667f100c1a8cbff3e69345e4512
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 708c34347966eee7817ca04e0552dcba233765cb
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150432"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934506"
 ---
 # <a name="azure-key-vault-managed-storage-account---powershell"></a>Account di archiviazione gestita di Azure Key Vault - PowerShell
 
 > [!NOTE]
-> [L'integrazione di Archiviazione di Azure con Azure Active Directory (Azure AD) è ora disponibile in anteprima](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). Si consiglia di usare Azure AD per le fasi di autenticazione e autorizzazione, poiché offre l'accesso basato sul token OAuth2 ad Archiviazione di Azure, proprio come Azure Key Vault. In questo modo è possibile:
+> [L'integrazione di Archiviazione di Azure con Azure Active Directory (Azure AD) è ora disponibile in anteprima](../storage/common/storage-auth-aad.md). Si consiglia di usare Azure AD per le fasi di autenticazione e autorizzazione, poiché offre l'accesso basato sul token OAuth2 ad Archiviazione di Azure, proprio come Azure Key Vault. In questo modo è possibile:
 > - Autenticare l'applicazione client con un'identità di applicazione o utente, anziché con le credenziali dell'account di archiviazione. 
 > - Usare un'[identità gestita di Azure AD](/azure/active-directory/managed-identities-azure-resources/) per l'esecuzione in Azure. Le identità gestite eliminano la necessità di eseguire l'autenticazione di tutti i client e di archiviare le credenziali nell'applicazione.
 > - Usare il controllo degli accessi in base al ruolo per la gestione delle autorizzazioni, che è supportato anche da Key Vault.

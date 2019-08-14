@@ -1,65 +1,65 @@
 ---
 title: Guida alla risoluzione dei problemi di Azure Storage Explorer | Microsoft Docs
-description: Panoramica delle tecniche di debug di Azure Storage Explorer
+description: Cenni preliminari sulle tecniche di debug per Azure Storage Explorer
 services: virtual-machines
 author: Deland-Han
 ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: fd34ab7cd899549962663e8cee8ee2121c39c49e
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 96a8eab57f1714eed4831bea01508e9140d1dfad
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840394"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934978"
 ---
-# <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di archiviazione di Azure Explorer
+# <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Azure Storage Explorer
 
 Microsoft Azure Storage Explorer è un'app autonoma che consente di usare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux. L'app può connettersi ad account di archiviazione ospitati in Azure, cloud nazionali e Azure Stack.
 
 In questa guida sono riepilogate le soluzioni per gli errori comuni riscontrati in Storage Explorer.
 
-## <a name="role-based-access-control-permission-issues"></a>Problemi di autorizzazione di controllo di accesso basato sui ruoli
+## <a name="role-based-access-control-permission-issues"></a>Problemi di autorizzazione del controllo degli accessi in base al ruolo
 
-[Controllo di accesso basato sui ruoli (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) fornisce la gestione accessi con granularità fine delle risorse di Azure tramite la combinazione di set di autorizzazioni in _ruoli_. Di seguito sono riportati alcuni suggerimenti che è possibile seguire per ottenere RBAC lavorare in Storage Explorer.
+Il controllo degli accessi in [base al ruolo (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) offre una gestione degli accessi con granularità fine per le risorse di Azure combinando set di autorizzazioni in _ruoli_. Ecco alcuni suggerimenti che è possibile seguire per fare in modo che RBAC funzioni in Storage Explorer.
 
-### <a name="what-do-i-need-to-see-my-resources-in-storage-explorer"></a>Cosa occorre per visualizzare le risorse in Storage Explorer?
+### <a name="what-do-i-need-to-see-my-resources-in-storage-explorer"></a>Cosa è necessario per visualizzare le risorse in Storage Explorer?
 
-Se si verificano problemi di accesso alle risorse di archiviazione tramite RBAC, è possibile che si non sono stati assegnati i ruoli appropriati. Le sezioni seguenti descrivono le autorizzazioni che Storage Explorer attualmente richiede per accedere alle risorse di archiviazione.
+Se si verificano problemi durante l'accesso alle risorse di archiviazione tramite RBAC, è possibile che non siano stati assegnati i ruoli appropriati. Le sezioni seguenti descrivono le autorizzazioni Storage Explorer attualmente necessarie per accedere alle risorse di archiviazione.
 
-Se si è certi che si dispone di autorizzazioni o ruoli appropriati, contattare l'amministratore account Azure.
+Se non si è certi di disporre dei ruoli o delle autorizzazioni appropriate, contattare l'amministratore dell'account Azure.
 
-#### <a name="read-listget-storage-accounts"></a>Lettura: Elenca/Ottiene gli account di archiviazione
+#### <a name="read-listget-storage-accounts"></a>Lettura: Elenca/ottiene gli account di archiviazione
 
-È necessario disporre dell'autorizzazione per elencare gli account di archiviazione. È possibile ottenere questa autorizzazione con l'assegnazione al ruolo "Lettore".
+È necessario disporre dell'autorizzazione per elencare gli account di archiviazione. È possibile ottenere questa autorizzazione assegnando il ruolo "lettore".
 
-#### <a name="list-storage-account-keys"></a>Elenco chiavi dell'Account di archiviazione
+#### <a name="list-storage-account-keys"></a>Elenca chiavi dell'account di archiviazione
 
-Storage Explorer anche possibile usare le chiavi dell'account per autenticare le richieste. È possibile ottenere l'accesso alle chiavi con i ruoli più potenti, ad esempio il ruolo "Collaboratore".
+Storage Explorer inoltre possibile utilizzare le chiavi dell'account per autenticare le richieste. È possibile ottenere l'accesso alle chiavi con ruoli più potenti, ad esempio il ruolo "collaboratore".
 
 > [!NOTE]
-> Le chiavi di accesso concedono le autorizzazioni senza restrizioni a tutti gli utenti che li contiene. Pertanto, in genere non è consigliabile essere inviato agli utenti di account. Se è necessario revocare le chiavi di accesso, è possibile rigenerarle dal [portale di Azure](https://portal.azure.com/).
+> Le chiavi di accesso concedono autorizzazioni senza restrizioni a tutti gli utenti che li contengono. Pertanto, in genere non è consigliabile distribuirle agli utenti dell'account. Se è necessario revocare le chiavi di accesso, è possibile rigenerarle dal [portale di Azure](https://portal.azure.com/).
 
-#### <a name="data-roles"></a>Ruoli dei dati
+#### <a name="data-roles"></a>Ruoli dati
 
-È necessario disporre almeno un ruolo che concede l'accesso leggere i dati dalle risorse. Ad esempio, se si desidera elencare o scaricare i BLOB, è necessario almeno il ruolo "Lettore di dati Blob di archiviazione".
+È necessario disporre di almeno un ruolo che concede l'accesso in lettura ai dati dalle risorse. Se, ad esempio, è necessario elencare o scaricare i BLOB, sarà necessario almeno il ruolo "lettore dati BLOB di archiviazione".
 
-### <a name="why-do-i-need-a-management-layer-role-to-see-my-resources-in-storage-explorer"></a>Il motivo per cui è necessario un ruolo di livello di gestione per visualizzare le risorse in Storage Explorer?
+### <a name="why-do-i-need-a-management-layer-role-to-see-my-resources-in-storage-explorer"></a>Perché è necessario un ruolo del livello di gestione per visualizzare le risorse in Storage Explorer?
 
-Archiviazione di Azure ha due livelli di accesso: _management_ e _dati_. Le sottoscrizioni e account di archiviazione sono accessibili tramite il livello di gestione. I contenitori, BLOB e altre risorse di dati sono accessibili attraverso il livello dati. Ad esempio, se si desidera ottenere un elenco degli account di archiviazione di Azure, inviare una richiesta all'endpoint di gestione. Se si desidera un elenco di contenitori di blob in un account, si invia una richiesta all'endpoint di servizio appropriato.
+Archiviazione di Azure offre due livelli di accesso: _gestione_ e _dati_. Le sottoscrizioni e gli account di archiviazione sono accessibili tramite il livello di gestione. È possibile accedere a contenitori, BLOB e altre risorse dati tramite il livello dati. Se ad esempio si vuole ottenere un elenco degli account di archiviazione da Azure, si invia una richiesta all'endpoint di gestione. Se si desidera un elenco di contenitori BLOB in un account, inviare una richiesta all'endpoint di servizio appropriato.
 
-I ruoli RBAC possono contenere le autorizzazioni per l'accesso di livello dati o gestione. Il ruolo "Lettore", ad esempio, concede all'utente le risorse di livello gestione di accesso in sola lettura.
+I ruoli RBAC possono contenere autorizzazioni per la gestione o l'accesso a livello di dati. Il ruolo "Reader", ad esempio, concede le risorse del livello di gestione dell'accesso di sola lettura.
 
-In teoria, il ruolo "Lettore" non fornisce nessuna autorizzazione di livello dati e non è necessario per l'accesso a livello di dati.
+In modo rigoroso, il ruolo "lettore" non fornisce autorizzazioni per i livelli di dati e non è necessario per l'accesso al livello dati.
 
-Storage Explorer rende più semplice accedere alle risorse tramite la raccolta delle informazioni necessarie per connettersi alle risorse di Azure per l'utente. Ad esempio, per visualizzare i contenitori blob, Storage Explorer invia una richiesta dell'elenco dei contenitori per l'endpoint del servizio blob. Per ottenere tale endpoint, Storage Explorer Cerca l'elenco delle sottoscrizioni e account di archiviazione è possibile utilizzare. Tuttavia, per trovare le sottoscrizioni e account di archiviazione, Storage Explorer deve inoltre avere accesso a livello di gestione.
+Storage Explorer facilita l'accesso alle risorse raccogliendo le informazioni necessarie per connettersi alle risorse di Azure. Ad esempio, per visualizzare i contenitori BLOB, Storage Explorer invia una richiesta list Containers all'endpoint del servizio BLOB. Per ottenere l'endpoint, Storage Explorer Cerca nell'elenco di sottoscrizioni e account di archiviazione a cui si ha accesso. Tuttavia, per trovare le sottoscrizioni e gli account di archiviazione, Storage Explorer necessario anche accedere al livello di gestione.
 
-Se non si dispone di un ruolo di concessione di alcuna gestione delle autorizzazioni di livello, Storage Explorer non è possibile ottenere le informazioni che necessarie per connettersi al livello dati.
+Se non si dispone di un ruolo che concede autorizzazioni per i livelli di gestione, Storage Explorer non è in grado di ottenere le informazioni necessarie per connettersi al livello dati.
 
-### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>Cosa accade se non è possibile ottenere la gestione delle autorizzazioni di livello dal mio amministratore necessario?
+### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>Cosa accade se non è possibile ottenere le autorizzazioni del livello di gestione necessarie dall'amministratore?
 
-Non abbiamo ancora una soluzione di RBAC in questo momento. In alternativa, è possibile richiedere un URI SAS [collegare alla risorsa](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-sas-uri).
+Al momento non è ancora presente una soluzione relativa al controllo degli accessi in base al ruolo. Come soluzione alternativa, è possibile richiedere un URI di firma di accesso condiviso per [connettersi alla risorsa](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-sas-uri).
 
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Errore: certificato autofirmato nella catena di certificati (ed errori simili)
 
@@ -75,7 +75,7 @@ In presenza di un certificato autofirmato o non attendibile, Storage Explorer no
 
 Il problema potrebbe anche essere il risultato di più certificati (radice e intermedi). Per risolvere l'errore, è necessario aggiungere entrambi i certificati.
 
-Se è certi di provenienza del certificato, è possibile provare questi passaggi per trovarlo:
+Se non si è certi della provenienza del certificato, è possibile provare questi passaggi per trovarlo:
 
 1. Installare Open SSL
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html), una delle versioni light dovrebbe essere sufficiente
@@ -84,40 +84,40 @@ Se è certi di provenienza del certificato, è possibile provare questi passaggi
     * Windows: aprire la directory di installazione, fare clic su **/bin/** , quindi fare doppio clic su **openssl.exe**.
     * Mac e Linux: eseguire **openssl** da un terminale.
 3. Eseguire `s_client -showcerts -connect microsoft.com:443`
-4. Cercare i certificati autofirmati. Se è certi di quali certificati sono autofirmati, verificare ovunque che l'oggetto `("s:")` e l'autorità emittente `("i:")` sono uguali.
+4. Cercare i certificati autofirmati. Se non si è certi di quali certificati sono autofirmati, cercare in qualsiasi punto in `("s:")` cui l'oggetto `("i:")` e l'emittente sono uguali.
 5. Dopo aver trovato i certificati autofirmati, per ognuno di essi, copiare e incollare tutto da e includendo **-----BEGIN CERTIFICATE-----** a **-----END CERTIFICATE-----** in un nuovo file con estensione CER.
 6. Aprire Storage Explorer, fare clic su **Modifica** > **Certificati SSL** > **Importa certificati**, quindi usare la selezione file per trovare, selezionare e aprire i file con estensione CER creati.
 
-Se non è possibile trovare alcun certificato autofirmato seguendo i passaggi precedenti, contattare Microsoft tramite lo strumento di feedback per ricevere assistenza. È anche possibile scegliere di avviare Storage Explorer dalla riga di comando con il `--ignore-certificate-errors` flag. Quando viene avviato con questo flag, Storage Explorer ignorerà gli errori del certificato.
+Se non è possibile trovare certificati autofirmati usando i passaggi precedenti, contattare Microsoft tramite lo strumento di feedback per ulteriori informazioni. È anche possibile scegliere di avviare Storage Explorer dalla riga di comando con il `--ignore-certificate-errors` flag. Quando viene avviato con questo flag, Storage Explorer ignorerà gli errori del certificato.
 
 ## <a name="sign-in-issues"></a>Problemi di accesso
 
-### <a name="blank-sign-in-dialog"></a>Finestra di accesso vuota
+### <a name="blank-sign-in-dialog"></a>Finestra di dialogo di accesso vuota
 
-Vuoti Accedi le finestre di dialogo sono spesso causati da ad FS che chiede di Storage Explorer per eseguire un reindirizzamento, che non è supportato da Electron. Per risolvere questo problema, è possibile tentare di utilizzare flusso del codice di dispositivo per l'accesso. A questo scopo, seguire questa procedura:
+Le finestre di dialogo di accesso vuote spesso sono causate dalla richiesta da parte di ADFS Storage Explorer di eseguire un reindirizzamento, che non è supportato da Electron. Per risolvere questo problema, è possibile provare a usare il flusso del codice del dispositivo per l'accesso. A questo scopo, seguire questa procedura:
 
-1. Menu di scelta: Anteprima -> "Usa dispositivi codice Accedi".
+1. Menu Anteprima-> "usare l'accesso al codice del dispositivo".
 2. Aprire la finestra di dialogo della connessione (tramite l'icona a forma di spina sulla barra verticale a sinistra o facendo clic su "Aggiungi account" nel pannello dell'account).
-3. Scegliere qual è l'ambiente che si desidera accedere.
+3. Scegliere l'ambiente a cui si vuole accedere.
 4. Fare clic sul pulsante "Accedi".
 5. Seguire le istruzioni visualizzate.
 
-Se ci si ritrova di problemi di accesso all'account di cui che si desidera utilizzare, in quanto il browser predefinito è già connessi a un account diverso, è possibile:
+Se si riscontrano problemi durante l'accesso all'account che si desidera utilizzare perché il browser predefinito è già connesso a un account diverso, è possibile effettuare una delle operazioni seguenti:
 
 1. Copiare manualmente il collegamento e il codice in una sessione privata del browser.
 2. Copiare manualmente il collegamento e il codice in un browser diverso.
 
 ### <a name="reauthentication-loop-or-upn-change"></a>Ciclo di riautenticazione o modifica UPN
 
-Se si è in un ciclo di riautenticazione o è stati modificati l'UPN di uno degli account, provare i passaggi seguenti:
+Se si è in un ciclo di riautenticazione o è stato modificato l'UPN di uno degli account, provare a eseguire i passaggi seguenti:
 
 1. Rimuovere tutti gli account e quindi chiudere Storage Explorer
 2. Eliminare la cartella .IdentityService dal computer. In Windows, la cartella si trova in `C:\users\<username>\AppData\Local`. Per Mac e Linux, è possibile trovare la cartella nella radice della directory dell'utente.
-3. Se si usa Mac o Linux, è necessario anche eliminare la voce Microsoft.Developer.IdentityService dall'archivio chiavi di sistemi operativi. Su Mac, l'archivio chiavi è l'applicazione "Gnome Keychain". Per Linux, l'applicazione viene in genere chiamata "Keyring", ma il nome può variare a seconda della distribuzione.
+3. Se si usa Mac o Linux, sarà anche necessario eliminare la voce Microsoft. Developer. IdentityService dall'archivio chiavi del sistema operativo. Su Mac, l'archivio chiavi è l'applicazione "Gnome Keychain". Per Linux, l'applicazione viene in genere chiamata "Keyring", ma il nome può variare a seconda della distribuzione.
 
 ### <a name="conditional-access"></a>Accesso condizionale
 
-Accesso condizionale non è supportata quando Storage Explorer viene utilizzato in Windows 10, Linux o macOS. Ciò è dovuto a una limitazione della libreria di AAD usata da Storage Explorer.
+L'accesso condizionale non è supportato quando si usa Storage Explorer in Windows 10, Linux o macOS. Ciò è dovuto a una limitazione nella libreria AAD utilizzata da Storage Explorer.
 
 ## <a name="mac-keychain-errors"></a>Errori di Keychain su Mac
 
@@ -131,32 +131,32 @@ Il Keychain macOS può talvolta andare in uno stato che causa problemi alla libr
     ![image](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
 
 5. Avviare Azure Storage Explorer.
-6. Dovrebbe essere visualizzato un menu a comparsa per segnalare qualcosa come "L'hub di servizio vuole accedere al keychain". Quando, immettere la password dell'account amministratore Mac e fare clic su **Consenti sempre** (o **Allow** se **Consenti sempre** non è disponibile).
+6. Dovrebbe essere visualizzato un menu a comparsa per segnalare qualcosa come "L'hub di servizio vuole accedere al keychain". In tal caso, immettere la password dell'account amministratore Mac e fare clic su **Consenti sempre** (o **Consenti** se **Consenti sempre** non è disponibile).
 7. Provare a effettuare l'accesso.
 
 ### <a name="general-sign-in-troubleshooting-steps"></a>Passaggi per la risoluzione dei problemi di accesso generale
 
-* Se si usa macOS, e la finestra di accesso viene mai visualizzato sopra la "in attesa per l'autenticazione..." finestra di dialogo, quindi provare a [questi passaggi](#mac-keychain-errors)
+* Se ci si trova in macOS e la finestra di accesso non viene mai visualizzata su "in attesa di autenticazione..." , quindi provare [questa procedura](#mac-keychain-errors)
 * Riavviare Storage Explorer
 * Se la finestra di autenticazione è vuota, attendere almeno un minuto prima di chiudere la finestra di dialogo di autenticazione.
 * Verificare che le impostazioni del proxy e dei certificati siano configurate correttamente per il computer e per Storage Explorer.
-* Se si usa Windows e hanno accesso a Visual Studio 2019 nella stessa macchina e di accesso, provare ad accedere a Visual Studio 2019. Dopo una corretta Accedi a Visual Studio 2019, è possibile aprire Storage Explorer e visualizza il tuo account nel Pannello di account.
+* Se si è in Windows e si ha accesso a Visual Studio 2019 nello stesso computer e si accede, provare ad accedere a Visual Studio 2019. Dopo aver eseguito l'accesso a Visual Studio 2019, è possibile aprire Storage Explorer e visualizzare il proprio account nel pannello dell'account.
 
 Se nessuno di questi metodi funziona [aprire un problema in GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
 ### <a name="missing-subscriptions-and-broken-tenants"></a>Sottoscrizioni mancanti e tenant interrotti
 
-Se non si riesce a recuperare le sottoscrizioni dopo aver completato l'accesso, provare i metodi di risoluzione dei problemi seguenti:
+Se non si riesce a recuperare le sottoscrizioni dopo aver eseguito l'accesso, provare i metodi di risoluzione dei problemi seguenti:
 
-* Verificare che l'account abbia accesso alle sottoscrizioni previste. È possibile verificare l'accesso effettuando l'accesso al portale per l'ambiente di Azure che si sta provando a usare.
-* Assicurarsi di aver effettuato l'accesso tramite Azure corretto ambiente (Azure, Azure Cina 21Vianet, Azure Germania, Azure US Government o ambiente personalizzato).
-* Se si è protetti da un proxy, assicurarsi di aver configurato correttamente il proxy Storage Explorer.
+* Verificare che l'account abbia accesso alle sottoscrizioni previste. È possibile verificare l'accesso accedendo al portale per l'ambiente di Azure che si sta tentando di usare.
+* Assicurarsi di aver eseguito l'accesso usando l'ambiente Azure corretto (Azure, Azure China 21Vianet, Azure Germania, Azure US Government o l'ambiente personalizzato).
+* Se si è protetti da un proxy, verificare di aver configurato correttamente il proxy Storage Explorer.
 * Provare a rimuovere e a aggiungere nuovamente l'account.
-* Se è presente un collegamento "Altre informazioni", esaminare e vedere quali messaggi di errore segnalati per i tenant che hanno esito negativo. Se you'ren ' T' che cosa fare con l'errore di messaggi di vedere, quindi è possibile [segnalare un problema in GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+* Se è presente un collegamento "ulteriori informazioni", esaminare i messaggi di errore che vengono segnalati per i tenant che hanno avuto esito negativo. Se you'ren't è certo che cosa fare con i messaggi di errore visualizzati, è possibile [aprire un problema in GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
-## <a name="cant-remove-attached-account-or-storage-resource"></a>Non è possibile rimuovere risorse di archiviazione o l'account collegato
+## <a name="cant-remove-attached-account-or-storage-resource"></a>Non è possibile rimuovere l'account collegato o la risorsa di archiviazione
 
-Se non si riesce a rimuovere un account associato o una risorsa di archiviazione tramite l'interfaccia utente, è possibile eliminare manualmente tutte le risorse collegate eliminando le cartelle seguenti:
+Se non si è in grado di rimuovere un account collegato o una risorsa di archiviazione tramite l'interfaccia utente, è possibile eliminare manualmente tutte le risorse collegate eliminando le cartelle seguenti:
 
 * Windows: `%AppData%/StorageExplorer`
 * macOS: `/Users/<your_name>/Library/Application Support/StorageExplorer`
@@ -176,7 +176,7 @@ In primo luogo, assicurarsi che le informazioni seguenti immesse siano corrette:
 * nome utente e password se richiesto dal proxy
 
 > [!NOTE]
-> Storage Explorer non supporta i file di configurazione automatica proxy per la configurazione delle impostazioni del proxy.
+> Storage Explorer non supporta i file di configurazione automatica del proxy per la configurazione delle impostazioni proxy.
 
 ### <a name="common-solutions"></a>soluzioni comuni
 
@@ -184,7 +184,7 @@ Se si verificano ancora problemi, provare i metodi di risoluzione dei problemi s
 
 * Se è possibile connettersi a Internet senza usare il proxy, verificare che Storage Explorer funzioni senza le impostazioni del proxy abilitate. In questo caso, potrebbe esserci un problema con le impostazioni del proxy. Rivolgersi all'amministratore del proxy per identificare i problemi.
 * Verificare che altre applicazioni che usano il server proxy funzionino come previsto.
-* Verificare che sia possibile connettersi al portale per l'ambiente di Azure che si sta provando a usare
+* Verificare che sia possibile connettersi al portale per l'ambiente di Azure che si sta tentando di usare
 * Verificare di poter ricevere le risposte dagli endpoint del servizio. Immettere uno degli URL dell'endpoint nel browser. Se è possibile connettersi, si dovrebbe ricevere InvalidQueryParameterValue o una risposta XML simile.
 * Se anche altre persone usano Storage Explorer con il server proxy, accertarsi che riescano a connettersi. Se questo non avviene, potrebbe essere necessario contattare l'amministratore del server proxy.
 
@@ -194,7 +194,7 @@ Se si dispone di strumenti di rete, ad esempio Fiddler per Windows, è possibile
 
 * Se si deve usare il proxy, è necessario configurare lo strumento di rete per connettersi tramite il proxy.
 * Controllare il numero della porta usato dallo strumento di rete.
-* Immettere l'URL dell'host locale e il numero della porta dello strumento di rete come impostazioni proxy in Storage Explorer. Quando questa operazione viene eseguita correttamente, lo strumento di rete inizia la registrazione delle richieste di rete effettuate da Storage Explorer agli endpoint di gestione e del servizio. Ad esempio, immettere https://cawablobgrs.blob.core.windows.net/ per l'endpoint blob in un browser e si riceverà una risposta simile alla seguente, che suggerisce che la risorsa disponibile, anche se è possibile accedervi.
+* Immettere l'URL dell'host locale e il numero della porta dello strumento di rete come impostazioni proxy in Storage Explorer. Quando questa operazione viene eseguita correttamente, lo strumento di rete inizia la registrazione delle richieste di rete effettuate da Storage Explorer agli endpoint di gestione e del servizio. Ad esempio, immettere https://cawablobgrs.blob.core.windows.net/ per l'endpoint BLOB in un browser e si riceverà una risposta simile alla seguente, che suggerisce che la risorsa esiste, anche se non è possibile accedervi.
 
 ![esempio di codice](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
@@ -202,18 +202,18 @@ Se si dispone di strumenti di rete, ad esempio Fiddler per Windows, è possibile
 
 Se le impostazioni del proxy sono corrette, è necessario contattare l'amministratore del server proxy e
 
-* Assicurarsi che il proxy non blocchi il traffico agli endpoint di gestione o risorse di Azure.
-* Verificare il protocollo di autenticazione usato dal server proxy. Storage Explorer non supporta attualmente i proxy NTLM.
+* Assicurarsi che il proxy non blocchi il traffico verso gli endpoint di gestione o di risorsa di Azure.
+* Verificare il protocollo di autenticazione usato dal server proxy. Storage Explorer attualmente non supporta i proxy NTLM.
 
 ## <a name="unable-to-retrieve-children-error-message"></a>Messaggio di errore "Unable to Retrieve Children" (Impossibile recuperare gli elementi figlio)
 
-Se si è connessi ad Azure tramite un proxy, verificare che le impostazioni del proxy siano corrette. Se si ha concesso l'accesso a una risorsa dal proprietario della sottoscrizione o dell'account, verificare di avere letto o elencare le autorizzazioni per tale risorsa.
+Se si è connessi ad Azure tramite un proxy, verificare che le impostazioni del proxy siano corrette. Se viene concesso l'accesso a una risorsa dal proprietario della sottoscrizione o dell'account, verificare di avere le autorizzazioni di lettura o di elenco per tale risorsa.
 
-## <a name="connection-string-doesnt-have-complete-configuration-settings"></a>Stringa di connessione non hanno completato le impostazioni di configurazione
+## <a name="connection-string-doesnt-have-complete-configuration-settings"></a>Per la stringa di connessione non sono disponibili impostazioni di configurazione complete
 
-Se si riceve questo messaggio di errore, è possibile che non hai le autorizzazioni necessarie per ottenere le chiavi dell'account di archiviazione. Per verificare se questo è il caso, passare al portale e individuare l'account di archiviazione. È possibile farlo rapidamente facendo clic sul nodo dell'account di archiviazione e fare clic su "Open in Portal". Al termine dell'operazione, passare al pannello "Chiavi di accesso". Se non si dispone delle autorizzazioni per visualizzare le chiavi, si verrà visualizzata una pagina con il messaggio "Non si ha accesso". Per risolvere questo problema, è possibile ottenere la chiave dell'account da una persona e collegarsi con nome e chiave, oppure è possibile chiedere a un utente per una firma di accesso condiviso per l'account di archiviazione e utilizzarlo per collegare l'account di archiviazione.
+Se viene visualizzato questo messaggio di errore, è possibile che non si disponga delle autorizzazioni necessarie per ottenere le chiavi per l'account di archiviazione. Per verificare se questo è il caso, passare al portale e individuare l'account di archiviazione. È possibile eseguire questa operazione facendo clic con il pulsante destro del mouse sul nodo dell'account di archiviazione e scegliendo "Apri nel portale". Al termine dell'operazione, passare al pannello "Chiavi di accesso". Se non si hanno le autorizzazioni per visualizzare le chiavi, viene visualizzata una pagina con il messaggio "non si ha accesso". Per risolvere questo problema, è possibile ottenere la chiave dell'account da un altro utente e collegarla con il nome e la chiave oppure è possibile chiedere a un utente di una firma di accesso condiviso per l'account di archiviazione e usarlo per associare l'account di archiviazione.
 
-Se è possibile visualizzare le chiavi dell'account, segnalare un problema in GitHub in modo che possiamo aiutarti a risolvere il problema.
+Se vengono visualizzate le chiavi dell'account, archiviare un problema in GitHub in modo da consentire la risoluzione del problema.
 
 ## <a name="issues-with-sas-url"></a>Problemi relativi all'URL SAS
 
@@ -244,22 +244,22 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 You can also download the application .tar.gz file, but you'll have to install dependencies manually. -->
 
 > [!IMPORTANT]
-> Storage Explorer, come specificato nel. gz download è supportato solo per le distribuzioni di Ubuntu. Altre distribuzioni non sono stati verificati e possono richiedere pacchetti aggiuntivi o alternativi.
+> Storage Explorer come specificato nel download di. tar. gz è supportato solo per le distribuzioni di Ubuntu. Altre distribuzioni non sono state verificate e possono richiedere pacchetti alternativi o aggiuntivi.
 
-Questi pacchetti sono i requisiti più comuni di Storage Explorer in Linux:
+Questi pacchetti sono i requisiti più comuni per Storage Explorer in Linux:
 
-* [Runtime di .NET core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [Runtime di .NET Core 2,0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * `libgconf-2-4`
 * `libgnome-keyring0` o `libgnome-keyring-dev`
 * `libgnome-keyring-common`
 
 > [!NOTE]
-> Storage Explorer versione 1.7.0 e versioni precedenti richiedono .NET Core 2.0. Se si ha una versione più recente di .NET Core installato, è necessario [patch Storage Explorer](#patching-storage-explorer-for-newer-versions-of-net-core). Se si esegue Storage Explorer 1.8.0 o maggiore quindi sarà possibile usare per .NET Core 2.2. Le versioni successive a 2.2 non sono state verificate per lavorare in questo momento.
+> Storage Explorer versione 1.7.0 e versioni precedenti richiedono .NET Core 2,0. Se è installata una versione più recente di .NET Core, sarà necessario applicare una [patch Storage Explorer](#patching-storage-explorer-for-newer-versions-of-net-core). Se si esegue Storage Explorer 1.8.0 o versione successiva, si dovrebbe essere in grado di usare fino a .NET Core 2,2. Le versioni successive a 2,2 non sono state verificate per funzionare in questo momento.
 
 # <a name="ubuntu-1904tab1904"></a>[Ubuntu 19.04](#tab/1904)
 
 1. Scaricare Storage Explorer.
-2. Installare il [Runtime di .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current).
+2. Installare il [runtime di .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current).
 3. Eseguire il comando seguente:
    ```bash
    sudo apt-get install libgconf-2-4 libgnome-keyring0
@@ -268,7 +268,7 @@ Questi pacchetti sono i requisiti più comuni di Storage Explorer in Linux:
 # <a name="ubuntu-1804tab1804"></a>[Ubuntu 18.04](#tab/1804)
 
 1. Scaricare Storage Explorer.
-2. Installare il [Runtime di .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current).
+2. Installare il [runtime di .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current).
 3. Eseguire il comando seguente:
    ```bash
    sudo apt-get install libgconf-2-4 libgnome-keyring-common libgnome-keyring0
@@ -276,8 +276,8 @@ Questi pacchetti sono i requisiti più comuni di Storage Explorer in Linux:
 
 # <a name="ubuntu-1604tab1604"></a>[Ubuntu 16.04](#tab/1604)
 
-1. Scaricare Storage Explorer
-2. Installare il [Runtime di .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current).
+1. Scarica Storage Explorer
+2. Installare il [runtime di .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current).
 3. Eseguire il comando seguente:
    ```bash
    sudo apt install libgnome-keyring-dev
@@ -285,28 +285,29 @@ Questi pacchetti sono i requisiti più comuni di Storage Explorer in Linux:
 
 # <a name="ubuntu-1404tab1404"></a>[Ubuntu 14.04](#tab/1404)
 
-1. Scaricare Storage Explorer
-2. Installare il [Runtime di .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current).
+1. Scarica Storage Explorer
+2. Installare il [runtime di .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current).
 3. Eseguire il comando seguente:
    ```bash
    sudo apt install libgnome-keyring-dev
    ```
+---
 
-### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>L'applicazione delle patch di Storage Explorer per le versioni più recenti di .NET Core
+### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>Applicazione di patch Storage Explorer per le versioni più recenti di .NET Core
 
-Per Storage Explorer 1.7.0 o versione precedente, potrebbe essere necessario applicare patch alla versione di .NET Core usata da Storage Explorer.
+Per Storage Explorer 1.7.0 o versioni precedenti, potrebbe essere necessario applicare patch alla versione di .NET Core usata da Storage Explorer.
 
-1. Scaricare la versione 1.5.43 di StreamJsonRpc [da nuget](https://www.nuget.org/packages/StreamJsonRpc/1.5.43). Cercare il collegamento "Download del pacchetto" sul lato destro della pagina.
-2. Dopo aver scaricato il pacchetto, modificare l'estensione di file da `.nupkg` a `.zip`.
+1. Scaricare la versione 1.5.43 di StreamJsonRpc [da NuGet](https://www.nuget.org/packages/StreamJsonRpc/1.5.43). Cercare il collegamento "Scarica pacchetto" sul lato destro della pagina.
+2. Dopo aver scaricato il pacchetto, modificare l'estensione del `.nupkg` file `.zip`da a.
 3. Decomprimere il pacchetto.
 4. Aprire la cartella `streamjsonrpc.1.5.43/lib/netstandard1.1/`.
-5. Copia `StreamJsonRpc.dll` nelle posizioni seguenti all'interno della cartella di Storage Explorer:
+5. Copiare `StreamJsonRpc.dll` nei percorsi seguenti all'interno della cartella Storage Explorer:
    * `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
    * `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
 
-## <a name="open-in-explorer-from-azure-portal-doesnt-work"></a>Apri In Explorer dal portale di Azure non funziona
+## <a name="open-in-explorer-from-azure-portal-doesnt-work"></a>Apri in Esplora da portale di Azure non funziona
 
-Se il pulsante "Apri In Explorer" nel portale di Azure non è accettabile, assicurarsi che si sta usando un browser compatibile. I browser seguenti sono stati testati per garantire la compatibilità.
+Se il pulsante "Apri in Esplora" nel portale di Azure non funziona per l'utente, assicurarsi di usare un browser compatibile. I browser seguenti sono stati testati per la compatibilità.
 * Microsoft Edge
 * Mozilla Firefox
 * Google Chrome

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/07/2019
+ms.date: 08/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 7f253b71271787f7f2ef722134862ca72e0159df
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 22fa0ba52c346b8331fd6895cf87f3e15ee68ac6
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855761"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950081"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -99,7 +99,7 @@ Le **aree di Azure locali** sono quelle che possono accedere a [ExpressRoute loc
 | **Dubai** | Etisalat UAE | Emirati Arabi Uniti settentrionali | Etisalat UAE |
 | **Dubai2** | du datamena | Emirati Arabi Uniti settentrionali | du datamena, Orixcom |
 | **Dublino** | Equinix | Europa settentrionale | Colt, eir, Equinix, Interxion, Megaport |
-| **Francoforte** | Interxion | n/d | DE-CIX, Interxion |
+| **Francoforte** | Interxion | n/d | DE-CIX, Interxion, arancione |
 | **RAS di Hong Kong** | Equinix | Asia orientale | Reti Aryaka, British Telecom, CenturyLink Cloud Connect, Chief Telecom, Cina Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telia Carrier, Verizon |
 | **Johannesburg** | Teraco | Sudafrica settentrionale | British Telecom, soluzioni Internet-Cloud Connect, Liquid Telecom, teraco |
 | **Kuala Lumpur** | TIME dotCom | n/d | TIME dotCom |
@@ -110,7 +110,7 @@ Le **aree di Azure locali** sono quelle che possono accedere a [ExpressRoute loc
 | **Marsiglia** |Interxion | Francia meridionale | DE-CIX, Interxion, Jaguar Network |
 | **Melbourne** | NextDC | Australia sud-orientale | AARNet, Devoli, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation, TPG Telecom |
 | **Miami** | Equinix | n/d | C3ntro+, Equinix, Megaport, Neutrona Networks |
-| **Montreal** | Cologix | n/d | Bell Canada, Cologix, Telus, Zayo |
+| **Montreal** | Cologix | n/d | Bell Canada, Cologix, Megaport, Telus, Zayo |
 | **Mumbai** | Tata Communications | India occidentale | Global CloudXchange (GCX), Reliance jio, Sify, Tata Communications, Verizon |
 | **Mumbai2** | Airtel | India occidentale | Airtel, Sify, Vodafone Idea |
 | **New York** | Equinix | n/d | CenturyLink Cloud Connect, Coresite, Equinix, intercloud, Megaport, Packet, Zayo |

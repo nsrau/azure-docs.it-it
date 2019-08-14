@@ -7,12 +7,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: c4d01c3c72669f7fbfd5b2d8df0678cc0675ccde
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7f890ddf7aff63189a720f3d604b00610af7a933
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639571"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949858"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matrice di supporto per il backup con Backup di Microsoft Azure server o System Center DPM
 
@@ -55,7 +55,7 @@ Per altre informazioni:
 **Scenario** | **Agent** | **Location**
 --- | --- | ---
 **Backup di carichi di lavoro e computer locali** | L'agente protezione DPM/MAB viene eseguito nei computer di cui si vuole eseguire il backup.<br/><br/> Agente MARS nel server DPM/MAB.<br/> La versione minima dell'agente di Servizi di ripristino di Microsoft Azure o dell'agente di Backup di Azure richiesta per l'abilitazione di questa funzionalità è la 2.0.8719.0.  | DPM/MAB deve essere eseguito in locale.
-**Backup di carichi di lavoro e macchine virtuali di Azure** | Agente protezione DPM/MAB nel computer protetto.<br/><br/> Agente MARS nel server DPM/MAB. | DPM o il server di Backup di Microsoft Azure deve essere in esecuzione in una macchina virtuale di Azure.
+
 
 ## <a name="supported-deployments"></a>Distribuzioni supportate
 
@@ -166,9 +166,9 @@ La tabella seguente riepiloga gli elementi di cui è possibile eseguire il backu
 **Windows Server 2012 R2 (Datacenter e Standard)**<br/><br/> 64/32 bit | Server di Backup di Microsoft Azure v3, v2 | In locale/macchina virtuale di Azure. | **Protezione locale**: Volume/condivisione/cartella/file; stato del sistema/bare metal.<br/><br/> **Protezione della macchina virtuale di Azure**: Volume/condivisione/cartella/file.<br/><br/> Volumi deduplicati supportati. |
 **Windows Server 2012 con SP1 (Datacenter e Standard)**<br/><br/> 64/32 bit | Server di Backup di Microsoft Azure v3, v2 <br/><br/> [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) deve essere installato. | In locale/macchina virtuale di Azure. | **Protezione locale**: Volume/condivisione/cartella/file; stato del sistema/bare metal.<br/><br/> **Protezione della macchina virtuale di Azure**: Volume/condivisione/cartella/file.<br/><br/> Volumi deduplicati supportati. |
 **Windows 2008 R2 con SP1 (Standard ed Enterprise)**<br/><br/> 64/32 bit | Supportato da MAB V3, V2.<br/><br/> [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) deve essere installato. | In locale/macchina virtuale di Azure. |   **Protezione locale**: Volume/condivisione/cartella/file; stato del sistema/bare metal.<br/><br/> **Protezione della macchina virtuale di Azure**: Volume/condivisione/cartella/file.<br/><br/> Volumi deduplicati supportati. |
-**Windows 2008 R2 (Standard ed Enterprise)**<br/><br/> 64/32 bit | Per il server di Backup di Microsoft Azure v2/v3, nel sistema operativo deve essere in uso SP1. | In locale/macchina virtuale di Azure. | **Protezione locale**: Volume/condivisione/cartella/file; stato del sistema/bare metal.<br/><br/> **Protezione della macchina virtuale di Azure**: Volume/condivisione/cartella/file.<br/><br/> Volumi deduplicati supportati. |
-**Windows Server 2008 con SP2**<br/><br/> 64/32 bit | MABS v2, v3 | MAB V2, V3 è supportato quando MAB viene distribuito come macchina virtuale VMware.<br/><br/> Non viene fornito il supporto per il server di Backup di Microsoft Azure in esecuzione in una macchina virtuale di Azure. | Volume/condivisione/cartella/file; stato del sistema/bare metal. |
-**Windows Storage Server 2008** | MABS v2, v3 | MAB come server fisico locale/macchina virtuale Hyper-V. <br/><br/> Non viene fornito il supporto per il server di Backup di Microsoft Azure in esecuzione in una macchina virtuale di Azure. | Volume/condivisione/cartella/file; stato del sistema/bare metal.
+**Windows 2008 R2 (Standard ed Enterprise)**<br/><br/> 64/32 bit | Per MAB V3, V2 il sistema operativo deve eseguire SP1. | In locale/macchina virtuale di Azure. | **Protezione locale**: Volume/condivisione/cartella/file; stato del sistema/bare metal.<br/><br/> **Protezione della macchina virtuale di Azure**: Volume/condivisione/cartella/file.<br/><br/> Volumi deduplicati supportati. |
+**Windows Server 2008 con SP2**<br/><br/> 64/32 bit | Server di Backup di Microsoft Azure v3, v2 | MAB V2, V3 è supportato quando MAB viene distribuito come macchina virtuale VMware.<br/><br/> Non viene fornito il supporto per il server di Backup di Microsoft Azure in esecuzione in una macchina virtuale di Azure. | Volume/condivisione/cartella/file; stato del sistema/bare metal. |
+**Windows Storage Server 2008** | Server di Backup di Microsoft Azure v3, v2 | MAB come server fisico locale/macchina virtuale Hyper-V. <br/><br/> Non viene fornito il supporto per il server di Backup di Microsoft Azure in esecuzione in una macchina virtuale di Azure. | Volume/condivisione/cartella/file; stato del sistema/bare metal.
 **SQL Server 2017** | Server di Backup di Microsoft Azure v3 | In locale/macchina virtuale di Azure.| Backup del database di SQL Server.<br/><br/> Backup di cluster di SQL Server supportato.<br/><br/>Database archiviati in volumi condivisi cluster non supportati. |
 **SQL Server 2016/2016 con SP1** | Server di Backup di Microsoft Azure v3, v2 | In locale/macchina virtuale di Azure.| Backup del database di SQL Server.<br/><br/> Backup di cluster di SQL Server supportato.<br/><br/>Database archiviati in volumi condivisi cluster non supportati. |
 **SQL Server 2014**<br/><br/> **SQL Server 2012/SP1/SP2**<br/><br/> **SQL Server 2008 R2**<br/><br/> **SQL Server 2008** | Server di Backup di Microsoft Azure v3, v2 | In locale/macchina virtuale di Azure.| Backup del database di SQL Server.<br/><br/> Backup di cluster di SQL Server supportato.<br/><br/>Database archiviati in volumi condivisi cluster non supportati. |
@@ -195,7 +195,7 @@ La tabella seguente riepiloga gli elementi di cui è possibile eseguire il backu
 **Windows 2008 R2 (Standard ed Enterprise)**<br/><br/> 64/32 bit | In locale.<br/><br/> DPM non può essere installato come macchina virtuale VMware.<br/><br/> DPM in esecuzione in una macchina virtuale di Azure non è supportato. | **Protezione locale**: Volume/condivisione/cartella/file; stato del sistema/bare metal.
 **Windows Server 2008 con SP2**<br/><br/> 64/32 bit | Solo in locale.<br/><br/> DPM è supportato se in esecuzione come macchina virtuale VMware. L'esecuzione come server fisico o macchina virtuale Hyper-V non è supportata. | Volume/condivisione/cartella/file; stato del sistema/bare metal.
 **Windows Storage Server 2008** | DPM in locale in esecuzione come server fisico o macchina virtuale Hyper-V. | Volume/condivisione/cartella/file; stato del sistema/bare metal.
-**SQL Server 2017** | DPM SAC; DPM 2016 che esegue l'aggiornamento Rollup 5 o versione successiva.<br/><br/> In locale/macchina virtuale di Azure.| Backup del database di SQL Server.<br/><br/> Backup di cluster di SQL Server supportato.<br/><br/>Database archiviati in volumi condivisi cluster non supportati.
+**SQL Server 2017** | DPM SAC; DPM 2016 che esegue l'aggiornamento cumulativo 5 o versione successiva.<br/><br/> In locale/macchina virtuale di Azure.| Backup del database di SQL Server.<br/><br/> Backup di cluster di SQL Server supportato.<br/><br/>Database archiviati in volumi condivisi cluster non supportati.
 **SQL Server 2016 con SP1** | Non viene fornito il supporto per DPM 2012 R2; viene fornito il supporto per DPM SAC, DPM 2016 con l'aggiornamento cumulativo 4 o versioni successive.<br/><br/> In locale/macchina virtuale di Azure.| Backup del database di SQL Server.<br/><br/> Backup di cluster di SQL Server supportato.<br/><br/>Database archiviati in volumi condivisi cluster non supportati.
 **SQL Server 2016** | Non viene fornito il supporto per DPM 2012 R2. Supportato per DPM SAC, DPM 2016 dall'aggiornamento cumulativo 2 e versioni successive.<br/><br/> In locale/macchina virtuale di Azure.| Backup del database di SQL Server.<br/><br/> Backup di cluster di SQL Server supportato.<br/><br/>Database archiviati in volumi condivisi cluster non supportati.
 **SQL Server 2014**<br/><br/> **SQL Server 2012/SP1/SP2**<br/><br/> **SQL Server 2008 R2**<br/><br/> **SQL Server 2008** | SQL Server 2014 con DPM 2012 R2 che esegue l'aggiornamento cumulativo 4 e versioni successive.<br/><br/> In locale/macchina virtuale di Azure.| Backup del database di SQL Server.<br/><br/> Backup di cluster di SQL Server supportato.<br/><br/>Database archiviati in volumi condivisi cluster non supportati.

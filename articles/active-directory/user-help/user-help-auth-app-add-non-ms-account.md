@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d7a039f25339d91d77d5b6924674ea36a16c15b
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e1521d2b3d47667466636a1ac15f107826e40942
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880807"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942938"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>Aggiungere gli account non Microsoft
 
@@ -33,6 +33,9 @@ In generale, per tutti gli account personali, è necessario:
 1. Accedere all'account personale e quindi attivare la verifica a due fattori tramite il dispositivo o computer.
 
 2. Aggiungere l'account all'app Microsoft Authenticator. Potrebbe essere necessario eseguire una scansione di un codice a matrice come parte di questo processo.
+
+    >[!Note]
+    >Se è la prima volta che si configura l'app Microsoft Authenticator, è possibile che venga visualizzato un messaggio che chiede se consentire all'app di accedere alla fotocamera (iOS) o per consentire all'app di scattare foto e registrare video (Android). È necessario selezionare **Consenti** , in modo che l'app Authenticator possa accedere alla fotocamera per scattare un'immagine del codice a matrice nel passaggio successivo. Se non si consente la fotocamera, è comunque possibile configurare l'app Authenticator, ma è necessario aggiungere manualmente le informazioni sul codice. Per informazioni su come aggiungere manualmente il codice, vedere vedere [aggiungere manualmente un account all'app](user-help-auth-app-add-account-manual.md).
 
 Viene fornito il processo per gli account di Facebook, Google, GitHub e Amazon, ma il processo è lo stesso anche per qualsiasi altra app, ad esempio Instagram, Netflix o Adobe.
 
@@ -168,9 +171,6 @@ Aggiungere l'account Amazon attivando la verifica a due fattori e quindi aggiung
     La pagina cambia per visualizzare un codice a matrice. Non chiudere questa pagina.
 
 5. Aprire l'app Microsoft Authenticator, selezionare **Aggiungi account** dall'icona **Customize and control** (Personalizza e controlla) nell'angolo in alto a destra e quindi selezionare **Altro account (Google, Facebook, ecc.)** .
-
-    >[!Note]
-    >Se è la prima volta che si configura l'app Microsoft Authenticator, è possibile che venga visualizzato un messaggio che chiede se consentire all'app di accedere alla fotocamera (iOS) o per consentire all'app di scattare foto e registrare video (Android). È necessario selezionare **Consenti** , in modo che l'app Authenticator possa accedere alla fotocamera per scattare un'immagine del codice a matrice nel passaggio successivo. Se non si consente la fotocamera, è comunque possibile configurare l'app Authenticator, ma è necessario aggiungere manualmente le informazioni sul codice. Per informazioni su come aggiungere manualmente il codice, vedere vedere [aggiungere manualmente un account all'app](user-help-auth-app-add-account-manual.md).
 
 6. Usare la fotocamera del dispositivo per eseguire la scansione del codice a matrice dalla pagina **Scegli come ricevere i codici** sul computer.
 

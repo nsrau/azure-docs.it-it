@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/18/2019
 ms.author: kasing
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a7cccd36c619e58b8dedb9a52e70c478dc7b857c
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 5d255662f7db12537365f57eb71355ca2e11cc51
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707930"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947243"
 ---
 # <a name="vertically-scale-windows-vms-with-azure-automation"></a>Applicare la scalabilità verticale a macchine virtuali di Windows con Automazione di Azure
 
@@ -37,16 +37,17 @@ Per eseguire questa operazione, seguire questa procedura:
 3. Aggiungere un webhook al runbook
 4. Aggiungere un avviso alla macchina virtuale
 
-## <a name="scale-limitations"></a>Limitazioni di scalabilità
 
-A causa delle dimensioni della prima macchina virtuale, le dimensioni a cui la macchina può essere ridimensionata possono essere limitate a seconda della disponibilità di altre dimensioni nel cluster in cui viene distribuita la macchina virtuale corrente. Nei runbook di automazione pubblicati usati in questo articolo viene considerato questo caso e la scalabilità viene applicata solo all'interno delle coppie di dimensioni delle macchine virtuali seguenti. Pertanto, una macchina virtuale Standard_D1v2 non verrà improvvisamente ridimensionata verso l'alto a una Standard_G5 o verso il basso a una Basic_A0. Anche vincolata macchina virtuale di dimensioni di aumentare/ridurre le dimensioni non è supportato. 
+## <a name="scale-limitations"></a>Limitazioni di ridimensionamento
+
+A causa delle dimensioni della prima macchina virtuale, le dimensioni a cui la macchina può essere ridimensionata possono essere limitate a seconda della disponibilità di altre dimensioni nel cluster in cui viene distribuita la macchina virtuale corrente. Nei runbook di automazione pubblicati usati in questo articolo viene considerato questo caso e la scalabilità viene applicata solo all'interno delle coppie di dimensioni delle macchine virtuali seguenti. Pertanto, una macchina virtuale Standard_D1v2 non verrà improvvisamente ridimensionata verso l'alto a una Standard_G5 o verso il basso a una Basic_A0. Inoltre, le dimensioni della macchina virtuale vincolata non sono supportate. 
 
 È possibile scegliere di applicare il ridimensionamento tra le seguenti coppie di dimensioni:
 
-* [Serie a](#a-series)
-* [B-Series](#b-series)
-* [D-Series](#d-series)
-* [E-Series](#e-series)
+* [Serie A](#a-series)
+* [Serie B](#b-series)
+* [Serie D](#d-series)
+* [Serie E](#e-series)
 * [Serie F](#f-series)
 * [Serie G](#g-series)
 * [Serie H](#h-series)
@@ -56,7 +57,7 @@ A causa delle dimensioni della prima macchina virtuale, le dimensioni a cui la m
 
 ### <a name="a-series"></a>Serie A
 
-| Dimensioni iniziali | Aumentare le dimensioni | 
+| Dimensioni iniziali | Ridimensionare le dimensioni | 
 | --- | --- |
 | Basic_A0 | Basic_A1 |
 | Basic_A1 | Basic_A2 |
@@ -78,7 +79,7 @@ A causa delle dimensioni della prima macchina virtuale, le dimensioni a cui la m
 
 ### <a name="b-series"></a>Serie B
 
-| Dimensioni iniziali | Aumentare le dimensioni | 
+| Dimensioni iniziali | Ridimensionare le dimensioni | 
 | --- | --- |
 | Standard_B1s | Standard_B2s |
 | Standard_B1ms | Standard_B2ms |
@@ -87,7 +88,7 @@ A causa delle dimensioni della prima macchina virtuale, le dimensioni a cui la m
 
 ### <a name="d-series"></a>Serie D
 
-| Dimensioni iniziali | Aumentare le dimensioni | 
+| Dimensioni iniziali | Ridimensionare le dimensioni | 
 | --- | --- |
 | Standard_D1 | Standard_D2 |
 | Standard_D2 | Standard_D3 |
@@ -129,7 +130,7 @@ A causa delle dimensioni della prima macchina virtuale, le dimensioni a cui la m
 
 ### <a name="e-series"></a>Serie E
 
-| Dimensioni iniziali | Aumentare le dimensioni | 
+| Dimensioni iniziali | Ridimensionare le dimensioni | 
 | --- | --- |
 | Standard_E2_v3 | Standard_E4_v3 |
 | Standard_E4_v3 | Standard_E8_v3 |
@@ -146,7 +147,7 @@ A causa delle dimensioni della prima macchina virtuale, le dimensioni a cui la m
 
 ### <a name="f-series"></a>Serie F
 
-| Dimensioni iniziali | Aumentare le dimensioni | 
+| Dimensioni iniziali | Ridimensionare le dimensioni | 
 | --- | --- |
 | Standard_F1 | Standard_F2 |
 | Standard_F2 | Standard_F4 |
@@ -165,7 +166,7 @@ A causa delle dimensioni della prima macchina virtuale, le dimensioni a cui la m
 
 ### <a name="g-series"></a>Serie G
 
-| Dimensioni iniziali | Aumentare le dimensioni | 
+| Dimensioni iniziali | Ridimensionare le dimensioni | 
 | --- | --- |
 | Standard_G1 | Standard_G2 |
 | Standard_G2 | Standard_G3 |
@@ -178,14 +179,14 @@ A causa delle dimensioni della prima macchina virtuale, le dimensioni a cui la m
 
 ### <a name="h-series"></a>Serie H
 
-| Dimensioni iniziali | Aumentare le dimensioni | 
+| Dimensioni iniziali | Ridimensionare le dimensioni | 
 | --- | --- |
 | Standard_H8 | Standard_H16 |
 | Standard_H8m | Standard_H16m |
 
 ### <a name="l-series"></a>Serie L
 
-| Dimensioni iniziali | Aumentare le dimensioni | 
+| Dimensioni iniziali | Ridimensionare le dimensioni | 
 | --- | --- |
 | Standard_L4s | Standard_L8s |
 | Standard_L8s | Standard_L16s |
@@ -197,7 +198,7 @@ A causa delle dimensioni della prima macchina virtuale, le dimensioni a cui la m
 
 ### <a name="m-series"></a>Serie M
 
-| Dimensioni iniziali | Aumentare le dimensioni | 
+| Dimensioni iniziali | Ridimensionare le dimensioni | 
 | --- | --- |
 | Standard_M8ms | Standard_M16ms |
 | Standard_M16ms | Standard_M32ms |
@@ -210,7 +211,7 @@ A causa delle dimensioni della prima macchina virtuale, le dimensioni a cui la m
 
 ### <a name="n-series"></a>Serie N
 
-| Dimensioni iniziali | Aumentare le dimensioni | 
+| Dimensioni iniziali | Ridimensionare le dimensioni | 
 | --- | --- |
 | Standard_NC6 | Standard_NC12 |
 | Standard_NC12 | Standard_NC24 |
@@ -224,6 +225,7 @@ A causa delle dimensioni della prima macchina virtuale, le dimensioni a cui la m
 | Standard_NV12 | Standard_NV24 |
 | Standard_NV6s_v2 | Standard_NV12s_v2 |
 | Standard_NV12s_v2 | Standard_NV24s_v2 |
+| Standard_NV12s_v3 |Standard_NV48s_v3 |
 
 ## <a name="setup-azure-automation-to-access-your-virtual-machines"></a>Configurare Automazione di Azure per l'accesso alle macchine virtuali
 La prima operazione da eseguire è creare l'account di Automazione di Azure che ospiterà i runbook usati per ridimensionare una macchina virtuale. Il servizio Automazione ha introdotto di recente la funzionalità "Account RunAs", che semplifica molto l'impostazione dell'entità servizio per l'esecuzione automatica di runbook per conto dell'utente. Altre informazioni sono disponibili nell'articolo seguente.

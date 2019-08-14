@@ -7,24 +7,22 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 06/20/2019
+ms.date: 08/09/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 5038ae99a804b456c2cc388f07899278cc0f9a24
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 7f7575daa91cef5cb5be6274a699323fafe67a68
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312874"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935131"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Monitoraggio dell'attività di query e dell'utilizzo delle risorse in Azure SQL Data Warehouse
-Azure SQL Data Warehouse offre una ricca esperienza di monitoraggio nel portale di Azure per esplorare informazioni dettagliate sul carico di lavoro del data warehouse. Il portale di Azure è lo strumento consigliato per il monitoraggio del data warehouse, in quanto fornisce periodi di conservazione, avvisi, raccomandazioni, grafici personalizzabili, nonché dashboard di metriche e log configurabili. Il portale consente inoltre di integrare con altri servizi di monitoraggio di Azure, ad esempio Operations Management Suite (OMS) e il monitoraggio di Azure (log) per fornire un'esperienza olistica di monitoraggio non solo il data warehouse, ma anche l'intero analitica di Azure piattaforma per un'esperienza di monitoraggio integrata. Questa documentazione descrive le funzionalità di monitoraggio disponibili per ottimizzare e gestire la piattaforma analitica con SQL Data Warehouse. 
+Azure SQL Data Warehouse offre una ricca esperienza di monitoraggio nel portale di Azure per esplorare informazioni dettagliate sul carico di lavoro del data warehouse. Il portale di Azure è lo strumento consigliato per il monitoraggio del data warehouse, in quanto fornisce periodi di conservazione, avvisi, raccomandazioni, grafici personalizzabili, nonché dashboard di metriche e log configurabili. Il portale consente anche di eseguire l'integrazione con altri servizi di monitoraggio di Azure, come Operations Management Suite (OMS) e monitoraggio di Azure (log), per offrire un'esperienza di monitoraggio olistica solo per i data warehouse ma anche per l'intera analisi di Azure piattaforma per un'esperienza di monitoraggio integrata. Questa documentazione descrive le funzionalità di monitoraggio disponibili per ottimizzare e gestire la piattaforma analitica con SQL Data Warehouse. 
 
-## <a name="resource-utilization"></a>Utilizzo delle risorse 
+## <a name="resource-utilization"></a>Utilizzo risorse 
 Le metriche seguenti sono disponibili nel portale di Azure per SQL Data Warehouse. Tali metriche vengono rilevate tramite il [Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
 
-> [!NOTE]
-> Livello del nodo della CPU e IO metriche attualmente non riflettono correttamente sull'utilizzo di data warehouse. Queste metriche verranno rimossi in un prossimo futuro come il team migliora il monitoraggio e la risoluzione dei problemi di prestazioni per SQL Data Warehouse. 
 
 | Nome della metrica             | DESCRIZIONE                                                  | Tipo di aggregazione |
 | ----------------------- | ------------------------------------------------------------ | ---------------- |
@@ -41,17 +39,20 @@ Le metriche seguenti sono disponibili nel portale di Azure per SQL Data Warehous
 | Percentuale della cache utilizzata   | (Cache usata/Capacità della cache) * 100, dove "cache usata" è la somma di tutti i byte nella cache SSD locale in tutti i nodi e "capacità della cache" è la somma della capacità di archiviazione della cache SSD locale in tutti i nodi | Massima          |
 | Percentuale di tempdb locale | Uso di tempdb locale in tutti i nodi di calcolo: i valori vengono generati ogni cinque minuti | Massima          |
 
-## <a name="query-activity"></a>Attività di query
+> Aspetti da considerare quando si visualizzano le metriche e si configurano gli avvisi:
+>
+> - Connessioni non riuscite e riuscite per un particolare data warehouse non per il server logico
+
+## <a name="query-activity"></a>Attività query
 Per un'esperienza programmatica durante il monitoraggio di SQL Data Warehouse tramite T-SQL, il servizio fornisce un set di viste a gestione dinamica (DMV). Queste viste sono utili durante la risoluzione dei problemi e l'identificazione dei colli di bottiglia nelle prestazioni con il carico di lavoro.
 
 Per visualizzare l'elenco delle viste a gestione dinamica fornite da SQL Data Warehouse, fare riferimento a questa [documentazione](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views#sql-data-warehouse-dynamic-management-views-dmvs). 
 
 ## <a name="metrics-and-diagnostics-logging"></a>Metriche e registrazione diagnostica
-Log e metriche possono essere esportati in modo specifico per il monitoraggio di Azure, il [log di monitoraggio di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) componente ed è possibile accedervi a livello di programmazione tramite [registrare query](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata). La latenza di log per SQL Data Warehouse è di circa 10-15 minuti. Per altre informazioni sui fattori influire sulla latenza, vedere la documentazione seguente.
+Sia le metriche che i log possono essere esportati in monitoraggio di Azure, in particolare il componente [log di monitoraggio di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) , a cui è possibile accedere a livello di codice tramite query di [log](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata). La latenza del log per SQL Data Warehouse è circa 10-15 minuti. Per ulteriori informazioni sui fattori che influiscono sulla latenza, consultare la documentazione seguente.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Le seguenti guide introduttive descrivono scenari e casi d'uso comuni in cui avviene il monitoraggio e la gestione del data warehouse:
 
 - [Monitorare il carico di lavoro del data warehouse con viste a gestione dinamica](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)
-

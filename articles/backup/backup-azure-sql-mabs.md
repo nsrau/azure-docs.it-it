@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/24/2017
 ms.author: dacurwin
-ms.openlocfilehash: 5e91d63f4479d0677c57342cb1b726e33a45bb86
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 72de5857786f284bfc4afda1db093d5343bd7a43
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689078"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954467"
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>Eseguire il backup di SQL Server in Azure con il server di Backup di Azure
 Questo articolo descrive la procedura di configurazione per il backup dei database SQL Server mediante il server di Backup di Microsoft Azure (MABS).
@@ -44,7 +44,7 @@ Prima di iniziare, assicurarsi di avere [installato e preparato il server di Bac
     ![Metodo di protezione dei dati - disco a breve termine e online in Azure](./media/backup-azure-backup-sql/pg-name.png)
 7. Nella schermata **Specifica obiettivi a breve termine** includere gli input necessari per creare punti di backup sul disco.
 
-    Come si può vedere nell'immagine, il **Periodo di mantenimento dati** è impostato su *5 giorni* e la **Frequenza di sincronizzazione** è impostata su una volta ogni *15 minuti*, che corrisponde alla frequenza con cui viene eseguito il backup. **Backup completo rapido** è impostato su *8.00 PM*.
+    Qui si noterà che il periodo di **mantenimento** dati è impostato su *5 giorni*, la **frequenza di sincronizzazione** è impostata su una volta ogni *15 minuti*, ovvero la frequenza con cui viene eseguito il backup. **Backup completo rapido** è impostato su *8.00 PM*.
 
     ![Obiettivi a breve termine](./media/backup-azure-backup-sql/pg-shortterm.png)
 
@@ -129,7 +129,7 @@ Mentre nei passaggi precedenti sono stati creati i criteri di backup, un "punto 
 ## <a name="recover-a-sql-server-database-from-azure"></a>Ripristinare un database SQL Server da Azure
 I passaggi seguenti sono necessari per ripristinare un'entità protetta (database SQL Server) da Azure.
 
-1. Aprire la console di gestione del server DPM. Passare all'area di lavoro **Ripristino** dove si vedono i server di cui DPM ha eseguito il backup. Passare al database necessario (in questo caso ReportServer$MSDPM2012). In **Ripristino da** selezionare un orario che termina con **Online**.
+1. Aprire la console di gestione del server DPM. Passare all'area di lavoro **Ripristino** dove si vedono i server di cui DPM ha eseguito il backup. Passare al database necessario (in questo caso ReportServer$MSDPM2012). Selezionare un **ripristino dal** momento che termina con **online**.
 
     ![Selezione di un punto di ripristino](./media/backup-azure-backup-sql/sqlbackup-restorepoint.png)
 2. Fare clic con il pulsante destro del mouse sul nome del database e scegliere **Ripristina**.

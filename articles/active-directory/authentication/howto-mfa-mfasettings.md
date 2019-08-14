@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7011025a1d94a5c99bf2338d9f80c683c2fd7b35
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 12fd08fa301cb22857470e3c81d7f4f7c1f04de9
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514968"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68948883"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurare le impostazioni di Azure Multi-Factor Authentication
 
 Questo articolo offre informazioni utili per gestire le impostazioni di Azure Multi-Factor Authentication nel portale di Azure. L'articolo illustra diversi argomenti che permettono di ottenere il massimo da Azure Multi-Factor Authentication. Non tutte le funzionalità sono disponibili in tutte le versioni di Azure per l'autenticazione a più fattori.
 
-È possibile accedere alle impostazioni correlate ad Azure multi-factor authentication dalla portale di Azure passando a **Azure Active Directory** > autenticazione a più**fattori.**
+È possibile accedere alle impostazioni correlate ad Azure multi-factor authentication dalla portale di Azure passando a **Azure Active Directory** > autenticazione a più fattori.
 
 ![Portale di Azure - Impostazioni di Azure AD Multi-Factor Authentication](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
@@ -44,7 +44,7 @@ Alcune di queste impostazioni si applicano al server MFA, ad Azure MFA o a entra
 
 Le impostazioni in questa sezione sono valide solo per il server MFA.
 
-| Funzionalità | Descrizione |
+| Funzionalità | DESCRIZIONE |
 | ------- | ----------- |
 | Impostazioni del server | Permette di scaricare il server MFA e di generare le credenziali di attivazione per inizializzare l'ambiente |
 | [Bypass monouso](#one-time-bypass) | Permette a un utente di eseguire l'autenticazione senza completare la verifica in due passaggi per un periodo di tempo limitato. |
@@ -364,7 +364,7 @@ Indipendentemente dal fatto che la funzionalità Indirizzi IP attendibili sia di
 
 Quando gli utenti registrano i propri account per Azure Multi-Factor Authentication, scelgono il metodo di verifica preferito tra le opzioni abilitate. Le linee guida per il processo di registrazione dell'utente sono disponibili in [Configurare l'account per la verifica in due passaggi](../user-help/multi-factor-authentication-end-user-first-time.md).
 
-| Metodo | Descrizione |
+| Metodo | DESCRIZIONE |
 |:--- |:--- |
 | Chiamata al telefono |Invia una chiamata vocale automatizzata. Per l’autenticazione, l'utente risponde alla chiamata e preme # sul tastierino telefonico. Il numero di telefono non viene sincronizzato con Active Directory locale. |
 | SMS al telefono |Invia un messaggio di testo contenente un codice di verifica. All'utente viene richiesto di immettere il codice di verifica nell'interfaccia di accesso. Questo processo è denominato SMS unidirezionale. L'SMS bidirezionale significa che l'utente deve disporre il testo in un codice specifico. L'SMS bidirezionale è deprecato e non è supportato a partire dal 14 novembre 2018. In quella data gli utenti configurati per l'SMS bidirezionale passeranno automaticamente alla verifica _chiamata al telefono_.|
@@ -389,8 +389,7 @@ La funzionalità di _memorizzazione di Multi-Factor Authentication_ per disposit
 >[!IMPORTANT]
 >Se un dispositivo o un account viene compromesso, la memorizzazione di Multi-Factor Authentication per i dispositivi attendibili può influire sulla sicurezza. Se viene compromesso un account aziendale o un dispositivo attendibile viene smarrito o rubato, è necessario [ripristinare Multi-Factor Authentication su tutti i dispositivi](howto-mfa-userdevicesettings.md#restore-mfa-on-all-remembered-devices-for-a-user).
 >
->L'azione di ripristino revoca lo stato di attendibilità di tutti i dispositivi e l'utente deve eseguire nuovamente la verifica in due passaggi. È possibile anche istruire gli utenti a ripristinare Multi-Factor Authentication sui propri dispositivi con le istruzioni disponibili in [Manage your settings for two-step verification](../user-help/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted) (Gestire le impostazioni per la verifica in due passaggi).
->
+>L'azione di ripristino revoca lo stato di attendibilità di tutti i dispositivi e l'utente deve eseguire nuovamente la verifica in due passaggi. È possibile anche istruire gli utenti a ripristinare Multi-Factor Authentication sui propri dispositivi con le istruzioni disponibili in [Manage your settings for two-step verification](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device) (Gestire le impostazioni per la verifica in due passaggi).
 
 ### <a name="how-the-feature-works"></a>Funzionamento della funzionalità
 

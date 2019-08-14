@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b1591f4f1e96bbb2bffb80a2c652963faa5dca5b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4b55e979c3056f89eb76a1d2c86f9a770d2d3e05
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077651"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935385"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurazioni e operazioni dell'infrastruttura SAP HANA in Azure
 Questa guida contiene le indicazioni necessarie per configurare l'infrastruttura di Azure e gestire i sistemi SAP HANA distribuiti in macchine virtuali native di Azure. Il documento include anche informazioni sulla configurazione per lo scale-out di SAP HANA per lo SKU di VM M128s. Questo documento non deve sostituire la documentazione standard di SAP, che include:
@@ -68,12 +68,12 @@ Per distribuire le macchine virtuali in Azure, usare:
 È anche possibile distribuire una piattaforma SAP HANA installata completa nei servizi di macchine virtuali di Azure tramite la [piattaforma SAP Cloud](https://cal.sap.com/). Per una descrizione del processo di installazione, vedere [Distribuire SAP S/4HANA o BW/4HANA in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h) oppure usare lo script di automazione rilasciato [qui](https://github.com/AzureCAT-GSI/SAP-HANA-ARM).
 
 >[!IMPORTANT]
-> Per usare le macchine virtuali M208xx_v2, è necessario prestare attenzione a selezionare un'immagine SUSE Linux dalla raccolta immagini di macchina virtuale di Azure. Per leggere i dettagli, leggere l'articolo [dimensioni delle macchine virtuali ottimizzate per la memoria](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series). Red Hat non è ancora supportata per l'uso di HANA su Mv2 famiglia di macchine virtuali. La pianificazione corrente consiste nel fornire supporto per le versioni di Red Hat esegue HANA per la famiglia di VM Mv2 in Q4/CY2019 
+> Per usare le macchine virtuali M208xx_v2, è necessario prestare attenzione alla selezione dell'immagine SUSE Linux dalla raccolta immagini della macchina virtuale di Azure. Per leggere i dettagli, vedere l'articolo dimensioni delle [macchine virtuali con ottimizzazione](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series)per la memoria. Red Hat non è ancora supportato per l'uso di HANA in macchine virtuali della famiglia Mv2. La pianificazione corrente prevede il supporto per le versioni di Red Hat che eseguono HANA sulla famiglia di macchine virtuali Mv2 in Q4/CY2019 
 > 
 
 
 ### <a name="storage-configuration-for-sap-hana"></a>Configurazione dell'archiviazione per SAP HANA
-Per le configurazioni di archiviazione e i tipi di archiviazione da usare con SAP HANA in Azure, vedere il documento [configurazioni di archiviazione macchina virtuale di SAP HANA in Azure](./hana-vm-operations-storage.md)
+Per le configurazioni di archiviazione e i tipi di archiviazione da usare con SAP HANA in Azure, leggere il documento [SAP Hana configurazioni di archiviazione delle macchine virtuali di Azure](./hana-vm-operations-storage.md)
 
 
 ### <a name="set-up-azure-virtual-networks"></a>Configurare le reti virtuali di Azure
@@ -153,11 +153,11 @@ Di conseguenza, la struttura di base per un singolo nodo in una configurazione c
 
 La configurazione di base di un nodo di macchina virtuale per lo scale-out di SAP HANA è simile alla seguente:
 
-- Per **/hana/shared**, si crea un cluster NFS a disponibilità elevata basato su SUSE Linux 12 SP3. In questo cluster host il **/hana/condiviso** condivisioni NFS configurazione con scalabilità orizzontale e SAP NetWeaver o BW/4 Hana servizio centrale. La documentazione per creare una configurazione di questo tipo è disponibile nell'articolo [Disponibilità elevata per NFS in macchine virtuali di Azure su SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)
+- Per **/hana/shared**, si crea un cluster NFS a disponibilità elevata basato su SUSE Linux 12 SP3. Questo cluster ospita le condivisioni NFS **/Hana/Shared** dei servizi di configurazione con scalabilità orizzontale e SAP NETWEAVER o BW/4HANA Central. La documentazione per creare una configurazione di questo tipo è disponibile nell'articolo [Disponibilità elevata per NFS in macchine virtuali di Azure su SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)
 - Tutti gli altri volumi di disco **NON** vengono condivisi tra i diversi nodi e **NON** sono basati su NFS. Le configurazioni e le procedure per le installazioni di HANA con scale-out con **/hana/data** e **/hana/log** non condivisi sono illustrate più avanti in questo documento.
 
 >[!NOTE]
->Il cluster NFS a disponibilità elevata visualizzato finora nelle immagini è supportato solo con SUSE Linux. Una soluzione NFS a disponibilità elevata, basata su Red Hat verrà informato in un secondo momento.
+>Il cluster NFS a disponibilità elevata visualizzato finora nelle immagini è supportato solo con SUSE Linux. Una soluzione NFS a disponibilità elevata basata su Red Hat verrà consigliata in un secondo momento.
 
 Il ridimensionamento dei volumi è lo stesso che nello scale-up, tranne che per **/hana/shared**. Per lo SKU di VM M128s, le dimensioni e i tipi suggeriti sono simili ai seguenti:
 
@@ -166,14 +166,14 @@ Il ridimensionamento dei volumi è lo stesso che nello scale-up, tranne che per 
 | M128s | 2000 GiB | 2000 MB/s |3 x P30 | 2 x P20 | 1 x P6 | 1 x P6 | 2 x P40 |
 
 
-Controllare se la velocità effettiva di archiviazione per i diversi volumi suggeriti soddisfa il carico di lavoro che si desidera eseguire. Se il carico di lavoro richiede volumi più elevati per **/hana/data** e **/hana/log**, è necessario aumentare il numero di dischi rigidi virtuali di Archiviazione Premium di Azure. Ridimensionamento di un volume con più dischi rigidi virtuali rispetto a elencati aumenta il numero di IOPS e velocità effettiva dei / o entro i limiti del tipo di macchina virtuale di Azure. Applicare anche l'acceleratore di scrittura di Azure ai dischi che costituiscono il volume **/hana/log**.
+Verificare che la velocità effettiva di archiviazione per i diversi volumi suggeriti soddisfi il carico di lavoro che si desidera eseguire. Se il carico di lavoro richiede volumi più elevati per **/hana/data** e **/hana/log**, è necessario aumentare il numero di dischi rigidi virtuali di Archiviazione Premium di Azure. Il dimensionamento di un volume con più dischi rigidi virtuali rispetto a quelli elencati aumenta il numero di IOPS e la velocità effettiva di I/O entro i limiti del tipo di macchina virtuale Applicare anche l'acceleratore di scrittura di Azure ai dischi che costituiscono il volume **/hana/log**.
  
 Nel documento [SAP HANA TDI Storage Requirements](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) (Requisiti di archiviazione di SAP HANA TDI) viene indicata una formula per definire le dimensioni del volume **/hana/shared** per lo scale-out come dimensioni memoria di un singolo nodo di lavoro ogni quattro nodi di lavoro.
 
 Supponendo che si usi la VM di Azure M128s certificata per lo scale-out di SAP HANA con circa 2 TB di memoria, le raccomandazioni SAP possono essere riepilogate come segue:
 
 - Un nodo master e fino a quattro nodi di lavoro. La dimensione del volume **/hana/shared** deve essere di 2 TB. 
-- Un nodo master e da cinque a otto nodi di lavoro. La dimensione di **/hana/shared** deve essere di 4 TB. 
+- Un nodo master e da cinque a otto nodi di lavoro, la dimensione di **/Hana/Shared** deve essere 4 TB. 
 - Un nodo master e da 9 a 12 nodi di lavoro. Per **/hana/shared** sarà necessaria una dimensione di 6 TB. 
 - Un nodo master e da 12 a 15 nodi di lavoro. Per il volume **/hana/shared** è necessaria una dimensione di 8 TB.
 
@@ -216,7 +216,7 @@ Per condividere il cluster NFS a disponibilità elevata tra le configurazioni SA
 ### <a name="installing-sap-hana-scale-out-n-azure"></a>Installazione dello scale-out SAP HANA in Azure
 Per installare una configurazione SAP con scale-out, è necessario eseguire i passaggi generali seguenti:
 
-- Distribuzione o adattamento di una nuova infrastruttura di rete virtuale di Azure
+- Distribuzione di una nuova infrastruttura di Azure VNet esistente
 - Distribuzione delle nuove macchine virtuali tramite volumi di Archiviazione Premium gestiti di Azure
 - Distribuzione di un nuovo cluster NFS a disponibilità elevata o adattamento di uno esistente
 - Adattare il routing di rete per assicurarsi che, ad esempio, la comunicazione tra nodi tra le macchine virtuali non venga instradata tramite un'[appliance virtuale di rete](https://azure.microsoft.com/solutions/network-appliances/). Lo stesso vale per il traffico tra le VM e il cluster NFS a disponibilità elevata.
@@ -228,16 +228,16 @@ Per installare una configurazione SAP con scale-out, è necessario eseguire i pa
 Quando viene distribuita l'infrastruttura di VM di Azure e vengono eseguite tutte le altre operazioni di preparazione, è necessario installare le configurazioni con scale-out di SAP HANA seguendo questi passaggi:
 
 - Installare il nodo master SAP HANA in base alla documentazione di SAP
-- **Dopo l'installazione, è necessario modificare il file global.ini e aggiungere il parametro "basepath_shared = no" a global.ini**. Questo parametro consente di SAP HANA per l'esecuzione di scalabilità orizzontale senza 'condivisa' **/hana/data** e **hana/log** volumi tra i nodi. Informazioni dettagliate sono fornite nella [nota SAP n. 2080991](https://launchpad.support.sap.com/#/notes/2080991).
+- **Dopo l'installazione, è necessario modificare il file global.ini e aggiungere il parametro "basepath_shared = no" a global.ini**. Questo parametro consente di eseguire SAP HANA in scalabilità orizzontale senza volumi ' Shared ' **/Hana/data** e **/Hana/log** tra i nodi. Informazioni dettagliate sono fornite nella [nota SAP n. 2080991](https://launchpad.support.sap.com/#/notes/2080991).
 - Dopo aver modificato il parametro global.ini, riavviare l'istanza di SAP HANA
 - Aggiungere altri nodi di lavoro. Vedere anche <https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/0d9fe701e2214e98ad4f8721f6558c34.html>. Specificare la rete interna per la comunicazione tra nodi di SAP HANA durante l'installazione o in seguito usando, ad esempio, hdblcm locale. Per una documentazione più dettagliata, vedere anche la [nota SAP n. 2183363](https://launchpad.support.sap.com/#/notes/2183363). 
 
-Seguendo questa routine di configurazione, la configurazione con scale-out installata userà dischi non condivisi per eseguire **/hana/data** e **/hana/log**. Mentre il **/hana/condiviso** volume sta per essere inserito su disponibilità elevata condivisione NFS.
+Seguendo questa routine di configurazione, la configurazione con scale-out installata userà dischi non condivisi per eseguire **/hana/data** e **/hana/log**. Mentre il volume **/Hana/Shared** verrà inserito nella condivisione NFS a disponibilità elevata.
 
 
 ## <a name="sap-hana-dynamic-tiering-20-for-azure-virtual-machines"></a>SAP HANA Dynamic Tiering 2.0 per macchine virtuali di Azure
 
-Oltre alle certificazioni di SAP HANA nelle macchine virtuali della serie M di Azure, anche SAP HANA Dynamic Tiering 2.0 è supportato in Microsoft Azure. Vedere più avanti i collegamenti alla documentazione di SAP HANA Dynamic Tiering. Anche se non esistono differenze nell'installazione o nel funzionamento del prodotto, ad esempio, tramite il pannello di controllo di SAP HANA in una macchina virtuale, alcuni elementi importanti sono obbligatori per il supporto ufficiale in Azure. Di seguito vengono descritti questi punti chiave. Resto di questo articolo, verrà invece il nome completo 2.0 la suddivisione in livelli dinamica verrà utilizzato l'abbreviazione di "DT 2.0".
+Oltre alle certificazioni di SAP HANA nelle macchine virtuali della serie M di Azure, anche SAP HANA Dynamic Tiering 2.0 è supportato in Microsoft Azure. Vedere più avanti i collegamenti alla documentazione di SAP HANA Dynamic Tiering. Anche se non esistono differenze nell'installazione o nel funzionamento del prodotto, ad esempio, tramite il pannello di controllo di SAP HANA in una macchina virtuale, alcuni elementi importanti sono obbligatori per il supporto ufficiale in Azure. Di seguito vengono descritti questi punti chiave. Nell'articolo verrà usata l'abbreviazione "DT 2,0" anziché il nome completo a livelli dinamici 2,0.
 
 SAP HANA Dynamic Tiering 2.0 non è supportato da SAP BW o S4HANA. I casi d'uso principali sono attualmente le applicazioni HANA native.
 
@@ -253,7 +253,7 @@ La figura seguente offre una panoramica del supporto di DT 2.0 in Microsoft Azur
 - Alla VM DT 2.0 devono essere collegati più dischi di Azure
 - È necessario creare un volume RAID/con striping software (tramite lvm o mdadm) usando lo striping tra i dischi di Azure
 
-Altri dettagli verranno spiegati nelle sezioni seguenti.
+Ulteriori dettagli verranno illustrati nelle sezioni riportate di seguito.
 
 ![Panoramica dell'architettura di SAP HANA DT 2.0](media/hana-vm-operations/hana-dt-20.PNG)
 
@@ -291,7 +291,7 @@ Per altre informazioni sulla rete accelerata di Azure, vedere [qui](https://docs
 
 ### <a name="vm-storage-for-sap-hana-dt-20"></a>Risorse di archiviazione delle macchine virtuali per SAP HANA DT 2.0
 
-In base alle indicazioni sulle procedure consigliate di DT 2.0, la velocità effettiva di I/O dei dischi deve essere almeno di 50 MB/sec per ogni core fisico. Esaminando la specifica per i due tipi di macchine Virtuali di Azure, che sono supportate per DT 2.0, ad esempio le dimensioni massime del disco limite di velocità effettiva dei / o per ottenere l'aspetto della macchina virtuale:
+In base alle indicazioni sulle procedure consigliate di DT 2.0, la velocità effettiva di I/O dei dischi deve essere almeno di 50 MB/sec per ogni core fisico. Osservare le specifiche per i due tipi di VM di Azure, supportati per DT 2,0, il limite massimo di velocità effettiva di i/o del disco per la macchina virtuale è simile al seguente:
 
 - E32sv3:   768 MB/sec (senza memorizzazione nella cache), ovvero un rapporto di 48 MB/sec per ogni core fisico
 - M64-32ms:  1000 MB/sec (senza memorizzazione nella cache), ovvero un rapporto di 62,5 MB/sec per ogni core fisico

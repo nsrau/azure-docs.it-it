@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: manayar
-ms.openlocfilehash: 2415d0dc2b9a2c4229d9910b42eb8ec9309ac7a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ed75a72360253996471034b001e12e8190cf733
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64869102"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935275"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Aggiungere un'immagine personalizzata in un modello di set di scalabilità di Azure
 
-Questo articolo illustra come modificare la [modello di set di scalabilità di base](virtual-machine-scale-sets-mvss-start.md) per la distribuzione dall'immagine personalizzata.
+Questo articolo illustra come modificare il [modello di set](virtual-machine-scale-sets-mvss-start.md) di scalabilità di base per la distribuzione da un'immagine personalizzata.
 
 ## <a name="change-the-template-definition"></a>Modificare la definizione del modello
-In un [articolo precedente](virtual-machine-scale-sets-mvss-start.md) è stato creato un modello di set di scalabilità di base. È ora verrà usare tale modello precedente e modificarlo per creare un modello che distribuisce un set di scalabilità da un'immagine personalizzata.  
+In un [articolo precedente](virtual-machine-scale-sets-mvss-start.md) è stato creato un modello di set di scalabilità di base. A questo punto si userà il modello precedente e lo si modificherà per creare un modello che distribuisce un set di scalabilità da un'immagine personalizzata.  
 
 ### <a name="creating-a-managed-disk-image"></a>Creazione dell'immagine di un disco gestito
 
@@ -97,15 +97,11 @@ Nella risorsa del set di scalabilità aggiungere una clausola `dependsOn` che fa
 
 In `imageReference` del set di scalabilità `storageProfile` anziché specificare editore, offerta, SKU e versione di un'immagine della piattaforma, specificare `id` della risorsa `Microsoft.Compute/images`:
 
-```diff
+```json
          "virtualMachineProfile": {
            "storageProfile": {
              "imageReference": {
--              "publisher": "Canonical",
--              "offer": "UbuntuServer",
--              "sku": "16.04-LTS",
--              "version": "latest"
-+              "id": "[resourceId('Microsoft.Compute/images', 'myCustomImage')]"
+              "id": "[resourceId('Microsoft.Compute/images', 'myCustomImage')]"
              }
            },
            "osProfile": {

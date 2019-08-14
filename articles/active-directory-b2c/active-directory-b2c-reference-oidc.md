@@ -11,12 +11,12 @@ ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6b5157a71ce15d4dfd199b6826be22235e61df97
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0e60bedcf1324b443d9b9cd34e8dc695fdb0b372
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848539"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931745"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Accesso Web con OpenID Connect in Azure Active Directory B2C
 
@@ -73,17 +73,17 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_edit_profile
 ```
 
-| Parametro | Obbligatoria | DESCRIZIONE |
+| Parametro | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| client_id | Sì | ID applicazione assegnato dall' [portale di Azure](https://portal.azure.com/) all'applicazione. |
+| client_id | Yes | ID applicazione assegnato dall' [portale di Azure](https://portal.azure.com/) all'applicazione. |
+| nonce | Sì | Valore incluso nella richiesta, generato dall'applicazione, incluso nel token ID risultante come attestazione. L'applicazione può quindi verificare questo valore per attenuare gli attacchi di riproduzione del token. Il valore è in genere una stringa casuale univoca che può essere usata per identificare l'origine della richiesta. |
+| p | Sì | Flusso utente eseguito. È il nome di un flusso utente creato nel tenant del Azure AD B2C. Il nome del flusso utente deve iniziare con `b2c\_1\_`. |
 | response_type | Sì | Deve includere un token ID per OpenID Connect. Se l'applicazione Web richiede anche token per chiamare un'API Web, è possibile usare `code+id_token`. |
-| redirect_uri | No | Il `redirect_uri` parametro dell'applicazione, in cui le risposte di autenticazione possono essere inviate e ricevute dall'applicazione. Deve corrispondere esattamente a uno dei `redirect_uri` parametri registrati nella portale di Azure, ad eccezione del fatto che deve essere codificato in URL. |
 | scope | Sì | Elenco di ambiti separati da spazi. L'ambito `openid` indica un'autorizzazione per l'accesso dell'utente e per ottenere i dati relativi all'utente sotto forma di token ID. L' `offline_access` ambito è facoltativo per le applicazioni Web. Indica che l'applicazione richiede un token di *aggiornamento* per l'accesso esteso alle risorse. |
+| prompt | No | Tipo di interazione utente obbligatoria. L'unico valore valido in questa fase è `login`, che impone all'utente di immettere le credenziali per la richiesta. |
+| redirect_uri | No | Il `redirect_uri` parametro dell'applicazione, in cui le risposte di autenticazione possono essere inviate e ricevute dall'applicazione. Deve corrispondere esattamente a uno dei `redirect_uri` parametri registrati nella portale di Azure, ad eccezione del fatto che deve essere codificato in URL. |
 | response_mode | No | Metodo utilizzato per inviare di nuovo il codice di autorizzazione risultante all'applicazione. Può essere `query`, `form_post` o `fragment`.  `form_post` è la modalità di risposta consigliata perché offre la sicurezza migliore. |
 | stato | No | Valore incluso nella richiesta che viene anche restituito nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Per evitare gli attacchi di richiesta intersito falsa, viene in genere usato un valore univoco generato casualmente. Lo stato viene inoltre usato per codificare le informazioni sullo stato dell'utente nell'applicazione prima che venga eseguita la richiesta di autenticazione, ad esempio la pagina in cui si trovava. |
-| nonce | Yes | Valore incluso nella richiesta, generato dall'applicazione, incluso nel token ID risultante come attestazione. L'applicazione può quindi verificare questo valore per attenuare gli attacchi di riproduzione del token. Il valore è in genere una stringa casuale univoca che può essere usata per identificare l'origine della richiesta. |
-| p | Yes | Flusso utente eseguito. È il nome di un flusso utente creato nel tenant del Azure AD B2C. Il nome del flusso utente deve iniziare con `b2c\_1\_`. |
-| prompt | No | Tipo di interazione utente obbligatoria. L'unico valore valido in questa fase è `login`, che impone all'utente di immettere le credenziali per la richiesta. |
 
 A questo punto, all'utente viene richiesto di completare il flusso di lavoro. L'utente potrebbe dover immettere il nome utente e la password, accedere con un'identità di social networking o iscriversi alla directory. Potrebbero essere presenti altri passaggi a seconda di come viene definito il flusso utente.
 
@@ -113,7 +113,7 @@ error=access_denied
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 | --------- | ----------- |
 | error | Codice che può essere usato per classificare i tipi di errori che si verificano. |
 | error_description | Messaggio di errore specifico che consente di identificare la causa principale di un errore di autenticazione. |
@@ -129,7 +129,7 @@ Azure AD B2C dispone di un endpoint di metadati OpenID Connect, che consente a u
 
 Una delle proprietà del documento di configurazione è `jwks_uri`, il cui valore per lo stesso flusso utente è:
 
-[https://login.microsoftonline.com/consumers/](`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`).
+[https://login.microsoftonline.com/common/](`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`).
 
 Per determinare quale flusso utente è stato usato per la firma di un token ID e da dove ottenere i metadati, sono disponibili due opzioni. Innanzitutto, il nome del flusso utente è incluso nell'attestazione `acr` del token ID. In secondo luogo, è possibile codificare il flusso utente nel valore del parametro `state` quando si rilascia la richiesta, per poi decodificarlo e determinare quale flusso utente è stato usato. Entrambi i metodi sono validi.
 
@@ -169,13 +169,13 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 | Parametro | Obbligatoria | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| p | Sì | Flusso utente usato per acquisire il codice di autorizzazione. Non è possibile usare un flusso utente diverso in questa richiesta. Aggiungere questo parametro alla stringa di query, non al corpo del POST. |
 | client_id | Sì | ID applicazione assegnato dall' [portale di Azure](https://portal.azure.com/) all'applicazione. |
-| grant_type | Sì | Tipo di concessione, che deve essere `authorization_code` per il flusso del codice di autorizzazione. |
-| scope | No | Elenco di ambiti separati da spazi. L'ambito `openid` indica un'autorizzazione per l'accesso dell'utente e per ottenere i dati relativi all'utente sotto forma di parametri id_token. Può essere usato per ottenere i token per l'API Web back-end dell'applicazione, che è rappresentata dallo stesso ID applicazione del client. L' `offline_access` ambito indica che l'applicazione richiede un token di aggiornamento per l'accesso esteso alle risorse. |
-| code | Sì | Codice di autorizzazione acquisito all'inizio del flusso utente. |
-| redirect_uri | Yes | Parametro `redirect_uri` dell'applicazione dove è stato ricevuto il codice di autorizzazione. |
 | client_secret | Sì | Segreto dell'applicazione generato nel [portale di Azure](https://portal.azure.com/). La chiave privata dell'applicazione è un elemento di sicurezza importante. È necessario archiviarla in modo sicuro nel server. Modificare periodicamente questo segreto client. |
+| code | Sì | Codice di autorizzazione acquisito all'inizio del flusso utente. |
+| grant_type | Yes | Tipo di concessione, che deve essere `authorization_code` per il flusso del codice di autorizzazione. |
+| p | Sì | Flusso utente usato per acquisire il codice di autorizzazione. Non è possibile usare un flusso utente diverso in questa richiesta. Aggiungere questo parametro alla stringa di query, non al corpo del POST. |
+| redirect_uri | Sì | Parametro `redirect_uri` dell'applicazione dove è stato ricevuto il codice di autorizzazione. |
+| scope | No | Elenco di ambiti separati da spazi. L'ambito `openid` indica un'autorizzazione per l'accesso dell'utente e per ottenere i dati relativi all'utente sotto forma di parametri id_token. Può essere usato per ottenere i token per l'API Web back-end dell'applicazione, che è rappresentata dallo stesso ID applicazione del client. L' `offline_access` ambito indica che l'applicazione richiede un token di aggiornamento per l'accesso esteso alle risorse. |
 
 Una risposta di token con esito positivo ha un aspetto simile al seguente:
 
@@ -236,13 +236,13 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 
 | Parametro | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| p | Sì | Flusso utente usato per acquisire il token di aggiornamento originale. Non è possibile usare un flusso utente diverso in questa richiesta. Aggiungere questo parametro alla stringa di query, non al corpo del POST. |
 | client_id | Yes | ID applicazione assegnato dall' [portale di Azure](https://portal.azure.com/) all'applicazione. |
-| grant_type | Sì | Tipo di concessione, che deve essere un token di aggiornamento per questa parte del flusso del codice di autorizzazione. |
-| scope | No | Elenco di ambiti separati da spazi. L'ambito `openid` indica un'autorizzazione per l'accesso dell'utente e per ottenere i dati relativi all'utente sotto forma di token ID. Può essere usato per inviare token all'API Web back-end dell'applicazione, che è rappresentata dallo stesso ID applicazione del client. L' `offline_access` ambito indica che l'applicazione richiede un token di aggiornamento per l'accesso esteso alle risorse. |
-| redirect_uri | No | Parametro `redirect_uri` dell'applicazione dove è stato ricevuto il codice di autorizzazione. |
-| refresh_token | Sì | Token di aggiornamento originale acquisito nella seconda parte del flusso. Per `offline_access` ricevere un token di aggiornamento, è necessario usare l'ambito nelle richieste di autorizzazione e di token. |
 | client_secret | Sì | Segreto dell'applicazione generato nel [portale di Azure](https://portal.azure.com/). La chiave privata dell'applicazione è un elemento di sicurezza importante. È necessario archiviarla in modo sicuro nel server. Modificare periodicamente questo segreto client. |
+| grant_type | Sì | Tipo di concessione, che deve essere un token di aggiornamento per questa parte del flusso del codice di autorizzazione. |
+| refresh_token | Sì | Token di aggiornamento originale acquisito nella seconda parte del flusso. Per `offline_access` ricevere un token di aggiornamento, è necessario usare l'ambito nelle richieste di autorizzazione e di token. |
+| p | Yes | Flusso utente usato per acquisire il token di aggiornamento originale. Non è possibile usare un flusso utente diverso in questa richiesta. Aggiungere questo parametro alla stringa di query, non al corpo del POST. |
+| redirect_uri | No | Parametro `redirect_uri` dell'applicazione dove è stato ricevuto il codice di autorizzazione. |
+| scope | No | Elenco di ambiti separati da spazi. L'ambito `openid` indica un'autorizzazione per l'accesso dell'utente e per ottenere i dati relativi all'utente sotto forma di token ID. Può essere usato per inviare token all'API Web back-end dell'applicazione, che è rappresentata dallo stesso ID applicazione del client. L' `offline_access` ambito indica che l'applicazione richiede un token di aggiornamento per l'accesso esteso alle risorse. |
 
 Una risposta di token con esito positivo ha un aspetto simile al seguente:
 
@@ -256,7 +256,7 @@ Una risposta di token con esito positivo ha un aspetto simile al seguente:
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 | --------- | ----------- |
 | not_before | Il momento in cui il token viene considerato valido, nel periodo. |
 | token_type | Valore del tipo di token. `Bearer`è l'unico tipo supportato. |
@@ -291,7 +291,7 @@ p=b2c_1_sign_in
 &post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```
 
-| Parametro | Obbligatoria | DESCRIZIONE |
+| Parametro | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | p | Yes | Flusso utente da usare per disconnettere l'utente dall'applicazione. |
 | post_logout_redirect_uri | No | URL a cui l'utente deve essere reindirizzato dopo la disconnessione. Se non è incluso, Azure AD B2C Visualizza un messaggio generico da parte dell'utente. |

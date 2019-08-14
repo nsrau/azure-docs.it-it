@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2303d385d3d688050a8d82c07e78a68588f41e88
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 357e7975b1c4fe44d86b7e29e96a9abb6ab63c35
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66142586"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932261"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurare la registrazione diagnostica
 
@@ -29,7 +29,7 @@ Un aspetto importante di qualsiasi soluzione di Analysis Services è costituito 
 
 ### <a name="engine"></a>Engine (Motore)
 
-Se si seleziona la categoria **Engine** (Motore) vengono registrati nel log tutti gli [eventi estesi](https://docs.microsoft.com/sql/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events) (XEvent). Non è possibile selezionare eventi singoli. 
+Se si seleziona la categoria **Engine** (Motore) vengono registrati nel log tutti gli [eventi estesi](https://docs.microsoft.com/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events) (XEvent). Non è possibile selezionare eventi singoli. 
 
 |Categorie di eventi estesi |Nome evento  |
 |---------|---------|
@@ -188,7 +188,7 @@ Sono disponibili centinaia di query. Per altre informazioni sulle query, vedere 
 
 ## <a name="turn-on-logging-by-using-powershell"></a>Abilitare la registrazione tramite PowerShell
 
-In questa esercitazione rapida vengono creati un account di archiviazione nella stessa sottoscrizione e un gruppo di risorse come server di Analysis Services. È quindi possibile usare Set-AzDiagnosticSetting per attivare la registrazione diagnostica e l'invio di output per il nuovo account di archiviazione.
+In questa esercitazione rapida vengono creati un account di archiviazione nella stessa sottoscrizione e un gruppo di risorse come server di Analysis Services. Si usa quindi set-AzDiagnosticSetting per attivare la registrazione diagnostica, inviando l'output al nuovo account di archiviazione.
 
 ### <a name="prerequisites"></a>Prerequisiti
 Per completare l'esercitazione, sono necessarie le risorse seguenti:
@@ -244,7 +244,7 @@ $account = Get-AzResource -ResourceGroupName awsales_resgroup `
 
 ### <a name="enable-logging"></a>Abilitazione della registrazione
 
-Per abilitare la registrazione, usare il cmdlet Set-AzDiagnosticSetting insieme alle variabili per il nuovo account di archiviazione, account del server e la categoria. Eseguire questo comando, impostando il flag **-Enabled** su **$true**:
+Per abilitare la registrazione, usare il cmdlet Set-AzDiagnosticSetting insieme alle variabili per il nuovo account di archiviazione, l'account del server e la categoria. Eseguire questo comando, impostando il flag **-Enabled** su **$true**:
 
 ```powershell
 Set-AzDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
@@ -303,4 +303,4 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 
 Altre informazioni sulla [Registrazione diagnostica delle risorse di Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-Visualizzare [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) nella Guida di PowerShell.
+Vedere [set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) nella Guida di PowerShell.

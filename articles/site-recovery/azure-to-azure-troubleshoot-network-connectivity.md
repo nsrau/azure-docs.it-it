@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/05/2019
 ms.author: asgang
-ms.openlocfilehash: 5ed57c93f73eb9a9e972a683f1068692a5963e54
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 8e1350a22554bab257e8c99954c2beaa357de2ff
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816965"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934531"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Risolvere i problemi di connettività di rete delle macchine virtuali da Azure ad Azure
 
@@ -28,7 +28,7 @@ login.microsoftonline.com | Richiesto per l'autorizzazione e l'autenticazione ne
 *.hypervrecoverymanager.windowsazure.com | Richiesto in modo che la comunicazione del servizio di Site Recovery possa verificarsi dalla macchina virtuale. È possibile usare il ' Site Recovery IP ' corrispondente se il proxy del firewall supporta gli IP.
 *.servicebus.windows.net | Richiesto in modo che il monitoraggio e i dati di diagnostica di Site Recovery possano essere scritti dalla macchina virtuale. Se il proxy del firewall supporta gli IP, è possibile usare il ' Site Recovery IP di monitoraggio ' corrispondente.
 
-# <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Connettività in uscita per gli intervalli IP o gli URL di Site Recovery (codice errore 151037 o 151072)
+## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Connettività in uscita per gli intervalli IP o gli URL di Site Recovery (codice errore 151037 o 151072)
 
 ## <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Problema 1: Non è stato possibile registrare la macchina virtuale di Azure con Site Recovery (151195) </br>
 - **Causa possibile** </br>

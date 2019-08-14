@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 3/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: 524d0854e8691428738cee321e394f572ea80112
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 67ba9ba9bc85213ec479a90d205ed9570c62bf8c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689185"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954616"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -231,7 +231,7 @@ Se si verificano problemi durante il ripristino di file dalle macchine virtuali,
 | Nella macchina virtuale in cui viene eseguito il file con estensione EXE: i nuovi volumi non vengono smontati dopo avere selezionato il pulsante di disinstallazione | L'iniziatore iSCSI nella macchina non sta rispondendo/aggiornando la connessione alla destinazione ed eseguendo la manutenzione della cache. |  Dopo aver fatto clic **Smontare**, attendere qualche minuto. Se i nuovi volumi non sono stati smontati, sfogliare tutti i volumi. In questo modo l'iniziatore deve aggiornare la connessione e il volume viene smontato con un messaggio di errore indicante che il disco non è disponibile.|
 | Output del file EXE: lo script viene eseguito correttamente ma l'output indicante nuovi volumi associati non viene visualizzato nell'output dello script |    Si tratta di un errore temporaneo    | I volumi sono stata già associati. Aprire Explorer per visualizzare lo stato. Se si sta usando la stessa macchina virtuale per eseguire gli script ogni volta, è consigliabile riavviare la macchina; l'elenco verrà visualizzato nelle successive esecuzioni del file eseguibile. |
 | Specifico per Linux: non è possibile visualizzare i volumi desiderati | Il sistema operativo del computer in cui viene eseguito lo script potrebbe non riconoscere il file system sottostante della VM protetta | Controllare se il punto di ripristino è coerente con l'arresto anomalo del sistema o è coerente a livello di file. Se è coerente a livello di file, eseguire lo script in un altro computer il cui sistema operativo riconosce il file system della VM protetta |
-| Specifico per Windows: non è possibile visualizzare i volumi desiderati | I dischi possono essere stati collegati, ma i volumi non sono stati configurati | Dalla schermata Gestione disco, identificare i dischi aggiuntivi correlati al punto di recupero. Se uno di questi dischi è in stato offline, provare a renderlo online facendo clic con il pulsante destro del mouse sul disco e fare clic su "Online"|
+| Specifico per Windows: non è possibile visualizzare i volumi desiderati | I dischi possono essere stati collegati, ma i volumi non sono stati configurati | Dalla schermata Gestione disco, identificare i dischi aggiuntivi correlati al punto di recupero. Se uno di questi dischi è in stato offline, provare a renderli online facendo clic con il pulsante destro del mouse sul disco e scegliendo ' online '|
 
 ## <a name="security"></a>Security
 

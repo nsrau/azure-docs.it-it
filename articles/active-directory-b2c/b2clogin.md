@@ -10,28 +10,31 @@ ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4d70fe3f3f19723cd37080ae09dce97bfd8f3d34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 080c1933f88d9e824969a42212de2eacd0f62e14
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511685"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927274"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Impostare gli URL di reindirizzamento su b2clogin.com per Azure Active Directory B2C
 
 Quando si configura un provider di identità per l'iscrizione e l'accesso nell'applicazione Azure Active Directory (Azure AD) B2C, è necessario specificare un URL di reindirizzamento. In passato veniva usato login.microsoftonline.com, ma ora è consigliabile usare b2clogin.com.
 
+> [!NOTE]
+> È possibile usare il codice lato client JavaScript (attualmente in anteprima) in b2clogin.com. Se si usa login.microsoftonline.com, il codice JavaScript verrà rimosso dalla pagina personalizzata. Anche le restrizioni di sicurezza aggiuntive vengono applicate a login.microsoftonline.com, ad esempio la rimozione di elementi del modulo HTML dalla pagina personalizzata. 
+
 L'uso di b2clogin.com offre vantaggi aggiuntivi, ad esempio:
 
 - Lo spazio usato nell'intestazione cookie dei servizi Microsoft viene ridotto.
-- Gli URL non includono più un riferimento a Microsoft. Ad esempio: `https://your-tenant-name.b2clogin.com/tenant-id/oauth2/authresp`.
+- Gli URL non includono più un riferimento a Microsoft. Ad esempio `https://your-tenant-name.b2clogin.com/tenant-id/oauth2/authresp`.
 
->[!NOTE]
-> È possibile usare il nome del tenant e il GUID del tenant come indicato di seguito:
-> * `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` (che fa ancora riferimento a `onmicrosoft.com`)
-> * `https://your-tenant-name.b2clogin.com/your-tenant-guid` (nel qual caso non sono presenti riferimenti a Microsoft tutti)
+> [!NOTE]
+> È possibile usare sia il nome del tenant che il GUID del tenant come indicato di seguito:
+> * `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`(che fa ancora riferimento `onmicrosoft.com`a)
+> * `https://your-tenant-name.b2clogin.com/your-tenant-guid`(in questo caso non esiste alcun riferimento a Microsoft)
 >
-> Tuttavia, è possibile usare una _dominio personalizzato_ per Azure Active Directory B2C del tenant, ad esempio `https://your-tenant-name.b2clogin.com/your-custom-domain-name` verrebbe _non_ di lavoro.
+> Tuttavia, non è possibile usare un _dominio personalizzato_ per il tenant di Azure Active Directory B2C, `https://your-tenant-name.b2clogin.com/your-custom-domain-name` ad esempio, _non_ funzionerebbe.
 
 Prendere in considerazione queste impostazioni che potrebbe essere necessario modificare quando si usa b2clogin.com:
 

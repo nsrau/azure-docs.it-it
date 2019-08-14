@@ -6,13 +6,13 @@ ms.author: tyfox
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: 797caae3caaca14c10481cb58654c45b4bed55ae
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.date: 08/09/2019
+ms.openlocfilehash: 1e5eb1e363ac9e282a72a9c1430c3f80c825bb91
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884310"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945069"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Eseguire la migrazione all'accesso granulare in base al ruolo per le configurazioni dei cluster
 
@@ -20,8 +20,9 @@ Sono state introdotte alcune modifiche importanti per supportare l'accesso in ba
 
 ## <a name="what-is-changing"></a>Cosa cambierà
 
-In precedenza, i segreti potevano essere ottenuti tramite l'API HDInsight dagli utenti del cluster che possedevano i [ruoli](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)di proprietario, collaboratore o controllo degli accessi in `*/read` base al ruolo di lettore, perché erano disponibili per chiunque disponga dell'autorizzazione.
-In futuro, l'accesso a questi segreti richiederà `Microsoft.HDInsight/clusters/configurations/*` l'autorizzazione, ovvero non sarà più possibile accedervi dagli utenti con il ruolo lettore. I segreti sono definiti come valori che possono essere usati per ottenere un accesso più elevato rispetto a quello consentito da un utente. Sono inclusi valori come le credenziali HTTP del gateway cluster, le chiavi dell'account di archiviazione e le credenziali del database.
+In precedenza, i segreti potevano essere ottenuti tramite l'API HDInsight dagli utenti del cluster che possedevano i [ruoli](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)di proprietario, collaboratore o controllo degli accessi in `*/read` base al ruolo di lettore, perché erano disponibili per chiunque disponga dell'autorizzazione. I segreti sono definiti come valori che possono essere usati per ottenere un accesso più elevato rispetto a quello consentito da un utente. Sono inclusi valori come le credenziali HTTP del gateway cluster, le chiavi dell'account di archiviazione e le credenziali del database.
+
+In futuro, l'accesso a questi segreti richiederà `Microsoft.HDInsight/clusters/configurations/action` l'autorizzazione, ovvero non sarà più possibile accedervi dagli utenti con il ruolo lettore. I ruoli che dispongono di questa autorizzazione sono collaboratore, proprietario e nuovo ruolo Operatore cluster HDInsight (altre informazioni sono disponibili di seguito).
 
 Viene inoltre introdotto un nuovo ruolo [operatore cluster HDInsight](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) che sarà in grado di recuperare i segreti senza concedere le autorizzazioni amministrative di collaboratore o proprietario. Per riepilogare:
 
@@ -128,7 +129,7 @@ Eseguire l'aggiornamento alla [versione 1.0.0](https://pypi.org/project/azure-mg
 
 ### <a name="sdk-for-java"></a>SDK per Java
 
-Eseguire l'aggiornamento alla [versione 1.0.0](https://search.maven.org/artifact/com.microsoft.azure.hdinsight.v2018_06_01_preview/azure-mgmt-hdinsight/) o successiva di HDInsight SDK per Java. Potrebbero essere necessarie modifiche minime al codice se si utilizza un metodo interessato da queste modifiche:
+Eseguire l'aggiornamento alla [versione 1.0.0](https://search.maven.org/artifact/com.microsoft.azure.hdinsight.v2018_06_01_preview/azure-mgmt-hdinsight/1.0.0/jar) o successiva di HDInsight SDK per Java. Potrebbero essere necessarie modifiche minime al codice se si utilizza un metodo interessato da queste modifiche:
 
 - [`ConfigurationsInner.get`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.get)**non restituirà più parametri sensibili** come le chiavi di archiviazione (sito Core) o le credenziali http (gateway).
     - Per recuperare tutte le configurazioni, inclusi i parametri sensibili [`ConfigurationsInner.list`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.configurationsinner.list?view=azure-java-stable) , usare in futuro.  Si noti che gli utenti con il ruolo "Reader" non saranno in grado di utilizzare questo metodo. Questo consente un controllo granulare sugli utenti che possono accedere alle informazioni riservate per un cluster. 

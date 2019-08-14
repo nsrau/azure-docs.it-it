@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: cawa
-ms.openlocfilehash: 9763a14e84d88be1d6f09fb9f16b6b7c9eeffd2d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f5196c81550446221a4524330e355c595b65c6a
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65506433"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934379"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Salvataggio sicuro delle impostazioni applicazione segrete per un'applicazione Web
 
@@ -41,7 +41,7 @@ Se si sviluppa un progetto ed è necessario condividere il codice sorgente in mo
 
     ![Creare un Azure Key Vault](./media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
-2. Concedere l'accesso al Key Vault a tutti i membri del team. Se il team è grande, è possibile creare un [gruppo di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal) e aggiungere l'accesso di quel gruppo di sicurezza al Key Vault. Nel menu a discesa *Autorizzazioni segrete* selezionare *Ottieni* ed *Elenca* sotto *Operazioni di gestione dei segreti*.
+2. Concedere l'accesso al Key Vault a tutti i membri del team. Se il team è grande, è possibile creare un [gruppo di Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md) e aggiungere l'accesso di quel gruppo di sicurezza al Key Vault. Nel menu a discesa *Autorizzazioni segrete* selezionare *Ottieni* ed *Elenca* sotto *Operazioni di gestione dei segreti*.
 
     ![Aggiungere criteri di accesso del Key Vault](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
@@ -50,7 +50,7 @@ Se si sviluppa un progetto ed è necessario condividere il codice sorgente in mo
     ![Aggiungere il segreto del Key Vault](./media/vs-secure-secret-appsettings/add-keyvault-secret.png)
 
     > [!NOTE] 
-    > Prima di Visual Studio 2017 V15.6 è utilizzato per consigliare l'installazione dell'estensione di autenticazione di servizi di Azure per Visual Studio. Ma è deprecato a questo punto, come la funzionalità è integrata all'interno di Visual Studio. Pertanto se si usa una versione precedente di visual Studio 2017, è consigliabile eseguire l'aggiornamento a almeno Visual Studio 2017 15.6 o backup in modo che è possibile usare questa funzionalità in modo nativo e insieme di credenziali chiave di accesso da tramite l'identità di accesso Visual Studio stesso.
+    > Prima di Visual Studio 2017 V 15.6 è stato usato per consigliare l'installazione dell'estensione di autenticazione dei servizi di Azure per Visual Studio. Ma ora è deprecata perché funzionalità è integrato in Visual Studio. Di conseguenza, se si usa una versione precedente di Visual Studio 2017, è consigliabile eseguire l'aggiornamento ad almeno 2017 15,6 o versione successiva per poter usare questa funzionalità in modo nativo e accedere all'insieme di credenziali delle chiavi usando l'identità di accesso di Visual Studio.
     >
  
 4. Aggiungere i pacchetti NuGet seguenti al progetto:

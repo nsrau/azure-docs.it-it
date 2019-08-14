@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: 1afd78a0525be523f677cf0146c8a120155130ea
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1842d32a838470d9b2af3a778c44c37464d32294
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68554687"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954333"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Informazioni sui termini del file di utilizzo e degli addebiti di Azure
 
@@ -27,7 +27,7 @@ La tabella seguente illustra gli addebiti inclusi per ogni tipo di conto.
 Tipo di account | Utilizzo di Azure | Utilizzo del Marketplace | Acquisti | Rimborsi
 --- | --- | --- | --- | ---
 Contratto Enterprise Agreement (EA) | Yes | Sì | Sì | No
-Contratto del cliente Microsoft | Sì | Sì | Sì | Yes
+Contratto del cliente Microsoft | Yes | Sì | Sì | Yes
 Pagamento in base al consumo | Sì | Sì | No | No
 
 Per altre informazioni sugli ordini del Marketplace (noti anche come servizi esterni), vedere informazioni sugli addebiti per [i servizi esterni di Azure](billing-understand-your-azure-marketplace-charges.md).
@@ -43,46 +43,46 @@ L'elenco include gli account con pagamento in base al consumo (PAYG), Enterprise
 Termine | Tipo di account | Descrizione
 --- | --- | ---
 AccountName | EA, PAYG | Nome visualizzato dell'account di registrazione EA o dell'account di fatturazione PAYG.
-AccountOwnerId | EA, PAYG | Identificatore univoco per l'account di registrazione EA o l'account di fatturazione PAYG.
+AccountOwnerId<sup>1</sup> | EA, PAYG | Identificatore univoco per l'account di registrazione EA o l'account di fatturazione PAYG.
 Informazioni aggiuntive | Tutti | Metadati specifici del servizio. Ad esempio un tipo di immagine per una macchina virtuale.
-BillingAccountId | Tutti | Identificatore univoco per l'account di fatturazione radice.
+BillingAccountId<sup>1</sup> | Tutti | Identificatore univoco per l'account di fatturazione radice.
 BillingAccountName | Tutti | Nome dell'account di fatturazione.
 BillingCurrency | Tutti | Valuta associata all'account di fatturazione.
 BillingPeriod | EA, PAYG | Periodo di fatturazione dell'addebito.
 BillingPeriodEndDate | Tutti | Data di fine del periodo di fatturazione.
 BillingPeriodStartDate | Tutti | Data di inizio del periodo di fatturazione.
-BillingProfileId | Tutti | Identificatore univoco della registrazione EA, sottoscrizione PAYG, profilo di fatturazione MCA o account consolidato AWS.
+BillingProfileId<sup>1</sup> | Tutti | Identificatore univoco della registrazione EA, sottoscrizione PAYG, profilo di fatturazione MCA o account consolidato AWS.
 BillingProfileName | Tutti | Nome della registrazione EA, sottoscrizione PAYG, profilo di fatturazione MCA o account consolidato AWS.
 ChargeType | Tutti | Indica se l'addebito rappresenta l'utilizzo (**utilizzo**), un acquisto (**acquisto**) o un rimborso (**rimborso**).
 ConsumedService | Tutti | Nome del servizio a cui è associato il costo.
-Centro di costo | EA, MCA | Centro di costo definito per la sottoscrizione per tenere traccia dei costi (disponibile solo nei periodi di fatturazione aperti per gli account MCA).
+CostCenter<sup>1</sup> | EA, MCA | Centro di costo definito per la sottoscrizione per tenere traccia dei costi (disponibile solo nei periodi di fatturazione aperti per gli account MCA).
 Costi | EA, PAYG | Vedere CostInBillingCurrency.
 CostInBillingCurrency | MCA | Costo dell'addebito nella valuta di fatturazione prima di crediti o imposte.
 CostInPricingCurrency | MCA | Costo dell'addebito nella valuta dei prezzi prima di crediti o imposte.
 Currency | EA, PAYG | Vedere BillingCurrency.
-Date | Tutti | Data di utilizzo o di acquisto dell'addebito.
+Data<sup>1</sup> | Tutti | Data di utilizzo o di acquisto dell'addebito.
 EffectivePrice | Tutti | Prezzo unitario misto per il periodo. I prezzi combinati comportano la media di eventuali fluttuazioni nel prezzo unitario, ad esempio la suddivisione in livelli graduale, che riduce il prezzo come aumento della quantità nel tempo.
 ExchangeRateDate | MCA | Data di creazione del tasso di cambio.
 ExchangeRatePricingToBilling | MCA | Tasso di cambio utilizzato per convertire il costo della valuta per la fatturazione.
-Frequenza | Tutti | Indica se è previsto un addebito per la ripetizione. Gli addebiti possono essere effettuati una sola volta (un**periodo),** ripetuti su base mensile o annuale (**ricorrente**) o in base all'utilizzo (**UsageBased**).
+Frequenza | Tutti | Indica se è previsto un addebito per la ripetizione. Gli addebiti possono essereeffettuati una sola volta (un periodo), ripetuti su base mensile o annuale (**ricorrente**) o in base all'utilizzo (**UsageBased**).
 InvoiceId | PAYG, MCA | ID univoco del documento elencato nel PDF della fattura.
 InvoiceSection | MCA | Vedere InvoiceSectionName.
-InvoiceSectionId | EA, MCA | Identificatore univoco per la sezione del reparto EA o della fattura MCA.
+InvoiceSectionId<sup>1</sup> | EA, MCA | Identificatore univoco per la sezione del reparto EA o della fattura MCA.
 InvoiceSectionName | EA, MCA | Nome della sezione del reparto EA o della fattura MCA.
 IsAzureCreditEligible | Tutti | Indica se l'addebito è idoneo a essere pagato per l'uso di crediti Azure (valori: True, false).
 Location | MCA | Località del Data Center in cui è in esecuzione la risorsa.
 Categoria del contatore | Tutti | Nome della categoria di classificazione per il contatore. Ad esempio *servizi cloud* e *rete*.
-ID del contatore | Tutti | Identificatore univoco del contatore.
+ID contatore<sup>1</sup> | Tutti | Identificatore univoco del contatore.
 Nome del contatore | Tutti | Nome del contatore.
 Area del contatore | Tutti | Nome della località del Data Center per i servizi prezzi in base alla località. Vedere location.
 Sottocategoria del contatore | Tutti | Nome della categoria di sottoclassificazione del contatore.
-OfferId | Tutti | Nome dell'offerta acquistata.
-PartNumber | EA, PAYG | Identificatore usato per ottenere i prezzi specifici del contatore.
+Idofferta<sup>1</sup> | Tutti | Nome dell'offerta acquistata.
+NumeroArticolo<sup>1</sup> | EA, PAYG | Identificatore usato per ottenere i prezzi specifici del contatore.
 PlanName | EA, PAYG | Nome del piano del Marketplace.
 PreviousInvoiceId | MCA | Riferimento a una fattura originale se questa voce è un rimborso.
 PricingCurrency | MCA | Valuta utilizzata per la classificazione in base ai prezzi negoziati.
 Prodotto | Tutti | Nome del prodotto.
-ID prodotto | MCA | Identificatore univoco per il prodotto.
+ProductId<sup>1</sup> | MCA | Identificatore univoco per il prodotto.
 ProductOrderId | Tutti | Identificatore univoco per l'ordine del prodotto.
 ProductOrderName | Tutti | Nome univoco per l'ordine del prodotto.
 PublisherName | Tutti | Editore per i servizi del Marketplace.
@@ -91,7 +91,7 @@ Quantità | Tutti | Numero di unità acquistate o utilizzate.
 ReservationId | EA, MCA | Identificatore univoco per l'istanza di prenotazione acquistata.
 Reservationname | EA, MCA | Nome dell'istanza di prenotazione acquistata.
 ResourceGroup | Tutti | Nome del [gruppo di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) in cui si trova la risorsa.
-ResourceId | Tutti | Identificatore univoco della risorsa [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources) .
+ResourceId<sup>1</sup> | Tutti | Identificatore univoco della risorsa [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources) .
 Posizione della risorsa | Tutti | Località del Data Center in cui è in esecuzione la risorsa. Vedere location.
 ResourceName | EA, PAYG | Nome della risorsa.
 ResourceType | MCA | Tipo di istanza della risorsa.
@@ -100,12 +100,14 @@ ServiceInfo1 | Tutti | Metadati specifici del servizio.
 Informazioni sul servizio 2 | Tutti | Campo legacy con metadati facoltativi specifici del servizio.
 ServicePeriodEndDate | MCA | Data di fine del periodo di valutazione che ha definito e bloccato i prezzi per il servizio utilizzato o acquistato.
 ServicePeriodStartDate | MCA | Data di inizio del periodo di valutazione che ha definito e bloccato i prezzi per il servizio utilizzato o acquistato.
-SubscriptionId | Tutti | Identificatore univoco per la sottoscrizione di Azure.
+SubscriptionId<sup>1</sup> | Tutti | Identificatore univoco per la sottoscrizione di Azure.
 Nome della sottoscrizione | Tutti | Nome della sottoscrizione di Azure.
-Tag | Tutti | Tag assegnati alla risorsa. Non include i tag del gruppo di risorse. Può essere usato per raggruppare o distribuire i costi per il chargeback interno. Per altre informazioni, vedere [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) (Organizzare le risorse di Azure con i tag).
+Tag<sup>1</sup> | Tutti | Tag assegnati alla risorsa. Non include i tag del gruppo di risorse. Può essere usato per raggruppare o distribuire i costi per il chargeback interno. Per altre informazioni, vedere [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) (Organizzare le risorse di Azure con i tag).
 Termine | Tutti | Visualizza il termine per la validità dell'offerta. Ad esempio:  Nel caso di istanze riservate, Visualizza 12 mesi come termine. Per gli acquisti monouso o gli acquisti periodici, il termine è 1 mese (SaaS, supporto del Marketplace). Questa operazione non è applicabile per il consumo di Azure.
 Unità di misura | Tutti | Unità di misura per la fatturazione per il servizio. I servizi di calcolo, ad esempio, vengono fatturati all'ora.
 PrezzoUnitario | EA, PAYG | Prezzo per unità per l'addebito.
+
+_<sup>**1**</sup> campi utilizzati per compilare un ID univoco per un singolo record di costi._
 
 Nota Alcuni campi possono variare in maiuscolo e minuscolo e spaziatura tra i tipi di conto.
 Le versioni precedenti dei file di utilizzo con pagamento in base al consumo hanno sezioni separate per l'utilizzo giornaliero e l'istruzione.

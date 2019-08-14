@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/07/2019
+ms.date: 08/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 309dc8e1fd15ae4088ed6ee87bdbb8aa4d636951
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 8fecc00a970f0e706dc6240eaec593fd54968ff8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848580"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934206"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Registrazione degli eventi e di rilevamento per il Azure Data Box e Azure Data Box Heavy
 
@@ -197,7 +197,7 @@ I file BOM o manifest vengono copiati anche nell'account di archiviazione di Azu
 
 Durante il caricamento dei dati in Azure, viene creato un log di copia.
 
-### <a name="copylog"></a>Copylog
+### <a name="copy-log"></a>Copia log
 
 Per ogni ordine elaborato, il servizio Data Box crea il log di copia nell'account di archiviazione associato. Il log di copia contiene il numero totale di file caricati e il numero di file che hanno avuto errore durante la copia dei dati da Data Box all'account di archiviazione di Azure.
 
@@ -205,7 +205,7 @@ Un calcolo del controllo di ridondanza ciclico (CRC) viene eseguito durante il c
 
 Per impostazione predefinita, i log vengono scritti in un `copylog`contenitore denominato. I log vengono archiviati con la convenzione di denominazione seguente:
 
-`storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
+[https://login.microsoftonline.com/common/](`storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`).
 
 Il percorso del log di copia viene visualizzato anche nel pannello **Panoramica** del portale.
 
@@ -252,6 +252,8 @@ Di seguito è riportato un esempio di un log di copia in cui il caricamento è s
 ### <a name="upload-completed-with-warnings"></a>Caricamento completato con avvisi
 
 Il caricamento in Azure viene completato con avvisi se i dati contengono nomi di contenitore/BLOB/file non conformi alle convenzioni di denominazione di Azure e i nomi sono stati modificati per caricare i dati in Azure.
+
+![Percorso per copiare il pannello di panoramica quando è stato completato con avvisi](media/data-box-logs/copy-log-path-3.png)
 
 Di seguito è riportato un esempio di un log di copia in cui i contenitori che non sono conformi alle convenzioni di denominazione di Azure sono stati rinominati durante il caricamento dei dati in Azure.
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: d815b471b0a1d7842118c7ac0b5e1665b8fb3c1e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 0f7d9961b41ece23630584146e4eb777969e771a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879951"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954744"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installare e preparare il server di Backup di Azure
 > [!div class="op_single_selector"]

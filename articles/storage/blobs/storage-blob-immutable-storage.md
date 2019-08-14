@@ -9,12 +9,12 @@ ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: c0b4a83b2c950683926be7fb3be3b0cbe977fef8
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 06e1d881a14367c579bd58ffae04dc0970eb041a
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618406"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68941943"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Archiviare dati critici in Archiviazione BLOB di Azure
 
@@ -175,7 +175,7 @@ Sì. Per documentare la conformità, Microsoft ha mantenuto una società di valu
 
 **La funzionalità si applica solo ai BLOB in blocchi o anche ai BLOB di pagine e di aggiunta?**
 
-L'archiviazione non modificabile può essere usata con qualsiasi tipo di BLOB, ma è consigliabile usarla principalmente per i BLOB in blocchi. A differenza dei BLOB in blocchi, i BLOB di pagine e i BLOB di aggiunta devono essere creati al di fuori di un contenitore WORM e quindi copiati al suo interno. Dopo aver copiato questi BLOB in un contenitore WORM, non sono consentiti altri accodamenti a un BLOB di accodamento o modifiche a un BLOB di pagine.
+L'archiviazione non modificabile può essere usata con qualsiasi tipo di BLOB perché è impostata a livello di contenitore, ma è consigliabile usare WORM per i contenitori che prevedono principalmente l'archiviazione di BLOB in blocchi. A differenza dei BLOB in blocchi, è necessario creare eventuali nuovi BLOB di pagine e BLOB di Accodamento all'esterno di un contenitore di WORM, quindi copiarli in. Dopo aver copiato questi BLOB in un contenitore WORM, non sono consentiti altri accodamenti a un BLOB di accodamento o modifiche a un BLOB di pagine. L'impostazione di un criterio WORM in un contenitore che archivia dischi rigidi virtuali (BLOB di pagine) per le macchine virtuali attive è pertanto fortemente sconsigliata perché bloccherà il disco della VM.
 
 **È necessario creare un nuovo account di archiviazione per usare questa funzionalità?**
 

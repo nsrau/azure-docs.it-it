@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 63b64df457af5b7d3d2bd5901f73d89ccd3c913a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 82e40f756e0d8e0b5627b7c8856bd25fa98adbcb
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65506966"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932305"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Aggiornamento asincrono con l'API REST
 
 È possibile eseguire operazioni di aggiornamento asincrono dei dati sui modelli tabulari di Azure Analysis Services usando qualsiasi linguaggio di programmazione che supporta le chiamate REST. È inclusa la sincronizzazione delle repliche di sola lettura per la scalabilità orizzontale delle query. 
 
-Le operazioni di aggiornamento dei dati possono richiedere tempo a causa di fattori diversi tra cui volume dei dati, livello di ottimizzazione nell'uso delle partizioni e così via. Queste operazioni erano chiamate in genere con metodi esistenti come l'uso di [TOM](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (Tabular Object Model), cmdlet di [PowerShell](https://docs.microsoft.com/sql/analysis-services/powershell/analysis-services-powershell-reference) o [TMSL](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) (Tabular Model Scripting Language). Tuttavia questi metodi possono richiedere spesso connessioni HTTP non affidabili e con esecuzione prolungata.
+Le operazioni di aggiornamento dei dati possono richiedere tempo a causa di fattori diversi tra cui volume dei dati, livello di ottimizzazione nell'uso delle partizioni e così via. Queste operazioni erano chiamate in genere con metodi esistenti come l'uso di [TOM](https://docs.microsoft.com/bi-reference/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (Tabular Object Model), cmdlet di [PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) o [TMSL](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) (Tabular Model Scripting Language). Tuttavia questi metodi possono richiedere spesso connessioni HTTP non affidabili e con esecuzione prolungata.
 
 L'API REST per Azure Analysis Services consente di eseguire le operazioni di aggiornamento dei dati in modo asincrono. Se si usa l'API REST non sono necessarie connessioni HTTP con esecuzione prolungata dalle applicazioni client. Ci sono anche altre funzionalità integrate che garantiscono l'affidabilità, ad esempio i tentativi automatici e il commit in batch.
 
@@ -100,9 +100,9 @@ Non è necessario specificare parametri. Viene applicato il valore predefinito.
 
 | Name             | Type  | Descrizione  |Predefinito  |
 |------------------|-------|--------------|---------|
-| `Type`           | Enum  | Il tipo di elaborazione da eseguire. I tipi sono allineati con i tipi del [comando refresh](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) di TMSL: full, clearValues, calculate, dataOnly, automatic e defragment. Il tipo add non è supportato.      |   automatic      |
+| `Type`           | Enum  | Il tipo di elaborazione da eseguire. I tipi sono allineati con i tipi del [comando refresh](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl) di TMSL: full, clearValues, calculate, dataOnly, automatic e defragment. Il tipo add non è supportato.      |   automatic      |
 | `CommitMode`     | Enum  | Determina se verrà eseguito il commit degli oggetti in batch o solo al termine. Le modalità comprendono: default, transactional, partialBatch.  |  transactional       |
-| `MaxParallelism` | Int   | Questo valore determina il numero massimo di thread su cui eseguire i comandi di elaborazione in parallelo. Questo valore è allineato alla proprietà MaxParallelism che può essere impostata nel [comando Sequence](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) di TMSL o usando altri metodi.       | 10        |
+| `MaxParallelism` | Int   | Questo valore determina il numero massimo di thread su cui eseguire i comandi di elaborazione in parallelo. Questo valore è allineato alla proprietà MaxParallelism che può essere impostata nel [comando Sequence](https://docs.microsoft.com/bi-reference/tmsl/sequence-command-tmsl) di TMSL o usando altri metodi.       | 10        |
 | `RetryCount`     | Int   | Indica il numero massimo di tentativi dell'operazione prima che venga considerata non riuscita.      |     0    |
 | `Objects`        | Array | Una matrice di oggetti da elaborare. Ogni oggetto include: "table" quando viene elaborata un'intera tabella oppure "table" e "partition" quando viene elaborata una partizione. Se non viene specificato alcun oggetto, viene aggiornato l'intero modello. |   Elaborare l'intero modello      |
 
@@ -201,7 +201,7 @@ Ecco un esempio di codice C# adatto per iniziare, [RestApiSample su GitHub](http
 1.  Clonare o scaricare il repository. Aprire la soluzione RestApiSample.
 2.  Trovare la riga **client.BaseAddress = …** e inserire l'[URL di base](#base-url).
 
-Nell'esempio di codice viene utilizzata [entità servizio](#service-principal) l'autenticazione.
+Nell'esempio di codice viene usata l'autenticazione basata su [entità servizio](#service-principal) .
 
 ### <a name="service-principal"></a>Entità servizio
 

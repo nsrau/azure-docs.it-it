@@ -8,15 +8,15 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 11/19/2018
+ms.date: 08/09/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: edf4ce2be451672ecbd4f732c3110617dc122ca0
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a7de2ba66ccfb5e3f3bce688e68698d90fe2eaf6
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323593"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68941327"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Eseguire le applicazioni del contenitore in Azure Batch
 
@@ -228,7 +228,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 Per eseguire un'attività contenitore in un pool abilitato per il contenitore, specificare le impostazioni specifiche per il contenitore. Le impostazioni includono l'immagine da usare, il registro e le opzioni di esecuzione del contenitore.
 
-* Usare la proprietà `ContainerSettings` delle classi di attività per configurare le impostazioni specifiche del contenitore. Queste impostazioni vengono definite dalla classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings).
+* Usare la proprietà `ContainerSettings` delle classi di attività per configurare le impostazioni specifiche del contenitore. Queste impostazioni vengono definite dalla classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings). Si noti che `--rm` l'opzione contenitore non richiede un' `--runtime` opzione aggiuntiva perché viene gestita da batch. 
 
 * Se si eseguono attività sulle immagini del contenitore, l'[attività cloud](/dotnet/api/microsoft.azure.batch.cloudtask) e l'[attività di gestione dei processi](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) richiedono le impostazioni del contenitore. Tuttavia, l'[attività di avvio](/dotnet/api/microsoft.azure.batch.starttask), l'[attività di preparazione del processo](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) e l'[attività di rilascio del processo](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) non richiedono le impostazioni dei contenitori, vale a dire che possono essere eseguite in un contesto del contenitore o direttamente nel nodo.
 

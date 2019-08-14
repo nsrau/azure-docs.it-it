@@ -1,23 +1,23 @@
 ---
 title: Informazioni su ExpressRoute Direct -Azure | Microsoft Docs
-description: Questa pagina fornisce una panoramica di ExpressRoute Direct
+description: Questa pagina offre una panoramica di ExpressRoute Direct
 services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 08/12/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: e598cc03a1b7b4999719152540866c7168130e03
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: a294c444f10719f69716b25b97cd137874a3e0be
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807474"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954143"
 ---
 # <a name="about-expressroute-direct"></a>Informazioni su ExpressRoute Direct
 
-ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete globale di Microsoft in località peer distribuite in modo strategico in tutto il mondo. ExpressRoute Direct fornisce duale 100 Gbps o 10 Gbps connettività, che supporta la connettività di attivo/attivo su larga scala.
+ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete globale di Microsoft in località peer distribuite in modo strategico in tutto il mondo. ExpressRoute Direct offre connettività dual 100 Gbps o 10 Gbps, che supporta la connettività attiva/attiva su larga scala.
 
 Tra le funzionalità principali di ExpressRoute Direct sono incluse:
 
@@ -25,9 +25,9 @@ Tra le funzionalità principali di ExpressRoute Direct sono incluse:
 * Isolamento fisico per i settori regolamentati che richiedono una connettività dedicata e isolata, ad esempio banche, enti pubblici e punti vendita al dettaglio
 * Controllo granulare della distribuzione del circuito in base alla business unit
 
-## <a name="onboard-to-expressroute-direct"></a>Eseguire l'onboarding di ExpressRoute Direct
+## <a name="onboard-to-expressroute-direct"></a>Onboarding in ExpressRoute Direct
 
-Prima di usare ExpressRoute Direct, è innanzitutto necessario registrare la sottoscrizione. Per eseguire la registrazione inviare un messaggio di posta elettronica all'indirizzo <ExpressRouteDirect@microsoft.com> con l'ID della sottoscrizione, includendo i dettagli seguenti:
+Prima di usare ExpressRoute Direct, è necessario prima registrare la sottoscrizione. Per eseguire la registrazione inviare un messaggio di posta elettronica all'indirizzo <ExpressRouteDirect@microsoft.com> con l'ID della sottoscrizione, includendo i dettagli seguenti:
 
 * Scenari che si intende realizzare con **ExpressRoute Direct**
 * Preferenze di località. Per un elenco completo di tutte le località, vedere [Partner e località peer](expressroute-locations-providers.md)
@@ -38,10 +38,10 @@ Prima di usare ExpressRoute Direct, è innanzitutto necessario registrare la sot
 
 | **ExpressRoute tramite un provider di servizi** | **ExpressRoute Direct** | 
 | --- | --- |
-| Usa i provider di servizi per abilitare il caricamento rapido e la connettività nell'infrastruttura esistente | Richiede 100 Gbps o 10 Gbps infrastruttura e gestione completa di tutti i livelli
+| Usa i provider di servizi per abilitare il caricamento rapido e la connettività nell'infrastruttura esistente | Richiede l'infrastruttura 100 Gbps/10 Gbps e la gestione completa di tutti i livelli
 | Si integra con centinaia di provider, tra cui Ethernet e MPLS | Capacità diretta/dedicata per settori regolamentati e inserimento dati massiccio |
-| SKU di circuiti da 50 Mbps a 10 Gbps | Cliente può selezionare una combinazione del circuito seguente SKU su 100 Gbps ExpressRoute Direct: <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 GB/s</li></ul> Cliente può selezionare una combinazione del circuito seguente SKU su 10 Gbps ExpressRoute Direct:<ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
-| Ottimizzato per tenant singolo | Ottimizzato per tenant singolo/provider di servizi cloud/più business unit
+| SKU di circuiti da 50 Mbps a 10 Gbps | Il cliente può selezionare una combinazione degli SKU di circuito seguenti su 100 Gbps ExpressRoute Direct: <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> Il cliente può selezionare una combinazione degli SKU di circuito seguenti su 10 Gbps ExpressRoute Direct:<ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
+| Ottimizzato per tenant singolo | Ottimizzato per un singolo tenant con più business unit e più ambienti di lavoro
 
 ## <a name="expressroute-direct-circuits"></a>Circuiti di ExpressRoute Direct
 
@@ -53,28 +53,28 @@ Nella maggior parte degli scenari la funzionalità è uguale ai circuiti che uti
 
 ## <a name="circuit-skus"></a>SKU di circuiti
 
-ExpressRoute Direct supporta scenari di inserimento dati massiccio in Archiviazione di Azure e altri servizi Big Data. Circuiti ExpressRoute in 100 Gbps ExpressRoute diretto ora anche il supporto **40 Gbps** e **100 Gbps** SKU del circuito. Le coppie di fisiche porta fanno **100 o 10 Gbps** solo e può avere più circuiti virtuali. Dimensioni circuito:
+ExpressRoute Direct supporta scenari di inserimento dati massiccio in Archiviazione di Azure e altri servizi Big Data. I circuiti ExpressRoute su 100 Gbps ExpressRoute Direct ora supportano anche gli SKU del circuito **40 Gbps** e **100 Gbps** . Le coppie di porte fisiche sono solo **100 o 10 Gbps** e possono avere più circuiti virtuali. Dimensioni del circuito:
 
-| **100 GB/s ExpressRoute Direct** | **Direct ExpressRoute a 10 Gbps** | 
+| **100 Gbps ExpressRoute Direct** | **ExpressRoute diretto 10 Gbps** | 
 | --- | --- |
-| **Sottoscrizione della larghezza di banda**: 200 GB/s | **Sottoscrizione della larghezza di banda**: 20 Gbps |
-| <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 GB/s</li></ul> | <ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
+| **Larghezza di banda sottoscritta**: 200 Gbps | **Larghezza di banda sottoscritta**: 20 Gbps |
+| <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> | <ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
 
 ## <a name="technical-requirements"></a>Requisiti tecnici
 
-* Interfacce di Router (MSEE) di Microsoft Enterprise Edge:
-    * Porte doppie a 100 o 10 Gigabit Ethernet solo tra la coppia di router
-    * Connettività in modalità Fiber di LR singola
+* Interfacce di Microsoft Enterprise Edge router (MSEE):
+    * Doppio porte Ethernet da 10 o 100 Gigabit solo tra coppie di router
+    * Connettività Fiber LR in modalità singola
     * IPv4 e IPv6
     * IP MTU 1500 byte
 
-* Router/commutatore livello 2 o Layer 3 connettività:
-    * Deve supportare il tag 1 802.1Q (Dot1Q) o due Tag 802.1Q (QinQ) incapsulamento del tag
-    * EtherType = 0x8100
-    * È necessario aggiungere i tag VLAN esterno (STAG) in base all'ID di VLAN specificato da Microsoft - *applicabile solo su QinQ*
-    * Deve supportare più sessioni BGP (VLAN) per ogni porta e dispositivo
-    * Connettività IPv4 e IPv6. *Non verrà creato alcun aggiuntiva sotto-interfaccia per IPv6. IPv6 indirizzo verrà aggiunto al sotto-interfaccia esistente*. 
-    * Facoltativo: [Rilevamento di inoltro bidirezionale (BFD)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd) supportare, che è configurato per impostazione predefinita su tutti i Peerings privati nei circuiti ExpressRoute
+* Connettività di livello 2/livello 3 switch/router:
+    * Deve supportare 1 tag 802.1 Q (Dot1Q) o l'incapsulamento di due tag 802.1 Q (QinQ)
+    * Ethertype = 0x8100
+    * È necessario aggiungere il tag di VLAN esterno (STAG) in base all'ID VLAN specificato da Microsoft, *applicabile solo su QinQ*
+    * Deve supportare più sessioni BGP (VLAN) per porta e dispositivo
+    * Connettività IPv4 e IPv6. *Per IPv6 non verrà creata alcuna interfaccia secondaria aggiuntiva. L'indirizzo IPv6 verrà aggiunto all'interfaccia*secondaria esistente. 
+    * Facoltativo: Supporto del [rilevamento di inoltri bidirezionale (BFD)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd) , configurato per impostazione predefinita in tutti i peering privati nei circuiti ExpressRoute
 
 ## <a name="vlan-tagging"></a>Codifica VLAN
 
@@ -86,7 +86,7 @@ ExpressRoute Direct supporta la codifica VLAN QinQ e Dot1Q.
 
 ## <a name="workflow"></a>Flusso di lavoro
 
-[![workflow](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
+[![flusso](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
 
 ## <a name="sla"></a>Contratto di servizio
 

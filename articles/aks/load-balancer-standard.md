@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: zarhoads
-ms.openlocfilehash: a9cf3db3a15fab5a2f067a146950e02923a20379
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: b5bbc2951e10e132b407e1651a2c146cf22184a5
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "67476815"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949655"
 ---
 # <a name="preview---use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Anteprima: usare un servizio di bilanciamento del carico con SKU standard in Azure Kubernetes Service (AKS)
 
@@ -92,6 +92,7 @@ Quando si creano e si gestiscono cluster AKS che supportano un servizio di bilan
 
 * Quando si usa lo SKU *standard* per un servizio di bilanciamento del carico, è necessario consentire indirizzi pubblici ed evitare di creare criteri di Azure che vietino la creazione di IP. Il cluster AKS crea automaticamente un IP pubblico dello SKU *standard* nello stesso gruppo di risorse creato per il cluster AKS, che in genere è denominato con *MC_* all'inizio. AKS assegna l'indirizzo IP pubblico al servizio di bilanciamento del carico dello SKU *standard* . L'indirizzo IP pubblico è necessario per consentire il traffico in uscita dal cluster AKS. Questo indirizzo IP pubblico è necessario anche per mantenere la connettività tra il piano di controllo e i nodi dell'agente, nonché per mantenere la compatibilità con le versioni precedenti di AKS.
 * Quando si usa lo SKU *standard* per un servizio di bilanciamento del carico, è necessario usare Kubernetes versione 1.13.5 o successiva.
+* Se si usa la [funzionalità IP pubblico del nodo](use-multiple-node-pools.md#assign-a-public-ip-per-node-in-a-node-pool) con i bilanciamenti del carico standard, è possibile impostare una regola in uscita SLB o un indirizzo IP pubblico per il nodo. È necessario selezionare una o l'altra perché una macchina virtuale non può essere collegata contemporaneamente a una regola in uscita SLB e a un indirizzo IP pubblico.
 
 Quando questa funzionalità è in anteprima, si applicano le seguenti limitazioni aggiuntive:
 

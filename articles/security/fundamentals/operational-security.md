@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a2c186fab28c96fa743e7bbf1701dba9de3f742d
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 69b25f22d448436db5e906a3b56b5e50ec412b40
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726927"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934672"
 ---
 # <a name="azure-operational-security"></a>Sicurezza operativa di Azure
 ## <a name="introduction"></a>Introduzione
@@ -41,17 +41,17 @@ L'infrastruttura di Azure è stata progettata, dalla struttura fino alle applica
 La sicurezza operativa di Azure include i servizi, i controlli e le funzionalità offerti agli utenti per proteggere i dati, le applicazioni e gli altri asset di Microsoft Azure. Questa soluzione si basa su un framework che incorpora le conoscenze acquisite tramite varie funzionalità univoche di Microsoft, tra cui Microsoft Security Development Lifecycle (SDL), il programma Microsoft Security Response Center e una profonda consapevolezza del panorama delle minacce per la sicurezza informatica.
 
 Questo white paper delinea l'approccio di Microsoft alla sicurezza operativa di Azure all'interno della piattaforma cloud di Microsoft Azure e descrive i servizi seguenti:
-1.  [Monitoraggio di Azure](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
+1.  [Monitoraggio di Azure](../../azure-monitor/index.yml)
 
-2.  [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
+2.  [Centro sicurezza di Azure](../../security-center/security-center-intro.md)
 
-3.  [Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview)
+3.  [Monitoraggio di Azure](../../azure-monitor/overview.md)
 
-4.  [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)
+4.  [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)
 
 5.  [Azure Storage analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)
 
-6.  [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
+6.  [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)
 
 
 ## <a name="microsoft-azure-monitor-logs"></a>Log di monitoraggio Microsoft Azure
@@ -100,21 +100,21 @@ Protegge i dati delle applicazioni e li conserva per anni, senza investimenti di
 I dati protetti in Backup di Azure vengono archiviati in un insieme di credenziali di backup che si trova in una determinata area geografica. I dati vengono replicati nella stessa area e, a seconda del tipo di insieme di credenziali, possono anche essere replicati in un'altra area per ottenere una maggiore resilienza.
 
 ### <a name="management-solutions"></a>Soluzioni di gestione
-[Monitoraggio di Azure](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) è la soluzione Microsoft per la gestione IT basata sul cloud che consente di gestire e proteggere l'infrastruttura locale e cloud.
+[Monitoraggio di Azure](../../security-center/security-center-intro.md) è la soluzione Microsoft per la gestione IT basata sul cloud che consente di gestire e proteggere l'infrastruttura locale e cloud.
 
 
-Le [soluzioni di gestione](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) sono set preconfezionati di logiche che implementano un particolare scenario di gestione usando uno o più servizi di monitoraggio di Azure. Sono disponibili diverse soluzioni da Microsoft e dai partner che è possibile aggiungere facilmente alla sottoscrizione di Azure per aumentare il valore dell'investimento in monitoraggio di Azure. I partner possono creare le proprie soluzioni per supportare le applicazioni e i servizi e offrirle agli utenti tramite Azure Marketplace o i modelli di avvio rapido.
+Le [soluzioni di gestione](../../monitoring/monitoring-solutions.md) sono set preconfezionati di logiche che implementano un particolare scenario di gestione usando uno o più servizi di monitoraggio di Azure. Sono disponibili diverse soluzioni da Microsoft e dai partner che è possibile aggiungere facilmente alla sottoscrizione di Azure per aumentare il valore dell'investimento in monitoraggio di Azure. I partner possono creare le proprie soluzioni per supportare le applicazioni e i servizi e offrirle agli utenti tramite Azure Marketplace o i modelli di avvio rapido.
 
 
 ![Soluzioni di gestione](./media/operational-security/azure-operational-security-fig4.png)
 
-Un valido esempio di soluzione che sfrutta più servizi per offrire funzionalità aggiuntive è la [soluzione Gestione aggiornamenti](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management). Questa soluzione USA l'agente di [log di monitoraggio di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) per Windows e Linux per raccogliere informazioni sugli aggiornamenti necessari in ogni agente. Scrive questi dati nel repository dei log di monitoraggio di Azure in cui è possibile analizzarli con un dashboard incluso.
+Un valido esempio di soluzione che sfrutta più servizi per offrire funzionalità aggiuntive è la [soluzione Gestione aggiornamenti](../../automation/automation-update-management.md). Questa soluzione USA l'agente di [log di monitoraggio di Azure](../../log-analytics/log-analytics-queries.md) per Windows e Linux per raccogliere informazioni sugli aggiornamenti necessari in ogni agente. Scrive questi dati nel repository dei log di monitoraggio di Azure in cui è possibile analizzarli con un dashboard incluso.
 
-Quando si crea una distribuzione, vengono usati i runbook dell'[Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-intro) per installare gli aggiornamenti necessari. L'intero processo viene gestito nel portale, non è necessario preoccuparsi dei dettagli sottostanti.
+Quando si crea una distribuzione, vengono usati i runbook dell'[Automazione di Azure](../../automation/automation-intro.md) per installare gli aggiornamenti necessari. L'intero processo viene gestito nel portale, non è necessario preoccuparsi dei dettagli sottostanti.
 
 ## <a name="azure-security-center"></a>Centro sicurezza di Azure
 
-Il Centro sicurezza di Azure consente di proteggere le risorse di Azure. Integra il monitoraggio della sicurezza e la gestione dei criteri in tutte le sottoscrizioni di Azure. Nell'ambito del servizio, è possibile definire criteri non solo per le sottoscrizioni di Azure, ma anche per i [gruppi di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups), in modo da ottenere una maggiore granularità.
+Il Centro sicurezza di Azure consente di proteggere le risorse di Azure. Integra il monitoraggio della sicurezza e la gestione dei criteri in tutte le sottoscrizioni di Azure. Nell'ambito del servizio, è possibile definire criteri non solo per le sottoscrizioni di Azure, ma anche per i [gruppi di risorse](../../azure-resource-manager/resource-group-overview.md#resource-groups), in modo da ottenere una maggiore granularità.
 
 ### <a name="security-policies-and-recommendations"></a>Criteri di sicurezza e raccomandazioni
 
@@ -165,7 +165,7 @@ Il Centro sicurezza di Azure raccoglie copie temporanee dei file di dump di arre
 
 ## <a name="azure-monitor"></a>Monitoraggio di Azure
 
-La soluzione sicurezza e controllo di [monitoraggio di Azure](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) consente di monitorare attivamente tutte le risorse, che consentono di ridurre al minimo l'effetto degli eventi imprevisti della sicurezza. I log di monitoraggio di Azure Sicurezza e controllo hanno domini di sicurezza che possono essere usati per il monitoraggio delle risorse. I domini di sicurezza consentono di accedere rapidamente alle opzioni per il monitoraggio della sicurezza. Verranno analizzati in modo più approfondito i domini seguenti:
+La soluzione sicurezza e controllo di [monitoraggio di Azure](../../security-center/security-center-monitoring.md) consente di monitorare attivamente tutte le risorse, che consentono di ridurre al minimo l'effetto degli eventi imprevisti della sicurezza. I log di monitoraggio di Azure Sicurezza e controllo hanno domini di sicurezza che possono essere usati per il monitoraggio delle risorse. I domini di sicurezza consentono di accedere rapidamente alle opzioni per il monitoraggio della sicurezza. Verranno analizzati in modo più approfondito i domini seguenti:
 
 -   Valutazione di software dannoso
 -   Valutazione aggiornamenti
@@ -195,11 +195,11 @@ I log di diagnostica vengono generati da una risorsa e contengono informazioni a
 
 Ad esempio, i log del sistema eventi di Windows sono una categoria di log di diagnostica per le macchine virtuali, i BLOB e le tabelle, mentre i log della coda sono categorie di log di diagnostica per gli account di archiviazione.
 
-I log di diagnostica sono diversi dai [log attività (precedentemente conosciuti come log di controllo o log operativi)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). Il log attività fornisce informazioni approfondite sulle operazioni eseguite sulle risorse nella sottoscrizione. I log di diagnostica forniscono informazioni approfondite sulle operazioni che la risorsa esegue automaticamente.
+I log di diagnostica sono diversi dai [log attività (precedentemente conosciuti come log di controllo o log operativi)](../../azure-monitor/platform/activity-logs-overview.md). Il log attività fornisce informazioni approfondite sulle operazioni eseguite sulle risorse nella sottoscrizione. I log di diagnostica forniscono informazioni approfondite sulle operazioni che la risorsa esegue automaticamente.
 
 ### <a name="metrics"></a>Metriche
 
-Il monitoraggio di Azure consente di usare la telemetria per ottenere visibilità sulle prestazioni e sull'integrità dei carichi di lavoro in Azure. Il tipo di dati di telemetria Azure più importante è rappresentato dalle metriche (altrimenti dette contatori delle prestazioni) generate dalla maggior parte delle risorse di Azure. Il Monitoraggio di Azure offre svariati modi per configurare e usare queste [metriche](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) per il monitoraggio e la risoluzione dei problemi. Le metriche sono un'importante fonte di dati di telemetria e consentono di eseguire le attività seguenti:
+Il monitoraggio di Azure consente di usare la telemetria per ottenere visibilità sulle prestazioni e sull'integrità dei carichi di lavoro in Azure. Il tipo di dati di telemetria Azure più importante è rappresentato dalle metriche (altrimenti dette contatori delle prestazioni) generate dalla maggior parte delle risorse di Azure. Il Monitoraggio di Azure offre svariati modi per configurare e usare queste [metriche](../../monitoring/monitoring-data-collection.md) per il monitoraggio e la risoluzione dei problemi. Le metriche sono un'importante fonte di dati di telemetria e consentono di eseguire le attività seguenti:
 
 -   **Tenere traccia delle prestazioni** della risorsa (ad esempio, una VM, un sito Web o un'app per la logica) tracciandone le metriche in un grafico del portale da aggiungere a un dashboard.
 
@@ -213,13 +213,13 @@ Il monitoraggio di Azure consente di usare la telemetria per ottenere visibilit�
 
 ### <a name="azure-diagnostics"></a>Diagnostica Azure
 
-È la funzionalità di Azure che consente la raccolta di dati di diagnostica in un'applicazione distribuita. È possibile usare l'estensione di diagnostica da numerose origini diverse. Sono attualmente supportati [ruoli Web e di lavoro del servizio cloud di Azure](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service), [macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/overview) che eseguono Microsoft Windows e [Service Fabric](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics). Altri servizi di Azure dispongono di propri strumenti di diagnostica separati.
+È la funzionalità di Azure che consente la raccolta di dati di diagnostica in un'applicazione distribuita. È possibile usare l'estensione di diagnostica da numerose origini diverse. Sono attualmente supportati [ruoli Web e di lavoro del servizio cloud di Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), [macchine virtuali di Azure](../../virtual-machines/windows/overview.md) che eseguono Microsoft Windows e [Service Fabric](../../azure-monitor/platform/diagnostics-extension-overview.md). Altri servizi di Azure dispongono di propri strumenti di diagnostica separati.
 
 ## <a name="azure-network-watcher"></a>Azure Network Watcher
 
 Il controllo della sicurezza della rete è fondamentale per rilevare le vulnerabilità e garantire la conformità con il modello di governance normativo e della sicurezza IT. Con la visualizzazione Gruppo di sicurezza, è possibile recuperare il gruppo di sicurezza di rete e le regole di sicurezza configurate, ma anche le regole di sicurezza efficaci. Con l'elenco delle regole applicate, è possibile determinare le porte aperte e valutare la vulnerabilità di rete.
 
-[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) è un servizio a livello di area che permette di monitorare e diagnosticare le condizioni al livello di rete da, verso e in Azure. Gli strumenti di visualizzazione e diagnostica di rete disponibili in Network Watcher permettono di comprendere, diagnosticare e ottenere informazioni dettagliate sulla rete in Azure. Il servizio include l'acquisizione pacchetti, l'hop successivo, la verifica del flusso IP, la visualizzazione dei gruppi di sicurezza e i log dei flussi dei gruppi di sicurezza di rete. A differenza del monitoraggio a livello di singole risorse di rete, il monitoraggio a livello di scenario consente una visualizzazione completa delle risorse di rete.
+[Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) è un servizio a livello di area che permette di monitorare e diagnosticare le condizioni al livello di rete da, verso e in Azure. Gli strumenti di visualizzazione e diagnostica di rete disponibili in Network Watcher permettono di comprendere, diagnosticare e ottenere informazioni dettagliate sulla rete in Azure. Il servizio include l'acquisizione pacchetti, l'hop successivo, la verifica del flusso IP, la visualizzazione dei gruppi di sicurezza e i log dei flussi dei gruppi di sicurezza di rete. A differenza del monitoraggio a livello di singole risorse di rete, il monitoraggio a livello di scenario consente una visualizzazione completa delle risorse di rete.
 
 ![Azure Network Watcher](./media/operational-security/azure-operational-security-fig8.png)
 
@@ -240,15 +240,15 @@ Di seguito sono elencate le funzionalità attualmente disponibili in Network Wat
 
 [Analisi archiviazione](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) è in grado di archiviare le metriche che includono le statistiche delle transazioni aggregate e i dati di capacità relativi alle richieste in un servizio di archiviazione. Le transazioni vengono segnalate sia a livello di operazione API, sia a livello di servizio di archiviazione, mentre la capacità viene segnalata a livello di servizio di archiviazione. I dati delle metriche possono essere utilizzati per analizzare l'uso del servizio di archiviazione, diagnosticare i problemi relativi alle richieste effettuate al servizio di archiviazione e per migliorare le prestazioni delle applicazioni che usano un servizio.
 
-L'[Analisi archiviazione di Azure](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) esegue la registrazione e restituisce i dati delle metriche per un account di archiviazione. È possibile utilizzare questi dati per tenere traccia delle richieste, analizzare le tendenze d'uso e diagnosticare i problemi relativi al proprio account di archiviazione. La registrazione dell'Analisi archiviazione di Azure è disponibile per i [servizi BLOB, code e tabelle](https://docs.microsoft.com/azure/storage/storage-introduction). Analisi archiviazione registra informazioni dettagliate sulle richieste riuscite e non a un servizio di archiviazione.
+L'[Analisi archiviazione di Azure](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) esegue la registrazione e restituisce i dati delle metriche per un account di archiviazione. È possibile utilizzare questi dati per tenere traccia delle richieste, analizzare le tendenze d'uso e diagnosticare i problemi relativi al proprio account di archiviazione. La registrazione dell'Analisi archiviazione di Azure è disponibile per i [servizi BLOB, code e tabelle](../../storage/common/storage-introduction.md). Analisi archiviazione registra informazioni dettagliate sulle richieste riuscite e non a un servizio di archiviazione.
 
 Queste informazioni possono essere utilizzate per monitorare le singole richieste e per diagnosticare problemi relativi a un servizio di archiviazione. Le richieste vengono registrate in base al massimo sforzo. Le voci di registro vengono create solo se esistono richieste effettuate per l'endpoint di servizio. Se, ad esempio, un account di archiviazione presenta un'attività nell'endpoint BLOB ma non negli endpoint tabella o coda, saranno creati solo log relativi al servizio BLOB.
 
-Per utilizzare Analisi archiviazione, è necessario abilitarla singolarmente per ciascun servizio che si desidera monitorare. È possibile abilitarla nel [portale di Azure](https://portal.azure.com/); per informazioni dettagliate, vedere [Monitorare un account di archiviazione nel portale di Azure](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account). È inoltre possibile abilitare Analisi archiviazione a livello di codice tramite l'API REST o la libreria client. Per abilitare l'Analisi archiviazione per ogni servizio, usare le operazioni che consentono di impostare le proprietà dei servizi.
+Per utilizzare Analisi archiviazione, è necessario abilitarla singolarmente per ciascun servizio che si desidera monitorare. È possibile abilitarla nel [portale di Azure](https://portal.azure.com/); per informazioni dettagliate, vedere [Monitorare un account di archiviazione nel portale di Azure](../../storage/common/storage-monitor-storage-account.md). È inoltre possibile abilitare Analisi archiviazione a livello di codice tramite l'API REST o la libreria client. Per abilitare l'Analisi archiviazione per ogni servizio, usare le operazioni che consentono di impostare le proprietà dei servizi.
 
 I dati aggregati vengono archiviati in un BLOB noto (per la registrazione) e in tabelle note (per le metriche), a cui è possibile accedere tramite le API del servizio BLOB e del servizio tabelle.
 
-L'Analisi archiviazione può archiviare fino a un massimo di 20 TB di dati. Tale limite è indipendente dal limite totale dell'account di archiviazione. Tutti i log vengono archiviati in [BLOB in blocchi](https://docs.microsoft.com/azure/storage/storage-analytics) all'interno di un contenitore denominato $logs, che viene creato automaticamente quando viene abilitata l'Analisi archiviazione per un account di archiviazione.
+L'Analisi archiviazione può archiviare fino a un massimo di 20 TB di dati. Tale limite è indipendente dal limite totale dell'account di archiviazione. Tutti i log vengono archiviati in [BLOB in blocchi](../../storage/common/storage-analytics.md) all'interno di un contenitore denominato $logs, che viene creato automaticamente quando viene abilitata l'Analisi archiviazione per un account di archiviazione.
 
 Le seguenti azioni eseguite da Analisi archiviazione sono fatturabili:
 
@@ -260,7 +260,7 @@ Le seguenti azioni eseguite da Analisi archiviazione sono fatturabili:
 > Per prestazioni ottimali, è consigliabile limitare il numero di dischi a elevato utilizzo collegati alla macchina virtuale per evitare una possibile limitazione. Se non tutti i dischi presentano un utilizzo elevato nello stesso momento, l'account di archiviazione può supportare un numero maggiore di dischi.
 
 > [!Note]
-> Per informazioni sui limiti dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](https://docs.microsoft.com/azure/storage/storage-scalability-targets).
+> Per informazioni sui limiti dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../../storage/common/storage-scalability-targets.md).
 
 
 Vengono registrati i tipi seguenti di richieste autenticate e anonime.
@@ -281,9 +281,9 @@ Azure AD include anche una suite completa di funzionalità per la gestione delle
 
 -   Monitoraggio dell'utilizzo delle applicazioni e protezione dell'attività da minacce avanzate, grazie alla creazione di report e al monitoraggio della sicurezza.
 
-Azure Active Directory (Azure AD) include la sicurezza, l’attività e i report di controllo per la directory. La [Guida alla creazione di report in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) consente ai clienti di identificare le azioni con privilegi che si sono verificate nella propria istanza di Azure Active Directory. Le azioni con privilegi includono modifiche di elevazione dei privilegi, ad esempio la creazione dei ruoli o le reimpostazioni delle password, la modifica delle configurazioni dei criteri, ad esempio i criteri delle password o le modifiche alla configurazione della directory, ad esempio le modifiche alle impostazioni di federazione del dominio.
+Azure Active Directory (Azure AD) include la sicurezza, l’attività e i report di controllo per la directory. La [Guida alla creazione di report in Azure Active Directory](../../active-directory/active-directory-reporting-azure-portal.md) consente ai clienti di identificare le azioni con privilegi che si sono verificate nella propria istanza di Azure Active Directory. Le azioni con privilegi includono modifiche di elevazione dei privilegi, ad esempio la creazione dei ruoli o le reimpostazioni delle password, la modifica delle configurazioni dei criteri, ad esempio i criteri delle password o le modifiche alla configurazione della directory, ad esempio le modifiche alle impostazioni di federazione del dominio.
 
-Nei report è incluso il record di controllo per il nome dell'evento, l'attore che ha eseguito l'azione, la risorsa di destinazione interessata dalla modifica e la data e l'ora (UTC). I clienti possono recuperare l'elenco degli eventi di controllo per la propria istanza di Azure Active Directory tramite il [portale di Azure](https://portal.azure.com/), come descritto in [Visualizzare i log di controllo](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal). Di seguito è riportato un elenco dei report compresi:
+Nei report è incluso il record di controllo per il nome dell'evento, l'attore che ha eseguito l'azione, la risorsa di destinazione interessata dalla modifica e la data e l'ora (UTC). I clienti possono recuperare l'elenco degli eventi di controllo per la propria istanza di Azure Active Directory tramite il [portale di Azure](https://portal.azure.com/), come descritto in [Visualizzare i log di controllo](../../active-directory/reports-monitoring/overview-reports.md). Di seguito è riportato un elenco dei report compresi:
 
 | Report sulla sicurezza  | Report sull’attività| Report di controllo |
 | :------------- | :-------------| :-------------|
@@ -299,14 +299,14 @@ Nei report è incluso il record di controllo per il nome dell'evento, l'attore c
 
 
 
-I dati di questi report possono essere molto utili per le applicazioni, ad esempio i sistemi SIEM e gli strumenti di controllo e business intelligence. Le [API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started) di creazione report di Azure AD consentono l'accesso programmatico ai dati tramite un set di API basate su REST. È possibile chiamare queste API da numerosi linguaggi di programmazione e strumenti.
+I dati di questi report possono essere molto utili per le applicazioni, ad esempio i sistemi SIEM e gli strumenti di controllo e business intelligence. Le [API](../../active-directory/active-directory-reporting-api-getting-started-azure-portal.md) di creazione report di Azure AD consentono l'accesso programmatico ai dati tramite un set di API basate su REST. È possibile chiamare queste API da numerosi linguaggi di programmazione e strumenti.
 
 Gli eventi nel report di controllo di Azure Active Directory vengono conservati per 180 giorni.
 
 > [!Note]
-> Per altre informazioni sulla conservazione dei report, vedere la pagina relativa ai [criteri di conservazione dei report di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-retention).
+> Per altre informazioni sulla conservazione dei report, vedere la pagina relativa ai [criteri di conservazione dei report di Azure Active Directory](../../active-directory/reports-monitoring/reference-reports-data-retention.md).
 
-Per i clienti interessati alla conservazione degli [eventi di controllo](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-audit-events) per periodi più lunghi, l'API di creazione report consente di eseguire regolarmente il pull degli eventi di controllo in un archivio dati separato.
+Per i clienti interessati alla conservazione degli [eventi di controllo](../../active-directory/active-directory-reporting-activity-audit-logs.md) per periodi più lunghi, l'API di creazione report consente di eseguire regolarmente il pull degli eventi di controllo in un archivio dati separato.
 
 ## <a name="summary"></a>Summary
 
@@ -341,5 +341,5 @@ Microsoft progetta il software e i servizi tenendo a mente la sicurezza degli ut
 
 Usare le caratteristiche Microsoft di sicurezza dei dati e analisi per eseguire il rilevamento delle minacce più intelligente ed efficiente.
 
-- [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide) Una serie di passaggi e attività per ottimizzare l'uso del Centro sicurezza in base ai requisiti di sicurezza e al modello di gestione cloud dell'organizzazione.
+- [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](../../security-center/security-center-planning-and-operations-guide.md) Una serie di passaggi e attività per ottimizzare l'uso del Centro sicurezza in base ai requisiti di sicurezza e al modello di gestione cloud dell'organizzazione.
 

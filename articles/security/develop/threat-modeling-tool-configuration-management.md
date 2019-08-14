@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: dbe3526444bc35815dd4323a3a5290696619e3f9
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 986bed758229d639bb40d0803f7be4a89a0f6e49
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728338"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934819"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Infrastruttura di sicurezza: Gestione della configurazione - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
@@ -76,7 +76,7 @@ Example: var str="alert(1)"; eval(str);
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
 | **Riferimenti**              | [XSS Protection Filter](https://www.owasp.org/index.php/List_of_useful_HTTP_headers#X-XSS-Protection) (Filtro di protezione XSS) |
-| **Passaggi** | <p>La configurazione dell'intestazione della risposta X-XSS-Protection controlla il filtro di cross-site scripting del browser. Questa intestazione della risposta può avere i valori seguenti:</p><ul><li>`0:` Disabilita il filtro.</li><li>`1: Filter enabled` Se viene rilevato un attacco di tipo cross-site scripting, per arrestare l'attacco, il browser purifica la pagina.</li><li>`1: mode=block : Filter enabled`. Invece di purificare la pagina, quando viene rilevato un attacco XSS, il browser impedisce il rendering della pagina</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`. Il browser purificherà la pagina e segnalerà la violazione.</li></ul><p>Si tratta di una funzione di Chromium che utilizza i report sulle violazioni CSP per inviare i dettagli all'URI scelto. Le ultime 2 opzioni sono considerate valori sicuri.</p>|
+| **Passaggi** | <p>La configurazione dell'intestazione della risposta X-XSS-Protection controlla il filtro di cross-site scripting del browser. Questa intestazione della risposta può avere i valori seguenti:</p><ul><li>`0:` Disabilita il filtro.</li><li>`1: Filter enabled` Se viene rilevato un attacco di tipo cross-site scripting, per arrestare l'attacco, il browser purifica la pagina.</li><li>[https://login.microsoftonline.com/common/](`1: mode=block : Filter enabled`). Invece di purificare la pagina, quando viene rilevato un attacco XSS, il browser impedisce il rendering della pagina</li><li>[https://login.microsoftonline.com/common/](`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`). Il browser purificherà la pagina e segnalerà la violazione.</li></ul><p>Si tratta di una funzione di Chromium che utilizza i report sulle violazioni CSP per inviare i dettagli all'URI scelto. Le ultime 2 opzioni sono considerate valori sicuri.</p>|
 
 ## <a id="trace-deploy"></a>Le applicazioni ASP.NET devono disabilitare la traccia e il debug prima della distribuzione
 
@@ -563,7 +563,7 @@ Per disabilitare CORS per un controller o un'azione, usare l'attributo [DisableC
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | Opzione gateway: Hub IoT di Azure |
-| **Riferimenti**              | [Panoramica della gestione dei dispositivi con l'hub IoT](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/), [How to update Device Firmware](https://docs.microsoft.com/azure/iot-hub/tutorial-firmware-update) (Come aggiornare il firmware di un dispositivo) |
+| **Riferimenti**              | [Panoramica della gestione dei dispositivi con l'hub IoT](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/), [How to update Device Firmware](../../iot-hub/tutorial-firmware-update.md) (Come aggiornare il firmware di un dispositivo) |
 | **Passaggi** | LWM2M è un protocollo di Open Mobile Alliance per la gestione dei dispositivi IoT. Gestione dei dispositivi dell'hub IoT di Azure consente di interagire con dispositivi fisici tramite processi del dispositivo. Assicurarsi che il gateway nel cloud implementi a processo per mantenere regolarmente aggiornati il dispositivo e gli altri dati di configurazione usando Gestione dei dispositivi dell'hub IoT di Azure. |
 
 ## <a id="controls-policies"></a>Assicurarsi che i dispositivi abbiano i controlli di sicurezza degli endpoint configurati in base ai criteri organizzativi

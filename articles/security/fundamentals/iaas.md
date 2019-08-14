@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/05/2019
 ms.author: barclayn
-ms.openlocfilehash: 5e449ae33b19b27c3ea50d982ed84f681a0beb8f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: c04d5fc5b455c798ffc8cb4a88948deaea0cf348
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727282"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927921"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedure consigliate per la sicurezza dei carichi di lavoro IaaS in Azure
 Questo articolo descrive le procedure consigliate per la sicurezza delle macchine virtuali e dei sistemi operativi.
@@ -79,7 +79,7 @@ Un set di disponibilità è un raggruppamento logico che è possibile usare in A
 
 Microsoft Antimalware include caratteristiche come la protezione in tempo reale, l'analisi pianificata, il monitoraggio e aggiornamento malware, l'aggiornamento delle firme e del motore, il reporting di campioni e la raccolta degli eventi di esclusione. Per gli ambienti ospitati separatamente dall'ambiente di produzione, è possibile usare un'estensione antimalware per la protezione delle VM e dei servizi cloud.
 
-È possibile integrare Microsoft Antimalware e soluzioni partner con [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/) per facilitare la distribuzione e i rilevamenti predefiniti (avvisi ed eventi imprevisti).
+È possibile integrare Microsoft Antimalware e soluzioni partner con [Centro sicurezza di Azure](../../security-center/index.yml) per facilitare la distribuzione e i rilevamenti predefiniti (avvisi ed eventi imprevisti).
 
 **Procedura consigliata**: installare una soluzione antimalware per proteggersi dai malware.   
 **Dettagli**: [installare una soluzione di un partner Microsoft o Microsoft Antimalware](../../security-center/security-center-install-endpoint-protection.md)

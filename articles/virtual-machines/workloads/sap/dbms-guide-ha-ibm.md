@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: 754eb063f82344e72bece8fb0ac5708dbc8ab791
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 0da426a9302ce72b5359df15d3f8e244fc1766a0
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249141"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935350"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -133,7 +133,7 @@ Completare il processo di pianificazione prima di eseguire la distribuzione. La 
 | Definizione della rete virtuale/subnet | Dove vengono distribuite le macchine virtuali per IBM DB2 e Azure Load Balancer. Può essere esistente o appena creato. |
 | Macchine virtuali che ospitano IBM DB2 LUW | Dimensioni della macchina virtuale, archiviazione, rete e indirizzo IP. |
 | Nome host virtuale e IP virtuale per il database IBM DB2| Indirizzo IP virtuale o nome host usato per la connessione dei server applicazioni SAP. **DB-virt-hostname**, **DB-virt-IP**. |
-| Schermatura di Azure | Schermatura di Azure o schermatura SBD (altamente consigliata). Viene impedito il metodo per evitare la suddivisione di situazioni cerebrali. |
+| Schermatura di Azure | Schermatura di Azure o schermatura SBD (altamente consigliata). Metodo che consente di evitare situazioni di divisione cerebrale. |
 | VM SBD | Dimensioni, archiviazione e rete della macchina virtuale SBD. |
 | Azure Load Balancer | Utilizzo di Basic o standard (scelta consigliata), porta Probe per database DB2 (raccomandazione 62500) **Probe-Port**. |
 | Risoluzione dei nomi| Funzionamento della risoluzione dei nomi nell'ambiente. Il servizio DNS è altamente consigliato. È possibile usare il file hosts locale. |
@@ -144,7 +144,7 @@ Per altre informazioni su pacemaker per Linux in Azure, vedere [configurare pace
 
 Resource Agent per IBM DB2 LUW è incluso in SUSE Linux Enterprise Server per le applicazioni SAP. Per la configurazione descritta in questo documento, è necessario usare SUSE Linux Server per le applicazioni SAP. Azure Marketplace contiene un'immagine per SUSE Enterprise Server per applicazioni SAP 12 che è possibile usare per distribuire nuove macchine virtuali di Azure. Quando si sceglie un'immagine di macchina virtuale nel Marketplace di macchine virtuali di Azure, tenere presente i vari modelli di supporto o di servizio offerti da SUSE tramite Azure Marketplace. 
 
-### <a name="hosts-dns-updates"></a>Ospita Aggiornamenti del DNS
+### <a name="hosts-dns-updates"></a>Host: Aggiornamenti del DNS
 Creare un elenco di tutti i nomi host, inclusi i nomi host virtuali, e aggiornare i server DNS per abilitare l'indirizzo IP appropriato per la risoluzione dei nomi host. Se un server DNS non esiste o non è possibile aggiornare e creare voci DNS, è necessario usare i file host locali delle singole VM che partecipano a questo scenario. Se si usano voci di file host, assicurarsi che le voci vengano applicate a tutte le macchine virtuali nell'ambiente di sistema SAP. Tuttavia, si consiglia di usare il DNS che, idealmente, si estende in Azure
 
 
@@ -404,10 +404,10 @@ sudo crm configure property maintenance-mode=false</pre></code>
 # <a name="full-list-of-resources"></a>Elenco completo delle risorse:
 
 #  <a name="stonith-sbd----stonithexternalsbd-started-azibmdb02"></a>STONITH-SBD (STONITH: External/SBD): Azibmdb02 avviato
-#  <a name="resource-group-gipdb2ptrptr"></a>Gruppo di risorse: g_ip_db2ptr_PTR
-#      <a name="rscipdb2ptrptr--ocfheartbeatipaddr2-------started-azibmdb02"></a>rsc_ip_db2ptr_PTR  (ocf::heartbeat:IPaddr2):       Azibmdb02 avviato
-#      <a name="rscncdb2ptrptr--ocfheartbeatanything------started-azibmdb02"></a>rsc_nc_db2ptr_PTR (OCF:: heartbeat: Anything):      Azibmdb02 avviato
-#  <a name="masterslave-set-msldb2db2ptrptr-rscdb2db2ptrptr"></a>Set master/slave: msl_Db2_db2ptr_PTR [rsc_Db2_db2ptr_PTR]
+#  <a name="resource-group-g_ip_db2ptr_ptr"></a>Gruppo di risorse: g_ip_db2ptr_PTR
+#      <a name="rsc_ip_db2ptr_ptr--ocfheartbeatipaddr2-------started-azibmdb02"></a>rsc_ip_db2ptr_PTR  (ocf::heartbeat:IPaddr2):       Azibmdb02 avviato
+#      <a name="rsc_nc_db2ptr_ptr--ocfheartbeatanything------started-azibmdb02"></a>rsc_nc_db2ptr_PTR (OCF:: heartbeat: Anything):      Azibmdb02 avviato
+#  <a name="masterslave-set-msl_db2_db2ptr_ptr-rsc_db2_db2ptr_ptr"></a>Set master/slave: msl_Db2_db2ptr_PTR [rsc_Db2_db2ptr_PTR]
 #      <a name="masters--azibmdb02-"></a>Master: [azibmdb02]
 #      <a name="slaves--azibmdb01-"></a>Schiavi: [azibmdb01]
 </pre>

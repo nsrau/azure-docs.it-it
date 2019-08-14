@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: dacurwin
-ms.openlocfilehash: 6dc478f569b94450921e56c05b148bae357fef8e
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 70cd7a1e77e6154b6406c82344b82f230eeb7b3c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689136"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954636"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Ripristinare lo stato del sistema per Windows Server
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20d5131c773e2a9f7b6830725ccd934786d6dd67
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: a5fff27094881ffbada2bda7937fa714ffc07133
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880943"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954359"
 ---
 # <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>Configurare le informazioni di sicurezza (anteprima) per l'uso di un'app di autenticazione
 
@@ -78,7 +78,7 @@ A seconda delle impostazioni dell'organizzazione, potrebbe essere possibile usar
 
     L'app di autenticazione dovrebbe aggiungere correttamente l'account aziendale o dell'istituto di istruzione senza richiedere informazioni aggiuntive. Se invece il lettore di codice a matrice non riesce a leggere il codice, è possibile selezionare il link **Non è possibile eseguire la scansione del codice a matrice** e immettere manualmente il codice e l'URL nell'app Microsoft Authenticator. Per altre informazioni sull'aggiunta manuale di un codice, vedere [Aggiungere manualmente un account all'app](user-help-auth-app-add-account-manual.md).
 
-9. Selezionare **Avanti** nella pagina **Esegui la scansione del codice a matrice**.
+9. Selezionare **Avanti** nella pagina **Esegui la scansione del codice a matrice** sul computer.
 
     Verrà inviata una notifica all'app Microsoft Authenticator sul dispositivo mobile per testare l'account.
 
