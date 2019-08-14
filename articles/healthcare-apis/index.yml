@@ -22,7 +22,7 @@ sections:
   - title: Guide introduttive di 5 minuti
     items:
       - type: paragraph
-        text: Selezionare un collegamento a forma di freccia per informazioni su come usare l'API di Azure per FHIR per ottimizzare l'interoperabilità delle risorse sanitarie in Azure <img src="media/index/link.jpg" height="15" width="15"></img>.
+        text: Informazioni su come usare l'API di Azure per FHIR per ottimizzare l'interoperabilità delle risorse sanitarie in Azure selezionando un collegamento a forma di freccia <img src="media/index/link.jpg" height="15" width="15"></img>.
       - type: table
         style: dataMatrix
         columns:

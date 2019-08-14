@@ -191,6 +191,12 @@
     - name: Risolvere problemi
       href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       items:
+        - name: Blocco dell'applicazione Apache Tez
+          href: ./interactive-query-troubleshoot-tez-hangs.md
+        - name: Prestazioni delle query LLAP di Apache Hive
+          href: ./interactive-query-troubleshoot-query-performance.md
+        - name: Riduttore lento
+          href: ./interactive-query-troubleshoot-slow-reducer.md
         - name: Timeout della visualizzazione Apache Hive
           href: ./interactive-query-troubleshoot-view-time-out.md
         - name: Errore di autorizzazione durante la creazione di una tabella

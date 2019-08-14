@@ -295,6 +295,8 @@
               href: v2-oauth2-device-code.md
             - name: Concessione delle credenziali di tipo password del proprietario delle risorse in OAuth 2.0
               href: v2-oauth-ropc.md
+            - name: Flusso di asserzione SAML Bearer di OAuth 2.0
+              href: v2-saml-bearer-assertion.md
             - name: Rollover della chiave di firma
               href: active-directory-signing-key-rollover.md
             - name: Token ID

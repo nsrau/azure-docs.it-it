@@ -91,23 +91,27 @@
               href: choose-map-style.md
             - name: Aggiungere controlli alla mappa
               href: map-add-controls.md
+            - name: Creare un'origine dati
+              href: create-data-source-web-sdk.md
             - name: Aggiungere un livello per i simboli
               href: map-add-pin.md
-            - name: Aggiungere un popup
-              href: map-add-popup.md
             - name: Aggiungere un livello per le bolle
               href: map-add-bubble-layer.md
-            - name: Aggiungi forme
+            - name: Aggiungere un livello per le linee
+              href: map-add-line-layer.md
+            - name: Aggiungere un livello per i poligoni
               href: map-add-shape.md
             - name: Aggiungere un livello per le mappe termiche
               href: map-add-heat-map-layer.md
+            - name: Aggiungere un popup
+              href: map-add-popup.md
             - name: Clustering dei dati dei punti di interesse
               href: clustering-point-data-web-sdk.md
             - name: Usare espressioni di stile basate sui dati
               href: data-driven-style-expressions-web-sdk.md
             - name: Come usare i modelli di immagine
               href: how-to-use-image-templates-web-sdk.md
-            - name: Sovrapporre un'immagine
+            - name: Aggiungere un livello per le immagini
               href: map-add-image-layer.md
             - name: Aggiungere livelli per i riquadri
               href: map-add-tile-layer.md
@@ -139,6 +143,8 @@
           href: how-to-add-symbol-to-android-map.md
         - name: Aggiungi forme
           href: how-to-add-shapes-to-android-map.md
+        - name: Visualizzare informazioni sulle funzionalità
+          href: display-feature-information-android.md
         - name: Aggiungere un livello per i riquadri
           href: how-to-add-tile-layer-android-map.md
 - name: riferimento

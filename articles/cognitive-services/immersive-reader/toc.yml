@@ -14,9 +14,11 @@
 - name: Esercitazioni
   items:
     - name: Avviare lo strumento di lettura immersiva (Node.js)
-      href: tutorial.md
+      href: tutorial-nodejs.md
+    - name: Avviare lo strumento di lettura immersiva (Python)
+      href: tutorial-python.md
     - name: Avviare lo strumento di lettura immersiva da un'immagine (Swift)
-      href: ios-picture-immersive-reader-tutorial.md
+      href: tutorial-ios-picture-immersive-reader.md
 - name: Procedura
   items:
     - name: Autenticazione di Azure Active Directory

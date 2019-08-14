@@ -1,270 +1,270 @@
 ---
-title: 'Guida introduttiva: Creare un ciclo di feedback - Personalizza esperienze'
+title: 'Guida introduttiva: Libreria client di Personalizza esperienze per .NET | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
-description: Personalizzare il contenuto in questa guida di avvio rapido di C# con il servizio Personalizza esperienze.
+description: Imparare a usare la libreria client di Personalizza esperienze per .NET con un ciclo di apprendimento.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 06/11/2019
+ms.date: 08/5/2019
 ms.author: diberry
-ms.openlocfilehash: 54aa23071fef09058a1702218d6b7fc920363518
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 3b583fa7d9c7bab89accabf68034df407cb89a9c
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662805"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839945"
 ---
-# <a name="quickstart-personalize-content-using-c"></a>Guida introduttiva: Personalizzare il contenuto con C# 
+# <a name="quickstart-personalize-client-library-for-net"></a>Guida introduttiva: Libreria client di Personalizza esperienze per .NET
 
 Visualizzare il contenuto personalizzato in questa guida di avvio rapido di C# con il servizio Personalizza esperienze.
 
-Questo esempio illustra come usare la libreria client di Personalizza esperienze per C# per eseguire le azioni seguenti: 
+Introduzione alla libreria client di Personalizza esperienze per .NET. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
 
  * Classificare un elenco di azioni per la personalizzazione.
- * Segnalare la ricompensa da assegnare all'azione nella posizione più alta in classifica in base alla selezione dell'utente per l'evento specificato.
+ * Segnalare il punteggio di ricompensa che indica l'esito positivo dell'azione nella posizione più alta in classifica.
 
-L'introduzione a Personalizza esperienze include i passaggi seguenti:
-
-1. Aggiunta del riferimento all'SDK. 
-1. Scrittura del codice per classificare le azioni che si vogliono mostrare agli utenti.
-1. Scrittura del codice per inviare le ricompense per il training del ciclo.
+[Documentazione di riferimento](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.Personalizer?view=azure-dotnet-preview) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Personalizer) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/) | [Esempi](https://github.com/Azure-Samples/cognitive-services-personalizer-samples)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Per ottenere la chiave di sottoscrizione e l'URL del servizio endpoint, è necessario un [servizio Personalizza esperienze](how-to-settings.md). 
-* [Visual Studio 2015 o 2017](https://visualstudio.microsoft.com/downloads/).
-* Pacchetto NuGet [Microsoft.Azure.CognitiveServices.Personalizer](https://go.microsoft.com/fwlink/?linkid=2092272) dell'SDK. Le istruzioni di installazione sono disponibili più avanti.
+* Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
+* Versione corrente di [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
 
-## <a name="change-the-model-update-frequency"></a>Modificare la frequenza di aggiornamento del modello
+## <a name="setting-up"></a>Configurazione
+
+### <a name="create-a-personalizer-azure-resource"></a>Creare una risorsa di Azure di Personalizza esperienze
+
+I Servizi cognitivi di Azure sono rappresentati dalle risorse di Azure a cui si effettua la sottoscrizione. Creare una risorsa per Personalizza esperienze usando il [portale di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) nel computer locale. È anche possibile:
+
+* Ottenere un [codice della versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services), valido per 7 giorni. Dopo aver eseguito l'iscrizione, sarà disponibile sul [sito Web di Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
+* Visualizzare questa risorsa nel [portale di Azure](https://portal.azure.com/).
+
+<!-- rename TBD_KEY to something meaningful for your service, like TEXT_ANALYTICS_KEY -->
+Dopo aver ottenuto una chiave dalla sottoscrizione di valutazione o dalla risorsa, creare due [variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication):
+
+* `PERSONALIZER_RESOURCE_KEY` per la chiave della risorsa.
+* `PERSONALIZER_RESOURCE_ENDPOINT` per l'endpoint della risorsa.
+
+### <a name="change-the-model-update-frequency"></a>Modificare la frequenza di aggiornamento del modello
 
 Nella risorsa Personalizza esperienze del portale di Azure impostare **Frequenza di aggiornamento del modello** su 10 secondi. In questo modo il training del servizio verrà eseguito rapidamente e sarà possibile visualizzare il cambiamento dell'azione più alta in classifica per ogni iterazione.
 
-Quando viene creata per la prima volta un'istanza di un ciclo di Personalizza esperienze, non è disponibile alcun modello perché non sono state effettuate chiamate all'API per le ricompense da cui eseguire il training. Le chiamate a Classifica restituiranno uguali probabilità per ogni elemento. L'applicazione dovrà sempre classificare il contenuto usando l'output di RewardActionId.
-
 ![Modificare la frequenza di aggiornamento del modello](./media/settings/configure-model-update-frequency-settings.png)
 
-## <a name="creating-a-new-console-app-and-referencing-the-personalizer-sdk"></a>Creazione di una nuova app console e aggiunta del riferimento a Personalizer SDK 
+Quando viene creata per la prima volta un'istanza di un ciclo di Personalizza esperienze, non è disponibile alcun modello, perché non sono state effettuate chiamate all'API per le ricompense da cui eseguire il training. Le chiamate a Classifica restituiranno uguali probabilità per ogni elemento. L'applicazione dovrà sempre classificare il contenuto usando l'output di RewardActionId.
 
-<!--
-Get the latest code as a Visual Studio solution from [GitHub] (add link).
--->
+### <a name="create-a-new-c-application"></a>Creare una nuova applicazione C#
 
-1. Creare una nuova app console Visual C# in Visual Studio.
-1. Installare il pacchetto NuGet della libreria client di Personalizza esperienze. Nel menu selezionare **Strumenti**, **Gestione pacchetti NuGet** e quindi **Gestisci pacchetti NuGet per la soluzione**.
-1. Selezionare **Includi versione preliminare**.
-1. Selezionare la scheda **Sfoglia** e nella casella di **ricerca** digitare `Microsoft.Azure.CognitiveServices.Personalizer`.
-1. Selezionare la voce **Microsoft.Azure.CognitiveServices.Personalizer** quando viene visualizzata.
-1. Selezionare la casella di controllo accanto al nome del progetto e scegliere **Installa**.
+Creare una nuova applicazione .NET Core nell'ambiente di sviluppo integrato o nell'editor preferito. 
 
-## <a name="add-the-code-and-put-in-your-personalizer-and-azure-keys"></a>Aggiungere il codice e inserire le chiavi di Personalizza esperienze e Azure
+Nella finestra di una console (ad esempio cmd, PowerShell o Bash) usare il comando dotnet `new` per creare una nuova app console con il nome `personalizer-quickstart`. Questo comando crea un semplice progetto C# "Hello World" con un singolo file di origine: `Program.cs`. 
 
-1. Sostituire Program.cs con il codice seguente. 
-1. Sostituire il valore `serviceKey` con la chiave di sottoscrizione di Personalizza esperienze valida.
-1. Sostituire `serviceEndpoint` con l'endpoint servizio. Un esempio è `https://westus2.api.cognitive.microsoft.com/`.
-1. Eseguire il programma.
+```console
+dotnet new console -n personalizer-quickstart
+```
 
-## <a name="add-code-to-rank-the-actions-you-want-to-show-to-your-users"></a>Aggiungere il codice per classificare le azioni che si vogliono mostrare agli utenti
+Spostarsi nella cartella dell'app appena creata. È possibile compilare l'applicazione con il comando seguente:
 
-Il codice C# seguente è un listato completo per passare le informazioni utente, le funzionalità, le informazioni sul contenuto e le _azioni_ a Personalizza esperienze usando l'SDK. Personalizza esperienze restituisce l'azione nella posizione più alta in classifica da visualizzare l'utente.  
+```console
+dotnet build
+```
+
+L'output di compilazione non deve contenere alcun avviso o errore. 
+
+```console
+...
+Build succeeded.
+ 0 Warning(s)
+ 0 Error(s)
+...
+```
+
+### <a name="install-the-sdk"></a>Installare l'SDK
+
+Nella directory dell'applicazione installare la libreria client di Personalizza esperienze per .NET con il comando seguente:
+
+```console
+dotnet add package Microsoft.Azure.CognitiveServices.Personalizer --version 0.8.0
+```
+
+Se si usa l'ambiente di sviluppo integrato di Visual Studio, la libreria client è disponibile come pacchetto NuGet scaricabile.
+
+## <a name="object-model"></a>Modello a oggetti
+
+Il client di Personalizza esperienze è un oggetto [PersonalizerClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.personalizerclient?view=azure-dotnet) che esegue l'autenticazione ad Azure con Microsoft.Rest.ServiceClientCredentials, che contiene la chiave.
+
+Per chiedere una classificazione del contenuto, creare un oggetto [RankRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rankrequest?view=azure-dotnet-preview) e passarlo al metodo [client.Rank](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.personalizerclientextensions.rank?view=azure-dotnet-preview). Il metodo Rank restituisce un oggetto RankResponse che contiene il contenuto classificato. 
+
+Per inviare una ricompensa a Personalizza esperienze, creare un oggetto [RewardRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rewardrequest?view=azure-dotnet-preview), quindi passarlo al metodo [client.Reward](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.personalizerclientextensions.reward?view=azure-dotnet-preview). 
+
+In questo argomento di avvio rapido, determinare la ricompensa è un'operazione banale. In un sistema di produzione invece, stabilire cosa influisce sul [punteggio di ricompensa](concept-rewards.md) e in quale misura può essere un processo complesso, che si può decidere di cambiare nel tempo. Questa dovrebbe essere una delle principali decisioni di progettazione da prendere nell'architettura di Personalizza esperienze. 
+
+## <a name="code-examples"></a>Esempi di codice
+
+Questi frammenti di codice mostrano come eseguire le operazioni seguenti con la libreria client di Personalizza esperienze per .NET:
+
+* [Creare un client di Personalizza esperienze](#create-a-personalizer-client)
+* [Richiedere una classificazione](#request-a-rank)
+* [Inviare una ricompensa](#send-a-reward)
+
+## <a name="add-the-dependencies"></a>Aggiungere le dipendenze
+
+Dalla directory del progetto aprire il file **Program.cs** nell'ambiente di sviluppo integrato o nell'editor preferito. Sostituire il codice `using` esistente con le direttive `using` seguenti:
+
+[!code-csharp[Using statements](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=Dependencies)]
+
+## <a name="add-personalizer-resource-information"></a>Aggiungere le informazioni sulla risorsa di Personalizza esperienze
+
+Nella classe **Program** creare le variabili per la chiave e l'endpoint di Azure della risorsa estratti dalle variabili di ambiente, denominate `PERSONALIZER_RESOURCE_KEY` e `PERSONALIZER_RESOURCE_ENDPOINT`. Se le variabili di ambiente sono state create dopo l'avvio dell'applicazione, per accedere alle variabili sarà necessario chiudere e ricaricare l'editor, la shell o l'ambiente di sviluppo integrato in cui sono in esecuzione. I metodi verranno creati in un secondo momento in questo argomento di avvio rapido.
+
+[!code-csharp[Create variables to hold the Personalizer resource key and endpoint values found in the Azure portal.](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=classVariables)]
+
+## <a name="create-a-personalizer-client"></a>Creare un client di Personalizza esperienze
+
+Si creerà ora un metodo per restituire un client di Personalizza esperienze. Il parametro per il metodo è `PERSONALIZER_RESOURCE_ENDPOINT` e l'ApiKey è `PERSONALIZER_RESOURCE_KEY`.
+
+[!code-csharp[Create the Personalizer client](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=authorization)]
+
+## <a name="get-content-choices-represented-as-actions"></a>Ottenere scelte di contenuto rappresentate come azioni
+
+Le azioni rappresentano le scelte di contenuto che si vuole classificare con Personalizza esperienze. Aggiungere i metodi seguenti alla classe Program per ottenere l'input di un utente dalla riga di comando per l'ora del giorno e la preferenza alimentare attuale.
+
+[!code-csharp[Present time out day preference to the user](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=createUserFeatureTimeOfDay)]
+
+[!code-csharp[Present food taste preference to the user](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=createUserFeatureTastePreference)]
+
+Entrambi i metodi usano il metodo `GetKey` per leggere la selezione dell'utente dalla riga di comando. 
+
+[!code-csharp[Read user's choice from the command line](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=readCommandLine)]
+
+## <a name="create-the-learning-loop"></a>Creare il ciclo di apprendimento
+
+Il ciclo di apprendimento di Personalizza esperienze è un ciclo di chiamate di classificazione e ricompensa. In questa guida di avvio rapido ogni chiamata di classificazione, per personalizzare il contenuto, è seguita da una chiamata di ricompensa, per indicare a Personalizza esperienze come il servizio ha classificato il contenuto. 
+
+Il codice seguente nel metodo `main` del programma esegue un ciclo in cui chiede all'utente di indicare le sue preferenze dalla riga di comando, invia tali informazioni a Personalizza esperienze per la classificazione, presenta all'utente una selezione in forma di classifica da cui scegliere, quindi invia una ricompensa a Personalizza esperienze per segnalare l'accuratezza del servizio nella classificazione della selezione.
 
 ```csharp
-using Microsoft.Azure.CognitiveServices.Personalizer;
-using Microsoft.Azure.CognitiveServices.Personalizer.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace PersonalizerExample
+static void Main(string[] args)
 {
-    class Program
+    int iteration = 1;
+    bool runLoop = true;
+
+    // Get the actions list to choose from personalizer with their features.
+    IList<RankableAction> actions = GetActions();
+
+    // Initialize Personalizer client.
+    PersonalizerClient client = InitializePersonalizerClient(ServiceEndpoint);
+
+    do
     {
-        // The key specific to your personalizer service instance; e.g. "0123456789abcdef0123456789ABCDEF"
-        private const string ApiKey = "";
+        Console.WriteLine("\nIteration: " + iteration++);
 
-        // The endpoint specific to your personalizer service instance; e.g. https://westus2.api.cognitive.microsoft.com/
-        private const string ServiceEndpoint = "";
+        // <rank>
+        // Get context information from the user.
+        string timeOfDayFeature = GetUsersTimeOfDay();
+        string tasteFeature = GetUsersTastePreference();
 
-        static void Main(string[] args)
+        // Create current context from user specified data.
+        IList<object> currentContext = new List<object>() {
+            new { time = timeOfDayFeature },
+            new { taste = tasteFeature }
+        };
+
+        // Exclude an action for personalizer ranking. This action will be held at its current position.
+        // This simulates a business rule to force the action "juice" to be ignored in the ranking.
+        // As juice is excluded, the return of the API will always be with a probability of 0.
+        IList<string> excludeActions = new List<string> { "juice" };
+
+        // Generate an ID to associate with the request.
+        string eventId = Guid.NewGuid().ToString();
+
+        // Rank the actions
+        var request = new RankRequest(actions, currentContext, excludeActions, eventId);
+        RankResponse response = client.Rank(request);
+        // </rank>
+
+        Console.WriteLine("\nPersonalizer service thinks you would like to have: " + response.RewardActionId + ". Is this correct? (y/n)");
+
+        // <reward>
+        float reward = 0.0f;
+        string answer = GetKey();
+
+        if (answer == "Y")
         {
-            int iteration = 1;
-            bool runLoop = true;
-
-            // Get the actions list to choose from personalizer with their features.
-            IList<RankableAction> actions = GetActions();
-
-            // Initialize Personalizer client.
-            PersonalizerClient client = InitializePersonalizerClient(ServiceEndpoint);
-
-            do
-            {
-                Console.WriteLine("\nIteration: " + iteration++);
-
-                // Get context information from the user.
-                string timeOfDayFeature = GetUsersTimeOfDay();
-                string tasteFeature = GetUsersTastePreference();
-
-                // Create current context from user specified data.
-                IList<object> currentContext = new List<object>() {
-                    new { time = timeOfDayFeature },
-                    new { taste = tasteFeature }
-                };
-
-                // Exclude an action for personalizer ranking. This action will be held at its current position.
-                IList<string> excludeActions = new List<string> { "juice" };
-
-                // Generate an ID to associate with the request.
-                string eventId = Guid.NewGuid().ToString();
-
-                // Rank the actions
-                var request = new RankRequest(actions, currentContext, excludeActions, eventId);
-                RankResponse response = client.Rank(request);
-
-                Console.WriteLine("\nPersonalizer service thinks you would like to have: " + response.RewardActionId + ". Is this correct? (y/n)");
-
-                float reward = 0.0f;
-                string answer = GetKey();
-
-                if (answer == "Y")
-                {
-                    reward = 1;
-                    Console.WriteLine("\nGreat! Enjoy your food.");
-                }
-                else if (answer == "N")
-                {
-                    reward = 0;
-                    Console.WriteLine("\nYou didn't like the recommended food choice.");
-                }
-                else
-                {
-                    Console.WriteLine("\nEntered choice is invalid. Service assumes that you didn't like the recommended food choice.");
-                }
-
-                Console.WriteLine("\nPersonalizer service ranked the actions with the probabilities as below:");
-                foreach (var rankedResponse in response.Ranking)
-                {
-                    Console.WriteLine(rankedResponse.Id + " " + rankedResponse.Probability);
-                }
-
-                // Send the reward for the action based on user response.
-                client.Reward(response.EventId, new RewardRequest(reward));
-
-                Console.WriteLine("\nPress q to break, any other key to continue:");
-                runLoop = !(GetKey() == "Q");
-
-            } while (runLoop);
+            reward = 1;
+            Console.WriteLine("\nGreat! Enjoy your food.");
+        }
+        else if (answer == "N")
+        {
+            reward = 0;
+            Console.WriteLine("\nYou didn't like the recommended food choice.");
+        }
+        else
+        {
+            Console.WriteLine("\nEntered choice is invalid. Service assumes that you didn't like the recommended food choice.");
         }
 
-        /// <summary>
-        /// Initializes the personalizer client.
-        /// </summary>
-        /// <param name="url">Azure endpoint</param>
-        /// <returns>Personalizer client instance</returns>
-        static PersonalizerClient InitializePersonalizerClient(string url)
+        Console.WriteLine("\nPersonalizer service ranked the actions with the probabilities as below:");
+        foreach (var rankedResponse in response.Ranking)
         {
-            PersonalizerClient client = new PersonalizerClient(
-                new ApiKeyServiceClientCredentials(ApiKey)) {Endpoint = url};
-
-            return client;
+            Console.WriteLine(rankedResponse.Id + " " + rankedResponse.Probability);
         }
 
-        /// <summary>
-        /// Get users time of the day context.
-        /// </summary>
-        /// <returns>Time of day feature selected by the user.</returns>
-        static string GetUsersTimeOfDay()
-        {
-            string[] timeOfDayFeatures = new string[] { "morning", "afternoon", "evening", "night" };
+        // Send the reward for the action based on user response.
+        client.Reward(response.EventId, new RewardRequest(reward));
+        // </reward>
 
-            Console.WriteLine("\nWhat time of day is it (enter number)? 1. morning 2. afternoon 3. evening 4. night");
-            if (!int.TryParse(GetKey(), out int timeIndex) || timeIndex < 1 || timeIndex > timeOfDayFeatures.Length)
-            {
-                Console.WriteLine("\nEntered value is invalid. Setting feature value to " + timeOfDayFeatures[0] + ".");
-                timeIndex = 1;
-            }
+        Console.WriteLine("\nPress q to break, any other key to continue:");
+        runLoop = !(GetKey() == "Q");
 
-            return timeOfDayFeatures[timeIndex - 1];
-        }
-
-        /// <summary>
-        /// Gets user food preference.
-        /// </summary>
-        /// <returns>Food taste feature selected by the user.</returns>
-        static string GetUsersTastePreference()
-        {
-            string[] tasteFeatures = new string[] { "salty", "sweet" };
-
-            Console.WriteLine("\nWhat type of food would you prefer (enter number)? 1. salty 2. sweet");
-            if (!int.TryParse(GetKey(), out int tasteIndex) || tasteIndex < 1 || tasteIndex > tasteFeatures.Length)
-            {
-                Console.WriteLine("\nEntered value is invalid. Setting feature value to " + tasteFeatures[0] + ".");
-                tasteIndex = 1;
-            }
-
-            return tasteFeatures[tasteIndex - 1];
-        }
-
-        /// <summary>
-        /// Creates personalizer actions feature list.
-        /// </summary>
-        /// <returns>List of actions for personalizer.</returns>
-        static IList<RankableAction> GetActions()
-        {
-            IList<RankableAction> actions = new List<RankableAction>
-            {
-                new RankableAction
-                {
-                    Id = "pasta",
-                    Features =
-                    new List<object>() { new { taste = "salty", spiceLevel = "medium" }, new { nutritionLevel = 5, cuisine = "italian" } }
-                },
-
-                new RankableAction
-                {
-                    Id = "ice cream",
-                    Features =
-                    new List<object>() { new { taste = "sweet", spiceLevel = "none" }, new { nutritionalLevel = 2 } }
-                },
-
-                new RankableAction
-                {
-                    Id = "juice",
-                    Features =
-                    new List<object>() { new { taste = "sweet", spiceLevel = "none" }, new { nutritionLevel = 5 }, new { drink = true } }
-                },
-
-                new RankableAction
-                {
-                    Id = "salad",
-                    Features =
-                    new List<object>() { new { taste = "salty", spiceLevel = "low" }, new { nutritionLevel = 8 } }
-                }
-            };
-
-            return actions;
-        }
-
-        private static string GetKey()
-        {
-            return Console.ReadKey().Key.ToString().Last().ToString().ToUpper();
-        }
-    }
+    } while (runLoop);
 }
 ```
 
+## <a name="request-a-rank"></a>Richiedere una classificazione
+
+Per completare la richiesta di classificazione, il programma richiede le preferenze dell'utente per creare un `currentContent` delle scelte di contenuto. Il processo può creare contenuto da escludere dalla classificazione, indicato come `excludeActions`. La richiesta di classificazione ha bisogno delle azioni, di currentContext, excludeActions e di un ID evento di classificazione univoco (come GUID) per ricevere la risposta classificata. 
+
+In questo argomento di avvio rapido sono state usate funzionalità di contesto semplici come l'ora del giorno e le preferenze alimentari dell'utente. Nei sistemi di produzione, determinare e [valutare](concept-feature-evaluation.md) [azioni e funzionalità](concepts-features.md) può non essere altrettanto semplice.  
+
+[!code-csharp[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=rank)]
+
+## <a name="send-a-reward"></a>Inviare una ricompensa
+
+Per completare la richiesta di ricompensa, il programma ottiene la selezione dell'utente dalla riga di comando, assegna un valore numerico a ogni selezione, quindi invia l'ID evento di classificazione univoco e il valore numerico al metodo reward.
+
+Questo argomento di avvio rapido assegna un numero semplice come ricompensa, ovvero zero o 1. Nei sistemi di produzione, determinare quando e cosa inviare alla chiamata [reward](concept-rewards.md) può essere un'operazione non banale, a seconda delle esigenze specifiche. 
+
+[!code-csharp[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=reward)]
+
 ## <a name="run-the-program"></a>Eseguire il programma
 
-Compilare ed eseguire il programma. Il programma di avvio rapido pone alcune domande per raccogliere le preferenze utente, note come funzionalità, quindi restituisce l'azione più comune.
+Eseguire l'applicazione con il comando dotnet `run` dalla directory dell'applicazione.
+
+```dotnet
+dotnet run
+```
 
 ![Il programma di avvio rapido pone alcune domande per raccogliere le preferenze utente, note come funzionalità, quindi restituisce l'azione più comune.](media/csharp-quickstart-commandline-feedback-loop/quickstart-program-feedback-loop-example.png)
 
+Il [codice sorgente per questo argomento di avvio rapido](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/csharp/PersonalizerExample/Program.cs) è disponibile nel repository GitHub di esempi di Personalizza esperienze.
+
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Dopo aver completato la procedura illustrata, rimuovere tutti i file creati in questa guida introduttiva. 
+
+Se si vuole pulire e rimuovere una sottoscrizione a Servizi cognitivi, è possibile eliminare la risorsa o il gruppo di risorse. Eliminando il gruppo di risorse vengono eliminate anche tutte le altre risorse associate.
+
+* [Portale](../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Interfaccia della riga di comando di Azure](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Funzionamento di Personalizza esperienze](how-personalizer-works.md)
+> [!div class="nextstepaction"]
+>[Funzionamento di Personalizza esperienze](how-personalizer-works.md)
 
+* [Informazioni su Personalizza esperienze](what-is-personalizer.md)
+* [In quali situazioni è possibile usare Personalizza esperienze?](where-can-you-use-personalizer.md)
+* [Risoluzione dei problemi](troubleshooting.md)
 
