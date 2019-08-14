@@ -12,27 +12,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: bfe11a8cbb6dd2de77bbac9d14c294c3f93438f3
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 484a7344185efa17731f5c35c7c4dec109608b67
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490414"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933073"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>Riattivare una sottoscrizione di Azure disabilitata
 
-Sottoscrizione di Azure può essere disabilitata perché il credito è scaduto, è stato raggiunto il limite di spesa, è scaduto un pagamento, raggiunto il limite di credito oppure perché la sottoscrizione è stata annullata dall'amministratore Account. Identificare il problema che descrive la situazione in corso e seguire la procedura descritta in questo articolo per riattivare la sottoscrizione.
+La sottoscrizione di Azure può essere disabilitata perché il credito è scaduto, è stato raggiunto il limite di spesa, è stata fatturata una fattura scaduta, è stato raggiunto il limite della carta di credito o perché la sottoscrizione è stata annullata dall'amministratore account. Identificare il problema che descrive la situazione in corso e seguire la procedura descritta in questo articolo per riattivare la sottoscrizione.
 
 ## <a name="your-credit-is-expired"></a>Il credito è scaduto
 
-Quando si crea un account Azure gratuito, si ottiene una sottoscrizione alla versione di valutazione gratuita, che offre 200 dollari sotto forma di credito di Azure per 30 giorni e 12 mesi di servizi gratuiti. Al termine dei 30 giorni, Azure disabilita la sottoscrizione. La sottoscrizione viene disabilitata per impedire addebiti errati per un utilizzo non coperto dal credito e dai servizi gratuiti inclusi nella sottoscrizione. Per continuare a usare servizi di Azure, è necessario [aggiornare la sottoscrizione](billing-upgrade-azure-subscription.md). Dopo l'aggiornamento, la sottoscrizione ha ancora accesso ai servizi gratuiti per 12 mesi. Viene addebitato solo un eventuale utilizzo non coperto dalle quantità e dai servizi gratuiti.
+Quando si crea un account Azure gratuito, si ottiene una sottoscrizione alla versione di valutazione gratuita, che offre 200 dollari sotto forma di credito di Azure per 30 giorni e 12 mesi di servizi gratuiti. Al termine dei 30 giorni, Azure disabilita la sottoscrizione. La sottoscrizione viene disabilitata per impedire addebiti errati per un utilizzo non coperto dal credito e dai servizi gratuiti inclusi nella sottoscrizione. Per continuare a usare i servizi di Azure, è necessario [aggiornare la sottoscrizione](billing-upgrade-azure-subscription.md). Dopo l'aggiornamento, la sottoscrizione ha ancora accesso ai servizi gratuiti per 12 mesi. Viene addebitato solo un eventuale utilizzo non coperto dalle quantità e dai servizi gratuiti.
 
 ## <a name="you-reached-your-spending-limit"></a>È stato raggiunto il limite di spesa
 
 Le sottoscrizioni di Azure con credito derivante dalla versione di prova gratuita e Visual Studio Enterprise hanno limiti di spesa, ovvero è possibile usare i servizi solo fino al raggiungimento del credito incluso. Quando si raggiunge il limite di spesa, Azure disabilita la sottoscrizione per la parte restante del periodo di fatturazione. La sottoscrizione viene disabilitata per impedire addebiti errati per un utilizzo non coperto dal credito incluso nella sottoscrizione. Per rimuovere il limite di spesa, vedere [Rimuovere il limite di spesa](billing-spending-limit.md#remove).
 
 > [!NOTE]
-> Se si dispone di una sottoscrizione di valutazione gratuita e si rimuove il limite di spesa, la sottoscrizione verrà convertita a una singola sottoscrizione con tariffe a consumo alla fine del periodo di valutazione gratuita. Conservare il credito rimanente per 30 giorni dopo la creazione della sottoscrizione. Si dispone inoltre dell'accesso ai servizi gratuiti per 12 mesi.
+> Se si dispone di una sottoscrizione di valutazione gratuita e si rimuove il limite di spesa, la sottoscrizione viene convertita in una sottoscrizione singola con tariffe con pagamento in base al consumo alla fine della versione di valutazione gratuita. Conservare il credito rimanente per 30 giorni dopo la creazione della sottoscrizione. Si dispone inoltre dell'accesso ai servizi gratuiti per 12 mesi.
 
 Per monitorare e gestire l'attività di fatturazione per Azure, vedere [Evitare costi imprevisti con la gestione dei costi e la fatturazione di Azure](billing-getting-started.md).
 
@@ -47,7 +47,7 @@ Per risolvere il problema [Cambiare carta di credito](billing-how-to-change-cred
 
 ## <a name="the-subscription-was-accidentally-canceled"></a>La sottoscrizione è stata annullata per errore
 
-Se si amministrano gli Account e annullata per errore una singola sottoscrizione con tariffe a consumo, si può riattivarla nel centro Account.
+Se si è l'amministratore dell'account ed è stata annullata accidentalmente una sottoscrizione con pagamento in base al consumo, è possibile riattivarla nel centro account.
 
 1. Accedere al [Centro account](https://account.windowsazure.com/Subscriptions).
 1. Selezionare la sottoscrizione annullata.
@@ -59,7 +59,7 @@ Per altri tipi di sottoscrizione, [contattare il supporto tecnico](https://porta
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+Per eventuali domande o per richiedere assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-# <a name="next-steps"></a>Passaggi successivi
-- Informazioni su come [monitorare e gestire le attività di fatturazione per Azure](billing-getting-started.md).
+## <a name="next-steps"></a>Passaggi successivi
+- Informazioni su come [monitorare e gestire l'attività di fatturazione per Azure](billing-getting-started.md).

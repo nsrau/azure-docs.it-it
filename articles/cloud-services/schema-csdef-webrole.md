@@ -10,15 +10,15 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 85368e4e-a0db-4c02-8dbc-8e2928fa6091
 caps.latest.revision: 60
-author: jpconnock
-ms.author: jeconnoc
-manager: timlt
-ms.openlocfilehash: 0bb0946ea48a4c206d6bfe683da0835aca9b198b
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+author: georgewallace
+ms.author: gwallace
+manager: gwallace
+ms.openlocfilehash: bafc8780368f58a7076ae472636d852d698d276c
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60613235"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68941357"
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Schema WebRole di definizione di Servizi cloud di Azure
 Il ruolo Web di Azure è un ruolo che viene personalizzato per la programmazione di applicazioni Web supportata da IIS 7, ad esempio ASP.NET, PHP, Windows Communication Foundation e FastCGI.
@@ -263,7 +263,7 @@ L'elemento `FixedPort` è disponibile solo se si usa Azure SDK versione 1.3 o su
 
 La tabella seguente descrive gli attributi dell'elemento `FixedPort`.
 
-| Attributo | Type | Descrizione |  
+| Attributo | Type | DESCRIZIONE |  
 | --------- | ---- | ----------- |  
 |port|int|Richiesto. Porta per l'endpoint interno. Se si impostano i valori minimo e massimo di `FixedPortRange` sulla stessa porta, si ottiene lo stesso risultato.<br /><br /> I possibili valori sono compresi tra 1 e 65535 inclusi (Azure SDK versione 1.7 o successiva).|  
 
@@ -344,7 +344,7 @@ L'elemento `RoleInstanceValue` specifica un XPath da cui recuperare il valore de
 
 La tabella seguente descrive gli attributi dell'elemento `RoleInstanceValue`.
 
-| Attributo | Type | Descrizione |  
+| Attributo | Type | DESCRIZIONE |  
 | --------- | ---- | ----------- |  
 |xpath|string|facoltativo. Percorso delle impostazioni di distribuzione per l'istanza. Per altre informazioni, vedere [Variabili di configurazione con XPath](cloud-services-role-config-xpath.md).<br /><br /> È necessario includere un attributo value o un elemento `RoleInstanceValue`.|  
 
@@ -457,7 +457,7 @@ L'elemento `Content` è disponibile solo se si usa Azure SDK versione 1.5 o succ
 
 La tabella seguente descrive gli attributi dell'elemento `Content`.
 
-| Attributo | Type | DESCRIZIONE |  
+| Attributo | Type | Descrizione |  
 | --------- | ---- | ----------- |  
 |destinazione|string|Richiesto. Posizione della macchina virtuale Azure in cui viene inserito il contenuto. Questa posizione è relativa alla cartella **%ROLEROOT%\Approot**.|  
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 13f80b42ef6dfd0c70067a3ecf5f3e172527a63f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 6bb3be3805243bba4d11037b180e7f8418a84014
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68846540"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947214"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contenitori di profili FSLogix e file di Azure
 
@@ -47,11 +47,11 @@ La tabella seguente illustra i vantaggi e le limitazioni delle tecnologie dei pr
 
 | Tecnologia | Impostazioni moderne | Impostazioni Win32 | Impostazioni del sistema operativo | Dati utente | Supportato nello SKU del server | Archiviazione back-end in Azure | Archiviazione back-end locale | Supporto della versione | Ora di accesso successiva |Note|
 | ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |-----|
-| **Dischi del profilo utente (UPD)** | Yes | Sì | Sì | Sì | Sì | No | Yes | Win 7 + | Yes | |
-| **Profilo utente mobile (RUP), modalità manutenzione** | No | Yes | Sì | Sì | Sì| No | Sì | Win 7 + | No | |
-| **Enterprise State Roaming (ESR)** | Yes | No | Sì | No | Vedere le note | Sì | No | Windows 10 | No | Funzioni nello SKU del server ma nessuna interfaccia utente di supporto |
+| **Dischi del profilo utente (UPD)** | Sì | Sì | Sì | Sì | Sì | No | Yes | Win 7 + | Sì | |
+| **Profilo utente mobile (RUP), modalità manutenzione** | No | Yes | Sì | Sì | Sì| No | Yes | Win 7 + | No | |
+| **Enterprise State Roaming (ESR)** | Yes | No | Sì | No | Vedere le note | Yes | No | Windows 10 | No | Funzioni nello SKU del server ma nessuna interfaccia utente di supporto |
 | **Virtualizzazione dell'esperienza utente (UE-V)** | Yes | Sì | Sì | No | Sì | No | Sì | Win 7 + | No |  |
-| **File Cloud OneDrive** | No | No | No | Sì | Vedere le note | Vedere le note  | Vedere le note | Win 10 RS3 | No | Non testato nello SKU del server. L'archiviazione back-end in Azure dipende dal client di sincronizzazione. Per l'archiviazione back-end locale è necessario un client di sincronizzazione. |
+| **File Cloud OneDrive** | No | No | No | Yes | Vedere le note | Vedere le note  | Vedere le note | Win 10 RS3 | No | Non testato nello SKU del server. L'archiviazione back-end in Azure dipende dal client di sincronizzazione. Per l'archiviazione back-end locale è necessario un client di sincronizzazione. |
 
 #### <a name="performance"></a>Prestazioni
 
@@ -77,7 +77,7 @@ Dall'acquisizione, Microsoft ha iniziato a sostituire le soluzioni del profilo u
 
 ## <a name="azure-files-integration-with-azure-active-directory-domain-service"></a>Integrazione di File di Azure con Azure Active Directory servizio del dominio
 
-Le prestazioni e le funzionalità dei contenitori del profilo FSLogix sfruttano il cloud. Il 7 agosto 2019, i file di Microsoft Azure annunciano la disponibilità a livello generale dell' [autenticazione file di Azure con Azure Active Directory Domain Service (ad DS)](/articles/storage/files/storage-files-active-directory-overview.md). Affrontando il sovraccarico amministrativo e costi, File di Azure con l'autenticazione di Azure AD DS è una soluzione Premium per i profili utente nel servizio desktop virtuale di Windows.
+Le prestazioni e le funzionalità dei contenitori del profilo FSLogix sfruttano il cloud. Il 7 agosto 2019, i file di Microsoft Azure annunciano la disponibilità a livello generale dell' [autenticazione file di Azure con Azure Active Directory Domain Service (ad DS)](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-overview). Affrontando il sovraccarico amministrativo e costi, File di Azure con l'autenticazione di Azure AD DS è una soluzione Premium per i profili utente nel servizio desktop virtuale di Windows.
 
 ## <a name="best-practices-for-windows-virtual-desktop"></a>Procedure consigliate per desktop virtuale Windows
 

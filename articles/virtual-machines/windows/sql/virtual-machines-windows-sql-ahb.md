@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2b961b855c7a0bb08c31b4e7ea8deb7f82ebb77c
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: fb13cd65142214ccf852c591ae081e7e633e1a4d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68846185"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935320"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>Modificare il modello di licenza per una macchina virtuale SQL Server in Azure
 Questo articolo descrive come modificare il modello di licenza per un SQL Server macchina virtuale (VM) in Azure usando il nuovo provider di risorse VM SQL, **Microsoft. SqlVirtualMachine**.
@@ -52,7 +52,7 @@ L'uso del provider di risorse VM SQL richiede l'SQL Server estensione IaaS. Di c
 
 ## <a name="change-the-license-for-vms-already-registered-with-the-resource-provider"></a>Modificare la licenza per le macchine virtuali già registrate con il provider di risorse 
 
-# <a name="azure-portaltabazure-portal"></a>[Portale di Azure](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
@@ -66,7 +66,7 @@ L'uso del provider di risorse VM SQL richiede l'SQL Server estensione IaaS. Di c
 ![Vantaggio Azure Hybrid nel portale](media/virtual-machines-windows-sql-ahb/ahb-in-portal.png)
 
 
-# <a name="azure-clitabbash"></a>[Interfaccia della riga di comando di Azure](#tab/bash)
+# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Per modificare il modello di licenza, è possibile usare l'interfaccia della riga di comando di Azure.  
 
@@ -88,7 +88,7 @@ Il frammento di codice seguente passa il modello Bring-your-own-License al model
 az sql vm update -n <VMName> -g <ResourceGroupName> --license-type PAYG
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 È possibile usare PowerShell per modificare il modello di licenza.
 
 Il frammento di codice seguente passa il modello di licenza con pagamento in base al consumo a bring your own License (o usando Vantaggio Azure Hybrid):

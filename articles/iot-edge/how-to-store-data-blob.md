@@ -1,21 +1,21 @@
 ---
 title: Archiviare BLOB in blocchi nei dispositivi - Azure IoT Edge | Microsoft Docs
 description: Informazioni sulle funzionalità di suddivisione in livelli e di durata (TTL), vedere operazioni di archiviazione BLOB supportate e connettersi all'account di archiviazione BLOB.
-author: arduppal
+author: kgremban
 manager: mchad
-ms.author: arduppal
-ms.reviewer: arduppal
+ms.author: kgremban
+ms.reviewer: kgremban
 ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a40389ca378826aef1b6aa136f8f5d69783c638e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 861b5c3ee6d5661339788e7a27ba70557d0ea267
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881226"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947027"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Archiviare dati sul perimetro con archiviazione BLOB di Azure in IoT Edge
 
@@ -28,7 +28,7 @@ Questo modulo è utile negli scenari:
 * Quando si vogliono ridurre i costi di larghezza di banda ed evitare il trasferimento di terabyte di dati nel cloud. È possibile elaborare i dati localmente e inviare solo i dati elaborati al cloud.
 
 Guarda il video per un'introduzione rapida
-> [!VIDEO https://www.youtube.com/embed/QhCYCvu3tiM]
+> [!VIDEO https://www.youtube.com/embed/xbwgMNGB_3Y]
 
 Questo modulo include le funzionalità **deviceToCloudUpload** e **deviceAutoDelete** .
 

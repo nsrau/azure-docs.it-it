@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.openlocfilehash: 0683c065285a6ddf8d966bbd3d22e88c39b34d5c
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 640900458eccc36afe58cb148ffd7b94b43be879
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728811"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934909"
 ---
 # <a name="develop-a-secure-web-app"></a>Sviluppare un'app Web sicura
 
@@ -52,16 +52,16 @@ L'app è una tipica applicazione a più livelli con tre livelli. Il front-end, i
 
 L'architettura è costituita da questi componenti:
 
-- [Gateway applicazione di Azure](https://docs.microsoft.com/azure/application-gateway/). Fornisce il gateway e il firewall per l'architettura dell'applicazione.
-- [App Web di Azure in Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro). Fornisce il runtime del contenitore per eseguire l'app Python in un ambiente Linux.
-- [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/). Archivia e crittografa i segreti dell'app e gestisce la creazione di criteri di accesso.
+- [Gateway applicazione di Azure](../../application-gateway/index.yml). Fornisce il gateway e il firewall per l'architettura dell'applicazione.
+- [App Web di Azure in Linux](../../app-service/containers/app-service-linux-intro.md). Fornisce il runtime del contenitore per eseguire l'app Python in un ambiente Linux.
+- [Azure Key Vault](../../key-vault/index.yml). Archivia e crittografa i segreti dell'app e gestisce la creazione di criteri di accesso.
 - [Database di Azure per PostgreSQL](https://azure.microsoft.com/services/postgresql/). Archivia in modo sicuro i dati dell'app.
-- [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/) e [informazioni dettagliate applicazione Azure](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). Fornisce il monitoraggio e gli avvisi per il funzionamento dell'app.
+- [Centro sicurezza di Azure](../../security-center/index.yml) e [informazioni dettagliate applicazione Azure](../../azure-monitor/app/app-insights-overview.md). Fornisce il monitoraggio e gli avvisi per il funzionamento dell'app.
 
 ## <a name="threat-model"></a>Modello di minaccia
 La modellazione delle minacce è il processo di identificazione delle potenziali minacce per la sicurezza per l'azienda e l'applicazione e quindi per assicurarsi che sia presente un piano di mitigazione appropriato.
 
-Questo esempio ha usato le [Microsoft Threat Modeling Tool](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool) per implementare la modellazione delle minacce per l'app di esempio protetta. Grazie alla creazione di diagrammi dei componenti e dei flussi di dati, è possibile identificare i problemi e le minacce nelle fasi iniziali del processo di sviluppo. Questo consente di risparmiare tempo e denaro in seguito.
+Questo esempio ha usato le [Microsoft Threat Modeling Tool](threat-modeling-tool.md) per implementare la modellazione delle minacce per l'app di esempio protetta. Grazie alla creazione di diagrammi dei componenti e dei flussi di dati, è possibile identificare i problemi e le minacce nelle fasi iniziali del processo di sviluppo. Questo consente di risparmiare tempo e denaro in seguito.
 
 Questo è il modello di rischio per l'app di esempio:
 
@@ -349,19 +349,19 @@ $$ LANGUAGE PLPGSQL;
 ```
 
 
-Per altre informazioni su come configurare la verifica di SSL e dell'autorità di certificazione (CA) per PostgreSQL, vedere [configurare la connettività SSL nel database di Azure per PostgreSQL](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security).
+Per altre informazioni su come configurare la verifica di SSL e dell'autorità di certificazione (CA) per PostgreSQL, vedere [configurare la connettività SSL nel database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-ssl-connection-security).
 
 Un certificato radice è incluso nel contenitore. I passaggi necessari per ottenere il certificato sono:
 
 1. Scaricare il file del certificato dall' [autorità di certificazione](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt).
-2. [Scaricare e installare OpenSSL nel computer](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security).
+2. [Scaricare e installare OpenSSL nel computer](https://docs.microsoft.com/azure/postgresql/concepts-ssl-connection-security).
 3. Decodificare il file di certificato:
 
    ```powershell
    openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
    ```
 
-Per altre informazioni su come configurare la sicurezza SSL per PostgreSQL, vedere [configurare la sicurezza della connessione SSL](https://docs.microsoft.com/en-gb/azure/postgresql/concepts-ssl-connection-security).
+Per altre informazioni su come configurare la sicurezza SSL per PostgreSQL, vedere [configurare la sicurezza della connessione SSL](https://docs.microsoft.com/azure/postgresql/concepts-ssl-connection-security).
 
 #### <a name="deploy-azure-web-apps-on-linux"></a>Distribuire app Web di Azure in Linux
 Puoi creare con facilità servizi Linux in app Azure servizio come Azure fornisce un set di contenitori e immagini predefiniti per linguaggi ampiamente usati come Python, Ruby, C#e Java. Azure supporta anche i contenitori personalizzati, che possono consentire l'esecuzione praticamente di tutti i linguaggi di programmazione sulla piattaforma del servizio app Azure.
@@ -828,7 +828,7 @@ Per abilitare l'autenticazione a più fattori per gli accessi amministratore:
 
 Se non è possibile creare un nuovo criterio:
 
-1. Passare **alla scheda autenticazione** a più fattori.
+1. Passare alla scheda autenticazione a più fattori.
 2. Selezionare il collegamento Azure AD Premium **versione di valutazione gratuita** per sottoscrivere la versione di valutazione gratuita.
 
    ![Azure AD Premium versione di valutazione gratuita](./media/secure-web-app/ad-trial-premium.png)

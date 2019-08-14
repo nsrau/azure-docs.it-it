@@ -5,12 +5,12 @@ ms.subservice: single-database
 ms.topic: include
 ms.date: 06/19/2019
 ms.author: mathoma
-ms.openlocfilehash: dd511375c6b007222185f25610aecbd9931a742b
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: ffa48d55703347883edf96a0a27ee52d19189976
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640041"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935023"
 ---
 In questo passaggio si creeranno il gruppo di risorse e un database singolo di database SQL di Azure.
 
@@ -19,7 +19,7 @@ In questo passaggio si creeranno il gruppo di risorse e un database singolo di d
 >
 > Per informazioni, vedere [Creare una regola del firewall a livello di database](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) o per determinare l'indirizzo IP usato per la regola del firewall a livello di server per il proprio computer, vedere [Creare una regola del firewall a livello di server](../sql-database-server-level-firewall-rule.md).  
 
-# <a name="azure-portaltabazure-portal"></a>[Portale di Azure](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 
 Creare il gruppo di risorse e il database singolo usando il portale di Azure.
 
@@ -75,7 +75,7 @@ Creare il gruppo di risorse e il database singolo usando il portale di Azure.
 
 9. Nel modulo **Database SQL** selezionare **Crea** per distribuire il gruppo di risorse, il server e il database ed effettuarne il provisioning.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -141,7 +141,7 @@ Creare il gruppo di risorse e il database singolo usando PowerShell.
    $database
    ```
 
-# <a name="az-clitabbash"></a>[Interfaccia della riga di comando AZ](#tab/bash)
+# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Creare il gruppo di risorse e il database singolo usando l'interfaccia della riga di comando AZ.
 

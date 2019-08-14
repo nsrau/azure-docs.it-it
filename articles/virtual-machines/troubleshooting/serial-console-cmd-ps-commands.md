@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: f286881341e527d3f01e57768cd48405c85a9a69
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 77fe6f1ce416df049928697d2c166e2aba0abfe2
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710601"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935225"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Comandi di Windows - CMD e PowerShell
 
@@ -74,7 +74,7 @@ Dopo il segno di uguale è necessario uno spazio.
 oppure
 
 `sc start termservice`
-### <a name="stop-service"></a>Arrestare il servizio
+### <a name="stop-service"></a>Arresta servizio
 `net stop termservice`
 
 oppure
@@ -102,7 +102,7 @@ Installare il client telnet
 
 `dism /online /Enable-Feature /FeatureName:TelnetClient`
 
-Testare la connettività
+Test della connettività
 
 `telnet bing.com 80`
 
@@ -118,7 +118,7 @@ Se limitato ai metodi disponibili in Windows per impostazione predefinita, Power
 ### <a name="disable-windows-firewall"></a>Disabilitare Windows Firewall
 `netsh advfirewall set allprofiles state off`
 
-Per escludere temporaneamente Windows Firewall, è possibile usare questo comando durante la risoluzione dei problemi. Sarà possibile consentire al riavvio successivo o quando si abilita tramite il comando riportato di seguito. Non arrestare il servizio Windows Firewall (MPSSVC) o il servizio Base Filtering Engine (BFE) per escludere Windows Firewall. L'arresto di MPSSVC o BFE determinerà il blocco di tutta la connettività.
+Per escludere temporaneamente Windows Firewall, è possibile usare questo comando durante la risoluzione dei problemi. Sarà abilitata al riavvio successivo o quando verrà abilitata usando il comando seguente. Non arrestare il servizio Windows Firewall (MPSSVC) o il servizio Base Filtering Engine (BFE) per escludere Windows Firewall. L'arresto di MPSSVC o BFE determinerà il blocco di tutta la connettività.
 ### <a name="enable-windows-firewall"></a>Abilitare Windows Firewall
 `netsh advfirewall set allprofiles state on`
 ## <a name="manage-users-and-groups"></a>Gestire utenti e gruppi
@@ -241,7 +241,7 @@ Aggiungendo `/f`, verrà forzata la chiusura delle applicazioni in esecuzione se
 ### <a name="detect-safe-mode-boot"></a>Rilevare l'avvio in modalità sicura
 `bcdedit /enum | find /i "safeboot"` 
 
-# <a name="windows-commands---powershell"></a>Comandi di Windows - PowerShell
+## <a name="windows-commands---powershell"></a>Comandi di Windows - PowerShell
 
 Per eseguire PowerShell in SAC, dopo avere raggiunto un prompt CMD, digitare:
 

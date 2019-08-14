@@ -8,24 +8,24 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 73a9aebfd0c5338f63927860ce3f6c57b20428a4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a357e403aba64a5d05e359bf1186b01f73146758
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754783"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934106"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Rispondere agli eventi dell'hub IoT usando Griglia di eventi per attivare le azioni
 
-L'hub IoT di Azure si integra con Griglia di eventi di Azure per poter inviare le notifiche degli eventi agli altri servizi e attivare processi downstream. Configurare le applicazioni aziendali per l'ascolto degli eventi dell'hub IoT in modo che sia possibile rispondere agli eventi critici in modo sicuro, scalabile e affidabile. Ad esempio compilare un'applicazione che aggiorna un database, crea un ticket di lavoro e invia una notifica di posta elettronica ogni volta che viene registrato un nuovo dispositivo IoT all'hub IoT.
+L'hub IoT di Azure si integra con Griglia di eventi di Azure per poter inviare le notifiche degli eventi agli altri servizi e attivare processi downstream. Configurare le applicazioni aziendali per l'ascolto degli eventi dell'hub IoT in modo che sia possibile rispondere agli eventi critici in modo sicuro, scalabile e affidabile. Ad esempio, creare un'applicazione per l'aggiornamento di un database, creare un ticket di lavoro e recapitare una notifica di posta elettronica ogni volta che viene registrato un nuovo dispositivo Internet nell'hub Internet.
 
 [Griglia di eventi di Azure](../event-grid/overview.md) è un servizio di routing di eventi completamente gestito che usa un modello di pubblicazione-sottoscrizione. Griglia di eventi include il supporto predefinito per i servizi di Azure, ad esempio [Funzioni di Azure](../azure-functions/functions-overview.md) e [App per la logica di Azure](../logic-apps/logic-apps-what-are-logic-apps.md), e può recapitare gli avvisi relativi agli eventi ai servizi non di Azure usando i webhook. Per un elenco completo dei gestori di eventi supportati da Griglia di eventi, vedere [Introduzione a Griglia di eventi di Azure](../event-grid/overview.md).
 
 ![Architettura di Griglia di eventi di Azure](./media/iot-hub-event-grid/event-grid-functional-model.png)
 
-## <a name="regional-availability"></a>Disponibilità internazionale
+## <a name="regional-availability"></a>Disponibilità a livello di area
 
-L'integrazione di Griglia di eventi è disponibile per gli hub IoT situati nelle aree in cui Griglia di eventi è supportata. Tutti gli eventi di dispositivo, ad eccezione degli eventi di telemetria dispositivo sono disponibili a livello generale. Evento di telemetria dispositivo è in anteprima pubblica ed è disponibile in tutte le aree ad eccezione degli Stati Uniti orientali, Stati Uniti occidentali, Europa occidentale [Azure per enti pubblici](/azure/azure-government/documentation-government-welcome), [Azure Cina 21Vianet](/azure/china), e [Azure Germania](https://azure.microsoft.com/global-infrastructure/germany/). Per l'elenco aggiornato delle aree, vedere [Introduzione a Griglia di eventi di Azure](../event-grid/overview.md).
+L'integrazione di Griglia di eventi è disponibile per gli hub IoT situati nelle aree in cui Griglia di eventi è supportata. Tutti gli eventi dispositivo tranne gli eventi di telemetria del dispositivo sono disponibili a livello generale. L'evento di telemetria del dispositivo è in anteprima pubblica ed è disponibile in tutte le aree, ad eccezione degli Stati Uniti orientali, Stati Uniti occidentali, Europa occidentale, [Azure per enti pubblici](/azure/azure-government/documentation-government-welcome), [Azure Cina 21ViaNet](/azure/china)e [Azure Germania](https://azure.microsoft.com/global-infrastructure/germany/). Per l'elenco aggiornato delle aree, vedere [Introduzione a Griglia di eventi di Azure](../event-grid/overview.md).
 
 ## <a name="event-types"></a>Tipi di eventi
 
@@ -37,7 +37,7 @@ L'hub IoT pubblica i tipi di eventi seguenti:
 | Microsoft.Devices.DeviceDeleted | Pubblicato quando un dispositivo viene eliminato da un hub IoT. |
 | Microsoft.Devices.DeviceConnected | Pubblicato quando un dispositivo è connesso a un hub IoT. |
 | Microsoft.Devices.DeviceDisconnected | Pubblicato quando un dispositivo è disconnesso da un hub IoT. |
-| Microsoft.Devices.DeviceTelemetry | Pubblicato quando viene inviato un messaggio di telemetria da dispositivo a un hub IoT |
+| Microsoft.Devices.DeviceTelemetry | Pubblicato quando un messaggio di telemetria del dispositivo viene inviato a un hub Internet |
 
 Usare il portale di Azure o l'interfaccia della riga di comando di Azure per configurare gli eventi da pubblicare da ogni hub IoT. Per un esempio, provare l'esercitazione [Send email notifications about Azure IoT Hub events using Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md) (Inviare notifiche di posta elettronica sugli eventi dell'hub IoT di Azure usando App per la logica).
 
@@ -70,13 +70,13 @@ L'esempio seguente illustra lo schema di un evento di dispositivo connesso:
 }]
 ```
 
-### <a name="device-telemetry-schema"></a>Schema dati di telemetria del dispositivo
+### <a name="device-telemetry-schema"></a>Schema di telemetria del dispositivo
 
-Messaggio di telemetria dispositivo deve essere in formato JSON valido con la contentType, impostato su JSON e contentEncoding impostato su UTF-8 del messaggio [le proprietà di sistema](iot-hub-devguide-routing-query-syntax.md#system-properties). Se non è impostato, l'IoT Hub scriverà i messaggi in formato di codifica base 64.
+Il messaggio di telemetria del dispositivo deve essere in un formato JSON valido con contentType impostato su JSON e contentEncoding impostato su UTF-8 nelle [proprietà del sistema](iot-hub-devguide-routing-query-syntax.md#system-properties)del messaggio. Se questo non è impostato, l'hub Internet scriverà i messaggi nel formato con codifica base 64.
 
-È possibile migliorare gli eventi di telemetria dispositivo prima che vengano pubblicate a griglia di eventi selezionando l'endpoint come griglia di eventi. Per altre informazioni, vedere [Panoramica di miglioramenti Message](iot-hub-message-enrichments-overview.md).
+È possibile arricchire gli eventi di telemetria del dispositivo prima che vengano pubblicati in griglia di eventi selezionando l'endpoint come griglia di eventi. Per ulteriori informazioni, vedere [Cenni preliminari sugli arricchimenti dei messaggi](iot-hub-message-enrichments-overview.md).
 
-Nell'esempio seguente mostra lo schema di un evento di telemetria del dispositivo:
+L'esempio seguente illustra lo schema di un evento di telemetria del dispositivo:
 
 ```json
 [{  
@@ -160,13 +160,13 @@ L'esempio seguente illustra lo schema di un evento creato da un dispositivo:
 }]
 ```
 
-Per una descrizione dettagliata di ogni proprietà, vedere [schema di eventi di griglia di eventi di Azure per l'IoT Hub](../event-grid/event-schema-iot-hub.md).
+Per una descrizione dettagliata di ogni proprietà, vedere [schema di eventi di griglia di eventi di Azure per l'hub](../event-grid/event-schema-iot-hub.md)Internet.
 
 ## <a name="filter-events"></a>Filtrare gli eventi
 
-Le sottoscrizioni di eventi dell'IoT Hub possono filtrare gli eventi in base al tipo di evento, il contenuto dei dati e oggetto, ovvero il nome del dispositivo.
+Le sottoscrizioni degli eventi dell'hub Internet possono filtrare gli eventi in base al tipo di evento, al contenuto dei dati e al soggetto, ovvero il nome del dispositivo.
 
-Griglia di eventi consente [filtro](../event-grid/event-filtering.md) sul contenuto di tipi, gli oggetti e dati di evento. Durante la creazione della sottoscrizione di griglia di eventi, è possibile scegliere di sottoscrivere eventi IoT selezionati. I filtri degli oggetti in Griglia di eventi funzionano in base alle corrispondenze **Inizia con** (prefisso) e **Termina con** (suffisso). Il filtro utilizza un `AND` operatore in modo che gli eventi con un oggetto che corrisponde sia al prefisso che al suffisso viene recapitato al sottoscrittore.
+Griglia di eventi consente di [filtrare](../event-grid/event-filtering.md) i tipi di eventi, gli oggetti e il contenuto dei dati. Durante la creazione della sottoscrizione di griglia di eventi, è possibile scegliere di sottoscrivere gli eventi di un sacco selezionato. I filtri degli oggetti in Griglia di eventi funzionano in base alle corrispondenze **Inizia con** (prefisso) e **Termina con** (suffisso). Il filtro utilizza un `AND` operatore in modo che gli eventi con un oggetto che corrisponde sia al prefisso che al suffisso viene recapitato al sottoscrittore.
 
 L'oggetto di eventi IoT usa il formato:
 
@@ -174,25 +174,25 @@ L'oggetto di eventi IoT usa il formato:
 devices/{deviceId}
 ```
 
-Griglia di eventi consente anche di filtrare gli attributi di ogni evento, incluso il contenuto dei dati. In questo modo è possibile scegliere quali eventi vengono recapitati in base contenuto del messaggio di telemetria. Vedi [filtro avanzato](../event-grid/event-filtering.md#advanced-filtering) per visualizzare gli esempi.
+Griglia di eventi consente inoltre di filtrare gli attributi di ogni evento, incluso il contenuto dei dati. In questo modo è possibile scegliere quali eventi vengono recapitati in base al contenuto del messaggio di telemetria. Per visualizzare esempi, vedere [filtro avanzato](../event-grid/event-filtering.md#advanced-filtering) . Per filtrare il corpo del messaggio di telemetria, è necessario impostare contentType su JSON e contentEncoding su UTF-8 nelle [proprietà del sistema](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)del messaggio.
 
-Per gli eventi non di telemetria, ad esempio DeviceConnected, DeviceDisconnected, DeviceCreated e DeviceDeleted, il filtro di griglia di eventi è utilizzabile quando si crea la sottoscrizione. Per gli eventi di telemetria, oltre a filtrare nella griglia di eventi, gli utenti possono anche filtrare i dispositivi gemelli, le proprietà del messaggio e il corpo tramite la query di routing del messaggio. Creiamo un valore predefinito [route](iot-hub-devguide-messages-d2c.md) nell'IoT Hub, basata sulla sottoscrizione di griglia di eventi di telemetria del dispositivo. Questo singolo di route può gestire tutte le sottoscrizioni di griglia di eventi. Per filtrare i messaggi prima che i dati di telemetria vengono inviati, è possibile aggiornare il [routing query](iot-hub-devguide-routing-query-syntax.md). Si noti che eseguono query di routing può essere applicato al corpo del messaggio solo se il corpo JSON.
+Per gli eventi non di telemetria come DeviceConnected, DeviceDisconnected, DeviceCreated e DeviceDeleted, è possibile usare il filtro di griglia di eventi durante la creazione della sottoscrizione. Per gli eventi di telemetria, oltre al filtro in griglia di eventi, gli utenti possono anche filtrare in dispositivi gemelli, proprietà e corpo del messaggio tramite la query di routing dei messaggi. Viene creata una [Route](iot-hub-devguide-messages-d2c.md) predefinita nell'hub Internet, basata sulla sottoscrizione di griglia di eventi per la telemetria del dispositivo. Questa singola route può gestire tutte le sottoscrizioni di griglia di eventi. Per filtrare i messaggi prima dell'invio dei dati di telemetria, è possibile aggiornare la [query di routing](iot-hub-devguide-routing-query-syntax.md). Si noti che la query di routing può essere applicata al corpo del messaggio solo se il corpo è JSON. È inoltre necessario impostare contentType su JSON e contentEncoding su UTF-8 nelle [proprietà del sistema](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)del messaggio.
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Limitazioni per gli eventi correlati a dispositivi connessi e disconnessi
 
-Per ricevere eventi correlati a dispositivi connessi e disconnessi, è necessario aprire il collegamento D2C o C2D per il dispositivo. Se il dispositivo usa il protocollo MQTT, l'hub IoT mantiene aperto il collegamento C2D. Per AMQP, è possibile aprire il collegamento C2D chiamando il [ricezione API Async](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet).
+Per ricevere eventi correlati a dispositivi connessi e disconnessi, è necessario aprire il collegamento D2C o C2D per il dispositivo. Se il dispositivo usa il protocollo MQTT, l'hub IoT mantiene aperto il collegamento C2D. Per AMQP, è possibile aprire il collegamento C2D chiamando l' [API di ricezione asincrona](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet).
 
-Il collegamento D2C è aperto se si inviano dati di telemetria. Se la connessione del dispositivo è sfarfallio, ovvero il dispositivo si connette e disconnette frequentemente, abbiamo non verrà inviato ogni stato di singola connessione, ma verranno pubblicati lo stato della connessione di cui viene eseguito uno snapshot ogni minuto. In caso di interruzione del servizio dell'hub IoT, lo stato di connessione del dispositivo viene pubblicato al termine dell'interruzione. Se il dispositivo si disconnette durante il periodo di interruzione, l'evento di dispositivo disconnesso viene pubblicato entro 10 minuti.
+Il collegamento D2C è aperto se si inviano dati di telemetria. Se la connessione del dispositivo è tremolante, il che significa che il dispositivo si connette e si disconnette di frequente, non verrà inviato ogni singolo stato di connessione, ma verrà pubblicato lo stato di connessione di cui viene effettuato uno snapshot ogni minuto. In caso di interruzione del servizio dell'hub IoT, lo stato di connessione del dispositivo viene pubblicato al termine dell'interruzione. Se il dispositivo si disconnette durante il periodo di interruzione, l'evento di dispositivo disconnesso viene pubblicato entro 10 minuti.
 
 ## <a name="tips-for-consuming-events"></a>Suggerimenti per l'utilizzo di eventi
 
 Le applicazioni che gestiscono gli eventi dell'hub IoT devono seguire queste procedure consigliate:
 
-* Più sottoscrizioni possono essere configurate per instradare gli eventi allo stesso gestore eventi, in modo da non dare per scontato che gli eventi provengono da una determinata origine. Controllare sempre l'argomento del messaggio per assicurarsi che provengano dall'hub IoT previsto.
+* È possibile configurare più sottoscrizioni per indirizzare gli eventi allo stesso gestore eventi, quindi non presupporre che gli eventi provengano da un'origine particolare. Controllare sempre l'argomento del messaggio per assicurarsi che provengano dall'hub IoT previsto.
 
 * Non presupporre che tutti gli eventi ricevuti siano del tipo previsto. Controllare sempre eventType prima di elaborare il messaggio.
 
-* I messaggi possono arrivare senza ordine o dopo un ritardo. Usare il campo etag per capire se le informazioni sugli oggetti sono aggiornate per dispositivo è stato creato o gli eventi del dispositivo eliminato.
+* I messaggi possono arrivare senza ordine o dopo un ritardo. Usare il campo ETag per capire se le informazioni sugli oggetti sono aggiornate per gli eventi creati dal dispositivo o eliminati dal dispositivo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
