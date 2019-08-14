@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 928b0bcfb32d1a319c811d00fc84a37f85702895
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c163e3cce862640d43f8696dca4eeef29f2ae12a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68857414"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912404"
 ---
 Nella tabella seguente sono elencate le quote e i limiti specifici di [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/). Per informazioni sui prezzi di Hub eventi, vedere [Prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/).
 
-| Limite | Ambito | Note | Value |
+| Limite | Ambito | Note | Valore |
 | --- | --- | --- | --- |
 | Numero di spazi dei nomi di Hub eventi per sottoscrizione |Sottoscrizione |- |100 |
 | Numero di hub eventi per ogni spazio dei nomi |Spazio dei nomi |Le successive richieste di creazione di un nuovo hub eventi vengono rifiutate. |10 |
@@ -36,6 +36,8 @@ Nella tabella seguente sono elencate le quote e i limiti specifici di [Hub event
 | Numero di gruppi consumer per hub eventi |Entità | - |1 |20 |
 | Numero di connessioni AMQP per spazio dei nomi |Spazio dei nomi |Le successive richieste di connessioni aggiuntive verranno rifiutate e il codice chiamante riceverà un'eccezione. |100 |5\.000|
 | Periodo di conservazione massimo dei dati dell'evento |Entità | - |1 giorno |1-7 giorni |
+|Spazio dei nomi abilitato Apache Kafka|Spazio dei nomi |Flussi di spazio dei nomi di hub eventi con protocollo Kafka |No | Sì |
+|Acquisizione |Entità | Se abilitata, micro-batch nello stesso flusso |No |Sì |
 
 
 ### <a name="event-hubs-dedicated---quotas-and-limits"></a>Hub eventi Dedicato-quote e limiti

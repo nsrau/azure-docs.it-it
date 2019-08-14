@@ -9,12 +9,12 @@ ms.author: mbaldwin
 ms.date: 07/06/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.openlocfilehash: d34c94ccca47d29afc4f3d83bec58db737be270c
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: f6a95f56b7b617b42c1cec9f64aae73b88b813da
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840423"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934330"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticazione da servizio a servizio ad Azure Key Vault usando .NET
 
@@ -270,21 +270,21 @@ Usando l'interfaccia della riga di comando di Azure, impostare la sottoscrizione
 
 #### <a name="unauthorized-access-access-denied-forbidden-etc-error"></a>Accesso non autorizzato, accesso negato, non consentito e così via. errore
  
-L'entità usata non ha accesso alla risorsa a cui sta tentando di accedere. Concedere all'account utente o all'account di accesso "collaboratore" MSI del servizio app la risorsa desiderata, a seconda che si esegua l'esempio nel computer di sviluppo locale o che sia stato distribuito in Azure al servizio app. Alcune risorse, ad esempio gli insiemi di credenziali delle chiavi, hanno anche [criteri di accesso](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) propri che si usano per concedere l'accesso alle entità (utenti, app, gruppi e così via).
+L'entità usata non ha accesso alla risorsa a cui sta tentando di accedere. Concedere all'account utente o all'account di accesso "collaboratore" MSI del servizio app la risorsa desiderata, a seconda che si esegua l'esempio nel computer di sviluppo locale o che sia stato distribuito in Azure al servizio app. Alcune risorse, ad esempio gli insiemi di credenziali delle chiavi, hanno anche [criteri di accesso](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) propri che si usano per concedere l'accesso alle entità (utenti, app, gruppi e così via).
 
 ### <a name="common-issues-when-deployed-to-azure-app-service"></a>Problemi comuni durante la distribuzione nel servizio app Azure
 
 #### <a name="managed-identity-is-not-setup-on-the-app-service"></a>L'identità gestita non è impostata nel servizio app
  
-Verificare che le variabili di ambiente MSI_ENDPOINT e MSI_SECRET esistano usando la [console di debug Kudu](https://azure.microsoft.com/en-us/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/). Se queste variabili di ambiente non esistono, l'identità gestita non è abilitata nel servizio app. 
+Verificare che le variabili di ambiente MSI_ENDPOINT e MSI_SECRET esistano usando la [console di debug Kudu](https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/). Se queste variabili di ambiente non esistono, l'identità gestita non è abilitata nel servizio app. 
  
 ### <a name="common-issues-when-deployed-locally-with-iis"></a>Problemi comuni quando vengono distribuiti localmente con IIS
 
 #### <a name="cant-retrieve-tokens-when-debugging-app-in-iis"></a>Non è possibile recuperare i token durante il debug dell'app in IIS
 
 Per impostazione predefinita, AppAuth viene eseguito in un contesto utente diverso in IIS e pertanto non ha accesso per usare l'identità dello sviluppatore per recuperare i token di accesso. È possibile configurare IIS per l'esecuzione con il contesto utente con i due passaggi seguenti:
-- Configurare il pool di applicazioni per l'esecuzione dell'app Web con l'account utente corrente. Ulteriori informazioni sono disponibili [qui](https://docs.microsoft.com/en-us/iis/manage/configuring-security/application-pool-identities#configuring-iis-application-pool-identities).
-- Configurare "setProfileEnvironment" su "true". Per altre informazioni, vedere [qui](https://docs.microsoft.com/en-us/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration). 
+- Configurare il pool di applicazioni per l'esecuzione dell'app Web con l'account utente corrente. Ulteriori informazioni sono disponibili [qui](https://docs.microsoft.com/iis/manage/configuring-security/application-pool-identities#configuring-iis-application-pool-identities).
+- Configurare "setProfileEnvironment" su "true". Per altre informazioni, vedere [qui](https://docs.microsoft.com/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration). 
 
     - Vai a%windir%\System32\inetsrv\config\applicationHost.config
     - Cercare "setProfileEnvironment". Se è impostato su "false", impostarlo su "true". Se non è presente, aggiungerlo come attributo all'elemento processModel (/configuration/system.applicationHost/applicationPools/applicationPoolDefaults/processModel/@setProfileEnvironment) e impostarlo su "true".

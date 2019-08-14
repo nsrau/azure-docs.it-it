@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2019
 ms.author: dacurwin
-ms.openlocfilehash: 0512facbdf5f2222aee1e9bb5d2be64e22bf1a69
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 00e37030417da97d2c57b0fb5872422e7048a2bc
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774643"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954461"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Risolvere i problemi di backup di database SAP HANA in Azure
 
@@ -71,7 +71,7 @@ Tenere presente quanto segue:
 - Per impostazione predefinita, il nome del database ripristinato verrà popolato con il nome dell'elemento di backup, ad esempio H21 (DSC)
 - Se si seleziona la destinazione come H11, il nome del database ripristinato non verrà modificato automaticamente. **Deve essere modificato in H11 (DSC)** . Nel caso di DSC, il nome del database ripristinato sarà l'ID dell'istanza di destinazione con lettere minuscole e "DSC" accodato tra parentesi quadre.
 - Poiché la DSC può avere un solo database singolo, è anche necessario fare clic sulla casella di controllo per consentire l'override dei dati del database esistenti con i dati del punto di ripristino.
-- Per Linux viene applicata la distinzione tra maiuscole e minuscole, quindi assicurarsi di conservare il caso.
+- Linux distingue tra maiuscole e minuscole e quindi assicurarsi di conservare il caso.
 
 ### <a name="multiple-container-database-mdc-restore"></a>Ripristino di più database contenitore (MDC)
 

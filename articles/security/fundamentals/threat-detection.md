@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 4e33b22c5bc931685f5848db55fc4b9b8fc6eafe
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: c7a31337888dcdc2a8f8b95c5203cc659882b038
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780614"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927876"
 ---
 # <a name="azure-advanced-threat-detection"></a>Rilevamento delle minacce avanzato in Azure
 
@@ -30,7 +30,7 @@ Azure offre una vasta gamma di opzioni per configurare e personalizzare la sicur
 
 ## <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
-[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) è una funzionalità di [Azure Active Directory Premium P2](https://docs.microsoft.com/azure/active-directory/active-directory-editions) che offre una panoramica degli eventi di rischio e delle potenziali vulnerabilità che possono interessare le identità dell'organizzazione. Identity Protection si avvale delle funzionalità di rilevamento anomalie di Azure AD, che sono disponibili tramite i [report di Anomalie dell'attività di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-view-access-usage-reports), e introduce nuovi tipi di eventi di rischio che permettono di rilevare le anomalie in tempo reale.
+[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) è una funzionalità di [Azure Active Directory Premium P2](../../active-directory/active-directory-whatis.md) che offre una panoramica degli eventi di rischio e delle potenziali vulnerabilità che possono interessare le identità dell'organizzazione. Identity Protection si avvale delle funzionalità di rilevamento anomalie di Azure AD, che sono disponibili tramite i [report di Anomalie dell'attività di Azure AD](../../active-directory/active-directory-reporting-azure-portal.md), e introduce nuovi tipi di eventi di rischio che permettono di rilevare le anomalie in tempo reale.
 
 ![Schema di Azure AD Identity Protection](./media/threat-detection/azure-threat-detection-fig1.png)
 
@@ -38,7 +38,7 @@ Identity Protection usa l'euristica e algoritmi di apprendimento automatico adat
 
 Azure Active Directory Identity Protection è ben più di un semplice strumento di monitoraggio e reporting. In base agli eventi di rischio, Identity Protection calcola un livello di rischio utente per ogni utente e permette di configurare criteri basati sul rischio per proteggere automaticamente le identità dell'organizzazione.
 
-Questi criteri basati sul rischio, oltre ad altri [controlli di accesso condizionale](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access) forniti da Azure Active Directory e [EMS](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access), possono bloccare automaticamente o offrire azioni correttive adattive che includono reimpostazioni della password e a più fattori imposizione dell'autenticazione.
+Questi criteri basati sul rischio, oltre ad altri [controlli di accesso condizionale](../../active-directory/active-directory-conditional-access-azure-portal.md) forniti da Azure Active Directory e [EMS](../../active-directory/active-directory-conditional-access-azure-portal.md), possono bloccare automaticamente o offrire azioni correttive adattive che includono reimpostazioni della password e a più fattori imposizione dell'autenticazione.
 
 ### <a name="identity-protection-capabilities"></a>Funzionalità di Identity Protection
 
@@ -46,25 +46,25 @@ Azure Active Directory Identity Protection è ben più di un semplice strumento 
 
 Di seguito sono riportati esempi di alcuni dei modi in cui Azure Identity Protection consente di proteggere gli account e le identità:
 
-[Rilevamento di eventi di rischio e account rischiosi](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection#detection)
+[Rilevamento di eventi di rischio e account rischiosi](../../active-directory/identity-protection/overview.md)
 -   Rilevamento di sei tipi di eventi di rischio tramite regole euristiche e apprendimento automatico.
 -   Calcolo dei livelli di rischio utente.
 -   Raccomandazioni personalizzate per migliorare il comportamento di sicurezza in generale evidenziando le vulnerabilità.
 
-[Analisi degli eventi di rischio](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection#investigation)
+[Analisi degli eventi di rischio](../../active-directory/identity-protection/overview.md)
 -   Invio di notifiche per gli eventi di rischio.
 -   Analisi degli eventi di rischio con informazioni rilevanti e contestuali.
 -   Flussi di lavoro di base per tenere traccia delle analisi.
 -   Accesso semplificato ad azioni di correzione come la reimpostazione della password.
 
-[Criteri di accesso condizionale basati sul rischio](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
+[Criteri di accesso condizionale basati sul rischio](../../active-directory/identity-protection/overview.md)
 -   Mitigazione degli accessi rischiosi con il blocco degli accessi o le richieste di autenticazione a più fattori.
 -   Blocco o protezione degli account utente rischiosi.
 -   Richiedere la registrazione degli utenti per l'autenticazione a più fattori.
 
 ### <a name="azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management
 
-Con [Azure Active Directory Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) è possibile gestire, il controllo e monitorare l'accesso all'interno dell'organizzazione. Questa funzionalità include l'accesso alle risorse in Azure AD e altri Microsoft Online Services, ad esempio Office 365 o Microsoft Intune.
+Con [Azure Active Directory Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md) è possibile gestire, il controllo e monitorare l'accesso all'interno dell'organizzazione. Questa funzionalità include l'accesso alle risorse in Azure AD e altri Microsoft Online Services, ad esempio Office 365 o Microsoft Intune.
 
 ![Schema di gestione identità con privilegi di Azure AD](./media/threat-detection/azure-threat-detection-fig2.png)
 
@@ -78,13 +78,13 @@ PIM consente di:
 
 ## <a name="azure-monitor-logs"></a>Log di Monitoraggio di Azure
 
-[Log di monitoraggio di Azure](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) è una soluzione Microsoft per la gestione IT basata sul cloud che consente di gestire e proteggere l'infrastruttura locale e cloud. Poiché i log di monitoraggio di Azure vengono implementati come un servizio basato sul cloud, è possibile renderlo operativo rapidamente con un investimento minimo nei servizi di infrastruttura. Le nuove funzionalità di sicurezza sono disponibili automaticamente, evitando così i costi di manutenzione e aggiornamento continui.
+[Log di monitoraggio di Azure](../../azure-monitor/index.yml) è una soluzione Microsoft per la gestione IT basata sul cloud che consente di gestire e proteggere l'infrastruttura locale e cloud. Poiché i log di monitoraggio di Azure vengono implementati come un servizio basato sul cloud, è possibile renderlo operativo rapidamente con un investimento minimo nei servizi di infrastruttura. Le nuove funzionalità di sicurezza sono disponibili automaticamente, evitando così i costi di manutenzione e aggiornamento continui.
 
 Oltre a fornire importanti servizi in modo autonomo, i log di monitoraggio di Azure possono essere integrati con i componenti di System Center, ad esempio [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), per estendere gli investimenti esistenti per la gestione della sicurezza nel cloud. I log di System Center e di monitoraggio di Azure possono interagire per offrire un'esperienza di gestione ibrida completa.
 
 ### <a name="holistic-security-and-compliance-posture"></a>Approccio olistico a sicurezza e conformità
 
-Il [dashboard Sicurezza e controllo di Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) offre una panoramica completa dell'infrastruttura di sicurezza IT dell'organizzazione con query di ricerca predefinite per i problemi rilevanti che richiedono l'attenzione dell'utente. Il dashboard Sicurezza e controllo è la schermata iniziale per tutti gli elementi correlati alla sicurezza nei log di monitoraggio di Azure. Fornire una visione generale lo stato di sicurezza dei computer. Consente anche di visualizzare tutti gli eventi delle ultime 24 ore, di 7 giorni o di qualsiasi altro intervallo di tempo personalizzato.
+Il [dashboard Sicurezza e controllo di Log Analytics](../../security-center/security-center-intro.md) offre una panoramica completa dell'infrastruttura di sicurezza IT dell'organizzazione con query di ricerca predefinite per i problemi rilevanti che richiedono l'attenzione dell'utente. Il dashboard Sicurezza e controllo è la schermata iniziale per tutti gli elementi correlati alla sicurezza nei log di monitoraggio di Azure. Fornire una visione generale lo stato di sicurezza dei computer. Consente anche di visualizzare tutti gli eventi delle ultime 24 ore, di 7 giorni o di qualsiasi altro intervallo di tempo personalizzato.
 
 I log di monitoraggio di Azure consentono di comprendere in modo rapido e semplice il comportamento di sicurezza complessivo di qualsiasi ambiente, tutto nel contesto delle operazioni IT, incluse la valutazione degli aggiornamenti software, la valutazione antimalware e le linee di base di configurazione. I dati del log di sicurezza sono facilmente accessibili per semplificare i processi di controllo di sicurezza e conformità.
 
@@ -103,7 +103,7 @@ Il dashboard Sicurezza e controllo di Log Analytics è organizzato in quattro ca
 -   **Query comuni sulla sicurezza**: elenca le query più comuni sulla sicurezza che è possibile usare per monitorare l'ambiente. Quando si seleziona una qualsiasi query, il riquadro di ricerca apre e mostra i risultati della query.
 
 ### <a name="insight-and-analytics"></a>Informazioni dettagliate e analisi
-Al centro dei [log di monitoraggio di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) si trova il repository, ospitato da Azure.
+Al centro dei [log di monitoraggio di Azure](../../log-analytics/log-analytics-queries.md) si trova il repository, ospitato da Azure.
 
 ![Schema di informazioni dettagliate e analisi](./media/threat-detection/azure-threat-detection-fig4.png)
 
@@ -115,9 +115,9 @@ Origini dati e soluzioni creano tipi di record distinti con il proprio set di pr
 
 
 La maggior parte dell'interazione con i log di monitoraggio di Azure è tramite il portale di Azure, che viene eseguito in qualsiasi browser e fornisce l'accesso alle impostazioni di configurazione e a più strumenti per analizzare e agire sui dati raccolti. Nel portale è possibile usare:
-* [Ricerche nei log](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches) in cui si creano query per analizzare i dati raccolti.
-* [Dashboard](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards), che è possibile personalizzare con rappresentazioni grafiche delle ricerche più importanti.
-* [Soluzioni](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions), che forniscono ulteriori funzionalità e strumenti di analisi.
+* [Ricerche nei log](../../log-analytics/log-analytics-queries.md) in cui si creano query per analizzare i dati raccolti.
+* [Dashboard](../../azure-monitor/learn/tutorial-logs-dashboards.md), che è possibile personalizzare con rappresentazioni grafiche delle ricerche più importanti.
+* [Soluzioni](../../monitoring/monitoring-solutions.md), che forniscono ulteriori funzionalità e strumenti di analisi.
 
 ![Strumenti di analisi](./media/threat-detection/azure-threat-detection-fig6.png)
 
@@ -135,7 +135,7 @@ Automazione di Azure consente di automatizzare i processi amministrativi con run
 
 ## <a name="azure-security-center"></a>Centro sicurezza di Azure
 
-Il Centro sicurezza di Azure consente di proteggere le risorse di Azure. Integra il monitoraggio della sicurezza e la gestione dei criteri in tutte le sottoscrizioni di Azure. All'interno del servizio, è possibile definire criteri per entrambe le sottoscrizioni di Azure e [gruppi di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) per una maggiore granularità.
+Il Centro sicurezza di Azure consente di proteggere le risorse di Azure. Integra il monitoraggio della sicurezza e la gestione dei criteri in tutte le sottoscrizioni di Azure. All'interno del servizio, è possibile definire criteri per entrambe le sottoscrizioni di Azure e [gruppi di risorse](../../azure-resource-manager/manage-resources-portal.md) per una maggiore granularità.
 
 ![Diagramma del Centro sicurezza di Azure](./media/threat-detection/azure-threat-detection-fig8.png)
 
@@ -216,7 +216,7 @@ Questi sforzi combinati convergono in rilevamenti nuovi e migliorati, da cui è 
 
 ### <a name="virtual-machines-microsoft-antimalware"></a>Macchine virtuali: Microsoft Antimalware
 
-[Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) per Azure è una soluzione con un agente singolo per applicazioni e ambienti tenant, progettata per l'esecuzione in background senza intervento da parte dell'utente. È possibile distribuire la protezione in base alle esigenze dei carichi di lavoro dell'applicazione, con una configurazione sicura per impostazione predefinita o avanzata personalizzata, incluso il monitoraggio antimalware. Antimalware Azure è un'opzione di sicurezza per macchine virtuali di Azure e viene installato automaticamente in tutte le macchine virtuali PaaS di Azure.
+[Microsoft Antimalware](antimalware.md) per Azure è una soluzione con un agente singolo per applicazioni e ambienti tenant, progettata per l'esecuzione in background senza intervento da parte dell'utente. È possibile distribuire la protezione in base alle esigenze dei carichi di lavoro dell'applicazione, con una configurazione sicura per impostazione predefinita o avanzata personalizzata, incluso il monitoraggio antimalware. Antimalware Azure è un'opzione di sicurezza per macchine virtuali di Azure e viene installato automaticamente in tutte le macchine virtuali PaaS di Azure.
 
 #### <a name="microsoft-antimalware-core-features"></a>Funzionalità principali di Microsoft Antimalware
 
@@ -268,7 +268,7 @@ I rilevatori di minacce per il database SQL fanno uso di una delle metodologie d
 
 ### <a name="application-gateway-web-application-firewall"></a>Web application firewall del gateway applicazione
 
-[Web application firewall (WAF)](../../app-service/environment/app-service-app-service-environment-web-application-firewall.md) è una funzionalità del [gateway applicazione di Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview) che consente di proteggere le applicazioni Web che usano il gateway applicazione per funzioni standard di [controller per la distribuzione di applicazioni](https://kemptechnologies.com/in/application-delivery-controllers). Web application firewall protegge infatti le applicazioni dalla maggior parte delle [10 vulnerabilità Open Web Application Security Project (OWASP) più diffuse](https://www.owasp.org/index.php/Top_10_2010-Main).
+[Web application firewall (WAF)](../../app-service/environment/app-service-app-service-environment-web-application-firewall.md) è una funzionalità del [gateway applicazione di Azure](../../application-gateway/application-gateway-web-application-firewall-overview.md) che consente di proteggere le applicazioni Web che usano il gateway applicazione per funzioni standard di [controller per la distribuzione di applicazioni](https://kemptechnologies.com/in/application-delivery-controllers). Web application firewall protegge infatti le applicazioni dalla maggior parte delle [10 vulnerabilità Open Web Application Security Project (OWASP) più diffuse](https://www.owasp.org/index.php/Top_10_2010-Main).
 
 ![Schema deò Web application firewall del gateway applicazione di Azure](./media/threat-detection/azure-threat-detection-fig13.png)
 
@@ -302,7 +302,7 @@ La configurazione del WAF nel gateway applicazione offre i vantaggi seguenti:
 
 L'API di rilevamento delle anomalie è un'API che è utile per rilevare un'ampia gamma di criteri anomali nei dati delle serie temporali. L'API assegna un punteggio di anomalia a ogni punto dati della serie temporale, che può essere usato per la creazione di avvisi, il monitoraggio tramite dashboard o la connessione con i sistemi di generazione dei ticket.
 
-L'[API di rilevamento delle anomalie](https://docs.microsoft.com/azure/machine-learning/machine-learning-apps-anomaly-detection-api) può rilevare i seguenti tipi di anomalie nei dati delle serie temporali:
+L'[API di rilevamento delle anomalie](../../machine-learning/team-data-science-process/apps-anomaly-detection-api.md) può rilevare i seguenti tipi di anomalie nei dati delle serie temporali:
 
 -   **Picchi e flessioni**: quando si monitora il numero di errori di accesso a un servizio o il numero di transazioni completate in un sito di e-commerce, i picchi o le flessioni possono indicare attacchi alla sicurezza o interruzioni del servizio.
 
@@ -384,6 +384,6 @@ Per esempi di firewall di applicazioni Web disponibili su Azure Marketplace, ved
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Funzionalità di rilevamento del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-detection-capabilities): consentono di identificare le minacce attive rivolte alle risorse di Azure e forniscono le informazioni dettagliate necessarie per rispondere rapidamente a tali minacce.
+- [Funzionalità di rilevamento del Centro sicurezza di Azure](../../security-center/security-center-detection-capabilities.md): consentono di identificare le minacce attive rivolte alle risorse di Azure e forniscono le informazioni dettagliate necessarie per rispondere rapidamente a tali minacce.
 
 - [Rilevamento delle minacce per il database SQL di Azure](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/): consente di risolvere i problemi relativi a potenziali minacce per i database.

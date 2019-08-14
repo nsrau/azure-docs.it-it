@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: dd703420f6a02dba589d8e5ace20cbd1e384adfb
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 72b15d77baedae318d4503f2d481b08202730459
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727449"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927998"
 ---
 # <a name="azure-database-security-best-practices"></a>Procedure consigliate per la sicurezza del database di Azure
 Questo articolo descrive le procedure consigliate per la sicurezza del database.
@@ -28,7 +28,7 @@ Questo articolo descrive le procedure consigliate per la sicurezza del database.
 Le procedure consigliate si basano su opinioni concordanti e funzionino con le caratteristiche e le capacità correnti della piattaforma Azure. Le opinioni e le tecnologie cambiano nel tempo e questo articolo viene aggiornato regolarmente per riflettere tali modifiche.
 
 ## <a name="secure-databases"></a>Proteggere i database
-La sicurezza è un tema della massima importanza per la gestione dei database ed è sempre stata una priorità per il [database SQL di Azure](https://docs.microsoft.com/azure/sql-database/). I database possono essere protetti in modo sicuro per soddisfare la maggior parte dei requisiti di legge e di sicurezza, tra i quali HIPAA, ISO 27001/27002 e PCI DSS livello 1. Un elenco aggiornato delle certificazioni di conformità di sicurezza è disponibile nel [sito Centro protezione di Microsoft](https://azure.microsoft.com/support/trust-center/services/). È anche possibile posizionare i database in specifici data center di Azure in base ai requisiti normativi.
+La sicurezza è un tema della massima importanza per la gestione dei database ed è sempre stata una priorità per il [database SQL di Azure](../../sql-database/index.yml). I database possono essere protetti in modo sicuro per soddisfare la maggior parte dei requisiti di legge e di sicurezza, tra i quali HIPAA, ISO 27001/27002 e PCI DSS livello 1. Un elenco aggiornato delle certificazioni di conformità di sicurezza è disponibile nel [sito Centro protezione di Microsoft](https://azure.microsoft.com/support/trust-center/services/). È anche possibile posizionare i database in specifici data center di Azure in base ai requisiti normativi.
 
 ## <a name="use-firewall-rules-to-restrict-database-access"></a>Usare le regole del firewall per limitare l'accesso al database
 Il database SQL di Microsoft Azure assicura un servizio di database relazionale per Azure e altre applicazioni basate su Internet. Per garantire la sicurezza, il database SQL controlla l'accesso tramite:

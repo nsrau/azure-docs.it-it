@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 619a4de993f052f143e4117f0100ed1e0aa77b03
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: bde4572ec72286be7d845f4e83bf9c0fe3bff6f1
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498586"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932404"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure
 
@@ -176,6 +176,7 @@ Quando si crea una richiesta di backup, occorre attenersi ai vincoli seguenti:
 -   Mentre è in corso il backup, **evitare modifiche nella gestione dei servizi**, ad esempio l'aggiornamento SKU o il downgrade, modificare il nome di dominio e così via.
 -   Il ripristino di un **backup è garantito solo per 30 giorni** dal momento della sua creazione.
 -   I **dati di utilizzo** usati per creare report analitici **non sono inclusi** nel backup. Usare l' [API REST di Gestione API di Azure][azure api management rest api] per recuperare periodicamente i report analitici e custodirli al sicuro.
+-   Inoltre, gli elementi seguenti non fanno parte dei dati di backup: certificati SSL del dominio personalizzato e qualsiasi certificato intermedio o radice caricato dal cliente, dal contenuto del portale per sviluppatori e dalle impostazioni di integrazione della rete virtuale.
 -   La frequenza con cui si eseguono i backup dei servizi influenzerà i propri obiettivi relativi ai punti di ripristino. Per ridurla al minimo, si consiglia di implementare backup regolari e di eseguire backup su richiesta dopo aver apportato modifiche al servizio di Gestione API.
 -   Le **modifiche** apportate alla configurazione del servizio (ad esempio alle API, ai criteri e all'aspetto del portale per sviluppatori) durante l'esecuzione del processo di backup **potrebbero essere escluse dal backup e potrebbero andare perse**.
 -   **Consentire** l'accesso dal piano di controllo all'account di archiviazione di Azure. Il cliente deve aprire il seguente set di indirizzi IP in ingresso nell'account di archiviazione per il backup. 

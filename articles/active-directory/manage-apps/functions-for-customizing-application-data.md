@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e741e8d4d68c9862aaabffaccb86740a3e1e9b8a
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 3524f34773f4627dff478ee7cc9cbff9f674bf8e
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694169"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931776"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Scrittura di espressioni per il mapping degli attributi in Azure Active Directory
 Quando si configura il provisioning in un'applicazione SaaS, come mapping degli attributi è possibile specificare il mapping di espressioni. Per questo tipo di mapping è necessario scrivere un'espressione analoga a uno script, che permette di trasformare i dati utente in formati più idonei all'applicazione SaaS.
@@ -61,7 +61,7 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **source** |Obbligatoria |String |In genere è il nome dell'attributo dell'oggetto di origine. |
 | **inputFormat** |Obbligatoria |String |Formato previsto del valore source. Per informazioni sui formati supportati, vedere [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
@@ -90,7 +90,7 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 
 **Parametri:**<br> 
 
-| NOME | Obbligatorio/Ripetuto | Type | Note |
+| Name | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **source** |Obbligatoria |String |Corrisponde in genere al nome dell'attributo. |
 | **start** |Obbligatoria |integer |Indice nella stringa **source** che indica il punto di inizio della sottostringa. L'indice del primo carattere della stringa sarà pari a 1, quello del secondo carattere a 2 e così via. |
@@ -116,7 +116,7 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **source** |Obbligatoria |Stringa booleana |I valori previsti per **source** sono "True" o "False". |
 
@@ -169,7 +169,7 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **uniqueValueRule1  … uniqueValueRuleN** |Sono necessari almeno 2 argomenti, nessun limite superiore |String | Elenco delle regole di generazione di valori univoci da valutare. |
 
@@ -182,7 +182,7 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 **Parametri:**<br> 
 
-| NOME | Obbligatorio/Ripetuto | Type | Note |
+| Name | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **[appRoleAssignments]** |Obbligatoria |String |Oggetto **[appRoleAssignments]** . |
 
@@ -366,7 +366,7 @@ In base al nome, al secondo nome e al cognome dell'utente, è necessario generar
 
     SelectUniqueValue( 
         Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"), 
-        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 1), [PreferredLastName]))), "contoso.com")
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 1), [PreferredLastName]))), "contoso.com"),
         Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 2), [PreferredLastName]))), "contoso.com")
     )
 

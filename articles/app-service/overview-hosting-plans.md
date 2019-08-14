@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: fef509d705d0b904586a86b7dc58decc54e7023d
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 4ea983255463080592181cda321ef6b6d1ff147f
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716635"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932350"
 ---
 # <a name="azure-app-service-plan-overview"></a>Panoramica del piano di servizio app di Azure
 
@@ -32,14 +32,13 @@ Quando si crea un piano di servizio app in una determinata area (ad esempio, Eur
 - Area (Stati Uniti occidentali, Stati Uniti orientali e così via)
 - Numero di istanze di VM
 - Dimensioni delle istanze di VM (Small, Medium, Large)
-- Piano tariffario (Gratuito, Condiviso, Basic, Standard, Premium, PremiumV2, Isolato, Consumo)
+- Piano tariffario (gratuito, condiviso, Basic, standard, Premium, PremiumV2, isolated)
 
 Il _piano tariffario_ di un piano di servizio app determina le funzionalità del servizio app disponibili e il costo del piano. Esistono alcune categorie di piani tariffari:
 
 - **Calcolo condiviso**: i due piani di base **Gratuito** e **Condiviso** eseguono un'app nella stessa macchina virtuale di Azure delle altre app del servizio app, incluse quelle di altri clienti. Questi piani allocano quote di CPU a ogni app eseguita nelle risorse condivise e non è possibile aumentare il numero di istanze delle risorse.
 - **Calcolo dedicato**: i piani **Basic**, **Standard**, **Premium** e **PremiumV2** eseguono le app in macchine virtuali di Azure dedicate. Solo le app nello stesso piano di servizio app condividono le stesse risorse di calcolo. È possibile aumentare il numero di istanze delle VM in misura direttamente proporzionale al livello del piano.
-- **Isolato**: questo piano esegue le macchine virtuali di Azure dedicate in reti virtuali di Azure dedicate, che forniscono alle app l'isolamento a livello di rete oltre che a livello di calcolo. Offre funzionalità ottimali per aumentare il numero di istanze.
-- **Consumo**: questo piano è disponibile solo per le [app per le funzioni](../azure-functions/functions-overview.md). Ridimensiona le funzioni in modo dinamico a seconda del carico di lavoro. Per altre informazioni, vedere [Confronto di piani di hosting per Funzioni di Azure](../azure-functions/functions-scale.md).
+- **Isolato**: Questo livello esegue macchine virtuali di Azure dedicate in reti virtuali di Azure dedicate. Fornisce l'isolamento di rete oltre all'isolamento di calcolo per le app. Offre funzionalità ottimali per aumentare il numero di istanze.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -79,9 +78,8 @@ Questa sezione descrive come vengono fatturate le app del servizio app. Per info
 Fatta eccezione per il piano **Gratuito**, un piano di servizio app prevede una tariffa oraria per le risorse di calcolo usate.
 
 - Nel piano **Condiviso** ogni app riceve una quota di minuti di CPU, quindi la quota di CPU di _ogni app_ viene fatturata su base oraria.
-- Nei piani di calcolo dedicati (**Basic**, **Standard**, **Premium**, **PremiumV2**), il piano di servizio app definisce fino a quale numero di istanze di VM le app vengono ridimensionate, quindi per _ogni istanza di VM_ nel piano di servizio app è prevista una tariffa oraria. Queste istanze di VM vengono fatturate nello stesso modo indipendentemente dal numero di app in esecuzione. Per evitare addebiti imprevisti, vedere [Clean up an App Service plan](app-service-plan-manage.md#delete) (Pulire un piano di servizio app).
-- Nel piano **Isolato** l'ambiente del servizio app definisce il numero di ruoli di lavoro isolati che eseguono le app e _ogni ruolo di lavoro_ viene fatturato su base oraria. È anche prevista una tariffa di base oraria per l'esecuzione dell'ambiente del servizio app stesso. 
-- (Solo Funzioni di Azure) Il piano **Consumo** alloca in modo dinamico le istanze di VM per gestire il carico di lavoro di un'app per le funzioni e viene fatturato in modo dinamico al secondo da Azure. Per altre informazioni, vedere [Prezzi di Funzioni](https://azure.microsoft.com/pricing/details/functions/).
+- Nei livelli di calcolo dedicati (**Basic**, **standard**, **Premium**, **PremiumV2**) il piano di servizio app definisce il numero di istanze di VM a cui vengono ridimensionate le app, quindi _ogni istanza di macchina virtuale_ nel piano di servizio app ha un costo orario. Queste istanze di VM vengono fatturate nello stesso modo indipendentemente dal numero di app in esecuzione. Per evitare addebiti imprevisti, vedere [Clean up an App Service plan](app-service-plan-manage.md#delete) (Pulire un piano di servizio app).
+- Nel piano **Isolato** l'ambiente del servizio app definisce il numero di ruoli di lavoro isolati che eseguono le app e _ogni ruolo di lavoro_ viene fatturato su base oraria. È anche prevista una tariffa di base oraria per l'esecuzione dell'ambiente del servizio app stesso.
 
 L'uso delle funzionalità del servizio app disponibili (configurazione di domini personalizzati, certificati SSL, slot di distribuzione, backup e così via) non viene addebitato. Le eccezioni sono le seguenti:
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 80610168e0d293b65626da71ee349f25e456576b
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 93b3c7671a5beb4b3a451fe0efd13b9f48e00436
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774557"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68941811"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Configurare una raccolta immagini condivisa in Azure DevTest Labs
 DevTest Labs supporta ora la funzionalità [raccolta immagini condivise](../virtual-machines/windows/shared-image-galleries.md) . Consente agli utenti dei lab di accedere a immagini da una posizione condivisa durante la creazione di risorse del lab. Permette anche di creare la struttura e l'organizzazione per le immagini di macchine virtuali gestite e personalizzate. La funzionalità raccolta immagini condivise supporta:
@@ -36,7 +36,7 @@ Se si dispone di un numero elevato di immagini gestite da mantenere e si desider
 ## <a name="considerations"></a>Considerazioni
 - È possibile alleghi solo una raccolta di immagini condivise a un Lab alla volta. Se si vuole allontanare un'altra raccolta, sarà necessario scollegare quella esistente e alleghirne un'altra. 
 - DevTest Labs attualmente non supporta il caricamento di immagini nella raccolta tramite il Lab. 
-- Quando si crea una macchina virtuale usando un'immagine della raccolta di immagini condivise, DevTest Labs USA sempre la versione pubblicata più recente dell'immagine.
+- Quando si crea una macchina virtuale usando un'immagine della raccolta di immagini condivise, DevTest Labs USA sempre la versione pubblicata più recente dell'immagine. Tuttavia, se un'immagine include più versioni, l'utente può scegliere di creare un computer da una versione precedente passando alla scheda Impostazioni avanzate durante la creazione della macchina virtuale.  
 - Anche se DevTest Labs esegue automaticamente un tentativo migliore di verificare che la raccolta di immagini condivise replica le immagini nell'area in cui è presente il Lab, non è sempre possibile. Per evitare che si verifichino problemi durante la creazione di macchine virtuali da queste immagini, assicurarsi che le immagini siano già replicate nell'area del Lab ".
 
 ## <a name="use-azure-portal"></a>Usare il portale di Azure

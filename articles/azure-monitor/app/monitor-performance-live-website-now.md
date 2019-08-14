@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: mbullwin
 ms.openlocfilehash: ea324d616928b0d517c00dc9cab3e282f1e3415e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67876430"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentare app Web in fase di esecuzione con Application Insights connessione senza codice
@@ -45,13 +45,13 @@ Ecco un riepilogo di ciò che offrono i singoli modi:
 
 |  | Fase di compilazione | Tempo di esecuzione |
 | --- | --- | --- |
-| Richieste ed eccezioni |Sì |Sì |
+| Richieste ed eccezioni |Yes |Sì |
 | [Eccezioni più dettagliate](../../azure-monitor/app/asp-net-exceptions.md) | |Sì |
 | [Diagnostica delle dipendenze](../../azure-monitor/app/asp-net-dependencies.md) |In .NET 4.6 e versioni successive, ma meno dettagli |Sì, dettagli completi: codici risultato, testo del comando SQL, verbo HTTP|
-| [Contatori delle prestazioni di sistema](../../azure-monitor/app/performance-counters.md) |Sì |Sì |
+| [Contatori delle prestazioni di sistema](../../azure-monitor/app/performance-counters.md) |Yes |Sì |
 | [API per la telemetria personalizzata][api] |Sì |No |
-| [Integrazione log di traccia](../../azure-monitor/app/asp-net-trace-logs.md) |Yes |No |
-| [Visualizzazione pagina e dati utente](../../azure-monitor/app/javascript.md) |Yes |No |
+| [Integrazione log di traccia](../../azure-monitor/app/asp-net-trace-logs.md) |Sì |No |
+| [Visualizzazione pagina e dati utente](../../azure-monitor/app/javascript.md) |Sì |No |
 | Ricompilazione del codice necessaria |Sì | No |
 
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91cc2707034eabf85afae70278f2448b77d3ee14
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 413df402d5acc878130a47821efd5fa3a512257d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608079"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931942"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Criteri di base: Blocca autenticazione legacy (anteprima)
 
@@ -37,7 +37,7 @@ Prima di poter bloccare l'autenticazione legacy nella directory, è prima di tut
 
 1. Passare al **portale di Azure** > **Azure Active Directory** > **accessi**.
 1. Aggiungere la colonna app client se non viene visualizzata facendo clic su **colonne** > **client App**.
-1. Filtrare in base all' **app** > client**altri client** e fare clic su **applica**.
+1. **Aggiungere filtri** > **app client** > selezionare tutte le opzioni per **altri client** e fare clic su **applica**.
 
 Con il filtro vengono visualizzati solo i tentativi di accesso eseguiti dai protocolli di autenticazione legacy. Se si fa clic su ogni singolo tentativo di accesso, vengono visualizzati altri dettagli. Il campo **app client** nella scheda **informazioni di base** indicherà quale protocollo di autenticazione legacy è stato usato.
 

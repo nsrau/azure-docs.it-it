@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: dacurwin
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 5fde581f322504c7e329da7fa153671b8a91183d
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: bae05e890ef76ada9f775293c673cb8baa82c8bf
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688371"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954572"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitoraggio dei carichi di lavoro di backup di Azure
 
@@ -87,6 +87,9 @@ Quando viene generato un avviso, viene inviata una notifica agli utenti. Backup 
 
 ![Notifica di posta elettronica incorporate dell'insieme di credenziali RS](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltnotification.png)
 
+> [!NOTE]
+> Gli avvisi per i backup SQL verranno consolidati e il messaggio di posta elettronica verrà inviato solo per la prima occorrenza. Tuttavia, se l'avviso viene disattivato dall'utente, l'occorrenza successiva attiverà un altro messaggio di posta elettronica.
+
 Quando la notifica viene configurata, si riceverà un messaggio di benvenuto o introduttivo. Questo conferma che backup di Azure può inviare messaggi di posta elettronica a questi indirizzi quando viene generato un avviso.<br>
 
 Se la frequenza è stata impostata su un digest orario e un avviso viene generato e risolto entro un'ora, non sarà parte del digest orario imminente.
@@ -95,6 +98,14 @@ Se la frequenza è stata impostata su un digest orario e un avviso viene generat
 >
 > * Se viene eseguita un'operazione distruttiva, ad esempio **Arresta la protezione con l'eliminazione dei dati** , viene generato un avviso e viene inviato un messaggio di posta elettronica ai proprietari, agli amministratori e ai coamministratori della sottoscrizione anche se le notifiche non sono configurate per l'insieme di credenziali del servizio di ripristino.
 > * Per configurare la notifica per i processi riusciti, utilizzare [log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
+
+## <a name="inactivating-alerts"></a>Inattivazione degli avvisi
+
+Per disattivare o risolvere un avviso attivo, è possibile fare clic sulla voce di elenco corrispondente all'avviso che si desidera disattivare. Verrà visualizzata una schermata in cui sono visualizzate informazioni dettagliate sull'avviso, con un pulsante di disattivazione nella parte superiore. Se si fa clic su questo pulsante, lo stato dell'avviso verrà modificato in "inactive". È anche possibile disattivare un avviso semplicemente facendo clic con il pulsante destro del mouse sull'elemento dell'elenco corrispondente a tale avviso e selezionando "Disattiva".
+
+![Inattivazione avviso di insieme di credenziali RS](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

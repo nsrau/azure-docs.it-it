@@ -1,6 +1,6 @@
 ---
 title: Progettazione per la disponibilità elevata con Azure ExpressRoute | Microsoft Docs
-description: Questa pagina offre indicazioni architetturali per la disponibilità elevata quando si usa Azure ExpressRoute.
+description: Questa pagina fornisce consigli sull'architettura per la disponibilità elevata durante l'uso di Azure ExpressRoute.
 documentationcenter: na
 services: networking
 author: rambk
@@ -11,85 +11,85 @@ ms.workload: infrastructure-services
 ms.date: 06/28/2019
 ms.author: rambala
 ms.openlocfilehash: 4984b30daf6170873cad9472bfed2d879af57efe
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67466656"
 ---
 # <a name="designing-for-high-availability-with-expressroute"></a>Progettazione per la disponibilità elevata con ExpressRoute
 
-ExpressRoute è progettato per la disponibilità elevata fornire la connettività di rete privata di livello per le risorse di Microsoft gestore telefonico. In altre parole, non è presente alcun singolo punto di guasto nel percorso di ExpressRoute nella rete di Microsoft. Per ottimizzare la disponibilità, il cliente e il segmento di provider del servizio del circuito ExpressRoute deve anche essere progettato per garantire la disponibilità elevata. In questo articolo, primo è possibile esaminare alle considerazioni sull'architettura di rete per la creazione di connettività di rete affidabile tramite un circuito ExpressRoute e quindi ora esaminate le funzionalità di ottimizzazione che consentono di migliorare la disponibilità elevata del circuito ExpressRoute.
+ExpressRoute è progettato per garantire un'elevata disponibilità per la connettività di rete privata di livello vettore alle risorse Microsoft. In altre parole, non esiste un singolo punto di errore nel percorso ExpressRoute all'interno della rete Microsoft. Per ottimizzare la disponibilità, è necessario progettare anche il segmento Customer e provider di servizi del circuito ExpressRoute per la disponibilità elevata. In questo articolo vengono esaminate prima di tutto le considerazioni sull'architettura di rete per la creazione di una connettività di rete affidabile usando un ExpressRoute, quindi si osserveranno le funzionalità di ottimizzazione che consentono di migliorare la disponibilità elevata del circuito ExpressRoute.
 
 
 ## <a name="architecture-considerations"></a>Considerazioni sull'architettura
 
-La figura seguente illustra il modo consigliato per connettersi tramite un circuito ExpressRoute per l'ottimizzazione della disponibilità di un circuito ExpressRoute.
+La figura seguente illustra la modalità consigliata per connettersi usando un circuito ExpressRoute per massimizzare la disponibilità di un circuito ExpressRoute.
 
  [![1]][1]
 
-Per la disponibilità elevata, è essenziale per mantenere la ridondanza del circuito ExpressRoute in tutta la rete end-to-end. In altre parole, è necessario gestire la ridondanza all'interno della rete locale e non deve compromettere la ridondanza all'interno della rete del provider del servizio. Mantenere la ridondanza minimo implica evitando singoli punti di errore di rete. Con ridondanza di alimentazione e raffreddamento a sé per la rete i dispositivi verranno inoltre migliorare la disponibilità elevata.
+Per la disponibilità elevata, è essenziale mantenere la ridondanza del circuito ExpressRoute in tutta la rete end-to-end. In altre parole, è necessario mantenere la ridondanza all'interno della rete locale e non deve compromettere la ridondanza all'interno della rete del provider di servizi. Il mantenimento della ridondanza minima implica la prevenzione del singolo punto di errore di rete. Il risparmio di energia e il raffreddamento ridondante per i dispositivi di rete miglioreranno ulteriormente la disponibilità elevata.
 
-### <a name="first-mile-physical-layer-design-considerations"></a>Considerazioni sulla progettazione di primo miglia livello fisico
+### <a name="first-mile-physical-layer-design-considerations"></a>Considerazioni sulla progettazione del livello fisico del primo miglio
 
- Se si interrompe sia le connessioni primarie e secondarie di un circuiti di ExpressRoute nella stessa cliente locale delle apparecchiature (CPE), si sta compromettere la disponibilità elevata all'interno della rete locale. Inoltre, se si configura entrambe le connessioni primarie e secondarie tramite la stessa porta di un CPE (terminando le due connessioni sotto sottointerfacce diverse oppure mediante l'unione di due connessioni all'interno della rete di partner), si impone al partner per compromettere la disponibilità elevata sul proprio segmento di rete nonché. Questo compromesso è illustrata nella figura seguente.
+ Se si terminano sia le connessioni primarie che secondarie di un circuito ExpressRoute nello stesso sistema CPE (Customer locale Equipment), si sta compromettendo la disponibilità elevata nella rete locale. Inoltre, se si configurano le connessioni primarie e secondarie tramite la stessa porta di un CPE (terminando le due connessioni in diverse sottointerfacce o unendo le due connessioni all'interno della rete partner), il partner verrà forzato per compromettere la disponibilità elevata anche sul segmento di rete. Questa compromissione è illustrata nella figura seguente.
 
 [![2]][2]
 
-D'altra parte, se si interrompe il database primario e le connessioni secondarie di un circuiti ExpressRoute in posizioni geografiche diverse, quindi si potrebbero essere compromettere le prestazioni della connettività di rete. Se il traffico è attivamente con carico bilanciato tra il database primario e le connessioni secondarie vengono terminate in località geografiche diverse, potenziali differenza sostanziale nella latenza di rete tra i due percorsi comporta la rete non ottimali Prestazione. 
+D'altra parte, se si terminano le connessioni primarie e secondarie di un circuito ExpressRoute in posizioni geografiche diverse, si potrebbero compromettere le prestazioni di rete della connettività. Se il traffico viene attivamente sottoposta a bilanciamento del carico tra le connessioni primarie e secondarie interrotte in posizioni geografiche diverse, la potenziale differenza sostanziale nella latenza di rete tra i due percorsi risulterebbe una rete non ottimale prestazioni. 
 
-Per considerazioni di progettazione con ridondanza geografica, vedere [progettazione per il ripristino di emergenza con ExpressRoute][DR].
+Per considerazioni sulla progettazione con ridondanza geografica, vedere [progettazione per il ripristino di emergenza con ExpressRoute][DR].
 
-### <a name="active-active-connections"></a>Connessioni Active-active
+### <a name="active-active-connections"></a>Connessioni attive-attive
 
-Rete di Microsoft è configurato per funzionare le connessioni primarie e secondarie dei circuiti ExpressRoute in modalità attivo-attivo. Tuttavia, tramite i annunci della route, è possibile forzare le connessioni ridondanti di un circuito ExpressRoute per il funzionamento in modalità attiva-passiva. Annuncio BGP e route più specifici come anteposizione di As path sono le tecniche comuni utilizzate per rendere un percorso preferito rispetto a altro.
+Microsoft Network è configurato per il funzionamento delle connessioni primarie e secondarie dei circuiti ExpressRoute in modalità Active-Active. Tuttavia, tramite gli annunci di route, è possibile forzare le connessioni ridondanti di un circuito ExpressRoute in modo che funzionino in modalità attivo/passivo. L'annuncio di route più specifiche e BGP come percorso anteposto sono le tecniche comuni utilizzate per rendere un percorso preferito rispetto all'altro.
 
-Per migliorare la disponibilità elevata, è consigliabile per il funzionamento di entrambe le connessioni di un circuito ExpressRoute in modalità attivo-attivo. Se si lascia le connessioni che operano in modalità attivo-attivo, Microsoft network caricherà per bilanciare il traffico tra le connessioni in base al flusso.
+Per migliorare la disponibilità elevata, è consigliabile usare entrambe le connessioni di un circuito ExpressRoute in modalità Active-Active. Se si lascia che le connessioni funzionino in modalità attivo-attivo, Microsoft Network caricherà il carico del traffico tra le connessioni in base ai singoli flussi.
 
-In esecuzione le connessioni primarie e secondarie di un circuito ExpressRoute in viso modalità attiva-passiva il rischio di entrambe le connessioni non superati dopo un errore nel percorso attivo. Le cause comuni di errore nel passaggio sono la mancanza di gestione attiva della connessione passivo e connessione passivo annuncio delle route non aggiornate.
+L'esecuzione delle connessioni primarie e secondarie di un circuito ExpressRoute in modalità attivo/passivo affronta il rischio che entrambe le connessioni abbiano esito negativo in seguito a un errore nel percorso attivo. Le cause più comuni di errore durante il trasferimento sono la mancanza di una gestione attiva della connessione passiva e la connessione passiva che annuncia le route non aggiornate.
 
-In alternativa, esegue le connessioni primarie e secondarie di un circuito ExpressRoute in modalità attivo-attivo, comporta solo metà i flussi di esito negativo e il recupero reindirizzato, dopo un errore di connessione ExpressRoute. Di conseguenza, la modalità attivo-attivo in modo significativo consentiranno di migliorare il tempo medio di recupero (MTTR).
+In alternativa, l'esecuzione delle connessioni primarie e secondarie di un circuito ExpressRoute in modalità attivo-attivo comporta solo la metà dei flussi che non riescono e vengono reindirizzati, a seguito di un errore di connessione ExpressRoute. Quindi, la modalità Active-Active consente di migliorare significativamente il tempo medio di recupero (MTTR).
 
 ### <a name="nat-for-microsoft-peering"></a>NAT per il peering Microsoft 
 
-Il peering Microsoft è progettato per la comunicazione tra gli endpoint pubblici. Comunemente, gli endpoint privati in locale sono indirizzo di rete convertito (esempio) con indirizzo IP pubblico in cui il cliente o la rete di partner prima che comunicano tramite peering Microsoft. Supponendo che si usano entrambe le connessioni primarie e secondarie in modalità attivo-attivo, dove e come si NAT ha un impatto sulla velocità di ripristino dopo un errore in una delle connessioni ExpressRoute. Nella figura riportata di seguito verranno illustrate due diverse opzioni NAT:
+Il peering Microsoft è progettato per la comunicazione tra endpoint pubblici. Quindi, in genere, gli endpoint privati locali sono tradotti come indirizzo di rete (NATed) con IP pubblico nella rete del cliente o del partner prima che comunicano tramite peering Microsoft. Supponendo di usare le connessioni primarie e secondarie in modalità attivo-attivo, dove e come si ha un effetto NAT sulla velocità di ripristino in seguito a un errore in una delle connessioni ExpressRoute. Nella figura seguente sono illustrate due diverse opzioni NAT:
 
 [![3]][3]
 
-Nell'opzione 1, NAT viene applicato dopo la suddivisione del traffico tra le connessioni primarie e secondarie del circuito ExpressRoute. Per soddisfare i requisiti di NAT con stati, i pool NAT indipendenti vengono usati tra il database primario e i dispositivi secondari in modo che il traffico di ritorno potrebbe arrivare allo stesso dispositivo edge tramite il quale il flusso in uscita.
+Nell'opzione 1, NAT viene applicato dopo la suddivisione del traffico tra le connessioni primarie e secondarie di ExpressRoute. Per soddisfare i requisiti con stato di NAT, i pool NAT indipendenti vengono usati tra i dispositivi primari e secondari, in modo che il traffico di ritorno raggiunga lo stesso dispositivo perimetrale attraverso il quale il flusso uscita.
 
-Nell'opzione 2, viene usato un pool NAT comune prima della suddivisione del traffico tra le connessioni primarie e secondarie del circuito ExpressRoute. È importante distinzione è importante che il pool NAT comune prima della suddivisione del traffico non ne implica l'introduzione di singolo punto di errore in questo modo compromettere la disponibilità elevata.
+Nell'opzione 2 viene usato un pool NAT comune prima di suddividere il traffico tra le connessioni primarie e secondarie di ExpressRoute. È importante distinguere che il pool NAT comune prima di suddividere il traffico non implica l'introduzione di un singolo punto di errore, compromettendo così la disponibilità elevata.
 
-Con l'opzione 1, che segue un errore di connessione ExpressRoute, possibilità di raggiungere il pool NAT corrispondente viene interrotta. Pertanto, tutti i flussi di interruzione devono essere stabilita tramite TCP nuovamente o livello dell'applicazione dopo il timeout della finestra corrispondente. Se uno dei pool NAT non è utilizzato per front-end di un server in locale e se la connettività corrispondente dovesse avere esito negativo, non è possibile raggiungere i server in locale da Azure finché non viene risolto la connettività.
+Con l'opzione 1, in seguito a un errore di connessione ExpressRoute, la possibilità di raggiungere il pool NAT corrispondente è interruppe. Pertanto, tutti i flussi interrotti devono essere ristabiliti tramite il livello TCP o dell'applicazione dopo il timeout della finestra corrispondente. Se uno dei pool NAT viene usato per il front-end di uno dei server locali e se la connettività corrispondente ha esito negativo, non è possibile raggiungere i server locali da Azure fino a quando la connettività non è fissa.
 
-Mentre con l'opzione 2, il protocollo NAT è raggiungibile anche dopo un errore di connessione primaria o secondaria. Pertanto, il livello di rete stesso può reindirizzare il ripristino più veloce i pacchetti e della Guida in linea segue l'errore. 
+Mentre con l'opzione 2, il NAT è raggiungibile anche dopo un errore di connessione primaria o secondaria. Pertanto, il livello di rete stesso può reindirizzare i pacchetti e contribuire a un ripristino più rapido dopo l'errore. 
 
 > [!NOTE]
-> Se si usa NAT opzione 1 (indipendente dal pool di NAT per le connessioni di ExpressRoute primari e secondari) e mapping di una porta di un indirizzo IP da uno dei pool di NAT a un server in locale, il server non sarà raggiungibile tramite ExpressRoute quando per un circuito corrispondente connessione non riesce.
+> Se si usa l'opzione NAT 1 (pool NAT indipendenti per le connessioni ExpressRoute primarie e secondarie) e si esegue il mapping di una porta di un indirizzo IP da uno del pool NAT a un server locale, il server non sarà raggiungibile tramite il circuito ExpressRoute quando il corrispondente connessione non riuscita.
 > 
 
 ## <a name="fine-tuning-features-for-private-peering"></a>Ottimizzazione delle funzionalità per il peering privato
 
-In questa sezione, invia i tuoi commenti verifica facoltativa (a seconda della distribuzione di Azure e come sensibili per ' MTTR) le caratteristiche che consentono di migliorare la disponibilità elevata del circuito ExpressRoute. In particolare, è opportuno esaminare distribuzione compatibile con la zona di gateway di rete virtuale per ExpressRoute e il rilevamento di inoltro bidirezionale (BFD).
+In questa sezione vengono esaminate le funzionalità facoltative (a seconda della distribuzione di Azure e del modo in cui si è MTTR) che consentono di migliorare la disponibilità elevata del circuito ExpressRoute. In particolare, esaminiamo la distribuzione in grado di riconoscere le zone dei gateway di rete virtuale ExpressRoute e il rilevamento di inoltri bidirezionale (BFD).
 
-### <a name="availability-zone-aware-expressroute-virtual-network-gateways"></a>Gateway di rete virtuale di zona di disponibilità compatibili con ExpressRoute
+### <a name="availability-zone-aware-expressroute-virtual-network-gateways"></a>I gateway di rete virtuale ExpressRoute compatibili con la zona di disponibilità
 
-Una zona di disponibilità in un'area di Azure è una combinazione di un dominio di errore e un dominio di aggiornamento. Se si opta per la distribuzione IaaS di Azure con ridondanza della zona, è anche possibile configurare i gateway di rete virtuale con ridondanza della zona che termina con il peering privato di ExpressRoute. Per altre informazioni, vedere [informazioni sui gateway di rete virtuale con ridondanza della zona in zone di disponibilità di Azure][zone redundant vgw]. To configure zone-redundant virtual network gateway, see [Create a zone-redundant virtual network gateway in Azure Availability Zones][conf zone redundant vgw].
+Una zona di disponibilità in un'area di Azure è una combinazione di un dominio di errore e un dominio di aggiornamento. Se si opta per la distribuzione di Azure IaaS con ridondanza della zona, è anche possibile configurare i gateway di rete virtuale con ridondanza della zona che terminano il peering privato di ExpressRoute. Per ulteriori informazioni, vedere [informazioni sui gateway di rete virtuale con ridondanza della zona in zone di disponibilità di Azure][zone redundant vgw]. Per configurare il gateway di rete virtuale con ridondanza della zona, vedere [creare un gateway di rete virtuale con ridondanza della zona in zone di disponibilità di Azure][conf zone redundant vgw].
 
-### <a name="improving-failure-detection-time"></a>Migliorare il tempo di rilevamento di errori
+### <a name="improving-failure-detection-time"></a>Miglioramento del tempo di rilevamento degli errori
 
-ExpressRoute supporta BFD tramite peering privato. BFD riduce il tempo di rilevamento dell'errore attraverso la rete di livello 2 tra Microsoft Enterprise Edge (msee) e i vicini BGP sul lato locale da circa 3 minuti (impostazione predefinita) a meno di un secondo. Tempo di rilevamento errore rapido consente accelerando ripristino dagli errori. Per altre informazioni, vedere [BFD configurare tramite ExpressRoute][BFD].
+ExpressRoute supporta BFD sul peering privato. BFD riduce il tempo di rilevamento dell'errore sulla rete di livello 2 tra Microsoft Enterprise Edge (MSEE) e i relativi adiacenti BGP sul lato locale da circa 3 minuti (impostazione predefinita) a meno di un secondo. Il tempo di rilevamento rapido degli errori consente di velocizzare il ripristino degli errori. Per altre informazioni, vedere [configurare BFD su ExpressRoute][BFD].
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato illustrato come progettare per la disponibilità elevata di una connettività del circuito ExpressRoute. Un punto peering del circuito ExpressRoute viene aggiunto a una posizione geografica e pertanto può essere interessato da un errore irreversibile che influisce sul percorso intero. 
+In questo articolo è stato illustrato come progettare per la disponibilità elevata di una connettività del circuito ExpressRoute. Un punto di peering del circuito ExpressRoute è aggiunto a una posizione geografica e pertanto può essere influenzato da un errore irreversibile che influisca sull'intera posizione. 
 
-Per considerazioni sulla progettazione compilare la connettività di rete con ridondanza geografica per backbone di Microsoft che può resistere agli errori irreversibili, che influiscono su un'intera area, vedere [progettazione per il ripristino di emergenza conpeeringprivatodiExpressRoute][DR].
+Per considerazioni sulla progettazione per la creazione di connettività di rete con ridondanza geografica a backbone Microsoft che possa resistere a errori irreversibili, che influiscano su un'intera area, vedere [progettazione per il ripristino di emergenza con peering privato ExpressRoute][DR].
 
 <!--Image References-->
-[1]: ./media/designing-for-high-availability-with-expressroute/exr-reco.png "soluzione consigliata per la connessione tramite ExpressRoute"
-[2]: ./media/designing-for-high-availability-with-expressroute/suboptimal-lastmile-connectivity.png "Suboptimal ultimo connettività miglia"
-[3]: ./media/designing-for-high-availability-with-expressroute/nat-options.png "opzioni NAT"
+[1]: ./media/designing-for-high-availability-with-expressroute/exr-reco.png  "Modalità consigliata per la connessione tramite ExpressRoute"
+[2]: ./media/designing-for-high-availability-with-expressroute/suboptimal-lastmile-connectivity.png  "Connettività Last Mile non ottimale"
+[3]: ./media/designing-for-high-availability-with-expressroute/nat-options.png  "Opzioni NAT"
 
 
 <!--Link References-->

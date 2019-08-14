@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0a051b0e853b60dfc1f5b6c3453d9ed8361f1748
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0c6186334820d0e419a06b9c60a8279825bf54c2
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67438829"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927302"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato in Azure Active Directory B2C
 
@@ -53,6 +53,9 @@ Creare il contenuto HTML con il nome del marchio del prodotto nel titolo.
 
 2. Incollare il frammento di codice copiato in un editor di testo e quindi salvare il file con il nome *customize-ui.html*.
 
+> [!NOTE]
+> Gli elementi del form HTML verranno rimossi a causa di restrizioni di sicurezza se si usa login.microsoftonline.com. Usare b2clogin.com se si vuole usare elementi del form HTML nel contenuto HTML personalizzato. Vedere [usare b2clogin.com](b2clogin.md) per altri vantaggi.
+
 ## <a name="create-an-azure-blob-storage-account"></a>Creare un account di archiviazione BLOB di Azure
 
 >[!NOTE]
@@ -79,26 +82,26 @@ Per ospitare il contenuto HTML nell'archivio Blob, seguire questa procedura:
 
 Per creare un contenitore pubblico nell'archivio BLOB seguire questa procedura:
 
-1. Sotto **servizio Blob** nel menu a sinistra, selezionare **BLOB**.
+1. In **servizio BLOB** scegliere **BLOB**dal menu a sinistra.
 2. Fare clic su **+ contenitore**.
-3. Per la **Name**, immettere *radice*. Può trattarsi di un nome a scelta, ad esempio *wingtiptoys*, ma si utilizza *radice* in questo esempio per motivi di semplicità.
-4. Per la **livello di accesso pubblico**, selezionare **Blob**, quindi **OK**.
+3. Per **nome**immettere *radice*. Può trattarsi di un nome a scelta, ad esempio *wingtiptoys*, ma in questo esempio viene usata la *radice* per semplicità.
+4. Per **livello di accesso pubblico**selezionare **BLOB**e quindi **OK**.
 5. Fare clic su **radice** per aprire il nuovo contenitore.
-6. Fare clic su **Carica**.
+6. Fare clic su **Upload**.
 7. Fare clic sull'icona della cartella accanto a **Selezionare un file**.
-8. Individuare e selezionare **UI personalizzare** creato in precedenza nella sezione Personalizzazione Page UI.
-9. Se si desidera caricare in una sottocartella, espandere **avanzate** e immettere un nome di cartella nella **carica nella cartella**.
+8. Passare a e selezionare **Customize-UI. html** creato in precedenza nella sezione relativa alla personalizzazione dell'interfaccia utente della pagina.
+9. Se si desidera caricare in una sottocartella, espandere **Avanzate** e immettere un nome di cartella in **carica in cartella**.
 10. Selezionare **Carica**.
-11. Selezionare il **UI personalizzare** blob caricato.
-12. A destra del **URL** casella di testo, seleziona la **copia negli Appunti** icona per copiare l'URL negli Appunti.
-13. Nel web browser passare all'URL copiato per verificare che il blob caricato sia accessibile. Se non è accessibile, ad esempio se si verifica una `ResourceNotFound` errore, verificare che il tipo di accesso del contenitore è impostato su **blob**.
+11. Selezionare il BLOB **Customize-UI. html** caricato.
+12. A destra della casella di testo **URL** selezionare l'icona **copia negli Appunti** per copiare l'URL negli Appunti.
+13. Nel Web browser passare all'URL copiato per verificare che il BLOB caricato sia accessibile. Se è inaccessibile, ad esempio se si verifica un `ResourceNotFound` errore, verificare che il tipo di accesso del contenitore sia impostato su **BLOB**.
 
 ## <a name="configure-cors"></a>Configurare CORS
 
 Configurare l'archivio BLOB per la condivisione di risorse tra le origini (CORS) seguendo questa procedura:
 
 1. Nel menu selezionare **CORS**.
-2. Per **Origini consentite** immettere `https://your-tenant-name.b2clogin.com`. Sostituire `your-tenant-name` con il nome del tenant di Azure AD B2C. Ad esempio: `https://fabrikam.b2clogin.com`. È necessario usare solo lettere minuscole quando si immette il nome del tenant.
+2. Per **Origini consentite** immettere `https://your-tenant-name.b2clogin.com`. Sostituire `your-tenant-name` con il nome del tenant di Azure AD B2C. Ad esempio `https://fabrikam.b2clogin.com`. È necessario usare solo lettere minuscole quando si immette il nome del tenant.
 3. Per **Metodi consentiti** selezionare sia `GET` che `OPTIONS`.
 4. Per **Intestazioni consentite** immettere un asterisco (*).
 5. Per **Intestazioni esposte** immettere un asterisco (*).
@@ -122,7 +125,7 @@ Per configurare la personalizzazione dell'interfaccia utente, si copia **Content
 3. Aprire il file di estensione. ad esempio *TrustFrameworkExtensions.xml*. Cercare l'elemento **BuildingBlocks**. Se l'elemento non esiste, aggiungerlo.
 4. Incollare l'intero contenuto dell'elemento **ContentDefinitions** copiato come figlio dell'elemento **BuildingBlocks**. 
 5. Cercare l'elemento **ContentDefinition** che contiene `Id="api.signuporsignin"` nel codice XML copiato.
-6. Cambiare il valore di **LoadUri** nell'URL del file HTML caricato nell'archivio. Ad esempio: `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
+6. Cambiare il valore di **LoadUri** nell'URL del file HTML caricato nell'archivio. Ad esempio `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
     
     I criteri personalizzati dovrebbero essere simili ai seguenti:
 
@@ -177,15 +180,15 @@ La cartella sample_templates/wingtip contiene i file HTML seguenti:
 | *unified.html* | Usare questo file come modello per una pagina unificata per l'iscrizione o l'accesso. |
 | *updateprofile.html* | Usare questo file come modello per una pagina di aggiornamento del profilo. |
 
-Ecco i passaggi su come usare l'esempio. 
-1. Clonare il repository nel computer locale. Scegliere una cartella di modello in sample_templates. È possibile usare `wingtip` o `contoso`.
-2. Caricare tutti i file con il `css`, `fonts`, e `images` cartelle nell'archivio Blob come descritto nelle sezioni precedenti. 
-3. Successivamente, aprire ciascuna \*file con estensione HTML nella radice di uno `wingtip` oppure `contoso` (a seconda del valore selezionato nel primo passaggio) e sostituire tutte le istanze di "http://localhost" con gli URL dei file css, immagini e i tipi di carattere è stato caricato nel passaggio 2.
-4. Salvare il \*. HTML, file e caricarli in archiviazione Blob.
-5. A questo punto modificare il file delle estensioni come indicato in precedenza [modificare il file delle estensioni](#modify-the-extensions-file).
-6. Se viene visualizzato di tipi di carattere, immagini o css mancanti, verificare i riferimenti nei criteri di estensioni e \*file HTML.
+Ecco i passaggi per usare l'esempio. 
+1. Clonare il repository nel computer locale. Scegliere una cartella modello in sample_templates. È possibile utilizzare `wingtip` o `contoso`.
+2. Caricare tutti i file nelle `css`cartelle, e `images` nell'archiviazione BLOB, `fonts`come descritto nelle sezioni precedenti. 
+3. Aprire quindi ogni \*file con estensione HTML nella radice `wingtip` di o `contoso` (a seconda del valore selezionato nel primo passaggio) e sostituire tutte le istanze di "http://localhost" con gli URL dei file CSS, images e fonts caricati nel passaggio 2.
+4. Salvare i \*file con estensione HTML e caricarli nell'archivio BLOB.
+5. Modificare ora il file delle estensioni come indicato in precedenza in [modificare il file delle estensioni](#modify-the-extensions-file).
+6. Se vengono visualizzati i tipi di carattere, le immagini o i file CSS mancanti, verificare i riferimenti nei criteri \*delle estensioni e nei file con estensione HTML.
 
-### <a name="content-defintion-ids"></a>ID della definizione del contenuto
+### <a name="content-defintion-ids"></a>ID definizione contenuto
 
 Nella sezione Modificare i criteri personalizzati di iscrizione o di accesso è stata configurata la definizione del contenuto per `api.idpselections`. Il set completo di ID di definizione del contenuto riconosciuti dal framework dell'esperienza di gestione delle identità di AD B2C e le relative descrizioni sono disponibili nella tabella seguente:
 

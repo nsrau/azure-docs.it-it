@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: de13518173f21a0a802c37eb7be3cd6c4926d884
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: ffc245402965cdcd62bb210d79bd95db5444f964
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689198"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954630"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Monitorare su larga scala tramite monitoraggio di Azure
 
@@ -212,7 +212,7 @@ I dati di diagnostica dell'insieme di credenziali vengono pompati nell'area di l
 - Per tutte le soluzioni, i processi di backup ad hoc e i processi di ripristino vengonoinseriti non appena vengono completati.
 - Per tutte le soluzioni ad eccezione di backup SQL, i processi di backup pianificativengono inseriti non appena vengono completati.
 - Per il backup SQL, poiché i backup del log possono essere eseguiti ogni 15 minuti, le informazioni per tutti i processi di backup pianificati completati, inclusi i log, vengono inserite in batch e inserite ogni 6 ore.
-- In tutte le soluzioni, altre informazioni, ad esempio l'elemento di backup, i criteri, i punti di ripristino, l'archiviazione e così via, vengono inserite almeno *una volta al giorno.*
+- Per tutte le soluzioni, altre informazioni, ad esempio l'elemento di backup, i criteri, i punti di ripristino, l'archiviazione e così via, vengono inserite almeno *una volta al giorno.*
 - Una modifica alla configurazione del backup, ad esempio la modifica dei criteri o la modifica dei criteri, attiva un push di tutte le informazioni di backup correlate.
 
 ## <a name="using-the-recovery-services-vaults-activity-logs"></a>Uso dei log attività dell'insieme di credenziali di servizi di ripristino
@@ -238,7 +238,7 @@ Per identificare il registro appropriato e creare un avviso:
 
    ![Nuova regola di avviso](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
-Qui la risorsa è l'insieme di credenziali dei servizi di ripristino. È necessario ripetere gli stessi passaggi per tutti gli insiemi di credenziali in cui si desidera ricevere una notifica tramite i log attività. La condizione non avrà una soglia, un punto o una frequenza perché questo avviso è basato sugli eventi. Non appena viene generato il log attività pertinente, viene generato l'avviso.
+Qui la risorsa è l'insieme di credenziali dei servizi di ripristino. Ripetere gli stessi passaggi per tutti gli insiemi di credenziali in cui si desidera ricevere una notifica tramite i log attività. La condizione non avrà una soglia, un punto o una frequenza perché questo avviso è basato sugli eventi. Non appena viene generato il log attività pertinente, viene generato l'avviso.
 
 ## <a name="using-log-analytics-to-monitor-at-scale"></a>Uso di Log Analytics per il monitoraggio su larga scala
 

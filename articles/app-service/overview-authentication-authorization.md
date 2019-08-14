@@ -4,7 +4,7 @@ description: Riferimento concettuale e panoramica della funzionalità di Autenti
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: erikre
+manager: gwallace
 editor: ''
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.service: app-service
@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 08/12/2019
 ms.author: cephalin
 ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 53733774968f94ac95d9b3fea6d8fcb422b4e02c
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 12ad82b0dda628c3a8cef7712322500c7a33517c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515182"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68953811"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticazione e autorizzazione nel servizio app di Azure
 
@@ -119,29 +119,23 @@ Per i browser client, il servizio app può indirizzare automaticamente tutti gli
 
 ## <a name="authorization-behavior"></a>Comportamento di autorizzazione
 
-Nel [portale di Azure](https://portal.azure.com) è possibile configurare diversi comportamenti per l'autorizzazione del servizio app.
+Nel [portale di Azure](https://portal.azure.com)è possibile configurare l'autorizzazione del servizio app con diversi comportamenti quando la richiesta in ingresso non è autenticata.
 
 ![](media/app-service-authentication-overview/authorization-flow.png)
 
 I titoli seguenti descrivono le opzioni.
 
-### <a name="allow-all-requests-default"></a>Consentire tutte le richieste (impostazione predefinita)
+### <a name="allow-anonymous-requests-no-action"></a>Consenti richieste anonime (nessuna azione)
 
-L'autenticazione e l'autorizzazione non sono gestite dal servizio app (disattivate). 
+Questa opzione rinvia l'autorizzazione del traffico non autenticato al codice dell'applicazione. Per le richieste autenticate, il servizio app passa anche le informazioni di autenticazione nelle intestazioni HTTP. 
 
-Scegliere questa opzione se non sono necessarie l'autenticazione e l'autorizzazione oppure se si vuole scrivere codice di autenticazione e autorizzazione personalizzato.
+Questa opzione offre maggiore flessibilità nella gestione delle richieste anonime. Ad esempio consente di [presentare più opzioni di accesso](app-service-authentication-how-to.md#use-multiple-sign-in-providers) agli utenti. Tuttavia richiede di scrivere codice. 
 
 ### <a name="allow-only-authenticated-requests"></a>Consentire solo le richieste autenticate
 
 L'opzione è **Accedi con \<provider>** . Il servizio app reindirizza tutte le richieste anonime a `/.auth/login/<provider>` per il provider scelto. Se la richiesta anonima proviene da un'app per dispositivi mobili nativa, verrà restituita la risposta `HTTP 401 Unauthorized`.
 
 Con questa opzione non è necessario scrivere codice di autenticazione nell'app. È possibile gestire un livello di autorizzazione più specifico, ad esempio l'autorizzazione specifica dei ruoli, esaminando le attestazioni utente (vedere [Accedere alle attestazioni utente](app-service-authentication-how-to.md#access-user-claims)).
-
-### <a name="allow-all-requests-but-validate-authenticated-requests"></a>Consentire tutte le richieste, ma convalidare le richieste autenticate
-
-L'opzione è **Consenti richieste anonime**. Questa opzione attiva l'autenticazione e l'autorizzazione nel servizio app, ma rimanda le decisioni riguardanti l'autorizzazione al codice dell'applicazione. Per le richieste autenticate, il servizio app passa anche le informazioni di autenticazione nelle intestazioni HTTP. 
-
-Questa opzione offre maggiore flessibilità nella gestione delle richieste anonime. Ad esempio consente di [presentare più opzioni di accesso](app-service-authentication-how-to.md#use-multiple-sign-in-providers) agli utenti. Tuttavia richiede di scrivere codice. 
 
 ## <a name="more-resources"></a>Altre risorse
 

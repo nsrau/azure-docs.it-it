@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: af88d2f0ce0e26fe67dda265b59684083c133dd5
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 598ad4c103035ec2d94015e1f8e12194d1b723fc
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297592"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935106"
 ---
 # <a name="database-collation-support-for-azure-sql-data-warehouse"></a>Supporto delle regole di confronto del database per Azure SQL Data Warehouse
 
@@ -26,7 +26,7 @@ Per modificare le regole di confronto predefinite, è sufficiente eseguire l'agg
 
 Se, ad esempio, si desidera modificare le regole di confronto predefinite in maiuscole/minuscole, è sufficiente rinominare le regole di confronto da SQL_Latin1_General_CP1_CI_AS a SQL_Latin1_General_CP1_CS_AS. 
 
-#<a name="list-of-unsupported-collation-types"></a>Elenco di tipi di regole di confronto non supportate
+## <a name="list-of-unsupported-collation-types"></a>Elenco di tipi di regole di confronto non supportate
 *   Japanese_Bushu_Kakusu_140_BIN
 *   Japanese_Bushu_Kakusu_140_BIN2
 *   Japanese_Bushu_Kakusu_140_CI_AI_VSS

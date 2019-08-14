@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 036112027fcf210f0ac2ff1e631c8b0bd4b5e9ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4a294254bd52db89179c5644ea7a0f0f04027f30
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964383"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932479"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Esercitazione: configurare Slack per il provisioning utenti automatico
 
@@ -34,7 +34,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 * Tenant di Slack con [piano Plus](https://aadsyncfabric.slack.com/pricing) o superiore abilitato
 * Account utente in Slack con autorizzazioni di amministratore di team
 
-Note: l'integrazione del provisioning di Azure AD è basata sull'[API SCIM di Slack](https://api.slack.com/scim), disponibile per team Slack con piano Plus o superiore.
+Nota: l'integrazione del provisioning di Azure AD è basata sull'[API SCIM di Slack](https://api.slack.com/scim), disponibile per team Slack con piano Plus o superiore.
 
 ## <a name="assigning-users-to-slack"></a>Assegnazione di utenti a Slack
 
@@ -120,7 +120,9 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
   
   * Si aggiorna solo se queste due impostazioni sono configurate nell'area di lavoro/organizzazione di Slack: **è abilitata la sincronizzazione del profilo** e **gli utenti non possono modificare il nome visualizzato**.
   
-  * L'attributo **userName** di Slack deve essere inferiore a 21 caratteri e avere un valore univoco.
+* L'attributo **userName** di Slack deve essere inferiore a 21 caratteri e avere un valore univoco.
+
+* Slack consente solo la corrispondenza con gli attributi **username** e **email**.  
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

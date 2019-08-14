@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: rkarlin
 ms.openlocfilehash: 0a889de79b6a5921007614dac8d610c1be0222d2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "60704555"
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Centro sicurezza di Azure e servizio Database SQL di Azure
@@ -84,7 +84,7 @@ Seguire i passaggi in [SQL Database Threat Detection in the Azure portal](../sql
 
 Per altre informazioni sulle raccomandazioni, vedere [Gestione delle raccomandazioni di sicurezza](security-center-recommendations.md).
 
-## <a name="monitor-security-health"></a>Monitorare l'integrità della sicurezza
+## <a name="monitor-security-health"></a>Monitora l'integrità della sicurezza
 Una volta abilitati i [criteri di sicurezza](tutorial-security-policy.md) per le risorse di una sottoscrizione, il Centro sicurezza analizza la sicurezza delle risorse per identificare le potenziali vulnerabilità.  Nel riquadro **Integrità sicurezza delle risorse** è possibile visualizzare lo stato di sicurezza delle risorse. Quando si fa clic su **Dati** nel riquadro **Integrità sicurezza delle risorse**, viene aperto il pannello **Data Resources** (Risorse dati) con le raccomandazioni SQL relative a problemi come la mancata abilitazione del controllo e di Transparent Data Encryption. Include anche raccomandazioni relative allo stato di integrità generale del database.
 ![Integrità della sicurezza delle risorse][6]
 

@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 747b279b38ec3b73f19194825195f1b3450d4514
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 38383685f74020f5208d42df4428f896931fbe2a
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834866"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931795"
 ---
 # <a name="whats-new-for-authentication"></a>Novità per l'autenticazione 
 
@@ -49,7 +49,7 @@ Il sistema di autenticazione modifica e aggiunge funzionalità regolarmente per 
 
 **Data di validità**: 26 luglio 2019
 
-**Endpoint interessati**: [V 1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) e [v 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)
+**Endpoint interessati**: [V 1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) e [v 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)
 
 **Protocollo interessato**: [Credenziali client (token solo app)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
 
@@ -82,7 +82,7 @@ Il parametro della query statica è soggetto alla corrispondenza di stringa per 
 Si noti che al momento (fine del luglio 2019), la registrazione dell'app UX in portale di Azure ancora blocca i parametri della query.  Tuttavia, è possibile modificare manualmente il manifesto dell'applicazione per aggiungere parametri di query e testarlo nell'app.  
 
 
-## <a name="march-2019"></a>2019 marzo
+## <a name="march-2019"></a>Marzo 2019
 
 ### <a name="looping-clients-will-be-interrupted"></a>I client di ciclo verranno interrotti
 

@@ -8,16 +8,16 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3e6e8ae76c0ae6f688dd4a039b34c52af16b6e0f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2a740d8ee0eb50cfa01f36bd8f5590a58e1e6627
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244017"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931921"
 ---
-# <a name="time-series-model"></a>Modello Time Series
+# <a name="time-series-model"></a>Modello serie temporale
 
 Questo articolo descrive il componente Modello serie temporale di Anteprima di Time Series Insights. Illustra il modello, le funzionalità e come iniziare a compilare e aggiornare un modello personalizzato.
 
@@ -25,7 +25,7 @@ I dati raccolti dai dispositivi IoT non includono in genere informazioni contest
 
 I modelli di serie temporale svolgono un ruolo fondamentale nelle query e nella navigazione perché contestualizzano le entità dispositivo e non dispositivo. I dati resi persistenti nel modello di serie temporale possono essere usati per i calcoli delle query delle serie temporali sfruttando le formule archiviate al loro interno.
 
-[![Panoramica del modello di serie ora](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
+[![Panoramica del modello Time Series](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
 
 ## <a name="key-capabilities"></a>Funzionalità principali
 
@@ -35,15 +35,15 @@ Allo scopo di semplificare e agevolare la gestione della contestualizzazione del
 * Definire relazioni padre-figlio per abilitare l'esplorazione e fare riferimento e fornire contesto ai dati di telemetria delle serie temporali.
 * Definire le proprietà associate al componente istanze dei *campi di istanza* e usarle per creare gerarchie.
 
-## <a name="entity-components"></a>Componenti di entità
+## <a name="entity-components"></a>Componenti entità
 
-I modelli Time Series dispone di tre componenti principali:
+I modelli Time Series hanno tre componenti principali:
 
-* <a href="#time-series-model-types">Tipi di modello di serie ora</a>
-* <a href="#time-series-model-hierarchies">Gerarchie del modello di serie temporali</a>
-* <a href="#time-series-model-instances">Istanze di un modello di serie ora</a>
+* <a href="#time-series-model-types">Tipi di modello Time Series</a>
+* <a href="#time-series-model-hierarchies">Gerarchie di modelli Time Series</a>
+* <a href="#time-series-model-instances">Istanze del modello Time Series</a>
 
-Questi componenti vengono combinati per specificare un modello Time Series e organizzare i dati di Azure Time Series Insights.
+Questi componenti vengono combinati per specificare un modello Time Series e per organizzare i dati Azure Time Series Insights.
 
 ## <a name="time-series-model-types"></a>Tipi di modelli serie temporale
 
@@ -82,13 +82,13 @@ I tipi di Time Series Insights hanno variabili, denominate calcoli sui valori de
 
 La matrice seguente funge da legenda per le definizioni delle variabili:
 
-[![Tabella dei tipi di definizione di variabile](media/v2-update-tsm/table.png)](media/v2-update-tsm/table.png#lightbox)
+[![Tabella di definizione della variabile di tipo](media/v2-update-tsm/table.png)](media/v2-update-tsm/table.png#lightbox)
 
 | Definizione | Descrizione |
 | --- | ---|
-| Tipologia di variabile |  *Numerico* e *aggregazione* sono supportati tipi |
+| Tipologia di variabile |  Sono supportati i tipi numerici e di *aggregazione* |
 | Filtro di variabile | I filtri di variabile specificano una clausola di filtro facoltativa per limitare il numero di righe da tenere in considerazione per il calcolo in base alle condizioni. |
-| Valore di variabile | I valori delle variabili vengono e devono essere usati nel calcolo. Il campo pertinente per fare riferimento a per il punto dati in questione. |
+| Valore di variabile | I valori delle variabili vengono e devono essere usati nel calcolo. Campo pertinente a cui fare riferimento per il punto dati in questione. |
 | Aggregazione di variabile | La funzione di aggregazione della variabile consente parte del calcolo. Time Series Insights supporta le normali aggregazioni (specificamente *min*, *max*, *avg*, *sum* e *count*). |
 
 ## <a name="time-series-model-hierarchies"></a>Gerarchie di modelli serie temporale
@@ -134,7 +134,7 @@ A seconda dei *campi di istanza*, vengono visualizzati gli attributi e i valori 
 | ID4 | "building" = "1000", "floor" = "10"  |
 | ID5 | Non è impostato nessun "building", "floor" o "room" |
 
-Nell'esempio precedente, **ID1** e **ID4** Mostra come parte della gerarchia H1 in soluzioni Azure Time Series Insights, mentre il resto sono classificati nella *istanze senza padre* perché non sono conformi alla gerarchia di dati specificato.
+Nell'esempio precedente, **ID1** e **ID4** vengono visualizzati come parte della gerarchia H1 in Esplora Azure Time Series Insights e il resto è classificato in istanze senza *padre* perché non sono conformi alla gerarchia dei dati specificata.
 
 ## <a name="time-series-model-instances"></a>Istanze di modello serie temporale
 
@@ -144,7 +144,7 @@ Le istanze vengono definite da *typeId*, *timeSeriesId*, *name*, *description*, 
 
 Gli elementi *instanceFields* sono proprietà di un'istanza e dei dati statici che definiscono un'istanza. Definiscono i valori delle proprietà non di gerarchia o di gerarchia, supportando anche l'indicizzazione per eseguire operazioni di ricerca.
 
-Il *nome* proprietà è facoltativa e tra maiuscole e minuscole. Se *name* è non disponibile, per impostazione predefinita sarà l'ID serie temporale. Se viene specificata una proprietà *name*, l'ID serie temporale sarà comunque disponibile nel Well (la griglia sotto i grafici nell'explorer).
+La proprietà *Name* è facoltativa e con distinzione tra maiuscole e minuscole. Se *name* è non disponibile, per impostazione predefinita sarà l'ID serie temporale. Se viene specificata una proprietà *name*, l'ID serie temporale sarà comunque disponibile nel Well (la griglia sotto i grafici nell'explorer).
 
 ### <a name="time-series-model-instance-json-example"></a>Esempio JSON di istanza di modello serie temporale
 

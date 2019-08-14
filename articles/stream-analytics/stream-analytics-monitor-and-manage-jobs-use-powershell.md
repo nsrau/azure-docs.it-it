@@ -10,10 +10,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
 ms.openlocfilehash: cdc09973a192924c5b9a81cd4ed49b9f36fc0eb1
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67612307"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Monitorare e gestire i processi di Analisi di flusso con i cmdlet di Azure PowerShell
@@ -58,7 +58,7 @@ New-AzResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 
 ## <a name="azure-powershell-cmdlets-for-stream-analytics"></a>Cmdlet di Azure PowerShell per Analisi dei flussi
 I cmdlet di Azure PowerShell indicati di seguito possono essere utilizzati per monitorare e gestire i processi di Analisi dei flussi di Azure. Si noti che sono disponibili diverse versioni di Azure PowerShell. 
-**Negli esempi elencati il primo comando è per Azure PowerShell 0.9.8, il secondo comando è per Azure PowerShell 1.0.** I comandi di Azure PowerShell 1.0 avranno sempre "Az" nel comando.
+**Negli esempi elencati il primo comando è per Azure PowerShell 0.9.8, il secondo comando è per Azure PowerShell 1.0.** I comandi di Azure PowerShell 1,0 avranno sempre "AZ" nel comando.
 
 ### <a name="get-azurestreamanalyticsjob--get-azstreamanalyticsjob"></a>Get-AzureStreamAnalyticsJob | Get-AzStreamAnalyticsJob
 Elenca tutti i processi di Analisi dei flussi definiti nella sottoscrizione di Azure o nel gruppo di risorse specificato oppure ottiene informazioni su uno specifico processo all'interno di un gruppo di risorse.
@@ -228,7 +228,7 @@ Se si specifica un input già esistente e non si specifica il parametro –Force
 
 Se si specifica un nome di input esistente usando il parametro –Force, l'input verrà sostituito senza chiedere conferma.
 
-Per informazioni dettagliate sulla struttura di file JSON e contenuto, vedere la [Create Input (Analitica Stream di Azure)][msdn-rest-api-create-stream-analytics-input] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference].
+Per informazioni dettagliate sulla struttura e sul contenuto dei file JSON, vedere la sezione [creare input (analisi di flusso di Azure)][msdn-rest-api-create-stream-analytics-input] della [libreria di riferimento dell'API REST di gestione di analisi di flusso][stream.analytics.rest.api.reference].
 
 **Esempio 1**
 
@@ -287,7 +287,7 @@ Se si specifica un nome di processo già esistente e non si specifica il paramet
 
 Se si specifica un nome di processo esistente usando il parametro –Force, la definizione del processo verrà sostituita senza chiedere conferma.
 
-Per informazioni dettagliate sulla struttura di file JSON e contenuto, vedere la [Crea processo di Stream Analitica][msdn-rest-api-create-stream-analytics-job] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference].
+Per informazioni dettagliate sulla struttura e sul contenuto dei file JSON, vedere la sezione [creare un processo di analisi][msdn-rest-api-create-stream-analytics-job] di flusso della libreria di riferimento dell' [API REST di gestione di analisi di flusso][stream.analytics.rest.api.reference].
 
 **Esempio 1**
 
@@ -330,7 +330,7 @@ Se si specifica un output già esistente e non si specifica il parametro –Forc
 
 Se si specifica un nome di output esistente usando il parametro –Force, l'output verrà sostituito senza chiedere conferma.
 
-Per informazioni dettagliate sulla struttura di file JSON e contenuto, vedere la [Create Output (Analitica Stream di Azure)][msdn-rest-api-create-stream-analytics-output] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference].
+Per informazioni dettagliate sulla struttura e sul contenuto dei file JSON, vedere la sezione [create output (analisi di flusso di Azure)][msdn-rest-api-create-stream-analytics-output] della [libreria di riferimento dell'API REST di gestione di analisi di flusso][stream.analytics.rest.api.reference].
 
 **Esempio 1**
 
@@ -373,7 +373,7 @@ Se si specifica una trasformazione già esistente e non si specifica il parametr
 
 Se si specifica un nome di trasformazione esistente usando il parametro –Force, la trasformazione verrà sostituita senza chiedere conferma.
 
-Per informazioni dettagliate sulla struttura di file JSON e contenuto, vedere la [Create Transformation (Analitica Stream di Azure)][msdn-rest-api-create-stream-analytics-transformation] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference].
+Per informazioni dettagliate sulla struttura e sul contenuto dei file JSON, vedere la sezione [create Transformation (analisi di flusso di Azure)][msdn-rest-api-create-stream-analytics-transformation] della [libreria di riferimento dell'API REST di gestione di analisi di flusso][stream.analytics.rest.api.reference].
 
 **Esempio 1**
 

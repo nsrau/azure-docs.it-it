@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: v-mohabe
 ms.openlocfilehash: cc0c319357b39ddb3e88d515613273a6f7dc0867
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "65968809"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoraggio dell'integrità dei file nel Centro sicurezza di Azure
@@ -38,10 +38,10 @@ Il Centro sicurezza consiglia le entità da monitorare, in cui è possibile abil
 > [!NOTE]
 > La funzionalità di monitoraggio dell'integrità dei file viene eseguita nelle macchine virtuali e nei computer Windows e Linux ed è disponibile nel livello Standard del Centro sicurezza. Per altre informazioni sui piani tariffari di Centro sicurezza, vedere [Prezzi](security-center-pricing.md). Il monitoraggio dell'integrità dei file carica i dati nell'area di lavoro Log Analytics. Si applicano costi in base alla quantità di dati caricati. Per altre informazioni, vedere [Prezzi di Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-Il monitoraggio dell'integrità dei file usa la soluzione Rilevamento modifiche di Azure per tenere traccia delle modifiche nell'ambiente e identificarle. Quando è abilitato il monitoraggio dell'integrità dei File, è necessario un **Change Tracking** risorsa di tipo **soluzione**. Per dettagli sulla frequenza di raccolta dati, vedere [Change Tracking informazioni dettagliate sulla raccolta dati](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) per rilevamento modifiche di Azure.
+Il monitoraggio dell'integrità dei file usa la soluzione Rilevamento modifiche di Azure per tenere traccia delle modifiche nell'ambiente e identificarle. Quando il monitoraggio dell'integrità dei file è abilitato, si ha una risorsa **rilevamento modifiche** di tipo **soluzione**. Per informazioni dettagliate sulla frequenza di raccolta dati, vedere [rilevamento modifiche dettagli sulla raccolta dei dati](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) per rilevamento modifiche di Azure.
 
 > [!NOTE]
-> Se si rimuove il **Change Tracking** risorsa, è anche disabiliterà l'integrità del File di funzionalità nel Centro sicurezza di monitoraggio.
+> Se si rimuove la risorsa di **rilevamento modifiche** , viene disabilitata anche la funzionalità di monitoraggio dell'integrità dei file nel centro sicurezza.
 
 ## <a name="which-files-should-i-monitor"></a>Quali file è necessario monitorare?
 Quando si scelgono i file da monitorare, è necessario considerare quali sono critici per il sistema e le applicazioni. Prendere in considerazione di scegliere i file che non si prevede di modificare senza pianificazione. Scegliendo i file che vengono modificati di frequente dalle applicazioni o dal sistema operativo (ad esempio file di log e file di testo) si crea molto disturbo, che rende difficile identificare un attacco.
@@ -137,7 +137,7 @@ La scheda **Modifiche** (mostrata sotto) elenca tutte le modifiche per l'area di
 
    ![Configurazione dell'area di lavoro][12]
 
-2. Selezionare la protezione di un'identità. In questo esempio è stato selezionato un elemento in Registro di sistema di Windows. Si apre **Modifica Registro di sistema di Windows per Rilevamento modifiche**.
+2. Selezionare una protezione dell'identità. In questo esempio è stato selezionato un elemento in Registro di sistema di Windows. Si apre **Modifica Registro di sistema di Windows per Rilevamento modifiche**.
 
    ![Rilevamento delle modifiche][13]
 

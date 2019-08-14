@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2019
-ms.openlocfilehash: 4b1a551ea2dd62d428fee6a7be475472235a3994
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 131333f140518f6fb2f63f17d0aa72692dc7d49a
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569611"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935062"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Creazione e uso della replica geografica attiva
 
@@ -76,7 +76,7 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
 > [!NOTE]
 > La riesecuzione del log viene ritardata nel database secondario se è in corso la ricezione di aggiornamenti dello schema dal database primario perché richiede un blocco dello schema nel database secondario.
 > [!IMPORTANT]
-> È possibile usare la replica geografica per creare un database secondario nella stessa area del database primario. È possibile usare questa replica secondaria per bilanciare il carico di un carico di lavoro di sola lettura nella stessa area. Tuttavia, un database secondario nella stessa area non fornisce una resilienza degli errori aggiuntiva e pertanto non è una destinazione di failover adatta per il ripristino di emergenza. Non garantisce inoltre l'isolamento della zona avaialability. Usare il livello di servizio business critical o Premium con la configurazione con ridondanza della [zona](sql-database-high-availability.md#zone-redundant-configuration) per ottenere l'isolamento della zona avaialability.   
+> È possibile usare la replica geografica per creare un database secondario nella stessa area del database primario. È possibile usare questa replica secondaria per bilanciare il carico di un carico di lavoro di sola lettura nella stessa area. Tuttavia, un database secondario nella stessa area non fornisce una resilienza degli errori aggiuntiva e pertanto non è una destinazione di failover adatta per il ripristino di emergenza. Non garantisce inoltre l'isolamento della zona di disponibilità. Usare il livello di servizio business critical o Premium con la configurazione con ridondanza della [zona](sql-database-high-availability.md#zone-redundant-configuration) per ottenere l'isolamento della zona di disponibilità.   
 >
 
 - **Failover pianificato**

@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
 ms.openlocfilehash: 5f387310e737982b824d0ac9662822d9a74f39e9
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67616009"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concetti di base di Kubernetes per il servizio Azure Kubernetes
 
-Mentre lo sviluppo di applicazioni viene spostato verso un approccio basato su contenitori, la necessità di orchestrare e gestire le risorse è importante. Kubernetes è la piattaforma leader che offre programmazione affidabile di carichi di lavoro applicativi dotati di tolleranza agli errori. Il servizio Azure Kubernetes è un'offerta Kubernetes gestita che semplifica ulteriormente lo sviluppo e la gestione di applicazioni basate su contenitori.
+Quando lo sviluppo di applicazioni si sposta verso un approccio basato su contenitori, è importante la necessità di orchestrare e gestire le risorse. Kubernetes è la piattaforma leader che offre programmazione affidabile di carichi di lavoro applicativi dotati di tolleranza agli errori. Il servizio Azure Kubernetes è un'offerta Kubernetes gestita che semplifica ulteriormente lo sviluppo e la gestione di applicazioni basate su contenitori.
 
 Questo articolo presenta i componenti principali dell'infrastruttura Kubernetes, fra cui i *master del cluster*, i *nodi* e i *pool di nodi*. Sono presentate anche risorse del carico di lavoro come *pod*, *distribuzioni* e *set*, nonché la procedura per raggruppare risorse in *spazi dei nomi*.
 
@@ -28,7 +28,7 @@ Kubernetes è una piattaforma in rapida evoluzione che gestisce applicazioni bas
 
 In quanto piattaforma aperta, Kubernetes consente di compilare le applicazioni con il linguaggio di programmazione, il sistema operativo, le librerie e il bus di messaggistica preferiti. Gli strumenti esistenti di integrazione continua e recapito continuo (CI/CD) possono integrarsi con Kubernetes per la pianificazione e la distribuzione delle versioni.
 
-Il servizio Azure Kubernetes è un servizio Kubernetes gestito che riduce la complessità delle attività di distribuzione e delle attività principali di gestione, tra cui il coordinamento degli aggiornamenti. I master del cluster di servizio Azure Kubernetes sono gestiti dalla piattaforma Azure e si paga solo per i nodi di servizio Azure Kubernetes che eseguono le applicazioni. Servizio contenitore di AZURE si basa il motore del servizio Kubernetes Azure open source ([aks-engine][aks-engine]).
+Il servizio Azure Kubernetes è un servizio Kubernetes gestito che riduce la complessità delle attività di distribuzione e delle attività principali di gestione, tra cui il coordinamento degli aggiornamenti. I master del cluster di servizio Azure Kubernetes sono gestiti dalla piattaforma Azure e si paga solo per i nodi di servizio Azure Kubernetes che eseguono le applicazioni. AKS è basato sul motore del servizio Kubernetes di Azure Open Source ([AKS-Engine][aks-engine]).
 
 ## <a name="kubernetes-cluster-architecture"></a>Architettura del cluster Kubernetes
 
@@ -41,7 +41,7 @@ Un cluster Kubernetes è suddiviso in due componenti:
 
 ## <a name="cluster-master"></a>Master del cluster
 
-Quando si crea un cluster servizio Azure Kubernetes, viene creato e configurato automaticamente un master del cluster. Il master del cluster è fornito come risorsa di Azure gestita indipendente dall'utente. Non sono previsti costi per il servizio master del cluster, solo i nodi che fanno parte del cluster servizio contenitore di AZURE.
+Quando si crea un cluster servizio Azure Kubernetes, viene creato e configurato automaticamente un master del cluster. Il master del cluster è fornito come risorsa di Azure gestita indipendente dall'utente. Non è previsto alcun costo per il master del cluster, ma solo per i nodi che fanno parte del cluster AKS.
 
 Il master del cluster include i componenti di Kubernetes principali seguenti:
 
@@ -52,11 +52,11 @@ Il master del cluster include i componenti di Kubernetes principali seguenti:
 
 servizio Azure Kubernetes fornisce un master del cluster a tenant singolo con un server API, un'Utilità di pianificazione e altri elementi dedicati. L'utente definisce il numero e la dimensioni dei nodi mentre la piattaforma Azure configura la comunicazione sicura tra il master del cluster e i nodi. L'interazione con il master del cluster si verifica mediante le API di Kubernetes, ad esempio `kubectl` o il dashboard di Kubernetes.
 
-Questo schema cluster gestito significa che non è necessario configurare i componenti come a disponibilità elevata *etcd* store, ma significa anche che è possibile accedere direttamente al master del cluster. Gli aggiornamenti di Kubernetes sono orchestrati tramite l'interfaccia della riga di comando di Azure o il portale di Azure che aggiorna il master del cluster e quindi i nodi. Per risolvere eventuali problemi è possibile esaminare il log del master del cluster tramite i log di Monitoraggio di Azure.
+Questo Master di cluster gestiti significa che non è necessario configurare componenti come un archivio *ETCD* a disponibilità elevata, ma significa anche che non è possibile accedere direttamente al master del cluster. Gli aggiornamenti di Kubernetes sono orchestrati tramite l'interfaccia della riga di comando di Azure o il portale di Azure che aggiorna il master del cluster e quindi i nodi. Per risolvere eventuali problemi è possibile esaminare il log del master del cluster tramite i log di Monitoraggio di Azure.
 
-Se è necessario configurare il master del cluster in modo particolare o necessario accesso diretto ad esse, è possibile distribuire il proprio cluster Kubernetes usando [aks-engine][aks-engine].
+Se è necessario configurare il master del cluster in un modo particolare o se è necessario l'accesso diretto a tali cluster, è possibile distribuire il proprio cluster Kubernetes usando [AKS-Engine][aks-engine].
 
-Per procedure consigliate associati, vedere [procedure consigliate per la sicurezza del cluster e aggiornamenti nel servizio contenitore di AZURE][operator-best-practices-cluster-security].
+Per le procedure consigliate associate, vedere procedure consigliate [per la sicurezza e gli aggiornamenti del cluster in AKS][operator-best-practices-cluster-security].
 
 ## <a name="nodes-and-node-pools"></a>Nodi e pool di nodi
 
@@ -64,15 +64,15 @@ Per eseguire le applicazioni e i servizi di supporto, è necessario un *nodo* Ku
 
 - `kubelet` è l'agente di Kubernetes che elabora le richieste di orchestrazione dal master del cluster e la pianificazione di esecuzione dei contenitori richiesti.
 - La rete virtuale è gestita dal *kube-proxy* in ogni nodo. Il proxy instrada il traffico di rete e gestisce gli indirizzi IP per i servizi e i pod.
-- Il *runtime del contenitore* è il componente che consente alle applicazioni in contenitori di eseguire e interagire con risorse aggiuntive, ad esempio la rete virtuale e la risorsa di archiviazione. Nel servizio contenitore di AZURE, Moby viene utilizzato come il runtime del contenitore.
+- Il *runtime del contenitore* è il componente che consente alle applicazioni in contenitori di eseguire e interagire con risorse aggiuntive, ad esempio la rete virtuale e la risorsa di archiviazione. In AKS, Moby viene usato come runtime del contenitore.
 
 ![Macchina virtuale di Azure e risorse di supporto per un nodo di Kubernetes](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
 La dimensione della macchina virtuale di Azure per i nodi definisce il numero di CPU, la quantità di memoria e la dimensione e tipo della risorsa di archiviazione disponibile, ad esempio unità SSD a prestazioni elevate o HDD normale. Se si prevede di aver bisogno di applicazioni che richiedono grandi quantità di CPU e memoria o archiviazione a prestazioni elevate, pianificare di conseguenza la dimensione dei nodi. È anche possibile aumentare il numero di nodi del cluster servizio Azure Kubernetes in base alle esigenze.
 
-Nel servizio contenitore di AZURE, l'immagine di macchina virtuale per i nodi del cluster è attualmente basato su Ubuntu Linux o Windows Server 2019. Quando si crea un cluster servizio Azure Kubernetes o si aumenta il numero di nodi, la piattaforma Azure crea il numero richiesto di macchine virtuali e le configura. Non è presente alcuna configurazione manuale per eseguire. I nodi agente vengono fatturati come macchine virtuali standard, in modo che gli eventuali sconti avere sulle dimensioni della macchina virtuale in uso (compresi [prenotazioni Azure][reservation-discounts]) vengono applicate automaticamente.
+In AKS l'immagine della macchina virtuale per i nodi del cluster è attualmente basata su Ubuntu Linux o Windows Server 2019. Quando si crea un cluster servizio Azure Kubernetes o si aumenta il numero di nodi, la piattaforma Azure crea il numero richiesto di macchine virtuali e le configura. Non è necessario eseguire alcuna configurazione manuale. I nodi agente vengono fatturati come macchine virtuali standard, quindi tutti gli sconti sulle dimensioni della macchina virtuale in uso (incluse le [prenotazioni di Azure][reservation-discounts]) vengono applicati automaticamente.
 
-Se è necessario utilizzare un altro host del sistema operativo, runtime del contenitore, o includere i pacchetti personalizzati, è possibile distribuire il proprio cluster Kubernetes usando [aks-engine][aks-engine]. `aks-engine` upstream rilascia funzionalità e offre opzioni di configurazione prima che siano supportate ufficialmente nei cluster del servizio Azure Kubernetes. Ad esempio, se si vuole usare un runtime di contenitore diverso da Moby, è possibile usare `aks-engine` per configurare e distribuire un cluster Kubernetes che soddisfi le esigenze correnti.
+Se è necessario usare un sistema operativo host diverso, un runtime del contenitore o includere pacchetti personalizzati, è possibile distribuire il proprio cluster Kubernetes usando [AKS-Engine][aks-engine]. `aks-engine` upstream rilascia funzionalità e offre opzioni di configurazione prima che siano supportate ufficialmente nei cluster del servizio Azure Kubernetes. Se ad esempio si vuole usare un runtime del contenitore diverso da Moby, è possibile usare `aks-engine` per configurare e distribuire un cluster Kubernetes che soddisfi le esigenze correnti.
 
 ### <a name="resource-reservations"></a>Prenotazioni di risorse
 
@@ -81,7 +81,7 @@ Non è necessario gestire i componenti principali di Kubernetes in ogni nodo, co
 - **CPU** - 60 ms
 - **Memoria** - 20% fino a 4 GiB
 
-Queste prenotazioni implicano che la quantità disponibile di CPU e memoria per le applicazioni può risultare inferiore a quanto contenuto dal nodo stesso. Se sono presenti vincoli delle risorse a causa del numero di applicazioni in esecuzione, le prenotazioni assicurano che CPU e memoria rimangano disponibili per i componenti principali di Kubernetes. Le prenotazioni di risorsa non possono essere modificate.
+Queste prenotazioni implicano che la quantità disponibile di CPU e memoria per le applicazioni può risultare inferiore a quanto contenuto dal nodo stesso. Se sono presenti vincoli delle risorse a causa del numero di applicazioni in esecuzione, le prenotazioni assicurano che CPU e memoria rimangano disponibili per i componenti principali di Kubernetes. Non è possibile modificare le prenotazioni di risorse.
 
 Ad esempio:
 
@@ -95,21 +95,21 @@ Ad esempio:
     
 Il sistema operativo del nodo sottostante richiede anche una certa quantità di risorse di CPU e memoria per completare le proprie funzioni principali.
 
-Per procedure consigliate associati, vedere [procedure consigliate per le funzionalità di base dell'utilità di pianificazione in AKS][operator-best-practices-scheduler].
+Per le procedure consigliate associate, vedere procedure consigliate [per le funzionalità dell'utilità di pianificazione di base in AKS][operator-best-practices-scheduler].
 
 ### <a name="node-pools"></a>Pool di nodi
 
-I nodi della stessa configurazione sono raggruppati in *pool di nodi*. Un cluster Kubernetes contiene uno o più pool di nodi. Il numero e la dimensione iniziale dei nodi sono definiti quando si crea un cluster servizio Azure Kubernetes, infatti viene creato un *pool di nodi predefinito*. Questo pool di nodi predefinito in servizio Azure Kubernetes contiene le macchine virtuali sottostanti che eseguono i nodi dell'agente. Supporto di più nodi del pool è attualmente in anteprima nel servizio contenitore di AZURE.
+I nodi della stessa configurazione sono raggruppati in *pool di nodi*. Un cluster Kubernetes contiene uno o più pool di nodi. Il numero e la dimensione iniziale dei nodi sono definiti quando si crea un cluster servizio Azure Kubernetes, infatti viene creato un *pool di nodi predefinito*. Questo pool di nodi predefinito in servizio Azure Kubernetes contiene le macchine virtuali sottostanti che eseguono i nodi dell'agente. Il supporto per più pool di nodi è attualmente disponibile in anteprima in AKS.
 
-Quando si ridimensiona o si aggiorna un cluster servizio Azure Kubernetes, l'azione viene eseguita sul pool di nodi predefinito. È anche possibile scalare o eseguire l'aggiornamento di un pool di nodi specifici. Per le operazioni di aggiornamento, i contenitori in esecuzione vengono pianificati in altri nodi del pool fino a quando non vengono aggiornati tutti i nodi.
+Quando si ridimensiona o si aggiorna un cluster servizio Azure Kubernetes, l'azione viene eseguita sul pool di nodi predefinito. È anche possibile scegliere di ridimensionare o aggiornare un pool di nodi specifico. Per le operazioni di aggiornamento, i contenitori in esecuzione vengono pianificati in altri nodi del pool fino a quando non vengono aggiornati tutti i nodi.
 
-Per altre informazioni su come usare più pool di nodi nel servizio contenitore di AZURE, vedere [creare e gestire più pool di nodi per un cluster di AKS][use-multiple-node-pools].
+Per altre informazioni su come usare più pool di nodi in AKS, vedere [creare e gestire pool di nodi multipli per un cluster in AKS][use-multiple-node-pools].
 
 ### <a name="node-selectors"></a>Selettori di nodo
 
-In un cluster servizio contenitore di AZURE che contiene più pool di nodi, è necessario indicare a quale pool di nodi da usare per una determinata risorsa l'utilità di pianificazione di Kubernetes. Ad esempio, i controller di ingresso non devono eseguire nei nodi di Windows Server (attualmente in anteprima nel servizio contenitore di AZURE). I selettori di nodo consentono di definire vari parametri, ad esempio il nodo del sistema operativo, al controllo in cui dovrebbe essere pianificato in un pod.
+In un cluster AKS che contiene più pool di nodi, potrebbe essere necessario indicare all'utilità di pianificazione Kubernetes il pool di nodi da usare per una determinata risorsa. I controller in ingresso, ad esempio, non devono essere eseguiti nei nodi di Windows Server (attualmente in anteprima in AKS). I selettori di nodo consentono di definire vari parametri, ad esempio il sistema operativo node, per controllare la posizione in cui deve essere pianificato un pod.
 
-Nell'esempio di base seguente pianifica un'istanza NGINX in un nodo Linux tramite il selettore di nodo *"beta.kubernetes.io/os": linux*:
+Nell'esempio di base seguente viene pianificata un'istanza NGINX in un nodo Linux usando il selettore di nodo *"beta.kubernetes.io/OS": Linux*:
 
 ```yaml
 kind: Pod
@@ -124,7 +124,7 @@ spec:
     "beta.kubernetes.io/os": linux
 ```
 
-Per altre informazioni su come controllo in cui sono pianificati POD, vedere [procedure consigliate per le funzionalità avanzate dell'utilità di pianificazione in AKS][operator-best-practices-advanced-scheduler].
+Per altre informazioni su come controllare dove sono pianificati i pod, vedere [procedure consigliate per le funzionalità avanzate dell'utilità di pianificazione in AKS][operator-best-practices-advanced-scheduler].
 
 ## <a name="pods"></a>Pod
 
@@ -132,7 +132,7 @@ Kubernetes usa i *pod* per eseguire un'istanza dell'applicazione. Un pod rappres
 
 Quando si crea un pod è possibile definire *limiti per le risorse* per richiedere una certa quantità di risorse della CPU o di memoria. L'Utilità di pianificazione di Kubernetes tenta di pianificare i pod per l'esecuzione in un nodo con le risorse disponibili per soddisfare la richiesta. È anche possibile specificare limiti massimi per le risorse che impediscono a un pod dato di usare troppe risorse di calcolo del nodo sottostante. Una procedura consigliata consiste nell'includere limiti per le risorse per tutti i pod, per consentire all'l'Utilità di pianificazione di Kubernetes di capire quali risorse sono necessarie e consentite.
 
-Per altre informazioni, vedere [POD Kubernetes][kubernetes-pods] and [Kubernetes pod lifecycle][kubernetes-pod-lifecycle].
+Per altre informazioni, vedere [Kubernetes][kubernetes-pods] pod e [Kubernetes Pod Lifecycle][kubernetes-pod-lifecycle].
 
 Un pod è una risorsa logica, i carichi di lavoro applicativi sono eseguiti nei contenitori. I pod sono in genere risorse temporanee ed eliminabili e i pod con pianificazione individuale perdono alcune delle funzionalità di disponibilità elevate e ridondanza offerte da Kubernetes. I pod sono in genere distribuiti e gestiti da *controller* di Kubernetes, ad esempio il controller di distribuzione.
 
@@ -142,7 +142,7 @@ Una *distribuzione* rappresenta uno o più pod identici gestiti dal controller d
 
 È possibile aggiornare le distribuzioni per modificare la configurazione dei pod, l'immagine del contenitore utilizzata o la risorsa di archiviazione collegata. Il controller di distribuzione svuota e termina un determinato numero di repliche, crea repliche dalla nuova definizione della distribuzione e continua il processo fino a quando non vengono aggiornate tutte le repliche della distribuzione.
 
-La maggior parte delle applicazioni senza stato in servizio Azure Kubernetes dovrebbe usare il modello di distribuzione anziché pianificare singoli pod. Kubernetes può monitorare l'integrità e lo stato delle distribuzioni per garantire che il numero di repliche richiesto si esegua all'interno del cluster. Quando si pianificano solo singoli POD, i POD non vengono riavviati se si verifica un problema e non vengono ripianificate nei nodi integro se il nodo corrente viene rilevato un problema.
+La maggior parte delle applicazioni senza stato in servizio Azure Kubernetes dovrebbe usare il modello di distribuzione anziché pianificare singoli pod. Kubernetes può monitorare l'integrità e lo stato delle distribuzioni per garantire che il numero di repliche richiesto si esegua all'interno del cluster. Quando si pianificano solo singoli Pod, i Pod non vengono riavviati se si verifica un problema e non vengono ripianificati in nodi integri se il nodo corrente rileva un problema.
 
 Se un'applicazione richiede la disponibilità costante di un quorum specifico di istanze per consentire la presa di decisioni di gestione, è preferibile che il processo di aggiornamento non comprometta tale capacità. I *budget di interruzione dei pod* possono essere utilizzati per definire il numero di repliche di una distribuzione che possono essere arrestate durante un aggiornamento o un aggiornamento dei nodi. Ad esempio, se si hanno *5* repliche nella distribuzione, è possibile definire un valore di interruzione di pod pari a *4* per consentire l'eliminazione/ripianificazione di una sola replica alla volta. Come con i limiti delle risorse di pod, una procedura consigliata è definire i budget di interruzione dei pod nelle applicazioni che richiedono la presenza costante di un numero minimo di repliche.
 
@@ -183,13 +183,13 @@ Per altre informazioni, vedere [distribuzioni Kubernetes][kubernetes-deployments
 
 ### <a name="package-management-with-helm"></a>Gestione dei pacchetti con Helm
 
-Un approccio comune per la gestione delle applicazioni in Kubernetes riguarda [Helm][helm]. È possibile creare e usare *grafici* Helm pubblici esistente che contengono una versione pacchetto del codice applicativo e manifesti YAML di Kubernetes per distribuire le risorse. Questi grafici Helm possono essere archiviati in locale o, spesso in un repository remoto, ad esempio un [repository grafico Helm registro contenitori di Azure][acr-helm].
+Un approccio comune alla gestione delle applicazioni in Kubernetes è il [timone][helm]. È possibile creare e usare *grafici* Helm pubblici esistente che contengono una versione pacchetto del codice applicativo e manifesti YAML di Kubernetes per distribuire le risorse. Questi grafici Helm possono essere archiviati localmente o spesso in un repository remoto, ad esempio un repository del [grafico Helm di Azure container Registry][acr-helm].
 
-Per poter usare Helm, viene installato un componente server denominato *Tiller* nel cluster Kubernetes. Tiller gestisce l'installazione dei grafici all'interno del cluster. Il client Helm stesso è installato localmente nel computer o possono essere usato entro i [Azure Cloud Shell][azure-cloud-shell]. È possibile cercare o creare grafici Helm con il client e quindi installarli nel cluster Kubernetes.
+Per poter usare Helm, viene installato un componente server denominato *Tiller* nel cluster Kubernetes. Tiller gestisce l'installazione dei grafici all'interno del cluster. Il client Helm viene installato localmente nel computer oppure può essere usato all'interno del [Azure cloud Shell][azure-cloud-shell]. È possibile cercare o creare grafici Helm con il client e quindi installarli nel cluster Kubernetes.
 
 ![Helm include un componente client e un componente Tiller lato-server che crea risorse all'interno del cluster Kubernetes](media/concepts-clusters-workloads/use-helm.png)
 
-Per altre informazioni, vedere [installare le applicazioni con Helm in Azure Kubernetes Service (AKS)][aks-helm].
+Per altre informazioni, vedere [installare applicazioni con Helm in Azure Kubernetes Service (AKS)][aks-helm].
 
 ## <a name="statefulsets-and-daemonsets"></a>Oggetti StatefulSet e DaemonSet
 
@@ -206,7 +206,7 @@ Molte applicazioni sviluppate attualmente sono senza stato, mentre gli oggetti *
 
 Si definisce l'applicazione nel formato YAML tramite `kind: StatefulSet` e poi il controller StatefulSet gestisce la distribuzione e la gestione delle repliche necessarie. I dati vengono scritti nella risorsa di archiviazione permanente fornita da Managed Disks di Azure o File di Azure. Con gli oggetti StatefulSet, la risorsa di archiviazione permanente sottostante rimane anche quando viene eliminato l'oggetto StatefulSet.
 
-Per altre informazioni, vedere [Kubernetes StatefulSets][kubernetes-statefulsets].
+Per ulteriori informazioni, vedere [Kubernetes StatefulSets][kubernetes-statefulsets].
 
 Le repliche in un oggetto StatefulSet sono pianificate ed eseguire su tutti i nodi disponibili in un cluster servizio Azure Kubernetes. Se è necessario assicurarsi che almeno un pod del set venga eseguito in un nodo, è possibile usare un oggetto DaemonSet.
 
@@ -218,10 +218,10 @@ Il controller DaemonSet può pianificare i pod nei nodi in una delle prime fasi 
 
 Come gli oggetti StatefulSet, un oggetto DaemonSet viene definito come parte di una definizione YAML usando `kind: DaemonSet`.
 
-Per altre informazioni, vedere [Kubernetes DaemonSets][kubernetes-daemonset].
+Per ulteriori informazioni, vedere [Kubernetes gli elementi daemonset][kubernetes-daemonset].
 
 > [!NOTE]
-> Se si usa la [componente aggiuntivo di nodi virtuali](virtual-nodes-cli.md#enable-virtual-nodes-addon), Daemonset non creerà i POD nel nodo virtuale.
+> Se si usa il [componente aggiuntivo dei nodi virtuali](virtual-nodes-cli.md#enable-virtual-nodes-addon), gli elementi daemonset non creerà i Pod nel nodo virtuale.
 
 ## <a name="namespaces"></a>Spazi dei nomi
 
@@ -241,11 +241,11 @@ Per altre informazioni, vedere [spazi dei nomi Kubernetes][kubernetes-namespaces
 
 Questo articolo tratta alcuni dei componenti principali di Kubernetes descrivendo come si applicano ai cluster servizio Azure Kubernetes. Per altre informazioni sui concetti fondamentali relativi a Kubernetes e al servizio Azure Kubernetes, vedere gli articoli seguenti:
 
-- [Kubernetes / AKS di accesso e identità][aks-concepts-identity]
-- [Kubernetes / sicurezza AKS][aks-concepts-security]
-- [Kubernetes / reti virtuali di servizio contenitore di AZURE][aks-concepts-network]
-- [Kubernetes / archiviazione servizio contenitore di AZURE][aks-concepts-storage]
-- [Kubernetes / scalabilità AKS][aks-concepts-scale]
+- [Identità e accesso Kubernetes/AKS][aks-concepts-identity]
+- [Sicurezza di Kubernetes/AKS][aks-concepts-security]
+- [Kubernetes/AKS-reti virtuali][aks-concepts-network]
+- [Archiviazione Kubernetes/AKS][aks-concepts-storage]
+- [Scala Kubernetes/AKS][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
 [aks-engine]: https://github.com/Azure/aks-engine
