@@ -8,12 +8,12 @@ ms.date: 11/14/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: c9951a5fcfb30ed229b2bc7286b6d274649e6136
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: a759a7638f5c960fd69ce86896cfdf53615241c9
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722070"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985500"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -50,7 +50,7 @@ Usare quindi Azure Cloud Shell per creare un token di sicurezza.
 [!INCLUDE [Open the Azure cloud shell](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-shared-access-signature"></a>Creare una firma di accesso condiviso
-La firma di accesso condiviso viene usata dal codice in esecuzione nel browser per autorizzare le richieste inviate all'archivio BLOB. Tramite la firma di accesso condiviso, il client può autorizzare l'accesso alle risorse di archiviazione senza la chiave di accesso dell'account o la stringa di connessione. Per altre informazioni sulla firma di accesso condiviso, vedere [Uso delle firme di accesso condiviso](../common/storage-dotnet-shared-access-signature-part-1.md).
+La firma di accesso condiviso viene usata dal codice in esecuzione nel browser per autorizzare le richieste inviate all'archivio BLOB. Tramite la firma di accesso condiviso, il client può autorizzare l'accesso alle risorse di archiviazione senza la chiave di accesso dell'account o la stringa di connessione. Per altre informazioni sulla firma di accesso condiviso, vedere [Uso delle firme di accesso condiviso](../common/storage-sas-overview.md).
 
 È possibile creare una firma di accesso condiviso con l'interfaccia della riga di comando di Azure tramite Azure Cloud Shell oppure con Azure Storage Explorer. La tabella seguente descrive i parametri per i quali è necessario specificare valori per generare una firma di accesso condiviso con l'interfaccia della riga di comando.
 

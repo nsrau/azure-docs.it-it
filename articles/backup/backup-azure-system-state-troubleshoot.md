@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: dacurwin
-ms.openlocfilehash: 55af6d17f18efd11fe2d6f89b9b87ca9f407ec25
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 26ba811eba1a25dacddd04814f8e0d2805360920
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688665"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018788"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Risolvere i problemi di backup dello stato del sistema
 
@@ -25,7 +25,7 @@ Prima di iniziare la risoluzione dei problemi relativi al backup dello stato del
 
 - [Verificare che l'agente di Servizi di ripristino di Microsoft Azure (MARS) sia aggiornato](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Verificare la presenza di connettività di rete tra l'agente dei Servizi di ripristino di Microsoft Azure e Azure](https://aka.ms/AB-A4dp50)
-- Verificare che i Servizi di ripristino di Microsoft Azure siano in esecuzione (nella console di Servizio). Se richiesto, riavviare e ripetere l'operazione
+- Verificare che i Servizi di ripristino di Microsoft Azure siano in esecuzione (nella console di Servizio). Se necessario, riavviare e ripetere l'operazione
 - [Verificare che sia disponibile il 5-10% di volume libero nel percorso della cartella dei file temporanei](https://aka.ms/AB-AA4dwtt)
 - [Controllare se un altro processo o un software antivirus interferisce con Backup di Azure](https://aka.ms/AB-AA4dwtk)
 - [Il backup pianificato ha esito negativo, ma il backup manuale funziona](https://aka.ms/ScheduledBackupFailManualWorks)
@@ -36,7 +36,7 @@ Prima di iniziare la risoluzione dei problemi relativi al backup dello stato del
 - Se si sta tentando di **ripetere la registrazione del server** in un insieme di credenziali, allora: <br>
   - Verificare che l'agente sia disinstallato nel server e sia eliminato dal portale <br>
   - Usare la stessa passphrase che è stata usata inizialmente per la registrazione del server <br>
-- In caso di backup offline, assicurarsi che Azure PowerShell versione 3.7.0 sia installato sia nel computer di origine che in quello di copia prima di iniziare l'operazione di backup offline
+- In caso di backup non in linea, verificare che Azure PowerShell versione 3.7.0 sia installato sia nel computer di origine che in quello di copia prima di iniziare l'operazione di backup offline
 - [Considerazione quando l'agente di backup è in esecuzione in una macchina virtuale di Azure](https://aka.ms/AB-AA4dwtr)
 
 ### <a name="limitation"></a>Limitazione
@@ -45,14 +45,14 @@ Prima di iniziare la risoluzione dei problemi relativi al backup dello stato del
 
 ## <a name="pre-requisite"></a>Prerequisito.
 
-Prima di risolvere i problemi relativi al backup dello stato del sistema con backup di Azure, assicurarsi di predisporre il controllo dei prerequisiti seguenti.  
+Prima di risolvere i problemi di backup dello stato del sistema con backup di Azure, eseguire il controllo dei prerequisiti seguenti.  
 
 ### <a name="verify-windows-server-backup-is-installed"></a>Verificare che Windows Server Backup sia installato
 
-Assicurarsi che Windows Server Backup sia installato e abilitato nel server. Per verificare lo stato dell'installazione, eseguire il comando PowerShell seguente:
+Assicurarsi che Windows Server Backup sia installato e abilitato nel server. Per verificare lo stato dell'installazione, eseguire questo comando di PowerShell:
 
- ```
- PS C:\> Get-WindowsFeature Windows-Server-Backup
+ ```powershell
+Get-WindowsFeature Windows-Server-Backup
  ```
 Se l'output Visualizza lo **stato di installazione** come **disponibile**, significa che la funzionalità Windows Server backup è disponibile per l'installazione, ma non è installata nel server. Tuttavia, se Windows Server Backup non è installato, usare uno dei metodi seguenti per installarlo.
 
@@ -60,15 +60,15 @@ Se l'output Visualizza lo **stato di installazione** come **disponibile**, signi
 
 Per installare Windows Server Backup usando PowerShell, eseguire il comando seguente:
 
-  ```
-  PS C:\> Install-WindowsFeature -Name Windows-Server-Backup
+  ```powershell
+  Install-WindowsFeature -Name Windows-Server-Backup
   ```
 
 **Metodo 2: Installare Windows Server Backup utilizzando Server Manager**
 
 Per installare Windows Server Backup usando Server Manager, seguire questa procedura:
 
-1. In **Server Manager** , fare clic su **Aggiungi ruoli e funzionalità**. Verrà visualizzata la **procedura guidata Aggiungi ruoli e funzionalità** .
+1. In **Server Manager**fare clic su **Aggiungi ruoli e funzionalità**. Verrà visualizzata la **procedura guidata Aggiungi ruoli e funzionalità** .
 
     ![dashboard](./media/backup-azure-system-state-troubleshoot/server_management.jpg)
 
@@ -114,7 +114,7 @@ Per convalidare Windows Server Backup stato, eseguire le operazioni seguenti:
     > [!WARNING]
     > Get-WBJob: Il termine ' Get-WBJob ' non è riconosciuto come nome di un cmdlet, di una funzione, di un file di script o di un programma eseguibile. Controllare l'ortografia del nome o verificare che il percorso sia incluso e corretto, quindi riprovare.
 
-    -   Se il problema persiste, installare di nuovo la funzionalità Windows Server Backup nel computer server come indicato nel passaggio 1 Prerequisiti.
+    -   Se il problema persiste, reinstallare la funzionalità Windows Server Backup nel computer server come indicato nel passaggio 1 Prerequisiti.
 
   * Verificare che il backup WSB funzioni correttamente eseguendo il comando seguente da un prompt dei comandi con privilegi elevati:
 
@@ -141,7 +141,7 @@ Se il processo ha esito negativo, indica un problema di WSB che comporterebbe un
 
 | Sintomo | Risoluzione
 | -- | --
-| -L'agente MARS ha esito negativo con il messaggio di errore: Il backup non è riuscito perché non è possibile aumentare il volume della copia shadow a causa di spazio su disco insufficiente nei volumi contenenti file di sistema <br/><br/> -Il registro errori/avvisi seguente è presente nei registri eventi di sistema di VolSnap: "Spazio su disco insufficiente nel volume C: per aumentare l'archiviazione delle copie shadow per le copie shadow di C: a causa di questo errore, tutte le copie shadow del volume C: rischiano di essere eliminate" | -Liberare spazio nel volume evidenziato nel registro eventi in modo che sia disponibile spazio sufficiente per la crescita delle copie shadow mentre è in corso il backup. <br/><br/> -Durante la configurazione dello spazio di copia shadow è possibile limitare la quantità di spazio utilizzata per la copia shadow. per ulteriori informazioni, vedere questo [articolo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11)#syntax) .
+| -L'agente MARS ha esito negativo con il messaggio di errore: Il backup non è riuscito perché non è possibile aumentare il volume della copia shadow a causa di spazio su disco insufficiente nei volumi contenenti file di sistema <br/><br/> -Il registro errori/avvisi seguente è presente nei registri eventi di sistema di VolSnap: "Spazio su disco insufficiente nel volume C: per aumentare l'archiviazione delle copie shadow per le copie shadow di C: a causa di questo errore, tutte le copie shadow del volume C: rischiano di essere eliminate" | -Liberare spazio nel volume evidenziato nel registro eventi in modo che sia disponibile spazio sufficiente per la crescita delle copie shadow mentre è in corso il backup. <br/><br/> -Durante la configurazione dello spazio di copia shadow è possibile limitare la quantità di spazio usata per la copia shadow. Per altre informazioni, vedere questo [articolo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11)#syntax)
 
 
 ### <a name="efi-partition-locked"></a>Partizione EFI bloccata

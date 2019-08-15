@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: ed7e53570127f12dbe41932481a3286a78865dde
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 70107311b189e1692b902812c4ccbbd91c3695a1
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828286"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952122"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Matrice di supporto per la valutazione e la migrazione di VMware
 
@@ -90,8 +90,8 @@ Il dispositivo Azure Migrate richiede la connettività a Internet.
 **URL** | **Dettagli**  
 --- | --- |
 *.portal.azure.com  | Passare al Azure Migrate nel portale di Azure.
-*.windows.net | Accedere alla propria sottoscrizione di Azure.
-*.microsoftonline.com | Creare app Active Directory per l'appliance per comunicare con il servizio Azure Migrate.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com | Accedere alla propria sottoscrizione di Azure.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Creare app Active Directory per l'appliance per comunicare con il servizio Azure Migrate.
 management.azure.com | Creare app Active Directory per l'appliance per comunicare con il servizio Azure Migrate.
 dc.services.visualstudio.com | Caricare i log delle app usati per il monitoraggio interno.
 *.vault.azure.net | Gestisci i segreti nel Azure Key Vault.
@@ -104,7 +104,7 @@ http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/d
 
 **Dispositivo** | **Connection**
 --- | ---
-Appliance | Connessioni in ingresso sulla porta TCP 3389 per consentire le connessioni Desktop remoto al dispositivo.<br/><br/> Connessioni in ingresso sulla porta 44368 per accedere in remoto all'app di gestione Appliance usando l'URL:```https://<appliance-ip-or-name>:44368``` <br/><br/>Connessioni in uscita sulla porta 443 per inviare i metadati di individuazione e di prestazioni a Azure Migrate.
+Appliance | Connessioni in ingresso sulla porta TCP 3389 per consentire le connessioni Desktop remoto al dispositivo.<br/><br/> Connessioni in ingresso sulla porta 44368 per accedere in remoto all'app di gestione Appliance usando l'URL:```https://<appliance-ip-or-name>:44368``` <br/><br/>Connessioni in uscita sulla porta 443, 5671 e 5672 per inviare i metadati di individuazione e prestazioni a Azure Migrate.
 Server vCenter | Connessioni in ingresso sulla porta TCP 443 per consentire all'appliance di raccogliere i metadati di configurazione e prestazioni per le valutazioni. <br/><br/> Per impostazione predefinita, l'appliance si connette a vCenter sulla porta 443. Se il server vCenter è in ascolto su una porta diversa, è possibile modificare la porta quando si configura l'individuazione.
 
 
@@ -175,8 +175,8 @@ Il dispositivo Azure Migrate necessita della connettività Internet a Internet.
 **URL** | **Dettagli**  
 --- | ---
 *.portal.azure.com | Passare al Azure Migrate nel portale di Azure.
-*.windows.net | Accedere alla propria sottoscrizione di Azure.
-*.microsoftonline.com | Creare app Active Directory per l'appliance per comunicare con il servizio Azure Migrate.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | Accedere alla propria sottoscrizione di Azure.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Creare app Active Directory per l'appliance per comunicare con il servizio Azure Migrate.
 management.azure.com | Creare app Active Directory per l'appliance per comunicare con il servizio Azure Migrate.
 dc.services.visualstudio.com | Caricare i log delle app usati per il monitoraggio interno.
 *.vault.azure.net | Gestisci i segreti nel Azure Key Vault.

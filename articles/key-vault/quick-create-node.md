@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 5e8c29e033d895e24047754e686420fb4db86142
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 5ca6289b1af02a54d8c66d5a9835e24f61c58559
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236651"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934448"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>Avvio rapido: Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web Node 
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web Node 
 
 Questa guida di avvio rapido illustra come archiviare un segreto in Azure Key Vault e come recuperarlo usando un'app Web. L'uso di Key Vault consente di mantere protette le informazioni. Per visualizzare il valore del segreto, è necessario eseguire la guida di avvio rapido in Azure. La guida introduttiva usa Node.js e le identità gestite per le risorse di Azure. Si apprenderà come:
 
@@ -24,7 +24,7 @@ Questa guida di avvio rapido illustra come archiviare un segreto in Azure Key Va
 * Archiviare un segreto nell'insieme di credenziali delle chiavi.
 * Recuperare un segreto dall'insieme di credenziali delle chiavi.
 * Creare un'applicazione Web di Azure.
-* Abilitare un'[identità gestita](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) per l'app Web.
+* Abilitare un'[identità gestita](../active-directory/managed-service-identity/overview.md) per l'app Web.
 * Concedere le autorizzazioni necessarie per l'applicazione Web per la lettura dei dati dall'insieme di credenziali delle chiavi.
 
 Prima di procedere, assicurarsi di avere familiarità con i [concetti di base relativi ad Azure Key Vault](key-vault-whatis.md#basic-concepts).

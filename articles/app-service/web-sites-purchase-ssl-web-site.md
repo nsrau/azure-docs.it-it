@@ -16,12 +16,12 @@ ms.date: 10/16/2018
 ms.author: cephalin
 ms.reviewer: apurvajo
 ms.custom: seodec18
-ms.openlocfilehash: e7768eb29caf66fd8f666a9475ac0787826a47e0
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 7675a22b4b2d8b13524f06f45d6bb805c1e2fad1
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618905"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019142"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Acquistare e configurare un certificato SSL per il servizio app di Azure
 
@@ -50,12 +50,12 @@ Usare la tabella seguente per informazioni sulla configurazione del certificato.
 
 | Impostazione | DESCRIZIONE |
 |-|-|
-| NOME | Nome descrittivo per il certificato del servizio app. |
-| Nome host di dominio di tipo naked | Se qui si specifica il dominio radice, si ottiene un certificato che protegge *entrambi* il dominio radice e il sottodominio `www`. Per proteggere solo un sottodominio, specificare qui il nome di dominio completo del sottodominio, ad esempio `mysubdomain.contoso.com`. |
+| Name | Nome descrittivo per il certificato del servizio app. |
+| Nome host di dominio di tipo naked | Specificare qui il dominio radice. Il certificato emesso protegge *sia* il dominio radice che il `www` sottodominio. Nel certificato emesso il campo nome comune contiene il dominio radice e il campo nome alternativo oggetto contiene il `www` dominio. Per proteggere solo un sottodominio, specificare qui il nome di dominio completo del sottodominio, ad esempio `mysubdomain.contoso.com`.|
 | Sottoscrizione | Data center in cui è ospitata l'app Web. |
 | Gruppo di risorse | Gruppo di risorse che contiene il certificato. È possibile usare un nuovo gruppo di risorse o selezionare lo stesso gruppo di risorse, ad esempio, dell'app del servizio app. |
-| Certificato SKU | Determina il tipo di certificato da creare, se si tratta di un certificato standard o di un [certificato con caratteri jolly](https://wikipedia.org/wiki/Wildcard_certificate). |
-| Note legali | Fare clic per confermare che si accettano le condizioni legali. Vengono ottenuti i certificati di GoDaddy. |
+| SKU del certificato | Determina il tipo di certificato da creare, se si tratta di un certificato standard o di un [certificato con caratteri jolly](https://wikipedia.org/wiki/Wildcard_certificate). |
+| Note legali | Fare clic per confermare che si accettano le condizioni legali. I certificati vengono ottenuti da GoDaddy. |
 
 ## <a name="store-in-azure-key-vault"></a>Archiviare il certificato in Azure Key Vault
 
@@ -71,7 +71,7 @@ Nella pagina **Stato insieme di credenziali delle chiavi** fare clic su **Reposi
 
 | Impostazione | DESCRIZIONE |
 |-|-|
-| Name | Nome univoco costituito da caratteri alfanumerici e trattini. |
+| NOME | Nome univoco costituito da caratteri alfanumerici e trattini. |
 | Gruppo di risorse | È consigliabile selezionare lo stesso gruppo di risorse del certificato del servizio app. |
 | Location | Selezionare la stessa località dell'app del servizio app. |
 | Piano tariffario | Per altre informazioni, vedere [Prezzi di Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
@@ -124,33 +124,33 @@ Visitare l'app usando `HTTPS://<domain_name>` invece di `HTTP://<domain_name>` p
 
 ## <a name="rekey-certificate"></a>Reimposta chiavi certificato
 
-Se si ritiene che privato del certificato chiave viene compromessa, è possibile reimpostare il certificato. Selezionare il certificato nel [certificati del servizio App](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) pagina, quindi selezionare **Reimposta e Sincronizza** dal riquadro di spostamento a sinistra.
+Se si ritiene che la chiave privata del certificato venga compromessa, è possibile rekey il certificato. Selezionare il certificato nella pagina [certificati del servizio app](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) , quindi selezionare **rekey e sincronizza** dal percorso di spostamento a sinistra.
 
-Fare clic su **reimpostare** per avviare il processo. Questo processo può richiedere da 1 a 10 minuti.
+Fare clic su **rekey** per avviare il processo. Questo processo può richiedere da 1 a 10 minuti.
 
 ![inserire immagine della reimpostazione SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
 
 Con la reimpostazione viene emesso un nuovo certificato da parte dell'autorità di certificazione.
 
-Una volta completata l'operazione di reimpostazione delle chiavi, fare clic su **sincronizzazione**. L'operazione di sincronizzazione aggiorna automaticamente le associazioni nome host per il certificato nel servizio App senza causare alcun tempo di inattività per le app.
+Al termine dell'operazione rekey, fare clic su **Sincronizza**. L'operazione di sincronizzazione aggiorna automaticamente le associazioni del nome host per il certificato nel servizio app senza causare tempi di inattività per le app.
 
 > [!NOTE]
-> Se non si sceglie **sincronizzazione**, servizio App esegue automaticamente la sincronizzazione del certificato entro 48 ore.
+> Se non si fa clic su **Sincronizza**, il servizio app sincronizza automaticamente il certificato entro 48 ore.
 
-## <a name="renew-certificate"></a>Certificato da rinnovare
+## <a name="renew-certificate"></a>Rinnova certificato
 
 Per attivare il rinnovo automatico del certificato in qualsiasi momento, selezionare il certificato nella pagina [Certificati del servizio app](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) e quindi fare clic su **Impostazioni di rinnovo automatico** nel riquadro di spostamento a sinistra.
 
 Selezionare **Attivato** e fare clic su **Salva**. Il rinnovo dei certificati può essere avviato automaticamente 60 giorni prima della scadenza se è attivato il rinnovo automatico.
 
-![rinnovare automaticamente certificati](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
+![rinnovo automatico del certificato](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
 
 Per rinnovare il certificato manualmente, fare clic su **Rinnovo manuale**. È possibile richiedere di rinnovare il certificato manualmente 60 giorni prima della scadenza.
 
-Una volta completata l'operazione di rinnovo, fare clic su **sincronizzazione**. L'operazione di sincronizzazione aggiorna automaticamente le associazioni nome host per il certificato nel servizio App senza causare alcun tempo di inattività per le app.
+Al termine dell'operazione di rinnovo, fare clic su **Sincronizza**. L'operazione di sincronizzazione aggiorna automaticamente le associazioni del nome host per il certificato nel servizio app senza causare tempi di inattività per le app.
 
 > [!NOTE]
-> Se non si sceglie **sincronizzazione**, servizio App esegue automaticamente la sincronizzazione del certificato entro 48 ore.
+> Se non si fa clic su **Sincronizza**, il servizio app sincronizza automaticamente il certificato entro 48 ore.
 
 ## <a name="automate-with-scripts"></a>Automatizzazione con gli script
 

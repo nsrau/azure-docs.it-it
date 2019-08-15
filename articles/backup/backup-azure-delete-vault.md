@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: dacurwin
-ms.openlocfilehash: 34484c309cb186aabec519e54269fefae316165e
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 9c63170b60a871182042acab8a35e505c603f260
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639904"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018879"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminare un insieme di credenziali dei servizi di ripristino
 
@@ -51,11 +51,11 @@ Prima di continuare, leggere **[questa](#before-you-start)** sezione per compren
 
 Per arrestare la protezione ed eliminare i dati di backup, eseguire le operazioni seguenti:
 
-1. Dal portale >**gli elementi di backup** dell'insieme di credenziali di **Servizi** > di ripristino scegliere gli elementi protetti nel cloud (ad esempio, computer AzureVirtual, archiviazione di Azure (file di Azure), VM SQL di Azure e così via).
+1. Dal portale >**gli elementi di backup**dell'insieme di credenziali di **Servizi** > di ripristino, scegliere gli elementi protetti nel cloud (ad esempio, computer AzureVirtual, archiviazione di Azure (file di Azure), SQL in VM di Azure e così via).
 
     ![Selezionare il tipo di backup](./media/backup-azure-delete-vault/azure-storage-selected.png)
 
-2. Fare clic con il pulsante destro del mouse sull'elemento di backup, a seconda che l'elemento di backup sia protetto o meno, nel menu verrà visualizzato **Interrompi backup** o **Elimina dati di backup**.
+2. Fare clic con il pulsante destro del mouse sull'elemento di backup. A seconda del fatto che l'elemento di backup sia protetto o meno, nel menu verrà visualizzato **Interrompi backup** o **Elimina dati di backup**.
 
     - Per **Interrompi backup**selezionare **Elimina dati di backup** dall'elenco a discesa. Immettere il **nome** dell'elemento di backup (con distinzione tra maiuscole e minuscole), selezionare un **motivo**, immettere **Commenti**e fare clic su **Interrompi backup**.
 
@@ -126,7 +126,7 @@ Per eliminare gli elementi di backup dalla console di gestione MARS
 - Viene richiesto di immettere un pin di sicurezza. Per generare il PIN, seguire questa procedura:
   - Accedere al portale di Azure.
   - Passare a **Insiemi di credenziali dei servizi di ripristino** > **Impostazioni** > **Proprietà**.
-  - Fare clic su **Genera** in **PIN di sicurezza**. Copiare questo PIN. (Questo PIN è valido solo per cinque minuti)
+  - Fare clic su **Genera** in **PIN di sicurezza**. Copiare questo PIN. Questo PIN è valido solo per cinque minuti.
 - Nella console di gestione (app client) incollare il PIN e fare clic su **OK**.
 
   ![Pin di sicurezza](./media/backup-azure-delete-vault/security-pin.png)
@@ -159,7 +159,7 @@ Lo stato del membro protetto viene ora modificato in **replica inattiva disponib
 
     ![Rimuovi le repliche su disco e online](./media/backup-azure-delete-vault/remove-replica-on-disk-and-online.png)
 
-**Metodo 2** Avviare la console di **gestione di MAB** . Nella sezione **selezionare il metodo di protezione dei dati** deselezionare la **protezione online**.
+**Metodo 2** Avviare la console di **gestione di MAB** . Nella sezione **selezionare il metodo di protezione dati** deselezionare la pagina **protezione dati online**.
 
   ![Selezionare il metodo di protezione dati](./media/backup-azure-delete-vault/data-protection-method.png)
 
@@ -183,7 +183,7 @@ Questa opzione per eliminare l'insieme di credenziali di servizi di ripristino �
 
 - Dal riquadro **Essentials** nel menu dell'insieme di credenziali verificare che non siano presenti **elementi di backup**, **server di gestione di backup**o **elementi replicati** . Se sono presenti elementi di backup, vedere la sezione [prima di iniziare](#before-you-start) .
 - Riprovare [a eliminare l'insieme di credenziali dal portale](#delete-the-recovery-services-vault).
-- Se tutte le dipendenze vengono rimosse e si riceve ancora l' *errore di eliminazione* dell'insieme di credenziali, usare lo strumento ARMClient per eseguire i passaggi indicati di seguito.
+- Se tutte le dipendenze vengono rimosse e si riceve ancora l' *errore di eliminazione*dell'insieme di credenziali, usare lo strumento ARMClient per eseguire i passaggi indicati di seguito.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -202,12 +202,12 @@ Per ulteriori informazioni sul comando ARMClient, fare riferimento a questo [doc
 
 1. Eseguire il comando seguente usando l'ID sottoscrizione, il nome del gruppo di risorse e il nome dell'insieme di credenziali. Quando si esegue il comando, l'insieme di credenziali viene eliminato se non sono presenti dipendenze.
 
-   ```
+   ```azurepowershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
 2. Se l'insieme di credenziali non è vuoto, verrà visualizzato l'errore "non è possibile eliminare l'insieme di credenziali perché sono presenti risorse esistenti in questo insieme di credenziali". Per rimuovere un contenitore o elementi protetti in un insieme di credenziali, eseguire le operazioni seguenti:
 
-   ```
+   ```azurepowershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
 

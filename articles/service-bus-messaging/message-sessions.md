@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 2c206d42e220534225cfef0415a65c1f9494f761
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67f3fd8f3166abac987e8fefbbf4a020f165c8bf
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64569802"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951879"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sessioni di messaggi: First In, First Out (FIFO) 
 
@@ -77,9 +77,19 @@ Tutte le sessioni esistenti in una coda o una sottoscrizione possono essere enum
 
 Lo stato della sessione conservato in una coda o in una sottoscrizione viene conteggiato per il raggiungimento della quota di archiviazione dell'entità. Quando un'applicazione finisce di usare una sessione, è quindi consigliabile che esegua la pulizia dello stato conservato, per evitare costi di gestione esterni.
 
+## <a name="impact-of-delivery-count"></a>Effetti del conteggio recapito
+
+La definizione del numero di recapiti per messaggio nel contesto delle sessioni varia leggermente rispetto alla definizione nella l'assenza delle sessioni. Di seguito è riportata una tabella che riepiloga quando viene incrementato il numero di recapito.
+
+| Scenario | Conteggio recapito del messaggio incrementato |
+|----------|---------------------------------------------|
+| La sessione viene accettata, ma il blocco della sessione scade (a causa del timeout) | Yes |
+| La sessione viene accettata, i messaggi all'interno della sessione non vengono completati (anche se sono bloccati) e la sessione viene chiusa. | No |
+| La sessione viene accettata, i messaggi vengono completati e la sessione viene chiusa in modo esplicito | N/d (questo è il flusso standard. Qui i messaggi vengono rimossi dalla sessione. |
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Entrambi i casi il [esempi Microsoft.Azure.ServiceBus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/Sessions) oppure [Microsoft. ServiceBus samples](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) per un esempio che usa il client di .NET Framework per gestire i messaggi con riconoscimento della sessione. 
+- Vedere gli esempi [Microsoft. Azure. ServiceBus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/Sessions) o [Microsoft. ServiceBus. Messaging](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) per un esempio che usa il client di .NET Framework per gestire i messaggi in grado di riconoscere la sessione. 
 
 Per altre informazioni sulla messaggistica del bus di servizio, vedere gli argomenti seguenti:
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 836a17051aee4e6a9ac3089f60da30673783e408
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: a80f99bc37d3a92a794a78f1f47ce32fbaae75a3
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875975"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989178"
 ---
 # <a name="azure-monitor-overview"></a>Panoramica di Monitoraggio di Azure
 
@@ -74,7 +74,7 @@ I dati di monitoraggio sono utili solo se possono aumentare la visibilità del f
 
 ![Informazioni sull'app](media/overview/app-insights.png)
 
-### <a name="azure-monitor-for-containers"></a>Monitoraggio di Azure per contenitori
+### <a name="azure-monitor-for-containers"></a>Monitoraggio di Azure per i contenitori
 [Monitoraggio di Azure per contenitori](insights/container-insights-overview.md) è una funzionalità progettata per monitorare le prestazioni dei carichi di lavoro dei contenitori distribuiti nei cluster Kubernetes gestiti ospitati nel servizio Azure Kubernetes. Offre la visibilità delle prestazioni raccogliendo metriche sulla memoria e sul processore da controller, nodi e contenitori disponibili in Kubernetes tramite l'API per le metriche. Vengono raccolti anche i log dei contenitori.  Dopo aver abilitato il monitoraggio dai cluster di Kubernetes, le metriche e i log vengono raccolti automaticamente tramite una versione dell'agente di Log Analytics per Linux inclusa in un contenitore.
 
 ![Integrità dei contenitori](media/overview/container-insights.png)
@@ -146,3 +146,4 @@ Altre informazioni su:
 * [Metriche e log](platform/data-platform.md) per i dati raccolti da Monitoraggio di Azure.
 * [Origini dati](platform/data-sources.md) per come i diversi componenti dell'applicazione inviano i dati di telemetria.
 * [Query di log](log-query/log-query-overview.md) per l'analisi dei dati raccolti.
+* [Procedure consigliate](https://docs.microsoft.com/azure/architecture/best-practices/monitoring) per il monitoraggio di applicazioni e servizi cloud.

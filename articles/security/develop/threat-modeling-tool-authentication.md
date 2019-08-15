@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: d7fb9fadcfac0b57fb98dc54f40ff0d2f07c6827
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: eb4f0e26d1795abc3392e9736e71093fab79aae2
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728400"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967940"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Infrastruttura di sicurezza: autenticazione - Procedure di mitigazione 
 
@@ -435,7 +435,7 @@ Per verificare l'efficacia di questa configurazione, accedere all'applicazione l
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
 | **Riferimenti**              | [ADAL](https://azure.microsoft.com/documentation/articles/active-directory-authentication-libraries/) |
-| **Passaggi** | <p>Azure AD Authentication Library (ADAL) consente agli sviluppatori di applicazioni client di autenticare facilmente gli utenti in Active Directory locale o nel cloud e quindi di ottenere token di accesso per proteggere le chiamate API.</p><p>Azure AD Authentication Library offre numerose funzionalità che semplificano l'integrazione dell'autenticazione nelle applicazioni da parte degli sviluppatori, ad esempio il supporto asincrono, la cache di token configurabile per l'archiviazione dei token di accesso e dei token di aggiornamento e l'aggiornamento automatico dei token alla scadenza dei token di accesso, i token di aggiornamento e altre ancora.</p><p>Poiché Azure AD Authentication Library gestisce la maggior parte della complessità, gli sviluppatori possono concentrarsi sulla logica di business nell'applicazione e di proteggere le risorse pur non avendo competenze elevate in termini di sicurezza. Sono disponibili librerie separate per .NET, JavaScript (client e Node.js), iOS, Android e Java.</p>|
+| **Passaggi** | <p>Azure AD Authentication Library (ADAL) consente agli sviluppatori di applicazioni client di autenticare facilmente gli utenti in Active Directory locale o nel cloud e quindi di ottenere token di accesso per proteggere le chiamate API.</p><p>Azure AD Authentication Library offre numerose funzionalità che semplificano l'integrazione dell'autenticazione nelle applicazioni da parte degli sviluppatori, ad esempio il supporto asincrono, la cache di token configurabile per l'archiviazione dei token di accesso e dei token di aggiornamento e l'aggiornamento automatico dei token alla scadenza dei token di accesso, i token di aggiornamento e altre ancora.</p><p>Poiché Azure AD Authentication Library gestisce la maggior parte della complessità, gli sviluppatori possono concentrarsi sulla logica di business nell'applicazione e di proteggere le risorse pur non avendo competenze elevate in termini di sicurezza. Sono disponibili librerie separate per .NET, JavaScript (client e node. js), Python, iOS, Android e Java.</p>|
 
 ## <a id="authn-devices-field"></a>Autenticare dispositivi che si connettono al gateway sul campo
 

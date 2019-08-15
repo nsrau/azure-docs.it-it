@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: guide
 ms.date: 07/05/2019
-ms.openlocfilehash: 16ed52aa2b56a97469ae8fc47299f09593b19c45
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: d6a0fec6e2efbd943a9b240df0db2c270a1b7e45
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668335"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955582"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Creare un account Marketplace commerciale nel centro per i partner
 
@@ -71,7 +71,7 @@ Grazie per aver creato un account nel centro per i partner. Si passerà ora alla
 
 Se è stata eseguita la migrazione dell'account dalla [portale cloud partner (CPP)](https://cloudpartner.azure.com), non è necessario creare un nuovo account del centro per i partner, ma si riceverà un collegamento personalizzato al nuovo account del centro per i partner tramite posta elettronica e in una notifica di banner visualizzata dopo accesso all'account CPP esistente.
 
-Dopo aver abilitato il nuovo account del centro per i partner visitando questo collegamento personalizzato, è possibile tornare al proprio account visitando il [Dashboard del Marketplace commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/) nel centro per i partner.
+Dopo aver abilitato il nuovo account del centro per i partner visitando questo collegamento personalizzato, è possibile tornare al proprio account visitando il [Dashboard del Marketplace commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) nel centro per i partner.
 
 Il contratto di pubblicazione e le informazioni sul profilo della società verranno migrati al nuovo account del centro per i partner, insieme a tutte le informazioni sul profilo di pagamento dell'account configurate in precedenza, agli account utente e alle autorizzazioni e alle offerte attive associate all'account CPP. 
 

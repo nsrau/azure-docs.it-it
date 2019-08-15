@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: dacurwin
-ms.openlocfilehash: 07faf03ee9b12d1bf4a200de47d6df714c2248d9
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 72ab33cd280892ac6de827986e21e04672e58960
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737157"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951857"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Panoramica del backup delle macchine virtuali di Azure
 
@@ -138,6 +138,50 @@ Disco dati 1 | 4095 GB | 30 GB
 Disco dati 2 | 4095 GB | 0 GB
 
 In questo caso, la dimensione effettiva della macchina virtuale è 17 GB + 30 GB + 0 GB = 47 GB. Questa dimensione dell'istanza protetta (47 GB) diventa la base per la fattura mensile. Con la crescita della quantità di dati nella macchina virtuale, le dimensioni dell'istanza protetta utilizzate per la fatturazione cambiano.
+
+<a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb"></a>
+## <a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>Anteprima pubblica limitata: Backup della macchina virtuale con dimensioni del disco fino a 30 TB
+
+Backup di Azure supporta ora un'anteprima pubblica limitata di [Managed Disks di Azure](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) di dimensioni maggiori e più potenti fino a 30 TB. Questa versione di anteprima offre supporto a livello di produzione per le macchine virtuali gestite.
+
+È possibile eseguire facilmente la registrazione nell'anteprima senza alcun effetto sui backup in corso. Dopo che la sottoscrizione è stata registrata nell'anteprima, è necessario eseguire il backup di tutte le macchine virtuali con dimensioni del disco fino a 30 TB. Per eseguire la registrazione nell'anteprima:
+ 
+Eseguire i cmdlet seguenti da un terminale di PowerShell con privilegi elevati:
+
+1. Accedere all'account Azure.
+
+    ```powershell
+    PS C:> Login-AzureRmAccount
+    ```
+
+2. Selezionare la sottoscrizione che si desidera registrare per l'aggiornamento:
+
+    ```powershell
+    PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+    ```
+3. Registrare questa sottoscrizione nel programma di anteprima: 
+
+    ```powershell
+    PS C:> Register-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices
+    ```
+
+    Attendere 30 minuti per la registrazione della sottoscrizione nell'anteprima. 
+
+ 4. Per controllare lo stato, eseguire i cmdlet seguenti:
+
+    ```powershell
+    PS C:> Get-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices 
+    ```
+5. Quando la sottoscrizione viene visualizzata come registrata, eseguire il comando seguente:
+    
+    ```powershell
+    PS C:> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+    ```
+
+> [!NOTE]
+> Le macchine virtuali crittografate con dischi di dimensioni superiori a 4 TB non sono supportate in questa versione di anteprima.
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

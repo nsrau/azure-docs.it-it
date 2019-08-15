@@ -15,12 +15,12 @@ ms.date: 06/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 9f5f9b3595074c26c80c824052727e962b01162a
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: ece5d8f9733dde57c2990bfbb6bb90305d8bc37d
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275053"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977195"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Informazioni sulle definizioni del ruolo per le risorse di Azure
 
@@ -48,12 +48,12 @@ Le operazioni vengono specificate con stringhe che hanno il formato seguente:
 
 La parte `{action}` di una stringa relativa a un'operazione specifica il tipo di operazioni che è possibile eseguire su un tipo di risorsa. In `{action}` possono ad esempio essere elencate le sottostringhe seguenti:
 
-| Sottostringa azione    | Descrizione         |
+| Sottostringa azione    | DESCRIZIONE         |
 | ------------------- | ------------------- |
 | `*` | Il carattere jolly concede l'accesso a tutte le operazioni che corrispondono alla stringa. |
 | `read` | Abilita le operazioni di lettura (GET). |
-| `write` | Consente di scrivere operazioni (PUT o PATCH). |
-| `action` | Abilita operazioni personalizzate, ad esempio il riavvio delle macchine virtuali (POST). |
+| `write` | Abilita le operazioni di scrittura (PUT o PATCH). |
+| `action` | Abilita operazioni personalizzate come il riavvio delle macchine virtuali (POST). |
 | `delete` | Abilita le operazioni di eliminazione (DELETE). |
 
 Di seguito è riportata la definizione del ruolo [Collaboratore](built-in-roles.md#contributor) in formato JSON. L'operazione identificata dal carattere jolly (`*`) in `Actions` indica che l'entità di sicurezza assegnata a questo ruolo può eseguire qualsiasi azione, anche quelle definite in futuro in seguito all'aggiunta di nuovi tipi di risorse da parte di Azure. Le operazioni sotto `NotActions` vengono sottratte a `Actions`. Nel caso del ruolo [Collaboratore](built-in-roles.md#contributor), `NotActions` rimuove la capacità di gestire e assegnare l'accesso alle risorse.
@@ -80,7 +80,7 @@ Di seguito è riportata la definizione del ruolo [Collaboratore](built-in-roles.
 }
 ```
 
-## <a name="management-and-data-operations"></a>Operazioni di gestione e dei dati
+## <a name="management-and-data-operations"></a>Operazioni di gestione e dati
 
 Il controllo degli accessi in base al ruolo per le operazioni di gestione è specificato nelle proprietà `Actions` e `NotActions` di una definizione di ruolo. Di seguito sono riportati alcuni esempi di operazioni di gestione in Azure:
 
@@ -90,7 +90,7 @@ Il controllo degli accessi in base al ruolo per le operazioni di gestione è spe
 
 L'accesso in modalità di gestione non viene ereditato nei dati. Questa separazione impedisce ai ruoli con caratteri jolly (`*`) di avere accesso illimitato ai dati. Se ad esempio un utente ha un ruolo [Lettore](built-in-roles.md#reader) in una sottoscrizione, può visualizzare l'account di archiviazione, ma per impostazione predefinita non può visualizzare i dati sottostanti.
 
-In precedenza, il controllo degli accessi in base al ruolo non veniva usato per le operazioni sui dati. L'autorizzazione per le operazioni sui dati variava a seconda del provider di risorse. Lo stesso modello autorizzazione di accesso basato sui ruoli controllo utilizzato per operazioni di gestione è stato esteso alle operazioni sui dati.
+In precedenza, il controllo degli accessi in base al ruolo non veniva usato per le operazioni sui dati. L'autorizzazione per le operazioni sui dati variava a seconda del provider di risorse. Lo stesso modello di autorizzazione per il controllo degli accessi in base al ruolo utilizzato per le operazioni di gestione è stato esteso alle operazioni sui dati.
 
 Per supportare le operazioni sui dati sono state aggiunte nuove proprietà di dati alla struttura di definizione dei ruoli. Le operazioni sui dati vengono specificate nelle proprietà `DataActions` e `NotDataActions`. Con l'aggiunta di queste proprietà di dati viene mantenuta la separazione tra gestione e dati. In tal modo, si impedisce alle assegnazioni di ruolo correnti con caratteri jolly (`*`) di accedere immediatamente ai dati. Ecco alcune operazioni sui dati che possono essere specificate in `DataActions` e `NotDataActions`:
 
@@ -98,7 +98,7 @@ Per supportare le operazioni sui dati sono state aggiunte nuove proprietà di da
 - Scrivere su un BLOB di archiviazione in un contenitore
 - Leggere un messaggio in una coda
 
-Di seguito è riportato il [lettore dati di archiviazione Blob](built-in-roles.md#storage-blob-data-reader) definizione di ruolo che include le operazioni in entrambe le `Actions` e `DataActions` proprietà. Questo ruolo consente di leggere il contenitore BLOB e anche i dati di BLOB sottostanti.
+Di seguito è illustrata la definizione del ruolo [lettore dati BLOB di archiviazione](built-in-roles.md#storage-blob-data-reader) , che `Actions` include `DataActions` le operazioni in entrambe le proprietà e. Questo ruolo consente di leggere il contenitore BLOB e anche i dati di BLOB sottostanti.
 
 ```json
 {
@@ -126,11 +126,11 @@ Le autorizzazioni per tutte le chiamate API delle operazioni di gestione vengono
 
 ### <a name="data-operations-example"></a>Esempio di operazioni sui dati
 
-Per comprendere meglio il funzionamento delle operazioni di gestione e di quelle sui dati, è possibile considerare un esempio specifico. Ad Alice è stato assegnato il ruolo [Proprietario](built-in-roles.md#owner) nell'ambito della sottoscrizione. Bob è stato assegnato la [collaboratore ai dati Blob di archiviazione](built-in-roles.md#storage-blob-data-contributor) ruolo a livello di ambito di account di archiviazione. L'esempio è illustrato dal diagramma seguente.
+Per comprendere meglio il funzionamento delle operazioni di gestione e di quelle sui dati, è possibile considerare un esempio specifico. Ad Alice è stato assegnato il ruolo [Proprietario](built-in-roles.md#owner) nell'ambito della sottoscrizione. A Bob è stato assegnato il ruolo di [collaboratore dati BLOB di archiviazione](built-in-roles.md#storage-blob-data-contributor) in un ambito dell'account di archiviazione. L'esempio è illustrato dal diagramma seguente.
 
 ![Il controllo degli accessi in base al ruolo è stato esteso per supportare sia le operazioni di gestione sia quelle sui dati](./media/role-definitions/rbac-management-data.png)
 
-Il [Owner](built-in-roles.md#owner) ruolo per Alice e il [collaboratore ai dati di archiviazione Blob](built-in-roles.md#storage-blob-data-contributor) ruolo per Bob avere le azioni seguenti:
+Il ruolo [proprietario](built-in-roles.md#owner) per Alice e il ruolo di [collaboratore dati BLOB di archiviazione](built-in-roles.md#storage-blob-data-contributor) per Bob hanno le seguenti azioni:
 
 Proprietario
 
@@ -148,9 +148,9 @@ Collaboratore ai dati dei BLOB di archiviazione
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
-Poiché Alice dispone di un carattere jolly (`*`) azione di un ambito della sottoscrizione, le relative autorizzazioni ereditano verso il basso per consentire loro di eseguire tutte le azioni di gestione. Alice può leggere, scrivere ed eliminare i contenitori. Tuttavia non può eseguire operazioni sui dati senza eseguire passaggi aggiuntivi. Ad esempio, per impostazione predefinita, non può leggere i BLOB all'interno di un contenitore. Per leggere i BLOB, Alice deve prima recuperare le chiavi di accesso alle risorse di archiviazione e usarle per accedere ai BLOB.
+Poiché Alice ha un'azione con`*`carattere jolly () nell'ambito di una sottoscrizione, le relative autorizzazioni ereditano per consentire l'esecuzione di tutte le operazioni di gestione. Alice può leggere, scrivere ed eliminare i contenitori. Tuttavia non può eseguire operazioni sui dati senza eseguire passaggi aggiuntivi. Ad esempio, per impostazione predefinita, non può leggere i BLOB all'interno di un contenitore. Per leggere i BLOB, Alice deve prima recuperare le chiavi di accesso alle risorse di archiviazione e usarle per accedere ai BLOB.
 
-Le autorizzazioni di Bob sono limitate al solo il `Actions` e `DataActions` specificato nella [collaboratore ai dati Blob di archiviazione](built-in-roles.md#storage-blob-data-contributor) ruolo. In base al ruolo, Bob può eseguire sia operazioni di gestione sia operazioni sui dati. Ad esempio, Bob può leggere, scrivere ed eliminare i contenitori nell'account di archiviazione specificato e può anche leggere, scrivere ed eliminare i BLOB.
+Le autorizzazioni di Bob sono limitate solo `Actions` a e `DataActions` specificate nel ruolo di collaboratore [dati BLOB di archiviazione](built-in-roles.md#storage-blob-data-contributor) . In base al ruolo, Bob può eseguire sia operazioni di gestione sia operazioni sui dati. Ad esempio, Bob può leggere, scrivere ed eliminare i contenitori nell'account di archiviazione specificato ed è anche in grado di leggere, scrivere ed eliminare i BLOB.
 
 Per altre informazioni sulla gestione e sulla sicurezza del piano dati per l'archiviazione, vedere [Guida alla sicurezza di Archiviazione di Azure](../storage/common/storage-security-guide.md).
 
@@ -163,7 +163,7 @@ Per visualizzare ed eseguire le operazioni sui dati, è necessario disporre dell
 | [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 o versione successiva |
 | [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) | 2.0.30 o successiva |
 | [Azure per .NET](/dotnet/azure/) | 2.8.0-Preview o successiva |
-| [Azure SDK per Go](/go/azure/azure-sdk-go-install) | 15.0.0 o successiva |
+| [Azure SDK per Go](/azure/go/azure-sdk-go-install) | 15.0.0 o successiva |
 | [Azure per Java](/java/azure/) | 1.9.0 o successiva |
 | [Azure per Python](/python/azure) | 0.40.0 o successiva |
 | [Azure SDK per Ruby](https://rubygems.org/gems/azure_sdk) | 0.17.1 o successiva |
@@ -196,7 +196,7 @@ L'autorizzazione `NotActions` specifica le operazioni di gestione che sono esclu
 
 L'autorizzazione `DataActions` specifica le operazioni sui dati che il ruolo consente di eseguire sui dati all'interno dell'oggetto. Ad esempio, se un utente dispone dell'accesso in lettura ai dati di BLOB per un account di archiviazione, può leggere i BLOB all'interno di tale account. Di seguito sono riportati alcuni esempi di operazioni sui dati che possono essere usate in `DataActions`.
 
-| Stringa operazione    | Descrizione         |
+| Stringa operazione    | DESCRIZIONE         |
 | ------------------- | ------------------- |
 | `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/read` | Restituisce un BLOB o un elenco di BLOB. |
 | `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/write` | Restituisce il risultato della scrittura su un BLOB. |
@@ -213,7 +213,7 @@ L'autorizzazione `NotDataActions` specifica le operazioni sui dati che sono escl
 
 ## <a name="assignablescopes"></a>AssignableScopes
 
-Il `AssignableScopes` proprietà consente di specificare gli ambiti (sottoscrizioni, gruppi di risorse o risorse) che hanno questa definizione di ruolo disponibile. È possibile rendere disponibili per l'assegnazione del ruolo in solo le sottoscrizioni o i gruppi di risorse che lo richiedono e non complicare l'esperienza utente per il resto sottoscrizioni o gruppi di risorse. È necessario usare almeno una sottoscrizione, un gruppo di risorse o un ID della risorsa.
+La `AssignableScopes` proprietà specifica gli ambiti (sottoscrizioni, gruppi di risorse o risorse) per i quali è disponibile questa definizione di ruolo. È possibile rendere il ruolo disponibile per l'assegnazione solo nelle sottoscrizioni o nei gruppi di risorse che lo richiedono e non ingombrare l'esperienza utente per il resto delle sottoscrizioni o dei gruppi di risorse. È necessario usare almeno una sottoscrizione, un gruppo di risorse o un ID della risorsa.
 
 Per i ruoli predefiniti, `AssignableScopes` è impostato sull'ambito radice (`"/"`), per indicare che il ruolo è disponibile per l'assegnazione in tutti gli ambiti. Ecco alcuni esempi di ambiti assegnabili validi:
 
@@ -222,7 +222,7 @@ Per i ruoli predefiniti, `AssignableScopes` è impostato sull'ambito radice (`"/
 | Ruolo disponibile per l'assegnazione in una singola sottoscrizione | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"` |
 | Ruolo disponibile per l'assegnazione in due sottoscrizioni | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e", "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"` |
 | Ruolo disponibile per l'assegnazione solo nel gruppo di risorse Network | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network"` |
-| Ruolo è disponibile per l'assegnazione in tutti gli ambiti (si applica a ruoli predefiniti solo a) | `"/"` |
+| Il ruolo è disponibile per l'assegnazione in tutti gli ambiti (si applica solo ai ruoli predefiniti) | `"/"` |
 
 Per informazioni su `AssignableScopes` per i ruoli personalizzati, vedere [Ruoli personalizzati per le risorse di Azure](custom-roles.md).
 

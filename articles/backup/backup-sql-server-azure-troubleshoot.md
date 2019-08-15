@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 323470adfe56ee20fe0fb64aeba38b6af4330351
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: c456dfec72f98dc4ae06f1d7d5d9fb461182d579
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827591"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018988"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Risolvere i problemi di SQL Server backup del database con backup di Azure
 
@@ -29,7 +29,7 @@ Per configurare la protezione per un database di SQL Server in una macchina virt
 
 ### <a name="backup-type-unsupported"></a>Tipo di backup non supportato
 
-| severity | DESCRIZIONE | Possibili cause | Azione consigliata |
+| severity | Descrizione | Possibili cause | Azione consigliata |
 |---|---|---|---|
 | Avviso | Le impostazioni correnti per questo database non supportano determinati tipi di backup presenti nei criteri associati. | <li>Sul database master è possibile eseguire solo un'operazione di backup completo del database. Non è possibile eseguire il backup differenziale o il backup del log delle transazioni. </li> <li>Qualsiasi database nel modello di recupero con registrazione minima non consente il backup dei log delle transazioni.</li> | Modificare le impostazioni del database in modo che tutti i tipi di backup nei criteri siano supportati. In alternativa, modificare i criteri correnti in modo da includere solo i tipi di backup supportati. In caso contrario, i tipi di backup non supportati verranno ignorati durante il backup pianificato oppure il processo di backup non riuscirà per il backup ad hoc.
 
@@ -163,7 +163,7 @@ Negli scenari precedenti è consigliabile attivare un'operazione di ripetizione 
 
 Le dimensioni totali della stringa dei file dipendono non solo dal numero di file, ma anche dai rispettivi nomi e percorsi. Per ogni file di database, ottenere il nome e il percorso fisico del file logico. È possibile usare questa query SQL:
 
-```
+```sql
 SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files mf
                INNER JOIN sys.databases db ON db.database_id = mf.database_id
                WHERE db.name = N'<Database Name>'"
@@ -171,13 +171,13 @@ SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files m
 
 Ora è possibile disporli nel formato seguente:
 
-```
+```json
 [{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]}
 ```
 
 Di seguito è riportato un esempio:
 
-```
+```json
 [{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
 ```
 
@@ -188,7 +188,7 @@ Se le dimensioni della stringa del contenuto superano 20.000 byte, i file di dat
 È possibile eseguire l'override del percorso del file di ripristino di destinazione durante l'operazione di ripristino inserendo un file JSON che contiene il mapping del file di database al percorso di ripristino di destinazione. Creare un `database_name.json` file e inserirlo nel percorso *C:\Program Files\Azure carico di lavoro Backup\bin\plugins\SQL*.
 
 Il contenuto del file deve essere nel formato seguente:
-```
+```json
 [
   {
     "Path": "<Restore_Path>",
@@ -205,7 +205,7 @@ Il contenuto del file deve essere nel formato seguente:
 
 Di seguito è riportato un esempio:
 
-```
+```json
 [
   {
    "Path": "F:\\Data\\testdb2_1546408741449456.mdf",
@@ -222,7 +222,7 @@ Di seguito è riportato un esempio:
 
 Nel contenuto precedente è possibile ottenere il nome logico del file di database usando la query SQL seguente:
 
-```
+```sql
 SELECT mf.name AS LogicalName FROM sys.master_files mf
                 INNER JOIN sys.databases db ON db.database_id = mf.database_id
                 WHERE db.name = N'<Database Name>'"

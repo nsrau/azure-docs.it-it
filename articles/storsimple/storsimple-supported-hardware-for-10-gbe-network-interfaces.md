@@ -14,14 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
-ms.openlocfilehash: 8303195f0f3228ee145cbba9e322ea4e5e4c1264
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7fafe177ea0c6c618dc4ab0727ba14c83cbb0102
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64726957"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965022"
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>Hardware supportato per le interfacce di rete 10 GbE sul dispositivo StorSimple
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ## <a name="overview"></a>Panoramica
 In questo articolo vengono fornite informazioni sull'hardware supplementare che funziona con il dispositivo StorSimple di Microsoft Azure.
 
@@ -60,7 +63,7 @@ Questa sezione contiene l'elenco dei dispositivi che sono stati distribuiti corr
 | Marca ricetrasmettitore |Juniper |
 | Modello ricetrasmettitore |Codice 740-021308 <br></br> Codice 740-030658 |
 | Versione firmware ricetrasmettitore |Rev 01 Versione 0.0 (segnalato) |
-| Modello cavo |Duplex ponticello LC/LC 50/125µ, OM3, LSZH |
+| Modello cavo |Ponticello duplex LC/LC 50/125μ, OM3, LSZH |
 | Modello StorSimple |8600 |
 | Versione software StorSimple |6.3.9600.17491 |
 
@@ -70,7 +73,7 @@ Mellanox ha verificato i seguenti ricetrasmettitori (SFP) collegabili small form
 ### <a name="cables-and-modules-supported-by-mellanox"></a>Cavi e moduli supportati da Mellanox
 Nella tabella seguente sono elencati i cavi e i moduli supportati da Mellanox. Non sono stati verificati da Microsoft, ma è probabile che funzionino con il dispositivo StorSimple.
 
-| Numero No. | speed | Modello | Descrizione | Assicurarsi |
+| Numero No. | Velocità | Modello | Descrizione | Assicurarsi |
 | --- | --- | --- | --- | --- |
 | 1. |10 GbE |CAB-SFP-SFP-1M |Cavo in rame passivo SFP+ 10 Gb/s 1 m |Arista |
 | 2. |10 GbE |CAB-SFP-SFP-2M |Cavo in rame passivo SFP+ 10 Gb/s 2 m |Arista |
@@ -111,7 +114,7 @@ Nella tabella seguente sono elencati i cavi e i moduli supportati da Mellanox. N
 ### <a name="switches-supported-by-mellanox"></a>Switch supportati da Mellanox
 Nella tabella seguente sono elencati gli switch supportati da Mellanox. Non sono stati verificati da Microsoft, ma è probabile che funzionino con il dispositivo StorSimple.
 
-| Numero No. | speed | Modello | Descrizione | Assicurarsi |
+| Numero No. | Velocità | Modello | DESCRIZIONE | Assicurarsi |
 | --- | --- | --- | --- | --- |
 | 1. |10GbE |516733-B21 |Switch blade HP ProCurve 6120XG 10GbE Ethernet |HP |
 | 2. |10GbE |538113-B21 |Modulo pass-through (PTM) HP 10GbE |HP |

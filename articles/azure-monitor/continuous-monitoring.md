@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: 1b86bc015b187fe75e79ba04df60a6bc5257a9b8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ab633ca47f684688019b1313de61571252760a20
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60497421"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967757"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Monitoraggio continuo con Monitoraggio di Azure
 
@@ -34,7 +34,7 @@ Per ottenere l'osservabilità nell'intero ambiente, è necessario abilitare il m
 - [Azure DevOps Projects](../devops-project/overview.md) fornisce un'esperienza semplificata con il codice esistente e il repository Git oppure scegliere una delle applicazioni di esempio per creare una pipeline di integrazione continua (CI, Continuous Integration) e distribuzione continua (CD, Continuous Delivery) in Azure.
 - [Monitoraggio continuo nelle pipeline di rilascio DevOps](../azure-monitor/app/continuous-monitoring.md) consente il controllo o il rollback della distribuzione in base ai dati di monitoraggio.
 - [Status Monitor](../azure-monitor/app/monitor-performance-live-website-now.md) consente di instrumentare un'app .NET attiva in Windows con Azure Application Insights senza dover modificare o ridistribuire il codice.
-- Se si ha accesso al codice per l'applicazione, abilitare il monitoraggio completo con [Application Insights](../azure-monitor/app/app-insights-overview.md) installando Application Insights SDK del Monitoraggio di Azure per [.NET](../azure-monitor/learn/quick-monitor-portal.md), [Java ](../azure-monitor/learn/java-quick-start.md), [Node.js](../azure-monitor/learn/nodejs-quick-start.md), o per [eventuali altri linguaggi di programmazione](../azure-monitor/app/platforms.md). In questo modo è possibile specificare gli eventi personalizzati, le metriche o le visualizzazioni di pagina che sono rilevanti per l'applicazione e l'attività dell'utente.
+- Se si ha accesso al codice per l'applicazione, abilitare il monitoraggio completo con [Application Insights](../azure-monitor/app/app-insights-overview.md) installando Application Insights SDK del Monitoraggio di Azure per [.NET](../azure-monitor/learn/quick-monitor-portal.md), [Java ](../azure-monitor/app/java-get-started.md), [Node.js](../azure-monitor/learn/nodejs-quick-start.md), o per [eventuali altri linguaggi di programmazione](../azure-monitor/app/platforms.md). In questo modo è possibile specificare gli eventi personalizzati, le metriche o le visualizzazioni di pagina che sono rilevanti per l'applicazione e l'attività dell'utente.
 
 
 

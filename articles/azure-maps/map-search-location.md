@@ -1,6 +1,6 @@
 ---
 title: Visualizzare i risultati della ricerca con Mappe di Azure | Microsoft Docs
-description: Come eseguire una richiesta di ricerca con Mappe di Azure, quindi visualizzare i risultati su una mappa JavaScript
+description: Come eseguire una richiesta di ricerca con mappe di Azure, visualizzare i risultati in Azure Maps Web SDK.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 22b677ef4b21d3869e39d600910c271c935934ca
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7c4c78e1d21754d42391a3762e9f7ed199a7376b
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638648"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68975976"
 ---
 # <a name="show-search-results-on-the-map"></a>Visualizzare i risultati della ricerca sulla mappa
 

@@ -2,18 +2,17 @@
 title: Informazioni sulle quote e sulle limitazioni dell'hub IoT di Azure | Documentazione Microsoft
 description: "Guida per gli sviluppatori: descrizione delle quote che si applicano all'hub IoT e del comportamento di limitazione previsto."
 author: robinsh
-manager: philmea
 ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/17/2019
-ms.openlocfilehash: 1c19696b10584bc55989b9270978486d7f5aa157
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.date: 08/08/2019
+ms.openlocfilehash: 184cdaddc638461d50f322292d5cfaf28ab93093
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326735"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950536"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Riferimento - Quote e limitazioni dell'hub IoT
 
@@ -40,7 +39,7 @@ La tabella seguente mostra le limitazioni applicate. I valori fanno riferimento 
 | Inoltri dal dispositivo al cloud | Superiore a 100 operazioni di invio/sec o 12 operazioni di invio/sec/unità <br/> Ad esempio, due unità S1 sono 2\*12 = 24/sec, ma sono presenti almeno 100 operazioni di invio/sec tra le unità. Con nove unità S1, sono disponibili 108 operazioni di invio/sec (\*9 12) tra le unità. | 120 operazioni di invio/sec/unità | 6\.000 operazioni di invio/sec/unità |
 | Inoltri dal cloud al dispositivo<sup>1</sup> | 1,67 operazioni di invio/sec/unità (100 messaggi/min/unità) | 1,67 operazioni di invio/sec/unità (100 operazioni di invio/min/unità) | 83,33 operazioni di invio/sec/unità (5.000 operazioni di invio/min/unità) |
 | Ricezioni dal cloud al dispositivo<sup>1</sup> <br/> (solo quando il dispositivo usa HTTPS)| 16,67 operazioni di ricezione/sec/unità (operazioni di ricezione 1.000/min/unità) | 16,67 operazioni di ricezione/sec/unità (operazioni di ricezione 1.000/min/unità) | 833,33 operazioni di ricezione/sec/unità (operazioni di ricezione 50.000/min/unità) |
-| Caricamento di file | 1,67 notifice caricamento file/sec/unità (100/min/unità) | 1,67 notifice caricamento file/sec/unità (100/min/unità) | 83,33 notifiche di caricamento file/sec/unità (5000/min/unità) |
+| Caricamento file | 1,67 notifice caricamento file/sec/unità (100/min/unità) | 1,67 notifice caricamento file/sec/unità (100/min/unità) | 83,33 notifiche di caricamento file/sec/unità (5000/min/unità) |
 | Metodi diretti<sup>1</sup> | 160 KB/sec/unità<sup>2</sup> | 480 KB/sec/unità<sup>2</sup> | 24 MB/sec/unità<sup>2</sup> | 
 | Query | 20/min/unità | 20/min/unità | 1000/min/unità |
 | Letture di dispositivi e moduli gemelli <sup>1</sup> | 100/sec | Superiore a 100/sec o 10/sec/unità | 500/sec/unità |
@@ -96,7 +95,8 @@ L'hub IoT applica altri limiti operativi:
 | Caricamenti di file | 10 caricamenti di file simultanei per dispositivo. |
 | Processi<sup>1</sup> | Il numero massimo di processi simultanei è 1 (per il livello gratuito e S1), 5 (per S2) e 10 (per S3). Tuttavia, il numero massimo di [processi di importazione/esportazione di dispositivi](iot-hub-bulk-identity-mgmt.md) simultanei è 1 per tutti i livelli. <br/>La cronologia processo viene mantenuta fino a 30 giorni. |
 | Altri endpoint | Agli hub SKU a pagamento possono essere associati 10 endpoint aggiuntivi. Agli hub SKU gratuiti può essere associato solo un endpoint aggiuntivo. |
-| Regole di routing dei messaggi | Agli hub SKU a pagamento possono essere associate 100 regole di routing. Agli hub SKU gratuiti possono essere associate cinque regole di routing. |
+| Query di routing del messaggio | Gli hub SKU a pagamento possono avere 100 query di routing. Gli hub SKU gratuiti possono avere cinque query di routing. |
+| Arricchimenti dei messaggi | Gli hub SKU a pagamento possono avere fino a 10 arricchimenti di messaggi. Gli hub SKU gratuiti possono avere fino a due arricchimenti di messaggi.|
 | Messaggistica da dispositivo a cloud | Dimensioni massime dei messaggi 256 KB |
 | Messaggistica da cloud a dispositivo<sup>1</sup> | La dimensione massima dei messaggi è 64 KB. Il numero massimo di messaggi in sospeso per il recapito è 50 per ogni dispositivo. |
 | Metodo diretto<sup>1</sup> | La dimensione massima del payload del metodo diretto è 128 KB. |

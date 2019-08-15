@@ -1,6 +1,6 @@
 ---
 title: Note sulla versione per il server di Backup di Microsoft Azure v3
-description: Questo articolo fornisce informazioni sui problemi noti e le soluzioni alternative per il server di Backup di Microsoft Azure v3.
+description: Questo articolo fornisce le informazioni sui problemi noti e le soluzioni alternative per Backup di Microsoft Azure Server (MAB) v3.
 ms.reviewer: v-jysur
 author: dcurwin
 manager: carmonm
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/22/2018
 ms.author: dacurwin
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: a80a5ac64b58d93bb0d4e4b799cb7424805c9baa
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 5ca3305dd96ad9f14f028c88520368ae5a49016c
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698363"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019011"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Note sulla versione per il server di Backup di Microsoft Azure
 Questo articolo descrive i problemi noti e le soluzioni alternative per il server di Backup di Microsoft Azure v3.
@@ -25,7 +25,7 @@ Questo articolo descrive i problemi noti e le soluzioni alternative per il serve
 
 **Soluzione alternativa:** per evitare questo problema, aprire SQL Server Management Studio (SSMS) ed eseguire lo script SQL seguente nel database DPM:
 
-
+```sql
     IF EXISTS (SELECT * FROM dbo.sysobjects
         WHERE id = OBJECT_ID(N'[dbo].[tbl_PRM_DatasourceLastActiveServerMap]')
         AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
@@ -50,6 +50,7 @@ Questo articolo descrive i problemi noti e le soluzioni alternative per il serve
             0
         ) FOR [IsGCed]
     GO
+```
 
 
 ##  <a name="upgrade-to-mabs-v3-fails-in-russian-locale"></a>L'aggiornamento alla versione 3 del server di Backup di Microsoft Azure ha esito negativo nelle impostazioni locali russe
@@ -66,11 +67,11 @@ Questo articolo descrive i problemi noti e le soluzioni alternative per il serve
 6.  [Installare](backup-azure-microsoft-azure-backup.md) la versione 3 del server di Backup di Microsoft Azure.
 7. [Ripristinare](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL con SSMS ed eseguire lo strumento di sincronizzazione di DPM, come descritto [qui](https://docs.microsoft.com/previous-versions/system-center/data-protection-manager-2010/ff634215(v=technet.10)).
 8.  Aggiornare la proprietà 'DataBaseVersion' nella tabella dbo.tbl_DLS_GlobalSetting usando il comando seguente:
-
+```sql
         UPDATE dbo.tbl_DLS_GlobalSetting
         set PropertyValue = '13.0.415.0'
         where PropertyName = 'DatabaseVersion'
-
+```
 
 9.  Avviare il servizio MSDPM.
 

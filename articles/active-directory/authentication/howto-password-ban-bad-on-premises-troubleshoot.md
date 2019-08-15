@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07c035f4823ea8c8eaa96ca9bda22450246811cd
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 1cb4d3e35ae743dbae4c049f515d61b3042e7efe
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779633"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952812"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Risoluzione dei problemi relativi a Password di protezione di Azure AD
 
@@ -41,6 +41,8 @@ Il sintomo principale di questo problema è 30018 eventi nel registro eventi di 
 1. Il computer host proxy blocca l'accesso all'endpoint RPC (dinamico o statico) in ascolto da parte del servizio proxy
 
    Il programma di installazione del proxy di protezione Azure AD password crea automaticamente una regola in ingresso Windows Firewall che consente l'accesso a tutte le porte in ingresso ascoltate dal servizio proxy Azure AD password protection. Se questa regola viene successivamente eliminata o disattivata, gli agenti del controller di dominio non saranno in grado di comunicare con il servizio proxy. Se il Windows Firewall incorporato è stato disabilitato al posto di un altro prodotto firewall, è necessario configurarlo per consentire l'accesso a tutte le porte in ingresso ascoltate dal servizio Azure AD proxy di protezione delle password. Questa configurazione può essere resa più specifica se il servizio proxy è stato configurato per l'ascolto su una porta RPC statica specifica (tramite `Set-AzureADPasswordProtectionProxyConfiguration` il cmdlet).
+
+1. Il computer host proxy non è configurato per consentire ai controller di dominio di accedere al computer. Questo comportamento viene controllato tramite l'assegnazione dei privilegi utente "accedi al computer dalla rete". È necessario concedere questo privilegio a tutti i controller di dominio in tutti i domini della foresta. Questa impostazione è spesso vincolata come parte di una maggiore attività di protezione avanzata della rete.
 
 ## <a name="proxy-service-is-unable-to-communicate-with-azure"></a>Il servizio proxy non è in grado di comunicare con Azure
 

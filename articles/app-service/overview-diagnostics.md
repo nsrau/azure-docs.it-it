@@ -1,6 +1,6 @@
 ---
 title: Panoramica della diagnostica del servizio app di Azure | Microsoft Docs
-description: Informazioni su come risolvere i problemi con l'app con diagnostica del servizio App.
+description: Informazioni su come risolvere i problemi relativi all'app con la diagnostica del servizio app.
 keywords: servizio app, servizio app di azure, diagnostica, supporto, app web, risoluzione dei problemi, self-help
 services: app-service
 documentationcenter: ''
@@ -15,100 +15,104 @@ ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: f2f798be85e9c3aeb8d4b54cba89d8be059427e0
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 50caa666245b0401c2c584f0a357ca6bfa53230c
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147357"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945742"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Panoramica della diagnostica del servizio app di Azure
 
-Quando si esegue un'applicazione Web, si desidera essere pronti ad affrontare gli eventuali problemi che possono verificarsi, ad esempio gli errori di tipo 500 che indicano agli utenti che il sito è inattivo. Diagnostica del servizio App offre un'esperienza intelligente e interattiva per risolvere i problemi all'app senza alcuna configurazione necessaria. Quando si verificano problemi con l'app, diagnostica del servizio App fa riferimento la causa del problema ottenere istruzioni utili per le informazioni corrette in modo rapido e più semplice risolvere i problemi e risolvere il problema.
+Quando si esegue un'applicazione Web, si desidera essere pronti ad affrontare gli eventuali problemi che possono verificarsi, ad esempio gli errori di tipo 500 che indicano agli utenti che il sito è inattivo. La diagnostica del servizio app è un'esperienza interattiva e interattiva che consente di risolvere i problemi dell'app senza che sia necessaria alcuna configurazione. Quando si verificano problemi con l'app, la diagnostica del servizio app rileva gli errori che consentono di ottenere le informazioni appropriate per risolvere i problemi in modo più semplice e rapido e risolvere il problema.
 
-Sebbene ciò risulti particolarmente utili quando si verificano problemi con l'app nelle ultime 24 ore, tutti i grafici di diagnostica sono sempre disponibili per l'utente da analizzare.
+Anche se questa esperienza è particolarmente utile quando si verificano problemi con l'app nelle ultime 24 ore, tutti i grafici di diagnostica sono sempre disponibili per l'analisi.
 
 La diagnostica del servizio app funziona non solo per le app in Windows, ma anche per le app in [Linux e contenitori](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro), nell'[ambiente del servizio app](https://docs.microsoft.com/azure/app-service/environment/intro) e di [Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-overview).
 
 ## <a name="open-app-service-diagnostics"></a>Aprire la diagnostica del servizio app
 
-Per accedere a diagnostica del servizio App, esplorare l'app web del servizio App o un ambiente del servizio App nel [portale di Azure](https://portal.azure.com). Nel riquadro di spostamento a sinistra fare clic su **Diagnostica e risoluzione dei problemi**.
+Per accedere alla diagnostica del servizio app, passare all'app Web del servizio app o ambiente del servizio app nel [portale di Azure](https://portal.azure.com). Nel riquadro di spostamento a sinistra fare clic su **Diagnostica e risoluzione dei problemi**.
 
-Per le funzioni di Azure, passare all'app di funzione e nel riquadro di spostamento superiore, fare clic su **funzionalità della piattaforma**e selezionare **diagnosticare e risolvere i problemi** dal **gestionedellerisorse** sezione.
+Per funzioni di Azure, passare all'app per le funzioni e, nella parte superiore, fare clic su **funzionalità della piattaforma**e selezionare **diagnostica e Risolvi i problemi** dalla sezione **Gestione risorse** .
 
-Nella home page diagnostica del servizio App, è possibile scegliere la categoria che meglio descrive il problema con l'app usando le parole chiave in ogni riquadro home page. Inoltre, questa pagina è dove è possibile trovare **strumenti di diagnostica** per le app di Windows. Visualizzare [strumenti di diagnostica (solo per app Windows)](#diagnostic-tools-only-for-windows-app).
+Nella Home page di diagnostica del servizio app è possibile scegliere la categoria che meglio descrive il problema con l'app usando le parole chiave in ogni riquadro della Home page. Inoltre, in questa pagina è possibile trovare **strumenti di diagnostica** per le app di Windows. Vedere [strumenti di diagnostica (solo per app di Windows)](#diagnostic-tools-only-for-windows-app).
 
 ![Home page](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
 
 ## <a name="interactive-interface"></a>Interfaccia interattiva
 
-Dopo aver selezionato una categoria home page che si allinea meglio alla problema dell'app, interfaccia interattiva degli diagnostica del servizio App, genio, Guida l'utente attraverso la diagnosi e risoluzione dei problemi con l'app. Per visualizzare il report di diagnostico completo della categoria del problema che si desidera, è possibile utilizzare il riquadro dei collegamenti fornita dal genio. Il riquadro dei collegamenti fornisce un metodo diretto per l'accesso alle metriche di diagnostica.
+Dopo aver selezionato una categoria della Home page più adatta al problema dell'app, l'interfaccia interattiva di diagnostica del servizio app, Genie, può essere utile per la diagnosi e la risoluzione dei problemi con l'app. È possibile usare i collegamenti ai riquadri forniti da Genie per visualizzare il report di diagnostica completo della categoria di problemi a cui si è interessati. I collegamenti ai riquadri consentono di accedere direttamente alle metriche di diagnostica.
 
 ![Riquadro dei collegamenti](./media/app-service-diagnostics/tile-shortcuts-2.png)
 
-Dopo aver fatto clic su questi riquadri, è possibile visualizzare un elenco di argomenti correlati al problema descritto nella sezione. Questi argomenti forniscono frammenti di codice di informazioni significative dal report completo. È possibile fare clic su uno degli argomenti seguenti per analizzare ulteriormente i problemi. Inoltre, è possibile fare clic su **visualizzazione Report completo** per esplorare tutti gli argomenti in una singola pagina.
+Dopo aver fatto clic su questi riquadri, è possibile visualizzare un elenco di argomenti correlati al problema descritto nel riquadro. In questi argomenti vengono forniti frammenti di informazioni rilevanti dal report completo. È possibile fare clic su uno di questi argomenti per esaminare ulteriormente i problemi. È anche possibile fare clic su **Visualizza report completo** per esplorare tutti gli argomenti in una singola pagina.
 
 ![Argomenti](./media/app-service-diagnostics/application-logs-insights-3.png)
 
-![Visualizza Report completo](./media/app-service-diagnostics/view-full-report-4.png)
+![Visualizza report completo](./media/app-service-diagnostics/view-full-report-4.png)
 
 ## <a name="diagnostic-report"></a>Report di diagnostica
 
-Dopo aver scelto di analizzare ulteriormente il problema facendo clic su un argomento, è possibile visualizzare altri dettagli sull'argomento spesso con grafici e ad. Report di diagnostica può essere un potente strumento per individuare il problema con l'app.
+Dopo aver scelto di esaminare ulteriormente il problema facendo clic su un argomento, è possibile visualizzare altri dettagli sull'argomento spesso integrato con i grafici e ad esempio file. Il report di diagnostica può essere uno strumento potente per individuare il problema con l'app.
 
 ![Report di diagnostica](./media/app-service-diagnostics/full-diagnostic-report-5.png)
 
 ## <a name="health-checkup"></a>Controllo di integrità
 
-Se si non sapere qual è il problema con l'app o non sai da dove partire per la risoluzione dei problemi, controllo di integrità è un buon punto di partenza. Controllo di integrità analizza le applicazioni per offrire una panoramica rapida e interattiva che fa notare che cos'è integro e qual è il problema, che indica dove cercare per analizzare il problema. L'interfaccia intelligente e interattiva fornisce tutti i passaggi necessari per eseguire il processo di risoluzione dei problemi. Controllo di integrità è integrato con l'esperienza genio per le app di Windows e app web verso il basso diagnostica report per le app Linux.
+Se non si conosce il problema dell'app o non si conosce la posizione in cui iniziare a risolvere i problemi, il controllo dell'integrità è un punto di partenza valido. Il controllo dell'integrità analizza le applicazioni per offrire una panoramica rapida e interattiva che indichi cosa è integro e qual è il problema, indicando la posizione in cui esaminare il problema. L'interfaccia intelligente e interattiva fornisce tutti i passaggi necessari per eseguire il processo di risoluzione dei problemi. Il controllo dell'integrità è integrato con l'esperienza Genie per le app di Windows e il report di diagnostica per app Web per le app Linux.
 
-### <a name="health-checkup-graphs"></a>Grafici di controllo di integrità
+### <a name="health-checkup-graphs"></a>Grafici di controllo dell'integrità
 
-Esistono quattro diversi grafici nel controllo di integrità.
+Nel controllo dell'integrità sono presenti quattro grafici diversi.
 
-- **richieste ed errori:** Un grafico che mostra il numero di richieste effettuate nelle ultime 24 ore con errori server HTTP.
-- **prestazioni delle App:** Un grafico che mostra il tempo di risposta nelle ultime 24 ore per i vari gruppi di percentile.
-- **Utilizzo della CPU:** Un grafico che mostra l'utilizzo della CPU complessivo percentuale per ogni istanza nelle ultime 24 ore.  
-- **utilizzo della memoria:** Un grafico che mostra l'utilizzo complessivo percentuale di memoria fisica per ogni istanza nelle ultime 24 ore.
+- **richieste ed errori:** Un grafico che mostra il numero di richieste effettuate nelle ultime 24 ore insieme agli errori del server HTTP.
+- **prestazioni dell'app:** Grafico che mostra il tempo di risposta nelle ultime 24 ore per i diversi gruppi percentile.
+- **Utilizzo CPU:** Un grafico che mostra l'utilizzo totale della CPU per ogni istanza nelle ultime 24 ore.  
+- **utilizzo memoria:** Un grafico che mostra l'utilizzo totale della memoria fisica per ogni istanza nelle ultime 24 ore.
 
 ![Controllo di integrità](./media/app-service-diagnostics/health-checkup-6.png)
 
-### <a name="investigate-application-code-issues-only-for-windows-app"></a>Esaminare i problemi di codice dell'applicazione (solo per app Windows)
+### <a name="investigate-application-code-issues-only-for-windows-app"></a>Esaminare i problemi del codice dell'applicazione (solo per l'app Windows)
 
 Poiché molti problemi di app sono associati a problemi nel codice dell'applicazione, la diagnostica del servizio app si integra con [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) per evidenziare le eccezioni e i problemi di dipendenza da correlare con il tempo di inattività selezionato. Application Insights deve essere abilitato separatamente.
 
 ![Application Insights](./media/app-service-diagnostics/application-insights-7.png)
 
-Per visualizzare le dipendenze e le eccezioni di Application Insights, selezionare la **app web verso il basso** oppure **app web lenta** riquadro dei collegamenti.
+Per visualizzare le eccezioni e le dipendenze di Application Insights, selezionare le scelte rapide per l' **app Web** o per il riquadro **lento** .
 
-### <a name="troubleshooting-steps-only-for-windows-app"></a>Risoluzione dei problemi (solo per app Windows)
+### <a name="troubleshooting-steps-only-for-windows-app"></a>Passaggi per la risoluzione dei problemi (solo per app Windows)
 
-Se viene rilevato un problema con una categoria di problema specifico nelle ultime 24 ore, è possibile visualizzare i report di diagnostica completo e diagnostica del servizio App può richiedere di visualizzare i consigli sulla risoluzione dei problemi più e passaggi successivi per un'esperienza più interattiva.
+Se viene rilevato un problema con una categoria di problemi specifica nelle ultime 24 ore, è possibile visualizzare il report di diagnostica completo e la diagnostica del servizio app potrebbe richiedere di visualizzare altri suggerimenti per la risoluzione dei problemi e i passaggi successivi per un'esperienza più guidata.
 
-![Application Insights e sulla risoluzione dei problemi e procedure successive](./media/app-service-diagnostics/troubleshooting-and-next-steps-8.png)
+![Application Insights e risoluzione dei problemi e passaggi successivi](./media/app-service-diagnostics/troubleshooting-and-next-steps-8.png)
 
 ## <a name="diagnostic-tools-only-for-windows-app"></a>Strumenti di diagnostica (solo per app Windows)
 
-Gli strumenti di diagnostica includono più avanzati strumenti di diagnostica che individuare l'applicazione help codice problemi, lentezza, le stringhe di connessione e altro ancora. e attivi strumenti che consentono di attenuare i problemi con l'utilizzo della CPU, richieste e memoria.
+Gli strumenti di diagnostica includono strumenti di diagnostica più avanzati che consentono di analizzare i problemi del codice dell'applicazione, la lentezza, le stringhe di connessione e altro ancora. e strumenti proattivi che consentono di attenuare i problemi relativi all'utilizzo della CPU, alle richieste e alla memoria.
 
 ### <a name="proactive-cpu-monitoring"></a>Monitoraggio proattivo della CPU
 
-Monitoraggio proattivo della CPU fornisce un modo semplice e proattivo per intraprendere un'azione quando il processo figlio o app per l'app utilizza elevata di risorse della CPU. È possibile impostare le regole di soglia della CPU per ridurre temporaneamente un problema di CPU elevato fino a trova la causa effettiva del problema imprevisto.
+Il monitoraggio proattivo della CPU fornisce un metodo semplice e proattivo per eseguire un'azione quando l'app o il processo figlio per l'app utilizza risorse di CPU elevate. È possibile impostare regole di soglia CPU personalizzate per attenuare temporaneamente un problema di CPU elevato fino a quando non viene rilevata la causa reale del problema imprevisto.
 
 ![Monitoraggio proattivo della CPU](./media/app-service-diagnostics/proactive-cpu-monitoring-9.png)
 
-### <a name="proactive-auto-healing"></a>Attiva la riparazione automatica
+### <a name="auto-healing-and-proactive-auto-healing"></a>Riparazione automatica e correzione automatica proattiva
 
-Come il monitoraggio proattivo della CPU, correzione automatica attiva offre un approccio semplice e proattivo alla riduzione del rischio un comportamento imprevisto dell'app. È possibile impostare regole personalizzate basate sul conteggio delle richieste, una richiesta lenta, limite di memoria e codice di stato HTTP per attivare le azioni di mitigazione dei rischi. Questo strumento è utilizzabile per ridurre temporaneamente un comportamento imprevisto fino a trova la causa effettiva del problema. Per altre informazioni su attiva la correzione automatica, visita [Announcing automatica nuova esperienza di diagnostica del servizio app di correzione del](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html).
+La correzione automatica è un'azione di mitigazione che è possibile eseguire quando l'app presenta un comportamento imprevisto. È possibile impostare regole personalizzate in base al numero di richieste, alla richiesta lenta, al limite di memoria e al codice di stato HTTP per attivare le azioni di mitigazione. Utilizzare lo strumento per attenuare temporaneamente un comportamento imprevisto fino a individuare la causa radice.
 
-![Attiva la riparazione automatica](./media/app-service-diagnostics/proactive-auto-healing-10.png)
+![riparazione automatica](./media/app-service-diagnostics/auto-healing-10.png)
 
-## <a name="change-analysis-only-for-windows-app"></a>Analisi di modifica (solo per app Windows)
+Come il monitoraggio proattivo della CPU, la correzione automatica proattiva è una soluzione chiave per attenuare il comportamento imprevisto dell'app. La correzione automatica proattiva riavvia l'app quando il servizio app determina che l'app è in uno stato irreversibile. Per altre informazioni, vedere [annunciare la nuova esperienza di correzione automatica nella diagnostica del servizio app](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html).
 
-In un ambiente di sviluppo e veloce, a volte può risultare difficile tenere traccia di tutte le modifiche apportate all'App e consentire pinpoint solo in caso di modifica che ha causato il comportamento di tipo non integro. Analisi della modifica può aiutarti a circoscrivere sulle modifiche apportate all'App per facilitare l'esperienza di risoluzione. Analisi della modifica viene trovato **le modifiche all'applicazione** e anche incorporato in un rapporto di diagnostica, ad esempio **blocchi applicazione** in modo che è possibile usarlo contemporaneamente ad altre metriche.
+## <a name="navigator-and-change-analysis-only-for-windows-app"></a>Strumento di navigazione e analisi delle modifiche (solo per app di Windows)
 
-Deve essere attivato prima di usare la funzionalità di analisi della modifica. Per altre informazioni sull'analisi di modifica, visitare [annuncia la nuova esperienza di analisi di modifica nella diagnostica del servizio App](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html).
+In un team di grandi dimensioni con integrazione continua e in cui l'app presenta numerose dipendenze, può essere difficile individuare la modifica specifica che causa un comportamento non integro. Lo strumento di spostamento consente di ottenere visibilità sulla topologia dell'app eseguendo automaticamente il rendering di una mappa delle dipendenze dell'app e di tutte le risorse nella stessa sottoscrizione. Navigator consente di visualizzare un elenco consolidato delle modifiche apportate dall'app e delle relative dipendenze e di ridurle in base a una modifica che causa un comportamento non integro. È possibile accedervi tramite il navigatore affiancato della Home page e deve essere abilitato prima di usarlo per la prima volta. Per altre informazioni, vedere [ottenere visibilità sulle dipendenze dell'app con lo strumento di navigazione](https://azure.github.io/AppService/2019/08/06/Bring-visibility-to-your-app-and-its-dependencies-with-Navigator.html).
 
-![Pagina di modifica analisi predefinita](./media/app-service-diagnostics/change-analysis-default-page-11.png)
+![Pagina predefinita dello strumento di navigazione](./media/app-service-diagnostics/navigator-default-page-11.png)
 
-![Visualizzazione delle differenze](./media/app-service-diagnostics/diff-view-12.png)
+![Visualizzazione diff](./media/app-service-diagnostics/diff-view-12.png)
+
+L'analisi delle modifiche per le modifiche alle app è accessibile tramite collegamenti a sezioni, **modifiche dell'applicazione** e **arresti anomali dell'applicazione** in **disponibilità e prestazioni** , in modo da poterli usare simultaneamente con altre metriche. Prima di usare la funzionalità, è prima necessario abilitarla. Per altre informazioni, vedere [annunciare la nuova esperienza di analisi delle modifiche nella diagnostica del servizio app](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html).
+
+Pubblicare domande o commenti e suggerimenti in [UserVoice](https://feedback.azure.com/forums/169385-web-apps) aggiungendo "[diag]" nel titolo.

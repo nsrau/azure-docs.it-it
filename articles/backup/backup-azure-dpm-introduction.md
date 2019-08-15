@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 0c762054ed0df3a3781dda7057ff8793dbf82565
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 71070a778e54e51cdb528041f746489bb64e979c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689310"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954718"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparare il backup dei carichi di lavoro in Azure con System Center DPM
 
@@ -91,13 +91,13 @@ Usare le credenziali dell'insieme di credenziali quando si registra il server DP
 
 ### <a name="best-practices-for-vault-credentials"></a>Procedure consigliate per le credenziali dell'insieme di credenziali
 
-Per ottenere le credenziali scaricare il file delle credenziali dell'insieme di credenziali dal portale di Azure tramite un canale sicuro:
+Per ottenere le credenziali, scaricare il file dell'insieme di credenziali tramite un canale protetto dal portale di Azure:
 
 - Il file delle credenziali dell'insieme di credenziali viene usato solo durante il flusso di lavoro di registrazione.
 - È responsabilità dell'utente garantire che il file delle credenziali dell'insieme di credenziali sia sicuro e non venga danneggiato.
     - Se si perde il controllo delle credenziali, le credenziali dell'insieme di credenziali possono essere usate per registrare altri computer nell'insieme di credenziali.
     - Poiché i dati di backup sono crittografati tramite una passphrase appartenente al cliente, i dati di backup esistenti non possono tuttavia essere compromessi.
-- Assicurarsi che il file venga salvato in un percorso accessibile dal server DPM. Se vengano archiviate in una condivisione file/SMB, verificare le autorizzazioni di accesso.
+- Verificare che il file venga salvato in un percorso accessibile dal server DPM. Se vengano archiviate in una condivisione file/SMB, verificare le autorizzazioni di accesso.
 - Le credenziali dell'insieme di credenziali scadono dopo 48 ore. È possibile scaricare le nuove credenziali dell'insieme di credenziali ogni volta che è necessario. Tuttavia, durante il flusso di lavoro di registrazione, è possibile usare solo il file di credenziali dell'insieme di credenziali più recente.
 - Il servizio Backup di Azure non è a conoscenza della chiave privata del certificato e la chiave privata non è disponibile nel portale o nel servizio.
 
@@ -183,7 +183,7 @@ Il file delle credenziali di insieme è valido solo per 48 ore dopo che è stato
 
 ### <a name="access-error"></a>Errore di accesso
 
-Verificare che il file delle credenziali di insieme sia disponibile in un percorso accessibile dall'applicazione di installazione. Se si verificano errori relativi all'accesso, copiare il file delle credenziali di insieme in un percorso temporaneo nel computer e ripetere l'operazione.
+Verificare che il file delle credenziali dell'insieme di credenziali sia disponibile in un percorso accessibile dall'applicazione di installazione. Se si verificano errori relativi all'accesso, copiare il file delle credenziali di insieme in un percorso temporaneo nel computer e ripetere l'operazione.
 
 ### <a name="invalid-credentials-error"></a>Errore di credenziali non valide
 

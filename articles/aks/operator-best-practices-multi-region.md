@@ -1,135 +1,135 @@
 ---
-title: Elevata disponibilità e ripristino di emergenza in Azure Kubernetes Service (AKS)
-description: Informazioni su procedure consigliate dell'operatore di un cluster per ottenere il massimo tempo di attività per le applicazioni, garantendo una disponibilità elevata e la preparazione per il ripristino di emergenza in Azure Kubernetes Service (AKS).
+title: Disponibilità elevata e ripristino di emergenza in Azure Kubernetes Service (AKS)
+description: Informazioni sulle procedure consigliate per un operatore cluster per ottenere il massimo tempo di attività per le applicazioni, offrendo disponibilità elevata e preparazione per il ripristino di emergenza in Azure Kubernetes Service (AKS).
 services: container-service
 author: lastcoolnameleft
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
-ms.openlocfilehash: 4d4535af1814ab1250bbd56c989b4849013adff6
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 5a0a7e59e71e51a109af0f89cbb7ba580b2b97e6
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614832"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967196"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la continuità aziendale e il ripristino di emergenza nel servizio Azure Kubernetes
 
-Il tempo di attività delle applicazioni assume particolare importanza per la gestione dei cluster nel servizio Azure Kubernetes. Il servizio Azure Kubernetes offre disponibilità elevata usando più nodi in un set di disponibilità. Ma questi più nodi non proteggere il sistema da un errore di area. Per ottimizzare il tempo di attività, pianificare in anticipo mantenere la continuità aziendale e preparare il ripristino di emergenza.
+Il tempo di attività delle applicazioni assume particolare importanza per la gestione dei cluster nel servizio Azure Kubernetes. Il servizio Azure Kubernetes offre disponibilità elevata usando più nodi in un set di disponibilità. Ma questi più nodi non proteggono il sistema da un errore dell'area. Per ottimizzare il tempo di attività, pianificare in anticipo per mantenere la continuità aziendale e prepararsi per il ripristino di emergenza.
 
-Questo articolo è incentrato sulla pianificazione per la continuità aziendale e ripristino di emergenza nel servizio contenitore di AZURE. Si apprenderà come:
+Questo articolo è incentrato su come pianificare la continuità aziendale e il ripristino di emergenza in AKS. Si apprenderà come:
 
 > [!div class="checklist"]
-> * Pianificare cluster servizio contenitore di AZURE in più aree.
+> * Pianificare i cluster AKS in più aree.
 > * Instradare il traffico tra più cluster usando Gestione traffico di Azure.
-> * Usare la replica geografica per i registri di immagini contenitore.
+> * Usare la replica geografica per i registri di immagini del contenitore.
 > * Pianificare lo stato dell'applicazione in più cluster.
-> * Eseguire la replica di archiviazione tra più aree.
+> * Replicare lo spazio di archiviazione tra più aree.
 
-## <a name="plan-for-multiregion-deployment"></a>Pianificare la distribuzione multiarea
+## <a name="plan-for-multiregion-deployment"></a>Pianificare la distribuzione in più aree
 
-**Procedura consigliata**: Quando si distribuiscono più cluster servizio contenitore di AZURE, scegliere le aree in cui servizio contenitore di AZURE è disponibile e usare le aree abbinate.
+**Procedura consigliata**: Quando si distribuiscono più cluster AKS, scegliere le aree in cui è disponibile AKS e usare le aree abbinate.
 
-Un cluster del servizio Azure Kubernetes viene distribuito in una singola area. Per proteggere il sistema da errori di area, distribuire l'applicazione in più cluster servizio contenitore di AZURE tra aree diverse. Quando si pianifica la posizione in cui distribuire il cluster AKS, prendere in considerazione:
+Un cluster del servizio Azure Kubernetes viene distribuito in una singola area. Per proteggere il sistema da un errore dell'area, distribuire l'applicazione in più cluster AKS in aree diverse. Quando si pianifica la posizione in cui distribuire il cluster AKS, prendere in considerazione quanto segue:
 
-* [**Disponibilità delle aree del servizio contenitore di AZURE**](https://docs.microsoft.com/azure/aks/quotas-skus-regions#region-availability): Scegliere le aree vicine ai propri utenti. Servizio contenitore di AZURE espande continuamente in nuove aree geografiche.
-* [**Aree abbinate di Azure**](https://docs.microsoft.com/azure/best-practices-availability-paired-regions): Per la propria area geografica, scegliere due aree abbinate tra loro. Le aree abbinate coordinare gli aggiornamenti della piattaforma e stabilire le priorità le attività di ripristino dove necessario.
-* **Disponibilità del servizio**: Decidere se devono essere di aree abbinate a caldo/hot, hot/warm o a freddo/caldo. Si desidera eseguire entrambe le aree allo stesso tempo, con un'area *pronti* per iniziare a gestire il traffico? Oppure si preferisce un'area a abbiano il tempo di prepararsi gestire il traffico?
+* [**Disponibilità area AKS**](https://docs.microsoft.com/azure/aks/quotas-skus-regions#region-availability): Scegliere le aree vicine ai propri utenti. AKS si espande continuamente in nuove aree geografiche.
+* [**Aree abbinate di Azure**](https://docs.microsoft.com/azure/best-practices-availability-paired-regions): Per la propria area geografica, scegliere due aree abbinate tra loro. Le aree abbinate aggiornano gli aggiornamenti della piattaforma e assegnano priorità ai tentativi di ripristino laddove necessario.
+* **Disponibilità del servizio**: Decidere se le aree abbinate devono essere Hot/Hot, Hot/warm o hot/cold. Si desidera eseguire entrambe le aree contemporaneamente, con un'area *pronta* per iniziare a gestire il traffico? Oppure si vuole che un'area abbia tempo per prepararsi a gestire il traffico?
 
-Disponibilità delle aree del servizio contenitore di AZURE e le aree abbinate vengono presi in considerazione comune. Distribuire i cluster del servizio Azure Kubernetes nelle aree abbinate progettate per gestire congiuntamente il ripristino di emergenza nell'area. Ad esempio, servizio contenitore di AZURE è disponibile nelle aree Stati Uniti orientali e Stati Uniti occidentali. Queste aree sono abbinate. Scegliere queste due aree quando si crea una strategia di BC AKS e ripristino di emergenza.
+La disponibilità e le aree abbinate dell'area AKS sono una considerazione congiunta. Distribuire i cluster del servizio Azure Kubernetes nelle aree abbinate progettate per gestire congiuntamente il ripristino di emergenza nell'area. Ad esempio, AKS è disponibile negli Stati Uniti orientali e negli Stati Uniti occidentali. Queste aree sono abbinate. Scegliere queste due aree quando si sta creando una strategia AKS BC/DR.
 
-Quando si distribuisce l'applicazione, aggiungere un altro passaggio per la pipeline di integrazione continua/recapito Continuo per distribuire questi più cluster AKS. Se non si aggiornano le pipeline di distribuzione, le applicazioni potrebbero essere distribuite in uno solo delle aree e i cluster AKS. Il traffico dei clienti che viene indirizzato a un'area secondaria non riceverà gli aggiornamenti più recenti del codice.
+Quando si distribuisce l'applicazione, aggiungere un altro passaggio alla pipeline CI/CD per eseguire la distribuzione in questi cluster AKS multipli. Se non si aggiornano le pipeline di distribuzione, le applicazioni possono essere distribuite solo in una delle aree e nei cluster AKS. Il traffico del cliente indirizzato a un'area secondaria non riceverà gli ultimi aggiornamenti del codice.
 
 ## <a name="use-azure-traffic-manager-to-route-traffic"></a>Usare Gestione traffico di Microsoft Azure per indirizzare il traffico
 
-**Procedura consigliata**: Gestione traffico di Azure può indirizzare clienti alla propria istanza cluster e dell'applicazione di servizio contenitore di AZURE più vicina. Per prestazioni ottimali e la ridondanza, indirizzare tutto il traffico dell'applicazione tramite Gestione traffico prima dell'aggiunta al cluster AKS.
+**Procedura consigliata**: Gestione traffico di Azure può indirizzare i clienti al cluster AKS più vicino e all'istanza dell'applicazione. Per ottenere prestazioni e ridondanza ottimali, indirizzare tutto il traffico dell'applicazione attraverso gestione traffico prima di passare al cluster AKS.
 
-Se si dispone di più cluster servizio contenitore di AZURE in aree diverse, usare Gestione traffico per controllare il flusso del traffico per applicazioni eseguite in ogni cluster. [Gestione traffico di Microsoft Azure](https://docs.microsoft.com/azure/traffic-manager/) è un servizio di bilanciamento del carico del traffico basato su DNS in grado di distribuire il traffico di rete tra le aree. Usare Gestione traffico per instradare gli utenti in base al tempo di risposta del cluster o basato su Geografia.
+Se si dispone di più cluster AKS in aree diverse, usare gestione traffico per controllare il flusso del traffico verso le applicazioni in esecuzione in ogni cluster. [Gestione traffico di Microsoft Azure](https://docs.microsoft.com/azure/traffic-manager/) è un servizio di bilanciamento del carico del traffico basato su DNS in grado di distribuire il traffico di rete tra le aree. Usare gestione traffico per indirizzare gli utenti in base al tempo di risposta del cluster o in base all'area geografica.
 
-![Servizio contenitore di AZURE con gestione traffico](media/operator-best-practices-bc-dr/aks-azure-traffic-manager.png)
+![AKS con gestione traffico](media/operator-best-practices-bc-dr/aks-azure-traffic-manager.png)
 
-I clienti che hanno in genere un singolo cluster servizio contenitore di AZURE connettersi al nome di indirizzo IP o DNS del servizio di una determinata applicazione. In una distribuzione multicluster, i clienti devono connettersi a un nome DNS di gestione traffico che punta ai servizi in ogni cluster AKS. Definire questi servizi con endpoint di gestione traffico. Ogni endpoint è il *indirizzo IP del servizio di bilanciamento del carico del servizio*. Usare questa configurazione per indirizzare il traffico di rete dall'endpoint di gestione traffico in un'unica area per l'endpoint in un'area diversa.
+I clienti che dispongono di un singolo cluster AKS si connettono in genere all'indirizzo IP del servizio o al nome DNS di una determinata applicazione. In una distribuzione multicluster i clienti devono connettersi a un nome DNS di gestione traffico che punta ai servizi in ogni cluster AKS. Definire questi servizi usando gli endpoint di gestione traffico. Ogni endpoint è l' *IP del servizio di bilanciamento del carico del servizio*. Usare questa configurazione per indirizzare il traffico di rete dall'endpoint di gestione traffico in un'area all'endpoint in un'area diversa.
 
-![Geografico di routing tramite Traffic Manager](media/operator-best-practices-bc-dr/traffic-manager-geographic-routing.png)
+![Routing geografico tramite Gestione traffico](media/operator-best-practices-bc-dr/traffic-manager-geographic-routing.png)
 
-Gestione traffico consente di eseguire ricerche DNS e restituisce l'endpoint più appropriato un utente. Profili annidati possono stabilire le priorità di una posizione primaria. Ad esempio, gli utenti devono connettersi a livello generale rispettiva area geografica più vicina. Se tale area presenta un problema, gestione traffico indirizza invece gli utenti in un'area secondaria. Questo approccio assicura che i clienti possono connettersi a un'istanza dell'applicazione anche se non è disponibile l'area geografica più vicina.
+Gestione traffico esegue ricerche DNS e restituisce l'endpoint più appropriato di un utente. I profili annidati possono assegnare priorità a una posizione primaria. Ad esempio, gli utenti devono in genere connettersi alla relativa area geografica più vicina. Se tale area presenta un problema, gestione traffico indirizza gli utenti a un'area secondaria. Questo approccio assicura che i clienti possano connettersi a un'istanza dell'applicazione anche se l'area geografica più vicina non è disponibile.
 
-Per informazioni su come configurare gli endpoint e routing, vedere [configurare il metodo di routing del traffico geografico tramite Gestione traffico](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-geographic-routing-method).
+Per informazioni su come configurare gli endpoint e il routing, vedere [configurare il metodo di routing del traffico geografico tramite Gestione traffico](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-geographic-routing-method).
 
-### <a name="layer-7-application-routing-with-azure-front-door-service"></a>Routing di livello 7 dell'applicazione con il servizio di ingresso principale di Azure
+### <a name="layer-7-application-routing-with-azure-front-door-service"></a>Routing delle applicazioni di livello 7 con il servizio front door di Azure
 
-Gestione traffico Usa DNS (livello 3) per il traffico di forma. [Il servizio di ingresso principale Azure](https://docs.microsoft.com/azure/frontdoor/front-door-overview) offre un'opzione di routing HTTP/HTTPS (livello 7). Funzionalità aggiuntive porta d'ingresso del servizio di Azure includono SSL terminazione, il dominio personalizzato, web application firewall, di riscrittura dell'URL e l'affinità di sessione. Esaminare le esigenze di traffico dell'applicazione per determinare la soluzione più adatta.
+Gestione traffico USA il DNS (livello 3) per definire il traffico. Il [servizio front door di Azure](https://docs.microsoft.com/azure/frontdoor/front-door-overview) fornisce un'opzione di routing http/https (livello 7). Funzionalità aggiuntive del servizio front door di Azure includono la terminazione SSL, il dominio personalizzato, web application firewall, la riscrittura URL e l'affinità di sessione. Esaminare le esigenze di traffico dell'applicazione per determinare la soluzione più adatta.
 
 ## <a name="enable-geo-replication-for-container-images"></a>Abilitare la replica geografica per le immagini del contenitore
 
-**Procedura consigliata**: Store le immagini del contenitore in Registro contenitori di Azure e la replica geografica il Registro di sistema per ogni area del servizio contenitore di AZURE.
+**Procedura consigliata**: Archiviare le immagini del contenitore in Azure Container Registry e la replica geografica del registro di sistema in ogni area AKS.
 
-Per distribuire ed eseguire le applicazioni nel servizio Azure Kubernetes, è necessario un modo per archiviare ed eseguire il pull delle immagini del contenitore. Registro contenitori si integra con servizio contenitore di AZURE, è possibile archiviare in modo sicuro le immagini del contenitore o i grafici Helm. Registro contenitori di supporta la replica geografica multimaster per replicare automaticamente le immagini per le aree di Azure in tutto il mondo. 
+Per distribuire ed eseguire le applicazioni nel servizio Azure Kubernetes, è necessario un modo per archiviare ed eseguire il pull delle immagini del contenitore. Container Registry si integra con AKS, in modo da poter archiviare in modo sicuro le immagini del contenitore o i grafici Helm. Container Registry supporta la replica geografica multimaster per replicare automaticamente le immagini in aree di Azure in tutto il mondo. 
 
-Per migliorare le prestazioni e disponibilità, usare la replica geografica del registro contenitori per creare un registro di sistema in ogni area in cui si dispone di un cluster AKS. Ogni cluster AKS quindi effettua il pull di immagini del contenitore dal registro contenitori locale nella stessa area:
+Per migliorare le prestazioni e la disponibilità, usare Container Registry la replica geografica per creare un registro in ogni area in cui è presente un cluster AKS. Ogni cluster AKS estrae quindi le immagini del contenitore dal registro contenitori locale nella stessa area:
 
-![Contenitore del Registro di sistema-replica geografica per le immagini del contenitore](media/operator-best-practices-bc-dr/acr-geo-replication.png)
+![Container Registry la replica geografica per le immagini del contenitore](media/operator-best-practices-bc-dr/acr-geo-replication.png)
 
-Quando si usa la replica geografica del registro contenitori di immagini pull dalla stessa area, i risultati sono:
+Quando si usa Container Registry la replica geografica per eseguire il pull delle immagini dalla stessa area, i risultati sono:
 
-* **Più velocemente**: È eseguire il pull di immagini da connessioni di rete ad alta velocità, bassa latenza nella stessa area di Azure.
-* **Più affidabile**: Se non è disponibile un'area, il cluster AKS effettua il pull di immagini da un registro contenitori disponibili.
-* **Più economica**: Non vengono applicati addebiti in uscita di rete tra i Data center.
+* **Più veloce**: È possibile effettuare il pull di immagini da connessioni di rete a bassa latenza e ad alta velocità all'interno della stessa area di Azure.
+* **Più affidabile**: Se un'area non è disponibile, il cluster AKS estrae le immagini da un registro contenitori disponibile.
+* **Più economico**: Non vengono applicati addebiti in uscita di rete tra i Data center.
 
-La replica geografica è una funzionalità del *Premium* registri contenitori SKU. Per informazioni su come configurare la replica geografica, vedere [replica geografica del registro contenitori](https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication).
+La replica geografica è una funzionalità dei registri contenitori SKU *Premium* . Per informazioni su come configurare la replica geografica, vedere [container Registry la replica geografica](https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication).
 
 ## <a name="remove-service-state-from-inside-containers"></a>Rimuovere lo stato del servizio dai contenitori
 
-**Procedura consigliata**: Dove possibile, non archiviare lo stato del servizio all'interno del contenitore. Usare invece una piattaforma di Azure come servizio (PaaS) che supporta la replica multiarea.
+**Procedura consigliata**: Laddove possibile, non archiviare lo stato del servizio all'interno del contenitore. Usare invece una piattaforma distribuita come servizio (PaaS) di Azure che supporta la replica in più aree.
 
-*Stato del servizio* si intendono i dati in memoria o su disco che un servizio necessita per funzionare. Include le strutture di dati e le variabili membro che vengono lette e scritte dal servizio. A seconda del modo in cui è progettato il servizio, lo stato può includere anche i file o altre risorse che sono archiviati sul disco. Ad esempio, lo stato potrebbe includere i file di che un database viene utilizzato per archiviare i dati e log delle transazioni.
+*Lo stato del servizio* si riferisce ai dati in memoria o su disco necessari per il funzionamento di un servizio. Include le strutture di dati e le variabili membro che vengono lette e scritte dal servizio. A seconda di come viene progettato il servizio, lo stato potrebbe includere anche file o altre risorse archiviate sul disco. Ad esempio, lo stato potrebbe includere i file utilizzati da un database per archiviare i dati e i log delle transazioni.
 
-Lo stato può essere esternalizzato o condivideranno il percorso con il codice che modifica lo stato. In genere, si Esternalizza stato usando un database o un altro archivio dati che viene eseguito in computer diversi in rete o che viene eseguito fuori del processo nello stesso computer.
+Lo stato può essere esternalizzato o colocato con il codice che modifica lo stato. In genere si Externalize lo stato usando un database o un altro archivio dati eseguito in computer diversi in rete o che esaurisce il processo nello stesso computer.
 
-I contenitori e microservizi sono più resilienti quando i processi che vengono eseguiti all'interno di essi non mantengono lo stato. Poiché le applicazioni contengono quasi sempre di uno stato, usare una soluzione PaaS, ad esempio Database di Azure per MySQL, Database di Azure per PostgreSQL, o un Database SQL di Azure.
+I contenitori e i microservizi sono più resilienti quando i processi che vengono eseguiti al loro interno non mantengono lo stato. Poiché le applicazioni contengono quasi sempre uno stato, usare una soluzione PaaS, ad esempio database di Azure per MySQL, database di Azure per PostgreSQL o database SQL di Azure.
 
 Per compilare applicazioni portabili, vedere le linee guida seguenti:
 
-* [La metodologia di app a 12 fattori](https://12factor.net/)
-* [Eseguire un'applicazione web in più aree di Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region)
+* [Metodologia dell'app a 12 fattori](https://12factor.net/)
+* [Eseguire un'applicazione Web in più aree di Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region)
 
 ## <a name="create-a-storage-migration-plan"></a>Creare un piano di migrazione di archiviazione
 
-**Procedura consigliata**: Se si Usa archiviazione di Azure, preparare e testare la procedura eseguire la migrazione dell'archiviazione dall'area primaria all'area di backup.
+**Procedura consigliata**: Se si usa archiviazione di Azure, preparare e testare come eseguire la migrazione dell'archiviazione dall'area primaria all'area di backup.
 
-Le applicazioni potrebbero usare archiviazione di Azure per i propri dati. Poiché le applicazioni vengono distribuite tra più cluster servizio contenitore di AZURE in aree diverse, è necessario mantenere lo spazio di archiviazione sincronizzata. Di seguito sono due modi comuni per la replica di archiviazione:
+Le applicazioni potrebbero usare archiviazione di Azure per i propri dati. Poiché le applicazioni vengono distribuite in più cluster AKS in aree diverse, è necessario sincronizzare lo spazio di archiviazione. Ecco due modi comuni per replicare l'archiviazione:
 
 * Replica asincrona basata sull'infrastruttura
 * Replica asincrona basata sull'applicazione
 
 ### <a name="infrastructure-based-asynchronous-replication"></a>Replica asincrona basata sull'infrastruttura
 
-Le applicazioni potrebbero richiedere un archivio permanente anche dopo l'eliminazione di un pod. In Kubernetes, è possibile usare volumi permanenti per rendere persistenti di archiviazione dei dati. Volumi permanenti sono montati in una macchina virtuale del nodo e quindi esposti per il numero di POD. Volumi permanenti seguono POD, anche se il numero di POD viene spostati in un nodo diverso all'interno dello stesso cluster.
+È possibile che le applicazioni richiedano una risorsa di archiviazione permanente anche dopo l'eliminazione di un pod. In Kubernetes è possibile usare i volumi permanenti per salvare in modo permanente l'archivio dati. I volumi permanenti vengono montati in una macchina virtuale del nodo e quindi esposti ai pod. I volumi permanenti seguono i pod anche se i pod vengono spostati in un altro nodo all'interno dello stesso cluster.
 
-La strategia di replica utilizzata varia a seconda della soluzione di archiviazione. Soluzioni di archiviazione comuni, ad esempio [Gluster](https://docs.gluster.org/en/latest/Administrator%20Guide/Geo%20Replication/), [Ceph](http://docs.ceph.com/docs/master/cephfs/disaster-recovery/), [torre](https://rook.io/docs/rook/master/disaster-recovery.html), e [Portworx](https://docs.portworx.com/scheduler/kubernetes/going-production-with-k8s.html#disaster-recovery-with-cloudsnaps) fornire le proprie linee guida sul ripristino di emergenza e replica.
+La strategia di replica usata dipende dalla soluzione di archiviazione. Soluzioni di archiviazione comuni come [Gluster](https://docs.gluster.org/en/latest/Administrator%20Guide/Geo%20Replication/), [Ceph](https://docs.ceph.com/docs/master/cephfs/disaster-recovery/), [Rook](https://rook.io/docs/rook/master/disaster-recovery.html)e [Portworx](https://docs.portworx.com/scheduler/kubernetes/going-production-with-k8s.html#disaster-recovery-with-cloudsnaps) forniscono indicazioni personalizzate sul ripristino di emergenza e la replica.
 
-La tipica strategia consiste nel fornire una temporizzazione comune di archiviazione in cui le applicazioni possono scrivere i propri dati. Questi dati vengono poi replicati tra le aree e sono quindi accessibili in locale.
+La strategia tipica consiste nel fornire un punto di archiviazione comune in cui le applicazioni possono scrivere i propri dati. Questi dati vengono poi replicati tra le aree e sono quindi accessibili in locale.
 
 ![Replica asincrona basata sull'infrastruttura](media/operator-best-practices-bc-dr/aks-infra-based-async-repl.png)
 
-Se si usa Azure Managed Disks, è possibile scegliere la replica e le soluzioni di ripristino di emergenza come i seguenti:
+Se si usa Managed Disks di Azure, è possibile scegliere la replica e le soluzioni di ripristino di emergenza, ad esempio:
 
 * [Velero in Azure](https://github.com/heptio/velero/blob/master/site/docs/master/azure-config.md)
 * [Azure Site Recovery](https://azure.microsoft.com/blog/asr-managed-disks-between-azure-regions/)
 
 ### <a name="application-based-asynchronous-replication"></a>Replica asincrona basata sull'applicazione
 
-Kubernetes non offre attualmente alcuna implementazione nativa per la replica asincrona basata sull'applicazione. Poiché i contenitori e Kubernetes sono a regime, qualsiasi applicazione o un linguaggio all'approccio tradizionale dovrebbe funzionare. In genere, le applicazioni stesse replicano le richieste di archiviazione, che vengono quindi scritti in un archivio dati sottostante di ogni cluster.
+Kubernetes non fornisce attualmente alcuna implementazione nativa per la replica asincrona basata sull'applicazione. Poiché i contenitori e Kubernetes sono a regime di controllo libero, qualsiasi approccio tradizionale di applicazioni o linguaggi dovrebbe funzionare. In genere, le applicazioni stesse replicano le richieste di archiviazione, che vengono quindi scritte nell'archivio dati sottostante di ogni cluster.
 
 ![Replica asincrona basata sull'applicazione](media/operator-best-practices-bc-dr/aks-app-based-async-repl.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo è incentrato sulla continuità aziendale e considerazioni sul ripristino di emergenza per i cluster AKS. Per altre informazioni sulle operazioni del cluster nel servizio contenitore di AZURE, vedere questi articoli sulle procedure consigliate:
+Questo articolo è incentrato sulle considerazioni sulla continuità aziendale e sul ripristino di emergenza per i cluster AKS. Per altre informazioni sulle operazioni del cluster in AKS, vedere questi articoli sulle procedure consigliate:
 
-* [Isolamento multi-tenancy e cluster][aks-best-practices-cluster-isolation]
-* [Funzionalità di base dell'utilità di pianificazione di Kubernetes][aks-best-practices-scheduler]
+* [Multi-tenant e isolamento del cluster][aks-best-practices-cluster-isolation]
+* [Funzionalità dell'utilità di pianificazione di Kubernetes di base][aks-best-practices-scheduler]
 
 <!-- INTERNAL LINKS -->
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md

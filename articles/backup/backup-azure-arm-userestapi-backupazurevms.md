@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: dacurwin
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 7a69fc7c9077fa10ddf808f1cd953f6739eabe20
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 701972c32f3e80682e2a20d04b02bcd555532e08
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688732"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954989"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Eseguire il backup di una macchina virtuale di Azure con Backup di Azure tramite l'API REST
 
-Questo articolo descrive come gestire i backup per una macchina virtuale di Azure con Backup di Azure tramite l'API REST. Configurare la protezione per la prima volta per una macchina virtuale di Azure precedentemente non protetta, attivare un backup su richiesta per una macchina virtuale di Azure protetta e modificare le proprietà di backup di una macchina virtuale di cui è stato eseguito il backup tramite l'API REST, come illustrato di seguito.
+Questo articolo descrive come gestire i backup per una macchina virtuale di Azure con Backup di Azure tramite l'API REST. Configurare la protezione per la prima volta per una macchina virtuale di Azure precedentemente non protetta, attivare un backup su richiesta per una macchina virtuale di Azure protetta e modificare le proprietà di backup di una macchina virtuale di cui è stato eseguito il backup tramite l'API REST, come illustrato qui.
 
 Per creare nuovi insiemi di credenziali e nuovi criteri, vedere le esercitazioni sull'API REST per [creare insiemi di credenziali](backup-azure-arm-userestapi-createorupdatevault.md) e per [creare criteri](backup-azure-arm-userestapi-createorupdatepolicy.md).
 
@@ -47,7 +47,7 @@ L'operazione di aggiornamento è un'[operazione asincrona](https://docs.microsof
 
 L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
-|Name  |Type  |DESCRIZIONE  |
+|NOME  |Type  |Descrizione  |
 |---------|---------|---------|
 |204 No Content (Nessun contenuto)     |         |  OK senza alcun contenuto restituito      |
 |202 - Accettato     |         |     Accettato    |
@@ -98,7 +98,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="selecting-the-relevant-azure-vm"></a>Selezione della macchina virtuale di Azure pertinente
 
- È possibile verificare che la memorizzazione nella cache venga eseguita [elencando tutti gli elementi da proteggere](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list) nella sottoscrizione e individuare la macchina virtuale desiderata nella risposta. [La risposta di questa operazione](#example-responses-1) dà informazioni sul modo in cui la funzionalità Servizi di ripristino identifica una macchina virtuale.  Dopo aver acquisito familiarità con il modello, è possibile ignorare questo passaggio e procedere direttamente con l'[abilitazione della protezione](#enabling-protection-for-the-azure-vm).
+ È possibile verificare che la memorizzazione nella cache venga eseguita [elencando tutti gli elementi da proteggere](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list) nella sottoscrizione e individuare la macchina virtuale desiderata nella risposta. [La risposta di questa operazione](#example-responses-1) fornisce anche informazioni sul modo in cui i servizi di ripristino identificano una macchina virtuale.  Dopo aver acquisito familiarità con il modello, è possibile ignorare questo passaggio e procedere direttamente con l'[abilitazione della protezione](#enabling-protection-for-the-azure-vm).
 
 Questa è un'operazione *GET*.
 
@@ -110,7 +110,7 @@ All'URI di *GET* sono associati tutti i parametri obbligatori. Non è necessario
 
 ##### <a name="responses-1"></a>Risposte
 
-|Name  |Type  |Descrizione  |
+|NOME  |Type  |DESCRIZIONE  |
 |---------|---------|---------|
 |200 - OK     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
@@ -186,7 +186,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 Di seguito vengono indicati i componenti del corpo della richiesta necessari per creare un elemento protetto.
 
-|NOME  |Type  |DESCRIZIONE  |
+|NOME  |Type  |Descrizione  |
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |Proprietà delle risorse ProtectedItem         |
 
@@ -214,7 +214,7 @@ La creazione di un elemento protetto è un'[operazione asincrona](https://docs.m
 
 L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
-|NOME  |Type  |Descrizione  |
+|NOME  |Type  |DESCRIZIONE  |
 |---------|---------|---------|
 |200 - OK     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
 |202 - Accettato     |         |     Accettato    |
@@ -300,7 +300,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 Di seguito vengono indicati i componenti del corpo della richiesta necessari per attivare un backup su richiesta.
 
-|Name  |Type  |DESCRIZIONE  |
+|NOME  |Type  |DESCRIZIONE  |
 |---------|---------|---------|
 |properties     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |Proprietà BackupRequestResource         |
 
@@ -325,7 +325,7 @@ L'attivazione di un backup su richiesta è un'[operazione asincrona](https://doc
 
 L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
-|Name  |Type  |Descrizione  |
+|Name  |Type  |DESCRIZIONE  |
 |---------|---------|---------|
 |202 - Accettato     |         |     Accettato    |
 
@@ -393,7 +393,7 @@ Poiché il processo di backup è un'operazione con esecuzione prolungata, ne dev
 
 ### <a name="changing-the-policy-of-protection"></a>Modifica dei criteri di protezione
 
-Per modificare i criteri con cui la macchina virtuale è protetta, è possibile usare lo stesso formato usato per [l'abilitazione della protezione](#enabling-protection-for-the-azure-vm). È sufficiente fornire il nuovo ID criteri nel [corpo della richiesta](#example-request-body) e inviare la richiesta. Per esempio: Per modificare i criteri di testVM da' DefaultPolicy ' a' ProdPolicy ', specificare l'ID ' ProdPolicy ' nel corpo della richiesta.
+Per modificare i criteri con cui la macchina virtuale è protetta, è possibile usare lo stesso formato usato per [l'abilitazione della protezione](#enabling-protection-for-the-azure-vm). È sufficiente fornire il nuovo ID criteri nel [corpo della richiesta](#example-request-body) e inviare la richiesta. Ad esempio:  Per modificare i criteri di testVM da' DefaultPolicy ' a' ProdPolicy ', specificare l'ID ' ProdPolicy ' nel corpo della richiesta.
 
 ```http
 {
@@ -445,7 +445,7 @@ L'operazione *DELETE* applicata alla protezione è un'[operazione asincrona](htt
 
 L'operazione restituisce due risposte: 202 (accettato) quando viene creata un'altra operazione e quindi 204 (nocontent) quando tale operazione viene completata.
 
-|NOME  |Type  |Descrizione  |
+|Name  |Type  |Descrizione  |
 |---------|---------|---------|
 |204 NoContent (Nessun contenuto)     |         |  Nessun contenuto restituito       |
 |202 - Accettato     |         |     Accettato    |

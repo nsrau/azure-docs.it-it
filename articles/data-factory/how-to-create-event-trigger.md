@@ -11,12 +11,12 @@ ms.date: 10/18/2018
 author: sharonlo101
 ms.author: shlo
 manager: craigg
-ms.openlocfilehash: bf4dc55d0ec17daf4c611563dd7aee3a06aa192b
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 32edacb7dd66274757359c4eb0e8c169995026ce
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384737"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019532"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Creare un trigger che esegue una pipeline in risposta a un evento
 
@@ -49,10 +49,7 @@ Questa sezione illustra come creare un trigger di evento all'interno dell'interf
 5. Selezionare l'account di archiviazione dall'elenco a discesa sottoscrizione di Azure o manualmente usando l'ID risorsa dell'account di archiviazione. Scegliere il contenitore in cui si desidera che si verifichino gli eventi. La selezione del contenitore è facoltativa, ma tenere presente che la selezione di tutti i contenitori può causare un numero elevato di eventi.
 
    > [!NOTE]
-   > Il trigger di evento supporta attualmente solo gli account di archiviazione della versione 2 (utilizzo generico).
-
-   > [!NOTE]
-   > A causa di una limitazione di griglia di eventi di Azure, Azure Data Factory supporta solo un massimo di 500 trigger di evento per account di archiviazione.
+   > Il trigger di evento supporta attualmente solo gli account di archiviazione Azure Data Lake Storage Gen2 e per utilizzo generico versione 2. A causa di una limitazione di griglia di eventi di Azure, Azure Data Factory supporta solo un massimo di 500 trigger di evento per account di archiviazione.
 
 6. Il **percorso del BLOB inizia con** e il **percorso BLOB termina con** le proprietà consente di specificare i contenitori, le cartelle e i nomi di BLOB per cui si desidera ricevere gli eventi. Per il trigger di evento è necessario definire almeno una di queste proprietà. È possibile usare svariati modelli per le due proprietà **Percorso BLOB inizia con** e **Percorso BLOB termina con**, come mostrato negli esempi più avanti in questo articolo.
 
@@ -93,7 +90,7 @@ Questa sezione contiene alcuni esempi di impostazioni di trigger basati su event
 > [!IMPORTANT]
 > È necessario includere il segmento `/blobs/` del percorso, come illustrato negli esempi seguenti, ogni volta che si specifica il contenitore e la cartella, il contenitore e il file o il contenitore, la cartella e il file. Per **blobPathBeginsWith**, l'interfaccia utente di data factory verrà `/blobs/` aggiunta automaticamente tra la cartella e il nome del contenitore nel codice JSON del trigger.
 
-| Proprietà | Esempio | Descrizione |
+| Proprietà | Esempio | DESCRIZIONE |
 |---|---|---|
 | **Il percorso del BLOB inizia con** | `/containername/` | Riceve gli eventi per qualsiasi BLOB nel contenitore. |
 | **Il percorso del BLOB inizia con** | `/containername/blobs/foldername/` | Riceve gli eventi per qualsiasi BLOB nel contenitore `containername` e nella cartella `foldername`. |

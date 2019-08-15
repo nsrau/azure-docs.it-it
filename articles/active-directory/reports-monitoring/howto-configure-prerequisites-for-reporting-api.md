@@ -3,7 +3,7 @@ title: Prerequisiti di accesso all'API di creazione report di Azure AD | Microso
 description: Informazioni sui prerequisiti di accesso all'API di creazione report di Azure AD
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ab30dfeccc4ae1c7b09a8f48846ffb9e71cfc23
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f925a86504d68fd08b83c63e4da8b37b4aa25f85
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60439091"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989909"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Prerequisiti di accesso all'API di creazione report di Azure AD
 
@@ -43,12 +43,12 @@ Per accedere ai dati di creazione dei report tramite l'API, è necessario dispor
 
 - Ruolo con autorizzazioni di lettura per la sicurezza
 
-- Amministratore della sicurezza
+- Amministratore della protezione
 
 - Amministratore globale
 
 
-## <a name="register-an-application"></a>Registrare un'applicazione
+## <a name="register-an-application"></a>Registra un'applicazione
 
 È necessario registrare un'applicazione, anche se si accede all'API di creazione dei report tramite uno script. Questo consente di avere un **ID applicazione** necessario per le chiamate di autorizzazione e consente al codice di ricevere i token.
 
@@ -62,19 +62,19 @@ Per configurare la directory per l'accesso all'API di creazione report di Azure 
 
 1. Nel [portale di Azure](https://portal.azure.com) selezionare **Azure Active Directory** nel riquadro di spostamento sinistro.
    
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
 2. Nella pagina **Azure Active Directory** selezionare **Registrazioni per l'app**.
 
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/02.png) 
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/02.png) 
 
 3. Nella pagina **Registrazioni per l'app** selezionare **Registrazione nuova applicazione**.
 
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/03.png)
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/03.png)
 
 4. Nella pagina **Crea** seguire la procedura seguente:
 
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/04.png)
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/04.png)
 
     a. Nella casella di testo **Nome** digitare `Reporting API application`.
 
@@ -89,13 +89,13 @@ Per configurare la directory per l'accesso all'API di creazione report di Azure 
 
 A seconda delle API a cui si desidera accedere, è necessario concedere all'app le autorizzazioni seguenti:  
 
-| API | Autorizzazione |
+| API | Autorizzazioni |
 | --- | --- |
 | Microsoft Azure Active Directory | Leggi i dati della directory |
-| Microsoft Graph | Leggere tutti i dati dei log di controllo |
+| Microsoft Graph | Lettura di tutti i dati del log di controllo |
 
 
-![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/36.png)
+![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/36.png)
 
 Nella sezione seguente viene elencata la procedura per entrambe le API. Se non si desidera accedere a una delle API, è possibile ignorare le procedure relative.
 
@@ -103,45 +103,45 @@ Nella sezione seguente viene elencata la procedura per entrambe le API. Se non s
 
 1. Selezionare l'applicazione nella pagina **Registrazioni per l'app** e selezionare **impostazioni**. 
 
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/05.png)
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/05.png)
 
 2. Nella pagina **Impostazioni** selezionare **Autorizzazioni necessarie**. 
 
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/06.png)
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/06.png)
 
 3. Nella pagina **Autorizzazioni necessarie** fare clic su Windows **Azure Active Directory** nell'elenco delle **API**. 
 
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/07.png)
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/07.png)
 
 4. Nella pagina **Abilita l'accesso**, selezionare **Lettura dati directory** e deselezionare **Accedi e leggi il profilo di un altro utente**. 
 
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/08.png)
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/08.png)
 
 5. Nel barra degli strumenti in alto fare clic su **Salva**.
 
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/15.png)
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/15.png)
 
 6. Nella pagina **Autorizzazioni necessarie** fare clic su **Aggiungi** sulla barra degli strumenti in alto.
 
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/32.png)
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/32.png)
 
 7. Nella pagina **Aggiungi accesso all'API** fare clic su **Selezionare un'API**.
 
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/31.png)
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/31.png)
 
 8. Nella pagina **Selezionare un'API** fare clic su **Microsoft Graph** e quindi fare clic su **Seleziona**.
 
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/33.png)
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/33.png)
 
 9. Nella pagina **Abilita l'accesso**, selezionare **Leggere tutti i dati del log di controllo**, quindi fare clic su **Seleziona**.  
 
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/34.png)
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/34.png)
 
 10. Nella pagina **Aggiungi accesso all'API** fare clic su **Fatto**.  
 
 11. Nella pagina **Autorizzazioni necessarie**, sulla barra degli strumenti in alto. fare clic su **Concedi autorizzazioni** e quindi su **Sì**.
 
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/17.png)
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/17.png)
 
 
 ## <a name="gather-configuration-settings"></a>Ottenere le impostazioni di configurazione 
@@ -160,11 +160,11 @@ Questi valori sono necessari quando si configurano le chiamate all'API di creazi
 
 1. Nel [portale di Azure](https://portal.azure.com) selezionare **Azure Active Directory** nel riquadro di spostamento a sinistra.
    
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
 2. Nella pagina **Azure Active Directory** selezionare **Nomi di dominio personalizzati**.
 
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/09.png) 
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/09.png) 
 
 3. Copiare il nome del dominio dall'elenco dei domini.
 
@@ -175,13 +175,13 @@ Questi valori sono necessari quando si configurano le chiamate all'API di creazi
 
 1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Azure Active Directory** nel riquadro di spostamento sinistro.
    
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
 2. Selezionare l'applicazione nella pagina **Registrazioni per l'app**.
 
 3. Nella pagina dell'applicazione, passare a **ID applicazione** e selezionare **Fare clic per copiare**.
 
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/11.png) 
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/11.png) 
 
 
 ### <a name="get-your-applications-client-secret"></a>Ottenere il segreto client dell'applicazione
@@ -191,21 +191,21 @@ Per ottenere il segreto client dell'applicazione, è necessario creare una nuova
 
 1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Azure Active Directory** nel riquadro di spostamento sinistro.
    
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
 2.  Selezionare l'applicazione nella pagina **Registrazioni per l'app**.
 
 3. Nella pagina dell'applicazione selezionare **Impostazioni** nella barra degli strumenti nella parte superiore. 
 
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/05.png)
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/05.png)
 
 4. Nella pagina **Impostazioni** fare clic su **Chiavi** nella sezione **Accesso all'API**. 
 
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/12.png)
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/12.png)
 
 5. Nel pagina **Chiavi** seguire questa procedura:
 
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/14.png)
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/14.png)
 
     a. Nella casella di testo **Descrizione** digitare `Reporting API`.
 

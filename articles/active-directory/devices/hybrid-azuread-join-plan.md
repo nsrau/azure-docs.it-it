@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49f8d0e418f43648665b95f5bf1f672e9f9dae28
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: cad2568702909274030d3c7c6469a7e4cbf670c4
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779464"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989266"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure Active Directory ibrido
 
@@ -101,7 +101,7 @@ Quando tutti i prerequisiti sono soddisfatti, i dispositivi Windows verranno reg
 
 ## <a name="select-your-scenario-based-on-your-identity-infrastructure"></a>Selezionare lo scenario in base all'infrastruttura di identità
 
-Azure AD ibrido join funziona con gli ambienti sia, gestiti che federati.  
+Azure AD ibrido join funziona sia con gli ambienti gestiti che federati, a seconda che l'UPN sia instradabile o non instradabile. Vedere la parte inferiore della pagina per la tabella negli scenari supportati.  
 
 ### <a name="managed-environment"></a>Ambiente gestito
 
@@ -111,10 +111,10 @@ Questi scenari non richiedono la configurazione di un server federativo per l'au
 
 ### <a name="federated-environment"></a>Ambiente federato
 
-Un ambiente federato deve disporre di un provider di identità che supporta i requisiti seguenti. Se si dispone di un ambiente federato che usa Active Directory Federation Services (AD FS), i requisiti seguenti sono già supportati.
+Un ambiente federato deve includere un provider di identità che supporta i requisiti riportati di seguito. Se l'ambiente federato usa Active Directory Federation Services (AD FS), i requisiti seguenti sono già supportati.
 
-- **Attestazione WIAORMULTIAUTHN alla:** Questa attestazione è necessaria per eseguire un join ibrido Azure AD per i dispositivi Windows di livello inferiore.
-- **Protocollo WS-Trust:** Questo protocollo è necessario per autenticare i dispositivi Windows Current Hybrid Azure AD aggiunti con Azure AD. Quando si utilizza AD FS, è necessario abilitare gli endpoint WS-Trust seguenti:`/adfs/services/trust/2005/windowstransport`  
+- **Attestazione WIAORMULTIAUTHN:** questa attestazione è necessaria per eseguire l'aggiunta ad Azure AD ibrido per dispositivi Windows di livello inferiore.
+- **Protocollo WS-Trust:** questo protocollo è necessario per l'autenticazione con Azure AD degli attuali dispositivi Windows aggiunti ad Azure AD ibrido. Quando si usa AD FS, è necessario abilitare gli endpoint WS-Trust seguenti: `/adfs/services/trust/2005/windowstransport`  
 `/adfs/services/trust/13/windowstransport`  
   `/adfs/services/trust/2005/usernamemixed` 
   `/adfs/services/trust/13/usernamemixed`
@@ -122,7 +122,7 @@ Un ambiente federato deve disporre di un provider di identità che supporta i re
   `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> **ADFS/Services/Trust/2005/windowstransport** o **ADFS/Services/Trust/13/windowstransport** devono essere abilitati solo come endpoint con rete Intranet e non devono essere esposti come endpoint con rete Extranet tramite il proxy applicazione Web. Per ulteriori informazioni su come disabilitare gli endpoint di WIndows WS-Trust, vedere [disabilitare gli endpoint di Windows WS-Trust sul proxy](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). È possibile verificare gli endpoint abilitati nella console di gestione di AD FS, in **Servizio** > **Endpoint**.
+> Sia **adfs/services/trust/2005/windowstransport** che **adfs/services/trust/13/windowstransport** devono essere abilitati solo come endpoint per Intranet e NON devono essere esposti come endpoint per Extranet tramite Proxy applicazione Web. Per altre informazioni su come disabilitare gli endpoint Windows WS-Trust, vedere [Disabilitare gli endpoint Windows WS-Trust sul proxy](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). È possibile verificare gli endpoint abilitati nella console di gestione di AD FS, in **Servizio** > **Endpoint**.
 
 > [!NOTE]
 > Azure AD non supporta certificati o smart card nei domini gestiti.
@@ -143,7 +143,7 @@ I nomi dell'entità utente di AD locale a volte possono essere diversi da quelli
 
 La tabella seguente contiene informazioni sul supporto per questi nomi dell'entità utente di AD locale nell'aggiunta ad Azure AD ibrido di Windows 10
 
-| Tipo di nome dell'entità utente di AD locale | Tipo di dominio | Versione di Windows 10 | DESCRIZIONE |
+| Tipo di nome dell'entità utente di AD locale | Tipo di dominio | Versione di Windows 10 | Descrizione |
 | ----- | ----- | ----- | ----- |
 | Instradabile | Federato | Dalla versione 1703 | Disponibile a livello generale |
 | Non instradabile | Federato | Dalla versione 1803 | Disponibile a livello generale |

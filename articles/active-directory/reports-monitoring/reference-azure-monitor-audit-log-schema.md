@@ -1,9 +1,9 @@
 ---
-title: Interpretare lo schema di log di controllo di Azure Active Directory in Monitoraggio di Azure | Microsoft Docs
-description: Descrivere lo schema di log di controllo di Azure AD per l'uso in Monitoraggio di Azure
+title: Interpretare lo schema del registro di controllo Azure Active Directory in monitoraggio di Azure | Microsoft Docs
+description: Descrizione dello schema del log di controllo Azure AD per l'uso in monitoraggio di Azure
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7f75af14e388626a9ebbb54d43079f30dcfdd98a
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60437074"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987948"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpretare lo schema dei log di controllo di Azure AD in Monitoraggio di Azure (anteprima)
 
@@ -167,7 +167,7 @@ Questo articolo illustra lo schema del log di controllo di Azure Active Director
 
 <br>
 
-| Nome proprietà | Descrizione |
+| Nome proprietà | DESCRIZIONE |
 |---------------|-------------|
 | AuditEventCategory | Tipo di evento di controllo. Può essere *Gestione utenti*, *Gestione applicazioni* o un altro tipo.|
 | Tipo di identità | Il tipo può essere *Applicazione* o *Utente*. |

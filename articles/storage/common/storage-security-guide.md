@@ -9,24 +9,24 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 3d5bfa2426d58fa5a09d2203272536eec7fa9c55
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 548f37d6a0d4390fb98ceaee7b59314400debb38
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65789950"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986559"
 ---
 # <a name="azure-storage-security-guide"></a>Guida alla sicurezza di Archiviazione di Azure
 
 Archiviazione di Azure fornisce un set completo di funzionalità di sicurezza, che consentono agli sviluppatori di creare applicazioni sicure:
 
-- Tutti i dati scritti in archiviazione di Azure (inclusi i metadati) vengono crittografati automaticamente usando [Strumentazione gestione Windows (SSE, Storage Service Encryption)](storage-service-encryption.md). Per altre informazioni, vedere [Announcing Default Encryption for Azure Blobs, Files, Table and Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/) (Annuncio della crittografia predefinita per BLOB, file, tabelle e archiviazione code di Azure).
+- Tutti i dati (inclusi i metadati) scritti in archiviazione di Azure vengono crittografati automaticamente usando [crittografia del servizio di archiviazione (SSE)](storage-service-encryption.md). Per altre informazioni, vedere [Announcing Default Encryption for Azure Blobs, Files, Table and Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/) (Annuncio della crittografia predefinita per BLOB, file, tabelle e archiviazione code di Azure).
 - Azure Active Directory (Azure AD) e il controllo degli accessi in base al ruolo sono supportati per Archiviazione di Azure sia per le operazioni di gestione delle risorse che per le operazioni sui dati, come illustrato di seguito:   
     - È possibile assegnare ruoli Controllo degli accessi in base al ruolo con ambito impostato sull'account di archiviazione alle entità di sicurezza e usare Azure AD per autorizzare le operazioni di gestione delle risorse, ad esempio la gestione delle chiavi.
-    - Integrazione di Azure AD è supportata per le operazioni di dati blob e coda. È possibile assegnare ruoli Controllo degli accessi in base al ruolo con ambito impostato su una sottoscrizione, un gruppo di risorse, un account di archiviazione o un singolo contenitore o coda a un'entità di sicurezza o un'identità gestita per le risorse di Azure. Per altre informazioni, vedere [Autenticare l'accesso ad Archiviazione di Azure tramite Azure Active Directory](storage-auth-aad.md).   
+    - Azure AD integrazione è supportata per le operazioni sui dati di BLOB e di Accodamento. È possibile assegnare ruoli Controllo degli accessi in base al ruolo con ambito impostato su una sottoscrizione, un gruppo di risorse, un account di archiviazione o un singolo contenitore o coda a un'entità di sicurezza o un'identità gestita per le risorse di Azure. Per altre informazioni, vedere [Autenticare l'accesso ad Archiviazione di Azure tramite Azure Active Directory](storage-auth-aad.md).   
 - È possibile proteggere i dati in transito tra un'applicazione e Azure usando la [crittografia lato client](../storage-client-side-encryption.md), HTTPS o SMB 3.0.  
-- I dischi dati e del sistema operativo usati dalle macchine virtuali di Azure possono essere crittografati con [Crittografia dischi di Azure](../../security/azure-security-disk-encryption.md). 
-- È possibile concedere l'accesso delegato agli oggetti dati nell'archiviazione di Azure usando [firme di accesso condiviso](../storage-dotnet-shared-access-signature-part-1.md).
+- I dischi dati e del sistema operativo usati dalle macchine virtuali di Azure possono essere crittografati con [Crittografia dischi di Azure](../../security/azure-security-disk-encryption.md).
+- È possibile concedere l'accesso delegato agli oggetti dati in archiviazione di Azure usando una firma di accesso condiviso. Per altre informazioni, vedere [concedere l'accesso limitato alle risorse di archiviazione di Azure usando le firme di accesso condiviso (SAS)](storage-sas-overview.md).
 
 Questo articolo offre una panoramica di queste funzionalità di sicurezza che possono essere usate con Archiviazione di Azure. Sono disponibili i collegamenti ad articoli contenenti informazioni dettagliate per ogni funzionalità, per poter approfondire facilmente i concetti per ogni argomento.
 
@@ -156,7 +156,7 @@ La sicurezza del piano dati riguarda i metodi usati per proteggere gli oggetti d
 
 Sono disponibili tre opzioni per autorizzare l'accesso agli oggetti dati in Archiviazione di Azure, tra cui:
 
-- Uso di Azure AD per autorizzare l'accesso a contenitori e le code. Azure AD offre alcuni vantaggi rispetto ad altri approcci all'autorizzazione, tra cui l'eliminazione della necessità di archiviare i segreti nel codice. Per altre informazioni, vedere [Autenticare l'accesso ad Archiviazione di Azure tramite Azure Active Directory](storage-auth-aad.md). 
+- Uso di Azure AD per autorizzare l'accesso a contenitori e code. Azure AD offre alcuni vantaggi rispetto ad altri approcci all'autorizzazione, tra cui l'eliminazione della necessità di archiviare i segreti nel codice. Per altre informazioni, vedere [Autenticare l'accesso ad Archiviazione di Azure tramite Azure Active Directory](storage-auth-aad.md). 
 - Uso delle chiavi dell'account di archiviazione per autorizzare l'accesso tramite chiave condivisa. L'autorizzazione tramite chiave condivisa richiede l'archiviazione delle chiavi dell'account di archiviazione nell'applicazione, quindi Microsoft consiglia di usare Azure AD, quando possibile.
 - Uso di firme di accesso condiviso per concedere autorizzazioni controllate per oggetti dati specifici per un determinato periodo di tempo.
 
@@ -239,11 +239,6 @@ Per informazioni più dettagliate sull'uso di firme di accesso condiviso e crite
   * [Creazione di una firma di accesso condiviso del servizio](https://msdn.microsoft.com/library/dn140255.aspx)
   * [Creazione di una firma di accesso condiviso dell'account](https://msdn.microsoft.com/library/mt584140.aspx)
 
-* Si tratta di un'esercitazione per l'uso della libreria client .NET per creare firme di accesso condiviso e criteri di accesso archiviati.
-  * [Uso delle firme di accesso condiviso](../storage-dotnet-shared-access-signature-part-1.md)
-
-    Questo articolo contiene una spiegazione del modello di firma di accesso condiviso, esempi di firme di accesso condiviso e suggerimenti per la procedura consigliata da usare per le firme di accesso condiviso. È descritta anche la revoca dell'autorizzazione concessa.
-
 * Authentication
 
   * [Autenticazione per i servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx)
@@ -302,7 +297,7 @@ Per la crittografia stessa, è possibile generare e gestire chiavi di crittograf
   Questo articolo fornisce una spiegazione della crittografia lato client, con esempi d'uso della libreria client di archiviazione per crittografare e decrittografare le risorse dai quattro servizi di archiviazione. Illustra anche l'insieme di credenziali delle chiavi di Azure.
 
 ### <a name="using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines"></a>Uso di Crittografia dischi di Azure per crittografare i dischi usati dalle macchine virtuali
-Crittografia dischi di Azure consente di crittografare i dischi del sistema operativo e dischi dati usati da una macchina virtuale IaaS. Per Windows, le unità vengono crittografate mediante la tecnologia di crittografia BitLocker standard del settore. Per Linux, i dischi vengono crittografati mediante la tecnologia DM-Crypt, integrata nell'insieme di credenziali delle chiavi per consentire il controllo e la gestione delle chiavi di crittografia del disco.
+Crittografia dischi di Azure consente di crittografare i dischi del sistema operativo e i dischi dati usati da una macchina virtuale IaaS. Per Windows, le unità vengono crittografate mediante la tecnologia di crittografia BitLocker standard del settore. Per Linux, i dischi vengono crittografati mediante la tecnologia DM-Crypt, integrata nell'insieme di credenziali delle chiavi per consentire il controllo e la gestione delle chiavi di crittografia del disco.
 
 La soluzione supporta gli scenari seguenti per le macchine virtuali IaaS, se abilitati in Microsoft Azure:
 

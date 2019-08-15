@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: gregman
-ms.openlocfilehash: 8275bceca1a18f49eb7eeece66a3866d77c47635
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: f4bab6ab837b746c6a569cc6de95a95023bf83f4
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67796169"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986996"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Eseguire Azure IoT Edge in macchine virtuali Ubuntu
 
@@ -41,7 +41,7 @@ Al primo avvio, la macchina virtuale con Azure IoT Edge on Ubuntu preinstalla la
     1.  Attendere qualche minuto e dovrebbe venire visualizzato un messaggio di conferma che indica che la stringa di connessione è stata impostata correttamente.
 
 
-## <a name="deploy-from-the-azure-portal"></a>Distribuzione dal portale di Azure
+## <a name="deploy-from-the-azure-portal"></a>Eseguire la distribuzione dalla portale di Azure
 Dal portale di Azure, cercare "Azure IoT Edge" e selezionare **Ubuntu Server 16.04 LTS + Azure IoT Edge runtime** (Server Ubuntu 16.04 LTS + runtime Azure IoT Edge) per avviare il flusso di lavoro di creazione della macchina virtuale. Completare quindi i passaggi 3 e 4 nella sezione "Eseguire la distribuzione da Azure Marketplace" precedente.
 
 ## <a name="deploy-from-azure-cli"></a>Eseguire la distribuzione dall'interfaccia della riga di comando di Azure
@@ -59,9 +59,9 @@ Dal portale di Azure, cercare "Azure IoT Edge" e selezionare **Ubuntu Server 16.
       az account list --output table
       ```
     
-   1. Copiare il campo ID sottoscrizione per la sottoscrizione da usare.
+   1. Copiare il campo SubscriptionID per la sottoscrizione che si vuole usare.
 
-   1. Impostare la sottoscrizione di lavoro con l'ID appena copiata:
+   1. Impostare la sottoscrizione funzionante con l'ID appena copiato:
     
       ```azurecli-interactive 
       az account set -s {SubscriptionId}
@@ -73,7 +73,7 @@ Dal portale di Azure, cercare "Azure IoT Edge" e selezionare **Ubuntu Server 16.
    az group create --name IoTEdgeResources --location westus2
    ```
 
-1. Accettare le condizioni d'uso per la macchina virtuale. Se si desidera esaminare le condizioni prima di tutto, seguire i passaggi descritti in [Distribuisci da Azure Marketplace](#deploy-from-the-azure-marketplace).
+1. Accettare le condizioni per l'utilizzo della macchina virtuale. Per esaminare prima i termini, seguire la procedura descritta in [distribuire da Azure Marketplace](#deploy-from-the-azure-marketplace).
 
    ```azurecli-interactive
    az vm image accept-terms --urn microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest
@@ -98,6 +98,8 @@ Se si desidera connettersi tramite SSH a questa macchina virtuale al termine del
 
 Dopo aver eseguito il provisioning del dispositivo IoT Edge con il runtime installato, è possibile [distribuire moduli IoT Edge](how-to-deploy-modules-portal.md).
 
-Se si sono verificati problemi con il runtime di IoT Edge correttamente l'installazione, consultare il [risoluzione dei problemi](troubleshoot.md) pagina.
+Se si verificano problemi con il runtime di IoT Edge installato correttamente, consultare la pagina [risoluzione dei problemi](troubleshoot.md) .
 
 Per aggiornare un'installazione esistente alla versione più recente di IoT Edge, vedere [Aggiornare il daemon di sicurezza e il runtime di IoT Edge](how-to-update-iot-edge.md).
+
+Per aprire le porte per accedere alla macchina virtuale tramite SSH o altre connessioni in ingresso, fare riferimento alla documentazione della macchina virtuale di Azure per l' [apertura di porte ed endpoint a una VM Linux](../virtual-machines/linux/nsg-quickstart.md)

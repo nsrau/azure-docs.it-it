@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 435ad986a9f0b96d42c88d450f40e5900ad33b7c
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 06936a196813dacfc1fc9d02945bee4119b7eea8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653258"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927504"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Domande frequenti su Ancoraggi nello spazio di Azure
 
@@ -121,10 +121,6 @@ Iniziare a [sviluppare un'app qui](index.yml).
 **D: Funziona con Unreal?**
 
 **R:** Il supporto per Unreal verrà considerato in futuro.
-
-**D: Funziona con Xamarin?**
-
-**R:** Il supporto per Xamarin verrà considerato in futuro.
 
 **D: Quali porte e protocolli vengono utilizzati da Ancoraggi nello spazio di Azure?**
 

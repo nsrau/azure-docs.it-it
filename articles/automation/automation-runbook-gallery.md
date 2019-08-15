@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5ef739a7053fffdd45c6d5e144ae736429597a4f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 5daa1cf04e04507174fa480c785bd15b656541a1
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850485"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019096"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Raccolte di runbook e moduli per l'automazione di Azure
 
@@ -99,6 +99,15 @@ I runbook di Python sono disponibili nella [raccolta di Script Center](https://g
 ## <a name="requesting-a-runbook-or-module"></a>Richiesta di un runbook o un modulo
 
 È possibile inviare richieste a [User Voice](https://feedback.azure.com/forums/246290-azure-automation/).  Se è necessario supporto per la scrittura di un runbook o per inviare domande relative a PowerShell, inserire una domanda nel [forum](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
+
+## <a name="common-solutions-available-in-the-runbook-gallery"></a>Soluzioni comuni disponibili nella raccolta di Runbook
+
+L'elenco seguente contiene alcuni manuali operativi che forniscono soluzioni agli scenari comuni. Per un elenco completo dei manuali operativi creati dal team di automazione di Azure, vedere [profilo AzureAutomationTeam](https://www.powershellgallery.com/profiles/AzureAutomationTeam).
+
+* [Update-ModulesInAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/) : importa la versione più recente in PowerShell Gallery di tutti i moduli in un account di automazione.
+* [Enable-AzureDiagnostics](https://www.powershellgallery.com/packages/Enable-AzureDiagnostics/) : questo script configura Diagnostica di Azure e log Analytics per ricevere i log di automazione di Azure contenenti lo stato del processo e i flussi del processo.
+* [Copy-ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemFromAzureVM/) : questo runbook copia un file remoto da una macchina virtuale di Windows Azure.
+* [Copy-ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemToAzureVM/) : questo runbook copia un file locale in una macchina virtuale di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

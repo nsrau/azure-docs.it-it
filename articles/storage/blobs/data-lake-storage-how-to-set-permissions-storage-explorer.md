@@ -1,20 +1,19 @@
 ---
 title: Impostare le autorizzazioni per Data Lake Storage Gen2 con Azure Storage Explorer
 description: Questa procedura descrive come impostare le autorizzazioni con Azure Storage Explorer per i file e le directory all'interno di account di archiviazione con supporto di Azure Data Lake Storage Gen2.
-services: storage
 author: normesta
-ms.custom: mvc
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: normesta
-ms.openlocfilehash: 5f0211765c96cad668abaad7d42da87ec88298c3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.reviewer: stewu
+ms.openlocfilehash: 530e37400881ace2de603aed6875ed236e45f2c7
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939318"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847415"
 ---
 # <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Impostare autorizzazioni a livello di file e directory usando Azure Storage Explorer con Azure Data Lake Storage Gen2
 
@@ -43,7 +42,7 @@ Per aggiungere un nuovo utente o gruppo all'elenco di controllo di accesso, sele
 
 Immettere la voce corrispondente di Azure Active Directory (AAD) che si desidera aggiungere all'elenco e quindi selezionare **Aggiungi**.
 
-L'utente o il gruppo verranno visualizzati nel campo **Utenti e gruppi:**, che consente di iniziare a gestire le relative autorizzazioni.
+L'utente o il gruppo verranno visualizzati nel campo **Utenti e gruppi:** , che consente di iniziare a gestire le relative autorizzazioni.
 
 > [!NOTE]
 > È una procedura consigliata per creare un gruppo di sicurezza in Azure Active Directory e gestire le autorizzazioni per il gruppo anziché per i singoli utenti. Per informazioni dettagliate su questa procedura consigliata, nonché per altre procedure consigliate, consultare [procedure consigliate per Data Lake Storage Gen2](data-lake-storage-best-practices.md).

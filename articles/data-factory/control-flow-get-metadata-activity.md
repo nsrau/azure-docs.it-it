@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: b819a990b9f607aaf70bf2e16a5857de3f7306cc
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 320e92e45f319e394b5a38b3f1e8ef3f314920b8
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827489"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966339"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Attività Get Metadata in Azure Data Factory
 
@@ -71,7 +71,7 @@ L'attività GetMetadata accetta un set di dati come input obbligatorio e restitu
 
 Nell'elenco dei campi attività GetMetadata da recuperare è possono specificare i tipi di metadati seguenti:
 
-| Tipo di metadati | DESCRIZIONE |
+| Tipo di metadati | Descrizione |
 |:--- |:--- |
 | itemName | Nome del file o della cartella. |
 | itemType | Tipo di file o di cartella. Il valore di output è `File` o `Folder`. |
@@ -138,8 +138,8 @@ Proprietà | Descrizione | Obbligatoria
 -------- | ----------- | --------
 fieldList | Elenca i tipi di informazioni dei metadati necessarie. Vedere i dettagli nella sezione [Opzioni dei metadati](#metadata-options) sui metadati supportati. | Sì 
 dataset | Set di dati di riferimento la cui attività dei metadati deve essere recuperata dall'attività GetMetadata. Vedere la sezione relativa alle [funzionalità supportate](#supported-capabilities) sui connettori supportati e fare riferimento all'argomento sui connettori nei dettagli sulla sintassi del set di dati. | Yes
-formatSettings | Applicare quando si usa il tipo di formato DataSet (parquet, DelimitedText). | No
-storeSettings | Applicare quando si usa il tipo di formato DataSet (parquet, DelimitedText). | No
+formatSettings | Applicare quando si usa il tipo di formato DataSet. | No
+storeSettings | Applicare quando si usa il tipo di formato DataSet. | No
 
 ## <a name="sample-output"></a>Esempio di output
 

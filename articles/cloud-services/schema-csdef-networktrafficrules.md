@@ -10,15 +10,15 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 351b369f-365e-46c1-82ce-03fc3655cc88
 caps.latest.revision: 17
-author: jpconnock
-ms.author: jeconnoc
-manager: timlt
-ms.openlocfilehash: 8925943b0a5d151d55adedcfe3f01b5a14c63c1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+author: georgewallace
+ms.author: gwallace
+manager: gwallace
+ms.openlocfilehash: e99b9f0f601841fe6ff32eba0a43bfafd652e941
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60613892"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945940"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Schema NetworkTrafficRules di definizione di Servizi cloud di Azure
 Il nodo `NetworkTrafficRules` è un elemento facoltativo nel file di definizione del servizio che specifica come i ruoli comunicano tra loro. Impone un limite ai ruoli che possono accedere agli endpoint interni del ruolo specifico. `NetworkTrafficRules` non è un elemento autonomo. Viene combinato con due o più ruoli Web nel file di definizione del servizio.
@@ -94,7 +94,7 @@ L'elemento `WhenSource` descrive una raccolta di ruoli che possono comunicare co
 ##  <a name="FromRole"></a> Elemento FromRole
 L'elemento `FromRole` specifica i ruoli che possono comunicare con gli endpoint definiti nel nodo `Destinations`. È possibile specificare più elementi `FromRole` se sono presenti più ruoli in grado di comunicare con gli endpoint.
 
-| Attributo  | Type     | Descrizione |
+| Attributo  | Type     | DESCRIZIONE |
 | ---------- | -------- | ----------- |
 | `roleName` | `string` | Richiesto. Il nome del ruolo da cui consentire la comunicazione.|
 

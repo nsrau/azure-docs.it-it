@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
-ms.openlocfilehash: 6557649eb1b97ad4d88876906737f8249e18b958
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2877fae66584ec24fb6e62b20d66ded36157b824
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399796"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990344"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>L'attivazione di Windows ha esito negativo in uno scenario di tunneling forzato
 
@@ -52,6 +52,9 @@ Per aggiungere la route personalizzata, seguire questa procedura:
 ### <a name="for-resource-manager-vms"></a>Per le macchine virtuali di Resource Manager
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+
+> [!NOTE] 
+> L'attivazione usa indirizzi IP pubblici e sarà interessata da uno SKU standard Load Balancer la configurazione. Per informazioni sui requisiti, vedere attentamente le [connessioni in uscita in Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) .
 
 1. Aprire Azure PowerShell e [accedere alla propria sottoscrizione di Azure](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 2. Eseguire i comandi seguenti:

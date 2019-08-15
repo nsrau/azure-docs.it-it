@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: ae8b2bb7cce545ab9c0aa0c9d4d682089cc482ab
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a8265496c475566ec7a87a19eab6d975838e9da4
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827474"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966397"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Attività di copia in Azure Data Factory
 
@@ -33,7 +33,7 @@ In Azure Data Factory è possibile usare l'attività di copia per copiare i dati
 
 L'attività di copia viene eseguita in un [runtime di integrazione](concepts-integration-runtime.md). Per diversi scenari di copia dei dati, è possibile sfruttare diverse versioni di Integration Runtime:
 
-* Quando si copiano i dati tra archivi di dati accessibili pubblicamente, l'attività di copia può essere migliorata con il **runtime di integrazione di Azure** che è sicuro, affidabile, scalabile e [disponibile a livello globale](concepts-integration-runtime.md#integration-runtime-location).
+* Quando si copiano dati tra archivi dati accessibili pubblicamente tramite Internet da qualsiasi IP, l'attività di copia può essere abilitata da **Azure Integration Runtime**, che è sicura, affidabile, scalabile e [disponibile a livello globale](concepts-integration-runtime.md#integration-runtime-location).
 * Quando si copiano i dati da/a archivi di dati in locale o in una rete con il controllo di accesso (ad esempio, rete virtuale di Azure), è necessario configurare un **runtime di integrazione self-hosted** per migliorare la copia dei dati.
 
 Integration Runtime deve essere associato a ogni archivio dati di origine e sink. Informazioni su come l'attività di copia [determina quale runtime di integrazione usare](concepts-integration-runtime.md#determining-which-ir-to-use).
@@ -193,7 +193,7 @@ I dettagli dell'esecuzione dell'attività di copia e le caratteristiche delle pr
 | usedDataIntegrationUnits | Le unità di integrazione dati effettive durante la copia. | Valore Int32 |
 | usedParallelCopies | Proprietà parallelCopies effettiva durante la copia. | Valore Int32 |
 | redirectRowPath | Percorso del log delle righe incompatibili ignorate nel contenitore di archiviazione BLOB configurato in "redirectIncompatibleRowSettings". Vedere l'esempio seguente. | Testo (stringa) |
-| executionDetails | Maggiori dettagli sulle fasi a cui viene sottoposta l'attività di copia e sui passaggi, sulla durata, sulle configurazioni usate e così via. Non è consigliabile analizzare questa sezione, perché può cambiare.<br/><br/>ADF riporta anche le durate dettagliate (in secondi) dedicate ai rispettivi `detailedDurations`passaggi in:<br/>- **Durata** dell'Accodamento (`queuingDuration`): Tempo fino a quando l'attività di copia non viene effettivamente avviata in Integration Runtime. Se si usa il runtime di integrazione self-hosted e questo valore è di grandi dimensioni, suggerire di controllare la capacità e l'utilizzo di IR e aumentare o ridurre le prestazioni in base al carico di lavoro. <br/>- **Durata dello script di pre-copia** (`preCopyScriptDuration`): Tempo impiegato per l'esecuzione dello script di pre-copia nell'archivio dati sink. Applicare quando si configura lo script di pre-copia. <br/>- **Time-to-first-byte** (`timeToFirstByte`): Tempo durante il quale il runtime di integrazione riceve il primo byte dall'archivio dati di origine. Si applicano a un'origine non basata su file. Se questo valore è grande, suggerire di controllare e ottimizzare la query o il server.<br/>- **Durata trasferimento** (`transferDuration`): Tempo durante il quale Integration Runtime trasferisce tutti i dati dall'origine al sink dopo aver ricevuto il primo byte. | Array |
+| executionDetails | Maggiori dettagli sulle fasi a cui viene sottoposta l'attività di copia e sui passaggi, sulla durata, sulle configurazioni usate e così via. Non è consigliabile analizzare questa sezione, perché può cambiare.<br/><br/>ADF riporta anche le durate dettagliate (in secondi) dedicate ai rispettivi `detailedDurations`passaggi in. Le durate di questi passaggi sono esclusive e vengono visualizzate solo quelle che si applicano all'esecuzione dell'attività di copia specificata:<br/>- **Durata** dell'Accodamento (`queuingDuration`): Tempo trascorso fino a quando l'attività di copia non inizia effettivamente sul runtime di integrazione. Se si usa il runtime di integrazione self-hosted e questo valore è di grandi dimensioni, suggerire di controllare la capacità e l'utilizzo di IR e aumentare o ridurre le prestazioni in base al carico di lavoro. <br/>- **Durata dello script di pre-copia** (`preCopyScriptDuration`): Tempo trascorso tra l'attività di copia a partire da IR e l'attività di copia che termina l'esecuzione dello script di pre-copia nell'archivio dati sink. Applicare quando si configura lo script di pre-copia. <br/>- **Time-to-first-byte** (`timeToFirstByte`): Tempo trascorso tra la fine del passaggio precedente e l'IR che riceve il primo byte dall'archivio dati di origine. Si applicano a un'origine non basata su file. Se questo valore è grande, suggerire di controllare e ottimizzare la query o il server.<br/>- **Durata trasferimento** (`transferDuration`): Il tempo trascorso tra la fine del passaggio precedente e l'IR che trasferisce tutti i dati dall'origine al sink. | Array |
 | perfRecommendation | Copia suggerimenti per l'ottimizzazione delle prestazioni. Per informazioni dettagliate, vedere la sezione [prestazioni e ottimizzazione](#performance-and-tuning) . | Array |
 
 ```json

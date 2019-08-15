@@ -7,12 +7,12 @@ ms.date: 1/31/2017
 ms.topic: article
 ms.service: azure
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
-ms.openlocfilehash: d98d0637c6d520193b11f4267c59016772ef063a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3cf17f6e391608af9d17591a81c579a1db779a6a
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60809927"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967798"
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>Controllo degli accessi in base al ruolo di Azure per controllare i diritti di accesso e gestire le richieste di supporto
 
@@ -20,7 +20,7 @@ Il [Controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.co
 La creazione di richieste di supporto nel portale di Azure, [portal.azure.com](https://portal.azure.com), usa il modello di Controllo degli accessi in base al ruolo per definire chi può creare e gestire le richieste di supporto.
 L'accesso viene concesso assegnando ruoli di Controllo degli accessi in base al ruolo appropriati a utenti, gruppi e applicazioni in un ambito specifico: una sottoscrizione, un gruppo di risorse o una risorsa.
 
-Esaminiamo un esempio: Come un proprietario del gruppo di risorse con autorizzazioni di lettura nell'ambito della sottoscrizione, è possibile gestire tutte le risorse nel gruppo di risorse, ad esempio siti Web, macchine virtuali e subnet.
+Di seguito viene riportato un esempio: In qualità di proprietario del gruppo di risorse con autorizzazioni di lettura nell'ambito della sottoscrizione, è possibile gestire tutte le risorse nel gruppo di risorse, ad esempio siti Web, macchine virtuali e subnet.
 Quando tuttavia tenta di creare una richiesta di supporto per la risorsa macchina virtuale, si verifica l'errore seguente
 
 ![Errore relativo alla sottoscrizione](./media/create-manage-support-requests-using-access-control/subscription-error.png)
@@ -65,7 +65,7 @@ Esaminiamo un esempio in cui si è proprietari della sottoscrizione "Visual Stud
 Joe è il collega proprietario delle risorse in alcuni gruppi di risorse nella sottoscrizione e autorizzazione di lettura per la sottoscrizione.
 Si vuole concedere al collega Joe l'accesso per poter creare e gestire i ticket di supporto per le risorse in questa sottoscrizione.
 
-1. Il primo passaggio consiste nel passare alla sottoscrizione e in "Impostazioni" viene visualizzato un elenco di utenti. Fare clic sull'utente Joe che ha accesso in lettura per la sottoscrizione e assegnargli un nuovo ruolo personalizzato.
+1. Il primo passaggio consiste nell'accedere alla sottoscrizione. In **Settings (impostazioni**) viene visualizzato un elenco di utenti. Selezionare l'utente Joe, che ha accesso in lettura alla sottoscrizione. Assegnare un nuovo ruolo personalizzato a Joe.
 
     ![Aggiungi ruolo](./media/create-manage-support-requests-using-access-control/add-role.png)
 
@@ -85,7 +85,7 @@ Si vuole concedere al collega Joe l'accesso per poter creare e gestire i ticket 
 
     ![Utente aggiunto](./media/create-manage-support-requests-using-access-control/user-added.png)
 
-    Quando Joe accederà al portale, la sottoscrizione a cui è stato aggiunto risulterà visibile.
+    Quando Joe accede al portale, Joe vede la sottoscrizione a cui è stato aggiunto Joe.
 
 7. Joe fa clic su "Nuova richiesta di supporto" nel pannello "Guida e supporto tecnico" ed è in grado di creare richieste di supporto per "Visual Studio Ultimate con MSDN"
 
@@ -96,15 +96,15 @@ Si vuole concedere al collega Joe l'accesso per poter creare e gestire i ticket 
 ## <a name="remove-support-request-access-in-the-azure-portal"></a>Rimuovere l'accesso alle richieste di supporto nel portale di Azure
 
 Esattamente come è possibile concedere l'accesso a un utente per creare e gestire le richieste di supporto, è possibile anche rimuovere l'accesso per l'utente.
-Per rimuovere la possibilità di creare e gestire le richieste di supporto, passare alla sottoscrizione, fare clic su "Impostazioni", quindi sull'utente, in questo caso, Joe.
-Fare clic con il pulsante destro del mouse sul nome del ruolo "Support Request Contributor" e fare clic su "Rimuovi"
+
+Per rimuovere la possibilità di creare e gestire le richieste di supporto, passare alla sottoscrizione, fare clic su "Impostazioni", quindi sull'utente, in questo caso, Joe. Fare clic con il pulsante destro del mouse sul nome del ruolo "Support Request Contributor" e fare clic su "Rimuovi"
 
 ![Rimuovere l'accesso alle richiesta di supporto](./media/create-manage-support-requests-using-access-control/remove-support-request-access.png)
 
-Quando Joe eseguirà l'accesso al portale e tenterà di creare una richiesta di supporto, verrà visualizzato l'errore seguente
+Quando Davide accede al portale e tenta di creare una richiesta di supporto, Joe rileva l'errore seguente:
 
 ![Errore di sottoscrizione 2](./media/create-manage-support-requests-using-access-control/subscription-error-2.png)
 
-Quando Joe fa clic su "Tutte le richieste di supporto", non sarà visibile nessuna richiesta di supporto
+Joe non è in grado di visualizzare le richieste di supporto quando Joe seleziona "tutte le richieste di supporto"
 
 ![Visualizzazione dettagli del caso 2](./media/create-manage-support-requests-using-access-control/case-details-view-2.png)

@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: eb1fe69a7fb99949ac95291c33e76c1a32bf5439
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1e75acc03209fdd7e613801c9152f24aaecfa6de
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60506625"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965465"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Distribuire il servizio Gestione dispositivi StorSimple per i dispositivi StorSimple serie 8000
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 ## <a name="overview"></a>Panoramica
 
@@ -81,7 +83,7 @@ Per eliminare un servizio, attenersi alla procedura seguente.
 
 3. Nel messaggio di richiesta di conferma fare clic su **Sì** . L'eliminazione del servizio può richiedere alcuni minuti.
 
-    ![Confermare l'eliminazione](./media/storsimple-8000-manage-service/deletessdevman3.png)
+    ![Conferma eliminazione](./media/storsimple-8000-manage-service/deletessdevman3.png)
 
 ## <a name="get-the-service-registration-key"></a>Ottenere la chiave di registrazione del servizio
 
@@ -190,23 +192,23 @@ Nel portale di Azure sono supportati solo i dispositivi StorSimple che eseguono 
 | Operazione                                                                                                                       | Supportato      |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------|
 | Registrare un dispositivo                                                                                                               | Yes            |
-| Configurare le impostazioni di dispositivo, ad esempio le caratteristiche generali, la rete e la sicurezza                                                                | Yes            |
-| Analizzare, scaricare e installare aggiornamenti                                                                                             | Yes            |
-| Disattivare un dispositivo                                                                                                               | Yes            |
-| Eliminare un dispositivo                                                                                                                   | Yes            |
+| Configurare le impostazioni di dispositivo, ad esempio le caratteristiche generali, la rete e la sicurezza                                                                | Sì            |
+| Analizzare, scaricare e installare aggiornamenti                                                                                             | Sì            |
+| Disattivare un dispositivo                                                                                                               | Sì            |
+| Eliminare un dispositivo                                                                                                                   | Sì            |
 | Creare, modificare ed eliminare un contenitore di volumi                                                                                   | No             |
 | Creare, modificare ed eliminare un volume                                                                                             | No             |
 | Creare, modificare ed eliminare criteri di backup                                                                                      | No             |
 | Creazione di un backup manuale                                                                                                            | No             |
 | Eseguire un backup pianificato                                                                                                         | Non applicabile |
 | Eseguire il ripristino da un set di backup                                                                                                        | No             |
-| Eseguire la clonazione in un dispositivo che esegue l'aggiornamento 3.0 e versioni successive <br> Il dispositivo di origine esegue una versione precedente all'aggiornamento 3.0.                                | Yes            |
+| Eseguire la clonazione in un dispositivo che esegue l'aggiornamento 3.0 e versioni successive <br> Il dispositivo di origine esegue una versione precedente all'aggiornamento 3.0.                                | Sì            |
 | Eseguire la clonazione in un dispositivo che esegue una versione precedente all'aggiornamento 3.0.                                                                          | No             |
-| Eseguire il failover del dispositivo di origine <br> (da un dispositivo con una versione precedente all'aggiornamento 3.0 a un dispositivo con l'aggiornamento 3.0 e versioni successive)                                                               | Yes            |
+| Eseguire il failover del dispositivo di origine <br> (da un dispositivo con una versione precedente all'aggiornamento 3.0 a un dispositivo con l'aggiornamento 3.0 e versioni successive)                                                               | Sì            |
 | Eseguire il failover del dispositivo di destinazione <br> (a un dispositivo che esegue una versione software precedente all'aggiornamento 3.0)                                                                                   | No             |
-| Cancellare un avviso                                                                                                                  | Yes            |
-| Visualizzare criteri di backup, catalogo di backup, volumi, contenitori di volumi, grafici di monitoraggio, processi e avvisi creati nel portale classico | Yes            |
-| Attivare e disattivare i controller dei dispositivi                                                                                              | Yes            |
+| Cancellare un avviso                                                                                                                  | Sì            |
+| Visualizzare criteri di backup, catalogo di backup, volumi, contenitori di volumi, grafici di monitoraggio, processi e avvisi creati nel portale classico | Sì            |
+| Attivare e disattivare i controller dei dispositivi                                                                                              | Sì            |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: dacurwin
-ms.openlocfilehash: 70cd7a1e77e6154b6406c82344b82f230eeb7b3c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 83c4d8a90bf9ae348026c14beaec4975636b29b5
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954636"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018796"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Ripristinare lo stato del sistema per Windows Server
 
@@ -124,9 +124,9 @@ Dopo avere ripristinato lo stato del sistema sotto forma di file tramite l'agent
 
 1. Usare i comandi seguenti per riavviare il server in *Modalità di ripristino dei servizi directory*. In un prompt dei comandi con privilegi elevati:
 
-    ```
-    PS C:\> Bcdedit /set safeboot dsrepair
-    PS C:\> Shutdown /r /t 0
+    ```cmd
+    Bcdedit /set safeboot dsrepair
+    Shutdown /r /t 0
     ```
 
 2. Dopo il riavvio aprire lo snap-in Windows Server Backup. Se non si conosce il percorso di installazione dello snap-in, cercare **Windows Server Backup** nel computer o nel server.
@@ -189,14 +189,14 @@ Se il processo precedente di applicazione dello stato del sistema non viene comp
 
 5. Quando si apre il prompt dei comandi in modalità Amministratore, eseguire questo comando per ottenere le versioni del backup dello stato del sistema.
 
-    ```
+    ```cmd
     Wbadmin get versions -backuptarget:<Volume where WindowsImageBackup folder is copied>:
     ```
     ![Ottenere le versioni del backup dello stato del sistema](./media/backup-azure-restore-system-state/winre-4.png)
 
 6. Eseguire il comando seguente per ottenere tutti i volumi disponibili nel backup.
 
-    ```
+    ```cmd
     Wbadmin get items -version:<copy version from above step> -backuptarget:<Backup volume>
     ```
 
@@ -204,7 +204,7 @@ Se il processo precedente di applicazione dello stato del sistema non viene comp
 
 7. Il comando seguente ripristina tutti i volumi che fanno parte del backup dello stato del sistema. Si noti che questo passaggio ripristina solo i volumi critici che fanno parte dello stato del sistema. Tutti i dati non di sistema vengono cancellati.
 
-    ```
+    ```cmd
     Wbadmin start recovery -items:C: -itemtype:Volume -version:<Backupversion> -backuptarget:<backup target volume>
     ```
      ![Ottenere le versioni del backup dello stato del sistema](./media/backup-azure-restore-system-state/winre-6.png)

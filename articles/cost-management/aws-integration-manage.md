@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 05e2375998b3bce4320b2d66ab7fce44cd911dcc
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 6767644e037c6abb3e3044c8707e923a9137a01c
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479136"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019539"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Gestire i costi e l'utilizzo di AWS in Azure
 
@@ -138,7 +138,7 @@ Esistono due modi per ottenere le autorizzazioni per accedere ai costi degli acc
 
 Per impostazione predefinita, AWS Connector Creator è il proprietario di tutti gli oggetti creati dal connettore. Inclusi l'account consolidato AWS e l'account collegato AWS.
 
-Per essere in grado di verificare le impostazioni del connettore è necessario almeno un ruolo di collaboratore, il lettore non è in grado di verificare le impostazioni del connettore
+Per essere in grado di verificare le impostazioni del connettore è necessario almeno un ruolo Collaboratore, il lettore non è in grado di verificare le impostazioni del connettore
 
 ### <a name="collection-failed-with-assumerole"></a>Raccolta non riuscita con AssumeRole
 

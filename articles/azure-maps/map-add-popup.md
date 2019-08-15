@@ -1,6 +1,6 @@
 ---
 title: Aggiungere un popup con Mappe di Azure | Microsoft Docs
-description: Come aggiungere un popup alla mappa JavaScript
+description: Come aggiungere un popup ad Azure Maps Web SDK.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: caf661faf00d1d32664b7958a14a8719a37ab36e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: cde6c745034d0963bd372e36e6e5a046113c202b
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882103"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976559"
 ---
 # <a name="add-a-popup-to-the-map"></a>Aggiungere un popup alla mappa
 
@@ -22,9 +22,61 @@ Questo articolo illustra come aggiungere un pop a un punto in una mappa.
 
 ## <a name="understand-the-code"></a>Informazioni sul codice
 
-<a id="addAPopup"></a>
-
 Il codice seguente aggiunge alla mappa una funzionalità punto, `name` con `description` proprietà e, usando un livello di simboli. Viene creata un'istanza della [classe popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) che non viene visualizzata. Gli eventi del mouse vengono aggiunti al livello del simbolo per attivare l'apertura e la chiusura del popup quando il mouse passa sopra e fuori dal marcatore del simbolo. Quando il simbolo del marcatore viene spostato, la `position` proprietà del popup viene aggiornata con la posizione del marcatore e l' `content` opzione viene aggiornata con un codice HTML che esegue `description` il wrapping delle `name` proprietà e della funzionalità punto al passaggio del mouse. Il popup viene quindi visualizzato sulla mappa usando la relativa `open` funzione.
+
+```javascript
+//Define an HTML template for a custom popup content laypout.
+var popupTemplate = '<div class="customInfobox"><div class="name">{name}</div>{description}</div>';
+
+//Create a data source and add it to the map.
+var dataSource = new atlas.source.DataSource();
+map.sources.add(dataSource);
+
+dataSource.add(new atlas.data.Feature(new atlas.data.Point([-122.1333, 47.63]), {
+  name: 'Microsoft Building 41', 
+  description: '15571 NE 31st St, Redmond, WA 98052'
+}));
+
+//Create a layer to render point data.
+var symbolLayer = new atlas.layer.SymbolLayer(dataSource);
+
+//Add the polygon and line the symbol layer to the map.
+map.layers.add(symbolLayer);
+
+//Create a popup but leave it closed so we can update it and display it later.
+popup = new atlas.Popup({
+  pixelOffset: [0, -18],
+  closeButton: false
+});
+
+//Add a hover event to the symbol layer.
+map.events.add('mouseover', symbolLayer, function (e) {
+  //Make sure that the point exists.
+  if (e.shapes && e.shapes.length > 0) {
+    var content, coordinate;
+    var properties = e.shapes[0].getProperties();
+    content = popupTemplate.replace(/{name}/g, properties.name).replace(/{description}/g, properties.description);
+    coordinate = e.shapes[0].getCoordinates();
+
+    popup.setOptions({
+      //Update the content of the popup.
+      content: content,
+
+      //Update the popup's position with the symbol's coordinate.
+      position: coordinate
+
+    });
+    //Open the popup.
+    popup.open(map);
+  }
+});
+
+map.events.add('mouseleave', symbolLayer, function (){
+  popup.close();
+});
+```
+
+Di seguito è riportato l'esempio di codice completo per l'esecuzione delle funzionalità sopra riportate.
 
 <br/>
 
@@ -33,7 +85,7 @@ Il codice seguente aggiunge alla mappa una funzionalità punto, `name` con `desc
 
 ## <a name="reusing-a-popup-with-multiple-points"></a>Riutilizzare un popup con più punti
 
-Quando si dispone di un numero elevato di punti e si desidera visualizzare solo un popup alla volta, l'approccio migliore consiste nel creare un popup e riutilizzarlo anziché creare un popup per ogni funzionalità del punto. Riutilizzando il popup, il numero di elementi DOM creati dall'applicazione è notevolmente ridotto, che può offrire prestazioni migliori. Nell'esempio seguente vengono create le funzionalità di 3 punti. Se si fa clic su una di esse, verrà visualizzato un popup con il contenuto di tale funzionalità punto.
+Quando si dispone di un numero elevato di punti e si desidera visualizzare solo un popup alla volta, l'approccio migliore consiste nel creare un popup e riutilizzarlo anziché creare un popup per ogni funzionalità del punto. Riutilizzando il popup, il numero di elementi DOM creati dall'applicazione è notevolmente ridotto, che può offrire prestazioni migliori. Nell'esempio seguente vengono create funzionalità a tre punti. Se si fa clic su una di esse, verrà visualizzato un popup con il contenuto di tale funzionalità punto.
 
 <br/>
 
@@ -79,4 +131,7 @@ Vedere gli articoli seguenti che contengono esempi efficaci di codice completo:
 > [Aggiungere un indicatore HTML](./map-add-custom-html.md)
 
 > [!div class="nextstepaction"]
-> [Aggiungere una forma](./map-add-shape.md)
+> [Aggiungere un livello linea](map-add-line-layer.md)
+
+> [!div class="nextstepaction"]
+> [Aggiungere un livello poligono](map-add-shape.md)

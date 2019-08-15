@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: a14e03c21de0b5388040943fbe5e9434271b567f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d2cd7c8e24571f66fa73ceaa9a70ce33d6105e9c
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258823"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69017751"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controllo degli accessi del bus di servizio con firme di accesso condiviso
 
@@ -51,13 +51,13 @@ Il diritto "Manage" include i diritti "Send" e "Receive".
 
 Un criterio di entità o dello spazio dei nomi può contenere fino a 12 regole di autorizzazione di accesso condiviso, rendendo disponibile spazio per tre set di regole, ognuno dei quali copre i diritti di base e la combinazione di Send e Listen. Questo limite sottolinea che l'archivio dei criteri di firma di accesso condiviso non deve essere un utente o un archivio di account del servizio. Se l'applicazione deve concedere l'accesso al bus di servizio in base alle identità utente o del servizio, deve implementare un servizio token di sicurezza che rilascia token di firma di accesso condiviso dopo un controllo di autenticazione e accesso.
 
-A una regola di autorizzazione vengono assegnate una *chiave primaria* e una *chiave secondaria*. Si tratta di chiavi di crittografia complesse. Queste chiavi non possono essere perse perché sono sempre disponibili nel [portale di Azure][Azure portal]. È possibile utilizzare una delle chiavi generate ed è possibile rigenerarle in qualsiasi momento. Se si rigenera o si modifica una chiave nel criterio, tutti i token emessi in precedenza in base a tale chiave diventano immediatamente non validi. Le connessioni in corso create in base a tali token continueranno invece a funzionare fino alla scadenza del token.
+A una regola di autorizzazione vengono assegnate una *chiave primaria* e una *chiave secondaria*. Si tratta di chiavi di crittografia complesse. Non perderli o perderli: saranno sempre disponibili nella [portale di Azure][Azure portal]. È possibile utilizzare una delle chiavi generate ed è possibile rigenerarle in qualsiasi momento. Se si rigenera o si modifica una chiave nel criterio, tutti i token emessi in precedenza in base a tale chiave diventano immediatamente non validi. Le connessioni in corso create in base a tali token continueranno invece a funzionare fino alla scadenza del token.
 
 Quando si crea uno spazio dei nomi del bus di servizio, viene creato automaticamente un criterio denominato **RootManageSharedAccessKey**. Questo criterio dispone delle autorizzazioni Manage per l'intero spazio dei nomi. È consigliabile considerare questa regola come un account **radice** amministratore e non usarla nell'applicazione. È possibile creare regole aggiuntive dei criteri nella scheda **Configura** per lo spazio dei nomi nel portale mediante Powershell o l'interfaccia della riga di comando di Azure.
 
 ## <a name="configuration-for-shared-access-signature-authentication"></a>Configurazione dell'autenticazione della firma di accesso condiviso
 
-È possibile configurare la regola [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) in spazi dei nomi, code, argomenti del bus di servizio. La configurazione di una regola [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) in una sottoscrizione del bus di servizio non è attualmente supportata, ma è possibile usare le regole configurate in uno spazio dei nomi o in un argomento per proteggere l'accesso alle sottoscrizioni. Per un esempio pratico di questa procedura, vedere l'articolo relativo all' [uso dell'autenticazione della firma di accesso condiviso con le sottoscrizioni del bus di servizio](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) .
+È possibile configurare la regola [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) in spazi dei nomi, code, argomenti del bus di servizio. La configurazione di una regola [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) in una sottoscrizione del bus di servizio non è attualmente supportata, ma è possibile usare le regole configurate in uno spazio dei nomi o in un argomento per proteggere l'accesso alle sottoscrizioni. Per un esempio funzionante che illustra questa procedura, vedere l'esempio relativo alla [gestione delle code del bus di servizio di Azure](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule) .
 
 ![SAS](./media/service-bus-sas/service-bus-namespace.png)
 
@@ -88,7 +88,7 @@ Il token contiene i valori non hash in modo che il destinatario possa ricalcolar
 
 L'URI di risorsa è l'URI completo della risorsa del bus di servizio a cui si richiede l'accesso. Ad esempio `http://<namespace>.servicebus.windows.net/<entityPath>` o `sb://<namespace>.servicebus.windows.net/<entityPath>`, ovvero `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. 
 
-**L'URI deve presentarsi [codificato in percentuale](https://msdn.microsoft.com/library/4fkewx0t.aspx).**
+**L'URI deve essere [codificato in percentuale](/dotnet/api/system.web.httputility.urlencode?view=netframework-4.8).**
 
 La regola di autorizzazione di accesso condiviso usata per la firma deve essere configurata nell'entità specificata da questo URI o in un elemento padre nella gerarchia. Ad esempio `http://contoso.servicebus.windows.net/contosoTopics/T1` o `http://contoso.servicebus.windows.net` nell'esempio precedente.
 
@@ -104,8 +104,8 @@ Se è noto o si sospetta che una chiave è compromessa ed è necessario revocare
 
 Gli scenari illustrati di seguito includono la configurazione delle regole di autorizzazione, la generazione di token di firma di accesso condiviso e l'autorizzazione dei client.
 
-Per un esempio pratico completo di un'applicazione del bus di servizio che illustra la configurazione e usa l'autorizzazione con firma di accesso condiviso, vedere [Autenticazione della firma di accesso condiviso con il bus di servizio](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Un esempio correlato che illustra l'uso delle regole di autorizzazione con firma di accesso condiviso configurate negli spazi dei nomi o negli argomenti per proteggere le sottoscrizioni del bus di servizio è disponibile nella pagina relativa all'[uso dell'autenticazione con firma di accesso condiviso con le sottoscrizioni del bus di servizio](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
-
+Per un esempio completo di un'applicazione del bus di servizio che illustra la configurazione e usa l'autorizzazione SAS, vedere l'esempio seguente nel repository GitHub: [Gestione delle code del bus di servizio di Azure](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule).
+ 
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>Accedere alle regole di autorizzazione per l'accesso condiviso in un'entità
 
 Con le librerie .NET Framework del bus di servizio è possibile accedere a un oggetto [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) configurato in una coda o in un argomento del bus di servizio tramite la raccolta [AuthorizationRules](/dotnet/api/microsoft.servicebus.messaging.authorizationrules) negli oggetti [QueueDescription](/dotnet/api/microsoft.servicebus.messaging.queuedescription) o [TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription) corrispondenti.
@@ -185,7 +185,7 @@ Nella sezione precedente, è stato illustrato come utilizzare il token SAS con u
 
 Prima di iniziare a inviare i dati al bus di servizio, il server di pubblicazione deve inviare il token di firma di accesso condiviso all'interno di un messaggio AMQP a un nodo AMQP ben definito denominato **"$cbs"** . Può essere visualizzato come una coda "speciale" usata dal servizio per acquisire e convalidare tutti i token di firma di accesso condiviso. Il server di pubblicazione deve specificare il campo **ReplyTo** all'interno del messaggio AMQP. Si tratta del nodo in cui il servizio invia una risposta al server di pubblicazione con il risultato della convalida del token. È un modello di richiesta/risposta semplice tra il server di pubblicazione e il servizio. Questo nodo risposta viene creato al momento in quanto "creazione dinamica di nodo remoto" come descritto nella specifica di AMQP 1.0. Dopo avere verificato che il token di firma di accesso condiviso è valido, il server di pubblicazione può andare avanti e iniziare a inviare dati al servizio.
 
-La procedura seguente illustra come inviare il token di firma di accesso condiviso con protocollo AMQP usando la [AMQP.NET Lite](https://github.com/Azure/amqpnetlite) libreria. Ciò è utile se non è possibile usare lo sviluppo di Service Bus SDK (ad esempio su WinRT, .NET Compact Framework, .NET Micro Framework e Mono) ufficiali in C\#. Naturalmente, questa libreria è utile per comprendere il funzionamento della sicurezza basata sulle attestazioni a livello AMQP, dopo aver visto il funzionamento a livello HTTP (con una richiesta HTTP POST e il token SAS inviati all'interno dell'intestazione "Authorization"). Se non sono necessarie tali informazioni approfondite su AMQP, è possibile utilizzare la versione ufficiale SDK del Bus di servizio con le applicazioni .NET Framework, che eseguiranno automaticamente.
+I passaggi seguenti illustrano come inviare il token SAS con il protocollo AMQP usando la libreria [AMQP.NET Lite](https://github.com/Azure/amqpnetlite) . Questa operazione è utile se non è possibile usare l'SDK ufficiale del bus di servizio (ad esempio in WinRT, .NET Compact Framework, .NET Micro Framework e mono\#) che si sviluppa in C. Naturalmente, questa libreria è utile per comprendere il funzionamento della sicurezza basata sulle attestazioni a livello AMQP, dopo aver visto il funzionamento a livello HTTP (con una richiesta HTTP POST e il token SAS inviati all'interno dell'intestazione "Authorization"). Se non sono necessarie informazioni approfondite su AMQP, è possibile usare l'SDK ufficiale del bus di servizio con .NET Framework applicazioni, che lo eseguirà per l'utente.
 
 ### <a name="c35"></a>C&#35;
 
@@ -261,39 +261,39 @@ La tabella seguente illustra i diritti di accesso necessari per l'esecuzione di 
 | Configurare le regole di autorizzazione relative a uno spazio dei nomi |Gestisci |Qualsiasi indirizzo dello spazio dei nomi |
 | **Registro di sistema del servizio** | | |
 | Enumerare i criteri privati |Gestisci |Qualsiasi indirizzo dello spazio dei nomi |
-| Iniziare l'attesa su uno spazio dei nomi del servizio |Attesa |Qualsiasi indirizzo dello spazio dei nomi |
+| Iniziare l'attesa su uno spazio dei nomi del servizio |Ascolto |Qualsiasi indirizzo dello spazio dei nomi |
 | Inviare messaggi a un listener in uno spazio dei nomi |Invio |Qualsiasi indirizzo dello spazio dei nomi |
 | **Coda** | | |
-| Creare una coda |Gestisci |Qualsiasi indirizzo dello spazio dei nomi |
+| Crea una coda |Gestisci |Qualsiasi indirizzo dello spazio dei nomi |
 | Eliminare una coda |Gestisci |Qualsiasi indirizzo valido della coda |
 | Enumerare le code |Gestisci |/$Resources/Queues |
 | Ottenere la descrizione di una coda |Gestisci |Qualsiasi indirizzo valido della coda |
 | Configurare le regole di autorizzazione per una coda |Gestisci |Qualsiasi indirizzo valido della coda |
 | Effettuare un invio alla coda |Invio |Qualsiasi indirizzo valido della coda |
-| Ricevere messaggi da una coda |Attesa |Qualsiasi indirizzo valido della coda |
-| Abbandonare o completare messaggi dopo la ricezione del messaggio in modalità PeekLock (blocco di visualizzazione) |Attesa |Qualsiasi indirizzo valido della coda |
-| Rinviare un messaggio per il successivo recupero |Attesa |Qualsiasi indirizzo valido della coda |
-| Spostare un messaggio nella coda dei messaggi non recapitabili |Attesa |Qualsiasi indirizzo valido della coda |
-| Ottenere lo stato associato a una sessione della coda dei messaggi |Attesa |Qualsiasi indirizzo valido della coda |
-| Impostare lo stato associato a una sessione della coda dei messaggi |Attesa |Qualsiasi indirizzo valido della coda |
-| Pianificare il recapito ritardato di un messaggio, ad esempio [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Attesa | Qualsiasi indirizzo valido della coda
+| Ricevere messaggi da una coda |Ascolto |Qualsiasi indirizzo valido della coda |
+| Abbandonare o completare messaggi dopo la ricezione del messaggio in modalità PeekLock (blocco di visualizzazione) |Ascolto |Qualsiasi indirizzo valido della coda |
+| Rinviare un messaggio per il successivo recupero |Ascolto |Qualsiasi indirizzo valido della coda |
+| Spostare un messaggio nella coda dei messaggi non recapitabili |Ascolto |Qualsiasi indirizzo valido della coda |
+| Ottenere lo stato associato a una sessione della coda dei messaggi |Ascolto |Qualsiasi indirizzo valido della coda |
+| Impostare lo stato associato a una sessione della coda dei messaggi |Ascolto |Qualsiasi indirizzo valido della coda |
+| Pianificare il recapito ritardato di un messaggio, ad esempio [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Ascolto | Qualsiasi indirizzo valido della coda
 | **Argomento** | | |
-| Creare un argomento |Gestisci |Qualsiasi indirizzo dello spazio dei nomi |
+| Crea un argomento |Gestisci |Qualsiasi indirizzo dello spazio dei nomi |
 | Eliminare un argomento |Gestisci |Qualsiasi indirizzo valido dell'argomento |
 | Enumerare gli argomenti |Gestisci |/$Resources/Topics |
 | Ottenere la descrizione di un argomento |Gestisci |Qualsiasi indirizzo valido dell'argomento |
 | Configurare le regole di autorizzazione per un argomento |Gestisci |Qualsiasi indirizzo valido dell'argomento |
 | Effettuare un invio all'argomento |Invio |Qualsiasi indirizzo valido dell'argomento |
 | **Sottoscrizione** | | |
-| Creare una sottoscrizione |Gestisci |Qualsiasi indirizzo dello spazio dei nomi |
+| Crea una sottoscrizione |Gestisci |Qualsiasi indirizzo dello spazio dei nomi |
 | Eliminare una sottoscrizione |Gestisci |../myTopic/Subscriptions/mySubscription |
 | Enumerare le sottoscrizioni |Gestisci |../myTopic/Subscriptions |
 | Ottenere la descrizione di una sottoscrizione |Gestisci |../myTopic/Subscriptions/mySubscription |
-| Abbandonare o completare messaggi dopo la ricezione del messaggio in modalità PeekLock (blocco di visualizzazione) |Attesa |../myTopic/Subscriptions/mySubscription |
-| Rinviare un messaggio per il successivo recupero |Attesa |../myTopic/Subscriptions/mySubscription |
-| Spostare un messaggio nella coda dei messaggi non recapitabili |Attesa |../myTopic/Subscriptions/mySubscription |
-| Ottenere lo stato associato a una sessione dell'argomento |Attesa |../myTopic/Subscriptions/mySubscription |
-| Impostare lo stato associato a una sessione dell'argomento |Attesa |../myTopic/Subscriptions/mySubscription |
+| Abbandonare o completare messaggi dopo la ricezione del messaggio in modalità PeekLock (blocco di visualizzazione) |Ascolto |../myTopic/Subscriptions/mySubscription |
+| Rinviare un messaggio per il successivo recupero |Ascolto |../myTopic/Subscriptions/mySubscription |
+| Spostare un messaggio nella coda dei messaggi non recapitabili |Ascolto |../myTopic/Subscriptions/mySubscription |
+| Ottenere lo stato associato a una sessione dell'argomento |Ascolto |../myTopic/Subscriptions/mySubscription |
+| Impostare lo stato associato a una sessione dell'argomento |Ascolto |../myTopic/Subscriptions/mySubscription |
 | **Regole** | | |
 | Creare una regola |Gestisci |../myTopic/Subscriptions/mySubscription |
 | Eliminare una regola |Gestisci |../myTopic/Subscriptions/mySubscription |

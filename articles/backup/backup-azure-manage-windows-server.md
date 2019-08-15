@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: 4ce6ef67c24bd623a4162329442693ed1628dae2
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7e7312f942103125217c1f61ae8fe8007a49529b
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639870"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954770"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorare e gestire insiemi di credenziali di Servizi di ripristino
 
@@ -175,7 +175,7 @@ L'elenco di macchine virtuali include dati utili: il gruppo di risorse associato
 
 Il riquadro **Processi di backup** nel dashboard dell'insieme di credenziali mostra il numero di processi in corso o non riusciti nelle ultime 24 ore. Il riquadro offre una rapida panoramica del menu Processi di backup.
 
-![Elementi di backup da Impostazioni](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
+![Eseguire il backup degli elementi dalle impostazioni](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
 
 Per visualizzare altri dettagli sui processi, fare clic su **In corso** o su **Non riusciti** per aprire il menu Processi di backup filtrato per tale stato.
 
@@ -185,11 +185,11 @@ Il menu **Processi di backup** visualizza informazioni sul tipo di elemento, sul
 
 Per aprire il menu Processi di backup, nel menu principale dell'insieme di credenziali fare clic su **Processi di backup**.
 
-![Elementi di backup da Impostazioni](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
+![Eseguire il backup degli elementi dalle impostazioni](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
 
 Viene aperto l'elenco dei processi di backup.
 
-![Elementi di backup da Impostazioni](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
+![Eseguire il backup degli elementi dalle impostazioni](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
 
 Il menu Processi di backup mostra lo stato di tutte le operazioni, in tutti i tipi di backup, per le ultime 24 ore. Usare **Filtra** per modificare i filtri. I filtri vengono illustrati nelle sezioni seguenti.
 
@@ -197,11 +197,11 @@ Per modificare i filtri:
 
 1. Dal menu Processi di backup dell'insieme di credenziali scegliere **Filtra**.
 
-   ![Elementi di backup da Impostazioni](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
+   ![Eseguire il backup degli elementi dalle impostazioni](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
 
     Viene aperto il menu Filtra.
 
-   ![Elementi di backup da Impostazioni](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
+   ![Eseguire il backup degli elementi dalle impostazioni](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
 
 2. Scegliere le impostazioni del filtro e fare clic su **Fine**. L'elenco filtrato viene aggiornato in base alle nuove impostazioni.
 

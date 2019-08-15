@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9a6ea961f7433f511ef22a6ac9aaefa51b5df8aa
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 1f8086580d60d13251052636d4d771855e9605a5
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663695"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954942"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino
 
@@ -102,7 +102,7 @@ Configurare un criterio di backup per l'insieme di credenziali.
    ![Pulsante Backup](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
 
-2. In **obiettivo** > di backup in**cui è in esecuzione il carico di lavoro?** selezionare **Azure**. In **che cosa si desidera eseguire il backup?** selezionare **macchina** >  virtuale**OK**. In questo modo viene registrata l'estensione delle macchine virtuali nell'insieme di credenziali.
+2. In **obiettivo** > di backup in**cui è in esecuzione il carico di lavoro?** selezionare **Azure**. In **che cosa si vuole eseguire il backup?** selezionare **macchina** >  virtuale**OK**. In questo modo viene registrata l'estensione delle macchine virtuali nell'insieme di credenziali.
 
    ![Riquadri Backup e Obiettivo del backup](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
@@ -138,7 +138,7 @@ Dopo l'abilitazione del backup:
 Se si è scelto di creare un nuovo criterio di backup, specificare le impostazioni dei criteri.
 
 1. In **Nome criterio**specificare un nome significativo.
-2. In **pianificazione backup** specificare quando devono essere eseguiti i backup. È possibile eseguire backup giornalieri o settimanali per le macchine virtuali di Azure.
+2. In **pianificazione backup**specificare quando devono essere eseguiti i backup. È possibile eseguire backup giornalieri o settimanali per le macchine virtuali di Azure.
 2. In **ripristino istantaneo**specificare per quanto tempo si vogliono mantenere gli snapshot localmente per il ripristino immediato.
     - Quando si esegue il ripristino, il backup dei dischi delle macchine virtuali viene copiato dalla risorsa di archiviazione attraverso la rete al percorso di archiviazione di ripristino. Con il ripristino istantaneo è possibile sfruttare gli snapshot archiviati localmente eseguiti durante un processo di backup, senza attendere il trasferimento dei dati di backup nell'insieme di credenziali.
     - È possibile mantenere gli snapshot per il ripristino immediato per un periodo compreso tra uno e cinque giorni. L'impostazione predefinita è due giorni.
@@ -164,8 +164,8 @@ Il backup iniziale viene eseguito in base alla pianificazione, ma è possibile e
 
 ## <a name="verify-backup-job-status"></a>Verificare lo stato del processo di backup
 
-I dettagli del processo di backup per ogni backup della macchina virtuale sono costituiti da 2 fasi, ovvero dalla fase di **snapshot** seguita dalla fase di **trasferimento dei dati all'** insieme di credenziali.<br/>
-La fase di snapshot garantisce la disponibilità di un punto di ripristino memorizzato insieme ai dischi per i ripristini istantanei e sono disponibili per un massimo di 5 giorni, a seconda del periodo di memorizzazione dello snapshot configurato dall'utente. Il trasferimento dei dati nell'insieme di credenziali crea un punto di ripristino nell'insieme di credenziali per la conservazione a lungo termine. Il trasferimento dei dati nell'insieme di credenziali viene avviato solo dopo il completamento della fase di snapshot.
+I dettagli del processo di backup per ogni backup della macchina virtuale sono costituiti da due fasi, la fase di **snapshot** seguita dalla fase di **trasferimento dei dati all'** insieme di credenziali.<br/>
+La fase di snapshot garantisce la disponibilità di un punto di ripristino memorizzato insieme ai dischi per i ripristini istantanei e sono disponibili per un massimo di cinque giorni, a seconda del periodo di memorizzazione dello snapshot configurato dall'utente. Il trasferimento dei dati nell'insieme di credenziali crea un punto di ripristino nell'insieme di credenziali per la conservazione a lungo termine. Il trasferimento dei dati nell'insieme di credenziali viene avviato solo dopo il completamento della fase di snapshot.
 
   ![Stato del processo di backup](./media/backup-azure-arm-vms-prepare/backup-job-status.png)
 

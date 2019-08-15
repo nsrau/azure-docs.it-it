@@ -9,16 +9,16 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 38a120747734cbe4af8804a3e7596fc11a2c2eb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2149bfb68697129680c45f15c6cce359863fbc59
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306652"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989933"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Uso dell'API REST di Archiviazione di Azure
 
-Questo articolo illustra come usare le API REST del servizio di archiviazione BLOB e come autenticare la chiamata al servizio. Viene scritto dal punto di vista di uno sviluppatore che non conosce REST e non è chiaro come effettuare una chiamata REST. Non sempre è facile comprendere come trasformare i dati della documentazione di riferimento in un'effettiva chiamata REST, specificando i campi nel modo corretto. Dopo aver appreso come configurare una chiamata REST, sarà possibile sfruttare queste informazioni anche per usare le altre API REST dei servizi di archiviazione.
+Questo articolo illustra come usare le API REST del servizio di archiviazione BLOB e come autenticare la chiamata al servizio. Viene scritto dal punto di vista di uno sviluppatore che non conosce niente di REST e non ha idea di come eseguire una chiamata REST. Non sempre è facile comprendere come trasformare i dati della documentazione di riferimento in un'effettiva chiamata REST, specificando i campi nel modo corretto. Dopo aver appreso come configurare una chiamata REST, sarà possibile sfruttare queste informazioni anche per usare le altre API REST dei servizi di archiviazione.
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
@@ -49,9 +49,9 @@ Questo comando consente di duplicare il repository nella cartella locale git. Pe
 
 REST è l'acronimo di *representational state transfer*, ovvero trasferimento di stato rappresentativo. Per una definizione dettagliata, consultare [Wikipedia](https://en.wikipedia.org/wiki/Representational_state_transfer).
 
-In pratica, REST è un'architettura che è possibile usare quando si eseguono chiamate alle API o si rendono disponibili le API per le chiamate. È indipendente da ciò che avviene su entrambi i lati e dal software viene usato per inviare o ricevere il resto viene chiamato. È possibile scrivere un'applicazione da eseguire su un computer Mac, Windows o Linux, un tablet o un telefono Android, un iPhone, un iPod o un sito Web e usare la stessa API REST per tutte le piattaforme. Quando viene chiamata l'API REST, i dati possono essere passati verso l'interno e/o l'esterno. Per l'API REST non è rilevante la piattaforma che esegue la chiamata, ma sono soprattutto importanti le informazioni passate nella richiesta e i dati forniti nella risposta.
+In pratica, REST è un'architettura che è possibile usare quando si eseguono chiamate alle API o si rendono disponibili le API per le chiamate. È indipendente da ciò che avviene su entrambi i lati e che altro software viene usato durante l'invio o la ricezione di chiamate REST. È possibile scrivere un'applicazione da eseguire su un computer Mac, Windows o Linux, un tablet o un telefono Android, un iPhone, un iPod o un sito Web e usare la stessa API REST per tutte le piattaforme. Quando viene chiamata l'API REST, i dati possono essere passati verso l'interno e/o l'esterno. Per l'API REST non è rilevante la piattaforma che esegue la chiamata, ma sono soprattutto importanti le informazioni passate nella richiesta e i dati forniti nella risposta.
 
-La conoscenza dell'uso di REST è una competenza utile. Il team di Azure rilascia spesso nuove funzionalità. In molti casi, le nuove funzionalità sono accessibili tramite l'interfaccia REST. In alcuni casi, tuttavia, le funzionalità non sono visibili tramite **tutti** di librerie client di archiviazione o l'interfaccia utente (ad esempio, il portale di Azure). Per avere sempre a disposizione le funzionalità più recenti e potenti, la conoscenza di REST è un requisito fondamentale. L'API REST è inoltre utile quando si vuole creare una libreria personalizzata per interagire con Archiviazione di Azure o si vuole accedere ad Archiviazione di Azure con un linguaggio di programmazione che non ha un SDK o una libreria client di archiviazione.
+La conoscenza dell'uso di REST è una competenza utile. Il team di Azure rilascia spesso nuove funzionalità. Molte volte le nuove funzionalità sono accessibili tramite l'interfaccia REST. In alcuni casi, tuttavia, le funzionalità non sono state rilevate tramite **tutte** le librerie client di archiviazione o l'interfaccia utente (ad esempio, il portale di Azure). Per avere sempre a disposizione le funzionalità più recenti e potenti, la conoscenza di REST è un requisito fondamentale. L'API REST è inoltre utile quando si vuole creare una libreria personalizzata per interagire con Archiviazione di Azure o si vuole accedere ad Archiviazione di Azure con un linguaggio di programmazione che non ha un SDK o una libreria client di archiviazione.
 
 ## <a name="about-the-sample-application"></a>Informazioni sull'applicazione di esempio
 
@@ -61,7 +61,7 @@ Consultando l'articolo [Blob Service REST API](/rest/api/storageservices/Blob-Se
 
 ## <a name="rest-api-reference-list-containers-api"></a>Informazioni di riferimento sulle API REST: API ListContainers
 
-Esaminiamo la pagina nel riferimento all'API REST per il [ListContainers](/rest/api/storageservices/List-Containers2) operazione. Queste informazioni aiuterà a comprendere alcuni dei campi da dove provengono nella richiesta e risposta.
+Esaminiamo la pagina nella Guida di riferimento all'API REST per l'operazione [ListContainers](/rest/api/storageservices/List-Containers2) . Queste informazioni consentiranno di comprendere il punto in cui provengono alcuni dei campi nella richiesta e nella risposta.
 
 **Metodo di richiesta**: GET. Questo verbo è il metodo HTTP che si specifica come proprietà dell'oggetto della richiesta. Come altri valori per il verbo è possibile usare HEAD, PUT e DELETE, a seconda dell'API che si intende chiamare.
 
@@ -79,19 +79,19 @@ Per usare parametri aggiuntivi, specificarli dopo la stringa di risorsa con il r
 
 [Intestazioni della richiesta](/rest/api/storageservices/List-Containers2#request-headers) **:** questa sezione include l'elenco delle intestazioni obbligatorie e facoltative della richiesta. Le intestazioni obbligatorie sono tre: *Authorization*, *x-ms-date* (data e ora UTC della richiesta) e *x-ms-version* (versione dell'API REST da usare). L'intestazione *x-ms-client-request-id* è facoltativa. Per questo campo è possibile impostare un valore qualsiasi, che viene scritto nei log dell'analisi di archiviazione quando la registrazione è abilitata.
 
-[Corpo della richiesta](/rest/api/storageservices/List-Containers2#request-body) **:** per ListContainers non è previsto un corpo della richiesta, che viene usato invece per tutte le operazioni PUT, durante il caricamento di BLOB, e per SetContainerAccessPolicy, che consente di inviare un elenco XML di criteri di accesso archiviati da applicare. Per informazioni su questi criteri, vedere l'articolo [Uso delle firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
+[Corpo della richiesta](/rest/api/storageservices/List-Containers2#request-body) **:** per ListContainers non è previsto un corpo della richiesta, che viene usato invece per tutte le operazioni PUT, durante il caricamento di BLOB, e per SetContainerAccessPolicy, che consente di inviare un elenco XML di criteri di accesso archiviati da applicare. Per informazioni su questi criteri, vedere l'articolo [Uso delle firme di accesso condiviso](storage-sas-overview.md).
 
 [Codice di stato della risposta](/rest/api/storageservices/List-Containers2#status-code) **:** indica i codici di stato che è necessario conoscere. In questo esempio, il codice di stato HTTP 200 indica che l'operazione è stata eseguita correttamente. Per un elenco completo di codici di stato HTTP, consultare [Status Code Definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) (Definizioni dei codici di stato). Per i codici di errore specifici per le API REST di archiviazione, vedere [Common REST API error codes](/rest/api/storageservices/common-rest-api-error-codes) (Codici di errore comuni delle API REST).
 
-[Intestazioni della risposta](/rest/api/storageservices/List-Containers2#response-headers) **:** Questi includono *tipo di contenuto*; *x-ms-request-id*, ovvero l'id della richiesta è stato passato. *x-ms-version*, che indica la versione del servizio Blob usato; e il *data*, cui è in formato UTC e indica che ora la richiesta è stata effettuata.
+[Intestazioni della risposta](/rest/api/storageservices/List-Containers2#response-headers) **:** Che includono il *tipo di contenuto*; *x-ms-request-ID*, ovvero l'ID richiesta passato; *x-ms-version*, che indica la versione del servizio BLOB utilizzata; e la *Data*, che è in formato UTC e indica l'ora in cui è stata effettuata la richiesta.
 
 [Corpo della risposta](/rest/api/storageservices/List-Containers2#response-body): questo campo è una struttura XML che contiene i dati richiesti. In questo esempio la risposta è un elenco di contenitori e delle relative proprietà.
 
 ## <a name="creating-the-rest-request"></a>Creazione della richiesta REST
 
-Alcune note prima di iniziare. Per garantire la sicurezza, durante l'esecuzione in un ambiente di produzione, usare sempre HTTPS anziché HTTP. Ai fini di questo esercizio, si userà HTTP in modo da poter visualizzare i dati della richiesta e della risposta. Per esaminare le informazioni relative alla richiesta e alla risposta nelle chiamate REST effettive, è possibile scaricare [Fiddler](https://www.telerik.com/fiddler) o un'applicazione simile. In Visual Studio soluzione, il nome account di archiviazione e chiave sono hardcoded nella classe. Il metodo ListContainersAsyncREST passa il nome account di archiviazione e chiave dell'account di archiviazione per i metodi che consentono di creare i vari componenti della richiesta REST. In un'applicazione reale, il nome e la chiave dell'account di archiviazione si troveranno in un file di configurazione o in variabili di ambiente oppure verranno recuperati da un'istanza di Azure Key Vault.
+Alcune note prima di iniziare. Per garantire la sicurezza, durante l'esecuzione in un ambiente di produzione, usare sempre HTTPS anziché HTTP. Ai fini di questo esercizio, si userà HTTP in modo da poter visualizzare i dati della richiesta e della risposta. Per esaminare le informazioni relative alla richiesta e alla risposta nelle chiamate REST effettive, è possibile scaricare [Fiddler](https://www.telerik.com/fiddler) o un'applicazione simile. Nella soluzione di Visual Studio, il nome e la chiave dell'account di archiviazione sono impostati come hardcoded nella classe. Il metodo ListContainersAsyncREST passa il nome dell'account di archiviazione e la chiave dell'account di archiviazione ai metodi usati per creare i vari componenti della richiesta REST. In un'applicazione reale, il nome e la chiave dell'account di archiviazione si troveranno in un file di configurazione o in variabili di ambiente oppure verranno recuperati da un'istanza di Azure Key Vault.
 
-In questo progetto di esempio, il codice per creare l'intestazione dell'autorizzazione è in una classe separata. L'idea è che è possibile prendere l'intera classe e aggiungerla a una soluzione personalizzata e usarlo "così"com'è. Il codice dell'intestazione dell'autorizzazione è utilizzabile per la maggior parte delle chiamate all'API REST in Archiviazione di Azure.
+Nel progetto di esempio, il codice per la creazione dell'intestazione di autorizzazione si trova in una classe separata. L'idea è che è possibile adottare l'intera classe e aggiungerla alla soluzione personalizzata e usarla "così com'è". Il codice dell'intestazione dell'autorizzazione è utilizzabile per la maggior parte delle chiamate all'API REST in Archiviazione di Azure.
 
 Per creare la richiesta, che è un oggetto HttpRequestMessage, passare a ListContainersAsyncREST in Program.cs e seguire questa procedura: 
 
@@ -267,7 +267,7 @@ Ora che si è appreso come creare la richiesta, chiamare il servizio e analizzar
 ## <a name="creating-the-authorization-header"></a>Creazione dell'intestazione dell'autorizzazione
 
 > [!TIP]
-> Archiviazione di Azure supporta ora l'integrazione di Azure Active Directory (Azure AD) per i BLOB e code. Azure AD offre un'esperienza molto più semplice per l'autorizzazione di una richiesta per Archiviazione di Azure. Per altre informazioni sull'uso di Azure AD per autorizzare le operazioni REST, vedere [eseguire l'autenticazione con Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory). Per una panoramica dell'integrazione di Azure AD con archiviazione di Azure, vedere [autenticare l'accesso all'archiviazione di Azure con Azure Active Directory](storage-auth-aad.md).
+> Archiviazione di Azure ora supporta l'integrazione di Azure Active Directory (Azure AD) per i BLOB e le code. Azure AD offre un'esperienza molto più semplice per l'autorizzazione di una richiesta per Archiviazione di Azure. Per altre informazioni sull'uso di Azure AD per autorizzare le operazioni REST, vedere [eseguire l'autenticazione con Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory). Per una panoramica dell'integrazione di Azure AD con archiviazione di Azure, vedere [autenticare l'accesso ad archiviazione di Azure usando Azure Active Directory](storage-auth-aad.md).
 
 I concetti di base relativi all'autenticazione (senza esempi di codice) sono illustrati nell'articolo [Authentication for the Azure Storage Services](/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services) (Autenticazione per i servizi di archiviazione di Azure),
 ma ai fini pratici è possibile concentrarsi sulle nozioni fondamentali ed esaminare in dettaglio il codice.
@@ -358,7 +358,7 @@ Questa parte della stringa relativa alla firma rappresenta l'account di archivia
 /contosorest/\ncomp:list
 ```
 
-Se si dispongono di parametri di query, in questo esempio include anche tali parametri. Di seguito è riportato il codice che gestisce anche altri parametri di query, eventualmente con più valori. Tenere presente che si sta creando il codice deve funzionare per tutte le API REST. Si desidera includere tutte le possibilità, anche se il metodo ListContainers non è necessario tutti gli elementi.
+Se si dispone di parametri di query, questo esempio include anche questi parametri. Di seguito è riportato il codice che gestisce anche altri parametri di query, eventualmente con più valori. Tenere presente che si sta compilando questo codice per lavorare per tutte le API REST. Si desidera includere tutte le possibilità, anche se il Metodo ListContainers non ne ha bisogno.
 
 ```csharp 
 private static string GetCanonicalizedResource(Uri address, string storageAccountName)
@@ -414,7 +414,7 @@ internal static AuthenticationHeaderValue GetAuthorizationHeader(
 }
 ```
 
-Quando si esegue questo codice, di MessageSignature risultante è simile a questo esempio:
+Quando si esegue questo codice, il MessageSignature risultante è simile a questo esempio:
 
 ```
 GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 01:07:37 GMT\nx-ms-version:2017-07-29\n/contosorest/\ncomp:list
@@ -428,11 +428,11 @@ SharedKey contosorest:Ms5sfwkA8nqTRw7Uury4MPHqM6Rj2nfgbYNvUKOa67w=
 
 L'intestazione dell'autorizzazione è l'ultima intestazione inserita nelle intestazioni della richiesta prima dell'invio della risposta.
 
-Che include tutto quello che devi sapere per creare una classe con cui è possibile creare una richiesta per chiamare le API REST di servizi di archiviazione.
+In questo modo vengono illustrate tutte le informazioni necessarie per riunire una classe con la quale è possibile creare una richiesta per chiamare le API REST dei servizi di archiviazione.
 
 ## <a name="how-about-another-example"></a>Un altro esempio utile 
 
-In questo esempio si vedrà come modificare il codice per chiamare ListBlobs per il contenitore *container-1*. Questo codice è quasi identico al codice per l'elenco dei contenitori, le uniche differenze riguardano l'URI e la modalità analisi della risposta. 
+In questo esempio si vedrà come modificare il codice per chiamare ListBlobs per il contenitore *container-1*. Questo codice è quasi identico al codice per elencare i contenitori, le uniche differenze sono l'URI e la modalità di analisi della risposta. 
 
 Se si consulta la documentazione di riferimento per [ListBlobs](/rest/api/storageservices/List-Blobs), si vedrà che il metodo da usare è *GET* e il valore di RequestURI è il seguente:
 
@@ -564,7 +564,7 @@ Content-Length: 1135
 
 ## <a name="summary"></a>Riepilogo
 
-In questo articolo si appreso come effettuare una richiesta per l'API REST di archiviazione blob. Con la richiesta, è possibile recuperare un elenco di contenitori o un elenco di BLOB in un contenitore. Si è appreso come creare la firma di autorizzazione per la chiamata all'API REST e come usarla nella richiesta REST. Infine, si è appreso come analizzare la risposta.
+In questo articolo si è appreso come effettuare una richiesta all'API REST di archiviazione BLOB. Con la richiesta è possibile recuperare un elenco di contenitori o un elenco di BLOB in un contenitore. Si è appreso come creare la firma di autorizzazione per la chiamata all'API REST e come usarla nella richiesta REST. Infine, si è appreso come esaminare la risposta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

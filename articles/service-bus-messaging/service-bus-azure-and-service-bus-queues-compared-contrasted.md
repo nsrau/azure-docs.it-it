@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: dbbc43bc7a2f42f8a72ce12d84da1ae406a588d2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 32c903e5d469a9a3e7b98bd406b5512d752bb210
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799343"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69017801"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Analogie e differenze tra le code di archiviazione e le code del bus di servizio
 Questo articolo analizza le analogie e le differenze tra i due tipi di code offerti attualmente da Microsoft Azure: Code di archiviazione e code del bus di servizio. Grazie a queste informazioni, è possibile confrontare e contrapporre le rispettive tecnologie ed essere quindi in grado di fare una scelta più oculata riguardo alla soluzione che soddisfa meglio le proprie esigenze.
@@ -52,7 +52,7 @@ Gli architetti e gli sviluppatori di soluzioni **dovrebbero considerare l'uso de
 * L'applicazione deve elaborare i messaggi come flussi paralleli a esecuzione prolungata (i messaggi sono associati a un flusso tramite la proprietà [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) del messaggio). In questo modello ogni nodo dell'applicazione che utilizza il servizio entra in competizione con gli altri nodi per l'acquisizione dei flussi anziché dei messaggi. Quando un flusso viene assegnato a un nodo basato sul servizio, tale nodo può esaminare lo stato del flusso dell'applicazione mediante transazioni.
 * Per la soluzione sono necessari atomicità e comportamento transazionale in caso di invio o ricezione di più messaggi da una coda.
 * L'applicazione gestisce messaggi che possono superare i 64 KB ma che probabilmente non si avvicineranno al limite dei 256 KB
-* È necessario fornire un modello di accesso basato sui ruoli alle code e autorizzazioni/diritti diversi per mittenti e destinatari.
+* È necessario fornire un modello di accesso basato sui ruoli alle code e autorizzazioni/diritti diversi per mittenti e destinatari. Per altre informazioni, vedere [Active Directory controllo degli accessi in base al ruolo (anteprima)](service-bus-role-based-access-control.md)
 * Le dimensioni della coda non supereranno gli 80 GB.
 * Si vuole usare il protocollo di messaggistica basato sugli standard AMQP 1.0. Per altre informazioni su AMQP, vedere [Panoramica di AMQP per il bus di servizio](service-bus-amqp-overview.md).
 * È possibile prevedere un'eventuale migrazione dalla comunicazione punto a punto basata sulla coda a un modello di scambio dei messaggi mediante il quale viene garantita un'integrazione continua di destinatari aggiuntivi (sottoscrittori), mediante ognuno dei quali vengono ricevute copie separate di alcuni o di tutti i messaggi inviati alla coda. Quest'ultima viene definita funzionalità di pubblicazione/sottoscrizione a livello nativo fornita dal bus di servizio.
@@ -84,7 +84,7 @@ Questa sezione confronta alcune delle funzionalità di accodamento fondamentali 
 * Il modello FIFO garantito nelle code del bus di servizio richiede l'uso di sessioni di messaggistica. Se l'applicazione termina di funzionare in maniera anomala durante l'elaborazione di un messaggio ricevuto nella modalità **Visualizzazione e blocco**, la prossima volta che un ricevitore di code accetta una sessione di messaggistica, l'applicazione verrà avviata con il messaggio non recapitato dopo la scadenza della relativa durata (TTL).
 * Le code di archiviazione sono progettate per supportare scenari di accodamento standard, ad esempio il disaccoppiamento di componenti dell'applicazione per aumentare la scalabilità e la tolleranza di errore, il livellamento del carico e la creazione di flussi di lavoro di elaborazione.
 * Le code del bus di servizio supportano la garanzia di recapito *At-Least-Once*. 
-* È possibile evitare inconsistenze per quanto riguarda la gestione dei messaggi nel contesto delle sessioni del Bus di servizio usando lo stato della sessione per archiviare lo stato dell'applicazione relativo lo stato di avanzamento della sequenza di messaggi della sessione di gestione e tramite le transazioni intorno a finalizzazione delle ha ricevuto i messaggi e l'aggiornamento dello stato della sessione. Questo tipo di funzionalità di coerenza in alcuni casi viene etichettato *esattamente-l'elaborazione di una volta* in prodotti di altri fornitori, ma transazione errori ovviamente i messaggi essere recapitato una seconda volta e pertanto il termine è non esattamente adeguato.
+* Le incoerenze relative alla gestione dei messaggi nel contesto delle sessioni del bus di servizio possono essere evitate usando lo stato della sessione per archiviare lo stato dell'applicazione in relazione allo stato di avanzamento della gestione della sequenza di messaggi della sessione e alle transazioni risoluzione dei messaggi ricevuti e aggiornamento dello stato della sessione. Questo tipo di funzionalità di coerenza viene talvolta etichettato come elaborazione di tipo *exactly-once* nei prodotti di altri fornitori, ma gli errori di transazione causano ovviamente il recapito dei messaggi e pertanto il termine non è esattamente appropriato.
 * Le code di archiviazione offrono un modello di programmazione uniforme e coerente tra code, tabelle e BLOB, sia per i team di sviluppo che per i team operativi.
 * Le code del bus di servizio offrono supporto per le transazioni locali nel contesto di una singola coda.
 * La modalità **Ricezione ed eliminazione** supportata dal bus di servizio offre la possibilità di ridurre il numero di operazioni di messaggistica (e relativo costo) in cambio di una garanzia di recapito più bassa.
@@ -143,7 +143,7 @@ Questa sezione confronta le code di Azure e le code del bus di servizio in termi
 * Per le code di archiviazione, se il contenuto del messaggio non è XML, deve avere la codifica **Base64**. Se per il messaggio non è stata usata la codifica **Base64**, il payload dell'utente può essere fino a 48 KB, anziché 64.
 * Con le code del bus di servizio, ogni messaggio archiviato in una coda è costituito da due parti: un'intestazione e un corpo. Le dimensioni totali del messaggio non possono superare la dimensione massima del messaggio supportata dal livello di servizio.
 * Se le comunicazioni tra client e code del bus di servizio vengono stabilite tramite il protocollo TCP, il numero massimo di connessioni simultanee a una singola coda del bus di servizio è limitato a 100. Questo numero è condiviso tra mittenti e destinatari. Se viene raggiunta questa quota, le successive richieste di connessioni aggiuntive verranno rifiutate e il codice chiamante riceverà un'eccezione. Questo limite non viene imposto ai client tramite cui viene effettuata la connessione alle code mediante l'API basata su REST.
-* Se si richiedono più di 10.000 code in un unico spazio dei nomi del bus di servizio, è possibile contattare il team di supporto tecnico di Azure e richiedere un aumento. Per ottenere oltre 10.000 code con il bus di servizio, è anche possibile creare spazi dei nomi aggiuntivi tramite il [portale di Azure][Azure portal].
+* Se si richiedono più di 10.000 code in un unico spazio dei nomi del bus di servizio, è possibile contattare il team di supporto tecnico di Azure e richiedere un aumento. Per ridimensionare più di 10.000 code con il bus di servizio, è anche possibile creare spazi dei nomi aggiuntivi tramite il [portale di Azure][Azure portal].
 
 ## <a name="management-and-operations"></a>Gestione e operazioni
 Questa sezione confronta le funzionalità di gestione fornite dalle code di archiviazione e dalle code del bus di servizio.
@@ -182,7 +182,7 @@ Questa sezione illustra le funzionalità di autenticazione e autorizzazione supp
 * Ogni richiesta a entrambe le tecnologie di accodamento deve essere autenticata. Le code pubbliche con accesso anonimo non sono supportate. L'uso di [SAS](service-bus-sas.md) consente di ovviare a questo inconveniente tramite la pubblicazione di una firma SAS di sola scrittura, di sola lettura o anche di accesso completo.
 * Lo schema di autenticazione offerto dalle code di archiviazione prevede l'uso di una chiave simmetrica, ovvero un codice HMAC (Hash Message Authentication Code) basato su hash calcolato dall'algoritmo SHA-256 e codificato come stringa **Base64**. Per altre informazioni sul relativo protocollo, vedere [Authentication for the Azure Storage Services](/rest/api/storageservices/fileservices/Authentication-for-the-Azure-Storage-Services) (Autenticazione per i servizi di archiviazione di Azure). Le code del bus di servizio supportano un modello simile mediante l'uso di chiavi simmetriche. Per altre informazioni, vedere [Autenticazione della firma di accesso condiviso con il bus di servizio](service-bus-sas.md).
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 Acquisendo una comprensione più profonda delle due tecnologie, si sarà in grado di prendere una decisione più oculata circa la tecnologia di accodamento da usare e il momento in cui adottarla. La scelta di usare le code di archiviazione o le code del bus di servizio si basa chiaramente su diversi fattori, che possono dipendere soprattutto dalle singole esigenze dell'applicazione in uso e dalla relativa architettura. Se l'applicazione usa già le funzionalità principali di Microsoft Azure, sarà opportuno scegliere le code di Azure, specialmente se sono richieste funzionalità di comunicazione e messaggistica di base tra servizi o se sono necessarie code con dimensioni maggiori di 80 GB.
 
 Poiché offrono numerose funzionalità avanzate quali sessioni, transazioni rilevamento duplicati, mancato recapito automatico dei messaggi e funzionalità di pubblicazione e sottoscrizione permanente, le code del bus di servizio possono rappresentare la soluzione migliore quando si sviluppa un'applicazione ibrida o se l'applicazione in uso richiede comunque tali funzionalità.

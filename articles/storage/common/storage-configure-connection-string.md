@@ -1,6 +1,6 @@
 ---
-title: Configurare una stringa di connessione per l'archiviazione di Azure
-description: Configurare una stringa di connessione per un account di archiviazione di Azure. Una stringa di connessione contiene le informazioni necessarie per autorizzare l'accesso a un account di archiviazione dall'applicazione in fase di esecuzione con autenticazione chiave condivisa.
+title: Configurare una stringa di connessione per archiviazione di Azure
+description: Configurare una stringa di connessione per un account di archiviazione di Azure. Una stringa di connessione contiene le informazioni necessarie per autorizzare l'accesso a un account di archiviazione dall'applicazione in fase di esecuzione tramite l'autorizzazione della chiave condivisa.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,16 +9,16 @@ ms.date: 06/20/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7c83b382f8aca3d8fda1c0de4785c51f3f3b1fc5
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 0f73871d8248b2f52bab5934eef03d883c72ed79
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67302495"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985390"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configurare le stringhe di connessione di Archiviazione di Azure
 
-Una stringa di connessione include le informazioni necessarie per l'applicazione per accedere ai dati in un account di archiviazione di Azure in fase di esecuzione con autenticazione chiave condivisa. Le stringhe di connessione possono essere configurate per:
+Una stringa di connessione include le informazioni di autenticazione necessarie all'applicazione per accedere ai dati in un account di archiviazione di Azure in fase di esecuzione tramite l'autorizzazione della chiave condivisa. Le stringhe di connessione possono essere configurate per:
 
 * Connettersi all'emulatore di archiviazione di Azure.
 * Accedere a un account di archiviazione in Azure.
@@ -32,7 +32,7 @@ Una stringa di connessione include le informazioni necessarie per l'applicazione
 
 [!INCLUDE [storage-view-keys-include](../../../includes/storage-view-keys-include.md)]
 
-## <a name="store-a-connection-string"></a>Store una stringa di connessione
+## <a name="store-a-connection-string"></a>Archiviare una stringa di connessione
 
 L'applicazione deve accedere alla stringa di connessione in fase di runtime per autenticare le richieste inviate al servizio Archiviazione di Azure. Sono disponibili diverse opzioni per l'archiviazione della stringa di connessione:
 
@@ -119,7 +119,7 @@ Se un endpoint di archiviazione è stato mappato su un dominio personalizzato e 
 
 ### <a name="create-a-connection-string-with-an-endpoint-suffix"></a>Creare una stringa di connessione con un suffisso dell'endpoint
 
-Per creare una stringa di connessione per un servizio di archiviazione in aree o istanze con suffissi dell'endpoint diversi, ad esempio per 21Vianet per Azure Cina o Azure per enti pubblici, usare il seguente formato di stringa di connessione. Indicare se si vuole eseguire la connessione all'account di archiviazione tramite HTTPS (opzione consigliata) o HTTP, quindi sostituire `myAccountName` con il nome dell'account di archiviazione, sostituire `myAccountKey` con la chiave di accesso del proprio account e sostituire `mySuffix` con il suffisso URI:
+Per creare una stringa di connessione per un servizio di archiviazione in aree o istanze con suffissi dell'endpoint diversi, ad esempio per Azure Cina 21Vianet o Azure per enti pubblici, usare il seguente formato della stringa di connessione. Indicare se si vuole eseguire la connessione all'account di archiviazione tramite HTTPS (opzione consigliata) o HTTP, quindi sostituire `myAccountName` con il nome dell'account di archiviazione, sostituire `myAccountKey` con la chiave di accesso del proprio account e sostituire `mySuffix` con il suffisso URI:
 
 ```
 DefaultEndpointsProtocol=[http|https];
@@ -145,5 +145,4 @@ EndpointSuffix=core.chinacloudapi.cn;
 
 * [Usare l'emulatore di archiviazione di Azure per sviluppo e test](storage-use-emulator.md)
 * [Strumenti di esplorazione di Archiviazione di Azure](storage-explorers.md)
-* [Uso delle firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md)
-
+* [Uso delle firme di accesso condiviso](storage-sas-overview.md)

@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
-ms.openlocfilehash: 2434507ac89d631bb96ae9633403075801879a37
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 6ab2e0866c4e6c5cc8f89cb490504f6ca6a076fc
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277411"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019642"
 ---
 # <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
 
@@ -373,7 +373,7 @@ Dopo la reinstallazione del controller, ridistribuire i pod.
 ## <a name="incorrect-rbac-permissions-for-calling-dev-spaces-controller-and-apis"></a>Autorizzazioni RBAC non corrette per la chiamata di API e controller degli spazi di sviluppo
 
 ### <a name="reason"></a>`Reason`
-L'utente che accede al controller di Azure Dev Spaces deve avere accesso per leggere il *kubeconfig* di amministrazione nel cluster AKS. Ad esempio, questa autorizzazione è disponibile nel [ruolo di amministratore del cluster di servizi Kubernetes di Azure predefinito](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). L'utente che accede al controller di Azure Dev Spaces deve avere anche  il ruolo Collaboratore o controllo degli accessi in base al ruolo del *proprietario* per il controller.
+L'utente che accede al controller di Azure Dev Spaces deve avere accesso per leggere il *kubeconfig* di amministrazione nel cluster AKS. Ad esempio, questa autorizzazione è disponibile nel [ruolo di amministratore del cluster di servizi Kubernetes di Azure predefinito](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). L'utente che accede al controller di Azure Dev Spaces deve avere anche il ruolo Collaboratore o controllo degli accessi in base al ruolo del *proprietario* per il controller.
 
 ### <a name="try"></a>Prova
 Altre informazioni sull'aggiornamento delle autorizzazioni di un utente per un cluster AKS sono disponibili [qui](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group).
@@ -445,7 +445,14 @@ Aggiornare l'installazione dell'interfaccia della riga di comando di [Azure](/cl
 
 ### <a name="reason"></a>`Reason`
 
-Quando si esegue un servizio in uno spazio di sviluppo, il pod del servizio viene [inserito con contenitori aggiuntivi per la strumentazione](how-dev-spaces-works.md#prepare-your-aks-cluster). Per questi contenitori non sono definiti limiti o richieste di risorse, che determina la disabilitazione della scalabilità automatica del Pod orizzontale per il pod.
+Quando si esegue un servizio in uno spazio di sviluppo, il pod del servizio viene [inserito con contenitori aggiuntivi per la strumentazione](how-dev-spaces-works.md#prepare-your-aks-cluster) e tutti i contenitori in un pod devono disporre di limiti e richieste di risorse impostati per la scalabilità automatica dei Pod orizzontali. 
+
+
+È possibile applicare le richieste e i limiti delle risorse per il contenitore inserito (devspaces-proxy) aggiungendo `azds.io/proxy-resources` l'annotazione alla specifica pod. Il valore deve essere impostato su un oggetto JSON che rappresenta la sezione delle risorse della specifica del contenitore per il proxy.
 
 ### <a name="try"></a>Prova
-Eseguire il ridimensionamento automatico del Pod orizzontale in uno spazio dei nomi in cui non sono abilitati gli spazi di sviluppo.
+
+Di seguito è riportato un esempio di un'annotazione proxy-Resources da applicare alla specifica pod.
+```
+azds.io/proxy-resources: "{\"Limits\": {\"cpu\": \"300m\",\"memory\": \"400Mi\"},\"Requests\": {\"cpu\": \"150m\",\"memory\": \"200Mi\"}}"
+```

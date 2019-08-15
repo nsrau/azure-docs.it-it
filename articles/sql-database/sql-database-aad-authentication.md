@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 02/20/2019
-ms.openlocfilehash: eb49649e9c92416fc674c032b9dc6a613a34dd77
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b99dbd403de0de948527fbe74b7e1205316822c0
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569665"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019685"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Usare l'autenticazione di Azure Active Directory per l'autenticazione con SQL
 
@@ -98,7 +98,7 @@ Per creare un utente di database indipendente nel database SQL di Azure, in Ista
   - `SUSER_ID(<admin name>)`
   - `SUSER_SID(<admin name>)`
 
-### <a name="manage-instances"></a>Gestire le istanze
+### <a name="managed-instances"></a>Istanze gestite
 
 - Gli utenti e le entità server (account di accesso) di Azure AD sono supportati come funzionalità di anteprima per [Istanze gestite](sql-database-managed-instance.md).
 - In [Istanze gestite](sql-database-managed-instance.md) non è supportata l'impostazione di entità server (account di accesso) di Azure AD di cui è stato eseguito il mapping a un gruppo di Azure AD come proprietario del database.

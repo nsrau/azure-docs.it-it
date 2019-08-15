@@ -8,26 +8,13 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 438f450efe207999947795878a9815fca64f45ca
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: a627592bdfcbebc3c7fcda911e31c0ae6f4a630f
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68702947"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976653"
 ---
-Host dedicato di Azure è un servizio che fornisce server fisici in grado di ospitare una o più macchine virtuali, dedicate a una sottoscrizione di Azure. Gli host dedicati sono gli stessi server fisici usati nei data center, forniti come risorsa. È possibile eseguire il provisioning di host dedicati in un'area, una zona di disponibilità e un dominio di errore. Quindi, è possibile inserire le VM direttamente negli host di cui è stato eseguito il provisioning, in base a qualsiasi configurazione più adatta alle proprie esigenze.
-
-> [!IMPORTANT]
-> Gli host dedicati di Azure sono attualmente disponibili in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> **Limitazioni di anteprima note**
-> - I set di scalabilità di macchine virtuali non sono attualmente supportati negli host dedicati.
-> - La versione iniziale di anteprima supporta la serie di macchine virtuali seguente: DSv3 e ESv3. 
-> - Durante l'anteprima, non sarà possibile ridimensionare una macchina virtuale distribuita in un host dedicato.
-> - Il controllo sulle funzionalità di manutenzione si trova in un'anteprima limitata. Per provare a usare questo [sondaggio](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u) di candidatura, iniziare.  
-> Durante l'anteprima non verrà offerta l'opzione per la capacità riservata. 
-
 ## <a name="benefits"></a>Vantaggi 
 
 Per riservare l'intero host sono disponibili i vantaggi seguenti:
@@ -122,7 +109,7 @@ Durante l'anteprima, si supporterà il SKU\types host seguente:  DSv3_Type1 e ES
 
 Azure monitora e gestisce lo stato di integrità degli host. Quando si esegue una query sull'host, verranno restituiti gli Stati seguenti:
 
-| Stato di integrità   | Descrizione       |
+| Stato di integrità   | DESCRIZIONE       |
 |----------|----------------|
 | Host disponibile     | Nessun problema noto con l'host.   |
 | Host sottoposto a indagine  | Si sono verificati problemi con l'host che si sta cercando. Si tratta di uno stato di transizione necessario per consentire ad Azure di provare e identificare l'ambito e la causa radice del problema identificato. Le macchine virtuali in esecuzione nell'host potrebbero essere interessate. |

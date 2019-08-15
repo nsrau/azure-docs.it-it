@@ -1,6 +1,6 @@
 ---
-title: Esempio - progetto v3.2.1 per PCI-DSS - distribuzione passaggi
-description: Distribuire i passaggi dell'esempio blueprint v3.2.1 Payment Card Industry Data Security Standard.
+title: Esempio-PCI-DSS v 3.2.1 Blueprint-procedura di distribuzione
+description: Distribuire i passaggi dell'esempio di progetto della carta di pagamento Industry Data Security Standard v 3.2.1.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,16 +8,16 @@ ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: b4e9435e5f569a076fc5beb6441b9da935b87f3a
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: 237444cde6e9ccd709f61d13669da03094e5be10
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561376"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019431"
 ---
-# <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Distribuire l'esempio di progetto v3.2.1 di PCI DSS
+# <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Distribuire l'esempio di progetto PCI-DSS v 3.2.1
 
-Per distribuire l'esempio di progetto Azure linee guida per PCI-DSS v3.2.1, è necessario effettuare i passaggi seguenti:
+Per distribuire l'esempio di progetto di Azure Blueprints PCI-DSS v 3.2.1, è necessario eseguire i passaggi seguenti:
 
 > [!div class="checklist"]
 > - Creare un nuovo progetto dall'esempio
@@ -34,11 +34,11 @@ Prima di tutto, implementare l'esempio di progetto creando un nuovo progetto nel
 
 1. Nella pagina **Getting started** (Introduzione) a sinistra selezionare il pulsante **Crea** in _Creare un progetto_.
 
-1. Trovare il **v3.2.1 PCI-DSS** esempio di progetto sotto _altri esempi_ e selezionare **usare questo esempio**.
+1. Trovare l'esempio di progetto **PCI-DSS v 3.2.1** in _altri esempi_ e selezionare **Usa questo esempio**.
 
 1. Immettere le _informazioni di base_ dell'esempio di progetto:
 
-   - **Nome progetto**: Specificare un nome per la copia dell'esempio di progetto v3.2.1 PCI-DSS.
+   - **Nome progetto**: Specificare un nome per la copia dell'esempio di progetto PCI-DSS v 3.2.1.
    - **Posizione della definizione**: usare i puntini di sospensione e selezionare il gruppo di gestione in cui salvare la copia dell'esempio.
 
 1. Selezionare la scheda _Artefatti_ nella parte superiore della pagina oppure **Avanti: Elementi** nella parte inferiore della pagina.
@@ -47,13 +47,13 @@ Prima di tutto, implementare l'esempio di progetto creando un nuovo progetto nel
 
 ## <a name="publish-the-sample-copy"></a>Pubblicare la copia dell'esempio
 
-La copia dell'esempio di progetto è stata creata nell'ambiente. Ma poiché è stata creata in modalità **Bozza**, è necessario **pubblicarla** per poterla assegnare e distribuire. La copia dell'esempio di progetto può essere personalizzata con l'ambiente e alle esigenze, ma tale modifica potrebbe spostarlo fuori il v3.2.1 PCI-DSS standard.
+La copia dell'esempio di progetto è stata creata nell'ambiente. Ma poiché è stata creata in modalità **Bozza**, è necessario **pubblicarla** per poterla assegnare e distribuire. La copia dell'esempio di progetto può essere personalizzata in base all'ambiente e alle esigenze, ma tale modifica potrebbe allontanarsi dallo standard PCI-DSS v 3.2.1.
 
 1. Selezionare **Tutti i servizi**, quindi cercare e selezionare **Criteri** nel riquadro sinistro. Nella pagina **Criteri** selezionare **Progetti**.
 
 1. Selezionare la pagina **Definizioni di progetto** a sinistra. Usare i filtri per trovare la copia dell'esempio di progetto e quindi selezionarla.
 
-1. Selezionare **Pubblica progetto** nella parte superiore della pagina. Nella nuova pagina a destra specificare un valore di **Versione** per la copia dell'esempio di progetto. Questa proprietà è utile se si apporta una modifica successivamente. Fornire **modificare note** , ad esempio "prima versione pubblicata dell'esempio di progetto v3.2.1 PCI-DSS." Quindi selezionare **Pubblica** nella parte inferiore della pagina.
+1. Selezionare **Pubblica progetto** nella parte superiore della pagina. Nella nuova pagina a destra specificare un valore di **Versione** per la copia dell'esempio di progetto. Questa proprietà è utile se si apporta una modifica successivamente. Fornire **Note sulle modifiche** , ad esempio "prima versione pubblicata dall'esempio di progetto PCI-DSS v 3.2.1". Quindi selezionare **Pubblica** nella parte inferiore della pagina.
 
 ## <a name="assign-the-sample-copy"></a>Assegnare la copia dell'esempio
 
@@ -67,7 +67,7 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
 1. Specificare i valori dei parametri per l'assegnazione del progetto:
 
-   - Nozioni di base
+   - Generale
 
      - **Sottoscrizioni**: selezionare una o più sottoscrizioni presenti nel gruppo di gestione in cui è stata salvata la copia dell'esempio di progetto. Se si selezionano più sottoscrizioni, viene creata un'assegnazione per ciascuna usando i parametri immessi.
      - **Nome dell'assegnazione**: il nome viene prepopolato in base al nome del progetto.
@@ -98,19 +98,19 @@ La tabella seguente contiene un elenco dei parametri degli artefatti del progett
 
 |Nome dell'artefatto|Tipo di artefatto|Nome parametro|Descrizione|
 |-|-|-|-|
-|[Anteprima]: Audit PCI v3.2.1:2018 controlli e distribuire estensioni di macchina virtuale specifiche per supportare i requisiti di controllo|Assegnazione dei criteri|Elenco dei tipi di risorse | Controllare l'impostazione di diagnostica per i tipi di risorse selezionato. Valore predefinito è che vengono selezionate tutte le risorse| 
-|Percorsi consentiti|Assegnazione dei criteri|Elenco delle località consentite|Elenco delle posizioni dei data center consentito per qualsiasi risorsa distribuita in. Questo elenco è personalizzabile per le posizioni di Azure desiderate a livello globale. Selezionare le posizioni che si desidera consentire.| 
-|Località consentite per i gruppi di risorse|Assegnazione dei criteri |Località consentite |Questo criterio consente di limitare le posizioni che dell'organizzazione possa creare gruppi di risorse. Usare per imporre requisiti di conformità geografica.| 
-|Distribuire il controllo sui server SQL|Assegnazione dei criteri|Giorni di conservazione|Conservazione dei dati in numero di giorni. Valore predefinito è 180 ma PCI richiede 365.| 
-|Distribuire il controllo sui server SQL|Assegnazione dei criteri|Nome gruppo di risorse per account di archiviazione|Gli eventi di database di controllo operazioni di scrittura a un controllo log nell'account di archiviazione di Azure (verrà creato un account di archiviazione in ogni area in cui viene creato un Server SQL che verrà condiviso da tutti i server in tale area).| 
+|\[Anteprima\] controllare PCI v 3.2.1:2018 controlla e distribuire estensioni VM specifiche per supportare i requisiti di controllo|Assegnazione criteri|Elenco di tipi di risorse | Controlla l'impostazione di diagnostica per i tipi di risorse selezionati. Il valore predefinito è tutte le risorse selezionate| 
+|Località consentite|Assegnazione criteri|Elenco di percorsi consentiti|Elenco di percorsi di data center consentiti per la distribuzione di qualsiasi risorsa in. Questo elenco è personalizzabile nelle località di Azure desiderate a livello globale. Selezionare le località che si desidera consentire.| 
+|Percorsi consentiti per i gruppi di risorse|Assegnazione criteri |Località consentita |Questo criterio consente di limitare le posizioni in cui l'organizzazione può creare gruppi di risorse. Usare per imporre requisiti di conformità geografica.| 
+|Distribuisci il controllo nei server SQL|Assegnazione criteri|Giorni di conservazione|Al conservazione dati in numero di giorni. Il valore predefinito è 180, ma PCI richiede 365.| 
+|Distribuisci il controllo nei server SQL|Assegnazione criteri|Nome del gruppo di risorse per l'account di archiviazione|Il controllo esegue la scrittura degli eventi del database in un log di controllo nell'account di archiviazione di Azure. Verrà creato un account di archiviazione in ogni area in cui viene creato un server SQL che verrà condiviso da tutti i server di tale area.| 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver esaminato i passaggi per distribuire l'esempio di progetto v3.2.1 PCI-DSS, vedere gli articoli seguenti per apprendere la panoramica e mapping di controllo:
+Ora che sono stati esaminati i passaggi per distribuire l'esempio di progetto PCI-DSS v 3.2.1, vedere gli articoli seguenti per informazioni sulla panoramica e sul mapping dei controlli:
 
 > [!div class="nextstepaction"]
-> [Progetto v3.2.1 per PCI-DSS - Panoramica](./index.md)
-> [blueprint v3.2.1 PCI-DSS - mapping di controllo](./control-mapping.md)
+> [PCI-DSS v 3.2.1 Blueprint-Panoramica](./index.md)
+> [PCI-DSS v 3.2.1-progetto-mapping di controllo](./control-mapping.md)
 
 Altri articoli sui progetti e su come usarli:
 

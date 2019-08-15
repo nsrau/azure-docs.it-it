@@ -3,7 +3,7 @@ title: Latenze dei report di Azure Active Directory | Microsoft Docs
 description: Informazioni sul tempo necessario per la visualizzazione nel portale di Azure degli eventi dei report
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 05/13/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d4d02f9e99acb68db126ccde465f73cc2294e06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f57f09f146e542768c83fa034f0b4e65bc6b2ae
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65594027"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987919"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latenze dei report di Azure Active Directory
 
@@ -59,7 +59,7 @@ Esistono due tipi di report sulla sicurezza:
 
 Nella tabella seguente sono elencate le informazioni sulla latenza per i report di sicurezza.
 
-| Report | Minima | Media | Massima |
+| Report | Minima | Average | Massima |
 | :-- | --- | --- | --- |
 | Utenti a rischio.          | 5 minuti   | 15 minuti  | 2 ore  |
 | Accessi a rischio         | 5 minuti   | 15 minuti  | 2 ore  |
@@ -70,10 +70,10 @@ Azure AD usa l'euristica e gli algoritmi adattivi di Machine Learning per rileva
 
 Nella tabella seguente sono elencate le informazioni sulla latenza per gli eventi di rischio.
 
-| Report | Minima | Media | Massima |
+| Report | Minima | Average | Massima |
 | :-- | --- | --- | --- |
 | Accessi da indirizzi IP anonimi |5 minuti |15 minuti |2 ore |
-| Accessi da posizioni non note |5 minuti |15 minuti |2 ore |
+| Accessi da posizioni insolite |5 minuti |15 minuti |2 ore |
 | Utenti con credenziali perse |2 ore |4 ore |8 ore |
 | Trasferimento impossibile a posizioni atipiche |5 minuti |1 ora |8 ore  |
 | Accessi da dispositivi infetti |2 ore |4 ore |8 ore  |

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect find a Virtual WAN partner
-ms.openlocfilehash: a871a527a4f8440ea3e388b1a91c19355eab3676
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: d9f0bb7d3817b943b71715eb080dd0b060efa025
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879319"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990323"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Posizioni dei partner e degli hub virtuali della rete WAN virtuale di Azure
 
@@ -40,7 +40,7 @@ Alcuni partner di connettività possono estendere l'automazione in modo da inclu
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-Per il prossimo futuro, i partner seguenti sono disponibili sulla nostra roadmap: Fortinet, Silver-Peak, Velocloud, versa, Nuage Nokia.
+Per il prossimo futuro, i partner seguenti sono disponibili sulla nostra roadmap: Arista, F5 Networks, Fortinet, Silver-Peak, Velocloud, Versaa, Nuage Nokia.
 
 ## <a name="locations"></a>Località
 

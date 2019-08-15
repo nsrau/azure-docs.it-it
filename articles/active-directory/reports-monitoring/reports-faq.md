@@ -3,7 +3,7 @@ title: Domande frequenti sui report di Azure Active Directory | Microsoft Docs
 description: Domande frequenti sui report di Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09270d89ecaff02716d9916527d21ba2c5d30716
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a9b1144e3ef1f1a49c39d694f465653da5881cb
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107542"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987910"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Domande frequenti sui report di Azure Active Directory
 
@@ -29,13 +29,13 @@ Questo articolo include risposte alle domande frequenti sulla creazione di repor
 
 ## <a name="getting-started"></a>Introduzione 
 
-**D: Usare attualmente il `https://graph.windows.net/<tenant-name>/reports/` endpoint API per controllo pull Azure AD e l'utilizzo dell'applicazione integrata segnala nel nostro sistema di creazione di report a livello di codice. a quale API occorre passare?**
+**D: Attualmente si utilizzano le `https://graph.windows.net/<tenant-name>/reports/` API dell'endpoint per Azure ad estrarre i report di controllo e di utilizzo delle applicazioni integrati nei sistemi di creazione di report a livello di codice. a quale API occorre passare?**
 
 **R:** consultare la [documentazione di riferimento sulle API](https://developer.microsoft.com/graph/) per informazioni su come [usare le API per accedere ai report attività](concept-reporting-api.md). Questo endpoint dispone di due report (**Controllo** e **Accessi**) che forniscono tutti i dati che si ottengono nell'endpoint delle API precedente. Anche questo nuovo endpoint include un report sugli accessi con la licenza Azure AD Premium, che è possibile usare per ottenere informazioni sull'utilizzo dell'app, l'utilizzo dei dispositivi e gli accessi degli utenti.
 
 ---
 
-**D: Usare attualmente il `https://graph.windows.net/<tenant-name>/reports/` endpoint API di eseguire il pull a livello di programmazione sistemi di gestione dei report di sicurezza di Azure AD (tipi specifici di rilevamenti, ad esempio perdita di credenziali o accessi da indirizzi IP anonimi). a quale API occorre passare?**
+**D: Attualmente si usano le `https://graph.windows.net/<tenant-name>/reports/` API dell'endpoint per estrarre i report di sicurezza Azure ad (tipi specifici di rilevamento, ad esempio le credenziali perse o gli accessi da indirizzi IP anonimi) nei sistemi di report a livello di codice. a quale API occorre passare?**
 
 **R:** é possibile usare l' [API per gli eventi di rischio di protezione dell'identità](../identity-protection/graph-get-started.md)  per accedere ai rilevamenti relativi alla sicurezza tramite Microsoft Graph. Questo nuovo formato offre maggiore flessibilità per l'esecuzione di query sui dati, grazie a filtri avanzati, modalità di selezione dei campi e altro, oltre a standardizzare gli eventi di rischio su un solo tipo per una più facile integrazione con gli strumenti per la raccolta di informazioni di sicurezza e gestione degli eventi e altri dati. Poiché i dati sono un formato diverso, non è possibile sostituire le query precedenti con una nuova query. Tuttavia, [la nuova API usa Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), ovvero lo standard Microsoft per API come Office 365 o Azure AD. Saranno quindi necessari interventi per estendere gli investimenti esistenti per Microsoft Graph o per avviare la transizione a questa nuova piattaforma standard.
 
@@ -73,7 +73,7 @@ Questo articolo include risposte alle domande frequenti sulla creazione di repor
 
 **R:** la tabella seguente indica il periodo di conservazione dei dati per i log attività. Per altre informazioni, vedere [Criteri di conservazione dei report di Azure Active Directory](reference-reports-data-retention.md).
 
-| Report                 | Azure AD Free | Azure AD P1 Premium | Azure AD P2 Premium |
+| Report                 | Azure AD Gratuito | Azure AD P1 Premium | Azure AD P2 Premium |
 | :--                    | :--           | :--                 | :--                 |
 | Log di controllo             | 7 giorni        | 30 giorni             | 30 giorni             |
 | Accessi               | N/D           | 30 giorni             | 30 giorni             |
@@ -89,7 +89,7 @@ Questo articolo include risposte alle domande frequenti sulla creazione di repor
 
 **D: è possibile ottenere informazioni sui log attività di Office 365 tramite il portale di Azure?**
 
-**R:** Anche se le attività di Office 365 e i log attività di Azure AD condividano numerose risorse della directory, se si desidera una visualizzazione completa dei log attività di Office 365, è necessario usare per la [interfaccia di amministrazione di Microsoft 365](https://admin.microsoft.com) per ottenere il log attività di Office 365 informazioni.
+**R:** Anche se l'attività di Office 365 e i log attività Azure AD condividono numerose risorse della directory, se si desidera una visualizzazione completa dei log attività di Office 365, è necessario accedere all'interfaccia di [amministrazione di Microsoft 365](https://admin.microsoft.com) per ottenere informazioni sul log attività di Office 365.
 
 ---
 
@@ -135,7 +135,7 @@ Questo articolo include risposte alle domande frequenti sulla creazione di repor
 
 **D: quali sono le novità di questa funzionalità?**
 
-**R:** I clienti possono ora risolvere i problemi di criteri di accesso condizionale tramite tutti i report degli accessi. I clienti possono esaminare lo stato di accesso condizionale e approfondire i dettagli dei criteri applicati per l'accesso e il risultato per ogni criterio.
+**R:** I clienti possono ora risolvere i problemi relativi ai criteri di accesso condizionale tramite tutti i report degli accessi. I clienti possono esaminare lo stato di accesso condizionale e approfondire i dettagli dei criteri applicati all'accesso e il risultato per ogni criterio.
 
 **D: come iniziare?**
 
@@ -143,19 +143,19 @@ Questo articolo include risposte alle domande frequenti sulla creazione di repor
 
 * Andare al report degli accessi nel [portale di Azure](https://portal.azure.com).
 * Fare clic sull'accesso di cui si desiderano risolvere i problemi.
-* Passare il **accesso condizionale** scheda. In questa scheda è possibile visualizzare tutti i criteri che hanno interessato l'accesso e il risultato per ogni criterio. 
+* Passare alla scheda **accesso condizionale** . In questa scheda è possibile visualizzare tutti i criteri che hanno interessato l'accesso e il risultato per ogni criterio. 
     
 **D: Quali sono tutti i valori possibili per lo stato di accesso condizionale?**
 
-**R:** Lo stato di accesso condizionale può avere i valori seguenti:
+**R:** Lo stato di accesso condizionale può includere i valori seguenti:
 
 * **Non applicato**: significa che non è presente alcun criterio di accesso condizionale con l'utente e l'app inclusi nell'ambito. 
 * **Operazione riuscita**: significa che è presente un criterio di accesso condizionale con l'utente e con l'app previsti e che i criteri di accesso condizionale sono stati soddisfatti correttamente. 
 * **Operazione non riuscita**: significa che è presente un criterio di accesso condizionale con l'utente e con l'app previsti e che i criteri di accesso condizionale non sono stati soddisfatti correttamente. 
     
-**D: Quali sono tutti i valori possibili per il risultato di criteri di accesso condizionale?**
+**D: Quali sono tutti i valori possibili per il risultato dei criteri di accesso condizionale?**
 
-**R:** Criteri di accesso condizionale possono avere i seguenti risultati:
+**R:** I criteri di accesso condizionale possono avere i seguenti risultati:
 
 * **Operazione riuscita**: i criteri sono stati soddisfatti.
 * **Operazione non riuscita**: i criteri non sono stati soddisfatti.
@@ -166,6 +166,6 @@ Questo articolo include risposte alle domande frequenti sulla creazione di repor
 
 **R:** il nome del criterio nel report di tutti gli accessi è basato sul nome del criterio di accesso condizionale al momento dell'accesso. Ciò può essere incoerente con il nome del criterio nell'accesso condizionale se è stato aggiornato il nome del criterio in un secondo momento, vale a dire, dopo l'accesso.
 
-**D: L'accesso è stato bloccato a causa di un criterio di accesso condizionale, ma il rapporto attività di accesso mostra che l'accesso aggiuntivo è stata completata. Perché?**
+**D: L'accesso è stato bloccato a causa di un criterio di accesso condizionale, ma il report delle attività di accesso Mostra che l'accesso è riuscito. Perché?**
 
-**R:** Attualmente il report sugli accessi potrebbero non Visualizza risultati accurati per gli scenari di Exchange ActiveSync quando viene applicato l'accesso condizionale. Possono esserci casi quando il risultato di accesso nel report mostra un accesso aggiuntivo ha esito positivo, ma accesso in realtà non è riuscita a causa di un criterio di accesso condizionale. 
+**R:** Attualmente, il report di accesso potrebbe non visualizzare risultati accurati per gli scenari di Exchange ActiveSync quando viene applicato l'accesso condizionale. Possono verificarsi casi in cui il risultato dell'accesso nel report Mostra un accesso riuscito, ma l'accesso non è riuscito a causa di un criterio di accesso condizionale. 
