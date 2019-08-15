@@ -8,12 +8,12 @@ ms.author: xshi
 ms.date: 08/07/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 2efda0e506cf0525b1a8ea868acca48a929f8f41
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b63b68b7721dd848e6a72b3b7d9cfa38bf031b23
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848295"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035076"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Usare Visual Studio Code per sviluppare moduli per Azure IoT Edge ed eseguirne il debug
 
@@ -30,7 +30,7 @@ Questo articolo fornisce istruzioni per lo sviluppo e il debug di moduli in più
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È possibile usare un computer o una macchina virtuale Windows, macOS o Linux come computer di sviluppo. Un dispositivo IoT Edge può essere un altro dispositivo fisico.
+È possibile usare un computer o una macchina virtuale Windows, macOS o Linux come computer di sviluppo. Nei computer Windows è possibile sviluppare moduli Windows o Linux. Per sviluppare moduli Windows, usare un computer Windows che esegue la versione 1809/Build 17763 o successiva. Per sviluppare moduli Linux, usare un computer Windows che soddisfi i [requisiti per il desktop Docker](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install). 
 
 Prima installare [Visual Studio Code](https://code.visualstudio.com/) e poi aggiungere le estensioni seguenti:
 

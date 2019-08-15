@@ -1,51 +1,51 @@
 ---
 title: Limitare il traffico in uscita in Azure Kubernetes Service (AKS)
-description: Informazioni su quali porte e gli indirizzi sono necessari per controllare il traffico in uscita in Azure Kubernetes Service (AKS)
+description: Informazioni sulle porte e sugli indirizzi necessari per controllare il traffico in uscita in Azure Kubernetes Service (AKS)
 services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 12922496bc97ad51d1cc96f7ffe8df05c1fd66ea
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: cf9dc304efea8874d16953f74bf88a4317760819
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614954"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69031833"
 ---
-# <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Anteprima - limitare il traffico in uscita per i nodi del cluster e controllare l'accesso alle porte necessarie e i servizi in Azure Kubernetes Service (AKS)
+# <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Anteprima: limitare il traffico in uscita per i nodi del cluster e controllare l'accesso alle porte e ai servizi richiesti in Azure Kubernetes Service (AKS)
 
-Per impostazione predefinita, i cluster servizio contenitore di AZURE dispongono di illimitato l'accesso a internet in uscita (traffico in uscita). Questo livello di accesso alla rete consente a nodi e i servizi che si esegue per accedere alle risorse esterne in base alle esigenze. Se si desidera limitare il traffico in uscita, un numero limitato di porte e indirizzi deve essere accessibile per mantenere le attività di manutenzione di cluster integro. Il cluster viene quindi configurato per usare solo immagini del contenitore del sistema di base da Microsoft contenitore del Registro di sistema (MCR) o del Registro di sistema contenitore di Azure (ACR), i repository pubblici non esterni. È necessario configurare le regole del firewall e della sicurezza preferite per consentire queste porte e indirizzi.
+Per impostazione predefinita, i cluster AKS hanno accesso a Internet in uscita senza restrizioni (in uscita). Questo livello di accesso alla rete consente i nodi e i servizi eseguiti per accedere alle risorse esterne, se necessario. Se si vuole limitare il traffico in uscita, un numero limitato di porte e indirizzi deve essere accessibile per mantenere integre le attività di manutenzione del cluster. Il cluster viene quindi configurato in modo da usare solo le immagini del contenitore di sistema di base di Microsoft Container Registry (Container Registry) o Azure (ACR), non i repository pubblici esterni. È necessario configurare le regole del firewall e di sicurezza preferite per consentire le porte e gli indirizzi richiesti.
 
-Questo articolo illustra in dettaglio quali porte di rete e i nomi di dominio completo (FQDN) sono obbligatori e facoltativi se si limita il traffico in uscita in un cluster AKS.  Questa funzionalità è attualmente in anteprima.
+Questo articolo illustra in dettaglio le porte di rete e i nomi di dominio completi (FQDN) necessari e facoltativi se si limita il traffico in uscita in un cluster AKS.  Questa funzionalità è attualmente in anteprima.
 
 > [!IMPORTANT]
-> Funzionalità di anteprima del servizio contenitore di AZURE sono self-service, fornire il consenso esplicito. Vengono fornite per raccogliere commenti e suggerimenti e bug dalla community. In fase di anteprima, queste funzionalità non sono destinate all'uso di produzione. Le funzionalità in anteprima pubblica rientrano nel supporto "best effort". Assistenza dai team di supporto tecnico di AKS è disponibile durante le ore lavorative Pacifico (PST) solo timezone. Per altre informazioni, vedere i seguenti articoli di supporto:
+> Le funzionalità di anteprima di AKS sono il consenso esplicito self-service. Le anteprime vengono fornite "così come sono" e "come disponibili" e sono escluse dai contratti di servizio e dalla garanzia limitata. Le anteprime AKS sono parzialmente coperte dal supporto tecnico per il massimo sforzo. Di conseguenza, queste funzionalità non sono destinate all'uso in produzione. Per ulteriori informazioni, vedere gli articoli di supporto seguenti:
 >
-> * [Criteri di supporto servizio contenitore di AZURE][aks-support-policies]
+> * [Criteri di supporto AKS][aks-support-policies]
 > * [Domande frequenti relative al supporto tecnico Azure][aks-faq]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-È necessario la CLI di Azure versione 2.0.66 o versione successiva installato e configurato. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
+È necessaria l'interfaccia della riga di comando di Azure versione 2.0.66 o successiva installata e configurata. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
-Per creare un cluster AKS che può limitare il traffico in uscita, è necessario attivare un flag funzionalità per la sottoscrizione. Questa registrazione della funzionalità consente di configurare tutti i cluster servizio contenitore di AZURE create per usare le immagini contenitore di sistema di base da MCR o registro contenitori di AZURE. Per registrare il *AKSLockingDownEgressPreview* flag delle funzionalità, utilizzare il [register funzionalità az][az-feature-register] seguente come mostrato nell'esempio seguente:
+Per creare un cluster AKS che può limitare il traffico in uscita, abilitare prima di tutto un flag funzionalità per la sottoscrizione. Questa registrazione delle funzionalità consente di configurare tutti i cluster AKS creati per usare le immagini del contenitore di sistema di base di o. Per registrare il flag della funzionalità *AKSLockingDownEgressPreview* , usare il comando [AZ feature Register][az-feature-register] , come illustrato nell'esempio seguente:
 
 > [!CAUTION]
-> Quando si registra una funzionalità in una sottoscrizione, attualmente non è possibile annullare la registrazione tale funzionalità. Dopo aver abilitato alcune funzionalità di anteprima, potrebbero essere utilizzati i valori predefiniti per tutti i cluster AKS quindi creati nella sottoscrizione. Non abilitare la funzionalità di anteprima nella sottoscrizione di produzione. Usare una sottoscrizione separata per le funzionalità di anteprima di test e raccogliere commenti e suggerimenti.
+> Quando si registra una funzionalità in una sottoscrizione, attualmente non è possibile annullare la registrazione di tale funzionalità. Dopo aver abilitato alcune funzionalità di anteprima, è possibile usare i valori predefiniti per tutti i cluster AKS, quindi creati nella sottoscrizione. Non abilitare le funzionalità di anteprima nelle sottoscrizioni di produzione. Usare una sottoscrizione separata per testare le funzionalità di anteprima e raccogliere commenti e suggerimenti.
 
 ```azurecli-interactive
 az feature register --name AKSLockingDownEgressPreview --namespace Microsoft.ContainerService
 ```
 
-Sono necessari alcuni minuti per visualizzare lo stato *Registered*. È possibile controllare lo stato di registrazione usando il [elenco delle funzionalità az][az-feature-list] comando:
+Sono necessari alcuni minuti per visualizzare lo stato *Registered*. È possibile controllare lo stato della registrazione usando il comando [AZ feature list][az-feature-list] :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSLockingDownEgressPreview')].{Name:name,State:properties.state}"
 ```
 
-Quando si è pronti, aggiornare la registrazione dei *containerservice* provider di risorse usando la [register di az provider][az-provider-register] comando:
+Quando si è pronti, aggiornare la registrazione del provider di risorse *Microsoft. servizio contenitore* usando il comando [AZ provider Register][az-provider-register] :
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -53,64 +53,64 @@ az provider register --namespace Microsoft.ContainerService
 
 ## <a name="egress-traffic-overview"></a>Panoramica sul traffico in uscita
 
-Per la gestione e scopi operativi, i nodi in un cluster del servizio contenitore di AZURE necessario per accedere a determinate porte e i nomi di dominio completo (FQDN). Queste azioni può essere per comunicare con il server API, o per scaricare e installare componenti principali del cluster Kubernetes e gli aggiornamenti della sicurezza nodo. Per impostazione predefinita, il traffico internet (in uscita) in uscita non è limitato per i nodi in un cluster AKS. Il cluster può eseguire il pull del sistema di base le immagini del contenitore dai repository esterno.
+A scopo di gestione e operativi, i nodi in un cluster AKS devono accedere a determinate porte e nomi di dominio completi (FQDN). Queste azioni possono essere la comunicazione con il server API oppure per scaricare e installare i componenti principali del cluster Kubernetes e gli aggiornamenti della sicurezza dei nodi. Per impostazione predefinita, il traffico Internet in uscita (in uscita) non è limitato per i nodi in un cluster AKS. Il cluster può estrarre le immagini del contenitore di sistema di base da repository esterni.
 
-Per aumentare la sicurezza del cluster servizio contenitore di AZURE, è possibile limitare il traffico in uscita. Il cluster è configurato per estrarre le immagini del contenitore da registro contenitori di AZURE o MCR sistema di base. Se si blocca il traffico in uscita in questo modo, è necessario definire specifiche porte e i nomi di dominio completi per consentire ai nodi AKS comunicare correttamente con i servizi esterni necessari. Senza queste porte autorizzate e un FQDN, i nodi del servizio contenitore di AZURE non possono comunicare con il server API o installare i componenti di base.
+Per aumentare la sicurezza del cluster AKS, è possibile che si desideri limitare il traffico in uscita. Il cluster è configurato per eseguire il pull delle immagini del contenitore di sistema di base da o da o ACR. Se si blocca il traffico in uscita in questo modo, è necessario definire porte e FQDN specifici per consentire ai nodi AKS di comunicare correttamente con i servizi esterni richiesti. Senza queste porte e FQDN autorizzati, i nodi AKS non possono comunicare con il server API o installare componenti di base.
 
-È possibile usare [Firewall Azure][azure-firewall] o un'appliance firewall di terze parti 3rd per proteggere il traffico in uscita e definire queste necessarie porte e indirizzi. Servizio contenitore di AZURE non crea automaticamente queste regole per l'utente. Le seguenti porte e gli indirizzi sono per riferimento quando si creano le regole appropriate nel firewall della rete.
+È possibile usare il [firewall di Azure][azure-firewall] o un appliance firewall di terze parti per proteggere il traffico in uscita e definire le porte e gli indirizzi richiesti. AKS non crea automaticamente queste regole. Le porte e gli indirizzi seguenti sono per riferimento quando si creano le regole appropriate nel firewall di rete.
 
-Nel servizio contenitore di AZURE, sono disponibili due set di porte e indirizzi:
+In AKS sono disponibili due set di porte e indirizzi:
 
-* Il [porte e indirizzi necessari per i cluster AKS](#required-ports-and-addresses-for-aks-clusters) illustra in dettaglio i requisiti minimi per il traffico in uscita autorizzati.
-* Il [facoltativi consigliati indirizzi e porte per i cluster AKS](#optional-recommended-addresses-and-ports-for-aks-clusters) non sono necessarie per tutti gli scenari, ma l'integrazione con altri servizi, ad esempio monitoraggio di Azure non funzionerà correttamente. Esaminare l'elenco di FQDN e le porte facoltative e autorizzare tutti i servizi e componenti utilizzati nel cluster AKS.
+* Le [porte e gli indirizzi richiesti per i cluster AKS](#required-ports-and-addresses-for-aks-clusters) illustrano in dettaglio i requisiti minimi per il traffico in uscita autorizzato.
+* Gli [indirizzi e le porte consigliati facoltativi per i cluster AKS](#optional-recommended-addresses-and-ports-for-aks-clusters) non sono necessari per tutti gli scenari, ma l'integrazione con altri servizi, ad esempio monitoraggio di Azure, non funzionerà correttamente. Esaminare questo elenco di porte e FQDN facoltativi e autorizzare i servizi e i componenti usati nel cluster AKS.
 
 > [!NOTE]
-> Limitare il traffico in uscita funziona solo su nuovi cluster servizio contenitore di AZURE create dopo aver abilitato la registrazione di flag funzionalità. Per i cluster esistenti [eseguire un'operazione di aggiornamento del cluster][aks-upgrade] usando il `az aks upgrade` comando prima di limitare il traffico in uscita.
+> La limitazione del traffico in uscita funziona solo nei nuovi cluster AKS creati dopo aver abilitato la registrazione del flag funzionalità. Per i cluster esistenti, [eseguire un'operazione di aggiornamento][aks-upgrade] del cluster `az aks upgrade` usando il comando prima di limitare il traffico in uscita.
 
-## <a name="required-ports-and-addresses-for-aks-clusters"></a>Porte necessarie e gli indirizzi per i cluster servizio contenitore di AZURE
+## <a name="required-ports-and-addresses-for-aks-clusters"></a>Porte e indirizzi obbligatori per i cluster AKS
 
-Le seguenti porte in uscita / regole di rete sono necessarie per un cluster del servizio contenitore di AZURE:
+Per un cluster AKS sono necessarie le seguenti regole di rete/porte in uscita:
 
-* La porta TCP *443*
-* La porta TCP *9000* e la porta TCP *22* per i pod front tunnel comunicare con la fine del tunnel sul server API.
-    * Per ottenere risultati più specifici, vedere il * *.hcp.\< ubicazione\>. azmk8s.io* e * *. tun.\< ubicazione\>. azmk8s.io* indirizzi nella tabella seguente.
+* Porta TCP *443*
+* Porta TCP *9000* e la porta TCP *22* per il Pod anteriore del tunnel per comunicare con l'estremità del tunnel nel server API.
+    * Per ottenere informazioni più specifiche, vedere * *. HPC.\< location\>. azmk8s.io* e * *. tun.\< location\>. azmk8s.io* indirizzi nella tabella seguente.
 
-Il nome FQDN segue le regole di applicazione sono necessari:
+Sono necessarie le seguenti regole di FQDN/applicazione:
 
-| FQDN                       | Port      | Uso      |
+| FQDN                       | Port      | Utilizzo      |
 |----------------------------|-----------|----------|
-| *.hcp.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | Questo indirizzo è l'endpoint server dell'API. Sostituire *\<posizione\>* con l'area in cui viene distribuito il cluster AKS. |
-| *.tun.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | Questo indirizzo è l'endpoint server dell'API. Sostituire *\<posizione\>* con l'area in cui viene distribuito il cluster AKS. |
-| aksrepos.azurecr.io        | HTTPS:443 | Questo indirizzo è obbligatorio per l'accesso immagini nel registro contenitori di Azure (ACR). |
-| *.blob.core.windows.net    | HTTPS:443 | Questo indirizzo è l'archivio di back-end per le immagini archiviate nel registro contenitori di AZURE. |
-| mcr.microsoft.com          | HTTPS:443 | Questo indirizzo è obbligatorio per l'accesso immagini nel Registro di sistema contenitore Microsoft (MCR). |
-| *.cdn.mscr.io              | HTTPS:443 | Questo indirizzo è obbligatorio per l'archiviazione MCR supportata dalla rete CDN di Azure (CDN). |
-| management.azure.com       | HTTPS:443 | Questo indirizzo è obbligatorio per le operazioni di Kubernetes GET/PUT. |
-| login.microsoftonline.com  | HTTPS:443 | Questo indirizzo è obbligatorio per l'autenticazione di Azure Active Directory. |
-| api.snapcraft.io           | HTTPS:443, HTTP:80 | Questo indirizzo è necessario per installare i pacchetti di Snap nei nodi Linux. |
-| ntp.ubuntu.com             | UDP:123   | Questo indirizzo è obbligatorio per la sincronizzazione dell'ora NTP nei nodi Linux. |
-| *.docker.io                | HTTPS:443 | Questo indirizzo è necessario eseguire il pull di immagini del contenitore necessarie per la parte anteriore del tunnel. |
+| *.hcp.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | Questo indirizzo è l'endpoint del server API. *Sostituire\<location\>* con l'area in cui è distribuito il cluster AKS. |
+| *.tun.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | Questo indirizzo è l'endpoint del server API. *Sostituire\<location\>* con l'area in cui è distribuito il cluster AKS. |
+| aksrepos.azurecr.io        | HTTPS:443 | Questo indirizzo è necessario per accedere alle immagini in Azure Container Registry (ACR). |
+| *.blob.core.windows.net    | HTTPS:443 | Questo indirizzo è l'archivio back-end per le immagini archiviate in ACR. |
+| mcr.microsoft.com          | HTTPS:443 | Questo indirizzo è necessario per accedere alle immagini in Microsoft Container Registry. |
+| *.cdn.mscr.io              | HTTPS:443 | Questo indirizzo è necessario per l'archiviazione di un sistema di archiviazione con supporto per la rete per la distribuzione di contenuti (CDN) di Azure. |
+| management.azure.com       | HTTPS:443 | Questo indirizzo è obbligatorio per le operazioni GET/PUT Kubernetes. |
+| login.microsoftonline.com  | HTTPS:443 | Questo indirizzo è necessario per l'autenticazione Azure Active Directory. |
+| api.snapcraft.io           | HTTPS:443, HTTP:80 | Questo indirizzo è necessario per installare i pacchetti di snap nei nodi Linux. |
+| ntp.ubuntu.com             | UDP: 123   | Questo indirizzo è necessario per la sincronizzazione dell'ora NTP nei nodi Linux. |
+| *. docker.io                | HTTPS:443 | Questo indirizzo è necessario per eseguire il pull delle immagini del contenitore necessarie per il tunnel anteriore. |
 
-## <a name="optional-recommended-addresses-and-ports-for-aks-clusters"></a>Facoltativo consigliato indirizzi e porte per i cluster servizio contenitore di AZURE
+## <a name="optional-recommended-addresses-and-ports-for-aks-clusters"></a>Indirizzi e porte consigliati facoltativi per i cluster AKS
 
-* La porta UDP *53* per DNS
+* Porta UDP *53* per DNS
 
-Il nome di dominio completo seguente / regole di applicazione sono consigliate per i cluster servizio contenitore di AZURE funzioni correttamente:
+Per il corretto funzionamento dei cluster AKS sono consigliate le seguenti regole per il nome di dominio completo/applicazione:
 
-| FQDN                                    | Port      | Uso      |
+| FQDN                                    | Port      | Utilizzo      |
 |-----------------------------------------|-----------|----------|
-| *.ubuntu.com                            | HTTP:80   | Questo indirizzo consente i nodi del cluster Linux di scaricare le patch di sicurezza necessarie e gli aggiornamenti. |
-| packages.microsoft.com                  | HTTPS:443 | Questo indirizzo viene usato il repository di pacchetti Microsoft per memorizzato nella cache *apt-get* operazioni. |
-| dc.services.visualstudio.com            | HTTPS:443 | Consigliato per le metriche corrette e il monitoraggio tramite Monitoraggio di Azure. |
-| *.opinsights.azure.com                  | HTTPS:443 | Consigliato per le metriche corrette e il monitoraggio tramite Monitoraggio di Azure. |
-| *.monitoring.azure.com                  | HTTPS:443 | Consigliato per le metriche corrette e il monitoraggio tramite Monitoraggio di Azure. |
-| gov-prod-policy-data.trafficmanager.net | HTTPS:443 | Questo indirizzo viene usato per il corretto funzionamento dei criteri di Azure (attualmente in anteprima nel servizio contenitore di AZURE). |
-| apt.dockerproject.org                   | HTTPS:443 | Questo indirizzo viene usato per l'installazione di driver corretto e operazione sui nodi basate su GPU. |
-| nvidia.github.io                        | HTTPS:443 | Questo indirizzo viene usato per l'installazione di driver corretto e operazione sui nodi basate su GPU. |
+| *.ubuntu.com                            | HTTP:80   | Questo indirizzo consente ai nodi del cluster Linux di scaricare le patch di sicurezza e gli aggiornamenti necessari. |
+| packages.microsoft.com                  | HTTPS:443 | Questo indirizzo è il repository dei pacchetti Microsoft usato per le operazioni *apt-get* memorizzate nella cache. |
+| dc.services.visualstudio.com            | HTTPS:443 | Consigliato per la metrica e il monitoraggio corretti con monitoraggio di Azure. |
+| *.opinsights.azure.com                  | HTTPS:443 | Consigliato per la metrica e il monitoraggio corretti con monitoraggio di Azure. |
+| *.monitoring.azure.com                  | HTTPS:443 | Consigliato per la metrica e il monitoraggio corretti con monitoraggio di Azure. |
+| gov-prod-policy-data.trafficmanager.net | HTTPS:443 | Questo indirizzo viene usato per il corretto funzionamento di criteri di Azure (attualmente in anteprima in AKS). |
+| apt.dockerproject.org                   | HTTPS:443 | Questo indirizzo viene usato per l'installazione e il funzionamento corretto dei driver nei nodi basati su GPU. |
+| nvidia.github.io                        | HTTPS:443 | Questo indirizzo viene usato per l'installazione e il funzionamento corretto dei driver nei nodi basati su GPU. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo si è appreso quali porte e indirizzi di consentire o meno se si limita il traffico in uscita per il cluster. È anche possibile definire la modalità in cui possono comunicare i POD se stessi e quali restrizioni hanno all'interno del cluster. Per altre informazioni, vedere [proteggere il traffico tra i POD usando i criteri di rete in AKS][network-policy].
+In questo articolo sono state apprese le porte e gli indirizzi da consentire se si limita il traffico in uscita per il cluster. È anche possibile definire il modo in cui i baccelli possono comunicare e le restrizioni presenti all'interno del cluster. Per altre informazioni, vedere [proteggere il traffico tra i pod usando i criteri di rete in AKS][network-policy].
 
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md

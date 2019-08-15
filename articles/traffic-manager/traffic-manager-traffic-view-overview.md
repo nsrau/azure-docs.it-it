@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 39d6090b14a16f505413154df2a78d42b3fb3f3c
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 5b451378fcc14106cb8731a89bcf6ccf415d0a92
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333704"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035464"
 ---
 # <a name="traffic-manager-traffic-view"></a>Visualizzazione traffico di Gestione traffico
 
@@ -44,6 +44,8 @@ La frequenza di aggiornamento dei dati di visualizzazione traffico dipende da pi
 ## <a name="visual-overview"></a>Panoramica della visualizzazione
 
 Quando si accede alla sezione **Visualizzazione traffico** della pagina di Gestione traffico, viene visualizzata una mappa geografica con una sovrimpressione delle informazioni dettagliate di Visualizzazione traffico. La mappa fornisce informazioni sulla base di utenti e gli endpoint per il profilo di Gestione traffico.
+
+![Gestione traffico Visualizzazione traffico vista geografica][1]
 
 ### <a name="user-base-information"></a>Informazioni sulla base di utenti
 
@@ -94,3 +96,5 @@ Quando si usa Visualizzazione traffico, la fatturazione viene eseguita in base a
 - Ulteriori informazioni sui [metodi di routing del traffico](traffic-manager-routing-methods.md) supportati da Gestione traffico
 - Informazioni su come [creare un profilo di Gestione traffico](traffic-manager-create-profile.md)
 
+<!--Image references-->
+[1]: ./media/traffic-manager-traffic-view-overview/trafficview.png

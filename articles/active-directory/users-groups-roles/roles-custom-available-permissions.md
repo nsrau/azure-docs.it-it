@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e5ff6755f1391ff19e65df669fb51967a904f4f
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 99f31c5928273973a9089ae9ef1fd184cdb78bbb
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707565"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033410"
 ---
 # <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Sottotipi e autorizzazioni per la registrazione dell'applicazione in Azure Active Directory
 
@@ -46,12 +46,12 @@ Informazioni dettagliate per le autorizzazioni seguenti per l'anteprima dei ruol
 
 ### <a name="create-and-delete"></a>Creazione ed eliminazione
 
-Sono disponibili due autorizzazioni per concedere la possibilità di creare registrazioni per l'app:
+Sono disponibili due autorizzazioni per concedere la possibilità di creare registrazioni di applicazioni, ognuna con un comportamento diverso:
 
-- **Microsoft. directory/applicazioni/createAsOwner**
-- **Microsoft. directory/applicazioni/crea**
+- **Microsoft. directory/Applications/createAsOwner**: L'assegnazione di questa autorizzazione comporta l'aggiunta del creatore come primo proprietario della registrazione dell'app creata e la registrazione dell'app creata verrà conteggiata in base alla quota degli oggetti creati 250 dell'autore.
+- **Microsoft. directory/applicationPolicies/crea**: L'assegnazione di questa autorizzazione comporta la mancata aggiunta del creatore come primo proprietario della registrazione dell'app creata e la registrazione dell'app creata non verrà conteggiata con la quota degli oggetti creati 250 dell'autore. Usare questa autorizzazione con cautela, perché non ci sono elementi che impediscono all'assegnatario di creare registrazioni di app fino a quando non viene raggiunta la quota a livello di directory. Se entrambe le autorizzazioni sono assegnate, questa autorizzazione avrà la precedenza.
 
-Se vengono assegnate entrambe le autorizzazioni, l'autorizzazione Create avrà la precedenza. Sebbene l'autorizzazione createAsOwner non aggiunga automaticamente il creatore come primo proprietario, i proprietari possono essere specificati durante la creazione della registrazione dell'app quando si usano le API Graph o i cmdlet di PowerShell.
+Se vengono assegnate entrambe le autorizzazioni, l'autorizzazione/Create avrà la precedenza. Sebbene l'autorizzazione/createAsOwner non aggiunga automaticamente il creatore come primo proprietario, i proprietari possono essere specificati durante la creazione della registrazione dell'app quando si usano le API Graph o i cmdlet di PowerShell.
 
 Le autorizzazioni create consentono di concedere l'accesso al nuovo comando di **registrazione** .
 

@@ -8,24 +8,23 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 4901630509eb60cb1bbe88a46b51277af244c8f8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0774a933bb109ffc66c7f4673d2803f0631f9b82
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60556832"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035317"
 ---
 # <a name="sfctl-mesh"></a>sfctl mesh
 Consente di eliminare e gestire le applicazioni mesh Service Fabric.
 
 ## <a name="subgroups"></a>Sottogruppi
-|Sottogruppo|Descrizione|
+|Sottogruppo|DESCRIZIONE|
 | --- | --- |
 | [app](service-fabric-sfctl-mesh-app.md) | Consente di ottenere ed eliminare le risorse dell'applicazione. |
 | [code-package-log](service-fabric-sfctl-mesh-code-package-log.md) | Consente di ottenere i log per il contenitore del pacchetto di codice specificato per la replica del servizio specificata. |

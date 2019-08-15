@@ -8,19 +8,18 @@ manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
-ms.devlang: azure-cli
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/28/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2e2502e35b3720ddbfe5950b89e2388de378f2ba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b4fc6f91ee2429205974b9cb7ceb05b7cff53f15
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60583642"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034216"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>Configurare una risorsa del Gateway per indirizzare le richieste
 
@@ -228,8 +227,8 @@ Ecco come appare una configurazione completa della risorsa Gateway (adattato dal
 ```
 
 Questo gateway è configurato per un'applicazione Linux "meshAppLinux", costituita da almeno due servizi: "helloWorldService" e "counterService", in ascolto sulla porta 80. A seconda della struttura dell'URL della richiesta in ingresso, la richiesta verrà indirizzata a uno di questi servizi. 
-* "\<IndirizzoIP >: 80/helloWorld/\<richiesta\>" comporterebbe una richiesta viene indirizzata a "helloWorldListener" nel helloWorldService. 
-* "\<IndirizzoIP >: 80/contatore/\<richiesta\>" comporterebbe una richiesta viene indirizzata a "counterListener" nel counterService. 
+* "\<IPAddress >: 80/HelloWorld/\<Request\>" comporterebbe la Reindirizzamento di una richiesta a "helloWorldListener" in helloWorldService. 
+* "\<IPAddress >: 80/Counter/\<Request\>" comporterebbe la Reindirizzamento di una richiesta a "counterListener" in counterService. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per visualizzare i gateway in azione, distribuire l'[esempio in ingresso](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/ingress)

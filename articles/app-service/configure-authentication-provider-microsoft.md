@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 17410db91f55a053e5ec208492649157bb0b5034
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 729c235ee51a904714358221389703632fd8296c
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881098"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033641"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>Come configurare l’applicazione del servizio app per usare l'account di accesso Microsoft
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -61,6 +61,9 @@ Questo argomento descrive come configurare il servizio app di Azure per usare l'
     Per impostazione predefinita, il servizio app fornisce l'autenticazione ma non limita l'accesso alle API e al contenuto del sito solo agli utenti autorizzati. È necessario autorizzare gli utenti nel codice dell'app.
 
 4. Opzionale Per limitare l'accesso agli utenti account Microsoft, impostare l' **azione da eseguire quando la richiesta non viene autenticata** per l'accesso **con l'account Microsoft**. Per poter utilizzare questa funzione, tuttavia, è necessario che tutte le richieste vengano autenticate e che le richieste non autenticate vengano reindirizzate all’account Microsoft per l'autenticazione.
+
+> [!CAUTION]
+> La limitazione dell'accesso in questo modo si applica a tutte le chiamate all'app, che potrebbero non essere desiderate per le app che vogliono un home page disponibile pubblicamente, come in molte applicazioni a singola pagina. Per queste applicazioni, **consentire le richieste anonime (nessuna azione)** può essere preferibile, con l'app che avvia manualmente l'accesso, come descritto [qui](overview-authentication-authorization.md#authentication-flow).
 
 5. Fare clic su **Save**.
 

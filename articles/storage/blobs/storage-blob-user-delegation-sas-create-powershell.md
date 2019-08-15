@@ -9,12 +9,12 @@ ms.date: 08/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 5412b83d8dfe92c6a24e717fb371c8963b808566
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 86b5e4b6bcf65c2174fa3d3743551813ce2f8b1b
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990793"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034747"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell-preview"></a>Creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB con PowerShell (anteprima)
 
@@ -32,11 +32,6 @@ Per usare PowerShell per creare una firma di accesso condiviso di delega utente,
 
     - Rimuovere da Windows eventuali installazioni precedenti di Azure PowerShell usando l'impostazione **App e funzionalità** in **Impostazioni**.
     - Rimuovere tutti i moduli di `%Program Files%\WindowsPowerShell\Modules`Azure da.
-    - Poiché PowerShell carica il modulo AZ. storage più recente per impostazione predefinita, potrebbe essere necessario caricare in modo esplicito il modulo 1.3.1-Preview quando si avvia la console. Per caricare in modo esplicito il modulo di anteprima, eseguire il comando [Import-Module](/powershell/module/microsoft.powershell.core/import-module) :
-
-        ```powershell
-        Import-Module Az.Storage -RequiredVersion 1.3.1
-        ```
 
 1. Assicurarsi di avere la versione più recente di PowerShellGet installata. Aprire una finestra di Windows PowerShell ed eseguire i seguenti comandi per installare la versione più recente:
 
@@ -55,10 +50,21 @@ Per usare PowerShell per creare una firma di accesso condiviso di delega utente,
 1. Installare un modulo di anteprima di archiviazione di Azure che supporta la firma di accesso condiviso dell'utente:
 
     ```powershell
-    Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.3.1-preview –AllowPrerelease –AllowClobber –Force
+    Install-Module Az.Storage `
+        –Repository PSGallery `
+        -RequiredVersion 1.3.1-preview `
+        –AllowPrerelease `
+        –AllowClobber `
+        –Force
     ```
 
 1. Chiudere e riaprire la finestra di PowerShell.
+
+Poiché PowerShell carica il modulo AZ. storage più recente per impostazione predefinita, potrebbe essere necessario caricare in modo esplicito il modulo 1.3.1-Preview quando si avvia la console. Per caricare in modo esplicito il modulo di anteprima, eseguire il comando [Import-Module](/powershell/module/microsoft.powershell.core/import-module) :
+
+```powershell
+Import-Module Az.Storage -RequiredVersion 1.3.1
+```
 
 Per ulteriori informazioni sull'installazione di Azure PowerShell, vedere [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-az-ps).
 
@@ -142,8 +148,7 @@ New-AzStorageBlobSASToken -Context $ctx `
 L'URI SAS della delega utente restituito sarà simile al seguente:
 
 ```
-https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?sv=2018-11-09&sr=b&sig=4f6QzTteEZmrEMXWn7iEeI27vHrX13zVmL6rk2MbiyA%3D&skoid=e5981635-dcf0-4279-ab7b-ca1cbdf4a5c7&sktid=72f988bf-86f1-41af-91ab
--2d7cd011db47&skt=2019-08-06T21%3A16%3A54Z&ske=2019-08-07T07%3A00%3A00Z&sks=b&skv=2018-11-09&se=2019-08-07T07%3A00%3A00Z&sp=racwd
+https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?sv=2018-11-09&sr=b&sig=<sig>&skoid=<skoid>&sktid=<sktid>&skt=2019-08-06T21%3A16%3A54Z&ske=2019-08-07T07%3A00%3A00Z&sks=b&skv=2018-11-09&se=2019-08-07T07%3A00%3A00Z&sp=racwd
 ```
 
 > [!NOTE]
@@ -160,7 +165,7 @@ Revoke-AzStorageAccountUserDelegationKeys -ResourceGroupName <resource-group> `
     -StorageAccountName <storage-account>
 ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 
 - [Creare una firma di accesso condiviso per la delega utente (API REST)](/rest/api/storageservices/create-a-user-delegation-sas)
 - [Operazione di ottenimento della chiave di delega utente](/rest/api/storageservices/get-user-delegation-key)

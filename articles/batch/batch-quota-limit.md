@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 08/13/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 312f6746cb02aa66b0e7f8b47cb10e52558fa542
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 118a36587667c815489ddad03426b5cfcfee7382
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323171"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036686"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quote e limiti del servizio Batch
 
@@ -55,7 +55,7 @@ I limiti delle dimensioni del pool vengono impostati dal servizio batch. A diffe
 | Modalità di allocazione pool di sottoscrizione batch | 80 |
 | **Nodi di calcolo nel [pool creato con immagine di macchina virtuale personalizzata](batch-custom-images.md)** <sup>1</sup> ||
 | Nodi dedicati | 2000 |
-| Nodi a priorità bassa | 1000 |
+| Nodi per priorità bassa | 1000 |
 
 <sup>1</sup> Per pool non abilitati alla comunicazione tra i nodi.
 
@@ -70,6 +70,7 @@ Limiti aggiuntivi impostati dal servizio batch. A differenza [delle quote di ris
 | Pacchetti dell'applicazione per applicazione | 40 |
 | Pacchetti di applicazioni per pool | 10 |
 | Durata massima dell'attività | 180 giorni<sup>1</sup> |
+| [Montaggi](virtual-file-mount.md) per nodo di calcolo | 10 |
 
 <sup>1</sup> La durata massima di un'attività, da quando viene aggiunta al processo a quando viene completata, è di 180 giorni. Le attività completate vengono mantenute per sette giorni; i dati per le attività non completate entro la durata massima non sono accessibili.
 

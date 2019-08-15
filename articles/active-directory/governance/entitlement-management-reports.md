@@ -16,12 +16,12 @@ ms.date: 04/19/2019
 ms.author: ajburnle
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d33b4751b421f5af1536af9a88d15e060ab59bdb
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 2420fc25795ec74939649fb8a17ead7c8cfdd1df
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489069"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032444"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management-preview"></a>Visualizzare report e log in Azure AD gestione dei diritti (anteprima)
 
@@ -29,6 +29,12 @@ ms.locfileid: "68489069"
 > Gestione entitlement di Azure Active Directory (Azure AD) è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Il report assegnazioni utenti e il registro di controllo Azure Active Directory forniscono dettagli aggiuntivi sugli utenti nella directory. In qualità di amministratore, è possibile visualizzare le risorse a cui un utente può accedere e visualizzare i log delle richieste a scopo di controllo o per determinare lo stato della richiesta di un utente. Questo articolo descrive come usare il report assegnazioni utenti e Azure AD i log di controllo.
+
+Guardare il video seguente per informazioni su come usare la gestione dei diritti per gestire l'accesso per gli utenti in Azure Active Directory:
+
+>[!VIDEO https://www.youtube.com/embed/omtNJ7ySjS0]
 
 ## <a name="view-resources-a-user-has-access-to"></a>Visualizzare le risorse a cui un utente può accedere
 

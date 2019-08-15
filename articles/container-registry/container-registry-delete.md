@@ -1,21 +1,21 @@
 ---
 title: Eliminare le risorse immagine in Registro Azure Container
-description: Informazioni dettagliate su come gestire in modo efficace le dimensioni del registro eliminando i dati di immagini del contenitore.
+description: Informazioni dettagliate su come gestire in modo efficace le dimensioni del registro di sistema eliminando i dati delle immagini del contenitore usando i comandi dell'interfaccia
 services: container-registry
 author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 06/17/2019
+ms.date: 07/31/2019
 ms.author: danlep
-ms.openlocfilehash: eaf3b3e591ca2ddbd29fd5547d334ef90b24fc5e
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 12c1b5f9fa9620622b31f22c701d58ae237bcbf2
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309653"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035150"
 ---
-# <a name="delete-container-images-in-azure-container-registry"></a>Eliminare le immagini del contenitore in Registro Azure Container
+# <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Eliminare immagini del contenitore in Azure Container Registry usando l'interfaccia della riga di comando di Azure
 
 Per mantenere le dimensioni del registro contenitori di Azure, è consigliabile eliminare periodicamente i dati di immagini non aggiornati. Alcune immagini di contenitori distribuite in produzione potrebbero richiedere un'archiviazione a lungo termine, mentre altre possono solitamente essere eliminate prima. Ad esempio, in uno scenario di compilazione e test automatici, il registro può riempirsi velocemente di immagini che non verranno mai distribuite, pertanto potrà essere svuotato subito dopo aver compilato la build ed effettuato correttamente i test.
 
@@ -113,7 +113,7 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 Dopo aver identificato i digest del manifesto obsoleti, è possibile eseguire lo script bash seguente per eliminare i digest del manifesto anteriori a un timestamp specificato. e richiede l'interfaccia della riga di comando di Azure e **xargs**. Per impostazione predefinita, lo script non esegue alcuna operazione di eliminazione. Modificare il valore `ENABLE_DELETE` in `true` per abilitare l'eliminazione delle immagini.
 
 > [!WARNING]
-> Usare lo script di esempio seguente con cautela. i dati dell'immagine eliminati sono irreversibili. Se si dispone di sistemi che effettuano il pull di immagini dal digest del manifesto (in contrapposizione al nome dell'immagine), è consigliabile non eseguire questi script. L'eliminazione dei digest del manifesto impedisce a tali sistemi di estrarre le immagini dal registro di sistema. Anziché estrarre il manifesto, è consigliabile adottare uno schema di *tag univoco* , una [procedura consigliata][tagging-best-practices]. 
+> Usare lo script di esempio seguente con cautela. i dati dell'immagine eliminati sono irreversibili. Se si dispone di sistemi che effettuano il pull di immagini dal digest del manifesto (in contrapposizione al nome dell'immagine), è consigliabile non eseguire questi script. L'eliminazione dei digest del manifesto impedisce a tali sistemi di estrarre le immagini dal registro di sistema. Anziché estrarre il manifesto, è consigliabile adottare uno schema di *tag univoco* , una [procedura consigliata](container-registry-image-tag-version.md). 
 
 ```bash
 #!/bin/bash
@@ -201,7 +201,7 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 Utilizzando questo comando in uno script, è possibile eliminare tutte le immagini senza tag in un repository.
 
 > [!WARNING]
-> Usare lo script di esempio seguente con cautela: i dati di un'immagine eliminata NON POSSONO ESSERE RIPRISTINATI. Se si dispone di sistemi che effettuano il pull di immagini dal digest del manifesto (in contrapposizione al nome dell'immagine), è consigliabile non eseguire questi script. L'eliminazione delle immagini senza tag impedirà a tali sistemi di eseguire il pull delle immagini dal registro. Anziché estrarre il manifesto, è consigliabile adottare uno schema di *tag univoco* , una [procedura consigliata][tagging-best-practices].
+> Usare lo script di esempio seguente con cautela: i dati di un'immagine eliminata NON POSSONO ESSERE RIPRISTINATI. Se si dispone di sistemi che effettuano il pull di immagini dal digest del manifesto (in contrapposizione al nome dell'immagine), è consigliabile non eseguire questi script. L'eliminazione delle immagini senza tag impedirà a tali sistemi di eseguire il pull delle immagini dal registro. Anziché estrarre il manifesto, è consigliabile adottare uno schema di *tag univoco* , una [procedura consigliata](container-registry-image-tag-version.md).
 
 **Interfaccia della riga di comando di Azure in Bash**
 
@@ -260,6 +260,10 @@ if ($enableDelete) {
 }
 ```
 
+## <a name="automatically-purge-tags-and-manifests-preview"></a>Elimina automaticamente i tag e i manifesti (anteprima)
+
+In alternativa alla creazione di script per i comandi dell'interfaccia della riga di comando di Azure, eseguire un'attività ACR su richiesta o pianificata per eliminare tutti i tag precedenti a una determinata durata o corrispondere a un filtro di nome specificato. Per altre informazioni, vedere [eliminare automaticamente le immagini da un registro contenitori di Azure](container-registry-auto-purge.md).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sull'archiviazione delle immagini in Registro Azure Container, vedere [Archiviazione di immagini del contenitore in Registro Azure Container](container-registry-storage.md).
@@ -270,7 +274,6 @@ Per altre informazioni sull'archiviazione delle immagini in Registro Azure Conta
 <!-- LINKS - External -->
 [docker-manifest-inspect]: https://docs.docker.com/edge/engine/reference/commandline/manifest/#manifest-inspect
 [portal]: https://portal.azure.com
-[tagging-best-practices]: https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/
 
 <!-- LINKS - Internal -->
 [az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete

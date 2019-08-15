@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/10/2019
 ms.author: juergent
-ms.openlocfilehash: 232468d9b3466759d7af2b7be68a1f553ced6e6d
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: c649b93284a48df705d389f4de728d83f793af04
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68348651"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036642"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -69,7 +69,7 @@ Le versioni supportate di IBM DB2 sono 10,5 e versioni successive, come descritt
 
 Prima di iniziare un'installazione, vedere le note e la documentazione SAP seguenti:
 
-| Nota SAP | DESCRIZIONE |
+| Nota SAP | Descrizione |
 | --- | --- |
 | [1928533] | Applicazioni SAP in Azure: Prodotti e tipi di macchine virtuali di Azure supportati |
 | [2015553] | SAP in Azure: Prerequisiti di supporto |
@@ -517,11 +517,11 @@ Se è stata eseguita l'installazione prima di creare la configurazione di DB2 HA
 Usare lo strumento di configurazione J2EE per controllare o aggiornare l'URL JDBC. Poiché lo strumento di configurazione J2EE è uno strumento grafico, è necessario installare il server X:
  
 1. Accedere al server applicazioni primario dell'istanza di J2EE ed eseguire:
-     <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>
+     <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>  
 1.Nel riquadro a sinistra scegliere **Archivio sicurezza**.
 1.Nel riquadro destro scegliere la chiave JDBC/pool/\<SAPSID>/URL.
 1.Modificare il nome host nell'URL JDBC per il nome host virtuale.
-     <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>
+     <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>  
 1.Selezionare **Aggiungi**.
 1.Per salvare le modifiche, selezionare l'icona del disco in alto a sinistra.
 1.Chiudere lo strumento di configurazione di.

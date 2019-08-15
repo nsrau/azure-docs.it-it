@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/09/2019
+ms.date: 08/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: bd0ed971b84baae3b85badfcc669bbad657d1551
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: ae397c077ac87618b646883f9125c9da2df81bfd
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69018942"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036585"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -101,7 +101,7 @@ Le **aree di Azure locali** sono quelle che possono accedere a [ExpressRoute loc
 | **Dublino** | Equinix | Europa settentrionale | Colt, eir, Equinix, Interxion, Megaport |
 | **Francoforte** | Interxion | n/d | DE-CIX, Interxion, arancione |
 | **RAS di Hong Kong** | Equinix | Asia orientale | Reti Aryaka, British Telecom, CenturyLink Cloud Connect, Chief Telecom, Cina Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telia Carrier, Verizon |
-| **Johannesburg** | Teraco | Sudafrica settentrionale | British Telecom, soluzioni Internet-Cloud Connect, Liquid Telecom, teraco |
+| **Johannesburg** | Teraco | Sudafrica settentrionale | British Telecom, soluzioni Internet-Cloud Connect, Liquid Telecom, Orange, teraco |
 | **Kuala Lumpur** | TIME dotCom | n/d | TIME dotCom |
 | **Las Vegas** | Opzione | n/d | CenturyLink Cloud Connect, Megaport |
 | **Londra** | Equinix | Regno Unito meridionale | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |

@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 2039dd9222809d2c05aaeaf01f9d38c51f3b3797
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 998a94350250402d4face64f64e12f32cf5b2a36
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837316"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036499"
 ---
 # <a name="sfctl-is"></a>sfctl is
 Consente di eseguire query e inviare comandi al servizio di infrastruttura.

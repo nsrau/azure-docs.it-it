@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: ef3e9a9c68ca524b7f7f86c92130a10952a9f065
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: dc5e862109a766f708338ebddb91a75ffc550306
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68949616"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69031925"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Anteprima: ridimensiona automaticamente un cluster per soddisfare le richieste dell'applicazione in Azure Kubernetes Service (AKS)
 
@@ -21,7 +21,7 @@ Per tenere il passo delle richieste delle applicazioni nel servizio Azure Kubern
 Questo articolo illustra come abilitare e gestire il componente di scalabilità automatica in un cluster AKS. Il servizio di scalabilità automatica del cluster deve essere testato solo in anteprima nei cluster AKS.
 
 > [!IMPORTANT]
-> Le funzionalità di anteprima di AKS sono self-service e acconsentino esplicitamente. Sono disponibili per raccogliere commenti e suggerimenti e bug dalla community. In anteprima, queste funzionalità non sono destinate all'uso in produzione. Le funzionalità nella versione di anteprima pubblica rientrano nel supporto "Best Effort". L'assistenza dei team di supporto tecnico AKS è disponibile solo durante l'orario di ufficio Pacific TimeZone (PST). Per ulteriori informazioni, consultare gli articoli di supporto seguenti:
+> Le funzionalità di anteprima di AKS sono il consenso esplicito self-service. Le anteprime vengono fornite "così come sono" e "come disponibili" e sono escluse dai contratti di servizio e dalla garanzia limitata. Le anteprime AKS sono parzialmente coperte dal supporto tecnico per il massimo sforzo. Di conseguenza, queste funzionalità non sono destinate all'uso in produzione. Per ulteriori informazioni, vedere gli articoli di supporto seguenti:
 >
 > * [Criteri di supporto AKS][aks-support-policies]
 > * [Domande frequenti relative al supporto tecnico Azure][aks-faq]

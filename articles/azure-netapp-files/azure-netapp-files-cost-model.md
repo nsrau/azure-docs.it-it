@@ -1,6 +1,6 @@
 ---
-title: Modello di costo per i file di Azure NetApp | Microsoft Docs
-description: Descrive il modello di costo per i file di NetApp di Azure per la gestione delle spese dal servizio.
+title: Modello di costo per Azure NetApp Files | Microsoft Docs
+description: Viene descritto il modello di costo per Azure NetApp Files per gestire le spese del servizio.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,81 +14,81 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: b-juche
-ms.openlocfilehash: b06e3366224b90899dd3f9f9439edf897de82794
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 563416418b3f387f103fddc88b3ba9ad4c93fdd4
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65524221"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69030790"
 ---
 # <a name="cost-model-for-azure-netapp-files"></a>Modello di costi per Azure NetApp Files 
 
-Informazioni sul modello di costo per i file di NetApp Azure semplifica la gestione delle spese dal servizio.
+Comprendere il modello di costo per Azure NetApp Files consente di gestire le spese del servizio.
 
 ## <a name="calculation-of-capacity-consumption"></a>Calcolo dell'utilizzo della capacità
 
-File di NetApp Azure viene fatturato su capacità di archiviazione con provisioning.  Capacità con provisioning viene allocata tramite la creazione di pool di capacità.  Pool di capacità sono addebitati in $/ provisioning-GiB/mese in incrementi di un'ora. La dimensione minima per un pool di capacità della singola è 4 TiB e i pool di capacità possono essere successivamente espansi in incrementi di 1 TiB. I volumi vengono creati all'interno dei pool di capacità.  Ogni volume viene assegnata una quota che decrementa dalla capacità con provisioning pool. La quota che può essere assegnata ai volumi intervalli da un minimo di 100 GiB a un massimo di TiB 92.  
+Azure NetApp Files viene addebitato in base alla capacità di archiviazione con provisioning.  La capacità di provisioning viene allocata creando pool di capacità.  I pool di capacità vengono fatturati in base a $/provisioned-GiB/month con incrementi orari. La dimensione minima per un singolo pool di capacità è 4 TiB e i pool di capacità possono essere successivamente espansi in incrementi di 1 TiB. I volumi vengono creati all'interno di pool di capacità.  A ogni volume viene assegnata una quota che decrementa dalla capacità con provisioning dei pool. La quota che può essere assegnata a volumi è compresa tra un minimo di 100 GiB e un massimo di 100 TiB.  
 
-Per un volume attivo, il consumo di capacità ai fini della quota si basa sulla logica capacità (effettiva).
+Per un volume attivo, l'utilizzo della capacità rispetto alla quota è basato sulla capacità logica (efficace).
 
-Se il consumo di capacità effettiva di un volume supera la quota di archiviazione, il volume può continuare ad aumentare. Operazioni di scrittura ancora saranno dunque consentite fino a quando le dimensioni del volume effettivo sono inferiore al limite di sistema (100 TiB).  
+Se il consumo di capacità effettivo di un volume supera la quota di archiviazione, il volume può continuare ad aumentare. Le scritture saranno ancora consentite purché le dimensioni effettive del volume siano inferiori al limite di sistema (100 TiB).  
 
-La capacità totale utilizzata in un pool di capacità su relativa quantità sottoposte a provisioning è la somma della maggiore della quota assegnata o effettivo il consumo di tutti i volumi all'interno del pool: 
+La capacità totale utilizzata in un pool di capacità rispetto alla relativa quantità di cui è stato effettuato il provisioning è la somma del valore maggiore tra la quota assegnata o il consumo effettivo di tutti i volumi all'interno del pool: 
 
-   ![Calcolo di capacità totale utilizzata](../media/azure-netapp-files/azure-netapp-files-total-used-capacity.png)
+   ![Calcolo capacità totale utilizzato](../media/azure-netapp-files/azure-netapp-files-total-used-capacity.png)
 
 Il diagramma seguente illustra questi concetti.  
-* È necessario un pool di capacità con 4 TiB di capacità con provisioning.  Il pool contiene tre volumi.  
-    * Volume 1 viene assegnato una quota pari a 2 TiB e dispone di 800 GiB di consumo.  
-    * Volume 2 viene assegnato a una quota pari a 1 TiB e ha 100 GiB di consumo.  
-    * Volume 3 è assegnato una quota di 500 GiB, ma dispone di 800 GiB di consumo (eccedenze di utilizzo).  
-* Pool di capacità è a consumo per 4 TiB di capacità (la quantità di provisioning).  
-    3,8 viene consumato TiB di capacità (TiB 2 e 1 TiB di quota da1 volumi e 2 e 800 GiB di consumo effettivo per il Volume 3). E 200 GiB di capacità rimanente.
+* È disponibile un pool di capacità con 4 TiB di capacità di cui è stato effettuato il provisioning.  Il pool contiene tre volumi.  
+    * Al volume 1 viene assegnata una quota di 2 TiB e 800 GiB di consumo.  
+    * Al volume 2 viene assegnata una quota di 1 TiB con 100 GiB di consumo.  
+    * Al volume 3 viene assegnata una quota di 500 GiB, ma con 800 GiB di consumo (eccedenza).  
+* Il pool di capacità viene calcolato a consumo per 4 TiB di capacità (importo con provisioning).  
+    3,8 TiB di capacità viene utilizzato (2 TiB e 1 TiB di quota dai volumi 1 e 2 e 800 GiB del consumo effettivo per il volume 3). E 200 GiB di capacità rimanenti.
 
    ![Pool di capacità con tre volumi](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-three-vols.png)
 
 ## <a name="overage-in-capacity-consumption"></a>Eccedenza nell'utilizzo della capacità  
 
-Quando il totale usato capacità di un pool supera la capacità con provisioning, le scritture dati sono ancora consentite.  Dopo il periodo di tolleranza (un'ora), se la capacità utilizzata del pool supera ancora la capacità con provisioning, quindi le dimensioni del pool verranno automaticamente aumentata in base a incrementi di 1 TiB fino a quando la capacità fornita è supera alla capacità totale utilizzata.  Ad esempio, nella figura precedente, se 3 Volume continua a crescere e il consumo effettivo raggiunge TiB 1,2, quindi dopo il periodo di tolleranza, il pool verrà automaticamente ridimensionato da 5 TiB.  Il risultato è che la capacità del pool con provisioning (5 TiB) supera la capacità usata (4.2 TiB).  
+Quando la capacità totale utilizzata di un pool supera la capacità di provisioning, le scritture dei dati sono ancora consentite.  Dopo il periodo di tolleranza (un'ora), se la capacità utilizzata del pool supera ancora la capacità di cui è stato effettuato il provisioning, le dimensioni del pool verranno automaticamente aumentate con incrementi di 1 TiB fino a quando la capacità di cui è stato effettuato il provisioning è maggiore della capacità totale utilizzata.  Nell'illustrazione precedente, ad esempio, se il volume 3 continua ad aumentare e il consumo effettivo raggiunge 1,2 TiB, dopo il periodo di tolleranza il pool verrà automaticamente ridimensionato a 5 TiB.  Il risultato è che la capacità del pool di cui è stato effettuato il provisioning (5 TiB) supera la capacità utilizzata (4,2 TiB).  
 
 ## <a name="manual-changes-of-the-pool-size"></a>Modifiche manuali delle dimensioni del pool  
 
-Manualmente, è possibile aumentare o diminuire le dimensioni del pool. Tuttavia, si applicano i vincoli seguenti:
-* Limiti minimi e massimi di servizio  
-    Vedere l'articolo [dei limiti delle risorse](azure-netapp-files-resource-limits.md).
-* Un incremento di 1 TiB dopo l'acquisto minimo iniziale 4 TiB
-* Un incremento fatturabile minima di un'ora
-* Le dimensioni del pool con provisioning non possono essere ridotte a minore capacità totale utilizzata nel pool.
+È possibile aumentare o ridurre manualmente le dimensioni del pool. Tuttavia, si applicano i vincoli seguenti:
+* Limiti minimi e massimi del servizio  
+    Vedere l'articolo sui [limiti delle risorse](azure-netapp-files-resource-limits.md).
+* Incremento a 1 TiB dopo l'acquisto iniziale di 4 TiB minimo
+* Incremento di fatturazione minimo di un'ora
+* È possibile che le dimensioni del pool di cui è stato effettuato il provisioning non siano diminuite fino alla capacità totale utilizzata nel pool.
 
-## <a name="behavior-of-maximum-size-pool-overage"></a>Comportamento di eccedenza di dimensioni massime pool   
+## <a name="behavior-of-maximum-size-pool-overage"></a>Comportamento dell'eccedenza del pool di dimensioni massime   
 
-Le dimensioni massime di un pool di capacità che è possibile creare o ridimensionare a sono 500 TiB.  Quando il totale di capacità usata in un pool di capacità supera 500 TiB, si verificherà nelle situazioni seguenti:
-* Le scritture dati ancora saranno dunque consentite (se il volume è di sotto il valore massimo del sistema di 100 TiB).
-* Dopo il periodo di tolleranza di un'ora, il pool verrà ridimensionato automaticamente in incrementi di 1 TiB, fino a quando la capacità del pool provisioning supera capacità totale utilizzata.
-* Le altre il provisioning e fatturato capacità del pool che superano 500 TiB non può essere usato per assegnare la quota del volume. Non può essere usato anche per espandere i limiti di QoS di prestazioni.  
-    Visualizzare [livelli di servizio](azure-netapp-files-service-levels.md) sui limiti delle prestazioni e ridimensionamento di QoS.
+La dimensione massima di un pool di capacità che è possibile creare o ridimensionare è 500 TiB.  Quando la capacità totale utilizzata in un pool di capacità supera 500 TiB, si verificheranno le situazioni seguenti:
+* Le scritture dei dati saranno comunque consentite (se il volume è inferiore al massimo del sistema 100 TiB).
+* Dopo il periodo di tolleranza di un'ora, il pool verrà ridimensionato automaticamente in incrementi di 1 TiB, fino a quando la capacità di provisioning del pool supera la capacità totale utilizzata.
+* Non è possibile usare la capacità aggiuntiva del pool con provisioning e fatturazione superiore a 500 TiB per assegnare la quota del volume. Non è inoltre possibile utilizzare per espandere i limiti QoS delle prestazioni.  
+    Vedere [livelli di servizio](azure-netapp-files-service-levels.md) relativi ai limiti delle prestazioni e al dimensionamento QoS.
 
 Il diagramma seguente illustra questi concetti:
-* È necessario un pool di capacità con un livello di archiviazione Premium e una capacità di 500 TiB. Il pool contiene nove volumi.
-    * I volumi da 1 a 8 sono assegnati una quota pari a 60 TiB.  La capacità totale utilizzata è 480 TiB.  
-        Ogni volume ha un limite di QoS di 3,75 GiB/s di velocità effettiva (TiB 60 * 64 MiB/s).  
-    * Volume 9 viene assegnata una quota pari a 20 TiB.  
-        Volume 9 ha un limite di QoS di 1,25 GiB/s di velocità effettiva (TiB 60 * 64 MiB/s).
-* Volume 9 è uno scenario in eccedenza. Include 25 TiB di consumo effettivo.  
-    * Dopo il periodo di tolleranza di un'ora, verrà ridimensionato il pool di capacità a TiB 505.  
-        Capacità utilizzata del totale, ovvero 8 * 60 =-quota TiB per i volumi da 1 a 8 e 25 TiB di consumo effettivo 9 nel Volume.
-    * La capacità fatturata è TiB 505.
-    * Quota del volume per Volume 9 non può essere aumentata (perché la quota totale assegnata per il pool non può superare i 500 TiB).
-    * Velocità effettiva aggiuntiva QoS non è possibile assegnare (perché i criteri QoS totale per il pool si basa sul 500 TiB).
+* È presente un pool di capacità con un livello di archiviazione Premium e una capacità di 500-TiB. Il pool contiene nove volumi.
+    * Ai volumi da 1 a 8 viene assegnata una quota di 60 TiB ciascuna.  La capacità totale utilizzata è 480 TiB.  
+        Ogni volume ha un limite QoS di 3,75 GiB/s di velocità effettiva (60 TiB * 64 MiB/s).  
+    * Al volume 9 viene assegnata una quota di 20 TiB.  
+        Volume 9 ha un limite QoS di 1,25 GiB/s di velocità effettiva (60 TiB * 64 MiB/s).
+* Volume 9 è uno scenario in eccedenza. Ha 25 TiB di consumo effettivo.  
+    * Dopo il periodo di tolleranza di un'ora, il pool di capacità verrà ridimensionato a 505 TiB.  
+        Ovvero la capacità totale usata = 8 * 60-la quota TiB per i volumi da 1 a 8 e 25 TiB del consumo effettivo per il volume 9.
+    * La capacità fatturata è 505 TiB.
+    * Non è possibile aumentare la quota volume per il volume 9 (perché la quota totale assegnata per il pool non può superare 500 TiB).
+    * La velocità effettiva QoS aggiuntiva potrebbe non essere assegnata (poiché la QoS totale per il pool è ancora basata su 500 TiB).
 
    ![Pool di capacità con nove volumi](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-nine-vols.png)
 
-## <a name="capacity-consumption-of-snapshots"></a>Utilizzo della capacità di snapshot 
+## <a name="capacity-consumption-of-snapshots"></a>Consumo di capacità degli snapshot 
 
-Il consumo di capacità di snapshot in file di NetApp Azure viene addebitato ai fini della quota del volume padre.  Di conseguenza, condivide la stessa tariffa di fatturazione del pool di capacità a cui appartiene il volume.  Tuttavia, a differenza del volume attivo, il consumo di snapshot viene misurato dipende dalla capacità incrementale utilizzata.  Gli snapshot di file NetApp Azure sono invece differenziali in natura. A seconda della frequenza di modifica dei dati, gli snapshot usano spesso molto meno capacità rispetto alla capacità del volume attivo logica. Si supponga, ad esempio, che è presente uno snapshot di un volume di 500 GiB contenente solo 10 GiB di dati differenziali. La capacità che viene addebitata ai fini della quota di volume per tale snapshot sarebbe di 10 GiB, non di 500 GiB. 
+Il consumo di capacità degli snapshot in Azure NetApp Files viene addebitato in base alla quota del volume padre.  Di conseguenza, condivide la stessa tariffa di fatturazione del pool di capacità a cui appartiene il volume.  Tuttavia, a differenza del volume attivo, il consumo di snapshot viene misurato in base alla capacità incrementale utilizzata.  Gli snapshot Azure NetApp Files sono di natura differenziale. A seconda della frequenza di modifica dei dati, gli snapshot spesso utilizzano una capacità molto inferiore rispetto alla capacità logica del volume attivo. Si supponga, ad esempio, di avere uno snapshot di un volume 500-GiB che contiene solo 10 GiB di dati differenziali. La capacità addebitata in base alla quota del volume per lo snapshot è 10 GiB, non 500 GiB. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [File di Azure NetApp pagina dei prezzi](https://azure.microsoft.com/pricing/details/storage/netapp/)
+* [Pagina dei prezzi di Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/)
 * [Livelli di servizio per Azure NetApp Files](azure-netapp-files-service-levels.md)
 * [Limiti delle risorse per Azure NetApp Files](azure-netapp-files-resource-limits.md)

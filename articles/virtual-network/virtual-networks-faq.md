@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: b088b4d0e21819411c7329f3cb1e6ca9761665fd
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: ebb9028aab8626554d0f5fede15129c141d441cb
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610195"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035333"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Domande frequenti sulla rete virtuale di Azure
 
@@ -67,9 +67,11 @@ Sì. Per altre informazioni sugli intervalli di indirizzi IP pubblici, vedere [C
 Sì. Vedere [Limiti di Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) per informazioni dettagliate. Gli spazi degli indirizzi della subnet non possono sovrapporsi.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>Esistono restrizioni sull'uso di indirizzi IP all'interno di tali subnet?
-Sì. Azure riserva 5 indirizzi IP all'interno di ogni subnet. Sono x. x.x. x. 0-x. x.x. x. 3 e l'ultimo indirizzo della subnet.    
-- x. x.x. x. 0 e l'ultimo indirizzo della subnet sono riservati per la conformità del protocollo.
-- x. x.x. x. 1-x.x. x. 3 è riservato in ogni subnet per i servizi di Azure.
+Sì. Azure riserva 5 indirizzi IP all'interno di ogni subnet. Sono x. x.x. x. 0-x. x.x. x. 3 e l'ultimo indirizzo della subnet. x. x.x. x. 1-x.x. x. 3 è riservato in ogni subnet per i servizi di Azure.   
+- x.x. x. 0: Indirizzo di rete
+- x. x. 1: Riservato da Azure per il gateway predefinito
+- x. x.x. x. 2, x.x. x. 3: Riservato da Azure per il mapping degli indirizzi IP DNS di Azure allo spazio VNet
+- x. x. 255: Indirizzo broadcast di rete
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>Quanto piccole o grandi possono essere le reti virtuali e le subnet?
 La subnet più piccola supportata è /29 e la più grande è /8 (in base alle definizioni di subnet CIDR).

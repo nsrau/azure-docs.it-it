@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 06/28/2019
+ms.date: 08/14/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 79d00d39903b6fb3891ee7c0ccc4743763043568
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 1a5d80d6cd31621f8c3931b1845050f0a212ef08
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015609"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036611"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>Progettazione di applicazioni a disponibilità elevata tramite l'archiviazione con ridondanza geografica e accesso in lettura
 
@@ -150,7 +150,7 @@ Sono disponibili tre opzioni principali per monitorare la frequenza dei tentativ
 
 * Aggiungere un gestore per l'evento [**Retrying** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) nell'oggetto [ **OperationContext** ](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) passato alle richieste di archiviazione: si tratta del metodo illustrato in questo articolo e usato nell'esempio di codice correlato. Questi eventi vengono attivati ogni volta che il client riprova una richiesta, consentendo così di determinare la frequenza con cui il client rileva errori non irreversibili in un endpoint primario.
 
-    ```csharp 
+    ```csharp
     operationContext.Retrying += (sender, arguments) =>
     {
         // Retrying in the primary region
@@ -219,7 +219,13 @@ Per riconoscere la presenza di dati potenzialmente incoerenti, il client può us
 
 ### <a name="powershell"></a>PowerShell
 
-Per ottenere l'ora dell'ultima sincronizzazione per l'account di archiviazione usando PowerShell, controllare la proprietà **GeoReplicationStats. LastSyncTime** dell'account di archiviazione. Ricordarsi di sostituire i valori segnaposto con i propri valori:
+Per ottenere l'ora dell'ultima sincronizzazione per l'account di archiviazione usando PowerShell, installare un modulo di anteprima di archiviazione di Azure che supporta l'acquisizione di statistiche di replica geografica. Esempio:
+
+```powershell
+Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force
+```
+
+Quindi controllare la proprietà **GeoReplicationStats. LastSyncTime** dell'account di archiviazione. Ricordarsi di sostituire i valori segnaposto con i propri valori:
 
 ```powershell
 $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `

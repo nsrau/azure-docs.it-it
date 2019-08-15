@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/18/2019
-ms.openlocfilehash: 5d79edc4db07a2c5916725efc312d9f94fe985dc
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 05e16a67e6b01ce3bd1f03f0649baa1358414ea7
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640099"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035056"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 
@@ -133,9 +133,13 @@ Per eseguire il failover di un gruppo di failover, è necessario l'accesso in sc
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>Procedure consigliate per l'uso di gruppi di failover con database singoli e pool elastici
 
-Il gruppo di failover automatico deve essere configurato nel server di database SQL primario e lo connetterà al server di database SQL secondario in un'altra area di Azure.  I gruppi possono includere alcuni o tutti i database in questi server. Il diagramma seguente illustra una configurazione tipica di un'applicazione cloud con ridondanza geografica con più database e un gruppo di failover automatico.
+Il gruppo di failover automatico deve essere configurato nel server di database SQL primario e lo connetterà al server di database SQL secondario in un'altra area di Azure. I gruppi possono includere alcuni o tutti i database in questi server. Il diagramma seguente illustra una configurazione tipica di un'applicazione cloud con ridondanza geografica con più database e un gruppo di failover automatico.
 
 ![failover automatico](./media/sql-database-auto-failover-group/auto-failover-group.png)
+
+> [!NOTE]
+> Per un'esercitazione dettagliata sull'aggiunta di un singolo database a un gruppo di failover, vedere [aggiungere un singolo database a un gruppo di failover](sql-database-single-database-failover-group-tutorial.md) . 
+
 
 Quando si progetta un servizio facendo particolare attenzione alla continuità aziendale, seguire queste linee guida generali:
 
@@ -167,12 +171,17 @@ Quando si progetta un servizio facendo particolare attenzione alla continuità a
 
 ## <a name="best-practices-of-using-failover-groups-with-managed-instances"></a>Procedure consigliate per l'utilizzo di gruppi di failover con istanze gestite
 
-Il gruppo di failover automatico deve essere configurato nell'istanza primaria e la connetterà all'istanza secondaria in un'altra area di Azure.  Tutti i database nell'istanza verranno replicati nell'istanza secondaria. Il diagramma seguente illustra una configurazione tipica di un'applicazione cloud con ridondanza geografica con un'istanza gestita un gruppo di failover automatico.
+> [!IMPORTANT]
+> I gruppi di failover automatico per Istanza gestita sono disponibili in anteprima pubblica.
+
+Il gruppo di failover automatico deve essere configurato nell'istanza primaria e la connetterà all'istanza secondaria in un'altra area di Azure.  Tutti i database nell'istanza verranno replicati nell'istanza secondaria. 
+
+Il diagramma seguente illustra una configurazione tipica di un'applicazione cloud con ridondanza geografica con un'istanza gestita un gruppo di failover automatico.
 
 ![failover automatico](./media/sql-database-auto-failover-group/auto-failover-group-mi.png)
 
-> [!IMPORTANT]
-> I gruppi di failover automatico per Istanza gestita sono disponibili in anteprima pubblica.
+> [!NOTE]
+> Per un'esercitazione dettagliata sull'aggiunta di un'istanza gestita per l'uso del gruppo di failover, vedere [aggiungere un'istanza gestita a un gruppo di failover](sql-database-managed-instance-failover-group-tutorial.md) . 
 
 Se l'applicazione usa l'istanza gestita come livello dati, seguire queste linee guida generali durante la progettazione per la continuità aziendale:
 
@@ -333,7 +342,7 @@ Come indicato in precedenza, i gruppi di failover automatico e la replica geogra
 
 #### <a name="powershell-commandlets-to-create-an-instance-failover-group"></a>Cmdlet di PowerShell per creare un gruppo di failover dell'istanza
 
-| API | Descrizione |
+| API | DESCRIZIONE |
 | --- | --- |
 | New-AzureRmSqlDatabaseInstanceFailoverGroup |Questo comando crea un gruppo di failover e lo registra nei server primario e secondario|
 | Set-AzureRmSqlDatabaseInstanceFailoverGroup |Modifica la configurazione del gruppo di failover|
@@ -367,6 +376,10 @@ Come indicato in precedenza, i gruppi di failover automatico e la replica geogra
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- Per esercitazioni dettagliate, vedere
+    - [Aggiungere un singolo database a un gruppo di failover](sql-database-single-database-failover-group-tutorial.md)
+    - [Aggiungere un pool elastico a un gruppo di failover](sql-database-elastic-pool-failover-group-tutorial.md)
+    - [Aggiungere un'istanza gestita a un gruppo di failover](sql-database-managed-instance-failover-group-tutorial.md)
 - Per script di esempio, vedere:
   - [Usare PowerShell per configurare la replica geografica attiva per un database singolo nel database SQL di Azure](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
   - [Usare PowerShell per configurare la replica geografica attiva per un database in pool nel database SQL di Azure](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)

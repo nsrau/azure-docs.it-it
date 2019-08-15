@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 897eff7eb77ce9f2a2795bfe534cc03076e59649
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b09f5c3fffe73b399fd02f74166f1c52fc90accd
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853224"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032356"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>Panoramica di Microsoft Authentication Library (MSAL)
 Microsoft Authentication Library (MSAL) consente agli sviluppatori di acquisire [token](developer-glossary.md#security-token) dall'endpoint di Microsoft Identity Platform per accedere ad API Web protette. Queste API Web possono essere Microsoft Graph, altre API Microsoft, API Web di terze parti o un'API Web propria. MSAL è disponibile per .NET, JavaScript, Android e iOS, che supportano molte architetture e piattaforme applicative diverse.
@@ -58,6 +58,7 @@ Con MSAL è possibile acquisire un token da diversi tipi di applicazioni: applic
 | ![MSAL.js](media/sample-v2-code/logo_js.png) <br/>[MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)| Framework JavaScript/TypeScript come AngularJS, Ember.js o Durandal.js|
 | ![MSAL per Android](media/sample-v2-code/logo_Android.png) <br/>[MSAL per Android (anteprima)](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
 | ![MSAL per iOS](media/sample-v2-code/logo_iOS.png) <br/>[MSAL.Objective-C (anteprima)](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS|
+| ![MSAL4J](media/sample-v2-code/logo_java.png) <br/>[Anteprima di MSAL4J](https://github.com/AzureAD/microsoft-authentication-library-for-java)|Java|
 
 ## <a name="differences-between-adal-and-msal"></a>Differenze tra ADAL e MSAL
 Active Directory Authentication Library (ADAL) si integra con l'endpoint di Azure AD per sviluppatori (v1.0), dove MSAL si integra con l'endpoint di Microsoft Identity Platform (v2.0). L'endpoint v1.0 supporta gli account aziendali, ma non quelli personali. L'endpoint v2.0 riunisce gli account personali e aziendali Microsoft in un unico sistema di autenticazione. Con MSAL è anche possibile ottenere le autenticazioni per Azure AD B2C.

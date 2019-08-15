@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: ghogen
-ms.openlocfilehash: 557b47aab5cdadef79427c4da9c18477daac0689
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 229522d16db0571c7dbe50e05fceaca9491c4c58
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62123043"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034170"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Introduzione ad Archiviazione BLOB di Azure e a Servizi connessi di Visual Studio (ASP.NET)
 
@@ -24,7 +24,7 @@ ms.locfileid: "62123043"
 > - [ASP.NET](./vs-storage-aspnet-getting-started-blobs.md)
 > - [ASP.NET Core](./vs-storage-aspnet-core-getting-started-blobs.md)
 
-Archiviazione BLOB di Azure è un servizio che archivia i dati non strutturati nel cloud come oggetti o BLOB. Archivio BLOB può archiviare qualsiasi tipo di dati di testo o binari, ad esempio un documento, un file multimediale o un programma di installazione di un'applicazione. L'archivio BLOB è anche denominato archivio di oggetti. Per altre informazioni su archiviazione BLOB, vedere [Introduzione all'archiviazione BLOB di Azure](../storage/blobs/storage-blobs-introduction.md).
+Archiviazione BLOB di Azure è un servizio che archivia i dati non strutturati nel cloud come oggetti o BLOB. Archiviazione BLOB può archiviare qualsiasi tipo di dati di testo o binari, ad esempio un documento, un file multimediale o il programma di installazione di un'applicazione. Il servizio Archiviazione BLOB è detto anche archiviazione di oggetti. Per altre informazioni su archiviazione BLOB, vedere [Introduzione all'archiviazione BLOB di Azure](../storage/blobs/storage-blobs-introduction.md).
 
 Questa esercitazione illustra come scrivere codice ASP.NET per alcuni scenari comuni che usano l'archiviazione BLOB. Gli scenari includono la creazione di un contenitore BLOB e il caricamento, la creazione di elenchi, il download e l'eliminazione di BLOB.
 
@@ -55,7 +55,7 @@ Questa esercitazione illustra come scrivere codice ASP.NET per alcuni scenari co
 1. Aggiungere le direttive `using` seguenti al file `BlobsController.cs`:
 
     ```csharp
-    using Microsoft.Azure;
+    using Microsoft.WindowsAzure;
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Blob;
     ```

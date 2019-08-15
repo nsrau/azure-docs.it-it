@@ -9,12 +9,12 @@ ms.date: 08/09/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: bc11ae2ac35a0593aeadbcba42a4c38ef3ac7851
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: ca419165d4dea2a04f51e7ab6f60d6e23f418933
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990702"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035623"
 ---
 # <a name="create-a-service-sas-for-a-container-or-blob-with-net"></a>Creare una firma di accesso condiviso del servizio per un contenitore o un BLOB con .NET
 
@@ -119,7 +119,7 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 
 - [Concedere accesso limitato alle risorse di archiviazione di Azure tramite firme di accesso condiviso (SAS)](../common/storage-sas-overview.md)
 - [Creare una firma di accesso condiviso del servizio](/rest/api/storageservices/create-service-sas)

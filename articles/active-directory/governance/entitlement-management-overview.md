@@ -1,5 +1,5 @@
 ---
-title: Che cos'è Azure AD gestione dei diritti? (Anteprima)-Azure Active Directory
+title: Cos'è Gestione entitlement di Azure AD? (Anteprima)-Azure Active Directory
 description: Panoramica della gestione dei diritti Azure Active Directory e del modo in cui è possibile utilizzarla per gestire l'accesso a gruppi, applicazioni e siti di SharePoint Online per utenti interni ed esterni.
 services: active-directory
 documentationCenter: ''
@@ -16,14 +16,14 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12452b4e9cc6caa64d4c81a310fbccb5d1717817
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: d93a20494886bb7d563439e2699f60bedb646dcd
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678149"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032551"
 ---
-# <a name="what-is-azure-ad-entitlement-management-preview"></a>Che cos'è Azure AD gestione dei diritti? (anteprima)
+# <a name="what-is-azure-ad-entitlement-management-preview"></a>Cos'è Gestione entitlement di Azure AD? (anteprima)
 
 > [!IMPORTANT]
 > Gestione entitlement di Azure Active Directory (Azure AD) è attualmente in anteprima pubblica.
@@ -33,6 +33,10 @@ ms.locfileid: "68678149"
 Per svolgere il proprio lavoro, i dipendenti delle organizzazioni devono accedere a diversi gruppi, applicazioni e siti. Gestire questo accesso è complesso. Nella maggior parte dei casi, non è disponibile un elenco organizzato di tutte le risorse necessarie per un progetto. Il project manager dispone di una conoscenza approfondita delle risorse necessarie, dei singoli utenti interessati e della durata del progetto. Tuttavia, il project manager in genere non dispone delle autorizzazioni per approvare o concedere l'accesso ad altri utenti. Questo scenario diventa più complicato quando si tenta di lavorare con le società o i singoli utenti esterni.
 
 Azure Active Directory (Azure AD) la gestione dei diritti consente di gestire l'accesso a gruppi, applicazioni e siti di SharePoint Online per gli utenti interni e anche per gli utenti esterni all'organizzazione.
+
+In questo video viene fornita una panoramica della gestione dei diritti e del relativo valore aziendale:
+
+>[!VIDEO https://www.youtube.com/embed/_Lss6bFrnQ8]
 
 ## <a name="why-use-entitlement-management"></a>Perché usare la gestione dei diritti?
 

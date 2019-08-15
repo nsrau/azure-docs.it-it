@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 968ee4c8bb5d7e09ef3c345c46f6c7b839e0e25a
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 2eab6fa75e4adbbde7bcf20f18301a1e516235c2
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67990047"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035351"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>Come visualizzare i log e gli eventi in tempo reale (anteprima)
 Il monitoraggio di Azure per i contenitori include una funzionalità, attualmente in anteprima, che fornisce una visualizzazione in tempo reale dei log del contenitore del servizio Kubernetes di Azure (stdout/stderr) ed eventi senza dover eseguire comandi kubectl. Quando si seleziona una delle opzioni, viene visualizzato un nuovo riquadro sotto la tabella dei dati sulle prestazioni nella visualizzazione **nodi**, **controller**e **contenitori** . Mostra la registrazione in tempo reale e gli eventi generati dal motore di contenitori per facilitare ulteriormente la risoluzione dei problemi in tempo reale.
@@ -72,7 +72,7 @@ Se è stata abilitata l'autorizzazione del controllo degli accessi in base al ru
 
 Il servizio Azure Kubernetes può essere configurato in modo da usare Azure Active Directory (AD) per l'autenticazione utente. Se si sta configurando per la prima volta, vedere [integrare Azure Active Directory con il servizio Azure Kubernetes](../../aks/azure-ad-integration.md). Durante i passaggi per creare l' [applicazione client](../../aks/azure-ad-integration.md#create-the-client-application), specificare quanto segue:
 
-- **URI di reindirizzamento (facoltativo)** : Si tratta di un tipo di applicazione **Web** e il valore dell'URL `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`di base deve essere.
+-  **URI di reindirizzamento**: È necessario creare due tipi di applicazione **Web** . Il primo valore dell'URL di base `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` deve essere e il secondo valore dell'URL `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`di base deve essere.
 - Dopo la registrazione dell'applicazione, nella pagina **Panoramica** selezionare **autenticazione** nel riquadro a sinistra. Nella pagina **autenticazione** , in **Impostazioni avanzate** , concedere in modo implicito **token di accesso** e **token ID** , quindi salvare le modifiche.
 
 >[!NOTE]

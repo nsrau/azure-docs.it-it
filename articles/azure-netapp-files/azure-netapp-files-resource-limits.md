@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: b-juche
-ms.openlocfilehash: 763b3961bfd621f05ab5cd021526b0d6d109c020
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
-ms.translationtype: MT
+ms.openlocfilehash: b9dd89e38f5cab6dceca36201695c068e0521943
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881713"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034867"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limiti delle risorse per Azure NetApp Files
 
@@ -31,7 +31,7 @@ La tabella seguente descrive i limiti delle risorse per Azure NetApp Files:
 
 |  Risorsa  |  Limite predefinito  |  Modificabile tramite richiesta di supporto  |
 |----------------|---------------------|--------------------------------------|
-|  Numero di account NetApp per sottoscrizione di Azure   |  10    |  Yes   |
+|  Numero di account NetApp per sottoscrizione di Azure   |  10    |  Sì   |
 |  Numero di pool di capacità per account NetApp   |    25     |   Sì   |
 |  Numero di volumi per pool di capacità     |    500   |    Sì     |
 |  Numero di snapshot per volume       |    255     |    No        |
@@ -40,11 +40,8 @@ La tabella seguente descrive i limiti delle risorse per Azure NetApp Files:
 |  Dimensioni minime di un singolo pool di capacità   |  4 TiB     |    No  |
 |  Dimensioni massime di un singolo pool di capacità    |  500 TiB   |   No   |
 |  Dimensioni minime di un singolo volume    |    100 GiB    |    No    |
-|  Quota massima assegnata di un singolo volume *   |   92 TiB   |    No   |
-|  Dimensioni massime di un singolo volume *     |    100 TiB    |    No       |
+|  Dimensioni massime di un singolo volume     |    100 TiB    |    No       |
 |  Numero massimo di file (inode) per volume     |    50 milioni    |    No    |    
-
-\* Un volume può essere creato manualmente o ridimensionato a un massimo di 92 TiB. Tuttavia, un volume può crescere fino a 100 TiB in uno scenario in eccedenza. Per informazioni dettagliate sull'eccedenza di capacità, vedere [modello di costo per Azure NetApp files](azure-netapp-files-cost-model.md) . 
 
 ## <a name="request-limit-increase"></a>Incremento limite richieste 
 

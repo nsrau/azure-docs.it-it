@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
-ms.openlocfilehash: cbab92c85e5791e43e9d7f60de975c27a77c62d3
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: aa9752cdc2148036b3edff8a6002dc81ebff6312
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013794"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036303"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API .NET tabella per Azure Cosmos DB: download e note sulla versione
 
@@ -27,7 +27,6 @@ ms.locfileid: "69013794"
 |   |   |
 |---|---|
 |**Download dell'SDK**|[NuGet](https://aka.ms/acdbtablenuget)|
-|**Documentazione sull'API**|[Documentazione di riferimento API .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table?view=azure-dotnet)|
 |**Guida introduttiva**|[Azure Cosmos DB: compilare un'app con .NET e l'API Tabella](create-table-dotnet.md)|
 |**Esercitazione**|[Azure Cosmos DB: sviluppare con l'API Tabella in .NET](tutorial-develop-table-dotnet.md)|
 |**Framework attualmente supportato**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
@@ -84,7 +83,7 @@ Il pacchetto di anteprima [WindowsAzure. storage-PremiumTable](https://www.nuget
 Qualsiasi richiesta inviata ad Azure Cosmos DB con un SDK ritirato viene rifiutata dal servizio.
 <br/>
 
-| Version | Data di rilascio | Data di ritiro |
+| Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
 | [2.1.0](#2.1.0) |22 gennaio 2019|01 aprile 2020 |
 | [2.0.0](#2.0.0) |26 settembre 2018|01 marzo 2020 |
@@ -94,7 +93,7 @@ Qualsiasi richiesta inviata ad Azure Cosmos DB con un SDK ritirato viene rifiuta
 | [1.0.0](#1.0.0) |15 novembre 2017|15 novembre 2019 |
 | 0.9.0-preview |11 novembre 2017 |11 novembre 2019 |
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se si ottiene l'errore 
 

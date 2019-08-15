@@ -1,79 +1,79 @@
 ---
-title: Limitazioni per il pool di nodi di Windows Server in Azure Kubernetes Service (AKS)
-description: Informazioni sulle limitazioni note quando si esegue il pool di nodi di Windows Server e carichi di lavoro dell'applicazione in Azure Kubernetes Service (AKS)
+title: Limitazioni per i pool di nodi di Windows Server in Azure Kubernetes Service (AKS)
+description: Informazioni sulle limitazioni note quando si eseguono i pool di nodi di Windows Server e i carichi di lavoro delle applicazioni in Azure Kubernetes Service (AKS)
 services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 0d79b4d76249bd4a79f8adbd5df0cfa1ae133760
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 501aeb60eba1d94b4c5882a7c6cbfa8d0359e44d
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67613730"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033902"
 ---
-# <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitazioni correnti per il pool di nodi di Windows Server e carichi di lavoro dell'applicazione in Azure Kubernetes Service (AKS)
+# <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitazioni correnti per i pool di nodi di Windows Server e i carichi di lavoro delle applicazioni in Azure Kubernetes Service (AKS)
 
-In Azure Kubernetes Service (AKS), è possibile creare un pool di nodi che esegue Windows Server come sistema operativo guest nei nodi. Questi nodi possono eseguire applicazioni contenitore Windows native, ad esempio quelle create in .NET Framework. Poiché sono presenti le principali differenze nella modalità di Linux e del sistema operativo Windows fornisce il supporto dei contenitori, alcuni Kubernetes comuni e funzionalità correlate a pod non sono attualmente disponibili per il pool di nodi di Windows.
+In Azure Kubernetes Service (AKS) è possibile creare un pool di nodi che esegue Windows Server come sistema operativo guest nei nodi. Questi nodi possono eseguire applicazioni contenitore Windows native, ad esempio quelle compilate in .NET Framework. Poiché esistono differenze sostanziali nel modo in cui il sistema operativo Linux e Windows fornisce il supporto per i contenitori, alcune funzionalità comuni relative a Kubernetes e Pod non sono attualmente disponibili per i pool di nodi di Windows.
 
-Questo articolo illustra alcune delle limitazioni e i concetti del sistema operativo per i nodi di Windows Server nel servizio contenitore di AZURE. Pool di nodi per Windows Server sono attualmente in anteprima.
+Questo articolo illustra alcune limitazioni e concetti del sistema operativo per i nodi di Windows Server in AKS. I pool di nodi per Windows Server sono attualmente in anteprima.
 
 > [!IMPORTANT]
-> Funzionalità di anteprima del servizio contenitore di AZURE sono self-service, fornire il consenso esplicito. Vengono fornite per raccogliere commenti e suggerimenti e bug dalla community. In fase di anteprima, queste funzionalità non sono destinate all'uso di produzione. Le funzionalità in anteprima pubblica rientrano nel supporto "best effort". Assistenza dai team di supporto tecnico di AKS è disponibile durante le ore lavorative Pacifico (PST) solo timezone. Per altre informazioni, vedere i seguenti articoli di supporto:
+> Le funzionalità di anteprima di AKS sono il consenso esplicito self-service. Le anteprime vengono fornite "così come sono" e "come disponibili" e sono escluse dai contratti di servizio e dalla garanzia limitata. Le anteprime AKS sono parzialmente coperte dal supporto tecnico per il massimo sforzo. Di conseguenza, queste funzionalità non sono destinate all'uso in produzione. Per ulteriori informazioni, vedere gli articoli di supporto seguenti:
 >
-> * [Criteri di supporto servizio contenitore di AZURE][aks-support-policies]
+> * [Criteri di supporto AKS][aks-support-policies]
 > * [Domande frequenti relative al supporto tecnico Azure][aks-faq]
 
-## <a name="limitations-for-windows-server-in-kubernetes"></a>Limitazioni per Server Windows in Kubernetes
+## <a name="limitations-for-windows-server-in-kubernetes"></a>Limitazioni per Windows Server in Kubernetes
 
-Contenitori di Windows Server devono eseguire in un host contenitore basato su Windows. Per eseguire contenitori Windows Server nel servizio contenitore di AZURE, è possibile [creare un pool di nodi che esegue Windows Server][windows-node-cli] come il sistema operativo guest. Supporto del pool di nodi Server finestra include alcune limitazioni che fanno parte di Windows Server a monte nel progetto di Kubernetes. Queste limitazioni non sono specifiche di AKS. Per altre informazioni su questo supporto upstream per Windows Server in Kubernetes, vedere [i contenitori di Windows Server in Kubernetes limitazioni](https://docs.microsoft.com/azure/aks/windows-node-limitations).
+I contenitori di Windows Server devono essere eseguiti in un host contenitore basato su Windows. Per eseguire i contenitori di Windows Server in AKS, è possibile [creare un pool di nodi che esegue Windows Server][windows-node-cli] come sistema operativo guest. Il supporto del pool di nodi di Windows Server include alcune limitazioni che fanno parte dell'upstream di Windows Server nel progetto Kubernetes. Queste limitazioni non sono specifiche di AKS. Per ulteriori informazioni su questo supporto upstream per Windows Server in Kubernetes, vedere la pagina relativa ai [contenitori di Windows Server in limitazioni di Kubernetes](https://docs.microsoft.com/azure/aks/windows-node-limitations).
 
-Le seguenti limitazioni upstream per i contenitori di Windows Server in Kubernetes sono pertinenti al servizio contenitore di AZURE:
+Le seguenti limitazioni upstream per i contenitori di Windows Server in Kubernetes sono rilevanti per AKS:
 
-- Contenitori di Windows Server possono usare solo Windows Server 2019, che corrisponde al nodo Windows Server sottostante del sistema operativo.
-    - Immagini contenitore create usando Windows Server 2016 come sistema operativo di base non è supportato.
-- I contenitori con privilegi non possono essere usati.
-- Funzionalità specifiche di Linux, ad esempio RunAsUser, SELinux, AppArmor o POSIX funzionalità non sono disponibili nei contenitori di Windows Server.
-    - Limitazioni del file system che sono specifici per Linux, ad esempio UUI/GUID, per le autorizzazioni utente anche non sono disponibili nei contenitori di Windows Server.
-- File di Azure e dischi di Azure sono i tipi di volume supportati, accessibili come volumi NTFS nel contenitore di Windows Server.
-    - Archiviazione basata su NFS / volumi non sono supportati.
+- I contenitori di Windows Server possono usare solo Windows Server 2019, che corrisponde al sistema operativo nodo Windows Server sottostante.
+    - Le immagini del contenitore compilate con Windows Server 2016 come sistema operativo di base non sono supportate.
+- Non è possibile usare i contenitori con privilegi.
+- Funzionalità specifiche di Linux, ad esempio le funzionalità RunAsUser, SELinux, AppArmor o POSIX, non sono disponibili nei contenitori di Windows Server.
+    - Le limitazioni del file System specifiche di Linux, ad esempio UUI/GUID, non sono disponibili anche per le autorizzazioni per utente nei contenitori di Windows Server.
+- I dischi di Azure e File di Azure sono i tipi di volume supportati, a cui si accede come volumi NTFS nel contenitore di Windows Server.
+    - I volumi e l'archiviazione basati su NFS non sono supportati.
 
-## <a name="aks-limitations-for-windows-server-node-pools"></a>Limitazioni del servizio contenitore di AZURE per i pool di nodi di Windows Server
+## <a name="aks-limitations-for-windows-server-node-pools"></a>Limitazioni di AKS per i pool di nodi di Windows Server
 
-Le seguenti limitazioni aggiuntive si applicano al supporto di pool di nodi di Windows Server nel servizio contenitore di AZURE:
+Le limitazioni aggiuntive seguenti si applicano al supporto del pool di nodi di Windows Server in AKS:
 
-- Un cluster AKS contiene sempre un pool di nodi di Linux come il primo pool di nodi. Impossibile eliminare questo primo pool di nodi basati su Linux, a meno che non viene eliminato il cluster di AKS.
-- I cluster AKS devono utilizzare il modello di rete (avanzato) di Azure CNI.
-    - Rete Kubenet (basic) non è supportata. È possibile creare un cluster servizio contenitore di AZURE che usa kubenet. Per altre informazioni sulle differenze nei modelli di rete, vedere [concetti per le applicazioni nel servizio contenitore di AZURE di rete][azure-network-models].
-    - Il modello di rete di Azure CNI richiede ulteriori informazioni sulla pianificazione e considerazioni per la gestione degli indirizzi IP. Per altre informazioni su come pianificare e implementare CNI di Azure, vedere [networking configurare CNI Azure nel servizio contenitore di AZURE][configure-azure-cni].
-- Nodi di Windows Server nel servizio contenitore di AZURE devono essere *aggiornato* a una versione più recente di Windows Server 2019 per mantenere la patch più recente correzioni e aggiornamenti apportati. Gli aggiornamenti di Windows non sono abilitati nell'immagine di nodo di livello base nel servizio contenitore di AZURE. A intervalli regolari tutto il ciclo di rilascio di Windows Update e il proprio processo di convalida, è consigliabile eseguire un aggiornamento sul pool di nodi di Windows Server nel cluster AKS. Per altre informazioni sull'aggiornamento di un pool di nodi di Windows Server, vedere [esegue l'aggiornamento di un pool di nodi in AKS][nodepool-upgrade].
-    - Questi aggiornamenti del nodo Windows Server utilizzano temporaneamente altri indirizzi IP nella subnet della rete virtuale perché viene distribuito un nuovo nodo, prima della rimozione del nodo precedente.
-    - le quote di vCPU anche temporaneamente vengono utilizzate nella sottoscrizione mentre viene distribuito un nuovo nodo, quindi rimossa il nodo precedente.
-    - Non è possibile automaticamente aggiornare e gestire i riavvii usando `kured` come nodi di Linux nel servizio contenitore di AZURE.
+- Un cluster AKS contiene sempre un pool di nodi Linux come primo pool di nodi. Il primo pool di nodi basato su Linux non può essere eliminato a meno che non venga eliminato il cluster AKS.
+- I cluster AKS devono usare il modello di rete CNI (Advanced) di Azure.
+    - La rete Kubenet (Basic) non è supportata. Non è possibile creare un cluster AKS che usa kubenet. Per altre informazioni sulle differenze nei modelli di rete, vedere [concetti di rete per le applicazioni in AKS][azure-network-models].
+    - Il modello di rete CNI di Azure richiede una pianificazione e considerazioni aggiuntive per la gestione degli indirizzi IP. Per altre informazioni su come pianificare e implementare Azure CNI, vedere [configurare la rete di Azure CNI in AKS][configure-azure-cni].
+- I nodi di Windows Server in AKS devono essere *aggiornati* a una versione più recente di windows server 2019 per gestire gli aggiornamenti e le correzioni di patch più recenti. Gli aggiornamenti di Windows non sono abilitati nell'immagine del nodo di base in AKS. In base a una pianificazione regolare per il ciclo di rilascio Windows Update e per il processo di convalida, è necessario eseguire un aggiornamento sui pool di nodi di Windows Server nel cluster AKS. Per ulteriori informazioni sull'aggiornamento di un pool di nodi di Windows Server, vedere [aggiornare un pool di nodi in AKS][nodepool-upgrade].
+    - Questi aggiornamenti dei nodi di Windows Server utilizzano temporaneamente indirizzi IP aggiuntivi nella subnet della rete virtuale quando viene distribuito un nuovo nodo, prima della rimozione del nodo precedente.
+    - anche le quote vCPU vengono utilizzate temporaneamente nella sottoscrizione quando viene distribuito un nuovo nodo, quindi il nodo precedente è stato rimosso.
+    - Non è possibile aggiornare e gestire automaticamente i riavvii usando `kured` come per i nodi Linux in AKS.
 - Il cluster AKS può avere un massimo di otto pool di nodi.
-    - Si può avere un massimo di 400 nodi tra tali pool di otto nodi.
-- Il nome del pool di nodi Windows Server ha un limite di 6 caratteri.
-- Anteprima funzionalità nel servizio contenitore di AZURE, ad esempio criteri di rete e scalabilità automatica di cluster, non vengono approvate per i nodi di Windows Server.
-- Controller di ingresso deve essere pianificato solo su nodi Linux tramite un NodeSelector.
-- Spazi di sviluppo Azure è attualmente disponibili solo per i pool di nodi basati su Linux.
-- Raggruppare gli account del servizio gestito (gMSA) supporto quando i nodi di Windows Server non sono aggiunti a un dominio di Active Directory non è attualmente disponibile nel servizio contenitore di AZURE.
-    - Open source, a monte [aks-engine][aks-engine] progetto fornisce attualmente supporto gMSA se è necessario usare questa funzionalità.
+    - È possibile avere un massimo di 400 nodi tra gli otto pool di nodi.
+- Il nome del pool di nodi di Windows Server ha un limite di 6 caratteri.
+- Le funzionalità in anteprima in AKS, ad esempio i criteri di rete e il ridimensionatore automatico cluster, non sono approvate per i nodi di Windows Server.
+- I controller in ingresso devono essere pianificati solo nei nodi Linux usando un NodeSelector.
+- Azure Dev Spaces è attualmente disponibile solo per i pool di nodi basati su Linux.
+- Il supporto per gli account del servizio gestito del gruppo (gMSA) quando i nodi di Windows Server non sono aggiunti a un dominio Active Directory non è attualmente disponibile in AKS.
+    - Il progetto open source e upstream del [motore AKS][aks-engine] fornisce attualmente il supporto per gMSA se è necessario usare questa funzionalità.
 
-## <a name="os-concepts-that-are-different"></a>Concetti del sistema operativo che sono diversi
+## <a name="os-concepts-that-are-different"></a>Concetti del sistema operativo diversi
 
-Kubernetes è sempre incentrato su Linux. Molti esempi usati nell'origine upstream [Kubernetes.io][kubernetes] sito Web sono destinati all'uso nei nodi Linux. Quando si crea le distribuzioni che usano contenitori di Windows Server, le considerazioni seguenti in si applicano le condizioni a livello del sistema operativo:
+Kubernetes è in passato basato su Linux. Molti esempi usati nel sito Web [Kubernetes.io][kubernetes] upstream sono destinati all'uso nei nodi Linux. Quando si creano distribuzioni che usano i contenitori di Windows Server, si applicano le considerazioni seguenti a livello di sistema operativo:
 
-- **Identità** -Linux Usa ID utente (UID) e ID del gruppo (GID), rappresentati come tipi integer. Nomi utente e gruppo non sono canonici, ma sono semplicemente un alias nel */e così via o i gruppi* oppure *passwd/e cosìvia/* al UID + GID.
-    - Windows Server utilizza un identificatore di sicurezza binario più grande (SID) che viene archiviato nel database di Windows Security Access Manager (SAM). Questo database non viene condivisa tra l'host e contenitori o tra i contenitori.
-- **Le autorizzazioni file** -Windows Server utilizza un elenco di controllo di accesso basato su SID, anziché una maschera di bit delle autorizzazioni e UID + GID
-- **Percorsi di file** -convenzione in Windows Server consiste nell'usare \ anziché /.
-    - Nelle specifiche dei pod che montare i volumi, specificare il percorso corretto per i contenitori di Windows Server. Ad esempio, invece di un montaggio punti della */mnt/Retention/ volume* in un contenitore Linux, specificare una lettera di unità e il percorso, ad esempio *K/Volume* montare come il *k:* unità.
+- **Identity** -Linux usa UserID (UID) e GROUPID (GID), rappresentati come tipi Integer. I nomi di utenti e gruppi non sono canonici. si tratta semplicemente di un alias in */etc/groups* o */etc/passwd* di nuovo a UID + GID.
+    - Windows Server utilizza un ID di sicurezza (SID) di dimensioni maggiori archiviato nel database di gestione accessi Windows (SAM). Questo database non è condiviso tra l'host e i contenitori o tra contenitori.
+- **Autorizzazioni** per i file: Windows Server usa un elenco di controllo di accesso basato su Sid, anziché una maschera di bit di autorizzazioni e UID + GID
+- **Percorsi file** : la convenzione in Windows Server prevede l'uso di \ anziché/.
+    - In specifiche pod che montano volumi specificare il percorso corretto per i contenitori di Windows Server. Ad esempio, invece di un punto di montaggio di */mnt/volume* in un contenitore Linux, specificare una lettera di unità e un percorso come */K/volume* da montare come unità *K:* .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare a usare i contenitori di Windows Server nel servizio contenitore di AZURE, [creare un pool di nodi che esegue Windows Server in AKS][windows-node-cli].
+Per iniziare a usare i contenitori di Windows Server in AKS, [creare un pool di nodi che esegue Windows Server in AKS][windows-node-cli].
 
 <!-- LINKS - external -->
 [upstream-limitations]: https://kubernetes.io/docs/setup/windows/#limitations

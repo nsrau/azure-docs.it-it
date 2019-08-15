@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: zarhoads
-ms.openlocfilehash: 4e234d3849e09bd8c57a8c33bb378ab801ce0f6d
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 1dcf08f4fefb53ed46038c82e0ce8f9d3dd94de2
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019457"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032250"
 ---
 # <a name="preview---use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Anteprima: usare un servizio di bilanciamento del carico con SKU standard in Azure Kubernetes Service (AKS)
 
@@ -39,7 +39,7 @@ L'entità servizio cluster AKS necessita dell'autorizzazione per gestire le riso
 È necessario creare un cluster AKS che imposta lo SKU per il servizio di bilanciamento del carico su *standard* anziché quello di *base*predefinito. La creazione di un cluster AKS verrà trattata in un passaggio successivo, ma è prima necessario abilitare alcune funzionalità in anteprima.
 
 > [!IMPORTANT]
-> Le funzionalità di anteprima di AKS sono self-service e acconsentino esplicitamente. Sono disponibili per raccogliere commenti e suggerimenti e bug dalla community. In anteprima, queste funzionalità non sono destinate all'uso in produzione. Le funzionalità nella versione di anteprima pubblica rientrano nel supporto "Best Effort". L'assistenza dei team di supporto tecnico AKS è disponibile solo durante l'orario di ufficio Pacific TimeZone (PST). Per ulteriori informazioni, consultare gli articoli di supporto seguenti:
+> Le funzionalità di anteprima di AKS sono il consenso esplicito self-service. Le anteprime vengono fornite "così come sono" e "come disponibili" e sono escluse dai contratti di servizio e dalla garanzia limitata. Le anteprime AKS sono parzialmente coperte dal supporto tecnico per il massimo sforzo. Di conseguenza, queste funzionalità non sono destinate all'uso in produzione. Per ulteriori informazioni, vedere gli articoli di supporto seguenti:
 >
 > * [Criteri di supporto AKS][aks-support-policies]
 > * [Domande frequenti relative al supporto tecnico Azure][aks-faq]

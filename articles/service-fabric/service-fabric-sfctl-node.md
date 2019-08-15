@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 1e5b5876fa6277d1bad0989c543de667f75a066c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9d41f978dd6a87287d8743e321acf35ff4909544
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258740"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034985"
 ---
 # <a name="sfctl-node"></a>sfctl node
 Consente di gestire i nodi che formano un cluster.
@@ -181,7 +180,7 @@ Notifica a Service Fabric che lo stato persistente in un nodo è stato rimosso o
 
 Ciò implica che non è possibile ripristinare lo stato persistente di tale nodo, come in genere si verifica se il contenuto di un disco rigido è stato cancellato o se un disco rigido si arresta in modo anomalo. Il nodo deve essere inattivo perché l'operazione abbia esito positivo. Questa operazione consente a Service Fabric di sapere che le repliche in tale nodo non esistono più e che deve smettere di attendere che tali repliche tornino disponibili. Non eseguire questo cmdlet se lo stato del nodo non è stato rimosso e il nodo può tornare disponibile con lo stato intatto.
 
-A partire da Service Fabric 6.5, per poter usare questo cmdlet per i nodi di inizializzazione, modificare i nodi di inizializzazione per i nodi di regolare (non-valore di inizializzazione) e quindi richiamare questo cmdlet per rimuovere lo stato del nodo. Se il cluster è in esecuzione in Azure, dopo il nodo seme diventa inattiva, Service Fabric tenterà di modificare automaticamente a un nodo non di inizializzazione. Per rendere questo risultato, assicurarsi che il numero di nodi non di inizializzazione nel tipo di nodo primario non sia inferiore rispetto al numero di nodi di inizializzazione. Se necessario, aggiungere più nodi per il tipo di nodo primario per ottenere questo risultato. Per un cluster autonomo, se il nodo seme verso il basso non dovrà tornare attivo con il relativo stato intatto,. rimuovere il nodo dal cluster, vedere [rimuovere nodi dal cluster autonomo di Service Fabric](/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes) 
+A partire da Service Fabric 6,5, per usare questo cmdlet per i nodi di inizializzazione, impostare i nodi di inizializzazione su nodi regolari (non di inizializzazione), quindi richiamare questo cmdlet per rimuovere lo stato del nodo. Se il cluster è in esecuzione in Azure, dopo che il nodo di inizializzazione diventa inattivo, Service Fabric tenterà di modificarlo automaticamente in un nodo non di inizializzazione. Per eseguire questa operazione, assicurarsi che il numero di nodi non di inizializzazione nel tipo di nodo primario non sia inferiore al numero di nodi di inizializzazione inattivo. Se necessario, aggiungere altri nodi al tipo di nodo primario per ottenere questo risultato. Per il cluster autonomo, se non è previsto che il nodo di inizializzazione inattivo venga riavviato con lo stato intatto, rimuovere il nodo dal cluster. vedere [rimuovere nodi da Service Fabric cluster autonomo](/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes) 
 
 ### <a name="arguments"></a>Argomenti
 

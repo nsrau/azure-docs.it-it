@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 7bb399472d7e0ab14e6399fc8652d2eb132a866a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 305b1e11841dd2da4aa6c0bdeb3df2c76addad87
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837323"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036502"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Selezionare, gestire e usare dei cluster di Service Fabric.
@@ -140,7 +139,7 @@ Mostra il manifesto del cluster di Service Fabric. Il manifesto del cluster cont
 ## <a name="sfctl-cluster-operation-cancel"></a>sfctl cluster operation-cancel
 Annulla un'operazione di errore indotta dall'utente.
 
-Le API seguenti avviano le operazioni di errore che possono essere annullate tramite CancelOperation\: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Se force è false, l'operazione specificata indotta dall'utente verrà normalmente arrestata e pulita.  Se force è true, il comando verrà interrotto e parte dello stato interno potrebbe permanere.  L'impostazione di force su true deve essere usata con cautela. La chiamata a questa API con force impostato su true è consentita solo se questa API è già stata chiamata prima sullo stesso comando di test con force impostato su false oppure se il valore di un elemento OperationState del comando di test è già OperationState.RollingBack. 
+Le API seguenti avviano le operazioni di errore che possono essere annullate usando CancelOperation\: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Se force è false, l'operazione specificata indotta dall'utente verrà normalmente arrestata e pulita.  Se force è true, il comando verrà interrotto e parte dello stato interno potrebbe permanere.  L'impostazione di force su true deve essere usata con cautela. La chiamata a questa API con force impostato su true è consentita solo se questa API è già stata chiamata prima sullo stesso comando di test con force impostato su false oppure se il valore di un elemento OperationState del comando di test è già OperationState.RollingBack. 
 
 Chiarimento\: OperationState.RollingBack indica che il sistema eseguirà/esegue la pulizia dello stato del sistema interno in seguito all'esecuzione del comando.  Non ripristinerà i dati se il comando di test doveva causare la perdita dei dati.  Se ad esempio si chiama StartDataLoss, quindi si chiama questa API, il sistema pulirà lo stato interno solo a partire dall'esecuzione del comando. Non ripristinerà i dati della partizione di destinazione, se il comando è stato eseguito abbastanza a lungo da causare la perdita di dati. 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
-ms.openlocfilehash: 5aa5ea2a39a0fb9f969e965fed14063522197cda
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4a37345cf33cbb02a6bd9a70b0253a55ee4c9478
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60303791"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035597"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Gestire messaggi di grandi dimensioni con la suddivisione in blocchi in App per la logica di Azure
 
@@ -137,14 +137,20 @@ Questa procedura descrive il processo dettagliato che App per la logica di Azure
 
    * Questa intestazione descrive in dettaglio il blocco di contenuto inviato in ogni messaggio PATCH:
 
-     | Campo intestazione della richiesta di App per la logica di Azure | Value | Type | Descrizione |
+     | Campo intestazione della richiesta di App per la logica di Azure | Value | Type | DESCRIZIONE |
      |---------------------------------|-------|------|-------------|
      | **Content-Range** | <*range*> | String | Intervallo in byte del blocco di contenuto corrente, incluso il valore iniziale, il valore finale e le dimensioni totali del contenuto, ad esempio: "bytes=0-1023/10100" |
      | **Content-Type** | <*content-type*> | String | Tipo di contenuto in blocchi |
      | **Content-Length** | <*content-length*> | String | Lunghezza della dimensione in byte del blocco corrente |
      |||||
 
-4. Dopo ogni richiesta PATCH, l'endpoint conferma la ricezione di ogni blocco rispondendo con il codice di stato "200".
+4. Dopo ogni richiesta di PATCH, l'endpoint conferma la ricezione per ogni blocco rispondendo con il codice di stato "200" e con le intestazioni di risposta seguenti:
+
+   | Campo intestazione della risposta dell'endpoint | Type | Obbligatorio | Descrizione |
+   |--------------------------------|------|----------|-------------|
+   | **Range** | String | Sì | Intervallo di byte per il contenuto ricevuto dall'endpoint, ad esempio: "bytes = 0-1023" |   
+   | **x-ms-chunk-size** | Integer | No | Dimensioni del blocco suggerite in byte |
+   ||||
 
 Ad esempio, questa definizione di azione mostra una richiesta HTTP POST per il caricamento di contenuti in blocchi a un endpoint. Nella proprietà dell'azione `runTimeConfiguration`, la proprietà `contentTransfer` imposta `transferMode` su `chunked`:
 

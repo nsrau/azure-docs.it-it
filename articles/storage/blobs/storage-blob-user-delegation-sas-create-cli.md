@@ -9,12 +9,12 @@ ms.date: 08/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: c8b17c4a2c58595d12a88ed3aff6c928b56f5e2c
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1c60c4b868854952771ba297107904762a2357d8
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990806"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032995"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli-preview"></a>Creare una firma di accesso condiviso di delega utente per un contenitore o BLOB con l'interfaccia della riga di comando di Azure (anteprima)
 
@@ -113,7 +113,7 @@ https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?se=2019-
 > [!NOTE]
 > Una firma di accesso condiviso di delega utente non supporta la definizione di autorizzazioni con criteri di accesso archiviati.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 
 - [Creare una firma di accesso condiviso per la delega utente (API REST)](/rest/api/storageservices/create-a-user-delegation-sas)
 - [Operazione di ottenimento della chiave di delega utente](/rest/api/storageservices/get-user-delegation-key)

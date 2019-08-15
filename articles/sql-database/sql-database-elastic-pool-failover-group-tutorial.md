@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: 0507b3cb64b4b12bac92cc6bc90120ab4ec56dee
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5dd241fed757669cf8bccd96a1de948e8d73a021
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568746"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033257"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Esercitazione: Aggiungere un pool elastico del database SQL di Azure a un gruppo di failover
 
@@ -76,11 +76,11 @@ In questo passaggio verrà creato un gruppo di [failover](sql-database-auto-fail
 1. Selezionare **SQL Server** e scegliere il server creato nella sezione 1.
 1. Selezionare **gruppi di failover** nel riquadro **Impostazioni** e quindi selezionare **Aggiungi gruppo** per creare un nuovo gruppo di failover. 
 
-    ![Aggiungi nuovo gruppo di failover](media/sql-database-elastic-pool-create-failover-group-tutorial/add-elastic-pool-to-failover-group.png)
+    ![Aggiungi nuovo gruppo di failover](media/sql-database-single-database-create-failover-group-tutorial/sqldb-add-new-failover-group.png)
 
 1. Nella pagina **gruppo di failover** immettere o selezionare i valori seguenti e quindi selezionare **Crea**:
     - **Nome del gruppo di failover**: Digitare un nome di gruppo di failover univoco, ad `failovergrouptutorial`esempio. 
-    - **Server secondario**: Selezionare l'opzione per *configurare le impostazioni necessarie* e quindi scegliere di **creare un nuovo server**. In alternativa, è possibile scegliere un server già esistente come server secondario. Dopo aver immesso i valori seguenti, selezionare **Seleziona**. 
+    - **Server secondario**: Selezionare l'opzione per *configurare le impostazioni necessarie* e quindi scegliere di **creare un nuovo server**. In alternativa, è possibile scegliere un server già esistente come server secondario. Dopo aver immesso i valori seguenti per il nuovo server secondario, selezionare **Seleziona**. 
         - **Nome server**: Digitare un nome univoco per il server secondario, ad esempio `mysqlsecondary`. 
         - **Account di accesso amministratore server**: Tipo`azureuser`
         - **Password**: Digitare una password complessa che soddisfi i corrispondenti requisiti.
@@ -91,9 +91,9 @@ In questo passaggio verrà creato un gruppo di [failover](sql-database-auto-fail
     
        ![Creazione di un server secondario per il gruppo di failover](media/sql-database-single-database-create-failover-group-tutorial/create-secondary-failover-server.png)
 
-1. Una volta selezionato un server secondario, l'opzione **database all'interno del gruppo** viene sbloccata. Selezionarlo per **selezionare i database da aggiungere** e quindi selezionare il pool elastico creato nella sezione 2. Verrà visualizzato un avviso che richiede di creare un pool elastico nel server secondario. Selezionare l'avviso e quindi fare clic su **OK** per creare il pool elastico nel server secondario. 
+1. Selezionare i **database all'interno del gruppo** e quindi selezionare il pool elastico creato nella sezione 2. Verrà visualizzato un avviso che richiede di creare un pool elastico nel server secondario. Selezionare l'avviso e quindi fare clic su **OK** per creare il pool elastico nel server secondario. 
         
-    ![Aggiungi database SQL al gruppo di failover](media/sql-database-single-database-create-failover-group-tutorial/add-sqldb-to-failover-group.png)
+    ![Aggiungere un pool elastico al gruppo di failover](media/sql-database-elastic-pool-create-failover-group-tutorial/add-elastic-pool-to-failover-group.png)
         
 1. Selezionare **Seleziona** per applicare le impostazioni del pool elastico al gruppo di failover e quindi selezionare **Crea** per creare il gruppo di failover. L'aggiunta del pool elastico al gruppo di failover avvierà automaticamente il processo di replica geografica. 
 

@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 7/24/2019
+ms.date: 8/14/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: ad0927c551f331a3a6f719797dae7598961d78c1
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 45f383691a52d841f35ed9b67d4658341de18afc
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721661"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036253"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Note sulla versione dell'agente Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Le installazioni Windows Server vengono trasformate in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS e FTPS. Si può usare qualsiasi numero di cache in tutto il mondo.
@@ -25,7 +25,7 @@ L'agente Sincronizzazione file di Azure supporta le versioni seguenti:
 
 | Attività cardine | Numero di versione dell'agente | Data di rilascio | Stato |
 |----|----------------------|--------------|------------------|
-| Aggiornamento cumulativo di luglio 2019- [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 24 luglio 2019 | Supporto per il [volo](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) |
+| Aggiornamento cumulativo di luglio 2019- [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 24 luglio 2019 | Supportato |
 | Aggiornamento cumulativo di luglio 2019- [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 12 luglio 2019 | Supportato |
 | Versione v7- [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 19 giugno 2019 | Supportato |
 | Aggiornamento cumulativo di giugno 2019- [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | 27 giugno 2019 | Supportato |
@@ -39,9 +39,9 @@ L'agente Sincronizzazione file di Azure supporta le versioni seguenti:
 | Aggiornamento cumulativo di dicembre 2018 - [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | 10 dicembre 2018 | Supportato |
 | Aggiornamento cumulativo di dicembre 2018 | 4.1.0.0 | 4 dicembre 2018 | Supportato |
 | Versione v4 | 4.0.1.0 | 13 novembre 2018 | Supportato |
-| Aggiornamento cumulativo di settembre 2018 | 3.3.0.0 | 24 settembre 2018 | Supportato - La versione dell'agente scadrà il 19 luglio 2019 |
-| Aggiornamento cumulativo di agosto 2018 | 3.2.0.0 | 15 agosto 2018 | Supportato - La versione dell'agente scadrà il 19 luglio 2019 |
-| Disponibilità generale | 3.1.0.0 | 19 Luglio 2018 | Supportato - La versione dell'agente scadrà il 19 luglio 2019 |
+| Aggiornamento cumulativo di settembre 2018 | 3.3.0.0 | 24 settembre 2018 | Supportato-la versione dell'agente scadrà il 19 agosto 2019 |
+| Aggiornamento cumulativo di agosto 2018 | 3.2.0.0 | 15 agosto 2018 | Supportato-la versione dell'agente scadrà il 19 agosto 2019 |
+| Disponibilità generale | 3.1.0.0 | 19 Luglio 2018 | Supportato-la versione dell'agente scadrà il 19 agosto 2019 |
 | Agenti scaduti | 1.1.0.0 - 3.0.13.0 | N/D | Non supportato: versione dell'agente scaduta il 1° ottobre 2018 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Criteri di aggiornamento dell'agente Sincronizzazione file di Azure

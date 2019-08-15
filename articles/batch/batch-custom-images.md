@@ -1,21 +1,21 @@
 ---
-title: Effettuare il provisioning del pool di Azure Batch da un'immagine personalizzata | Microsoft Docs
-description: Creare un pool di Batch da un'immagine personalizzata per effettuare il provisioning dei nodi di calcolo che contengono il software e i dati necessari per l'applicazione. Le immagini personalizzate sono uno strumento efficace per configurare i nodi di calcolo per l'esecuzione dei carichi di lavoro di Batch.
+title: Usare la raccolta di immagini condivise per creare un pool-Azure Batch | Microsoft Docs
+description: Creare un pool di batch con la raccolta di immagini condivise per eseguire il provisioning di immagini personalizzate nei nodi di calcolo che contengono il software e i dati necessari per l'applicazione. Le immagini personalizzate sono uno strumento efficace per configurare i nodi di calcolo per l'esecuzione dei carichi di lavoro di Batch.
 services: batch
 author: laurenhughes
 manager: gwallace
 ms.service: batch
 ms.topic: article
-ms.date: 08/07/2019
+ms.date: 08/14/2019
 ms.author: lahugh
-ms.openlocfilehash: d8bda817231ec0a5a733d5e586e49639c62ea177
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 00da17512cbc2e713955ea83c7d9fa7517958169
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882832"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036700"
 ---
-# <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Usare un'immagine personalizzata per creare un pool di macchine virtuali
+# <a name="use-the-shared-image-gallery-to-create-a-pool"></a>Usare la raccolta di immagini condivise per creare un pool
 
 Quando si crea un pool in Azure Batch usando la configurazione della macchina virtuale, specificare l'immagine di macchina virtuale (VM) che fornisce la configurazione del sistema operativo per ogni nodo di calcolo nel pool. È possibile creare un pool di macchine virtuali con un'immagine di Azure Marketplace supportata o creare un'immagine personalizzata con la [raccolta di immagini condivise](../virtual-machines/windows/shared-image-galleries.md).
 

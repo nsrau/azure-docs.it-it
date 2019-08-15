@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: 4a0aab2ca2f0bbcee07f09124e68c3623d16004d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 6949f46345a5520ec3e09508b6d81994f9a7deb5
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848140"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036197"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuire un modello in un cluster del servizio Kubernetes di Azure
 
@@ -212,12 +212,56 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 
 Per ulteriori informazioni, vedere il riferimento [AZ ml Model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) . 
 
-## <a name="using-vs-code"></a>Utilizzo di VS Code
+### <a name="using-vs-code"></a>Utilizzo di VS Code
 
 Per informazioni sull'uso di VS Code, vedere [Deploy to AKS by the vs code Extension](how-to-vscode-tools.md#deploy-and-manage-models).
 
 > [!IMPORTANT] 
 > Per la distribuzione tramite VS Code è necessario che il cluster AKS venga creato o collegato all'area di lavoro in anticipo.
+
+## <a name="web-service-authentication"></a>Autenticazione del servizio Web
+
+Quando si esegue la distribuzione nel servizio Azure Kubernetes, l'autenticazione __basata su chiavi__ è abilitata per impostazione predefinita. È anche possibile abilitare l'autenticazione del __token__ . Per l'autenticazione del token è necessario che i client usino un account Azure Active Directory per richiedere un token di autenticazione, usato per eseguire richieste al servizio distribuito.
+
+Per __disabilitare__ l'autenticazione, impostare `auth_enabled=False` il parametro durante la creazione della configurazione di distribuzione. Nell'esempio seguente viene disabilitata l'autenticazione tramite l'SDK:
+
+```python
+deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, auth_enabled=False)
+```
+
+Per informazioni sull'autenticazione da un'applicazione client, vedere la pagina relativa all' [utilizzo di un modello di Azure machine learning distribuito come servizio Web](how-to-consume-web-service.md).
+
+### <a name="authentication-with-keys"></a>Autenticazione con chiavi
+
+Se è abilitata l'autenticazione della chiave, è `get_keys` possibile usare il metodo per recuperare una chiave di autenticazione primaria e secondaria:
+
+```python
+primary, secondary = service.get_keys()
+print(primary)
+```
+
+> [!IMPORTANT]
+> Se è necessario rigenerare una chiave, usare[`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
+
+### <a name="authentication-with-tokens"></a>Autenticazione con token
+
+Per abilitare l'autenticazione del token, `token_auth_enabled=True` impostare il parametro durante la creazione o l'aggiornamento di una distribuzione. Nell'esempio seguente viene abilitata l'autenticazione del token tramite l'SDK:
+
+```python
+deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, token_auth_enabled=True)
+```
+
+Se l'autenticazione basata su token è abilitata, `get_token` è possibile usare il metodo per recuperare un token JWT e l'ora di scadenza del token:
+
+```python
+token, refresh_by = service.get_token()
+print(token)
+```
+
+> [!IMPORTANT]
+> Sarà necessario richiedere un nuovo token dopo l' `refresh_by` ora del token.
+>
+> Microsoft consiglia di creare l'area di lavoro di Azure Machine Learning nella stessa area del cluster del servizio Azure Kubernetes. Per eseguire l'autenticazione con un token, il servizio Web effettuerà una chiamata all'area in cui viene creata l'area di lavoro Azure Machine Learning. Se l'area dell'area di lavoro non è disponibile, non sarà possibile recuperare un token per il servizio Web, anche se il cluster si trova in un'area diversa da quella dell'area di lavoro. Questo consente di ottenere Autenticazione di Azure AD non disponibile fino a quando l'area dell'area di lavoro non sarà nuovamente disponibile. Inoltre, maggiore è la distanza tra l'area del cluster e l'area dell'area di lavoro, più tempo sarà necessario per recuperare un token.
 
 ## <a name="update-the-web-service"></a>Aggiornare il servizio Web
 

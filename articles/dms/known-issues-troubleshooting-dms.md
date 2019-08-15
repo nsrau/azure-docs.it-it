@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 06/18/2019
-ms.openlocfilehash: a35e0496c7e36d42e28a64fef438fe56713d3c78
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a72a0e26c2af34942faaa6a7e62feef86082e196
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854990"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034833"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Risolvere i problemi e gli errori comuni del servizio migrazione del database di Azure
 
@@ -98,9 +98,9 @@ Quando si cerca di connettersi all'origine nella procedura guidata del progetto 
 | ------------- | ------------- |
 | Quando si usa [ExpressRoute](https://azure.microsoft.com/services/expressroute/), il servizio migrazione del database di Azure [richiede](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) il provisioning di tre endpoint di servizio nella subnet della rete virtuale associata al servizio:<br> --Endpoint del bus di servizio<br> --Endpoint di archiviazione<br> --Endpoint database di destinazione (ad esempio, endpoint SQL, endpoint Cosmos DB)<br><br><br><br><br> | [Abilitare](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) gli endpoint di servizio necessari per la connettività ExpressRoute tra l'origine e il servizio migrazione del database di Azure. <br><br><br><br><br><br><br><br> |
 
-## <a name="timeout-error-when-migrating-a-mysql-database-to-azure-db-for-mysql"></a>Errore di timeout durante la migrazione di un database MySQL nel database di Azure per MySQL
+## <a name="lock-wait-timeout-error-when-migrating-a-mysql-database-to-azure-db-for-mysql"></a>Errore di timeout di attesa blocco durante la migrazione di un database MySQL nel database di Azure per MySQL
 
-Quando si esegue la migrazione di un database MySQL a un'istanza di database di Azure per MySQL tramite il servizio migrazione del database di Azure, la migrazione non riesce con il seguente errore di timeout:
+Quando si esegue la migrazione di un database MySQL a un'istanza di database di Azure per MySQL tramite il servizio migrazione del database di Azure, la migrazione ha esito negativo con un errore di timeout di attesa blocco
 
 * **Errore**: Errore di migrazione del database-non è stato possibile caricare il file: non è stato possibile avviare il processo di caricamento per il file ' n'RetCode: SQL_ERROR SqlState: NativeError HY000: 1205 messaggio: [MySQL] [driver ODBC] [mysqld] timeout di attesa di blocco superato; prova a riavviare la transazione
 

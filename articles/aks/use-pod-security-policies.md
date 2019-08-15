@@ -7,19 +7,19 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2019
 ms.author: mlearned
-ms.openlocfilehash: c398567dd3383f4b0b4fd2eaa4b474d1e95b7575
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 374e86409be08f1f9859b3e325dda57080b89dbf
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67613884"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033998"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Anteprima-proteggere il cluster usando i criteri di sicurezza pod in Azure Kubernetes Service (AKS)
 
 Per migliorare la sicurezza del cluster AKS, è possibile limitare i pod che è possibile pianificare. I pod che richiedono risorse non consentite non possono essere eseguiti nel cluster AKS. Questo accesso viene definito usando i criteri di sicurezza pod. Questo articolo illustra come usare i criteri di sicurezza di pod per limitare la distribuzione di pod in AKS.
 
 > [!IMPORTANT]
-> Le funzionalità di anteprima di AKS sono self-service e acconsentino esplicitamente. Sono disponibili per raccogliere commenti e suggerimenti e bug dalla community. In anteprima, queste funzionalità non sono destinate all'uso in produzione. Le funzionalità nella versione di anteprima pubblica rientrano nel supporto "Best Effort". L'assistenza dei team di supporto tecnico AKS è disponibile solo durante l'orario di ufficio Pacific TimeZone (PST). Per ulteriori informazioni, consultare gli articoli di supporto seguenti:
+> Le funzionalità di anteprima di AKS sono il consenso esplicito self-service. Le anteprime vengono fornite "così come sono" e "come disponibili" e sono escluse dai contratti di servizio e dalla garanzia limitata. Le anteprime AKS sono parzialmente coperte dal supporto tecnico per il massimo sforzo. Di conseguenza, queste funzionalità non sono destinate all'uso in produzione. Per ulteriori informazioni, vedere gli articoli di supporto seguenti:
 >
 > * [Criteri di supporto AKS][aks-support-policies]
 > * [Domande frequenti relative al supporto tecnico Azure][aks-faq]

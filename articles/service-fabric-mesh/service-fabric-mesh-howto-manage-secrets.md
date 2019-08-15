@@ -2,19 +2,19 @@
 title: Gestire i segreti delle applicazioni Azure Service Fabric Mesh | Microsoft Docs
 description: Come gestire i segreti dell'applicazione per poter creare e distribuire in modo sicuro un'applicazione Service Fabric Mesh.
 services: service-fabric-mesh
-keywords: chiavi private
-author: aljo-microsoft
-ms.author: aljo
+keywords: segreti
+author: athinanthny
+ms.author: atsenthi
 ms.date: 4/2/2019
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chackdan
-ms.openlocfilehash: c2548ea3cf892ebe1a56cbb0909bfa5d5e805acf
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: ef3f04437aca7b6ad9aab8806d54e65d00159d87
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503306"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036176"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Gestire i segreti delle applicazioni Azure Service Fabric Mesh
 Service Fabric Mesh supporta i segreti come risorse di Azure. Un segreto di Service Fabric Mesh può essere costituito da informazioni di testo riservate, come stringhe di connessione per l'archiviazione, password o altri valori che devono essere archiviati e trasmessi in modo sicuro. Questo articolo illustra come usare il servizio di archiviazione sicura di Service Fabric per distribuire e gestire i segreti.
@@ -24,14 +24,14 @@ Un segreto dell'applicazione Mesh è costituto da:
 * Una o più risorse **Segreti/Valori** archiviate nel contenitore di risorse **Segreti**. Ogni risorsa **Segreti/Valori** è contraddistinta da un numero di versione. Non è possibile modificare una versione di una risorsa **Segreti/Valori**, si può solo aggiungere una nuova versione.
 
 Il processo di gestione dei segreti è costituito dai passaggi seguenti:
-1. Dichiarare una Mesh **segreti** risorse in un file di Azure Resource Model YAML o JSON mediante inlinedValue tipo e le definizioni contentType SecretsStoreRef.
-2. Dichiarare Mesh **e i valori per i segreti** le risorse in un file di Azure Resource Model YAML o JSON che verrà archiviato nel **segreti** risorsa (dal passaggio 1).
+1. Dichiarare una risorsa dei **segreti** di rete in un file YAML o JSON del modello di risorsa di Azure usando le definizioni di inlinedValue Kind e SecretsStoreRef ContentType.
+2. Dichiarare le risorse di **segreti/valori** mesh in un file YAML o JSON del modello di risorsa di Azure che verrà archiviato nella risorsa Secrets (dal passaggio 1).
 3. Modificare l'applicazione Mesh in modo che faccia riferimento ai valori dei segreti Mesh.
 4. Distribuire o eseguire l'aggiornamento in sequenza dell'applicazione Mesh per utilizzare i valori dei segreti.
 5. Usare i comandi dell'interfaccia della riga di comando di Azure "az" per la gestione del ciclo di vita del servizio di archiviazione sicura.
 
 ## <a name="declare-a-mesh-secrets-resource"></a>Dichiarare una risorsa Segreti di Mesh
-Una risorsa trama segreti viene dichiarata in un JSON del modello di Azure Resource o un file YAML usando inlinedValue kind definizione. La risorsa Segreti di Mesh supporta i segreti originati dal servizio di archiviazione sicura. 
+Una risorsa di segreti mesh viene dichiarata in un file JSON o YAML del modello di risorsa di Azure usando la definizione di tipo inlinedValue. La risorsa Segreti di Mesh supporta i segreti originati dal servizio di archiviazione sicura. 
 >
 Di seguito è riportato un esempio di dichiarazione di risorse Segreti di Mesh in un file JSON:
 
@@ -208,7 +208,7 @@ Passare **template-file** o **template-uri** (ma non entrambi).
 
 Ad esempio:
 - az mesh deployment create --c:\MyMeshTemplates\SecretTemplate1.txt
-- distribuzione mesh AZ creare: https:\//www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
+- AZ mesh Deployment create--https:\//www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
 
 ### <a name="show-a-secret"></a>Visualizzare un segreto
 Restituisce la descrizione del segreto (ma non il valore).

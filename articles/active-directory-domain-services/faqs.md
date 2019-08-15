@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 10131ad306a8a24cb5835e55a02f1b502b20bea4
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 3d44937c977ba264d671f2053d387470651af68a
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473377"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69030879"
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: Domande frequenti (FAQ)
 Questa pagina include le risposte a domande frequenti relative a Servizi di dominio Azure AD. Controllarla costantemente per eventuali aggiornamenti.
@@ -101,7 +101,7 @@ No. Dopo aver abilitato un dominio gestito da Azure AD Domain Services, il servi
 No.  Attualmente Azure Active Directory Domain Services non fornisce un modello di distribuzione con ridondanza geografica. È limitato a una singola rete virtuale in un'area di Azure. Se si vogliono usare più aree di Azure, è necessario eseguire i controller di Dominio di Active Directory nelle macchine virtuali IaaS di Azure.  È disponibile il materiale sussidiario sull'architettura [qui](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain).
 
 ### <a name="can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems-do-i-need-azure-ad-premium-to-use-azure-ad-domain-services"></a>È possibile ottenere Servizi di dominio Azure AD come parte di Enterprise Mobility Suite (EMS)? È necessario Azure AD Premium per usare Azure Active Directory Domain Services?
-No. Azure Active Directory Domain Services è un servizio di Azure con pagamento in base al consumo e non fa parte di EMS. Servizi di dominio AD Azure può essere usato con tutte le edizioni di Azure AD (gratuito, Basic e Premium). La fatturazione avviene su base oraria, a seconda dell'uso.
+No. Azure Active Directory Domain Services è un servizio di Azure con pagamento in base al consumo e non fa parte di EMS. Azure AD Domain Services può essere utilizzato con tutte le edizioni di Azure AD (gratuito e Premium). La fatturazione avviene su base oraria, a seconda dell'uso.
 
 ### <a name="what-azure-regions-is-the-service-available-in"></a>In quale aree di Azure è disponibile il servizio?
 Per l'elenco delle aree di Azure in cui è disponibile Azure Active Directory Domain Services, vedere i [servizi di Azure per area](https://azure.microsoft.com/regions/#services/).

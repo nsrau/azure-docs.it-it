@@ -2,17 +2,17 @@
 title: Usare zone di disponibilità in Azure Kubernetes Service (AKS)
 description: Informazioni su come creare un cluster che distribuisce nodi tra le zone di disponibilità in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
-ms.author: iainfou
-ms.openlocfilehash: 52df1438913983a80ece487b49d0d6bd7821b636
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.author: mlearned
+ms.openlocfilehash: 4c2058072df4fcb068257c3e265dfe365c6d7e65
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019445"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033146"
 ---
 # <a name="preview---create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Anteprima: creare un cluster Azure Kubernetes Service (AKS) che usa zone di disponibilità
 
@@ -23,7 +23,7 @@ Per garantire un livello di disponibilità più elevato per le applicazioni, i c
 Questo articolo illustra come creare un cluster AKS e distribuire i componenti del nodo tra le zone di disponibilità. Questa funzionalità è attualmente in anteprima.
 
 > [!IMPORTANT]
-> Le funzionalità di anteprima di AKS sono self-service e acconsentino esplicitamente. Sono disponibili per raccogliere commenti e suggerimenti e bug dalla community. In anteprima, queste funzionalità non sono destinate all'uso in produzione. Le funzionalità nella versione di anteprima pubblica rientrano nel supporto "Best Effort". L'assistenza dei team di supporto tecnico AKS è disponibile solo durante l'orario di ufficio Pacific TimeZone (PST). Per ulteriori informazioni, consultare gli articoli di supporto seguenti:
+> Le funzionalità di anteprima di AKS sono il consenso esplicito self-service. Le anteprime vengono fornite "così come sono" e "come disponibili" e sono escluse dai contratti di servizio e dalla garanzia limitata. Le anteprime AKS sono parzialmente coperte dal supporto tecnico per il massimo sforzo. Di conseguenza, queste funzionalità non sono destinate all'uso in produzione. Per ulteriori informazioni, vedere gli articoli di supporto seguenti:
 >
 > * [Criteri di supporto AKS][aks-support-policies]
 > * [Domande frequenti relative al supporto tecnico Azure][aks-faq]
