@@ -150,9 +150,9 @@ Con questa procedura viene scaricato il modulo AZ. ApplicationMonitor da PowerSh
     - Riferimenti: [Install-module](https://docs.microsoft.com/powershell/module/powershellget/install-module?view=powershell-6).
     - Comando: `Install-Module -Name Az.ApplicationMonitor`.
     - Parametri facoltativi:
-        - [https://login.microsoftonline.com/consumers/](`-Proxy`). Specifica un server proxy per la richiesta.
-        - [https://login.microsoftonline.com/common/](`-AllowPrerelease`). Consente l'installazione di versioni alfa e beta.
-        - [https://login.microsoftonline.com/consumers/](`-AcceptLicense`). Ignora la richiesta di accettazione della licenza
+        - `-Proxy`. Specifica un server proxy per la richiesta.
+        - `-AllowPrerelease`. Consente l'installazione di versioni alfa e beta.
+        - `-AcceptLicense`. Ignora la richiesta di accettazione della licenza
         - `-Force`. Ignora l'avviso "repository non attendibile".
 
 ## <a name="download-and-install-the-module-manually-offline-option"></a>Scaricare e installare il modulo manualmente (opzione offline)
