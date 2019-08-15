@@ -1,5 +1,5 @@
 ---
-title: Distribuire modelli con un'immagine Docker personalizzata
+title: Distribuire modelli usando un'immagine Docker personalizzata
 titleSuffix: Azure Machine Learning service
 description: Informazioni su come usare un'immagine Docker personalizzata quando si distribuiscono i modelli di servizio Azure Machine Learning. Quando si distribuisce un modello sottoposto a training, viene creata un'immagine Docker per ospitare l'immagine, il server Web e altri componenti necessari per eseguire il servizio. Mentre Azure Machine Learning servizio fornisce un'immagine predefinita, è anche possibile usare la propria immagine.
 services: machine-learning
@@ -10,16 +10,16 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/11/2019
-ms.openlocfilehash: 0025f488f6a9b0af4e05a8bdf3ddf36c089d4d9f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f41ccef7803366e63247e6862c59ddb983527d26
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856128"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990508"
 ---
-# <a name="deploy-a-model-using-a-custom-docker-image"></a>Distribuire un modello usando un'immagine Docker personalizzata
+# <a name="deploy-a-model-by-using-a-custom-docker-image"></a>Distribuire un modello usando un'immagine Docker personalizzata
 
-Informazioni su come usare un'immagine Docker personalizzata quando si distribuiscono modelli con training con il servizio Azure Machine Learning.
+Informazioni su come usare un'immagine Docker personalizzata quando si distribuiscono modelli sottoposti a training con il servizio Azure Machine Learning.
 
 Quando si distribuisce un modello sottoposto a training in un servizio Web o in un dispositivo IoT Edge, viene creata un'immagine docker. Questa immagine contiene il modello, l'ambiente conda e gli asset necessari per usare il modello. Contiene anche un server Web per gestire le richieste in ingresso quando viene distribuito come servizio Web e i componenti necessari per lavorare con l'hub Azure.
 
@@ -98,6 +98,8 @@ Se sono già stati sottoposti a training o distribuiti modelli usando il servizi
     ```azurecli-interactive
     az ml workspace show -w <myworkspace> -g <resourcegroup> --query containerRegistry
     ```
+
+    [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
 
     Le informazioni restituite sono simili al testo seguente:
 

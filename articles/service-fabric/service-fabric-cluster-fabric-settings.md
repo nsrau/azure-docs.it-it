@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/12/2019
 ms.author: atsenthi
-ms.openlocfilehash: c20e782423c60985adb9e18e275fde59e57e00a2
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 08864d6a965921f7f6d284dc53bd2586d30fedd1
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599889"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014435"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizzare le impostazioni di un cluster di Service Fabric
 Questo articolo illustra le varie impostazioni dell'infrastruttura per il cluster di Service Fabric che è possibile personalizzare. Per i cluster ospitati in Azure, è possibile personalizzare le impostazioni tramite il [portale di Azure](https://portal.azure.com) o con un modello di Azure Resource Manager. Per altre informazioni, vedere [Upgrade the configuration of an Azure cluster](service-fabric-cluster-config-upgrade-azure.md) (Aggiornare la configurazione di un cluster Azure). Per i cluster autonomi è possibile personalizzare le impostazioni aggiornando il file *ClusterConfig.json* ed eseguendo un aggiornamento della configurazione nel cluster. Per altre informazioni, vedere [Aggiornare la configurazione di un cluster autonomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -411,6 +411,11 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |WriteBufferMemoryPoolMaximumInKB | Int, valore predefinito: 0 |Dynamic|Il numero di KB raggiungibile dal pool di memoria buffer in scrittura. Usare 0 per non avere limiti. |
 |WriteBufferMemoryPoolMinimumInKB |Int, valore predefinito: 8388608 |Dynamic|Il numero di KB da allocare inizialmente per il pool di memoria buffer in scrittura. Usare 0 per non avere limiti. L'impostazione predefinita deve essere coerente con il parametro SharedLogSizeInMB di seguito. |
 
+## <a name="managedidentitytokenservice"></a>ManagedIdentityTokenService
+| **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Indicazioni o breve descrizione** |
+| --- | --- | --- | --- |
+|IsEnabled|bool, valore predefinito: FALSE|statico|Flag che controlla la presenza e lo stato del servizio token di identità gestito nel cluster. si tratta di un prerequisito per l'utilizzo della funzionalità di identità gestita di Service Fabric applicazioni.|
+
 ## <a name="management"></a>Gestione
 
 | **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Indicazioni o breve descrizione** |
@@ -610,7 +615,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |RunAsAccountType|stringa, il valore predefinito è "" |Dynamic|Indica il tipo di account RunAs. Parametro necessario per ogni sezione RunAs. I valori validi sono: "DomainUser/NetworkService/ManagedServiceAccount/LocalSystem".|
 |RunAsPassword|stringa, il valore predefinito è "" |Dynamic|Indica la password dell'account RunAs. Parametro necessario solo per il tipo di account "DomainUser". |
 
-## <a name="runasdca"></a>RunAs_DCA
+## <a name="runas_dca"></a>RunAs_DCA
 
 | **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Indicazioni o breve descrizione** |
 | --- | --- | --- | --- |
@@ -618,7 +623,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |RunAsAccountType|stringa, il valore predefinito è "" |Dynamic|Indica il tipo di account RunAs. Parametro necessario per ogni sezione RunAs. I valori validi sono: "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|stringa, il valore predefinito è "" |Dynamic|Indica la password dell'account RunAs. Parametro necessario solo per il tipo di account "DomainUser". |
 
-## <a name="runasfabric"></a>RunAs_Fabric
+## <a name="runas_fabric"></a>RunAs_Fabric
 
 | **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Indicazioni o breve descrizione** |
 | --- | --- | --- | --- |
@@ -626,7 +631,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |RunAsAccountType|stringa, il valore predefinito è "" |Dynamic|Indica il tipo di account RunAs. Parametro necessario per ogni sezione RunAs. I valori validi sono: "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|stringa, il valore predefinito è "" |Dynamic|Indica la password dell'account RunAs. Parametro necessario solo per il tipo di account "DomainUser". |
 
-## <a name="runashttpgateway"></a>RunAs_HttpGateway
+## <a name="runas_httpgateway"></a>RunAs_HttpGateway
 
 | **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Indicazioni o breve descrizione** |
 | --- | --- | --- | --- |
@@ -637,7 +642,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 ## <a name="security"></a>Security
 | **Parametro** | **Valori consentiti** |**Criteri di aggiornamento**| **Indicazioni o breve descrizione** |
 | --- | --- | --- | --- |
-|AADCertEndpointFormat|stringa, il valore predefinito è ""|statico|Formato dell'endpoint CERT di AAD, valore commerciale predefinito di Azure, specificato per un ambiente non predefinito, ad esempio\/Azure Government{0}"https:/login.microsoftonline.US//FederationMetadata/2007-06/FederationMetadata. xml" |
+|AADCertEndpointFormat|stringa, il valore predefinito è ""|statico|Formato dell'endpoint CERT di AAD, valore commerciale predefinito di Azure, specificato per un ambiente non predefinito, ad esempio\/Azure per{0}enti pubblici "https:/login.microsoftonline.US//FederationMetadata/2007-06/FederationMetadata.xml" |
 |AADClientApplication|stringa, il valore predefinito è ""|statico|Nome dell'applicazione client nativa o ID che rappresenta i client dell'infrastruttura. |
 |AADClusterApplication|stringa, il valore predefinito è ""|statico|Nome dell'applicazione API Web o ID che rappresenta il cluster. |
 |AADLoginEndpoint|stringa, il valore predefinito è ""|statico|Endpoint di accesso AAD, valore commerciale predefinito di Azure, specificato per un ambiente non predefinito, ad esempio Azure\/Government "https:/login.microsoftonline.US" |

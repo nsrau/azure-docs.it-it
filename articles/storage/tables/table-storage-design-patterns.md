@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: 40f760ab054154a02bea9eb341bda33bb879d824
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 82910bf5c42629c2d4f077ad6df2adbfc9dcf021
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249570"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989983"
 ---
 # <a name="table-design-patterns"></a>Modelli di progettazione tabella
 Questo articolo descrive alcuni modelli adatti all'uso con le soluzioni di servizio tabelle. Fornisce inoltre informazioni su come risolvere alcuni dei problemi e dei compromessi illustrati negli altri articoli sulla progettazione dell'archiviazione tabelle. Il diagramma seguente contiene un riepilogo delle relazioni tra i diversi modelli:  
@@ -34,7 +34,7 @@ Il servizio tabelle indicizza automaticamente le entità usando i valori **Parti
 Se si desidera poter trovare un'entità dipendente anche in base al valore di un'altra proprietà, ad esempio l'indirizzo di posta elettronica, è necessario usare un'analisi della partizione meno efficiente per trovare una corrispondenza. Il motivo è che il servizio tabelle non fornisce indici secondari. Inoltre, non esiste un'opzione per richiedere un elenco di dipendenti ordinato in modo diverso rispetto all'ordine **RowKey** .  
 
 ### <a name="solution"></a>Soluzione
-Per ovviare alla mancanza di indici secondari, è possibile archiviare più copie di ogni entità usando per ogni copia un valore **RowKey** diverso. Se si archivia un'entità con le strutture riportate di seguito, è possibile recuperare in modo efficiente entità dipendente in base all'ID dipendente o all'indirizzo di posta elettronica. I valori di prefisso per **RowKey**, "empid_" e "email_", consentono di eseguire query per un singolo dipendente o un intervallo di dipendenti usando un intervallo di indirizzi e-mail o ID dipendente.  
+Per ovviare alla mancanza di indici secondari, è possibile archiviare più copie di ogni entità usando per ogni copia un valore **RowKey** diverso. Se si archivia un'entità con le strutture riportate di seguito, è possibile recuperare in modo efficiente entità dipendente in base all'ID dipendente o all'indirizzo di posta elettronica. I valori di prefisso per **RowKey**, "empid_" e "email_" consentono di eseguire una query per un singolo dipendente o per un intervallo di dipendenti usando un intervallo di indirizzi di posta elettronica o ID dipendente.  
 
 ![Entità dipendente](media/storage-table-design-guide/storage-table-design-IMAGE07.png)
 
@@ -48,7 +48,7 @@ Se si esegue una query su un intervallo di entità dipendente, è possibile spec
 * Per trovare tutti i dipendenti nel reparto vendite con un ID dipendente compreso tra 000100 e 000199 usare: $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000100') and (RowKey le 'empid_000199')  
 * Per trovare tutti i dipendenti del reparto vendite con un indirizzo di posta elettronica che inizia con la lettera "a" utilizzare: $filter = (PartitionKey eq "Sales") e (RowKey ge 'email_a') e (RowKey It'email_b')  
   
-  Si noti che la sintassi di filtro usata negli esempi precedenti proviene dall'API REST del servizio tabelle. Per altre informazioni, vedere [Query Entities](https://msdn.microsoft.com/library/azure/dd179421.aspx) (Entità query).  
+  La sintassi di filtro usata negli esempi precedenti proviene dall'API REST del servizio tabelle. Per altre informazioni, vedere [Query Entities](https://msdn.microsoft.com/library/azure/dd179421.aspx) (Query su entità).  
 
 ### <a name="issues-and-considerations"></a>Considerazioni e problemi
 Prima di decidere come implementare questo modello, considerare quanto segue:  
@@ -58,12 +58,12 @@ Prima di decidere come implementare questo modello, considerare quanto segue:
 * Per mantenere la coerenza tra entità duplicate è possibile usare transazioni ETG, che consentono di aggiornare le due copie dell'entità in modo atomico. A questo scopo è necessario archiviare tutte le copie di un'entità nella stessa partizione. Per altre informazioni, vedere la sezione [Transazioni di gruppi di entità](table-storage-design.md#entity-group-transactions).  
 * Il valore usato per **RowKey** deve essere univoco per ogni entità. Provare a usare valori di chiave composti.  
 * Il riempimento dei valori numerici in **RowKey** (ad esempio l'ID dipendente 000223) rende possibile l'ordinamento e il filtro corretto in base ai limiti superiori e inferiori.  
-* Non è necessario duplicare tutte le proprietà dell'entità. Se ad esempio le query che eseguono la ricerca di entità usando l'indirizzo di posta elettronica in **RowKey** non hanno mai bisogno dell'età del dipendente, queste entità potrebbero avere la struttura seguente:
+* Non è necessario duplicare tutte le proprietà dell'entità. Se ad esempio le query che eseguono la ricerca di entità usando l'indirizzo di posta elettronica in **RowKey** non richiedono mai l'età del dipendente, queste entità potrebbero avere la struttura seguente:
 
    ![Struttura di entità dipendente](media/storage-table-design-guide/storage-table-design-IMAGE08.png)
 
 
-* In genere è preferibile archiviare dati duplicati e assicurarsi che sia possibile recuperare tutti i dati necessari con una singola query anziché usando una query per individuare un'entità e una seconda per cercare i dati richiesti.  
+* È in genere preferibile archiviare dati duplicati e assicurarsi che sia possibile recuperare tutti i dati necessari con una singola query anziché usando una query per individuare un'entità e una seconda per cercare i dati richiesti.  
 
 ### <a name="when-to-use-this-pattern"></a>Quando usare questo modello
 Usare questo modello quando l'applicazione client deve recuperare le entità usando una serie di chiavi diverse, quando il client deve recuperare entità con criteri di ordinamento diversi e nei casi in cui è possibile identificare ogni entità attraverso una varietà di valori univoci. È però necessario assicurarsi che durante l'esecuzione di ricerche di entità con valori **RowKey** diversi non vengano superati i limiti di scalabilità della partizione.  
@@ -86,7 +86,7 @@ Il servizio tabelle indicizza automaticamente le entità usando i valori **Parti
 
 Se si desidera poter trovare un'entità dipendente anche in base al valore di un'altra proprietà, ad esempio l'indirizzo di posta elettronica, è necessario usare un'analisi della partizione meno efficiente per trovare una corrispondenza. Il motivo è che il servizio tabelle non fornisce indici secondari. Inoltre, non esiste un'opzione per richiedere un elenco di dipendenti ordinato in modo diverso rispetto all'ordine **RowKey** .  
 
-Si prevede un volume molto elevato di transazioni su queste entità e si vuole ridurre al minimo il rischio che il servizio tabelle esegua la limitazione del client.  
+Si prevede un volume elevato di transazioni rispetto a queste entità e si desidera ridurre al minimo il rischio di limitazione del servizio tabelle al client.  
 
 ### <a name="solution"></a>Soluzione
 Per ovviare alla mancanza di indici secondari, è possibile archiviare più copie di ogni entità usando per ogni copia valori **PartitionKey** e **RowKey** diversi. Se si archivia un'entità con le strutture riportate di seguito, è possibile recuperare in modo efficiente entità dipendente in base all'ID dipendente o all'indirizzo di posta elettronica. I valori di prefisso per **PartitionKey**, "empid_" e "email_", consentono di identificare l'indice da usare per una query.  
@@ -104,7 +104,7 @@ Se si esegue una query su un intervallo di entità dipendente, è possibile spec
 * Per trovare tutti i dipendenti del reparto vendite con un ID dipendente nell'intervallo compreso tra **000100** e **000199** ordinati in base all'ID dipendente, usare: $filter=(PartitionKey eq 'empid_Sales') and (RowKey ge '000100') and (RowKey le '000199')  
 * Per trovare tutti i dipendenti del reparto vendite con un indirizzo di posta elettronica che inizia con 'a' ordinato in base all’indirizzo di posta elettronica utilizzare: $filter = (PartitionKey eq ' email_Sales') e (RowKey ge 'a') e (RowKey lt "b")  
 
-Si noti che la sintassi di filtro usata negli esempi precedenti proviene dall'API REST del servizio tabelle. Per altre informazioni, vedere [Query Entities](https://msdn.microsoft.com/library/azure/dd179421.aspx) (Entità query).  
+La sintassi di filtro usata negli esempi precedenti proviene dall'API REST del servizio tabelle. Per altre informazioni, vedere [Query Entities](https://msdn.microsoft.com/library/azure/dd179421.aspx) (Query su entità).  
 
 ### <a name="issues-and-considerations"></a>Considerazioni e problemi
 Prima di decidere come implementare questo modello, considerare quanto segue:  
@@ -113,11 +113,11 @@ Prima di decidere come implementare questo modello, considerare quanto segue:
 * L'uso dell'archiviazione tabelle è relativamente economico, pertanto l'aumento dei costi dovuto all'archiviazione di dati duplicati non dovrebbe rappresentare una preoccupazione. È però consigliabile valutare sempre il costo del progetto in base ai requisiti di archiviazione previsti e aggiungere entità duplicate solo per supportare le query che verranno eseguite dall'applicazione client.  
 * Il valore usato per **RowKey** deve essere univoco per ogni entità. Provare a usare valori di chiave composti.  
 * Il riempimento dei valori numerici in **RowKey** (ad esempio l'ID dipendente 000223) rende possibile l'ordinamento e il filtro corretto in base ai limiti superiori e inferiori.  
-* Non è necessario duplicare tutte le proprietà dell'entità. Se ad esempio le query che eseguono la ricerca di entità usando l'indirizzo di posta elettronica in **RowKey** non hanno mai bisogno dell'età del dipendente, queste entità potrebbero avere la struttura seguente:
+* Non è necessario duplicare tutte le proprietà dell'entità. Se ad esempio le query che eseguono la ricerca di entità usando l'indirizzo di posta elettronica in **RowKey** non richiedono mai l'età del dipendente, queste entità potrebbero avere la struttura seguente:
   
    ![Entità dipendente (indice secondario)](media/storage-table-design-guide/storage-table-design-IMAGE11.png)
 
-* In genere è preferibile archiviare dati duplicati e assicurarsi che sia possibile recuperare tutti i dati necessari con una singola query anziché usando una query per individuare un'entità mediante l'indice secondario e un'altra per cercare i dati richiesti nell'indice primario.  
+* In genere è preferibile archiviare dati duplicati e assicurarsi che sia possibile recuperare tutti i dati necessari con una singola query anziché usare una query per individuare un'entità usando l'indice secondario e un'altra per cercare i dati necessari nell'indice primario.  
 
 ### <a name="when-to-use-this-pattern"></a>Quando usare questo modello
 Usare questo modello quando l'applicazione client deve recuperare le entità usando una serie di chiavi diverse, quando il client deve recuperare entità con criteri di ordinamento diversi e nei casi in cui è possibile identificare ogni entità attraverso una varietà di valori univoci. Usare questo modello quando si vuole evitare il superamento dei limiti di scalabilità della partizione durante l'esecuzione di ricerche di entità con i diversi valori **RowKey** .  
@@ -144,7 +144,7 @@ Le transazioni ETG consentono l'esecuzione di transazioni atomiche tra più enti
 
 ### <a name="solution"></a>Soluzione
 Usando le code di Azure, è possibile implementare una soluzione che offre coerenza finale tra due o più partizioni o sistemi di archiviazione.
-Per illustrare questo approccio, si supponga di avere l'esigenza di archiviare le entità relative ai dipendenti precedenti. Queste entità sono raramente oggetto di query e devono essere escluse da tutte le attività associate ai dipendenti correnti. Per implementare questo requisito è necessario archiviare i dipendenti attivi nella tabella dei dipendenti **Correnti** e i dipendenti precedenti nella tabella dei dipendenti **Archiviati**. Per archiviare un dipendente è necessario eliminare l'entità dalla tabella dei dipendenti **Correnti** e aggiungerla a quella dei dipendenti **Archiviati**, ma non è possibile usare una transazione ETG per eseguire queste due operazioni. Per evitare il rischio che, a causa di un errore, un'entità venga visualizzata in entrambe le tabelle o in nessuna di esse, l'operazione di archiviazione deve garantire la coerenza finale. Il diagramma seguente illustra in sequenza i passaggi di questa operazione. Nel testo che segue sono disponibili maggiori dettagli per i percorsi di eccezione.  
+Per illustrare questo approccio, si supponga di avere l'esigenza di archiviare le entità relative ai dipendenti precedenti. Queste entità sono raramente oggetto di query e devono essere escluse da tutte le attività associate ai dipendenti correnti. Per implementare questo requisito, è possibile archiviare i dipendenti attivi nella tabella **corrente** e i dipendenti precedenti nella tabella di **archiviazione** . Per archiviare un dipendente è necessario eliminare l'entità dalla tabella dei dipendenti **Correnti** e aggiungerla a quella dei dipendenti **Archiviati**, ma non è possibile usare una transazione ETG per eseguire queste due operazioni. Per evitare il rischio che, a causa di un errore, un'entità venga visualizzata in entrambe le tabelle o in nessuna di esse, l'operazione di archiviazione deve garantire la coerenza finale. Il diagramma seguente illustra in sequenza i passaggi di questa operazione. Nel testo che segue sono disponibili maggiori dettagli per i percorsi di eccezione.  
 
 ![Soluzione per le code di Azure](media/storage-table-design-guide/storage-table-design-IMAGE12.png)
 
@@ -162,7 +162,7 @@ Alcuni errori del servizio tabelle e del servizio di accodamento sono temporanei
 ### <a name="issues-and-considerations"></a>Considerazioni e problemi
 Prima di decidere come implementare questo modello, considerare quanto segue:  
 
-* Questa soluzione non prevede l'isolamento delle transazioni. Ad esempio, un client potrebbe leggere le tabelle dei dipendenti **Correnti** e **Archiviati** mentre il ruolo di lavoro è tra i passaggi **4** e **5** e ottenere una vista incoerente dei dati. Si noti che alla fine i dati saranno coerenti.  
+* Questa soluzione non prevede l'isolamento delle transazioni. Ad esempio, un client potrebbe leggere le tabelle dei dipendenti **Correnti** e **Archiviati** mentre il ruolo di lavoro è tra i passaggi **4** e **5** e ottenere una vista incoerente dei dati. Alla fine i dati saranno coerenti.  
 * È necessario assicurarsi che i passaggi 4 e 5 siano idempotenti per garantire la coerenza finale.  
 * È possibile ridimensionare la soluzione usando più code e istanze del ruolo di lavoro.  
 
@@ -191,7 +191,7 @@ Il servizio tabelle indicizza automaticamente le entità usando i valori **Parti
 Se si desidera poter recuperare un elenco di entità dipendente anche in base al valore di un'altra proprietà non univoca, ad esempio il cognome, è necessario usare un'analisi della partizione meno efficiente per trovare una corrispondenza piuttosto che usare un indice per la ricerca diretta. Il motivo è che il servizio tabelle non fornisce indici secondari.  
 
 ### <a name="solution"></a>Soluzione
-Per attivare la ricerca per cognome con la struttura delle entità illustrata in precedenza, è necessario gestire elenchi di ID dipendente. Per recuperare le entità dipendente con un determinato cognome, ad esempio Jones, è necessario innanzitutto individuare l'elenco di ID relativi ai dipendenti con il cognome Jones e quindi recuperare tali entità dipendente. Per l'archiviazione dell'elenco di ID dipendente sono disponibili tre opzioni principali:  
+Per abilitare la ricerca in base al cognome con la struttura di entità illustrata in precedenza, è necessario gestire gli elenchi di ID dipendente. Se si desidera recuperare le entità Employee con un cognome specifico, ad esempio Jones, è necessario innanzitutto individuare l'elenco di ID dipendente per i dipendenti con Jones come cognome e recuperare tali entità Employee. Sono disponibili tre opzioni principali per archiviare gli elenchi di ID dipendente:  
 
 * Usare l'archiviazione BLOB.  
 * Creare entità di indice nella stessa partizione delle entità dipendente.  
@@ -207,9 +207,9 @@ Per la seconda opzione, usare entità di indice che archiviano i dati seguenti:
 
 ![Entità di indice dipendente](media/storage-table-design-guide/storage-table-design-IMAGE14.png)
 
-La proprietà **EmployeeIDs** contiene un elenco di ID dipendente per i dipendenti con il cognome archiviato in **RowKey**.  
+La proprietà employeeids contiene un elenco di ID dipendente per i dipendenti con il cognome archiviato in **RowKey**.  
 
-I passaggi seguenti illustrano il processo da seguire per aggiungere un nuovo dipendente se si usa la seconda opzione. In questo esempio si aggiunge al reparto vendite un dipendente con ID 000152 e cognome Jones:  
+I passaggi seguenti illustrano il processo da seguire per aggiungere un nuovo dipendente se si usa la seconda opzione. In questo esempio viene aggiunto un dipendente con ID 000152 e un cognome Jones nel reparto vendite:  
 
 1. Recuperare l'entità di indice con il valore **PartitionKey** "Sales" e il valore **RowKey** "Jones". Salvare il valore ETag dell'entità per usarlo nel passaggio 2.  
 2. Creare una transazione del gruppo di entità (cioè un'operazione batch) che inserisca la nuova entità dipendente (con valore **PartitionKey** "Sales" e valore **RowKey** "000152") e aggiorni l'entità di indice (con valore **PartitionKey** "Sales" e valore **RowKey** "Jones") aggiungendo il nuovo ID dipendente all'elenco nel campo EmployeeIDs. Per informazioni sulle transazioni di gruppi di entità, vedere Transazioni di gruppi di entità.  
@@ -230,21 +230,21 @@ Per la terza opzione, usare entità di indice che archiviano i dati seguenti:
 ![Entità di indice dipendente in una partizione distinta](media/storage-table-design-guide/storage-table-design-IMAGE15.png)
 
 
-La proprietà **EmployeeIDs** contiene un elenco di ID dipendente per i dipendenti con il cognome archiviato in **RowKey**.  
+La proprietà employeeids contiene un elenco di ID dipendente per i dipendenti con il cognome archiviato in **RowKey**.  
 
-Con la terza opzione non è possibile usare transazioni ETG per mantenere la coerenza, in quanto le entità di indice si trovano in una partizione separata rispetto alle entità dipendente. È necessario assicurarsi della coerenza finale tra le entità di indice e le entità dipendente.  
+Con la terza opzione non è possibile usare transazioni ETG per mantenere la coerenza, in quanto le entità di indice si trovano in una partizione separata rispetto alle entità dipendente. Verificare che le entità di indice siano coerenti con le entità Employee.  
 
 ### <a name="issues-and-considerations"></a>Considerazioni e problemi
 Prima di decidere come implementare questo modello, considerare quanto segue:  
 
 * Questa soluzione richiede almeno due query per recuperare le entità corrispondenti: una sulle entità di indice per ottenere l'elenco di valori **RowKey** e altre query per il recupero di ogni entità dell'elenco.  
-* Poiché una singola entità ha una dimensione massima di 1 MB, le opzioni 2 e 3 della soluzione presuppongono che l'elenco di ID dipendente per qualsiasi cognome non sia mai più grande di 1 MB. Se è probabile che l'elenco di ID dipendente abbia dimensioni superiori a 1 MB, usare l'opzione 1 e archiviare i dati di indice nell'archiviazione BLOB.  
+* Poiché una singola entità ha una dimensione massima di 1 MB, l'opzione #2 e l'opzione #3 nella soluzione presuppongono che l'elenco di ID dipendente per un dato cognome non sia mai maggiore di 1 MB. Se è probabile che l'elenco di ID dipendente superi le dimensioni di 1 MB, utilizzare l'opzione #1 e archiviare i dati dell'indice nell'archivio BLOB.  
 * Se si usa l'opzione 2 (uso di transazioni EGT per gestire l'aggiunta e l'eliminazione dei dipendenti e la modifica del cognome di un dipendente), è necessario valutare se il volume delle transazioni raggiungerà i limiti di scalabilità in una determinata partizione. In tal caso, è opportuno considerare una soluzione con coerenza finale (opzione 1 o 3) che gestisca le richieste di aggiornamento mediante code e consenta di archiviare le entità di indice in una partizione separata rispetto alle entità dipendente.  
 * L'opzione 2 di questa soluzione presuppone che si vogliano effettuare ricerche in base al cognome all'interno di un reparto, ad esempio recuperare un elenco di dipendenti del reparto vendite il cui cognome è Jones. Se si desidera poter cercare tutti i dipendenti il cui cognome è Jones nell'intera organizzazione, usare l'opzione 1 o l'opzione 3.
 * È possibile implementare una soluzione basata su code che garantisca coerenza finale. Per altri dettagli, vedere [Modello per transazioni con coerenza finale](#eventually-consistent-transactions-pattern).  
 
 ### <a name="when-to-use-this-pattern"></a>Quando usare questo modello
-Usare questo modello quando si desidera cercare un set di entità che condividono un valore di proprietà comune, ad esempio tutti i dipendenti con il cognome Jones.  
+Utilizzare questo modello quando si desidera cercare un set di entità che condividono tutti un valore di proprietà comune, ad esempio tutti i dipendenti con il cognome Jones.  
 
 ### <a name="related-patterns-and-guidance"></a>Modelli correlati e informazioni aggiuntive
 Per l'implementazione di questo modello possono risultare utili i modelli e le informazioni aggiuntive seguenti:  
@@ -286,10 +286,10 @@ Per l'implementazione di questo modello possono risultare utili i modelli e le i
 * [Uso di tipi di entità eterogenei](#working-with-heterogeneous-entity-types)
 
 ## <a name="compound-key-pattern"></a>Modello per chiave composta
-Usa valori **RowKey** composti per consentire a un client di cercare dati correlati con una sola query di tipo punto.  
+Usare valori **RowKey** composti per consentire a un client di cercare dati correlati con una singola query di un punto.  
 
 ### <a name="context-and-problem"></a>Contesto e problema
-In un database relazionale è piuttosto normale usare join nelle query per restituire dati correlati al client in una singola query. Ad esempio, si può usare l'ID dipendente per cercare un elenco di entità correlate che contengono i dati relativi alle prestazioni e alle valutazioni per tale dipendente.  
+In un database relazionale è normale usare join nelle query per restituire dati correlati al client in una singola query. Ad esempio, si può usare l'ID dipendente per cercare un elenco di entità correlate che contengono i dati relativi alle prestazioni e alle valutazioni per tale dipendente.  
 
 Si supponga di archiviare le entità dipendente nel servizio tabelle usando la struttura seguente:  
 
@@ -333,12 +333,12 @@ Per l'implementazione di questo modello possono risultare utili i modelli e le i
 recupera le *e* ntità aggiunte più di recente a una partizione in base a un valore **RowKey** che usa un ordinamento inverso di data e ora.  
 
 ### <a name="context-and-problem"></a>Contesto e problema
-Un requisito comune è poter recuperare le entità create più di recente, ad esempio le ultime dieci note di rimborso spese inviate da un dipendente. Le query sulle tabelle supportano un'operazione di query **$top** per restituire le prime *n* entità di un set. Non esiste un'operazione di query equivalente per la restituzione delle ultime n entità di un set.  
+Un requisito comune è stato in grado di recuperare le entità create più di recente, ad esempio le 10 attestazioni spese più recenti inviate da un dipendente. Le query sulle tabelle supportano un'operazione di query **$top** per restituire le prime *n* entità di un set. Non esiste un'operazione di query equivalente per la restituzione delle ultime n entità di un set.  
 
 ### <a name="solution"></a>Soluzione
 Archiviare le entità usando un valore **RowKey** che usa un ordinamento inverso di data e ora, in modo che la voce più recente sia sempre la prima della tabella.  
 
-Ad esempio, per poter recuperare le ultime dieci note di rimborso spese inviate da un dipendente, è possibile usare un valore di tick inverso derivato dal valore di data/ora corrente. L'esempio di codice C# seguente illustra un modo per creare un valore "invertedTicks" appropriato per un valore **RowKey** che ordina dal più recente al meno recente:  
+Ad esempio, per poter recuperare le 10 attestazioni spese più recenti inviate da un dipendente, è possibile usare un valore di apice inverso derivato dalla data/ora corrente. L'esempio di codice C# seguente illustra un modo per creare un valore "invertedTicks" appropriato per un valore **RowKey** che ordina dal più recente al meno recente:  
 
 `string invertedTicks = string.Format("{0:D19}", DateTime.MaxValue.Ticks - DateTime.UtcNow.Ticks);`  
 
@@ -375,7 +375,7 @@ Una possibile progettazione consiste nell'usare la data e l'ora della richiesta 
 
 ![Data e ora del tentativo di accesso](media/storage-table-design-guide/storage-table-design-IMAGE21.png)
 
-Questo approccio evita hotspot di partizione perché l'applicazione può inserire ed eliminare entità di accesso per ogni utente in una partizione separata, ma può rivelarsi dispendioso in termini di denaro e tempo se si dispone di un numero elevato di entità perché è necessario innanzitutto eseguire un'analisi di tabella per identificare tutte le entità da eliminare e successivamente eliminare ogni entità precedente. Si noti che è possibile ridurre il numero di round trip al server necessari per eliminare le entità precedenti raggruppando più richieste di eliminazione nelle transazioni EGT.  
+Questo approccio evita hotspot di partizione perché l'applicazione può inserire ed eliminare entità di accesso per ogni utente in una partizione separata, ma può rivelarsi dispendioso in termini di denaro e tempo se si dispone di un numero elevato di entità perché è necessario innanzitutto eseguire un'analisi di tabella per identificare tutte le entità da eliminare e successivamente eliminare ogni entità precedente. Si noti che è possibile ridurre il numero di round trip al server necessari per eliminare le entità precedenti raggruppando più richieste di eliminazione in EGT.  
 
 ### <a name="solution"></a>Soluzione
 Usare una tabella separata per ogni giorno di tentativi di accesso. È possibile usare la progettazione di entità riportata sopra per evitare hotspot durante l'inserimento di entità; l'eliminazione di entità comporterà semplicemente l'eliminazione di una tabella al giorno (una singola operazione di archiviazione) invece della ricerca ed eliminazione di centinaia o migliaia di singole entità ogni giorno.  
@@ -580,7 +580,7 @@ Si noti come in questo esempio l'entità recuperata prevista sia di tipo **Emplo
 dotnet add package Microsoft.Azure.Cosmos.Table
 ```
 
-Per eseguire gli esempi seguenti, è necessario includere gli spazi dei nomi:
+Per fare in modo che gli esempi seguenti funzionino, è necessario includere gli spazi dei nomi:
 
 ```csharp
 using System.Linq;
@@ -705,7 +705,7 @@ Si noti come il valore **RowKey** è disponibile anche se non è stato incluso n
 ## <a name="modifying-entities"></a>Modifica di entità
 La libreria client di archiviazione consente di modificare le entità archiviate nel servizio tabelle mediante l'inserimento, l'eliminazione e l'aggiornamento di entità. È possibile usare le transazioni EGT per eseguire in batch più operazioni di inserimento, aggiornamento ed eliminazione insieme allo scopo di ridurre il numero di round trip necessari e migliorare le prestazioni della soluzione.  
 
-Si noti che le eccezioni generate quando la libreria client di archiviazione esegue una transazione EGT in genere includono l'indice dell'entità che ha causato l'esito negativo del batch. Ciò è utile quando si esegue il debug di codice che usa le transazioni EGT.  
+Le eccezioni generate quando la libreria client di archiviazione esegue una transazione EGT in genere includono l'indice dell'entità che ha causato l'esito negativo del batch. Ciò è utile quando si esegue il debug di codice che usa le transazioni EGT.  
 
 È inoltre opportuno considerare l'influenza della progettazione sul modo in cui l'applicazione gestisce le operazioni di concorrenza e aggiornamento.  
 
@@ -741,7 +741,7 @@ Il servizio tabelle è un archivio di tabelle *senza schema*. Ciò significa che
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Age</th>
+<th>Tempo di risoluzione</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -761,7 +761,7 @@ Il servizio tabelle è un archivio di tabelle *senza schema*. Ciò significa che
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Age</th>
+<th>Tempo di risoluzione</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -779,7 +779,7 @@ Il servizio tabelle è un archivio di tabelle *senza schema*. Ciò significa che
 <td>
 <table>
 <tr>
-<th>DepartmentName</th>
+<th>Nome del reparto</th>
 <th>EmployeeCount</th>
 </tr>
 <tr>
@@ -798,7 +798,7 @@ Il servizio tabelle è un archivio di tabelle *senza schema*. Ciò significa che
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Age</th>
+<th>Tempo di risoluzione</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -812,7 +812,7 @@ Il servizio tabelle è un archivio di tabelle *senza schema*. Ciò significa che
 </tr>
 </table>
 
-Si noti che ogni entità deve disporre comunque dei valori **PartitionKey**, **RowKey** e **Timestamp**, ma può avere qualsiasi set di proprietà. Inoltre, non esiste alcuna indicazione relativa al tipo di un'entità, a meno che non si scelga di memorizzare le informazioni in una posizione. Esistono due opzioni per identificare il tipo di entità:  
+Ogni entità deve comunque avere i valori **PartitionKey**, **RowKey** e **Timestamp**, ma può avere qualsiasi set di proprietà. Inoltre, non esiste alcuna indicazione relativa al tipo di un'entità, a meno che non si scelga di memorizzare le informazioni in una posizione. Esistono due opzioni per identificare il tipo di entità:  
 
 * Anteporre il tipo di entità per il valore **RowKey** (o eventualmente il valore **PartitionKey**). Ad esempio, **EMPLOYEE_000123** o **DEPARTMENT_SALES** come valori **RowKey**.  
 * Usare una proprietà separata per registrare il tipo di entità come illustrato nella tabella seguente.  
@@ -834,7 +834,7 @@ Si noti che ogni entità deve disporre comunque dei valori **PartitionKey**, **R
 <th>EntityType</th>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Age</th>
+<th>Tempo di risoluzione</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -856,7 +856,7 @@ Si noti che ogni entità deve disporre comunque dei valori **PartitionKey**, **R
 <th>EntityType</th>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Age</th>
+<th>Tempo di risoluzione</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -876,7 +876,7 @@ Si noti che ogni entità deve disporre comunque dei valori **PartitionKey**, **R
 <table>
 <tr>
 <th>EntityType</th>
-<th>DepartmentName</th>
+<th>Nome del reparto</th>
 <th>EmployeeCount</th>
 </tr>
 <tr>
@@ -897,7 +897,7 @@ Si noti che ogni entità deve disporre comunque dei valori **PartitionKey**, **R
 <th>EntityType</th>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Age</th>
+<th>Tempo di risoluzione</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -959,7 +959,7 @@ foreach (var e in entities)
 }  
 ```
 
-Si noti che per recuperare le altre proprietà è necessario usare il metodo **TryGetValue** sulla proprietà **Properties** della classe **DynamicTableEntity**.  
+Per recuperare altre proprietà, è necessario usare il metodo **TryGetValue** sulla proprietà **Properties** della classe **DynamicTableEntity** .  
 
 Una terza opzione prevede l'uso combinato del tipo **DynamicTableEntity** e di un'istanza **EntityResolver**. Ciò consente di risolvere a più tipi POCO nella stessa query. In questo esempio il delegato **EntityResolver** usa la proprietà **EntityType** per distinguere i due tipi di entità restituite dalla query. Il metodo **Resolve** usa il delegato **resolver** per risolvere le istanze **DynamicTableEntity** alle istanze **TableEntity**.  
 
@@ -1030,7 +1030,7 @@ employeeTable.Execute(TableOperation.Merge(department));
 * È possibile scaricare una parte del lavoro eseguito dai ruoli Web e di lavoro nella gestione delle entità per i dispositivi client, ad esempio computer e dispositivi mobili degli utenti finali.  
 * È possibile assegnare un set vincolato e limitato nel tempo di autorizzazioni a un client (ad esempio, l'accesso di sola lettura a risorse specifiche).  
 
-Per altre informazioni sull'uso di token di firma di accesso condiviso con il servizio tabelle, vedere [Uso delle firme di accesso condiviso](../../storage/common/storage-dotnet-shared-access-signature-part-1.md).  
+Per altre informazioni sull'uso di token di firma di accesso condiviso con il servizio tabelle, vedere [Uso delle firme di accesso condiviso](../../storage/common/storage-sas-overview.md).  
 
 Tuttavia, è comunque necessario generare i token delle firme di accesso condiviso che consentono a un'applicazione client di accedere alle entità nel servizio tabelle: questa operazione deve essere eseguita in un ambiente che dispone di un accesso sicuro alle chiavi dell'account di archiviazione. In genere, è possibile usare un ruolo Web o di lavoro per generare i token delle firme di accesso condiviso e distribuirli alle applicazioni client che richiedono l'accesso alle entità. Poiché la generazione e la distribuzione dei token delle firme di accesso condiviso ai client comportano comunque un sovraccarico, è consigliabile valutare il modo migliore di ridurre tale sovraccarico, soprattutto in scenari con volumi elevati.  
 
@@ -1091,7 +1091,7 @@ In questo esempio asincrono è possibile visualizzare le modifiche seguenti dall
 
 L'applicazione client può chiamare questo metodo più volte (con valori diversi per il parametro **department** ) e ogni query verrà eseguita su un thread separato.  
 
-Si noti che non è presente alcuna versione asincrona del metodo **Execute** nella classe **TableQuery** perché l'interfaccia **IEnumerable** non supporta l'enumerazione asincrona.  
+Non esiste una versione asincrona del metodo **Execute** nella classe **TableQuery** perché l'interfaccia **IEnumerable** non supporta l'enumerazione asincrona.  
 
 È inoltre possibile inserire, aggiornare ed eliminare entità in modo asincrono. Nell'esempio C# seguente viene illustrato un metodo semplice e sincrono per inserire o sostituire un'entità dipendente:  
 

@@ -1,9 +1,9 @@
 ---
-title: Informazioni sull'utilizzo e insights report nel portale di Azure Active Directory | Microsoft Docs
-description: Introduzione ai report di utilizzo e insights nel portale di Azure Active Directory
+title: Report sull'utilizzo e le informazioni dettagliate nel portale Azure Active Directory | Microsoft Docs
+description: Introduzione ai report di utilizzo e informazioni dettagliate nel portale Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 3fba300d-18fc-4355-9924-d8662f563a1f
@@ -14,49 +14,49 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 05/13/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 3fe1e72d277bffd4bc9b38ac377e33b341967e17
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c6723c28bf6ab8af112763a6485bc89b46409c6
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65806357"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989851"
 ---
-# <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Report di utilizzo e insights nel portale di Azure Active Directory
+# <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Report sull'utilizzo e le informazioni dettagliate nel portale Azure Active Directory
 
-Con il report sull'utilizzo e informazioni dettagliate, è possibile ottenere una visualizzazione incentrata sull'applicazione dei dati di accesso. È possibile trovare risposte alle domande seguenti:
+Con il report utilizzo e informazioni dettagliate è possibile ottenere una visualizzazione incentrata sull'applicazione dei dati di accesso. È possibile trovare risposte alle domande seguenti:
 
-*   Che cosa sono la parte superiore delle applicazioni usate all'interno dell'organizzazione?
-*   Quali applicazioni hanno gli accessi non riusciti più? 
-*   Quali sono gli errori principali Accedi per ogni applicazione?
+*   Quali sono le applicazioni principali usate nell'organizzazione?
+*   Quali applicazioni hanno gli accessi più non riusciti? 
+*   Quali sono gli errori di accesso principali per ogni applicazione?
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
-Per accedere ai dati dal report di utilizzo e informazioni dettagliate, è necessario:
+Per accedere ai dati dal report utilizzo e informazioni dettagliate, è necessario:
 
 * Un tenant di Azure AD
-* Una licenza Azure AD premium (P1 o P2) per visualizzare i dati di accesso
-* Un utente amministratore globale, amministratore della sicurezza, lettura per la sicurezza o ai ruoli di lettore di report. Inoltre, tutti gli utenti (utenti non amministratori) possono accedere i propri accessi. 
+* Una licenza di Azure AD Premium (P1/P2) per visualizzare i dati di accesso
+* Utente nei ruoli amministratore globale, amministratore della sicurezza, lettore sicurezza o lettore report. Inoltre, qualsiasi utente (non amministratore) può accedere ai propri accessi. 
 
-## <a name="access-the-usage-and-insights-report"></a>Accedere al report sull'utilizzo e informazioni dettagliate
+## <a name="access-the-usage-and-insights-report"></a>Accedere al report utilizzo e informazioni dettagliate
 
 1. Passare al [portale di Azure](https://portal.azure.com).
-2. Selezionare la directory corretta, quindi selezionare **Azure Active Directory** e scegliere **applicazioni aziendali**.
-3. Dal **impegno** sezione, selezionare **utilizzo & insights** per aprire il report. 
+2. Selezionare la directory giusta, quindi selezionare **Azure Active Directory** e scegliere **applicazioni aziendali**.
+3. Nella sezione **Activity** selezionare **Usage & Insights** per aprire il report. 
 
 ![Report su utilizzo e informazioni dettagliate](./media/concept-usage-insights-report/main-menu.png)
                                      
 
-## <a name="use-the-report"></a>Usare il report
+## <a name="use-the-report"></a>Utilizzare il report
 
-Il report sull'utilizzo e informazioni dettagliate Mostra l'elenco delle applicazioni con uno o più di accesso nel tentativo e consente di ordinare il numero di accessi riusciti, accessi non riusciti e la percentuale di successo.
+Il report utilizzo e informazioni dettagliate Mostra l'elenco di applicazioni con uno o più tentativi di accesso e consente di eseguire l'ordinamento in base al numero di accessi riusciti, gli accessi non riusciti e la percentuale di successo.
 
-Facendo clic su Carica più nella parte inferiore dell'elenco consente di visualizzare le applicazioni aggiuntive nella pagina. È possibile selezionare l'intervallo di date per visualizzare tutte le applicazioni che sono state utilizzate all'interno dell'intervallo.
+Facendo clic su carica altro nella parte inferiore dell'elenco è possibile visualizzare altre applicazioni nella pagina. È possibile selezionare l'intervallo di date per visualizzare tutte le applicazioni utilizzate nell'intervallo.
 
-È anche possibile impostare lo stato attivo in un'applicazione specifica. Selezionare **visualizzare attività di accesso** per verificare l'accesso nell'attività nel tempo per l'applicazione, nonché gli errori principali.  
+È inoltre possibile impostare lo stato attivo su un'applicazione specifica. Selezionare **Visualizza attività di accesso** per visualizzare l'attività di accesso nel tempo per l'applicazione, nonché gli errori principali.  
 
-Quando si seleziona un giorno nel grafico di utilizzo dell'applicazione, si ottiene un elenco dettagliato delle attività di accesso per l'applicazione.  
+Quando si seleziona un giorno nel grafico sull'utilizzo dell'applicazione, si ottiene un elenco dettagliato delle attività di accesso per l'applicazione.  
 
 ![Report su utilizzo e informazioni dettagliate](./media/concept-usage-insights-report/usage-and-insights-report.png)
 

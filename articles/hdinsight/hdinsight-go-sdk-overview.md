@@ -1,23 +1,23 @@
 ---
-title: Azure HDInsight SDK per Go
-description: Informazioni di riferimento per Azure HDInsight SDK per Go
+title: Azure HDInsight SDK per go
+description: Informazioni di riferimento su Azure HDInsight SDK per go
 author: tylerfox
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/8/2019
 ms.author: tyfox
 ms.custom: seodec18
-ms.openlocfilehash: 113948d77d87a34822f81f020b03f6628b9c5e84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 299e99d291e593ec01d2951c62541a7666565528
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65466213"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977058"
 ---
-# <a name="hdinsight-sdk-for-go-preview"></a>HDInsight SDK per Go (anteprima)
+# <a name="hdinsight-sdk-for-go-preview"></a>HDInsight SDK per go (anteprima)
 
 ## <a name="overview"></a>Panoramica
-HDInsight SDK per Go offre classi e funzioni che consentono di gestire i cluster HDInsight. Include operazioni per creare, eliminare, aggiornare, elencare, ridimensionare, eseguire azioni di script, monitorare, ottenere le proprietà dei cluster di HDInsight e altro ancora.
+HDInsight SDK per go fornisce le classi e le funzioni che consentono di gestire i cluster HDInsight. Include operazioni per creare, eliminare, aggiornare, elencare, ridimensionare, eseguire azioni di script, monitorare, ottenere le proprietà dei cluster di HDInsight e altro ancora.
 
 > [!NOTE]  
 >Il materiale di riferimenti GoDoc per questo SDK è [disponibile anche qui](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight).
@@ -36,7 +36,7 @@ Dal percorso dell'ambiente GOPATH eseguire `go get github.com/Azure/azure-sdk-fo
 L'SDK deve essere prima autenticato con la sottoscrizione di Azure.  Seguire questo esempio per creare un'entità servizio e usarla per l'autenticazione. Al termine si avrà un'istanza di un `ClustersClient` che contiene molte funzioni, descritte nelle sezioni seguenti, che possono essere usate per operazioni di gestione.
 
 > [!NOTE]  
-> Oltre all'esempio seguente esistono altre modalità di autenticazione che possono essere più adatte alle proprie esigenze. Tutte le funzioni sono descritte di seguito: [Funzioni di autenticazione in Azure SDK per Go](https://docs.microsoft.com/go/azure/azure-sdk-go-authorization)
+> Oltre all'esempio seguente esistono altre modalità di autenticazione che possono essere più adatte alle proprie esigenze. Tutte le funzioni sono descritte di seguito: [Funzioni di autenticazione in Azure SDK per Go](https://docs.microsoft.com/azure/go/azure-sdk-go-authorization)
 
 ### <a name="authentication-example-using-a-service-principal"></a>Esempio di autenticazione con un'entità servizio
 
@@ -70,7 +70,7 @@ az account set -s <name or ID of subscription>
 ```
 
 > [!IMPORTANT]  
-> Se non è già registrata del Provider di risorse di HDInsight da un'altra funzione (ad esempio creando un HDInsight Cluster tramite il portale di Azure), è necessario eseguire questa operazione una volta in precedenza è possibile eseguire l'autenticazione. La registrazione può essere eseguita da [Azure Cloud Shell](https://shell.azure.com/bash) eseguendo questo comando:
+> Se il provider di risorse HDInsight non è ancora stato registrato da un'altra funzione, ad esempio creando un cluster HDInsight tramite la portale di Azure, è necessario eseguire questa operazione una volta prima di poter eseguire l'autenticazione. La registrazione può essere eseguita da [Azure Cloud Shell](https://shell.azure.com/bash) eseguendo questo comando:
 >```azurecli-interactive
 >az provider register --namespace Microsoft.HDInsight
 >```

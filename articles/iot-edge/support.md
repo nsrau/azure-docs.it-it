@@ -4,17 +4,17 @@ description: Informazioni sui sistemi operativi in grado di eseguire il daemon e
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 07/22/2019
+ms.date: 08/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 9b9acac829fd128a66e3ceea603bb804adf2a88b
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: fdecc34b49b853c34624cabf4688e0387c303a16
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598595"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985808"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Sistemi supportati da Azure IoT Edge
 
@@ -67,7 +67,7 @@ I sistemi elencati nella tabella seguente sono supportati da Microsoft, disponib
 | Windows 10 Internet Internet (Enterprise), Build 17763 | ![Windows 10 Internet Internet e AMD64 Enterprise](./media/tutorial-c-module/green-check.png) |  |  |
 | Windows Server 2019, Build 17763 | ![Windows Server 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 | Windows Server 2019, Build 17763 | ![Windows Server 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| Windows 10 Internet core, Build 17763 | Anteprima pubblica |  |  |
+| Windows 10 Internet core, Build 17763 | ![Windows Internet core e AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 
 
 I sistemi operativi Windows elencati in precedenza sono i requisiti per i dispositivi che eseguono i contenitori di Windows in Windows. Questa configurazione è l'unica configurazione supportata per la produzione. I pacchetti di installazione di Azure IoT Edge per Windows consentono l'uso di contenitori Linux in Windows; Questa configurazione è tuttavia solo per lo sviluppo e il test. Uso di contenitori Linux in Windows non è una configurazione supportata per la produzione. Qualsiasi versione di Windows 10 build 14393 o versioni successive e Windows Server 2016 o versioni successive sono utilizzabili per questo scenario di sviluppo.

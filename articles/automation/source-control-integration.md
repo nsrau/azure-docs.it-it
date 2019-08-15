@@ -9,71 +9,71 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1ae61af2ad857068950e2b2cdb6f058a33f57186
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 52fcd0d928ecbce5c617ff6a27175fccb8fd96f6
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477581"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990249"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integrazione del controllo del codice sorgente in Automazione di Azure
 
-Controllo del codice sorgente consente di mantenere i runbook nell'account di automazione aggiornati con gli script nel repository del controllo codice sorgente GitHub o archivi di Azure. Il controllo del codice sorgente fornisce un ambiente in cui è possibile collaborare con il team, tenere traccia delle modifiche ed eseguire il rollback a versioni precedenti dei runbook. Il controllo del codice sorgente, ad esempio, consente di sincronizzare diversi rami nel controllo del codice sorgente per gli account di automazione di sviluppo, test o produzione. Questo rende facile alzare di livello il codice che è stato testato nell'ambiente di sviluppo a produzione di account di automazione. Integrazione del controllo codice sorgente con automazione supporta la sincronizzazione per direzione singola da repository di controllo del codice sorgente.
+Il controllo del codice sorgente consente di tenere aggiornati gli manuali operativi nell'account di automazione con gli script in GitHub o Azure Repos repository del controllo del codice sorgente. Il controllo del codice sorgente fornisce un ambiente in cui è possibile collaborare con il team, tenere traccia delle modifiche ed eseguire il rollback a versioni precedenti dei runbook. Il controllo del codice sorgente, ad esempio, consente di sincronizzare diversi rami nel controllo del codice sorgente per gli account di automazione di sviluppo, test o produzione. Questo rende facile alzare di livello il codice che è stato testato nell'ambiente di sviluppo a produzione di account di automazione. L'integrazione del controllo del codice sorgente con automazione supporta la sincronizzazione a direzione singola dal repository del controllo del codice sorgente.
 
 Automazione di Azure supporta tre tipi di controllo del codice sorgente:
 
 * GitHub
-* Repository di Azure (Git)
-* Repository di Azure (TFVC)
+* Azure Repos (git)
+* Azure Repos (TFVC)
 
 ## <a name="pre-requisites"></a>Prerequisiti
 
-* Un repository del controllo codice sorgente (GitHub o archivi di Azure)
-* Oggetto [Account runas](manage-runas-account.md)
-* Assicurarsi di aver la [moduli Azure più recenti](automation-update-azure-modules.md) nell'Account di automazione
+* Un repository del controllo del codice sorgente (GitHub o Azure Repos)
+* Un [account RunAs](manage-runas-account.md)
+* Assicurarsi di avere i [moduli di Azure più recenti](automation-update-azure-modules.md) nell'account di automazione
 
 > [!NOTE]
 > I processi di sincronizzazione del controllo del codice sorgente vengono eseguiti nell'account di automazione dell'utente e vengono fatturati alla stessa tariffa degli altri processi di automazione.
 
-## <a name="configure-source-control---azure-portal"></a>Configurare controllo del codice sorgente - portale di Azure
+## <a name="configure-source-control---azure-portal"></a>Configurare il controllo del codice sorgente-portale di Azure
 
-All'interno dell'Account di automazione, selezionare **controllo del codice sorgente** e fare clic su **+ Aggiungi**
+Nell'account di automazione selezionare **controllo del codice sorgente** e fare clic su **+ Aggiungi**
 
 ![Selezionare il controllo del codice sorgente](./media/source-control-integration/select-source-control.png)
 
-Scegliere **Tipo di controllo del codice sorgente** e fare clic su **Autentica**. Una finestra del browser si apre e viene richiesto di accedere, seguire le istruzioni per completare l'autenticazione.
+Scegliere **Tipo di controllo del codice sorgente** e fare clic su **Autentica**. Viene visualizzata una finestra del browser in cui viene chiesto di eseguire l'accesso, seguire le istruzioni per completare l'autenticazione.
 
 Inserire le informazioni nella pagina **Riepilogo del Controllo del codice sorgente** e fare clic su **Salva**. La tabella seguente fornisce una descrizione dei campi disponibili.
 
 |Proprietà  |Descrizione  |
 |---------|---------|
-|Nome del controllo del codice sorgente     | Un nome descrittivo per il controllo del codice sorgente. *Questo nome deve contenere solo lettere e numeri.*        |
-|Tipo di controllo del codice sorgente     | Specifica del tipo di controllo del codice sorgente. Le opzioni disponibili sono:</br> GitHub</br>Repository di Azure (Git)</br> Repository di Azure (TFVC)        |
-|Repository     | Nome del repository o del progetto. Vengono restituiti i primi 200 repository. Per cercare un repository, digitare il nome del campo e fare clic su **ricerca su GitHub**.|
-|Ramo     | Ramo da cui eseguire il pull dei file di origine. Destinazione branch non è disponibile per il tipo di controllo sorgente TFVC.          |
-|Percorso della cartella     | Cartella che contiene i runbook da sincronizzare. Esempio: /Runbooks </br>*Vengono sincronizzati solo i runbook nella cartella specificata. Non è supportata la ricorsione.*        |
-|Auto Sync<sup>1</sup>     | Attiva o disattiva la sincronizzazione automatica quando viene eseguito un commit nel repository del controllo del codice sorgente         |
-|Pubblica runbook     | Se impostato su **su**, dopo i runbook vengono sincronizzati dal controllo del codice sorgente verrà vengano pubblicati automaticamente.         |
-|Descrizione     | Campo di testo in cui fornire altri dettagli        |
+|Nome del controllo del codice sorgente     | Nome descrittivo per il controllo del codice sorgente. *Questo nome deve contenere solo lettere e numeri.*        |
+|Tipo di controllo del codice sorgente     | Specifica del tipo di controllo del codice sorgente. Le opzioni disponibili sono:</br> GitHub</br>Azure Repos (git)</br> Azure Repos (TFVC)        |
+|Repository     | Nome del repository o del progetto. Vengono restituiti i primi 200 repository. Per cercare un repository, digitare il nome nel campo e fare clic **su Cerca in GitHub**.|
+|Branch     | Ramo da cui eseguire il pull dei file di origine. La destinazione del ramo non è disponibile per il tipo di controllo del codice sorgente TFVC.          |
+|Percorso cartella     | Cartella che contiene i runbook da sincronizzare. Esempio: /Runbooks </br>*Vengono sincronizzati solo manuali operativi nella cartella specificata. La ricorsione non è supportata.*        |
+|Sincronizzazione automatica<sup>1</sup>     | Attiva o disattiva la sincronizzazione automatica quando viene eseguito un commit nel repository del controllo del codice sorgente         |
+|Pubblica runbook     | Se impostato **su on**, dopo la sincronizzazione di manuali operativi dal controllo del codice sorgente verranno pubblicati automaticamente.         |
+|DESCRIZIONE     | Campo di testo in cui fornire altri dettagli        |
 
-<sup>1</sup> per abilitare la sincronizzazione automatica durante la configurazione di integrazione del controllo codice sorgente con i repository di Azure, è necessario essere un amministratore del progetto.
+<sup>1</sup> per abilitare la sincronizzazione automatica quando si configura l'integrazione del controllo del codice sorgente con Azure Repos, è necessario essere un amministratore di progetto.
 
 ![Riepilogo del Controllo del codice sorgente](./media/source-control-integration/source-control-summary.png)
 
 > [!NOTE]
-> L'account di accesso per il repository di controllo del codice sorgente può differire l'account di accesso al portale di Azure. Assicurarsi di che essere connessi con l'account corretto per il repository di controllo del codice sorgente durante la configurazione di controllo del codice sorgente. Se c'è qualche dubbio, aprire una nuova scheda nel browser e disconnettersi da visualstudio.com o github.com e provare di nuovo a connettersi al controllo del codice sorgente.
+> L'account di accesso per il repository del controllo del codice sorgente può essere diverso dall'account di accesso per il portale di Azure. Quando si configura il controllo del codice sorgente, verificare di avere eseguito l'accesso con l'account corretto per il repository del controllo del codice sorgente. Se c'è qualche dubbio, aprire una nuova scheda nel browser e disconnettersi da visualstudio.com o github.com e provare di nuovo a connettersi al controllo del codice sorgente.
 
-## <a name="configure-source-control---powershell"></a>Configurare controllo del codice sorgente - PowerShell
+## <a name="configure-source-control---powershell"></a>Configurare il controllo del codice sorgente-PowerShell
 
-È anche possibile usare PowerShell per configurare controllo del codice sorgente in automazione di Azure. Per configurare controllo del codice sorgente con i cmdlet di PowerShell, è necessario un token di accesso personale (PAT). Si utilizza il [New-AzureRmAutomationSourceControl](/powershell/module/AzureRM.Automation/New-AzureRmAutomationSourceControl) per creare la connessione di controllo di origine. Il cmdlet richiede una stringa sicura del Token di accesso personale, per imparare a creare una stringa sicura, vedere [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
+È anche possibile usare PowerShell per configurare il controllo del codice sorgente in automazione di Azure. Per configurare il controllo del codice sorgente con i cmdlet di PowerShell, è necessario un token di accesso personale (PAT). Usare [New-AzureRmAutomationSourceControl](/powershell/module/AzureRM.Automation/New-AzureRmAutomationSourceControl) per creare la connessione al controllo del codice sorgente. Il cmdlet richiede una stringa sicura del token di accesso personale. per informazioni su come creare una stringa sicura, vedere [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
 
-### <a name="azure-repos-git"></a>Repository di Azure (Git)
+### <a name="azure-repos-git"></a>Azure Repos (git)
 
 ```powershell-interactive
 New-AzureRmAutomationSourceControl -Name SCReposGit -RepoUrl https://<accountname>.visualstudio.com/<projectname>/_git/<repositoryname> -SourceType VsoGit -AccessToken <secureStringofPAT> -Branch master -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
 ```
 
-### <a name="azure-repos-tfvc"></a>Repository di Azure (TFVC)
+### <a name="azure-repos-tfvc"></a>Azure Repos (TFVC)
 
 ```powershell-interactive
 New-AzureRmAutomationSourceControl -Name SCReposTFVC -RepoUrl https://<accountname>.visualstudio.com/<projectname>/_versionControl -SourceType VsoTfvc -AccessToken <secureStringofPAT> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
@@ -87,13 +87,13 @@ New-AzureRmAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<a
 
 ### <a name="personal-access-token-permissions"></a>Autorizzazioni dei token di accesso personale
 
-Controllo del codice sorgente richiede alcune autorizzazioni minime per i token di accesso personale. Le tabelle seguenti contengono le autorizzazioni minime necessarie per GitHub e repository di Azure.
+Controllo del codice sorgente richiede alcune autorizzazioni minime per i token di accesso personale. Le tabelle seguenti contengono le autorizzazioni minime necessarie per GitHub e Azure Repos.
 
 #### <a name="github"></a>GitHub
 
-Per altre informazioni sulla creazione di un token di accesso personale in GitHub, visitare [creazione di un token di accesso personale per la riga di comando](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
+Per altre informazioni sulla creazione di un token di accesso personale in GitHub, vedere [creazione di un token di accesso personale per la riga di comando](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
 
-|`Scope`  |Descrizione  |
+|Ambito  |DESCRIZIONE  |
 |---------|---------|
 |**repo**     |         |
 |repo:status     | Accedere allo stato del commit         |
@@ -105,9 +105,9 @@ Per altre informazioni sulla creazione di un token di accesso personale in GitHu
 
 #### <a name="azure-repos"></a>Azure Repos
 
-Per altre informazioni sulla creazione di un token di accesso personale in archivi di Azure, visitare [autenticare l'accesso con token di accesso personali](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
+Per altre informazioni sulla creazione di un token di accesso personale in Azure Repos, vedere [autenticare l'accesso con i token di accesso personali](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
 
-|`Scope`  |
+|Ambito  |
 |---------|
 |Codice (lettura)     |
 |Progetto e team (lettura)|
@@ -116,11 +116,11 @@ Per altre informazioni sulla creazione di un token di accesso personale in archi
 |Elementi di lavoro (lettura)    |
 |Connessioni al servizio (lettura, query e gestione)<sup>1</sup>    |
 
-<sup>1</sup> l'autorizzazione di connessioni del servizio è solo necessario se è abilitato con sincraut.
+<sup>1</sup> l'autorizzazione connessioni al servizio è necessaria solo se è stata abilitata la sincronizzazione automatica.
 
 ## <a name="syncing"></a>Sincronizzazione
 
-Selezionare l'origine della tabella nel **controllo del codice sorgente** pagina. Fare clic su **Avvia sincronizzazione** per avviare il processo di sincronizzazione.
+Consente di selezionare l'origine della tabella nella pagina **controllo del codice sorgente** . Fare clic su **Avvia sincronizzazione** per avviare il processo di sincronizzazione.
 
 È possibile visualizzare lo stato del processo di sincronizzazione corrente o di quelli precedenti facendo clic sulla scheda **Processi di sincronizzazione**. Nell'elenco a discesa **Controllo del codice sorgente** selezionare un controllo del codice sorgente.
 
@@ -161,17 +161,24 @@ Source Control Sync Summary:
 ========================================================================================================
 ```
 
-Registrazione aggiuntiva è disponibile selezionando **tutti i registri** nel **riepilogo processo di sincronizzazione del controllo origine** pagina. Queste voci di log aggiuntivi possono agevolare la risoluzione dei problemi che possono verificarsi quando si utilizza controllo del codice sorgente.
+Per la registrazione aggiuntiva è possibile selezionare **tutti i log** nella pagina Riepilogo del processo di sincronizzazione del **controllo del codice sorgente** . Queste voci di log aggiuntive possono aiutare a risolvere i problemi che possono verificarsi quando si usa il controllo del codice sorgente.
 
 ## <a name="disconnecting-source-control"></a>Disconnessione del controllo del codice sorgente
 
-Per disconnettersi da un repository di controllo del codice sorgente, aprire **controllo del codice sorgente** sotto **impostazioni Account** nell'Account di automazione.
+Per disconnettersi da un repository del controllo del codice sorgente, aprire il **controllo del codice sorgente** in **Impostazioni account** nell'account di automazione.
 
 Selezionare il controllo del codice sorgente da rimuovere. Nella pagina **Riepilogo del Controllo del codice sorgente** fare clic su **Elimina**.
 
 ## <a name="encoding"></a>Codifica
 
-Se più persone stanno modificando i runbook nel repository di controllo del codice sorgente con diversi editor, è probabile incontrare i problemi di codifica. Questa situazione può causare caratteri non validi nel runbook. Per altre informazioni, vedere [cause comuni di problemi di codifica](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
+Se più persone modificano manuali operativi nel repository del controllo del codice sorgente con editor diversi, è possibile che si verifichino problemi di codifica. Questa situazione può causare caratteri non corretti nella Runbook. Per ulteriori informazioni, vedere [cause comuni dei problemi di codifica](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
+
+## <a name="updating-the-access-token"></a>Aggiornamento del token di accesso
+
+Attualmente, non è possibile aggiornare il token di accesso nel controllo del codice sorgente dal portale. Dopo che il token di accesso personale è scaduto o revocato, è possibile aggiornare il controllo del codice sorgente con un nuovo token di accesso nei modi seguenti:
+
+* Tramite l' [API REST](https://docs.microsoft.com/en-us/rest/api/automation/sourcecontrol/update).
+* Tramite il cmdlet [Update-AzAutomationSourceControl](/powershell/module/az.automation/update-azautomationsourcecontrol) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

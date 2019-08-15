@@ -5,21 +5,21 @@ services: digital-twins
 author: alinamstanciu
 ms.service: digital-twins
 ms.topic: include
-ms.date: 06/26/2019
+ms.date: 08/12/2019
 ms.author: alinast
 ms.custom: include file
-ms.openlocfilehash: 9a5b3b04287a8b732d01bd8fe4610e073332da0d
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 9f4bf6fb92b590e274e8880b5f900e5469f85727
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478966"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "69012172"
 ---
 1. Nel [portale di Azure](https://portal.azure.com) aprire **Azure Active Directory** nel riquadro sinistro e quindi aprire il riquadro **Proprietà**. Copia il valore di **ID directory** in un file temporaneo. Questo valore verrà usato per configurare un'applicazione di esempio nella sezione successiva.
 
     ![ID directory di Azure Active Directory](./media/digital-twins-permissions-legacy/aad-app-reg-tenant.png)
 
-1. Nel [portale di Azure](https://portal.azure.com)aprire **Azure Active Directory** nel riquadro a sinistra e quindi aprire il **registrazioni per l'App (Legacy)** riquadro. Selezionare il **registrazione nuova applicazione** pulsante.
+1. Nel [portale di Azure](https://portal.azure.com)aprire **Azure Active Directory** dal riquadro sinistro, quindi aprire il riquadro **registrazioni app (legacy)** . Selezionare il pulsante **nuova registrazione applicazione** .
 
 1. Assegnare un nome descrittivo a questa registrazione app nella casella **Nome**. Scegliere **Nativa** per **Tipo di applicazione** e `https://microsoft.com` per **URI di reindirizzamento**. Selezionare **Create**.
 

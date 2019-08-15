@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: cf1cba6f6d26d66fc560c86ea42459fa276cc880
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ba09496ed8c110e3bf0e431da20f09c82d5ea0b
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66114912"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985580"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Domande frequenti sulla migrazione di Archiviazione di Azure
 
@@ -68,7 +68,7 @@ Dopo avere eseguito questo comando, i file contenitore vengono spostati nell'acc
 
 **Come si spostano i dati da un contenitore di archiviazione a un altro?**
 
-A tale scopo, seguire questa procedura:
+Attenersi ai passaggi riportati di seguito.
 
 1.  Creare il contenitore (cartella) nel BLOB di destinazione.
 
@@ -120,7 +120,7 @@ Per altre informazioni, vedere [Trasferire dati con AzCopy in Windows](storage-u
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-A tale scopo, seguire questa procedura:
+Attenersi ai passaggi riportati di seguito.
 
 1.  Arrestare la macchina virtuale a cui è collegato il disco gestito.
 
@@ -201,7 +201,7 @@ Per accedere all'archiviazione ridondante, è necessaria l'archiviazione con rid
 
 **Come si effettua il downgrade da un account di archiviazione Premium a un account di archiviazione Standard?**
 
-A tale scopo, seguire questa procedura:
+Attenersi ai passaggi riportati di seguito.
 
 1.  Creare un account di archiviazione standard. In alternativa, usare un account di archiviazione standard esistente nella sottoscrizione.
 
@@ -280,9 +280,9 @@ Per concedere ad altri utenti l'accesso alle risorse di archiviazione:
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
-    - **Token SAS**: usare un token di firma di accesso condiviso (SAS) per accedere ai dati dall'endpoint. Per altre informazioni, vedere [Uso delle firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
+    - **Token SAS**: usare un token di firma di accesso condiviso (SAS) per accedere ai dati dall'endpoint. Per altre informazioni, vedere [Uso delle firme di accesso condiviso](storage-sas-overview.md).
 
-**Come si usa un dominio personalizzato HTTPS con l'account di archiviazione? Ad esempio, come è possibile fare "https:\//mystorageaccountname.blob.core.windows.net/images/image.gif" vengono visualizzati come "https:\//www.contoso.com/images/image.gif"?**
+**Come si usa un dominio personalizzato HTTPS con l'account di archiviazione? Ad esempio, come è possibile fare in modo che\/"https:/mystorageaccountname.blob.Core.Windows.net/images/image.gif" venga visualizzato\/come "https:/www.contoso.com/images/image.gif"?**
 
 Gli account di archiviazione con domini personalizzati attualmente non supportano l'autenticazione SSL.
 È però possibile usare domini personalizzati non HTTPS. Per altre informazioni, vedere [Configurare un nome di dominio personalizzato per l'endpoint di archiviazione BLOB](../blobs/storage-custom-domain-name.md).
@@ -291,7 +291,7 @@ Gli account di archiviazione con domini personalizzati attualmente non supportan
 
 Non è possibile accedere direttamente a un account di archiviazione usando FTP. È però possibile configurare una macchina virtuale di Azure e quindi installare un server FTP nella macchina virtuale. È possibile fare in modo che il server FTP archivi i file in una condivisione di File di Azure o in un disco dati disponibile per la macchina virtuale.
 
-Se si vuole solo scaricare i dati senza dover usare Storage Explorer o un'applicazione simile, potrebbe essere necessario usare un token di firma di accesso condiviso (SAS). Per altre informazioni, vedere [Uso delle firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
+Se si vuole solo scaricare i dati senza dover usare Storage Explorer o un'applicazione simile, potrebbe essere necessario usare un token di firma di accesso condiviso (SAS). Per altre informazioni, vedere [Uso delle firme di accesso condiviso](storage-sas-overview.md).
 
 **Eseguire la migrazione di oggetti BLOB da un account di archiviazione all'altro**
 

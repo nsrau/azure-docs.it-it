@@ -3,7 +3,7 @@ title: Distribuire e aggiornare applicazioni e servizi con Azure Resource Manage
 description: Informazioni su come distribuire applicazioni e servizi in un cluster di Service Fabric usando un modello di Azure Resource Manager.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
-ms.author: dekapur
-ms.openlocfilehash: db515454c68fe3a7eb1a4616c3278d9fc93ddb2c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 3810afa7ad00aa731751aa1f0bfe38d503de5850
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258671"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68953211"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gestire applicazioni e servizi come risorse di Azure Resource Manager
 
@@ -28,33 +28,33 @@ ms.locfileid: "66258671"
 È consigliabile distribuire in questo modo tutte le applicazioni di configurazione, governance o gestione cluster necessarie nel cluster, come [Patch Orchestration Application](service-fabric-patch-orchestration-application.md), i watchdog e tutte le applicazioni che devono essere eseguite nel cluster prima della distribuzione di altre applicazioni o servizi. 
 
 Se possibile, gestire le applicazioni come risorse di Resource Manager in modo da usufruire dei vantaggi seguenti.
-* Audit trail: Resource Manager controlla ogni operazione e mantiene un dettagliati *Log attività* che consentono di tracciare eventuali modifiche apportate a queste applicazioni e cluster.
-* Controllo degli accessi in base al ruolo (RBAC): Gestione dell'accesso al cluster e alle applicazioni distribuite nel cluster può essere eseguita tramite lo stesso modello di Resource Manager.
+* Audit Trail: Gestione risorse controlla ogni operazione e mantiene un *log attività* dettagliato che consente di tracciare le modifiche apportate a queste applicazioni e al cluster.
+* Controllo degli accessi in base al ruolo (RBAC): La gestione dell'accesso ai cluster e alle applicazioni distribuite nel cluster può essere eseguita tramite lo stesso modello di Gestione risorse.
 * Azure Resource Manager, tramite il portale di Azure, diventa un punto di accesso centralizzato per la gestione del cluster e delle distribuzioni di applicazioni critiche.
 
 Il frammento seguente illustra le diverse tipologie di risorse che è possibile gestire tramite un modello:
 
 ```json
 {
-    "apiVersion": "2017-07-01-preview",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.ServiceFabric/clusters/applicationTypes",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2017-07-01-preview",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.ServiceFabric/clusters/applicationTypes/versions",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'), '/', parameters('applicationTypeVersion'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2017-07-01-preview",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.ServiceFabric/clusters/applications",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2017-07-01-preview",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.ServiceFabric/clusters/applications/services",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName'))]",
     "location": "[variables('clusterLocation')]"
@@ -142,7 +142,7 @@ Il frammento seguente illustra le diverse tipologie di risorse che è possibile 
     },
     "resources": [
       {
-        "apiVersion": "2017-07-01-preview",
+        "apiVersion": "2019-03-01",
         "type": "Microsoft.ServiceFabric/clusters/applicationTypes",
         "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'))]",
         "location": "[variables('clusterLocation')]",
@@ -152,7 +152,7 @@ Il frammento seguente illustra le diverse tipologie di risorse che è possibile 
         }
       },
       {
-        "apiVersion": "2017-07-01-preview",
+        "apiVersion": "2019-03-01",
         "type": "Microsoft.ServiceFabric/clusters/applicationTypes/versions",
         "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'), '/', parameters('applicationTypeVersion'))]",
         "location": "[variables('clusterLocation')]",
@@ -165,7 +165,7 @@ Il frammento seguente illustra le diverse tipologie di risorse che è possibile 
         }
       },
       {
-        "apiVersion": "2017-07-01-preview",
+        "apiVersion": "2019-03-01",
         "type": "Microsoft.ServiceFabric/clusters/applications",
         "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
         "location": "[variables('clusterLocation')]",
@@ -200,7 +200,7 @@ Il frammento seguente illustra le diverse tipologie di risorse che è possibile 
         }
       },
       {
-        "apiVersion": "2017-07-01-preview",
+        "apiVersion": "2019-03-01",
         "type": "Microsoft.ServiceFabric/clusters/applications/services",
         "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName'))]",
         "location": "[variables('clusterLocation')]",
@@ -221,7 +221,7 @@ Il frammento seguente illustra le diverse tipologie di risorse che è possibile 
         }
       },
       {
-        "apiVersion": "2017-07-01-preview",
+        "apiVersion": "2019-03-01",
         "type": "Microsoft.ServiceFabric/clusters/applications/services",
         "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName2'))]",
         "location": "[variables('clusterLocation')]",
@@ -255,19 +255,19 @@ Il frammento seguente illustra le diverse tipologie di risorse che è possibile 
    ```
 
    > [!NOTE] 
-   > La proprietà *apiVersion* deve essere impostata su `"2017-07-01-preview"`. Questo modello può essere distribuito anche indipendentemente dal cluster, a condizione che il cluster sia già stato distribuito.
+   > La proprietà *apiVersion* deve essere impostata su `"2019-03-01"`. Questo modello può essere distribuito anche indipendentemente dal cluster, a condizione che il cluster sia già stato distribuito.
 
 5. Eseguire la distribuzione. 
 
-## <a name="remove-service-fabric-resource-provider-application-resource"></a>Rimuovere la risorsa di applicazione del Provider di risorse di Service Fabric
-Di seguito verrà attivato il pacchetto dell'app per essere senza provisioning dal cluster, e ciò consentirà di pulire lo spazio su disco utilizzato:
+## <a name="remove-service-fabric-resource-provider-application-resource"></a>Rimuovere Service Fabric risorsa dell'applicazione del provider di risorse
+Il codice seguente attiverà l'annullamento del provisioning del pacchetto dell'applicazione dal cluster e verrà eseguita la pulizia dello spazio su disco utilizzato:
 ```powershell
-Get-AzureRmResource -ResourceId /subscriptions/{sid}/resourceGroups/{rg}/providers/Microsoft.ServiceFabric/clusters/{cluster}/applicationTypes/{apptType}/versions/{version} -ApiVersion "2017-07-01-preview" | Remove-AzureRmResource -Force -ApiVersion "2017-07-01-preview"
+Get-AzureRmResource -ResourceId /subscriptions/{sid}/resourceGroups/{rg}/providers/Microsoft.ServiceFabric/clusters/{cluster}/applicationTypes/{apptType}/versions/{version} -ApiVersion "2019-03-01" | Remove-AzureRmResource -Force -ApiVersion "2017-07-01-preview"
 ```
-Rimuovendo semplicemente Microsoft.ServiceFabric/clusters/application in base al modello ARM sarà non annullare il provisioning dell'applicazione
+La semplice rimozione di Microsoft. ServiceFabric/cluster/applicazione dal modello ARM non effettuerà l'annullamento del provisioning dell'applicazione
 
 >[!NOTE]
-> Una volta completata la rimozione non viene visualizzata la versione del pacchetto in SFX o ARM più. Non è possibile eliminare la risorsa di versione tipo di applicazione che l'applicazione è in esecuzione con; ARM/SFRP verrà evitare questo problema. Se si tenta di annullare il provisioning del pacchetto in esecuzione, runtime di Service Fabric impedirà la.
+> Al termine della rimozione, la versione del pacchetto non dovrebbe più essere visualizzata in SFX o ARM. Non è possibile eliminare la risorsa della versione del tipo di applicazione con cui è in esecuzione l'applicazione; ARM/SFRP ne impedirà questa operazione. Se si tenta di annullare il provisioning del pacchetto in esecuzione, il runtime di SF lo impedirà.
 
 
 ## <a name="manage-an-existing-application-via-resource-manager"></a>Gestire un'applicazione esistente tramite Resource Manager
@@ -275,7 +275,7 @@ Rimuovendo semplicemente Microsoft.ServiceFabric/clusters/application in base al
 Se il cluster è già attivo e si vogliono gestire come risorse di Resource Manager alcune applicazioni già distribuite nel cluster, invece di rimuovere le applicazioni e ridistribuirle è possibile eseguire una chiamata PUT usando le stesse API affinché le applicazioni vengano riconosciute come risorse di Resource Manager. 
 
 > [!NOTE]
-> Per consentire un aggiornamento del cluster per ignorare le app non integro del cliente può specificare "maxPercentUnhealthyApplications: 100" nella sezione" upgradeDescription/healthPolicy"; descrizioni dettagliate per tutte le impostazioni sono disponibili nel [documentazione di infrastrutture REST API del Cluster aggiornamento criterio servizio](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
+> Per consentire l'aggiornamento di un cluster per ignorare le app non integre, il cliente può specificare "maxPercentUnhealthyApplications: 100 "nella sezione" upgradeDescription/healthPolicy "; le descrizioni dettagliate di tutte le impostazioni sono disponibili nella [documentazione dei criteri di aggiornamento del cluster API REST di Service Fabrics](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 86dcd39ad7b9f1e207e9254ec72698db3998bbd6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 77d0f632c763651004efa46edf027719040f4760
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61400475"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967474"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copiare i dati da MongoDB con Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-on-premises-mongodb-connector.md)
 > * [Versione corrente](connector-mongodb.md)
 
@@ -40,7 +40,9 @@ In particolare, il connettore MongoDB supporta:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per copiare i dati da un database MongoDB non accessibile pubblicamente, è necessario configurare un runtime di integrazione self-hosted. Per i dettagli, vedere l'articolo [Runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md). Il runtime di integrazione offre un driver per MongoDB predefinito e non è quindi necessario installare manualmente alcun driver quando si copiano dati da MongoDB.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
+Il runtime di integrazione offre un driver per MongoDB predefinito e non è quindi necessario installare manualmente alcun driver quando si copiano dati da MongoDB.
 
 ## <a name="getting-started"></a>Introduzione
 
@@ -64,7 +66,7 @@ Per il servizio collegato di MongoDB sono supportate le proprietà seguenti:
 | authSource |Nome del database MongoDB che si vuole usare per controllare le credenziali di autenticazione. |No. Per l'autenticazione di base il valore predefinito usa l'account di amministrazione e il database specificati usando la proprietà databaseName. |
 | enableSsl | Specifica se le connessioni al server sono crittografate tramite SSL. Il valore predefinito è False.  | No |
 | allowSelfSignedServerCert | Specifica se consentire o meno i certificati autofirmati dal server. Il valore predefinito è False.  | No |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 **Esempio:**
 
@@ -227,8 +229,8 @@ Le tabelle seguenti illustrano le tabelle virtuali che rappresentano le matrici 
 
 | _id | ExampleTable_Invoices_dim1_idx | invoice_id | item | price | Discount |
 | --- | --- | --- | --- | --- | --- |
-| 1111 |0 |123 |toaster |456 |0.2 |
-| 1111 |1 |124 |oven |1235 |0.2 |
+| 1111 |0 |123 |toaster |456 |0,2 |
+| 1111 |1 |124 |oven |1235 |0,2 |
 | 2222 |0 |135 |fridge |12543 |0.0 |
 
 **Tabella "ExampleTable_Ratings":**

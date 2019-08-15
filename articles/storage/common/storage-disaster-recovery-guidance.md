@@ -9,12 +9,12 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f9d68af12f6b2e98c77d0bd1b65a82c69588f203
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7785c6b5c575bf862b1ba0edccc75fc1c6031b08
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65147627"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69015650"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Ripristino di emergenza e failover dell'account di archiviazione (anteprima) in Archiviazione di Azure
 
@@ -37,8 +37,11 @@ L'**archiviazione con ridondanza geografica e accesso in lettura** aggiunge all'
 
 Le altre opzioni di ridondanza di Archiviazione di Azure includono l'archiviazione con ridondanza della zona, che replica i dati nelle zone di disponibilità di una singola area, e l'archiviazione con ridondanza locale, che replica i dati in un singolo data center di una singola area. Se l'account di archiviazione è configurato per l'archiviazione con ridondanza della zona o l'archiviazione con ridondanza locale, è possibile convertire tale account per usare l'archiviazione con ridondanza geografica o l'archiviazione con ridondanza geografica e accesso in lettura. La configurazione dell'account per l'archiviazione con ridondanza geografica comporta costi aggiuntivi. Per altre informazioni, vedere [Replica di Archiviazione di Azure](storage-redundancy.md).
 
+> [!NOTE]
+> Archiviazione con ridondanza geografica (GZRS) e archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS) sono attualmente in anteprima, ma non sono ancora disponibili nelle stesse aree del failover dell'account gestito dal cliente. Per questo motivo, i clienti non possono attualmente gestire gli eventi di failover degli account con gli account GZRS e RA-GZRS. Durante l'anteprima, Microsoft gestirà gli eventi di failover che interessano gli account GZRS/RA-GZRS.
+
 > [!WARNING]
-> L'archiviazione con ridondanza geografica comporta il rischio di perdita di dati. Poiché i dati vengono replicati nell'area secondaria in modo asincrono, si verifica un ritardo prima che i dati scritti nell'area primaria vengano scritti nell'area secondaria. In caso di interruzione, le operazioni di scrittura nell'endpoint primario che non sono ancora state replicate nell'endpoint secondario andranno perse. 
+> L'archiviazione con ridondanza geografica comporta il rischio di perdita di dati. Poiché i dati vengono replicati nell'area secondaria in modo asincrono, si verifica un ritardo prima che i dati scritti nell'area primaria vengano scritti nell'area secondaria. In caso di interruzione, le operazioni di scrittura nell'endpoint primario che non sono ancora state replicate nell'endpoint secondario andranno perse.
 
 ## <a name="design-for-high-availability"></a>Progettare la disponibilità elevata
 
@@ -114,7 +117,7 @@ Per evitare la perdita di una grande quantità di dati, controllare il valore de
 
 ## <a name="about-the-preview"></a>Informazioni sulla versione di anteprima
 
-Il failover dell'account è disponibile in anteprima per tutti i clienti che usano l'archiviazione con ridondanza geografica o l'archiviazione con ridondanza geografica e accesso in lettura con le distribuzioni Azure Resource Manager. Sono supportati i tipi di account di archiviazione per utilizzo generico v1, utilizzo generico v2 e BLOB. Il failover dell'account è attualmente disponibile nelle aree seguenti:
+Il failover dell'account è disponibile in anteprima per tutti i clienti che usano GRS o RA-GRS con distribuzioni Azure Resource Manager. Sono supportati i tipi di account di archiviazione per utilizzo generico v1, utilizzo generico v2 e BLOB. Il failover dell'account è attualmente disponibile nelle aree seguenti:
 
 - Stati Uniti occidentali 2
 - Stati Uniti centro-occidentali
@@ -168,7 +171,7 @@ Le funzionalità o i servizi seguenti non sono supportati per il failover dell'a
 - Non è possibile effettuare il failover degli account di archiviazione che usano gli spazi dei nomi gerarchici di Azure Data Lake Storage Gen2.
 - Non è possibile effettuare il failover di un account di archiviazione contenente BLOB archiviati. Mantenere i BLOB archiviati in un account di archiviazione separato di cui non si intende effettuare il failover.
 - Non è possibile effettuare il failover di un account di archiviazione contenente BLOB in blocchi Premium. Gli account di archiviazione che supportano i BLOB in blocchi Premium non supportano attualmente la ridondanza geografica.
-- Dopo il failover completo le funzionalità seguenti non funzionerà più se originariamente abilitato: [Le sottoscrizioni di eventi](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [i criteri del ciclo di vita](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts), [registrazione Analitica dell'archiviazione](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging).
+- Al termine del failover, le funzionalità seguenti smetteranno di funzionare se originariamente abilitate: [Sottoscrizioni di eventi](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [criteri del ciclo](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts)di vita, [analisi archiviazione registrazione](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging).
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Copia dei dati come alternativa al failover
 

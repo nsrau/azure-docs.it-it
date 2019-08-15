@@ -3,7 +3,7 @@ title: Risolvere i problemi relativi ai dati mancanti nei log attività di Azure
 description: Offre una risoluzione per i dati mancanti nei log attività di Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 7cbe4337-bb77-4ee0-b254-3e368be06db7
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 01/15/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b25c09b140102c0788a939c48f48300242fc6ee
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a04de319a17255e3b61378cbd716828a237317b3
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60285095"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989510"
 ---
 # <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>Risoluzione dei problemi: dati mancanti nei log attività di Azure Active Directory 
 
@@ -53,7 +53,7 @@ Attendere tra 15 minuti e due ore e verificare se le azioni vengono visualizzate
 
 Di recente si è eseguito l'accesso al portale di Azure e si prevedeva la visualizzazione dei log di accesso per tali azioni nel pannello `Activity logs > Sign-ins`, ma non è possibile trovarli.
 
- ![Creazione di report](./media/troubleshoot-missing-audit-data/02.png)
+ ![Report](./media/troubleshoot-missing-audit-data/02.png)
  
 ### <a name="cause"></a>Causa
 
@@ -74,13 +74,13 @@ Attendere tra 15 minuti e due ore e verificare se le azioni vengono visualizzate
 
 Non è possibile visualizzare più di 30 giorni di dati di accesso e controllo nel portale di Azure. Perché? 
 
- ![Creazione di report](./media/troubleshoot-missing-audit-data/03.png)
+ ![Report](./media/troubleshoot-missing-audit-data/03.png)
 
 ### <a name="cause"></a>Causa
 
 In base alla licenza, Azioni di Azure Active Directory archivia i report delle attività per le durate seguenti:
 
-| Report           | &nbsp; |  Azure AD Free | Azure AD P1 Premium | Azure AD P2 Premium |
+| Report           | &nbsp; |  Azure AD Gratuito | Azure AD P1 Premium | Azure AD P2 Premium |
 | ---              | ----   |  ---           | ---                 | ---                 |
 | Directory Audit (Controllo directory)  | &nbsp; |   7 giorni     | 30 giorni             | 30 giorni             |
 | Attività di accesso | &nbsp; | Non disponibile. È possibile accedere alle informazioni di accesso per 7 giorni dal pannello del singolo profilo utente | 30 giorni | 30 giorni             |

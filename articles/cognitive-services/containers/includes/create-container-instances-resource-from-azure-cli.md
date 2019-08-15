@@ -1,7 +1,7 @@
 ---
 title: Supporto dei contenitori
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come creare una risorsa di istanza di contenitore di Azure della riga di comando di Azure.
+description: Informazioni su come creare una risorsa dell'istanza di contenitore di Azure dall'interfaccia della riga di comando di Azure.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 7/5/2019
 ms.author: dapine
-ms.openlocfilehash: 5e7a3d849f726ae4dbbd559d541464404e427775
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 2080d283c6cb7466dcb4847a81d76a4c3109217a
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717057"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "69012176"
 ---
-## <a name="create-an-azure-container-instance-resource-from-the-azure-cli"></a>Creare una risorsa di istanza di contenitore di Azure della riga di comando di Azure
+## <a name="create-an-azure-container-instance-resource-from-the-azure-cli"></a>Creare una risorsa dell'istanza di contenitore di Azure dall'interfaccia della riga di comando di Azure
 
-Il codice YAML seguente definisce la risorsa dell'istanza di contenitore di Azure. Copiare e incollare il contenuto in un nuovo file denominato `my-aci.yaml` e sostituire i valori con commenti con quelli personalizzati. Fare riferimento a [formato del modello] [modello-formattare] per YAML valido. Vedere la [repository di contenitori e immagini][repositories-and-images] per i nomi delle immagini disponibili e i repository corrispondenti.
+Il YAML seguente definisce la risorsa dell'istanza di contenitore di Azure. Copiare e incollare il contenuto in un nuovo file, denominato `my-aci.yaml` e sostituire i valori commentati con quelli personalizzati. Vedere il [formato del modello][template-format] per YAML valido. Vedere i [repository del contenitore e le immagini][repositories-and-images] per i nomi delle immagini disponibili e il repository corrispondente.
 
 ```YAML
 apiVersion: 2018-10-01
@@ -58,18 +58,18 @@ type: Microsoft.ContainerInstance/containerGroups
 ```
 
 > [!NOTE]
-> Non tutte le località hanno la stessa disponibilità di CPU e memoria. Vedere le [posizione e le risorse][location-to-resource] tabella per l'elenco delle risorse disponibili per i contenitori per ogni posizione e il sistema operativo.
+> Non tutti i percorsi hanno la stessa disponibilità di CPU e memoria. Vedere la tabella [location and][location-to-resource] Resources per l'elenco delle risorse disponibili per i contenitori per località e sistema operativo.
 
-Ci sarà si affida il file YAML creati per il [ `az container create` ][azure-container-create] comando. Della riga di comando di Azure, eseguire la `az container create` comandi sostituendo le `<resource-group>` con quelli personalizzati. Inoltre, per la protezione dei valori all'interno di un YAML distribuzione si intende [proteggere i valori][secure-values].
+Ci affidiamo al file YAML creato per il [`az container create`][azure-container-create] comando. Dall'interfaccia della riga di comando di `az container create` Azure, eseguire `<resource-group>` il comando sostituendo con il proprio. Inoltre, per proteggere i valori in una distribuzione YAML, fare riferimento a [valori sicuri][secure-values].
 
 ```azurecli
 az container create -g <resource-group> -f my-aci.yaml
 ```
 
-L'output del comando è `Running...` se valido, attendere qualche minuto il cambiamento dell'output in una stringa JSON che rappresenta la risorsa ACI appena creata. L'immagine del contenitore è più probabile che non sia disponibile per un periodo di tempo, ma è stata distribuita la risorsa.
+L'output del comando è `Running...` se valido, dopo qualche minuto l'output viene modificato in una stringa JSON che rappresenta la risorsa ACI appena creata. L'immagine del contenitore è più che probabile che non sia disponibile per un periodo di tempo, ma la risorsa viene ora distribuita.
 
 > [!TIP]
-> Prestare particolare attenzione alle posizioni delle offerte di servizi cognitivi di Azure versione di anteprima pubblica, come il codice YAML saranno necessari per essere adattato per corrispondere al percorso.
+> Prestare particolare attenzione alle posizioni delle offerte di servizi cognitivi di Azure in anteprima pubblica, poiché YAML deve essere modificato di conseguenza in modo da corrispondere al percorso.
 
 [azure-container-create]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-create
 [template-format]: https://docs.microsoft.com/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups#template-format

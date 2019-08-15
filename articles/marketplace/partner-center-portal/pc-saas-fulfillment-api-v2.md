@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: a8196370a93a6ce8eed83002397c2f09efbc777f
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 276699b9316a0c4fd428038f2c967bdf934f449c
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358576"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016035"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>API di evasione SaaS, versione 2 
 
@@ -282,7 +282,7 @@ Response Body:
           "term": { //This gives the free trial term start and end date
             "startDate": "2019-05-31",
             "endDate": "2019-06-29",
-            "termUnit": "P1M"
+            "termUnit": "P1M" //where P1M: Monthly, P1Y: Yearly 
         },
 }
 ```
@@ -476,7 +476,7 @@ Errore interno del server.
 ```
 
 >[!Note]
->È possibile applicare patch solo a un piano o una quantità alla volta, non a entrambe. Le modifiche apportate a  una sottoscrizione con `allowedCustomerOperations`aggiornamento non sono presenti in.
+>È possibile applicare patch solo a un piano o una quantità alla volta, non a entrambe. Le modifiche apportate a una sottoscrizione con `allowedCustomerOperations`aggiornamento non sono presenti in.
 
 #### <a name="change-the-quantity-on-the-subscription"></a>Modificare la quantità nella sottoscrizione
 
@@ -543,7 +543,7 @@ Errore interno del server.
 ```
 
 >[!Note]
->È possibile applicare patch solo a un piano o una quantità alla volta, non a entrambe. Le modifiche apportate a  una sottoscrizione con `allowedCustomerOperations`aggiornamento non sono presenti in.
+>È possibile applicare patch solo a un piano o una quantità alla volta, non a entrambe. Le modifiche apportate a una sottoscrizione con `allowedCustomerOperations`aggiornamento non sono presenti in.
 
 #### <a name="delete-a-subscription"></a>Elimina una sottoscrizione
 
@@ -790,6 +790,8 @@ Codice: 500<br> Errore interno del server.
 
 Il server di pubblicazione deve implementare un webhook in questo servizio SaaS per notificare in modo proattivo agli utenti le modifiche apportate al servizio. È previsto che il servizio SaaS chiami l'API Operations per convalidare e autorizzare prima di eseguire un'azione sulla notifica del webhook.
 
+Per garantire comunicazioni sicure, Microsoft include il token Azure Active Directory JWT nell'intestazione Authorization come parte della chiamata. I provider SaaS sono invitati a convalidare il token JWT come descritto nell'articolo [token di accesso della piattaforma Microsoft Identity](https://docs.microsoft.com/azure/active-directory/develop/access-tokens) per assicurarsi che vengano accettate solo le chiamate valide.
+
 ```json
 {
   "id": "<this is a GUID operation id, you can call operations API with this to get status>",
@@ -819,7 +821,7 @@ Dove lo stato può essere uno dei seguenti:
 - **Non riuscito** <br>
 - **Conflitto** <br>
 
-In una notifica webhook, gli Stati interoperabili sono **succeeded** e **failed**. Il ciclo di vita di un'operazione è da **NotStarted** a uno stato terminale come Succeeded, **failed**o **Conflict**. Se si riceve **NotStarted** o in **corso**, continuare a richiedere lo stato tramite Get API fino a quando l'operazione non raggiunge uno stato terminale prima di eseguire un'azione. 
+In una notifica webhook, gli Stati interoperabili sono **succeeded** e **failed**. Il ciclo di vita di un'operazione è da **NotStarted** a uno statoterminale come Succeeded, **failed**o **Conflict**. Se si riceve **NotStarted** o in **corso**, continuare a richiedere lo stato tramite Get API fino a quando l'operazione non raggiunge uno stato terminale prima di eseguire un'azione. 
 
 ## <a name="mock-apis"></a>API fittizie
 

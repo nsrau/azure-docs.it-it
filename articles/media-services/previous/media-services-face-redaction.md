@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: juliako;
-ms.openlocfilehash: 1fe003ae13bc5f195932f4f140e17c4dc2791959
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.openlocfilehash: e350b6ed90324e7ed645d85c046fd74c0a089452
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61247405"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69016024"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Offuscare i volti con Analisi Servizi multimediali di Azure 
 ## <a name="overview"></a>Panoramica
@@ -153,13 +153,13 @@ Di seguito sono riportati alcuni esempi dei tipi di sfocature.
 
 ![Med](./media/media-services-face-redaction/blur2.png)
 
-#### <a name="high"></a>Alto
+#### <a name="high"></a>High
 
-![Alto](./media/media-services-face-redaction/blur3.png)
+![High](./media/media-services-face-redaction/blur3.png)
 
-#### <a name="box"></a>Box
+#### <a name="box"></a>Casella
 
-![Box](./media/media-services-face-redaction/blur4.png)
+![Casella](./media/media-services-face-redaction/blur4.png)
 
 #### <a name="black"></a>Nero
 

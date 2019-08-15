@@ -1,6 +1,6 @@
 ---
-title: Aggiungere un livello di simboli per Android viene eseguito il mapping nelle mappe di Azure | Microsoft Docs
-description: Come aggiungere simboli di una mappa utilizzando Azure Maps Android SDK
+title: Aggiungere un livello di simboli alle mappe Android in mappe di Azure | Microsoft Docs
+description: Come aggiungere simboli a una mappa usando Azure Maps Android SDK
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -8,26 +8,26 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: add6e23d023753e217c102dc946837a71a64c781
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0292c8a441589a01241fbef6923246b4bcafb5c8
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64871078"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976251"
 ---
-# <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Aggiungere un livello di simboli per una mappa utilizzando Azure Maps Android SDK
+# <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Aggiungere un livello di simbolo a una mappa usando Azure Maps Android SDK
 
-Questo articolo illustra come eseguire il rendering di punto dati da un'origine dati come un livello di simboli in una mappa con le mappe di Azure di Android SDK.
+Questo articolo illustra come eseguire il rendering dei dati punto da un'origine dati come livello di simbolo su una mappa usando Azure Maps Android SDK.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per seguire la procedura descritta in questo articolo completamente, è necessario installare [Android SDK di Azure esegue il mapping](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) per caricare una mappa.
+Per completare i passaggi descritti in questo articolo, è necessario installare [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) per caricare una mappa.
 
 ## <a name="add-a-symbol-layer"></a>Aggiungere un livello per i simboli
 
-Per aggiungere un marcatore sulla mappa usando il livello di simboli, seguire questa procedura:
+Per aggiungere un marcatore sulla mappa utilizzando il livello di simboli, attenersi alla procedura seguente:
 
-1. Modificare **res** > **layout** > **activity_main** in modo analogo il codice XML seguente:
+1. Modificare > illayoutres > **activity_main. XML** in modo che abbia un aspetto simile al codice XML seguente:
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -50,7 +50,7 @@ Per aggiungere un marcatore sulla mappa usando il livello di simboli, seguire qu
     </FrameLayout>
     ```
 
-2. Copiare il frammento di codice seguente nel **onCreate()** metodo le `MainActivity.java` classe.
+2. Copiare il frammento di codice seguente nel metodo OnCreate **()** della `MainActivity.java` classe.
 
     ```Java
     mapControl.onReady(map -> {
@@ -72,9 +72,9 @@ Per aggiungere un marcatore sulla mappa usando il livello di simboli, seguire qu
     
     ```
     
-    Il frammento di codice precedente Ottiene prima di tutto un mappe di Azure mappa controllo istanza utilizzando il **onReady()** metodo di callback. Viene quindi creato un oggetto origine dati usando il **DataSource** classe e lo aggiunge alla mappa. Viene quindi aggiunta un' **funzionalità** contenente una punto di geometria a esso. Un'immagine del marcatore di colore rosso viene quindi impostata come icona per il simbolo. Oggetto **layer simbolo** Usa testo o icone per il rendering dei dati in base al punto di stato eseguito il wrapping nell'origine dati come simbolo sulla mappa. Viene quindi creato un livello di simboli e origine dati viene passato al metodo per eseguire il rendering e quindi viene aggiunto ai livelli della mappa.
+    Il frammento di codice precedente ottiene innanzitutto un'istanza del controllo mappa di Azure Maps usando il metodo di callback onReady **()** . Viene quindi creato un oggetto origine dati utilizzando la classe **DataSource** e viene aggiunto alla mappa. Viene quindi aggiunta una **funzionalità** contenente una geometria puntiforme. Un'immagine del marcatore rosso viene quindi impostata come icona per il simbolo. Un **livello di simbolo** usa il testo o le icone per eseguire il rendering dei dati basati su punti racchiusi nell'origine dati come simbolo sulla mappa. Viene quindi creato un livello di simboli e l'origine dati viene passata al rendering e viene quindi aggiunta ai livelli della mappa.
     
-    Dopo aver aggiunto il frammento di codice precedente, il `MainActivity.java` dovrebbe essere simile al seguente:
+    Dopo aver aggiunto il frammento di codice `MainActivity.java` precedente, il dovrebbe essere simile a quello riportato di seguito:
     
     ```Java
     package com.example.myapplication;
@@ -166,16 +166,19 @@ Per aggiungere un marcatore sulla mappa usando il livello di simboli, seguire qu
     }
     ```
     
-A questo punto, se si esegue l'applicazione si verrà visualizzato un marcatore sulla mappa, come illustrato di seguito:
+A questo punto, se si esegue l'applicazione, viene visualizzato un marcatore sulla mappa, come illustrato di seguito:
 
 <center>
 
-![Aggiungi mappa Android](./media/how-to-add-symbol-to-android-map/android-map-pin.png)</center>
+![Pin mappa Android](./media/how-to-add-symbol-to-android-map/android-map-pin.png)</center>
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per aggiungere altre opzioni per la mappa, vedere:
+Per aggiungere altri elementi alla mappa, vedere:
 
 > [!div class="nextstepaction"]
-> [Aggiungere forme a una mappa di Android](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+> [Aggiungere forme a una mappa Android](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+
+> [!div class="nextstepaction"]
+> [Visualizzare le informazioni sulle funzionalità](display-feature-information-android.md)

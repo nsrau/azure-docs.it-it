@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 8e24489ad2909879b035a08316e66788034e99bc
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 5ef1749217dd8980892d7bf933cbe1412929fbbd
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377207"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976990"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Arricchimento dei messaggi per i messaggi dell'hub da dispositivo a cloud (anteprima)
 
-I miglioramenti apportati ai *messaggi sono la* possibilità dell'hub  Internet di contrassegnare i messaggi con informazioni aggiuntive prima che i messaggi vengano inviati all'endpoint designato. Un motivo per utilizzare gli arricchimenti dei messaggi consiste nell'includere dati che possono essere utilizzati per semplificare l'elaborazione downstream. Ad esempio, l'arricchimento dei messaggi di telemetria del dispositivo con un tag del dispositivo gemello può ridurre il carico sui clienti per effettuare chiamate API dei dispositivi gemelli per queste informazioni.
+I miglioramenti apportati ai messaggi sono la possibilità dell'hub Internet di *contrassegnare* i messaggi con informazioni aggiuntive prima che i messaggi vengano inviati all'endpoint designato. Un motivo per utilizzare gli arricchimenti dei messaggi consiste nell'includere dati che possono essere utilizzati per semplificare l'elaborazione downstream. Ad esempio, l'arricchimento dei messaggi di telemetria del dispositivo con un tag del dispositivo gemello può ridurre il carico sui clienti per effettuare chiamate API dei dispositivi gemelli per queste informazioni.
 
 ![Flusso di arricchimenti messaggi](./media/iot-hub-message-enrichments-overview/message-enrichments-flow.png)
 
@@ -29,9 +29,9 @@ Un arricchimento del messaggio ha tre elementi chiave:
 
 * Uno o più [endpoint](iot-hub-devguide-endpoints.md) per i quali deve essere applicata l'arricchimento.
 
-La chiave può essere una stringa qualsiasi.
+La **chiave** è una stringa. Una chiave può contenere solo caratteri alfanumerici o i caratteri speciali seguenti:`-`il segno meno ()`_`, il carattere di sottolineatura () e il punto (`.`).
 
-Il valore può essere uno degli esempi seguenti:
+Il **valore** può essere uno degli esempi seguenti:
 
 * Qualsiasi stringa statica. Non sono consentiti valori dinamici quali le condizioni, la logica, le operazioni e le funzioni. Se, ad esempio, si sviluppa un'applicazione SaaS utilizzata da più clienti, è possibile assegnare un identificatore a ogni cliente e rendere tale identificatore disponibile nell'applicazione. Quando l'applicazione è in esecuzione, l'hub di tutti i messaggi di telemetria del dispositivo viene timbrato con l'identificatore del cliente, rendendo possibile l'elaborazione dei messaggi in modo diverso per ogni cliente.
 

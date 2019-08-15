@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/19/2018
+ms.date: 8/12/2019
 ms.author: atsenthi
-ms.openlocfilehash: e5fb28b176ce14a9b871b2a6a775e0017fcc993d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a5e452bf3dc9f35c345a5f27af829904b4839ece
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052677"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977119"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Manifesti delle applicazioni e dei servizi di Service Fabric
 Questo articolo illustra in che modo le applicazioni e i servizi di Service Fabric vengono definiti e sottoposti a controllo delle versioni con i file ApplicationManifest.xml e ServiceManifest.xml.  Per esempi più dettagliati, vedere [esempi del manifesto di servizio e dell'applicazione](service-fabric-manifest-examples.md).  Lo schema XML di questi file manifesto è documentato in [Documentazione dello schema ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
@@ -96,8 +96,12 @@ Per altre informazioni su come configurare SetupEntryPoint, vedere [Configurare 
 </Settings>
 ```
 
-Un servizio di Service Fabric **Endpoint** è riportato un esempio di una risorsa di Service Fabric. Una risorsa di Service Fabric possono essere dichiarate/modificate senza modificare il codice compilato. È possibile controllare l'accesso alle risorse Service Fabric specificate nel manifesto del servizio tramite **SecurityGroup** nel manifesto dell'applicazione. Quando una risorsa dell'endpoint viene definita nel manifesto del servizio, Service Fabric assegna le porte dall'intervallo di porte riservate dell'applicazione se non è esplicitamente specificata una porta. Sono disponibili altre informazioni su come [specificare o eseguire l'override di risorse endpoint](service-fabric-service-manifest-resources.md).
+Un **endpoint** del servizio Service Fabric è un esempio di una risorsa Service Fabric. Una risorsa Service Fabric può essere dichiarata/modificata senza modificare il codice compilato. È possibile controllare l'accesso alle risorse Service Fabric specificate nel manifesto del servizio tramite **SecurityGroup** nel manifesto dell'applicazione. Quando una risorsa dell'endpoint viene definita nel manifesto del servizio, Service Fabric assegna le porte dall'intervallo di porte riservate dell'applicazione se non è esplicitamente specificata una porta. Sono disponibili altre informazioni su come [specificare o eseguire l'override di risorse endpoint](service-fabric-service-manifest-resources.md).
 
+ 
+> [!WARNING]
+> Le porte statiche di progettazione non devono sovrapporsi all'intervallo di porte dell'applicazione specificato in ClusterManifest. Se si specifica una porta statica, assegnarla al di fuori dell'intervallo di porte dell'applicazione. in caso contrario, verrà generato un conflitto tra porte. Con la versione 6.5 CU2 verrà emesso un **avviso di integrità** quando si rileva un conflitto di questo tipo, ma si lascia che la distribuzione continui a essere sincronizzata con il comportamento 6,5 fornito. Tuttavia, potrebbe impedire la distribuzione dell'applicazione dalle versioni principali successive.
+>
 
 <!--
 For more information about other features supported by service manifests, refer to the following articles:
@@ -147,6 +151,7 @@ Un manifesto dell'applicazione quindi descrive elementi a livello di applicazion
     <Service Name="VotingWeb" ServicePackageActivationMode="ExclusiveProcess">
       <StatelessService ServiceTypeName="VotingWebType" InstanceCount="[VotingWeb_InstanceCount]">
         <SingletonPartition />
+         <PlacementConstraints>(NodeType==NodeType0)</PlacementConstraints
       </StatelessService>
     </Service>
   </DefaultServices>
@@ -163,10 +168,12 @@ Analogamente ai manifesti dei servizi, gli attributi **Version** sono stringhe n
 
 **Certificates** (non impostato nell'esempio precedente) dichiara i certificati usati per [configurare gli endpoint HTTPS](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) o [crittografare i segreti nel manifesto dell'applicazione](service-fabric-application-secret-management.md).
 
-**I criteri** (non impostato nell'esempio precedente) descrive la raccolta di log, [account RunAs predefinito](service-fabric-application-runas-security.md), [integrità](service-fabric-health-introduction.md#health-policies), e [accesso di sicurezza](service-fabric-application-runas-security.md) criteri da impostare in corrispondenza di livello di applicazione, ad esempio se i servizi hanno accesso al runtime di Service Fabric.
+I **vincoli di posizionamento** sono le istruzioni che definiscono dove devono essere eseguiti i servizi. Queste istruzioni sono associate a singoli servizi selezionati per una o più proprietà del nodo. Per altre informazioni, vedere [vincoli di posizionamento e sintassi delle proprietà dei nodi](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#placement-constraints-and-node-property-syntax)
+
+**Criteri** di (non impostato nell'esempio precedente) descrive i criteri di raccolta dei log, [RunAs predefinito](service-fabric-application-runas-security.md), [integrità](service-fabric-health-introduction.md#health-policies)e [accesso di sicurezza](service-fabric-application-runas-security.md) da impostare a livello di applicazione, compreso se i servizi hanno accesso al runtime di Service Fabric.
 
 > [!NOTE] 
-> Per impostazione predefinita, le applicazioni di Service Fabric hanno accesso al runtime di Service Fabric, sotto forma di un endpoint che accetta le richieste specifiche dell'applicazione e le variabili di ambiente che puntano ai percorsi del file nell'host che contiene file specifici dell'applicazione e infrastruttura . Provare a disabilitare l'accesso quando l'applicazione include codice non attendibile (ad esempio codice la cui la provenienza è sconosciuta, o che il proprietario dell'applicazione sia in grado di non per essere sicuro per l'esecuzione). Per altre informazioni, vedi [le procedure consigliate in Service Fabric](service-fabric-best-practices-security.md#platform-isolation). 
+> Per impostazione predefinita, le applicazioni Service Fabric hanno accesso al runtime di Service Fabric, sotto forma di un endpoint che accetta richieste specifiche dell'applicazione e variabili di ambiente che puntano a percorsi di file nell'host che contiene file di infrastruttura e specifici dell'applicazione . Provare a disabilitare questo accesso quando l'applicazione ospita codice non attendibile (ad esempio il codice la cui origine è sconosciuta o il proprietario dell'applicazione non è sicuro per l'esecuzione). Per ulteriori informazioni, vedere la pagina relativa alle procedure consigliate per la [sicurezza in Service Fabric](service-fabric-best-practices-security.md#platform-isolation). 
 >
 
 **Principals** (non impostato nell'esempio precedente) descrive le entità di sicurezza (utenti o gruppi) necessarie per [eseguire i servizi e proteggere le risorse correlate](service-fabric-application-runas-security.md).  Alle entità di sicurezza viene fatto riferimento nelle sezioni **Policies**.

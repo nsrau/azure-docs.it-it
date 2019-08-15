@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: Mingfeiy;willzhan;Juliako
-ms.openlocfilehash: dfb82e91b0f65b85d34b7e20d57ed9929469321f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: Juliako
+ms.reviewer: willzhan
+ms.openlocfilehash: 9c61fad333037074f392b019ae61c161673e4008
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61232571"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "69016683"
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Uso di castLabs per distribuire licenze Widevine a Servizi multimediali di Azure 
 > [!div class="op_single_selector"]
@@ -32,7 +33,7 @@ ms.locfileid: "61232571"
 
 Questo articolo illustra come usare Servizi multimediali di Azure per distribuire un flusso crittografato in modo dinamico da Servizi multimediali di Azure mediante DRM di PlayReady e Widevine. La licenza per PlayReady viene distribuita dal server licenze PlayReady di Servizi multimediali, mentre la licenza per Widevine viene distribuita dal server licenze **castLabs** .
 
-Per la riproduzione di contenuti in streaming protetti da CENC (PlayReady e/o Widevine), è possibile usare [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html). Per informazioni dettagliate vedere la [documentazione dell’AMP](https://amp.azure.net/libs/amp/latest/docs/)
+Per la riproduzione di contenuti in streaming protetti da CENC (PlayReady e/o Widevine), è possibile usare [Azure Media Player](https://aka.ms/azuremediaplayer). Per informazioni dettagliate vedere la [documentazione dell’AMP](https://amp.azure.net/libs/amp/latest/docs/)
 
 Il diagramma seguente illustra un'architettura di integrazione di alto livello tra castLabs e Servizi multimediali di Azure.
 
@@ -55,10 +56,10 @@ castLabs e Servizi multimediali di Azure supportano entrambi il formato di token
 
 La tabella seguente descrive il token JWT usato in Servizi multimediali di Azure. 
 
-| Issuer | Stringa dell'autorità di certificazione rilasciata dal servizio token di sicurezza scelto |
+| Rilasciato da | Stringa dell'autorità di certificazione rilasciata dal servizio token di sicurezza scelto |
 | --- | --- |
-| Audience |Stringa dei destinatari rilasciata dal servizio token di sicurezza usato |
-| Claims |Set di attestazioni |
+| Destinatari |Stringa dei destinatari rilasciata dal servizio token di sicurezza usato |
+| Attestazioni |Set di attestazioni |
 | NotBefore |Validità di inizio del token |
 | Expires |Validità di fine del token |
 | SigningCredentials |Chiave condivisa tra il server licenze PlayReady, il server licenze castLabs e il servizio token di sicurezza (STS); può essere una chiave simmetrica o asimmetrica. |
@@ -101,10 +102,10 @@ Per usare l'applicazione Web (STS):
 
 ## <a name="playing-back-a-video"></a>Riproduzione di un video
 
-Per riprodurre un video crittografato con la crittografia comune (PlayReady e/o Widevine), è possibile usare [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html). Quando si esegue l'app console, vengono restituiti l'ID della chiave simmetrica e l'URL del manifesto.
+Per riprodurre un video crittografato con la crittografia comune (PlayReady e/o Widevine), è possibile usare [Azure Media Player](https://aka.ms/azuremediaplayer). Quando si esegue l'app console, vengono restituiti l'ID della chiave simmetrica e l'URL del manifesto.
 
 1. Aprire una nuova scheda e avviare il servizio token di sicurezza: http://[yourStsName].azurewebsites.net/api/token/assetid/[yourCastLabsAssetId]/contentkeyid/[thecontentkeyid].
-2. Accedere a [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
+2. Accedere a [Azure Media Player](https://aka.ms/azuremediaplayer).
 3. Incollare l'URL di streaming
 4. Scegliere la casella di controllo **Opzioni avanzate** .
 5. Nell'elenco a discesa **Protezione** , selezionare PlayReady e/o Widevine.

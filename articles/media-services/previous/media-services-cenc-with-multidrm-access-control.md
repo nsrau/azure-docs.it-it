@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: 336552c142e504ae7296314512f00688e30d032e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: willzhan
+ms.reviewer: kilroyh;yanmf;juliako
+ms.openlocfilehash: 6004e08f5f30c7f3c63bb87437147db15da5e335
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61466479"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69016775"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Progettazione di un sistema di protezione del contenuto con il controllo di accesso tramite Servizi multimediali di Azure 
 
@@ -214,10 +215,10 @@ L'implementazione è costituita dai passaggi seguenti:
 
     | **DRM** | **Browser** | **Risultato per un utente con diritti** | **Risultato per un utente senza diritti** |
     | --- | --- | --- | --- |
-    | **PlayReady** |Microsoft Edge o Internet Explorer 11 in Windows 10 |Succeed |Fail |
-    | **Widevine** |Chrome, Firefox, Opera |Succeed |Fail |
-    | **FairPlay** |Safari su macOS      |Succeed |Fail |
-    | **AES-128** |Browser più moderni  |Succeed |Fail |
+    | **PlayReady** |Microsoft Edge o Internet Explorer 11 in Windows 10 |Operazione riuscita |Errore |
+    | **Widevine** |Chrome, Firefox, Opera |Operazione riuscita |Errore |
+    | **FairPlay** |Safari su macOS      |Operazione riuscita |Errore |
+    | **AES-128** |Browser più moderni  |Operazione riuscita |Errore |
 
 Per informazioni su come impostare Azure AD per un'app lettore MVC ASP.NET, vedere [Integrate an Azure Media Services OWIN MVC-based app with Azure Active Directory and restrict content key delivery based on JWT claims](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/) (Integrare un'app basata su OWIN MVC di Servizi multimediali di Azure con Azure Active Directory e limitare la distribuzione di chiavi simmetriche in base ad attestazioni JWT).
 
@@ -238,7 +239,7 @@ Usare le informazioni seguenti per la risoluzione dei problemi di implementazion
 
     In [JWT Decoder](http://jwt.calebb.net/) vengono visualizzati **aud** e **iss** come nel token JWT seguente:
 
-    ![Token JSON Web](./media/media-services-cenc-with-multidrm-access-control/media-services-1st-gotcha.png)
+    ![JWT](./media/media-services-cenc-with-multidrm-access-control/media-services-1st-gotcha.png)
 
 * Aggiungere autorizzazioni all'applicazione in Azure AD nella scheda **Configura** dell'applicazione. Le autorizzazioni sono obbligatorie per ogni applicazione, indipendentemente dal tipo di versione: locale e distribuita.
 

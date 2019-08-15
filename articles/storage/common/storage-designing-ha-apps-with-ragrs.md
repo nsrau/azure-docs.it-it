@@ -1,40 +1,41 @@
 ---
-title: Progettazione di applicazioni a disponibilità elevata con archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) | Microsoft Docs
-description: Informazioni su come usare l'archiviazione RA-GRS di Azure per progettare un'applicazione a disponibilità elevata con flessibilità sufficiente per la gestione delle interruzioni.
+title: Progettazione di applicazioni a disponibilità elevata tramite l'archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS o RA-GRS) | Microsoft Docs
+description: Come usare l'archiviazione RA-GZRS o RA-GRS di Azure per progettare un'applicazione a disponibilità elevata sufficientemente flessibile da gestire le interruzioni.
 services: storage
 author: tamram
 ms.service: storage
-ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 16f38f6aae11f7bf806b7bad76db8f739fb2823d
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 79d00d39903b6fb3891ee7c0ccc4743763043568
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357067"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69015609"
 ---
-# <a name="designing-highly-available-applications-using-ra-grs"></a>Progettazione di applicazioni a disponibilità elevata con RA-GRS
+# <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>Progettazione di applicazioni a disponibilità elevata tramite l'archiviazione con ridondanza geografica e accesso in lettura
 
-Una funzionalità comune delle infrastrutture basate su cloud come Archiviazione di Azure è che offrono una piattaforma a disponibilità elevata per l'hosting di applicazioni. Gli sviluppatori di applicazioni basate su cloud devono valutare attentamente il modo in cui sfruttare questa piattaforma per fornire applicazioni a disponibilità elevata agli utenti. Questo articolo è incentrato sul modo in cui gli sviluppatori possono usare l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) per garantire la disponibilità elevata delle applicazioni di Archiviazione di Azure.
+Una funzionalità comune delle infrastrutture basate su cloud come Archiviazione di Azure è che offrono una piattaforma a disponibilità elevata per l'hosting di applicazioni. Gli sviluppatori di applicazioni basate su cloud devono valutare attentamente il modo in cui sfruttare questa piattaforma per fornire applicazioni a disponibilità elevata agli utenti. Questo articolo è incentrato sul modo in cui gli sviluppatori possono usare una delle opzioni di replica con ridondanza geografica di Azure per garantire la disponibilità elevata delle applicazioni di archiviazione di Azure.
 
-[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
+Gli account di archiviazione configurati per la replica con ridondanza geografica vengono replicati in modo sincrono nell'area primaria e quindi replicati in modo asincrono in un'area secondaria a centinaia di chilometri di distanza. Archiviazione di Azure offre due tipi di replica con ridondanza geografica:
 
-Questo articolo è incentrato sull'archiviazione con ridondanza geografica (GRS) e su quella con ridondanza geografica e accesso in lettura (RA-GRS). Con l'archiviazione con ridondanza geografica, vengono mantenute tre copie dei dati nell'area primaria selezionata durante la configurazione dell'account di archiviazione. Altre tre copie vengono mantenute in modo asincrono in un'area secondaria specificata da Azure. RA-GRS offre l'archiviazione con ridondanza geografica con accesso in lettura alla copia secondaria.
+* [Archiviazione con ridondanza geografica (GZRS) (anteprima)](storage-redundancy-gzrs.md) fornisce la replica per gli scenari che richiedono disponibilità elevata e durabilità massima. I dati vengono replicati in modo sincrono in tre zone di disponibilità di Azure nell'area primaria usando l'archiviazione con ridondanza della zona (ZRS) e quindi replicati in modo asincrono nell'area secondaria. Per l'accesso in lettura ai dati nell'area secondaria, abilitare l'archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS).
+* L' [archiviazione con ridondanza geografica (GRS)](storage-redundancy-grs.md) fornisce la replica tra più aree per la protezione da interruzioni a livello di area. I dati vengono replicati in modo sincrono tre volte nell'area primaria usando l'archiviazione con ridondanza locale (con ridondanza locale) e quindi replicati in modo asincrono nell'area secondaria. Per l'accesso in lettura ai dati nell'area secondaria, abilitare l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS).
+
+Questo articolo illustra come progettare l'applicazione per gestire un'interruzione nell'area primaria. Se l'area primaria non è più disponibile, l'applicazione può adattarsi a eseguire le operazioni di lettura sull'area secondaria. Prima di iniziare, verificare che l'account di archiviazione sia configurato per RA-GRS o RA-GZRS.
 
 Per sapere quali aree primarie sono associate a quali aree secondarie, vedere [Continuità aziendale e ripristino di emergenza (BCDR): aree geografiche abbinate di Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 Questo articolo include frammenti di codice e un collegamento a un esempio completo alla fine che è possibile scaricare ed eseguire.
 
-> [!NOTE]
-> Archiviazione di Azure ora supporta l'archiviazione con ridondanza della zona per la compilazione di applicazioni a disponibilità elevata. L'archiviazione con ridondanza della zona offre una soluzione semplice per le esigenze di ridondanza di molte applicazioni. L'archiviazione con ridondanza della zona assicura la protezione da guasti hardware o gravi emergenze che interessano un singolo data center. Per altre informazioni, vedere [Archiviazione con ridondanza della zona (ZRS): Applicazioni di Archiviazione di Azure a disponibilità elevata](storage-redundancy-zrs.md).
+## <a name="application-design-considerations-when-reading-from-the-secondary"></a>Considerazioni sulla progettazione di applicazioni durante la lettura dal database secondario
 
-## <a name="key-features-of-ra-grs"></a>Funzionalità principali dell'archiviazione con ridondanza geografica e accesso in lettura
+Lo scopo di questo articolo è illustrare come progettare un'applicazione che continuerà a funzionare anche nel caso di un'emergenza grave nel data center primario, anche se con capacità limitata. È possibile progettare l'applicazione in modo che gestisca problemi temporanei o prolungati passando alla lettura dall'area secondaria in caso di problemi che interferiscono con la lettura dall'area primaria. Quando l'area primaria è nuovamente disponibile, l'applicazione può tornare alla lettura dall'area primaria.
 
-Tener conto dei punti chiave seguenti quando si progetta un'applicazione per l'archiviazione con ridondanza geografica e accesso in lettura:
+Tenere presenti questi punti chiave durante la progettazione dell'applicazione per RA-GRS o RA-GZRS:
 
 * Archiviazione di Azure conserva in un'area secondaria una copia di sola lettura dei dati archiviati nell'area primaria. Come indicato in precedenza, il servizio di archiviazione determina la posizione dell'area secondaria.
 
@@ -42,19 +43,18 @@ Tener conto dei punti chiave seguenti quando si progetta un'applicazione per l'a
 
 * Per BLOB, tabelle e code è possibile eseguire query nell'area secondaria per trovare un valore *Ora ultima sincronizzazione* che indica quando è stata eseguita l'ultima replica dall'area primaria all'area secondaria. Questa operazione non è supportata per File di Azure, che non ha attualmente l'archiviazione con ridondanza geografica e accesso in lettura.
 
-* È possibile usare la libreria client di archiviazione per interagire con i dati nell'area primaria o secondaria. È anche possibile reindirizzare automaticamente le richieste di lettura all'area secondaria in caso di timeout della richiesta di lettura per l'area primaria.
+* È possibile usare la libreria client di archiviazione per leggere e scrivere i dati nell'area primaria o secondaria. È anche possibile reindirizzare automaticamente le richieste di lettura all'area secondaria in caso di timeout della richiesta di lettura per l'area primaria.
 
 * Se l'area primaria diventa non disponibile, è possibile avviare il failover di un account. Quando si effettua il failover all'area secondaria, le voci DNS che puntano all'area primaria vengono modificate in modo da puntare all'area secondaria. Dopo aver completato il failover, viene ripristinato l'accesso in scrittura per gli account con archiviazione con ridondanza geografica e RA-GRS. Per altre informazioni, consultare [Ripristino di emergenza e failover dell'account di archiviazione (anteprima) in Archiviazione di Azure](storage-disaster-recovery-guidance.md).
 
-## <a name="application-design-considerations-when-using-ra-grs"></a>Considerazioni sulla progettazione di applicazioni quando si usa l'archiviazione con ridondanza geografica e accesso in lettura
-
-Lo scopo di questo articolo è illustrare come progettare un'applicazione che continuerà a funzionare anche nel caso di un'emergenza grave nel data center primario, anche se con capacità limitata. È possibile progettare l'applicazione in modo che gestisca problemi temporanei o prolungati passando alla lettura dall'area secondaria in caso di problemi che interferiscono con la lettura dall'area primaria. Quando l'area primaria è nuovamente disponibile, l'applicazione può tornare alla lettura dall'area primaria.
+> [!NOTE]
+> Il failover dell'account gestito dal cliente (anteprima) non è ancora disponibile nelle aree che supportano GZRS/RA-GZRS, quindi i clienti non possono attualmente gestire gli eventi di failover degli account con account GZRS e RA-GZRS. Durante l'anteprima, Microsoft gestirà gli eventi di failover che interessano gli account GZRS/RA-GZRS.
 
 ### <a name="using-eventually-consistent-data"></a>Uso di dati con coerenza finale
 
 La soluzione proposta presuppone che sia accettabile restituire dati potenzialmente non aggiornati all'applicazione chiamante. Poiché i dati nell'area secondaria hanno coerenza finale, è possibile che l'area primaria diventi inaccessibile prima del termine della replica di un aggiornamento nell'area secondaria.
 
-Si supponga ad esempio che un cliente invii un aggiornamento completato correttamente, ma che l'area primaria diventi non disponibile prima che l'aggiornamento venga propagato all'area secondaria. Quando il cliente chiede di leggere nuovamente i dati, ricevono dati non aggiornati dall'area secondaria anziché i dati aggiornati. Quando si progetta un'applicazione, è necessario stabilire se ciò sia accettabile e, in tal caso, come informare il cliente. 
+Si supponga ad esempio che un cliente invii un aggiornamento completato correttamente, ma che l'area primaria diventi non disponibile prima che l'aggiornamento venga propagato all'area secondaria. Quando il cliente chiede di leggere i dati, riceve i dati non aggiornati dall'area secondaria anziché i dati aggiornati. Quando si progetta un'applicazione, è necessario stabilire se ciò sia accettabile e, in tal caso, come informare il cliente. 
 
 Più avanti nell'articolo verrà illustrato come controllare l'ora dell'ultima sincronizzazione per i dati secondari per verificare se l'area secondaria è aggiornata.
 
@@ -70,15 +70,15 @@ Ciò dipende in definitiva dalla complessità dell'applicazione. È possibile de
 
 Di seguito sono indicate le altre considerazioni che verranno illustrate nella parte restante di questo articolo.
 
-*   Gestione dei tentativi delle richieste di lettura con il modello a interruttore
+* Gestione dei tentativi delle richieste di lettura con il modello a interruttore
 
-*   Dati con coerenza finale e ora dell'ultima sincronizzazione
+* Dati con coerenza finale e ora dell'ultima sincronizzazione
 
-*   Test
+* Test
 
 ## <a name="running-your-application-in-read-only-mode"></a>Esecuzione dell'applicazione in modalità di sola lettura
 
-Per usare l'archiviazione con ridondanza geografica e accesso in lettura si devono poter gestire sia le richieste di lettura non riuscite che le richieste di aggiornamento non riuscite. In questo caso, per "aggiornamento" si intendono inserimenti, aggiornamenti ed eliminazioni. In caso di errore del data center primario, le richieste di lettura possono essere reindirizzate al data center secondario. Le richieste di aggiornamento non possono essere tuttavia reindirizzate al data center secondario poiché è di sola lettura. Per questo motivo, è necessario progettare l'applicazione per l'esecuzione in modalità di sola lettura.
+Per preparare efficacemente un'interruzione nell'area primaria, è necessario essere in grado di gestire sia le richieste di lettura non riuscite, sia le richieste di aggiornamento non riuscite (con aggiornamento in questo caso, ovvero inserimenti, aggiornamenti ed eliminazioni). Se l'area primaria ha esito negativo, le richieste di lettura possono essere reindirizzate all'area secondaria. Le richieste di aggiornamento non possono essere tuttavia reindirizzate al data center secondario poiché è di sola lettura. Per questo motivo, è necessario progettare l'applicazione per l'esecuzione in modalità di sola lettura.
 
 È ad esempio possibile impostare un flag che viene verificato prima che le richieste di aggiornamento siano inviate ad Archiviazione di Azure. Alla ricezione di una delle richieste di aggiornamento, è possibile ignorare la richiesta e restituire una risposta appropriata al cliente. È anche possibile disabilitare completamente determinate funzionalità finché il problema è risolto e informare gli utenti che tali funzionalità sono temporaneamente non disponibili.
 
@@ -90,37 +90,37 @@ La possibilità di eseguire l'applicazione in modalità di sola lettura offre un
 
 Esistono molti modi per gestire le richieste di aggiornamento durante l'esecuzione in modalità di sola lettura. Questi modi non verranno illustrati nei dettagli, ma in linea generale vengono presi in considerazione due modelli.
 
-1.  È possibile rispondere all'utente e indicare che gli aggiornamenti non sono attualmente accettati. Un sistema di gestione dei contatti potrebbe ad esempio consentire ai clienti di accedere alle informazioni di contatto, ma non di eseguire aggiornamenti.
+1. È possibile rispondere all'utente e indicare che gli aggiornamenti non sono attualmente accettati. Un sistema di gestione dei contatti potrebbe ad esempio consentire ai clienti di accedere alle informazioni di contatto, ma non di eseguire aggiornamenti.
 
-2.  È possibile accodare gli aggiornamenti in un'altra area. In questo caso, le richieste di aggiornamento in sospeso vengono scritte in una coda di un'area diversa e quindi elaborate in un modo specifico quando il data center primario è nuovamente online. In questo scenario è necessario informare il cliente che l'aggiornamento richiesto è in coda e verrà elaborato in un secondo momento.
+2. È possibile accodare gli aggiornamenti in un'altra area. In questo caso, le richieste di aggiornamento in sospeso vengono scritte in una coda di un'area diversa e quindi elaborate in un modo specifico quando il data center primario è nuovamente online. In questo scenario è necessario informare il cliente che l'aggiornamento richiesto è in coda e verrà elaborato in un secondo momento.
 
-3.  È possibile scrivere gli aggiornamenti in un account di archiviazione di un'altra area. Quando il data center principale è nuovamente online, è possibile configurare un modo per unire gli aggiornamenti nei dati primari, a seconda della struttura dei dati. Se ad esempio si creano file separati con indicatore di data e ora nel nome, è possibile copiare di nuovo tali file nell'area primaria. Questa procedura funziona per alcuni carichi di lavoro, ad esempio dati di registrazione e iOT.
+3. È possibile scrivere gli aggiornamenti in un account di archiviazione di un'altra area. Quando il data center principale è nuovamente online, è possibile configurare un modo per unire gli aggiornamenti nei dati primari, a seconda della struttura dei dati. Se ad esempio si creano file separati con indicatore di data e ora nel nome, è possibile copiare di nuovo tali file nell'area primaria. Questa procedura funziona per alcuni carichi di lavoro, ad esempio dati di registrazione e iOT.
 
 ## <a name="handling-retries"></a>Gestione dei tentativi
 
-Come si possono identificare gli errori non irreversibili? Questo stato è determinato dalla libreria client di archiviazione. Un errore 404 (risorsa non trovata) è ad esempio irreversibile perché è improbabile che la ripetizione del tentativo abbia esito positivo. Al contrario, un errore 500 è reversibile perché è un errore del server e potrebbe essere trattarsi semplicemente di un problema temporaneo. Per altri dettagli, vedere il [codice open source per la classe ExponentialRetry](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) nella libreria client di archiviazione .NET. Cercare il metodo ShouldRetry.
+La libreria client di archiviazione di Azure consente di determinare quali errori possono essere ripetuti. Ad esempio, è possibile ritentare un errore 404 (risorsa non trovata) perché non è probabile che venga eseguito un nuovo tentativo. D'altra parte, non è possibile ritentare un errore 500 perché si tratta di un errore del server e potrebbe essere semplicemente un problema temporaneo. Per altri dettagli, vedere il [codice open source per la classe ExponentialRetry](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) nella libreria client di archiviazione .NET. Cercare il metodo ShouldRetry.
 
 ### <a name="read-requests"></a>Richieste di lettura
 
-Se si è verificato un problema con l'archiviazione primaria, le richieste di lettura possono essere reindirizzate all'archiviazione secondaria. Come indicato in precedenza in [Uso di dati con coerenza finale](#using-eventually-consistent-data), deve essere accettabile l'ipotesi che l'applicazione legga dati non aggiornati. Se si usa la libreria client di archiviazione per accedere ai dati di archiviazione con ridondanza geografica e accesso in lettura, è possibile specificare il comportamento dei tentativi di una richiesta di lettura impostando la proprietà **LocationMode** su uno dei valori seguenti:
+Se si è verificato un problema con l'archiviazione primaria, le richieste di lettura possono essere reindirizzate all'archiviazione secondaria. Come indicato in precedenza in [Uso di dati con coerenza finale](#using-eventually-consistent-data), deve essere accettabile l'ipotesi che l'applicazione legga dati non aggiornati. Se si usa la libreria client di archiviazione per accedere ai dati dal database secondario, è possibile specificare il comportamento di ripetizione dei tentativi di una richiesta di lettura impostando un valore per la proprietà **LocationMode** su uno degli elementi seguenti:
 
-*   **PrimaryOnly** (impostazione predefinita)
+* **PrimaryOnly** (impostazione predefinita)
 
-*   **PrimaryThenSecondary**
+* **PrimaryThenSecondary**
 
-*   **SecondaryOnly**
+* **SecondaryOnly**
 
-*   **SecondaryThenPrimary**
+* **SecondaryThenPrimary**
 
-Quando si imposta la proprietà **LocationMode** su **PrimaryThenSecondary**, se la richiesta di lettura iniziale all'endpoint primario ha esito negativo con errore non irreversibile, il client invia automaticamente un'altra richiesta di lettura all'endpoint secondario. Se l'errore è un timeout del server, il client dovrà attendere che il timeout scada prima di ricevere un errore non irreversibile dal servizio.
+Quando si imposta **LocationMode** su **PrimaryThenSecondary**, se la richiesta di lettura iniziale all'endpoint primario ha esito negativo e si verifica un errore che può essere ritentato, il client esegue automaticamente un'altra richiesta di lettura all'endpoint secondario. Se l'errore è un timeout del server, il client dovrà attendere che il timeout scada prima di ricevere un errore non irreversibile dal servizio.
 
 Esistono essenzialmente due scenari da considerare quando si decide come rispondere a un errore non irreversibile:
 
-*   Si tratta di un problema isolato e le richieste successive all'endpoint primario non restituiranno un errore non irreversibile. Un esempio di questa situazione può verificarsi in caso di errore di rete temporaneo.
+* Si tratta di un problema isolato e le richieste successive all'endpoint primario non restituiranno un errore non irreversibile. Un esempio di questa situazione può verificarsi in caso di errore di rete temporaneo.
 
     In questo scenario, le prestazioni non verranno penalizzate impostando **LocationMode** su **PrimaryThenSecondary** perché questo evento si verifica raramente.
 
-*   Si tratta di un problema che interessa almeno uno dei servizi di archiviazione nell'area primaria e tutte le richieste successive al servizio nell'area primaria restituiranno probabilmente errori non irreversibili per un periodo di tempo. Un esempio è quando l'area primaria è completamente inaccessibile.
+* Si tratta di un problema che interessa almeno uno dei servizi di archiviazione nell'area primaria e tutte le richieste successive al servizio nell'area primaria restituiranno probabilmente errori non irreversibili per un periodo di tempo. Un esempio è quando l'area primaria è completamente inaccessibile.
 
     In questo scenario, le prestazioni vengono penalizzate perché tutte le richieste di lettura proveranno prima a contattare l'endpoint primario, attenderanno la scadenza del timeout, quindi passeranno all'endpoint secondario.
 
@@ -148,7 +148,7 @@ La soglia degli errori usata per determinare quando passare alla modalità di so
 
 Sono disponibili tre opzioni principali per monitorare la frequenza dei tentativi nell'area primaria per determinare quando passare all'area secondaria e attivare la modalità di sola lettura per l'applicazione.
 
-*   Aggiungere un gestore per l'evento [**Retrying** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) nell'oggetto [ **OperationContext** ](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) passato alle richieste di archiviazione: si tratta del metodo illustrato in questo articolo e usato nell'esempio di codice correlato. Questi eventi vengono attivati ogni volta che il client riprova una richiesta, consentendo così di determinare la frequenza con cui il client rileva errori non irreversibili in un endpoint primario.
+* Aggiungere un gestore per l'evento [**Retrying** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) nell'oggetto [ **OperationContext** ](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) passato alle richieste di archiviazione: si tratta del metodo illustrato in questo articolo e usato nell'esempio di codice correlato. Questi eventi vengono attivati ogni volta che il client riprova una richiesta, consentendo così di determinare la frequenza con cui il client rileva errori non irreversibili in un endpoint primario.
 
     ```csharp 
     operationContext.Retrying += (sender, arguments) =>
@@ -159,7 +159,7 @@ Sono disponibili tre opzioni principali per monitorare la frequenza dei tentativ
     };
     ```
 
-*   Nel metodo [**Evaluate**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) in un criterio di tentativi personalizzato è possibile eseguire codice personalizzato ogni volta che viene eseguito un tentativo. Oltre a registrare l'esecuzione di un tentativo, il metodo consente di modificare il comportamento dei tentativi.
+* Nel metodo [**Evaluate**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) in un criterio di tentativi personalizzato è possibile eseguire codice personalizzato ogni volta che viene eseguito un tentativo. Oltre a registrare l'esecuzione di un tentativo, il metodo consente di modificare il comportamento dei tentativi.
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,
@@ -187,7 +187,7 @@ Sono disponibili tre opzioni principali per monitorare la frequenza dei tentativ
     }
     ```
 
-*   Il terzo approccio consiste nell'implementazione di un componente di monitoraggio personalizzato nell'applicazione che esegue continuamente il ping dell'endpoint di archiviazione primario con richieste di lettura fittizie, ad esempio la lettura di un BLOB di piccole dimensioni, per determinarne l'integrità. Questa operazione impiegherà alcune risorse, ma non molte. Quando viene rilevato un problema che raggiunge la soglia, verranno attivate l'impostazione **SecondaryOnly** e la modalità di sola lettura.
+* Il terzo approccio consiste nell'implementazione di un componente di monitoraggio personalizzato nell'applicazione che esegue continuamente il ping dell'endpoint di archiviazione primario con richieste di lettura fittizie, ad esempio la lettura di un BLOB di piccole dimensioni, per determinarne l'integrità. Questa operazione impiegherà alcune risorse, ma non molte. Quando viene rilevato un problema che raggiunge la soglia, verranno attivate l'impostazione **SecondaryOnly** e la modalità di sola lettura.
 
 A un certo punto sarà necessario tornare a usare l'endpoint primario e consentire gli aggiornamenti. Se si usa uno dei primi due metodi elencati in precedenza, è possibile tornare semplicemente all'endpoint primario e abilitare la modalità di aggiornamento dopo un periodo di tempo o un numero di operazioni selezionato dall'utente. Si potrà quindi riprendere la logica dei tentativi. Se il problema è stato risolto, si continuerà a usare l'endpoint primario e a consentire gli aggiornamenti. Se il problema è ancora presente, l'applicazione passerà di nuovo all'endpoint secondario e alla modalità di sola lettura dopo non aver soddisfatto i criteri impostati.
 
@@ -195,31 +195,31 @@ Per il terzo scenario, quando il ping dell'endpoint di archiviazione primario ha
 
 ## <a name="handling-eventually-consistent-data"></a>Gestione di dati con coerenza finale
 
-L'archiviazione con ridondanza geografica e accesso in lettura funziona replicando le transazioni dall'area primaria all'area secondaria. Il processo di replica garantisce che i dati nell'area secondaria abbiano *coerenza finale*. Questo significa che tutte le transazioni nell'area primaria saranno alla fine presenti nell'area secondaria, ma potrebbe verificarsi un ritardo prima che vengano visualizzate e che non è possibile garantire che giungano nell'area secondaria nello stesso ordine in cui si trovavano originariamente nell'area primaria. Se le transazioni non giungono nell'area secondaria nell'ordine originario, è *possibile* che i dati nell'area secondaria siano incoerenti finché il servizio non si allinea.
+L'archiviazione con ridondanza geografica funziona replicando le transazioni dall'area primaria a quella secondaria. Il processo di replica garantisce che i dati nell'area secondaria abbiano *coerenza finale*. Questo significa che tutte le transazioni nell'area primaria saranno alla fine presenti nell'area secondaria, ma potrebbe verificarsi un ritardo prima che vengano visualizzate e che non è possibile garantire che giungano nell'area secondaria nello stesso ordine in cui si trovavano originariamente nell'area primaria. Se le transazioni non giungono nell'area secondaria nell'ordine originario, è *possibile* che i dati nell'area secondaria siano incoerenti finché il servizio non si allinea.
 
-La tabella seguente illustra un esempio di ciò che potrebbe verificarsi quando si aggiornano i dettagli di un dipendente per renderli un membro del *gli amministratori* ruolo. Ai fini di questo esempio è necessario aggiornare l'entità **employee** e aggiornare un'entità **administrator role** con un conteggio del numero totale di amministratori. Si noti il modo in cui gli aggiornamenti vengono applicati in un ordine diverso nell'area secondaria.
+Nella tabella seguente viene illustrato un esempio di ciò che può verificarsi quando si aggiornano i dettagli di un dipendente per impostarli come membri del ruolo di *amministratore* . Ai fini di questo esempio è necessario aggiornare l'entità **employee** e aggiornare un'entità **administrator role** con un conteggio del numero totale di amministratori. Si noti il modo in cui gli aggiornamenti vengono applicati in un ordine diverso nell'area secondaria.
 
 | **Ora** | **Transazione**                                            | **Replica**                       | **Ora ultima sincronizzazione** | **Risultato** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transazione A: <br> Inserimento dell'entità <br> employee nell'area primaria |                                   |                    | Transazione A inserita nell'area primaria,<br> non ancora replicata. |
 | T1       |                                                            | Transazione A <br> replicata<br> nell'area secondaria | T1 | Transazione A replicata nell'area secondaria. <br>Ora ultima sincronizzazione aggiornata.    |
-| T2       | Transazione B:<br>Aggiornamento<br> dell'entità employee<br> nell'area primaria  |                                | T1                 | Transazione B scritta nell'area primaria,<br> non ancora replicata.  |
-| T3       | Transazione C:<br> Aggiornamento <br>entità<br>administrator role nell'area<br>primaria |                    | T1                 | Transazione C scritta nell'area primaria,<br> non ancora replicata.  |
+| T2       | Transazione B:<br>Aggiorna<br> dell'entità employee<br> nell'area primaria  |                                | T1                 | Transazione B scritta nell'area primaria,<br> non ancora replicata.  |
+| T3       | Transazione C:<br> Aggiornamento <br>amministratore<br>administrator role nell'area<br>primaria |                    | T1                 | Transazione C scritta nell'area primaria,<br> non ancora replicata.  |
 | *T4*     |                                                       | Transazione C <br>replicata<br> nell'area secondaria | T1         | Transazione C replicata nell'area secondaria.<br>LastSyncTime non aggiornato perché <br>la transazione B non è stata ancora replicata.|
 | *T5*     | Lettura delle entità <br>dall'area secondaria                           |                                  | T1                 | Si ottiene un valore non aggiornato per l'entità <br> employee perché la transazione B <br> non è stata ancora replicata. Si ottiene il nuovo valore per<br> l'entità administrator role perché C è stata<br> replicata. Ora ultima sincronizzazione non ancora<br> aggiornata perché la transazione B<br> non è stata replicata. È possibile stabilire che<br>l'entità administrator role è incoerente <br>perché la data/ora dell'entità è successiva <br>all'ora dell'ultima sincronizzazione. |
-| *T6*     |                                                      | Transazione B<br> replicata<br> nell'area secondaria | T6                 | *T6*: tutte le transazioni fino alla C sono <br>state replicate, ora ultima sincronizzazione<br> aggiornata. |
+| *T6*     |                                                      | Transazione B<br> replicata<br> secondario | T6                 | *T6*: tutte le transazioni fino alla C sono <br>state replicate, ora ultima sincronizzazione<br> aggiornata. |
 
 In questo esempio presupporre che il client passi alla lettura dell'area secondaria in corrispondenza di T5. Può leggere correttamente l'entità **administrator role** in questa fase, ma l'entità contiene un valore di conteggio degli amministratori che non è coerente con il numero di entità **employee** attualmente contrassegnate come amministratori nell'area secondaria. Il client può semplicemente visualizzare questo valore, con il rischio che si tratti di informazioni incoerenti. In alternativa, il client può determinare che **administrator role** si trova in uno stato potenzialmente incoerente perché gli aggiornamenti non hanno seguito l'ordine e informare l'utente.
 
 Per riconoscere la presenza di dati potenzialmente incoerenti, il client può usare il valore di *Ora ultima sincronizzazione* che può essere ottenuto in qualsiasi momento eseguendo una query su un servizio di archiviazione. Questo valore indica l'ora in cui i dati nell'area secondaria sono stati coerenti per l'ultima volta e l'ora in cui il servizio aveva applicato tutte le transazioni prima di quel momento. Nell'esempio illustrato in precedenza, dopo che il servizio ha inserito l'entità **employee** nell'area secondaria l'ora dell'ultima sincronizzazione viene impostata su *T1*. Resta impostata su *T1* finché il servizio non aggiorna l'entità **employee** nell'area secondaria quando viene impostata su *T6*. Se recupera l'ora dell'ultima sincronizzazione quando legge l'entità su *T5*, il client può confrontare questo dato con il timestamp dell'entità. Se il timestamp dell'entità è successivo all'ora dell'ultima sincronizzazione, l'entità si trova in uno stato potenzialmente non coerente ed è possibile intervenire nel modo più idoneo per l'applicazione. Per usare questo campo è necessario sapere quando è stato completato l'ultimo aggiornamento nell'area primaria.
 
-## <a name="getting-the-last-sync-time"></a>Ottenere l'ora dell'ultima sincronizzazione
+## <a name="getting-the-last-sync-time"></a>Recupero dell'ora dell'ultima sincronizzazione
 
-È possibile usare PowerShell o CLI di Azure per recuperare l'ora dell'ultima sincronizzazione per determinare quando i dati dell'ultima scrittura nel database secondario.
+È possibile usare PowerShell o l'interfaccia della riga di comando di Azure per recuperare l'ora dell'ultima sincronizzazione per determinare quando i dati sono stati scritti per ultimi nella replica secondaria.
 
 ### <a name="powershell"></a>PowerShell
 
-Per ottenere l'ora dell'ultima sincronizzazione per l'account di archiviazione usando PowerShell, verificare l'account di archiviazione **GeoReplicationStats.LastSyncTime** proprietà. Ricordare di sostituire i valori segnaposto con i propri valori:
+Per ottenere l'ora dell'ultima sincronizzazione per l'account di archiviazione usando PowerShell, controllare la proprietà **GeoReplicationStats. LastSyncTime** dell'account di archiviazione. Ricordarsi di sostituire i valori segnaposto con i propri valori:
 
 ```powershell
 $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
@@ -229,7 +229,7 @@ $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Per ottenere l'ora dell'ultima sincronizzazione per l'account di archiviazione tramite la CLI di Azure, verificare l'account di archiviazione **geoReplicationStats.lastSyncTime** proprietà. Usare la `--expand` parametro per restituire i valori delle proprietà annidato sotto **geoReplicationStats**. Ricordare di sostituire i valori segnaposto con i propri valori:
+Per ottenere l'ora dell'ultima sincronizzazione per l'account di archiviazione usando l'interfaccia della riga di comando di Azure, controllare la proprietà **geoReplicationStats. LastSyncTime** dell'account di archiviazione. Usare il `--expand` parametro per restituire i valori per le proprietà annidate in **geoReplicationStats**. Ricordarsi di sostituire i valori segnaposto con i propri valori:
 
 ```azurecli
 $lastSyncTime=$(az storage account show \
@@ -262,6 +262,6 @@ Se le soglie per il passaggio dell'applicazione alla modalità di sola lettura s
 
 ## <a name="next-steps"></a>Fasi successive
 
-* Per altre informazioni sull'archiviazione con ridondanza geografica e accesso in lettura, incluso un altro esempio di impostazione di LastSyncTime, vedere [Windows Azure Storage Redundancy Options and Read Access Geo-Redundant Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) (Opzioni di ridondanza di Archiviazione di Microsoft Azure e archiviazione con ridondanza geografica e accesso in lettura).
+* Per altre informazioni su come leggere dall'area secondaria, incluso un altro esempio di come è stata impostata la proprietà dell'ora dell'ultima sincronizzazione, vedere Opzioni di ridondanza di [archiviazione di Azure e archiviazione con ridondanza geografica e accesso in lettura](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
-* Per un esempio completo che illustra come attivare il passaggio dall'endpoint primario all'endpoint secondario e viceversa, vedere [Esempi di Azure: uso del modello a interruttore con l'archiviazione con ridondanza geografica e accesso in lettura](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs).
+* Per un esempio completo che illustra come eseguire il passaggio tra gli endpoint primari e secondari, vedere [esempi di Azure-uso del modello di interruttore con archiviazione RA-GRS](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs).

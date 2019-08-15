@@ -1,7 +1,7 @@
 ---
 title: Architettura & concetti chiave
 titleSuffix: Azure Machine Learning service
-description: Informazioni sull'architettura, i termini, i concetti e il flusso di lavoro che costituiscono il servizio Azure Machine Learning.
+description: Informazioni sull'architettura, i termini, i concetti e i flussi di lavoro che costituiscono il servizio Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: e6f6c41e5de4f4a053748dfb08dc57e8acac32e5
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: ea5e476680b07a6a7ba2b57e94f1f0b99cc10987
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848230"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990094"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Come funziona il servizio Azure Machine Learning: Architettura e concetti
 
@@ -49,12 +49,16 @@ Usare questi strumenti per Azure Machine Learning:
 + Scrivere codice in Visual Studio Code con [Azure Machine Learning estensione vs code](how-to-vscode-tools.md)
 + Usare l' [interfaccia visiva (anteprima) per il servizio Azure Machine Learning](ui-concept-visual-interface.md) per eseguire i passaggi del flusso di lavoro senza scrivere codice.
 
-## <a name="glossary-of-concepts"></a>Glossario dei concetti
+> [!NOTE]
+> Sebbene in questo articolo vengano definiti termini e concetti usati dal servizio Azure Machine Learning, non vengono definiti quelli relativi alla piattaforma di Azure. Per altre informazioni sulla terminologia della piattaforma Azure, vedere il [glossario di Microsoft Azure](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
+
+## <a name="glossary"></a>Glossario
 
 + <a href="#workspaces">Area</a>
 + <a href="#experiments">Sperimentazioni</a>
 + <a href="#models">Modelli</a>
 + <a href="#run-configurations">Configurazione di esecuzione</a>
++ [Estimatori](#estimators)
 + <a href="#datasets-and-datastores">DataSet & archivi dati</a>
 + <a href="#compute-targets">Destinazioni di calcolo</a>
 + <a href="#training-scripts">Script di training</a>
@@ -69,19 +73,9 @@ Usare questi strumenti per Azure Machine Learning:
 + <a href="#ml-pipelines">Pipeline ML</a>
 + <a href="#logging">registrazione</a>
 
-> [!NOTE]
-> Sebbene in questo articolo vengano definiti termini e concetti usati dal servizio Azure Machine Learning, non vengono definiti quelli relativi alla piattaforma di Azure. Per altre informazioni sulla terminologia della piattaforma Azure, vedere il [glossario di Microsoft Azure](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
-
-
 ### <a name="workspaces"></a>Aree di lavoro
 
-[L'area di lavoro](concept-workspace.md) è la risorsa di primo livello per il servizio Azure Machine Learning. Fornisce una posizione centralizzata per lavorare con tutti gli artefatti creati durante l'uso del servizio Azure Machine Learning.
-
-Nel seguente diagramma viene illustrata una tassonomia dell'area di lavoro:
-
-[![Tassonomia dell'area di lavoro](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
-
-Per ulteriori informazioni sulle aree di lavoro, vedere [che cos'è un'area di lavoro Azure Machine Learning?](concept-workspace.md).
+[L'area di lavoro](concept-workspace.md) è la risorsa di primo livello per il servizio Azure Machine Learning. Fornisce una posizione centralizzata per lavorare con tutti gli artefatti creati durante l'uso del servizio Azure Machine Learning. È possibile condividere un'area di lavoro con altri utenti. Per una descrizione dettagliata delle aree di lavoro, vedere [che cos'è un'area di lavoro Azure Machine Learning?](concept-workspace.md).
 
 ### <a name="experiments"></a>Esperimenti
 
@@ -97,7 +91,7 @@ Un modello è prodotto da un'esecuzione in Azure Machine Learning. È anche poss
 
 Il servizio Azure Machine Learning è indipendente dal framework. Quando si crea un modello, è possibile usare qualsiasi framework di Machine Learning comune, ad esempio Scikit-learn, XGBoost, PyTorch, TensorFlow e Chainer.
 
-Per un esempio di training di un modello, [vedere Esercitazione: Eseguire il training di un modello di classificazione delle immagini con il servizio Azure Machine Learning](tutorial-train-models-with-aml.md).
+Per un esempio di training di un modello usando Scikit-learn e un Estimator [, vedere Esercitazione: Eseguire il training di un modello di classificazione delle immagini con il servizio Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 Il **Registro di sistema del modello** tiene traccia di tutti i modelli nell'area di lavoro del servizio Azure Machine Learning.
 
@@ -120,11 +114,24 @@ Una configurazione di esecuzione può essere salvata in modo permanente in un fi
 
 Per degli esempi di configurazioni di esecuzione, vedere [Selezionare e usare una destinazione di calcolo per eseguire il training del modello](how-to-set-up-training-targets.md).
 
+### <a name="estimators"></a>Estimatori
+
+Per facilitare il training del modello con i Framework più diffusi, la classe Estimator consente di costruire facilmente configurazioni di esecuzione. È possibile creare e usare uno strumento di [stima](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) generico per inviare script di training che usano qualsiasi framework di apprendimento scelto, ad esempio Scikit-learn.
+
+Per le attività PyTorch, TensorFlow e Chainer, Azure Machine Learning fornisce anche i rispettivi estimatori [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)e [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) per semplificare l'uso di questi Framework.
+
+Per altre informazioni, vedere i seguenti articoli:
+
+* [Training di modelli ml con estimatori](how-to-train-ml-models.md).
+* Esegui il [training di modelli di Deep Learning Pytorch su larga scala con Azure Machine Learning](how-to-train-pytorch.md).
+* Esegui il [training e la registrazione dei modelli TensorFlow su larga scala con Azure Machine Learning servizio](how-to-train-tensorflow.md).
+* Esegui il [training e la registrazione dei modelli di Chainer su larga scala con Azure Machine Learning servizio](how-to-train-chainer.md).
+
 ### <a name="datasets-and-datastores"></a>DataSet e archivi dati
 
 **Set di impostazioni Azure Machine Learning** (anteprima) semplifica l'accesso e l'utilizzo dei dati. I set di dati gestiscono i dati in diversi scenari, come il training del modello e la creazione della pipeline. Con Azure Machine Learning SDK è possibile accedere all'archiviazione sottostante, esplorare e preparare i dati, gestire il ciclo di vita delle diverse definizioni del set di dati e confrontare i set di dati usati nel training e nell'ambiente di produzione.
 
-DataSets fornisce metodi per l'utilizzo dei dati nei formati più diffusi, ad `from_delimited_files()` esempio `to_pandas_dataframe()`l'utilizzo di o.
+I set di dati forniscono metodi per lavorare con i dati nei formati più diffusi `from_delimited_files()` , `to_pandas_dataframe()`ad esempio usando o.
 
 Per altre informazioni, vedere [creare e registrare Azure Machine Learning set](how-to-create-register-datasets.md)di dati.  Per altri esempi di uso dei set di impostazioni, vedere i [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/work-with-data/datasets).
 
@@ -152,7 +159,6 @@ Un'esecuzione è un record contenente le seguenti informazioni:
 * Uno snapshot della directory che contiene gli script, precedente all'esecuzione
 
 Un'esecuzione viene generata quando si invia uno script per eseguire il training di un modello. Un'esecuzione può avere zero o più esecuzioni figlio. L'esecuzione di primo livello, ad esempio, potrebbe avere due esecuzioni figlio, ognuna delle quali può avere a sua volte le proprie esecuzioni figlio.
-
 
 ### <a name="github-tracking-and-integration"></a>Rilevamento e integrazione di GitHub
 

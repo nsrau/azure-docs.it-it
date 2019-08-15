@@ -1,24 +1,21 @@
 ---
-title: Leggere le repliche di Database di Azure per PostgreSQL - Server singolo
-description: Questo articolo descrive la funzionalità di lettura della replica nel Database di Azure per PostgreSQL - singolo Server.
+title: Leggere le repliche nel database di Azure per PostgreSQL-server singolo
+description: Questo articolo descrive la funzionalità di lettura della replica nel database di Azure per PostgreSQL-server singolo.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/14/2019
-ms.openlocfilehash: c98247b0ba8b670a59dec9aa3ec87e949f1dda78
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.date: 08/12/2019
+ms.openlocfilehash: 928a85c9d03148198fe3e965636740812ce732f7
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147935"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976277"
 ---
-# <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Leggere le repliche di Database di Azure per PostgreSQL - Server singolo
+# <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Leggere le repliche nel database di Azure per PostgreSQL-server singolo
 
-La funzionalità relativa alle repliche in lettura consente di replicare i dati dal server del Database di Azure per PostgreSQL ad un server di sola lettura. È possibile eseguire la replica dal server master per fino a cinque repliche. Le repliche in lettura vengono aggiornate in modo asincrono tramite la tecnologia di replica nativa del motore PostgreSQL.
-
-> [!IMPORTANT]
-> È possibile creare una replica di lettura nella stessa area del server master o in altre aree di Azure di propria scelta. La replica tra aree è attualmente in anteprima pubblica.
+La funzionalità relativa alle repliche in lettura consente di replicare i dati dal server del Database di Azure per PostgreSQL ad un server di sola lettura. È possibile creare fino a un massimo di cinque repliche da un server master. Le repliche in lettura vengono aggiornate in modo asincrono tramite la tecnologia di replica nativa del motore PostgreSQL.
 
 Le repliche sono nuovi server da gestire in modo simile ai normali server del Database di Azure per PostgreSQL. Per ogni replica in lettura, viene addebitato il costo delle risorse di calcolo e di archiviazione sottoposte a provisioning, espresse rispettivamente in vCore e GB/mese.
 
@@ -33,14 +30,39 @@ Poiché le repliche sono di sola lettura, non riducono direttamente gli oneri pe
 
 Questa funzionalità di replica in lettura si avvale della replica asincrona di PostgreSQL. La funzionalità non è concepita per scenari di replica sincrona. Esisterà un ritardo misurabile significativo tra il master e la replica. I dati nella replica diventano alla fine coerenti con i dati nel master. Usare questa funzionalità per i carichi di lavoro in grado di sostenere questo ritardo.
 
-Lettura delle repliche possono migliorare il piano di ripristino di emergenza. È necessario disporre di una replica in un'area di Azure diversa dal server master. Se si verifica un'emergenza dell'area, è possibile arrestare la replica per la replica e reindirizzare il carico di lavoro a essa. L'arresto della replica consente alla replica iniziare ad accettare operazioni di scrittura, nonché legge. Altre informazioni, vedere la [arrestare la replica](#stop-replication) sezione. 
+## <a name="cross-region-replication"></a>Replica tra aree
+È possibile creare una replica di lettura in un'area diversa dal server master. La replica tra aree può essere utile per scenari come la pianificazione del ripristino di emergenza o per avvicinare i dati agli utenti.
+
+> [!IMPORTANT]
+> La replica tra aree è attualmente disponibile in anteprima pubblica.
+
+È possibile avere un server master in qualsiasi [area di database di Azure per PostgreSQL](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql).  Un server master può avere una replica nell'area abbinata o nelle aree di replica universale.
+
+### <a name="universal-replica-regions"></a>Aree di replica universale
+È sempre possibile creare una replica di lettura in una delle aree seguenti, indipendentemente dalla posizione in cui si trova il server master. Queste sono le aree di replica universale:
+
+Australia orientale, Australia sudorientale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, Regno Unito meridionale, Regno Unito occidentale, Europa occidentale, Stati Uniti occidentali, Stati Uniti occidentali 2.
+
+
+### <a name="paired-regions"></a>Aree abbinate
+Oltre alle aree di replica universale, è possibile creare una replica di lettura nell'area abbinata di Azure del server master. Se non si conosce la coppia dell'area, è possibile ottenere altre informazioni nell' [articolo sulle aree abbinate di Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+
+Se si usano repliche tra aree per la pianificazione del ripristino di emergenza, è consigliabile creare la replica nell'area abbinata anziché in una delle altre aree. Le aree abbinate evitano gli aggiornamenti simultanei e assegnano priorità all'isolamento fisico e alla residenza dei dati.  
+
+Esistono tuttavia alcune limitazioni da considerare: 
+
+* Disponibilità a livello di area: Database di Azure per PostgreSQL è disponibile negli Stati Uniti occidentali 2, Francia centrale, Emirati Arabi Uniti settentrionali e Germania centrale. Tuttavia, le aree abbinate non sono disponibili.
+    
+* Coppie uni-direzionali: Alcune aree di Azure sono abbinate solo in una direzione. Queste aree includono l'India occidentale, il Brasile meridionale e US Gov Virginia. 
+   Ciò significa che un server master nell'India occidentale può creare una replica nell'India meridionale. Tuttavia, un server master nell'India meridionale non è in grado di creare una replica nell'India occidentale. Questo è dovuto al fatto che l'area secondaria dell'India occidentale è India meridionale, ma l'area secondaria dell'India meridionale non è India occidentale.
+
 
 ## <a name="create-a-replica"></a>Creare una replica
 Il server master deve avere il`azure.replication_support`parametro impostato su **REPLICA**. Per rendere effettive eventuali modifiche di questo parametro è necessario riavviare il server. (Il parametro `azure.replication_support` si applica solo ai livelli Utilizzo generico e Con ottimizzazione per la memoria).
 
 Quando si avvia il flusso di lavoro per la creazione della replica, viene creato un server di Database di Azure per PostgreSQL vuoto. Il nuovo server viene riempito con i dati presenti nel server master. Il tempo necessario per la creazione dipende dalla quantità di dati nel master e dal tempo trascorso dall'ultimo backup completo settimanale. Il tempo può variare da pochi minuti a diverse ore.
 
-Ogni replica è abilitata per l'archiviazione [aumento automatico delle dimensioni](concepts-pricing-tiers.md#storage-auto-grow). La funzionalità aumento consente alla replica di allinearsi con i dati replicati ad esso ed evitare un'interruzione della replica causata da errori di memoria insufficiente.
+Ogni replica è abilitata per l' [aumento automatico](concepts-pricing-tiers.md#storage-auto-grow)dell'archiviazione. La funzionalità di aumento automatico consente alla replica di rimanere al passo con i dati replicati e impedire un'interruzioni della replica causata da errori di archiviazione indesiderati.
 
 La funzionalità di replica in lettura usa la replica fisica di PostgreSQL e non la replica logica. Lo streaming della replica usando gli slot di replica è la modalità operativa predefinita. Se necessario, viene usato il log shipping per mettersi in pari.
 
@@ -51,7 +73,7 @@ Quando si crea una replica, questa non eredita le regole del firewall o l'endpoi
 
 La replica eredita l'account amministratore dal server master. Tutti gli account utente nel server master vengono replicati nelle repliche in lettura. È possibile connettersi a una replica in lettura solo tramite gli account utente che sono disponibili nel server master.
 
-È possibile connettersi alla replica usando il relativo nome host e un account utente valido, come si farebbe per un normale server di Database di Azure per PostgreSQL. Per un server denominato **repliche mia** con il nome utente amministratore **myadmin**, è possibile connettersi alla replica usando psql:
+È possibile connettersi alla replica usando il relativo nome host e un account utente valido, come si farebbe per un normale server di Database di Azure per PostgreSQL. Per un server denominato **My replica** con il nome utenteamministratore amministratore, è possibile connettersi alla replica usando PSQL:
 
 ```
 psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
@@ -60,11 +82,11 @@ psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 Quando richiesto, immettere la password per l'account dell'utente.
 
 ## <a name="monitor-replication"></a>Monitorare la replica
-Database di Azure per PostgreSQL offre due metriche di monitoraggio della replica. Le due metriche sono **ritardo massimo tra repliche** e **Replica Lag**. Per informazioni su come visualizzare queste metriche, vedere la **monitorare una replica** sezione il [leggere l'articolo sulle procedure di replica](howto-read-replicas-portal.md).
+Database di Azure per PostgreSQL offre due metriche per il monitoraggio della replica. Le due metriche sono il **ritardo massimo tra repliche** e **ritardo di replica**. Per informazioni su come visualizzare queste metriche, vedere la sezione **monitorare una replica** dell'articolo sulle [procedure di lettura della replica](howto-read-replicas-portal.md).
 
-Il **ritardo massimo tra repliche** metrica indica il ritardo in byte tra il master e la replica di massimo ritardo. Questa metrica è disponibile solo nel server master.
+La metrica **Max lag** tra repliche indica il ritardo in byte tra il master e la replica più in ritardo. Questa metrica è disponibile solo nel server master.
 
-Il **Lag Replica** metrica Mostra il tempo dal momento dell'ultima riproduzione delle transazioni. Se non sono presenti transazioni sul server master, la metrica riflette questo intervallo di tempo. Questa metrica è disponibile per i server di replica solo. Ritardo di replica viene calcolato dal `pg_stat_wal_receiver` Vista:
+La metrica **ritardo di replica** indica il tempo trascorso dall'ultima transazione rieseguita. Se non sono presenti transazioni sul server master, la metrica riflette questo intervallo di tempo. Questa metrica è disponibile solo per i server di replica. Il `pg_stat_wal_receiver` ritardo di replica viene calcolato dalla visualizzazione:
 
 ```SQL
 EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
@@ -91,14 +113,14 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 > [!NOTE]
 > In caso di riavvio di un server master o di una replica in lettura, il tempo necessario per il riavvio e per mettersi in pari sarà indicato nella metrica Replica Lag (Ritardo della replica).
 
-## <a name="stop-replication"></a>Arrestare la replica
+## <a name="stop-replication"></a>Arresta replica
 È possibile scegliere di arrestare la replica tra un master e una replica. L'interruzione dell'operazione causa il riavvio della replica e la rimozione delle impostazioni di replica. Dopo l'arresto della replica tra un server master e una replica in lettura, la replica diventa un server autonomo. I dati nel server autonomo sono i dati che erano disponibili nella replica al momento dell'esecuzione del comando di arresto della replica. Il server autonomo non è aggiornato con il server master.
 
 > [!IMPORTANT]
 > Il server autonomo non può essere di nuovo impostato come replica.
 > Prima di arrestare la replica in una replica in lettura, assicurarsi che la replica abbia tutti i dati necessari.
 
-Quando si arresta la replica, la replica perde tutti i collegamenti al relativo schema precedente e le altre repliche. Non vi è alcun failover automatico tra un master e la replica. 
+Quando si arresta la replica, la replica perde tutti i collegamenti al master precedente e ad altre repliche. Non esiste un failover automatico tra un master e una replica. 
 
 Informazioni su come [arrestare la replica in una replica](howto-read-replicas-portal.md).
 
@@ -123,8 +145,8 @@ PostgreSQL richiede che il valore del parametro`max_connections` sulla replica i
 
 Se si tenta di aggiornare i valori del server, ma non si rispettano i limiti, viene visualizzato un errore.
 
-### <a name="maxpreparedtransactions"></a>max_prepared_transactions
-[Richiede di PostgreSQL](https://www.postgresql.org/docs/10/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) il valore della `max_prepared_transactions` parametro sulla replica di lettura sia maggiore o uguale a quello master; in caso contrario, non si avvia la replica. Se si desidera modificare `max_prepared_transactions` sul master, prima di tutto modificarla nelle repliche.
+### <a name="max_prepared_transactions"></a>max_prepared_transactions
+[PostgreSQL richiede](https://www.postgresql.org/docs/10/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) che il valore del `max_prepared_transactions` parametro nella replica di lettura sia maggiore o uguale al valore master. in caso contrario, la replica non viene avviata. Se si desidera modificare `max_prepared_transactions` il database master, modificarlo prima nelle repliche.
 
 ### <a name="stopped-replicas"></a>Repliche arrestate
 Se si arresta la replica tra un server master e una replica in lettura, la replica verrà riavviata per poter applicare tale modifica. La replica arrestata diventa un server autonomo che supporta sia la lettura che la scrittura. Il server autonomo non può essere di nuovo impostato come replica.

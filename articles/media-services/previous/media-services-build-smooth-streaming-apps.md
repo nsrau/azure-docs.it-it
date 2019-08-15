@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: b8c1513838fb848388946e18698a0410aa7a0332
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ff961638aa170948d51793a21e86d18dd7e1d80
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65949620"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "69016781"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Come creare un'applicazione Windows Store Smooth Streaming  
 
@@ -38,7 +38,7 @@ In questa esercitazione vengono presentate quattro lezioni:
 
 * Windows 8 a 32 o 64 bit.
 * Versioni di Visual Studio dalla 2012 alla 2015.
-* [Microsoft Smooth Streaming Client SDK per Windows 8](https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
+* [Microsoft Smooth Streaming Client SDK per Windows 8](https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
 
 La soluzione completata per ogni lezione può essere scaricata dagli esempi di esempi di codice per sviluppatori in MSDN. 
 
@@ -60,24 +60,24 @@ Per ulteriori informazioni sullo sviluppo di app di Windows Store, vedere il sit
 3. Modificare il file code-behind
 4. Compilare ed eseguire il test dell'applicazione
 
-### <a name="to-create-a-windows-store-project"></a>Per creare un progetto Windows Store
+### <a name="to-create-a-windows-store-project"></a>Per creare un progetto di Windows Store
 
 1. Eseguire Visual Studio. Sono supportate le versioni dalla 2012 alla 2015.
 1. Scegliere **Nuovo** dal menu **File** e quindi fare clic su **Progetto**.
 1. Nella finestra di dialogo Nuovo progetto digitare o selezionare i valori seguenti:
 
-    | Name | Value |
+    | Name | Valore |
     | --- | --- |
     | Gruppo dei modelli di progetto |Installato/Modelli/Visual C#/Windows Store |
     | Modello |Applicazione vuota (XAML) |
     | Name |SSPlayer |
-    | Località |C:\SSTutorials |
+    | Location |C:\SSTutorials |
     | Nome soluzione |SSPlayer |
     | Crea directory per soluzione |(selezionata) |
 
 1. Fare clic su **OK**.
 
-### <a name="to-add-a-reference-to-the-smooth-streaming-client-sdk"></a>Per aggiungere un riferimento a Smooth Streaming Client SDK
+### <a name="to-add-a-reference-to-the-smooth-streaming-client-sdk"></a>Per aggiungere un riferimento all'SDK client di Smooth Streaming
 
 1. In Esplora soluzioni fare clic con il pulsante destro del mouse su **SSPlayer**, quindi scegliere **Aggiungi riferimento**.
 1. Digitare o selezionare i valori seguenti:
@@ -91,7 +91,7 @@ Per ulteriori informazioni sullo sviluppo di app di Windows Store, vedere il sit
 
 Dopo avere aggiunto i riferimenti, è necessario selezionare la piattaforma di destinazione (x64 o x86). L'aggiunta di riferimenti non funzionerà per la configurazione di piattaforma Qualsiasi CPU.  In Esplora soluzioni verrà visualizzato un simbolo di avviso giallo per i riferimenti aggiunti.
 
-### <a name="to-design-the-player-user-interface"></a>Per progettare l'interfaccia utente di Windows Media player
+### <a name="to-design-the-player-user-interface"></a>Per progettare l'interfaccia utente del lettore
 
 1. In Esplora soluzioni fare doppio clic su **MainPage.xaml** per aprirlo in visualizzazione Progettazione.
 2. Individuare i tag **&lt;Grid&gt;** e **&lt;/Grid>&gt;** nel file XAML e incollare il codice seguente tra i due tag:
@@ -239,7 +239,7 @@ In questa lezione sono incluse le procedure seguenti:
 5. Aggiungere il codice relativo alla barra del dispositivo di scorrimento
 6. Compilare ed eseguire il test dell'applicazione
 
-### <a name="to-register-the-smooth-streaming-byte-stream-handler-and-pass-the-propertyset"></a>Per registrare il gestore del flusso di byte Smooth Streaming e passare propertyset
+### <a name="to-register-the-smooth-streaming-byte-stream-handler-and-pass-the-propertyset"></a>Per registrare il gestore del flusso di byte Smooth Streaming e passare PropertySet
 
 1. In Esplora soluzioni fare clic con il pulsante destro del mouse su **MainPage.xaml**, quindi scegliere **Visualizza codice**.
 2. Aggiungere l'istruzione using seguente all'inizio del file:
@@ -284,7 +284,7 @@ In questa lezione sono incluse le procedure seguenti:
    ```
 6. Premere **CTRL+S** per salvare il file.
 
-### <a name="to-add-the-adaptive-source-manager-level-event-handler"></a>Per aggiungere il gestore di eventi a livello di gestione di origine adattiva
+### <a name="to-add-the-adaptive-source-manager-level-event-handler"></a>Per aggiungere il gestore eventi a livello di gestione dell'origine adattiva
 
 1. In Esplora soluzioni fare clic con il pulsante destro del mouse su **MainPage.xaml**, quindi scegliere **Visualizza codice**.
 2. All'interno della classe **MainPage** aggiungere il membro dati seguente:
@@ -312,7 +312,7 @@ In questa lezione sono incluse le procedure seguenti:
    ```
 5. Premere **CTRL+S** per salvare il file.
 
-### <a name="to-add-adaptive-source-level-event-handlers"></a>Per aggiungere gestori di eventi a livello di origine adattiva
+### <a name="to-add-adaptive-source-level-event-handlers"></a>Per aggiungere gestori eventi a livello di origine adattivo
 
 1. In Esplora soluzioni fare clic con il pulsante destro del mouse su **MainPage.xaml**, quindi scegliere **Visualizza codice**.
 2. All'interno della classe **MainPage** aggiungere il membro dati seguente:
@@ -363,7 +363,7 @@ In questa lezione sono incluse le procedure seguenti:
 
 Gli stessi eventi sono inoltre disponibili a livello di gestione dell'origine adattiva e possono essere utilizzati per gestire le funzionalità comuni a tutti gli elementi multimediali nell'app. Ogni elemento AdaptiveSource include i relativi eventi e tutti gli eventi AdaptiveSource vengono propagati in AdaptiveSourceManager.
 
-### <a name="to-add-media-element-event-handlers"></a>Per aggiungere i gestori eventi MediaElement
+### <a name="to-add-media-element-event-handlers"></a>Per aggiungere gestori eventi elemento multimediale
 
 1. In Esplora soluzioni fare clic con il pulsante destro del mouse su **MainPage.xaml**, quindi scegliere **Visualizza codice**.
 2. Alla fine della classe **MainPage** aggiungere i gestori di eventi seguenti:
@@ -399,7 +399,7 @@ Gli stessi eventi sono inoltre disponibili a livello di gestione dell'origine ad
    ```
 4. Premere **CTRL+S** per salvare il file.
 
-### <a name="to-add-slider-bar-related-code"></a>Dispositivo di scorrimento di aggiungere il codice relativo alla
+### <a name="to-add-slider-bar-related-code"></a>Per aggiungere il codice correlato alla barra del dispositivo di scorrimento
 
 1. In Esplora soluzioni fare clic con il pulsante destro del mouse su **MainPage.xaml**, quindi scegliere **Visualizza codice**.
 2. Aggiungere l'istruzione using seguente all'inizio del file:
@@ -507,7 +507,7 @@ Gli stessi eventi sono inoltre disponibili a livello di gestione dell'origine ad
    ```
 
    > [!NOTE]
-   > Per apportare modifiche al thread dell'interfaccia utente da un thread non di interfaccia utente viene usato CoreDispatcher. In caso di colli di bottiglia nel thread del dispatcher, sviluppatore può scegliere di usare il dispatcher fornito dall'interfaccia utente-elemento da aggiornare.  Ad esempio:
+   > Per apportare modifiche al thread dell'interfaccia utente da un thread non di interfaccia utente viene usato CoreDispatcher. In caso di collo di bottiglia sul thread del dispatcher, lo sviluppatore può scegliere di usare Dispatcher fornito dall'elemento dell'interfaccia utente che intende aggiornare.  Ad esempio:
 
    ```csharp
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
@@ -819,7 +819,7 @@ Smooth Streaming consente di trasmettere contenuto in streaming con tracce audio
 
 La lezione 3 è stata completata.  In questa lezione è stata aggiunta la funzionalità per la selezione dei flussi.
 
-## <a name="lesson-4-select-smooth-streaming-tracks"></a>Lezione 4: Selezionare tracce Smooth Streaming
+## <a name="lesson-4-select-smooth-streaming-tracks"></a>Lezione 4: Seleziona Smooth Streaming tracce
 
 Una presentazione Smooth Streaming può contenere più file video codificati con livelli di qualità (velocità in bit) e risoluzioni diversi. In questa lezione verrà illustrato come abilitare gli utenti per la selezione delle tracce. In questa lezione sono incluse le procedure seguenti:
 

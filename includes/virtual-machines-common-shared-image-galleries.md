@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: e43b8c951d8c7d5d60904fe49d8639efaba5c89f
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 529a8b6136a5d9c69b044df2614644bdbd4fd4f4
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775888"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "69012164"
 ---
 Raccolta immagini condivise è un servizio che consente di creare struttura e organizzazione in base alle immagini gestite. Le raccolte di immagini condivise forniscono:
 
@@ -31,7 +31,7 @@ Se si dispone di un numero elevato di immagini gestite che è necessario gestire
 
 La funzionalità Raccolta di immagini condivise presenta più tipi di risorse:
 
-| Risorsa | DESCRIZIONE|
+| Risorsa | Descrizione|
 |----------|------------|
 | **Immagine gestita** | Un'immagine di base che può essere usata da sola o usata per creare una **versione dell'immagine** in una raccolta di immagini. Le immagini gestite vengono create da macchine virtuali generalizzate. Un'immagine gestita è un tipo speciale di disco rigido virtuale che può essere usato per creare più macchine virtuali e può ora essere sfruttato per creare versioni di immagini condivise. |
 | **Raccolta di immagini** | Come in Azure Marketplace, una **raccolta di immagini** è un repository per la gestione e la condivisione delle immagini, ma è possibile controllare chi ha accesso. |
@@ -73,7 +73,7 @@ Di seguito sono riportati altri parametri che è possibile impostare nella defin
 
 ## <a name="regional-support"></a>Supporto a livello di area
 
-Le aree di origine sono elencate nella tabella seguente. Tutte le aree pubbliche possono essere aree di destinazione, ma per eseguire la replica in Australia centrale e Australia centrale 2 è necessario che la sottoscrizione sia consentita. Per richiedere l'inserimento nella whitelist, passare a: https://azure.microsoft.com/en-au/global-infrastructure/australia/contact/
+Le aree di origine sono elencate nella tabella seguente. Tutte le aree pubbliche possono essere aree di destinazione, ma per eseguire la replica in Australia centrale e Australia centrale 2 è necessario che la sottoscrizione sia consentita. Per richiedere l'inserimento nella whitelist, passare a: https://azure.microsoft.com/global-infrastructure/australia/contact/
 
 
 | Aree di origine |
@@ -179,7 +179,7 @@ Gli SDK seguenti supportano la creazione di raccolte di immagini condivise:
 - [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
 - [Node.js](https://docs.microsoft.com/javascript/api/azure-arm-compute/?view=azure-node-latest)
 - [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
-- [Go](https://docs.microsoft.com/go/azure/)
+- [Go](https://docs.microsoft.com/azure/go/)
 
 ## <a name="templates"></a>Modelli
 

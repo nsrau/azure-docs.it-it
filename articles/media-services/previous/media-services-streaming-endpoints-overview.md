@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: a45e2af6f2cb9c105c084585a03a6de615fa1397
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ac9c9a73e52c678c8a6d9b1e1779d9ec75cab2c8
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64573035"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "69016456"
 ---
 # <a name="streaming-endpoints-overview"></a>Panoramica degli endpoint di streaming  
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
 In Servizi multimediali di Microsoft Azure (AMS) un **endpoint di streaming** rappresenta un servizio di streaming in grado di distribuire contenuti direttamente a un'applicazione di lettore client o a una rete CDN (rete per la distribuzione di contenuti) per la successiva distribuzione. Servizi multimediali fornisce inoltre un'integrazione completa della rete CDN di Azure. Il flusso in uscita da un servizio StreamingEndpoint può essere costituito da un flusso live, da un "video on demand" o da un download progressivo dell'asset associato a un account di Servizi multimediali. Ogni account di Servizi multimediali di Azure include un servizio StreamingEndpoint predefinito. Nell'account è possibile creare altri servizi StreamingEndpoint. Esistono due versioni di servizi StreamingEndpoint, ovvero 1.0 e 2.0. A partire dal 10 gennaio 2017, ogni account di AMS appena creato includerà lo StreamingEndpoint **predefinito** della versione 2.0. Anche gli altri endpoint di streaming che verranno aggiunti a questo account avranno la versione 2.0. Questa modifica non influisce sugli account esistenti: gli StreamingEndpoint esistenti presenteranno la versione 1.0 e possono passare alla versione 2.0. Questa modifica influenzerà il comportamento, la fatturazione e le funzionalità (per altre informazioni, vedere la sezione **Tipologie e versioni di streaming** documentata di seguito).
 
-A Servizi multimediali di Azure sono state aggiunte all'entità endpoint di streaming le proprietà seguenti: **CdnProvider**, **CdnProfile**, **FreeTrialEndTime**, **StreamingEndpointVersion**. Per una panoramica dettagliata di queste proprietà, vedere [questo articolo](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
+A Servizi multimediali di Azure sono state aggiunte all'entità endpoint di streaming le proprietà seguenti: **CdnProvider**, **CdnProfile**, **StreamingEndpointVersion**. Per una panoramica dettagliata di queste proprietà, vedere [questo articolo](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
 
 Quando si crea un account dei Servizi multimediali di Azure viene creato un endpoint di streaming standard predefinito nello stato **Interrotto**. Gli endpoint di streaming predefiniti non possono essere eliminati. In base alla disponibilità della rete CDN di Azure nell'area di destinazione, l'endpoint di streaming predefinito appena creato per impostazione predefinita include anche l'integrazione del provider CDN "StandardVerizon". 
                 
@@ -52,10 +52,10 @@ A partire dalla versione dei Servizi multimediali rilasciata a gennaio 2017, ci 
 
 |Type|Descrizione|
 |--------|--------|  
-|**Standard**|L'impostazione predefinita l'Endpoint di Streaming è un' **Standard** digitare, può essere modificato nel tipo Premium modificando le unità di streaming.|
-|**Premium** |Questa opzione è adatta ai professionisti che hanno bisogno di una maggiore scalabilità o di maggior controllo. Si sposta in una **Premium** tipo modificando le unità di streaming.<br/>Dedicato gli endpoint di Streaming live in ambiente isolato e non contendono le risorse.|
+|**Standard**|L'endpoint di streaming predefinito è un tipo **standard** , può essere modificato nel tipo Premium regolando le unità di streaming.|
+|**Premium** |Questa opzione è adatta ai professionisti che hanno bisogno di una maggiore scalabilità o di maggior controllo. Si passa a un tipo **Premium** modificando le unità di streaming.<br/>Gli endpoint di streaming dedicati si trovano in un ambiente isolato e non competono per le risorse.|
 
-Per i clienti che desiderano per distribuire contenuti a un vasto pubblico di internet, è consigliabile abilitare della rete CDN nell'Endpoint di Streaming.
+Per i clienti che desiderano distribuire contenuti a destinatari Internet di grandi dimensioni, è consigliabile abilitare la rete CDN nell'endpoint di streaming.
 
 Per ulteriori informazioni, vedere la sezione [Confronto tra le tipologie di streaming](#comparing-streaming-types) seguente.
 
@@ -77,38 +77,36 @@ Se l'endpoint di streaming **versione "1.0"** ha una o più unità di streaming 
 
 |Type|StreamingEndpointVersion|ScaleUnits|RETE CDN|Fatturazione|
 |--------------|----------|-----------------|-----------------|-----------------|
-|Classico|1.0|0|NA|Gratuito|
-|Endpoint di Streaming standard (anteprima)|2.0|0|Yes|A pagamento|
-|Unità di streaming Premium|1.0|>0|Yes|A pagamento|
+|Classica|1.0|0|ND|Gratuito|
+|Endpoint di streaming standard (anteprima)|2.0|0|Sì|A pagamento|
+|Unità di streaming Premium|1.0|>0|Sì|A pagamento|
 |Unità di streaming Premium|2.0|>0|Yes|A pagamento|
 
 ### <a name="features"></a>Funzionalità
 
 Funzionalità|Standard|Premium
 ---|---|---
-Liberare i primi 15 giorni <sup>1</sup>| Yes |No
-Velocità effettiva |Fino a 600 Mbps e possono fornire un'efficace velocità effettiva notevolmente superiore quando si usa una rete CDN.|200 Mbps per unità di streaming (SU). Può fornire un'efficace velocità effettiva notevolmente superiore quando si usa una rete CDN.
+Velocità effettiva |Fino a 600 Mbps e possono fornire una velocità effettiva molto più elevata quando si usa una rete CDN.|200 Mbps per unità di streaming (SU). Può fornire una velocità effettiva molto più elevata quando viene usata una rete CDN.
 RETE CDN|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.
 Fatturazione con ripartizione proporzionale| Ogni giorno|Ogni giorno
-Crittografia dinamica|Yes|Yes
-creazione dinamica dei pacchetti|Yes|Yes
+Crittografia dinamica|Yes|Sì
+creazione dinamica dei pacchetti|Sì|Yes
 Scalabilità|Scalabilità automatica fino alla velocità effettiva di destinazione.|Unità di streaming aggiuntive.
-Host applicazione di filtri/G20/personalizzato IP <sup>2</sup>|Yes|Yes
-Download progressivo|Yes|Yes
+Filtro IP/G20/host personalizzato <sup>1</sup>|Yes|Sì
+Download progressivo|Yes|Sì
 Uso consigliato |Consigliato per la maggior parte dei casi di streaming.|Uso professionale. 
 
-<sup>1</sup> la versione di valutazione gratuita si applica solo agli account di servizi multimediali appena creato e il valore predefinito dell'Endpoint di Streaming.<br/>
-<sup>2</sup> usato direttamente nell'Endpoint di Streaming solo quando la rete CDN non è abilitata nell'endpoint.<br/>
+<sup>1</sup> usato direttamente sull'endpoint di streaming quando la rete CDN non è abilitata nell'endpoint.<br/>
 
-Per informazioni di contratto di servizio, vedere [prezzi e contratto di servizio](https://azure.microsoft.com/pricing/details/media-services/).
+Per informazioni sul contratto di contratto, vedere [prezzi e contratto di contratto](https://azure.microsoft.com/pricing/details/media-services/).
 
 ## <a name="migration-between-types"></a>Migrazione tra le tipologie
 
 Da | A | Azione
 ---|---|---
-Classico|Standard|È necessario fornire il consenso esplicito
-Classico|Premium| Scalabilità (unità di streaming aggiuntive)
-Standard/Premium|Classico|Non disponibile (se la versione dell'endpoint di streaming è 1.0. È consentito modificare la tipologia classica impostando Scaleunits su "0")
+Classica|Standard|È necessario fornire il consenso esplicito
+Classica|Premium| Scalabilità (unità di streaming aggiuntive)
+Standard/Premium|Classica|Non disponibile (se la versione dell'endpoint di streaming è 1.0. È consentito modificare la tipologia classica impostando Scaleunits su "0")
 Standard (con/senza la rete CDN)|Premium con le stesse configurazioni|Consentito nello stato **avviato**. (tramite il Portale di Azure)
 Premium (con/senza la rete CDN)|Standard con le stesse configurazioni|Consentito nello stato **avvio** (tramite il Portale di Azure)
 Standard (con/senza la rete CDN)|Premium con diverse configurazioni|Consentito nello stato **interrotto** (tramite il Portale di Azure). Non consentito nello stato di esecuzione.

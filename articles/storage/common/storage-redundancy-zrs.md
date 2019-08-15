@@ -5,21 +5,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 5fefe469bfac4816a67c6ceb344f12c1e52de60c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f4e36edf86823453e663ed875c7d5e4ffdc2e524
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68550450"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016420"
 ---
-# <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Archiviazione con ridondanza della zona (ZRS): applicazioni di Archiviazione di Azure a disponibilità elevata
+# <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>Archiviazione con ridondanza della zona (ZRS) per la creazione di applicazioni di archiviazione di Azure a disponibilità elevata
+
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
 
 ## <a name="support-coverage-and-regional-availability"></a>Copertura del supporto e disponibilità a livello di area
+
 L'archiviazione con ridondanza della zona attualmente supporta gli account di tipo v2 standard per utilizzo generico. Per altre informazioni sui tipi di account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](storage-account-overview.md).
 
 L'archiviazione con ridondanza della zona è disponibile per BLOB in blocchi, BLOB di pagine non del disco, file, tabelle e code.
@@ -45,6 +47,7 @@ Microsoft continua ad abilitare l'archiviazione con ridondanza della zona in are
 - I dischi gestiti non supportano ZRS. È possibile archiviare snapshot e immagini per SDD Standard Managed Disks nell'archiviazione HDD Standard e [scegliere tra le opzioni con ridondanza locale e ZRS](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## <a name="what-happens-when-a-zone-becomes-unavailable"></a>Cosa accade quando una zona smette di essere disponibile?
+
 I dati sono ancora accessibili per le operazioni di lettura e scrittura anche se una zona non è più disponibile. Microsoft consiglia di continuare a seguire le procedure per la gestione degli errori temporanei. Queste procedure includono l'implementazione di criteri di ripetizione dei tentativi con interruzione temporanea esponenziale.
 
 Quando una zona non è disponibile, Azure avvia gli aggiornamenti di rete, ad esempio la modifica del puntamento DNS. Questi aggiornamenti possono interessare l'applicazione se si accede ai dati prima che l'aggiornamento sia stato completato.
@@ -52,6 +55,7 @@ Quando una zona non è disponibile, Azure avvia gli aggiornamenti di rete, ad es
 L'archiviazione con ridondanza della zona potrebbe non proteggere i dati in caso di un'emergenza a livello di area in cui più zone sono interessate in modo permanente. L'archiviazione con ridondanza della zona offre invece resilienza per i dati qualora diventino temporaneamente non disponibili. Per la protezione in caso di emergenze a livello di area, Microsoft consiglia di usare l'archiviazione con ridondanza geografica (GRS). Per altre informazioni sull'archiviazione con ridondanza geografica (GRS), vedere [Archiviazione con ridondanza geografica: replica tra più aree per Archiviazione di Azure](storage-redundancy-grs.md).
 
 ## <a name="converting-to-zrs-replication"></a>Conversione nella replica di archiviazione con ridondanza della zona
+
 La migrazione in o da archiviazione con ridondanza locale, archiviazione con ridondanza geografica e archiviazione con ridondanza geografica e accesso in lettura è molto semplice. Per modificare il tipo di ridondanza dell'account, usare il portale di Azure o l'API del provider delle risorse di archiviazione. Azure eseguirà quindi la replica dei dati in modo conforme all'opzione scelta. 
 
 La migrazione dei dati a ZRS richiede una strategia diversa. La migrazione dell'archiviazione con ridondanza della zona comporta lo spostamento fisico dei dati da un indicatore di archiviazione singolo a più indicatori all'interno di un'area.
@@ -61,14 +65,14 @@ Per la migrazione a ZRS sono disponibili due opzioni principali:
 - Copiare o spostare manualmente i dati dall'account esistente a un nuovo account di archiviazione con ridondanza della zona.
 - Richiedere una migrazione in tempo reale.
 
-Microsoft consiglia vivamente di eseguire una migrazione manuale. Una migrazione manuale offre maggiore flessibilità rispetto a una migrazione in tempo reale. Con una migrazione manuale, è possibile controllare le tempistiche.
+Se è necessario completare la migrazione entro una determinata data, provare a eseguire una migrazione manuale. Una migrazione manuale offre maggiore flessibilità rispetto a una migrazione in tempo reale. Con una migrazione manuale, è possibile controllare le tempistiche.
 
 Per eseguire una migrazione manuale, sono disponibili alcune opzioni:
 - Usare strumenti esistenti, ad esempio AzCopy, una delle librerie client di Archiviazione di Azure o strumenti affidabili di terze parti.
 - Se si ha familiarità con Hadoop o HDInsight, collegare account di origine e di destinazione (dell'archiviazione con ridondanza della zona) al cluster. Quindi, parallelizzare il processo di copia dei dati con uno strumento, ad esempio DistCp.
 - Creare i propri strumenti con una delle librerie client di Archiviazione di Azure.
 
-Una migrazione manuale può comportare tempi di inattività dell'applicazione. Se l'applicazione richiede disponibilità elevata, Microsoft offre anche un'opzione di migrazione in tempo reale. Una migrazione in tempo reale è una migrazione sul posto. 
+Una migrazione manuale può comportare tempi di inattività dell'applicazione. Se l'applicazione richiede disponibilità elevata, Microsoft offre anche un'opzione di migrazione in tempo reale. Una migrazione in tempo reale è una migrazione sul posto senza tempi di inattività. 
 
 Quando si esegue una migrazione in tempo reale, è possibile usare l'account di archiviazione durante la migrazione dei dati tra gli indicatori di archiviazione di origine e di destinazione. Durante il processo di migrazione, si ha lo stesso livello di SLA di durabilità e disponibilità che si esegue normalmente.
 
@@ -137,9 +141,9 @@ La versione classica dell'archiviazione con ridondanza della zona è disponibile
 
 Per eseguire manualmente la migrazione di dati di un account di archiviazione con ridondanza della zona in o da un account di archiviazione con ridondanza locale, archiviazione con ridondanza della zona (versione classica), archiviazione con ridondanza geografica o archiviazione con ridondanza geografica e accesso in lettura, usare uno degli strumenti seguenti: AzCopy, Azure Storage Explorer, Azure PowerShell o l'interfaccia della riga di comando di Azure. È anche possibile creare una soluzione di migrazione personalizzata con una delle librerie client di Archiviazione di Azure.
 
-È anche possibile aggiornare gli account ZRS classici a ZRS nel portale oppure usando Azure PowerShell o l'interfaccia della riga di comando di Azure nelle aree in cui è disponibile ZRS.
+È anche possibile aggiornare gli account ZRS classici a ZRS nel portale oppure usando Azure PowerShell o l'interfaccia della riga di comando di Azure nelle aree in cui è disponibile ZRS. Per eseguire l'aggiornamento a ZRS nel portale di Azure, passare alla sezione di **configurazione** dell'account e scegliere **Aggiorna**:
 
-Per eseguire l'aggiornamento a ZRS nel portale, passare alla sezione di configurazione dell'account e scegliere Aggiorna:![Aggiornare ZRS classico a ZRS nel portale](media/storage-redundancy-zrs/portal-zrs-classic-upgrade.jpg)
+![Aggiornare ZRS classico a ZRS nel portale](media/storage-redundancy-zrs/portal-zrs-classic-upgrade.png)
 
 Per eseguire l'aggiornamento a ZRS usando PowerShell, chiamare il comando seguente:
 ```powershell

@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
 ms.openlocfilehash: 393441e7ff620f3795e42c2cb376f99f8763f25b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59044862"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "60193183"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Esercitazione: Monitorare i log e le metriche di Firewall di Azure
 
@@ -71,11 +71,11 @@ Registrazione attività viene abilitata automaticamente per tutte le risorse di 
 
 Per abilitare la registrazione diagnostica, eseguire la procedura seguente:
 
-1. Prendere nota dell'ID risorsa dell'account di archiviazione in cui vengono archiviati i dati dei log. Il valore ha il formato seguente: */subscriptions/\<subscriptionId\>/resourceGroups/\<nome gruppo di risorse\>/providers/Microsoft.Storage/storageAccounts/\<nome account archiviazione\>*.
+1. Prendere nota dell'ID risorsa dell'account di archiviazione in cui vengono archiviati i dati dei log. Il valore ha il formato seguente: */subscriptions/\<subscriptionId\>/resourceGroups/\<nome gruppo di risorse\>/providers/Microsoft.Storage/storageAccounts/\<nome account archiviazione\>* .
 
    È possibile usare qualsiasi account di archiviazione della sottoscrizione. Per trovare queste informazioni è possibile usare il portale di Azure. Le informazioni si trovano nella pagina **Proprietà** della risorsa.
 
-2. Prendere nota dell'ID risorsa del firewall per cui è abilitata la registrazione. Il valore ha il formato seguente: */subscriptions/\<subscriptionId\>/resourceGroups/\<nome gruppo di risorse\>/providers/Microsoft.Network/azureFirewalls/\<nome firewall\>*.
+2. Prendere nota dell'ID risorsa del firewall per cui è abilitata la registrazione. Il valore ha il formato seguente: */subscriptions/\<subscriptionId\>/resourceGroups/\<nome gruppo di risorse\>/providers/Microsoft.Network/azureFirewalls/\<nome firewall\>* .
 
    Per trovare queste informazioni è possibile usare il portale.
 

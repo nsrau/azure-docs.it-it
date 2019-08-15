@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: pabutler
-ms.openlocfilehash: fa0a88ce3f74c20ab36931a6a78f8265bdb9d8be
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 98d33dd1aad726d4da8499006166dfd2c043378f
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876247"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977162"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Attribuzione dell'uso da parte dei clienti e dei partner di Azure
 
@@ -123,7 +123,7 @@ Quando si utilizza Azure CLI per aggiungere il proprio GUID, impostare la variab
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
-Per ulteriori informazioni, vedere [Azure SDK per go](https://docs.microsoft.com/go/azure/).
+Per ulteriori informazioni, vedere [Azure SDK per go](https://docs.microsoft.com/azure/go/).
 
 ## <a name="use-terraform"></a>USA bonifica
 

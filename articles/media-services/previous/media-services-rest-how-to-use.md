@@ -13,18 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
-ms.author: juliako;johndeu
-ms.openlocfilehash: fbdd9325f50e1bcb271b7ca47b9ccd3361d0d27e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.reviewer: johndeu
+ms.openlocfilehash: 29b995d722cd304cc85580ac4f2f38a0b0d9cecd
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64687050"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69014855"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Informazioni generali sull'API REST di Servizi multimediali 
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
 L'**API REST di Servizi multimediali** viene usata per la creazione di processi, asset, canali live e altre risorse in un account di Servizi multimediali. Per altre informazioni, vedere le [informazioni di riferimento sull'API REST di Servizi multimediali](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
 
@@ -75,7 +76,7 @@ Nella seguente tabella è riportato un set di intestazioni facoltative:
 | --- | --- | --- |
 | Date |Data RFC 1123 |Timestamp della richiesta. |
 | Accept |Tipo di contenuto |Tipo di contenuto richiesto per la risposta, ad esempio:<p> -application/json;odata=verbose<p> - application/atom+xml<p> Nelle risposte può essere presente un tipo di contenuto diverso, ad esempio di recupero BLOB. In questo caso, una risposta corretta deve contenere il flusso BLOB come payload. |
-| Accept-Encoding |Gzip, deflate |Codifica GZIP e DEFLATE, se applicabile. Note: in caso di risorse di grandi dimensioni, Servizi multimediali può ignorare questa intestazione e restituire dati non compressi. |
+| Accept-Encoding |Gzip, deflate |Codifica GZIP e DEFLATE, se applicabile. Nota: in caso di risorse di grandi dimensioni, Servizi multimediali può ignorare questa intestazione e restituire dati non compressi. |
 | Accept-Language |"en", "es" e così via. |Lingua preferita per la risposta. |
 | Accept-Charset |Tipo di set di caratteri, ad esempio "UTF-8" |L'impostazione predefinita è UTF-8. |
 | X-HTTP-Method |Metodo HTTP |Consente ai client o ai firewall che non supportano metodi HTTP come PUT o DELETE di usarli, con tunneling tramite una chiamata GET. |
@@ -85,7 +86,7 @@ Nella seguente tabella è riportato un set di intestazioni facoltative:
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Intestazioni delle risposte HTTP standard supportate da Servizi multimediali
 Nella seguente tabella è riportato un set di intestazioni che possono essere restituite a seconda della risorsa richiesta e dell'azione che si intende eseguire.
 
-| Intestazione | Type | Value |
+| Intestazione | Type | Valore |
 | --- | --- | --- |
 | request-id |String |Identificatore univoco per l'operazione corrente, generato dal servizio. |
 | client-request-id |String |Identificatore specificato dal chiamante nella richiesta originale, se presente. |
@@ -99,7 +100,7 @@ Nella seguente tabella è riportato l'elenco completo dei verbi HTTP che è poss
 | Verbo | Descrizione |
 | --- | --- |
 | GET |Restituisce il valore corrente di un oggetto. |
-| POST |Crea un oggetto in base ai dati forniti o invia un comando. |
+| INSERISCI |Crea un oggetto in base ai dati forniti o invia un comando. |
 | PUT |Sostituisce un oggetto o ne crea uno nuovo con nome, se applicabile. |
 | DELETE |Elimina un oggetto. |
 | MERGE |Aggiorna un oggetto esistente con le modifiche alle proprietà denominate. |

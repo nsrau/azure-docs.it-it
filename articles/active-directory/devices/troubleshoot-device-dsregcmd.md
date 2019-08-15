@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 189e4f280e8aba28c4d1af449aa8a3428e303911
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 4aa8f9a7c6807a2f9505559ea13fb0b4f410346d
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68298412"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987161"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Risoluzione dei problemi relativi ai dispositivi tramite il comando dsregcmd
 
@@ -28,7 +28,7 @@ Questa sezione elenca i parametri di stato di join del dispositivo. La tabella s
 
 | AzureAdJoined | EnterpriseJoined | DomainJoined | Stato del dispositivo |
 | ---   | ---   | ---   | ---   |
-| YES | NO | NO | Azure AD aggiunto |
+| YES | NO | NO | Aggiunto ad Azure AD |
 | NO | NO | YES | Aggiunto a un dominio |
 | YES | NO | YES | Aggiunto AD ibrido |
 | NO | YES | YES | Unitamente a DRS locale |
@@ -54,7 +54,7 @@ Questa sezione elenca i parametri di stato di join del dispositivo. La tabella s
 +----------------------------------------------------------------------+
 ```
 
-## <a name="device-details"></a>Dettagli dispositivo
+## <a name="device-details"></a>Device details
 
 Visualizzato solo quando il dispositivo è Azure AD aggiunto o ibrido Azure AD aggiunto (non Azure AD registrato). Questa sezione elenca i dettagli di identificazione del dispositivo archiviati nel cloud.
 
@@ -295,6 +295,9 @@ In questa sezione viene visualizzato l'output dei controlli di integrità di int
 ## <a name="ngc-prerequisite-check"></a>Controllo dei prerequisiti NGC
 
 Questa sezione esegue i controlli prerequisito per il provisioning di una chiave NGC. 
+
+> [!NOTE]
+> Non è possibile visualizzare i dettagli del controllo dei prerequisiti NGC in dsregcmd/status se l'utente ha già configurato le credenziali NGC.
 
 ### <a name="sample-ngc-prerequisite-check-output"></a>Output controllo prerequisiti NGC di esempio
 

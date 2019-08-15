@@ -1,5 +1,5 @@
 ---
-title: Classificazione Stimare il rischio di credito (costo sensibile)
+title: 'Esempio di interfaccia visiva #4: Classificazione per la stima del rischio di credito (sensibile ai costi)'
 titleSuffix: Azure Machine Learning service
 description: Questo articolo illustra come creare un esperimento di Machine Learning complesso usando l'interfaccia visiva. Si apprenderà come implementare script Python personalizzati e confrontare più modelli per scegliere l'opzione migliore.
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: 942d6fa6db7ee2fc07fd11d3448ac7ec96c3bd43
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: ee4b67c82ef2bf5a1ef9c060687cc1c937328e66
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845968"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990423"
 ---
 # <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>Esempio 4-Classificazione: Stimare il rischio di credito (costo sensibile)
 

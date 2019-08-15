@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 07/12/2019
-ms.openlocfilehash: 8d4a7a1b176a0c232c4461c7a8cfc2b1e3faddd6
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.date: 08/12/2019
+ms.openlocfilehash: a01f6cbb20d084864d3a7f64aa8c90d2bc3405f2
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638383"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977079"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Leggere le repliche nel database di Azure per MariaDB
 
@@ -34,7 +34,33 @@ Poiché le repliche sono di sola lettura, non riducono direttamente gli oneri pe
 
 La funzionalità di lettura della replica utilizza la replica asincrona. La funzionalità non è concepita per scenari di replica sincrona. Esisterà un ritardo misurabile significativo tra il master e la replica. I dati nella replica diventano alla fine coerenti con i dati nel master. Usare questa funzionalità per i carichi di lavoro in grado di sostenere questo ritardo.
 
-La lettura delle repliche può migliorare il piano di ripristino di emergenza. Se si verifica un'emergenza a livello di area e il server master non è disponibile, è possibile indirizzare il carico di lavoro a una replica in un'altra area. Per eseguire questa operazione, è necessario innanzitutto consentire alla replica di accettare le Scritture usando la funzione stop Replication. È quindi possibile reindirizzare l'applicazione aggiornando la stringa di connessione. Per altre informazioni, vedere la sezione [arrestare la replica](#stop-replication) .
+
+## <a name="cross-region-replication"></a>Replica tra aree
+È possibile creare una replica di lettura in un'area diversa dal server master. La replica tra aree può essere utile per scenari come la pianificazione del ripristino di emergenza o per avvicinare i dati agli utenti.
+
+> [!IMPORTANT]
+> La replica tra aree è attualmente disponibile in anteprima pubblica.
+
+È possibile avere un server master in qualsiasi [database di Azure per l'area MariaDB](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  Un server master può avere una replica nell'area abbinata o nelle aree di replica universale.
+
+### <a name="universal-replica-regions"></a>Aree di replica universale
+È sempre possibile creare una replica di lettura in una delle aree seguenti, indipendentemente dalla posizione in cui si trova il server master. Queste sono le aree di replica universale:
+
+Australia orientale, Australia sudorientale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, Regno Unito meridionale, Regno Unito occidentale, Europa occidentale, Stati Uniti occidentali, Stati Uniti occidentali 2.
+
+
+### <a name="paired-regions"></a>Aree abbinate
+Oltre alle aree di replica universale, è possibile creare una replica di lettura nell'area abbinata di Azure del server master. Se non si conosce la coppia dell'area, è possibile ottenere altre informazioni nell' [articolo sulle aree abbinate di Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+
+Se si usano repliche tra aree per la pianificazione del ripristino di emergenza, è consigliabile creare la replica nell'area abbinata anziché in una delle altre aree. Le aree abbinate evitano gli aggiornamenti simultanei e assegnano priorità all'isolamento fisico e alla residenza dei dati.  
+
+Esistono tuttavia alcune limitazioni da considerare: 
+
+* Disponibilità a livello di area: Il database di Azure per MariaDB è disponibile negli Stati Uniti occidentali 2, Francia centrale, Emirati Arabi Uniti settentrionali e Germania centrale. Tuttavia, le aree abbinate non sono disponibili.
+    
+* Coppie uni-direzionali: Alcune aree di Azure sono abbinate solo in una direzione. Queste aree includono l'India occidentale, il Brasile meridionale e US Gov Virginia. 
+   Ciò significa che un server master nell'India occidentale può creare una replica nell'India meridionale. Tuttavia, un server master nell'India meridionale non è in grado di creare una replica nell'India occidentale. Questo è dovuto al fatto che l'area secondaria dell'India occidentale è India meridionale, ma l'area secondaria dell'India meridionale non è India occidentale.
+
 
 ## <a name="create-a-replica"></a>Creare una replica
 
@@ -53,7 +79,7 @@ Quando si crea una replica, questa non eredita le regole del firewall o l'endpoi
 
 La replica eredita l'account amministratore dal server master. Tutti gli account utente nel server master vengono replicati nelle repliche in lettura. È possibile connettersi a una replica in lettura solo tramite gli account utente che sono disponibili nel server master.
 
-È possibile connettersi alla replica usando il nome host e un account utente valido, come per un normale database di Azure per il server MariaDB. Per un server denominato la **replica** con il **nome utente amministratore**amministratore, è possibile connettersi alla replica usando l'interfaccia della riga di comando di MySQL:
+È possibile connettersi alla replica usando il nome host e un account utente valido, come per un normale database di Azure per il server MariaDB. Per un server denominato la **replica** con il nome utenteamministratore amministratore, è possibile connettersi alla replica usando l'interfaccia della riga di comando di MySQL:
 
 ```bash
 mysql -h myreplica.mariadb.database.azure.com -u myadmin@myreplica -p

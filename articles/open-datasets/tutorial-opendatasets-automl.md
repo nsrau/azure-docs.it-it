@@ -9,12 +9,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 05/02/2019
-ms.openlocfilehash: 963e4f7e9db638450a89dd4ae0091019fc58e2a4
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 6f72daa4a601df0e3592910645c2f9b35ab64431
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359440"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845825"
 ---
 # <a name="tutorial-build-a-regression-model-with-automated-machine-learning-and-open-datasets"></a>Esercitazione: Creare un modello di regressione con Machine Learning automatizzato e Set di dati Open
 
@@ -37,7 +37,7 @@ Per completare questa esercitazione sono necessari i prerequisiti seguenti:
 
 ### <a name="create-a-workspace"></a>Creare un'area di lavoro
 
-Se non se ne ha già una, seguire le [istruzioni](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace#portal) per creare un'area di lavoro con il portale di Azure. Al termine della creazione, prendere nota del nome dell'area di lavoro, del nome del gruppo di risorse e dell'ID sottoscrizione.
+Se non se ne ha già una, seguire le [istruzioni](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-workspace) per creare un'area di lavoro con il portale di Azure. Al termine della creazione, prendere nota del nome dell'area di lavoro, del nome del gruppo di risorse e dell'ID sottoscrizione.
 
 ### <a name="create-a-python-environment"></a>Creare un ambiente Python
 

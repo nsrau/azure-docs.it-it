@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/31/2019
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: db16a2f122da1bf6c767e0a47c93c22f1882c406
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 154d71c9cbc109834a5854b46c3e6584dcefa7eb
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817225"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68968888"
 ---
 ### <a name="policy-for-users-in-your-directory"></a>Criteri: Per gli utenti nella directory
 
@@ -35,7 +35,7 @@ Seguire questa procedura se si vuole che i criteri siano destinati agli utenti n
 
 ### <a name="policy-for-users-not-in-your-directory"></a>Criteri: Per gli utenti che non si trovino nella directory
 
-Seguire questa procedura se si vuole che il criterio sia per gli utenti che non si trova nella directory che possono richiedere questo pacchetto di accesso. Gli **utenti non inclusi nella directory** fanno riferimento agli utenti che si trovano in un'altra directory Azure ad e potrebbero non essere ancora stati invitati alla directory.  Le directory devono essere configurate per essere consentite nelle impostazioni di **restrizioni di collaborazione delle relazioni organizzative** .
+Seguire questa procedura se si vuole che il criterio sia per gli utenti che non si trova nella directory che possono richiedere questo pacchetto di accesso. Gli **utenti non inclusi nella directory** fanno riferimento agli utenti che si trovano in un'altra directory Azure ad e potrebbero non essere ancora stati invitati alla directory. Attualmente, è possibile aggiungere utenti solo da organizzazioni con Azure AD. Le directory devono essere configurate per essere consentite nelle impostazioni di **restrizioni di collaborazione delle relazioni organizzative** .
 
 > [!NOTE]
 > Verrà creato un account utente esterno Guest per un utente non ancora presente nella directory la cui richiesta è approvata o approvata automaticamente. Il Guest verrà invitato ma non riceverà un messaggio di posta elettronica di invito. Riceveranno invece un messaggio di posta elettronica quando viene recapitata l'assegnazione del pacchetto di accesso. Per impostazione predefinita, in un secondo momento, quando tale utente Guest non dispone più di assegnazioni di pacchetti di accesso, perché l'ultima assegnazione è scaduta o annullata, l'account utente guest verrà bloccato dall'accesso e successivamente eliminato. Se si desidera che gli utenti Guest rimangano per la directory a tempo indeterminato, anche se non dispongono di assegnazioni di pacchetti di accesso, è possibile modificare le impostazioni per la configurazione di gestione dei diritti.

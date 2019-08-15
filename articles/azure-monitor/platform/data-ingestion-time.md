@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: cdd1c8348acac37acbe8ad15199f3953bfe95a8e
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: e07a436ee18a216bab569d299e534e729996db19
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370653"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990168"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Tempo di inserimento dei dati di log in Monitoraggio di Azure
 Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. Spesso sono state poste domande sul tempo necessario affinché i dati di log diventino disponibili dopo la raccolta. Questo articolo illustra i diversi fattori che influiscono su questa latenza.
@@ -90,7 +90,7 @@ Il tempo di inserimento può variare a seconda delle risorse e delle circostanze
 ### <a name="ingestion-latency-delays"></a>Valori della latenza di inserimento
 È possibile misurare la latenza di un record specifico confrontando il risultato della funzione [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) con la proprietà _TimeGenerated_ . Questi dati possono essere usati con varie aggregazioni per individuare il comportamento della latenza di inserimento. Esaminare qualche percentile del tempo di inserimento per ottenere informazioni dettagliate per una grande quantità di dati. 
 
-La query seguente mostrerà ad esempio i computer per cui è stato riscontrato il tempo di inserimento più elevato durante il giorno corrente: 
+Ad esempio, la query seguente indicherà i computer con il tempo di inserimento più elevato nelle 8 ore precedenti: 
 
 ``` Kusto
 Heartbeat
@@ -101,7 +101,7 @@ Heartbeat
 | top 20 by percentile_E2EIngestionLatency_95 desc
 ```
  
-Se si vuole eseguire il drill-down nel tempo di inserimento per un computer specifico in un periodo di tempo, usare la query seguente che visualizza anche i dati in un grafico: 
+Se si desidera eseguire il drill-down del tempo di inserimento per un computer specifico in un determinato periodo di tempo, utilizzare la query seguente che visualizza anche i dati del giorno precedente in un grafico: 
 
 ``` Kusto
 Heartbeat 

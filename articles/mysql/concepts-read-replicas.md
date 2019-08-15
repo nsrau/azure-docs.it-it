@@ -5,22 +5,22 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 04/30/2019
-ms.openlocfilehash: 2d70e1b5434b2fb263d1f4587888d4758fac2828
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/12/2019
+ms.openlocfilehash: 00cace13a1d3db2bca45791960ca9bf2fb9260bd
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66225368"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976909"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Repliche in lettura in Database di Azure per MySQL
 
-La funzionalità di lettura della replica consente di replicare i dati da un Database di Azure per il server MySQL a un server di sola lettura. È possibile eseguire la replica dal server master per fino a cinque repliche. Le repliche vengono aggiornate in modo asincrono utilizzando la tecnologia basata sulla posizione della replica di file registro binario nativo (binlog) del motore di MySQL. Per altre informazioni su questo tipo di replica, vedere [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html) (Panoramica della replica basata su binlog di MySQL).
+La funzionalità relativa alle repliche in lettura consente di replicare i dati dal server del Database di Azure per MySQL a un server di sola lettura. È possibile creare fino a un massimo di cinque repliche da un server master. Le repliche vengono aggiornate in modo asincrono tramite la tecnologia di replica basata su posizione del file di registro binario nativo, o binlog, del motore MySQL. Per altre informazioni su questo tipo di replica, vedere [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html) (Panoramica della replica basata su binlog di MySQL).
 
 > [!IMPORTANT]
-> È possibile creare una replica di lettura nella stessa area del server master o in altre aree di Azure di propria scelta. La replica tra aree è attualmente in anteprima pubblica.
+> È possibile creare una replica di lettura nella stessa area del server master o in qualsiasi altra area di Azure di propria scelta. La replica tra aree è attualmente disponibile in anteprima pubblica.
 
-Le repliche sono nuovi server che vengono gestiti Analogamente alla normale Database di Azure per MySQL Server. Per ogni replica in lettura, viene addebitato il costo delle risorse di calcolo e di archiviazione sottoposte a provisioning, espresse rispettivamente in vCore e GB/mese.
+Le repliche sono nuovi server gestiti in modo analogo al normale database di Azure per i server MySQL. Per ogni replica in lettura, viene addebitato il costo delle risorse di calcolo e di archiviazione sottoposte a provisioning, espresse rispettivamente in vCore e GB/mese.
 
 Per altre informazioni sulle funzioni di replica di MySQL e i problemi relativi, vedere la [documentazione sulle repliche di MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
@@ -32,17 +32,42 @@ Uno scenario comune consiste nel fare in modo che i carichi di lavoro BI e anali
 
 Poiché le repliche sono di sola lettura, non riducono direttamente gli oneri per la capacità di scrittura sul master. Questa funzionalità non è destinata a carichi di lavoro con utilizzo elevato di scrittura.
 
-La funzionalità di lettura della replica utilizza la replica asincrona di MySQL. La funzionalità non è concepita per scenari di replica sincrona. Esisterà un ritardo misurabile significativo tra il master e la replica. I dati nella replica diventano alla fine coerenti con i dati nel master. Usare questa funzionalità per i carichi di lavoro in grado di sostenere questo ritardo.
+La funzionalità di lettura della replica usa la replica asincrona di MySQL. La funzionalità non è concepita per scenari di replica sincrona. Esisterà un ritardo misurabile significativo tra il master e la replica. I dati nella replica diventano alla fine coerenti con i dati nel master. Usare questa funzionalità per i carichi di lavoro in grado di sostenere questo ritardo.
 
-Lettura delle repliche possono migliorare il piano di ripristino di emergenza. Se è presente un'emergenza locale e il server master non è disponibile, è possibile indirizzare il carico di lavoro a una replica in un'altra area. A tale scopo, prima di tutto consentire la replica di accettare operazioni di scrittura tramite la funzione di replica irreversibile. È quindi possibile reindirizzare l'applicazione, aggiornare la stringa di connessione. Altre informazioni, vedere la [arrestare la replica](#stop-replication) sezione.
+## <a name="cross-region-replication"></a>Replica tra aree
+È possibile creare una replica di lettura in un'area diversa dal server master. La replica tra aree può essere utile per scenari come la pianificazione del ripristino di emergenza o per avvicinare i dati agli utenti.
+
+> [!IMPORTANT]
+> La replica tra aree è attualmente disponibile in anteprima pubblica.
+
+È possibile avere un server master in qualsiasi [area di database di Azure per MySQL](https://azure.microsoft.com/global-infrastructure/services/?products=mysql).  Un server master può avere una replica nell'area abbinata o nelle aree di replica universale.
+
+### <a name="universal-replica-regions"></a>Aree di replica universale
+È sempre possibile creare una replica di lettura in una delle aree seguenti, indipendentemente dalla posizione in cui si trova il server master. Queste sono le aree di replica universale:
+
+Australia orientale, Australia sudorientale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, Regno Unito meridionale, Regno Unito occidentale, Europa occidentale, Stati Uniti occidentali, Stati Uniti occidentali 2.
+
+
+### <a name="paired-regions"></a>Aree abbinate
+Oltre alle aree di replica universale, è possibile creare una replica di lettura nell'area abbinata di Azure del server master. Se non si conosce la coppia dell'area, è possibile ottenere altre informazioni nell' [articolo sulle aree abbinate di Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+
+Se si usano repliche tra aree per la pianificazione del ripristino di emergenza, è consigliabile creare la replica nell'area abbinata anziché in una delle altre aree. Le aree abbinate evitano gli aggiornamenti simultanei e assegnano priorità all'isolamento fisico e alla residenza dei dati.  
+
+Esistono tuttavia alcune limitazioni da considerare: 
+
+* Disponibilità a livello di area: Database di Azure per MySQL è disponibile negli Stati Uniti occidentali 2, Francia centrale, Emirati Arabi Uniti settentrionali e Germania centrale. Tuttavia, le aree abbinate non sono disponibili.
+    
+* Coppie uni-direzionali: Alcune aree di Azure sono abbinate solo in una direzione. Queste aree includono l'India occidentale, il Brasile meridionale e US Gov Virginia. 
+   Ciò significa che un server master nell'India occidentale può creare una replica nell'India meridionale. Tuttavia, un server master nell'India meridionale non è in grado di creare una replica nell'India occidentale. Questo è dovuto al fatto che l'area secondaria dell'India occidentale è India meridionale, ma l'area secondaria dell'India meridionale non è India occidentale.
+
 
 ## <a name="create-a-replica"></a>Creare una replica
 
-Se un server master non contiene alcun server di replica esistente, il master prima di tutto verrà riavviata per predisporsi per la replica.
+Se in un server master non sono presenti server di replica, il database master viene innanzitutto riavviato per prepararsi per la replica.
 
-Quando si avvia il flusso di lavoro di replica create, viene creato un Database di Azure vuoto per il server MySQL. Il nuovo server viene riempito con i dati presenti nel server master. Il tempo necessario per la creazione dipende dalla quantità di dati nel master e dal tempo trascorso dall'ultimo backup completo settimanale. Il tempo può variare da pochi minuti a diverse ore.
+Quando si avvia il flusso di lavoro di creazione della replica, viene creato un database di Azure vuoto per il server MySQL. Il nuovo server viene riempito con i dati presenti nel server master. Il tempo necessario per la creazione dipende dalla quantità di dati nel master e dal tempo trascorso dall'ultimo backup completo settimanale. Il tempo può variare da pochi minuti a diverse ore.
 
-Ogni replica è abilitata per l'archiviazione [aumento automatico delle dimensioni](concepts-pricing-tiers.md#storage-auto-grow). La funzionalità aumento consente alla replica di allinearsi con i dati replicati ad esso ed evitare un'interruzione della replica causata da errori di memoria insufficiente.
+Ogni replica è abilitata per l' [aumento automatico](concepts-pricing-tiers.md#storage-auto-grow)dell'archiviazione. La funzionalità di aumento automatico consente alla replica di rimanere al passo con i dati replicati e impedire un'interruzioni della replica causata da errori di archiviazione indesiderati.
 
 Informazioni su come [creare una replica di lettura nel portale di Azure](howto-read-replicas-portal.md).
 
@@ -52,7 +77,7 @@ Quando si crea una replica, questa non eredita le regole del firewall o l'endpoi
 
 La replica eredita l'account amministratore dal server master. Tutti gli account utente nel server master vengono replicati nelle repliche in lettura. È possibile connettersi a una replica in lettura solo tramite gli account utente che sono disponibili nel server master.
 
-È possibile connettersi alla replica con il nome host e un account utente validi, come si farebbe in un normale Database di Azure per il server MySQL. Per un server denominato **myreplica** con il nome utente amministratore **myadmin**, è possibile connettersi alla replica tramite la CLI di mysql:
+È possibile connettersi alla replica usando il nome host e un account utente valido, come si farebbe con un normale database di Azure per il server MySQL. Per un server denominato la **replica** con il nome utenteamministratore amministratore, è possibile connettersi alla replica usando l'interfaccia della riga di comando di MySQL:
 
 ```bash
 mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
@@ -62,17 +87,17 @@ Quando richiesto, immettere la password per l'account dell'utente.
 
 ## <a name="monitor-replication"></a>Monitorare la replica
 
-Database di Azure per MySQL offre il **intervallo di replica in pochi secondi** delle metriche in Monitoraggio di Azure. Questa metrica è disponibile per solo le repliche.
+Database di Azure per MySQL offre la metrica di **ritardo della replica in secondi** in monitoraggio di Azure. Questa metrica è disponibile per solo le repliche.
 
-Questa metrica viene calcolata usando il `seconds_behind_master` metrica disponibile in MySQL `SHOW SLAVE STATUS` comando.
+Questa metrica viene calcolata usando `seconds_behind_master` la metrica disponibile nel comando `SHOW SLAVE STATUS` di MySQL.
 
-Impostare un avviso per informare l'utente quando l'intervallo di replica raggiunge un valore che non è accettabile per il carico di lavoro.
+Impostare un avviso per informare l'utente quando il ritardo di replica raggiunge un valore che non è accettabile per il carico di lavoro.
 
-## <a name="stop-replication"></a>Arrestare la replica
+## <a name="stop-replication"></a>Arresta replica
 
 È possibile scegliere di arrestare la replica tra un master e una replica. Dopo l'arresto della replica tra un server master e una replica in lettura, la replica diventa un server autonomo. I dati nel server autonomo sono i dati che erano disponibili nella replica al momento dell'esecuzione del comando di arresto della replica. Il server autonomo non è aggiornato con il server master.
 
-Quando si sceglie di arrestare la replica a una replica, perde tutti i collegamenti al relativo schema precedente e le altre repliche. Non vi è alcun failover automatico tra un master e la relativa replica.
+Quando si sceglie di arrestare la replica in una replica, vengono persi tutti i collegamenti al master precedente e ad altre repliche. Non esiste un failover automatico tra un master e la relativa replica.
 
 > [!IMPORTANT]
 > Il server autonomo non può essere di nuovo impostato come replica.
@@ -88,22 +113,22 @@ Le repliche in lettura sono attualmente disponibili solo nei livelli di prezzo p
 
 ### <a name="master-server-restart"></a>Riavvio del server master
 
-Quando si crea una replica per un master che non esistono repliche esistenti, il master prima di tutto verrà riavviata per predisporsi per la replica. Tenere in considerazione questo aspetto ed eseguire queste operazioni durante un periodo di scarso traffico.
+Quando si crea una replica per un master senza repliche, il master viene innanzitutto riavviato per prepararsi per la replica. Tenere in considerazione questo aspetto ed eseguire queste operazioni durante un periodo di scarso traffico.
 
 ### <a name="new-replicas"></a>Nuove repliche
 
-Una lettura della replica viene creata come un nuovo Database di Azure per il server MySQL. Un server esistente non può essere impostato come replica. Non è possibile creare una replica di un'altra replica in lettura.
+Una replica di lettura viene creata come un nuovo database di Azure per il server MySQL. Un server esistente non può essere impostato come replica. Non è possibile creare una replica di un'altra replica in lettura.
 
 ### <a name="replica-configuration"></a>Configurazione della replica
 
-Una replica viene creata usando la stessa configurazione server del master. Dopo aver creata una replica, diverse impostazioni possono essere modificate in modo indipendente dal server master: versione del motore di MySQL, periodo di conservazione dei backup, archiviazione, Vcore e generazione di calcolo. È anche possibile modificare in modo indipendente il piano tariffario, tranne da o verso il livello Basic.
+Una replica viene creata usando la stessa configurazione server del master. Dopo la creazione di una replica, è possibile modificare diverse impostazioni indipendentemente dal server master: generazione di calcolo, Vcore, archiviazione, periodo di conservazione dei backup e versione del motore MySQL. È anche possibile modificare in modo indipendente il piano tariffario, tranne da o verso il livello Basic.
 
 > [!IMPORTANT]
 > Prima che la configurazione del server master venga aggiornata con nuovi valori, la configurazione delle repliche deve essere aggiornata impostandola su valori uguali o superiori. Questa azione garantisce che le repliche siano sempre aggiornate con le modifiche apportate al master.
 
 ### <a name="stopped-replicas"></a>Repliche arrestate
 
-Se si arresta la replica tra un server master e una replica di lettura, la replica interrotta diventa un server autonomo che accetta letture e scritture. Il server autonomo non può essere di nuovo impostato come replica.
+Se si interrompe la replica tra un server master e una replica di lettura, la replica arrestata diventa un server autonomo che accetta letture e scritture. Il server autonomo non può essere di nuovo impostato come replica.
 
 ### <a name="deleted-master-and-standalone-servers"></a>Master eliminato e server autonomi
 
@@ -115,15 +140,15 @@ Gli utenti del server master vengono replicati nelle repliche in lettura. È pos
 
 ### <a name="server-parameters"></a>Parametri del server
 
-Per impedire che diventi sincronizzati i dati ed evitare potenziali perdite di dati o danneggiamenti, alcuni parametri di server vengono bloccate vengano aggiornati quando uso leggere repliche.
+Per evitare che i dati risultino fuori dalla sincronizzazione e per evitare potenziali perdite o danneggiamenti dei dati, alcuni parametri del server vengono bloccati dall'aggiornamento quando si usano le repliche di lettura.
 
-I seguenti parametri del server sono bloccati nel server master e di replica:
+I parametri del server seguenti sono bloccati nei server master e di replica:
 - [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) 
 - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)
 
-Il [ `event_scheduler` ](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) parametro è bloccato nei server di replica. 
+Il [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) parametro è bloccato nei server di replica. 
 
-### <a name="other"></a>Altri
+### <a name="other"></a>Altro
 
 - Gli identificatori di transazione globale (GTID) non sono supportati.
 - La creazione di una replica di replica non è supportata.

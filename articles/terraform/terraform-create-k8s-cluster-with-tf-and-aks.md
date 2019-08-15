@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/04/2018
-ms.openlocfilehash: d8438f5ddbbb3744811448aeb563be602b04516d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 257a2d78a54e292faecda836811f0a58fabd584d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58009088"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854512"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Creare un cluster Kubernetes con il servizio Azure Kubernetes e Terraform
 Il [servizio Azure Kubernetes](/azure/aks/) gestisce l'ambiente Kubernetes ospitato consentendo di distribuire e gestire applicazioni in contenitori in modo semplice e rapido senza competenze nell'orchestrazione di contenitori. Elimina anche l'impegno delle operazioni in corso e della manutenzione effettuando il provisioning, l'aggiornamento e il ridimensionamento delle risorse su richiesta, senza portare le applicazioni offline.
@@ -110,9 +110,14 @@ Creare il file di configurazione Terraform che dichiara le risorse per il cluste
         name     = "${var.resource_group_name}"
         location = "${var.location}"
     }
+    
+    resource "random_id" "log_analytics_workspace_name_suffix" {
+        byte_length = 8
+    }
 
     resource "azurerm_log_analytics_workspace" "test" {
-        name                = "${var.log_analytics_workspace_name}"
+        # The WorkSpace name has to be unique across the whole of azure, not just the current subscription/tenant.
+        name                = "${var.log_analytics_workspace_name}-${random_id.log_analytics_workspace_name_suffix.dec}"
         location            = "${var.log_analytics_workspace_location}"
         resource_group_name = "${azurerm_resource_group.k8s.name}"
         sku                 = "${var.log_analytics_workspace_sku}"
@@ -165,7 +170,7 @@ Creare il file di configurazione Terraform che dichiara le risorse per il cluste
             }
         }
 
-        tags {
+        tags = {
             Environment = "Development"
         }
     }

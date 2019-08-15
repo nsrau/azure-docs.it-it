@@ -1,5 +1,5 @@
 ---
-title: Regressione Stimare il prezzo e confrontare gli algoritmi
+title: 'Esempio di interfaccia visiva #3: regressione al prezzo e confrontare gli algoritmi'
 titleSuffix: Azure Machine Learning service
 description: Questo articolo illustra come creare un esperimento di apprendimento automatico complesso senza scrivere una sola riga di codice usando l'interfaccia visiva. Informazioni su come eseguire il training e il confronto di più modelli di regressione per stimare il prezzo di un'automobile in base alle funzionalità tecniche
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: 28af7b814a8d214c3529ecb12ffe25ede78b1cb6
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: d05a601196ec4a5349a0acb4763098d9716c17f5
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855925"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990012"
 ---
 # <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>Esempio 2: regressione: Stimare il prezzo e confrontare gli algoritmi
 

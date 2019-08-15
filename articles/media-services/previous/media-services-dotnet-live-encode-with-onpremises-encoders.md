@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: cenkdin;juliako
-ms.openlocfilehash: 8baff356e1a4916bcc21b28f422a6e98342c0d34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.openlocfilehash: bc7c8a059e1e17b7b280a7061206b10ed6c530aa
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64869464"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "69015831"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Come eseguire lo streaming live con codificatori locali mediante .NET
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "64869464"
 > 
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
 Questa esercitazione illustra come usare l'SDK di Servizi multimediali di Azure per .NET per creare un **canale** configurato per la distribuzione pass-through. 
 
@@ -56,7 +56,7 @@ Configurare l'ambiente di sviluppo e popolare il file app.config con le informaz
 Il seguente esempio di codice illustra come ottenere le attività seguenti:
 
 * Connettersi a Servizi multimediali
-* Creare un canale
+* Crea un canale
 * Aggiornare il canale
 * Recuperare l'endpoint di input del canale. È necessario fornire l'endpoint di input al codificatore live locale. Il codificatore live converte i segnali dalla fotocamera ai flussi che vengono inviati all'endpoint di input del canale (inserimento).
 * Recuperare l'endpoint di anteprima del canale
@@ -399,7 +399,7 @@ namespace AMSLiveTest
 }
 ```
 
-## <a name="next-step"></a>Passaggio successivo
+## <a name="next-step"></a>Passo successivo
 Analizzare i percorsi di apprendimento dei Servizi multimediali
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
