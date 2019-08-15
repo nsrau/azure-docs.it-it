@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 561c4458f942dc524f7de8df5b4385a1eaa1f6a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80eb3d60eb4c40e726d53d5fb876a6a118d119cb
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67106275"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944936"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-betterworks"></a>Esercitazione: Integrazione di Azure Active Directory con BetterWorks
 
@@ -119,7 +119,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con BetterWorks, seguire qu
     > [!NOTE]
     > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di BetterWorks](mailto:support@betterworks.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-6. L'applicazione BetterWorks prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic sull'icona  **Modifica** per aprire la finestra di dialogo **Attributi utente**. 
+6. L'applicazione BetterWorks prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aprire la finestra di dialogo **Attributi utente**.
 
     ![image](common/edit-attribute.png)
 
@@ -217,7 +217,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 ### <a name="create-betterworks-test-user"></a>Creare un utente di test per BetterWorks
 
-In questa sezione viene creato un utente di nome Britta Simon in BetterWorks. Collaborare con il  [team di supporto di BetterWorks](mailto:support@betterworks.com) per aggiungere gli utenti alla piattaforma BetterWorks. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in BetterWorks. Collaborare con il [team di supporto di BetterWorks](mailto:support@betterworks.com) per aggiungere gli utenti alla piattaforma BetterWorks. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 8d1f974b7fea72bede2ead2e9d971419d5e83cb2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4267b75be72c1d162b4abaf7184afcdd02c38720
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67087533"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943098"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vibe-hcm"></a>Esercitazione: integrazione di Azure Active Directory con Vibe HCM
 
@@ -101,7 +101,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Vibe HCM, seguire quest
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-4. Nella sezione **Configurazione SAML di base**, se si vuole configurare l'applicazione in modalità avviata da  **IDP**, non è necessario eseguire alcun passaggio, perché l'app è già preintegrata in Azure.
+4. Nella sezione **Configurazione SAML di base**, se si vuole configurare l'applicazione in modalità avviata da **IDP**, non è necessario eseguire alcun passaggio, perché l'app è già preintegrata in Azure.
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Vibe HCM](common/preintegrated.png)
 
@@ -174,7 +174,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 ### <a name="create-vibe-hcm-test-user"></a>Creare un utente di test di Vibe HCM
 
-In questa sezione viene creato un utente chiamato Britta Simon in Vibe HCM. Collaborare con il  [team di supporto di Vibe HCM](mailto:support@vibehcm.com) per aggiungere gli utenti alla piattaforma Vibe HCM. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente chiamato Britta Simon in Vibe HCM. Collaborare con il [team di supporto di Vibe HCM](mailto:support@vibehcm.com) per aggiungere gli utenti alla piattaforma Vibe HCM. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

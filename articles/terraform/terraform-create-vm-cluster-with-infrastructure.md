@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/13/2017
-ms.openlocfilehash: a0358859d6f806a94c529bae2eb6fa9d1ab82963
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 284dcd99dc77d7ec0fb5cb214d49b6fcf93a6aef
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077837"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854493"
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Creare un cluster di macchine virtuali con Terraform e HCL
 
@@ -103,7 +103,7 @@ In questa sezione viene creato un file che contiene le definizioni delle risorse
     name                         = "publicIPForLB"
     location                     = "${azurerm_resource_group.test.location}"
     resource_group_name          = "${azurerm_resource_group.test.name}"
-    public_ip_address_allocation = "static"
+    allocation_method            = "Static"
    }
 
    resource "azurerm_lb" "test" {

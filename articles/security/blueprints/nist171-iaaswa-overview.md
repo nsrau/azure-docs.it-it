@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9e5c894cedcbfd006d9406ce2c07fc0b17033d7c
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 88bca1a799d55ba59c8f5d2263f3219cfb66700e
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68781045"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946727"
 ---
 # <a name="azure-security-and-compliance-blueprint---iaas-web-application-for-nist-sp-800-171"></a>Progetto per la sicurezza e la conformità di Azure - Applicazione Web IaaS per NIST SP 800-171
 
@@ -74,8 +74,8 @@ La sezione seguente descrive in modo dettagliato gli elementi di sviluppo e impl
 
 Questa soluzione crea una macchina virtuale come bastion host aggiunto al dominio con le configurazioni seguenti:
 -   [Estensione antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware).
--   [Estensione di Diagnostica di Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template).
--   [Crittografia dischi di Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) tramite Key Vault.
+-   [Estensione di Diagnostica di Azure](../../virtual-machines/windows/extensions-diagnostics-template.md).
+-   [Crittografia dischi di Azure](../azure-security-disk-encryption-overview.md) tramite Key Vault.
 -   [Criteri di arresto automatico](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) per ridurre il consumo di risorse della macchina virtuale quando non è in uso.
 -   [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) è abilitato in modo che le credenziali e altri segreti vengano eseguiti in un ambiente protetto, isolato dal sistema operativo in esecuzione.
 
@@ -84,7 +84,7 @@ L'architettura definisce una rete privata virtuale con spazio degli indirizzi 10
 
 **Gruppi di sicurezza di rete**: Questa soluzione distribuisce le risorse in un'architettura con subnet separate per il Web, il database, la Active Directory e la gestione all'interno di una rete virtuale. Le subnet sono separate logicamente da regole dei gruppi di sicurezza di rete applicate alle singole subnet. Le regole limitano il traffico tra subnet esclusivamente a quello necessario per la funzionalità e la gestione di sistema.
 
-Vedere la configurazione per i [gruppi di sicurezza di rete](https://github.com/Azure/fedramp-iaas-webapp/blob/master/nestedtemplates/virtualNetworkNSG.json) distribuita con questa soluzione. Le organizzazioni possono configurare i gruppi di sicurezza di rete modificando il file indicato in precedenza usando [questa documentazione](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) come riferimento.
+Vedere la configurazione per i [gruppi di sicurezza di rete](https://github.com/Azure/fedramp-iaas-webapp/blob/master/nestedtemplates/virtualNetworkNSG.json) distribuita con questa soluzione. Le organizzazioni possono configurare i gruppi di sicurezza di rete modificando il file indicato in precedenza usando [questa documentazione](../../virtual-network/virtual-network-vnet-plan-design-arm.md) come riferimento.
 
 Ognuna delle subnet ha un gruppo di sicurezza di rete dedicato:
 - Un gruppo di sicurezza di rete per il gateway applicazione (LBNSG)
@@ -99,9 +99,9 @@ Per impostazione predefinita, Azure esegue la crittografia di tutte le comunicaz
 ### <a name="data-at-rest"></a>Dati inattivi
 L'architettura protegge i dati inattivi tramite misure diverse, ad esempio crittografia e controllo del database.
 
-**Archiviazione di Azure**: per soddisfare i requisiti dei dati inattivi crittografati, tutte le [risorse di archiviazione](https://azure.microsoft.com/services/storage/) usano la [crittografia del servizio di archiviazione](https://docs.microsoft.com/azure/storage/storage-service-encryption). Questa funzionalità consente di proteggere e salvaguardare i dati, supportando l'impegno a livello di sicurezza dell'organizzazione e i requisiti di conformità definiti da NIST SP 800-171.
+**Archiviazione di Azure**: per soddisfare i requisiti dei dati inattivi crittografati, tutte le [risorse di archiviazione](https://azure.microsoft.com/services/storage/) usano la [crittografia del servizio di archiviazione](../../storage/common/storage-service-encryption.md). Questa funzionalità consente di proteggere e salvaguardare i dati, supportando l'impegno a livello di sicurezza dell'organizzazione e i requisiti di conformità definiti da NIST SP 800-171.
 
-**Crittografia dischi di Azure**: La crittografia del disco viene usata per crittografare i dischi delle macchine virtuali IaaS Windows. [Crittografia dischi](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) usa la funzionalità BitLocker di Windows per fornire la crittografia del volume per i dischi dati e del sistema operativo. La soluzione è integrata con Key Vault per semplificare il controllo e la gestione delle chiavi di crittografia dei dischi.
+**Crittografia dischi di Azure**: La crittografia del disco viene usata per crittografare i dischi delle macchine virtuali IaaS Windows. [Crittografia dischi](../azure-security-disk-encryption-overview.md) usa la funzionalità BitLocker di Windows per fornire la crittografia del volume per i dischi dati e del sistema operativo. La soluzione è integrata con Key Vault per semplificare il controllo e la gestione delle chiavi di crittografia dei dischi.
 
 **SQL Server**: L'istanza di SQL Server usa le misure di sicurezza del database seguenti:
 -   [Controllo di SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine?view=sql-server-2017) tiene traccia degli eventi di database e li scrive nei log di controllo.
@@ -113,10 +113,10 @@ L'architettura protegge i dati inattivi tramite misure diverse, ad esempio critt
 ### <a name="identity-management"></a>Gestione delle identità
 Le tecnologie seguenti offrono le funzionalità necessarie per gestire l'accesso ai dati nell'ambiente di Azure:
 -   [Azure AD](https://azure.microsoft.com/services/active-directory/) è il servizio Microsoft multi-tenant di gestione di identità e directory basato sul cloud. Tutti gli utenti della soluzione sono stati creati in Azure AD, inclusi gli utenti che accedono all'istanza di SQL Server.
--   L'autenticazione per l'applicazione viene eseguita tramite Azure AD. Per altre informazioni, vedere l'articolo che illustra come [integrare applicazioni con Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
--   Il [controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) può essere usato dagli amministratori per definire autorizzazioni di accesso con granularità fine per concedere solo il livello di accesso necessario agli utenti per il proprio lavoro. Invece di concedere a ogni utente autorizzazioni senza limiti per le risorse di Azure, gli amministratori possono consentire solo determinate azioni per l'accesso ai dati. L'accesso alla sottoscrizione è limitato all'amministratore della sottoscrizione.
-- I clienti possono usare [Azure Active Directory Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started) per ridurre al minimo il numero di utenti autorizzati ad accedere a determinate risorse. Gli amministratori possono usare Azure AD Privileged Identity Management per individuare, limitare e monitorare le identità con privilegi e il relativo accesso alle risorse. Questa funzionalità può essere usata anche per applicare l'accesso amministrativo on demand e JIT quando necessario.
-- [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) rileva le potenziali vulnerabilità che interessano le identità dell'organizzazione e configura le risposte automatizzate alle azioni sospette rilevate correlate alle identità di un'organizzazione. Esamina anche gli eventi imprevisti sospetti per eseguire l'azione appropriata per risolverli.
+-   L'autenticazione per l'applicazione viene eseguita tramite Azure AD. Per altre informazioni, vedere l'articolo che illustra come [integrare applicazioni con Azure AD](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
+-   Il [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/role-assignments-portal.md) può essere usato dagli amministratori per definire autorizzazioni di accesso con granularità fine per concedere solo il livello di accesso necessario agli utenti per il proprio lavoro. Invece di concedere a ogni utente autorizzazioni senza limiti per le risorse di Azure, gli amministratori possono consentire solo determinate azioni per l'accesso ai dati. L'accesso alla sottoscrizione è limitato all'amministratore della sottoscrizione.
+- I clienti possono usare [Azure Active Directory Privileged Identity Management](../../active-directory/privileged-identity-management/pim-getting-started.md) per ridurre al minimo il numero di utenti autorizzati ad accedere a determinate risorse. Gli amministratori possono usare Azure AD Privileged Identity Management per individuare, limitare e monitorare le identità con privilegi e il relativo accesso alle risorse. Questa funzionalità può essere usata anche per applicare l'accesso amministrativo on demand e JIT quando necessario.
+- [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview.md) rileva le potenziali vulnerabilità che interessano le identità dell'organizzazione e configura le risposte automatizzate alle azioni sospette rilevate correlate alle identità di un'organizzazione. Esamina anche gli eventi imprevisti sospetti per eseguire l'azione appropriata per risolverli.
 
 ### <a name="security"></a>Security
 **Gestione dei segreti**: La soluzione USA [Key Vault](https://azure.microsoft.com/services/key-vault/) per la gestione di chiavi e segreti. Key Vault consente di proteggere i segreti e le chiavi di crittografia usati da servizi e applicazioni cloud. Le funzionalità di Key Vault seguenti aiutano gli utenti a proteggere i dati:
@@ -144,12 +144,12 @@ Questa architettura di riferimento usa la funzionalità di [valutazione della vu
 **Gateway applicazione di Azure**: L'architettura riduce il rischio di vulnerabilità della sicurezza usando un gateway applicazione con un web application firewall configurato e il set di regole OWASP abilitato. Altre funzionalità:
 
 - [SSL end-to-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
-- Abilitazione di [Offload SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal).
+- Abilitazione di [Offload SSL](../../application-gateway/create-ssl-portal.md).
 - Disabilitazione di [TLS v1.0 e v1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
-- [Web application firewall](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) (modalità di prevenzione).
+- [Web application firewall](../../application-gateway/waf-overview.md) (modalità di prevenzione).
 - [Modalità di prevenzione](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-portal) con set di regole OWASP 3.0.
 - Abilitazione della [registrazione diagnostica](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics).
-- [Probe di integrità personalizzati](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-gateway-portal).
+- [Probe di integrità personalizzati](../../application-gateway/quick-create-portal.md).
 - [Centro sicurezza](https://azure.microsoft.com/services/security-center) e [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations) offrono protezione aggiuntiva e notifiche. Centro sicurezza mette a disposizione anche un sistema di reputazione.
 
 ### <a name="business-continuity"></a>Continuità aziendale
@@ -163,18 +163,18 @@ Insieme di credenziali di **servizi di ripristino**: l'[insieme di credenziali d
 ### <a name="logging-and-auditing"></a>Registrazione e controllo
 
 I servizi di Azure registrano in modo completo le attività di sistema e degli utenti e l'integrità del sistema:
-- **Log attività**: i [log attività](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) offrono informazioni dettagliate sulle operazioni eseguite sulle risorse di una sottoscrizione. I log attività possono essere utili per determinare l'iniziatore di un'operazione, l'ora in cui si è verificata e lo stato.
-- **Log di diagnostica**: i [log di diagnostica](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) includono tutti i log generati da ogni risorsa. ovvero i registri di sistema per gli eventi Windows, i log di Archiviazione di Azure, i log di controllo di Key Vault e i log degli accessi e del firewall del gateway applicazione. Tutti i log di diagnostica eseguono operazioni di scrittura in un account di archiviazione di Azure centralizzato e crittografato per finalità di archiviazione. Gli utenti possono configurare il periodo di conservazione, fino a 730 giorni, per soddisfare requisiti specifici.
+- **Log attività**: i [log attività](../../azure-monitor/platform/activity-logs-overview.md) offrono informazioni dettagliate sulle operazioni eseguite sulle risorse di una sottoscrizione. I log attività possono essere utili per determinare l'iniziatore di un'operazione, l'ora in cui si è verificata e lo stato.
+- **Log di diagnostica**: i [log di diagnostica](../../azure-monitor/platform/diagnostic-logs-overview.md) includono tutti i log generati da ogni risorsa. ovvero i registri di sistema per gli eventi Windows, i log di Archiviazione di Azure, i log di controllo di Key Vault e i log degli accessi e del firewall del gateway applicazione. Tutti i log di diagnostica eseguono operazioni di scrittura in un account di archiviazione di Azure centralizzato e crittografato per finalità di archiviazione. Gli utenti possono configurare il periodo di conservazione, fino a 730 giorni, per soddisfare requisiti specifici.
 
 **Log di Monitoraggio di Azure**: Questi log vengono consolidati nei [log di monitoraggio di Azure](https://azure.microsoft.com/services/log-analytics/) per l'elaborazione, l'archiviazione e la creazione di report del dashboard. Dopo la raccolta, i dati vengono organizzati in tabelle separate per ogni tipo di dati all'interno di aree di lavoro di Log Analytics. In questo modo tutti i dati possono essere analizzati insieme, indipendentemente dall'origine. Il Centro sicurezza si integra con i log di monitoraggio di Azure. I clienti possono usare le query kusto per accedere ai dati degli eventi di sicurezza e combinarli con i dati di altri servizi.
 
-Come parte di questa architettura sono incluse le [soluzioni di monitoraggio](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) di Azure seguenti:
--   [Valutazione Active Directory](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): la soluzione Controllo integrità Active Directory Domain Services valuta i rischi e l'integrità degli ambienti server a intervalli regolari. e offre un elenco con priorità di elementi consigliati specifici per l'infrastruttura distribuita dei server.
-- [Valutazione SQL](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): la soluzione Controllo integrità SQL consente di valuta i rischi e l'integrità degli ambienti server a intervalli regolari. e offre ai clienti un elenco con priorità di elementi consigliati specifici per l'infrastruttura distribuita dei server.
-- [Integrità agente](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): la soluzione Integrità agente indica quanti agenti vengono distribuiti e la relativa distribuzione geografica. Indica anche quanti agenti non rispondono e il numero di agenti che inviano dati operativi.
--   [Analisi log attività](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): la soluzione Analisi log attività offre assistenza per l'analisi dei log attività di Azure in tutte le sottoscrizioni di Azure per un cliente.
+Come parte di questa architettura sono incluse le [soluzioni di monitoraggio](../../monitoring/monitoring-solutions.md) di Azure seguenti:
+-   [Valutazione Active Directory](../../azure-monitor/insights/ad-assessment.md): la soluzione Controllo integrità Active Directory Domain Services valuta i rischi e l'integrità degli ambienti server a intervalli regolari. e offre un elenco con priorità di elementi consigliati specifici per l'infrastruttura distribuita dei server.
+- [Valutazione SQL](../../azure-monitor/insights/sql-assessment.md): la soluzione Controllo integrità SQL consente di valuta i rischi e l'integrità degli ambienti server a intervalli regolari. e offre ai clienti un elenco con priorità di elementi consigliati specifici per l'infrastruttura distribuita dei server.
+- [Integrità agente](../../monitoring/monitoring-solution-agenthealth.md): la soluzione Integrità agente indica quanti agenti vengono distribuiti e la relativa distribuzione geografica. Indica anche quanti agenti non rispondono e il numero di agenti che inviano dati operativi.
+-   [Analisi log attività](../../azure-monitor/platform/collect-activity-logs.md): la soluzione Analisi log attività offre assistenza per l'analisi dei log attività di Azure in tutte le sottoscrizioni di Azure per un cliente.
 
-**Automazione di Azure**: [Automazione](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) archivia, esegue e gestisce i runbook. In questa soluzione i runbook consentono di raccogliere log da SQL Server. I clienti possono usare la soluzione [Rilevamento modifiche](https://docs.microsoft.com/azure/automation/automation-change-tracking) di Automazione per identificare con facilità le modifiche apportate all'ambiente.
+**Automazione di Azure**: [Automazione](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) archivia, esegue e gestisce i runbook. In questa soluzione i runbook consentono di raccogliere log da SQL Server. I clienti possono usare la soluzione [Rilevamento modifiche](../../automation/change-tracking.md) di Automazione per identificare con facilità le modifiche apportate all'ambiente.
 
 **Monitoraggio di Azure**: [Monitoraggio](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) consente agli utenti di tenere traccia delle prestazioni, gestire la sicurezza e identificare le tendenze. Le organizzazioni possono usarlo per effettuare controlli, creare avvisi e archiviare i dati. Possono inoltre tenere traccia delle chiamate API nelle risorse di Azure.
 

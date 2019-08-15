@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: b6f1198334d8bd4ba58b4fbba02942fc8c54c578
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 35cb408473da8c6397c5034ae20ac0a50b0953ea
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442854"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944716"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>Esercitazione: Integrazione di Azure Active Directory con EBSCO
 
@@ -124,7 +124,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con EBSCO, seguire questa p
 
     o   **Profile** = I clienti possono personalizzare il collegamento in modo da indirizzare gli utenti a uno profilo specifico, in base al prodotto acquistato da EBSCO. È possibile immettere un ID di profilo specifico. I principali ID sono eds (EBSCO Discovery Service) ed ehost (database EBSCOhost). Istruzioni specifiche sull'argomento sono disponibili in [questa pagina](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile).
 
-6. L'applicazione EBSCO prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic sull'icona  **Modifica** per aprire la finestra di dialogo **Attributi utente**. 
+6. L'applicazione EBSCO prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aprire la finestra di dialogo **Attributi utente**.
 
     ![image](common/edit-attribute.png)
 

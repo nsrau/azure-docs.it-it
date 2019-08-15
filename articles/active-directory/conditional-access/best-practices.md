@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08be09f7bee3aa17ff9d1baae4271e994fa235cb
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 3b7265f8d5ec4b7336253787e9cb881900a52b79
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248875"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963455"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Procedure consigliate per l'accesso condizionale in Azure Active Directory
 
@@ -35,7 +35,7 @@ Quando si crea un nuovo criterio, non sono presenti utenti, gruppi, app o contro
 
 Affinché il criterio funzioni, è necessario configurare quanto segue:
 
-| Cosa           | Come                                  | Motivo |
+| Dettagli           | Come                                  | Motivo |
 | :--            | :--                                  | :-- |
 | **App cloud** |Selezionare una o più app.  | L'obiettivo di un criterio di accesso condizionale è consentire di controllare il modo in cui gli utenti autorizzati possono accedere alle app cloud.|
 | **Utenti e gruppi** | Selezionare almeno un utente o un gruppo autorizzato ad accedere alle app cloud selezionate. | Un criterio di accesso condizionale senza utenti e gruppi assegnati non viene mai attivato. |
@@ -50,7 +50,8 @@ Quando si accede a un'app Cloud, è possibile applicare più di un criterio di a
 Tutti i criteri vengono applicati in due fasi:
 
 - Nella **prima** fase vengono valutati tutti i criteri e vengono raccolti tutti i controlli di accesso non soddisfatti. 
-- Nella **seconda** fase viene chiesto di soddisfare i requisiti non rispettati. Se uno dei criteri blocca l'accesso, l'utente viene bloccato e non viene richiesto di soddisfare altri controlli dei criteri. Se i criteri bloccano l'utente, viene richiesto di soddisfare gli altri controlli dei criteri nell'ordine seguente:
+
+- Nella **seconda** fase viene chiesto di soddisfare i requisiti non rispettati. Se uno dei criteri blocca l'accesso, l'utente viene bloccato e non viene richiesto di soddisfare altri controlli dei criteri. Se nessuno dei criteri blocca l'utente, viene richiesto di soddisfare gli altri controlli dei criteri nell'ordine seguente:
 
    ![Ordine](./media/best-practices/06.png)
     

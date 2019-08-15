@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 08/09/2019
 ms.author: victorh
-ms.openlocfilehash: 89b50cff2d46f8c92c09653aeaac49551c97e9c6
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 9a3cdb846921c2d73dd2cca5d679663c1ba9e192
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314458"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946891"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Panoramica dei record di alias DNS di Azure
 
@@ -29,7 +29,7 @@ Un set di record alias è supportato per i tipi di record seguenti in una zona D
 
 ## <a name="capabilities"></a>Funzionalità
 
-- **Puntare a una risorsa IP pubblica da un set di record DNS A/AAAA**. È possibile creare un set di record A/AAAA e renderlo un set di record alias impostato per puntare a una risorsa IP pubblica. Il set di record DNS cambia automaticamente se l'indirizzo IP pubblico cambia o viene eliminato. Vengono evitati i record DNS inesatti che puntano a indirizzi IP non corretti.
+- **Puntare a una risorsa IP pubblica da un set di record DNS A/AAAA**. È possibile creare un set di record A/AAAA e renderlo un set di record alias in modo che punti a una risorsa IP pubblica (standard o Basic). Il set di record DNS cambia automaticamente se l'indirizzo IP pubblico cambia o viene eliminato. Vengono evitati i record DNS inesatti che puntano a indirizzi IP non corretti.
 
    È previsto un limite corrente di 20 set di record alias per ogni risorsa.
 

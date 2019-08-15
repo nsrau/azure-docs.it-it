@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fceeed47ee77207e00ebfc619226ecbb5956bc3d
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 015318b1695f76121662b82e94b37de1ddb63b1b
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478520"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952947"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatizzare le risorse nel centro dati o nel cloud usando i ruoli di lavoro ibridi per runbook
 
@@ -98,11 +98,11 @@ Per rimuovere un gruppo, è innanzitutto necessario rimuovere il ruolo di lavoro
 
 ### <a name="hybrid-worker-role"></a>Ruolo di lavoro ibrido
 
-Per Hybrid Runbook Workers per connettersi e registrarsi con automazione di Azure, deve avere accesso al numero di porta e gli URL descritti in questa sezione. Questo accesso è in primo piano per la [porte e agli URL necessari per Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) per connettersi a log di monitoraggio di Azure.
+Per la connessione e la registrazione con automazione di Azure, il ruolo di lavoro ibrido per Runbook deve avere accesso al numero di porta e agli URL descritti in questa sezione. Questo accesso è in primo piano alle [porte e agli URL necessari per Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) connettersi ai log di monitoraggio di Azure.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Se si usa un server proxy per la comunicazione tra l'agente e il servizio automazione di Azure, verificare che le risorse appropriate siano accessibili. Il timeout per le richieste di lavoro ibrido per Runbook e i servizi di automazione è 30 secondi. Dopo 3 tentativi di richiesta avrà esito negativo. Se si usa un firewall per limitare l'accesso a Internet, è necessario configurare il firewall per consentire l'accesso. Se si usa il gateway Log Analytics come proxy, assicurarsi che sia configurato per i ruoli di lavoro ibridi. Per istruzioni su come eseguire questa procedura, vedere [Configurare il gateway Log Analytics per i ruoli di lavoro ibridi per runbook di Automazione](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway).
+Se si usa un server proxy per la comunicazione tra l'agente e il servizio automazione di Azure, assicurarsi che le risorse appropriate siano accessibili. Il timeout per le richieste provenienti dal ruolo di lavoro ibrido per Runbook e dai servizi di automazione è di 30 secondi. Dopo 3 tentativi la richiesta avrà esito negativo. Se si usa un firewall per limitare l'accesso a Internet, è necessario configurare il firewall per consentire l'accesso. Se si usa il gateway Log Analytics come proxy, assicurarsi che sia configurato per i ruoli di lavoro ibridi. Per istruzioni su come eseguire questa procedura, vedere [Configurare il gateway Log Analytics per i ruoli di lavoro ibridi per runbook di Automazione](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway).
 
 La porta e gli URL seguenti sono necessari affinché il ruolo di lavoro ibrido per runbook comunichi con Automazione:
 
@@ -111,7 +111,7 @@ La porta e gli URL seguenti sono necessari affinché il ruolo di lavoro ibrido p
 * URL globale di US Gov Virginia: *.azure-automation.us
 * Servizio agente: https://\<workspaceId\>.agentsvc.azure-automation.net
 
-È consigliabile usare gli indirizzi elencati quando si definiscono eccezioni. Per gli indirizzi IP è possibile scaricare gli [intervalli di indirizzi IP dei data center di Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Questo file viene aggiornato ogni settimana e presenta gli intervalli attualmente distribuiti e le eventuali modifiche imminenti agli intervalli IP.
+È consigliabile usare gli indirizzi elencati quando si definiscono eccezioni. Per gli indirizzi IP è possibile scaricare gli [intervalli di indirizzi IP dei data center di Microsoft Azure](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Questo file viene aggiornato ogni settimana e presenta gli intervalli attualmente distribuiti e le eventuali modifiche imminenti agli intervalli IP.
 
 Se è disponibile un account di Automazione definito per un'area specifica, è possibile limitare la comunicazione a tale data center regionale. La tabella seguente indica il record DNS per ogni area:
 

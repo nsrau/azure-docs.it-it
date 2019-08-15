@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/05/2019
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: 46bf9851ccf8877885d9f98a023aa95ebdc533bc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: e7aa2b4389fe60eed80b15aff04d6f7fcbc7b013
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68857413"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68968885"
 ---
 | Risorsa | Destinazione | Limite rigido |
 |----------|--------------|------------|
@@ -23,7 +23,7 @@ ms.locfileid: "68857413"
 | Endpoint cloud per gruppo di sincronizzazione | 1 endpoint cloud | Sì |
 | Endpoint server per gruppo di sincronizzazione | 50 endpoint server | No |
 | Endpoint server per server | 30 endpoint server | Sì |
-| Oggetti file system (directory e file) per gruppo di sincronizzazione | 25 milioni di oggetti | No |
+| Oggetti file system (directory e file) per gruppo di sincronizzazione | oggetti di 50 milioni | No |
 | Numero massimo di oggetti file system (directory e file) in una directory | oggetti di 5 milioni | Sì |
 | Dimensioni massime del descrittore di protezione (directory e file) dell'oggetto | 64 KiB | Sì |
 | Dimensione file | 100 GiB | No |

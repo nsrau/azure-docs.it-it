@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b2e012a4ce8ac4a9a5afb895d545beb0a0b8946
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50097aec1c4a003d3494029e8f25bb13b564f207
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67100625"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944027"
 ---
 # <a name="tutorial-integrate-ilms-with-azure-active-directory"></a>Esercitazione: Integrare iLMS con Azure Active Directory
 
@@ -88,7 +88,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     Nella casella di testo **URL di accesso** incollare il valore **Endpoint (URL)** copiato dalla sezione **Provider di servizi** delle impostazioni SAML nel portale di amministrazione iLMS come `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
 
-1. Per abilitare il provisioning JIT, l'applicazione iLMS prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi di token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su  **Modifica** per aprire la finestra di dialogo Attributi utente.
+1. Per abilitare il provisioning JIT, l'applicazione iLMS prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi di token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aprire la finestra di dialogo Attributi utente.
 
     > [!NOTE]
     > È necessario abilitare **Create Un-recognized User Account** (Crea account utente non riconosciuto) in iLMS per eseguire il mapping di questi attributi. Seguire le istruzioni [qui](https://support.inspiredelearning.com/help/adding-updating-and-managing-users#just-in-time-provisioning-with-saml-single-signon) per avere un'idea della configurazione degli attributi.

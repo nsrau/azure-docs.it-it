@@ -1,20 +1,19 @@
 ---
 title: Monitorare e risolvere i problemi relativi a un'applicazione di archiviazione cloud in Azure | Microsoft Docs
 description: Usare gli strumenti di diagnostica, le metriche e gli avvisi per risolvere i problemi e monitorare un'applicazione cloud.
-services: storage
 author: normesta
 ms.service: storage
+ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: mvc
-ms.openlocfilehash: 1383ccd570e23d80343ccdfd586d08ee25ebbc8d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3a2381302a378e7b2635b84c32a87e844e4605a7
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148229"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68844891"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Monitorare e risolvere i problemi relativi a un'applicazione di archiviazione cloud
 
@@ -52,7 +51,7 @@ Gli avvisi sono un metodo per inviare messaggi di posta elettronica agli amminis
 
 ### <a name="navigate-to-the-storage-account-in-the-azure-portal"></a>Passare all'account di archiviazione nel portale di Azure
 
-Nella sezione **Monitoraggio** selezionare **Avvisi (versione classica)**.
+Nella sezione **Monitoraggio** selezionare **Avvisi (versione classica)** .
 
 Selezionare **Aggiungi avviso per la metrica (versione classica)** e completare il modulo **Aggiungi regola** inserendo le informazioni richieste. Nell'elenco a discesa **Metrica** selezionare `SASClientOtherError`. Per consentire l'attivazione dell'avviso al primo errore, nell'elenco a discesa **Condizione** selezionare **Maggiore o uguale a**.
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: d0e8881607fe4dc84a7d533855dc2b9c48e5366d
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: b42313a83be413a9c34a45fca946ea165f8fc9a3
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726194"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967035"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copiare dati da Cassandra usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -40,7 +40,9 @@ In particolare, il connettore Cassandra supporta:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per copiare i dati da un database Cassandra non accessibile pubblicamente, è necessario configurare un runtime di integrazione self-hosted. Per i dettagli, vedere l'articolo [Runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md). Il runtime di integrazione offre un driver per Cassandra integrato e non è quindi necessario installare manualmente alcun driver quando si copiano dati da/in Cassandra.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
+Il runtime di integrazione offre un driver per Cassandra integrato e non è quindi necessario installare manualmente alcun driver quando si copiano dati da/in Cassandra.
 
 ## <a name="getting-started"></a>Introduzione
 
@@ -60,7 +62,7 @@ Per il servizio collegato di Cassandra sono supportate le proprietà seguenti:
 | authenticationType | Tipo di autenticazione usato per la connessione al database Cassandra.<br/>I valori consentiti sono i seguenti: **Basic** e **Anonymous**. |Sì |
 | username |Specificare il nome utente per l'account utente. |Sì, se authenticationType è impostato su Basic. |
 | password |Specifica la password per l'account utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì, se authenticationType è impostato su Basic. |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 >[!NOTE]
 >La connessione a Cassandra mediante SSL non è attualmente supportata.

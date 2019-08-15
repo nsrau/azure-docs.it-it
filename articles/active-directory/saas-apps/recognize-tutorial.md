@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 82d231eff4690dc060c01d41356933693d08c443
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0a513ad8fe772839813615d065616f2c911a031
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67093266"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943348"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Esercitazione: Integrazione di Azure Active Directory con Recognize
 
@@ -101,7 +101,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Recognize, seguire ques
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-4. Nella sezione  **Configurazione SAML di base** , se si dispone di un  **file di metadati di un provider di servizi**, seguire questa procedura:
+4. Nella sezione **Configurazione SAML di base**, se si dispone di un **file di metadati di un provider di servizi**, seguire questa procedura:
 
     >[!NOTE]
     >Si otterrà il **file di metadati del provider di servizi** dalla sezione dell'esercitazione **Configurare l'accesso Single Sign-On di Recognize**.

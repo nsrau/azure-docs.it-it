@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 630d8f64b39888533aff4847dec64fa50fc43d7e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a5bfc664c412c93bbf3e522b01528e8247be3291
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855596"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016066"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Procedure consigliate per l'uso di Azure Data Lake Storage Gen2
 
@@ -49,7 +49,7 @@ Quando si progetta un sistema con Data Lake Storage Gen2 o con qualsiasi servizi
 
 ### <a name="high-availability-and-disaster-recovery"></a>Disponibilità elevata e ripristino di emergenza
 
-La disponibilità elevata e il ripristino di emergenza possono talvolta essere combinati, anche se ognuno prevede una strategia leggermente diversa, in particolare quando si tratta di dati. Data Lake Storage Gen2 esegue la replica 3 volte in background per garantire protezione in caso di errori hardware localizzati. Altre opzioni di replica, ad esempio l'archiviazione con ridondanza della zona, migliorano la disponibilità elevata, mentre l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza geografica e accesso in lettura migliorano il ripristino di emergenza. Quando si prepara un piano per la disponibilità elevata, in caso di interruzione del servizio il carico di lavoro deve poter accedere ai dati più recenti nel più breve tempo possibile, passando a un'istanza replicata separatamente in locale o in una nuova area.
+La disponibilità elevata e il ripristino di emergenza possono talvolta essere combinati, anche se ognuno prevede una strategia leggermente diversa, in particolare quando si tratta di dati. Data Lake Storage Gen2 esegue la replica 3 volte in background per garantire protezione in caso di errori hardware localizzati. Inoltre, altre opzioni di replica, ad esempio ZRS o GZRS (anteprima), migliorano la disponibilità elevata, mentre GRS & RA-GRS migliora il ripristino di emergenza. Quando si prepara un piano per la disponibilità elevata, in caso di interruzione del servizio il carico di lavoro deve poter accedere ai dati più recenti nel più breve tempo possibile, passando a un'istanza replicata separatamente in locale o in una nuova area.
 
 In una strategia di ripristino di emergenza, per prepararsi all'improbabile eventualità di un errore irreversibile di un'area è anche importante replicare i dati in un'area diversa con l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza geografica e accesso in lettura. È anche necessario considerare i requisiti per i casi limite, ad esempio il danneggiamento dei dati, per cui potrebbe essere utile creare snapshot periodici a cui eseguire il fallback. A seconda dell'importanza e delle dimensioni dei dati, prendere in considerazione snapshot delta in sequenza in periodi di 1, 6 e 24 ore, in base alla tolleranza di rischio.
 

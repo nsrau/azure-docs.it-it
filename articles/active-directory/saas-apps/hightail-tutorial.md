@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbcf941293a30a48a17dfdf832ae8af551e834c7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c7f4dd89b2469d99fadd08178dbca9c17382414a
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67100985"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945012"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hightail"></a>Esercitazione: Integrazione di Azure Active Directory con Hightail
 
@@ -117,7 +117,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Hightail, seguire quest
 
     Nella casella di testo **URL di accesso** digitare l'URL: `https://www.hightail.com/loginSSO`
 
-6. L'applicazione Hightail prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su  **Modifica** per aprire la finestra di dialogo Attributi utente.
+6. L'applicazione Hightail prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aprire la finestra di dialogo Attributi utente.
 
     ![image](common/edit-attribute.png)
 

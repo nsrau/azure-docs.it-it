@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 3a49681c5c5fa081157e1264f3e9f757c3ee0e6c
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: dfe27878f018dfbf5f4bdcb52d711c8727c436e0
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516958"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950695"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 
@@ -357,6 +357,7 @@ Se si abilita l'eccezione **Consenti ai servizi Microsoft attendibili...** , ai 
 | Hub eventi di Azure         | Microsoft.EventHub         | Archiviare dati con Acquisizione di Hub eventi. [Altre informazioni](/azure/event-hubs/event-hubs-capture-overview).                                                                                                                                                                                                                           |
 | Sincronizzazione file di Azure          | Microsoft.StorageSync      | Consente di trasformare il file server locale in una cache per le condivisioni file di Azure. Consentire la sincronizzazione multisito, il ripristino di emergenza rapido e il backup sul cloud. [Altre informazioni](../files/storage-sync-files-planning.md)                                                                                                       |
 | HDInsight di Azure          | Microsoft.HDInsight        | Eseguire il provisioning del contenuto iniziale del file system predefinito per un nuovo cluster HDInsight. [Altre informazioni](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)                                                                                                                                    |
+| Servizio Azure Machine Learning | Microsoft.MachineLearningServices | Le aree di lavoro autorizzate Azure Machine Learning scrivono l'output dell'esperimento, i modelli e i log nell'archivio BLOB. [Altre informazioni](/azure/machine-learning/service/how-to-enable-virtual-network#storage-account-for-your-workspace)                                                               
 | Monitoraggio di Azure            | Microsoft.Insights         | Eseguire la scrittura dei dati di monitoraggio in un account di archiviazione protetto [Altre informazioni](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).                                                                                                                                                                        |
 | Rete di Azure         | Microsoft.Network          | Archiviare e analizzare i log di traffico di rete. [Altre informazioni](/azure/network-watcher/network-watcher-packet-capture-overview)                                                                                                                                                                                                        |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Configurare il ripristino di emergenza abilitando la replica delle macchine virtuali IaaS di Azure. Questa operazione è necessaria se si usa un account di archiviazione della cache abilitato per il firewall, un account di archiviazione di origine o un account di archiviazione di destinazione.  [Altre informazioni](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) |

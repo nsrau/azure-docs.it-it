@@ -12,16 +12,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: f7cd0125de886eed4b3e5c31503fdd4b7cbb76dd
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 7b14ed2c18c1106477e21062afaa4cc8f672c203
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847829"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946376"
 ---
-# <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Metriche di log durante le esecuzioni di training in Azure Machine Learning
+# <a name="log-metrics-during-training-runs"></a>Metriche di log durante le esecuzioni di training
 
 Migliorare il processo di creazione del modello monitorando gli esperimenti e monitorando le metriche. Questo articolo illustra come aggiungere la registrazione allo script di training, inviare un'esecuzione dell'esperimento, monitorare l'esecuzione e visualizzare i risultati di un'esecuzione nel servizio Azure Machine Learning.
+
+> [!NOTE]
+> Azure Machine Learning servizio può anche registrare le informazioni provenienti da altre origini durante il training, ad esempio AutoML o il contenitore Docker che esegue il processo di training. Questi log non sono documentati. Se si verificano problemi e si contatta il supporto tecnico Microsoft, potrebbero essere in grado di utilizzare questi log durante la risoluzione dei problemi.
 
 ## <a name="list-of-training-metrics"></a>Elenco delle metriche di training 
 

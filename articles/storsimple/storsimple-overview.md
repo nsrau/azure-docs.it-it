@@ -14,14 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: timlt
-ms.openlocfilehash: 5a3800cfdf36bdc2e042eec860310a508204ba11
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 2a6650cac975c575415a329361da00d4fbfcaa9d
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876443"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965124"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Serie 8000 StorSimple: una soluzione di archiviazione cloud ibrida
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ## <a name="overview"></a>Panoramica
 Microsoft Azure StorSimple è una soluzione di archiviazione integrata che gestisce le attività di archiviazione tra i dispositivi locali e l'archiviazione cloud di Microsoft Azure. StorSimple è una soluzione SAN (storage area network) efficiente, dai costi contenuti e facilmente gestibile che elimina molti problemi e spese associati agli archivi dell'organizzazione e alla protezione dei dati. Usa il dispositivo proprietario serie StorSimple 8000, si integra con i servizi cloud e fornisce un set di strumenti di gestione integrati per offrire una visualizzazione semplice di tutti gli archivi dell'organizzazione, inclusa l'archiviazione cloud. Le informazioni sulla distribuzione di StorSimple pubblicate nel sito Web di Microsoft Azure si applicano solo ai dispositivi di StorSimple serie 8000. Se si utilizza un dispositivo di serie StorSimple 5000/7000, andare alla [Guida di StorSimple](http://onlinehelp.storsimple.com/).)
 
@@ -234,7 +237,7 @@ Di seguito è riportato un elenco dei componenti dell'infrastruttura supportati 
 
 | Scenario | Carico di lavoro | Supportato | Restrizioni | Version |
 | --- | --- | --- | --- | --- |
-| Generale |Express Route |Yes | |Tutte le versioni |
+| Generale |ExpressRoute |Yes | |Tutte le versioni |
 | Generale |DataCore FC |Sì* |Supportato con DataCore SANsymphony |Tutte le versioni |
 | Generale |DFSR |Sì* |Supportata solo con i volumi aggiunti in locale |Tutte le versioni |
 | Generale |Indicizzazione |Sì* |Per i volumi a più livelli, è supportata solo l'indicizzazione dei metadati (nessun dato).<br>Per i volumi aggiunti in locale, è supportata l'indicizzazione completa. |Tutte le versioni |

@@ -9,14 +9,14 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 01/25/2019
-ms.openlocfilehash: a882a874574395095e98079cd0f8aa4a4987c749
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 09a3cc5a623be2ee5a9d50204f0902ca9f400a76
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66391761"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68857410"
 ---
-1. [Creare un'area di lavoro del servizio Azure Machine Learning](../articles/machine-learning/service/setup-create-workspace.md).
+1. [Creare un'area di lavoro del servizio Azure Machine Learning](../articles/machine-learning/service/how-to-manage-workspace.md).
 
 1. Clonare il [repository GitHub](https://aka.ms/aml-notebooks).
 

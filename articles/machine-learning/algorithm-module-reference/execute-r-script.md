@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 710d64b445953ae3124830931c8cbb9315d32b83
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 3594d9670e8fb94b053479352fb88997caa16db6
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875719"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016481"
 ---
 # <a name="execute-r-script"></a>Execute R Script
 
@@ -76,8 +76,7 @@ I set di dati archiviati nell'interfaccia visiva vengono convertiti automaticame
 
 1.  Aggiungere il modulo **Execute R script (Esegui script R** ) all'esperimento.
 
-    > [!NOTE]
-    > Tutti i dati passati al modulo **Execute r script** vengono convertiti nel formato `data.frame` R.
+  
 
 1. Connettere gli input richiesti dallo script. Gli input sono facoltativi e possono includere dati e codice R aggiuntivo.
 
@@ -90,10 +89,33 @@ I set di dati archiviati nell'interfaccia visiva vengono convertiti automaticame
 1. Nella casella di testo **script r** Digitare o incollare uno script r valido.
 
     Per iniziare, la casella di testo **script R** viene prepopolata con il codice di esempio, che è possibile modificare o sostituire.
+    
+```R
+# R version: 3.5.1
+# The script MUST contain a function named azureml_main
+# which is the entry point for this module.
 
-    * Lo script deve contenere una funzione denominata `azureml_main`, che rappresenta il punto di ingresso per questo modulo.
+# The entry point function can contain up to two input arguments:
+#   Param<dataframe1>: a R DataFrame
+#   Param<dataframe2>: a R DataFrame
+azureml_main <- function(dataframe1, dataframe2){
+  print("R script run.")
 
-    * La funzione del punto di ingresso può contenere un massimo di due `Param<dataframe1>` argomenti di input: e`Param<dataframe2>`
+  # If a zip file is connected to the third input port, it is
+  # unzipped under "./Script Bundle". This directory is added
+  # to sys.path.
+
+  # Return datasets as a Named List
+  return(list(dataset1=dataframe1, dataset2=dataframe2))
+}
+```
+
+ * Lo script deve contenere una funzione denominata `azureml_main`, che rappresenta il punto di ingresso per questo modulo.
+
+ * La funzione del punto di ingresso può contenere un massimo di due `Param<dataframe1>` argomenti di input: e`Param<dataframe2>`
+ 
+   > [!NOTE]
+    > Ai dati passati al modulo **Execute R script** viene fatto riferimento come `dataframe1` e `dataframe2`, che è diverso da Azure Machine Learning Studio (riferimento a Studio come `dataset1`, `dataset2`). Verificare che i dati di input siano referneced correttamente nello script.  
  
     > [!NOTE]
     >  Il codice R esistente potrebbe richiedere modifiche minime da eseguire in un esperimento dell'interfaccia visiva. Ad esempio, i dati di input forniti in formato CSV devono essere convertiti in modo esplicito in un set di dati prima di poterli usare nel codice. I tipi di dati e di colonna usati nel linguaggio R variano anche in qualche modo dai tipi di dati e di colonna usati nell'interfaccia visiva.
@@ -243,8 +265,8 @@ Elenco corrente dei pacchetti R preinstallati disponibili per l'uso:
 | bindingr        | 0.1.1      | 
 | bindrcpp     | 0.2.2      | 
 | bicime       | 1.0-6      | 
-| boot         | 1,3-22     | 
-| Scopa        | 0.5.2      | 
+| avvio         | 1,3-22     | 
+| scopa        | 0.5.2      | 
 | chiamante        | 3.2.0      | 
 | cursore        | 6.0-84     | 
 | catools      | 1.17.1.2   | 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 14bf7dc62bb97cb14232660db6d0649e3d77d4fa
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 2c43a3c046243c4802fb433f3b755cee158002b6
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662930"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950569"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrare soluzioni di sicurezza nel Centro sicurezza di Azure
 Questo documento aiuta a gestire le soluzioni di sicurezza già connesse al Centro sicurezza di Azure e ad aggiungerne di nuove.
@@ -56,7 +56,7 @@ Le soluzioni di sicurezza di Azure distribuite dal Centro sicurezza vengono conn
 
    ![Panoramica del Centro sicurezza](./media/security-center-partner-integration/overview.png)
 
-In **Soluzioni di sicurezza** è possibile visualizzare informazioni sull'integrità delle soluzioni di sicurezza integrate di Azure ed eseguire attività di gestione di base. È anche possibile connettere altri tipi di origini dati di sicurezza, ad esempio log dei firewall e avvisi di protezione di Azure Active Directory Identity Protection nel formato CEF (Common Event Format).
+In **Soluzioni di sicurezza** è possibile visualizzare informazioni sull'integrità delle soluzioni di sicurezza integrate di Azure ed eseguire attività di gestione di base.
 
 ### <a name="connected-solutions"></a>Soluzioni connesse
 
@@ -97,8 +97,6 @@ Il Centro sicurezza individua automaticamente le soluzioni di sicurezza in esecu
 Selezionare **CONNETTI** in una soluzione per integrarla con il Centro sicurezza e ricevere avvisi di sicurezza.
 
 ![Soluzioni individuate](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
-
-Il Centro sicurezza individua anche le soluzioni distribuite nella sottoscrizione che sono in grado di inoltrare log in formato CEF (Common Event Format). Vedere come [connettere al Centro sicurezza una soluzione di sicurezza](quick-security-solutions.md) che usa i log CEF.
 
 ### <a name="add-data-sources"></a>Aggiungi origini dati
 

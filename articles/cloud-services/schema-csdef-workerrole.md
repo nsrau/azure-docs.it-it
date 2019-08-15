@@ -10,15 +10,15 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 41cd46bc-c479-43fa-96e5-d6c83e4e6d89
 caps.latest.revision: 55
-author: jpconnock
-ms.author: jeconnoc
-manager: timlt
-ms.openlocfilehash: 90a11c5bb81a0d29f5f8a1c1696732453aa4b1ab
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+author: georgewallace
+ms.author: gwallace
+manager: gwallace
+ms.openlocfilehash: ac1cce61a9b9b22c079066147d6a318f778999db
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "62095405"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945866"
 ---
 # <a name="azure-cloud-services-definition-workerrole-schema"></a>Schema WorkerRole di definizione di Servizi cloud di Azure
 Il ruolo di lavoro di Azure è un ruolo utile per lo sviluppo generalizzato e può eseguire l'elaborazione in background per un ruolo Web.
@@ -263,7 +263,7 @@ L'elemento `FixedPortRange` è disponibile solo se si usa Azure SDK versione 1.3
 
 La tabella seguente descrive gli attributi dell'elemento `FixedPortRange`.
 
-| Attributo | Type | Descrizione |
+| Attributo | Type | DESCRIZIONE |
 | --------- | ---- | ----------- |
 |min|int|Richiesto. Numero di porta minimo nell'intervallo. I possibili valori sono compresi tra 1 e 65535 inclusi (Azure SDK versione 1.7 o successiva).|
 |max|string|Richiesto. Numero di porta massimo nell'intervallo. I possibili valori sono compresi tra 1 e 65535 inclusi (Azure SDK versione 1.7 o successiva).|
@@ -399,7 +399,7 @@ L'elemento `Content` è disponibile solo se si usa Azure SDK versione 1.5 o succ
 
 La tabella seguente descrive gli attributi dell'elemento `Content`.
 
-| Attributo | Type | DESCRIZIONE |
+| Attributo | Type | Descrizione |
 | --------- | ---- | ----------- |
 |destinazione|string|Richiesto. Posizione della macchina virtuale Azure in cui viene inserito il contenuto. Questa posizione è relativa alla cartella **%ROLEROOT%\Approot**.|
 

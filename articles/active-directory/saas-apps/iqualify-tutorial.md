@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: f7ca163b93a68525e80018051baa626bc378c200
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a1db4784eb63df14b7e7971d0273512ba657df96
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67099761"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944983"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Esercitazione: Integrazione di Azure Active Directory con iQualify LMS
 
@@ -131,7 +131,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con iQualify LMS, seguire q
     > [!NOTE]
     > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di iQualify LMS](https://www.iqualify.com/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-6. L'applicazione iQualify LMS prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic sull'icona  **Modifica** per aprire la finestra di dialogo **Attributi utente**. 
+6. L'applicazione iQualify LMS prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aprire la finestra di dialogo **Attributi utente**.
 
     ![image](common/edit-attribute.png)
 
@@ -276,7 +276,7 @@ Quando si fa clic sul riquadro iQualify LMS nel pannello di accesso, dovrebbe ve
 
 Fare clic sul pulsante **Sign in with Azure AD** (Accedi con Azure AD) e si dovrebbe accedere automaticamente all'applicazione iQualify LMS.
 
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

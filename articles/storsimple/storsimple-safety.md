@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2016
 ms.author: alkohli
-ms.openlocfilehash: 9d0c8c01ae0d87c944922dece74e13f00879b02f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4622a8575d7b6a38226ee3a980c05f143c128356
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60629231"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963528"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Installazione sicura e funzionamento del dispositivo StorSimple
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ![Icona di avviso](./media/storsimple-safety/IC740879.png)
 ![Icona di avviso di sicurezza lettura](./media/storsimple-safety/IC740885.png) **LETTURA INFORMAZIONI DI SICUREZZA E INTEGRITÀ**
 

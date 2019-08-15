@@ -9,18 +9,17 @@ editor: ''
 tags: top-support-issue
 ms.assetid: 674b2faf-26d7-4f54-99ea-a9e02ef0eb2f
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: d2daae2a3317d3b48748262d87ab8d7f7e13f2b0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9e1ae9ca6106a6a55e0cfc933ad47a5944ed5abb
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60653366"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945405"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Risolvere i problemi dei ruoli del servizio cloud che non vengono avviati
 Ecco alcuni problemi e soluzioni comini correlati ai ruoli di Servizi cloud di Azure che non vengono avviati.
@@ -75,8 +74,8 @@ Quando il servizio viene ridistribuito, verrà visualizzato un messaggio di erro
 Se si passa al sito Web, ora verranno restituiti messaggi di errore più espliciti:
 
 * Errore del server nell'applicazione '/'.
-* Descrizione: Si è verificata un'eccezione non gestita durante l'esecuzione della richiesta web corrente. Per altre informazioni sull'errore e sul suo punto di origine nel codice, vedere l'analisi dello stack.
-* Dettagli eccezione: System.IO.FIleNotFoundException: Impossibile caricare il file o l'assembly ' Microsoft.WindowsAzure.StorageClient, versione Version=1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35' o una delle relative dipendenze. Non è possibile trovare il file specificato.
+* Descrizione: Si è verificata un'eccezione non gestita durante l'esecuzione della richiesta Web corrente. Per altre informazioni sull'errore e sul suo punto di origine nel codice, vedere l'analisi dello stack.
+* Dettagli eccezione: System.IO.FIleNotFoundException: Non è stato possibile caricare il file o l'assembly ' Microsoft. WindowsAzure. StorageClient, Version = 1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35' o una delle relative dipendenze. Impossibile trovare il file specificato.
 
 Ad esempio:
 

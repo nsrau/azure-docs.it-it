@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: juliako;cenkd;anilmur
-ms.openlocfilehash: 6e09ce83296fccfbcb4a04913d55961e0da4de79
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.reviewer: anilmur
+ms.openlocfilehash: 0e793a5aa7d619b0bb7a1d3efcdf665ea400c555
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720790"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "69016733"
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>Utilizzare il codificatore NewTek TriCaster per inviare un flusso live a velocità in bit singola.  
 > [!div class="op_single_selector"]
@@ -52,7 +53,7 @@ In questa esercitazione viene illustrato come gestire Servizi multimediali di Az
 * È buona norma raddoppiare le velocità in bit di streaming in fase di determinazione dei requisiti di larghezza di banda. Anche se non si tratta di un requisito obbligatorio, contribuirà a ridurre l'impatto della congestione della rete.
 * Se si usano codificatori basati su software, chiudere tutti i programmi non necessari.
 
-## <a name="create-a-channel"></a>Creare un canale
+## <a name="create-a-channel"></a>Crea un canale
 
 1. Nello strumento AMSE passare alla scheda **Live** e fare clic con il pulsante destro del mouse all'interno dell'area del canale. Scegliere **Create channel** dal menu.
 
@@ -78,7 +79,7 @@ Durante l'avvio del canale è possibile [configurare il codificatore](media-serv
 >
 >
 
-## <a name="a-idconfiguretricasterrtmpconfigure-the-newtek-tricaster-encoder"></a><a id="configure_tricaster_rtmp"/>Configurare il codificatore NewTek TriCaster
+## <a name="a-idconfigure_tricaster_rtmpconfigure-the-newtek-tricaster-encoder"></a><a id="configure_tricaster_rtmp"/>Configurare il codificatore NewTek TriCaster
 
 In questa esercitazione vengono usate le seguenti impostazioni di output. Nel resto di questa sezione vengono descritti in maggiore dettaglio i passaggi di configurazione.
 

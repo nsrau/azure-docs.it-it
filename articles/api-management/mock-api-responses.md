@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 9b9a691cb2bce2357d184420912ab340aee534e8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 8840c85e35a371b8c7a0a76dbee6353a20b212be
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205310"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881122"
 ---
 # <a name="mock-api-responses"></a>Simulare le risposte di un'API
 
@@ -79,7 +79,7 @@ I passaggi descritti in questa sezione illustrano come creare un'API vuota senza
 5. Selezionare **200 OK** dall'elenco.
 6. Sotto l'intestazione **Rappresentazioni** a destra selezionare **+ Aggiungi rappresentazione**.
 7. Immettere "*application/json*" nella casella di ricerca e selezionare il tipo di contenuto **application/json**.
-8. Nella casella di testo **Sample** (Esempio) immettere `{ 'sampleField' : 'test' }`.
+8. Nella casella di testo **Sample** (Esempio) immettere `{ "sampleField" : "test" }`.
 9. Selezionare **Create** (Crea).
 
 ## <a name="enable-response-mocking"></a>Abilitare la simulazione della risposta

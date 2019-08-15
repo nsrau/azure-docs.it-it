@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: d0f7eb1f5662ce0b901af2fd82a75556cacbca62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b95c6defcef7fdc112487988fc9bdd1ea3bb59c2
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67095595"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943900"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opal"></a>Esercitazione: Integrazione di Azure Active Directory con Opal
 
@@ -112,7 +112,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Opal, seguire questa pr
     > [!NOTE]
     > Il valore di URL di risposta non è reale. è necessario aggiornare questo valore con l'URL di risposta effettivo. Per ottenere il valore, contattare il [team di supporto clienti di Opal](mailto:support@workwithopal.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-5. L'applicazione Opal prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic sull'icona  **Modifica** per aprire la finestra di dialogo **Attributi utente**. 
+5. L'applicazione Opal prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aprire la finestra di dialogo **Attributi utente**.
 
     ![image](common/edit-attribute.png)
 
@@ -212,7 +212,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 ### <a name="create-opal-test-user"></a>Creare un utente di test di Opal
 
-In questa sezione viene creato un utente di nome Britta Simon in Opal. Collaborare con il  [team di supporto di Opal](mailto:support@workwithopal.com) per aggiungere gli utenti nella piattaforma Opal. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in Opal. Collaborare con il [team di supporto di Opal](mailto:support@workwithopal.com) per aggiungere gli utenti alla piattaforma Opal. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

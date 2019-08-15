@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/18/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: cd37880be6d518105e880b93a0bd748f7c729d88
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 8f98808aa0f8a2c32e2117447824114747091a82
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68286286"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912400"
 ---
 ## <a name="registration-of-secrets-or-certificates"></a>Registrazione di segreti o certificati
 
@@ -29,7 +29,7 @@ Come per le applicazioni client riservate, è necessario registrare un segreto o
 
 La gestione delle credenziali client viene eseguita nella pagina **certificati & segreti** di un'applicazione:
 
-![image](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets-expanded.png)
+![image](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets.png)
 
 - il segreto dell'applicazione (denominato anche segreto client) viene generato da Azure AD durante la registrazione dell'applicazione client riservata. Questa generazione si verifica quando si seleziona **nuovo segreto client**. A questo punto, è necessario copiare la stringa segreta negli Appunti da usare nell'app, prima di selezionare **Salva**. Questa stringa non verrà più visualizzata.
 - il certificato viene caricato nella registrazione dell'applicazione usando il pulsante **Carica certificato** . Azure AD supporta solo i certificati che sono registrati direttamente nell'applicazione e non seguono le catene di certificati.

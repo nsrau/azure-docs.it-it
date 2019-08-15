@@ -1,20 +1,19 @@
 ---
 title: "Esercitazione: Ospitare un sito Web statico nell'archiviazione BLOB - Archiviazione di Azure"
 description: Informazioni su come configurare un account di archiviazione per l'hosting di siti Web statici e come distribuire un sito Web statico in Archiviazione di Azure.
-services: storage
 author: normesta
 ms.service: storage
+ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: normesta
-ms.reviewer: seguler
-ms.custom: seodec18
-ms.openlocfilehash: e3f2dd74d00b36016549cd33d76b866de241d977
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.reviewer: dineshm
+ms.openlocfilehash: 4cc38b952e773002e0b5f6b2311187f8d3d46400
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148489"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855397"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 

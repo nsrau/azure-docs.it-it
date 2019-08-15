@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 082033cebc68fc97f7cff9ce80eb02acbbf5f4b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ac210a03f8b1a0a5f7fff07cbc68b4cd6bc98632
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65145891"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016355"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Uso di Azure PowerShell con Archiviazione di Azure
 
@@ -131,7 +131,7 @@ Per modificare le impostazioni di un account di archiviazione, usare [Set-AzStor
 
 * I **tag** assegnati all'account di archiviazione. I tag vengono usati spesso per categorizzare le risorse a scopi di fatturazione.
 
-* Lo **SKU**, ovvero l'impostazione di replica per l'account di archiviazione, ad esempio LRS per l'archiviazione con ridondanza locale. È possibile, ad esempio, modificare Standard\_LRS in Standard\_GRS o Standard\_RAGRS. Tenere presente che non è possibile modificare Standard \_ZRS o Premium\_ LRS in altri SKU o modificare altri SKU in questi.
+* Lo **SKU**, ovvero l'impostazione di replica per l'account di archiviazione, ad esempio LRS per l'archiviazione con ridondanza locale. È possibile, ad esempio, modificare Standard\_LRS in Standard\_GRS o Standard\_RAGRS. Si noti che non è possibile\_modificare ZRS\_standard, GZRS standard\_, RAGZRS standard o\_Premium con ridondanza locale in altri SKU o modificare altri SKU in questi.
 
 * Il **livello di accesso** per gli account di archiviazione BLOB. Il valore per il livello di accesso è impostato su **Frequente** o **Sporadico** e consente di ridurre al minimo i costi selezionando il livello di accesso più adatto al modo in cui viene usato l'account di archiviazione. Per altre informazioni, vedere [Livelli di archiviazione ad accesso frequente, ad accesso sporadico e archivio](../blobs/storage-blob-storage-tiers.md).
 
@@ -199,7 +199,7 @@ Questo articolo illustra come gestire queste impostazioni usando i cmdlet di Pow
 > Con PowerShell è possibile anche abilitare l'analisi al minuto, mentre questa funzionalità non è consentita dal portale di Azure.
 >
 
-* Per informazioni su come abilitare e visualizzare i dati delle metriche di archiviazione con PowerShell, vedere [metriche di archiviazione analitica](storage-analytics-metrics.md).
+* Per informazioni su come abilitare e visualizzare i dati relativi alle metriche di archiviazione con PowerShell, vedere [metriche di analisi archiviazione](storage-analytics-metrics.md).
 
 * Per informazioni su come abilitare e recuperare i dati di registrazione di archiviazione con PowerShell, vedere [How to enable Storage Logging using PowerShell](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data) (Come abilitare la registrazione di archiviazione con PowerShell) e [Finding your Storage Logging log data](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data) (Trovare i dati del log di registrazione di archiviazione).
 
@@ -223,7 +223,7 @@ L'API di tabella di Azure Cosmos DB offre funzionalità Premium per l'archiviazi
 La maggior parte delle persone usa il cloud pubblico di Azure per la distribuzione globale di Azure. Per motivi di sovranità e altro, sono disponibili anche alcune distribuzioni indipendenti di Microsoft Azure, denominate "ambienti". Ecco gli ambienti disponibili:
 
 * [Cloud di Azure per enti pubblici](https://azure.microsoft.com/features/gov/)
-* [Azure Cina 21Vianet Cloud gestito da 21Vianet in Cina](http://www.windowsazure.cn/)
+* [Azure China 21Vianet cloud gestito da 21Vianet in Cina](http://www.windowsazure.cn/)
 * [Cloud di Azure per la Germania](../../germany/germany-welcome.md)
 
 Per informazioni su come accedere a questi cloud e al relativo spazio di archiviazione con PowerShell, vedere [Managing Storage in the Azure independent clouds using PowerShell (Gestione dell'archiviazione nei cloud indipendenti di Azure con PowerShell)](storage-powershell-independent-clouds.md).

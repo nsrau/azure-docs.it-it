@@ -9,14 +9,14 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7d1bce7575272b7df185c4e261685d989f49436c
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 4e7b3905295e619c5a9500f80b5c43126b919e2f
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716542"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946467"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemi noti e risoluzione per il servizio di Azure Machine Learning
 
@@ -71,7 +71,7 @@ Il flusso tensore automatico Machine Learning non supporta attualmente il flusso
 
 ### <a name="experiment-charts"></a>Grafici degli esperimenti
 
-I grafici di classificazione binaria (precisione-richiamo, ROC, curva di guadagno e così via) mostrati nelle iterazioni dell'esperimento di ML automatizzato non eseguono il rendering corecto nell'interfaccia utente a partire da 4/12. I tracciati del grafico mostrano attualmente risultati inversi, in cui i modelli con prestazioni migliori vengono visualizzati con risultati inferiori. Una soluzione è in fase di analisi.
+I grafici di classificazione binaria (precisione-richiamo, ROC, curva di guadagno e così via) mostrati nelle iterazioni dell'esperimento di ML automatizzato non vengono visualizzati correttamente nell'interfaccia utente a partire da 4/12. I tracciati del grafico mostrano attualmente risultati inversi, in cui i modelli con prestazioni migliori vengono visualizzati con risultati inferiori. Una soluzione è in fase di analisi.
 
 ## <a name="databricks"></a>Databricks
 
@@ -134,6 +134,15 @@ Se si passa direttamente a visualizzare l'area di lavoro a un collegamento di co
 
 In alcuni casi può essere utile fornire le informazioni di diagnostica quando si richiede supporto. Per visualizzare alcuni log, visitare [portale di Azure](https://portal.azure.com) e passare all'area di lavoro e selezionare **area di lavoro > esperimento > Esegui log >** .
 
+> [!NOTE]
+> Il servizio Azure Machine Learning registra informazioni da diverse origini durante il training, ad esempio AutoML o il contenitore Docker che esegue il processo di training. Molti di questi log non sono documentati. Se si verificano problemi e si contatta il supporto tecnico Microsoft, potrebbero essere in grado di utilizzare questi log durante la risoluzione dei problemi.
+
+## <a name="activity-logs"></a>Log attività
+
+Alcune azioni all'interno dell'area di lavoro Azure Machine Learning non registrano le informazioni nel __log attività__. Ad esempio, l'avvio di un'esecuzione di training o la registrazione di un modello.
+
+Alcune di queste azioni vengono visualizzate nell'area __attività__ dell'area di lavoro, ma non indicano chi ha avviato l'attività.
+
 ## <a name="resource-quotas"></a>Quote di risorse
 
 Informazioni sulle [quote di risorse](how-to-manage-quotas.md) che si potrebbero incontrare quando si lavora con Azure Machine Learning.
@@ -154,6 +163,6 @@ Ad esempio, si riceverà un errore se si prova a creare o collegare una destinaz
 
 ## <a name="overloaded-azurefile-storage"></a>Archiviazione AzureFile di overload
 
-Se viene visualizzato l'errore "Impossibile caricare i file di progetto nella directory di lavoro in AzureFile perché lo spazio di archiviazione è sovraccarico", applicare le soluzioni alternative seguenti.
+Se viene visualizzato un errore `Unable to upload project files to working directory in AzureFile because the storage is overloaded`, applicare le soluzioni alternative seguenti.
 
 Se si usa una condivisione file per altri carichi di lavoro, ad esempio il trasferimento dei dati, si consiglia di usare i BLOB in modo che la condivisione file sia disponibile per l'invio di esecuzioni. È inoltre possibile suddividere il carico di lavoro tra due aree di lavoro diverse.

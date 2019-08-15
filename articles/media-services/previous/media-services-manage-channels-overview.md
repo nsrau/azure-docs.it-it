@@ -14,17 +14,17 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: c5dd0146fe59e7dc85787f146b10cfde7d6addb4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45089c77ff2fed7ea5903333514f4d4edbad7cb3
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64867903"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "69015552"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Panoramica dello streaming live con Servizi multimediali
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
 ## <a name="overview"></a>Panoramica
 
@@ -44,12 +44,12 @@ Quando si distribuiscono eventi Live Streaming con Servizi multimediali di Azure
 
 **Servizi multimediali di Microsoft Azure** (AMS) offre la possibilità di inserire, visualizzare in anteprima, archiviare e fornire il contenuto in streaming live.
 
-Con servizi multimediali, è possibile sfruttare [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md), che consente di trasmettere flussi live in MPEG-DASH, HLS, Smooth Streaming formati e dal feed di contributo inviato al servizio. Gli utenti possono riprodurre il flusso live con qualsiasi lettore compatibile per HLS, DASH o Smooth Streaming. È possibile usare Azure Media Player nel web o applicazioni per dispositivi mobili per distribuire il flusso in uno di questi protocolli.
+Con servizi multimediali è possibile sfruttare i vantaggi della creazione [dinamica dei pacchetti](media-services-dynamic-packaging-overview.md), che consente di trasmettere i flussi live in formati MPEG Dash, HLS e Smooth Streaming dal feed di contributi inviato al servizio. Gli utenti possono riprodurre il flusso live con qualsiasi lettore compatibile per HLS, DASH o Smooth Streaming. È possibile usare Azure Media Player nelle applicazioni Web o per dispositivi mobili per distribuire il flusso in uno di questi protocolli.
 
 > [!NOTE]
 > A partire dal 12 maggio 2018 i canali live non supporteranno più il protocollo di inserimento del flusso di trasporto RTP/MPEG-2. Eseguire la migrazione da RTP/MPEG-2 ai protocolli di inserimento RTMP o MP4 frammentato (Smooth Streaming).
 
-## <a name="streaming-endpoints-channels-programs"></a>Gli endpoint, i canali, programmi di streaming
+## <a name="streaming-endpoints-channels-programs"></a>Endpoint di streaming, canali, programmi
 
 In Servizi multimediali di Azure, la gestione di tutte le funzionalità di live streaming è affidata a entità **Channel**, **Program** e **StreamingEndpoint**, compresi inserimento, formattazione, DVR, sicurezza, scalabilità e ridondanza.
 
@@ -79,11 +79,11 @@ Nella tabella seguente vengono confrontati i due tipi di canale supportati in Se
 | Protocolli di input |RTMP, Smooth Streaming |RTMP, Smooth Streaming |
 | Prezzo |Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) e fare clic sulla scheda "Video live" |Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) |
 | Tempo di esecuzione massimo |24 x 7 |8 ore |
-| Supporto per l'inserimento di slate |No |Yes |
-| Supporto per annunci pubblicitari |No |Yes |
+| Supporto per l'inserimento di slate |No |Sì |
+| Supporto per annunci pubblicitari |No |Sì |
 | Pass-through di sottotitoli CEA 608/708 |Yes |Yes |
 | Supporto per GOP di input non uniformi |Yes |No: l'input deve essere fisso (GOP di 2 secondi) |
-| Supporto per input con frequenza dei fotogrammi variabile |Yes |No: l'input deve essere una frequenza di fotogrammi fissa.<br/>Sono tollerate lievi variazioni, ad esempio durante scene ad alta velocità. Il codificatore, tuttavia, non può scendere a 10 fotogrammi al secondo. |
+| Supporto per input con frequenza dei fotogrammi variabile |Sì |No: l'input deve essere una frequenza di fotogrammi fissa.<br/>Sono tollerate lievi variazioni, ad esempio durante scene ad alta velocità. Il codificatore, tuttavia, non può scendere a 10 fotogrammi al secondo. |
 | Arresto automatico dei canali in caso di perdita del feed di input |No |Dopo 12 ore, nessun programma è in esecuzione |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Utilizzo di canali che ricevono il flusso live a bitrate multiplo da codificatori locali con il metodo pass-through
@@ -151,7 +151,7 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 | Stato del canale | Indicatori dell'interfaccia utente del portale | Fatturazione? |
 | --- | --- | --- |
 | Avvio in corso |Avvio in corso |No (stato temporaneo) |
-| In esecuzione |Pronto (nessun programma in esecuzione)<br/>Oppure<br/>Streaming (almeno un programma in esecuzione) |SÌ |
+| In esecuzione |Pronto (nessun programma in esecuzione)<br/>Oppure<br/>Streaming (almeno un programma in esecuzione) |YES |
 | Stopping |Stopping |No (stato temporaneo) |
 | Arrestato |Arrestato |No |
 
@@ -162,7 +162,7 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Argomenti correlati
-[Specifica per l'inserimento live di un flusso MP4 frammentato con Servizi multimediali di Azure](media-services-fmp4-live-ingest-overview.md)
+[Specifica per l'inserimento live di un flusso MP4 frammentato con Servizi multimediali di Azure](../media-services-fmp4-live-ingest-overview.md)
 
 [Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure](media-services-manage-live-encoder-enabled-channels.md)
 

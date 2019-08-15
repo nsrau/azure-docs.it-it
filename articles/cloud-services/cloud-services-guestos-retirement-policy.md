@@ -8,18 +8,17 @@ manager: timlt
 editor: ''
 ms.assetid: 919dd781-4dc6-4e50-bda8-9632966c5458
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: ce66d44c0ddb84ed8c2908d02b8062195d6b461d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fbe9b3379799fe3cf0a56d921ab257bc87606ca9
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61215840"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945442"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Criteri relativi al supporto e al ritiro del sistema operativo guest di Azure
 Le informazioni di questa pagina si riferiscono al sistema operativo guest di Azure ([sistema operativo guest](cloud-services-guestos-update-matrix.md)) per i ruoli di lavoro e Web di Servizi cloud (PaaS). Non si applica alle macchine virtuali (IaaS).
@@ -55,9 +54,9 @@ Le versioni del sistema operativo guest vengono rilasciate ogni mese. A causa de
 
 Allo scadere del periodo di 60 giorni, una versione viene "*disabilitata*". "Disabilitata" significa che la versione viene rimossa dal portale. La versione non può più essere impostata dal file di configurazione CSCFG. Le distribuzioni esistenti rimangono in esecuzione, ma non è consentito eseguire nuove distribuzioni e aggiornamenti di configurazione e di codice alle distribuzioni esistenti.
 
-Dopo qualche minuto alla "disabilitazione", la versione del sistema operativo Guest "scade" e le installazioni che ancora eseguono quella versione scaduti sono esposti a problemi di protezione e vulnerabilità. Scadenza a livello generale, viene eseguita in batch, in modo che il periodo tra la disabilitazione e scadenza può variare.
+A questo punto, dopo essere stato disabilitato, la versione del sistema operativo guest "scade" e le installazioni che ancora eseguono la versione scaduta sono esposte a problemi di sicurezza e vulnerabilità. In genere, la scadenza viene eseguita in batch, quindi il periodo dalla disabilitazione alla scadenza può variare.
 
-I clienti che configurano i propri servizi per aggiornare il sistema operativo Guest manualmente, è necessario assicurarsi che i relativi servizi siano in esecuzione in un sistema operativo Guest supportato. Se un servizio è configurato per aggiornare automaticamente il sistema operativo Guest, la piattaforma sottostante garantisce conformità e aggiornerà il sistema operativo Guest più recente.
+I clienti che configurano i servizi per aggiornare manualmente il sistema operativo Guest devono assicurarsi che i servizi siano in esecuzione in un sistema operativo guest supportato. Se un servizio è configurato per l'aggiornamento automatico del sistema operativo guest, la piattaforma sottostante garantirà la conformità e verrà aggiornata al sistema operativo guest più recente.
 
 Questi periodi possono essere resi più lunghi a discrezione di Microsoft per facilitare le transizioni del cliente. Le modifiche vengono comunicate nella [matrice di compatibilità di SDK e delle versioni del sistema operativo guest di Azure](cloud-services-guestos-update-matrix.md).
 

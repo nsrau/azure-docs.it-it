@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 08/13/2019
 ms.author: alkohli
-ms.openlocfilehash: d1bad50f2d97434865bb02ad54b1643c54e01790
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: db6e2eadbf19d78a203a4d4ba6111ad88430b192
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65953021"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985937"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Installazione sicura e funzionamento di Azure Data Box
 ![Icona di avviso](./media/data-box-safety/warning_icon.png)
@@ -24,7 +24,7 @@ Leggere tutte le informazioni di sicurezza in questo articolo prima di usare Azu
 ## <a name="safety-icon-conventions"></a>Convenzioni di sicurezza
 Ecco le icone che vengono visualizzate quando si esaminano le precauzioni di sicurezza cui attenersi durante l'installazione e l'utilizzo di Data Box.
 
-| Icona | Descrizione |
+| Icona | DESCRIZIONE |
 |:--- |:--- |
 | ![Icona di pericolo](./media/data-box-safety/warning_icon.png) **PERICOLO!** |Indica una situazione di pericolo che, se non viene evitato, comporterà morte o gravi ferite. Questa parola deve essere limitata a situazioni più estreme. |
 | ![Icona di avviso](./media/data-box-safety/warning_icon.png)**AVVISO!** |Indica una situazione di pericolo che, se non viene evitata, può comportare morte o gravi ferite. |
@@ -40,8 +40,8 @@ Ecco le icone che vengono visualizzate quando si esaminano le precauzioni di sic
 
 ![Icona di avviso](./media/data-box-safety/warning_icon.png) ![Icona di scossa elettrica](./media/data-box-safety/electrical_shock_hazard_icon.png)![Icona di parti non riparabili dall'utente](./media/data-box-safety/no_user_serviceable_parts_icon.png) **ATTENZIONE** 
 
-* Esaminare il dispositivo *come è stato ricevuto* per individuare eventuali danni. Se l'enclosure del dispositivo è danneggiata, contattare il supporto tecnico Microsoft per farlo sostituire. Non tentare di utilizzare il dispositivo. 
-* Il dispositivo è dotato di viti a prova di manomissione. Se si ritiene che il dispositivo non funzioni correttamente, contattare il supporto tecnico Microsoft per farlo sostituire. Non tentare di riparare il dispositivo. 
+* Esaminare il dispositivo *come è stato ricevuto* per individuare eventuali danni. Se lo chassis del dispositivo è danneggiato, [contattare supporto tecnico Microsoft](data-box-disk-contact-microsoft-support.md) per ottenere una sostituzione. Non tentare di utilizzare il dispositivo. 
+* Il dispositivo è dotato di viti a prova di manomissione. Se si ritiene che il dispositivo non funziona correttamente, [contattare supporto tecnico Microsoft](data-box-disk-contact-microsoft-support.md) per ottenere una sostituzione. Non tentare di riparare il dispositivo. 
 * Il dispositivo non contiene parti riparabili dall'utente. All'interno sono presenti livelli pericolosi di tensione, corrente ed energia. Non aprire il dispositivo. Restituire il dispositivo a Microsoft per la manutenzione.
 
 ![Icona di avviso](./media/data-box-safety/warning_icon.png) ![Icona peso elevato](./media/data-box-safety/heavy_weight_hazard_icon.png) **AVVISO!** 
@@ -77,14 +77,14 @@ Ecco le icone che vengono visualizzate quando si esaminano le precauzioni di sic
 * Scollegare definitivamente l'unità prima di spostare o se si ritiene che sia stata danneggiata in alcun modo.
 * Fornire una fonte di alimentazione adatta con protezione da sovraccarichi elettrici per soddisfare le specifiche tecniche seguenti:
 
-    - Tensione: 100 V CA a CA 240 V
-    - Corrente: 6, massimo
-    - Frequenza: 50 Hz fino a 60 Hz
+    - Tensione da 100 v AC a 240 V AC
+    - Corrente 6 A, massimo
+    - Frequenza: da 50 Hz a 60 Hz
 
 ![Icona di avviso](./media/data-box-safety/warning_icon.png) **ATTENZIONE:**
 
 * Questo dispositivo contiene batterie a bottone. Non tentare di riparare il dispositivo. Le batterie di questo dispositivo non sono riparabili dall'utente. 
-* **Per il personale di assistenza solo**: Rischio di esplosione della batteria viene sostituita da un tipo non corretto. Smaltire le batterie esauste in base alle istruzioni.
+* **Solo per il personale del servizio**: Rischio di esplosione se la batteria viene sostituita da un tipo non corretto. Smaltire le batterie esauste in base alle istruzioni.
 
 ![Icona di notifica](./media/data-box-safety/notice_icon.png)**NOTIFICA:**
 
@@ -101,10 +101,10 @@ Questo dispositivo è:
 - Valutato come apparecchiatura IT (Information Technology Equipment, ITE), progettata per l'uso in un tipico ambiente di data room. L'idoneità di questo prodotto in altri ambienti può richiedere un'ulteriore valutazione.
 - Progettato per l'uso con apparecchiature IT riconosciute NRTL (UL, CSA, ETL e così via) e compatibili con IEC/EN 60950-1 o IEC/EN 62368-1 (contrassegno CE).
 - Progettato per funzionare nell'ambiente seguente. 
-    - Temperatura operativa: 50° a 95°f (10° a 35° C)
+    - Temperatura operativa: da 50 ° a 95 ° F (da 10 ° a 35 ° C)
     - Temperatura di magazzino: da -20° a 50° C (da -4° a 122° F)
-    - Umidità relativa: 15-85% (senza condensa) 
-    - Altitudine in: Testare fino a 6500 metri (0 per i contatori di 2000)
+    - Umidità relativa: dal 15% al 85% (non in condensa) 
+    - Altitudine operativa: Testato fino a 6500 metri (0 metri a 2000 metri)
 
 Per il valore nominale, fare riferimento all'etichetta del dispositivo fornita con l'unità. 
 
@@ -116,9 +116,9 @@ Qualsiasi modifica apportata al dispositivo non espressamente approvata da Micro
 
 ![Icona di notifica](./media/data-box-safety/notice_icon.png)**NOTIFICA:** 
 
-Questo dispositivo è stato testato e valutato come conforme ai limiti di un dispositivo digitale di Classe A, ai sensi della parte 15 delle normative FCC. Questi limiti intendono fornire una protezione ragionevole da interferenze dannose quando l'attrezzatura si utilizzata in un ambiente commerciale. Questo dispositivo genera, usa e può irradiare energia a radiofrequenza e, se non installato e utilizzato in conformità con il manuale di istruzioni, potrebbe causare interferenze dannose alle comunicazioni radio. Uso del dispositivo in una zona residenziale è può causare l'interferenza dannoso nel quale caso l'utente verrà richiesto di risolvere tali interferenze i propri spese.
+Questo dispositivo è stato testato e valutato come conforme ai limiti di un dispositivo digitale di Classe A, ai sensi della parte 15 delle normative FCC. Questi limiti intendono fornire una protezione ragionevole da interferenze dannose quando l'attrezzatura si utilizzata in un ambiente commerciale. Questo dispositivo genera, usa e può irradiare energia a radiofrequenza e, se non installato e utilizzato in conformità con il manuale di istruzioni, potrebbe causare interferenze dannose alle comunicazioni radio. Il funzionamento di questa apparecchiatura in un'area residenziale può causare un'interferenza dannosa, nel qual caso l'utente dovrà correggere l'interferenza a proprie spese.
 
-Questo dispositivo è conforme alla parte 15 delle normative regole FCC e agli standard RSS esenti da licenza Industry Canada. L'uso è soggetto alle seguenti condizioni: (1) il dispositivo non deve causare radiofrequenza e (2) il dispositivo deve accettare eventuali interferenze ricevuta, comprese quelle che può provocare un funzionamento del dispositivo.
+Questo dispositivo è conforme alla parte 15 delle normative regole FCC e agli standard RSS esenti da licenza Industry Canada. L'operazione è soggetta alle due condizioni seguenti: (1) questo dispositivo potrebbe non causare un'interferenza dannosa e (2) il dispositivo deve accettare qualsiasi interferenza ricevuta, incluse le interferenze che possono causare un funzionamento indesiderato del dispositivo.
 
 ![Canada](./media/data-box-safety/canada.png)
 
@@ -132,7 +132,7 @@ Canada: (800) 933-4750
 
 **UNIONE EUROPEA:**
 
-Di seguito è disponibile una copia della Dichiarazione di conformità dell'Unione Europea.
+[Richiedere una copia della dichiarazione di conformità dell'Unione europea](mailto:CSI_Compliance@microsoft.com).
 
 ![Icona di avviso](./media/data-box-safety/warning_icon.png) **AVVISO:** 
 
@@ -142,7 +142,7 @@ Si tratta di un prodotto di Classe A. In un ambiente domestico, questo prodotto 
 
 ![Icona di smaltimento della batteria](./media/data-box-safety/battery_disposal_icon.png)
 
-Questo simbolo sul prodotto, sulle relative batterie o sull'imballaggio indica che il prodotto ed eventuali batterie incluse non devono essere smaltiti con i rifiuti domestici. È responsabilità dell'utente smaltire il prodotto in un punto di raccolta appositamente adibito al riciclaggio di batterie e apparecchiature elettriche ed elettroniche. La raccolta differenziata e il riciclaggio consentono di tutelare le risorse naturali ed evitare potenziali conseguenze negative per la salute e l'ambiente dovute alla possibile presenza di sostanze pericolose nelle batterie e nelle apparecchiature elettriche ed elettroniche che potrebbero essere rilasciate dallo smaltimento inappropriato. Per ulteriori informazioni su come smaltire le batterie e le apparecchiature elettriche ed elettroniche, contattare l'ufficio preposto del proprio comune, il servizio responsabile della raccolta dei rifiuti domestici o il negozio presso cui è stato acquistato il prodotto. Contattare *erecycle\@microsoft.com* per altre informazioni su manuale.
+Questo simbolo sul prodotto, sulle relative batterie o sull'imballaggio indica che il prodotto ed eventuali batterie incluse non devono essere smaltiti con i rifiuti domestici. È responsabilità dell'utente smaltire il prodotto in un punto di raccolta appositamente adibito al riciclaggio di batterie e apparecchiature elettriche ed elettroniche. La raccolta differenziata e il riciclaggio consentono di tutelare le risorse naturali ed evitare potenziali conseguenze negative per la salute e l'ambiente dovute alla possibile presenza di sostanze pericolose nelle batterie e nelle apparecchiature elettriche ed elettroniche che potrebbero essere rilasciate dallo smaltimento inappropriato. Per ulteriori informazioni su come smaltire le batterie e le apparecchiature elettriche ed elettroniche, contattare l'ufficio preposto del proprio comune, il servizio responsabile della raccolta dei rifiuti domestici o il negozio presso cui è stato acquistato il prodotto. Per ulteriori informazioni su RAEE, contattare *erecycle\@Microsoft.com* .
 
 Questo prodotto contiene batterie a bottone.
 

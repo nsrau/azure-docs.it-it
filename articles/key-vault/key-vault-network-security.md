@@ -3,17 +3,17 @@ title: Configurare firewall Azure Key Vault e reti virtuali - Azure Key Vault
 description: Istruzioni passo per passo per configurare reti virtuali e firewall di Azure Key Vault
 services: key-vault
 author: amitbapat
-manager: barbkess
+manager: rkarlin
 ms.service: key-vault
-ms.topic: conceptual
-ms.date: 01/02/2019
+ms.topic: tutorial
+ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: a6f2e899e8be39abdefaf9d4f524eae457673c1a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 60378632a55fe4578bb376a3a00de5efffc5d275
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64694414"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976944"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurare reti virtuali e firewall di Azure Key Vault
 
@@ -119,5 +119,5 @@ Di seguito viene illustrato come configurare firewall e reti virtuali di Key Vau
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Endpoint del servizio di rete virtuale per Key Vault](key-vault-overview-vnet-service-endpoints.md)
+* [Endpoint servizio di rete virtuale per Key Vault](key-vault-overview-vnet-service-endpoints.md)
 * [Proteggere l'insieme di credenziali delle chiavi](key-vault-secure-your-key-vault.md)

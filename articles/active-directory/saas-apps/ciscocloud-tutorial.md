@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 251d3738cb5b18cfe98878b857b91a3689fb81a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c9aa77b539d91d328736dca2b0f7d040f6b4b5f5
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105612"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944757"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>Esercitazione: Integrazione di Azure Active Directory con Cisco Cloud
 
@@ -118,7 +118,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Cisco Cloud, seguire qu
     > [!NOTE]
     > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori contattare il [team di supporto clienti di Cisco Cloud](mailto:cpr-ops@cisco.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-6. L'applicazione Cisco Cloud prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su  **Modifica** per aprire la finestra di dialogo Attributi utente.
+6. L'applicazione Cisco Cloud prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aprire la finestra di dialogo Attributi utente.
 
     ![image](common/edit-attribute.png)
 
@@ -209,7 +209,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 ### <a name="create-cisco-cloud-test-user"></a>Creare l'utente di test di Cisco Cloud
 
-In questa sezione viene creato un utente di nome Britta Simon in Cisco Cloud. Collaborare con il  [team di supporto di Cisco Cloud](mailto:cpr-ops@cisco.com) per aggiungere gli utenti alla piattaforma Cisco Cloud. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in Cisco Cloud. Per aggiungere gli utenti nella piattaforma Cisco Cloud, collaborare con il [team di supporto di Cisco Cloud](mailto:cpr-ops@cisco.com). Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

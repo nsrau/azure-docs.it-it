@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 9b1f0042f501cefc99343d53bbf2ad39f0ae1f4c
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 9a6b3a538304f2d09941650e3087130c21422dc0
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640475"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946358"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicare con l'hub IoT tramite il protocollo MQTT
 
@@ -77,7 +77,7 @@ Se un dispositivo non può usare gli SDK per dispositivi, può comunque connette
   `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`
 
   > [!NOTE]
-  > Le password di token SAS non sono obbligatorie se si usa l'autenticazione dei certificati X.509. Per altre informazioni, vedere [configurare la sicurezza X. 509 nell'hub Azure](iot-hub-security-x509-get-started.md) .
+  > Le password di token SAS non sono obbligatorie se si usa l'autenticazione dei certificati X.509. Per altre informazioni, vedere [configurare la sicurezza X. 509 nell'hub Azure](iot-hub-security-x509-get-started.md) e seguire le istruzioni di codice [seguenti](#tlsssl-configuration).
 
   Per altre informazioni su come generare i token di firma di accesso condiviso, vedere la sezione relativa ai dispositivi [con i token di sicurezza dell'hub](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app)Internet.
 
@@ -159,7 +159,7 @@ Implementare poi il client in uno script Python. Sostituire i segnaposto come se
 from paho.mqtt import client as mqtt
 import ssl
 
-path_to_root_cert = "<local path to digicert.cer>"
+path_to_root_cert = "<local path to digicert.cer file>"
 device_id = "<device id from device registry>"
 sas_token = "<generated SAS token>"
 iot_hub_name = "<iot hub name>"
@@ -199,6 +199,26 @@ client.loop_forever()
 Di seguito sono riportate le istruzioni di installazione per i prerequisiti.
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
+
+Per eseguire l'autenticazione usando un certificato del dispositivo, aggiornare il frammento di codice precedente con le seguenti modifiche (vedere [come ottenere un certificato della CA X. 509](./iot-hub-x509ca-overview.md#how-to-get-an-x509-ca-certificate) per la preparazione dell'autenticazione basata su certificati):
+
+```python
+# Create the client as before
+# ...
+
+# Set the username but not the password on your client
+client.username_pw_set(username=iot_hub_name+".azure-devices.net/" +
+                       device_id + "/?api-version=2018-06-30", password=None)
+
+# Set the certificate and key paths on your client
+cert_file = "<local path to your certificate file>"
+key_file = "<local path to your device key file>"
+client.tls_set(ca_certs=path_to_root_cert, certfile=cert_file, keyfile=key_file,
+               cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1, ciphers=None)
+
+# Connect as before
+client.connect(iot_hub_name+".azure-devices.net", port=8883)
+```
 
 ## <a name="sending-device-to-cloud-messages"></a>Invio di messaggi da dispositivo a cloud
 
@@ -286,7 +306,7 @@ Il corpo del messaggio di richiesta include un documento JSON che contiene nuovi
 
 I possibili codici di stato sono i seguenti:
 
-|Stato | DESCRIZIONE |
+|Stato | Descrizione |
 | ----- | ----------- |
 | 200 | Riuscito |
 | 400 | Richiesta non valida. JSON non valido |

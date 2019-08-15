@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: ccef5b5acd8ba30b6ea8aea2d0eb0a5b2cb6d503
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab8b26e4c6a8fabe92202c1531d1c4c0dfb209f9
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67098093"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944222"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonlycom"></a>Esercitazione: Integrazione di Azure Active Directory con Lessonly.com
 
@@ -115,7 +115,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Lessonly.com, seguire q
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Lessonly.com](mailto:support@lessonly.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-5. L'applicazione Lessonly.com prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su  **Modifica** per aprire la finestra di dialogo Attributi utente.
+5. L'applicazione Lessonly.com prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aprire la finestra di dialogo Attributi utente.
 
     ![image](common/edit-attribute.png)
 

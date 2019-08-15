@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdaaab8257d3a79130902e1ba0466f9cf15484f4
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 240d962d56e4a2dc0758f3170c51b343d22ef98d
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147154"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944583"
 ---
 # <a name="tutorial-integrate-check-point-cloudguard-dome9-arc-with-azure-active-directory"></a>Esercitazione: Integrare Check Point CloudGuard Dome9 Arc con Azure Active Directory
 
@@ -94,7 +94,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Check Point CloudGuard Dome9 Arc](mailto:Dome9@checkpoint.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-6. L'applicazione Check Point CloudGuard Dome9 Arc prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su  **Modifica** per aprire la finestra di dialogo Attributi utente.
+6. L'applicazione Check Point CloudGuard Dome9 Arc prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aprire la finestra di dialogo Attributi utente.
 
     ![image](common/edit-attribute.png)
 
@@ -158,7 +158,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
-In questa sezione verrà creato un utente di test di nome B. Simon nel portale di Azure.
+In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
@@ -182,7 +182,7 @@ In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di 
 
     ![Collegamento Aggiungi utente](common/add-assign-user.png)
 
-1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B. Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 

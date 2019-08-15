@@ -7,12 +7,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: gwallace
-ms.openlocfilehash: 10d919b21e05195e8a7b6b351a742a4f9a57ee2b
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: ae9d124391a1b17187ca98964874f681352498da
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360712"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945344"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Come aggiornare un servizio cloud
 
@@ -21,7 +21,7 @@ L'aggiornamento di un servizio cloud, inclusi i ruoli e il sistema operativo gue
 ## <a name="update-an-azure-service"></a>Aggiornare un servizio di Azure
 Azure organizza le istanze del ruolo in raggruppamenti logici chiamati domini di aggiornamento. I domini di aggiornamento sono set logici di istanze del ruolo aggiornate come gruppo.  Azure aggiorna un servizio cloud un dominio di aggiornamento alla volta, per consentire alle istanze negli altri domini di aggiornamento di continuare a gestire il traffico.
 
-Il numero predefinito di domini di aggiornamento è 5. È possibile specificare un numero diverso di domini di aggiornamento includendo l'attributo upgradeDomainCount nel file di definizione del servizio (.csdef). Per altre informazioni sull'attributo upgradeDomainCount, vedere [WebRole Schema](/previous-versions/azure/reference/gg557553(v=azure.100)) (Schema WebRole) o [WorkerRole Schema](/previous-versions/azure/reference/gg557552(v=azure.100)) (Schema WorkerRole).
+Il numero predefinito di domini di aggiornamento è 5. È possibile specificare un numero diverso di domini di aggiornamento includendo l'attributo upgradeDomainCount nel file di definizione del servizio (.csdef). Per altre informazioni sull'attributo upgradeDomainCount, vedere [schema di definizione dei servizi cloud di Azure (file con estensione csdef)](https://docs.microsoft.com/azure/cloud-services/schema-csdef-file).
 
 Quando si esegue un aggiornamento sul posto di uno o più ruoli nel servizio, Azure aggiorna i set di istanze del ruolo in base al dominio di aggiornamento a cui appartengono. Azure aggiorna tutte le istanze in un determinato dominio di aggiornamento (arrestandole, aggiornandole, riportandole online), quindi passa al dominio successivo. Arrestando solo le istanze in esecuzione nel dominio di aggiornamento corrente, Azure fa in modo che un aggiornamento venga eseguito con il minor impatto possibile sul servizio in esecuzione. Per altre informazioni, vedere [Come avviene un aggiornamento](#howanupgradeproceeds) .
 
@@ -47,18 +47,18 @@ La tabella seguente mostra le modifiche consentite a un servizio durante un aggi
 
 | Modifiche consentite a hosting, servizi e ruoli | Aggiornamento sul posto | Gestione temporanea (scambio indirizzi VIP) | Eliminazione e ridistribuzione |
 | --- | --- | --- | --- |
-| Versione del sistema operativo |Sì |Sì |Sì |
+| Versione del sistema operativo |Yes |Sì |Sì |
 | Livello di attendibilità .NET |Sì |Sì |Sì |
 | Dimensioni macchina virtuale<sup>1</sup> |Sì<sup>2</sup> |Sì |Sì |
 | Impostazioni di archiviazione locali |Solo aumento<sup>2</sup> |Sì |Sì |
-| Aggiungere o rimuovere ruoli in un servizio |Sì |Sì |Sì |
+| Aggiungere o rimuovere ruoli in un servizio |Sì |Sì |Yes |
 | Numero di istanze di un particolare ruolo |Sì |Sì |Sì |
-| Numero o tipo di endpoint per un servizio |Sì<sup>2</sup> |No |Yes |
-| Nomi e i valori delle impostazioni di configurazione |Yes |Sì |Sì |
-| Valori (ma non nomi) delle impostazioni di configurazione |Sì |Sì |Sì |
+| Numero o tipo di endpoint per un servizio |Sì<sup>2</sup> |No |Sì |
+| Nomi e i valori delle impostazioni di configurazione |Yes |Sì |Yes |
+| Valori (ma non nomi) delle impostazioni di configurazione |Sì |Sì |Yes |
 | Aggiungere nuovi certificati |Sì |Sì |Sì |
-| Modificare i certificati esistenti |Sì |Sì |Sì |
-| Distribuire nuovo codice |Yes |Sì |Sì |
+| Modificare i certificati esistenti |Yes |Sì |Yes |
+| Distribuire nuovo codice |Sì |Sì |Sì |
 
 <sup>1</sup> Modifica delle dimensioni limitata al sottoinsieme di dimensioni disponibili per il servizio cloud.
 
