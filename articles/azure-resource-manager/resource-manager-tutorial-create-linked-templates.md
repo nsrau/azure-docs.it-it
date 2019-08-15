@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: de2e848bd587f3b9bf2efe3fa8df3710e24243e4
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 11eae0e3bae501cdf39d7fe1d5d39524c1f83e6c
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241390"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036002"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Esercitazione: Creare modelli collegati di Azure Resource Manager
 
@@ -227,7 +227,7 @@ echo "Linked template URI with SAS token: $templateURI"
 4. Prendere nota dei due valori, ovvero il nome del gruppo di risorse e l'URI del modello collegato, in fondo al riquadro della shell. Sarà necessario usare questi valori più avanti nell'esercitazione.
 5. Selezionare **Esci dalla modalità messa a fuoco** per chiudere il riquadro della shell.
 
-In pratica, si genera un token di firma di accesso condiviso quando si distribuisce il modello principale e si assegnare una finestra di scadenza più ridotta al token per renderlo più sicuro. Per ulteriori informazioni, vedere [Indicare un token di firma di accesso condiviso durante la distribuzione](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment).
+In pratica, si genera un token di firma di accesso condiviso quando si distribuisce il modello principale e si assegnare una finestra di scadenza più ridotta al token per renderlo più sicuro. Per ulteriori informazioni, vedere [Indicare un token di firma di accesso condiviso durante la distribuzione](./secure-template-with-sas-token.md#provide-sas-token-during-deployment).
 
 ## <a name="call-the-linked-template"></a>Chiamare il modello collegato
 
@@ -327,7 +327,7 @@ Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure dist
 Per migliorare il progetto, effettuare le modifiche aggiuntive seguenti al progetto completato:
 
 1. Modificare il modello principale (azuredeploy.json) in modo che riceva il valore URI del modello collegato tramite un parametro.
-2. Invece di generare un token di firma di accesso condiviso quando si carica il modello collegato, generare il token quando si distribuisce il modello principale. Per ulteriori informazioni, vedere [Indicare un token di firma di accesso condiviso durante la distribuzione](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment).
+2. Invece di generare un token di firma di accesso condiviso quando si carica il modello collegato, generare il token quando si distribuisce il modello principale. Per ulteriori informazioni, vedere [Indicare un token di firma di accesso condiviso durante la distribuzione](./secure-template-with-sas-token.md#provide-sas-token-during-deployment).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
