@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
-ms.date: 07/05/2019
-ms.openlocfilehash: 33c844374d6d2b8e64cde6c7c9633e54a292d95f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/12/2019
+ms.openlocfilehash: 515e971214244cdd14955cc269a5f005cb93734f
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567290"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967930"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Fusi orari in Istanza gestita di database SQL di Azure
 
@@ -83,10 +83,7 @@ La funzione [CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/cu
 
 ### <a name="point-in-time-restore"></a>Ripristino temporizzato
 
-<del>Quando si esegue un ripristino temporizzato, il tempo necessario per il ripristino viene interpretato come ora UTC. Questa impostazione consente di evitare ambiguità a causa dell'ora legale e delle relative modifiche potenziali.<del>
-
- >[!WARNING]
-  > Il comportamento corrente non è in linea con l'istruzione precedente e il tempo per il ripristino in viene interpretato in base al fuso orario dell'istanza gestita di origine in cui vengono eseguiti i backup automatici del database. Stiamo lavorando per correggere questo comportamento per interpretare il momento specificato come ora UTC. Per altri dettagli, vedere [problemi noti](sql-database-managed-instance-timezone.md#known-issues) .
+Quando si esegue un ripristino temporizzato, il tempo necessario per il ripristino viene interpretato come ora UTC. In questo modo vengono evitate le ambiguità dovute all'ora legale e alle relative modifiche potenziali.
 
 ### <a name="auto-failover-groups"></a>Gruppi di failover automatico
 

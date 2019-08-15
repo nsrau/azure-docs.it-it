@@ -3,7 +3,7 @@ title: Trovare i report attività utente di Azure Active Directory nel portale d
 description: Informazioni su dove trovare i report attività utente di Azure Active Directory nel portale di Azure.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d47072713c57576abe780134792c3a5cbc27127c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 356412bfca19e72d09338faf8c8bcac5ec8f273a
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60438327"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988295"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Trovare i report attività nel portale di Azure
 
@@ -41,14 +41,14 @@ Il report dei log di controllo consente di consolidare i report seguenti:
 * Attività di reimpostazione password
 * Attività di registrazione reimpostazione password
 * Attività dei gruppi self-service
-* Modifiche del nome del gruppo di Office 365
+* Modifiche ai nomi dei gruppi di Office 365
 * Attività di provisioning dell'account
-* Stato rollover della password
+* Stato rollover password
 * Errori di provisioning dell'account
 
 ### <a name="filtering-on-audit-logs"></a>Filtro dei log di controllo
 
-È possibile usare filtri avanzati nel report di controllo per accedere a una categoria di dati di controllo, impostandolo nel **categoria** filtro. Ad esempio, per visualizzare tutte le attività relative agli utenti, selezionare la **Gestione utente** categoria. 
+È possibile utilizzare il filtro avanzato nel report di controllo per accedere a una categoria specifica di dati di controllo, specificandone il filtro di **categoria** . Ad esempio, per visualizzare tutte le attività correlate agli utenti, selezionare la categoria **UserManagement** . 
 
 Le categorie includono:
 
@@ -63,25 +63,25 @@ Le categorie includono:
 - DirectoryManagement
 - EntitlementManagement
 - GroupManagement
-- Altri
-- Policy
-- Gestione
+- Altro
+- Criteri
+- ResourceManagement
 - RoleManagement
-- Gestione utente
+- UserManagement
 
-È anche possibile filtrare in un servizio specifico tramite il **servizio** filtro elenco a discesa. Ad esempio, per ottenere tutti gli eventi di controllo correlati alla gestione delle password self-service, selezionare la **Self-Service Password Management** filtro.
+È anche possibile filtrare in base a un servizio specifico usando il filtro dell'elenco a discesa del **servizio** . Ad esempio, per ottenere tutti gli eventi di controllo relativi alla gestione delle password self-service, selezionare il filtro **self-service** per la gestione delle password.
 
 I servizi includono:
 
 - Tutti
 - Verifiche di accesso
-- Provisioning degli account 
-- Applicazione SSO
+- Provisioning account 
+- SSO applicazione
 - Metodi di autenticazione
 - B2C
 - Accesso condizionale
 - Directory principale
-- Gestione dei diritti
+- Gestione entitlement
 - Identity Protection
 - Utenti invitati
 - PIM
@@ -149,11 +149,11 @@ I report di sicurezza sulle attività anomale di Azure AD seguenti non sono incl
 
 I log attività (controllo o accessi) sono stati scaricati ma non vengono visualizzati tutti i record per l'orario scelto. Perché? 
 
- ![Creazione di report](./media/troubleshoot-missing-data-download/01.png)
+ ![Report](./media/troubleshoot-missing-data-download/01.png)
  
 #### <a name="cause"></a>Causa
 
-Quando si scaricano i log attività nel portale di Azure, è necessario limitare la scalabilità necessaria per i 250000 record, ordinate dalla più recente. 
+Quando si scaricano i log attività nel portale di Azure, viene limitata la scalabilità a 250000 record, ordinati in base alla prima più recente. 
 
 #### <a name="resolution"></a>Risoluzione
 
@@ -186,7 +186,7 @@ Attendere tra 15 minuti e due ore e verificare se le azioni vengono visualizzate
 
 Di recente si è eseguito l'accesso al portale di Azure e si prevedeva la visualizzazione dei log di accesso per tali azioni nel pannello `Activity logs > Sign-ins`, ma non è possibile trovarli.
 
- ![Creazione di report](./media/troubleshoot-missing-audit-data/02.png)
+ ![Report](./media/troubleshoot-missing-audit-data/02.png)
  
 #### <a name="cause"></a>Causa
 
@@ -207,13 +207,13 @@ Attendere tra 15 minuti e due ore e verificare se le azioni vengono visualizzate
 
 Non è possibile visualizzare più di 30 giorni di dati di accesso e controllo nel portale di Azure. Perché? 
 
- ![Creazione di report](./media/troubleshoot-missing-audit-data/03.png)
+ ![Report](./media/troubleshoot-missing-audit-data/03.png)
 
 #### <a name="cause"></a>Causa
 
 In base alla licenza, Azioni di Azure Active Directory archivia i report delle attività per le durate seguenti:
 
-| Report           | &nbsp; |  Azure AD Free | Azure AD P1 Premium | Azure AD P2 Premium |
+| Report           | &nbsp; |  Azure AD Gratuito | Azure AD P1 Premium | Azure AD P2 Premium |
 | ---              | ----   |  ---           | ---                 | ---                 |
 | Directory Audit (Controllo directory)  | &nbsp; |   7 giorni     | 30 giorni             | 30 giorni             |
 | Attività di accesso | &nbsp; | Non disponibile. È possibile accedere alle informazioni di accesso per 7 giorni dal pannello del singolo profilo utente | 30 giorni | 30 giorni             |

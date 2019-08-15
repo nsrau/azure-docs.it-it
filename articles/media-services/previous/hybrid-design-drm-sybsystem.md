@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: willzhan;juliako
-ms.openlocfilehash: 5c86a49cd9dc26f724de12ed2e5e77e645e4ab53
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: willzhan
+ms.reviewer: juliako
+ms.openlocfilehash: d15bfcfbae3b24e1a9b29dc74f9b41a979e63ae9
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61466596"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69014664"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>Progettazione ibrida di sottosistemi DRM 
 
@@ -96,9 +97,9 @@ In base alle spiegazioni fornite nella sezione precedente, sono cinque gli scena
 
 |**Hosting e origine del contenuto**|**Crittografia DRM**|**Distribuzione di licenze DRM**|**Configurare la chiave simmetrica**|**Configurare i criteri di distribuzione dell'asset**|**Esempio**|
 |---|---|---|---|---|---|
-|AMS|AMS|AMS|Yes|Yes|Esempio 1|
-|AMS|AMS|Terze parti|Yes|Yes|Esempio 2|
-|AMS|Terze parti|AMS|Yes|No|Esempio 3|
+|AMS|AMS|AMS|Yes|Sì|Esempio 1|
+|AMS|AMS|Terze parti|Sì|Sì|Esempio 2|
+|AMS|Terze parti|AMS|Sì|No|Esempio 3|
 |AMS|Terze parti|Esterno|No|No|Esempio 4|
 |Terze parti|Terze parti|AMS|Yes|No|    
 

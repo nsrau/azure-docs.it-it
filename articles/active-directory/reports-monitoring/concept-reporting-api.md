@@ -3,7 +3,7 @@ title: Introduzione all'API di creazione report di Azure AD | Microsoft Docs
 description: Come iniziare a usare l'API di creazione report di Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 8813b911-a4ec-4234-8474-2eef9afea11e
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ff3e530dae3a6db4b7c84292a25e83c11000baf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c30669c8f5aeefc14db42a32d87f333419758327
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60286727"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989870"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Introduzione all'API di creazione report di Azure Active Directory
 
@@ -39,7 +39,7 @@ Nel caso di problemi, vedere [Come ottenere supporto per Azure Active Directory]
 Per accedere all'API di creazione report con o senza intervento dell'utente, è necessario:
 
 1. Assegnare i ruoli (Ruolo con autorizzazioni di lettura per la sicurezza, Amministratore della sicurezza, Amministratore globale)
-2. Registrare un'applicazione
+2. Registra un'applicazione
 3. Concedere le autorizzazioni
 4. Ottenere le impostazioni di configurazione
 

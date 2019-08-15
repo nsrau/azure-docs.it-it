@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 4b8df538110f6c0b17a1ed37a2a6063a5b89a6e4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: d4a51a44b48e94669e92a9d525c1b0966df53c18
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880989"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68964139"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Inviare messaggi da cloud a dispositivo da un hub Internet delle cose
 
@@ -82,13 +82,9 @@ Quando si invia un messaggio da cloud a dispositivo, il servizio può richiedere
 
 Se il valore **ACK** è *pieno*e non si riceve un messaggio di feedback, significa che il messaggio di feedback è scaduto. Il servizio non può sapere cosa è successo al messaggio originale. In pratica, un servizio deve garantire che sia possibile elaborare i commenti prima della scadenza. Il tempo di scadenza massimo è di due giorni, che lascia il tempo per riportare il servizio in caso di errore.
 
-> [!NOTE]
-> Quando il dispositivo viene eliminato, vengono eliminati anche eventuali commenti in sospeso.
->
-
 Come illustrato negli [endpoint](iot-hub-devguide-endpoints.md), l'hub Internet delle cose fornisce feedback tramite un endpoint per il servizio, */messages/servicebound/feedback*, come messaggi. La semantica di ricezione per i commenti è uguale a quella dei messaggi da cloud a dispositivo. Quando è possibile, i commenti sui messaggio vengono riuniti in batch in un unico messaggio con il formato seguente:
 
-| Proprietà     | DESCRIZIONE |
+| Proprietà     | Descrizione |
 | ------------ | ----------- |
 | EnqueuedTime | Timestamp che indica quando il messaggio di feedback è stato ricevuto dall'hub |
 | UserId       | `{iot hub name}` |
@@ -125,6 +121,12 @@ Il corpo di un messaggio di feedback è illustrato nel codice seguente:
   ...
 ]
 ```
+
+**Feedback in sospeso per i dispositivi eliminati**
+
+Quando un dispositivo viene eliminato, vengono eliminati anche eventuali commenti in sospeso. Il feedback del dispositivo viene inviato in batch. Se un dispositivo viene eliminato nella finestra Narrow (spesso inferiore a 1 secondo) tra il momento in cui il dispositivo conferma la ricezione del messaggio e quando viene preparato il successivo batch di feedback, il feedback non verrà eseguito.
+
+È possibile risolvere questo comportamento attendendo un periodo di tempo per l'arrivo di feedback in sospeso prima di eliminare il dispositivo. Si presuppone che il feedback dei messaggi correlati venga perso dopo l'eliminazione di un dispositivo.
 
 ## <a name="cloud-to-device-configuration-options"></a>Opzioni di configurazione da cloud a dispositivo
 

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/12/2018
 ms.author: dacurwin
-ms.openlocfilehash: dae2268abc3771e43d717c65c19eed37b9f48e8e
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: bb764cfa14b4bc8e53f25629961a1baecd6a6c1f
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689245"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954702"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Backup coerente con le applicazioni per macchine virtuali Linux in Azure
 
@@ -24,7 +24,7 @@ Quando viene eseguito il backup di snapshot delle macchine virtuali, la coerenza
 
 Il framework offre un'opzione per eseguire script di pre e post-backup durante la creazione di snapshot delle macchine virtuali. Gli script pre-backup vengono eseguiti immediatamente prima della creazione dello snapshot della macchina virtuale e gli script post-backup vengono eseguiti immediatamente dopo la creazione dello snapshot della macchina virtuale. Gli script di pre e post-backup offrono la flessibilità necessaria per controllare l'applicazione e l'ambiente quando si creano snapshot delle macchine virtuali.
 
-Gli script di pre-backup richiamano API native delle applicazioni per disattivare gli I/O e scaricano sul disco il contenuto in memoria. Queste azioni garantiscono la coerenza dello snapshot con le applicazioni. Gli script di post-backup usano API native delle applicazioni native per sbloccare gli I/O e ciò consente all'applicazione di riprendere le normali operazioni dopo la creazione dello snapshot della macchina virtuale.
+Gli script di pre-backup richiamano API native delle applicazioni per disattivare gli I/O e scaricano sul disco il contenuto in memoria. Queste azioni garantiscono la coerenza dello snapshot con le applicazioni. I post-script usano le API native dell'applicazione per scongelare IOs, che consentono all'applicazione di riprendere le normali operazioni dopo lo snapshot della macchina virtuale.
 
 ## <a name="steps-to-configure-pre-script-and-post-script"></a>Passaggi per configurare gli script di pre e post-backup
 

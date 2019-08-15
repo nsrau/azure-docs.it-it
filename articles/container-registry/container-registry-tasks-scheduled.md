@@ -8,16 +8,16 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: danlep
-ms.openlocfilehash: 680f0268e85d41f8061dc96db1779ab6c22b944a
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 6237b8056262abe1f8cea28bebd6b3bad97e0f7e
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310555"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967575"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Eseguire un'attività ACR in base a una pianificazione definita
 
-Questo articolo illustra come eseguire un' [attività ACR](container-registry-tasks-overview.md) in base a una pianificazione. Pianificare un'attività impostando uno o più *trigger timer*. 
+Questo articolo illustra come eseguire un' [attività ACR](container-registry-tasks-overview.md) in base a una pianificazione. Pianificare un'attività impostando uno o più *trigger timer*.
 
 La pianificazione di un'attività è utile per scenari simili ai seguenti:
 
@@ -29,18 +29,18 @@ Per eseguire gli esempi in questo articolo, è possibile usare l'Azure Cloud She
 
 ## <a name="about-scheduling-a-task"></a>Informazioni sulla pianificazione di un'attività
 
-* **Trigger con espressione cron** : il trigger timer per un'attività usa un' *espressione cron*. L'espressione è una stringa con cinque campi che specificano il minuto, l'ora, il giorno, il mese e il giorno della settimana per l'attivazione dell'attività. Sono supportate frequenze fino a una volta al minuto. 
+* **Trigger con espressione cron** : il trigger timer per un'attività usa un' *espressione cron*. L'espressione è una stringa con cinque campi che specificano il minuto, l'ora, il giorno, il mese e il giorno della settimana per l'attivazione dell'attività. Sono supportate frequenze fino a una volta al minuto.
 
   Ad esempio, l'espressione `"0 12 * * Mon-Fri"` attiva un'attività a mezzogiorno UTC in ogni giorno della settimana. Vedere [i dettagli](#cron-expressions) più avanti in questo articolo.
-* **Più trigger timer** : è possibile aggiungere più timer a un'attività, purché le pianificazioni differiscano. 
+* **Più trigger timer** : è possibile aggiungere più timer a un'attività, purché le pianificazioni differiscano.
     * Specificare più trigger timer quando si crea l'attività o aggiungerli in un secondo momento.
     * Facoltativamente, denominare i trigger per semplificare la gestione oppure le attività ACR forniranno i nomi predefiniti dei trigger.
-    * Se le pianificazioni del timer si sovrappongono alla volta, le attività ACR attivano l'attività all'orario pianificato per ogni timer. 
+    * Se le pianificazioni del timer si sovrappongono alla volta, le attività ACR attivano l'attività all'orario pianificato per ogni timer.
 * **Altri trigger di attività** : in un'attività attivata dal timer, è anche possibile abilitare trigger basati sul [commit del codice sorgente](container-registry-tutorial-build-task.md) o sugli [aggiornamenti dell'immagine di base](container-registry-tutorial-base-image-update.md). Analogamente ad altre attività ACR, è anche possibile [attivare manualmente][az-acr-task-run] un'attività pianificata.
 
 ## <a name="create-a-task-with-a-timer-trigger"></a>Creare un'attività con un trigger timer
 
-Quando si crea un'attività con il comando [AZ ACR task create][az-acr-task-create] , è possibile aggiungere facoltativamente un trigger timer. Aggiungere il `--schedule` parametro e passare un'espressione cron per il timer. 
+Quando si crea un'attività con il comando [AZ ACR task create][az-acr-task-create] , è possibile aggiungere facoltativamente un trigger timer. Aggiungere il `--schedule` parametro e passare un'espressione cron per il timer.
 
 Come semplice esempio, il comando seguente attiva l'esecuzione dell' `hello-world` immagine dall'hub Docker ogni giorno alle 21:00 UTC. L'attività viene eseguita senza un contesto del codice sorgente.
 
@@ -86,8 +86,8 @@ This message shows that your installation appears to be working correctly.
 Al termine dell'ora pianificata, eseguire il comando [AZ ACR Task List-runs][az-acr-task-list-runs] per verificare che il timer abbia attivato l'attività come previsto:
 
 ```azurecli
-az acr task list runs --name mytask --registry myregistry --output table
-``` 
+az acr task list-runs --name mytask --registry myregistry --output table
+```
 
 Quando il timer ha esito positivo, l'output è simile al seguente:
 
@@ -98,7 +98,7 @@ RUN ID    TASK     PLATFORM    STATUS     TRIGGER    STARTED               DURAT
 cf2b      mytask   linux       Succeeded  Timer      2019-06-28T21:00:23Z  00:00:06
 cf2a      mytask   linux       Succeeded  Manual     2019-06-28T20:53:23Z  00:00:06
 ```
-            
+
 ## <a name="manage-timer-triggers"></a>Gestisci trigger timer
 
 Usare i comandi [AZ ACR Task Timer][az-acr-task-timer] per gestire i trigger timer per un'attività ACR.
@@ -150,7 +150,7 @@ Output di esempio:
 ]
 ```
 
-### <a name="remove-a-timer-trigger"></a>Rimuovere un trigger timer 
+### <a name="remove-a-timer-trigger"></a>Rimuovere un trigger timer
 
 Usare il comando [AZ ACR Task Timer Remove][az-acr-task-timer-remove] per rimuovere un trigger timer da un'attività. Nell'esempio seguente viene rimosso il trigger *Timer2* da *attività*:
 
@@ -178,7 +178,7 @@ Ogni campo può avere uno dei tipi di valori seguenti:
 |---------|---------|---------|
 |Valore specifico |<nobr>"5 * * * *"</nobr>|ogni ora a 5 minuti dopo l'ora|
 |Tutti i valori (`*`)|<nobr>"* 5 * * *"</nobr>|ogni minuto dell'ora inizia 5:00 UTC (60 volte al giorno)|
-|Intervallo (operatore `-`)|<nobr>"0 1-3 * * *"</nobr>|3 volte al giorno, alle 1:00, 2:00 e 3:00 UTC|  
+|Intervallo (operatore `-`)|<nobr>"0 1-3 * * *"</nobr>|3 volte al giorno, alle 1:00, 2:00 e 3:00 UTC|
 |Set di valori (operatore `,`)|<nobr>"20, 30, 40 * * * *"</nobr>|3 volte all'ora, 20 minuti, 30 minuti e 40 minuti dopo l'ora|
 |Valore di intervallo (operatore `/`)|<nobr>"*/10 * * * *"</nobr>|6 volte all'ora, a 10 minuti, 20 minuti e così via, oltre l'ora
 

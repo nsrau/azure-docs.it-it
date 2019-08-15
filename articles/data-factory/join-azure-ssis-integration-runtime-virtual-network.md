@@ -7,34 +7,32 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 08/12/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 6978b83e66f58e468d9f98394904861c8a4d8bd0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 49422d73a63f1bcde267aac3a9b75e9977970cc9
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66152620"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951950"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale
-Aggiungere il runtime di integrazione Azure-SSIS a una rete virtuale di Azure negli scenari seguenti: 
+Quando si usa SQL Server Integration Services (SSIS) in Azure Data Factory (ADF), è necessario aggiungere il Integration Runtime (IR) Azure-SSIS a una rete virtuale di Azure negli scenari seguenti: 
 
-- Si intende connettersi ad archivi dati locali da pacchetti SSIS eseguiti in un runtime di integrazione SSIS di Azure. 
+- Si vuole connettersi agli archivi dati locali dai pacchetti SSIS in esecuzione nel runtime di integrazione Azure-SSIS senza configurare o gestire un runtime di integrazione self-hosted come proxy. 
 
-- Si ospita il database del catalogo SSIS (SQL Server Integration Services) nel database SQL di Azure con endpoint servizio di rete virtuale/Istanza gestita. 
+- Si sta ospitando il database del catalogo SSIS (SSISDB) nel database SQL di Azure con gli endpoint di servizio della rete virtuale/Istanza gestita in una rete virtuale. 
 
-  Azure Data Factory consente di aggiungere il runtime di integrazione Azure-SSIS a una rete virtuale creata con il modello di distribuzione classico o con il modello di distribuzione Azure Resource Manager. 
+ADF consente di aggiungere il runtime di integrazione Azure-SSIS a una rete virtuale creata tramite il modello di distribuzione classica o il modello di distribuzione Azure Resource Manager. 
 
 > [!IMPORTANT]
 > La rete virtuale classica è attualmente deprecata, rendendo quindi necessario l'uso della rete virtuale di Azure Resource Manager.  Se si usa già la rete virtuale classica, passare alla rete virtuale di Azure Resource Manager appena possibile.
 
 ## <a name="access-to-on-premises-data-stores"></a>Accesso agli archivi dati locali
-Se i pacchetti SSIS consentono di accedere solo ad archivi dati cloud pubblici, non è necessario aggiungere il runtime di integrazione Azure-SSIS a una rete virtuale. Se i pacchetti SSIS consentono di accedere ad archivi dati locali, è necessario aggiungere il runtime di integrazione Azure-SSIS a una rete virtuale connessa alla rete locale. 
-
-Ecco alcuni elementi importanti da considerare: 
+Se i pacchetti SSIS accedono solo ad archivi dati cloud pubblici, non è necessario aggiungere il runtime di integrazione Azure-SSIS a una rete virtuale. Se i pacchetti SSIS accedono ad archivi dati locali, è possibile aggiungere il runtime di integrazione Azure-SSIS a una rete virtuale connessa alla rete locale o configurare/gestire un runtime di integrazione self-hosted come proxy per il runtime di integrazione Azure-SSIS, vedere Configurare il runtime di integrazione [self-hosted come articolo del proxy per Azure-SSIS](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis) . Quando si aggiunge il runtime di integrazione Azure-SSIS a una rete virtuale, è necessario tenere presenti alcuni aspetti importanti: 
 
 - Se non è presente alcuna rete virtuale connessa alla rete locale, creare prima di tutto una [rete virtuale di Azure Resource Manager](../virtual-network/quick-create-portal.md#create-a-virtual-network) o una [rete virtuale classica](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) per aggiungere il runtime di integrazione Azure-SSIS. Configurare quindi una [connessione gateway VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md) o [ExpressRoute](../expressroute/expressroute-howto-linkvnet-classic.md) da sito a sito da tale rete virtuale alla rete locale. 
 
@@ -45,7 +43,7 @@ Ecco alcuni elementi importanti da considerare:
 - Se è già presente una rete virtuale di Azure Resource Manager connessa alla rete locale in un percorso diverso rispetto al runtime di integrazione Azure-SSIS, creare prima una [rete virtuale di Azure Resource Manager](../virtual-network/quick-create-portal.md##create-a-virtual-network) per aggiungere il runtime di integrazione Azure-SSIS. Configurare quindi una connessione da rete virtuale di Azure Resource Manager a rete virtuale di Azure Resource Manager. In alternativa, è possibile creare una [rete virtuale classica](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) per aggiungere il runtime di integrazione Azure-SSIS. Configurare quindi una connessione [da rete virtuale classica a rete virtuale di Azure Resource Manager](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md). 
 
 ## <a name="host-the-ssis-catalog-database-in-azure-sql-database-with-virtual-network-service-endpointsmanaged-instance"></a>Ospitare il database del catalogo SSIS nel database SQL di Azure con endpoint servizio di rete virtuale/Istanza gestita
-Se il catalogo SSIS è ospitato nel database SQL di Azure con endpoint servizio di rete virtuale o Istanza gestita, è possibile aggiungere Azure-SSIS IR a quanto indicato di seguito: 
+Se il catalogo SSIS è ospitato nel database SQL di Azure con gli endpoint di servizio della rete virtuale o Istanza gestita in una rete virtuale, è possibile aggiungere il runtime di integrazione Azure-SSIS a: 
 
 - La stessa rete virtuale 
 - Un'altra rete virtuale che dispone di una connessione di tipo network-to-network con la rete usata per l'istanza gestita 
@@ -73,6 +71,8 @@ Per altre informazioni, vedere le sezioni seguenti.
 
 -   Assicurarsi che il gruppo di risorse della rete virtuale sia in grado di creare ed eliminare determinate risorse di rete di Azure. Vedere [Requisiti per il gruppo di risorse](#resource-group). 
 
+-   Se si Personalizza il runtime di integrazione Azure-SSIS come descritto nell'articolo [installazione personalizzata per](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) il runtime di integrazione Azure-SSIS, ai nodi del runtime di integrazione SSIS di Azure verranno allocati indirizzi IP privati da un intervallo predefinito di 172.16.0.0-172.31.255.255, quindi assicurarsi che l'indirizzo IP privato gli intervalli di indirizzi delle reti virtuali/locali non entrano in conflitto con questo intervallo.
+
 Ecco un diagramma che illustra le connessioni necessarie per Azure-SSIS Integration Runtime:
 
 ![Runtime di integrazione Azure-SSIS](media/join-azure-ssis-integration-runtime-virtual-network/azure-ssis-ir.png)
@@ -97,7 +97,7 @@ L'utente che crea il runtime di integrazione Azure-SSIS deve avere le autorizzaz
 -   Non usare una subnet occupata in modo esclusivo da altri servizi di Azure, ad esempio Istanza gestita di database SQL o Servizio app. 
 
 ### <a name="dns_server"></a> Server Domain Name Service 
-Se è necessario usare il proprio server Domain Name Service (DNS) in una rete virtuale unita tramite il runtime di integrazione Azure-SSIS, assicurarsi che sia in grado di risolvere i nomi host di Azure pubblico (ad esempio, un nome del BLOB di Archiviazione di Azure, `<your storage account>.blob.core.windows.net`). 
+Se è necessario usare il proprio server DNS (Domain Name Services) in una rete virtuale unita in join dal runtime di integrazione SSIS di Azure, assicurarsi che sia in grado di risolvere i nomi host di Azure globali, `<your storage account>.blob.core.windows.net`ad esempio il nome di un BLOB di archiviazione di Azure. 
 
 Sono consigliati i passaggi seguenti: 
 
@@ -112,10 +112,10 @@ Se è necessario implementare un gruppo di sicurezza di rete per la subnet usata
 
 | Direzione | Protocollo di trasporto | Source (Sorgente) | Intervallo di porte di origine | Destination | Intervallo di porte di destinazione | Commenti |
 |---|---|---|---|---|---|---|
-| In ingresso | TCP | AzureCloud<br/>(o un ambito più ampio, ad esempio Internet) | * | VirtualNetwork | 29876, 29877 (se si aggiunge il runtime di integrazione a una rete virtuale di Azure Resource Manager) <br/><br/>10100, 20100, 30100 (se si aggiunge il runtime di integrazione a una rete virtuale classica)| Il servizio di Data Factory usa queste porte per comunicare con i nodi del runtime di integrazione Azure-SSIS nella rete virtuale. <br/><br/> Anche se non è stato creato un gruppo di sicurezza di rete a livello di subnet, Data Factory configura sempre un gruppo di sicurezza di rete a livello di schede di interfaccia di rete collegato alle macchine virtuali che ospitano il runtime di integrazione Azure-SSIS. Il gruppo di sicurezza di rete a livello di scheda di interfaccia di rete consente solo il traffico in entrata dagli indirizzi IP di Data Factory nelle porte specificate. Anche se si aprono queste porte al traffico Internet a livello di subnet, il traffico proveniente da indirizzi IP diversi dagli indirizzi IP di Data Factory è bloccato a livello di scheda di interfaccia di rete. |
+| In ingresso | TCP | BatchNodeManagement | * | VirtualNetwork | 29876, 29877 (se si aggiunge il runtime di integrazione a una rete virtuale di Azure Resource Manager) <br/><br/>10100, 20100, 30100 (se si aggiunge il runtime di integrazione a una rete virtuale classica)| Il servizio di Data Factory usa queste porte per comunicare con i nodi del runtime di integrazione Azure-SSIS nella rete virtuale. <br/><br/> Anche se non è stato creato un gruppo di sicurezza di rete a livello di subnet, Data Factory configura sempre un gruppo di sicurezza di rete a livello di schede di interfaccia di rete collegato alle macchine virtuali che ospitano il runtime di integrazione Azure-SSIS. Il gruppo di sicurezza di rete a livello di scheda di interfaccia di rete consente solo il traffico in entrata dagli indirizzi IP di Data Factory nelle porte specificate. Anche se si aprono queste porte al traffico Internet a livello di subnet, il traffico proveniente da indirizzi IP diversi dagli indirizzi IP di Data Factory è bloccato a livello di scheda di interfaccia di rete. |
 | In uscita | TCP | VirtualNetwork | * | AzureCloud<br/>(o un ambito più ampio, ad esempio Internet) | 443 | I nodi del runtime di integrazione Azure-SSIS nella rete virtuale usano questa porta per accedere ai servizi di Azure, ad esempio Archiviazione di Azure e Hub eventi di Azure. |
 | In uscita | TCP | VirtualNetwork | * | Internet | 80 | I nodi del runtime di integrazione Azure-SSIS nella rete virtuale usano questa porta per scaricare l'elenco di revoche di certificati da Internet. |
-| In uscita | TCP | VirtualNetwork | * | Sql<br/>(o un ambito più ampio, ad esempio Internet) | 1433, 11000-11999, 14000-14999 | I nodi di Azure-SSIS Integration Runtime nella rete virtuale usano queste porte per accedere al database SSIS ospitato dal server di database SQL di Azure. Questo non vale per il database SSIS ospitato da Istanza gestita. |
+| In uscita | TCP | VirtualNetwork | * | Sql<br/>(o un ambito più ampio, ad esempio Internet) | 1433, 11000-11999 | I nodi del runtime di integrazione Azure-SSIS nella rete virtuale usano queste porte per accedere al database SSIS ospitato dal server di database SQL di Azure Se il criterio di connessione del server di database SQL di Azure è impostato su **proxy** anziché su **Reindirizzamento**, è necessaria solo la porta 1433. Questa regola di sicurezza in uscita non è applicabile a SSISDB ospitato dal Istanza gestita nella rete virtuale. |
 ||||||||
 
 ### <a name="route"></a> Usare Azure ExpressRoute o una route definita dall'utente
@@ -135,11 +135,11 @@ Per un esempio, vedere [questo script di PowerShell](https://gallery.technet.mic
 
 ### <a name="resource-group"></a> Requisiti per il gruppo di risorse
 -   Il runtime di integrazione Azure-SSIS deve creare alcune risorse di rete nello stesso gruppo di risorse della rete virtuale. Tali risorse includono le seguenti:
-    -   Un servizio di bilanciamento del carico di Azure, con il nome  *\<Guid > - azurebatch - cloudserviceloadbalancer*.
-    -   Un Azure indirizzo IP pubblico, con il nome  *\<Guid > - azurebatch - cloudservicepublicip*.
-    -   Un gruppo di sicurezza lavoro di rete, con il nome  *\<Guid > - azurebatch - cloudservicenetworksecuritygroup*. 
+    -   Un servizio di bilanciamento del carico di Azure, con il nome  *\<GUID >-azurebatch-cloudserviceloadbalancer*.
+    -   Un indirizzo IP pubblico di Azure, con il nome  *\<GUID >-azurebatch-cloudservicepublicip*.
+    -   Un gruppo di sicurezza del lavoro di rete, con il nome  *\<GUID >-azurebatch-cloudservicenetworksecuritygroup*. 
 
--   Assicurarsi di non avere blocchi di risorse per il gruppo di risorse o la sottoscrizione a cui appartiene la rete virtuale. Se si configura un blocco di sola lettura o un blocco di eliminazione, avviare e arrestare il runtime di integrazione potrebbe non riuscire o bloccarsi. 
+-   Assicurarsi di non avere blocchi di risorse per il gruppo di risorse o la sottoscrizione a cui appartiene la rete virtuale. Se si configura un blocco di sola lettura o un blocco di eliminazione, l'avvio e l'arresto del runtime di integrazione possono avere esito negativo o interrompere la risposta. 
 
 -   Verificare di non avere criteri di Azure che impediscano la creazione delle risorse seguenti nel gruppo di risorse o nella sottoscrizione a cui appartiene la rete virtuale: 
     -   Microsoft.Network/LoadBalancers 
@@ -254,29 +254,27 @@ Prima di aggiungere un runtime di integrazione Azure-SSIS alla rete virtuale, è
 
    ![Modificare il runtime di integrazione](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtime-edit.png)
 
-1. Nella pagina **Impostazioni generali** della finestra **Integration Runtime Setup** (Configurazione runtime di integrazione) selezionare **Avanti**. 
-
-   ![Impostazioni generali per la configurazione del runtime di integrazione](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-general-settings.png)
-
-1. Nella pagina **Impostazioni SQL** immettere la password dell'amministratore e selezionare **Avanti**. 
-
-   ![Impostazioni di SQL Server per la configurazione del runtime di integrazione](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-sql-settings.png)
+1. Nel pannello **Integration Runtime installazione** , fare clic sul pulsante **Avanti** per passare alle pagine **Impostazioni generali** e **Impostazioni SQL** . 
 
 1. Nella pagina **Impostazioni avanzate** eseguire le operazioni seguenti: 
 
-   a. Selezionare la casella di controllo **Select a VNet for your Azure-SSIS Integration Runtime to join and allow Azure services to configure VNet permissions/settings** (Selezionare una rete virtuale per l'aggiunta del runtime di integrazione Azure-SSIS e consentire ai servizi di Azure di configurare le autorizzazioni/impostazioni della rete virtuale). 
+   a. Selezionare la casella **di controllo Seleziona un VNet** .... 
 
-   b. In **Tipo** specificare se la rete virtuale è una rete virtuale classica o una rete virtuale di Azure Resource Manager. 
-
+   b. Per **Subscription (sottoscrizione**) selezionare la sottoscrizione di Azure in cui è possibile selezionare una rete virtuale esistente. 
+  
    c. In **Nome della rete virtuale** selezionare la rete virtuale. 
 
    d. In **Nome subnet** selezionare la subnet nella rete virtuale. 
 
-   e. Fare clic su **VNet Validation** (Convalida rete virtuale) e, in caso di esito positivo, fare clic su **Aggiorna**. 
+   e. Se si vuole anche configurare/gestire un runtime di integrazione self-hosted come proxy per il runtime di integrazione Azure-SSIS, controllare la casella di controllo Configura **self-hosted...** e vedere Configurare il runtime di integrazione [self-hosted come proxy per Azure-SSIS](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis) .
+
+   f. Fare clic sul pulsante **convalida VNet** e, in caso di esito positivo, fare clic sul pulsante **Avanti** . 
 
    ![Impostazioni avanzate per la configurazione del runtime di integrazione](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-advanced-settings.png)
 
-1. È ora possibile avviare il runtime di integrazione tramite il pulsante **Inizia** nella colonna **Azioni** corrispondente al runtime di integrazione Azure-SSIS di interesse. L'avvio di un runtime di integrazione Azure-SSIS richiede circa dai 20 ai 30 minuti. 
+1. Nella pagina **Riepilogo** esaminare tutte le impostazioni per il runtime di integrazione Azure-SSIS e fare clic sul pulsante **Aggiorna** .
+
+1. A questo punto, è possibile avviare il runtime di integrazione Azure-SSIS facendo clic sul pulsante **Avvia** nella colonna **azioni** per il runtime di integrazione Azure-SSIS. Sono necessari circa 20-30 minuti per avviare il runtime di integrazione Azure-SSIS che aggiunge una rete virtuale. 
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -381,9 +379,9 @@ Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
 L'esecuzione di questo comando richiede dai 20 ai 30 minuti.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sui runtime di Azure-SSIS, vedere gli argomenti seguenti: 
-- [Runtime di integrazione Azure-SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime). Questo articolo offre informazioni sui runtime di integrazione in generale, incluso il runtime di integrazione Azure-SSIS. 
-- [Esercitazione: distribuire i pacchetti SSIS in Azure](tutorial-create-azure-ssis-runtime-portal.md). Questo articolo offre istruzioni dettagliate per creare un runtime di integrazione Azure-SSIS. Viene usato il database SQL di Azure per ospitare il catalogo SSIS. 
-- [Creare un runtime di integrazione SSIS di Azure](create-azure-ssis-integration-runtime.md). Questo articolo amplia l'esercitazione e offre istruzioni per l'uso del database SQL di Azure con endpoint servizio di rete virtuale/Istanza gestita per ospitare il catalogo SSIS e sull'aggiunta del runtime di integrazione a una rete virtuale. 
-- [Monitorare un runtime di integrazione SSIS di Azure](monitor-integration-runtime.md#azure-ssis-integration-runtime). In questo articolo viene illustrato come recuperare informazioni su un runtime di integrazione SSIS di Azure e le descrizioni degli stati nelle informazioni restituite. 
-- [Gestire un runtime di integrazione SSIS di Azure](manage-azure-ssis-integration-runtime.md). In questo articolo viene illustrato come arrestare, avviare o rimuovere un runtime di integrazione SSIS di Azure. Viene anche illustrato come scalare orizzontalmente il runtime di integrazione Azure-SSIS tramite l'aggiunta di nodi. 
+Per altre informazioni sul runtime di integrazione SSIS di Azure, vedere gli argomenti seguenti: 
+- [Runtime di integrazione Azure-SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime). Questo articolo fornisce informazioni concettuali sui runtime di integrazione in generale, incluso il runtime di integrazione Azure-SSIS. 
+- [Esercitazione: distribuire i pacchetti SSIS in Azure](tutorial-create-azure-ssis-runtime-portal.md). Questa esercitazione include istruzioni dettagliate per la creazione del runtime di integrazione Azure-SSIS. Viene usato il database SQL di Azure per ospitare il catalogo SSIS. 
+- [Creare un runtime di integrazione SSIS di Azure](create-azure-ssis-integration-runtime.md). Questo articolo espande l'esercitazione e fornisce istruzioni sull'uso del database SQL di Azure con gli endpoint di servizio della rete virtuale/Istanza gestita in una rete virtuale per ospitare il catalogo SSIS e l'aggiunta del runtime di integrazione Azure-SSIS a una rete virtuale. 
+- [Monitorare un runtime di integrazione SSIS di Azure](monitor-integration-runtime.md#azure-ssis-integration-runtime). Questo articolo illustra come recuperare informazioni sul runtime di integrazione Azure-SSIS e fornisce descrizioni dello stato nelle informazioni restituite. 
+- [Gestire un runtime di integrazione SSIS di Azure](manage-azure-ssis-integration-runtime.md). Questo articolo illustra come arrestare, avviare o eliminare il runtime di integrazione Azure-SSIS. Viene anche illustrato come scalare orizzontalmente il runtime di integrazione Azure-SSIS tramite l'aggiunta di nodi.

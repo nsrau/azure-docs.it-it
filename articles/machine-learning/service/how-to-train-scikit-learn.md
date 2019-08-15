@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: e76a747f7e1d7ca7056edf5b69df0677aeff96a1
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 5c44f4ed5cd6488520bf6dd99f502f33049b9b17
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856007"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68962990"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning-service"></a>Creazione di modelli Scikit-learn su larga scala con il servizio Azure Machine Learning
 
@@ -192,12 +192,12 @@ model = run.register_model(model_name='sklearn-iris', model_path='model.joblib')
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato eseguito il training e la registrazione di un modello di classificazione di Machine Learning con Scikit-learn sul servizio Azure Machine Learning.
 
-* Per informazioni su come distribuire un modello, continuare con l'articolo sulla [distribuzione del modello](how-to-deploy-and-where.md) .
+In questo articolo è stato eseguito il training e la registrazione di un modello keras nel servizio Azure Machine Learning. Per informazioni su come distribuire un modello, continuare con l'articolo sulla distribuzione del modello.
 
-* [Ottimizzare](how-to-tune-hyperparameters.md)gli iperparametri.
-
-* [Rilevare le metriche di esecuzione durante il training](how-to-track-experiments.md).
-
-* Scopri di più sull'apprendimento avanzato [rispetto a Machine Learning](concept-deep-learning-vs-machine-learning.md).
+> [!div class="nextstepaction"]
+> [Come e dove distribuire i modelli](how-to-deploy-and-where.md)
+* [Tracciare le metriche di esecuzione durante il training](how-to-track-experiments.md)
+* [Ottimizzare gli iperparametri](how-to-tune-hyperparameters.md)
+* [Distribuire un modello con training](how-to-deploy-and-where.md)
+* [Architettura di riferimento per il training di Deep learning distribuito in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

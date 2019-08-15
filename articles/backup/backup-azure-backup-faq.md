@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: c41381dd3e53c80e74da3dc0d0a08e1ac83daec6
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 415a25dbe63b8942509827cd8434cc0f50fde87a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827626"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954819"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Domande frequenti su Backup di Azure
 Questo articolo risponde alle domande comuni sul servizio Backup di Azure.
@@ -36,7 +36,7 @@ Ad esempio, se sono già state protette 500 VM e 400 condivisioni File di Azure 
 I dati del server che si desidera ripristinare insieme usano la stessa passphrase durante la configurazione del backup. Se si desidera isolare il ripristino in uno o più server specifici, usare una passphrase solo per questi server. Ad esempio, per i server del reparto risorse umane può essere usata una passphrase, per quelli dell'ufficio contabilità un'altra e per quelli di archiviazione un'altra ancora.
 
 ### <a name="can-i-move-my-vault-between-subscriptions"></a>È possibile spostare l'insieme di credenziali tra sottoscrizioni?
-Sì. Per spostare un insieme di credenziali di Servizi di ripristino, vedere questo [articolo](backup-azure-move-recovery-services-vault.md).
+Sì. Per spostare un insieme di credenziali di servizi di ripristino, vedere questo [articolo](backup-azure-move-recovery-services-vault.md)
 
 ### <a name="can-i-move-backup-data-to-another-vault"></a>È possibile spostare i dati di backup in un altro insieme di credenziali?
 No. Non è possibile spostare i dati di backup archiviati in un insieme di credenziali in un insieme di credenziali diverso.
@@ -45,7 +45,7 @@ No. Non è possibile spostare i dati di backup archiviati in un insieme di crede
 No. Un insieme di credenziali di Servizi di ripristino può solo modificare le opzioni di archiviazione prima che un backup venga archiviato.
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>È possibile eseguire un ripristino a livello di elemento per le macchine virtuali di cui è stato eseguito il backup in un insieme di credenziali di Servizi di ripristino?
-- Il ripristino a livello di elemento è supportato per le macchine virtuali di Azure sottoposte a backup con il servizio Backup di Azure. Per altre informazioni, vedere [questo articolo](backup-azure-restore-files-from-vm.md).
+- Il ripristino a livello di elemento è supportato per le macchine virtuali di Azure sottoposte a backup con il servizio Backup di Azure. Per ulteriori informazioni, vedere l' [articolo](backup-azure-restore-files-from-vm.md)
 - ILR non è supportato per i punti di ripristino online delle macchine virtuali locali di cui è stato eseguito il backup dal server di backup di Azure o da System Center DPM.
 
 
@@ -54,7 +54,7 @@ No. Un insieme di credenziali di Servizi di ripristino può solo modificare le o
 ### <a name="where-can-i-find-common-questions-about-the-azure-backup-agent-for-azure-vm-backup"></a>Dove sono reperibili le domande comuni sull'agente di Backup di Azure per il backup della macchina virtuale di Azure?
 
 - Per l'agente in esecuzione sulle macchine virtuali di Azure, leggere queste [domande frequenti](backup-azure-vm-backup-faq.md).
-- Per l'agente usato per eseguire il backup delle cartelle di file di Azure, leggere queste [domande frequenti](backup-azure-file-folder-backup-faq.md).
+- Per l'agente usato per eseguire il backup delle cartelle di file di Azure, leggere le [domande frequenti](backup-azure-file-folder-backup-faq.md).
 
 
 ## <a name="general-backup"></a>Backup generale
@@ -125,7 +125,7 @@ No. Tutti i dati trasferiti nell'insieme di credenziali prima dell'annullamento 
 
 - Backup di Azure usa un meccanismo di checkpoint per aggiungere occasionalmente checkpoint ai dati di backup durante il backup.
 - Dato che sono presenti checkpoint nei dati di backup, il processo di backup successivo può convalidare l'integrità dei file.
-- Il processo di backup successivo sarà incrementale nei backup di dati eseguiti in precedenza. I backup incrementali trasferiscono solo dati nuovi o modificati, il che equivale a un migliore utilizzo della larghezza di banda.
+- Il processo di backup successivo sarà incrementale nei backup di dati eseguiti in precedenza. I backup incrementali trasferiscono solo dati nuovi o modificati, che equivalgono a un utilizzo migliore della larghezza di banda.
 
 Se si annulla un processo di backup per una macchina virtuale di Azure, tutti i dati trasferiti vengono ignorati. Il processo di backup successivo trasferisce i dati incrementali dall'ultimo processo di backup riuscito.
 
@@ -138,7 +138,7 @@ Sì, prevedono entrambi criteri di conservazione giornalieri, settimanali, mensi
 Sì, è possibile personalizzare i criteri. Ad esempio, è possibile configurare requisiti di conservazione settimanali e giornalieri, ma non annuali e mensili.
 
 ### <a name="can-i-use-different-times-for-backup-scheduling-and-retention-policies"></a>È possibile usare orari diversi per la pianificazione del backup e i criteri di conservazione?
-No. I criteri di conservazione possono essere applicati solo ai punti di backup. Ad esempio, queste immagini mostrano un criterio di conservazione per i backup eseguiti alle 12:00 e alle 18.00.
+No. I criteri di conservazione possono essere applicati solo ai punti di backup. Questa immagine, ad esempio, Mostra un criterio di conservazione per i backup eseguiti alle 12am e alle 18.00.
 
 ![Pianifica backup e conservazione](./media/backup-azure-backup-faq/Schedule.png)
 

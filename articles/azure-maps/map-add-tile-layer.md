@@ -1,6 +1,6 @@
 ---
 title: Aggiungere un livello riquadro in Mappe di Azure | Microsoft Docs
-description: Come aggiungere un livello riquadro alla mappa Javascript
+description: Come aggiungere un livello sezione a Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: d872cd78b3fd04512fcaee706e54bffa1cf9fcc1
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 3f047ec1aced55038384cbe29bd3a4b8a948dce9
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882092"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976445"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Aggiungere un livello riquadro a una mappa
 
@@ -40,16 +40,24 @@ L'URL di riquadro passato in un livello riquadro deve essere un URL http/https i
 
 ## <a name="add-a-tile-layer"></a>Aggiungere un livello per i riquadri
 
- Questo esempio illustra come creare un livello riquadro che punta a una serie di riquadri che usano il sistema di riquadri x, y e zoom. L'origine di questo livello riquadro è una sovrapposizione di radar meteo dall'[Iowa Environmental Mesonet dell'Iowa State University](https://mesonet.agron.iastate.edu/ogc/). 
+ Questo esempio illustra come creare un livello riquadro che punta a una serie di riquadri che usano il sistema di riquadri x, y e zoom. L'origine di questo livello riquadro è una sovrapposizione di radar meteo dall'[Iowa Environmental Mesonet dell'Iowa State University](https://mesonet.agron.iastate.edu/ogc/). Quando si visualizzano i dati radar idealmente, gli utenti possono visualizzare chiaramente le etichette delle città mentre esplorano la mappa. a tale scopo, inserire il livello sezione al di `labels` sotto del livello.
+
+```javascript
+//Create a tile layer and add it to the map below the label layer.
+//Weather radar tiles from Iowa Environmental Mesonet of Iowa State University.
+map.layers.add(new atlas.layer.TileLayer({
+    tileUrl: 'https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/nexrad-n0q-900913/{z}/{x}/{y}.png',
+    opacity: 0.8,
+    tileSize: 256
+}), 'labels');
+```
+
+Di seguito è riportato l'esempio di codice completo per l'esecuzione delle funzionalità sopra riportate.
 
 <br/>
 
 <iframe height='500' scrolling='no' title='Livello riquadro usando X, Y e Z' src='//codepen.io/azuremaps/embed/BGEQjG/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere il livello riquadro <a href='https://codepen.io/azuremaps/pen/BGEQjG/'>dell'elemento Pen usando X, Y e Z</a> da Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) su <a href='https://codepen.io'>CodePen</a>.
 </iframe>
-
-Nel codice precedente il primo blocco di codice costruisce un oggetto mappa. Per le istruzioni è possibile vedere [Creare una mappa](./map-create.md).
-
-Nel secondo blocco di codice, un [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) viene creato passando un URL formattato a un servizio di riquadri, la dimensione del riquadro e un'opacità per renderlo semitrasparente. Inoltre, quando si aggiunge il livello riquadro alla mappa, viene aggiunto al di sotto del livello `labels` in modo che le etichette sono ancora chiaramente visibili.
 
 ## <a name="customize-a-tile-layer"></a>Personalizzare un livello riquadro
 

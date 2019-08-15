@@ -2,7 +2,7 @@
 title: Report degli accessi a rischio nel portale di Azure Active Directory | Microsoft Docs
 description: Informazioni sul report degli accessi a rischio nel portale di Azure Active Directory
 services: active-directory
-author: MarkusVi
+author: cawrites
 manager: daveba
 ms.assetid: 7728fcd7-3dd5-4b99-a0e4-949c69788c0f
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40e125f8e1e7909c5866a03c0571f49ec42d690a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 629e7bf8ee7100b5927483ecfd4efa1d9223c151
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60287523"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989930"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Report degli accessi a rischio nel portale di Azure Active Directory
 
@@ -42,7 +42,7 @@ Per informazioni su come configurare i criteri che attivano gli eventi di rischi
 
 I report sugli accessi a rischio sono disponibili agli utenti nei seguenti ruoli:
 
-- Amministratore della sicurezza
+- Amministratore della protezione
 - Amministratore globale
 - Ruolo con autorizzazioni di lettura per la sicurezza
 
@@ -81,7 +81,7 @@ In base all'analisi dell'accesso a rischio, è possibile fornire un feedback ad 
 
 Questo report offre anche la possibilità di:
 
-- Cercare risorse
+- Cerca risorse
 - Scaricare i dati del report
 
 ![Accessi a rischio](./media/concept-risky-sign-ins/93.png)

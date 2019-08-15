@@ -1,5 +1,5 @@
 ---
-title: Eseguire previsioni di batch su grandi quantità di dati
+title: Eseguire stime batch su dati di grandi dimensioni con pipeline
 titleSuffix: Azure Machine Learning service
 description: Informazioni su come eseguire previsioni di batch in modo asincrono su grandi quantità di dati tramite il servizio Azure Machine Learning.
 services: machine-learning
@@ -10,16 +10,16 @@ ms.reviewer: jmartens, garye
 ms.author: jordane
 author: jpe316
 ms.date: 07/12/2019
-ms.openlocfilehash: 689ee003e0923a65d3ca3f2d13c1a2d05c299dbd
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 97b66bff0e6413b7774a054a01a0dc73649c9cce
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358718"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963010"
 ---
-# <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-service"></a>Eseguire previsioni di batch su set di dati di grandi dimensioni con il servizio Azure Machine Learning
+# <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-pipelines"></a>Eseguire stime batch su set di dati di grandi dimensioni con pipeline di Azure Machine Learning
 
-Questo articolo illustra come eseguire stime su grandi quantità di dati in modo asincrono usando il servizio Azure Machine Learning.
+Questo articolo illustra come eseguire stime su grandi quantità di dati in modo asincrono usando le pipeline ML con Azure Machine Learning servizio.
 
 La previsione di batch (o punteggio batch) offre inferenza conveniente con velocità effettiva senza precedenti per le applicazioni asincrone. Le pipeline di previsione di batch possono essere scalate per eseguire l'inferenza su terabyte di dati di produzione. La previsione di batch è ottimizzata per previsioni fire-and-forget a velocità effettiva elevata per un'ampia raccolta di dati.
 
@@ -358,7 +358,4 @@ RunDetails(published_pipeline_run).show()
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per visualizzare questo end-to-end funzionante, provare il notebook di assegnazione punteggio batch di [GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines).
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
-
+Per vedere il funzionamento end-to-end, provare il notebook di assegnazione dei punteggi di batch in [GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines)oppure passare al [centro architettura di Azure](/azure/architecture/reference-architectures/ai/batch-scoring-python) per visualizzare un'architettura di soluzione di esempio.

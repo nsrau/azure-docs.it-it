@@ -9,12 +9,12 @@ ms.date: 07/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 80ab896e1393d6c68b22a61d1b96acd507aa6994
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: d6a85d0f9480418bd840786e17ee258dbdb90c48
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249902"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985221"
 ---
 # <a name="run-azure-cli-or-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Eseguire l'interfaccia della riga di comando di Azure o i comandi di PowerShell con Azure AD credenziali per accedere ai dati BLOB o
 
@@ -86,11 +86,13 @@ Per usare Azure PowerShell per accedere ed eseguire operazioni successive sull'a
 
 L'esempio seguente illustra come creare un contenitore in un nuovo account di archiviazione da Azure PowerShell usando le credenziali Azure AD. Ricordarsi di sostituire i valori segnaposto tra parentesi angolari con valori personalizzati:
 
-1. Accedere alla sottoscrizione di Azure con il `Connect-AzAccount` comando e seguire le istruzioni visualizzate per immettere le credenziali Azure ad: 
+1. Accedere al proprio account Azure con il comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) :
 
     ```powershell
     Connect-AzAccount
     ```
+
+    Per altre informazioni sull'accesso ad Azure con PowerShell, vedere [accedere con Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 1. Per creare un gruppo di risorse di Azure, chiamare [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
 

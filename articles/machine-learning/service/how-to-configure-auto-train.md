@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: adca67152c33f4c6a3ec272b63c4c8157a777f36
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 6e29e0f89d9270a143d48cf6e85b479813e19d9d
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856180"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013652"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di Machine Learning automatici in Python
 
@@ -72,6 +72,11 @@ automl_config = AutoMLConfig(task="classification")
 Il processo di Machine Learning automatizzato supporta dati presenti nel desktop locale o nel cloud, ad esempio Archiviazione BLOB di Azure. I dati possono essere letti in scikit-learn su formati di dati supportati. È possibile leggere i dati in:
 * Matrici Numpy X (caratteristiche) e y (variabile di destinazione, nota anche come etichetta)
 * Dataframe Pandas
+
+>[!Important]
+> Requisiti per i dati di training:
+>* I dati devono essere in formato tabulare.
+>* Il valore che si desidera stimare (colonna di destinazione) deve essere presente nei dati.
 
 Esempi:
 

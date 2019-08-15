@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-ms.date: 04/19/2019
-ms.openlocfilehash: 1d5baf4b7f8a28638c5dbd50fb407035a5b9ea89
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/12/2019
+ms.openlocfilehash: 07fcd0f1ec33aa9a7520e35eb7e53a76295009ba
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566127"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967911"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent Data Encryption per il database SQL e Data Warehouse
 
@@ -37,7 +37,7 @@ In Azure, l'impostazione predefinita per TDE prevede che la chiave di crittograf
 Microsoft inoltre sposta e gestisce le chiavi senza problemi in base alle esigenze per la replica geografica e ne esegue il ripristino.
 
 > [!IMPORTANT]
-> Tutti i nuovi database SQL vengono crittografati per impostazione predefinita tramite TDE gestita del servizio. I database dell'istanza gestita di database SQL di Azure, i database SQL esistenti prima di maggio 2017 e i database SQL creati tramite il ripristino, la replica geografica e la copia di database non sono crittografati per impostazione predefinita.
+> Tutti i database SQL appena creati e i database di Istanza gestita vengono crittografati per impostazione predefinita tramite Transparent Data Encryption gestito dal servizio. Per impostazione predefinita, i database SQL esistenti creati prima del 2017 e i database SQL creati tramite il ripristino, la replica geografica e la copia del database non sono crittografati. I database di Istanza gestita esistenti creati prima del 2019 febbraio non vengono crittografati per impostazione predefinita. Istanza gestita database creati tramite il ripristino ereditano lo stato di crittografia dall'origine.
 
 ## <a name="customer-managed-transparent-data-encryption---bring-your-own-key"></a>Transparent Data Encryption gestita dal cliente: Bring Your Own Key
 

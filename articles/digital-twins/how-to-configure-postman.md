@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/05/2019
+ms.date: 08/09/2019
 ms.author: v-adgera
-ms.openlocfilehash: cd67f1065f47b758f2a7e0e5be3c60169c30273e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7ceb36d818c84642461372f0df70c8088908550c
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67116574"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965835"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Come configurare Postman per Gemelli digitali di Azure
 
@@ -39,15 +39,15 @@ Configurare l'app di Azure Active Directory per usare il flusso di concessione i
 
 1. In **Autorizzazioni necessarie** selezionare **Aggiungi** e immettere **Gemelli digitali di Azure** in **Aggiungi accesso all'API**. Se la ricerca non individua l'API, cercare invece **Azure Smart Spaces**. Quindi selezionare **Concedi autorizzazioni > Autorizzazioni delegate** e **Fine**.
 
-    [![Registrazioni per l'app Azure Active Directory aggiungere le api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
+    [![Azure Active Directory le registrazioni dell'app aggiungono API](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
 1. Selezionare **manifesto** per aprire il manifesto dell'applicazione per l'app. Impostare *oauth2AllowImplicitFlow* su `true`.
 
-    [![Flusso implicito di Azure Active Directory](media/how-to-configure-postman/implicit-flow.png)](media/how-to-configure-postman/implicit-flow.png#lightbox)
+    [![Azure Active Directory flusso implicito](media/how-to-configure-postman/implicit-flow.png)](media/how-to-configure-postman/implicit-flow.png#lightbox)
 
 1. Configurare un **URL di risposta** su `https://www.getpostman.com/oauth2/callback`.
 
-    [![URL di risposta di Azure Active Directory](media/how-to-configure-postman/reply-url.png)](media/how-to-configure-postman/reply-url.png#lightbox)
+    [![URL di risposta Azure Active Directory](media/how-to-configure-postman/reply-url.png)](media/how-to-configure-postman/reply-url.png#lightbox)
 
 1. Copiare e conservare l'**ID applicazione** dell'app di Azure Active Directory. Viene usato nei passaggi seguenti.
 
@@ -68,19 +68,19 @@ Successivamente installare e configurare Postman per ottenere un token di Azure 
 
 1. Selezionare la scheda **Authorization** (Autorizzazione), **OAuth 2.0** e quindi **Get New Access Token** (Ottieni nuovo token di accesso).
 
-    | Campo  | Value |
+    | Campo  | Valore |
     |---------|---------|
-    | Grant Type (Tipo di concessione) | `Implicit` |
+    | Tipo di concessione | `Implicit` |
     | Callback URL (URL callback) | `https://www.getpostman.com/oauth2/callback` |
     | Auth URL (URL autorizzazione) | Usare l'**URL di autorizzazione** ottenuto al passaggio 2 |
     | ID client | Usare l'**ID applicazione** per l'app di Azure Active Directory creata o riconfigurata nella sezione precedente |
-    | `Scope` | Lasciare vuoto |
+    | Ambito | Lasciare vuoto |
     | Stato | Lasciare vuoto |
-    | Client Authentication (Autenticazione client) | `Send as Basic Auth header` |
+    | Autenticazione client | `Send as Basic Auth header` |
 
 1. Il client ora dovrebbe essere visualizzato come:
 
-    [![Esempio di client postman](media/how-to-configure-postman/postman-oauth-token.png)](media/how-to-configure-postman/postman-oauth-token.png#lightbox)
+    [![Esempio di client Post](media/how-to-configure-postman/postman-oauth-token.png)](media/how-to-configure-postman/postman-oauth-token.png#lightbox)
 
 1. Selezionare **Request Token** (Richiedi token).
 
@@ -98,20 +98,20 @@ Dopo aver completato i passaggi precedenti, configurare Postman per eseguire una
 
 1. Nella scheda **Intestazione** aggiungere una chiave dell'intestazione della richiesta HTTP **Content-Type** con valore `multipart/mixed`.
 
-   [![Tipo di contenuto multiparte/misto](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
+   [![Tipo di contenuto multipart/mixed](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
 
 1. Serializzare i dati non di testo nel file. I dati JSON verranno salvati come un file JSON.
 1. Nella scheda **Corpo** aggiungere ogni file assegnando un nome **chiave**, selezionando `file` o `text`.
 1. Quindi, selezionare ogni file tramite il pulsante **Scegliere un file**.
 
-   [![Esempio di client postman](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)
+   [![Esempio di client Post](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)
 
    >[!NOTE]
    > * Il client di Postman non richiede che ai blocchi multipart sia assegnata manualmente un'informazione **Content-Type** oppure **Content-Disposition**.
    > * Non è necessario specificare tali intestazioni per ogni parte.
    > * Selezionare `multipart/mixed` o un altro **Content-Type** appropriato per l'intera richiesta.
 
-1. Infine, selezionare **inviare** per inviare la richiesta HTTP POST in più parti.
+1. Selezionare infine **Invia** per inviare la richiesta post http multiparte.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

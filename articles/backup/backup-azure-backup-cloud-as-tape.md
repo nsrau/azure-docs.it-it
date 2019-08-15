@@ -1,18 +1,18 @@
 ---
 title: Usare Backup di Azure per sostituire l'infrastruttura basata su nastro
-description: Informazioni sulla semantica di Backup di Azure, simile all'archiviazione su nastro, che consente di eseguire il backup e il ripristino dei dati in Azure
+description: Informazioni su come backup di Azure offre una semantica di tipo nastro che consente di eseguire il backup e il ripristino dei dati in Azure
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/30/2017
 ms.author: dacurwin
-ms.openlocfilehash: d768f0fae9487a555f6ace12303f8a4bd7cb8bd1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3be3a2e3355793a8d0b4fcaf0e7f62668f78f0c8
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65146029"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954885"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Spostare lo spazio di archiviazione a lungo termine su nastro nel cloud di Azure
 I clienti di Backup di Azure e System Center Data Protection Manager possono eseguire le attività seguenti:
@@ -42,10 +42,10 @@ Il numero totale di "punti di conservazione" specificati in questi criteri è pa
 ## <a name="example--putting-both-together"></a>Esempio: Uso di entrambi i metodi
 ![Schermata di esempio](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
-1. **Criteri di conservazione giornaliera**: I backup eseguiti quotidianamente vengono archiviati per sette giorni.
-2. **Criteri di conservazione settimanale**: I backup eseguiti ogni giorno a mezzanotte e sabato alle 18.00 verranno conservati per quattro settimane
-3. **Criteri di conservazione mensile**: I backup eseguiti a mezzanotte e alle 18.00 dell'ultimo sabato del mese vengono conservati per 12 mesi
-4. **Criteri di conservazione annuale**: I backup eseguiti a mezzanotte dell'ultimo sabato del mese di marzo verranno conservati per 10 anni
+1. **Criteri di conservazione giornalieri**: I backup eseguiti quotidianamente vengono archiviati per sette giorni.
+2. **Criteri di conservazione settimanali**: I backup eseguiti ogni giorno a mezzanotte e le 18.00 sabato vengono conservati per quattro settimane
+3. **Criteri di conservazione mensili**: I backup eseguiti a mezzanotte e alle 18.00 dell'ultimo sabato di ogni mese vengono conservati per 12 mesi
+4. **Criteri di conservazione annuali**: I backup eseguiti a mezzanotte dell'ultimo sabato di ogni mese di marzo vengono conservati per 10 anni
 
 Il numero totale dei "punti di conservazione" (punti da cui un cliente può ripristinare i dati) riportati nel diagramma precedente viene calcolato nel modo seguente:
 
@@ -57,7 +57,7 @@ Il numero totale dei "punti di conservazione" (punti da cui un cliente può ripr
 Il numero totale dei punti di ripristino è 56.
 
 > [!NOTE]
-> Usare Backup di Azure è possibile creare fino a 9999 punti di ripristino per ogni istanza protetta. Un'istanza protetta è un computer, un server fisico o virtuale o un carico di lavoro che esegue il backup in Azure.
+> Con backup di Azure è possibile creare fino a 9999 punti di ripristino per ogni istanza protetta. Un'istanza protetta è un computer, un server fisico o virtuale o un carico di lavoro che esegue il backup in Azure.
 >
 
 ## <a name="advanced-configuration"></a>Configurazione avanzata

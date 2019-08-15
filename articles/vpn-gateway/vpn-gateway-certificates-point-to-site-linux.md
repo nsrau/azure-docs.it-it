@@ -2,17 +2,17 @@
 title: 'Generare ed esportare i certificati per le connessioni da punto a sito: Linux: Interfaccia della riga di comando: Azure | Microsoft Docs'
 description: Creare un certificato radice autofirmato, esportare la chiave pubblica e generare certificati client usando l'interfaccia della riga di comando Linux (strongSwan).
 services: vpn-gateway
-author: cherylmc
+author: anzaman
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/31/2019
-ms.author: cherylmc
-ms.openlocfilehash: b673be47d4951adab08f04efc56410095f549356
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: alzam
+ms.openlocfilehash: 79840010561746f2885909123012ffb4efbea5f6
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60766169"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990307"
 ---
 # <a name="generate-and-export-certificates"></a>Generare ed esportare i certificati
 

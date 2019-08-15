@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: dacurwin
-ms.openlocfilehash: e3d38e9b5e1b9b9f827476acf7e2e2ecab632424
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 0a6d1fd73d99cf15137e937dbfe2336d49a63d90
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688806"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955054"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Ripristinare i dati da un server di Backup di Azure
 È possibile usare il server di Backup di Azure per recuperare i dati di un backup in un insieme di credenziali di Servizi di ripristino. Il processo per eseguire l'operazione è integrato nella console di gestione del server di Backup di Azure, quindi è simile al flusso di lavoro di ripristino per gli altri componenti di Backup di Azure.
@@ -45,7 +45,7 @@ Per ripristinare i dati da un server di Backup di Azure:
     Viene visualizzato un elenco di file e cartelle nel riquadro inferiore che può essere esplorato e ripristinato in qualsiasi posizione.
 
     ![Punti di ripristino del Server DPM esterno](./media/backup-azure-alternate-dpm-server/external-dpm-recoverypoint.png)
-5. Fare clic con il pulsante destro sulla voce appropriata e fare clic su **Ripristino**.
+5. Fare clic con il pulsante destro del mouse sull'elemento appropriato e scegliere **Ripristina**.
 
     ![Ripristino DPM esterno](./media/backup-azure-alternate-dpm-server/recover.png)
 6. Verificare la **Selezione ripristino**. Verificare la data e ora della copia di backup da ripristinare, nonché l'origine da cui è stata creata la copia di backup. Se la selezione non è corretta, fare clic su **Annulla** per tornare alla scheda di ripristino e selezionare un punto di ripristino appropriato. Se la selezione è corretta, fare clic su **Avanti**.
@@ -57,7 +57,7 @@ Per ripristinare i dati da un server di Backup di Azure:
 8. Scegliere l'opzione relativa a **Crea copia**, **Ignora** o **Sovrascrivi**.
 
    * **Crea copia**: crea una copia del file se si verifica un conflitto di nome.
-   * **Ignora**: se si verifica un conflitto di nome, non recupera il file e lascia il file originale.
+   * **Ignora** : se si verifica un conflitto di nomi, non ripristina il file, lasciando il file originale.
    * **Sovrascrivi**: se si verifica un conflitto di nome, sovrascrive la copia esistente del file.
 
      Scegliere l'opzione appropriata per **Ripristina protezione**. È possibile applicare le impostazioni di sicurezza del computer di destinazione in cui i dati vengono ripristinati o le impostazioni di sicurezza che erano applicabili al prodotto nel momento in cui è stato creato il punto di ripristino.

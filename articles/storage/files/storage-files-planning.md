@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: eece1520a4b7e3bf37e1d209c58b5019921fdb98
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 7591cefddd6e7217c885293a2f5c878d7a82e158
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884389"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69015944"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 
@@ -155,7 +155,7 @@ Le nuove condivisioni file iniziano con il numero completo di crediti nel bucket
 
 ## <a name="file-share-redundancy"></a>Ridondanza delle condivisioni file
 
-File di Azure le condivisioni standard supportano tre opzioni di ridondanza dei dati: archiviazione con ridondanza locale (con ridondanza locale), archiviazione con ridondanza della zona (ZRS) e archiviazione con ridondanza geografica (GRS).
+File di Azure condivisioni standard supporta tre opzioni di ridondanza dei dati: archiviazione con ridondanza locale (con ridondanza locale), archiviazione con ridondanza della zona (ZRS), archiviazione con ridondanza geografica (GRS) e archiviazione con ridondanza della zona geografica (GZRS) (anteprima).
 
 File di Azure le condivisioni Premium supportano solo archiviazione con ridondanza locale (con ridondanza locale).
 
@@ -186,6 +186,7 @@ Entrambe le aree primaria e secondaria gestiscono le repliche tra domini di erro
 
 Nella scelta dell'opzione di replica da usare, tenere presenti queste considerazioni:
 
+* Archiviazione con ridondanza geografica (GZRS) (anteprima) offre disponibilità elevata insieme alla durabilità massima tramite la replica in modo sincrono dei dati in tre zone di disponibilità di Azure e la replica dei dati in modo asincrono nell'area secondaria. È anche possibile abilitare l'accesso in lettura all'area secondaria. GZRS è progettato per offrire almeno il 99,99999999999999% (16 9) di durabilità degli oggetti in un determinato anno. Per altre informazioni su GZRS, vedere [archiviazione con ridondanza della zona geografica per disponibilità elevata e durabilità massima (anteprima)](../common/storage-redundancy-gzrs.md).
 * L'archiviazione con ridondanza della zona (ZRS) fornisce disponibilità elevata con la replica sincrona e può essere la scelta migliore per alcuni scenari rispetto a GRS. Per altre informazioni sull'archiviazione con ridondanza della zona, vedere [Archiviazione con ridondanza della zona](../common/storage-redundancy-zrs.md).
 * La replica asincrona implica un ritardo dal momento in cui i dati vengono scritti nell'area primaria a quello in cui vengono replicati nell'area secondaria. Nel caso in cui si verifichi un'emergenza a livello di area, è possibile che le modifiche non ancora replicate nell'area secondaria vadano perse se non è possibile recuperare i dati dall'area primaria.
 * Con l'archiviazione con ridondanza geografica, la replica non è disponibile per la lettura o la scrittura a meno che Microsoft non avvii un failover nell'area secondaria. In caso di failover, si avrà accesso in lettura e scrittura a tali dati al termine del failover. Per altre informazioni, vedere le [indicazioni sul ripristino di emergenza](../common/storage-disaster-recovery-guidance.md).
@@ -198,7 +199,7 @@ Questa sezione si applica solo alle condivisioni file standard. Tutte le condivi
 
 - Le [condizioni](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) per l'anteprima di Azure si applicano a condivisioni file di grandi dimensioni in anteprima, incluso quando vengono usate con distribuzioni sincronizzazione file di Azure
 - Richiede la creazione di un nuovo account di archiviazione per utilizzo generico (non è possibile espandere gli account di archiviazione esistenti).
-- Non è possibile eseguire la conversione dell'account con ridondanza locale/ZRS in GRS su un nuovo account di archiviazione creato dopo che la sottoscrizione è stata accettata per l'anteprima delle condivisioni file più grandi.
+- CON ridondanza locale/ZRS alla conversione dell'account GRS/GZRS non sarà possibile in alcun nuovo account di archiviazione creato dopo che la sottoscrizione è stata accettata per l'anteprima delle condivisioni file più grandi.
 
 
 ### <a name="regional-availability"></a>Disponibilità a livello di area
@@ -207,14 +208,14 @@ Le condivisioni file standard sono disponibili in tutte le aree fino a 5 TiB. In
 
 |Region |Ridondanza supportata |Supporta gli account di archiviazione esistenti |Supporto del portale *   |
 |-------|---------|---------|---------|
-|Australia orientale  |Archiviazione con ridondanza locale     |No    |Yes|
+|Australia orientale  |Archiviazione con ridondanza locale     |No    |Sì|
 |Francia centrale  |Archiviazione con ridondanza locale     |No    |Non ancora|
 |Francia meridionale    |Archiviazione con ridondanza locale     |No    |Non ancora|
-|Asia sudorientale  |CON RIDONDANZA LOCALE, ZRS|No    |Yes|
+|Asia sudorientale  |CON RIDONDANZA LOCALE, ZRS|No    |Sì|
 |Europa occidentale     |CON RIDONDANZA LOCALE, ZRS|No    |Sì|
 |Stati Uniti occidentali 2       |CON RIDONDANZA LOCALE, ZRS|No    |Yes|
 
-\* Per le aree senza supporto per il portale, è comunque possibile usare PowerShell o l'interfaccia della riga di comando di Azure per creare più di 5 condivisioni TiB. Altenatively creare una nuova condivisione tramite il portale senza specificare la quota. Verrà creata una condivisione con le dimensioni predefinite 100 TiB, che può essere aggiornata in un secondo momento tramite PowerShell o l'interfaccia della riga di comando di Azure.
+\* Per le aree senza supporto per il portale, è comunque possibile usare PowerShell o l'interfaccia della riga di comando di Azure per creare più di 5 condivisioni TiB. In alternativa, creare una nuova condivisione tramite il portale senza specificare la quota. Verrà creata una condivisione con le dimensioni predefinite 100 TiB, che può essere aggiornata in un secondo momento tramite PowerShell o l'interfaccia della riga di comando di Azure.
 
 Per aiutarci a classificare in ordine di priorità nuove aree e funzionalità, compila questo [sondaggio](https://aka.ms/azurefilesatscalesurvey).
 

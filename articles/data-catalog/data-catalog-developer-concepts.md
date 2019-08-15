@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 21b7c4e17d976a0a4099a926823f51eab1dba98d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 80adc98255cfc9145d583ac775bbc490d599234e
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879068"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976837"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Concetti per sviluppatori del Catalogo dati di Azure
 **Catalogo dati di Microsoft Azure** è un servizio cloud completamente gestito che offre funzionalità di individuazione dell'origine dati e di crowdsourcing dei metadati dell'origine dati. Gli sviluppatori possono usare il servizio tramite le API REST. La comprensione dei concetti implementati nel servizio è importante per gli sviluppatori al fine di una perfetta integrazione con il **Catalogo dati di Azure**.
@@ -19,7 +19,7 @@ ms.locfileid: "68879068"
 ## <a name="key-concepts"></a>Concetti chiave
 Il modello concettuale **Azure Data Catalog** si basa su quattro concetti chiave: **Catalogo**, **utenti**, **Asset**e annotazioni.
 
-![Concetti di Data Catalog](./media/data-catalog-developer-concepts/concept2.png)
+![Illustrazione del modello concettuale Azure Data Catalog](./media/data-catalog-developer-concepts/concept2.png)
 
 *Figura 1. Modello concettuale semplificato del Catalogo dati di Azure*
 

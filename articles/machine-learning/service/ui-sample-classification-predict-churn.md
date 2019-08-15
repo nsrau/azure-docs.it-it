@@ -1,5 +1,5 @@
 ---
-title: Classificazione Stima varianza + appetency + up-selling
+title: 'Esempio di interfaccia visiva #5: Classificazione per prevedere la varianza + appetency + up-selling'
 titleSuffix: Azure Machine Learning service
 description: Questo esperimento di esempio dell'interfaccia visiva mostra la stima del classificatore binario della varianza, un'attività comune per la gestione delle relazioni con i clienti (CRM).
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: a0b3e3de604e7c59ea6a06bd59007964c98e0057
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a2eabdd601fcf350d2076d33882e3d90255fee92
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845995"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016458"
 ---
 # <a name="sample-5---classification-predict-churn-appetency-and-up-selling"></a>Esempio 5-classificazione: Prevedere varianza, appetency e vendita 
 

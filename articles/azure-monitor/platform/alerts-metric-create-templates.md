@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 8300baa1afa3e6c738cee4c2a2517463c2af1e88
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4430b14a93bb4cf2ccf43881ad061590f8e6815
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978845"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976690"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Creare un avviso metrica con un modello di Resource Manager
 
@@ -195,7 +195,7 @@ Salvare il codice JSON seguente come simplestaticmetricalert.parameters.json e m
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -448,7 +448,7 @@ Salvare il codice JSON seguente come simpledynamicmetricalert.parameters.json e 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -647,7 +647,7 @@ Salvare e modificare il codice JSON seguente come advancedstaticmetricalert.para
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -859,7 +859,7 @@ Salvare e modificare il codice JSON seguente come advanceddynamicmetricalert.par
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -942,7 +942,7 @@ az group deployment create \
 
 ## <a name="template-for-metric-alert-that-monitors-multiple-resources"></a>Modello per un avviso delle metriche che consente di monitorare più risorse
 
-Le sezioni precedenti descrivono modelli di esempio di Azure Resource Manager per creare avvisi delle metriche per il monitoraggio di una singola risorsa. Ora Monitoraggio di Azure supporta il monitoraggio di più risorse con una sola regola di avviso per la metrica. Questa funzionalità di anteprima è attualmente disponibile solo tramite i modelli di Azure Resource Manager e l'API REST ed è supportata solo per le macchine virtuali.
+Le sezioni precedenti descrivono modelli di esempio di Azure Resource Manager per creare avvisi delle metriche per il monitoraggio di una singola risorsa. Ora Monitoraggio di Azure supporta il monitoraggio di più risorse con una sola regola di avviso per la metrica. Questa funzionalità è attualmente supportata solo nel cloud pubblico di Azure e solo per le macchine virtuali e i dispositivi databox Edge.
 
 Le regole di avviso con soglie dinamiche possono anche creare soglie personalizzate per centinaia di serie di metriche (persino di tipi diversi) alla volta, riducendo così il numero di regole di avviso da gestire.
 
@@ -1177,7 +1177,7 @@ Salvare e modificare il codice JSON seguente come all-vms-in-resource-group-stat
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1494,7 +1494,7 @@ Salvare e modificare il codice JSON seguente come all-vms-in-resource-group-dyna
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1796,7 +1796,7 @@ Salvare e modificare il codice JSON seguente come all-vms-in-subscription-static
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2110,7 +2110,7 @@ Salvare e modificare il codice JSON seguente come all-vms-in-subscription-dynami
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2409,7 +2409,7 @@ Salvare e modificare il codice JSON seguente come list-of-vms-static.parameters.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2726,7 +2726,7 @@ Salvare e modificare il codice JSON seguente come list-of-vms-dynamic.parameters
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {

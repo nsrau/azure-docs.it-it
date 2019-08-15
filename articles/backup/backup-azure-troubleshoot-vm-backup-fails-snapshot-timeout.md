@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7fc288ad9e33088b1b5248c1b61ed439ac95a9c4
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: f47afd450350226aa944287e756b73f61b15b32d
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688987"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952050"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere l'errore di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -29,12 +29,10 @@ Questo articolo illustra le procedure di risoluzione dei problemi che possono es
 **Codice errore**: UserErrorGuestAgentStatusUnavailable <br>
 **Messaggio di errore**: L'agente delle VM non riesce a comunicare con Backup di Azure.<br>
 
-Dopo la registrazione e la pianificazione di una macchina per il servizio Backup, tale servizio avvia il processo comunicando con l'agente di macchine virtuali per creare uno snapshot temporizzato. Una delle condizioni seguenti può impedire l'attivazione dello snapshot. Quando uno snapshot non viene attivato, il backup potrebbe non riuscire. Seguire questi passaggi per la risoluzione dei problemi nell'ordine specificato e provare a eseguire di nuovo l'operazione:<br>
-**Causa 1: [L'agente è installato nella macchina virtuale ma non risponde (per le macchine virtuali Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
-**Causa 2: [L'agente installato nella macchina virtuale non è aggiornato (per macchine virtuali Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Causa 3: [Non è possibile recuperare lo stato dello snapshot o acquisire uno snapshot](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**     
-**Causa 4: [Non è possibile aggiornare o caricare l'estensione di backup](#the-backup-extension-fails-to-update-or-load)**  
-**Causa 5: [La macchina virtuale non ha accesso a Internet](#the-vm-has-no-internet-access)**
+L'agente di macchine virtuali di Azure potrebbe essere arrestato, obsoleto, in uno stato incoerente o non installato e impedire al servizio backup di Azure di attivare gli snapshot.  
+    
+- Se l'agente di macchine virtuali è stato arrestato o è in uno stato incoerente, **riavviare l'agente** e ripetere l'operazione di backup (provare a eseguire un backup ad hoc). Per i passaggi necessari per riavviare l'agente, vedere [macchine virtuali Windows](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) o [macchine virtuali Linux](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent). 
+- Se l'agente di macchine virtuali non è installato o è obsoleto, installare/aggiornare l'agente di macchine virtuali e ripetere l'operazione di backup. Per i passaggi necessari per installare o aggiornare l'agente, vedere [macchine virtuali Windows](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) o [macchine virtuali Linux](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).  
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - Non è stato possibile comunicare con l'agente della macchina virtuale per lo stato dello snapshot
 
@@ -44,7 +42,8 @@ Dopo la registrazione e la pianificazione di una macchina per il servizio Backup
 Dopo la registrazione e la pianificazione di una macchina virtuale per il servizio Backup di Azure, tale servizio avvia il processo comunicando con l'estensione di backup della macchina virtuale per la creazione di uno snapshot temporizzato. Una delle condizioni seguenti può impedire l'attivazione dello snapshot. Se lo snapshot non viene attivato, può verificarsi un errore di backup. Seguire questi passaggi per la risoluzione dei problemi nell'ordine specificato e provare a eseguire di nuovo l'operazione:  
 **Causa 1: [L'agente è installato nella macchina virtuale ma non risponde (per le macchine virtuali Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
 **Causa 2: [L'agente installato nella macchina virtuale non è aggiornato (per macchine virtuali Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Causa 3: [La macchina virtuale non ha accesso a Internet](#the-vm-has-no-internet-access)**
+**Causa 3: [Non è possibile recuperare lo stato dello snapshot o acquisire uno snapshot](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**     
+**Causa 4: [Non è possibile aggiornare o caricare l'estensione di backup](#the-backup-extension-fails-to-update-or-load)** 
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached - È stato raggiunto il limite massimo di raccolte di punti di ripristino
 
@@ -107,7 +106,7 @@ Dopo la registrazione e la pianificazione di una macchina virtuale per il serviz
 **Codice errore**: UserErrorUnsupportedDiskSize <br>
 **Messaggio di errore**: Attualmente backup di Azure non supporta dischi di dimensioni superiori a 4.095 GB <br>
 
-L'operazione di backup potrebbe non riuscire quando si esegue il backup di una macchina virtuale con dimensioni del disco maggiori di 4.095 GB. Per iscriversi a un'anteprima privata del supporto per dischi di backup su disco di Azure di dimensioni superiori a 4 TB fino a 30TB, scrivere AskAzureBackupTeam@microsoft.comdi nuovo in Microsoft.
+L'operazione di backup potrebbe non riuscire quando si esegue il backup di una macchina virtuale con una dimensione del disco superiore a 4.095 GB. Per iscriversi a una versione di anteprima pubblica limitata del supporto per dischi di backup su disco di Azure con dimensioni maggiori di 4 TB e fino a 30 TB, vedere [una panoramica del backup delle macchine virtuali di Azure](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - Impossibile avviare il backup perché è attualmente in corso un'altra operazione di backup
 

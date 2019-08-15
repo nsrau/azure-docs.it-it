@@ -14,14 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: be3f68a00647840801e7c205d7abb34b718bd61c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 571c8b729408d7b9e805b875baccfd9ac8d6b9be
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60630881"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965275"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Disimballaggio, montaggio su rack e cablaggio del dispositivo StorSimple 8600
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ## <a name="overview"></a>Panoramica
 Microsoft Azure StorSimple 8600 è un dispositivo enclosure con doppio alloggiamento, costituito da un'enclosure principale e un'enclosure EBOD. In questa esercitazione viene illustrato come disimballare, montare su rack e cablare l'hardware del dispositivo StorSimple 8600 prima di configurarne il software.
 
@@ -46,7 +49,7 @@ Successivamente, completare la procedura seguente per disimballare il dispositiv
    
     **Dispositivo di archiviazione disimballato**
    
-   | Etichetta | Descrizione |
+   | Label | DESCRIZIONE |
    | --- | --- |
    |   1 |Scatola |
    |   2 |Cavi SAS (nel vassoio cavi e accessori) |
@@ -110,7 +113,7 @@ Viene fornito un set di guide di montaggio da usare con l'armadio rack da 48,26 
    
     **Fissaggio delle slitte delle guide ai lati dell’enclosure**
    
-   | Etichetta | Descrizione |
+   | Label | Descrizione |
    | --- | --- |
    |  1 |Viti con testa a bottone M 3X4 |
    |  2 |Guide dello chassis |
@@ -123,7 +126,7 @@ Viene fornito un set di guide di montaggio da usare con l'armadio rack da 48,26 
    
     **Fissaggio dei gruppi guida al rack**
    
-   | Etichetta | Descrizione |
+   | Label | Descrizione |
    | --- | --- |
    |   1 |Vite di fissaggio |
    |   2 |Montante rack anteriore con fori quadrati |
@@ -149,7 +152,7 @@ Per montare l'enclosure EBOD nel rack usando le guide appena installate, seguire
    
     **Installazione dei copriflangia**
    
-   | Etichetta | Descrizione |
+   | Label | DESCRIZIONE |
    | --- | --- |
    |   1 |Vite di fissaggio dell'enclosure |
 
@@ -202,7 +205,7 @@ Per supportare il failover del controller ridondante, è necessario cablare la r
    
     **Parte posteriore del dispositivo con le porte dati**
    
-   | Etichetta | Descrizione |
+   | Label | DESCRIZIONE |
    | --- | --- |
    |   0,1,4,5 |Interfacce di rete da 1 GbE |
    |   2,3 |Interfacce di rete da 10 GbE |
@@ -213,7 +216,7 @@ Per supportare il failover del controller ridondante, è necessario cablare la r
 
 **Cablaggio di rete per il dispositivo**
 
-| Etichetta | Descrizione |
+| Label | Descrizione |
 | --- | --- |
 | Una |LAN con accesso a Internet |
 | B |Controller 0 |
@@ -252,7 +255,7 @@ Per cablare la porta seriale, attenersi alla seguente procedura.
 4. Installare i driver seriali-USB (forniti con il dispositivo) sul computer.
 5. Configurare la connessione seriale come segue:
    
-   * 115\.200 baud
+   * 115.200 baud
    * 8 bit di dati
    * 1 bit di stop
    * Nessuna parità
@@ -260,7 +263,7 @@ Per cablare la porta seriale, attenersi alla seguente procedura.
 6. Verificare che la connessione funzioni premendo INVIO nella console. Deve comparire un menu della console seriale.
 
 > [!NOTE]
-> **Gestione Lights-Out:** Quando il dispositivo è installato in un Data Center remoto o in una sala macchine con accesso limitato, verificare che le connessioni seriali di entrambi i controller siano sempre collegate a un interruttore della console seriale o ad apparecchiature simili. In questo modo, sono possibili operazioni di supporto e controllo remoto fuori banda in caso di interruzione della connessione di rete o malfunzionamenti imprevisti.
+> **Gestione Lights-out:** Quando il dispositivo è installato in un data center remoto o in una sala computer con accesso limitato, verificare che le connessioni seriali a entrambi i controller siano sempre connesse a un comportatore di console seriale o ad apparecchiature simili. In questo modo, sono possibili operazioni di supporto e controllo remoto fuori banda in caso di interruzione della connessione di rete o malfunzionamenti imprevisti.
 > 
 > 
 

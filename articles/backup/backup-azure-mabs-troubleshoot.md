@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: c08acaf65cd42abd9db97fab1267ce5628595b78
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 0f9c2d1d2081ec22898ed3a4fbc73305ff0995e3
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689261"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954673"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Risolvere i problemi del server di Backup di Azure
 
@@ -25,7 +25,7 @@ Prima di iniziare la risoluzione dei problemi relativi a Backup di Microsoft Azu
 
 - [Verificare che l'agente di Servizi di ripristino di Microsoft Azure (MARS) sia aggiornato](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Verificare la presenza di connettività di rete tra l'agente dei Servizi di ripristino di Microsoft Azure e Azure](https://aka.ms/AB-A4dp50)
-- Verificare che i Servizi di ripristino di Microsoft Azure siano in esecuzione (nella console di Servizio). Se necessario, riavviare il servizio e riprovare
+- Verificare che i Servizi di ripristino di Microsoft Azure siano in esecuzione (nella console di Servizio). Se necessario, riavviare e ripetere l'operazione
 - [Verificare che sia disponibile il 5-10% di volume libero nel percorso della cartella dei file temporanei](https://aka.ms/AB-AA4dwtt)
 - Se la registrazione ha esito negativo, verificare che il server in cui si sta provando a installare server di Backup di Azure non sia già registrato con un altro insieme di credenziali
 - Se l'installazione del push ha esito negativo, verificare se l'agente DPM è già presente. In caso affermativo, disinstallare l'agente e provare a ripetere l'installazione
@@ -55,13 +55,13 @@ Prima di iniziare la risoluzione dei problemi relativi a Backup di Microsoft Azu
 
 | Operazione | Dettagli errore | Soluzione alternativa |
 | --- | --- | --- |
-| Ripristina | **Codice errore**: Errore CBPServerRegisteredVaultDontMatchWithCurrent/Credenziali dell'insieme di credenziali: 100110 <br/> <br/>**Messaggio di errore**: Le credenziali dell'insieme di credenziali fornite non corrispondono all'insieme in cui è registrato il server | **Causa**: questo problema si verifica se si cerca di ripristinare file nel server alternativo dal server originale usando l'opzione di ripristino DPM esterno e se il server da ripristinare e il server originale da cui è stato eseguito il backup dei dati non sono associati allo stesso insieme di credenziali di Servizi di ripristino.<br/> <br/>**Soluzione alternativa** Per risolvere questo problema, assicurarsi che il server originale e quello alternativo siano registrati nello stesso insieme di credenziali.|
+| Ripristina | **Codice errore**: Errore CBPServerRegisteredVaultDontMatchWithCurrent/Credenziali dell'insieme di credenziali: 100110 <br/> <br/>**Messaggio di errore**: Le credenziali dell'insieme di credenziali fornite non corrispondono all'insieme in cui è registrato il server | **Causa**: Questo problema si verifica quando si tenta di ripristinare i file nel server alternativo dal server originale utilizzando l'opzione di ripristino DPM esterno e se il server che viene ripristinato e il server originale da cui viene eseguito il backup dei dati non sono associati allo stesso Insieme di credenziali di servizi di ripristino.<br/> <br/>**Soluzione alternativa** Per risolvere questo problema, assicurarsi che il server originale e quello alternativo siano registrati nello stesso insieme di credenziali.|
 
 ## <a name="online-recovery-point-creation-jobs-for-vmware-vm-fail"></a>I processi di creazione dei punti di ripristino online per VM VMware non riescono
 
 | Operazione | Dettagli errore | Soluzione alternativa |
 | --- | --- | --- |
-| Backup | I processi di creazione dei punti di recupero online per VM VMware non riescono. DPM ha riscontrato un errore di VMWare durante il tentativo di ottenere informazioni di rilevamento modifiche. Codice di errore: FileFaultFault (ID 33621) |  <ol><li> Reimpostare il rilevamento modifiche in VMWare per le VM interessate.</li> <li>Controllare che in VMWare non sia presente un disco indipendente.</li> <li>Arrestare la protezione per le VM interessate e riapplicare la protezione con il pulsante **Aggiorna**. </li><li>Eseguire una verifica di coerenza per le VM interessate.</li></ol>|
+| Backup | I processi di creazione dei punti di recupero online per VM VMware non riescono. DPM ha riscontrato un errore di VMWare durante il tentativo di ottenere informazioni di rilevamento modifiche. ErrorCode-FileFaultFault (ID 33621) |  <ol><li> Reimpostare il rilevamento modifiche in VMWare per le VM interessate.</li> <li>Controllare che in VMWare non sia presente un disco indipendente.</li> <li>Arrestare la protezione per le VM interessate e riproteggere con il pulsante **Aggiorna** . </li><li>Eseguire una verifica di coerenza per le VM interessate.</li></ol>|
 
 
 ## <a name="the-agent-operation-failed-because-of-a-communication-error-with-the-dpm-agent-coordinator-service-on-the-server"></a>Operazione agente non riuscita a causa di un errore di comunicazione con il servizio coordinatore agenti DPM nel server
@@ -102,7 +102,7 @@ Prima di iniziare la risoluzione dei problemi relativi a Backup di Microsoft Azu
 | Backup | Errore imprevisto durante l'esecuzione del processo. Il dispositivo non è pronto. | **Se l'azione consigliata nel prodotto non funziona, seguire questa procedura:** <br> <ul><li>Impostare lo spazio di archiviazione della copia shadow come illimitato negli elementi del gruppo protezione dati e quindi avviare la verifica coerenza.<br></li> OPPURE <li>Provare a eliminare il gruppo protezione dati esistente e a creare più nuovi gruppi. Ogni nuovo gruppo protezione dati deve contenere un singolo elemento.</li></ul> |
 | Backup | Se si sta eseguendo il backup solamente dello stato del sistema, verificare che ci sia spazio libero sufficiente nel computer protetto per archiviarlo. | <ol><li>Verificare che Windows Server Backup sia installato nel computer protetto.</li><li>Verificare che vi sia spazio sufficiente nel computer protetto per lo stato del sistema. Il modo più semplice per verificare questa condizione è passare al computer protetto, aprire Windows Server Backup, fare clic sulle selezioni e quindi selezionare il ripristino bare metal. Nell'interfaccia utente verrà indicato lo spazio necessario. Aprire **WSB** > **Backup locale** > **Pianificazione backup** > **Selezione configurazione di backup** > **Server completo** (vengono visualizzate le dimensioni). Usare queste dimensioni per la verifica.</li></ol>
 | Backup | Errore di backup per BMR | Se le dimensioni del ripristino bare metal sono grandi, spostare alcuni file di applicazione nell'unità del sistema operativo e riprovare. |
-| Backup | L'opzione per proteggere nuovamente una macchina virtuale VMware in un nuovo server di Backup di Microsoft Azure non viene visualizzata come disponibile per l'aggiunta. | Le proprietà VMware fanno riferimento a un'istanza precedente ritirata del server di Backup di Microsoft Azure. Per risolvere il problema:<br><ol><li>in VCenter (equivalente a SC VMM), passare alla scheda **Summary** e quindi a **Custom Attributes**.</li>  <li>Eliminare il vecchio nome del server di Backup di Microsoft Azure dal valore **DPMServer**.</li>  <li>Tornare al nuovo server di Backup di Microsoft Azure e modificare il PG.  Dopo aver selezionato il pulsante **Refresh**, la macchina virtuale verrà visualizzata con una casella di controllo come disponibile per l'aggiunta alla protezione.</li></ol> |
+| Backup | L'opzione per la riprotezione di una macchina virtuale VMware in un nuovo server Backup di Microsoft Azure non viene visualizzata come disponibile per l'aggiunta. | Le proprietà VMware fanno riferimento a un'istanza precedente ritirata del server di Backup di Microsoft Azure. Per risolvere il problema:<br><ol><li>in VCenter (equivalente a SC VMM), passare alla scheda **Summary** e quindi a **Custom Attributes**.</li>  <li>Eliminare il vecchio nome del server di Backup di Microsoft Azure dal valore **DPMServer**.</li>  <li>Tornare al nuovo server di Backup di Microsoft Azure e modificare il PG.  Dopo aver selezionato il pulsante **Refresh**, la macchina virtuale verrà visualizzata con una casella di controllo come disponibile per l'aggiunta alla protezione.</li></ol> |
 | Backup | Errore durante l'accesso a file o cartelle condivise | Provare a modificare le impostazioni antivirus come indicato nell'articolo di TechNet [Eseguire software antivirus sul server DPM](https://technet.microsoft.com/library/hh757911.aspx).|
 
 

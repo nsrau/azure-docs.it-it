@@ -1,9 +1,9 @@
 ---
-title: I log attività di Azure Active Directory in Monitoraggio di Azure | Microsoft Docs
-description: Introduzione all'attività di Azure Active Directory registra in Monitoraggio di Azure
+title: Azure Active Directory log attività in monitoraggio di Azure | Microsoft Docs
+description: Introduzione ai log attività Azure Active Directory in monitoraggio di Azure
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/22/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d38035031c32c512a55293ba125fdcc4535b9833
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: e8fb570d328c7391c269d4a2aa91c69003b1cfc8
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204370"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989881"
 ---
-# <a name="azure-ad-activity-logs-in-azure-monitor"></a>I log attività di Azure AD in Monitoraggio di Azure
+# <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure AD log attività in monitoraggio di Azure
 
-È possibile indirizzare i log attività di Azure Active Directory (Azure AD) a endpoint diversi per lungo termine conservazione e dati insights. Questa funzionalità consente di:
+È possibile instradare i log attività di Azure Active Directory (Azure AD) a diversi endpoint per la conservazione a lungo termine e informazioni dettagliate sui dati. Questa funzionalità consente di:
 
 * Archiviare i log attività di Azure AD in un account di archiviazione di Azure, per conservare i dati per un lungo periodo di tempo.
 * Trasmettere i log attività di Azure AD in un hub eventi di Azure per l'analisi usando i più diffusi strumenti di informazioni di sicurezza e gestione degli eventi (SIEM), come Splunk e QRadar.
@@ -110,11 +110,11 @@ La tabella seguente contiene una stima del costo mensile per un hub eventi di ba
 
 
 
-| Categoria di log       | Numero di utenti | Eventi al giorno | Eventi al mese (30 giorni) | Costo mensile in dollari USA (est). |
+| Categoria di log       | Numero di utenti | Eventi al giorno | Eventi al mese (30 giorni) | Costo al mese in USD (est) |
 | :--                | ---             | ---            | ---                        | --:                          |
-| Controllo e accessi | 100,000         | 16,500,000     | 495,000,000                |  $1093.00                       |
-| Audit              | 100,000         | 1,500,000      | 45.000.000                 |  $246.66                     |
-| Accessi           | 100,000         | 15.000.000     | 450,000,000                |  $847.28                     |
+| Controllo e accessi | 100,000         | 16,5 milioni     | 495 milioni                |  $1093,00                       |
+| Audit              | 100,000         | 1,5 milioni      | 45.000.000                 |  $246,66                     |
+| Accessi           | 100,000         | 15.000.000     | 450 milioni                |  $847,28                     |
 
 
 
@@ -149,7 +149,7 @@ Questa sezione contiene risposte a domande frequenti e i problemi noti relativi 
 
 ---
 
-**D: Cosa accade se un amministratore modifica il periodo di memorizzazione di un'impostazione di diagnostica?**
+**D: Cosa accade se un amministratore modifica il periodo di conservazione di un'impostazione di diagnostica?**
 
 **R**: Verrà applicato il nuovo criterio di conservazione ai log raccolti dopo la modifica. I log raccolti prima della modifica dei criteri non saranno interessati.
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 267872f2036a0e697f4b2da65064805a0cfbd2b7
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 72155e072acb8006b48f6951fc60081126c80691
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358730"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990453"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurare le destinazioni di calcolo per il training del modello 
 
@@ -47,7 +47,7 @@ Il servizio Azure Machine Learning offre un supporto variabile per le diverse de
 
 Solitamente il training si avvia nel computer locale e in un secondo momento si esegue tale script di training in una destinazione di calcolo diversa. Con il servizio Azure Machine Learning è possibile eseguire lo script in diverse destinazioni di calcolo senza doverlo modificare. 
 
-È sufficiente definire l'ambiente per ogni destinazione di calcolo con una **configurazione di esecuzione**.  Quindi, quando si vuole eseguire l'esperimento di training in una destinazione di calcolo diversa, specificare la configurazione di esecuzione per tale ambiente di calcolo. 
+È sufficiente definire l'ambiente per ogni destinazione di calcolo con una **configurazione di esecuzione**.  Quindi, quando si vuole eseguire l'esperimento di training in una destinazione di calcolo diversa, specificare la configurazione di esecuzione per tale ambiente di calcolo.
 
 Altre informazioni sull'[invio degli esperimenti](#submit) alla fine di questo articolo.
 
@@ -74,7 +74,26 @@ Per un ambiente gestito dall'utente è necessario configurare l'ambiente e insta
 Il codice seguente illustra un esempio di configurazione di esecuzioni di training per un ambiente gestito dall'utente:
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
-  
+
+## <a name="whats-an-estimator"></a>Che cos'è un estimatore?
+
+Per semplificare il training del modello usando i Framework più diffusi, il Azure Machine Learning Python SDK fornisce un'astrazione di livello superiore alternativa, la classe Estimator. Questa classe consente di creare facilmente configurazioni di esecuzione. È possibile creare e usare uno strumento di [stima](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) generico per inviare script di training che usano qualsiasi framework di apprendimento scelto, ad esempio Scikit-learn.
+
+Per le attività PyTorch, TensorFlow e Chainer, Azure Machine Learning fornisce anche i rispettivi estimatori [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)e [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) per semplificare l'uso di questi Framework.
+
+Per altre informazioni, vedere [training di modelli ml con estimatori](how-to-train-ml-models.md).
+
+## <a name="whats-an-ml-pipeline"></a>Che cos'è una pipeline ML?
+
+Con le pipeline ML è possibile ottimizzare il flusso di lavoro con semplicità, velocità, portabilità e riutilizzo. Quando si compilano pipeline con Azure Machine Learning, è possibile concentrarsi sulla propria esperienza, Machine Learning, anziché sull'infrastruttura e l'automazione.
+
+Le pipeline di ML sono costituite da più **passaggi**, ovvero unità di calcolo distinte nella pipeline. Ogni passaggio può essere eseguito in modo indipendente e usare risorse di calcolo isolate. In questo modo, più data scientist possono lavorare contemporaneamente sulla stessa pipeline senza dover sovraccaricare le risorse di calcolo e semplificare l'uso di diversi tipi/dimensioni di calcolo per ogni passaggio.
+
+> [!TIP]
+> Le pipeline di ML possono usare la configurazione di esecuzione o gli estimatori durante il training di modelli.
+
+Mentre le pipeline di ML possono eseguire il training dei modelli, possono anche preparare i dati prima di eseguire il training e distribuire i modelli dopo il training. Uno dei casi d'uso principali per le pipeline è il Punteggio batch. Per ulteriori informazioni, vedere [pipeline: Ottimizzare i flussi di lavoro](concept-ml-pipelines.md)di machine learning.
+
 ## <a name="set-up-in-python"></a>Configurare in Python
 
 Usare le sezioni seguenti per configurare queste destinazioni di calcolo:

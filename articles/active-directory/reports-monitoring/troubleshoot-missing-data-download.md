@@ -3,7 +3,7 @@ title: 'Risoluzione dei problemi: dati mancanti nei log attività scaricati di A
 description: Offre una soluzione per i dati mancanti nei log attività scaricati di Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: ffce7eb1-99da-4ea7-9c4d-2322b755c8ce
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2200a9c75b371ed72ffefe6900367e698101e0fe
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f120c1b86efe94f4ff6316e6116b9049582b07e9
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60437100"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987991"
 ---
 # <a name="i-cant-find-all-the-data-in-the-azure-active-directory-activity-logs-i-downloaded"></a>Non è possibile trovare tutti i dati nei log attività di Azure Active Directory scaricati
 
@@ -30,11 +30,11 @@ ms.locfileid: "60437100"
 
 I log attività (controllo o accessi) sono stati scaricati ma non vengono visualizzati tutti i record per l'orario scelto. Perché? 
 
- ![Creazione di report](./media/troubleshoot-missing-data-download/01.png)
+ ![Report](./media/troubleshoot-missing-data-download/01.png)
  
 ## <a name="cause"></a>Causa
 
-Quando si scaricano i log attività nel portale di Azure, è necessario limitare la scala fino a 250.000 record, ordinate dalla più recente. 
+Quando si scaricano i log attività nel portale di Azure, viene limitata la scalabilità a 250.000 record, ordinati in base alla prima più recente. 
 
 ## <a name="resolution"></a>Risoluzione
 

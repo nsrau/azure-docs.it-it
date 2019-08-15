@@ -3,7 +3,7 @@ title: Eventi di rischio di Azure Active Directory | Documentazione Microsoft
 description: Questo articolo presenta una panoramica dettagliata degli eventi di rischio.
 services: active-directory
 keywords: Azure Active Directory Identity Protection, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza
-author: MarkusVi
+author: cawrites
 manager: daveba
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e50cc4ca9c98cb6a8e0f19cfcf6c1f86f1949beb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5711d900653ae7786899ce1c53f22cf181f5b8bf
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107688"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988280"
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventi di rischio di Azure Active Directory
 
@@ -52,9 +52,9 @@ Azure Active Directory rileva attualmente sei tipi di eventi di rischio:
 Le informazioni ottenute per un evento di rischio rilevato sono associate alla sottoscrizione di Azure AD in corso. 
 
 * Con l'**edizione Azure AD Premium P2**, si ottengono le informazioni più dettagliate su tutti i rilevamenti sottostanti. 
-* Con il **Azure AD Premium P1 edition**avanzati, rilevamenti (ad esempio proprietà di accesso sconosciuto) non sono coperti dalla licenza in uso e verrà visualizzata sotto il nome del **Accedi con rischi aggiuntivi rilevati** . Inoltre, il livello di rischio e campi di dettagli di rischio sono nascoste.
+* Con l' **edizione Azure ad Premium P1**, i rilevamenti avanzati (ad esempio le proprietà di accesso non note) non sono coperti dalla licenza e verranno visualizzati sotto il nome **accesso con rischi aggiuntivi**rilevati. Inoltre, i campi livello di rischio e dettagli rischio sono nascosti.
 
-Mentre il rilevamento di eventi di rischio già rappresenta un aspetto importante della protezione delle identità, è possibile scegliere manualmente risolverli o implementare risposte automatiche mediante la configurazione di criteri di accesso condizionale. Per altre informazioni, vedere [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
+Sebbene il rilevamento degli eventi di rischio rappresenti già un aspetto importante della protezione delle identità, è anche possibile indirizzarli manualmente o implementare risposte automatiche configurando i criteri di accesso condizionale. Per altre informazioni, vedere [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 
 ## <a name="risk-event-types"></a>Tipi di evento di rischio
 

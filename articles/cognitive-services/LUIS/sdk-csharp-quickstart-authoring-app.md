@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 07/17/2019
+ms.date: 08/12/2019
 ms.author: diberry
-ms.openlocfilehash: 19eeb396536925d9667c8dddb09bea779de79555
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 11f40d99a36493272cb6cd51e4a339c19cd0358b
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707191"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966728"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-net"></a>Guida introduttiva: Libreria client di creazione di Language Understanding (LUIS) per .NET
 
@@ -75,7 +75,7 @@ Creare una nuova applicazione .NET Core nell'ambiente di sviluppo integrato o ne
 Nella directory dell'applicazione installare la libreria client di creazione di Language Understanding (LUIS) per .NET con il comando seguente:
 
 ```console
-dotnet add package Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring -Version 3.0.0
+dotnet add package Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring --version 3.0.0
 ```
 
 Se si usa l'ambiente di sviluppo integrato di Visual Studio, la libreria client è disponibile come pacchetto NuGet scaricabile.

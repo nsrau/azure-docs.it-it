@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: c91c09da31e4ecf42257b8f9c86f25c6ec39b9df
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 1190a0f34206004b72730a6af85bbe5db7d9961a
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68734632"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976778"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Come connettersi a origini dati
 ## <a name="introduction"></a>Introduzione
@@ -28,7 +28,7 @@ Quando si utilizza la visualizzazione affiancata predefinita, questo menu è dis
 
 Quando si utilizza la visualizzazione elenco, il menu è disponibile nella barra di ricerca nella parte superiore della finestra del portale.
 
- ![Apertura di un report di SQL Server Reporting Services in Gestione Report dalla barra di ricerca](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
+ ![Apertura di un report SQL Server Reporting Services in Gestione report](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
 
 ## <a name="supported-client-applications"></a>Applicazioni client supportate
 Quando si usa il menu "Apri in...." per le origini dati nel portale di Azure Data Catalog, è necessario che nel computer client sia installata l'applicazione client corretta.

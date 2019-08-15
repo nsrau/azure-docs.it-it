@@ -9,12 +9,12 @@ ms.date: 02/11/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 51e0379607c49019590a99c9fb7304f28be2afe5
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: d94f6297f27eb3ea130b443ccf94052d391eb46d
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305727"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985334"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Avviare un failover dell'account di archiviazione (anteprima)
 
@@ -67,13 +67,14 @@ Per usare PowerShell per avviare un failover dell'account, è necessario install
 1. Disinstallare eventuali installazioni precedenti di Azure PowerShell:
 
     - Rimuovere da Windows eventuali installazioni precedenti di Azure PowerShell usando l'impostazione **App e funzionalità** in **Impostazioni**.
-    - Rimuovere tutti  i moduli di `%Program Files%\WindowsPowerShell\Modules`Azure da.
-    
+    - Rimuovere tutti i moduli di `%Program Files%\WindowsPowerShell\Modules`Azure da.
+
 1. Assicurarsi di avere la versione più recente di PowerShellGet installata. Aprire una finestra di Windows PowerShell ed eseguire i seguenti comandi per installare la versione più recente:
- 
+
     ```powershell
     Install-Module PowerShellGet –Repository PSGallery –Force
     ```
+
 1. Chiudere e riaprire la finestra di PowerShell dopo l'installazione di PowerShellGet. 
 
 1. Installare la versione più recente di Azure PowerShell:
@@ -82,14 +83,14 @@ Per usare PowerShell per avviare un failover dell'account, è necessario install
     Install-Module Az –Repository PSGallery –AllowClobber
     ```
 
-1. Installare un modulo in anteprima di Archiviazione di Azure che supporta Azure AD:
-   
+1. Installare un modulo di anteprima di archiviazione di Azure che supporta il failover degli account:
+
     ```powershell
     Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force 
     ```
+
 1. Chiudere e riaprire la finestra di PowerShell.
  
-
 Per avviare un failover dell'account da PowerShell, usare il comando seguente:
 
 ```powershell

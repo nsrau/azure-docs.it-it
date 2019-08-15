@@ -7,12 +7,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 6d05b6ac49b372caff1bdc2f03358598fcc1afba
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 8c983772f58c1ea01db175b47225ccfafa515b96
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737080"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951971"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matrice di supporto per il backup con l'agente di Servizi di ripristino di Microsoft Azure
 
@@ -72,18 +72,18 @@ Limitazione della larghezza di banda della rete | Non disponibile per computer s
 
 È possibile usare l'agente MARS per eseguire il backup direttamente in Azure in alcuni sistemi operativi eseguiti in computer locali e VM di Azure. I sistemi operativi devono essere di 64 bit ed eseguire gli aggiornamenti e i pacchetti di servizi più recenti. Nella tabella seguente sono riepilogati questi sistemi operativi:
 
-**Sistema operativo** | **File/cartelle** | **Stato del sistema**
---- | --- | ---
-Windows 10 (Enterprise, Pro, Home) | Yes | No
-Windows 8.1 (Enterprise, Pro)| Sì |No
+**Sistema operativo** | **File/cartelle** | **Stato del sistema** 
+--- | --- | --- 
+Windows 10 (Enterprise, Pro, Home) | Sì | No
+Windows 8.1 (Enterprise, Pro)| Yes |No
 Windows 8 (Enterprise, Pro) | Sì | No
-Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Yes | No
-Windows Server 2016 (Standard, Datacenter, Essentials) | Yes | Yes
-Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Sì | Sì
-Windows Server 2012 (Standard, Datacenter, Foundation) | Sì | Sì
-Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Yes | Yes
+Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Sì | No
+Windows Server 2016 (Standard, Datacenter, Essentials) | Sì | Yes
+Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Yes | Yes
+Windows Server 2012 (Standard, Datacenter, Foundation) | Yes | Sì
+Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Sì | Yes
 Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | Sì | No
-Windows Storage Server 2016/2012 R2/2012 (standard, Workgroup) | Yes | No
+Windows Storage Server 2016/2012 R2/2012 (standard, Workgroup) | Sì | No
 
 Per ulteriori informazioni, vedere i [sistemi operativi supportati da MAB e DPM](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
 

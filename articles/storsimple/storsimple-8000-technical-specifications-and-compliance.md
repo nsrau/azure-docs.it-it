@@ -14,16 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 33becd46747f957cce67fb7b2ace170a9aa402ff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 061194422a8c1bc449dbef0c4f04bb8e1db10dea
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606931"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965280"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Specifiche e conformità tecniche per il dispositivo StorSimple
 
 ## <a name="overview"></a>Panoramica
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 I componenti hardware del dispositivo Microsoft Azure StorSimple sono conformi alle specifiche tecniche e agli standard normativi descritti in questo articolo. Le specifiche tecniche descrivono i moduli di alimentazione e raffreddamento (PCM, Power and Cooling Module), le unità disco, la capacità dell'archiviazione e gli chassis. Le informazioni sulla conformità riguardano argomenti come gli standard internazionali, la sicurezza, le emissioni e i cavi.
 
@@ -37,7 +39,7 @@ Lo chassis EBOD utilizza un PCM 580 W, mentre lo chassis principale utilizza un 
 | --- | --- | --- |
 | Potenza massima in uscita |580 W |764 |
 | Frequenza |50/60 Hz |50/60 Hz |
-| Selezione intervallo di voltaggio |Intervallo automatico: 90 – 264 V AC, 47/63 Hz |Intervallo automatico: 90- 264 V AC, 47/63 Hz |
+| Selezione intervallo di voltaggio |Con intervallo automatico: 90 – 264 V AC, 47/63 Hz |Con intervallo automatico: 90-264 V AC, 47/63 Hz |
 | Afflusso di corrente massimo |20 A |20 A |
 | Correzione del fattore di potenza |Voltaggio di ingresso nominale > 95% |Voltaggio di ingresso nominale > 95% |
 | Armoniche |Conforme allo standard N61000-3-2 |Conforme allo standard N61000-3-2 |
@@ -149,7 +151,7 @@ Il dispositivo Microsoft Azure StorSimple è conforme ai seguenti standard inter
 
 Il dispositivo Microsoft Azure StorSimple soddisfa le seguenti classificazioni di sicurezza:
 
-* Approvazione del tipo di sistema del prodotto: UL, cUL, CE
+* Approvazione del tipo di prodotto di sistema: UL, cUL, CE
 * Conformità di sicurezza: UL 60950, IEC 60950, EN 60950
 
 ## <a name="emc-compliance"></a>Conformità EMC
@@ -160,8 +162,8 @@ Il dispositivo Microsoft Azure StorSimple soddisfa le seguenti classificazioni E
 
 Il dispositivo è conforme alle classificazioni EMC per i livelli di emissioni effettuate e irradiate.
 
-* Livelli limite delle emissioni di condotta: CFR 47 parte 15B classe A EN55022 Classe A CISPR classe A
-* Livelli limite delle emissioni di Radiate: CFR 47 parte 15B classe A EN55022 Classe A CISPR classe A
+* Livelli di limite delle emissioni eseguite: CFR 47 Part 15B Class A EN55022 Class A CISPR Class A
+* Livelli di limite delle emissioni irradiate: CFR 47 Part 15B Class A EN55022 Class A CISPR Class A
 
 ### <a name="harmonics-and-flicker"></a>Armoniche e sfarfallio
 
@@ -173,7 +175,7 @@ Il dispositivo è conforme allo standard EN55024.
 
 ## <a name="ac-power-cord-compliance"></a>Conformità del cavo di alimentazione CA
 
-La spina e l'assembly di cavo completa dell'alimentazione devono soddisfare gli standard appropriati per il paese/area geografica in cui viene utilizzato il dispositivo e devono avere certificazioni di sicurezza considerate accettabili in tale paese/area geografica. Nelle tabelle seguenti vengono elencati gli standard per gli Stati Uniti e l'Europa.
+Il connettore e l'assembly completo del cavo di alimentazione devono soddisfare gli standard appropriati per il paese/area geografica in cui viene usato il dispositivo e devono avere approvazioni di sicurezza che sono accettabili in tale paese/area geografica. Nelle tabelle seguenti vengono elencati gli standard per gli Stati Uniti e l'Europa.
 
 ### <a name="ac-power-cords---usa-must-be-nrtl-listed"></a>Cavi di alimentazione CA - Stati Uniti (devono essere elencati NRTL)
 
@@ -188,7 +190,7 @@ La spina e l'assembly di cavo completa dell'alimentazione devono soddisfare gli 
 | Componente | Specifiche |
 | --- | --- |
 | Tipo di cavo |Armonizzate, H05-VVF-3G1.0 |
-| Presa elettrica |IEC 320 C-13, 250 V, 10 A |
+| Socket |IEC 320 C-13, 250 V, 10 A |
 
 ## <a name="supported-network-cables"></a>Cavi di rete supportati
 

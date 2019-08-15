@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 7/9/2019
 ms.author: b-juche
-ms.openlocfilehash: 6e425eba3159f8840e1a7960f6a6c3171b1ba163
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 9409beea3f22fd7ff09fe49838a37d9ff0b485f6
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850418"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68975924"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creare un volume SMB per Azure NetApp Files
 
@@ -85,7 +85,7 @@ Azure NetApp Files supporta i volumi NFS e SMBv3. L'utilizzo della capacità di 
         Si tratta del percorso LDAP per l'unità organizzativa (OU) in cui verranno creati gli account del computer server SMB. Ovvero OU = Second Level, OU = First level. 
     * Credenziali, inclusi **nome utente** e **password**
 
-    ![Unisci Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
+    ![Aggiungi Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
 
 3. Fare clic su **Accedi**.  
 
@@ -127,9 +127,9 @@ Azure NetApp Files supporta i volumi NFS e SMBv3. L'utilizzo della capacità di 
         
         Se non è stata delegata una subnet, fare clic su **Crea nuovo** nella pagina di creazione di un volume. Nella pagina di creazione della subnet, specificare le informazioni relative alla stessa e selezionare **Microsoft.NetApp/volumi** per delegarla ad Azure NetApp Files. In ogni VNET è possibile delegare una sola subnet a Azure NetApp Files.   
  
-        ![Creazione di un volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
+        ![Crea un volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
-        ![Creare una subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+        ![Crea subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
 4. Fare clic su **protocollo** e completare le seguenti informazioni:  
     * Selezionare **SMB** come tipo di protocollo per il volume. 
@@ -148,4 +148,6 @@ Azure NetApp Files supporta i volumi NFS e SMBv3. L'utilizzo della capacità di 
 
 * [Montare o smontare un volume per macchine virtuali Windows o Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Limiti delle risorse per Azure NetApp Files](azure-netapp-files-resource-limits.md)
+* [Domande frequenti su SMB](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs)
 * [Informazioni sull'integrazione delle reti virtuali per i servizi di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
+* [Installare una nuova foresta Active Directory usando l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm)

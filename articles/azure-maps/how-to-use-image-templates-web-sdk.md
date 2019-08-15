@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 1ca29fafae1269b21f4e39a9d2594f84af035d25
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b9b1543ca37c636f4a82ff9ada3dfe212fa9b8d0
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856689"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976661"
 ---
 # <a name="how-to-use-image-templates"></a>Come usare i modelli di immagine
 
@@ -116,7 +116,7 @@ Se l'applicazione usa la stessa icona con icone diverse o se si sta creando un m
 
 I modelli di immagine SVG supportano i seguenti valori segnaposto:
 
-| Segnaposto | DESCRIZIONE |
+| Segnaposto | Descrizione |
 |-|-|
 | `{color}` | Colore primario. | 
 | `{secondaryColor}` | Colore secondario. | 
@@ -203,7 +203,10 @@ Vedere gli articoli seguenti per altri esempi di codice in cui è possibile usar
 > [Aggiungere un livello per i simboli](map-add-pin.md)
 
 > [!div class="nextstepaction"]
-> [Aggiungere una forma](map-add-shape.md)
+> [Aggiungere un livello linea](map-add-line-layer.md)
+
+> [!div class="nextstepaction"]
+> [Aggiungere un livello poligono](map-add-shape.md)
 
 > [!div class="nextstepaction"]
 > [Aggiungere marcatori HTML](map-add-bubble-layer.md)

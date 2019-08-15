@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 07/15/2019
+ms.date: 07/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2d0697567bfd2fcf95a1fe6ebf246646af5650c3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0f1c66126a1aa9a6ebf6f78ac6fb1ba37ba41829
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564882"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985419"
 ---
 # <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Autorizzare l'accesso a BLOB e code con Azure Active Directory e identità gestite per le risorse di Azure
 
@@ -50,17 +50,7 @@ Per ulteriori informazioni sull'assegnazione di ruoli RBAC, vedere uno degli art
 
 L'esempio di codice Mostra come ottenere un token OAuth 2,0 da Azure AD e usarlo per autorizzare una richiesta di creazione di un BLOB in blocchi. Per usare questo esempio, eseguire prima i passaggi descritti nelle sezioni precedenti.
 
-Il Microsoft Azure libreria client di [autenticazione app](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) per .NET (anteprima) semplifica il processo di acquisizione e rinnovo di un token dal codice. La libreria client di autenticazione app gestisce automaticamente l'autenticazione. La libreria usa le credenziali dello sviluppatore per l'autenticazione durante lo sviluppo locale. L'utilizzo delle credenziali per lo sviluppatore durante lo sviluppo locale è più sicuro perché non è necessario creare credenziali di Azure AD o condividere le credenziali tra gli sviluppatori. Quando la soluzione viene distribuita in un secondo momento in Azure, la libreria passa automaticamente a usando le credenziali dell'applicazione.
-
-### <a name="install-packages"></a>Installare i pacchetti
-
-Per usare la libreria di autenticazione app in un'applicazione di archiviazione di Azure, installare il pacchetto di anteprima più recente da [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication), nonché la versione più recente della [libreria client comune di archiviazione di Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/) e la [libreria client di archiviazione BLOB di Azure. per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/). Aggiungere le istruzioni **using** seguenti al codice:
-
-```csharp
-using Microsoft.Azure.Services.AppAuthentication;
-using Microsoft.Azure.Storage.Auth;
-using Microsoft.Azure.Storage.Blob;
-```
+[!INCLUDE [storage-app-auth-lib-include](../../../includes/storage-app-auth-lib-include.md)]
 
 ### <a name="add-the-callback-method"></a>Aggiungere il metodo di callback
 

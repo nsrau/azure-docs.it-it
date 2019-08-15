@@ -14,14 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: b367b6e7126a442dc68646ff52a29c955f50b798
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0b2301c1c9b846e2ea005f049c5aadb3d4634a81
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60631170"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963590"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Disimballaggio, montaggio su rack e cablaggio del dispositivo StorSimple 8100
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ## <a name="overview"></a>Panoramica
 Il dispositivo Microsoft Azure StorSimple 8100 è un dispositivo a singolo enclosure montato su rack. In questa esercitazione viene illustrato come disimballare, montare su rack e cablare l'hardware del dispositivo StorSimple 8100 prima di configurare e distribuire il dispositivo.
 
@@ -46,7 +49,7 @@ Successivamente, completare la procedura seguente per disimballare il dispositiv
    
     **Dispositivo di archiviazione disimballato**
    
-   | Etichetta | Descrizione |
+   | Label | Descrizione |
    | --- | --- |
    |   1 |Scatola |
    |   2 |Protezione inferiore |
@@ -122,7 +125,7 @@ Viene fornito un set di guide di montaggio da usare con l'armadio rack da 48,26 
    
     **Fissaggio dei gruppi guida esterna al rack**
    
-   | Etichetta | Descrizione |
+   | Label | DESCRIZIONE |
    | --- | --- |
    |   1 |Vite di fissaggio |
    |   2 |Montante rack anteriore con fori quadrati |
@@ -148,7 +151,7 @@ Per montare il dispositivo nel rack usando le guide appena installate, seguire q
    
     **Installazione dei copriflangia**
    
-   | Etichetta | Descrizione |
+   | Label | DESCRIZIONE |
    | --- | --- |
    |   1 |Vite di fissaggio dell'enclosure |
 
@@ -188,7 +191,7 @@ Per supportare il failover del controller ridondante, è necessario cablare la r
    
     **Parte posteriore del dispositivo con le porte dati**
    
-   | Etichetta | Descrizione |
+   | Label | Descrizione |
    | --- | --- |
    |   0,1,4,5 |Interfacce di rete da 1 GbE |
    |   2,3 |Interfacce di rete da 10 GbE |
@@ -199,14 +202,14 @@ Per supportare il failover del controller ridondante, è necessario cablare la r
 
     **Cablaggio di rete per il dispositivo**
 
-   |Etichetta | Descrizione |
+   |Label | DESCRIZIONE |
    |----- | ----------- |
    | Una    | LAN con accesso a Internet |
    | B    | Controller 0 |
    | C    | PCM 0 |
    | D    | Controller 1 |
    | E    | PCM 1 |
-   | F, G | Hosts |
+   | F, G | Host |
    | 0-5  | Interfacce di rete |
 
 
@@ -236,11 +239,11 @@ Per cablare la porta seriale, attenersi alla seguente procedura.
 2. Identificare il controller attivo sul backplane del dispositivo, indicato da un LED blu lampeggiante.
 3. Usare il cavo seriale fornito (se necessario, usare il convertitore USB-seriale per il portatile) e collegare la console o il computer (con emulazione terminal al dispositivo) alla porta seriale del controller attivo.
 4. Installare i driver seriali-USB (forniti con il dispositivo) sul computer.
-5. Configurare la connessione seriale come segue: 115.200 baud, 8 bit di dati, 1 bit di stop, nessuna parità e flusso di controllo è impostata su None.
+5. Configurare la connessione seriale come segue: 115.200 baud, 8 bit di dati, 1 bit di stop, nessuna parità e controllo di flusso impostato su nessuno.
 6. Verificare che la connessione funzioni premendo INVIO nella console. Deve comparire un menu della console seriale.
 
 > [!NOTE]
-> **Gestione Lights-Out**: Quando il dispositivo è installato in un Data Center remoto o in una sala macchine con accesso limitato, verificare che le connessioni seriali di entrambi i controller siano sempre collegate a un interruttore della console seriale o ad apparecchiature simili. In questo modo, sono possibili operazioni di supporto e controllo remoto fuori banda in caso di interruzione della connessione di rete o malfunzionamenti imprevisti.
+> **Gestione Lights-out**: Quando il dispositivo è installato in un data center remoto o in una sala computer con accesso limitato, verificare che le connessioni seriali a entrambi i controller siano sempre connesse a un comportatore di console seriale o ad apparecchiature simili. In questo modo, sono possibili operazioni di supporto e controllo remoto fuori banda in caso di interruzione della connessione di rete o malfunzionamenti imprevisti.
 > 
 > 
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/08/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 6fb989632d3165ac5e54e540aae4385fc2258c85
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e94c4f179174a3957aef8828687ebf1fbb299903
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66256916"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967429"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copiare dati da SAP Business Warehouse tramite Open Hub usando Azure Data Factory
 
@@ -29,7 +29,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 In particolare, il connettore SAP Business Warehouse Open Hub supporta:
 
-- SAP Business Warehouse **7.01 o versioni successive (in un recente SAP supporto pacchetto Stack rilasciato dopo il 2015)** .
+- SAP Business Warehouse **versione 7,01 o successiva (in uno stack del pacchetto di supporto SAP recente rilasciato dopo l'anno 2015)** .
 - Copia dei dati tramite tabella locale Open Hub Destination che può essere DSO, InfoCube, MultiProvider, DataSource e così via.
 - La copia di dati usando l'autenticazione di base.
 - Connessione al server applicazioni.
@@ -38,32 +38,32 @@ In particolare, il connettore SAP Business Warehouse Open Hub supporta:
 
 Il [servizio SAP BW Open Hub](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service) consente di estrarre in modo efficiente dati da SAP BW. Il diagramma seguente mostra uno dei flussi tipici che i clienti possono osservare nel proprio sistema SAP, con flusso di dati da SAP ECC -> PSA -> DSO -> Cubo.
 
-SAP BW Open Hub Destination (OHD) definisce la destinazione di inoltro dei dati SAP. Qualsiasi oggetto supportato da SAP dati Trasferisci processo (DTP) possa essere utilizzati come origini di dati hub aperto, ad esempio DSO InfoCube, origine dati, e così via. Il tipo di Open Hub Destination, ovvero la posizione in cui vengono archiviati i dati inoltrati, può essere costituito da tabelle di database (locali o remote) e da file flat. Questo connettore SAP BW Open Hub supporta la copia dei dati dalla tabella locale OHD in BW. Se si usano altri tipi, è possibile connettersi direttamente al database o al file system usando altri connettori.
+SAP BW Open Hub Destination (OHD) definisce la destinazione di inoltro dei dati SAP. Qualsiasi oggetto supportato da SAP Trasferimento dati Process (DTP) può essere usato come origini dati Open Hub, ad esempio DSO, InfoCube, DataSource e così via. Il tipo di Open Hub Destination, ovvero la posizione in cui vengono archiviati i dati inoltrati, può essere costituito da tabelle di database (locali o remote) e da file flat. Questo connettore SAP BW Open Hub supporta la copia dei dati dalla tabella locale OHD in BW. Se si usano altri tipi, è possibile connettersi direttamente al database o al file system usando altri connettori.
 
 ![SAP BW Open Hub](./media/connector-sap-business-warehouse-open-hub/sap-bw-open-hub.png)
 
-## <a name="delta-extraction-flow"></a>Flusso di estrazione delta
+## <a name="delta-extraction-flow"></a>Flusso di estrazione Delta
 
-Il connettore Hub aperto di Azure Data factory SAP BW offre due proprietà facoltative: `excludeLastRequest` e `baseRequestId` che può essere usato per gestire il carico differenziali dall'Hub aperto. 
+ADF SAP BW connettore Hub aperto offre due proprietà facoltative `excludeLastRequest` : `baseRequestId` e che può essere usato per gestire il carico Delta dall'hub aperto. 
 
-- **excludeLastRequestId**: Se escludere i record dell'ultima richiesta. Valore predefinito è true. 
-- **baseRequestId**: L'ID della richiesta per il caricamento differenziale. Una volta che viene impostata, verranno recuperati solo i dati con requestId maggiore del valore di questa proprietà. 
+- **excludeLastRequestId**: Se escludere i record dell'ultima richiesta. Il valore predefinito è true. 
+- **baseRequestId**: L'ID della richiesta per il caricamento differenziale. Una volta impostato, verranno recuperati solo i dati con RequestId superiori al valore di questa proprietà. 
 
-In generale, l'estrazione dal InfoProviders SAP per Azure Data Factory (ADF) è costituito da 2 passaggi: 
+In generale, l'estrazione da SAP InfoProviders a Azure Data Factory (ADF) è costituita da due passaggi: 
 
-1. **SAP BW dati Trasferisci processo (DTP)** questo passaggio copia i dati da un InfoProvider di SAP BW in una tabella di Hub aperto di SAP BW 
+1. **Processo di Trasferimento dati SAP BW (DTP)** Questo passaggio copia i dati da un SAP BW InfoProvider a una tabella SAP BW Open Hub 
 
-1. **Copia dei dati di Azure Data factory** In questo passaggio, la tabella di Hub aperto viene letto dal connettore Azure Data factory 
+1. **Copia dei dati ADF** In questo passaggio la tabella degli hub aperti viene letta dal connettore ADF 
 
-![Flusso di estrazione delta](media/connector-sap-business-warehouse-open-hub/delta-extraction-flow.png)
+![Flusso di estrazione Delta](media/connector-sap-business-warehouse-open-hub/delta-extraction-flow.png)
 
-Nel primo passaggio, viene eseguito un DTP. Ogni esecuzione crea un nuovo ID richiesta SAP. L'ID richiesta viene archiviato nella tabella di Hub aperto e viene quindi usato dal connettore Azure Data factory per identificare il delta. I due passaggi eseguiti in modo asincrono: il DTP viene attivato da SAP e la copia dei dati di Azure Data factory viene attivata tramite Azure Data factory. 
+Nel primo passaggio viene eseguito un DTP. Ogni esecuzione crea un nuovo ID richiesta SAP. L'ID richiesta viene archiviato nella tabella Hub aperto e viene quindi usato dal connettore ADF per identificare il Delta. I due passaggi vengono eseguiti in modo asincrono: il DTP viene attivato da SAP e la copia dei dati ADF viene attivata tramite ADF. 
 
-Per impostazione predefinita, Azure Data factory non leggendo il delta più recente dalla tabella di Hub aperto (opzione "exclude ultima richiesta" è true). Con il presente documento, i dati in Azure Data factory non sono aggiornata con i dati nella tabella di Hub aperto (il valore delta ultimo manca) al 100%. In cambio, questa procedura garantisce che nessuna riga perdersi causato dall'estrazione asincrona. Tutto funziona correttamente anche se Azure Data factory sta leggendo la tabella di Hub aperto mentre il DTP esegue ancora la scrittura nella stessa tabella. 
+Per impostazione predefinita, ADF non legge il Delta più recente dalla tabella Hub aperta (l'opzione "Escludi ultima richiesta" è true). A questo proposito, i dati in ADF non sono aggiornati al 100% con i dati nella tabella dell'hub aperto (manca l'ultimo Delta). In restituzione, questa procedura assicura che nessuna riga venga persa causata dall'estrazione asincrona. Funziona correttamente anche quando ADF legge la tabella dell'hub aperto mentre il DTP sta ancora scrivendo nella stessa tabella. 
 
-In genere archiviano l'ID richiesta copiato max nell'ultima esecuzione da Azure Data factory in un archivio dati di staging (ad esempio Blob di Azure in precedenza diagramma). Pertanto, la stessa richiesta non viene letto una seconda volta da Azure Data Factory nell'esecuzione della successiva. Nel frattempo, i dati non viene eliminato automaticamente dalla tabella di Hub aperto.
+In genere l'ID richiesta massimo copiato viene archiviato nell'ultima esecuzione di ADF in un archivio dati di staging, ad esempio BLOB di Azure nel diagramma precedente. La stessa richiesta non viene pertanto letta una seconda volta da ADF nell'esecuzione successiva. Nel frattempo, si noti che i dati non vengono eliminati automaticamente dalla tabella dell'hub aperto.
 
-Delta appropriate gestirla, non è consentito in modo che gli ID da DTPs diversi di richiesta nella stessa tabella di Hub aperto. Pertanto, è necessario non creare più DTP per ogni destinazione di Hub aperto (OHD). Quando è necessaria un'estrazione completa e differenziale da InfoProvider la stessa, è necessario creare due OHDs per la stessa InfoProvider. 
+Per una corretta gestione Delta non è consentito avere ID richiesta da DTPs diversi nella stessa tabella dell'hub aperta. Pertanto, non è necessario creare più di un DTP per ogni destinazione di hub aperto (OHD). Quando è necessaria l'estrazione completa e Delta dallo stesso InfoProvider, è necessario creare due OHDs per lo stesso InfoProvider. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -86,7 +86,7 @@ Per usare il connettore SAP Business Warehouse Open Hub, è necessario:
 
 > [!TIP]
 >
-> Per una procedura dettagliata dell'utilizzo di connettore di Hub aperto di SAP BW, vedere [caricare dati da SAP Business Warehouse (BW) usando Azure Data Factory](load-sap-bw-data.md).
+> Per una procedura dettagliata sull'uso di SAP BW connettore Open Hub, vedere [caricare dati da SAP Business Warehouse (BW) con Azure Data Factory](load-sap-bw-data.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -134,7 +134,7 @@ Per il servizio collegato di SAP Business Warehouse Open Hub sono supportate le 
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati SAP BW Open Hub.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati SAP BW Apri Hub.
 
 Per copiare dati da e in SAP BW Open Hub, impostare la proprietà type del set di dati su **SapOpenHubTable**. Sono supportate le proprietà seguenti.
 
@@ -172,7 +172,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 ### <a name="sap-bw-open-hub-as-source"></a>SAP BW Open Hub come origine
 
-Per copiare dati da SAP BW Open Hub, impostare il tipo di origine nell'attività di copia su **SapOpenHubSource**. Non esistono proprietà aggiuntive specifiche del tipo necessaria nell'attività di copia **origine** sezione.
+Per copiare dati da SAP BW Open Hub, impostare il tipo di origine nell'attività di copia su **SapOpenHubSource**. Non sono necessarie ulteriori proprietà specifiche del tipo nella sezione **origine** dell'attività di copia.
+
+Per velocizzare il caricamento dei dati, è possibile [`parallelCopies`](copy-activity-performance.md#parallel-copy) impostare l'attività di copia in modo da caricare i dati da SAP BW Hub aperto in parallelo. Se, ad esempio, si `parallelCopies` imposta su quattro, Data Factory esegue contemporaneamente quattro chiamate RFC e ogni chiamata RFC recupera una parte di dati dalla SAP BW tabella Hub aperta partizionata in base all'ID richiesta e all'ID pacchetto. Questa condizione si applica quando il numero di ID richiesta di DTP univoco + ID pacchetto è maggiore del `parallelCopies`valore di.
 
 **Esempio:**
 
@@ -199,7 +201,8 @@ Per copiare dati da SAP BW Open Hub, impostare il tipo di origine nell'attività
             },
             "sink": {
                 "type": "<sink type>"
-            }
+            },
+            "parallelCopies": 4
         }
     }
 ]
@@ -211,14 +214,14 @@ Quando si copiano dati da SAP BW Open Hub, vengono usati i mapping seguenti tra 
 
 | Tipo SAP ABAP | Tipo di dati provvisori di Data Factory |
 |:--- |:--- |
-| C (String) | String |
+| C (String) | string |
 | I (integer) | Int32 |
 | F (Float) | Double |
-| D (Date) | String |
-| T (Time) | String |
+| D (Date) | string |
+| T (Time) | string |
 | P (BCD Packed, Currency, Decimal, Qty) | Decimal |
-| N (Numc) | String |
-| X (Binary e Raw) | String |
+| N (Numc) | string |
+| X (Binary e Raw) | string |
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

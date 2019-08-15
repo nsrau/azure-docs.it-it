@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: dacurwin
-ms.openlocfilehash: 369be73e2884594171419a66b94db64184582e58
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 9b0cbe8126a01a64e35b2fcfeca400aed5aef0cc
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68813820"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952023"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
 È possibile usare il [servizio backup di Azure](backup-overview.md) per eseguire il backup di computer e carichi di lavoro locali e di macchine virtuali (VM) di Azure. Questo articolo riepiloga le impostazioni e le limitazioni del supporto quando si esegue il backup di macchine virtuali di Azure con backup di Azure.
@@ -157,8 +157,8 @@ Ripristino di macchine virtuali con aggiunta di zona | Supportato (per la macchi
 
 **Componente** | **Supporto**
 --- | ---
-Dischi di dati delle VM di Azure | Backup di una macchina virtuale con un massimo di 16 dischi dati. <br/><br/> Supporto di dischi con dimensioni fino a 4 TB.
-Dimensioni del disco dati | Ogni singolo disco può avere dimensioni fino a 4095 GB.<br/><br/>Per iscriversi a un'anteprima privata del supporto per dischi di backup su disco di Azure di dimensioni superiori a 4 TB fino a 30TB, scrivere AskAzureBackupTeam@microsoft.comdi nuovo in Microsoft.  
+Dischi di dati delle VM di Azure | Backup di una macchina virtuale con un massimo di 16 dischi dati. <br/><br/> Supporto di dischi con dimensioni fino a 4 TB.<br/><br/>Per iscriversi a una versione di anteprima pubblica limitata del supporto per dischi di backup su disco di Azure con dimensioni maggiori di 4 TB e fino a 30 TB, vedere [una panoramica del backup delle macchine virtuali di Azure](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
+Dimensioni del disco dati | Ogni singolo disco può avere dimensioni fino a 4095 GB.<br/><br/>Per iscriversi a una versione di anteprima pubblica limitata del supporto per dischi di backup su disco di Azure con dimensioni maggiori di 4 TB fino a 30TB, vedere questo [articolo](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
 Tipo di archiviazione | HDD Standard, SDD Standard, SSD Premium.
 Dischi gestiti | Supportato.
 Dischi crittografati | Supportato.<br/><br/> È possibile eseguire il backup delle macchine virtuali di Azure abilitate con crittografia dischi di Azure (con o senza l'app Azure AD).<br/><br/> Le macchine virtuali crittografate non possono essere ripristinate a livello di file/cartella. È necessario ripristinare l'intera macchina virtuale.<br/><br/> È possibile abilitare la crittografia nelle macchine virtuali che sono già protette dal servizio Backup di Azure.
@@ -214,8 +214,8 @@ Sicurezza dei dati:
 --- | --- | ---
 Computer Windows locali senza DPM/MABS | ![Sì][green] | ![Yes][green]
 Macchine virtuali di Azure | ![Sì][green] | ![Sì][green]
-Computer locali/VM di Azure con DPM | ![Sì][green] | ![Sì][green]
-Computer locali/VM di Azure con MABS | ![Sì][green] | ![Yes][green]
+Computer locali/VM di Azure con DPM | ![Sì][green] | ![Yes][green]
+Computer locali/VM di Azure con MABS | ![Yes][green] | ![Yes][green]
 
 
 
@@ -231,7 +231,7 @@ Backup supporta la compressione del traffico di backup, come riepilogato nella t
 Computer Windows locali senza DPM/MABS | ND | ![Sì][green]
 Macchine virtuali di Azure | ND | ND
 Computer locali/VM di Azure con DPM | ![Sì][green] | ![Sì][green]
-Computer locali/VM di Azure con MABS | ![Yes][green] | ![Sì][green]
+Computer locali/VM di Azure con MABS | ![Sì][green] | ![Sì][green]
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: dacurwin
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: d81d8aa299333890de61cf0c8ee75be76ca31bf2
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 8b812ea053cb8e9da7cd3ef021ab6b74196d36ca
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688737"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954958"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Creare criteri di backup di Servizi di ripristino di Azure usando l'API REST
 
@@ -36,7 +36,7 @@ I passaggi per creare un criterio di backup per un insieme di credenziali di Ser
 - La conservazione può essere definita per punti di backup "giornalieri", "settimanali", "mensili" e "annuali".
 - "Settimanale" si riferisce a un backup eseguito in un determinato giorno della settimana, "mensile" indica un backup eseguito in un determinato giorno del mese e "annuale" fa riferimento a un backup eseguito in un determinato giorno dell'anno.
 - La conservazione per i punti di backup "mensili" o "annuali" viene definita "LongTermRetention".
-- Con un insieme di credenziali, viene creato anche un criterio per i backup di macchine virtuali di Azure denominato "DefaultPolicy", che può essere usato per il backup delle macchine virtuali di Azure.
+- Quando viene creato un insieme di credenziali, viene creato anche un criterio per i backup di VM di Azure denominato "DefaultPolicy" e può essere usato per eseguire il backup di macchine virtuali di Azure.
 
 Per creare o aggiornare un criterio di Backup di Azure, usare l'operazione *PUT* seguente
 
@@ -50,7 +50,7 @@ I parametri `{policyName}` e `{vaultName}` vengono forniti nell'URI. Informazion
 
 Ad esempio, per creare un criterio per il backup di macchine virtuali di Azure, sono disponibili i componenti del corpo della richiesta indicati di seguito.
 
-|NOME  |Obbligatoria  |Type  |Descrizione  |
+|Name  |Obbligatoria  |Type  |Descrizione  |
 |---------|---------|---------|---------|
 |properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Proprietà ProtectionPolicyResource        |
 |tags     |         | Object        |  Tag delle risorse       |

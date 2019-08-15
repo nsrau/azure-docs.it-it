@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 4d002a82e3968e0462e5f6e775ec147669c01b0d
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 448d416ce4915aeae048639f6021197ed8c1d334
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147943"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967864"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisiti di sistema per Importazione/Esportazione di Azure
 
@@ -41,7 +41,7 @@ Per preparare i dischi rigidi tramite lo strumento WAImportExport, sono supporta
 
 Il servizio Importazione/Esportazione di Azure supporta i tipi di account di archiviazione seguenti:
 
-- Account di archiviazione standard per utilizzo generico v2 (scelta consigliati per la maggior parte degli scenari)
+- Account di archiviazione standard per utilizzo generico V2 (scelta consigliata per la maggior parte degli scenari)
 - Account di archiviazione BLOB
 - Account di archiviazione per utilizzo generico v1 (distribuzione classica o di Azure Resource Manager), 
 
@@ -59,7 +59,7 @@ Con il servizio Importazione/Esportazione di Azure sono supportati i tipi di arc
 
 |Processo  |Servizio di archiviazione |Supportato  |Non supportate  |
 |---------|---------|---------|---------|
-|Importa     |  Archivio BLOB di Azure <br><br> Archiviazione file di Azure       | BLOB in blocchi e BLOB di pagine supportati <br><br> File supportati          |
+|Import     |  Archivio BLOB di Azure <br><br> Archiviazione file di Azure       | BLOB in blocchi e BLOB di pagine supportati <br><br> File supportati          |
 |Esportazione     |   Archivio BLOB di Azure       | BLOB in blocchi, BLOB di pagine e BLOB di aggiunta supportati         | File di Azure non supportato
 
 
@@ -72,11 +72,15 @@ Per il servizio Importazione/Esportazione di Azure è necessario usare dischi pe
 Con il servizio Importazione/Esportazione sono supportati i dischi inclusi nell'elenco seguente.
 
 
-|Tipo di disco  |Dimensione  |Supportato |Non supportate  |
-|---------|---------|---------|---------|
-|SSD    |   2,5"      |SATA III          |  USB       |
-|HDD     |  2,5"<br>3,5"       |SATA II, SATA III         |HDD esterno con adattatore USB integrato <br> Disco all'interno del contenitore di un HDD esterno         |
+|Tipo di disco  |Dimensione  |Supportato |
+|---------|---------|---------|
+|SSD    |   2,5"      |SATA III          | 
+|HDD     |  2,5"<br>3,5"       |SATA II, SATA III         |
 
+I tipi di dischi seguenti non sono supportati:
+- USBs.
+- HDD esterno con adattatore USB incorporato.
+- Dischi che si trovano all'interno della custodia di un disco rigido esterno.
 
 Un singolo processo di importazione/esportazione può avere:
 - Un massimo di 10 HDD/SSD.

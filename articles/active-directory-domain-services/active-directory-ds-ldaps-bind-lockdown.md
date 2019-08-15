@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: iainfou
-ms.openlocfilehash: df0b3d27eec478280a33be831a2431eccdf05a74
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: cbc5bee0f4cc59f59af6e3f57219279cd8fcb030
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483375"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988576"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>Eseguire il binding a un dominio gestito di Azure Active Directory Domain Services tramite l'accesso LDAP sicuro (LDAPS)
 
@@ -36,7 +36,7 @@ Innanzitutto, aprire LDP e connettersi al dominio gestito. Fare clic su **Connes
 Eseguire quindi il binding al dominio gestito. Fare clic su **Connessione**, quindi fare clic su **Associazione...** nel menu. Fornire le credenziali di un account utente appartenente al gruppo "AAD DC Administrators".
 
 > [!IMPORTANT]
-> Gli utenti (e gli account del servizio) non possono eseguire binding LDAP semplice se è stata disabilitata sincronizzazione dell'hash delle password NTLM nell'istanza di Azure AD Domain Services.  Per altre informazioni sulla disabilitazione della sincronizzazione dell'hash delle password NTLM, leggere [proteggere il dominio gestito di Azure AD DOmain Services](secure-your-domain.md).
+> Gli utenti e gli account del servizio non possono eseguire binding semplici LDAP se la sincronizzazione dell'hash delle password NTLM è stata disabilitata nell'istanza di Azure AD Domain Services.  Per ulteriori informazioni sulla disabilitazione della sincronizzazione dell'hash delle password NTLM, vedere [proteggere il Azure ad Domain Services dominio gestito](secure-your-domain.md).
 >
 >
 
@@ -72,7 +72,7 @@ Il gruppo di sicurezza di rete di esempio, nella tabella seguente, blocca l'acce
 * [Servizi di dominio Azure AD: introduzione](create-instance.md)
 * [Gestire un dominio di Azure AD Domain Services](manage-domain.md)
 * [Nozioni di base sulle query LDAP](https://docs.microsoft.com/windows/desktop/ad/creating-a-query-filter)
-* [Gestire i criteri di gruppo per Azure Active Directory Domain Services](manage-group-policy.md)
+* [Gestire Criteri di gruppo per Azure AD Domain Services](manage-group-policy.md)
 * [Gruppi di sicurezza di rete](../virtual-network/security-overview.md)
 * [Creare un gruppo di sicurezza di rete](../virtual-network/tutorial-filter-network-traffic.md)
 
