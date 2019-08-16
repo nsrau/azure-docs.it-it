@@ -7,16 +7,18 @@ ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 7dd053e3a9824ac0817db528b8b053666e1ded04
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 131d6865c47a32bbefbfbd397a5f0f88dedc9c35
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881825"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543505"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Come creare i criteri di configurazione Guest
 
 La configurazione Guest usa un modulo di risorse DSC ( [desired state Configuration](/powershell/dsc) ) per creare la configurazione per il controllo delle macchine virtuali di Azure. La configurazione DSC definisce la condizione in cui deve trovarsi la macchina virtuale. Se la valutazione della configurazione ha esito negativo, viene attivato il **controllo** degli effetti dei criteri e la macchina virtuale viene considerata **non conforme**.
+
+La [configurazione Guest di criteri di Azure](/azure/governance/policy/concepts/guest-configuration) può essere usata solo per controllare le impostazioni all'interno delle macchine virtuali. La correzione delle impostazioni nelle macchine virtuali non è ancora disponibile.
 
 Usare le azioni seguenti per creare una configurazione personalizzata per la convalida dello stato di una macchina virtuale di Azure.
 

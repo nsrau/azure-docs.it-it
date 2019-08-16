@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08/13/2019
 ms.author: magoedte
-ms.openlocfilehash: 2ea17a4363218351eb6e5ba0678435f3707e4ab9
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: a559fe86850ee9c1378876bc5ed8f2d0ddfb2d99
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663726"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543058"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Connetti Operations Manager a monitoraggio di Azure
 
@@ -65,12 +65,12 @@ Prima di iniziare, esaminare i requisiti seguenti.
 >[!NOTE]
 >Le recenti modifiche apportate alle API di Azure impediranno ai clienti di configurare correttamente l'integrazione tra il gruppo di gestione e monitoraggio di Azure per la prima volta. I clienti che hanno già integrato il proprio gruppo di gestione con il servizio non sono interessati da queste modifiche, a meno che non debbano riconfigurare la connessione esistente.  
 >Per le versioni seguenti di Operations Manager è stato rilasciato un nuovo Management Pack:
->  
->* Per System Center Operations Manager 1801, scaricare il Management Pack da [qui](https://www.microsoft.com/download/details.aspx?id=57173)  
->* Per System Center 2016 - Operations Manager, scaricare il Management Pack da [qui](https://www.microsoft.com/download/details.aspx?id=57172)  
->* Per System Center Operations Manager 2012 R2, scaricare il Management Pack da [qui](https://www.microsoft.com/download/details.aspx?id=57171)  
->
->Questo aggiornamento del Management Pack non è applicabile a System Center Operations Manager 1807, che è un aggiornamento della versione 1801 e non una build completa del prodotto.   
+> - Per System Center Operations Manager 2019, viene fornito Management Pack con il Operations Manager compilazione.
+>- Operations Manager 1801 Management Pack è applicabile anche per Operations Manager 1807.
+>- Per System Center Operations Manager 1801, scaricare il Management Pack da [qui](https://www.microsoft.com/download/details.aspx?id=57173).
+>- Per System Center 2016-Operations Manager, scaricare il Management Pack da [qui](https://www.microsoft.com/download/details.aspx?id=57172).  
+>- Per System Center Operations Manager 2012 R2, scaricare il Management Pack da [qui](https://www.microsoft.com/download/details.aspx?id=57171).  
+
 
 ### <a name="network"></a>Rete
 
@@ -82,12 +82,12 @@ Nelle informazioni riportate di seguito sono elencate le informazioni di configu
 |\*.ods.opinsights.azure.com| 443 |Sì|  
 |\*.oms.opinsights.azure.com| 443|Sì|  
 |\*.blob.core.windows.net| 443|Sì|  
-|\*.azure-automation.net| 443|Yes|  
+|\*.azure-automation.net| 443|Sì|  
 |**Server di gestione**|||  
 |\*.service.opinsights.azure.com| 443||  
 |\*.blob.core.windows.net| 443| Sì|  
 |\*.ods.opinsights.azure.com| 443| Sì|  
-|*.azure-automation.net | 443| Yes|  
+|*.azure-automation.net | 443| Sì|  
 |**Da console di Operations Manager a monitoraggio di Azure**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  

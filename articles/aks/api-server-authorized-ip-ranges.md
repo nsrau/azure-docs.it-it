@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 7dcf962345a2453fca52825c4be33a439d25df54
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: fe0c9d7e870b56bf83b70845af9159ea0703c4ab
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68740924"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533620"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Anteprima-proteggere l'accesso al server API usando gli intervalli di indirizzi IP autorizzati in Azure Kubernetes Service (AKS)
 
@@ -21,7 +21,7 @@ In Kubernetes, il server API riceve le richieste per eseguire le azioni nel clus
 Questo articolo illustra come usare gli intervalli di indirizzi IP autorizzati del server API per limitare le richieste di controllo del piano. Questa funzionalità è attualmente in anteprima.
 
 > [!IMPORTANT]
-> Le funzionalità di anteprima di AKS sono self-service e acconsentino esplicitamente. Sono disponibili per raccogliere commenti e suggerimenti e bug dalla community. In anteprima, queste funzionalità non sono destinate all'uso in produzione. Le funzionalità nella versione di anteprima pubblica rientrano nel supporto "Best Effort". L'assistenza dei team di supporto tecnico AKS è disponibile solo durante l'orario di ufficio Pacific TimeZone (PST). Per ulteriori informazioni, consultare gli articoli di supporto seguenti:
+> Le funzionalità di anteprima di AKS sono il consenso esplicito self-service. Le anteprime vengono fornite "così come sono" e "come disponibili" e sono escluse dai contratti di servizio e dalla garanzia limitata. Le anteprime AKS sono parzialmente coperte dal supporto tecnico per il massimo sforzo. Di conseguenza, queste funzionalità non sono destinate all'uso in produzione. Per ulteriori informazioni, vedere gli articoli di supporto seguenti:
 >
 > * [Criteri di supporto AKS][aks-support-policies]
 > * [Domande frequenti relative al supporto tecnico Azure][aks-faq]
@@ -108,6 +108,14 @@ Per assicurarsi che i nodi in un cluster possano comunicare in modo affidabile c
 
 > [!WARNING]
 > L'uso del firewall di Azure può comportare costi significativi in un ciclo di fatturazione mensile. Il requisito di usare il firewall di Azure dovrebbe essere necessario solo in questo periodo di anteprima iniziale. Per altre informazioni e per la pianificazione dei costi, vedere [prezzi di Azure firewall][azure-firewall-costs].
+>
+> In alternativa, se il cluster usa il servizio di [bilanciamento del carico SKU standard][standard-sku-lb], non è necessario configurare il firewall di Azure come gateway in uscita. Usare il comando [AZ Network Public-IP list][az-network-public-ip-list] e specificare il gruppo di risorse del cluster AKS, che in genere inizia con *MC_* . Viene visualizzato l'indirizzo IP pubblico per il cluster, che è possibile inserire nell'elenco elementi consentiti. Esempio:
+>
+> ```azurecli-interactive
+> RG=$(az aks show --resource-group myResourceGroup --name myAKSClusterSLB --query nodeResourceGroup -o tsv)
+> SLB_PublicIP=$(az network public-ip list --resource-group $RG --query [].ipAddress -o tsv)
+> az aks update --api-server-authorized-ip-ranges $SLB_PublicIP --resource-group myResourceGroup --name myAKSClusterSLB
+> ```
 
 Per prima cosa, ottenere il nome del gruppo di risorse *MC_* per il cluster AKS e la rete virtuale. Quindi, creare una subnet usando il comando [AZ Network VNET subnet create][az-network-vnet-subnet-create] . Nell'esempio seguente viene creata una subnet denominata *AzureFirewallSubnet* con l'intervallo CIDR di *10.200.0.0/16*:
 
@@ -259,11 +267,13 @@ Per altre informazioni, vedere [concetti relativi alla sicurezza per le applicaz
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [create-aks-sp]: kubernetes-service-principal.md#manually-create-a-service-principal
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-show]: /cli/azure/aks#az-aks-show
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-create
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-network-firewall-create]: /cli/azure/ext/azure-firewall/network/firewall#ext-azure-firewall-az-network-firewall-create
 [az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create
+[az-network-public-ip-list]: /cli/azure/network/public-ip#az-network-public-ip-list
 [az-network-firewall-ip-config-create]: /cli/azure/ext/azure-firewall/network/firewall/ip-config#ext-azure-firewall-az-network-firewall-ip-config-create
 [az-network-firewall-network-rule-create]: /cli/azure/ext/azure-firewall/network/firewall/network-rule#ext-azure-firewall-az-network-firewall-network-rule-create
 [az-network-route-table-route-create]: /cli/azure/network/route-table/route#az-network-route-table-route-create
@@ -271,3 +281,4 @@ Per altre informazioni, vedere [concetti relativi alla sicurezza per le applicaz
 [aks-faq]: faq.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[standard-sku-lb]: load-balancer-standard.md

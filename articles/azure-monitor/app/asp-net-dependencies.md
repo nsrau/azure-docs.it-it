@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: mbullwin
-ms.openlocfilehash: c2f115564c81f38dd437f1d3ff1e33d7d162a42f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 858508e949f8a880498e1a3d983dc76224010c31
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326437"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534608"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Rilevamento delle dipendenze in applicazione Azure Insights 
 
@@ -29,7 +29,7 @@ Application Insights SDK per .NET e .NET Core viene fornito `DependencyTrackingT
 
  `DependencyTrackingTelemetryModule`attualmente rileva automaticamente le dipendenze seguenti:
 
-|Dipendenze |Dettagli|
+|Dependencies |Dettagli|
 |---------------|-------|
 |Http/https | Chiamate http/https locali o remote |
 |Chiamate WCF| Viene rilevata automaticamente solo se vengono utilizzate associazioni basate su http.|
@@ -90,7 +90,7 @@ Se si vuole disattivare il modulo standard di rilevamento delle dipendenze, rimu
 
 ## <a name="tracking-ajax-calls-from-web-pages"></a>Verifica delle chiamate AJAX da pagine Web
 
-Per le pagine Web, Application Insights JavaScript SDK raccoglie automaticamente le chiamate AJAX come dipendenze, come descritto [qui](javascript.md#ajax-performance). Questo documento è incentrato sulle dipendenze dai componenti server.
+Per le pagine Web, Application Insights JavaScript SDK raccoglie automaticamente le chiamate AJAX come dipendenze.
 
 ## <a name="advanced-sql-tracking-to-get-full-sql-query"></a>Rilevamento SQL avanzato per ottenere una query SQL completa
 
@@ -113,7 +113,7 @@ Nei casi precedenti, il modo corretto per convalidare il motore di strumentazion
 
 * La [mappa delle applicazioni](app-map.md) visualizza le dipendenze tra l'app e i componenti adiacenti.
 * La [diagnostica delle transazioni](transaction-diagnostics.md) Mostra dati server unificati e correlati.
-* [Scheda browser](javascript.md#ajax-performance) Mostra le chiamate AJAX dai browser degli utenti.
+* [Scheda browser](javascript.md) Mostra le chiamate AJAX dai browser degli utenti.
 * Fare clic sulle richieste lente o non riuscite per controllare le chiamate alle dipendenze.
 * L'[analisi](#logs-analytics) può essere usata per effettuare una query dei dati sulle dipendenze.
 
@@ -147,7 +147,7 @@ Le richieste non riuscite possono anche essere associate a chiamate non riuscite
 
 Qui sarà possibile visualizzare il numero di dipendenze non riuscite. Per ottenere ulteriori informazioni su un'occorrenza non riuscita, provare a fare clic su un nome di dipendenza nella tabella inferiore. È possibile fare clic sul pulsante **dipendenze** blu nella parte inferiore destra per ottenere i dettagli della transazione end-to-end.
 
-## <a name="logs-analytics"></a>Log (analisi)
+## <a name="logs-analytics"></a>Log (Analisi)
 
 È possibile tenere traccia delle dipendenze nel [linguaggio di query Kusto](/azure/kusto/query/). Di seguito sono riportati alcuni esempi.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 90190f426419e65bd580b9004ae76a2c6b0c12e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c147d99eaabee70316521d1f2bdc41933162ab1
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61463150"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542600"
 ---
 # <a name="encode-an-asset-by-using-media-encoder-standard-in-the-azure-portal"></a>Codificare un asset mediante Media Encoder Standard sul portale di Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "61463150"
 > 
 > 
 
-Quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti consiste nella distribuzione di contenuti in streaming a velocità in bit adattiva ai client. Servizi multimediali supporta le tecnologie di streaming a bitrate adattivo seguenti: Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming e DASH (Dynamic Adaptive Streaming over HTTP, denominato anche MPEG-DASH). Per preparare i video per lo streaming a bitrate adattivo, codificare prima il video di origine in file a più bitrate. È possibile usare Azure Media Encoder Standard per codificare i video.  
+Quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti consiste nella distribuzione di contenuti in streaming a velocità in bit adattiva ai client. Servizi multimediali supporta le tecnologie di streaming a bitrate adattivo seguenti: Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming e DASH (Dynamic Adaptive Streaming over HTTP, denominato anche MPEG-DASH). Per preparare i video per lo streaming a bitrate adattivo, codificare prima il video di origine in file a più bitrate. È possibile usare Media Encoder Standard per codificare i video.  
 
 Servizi multimediali consente la creazione dinamica dei pacchetti. Con creazione dinamica dei pacchetti, è possibile recapitare MP4s a più bitrate in HLS, Smooth Streaming e MPEG-DASH, senza riassemblaggio in tali formati di streaming. Quando si usa la creazione dinamica dei pacchetti consente di archiviare e pagare i file in un solo formato di archiviazione. Servizi multimediali creerà e fornirà la risposta appropriata in base alle richieste del client.
 

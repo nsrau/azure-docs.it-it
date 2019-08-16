@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: 9744a4b7bc5d2e9ce22bfa14ea33a2b11dacda85
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 359773dad53f333b2f052dd5b5481645c72746da
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612457"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533924"
 ---
 # <a name="reset-a-vpn-gateway"></a>Reimpostare un gateway VPN
 
@@ -24,7 +24,7 @@ Un gateway VPN di Azure è costituito da due istanze di macchina virtuale in ese
 
 Dopo l'emissione del comando per ripristinare il gateway, l'istanza attualmente attiva del gateway VPN di Azure viene riavviata immediatamente. Si verificherà un breve intervallo durante il failover dall'istanza attiva (in fase di riavvio) all'istanza di standby. L'intervallo dovrebbe essere inferiore a un minuto.
 
-Se la connessione non viene ripristinata dopo il primo riavvio, emettere di nuovo lo stesso comando per riavviare la seconda istanza della VM, ovvero il nuovo gateway attivo. Se vengono richiesti due riavvii uno dopo l'altro, il periodo necessario per il riavvio di entrambe le istanze della VM (attiva e di standby) sarà leggermente più lungo. Ciò causerà un intervallo più lungo nella connettività VPN, fino a 30 a 45 minuti per le macchine virtuali al completamento dei riavvii.
+Se la connessione non viene ripristinata dopo il primo riavvio, emettere di nuovo lo stesso comando per riavviare la seconda istanza della VM, ovvero il nuovo gateway attivo. Se vengono richiesti due riavvii uno dopo l'altro, il periodo necessario per il riavvio di entrambe le istanze della VM (attiva e di standby) sarà leggermente più lungo. Ciò causerà un gap più lungo sulla connettività VPN, fino a un massimo di 30-45 minuti affinché le VM completino il riavvio.
 
 Dopo due riavvii, se si verificano ancora problemi di connettività cross-premise, aprire una richiesta di supporto dal portale di Azure.
 
@@ -56,7 +56,7 @@ Verificare gli elementi seguenti prima di reimpostare il gateway:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Il cmdlet per la reimpostazione di un gateway è **Reset-AzVirtualNetworkGateway**. Prima di eseguire un ripristino assicurarsi di avere la versione più recente del [i cmdlet di PowerShell Az](https://docs.microsoft.com/powershell/module/az.network). Nell'esempio seguente viene ripristinato un gateway di rete virtuale denominato VNet1GW nel gruppo di risorse TestRG1:
+Il cmdlet per la reimpostazione di un gateway è **Reset-AzVirtualNetworkGateway**. Prima di eseguire una reimpostazione, verificare di avere la versione più recente dei [cmdlet di PowerShell AZ](https://docs.microsoft.com/powershell/module/az.network). Nell'esempio seguente viene ripristinato un gateway di rete virtuale denominato VNet1GW nel gruppo di risorse TestRG1:
 
 ```powershell
 $gw = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
@@ -69,7 +69,7 @@ Quando si riceve un valore restituito, si può presupporre che il ripristino del
 
 ### <a name="resetclassic"></a>Modello di distribuzione classica
 
-Il cmdlet per la reimpostazione di un gateway è **Reset-AzureVNetGateway**. Prima di eseguire un ripristino assicurarsi di avere la versione più recente dei [cmdlet di PowerShell per Gestione servizi](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). L'esempio seguente reimposta il gateway per la rete virtuale denominata "ContosoVNet":
+Il cmdlet per la reimpostazione di un gateway è **Reset-AzureVNetGateway**. I cmdlet di Azure PowerShell per la gestione dei servizi devono essere installati localmente sul desktop. Non è possibile usare Azure Cloud Shell. Prima di eseguire un ripristino assicurarsi di avere la versione più recente dei [cmdlet di PowerShell per Gestione servizi](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). L'esempio seguente reimposta il gateway per la rete virtuale denominata "ContosoVNet":
 
 ```powershell
 Reset-AzureVNetGateway –VnetName “ContosoVNet”

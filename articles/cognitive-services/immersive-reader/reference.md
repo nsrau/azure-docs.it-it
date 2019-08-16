@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 1a616bce8c161825853b1966769d9505595d95de
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 1d9fc20055fe3adb571b5a77330cc6537998cb5f
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688322"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534478"
 ---
 # <a name="immersive-reader-sdk-reference"></a>Guida di riferimento a immersive Reader SDK
 
@@ -35,14 +35,14 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 #### <a name="parameters"></a>Parametri
 
-| Name | Type | Descrizione |
+| Name | Type | DESCRIZIONE |
 | ---- | ---- |------------ |
 | `token` | string | Token di autenticazione Azure AD. Vedere le [procedure per l'autenticazione Azure ad](./azure-active-directory-authentication.md). |
 | `subdomain` | string | Sottodominio personalizzato della risorsa Reader immersiva in Azure. Vedere le [procedure per l'autenticazione Azure ad](./azure-active-directory-authentication.md). |
 | `content` | [Contenuto](#content) | Oggetto contenente il contenuto da visualizzare nel lettore immersivo. |
 | `options` | [Opzioni](#options) | Opzioni per la configurazione di determinati comportamenti del lettore immersivo. facoltativo. |
 
-#### <a name="returns"></a>Risultati restituiti
+#### <a name="returns"></a>Valori di codice restituiti
 
 Restituisce un `Promise<HTMLDivElement>` oggetto che viene risolto quando il lettore immersivo viene caricato. Viene `Promise` risolto in un `div` elemento il cui unico figlio è un `iframe` elemento che contiene la pagina di lettura immersiva.
 
@@ -71,8 +71,9 @@ Contiene il contenuto da visualizzare nel lettore immersivo.
 
 | Tipo MIME | Descrizione |
 | --------- | ----------- |
-| testo/normale | Testo normale. |
+| text/plain | Testo normale. |
 | Application/MathML + XML | Linguaggio di markup matematico (MathML). [Altre informazioni](https://developer.mozilla.org/en-US/docs/Web/MathML)
+| Application/vnd. openxmlformats-officedocument. WordprocessingML. Document | Documento di formato Microsoft Word. docx.
 
 ### <a name="options"></a>Opzioni
 
@@ -100,11 +101,12 @@ Contiene informazioni sull'errore.
 
 #### <a name="error-codes"></a>Codici di errore
 
-| Codice | Descrizione |
+| Codice | DESCRIZIONE |
 | ---- | ----------- |
 | BadArgument | L'argomento fornito non è valido `message` . per informazioni dettagliate, vedere. |
 | Timeout | Non è stato possibile caricare il lettore immersivo entro il timeout specificato. |
-| TokenExpired| Il token fornito è scaduto. |
+| TokenExpired | Il token fornito è scaduto. |
+| Limitato | È stato superato il limite di frequenza delle chiamate. |
 
 ## <a name="launching-the-immersive-reader"></a>Avvio del lettore immersivo
 
@@ -118,7 +120,7 @@ L'SDK fornisce lo stile predefinito per il pulsante per l'avvio del lettore imme
 
 Usare gli attributi seguenti per configurare l'aspetto del pulsante.
 
-| Attributo | Descrizione |
+| Attributo | DESCRIZIONE |
 | --------- | ----------- |
 | `data-button-style` | Imposta lo stile del pulsante. Può essere `icon`, `text` o `iconAndText`. Il valore predefinito è `icon`. |
 | `data-locale` | Imposta le impostazioni locali, ad esempio `en-US`. `fr-FR` Il valore predefinito è inglese. |

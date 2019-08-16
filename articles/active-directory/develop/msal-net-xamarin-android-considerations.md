@@ -3,7 +3,7 @@ title: Considerazioni su Novell Android (Microsoft Authentication Library per .N
 description: Per informazioni su considerazioni specifiche, vedere l'articolo relativo all'uso di Novell Android con Microsoft Authentication Library per .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff55853c859008690548b161451a24941a597d3a
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 465902cf6ef6db1d867f7cc986da8c9e06e4fbbf
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277889"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532458"
 ---
 # <a name="xamarin-android-specific-considerations-with-msalnet"></a>Novell considerazioni specifiche per Android con MSAL.NET
 Questo articolo illustra alcune considerazioni specifiche quando si usa Novell Android con Microsoft Authentication Library per .NET (MSAL.NET).
@@ -99,7 +99,7 @@ var authResult = AcquireTokenInteractive(scopes)
  .ExecuteAsync();
 ```
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 Se si crea una nuova applicazione Novell. Forms e si aggiunge un riferimento al pacchetto NuGet MSAL.Net, questo funzionerà semplicemente.
 Tuttavia, se si desidera aggiornare un'applicazione Novell. Forms esistente a MSAL.NET Preview 1.1.2 o versione successiva, è possibile che si verifichino problemi di compilazione.
 
@@ -115,7 +115,7 @@ Per risolvere questi problemi, è necessario:
 
 ### <a name="error-the-name-authenticationcontinuationhelper-does-not-exist-in-the-current-context"></a>Errore: Il nome ' AuthenticationContinuationHelper ' non esiste nel contesto corrente
 
-Questa operazione è probabilmente dovuta al fatto che Visual Studio non ha aggiornato correttamente il file Android. csproj *. A volte HintPath > FilePath contiene erroneamente netstandard13 anziché monoandroid90.  **\<**
+Questa operazione è probabilmente dovuta al fatto che Visual Studio non ha aggiornato correttamente il file Android. csproj *. A volteHintPath > FilePath contiene erroneamente netstandard13 anziché monoandroid90.  **\<**
 
 ```xml
 <Reference Include="Microsoft.Identity.Client, Version=3.0.4.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae,

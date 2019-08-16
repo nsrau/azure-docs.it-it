@@ -3,7 +3,7 @@ title: Supporto AD FS in Microsoft Authentication Library per .NET | Azure
 description: Informazioni sul supporto di Active Directory Federation Services (AD FS) in Microsoft Authentication Library per .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
-ms.author: jmprieur
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13e1f80f3a0a10466ead60d828d28aa9916fe26b
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: beb1bcc4599a891b8748b63c5e7c5c09f5acdac7
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302700"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532678"
 ---
 # <a name="active-directory-federation-services-support-in-msalnet"></a>Supporto Active Directory Federation Services in MSAL.NET
 Active Directory Federation Services (AD FS) in Windows Server consente di aggiungere l'autenticazione e l'autorizzazione basate su OpenID Connect e OAuth 2,0 alle applicazioni in fase di sviluppo. Tali applicazioni possono quindi autenticare gli utenti direttamente in AD FS. Per ulteriori informazioni, vedere [ad FS scenari per gli sviluppatori](/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers).

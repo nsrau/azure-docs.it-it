@@ -3,7 +3,7 @@ title: Considerazioni sulla piattaforma UWP (Universal Windows Platform) (Micros
 description: Per informazioni su considerazioni specifiche, vedere l'articolo relativo all'uso di piattaforma UWP (Universal Windows Platform) con Microsoft Authentication Library per .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d78a64ee41e37fe53eba20eab6753c0b6eb8389
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 263264742088a0012ea844946e13cffbab634b29
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277911"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532487"
 ---
 # <a name="universal-windows-platform-specific-considerations-with-msalnet"></a>Considerazioni specifiche di piattaforma UWP (Universal Windows Platform) con MSAL.NET
 In UWP è necessario tenere conto di diverse considerazioni quando si usa MSAL.NET.
@@ -46,7 +46,7 @@ L'implementazione sottostante sulla piattaforma UWP (WAB) non funziona correttam
 
 Una soluzione alternativa consiste nell'usare un metodo alternativo (nome utente/password e autenticazione telefono), ma l'esperienza non è ottimale.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Alcuni clienti hanno segnalato che in alcuni ambienti aziendali specifici si è verificato il seguente errore di accesso:
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 2c115bf0ad21e905e998692fbbc175f5aa52b86d
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 77d900844705bb86ce4bcfeda31d6ee765cb8d45
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014263"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535001"
 ---
 # <a name="tutorial-using-azure-iot-hub-message-enrichments-preview"></a>Esercitazione: Uso degli arricchimenti di messaggi dell'hub Azure (anteprima)
 
@@ -69,7 +69,7 @@ Se non è già stato fatto, aprire una [finestra di cloud Shell per bash.](https
 
 Di seguito sono riportate le risorse create dallo script. **Arricchito** significa che la risorsa è destinata ai messaggi con arricchimenti. **Originale** significa che la risorsa è per i messaggi che non sono arricchiti.
 
-| Name | Valore |
+| NOME | Value |
 |-----|-----|
 | resourceGroup | ContosoResourcesMsgEn |
 | nome del contenitore | Originale  |
@@ -84,7 +84,7 @@ Di seguito sono riportate le risorse create dallo script. **Arricchito** signifi
 
 ```azurecli-interactive
 # This command retrieves the subscription id of the current Azure account.
-# This field is used when setting up the routing rules.
+# This field is used when setting up the routing queries.
 subscriptionID=$(az account show --query id -o tsv)
 
 # Concatenate this number onto the resources that have to be globally unique.
@@ -269,7 +269,7 @@ A questo punto, tutte le risorse sono impostate e il routing è configurato. È 
 
 ## <a name="send-messages-to-the-iot-hub"></a>Inviare messaggi all'hub Internet delle cose
 
-Ora che gli arricchimenti dei messaggi sono configurati per l'endpoint, eseguire l'applicazione del dispositivo simulato per inviare i messaggi all'hub. L'hub è stato configurato con regole che eseguono le operazioni seguenti:
+Ora che gli arricchimenti dei messaggi sono configurati per l'endpoint, eseguire l'applicazione del dispositivo simulato per inviare i messaggi all'hub. L'hub è stato configurato con le impostazioni che eseguono le operazioni seguenti:
 
 * I messaggi indirizzati all'endpoint di archiviazione ContosoStorageEndpointOriginal non verranno arricchiti e verranno archiviati nel contenitore `original`di archiviazione.
 

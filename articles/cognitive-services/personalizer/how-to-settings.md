@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: f0ccf0e480fa57e0ffdfc94ca35cfaceded37a0b
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: cd67f435ff390267e01acd99594b9063db4c4ee1
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663889"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69559099"
 ---
 # <a name="personalizer-settings"></a>Impostazioni di Personalizza esperienze
 
@@ -86,6 +86,7 @@ Nella sezione **Model and Policy** (Modello e criteri) di Gestione risorse esami
 ## <a name="import-and-export-learning-policy"></a>Importare ed esportare criteri di apprendimento
 
 Nella sezione **Model and Policy** (Modello e criteri) di Gestione risorse importare un nuovo criterio di apprendimento oppure esportare quello corrente.
+È possibile ottenere i file dei criteri di apprendimento dalle esportazioni precedenti oppure scaricare i criteri ottimizzati individuati durante le valutazioni offline. Apportare modifiche manuali a questi file influirà sulle prestazioni e sull'accuratezza delle valutazioni offline e Microsoft non è in grado di garantire l'accuratezza di machine learning e valutazioni oppure le eccezioni dei servizi derivanti da criteri modificati manualmente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

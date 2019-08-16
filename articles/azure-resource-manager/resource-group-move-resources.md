@@ -1,40 +1,40 @@
 ---
-title: Spostare le risorse di Azure in un nuova sottoscrizione o gruppo di risorse | Microsoft Docs
+title: Spostare le risorse di Azure in una nuova sottoscrizione o in un nuovo gruppo di risorse | Microsoft Docs
 description: Usare Azure Resource Manager per spostare risorse a un nuovo gruppo di risorse o a una nuova sottoscrizione.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: 01ec8facf2771de9ec01b9470521340a59ee4d0d
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 53482fdd760517967c9a4a976b43b64ba745c637
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721390"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542947"
 ---
-# <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Spostare le risorse in un nuovo gruppo di risorse o sottoscrizione
+# <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Spostare le risorse in un nuovo gruppo di risorse o una nuova sottoscrizione
 
 Questo articolo illustra come spostare le risorse di Azure in un'altra sottoscrizione o in un altro gruppo di risorse all'interno della stessa sottoscrizione. Per spostare le risorse, è possibile usare il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST.
 
 Durante l'operazione di spostamento il gruppo di origine e quello di destinazione sono bloccati. Le operazioni di scrittura ed eliminazione sono bloccate nei gruppi di risorse fino al completamento dello spostamento. Questo blocco indica che non è possibile aggiungere, aggiornare o eliminare le risorse dei gruppi di risorse, ma non che le risorse sono bloccate. Se ad esempio si sposta un Server SQL con il relativo database in un nuovo gruppo di risorse, nelle applicazioni che usano il database non si verificano tempi di inattività, poiché rimane possibile leggere e scrivere nel database.
 
-Lo spostamento di una risorsa solo lo sposta in un nuovo gruppo di risorse o sottoscrizione. Il percorso della risorsa non viene modificato.
+Lo spostamento di una risorsa lo sposta solo in un nuovo gruppo di risorse o una nuova sottoscrizione. Non modifica la posizione della risorsa.
 
 ## <a name="checklist-before-moving-resources"></a>Controllo prima di spostare le risorse
 
 Prima di spostare una risorsa, è necessario eseguire alcuni passi importanti. La verifica di queste condizioni consente di evitare errori.
 
-1. Le risorse da spostare devono supportare l'operazione di spostamento. Per un elenco dei quali risorse supportano lo spostamento, vedere [spostare il supporto di operazione per le risorse](move-support-resources.md).
+1. Le risorse che si desidera spostare devono supportare l'operazione di spostamento. Per un elenco delle risorse che supportano lo spostamento, vedere [spostare il supporto delle operazioni per le risorse](move-support-resources.md).
 
-1. Alcuni servizi hanno requisiti o limitazioni specifiche quando si spostano risorse. Se è stato lo spostamento di uno qualsiasi dei seguenti servizi, controllare tali linee guida prima di procedere.
+1. Alcuni servizi presentano limitazioni o requisiti specifici quando si trasferiscono le risorse. Se è stato spostato uno dei servizi seguenti, controllare le linee guida prima di procedere.
 
-   * [Servizi app di passare informazioni aggiuntive](./move-limitations/app-service-move-limitations.md)
-   * [Servizi di Azure DevOps spostare linee guida](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
-   * [Materiale sussidiario spostamento del modello di distribuzione classica](./move-limitations/classic-model-move-limitations.md) -calcolo classico, archiviazione classica, le reti virtuali classiche e servizi Cloud
-   * [Servizi di ripristino passare informazioni aggiuntive](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
-   * [Materiale sussidiario di spostare le macchine virtuali](./move-limitations/virtual-machines-move-limitations.md)
-   * [Materiale sussidiario di spostare le reti virtuali](./move-limitations/virtual-network-move-limitations.md)
+   * [Linee guida per lo spostamento dei servizi app](./move-limitations/app-service-move-limitations.md)
+   * [Linee guida per lo spostamento Azure DevOps Services](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
+   * [Linee guida per lo spostamento di modelli di distribuzione classica](./move-limitations/classic-model-move-limitations.md) -calcolo classico, archiviazione classica, reti virtuali classiche e servizi cloud
+   * [Linee guida per lo spostamento dei servizi di ripristino](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
+   * [Linee guida per lo spostamento delle macchine virtuali](./move-limitations/virtual-machines-move-limitations.md)
+   * [Linee guida per lo spostamento delle reti virtuali](./move-limitations/virtual-network-move-limitations.md)
 
 1. Le sottoscrizioni di origine e di destinazione devono essere attive. In caso di problemi durante l'abilitazione di un account precedentemente disabilitato, [creare una richiesta di supporto tecnico di Azure](../azure-supportability/how-to-create-azure-support-request.md). Selezionare **Gestione delle sottoscrizioni** per il tipo di problema.
 
@@ -94,9 +94,26 @@ Prima di spostare una risorsa, è necessario eseguire alcuni passi importanti. L
 
 1. Prima di spostare le risorse, controllare le quote della sottoscrizione in cui si desidera spostare le risorse. Se lo spostamento di risorse causa il superamento dei limiti della sottoscrizione, è necessario verificare se è possibile richiedere un aumento della quota. Per un elenco dei limiti e su come richiedere un aumento, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
 
+1. **Per lo spostamento tra le sottoscrizioni, la risorsa e le relative risorse dipendenti devono trovarsi nello stesso gruppo di risorse e devono essere spostate insieme.** Ad esempio, una macchina virtuale con dischi gestiti richiede lo spostamento della macchina virtuale e dei dischi gestiti, insieme ad altre risorse dipendenti.
+
+   Se si sta migrando una risorsa in una nuova sottoscrizione, verificare se la risorsa ha risorse dipendenti e se si trovano nello stesso gruppo di risorse. Se le risorse non si trovano nello stesso gruppo di risorse, controllare per verificare se le risorse possono essere consolidate nello stesso gruppo di risorse. In tal caso, portare tutte queste risorse nello stesso gruppo di risorse usando un'operazione di spostamento tra i gruppi di risorse.
+    
+Per ulteriori informazioni, vedere [scenario per lo spostamento tra sottoscrizioni](#scenario-for-move-across-subscriptions).
+
+## <a name="scenario-for-move-across-subscriptions"></a>Scenario per lo spostamento tra sottoscrizioni
+Lo trasferimento di risorse da una sottoscrizione a un'altra è un processo in tre passaggi:
+
+![scenario di spostamento tra sottoscrizioni](./media/resource-group-move-resources/cross-subscription-move-scenario.png)
+
+A scopo illustrativo, è presente una sola risorsa dipendente.
+
+* Passaggio 1: Se le risorse dipendenti vengono distribuite in gruppi di risorse diversi, spostarle prima in un gruppo di risorse.
+* Passaggio 2: Spostare la risorsa e le risorse dipendenti insieme dalla sottoscrizione di origine alla sottoscrizione di destinazione.
+* Passaggio 3: Facoltativamente, ridistribuire le risorse dipendenti a diversi gruppi di risorse all'interno della sottoscrizione di destinazione. 
+
 ## <a name="validate-move"></a>Convalidare lo spostamento
 
-L'[operazione di convalida dello spostamento](/rest/api/resources/resources/validatemoveresources) consente di testare lo scenario di spostamento senza realmente spostare le risorse. Utilizzare questa operazione per verificare se lo spostamento avrà esito positivo. La convalida viene chiamata automaticamente quando si invia una richiesta di spostamento. Utilizzare questa operazione solo quando è necessario definire in anticipo i risultati. Per eseguire questa operazione, è necessario:
+L'[operazione di convalida dello spostamento](/rest/api/resources/resources/validatemoveresources) consente di testare lo scenario di spostamento senza realmente spostare le risorse. Utilizzare questa operazione per verificare se lo spostamento avrà esito positivo. La convalida viene chiamata automaticamente quando si invia una richiesta di spostamento. Utilizzare questa operazione solo quando è necessario predeterminare i risultati. Per eseguire questa operazione, è necessario:
 
 * il nome del gruppo di risorse di origine
 * l'ID risorsa della risorsa del gruppo di risorse di destinazione
@@ -167,7 +184,7 @@ Al completamento dell'operazione si riceverà la notifica del risultato.
 
 ![Visualizzare il risultato dello spostamento](./media/resource-group-move-resources/show-result.png)
 
-Se si verifica un errore, vedere [risoluzione dei problemi lo spostamento delle risorse di Azure in un nuovo gruppo di risorse o sottoscrizione](troubleshoot-move.md).
+Se viene visualizzato un errore, vedere [risolvere i problemi di trasferimento delle risorse di Azure in un nuovo gruppo di risorse o sottoscrizione](troubleshoot-move.md).
 
 ## <a name="use-azure-powershell"></a>Usare Azure PowerShell
 
@@ -181,7 +198,7 @@ Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.Resource
 
 Per eseguire lo spostamento in una nuova sottoscrizione, includere un valore per il parametro `DestinationSubscriptionId`.
 
-Se si verifica un errore, vedere [risoluzione dei problemi lo spostamento delle risorse di Azure in un nuovo gruppo di risorse o sottoscrizione](troubleshoot-move.md).
+Se viene visualizzato un errore, vedere [risolvere i problemi di trasferimento delle risorse di Azure in un nuovo gruppo di risorse o sottoscrizione](troubleshoot-move.md).
 
 ## <a name="use-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
 
@@ -195,11 +212,11 @@ az resource move --destination-group newgroup --ids $webapp $plan
 
 Per spostare in una nuova sottoscrizione, inserire il parametro `--destination-subscription-id`.
 
-Se si verifica un errore, vedere [risoluzione dei problemi lo spostamento delle risorse di Azure in un nuovo gruppo di risorse o sottoscrizione](troubleshoot-move.md).
+Se viene visualizzato un errore, vedere [risolvere i problemi di trasferimento delle risorse di Azure in un nuovo gruppo di risorse o sottoscrizione](troubleshoot-move.md).
 
 ## <a name="use-rest-api"></a>Usare l'API REST
 
-Per spostare le risorse esistenti in un altro gruppo di risorse o sottoscrizione, usare il [spostare le risorse](/rest/api/resources/Resources/MoveResources) operazione.
+Per spostare le risorse esistenti in un altro gruppo di risorse o una sottoscrizione, usare l'operazione di [spostamento delle risorse](/rest/api/resources/Resources/MoveResources) .
 
 ```HTTP
 POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version}
@@ -214,8 +231,8 @@ Nel corpo della richiesta specificare il gruppo di risorse di destinazione e le 
 }
 ```
 
-Se si verifica un errore, vedere [risoluzione dei problemi lo spostamento delle risorse di Azure in un nuovo gruppo di risorse o sottoscrizione](troubleshoot-move.md).
+Se viene visualizzato un errore, vedere [risolvere i problemi di trasferimento delle risorse di Azure in un nuovo gruppo di risorse o sottoscrizione](troubleshoot-move.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per un elenco dei quali risorse supportano lo spostamento, vedere [spostare il supporto di operazione per le risorse](move-support-resources.md).
+Per un elenco delle risorse che supportano lo spostamento, vedere [spostare il supporto delle operazioni per le risorse](move-support-resources.md).

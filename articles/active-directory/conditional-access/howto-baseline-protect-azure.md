@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aab2aa4415345747a0e87b90ef0a7ee770ef3465
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: e8095b4fa6e52b7c34cedaea35b129ab68dddc65
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608130"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532948"
 ---
 # <a name="baseline-policy-require-mfa-for-service-management-preview"></a>Criteri di base: Richiedi autenticazione a più fattori per la gestione dei servizi (anteprima)
 
@@ -32,21 +32,21 @@ L'uso di Azure Resource Manager per gestire i servizi è un'azione con privilegi
 
 Quando questo criterio è abilitato in un tenant, tutti gli utenti che accedono alle risorse di gestione di Azure verranno verificati con multi-factor authentication. Se l'utente non è registrato per l'autenticazione a più fattori, l'utente dovrà eseguire la registrazione usando l'app Microsoft Authenticator per continuare.
 
-Per eseguire l'accesso interattivo con [Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps), usare il cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) .
+Per eseguire l'accesso interattivo con [Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps), usare il cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) .
 
 ```PowerShell
 Connect-AzAccount
 ```
 
-Quando viene eseguito, questo cmdlet visualizzerà una stringa del token. Per accedere, copiare questa stringa e incollarla [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin)  in un browser. La sessione di PowerShell verrà autenticata per connettersi ad Azure.
+Quando viene eseguito, questo cmdlet visualizzerà una stringa del token. Per accedere, copiare questa stringa e incollarla [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) in un browser. La sessione di PowerShell verrà autenticata per connettersi ad Azure.
 
-Per eseguire l'accesso interattivo usando l' [interfaccia](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)della riga di comando di Azure, eseguire il comando [AZ login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) .
+Per eseguire l'accesso interattivo usando l' [interfaccia](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)della riga di comando di Azure, eseguire il comando [AZ login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) .
 
 ```azurecli
 az login
 ```
 
-Se l'interfaccia della riga di comando può aprire il browser predefinito, eseguirà questa operazione e caricherà una pagina di accesso. In caso contrario, è necessario aprire una pagina del browser e seguire le istruzioni nella riga di comando per immettere un codice di autorizzazione dopo [https://aka.ms/devicelogin](https://aka.ms/devicelogin) lo spostamento nel browser. Successivamente, accedere con le credenziali dell'account nel browser.
+Se l'interfaccia della riga di comando può aprire il browser predefinito, eseguirà questa operazione e caricherà una pagina di accesso. In caso contrario, è necessario aprire una pagina del browser e seguire le istruzioni nella riga di comando per immettere un codice di autorizzazione dopo [https://aka.ms/devicelogin](https://aka.ms/devicelogin) lo spostamento nel browser. Successivamente, accedere con le credenziali dell'account nel browser.
 
 ## <a name="deployment-considerations"></a>Considerazioni sulla distribuzione
 
@@ -58,11 +58,11 @@ Criteri di **base dei criteri: Richiedi autenticazione a più fattori per gestio
 
 Per abilitare questo criterio e proteggere gli amministratori:
 
-1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
+1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
 1. Passare a **Azure Active Directory** > **accesso condizionale**.
 1. Nell'elenco dei criteri selezionare **criteri di base: Richiedi autenticazione a più fattori per la gestione**dei servizi (anteprima).
 1. Impostare **Abilita criterio** per **usare immediatamente i criteri**.
-1. Fare clic su **Salva**.
+1. Fare clic su **Save**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

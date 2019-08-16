@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 1668e0b3b155804496b190f2ba66d220ba0dd219
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 00fadd8a98ec4f58783ed8b407e2621a7c107149
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381956"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533530"
 ---
 # <a name="aks-troubleshooting"></a>Risoluzione dei problemi di servizio Azure Kubernetes
 
@@ -86,10 +86,12 @@ Questo errore si verifica quando i cluster entrano in uno stato di errore per di
 
 *Questa assistenza per la risoluzione dei problemi è diretta da https://aka.ms/aks-pending-upgrade*
 
-Le operazioni del cluster sono limitate quando si verificano operazioni di aggiornamento attive o se è stato eseguito un tentativo di aggiornamento, ma successivamente non riuscito. Per diagnosticare l'esecuzione `az aks show -g myResourceGroup -n myAKSCluster -o table` del problema per recuperare lo stato dettagliato del cluster. In base al risultato:
+Le operazioni di aggiornamento e ridimensionamento in un cluster con un pool a nodo singolo o un cluster con [più pool di nodi](use-multiple-node-pools.md) si escludono a vicenda. Non è possibile avere un cluster o un pool di nodi simultaneamente per l'aggiornamento e la scalabilità. Al contrario, ogni tipo di operazione deve essere completato sulla risorsa di destinazione prima della richiesta successiva sulla stessa risorsa. Di conseguenza, le operazioni sono limitate quando le operazioni di aggiornamento o ridimensionamento attive vengono eseguite o tentate e successivamente non riuscite. 
 
-* Se il cluster sta aggiornando attivamente, attendere che l'operazione venga terminata. In caso di esito positivo, provare a eseguire di nuovo l'operazione precedentemente non riuscita.
-* Se il cluster non è stato aggiornato, attenersi alla procedura descritta in precedenza
+Per facilitare la diagnosi dell'esecuzione `az aks show -g myResourceGroup -n myAKSCluster -o table` del problema per recuperare lo stato dettagliato del cluster. In base al risultato:
+
+* Se il cluster sta aggiornando attivamente, attendere che l'operazione venga terminata. In caso di esito positivo, ripetere l'operazione precedentemente non riuscita.
+* Se il cluster non è stato aggiornato, seguire i passaggi descritti nella sezione precedente.
 
 ## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>È possibile spostare il cluster in una sottoscrizione o in una sottoscrizione diversa con il cluster in un nuovo tenant?
 
@@ -127,6 +129,6 @@ Le operazioni del cluster sono limitate quando è ancora in corso un'operazione 
 
 In base all'output dello stato del cluster:
 
-* Se il cluster si trova in uno stato di provisioning  diverso da SUCCEEDED o *failed*, attendere che venga terminata l'operazione (*aggiornamento/aggiornamento/creazione/ridimensionamento/eliminazione/migrazione*). Al termine dell'operazione precedente, riprovare a eseguire l'operazione più recente del cluster.
+* Se il cluster si trova in uno stato di provisioning diverso da SUCCEEDED o *failed*, attendere che venga terminata l'operazione (*aggiornamento/aggiornamento/creazione/ridimensionamento/eliminazione/migrazione*). Al termine dell'operazione precedente, riprovare a eseguire l'operazione più recente del cluster.
 
 * Se si verifica un errore di aggiornamento del cluster, attenersi alla procedura descritta [per la ricezione di errori nel caso in cui il cluster si trova in stato di errore e l'aggiornamento o il ridimensionamento non funzionerà fino a quando non sarà stato risolto](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).

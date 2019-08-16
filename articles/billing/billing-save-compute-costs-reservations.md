@@ -7,12 +7,12 @@ ms.service: billing
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: banders
-ms.openlocfilehash: 2e595fbee90b710ec6b8090a770d93e688a04818
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 2122b6bd5fbd6b15bd5a2e411898d957708bf4c9
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839987"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558881"
 ---
 # <a name="what-are-azure-reservations"></a>Informazioni sulle prenotazioni di Azure
 
@@ -36,7 +36,7 @@ Per le macchine virtuali Windows e il database SQL, i costi delle licenze posson
 
 ## <a name="whos-eligible-to-purchase-a-reservation"></a>Chi è idoneo all'acquisto di una prenotazione?
 
-Per acquistare un piano, è necessario avere un ruolo di proprietario della sottoscrizione in una sottoscrizione Enterprise (MS-AZR-0017P o MS-AZR-0148P) o con pagamento in base al consumo (MS-AZR-003P o MS-AZR-0023P). I provider di soluzioni cloud possono usare il portale di Azure o il [centro](/partner-center/azure-reservations) per i partner per acquistare prenotazioni di Azure.
+Per acquistare un piano, è necessario avere un ruolo di proprietario della sottoscrizione in una sottoscrizione Enterprise (MS-AZR-0017P o MS-AZR-0148P) o con pagamento in base al consumo (MS-AZR-0003P o MS-AZR-0023P). I provider di soluzioni cloud possono usare il portale di Azure o il [centro](/partner-center/azure-reservations) per i partner per acquistare prenotazioni di Azure.
 
 I clienti Enterprise Agreement (EA) possono limitare gli acquisti agli amministratori EA disabilitando l'opzione **Aggiungi istanze riservate** nel portale EA. Gli amministratori EA devono essere un proprietario della sottoscrizione per almeno una sottoscrizione EA per l'acquisto di una prenotazione. Questa opzione è utile per le aziende che desiderano che un team centralizzato acquisti prenotazioni per diversi centri di costo. Dopo l'acquisto, i team centralizzati possono aggiungere i proprietari del centro di costo alle prenotazioni. I proprietari possono quindi definire l'ambito della prenotazione per le sottoscrizioni. Il team centrale non deve avere l'accesso al proprietario della sottoscrizione in cui viene acquistata la prenotazione.
 

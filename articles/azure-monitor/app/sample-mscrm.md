@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.reviewer: mazhar
 ms.author: mbullwin
-ms.openlocfilehash: 6119f1116d255f7cd2a2bfc20e86eeca9e5dfe82
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 470f723782ca29409549e0df8e900edf86cd446e
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60523492"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534288"
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Procedura dettagliata: Abilitazione della telemetria per Microsoft Dynamics CRM Online tramite Application Insights
 Questo articolo descrive come ottenere i dati di telemetria da [Microsoft Dynamics CRM Online](https://www.dynamics.com/) usando [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Verrà illustrato il processo completo che prevede l'aggiunta di uno script di Application Insights all'applicazione, l'acquisizione dei dati e la visualizzazione dei dati.
@@ -38,7 +38,7 @@ Per monitorare l'applicazione, è necessario aggiungere un SDK di Application In
     ![Clic su +, Servizi per gli sviluppatori, Application Insights.](./media/sample-mscrm/01.png)
 
     Scegliere ASP.NET come tipo di applicazione.
-3. Seguire le istruzioni per [ottenere lo script JavaScript SDK per l'app](../../azure-monitor/app/javascript.md#set-up-application-insights-for-your-web-page), copiare il frammento JavaScript e verificare che la chiave di strumentazione sia sostituita con il valore corretto per la risorsa Application Insights.
+3. Seguire le istruzioni per [ottenere lo script JavaScript SDK per l'app](../../azure-monitor/app/javascript.md), copiare il frammento JavaScript e verificare che la chiave di strumentazione sia sostituita con il valore corretto per la risorsa Application Insights.
 
 ### <a name="create-a-javascript-web-resource-in-microsoft-dynamics-crm"></a>Creare una risorsa Web JavaScript in Microsoft Dynamics CRM
 1. Aprire l'istanza di CRM Online ed eseguire l'accesso con privilegi di amministratore.
@@ -95,7 +95,7 @@ Fare clic sul grafico per ottenere altri dettagli:
 
 ![Elenco delle eccezioni](./media/sample-mscrm/18.png)
 
-#### <a name="usage"></a>Uso
+#### <a name="usage"></a>Utilizzo
 ![Utenti, sessioni e visualizzazioni pagine](./media/sample-mscrm/19.png)
 
 ![Grafici di sessione](./media/sample-mscrm/20.png)

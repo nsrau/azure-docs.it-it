@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
-ms.openlocfilehash: 9d973cb2ac210e912d93941a2f81889557379f43
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 032a907e45e007cb51357300e4bbf3c7afb40dde
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67625985"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542872"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Installare e utilizzare Istio nel servizio Azure Kubernetes
 
@@ -41,6 +41,8 @@ In questo articolo viene spiegato come:
 I passaggi descritti in questo articolo presuppongono che sia stato creato un cluster AKS `1.11` (Kubernetes e versioni successive, con RBAC abilitato) e `kubectl` che sia stata stabilita una connessione con il cluster. Per informazioni su questi elementi, vedere la [Guida introduttiva di AKS][aks-quickstart].
 
 È necessario [Helm][helm] per seguire queste istruzioni e installare Istio. È consigliabile che nel cluster sia installata `2.12.2` e configurata correttamente la versione o una versione successiva. Per assistenza sull'installazione di Helm, vedere la Guida all' [installazione di AKS Helm][helm-install]. Anche tutti i pod Istio devono essere pianificati per l'esecuzione nei nodi Linux.
+
+Assicurarsi di aver letto la documentazione [sulle prestazioni e](https://istio.io/docs/concepts/performance-and-scalability/) la scalabilità di Istio per comprendere i requisiti aggiuntivi delle risorse per l'esecuzione di Istio nel cluster AKS. I requisiti di memoria e di base variano in base al carico di lavoro specifico. Scegliere un numero appropriato di nodi e le dimensioni della macchina virtuale da soddisfare per la configurazione.
 
 Questo articolo suddivide il materiale sussidiario per l'installazione di Istio in diversi passaggi. Il risultato finale è lo stesso nella struttura delle [linee guida][istio-install-helm]per l'installazione ufficiale di Istio.
 

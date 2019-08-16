@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 8f180308133ffba12cc3bffb19130aa7a129da9f
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 48c6d6ed60045d906fcb711bd07ab492b6bbf488
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952914"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543676"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio
 
@@ -80,6 +80,7 @@ Gli scenari di utilizzo di esempio per il livello di accesso dell'archivio inclu
 ### <a name="blob-rehydration"></a>Riattivazione di BLOB
 
 [!INCLUDE [storage-blob-rehydrate-include](../../../includes/storage-blob-rehydrate-include.md)]
+Per altre informazioni, vedere reidratare i [dati BLOB dal livello archivio](storage-blob-rehydration.md) .  
 
 ## <a name="account-level-tiering"></a>Suddivisione in livelli a livello di account
 
@@ -164,11 +165,13 @@ Questa sezione presenta gli scenari seguenti usando il portale di Azure:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-1. Per passare al BLOB nell'account di archiviazione, selezionare **tutte le risorse**, selezionare l'account di archiviazione, selezionare il contenitore e quindi selezionare il BLOB.
+1. Per passare al BLOB nell'account di archiviazione, selezionare Tutte le risorse, selezionare l'account di archiviazione, selezionare il contenitore e quindi selezionare il BLOB.
 
-1. Nel pannello delle **proprietà del BLOB** selezionare il menu a discesa **livello di accesso** perselezionare il livello di accesso frequente, **ad**accesso sporadico o **Archivio** .
+1. Nel pannello delle **proprietà del BLOB** selezionare il pulsante **Cambia livello** per aprire il pannello livello.
 
-1. Fare clic su **Salva** nella parte superiore del pannello.
+1. Selezionare illivello di accesso ad accesso frequente, **ad**accesso sporadico o **Archivio** . Se il BLOB è attualmente in archivio e si vuole riattivarlo a un livello online, è anche possibile selezionare una priorità di reidratazione **standard** o **High**.
+
+1. Fare clic su **OK** nella parte inferiore del pannello.
 
 ## <a name="pricing-and-billing"></a>Prezzi e fatturazione
 
@@ -245,6 +248,8 @@ L'archiviazione dei dati insieme ad altri limiti viene impostata a livello di ac
 [Controllare la disponibilità di accesso frequente, accesso sporadico e archivio in base all'area](https://azure.microsoft.com/regions/#services)
 
 [Gestire il ciclo di vita di Archiviazione BLOB di Azure](storage-lifecycle-management-concepts.md)
+
+[Informazioni sulla reidratazione dei dati BLOB dal livello archivio](storage-blob-rehydration.md)
 
 [Valutare l'utilizzo degli account di archiviazione attuali abilitando le metriche di Archiviazione di Azure](../common/storage-enable-and-view-metrics.md)
 

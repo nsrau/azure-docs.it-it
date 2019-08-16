@@ -3,17 +3,17 @@ title: Eseguire il provisioning di nodi per la soluzione VMware con CloudSimple-
 description: Informazioni su come aggiungere nodi a VMWare con la distribuzione di CloudSimple
 author: dikamath
 ms.author: dikamath
-ms.date: 04/10/2019
+ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 898b07d05abf3bfad644fb590d90c7a90c5a1c0d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 2d5b2847109149701cb6453753e52fb671ba69d0
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883233"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533346"
 ---
 # <a name="provision-nodes-for-vmware-solution-by-cloudsimple---azure"></a>Eseguire il provisioning di nodi per la soluzione VMware con CloudSimple-Azure
 
@@ -22,7 +22,6 @@ Eseguire il provisioning dei nodi nel portale di Azure. Puoi quindi configurare 
 ## <a name="sign-in-to-azure"></a>Accedi ad Azure
 
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
-
 
 ## <a name="add-a-node-to-your-cloudsimple-private-cloud"></a>Aggiungere un nodo al cloud privato CloudSimple
 

@@ -3,7 +3,7 @@ title: Gestione dei token (Microsoft Authentication Library) | Azure
 description: Informazioni sull'acquisizione e la memorizzazione nella cache dei token tramite Microsoft Authentication Library (MSAL).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6148f6f9d449dc5aa55da2f041119a8b706491b
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: d4f7914744073f82d8a35d3679a1c65459e10b2f
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835085"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532878"
 ---
 # <a name="acquiring-and-caching-tokens-using-msal"></a>Acquisizione e memorizzazione nella cache dei token tramite MSAL
 I [token di accesso](access-tokens.md) consentono ai client di chiamare in modo sicuro le API Web protette da Azure. Esistono diversi modi per acquisire un token usando Microsoft Authentication Library (MSAL). Alcuni modi richiedono interazioni dell'utente tramite un Web browser. Altri non richiedono alcuna interazione dell'utente. In generale, il modo per acquisire un token dipende dal fatto che l'applicazione sia un'applicazione client pubblica (app desktop o per dispositivi mobili) oppure un'applicazione client riservata (app Web, API Web o applicazione daemon, ad esempio un servizio di Windows).

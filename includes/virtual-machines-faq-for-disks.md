@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a334b19fe4dd819a6e4c391e49d934bf5955a567
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: c3201ec64ee7a3471b7d93b83664c62c2e7e0435
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516045"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69541488"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Domande frequenti sui dischi e sui dischi Premium delle macchine virtuali IaaS di Azure (gestiti e non gestiti)
 
@@ -172,7 +172,7 @@ Probabilmente, la macchina virtuale deve trovarsi in una coppia area e zona di d
 No, i dischi Ultra sono supportati solo come dischi dati e sono supportati solo come dischi nativi 4K.
 
 **È possibile convertire un disco esistente in un disco Ultra?**
-No, ma è possibile eseguire la migrazione della data da un disco esistente a un disco Ultra. Per eseguire la migrazione di un disco esistente a un disco Ultra, alleghi entrambi i dischi alla stessa VM e copia i dati del disco da un disco all'altro o sfrutta una soluzione di terze parti per la migrazione dei dati.
+No, ma è possibile eseguire la migrazione dei dati da un disco esistente a un disco Ultra. Per eseguire la migrazione di un disco esistente a un disco Ultra, alleghi entrambi i dischi alla stessa VM e copia i dati del disco da un disco all'altro o sfrutta una soluzione di terze parti per la migrazione dei dati.
 
 **È possibile creare snapshot per i dischi ultra?**
 No, gli snapshot non sono ancora disponibili.
@@ -305,7 +305,7 @@ Sì. Tutte le immagini e gli snapshot gestiti creati dopo il 9 giugno 2017 vengo
 
 **È possibile convertire macchine virtuali con dischi non gestiti ubicati in account di archiviazione che sono o sono stati crittografati in precedenza in VM con dischi gestiti?**
 
-Yes
+Sì
 
 **Un disco rigido virtuale esportato da un disco gestito o uno snapshot verrà crittografato?**
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 819b2f3c54d97639eceae9aed60fdd5da2e7b3ef
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 572371f4abec413be5a2320c7d69d8126f26924f
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608179"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533064"
 ---
 # <a name="what-are-baseline-policies"></a>Che cosa sono i criteri di base?
 
@@ -41,7 +41,7 @@ Tutti e quattro questi criteri influiscono sui flussi di autenticazione legacy, 
 
 A causa della potenza e dell'accesso degli account amministratore, è consigliabile gestirli con particolare attenzione. Un metodo comune per migliorare la protezione degli account con privilegi consiste nel richiedere una forma più avanzata di verifica dell'account quando vengono usati per eseguire l'accesso. In Azure Active Directory, è possibile ottenere una verifica più avanzata degli account richiedendo agli amministratori di registrarsi e usare Azure Multifactor Authentication.
 
-[Richiedi autenticazione a più fattori per gli amministratori (anteprima)](howto-baseline-protect-administrators.md) è un criterio di base che richiede l'autenticazione a più fattori per i ruoli della directory seguenti, considerati come i ruoli Azure ad più privilegiati:
+Richiedi autenticazione a più fattori [per gli amministratori (anteprima)](howto-baseline-protect-administrators.md) è un criterio di base che richiede l'autenticazione a più fattori per i ruoli della directory seguenti, considerati come i ruoli Azure ad più privilegiati:
 
 * Amministratore globale
 * Amministratore di SharePoint
@@ -52,7 +52,7 @@ A causa della potenza e dell'accesso degli account amministratore, è consigliab
 * Amministratore fatturazione
 * Amministratore utenti
 
-Se l'organizzazione dispone di questi account in uso negli script o nel codice, è consigliabile sostituirli con [identità gestite](../managed-identities-azure-resources/overview.md).
+Se l'organizzazione dispone di questi account in uso negli script o nel codice, è consigliabile sostituirli con [identità gestite](../managed-identities-azure-resources/overview.md).
 
 ### <a name="end-user-protection-preview"></a>Protezione dell'utente finale (anteprima)
 
@@ -87,11 +87,11 @@ Per proteggere le azioni con privilegi, è necessario che l'autenticazione a pi�
 
 Per abilitare un criterio di base:
 
-1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
+1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
 1. Passare a **Azure Active Directory** > **accesso condizionale**.
 1. Nell'elenco dei criteri selezionare un criterio di base che si vuole abilitare.
 1. Impostare **Abilita criterio** **su on**.
-1. Fare clic su Salva.
+1. Fare clic su Save.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

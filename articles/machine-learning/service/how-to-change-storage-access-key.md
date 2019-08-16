@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 08/08/2019
-ms.openlocfilehash: 7c6b85bd1f5935fb3722f82efcdfc921fc9cb2ec
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.date: 08/16/2019
+ms.openlocfilehash: e386e34a8326a51753631ee9ea4215d01ba7ceb3
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990547"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558219"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Rigenera le chiavi di accesso dell'account di archiviazione
 
@@ -50,12 +50,15 @@ ws = Workspace.from_config()
 
 default_ds = ws.get_default_datastore()
 print("Default datstore: " + default_ds.name + ", storage account name: " +
-      default_ds.account_name + ", container name: " + ds.container_name)
+      default_ds.account_name + ", container name: " + default_ds.container_name)
 
 datastores = ws.datastores
 for name, ds in datastores.items():
-    if ds.datastore_type == "AzureBlob" or ds.datastore_type == "AzureFile":
-        print("datastore name: " + name + ", storage account name: " +
+    if ds.datastore_type == "AzureBlob":
+        print("Blob store - datastore name: " + name + ", storage account name: " +
+              ds.account_name + ", container name: " + ds.container_name)
+    if ds.datastore_type == "AzureFile":
+        print("File share - datastore name: " + name + ", storage account name: " +
               ds.account_name + ", container name: " + ds.container_name)
 ```
 
@@ -64,6 +67,8 @@ Questo codice Cerca tutti gli archivi dati registrati che usano archiviazione di
 * Nome archivio dati: Nome dell'archivio dati in cui è registrato l'account di archiviazione.
 * Nome account di archiviazione: Nome dell'account di archiviazione di Azure.
 * Contenitore Il contenitore nell'account di archiviazione usato dalla registrazione.
+
+Indica inoltre se l'archivio dati è per un BLOB di Azure o una condivisione file di Azure, in quanto esistono diversi metodi per registrare di nuovo ogni tipo di archivio dati.
 
 Se esiste una voce per l'account di archiviazione per cui si prevede di rigenerare le chiavi di accesso, salvare il nome dell'archivio dati, il nome dell'account di archiviazione e il nome del contenitore.
 
@@ -97,12 +102,21 @@ Per aggiornare Azure Machine Learning servizio per l'utilizzo della nuova chiave
 1. Per registrare di nuovo gli archivi dati che usano l'account di archiviazione, usare i valori della sezione [elementi che devono essere aggiornati](#whattoupdate) e la chiave del passaggio 1 con il codice seguente:
 
     ```python
-    ds = Datastore.register_azure_blob_container(workspace=ws, 
-                                              datastore_name='your datastore name', 
+    # Re-register the blob container
+    ds_blob = Datastore.register_azure_blob_container(workspace=ws,
+                                              datastore_name='your datastore name',
                                               container_name='your container name',
-                                              account_name='your storage account name', 
+                                              account_name='your storage account name',
                                               account_key='new storage account key',
                                               overwrite=True)
+    # Re-register file shares
+    ds_file = Datastore.register_azure_file_share(workspace=ws,
+                                          datastore_name='your datastore name',
+                                          file_share_name='your container name',
+                                          account_name='your storage account name',
+                                          account_key='new storage account key',
+                                          overwrite=True)
+    
     ```
 
     Poiché `overwrite=True` è specificato, questo codice sovrascrive la registrazione esistente e la Aggiorna per l'uso della nuova chiave.

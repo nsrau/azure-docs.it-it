@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 8fecc00a970f0e706dc6240eaec593fd54968ff8
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 72e1d3b0ad72b1e68b88eb0550cbe839ade9d929
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934206"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535165"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Registrazione degli eventi e di rilevamento per il Azure Data Box e Azure Data Box Heavy
 
@@ -64,7 +64,7 @@ Per ulteriori informazioni sull'utilizzo di RBAC suggerito, vedere [procedure co
 
 - Il Data Box arriva in locale in uno stato bloccato. È possibile usare le credenziali del dispositivo disponibili nell'portale di Azure per l'ordine.  
 
-    Quando viene configurata una Data Box, potrebbe essere necessario conoscere l'utente che ha eseguito l'accesso alle credenziali del dispositivo. Per determinare chi ha eseguito l'accesso al pannello delle **credenziali del dispositivo** , è possibile eseguire una query sui log attività.  Qualsiasi azione che prevede l'accesso ai **Dettagli del dispositivo > Pannello credenziali** viene registrato nei log attività `ListCredentials` come azione.
+    Quando viene configurata una Data Box, potrebbe essere necessario conoscere l'utente che ha eseguito l'accesso alle credenziali del dispositivo. Per determinare chi ha eseguito l'accesso al pannello delle **credenziali del dispositivo** , è possibile eseguire una query sui log attività.  Qualsiasi azione che prevede l'accesso ai **Dettagli del dispositivo > Pannello credenziali** viene registrato nei log attività `ListCredentials` come azione.
 
     ![Eseguire query sui log attività](media/data-box-logs/query-activity-log-1.png)
 
@@ -76,7 +76,7 @@ Durante la copia dei dati in Data Box o Data Box Heavy, viene generato un file d
 
 ### <a name="errorxml-file"></a>Errore. XML (file)
 
-Verificare che i processi di copia siano finiti senza errori. Se si verificano errori durante il processo di copia, scaricare i log dalla pagina **Connetti e copia** .
+Verificare che i processi di copia siano finiti senza errori. Se si verificano errori durante il processo di copia, scaricare i log dalla pagina **Connetti e copia**.
 
 - Se è stato copiato un file che non è di 512 byte allineato a una cartella del disco gestito nel Data Box, il file non viene caricato come BLOB di pagine nell'account di archiviazione di staging. Verrà visualizzato un errore nei log. Rimuovere il file e copiare un file allineato su 512 byte.
 - Se è stato copiato un VHDX o un disco rigido virtuale dinamico o un disco rigido virtuale differenze (questi file non sono supportati), verrà visualizzato un errore nei log.
@@ -203,9 +203,9 @@ Per ogni ordine elaborato, il servizio Data Box crea il log di copia nell'accoun
 
 Un calcolo del controllo di ridondanza ciclico (CRC) viene eseguito durante il caricamento in Azure. CRC dalla copia dei dati e dopo il confronto del caricamento dei dati. Una mancata corrispondenza del CRC indica che non è stato possibile caricare i file corrispondenti.
 
-Per impostazione predefinita, i log vengono scritti in un `copylog`contenitore denominato. I log vengono archiviati con la convenzione di denominazione seguente:
+Per impostazione predefinita, i log vengono scritti in un contenitore denominato `copylog`. I log vengono archiviati con la convenzione di denominazione seguente:
 
-[https://login.microsoftonline.com/common/](`storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`).
+`storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
 
 Il percorso del log di copia viene visualizzato anche nel pannello **Panoramica** del portale.
 
@@ -354,7 +354,7 @@ The authentication information fields provide detailed information about this sp
 
 ## <a name="download-order-history"></a>Scarica cronologia ordini
 
-La cronologia degli ordini è disponibile in portale di Azure. Se l'ordine è completo e la pulizia del dispositivo (cancellazione dei dati dai dischi) è completa, passare all'ordine del dispositivo e passare a **Order**details.  **Cronologia degli ordini di download**  è disponibile l'opzione. Per ulteriori informazioni, vedere [scaricare la cronologia degli ordini](data-box-portal-admin.md#download-order-history).
+La cronologia degli ordini è disponibile in portale di Azure. Se l'ordine è completo e la pulizia del dispositivo (cancellazione dei dati dai dischi) è completa, passare all'ordine del dispositivo e passare a **Order**details. L'opzione **Scarica cronologia ordini** è disponibile. Per ulteriori informazioni, vedere [scaricare la cronologia degli ordini](data-box-portal-admin.md#download-order-history).
 
 Scorrendo la cronologia degli ordini, viene visualizzato quanto segue:
 

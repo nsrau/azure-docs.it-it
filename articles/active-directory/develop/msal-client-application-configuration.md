@@ -3,7 +3,7 @@ title: Configurazione dell'applicazione client (Microsoft Authentication Library
 description: Informazioni sulle opzioni di configurazione per client pubblici e applicazioni client riservate in Microsoft Authentication Library (MSAL).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 767f7362a6c46d864ba17f23f6506bf6cdb71414
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 6fedca8dfb60d976723508bb89cab7d5b6dda1b9
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304738"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532925"
 ---
 # <a name="application-configuration-options"></a>Opzioni di configurazione dell'applicazione
 
@@ -35,7 +35,7 @@ Nel codice si Inizializza una nuova applicazione client pubblica o riservata (o 
     - [Segreto client](#client-secret) (per le applicazioni client riservate).
 - [Opzioni di registrazione](#logging), tra cui il livello di log, il controllo dei dati personali e il nome del componente che usa la libreria.
 
-## <a name="authority"></a>Authority
+## <a name="authority"></a>Autorità
 L'autorità è un URL che indica una directory da cui MSAL può richiedere token. Le autorità comuni sono:
 
 - https\://login.microsoftonline.com/\<tenant\>/, dove &lt;tenant&gt; è l'ID tenant del tenant Azure Active Directory (Azure ad) o di un dominio associato al tenant Azure ad. Utilizzato solo per l'accesso agli utenti di un'organizzazione specifica.
@@ -109,7 +109,7 @@ Se sei uno sviluppatore di app client pubbliche che usa MSAL:
   ---------  | --------------
   App desktop (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient` 
   UWP | valore di `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`. Questo consente l'accesso SSO con il browser impostando il valore sul risultato di WebAuthenticationBroker. GetCurrentApplicationCallbackUri () che è necessario registrare
-  .NET Core | [https://login.microsoftonline.com/consumers/](`https://localhost`). Ciò consente all'utente di usare il browser di sistema per l'autenticazione interattiva perché .NET Core non dispone al momento di un'interfaccia utente per la visualizzazione Web incorporata.
+  .NET Core | `https://localhost`. Ciò consente all'utente di usare il browser di sistema per l'autenticazione interattiva perché .NET Core non dispone al momento di un'interfaccia utente per la visualizzazione Web incorporata.
 
 - Non è necessario aggiungere un URI di reindirizzamento se si sta creando un'applicazione Novell Android e iOS che non supporta Service Broker (l'URI di reindirizzamento viene impostato `msal{ClientId}://auth` automaticamente su per Novell Android e iOS
 

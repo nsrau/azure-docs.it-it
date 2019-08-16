@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 213540a5b6c77146155365133f2cca08eea25351
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: b00b061b1763d4b4e7236d8dc9ac1eedf7f923bc
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608166"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533028"
 ---
 # <a name="baseline-policy-require-mfa-for-admins-preview"></a>Criteri di base: Richiedi autenticazione a più fattori per gli amministratori (anteprima)
 
 Gli utenti con accesso ad account con privilegi hanno accesso illimitato all'ambiente. Considerate le facoltà di questi account, è consigliabile trattarli con particolare attenzione. Un metodo comune per migliorare la protezione degli account con privilegi consiste nel richiedere una forma di verifica degli account più avanzata quando vengono usati per l'accesso. In Azure Active Directory è possibile richiedere l'autenticazione a più fattori (MFA) per ottenere una verifica degli account più avanzata.
 
-**Richiedi autenticazione a più fattori per gli amministratori (anteprima)**  è un [criterio di base](concept-baseline-protection.md) che richiede l'autenticazione a più fattori ogni volta che uno dei seguenti ruoli di amministratore con privilegi esegue l'accesso:
+Richiedi autenticazione a più fattori **per gli amministratori (anteprima)** è un [criterio di base](concept-baseline-protection.md) che richiede l'autenticazione a più fattori ogni volta che uno dei seguenti ruoli di amministratore con privilegi esegue l'accesso:
 
 * Amministratore globale
 * Amministratore di SharePoint
@@ -52,11 +52,11 @@ Criteri di **base dei criteri: Richiedi autenticazione a più fattori per gli am
 
 Per abilitare questo criterio e proteggere gli amministratori:
 
-1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
+1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
 1. Passare a **Azure Active Directory** > **accesso condizionale**.
 1. Nell'elenco dei criteri selezionare **criteri di base: Richiedi l'autenticazione a più fattori per gli**amministratori (anteprima).
 1. Impostare **Abilita criterio** per **usare immediatamente i criteri**.
-1. Fare clic su **Salva**.
+1. Fare clic su **Save**.
 
 > [!WARNING]
 > Quando il criterio era in anteprima, era possibile **abilitare automaticamente i criteri in futuro** . Questa opzione è stata rimossa per ridurre al minimo l'effetto improvviso dell'utente. Se è stata selezionata questa opzione quando era disponibile, non **usare i criteri** è ora selezionata automaticamente. Per usare i criteri di base, vedere la procedura precedente per abilitarla.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/17/2019
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 69fdc6cf678107ef64ea1fe7b819738fd4a4ff4f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 2514325c93f0f72aa979f871e86e465093479402
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180249"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558750"
 ---
 ## <a name="customize-and-extend-the-device-management-actions"></a>Personalizzare ed estendere le operazioni di gestione dei dispositivi
 
@@ -27,6 +27,6 @@ Configurare i dispositivi in modo che eseguano le azioni in un momento che riduc
 
 In questa esercitazione è stato usato un metodo diretto per attivare un riavvio remoto su un dispositivo. Sono state usate le proprietà segnalate per indicare l'ora dell'ultimo riavvio dal dispositivo ed è stata eseguita una query sul dispositivo gemello per ottenere l'ora dell'ultimo riavvio del dispositivo dal cloud.
 
-Per altre informazioni sull'IoT Hub e modelli di gestione dei dispositivi, ad esempio remoto tramite l'aggiornamento del firmware air, vedere [come eseguire un aggiornamento del firmware](../articles/iot-hub/tutorial-firmware-update.md)
+Per continuare a usare i modelli di gestione di hub e dispositivi, ad esempio in modalità remota tramite l'aggiornamento del firmware Air, vedere [come eseguire un aggiornamento del firmware](../articles/iot-hub/tutorial-firmware-update.md).
 
-Per informazioni su come estendere la soluzione e pianificazione di un metodo viene chiamato su più dispositivi di IoT, vedere [pianificare e trasmettere processi](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md).
+Per informazioni su come estendere la soluzione Internet delle cose e pianificare le chiamate al metodo su più dispositivi, vedere [pianificare e trasmettere processi](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md).

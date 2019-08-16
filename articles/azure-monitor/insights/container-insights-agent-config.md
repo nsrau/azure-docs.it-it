@@ -11,18 +11,18 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2019
+ms.date: 08/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 12010aaa7bc90bd200264549ad3efb79f46576c6
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 2b601825a58fe5739a43df607067acc8d629c5f4
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67867672"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558885"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configurare la raccolta dei dati dell'agente per il monitoraggio di Azure per i contenitori
 
-Monitoraggio di Azure per contenitori raccoglie le variabili stdout, stderr e Environment dai carichi di lavoro dei contenitori distribuiti nei cluster Kubernetes gestiti ospitati nel servizio Azure Kubernetes dall'agente in contenitori. Questo agente può anche raccogliere dati di serie temporali (detti anche metriche) da Prometeo usando l'agente in contenitori senza dover configurare e gestire un server e un database Prometheus. Per configurare le impostazioni di raccolta dati di Agent, è possibile creare un ConfigMaps Kubernetes personalizzato per controllare questa esperienza. 
+Monitoraggio di Azure per contenitori raccoglie le variabili stdout, stderr e Environment dai carichi di lavoro dei contenitori distribuiti nei cluster Kubernetes gestiti ospitati nel servizio Azure Kubernetes dall'agente in contenitori. Questo agente può anche raccogliere dati di serie temporali (detti anche metriche) da Prometheus usando l'agente in contenitori senza dover configurare e gestire un server e un database Prometheus. Per configurare le impostazioni di raccolta dati di Agent, è possibile creare un ConfigMaps Kubernetes personalizzato per controllare questa esperienza. 
 
 Questo articolo illustra come creare ConfigMap e configurare la raccolta dei dati in base alle esigenze.
 
@@ -30,18 +30,18 @@ Questo articolo illustra come creare ConfigMap e configurare la raccolta dei dat
 >Il supporto per Prometheus è una funzionalità di anteprima pubblica al momento.
 >
 
-## <a name="configure-your-cluster-with-custom-data-collection-settings"></a>Configurare il cluster con le impostazioni di raccolta dati personalizzate
+## <a name="configmap-file-settings-overview"></a>Panoramica delle impostazioni del file ConfigMap
 
 Viene fornito un file ConfigMap modello che consente di modificarlo facilmente con le personalizzazioni senza doverlo creare da zero. Prima di iniziare, è necessario rivedere la documentazione di Kubernetes su [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) e acquisire familiarità con la creazione, la configurazione e la distribuzione di ConfigMaps. Ciò consentirà di filtrare stderr e stdout per spazio dei nomi o nell'intero cluster e le variabili di ambiente per tutti i contenitori in esecuzione in tutti i pod/nodi del cluster.
 
 >[!IMPORTANT]
 >La versione minima dell'agente supportata per raccogliere le variabili stdout, stderr e Environment dai carichi di lavoro del contenitore è ciprod06142019 o successiva. La versione minima dell'agente supportata per l'scraping delle metriche Prometeo è ciprod07092019 o successiva. Per verificare la versione dell'agente, dalla scheda **nodo** selezionare un nodo, quindi nel riquadro Proprietà prendere nota del valore della proprietà **tag immagine agente** .  
 
-### <a name="overview-of-configurable-data-collection-settings"></a>Panoramica delle impostazioni di raccolta dati configurabili
+### <a name="data-collection-settings"></a>Impostazioni di raccolta dati
 
 Di seguito sono riportate le impostazioni che possono essere configurate per controllare la raccolta dei dati.
 
-|Chiave |Tipo di dati |Value |DESCRIZIONE |
+|Chiave |Tipo di dati |Valore |DESCRIZIONE |
 |----|----------|------|------------|
 |`schema-version` |Stringa (maiuscole/minuscole) |v1 |Si tratta della versione dello schema utilizzata dall'agente durante l'analisi di questo ConfigMap. La versione dello schema attualmente supportata è V1. La modifica di questo valore non è supportata e verrà rifiutata quando ConfigMap viene valutato.|
 |`config-version` |String | | Supporta la possibilità di tenere traccia della versione del file di configurazione nel sistema/repository del controllo del codice sorgente. I caratteri massimi consentiti sono 10 e tutti gli altri caratteri vengono troncati. |
@@ -51,20 +51,32 @@ Di seguito sono riportate le impostazioni che possono essere configurate per con
 |`[log_collection_settings.stderr] exclude_namespaces =` |String |Matrice con valori delimitati da virgole |Matrice di spazi dei nomi Kubernetes per cui non verranno raccolti i log stderr. Questa impostazione è valida solo se `log_collection_settings.stdout.enabled` è impostato su `true`. Se non è specificato in ConfigMap, il valore predefinito `exclude_namespaces = ["kube-system"]`è. |
 | `[log_collection_settings.env_var] enabled =` |Boolean | true o false | Controlla se la raccolta di variabili di ambiente è abilitata. Quando è impostato `false`su, non viene raccolta alcuna variabile di ambiente per tutti i contenitori in esecuzione in tutti i pod/nodi del cluster. Se non è specificato in ConfigMap, il valore predefinito `enabled = true`è. |
 
-## <a name="overview-of-configurable-prometheus-scraping-settings"></a>Panoramica delle impostazioni di scraping di Prometeo configurabili
+### <a name="prometheus-scraping-settings"></a>Impostazioni di scraping Prometeo
+
+![Architettura di monitoraggio dei contenitori per Prometheus](./media/container-insights-agent-config/monitoring-kubernetes-architecture.png)
+
+Il monitoraggio di Azure per i contenitori offre un'esperienza uniforme per abilitare la raccolta di metriche Prometeo da parte di più frammenti di codice tramite i seguenti meccanismi, come illustrato nella tabella seguente. Le metriche vengono raccolte tramite un set di impostazioni specificato in un singolo file ConfigMap, che è lo stesso file usato per configurare la raccolta di stdout, stderr e le variabili di ambiente dai carichi di lavoro del contenitore. 
 
 Il frammento attivo delle metriche da Prometheus viene eseguito da una delle due prospettive seguenti:
 
 * URL HTTP a livello di cluster e individuare destinazioni dagli endpoint elencati di un servizio, servizi K8S come Kube-DNS e Kube-state-Metrics e annotazioni Pod specifiche di un'applicazione. Le metriche raccolte in questo contesto verranno definite nella sezione ConfigMap *[Prometheus data_collection_settings. cluster]* .
 * URL HTTP a livello di nodo e individua destinazioni dagli endpoint elencati di un servizio. Le metriche raccolte in questo contesto verranno definite nella sezione ConfigMap *[Prometheus_data_collection_settings. Node]* .
 
-|Ambito | Chiave | Tipo di dati | Valore | Descrizione |
+| Endpoint | Ambito | Esempio |
+|----------|-------|---------|
+| Annotazione Pod | A livello di cluster | annotazioni <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000" <br>prometheus.io/scheme: "http"` |
+| Servizio Kubernetes | A livello di cluster | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics` |
+| URL/endpoint | Per nodo e/o a livello di cluster | `http://myurl:9101/metrics` |
+
+Quando si specifica un URL, monitoraggio di Azure per i contenitori esegue solo il frammento dell'endpoint. Quando si specifica il servizio Kubernetes, il nome del servizio viene risolto con il server DNS del cluster per ottenere l'indirizzo IP e quindi il servizio risolto viene frammentato.
+
+|Ambito | Chiave | Tipo di dati | Value | Descrizione |
 |------|-----|-----------|-------|-------------|
 | A livello di cluster | | | | Specificare uno dei tre metodi seguenti per rimuovere gli endpoint per le metriche. |
 | | `urls` | String | Matrice con valori delimitati da virgole | Endpoint HTTP (indirizzo IP o percorso URL valido specificato). Ad esempio: `urls=[$NODE_IP/metrics]`. ($NODE _IP è uno specifico parametro di monitoraggio di Azure per contenitori e può essere usato al posto dell'indirizzo IP del nodo. Deve essere tutti in maiuscolo.) |
 | | `kubernetes_services` | String | Matrice con valori delimitati da virgole | Una matrice di servizi Kubernetes per rimuovere le metriche da Kube-state-Metrics. Ad esempio,`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics", http://my-service-dns.my-namespace:9100/metrics]`.|
 | | `monitor_kubernetes_pods` | Boolean | true o false | Quando è impostato `true` su nelle impostazioni a livello di cluster, monitoraggio di Azure per l'agente dei contenitori Kubernetes i pod nell'intero cluster per le annotazioni Prometeo seguenti:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
-| | `prometheus.io/scrape` | Boolean | true o false | Consente di rimuovere il pod. |
+| | `prometheus.io/scrape` | Boolean | true o false | Consente di rimuovere il pod. `monitor_kubernetes_pods` deve essere impostato su `true`. |
 | | `prometheus.io/scheme` | String | http o https | Il valore predefinito è la rottamazione su HTTP. Se necessario, impostare su `https`. | 
 | | `prometheus.io/path` | String | Matrice con valori delimitati da virgole | Percorso della risorsa HTTP da cui recuperare le metriche. Se il percorso delle metriche non `/metrics`è, definirlo con questa annotazione. |
 | | `prometheus.io/port` | String | 9102 | Specificare una porta su cui restare in ascolto. Se la porta non è impostata, il valore predefinito è 9102. |
@@ -74,7 +86,7 @@ Il frammento attivo delle metriche da Prometheus viene eseguito da una delle due
 
 ConfigMap è un elenco globale e può essere applicato un solo ConfigMap all'agente. Non è possibile avere un altro ConfigMap che esegue la sovradecisione delle raccolte.
 
-### <a name="configure-and-deploy-configmaps"></a>Configurare e distribuire ConfigMaps
+## <a name="configure-and-deploy-configmaps"></a>Configurare e distribuire ConfigMaps
 
 Per configurare e distribuire il file di configurazione ConfigMap nel cluster, seguire questa procedura.
 
@@ -82,8 +94,51 @@ Per configurare e distribuire il file di configurazione ConfigMap nel cluster, s
 1. Modificare il file YAML di ConfigMap con le personalizzazioni.
 
     - Per escludere spazi dei nomi specifici per la raccolta di log di stdout, configurare la chiave o il valore `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`usando l'esempio seguente:.
+    
     - Per disabilitare la raccolta delle variabili di ambiente per un contenitore specifico, impostare la `[log_collection_settings.env_var] enabled = true` chiave/valore per abilitare la raccolta di variabili a livello globale, quindi seguire i passaggi [qui](container-insights-manage-agent.md#how-to-disable-environment-variable-collection-on-a-container) per completare la configurazione per il contenitore specifico.
+    
     - Per disabilitare la raccolta di log stderr a livello di cluster, configurare la chiave o il valore usando l' `[log_collection_settings.stderr] enabled = false`esempio seguente:.
+    
+    - Gli esempi seguenti illustrano come configurare le metriche dei file ConfigMap da un URL a livello di cluster, dal DameonSet a livello di nodo di un agente e specificando un'annotazione Pod
+
+        - Rimuovere le metriche Prometeo da un URL specifico nel cluster.
+
+        ```
+         prometheus-data-collection-settings: |- 
+         # Custom Prometheus metrics data collection settings
+         [prometheus_data_collection_settings.cluster] 
+         interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h.
+         fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through 
+         fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting
+         urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from
+        ```
+
+        - Rimuovere le metriche Prometeo da un DaemonSet di un agente in esecuzione in ogni nodo del cluster.
+
+        ```
+         prometheus-data-collection-settings: |- 
+         # Custom Prometheus metrics data collection settings 
+         [prometheus_data_collection_settings.node] 
+         interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h. 
+         # Node level scrape endpoint(s). These metrics will be scraped from agent's DaemonSet running in every node in the cluster 
+         urls = ["http://$NODE_IP:9103/metrics"] 
+         fieldpass = ["metric_to_pass1", "metric_to_pass2"] 
+         fielddrop = ["metric_to_drop"] 
+        ```
+
+        - Rimuovere le metriche Prometeo specificando un'annotazione pod.
+
+        ```
+         prometheus-data-collection-settings: |- 
+         # Custom Prometheus metrics data collection settings
+         [prometheus_data_collection_settings.cluster] 
+         interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h
+         monitor_kubernetes_pods = true #replicaset will scrape Kubernetes pods for the following prometheus annotations: 
+          - prometheus.io/scrape:"true" #Enable scraping for this pod 
+          - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’
+          - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. 
+          - prometheus.io/port:"8000" #If port is not 9102 use this annotation
+        ```
 
 1. Creare ConfigMap eseguendo il comando kubectl seguente: `kubectl apply -f <configmap_yaml_file.yaml>`.
     
@@ -98,7 +153,7 @@ Per verificare che la configurazione sia stata applicata correttamente, usare il
 config::unsupported/missing config schema version - 'v21' , using defaults
 ```
 
-Gli errori relativi all'applicazione delle modifiche di configurazione per Prometheus sono disponibili anche per la revisione.  Dai log da un pod di Agent usando lo stesso `kubectl logs` comando o da log attivi. Log attivi Mostra errori simili ai seguenti:
+Gli errori relativi all'applicazione delle modifiche di configurazione per Prometheus sono disponibili anche per la revisione.  Dai log da un pod di Agent usando lo stesso `kubectl logs` comando o da log attivi. I log attivi mostrano errori simili ai seguenti:
 
 ```
 2019-07-08T18:55:00Z E! [inputs.prometheus]: Error in plugin: error making HTTP request to http://invalidurl:1010/metrics: Get http://invalidurl:1010/metrics: dial tcp: lookup invalidurl on 10.0.0.10:53: no such host
@@ -108,7 +163,7 @@ Gli errori impediscono l'analisi del file da parte di omsagent, causando il riav
 
 ## <a name="applying-updated-configmap"></a>Applicazione di ConfigMap aggiornati
 
-Se è già stato distribuito un ConfigMap nel cluster e si vuole aggiornarlo con una configurazione più recente, è sufficiente modificare il file ConfigMap usato in precedenza e quindi applicarlo usando lo stesso comando precedente, `kubectl apply -f <configmap_yaml_file.yaml`.
+Se è già stato distribuito un ConfigMap nel cluster e si vuole aggiornarlo con una configurazione più recente, è possibile modificare il file ConfigMap usato in precedenza e quindi applicarlo usando lo stesso comando precedente, `kubectl apply -f <configmap_yaml_file.yaml`.
 
 La modifica della configurazione può richiedere alcuni minuti prima di essere applicata e tutti i pod omsagent del cluster verranno riavviati. Il riavvio è un riavvio in sequenza per tutti i pod omsagent, non tutti i riavvii nello stesso momento. Al termine del riavvio, viene visualizzato un messaggio simile al seguente e include il risultato: `configmap "container-azm-ms-agentconfig" updated`.
 

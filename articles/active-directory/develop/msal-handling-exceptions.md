@@ -3,7 +3,7 @@ title: Errori ed eccezioni (MSAL) | Azure
 description: Informazioni su come gestire gli errori e le eccezioni, l'Accesso Condizionale e la richiesta di attestazioni nelle applicazioni MSAL.
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: c294e3bd8ac04454c2d715c665e0da4f9a4f4535
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: c37a52ee939e6144b98e6a1369f94beabc5fc1d9
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835031"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532858"
 ---
 # <a name="handling-exceptions-and-errors-using-msal"></a>Gestione di errori ed eccezioni tramite MSAL
 Le eccezioni in Microsoft Authentication Library (MSAL) sono destinate agli sviluppatori delle app per la risoluzione dei problemi, anziché per la visualizzazione agli utenti finali. I messaggi di eccezione non sono localizzati.
@@ -38,7 +38,7 @@ Se viene generata l'eccezione [MsalServiceException](/dotnet/api/microsoft.ident
 ### <a name="common-exceptions"></a>Eccezioni comuni
 Ecco le eccezioni più comuni che possono essere generate e alcune possibili mitigazioni.
 
-| Eccezione | Codice di errore | Mitigazione|
+| Eccezione | Codice di errore | Attenuazione|
 | --- | --- | --- |
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001: l'utente o l'amministratore non ha acconsentito all'uso dell'applicazione con ID '{appId}' denominata '{appName}'. Inviare una richiesta di autorizzazione interattiva per questo utente e questa risorsa.| È prima necessario ottenere il consenso dell'utente. Se non si usa .NET Core (che non dispone di alcuna interfaccia utente Web), chiamare (una sola volta) `AcquireTokeninteractive`. Se si usa .NET Core o non si vuole eseguire `AcquireTokenInteractive`, l'utente può visitare un URL per fornire il consenso: https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read. Per chiamare `AcquireTokenInteractive`: `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS50079: l'utente deve usare l'autenticazione a più fattori.| Non è disponibile alcuna mitigazione: se l'autenticazione a più fattori è configurata per il tenant e AAD decide di applicarla, è necessario eseguire il fallback a un flusso interattivo, come `AcquireTokenInteractive` o `AcquireTokenByDeviceCode`.|

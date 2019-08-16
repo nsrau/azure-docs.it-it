@@ -1,9 +1,9 @@
 ---
 title: Inizializzare le applicazioni client (Microsoft Authentication Library per JavaScript) | Azure
-description: Informazioni sull'inizializzazione di applicazioni client mediante Microsoft Authentication Library per JavaScript (msal).
+description: Informazioni sull'inizializzazione di applicazioni client tramite Microsoft Authentication Library per JavaScript (MSAL. js).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,33 +13,33 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2019
-ms.author: nacanuma
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd26f36356affbc8c272bd093757a8482773baf2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7df2f9aa56e22bd4060c823b02900fa914a0fd7f
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544017"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532808"
 ---
-# <a name="initialize-client-applications-using-msaljs"></a>Inizializzare le applicazioni client usando msal. js
-Questo articolo descrive l'inizializzazione di Microsoft Authentication Library per JavaScript (msal) con un'istanza di un'applicazione agente utente. L'applicazione di agente utente è un tipo di applicazione client pubblica in cui viene eseguito il codice client in un agente utente, ad esempio un web browser. Questi client non archiviano i segreti, poiché il contesto del browser è accessibile pubblicamente. Per altre informazioni sui tipi di applicazioni client e le opzioni di configurazione dell'applicazione, vedere la [Panoramica](msal-client-applications.md).
+# <a name="initialize-client-applications-using-msaljs"></a>Inizializzare le applicazioni client usando MSAL. js
+Questo articolo descrive l'inizializzazione di Microsoft Authentication Library per JavaScript (MSAL. js) con un'istanza di un'applicazione agente utente. L'applicazione agente utente è una forma di applicazione client pubblica in cui il codice client viene eseguito in un agente utente, ad esempio un Web browser. Questi client non archiviano i segreti, perché il contesto del browser è accessibile apertamente. Per altre informazioni sui tipi di applicazioni client e sulle opzioni di configurazione dell'applicazione, vedere la [Panoramica](msal-client-applications.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
-Prima di inizializzare un'applicazione, è necessario innanzitutto [registrarlo con il portale di Azure](scenario-spa-app-registration.md) in modo che l'app può essere integrato con la piattaforma delle identità Microsoft. Dopo la registrazione, potrebbe essere necessario le informazioni seguenti (che sono reperibile nel portale di Azure):
+Prima di inizializzare un'applicazione, è prima necessario [registrarla con il portale di Azure](scenario-spa-app-registration.md) in modo che l'app possa essere integrata con la piattaforma di identità Microsoft. Dopo la registrazione, è possibile che siano necessarie le informazioni seguenti (disponibili nella portale di Azure):
 
-- L'ID client (una stringa che rappresenta un GUID per l'applicazione)
-- URL di provider di identità (l'istanza denominata) e i destinatari di accesso per l'applicazione. Questi due parametri sono noti collettivamente come autorità.
-- L'ID tenant se si sta scrivendo un'applicazione line-of-business esclusivamente per l'organizzazione (anche denominati applicazione a tenant singolo).
-- Per le app web, è necessario impostare anche l'URI di reindirizzamento in cui il provider di identità restituirà all'applicazione con i token di sicurezza.
+- ID client (una stringa che rappresenta un GUID per l'applicazione)
+- URL del provider di identità (denominato istanza) e destinatari dell'accesso per l'applicazione. Questi due parametri sono collettivamente noti come autorità.
+- ID tenant se si sta scrivendo un'applicazione line-of-business esclusivamente per l'organizzazione (denominata anche applicazione a tenant singolo).
+- Per le app Web, è necessario impostare anche il redirectUri in cui il provider di identità tornerà all'applicazione con i token di sicurezza.
 
 ## <a name="initializing-applications"></a>Inizializzazione di applicazioni
 
-È possibile usare msal. js come indicato di seguito in un'applicazione JavaScript/Typescript normale. Inizializzare il contesto di autenticazione MSAL creando `UserAgentApplication` con un oggetto di configurazione. La configurazione minima necessaria per inizializzare msal. js è l'ID client dell'applicazione che è possibile ottenerlo dal portale di registrazione dell'applicazione.
+È possibile usare MSAL. js come indicato di seguito in un'applicazione JavaScript/typescript normale. Inizializzare il contesto di autenticazione MSAL `UserAgentApplication` creando un'istanza con un oggetto di configurazione. Il file di configurazione minimo richiesto per inizializzare MSAL. js è l'ID client dell'applicazione che dovrebbe essere ottenuto dal portale di registrazione delle applicazioni.
 
-Per i metodi di autenticazione con reindirizzare i flussi (`loginRedirect` e `acquireTokenRedirect`), sarà necessario registrare in modo esplicito un callback di esito positivo o errore tramite `handleRedirectCallback()` (metodo). Ciò è necessario poiché i flussi di reindirizzamento non restituiscono promesse così come i metodi con un'esperienza di popup.
+Per i metodi di autenticazione con flussi`loginRedirect` di `acquireTokenRedirect`Reindirizzamento (e), sarà necessario registrare in modo esplicito un callback per l' `handleRedirectCallback()` esito positivo o negativo tramite il metodo. Questa operazione è necessaria perché i flussi di reindirizzamento non restituiscono le promesse come metodi con un'esperienza popup.
 
 ```javascript
 // Configuration object constructed
@@ -60,11 +60,11 @@ function authCallback(error, response) {
 myMSALObj.handleRedirectCallback(authCallback);
 ```
 
-Msal. js è progettato per avere una singola istanza e la configurazione del `UserAgentApplication` per rappresentare un contesto di autenticazione singola. Più istanze non sono consigliate perché comportano le voci della cache in conflitto e il comportamento nel browser.
+MSAL. js è progettato per avere una singola istanza e la `UserAgentApplication` configurazione di per rappresentare un singolo contesto di autenticazione. Non è consigliabile usare più istanze perché provocano il comportamento e le voci della cache in conflitto nel browser.
 
 ## <a name="configuration-options"></a>Opzioni di configurazione
 
-Msal. js prevede una configurazione oggetto illustrato di seguito che fornisce un raggruppamento di opzioni configurabili disponibili per la creazione di un'istanza di `UserAgentApplication`.
+MSAL. js dispone di un oggetto di configurazione illustrato di seguito che fornisce un raggruppamento di opzioni configurabili disponibili per la `UserAgentApplication`creazione di un'istanza di.
 
 ```javascript
 type storage = "localStorage" | "sessionStorage";
@@ -108,38 +108,38 @@ export type Configuration = {
 };
 ```
 
-Di seguito è il set complessivo di opzioni configurabili che sono attualmente supportati nell'oggetto di configurazione:
+Di seguito è riportato il set totale di opzioni configurabili attualmente supportate nell'oggetto config:
 
-- **clientID**: Richiesto. L'ID client dell'applicazione, è deve ottenere nel portale di registrazione dell'applicazione.
+- **clientID**: Richiesto. ClientID dell'applicazione, è necessario ottenerlo dal portale di registrazione delle applicazioni.
 
-- **authority**: facoltativo. Che indica una directory che MSAL può richiedere token da un URL. Il valore predefinito è: `https://login.microsoftonline.com/common`.
-    * In Azure AD ha il formato https://&lt;istanza&gt;/&lt;audience&gt;, dove &lt;istanza&gt; è il dominio del provider di identità (ad esempio, `https://login.microsoftonline.com`) e &lt;audience&gt; è un identificatore che rappresenta i destinatari di accesso. Può trattarsi di valori seguenti:
-        * `https://login.microsoftonline.com/<tenant>`-tenant è un dominio associato al tenant, ad esempio contoso.onmicrosoft.com, o il GUID che rappresenta il `TenantID` proprietà della directory utilizzata solo per consentire agli utenti di un'organizzazione specifica.
-        * `https://login.microsoftonline.com/common`-Viene usato per consentire agli utenti con e dell'istituto di istruzione oppure un account persona Microsoft.
-        * `https://login.microsoftonline.com/organizations/`-Viene usato per consentire agli utenti con account aziendali e dell'istituto di istruzione.
-        * `https://login.microsoftonline.com/consumers/` -Viene usato per consentire agli utenti con account Microsoft personale solo (interattiva).
-    * In Azure AD B2C, è nel formato `https://<instance>/tfp/<tenant>/<policyName>/`, dove istanza è il dominio di Azure AD B2C, il tenant è il nome del tenant di Azure AD B2C, policyName corrisponde a quello di applicare i criteri B2C.
+- **autorità**: facoltativo. URL che indica una directory da cui MSAL può richiedere token. Il valore predefinito è: `https://login.microsoftonline.com/common`.
+    * In&lt;Azure ad, è di tipo audience&lt;&gt; &lt; `https://login.microsoftonline.com`instance https://, doveinstance&gt; è il dominio del provider di identità (ad esempio,) e/&gt; &lt;audience&gt; è un identificatore che rappresenta i destinatari di accesso. I valori possibili sono i seguenti:
+        * `https://login.microsoftonline.com/<tenant>`-tenant è un dominio associato al tenant, ad esempio contoso.onmicrosoft.com, oppure il GUID che rappresenta la `TenantID` proprietà della directory utilizzata solo per l'accesso degli utenti di un'organizzazione specifica.
+        * `https://login.microsoftonline.com/common`: Consente di eseguire l'accesso agli utenti con account aziendali o dell'Istituto di istruzione o un account personale Microsoft.
+        * `https://login.microsoftonline.com/organizations/`: Consente di accedere agli utenti con account aziendali o dell'Istituto di istruzione.
+        * `https://login.microsoftonline.com/consumers/`: Consente di accedere agli utenti solo con account Microsoft personali (Live).
+    * In Azure ad B2C il formato `https://<instance>/tfp/<tenant>/<policyName>/`è, dove istanza è il dominio Azure ad B2C, tenant è il nome del tenant Azure ad B2C, PolicyName è il nome del criterio B2C da applicare.
 
 
-- **validateAuthority**: facoltativo.  Convalidare l'autorità emittente di token. Il valore predefinito è `true`. Per le applicazioni B2C, poiché il valore dell'autorità è noto e può essere diverso per ogni criterio, la convalida dell'autorità non funzionerà e deve essere impostato su `false`.
+- **validateAuthority**: facoltativo.  Convalidare l'autorità emittente dei token. Il valore predefinito è `true`. Per le applicazioni B2C, poiché il valore dell'autorità è noto e può essere diverso per ogni criterio, la convalida dell'autorità non funzionerà e deve `false`essere impostata su.
 
 - **redirectUri**: facoltativo.  URI di reindirizzamento dell'app dove le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL. Il valore predefinito è `window.location.href`.
 
-- **postLogoutRedirectUri**: facoltativo.  Reindirizza l'utente al `postLogoutRedirectUri` dopo la disconnessione. Il valore predefinito è `redirectUri`.
+- **postLogoutRedirectUri**: facoltativo.  Reindirizza l'utente a `postLogoutRedirectUri` dopo la disconnessione. Il valore predefinito è `redirectUri`.
 
-- **navigateToLoginRequestUrl**: facoltativo. Possibilità di disattivare la navigazione predefinito alla pagina iniziale dopo l'accesso. Il valore predefinito è true. Viene utilizzato solo per i flussi di reindirizzamento.
+- **navigateToLoginRequestUrl**: facoltativo. Possibilità di disattivare la navigazione predefinita per avviare la pagina dopo l'accesso. Il valore predefinito è true. Viene usato solo per i flussi di reindirizzamento.
 
-- **cacheLocation**: facoltativo.  Imposta l'archiviazione del browser a uno `localStorage` o `sessionStorage`. Il valore predefinito è `sessionStorage`.
+- **cacheLocation**: facoltativo.  Imposta l'archiviazione del browser `localStorage` su `sessionStorage`o su. Il valore predefinito è `sessionStorage`.
 
-- **storeAuthStateInCookie**: facoltativo.  Questo flag è stato introdotto in v0.2.2 msal. js come una correzione per il [problemi di autenticazione ciclo](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#1-issues-due-to-security-zones) in Microsoft Internet Explorer e Microsoft Edge. Abilitare il flag `storeAuthStateInCookie` a true per usufruire di questa correzione. Quando questa opzione è abilitata, msal. js archivia lo stato di richiesta di autenticazione necessario per la convalida dei flussi di autenticazione nel cookie del browser. Per impostazione predefinita, questo flag è impostato su `false`.
+- **storeAuthStateInCookie**: facoltativo.  Questo flag è stato introdotto in MSAL. js v 0.2.2 come correzione per i [problemi del ciclo di autenticazione](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#1-issues-due-to-security-zones) in Microsoft Internet Explorer e Microsoft Edge. Abilitare il flag `storeAuthStateInCookie` su true per sfruttare questa correzione. Quando questa funzionalità è abilitata, in MSAL. js verrà archiviato lo stato della richiesta di autenticazione necessario per la convalida dei flussi di autenticazione nei cookie del browser. Per impostazione predefinita, questo flag è `false`impostato su.
 
-- **logger**: facoltativo.  Un oggetto Logger con un'istanza di callback che può essere fornito dallo sviluppatore per utilizzare e pubblicare i log in modo personalizzato. Per altre informazioni sul passaggio oggetto logger, vedere [la registrazione con msal. js](msal-logging.md).
+- **logger**: facoltativo.  Oggetto logger con un'istanza di callback che può essere fornita dallo sviluppatore per utilizzare e pubblicare i log in modo personalizzato. Per informazioni dettagliate sul passaggio di un oggetto logger, vedere [registrazione con MSAL. js](msal-logging.md).
 
-- **loadFrameTimeout**: facoltativo.  Il numero di millisecondi di inattività prima che una risposta di rinnovo del token da Azure AD deve essere considerata il timeout. Valore predefinito è 6 secondi.
+- **loadFrameTimeout**: facoltativo.  Timeout del numero di millisecondi di inattività prima che venga presa in considerazione il timeout di una risposta di rinnovo del token da Azure AD. Il valore predefinito è 6 secondi.
 
-- **tokenRenewalOffsetSeconds**: facoltativo. Il numero di millisecondi che imposta la finestra di offset doveva rinnovare il token prima della scadenza. Valore predefinito è 300 millisecondi.
+- **tokenRenewalOffsetSeconds**: facoltativo. Numero di millisecondi che imposta la finestra di offset necessaria per rinnovare il token prima della scadenza. Il valore predefinito è 300 millisecondi.
 
-Queste sono applicabili solo a essere trasmessi dalla libreria MSAL Angular wrapper:
-- **unprotectedResources**: facoltativo.  Matrice di URI di risorse non protette. MSAL non collegherà un token per le richieste in uscita che hanno tali URI. Il valore predefinito è `null`.
+Questi sono applicabili solo per essere passati dalla libreria di wrapper angolare MSAL:
+- **unprotectedResources**: facoltativo.  Matrice di URI che sono risorse non protette. MSAL non collegherà un token alle richieste in uscita con questi URI. Il valore predefinito è `null`.
 
-- **protectedResourceMap**: facoltativo.  Questo è il mapping delle risorse per gli ambiti utilizzati da MSAL per allegare automaticamente i token di accesso nelle chiamate API web. Viene ottenuto un token di accesso singolo per la risorsa. Pertanto è possibile mappare un percorso della risorsa specifica, come indicato di seguito: {"https://graph.microsoft.com/v1.0/me", ["User. Read"]}, o l'URL dell'app della risorsa come: {"https://graph.microsoft.com/", ["User. Read", "mail.send"]}. Ciò è necessario per le chiamate CORS. Il valore predefinito è `null`.
+- **protectedResourceMap**: facoltativo.  Si tratta di un mapping delle risorse agli ambiti usati da MSAL per il collegamento automatico dei token di accesso nelle chiamate API Web. Per la risorsa viene ottenuto un singolo token di accesso. È quindi possibile eseguire il mapping di un percorso di risorsa specifico come https://graph.microsoft.com/v1.0/me segue: {"", ["User. Read"]} o l'URL dell'app della risorsa come https://graph.microsoft.com/: {"", ["User. Read", "mail. Send"]}. Questa operazione è necessaria per le chiamate CORS. Il valore predefinito è `null`.

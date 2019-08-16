@@ -2,20 +2,20 @@
 title: 'Connettersi ad Azure SQL Data Warehouse: VSTS |Documentazione Microsoft'
 description: Eseguire query in SQL Data Warehouse con Visual Studio.
 services: sql-data-warehouse
-author: XiaoyuMSFT
+author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: development
-ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.date: 08/15/2019
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 5c0867252023378347e55d673260f28a7bf2ccc4
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: aea2b3229dd793bc31adc0038763e09340a5f85a
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479453"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534787"
 ---
 # <a name="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt"></a>Connettersi a SQL Data Warehouse con Visual Studio e SSDT
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "68479453"
 > 
 > 
 
-È possibile usare Visual Studio per eseguire query in Azure SQL Data Warehouse in pochi minuti. Questo metodo usa l'estensione di SQL Server Data Tools (SSDT) in Visual Studio. 
+È possibile usare Visual Studio per eseguire query in Azure SQL Data Warehouse in pochi minuti. Questo metodo usa l'estensione SQL Server Data Tools (SSDT) in Visual Studio 2019. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per eseguire questa esercitazione, è necessario:
@@ -37,7 +37,7 @@ Per eseguire questa esercitazione, è necessario:
 * Il nome completo dell'istanza di SQL Server. Per trovarlo, vedere [Connect to Azure SQL Data Warehouse][Connect to SQL Data Warehouse](Connettersi ad Azure SQL Data Warehouse).
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Connettersi all'istanza di SQL Data Warehouse
-1. Aprire Visual Studio 2013 o 2015.
+1. Aprire Visual Studio 2019.
 2. Aprire Esplora oggetti di SQL Server. A questo scopo, selezionare **Visualizza** > **Esplora oggetti di SQL Server**.
    
     ![Esplora oggetti di SQL Server][1]

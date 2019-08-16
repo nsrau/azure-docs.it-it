@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afcd9c9d3191caeabe182f499b5fd80cd8e1d8dd
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 131d38f6154e7a6e2f3175838b084e47e17ec582
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608146"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532937"
 ---
 # <a name="baseline-policy-end-user-protection-preview"></a>Criteri di base: Protezione dell'utente finale (anteprima)
 
@@ -64,11 +64,11 @@ Criteri di **base dei criteri: La protezione dell'utente finale (** anteprima) �
 
 Per abilitare questo criterio e proteggere gli utenti:
 
-1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
+1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
 1. Passare a **Azure Active Directory** > **accesso condizionale**.
 1. Nell'elenco dei criteri selezionare **criteri di base: Protezione dell'utente finale (anteprima**).
 1. Impostare **Abilita criterio** per **usare immediatamente i criteri**.
-1. Fare clic su **Salva**.
+1. Fare clic su **Save**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

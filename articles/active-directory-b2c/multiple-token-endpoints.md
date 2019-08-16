@@ -1,6 +1,6 @@
 ---
-title: Supportare più autorità emittenti di token in un'applicazione Web basata su OWIN-Azure Active Directory B2C
-description: Informazioni su come abilitare un'applicazione Web .NET per supportare i token rilasciati da più domini.
+title: Eseguire la migrazione di API Web basate su OWIN a b2clogin.com-Azure Active Directory B2C
+description: Informazioni su come abilitare un'API Web .NET per supportare i token rilasciati da più autorità di certificazione durante la migrazione delle applicazioni a b2clogin.com.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,21 +10,23 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 31ab19b8b3adbef1f0ea573af13b98750d278db8
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: a8a6b4f90fe3f1e60341cc59e7d81870c82e843b
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716739"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533757"
 ---
-# <a name="support-multiple-token-issuers-in-an-owin-based-web-application"></a>Supportare più autorità emittenti di token in un'applicazione Web basata su OWIN
+# <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Eseguire la migrazione di un'API Web basata su OWIN in b2clogin.com
 
-Questo articolo descrive una tecnica per l'abilitazione del supporto per più autorità emittenti di token in app Web e API che implementano [Open Web Interface for .NET (OWIN)](http://owin.org/). Il supporto di più endpoint token è utile quando si esegue la migrazione di applicazioni B2C Azure Active Directory (Azure AD) da *login.microsoftonline.com* a *b2clogin.com*.
+Questo articolo descrive una tecnica per l'abilitazione del supporto per più emittenti di token in API Web che implementano l' [interfaccia Web aperta per .NET (OWIN)](http://owin.org/). Il supporto di più endpoint token è utile quando si esegue la migrazione di API Azure Active Directory B2C (Azure AD B2C) e delle relative applicazioni da *login.microsoftonline.com* a *b2clogin.com*.
 
-Le sezioni seguenti presentano un esempio di come abilitare più autorità di certificazione in un'applicazione Web e l'API Web corrispondente che usano i componenti del middleware [Microsoft OWIN][katana] (Katana). Sebbene gli esempi di codice siano specifici del middleware Microsoft OWIN, la tecnica generale dovrebbe essere applicabile ad altre librerie OWIN.
+Aggiungendo il supporto nell'API per accettare i token rilasciati da b2clogin.com e login.microsoftonline.com, è possibile eseguire la migrazione delle applicazioni Web in modalità di gestione temporanea prima di rimuovere il supporto per i token rilasciati da login.microsoftonline.com dall'API.
+
+Le sezioni seguenti presentano un esempio di come abilitare più autorità di certificazione in un'API Web che usa i componenti del middleware [Microsoft OWIN][katana] (Katana). Sebbene gli esempi di codice siano specifici del middleware Microsoft OWIN, la tecnica generale dovrebbe essere applicabile ad altre librerie OWIN.
 
 > [!NOTE]
-> Questo articolo è destinato a Azure ad B2C clienti con applicazioni attualmente distribuite che `login.microsoftonline.com` fanno riferimento a e che desiderano eseguire `b2clogin.com` la migrazione all'endpoint consigliato. Se si sta configurando una nuova applicazione, usare [b2clogin.com](b2clogin.md) come indicato.
+> Questo articolo è destinato a Azure ad B2C clienti con API e applicazioni attualmente distribuite che `login.microsoftonline.com` fanno riferimento a e che desiderano eseguire `b2clogin.com` la migrazione all'endpoint consigliato. Se si sta configurando una nuova applicazione, usare [b2clogin.com](b2clogin.md) come indicato.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -34,7 +36,7 @@ Prima di continuare con i passaggi descritti in questo articolo, è necessario d
 
 ## <a name="get-token-issuer-endpoints"></a>Ottenere gli endpoint dell'emittente del token
 
-Prima di tutto è necessario ottenere gli URI dell'endpoint dell'emittente di token per ogni emittente che si desidera supportare nell'applicazione. Per ottenere gli endpoint *b2clogin.com* e *login.microsoftonline.com* supportati dal tenant di Azure ad B2C, usare la procedura seguente nel portale di Azure.
+È prima di tutto necessario ottenere gli URI dell'endpoint dell'emittente del token per ogni emittente che si vuole supportare nell'API. Per ottenere gli endpoint *b2clogin.com* e *login.microsoftonline.com* supportati dal tenant di Azure ad B2C, usare la procedura seguente nel portale di Azure.
 
 Per iniziare, selezionare uno dei flussi utente esistenti:
 

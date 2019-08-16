@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/13/2019
 ms.author: dalek
-ms.openlocfilehash: abf23eda2474ecbcfcaf0dadb26327225213a9a6
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 4029a9e46b9c9bb7cbd677deff4a172d8fc982f8
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989221"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534601"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gestire l'utilizzo e i costi per Application Insights
 
@@ -92,7 +92,7 @@ Per visualizzare la quantità di dati che l'app sta inviando, è possibile usare
 Ecco alcune operazioni da eseguire per ridurre il volume di dati:
 
 * Utilizzare [Campionamento](../../azure-monitor/app/sampling.md). Questa tecnologia consente di ridurre la velocità dei dati senza rendere asimmetriche le metriche. È ancora possibile spostarsi tra gli elementi correlati nella ricerca. Nelle app server il campionamento funziona automaticamente.
-* [Limitare il numero di chiamate Ajax che possono essere segnalate](../../azure-monitor/app/javascript.md#detailed-configuration) in ogni visualizzazione pagina o disattivare la creazione di report Ajax.
+* [Limitare il numero di chiamate Ajax che possono essere segnalate](../../azure-monitor/app/javascript.md#configuration) in ogni visualizzazione pagina o disattivare la creazione di report Ajax.
 * Disattivare i moduli di raccolta non necessari [modificando il file ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Ad esempio, è possibile che i contatori delle prestazioni o dati sulle dipendenze siano non essenziali.
 * Suddividere i dati di telemetria per separare le chiavi di strumentazione. 
 * Pre-aggregare metriche. Se sono state inserite chiamate a TrackMetric nell'app, è possibile ridurre il traffico usando l'overload che accetta il calcolo della media e la deviazione standard di un batch di misurazioni. In alternativa è possibile usare un [pacchetto di pre-aggregazione](https://www.myget.org/gallery/applicationinsights-sdk-labs).

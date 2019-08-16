@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: f93b74c57d45ddfc7b47beff7852d183a93df00e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 81e1104d71706194ba1c54e42722b4508df09091
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856158"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534858"
 ---
 # <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Creare e gestire aree di lavoro del servizio Azure Machine Learning
 
@@ -27,6 +27,17 @@ In questo articolo si procederà alla creazione, alla visualizzazione e all'elim
 Per creare un'area di lavoro, è necessaria una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
+
+### <a name="download-a-configuration-file"></a>Scaricare un file di configurazione
+
+1. Se si vuole creare una [VM notebook](tutorial-1st-experiment-sdk-setup.md#azure), ignorare questo passaggio.
+
+1. Se si prevede di usare il codice nell'ambiente locale che fa riferimento a questa area di lavoro, selezionare **Scarica config. JSON** dalla sezione **Panoramica** dell'area di lavoro.  
+
+   ![Scarica config.json](./media/how-to-manage-workspace/configure.png)
+   
+   Inserire il file nella struttura di directory con gli script Python o Jupyter notebook. Può trovarsi nella stessa directory, in una sottodirectory denominata *. azureml*o in una directory padre. Quando si crea una macchina virtuale notebook, questo file viene aggiunto alla directory corretta nella macchina virtuale.
+
 
 ## <a name="view"></a>Visualizzare un'area di lavoro
 

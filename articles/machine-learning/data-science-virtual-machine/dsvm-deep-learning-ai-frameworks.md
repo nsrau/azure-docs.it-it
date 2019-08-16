@@ -14,30 +14,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2017
+ms.date: 08/11/2019
 ms.author: vijetaj
-ms.openlocfilehash: 08a740ec898f1ac46ff66de9002e4241d918adc0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e2bcda25ed6897f8955d7e74981bc4f04a145c99
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558179"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534914"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Apprendimento avanzato e framework AI
-La [macchina virtuale per data science](https://aka.ms/dsvm) e la [macchina virtuale per l'apprendimento avanzato](https://aka.ms/dsvm/deeplearning) supportano diversi framework per consentire la creazione delle applicazioni di Intelligenza artificiale con analisi predittiva e funzionalità cognitive come comprensione delle immagini e del linguaggio.
+Il [Data Science Virtual Machine](https://aka.ms/dsvm) (DSVM) supporta una serie di Framework di apprendimento avanzato che consentono di creare applicazioni di intelligenza artificiale con analisi predittiva e funzionalità cognitive come la comprensione delle immagini e della lingua.
 
 Di seguito sono riportati i dettagli su tutti i framework di apprendimento avanzato disponibili nella macchina virtuale per data science.
 
-## <a name="microsoft-cognitive-toolkit"></a>Microsoft Cognitive Toolkit
-
-|    |           |
-| ------------- | ------------- |
-| Informazioni   | Framework per l'apprendimento avanzato      |
-| Edizioni supportate della macchina virtuale per data science      | Windows, Linux     |
-| Come viene configurata o installata sulla macchina virtuale per data science?  | Microsoft Cognitive Toolkit, ovvero CNTK, viene installato in Python 3.5 su [Linux e Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) e in Python 3.6 su [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition).   |
-| Collegamenti agli esempi      | Sono inclusi i blocchi appunti Jupyter di esempio.     |
-| Strumenti correlati nella macchina virtuale per data science      | Keras      |
-| Come usarla o eseguirla?    | * In un terminale: attivare l'ambiente corretto, quindi eseguire Python. <br/> * In Jupyter: connettersi a [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) o a [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), quindi aprire la directory CNTK per gli esempi. |
 
 ## <a name="tensorflow"></a>TensorFlow
 
@@ -50,16 +40,16 @@ Di seguito sono riportati i dettagli su tutti i framework di apprendimento avanz
 | Strumenti correlati nella macchina virtuale per data science      | Keras      |
 | Come usarla o eseguirla?    | * In un terminale: attivare l'ambiente corretto, quindi eseguire Python. <br/> * In Jupyter: connettersi a [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) oppure a [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), quindi aprire la directory di TensorFlow per gli esempi.  |
 
-## <a name="horovod"></a>Horovod
+## <a name="pytorch"></a>PyTorch
 
 |    |           |
 | ------------- | ------------- |
-| Informazioni   | Framework di apprendimento avanzato distribuito per TensorFlow      |
-| Edizioni supportate della macchina virtuale per data science      | Ubuntu     |
-| Come viene configurata o installata sulla macchina virtuale per data science?  | Horovod viene installato in Python 3.5 su [Ubuntu](dsvm-languages.md#python-linux-and-windows-server-2012-edition).  |
-| Collegamenti agli esempi      | [https://github.com/uber/horovod/tree/master/examples](https://github.com/uber/horovod/tree/master/examples)     |
-| Strumenti correlati nella macchina virtuale per data science      | TensorFlow      |
-| Come usarla o eseguirla?    | In un terminale: attivare l'ambiente corretto, quindi eseguire Python. |
+| Informazioni   | Framework per l'apprendimento avanzato      |
+| Edizioni supportate della macchina virtuale per data science      | Linux     |
+| Come viene configurata o installata sulla macchina virtuale per data science?  | PyTorch viene installato in [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition).  |
+| Collegamenti agli esempi      | Sono inclusi notebook di Jupyter di esempio e altri esempi sono disponibili in /dsvm/samples/pytorch.      |
+| Strumenti correlati nella macchina virtuale per data science      | Torch      |
+| Come usarla o eseguirla? |* In un terminale: attivare l'ambiente corretto, quindi eseguire Python. <br/> * In Jupyter: connettersi a [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), quindi aprire la directory di PyTorch per gli esempi.  |
 
 ## <a name="keras"></a>Keras
 
@@ -111,6 +101,70 @@ La versione installata di Caffe richiede Python 2.7 e non funziona con Python 3.
 | Come usarla o eseguirla?    | * Nel terminale: attivare l'[ambiente di Python radice](dsvm-languages.md#python-linux-and-windows-server-2012-edition), avviare Python e importare caffe2. <br/> * In JupyterHub: [connettersi a JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), quindi passare alla directory Caffe2 per trovare i blocchi appunti di esempio. Alcuni blocchi appunti richiedono l'impostazione della radice di Caffe2 nel codice Python. Immettere /opt/caffe2. |
 | Note sulla build | Caffe2 viene creato dalle origini in Linux e include CUDA, cuDNN e Intel MKL. Il commit corrente è 0d9c0d48c6f20143d6404b99cc568efd29d5a4be, che è stato scelto per la stabilità in tutti i GPU e negli esempi testati. |
 
+## <a name="torch"></a>Torch
+
+|    |           |
+| ------------- | ------------- |
+| Informazioni   | Framework per l'apprendimento avanzato      |
+| Edizioni supportate della macchina virtuale per data science      | Ubuntu     |
+| Come viene configurata o installata sulla macchina virtuale per data science?  | Torch è installato in `/dsvm/tools/torch`. PyTorch viene installato in Python 2.7, _radice_, e nell'ambiente Python 3.5, _py35_.   |
+| Collegamenti agli esempi      | Gli esempi di Torch si trovano in `/dsvm/samples/torch`. Gli esempi di PyTorch si trovano in `/dsvm/samples/pytorch`.      |
+
+
+
+
+## <a name="mxnet-model-server"></a>MXNet Model Server
+
+|    |           |
+| ------------- | ------------- |
+| Informazioni   | Un server per la creazione di endpoint HTTP per i modelli MXNet e ONNX      |
+| Edizioni supportate della macchina virtuale per data science      | Linux     |
+| Come viene configurata o installata sulla macchina virtuale per data science?  | _mxnet-model-server_ è disponibile nel terminale.   |
+| Collegamenti agli esempi      | Cercare gli esempi aggiornati nella [pagina di MXNet Model Server](https://github.com/awslabs/mxnet-model-server).    |
+| Strumenti correlati nella macchina virtuale per data science      | MXNet      |
+
+
+## <a name="mxnet"></a>MXNet
+
+|    |           |
+| ------------- | ------------- |
+| Informazioni   | Framework per l'apprendimento avanzato      |
+| Edizioni supportate della macchina virtuale per data science      | Windows, Linux     |
+| Come viene configurata o installata sulla macchina virtuale per data science?  | MXNet è installato in `C:\dsvm\tools\mxnet` su Windows e in `/dsvm/tools/mxnet` su Linux. Le associazioni di Python vengono installate in Python 3.5 su [Linux e Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) e in Python 3.6 su [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). Anche le associazioni di R vengono installate su Ubuntu.   |
+| Collegamenti agli esempi      | Sono inclusi i blocchi appunti Jupyter di esempio.    |
+| Strumenti correlati nella macchina virtuale per data science      | Keras      |
+| Come usarla o eseguirla?    | * In un terminale: attivare l'ambiente corretto, quindi eseguire Python. <br/> * In Jupyter: connettersi a [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) oppure a [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), quindi aprire la directory di MXNet per gli esempi.  |
+ | Note sulla build | MXNet viene creata dalle origini di Linux. Questa build include CUDA, cuDNN, NCCL e MKL. |
+
+
+
+
+
+
+## <a name="horovod"></a>Horovod
+
+|    |           |
+| ------------- | ------------- |
+| Informazioni   | Framework per Deep learning distribuito per TensorFlow      |
+| Edizioni supportate della macchina virtuale per data science      | Ubuntu     |
+| Come viene configurata o installata sulla macchina virtuale per data science?  | Horovod viene installato in Python 3.5 su [Ubuntu](dsvm-languages.md#python-linux-and-windows-server-2012-edition).  |
+| Collegamenti agli esempi      | [https://github.com/uber/horovod/tree/master/examples](https://github.com/uber/horovod/tree/master/examples)     |
+| Strumenti correlati nella macchina virtuale per data science      | TensorFlow      |
+| Come usarla o eseguirla?    | In un terminale: attivare l'ambiente corretto, quindi eseguire Python. |
+
+
+
+## <a name="theano"></a>Theano
+
+|    |           |
+| ------------- | ------------- |
+| Informazioni   | Framework per l'apprendimento avanzato      |
+| Edizioni supportate della macchina virtuale per data science      | Ubuntu     |
+| Come viene configurata o installata sulla macchina virtuale per data science?  | Theano viene installato in Python 2.7, _radice_, e nell'ambiente Python 3.5, _py35_.   |
+| Strumenti correlati nella macchina virtuale per data science      | Keras      |
+| Come usarla o eseguirla?    | * In un terminale attivare la versione di Python desiderata, ovvero radice o py35, eseguire python, quindi importare Theano. <br/> * In Jupyter selezionare il kernel Python 2.7 o 3.5, quindi importare Theano.  <br/>Per risolvere un bug di MKL recente, è necessario innanzitutto impostare il livello di threading di MKL:<br/><br/>_export MKL_THREADING_LAYER=GNU_|
+
+
 ## <a name="chainer"></a>Chainer
 
 |    |           |
@@ -146,17 +200,6 @@ Per usare Deep Water:
 * Nel terminale: attivare l'ambiente [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition), quindi eseguire _python_. <br/>
 * In JupyterHub: [connettersi a JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), quindi passare alla directory deep_water per trovare i blocchi appunti di esempio.
 
-## <a name="mxnet"></a>MXNet
-
-|    |           |
-| ------------- | ------------- |
-| Informazioni   | Framework per l'apprendimento avanzato      |
-| Edizioni supportate della macchina virtuale per data science      | Windows, Linux     |
-| Come viene configurata o installata sulla macchina virtuale per data science?  | MXNet è installato in `C:\dsvm\tools\mxnet` su Windows e in `/dsvm/tools/mxnet` su Linux. Le associazioni di Python vengono installate in Python 3.5 su [Linux e Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) e in Python 3.6 su [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). Anche le associazioni di R vengono installate su Ubuntu.   |
-| Collegamenti agli esempi      | Sono inclusi i blocchi appunti Jupyter di esempio.    |
-| Strumenti correlati nella macchina virtuale per data science      | Keras      |
-| Come usarla o eseguirla?    | * In un terminale: attivare l'ambiente corretto, quindi eseguire Python. <br/> * In Jupyter: connettersi a [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) oppure a [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), quindi aprire la directory di MXNet per gli esempi.  |
- | Note sulla build | MXNet viene creata dalle origini di Linux. Questa build include CUDA, cuDNN, NCCL e MKL. |
 
 ## <a name="nvidia-digits"></a>NVIDIA DIGITS
 
@@ -187,48 +230,6 @@ L'avvio del servizio richiede circa un minuto. Aprire un Web browser e passare a
 
 
 
-## <a name="theano"></a>Theano
-
-|    |           |
-| ------------- | ------------- |
-| Informazioni   | Framework per l'apprendimento avanzato      |
-| Edizioni supportate della macchina virtuale per data science      | Ubuntu     |
-| Come viene configurata o installata sulla macchina virtuale per data science?  | Theano viene installato in Python 2.7, _radice_, e nell'ambiente Python 3.5, _py35_.   |
-| Strumenti correlati nella macchina virtuale per data science      | Keras      |
-| Come usarla o eseguirla?    | * In un terminale attivare la versione di Python desiderata, ovvero radice o py35, eseguire python, quindi importare Theano. <br/> * In Jupyter selezionare il kernel Python 2.7 o 3.5, quindi importare Theano.  <br/>Per risolvere un bug di MKL recente, è necessario innanzitutto impostare il livello di threading di MKL:<br/><br/>_export MKL_THREADING_LAYER=GNU_|
-
-
-
-## <a name="torch"></a>Torch
-
-|    |           |
-| ------------- | ------------- |
-| Informazioni   | Framework per l'apprendimento avanzato      |
-| Edizioni supportate della macchina virtuale per data science      | Ubuntu     |
-| Come viene configurata o installata sulla macchina virtuale per data science?  | Torch è installato in `/dsvm/tools/torch`. PyTorch viene installato in Python 2.7, _radice_, e nell'ambiente Python 3.5, _py35_.   |
-| Collegamenti agli esempi      | Gli esempi di Torch si trovano in `/dsvm/samples/torch`. Gli esempi di PyTorch si trovano in `/dsvm/samples/pytorch`.      |
-
-
-## <a name="pytorch"></a>PyTorch
-
-|    |           |
-| ------------- | ------------- |
-| Informazioni   | Framework per l'apprendimento avanzato      |
-| Edizioni supportate della macchina virtuale per data science      | Linux     |
-| Come viene configurata o installata sulla macchina virtuale per data science?  | PyTorch viene installato in [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition).  |
-| Collegamenti agli esempi      | Sono inclusi notebook di Jupyter di esempio e altri esempi sono disponibili in /dsvm/samples/pytorch.      |
-| Strumenti correlati nella macchina virtuale per data science      | Torch      |
-| Come usarla o eseguirla? |* In un terminale: attivare l'ambiente corretto, quindi eseguire Python. <br/> * In Jupyter: connettersi a [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), quindi aprire la directory di PyTorch per gli esempi.  |
-
-## <a name="mxnet-model-server"></a>MXNet Model Server
-
-|    |           |
-| ------------- | ------------- |
-| Informazioni   | Un server per la creazione di endpoint HTTP per i modelli MXNet e ONNX      |
-| Edizioni supportate della macchina virtuale per data science      | Linux     |
-| Come viene configurata o installata sulla macchina virtuale per data science?  | _mxnet-model-server_ è disponibile nel terminale.   |
-| Collegamenti agli esempi      | Cercare gli esempi aggiornati nella [pagina di MXNet Model Server](https://github.com/awslabs/mxnet-model-server).    |
-| Strumenti correlati nella macchina virtuale per data science      | MXNet      |
 
 ## <a name="tensorflow-serving"></a>TensorFlow Serving
 
@@ -251,4 +252,14 @@ L'avvio del servizio richiede circa un minuto. Aprire un Web browser e passare a
 | Strumenti correlati nella macchina virtuale per data science      | TensorFlow Serving, MXNet Model Server  |
 
 
+## <a name="microsoft-cognitive-toolkit"></a>Microsoft Cognitive Toolkit
+
+|    |           |
+| ------------- | ------------- |
+| Informazioni   | Framework per l'apprendimento avanzato      |
+| Edizioni supportate della macchina virtuale per data science      | Windows, Linux     |
+| Come viene configurata o installata sulla macchina virtuale per data science?  | Microsoft Cognitive Toolkit, ovvero CNTK, viene installato in Python 3.5 su [Linux e Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) e in Python 3.6 su [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition).   |
+| Collegamenti agli esempi      | Sono inclusi i blocchi appunti Jupyter di esempio.     |
+| Strumenti correlati nella macchina virtuale per data science      | Keras      |
+| Come usarla o eseguirla?    | * In un terminale: attivare l'ambiente corretto, quindi eseguire Python. <br/> * In Jupyter: connettersi a [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) o a [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), quindi aprire la directory CNTK per gli esempi. |
 

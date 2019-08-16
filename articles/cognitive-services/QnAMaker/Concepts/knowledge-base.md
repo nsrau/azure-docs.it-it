@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 08/15/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 022b16669791b9b9cce066b3dd17c70b33569cc0
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 8cd63913c0e96d496aa617369601c1dd121b4b46
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955246"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542851"
 ---
 # <a name="what-is-a-qna-maker-knowledge-base"></a>Che cos'è una knowledge base di QnA Maker?
 
@@ -59,6 +59,70 @@ Il processo è illustrato nella tabella seguente:
 
 Le funzionalità usate includono ma non sono limitate alla semantica a livello di parola, alla priorità a livello di termine in un corpus e ai modelli semantici appresi in modo approfondito per determinare la somiglianza e la pertinenza tra due stringhe di testo.
 
+## <a name="http-request-and-response-with-endpoint"></a>Richiesta e risposta HTTP con endpoint
+Quando si pubblica la Knowledge base, il servizio crea un **endpoint** http basato su REST che può essere integrato nell'applicazione, in genere un bot di chat. 
+
+### <a name="the-user-query-request-to-generate-an-answer"></a>Richiesta di query utente per generare una risposta
+
+Una **query utente** è la domanda che l'utente finale chiede alla Knowledge base, ad esempio, `How do I add a collaborator to my app?`. La query è spesso in un formato di linguaggio naturale o alcune parole chiave che rappresentano la domanda, ad esempio `help with collaborators`,. La query viene inviata alle proprie conoscenze da una **richiesta** http nell'applicazione client.
+
+```json
+{
+    "question": "qna maker and luis",
+    "top": 6,
+    "isTest": true,
+    "scoreThreshold": 20,
+    "strictFilters": [
+    {
+        "name": "category",
+        "value": "api"
+    }],
+    "userId": "sd53lsY="
+}
+```
+
+Per controllare la risposta, impostare proprietà quali [scoreThreshold](./confidence-score.md#choose-a-score-threshold), [Top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)e [stringFilters](../how-to/metadata-generateanswer-usage.md#filter-results-with-strictfilters-for-metadata-tags).
+
+Usare il [contenuto delle conversazioni](../how-to/metadata-generateanswer-usage.md#use-question-and-answer-results-to-keep-conversation-context) con la funzionalità a più [turni](../how-to/multiturn-conversation.md) per continuare la conversazione per ridefinire le domande e le risposte, per trovare la risposta corretta e finale.
+
+### <a name="the-response-from-a-call-to-generate-answer"></a>Risposta da una chiamata a genera risposta
+
+La **risposta** http è la risposta recuperata dalla Knowledge base, in base alla corrispondenza migliore per una query utente specificata. La risposta include la risposta e il Punteggio di stima. Se è stata richiesta più di una risposta top, con la `top` proprietà, si ottiene più di una risposta top, ognuno con un punteggio. 
+
+```json
+{
+    "answers": [
+        {
+            "questions": [
+                "What is the closing time?"
+            ],
+            "answer": "10.30 PM",
+            "score": 100,
+            "id": 1,
+            "source": "Editorial",
+            "metadata": [
+                {
+                    "name": "restaurant",
+                    "value": "paradise"
+                },
+                {
+                    "name": "location",
+                    "value": "secunderabad"
+                }
+            ]
+        }
+    ]
+}
+```
+
+### <a name="test-and-production-knowledge-base"></a>Knowledge base di test e produzione
+Una Knowledge Base è il repository di domande e risposte create, gestite e usate tramite QnA Maker. Ogni livello di QnA Maker può essere usato per più Knowledge Base.
+
+Una Knowledge Base ha due stati, test e pubblicata. 
+
+La **Knowledge base test** è la versione che viene modificata, salvata e testata per l'accuratezza e la completezza delle risposte. Le modifiche apportate alla Knowledge Base di test non interessano l'utente finale dell'applicazione o del chat bot. La Knowledge base test è nota come `test` nella richiesta HTTP. 
+
+La **Knowledge base pubblicata** è la versione usata nel bot/applicazione di chat. L'azione di pubblicazione di una Knowledge Base inserisce il contenuto della Knowledge Base di test nella versione pubblicata. Poiché la Knowledge Base pubblicata è la versione usata dall'applicazione tramite l'endpoint, è necessario assicurarsi che il contenuto sia corretto e ben testato. La Knowledge base pubblicata è nota come `prod` nella richiesta HTTP. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -68,3 +132,11 @@ Le funzionalità usate includono ma non sono limitate alla semantica a livello d
 ## <a name="see-also"></a>Vedere anche
 
 [Panoramica di QnA Maker](../Overview/overview.md)
+
+Creare e modificare la Knowledge base con: 
+* [API REST](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamaker/knowledgebase)
+* [.NET SDK](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebase?view=azure-dotnet)
+
+Genera risposta con: 
+* [API REST](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)
+* [.NET SDK](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.runtime?view=azure-dotnet)

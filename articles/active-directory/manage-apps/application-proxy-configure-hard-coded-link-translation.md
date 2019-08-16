@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 08/15/2019
 ms.author: mimart
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6d85fc7ed16f397cb91232e9648df4e8741b37a
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: aa0dc2081aff5a24fb830b756131cccd5c6ce810
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68705790"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533693"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Reindirizzare i collegamenti hardcoded per le app pubblicate con il proxy di app di Azure AD
 
@@ -30,13 +30,16 @@ Il proxy di applicazione di Azure AD rende disponibili le app locali per gli ute
 Il modo migliore per assicurarsi che i collegamenti funzionino all'interno e all'esterno della rete aziendale consiste nel configurare gli URL esterni delle app in modo che corrispondano con gli URL interni. Usare [domini personalizzati](application-proxy-configure-custom-domain.md) per configurare l'URL esterno in modo che abbia il nome di dominio aziendale anziché il proxy di applicazione predefinito.
 
 
-Se non è possibile usare domini personalizzati nel tenant, esistono molte altre opzioni per fornire questa funzionalità. Tutte queste sono compatibili con i domini personalizzati e tra loro, pertanto è possibile configurare domini personalizzati e altre soluzioni, se necessario. 
+Se non è possibile usare domini personalizzati nel tenant, esistono molte altre opzioni per fornire questa funzionalità. Tutte queste sono compatibili con i domini personalizzati e tra loro, pertanto è possibile configurare domini personalizzati e altre soluzioni, se necessario.
+
+> [!NOTE]
+> La conversione dei collegamenti non è supportata per gli URL interni hardcoded generati tramite JavaScript.
 
 **Opzione 1: Usare il Managed browser o Microsoft Edge** : questa soluzione è applicabile solo se si prevede di consigliare o richiedere agli utenti di accedere all'applicazione tramite il browser Intune Managed browser o Microsoft Edge. Gestisce tutti gli URL pubblicati. 
 
 **Opzione 2: Usare l'estensione MyApps** - Questa soluzione richiede agli utenti di installare un'estensione del browser lato client, ma gestisce tutti gli URL pubblicati e funziona con i browser più diffusi. 
 
-**Opzione 3: Usare l'impostazione di conversione dei collegamenti** - Questa è un'impostazione sul lato amministratore invisibile agli utenti. Tuttavia gestisce solo gli URL in HTML e CSS. Ad esempio, gli URL interni a livello di codice generati tramite JavaScript non funzioneranno.  
+**Opzione 3: Usare l'impostazione di conversione dei collegamenti** - Questa è un'impostazione sul lato amministratore invisibile agli utenti. Tuttavia gestisce solo gli URL in HTML e CSS.   
 
 Queste tre caratteristiche mantengono i collegamenti funzionanti indipendentemente dalla posizione degli utenti. Quando si hanno applicazioni che puntano direttamente a endpoint o porte interne, è possibile mappare questi URL interni agli URL del proxy di applicazione esterno pubblicato. 
 

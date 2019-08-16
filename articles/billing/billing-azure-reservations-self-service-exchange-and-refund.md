@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/05/2019
 ms.author: banders
-ms.openlocfilehash: 5e38684500520d4565835456b94200aea399c938
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 828bc3784a118a81adc4391b1bf222c00ee2025a
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814108"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543014"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Scambi e rimborsi self-service per le prenotazioni di Azure
 
@@ -60,11 +60,6 @@ La fattura originale viene annullata e viene creata una nuova fattura. Il denaro
 
 Azure prevede i seguenti criteri per gli annullamenti, gli scambi e i rimborsi.
 
-**Criteri di annullamento**
-
-- Se si annulla una prenotazione, potrebbe essere prevista una tariffa per la terminazione del 12%.
-- Il rimborso ricevuto per un annullamento è il saldo proporzionale rimanente, meno il 12% della tariffa per la terminazione anticipata. Per annullare, passare alla prenotazione nel portale di Azure e selezionare **rimborso**.
-
 **Criteri di Exchange**
 
 - È possibile restituire più prenotazioni esistenti per acquistare una nuova prenotazione dello stesso tipo. Non è possibile scambiare prenotazioni di un tipo per un altro tipo. Ad esempio, non è possibile restituire una prenotazione della macchina virtuale per acquistare una prenotazione SQL.
@@ -77,10 +72,12 @@ Azure prevede i seguenti criteri per gli annullamenti, gli scambi e i rimborsi.
 - Non sono previsti limiti per gli scambi.
 
 **Criteri di rimborso**
+- Se si annulla una prenotazione, potrebbe essere prevista una tariffa per la terminazione del 12%.
+- Il rimborso ricevuto per un annullamento è il saldo proporzionale rimanente, meno il 12% della tariffa per la terminazione anticipata. Per annullare, passare alla prenotazione nel portale di Azure e selezionare **rimborso**.
 - L'importo del rimborso totale non può superare $50.000 USD in una finestra in sequenza di 12 mesi.
 - I rimborsi vengono calcolati in base al prezzo minimo del prezzo di acquisto o del prezzo attuale della prenotazione.
 - Solo i proprietari delle prenotazioni possono elaborare un rimborso. [Informazioni su come aggiungere o modificare gli utenti che possono gestire una prenotazione](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
-- Microsoft si riserva il diritto di addebitare un rigore del 12% per qualsiasi risultato, anche se la penalità non è attualmente addebitata.
+- Microsoft si riserva il diritto di addebitare un rigore del 12% per eventuali ritorni. La penalità non è attualmente addebitata, ma verrà addebitata in futuro.
 
 ## <a name="exchange-non-premium-storage-for-premium-storage"></a>Archiviazione non Premium di Exchange per archiviazione Premium
 

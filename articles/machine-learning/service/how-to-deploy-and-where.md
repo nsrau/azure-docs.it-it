@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/06/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: a92cb0f3da5058e7ffeee6f47e8cfa26ae291005
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 5c0c3ade3fd089a4819b8836b07e249fc32c06e0
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990568"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543604"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuire modelli con il servizio di Azure Machine Learning
 
@@ -149,12 +149,25 @@ Per ospitare la distribuzione del servizio Web, è possibile usare le seguenti d
 
 ## <a name="prepare-to-deploy"></a>Preparare la distribuzione
 
-Per distribuire come servizio Web, è necessario creare una configurazione di inferenza`InferenceConfig`() e una configurazione di distribuzione. L'inferenza o il punteggio del modello è la fase in cui il modello distribuito viene usato per la stima, più comunemente sui dati di produzione. Nella configurazione dell'inferenza è possibile specificare gli script e le dipendenze necessari per gestire il modello. Nella configurazione della distribuzione specificare i dettagli relativi al modo in cui gestire il modello nella destinazione di calcolo.
+La distribuzione del modello richiede diversi elementi:
 
-> [!IMPORTANT]
-> Il Azure Machine Learning SDK non fornisce un modo per il servizio Web o per le distribuzioni di IoT Edge per accedere all'archivio dati o ai set di dati. Se è necessario che il modello distribuito acceda ai dati archiviati all'esterno della distribuzione, ad esempio in un account di archiviazione di Azure, è necessario sviluppare una soluzione di codice personalizzata usando l'SDK pertinente. Ad esempio, [Azure Storage SDK per Python](https://github.com/Azure/azure-storage-python).
->
-> Un'altra alternativa che può funzionare per lo scenario è la [stima in batch](how-to-run-batch-predictions.md), che fornisce l'accesso agli archivi dati quando si esegue il punteggio.
+* Uno __script di immissione__. Questo script accetta richieste, assegna punteggi alla richiesta utilizzando il modello e restituisce i risultati.
+
+    > [!IMPORTANT]
+    > Lo script di immissione è specifico del modello. deve comprendere il formato dei dati della richiesta in ingresso, il formato dei dati previsti dal modello e il formato dei dati restituiti ai client.
+    >
+    > Se i dati della richiesta sono in un formato non utilizzabile dal modello, lo script può trasformarlo in un formato accettabile. Può anche trasformare la risposta prima di restituirla al client.
+
+    > [!IMPORTANT]
+    > Il Azure Machine Learning SDK non fornisce un modo per il servizio Web o per le distribuzioni di IoT Edge per accedere all'archivio dati o ai set di dati. Se è necessario che il modello distribuito acceda ai dati archiviati all'esterno della distribuzione, ad esempio in un account di archiviazione di Azure, è necessario sviluppare una soluzione di codice personalizzata usando l'SDK pertinente. Ad esempio, [Azure Storage SDK per Python](https://github.com/Azure/azure-storage-python).
+    >
+    > Un'altra alternativa che può funzionare per lo scenario è la [stima in batch](how-to-run-batch-predictions.md), che fornisce l'accesso agli archivi dati quando si esegue il punteggio.
+
+* **Dipendenze**, ad esempio gli script helper o i pacchetti Python/conda necessari per eseguire lo script di immissione o il modello
+
+* __Configurazione della distribuzione__ per la destinazione di calcolo che ospita il modello distribuito. Questa configurazione descrive elementi quali i requisiti di memoria e CPU necessari per eseguire il modello.
+
+Queste entità sono incapsulate in una __configurazione__di inferenza e una __configurazione di distribuzione__. La configurazione dell'inferenza fa riferimento allo script di immissione e ad altre dipendenze. Queste configurazioni sono definite a livello di codice quando si usa l'SDK e come file JSON quando si usa l'interfaccia della riga di comando per eseguire la distribuzione.
 
 ### <a id="script"></a> 1. Definire lo script di immissione & dipendenze
 
@@ -399,9 +412,13 @@ def run(request):
 
 ### <a name="2-define-your-inferenceconfig"></a>2. Definire il InferenceConfig
 
-Nella configurazione dell'inferenza viene descritto come configurare il modello per eseguire stime. Nell'esempio seguente viene illustrato come creare una configurazione di inferenza. Questa configurazione specifica il runtime, lo script di immissione e (facoltativamente) il file dell'ambiente conda:
+Nella configurazione dell'inferenza viene descritto come configurare il modello per eseguire stime. Questa configurazione non fa parte dello script di immissione. fa riferimento allo script di immissione e viene usato per individuare tutte le risorse richieste dalla distribuzione. Viene usato in un secondo momento durante la distribuzione del modello.
+
+Nell'esempio seguente viene illustrato come creare una configurazione di inferenza. Questa configurazione specifica il runtime, lo script di immissione e (facoltativamente) il file dell'ambiente conda:
 
 ```python
+from azureml.core.model import InferenceConfig
+
 inference_config = InferenceConfig(runtime="python",
                                    entry_script="x/y/score.py",
                                    conda_file="env/myenv.yml")
@@ -431,7 +448,7 @@ Per informazioni sull'uso di un'immagine Docker personalizzata con la configuraz
 
 ### <a name="3-define-your-deployment-configuration"></a>3. Definire la configurazione di distribuzione
 
-Prima di distribuire, è necessario definire la configurazione della distribuzione. __La configurazione della distribuzione è specifica per la destinazione di calcolo in cui verrà ospitato il servizio Web__. Ad esempio, quando si distribuisce localmente, è necessario specificare la porta in cui il servizio accetta le richieste.
+Prima di distribuire, è necessario definire la configurazione della distribuzione. __La configurazione della distribuzione è specifica per la destinazione di calcolo in cui verrà ospitato il servizio Web__. Ad esempio, quando si distribuisce localmente, è necessario specificare la porta in cui il servizio accetta le richieste. La configurazione della distribuzione non fa parte dello script di immissione. Viene usato per definire le caratteristiche della destinazione di calcolo in cui verrà ospitato lo script del modello e della voce.
 
 Potrebbe anche essere necessario creare la risorsa di calcolo. Ad esempio, se non è già stato associato un servizio Azure Kubernetes all'area di lavoro.
 
@@ -442,6 +459,12 @@ La tabella seguente fornisce un esempio di creazione di una configurazione di di
 | Locale | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
 | Istanza di contenitore di Azure | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Servizio Azure Kubernetes | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
+
+Ognuna di queste classi per i servizi Web locali, ACI e AKS può essere importata da `azureml.core.webservice`:
+
+```python
+from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
+```
 
 > [!TIP]
 > Prima di distribuire il modello come servizio, è consigliabile profilarlo per determinare i requisiti di CPU e memoria ottimali. È possibile profilare il modello usando SDK o l'interfaccia della riga di comando. Per ulteriori informazioni, vedere [profile ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-) e [AZ ml Model Profile](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile) Reference.
@@ -459,6 +482,8 @@ Per eseguire la distribuzione localmente, è necessario che Docker sia installat
 #### <a name="using-the-sdk"></a>Uso dell'SDK
 
 ```python
+from azureml.core.webservice import LocalWebservice, Webservice
+
 deployment_config = LocalWebservice.deploy_configuration(port=8890)
 service = Model.deploy(ws, "myservice", [model], inference_config, deployment_config)
 service.wait_for_deployment(show_output = True)

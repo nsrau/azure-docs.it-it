@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 624c1648bc709e1ca6ee9c4120350a606df67df5
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 79e7027d308d389aa672d164de91df61b1142e32
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035761"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534161"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Creare e installare i file di configurazione del client VPN per le configurazioni da punto a sito con autenticazione del certificato nativa di Azure
 
@@ -126,12 +126,12 @@ Se non sono ancora stati generati certificati, attenersi alla procedura seguente
 
 ### <a name="install"></a>Installare e configurare
 
-Le istruzioni seguenti sono state create usando strongSwan 5.5.1 in Ubuntu 17.0.4. Ubuntu 16.0.10 non supporta l'interfaccia utente grafica strongSwan. Se si intende comunque usare Ubuntu 16.0.10, sarà quindi necessario ricorrere alla [riga di comando](#linuxinstallcli). A seconda delle versioni di Linux e strongSwan in uso, è possibile che le schermate riportate negli esempi seguenti non corrispondano a quelle effettivamente visualizzate.
+In Ubuntu 18.0.4 sono state create le istruzioni seguenti. Ubuntu 16.0.10 non supporta l'interfaccia utente grafica strongSwan. Se si intende comunque usare Ubuntu 16.0.10, sarà quindi necessario ricorrere alla [riga di comando](#linuxinstallcli). A seconda delle versioni di Linux e strongSwan in uso, è possibile che le schermate riportate negli esempi seguenti non corrispondano a quelle effettivamente visualizzate.
 
-1. Aprire il **Terminale** per installare **strongSwan** e il relativo gestore di rete eseguendo il comando riportato nell'esempio. Se si riceve un errore relativo a *libcharon-extra-plugins*, sostituirlo con "strongswan-plugin-eap-mschapv2".
+1. Aprire il **Terminale** per installare **strongSwan** e il relativo gestore di rete eseguendo il comando riportato nell'esempio.
 
    ```
-   sudo apt-get install strongswan libcharon-extra-plugins moreutils iptables-persistent network-manager-strongswan
+   sudo apt install network-manager-strongswan
    ```
 2. Selezionare l'icona **Network Manager** (Gestione rete) usando le frecce su/giù e selezionare **Edit Connections** (Modifica connessioni).
 

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: d4b7a214af23d69f1217d84e9401de230cd358b0
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 903fd2309949036b62fb4975596fb645c021d06d
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67877363"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535045"
 ---
 # <a name="application-insights-log-based-metrics"></a>Metriche basate su log Application Insights
 
@@ -93,7 +93,7 @@ availabilityResults
 Le metriche del browser vengono raccolte dal Application Insights JavaScript SDK dai browser degli utenti finali reali. Forniscono informazioni eccezionali sull'esperienza degli utenti con l'app Web. Le metriche del browser non vengono in genere campionate, il che significa che forniscono una maggiore precisione dei numeri di utilizzo rispetto alle metriche lato server, che potrebbero essere inclinate in base al campionamento.
 
 > [!NOTE]
-> Per raccogliere le metriche del browser, l'applicazione deve essere instrumentata con il frammento di [Application Insights JavaScript SDK](../../azure-monitor/app/javascript.md#add-the-sdk-script-to-your-app-or-web-pages).
+> Per raccogliere le metriche del browser, l'applicazione deve essere instrumentata con [Application Insights JavaScript SDK](../../azure-monitor/app/javascript.md).
 
 ### <a name="browser-page-load-time-browsertimingstotalduration"></a>Tempo di caricamento pagina del browser (browserTimings/totalDuration)
 
@@ -313,7 +313,7 @@ La metrica Mostra la quantità di capacità totale del processore utilizzata dal
 
 |Unità di misura|Aggregazioni supportate|Dimensioni supportate|
 |---|---|---|
-|Percentuale|Media, min, max|Istanza del ruolo del cloud
+|Percentuale|Media, min, max|Istanza del ruolo cloud
 
 ```Kusto
 performanceCounters
@@ -327,7 +327,7 @@ performanceCounters
 
 |Unità di misura|Aggregazioni supportate|Dimensioni supportate|
 |---|---|---|
-|Byte al secondo|Media, min, max|Istanza del ruolo del cloud
+|Byte al secondo|Media, min, max|Istanza del ruolo cloud
 
 ```Kusto
 performanceCounters
@@ -343,7 +343,7 @@ Quantità di memoria non condivisa allocata dal processo monitorato per i dati.
 
 |Unità di misura|Aggregazioni supportate|Dimensioni supportate|
 |---|---|---|
-|Byte|Media, min, max|Istanza del ruolo del cloud
+|Byte|Media, min, max|Istanza del ruolo cloud
 
 ```Kusto
 performanceCounters
@@ -359,7 +359,7 @@ Utilizzo della CPU da parte di *tutti* i processi in esecuzione nell'istanza del
 
 |Unità di misura|Aggregazioni supportate|Dimensioni supportate|
 |---|---|---|
-|Percentuale|Media, min, max|Istanza del ruolo del cloud
+|Percentuale|Media, min, max|Istanza del ruolo cloud
 
 >[!NOTE]
 > La metrica del tempo del processore non è disponibile per le applicazioni ospitate nei servizi app Azure. Usare la metrica [Process CPU](#process-cpu-performancecountersprocesscpupercentage) per tenere traccia dell'utilizzo della CPU delle applicazioni Web ospitate nei servizi app.

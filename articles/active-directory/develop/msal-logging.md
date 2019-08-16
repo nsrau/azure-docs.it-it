@@ -3,7 +3,7 @@ title: Registrazione nelle applicazioni MSAL | Azure
 description: Informazioni sulla registrazione nelle applicazioni Microsoft Authentication Library (MSAL).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/22/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 475b692a29edf5cdd05552e7b5c3dc5fde210275
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 2f52ca8062ed1ed196a67d25385b712451afe8ae
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512518"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532738"
 ---
 # <a name="logging"></a>Registrazione
 Le app Microsoft Authentication Library (MSAL) consentono di generare messaggi di log che possono rivelarsi utili per diagnosticare i problemi e fornire dettagli. Un'app può configurare la registrazione con alcune righe di codice e avere un controllo personalizzato sul livello di dettaglio, oltre che sulla necessità di registrare o meno i dati personali o dell'organizzazione. È consigliabile impostare un callback di registrazione MSAL e fornire agli utenti un modo per inviare i log in caso di problemi di autenticazione.

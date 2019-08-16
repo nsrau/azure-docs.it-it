@@ -1,9 +1,9 @@
 ---
-title: Cancellare la cache dei token tramite Microsoft Authentication Library per .NET - Azure
-description: Informazioni su come cancellare la cache dei token usando Microsoft Authentication Library per .NET (MSAL.NET).
+title: Cancellare la cache dei token usando Microsoft Authentication Library per .NET-Azure
+description: Informazioni su come cancellare la cache dei token utilizzando Microsoft Authentication Library per .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,22 +13,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6763c6b2b1f9b4de7d8669a50a4979a7aac00c7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1cee6443db0b019f79a80cf5b7c0e2a7a50240f2
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544109"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532655"
 ---
-# <a name="clear-the-token-cache-using-msalnet"></a>Cancellare la cache dei token tramite MSAL.NET
+# <a name="clear-the-token-cache-using-msalnet"></a>Cancellare la cache dei token usando MSAL.NET
 
-Quando si [acquisire un token di accesso](msal-acquire-cache-tokens.md) usando Microsoft Authentication Library per .NET (MSAL.NET), il token viene memorizzato nella cache. Quando l'applicazione necessita di un token, opportuno chiamare dapprima il `AcquireTokenSilent` metodo per verificare se un token accettabile è presente nella cache. 
+Quando si [acquisisce un token di accesso](msal-acquire-cache-tokens.md) tramite Microsoft Authentication Library per .net (MSAL.NET), il token viene memorizzato nella cache. Quando l'applicazione richiede un token, deve prima chiamare il `AcquireTokenSilent` metodo per verificare se un token accettabile si trova nella cache. 
 
-La cancellazione della cache viene realizzata mediante gli account di rimozione dalla cache. Questa operazione, tuttavia, non rimuove il cookie di sessione, che si trova nel browser.  Nell'esempio seguente crea un'istanza di un'applicazione client pubblica, ottiene gli account per l'applicazione e rimuove gli account.
+La cancellazione della cache viene eseguita rimuovendo gli account dalla cache. Questa operazione, tuttavia, non rimuove il cookie di sessione, che si trova nel browser.  Nell'esempio seguente viene creata un'istanza di un'applicazione client pubblica, vengono ottenuti gli account per l'applicazione e vengono rimossi gli account.
 
 ```csharp
 private readonly IPublicClientApplication _app;
@@ -50,4 +50,4 @@ while (accounts.Any())
 
 ```
 
-Per altre informazioni sull'acquisizione e memorizzazione nella cache i token, leggere [acquisire un token di accesso](msal-acquire-cache-tokens.md).
+Per altre informazioni su come acquisire e memorizzare nella cache i token, leggere [acquisire un token di accesso](msal-acquire-cache-tokens.md).

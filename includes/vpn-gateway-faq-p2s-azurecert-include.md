@@ -5,21 +5,25 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 08/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: e2e91dc91cf0fbe6827808785a4c3cc25b06542b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 93f6bc8533218af7f0e6dcd1c5f7be6fe8c00e29
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67179967"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69520850"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
-### <a name="can-i-use-my-own-internal-pki-root-ca-for-point-to-site-connectivity"></a>È possibile usare la CA radice della PKI interna per la connettività da punto a sito?
+### <a name="can-i-use-my-own-internal-pki-root-ca-to-generate-certificates-for-point-to-site-connectivity"></a>È possibile usare la CA radice PKI interna per generare certificati per la connettività da punto a sito?
 
 Sì. In precedenza, era possibile utilizzare solo certificati radice autofirmati. È ancora possibile caricare 20 certificati radice.
+
+### <a name="can-i-use-certificates-from-azure-key-vault"></a>È possibile usare I certificati di Azure Key Vault?
+
+No.
 
 ### <a name="what-tools-can-i-use-to-create-certificates"></a>Quali strumenti è possibile usare per creare certificati?
 
@@ -27,11 +31,11 @@ Sì. In precedenza, era possibile utilizzare solo certificati radice autofirmati
 
 ### <a name="certsettings"></a>Sono disponibili istruzioni per le impostazioni e i parametri dei certificati?
 
-* **Soluzione PKI aziendale/PKI interna:** Vedere i passaggi necessari per [generare i certificati](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert).
+* **Soluzione PKI interna/PKI aziendale:** Vedere la procedura per [generare i certificati](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert).
 
-* **Azure PowerShell:** Vedere le [Azure PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md) procedura nell'articolo.
+* **Azure PowerShell:** Per la procedura, vedere l'articolo [Azure PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md) .
 
-* **MakeCert:** Vedere le [MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) procedura nell'articolo.
+* **Makecert** Per la procedura, vedere l'articolo [Makecert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) .
 
 * **OpenSSL:** 
 

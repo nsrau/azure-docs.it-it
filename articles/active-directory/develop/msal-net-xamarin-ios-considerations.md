@@ -3,7 +3,7 @@ title: Considerazioni su Novell iOS (Microsoft Authentication Library per .NET) 
 description: Informazioni su considerazioni specifiche quando si usa Novell iOS con Microsoft Authentication Library per .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7bb4aab4c217e20245a1f6ee9b2910a4558acad
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 906f2fc8cdac31922e6e93526f65577fe76c4b9c
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278223"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532387"
 ---
 # <a name="xamarin-ios-specific-considerations-with-msalnet"></a>Considerazioni specifiche di Novell per iOS con MSAL.NET
 In Novell iOS sono disponibili diverse considerazioni che è necessario tenere in considerazione quando si usa MSAL.NET
@@ -116,7 +116,7 @@ Usare la nuova `iOSKeychainSecurityGroup` proprietà, che non richiede agli svil
 
 Altre informazioni sono disponibili nel paragrafo [considerazioni specifiche iOS](https://github.com/azure-samples/active-directory-xamarin-native-v2#ios-specific-considerations) del file Readme.MD dell'esempio seguente:
 
-Esempio | Piattaforma | Descrizione
+Esempio | Piattaforma | DESCRIZIONE
 ------ | -------- | -----------
 [https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, piattaforma UWP | Una semplice app Novell Forms che illustra come usare MSAL per autenticare MSA e Azure AD tramite l'endpoint Azure AD V 2.0 e accedere al Microsoft Graph con il token risultante.
 

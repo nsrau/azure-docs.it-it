@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: zarhoads
-ms.openlocfilehash: 1dcf08f4fefb53ed46038c82e0ce8f9d3dd94de2
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 68968c1f846a1052600a8ed108f4d40fd9d8f2cb
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032250"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534737"
 ---
 # <a name="preview---use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Anteprima: usare un servizio di bilanciamento del carico con SKU standard in Azure Kubernetes Service (AKS)
 
@@ -92,11 +92,11 @@ Quando si creano e si gestiscono cluster AKS che supportano un servizio di bilan
 
 * Quando si usa lo SKU *standard* per un servizio di bilanciamento del carico, è necessario consentire indirizzi pubblici ed evitare di creare criteri di Azure che vietino la creazione di IP. Il cluster AKS crea automaticamente un IP pubblico dello SKU *standard* nello stesso gruppo di risorse creato per il cluster AKS, che in genere è denominato con *MC_* all'inizio. AKS assegna l'indirizzo IP pubblico al servizio di bilanciamento del carico dello SKU *standard* . L'indirizzo IP pubblico è necessario per consentire il traffico in uscita dal cluster AKS. Questo indirizzo IP pubblico è necessario anche per mantenere la connettività tra il piano di controllo e i nodi dell'agente, nonché per mantenere la compatibilità con le versioni precedenti di AKS.
 * Quando si usa lo SKU *standard* per un servizio di bilanciamento del carico, è necessario usare Kubernetes versione 1.13.5 o successiva.
-* Se si usa la [funzionalità IP pubblico del nodo](use-multiple-node-pools.md#assign-a-public-ip-per-node-in-a-node-pool) con i bilanciamenti del carico standard, è possibile impostare una regola in uscita SLB o un indirizzo IP pubblico per il nodo. È necessario selezionare una o l'altra perché una macchina virtuale non può essere collegata contemporaneamente a una regola in uscita SLB e a un indirizzo IP pubblico.
 
 Quando questa funzionalità è in anteprima, si applicano le seguenti limitazioni aggiuntive:
 
 * Quando si usa lo SKU *standard* per un servizio di bilanciamento del carico in AKS, non è possibile impostare un indirizzo IP pubblico per l'uscita per il servizio di bilanciamento del carico. È necessario usare l'indirizzo IP AKS assegna al servizio di bilanciamento del carico.
+* Non può essere usato con la [funzionalità IP pubblico del nodo](use-multiple-node-pools.md#assign-a-public-ip-per-node-in-a-node-pool).
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 

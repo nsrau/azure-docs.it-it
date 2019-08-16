@@ -1,9 +1,9 @@
 ---
-title: I flussi di autenticazione (Microsoft Authentication Library) | Azure
-description: Informazioni sui flussi di autenticazione e concede utilizzate da Microsoft Authentication Library (MSAL).
+title: Flussi di autenticazione (Microsoft Authentication Library) | Azure
+description: Informazioni sui flussi di autenticazione e sulle concessioni usate da Microsoft Authentication Library (MSAL).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,96 +13,96 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/25/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7ba6ae188c098e85573503a1518ba65480d713a
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 6cd932d2b11c61c380638a1a95f8da357d0c62e3
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807199"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533010"
 ---
 # <a name="authentication-flows"></a>Flussi di autenticazione
 
-Questo articolo descrive i flussi di autenticazione diversi forniti da Microsoft Authentication Library (MSAL).  Questi flussi sono utilizzabile in un'ampia gamma di scenari delle diverse applicazioni.
+Questo articolo descrive i diversi flussi di autenticazione forniti da Microsoft Authentication Library (MSAL).  Questi flussi possono essere utilizzati in diversi scenari di applicazione.
 
 | Flusso | Descrizione | Usato in|  
 | ---- | ----------- | ------- | 
-| [Interattivo](#interactive) | Ottiene il token tramite un processo interattivo che richiede all'utente le credenziali tramite un browser o una finestra popup. | [Le app desktop](scenario-desktop-overview.md), [App per dispositivi mobili](scenario-mobile-overview.md) |
-| [Concessione implicita](#implicit-grant) | Consente all'app ottenere i token senza eseguire uno scambio di credenziali del server back-end. Ciò consente all'app di accesso dell'utente, gestire la sessione e ottenere i token per altre API web, tutto all'interno del client il codice JavaScript.| [Applicazioni a singola pagina (SPA)](scenario-spa-overview.md) |
-| [Codice di autorizzazione](#authorization-code) | Usato nelle App installate in un dispositivo per accedere alle risorse protette, ad esempio le API web. In questo modo è possibile aggiungere accesso e accesso API alle App per dispositivi mobili e desktop. | [Le app desktop](scenario-desktop-overview.md), [App per dispositivi mobili](scenario-mobile-overview.md), [App web](scenario-web-app-call-api-overview.md) | 
-| [On-behalf-of](#on-behalf-of) | Un'applicazione richiama un servizio o web API, che a sua volta deve chiamare un altro servizio o l'API web. Lo scopo è di propagare l'identità utente delegato e le autorizzazioni attraverso la catena di richieste. | [API Web](scenario-web-api-call-api-overview.md) |
-| [Credenziali del client](#client-credentials) | Consente di accedere alle risorse ospitate sul web usando l'identità di un'applicazione. In genere usata per le interazioni di server-to-server che devono essere eseguito in background, senza l'interazione immediata con un utente. | [App daemon](scenario-daemon-overview.md) |
-| [Codice del dispositivo](#device-code) | Consente agli utenti di accedere a dispositivi con vincoli di input, ad esempio una smart TV, dispositivo IoT o stampante. | [App desktop o per dispositivi mobili](scenario-desktop-acquire-token.md#command-line-tool-without-web-browser) |
-| [Autenticazione integrata di Windows](scenario-desktop-acquire-token.md#integrated-windows-authentication) | Consente ai computer di applicazioni in Azure Active Directory (Azure AD) o di dominio aggiunto acquisire un token automaticamente (senza alcuna interazione dell'interfaccia utente da parte dell'utente).| [App desktop o per dispositivi mobili](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
-| [Nome utente/password](scenario-desktop-acquire-token.md#username--password) | Consente a un'applicazione di accedere all'utente gestendo direttamente le loro password. Questo flusso non è consigliato. | [App desktop o per dispositivi mobili](scenario-desktop-acquire-token.md#username--password) | 
+| [Interattivo](#interactive) | Ottiene il token tramite un processo interattivo che richiede all'utente le credenziali tramite un browser o una finestra popup. | [App desktop](scenario-desktop-overview.md), [app per dispositivi mobili](scenario-mobile-overview.md) |
+| [Concessione implicita](#implicit-grant) | Consente all'app di ottenere i token senza eseguire uno scambio di credenziali del server back-end. Ciò consente all'app di eseguire l'accesso dell'utente, gestire la sessione e ottenere i token per altre API Web, tutto all'interno del codice JavaScript del client.| [Applicazioni a singola pagina (SPA)](scenario-spa-overview.md) |
+| [Codice di autorizzazione](#authorization-code) | Usato nelle app installate in un dispositivo per ottenere l'accesso alle risorse protette, ad esempio le API Web. In questo modo è possibile aggiungere l'accesso e l'API alle app desktop e per dispositivi mobili. | [App desktop](scenario-desktop-overview.md), [app per dispositivi mobili](scenario-mobile-overview.md), [app Web](scenario-web-app-call-api-overview.md) | 
+| [On-behalf-of](#on-behalf-of) | Un'applicazione richiama un servizio o un'API Web, che a sua volta deve chiamare un altro servizio o un'API Web. Lo scopo è di propagare l'identità utente delegato e le autorizzazioni attraverso la catena di richieste. | [API Web](scenario-web-api-call-api-overview.md) |
+| [Credenziali del client](#client-credentials) | Consente di accedere alle risorse ospitate sul Web tramite l'identità di un'applicazione. Utilizzato comunemente per le interazioni tra server che devono essere eseguite in background, senza interazione immediata con un utente. | [App daemon](scenario-daemon-overview.md) |
+| [Codice dispositivo](#device-code) | Consente agli utenti di accedere a dispositivi con vincoli di input, ad esempio una Smart TV, un dispositivo Internet o una stampante. | [App desktop/per dispositivi mobili](scenario-desktop-acquire-token.md#command-line-tool-without-web-browser) |
+| [Autenticazione integrata di Windows](scenario-desktop-acquire-token.md#integrated-windows-authentication) | Consente alle applicazioni in un dominio o in un Azure Active Directory (Azure AD) di acquisire un token automaticamente (senza alcuna interazione dell'interfaccia utente da parte dell'utente).| [App desktop/per dispositivi mobili](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
+| [Nome utente/password](scenario-desktop-acquire-token.md#username--password) | Consente a un'applicazione di accedere all'utente gestendo direttamente la propria password. Questo flusso non è consigliato. | [App desktop/per dispositivi mobili](scenario-desktop-acquire-token.md#username--password) | 
 
-## <a name="interactive"></a>Interattività
-MSAL supporta anche la possibilità di richiedere in modo interattivo all'utente le credenziali di accesso e ottenere un token usando tali credenziali.
+## <a name="interactive"></a>Interattivo
+MSAL supporta la possibilità di richiedere all'utente in modo interattivo le credenziali per l'accesso e ottenere un token usando tali credenziali.
 
-![Diagramma di flusso interattivo](media/msal-authentication-flows/interactive.png)
+![Diagramma del flusso interattivo](media/msal-authentication-flows/interactive.png)
 
-Per altre informazioni sull'uso MSAL.NET per acquisire in modo interattivo i token in piattaforme specifiche, vedere:
+Per ulteriori informazioni sull'utilizzo di MSAL.NET per acquisire in modo interattivo i token su piattaforme specifiche, vedere:
 - [Xamarin Android](msal-net-xamarin-android-considerations.md)
-- [Xamarin iOS](msal-net-xamarin-ios-considerations.md)
+- [Novell iOS](msal-net-xamarin-ios-considerations.md)
 - [Piattaforma UWP (Universal Windows Platform)](msal-net-uwp-considerations.md)
 
-Per altre informazioni sulle chiamate interattive in msal. js, vedere [comportamento nelle richieste interattive msal. js del Prompt](msal-js-prompt-behavior.md).
+Per altre informazioni sulle chiamate interattive in MSAL. js, vedere il [comportamento della richiesta nelle richieste interattive MSAL. js](msal-js-prompt-behavior.md).
 
-## <a name="implicit-grant"></a>Implicit grant (Concessione implicita)
+## <a name="implicit-grant"></a>Concessione implicita
 
-MSAL supporta anche il [flusso di concessione implicita di OAuth 2](v2-oauth2-implicit-grant-flow.md), che consente all'app di ottenere i token da piattaforma delle identità Microsoft senza eseguire un server back-end scambio di credenziali. Ciò consente all'app di accesso dell'utente, gestire la sessione e ottenere i token per altre API web, tutto all'interno del client il codice JavaScript.
+MSAL supporta il [flusso di concessione implicita OAuth 2](v2-oauth2-implicit-grant-flow.md), che consente all'app di ottenere i token dalla piattaforma di identità Microsoft senza eseguire uno scambio di credenziali del server back-end. Ciò consente all'app di eseguire l'accesso dell'utente, gestire la sessione e ottenere i token per altre API Web, tutto all'interno del codice JavaScript del client.
 
-![Diagramma di flusso di concessione implicita](media/msal-authentication-flows/implicit-grant.svg)
+![Diagramma del flusso di concessione implicita](media/msal-authentication-flows/implicit-grant.svg)
 
-Molte applicazioni web moderne vengono compilate come applicazioni a pagina singola, client-side, scritte usando JavaScript o un framework di applicazione a singola pagina, ad esempio VUE, Angular e React. js. Queste applicazioni eseguite in un web browser e dispongono di caratteristiche di autenticazione diverso rispetto alle applicazioni web sul lato server tradizionali. La piattaforma delle identità Microsoft attiva applicazioni a pagina singola per l'accesso degli utenti e ottenere i token per accedere ai servizi back-end o le API web usando il flusso di concessione implicita. Il flusso implicito consente all'applicazione ottenere i token ID per rappresentare l'utente autenticato e anche i token necessari per chiamare le API protette di accesso.
+Molte applicazioni Web moderne sono compilate come applicazioni a pagina singola sul lato client, scritte usando JavaScript o un Framework SPA come angolare, VME. js e React. js. Queste applicazioni vengono eseguite in un Web browser e presentano caratteristiche di autenticazione diverse rispetto alle applicazioni Web tradizionali sul lato server. La piattaforma Microsoft Identity consente alle applicazioni a singola pagina di accedere agli utenti e ottenere i token per accedere ai servizi back-end o alle API Web usando il flusso di concessione implicito. Il flusso implicito consente all'applicazione di ottenere i token ID per rappresentare l'utente autenticato e anche di accedere ai token necessari per chiamare le API protette.
 
-Questo flusso di autenticazione non include gli scenari di applicazioni che usano i framework JavaScript più piattaforme, ad esempio Electron e React-Native, in quanto richiedono altre funzionalità per l'interazione con piattaforme native.
+Questo flusso di autenticazione non include scenari di applicazioni che usano framework JavaScript multipiattaforma, ad esempio Electron e React-native, perché richiedono ulteriori funzionalità per l'interazione con le piattaforme native.
 
-## <a name="authorization-code"></a>Authorization code (Codice di autorizzazione)
-MSAL supporta anche il [concessione del codice di autorizzazione OAuth 2](v2-oauth2-auth-code-flow.md). Questa autorizzazione è utilizzabile nelle App installate in un dispositivo per accedere alle risorse protette, ad esempio le API web. In questo modo è possibile aggiungere accesso e accesso API alle App per dispositivi mobili e desktop. 
+## <a name="authorization-code"></a>Codice di autorizzazione
+MSAL supporta la [concessione del codice di autorizzazione OAuth 2](v2-oauth2-auth-code-flow.md). Questa concessione può essere usata nelle app installate in un dispositivo per ottenere l'accesso alle risorse protette, ad esempio le API Web. In questo modo è possibile aggiungere l'accesso e l'API alle app desktop e per dispositivi mobili. 
 
-Quando gli utenti accedono alle applicazioni web (siti Web), l'applicazione web riceve un codice di autorizzazione.  Il codice di autorizzazione viene riscattato per acquisire un token per chiamare le API web. Nelle App web ASP.NET e ASP.NET Core, il cui unico scopo di `AcquireTokenByAuthorizationCode` consiste nell'aggiungere un token per la cache dei token. Il token può quindi essere usato dall'applicazione (in genere nel controller, che sufficiente ottenere un token per un'API usando `AcquireTokenSilent`).
+Quando l'utente accede ad applicazioni Web (siti Web), l'applicazione Web riceve un codice di autorizzazione.  Il codice di autorizzazione viene riscattato per acquisire un token per chiamare le API Web. In ASP.NET e ASP.NET Core app Web, l'unico obiettivo di `AcquireTokenByAuthorizationCode` è quello di aggiungere un token alla cache dei token. Il token può quindi essere usato dall'applicazione (in genere nei controller, che ottiene solo un token per un'API usando `AcquireTokenSilent`).
 
-![Diagramma di flusso del codice di autorizzazione](media/msal-authentication-flows/authorization-code.png)
+![Diagramma del flusso del codice di autorizzazione](media/msal-authentication-flows/authorization-code.png)
 
 Nel diagramma precedente, l'applicazione:
 
-1. Richiede un codice di autorizzazione, che viene riscattato un token di accesso.
-2. Usa il token di accesso per chiamare un'API web.
+1. Richiede un codice di autorizzazione, che viene riscattato per un token di accesso.
+2. Usa il token di accesso per chiamare un'API Web.
 
 ### <a name="considerations"></a>Considerazioni
-- È possibile utilizzare il codice di autorizzazione una sola volta per riscattare un token. Non tentare di acquisire un token più volte con lo stesso codice di autorizzazione (è esplicitamente vietato dalla specifica dello standard protocol). Se si Riscatta il codice più volte intenzionalmente oppure perché non si è consapevoli che un framework esegue anche per l'utente, si otterrà l'errore seguente: `AADSTS70002: Error validating credentials. AADSTS54005: OAuth2 Authorization code was already redeemed, please retry with a new valid code or use an existing refresh token.`
+- È possibile usare il codice di autorizzazione una sola volta per riscattare un token. Non tentare di acquisire un token più volte con lo stesso codice di autorizzazione (non è esplicitamente consentito dalla specifica standard del protocollo). Se il codice viene riscattato più volte intenzionalmente o perché non si è consapevoli del fatto che un Framework esegue anche questa operazione, verrà riportato il seguente errore:`AADSTS70002: Error validating credentials. AADSTS54005: OAuth2 Authorization code was already redeemed, please retry with a new valid code or use an existing refresh token.`
 
-- Se si sta scrivendo un'applicazione ASP.NET o ASP.NET Core, questo può verificarsi che se si non indicare al framework che è già stato riscattato il codice di autorizzazione. A tale scopo, è necessario chiamare il `context.HandleCodeRedemption()` metodo di `AuthorizationCodeReceived` gestore dell'evento.
+- Se si sta scrivendo un'applicazione ASP.NET o ASP.NET Core, questa situazione può verificarsi se non si indica al Framework che è già stato riscattato il codice di autorizzazione. A tale proposito, è necessario chiamare il `context.HandleCodeRedemption()` metodo `AuthorizationCodeReceived` del gestore eventi.
 
-- Evitare di condividere il token di accesso con ASP.NET, che potrebbero impedire il consenso incrementale correttamente in corso. Per altre informazioni, vedere [problema #693](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/693).
+- Evitare di condividere il token di accesso con ASP.NET, che potrebbe impedire il corretto funzionamento del consenso incrementale. Per ulteriori informazioni, vedere [issue #693](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/693).
 
-## <a name="on-behalf-of"></a>On-behalf-of
+## <a name="on-behalf-of"></a>Per conto di
 
-MSAL supporta anche il [flusso di autenticazione on-behalf-of di OAuth 2](v2-oauth2-on-behalf-of-flow.md).  Questo flusso viene usato quando un'applicazione richiama un servizio o web API, che a sua volta deve chiamare un altro servizio o l'API web. Lo scopo è di propagare l'identità utente delegato e le autorizzazioni attraverso la catena di richieste. Per il servizio di livello intermedio effettuare richieste autenticate al servizio downstream, è necessario proteggere un token di accesso dalla piattaforma delle identità Microsoft per conto dell'utente.
+MSAL supporta il [flusso di autenticazione OAuth 2 per conto del](v2-oauth2-on-behalf-of-flow.md).  Questo flusso viene usato quando un'applicazione richiama un servizio o un'API Web, che a sua volta deve chiamare un altro servizio o un'API Web. Lo scopo è di propagare l'identità utente delegato e le autorizzazioni attraverso la catena di richieste. Affinché il servizio di livello intermedio effettui richieste autenticate al servizio downstream, deve proteggere un token di accesso dalla piattaforma di identità Microsoft per conto dell'utente.
 
-![Diagramma di flusso on-behalf-of](media/msal-authentication-flows/on-behalf-of.png)
+![Diagramma del flusso per conto di](media/msal-authentication-flows/on-behalf-of.png)
 
 Nel diagramma precedente:
 
-1. L'applicazione acquisisce un token di accesso per l'API web.
-2. Un client (web, applicazioni desktop, mobili o singola pagina) chiama un'API, aggiungere il token di accesso come un token di connessione nell'intestazione di autenticazione della richiesta HTTP di web protetto. L'API web autentica l'utente.
-3. Quando il client chiama l'API web, l'API web richiede un altro token on-behalf-of all'utente.  
-4. L'API web protetta Usa questo token per chiamare un'API web downstream on-behalf-of all'utente.  L'API web può inoltre successiva richiesta di token per le altre API downstream (ma comunque per conto dell'utente stesso).
+1. L'applicazione acquisisce un token di accesso per l'API Web.
+2. Un client (Web, desktop, mobile o applicazione a singola pagina) chiama un'API Web protetta, aggiungendo il token di accesso come bearer token nell'intestazione di autenticazione della richiesta HTTP. L'API Web autentica l'utente.
+3. Quando il client chiama l'API Web, l'API Web richiede un altro token per conto dell'utente.  
+4. L'API Web protetta usa questo token per chiamare un'API Web downstream per conto dell'utente.  L'API Web può anche richiedere in seguito token per altre API downstream (ma ancora per conto dello stesso utente).
 
-## <a name="client-credentials"></a>Credenziali del client
+## <a name="client-credentials"></a>Credenziali client
 
-MSAL supporta anche il [flusso di credenziali client OAuth 2](v2-oauth2-client-creds-grant-flow.md). Questo flusso consente di accedere alle risorse ospitate sul web usando l'identità di un'applicazione. Questo tipo di concessione viene comunemente usato per le interazioni da server a server che devono essere eseguite in background, senza l'interazione immediata con un utente. Questi tipi di applicazioni sono spesso detta daemon o gli account del servizio. 
+MSAL supporta il [flusso di credenziali client OAuth 2](v2-oauth2-client-creds-grant-flow.md). Questo flusso consente di accedere alle risorse ospitate sul Web tramite l'identità di un'applicazione. Questo tipo di concessione viene comunemente usato per le interazioni da server a server che devono essere eseguite in background, senza l'interazione immediata con un utente. Questi tipi di applicazioni sono spesso denominati daemon o account di servizio. 
 
-La concessione di credenziali client del flusso consente un servizio web (client riservati) per usare le proprie credenziali, invece di rappresentare un utente, eseguire l'autenticazione quando si chiama un altro servizio web. In questo scenario, il client è in genere un servizio web di livello intermedio, un servizio daemon o un sito Web. Per un livello più elevato di sicurezza, Microsoft Identity Platform consente anche al servizio chiamante di usare un certificato (invece di un segreto condiviso) come credenziale.
+Il flusso di concessione delle credenziali client consente a un servizio Web (un client riservato) di usare le proprie credenziali, anziché rappresentare un utente, per eseguire l'autenticazione quando si chiama un altro servizio Web. In questo scenario il client è in genere un servizio Web di livello intermedio, un servizio daemon o un sito Web. Per un livello più elevato di sicurezza, Microsoft Identity Platform consente anche al servizio chiamante di usare un certificato (invece di un segreto condiviso) come credenziale.
 
 > [!NOTE]
-> Poiché questi supportano solo le applicazioni client pubblici non è disponibile nelle piattaforme per dispositivi mobili (UWP, xamarin. IOS e xamarin. Android), il flusso client riservato. Le applicazioni client pubblici non sanno come dimostrare l'identità dell'applicazione per il Provider di identità. Una connessione sicura può essere ottenuta in un'app web o API web nuovamente termina tramite la distribuzione di un certificato.
+> Il flusso client riservato non è disponibile sulle piattaforme per dispositivi mobili (UWP, Novell. iOS e Novell. Android), perché supportano solo le applicazioni client pubbliche. Le applicazioni client pubbliche non sanno come dimostrare l'identità dell'applicazione al provider di identità. È possibile ottenere una connessione sicura sui back-end dell'app Web o dell'API Web distribuendo un certificato.
 
-MSAL.NET supporta due tipi di credenziali client. Queste credenziali client devono essere registrati con Azure AD. Le credenziali vengono passate per i costruttori dell'applicazione client riservata nel codice.
+MSAL.NET supporta due tipi di credenziali client. Queste credenziali client devono essere registrate con Azure AD. Le credenziali vengono passate ai costruttori dell'applicazione client riservata nel codice.
 
 ### <a name="application-secrets"></a>Segreti dell'applicazione 
 
@@ -110,12 +110,12 @@ MSAL.NET supporta due tipi di credenziali client. Queste credenziali client devo
 
 Nel diagramma precedente, l'applicazione:
 
-1. Acquisisce un token usando le credenziali di password o segreto dell'applicazione.
+1. Acquisisce un token utilizzando il segreto dell'applicazione o le credenziali della password.
 2. Usa il token per effettuare richieste della risorsa.
 
 ### <a name="certificates"></a>Certificati 
 
-![Diagramma del client riservato con un certificato](media/msal-authentication-flows/confidential-client-certificate.png)
+![Diagramma del client riservato con certificato](media/msal-authentication-flows/confidential-client-certificate.png)
 
 Nel diagramma precedente, l'applicazione:
 
@@ -124,95 +124,95 @@ Nel diagramma precedente, l'applicazione:
 
 Queste credenziali client devono essere:
 - Registrato con Azure AD.
-- Passato in fase di creazione dell'applicazione client riservata nel codice.
+- Passato alla costruzione dell'applicazione client riservata nel codice.
 
 
-## <a name="device-code"></a>Codice del dispositivo
-MSAL supporta anche il [flusso del codice OAuth 2 dispositivi](v2-oauth2-device-code.md), che consente agli utenti di accedere a dispositivi con vincoli di input, ad esempio una smart TV, dispositivo IoT o stampante. Autenticazione interattiva con Azure AD richiede un web browser. Il flusso di codice del dispositivo consente all'utente di usare un altro dispositivo (ad esempio, un altro computer o un telefono cellulare) per accedere in modo interattivo, in cui il dispositivo o sistema operativo non fornisce un web browser.
+## <a name="device-code"></a>Codice dispositivo
+MSAL supporta il [flusso del codice del dispositivo OAuth 2](v2-oauth2-device-code.md), che consente agli utenti di accedere ai dispositivi con vincoli di input, ad esempio una Smart TV, un dispositivo Internet o una stampante. L'autenticazione interattiva con Azure AD richiede un Web browser. Il flusso del codice del dispositivo consente all'utente di usare un altro dispositivo, ad esempio un altro computer o un telefono cellulare, per eseguire l'accesso in modo interattivo, in cui il dispositivo o il sistema operativo non fornisce un browser Web.
 
-Tramite il flusso del codice di dispositivo, l'applicazione ottiene i token mediante un processo in due passaggi appositamente progettato per questi sistemi operativi o dispositivi. Esempi di tali applicazioni sono quelle in esecuzione su dispositivi IoT o strumenti da riga di comando (CLI). 
+Usando il flusso del codice del dispositivo, l'applicazione ottiene i token tramite un processo in due passaggi appositamente progettato per questi dispositivi o sistemi operativi. Esempi di applicazioni di questo tipo includono quelli in esecuzione su dispositivi o strumenti da riga di comando (CLI). 
 
-![Diagramma di flusso del codice di dispositivo](media/msal-authentication-flows/device-code.png)
+![Diagramma del flusso di codice del dispositivo](media/msal-authentication-flows/device-code.png)
 
 Nel diagramma precedente:
 
-1. Ogni volta che è necessaria l'autenticazione utente, l'app fornisce un codice e chiede all'utente di usare un altro dispositivo (ad esempio un smartphone connesso a internet) per passare a un URL (ad esempio, https://microsoft.com/devicelogin). L'utente verrà quindi richiesto di immettere il codice e procede attraverso un'esperienza di autenticazione normali, tra cui le richieste di consenso e multi-factor authentication se necessario.
+1. Ogni volta che è necessaria l'autenticazione utente, l'app fornisce un codice e chiede all'utente di usare un altro dispositivo, ad esempio uno smartphone connesso a Internet, per passare a un URL, https://microsoft.com/devicelogin) ad esempio. All'utente viene quindi richiesto di immettere il codice e si procede con una normale esperienza di autenticazione, incluse le richieste di consenso e l'autenticazione a più fattori, se necessario.
 
-2. Al termine dell'autenticazione, l'app della riga di comando riceve il token richiesto tramite un canale di supporto e usati per eseguire le chiamate all'API web che è necessario.
+2. Una volta completata l'autenticazione, l'app della riga di comando riceve i token necessari tramite un canale di ritorno e li usa per eseguire le chiamate all'API Web necessarie.
 
 ### <a name="constraints"></a>Vincoli
 
-- Flusso del codice di dispositivo è disponibile solo in applicazioni client pubblici.
-- L'autorità passato durante la creazione dell'applicazione client pubblica deve essere uno dei seguenti:
-  - Tenant (nel formato `https://login.microsoftonline.com/{tenant}/` in cui `{tenant}` è il GUID che rappresenta l'ID tenant o in un dominio associato al tenant).
-  - per qualsiasi lavoro e gli account dell'istituto di istruzione (`https://login.microsoftonline.com/organizations/`).
-- Gli account personali Microsoft non sono ancora supportati dall'endpoint v2.0 di Azure AD (non è possibile usare la `/common` o `/consumers` tenant).
+- Il flusso del codice del dispositivo è disponibile solo per le applicazioni client pubbliche.
+- L'autorità passata quando si crea l'applicazione client pubblica deve essere una delle seguenti:
+  - Tenant (nel formato `https://login.microsoftonline.com/{tenant}/` in cui `{tenant}` è il GUID che rappresenta l'ID tenant o un dominio associato al tenant).
+  - Per gli account aziendali e dell'Istituto`https://login.microsoftonline.com/organizations/`di istruzione ().
+- Gli account personali Microsoft non sono ancora supportati dall'endpoint Azure ad v 2.0 (non è possibile `/common` usare `/consumers` i tenant o).
 
-## <a name="integrated-windows-authentication"></a>Autenticazione integrata di Windows
-MSAL supporta anche l'autenticazione integrata di Windows (IWA) per desktop o applicazioni per dispositivi mobili eseguite in un dominio o in Azure AD aggiunti al computer Windows. Usa autenticazione integrata di Windows, queste applicazioni possono acquisire un token automaticamente (senza alcuna interazione dell'interfaccia utente da parte dell'utente). 
+## <a name="integrated-windows-authentication"></a>Autenticazione di Windows integrata
+MSAL supporta l'autenticazione integrata di Windows (IWA) per applicazioni desktop o per dispositivi mobili che vengono eseguite in un computer Windows aggiunto a un dominio o Azure AD. Con l'autenticazione integrata, queste applicazioni possono acquisire un token in modo invisibile all'utente (senza alcuna interazione dell'interfaccia utente da parte dell'utente). 
 
-![Diagramma di autenticazione Windows integrata](media/msal-authentication-flows/integrated-windows-authentication.png)
+![Diagramma dell'autenticazione integrata di Windows](media/msal-authentication-flows/integrated-windows-authentication.png)
 
 Nel diagramma precedente, l'applicazione:
 
-1. Acquisisce un token usando l'autenticazione integrata di Windows.
+1. Acquisisce un token utilizzando l'autenticazione integrata di Windows.
 2. Usa il token per effettuare richieste della risorsa.
 
 ### <a name="constraints"></a>Vincoli
 
-Autenticazione integrata di Windows supporta gli utenti federati solo, vale a dire gli utenti creati in Active Directory e supportato da Azure AD. Gli utenti creati direttamente in Azure AD, senza Active Directory di backup (utenti gestiti) non è possibile usare questo flusso di autenticazione. Questa limitazione non influenza la [flusso di nome utente/password](#usernamepassword).
+IWA supporta solo utenti federati, ovvero gli utenti creati in Active Directory e supportati da Azure AD. Gli utenti creati direttamente in Azure AD, senza Active Directory supporto (utenti gestiti) non possono usare questo flusso di autenticazione. Questa limitazione non influisce sul [flusso di nome utente/password](#usernamepassword).
 
-Autenticazione integrata di Windows sia per le app scritte per le piattaforme .NET Framework e .NET Core (Universal Windows Platform).
+IWA è per le app scritte per .NET Framework, .NET Core e le piattaforme di piattaforma UWP (Universal Windows Platform).
 
-Autenticazione integrata di Windows non ignorare multi-factor authentication. Se multi-factor authentication è configurato, autenticazione integrata di Windows potrebbe non riuscire se è necessaria una richiesta di autenticazione a più fattori. Multi-factor authentication richiede l'intervento dell'utente.
+La funzionalità di autenticazione a più fattori non viene ignorata. Se è configurata l'autenticazione a più fattori, è possibile che l'autenticazione a più fattori non riesca se è necessaria una richiesta di autenticazione a più fattori La funzionalità di autenticazione a più fattori richiede l'interazione dell'utente.
 
-Non è possibile controllare quando il provider di identità richiede l'autenticazione a due fattori da eseguire. Esegue l'amministratore del tenant. In genere, l'autenticazione a due fattori è obbligatorio quando si accede da un altro paese, quando non si è connessi tramite VPN a una rete aziendale e talvolta persino quando si è connessi tramite VPN. Azure AD Usa l'intelligenza artificiale per conoscere in modo continuativo se è necessaria l'autenticazione a due fattori. Se si verifica un errore di autenticazione integrata di Windows, è necessario eseguire il fallback un [prompt utente interattivo] (#interactive).
+Non si controlla quando il provider di identità richiede l'esecuzione dell'autenticazione a due fattori. L'amministratore del tenant lo esegue. In genere, è richiesta l'autenticazione a due fattori quando si accede da un paese diverso, quando non si è connessi tramite VPN a una rete aziendale e talvolta anche quando si è connessi tramite VPN. Azure AD usa l'intelligenza artificiale per apprendere continuamente se è richiesta l'autenticazione a due fattori. Se non è possibile eseguire l'autenticazione integrata, è necessario eseguire il fallback a un [prompt utente interattivo] (#interactive).
 
-L'autorità passato durante la creazione dell'applicazione client pubblica deve essere uno dei seguenti:
-- Tenant (nel formato `https://login.microsoftonline.com/{tenant}/` in cui `tenant` è il guid che rappresenta l'ID tenant o in un dominio associato al tenant).
-- per qualsiasi lavoro e gli account dell'istituto di istruzione (`https://login.microsoftonline.com/organizations/`). Non sono supportati gli account personali Microsoft (non è possibile usare `/common` o `/consumers` tenant).
+L'autorità passata quando si crea l'applicazione client pubblica deve essere una delle seguenti:
+- Tenant (nel formato `https://login.microsoftonline.com/{tenant}/` in cui `tenant` è il GUID che rappresenta l'ID tenant o un dominio associato al tenant).
+- Per gli account aziendali e dell'Istituto`https://login.microsoftonline.com/organizations/`di istruzione (). Gli account personali Microsoft non sono supportati (non è `/common` possibile `/consumers` usare o tenant).
 
-Poiché l'autenticazione integrata di Windows è un flusso invisibile all'utente, uno dei seguenti deve essere soddisfatte:
-- l'utente dell'applicazione deve avere precedentemente fornito il consenso per usare l'applicazione. 
-- L'amministratore del tenant deve avere precedentemente fornito il consenso a tutti gli utenti nel tenant di usare l'applicazione.
+Poiché l'autenticazione integrata di Microsoft è un flusso invisibile all'utente, è necessario che siano soddisfatte le condizioni seguenti:
+- L'utente dell'applicazione deve avere precedentemente acconsentito all'uso dell'applicazione. 
+- L'amministratore del tenant deve avere precedentemente acconsentito a tutti gli utenti del tenant per l'uso dell'applicazione.
 
-Ciò significa che viene soddisfatta una delle operazioni seguenti:
-- Gli sviluppatori hanno scelto **Concedi** nel portale di Azure per se stessi.
-- Un amministratore del tenant ha selezionato **concedere/revocare il consenso dell'amministratore per {dominio del tenant}** nel **autorizzazioni delle API** scheda della finestra di registrazione per l'applicazione (vedere [aggiungere le autorizzazioni per accedere alle API web ](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)).
-- Si have fornito un modo per gli utenti a fornire il consenso all'applicazione (vedere [richiesta di consenso utente singoli](v2-permissions-and-consent.md#requesting-individual-user-consent)).
-- Si have fornito un modo per l'amministratore del tenant di concedere il consenso per l'applicazione (vedere [consenso dell'amministratore](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)).
+Ciò significa che si verifica una delle condizioni seguenti:
+- Gli sviluppatori hanno selezionato la **concessione** per la portale di Azure.
+- Un amministratore tenant ha selezionato **Concedi/revoca il consenso dell'amministratore per {tenant dominio}** nella scheda **autorizzazioni API** della registrazione per l'applicazione (vedere [aggiungere autorizzazioni per accedere alle API Web](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)).
+- È stato fornito un modo per consentire agli utenti di concedere il consenso all'applicazione (vedere [richiedere il consenso dell'utente singolo](v2-permissions-and-consent.md#requesting-individual-user-consent)).
+- È stato fornito un modo per consentire all'amministratore del tenant di acconsentire per l'applicazione (vedere il [consenso dell'amministratore](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)).
 
-Il flusso di autenticazione integrata di Windows è abilitato per desktop .NET, .NET Core e le app della piattaforma universale di Windows. In .NET Core, è disponibile solo l'overload richiede il nome utente. La piattaforma .NET Core non è possibile richiedere il nome utente per il sistema operativo.
+Il flusso IWA è abilitato per le app .NET desktop, .NET Core e Windows Universal Platform. In .NET Core è disponibile solo l'overload che accetta il nome utente. La piattaforma .NET Core non può richiedere il nome utente al sistema operativo.
   
-Per altre informazioni sul consenso dell'utente, vedere [v2.0 autorizzazioni e consenso](v2-permissions-and-consent.md).
+Per ulteriori informazioni sul consenso, vedere [autorizzazioni e consenso per la versione 2.0](v2-permissions-and-consent.md).
 
 ## <a name="usernamepassword"></a>Username/password 
-MSAL supporta anche il [concessione credenziali password proprietario risorsa di OAuth 2](v2-oauth-ropc.md), che consente a un'applicazione di accedere all'utente gestendo direttamente le loro password. Nell'applicazione desktop, è possibile usare il flusso di nome utente/password per acquisire un token invisibile all'utente. Nessuna interfaccia utente è obbligatorio quando si usa l'applicazione.
+MSAL supporta la [concessione delle credenziali password del proprietario della risorsa OAuth 2](v2-oauth-ropc.md), che consente a un'applicazione di accedere all'utente gestendo direttamente la password. Nell'applicazione desktop è possibile usare il flusso di nome utente/password per acquisire un token in modo invisibile all'utente. Quando si usa l'applicazione non è necessaria alcuna interfaccia utente.
 
 ![Diagramma del flusso di nome utente/password](media/msal-authentication-flows/username-password.png)
 
 Nel diagramma precedente, l'applicazione:
 
-1. Acquisisce un token inviando il nome utente e la password per il provider di identità.
-2. Chiama un'API web usando il token.
+1. Acquisisce un token inviando il nome utente e la password al provider di identità.
+2. Chiama un'API Web usando il token.
 
 > [!WARNING]
-> Questo flusso non è consigliato. Richiede un elevato livello di attendibilità e l'utente l'esposizione.  Questo flusso si utilizzino solo quando non è possibile usare altri, più sicuro, i flussi. Per altre informazioni, vedere [qual è la soluzione al problema in continua crescita delle password?](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). 
+> Questo flusso non è consigliato. Richiede un elevato livello di attendibilità e l'esposizione degli utenti.  Usare questo flusso solo quando non è possibile usare altri flussi, più sicuri. Per altre informazioni, vedere [Qual è la soluzione per il problema crescente delle password?](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). 
 
-Il flusso preferito prima di acquisire un token invisibile all'utente nel computer del dominio Windows viene [l'autenticazione integrata di Windows](#integrated-windows-authentication). In caso contrario, è anche possibile usare [flusso del codice di dispositivo](#device-code).
+Il flusso preferito per acquisire un token in modo invisibile all'utente nei computer Windows aggiunti a un dominio è [l'autenticazione integrata di Windows](#integrated-windows-authentication). In caso contrario, è anche possibile usare il [flusso del codice del dispositivo](#device-code).
 
-Anche se ciò è utile in alcuni casi (scenari DevOps), se si vuole usare nome utente/password negli scenari interattivi in cui è fornire la propria interfaccia utente, provare a evitare tale situazione. Usando nome utente/password:
-- Utenti che hanno bisogno per eseguire l'autenticazione a più fattori non saranno in grado di accedere (perché non è disponibile alcuna interazione).
-- Utenti non saranno in grado di eseguire single sign-on.
+Sebbene questo sia utile in alcuni casi (scenari DevOps), se si desidera utilizzare il nome utente e la password in scenari interattivi in cui si fornisce un'interfaccia utente personalizzata, provare a evitarla. Utilizzando nome utente/password:
+- Gli utenti che devono eseguire l'autenticazione a più fattori non saranno in grado di accedere (poiché non esiste alcuna interazione).
+- Gli utenti non saranno in grado di eseguire l'accesso Single Sign-on.
 
 ### <a name="constraints"></a>Vincoli
 
-Oltre a indicare il [vincoli l'autenticazione Windows integrata](#integrated-windows-authentication), si applicano anche i vincoli seguenti:
+Oltre ai [vincoli di autenticazione integrata di Windows](#integrated-windows-authentication), si applicano anche i vincoli seguenti:
 
-- Il flusso di nome utente/password non è compatibile con l'accesso condizionale e multi-factor authentication. Di conseguenza, se l'app viene eseguita in un tenant di Azure AD in cui l'amministratore del tenant richiede l'autenticazione a più fattori, è possibile usare questo flusso. Molte organizzazioni di farlo.
-- Funziona solo per gli account aziendali e dell'istituto di istruzione (non gli account Microsoft).
-- Il flusso è disponibile per desktop .NET e .NET Core, ma non in Universal Windows Platform.
+- Il flusso di nome utente/password non è compatibile con l'accesso condizionale e l'autenticazione a più fattori. Di conseguenza, se l'app viene eseguita in un tenant di Azure AD in cui l'amministratore tenant richiede multi-factor authentication, non è possibile usare questo flusso. Molte organizzazioni lo eseguono.
+- Funziona solo per gli account aziendali e dell'Istituto di istruzione (non per gli account Microsoft).
+- Il flusso è disponibile su .NET desktop e .NET Core, ma non su piattaforma UWP (Universal Windows Platform).
 
 ### <a name="azure-ad-b2c-specifics"></a>Specifiche di Azure AD B2C
 
-Per altre informazioni sull'uso di MSAL.NET e Azure AD B2C, vedere [ROPC uso con Azure Active Directory B2C (MSAL.NET)](msal-net-aad-b2c-considerations.md#resource-owner-password-credentials-ropc-with-azure-ad-b2c).
+Per ulteriori informazioni sull'utilizzo di MSAL.NET e Azure AD B2C, vedere [utilizzo di ROPC con Azure ad B2C (MSAL.NET)](msal-net-aad-b2c-considerations.md#resource-owner-password-credentials-ropc-with-azure-ad-b2c).

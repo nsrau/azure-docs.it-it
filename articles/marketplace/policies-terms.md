@@ -1,40 +1,40 @@
 ---
-title: Termini e i criteri di Marketplace di Azure | Azure
-description: Condizioni e informative di Microsoft Azure Marketplace si applicano a tutti i server di pubblicazione e le offerte in Microsoft Azure Marketplace.
-services: Azure, Marketplace, AppSource
+title: Termini e condizioni per il Marketplace commerciale | Azure
+description: I termini e le condizioni di Microsoft Commercial Marketplace si applicano a tutti gli editori e le offerte del Microsoft Azure Marketplace.
+services: Azure, Marketplace, AppSource, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 08/09/2019
 ms.author: v-qiwe
-ms.openlocfilehash: c5041e9f7b19508480ff27311ba61d180f4a5a01
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: edee3224e32fd853ca2de836f5c4dc0e5e87a100
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937624"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543588"
 ---
-# <a name="azure-marketplace-policies-and-terms"></a>Informative e condizioni di Azure Marketplace
+# <a name="commercial-marketplace-policies-and-terms"></a>Condizioni e criteri del Marketplace commerciale
 
 >[!Note]
->"Marketplace" o "Azure Marketplace" significa che una proprietà di Microsoft o gestita piattaforma denominata, tuttavia, tramite cui le offerte può anche essere presentate al o acquisite da parte dei clienti. Se non diversamente specificato, Marketplace include Azure Marketplace, AppSource e il portale di Azure Marketplace.
+>"Microsoft Commercial Marketplace" indica una piattaforma di proprietà o gestita da Microsoft, tuttavia denominata, tramite cui le offerte possono essere presentate o acquisite dai clienti. Se non diversamente specificato, il Marketplace commerciale include il Microsoft Azure Marketplace e la Microsoft AppSource.
 
-Grazie per l'interesse nella pubblicazione offerte in Azure Marketplace. Ci impegniamo per collaborando con è possibile compilare un'esauriente fonte di soluzioni cloud e una linea di proposte di business, che consentono di sviluppare l'impresa e maggiori opportunità di sorprendere i clienti in tutto il mondo.
+Grazie per il tuo interesse per la pubblicazione di offerte sul Marketplace commerciale. Ci impegniamo a collaborare con te per creare un'ampia gamma di soluzioni cloud e offerte line-of-business, che deliziano i clienti di tutto il mondo e ti aiutano a sviluppare la tua attività.
 
-Le offerte nel Marketplace devono essere conforme alle condizioni e alle informative. Microsoft aggiornare questi criteri e condizioni di tanto in tanto per garantire un'esperienza ottimale ai clienti e fornire i partner la possibilità di esito positivo. Se hai commenti e suggerimenti sul nostro criteri o condizioni, inviare commenti per disabilitare i commenti nel [forum di Azure Marketplace e AppSource](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
+Le offerte sul Marketplace devono essere conformi ai criteri e alle condizioni. Questi criteri e termini vengono aggiornati di tanto in tanto per garantire una corretta esperienza del cliente e fornire ai partner un'opportunità di successo. Per commenti e suggerimenti su criteri o termini, inviare commenti in [Azure Marketplace e nel forum di AppSource](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
 
-## <a name="policies-and-terms"></a>I criteri e condizioni
+## <a name="policies-and-terms"></a>Criteri e termini
 
-* [Criteri di certificazione di Azure Marketplace](https://docs.microsoft.com/legal/marketplace/certification-policies)
+* [Criteri di certificazione del Marketplace commerciale](https://docs.microsoft.com/legal/marketplace/certification-policies)
 
 * [Criteri di partecipazione](https://docs.microsoft.com/legal/marketplace/participation-policy)
 
 * [Criteri per la classificazione e la recensione](https://docs.microsoft.com/legal/marketplace/rating-review-policies)
 
-* [Condizioni per Azure Marketplace](https://docs.microsoft.com/legal/marketplace/terms)
+* [Condizioni di Azure Marketplace](https://docs.microsoft.com/legal/marketplace/terms)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Visitare il [Guida alla pubblicazione di Azure Marketplace e AppSource](./marketplace-publishers-guide.md) pagina.
+Visitare la pagina della [Guida alla pubblicazione di Azure Marketplace e AppSource](./marketplace-publishers-guide.md) .
 
 ---

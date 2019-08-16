@@ -1,9 +1,9 @@
 ---
-title: Azure Active Directory B2C (Microsoft Authentication Library per .NET) | Azure
-description: Informazioni sulle considerazioni specifiche quando si usa Azure AD B2C con Microsoft Authentication Library per .NET (MSAL.NET).
+title: Azure AD B2C (Microsoft Authentication Library per .NET) | Azure
+description: Per informazioni su considerazioni specifiche, vedere l'articolo relativo all'uso di Azure AD B2C con Microsoft Authentication Library per .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,34 +13,34 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8240a487bdb01cdbe9017ddc7cb95ce4fc0e1503
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7444ecfd7a59224d0f08390385c508e4ecc40ddd
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052339"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532707"
 ---
-# <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Usare MSAL.NET per consentire agli utenti con identità di social networking
+# <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Usare MSAL.NET per l'accesso degli utenti con identità di social networking
 
-È possibile usare MSAL.NET per consentire agli utenti con identità di social networking usando [Azure Active Directory B2C (Azure AD B2C)](https://aka.ms/aadb2c). Azure AD B2C si basa sulla nozione di criteri. In MSAL.NET, specificare un criterio si traduce in fornendo un'autorità.
+È possibile usare MSAL.NET per accedere agli utenti con identità di Social Networking usando [Azure Active Directory B2C (Azure ad B2C)](https://aka.ms/aadb2c). Azure AD B2C si basa sul concetto di criteri. In MSAL.NET, se si specifica un criterio, viene convertito in in modo da fornire un'autorità.
 
-- Quando si crea un'istanza dell'applicazione client pubblica, è necessario specificare il criterio dell'autorità.
+- Quando si crea un'istanza dell'applicazione client pubblica, è necessario specificare i criteri in autorità.
 - Quando si desidera applicare un criterio, è necessario chiamare un override di `AcquireTokenInteractive` contenente un `authority` parametro.
 
-Questa pagina è per MSAL 3.x. Se è interessati a MSAL 2.x, vedi [specifiche di Azure AD B2C in MSAL 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-Specifics-MSAL-2.x).
+Questa pagina è per MSAL 3. x. Se si è interessati a MSAL 2. x, vedere [Azure ad B2C specifiche in MSAL 2. x](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-Specifics-MSAL-2.x).
 
-## <a name="authority-for-a-azure-ad-b2c-tenant-and-policy"></a>Autorità per un tenant di Azure AD B2C e i criteri
+## <a name="authority-for-a-azure-ad-b2c-tenant-and-policy"></a>Autorità per un tenant e un criterio di Azure AD B2C
 
-L'autorità da usare è `https://login.microsoftonline.com/tfp/{tenant}/{policyName}` dove:
+L'autorità da usare è `https://login.microsoftonline.com/tfp/{tenant}/{policyName}` la posizione in cui:
 
-- `tenant` è il nome del tenant di Azure AD B2C, 
-- `policyName` il nome del criterio da applicare (ad esempio "b2c_1_susi" per sign-in/iscrizione).
+- `tenant`nome del tenant Azure AD B2C 
+- `policyName`nome dei criteri da applicare, ad esempio "b2c_1_susi" per l'accesso o l'iscrizione.
 
-Le indicazioni correnti di Azure AD B2C consiste nell'usare `b2clogin.com` come autorità. Ad esempio: `$"https://{your-tenant-name}.b2clogin.com/tfp/{your-tenant-ID}/{policyname}"`. Per altre informazioni, vedere questo [documentazione](/azure/active-directory-b2c/b2clogin).
+Il materiale sussidiario corrente di Azure ad B2C consiste `b2clogin.com` nell'usare come autorità. Ad esempio `$"https://{your-tenant-name}.b2clogin.com/tfp/{your-tenant-ID}/{policyname}"`. Per ulteriori informazioni, vedere questa [documentazione](/azure/active-directory-b2c/b2clogin).
 
 ## <a name="instantiating-the-application"></a>Creazione di un'istanza dell'applicazione
 
@@ -66,7 +66,7 @@ application = PublicClientApplicationBuilder.Create(ClientID)
 
 ## <a name="acquire-a-token-to-apply-a-policy"></a>Acquisire un token per applicare un criterio
 
-Acquisire un token per un B2C di Azure AD API protette in un'applicazione client pubblica richiede di usare gli override con un'autorità di:
+Per acquisire un token per un'API protetta Azure AD B2C in un'applicazione client pubblica, è necessario usare le sostituzioni con un'autorità:
 
 ```csharp
 IEnumerable<IAccount> accounts = await application.GetAccountsAsync();
@@ -77,8 +77,8 @@ AuthenticationResult ar = await application .AcquireToken(scopes, parentWindow)
 
 con:
 
-- `policy` in una delle stringhe precedenti (ad esempio `PolicySignUpSignIn`).
-- `GetAccountByPolicy(IEnumerable<IAccount>, string)` è un metodo che consente di trovare un account per i criteri specificati. Ad esempio:
+- `policy`essere una delle stringhe precedenti (ad esempio `PolicySignUpSignIn`).
+- `GetAccountByPolicy(IEnumerable<IAccount>, string)`è un metodo che trova un account per un determinato criterio. Esempio:
 
   ```csharp
   private IAccount GetAccountByPolicy(IEnumerable<IAccount> accounts, string policy)
@@ -93,11 +93,11 @@ con:
   }
   ```
 
-Applicazione di un criterio (ad esempio consentendo all'utente finale di modificare il proprio profilo o reimpostare la password) viene attualmente eseguito chiamando `AcquireTokenInteractive`. Nel caso di questi due criteri non si usa il token restituito / autenticazione risultato.
+Per applicare un criterio, ad esempio per consentire all'utente finale di modificare il profilo o reimpostare la password, è `AcquireTokenInteractive`attualmente possibile chiamare. Nel caso di questi due criteri non viene usato il risultato del token/autenticazione restituito.
 
-## <a name="special-case-of-editprofile-and-resetpassword-policies"></a>Caso speciale di criteri EditProfile e ResetPassword
+## <a name="special-case-of-editprofile-and-resetpassword-policies"></a>Caso speciale dei criteri EditProfile e ResetPassword
 
-Quando si desidera offrire un'esperienza in cui gli utenti finali accedono usando un'identità di social networking e quindi modificare il proprio profilo è necessario applicare i criteri di Azure AD B2C EditProfile. Consente di eseguire questa operazione, consiste nel chiamare `AcquireTokenInteractive` con l'autorità specifica per tale criterio e una richiesta impostata su `Prompt.NoPrompt` per evitare la finestra di dialogo Selezione account da visualizzare (come l'utente è già connesso)
+Quando si vuole offrire un'esperienza in cui gli utenti finali possono accedere con un'identità di social networking, quindi modificare il profilo a cui si vuole applicare il Azure AD B2C criterio EditProfile. Per eseguire questa operazione, è possibile chiamare `AcquireTokenInteractive` con l'autorità specifica del criterio e un prompt impostato su `Prompt.NoPrompt` per evitare la visualizzazione della finestra di dialogo di selezione dell'account (poiché l'utente è già connesso)
 
 ```csharp
 private async void EditProfileButton_Click(object sender, RoutedEventArgs e)
@@ -118,20 +118,20 @@ private async void EditProfileButton_Click(object sender, RoutedEventArgs e)
  }
 }
 ```
-## <a name="resource-owner-password-credentials-ropc-with-azure-ad-b2c"></a>Credenziali password proprietario di risorsa (ROPC) con Azure AD B2C
-Per altre informazioni sul flusso ROPC, consultare questo [documentazione](v2-oauth-ropc.md).
+## <a name="resource-owner-password-credentials-ropc-with-azure-ad-b2c"></a>Credenziali password del proprietario della risorsa (ROPC) con Azure AD B2C
+Per informazioni dettagliate sul flusso ROPC, vedere la [documentazione](v2-oauth-ropc.md).
 
-Questo flusso verrà **sconsigliato** perché l'applicazione che richiede un utente la password non è sicura. Per altre informazioni su questo problema, vedere [questo articolo](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). 
+Questo flusso **non è consigliato** perché l'applicazione che richiede un utente per la password non è sicura. Per ulteriori informazioni su questo problema, vedere [questo articolo](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). 
 
-Usando nome utente/password, si è offrendo remota una serie di operazioni:
-- Core ai tenant dell'identità moderna: password Ottiene operava riprodotti. Poiché abbiamo questo concetto di un segreto di condivisione che può essere intercettato. Questa impostazione è incompatibile con senza password.
-- Utenti che necessitano di eseguire l'autenticazione a più fattori non saranno in grado di accedere (perché non è disponibile alcuna interazione).
-- Utenti non saranno in grado di eseguire single sign-on.
+Utilizzando nome utente/password, vengono configurati alcuni elementi:
+- tenant principali dell'identità moderna: la password viene pescata, rieseguita. Poiché questo è il concetto di segreto di condivisione che può essere intercettato. Questa operazione non è compatibile con le password.
+- Gli utenti che devono eseguire l'autenticazione a più fattori non saranno in grado di eseguire l'accesso, perché non è presente alcuna interazione.
+- Gli utenti non saranno in grado di eseguire l'accesso Single Sign-on.
 
 ### <a name="configure-the-ropc-flow-in-azure-ad-b2c"></a>Configurare il flusso ROPC in Azure AD B2C
-Nel tenant di Azure AD B2C, creare un nuovo flusso utente e selezionare **Accedi di mediante ROPC**. In questo modo il criterio ROPC per il tenant. Visualizzare [Configura le credenziali password proprietario risorsa flusso](/azure/active-directory-b2c/configure-ropc) per altri dettagli.
+Nel tenant di Azure AD B2C creare un nuovo flusso utente e selezionare **Accedi con ROPC**. In questo modo verrà abilitato il criterio ROPC per il tenant. Per altri dettagli, vedere [configurare il flusso di credenziali password del proprietario della risorsa](/azure/active-directory-b2c/configure-ropc) .
 
-`IPublicClientApplication` contiene un metodo:
+`IPublicClientApplication`contiene un metodo:
 ```csharp
 AcquireTokenByUsernamePassword(
             IEnumerable<string> scopes,
@@ -140,49 +140,49 @@ AcquireTokenByUsernamePassword(
 ```
 
 Questo metodo accetta come parametri:
-- Il *ambiti* per richiedere un token di accesso.
-- Oggetto *username*.
-- Una classe SecureString *password* per l'utente.
+- *Ambiti* per i quali richiedere un token di accesso.
+- *Nome utente*.
+- *Password* di SecureString per l'utente.
 
 Ricordarsi di usare l'autorità che contiene i criteri ROPC.
 
-### <a name="limitations-of-the-ropc-flow"></a>Limitazioni del flusso di ROPC
- - Il flusso ROPC **funziona solo per gli account locali** (in cui si registra con Azure AD B2C usando un indirizzo di posta elettronica o nome utente). Questo flusso non funziona se la federazione per uno qualsiasi dei provider di identità supportati da Azure AD B2C (Facebook, Google, ecc.).
- - Attualmente è disponibile **alcun token ID non restituito da Azure AD B2C** quando si implementa il flusso ROPC da MSAL. Ciò significa che non è possibile creare un oggetto Account, pertanto nella cache, vi sarà alcun Account e nessun utente. Il flusso AcquireTokenSilent non funzionerà in questo scenario. Tuttavia, ROPC non mostra un'interfaccia utente, pertanto non vi sarà alcun impatto sull'esperienza utente.
+### <a name="limitations-of-the-ropc-flow"></a>Limitazioni del flusso ROPC
+ - Il flusso ROPC **funziona solo per gli account locali** (in cui si esegue la registrazione con Azure ad B2C usando un indirizzo di posta elettronica o un nome utente). Questo flusso non funziona se viene eseguita la Federazione a uno dei provider di identità supportati da Azure AD B2C (Facebook, Google e così via).
+ - Attualmente non viene **restituito alcun token ID da Azure ad B2C** durante l'implementazione del flusso ROPC da MSAL. Ciò significa che non è possibile creare un oggetto account, quindi nella cache non saranno presenti account e utenti. Il flusso AcquireTokenSilent non funzionerà in questo scenario. Tuttavia, ROPC non mostra un'interfaccia utente, quindi non vi sarà alcun effetto sull'esperienza utente.
 
-## <a name="google-auth-and-embedded-webview"></a>Autenticazione di Google e Webview incorporato
+## <a name="google-auth-and-embedded-webview"></a>Google auth e WebView incorporato
 
-Se sei uno sviluppatore di Azure AD B2C Usa Google come provider di identità è prevista è usare il browser del sistema, come Google nepovoluje hodnotu [l'autenticazione da visualizzazioni Web incorporate](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Attualmente, `login.microsoftonline.com` è un'autorità attendibile con Google. Usando questa autorità funzionerà con webview incorporato. Tuttavia l'uso `b2clogin.com` non è un'autorità attendibile con Google, in modo che gli utenti non saranno in grado di eseguire l'autenticazione.
+Gli sviluppatori Azure AD B2C che usano Google come provider di identità si rimandano a usare il browser di sistema, perché Google non consente [l'autenticazione da visualizzazioni](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html)Web incorporate. Attualmente, `login.microsoftonline.com` è un'autorità attendibile con Google. L'uso di questa autorità funzionerà con WebView incorporato. Tuttavia, `b2clogin.com` l'uso di non è un'autorità attendibile con Google, quindi gli utenti non saranno in grado di eseguire l'autenticazione.
 
-Microsoft fornirà un aggiornamento del wiki e ciò [problema](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/688) se le cose cambiano.
+Verrà fornito un aggiornamento per il wiki e questo [problema](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/688) , se le modifiche sono state apportate.
 
-## <a name="caching-with-azure-ad-b2c-in-msalnet"></a>La memorizzazione nella cache con Azure AD B2C in MSAL.Net 
+## <a name="caching-with-azure-ad-b2c-in-msalnet"></a>Caching con Azure AD B2C in MSAL.Net 
 
 ### <a name="known-issue-with-azure-ad-b2c"></a>Problema noto con Azure AD B2C
 
-MSAL.Net supporta un [cache dei token](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet). Il token di chiave di memorizzazione nella cache si basa sulle attestazioni restituite dal Provider di identità. Attualmente MSAL.Net necessita di due attestazioni per creare una chiave di cache di token:  
-- `tid` l'ID Tenant di Azure AD, e 
+MSAL.Net supporta una [cache di token](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet). La chiave di caching del token è basata sulle attestazioni restituite dal provider di identità. Attualmente MSAL.Net richiede due attestazioni per compilare una chiave di cache del token:  
+- `tid`ovvero l'ID del tenant Azure AD e 
 - `preferred_username` 
 
-Entrambe queste attestazioni sono presenti in molti degli scenari di Azure AD B2C. 
+Entrambe le attestazioni non sono presenti in molti scenari Azure AD B2C. 
 
-L'impatto sul cliente è che quando è stato effettuato un tentativo di visualizzare il campo nome utente, si ottiene "Mancante dalla risposta del token" come valore? In questo caso, infatti Azure AD B2C non restituisce un valore nel IdToken per il preferred_username a causa delle limitazioni con l'account di social networking e provider di identità esterni (IDP). Azure AD restituisce un valore per preferred_username poiché l'utente sa, ma per Azure AD B2C, perché l'utente può accedere con un account locale, Facebook, Google, GitHub, non esiste e così via non è un valore coerente per Azure AD B2C da usare per preferred_username. Per sbloccare MSAL dall'implementazione di compatibilità della cache con ADAL, abbiamo deciso di utilizzare "Mancante dalla risposta del token" sul lato quando si lavora con gli account Azure AD B2C quando il IdToken restituisce nothing per preferred_username. MSAL deve restituire un valore per preferred_username mantenere la compatibilità della cache in più raccolte.
+L'effetto del cliente è che, quando si tenta di visualizzare il campo username, si sta ricevendo "missing from the token Response" come valore? In caso affermativo, questo è dovuto al fatto che Azure AD B2C non restituisce un valore in IdToken per il preferred_username a causa di limitazioni con gli account di social networking e i provider di identità esterni (IDP). Azure AD restituisce un valore per preferred_username perché conosce l'utente, ma per Azure AD B2C, poiché l'utente può accedere con un account locale, Facebook, Google, GitHub e così via, non esiste un valore coerente per Azure AD B2C da usare per preferred_username. Per sbloccare MSAL dalla distribuzione della compatibilità della cache con ADAL, si è deciso di usare "missing from the token Response" alla fine quando si gestiscono gli account di Azure AD B2C quando IdToken non restituisce nulla per preferred_username. MSAL deve restituire un valore per preferred_username per mantenere la compatibilità della cache tra le librerie.
 
 ### <a name="workarounds"></a>Soluzioni alternative
 
-#### <a name="mitigation-for-the-missing-tenant-id"></a>Mitigazione dei rischi per l'ID tenant mancante
+#### <a name="mitigation-for-the-missing-tenant-id"></a>Attenuazione per l'ID tenant mancante
 
-La soluzione alternativa suggerita consiste nell'usare il [dai criteri di memorizzazione nella cache](#acquire-a-token-to-apply-a-policy)
+La soluzione alternativa consigliata consiste nell'usare la [memorizzazione nella cache per criterio](#acquire-a-token-to-apply-a-policy)
 
-In alternativa, è possibile usare la `tid` attestazione, se si usa la [i criteri personalizzati B2C](https://aka.ms/ief), in quanto offre la possibilità di restituire attestazioni aggiuntive all'applicazione. Per altre informazioni su [trasformazione delle attestazioni](/azure/active-directory-b2c/claims-transformation-technical-profile)
+In alternativa, è possibile usare l' `tid` attestazione, se si usano i [criteri personalizzati B2C](https://aka.ms/ief), perché fornisce la possibilità di restituire attestazioni aggiuntive all'applicazione. Per ulteriori informazioni sulla [trasformazione](/azure/active-directory-b2c/claims-transformation-technical-profile) delle attestazioni
 
-#### <a name="mitigation-for-missing-from-the-token-response"></a>Mitigazione dei rischi per "Mancante dalla risposta del token"
-Una possibilità consiste nell'usare l'attestazione "name" come nome utente preferito. Il processo è descritto in questo [B2C doc](../../active-directory-b2c/active-directory-b2c-reference-policies.md) -> "della colonna restituito attestazioni, scegliere le attestazioni che devono essere restituite nei token di autorizzazione inviati all'applicazione dopo la corretta esperienza di modifica del profilo. Ad esempio, selezionare nome visualizzato, codice postale".
+#### <a name="mitigation-for-missing-from-the-token-response"></a>Mitigazione per "missing from the token Response"
+Un'opzione consiste nell'usare l'attestazione "Name" come nome utente preferito. Il processo è indicato in questa > [doc B2C](../../active-directory-b2c/active-directory-b2c-reference-policies.md) "nella colonna Restituisci attestazione scegliere le attestazioni che si desidera vengano restituite nei token di autorizzazione inviati all'applicazione dopo un'esperienza di modifica del profilo riuscita. Ad esempio, selezionare nome visualizzato, Cap. "
 
 ## <a name="next-steps"></a>Passaggi successivi 
 
-Nell'esempio seguente vengono forniti ulteriori dettagli sull'acquisizione dei token in modo interattivo con MSAL.NET per le applicazioni di Azure AD B2C.
+Nell'esempio seguente vengono fornite ulteriori informazioni sull'acquisizione di token in modo interattivo con MSAL.NET per Azure AD B2C applicazioni.
 
 | Esempio | Piattaforma | Descrizione|
 |------ | -------- | -----------|
-|[active-directory-b2c-xamarin-native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin. Android, UWP | Una semplice app Xamarin. Forms che illustra come usare MSAL.NET per autenticare gli utenti tramite Azure AD B2C e accedere a un'API Web con i token risultanti.|
+|[active-directory-b2c-xamarin-native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Novell iOS, Novell Android, UWP | Una semplice app Novell Forms che illustra come usare MSAL.NET per autenticare gli utenti tramite Azure AD B2C e accedere a un'API Web con i token risultanti.|

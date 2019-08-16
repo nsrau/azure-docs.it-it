@@ -9,12 +9,12 @@ ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: cf063311e5559ddf5706df397ce744a726610000
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 5be247e8bb999ee5306d10e67c46c7273953dc71
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667336"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534694"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Abilitare le soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario in più VM
 
@@ -45,7 +45,7 @@ L'elenco di macchine virtuali viene filtrato per visualizzare solo le macchine v
 
 ### <a name="resource-group-limit"></a> Limitazioni dell'onboarding
 
-Il numero di gruppi di risorse che è possibile usare per l'onboarding è determinato dai [limiti di distribuzione di Resource Manager](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). Le distribuzioni di Resource Manager, da non confondere con le distribuzioni degli aggiornamenti, sono limitate a 5 gruppi di risorse per distribuzione. Per assicurare l'integrità dell'onboarding, 2 di questi gruppi di risorse sono riservati alla configurazione dell'area di lavoro Log Analytics, dell'account di Automazione e delle risorse correlate. Rimangono 3 gruppi di risorse selezionabili per la distribuzione.
+Il numero di gruppi di risorse che è possibile usare per l'onboarding è determinato dai [limiti di distribuzione di Resource Manager](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). Gestione risorse le distribuzioni, da non confondere con le distribuzioni degli aggiornamenti, sono limitate a 5 gruppi di risorse per ogni distribuzione. Per assicurare l'integrità dell'onboarding, 2 di questi gruppi di risorse sono riservati alla configurazione dell'area di lavoro Log Analytics, dell'account di Automazione e delle risorse correlate. Rimangono 3 gruppi di risorse selezionabili per la distribuzione. Questo limite si applica solo al caricamento simultaneo, non al numero di gruppi di risorse che possono essere gestiti da una soluzione di automazione.
 
 È anche possibile usare un Runbook per l'onboarding. per altre informazioni, vedere [caricare le soluzioni di aggiornamento e rilevamento delle modifiche in automazione di Azure](automation-onboard-solutions.md).
 
@@ -109,7 +109,7 @@ Se è stata usata la soluzione per avviare/arrestare VM durante gli orari di min
 
 In alternativa, è anche possibile scollegare l'area di lavoro dall'account di automazione dall'area di lavoro Log Analytics. Nell'area di lavoro selezionare **account di automazione** in **risorse correlate**. Nella pagina account di automazione selezionare **Scollega account**.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Durante l'onboarding di più computer, per alcuni computer potrebbe essere visualizzato **Cannot enable** (Abilitazione non consentita). Esistono diversi motivi per cui alcuni computer non possono essere abilitati. Le sezioni seguenti indicano i possibili motivi dello stato **Cannot enable** (Abilitazione non consentita) in una VM durante un tentativo di onboarding.
 

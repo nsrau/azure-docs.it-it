@@ -3,17 +3,17 @@ title: Soluzione VMware di Azure di CloudSimple-componenti VMware del cloud priv
 description: Descrive la modalità di installazione dei componenti VMware in un cloud privato
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/30/2019
+ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 89bc9c07ae74da1a4269a505627a7626e478ef99
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 26f58a38ac3abe9c6e2a3c6254190dffc4a51eb9
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812191"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543716"
 ---
 # <a name="private-cloud-vmware-components"></a>Componenti VMware del cloud privato
 
@@ -28,7 +28,7 @@ Un cloud privato è un ambiente VMware stack isolato (host ESXi, vCenter, rete V
 
 Un cloud privato VMware stack viene distribuito con la versione del software seguente.
 
-| Componente | Version | Versione con licenza |
+| Componente | Versione | Versione con licenza |
 |-----------|---------|------------------|
 | ESXi | 6.7 U1 | Enterprise Plus |
 | vCenter | 6.7 U1 | Standard vCenter |
@@ -47,7 +47,7 @@ vCenter Server Appliance (VCSA) fornisce le funzioni di autenticazione, gestione
 
 ### <a name="vcenter-single-sign-on"></a>Single Sign-on vCenter
 
-Il controller Embedded Platform Services in VCSA è associato a un **dominio Single Sign-on di vCenter**.  Il nome di dominio è **cloudsimple. local**.  Per accedere a **CloudOwner@cloudsimple.com** vCenter viene creato un utente predefinito.  È possibile aggiungere le origini di identità locali/Azure Active Directory [per vCenter](https://docs.azure.cloudsimple.com/set-vcenter-identity/).
+Il controller Embedded Platform Services in VCSA è associato a un **dominio Single Sign-on di vCenter**.  Il nome di dominio è **cloudsimple. local**.  Per accedere a **CloudOwner@cloudsimple.com** vCenter viene creato un utente predefinito.  È possibile aggiungere le origini di identità locali/Azure Active Directory [per vCenter](set-vcenter-identity.md).
 
 ## <a name="vsan-storage"></a>archiviazione rete VSAN
 
