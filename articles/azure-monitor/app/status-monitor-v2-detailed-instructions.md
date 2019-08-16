@@ -92,7 +92,7 @@ Questa procedura consente di preparare il server per scaricare i moduli da Power
     - Comando: `Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201`.
     - Parametri facoltativi:
         - `-Proxy`. Specifica un server proxy per la richiesta.
-        - [https://login.microsoftonline.com/common/](`-Force`). Ignora la richiesta di conferma.
+        - `-Force`. Ignora la richiesta di conferma.
     
     Questo prompt verrà visualizzato se NuGet non è configurato:
         
