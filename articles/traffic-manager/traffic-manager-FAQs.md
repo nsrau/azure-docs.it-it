@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: 37f1a0d9c70afc0a3a86ac76b682ee7b2adb253d
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 86376983f98abd241783f456cb9b41ab5d93ae51
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335803"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69511012"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Domande frequenti (FAQ) su Gestione traffico
 
@@ -322,9 +322,9 @@ Gestione traffico risponde con il nome DNS o l'indirizzo IP dell'endpoint. Per s
 
 In genere, Gestione traffico viene usato per indirizzare il traffico ad applicazioni distribuite in aree diverse. Tuttavia, può anche essere usato in un'applicazione che abbia più distribuzioni nella stessa area. Gli endpoint di Azure di Gestione traffico non permettono l'aggiunta di più endpoint di app Web della stessa area di Azure allo stesso profilo di Gestione traffico.
 
-### <a name="how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group"></a>Qual è la procedura per spostare gli endpoint di Azure del profilo di Gestione traffico in un gruppo di risorse diverso?
+### <a name="how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription"></a>Ricerca per categorie spostare gli endpoint di Azure del profilo di gestione traffico in un gruppo di risorse o una sottoscrizione diversi?
 
-Per tenere traccia degli endpoint di Azure associati a un profilo di Gestione traffico vengono usati i relativi ID di risorsa. Quando una risorsa di Azure usata come endpoint (ad esempio, indirizzo IP pubblico, servizio cloud classico, app Web o un altro profilo di Gestione traffico usato con annidamento) viene spostata in un gruppo di risorse diverso, il relativo ID di risorsa cambia. In questo scenario, è attualmente necessario aggiornare il profilo di Gestione traffico eliminando e riaggiungendo gli endpoint al profilo.
+Per tenere traccia degli endpoint di Azure associati a un profilo di Gestione traffico vengono usati i relativi ID di risorsa. Quando una risorsa di Azure usata come endpoint (ad esempio, IP pubblico, servizio cloud classico, WebApp o un altro profilo di gestione traffico usato in modo annidato) viene spostata in un gruppo di risorse o in una sottoscrizione diversa, il relativo ID di risorsa viene modificato. In questo scenario, è attualmente necessario aggiornare il profilo di Gestione traffico eliminando e riaggiungendo gli endpoint al profilo.
 
 ## <a name="traffic-manager-endpoint-monitoring"></a>Monitoraggio degli endpoint di Gestione traffico
 

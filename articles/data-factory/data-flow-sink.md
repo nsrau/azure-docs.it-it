@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: b228dfd92fe389d196a65f7152ef22751842f4bb
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 24ad0f2e917420c327577851cabc9e5bdbad2825
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640305"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515653"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>Trasformazione sink per un flusso di dati
 
@@ -79,13 +79,16 @@ Configurare la denominazione dei file:
 
 Scegliere le impostazioni del database:
 
+![Scheda Impostazioni, che mostra le opzioni di sink SQL](media/data-flow/alter-row2.png "Opzioni SQL")
+
 * **Metodo di aggiornamento**: Il valore predefinito è consentire gli inserimenti. Deselezionare **Consenti inserimento** se si desidera arrestare l'inserimento di nuove righe dall'origine. Per aggiornare, Upsert o eliminare righe, aggiungere prima di tutto una trasformazione alter-Row alle righe di tag per tali azioni. 
 * **Ricrea tabella**: Eliminare o creare la tabella di destinazione prima del completamento del flusso di dati.
 * **Tronca tabella**: Rimuovere tutte le righe dalla tabella di destinazione prima del completamento del flusso di dati.
 * **Dimensioni batch**: Immettere un numero di scritture di bucket in blocchi. Usare questa opzione per i caricamenti di dati di grandi dimensioni. 
 * **Abilita staging**: Usare la polibase quando si carica data warehouse di Azure come set di dati del sink.
+* **Script pre e post SQL**: Immettere gli script SQL a più righe che verrà eseguito prima (pre-elaborazione) e dopo (post-elaborazione) i dati vengono scritti nel database sink
 
-![Scheda Impostazioni, che mostra le opzioni di sink SQL](media/data-flow/alter-row2.png "Opzioni SQL")
+![script pre e post-elaborazione SQL](media/data-flow/prepost1.png "Script di elaborazione SQL")
 
 > [!NOTE]
 > Nel flusso di dati è possibile indirizzare Data Factory per creare una nuova definizione di tabella nel database di destinazione. Per creare la definizione della tabella, impostare un set di dati nella trasformazione sink con un nuovo nome di tabella. Nel set di dati SQL sotto il nome della tabella selezionare **modifica** e immettere un nuovo nome di tabella. Quindi, nella trasformazione sink, attivare **Consenti Drift schema**. Impostare **Import Schema** su **None**.

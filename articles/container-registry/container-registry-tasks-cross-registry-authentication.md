@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: danlep
-ms.openlocfilehash: 8fac70e7e5125ae86b2b5ce13041bbf1fd067bbe
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 07fa7f3df5274ae88c93deac75093ead3f32f036
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68642072"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509101"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Autenticazione tra più registri in un'attività ACR usando un'identità gestita da Azure 
 
@@ -76,7 +76,7 @@ Nei passaggi di questa sezione viene creata un'attività e viene abilitata un'id
 
 ### <a name="create-task"></a>Creare un'attività
 
-Creare l'attività *helloworldtask* eseguendo il comando [AZ ACR task create][az-acr-task-create] seguente. Il contesto dell'attività è il sistema locale e il comando fa riferimento al `helloworldtask.yaml` file nella directory di lavoro. Il `--assign-identity` parametro passa l'ID risorsa dell'identità assegnata dall'utente. 
+Creare l'attività *helloworldtask* eseguendo il comando [AZ ACR task create][az-acr-task-create] seguente. L'attività viene eseguita senza un contesto del codice sorgente e il comando fa riferimento `helloworldtask.yaml` al file nella directory di lavoro. Il `--assign-identity` parametro passa l'ID risorsa dell'identità assegnata dall'utente. 
 
 ```azurecli
 az acr task create \
@@ -95,7 +95,7 @@ Nei passaggi di questa sezione viene creata un'attività e viene abilitata un'id
 
 ### <a name="create-task"></a>Creare un'attività
 
-Creare l'attività *helloworldtask* eseguendo il comando [AZ ACR task create][az-acr-task-create] seguente. Il contesto dell'attività è il sistema locale e il comando fa riferimento al `helloworldtask.yaml` file nella directory di lavoro. Il `--assign-identity` parametro senza valore Abilita l'identità assegnata dal sistema nell'attività. 
+Creare l'attività *helloworldtask* eseguendo il comando [AZ ACR task create][az-acr-task-create] seguente. L'attività viene eseguita senza un contesto del codice sorgente e il comando fa riferimento `helloworldtask.yaml` al file nella directory di lavoro. Il `--assign-identity` parametro senza valore Abilita l'identità assegnata dal sistema nell'attività. 
 
 ```azurecli
 az acr task create \

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 7cd1d451b49faf2f8e3ad38f4ff780256ef2dc5d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 9a11af7e2875c9af5cf4b08d459bc67b55dbdcf3
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883591"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515545"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Funzionalità e piattaforme supportate dal Centro sicurezza di Azure
 
@@ -83,22 +83,22 @@ Sono supportate anche le macchine virtuali in esecuzione in un servizio cloud. V
 |**Environment**|**Azure**||**Non Azure**|**Azure**||**Non Azure**||
 ||**Macchina virtuale**|**Set di scalabilità della macchina virtuale**||**Macchina virtuale**|**Set di scalabilità della macchina virtuale**|
 |Avvisi di rilevamento minacce VMBA|✔|✔|✔|✔ (nelle versioni supportate)|✔ (nelle versioni supportate)|✔|Indicazioni (gratuite) rilevamento minacce (standard)|
-|Avvisi di rilevamento delle minacce di rete|✔|✔|X|✔|✔|X|Standard|
+|Avvisi di rilevamento delle minacce di rete|✔|✔|X|✔|✔|x|Standard|
 |Integrazione con Windows Defender ATP|✔ (nelle versioni supportate)|✔ (nelle versioni supportate)|✔|X|X|X|Standard|
 |Patch mancanti|✔|✔|✔|✔|✔|✔|Gratuito|
 |Configurazioni della sicurezza|✔|✔|✔|✔|✔|✔|Gratuito|
 |Valutazione di Endpoint Protection|✔|✔|✔|X|X|X|Gratuito|
-|Accesso JIT alle VM|✔|X|X|✔|X|X|Standard|
+|Accesso JIT alle VM|✔|x|X|✔|X|X|Standard|
 |Controlli applicazione adattivi|✔|X|✔|✔|X|✔|Standard|
 |FIM|✔|✔|✔|✔|✔|✔|Standard|
 |Valutazione della crittografia del disco|✔|✔|X|✔|✔|X|Gratuito|
-|Distribuzione di terze parti|✔|X|X|✔|X|X|Gratuito|
+|Distribuzione di terze parti|✔|X|X|✔|x|X|Gratuito|
 |Valutazione NSG|✔|✔|X|✔|✔|X|Gratuito|
-|Rilevamento delle minacce senza file|✔|✔|✔|X|X|X|Standard|
+|Rilevamento delle minacce senza file|✔|✔|✔|x|X|X|Standard|
 |Mappa di rete|✔|✔|X|✔|✔|X|Standard|
 |Controlli adattivi della rete|✔|✔|X|✔|✔|X|Standard|
 |Dashboard di conformità normativa & report|✔|✔|✔|✔|✔|✔|Standard|
-|Raccomandazioni e rilevamento delle minacce nei contenitori IaaS ospitati da Docker|X|X|X|✔|✔|✔|Standard|
+|Raccomandazioni e rilevamento delle minacce nei contenitori IaaS ospitati da Docker|X|X|x|✔|✔|✔|Standard|
 
 ### <a name="supported-endpoint-protection-solutions"></a>Soluzioni di protezione endpoint supportate
 
@@ -114,7 +114,7 @@ Per informazioni sul momento in cui vengono generate le indicazioni per ognuna d
 | System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (vedere la nota seguente) | Tramite estensione | Yes |
 | Trend Micro – Tutte le versioni | Famiglia Windows Server  | No | Sì |
 | Symantec v12.1.1100+| Famiglia Windows Server  | No | Yes |
-| McAfee v10+ | Famiglia Windows Server  | No | Yes |
+| McAfee v10+ | Famiglia Windows Server  | No | Sì |
 | McAfee v10+ | Famiglia di server Linux  | No | Sì **\*** |
 | Sophos V9 +| Famiglia di server Linux  | No | Sì **\***  |
 
@@ -133,7 +133,7 @@ Per informazioni sul momento in cui vengono generate le indicazioni per ognuna d
 |MySQL*|✔| ✔|
 |Account di archiviazione BLOB di Azure|✔| ✔|
 |Servizi app|✔| ✔|
-|Servizi cloud|✔| X|
+|Servizi cloud|✔| x|
 |Reti virtuali|✔| ND|
 |Subnet|✔| ND|
 |Schede di interfaccia di rete|✔| ND|
@@ -165,6 +165,6 @@ Per informazioni sul momento in cui vengono generate le indicazioni per ognuna d
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Leggere le informazioni su come [pianificare e progettare l'adozione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md).
-- Leggere le informazioni su [analisi del comportamento delle macchine virtuali e analisi della memoria dump di arresto anomalo nel Centro sicurezza](security-center-alerts-type.md#virtual-machine-behavioral-analysis).
+- Altre informazioni sul [rilevamento delle minacce per le macchine virtuali & Server nel centro sicurezza di Azure](security-center-alerts-iaas.md).
 - Vedere le [domande frequenti sull'uso del Centro sicurezza di Azure](security-center-faq.md).
 - Vedere i [post di blog sulla sicurezza e sulla conformità di Azure](https://blogs.msdn.com/b/azuresecurity/).

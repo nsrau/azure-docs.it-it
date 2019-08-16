@@ -8,12 +8,12 @@ ms.date: 07/10/2019
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: a713ed69dc9c35e16b1cc5d9ad9819d53e2e1efe
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d0dd9a371c4912cae0e74b214c673c629fc1ff55
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986161"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515809"
 ---
 # <a name="troubleshoot-query-performance-for-azure-cosmos-db"></a>Risolvere i problemi relativi alle prestazioni delle query per Azure Cosmos DB
 Questo articolo illustra come identificare, diagnosticare e risolvere i problemi Azure Cosmos DB query SQL. Per ottenere prestazioni ottimali per le query Azure Cosmos DB, attenersi alla procedura di risoluzione dei problemi riportata di seguito. 
@@ -24,11 +24,12 @@ Questo articolo illustra come identificare, diagnosticare e risolvere i problemi
 ## <a name="check-consistency-level"></a>Verificare il livello di coerenza
 Il [livello di coerenza](consistency-levels.md) può influisca sulle prestazioni e sugli addebiti Verificare che il livello di coerenza sia appropriato per lo scenario specificato. Per altri dettagli, vedere [scelta del livello di coerenza](consistency-levels-choosing.md).
 
-## <a name="log-sql-query-in-storage-account"></a>Eseguire la query SQL di log nell'account di archiviazione
-I log di [query dell'API SQL tramite i log di diagnostica](logging.md#turn-on-logging-in-the-azure-portal) consentono di registrare la query offuscata in un account di archiviazione di propria scelta. In questo modo è possibile esaminare i log di diagnostica e trovare query usando più ur e usare l'ID attività per la corrispondenza in QueryRuntimeStatistics. 
+## <a name="log-the-executed-sql-query"></a>Registrare la query SQL eseguita 
 
+È possibile registrare la query SQL eseguita in un account di archiviazione o nella tabella del log di diagnostica. Log di [query SQL tramite i log di diagnostica](logging.md#turn-on-logging-in-the-azure-portal) consente di registrare la query offuscata in un account di archiviazione di propria scelta. In questo modo è possibile esaminare i log e trovare la query che usa le UR più elevate. Successivamente, è possibile usare l'ID attività per trovare la corrispondenza con la query effettiva in QueryRuntimeStatistics. La query viene offuscata per finalità di sicurezza e i nomi dei parametri di query e i relativi valori nelle clausole WHERE sono diversi rispetto ai nomi e ai valori effettivi. È possibile usare la registrazione nell'account di archiviazione per mantenere la conservazione a lungo termine delle query eseguite.  
 
 ## <a name="log-query-metrics"></a>Metrica della query di log
+
 Usare `QueryMetrics` per risolvere query lente o costose. 
 
   * `FeedOptions.PopulateQueryMetrics = true` Impostato`QueryMetrics` su nella risposta.

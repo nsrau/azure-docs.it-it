@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: danlep
-ms.openlocfilehash: 6aa729e4f32769ec50632bea582c8b69c7c0ce91
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: bcaf2918c92ec7b8223d394290a1d7c624fc451c
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68642137"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509229"
 ---
 # <a name="external-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Autenticazione esterna in un'attività ACR usando un'identità gestita da Azure 
 
@@ -107,7 +107,7 @@ Nei passaggi di questa sezione viene creata un'attività e viene abilitata un'id
 
 ### <a name="create-task"></a>Creare un'attività
 
-Creare l'attività *dockerhubtask* eseguendo il comando [AZ ACR task create][az-acr-task-create] seguente. Il contesto dell'attività è il sistema locale e il comando fa riferimento al `dockerhubtask.yaml` file nella directory di lavoro. Il `--assign-identity` parametro passa l'ID risorsa dell'identità assegnata dall'utente. 
+Creare l'attività *dockerhubtask* eseguendo il comando [AZ ACR task create][az-acr-task-create] seguente. L'attività viene eseguita senza un contesto del codice sorgente e il comando fa riferimento `dockerhubtask.yaml` al file nella directory di lavoro. Il `--assign-identity` parametro passa l'ID risorsa dell'identità assegnata dall'utente. 
 
 ```azurecli
 az acr task create \
@@ -126,7 +126,7 @@ Nei passaggi di questa sezione viene creata un'attività e viene abilitata un'id
 
 ### <a name="create-task"></a>Creare un'attività
 
-Creare l'attività *dockerhubtask* eseguendo il comando [AZ ACR task create][az-acr-task-create] seguente. Il contesto dell'attività è il sistema locale e il comando fa riferimento al `dockerhubtask.yaml` file nella directory di lavoro.  Il `--assign-identity` parametro senza valore Abilita l'identità assegnata dal sistema nell'attività.  
+Creare l'attività *dockerhubtask* eseguendo il comando [AZ ACR task create][az-acr-task-create] seguente. L'attività viene eseguita senza un contesto del codice sorgente e il comando fa riferimento `dockerhubtask.yaml` al file nella directory di lavoro. Il `--assign-identity` parametro senza valore Abilita l'identità assegnata dal sistema nell'attività.  
 
 ```azurecli
 az acr task create \

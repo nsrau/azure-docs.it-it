@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 07/05/2019
-ms.openlocfilehash: 3b9a9f4ac1cf0722ab7d3838f0b0c4c12b47dc74
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 67e877609eec98e7100b34ab477dbab7c5577772
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566806"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515289"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Database SQL di Azure senza server (anteprima)
 
@@ -144,7 +144,7 @@ La ripresa automatica viene attivata anche durante la distribuzione di alcuni ag
 
 Se un database senza server viene sospeso, il primo account di accesso riprenderà il database e restituirà un errore indicante che il database non è disponibile con codice di errore 40613. Dopo la ripresa del database è necessario ripetere l'accesso per stabilire la connettività. I client del database con la logica di ripetizione dei tentativi di connessione non devono essere modificati.
 
-### <a name="latency"></a>Latenza
+### <a name="latency"></a>Latency
 
 La latenza per il riavvio e la sospensione di un database senza server è in genere un ordine di 1 minuto per il riavvio e 1-10 minuti di sospensione.
 
@@ -281,7 +281,7 @@ Get-AzSqlDatabase `
 
 ## <a name="resource-limits"></a>Limiti delle risorse
 
-Per i limiti delle risorse, vedere [Livello di calcolo serverless](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier).
+Per i limiti delle risorse, vedere [livello di calcolo senza server](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).
 
 ## <a name="billing"></a>Fatturazione
 
@@ -324,4 +324,4 @@ Il livello di calcolo senza server è disponibile in tutto il mondo, ad eccezion
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per iniziare, vedere [Avvio rapido: Creare un database singolo nel database SQL di Azure usando il portale di Azure](sql-database-single-database-get-started.md).
-- Per i limiti delle risorse, vedere [Limiti delle risorse del livello di calcolo serverless](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier).
+- Per i limiti delle risorse, vedere [Limiti delle risorse del livello di calcolo serverless](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).

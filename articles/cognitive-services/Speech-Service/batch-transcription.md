@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: e98ac335f475e4a6db6b17d5954512f5749e6aec
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 101cfacf071292d00556656b0df9c6bf9c15f414
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881148"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515877"
 ---
 # <a name="why-use-batch-transcription"></a>Perché usare la trascrizione batch?
 
@@ -84,13 +84,13 @@ I parametri di configurazione vengono forniti in formato JSON:
 
 Usare queste proprietà facoltative per configurare la trascrizione:
 
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 |-----------|-------------|
 | `ProfanityFilterMode` | Specifica come gestire il linguaggio volgare nei risultati del riconoscimento. I valori accettati sono `None` che disabilita i filtri del contenuto volgare, `masked` che sostituisce il contenuto volgare con gli asterischi, `removed` che rimuove tutto il contenuto volgare dal risultato, o `tags` che aggiunge tag "contenuti volgari". L'impostazione predefinita è `masked`. |
 | `PunctuationMode` | Specifica come gestire la punteggiatura nei risultati del riconoscimento. I valori accettati sono `None` che consente di disattivare la punteggiatura, `dictated` che implica la punteggiatura esplicita, `automatic` che permette al decodificatore di occuparsi della punteggiatura, o `dictatedandautomatic` che implica segni di punteggiatura dettata o automatica. |
  | `AddWordLevelTimestamps` | Specifica se i timestamp a livello di parola devono essere aggiunti all'output. I valori accettati sono `true`, che abilita i timestamp a livello di parola, e `false` (valore predefinito), che li disabilita. |
  | `AddSentiment` | Specifica che il sentimento deve essere aggiunto all'espressione. I valori accettati sono `true` che Abilita il sentimento per ogni espressione e `false` (il valore predefinito) per disabilitarlo. |
- | `AddDiarization` | Specifica che è necessario eseguire la alalysis di diarizzazione nell'input, che dovrebbe essere canale mono contenente due voci. I valori accettati sono `true` che consentono di eseguire la diaria e `false` (il valore predefinito) per disabilitarla. È anche necessario `AddWordLevelTimestamps` che sia impostato su true.|
+ | `AddDiarization` | Specifica che l'analisi della fase di esecuzione deve essere eseguita nell'input che dovrebbe essere canale mono contenente due voci. I valori accettati sono `true` che consentono di eseguire la diaria e `false` (il valore predefinito) per disabilitarla. È anche necessario `AddWordLevelTimestamps` che sia impostato su true.|
 
 ### <a name="storage"></a>Archiviazione
 

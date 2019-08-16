@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 21fe92bf4a33dc44545f1bd54c718db6c0a38532
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a334b19fe4dd819a6e4c391e49d934bf5955a567
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68843239"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69516045"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Domande frequenti sui dischi e sui dischi Premium delle macchine virtuali IaaS di Azure (gestiti e non gestiti)
 
@@ -143,7 +143,48 @@ Il partizionamento GPT può essere usato solo nei dischi dati e non nei dischi d
 
 **Quali tipi di dischi supportano gli snapshot?**
 
-Snapshot di supporto SSD Premium, SSD standard e HDD standard. Per questi tre tipi di dischi, gli snapshot sono supportati per tutte le dimensioni dei dischi (inclusi i dischi con dimensioni fino a 32 TiB). Le unità SSD ultra non supportano gli snapshot.
+Snapshot di supporto SSD Premium, SSD standard e HDD standard. Per questi tre tipi di dischi, gli snapshot sono supportati per tutte le dimensioni dei dischi (inclusi i dischi con dimensioni fino a 32 TiB). I dischi Ultra non supportano gli snapshot.
+
+## <a name="ultra-disks"></a>Dischi ultra
+
+**Quali aree attualmente supportano i dischi ultra?**
+- Stati Uniti orientali 2
+- Asia sudorientale
+- Europa settentrionale
+
+**Quali serie di VM attualmente supportano i dischi ultra?**
+- ESv3
+- DSv3
+
+**Per cosa è necessario impostare la velocità effettiva del disco Ultra?**
+Se non si è certi di cosa impostare la velocità effettiva del disco, è consigliabile iniziare supponendo una dimensione di i/o di 16 KiB e regolare le prestazioni da tale posizione durante il monitoraggio dell'applicazione. La formula è: Velocità effettiva in MBps = # di IOPS * 16/1000.
+
+**Il disco è stato configurato per 40000 IOPS, ma vengono visualizzati solo 12800 IOPS, perché le prestazioni del disco non vengono visualizzati?**
+Oltre alla limitazione del disco, viene applicata una limitazione di i/o a livello di macchina virtuale. Assicurarsi che le dimensioni della macchina virtuale in uso siano in grado di supportare i livelli configurati sui dischi. Per informazioni dettagliate sui limiti di i/o imposti dalla VM, vedere [dimensioni per le macchine virtuali Windows in Azure](../articles/virtual-machines/windows/sizes.md).
+
+**È possibile usare I livelli di memorizzazione nella cache con un disco Ultra?**
+No, i dischi Ultra non supportano i diversi metodi di Caching supportati in altri tipi di dischi. Impostare la memorizzazione nella cache del disco su nessuno.
+
+**È possibile aggiungere un disco ultra alla macchina virtuale esistente?**
+Probabilmente, la macchina virtuale deve trovarsi in una coppia area e zona di disponibilità che supporta dischi Ultra. Per informazioni dettagliate, vedere [Getting Started with ultra disks](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md) .
+
+**È possibile usare un disco Ultra come disco del sistema operativo per la macchina virtuale?**
+No, i dischi Ultra sono supportati solo come dischi dati e sono supportati solo come dischi nativi 4K.
+
+**È possibile convertire un disco esistente in un disco Ultra?**
+No, ma è possibile eseguire la migrazione della data da un disco esistente a un disco Ultra. Per eseguire la migrazione di un disco esistente a un disco Ultra, alleghi entrambi i dischi alla stessa VM e copia i dati del disco da un disco all'altro o sfrutta una soluzione di terze parti per la migrazione dei dati.
+
+**È possibile creare snapshot per i dischi ultra?**
+No, gli snapshot non sono ancora disponibili.
+
+**Backup di Azure è disponibile per i dischi ultra?**
+No, il supporto di backup di Azure non è ancora disponibile.
+
+**È possibile aggiungere un disco Ultra a una macchina virtuale in esecuzione in un set di disponibilità?**
+No, questa operazione non è ancora supportata.
+
+**È possibile abilitare Azure Site Recovery (ASR) per le macchine virtuali con dischi ultra?**
+No, ASR non è ancora supportato per i dischi Ultra.
 
 ## <a name="standard-ssd-disks"></a>Dischi SSD Standard
 
@@ -264,7 +305,7 @@ Sì. Tutte le immagini e gli snapshot gestiti creati dopo il 9 giugno 2017 vengo
 
 **È possibile convertire macchine virtuali con dischi non gestiti ubicati in account di archiviazione che sono o sono stati crittografati in precedenza in VM con dischi gestiti?**
 
-Sì
+Yes
 
 **Un disco rigido virtuale esportato da un disco gestito o uno snapshot verrà crittografato?**
 

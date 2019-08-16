@@ -6,16 +6,16 @@ ms.topic: include
 ms.date: 06/19/2019
 ms.author: mathoma
 ms.openlocfilehash: eff121cfaf4473607110de4553a9bb8021990caf
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 08/15/2019
 ms.locfileid: "68444682"
 ---
-In questo passaggio si creeranno il gruppo di risorse e un database singolo del database SQL di Azure. 
+In questo passaggio si creeranno il gruppo di risorse e un database singolo di database SQL di Azure. 
 
 > [!IMPORTANT]
-> Assicurarsi di configurare le regole del firewall per usare l'indirizzo IP pubblico del computer in cui vengono eseguiti i passaggi descritti in questo articolo. Le regole del firewall a livello di database verranno replicate automaticamente nel server secondario.
+> Assicurarsi di configurare le regole del firewall in modo da usare l'indirizzo IP pubblico del computer in cui si eseguono i passaggi descritti in questo articolo. Le regole del firewall a livello di database verranno replicate automaticamente nel server secondario.
 >
 > Per informazioni, vedere [Creare una regola del firewall a livello di database](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) o per determinare l'indirizzo IP usato per la regola del firewall a livello di server per il proprio computer, vedere [Creare una regola del firewall a livello di server](../articles/sql-database/sql-database-server-level-firewall-rule.md).  
 
@@ -55,7 +55,7 @@ Creare il gruppo di risorse e il database singolo usando il portale di Azure.
 
      ![Opzioni di acquisto basate su vCore](../articles/sql-database/media/sql-database-get-started-portal/create-database-vcore.png)
 
-   - Selezionare  provisioning e **Gen4**.
+   - Selezionare provisioning e **Gen4**.
 
      ![Livello di elaborazione serverless](../articles/sql-database/media/sql-database-get-started-portal/create-database-serverless.png)
 
@@ -129,8 +129,8 @@ Creare il gruppo di risorse e il database singolo usando PowerShell.
       -SampleName "AdventureWorksLT"
    ```
 
-# <a name="az-clitabbash"></a>[INTERFACCIA DELLA RIGA DI COMANDO AZ](#tab/bash)
-Creare il gruppo di risorse e il database singolo usando AZ CLI. 
+# <a name="az-clitabbash"></a>[Interfaccia della riga di comando AZ](#tab/bash)
+Creare il gruppo di risorse e il database singolo usando l'interfaccia della riga di comando AZ. 
 
 
    ```azurecli-interactive

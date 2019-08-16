@@ -1,5 +1,5 @@
 ---
-title: Configurare l'iscrizione e l'accesso con OpenID Connect - Azure Active Directory B2C | Microsoft Docs
+title: Configurare l'iscrizione e l'accesso con OpenID Connect-Azure Active Directory B2C
 description: Configurare l'iscrizione e l'accesso con OpenID Connect tramite Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,23 +7,19 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 08/06/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 774716aeb28ca5d9563f38272a59c8e675a11e4b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 720deb28ce124af23035337ac88cfb1d37fc7c53
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508383"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509695"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con OpenID Connect tramite Azure Active Directory B2C
 
->[!NOTE]
-> Questa funzionalità è disponibile in anteprima pubblica. Non utilizzare la funzionalità negli ambienti di produzione.
-
-
-[OpenID Connect](active-directory-b2c-reference-oidc.md) è un protocollo di autenticazione, basato su OAuth 2.0, che può essere usato per l’accesso sicuro degli utenti. La maggior parte dei provider di identità che usano questo protocollo è supportata in Azure Active Directory B2C. In questo articolo viene illustrato come aggiungere provider di identità OpenID Connect personalizzati nei flussi utente.
+[OpenID Connect](active-directory-b2c-reference-oidc.md) è un protocollo di autenticazione basato su OAuth 2,0 che può essere usato per l'accesso sicuro agli utenti. La maggior parte dei provider di identità che usano questo protocollo sono supportati in Azure AD B2C. In questo articolo viene illustrato come aggiungere provider di identità OpenID Connect personalizzati nei flussi utente.
 
 ## <a name="add-the-identity-provider"></a>Aggiungere il provider di identità
 
@@ -31,7 +27,7 @@ ms.locfileid: "66508383"
 2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto e scegliere la directory che contiene il tenant.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra del portale di Azure, cercare **Azure AD B2C** e selezionarlo.
 4. Selezionare **Provider di identità** e quindi fare clic su **Aggiungi**.
-5. Per il **Tipo di provider di identità**, selezionare **OpenID Connect (anteprima)** .
+5. Per il **tipo di provider di identità**, selezionare **OpenID Connect**.
 
 ## <a name="configure-the-identity-provider"></a>Configurare il provider di identità
 

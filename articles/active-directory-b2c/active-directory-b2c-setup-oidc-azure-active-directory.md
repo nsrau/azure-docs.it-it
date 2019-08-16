@@ -7,20 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 08/06/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 58c6d1b032f5b492c5641ff51da80426124069b1
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 46755cb8d0383d166b10d50854eb476b676a6ee4
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716772"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509729"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurare l'accesso per un'organizzazione Azure Active Directory specifica in Azure Active Directory B2C
-
->[!NOTE]
-> Questa funzionalità è disponibile in anteprima pubblica. Non utilizzare la funzionalità negli ambienti di produzione.
 
 Per usare un account di Azure Active Directory (Azure AD) come [provider di identità](active-directory-b2c-reference-oauth-code.md) in Azure AD B2C, è necessario creare un'applicazione che lo rappresenti. Questo articolo illustra come consentire l'accesso agli utenti di una specifica organizzazione di Azure Active Directory (Azure AD) usando un flusso utente in Azure Active Directory (Azure AD) B2C.
 
@@ -53,8 +50,8 @@ Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD,
 1. Assicurarsi di usare la directory che contiene Azure AD B2C tenant. Selezionare il **filtro directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant Azure ad B2C.
 2. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
 3. Selezionare **Provider di identità** e quindi selezionare **Aggiungi**.
-4. Immettere un **Nome**. Ad esempio, immettere `Contoso Azure AD`.
-5. Selezionare **tipo di provider di identità**, selezionare **OpenID Connect (anteprima)** e quindi fare clic su **OK**.
+4. Immettere un **Nome**. Immettere ad esempio `Contoso Azure AD`.
+5. Selezionare **tipo di provider di identità**, selezionare **OpenID Connect**e quindi fare clic su **OK**.
 6. Selezionare **Configura il provider di identità**
 7. In **URL dei metadati** immettere l'URL seguente, sostituendo `your-AD-tenant-domain` con il nome di dominio del tenant di Azure AD. Ad esempio, `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`:
 

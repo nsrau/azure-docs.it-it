@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 08/15/2019
 ms.author: diberry
-ms.openlocfilehash: 78c75e69be5521660937e34da0d7261dba1de385
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: a3e1853e587f2f1632641cbb896eba59f8dc9455
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955551"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515755"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Origini dati per i contenuti QnA Maker
 
@@ -133,9 +133,21 @@ Anche i documenti domanda-risposta sotto forma di file *.txt*, *.tsv* oppure *.x
 
 Qualsiasi colonna aggiuntiva nel file di origine viene ignorata.
 
+### <a name="example-of-structured-excel-file"></a>Esempio di file di Excel strutturato
+
 Di seguito è riportato un esempio di file *.xls* domanda-risposta strutturato, con contenuto HTML:
 
  ![Esempio di file Excel domanda-risposta strutturato per una knowledge base](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
+
+### <a name="example-of-alternate-questions-for-single-answer-in-excel-file"></a>Esempio di domande alternative per una singola risposta in un file di Excel
+
+Di seguito è riportato un esempio di un file QnA *. xls* strutturato, con diverse domande alternative per una singola risposta:
+
+ ![Esempio di domande alternative per una singola risposta in un file di Excel](../media/qnamaker-concepts-datasources/xls-alternate-question-example.png)
+
+Una volta importato il file, la coppia di domande e risposte si trova nella Knowledge base, come illustrato di seguito:
+
+ ![Screenshot delle domande alternative per la singola risposta importata nella Knowledge base](../media/qnamaker-concepts-datasources/xls-alternate-question-example-after-import.png)
 
 ## <a name="structured-data-format-through-import"></a>Formato di dati strutturati tramite l'importazione
 

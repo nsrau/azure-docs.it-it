@@ -3,7 +3,7 @@ title: Introduzione all'archiviazione code di Azure e ai servizi connessi di Vis
 description: Informazioni su come iniziare a usare l'archiviazione code di Azure in un progetto ASP.NET in Visual Studio dopo aver eseguito la connessione a un account di archiviazione con i servizi connessi di Visual Studio
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 94ca3413-5497-433f-abbe-836f83a9de72
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
-ms.openlocfilehash: 3f3a649308449a8ba4e1dbaebd4db4afbf731c5b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 19cf2dd912968d0a5df8743c1e720776b8a949f0
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62110486"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515979"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Introduzione all'archiviazione code di Azure e ai servizi connessi di Visual Studio (ASP.NET)
 
@@ -62,7 +62,7 @@ Questa esercitazione illustra come scrivere codice ASP.NET per alcuni scenari co
     using Microsoft.WindowsAzure.Storage.Auth;
     using Microsoft.WindowsAzure.Storage.Queue;
     ```
-   ## <a name="create-a-queue"></a>Creare una coda
+   ## <a name="create-a-queue"></a>Crea una coda
 
 I passaggi seguenti illustrano come creare una coda:
 
@@ -278,7 +278,7 @@ Questa sezione illustra come visualizzare un messaggio in coda (leggere il primo
     CloudQueueMessage message = queue.PeekMessage();
     ```
 
-1. Aggiornare **ViewBag** con due valori: il nome della coda e il messaggio letto. Il **CloudQueueMessage** espone due proprietà per ottenere il valore dell'oggetto: **CloudQueueMessage. Asbytes** e **AsString**. **AsString** (usata in questo esempio) restituisce una stringa, mentre **AsBytes** restituisce una matrice di byte.
+1. Aggiornare **ViewBag** con due valori: il nome della coda e il messaggio letto. L'oggetto **CloudQueueMessage** espone due proprietà per ottenere il valore dell'oggetto: **CloudQueueMessage. AsBytes** e **CloudQueueMessage. AsString**. **AsString** (usata in questo esempio) restituisce una stringa, mentre **AsBytes** restituisce una matrice di byte.
 
     ```csharp
     ViewBag.QueueName = queue.Name; 
@@ -312,7 +312,7 @@ Questa sezione illustra come visualizzare un messaggio in coda (leggere il primo
     <li>@Html.ActionLink("Peek message", "PeekMessage", "Queues")</li>
     ```
 
-1. Eseguire l'applicazione e selezionare **Visualizza il messaggio** per visualizzare risultati simili allo screenshot seguente:
+1. Eseguire l'applicazione e selezionare **Visualizza messaggio** per visualizzare risultati simili allo screenshot seguente:
   
     ![Visualizza il messaggio](./media/vs-storage-aspnet-getting-started-queues/peek-message-results.png)
 
@@ -403,7 +403,7 @@ In questa sezione viene illustrato come leggere e rimuovere un messaggio da una 
     <li>@Html.ActionLink("Read/Delete message", "ReadMessage", "Queues")</li>
     ```
 
-1. Eseguire l'applicazione e selezionare **Read/Delete messaggio** per visualizzare risultati simili allo screenshot seguente:
+1. Eseguire l'applicazione e selezionare **lettura/eliminazione messaggio** per visualizzare risultati simili allo screenshot seguente:
   
     ![Read/Delete message (Leggi/Elimina messaggio)](./media/vs-storage-aspnet-getting-started-queues/read-message-results.png)
 

@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: danlep
-ms.openlocfilehash: 6237b8056262abe1f8cea28bebd6b3bad97e0f7e
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a4a1099d90b619be383d440067a692c51a2430ac
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967575"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509061"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Eseguire un'attività ACR in base a una pianificazione definita
 
@@ -48,9 +48,9 @@ Come semplice esempio, il comando seguente attiva l'esecuzione dell' `hello-worl
 az acr task create \
   --name mytask \
   --registry myregistry \
-  --context /dev/null \
   --cmd hello-world \
-  --schedule "0 21 * * *"
+  --schedule "0 21 * * *" \
+  --context /dev/null
 ```
 
 Eseguire il comando [AZ ACR task show][az-acr-task-show] per verificare che il trigger del timer sia configurato. Per impostazione predefinita, è abilitato anche il trigger di aggiornamento dell'immagine di base.
@@ -176,11 +176,11 @@ Ogni campo può avere uno dei tipi di valori seguenti:
 
 |Type  |Esempio  |Quando viene attivato  |
 |---------|---------|---------|
-|Valore specifico |<nobr>"5 * * * *"</nobr>|ogni ora a 5 minuti dopo l'ora|
-|Tutti i valori (`*`)|<nobr>"* 5 * * *"</nobr>|ogni minuto dell'ora inizia 5:00 UTC (60 volte al giorno)|
-|Intervallo (operatore `-`)|<nobr>"0 1-3 * * *"</nobr>|3 volte al giorno, alle 1:00, 2:00 e 3:00 UTC|
-|Set di valori (operatore `,`)|<nobr>"20, 30, 40 * * * *"</nobr>|3 volte all'ora, 20 minuti, 30 minuti e 40 minuti dopo l'ora|
-|Valore di intervallo (operatore `/`)|<nobr>"*/10 * * * *"</nobr>|6 volte all'ora, a 10 minuti, 20 minuti e così via, oltre l'ora
+|Valore specifico |<nobr>`"5 * * * *"`</nobr>|ogni ora a 5 minuti dopo l'ora|
+|Tutti i valori (`*`)|<nobr>`"* 5 * * *"`</nobr>|ogni minuto dell'ora inizia 5:00 UTC (60 volte al giorno)|
+|Intervallo (operatore `-`)|<nobr>`"0 1-3 * * *"`</nobr>|3 volte al giorno, alle 1:00, 2:00 e 3:00 UTC|
+|Set di valori (operatore `,`)|<nobr>`"20,30,40 * * * *"`</nobr>|3 volte all'ora, 20 minuti, 30 minuti e 40 minuti dopo l'ora|
+|Valore di intervallo (operatore `/`)|<nobr>`"*/10 * * * *"`</nobr>|6 volte all'ora, a 10 minuti, 20 minuti e così via, oltre l'ora
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
@@ -198,6 +198,8 @@ Ogni campo può avere uno dei tipi di valori seguenti:
 
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+Per un esempio di come usare un'attività pianificata per pulire i repository in un registro, vedere [eliminare automaticamente le immagini da un registro contenitori di Azure](container-registry-auto-purge.md).
 
 Per esempi di attività avviate da commit del codice sorgente o aggiornamenti di immagini di base, vedere la serie di esercitazioni sulle [attività di ACR](container-registry-tutorial-quick-task.md).
 

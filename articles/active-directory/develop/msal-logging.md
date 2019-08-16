@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09590fbd340ac3945f05346f99254ec0b76dcd76
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 475b692a29edf5cdd05552e7b5c3dc5fde210275
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834990"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69512518"
 ---
 # <a name="logging"></a>Registrazione
 Le app Microsoft Authentication Library (MSAL) consentono di generare messaggi di log che possono rivelarsi utili per diagnosticare i problemi e fornire dettagli. Un'app può configurare la registrazione con alcune righe di codice e avere un controllo personalizzato sul livello di dettaglio, oltre che sulla necessità di registrare o meno i dati personali o dell'organizzazione. È consigliabile impostare un callback di registrazione MSAL e fornire agli utenti un modo per inviare i log in caso di problemi di autenticazione.
@@ -34,12 +34,16 @@ Il logger di MSAL consente l'acquisizione di diversi livelli di dettaglio:
 - Errore: indica che si è verificato un errore e che è stato generato un errore. Usare questo livello per il debug e l'identificazione dei problemi.
 - Avviso: indica eventi dubbi per cui l'app necessita di altre informazioni. Non si è verificato necessariamente un errore o un problema, ma questo livello è specifico per la diagnostica e l'individuazione dei problemi.
 - Info: MSAL registrerà gli eventi a scopo informativo e non necessariamente ai fini del debug.
-- Verbose: Default. MSAL registrerà una grande quantità di informazioni, fornendo i dettagli completi sul comportamento della libreria.
+- Verbose: Valore predefinito. MSAL registrerà una grande quantità di informazioni, fornendo i dettagli completi sul comportamento della libreria.
 
 ## <a name="personal-and-organizational-data"></a>Dati personali e dell'organizzazione
 Per impostazione predefinita, il logger di MSAL non acquisisce dati personali o dell'organizzazione altamente sensibili. La libreria offre la possibilità di abilitare la registrazione di questi due tipi di dati se si decide di procedere in tal senso.
 
 ## <a name="logging-in-msalnet"></a>Registrazione in MSAL.NET
+
+ > [!NOTE]
+ > Per altre informazioni su MSAL.NET, vedere il [wiki di MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki). Ottenere esempi di registrazione MSAL.NET e altro ancora. 
+ 
 In MSAL 3.x la registrazione viene impostata per le singole applicazioni durante la creazione dell'app usando il modificatore del generatore `.WithLogging`. Questo metodo accetta parametri facoltativi:
 
 - *Level* consente di decidere il livello di registrazione da applicare. Se lo si imposta su Error, verranno restituiti solo gli errori.

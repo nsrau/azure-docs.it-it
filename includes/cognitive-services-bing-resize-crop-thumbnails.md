@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: nitinme
 ms.openlocfilehash: f96c3a693ce8fc099374c998b35ce2fa90f4bb3f
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2019
+ms.lasthandoff: 08/15/2019
 ms.locfileid: "67868984"
 ---
 Alcune risposte di Bing includono gli URL delle immagini di anteprima servite da Bing. È possibile ridimensionare e ritagliare le immagini di anteprima. 

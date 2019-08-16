@@ -3,7 +3,7 @@ title: Introduzione all'archiviazione BLOB e ai Servizi connessi di Visual Studi
 description: Informazioni su come iniziare a usare il servizio di archiviazione di BLOB di Azure in un progetto WebJob dopo aver eseguito la connessione a un account di archiviazione di Azure con i servizi connessi di Visual Studio.
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 324c9376-0225-4092-9825-5d1bd5550058
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 5a7c16e6ac565d1660fee02cb7df178344b195e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e951fde7e47ccfcce5f64db4ef27ac767d63480
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122924"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510647"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Introduzione all'archiviazione BLOB di Azure e ai servizi relativi a Visual Studio (progetti WebJob)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
@@ -144,7 +144,7 @@ Il numero massimo di tentativi è configurabile. La stessa impostazione **MaxDeq
 
 Il messaggio di coda per i BLOB non elaborabili è un oggetto JSON che contiene le seguenti proprietà:
 
-* FunctionId (nel formato *{nome processo Web}* . Funzioni. *{Nome funzione}* , ad esempio: WebJob1.Functions.CopyBlob)
+* FunctionId (nel formato *{processo Web Name}* . Funzioni. *{Nome funzione}* , ad esempio: WebJob1.Functions.CopyBlob)
 * BlobType ("BlockBlob" o "PageBlob")
 * ContainerName
 * BlobName
@@ -193,7 +193,7 @@ WebJobs SDK verifica che nessuna funzione **BlobTrigger** venga chiamata più vo
 
 Le conferme di BLOB vengono archiviate in un contenitore denominato *azure-webjobs-hosts* nell'account di archiviazione di Azure specificato dalla stringa di connessione AzureWebJobsStorage. Una conferma di BLOB contiene le seguenti informazioni:
 
-* La funzione che è stata chiamata per il blob (" *{nome processo Web}* . Funzioni. *{Nome funzione}* ", ad esempio: "WebJob1.Functions.CopyBlob")
+* Funzione chiamata per il BLOB (" *{processo Web Name}* . Funzioni. *{Nome funzione}* ", ad esempio: "WebJob1. Functions. CopyBlob")
 * Il nome del contenitore
 * Il tipo di BLOB ("BlockBlob" o "PageBlob")
 * Il nome del BLOB
