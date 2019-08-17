@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 94ef85836ef524b34cd1c51e4eda83695bc70507
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 348cd0eccc66adb29a7564bbbeca99fffec28957
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443945"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562850"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Ridimensionamento e hosting di Funzioni di Azure
 
@@ -51,7 +51,7 @@ La tabella seguente indica il livello di supporto corrente per i tre piani di ho
 | | Piano a consumo | Piano Premium | Piano dedicato |
 |-|:----------------:|:------------:|:----------------:|
 | Windows | GA | anteprima | GA |
-| Linux | anteprima | anteprima | GA |
+| Linux | GA | anteprima | GA |
 
 ## <a name="consumption-plan"></a>Piano a consumo
 

@@ -9,12 +9,12 @@ ms.author: mbaldwin
 ms.date: 07/06/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.openlocfilehash: f6a95f56b7b617b42c1cec9f64aae73b88b813da
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 30c99ae4150e0bd4645488b5bf75b8bbac0ee66f
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934330"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562454"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticazione da servizio a servizio ad Azure Key Vault usando .NET
 
@@ -132,7 +132,7 @@ Ciò si applica solo allo sviluppo locale. Quando la soluzione viene distribuita
 
 ## <a name="running-the-application-using-managed-identity-or-user-assigned-identity"></a>Esecuzione dell'applicazione mediante identità gestita o identità assegnata dall'utente 
 
-Quando si esegue il codice in un Servizio app di Azure o in una macchina virtuale di Azure con l'identità gestita abilitata, la libreria usa automaticamente l'identità gestita. 
+Quando si esegue il codice in un Servizio app di Azure o in una macchina virtuale di Azure con l'identità gestita abilitata, la libreria usa automaticamente l'identità gestita. Non sono necessarie modifiche al codice, ma l'identità gestita deve avere le autorizzazioni *Get* per l'insieme di credenziali delle chiavi. È possibile assegnare all'identità gestita le autorizzazioni *Get* tramite i criteri di *accesso*dell'insieme di credenziali delle chiavi.
 
 In alternativa, è possibile eseguire l'autenticazione con un'identità assegnata dall'utente. Per altre informazioni sulle identità assegnate dall'utente, vedere [informazioni sulle identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work). Per eseguire l'autenticazione con un'identità assegnata dall'utente, è necessario specificare l'ID client dell'identità assegnata dall'utente nella stringa di connessione. La stringa di connessione è specificata nella sezione [supporto della stringa di connessione](#connection-string-support) riportata di seguito.
 

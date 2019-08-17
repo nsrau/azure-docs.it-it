@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 7f931a72eab534bc2856e9e545b684d2b8ae7a60
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 88b6fbbd68f1f98e50ec0f04336a022dc1580a73
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444033"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562909"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologie di distribuzione in funzioni di Azure
 
@@ -31,7 +31,7 @@ Funzioni di Azure supporta lo sviluppo locale multipiattaforma e l'hosting in Wi
 
 Ogni piano ha comportamenti diversi. Non tutte le tecnologie di distribuzione sono disponibili per ogni versione di funzioni di Azure. Nel grafico seguente vengono illustrate le tecnologie di distribuzione supportate per ogni combinazione di sistema operativo e piano di hosting:
 
-| Tecnologia di distribuzione | Utilizzo di Windows | Windows Premium (anteprima) | Windows dedicato  | Utilizzo di Linux (anteprima) | Linux dedicato |
+| Tecnologia di distribuzione | Utilizzo di Windows | Windows Premium (anteprima) | Windows dedicato  | Consumo Linux | Linux dedicato |
 |-----------------------|:-------------------:|:-------------------------:|:-----------------:|:---------------------------:|:---------------:|
 | URL pacchetto esterno<sup>1</sup> |✔|✔|✔|✔|✔|
 | Distribuzione zip |✔|✔|✔| |✔|
@@ -70,7 +70,7 @@ In funzioni di Azure sono disponibili i metodi di distribuzione seguenti.
 >
 >Se si usa l'archiviazione BLOB di Azure, usare un contenitore privato con una [firma di accesso condiviso (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) per concedere alle funzioni l'accesso al pacchetto. Ogni volta che l'applicazione viene riavviata, recupera una copia del contenuto. Il riferimento deve essere valido per la durata dell'applicazione.
 
->__Quando utilizzarlo:__ L'URL del pacchetto esterno è l'unico metodo di distribuzione supportato per funzioni di Azure in esecuzione in Linux nel piano a consumo (anteprima). Quando si aggiorna il file del pacchetto a cui fa riferimento un'app per le funzioni, è necessario [sincronizzare manualmente i trigger](#trigger-syncing) per indicare ad Azure che l'applicazione è stata modificata.
+>__Quando utilizzarlo:__ L'URL del pacchetto esterno è l'unico metodo di distribuzione supportato per funzioni di Azure in esecuzione in Linux nel piano a consumo. Quando si aggiorna il file del pacchetto a cui fa riferimento un'app per le funzioni, è necessario [sincronizzare manualmente i trigger](#trigger-syncing) per indicare ad Azure che l'applicazione è stata modificata.
 
 ### <a name="zip-deploy"></a>Distribuzione zip
 
@@ -151,7 +151,7 @@ Nell'editor basato su portale è possibile modificare direttamente i file presen
 
 Nella tabella seguente sono illustrati i sistemi operativi e i linguaggi che supportano la modifica del portale:
 
-| | Utilizzo di Windows | Windows Premium (anteprima) | Windows dedicato | Utilizzo di Linux (anteprima) | Linux Premium (anteprima)| Linux dedicato |
+| | Utilizzo di Windows | Windows Premium (anteprima) | Windows dedicato | Consumo Linux | Linux Premium (anteprima)| Linux dedicato |
 |-|:-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|:---------------:|
 | C# | | | | | |
 | Script C# |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
@@ -180,7 +180,7 @@ Per gli slot di distribuzione sono disponibili due livelli di supporto:
 | Utilizzo di Windows | Anteprima |
 | Windows Premium (anteprima) | Anteprima |
 | Windows dedicato | Disponibilità generale |
-| Consumo Linux | Non supportato |
+| Consumo Linux | File modifiche disco non supportato |
 | Linux Premium (anteprima) | Anteprima |
 | Linux dedicato | Disponibilità generale |
 

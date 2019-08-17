@@ -1,31 +1,26 @@
 ---
-title: Approfondimento - Azure Active Directory di reimpostazione della password self-service
+title: Approfondimento sulla reimpostazione della password self-service-Azure Active Directory
 description: Funzionamento della reimpostazione della password self-service
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.date: 08/16/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47a6f475b5f1152850ec918b196883c6974f4d95
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2c31867f4de0e49e2c82733dc859f17ba060bdaa
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60415618"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69561324"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Come funziona: reimpostazione self-service della password di Azure AD
 
 Come funziona la reimpostazione della password self-service? Cosa comporta questa opzione per l'interfaccia? Continuare la lettura per ottenere altre informazioni sulla reimpostazione della password self-service di Azure Active Directory (Azure AD).
-
-|     |
-| --- |
-| Notifica dell'app per dispositivi mobili e codice dell'app per dispositivi mobili come metodi per la reimpostazione della password di Azure AD in modalità self-service sono le funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzioni in anteprima, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
 
 ## <a name="how-does-the-password-reset-portal-work"></a>Funzionamento del portale di reimpostazione delle password
 
@@ -59,10 +54,10 @@ Leggere i passaggi seguenti per informazioni sulla logica alla base della pagina
 
 ## <a name="authentication-methods"></a>Metodi di autenticazione
 
-Se è abilitata la reimpostazione della password self-service, è necessario selezionare almeno una delle opzioni seguenti per i metodi di autenticazione. Queste opzioni sono a volte denominate "attività di controllo". È consigliabile **scegliere due o più metodi di autenticazione** in modo che gli utenti abbiano una maggiore flessibilità nel caso in cui non siano in grado di accedere a uno di questi in un dato momento. Dettagli aggiuntivi sui metodi elencati di seguito sono reperibili nell'articolo [quali sono i metodi di autenticazione?](concept-authentication-methods.md).
+Se è abilitata la reimpostazione della password self-service, è necessario selezionare almeno una delle opzioni seguenti per i metodi di autenticazione. Queste opzioni sono a volte denominate "attività di controllo". È consigliabile **scegliere due o più metodi di autenticazione** in modo che gli utenti abbiano una maggiore flessibilità nel caso in cui non siano in grado di accedere a uno di questi in un dato momento. Altre informazioni sui metodi elencati di seguito sono disponibili nell'articolo informazioni sui [metodi di autenticazione](concept-authentication-methods.md).
 
-* Notifica dell'app per dispositivi mobili (anteprima)
-* Codice dell'app per dispositivi mobili (anteprima)
+* Notifica dell'app per dispositivi mobili
+* Codice app per dispositivi mobili
 * Email
 * Cellulare
 * Telefono ufficio
@@ -71,12 +66,12 @@ Se è abilitata la reimpostazione della password self-service, è necessario sel
 Gli utenti possono reimpostare la password solo se sono presenti dati nei metodi di autenticazione abilitati dall'amministratore.
 
 > [!IMPORTANT]
-> A partire da marzo del 2019 le opzioni telefonata non sarà disponibile per gli utenti MFA e SSPR nei tenant gratuiti/versione di valutazione AD Azure. Messaggi SMS non sono interessati da questa modifica. Chiamata telefonica continuerà a essere disponibile per gli utenti a pagamento di tenant di Azure AD. Questa modifica interessa solo i tenant gratuiti/versione di valutazione AD Azure.
+> A partire da marzo 2019, le opzioni per le telefonate non saranno disponibili per gli utenti di multi-factor authentication e SSPR in un tenant gratuito/di valutazione Azure AD. Questa modifica non ha alcun effetto sui messaggi SMS. La telefonata continuerà a essere disponibile per gli utenti in tenant Azure AD a pagamento. Questa modifica ha effetto solo sui tenant di Azure AD gratuiti/di valutazione.
 
 > [!WARNING]
 > Gli account assegnati i ruoli di amministratore di Azure verrà richiesto di utilizzare i metodi definiti nella sezione [Differenze dei criteri di reimpostazione degli amministratori](concept-sspr-policy.md#administrator-reset-policy-differences).
 
-![Selezione di metodi di autenticazione nel portale di Azure][Authentication]
+![Selezione dei metodi di autenticazione nel portale di Azure][Authentication]
 
 ### <a name="number-of-authentication-methods-required"></a>Numero di metodi di autenticazione necessari
 
@@ -86,7 +81,7 @@ Gli utenti possono scegliere di definire più metodi di autenticazione, se tali 
 
 Se un utente non ha registrato il numero minimo di metodi richiesti, viene visualizzata una pagina di errore che invita a richiedere la reimpostazione della password a un amministratore.
 
-#### <a name="mobile-app-and-sspr-preview"></a>App per dispositivi mobili e reimpostazione della password self-service (anteprima)
+#### <a name="mobile-app-and-sspr"></a>App per dispositivi mobili e SSPR
 
 Quando si usa un'app per dispositivi mobili, ad esempio l'app Microsoft Authenticator, come un metodo per la reimpostazione della password, è necessario essere a conoscenza delle seguenti avvertenze:
 
@@ -160,7 +155,7 @@ Esempio: nell'ambiente sono presenti quattro amministratori. L'amministratore A 
 
 Se Azure AD Connect è stato installato, configurato e abilitato, saranno disponibili le opzioni aggiuntive seguenti per le integrazioni locali. Se queste opzioni sono disattivate, il writeback non è stato configurato correttamente. Per altre informazioni, vedere [Configurazione del writeback delle password](howto-sspr-writeback.md).
 
-![Convalida il writeback delle password è abilitata e l'utilizzo][Writeback]
+![La convalida del writeback delle password è abilitata e funzionante][Writeback]
 
 Questa pagina fornisce uno stato rapido del client di writeback locale. In base alla configurazione corrente viene visualizzato uno dei seguenti messaggi:
 

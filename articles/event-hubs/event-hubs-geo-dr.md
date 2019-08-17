@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 460ea15b0827ea307d64d1bd92d9bd14d5919d73
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 8dca94f0200f6bd41dfdc199b41bf69981a960da
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704387"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562706"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hub eventi di Azure - Ripristino di emergenza geografico 
 
@@ -37,7 +37,7 @@ La funzionalità di ripristino di emergenza geografico di Hub eventi di Azure è
 
 ## <a name="basic-concepts-and-terms"></a>Concetti e terminologia di base
 
-La funzionalità di ripristino di emergenza implementa il ripristino di emergenza dei metadati e si basa sugli spazi dei nomi primari e secondari di ripristino di emergenza. Si noti che la funzionalità di ripristino di emergenza geografico è disponibile solo per lo [SKU Standard](https://azure.microsoft.com/pricing/details/event-hubs/). Non è necessario apportare modifiche alla stringa di connessione, perché la connessione viene effettuata tramite un alias.
+La funzionalità di ripristino di emergenza implementa il ripristino di emergenza dei metadati e si basa sugli spazi dei nomi primari e secondari di ripristino di emergenza. Si noti che la funzionalità di ripristino di emergenza geografico è disponibile solo per gli [SKU standard e dedicati](https://azure.microsoft.com/pricing/details/event-hubs/) . Non è necessario apportare modifiche alla stringa di connessione, perché la connessione viene effettuata tramite un alias.
 
 In questo articolo viene usata la terminologia seguente:
 

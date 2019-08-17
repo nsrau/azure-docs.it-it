@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d9fc39edfad18c756c2816f9eb0b3774d8bf882c
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: a180e2ba6c1a610116271d5a9b6e3fdf562cecdf
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812674"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563205"
 ---
 # <a name="account-management-overview"></a>Panoramica sulla gestione degli account
 
-Quando si crea il servizio CloudSimple, viene creato un account in CloudSimple.  L'account è associato alla sottoscrizione di Azure in cui si trova il servizio.  Tutti gli utenti con ruoli **proprietario** e **collaboratore** nella sottoscrizione possono accedere al portale di CloudSimple.  L'ID sottoscrizione e l'ID tenant di Azure associati al servizio CloudSimple sono disponibili nella [pagina account](https://docs.azure.cloudsimple.com/account/).
+Quando si crea il servizio CloudSimple, viene creato un account in CloudSimple.  L'account è associato alla sottoscrizione di Azure in cui si trova il servizio.  Tutti gli utenti con ruoli **proprietario** e **collaboratore** nella sottoscrizione possono accedere al portale di CloudSimple.  L'ID sottoscrizione e l'ID tenant di Azure associati al servizio CloudSimple sono disponibili nella [pagina account](account.md).
 
 ## <a name="additional-alert-emails"></a>Messaggi di posta elettronica di avviso aggiuntivi
 
@@ -36,5 +36,5 @@ Tutti gli utenti che dispongono di un ruolo **proprietario** e **collaboratore**
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Visualizza riepilogo account](https://docs.azure.cloudsimple.com/account/)
-* [Visualizza elenco utenti](https://docs.azure.cloudsimple.com/users/)
+* [Visualizza riepilogo account](account.md)
+* [Visualizza elenco utenti](users.md)

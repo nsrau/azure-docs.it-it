@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: ab4b283449ec6c0174f380b0231dd2e78dea419d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88173b24ecfca72e05d6f930b45d732aefad0e56
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64688035"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563424"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Configurazione dei log di flusso del gruppo di sicurezza di rete con l'API REST
 
@@ -216,6 +216,9 @@ Se viene specificato un account di archiviazione, i file di acquisizione di pacc
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
+
+> [!IMPORTANT]
+> Attualmente si verifica un problema per cui i [log di flusso del gruppo di sicurezza di rete (NSG)](network-watcher-nsg-flow-logging-overview.md) per Network Watcher non vengono eliminati automaticamente dall'archiviazione BLOB in base alle impostazioni dei criteri di conservazione. Se si dispone di un criterio di conservazione diverso da zero, è consigliabile eliminare periodicamente i BLOB di archiviazione che superano il periodo di conservazione per evitare eventuali addebiti. Per altre informazioni su come eliminare il Blog di archiviazione dei log di flusso NSG, vedere [eliminare i BLOB di archiviazione del log di flusso di NSG](network-watcher-delete-nsg-flow-log-blobs.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -13,18 +13,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: ec42693fe42f35d728a4a5018776867f07403f81
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 0cdd7f291b43f442b8471a19f515e4a2d12b4e74
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226865"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562868"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guida per sviluppatori Python per Funzioni di Azure
 
 Questo articolo è un'introduzione allo sviluppo di Funzioni di Azure con Python. Il contenuto presuppone che l'utente abbia già letto il [Manuale dello sviluppatore di Funzioni di Azure](functions-reference.md).
-
-[!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
 ## <a name="programming-model"></a>Modello di programmazione
 
@@ -227,7 +225,7 @@ def main(req):
 
 Sono disponibili altri metodi di registrazione che consentono di scrivere nella console a livelli di traccia diversi:
 
-| Metodo                 | DESCRIZIONE                                |
+| Metodo                 | Descrizione                                |
 | ---------------------- | ------------------------------------------ |
 | logging.**critical(_messaggio_)**   | Scrive un messaggio con livello critico nel logger radice.  |
 | logging.**error(_messaggio_)**   | Scrive un messaggio con livello errore nel logger radice.    |

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: 359773dad53f333b2f052dd5b5481645c72746da
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 92978815af22e3ce1a549b9ca3e335befca8c918
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533924"
+ms.locfileid: "69563041"
 ---
 # <a name="reset-a-vpn-gateway"></a>Reimpostare un gateway VPN
 
@@ -69,10 +69,12 @@ Quando si riceve un valore restituito, si può presupporre che il ripristino del
 
 ### <a name="resetclassic"></a>Modello di distribuzione classica
 
-Il cmdlet per la reimpostazione di un gateway è **Reset-AzureVNetGateway**. I cmdlet di Azure PowerShell per la gestione dei servizi devono essere installati localmente sul desktop. Non è possibile usare Azure Cloud Shell. Prima di eseguire un ripristino assicurarsi di avere la versione più recente dei [cmdlet di PowerShell per Gestione servizi](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). L'esempio seguente reimposta il gateway per la rete virtuale denominata "ContosoVNet":
+Il cmdlet per la reimpostazione di un gateway è **Reset-AzureVNetGateway**. I cmdlet di Azure PowerShell per la gestione dei servizi devono essere installati localmente sul desktop. Non è possibile usare Azure Cloud Shell. Prima di eseguire un ripristino assicurarsi di avere la versione più recente dei [cmdlet di PowerShell per Gestione servizi](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). Quando si usa questo comando, assicurarsi di usare il nome completo della rete virtuale. I reti virtuali classici creati con il portale hanno un nome lungo che è necessario per PowerShell. È possibile visualizzare il nome lungo usando "Get-AzureVNetConfig-ExportToFile C:\Myfoldername\NetworkConfig.xml".
+
+L'esempio seguente reimposta il gateway per una rete virtuale denominata "Group TestRG1 TestVNet1" (che mostra semplicemente "TestVNet1" nel portale):
 
 ```powershell
-Reset-AzureVNetGateway –VnetName “ContosoVNet”
+Reset-AzureVNetGateway –VnetName 'Group TestRG1 TestVNet1'
 ```
 
 Risultato:

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: ae397c077ac87618b646883f9125c9da2df81bfd
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: cce14a2f6e7f8aeca6c7f716d66520cef9484dde
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036585"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562630"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -188,7 +188,7 @@ Se il provider di connettività non è incluso nelle sezioni precedenti, sarà c
 ## <a name="c1partners"></a>Connettività con provider di servizi aggiuntivi
 | **Location** | **Exchange** | **Provider di connettività** |
 | --- | --- | --- |
-| **Amsterdam** | Equinix, Interxion, livello 3 Communications, Telecity | BICS, CloudXpress, EuroFiber, Fastweb S. p. A, Gulf Bridge International, Kalaam Telecom Bahrain B. S. C, MainOne, Nianet, post, Immediateus, TDC erhverv, Telecom Italia Spark, Telekom Deutschland GmbH, Telia |
+| **Amsterdam** | Equinix, Interxion, livello 3 Communications, Telecity | BICS, CloudXpress, EuroFiber, Fastweb S. p. A, Gulf Bridge International, Kalaam Telecom Bahrain B. S. C, MainOne, Nianet, POST Telecom Luxembourg, vicinal, TDC erhverv, Telecom Italia Spark, Telekom Deutschland GmbH, Telia |
 | **Atlanta** | Equinix| Castello corona
 | **Città del Capo** | Teraco | MTN |
 | **Chicago** | Equinix| Castello corona, Spectrum Enterprise, Windstream |

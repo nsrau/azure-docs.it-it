@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 1401e378daa0c0a9258858840653899e76c9421c
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: a77cc22c7a56c29b5b42a032af3d0ea0b2c17d88
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881786"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563529"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete
 
@@ -90,6 +90,9 @@ Di seguito è riportato un testo di esempio di log dei flussi. Come si può osse
 **Abilitare la registrazione dei flussi in tutti i gruppi di sicurezza di rete associati a una risorsa**: la registrazione dei flussi in Azure viene configurata nella risorsa del gruppo di sicurezza di rete. Un flusso sarà associato a una sola regola di gruppo di sicurezza di rete. Negli scenari in cui vengono usati più gruppi di sicurezza di rete, è consigliabile abilitare la registrazione dei flussi in tutti i gruppi di sicurezza di rete applicati all'interfaccia di rete o subnet di una risorsa per assicurarsi che tutto il traffico venga registrato. Per altre informazioni sui gruppi di sicurezza di rete, vedere [Modalità di valutazione del traffico](../virtual-network/security-overview.md#how-traffic-is-evaluated). 
 
 **Costi di registrazione dei flussi**: i costi per la registrazione dei flussi dei gruppi di sicurezza di rete vengono addebitati in base al volume dei log generati. Un volume di traffico elevato può avere come effetto un volume elevato dei log dei flussi, con i conseguenti costi associati. I prezzi dei log dei flussi dei gruppi di sicurezza di rete non includono i costi di archiviazione sottostanti. L'uso della funzionalità dei criteri di conservazione insieme alla registrazione dei flussi dei gruppi di sicurezza di rete può avere come effetto un volume elevato di operazioni di archiviazione, con i conseguenti costi associati. Se non è necessario usare la funzionalità dei criteri di conservazione, è consigliabile impostare questo valore su 0. Per altre informazioni, vedere [Prezzi di Network Watcher](https://azure.microsoft.com/pricing/details/network-watcher/) e [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
+
+> [!IMPORTANT]
+> Attualmente si verifica un problema per cui i [log di flusso del gruppo di sicurezza di rete (NSG)](network-watcher-nsg-flow-logging-overview.md) per Network Watcher non vengono eliminati automaticamente dall'archiviazione BLOB in base alle impostazioni dei criteri di conservazione. Se si dispone di un criterio di conservazione diverso da zero, è consigliabile eliminare periodicamente i BLOB di archiviazione che superano il periodo di conservazione per evitare eventuali addebiti. Per altre informazioni su come eliminare il Blog di archiviazione dei log di flusso NSG, vedere [eliminare i BLOB di archiviazione del log di flusso di NSG](network-watcher-delete-nsg-flow-log-blobs.md).
 
 **Flussi in ingresso registrati da indirizzi IP Internet alle VM senza IP pubblici**: Le macchine virtuali che non dispongono di un indirizzo IP pubblico assegnato tramite un indirizzo IP pubblico associato alla scheda di interfaccia di rete come IP pubblico a livello di istanza o che fanno parte di un pool back-end di bilanciamento del carico di base, usano [SNAT predefiniti](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) e hanno un indirizzo IP assegnato da Azure per semplificare connettività in uscita. Di conseguenza, è possibile visualizzare le voci del log di flusso per i flussi da indirizzi IP Internet, se il flusso è destinato a una porta nell'intervallo di porte assegnate per SNAT. Sebbene Azure non consenta questi flussi alla macchina virtuale, il tentativo viene registrato e viene visualizzato nel log di flusso NSG di Network Watcher in base alla progettazione. È consigliabile che il traffico Internet in ingresso indesiderato venga bloccato in modo esplicito con NSG.
 

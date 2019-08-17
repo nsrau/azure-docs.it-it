@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: dd4eef7998b83c7a527738762379d0d3e720d70f
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: e076d6fed8cb3baf6b62dc3ede6ddd34732ed7a2
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699823"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562068"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -26,7 +26,7 @@ Questo articolo include informazioni dettagliate sui limiti e sulla configurazio
 
 Ecco i limiti per una singola definizione di app per la logica:
 
-| NOME | Limite | Note |
+| Name | Limite | Note |
 | ---- | ----- | ----- |
 | Azioni per flusso di lavoro | 500 | Per estendere questo limite, è possibile aggiungere flussi di lavoro annidati in base alle esigenze. |
 | Livello di annidamento consentito per le azioni | 8 | Per estendere questo limite, è possibile aggiungere flussi di lavoro annidati in base alle esigenze. |
@@ -132,7 +132,7 @@ Alcune operazioni dei connettori effettuano chiamate asincrone o sono in ascolto
 
 #### <a name="message-size"></a>Dimensioni dei messaggi
 
-| NOME | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
+| Name | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
 |------|--------------------|---------------------------------------|-------|
 | Dimensioni dei messaggi | 100 MB | 200 MB | Per ignorare questo limite, vedere [Gestire messaggi di grandi dimensioni con la divisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md). Tuttavia, alcuni connettori e API potrebbero non supportare la divisione in blocchi o addirittura il limite predefinito. |
 | Dimensione dei messaggi con la divisione in blocchi | 1 GB | 5 GB | Questo limite si applica alle azioni che supportano in modo nativo la divisione in blocchi o che consentono di abilitare la divisione in blocchi nella configurazione di runtime. <p>Per l'ambiente del servizio di integrazione, il motore delle app per la logica supporta questo limite, ma i connettori hanno limiti di suddivisione in blocchi fino al limite del motore. ad esempio, vedere [connettore di archiviazione BLOB di Azure](/connectors/azureblob/). Per ulteriori informazioni sulla suddivisione in blocchi, vedere [gestire messaggi di grandi dimensioni con la suddivisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md). |
@@ -154,7 +154,7 @@ Alcune operazioni dei connettori effettuano chiamate asincrone o sono in ascolto
 
 Limiti per i connettori personalizzati che è possibile creare da API Web.
 
-| Name | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
+| NOME | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
 |------|--------------------|---------------------------------------|-------|
 | Numero di connettori personalizzati | 1\.000 per ogni sottoscrizione di Azure | 1\.000 per ogni sottoscrizione di Azure ||
 | Numero di richieste al minuto per un connettore personalizzato | 500 richieste al minuto per connessione | 2\.000 richieste al minuto per *connettore personalizzato* ||
@@ -164,7 +164,7 @@ Limiti per i connettori personalizzati che è possibile creare da API Web.
 
 ## <a name="managed-identities"></a>Identità gestite
 
-| NOME | Limite |
+| Name | Limite |
 | ---- | ----- |
 | Numero di app per la logica con identità gestite assegnate dal sistema per ogni sottoscrizione di Azure | 100 |
 |||
@@ -205,7 +205,7 @@ Ecco i limiti per il numero di elementi per ogni livello dell'account di integra
 | Mappe | 25 | 500 | 1\.000 |
 | Schemi | 25 | 500 | 1\.000 |
 | Assembly | 10 | 25 | 1\.000 |
-| Certificati | 25 | 2 | 500 |
+| Certificati | 25 | 2 | 1\.000 |
 | Configurazioni batch | 5 | 1 | 50 |
 ||||
 

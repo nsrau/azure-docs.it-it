@@ -16,12 +16,12 @@ ms.date: 04/19/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64a81a871d811c68f5e92822ca88446966be4d5c
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 7b5be74b0734a27b02030e2c6995b43ef0c02162
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678125"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562139"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Richiedere l'accesso a un pacchetto di accesso in Azure AD gestione dei diritti (anteprima)
 
@@ -29,6 +29,10 @@ ms.locfileid: "68678125"
 > Gestione entitlement di Azure Active Directory (Azure AD) è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Con Azure AD gestione dei diritti, i pacchetti di accesso consentono una configurazione unica di risorse e criteri che amministra automaticamente l'accesso per la durata del pacchetto di accesso. 
+
+Una gestione pacchetti di accesso può configurare i criteri per richiedere l'approvazione per consentire agli utenti di accedere ai pacchetti. Un utente che deve accedere a un pacchetto di accesso può inviare una richiesta per ottenere l'accesso. Questo articolo descrive come inviare una richiesta di accesso.
 
 ## <a name="sign-in-to-the-my-access-portal"></a>Accedere al portale di accesso personale
 

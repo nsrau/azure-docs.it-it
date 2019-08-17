@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 906ab4da941c6a0e1bc98f2f724141c719d04b89
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: c739e827589a9fd6adeb10255f869acef29a4f16
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879431"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562217"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure AD
 
@@ -69,7 +69,8 @@ Un ambiente federato deve includere un provider di identità che supporta i prot
 
 - **WS-Fed:** questo protocollo è necessario per aggiungere un dispositivo ad Azure AD.
 - **WS-Trust:** questo protocollo è necessario per accedere a un dispositivo aggiunto ad Azure AD.
-Quando si utilizza AD FS, è necessario abilitare gli endpoint WS-Trust seguenti:`/adfs/services/trust/2005/usernamemixed`
+
+Quando si usa AD FS, è necessario abilitare gli endpoint WS-Trust seguenti: `/adfs/services/trust/2005/usernamemixed`
  `/adfs/services/trust/13/usernamemixed`
  `/adfs/services/trust/2005/certificatemixed`
  `/adfs/services/trust/13/certificatemixed`
@@ -197,7 +198,7 @@ Ecco un confronto di questi tre approcci
 |   | Configurazione self-service | Windows Autopilot | Registrazione in blocco |
 | --- | --- | --- | --- |
 | Richiesta dell'interazione dell'utente per la configurazione | Sì | Sì | No |
-| Richiesta di attività IT | No | Yes | Yes |
+| Richiesta di attività IT | No | Yes | Sì |
 | Flussi applicabili | Configurazione guidata e impostazioni | Solo Configurazione guidata | Solo Configurazione guidata |
 | Diritti di amministratore locale a un utente primario | Sì, per impostazione predefinita | Configurabile | No |
 | Richiesta del supporto dell'OEM del dispositivo | No | Sì | No |
