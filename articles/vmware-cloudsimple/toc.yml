@@ -101,11 +101,9 @@
         - name: Gestire gli account del portale di CloudSimple
           items:
             - name: Visualizzare il riepilogo degli account
-              href: 'https://docs.azure.cloudsimple.com/account/'
+              href: account.md
             - name: Visualizzare l'elenco di utenti
-              href: 'https://docs.azure.cloudsimple.com/users/'
-            - name: Visualizzare il log sull'utilizzo
-              href: 'https://docs.azure.cloudsimple.com/usage/'
+              href: users.md
             - name: Configurare una connessione di rete virtuale con il cloud privato
               href: 'https://docs.azure.cloudsimple.com/virtual-network-connection/'
             - name: Modificare il profilo utente
@@ -129,7 +127,7 @@
             - name: Connessione VPN tra ambiente locale e cloud privato
               href: set-up-vpn.md
             - name: Connessione di rete locale con ExpressRoute
-              href: 'https://docs.azure.cloudsimple.com/on-premises-connection/'
+              href: on-premises-connection.md
             - name: Connessione di rete virtuale di Azure con ExpressRoute
               href: azure-expressroute-connection.md
         - name: Piattaforma VMware
