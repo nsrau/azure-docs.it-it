@@ -44,6 +44,8 @@
           href: ingest-data-event-hub.md
         - name: Griglia di eventi
           href: ingest-data-event-grid.md
+        - name: Inserimento con un clic
+          href: ingest-data-one-click.md
         - name: Kafka
           href: ingest-data-kafka.md
         - name: Python

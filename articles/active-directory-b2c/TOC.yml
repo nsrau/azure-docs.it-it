@@ -62,9 +62,6 @@
           href: active-directory-b2c-reference-tokens.md
         - name: Richiedere il token di accesso
           href: active-directory-b2c-access-tokens.md
-        - name: Supportare più autorità emittenti di token
-          href: multiple-token-endpoints.md
-          displayName: 'migrate, b2clogin, owin, jwt'
     - name: Flussi degli utenti e criteri
       items:
         - name: Flussi degli utenti
@@ -307,7 +304,12 @@
             - name: RelyingParty
               href: relyingparty.md
     - name: Usare b2clogin.com
-      href: b2clogin.md
+      items:
+        - name: Panoramica di b2clogin.com
+          href: b2clogin.md
+        - name: Eseguire la migrazione dell'API Web a b2clogin.com
+          href: multiple-token-endpoints.md
+          displayName: 'migrate, b2clogin, owin, jwt'
     - name: Automazione
       items:
         - name: Esportare il report sull'utilizzo

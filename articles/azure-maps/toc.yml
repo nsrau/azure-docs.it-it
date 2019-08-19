@@ -25,6 +25,8 @@
       items:
         - name: Configurare un recinto virtuale
           href: tutorial-geofence.md
+        - name: Analisi spaziale
+          href: tutorial-iot-hub-maps.md
 - name: Concetti
   items:
     - name: Autenticazione con Mappe di Azure

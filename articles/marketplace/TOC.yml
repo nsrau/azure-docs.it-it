@@ -461,6 +461,8 @@
               href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
             - name: API di evasione ordini SaaS - domande frequenti
               href: ./partner-center-portal/saas-fulfillment-apis-faq.md
+        - name: Test drive dell'offerta
+          href: ./partner-center-portal/test-drive.md
     - name: Stato di pubblicazione
       href: ./partner-center-portal/publishing-status.md
     - name: Aggiornare le offerte esistenti

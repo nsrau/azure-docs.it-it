@@ -66,7 +66,11 @@
         - name: Bloccare le immagini del contenitore
           href: container-registry-image-lock.md
         - name: Eliminare immagini del contenitore
-          href: container-registry-delete.md
+          items:
+            - name: Eliminare i dati di immagini - Interfaccia della riga di comando
+              href: container-registry-delete.md
+            - name: Ripulire automaticamente tag e manifesti (anteprima)
+              href: container-registry-auto-purge.md
         - name: Aggiornare un registro classico
           href: container-registry-upgrade.md
         - name: Usare i webhook ACR

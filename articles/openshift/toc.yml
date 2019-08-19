@@ -27,6 +27,8 @@
           href: howto-aad-app-configuration.md
     - name: Distribuire un'istanza autonoma di Prometheus in un cluster Azure Red Hat OpenShift
       href: howto-deploy-prometheus.md
+    - name: Gestire progetti in un cluster di Azure Red Hat OpenShift
+      href: howto-manage-projects.md
 - name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure Red Hat OpenShift

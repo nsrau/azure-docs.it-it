@@ -49,7 +49,7 @@
       items:
         - name: Installare un'estensione di macchina virtuale
           items:
-            - name: ' Windows'
+            - name: Windows
               href: ../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
             - name: Linux
               href: ../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
@@ -101,6 +101,8 @@
               href: network-watcher-nsg-flow-logging-cli.md
             - name: REST
               href: network-watcher-nsg-flow-logging-rest.md
+        - name: Eliminare i BLOB di archiviazione del log del flusso del gruppo di sicurezza di rete
+          href: network-watcher-delete-nsg-flow-log-blobs.md
         - name: Analizzare i log dei flussi dei gruppi di sicurezza di rete
           items:
             - name: Leggere i log dei flussi del gruppo di sicurezza di rete

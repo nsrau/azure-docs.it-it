@@ -120,12 +120,8 @@
         - name: Distribuire - API REST
           displayName: 'deployment,rollback on error,redeploy'
           href: resource-group-template-deploy-rest.md
-        - name: Proteggere i modelli tramite token di firma di accesso condiviso
-          items:
-            - name: Utilizzare l’interfaccia della riga di comando di Azure
-              href: resource-manager-cli-sas-token.md
-            - name: Usare Azure PowerShell
-              href: resource-manager-powershell-sas-token.md
+        - name: Proteggere il modello tramite token di firma di accesso condiviso
+          href: secure-template-with-sas-token.md
         - name: Eseguire la distribuzione in più gruppi di risorse o sottoscrizioni
           href: resource-manager-cross-resource-group-deployment.md
     - name: Integrazione continua/Distribuzione continua

@@ -13,7 +13,7 @@
       items:
         - name: Creare e usare un indice
           href: search-get-started-portal.md
-        - name: Arricchirsi con l'intelligenza artificiale (ricerca cognitiva)
+        - name: Arricchire con la ricerca cognitiva (intelligenza artificiale)
           href: cognitive-search-quickstart-blob.md
     - name: 'C#'
       href: search-get-started-dotnet.md
@@ -59,6 +59,8 @@
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=csharp'
     - name: Esempi di Java
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=java'
+    - name: Esempi JavaScript
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=javascript'
     - name: Esempi per Python
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=python'
     - name: Esempi REST

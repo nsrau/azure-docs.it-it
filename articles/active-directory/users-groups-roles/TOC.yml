@@ -10,7 +10,7 @@
       href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Assegnare licenze agli utenti
       href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Assegnare un ruolo con ambito di risorsa
+    - name: Concedere l'autorizzazione per registrazioni illimitate di app
       href: roles-quickstart-app-registration-limits.md
     - name: Impostare la scadenza dei gruppi
       href: groups-quickstart-expiration.md

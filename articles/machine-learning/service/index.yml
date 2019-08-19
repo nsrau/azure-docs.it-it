@@ -44,9 +44,9 @@ sections:
         style: unordered
         items:
           - html: <a href="tutorial-1st-experiment-sdk-setup">Configurare l'ambiente ed eseguire il training del primo esperimento di Machine Learning.</a>
-          - html: <a href="tutorial-train-models-with-aml">Eseguire il training e distribuire i modelli di classificazione delle immagini</a>.
-          - html: <a href="tutorial-data-prep">Preparare i dati e usare un processo automatizzato di Machine Learning per stimare le tariffe dei taxi</b>.</a>
-          - html: <a href="how-to-run-batch-predictions">Eseguire previsioni di batch su grandi quantità di dati con le pipeline di ML</b>.</a>
+          - html: <a href="tutorial-train-models-with-aml">Eseguire il training e distribuire i modelli di classificazione delle immagini.</a>
+          - html: <a href="tutorial-data-prep">Preparare i dati e usare un processo automatizzato di Machine Learning per stimare le tariffe dei taxi.</b></a>
+          - html: <a href="how-to-run-batch-predictions">Eseguire previsioni di batch su grandi quantità di dati con le pipeline di ML.</b></a>
   - title: Esempi
     items:
       - type: paragraph
@@ -56,10 +56,10 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: '<a href="https://aka.ms/aml-sdk">SDK principale per Python</a>: funzionalità essenziali, Machine Learning automatizzato, pipeline e altro ancora'
-          - html: '<a href="https://aka.ms/aml-monitoring-sdk">Monitoraggio</a> SDK Python: raccolta di dati nei servizi Web distribuiti'
-          - html: <a href="../algorithm-module-reference/module-reference.md">Informazioni di riferimento su algoritmi e moduli</a> per l'interfaccia visiva
-          - html: '<a href="https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest">Interfaccia della riga di comando di Azure ML</a>: un''estensione dell''interfaccia della riga di comando per Machine Learning'
+          - html: 'Documentazione su <a href="https://aka.ms/aml-sdk">SDK principale per Python</a>: informazioni su funzionalità essenziali, Machine Learning automatizzato, pipeline e altro ancora.'
+          - html: 'Documentazione su <a href="https://aka.ms/aml-monitoring-sdk">Monitoraggio</a> SDK Python: informazioni sulla raccolta di dati nei servizi Web distribuiti'
+          - html: Documentazione di <a href="../algorithm-module-reference/module-reference.md">riferimento su algoritmi e moduli</a> per i moduli dell'interfaccia visiva grafica.
+          - html: '<a href="https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest">Interfaccia della riga di comando di Azure ML</a>: informazioni sull''estensione dell''interfaccia della riga di comando di Machine Learning.'
   - title: Altre tecnologie di Azure Machine Learning
     items:
       - type: list
