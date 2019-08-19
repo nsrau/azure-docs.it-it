@@ -6,8 +6,6 @@
   items:
     - name: Definizione di macchina virtuale di data science
       href: overview.md
-    - name: Definizione di macchine virtuale per l'apprendimento avanzato
-      href: deep-learning-dsvm-overview.md
     - name: Definizione di macchina virtuale data science con intelligenza artificiale geografica
       href: geo-ai-dsvm-overview.md
 - name: Guide introduttive
@@ -19,14 +17,10 @@
       href: dsvm-ubuntu-intro.md
     - name: Creare una Data Science Virtual Machine CentOS
       href: linux-dsvm-intro.md
-    - name: Creare una macchina virtuale per l'apprendimento avanzato
-      href: provision-deep-learning-dsvm.md
-    - name: Creare una Data Science Virtual Machine con intelligenza artificiale geografica
+    - name: Creare una macchina virtuale data science con intelligenza artificiale geografica
       href: provision-geo-ai-dsvm.md
 - name: Concetti
   items:
-    - name: Informazioni su DSVM
-      href: dsvm-tools-overview.md
     - name: Apprendimento avanzato e framework AI
       href: dsvm-deep-learning-ai-frameworks.md
     - name: Linguaggi di programmazione
@@ -51,8 +45,6 @@
       href: vm-do-ten-things.md
     - name: Usare una Data Science Virtual Machine Linux
       href: linux-dsvm-walkthrough.md
-    - name: Usare una macchina virtuale per l'apprendimento avanzato
-      href: use-deep-learning-dsvm.md
     - name: Usare una Data Science Virtual Machine con intelligenza artificiale geografica
       href: use-geo-ai-dsvm.md
     - name: Creare un pool di Data Science Virtual Machine con scalabilità automatica
