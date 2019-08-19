@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: f14403422e2c783d75634bb929d8c2130bd505b6
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: a8a75601daf36ca21ea56a5930219d7d467f0c85
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663887"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69557811"
 ---
 # <a name="how-to-analyze-your-learning-loop-with-an-offline-evaluation"></a>Come analizzare il ciclo di apprendimento con una valutazione offline
 
@@ -30,7 +30,7 @@ Altre informazioni sulle [valutazioni offline](concepts-offline-evaluation.md).
 ## <a name="prerequisites"></a>Prerequisiti
 
 1. È necessario aver configurato un ciclo di Personalizza esperienze
-1. Per risultati di valutazione significativi, i log del ciclo di Personalizza esperienze deve contenere almeno 50.000 eventi.
+1. Il ciclo di personalizzazione deve avere una quantità rappresentativa di dati, come Ballpark, recommmend almeno 50.000 eventi nei log per ottenere risultati significativi della valutazione.
 
 Facoltativamente, è anche possibile confrontare e testare i file dei _criteri di valutazione_ esportati in precedenza.
 

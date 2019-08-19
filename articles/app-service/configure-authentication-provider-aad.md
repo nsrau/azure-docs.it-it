@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: d687e770fae6c32ee351a597e12d1aca6094e5cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a77a41500a9c22aa25d3de396e73a5b2e4c0c419
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60851376"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033896"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-sign-in"></a>Configurare l'app del servizio app per l'uso dell'accesso di Azure Active Directory
 
 > [!NOTE]
-> A questo punto, AAD V2 (inclusi MSAL) non è supportato per servizi App di Azure e funzioni di Azure. Ricontrollare in seguito per gli aggiornamenti.
+> A questo punto, AAD V2 (incluso MSAL) non è supportato per servizi app Azure e funzioni di Azure. Verificare la disponibilità di aggiornamenti.
 >
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -41,6 +41,10 @@ Questo articolo descrive come configurare i servizi app di Azure per usare Azure
    Fare clic sulla registrazione di app per selezionarla e fare clic su **OK**. Quindi, fare clic su **OK** nella pagina Impostazioni di Azure Active Directory.
    Per impostazione predefinita, il servizio app fornisce l'autenticazione ma non limita l'accesso alle API e al contenuto del sito solo agli utenti autorizzati. È necessario autorizzare gli utenti nel codice dell'app.
 5. (Facoltativo) Per consentire l'accesso al sito solo agli utenti autenticati da Azure Active Directory, impostare **Azione da eseguire quando la richiesta non è autenticata** su **Accedi con Azure Active Directory**. Per poter usare questa funzione, tuttavia, è necessario che tutte le richieste vengano autenticate e che le richieste non autenticate vengano reindirizzate ad Azure Active Directory per l'autenticazione.
+
+> [!CAUTION]
+> La limitazione dell'accesso in questo modo si applica a tutte le chiamate all'app, che potrebbero non essere desiderate per le app che vogliono un home page disponibile pubblicamente, come in molte applicazioni a singola pagina. Per queste applicazioni, **consentire le richieste anonime (nessuna azione)** può essere preferibile, con l'app che avvia manualmente l'accesso, come descritto [qui](overview-authentication-authorization.md#authentication-flow).
+
 6. Fare clic su **Save**.
 
 ## <a name="advanced"> </a>Configurazione con impostazioni avanzate
@@ -55,10 +59,10 @@ Questo articolo descrive come configurare i servizi app di Azure per usare Azure
 4. Entro pochi secondi verrà visualizzata la registrazione della nuova app appena creata.
 5. Dopo aver aggiunto la registrazione dell'app, fare clic sul nome della registrazione dell'app, fare clic su **Impostazioni** nella parte superiore e quindi su **Proprietà** 
 6. Incollare l'URL dell'applicazione copiato nel passaggio 1 nella casella **URI ID app** e in **URL pagina iniziale**, quindi fare clic su **Salva**
-7. Fare clic sul **gli URL di risposta**, modificare il **URL di risposta**incollare l'URL dell'applicazione (dal passaggio 1), quindi aggiungerlo alla fine dell'URL, */.auth/login/aad/callback* (per esempio `https://contoso.azurewebsites.net/.auth/login/aad/callback`). Fare clic su **Save**.
+7. A questo punto, fare clic sugli **URL di risposta**, modificare l' **URL di risposta**, incollare l'URL dell'applicazione (dal passaggio 1), quindi aggiungerlo alla fine dell'URL, */.auth/login/AAD/callback* ( `https://contoso.azurewebsites.net/.auth/login/aad/callback`ad esempio,). Fare clic su **Save**.
 
    > [!NOTE]
-   > È possibile usare la stessa registrazione dell'app per più domini tramite l'aggiunta di ulteriori **URL di risposta**. Assicurarsi che modellare ogni istanza del servizio App con la propria registrazione, pertanto dispone di autorizzazioni e consenso specifici. È consigliabile anche usare registrazioni dell'app separate per gli slot di sito separato. Questo serve a evitare le autorizzazioni condivisibile tra gli ambienti, in modo che un bug nel nuovo codice che si sta testando non influisce sulla produzione.
+   > È possibile usare la stessa registrazione di app per più domini aggiungendo **URL di risposta**aggiuntivi. Assicurarsi di modellare ogni istanza del servizio app con la propria registrazione, in modo che disponga delle autorizzazioni e del consenso. Prendere in considerazione anche l'uso di registrazioni di app separate per slot di siti distinti. Questo consente di evitare che le autorizzazioni vengano condivise tra ambienti, in modo che un bug nel nuovo codice che si sta testando non influisca sulla produzione.
     
 8. A questo punto, copiare l'**ID applicazione** dell'app per usarlo in seguito. Questo valore sarà necessario per configurare l'applicazione dei servizi app.
 9. Chiudere la pagina **App registrata**. Nella pagina **Registrazioni per l'app** fare clic sul pulsante **Endpoint** nella parte superiore e quindi copiare l'URL **WS-FEDERATION SIGN-ON ENDPOINT**, rimuovendo la parte finale `/wsfed` dall'URL. Il risultato finale dovrebbe essere simile a `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000`. Il nome di dominio può essere diverso per un cloud sovrano. Questo nome verrà usato come URL dell'autorità di certificazione più avanti.

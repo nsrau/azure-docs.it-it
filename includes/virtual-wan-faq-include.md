@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 07/22/2019
+ms.date: 08/06/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c46c11ead645b93d7710d1e11636037e4dcaf8e7
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 8a4bbe92cc1b34801abffa1e905d873d4382025a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444552"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912406"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Qual è la differenza tra un gateway di rete virtuale di Azure (Gateway VPN) e un gateway di rete virtualedella WAN virtuale di Azure?
 
@@ -122,6 +122,10 @@ No, la rete WAN virtuale non richiede ExpressRoute da ogni sito. Usa la connetti
 ### <a name="is-there-a-network-throughput-limit-when-using-azure-virtual-wan"></a>È previsto un limite di velocità effettiva di rete quando si usa la rete WAN virtuale di Azure?
 
 Il numero di succursali è limitato a 1000 connessioni per hub/area e a un totale di 20 Gbps nell'hub.
+
+### <a name="i-dont-see-the-20-gbps-setting-for-the-virtual-hub-in-the-portal-how-do-i-configure-that"></a>L'impostazione da 20 Gbps per l'hub virtuale non è visibile nel portale. Come è possibile configurarla?
+
+Per configurare le unità di scala per 20 Gbps, è attualmente possibile usare il cmdlet [Update-AzVpnGateway](https://docs.microsoft.com/powershell/module/az.network/update-azvpngateway). Questa impostazione sarà presto disponibile nel portale.
 
 ### <a name="how-many-vpn-connections-does-a-virtual-wan-hub-support"></a>Quante connessioni VPN può supportare un hub della rete WAN virtuale?
 

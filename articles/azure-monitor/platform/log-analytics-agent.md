@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 08/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 653355af7dcb0b30c3deb444fcfe4b4ff76e7e77
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
-ms.translationtype: MT
+ms.openlocfilehash: 6c8f9c98d645f60ea9281d1ca2aa15731c9c1e80
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424124"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954998"
 ---
 # <a name="collect-log-data-with-the-log-analytics-agent"></a>Raccogliere i dati di log con l'agente di Log Analytics
 
@@ -34,13 +34,21 @@ Prima di analizzare e agire sui dati raccolti, è prima di tutto necessario inst
 
 L'agente per Linux e Windows comunica in uscita con il servizio monitoraggio di Azure sulla porta TCP 443 e se il computer si connette tramite un firewall o un server proxy per comunicare via Internet, esaminare i requisiti indicati di seguito per comprendere la configurazione di rete. Obbligatorio. Se i criteri di sicurezza IT non consentono ai computer della rete di connettersi a Internet, è possibile configurare un [gateway log Analytics](gateway.md) e quindi configurare l'agente per la connessione tramite il gateway ai log di monitoraggio di Azure. L'agente può quindi ricevere informazioni di configurazione e inviare dati raccolti a seconda delle regole di raccolta dati e delle soluzioni di monitoraggio abilitate nell'area di lavoro. 
 
-Se si esegue il monitoraggio di un computer con System Center Operations Manager 2012 R2 o versione successiva, è possibile usare la funzionalità multihomed con il servizio monitoraggio di Azure per raccogliere i dati e inviarli al servizio, monitorando comunque [Operations Manager](../../azure-monitor/platform/om-agents.md). Con i computer Linux, l'agente non include un componente del servizio integrità come l'agente Windows e le informazioni vengono raccolte ed elaborate da un server di gestione per suo conto. Poiché i computer Linux vengono monitorati in modo diverso con Operations Manager, non ricevono la configurazione o raccolgono direttamente i dati e quindi passano attraverso il gruppo di gestione come avviene in un sistema gestito da agenti Windows. Di conseguenza, questo scenario non è supportato con i computer Linux che inviano report a Operations Manager ed è necessario configurare il computer Linux per la [segnalazione a un gruppo di gestione Operations Manager](../platform/agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group) e un'area di lavoro log Analytics in due passaggi.
+Quando si usano gli agenti di Log Analytics per raccogliere dati, è necessario comprendere quanto segue per pianificare la distribuzione dell'agente:
 
-L'agente Windows può inviare report a un massimo di quattro aree di lavoro di Log Analytics, mentre l'agente Linux supporta solo l'invio di report a una singola area di lavoro.  
+* Per raccogliere i dati dagli agenti Windows, è possibile [configurare ogni agente in modo che faccia riferimento a una o più aree di lavoro](agent-windows.md), anche quando invia un report a un gruppo di gestione di System Center Operations Manager. L'agente Windows può segnalare fino a quattro aree di lavoro.
+* L'agente Linux non supporta il multihosting e può segnalare solo a una singola area di lavoro.
+
+Se si usa System Center Operations Manager 2012 R2 o versione successiva:
+
+* Ogni gruppo di gestione di Operations Manager può essere [connesso a una sola area di lavoro](om-agents.md).
+* I computer Linux che inviano report a un gruppo di gestione devono essere configurati per segnalare direttamente a un'area di lavoro Log Analytics. Se i computer Linux hanno già segnalato direttamente a un'area di lavoro e si desidera monitorarli con Operations Manager, attenersi alla procedura seguente per creare [un report a un gruppo di gestione Operations Manager](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group).
+* È possibile installare l'agente di Log Analytics Windows nel computer Windows e fare in modo che il report sia Operations Manager integrato con un'area di lavoro e un'area di lavoro diversa.
 
 L'agente per Linux e Windows non è solo per la connessione a monitoraggio di Azure, ma supporta anche automazione di Azure per ospitare il ruolo di lavoro ibrido per Runbook e altri servizi, ad esempio [rilevamento modifiche](../../automation/change-tracking.md), [Gestione aggiornamenti](../../automation/automation-update-management.md)e il [Centro sicurezza di Azure ](../../security-center/security-center-intro.md). Per altre informazioni sul ruolo di lavoro ibrido per runbook, vedere [Ruolo di lavoro ibrido per runbook di Automazione di Azure](../../automation/automation-hybrid-runbook-worker.md).  
 
 ## <a name="supported-windows-operating-systems"></a>Sistemi operativi Windows supportati
+
 Le versioni seguenti del sistema operativo Windows sono ufficialmente supportate per l'agente Windows:
 
 * Windows Server 2019
