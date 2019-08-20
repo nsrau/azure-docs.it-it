@@ -1,18 +1,18 @@
 ---
 title: Suggerimenti sulle prestazioni di Azure Cosmos DB per Async Java
-description: Informazioni sulle opzioni di configurazione client per migliorare le prestazioni del database Azure Cosmos DB
+description: Informazioni sulle opzioni di configurazione client per migliorare le prestazioni di Azure Cosmos database
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 2c2d776012e702469be4fd3217fb89be0ad419bf
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 7a470193110fda0bb675e56e17a8f5647ebda5ab
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68261624"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614980"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e Async Java
 
@@ -30,7 +30,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
    <a id="same-region"></a>
 1. **Collocare i client nella stessa area di Azure per ottenere prestazioni migliori**
 
-    Quando possibile, posizionare eventuali applicazioni che chiamano Azure Cosmos DB nella stessa area del database Azure Cosmos DB. Per un confronto approssimativo, le chiamate ad Azure Cosmos DB eseguite nella stessa area vengono completate entro 1-2 millisecondi, mentre la latenza tra la costa occidentale e quella orientale degli Stati Uniti è > 50 millisecondi. Questa latenza può variare da richiesta a richiesta, in base alla route seguita dalla richiesta durante il passaggio dal client al limite del data center di Azure. È possibile ottenere la latenza più bassa possibile assicurandosi che l'applicazione chiamante si trovi nella stessa area di Azure in cui si trova l'endpoint di Azure Cosmos DB con provisioning. Per un elenco delle aree disponibili, vedere [Aree di Azure](https://azure.microsoft.com/regions/#services).
+    Quando possibile, inserire tutte le applicazioni che chiamano Azure Cosmos DB nella stessa area del database di Azure Cosmos. Per un confronto approssimativo, le chiamate ad Azure Cosmos DB eseguite nella stessa area vengono completate entro 1-2 millisecondi, mentre la latenza tra la costa occidentale e quella orientale degli Stati Uniti è > 50 millisecondi. Questa latenza può variare da richiesta a richiesta, in base alla route seguita dalla richiesta durante il passaggio dal client al limite del data center di Azure. È possibile ottenere la latenza più bassa possibile assicurandosi che l'applicazione chiamante si trovi nella stessa area di Azure in cui si trova l'endpoint di Azure Cosmos DB con provisioning. Per un elenco delle aree disponibili, vedere [Aree di Azure](https://azure.microsoft.com/regions/#services).
 
     ![Illustrazione dei criteri di connessione di Azure Cosmos DB](./media/performance-tips/same-region.png)
 
@@ -169,7 +169,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
 Per le altre piattaforme (Red Hat, Windows, Mac e così via), fare riferimento a queste istruzioni https://netty.io/wiki/forked-tomcat-native.html
 
-## <a name="indexing-policy"></a>Criterio di indicizzazione
+## <a name="indexing-policy"></a>Criteri di indicizzazione
  
 1. **Escludere i percorsi non usati dall'indicizzazione per scritture più veloci**
 

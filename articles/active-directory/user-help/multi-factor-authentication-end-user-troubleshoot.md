@@ -13,12 +13,12 @@ ms.date: 08/07/2019
 ms.author: lizross
 ms.reviewer: kexia
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df32ec9c2d181072bb67a8ca0f2cb04560287286
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 178ce07db24976d7df590d353603da67b68122e8
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68949758"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616111"
 ---
 # <a name="troubleshoot-common-two-factor-verification-problems"></a>Risolvere i problemi comuni di verifica a due fattori
 
@@ -29,7 +29,7 @@ Ci sono alcuni problemi comuni di verifica a due fattori che sembrano verificars
 >[!Important]
 >Questo contenuto è destinato agli utenti. Gli amministratori possono trovare altre informazioni su come configurare e gestire l'ambiente Azure Active Directory (Azure AD) nella [documentazione di Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 >
->Questo contenuto è destinato anche all'uso con l'account aziendale o dell'Istituto di istruzione, l'account fornito dall'organizzazione, ad esempio alain@contoso.com. Se si verificano problemi con la verifica a due fattori e la account Microsoft personale, l'account configurato personalmente (ad esempio, danielle@outlook.com), vedere Attivazione o disattivazione della verifica a [due fattori per l'account Microsoft](https://support.microsoft.com/en-us/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+>Questo contenuto è destinato anche all'uso con l'account aziendale o dell'Istituto di istruzione, l'account fornito dall'organizzazione, ad esempio alain@contoso.com. Se si verificano problemi con la verifica a due fattori e la account Microsoft personale, l'account configurato personalmente (ad esempio, danielle@outlook.com), vedere Attivazione o disattivazione della verifica a [due fattori per l'account Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
 ## <a name="i-forgot-my-mobile-device-at-home"></a>Il dispositivo mobile è stato dimenticato a casa
 
@@ -92,7 +92,11 @@ Potrebbe risultare più difficile usare un metodo di verifica correlato ai dispo
 
 ## <a name="i-cant-get-my-app-passwords-to-work"></a>Non è possibile fare in modo che le password dell'app funzionino
 
-Le password dell'app sostituiscono la password normale per le applicazioni desktop meno recenti che non supportano la verifica a due fattori. Verificare prima che la password sia stata digitata correttamente. Se il problema persiste, provare a creare una nuova password dell'app per l'app seguendo la procedura descritta nella sezione **creare ed eliminare password di app usando il portale** delle app personali dell'articolo gestire le password delle app [per la verifica in due passaggi](multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-using-the-myapps-portal) .
+Le password dell'app sostituiscono la password normale per le applicazioni desktop meno recenti che non supportano la verifica a due fattori. Verificare prima che la password sia stata digitata correttamente. Se il problema persiste, provare a creare una nuova password dell'app per l'app seguendo la procedura descritta nella sezione **creare ed eliminare password di app usando il portale** delle app personali dell'articolo gestire le password delle app [per la verifica in due passaggi](multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page) .
+
+## <a name="why-cant-i-turn-two-factor-verification-off"></a>Perché non è possibile disattivare la verifica a due fattori?
+
+Se si usa la verifica a due fattori con l'account aziendale o dell'Istituto di istruzione ( alain@contoso.comad esempio,), è molto probabile che l'organizzazione abbia deciso che è necessario usare questa funzionalità di sicurezza aggiuntiva. Poiché l'organizzazione ha deciso che è necessario usare questa funzionalità, non è possibile disattivarla singolarmente. Se tuttavia si usa la verifica a due fattori con un account personale, ad esempio alain@outlook.com, è possibile attivare e disattivare la funzionalità. Per istruzioni su come controllare la verifica a due fattori per gli account Microsoft personali, vedere [attivazione o disattivazione della verifica a due fattori per la account Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>Nessuna risposta al problema riscontrato
 

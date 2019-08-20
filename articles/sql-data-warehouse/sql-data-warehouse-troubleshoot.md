@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 7/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 04d63b2c1583228a274c0ba21c87df08886f5cdb
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: a6a6fdf6e63bf8c063f8dd6f23ae380e9ce7b98d
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619076"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575519"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Risoluzione dei problemi relativi a SQL Data Warehouse di Azure
 In questo articolo sono elencate le domande frequenti relative alla risoluzione dei problemi.
@@ -34,7 +34,7 @@ In questo articolo sono elencate le domande frequenti relative alla risoluzione 
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Esplora oggetti di Visual Studio non riconosce gli utenti di AAD           | Si tratta di un problema noto.  Come soluzione alternativa è possibile visualizzare gli utenti in [sys.database_principals][sys.database_principals].  Per maggiori informazioni sull'uso di Azure Active Directory con SQL Data Warehouse, vedere [Autenticazione in Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse] . |
 | La creazione manuale di script, l'utilizzo di script o la connessione tramite SSMS è lenta, non risponde o produce errori | Assicurarsi che gli utenti siano stati creati nel database master. Nelle opzioni di scripting, assicurarsi inoltre che l'edizione del motore sia impostata come "Edizione Microsoft Azure SQL Data Warehouse" e che il tipo di motore sia "Database SQL di Microsoft Azure". |
-| Errore della generazione di script in SSMS                               | La generazione di uno script per il data warehouse SQL ha esito negativo se l'opzione "Genera script per oggetti dipendenti" è impostata su "True". Per risolvere il problema, gli utenti devono passare manualmente a Strumenti -> Opzioni -> Esplora oggetti di SQL Server -> Genera script per oggetti dipendenti e impostare l'opzione su false |
+| Errore della generazione di script in SSMS                               | La generazione di uno script per SQL Data Warehouse ha esito negativo se l'opzione "genera script per oggetti dipendenti" è impostata su "true". Per risolvere il problema, gli utenti devono passare manualmente a Strumenti -> Opzioni -> Esplora oggetti di SQL Server -> Genera script per oggetti dipendenti e impostare l'opzione su false |
 
 ## <a name="performance"></a>Prestazioni
 | Problema                                                        | Risoluzione                                                   |

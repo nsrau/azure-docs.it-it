@@ -6,12 +6,12 @@ author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 67ad37491f71ac82ff52331d19ea92a646c80a52
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 8f83c40aeecdbf9ca30adc20286712850882ee41
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716973"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616788"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partizionamento e scalabilità orizzontale in Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Una partizione logica definisce anche l'ambito delle transazioni del database. �
 
 ## <a name="physical-partitions"></a>Partizioni fisiche
 
-Un contenitore Azure Cosmos viene ridimensionato distribuendo i dati e la velocità effettiva in un numero elevato di partizioni logiche. Internamente, viene eseguito il mapping di una o più partizioni logiche a una partizione fisica costituita da un set di repliche, noto anche come [*set*](global-dist-under-the-hood.md)di repliche. Ogni set di repliche ospita un'istanza del motore di database Azure Cosmos DB. Un set di repliche rende i dati archiviati all'interno della partizione fisica durevole, a disponibilità elevata e coerente. Una partizione fisica supporta la quantità massima di unità di archiviazione e di unità richiesta (UR). Ogni replica che costituisce la partizione fisica eredita la quota di archiviazione della partizione. Tutte le repliche di una partizione fisica supportano collettivamente la velocità effettiva allocata alla partizione fisica. 
+Un contenitore Azure Cosmos viene ridimensionato distribuendo i dati e la velocità effettiva in un numero elevato di partizioni logiche. Internamente, viene eseguito il mapping di una o più partizioni logiche a una partizione fisica costituita da un set di repliche, noto anche come [*set*](global-dist-under-the-hood.md)di repliche. Ogni set di repliche ospita un'istanza del motore di database di Azure Cosmos. Un set di repliche rende i dati archiviati all'interno della partizione fisica durevole, a disponibilità elevata e coerente. Una partizione fisica supporta la quantità massima di unità di archiviazione e di unità richiesta (UR). Ogni replica che costituisce la partizione fisica eredita la quota di archiviazione della partizione. Tutte le repliche di una partizione fisica supportano collettivamente la velocità effettiva allocata alla partizione fisica. 
 
 La figura seguente mostra come le partizioni logiche vengono mappate alle partizioni fisiche distribuite a livello globale:
 

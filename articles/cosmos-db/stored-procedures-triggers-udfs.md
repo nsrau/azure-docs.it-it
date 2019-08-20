@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 1c2bf53a610c566ac58df588f6d96389f2206563
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 700cd6c0c75b25d56e812a394d6bdd193e4fb57c
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717541"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614065"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Stored procedure, trigger e funzioni definite dall'utente
 
@@ -79,11 +79,11 @@ Azure Cosmos DB supporta due tipi di trigger:
 
 ### <a name="pre-triggers"></a>Pre-trigger
 
-Azure Cosmos DB include trigger che possono essere richiamati eseguendo un'operazione su un elemento di Azure Cosmos DB. È ad esempio possibile specificare un pre-trigger durante la creazione di un elemento. In questo caso, il pre-trigger verrà eseguito prima della creazione dell'elemento. I pre-trigger non possono avere parametri di input. Se necessario, l'oggetto richiesta è utilizzabile per aggiornare il corpo del documento della richiesta originale. Quando i trigger vengono registrati, gli utenti possono specificare le operazioni con le quali è possibile eseguirli. Se un trigger è stato creato con `TriggerOperation.Create`, non sarà consentito usarlo in un'operazione di sostituzione. Per gli esempi, vedere [Come scrivere i trigger](how-to-write-stored-procedures-triggers-udfs.md#triggers).
+Azure Cosmos DB fornisce trigger che possono essere richiamati eseguendo un'operazione su un elemento di Azure Cosmos. È ad esempio possibile specificare un pre-trigger durante la creazione di un elemento. In questo caso, il pre-trigger verrà eseguito prima della creazione dell'elemento. I pre-trigger non possono avere parametri di input. Se necessario, l'oggetto richiesta è utilizzabile per aggiornare il corpo del documento della richiesta originale. Quando i trigger vengono registrati, gli utenti possono specificare le operazioni con le quali è possibile eseguirli. Se un trigger è stato creato con `TriggerOperation.Create`, non sarà consentito usarlo in un'operazione di sostituzione. Per gli esempi, vedere [Come scrivere i trigger](how-to-write-stored-procedures-triggers-udfs.md#triggers).
 
 ### <a name="post-triggers"></a>Post-trigger
 
-Analogamente ai pre-trigger, anche i post-trigger sono associati a un'operazione su un elemento di Azure Cosmos DB e non richiedono parametri di input. Vengono eseguiti *dopo* il completamento dell'operazione e hanno accesso al messaggio di risposta inviato al client. Per gli esempi, vedere [Come scrivere i trigger](how-to-write-stored-procedures-triggers-udfs.md#triggers).
+Analogamente ai pre-trigger, i post-trigger sono associati anche a un'operazione su un elemento di Azure Cosmos e non richiedono alcun parametro di input. Vengono eseguiti *dopo* il completamento dell'operazione e hanno accesso al messaggio di risposta inviato al client. Per gli esempi, vedere [Come scrivere i trigger](how-to-write-stored-procedures-triggers-udfs.md#triggers).
 
 > [!NOTE]
 > I trigger registrati non vengono eseguiti automaticamente quando si verificano le operazioni corrispondenti (creazione/eliminazione/sostituzione/aggiornamento). Devono essere chiamati in modo esplicito durante l'esecuzione di queste operazioni. Per altre informazioni, vedere [How to Run Triggers](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) article.

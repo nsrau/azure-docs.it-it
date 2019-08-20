@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 7b3159b6b963cf422442ee7c04253b8172e8f3e9
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: f28933623100ed18320df37741c7c1e82ccffa9f
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68773143"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69612856"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Aggiungere una macchina virtuale CentOS Linux a un dominio gestito
 Questo articolo illustra come aggiungere una macchina virtuale CentOS Linux a un dominio gestito di Azure AD Domain Services.
@@ -31,9 +31,9 @@ Questo articolo illustra come aggiungere una macchina virtuale CentOS Linux a un
 Per eseguire le attività elencate in questo articolo sono necessari gli elementi seguenti:
 1. Una **sottoscrizione di Azure**valida.
 2. Una **directory di Azure AD** sincronizzata con una directory locale o con una directory solo cloud.
-3. **Servizi di dominio Azure AD** devono essere abilitati per la directory di Azure AD. Se non è stato fatto, eseguire tutte le attività descritte nella [guida introduttiva](create-instance.md).
-4. Assicurarsi di aver configurato gli indirizzi IP del dominio gestito come server DNS per la rete virtuale. Per altre informazioni, vedere la [procedura per aggiornare le impostazioni DNS per la rete virtuale di Azure](active-directory-ds-getting-started-dns.md).
-5. Completare i passaggi necessari per [sincronizzare le password nel dominio gestito di Azure AD Domain Services](active-directory-ds-getting-started-password-sync.md).
+3. **Servizi di dominio Azure AD** devono essere abilitati per la directory di Azure AD. Se non è stato fatto, eseguire tutte le attività descritte nella [guida introduttiva](tutorial-create-instance.md).
+4. Assicurarsi di aver configurato gli indirizzi IP del dominio gestito come server DNS per la rete virtuale. Per altre informazioni, vedere la [procedura per aggiornare le impostazioni DNS per la rete virtuale di Azure](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network).
+5. Completare i passaggi necessari per [sincronizzare le password nel dominio gestito di Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).
 
 
 ## <a name="provision-a-centos-linux-virtual-machine"></a>Eseguire il provisioning di una macchina virtuale CentOS Linux
@@ -51,7 +51,7 @@ Eseguire il provisioning di una macchina virtuale CentOS in Azure, usando uno de
 ## <a name="connect-remotely-to-the-newly-provisioned-linux-virtual-machine"></a>Connettersi in remoto alla macchina virtuale Linux di cui è stato appena effettuato il provisioning
 È stato eseguito il provisioning della macchina virtuale CentOS Linux in Azure. L'attività successiva consiste nel connettersi in remoto alla macchina virtuale usando l'account amministratore locale creato durante il provisioning della macchina virtuale.
 
-Seguire le istruzioni nell'articolo [Come accedere a una macchina virtuale che esegue Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Seguire le istruzioni riportate nell'articolo [come accedere a una macchina virtuale che esegue Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Configurare il file con estensione hosts nella macchina virtuale Linux
@@ -64,10 +64,10 @@ sudo vi /etc/hosts
 Nel file con estensione hosts immettere il valore seguente:
 
 ```console
-127.0.0.1 contoso-centos.contoso100.com contoso-centos
+127.0.0.1 contoso-centos.contoso.com contoso-centos
 ```
 
-In questo caso, "contoso100.com" è il nome di dominio DNS del dominio gestito. "contoso-centos" è il nome host della macchina virtuale CentOS da aggiungere al dominio gestito.
+Qui, "contoso.com" è il nome di dominio DNS del dominio gestito. "contoso-centos" è il nome host della macchina virtuale CentOS da aggiungere al dominio gestito.
 
 
 ## <a name="install-required-packages-on-the-linux-virtual-machine"></a>Installare i pacchetti necessari nella macchina virtuale Linux
@@ -84,7 +84,7 @@ Ora che i pacchetti sono installati nella macchina virtuale Linux, l'attività s
 1. Individuare il dominio gestito di Servizi di dominio AAD. Nel terminale SSH digitare il comando seguente:
 
     ```console
-    sudo realm discover CONTOSO100.COM
+    sudo realm discover contoso.COM
     ```
 
    > [!NOTE]
@@ -96,11 +96,11 @@ Ora che i pacchetti sono installati nella macchina virtuale Linux, l'attività s
 2. Inizializzare Kerberos. Nel terminale SSH digitare il comando seguente:
 
     > [!TIP]
-    > * Specificare l'utente che appartiene al gruppo "AAD DC Administrators".
+    > * Specificare l'utente che appartiene al gruppo "AAD DC Administrators". Se necessario, [aggiungere un account utente a un gruppo in Azure ad](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md)
     > * Specificare il nome di dominio in lettere maiuscole; in caso contrario kinit avrà esito negativo.
 
     ```console
-    kinit bob@CONTOSO100.COM
+    kinit bob@contoso.COM
     ```
 
 3. Aggiungere il computer al dominio. Nel terminale SSH digitare il comando seguente:
@@ -111,7 +111,7 @@ Ora che i pacchetti sono installati nella macchina virtuale Linux, l'attività s
     > Se la macchina virtuale non è in grado di accedere al dominio, verificare che il gruppo di sicurezza di rete della macchina virtuale consenta il traffico Kerberos in uscita sulla porta TCP + UDP 464 alla subnet della rete virtuale per il dominio gestito di Azure AD DS.
 
     ```console
-    sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM'
+    sudo realm join --verbose contoso.COM -U 'bob@contoso.COM'
     ```
 
 Quando il computer viene aggiunto correttamente al dominio gestito, dovrebbe essere visualizzato un messaggio che indica che il computer è stato registrato correttamente nell'area di autenticazione.
@@ -120,10 +120,10 @@ Quando il computer viene aggiunto correttamente al dominio gestito, dovrebbe ess
 ## <a name="verify-domain-join"></a>Verificare l'aggiunta a un dominio
 Verificare se la macchina è stata aggiunta correttamente al dominio gestito. Connettersi alla macchina virtuale CentOS aggiunta al dominio tramite una connessione SSH diversa. Usare un account utente di dominio e quindi verificare se l'account utente viene risolto correttamente.
 
-1. Nel terminale SSH digitare il comando seguente per connettere la macchina virtuale CentOS aggiunta al dominio con SSH. Usare un account di dominio appartenente al dominio gestito, in questo caso bob@CONTOSO100.COM.
+1. Nel terminale SSH digitare il comando seguente per connettere la macchina virtuale CentOS aggiunta al dominio con SSH. Usare un account di dominio appartenente al dominio gestito, in questo caso bob@contoso.COM.
     
     ```console
-    ssh -l bob@CONTOSO100.COM contoso-centos.contoso100.com
+    ssh -l bob@contoso.COM contoso-centos.contoso.com
     ```
 
 2. Nel terminale SSH digitare il comando seguente per verificare se la home directory dell'utente è stata inizializzata correttamente.
@@ -140,11 +140,11 @@ Verificare se la macchina è stata aggiunta correttamente al dominio gestito. Co
 
 
 ## <a name="troubleshooting-domain-join"></a>Risoluzione dei problemi di aggiunta al dominio
-Vedere l'articolo [Risoluzione dei problemi dell'aggiunta a un dominio](join-windows-vm.md#troubleshoot-joining-a-domain) .
+Vedere l'articolo [Risoluzione dei problemi dell'aggiunta a un dominio](join-windows-vm.md#troubleshoot-domain-join-issues) .
 
 ## <a name="related-content"></a>Contenuto correlato
-* [Servizi di dominio Azure AD: introduzione](create-instance.md)
+* [Servizi di dominio Azure AD: introduzione](tutorial-create-instance.md)
 * [Aggiungere una macchina virtuale Windows Server a un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Come accedere a una macchina virtuale che esegue Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Come accedere a una macchina virtuale che esegue Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * [Installazione di Kerberos](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
 * [Red Hat Enterprise Linux 7 - Windows Integration Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: iainfou
-ms.openlocfilehash: f4252fcd70ff5aa9c2056b72add7c79283ce7fcf
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: f234eaea0d4df3859ef9458ea334f1b7616add34
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473444"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69612938"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>Configurare la delega vincolata Kerberos in un dominio gestito
 Molte applicazioni devono accedere alle risorse nel contesto dell'utente. Active Directory supporta un meccanismo denominato delega Kerberos che consente questo caso d'uso. È anche possibile limitare la delega in modo che siano accessibili solo risorse specifiche nel contesto dell'utente. I domini gestiti di Azure AD Domain Services sono diversi dai domini di Active Directory tradizionali perché sono bloccati in modo più sicuro.
@@ -47,15 +47,15 @@ A partire da Windows Server 2012 gli amministratori dei servizi hanno la possibi
 È possibile configurare la delega vincolata Kerberos basata sulle risorse usando PowerShell. Usare il cmdlet `Set-ADComputer` o `Set-ADUser`, a seconda che l'account di rappresentazione sia un account del computer oppure un account utente o un account del servizio.
 
 ### <a name="configure-resource-based-kcd-for-a-computer-account-on-a-managed-domain"></a>Configurare la delega vincolata Kerberos basata sulle risorse per un account del computer in un dominio gestito
-Si prenda ad esempio un'app Web in esecuzione nel computer "contoso100-webapp.contoso100.com". L'app deve accedere alla risorsa, ovvero un'API Web in esecuzione su "contoso100-api.contoso100.com", nel contesto degli utenti del dominio. Di seguito viene illustrato come configurare la delega vincolata Kerberos basata su risorse per questo scenario:
+Si supponga di avere un'app Web in esecuzione nel computer ' contoso-webapp.contoso.com '. Deve accedere alla risorsa (un'API Web in esecuzione su' contoso-api.contoso.com ') nel contesto degli utenti del dominio. Di seguito viene illustrato come configurare la delega vincolata Kerberos basata su risorse per questo scenario:
 
 1. [Creare un'unità organizzativa personalizzata](create-ou.md). È possibile delegare le autorizzazioni per gestire questa unità organizzativa agli utenti appartenenti al dominio gestito.
 2. Aggiungere le due macchine virtuali, quella che esegue l'app Web e quella che esegue l'API Web, al dominio gestito. Creare gli account del computer all'interno dell'unità organizzativa personalizzata.
 3. Configurare ora la delega vincolata Kerberos basata su risorse usando il comando PowerShell seguente:
 
 ```powershell
-$ImpersonatingAccount = Get-ADComputer -Identity contoso100-webapp.contoso100.com
-Set-ADComputer contoso100-api.contoso100.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
+$ImpersonatingAccount = Get-ADComputer -Identity contoso-webapp.contoso.com
+Set-ADComputer contoso-api.contoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
 ```
 
 > [!NOTE]
@@ -80,5 +80,5 @@ Set-ADUser backendsvc -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccoun
 >
 
 ## <a name="related-content"></a>Contenuto correlato
-* [Servizi di dominio Azure AD: introduzione](create-instance.md)
+* [Servizi di dominio Azure AD: introduzione](tutorial-create-instance.md)
 * [Panoramica della delega vincolata Kerberos](https://technet.microsoft.com/library/jj553400.aspx)

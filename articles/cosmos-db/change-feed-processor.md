@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: e5142e9b4e7c2c79fd2b7e41123db4422334b730
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 0efd11ef4e9dda2c522e145bf5cb942998d59e53
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467783"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69573961"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processore dei feed di modifiche in Azure Cosmos DB 
 
@@ -60,7 +60,7 @@ Il normale ciclo di vita di un'istanza dell'host è:
 1. Leggere il feed delle modifiche.
 1. Se non sono state apportate modifiche, sospendere per un periodo di tempo predefinito ( `WithPollInterval` personalizzabile con nel generatore) e passare a #1.
 1. Se sono presenti modifiche, inviarle al **delegato**.
-1. Al termine dell'elaborazione **delle modifiche da**parte del delegato, aggiornare l'archivio dei lease con l'ultimo momento elaborato e passare a #1.
+1. Al termine dell'elaborazione delle modifiche daparte del delegato, aggiornare l'archivio dei lease con l'ultimo momento elaborato e passare a #1.
 
 ## <a name="error-handling"></a>Gestione degli errori
 
@@ -85,12 +85,13 @@ Vengono addebitati i costi per le UR utilizzate, in quanto lo spostamento dei da
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [SDK di Azure Cosmos DB](sql-api-sdk-dotnet.md)
+* [Esempi di utilizzo su GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/usage/changefeed)
 * [Altri esempi in GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile ottenere altre informazioni sul feed di modifiche negli articoli seguenti:
+È ora possibile passare ad altre informazioni sul processore di feed di modifiche negli articoli seguenti:
 
 * [Panoramica del feed di modifiche](change-feed.md)
-* [Metodi per leggere il feed di modifiche](read-change-feed.md)
-* [Uso del feed di modifiche con Funzioni di Azure](change-feed-functions.md)
+* [Uso dello strumento di stima del feed delle modifiche](how-to-use-change-feed-estimator.md)
+* [Ora di inizio del processore del feed di modifiche](how-to-configure-change-feed-start-time.md)

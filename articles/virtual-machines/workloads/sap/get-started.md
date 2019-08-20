@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ecf3ec6ba9c71f3d7624b541ba0618645ab14f4
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: da7b9c44d15ac0ca16afe15e429a6fe2cf89e366
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535094"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575248"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usare Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -122,6 +122,7 @@ Per informazioni sull'integrazione dei servizi di Azure nei componenti SAP, vede
 
 ## <a name="change-log"></a>Registro modifiche
 
+- 08/16/2019: Modifiche nella [configurazione di pacemaker in Red Hat Enterprise Linux in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) per ricordare ai clienti di aggiornare le azioni nel ruolo personalizzato, se aggiornate alla nuova versione dell'agente di recinzione di Azure  
 - 08/15/2019: Modifiche apportate alle [configurazioni di archiviazione delle macchine virtuali SAP Hana di Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) per riflettere la disponibilità generale del disco Ultra (in precedenza ultra SSD)
 - 08/01/2019: Modifiche alla [configurazione di pacemaker in SUSE Linux Enterprise Server in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) per integrare le modifiche in modo specifico per SLES 15 
 - 07/23/2019: Modifiche del [cluster di un'istanza di SAP ASC/SCS in un cluster di failover Windows tramite una condivisione file in Azure](sap-high-availability-guide-wsfc-file-share.md) per riflettere il supporto dello spazio di archiviazione diretto da Azure Site Recovery Services

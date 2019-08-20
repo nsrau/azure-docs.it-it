@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: bb96e7ccbc38a71d24178c31f8eb9a077c06b8f0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 7d3bd8c6c62c0b8a1be6203e426337fcee7d2126
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472531"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617120"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Configurare la sincronizzazione con ambito da Azure AD nel dominio gestito
 Questo articolo illustra come configurare solo account utente specifici per sincronizzarli dalla directory di Azure AD nel dominio gestito di Azure AD Domain Services.
@@ -47,7 +47,7 @@ La tabella riportata di seguito consente di determinare come usare la sincronizz
 
 ## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-azure-portal"></a>Creare un nuovo dominio gestito e abilitare la sincronizzazione con ambito basata sui gruppi mediante il portale di Azure
 
-1. Seguire le istruzioni fornite nella [Guida introduttiva](create-instance.md) per creare un dominio gestito.
+1. Seguire le istruzioni fornite nella [Guida introduttiva](tutorial-create-instance.md) per creare un dominio gestito.
 2. Scegliere **scoped** durante la selezione dello stile di sincronizzazione nella procedura guidata di creazione di Azure AD Domain Services.
 
 ## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-powershell"></a>Creare un nuovo dominio gestito e abilitare la sincronizzazione con ambito basata sui gruppi mediante PowerShell
@@ -58,7 +58,7 @@ Completare i passaggi seguenti per configurare la sincronizzazione con ambito ba
 1. Completare le attività seguenti:
    * [Attività 1: Installare i moduli di PowerShell necessari](powershell-create-instance.md#task-1-install-the-required-powershell-modules).
    * [Attività 2: Creare l'entità servizio richiesta nella directory di Azure AD](powershell-create-instance.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory).
-   * [Attività 3: Creare e configurare il "AAD DC Administrators" group]powershell-create-instance.md#task-3-create-and-configure-the-aad-dc-administrators-group).
+   * [Attività 3: Creare e configurare il gruppo "AAD DC Administrators"] PowerShell-create-instance. MD # Task-3-Create-and-configure-the-AAD-DC-Administrators-Group).
    * [Attività 4: Registrare il provider di risorse di Azure AD Domain Services](powershell-create-instance.md#task-4-register-the-azure-ad-domain-services-resource-provider).
    * [Attività 5: Creare un gruppo di risorse](powershell-create-instance.md#task-5-create-a-resource-group).
    * [Attività 6: Creare e configurare la rete virtuale](powershell-create-instance.md#task-6-create-and-configure-the-virtual-network).
@@ -81,7 +81,7 @@ Completare i passaggi seguenti per configurare la sincronizzazione con ambito ba
 
    ```powershell
    $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-   $ManagedDomainName = "contoso100.com"
+   $ManagedDomainName = "contoso.com"
    $ResourceGroupName = "ContosoAaddsRg"
    $VnetName = "DomainServicesVNet_WUS"
    $AzureLocation = "westus"

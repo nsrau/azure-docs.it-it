@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 47be738a4e5dcec144d482c28e39cbe950bba3e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f0935ccc4c4274bfab0c589ef158d4ea0bef455c
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60748935"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575334"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Gestire le risorse di calcolo in Azure SQL Data Warehouse
 Informazioni sulla gestione delle risorse di calcolo in Azure SQL Data Warehouse. Ridurre i costi sospendendo il data warehouse o ridimensionare il data warehouse per soddisfare le esigenze in termini di prestazioni. 
@@ -115,4 +115,4 @@ Il ridimensionamento del database richiede le autorizzazioni descritte in [ALTER
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Un altro aspetto della gestione delle risorse di calcolo è l'allocazione di risorse diverse per ogni singola query. Per altre informazioni, vedere [Classi di risorse per la gestione del carico di lavoro](resource-classes-for-workload-management.md).
+Vedere la Guida alle procedure per [gestire](manage-compute-with-azure-functions.md) un altro aspetto della gestione delle risorse di calcolo consiste nell'allocazione di risorse di calcolo diverse per le singole query. Per altre informazioni, vedere [Classi di risorse per la gestione del carico di lavoro](resource-classes-for-workload-management.md).

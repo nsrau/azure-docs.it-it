@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 0cdd7f291b43f442b8471a19f515e4a2d12b4e74
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 637205bd4ad438d7efbee6fb304b0a934aefdfdf
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562868"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615891"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guida per sviluppatori Python per Funzioni di Azure
 
@@ -225,7 +225,7 @@ def main(req):
 
 Sono disponibili altri metodi di registrazione che consentono di scrivere nella console a livelli di traccia diversi:
 
-| Metodo                 | Descrizione                                |
+| Metodo                 | DESCRIZIONE                                |
 | ---------------------- | ------------------------------------------ |
 | logging.**critical(_messaggio_)**   | Scrive un messaggio con livello critico nel logger radice.  |
 | logging.**error(_messaggio_)**   | Scrive un messaggio con livello errore nel logger radice.    |
@@ -315,14 +315,22 @@ pip install -r requirements.txt
 
 ## <a name="publishing-to-azure"></a>Pubblicazione in Azure
 
-Quando si è pronti per la pubblicazione, assicurarsi che tutte le dipendenze siano elencate nel file *requirements. txt* che si trova nella radice della directory del progetto. Se si usa un pacchetto che richiede un compilatore e non supporta l'installazione di pacchetti wheel compatibili con manylinux da PyPI, la pubblicazione in Azure avrà esito negativo con l'errore seguente: 
+Quando si è pronti per la pubblicazione, assicurarsi che tutte le dipendenze siano elencate nel file *requirements. txt* che si trova nella radice della directory del progetto. Funzioni di Azure può [compilare in remoto](functions-deployment-technologies.md#remote-build) queste dipendenze.
+
+Per eseguire la distribuzione in Azure ed eseguire una compilazione remota, usare il comando seguente:
+
+```bash
+func azure functionapp publish <app name> --build remote
+```
+
+Se non si usa la compilazione remota e si usa un pacchetto che richiede un compilatore e non supporta l'installazione di molte ruote compatibili con Linux da PyPI, la pubblicazione in Azure senza compilazione localmente avrà esito negativo con l'errore seguente:
 
 ```
 There was an error restoring dependencies.ERROR: cannot install <package name - version> dependency: binary dependencies without wheels are not supported.  
 The terminal process terminated with exit code: 1
 ```
 
-Per creare e configurare automaticamente i file binari necessari, [installare Docker](https://docs.docker.com/install/) nel computer locale ed eseguire il comando seguente per pubblicare con [Azure Functions Core Tools](functions-run-local.md#v2) (func). Ricordare di sostituire `<app name>` con il nome dell'app per le funzioni in Azure. 
+Per compilare localmente e configurare i file binari necessari, [installare Docker](https://docs.docker.com/install/) nel computer locale ed eseguire il comando seguente per pubblicare usando il [Azure Functions Core Tools](functions-run-local.md#v2) (Func). Ricordare di sostituire `<app name>` con il nome dell'app per le funzioni in Azure. 
 
 ```bash
 func azure functionapp publish <app name> --build-native-deps

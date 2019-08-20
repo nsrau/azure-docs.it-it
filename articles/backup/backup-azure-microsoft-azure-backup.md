@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: eb9908fc7b2d4ecd8af8c2b4a65ab43352035ec5
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 18eacc914a30dc6004bef71e9d3910e170c43d9b
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69018904"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575134"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installare e preparare il server di Backup di Azure
 > [!div class="op_single_selector"]
@@ -176,11 +176,10 @@ Al termine del processo di estrazione, selezionare la casella per avviare il fil
     Quando si usa un'istanza di SQL 2017, è necessario configurare manualmente SSRS. Dopo la configurazione di SSRS, assicurarsi che la proprietà *IsInitialized* di SSRS sia impostata su *True*. Quando la proprietà è impostata su True, MABS presuppone che SSRS sia già configurato e ignorerà la configurazione di SSRS.
 
     Per la configurazione di SSRS, usare i valori seguenti: 
-
-        - Service Account: ‘Use built-in account’ should be Network Service
-        - Web Service URL: ‘Virtual Directory’ should be ReportServer_<SQLInstanceName>
-        - Database: DatabaseName should be ReportServer$<SQLInstanceName>
-        - Web Portal URL: ‘Virtual Directory’ should be Reports_<SQLInstanceName>
+    - Account del servizio: ' Usa account predefinito ' deve essere servizio di rete
+    - URL servizio Web: ' Directory virtuale ' deve essere ReportServer_<SQLInstanceName>
+    - Database DatabaseName deve essere ReportServer $<SQLInstanceName>
+    - URL del portale Web: ' Directory virtuale ' deve essere reports_<SQLInstanceName>
 
     [Altre informazioni](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) sulla configurazione di SSRS.
 
@@ -337,7 +336,7 @@ Per aggiornare MABS, usare i passaggi seguenti:
 >
 > Se si esegue l'aggiornamento da MABS V1 a V2, assicurarsi che il sistema operativo sia Windows Server 2016 o Windows Server 2012 R2. Per sfruttare i vantaggi delle nuove funzionalità, come Modern Backup Storage di System Center 2016 Data Protection Manager, è necessario installare il server di Backup V2 in Windows Server 2016. Prima di eseguire l'aggiornamento o di installare il server di Backup V2, leggere i [prerequisiti di installazione](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites) applicabili a MABS.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 In caso di errori del server di Backup di Microsoft Azure durante la fase di installazione, di backup o ripristino, vedere questo [documento sui codici di errore](https://support.microsoft.com/kb/3041338) per altre informazioni.
 È anche possibile vedere [Backup di Azure - Domande frequenti](backup-azure-backup-faq.md)
 

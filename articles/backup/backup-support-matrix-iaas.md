@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9b0cbe8126a01a64e35b2fcfeca400aed5aef0cc
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: df9e60c8d517c35029e425d50dba81a18c2f1114
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952023"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617355"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
 È possibile usare il [servizio backup di Azure](backup-overview.md) per eseguire il backup di computer e carichi di lavoro locali e di macchine virtuali (VM) di Azure. Questo articolo riepiloga le impostazioni e le limitazioni del supporto quando si esegue il backup di macchine virtuali di Azure con backup di Azure.
@@ -42,7 +42,7 @@ Altre informazioni sul backup [con un server di backup](backup-architecture.md#a
 Abilitazione del backup quando si crea una macchina virtuale di Azure per Windows | Supportata per: <br/><br/> -Windows Server 2019 (Datacenter/datacenter core/standard) <br/><br/> -Windows Server 2016 (Datacenter/datacenter core/standard) <br/><br/> -Windows Server 2012 R2 (Datacenter/standard) <br/><br/> -Windows Server 2008 R2 (RTM e SP1 Standard)
 Abilitazione del backup quando si crea una macchina virtuale Linux | Supportata per:<br/><br/> - Server Ubuntu: 18.04, 17.10, 17.04, 16.04 (LTS), 14.04 (LTS)<br/><br/> - Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> - Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> -Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
 Eseguire il backup di una macchina virtuale arrestata/offline | Supportato.<br/><br/> Lo snapshot è coerente solo con l'arresto anomalo del sistema, non con l'app.
-Eseguire il backup dei dischi dopo la migrazione a Managed Disks | Supportato.<br/><br/> Il backup continuerà a funzionare. Non è necessaria alcuna azione.
+Eseguire il backup dei dischi dopo la migrazione a Managed Disks | Supportato.<br/><br/> Il backup continuerà a funzionare. non è necessaria alcuna azione.
 Backup dei dischi gestiti dopo l'abilitazione del blocco del gruppo di risorse | Non supportati.<br/><br/> Backup di Azure non è in grado di eliminare i punti di ripristino precedenti e i backup inizieranno ad avere esito negativo quando viene raggiunto il limite massimo di punti di ripristino.
 Modifica dei criteri di backup per una macchina virtuale | Supportato.<br/><br/> Verrà eseguito il backup della macchina virtuale utilizzando le impostazioni pianificazione e conservazione in nuovi criteri. Se le impostazioni di conservazione vengono estese, i punti di ripristino esistenti verranno contrassegnati e mantenuti. Se sono ridotti, i punti di ripristino esistenti verranno eliminati nel processo di pulizia successivo e infine eliminati.
 Annullamento di un processo di backup | Supportata durante il processo di snapshot.<br/><br/> Non supportata quando lo snapshot viene trasferito nell'insieme di credenziali.
@@ -157,7 +157,7 @@ Ripristino di macchine virtuali con aggiunta di zona | Supportato (per la macchi
 
 **Componente** | **Supporto**
 --- | ---
-Dischi di dati delle VM di Azure | Backup di una macchina virtuale con un massimo di 16 dischi dati. <br/><br/> Supporto di dischi con dimensioni fino a 4 TB.<br/><br/>Per iscriversi a una versione di anteprima pubblica limitata del supporto per dischi di backup su disco di Azure con dimensioni maggiori di 4 TB e fino a 30 TB, vedere [una panoramica del backup delle macchine virtuali di Azure](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
+Dischi di dati delle VM di Azure | Backup di una macchina virtuale con un massimo di 16 dischi dati. <br/><br/> Supporto di dischi con dimensioni fino a 4 TB.<br/><br/>Per iscriversi a una versione di anteprima pubblica limitata del supporto per dischi di backup su disco di Azure con dimensioni maggiori di 4 TB e fino a 30 TB, fare riferimento a questo [articolo](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
 Dimensioni del disco dati | Ogni singolo disco può avere dimensioni fino a 4095 GB.<br/><br/>Per iscriversi a una versione di anteprima pubblica limitata del supporto per dischi di backup su disco di Azure con dimensioni maggiori di 4 TB fino a 30TB, vedere questo [articolo](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
 Tipo di archiviazione | HDD Standard, SDD Standard, SSD Premium.
 Dischi gestiti | Supportato.
@@ -212,10 +212,10 @@ Sicurezza dei dati:
 
 **Computer** | **In movimento** | **Inattivi**
 --- | --- | ---
-Computer Windows locali senza DPM/MABS | ![Sì][green] | ![Yes][green]
-Macchine virtuali di Azure | ![Sì][green] | ![Sì][green]
-Computer locali/VM di Azure con DPM | ![Sì][green] | ![Yes][green]
-Computer locali/VM di Azure con MABS | ![Yes][green] | ![Yes][green]
+Computer Windows locali senza DPM/MABS | ![Sì][green] | ![Sì][green]
+Macchine virtuali di Azure | ![Sì][green] | ![Yes][green]
+Computer locali/VM di Azure con DPM | ![Yes][green] | ![Sì][green]
+Computer locali/VM di Azure con MABS | ![Sì][green] | ![Yes][green]
 
 
 
@@ -231,7 +231,7 @@ Backup supporta la compressione del traffico di backup, come riepilogato nella t
 Computer Windows locali senza DPM/MABS | ND | ![Sì][green]
 Macchine virtuali di Azure | ND | ND
 Computer locali/VM di Azure con DPM | ![Sì][green] | ![Sì][green]
-Computer locali/VM di Azure con MABS | ![Sì][green] | ![Sì][green]
+Computer locali/VM di Azure con MABS | ![Yes][green] | ![Sì][green]
 
 
 ## <a name="next-steps"></a>Passaggi successivi

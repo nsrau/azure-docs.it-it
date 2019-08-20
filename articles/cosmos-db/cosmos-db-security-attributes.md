@@ -9,12 +9,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 50711f8675e1b8aca6b9f90925ea921d22020ddd
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: f1b578ff70e8a2795ba886e6d0c75eff521f77c3
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442548"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615529"
 ---
 # <a name="security-attributes-for-azure-cosmos-db"></a>Attributi di sicurezza per Azure Cosmos DB
 
@@ -26,10 +26,10 @@ Questo articolo descrive gli attributi di sicurezza incorporati in Azure Cosmos 
 
 | Attributo di sicurezza | Sì/No | Note |
 |---|---|--|
-| Crittografia dei servizi inattivi, ad esempio la crittografia lato server, la crittografia lato server con chiavi gestite dal cliente e altre funzionalità di crittografia | Sì | Tutti i backup e i database di Cosmos DB vengono crittografati per impostazione predefinita. vedere [crittografia dei dati in Azure Cosmos DB](database-encryption-at-rest.md). La crittografia lato server con chiavi gestite dal cliente non è supportata. |
+| Crittografia dei servizi inattivi, ad esempio la crittografia lato server, la crittografia lato server con chiavi gestite dal cliente e altre funzionalità di crittografia | Sì | Tutti i database Cosmos e i backup sono crittografati per impostazione predefinita. vedere [crittografia dei dati in Azure Cosmos DB](database-encryption-at-rest.md). La crittografia lato server con chiavi gestite dal cliente non è supportata. |
 | Crittografia in transito (ad esempio crittografia ExpressRoute, crittografia VNet e crittografia VNet-VNet)| Sì | Tutti i dati Azure Cosmos DB vengono crittografati in transito. |
 | Gestione della chiave di crittografia (CMK, BYOK e così via)| No |  |
-| Crittografia a livello di colonna (servizi dati di Azure)| Sì | Solo nell'API Tables Premium. Non tutte le API supportano questa funzionalità. Vedere [Introduzione a Azure Cosmos DB: API Tabella](table-introduction.md). |
+| Crittografia a livello di colonna (servizi dati di Azure)| Yes | Solo nell'API Tables Premium. Non tutte le API supportano questa funzionalità. Vedere [Introduzione a Azure Cosmos DB: API Tabella](table-introduction.md). |
 | Chiamate API crittografate| Yes | Tutte le connessioni a Azure Cosmos DB supportano HTTPS. Azure Cosmos DB supporta anche le connessioni TLS 1,2, ma questo non è ancora applicato. Se i clienti disattivano TLS di livello inferiore al termine, possono garantire la connessione a Cosmos DB.  |
 
 ## <a name="network-segmentation"></a>Segmentazione di rete
@@ -59,8 +59,8 @@ Questo articolo descrive gli attributi di sicurezza incorporati in Azure Cosmos 
 
 | Attributo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Registrazione e controllo del piano di gestione e controllo| Sì | Log attività di Azure per le operazioni a livello di account, ad esempio firewall, reti virtuali, accesso alle chiavi e IAM. |
-| Registrazione e controllo del piano dati | Sì | Registrazione del monitoraggio della diagnostica per operazioni a livello di contenitore come create container, provisioning della velocità effettiva, indicizzazione dei criteri e operazioni CRUD sui documenti. |
+| Registrazione e controllo del piano di gestione e controllo| Yes | Log attività di Azure per le operazioni a livello di account, ad esempio firewall, reti virtuali, accesso alle chiavi e IAM. |
+| Registrazione e controllo del piano dati | Yes | Registrazione del monitoraggio della diagnostica per operazioni a livello di contenitore come create container, provisioning della velocità effettiva, indicizzazione dei criteri e operazioni CRUD sui documenti. |
 
 ## <a name="configuration-management"></a>Gestione della configurazione
 
@@ -72,4 +72,4 @@ Questo articolo descrive gli attributi di sicurezza incorporati in Azure Cosmos 
 
 | Attributo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Condivisione risorse tra le origini (CORS) | Yes | Vedere [configurare la condivisione di risorse tra le origini (CORS)](how-to-configure-cross-origin-resource-sharing.md). |
+| Condivisione risorse tra le origini (CORS) | Sì | Vedere [configurare la condivisione di risorse tra le origini (CORS)](how-to-configure-cross-origin-resource-sharing.md). |

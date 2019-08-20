@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: a8265496c475566ec7a87a19eab6d975838e9da4
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 23ae7b5cfec26fb2483a3e4ac13a1220888d76ee
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966397"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614259"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Attività di copia in Azure Data Factory
 
@@ -130,7 +130,7 @@ Nel modello seguente di un'attività di copia è incluso l'elenco completo delle
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type di un'attività di copia deve essere impostata su: **Copy** | Sì |
+| type | La proprietà type di un'attività di copia deve essere impostata su: **Copia** | Sì |
 | inputs | Specificare il set di dati creato che fa riferimento ai dati di origine. L'attività di copia supporta un singolo input. | Sì |
 | outputs | Specificare il set di dati creato che fa riferimento ai dati sink. L'attività di copia supporta un singolo output. | Sì |
 | typeProperties | Un gruppo di proprietà per configurare l'attività di copia. | Sì |
@@ -144,7 +144,7 @@ Nel modello seguente di un'attività di copia è incluso l'elenco completo delle
 
 ## <a name="monitoring"></a>Monitoraggio
 
-È possibile monitorare l'esecuzione dell'attività di copia nell'interfaccia utente "Crea e monitora" di Azure Data Factory o a livello di codice. È quindi possibile confrontare le prestazioni e la configurazione dello scenario con le [informazioni di riferimento sulle prestazioni](copy-activity-performance.md#performance-reference) dell'attività di copia ottenute da test interni.
+È possibile monitorare l'esecuzione dell'attività di copia nell'interfaccia utente "Crea e monitora" di Azure Data Factory o a livello di codice.
 
 ### <a name="monitor-visually"></a>Monitorare visivamente
 

@@ -8,14 +8,14 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6e53d0d4f8f19a3cf81f1adb6c62b2797a50d146
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: b54f1d8c0705488c53925d097433e77aed3eac72
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812220"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617604"
 ---
-# <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>Escalation dei privilegi di cloud privato nel portale di CloudSimple 
+# <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>Escalation dei privilegi di cloud privato nel portale di CloudSimple
 
 Per l'accesso amministrativo al cloud privato, è possibile inoltrare temporaneamente i privilegi di CloudSimple.  Usando privilegi elevati, è possibile installare soluzioni VMware, aggiungere origini di identità e gestire gli utenti.
 
@@ -38,7 +38,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
     ![Modificare il privilegio vSphere](media/escalate-private-cloud-privilege.png)
 
-4. Selezionare il tipo di utente vSphere.  È **CloudOwner@cloudsimple.local** possibile inoltrare solo l'utente locale.
+4. Selezionare il tipo di utente vSphere.  È `CloudOwner@cloudsimple.local` possibile inoltrare solo l'utente locale.
 
 5. Selezionare l'intervallo di tempo di escalation dall'elenco a discesa. Scegliere il periodo più breve che consentirà di completare l'attività.
 

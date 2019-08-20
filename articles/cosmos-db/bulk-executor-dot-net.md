@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: a81b22d8ca538c7dc25a9c6631c2b455d5a6c90e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b74c7b178ee4512067de4b8decba0c3c565ccd4
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257213"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616958"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Usare la libreria .NET dell'executor bulk per eseguire operazioni in blocco in Azure Cosmos DB
 
-Questa esercitazione fornisce le istruzioni per importare e aggiornare i documenti nei contenitori di Azure Cosmos DB usando la libreria .NET dell'executor bulk di Azure Cosmos DB. Per informazioni sulla libreria dell'executor bulk e su come consente di sfruttare il livello elevatissimo di velocità effettiva e archiviazione, vedere l'articolo [Panoramica della libreria dell'executor bulk](bulk-executor-overview.md). In questa esercitazione si esaminerà in dettaglio un'applicazione .NET di esempio che importa in blocco i documenti generati in modo casuale in un contenitore di Azure Cosmos DB. Dopo l'importazione illustra come è possibile aggiornare in blocco i dati importati specificando le patch come operazioni da eseguire su campi di documenti specifici. 
+Questa esercitazione fornisce istruzioni sull'uso della libreria .NET dell'executor di Azure Cosmos DB bulk per importare e aggiornare i documenti in Azure Cosmos container. Per informazioni sulla libreria dell'executor bulk e su come consente di sfruttare il livello elevatissimo di velocità effettiva e archiviazione, vedere l'articolo [Panoramica della libreria dell'executor bulk](bulk-executor-overview.md). In questa esercitazione verrà visualizzata un'applicazione .NET di esempio che esegue l'importazione bulk di documenti generati in modo casuale in un contenitore di Azure Cosmos. Dopo l'importazione illustra come è possibile aggiornare in blocco i dati importati specificando le patch come operazioni da eseguire su campi di documenti specifici. 
 
 Attualmente la libreria dell'executor bulk è supportata solo dagli account delle API SQL e Gremlin di Azure Cosmos DB. Questo articolo descrive come usare la libreria .NET dell'executor bulk con account API SQL. Per informazioni sull'uso della libreria .NET dell'executor bulk con l'API Gremlin, vedere [Eseguire operazioni bulk nell'API Gremlin di Azure Cosmos DB](bulk-executor-graph-dotnet.md). 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Se si dispone già di Visual Studio 2019 installato, è possibile scaricare e usare la [2019 di Visual Studio Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare Sviluppo di Azure.
+* Se Visual Studio 2019 non è ancora installato, è possibile scaricare e usare [Visual studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare Sviluppo di Azure.
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare. 
 
@@ -72,7 +72,7 @@ L'applicazione "BulkImportSample" genera documenti casuali e li importa in blocc
    connectionPolicy)
    ```
 
-4. L'oggetto di BulkExecutor viene inizializzata con un valore elevato di ripetizione dei tentativi per tempo di attesa e le richieste limitate. Questi vengono quindi impostati su 0 per passare il controllo della congestione a BulkExecutor per la relativa durata.  
+4. L'oggetto BulkExecutor viene inizializzato con un valore di ripetizione elevato per il tempo di attesa e le richieste limitate. Questi vengono quindi impostati su 0 per passare il controllo della congestione a BulkExecutor per la relativa durata.  
 
    ```csharp
    // Set retry options high during initialization (default values).
@@ -102,7 +102,7 @@ L'applicazione "BulkImportSample" genera documenti casuali e li importa in blocc
    
    |**Parametro**  |**Descrizione** |
    |---------|---------|
-   |enableUpsert    |   Flag per abilitare esegue l'Upsert dei documenti. Se esiste già un documento con l'ID specificato, questo viene aggiornato. Per impostazione predefinita, il valore è impostato su false.      |
+   |enableUpsert    |   Flag per abilitare il Upsert dei documenti. Se esiste già un documento con l'ID specificato, questo viene aggiornato. Per impostazione predefinita, il valore è impostato su false.      |
    |disableAutomaticIdGeneration    |    Flag per disabilitare la generazione automatica dell'ID. Per impostazione predefinita, è impostato su true.     |
    |maxConcurrencyPerPartitionKeyRange    | Il grado massimo di concorrenza per ogni intervallo di chiavi di partizione; impostando il valore null la libreria userà il valore predefinito 20. |
    |maxInMemorySortingBatchSize     |  Il numero massimo di documenti di cui è stato eseguito il pull dall'enumeratore di documenti che viene passato alla chiamata API in ogni fase.  Per la fase di ordinamento di pre-elaborazione in memoria che precede l'importazione in blocco, impostando il valore null la libreria userà il valore predefinito min(documents.count, 1000000).       |
@@ -115,7 +115,7 @@ L'applicazione "BulkImportSample" genera documenti casuali e li importa in blocc
    |NumberOfDocumentsImported (long)   |  Il numero totale di documenti importati correttamente rispetto ai documenti forniti alla chiamata API di importazione in blocco.       |
    |TotalRequestUnitsConsumed (double)   |   Le unità richiesta (UR) totali usate dalla chiamata API di importazione in blocco.      |
    |TotalTimeTaken (TimeSpan)    |   Il tempo totale impiegato dalla chiamata API di importazione in blocco per completare l'esecuzione.      |
-   |BadInputDocuments (elenco\<oggetto >)   |     L'elenco di documenti con formato non valido che non sono stati importati correttamente nella chiamata API di importazione in blocco. L'utente deve correggere il problema nei documenti restituiti e ripetere l'importazione. I documenti con formato non valido includono i documenti con un valore ID diverso da stringa, ad esempio con un valore null o con qualsiasi altro tipo di dati.    |
+   |BadInputDocuments (elenca\<> oggetti)   |     L'elenco di documenti con formato non valido che non sono stati importati correttamente nella chiamata API di importazione in blocco. L'utente deve correggere il problema nei documenti restituiti e ripetere l'importazione. I documenti con formato non valido includono i documenti con un valore ID diverso da stringa, ad esempio con un valore null o con qualsiasi altro tipo di dati.    |
 
 ## <a name="bulk-update-data-in-azure-cosmos-db"></a>Aggiornare in blocco i dati in Azure Cosmos DB
 
@@ -171,11 +171,11 @@ Per ottenere prestazioni migliori, quando si usa la libreria dell'executor bulk 
 
 * Per prestazioni ottimali eseguire l'applicazione da una macchina virtuale Azure che si trovi nella stessa area in cui si trova l'area di scrittura dell'account Cosmos DB.  
 
-* Si consiglia di creare un'istanza di un singolo oggetto BulkExecutor per l'intera applicazione all'interno di una singola macchina virtuale corrispondente a uno specifico contenitore di Cosmos DB.  
+* Si consiglia di creare un'istanza di un singolo oggetto BulkExecutor per l'intera applicazione all'interno di una singola macchina virtuale corrispondente a un contenitore Cosmos specifico.  
 
-* Dato che l'esecuzione di una singola API con un'operazione in blocco usa un blocco di grandi dimensioni della CPU e dell'I/O di rete del computer client generando internamente più attività, evitare di generare più attività simultanee all'interno del processo dell'applicazione, di cui ognuna esegue chiamate API di operazioni in blocco. Se una chiamata di operazione API bulk singolo in esecuzione in una singola macchina virtuale è in grado di utilizzare la velocità effettiva del contenitore intero (se. la velocità effettiva > 1 del contenitore milioni di UR/s), è preferibile per creare macchine virtuali separate da eseguire simultaneamente chiamate API di operazioni bulk.  
+* Dato che l'esecuzione di una singola API con un'operazione in blocco usa un blocco di grandi dimensioni della CPU e dell'I/O di rete del computer client generando internamente più attività, evitare di generare più attività simultanee all'interno del processo dell'applicazione, di cui ognuna esegue chiamate API di operazioni in blocco. Se una singola chiamata API per operazioni bulk in esecuzione in una singola macchina virtuale non è in grado di utilizzare la velocità effettiva dell'intero contenitore (se la velocità effettiva del contenitore > 1 milione ur/sec), è preferibile creare macchine virtuali separate per l'esecuzione simultanea chiamate API per operazioni bulk.  
 
-* Verificare che InitializeAsync() venga richiamato dopo la creazione dell'istanza di un oggetto BulkExecutor per recuperare la mappa di partizioni del contenitore di Cosmos DB di destinazione.  
+* Verificare che InitializeAsync () venga richiamato dopo avere creato un'istanza di un oggetto BulkExecutor per recuperare la mappa della partizione del contenitore Cosmos di destinazione.  
 
 * In App.Config dell'applicazione verificare che **gcServer** sia abilitato per assicurare prestazioni migliori.
   ```xml  
@@ -197,4 +197,4 @@ Per ottenere prestazioni migliori, quando si usa la libreria dell'executor bulk 
   ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per ulteriori informazioni sui dettagli del pacchetto Nuget e note della libreria .NET di executor bulk, vedere[bulk dettagli SDK executor](sql-api-sdk-bulk-executor-dot-net.md). 
+* Per informazioni sui dettagli del pacchetto NuGet e sulle note sulla versione di bulk Executor .NET Library, vedere[bulk Executor SDK](sql-api-sdk-bulk-executor-dot-net.md)details. 

@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 8593378dd35a6aaa31aaefca41dd921c6e65d336
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 7470dd96109823057a174d2ecf097583dcb51898
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68426746"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575277"
 ---
 # <a name="restore-an-existing-azure-sql-data-warehouse"></a>Ripristinare un Azure SQL Data Warehouse esistente
 
@@ -89,7 +89,7 @@ $RestoredDatabase.status
 ## <a name="restore-an-existing-data-warehouse-through-the-azure-portal"></a>Ripristinare un data warehouse esistente tramite l'portale di Azure
 
 1. Accedere al [portale di Azure][Azure portal].
-2. Passare al data warehouse SQL da ripristinare e selezionarlo.
+2. Passare al SQL Data Warehouse da cui si desidera eseguire il ripristino.
 3. Nella parte superiore del pannello della panoramica, selezionare **Ripristina**.
 
     ![ Panoramica del servizio di ripristino](./media/sql-data-warehouse-restore-active-paused-dw/restoring-01.png)

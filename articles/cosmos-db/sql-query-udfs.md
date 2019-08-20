@@ -6,20 +6,20 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: e168e450230720f4ad78516e6edcdc3aa08ba3e1
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: b67202da7293ef55cfe3390ca676f7944da80fba
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342834"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614326"
 ---
 # <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Funzioni definite dall'utente (UDF) in Azure Cosmos DB
 
-L'API SQL offre il supporto per le funzioni definite dall'utente (UDF). Con funzioni scalari definite dall'utente, è possibile passare zero o più argomenti e restituiscono un risultato singolo argomento. L'API verifica ogni argomento di essere valore JSON legale.  
+L'API SQL fornisce il supporto per le funzioni definite dall'utente (UDF). Con le funzioni definite dall'utente scalari, è possibile passare zero o molti argomenti e restituire un singolo argomento. L'API verifica che ogni argomento sia un valore JSON valido.  
 
-L'API estende la sintassi SQL per il supporto per la logica dell'applicazione personalizzata tramite funzioni definite dall'utente. È possibile registrare funzioni definite dall'utente con l'API SQL e farvi riferimento nella query SQL. In effetti, le UDF sono progettate espressamente per essere chiamate dalle query. A corollario, funzioni definite dall'utente non ha accesso all'oggetto di contesto, come altri tipi di JavaScript, ad esempio stored procedure e trigger. Le query sono di sola lettura e possono eseguire in repliche primarie o secondarie. Funzioni definite dall'utente, a differenza di altri tipi di JavaScript, progettate per l'esecuzione nelle repliche secondarie.
+L'API estende la sintassi SQL per supportare la logica dell'applicazione personalizzata usando le funzioni definite dall'utente. È possibile registrare le funzioni definite dall'utente con l'API SQL e farvi riferimento nelle query SQL. In effetti, le UDF sono progettate espressamente per essere chiamate dalle query. Di conseguenza, le funzioni definite dall'utente non hanno accesso all'oggetto di contesto come altri tipi JavaScript, ad esempio stored procedure e trigger. Le query sono di sola lettura e possono essere eseguite su repliche primarie o secondarie. Le UDF, a differenza di altri tipi JavaScript, sono progettate per l'esecuzione su repliche secondarie.
 
-Nell'esempio seguente registra una funzione definita dall'utente in un contenitore di elementi nel database di Cosmos DB. Nell'esempio viene creata una funzione definita dall'utente il cui nome è `REGEX_MATCH`. Accetta due valori di stringa JSON, `input` e `pattern`, e controlla se i primi corrisponde al modello specificato nel secondo utilizzo di JavaScript `string.match()` (funzione).
+Nell'esempio seguente viene registrata una funzione definita dall'utente in un contenitore di elementi nel database Cosmos. Nell'esempio viene creata una funzione definita dall' `REGEX_MATCH`utente il cui nome è. Accetta due valori stringa JSON, `input` e `pattern`e controlla se il primo corrisponde al modello specificato nel secondo usando la funzione di `string.match()` JavaScript.
 
 ## <a name="examples"></a>Esempi
 
@@ -37,7 +37,7 @@ Nell'esempio seguente registra una funzione definita dall'utente in un contenito
            regexMatchUdf).Result;  
 ```
 
-A questo punto, è possibile usare questa UDF in una proiezione di query. Funzioni definite dall'utente è necessario qualificare con il prefisso distinzione maiuscole/minuscole `udf.` durante la chiamata dall'interno delle query.
+A questo punto, usare questa funzione definita dall'utente in una proiezione di query. È necessario qualificare le funzioni definite dall'utente con `udf.` il prefisso con distinzione tra maiuscole e minuscole quando vengono chiamate da query.
 
 ```sql
     SELECT udf.REGEX_MATCH(Families.address.city, ".*eattle")
@@ -57,7 +57,7 @@ I risultati sono:
     ]
 ```
 
-È possibile usare la funzione definita dall'utente qualificato con il `udf.` prefisso all'interno di un filtro, come nell'esempio seguente:
+È possibile usare la funzione definita dall'utente `udf.` qualificata con il prefisso all'interno di un filtro, come nell'esempio seguente:
 
 ```sql
     SELECT Families.id, Families.address.city
@@ -74,9 +74,9 @@ I risultati sono:
     }]
 ```
 
-In pratica, le UDF sono espressioni scalari valide che è possibile usare in entrambe le proiezioni e filtri.
+In sostanza, le funzioni definite dall'utente sono espressioni scalari valide che è possibile usare sia per le proiezioni che per i filtri.
 
-Per ampliare la potenza delle UDF, esaminiamo un altro esempio con la logica condizionale:
+Per ampliare le potenzialità delle funzioni definite dall'utente, vedere un altro esempio con la logica condizionale:
 
 ```javascript
        UserDefinedFunction seaLevelUdf = new UserDefinedFunction()
@@ -100,7 +100,7 @@ Per ampliare la potenza delle UDF, esaminiamo un altro esempio con la logica con
                 seaLevelUdf);
 ```
 
-Nell'esempio seguente usa la funzione definita dall'utente:
+Nell'esempio seguente viene esercitata la funzione definita dall'utente:
 
 ```sql
     SELECT f.address.city, udf.SEALEVEL(f.address.city) AS seaLevel
@@ -122,12 +122,12 @@ I risultati sono:
     ]
 ```
 
-Se la proprietà definita per la funzione definita dall'utente i parametri non sono disponibili nel valore JSON, il parametro verrà considerato come undefined e la chiamata di funzione definita dall'utente è stata ignorata. Analogamente, se il risultato della UDF è undefined, non è incluso nel risultato.
+Se le proprietà a cui fanno riferimento i parametri UDF non sono disponibili nel valore JSON, il parametro viene considerato come non definito e la chiamata della funzione definita dall'utente viene ignorata. Analogamente, se il risultato della funzione definita dall'utente non è definito, non è incluso nel risultato.
 
-Come mostrano negli esempi precedenti, le UDF integrano la potenza del linguaggio JavaScript con l'API SQL. Funzioni definite dall'utente forniscono un'interfaccia programmabile avanzata per eseguire operazioni complessa logica condizionale e procedurale con l'aiuto del runtime JavaScript integrate. L'API SQL fornisce gli argomenti alle UDF per ogni elemento di origine nel server di corrente WHERE o clausola SELECT fase dell'elaborazione. Il risultato è perfettamente incorporato nella pipeline di esecuzione complessivo. In breve, le UDF sono un ottimo strumento per eseguire la logica di business complessa come parte delle query.
+Come illustrato negli esempi precedenti, le funzioni definite dall'utente integrano la potenza del linguaggio JavaScript con l'API SQL. Le funzioni definite dall'utente forniscono un'interfaccia programmabile avanzata per la logica condizionale e procedurale complessa con l'ausilio delle funzionalità di runtime JavaScript predefinite. L'API SQL fornisce gli argomenti alle UDF per ogni elemento di origine in corrispondenza della fase di elaborazione della clausola WHERE o SELECT corrente. Il risultato viene incorporato facilmente nella pipeline di esecuzione complessiva. In sintesi, le funzioni definite dall'utente sono ottimi strumenti per la logica di business complessa nell'ambito delle query.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Introduzione ad Azure Cosmos DB](introduction.md)
+- [Introduzione a Azure Cosmos DB](introduction.md)
 - [Funzioni di sistema](sql-query-system-functions.md)
-- [funzioni di aggregazione](sql-query-aggregates.md)
+- [Aggregati](sql-query-aggregates.md)

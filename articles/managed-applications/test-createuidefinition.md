@@ -6,12 +6,12 @@ ms.service: managed-applications
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 91dd661cf4900512390079751f400f6a9888c452
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 54eb2df06df56c33e1a3cd74e7a4a93c07aab682
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845915"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575671"
 ---
 # <a name="test-your-portal-interface-for-azure-managed-applications"></a>Testare l'interfaccia del portale per le applicazioni gestite di Azure
 
@@ -37,7 +37,7 @@ Dopo aver [creato il file createUiDefinition. JSON](create-uidefinition-overview
 
    ![Mostra modulo](./media/test-createuidefinition/show-ui-form.png)
 
-### <a name="troubleshooting"></a>risoluzione dei problemi
+### <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se il modulo non viene visualizzato dopo aver selezionato **Anteprima**, è possibile che si verifichi un errore di sintassi. Cercare l'indicatore rosso sulla barra di scorrimento a destra e passarvi.
 
@@ -91,7 +91,7 @@ Per l'interfaccia della riga di comando di Azure usare:
 
 Lo script apre una nuova scheda nel browser. Viene visualizzato il portale con l'interfaccia per la creazione dell'applicazione gestita.
 
-Specificare i valori per il campo. Al termine, vengono visualizzati i valori trasmessi al modello.
+Specificare i valori per il campo. Al termine, verranno visualizzati i valori passati al modello che si trovano nella console degli strumenti di sviluppo del browser.
 
 ![Mostra valori](./media/test-createuidefinition/show-json.png)
 

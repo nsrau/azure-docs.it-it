@@ -10,12 +10,12 @@ ms.subservice: load-data
 ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 30b4009b2f52f4949a380f0fc51b02f94c98d966
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: f81a19631b29954f9bd3da55a4b332e37746152e
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304286"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574928"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Esercitazione: Caricare i dati su Azure SQL Data Warehouse
 
@@ -42,11 +42,11 @@ Prima di iniziare questa esercitazione, scaricare e installare la versione più 
 
 Accedere al [portale di Azure](https://portal.azure.com/).
 
-## <a name="create-a-blank-sql-data-warehouse"></a>Creare un SQL Data Warehouse vuoto
+## <a name="create-a-blank-sql-data-warehouse"></a>Crea una SQL Data Warehouse vuota
 
-Un SQL Data Warehouse viene creato con un set definito di [risorse di calcolo](memory-and-concurrency-limits.md). Il database viene creato in un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) e in un [server logico di Azure SQL](../sql-database/sql-database-features.md). 
+Un Azure SQL Data Warehouse viene creato con un set definito di [risorse di calcolo](memory-and-concurrency-limits.md). Il database viene creato in un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) e in un [server logico di Azure SQL](../sql-database/sql-database-features.md). 
 
-Per creare un SQL Data Warehouse vuoto, eseguire la procedura seguente. 
+Per creare una SQL Data Warehouse vuota, seguire questa procedura. 
 
 1. Fare clic su **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
 
@@ -151,7 +151,7 @@ In questa sezione si usa [SQL Server Management Studio](/sql/ssms/download-sql-s
     | Tipo di server | Motore di database | Questo valore è obbligatorio |
     | Nome del server | Nome completo del server | Ad esempio, **sample-svr.database.windows.net** è un nome di server completo. |
     | Authentication | Autenticazione di SQL Server | L'autenticazione SQL è il solo tipo di autenticazione configurato in questa esercitazione. |
-    | Login | Account amministratore del server | Si tratta dell'account specificato al momento della creazione del server. |
+    | Accedi | Account amministratore del server | Si tratta dell'account specificato al momento della creazione del server. |
     | Password | Password per l'account amministratore del server | Si tratta della password specificata quando è stato creato il server. |
 
     ![connetti al server](media/load-data-wideworldimportersdw/connect-to-server.png)

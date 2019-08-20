@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: b88b32b3ae2d4939d26fc268e25c87b1fb70eee5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f406f008e2c377b39deb8d151855ce7315616701
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237215"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616864"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Crittografia dei dati in Azure Cosmos DB 
 
 Il termine "crittografia di dati inattivi" denota in genere la crittografia dei dati su dispositivi di archiviazione non volatili, come ad esempio unità a stato solido (SSD) e dischi rigidi (HDD). Cosmos DB archivia i propri database primari su SSD. Gli allegati multimediali e i backup vengono memorizzati nell'archiviazione BLOB di Azure, di cui in genere si esegue il backup su HDD. Con il rilascio della crittografia di dati inattivi per Cosmos DB, tutti i database, gli allegati multimediali e i backup vengono ora crittografati. Vengono crittografati sia i dati in transito (attraverso la rete), sia quelli inattivi (memoria non volatile), fornendo una crittografia end-to-end.
 
-In qualità di servizio PaaS, Cosmos DB è molto facile da usare. Poiché tutti i dati utente archiviati in Cosmos DB sono crittografati sia quando sono inattivi che in transito, non è necessario intraprendere alcuna azione. In altre parole, per impostazione predefinita, la crittografia dei dati inattivi è attiva. Non è possibile attivarla o disattivarla. Azure Cosmos DB Usa la crittografia AES-256 in tutte le aree in cui l'account è in esecuzione. Tale funzionalità è offerta nel soddisfare [i contratti di servizio relativi a disponibilità e prestazioni](https://azure.microsoft.com/support/legal/sla/cosmos-db).
+In qualità di servizio PaaS, Cosmos DB è molto facile da usare. Poiché tutti i dati utente archiviati in Cosmos DB sono crittografati sia quando sono inattivi che in transito, non è necessario intraprendere alcuna azione. In altre parole, per impostazione predefinita, la crittografia dei dati inattivi è attiva. Non è possibile attivarla o disattivarla. Azure Cosmos DB usa la crittografia AES-256 in tutte le aree in cui è in esecuzione l'account. Tale funzionalità è offerta nel soddisfare [i contratti di servizio relativi a disponibilità e prestazioni](https://azure.microsoft.com/support/legal/sla/cosmos-db).
 
 ## <a name="implementation-of-encryption-at-rest-for-azure-cosmos-db"></a>Implementazione della crittografia dei dati inattivi per Azure Cosmos DB
 
@@ -59,5 +59,5 @@ R: l'emulatore è uno strumento di sviluppo e test autonomo e non usa i servizi 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per una panoramica della sicurezza di Cosmos DB e dei miglioramenti più recenti, vedere [Sicurezza database di Azure Cosmos DB](database-security.md).
+Per una panoramica della sicurezza Cosmos DB e dei miglioramenti più recenti, vedere [sicurezza di Azure Cosmos database](database-security.md).
 Per altre informazioni sulle certificazioni Microsoft, vedere il [Centro protezione di Azure](https://azure.microsoft.com/support/trust-center/).

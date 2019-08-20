@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: e321091f2abcff4c385b442ac6474c0592845e2e
-ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
+ms.openlocfilehash: f2e01e42a53f6f099191c03f45d6521668ea73a1
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602043"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616677"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Proteggere l'accesso ai dati in Azure Cosmos DB
 
@@ -105,7 +105,7 @@ Per un esempio di servizio di livello intermedio usato per generare o negoziare 
 <a id="users"></a>
 
 ## <a name="users"></a>Utenti
-Gli utenti di Cosmos DB sono associati a un database Cosmos DB.  Ogni database può contenere zero o più utenti di Cosmos DB.  L'esempio di codice seguente illustra come creare una risorsa utente di Cosmos DB.
+Cosmos DB utenti sono associati a un database Cosmos.  Ogni database può contenere zero o più utenti di Cosmos DB.  L'esempio di codice seguente illustra come creare una risorsa utente di Cosmos DB.
 
 ```csharp
 //Create a user.
@@ -193,5 +193,5 @@ Azure Cosmos DB consente di eseguire la ricerca, selezionare, modificare ed elim
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per altre informazioni sulla sicurezza dei database Cosmos DB, vedere [Cosmos DB: Sicurezza del database](database-security.md).
+* Per ulteriori informazioni sulla sicurezza di Cosmos database, [vedere Cosmos DB: Sicurezza del database](database-security.md).
 * Per informazioni su come costruire i token di autorizzazione di Azure Cosmos DB, vedere [Access Control on Azure Cosmos DB Resources](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources) (Controllo di accesso per le risorse di Azure Cosmos DB).

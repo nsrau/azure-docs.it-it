@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 78afec75269876c309b2c324d8a5973fd5ebf9a8
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: c782629d422eb8846b209fed7ab6b5a5c015de25
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68773028"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69612288"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Aggiungere una macchina virtuale Ubuntu a un dominio gestito in Azure
 Questo articolo illustra come aggiungere una macchina virtuale Ubuntu Linux a un dominio gestito di Azure AD Domain Services.
@@ -31,9 +31,9 @@ Questo articolo illustra come aggiungere una macchina virtuale Ubuntu Linux a un
 Per eseguire le attività elencate in questo articolo sono necessari gli elementi seguenti:  
 1. Una **sottoscrizione di Azure**valida.
 2. Una **directory di Azure AD** sincronizzata con una directory locale o con una directory solo cloud.
-3. **Servizi di dominio Azure AD** devono essere abilitati per la directory di Azure AD. Se non è stato fatto, eseguire tutte le attività descritte nella [guida introduttiva](create-instance.md).
-4. Assicurarsi di aver configurato gli indirizzi IP del dominio gestito come server DNS per la rete virtuale. Per altre informazioni, vedere la [procedura per aggiornare le impostazioni DNS per la rete virtuale di Azure](active-directory-ds-getting-started-dns.md).
-5. Completare i passaggi necessari per [sincronizzare le password nel dominio gestito di Azure AD Domain Services](active-directory-ds-getting-started-password-sync.md).
+3. **Servizi di dominio Azure AD** devono essere abilitati per la directory di Azure AD. Se non è stato fatto, eseguire tutte le attività descritte nella [guida introduttiva](tutorial-create-instance.md).
+4. Assicurarsi di aver configurato gli indirizzi IP del dominio gestito come server DNS per la rete virtuale. Per altre informazioni, vedere la [procedura per aggiornare le impostazioni DNS per la rete virtuale di Azure](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network).
+5. Completare i passaggi necessari per [sincronizzare le password nel dominio gestito di Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).
 
 
 ## <a name="provision-an-ubuntu-linux-virtual-machine"></a>Eseguire il provisioning di una macchina virtuale Ubuntu Linux
@@ -51,7 +51,7 @@ Eseguire il provisioning di una macchina virtuale Ubuntu Linux in Azure, usando 
 ## <a name="connect-remotely-to-the-ubuntu-linux-virtual-machine"></a>Connettersi in remoto alla macchina virtuale Ubuntu Linux
 È stato eseguito il provisioning della macchina virtuale Ubuntu Linux in Azure. L'attività successiva consiste nel connettersi in remoto alla macchina virtuale usando l'account amministratore locale creato durante il provisioning della macchina virtuale.
 
-Seguire le istruzioni nell'articolo [Come accedere a una macchina virtuale che esegue Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Seguire le istruzioni riportate nell'articolo [come accedere a una macchina virtuale che esegue Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Configurare il file con estensione hosts nella macchina virtuale Linux
@@ -64,10 +64,10 @@ sudo vi /etc/hosts
 Nel file con estensione hosts immettere il valore seguente:
 
 ```console
-127.0.0.1 contoso-ubuntu.contoso100.com contoso-ubuntu
+127.0.0.1 contoso-ubuntu.contoso.com contoso-ubuntu
 ```
 
-In questo caso, "contoso100.com" è il nome di dominio DNS del dominio gestito. "contoso-ubuntu" è il nome host della macchina virtuale Ubuntu da aggiungere al dominio gestito.
+Qui, "contoso.com" è il nome di dominio DNS del dominio gestito. "contoso-ubuntu" è il nome host della macchina virtuale Ubuntu da aggiungere al dominio gestito.
 
 
 ## <a name="install-required-packages-on-the-linux-virtual-machine"></a>Installare i pacchetti necessari nella macchina virtuale Linux
@@ -88,7 +88,7 @@ Installare quindi i pacchetti necessari per l'aggiunta a un dominio nella macchi
 3. Durante l'installazione di Kerberos, si visualizza una schermata rosa. L'installazione del pacchetto "krb5-user" richiede il nome dell'area di autenticazione (TUTTE LETTERE MAIUSCOLE). L'installazione scrive le sezioni [area di autenticazione] e [dominio_area di autenticazione] in /etc/krb5.conf.
 
     > [!TIP]
-    > Se il nome del dominio gestito è contoso100.com, immettere CONTOSO100.COM come area di autenticazione. Tenere presente che il nome dell'area di autenticazione deve essere specificato in MAIUSCOLO.
+    > Se il nome del dominio gestito è contoso.com, immettere contoso.COM come area di autenticazione. Tenere presente che il nome dell'area di autenticazione deve essere specificato in MAIUSCOLO.
 
 
 ## <a name="configure-the-ntp-network-time-protocol-settings-on-the-linux-virtual-machine"></a>Configurare le impostazioni NTP (Network Time Protocol) nella macchina virtuale Linux
@@ -101,16 +101,16 @@ sudo vi /etc/ntp.conf
 Nel file ntp.conf immettere il valore seguente e salvare il file:
 
 ```console
-server contoso100.com
+server contoso.com
 ```
 
-In questo caso, "contoso100.com" è il nome di dominio DNS del dominio gestito.
+Qui, "contoso.com" è il nome di dominio DNS del dominio gestito.
 
 Ora sincronizzare data e ora della macchina virtuale Ubuntu con il server NTP, quindi avviare il servizio NTP:
 
 ```console
 sudo systemctl stop ntp
-sudo ntpdate contoso100.com
+sudo ntpdate contoso.com
 sudo systemctl start ntp
 ```
 
@@ -121,7 +121,7 @@ Ora che i pacchetti sono installati nella macchina virtuale Linux, l'attività s
 1. Individuare il dominio gestito di Servizi di dominio AAD. Nel terminale SSH digitare il comando seguente:
 
     ```console
-    sudo realm discover CONTOSO100.COM
+    sudo realm discover contoso.COM
     ```
 
    > [!NOTE]
@@ -133,12 +133,12 @@ Ora che i pacchetti sono installati nella macchina virtuale Linux, l'attività s
 2. Inizializzare Kerberos. Nel terminale SSH digitare il comando seguente:
 
     > [!TIP]
-    > * Verificare che l'utente specificato appartenga al gruppo AAD DC Administrators.
+    > * Verificare che l'utente specificato appartenga al gruppo AAD DC Administrators. Se necessario, [aggiungere un account utente a un gruppo in Azure ad](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md)
     > * Specificare il nome di dominio in lettere maiuscole; in caso contrario kinit avrà esito negativo.
     >
 
     ```console
-    kinit bob@CONTOSO100.COM
+    kinit bob@contoso.COM
     ```
 
 3. Aggiungere il computer al dominio. Nel terminale SSH digitare il comando seguente:
@@ -149,7 +149,7 @@ Ora che i pacchetti sono installati nella macchina virtuale Linux, l'attività s
     > Se la macchina virtuale non è in grado di accedere al dominio, verificare che il gruppo di sicurezza di rete della macchina virtuale consenta il traffico Kerberos in uscita sulla porta TCP + UDP 464 alla subnet della rete virtuale per il dominio gestito di Azure AD DS.
 
     ```console
-    sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM' --install=/
+    sudo realm join --verbose contoso.COM -U 'bob@contoso.COM' --install=/
     ```
 
 Quando il computer viene aggiunto correttamente al dominio gestito, dovrebbe essere visualizzato un messaggio che indica che il computer è stato registrato correttamente nell'area di autenticazione.
@@ -176,7 +176,7 @@ Quando il computer viene aggiunto correttamente al dominio gestito, dovrebbe ess
 
 
 ## <a name="configure-automatic-home-directory-creation"></a>Configurare la creazione automatica della home directory
-Per abilitare la creazione automatica della home directory dopo la registrazione degli utenti, digitare i comandi seguenti nel terminale PuTTY:
+Per abilitare la creazione automatica della Home Directory dopo aver eseguito l'accesso agli utenti, digitare i comandi seguenti nel terminale PuTTy:
 
 ```console
 sudo vi /etc/pam.d/common-session
@@ -192,10 +192,10 @@ session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
 ## <a name="verify-domain-join"></a>Verificare l'aggiunta a un dominio
 Verificare se la macchina è stata aggiunta correttamente al dominio gestito. Connettersi alla macchina virtuale Ubuntu aggiunta al dominio tramite una connessione SSH diversa. Usare un account utente di dominio e quindi verificare se l'account utente viene risolto correttamente.
 
-1. Nel terminale SSH digitare il comando seguente per connettere la macchina virtuale Ubuntu aggiunta al dominio con SSH. Usare un account di dominio appartenente al dominio gestito, in questo caso bob@CONTOSO100.COM.
+1. Nel terminale SSH digitare il comando seguente per connettere la macchina virtuale Ubuntu aggiunta al dominio con SSH. Usare un account di dominio appartenente al dominio gestito, in questo caso bob@contoso.COM.
     
     ```console
-    ssh -l bob@CONTOSO100.COM contoso-ubuntu.contoso100.com
+    ssh -l bob@contoso.COM contoso-ubuntu.contoso.com
     ```
 
 2. Nel terminale SSH digitare il comando seguente per verificare se la home directory dell'utente è stata inizializzata correttamente.
@@ -214,7 +214,7 @@ Verificare se la macchina è stata aggiunta correttamente al dominio gestito. Co
 ## <a name="grant-the-aad-dc-administrators-group-sudo-privileges"></a>Concedere i privilegi sudo al gruppo "Amministratori di AAD DC"
 È possibile concedere ai membri del gruppo "Amministratori di AAD DC" i privilegi amministrativi per la macchina virtuale Ubuntu. Il file di sudo si trova in /etc/sudoers. I membri dei gruppi AD aggiunti in sudoers possono eseguire sudo.
 
-1. Nella finestra del terminale SSH assicurarsi di essere connessi con i privilegi di superuser. È possibile usare l'account amministratore locale specificato durante la creazione della macchina virtuale. Eseguire il seguente comando:
+1. Nel terminale SSH assicurarsi di avere eseguito l'accesso con privilegi di superuser. È possibile usare l'account amministratore locale specificato durante la creazione della macchina virtuale. Eseguire il seguente comando:
     
     ```console
     sudo vi /etc/sudoers
@@ -227,14 +227,14 @@ Verificare se la macchina è stata aggiunta correttamente al dominio gestito. Co
     %AAD\ DC\ Administrators ALL=(ALL) NOPASSWD:ALL
     ```
 
-3. È ora possibile accedere come membro del gruppo "Amministratori di AAD DC" e si dispone di privilegi amministrativi sulla macchina virtuale.
+3. È ora possibile accedere come membro del gruppo "AAD DC Administrators" e avere i privilegi amministrativi per la macchina virtuale.
 
 
 ## <a name="troubleshooting-domain-join"></a>Risoluzione dei problemi di aggiunta al dominio
-Vedere l'articolo [Risoluzione dei problemi dell'aggiunta a un dominio](join-windows-vm.md#troubleshoot-joining-a-domain) .
+Vedere l'articolo [Risoluzione dei problemi dell'aggiunta a un dominio](join-windows-vm.md#troubleshoot-domain-join-issues) .
 
 
 ## <a name="related-content"></a>Contenuto correlato
-* [Servizi di dominio Azure AD: introduzione](create-instance.md)
+* [Servizi di dominio Azure AD: introduzione](tutorial-create-instance.md)
 * [Aggiungere una macchina virtuale Windows Server a un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Creare chiavi SSH in Linux e Mac per le VM Linux in Azure](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [Come accedere a una macchina virtuale che esegue Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

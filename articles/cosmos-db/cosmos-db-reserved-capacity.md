@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: ab42c600b975adac9f13e8e75da9696e51e7e94d
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: e4d33756f1e09abedbf828deb447fbf14c6bfed7
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779869"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616911"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Ottimizzare il costo con la capacità riservata in Azure Cosmos DB
 
@@ -57,7 +57,7 @@ Le dimensioni della prenotazione devono essere basate sulla quantità totale di 
    | Gruppo di risorse | Gruppo di risorse a cui viene applicato lo sconto per la capacità riservata. |
    |Termine  |   Un anno o tre anni.   |
    |Tipo di velocità effettiva   |  Il provisioning della velocità effettiva viene effettuato come unità richiesta. È possibile acquistare una prenotazione per la velocità effettiva di cui è stato effettuato il provisioning per entrambe le operazioni di scrittura: singole aree e scritture in più aree. Il tipo di velocità effettiva può scegliere tra due valori: 100 ur/s all'ora e 100 ur/sec multimaster all'ora.|
-   | Unità di capacità riservata| Quantità di velocità effettiva da riservare. È possibile calcolare questo valore determinando la velocità effettiva necessaria per tutte le risorse di Cosmos DB (ad esempio, database o contenitori) per ogni area. Lo si moltiplica quindi per il numero di aree da associare al database di Cosmos DB. Ad esempio:  se si hanno cinque aree con 1 milione di unità richieste/sec in ogni area, selezionare 5 milioni di unità richieste/sec per l'acquisto di capacità di prenotazione. |
+   | Unità di capacità riservata| Quantità di velocità effettiva da riservare. È possibile calcolare questo valore determinando la velocità effettiva necessaria per tutte le risorse di Cosmos DB (ad esempio, database o contenitori) per ogni area. Viene quindi moltiplicato per il numero di aree associate al database Cosmos. Ad esempio:  se si hanno cinque aree con 1 milione di unità richieste/sec in ogni area, selezionare 5 milioni di unità richieste/sec per l'acquisto di capacità di prenotazione. |
 
 
 5. Una volta compilato il modulo, viene calcolato il prezzo necessario per acquistare la capacità riservata. L'output Mostra anche la percentuale di sconto ottenibile con le opzioni selezionate. Fare clic su **Seleziona**

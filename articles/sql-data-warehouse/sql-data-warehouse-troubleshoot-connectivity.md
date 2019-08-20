@@ -10,64 +10,64 @@ ms.subservice: supportability
 ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 2d7f56b65db09232af4fe7e198675ea0cfd64a25
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 290753b866f15e09a52572fdd7a43a60fc2812d6
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595486"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575553"
 ---
 # <a name="troubleshooting-connectivity-issues"></a>Risoluzione dei problemi di connettività
 
-Questo articolo elenca le tecniche di risoluzione dei problemi più comuni per la connessione a SQL Data Warehouse.
-- [Verificare la disponibilità del servizio](./sql-data-warehouse-troubleshoot-connectivity.md#check-service-availability)
-- [Verificare la presenza di operazione di sospensione o ridimensionamento](./sql-data-warehouse-troubleshoot-connectivity.md#check-for-paused-or-scaling-operation)
+In questo articolo vengono elencate le tecniche comuni per la risoluzione dei problemi relativi alla connessione al SQL Data Warehouse.
+- [Controllare la disponibilità del servizio](./sql-data-warehouse-troubleshoot-connectivity.md#check-service-availability)
+- [Verifica l'operazione di sospensione o ridimensionamento](./sql-data-warehouse-troubleshoot-connectivity.md#check-for-paused-or-scaling-operation)
 - [Controllare le impostazioni del firewall](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-firewall-settings)
-- [Controllare le impostazioni di Endpoint servizio/rete virtuale](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-vnetservice-endpoint-settings)
-- [Cerca i driver più recenti](./sql-data-warehouse-troubleshoot-connectivity.md#check-for-the-latest-drivers)
+- [Controllare le impostazioni dell'endpoint di VNet/servizio](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-vnetservice-endpoint-settings)
+- [Verifica i driver più recenti](./sql-data-warehouse-troubleshoot-connectivity.md#check-for-the-latest-drivers)
 - [Controllare la stringa di connessione](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-connection-string)
-- [Problemi di connessione intermittente](./sql-data-warehouse-troubleshoot-connectivity.md#intermittent-connection-issues)
+- [Problemi di connessione intermittenti](./sql-data-warehouse-troubleshoot-connectivity.md#intermittent-connection-issues)
 - [Messaggi di errore comuni](./sql-data-warehouse-troubleshoot-connectivity.md#common-error-messages)
 
-## <a name="check-service-availability"></a>Verificare la disponibilità del servizio
+## <a name="check-service-availability"></a>Controllare la disponibilità del servizio
 
-Verificare se il servizio è disponibile. Nel portale di Azure, passare a SQL data warehouse che si sta provando a connettersi. Nel pannello del sommario a sinistra, fare clic su **diagnosticare e risolvere i problemi**.
+Verificare se il servizio è disponibile. Nella portale di Azure passare al SQL Data Warehouse si sta provando a connettersi. Nel riquadro a sinistra fare clic su **diagnostica e risoluzione dei problemi**.
 
-![Selezionare l'integrità delle risorse](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
+![Seleziona integrità risorse](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
-Verrà visualizzato lo stato di SQL data warehouse. Se il servizio non vengono visualizzati come **Available**, controllare ulteriormente questa procedura.
+Lo stato del SQL Data Warehouse verrà visualizzato qui. Se il servizio non viene visualizzato come **disponibile**, verificare i passaggi successivi.
 
 ![Servizio disponibile](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-Se l'integrità delle risorse viene mostrato che il data warehouse è sospeso o la scala, seguire le indicazioni per riprendere il data warehouse.
+Se l'integrità delle risorse Mostra che il data warehouse è in pausa o in scala, seguire le indicazioni per riprendere il data warehouse.
 
-![Servizio sospeso](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) ulteriori informazioni su integrità risorse sono reperibile qui.
+![Il servizio ha](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) sospeso informazioni aggiuntive su integrità risorse è disponibile qui.
 
-## <a name="check-for-paused-or-scaling-operation"></a>Verificare la presenza di operazione di sospensione o ridimensionamento
+## <a name="check-for-paused-or-scaling-operation"></a>Verifica l'operazione di sospensione o ridimensionamento
 
-Controllare il portale per vedere se viene sospesa di SQL data warehouse o il ridimensionamento.
+Controllare il portale per verificare se il SQL Data Warehouse è in pausa o in scala.
 
 ![Servizio sospeso](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
-Se si può osservare che il servizio è in pausa o ridimensionamento, verificare che non è durante la pianificazione di manutenzione. Nel portale per SQL data warehouse *Panoramica*, si noterà la pianificazione di manutenzione selezionati.
+Se il servizio è in pausa o in scala, verificare che non sia durante la pianificazione della manutenzione. Nel portale per la *Panoramica*di SQL data warehouse verrà visualizzata la pianificazione di manutenzione eletta.
 
-![Cenni preliminari sulla pianificazione della manutenzione](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
+![Panoramica della pianificazione di manutenzione](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-In caso contrario, rivolgersi all'amministratore IT per verificare che tali operazioni di manutenzione non è un evento pianificato. Per riprendere il SQL data warehouse, seguire i passaggi illustrati [qui](https://docs.microsoft.com/azure/sql-data-warehouse/pause-and-resume-compute-portal#resume-compute).
+In caso contrario, rivolgersi all'amministratore IT per verificare che la manutenzione non sia un evento pianificato. Per riprendere la SQL Data Warehouse, attenersi alla procedura descritta di [seguito](https://docs.microsoft.com/azure/sql-data-warehouse/pause-and-resume-compute-portal#resume-compute).
 
 ## <a name="check-your-firewall-settings"></a>Controllare le impostazioni del firewall
 
-SQL Data Warehouse comunica attraverso la porta 1433.   Se si sta provando a connettersi da una rete aziendale, il traffico in uscita sulla porta 1433 potrebbe non essere consentito dal firewall della rete. In tal caso, è possibile connettersi al server di Database SQL di Azure, a meno che il reparto IT non apra la porta 1433. Altre informazioni sulle configurazioni di firewall sono reperibili [qui](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#manage-server-level-ip-firewall-rules-using-the-azure-portal).
+SQL Data Warehouse comunica attraverso la porta 1433.   Se si sta provando a connettersi da una rete aziendale, il traffico in uscita sulla porta 1433 potrebbe non essere consentito dal firewall della rete. In tal caso, non è possibile connettersi al server del database SQL di Azure, a meno che il reparto IT non apra la porta 1433. Altre informazioni sulle configurazioni del firewall sono disponibili [qui](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#manage-server-level-ip-firewall-rules-using-the-azure-portal).
 
-## <a name="check-your-vnetservice-endpoint-settings"></a>Controllare le impostazioni di Endpoint servizio/rete virtuale
+## <a name="check-your-vnetservice-endpoint-settings"></a>Controllare le impostazioni dell'endpoint di VNet/servizio
 
-Se si ricevono errori 40914 e 40615, vedere [descrizione dell'errore e la risoluzione qui](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json#errors-40914-and-40615).
+Se vengono ricevuti gli errori 40914 e 40615, vedere la [Descrizione e la risoluzione dell'errore](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json#errors-40914-and-40615).
 
-## <a name="check-for-the-latest-drivers"></a>Cerca i driver più recenti
+## <a name="check-for-the-latest-drivers"></a>Verifica i driver più recenti
 
 ### <a name="software"></a>Software
 
-Selezionare questa opzione per assicurarsi che si sta usando gli strumenti più recenti per connettersi a SQL data warehouse:
+Assicurarsi di usare gli strumenti più recenti per connettersi alla SQL Data Warehouse:
 
 * SSMS
 * Azure Data Studio
@@ -75,7 +75,7 @@ Selezionare questa opzione per assicurarsi che si sta usando gli strumenti più 
 
 ### <a name="drivers"></a>Driver
 
-Verificare che sia in uso le ultime versioni di driver.  Usa una versione precedente dei driver potrebbe causare comportamenti imprevisti quando i driver precedenti potrebbero non supportare le nuove funzionalità.
+Assicurarsi di usare le versioni più recenti del driver.  L'utilizzo di una versione precedente dei driver potrebbe provocare comportamenti imprevisti, poiché i driver meno recenti potrebbero non supportare le nuove funzionalità.
 
 * [ODBC](https://docs.microsoft.com/sql/connect/odbc/download-odbc-driver-for-sql-server)
 * [JDBC](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server)
@@ -84,7 +84,7 @@ Verificare che sia in uso le ultime versioni di driver.  Usa una versione prec
 
 ## <a name="check-your-connection-string"></a>Controllare la stringa di connessione
 
-Selezionare questa opzione per assicurarsi che le stringhe di connessione siano impostate correttamente.  Di seguito sono riportati alcuni esempi.  È possibile trovare informazioni aggiuntive [stringhe di connessione qui](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-connection-strings).
+Verificare che le stringhe di connessione siano impostate correttamente.  Di seguito sono riportati alcuni esempi.  Qui è possibile trovare informazioni aggiuntive sulle [stringhe di connessione](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-connection-strings).
 
 Stringa di connessione ADO.NET
 
@@ -110,13 +110,13 @@ Stringa di connessione JDBC
 jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user={your_user_name};password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
 ```
 
-## <a name="intermittent-connection-issues"></a>Problemi di connessione intermittente
+## <a name="intermittent-connection-issues"></a>Problemi di connessione intermittenti
 
-Verificare se sono stati riscontrati elevato carico sul server con un numero elevato di richieste in coda. Potrebbe essere necessario aumentare le prestazioni del data warehouse per risorse aggiuntive.
+Verificare se si sta verificando un carico eccessivo sul server con un numero elevato di richieste in coda. Potrebbe essere necessario aumentare le dimensioni del data warehouse per le risorse aggiuntive.
 
 ## <a name="common-error-messages"></a>Messaggi di errore comuni
 
-Errori 40914 e 40615, vedere la [descrizione dell'errore e la risoluzione qui](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json#errors-40914-and-40615).
+Errori 40914 e 40615, vedere la [Descrizione e la risoluzione dell'errore](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json#errors-40914-and-40615).
 
-## <a name="still-having-connectivity-issues"></a>I problemi di connettività persistono,
-Creare un [ticket di supporto](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) dunque può supportare il team di progettazione è.
+## <a name="still-having-connectivity-issues"></a>Si verificano ancora problemi di connettività?
+Creare un [ticket di supporto](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) in modo che il team di progettazione possa supportare l'utente.

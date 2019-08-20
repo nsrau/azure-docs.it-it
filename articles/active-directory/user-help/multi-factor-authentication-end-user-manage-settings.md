@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7acfa31434534eb3618b8a279ea6cff543fae076
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 9ed7d812a9c1cba356277a4454234531ce8d41ef
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68949834"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616153"
 ---
 # <a name="manage-your-two-factor-verification-method-settings"></a>Gestire le impostazioni del metodo di verifica a due fattori
 
@@ -135,6 +135,10 @@ A seconda delle impostazioni dell'organizzazione, è possibile che venga visuali
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Suggerimenti per la risoluzione dei problemi e assistenza per [problemi con la verifica a due fattori](multi-factor-authentication-end-user-troubleshoot.md)
+Dopo aver aggiunto o aggiornato le impostazioni di verifica a due fattori, è possibile gestire le password dell'app, effettuare l'accesso o ottenere assistenza per alcuni problemi comuni relativi alla verifica a due fattori.
 
 - [Gestire le password dell'app per la verifica a due fattori](multi-factor-authentication-end-user-app-passwords.md) per le app che non supportano la verifica a due fattori.
+
+- [Accesso con la verifica a due fattori](multi-factor-authentication-end-user-signin.md)
+
+- [Ottenere assistenza con la verifica a due fattori](multi-factor-authentication-end-user-troubleshoot.md)

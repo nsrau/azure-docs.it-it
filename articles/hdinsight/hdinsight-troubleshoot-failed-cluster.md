@@ -1,30 +1,30 @@
 ---
-title: Risolvere i problemi di un processo lento o in errore in un cluster HDInsight - Azure HDInsight
+title: Risolvere i problemi relativi a un processo lento o in errore in un cluster HDInsight-Azure HDInsight
 description: Diagnosticare e risolvere i problemi di un cluster HDInsight lento o in errore.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 03/19/2019
-ms.openlocfilehash: 0f405f542a8408c290704f1707ca10a24b08f861
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: troubleshooting
+ms.date: 08/15/2019
+ms.openlocfilehash: b7afeee554a1faee9507f0a891803024f3bc11e4
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65203617"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69573664"
 ---
-# <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Risolvere i problemi di un processo lento o in errore in un cluster HDInsight
+# <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Risolvere i problemi relativi a un processo lento o in errore in un cluster HDInsight
 
-Se un'applicazione che elabora i dati in un cluster HDInsight è in esecuzione lenta o non riuscite con un codice di errore, sono disponibili diverse opzioni di risoluzione dei problemi. Se l'esecuzione dei processi richiede più tempo del previsto o in generale si osservano tempi di risposta lenti, potrebbero essersi verificati errori upstream dal cluster, ad esempio dai servizi in cui il cluster è in esecuzione. La causa più comune di questi rallentamenti è tuttavia un ridimensionamento non sufficiente. Quando si crea un nuovo cluster HDInsight, selezionare un valore appropriato [dimensioni delle macchine virtuali](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters).
+Se un'applicazione che elabora i dati in un cluster HDInsight viene eseguita lentamente o ha esito negativo con un codice di errore, sono disponibili diverse opzioni per la risoluzione dei problemi. Se l'esecuzione dei processi richiede più tempo del previsto o in generale si osservano tempi di risposta lenti, potrebbero essersi verificati errori upstream dal cluster, ad esempio dai servizi in cui il cluster è in esecuzione. La causa più comune di questi rallentamenti è tuttavia un ridimensionamento non sufficiente. Quando si crea un nuovo cluster HDInsight, selezionare le dimensioni appropriate per le [macchine virtuali](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters).
 
 Per diagnosticare un cluster lento o in errore, raccogliere informazioni su tutti gli aspetti dell'ambiente, ad esempio informazioni sui servizi di Azure associati, sulla configurazione cluster e sull'esecuzione dei processi. Una tecnica diagnostica utile consiste nel provare a riprodurre lo stato di errore in un altro cluster.
 
-* Passaggio 1: Raccogliere dati sul problema.
-* Passaggio 2: Convalidare l'ambiente di cluster HDInsight.
-* Passaggio 3: Consente di visualizzare l'integrità del cluster.
-* Passaggio 4: Esaminare lo stack di ambiente e le versioni.
+* Passaggio 1: Raccogliere i dati sul problema.
+* Passaggio 2: Convalidare l'ambiente cluster HDInsight.
+* Passaggio 3: Visualizzare l'integrità del cluster.
+* Passaggio 4: Esaminare lo stack e le versioni dell'ambiente.
 * Passaggio 5: Esaminare i file di log del cluster.
 * Passaggio 6: Controllare le impostazioni di configurazione.
 * Passaggio 7: Riprodurre l'errore in un cluster diverso.
@@ -56,7 +56,7 @@ Queste informazioni sono disponibili nel portale di Azure:
 
 ![Informazioni del portale di Azure su HDInsight](./media/hdinsight-troubleshoot-failed-cluster/portal.png)
 
-È anche possibile usare [CLI Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
+Puoi anche usare l' [interfaccia](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)della riga di comando di Azure:
 
 ```azurecli
 az hdinsight list --resource-group <ResourceGroup>
@@ -72,9 +72,9 @@ Ogni cluster HDInsight si basa su diversi servizi di Azure e su software open so
 ### <a name="service-details"></a>Dettagli sul servizio
 
 * Controllare le versioni di rilascio della libreria open source.
-* Verificare la presenza [interruzioni del servizio Azure](https://azure.microsoft.com/status/).  
-* Verificare i limiti di utilizzo del servizio di Azure. 
-* Controllare la configurazione di subnet di rete virtuale di Azure.  
+* Verificare le [interruzioni dei servizi di Azure](https://azure.microsoft.com/status/).  
+* Verificare i limiti di utilizzo dei servizi di Azure. 
+* Controllare la configurazione della subnet della rete virtuale di Azure.  
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Visualizzare le impostazioni di configurazione cluster con l'interfaccia utente di Ambari
 
@@ -95,7 +95,7 @@ Se si avvia un cluster di grandi dimensioni o sono stati avviati più cluster si
 
 #### <a name="check-the-release-version"></a>Controllare la versione di rilascio
 
-Controllare la versione del cluster con la versione di HDInsight più recente. Ogni versione di HDInsight include miglioramenti, ad esempio nuove applicazioni, funzionalità, patch e correzioni di bug. Il problema che sta avendo effetti sul cluster potrebbe essere stato risolto nella versione di rilascio più recente. Se possibile, eseguire di nuovo il cluster usando la versione più recente di HDInsight e le librerie associate, ad esempio Apache HBase, Apache Spark e altre.
+Controllare la versione del cluster con la versione di HDInsight più recente. Ogni versione di HDInsight include miglioramenti, ad esempio nuove applicazioni, funzionalità, patch e correzioni di bug. Il problema che sta avendo effetti sul cluster potrebbe essere stato risolto nella versione di rilascio più recente. Se possibile, eseguire nuovamente il cluster usando la versione più recente di HDInsight e le librerie associate, ad esempio Apache HBase, Apache Spark e altri.
 
 #### <a name="restart-your-cluster-services"></a>Riavviare i servizi del cluster
 
@@ -119,7 +119,7 @@ Uno scenario comune per i processi Apache Hive, Apache Pig o Apache Sqoop non ri
 
 #### <a name="badgateway-502-status-code"></a>BadGateway (codice di stato 502)
 
-Si tratta di un messaggio generico dai nodi del gateway ed è il codice di stato di errore più comune. Una possibile causa è l'inattività del servizio WebHCat nel nodo head attivo. Per verificare questa possibilità, usare il comando CURL seguente:
+Questo codice è un messaggio generico dai nodi del gateway e rappresenta i codici di stato degli errori più comuni. Una possibile causa è l'inattività del servizio WebHCat nel nodo head attivo. Per verificare questa possibilità, usare il comando CURL seguente:
 
 ```bash
 curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v1/status?user.name=admin
@@ -250,12 +250,12 @@ Per istruzioni dettagliate sull'ottimizzazione delle prestazioni per la maggior 
 
 ## <a name="step-7-reproduce-the-failure-on-a-different-cluster"></a>Passaggio 7: Riprodurre l'errore in un cluster diverso
 
-Per diagnosticare l'origine di un errore del cluster, avviare un nuovo cluster con la stessa configurazione e quindi inviare di nuovo i passaggi del processo non riuscito uno alla volta. Controllare i risultati di ogni passaggio prima di elaborare quello successivo. Questo metodo offre l'opportunità di correggere ed eseguire nuovamente un singolo passaggio non riuscito. Questo metodo presenta anche il vantaggio di caricare unicamente i dati di input una sola volta.
+Per diagnosticare l'origine di un errore del cluster, avviare un nuovo cluster con la stessa configurazione e quindi inviare di nuovo i passaggi del processo non riuscito uno alla volta. Controllare i risultati di ogni passaggio prima di elaborare quello successivo. Questo metodo offre la possibilità di correggere e rieseguire un singolo passaggio non riuscito. Questo metodo presenta anche il vantaggio di caricare unicamente i dati di input una sola volta.
 
 1. Creare un nuovo cluster di test con la stessa configurazione del cluster con esito negativo.
 2. Inviare il primo passaggio del processo al cluster di test.
 3. Al termine dell'elaborazione del passaggio, cercare gli errori nei file di log del passaggio. Connettersi al nodo master del cluster di test e visualizzare i file di log presenti. I file di log del passaggio vengono visualizzati solo dopo che il passaggio viene eseguito alcune volte, termina o non riesce.
-4. Se il primo passaggio ha avuto esito positivo, eseguire il passaggio successivo. Se si sono verificati errori, esaminare l'errore nei file di log. Se si è trattato di un errore nel codice, apportare la correzione ed eseguire nuovamente il passaggio.
+4. Se il primo passaggio ha avuto esito positivo, eseguire il passaggio successivo. Se si sono verificati errori, esaminare l'errore nei file di log. Se si è verificato un errore nel codice, effettuare la correzione e rieseguire il passaggio.
 5. Continuare fino a quando tutti i passaggi vengono eseguiti senza errori.
 6. Al termine del debug del cluster di test, eliminarlo.
 
@@ -263,6 +263,6 @@ Per diagnosticare l'origine di un errore del cluster, avviare un nuovo cluster c
 
 * [Gestire i cluster HDInsight usando l'interfaccia utente Web di Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Analizzare i log di HDInsight](hdinsight-debug-jobs.md)
-* [Accesso di applicazione di accesso Apache Hadoop YARN in HDInsight basato su Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Accesso all'applicazione Apache Hadoop YARN in HDInsight basato su Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Abilitare i dump dell'heap per i servizi Apache Hadoop in HDInsight basato su Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Problemi noti del cluster Apache Spark in HDInsight](hdinsight-apache-spark-known-issues.md)

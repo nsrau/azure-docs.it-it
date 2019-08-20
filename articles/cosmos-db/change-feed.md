@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 40caea40637c57aedb6315ff6fc032898ff07af7
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 20ca823f60ced4260c2e61ca15ae04e158b7d952
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467937"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615677"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Feed di modifiche in Azure Cosmos DB - panoramica
 
-Il supporto del feed di modifiche in Azure Cosmos DB è in ascolto di eventuali modifiche in un contenitore di Azure Cosmos DB. Restituisce quindi l'elenco di documenti cambiati nell'ordine in cui sono stati modificati. Le modifiche sono persistenti, possono essere elaborate in modo asincrono e incrementale e l'output può essere distribuito a uno o più consumer per l'elaborazione parallela. 
+Il supporto del feed delle modifiche in Azure Cosmos DB funziona ascoltando un contenitore di Azure Cosmos per eventuali modifiche. Restituisce quindi l'elenco di documenti cambiati nell'ordine in cui sono stati modificati. Le modifiche sono persistenti, possono essere elaborate in modo asincrono e incrementale e l'output può essere distribuito a uno o più consumer per l'elaborazione parallela. 
 
 Azure Cosmos DB è particolarmente adatto per le applicazioni IoT, di videogiochi, del settore della vendita al dettaglio e di registrazioni di operazioni. Uno schema progettuale comune in queste applicazioni prevede l'uso delle modifiche ai dati per attivare azioni aggiuntive. Esempi di azioni aggiuntive:
 
@@ -38,7 +38,7 @@ La funzionalità è attualmente supportata dalle API e dagli SDK client Cosmos D
 | .NET | ND | Sì | No | No | Sì | No |
 |Java|ND|Sì|No|No|Sì|No|
 |Python|ND|Yes|No|No|Sì|No|
-|Node/JS|ND|Yes|No|No|Sì|No|
+|Node/JS|ND|Sì|No|No|Sì|No|
 
 ## <a name="change-feed-and-different-operations"></a>Feed di modifiche e operazioni diverse
 
@@ -56,7 +56,7 @@ In un account Azure Cosmos con più aree, se un'area di scrittura effettua il fa
 
 Se una proprietà TTL (Time to Live) è impostata su un elemento su -1, il feed di modifiche verrà mantenuto per sempre. Se i dati non sono eliminati, rimarranno nel feed di modifiche.  
 
-### <a name="change-feed-and-etag-lsn-or-ts"></a>Feed di modifiche e _etag, _lsn or _ts
+### <a name="change-feed-and-_etag-_lsn-or-_ts"></a>Feed di modifiche e _etag, _lsn or _ts
 
 Il formato _etag è interno e non è consigliabile dipendere da esso, perché può cambiare in qualsiasi momento. _ts è un timestamp di creazione o di modifica. Si può usare _ts per confronti cronologici. _lsn è un ID batch aggiunto solo per il feed di modifiche. rappresenta l'ID della transazione. Molti elementi potrebbe avere lo stesso _lsn. ETag su FeedResponse è diverso dall'_etag che viene visualizzato nell'elemento. _etag è un identificatore interno utilizzato per il controllo della concorrenza e indica la versione dell'elemento mentre ETag viene utilizzato per la sequenziazione del feed.
 

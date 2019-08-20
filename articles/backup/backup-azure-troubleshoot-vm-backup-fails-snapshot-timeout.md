@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: f47afd450350226aa944287e756b73f61b15b32d
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 54b83df4c0ad68c9bd6b39d39926657395c48f3e
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952050"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615885"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere l'errore di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -106,7 +106,7 @@ Dopo la registrazione e la pianificazione di una macchina virtuale per il serviz
 **Codice errore**: UserErrorUnsupportedDiskSize <br>
 **Messaggio di errore**: Attualmente backup di Azure non supporta dischi di dimensioni superiori a 4.095 GB <br>
 
-L'operazione di backup potrebbe non riuscire quando si esegue il backup di una macchina virtuale con una dimensione del disco superiore a 4.095 GB. Per iscriversi a una versione di anteprima pubblica limitata del supporto per dischi di backup su disco di Azure con dimensioni maggiori di 4 TB e fino a 30 TB, vedere [una panoramica del backup delle macchine virtuali di Azure](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
+L'operazione di backup potrebbe non riuscire quando si esegue il backup di una macchina virtuale con una dimensione del disco superiore a 4.095 GB. Per iscriversi a una versione di anteprima pubblica limitata del supporto per dischi di backup su disco di Azure con dimensioni maggiori di 4 TB e fino a 30 TB, fare riferimento a questo [articolo](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - Impossibile avviare il backup perché è attualmente in corso un'altra operazione di backup
 

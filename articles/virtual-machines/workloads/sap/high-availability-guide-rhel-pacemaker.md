@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: bffb92e37ccddd43c2a64466282084bb6226c338
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 24e7e67145b789737484fcb594f48127c41eafe9
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570559"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575216"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configurazione di Pacemaker in Red Hat Enterprise Linux in Azure
 
@@ -107,12 +107,16 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    > RHEL 7,6: Fence-Agents-4.2.1 -11. EL7 _ 6.8  
    > RHEL 7,5: Fence-Agents-4.0.11 -86. EL7 _ 5.8  
    > RHEL 7,4: Fence-Agents-4.0.11 -66. EL7 _ 4.12  
-   > Per altre informazioni, vedere la pagina relativa [alla macchina virtuale di Azure in esecuzione come membro del cluster RHEL a disponibilità elevata richiede molto tempo per la schermatura o la schermatura di errore/timeout prima che la macchina virtuale venga arrestata](https://access.redhat.com/solutions/3408711)
+   > Per altre informazioni, vedere la pagina relativa [alla macchina virtuale di Azure in esecuzione come membro del cluster a disponibilità elevata RHEL richiede molto tempo per la schermatura o la schermatura si interrompe o si verifica un timeout prima che la macchina virtuale venga arrestata](https://access.redhat.com/solutions/3408711).
 
    Controllare la versione dell'agente di recinzione di Azure. Se necessario, aggiornarlo in una versione uguale o successiva a quella indicata sopra.
+
    <pre><code># Check the version of the Azure Fence Agent
     sudo yum info fence-agents-azure-arm
    </code></pre>
+
+   > [!IMPORTANT]
+   > Se è necessario aggiornare l'agente di recinzione di Azure e, se si usa un ruolo personalizzato, assicurarsi di aggiornare il ruolo personalizzato in modo da includere l'azione **spento**. Per informazioni dettagliate, vedere [creare un ruolo personalizzato per l'agente di recinzione](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker#1-create-a-custom-role-for-the-fence-agent).  
 
 1. **[A]** Configurare la risoluzione dei nomi host
 

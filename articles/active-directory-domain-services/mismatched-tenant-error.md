@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 676efa155c85ab371ec41c49ad0c15eb2bd5a24a
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 4978f7b782271daff996807172a24103bd8d9860
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234000"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617286"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Risolvere gli errori di directory senza corrispondenza per i domini gestiti esistenti di Azure AD Domain Services
 Si dispone di un dominio gestito di Azure AD Domain Services. Quando si passa al portale di Azure e si visualizza il dominio gestito, compare il messaggio di errore seguente:
@@ -63,5 +63,5 @@ Per risolvere l'errore di directory senza corrispondenza ci sono due possibilit√
 
 
 ## <a name="related-content"></a>Contenuti correlati
-* [Servizi di dominio Azure AD: introduzione](create-instance.md)
+* [Servizi di dominio Azure AD: introduzione](tutorial-create-instance.md)
 * [Guida alla risoluzione dei problemi: Azure AD Domain Services](troubleshoot.md)

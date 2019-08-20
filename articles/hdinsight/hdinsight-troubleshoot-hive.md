@@ -3,24 +3,22 @@ title: Risolvere i problemi di Hive tramite Azure HDInsight
 description: Risposte alle domande frequenti sull'uso di Apache Hive e Azure HDInsight.
 keywords: Azure HDInsight, Hive, domande frequenti, guida alla risoluzione dei problemi, domande comuni
 ms.service: hdinsight
-author: dharmeshkakadia
-ms.author: dkakadia
-ms.topic: conceptual
-ms.date: 11/2/2017
-ms.openlocfilehash: 91e6803e0a1302a33a3bf176ad84d0b0e0c8c5b6
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+author: hrasheed-msft
+ms.author: hrasheed
+ms.topic: troubleshooting
+ms.date: 08/15/2019
+ms.openlocfilehash: ca1e3e11ad5458e8e7f7072b7d3dd561853029fe
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875938"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575705"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Risolvere i problemi di Apache Hive tramite Azure HDInsight
 
 Informazioni sui problemi principali che possono verificarsi quando si usano i payload di Apache Hive in Apache Ambari unitamente alle risoluzioni.
 
-
 ## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>Come si esporta un metastore Hive e lo si importa in un altro cluster?
-
 
 ### <a name="resolution-steps"></a>Procedura per la risoluzione
 
@@ -36,16 +34,15 @@ Informazioni sui problemi principali che possono verificarsi quando si usano i p
 
 3. Copiare il file alltables.sql nel nuovo cluster HDInsight e quindi eseguire il comando seguente:
 
-   ```apache
-   hive -f alltables.sql
-   ```
+    ```apache
+    hive -f alltables.sql
+    ```
 
-Il codice nella procedura di risoluzione presuppone che i percorsi di dati nel nuovo cluster siano uguali ai percorsi di dati nel cluster precedente. Se i percorsi di dati sono diversi, è possibile modificare manualmente il file alltables.sql generato per rispecchiare eventuali modifiche.
+Il codice nella procedura di risoluzione presuppone che i percorsi di dati nel nuovo cluster siano uguali ai percorsi di dati nel cluster precedente. Se i percorsi dei dati sono diversi, è possibile modificare manualmente il `alltables.sql` file generato in modo da riflettere le modifiche.
 
 ### <a name="additional-reading"></a>Altre informazioni
 
 - [Connettersi a un cluster HDInsight usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
-
 
 ## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>Come si individuano i log Hive in un cluster?
 
@@ -56,25 +53,24 @@ Il codice nella procedura di risoluzione presuppone che i percorsi di dati nel n
 2. Per visualizzare i log del client Hive, usare il comando seguente:
 
    ```apache
-   /tmp/<username>/hive.log 
+   /tmp/<username>/hive.log
    ```
 
 3. Per visualizzare i log del metastore Hive, usare il comando seguente:
 
    ```apache
-   /var/log/hive/hivemetastore.log 
+   /var/log/hive/hivemetastore.log
    ```
 
-4. Per visualizzare i log di Hiveserver, usare il comando seguente:
+4. Per visualizzare i log del server hive, usare il comando seguente:
 
    ```apache
-   /var/log/hive/hiveserver2.log 
+   /var/log/hive/hiveserver2.log
    ```
 
 ### <a name="additional-reading"></a>Altre informazioni
 
 - [Connettersi a un cluster HDInsight usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
-
 
 ## <a name="how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster"></a>Come si avvia la shell di Hive con configurazioni specifiche in un cluster?
 
@@ -83,7 +79,7 @@ Il codice nella procedura di risoluzione presuppone che i percorsi di dati nel n
 1. Specificare una coppia chiave-valore di configurazione all'avvio della shell di Hive. Per altre informazioni, vedere [Informazioni aggiuntive](#additional-reading-end).
 
    ```apache
-   hive -hiveconf a=b 
+   hive -hiveconf a=b
    ```
 
 2. Per elencare tutte le configurazioni valide nella shell di Hive, usare il comando seguente:
@@ -95,23 +91,21 @@ Il codice nella procedura di risoluzione presuppone che i percorsi di dati nel n
    Ad esempio, usare il comando seguente per avviare la shell di Hive con la registrazione debug abilitata nella console:
 
    ```apache
-   hive -hiveconf hive.root.logger=ALL,console 
+   hive -hiveconf hive.root.logger=ALL,console
    ```
 
 ### <a name="additional-reading"></a>Altre informazioni
 
 - [Hive configuration properties](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties) (Proprietà di configurazione di Hive)
 
-
 ## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Come si analizzano i dati di un grafo aciclico diretto di Apache Tez in un percorso critico del cluster?
 
-
 ### <a name="resolution-steps"></a>Procedura per la risoluzione
- 
+
 1. Per analizzare i dati di un grafo aciclico diretto di Apache Tez in un grafo critico del cluster, connettersi al cluster HDInsight usando SSH. Per altre informazioni, vedere [Informazioni aggiuntive](#additional-reading-end).
 
 2. Al prompt dei comandi, eseguire il seguente comando:
-   
+
    ```apache
    hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar CriticalPath --saveResults --dagId <DagId> --eventFileName <DagData.zip> 
    ```
@@ -137,31 +131,28 @@ Il codice nella procedura di risoluzione presuppone che i percorsi di dati nel n
     - **TaskConcurrencyAnalyzer**: stampare i dettagli relativi alla concorrenza delle attività in un grafo aciclico diretto
     - **VertexLevelCriticalPathAnalyzer**: trovare il percorso critico a livello di vertice in un grafo aciclico diretto
 
-
 ### <a name="additional-reading"></a>Altre informazioni
 
 - [Connettersi a un cluster HDInsight usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-
 ## <a name="how-do-i-download-tez-dag-data-from-a-cluster"></a>Come si scaricano i dati di un grafo aciclico diretto di Tez da un cluster?
-
 
 #### <a name="resolution-steps"></a>Procedura per la risoluzione
 
 Esistono due modi per raccogliere i dati di un grafo aciclico diretto di Tez:
 
 - Dalla riga di comando:
- 
+
     Connettersi al cluster HDInsight usando SSH. Nel prompt dei comandi eseguire il comando seguente:
 
   ```apache
-  hadoop jar /usr/hdp/current/tez-client/tez-history-parser-*.jar org.apache.tez.history.ATSImportTool -downloadDir . -dagId <DagId> 
+  hadoop jar /usr/hdp/current/tez-client/tez-history-parser-*.jar org.apache.tez.history.ATSImportTool -downloadDir . -dagId <DagId>
   ```
 
 - Usare la visualizzazione Tez di Ambari:
-   
-  1. Passare ad Ambari. 
-  2. Passare alla visualizzazione Tez, disponibile sotto l'icona dei riquadri, nell'angolo superiore destro. 
+
+  1. Passare ad Ambari.
+  2. Passare alla visualizzazione Tez, disponibile sotto l'icona dei riquadri, nell'angolo superiore destro.
   3. Selezionare il grafo aciclico diretto da visualizzare.
   4. Selezionare **Download data** (Scarica dati).
 
@@ -169,10 +160,12 @@ Esistono due modi per raccogliere i dati di un grafo aciclico diretto di Tez:
 
 [Connettersi a un cluster HDInsight usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
+## <a name="next-steps"></a>Passaggi successivi
 
-### <a name="see-also"></a>Vedere anche
-[Risolvere i problemi usando Azure HDInsight](hdinsight-troubleshoot-guide.md)
+Se il problema riscontrato non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ottenere ulteriore assistenza:
 
+- Ottieni risposte dagli esperti di Azure tramite il [supporto della community di Azure](https://azure.microsoft.com/support/community/).
 
+- Connettersi con [@AzureSupport](https://twitter.com/azuresupport) : l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Connessione della community di Azure alle risorse appropriate: risposte, supporto ed esperti.
 
-
+- Se è necessaria ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [come creare una richiesta di supporto di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L'accesso alla gestione delle sottoscrizioni e al supporto per la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).

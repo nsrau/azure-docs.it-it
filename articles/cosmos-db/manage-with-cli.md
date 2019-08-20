@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 9ec049311fc158b13bba45deb2974d7cdd531f90
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: f9d8bf9161343e4b36a3c16209873962b69d8af5
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815050"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615218"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Gestire le risorse di Azure Cosmos DB usando l'interfaccia della riga di comando di Azure
 
@@ -21,7 +21,7 @@ La guida seguente illustra i comandi comuni per automatizzare la gestione degli 
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
-## <a name="create-an-azure-cosmos-db-account"></a>Crea un account Azure Cosmos DB
+## <a name="create-an-azure-cosmos-db-account"></a>Creare un account Azure Cosmos DB
 
 Per creare un account di Azure Cosmos DB con l'API SQL, la coerenza di sessione nelle aree Stati Uniti orientali e Stati Uniti occidentali, eseguire il comando seguente:
 
@@ -41,7 +41,7 @@ az cosmosdb create \
 
 ## <a name="create-a-database"></a>Creazione di un database
 
-Per creare un database di Cosmos DB, eseguire il comando seguente:
+Per creare un database Cosmos, eseguire il comando seguente:
 
 ```azurecli-interactive
 az cosmosdb database create \
@@ -52,7 +52,7 @@ az cosmosdb database create \
 
 ## <a name="create-a-container"></a>Creare un contenitore
 
-Per creare un contenitore Cosmos DB con ur/s di 400 e una chiave di partizione, eseguire il comando seguente:
+Per creare un contenitore Cosmos con ur/s di 400 e una chiave di partizione, eseguire il comando seguente:
 
 ```azurecli-interactive
 # Create a container
@@ -67,7 +67,7 @@ az cosmosdb collection create \
 
 ## <a name="change-the-throughput-of-a-container"></a>Cambiare la velocità effettiva di un contenitore
 
-Per modificare la velocità effettiva di un contenitore Cosmos DB su 1000 ur/s, eseguire il comando seguente:
+Per modificare la velocità effettiva di un contenitore Cosmos su 1000 ur/s, eseguire il comando seguente:
 
 ```azurecli-interactive
 # Update container throughput

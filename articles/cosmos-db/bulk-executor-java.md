@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: f8cb7458deddc95f33fa5e4582ffa7c25c3c64e6
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: ef006e94ee22886f1129c7c9ca31e20503312fe3
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619822"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616923"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Usare la libreria Java dell'executor bulk per eseguire operazioni in blocco sui dati di Azure Cosmos DB
 
-Questa esercitazione fornisce le istruzioni per importare e aggiornare i documenti in Azure Cosmos DB usando la libreria Java BulkExecutor di Azure Cosmos DB. Per informazioni sulla libreria dell'executor bulk e su come consente di sfruttare il livello elevatissimo di velocità effettiva e archiviazione, vedere l'articolo [Panoramica della libreria dell'executor bulk](bulk-executor-overview.md). In questa esercitazione si compilerà un'applicazione Java che genera documenti casuali che verranno importati in blocco in un contenitore di Azure Cosmos DB. Dopo l'importazione alcune proprietà di un documento verranno aggiornate in blocco. 
+Questa esercitazione fornisce le istruzioni per importare e aggiornare i documenti in Azure Cosmos DB usando la libreria Java BulkExecutor di Azure Cosmos DB. Per informazioni sulla libreria dell'executor bulk e su come consente di sfruttare il livello elevatissimo di velocità effettiva e archiviazione, vedere l'articolo [Panoramica della libreria dell'executor bulk](bulk-executor-overview.md). In questa esercitazione viene compilata un'applicazione Java che genera documenti casuali e viene eseguita l'importazione bulk in un contenitore di Azure Cosmos. Dopo l'importazione alcune proprietà di un documento verranno aggiornate in blocco. 
 
 Attualmente, la libreria dell'executor bulk è supportata solo dagli account Azure Cosmos DB API SQL e Gremlin. Questo articolo descrive come usare la libreria Java dell'executor bulk con gli account API SQL. Per informazioni sull'uso della libreria .NET dell'executor bulk con l'API Gremlin, vedere [Eseguire operazioni bulk nell'API Gremlin di Azure Cosmos DB](bulk-executor-graph-dotnet.md).
 
@@ -88,7 +88,7 @@ Il repository clonato contiene due esempi "bulkimport" e "bulkupdate" relativi a
    client.getConnectionPolicy().getRetryOptions().setMaxRetryAttemptsOnThrottledRequests(0);
    ```
 
-4. Chiamare l'API importAll che genera documenti casuali da importare in blocco in un contenitore di Azure Cosmos DB. È possibile specificare le configurazioni da riga di comando all'interno del file CmdLineConfiguration.java.
+4. Chiamare l'API importal che genera documenti casuali per l'importazione bulk in un contenitore di Azure Cosmos. È possibile specificare le configurazioni da riga di comando all'interno del file CmdLineConfiguration.java.
 
    ```java
    BulkImportResponse bulkImportResponse = bulkExecutor.importAll(documents, false, true, null);
@@ -155,7 +155,7 @@ Il repository clonato contiene due esempi "bulkimport" e "bulkupdate" relativi a
     }).collect(Collectors.toCollection(() -> updateItems));
    ```
 
-2. Chiamare l'API updateAll che genera documenti casuali da importare successivamente in blocco in un contenitore di Azure Cosmos DB. È possibile specificare le configurazioni da riga di comando da passare al file CmdLineConfiguration.java.
+2. Chiamare l'API updateAll che genera documenti casuali per l'importazione bulk in un contenitore di Azure Cosmos. È possibile specificare le configurazioni da riga di comando da passare al file CmdLineConfiguration.java.
 
    ```java
    BulkUpdateResponse bulkUpdateResponse = bulkExecutor.updateAll(updateItems, null)
@@ -206,7 +206,7 @@ Per ottenere prestazioni migliori, quando si usa la libreria dell'executor bulk 
    * Impostare la dimensione dell'heap della JVM su un numero sufficientemente elevato per evitare problemi di memoria quando si gestisce un numero elevato di documenti. Dimensione heap suggerita: max (3GB, 3 * sizeof (tutti i documenti passati all'API di importazione in blocco in un unico batch)).  
    * Il tempo di pre-elaborazione previsto consente di ottenere una velocità effettiva maggiore quando si eseguono operazioni in blocco con un numero elevato di documenti. Per importare 10.000.000 documenti, è preferibile eseguire l'importazione in blocco 10 volte di 10 blocchi di documenti, ognuno con dimensione pari a 1.000.000, anziché importare in blocco 100 volte 100 blocchi di documenti, ognuno con dimensione pari a 100.000.  
 
-* È consigliabile creare l'istanza di un singolo oggetto DocumentBulkExecutor per l'intera applicazione all'interno di una singola macchina virtuale corrispondente a uno specifico contenitore di Azure Cosmos DB.  
+* Si consiglia di creare un'istanza di un singolo oggetto DocumentBulkExecutor per l'intera applicazione all'interno di una singola macchina virtuale che corrisponde a un contenitore Azure Cosmos specifico.  
 
 * Dato che l'esecuzione di una singola API con un'operazione in blocco usa un blocco di grandi dimensioni della CPU e dell'I/O di rete del computer client generando internamente più attività, evitare di generare più attività simultanee all'interno del processo dell'applicazione, di cui ognuna esegue chiamate API di operazioni in blocco. Se una singola chiamata API di un'operazione in blocco in esecuzione su una singola macchina virtuale non è in grado di usare la velocità effettiva dell'intero contenitore (se la velocità effettiva del contenitore > 1 milione di UR/s), è preferibile creare macchine virtuali separate per eseguire simultaneamente le chiamate API di operazione in blocco.
 

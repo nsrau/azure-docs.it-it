@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1ee6d9332a2be5ccb22b7571b348e2e0aae78fb2
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 783c4f5b1f5a7f2be748bc7173da2d068e1425f4
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563553"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575641"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition. JSON per l'esperienza di creazione di un'applicazione gestita di Azure
 
@@ -52,13 +52,11 @@ Lo schema della proprietà parameters dipende dalla combinazione delle propriet�
 
 L'inclusione di `$schema` è consigliata ma facoltativa. Se specificato, il valore per la proprietà `version` deve corrispondere alla versione nell'URI di `$schema`.
 
-È possibile usare un editor JSON per creare la definizione dell'interfaccia utente, quindi testarla nella [sandbox della definizione dell'interfaccia utente](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) per visualizzarne l'anteprima. Per altre informazioni sulla sandbox, vedere [testare l'interfaccia del portale per le applicazioni gestite di Azure](test-createuidefinition.md).
+È possibile usare un editor JSON per creare il createUiDefinition, quindi testarlo nella [sandbox createUiDefinition](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) per visualizzarne l'anteprima. Per altre informazioni sulla sandbox, vedere [testare l'interfaccia del portale per le applicazioni gestite di Azure](test-createuidefinition.md).
 
 ## <a name="basics"></a>Generale
 
 Le nozioni di base sono il primo passaggio generato quando il portale di Azure analizza il file. Oltre a visualizzare gli elementi specificati in `basics`, il portale inserisce elementi che consentono agli utenti di scegliere la sottoscrizione, il gruppo di risorse e la posizione della distribuzione. Quando possibile, gli elementi che eseguono query sui parametri a livello di distribuzione, ad esempio il nome di un cluster o le credenziali di amministratore, dovrebbero procedere in questo passaggio.
-
-Se il comportamento di un elemento dipende dalla sottoscrizione, dal gruppo di risorse o dalla posizione dell'utente, tale elemento non può essere usato nelle nozioni di base. Ad esempio, **Microsoft.Compute.SizeSelector** dipende dalla sottoscrizione e dalla posizione dell'utente per la determinazione dell'elenco delle dimensioni disponibili. È quindi possibile usare **Microsoft.Compute.SizeSelector** solo nelle proprietà steps. In genere è possibile usare nelle proprietà basics solo gli elementi disponibili nello spazio dei nomi **Microsoft.Common**. Sebbene alcuni elementi in altri spazi dei nomi (ad esempio **Microsoft. Compute. Credentials**) che non dipendono dal contesto dell'utente siano ancora consentiti.
 
 ## <a name="steps"></a>Passaggi
 

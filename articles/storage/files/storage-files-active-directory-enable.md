@@ -6,12 +6,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: rogarana
-ms.openlocfilehash: 2b5ebc9f35dd207e8e530b7d74acc5517125fbf4
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 23e8c82bad60675338a0482155ed8a92cdad3d3d
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934993"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617673"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-over-smb-for-azure-files"></a>Abilitare l'autenticazione Azure Active Directory Domain Services su SMB per File di Azure
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -46,9 +46,11 @@ Prima di abilitare Azure AD tramite SMB per File di Azure, verificare che siano 
 
 2.  **Abilitare Azure AD Domain Services nel tenant di Azure AD.**
 
-    Per supportare l'autenticazione con Azure AD credenziali, è necessario abilitare Azure AD DS per il tenant di Azure AD. Se non si è l'amministratore del tenant di Azure AD, contattare l'amministratore e seguire le istruzioni dettagliate per [abilitare Azure Active Directory Domain Services tramite il portale di Azure](../../active-directory-domain-services/create-instance.md).
+< < < < < < < HEAD per supportare l'autenticazione con Azure AD credenziali, è necessario abilitare Azure AD Domain Services per il tenant di Azure AD. Se non si è l'amministratore del tenant di Azure AD, contattare l'amministratore e seguire le istruzioni dettagliate per [Abilitare Azure Active Directory Domain Services tramite il portale di Azure](../../active-directory-domain-services/tutorial-create-instance.md).
+= = = = = = = Per supportare l'autenticazione con Azure AD credenziali, è necessario abilitare Azure AD DS per il tenant di Azure AD. Se non si è l'amministratore del tenant di Azure AD, contattare l'amministratore e seguire le istruzioni dettagliate per [abilitare Azure Active Directory Domain Services tramite il portale di Azure](../../active-directory-domain-services/create-instance.md).
+>>>>>>> 5f049740fef320adb172d59f68bd161bdc4318e1
 
-    Il completamento di una distribuzione di Azure AD DS richiede in genere circa 15 minuti. Verificare che lo stato di integrità di Azure AD DS sia **in esecuzione**, con la sincronizzazione dell'hash delle password abilitata, prima di procedere al passaggio successivo.
+    It typically takes about 15 minutes for an Azure AD DS deployment to complete. Verify that the health status of Azure AD DS shows **Running**, with password hash synchronization enabled, before proceeding to the next step.
 
 3.  **Aggiungere un dominio a una macchina virtuale di Azure con Azure AD DS.**
 

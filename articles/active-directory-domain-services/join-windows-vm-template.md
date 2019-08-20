@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 3d16a4240b7a30a483b70b068ab7d91ca7bdcb17
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 599d474b7c45274c87878c622149a86bc93af318
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473031"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69612278"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Aggiungere una macchina virtuale Windows Server a un dominio gestito usando un modello di Resource Manager
 Questo articolo illustra come aggiungere una macchina virtuale Windows Server a un dominio gestito Azure AD Domain Services, usando i modelli Resource Manager.
@@ -31,9 +31,9 @@ Questo articolo illustra come aggiungere una macchina virtuale Windows Server a 
 Per eseguire le attività elencate in questo articolo sono necessari gli elementi seguenti:
 1. Una **sottoscrizione di Azure**valida.
 2. Una **directory di Azure AD** sincronizzata con una directory locale o con una directory solo cloud.
-3. **Servizi di dominio Azure AD** devono essere abilitati per la directory di Azure AD. Se non è stato fatto, eseguire tutte le attività descritte nella [guida introduttiva](create-instance.md).
-4. Assicurarsi di aver configurato gli indirizzi IP del dominio gestito come server DNS per la rete virtuale. Per altre informazioni, vedere la [procedura per aggiornare le impostazioni DNS per la rete virtuale di Azure](active-directory-ds-getting-started-dns.md).
-5. Completare i passaggi necessari per [sincronizzare le password nel dominio gestito di Azure AD Domain Services](active-directory-ds-getting-started-password-sync.md).
+3. **Servizi di dominio Azure AD** devono essere abilitati per la directory di Azure AD. Se non è stato fatto, eseguire tutte le attività descritte nella [guida introduttiva](tutorial-create-instance.md).
+4. Assicurarsi di aver configurato gli indirizzi IP del dominio gestito come server DNS per la rete virtuale. Per altre informazioni, vedere la [procedura per aggiornare le impostazioni DNS per la rete virtuale di Azure](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network).
+5. Completare i passaggi necessari per [sincronizzare le password nel dominio gestito di Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).
 
 
 ## <a name="install-and-configure-required-tools"></a>Installare e configurare gli strumenti richiesti
@@ -43,7 +43,7 @@ Per eseguire i passaggi descritti in questo documento, è possibile usare una de
 
 
 ## <a name="option-1-provision-a-new-windows-server-vm-and-join-it-to-a-managed-domain"></a>Opzione 1: Eseguire il provisioning di una nuova macchina virtuale Windows Server e aggiungerla a un dominio gestito
-**Nome del modello di avvio rapido**: [201-vm-domain-join](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
+**nome del modello di avvio rapido**: [201-vm-domain-join](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
 
 Per distribuire una macchina virtuale Windows Server e aggiungerla a un dominio gestito, seguire questa procedura:
 1. Passare al [modello di avvio rapido](https://azure.microsoft.com/resources/templates/201-vm-domain-join/).
@@ -74,7 +74,7 @@ Dopo avere completato la distribuzione, al dominio gestito viene aggiunta la mac
 
 
 ## <a name="option-2-join-an-existing-windows-server-vm-to-a-managed-domain"></a>Opzione 2: aggiungere una VM Windows Server esistente a un dominio gestito
-**Modello di avvio rapido**: [201-vm-domain-join-existing](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
+**modello di avvio rapido**: [201-vm-domain-join-existing](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
 
 Per aggiungere una macchina virtuale Windows Server esistente a un dominio gestito, seguire questa procedura:
 1. Passare al [modello di avvio rapido](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
@@ -101,6 +101,6 @@ Al termine della distribuzione le macchine virtuali Windows specificate vengono 
 
 ## <a name="related-content"></a>Contenuto correlato
 * [Panoramica di Azure PowerShell](/powershell/azure/overview)
-* [Modello di avvio rapido di Azure - Aggiunta al dominio di una nuova macchina virtuale](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
-* [Modello di avvio rapido di Azure - Aggiunta al dominio di macchine virtuali esistenti](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
+* [Modello di avvio rapido di Azure: aggiunta a un dominio di una nuova macchina virtuale](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
+* [Modello di avvio rapido di Azure: aggiunta a un dominio di VM esistenti](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
 * [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)

@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/15/2019
+ms.date: 08/16/2019
 ms.author: diberry
-ms.openlocfilehash: a3e1853e587f2f1632641cbb896eba59f8dc9455
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 5175dee24542c716b3d087412864ae7e6f056d18
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515755"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615972"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Origini dati per i contenuti QnA Maker
 
 QnA Maker estrae automaticamente coppie di domande e risposte da contenuto semistrutturato come domande frequenti, manuali di prodotto, linee guida, documenti di supporto e criteri archiviati come pagine Web, file PDF o file di documento di Microsoft Word. I contenuti possono anche essere aggiunti alla Knowledge Base da file di contenuto QnA strutturati. 
+
+## <a name="data-types"></a>Tipi di dati
 
 La tabella seguente riepiloga i tipi di contenuto e di formato di file supportati da QnA Maker.
 
@@ -32,11 +34,21 @@ La tabella seguente riepiloga i tipi di contenuto e di formato di file supportat
 
 ## <a name="data-source-locations"></a>Percorsi di origine dati
 
-La maggior parte dei percorsi di origine dati deve fornire URL o file pubblici, che non richiedono l'autenticazione. 
+I percorsi delle origini dati sono **URL o file pubblici**, che non richiedono l'autenticazione. 
 
-I [percorsi delle origini dati di SharePoint](../How-to/add-sharepoint-datasources.md) possono fornire file autenticati. Le risorse di SharePoint devono essere file, non pagine Web. 
+Se è necessaria l'autenticazione per l'origine dati, considerare i metodi seguenti per ottenere i dati in QnA Maker:
 
-Se si dispone di un file o un URL autenticato, un'opzione alternativa consiste nel scaricare il file dal sito autenticato nel computer locale, quindi aggiungere il file dal computer locale alla Knowledge base. 
+* [Scaricare manualmente il file](#download-file-from-authenticated-data-source-location) e importarlo in QnA Maker
+* Importa file per percorso di [SharePoint](#import-file-from-authenticated-sharepoint) autenticato 
+
+### <a name="download-file-from-authenticated-data-source-location"></a>Scarica file dal percorso dell'origine dati autenticato
+
+Se si dispone di un file autenticato (non in un percorso di SharePoint autenticato) o di un URL, un'opzione alternativa consiste nel scaricare il file dal sito autenticato al computer locale, quindi aggiungere il file dal computer locale alla Knowledge base.
+
+### <a name="import-file-from-authenticated-sharepoint"></a>Importa il file da SharePoint autenticato 
+
+I [percorsi delle origini dati di SharePoint](../How-to/add-sharepoint-datasources.md) possono fornire **file**autenticati. Le risorse di SharePoint devono essere file, non pagine Web. Se l'URL termina con un'estensione Web, ad esempio **. ASPX**, non verrà importato in QnA Maker da SharePoint.
+
 
 ## <a name="faq-urls"></a>Indirizzo Web di domande frequenti
 

@@ -14,18 +14,19 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 8dca94f0200f6bd41dfdc199b41bf69981a960da
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 22cf2be8eaed47a9440c6798acfb4383bd84c916
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562706"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69611709"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hub eventi di Azure - Ripristino di emergenza geografico 
 
 In caso di tempo di inattività di interi data center o aree di Azure (se non vengono usate [zone di disponibilità](../availability-zones/az-overview.md)), è essenziale che l'elaborazione dei dati continui in un'area o in un data center diverso. Il *ripristino di emergenza geografico* e la *replica geografica* sono quindi funzionalità importanti per qualsiasi azienda. Il servizio Hub eventi di Azure supporta il ripristino di emergenza geografico e la replica geografica a livello di spazio dei nomi. 
 
-La funzionalità di ripristino di emergenza geografico è disponibile a livello globale per gli hub eventi standard e lo SKU dedicato. Si noti che è possibile associare gli spazi dei nomi solo a una coppia geografica nello stesso livello dello SKU. Se, ad esempio, si dispone di uno spazio dei nomi in un cluster disponibile solo nello SKU dedicato, è possibile associarlo solo a uno spazio dei nomi in un altro cluster. 
+> [!NOTE]
+> La funzionalità di ripristino di emergenza geografico è disponibile solo per gli [SKU standard e dedicati](https://azure.microsoft.com/pricing/details/event-hubs/).  
 
 ## <a name="outages-and-disasters"></a>Emergenze e interruzioni
 
@@ -37,7 +38,9 @@ La funzionalità di ripristino di emergenza geografico di Hub eventi di Azure è
 
 ## <a name="basic-concepts-and-terms"></a>Concetti e terminologia di base
 
-La funzionalità di ripristino di emergenza implementa il ripristino di emergenza dei metadati e si basa sugli spazi dei nomi primari e secondari di ripristino di emergenza. Si noti che la funzionalità di ripristino di emergenza geografico è disponibile solo per gli [SKU standard e dedicati](https://azure.microsoft.com/pricing/details/event-hubs/) . Non è necessario apportare modifiche alla stringa di connessione, perché la connessione viene effettuata tramite un alias.
+La funzionalità di ripristino di emergenza implementa il ripristino di emergenza dei metadati e si basa sugli spazi dei nomi primari e secondari di ripristino di emergenza. 
+
+La funzionalità di ripristino di emergenza geografico è disponibile solo per gli [SKU standard e dedicati](https://azure.microsoft.com/pricing/details/event-hubs/) . Non è necessario apportare modifiche alla stringa di connessione, perché la connessione viene effettuata tramite un alias.
 
 In questo articolo viene usata la terminologia seguente:
 
@@ -48,6 +51,19 @@ In questo articolo viene usata la terminologia seguente:
 -  *Metadati*: entità come hub eventi e gruppi di consumer e le relative proprietà del servizio associate allo spazio dei nomi. Si noti che solo le entità e le relative impostazioni vengono replicate automaticamente. I messaggi e gli eventi non vengono replicati. 
 
 -  *Failover*: processo di attivazione dello spazio dei nomi secondario.
+
+## <a name="supported-namespace-pairs"></a>Coppie di spazi dei nomi supportate
+Sono supportate le seguenti combinazioni di spazi dei nomi primari e secondari:  
+
+| Spazio dei nomi primario | Spazio dei nomi secondario | Supportato | 
+| ----------------- | -------------------- | ---------- |
+| Standard | Standard | Sì | 
+| Standard | Dedicato | Yes | 
+| Dedicato | Dedicato | Sì | 
+| Dedicato | Standard | No | 
+
+> [!NOTE]
+> Non è possibile associare gli spazi dei nomi presenti nello stesso cluster dedicato. È possibile associare spazi dei nomi che si trovano in cluster distinti. 
 
 ## <a name="setup-and-failover-flow"></a>Configurazione e flusso del failover
 

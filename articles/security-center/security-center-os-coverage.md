@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 9a11af7e2875c9af5cf4b08d459bc67b55dbdcf3
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 21a42b2986b52282fbab914fa702d8c4a323ed35
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515545"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69611943"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Funzionalità e piattaforme supportate dal Centro sicurezza di Azure
 
@@ -30,8 +30,7 @@ Il monitoraggio dello stato della sicurezza e le raccomandazioni sono disponibil
 >
 
 ## <a name="platforms-that-support-the-data-collection-agent"></a>Piattaforme che supportano l'agente di raccolta dati 
-
-In questa sezione vengono elencate le piattaforme in cui può essere eseguito un agente del Centro sicurezza di Azure e da cui l'agente può raccogliere dati.
+Questa sezione elenca le piattaforme in cui è possibile eseguire l'agente di Log Analytics, usato dal centro sicurezza di Azure.
 
 ### <a name="supported-platforms-for-windows-computers-and-vms"></a>Piattaforme supportate per i computer e le macchine virtuali Windows
 Sono supportati i sistemi operativi Windows seguenti:
@@ -84,21 +83,21 @@ Sono supportate anche le macchine virtuali in esecuzione in un servizio cloud. V
 ||**Macchina virtuale**|**Set di scalabilità della macchina virtuale**||**Macchina virtuale**|**Set di scalabilità della macchina virtuale**|
 |Avvisi di rilevamento minacce VMBA|✔|✔|✔|✔ (nelle versioni supportate)|✔ (nelle versioni supportate)|✔|Indicazioni (gratuite) rilevamento minacce (standard)|
 |Avvisi di rilevamento delle minacce di rete|✔|✔|X|✔|✔|x|Standard|
-|Integrazione con Windows Defender ATP|✔ (nelle versioni supportate)|✔ (nelle versioni supportate)|✔|X|X|X|Standard|
+|Integrazione con Windows Defender ATP|✔ (nelle versioni supportate)|✔ (nelle versioni supportate)|✔|X|X|x|Standard|
 |Patch mancanti|✔|✔|✔|✔|✔|✔|Gratuito|
 |Configurazioni della sicurezza|✔|✔|✔|✔|✔|✔|Gratuito|
 |Valutazione di Endpoint Protection|✔|✔|✔|X|X|X|Gratuito|
-|Accesso JIT alle VM|✔|x|X|✔|X|X|Standard|
-|Controlli applicazione adattivi|✔|X|✔|✔|X|✔|Standard|
+|Accesso JIT alle VM|✔|X|X|✔|x|X|Standard|
+|Controlli applicazione adattivi|✔|X|✔|✔|x|✔|Standard|
 |FIM|✔|✔|✔|✔|✔|✔|Standard|
-|Valutazione della crittografia del disco|✔|✔|X|✔|✔|X|Gratuito|
+|Valutazione della crittografia del disco|✔|✔|x|✔|✔|X|Gratuito|
 |Distribuzione di terze parti|✔|X|X|✔|x|X|Gratuito|
 |Valutazione NSG|✔|✔|X|✔|✔|X|Gratuito|
-|Rilevamento delle minacce senza file|✔|✔|✔|x|X|X|Standard|
+|Rilevamento delle minacce senza file|✔|✔|✔|X|X|X|Standard|
 |Mappa di rete|✔|✔|X|✔|✔|X|Standard|
-|Controlli adattivi della rete|✔|✔|X|✔|✔|X|Standard|
+|Controlli adattivi della rete|✔|✔|X|✔|✔|x|Standard|
 |Dashboard di conformità normativa & report|✔|✔|✔|✔|✔|✔|Standard|
-|Raccomandazioni e rilevamento delle minacce nei contenitori IaaS ospitati da Docker|X|X|x|✔|✔|✔|Standard|
+|Raccomandazioni e rilevamento delle minacce nei contenitori IaaS ospitati da Docker|x|X|x|✔|✔|✔|Standard|
 
 ### <a name="supported-endpoint-protection-solutions"></a>Soluzioni di protezione endpoint supportate
 
@@ -110,10 +109,10 @@ Per informazioni sul momento in cui vengono generate le indicazioni per ognuna d
 
 | Endpoint Protection| Piattaforme | Installazione del Centro sicurezza | Individuazione del Centro sicurezza |
 |------|------|-----|-----|
-| Windows Defender (Microsoft Antimalware)| Windows Server 2016| No, predefinito nel sistema operativo| Yes |
-| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (vedere la nota seguente) | Tramite estensione | Yes |
+| Windows Defender (Microsoft Antimalware)| Windows Server 2016| No, predefinito nel sistema operativo| Sì |
+| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (vedere la nota seguente) | Tramite estensione | Sì |
 | Trend Micro – Tutte le versioni | Famiglia Windows Server  | No | Sì |
-| Symantec v12.1.1100+| Famiglia Windows Server  | No | Yes |
+| Symantec v12.1.1100+| Famiglia Windows Server  | No | Sì |
 | McAfee v10+ | Famiglia Windows Server  | No | Sì |
 | McAfee v10+ | Famiglia di server Linux  | No | Sì **\*** |
 | Sophos V9 +| Famiglia di server Linux  | No | Sì **\***  |
@@ -133,7 +132,7 @@ Per informazioni sul momento in cui vengono generate le indicazioni per ognuna d
 |MySQL*|✔| ✔|
 |Account di archiviazione BLOB di Azure|✔| ✔|
 |Servizi app|✔| ✔|
-|Servizi cloud|✔| x|
+|Servizi cloud|✔| X|
 |Reti virtuali|✔| ND|
 |Subnet|✔| ND|
 |Schede di interfaccia di rete|✔| ND|

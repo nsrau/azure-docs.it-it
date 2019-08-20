@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: acb001417b85b8ff45b2617e148e8b1961f3cbfa
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: c5ec80e81381423bdfdee07b1c020343d14ed559
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772981"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617059"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Servizi di dominio Azure Active Directory
 Questo articolo offre suggerimenti per la risoluzione dei problemi che possono verificarsi quando si configura o si amministra Servizi di dominio di Azure Active Directory (AD).
@@ -32,7 +32,7 @@ Seguire la procedura di risoluzione dei problemi corrispondente al messaggio di 
 
 | **Messaggio di errore** | **Risoluzione** |
 | --- |:--- |
-| *The name contoso100.com is already in use on this network. Specify a name that is not in use.* (Il nome contoso100.com è già in uso nella rete. Specificare un nome non in uso). |[Conflitto di nomi di dominio nella rete virtuale](troubleshoot.md#domain-name-conflict) |
+| *Il nome contoso.com è già in uso in questa rete. Specify a name that is not in use.* (Il nome contoso100.com è già in uso nella rete. Specificare un nome non in uso). |[Conflitto di nomi di dominio nella rete virtuale](troubleshoot.md#domain-name-conflict) |
 | *Domain Services could not be enabled in this Azure AD tenant. The service does not have adequate permissions to the application called 'Azure AD Domain Services Sync'. Delete the application called 'Azure AD Domain Services Sync' and then try to enable Domain Services for your Azure AD tenant.* (Non è possibile abilitare Domain Services in questo tenant di Azure AD. Il servizio non dispone di autorizzazioni adeguate per l'applicazione denominata "Azure AD Domain Services Sync". Eliminare l'applicazione denominata "Azure AD Domain Services Sync" e quindi tentare di abilitare Domain Services per il tenant di Azure AD). |[Domain Services non dispone di autorizzazioni adeguate per l'applicazione Azure AD Domain Services Sync](troubleshoot.md#inadequate-permissions) |
 | *Domain Services could not be enabled in this Azure AD tenant. The Domain Services application in your Azure AD tenant does not have the required permissions to enable Domain Services. Delete the application with the application identifier d87dcbc6-a371-462e-88e3-28ad15ec4e64 and then try to enable Domain Services for your Azure AD tenant.* (Non è possibile abilitare Domain Services in questo tenant di Azure AD. L'applicazione Domain Services presente nel tenant di Azure AD non dispone delle autorizzazioni necessarie per abilitare Domain Services. Eliminare l'applicazione con l'identificatore di applicazione d87dcbc6-a371-462e-88e3-28ad15ec4e64 e quindi tentare di abilitare Domain Services per il tenant di Azure AD). |[L'applicazione Servizi di dominio non è configurata in modo appropriato per il tenant](troubleshoot.md#invalid-configuration) |
 | *Domain Services could not be enabled in this Azure AD tenant. The Microsoft Azure AD application is disabled in your Azure AD tenant. Enable the application with the application identifier 00000002-0000-0000-c000-000000000000 and then try to enable Domain Services for your Azure AD tenant.* (Non è possibile abilitare Domain Services in questo tenant di Azure AD. L'applicazione Microsoft Azure AD è disabilitata nel tenant di Azure AD. Abilitare l'applicazione con l'identificatore di applicazione 00000002-0000-0000-c000-000000000000 e quindi tentare di abilitare Domain Services per il tenant di Azure AD). |[L'applicazione Microsoft Graph è disabilitata nel tenant di Azure AD](troubleshoot.md#microsoft-graph-disabled) |
@@ -40,7 +40,7 @@ Seguire la procedura di risoluzione dei problemi corrispondente al messaggio di 
 ### <a name="domain-name-conflict"></a>Conflitto di nomi di dominio
 **Messaggio di errore:**
 
-*The name contoso100.com is already in use on this network. Specify a name that is not in use.* (Il nome contoso100.com è già in uso nella rete. Specificare un nome non in uso).
+*Il nome contoso.com è già in uso in questa rete. Specify a name that is not in use.* (Il nome contoso100.com è già in uso nella rete. Specificare un nome non in uso).
 
 **Correzione:**
 
@@ -135,12 +135,12 @@ Se uno o più utenti nel tenant di Azure AD non sono in grado di accedere al dom
 >
 >
 
-* Assicurarsi di avere [abilitato la sincronizzazione delle password](active-directory-ds-getting-started-password-sync.md) secondo i passaggi descritti nella Guida introduttiva.
+* Assicurarsi di avere [abilitato la sincronizzazione delle password](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) secondo i passaggi descritti nella Guida introduttiva.
 * **Account esterni:** Assicurarsi che l'account utente interessato non sia un account esterno nel tenant di Azure AD. Esempi di account esterni sono gli account Microsoft (ad esempio "joe@live.com") o gli account utente di una directory esterna di Azure AD. Servizi di dominio di Azure AD non dispone di credenziali per questo tipo di account utente, pertanto questi utenti non sono in grado di accedere al dominio gestito.
 * **Account sincronizzati:** se gli account utente interessati sono sincronizzati da una directory locale, verificare quanto segue:
 
   * È stata eseguita la distribuzione o l'aggiornamento all' [ultima versione consigliata di Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
-  * Azure AD Connect è stato configurato per [eseguire una sincronizzazione completa](active-directory-ds-getting-started-password-sync.md).
+  * Azure AD Connect è stato configurato per [eseguire una sincronizzazione completa](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).
   * A seconda delle dimensioni della directory, potrebbero essere necessari alcuni minuti prima che gli account utente e gli hash delle credenziali siano disponibili in Servizi di dominio di Azure AD. Assicurarsi di attendere un periodo sufficiente prima di ritentare l'autenticazione.
   * Se il problema persiste dopo la verifica dei passaggi precedenti, provare a riavviare il servizio Microsoft Azure AD Sync. Dal computer di sincronizzazione avviare un prompt dei comandi ed eseguire i comandi seguenti:
 

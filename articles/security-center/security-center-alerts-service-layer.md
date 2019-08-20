@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/02/2019
+ms.date: 8/18/2019
 ms.author: v-mohabe
-ms.openlocfilehash: f795822d76def4a6695a4746fba7e8566041cb2b
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
-ms.translationtype: MT
+ms.openlocfilehash: 18579f716f80cdf79b703dc78fe520c675e82c51
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295545"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575625"
 ---
 # <a name="threat-detection-for-azure-service-layer-in-azure-security-center"></a>Rilevamento delle minacce per il livello di servizio di Azure nel centro sicurezza di Azure
 
@@ -47,6 +47,7 @@ L'analisi a livello di rete del Centro sicurezza si basa su [dati IPFIX](https:/
 |**Attività di rete SSH in ingresso sospetta**|L'analisi del traffico di rete campionata ha rilevato una comunicazione SSH in ingresso anomala a una risorsa nella distribuzione. Un numero relativamente elevato di connessioni in ingresso alla risorsa viene considerato anomalo per questo ambiente. Questa attività può indicare un tentativo di forza bruta dell'interfaccia SSH.
 |**Attività di rete RDP in ingresso sospetta da più origini**|L'analisi del traffico di rete campionata ha rilevato una comunicazione RDP in ingresso anomala da più origini a una risorsa nella distribuzione. Diversi indirizzi IP univoci che si connettono alla risorsa sono considerati anomali per questo ambiente. Questa attività può indicare un tentativo di forza bruta dell'interfaccia RDP da più host (botnet).|
 |**Attività di rete RDP in ingresso sospetta**|L'analisi del traffico di rete campionata ha rilevato una comunicazione RDP in ingresso anomala a una risorsa nella distribuzione. Un numero relativamente elevato di connessioni in ingresso alla risorsa viene considerato anomalo per questo ambiente. Questa attività può indicare un tentativo di forza bruta dell'interfaccia SSH.|
+|**È stata rilevata la comunicazione di rete con un indirizzo dannoso**|L'analisi del traffico di rete campionata ha rilevato la comunicazione originata da una risorsa nella distribuzione con un possibile server di comando e controllo (C & C). Si noti che in seguito a questo tipo di attività l'IP può venire contrassegnato come dannoso dalle entità esterne.|
 
 Per comprendere in che modo il Centro sicurezza può usare i segnali correlati alla rete per applicare la protezione dalle minacce, vedere [rilevamento di DNS euristici nel centro sicurezza di Azure](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
 ## Livello di gestione di Azure (Azure Resource Manager) (anteprima)<a name ="management-layer"></a>
@@ -58,7 +59,7 @@ Il Centro sicurezza offre un livello di protezione aggiuntivo sfruttando Azure R
 
 > [!div class="mx-tableFixed"]
 
-|Avviso|DESCRIZIONE|
+|Avviso|Descrizione|
 |---|---|
 |**Esecuzione del Toolkit di microesplosioni**|Nell'ambiente è stata rilevata un'esecuzione nota del Toolkit di esplorazione dell'ambiente cloud. Lo strumento "microrompi" ( https://github.com/NetSPI/MicroBurst) vedere può essere usato da un utente malintenzionato (o tester di penetrazione) per eseguire il mapping delle risorse delle sottoscrizioni, identificare le configurazioni non sicure e perdere informazioni riservate.|
 |**Esecuzione di azzurrite Toolkit**|Nell'ambiente è stata rilevata un'esecuzione nota del Toolkit di esplorazione dell'ambiente cloud. Lo strumento "azzurrite" (vedere https://github.com/mwrlabs/Azurite) può essere usato da un utente malintenzionato (o tester di penetrazione) per eseguire il mapping delle risorse delle sottoscrizioni e identificare le configurazioni non protette.|

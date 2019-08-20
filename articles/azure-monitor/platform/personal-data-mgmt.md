@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 29c91f2dcff04a2d21973e79c5719c3f4d84181b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a443931b8340552251fbcbe534f009eeeaf953aa
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827384"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617297"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Materiale sussidiario per i dati personali archiviati in Log Analytics e Application Insights
 
@@ -98,6 +98,11 @@ Per entrambe le richieste di visualizzazione ed esportazione dei dati, utilizzar
 Nell'ambito della gestione dei dati privati è stato reso disponibile un percorso dell'API di *ripulitura*. Questo percorso deve essere usato solo in casi limitati a causa dei rischi associati, del potenziale impatto sulle prestazioni e della possibilità di un'asimmetria di tutte le aggregazioni, le misure e altri aspetti dei dati di Log Analytics. Vedere la sezione [Strategia per la gestione dei dati personali](#strategy-for-personal-data-handling) per approcci alternativi per la gestione dei dati privati.
 
 La ripulitura è un'operazione con privilegi elevati che nessuna app o nessun utente in Azure (incluso anche il proprietario della risorsa) avrà l'autorizzazione di eseguire senza disporre esplicitamente di un ruolo in Azure Resource Manager. Questo ruolo è _Responsabile ripulitura dati_ e deve essere delegato con attenzione a causa della potenziale perdita di dati. 
+
+> [!IMPORTANT]
+> Per gestire le risorse di sistema, le richieste di ripulitura sono limitate a 50 richieste all'ora. È necessario eseguire il batch dell'esecuzione delle richieste di ripulitura inviando un unico comando il cui predicato includa tutte le identità utente che richiedono la ripulitura. Usare l' [operatore in](/azure/kusto/query/inoperator) per specificare più identità. È consigliabile eseguire la query prima di eseguire la richiesta di ripulitura per verificare che i risultati siano previsti. 
+
+
 
 Dopo che è stato assegnato il ruolo di Azure Resource Manager, sono disponibili due nuovi percorsi dell'API: 
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 78a6c5262cd6668712beac1e041fa4f25c05a724
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: c1f3d1ec7bb9e9f449cea3f9aa36ca8f80348c6e
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234073"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69612831"
 ---
 # <a name="join-a-coreos-linux-virtual-machine-to-a-managed-domain"></a>Aggiungere una macchina virtuale CoreOS Linux a un dominio gestito
 Questo articolo illustra come aggiungere una macchina virtuale CoreOS Linux a un dominio gestito di Azure AD Domain Services.
@@ -31,9 +31,9 @@ Questo articolo illustra come aggiungere una macchina virtuale CoreOS Linux a un
 Per eseguire le attività elencate in questo articolo sono necessari gli elementi seguenti:
 1. Una **sottoscrizione di Azure**valida.
 2. Una **directory di Azure AD** sincronizzata con una directory locale o con una directory solo cloud.
-3. **Servizi di dominio Azure AD** devono essere abilitati per la directory di Azure AD. Se non è stato fatto, eseguire tutte le attività descritte nella [guida introduttiva](create-instance.md).
-4. Assicurarsi di aver configurato gli indirizzi IP del dominio gestito come server DNS per la rete virtuale. Per altre informazioni, vedere la [procedura per aggiornare le impostazioni DNS per la rete virtuale di Azure](active-directory-ds-getting-started-dns.md).
-5. Completare i passaggi necessari per [sincronizzare le password nel dominio gestito di Azure AD Domain Services](active-directory-ds-getting-started-password-sync.md).
+3. **Servizi di dominio Azure AD** devono essere abilitati per la directory di Azure AD. Se non è stato fatto, eseguire tutte le attività descritte nella [guida introduttiva](tutorial-create-instance.md).
+4. Assicurarsi di aver configurato gli indirizzi IP del dominio gestito come server DNS per la rete virtuale. Per altre informazioni, vedere la [procedura per aggiornare le impostazioni DNS per la rete virtuale di Azure](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network).
+5. Completare i passaggi necessari per [sincronizzare le password nel dominio gestito di Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).
 
 
 ## <a name="provision-a-coreos-linux-virtual-machine"></a>Eseguire il provisioning di una macchina virtuale CoreOS Linux
@@ -53,7 +53,7 @@ Questo articolo usa l'immagine della macchina virtuale **CoreOS Linux (Stable)**
 ## <a name="connect-remotely-to-the-newly-provisioned-linux-virtual-machine"></a>Connettersi in remoto alla macchina virtuale Linux di cui è stato appena effettuato il provisioning
 È stato eseguito il provisioning della macchina virtuale CoreOS in Azure. L'attività successiva consiste nel connettersi in remoto alla macchina virtuale usando l'account amministratore locale creato durante il provisioning della macchina virtuale.
 
-Seguire le istruzioni nell'articolo [Come accedere a una macchina virtuale che esegue Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Seguire le istruzioni riportate nell'articolo [come accedere a una macchina virtuale che esegue Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Configurare il file con estensione hosts nella macchina virtuale Linux
@@ -66,10 +66,10 @@ sudo vi /etc/hosts
 Nel file con estensione hosts immettere il valore seguente:
 
 ```console
-127.0.0.1 contoso-coreos.contoso100.com contoso-coreos
+127.0.0.1 contoso-coreos.contoso.com contoso-coreos
 ```
 
-In questo caso, "contoso100.com" è il nome di dominio DNS del dominio gestito. "contoso-coreos" è il nome host della macchina virtuale CoreOS da aggiungere al dominio gestito.
+Qui, "contoso.com" è il nome di dominio DNS del dominio gestito. "contoso-coreos" è il nome host della macchina virtuale CoreOS da aggiungere al dominio gestito.
 
 
 ## <a name="configure-the-sssd-service-on-the-linux-virtual-machine"></a>Configurare il servizio SSSD nella macchina virtuale Linux
@@ -79,15 +79,15 @@ Successivamente, aggiornare il file di configurazione SSSD in ("/etc/sssd/sssd.c
 [sssd]
 config_file_version = 2
 services = nss, pam
-domains = CONTOSO100.COM
+domains = contoso.COM
 
-[domain/CONTOSO100.COM]
+[domain/contoso.COM]
 id_provider = ad
 auth_provider = ad
 chpass_provider = ad
 
-ldap_uri = ldap://contoso100.com
-ldap_search_base = dc=contoso100,dc=com
+ldap_uri = ldap://contoso.com
+ldap_search_base = dc=contoso,dc=com
 ldap_schema = rfc2307bis
 ldap_sasl_mech = GSSAPI
 ldap_user_object_class = user
@@ -98,18 +98,18 @@ ldap_account_expire_policy = ad
 ldap_force_upper_case_realm = true
 fallback_homedir = /home/%d/%u
 
-krb5_server = contoso100.com
-krb5_realm = CONTOSO100.COM
+krb5_server = contoso.com
+krb5_realm = contoso.COM
 ```
 
-Sostituire "CONTOSO100.COM" con il nome di dominio DNS del dominio gestito. Assicurarsi di specificare il nome di dominio con la maiuscola nel file di configurazione.
+Sostituire "contoso". COM "con il nome di dominio DNS del dominio gestito. Assicurarsi di specificare il nome di dominio con la maiuscola nel file di configurazione.
 
 
 ## <a name="join-the-linux-virtual-machine-to-the-managed-domain"></a>Aggiungere la macchina virtuale Linux al dominio gestito
 Ora che i pacchetti sono installati nella macchina virtuale Linux, l'attività successiva consiste nell'aggiungere la macchina virtuale al dominio gestito.
 
 ```console
-sudo adcli join -D CONTOSO100.COM -U bob@CONTOSO100.COM -K /etc/krb5.keytab -H contoso-coreos.contoso100.com -N coreos
+sudo adcli join -D contoso.COM -U bob@contoso.COM -K /etc/krb5.keytab -H contoso-coreos.contoso.com -N coreos
 ```
 
 
@@ -129,10 +129,10 @@ sudo systemctl start sssd.service
 ## <a name="verify-domain-join"></a>Verificare l'aggiunta a un dominio
 Verificare se la macchina è stata aggiunta correttamente al dominio gestito. Connettersi alla macchina virtuale CoreOS aggiunta al dominio tramite una connessione SSH diversa. Usare un account utente di dominio e quindi verificare se l'account utente viene risolto correttamente.
 
-1. Nel terminale SSH digitare il comando seguente per connettere la macchina virtuale CoreOS aggiunta al dominio con SSH. Usare un account di dominio appartenente al dominio gestito, in questo caso bob@CONTOSO100.COM.
+1. Nel terminale SSH digitare il comando seguente per connettere la macchina virtuale CoreOS aggiunta al dominio con SSH. Usare un account di dominio appartenente al dominio gestito, in questo caso bob@contoso.COM.
     
     ```console
-    ssh -l bob@CONTOSO100.COM contoso-coreos.contoso100.com
+    ssh -l bob@contoso.COM contoso-coreos.contoso.com
     ```
 
 2. Nel terminale SSH digitare il comando seguente per verificare se la home directory dell'utente è stata inizializzata correttamente.
@@ -149,9 +149,9 @@ Verificare se la macchina è stata aggiunta correttamente al dominio gestito. Co
 
 
 ## <a name="troubleshooting-domain-join"></a>Risoluzione dei problemi di aggiunta al dominio
-Vedere l'articolo [Risoluzione dei problemi dell'aggiunta a un dominio](join-windows-vm.md#troubleshoot-joining-a-domain) .
+Vedere l'articolo [Risoluzione dei problemi dell'aggiunta a un dominio](join-windows-vm.md#troubleshoot-domain-join-issues) .
 
 ## <a name="related-content"></a>Contenuto correlato
-* [Servizi di dominio Azure AD: introduzione](create-instance.md)
+* [Servizi di dominio Azure AD: introduzione](tutorial-create-instance.md)
 * [Aggiungere una macchina virtuale Windows Server a un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Creare chiavi SSH in Linux e Mac per le VM Linux in Azure](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [Come accedere a una macchina virtuale che esegue Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
