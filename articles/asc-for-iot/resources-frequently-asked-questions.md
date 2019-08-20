@@ -1,6 +1,6 @@
 ---
-title: Domande frequenti per Centro sicurezza di Azure per l'anteprima di IoT | Microsoft Docs
-description: Trovare le risposte a più domande frequenti sul Centro sicurezza di Azure per servizi e le funzionalità di IoT.
+title: Domande frequenti sul centro sicurezza di Azure per le cose | Microsoft Docs
+description: Trovare le risposte alle domande più frequenti sul centro sicurezza di Azure per le funzionalità e il servizio Internet.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,143 +13,139 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 4e04e21d55722b8cb90b277b34b5bffab343c575
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 0262be687b74ec1b97cb508f6da1b95cd5d7a533
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616584"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596933"
 ---
-# <a name="azure-security-center-for-iot-frequently-asked-questions"></a>Domande frequenti sul Centro sicurezza di Azure per IoT  
+# <a name="azure-security-center-for-iot-frequently-asked-questions"></a>Centro sicurezza di Azure per le domande frequenti su Internet  
 
-> [!IMPORTANT]
-> Centro sicurezza di Azure per IoT è attualmente in versione di anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Questo articolo fornisce un elenco di domande frequenti e risposte sul centro sicurezza di Azure. 
 
-Questo articolo fornisce un elenco di domande frequenti e risposte su Azure Security Center (Centro sicurezza di AZURE) per IoT. 
+## <a name="does-azure-provide-support-for-iot-security"></a>Azure fornisce il supporto per la sicurezza dell'it?
 
-## <a name="does-azure-provide-support-for-iot-security"></a>Azure offre supporto per la sicurezza IoT?
+Azure offre una visualizzazione integrata per il monitoraggio e la gestione della sicurezza di Internet delle cose come parte della soluzione di sicurezza complessiva tramite il Centro sicurezza di Azure. Se si è uno sviluppatore di applicazioni, è possibile usare la vista hub Internet per gestire la sicurezza delle applicazioni.
 
-Azure offre una visualizzazione integrata per monitorare e gestire la sicurezza IoT come parte della soluzione di sicurezza globale tramite il Centro sicurezza di Azure. Se sei uno sviluppatore di applicazioni, è possibile usare visualizzazione IoT Hub per gestire la sicurezza delle applicazioni IoT.
+## <a name="what-is-azures-unique-value-proposition-for-iot-security"></a>Che cos'è la proposta di valore univoco di Azure per la sicurezza dell'it?
 
-## <a name="what-is-azures-unique-value-proposition-for-iot-security"></a>Che cos'è una proposta di valore univoco di Azure per la sicurezza IoT?
+Il Centro sicurezza di Azure per le cose consente alle aziende di estendere la propria vista di sicurezza informatica esistente alla soluzione intera. Azure fornisce una panoramica end-to-end della soluzione aziendale, che consente di intraprendere le azioni e le decisioni relative all'azienda in base alla postura di sicurezza aziendale e ai dati raccolti. Grazie alla sicurezza combinata, i Azure IoT Edge e il Centro sicurezza di Azure ti permettono di creare la soluzione che desideri con la sicurezza che ti serve.
 
-Centro sicurezza di AZURE per IoT consente alle aziende di estendere la visualizzazione di sicurezza informatica esistente alla propria soluzione IoT completa. Azure offre una vista end-to-end della soluzione di business, consentendo di intraprendere azioni aziendali e prendere decisioni basate sul comportamento di sicurezza dell'organizzazione e i dati raccolti. Combinati security con Azure IoT, Azure IoT Edge, Azure Sphere, Azure Central e Centro sicurezza di Azure consentono di creare la soluzione desiderata con la sicurezza che ti servono.
+## <a name="who-is-azure-security-center-for-iot-made-for"></a>Chi è il Centro sicurezza di Azure per le cose? 
 
-## <a name="who-is-asc-for-iot-made-for"></a>Chi è il Centro sicurezza di AZURE per IoT? 
+Il Centro sicurezza di Azure per gli Internet è integrato nell'ambito della sicurezza dell'hub Azure e fornisce la gestione per le operazioni di sicurezza quotidiane della soluzione aziendale. Il Centro sicurezza di Azure per Internet delle cose è integrato anche nelle funzionalità del Centro sicurezza di Azure e offre una visualizzazione integrata per il monitoraggio e la gestione della sicurezza delle cose come parte della soluzione di sicurezza complessiva.
 
-Centro sicurezza di AZURE per IoT è integrato all'interno di sicurezza dell'Hub IoT di Azure e offre operazioni di sicurezza di gestione per la soluzione di business di giorno in giorno. Centro sicurezza di AZURE per IoT è anche integrato in funzionalità del Centro sicurezza di Azure e fornire una visualizzazione integrata per monitorare e gestire la sicurezza IoT come parte della soluzione sicurezza globale.
+## <a name="how-does-azure-security-center-for-iot-compare-to-the-competition"></a>Quali sono le differenze tra il Centro sicurezza di Azure e il concorso?
 
-## <a name="how-does-asc-for-iot-compare-to-the-competition"></a>Centro sicurezza di AZURE per IoT differenze tra la concorrenza?
+Sebbene altre soluzioni forniscano una serie di funzionalità che consentono ai clienti di creare soluzioni personalizzate, il Centro sicurezza di Azure per le cose offre una soluzione di sicurezza end-to-end univoca che offre una panoramica completa della sicurezza di tutti gli elementi correlati di Azure risorse. Azure consente la rapida distribuzione e l'integrazione completa con i moduli gemelli dell'hub Internet per semplificare l'integrazione con gli strumenti di gestione dei dispositivi esistenti.
 
-Mentre altre soluzioni offrono un set di funzionalità che consentono ai clienti di creare le proprie soluzioni, Centro sicurezza di AZURE per IoT offre una soluzione univoca di sicurezza IoT end-to-end che fornisce una visualizzazione più ampia attraverso la sicurezza di tutte le risorse di Azure correlate. Azure consente di accelerare la distribuzione e integrazione completa con moduli gemelli dell'IoT Hub per semplificare l'integrazione con strumenti di gestione di dispositivi esistenti.
+## <a name="do-i-have-to-be-an-azure-security-center-customer-to-use-this-service"></a>È necessario essere un cliente del Centro sicurezza di Azure per usare questo servizio?
 
-## <a name="do-i-have-to-be-an-azure-security-center-asc-customer"></a>È necessario essere un cliente Azure Security Center (Centro sicurezza di AZURE)?
+No, ma è consigliabile. Senza il Centro sicurezza di Azure, il Centro sicurezza di Azure per gli utenti riceve dati di risorse connesse limitati e fornisce un'analisi limitata della potenziale superficie di attacco, delle minacce e dei potenziali attacchi. 
 
-No, ma è consigliabile. Senza Centro sicurezza di AZURE, Centro sicurezza di AZURE per IoT riceve i dati di risorsa connessa limitata e fornisce un'analisi limitata del potenziale superficie di attacco, le minacce e attacchi potenziali. 
+## <a name="do-i-have-to-be-an-azure-iot-customer"></a>Devo essere un cliente di Azure.
 
-## <a name="do-i-have-to-be-an-azure-iot-customer"></a>È necessario essere un cliente di Azure IoT?
-
-Sì. Centro sicurezza di AZURE per IoT si basa su infrastruttura e connettività di Azure IoT.
+Sì. Il Centro sicurezza di Azure per gli Internet è basato sulla connettività e sull'infrastruttura di Azure.
 
 ## <a name="do-i-have-to-install-an-agent"></a>È necessario installare un agente?
 
-Installazione dell'agente nei tuoi dispositivi IoT non è obbligatorio per consentire di ASC Microsoft per IoT. È possibile scegliere tra tre opzioni seguenti, ottenere le funzionalità di monitoraggio e gestione in base alla selezione di diversi livelli di sicurezza:
+L'installazione dell'agente nei dispositivi Internet non è obbligatoria per abilitare il Centro sicurezza Microsoft Azure. È possibile scegliere tra le tre opzioni seguenti, ottenendo diversi livelli di funzionalità di monitoraggio e gestione della sicurezza in base alla selezione:
 
-1. Installare il Centro sicurezza di AZURE per l'agente di sicurezza IoT con o senza modifiche. Questa opzione offre il massimo livello di sicurezza avanzata dettagliate nel comportamento del dispositivo e l'accesso.
+1. Installare il Centro sicurezza di Azure per l'agente sicurezza Internet con o senza modifiche. Questa opzione offre il massimo livello di informazioni dettagliate sulla sicurezza nel comportamento e nell'accesso dei dispositivi.
 
-2. Creare il proprio agente e implementare Microsoft ASC per lo schema di messaggio di sicurezza IoT. Questa opzione consente l'uso di Microsoft ASC per strumenti di analisi IoT nella parte superiore dell'agente di sicurezza del dispositivo.
+2. Creare un agente personalizzato e implementare Microsoft Azure Centro sicurezza per lo schema dei messaggi di sicurezza Internet. Questa opzione consente l'utilizzo del Centro sicurezza Microsoft Azure per gli strumenti di analisi delle cose in primo piano nell'agente di sicurezza del dispositivo.
 
-3. Nessuna installazione dell'agente protezione nei dispositivi IoT. Questa opzione Abilita l'IoT Hub comunicazione monitoraggio, con funzionalità di monitoraggio e gestione di una riduzione della protezione. 
+3. L'installazione dell'agente di sicurezza non è disponibile nei dispositivi Internet. Questa opzione Abilita il monitoraggio della comunicazione dell'hub Internet, con funzionalità di gestione e monitoraggio della sicurezza ridotte. 
 
-## <a name="what-does-the-asc-for-iot-agent-do"></a>Che cosa fa il Centro sicurezza di AZURE per l'agente di IoT?
+## <a name="what-does-the-azure-security-center-for-iot-agent-do"></a>Che cosa fa il Centro sicurezza di Azure per l'agente Internet?
 
-Centro sicurezza di AZURE per l'agente di IoT offre la copertura delle minacce a livello di dispositivo per la configurazione del dispositivo, il comportamento e accesso (mediante l'analisi della configurazione), processo e connettività. Il Centro sicurezza di AZURE per l'agente di sicurezza IoT non esegue l'analisi dei dati aziendali o dell'attività.
+Il Centro sicurezza di Azure per l'agente Internet offre la copertura delle minacce a livello di dispositivo per la configurazione del dispositivo, il comportamento e l'accesso (analizzando la configurazione), elabora & la connettività. Il Centro sicurezza di Azure per l'agente sicurezza Internet non analizza i dati o le attività aziendali.
 
-## <a name="where-i-can-get-the-asc-for-iot-security-agent"></a>Dove posso ottenere il Centro sicurezza di AZURE per l'agente di sicurezza IoT?
+## <a name="where-can-i-get-the-azure-security-center-for-iot-security-agent"></a>Dove si può ottenere il Centro sicurezza di Azure per l'agente sicurezza?
 
-Il Centro sicurezza di AZURE per l'agente di sicurezza IoT è open source e disponibili su GitHub nelle versioni di Windows e Linux a 64 bit e a 32 bit: https://github.com/Azure/Azure-Security-IoT-Preview
+Il Centro sicurezza di Azure per l'agente di sicurezza Internet è open source ed è disponibile su GitHub in versioni di Windows e Linux a 32 https://github.com/Azure/Azure-Security-IoT bit e a 64 bit:.
 
-## <a name="where-does-the-asc-for-iot-agent-get-installed"></a>In cui viene installato il Centro sicurezza di AZURE per l'agente di IoT? 
+## <a name="where-does-the-azure-security-center-for-iot-agent-get-installed"></a>Dove viene installato il Centro sicurezza di Azure per l'agente Internet? 
 
-Informazioni dettagliate installazione e l'agente di distribuzione sono disponibili in GitHub: https://github.com/Azure/Azure-Security-IoT-Preview
+Informazioni dettagliate sull'installazione e sulla distribuzione degli agenti sono disponibili in https://github.com/Azure/Azure-Security-IoT GitHub:.
 
 ## <a name="what-are-the-dependencies-and-prerequisites-of-the-agent"></a>Quali sono le dipendenze e i prerequisiti dell'agente?
 
-Centro sicurezza di AZURE per IoT supporta un'ampia gamma di piattaforme. Visualizzare [piattaforme per dispositivi supportate](how-to-deploy-agent.md) per verificare il supporto per i dispositivi specifici. 
+Il Centro sicurezza di Azure per Internet delle cose supporta un'ampia gamma di piattaforme. Vedere [piattaforme](how-to-deploy-agent.md) per dispositivi supportate per verificare il supporto per i dispositivi specifici. 
 
 ## <a name="which-data-is-collected-by-the-agent"></a>Quali dati vengono raccolti dall'agente?
 
-La connettività, accesso, la configurazione del firewall, elenco dei processi e linea di base del sistema operativo vengono raccolti dall'agente.
+Connettività, accesso, configurazione del firewall, elenco dei processi & baseline del sistema operativo vengono raccolti dall'agente.
 
-## <a name="how-much-data-will-the-agent-generate"></a>La quantità di dati genererà l'agente?
+## <a name="how-much-data-will-the-agent-generate"></a>Quanti dati vengono generati dall'agente?
 
-Generazione di dati dell'agente dipende dai dispositivi, applicazioni, tipo di connettività e configurazione dell'agente del cliente. A causa di una variabilità elevata tra i dispositivi e le soluzioni IoT, è consigliabile prima di distribuire l'agente in un laboratorio o impostazione test per osservare, imparare e impostare la configurazione specifica adatta alle proprie esigenze, durante la misurazione della quantità di dati generati. Dopo l'avvio del servizio, il Centro sicurezza di AZURE per l'agente di IoT fornisce le indicazioni operative per l'ottimizzazione della velocità effettiva dell'agente che consentono il processo di configurazione e personalizzazione.
+La generazione dei dati dell'agente è determinata dal dispositivo, dall'applicazione, dal tipo di connettività e dalla configurazione dell'agente del cliente. A causa dell'elevata variabilità tra dispositivi e soluzioni Internet, è consigliabile distribuire prima l'agente in un Lab o in un'impostazione di test per osservare, apprendere e impostare la configurazione specifica che soddisfi le proprie esigenze, misurando al tempo stesso la quantità di dati generati. Dopo l'avvio del servizio, il Centro sicurezza di Azure per l'agente Internet fornisce consigli operativi per ottimizzare la velocità effettiva dell'agente per semplificare il processo di configurazione e personalizzazione.
 
-## <a name="how-can-i-control-my-billing"></a>Come è possibile controllare cambierà la fatturazione?
+## <a name="how-can-i-control-my-billing"></a>Come è possibile controllare la fatturazione?
 
-Centro sicurezza di AZURE per IoT fornisce agente configurabili le analisi, i buffer dei dati e la possibilità di creare avvisi personalizzati per aumentare o ridurre la quantità di dati generati dall'agente.
+Il Centro sicurezza di Azure per l'it offre analisi degli agenti configurabili, buffer di dati e la possibilità di creare avvisi personalizzati che aumentano o riducono la quantità di dati generati dall'agente.
 
-## <a name="do-agent-messages-use-up-quota-from-iot-hub"></a>I messaggi dell'agente usano quota dall'IoT Hub?
+## <a name="do-agent-messages-use-up-quota-from-iot-hub"></a>I messaggi di Agent usano la quota dall'hub Internet?
 
-Sì. I dati dell'agente trasmessi viene conteggiati nella quota di IoT Hub. 
+Sì. I dati trasmessi dall'agente vengono conteggiati nella quota dell'hub Internet delle cose. 
 
-## <a name="what-next-ive-installed-an-agent-and-dont-see-any-activities-or-logs"></a>Come procedere? È stato installato un agente e non viene visualizzato qualsiasi attività o dei log
+## <a name="what-next-ive-installed-an-agent-and-dont-see-any-activities-or-logs"></a>Operazioni successive Ho installato un agente senza visualizzare attività o registri...
 
-1. Controllare il [tipo agente di si adatta alla piattaforma del sistema operativo designata del dispositivo](how-to-deploy-agent.md)
+1. Verificare che il [tipo di agente corrisponda alla piattaforma del sistema operativo designata del dispositivo](how-to-deploy-agent.md)
 
-1. Verificare i [agent è in esecuzione nel dispositivo](how-to-agent-configuration.md).
+1. Verificare [che l'agente sia in esecuzione nel dispositivo](how-to-agent-configuration.md).
 
-2. Controllare la [servizio è stato abilitato correttamente](quickstart-onboard-iot-hub.md) al **sicurezza** nell'IoT Hub. 
+2. Verificare che il [servizio sia stato abilitato correttamente](quickstart-onboard-iot-hub.md) per la **sicurezza** nell'hub Internet. 
 
-3. Verificare che il dispositivo si trovi [configurate in IoT Hub con il Centro sicurezza di AZURE per il modulo di IoT](quickstart-create-security-twin.md).  
+3. Verificare che il dispositivo sia [configurato nell'hub Internet con il Centro sicurezza di Azure per il modulo](quickstart-create-security-twin.md).  
 
-Se l'attività o i log non sono ancora disponibili, contattare il Centro sicurezza di AZURE per partner IoT per ulteriore assistenza.
+Se le attività o i log non sono ancora disponibili, contattare il Centro sicurezza di Azure per il partner Internet per ottenere assistenza aggiuntiva.
 
-## <a name="what-happens-when-the-internet-connection-stops-working"></a>Cosa accade quando si interrompe la connessione a internet?
+## <a name="what-happens-when-the-internet-connection-stops-working"></a>Cosa accade quando la connessione Internet smette di funzionare?
 
-L'agente continua a eseguire e archiviare i dati, purché il dispositivo è in esecuzione. I dati vengono archiviati nella cache del messaggio di sicurezza in base alla configurazione delle dimensioni. Quando il dispositivo verrà nuovamente la connettività, i messaggi di sicurezza è possibile riprendere l'invio. 
+L'agente continua a eseguire e a archiviare i dati fino a quando il dispositivo è in esecuzione. I dati vengono archiviati nella cache dei messaggi di sicurezza in base alla configurazione delle dimensioni. Quando il dispositivo recupera la connettività, i messaggi di sicurezza riprende l'invio. 
 
-## <a name="if-the-device-is-restarted-will-the-security-agent-self-recover"></a>Se il dispositivo viene riavviato, l'agente protezione verrà ripristinato automatico?
+## <a name="if-the-device-is-restarted-will-the-security-agent-self-recover"></a>Se il dispositivo viene riavviato, il ripristino automatico dell'agente di sicurezza?
 
-L'agente protezione è progettato per eseguire di nuovo automaticamente con ogni riavvio del dispositivo.
+L'agente di sicurezza è progettato per eseguire di nuovo automaticamente il riavvio del dispositivo.
 
-## <a name="can-the-agent-affect-the-performance-of-the-device-or-other-installed-software"></a>L'agente può influire sulle prestazioni del dispositivo o altro software installato?
+## <a name="can-the-agent-affect-the-performance-of-the-device-or-other-installed-software"></a>L'agente può influire sulle prestazioni del dispositivo o di un altro software installato?
 
-L'agente utilizza le risorse del computer come qualsiasi altro applicazione/processo e non dovrebbe interferire con attività del dispositivo normale. Utilizzo delle risorse nel dispositivo che viene eseguito l'agente è accoppiato con il programma di installazione e la configurazione. È consigliabile testare la configurazione dell'agente in un ambiente indipendente, insieme all'interoperabilità con altre applicazioni IoT e funzionalità, prima di provare a distribuire in un ambiente di produzione.
+L'agente utilizza le risorse del computer come qualsiasi altra applicazione/processo e non deve compromettere le normali attività del dispositivo. L'utilizzo delle risorse nel dispositivo in cui viene eseguito l'agente viene abbinato alla configurazione e alla configurazione. Prima di tentare la distribuzione in un ambiente di produzione, è consigliabile testare la configurazione dell'agente in un ambiente indipendente, insieme all'interoperabilità con le altre applicazioni e funzionalità.
 
-## <a name="im-making-some-maintenance-on-the-device-can-i-turn-off-the-agent"></a>Alcuni manutenzione rendo nel dispositivo. È possibile disattivare l'agente?
+## <a name="im-making-some-maintenance-on-the-device-can-i-turn-off-the-agent"></a>Sto effettuando alcune operazioni di manutenzione sul dispositivo. È possibile disattivare l'agente?
 
 L'agente non può essere disattivato.
 
-## <a name="is-there-a-way-to-test-if-the-agent-is-working-correctly"></a>È disponibile un modo per verificare se l'agente funziona correttamente? 
+## <a name="is-there-a-way-to-test-if-the-agent-is-working-correctly"></a>Esiste un modo per verificare se l'agente funziona correttamente? 
 
-Se l'agente si arresta la comunicazione o non riesce a inviare i messaggi di sicurezza, un **dispositivo è invisibile all'utente** avviso viene generato.
+Se l'agente interrompe la comunicazione o non riesce a inviare messaggi di sicurezza, viene generato un avviso **invisibile al dispositivo** .
 
-## <a name="can-i-create-my-own-alerts"></a>È possibile creare avvisi personalizzati?
+## <a name="can-i-create-my-own-alerts"></a>È possibile creare avvisi personali?
 
-Sì. È possibile impostare un avviso personalizzato nel set predefinito di comportamenti, ad esempio l'indirizzo IP e porte aperte. Visualizzare [creare avvisi personalizzati](quickstart-create-custom-alerts.md) per altre informazioni su avvisi personalizzati e come renderli. 
+Sì. È possibile impostare un avviso personalizzato per un set di comportamenti predefinito, ad esempio l'indirizzo IP e le porte aperte. Per ulteriori informazioni sugli avvisi personalizzati e su come crearli, vedere [creare avvisi personalizzati](quickstart-create-custom-alerts.md) . 
 
-## <a name="where-can-i-see-logs-can-i-customize-logs"></a>Dove posso visualizzare i log? È possibile personalizzare i log?
+## <a name="where-can-i-see-logs-can-i-customize-logs"></a>Dove è possibile visualizzare I log? È possibile personalizzare I log?
 
-- Visualizzare gli avvisi e indicazioni utilizzando l'area di lavoro di Log Analitica connessa. Configurare le dimensioni di archiviazione e la durata dell'area di lavoro.
+- Visualizzare gli avvisi e le raccomandazioni usando l'area di lavoro Log Analytics connessa. Configurare la durata e le dimensioni di archiviazione nell'area di lavoro.
 
-- Dati non elaborati dall'agente protezione possono essere archiviati anche nell'account di Log Analitica. Prendere in considerazione le dimensioni, la durata, i requisiti di archiviazione e i costi associati prima di modificare la configurazione di questa opzione. 
+- I dati non elaborati dall'agente di sicurezza possono anche essere archiviati nell'account Log Analytics. Prima di modificare la configurazione di questa opzione, prendere in considerazione le dimensioni, la durata, i requisiti di archiviazione e i costi associati. 
 
-## <a name="why-should-i-add-asc-for-iot-to-the-module-identity-what-is-it-used-for"></a>Il motivo per cui è necessario aggiungere Centro sicurezza di AZURE per IoT all'identità del modulo? Scopo
+## <a name="why-should-i-add-azure-security-center-for-iot-to-the-module-identity-what-is-it-used-for"></a>Perché è necessario aggiungere il Centro sicurezza di Azure per l'identità del modulo? Scopo
 
-Il Centro sicurezza di AZURE per il modulo di IoT viene usato per la gestione e configurazione dell'agente.
+Il Centro sicurezza di Azure per il modulo Internet è usato per la configurazione e la gestione degli agenti.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su come iniziare a usare Centro sicurezza di AZURE per IoT, vedere gli articoli seguenti:
+Per altre informazioni su come iniziare a usare il Centro sicurezza di Azure, vedere gli articoli seguenti:
 
 
-- Leggere il Centro sicurezza di AZURE per IoT [Panoramica](overview.md)
-- Verificare il [prerequisiti del servizio](service-prerequisites.md)
-- Altre informazioni su come [iniziare](getting-started.md)
-- Comprendere [Centro sicurezza di AZURE per gli avvisi di sicurezza IoT](concept-security-alerts.md)
+- Leggi il Centro sicurezza di Azure per [informazioni generali](overview.md)
+- Verificare i [prerequisiti del servizio](service-prerequisites.md)
+- Altre informazioni su [come iniziare](getting-started.md)
+- Informazioni sul [Centro sicurezza di Azure per gli avvisi di sicurezza](concept-security-alerts.md)
 

@@ -650,6 +650,8 @@
           href: troubleshoot-changefeed-functions.md
         - name: Ora di avvio del processore dei feed di modifiche
           href: how-to-configure-change-feed-start-time.md
+        - name: Uso dello strumento di stima dei feed di modifiche
+          href: how-to-use-change-feed-estimator.md
     - name: Analisi predefinita con Apache Spark
       items:
         - name: Connettore Azure Databricks Spark

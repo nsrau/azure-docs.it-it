@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/29/2019
 ms.author: cynthn
-ms.openlocfilehash: 7eda675ed7694e1ad7de90f89282bd7a3cc50ea1
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 0c060e2ab94c0a57d4d4dc897702e115cfabd9a0
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68700418"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827283"
 ---
 # <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Anteprima: Distribuire macchine virtuali in host dedicati usando l'interfaccia della riga di comando di Azure
  
@@ -53,7 +53,7 @@ In entrambi i casi, è necessario specificare il numero di domini di errore per 
 
 È anche possibile decidere di usare le zone di disponibilità e i domini di errore. 
 
-In questo esempio si userà [AZ VM host Group create](/cli/azure/vm#az-vm-host-group-create) per creare un gruppo host usando sia le zone di disponibilità che i domini di errore. 
+In questo esempio si userà [AZ VM host Group create](/cli/azure/vm/host/group#az-vm-host-group-create) per creare un gruppo host usando sia le zone di disponibilità che i domini di errore. 
 
 ```bash
 az vm host group create \
@@ -65,7 +65,7 @@ az vm host group create \
 
 ### <a name="other-examples"></a>Altri esempi
 
-È anche possibile usare [AZ VM host Group create](/cli/azure/vm#az-vm-host-group-create) per creare un gruppo host nella zona di disponibilità 1 (e nessun dominio di errore).
+È anche possibile usare [AZ VM host Group create](/cli/azure/vm/host/group#az-vm-host-group-create) per creare un gruppo host nella zona di disponibilità 1 (e nessun dominio di errore).
 
 ```bash
 az vm host group create \
@@ -75,7 +75,7 @@ az vm host group create \
    --platform-fault-domain-count 1 
 ```
  
-Il codice seguente usa [AZ VM host Group create](/cli/azure/vm#az-vm-host-group-create) per creare un gruppo host usando solo i domini di errore (da usare nelle aree in cui le zone di disponibilità non sono supportate). 
+Il codice seguente usa [AZ VM host Group create](/cli/azure/vm/host/group#az-vm-host-group-create) per creare un gruppo host usando solo i domini di errore (da usare nelle aree in cui le zone di disponibilità non sono supportate). 
 
 ```bash
 az vm host group create \
@@ -91,7 +91,7 @@ A questo punto è possibile creare un host dedicato nel gruppo host. Oltre a un 
 
 Per altre informazioni sugli SKU e i prezzi degli host, vedere [prezzi di host dedicati di Azure](https://aka.ms/ADHPricing).
 
-Usare [AZ VM host create](/cli/azure/vm#az-vm-host-create) per creare un host. Se si imposta un numero di domini di errore per il gruppo host, verrà richiesto di specificare il dominio di errore per l'host.  
+Usare [AZ VM host create](/cli/azure/vm/host#az-vm-host-create) per creare un host. Se si imposta un numero di domini di errore per il gruppo host, verrà richiesto di specificare il dominio di errore per l'host.  
 
 ```bash
 az vm host create \
@@ -126,7 +126,7 @@ az vm create \
 
 ## <a name="check-the-status-of-the-host"></a>Verificare lo stato dell'host
 
-È possibile controllare lo stato di integrità dell'host e il numero di macchine virtuali che è ancora possibile distribuire nell'host usando [AZ VM host Get-instance-View](/cli/azure/vm#az-vm-host-get-instance-view).
+È possibile controllare lo stato di integrità dell'host e il numero di macchine virtuali che è ancora possibile distribuire nell'host usando [AZ VM host Get-instance-View](/cli/azure/vm/host#az-vm-host-get-instance-view).
 
 ```bash
 az vm host get-instance-view \
@@ -260,13 +260,13 @@ Viene addebitato il costo per gli host dedicati anche quando nessuna macchina vi
 az vm delete -n myVM -g myDHResourceGroup
 ```
 
-Dopo l'eliminazione delle macchine virtuali, è possibile eliminare l'host usando [AZ VM host Delete](/cli/azure/vm#az-vm-host-delete).
+Dopo l'eliminazione delle macchine virtuali, è possibile eliminare l'host usando [AZ VM host Delete](/cli/azure/vm/host#az-vm-host-delete).
 
 ```bash
 az vm host delete -g myDHResourceGroup --host-group myHostGroup --name myHost 
 ```
  
-Una volta eliminati tutti gli host, è possibile eliminare il gruppo host usando [AZ VM host Group Delete](/cli/azure/vm#az-vm-host-group-delete).  
+Una volta eliminati tutti gli host, è possibile eliminare il gruppo host usando [AZ VM host Group Delete](/cli/azure/vm/host/group#az-vm-host-group-delete).  
  
 ```bash
 az vm host group delete -g myDHResourceGroup --host-group myHostGroup  
@@ -284,4 +284,4 @@ az group delete -n myDHResourceGroup
 
 - È anche possibile creare host dedicati usando il [portale di Azure](dedicated-hosts-portal.md).
 
-- È [disponibile un](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)modello di esempio, che usa sia le zone che i domini di errore per la resilienza massima in un'area.
+- È disponibile un [modello di esempio](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), che usa sia le zone che i domini di errore per la resilienza massima in un'area.

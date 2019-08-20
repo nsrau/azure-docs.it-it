@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c34d8de3dfd06540dd50542ab19da0c1d9b1567
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 86895ab315784c49c2b240badb249dce57ae958a
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60242258"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622567"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Accesso Single Sign-On facile di Azure Active Directory
 
@@ -53,8 +53,8 @@ L'accesso SSO facile può essere combinato con i metodi di accesso che usano la 
 
 - Il nome utente usato per l'accesso può essere il nome utente predefinito locale (`userPrincipalName`) o un altro attributo configurato in Azure AD Connect (`Alternate ID`). Sono supportati entrambi i casi d'uso, perché l'accesso Single Sign-On facile usa l'attestazione `securityIdentifier` nel ticket Kerberos per cercare l'oggetto utente corrispondente in Azure AD.
 - L'accesso SSO facile è una funzionalità opportunistica. Se per qualche motivo ha esito negativo, l'esperienza di accesso dell'utente ritorna al comportamento normale, ovvero l'utente deve immettere la propria password nella pagina di accesso.
-- Se un'applicazione (ad esempio, `https://myapps.microsoft.com/contoso.com`) inoltra una `domain_hint` (OpenID Connect) o `whr` parametro (SAML) - identificare il tenant o `login_hint` parametro - identificare l'utente, nel relativo AD Azure richiesta di accesso, gli utenti sono accedere automaticamente senza immettere nomi utente o password.
-- Gli utenti ottengono un'esperienza di accesso non interattiva anche se un'applicazione (ad esempio, `https://contoso.sharepoint.com`) invia le richieste di accesso agli endpoint di Azure AD impostato come tenant, vale a dire `https://login.microsoftonline.com/contoso.com/<..>` oppure `https://login.microsoftonline.com/<tenant_ID>/<..>` , anziché l'endpoint Azure AD comune, vale a dire `https://login.microsoftonline.com/common/<...>` .
+- Se un'applicazione (ad esempio, `https://myapps.microsoft.com/contoso.com`) Invia un `domain_hint` parametro (OpenID Connect) o `whr` (SAML), identificando il tenant, o `login_hint` identificando come parametro l'utente, nella richiesta di accesso Azure ad gli utenti sono accesso automatico senza l'immissione di nomi utente o password.
+- Gli utenti ottengono anche un'esperienza di accesso automatico se un'applicazione ( `https://contoso.sharepoint.com`ad esempio) Invia le richieste di accesso agli endpoint di Azure ad configurati come tenant, ovvero o `https://login.microsoftonline.com/<tenant_ID>/<..>` , `https://login.microsoftonline.com/contoso.com/<..>` anziché l'endpoint comune di Azure ad, `https://login.microsoftonline.com/common/<...>` ovvero .
 - La disconnessione è supportata. In questo modo gli utenti possono scegliere di eseguire l'accesso con un altro account di Azure AD anziché accedere automaticamente tramite l'accesso Single Sign-On facile.
 - I client Office 365 Win32 (Outlook, Word, Excel e altri) con le versioni 16.0.8730.xxxx e successive sono supportati tramite un flusso non interattivo. Per OneDrive, è necessario attivare la [funzionalità di configurazione automatica di OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) per un'esperienza di accesso automatico.
 - Può essere abilitata da Azure AD Connect.
@@ -64,10 +64,10 @@ L'accesso SSO facile può essere combinato con i metodi di accesso che usano la 
 | SO\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
 |Windows 10|Sì\*|No|Yes|Sì\*\*\*|N/D
-|Windows 8.1|Sì\*|N/D|Yes|Sì\*\*\*|N/D
+|Windows 8.1|Sì\*|N/D|Yes|Sì\*\*\*|N/D
 |Windows 8|Sì\*|N/D|Yes|Sì\*\*\*|N/D
-|Windows 7|Sì\*|N/D|Yes|Sì\*\*\*|N/D
-|Windows Server 2012 R2 o versione successiva|Sì\*\*|N/D|Yes|Sì\*\*\*|N/D
+|Windows 7|Sì\*|N/D|Sì|Sì\*\*\*|N/D
+|Windows Server 2012 R2 o versione successiva|Sì\*\*|N/D|Sì|Sì\*\*\*|N/D
 |Mac OS X|N/D|N/D|Sì\*\*\*|Sì\*\*\*|Sì\*\*\*
 
 
@@ -83,7 +83,7 @@ L'accesso SSO facile può essere combinato con i metodi di accesso che usano la 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [**Guida introduttiva**](how-to-connect-sso-quick-start.md): avvio ed esecuzione di Accesso SSO facile di Azure AD.
-- [**Piano di distribuzione**](https://aka.ms/AuthenticationDeploymentPlan) - Piano di distribuzione dettagliato.
+- [**Piano di distribuzione**](https://aka.ms/deploymentplans/sso) - Piano di distribuzione dettagliato.
 - [**Approfondimento tecnico**](how-to-connect-sso-how-it-works.md): informazioni sul funzionamento di questa funzionalità.
 - [**Domande frequenti**](how-to-connect-sso-faq.md): risposte alle domande più frequenti.
 - [**Risoluzione dei problemi**](tshoot-connect-sso.md): informazioni su come risolvere i problemi comuni relativi a questa funzionalità.

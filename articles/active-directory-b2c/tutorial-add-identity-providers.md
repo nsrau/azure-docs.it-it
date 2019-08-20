@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: eee881e6d4e446e07867261545a90dfacaa93712
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 388ef66351140dab18bd7c92290d84f0f4d734ac
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512203"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622781"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Esercitazione: Aggiungere provider di identità alle applicazioni in Azure Active Directory B2C
 
@@ -94,13 +94,11 @@ Dopo aver creato l'applicazione per il provider di identità che si vuole aggiun
 
 ### <a name="add-the-azure-active-directory-identity-provider"></a>Aggiungere il provider di identità di Azure Active Directory
 
-1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C facendo clic sul **filtro per directory e sottoscrizione** nel menu in alto e scegliendo tale directory.
+1. Assicurarsi di usare la directory che contiene Azure AD B2C tenant. Selezionare il filtro **directory + sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant Azure ad B2C.
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
-1. Selezionare **Provider di identità** e quindi selezionare **Aggiungi**.
+1. Selezionare **provider di identità**e quindi fare clic su **nuovo provider OpenID Connect**.
 1. Immettere un **Nome**. Ad esempio, immettere *Contoso Azure AD*.
-1. Selezionare **tipo di provider di identità**, selezionare **OpenID Connect**e quindi fare clic su **OK**.
-1. Fare clic su **Configura questo provider di identità**
-1. Per **URL metadati**immettere l'URL seguente, sostituendo `your-AD-tenant-domain` con il nome di dominio del tenant di Azure ad.
+1. Per **URL metadati**immettere l'URL seguente sostituendo `your-AD-tenant-domain` con il nome di dominio del tenant di Azure ad:
 
     ```
     https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
@@ -108,28 +106,27 @@ Dopo aver creato l'applicazione per il provider di identità che si vuole aggiun
 
     Ad esempio `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
 
-1. Per **ID client**immettere l' *ID applicazione (client)* registrato in precedenza.
-1. Per **segreto client**, immettere il valore del *segreto client* registrato in precedenza.
-1. Facoltativamente immettere un valore per **Domain_hint**. Ad esempio `ContosoAD`. Gli [hint di dominio](../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) sono direttive incluse nella richiesta di autenticazione da un'applicazione. Possono essere usate per accelerare l'indirizzamento dell'utente alla rispettiva pagina di accesso dell'IdP federato. Oppure possono essere usati da un'applicazione multi-tenant per accelerare l'utente direttamente verso la pagina di accesso di Azure AD personalizzata per il suo tenant.
-1. Selezionare **OK**.
-1. Selezionare **Esegui mapping delle attestazioni di questo provider di identità** e impostare le attestazioni seguenti:
+1. Per **ID client**immettere l'ID applicazione registrato in precedenza.
+1. Per il **segreto client**, immettere il segreto client registrato in precedenza.
+1. Lasciare i valori predefiniti per **ambito**, **tipo di risposta**e **modalità di risposta**.
+1. Opzionale Immettere un valore per **Domain_hint**. Ad esempio, *ContosoAD*. Gli [hint di dominio](../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) sono direttive incluse nella richiesta di autenticazione da un'applicazione. Possono essere usate per accelerare l'indirizzamento dell'utente alla rispettiva pagina di accesso dell'IdP federato. Oppure possono essere usati da un'applicazione multi-tenant per accelerare l'utente direttamente verso la pagina di accesso di Azure AD personalizzata per il suo tenant.
+1. In **mapping**delle attestazioni del provider di identità immettere i valori di mapping delle attestazioni seguenti:
 
-    - Per **ID utente** immettere `oid`.
-    - Per **nome visualizzato** immettere `name`.
-    - Per **Nome** immettere `given_name`.
-    - Per **Cognome** immettere `family_name`.
-    - In **Posta elettronica** immettere `unique_name`.
+    * **ID utente**: *OID*
+    * **Nome visualizzato**: *nome*
+    * **Nome specificato**: *given_name*
+    * **Cognome**: *family_name*
+    * **Posta elettronica**: *UNIQUE_NAME*
 
-1. Selezionare **OK**, quindi selezionare **Crea** per salvare la configurazione.
+1. Selezionare **Salva**.
 
 ### <a name="add-the-facebook-identity-provider"></a>Aggiungere il provider di identità Facebook
 
-1. Selezionare **Provider di identità** e quindi selezionare **Aggiungi**.
-1. Immettere un **Nome**. Ad esempio, immettere *Facebook*.
-1. Selezionare **tipo di provider di identità**, selezionare **Facebook**, quindi fare clic su **OK**.
-1. Selezionare **Configura il provider di identità** e immettere l' *ID app* registrato in precedenza come **ID client**.
-1. Immettere il *segreto dell'app* registrato come **segreto client**.
-1. Selezionare **OK** e quindi selezionare **Crea** per salvare la configurazione di Facebook.
+1. Selezionare **provider di identità**e quindi fare clic su **Facebook**.
+1. Immettere un **Nome**. Ad esempio, *Facebook*.
+1. Per **ID client**, immettere l'ID app dell'applicazione Facebook creata in precedenza.
+1. Per il **segreto client**, immettere il segreto dell'app registrato.
+1. Selezionare **Salva**.
 
 ## <a name="update-the-user-flow"></a>Aggiornare il flusso utente
 

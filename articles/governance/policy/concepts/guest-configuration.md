@@ -8,16 +8,19 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 74e36d944450e1ce2c61481b2cb7e345860212af
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 6f51d2907738f49ace559f1b127458eda71de287
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326892"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624092"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendere la configurazione guest di Criteri di Azure
 
 Oltre a controllare e [correggere](../how-to/remediate-resources.md) le risorse di Azure, i criteri di Azure possono controllare le impostazioni all'interno di una macchina virtuale. La convalida viene eseguita dall'estensione della configurazione guest e dal client. L'estensione tramite il client convalida le impostazioni quali la configurazione del sistema operativo, la configurazione o la presenza dell'applicazione, le impostazioni di ambiente e altro ancora.
+
+A questo punto, la configurazione Guest di criteri di Azure consente di eseguire solo un controllo delle impostazioni nel computer.
+Non è ancora possibile applicare le configurazioni.
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
@@ -69,9 +72,9 @@ Il client della configurazione guest verifica la presenza di nuovi contenuti ogn
 
 La tabella seguente elenca i sistemi operativi supportati su Immagini di Azure:
 
-|Editore|Name|Versioni|
+|Pubblicato da|NOME|Versioni|
 |-|-|-|
-|Canonical|Ubuntu Server|14.04, 16.04, 18.04|
+|Canonico|Ubuntu Server|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|
 |Microsoft|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 datacenter, 2019 Datacenter|
 |Microsoft|Client Windows|Windows 10|

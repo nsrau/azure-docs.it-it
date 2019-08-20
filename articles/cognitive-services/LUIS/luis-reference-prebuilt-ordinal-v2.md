@@ -1,31 +1,31 @@
 ---
-title: Ordinale V2 entità predefiniti
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: Questo articolo contiene ordinali V2 le informazioni sulle entità predefinite in LUIS (Language Understanding).
+title: Entità precompilata ordinale V2-LUIS
+titleSuffix: Azure Cognitive Services
+description: Questo articolo contiene informazioni sull'entità predefinite della versione 2 ordinale in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: diberry
-ms.openlocfilehash: 862b962f5642e01d7ed8250f49d51a6132447083
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 1579c50f2dcf78e350ce014ffb1516cec4ac85b3
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67486140"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933494"
 ---
-# <a name="ordinal-v2-prebuilt-entity-for-a-luis-app"></a>Ordinale V2 entità predefinite per un'app LUIS
-Numero ordinale di V2 espande [ordinale](luis-reference-prebuilt-ordinal.md) specificare come i riferimenti relativi `next`, `last`, e `previous`. Questi non vengono estratti tramite l'entità predefinito ordinale.
+# <a name="ordinal-v2-prebuilt-entity-for-a-luis-app"></a>Entità precompilata ordinale V2 per un'app LUIS
+Il numero ordinale v2 espande il [numero ordinale](luis-reference-prebuilt-ordinal.md) per fornire riferimenti relativi, ad esempio `next`, `last` e `previous`. Non vengono estratti utilizzando l'entità predefinita ordinale.
 
-## <a name="resolution-for-prebuilt-ordinal-v2-entity"></a>Risoluzione per entità di V2 ordinali predefiniti
+## <a name="resolution-for-prebuilt-ordinal-v2-entity"></a>Risoluzione per l'entità predefinita ordinale V2
 
-### <a name="api-version-2x"></a>Versione dell'API 2.x
+### <a name="api-version-2x"></a>API versione 2. x
 
-L'esempio seguente illustra la risoluzione del **builtin.ordinalV2** entità.
+Nell'esempio seguente viene illustrata la risoluzione dell'entità **Builtin. ordinalV2** .
 
 ```json
 {
@@ -55,9 +55,9 @@ L'esempio seguente illustra la risoluzione del **builtin.ordinalV2** entità.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Versione di anteprima API 3.x
+### <a name="preview-api-version-3x"></a>API di anteprima versione 3. x
 
-Il codice JSON seguente è con il `verbose` parametro è impostato su `false`:
+Il codice JSON seguente è con `verbose` il parametro impostato `false`su:
 
 ```json
 {
@@ -82,7 +82,7 @@ Il codice JSON seguente è con il `verbose` parametro è impostato su `false`:
 }
 ```
 
-Il codice JSON seguente è con il `verbose` parametro è impostato su `true`:
+Il codice JSON seguente è con `verbose` il parametro impostato `true`su:
 
 ```json
 {
@@ -124,4 +124,4 @@ Il codice JSON seguente è con il `verbose` parametro è impostato su `true`:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Scopri le [percentuale](luis-reference-prebuilt-percentage.md), [numero di telefono](luis-reference-prebuilt-phonenumber.md), e [temperatura](luis-reference-prebuilt-temperature.md) entità. 
+Informazioni sulle entità [percentuale](luis-reference-prebuilt-percentage.md), [numero di telefono](luis-reference-prebuilt-phonenumber.md)e [temperatura](luis-reference-prebuilt-temperature.md) . 

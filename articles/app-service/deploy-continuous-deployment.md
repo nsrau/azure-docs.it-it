@@ -12,139 +12,139 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2019
-ms.author: cephalin;dariagrigoriu
+ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 3a207f5513c24f2c33571df929f7490ec7f2eba5
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 3c4811d990cfe107bc3bc4e6d359659b1935c6a4
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836760"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297209"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Distribuzione continua nel servizio app di Azure
 
-[Servizio App di Azure](overview.md) abilita la distribuzione continua da GitHub, BitBucket, e [repository Azure](https://azure.microsoft.com/services/devops/repos/) repository eseguendo il pull negli aggiornamenti più recenti. Questo articolo illustra come usare il portale di Azure per distribuire continuamente l'app tramite il servizio di compilazione Kudu o [pipeline di Azure](https://azure.microsoft.com/services/devops/pipelines/). 
+Il [servizio app Azure](overview.md) consente la distribuzione continua da GitHub, BitBucket e [Azure Repos](https://azure.microsoft.com/services/devops/repos/) repository eseguendo il pull degli aggiornamenti più recenti. Questo articolo illustra come usare la portale di Azure per distribuire continuamente l'app tramite il servizio di compilazione Kudu o [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/). 
 
-Per altre informazioni sui servizi di controllo di origine, vedere [creazione di repository (GitHub)], [creazione di repository (BitBucket)], o [creare un nuovo repository Git (repository di Azure)].
+Per ulteriori informazioni sui servizi di controllo del codice sorgente, vedere [creazione di repository (GitHub)], [creazione di repository (BitBucket)]o [creare un nuovo repository git (Azure Repos)].
 
-Per configurare manualmente la distribuzione continua da un repository cloud che il portale non supportava direttamente, ad esempio [GitLab](https://gitlab.com/), vedere [impostare la distribuzione continua usando i passaggi manuali](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
+Per configurare manualmente la distribuzione continua da un repository cloud che il portale non supporta direttamente, ad esempio [GitLab](https://gitlab.com/), vedere [configurare la distribuzione continua con la procedura manuale](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
-## <a name="authorize-azure-app-service"></a>Autorizzare il servizio App di Azure 
+## <a name="authorize-azure-app-service"></a>Autorizzare il servizio app Azure 
 
-Per usare i repository di Azure, assicurarsi che l'organizzazione di Azure DevOps è collegato alla sottoscrizione di Azure. Per altre informazioni, vedere [configurare un account di servizi di Azure DevOps in modo da distribuirlo in un'app web](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+Per usare Azure Repos, assicurarsi che l'organizzazione Azure DevOps sia collegata alla sottoscrizione di Azure. Per altre informazioni, vedere [configurare un account Azure DevOps Services in modo che possa essere distribuito in un'app Web](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
-Per Bitbucket o GitHub, autorizzare il servizio App di Azure per la connessione al repository. È sufficiente per l'autorizzazione una sola volta con un servizio di controllo del codice sorgente. 
+Per bitbucket o GitHub, autorizzare app Azure servizio a connettersi al repository. È sufficiente autorizzare un servizio di controllo del codice sorgente una sola volta. 
 
-1. Selezionare **servizi App** nel [portale di Azure](https://portal.azure.com) riquadro di spostamento sinistro e quindi selezionare l'app web da distribuire. 
+1. Selezionare **Servizi app** nel [portale di Azure](https://portal.azure.com) di spostamento a sinistra e quindi selezionare l'app Web che si vuole distribuire. 
    
-1. Nella pagina dell'app, selezionare **Deployment Center** nel menu a sinistra.
+1. Nella pagina App selezionare **centro distribuzione** nel menu a sinistra.
    
-1. Nel **Deployment Center** pagina, selezionare **GitHub** oppure **Bitbucket**e quindi selezionare **Authorize**. 
+1. Nella pagina **centro distribuzione** selezionare **GitHub** o **bitbucket**e quindi selezionare **autorizza**. 
    
-   ![Selezionare il servizio di controllo di origine, quindi scegliere autorizza.](media/app-service-continuous-deployment/github-choose-source.png)
+   ![Selezionare servizio di controllo del codice sorgente, quindi selezionare autorizza.](media/app-service-continuous-deployment/github-choose-source.png)
    
-1. Accedere al servizio, se necessario e seguire le istruzioni di autorizzazione. 
+1. Accedere al servizio, se necessario, e seguire le istruzioni di autorizzazione. 
 
 ## <a name="enable-continuous-deployment"></a>adsa 
 
-Dopo che si autorizza un servizio di controllo del codice sorgente, configurare l'app per la distribuzione continua tramite l'oggetto incorporato [server di compilazione di servizio App di Kudu](#option-1-use-the-app-service-build-service), o tramite [le pipeline di Azure](#option-2-use-azure-pipelines). 
+Dopo aver autorizzato un servizio di controllo del codice sorgente, configurare l'app per la distribuzione continua tramite il [server di compilazione del servizio app Kudu](#option-1-use-the-app-service-build-service)incorporato o tramite [Azure Pipelines](#option-2-use-azure-pipelines). 
 
-### <a name="option-1-use-the-app-service-build-service"></a>Opzione 1: Usare il servizio di compilazione del servizio App
+### <a name="option-1-use-the-app-service-build-service"></a>Opzione 1: Usare il servizio di compilazione del servizio app
 
-È possibile usare l'oggetto incorporato di servizio App di Kudu creare server per la distribuzione continua da GitHub, Bitbucket o archivi di Azure. 
+È possibile usare il server di compilazione del servizio app Kudu incorporato per eseguire la distribuzione continua da GitHub, Bitbucket o Azure Repos. 
 
-1. Selezionare **servizi App** nel [portale di Azure](https://portal.azure.com) riquadro di spostamento sinistro e quindi selezionare l'app web da distribuire. 
+1. Selezionare **Servizi app** nel [portale di Azure](https://portal.azure.com) di spostamento a sinistra e quindi selezionare l'app Web che si vuole distribuire. 
    
-1. Nella pagina dell'app, selezionare **Deployment Center** nel menu a sinistra.
+1. Nella pagina App selezionare **centro distribuzione** nel menu a sinistra.
    
-1. Selezionare il provider del controllo origine autorizzati nella **Deployment Center** pagina, quindi selezionare **continua**. Per GitHub o Bitbucket, è anche possibile selezionare **cambiare account** per modificare l'account autorizzato. 
+1. Selezionare il provider del controllo del codice sorgente autorizzato nella pagina **centro distribuzione** e selezionare **continua**. Per GitHub o Bitbucket, è anche possibile selezionare **Cambia account** per modificare l'account autorizzato. 
    
    > [!NOTE]
-   > Per usare i repository di Azure, assicurarsi che l'organizzazione di servizi di Azure DevOps è collegato alla sottoscrizione di Azure. Per altre informazioni, vedere [configurare un account di servizi di Azure DevOps in modo da distribuirlo in un'app web](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+   > Per usare Azure Repos, assicurarsi che l'organizzazione Azure DevOps Services sia collegata alla sottoscrizione di Azure. Per altre informazioni, vedere [configurare un account Azure DevOps Services in modo che possa essere distribuito in un'app Web](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
    
-1. Per GitHub o archivi di Azure, nel **provider di compilazione** pagina, selezionare **servizio App di servizio di compilazione**, quindi selezionare **continua**. Bitbucket Usa sempre il servizio di compilazione del servizio App.
+1. Per GitHub o Azure Repos, nella pagina **provider di compilazione** selezionare **servizio di compilazione servizio app**e quindi fare clic su **continua**. Bitbucket usa sempre il servizio di compilazione del servizio app.
    
-   ![Selezionare il servizio di compilazione di servizio App, quindi selezionare continua.](media/app-service-continuous-deployment/choose-kudu.png)
+   ![Selezionare servizio di compilazione servizio app, quindi selezionare continua.](media/app-service-continuous-deployment/choose-kudu.png)
    
-1. Nel **configura** pagina:
+1. Nella pagina **Configura** :
    
-   - Per GitHub, elenco a discesa e selezionare il **organizzazione**, **Repository**, e **ramo** si vuole eseguire la distribuzione continua.
+   - Per GitHub, elenco a discesa e selezionare l' **organizzazione**, il **repository**e il **ramo** che si desidera distribuire in modo continuo.
      
      > [!NOTE]
-     > Se non vengono visualizzati tutti i repository, occorre autorizzare il servizio App di Azure in GitHub. Passare al repository GitHub e andare al **le impostazioni** > **applicazioni** > **autorizzate OAuth app**. Selezionare **servizio App di Azure**, quindi selezionare **Concedi**.
+     > Se non viene visualizzato alcun repository, potrebbe essere necessario autorizzare app Azure servizio in GitHub. Passare al repository GitHub e passare a **Impostazioni** > **applicazioni** > **app OAuth autorizzate**. Selezionare **app Azure servizio**e quindi fare clic su **Concedi**.
      
-   - Per Bitbucket, selezionare il Bitbucket **Team**, **Repository**, e **ramo** si vuole eseguire la distribuzione continua.
+   - Per bitbucket selezionare il **Team**, il **repository**e il **ramo** di bitbucket che si desidera distribuire in modo continuo.
      
-   - Per i repository di Azure, selezionare la **organizzazione di Azure DevOps**, **Project**, **Repository**, e **ramo** si vuole eseguire la distribuzione continua.
+   - Per Azure Repos selezionare l'organizzazione, il **progetto**, il **repository**e il **ramo** di **Azure DevOps**che si vuole distribuire in modo continuo.
      
      > [!NOTE]
-     > Se l'organizzazione di DevOps di Azure non è elencato, verificare che è collegato alla sottoscrizione di Azure. Per altre informazioni, vedere [configurare un account di servizi di Azure DevOps in modo da distribuirlo in un'app web](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)...
+     > Se l'organizzazione di Azure DevOps non è elencata, assicurarsi che sia collegata alla sottoscrizione di Azure. Per ulteriori informazioni, vedere la pagina relativa [alla configurazione di un account Azure DevOps Services in modo che possa essere distribuito in un'app Web](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
      
 1. Selezionare **continuare**.
    
-   ![Immettere le informazioni del repository, quindi selezionare continua.](media/app-service-continuous-deployment/configure-kudu.png)
+   ![Immettere le informazioni sul repository, quindi selezionare continue (continua).](media/app-service-continuous-deployment/configure-kudu.png)
    
-1. Dopo aver configurato il provider di compilazione, verificare le impostazioni nella **Summary** pagina e quindi selezionare **fine**.
+1. Dopo aver configurato il provider di compilazione, rivedere le impostazioni nella pagina **Riepilogo** e quindi fare clic su **fine**.
    
-   Nuovi commit nel repository selezionato e branch a questo punto eseguire la distribuzione continua nelle App del servizio app. È possibile monitorare le distribuzioni e i commit nel **Deployment Center** pagina.
+   I nuovi commit nel repository e nel ramo selezionati ora vengono distribuiti in modo continuo nell'app del servizio app. È possibile tenere traccia dei commit e delle distribuzioni nella pagina **centro distribuzione** .
    
-   ![Tenere traccia delle distribuzioni nel centro di distribuzione e commit](media/app-service-continuous-deployment/github-finished.png)
+   ![Tenere traccia di commit e distribuzioni in centro distribuzione](media/app-service-continuous-deployment/github-finished.png)
 
 ### <a name="option-2-use-azure-pipelines"></a>Opzione 2: Usa Azure Pipelines 
 
-Se l'account ha le autorizzazioni necessarie, è possibile impostare le pipeline di Azure per distribuire in modo continuo dal repository GitHub o archivi di Azure. Per altre informazioni sulla distribuzione tramite la pipeline di Azure, vedere [distribuire un'app web nel servizio App di Azure](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps).
+Se l'account dispone delle autorizzazioni necessarie, è possibile configurare Azure Pipelines per la distribuzione continua da GitHub o Azure Repos repository. Per altre informazioni sulla distribuzione tramite Azure Pipelines, vedere [distribuire un'app Web in servizi app Azure](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps).
 
-Per il servizio App di Azure creare il recapito continuo le pipeline di Azure dell'organizzazione di Azure DevOps: 
+Per app Azure servizio per creare Azure Pipelines di recapito continuo nell'organizzazione di Azure DevOps: 
 
-- L'account di Azure deve avere le autorizzazioni di scrittura di Azure Active Directory e creare un servizio. 
+- L'account Azure deve avere le autorizzazioni per scrivere in Azure Active Directory e creare un servizio. 
   
-- L'account di Azure deve avere il **proprietario** ruolo nella sottoscrizione di Azure.
+- L'account Azure deve avere il ruolo **proprietario** nella sottoscrizione di Azure.
 
-- È necessario essere un amministratore del progetto DevOps di Azure da usare.
+- È necessario essere un amministratore nel progetto Azure DevOps che si vuole usare.
 
-Per configurare le pipeline di Azure (anteprima):
+Per configurare Azure Pipelines (anteprima):
 
-1. Selezionare **servizi App** nel [portale di Azure](https://portal.azure.com) riquadro di spostamento sinistro e quindi selezionare l'app web da distribuire. 
+1. Selezionare **Servizi app** nel [portale di Azure](https://portal.azure.com) di spostamento a sinistra e quindi selezionare l'app Web che si vuole distribuire. 
    
-1. Nella pagina dell'app, selezionare **Deployment Center** nel menu a sinistra.
+1. Nella pagina App selezionare **centro distribuzione** nel menu a sinistra.
    
-1. Nel **provider di compilazione** pagina, selezionare **pipeline di Azure (anteprima)** e quindi selezionare **continua**. 
+1. Nella pagina **provider di compilazione** selezionare **Azure Pipelines (anteprima)** , quindi selezionare **continua**. 
    
-1. Nel **configura** pagina il **codice** sezione:
+1. Nella sezione **codice** della pagina **Configura** :
    
-   - Per GitHub, elenco a discesa e selezionare il **organizzazione**, **Repository**, e **ramo** si vuole eseguire la distribuzione continua.
+   - Per GitHub, elenco a discesa e selezionare l' **organizzazione**, il **repository**e il **ramo** che si desidera distribuire in modo continuo.
      
      > [!NOTE]
-     > Se non vengono visualizzati tutti i repository, occorre autorizzare il servizio App di Azure in GitHub. Passare al repository GitHub e andare al **le impostazioni** > **applicazioni** > **autorizzate OAuth app**. Selezionare **servizio App di Azure**, quindi selezionare **Concedi**.
+     > Se non viene visualizzato alcun repository, potrebbe essere necessario autorizzare app Azure servizio in GitHub. Passare al repository GitHub e passare a **Impostazioni** > **applicazioni** > **app OAuth autorizzate**. Selezionare **app Azure servizio**e quindi fare clic su **Concedi**.
      
-   - Per i repository di Azure, selezionare il **organizzazione di Azure DevOps**, **Project**, **Repository**, e **ramo** si vuole eseguire la distribuzione continua, oppure configurare una nuova organizzazione di Azure DevOps.
+   - Per Azure Repos, selezionare l'organizzazione, il **progetto**, il **repository**e il **ramo** di **Azure DevOps**che si vuole distribuire in modo continuo o configurare una nuova organizzazione DevOps di Azure.
      
      > [!NOTE]
-     > Se l'organizzazione di Azure DevOps esistente non è elencato, devi collegarla alla sottoscrizione di Azure. Per altre informazioni, vedere [definiscono la pipeline di versione CD](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps#cd).
+     > Se l'organizzazione DevOps di Azure esistente non è elencata, potrebbe essere necessario collegarla alla sottoscrizione di Azure. Per altre informazioni, vedere [definire la pipeline di rilascio del CD](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps#cd).
      
 1. Selezionare **continuare**.
    
-1. Per i repository di Azure, nelle **compilare** , quindi specificare il framework di linguaggio che le pipeline di Azure devono usare per eseguire le attività di compilazione e quindi selezionare **continua**.
+1. Per Azure Repos, nella sezione **Build** specificare il Framework del linguaggio che Azure Pipelines deve usare per eseguire le attività di compilazione e quindi selezionare **continue (continua**).
    
-1. Nel **Test** pagina, scegliere se abilitare i test di carico e quindi selezionare **continua**.
+1. Nella pagina **test** scegliere se abilitare i test di carico, quindi selezionare **continua**.
    
-1. A seconda del piano di servizio App [piano tariffario](https://azure.microsoft.com/pricing/details/app-service/plans/), potrebbe essere visualizzato un **Distribuisci in staging** pagina. Scegliere se si desidera [Abilita slot di distribuzione](deploy-staging-slots.md), quindi selezionare **continua**.
+1. A seconda del [piano tariffario](https://azure.microsoft.com/pricing/details/app-service/plans/) del piano di servizio app, è possibile che venga visualizzata una pagina **Distribuisci in staging** . Scegliere se [abilitare gli slot di distribuzione](deploy-staging-slots.md), quindi selezionare **continua**.
    
    > [!NOTE]
-   > Le pipeline di Azure non consente il recapito continuo in slot di produzione. Questa restrizione impedisce di distribuzioni accidentali nell'ambiente di produzione. Configurare il recapito continuo in uno slot di staging, verificare le modifiche richieste e quindi scambiare gli slot di quando si è pronti.
+   > Azure Pipelines non consente il recapito continuo allo slot di produzione. Questa restrizione impedisce le distribuzioni accidentali in produzione. Configurare il recapito continuo in uno slot di staging, verificare le modifiche e quindi scambiare gli slot quando si è pronti.
    
-1. Dopo aver configurato il provider di compilazione, verificare le impostazioni nella **Summary** pagina e quindi selezionare **fine**.
+1. Dopo aver configurato il provider di compilazione, rivedere le impostazioni nella pagina **Riepilogo** e quindi fare clic su **fine**.
    
-   Nuovi commit nel repository selezionato e branch a questo punto eseguire la distribuzione continua nelle App del servizio app. È possibile monitorare le distribuzioni e i commit nel **Deployment Center** pagina.
+   I nuovi commit nel repository e nel ramo selezionati ora vengono distribuiti in modo continuo nell'app del servizio app. È possibile tenere traccia dei commit e delle distribuzioni nella pagina **centro distribuzione** .
    
-   ![Tenere traccia delle distribuzioni nel centro di distribuzione e commit](media/app-service-continuous-deployment/github-finished.png)
+   ![Tenere traccia di commit e distribuzioni in centro distribuzione](media/app-service-continuous-deployment/github-finished.png)
 
 ## <a name="disable-continuous-deployment"></a>Disabilitare la distribuzione continua
 
-Per disabilitare la distribuzione continua, selezionare **Disconnect** nella parte superiore dell'app **Deployment Center** pagina.
+Per disabilitare la distribuzione continua, selezionare **Disconnetti** nella parte superiore della pagina **centro distribuzione** dell'app.
 
 ![Disabilitare la distribuzione continua](media/app-service-continuous-deployment/disable.png)
 
@@ -159,4 +159,4 @@ Per disabilitare la distribuzione continua, selezionare **Disconnect** nella par
 
 [creazione di repository (GitHub)]: https://help.github.com/articles/create-a-repo
 [creazione di repository (BitBucket)]: https://confluence.atlassian.com/get-started-with-bitbucket/create-a-repository-861178559.html
-[Creare un nuovo repository Git (repository di Azure)]: /azure/devops/repos/git/creatingrepo
+[Creare un nuovo repository git (Azure Repos)]: /azure/devops/repos/git/creatingrepo

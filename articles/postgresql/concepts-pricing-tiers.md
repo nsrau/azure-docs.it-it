@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 2f6be256801983924cc794d6c8b8fa31e39959e1
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: f65bc0a9969ac713c2fb9f8629b97fbe522e9fe0
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967847"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624839"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Piani tariffari nel database di Azure per PostgreSQL-server singolo
 
@@ -67,7 +67,7 @@ Sono stati aumentati i limiti di archiviazione nei livelli per utilizzo generico
 |              | **Utilizzo generico** | **Con ottimizzazione per la memoria** |
 |:-------------|:--------------------|:---------------------|
 | Tipo di archiviazione | Archiviazione Premium di Azure | Archiviazione Premium di Azure |
-| Dimensioni archiviazione | da 32 GB a 16 TB| da 32 a 16 TB |
+| Dimensioni archiviazione | da 32 GB a 16 TB| da 32 GB a 16 TB |
 | Dimensioni di incremento dell'archiviazione | 1 GB | 1 GB |
 | Input/output al secondo | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS |
 

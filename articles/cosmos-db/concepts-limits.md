@@ -1,170 +1,184 @@
 ---
 title: Quote del servizio Azure Cosmos DB
-description: Le quote del servizio Azure Cosmos DB e i limiti predefiniti per diversi tipi di risorse.
+description: Azure Cosmos DB le quote del servizio e i limiti predefiniti per diversi tipi di risorse.
 author: arramac
 ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/10/2019
-ms.openlocfilehash: 74df0038676e8459028084890da569ed3b75a682
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.date: 08/05/2019
+ms.openlocfilehash: d3d09d466e05c97de215542c66987aa6b723afce
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797293"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827981"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quote del servizio Azure Cosmos DB
 
-Questo articolo fornisce una panoramica delle quote predefinite disponibili per diverse risorse in Azure Cosmos DB.
+Questo articolo fornisce una panoramica delle quote predefinite offerte a risorse diverse nella Azure Cosmos DB.
 
 ## <a name="storage-and-throughput"></a>Archiviazione e velocità effettiva
 
-Dopo aver creato un account Azure Cosmos nella propria sottoscrizione, è possibile gestire i dati nel tuo account entro [creazione di database, contenitori ed elementi](databases-containers-items.md). È possibile eseguire il provisioning della velocità effettiva a livello di contenitore o di un database in termini di [unità (unità richiesta al secondo o UR) richiesta](request-units.md). Nella tabella seguente sono elencate le limitazioni per l'archiviazione e velocità effettiva per ogni contenitore/database.
+Dopo aver creato un account Azure Cosmos nella sottoscrizione, è possibile gestire i dati nell'account [creando database, contenitori ed elementi](databases-containers-items.md). È possibile effettuare il provisioning della velocità effettiva a livello di contenitore o di database in termini di [unità richiesta (UR/s o UR)](request-units.md). La tabella seguente elenca i limiti per l'archiviazione e la velocità effettiva per contenitore/database.
 
 | Risorsa | Limite predefinito |
 | --- | --- |
-| Unità richieste massime per ogni contenitore ([modalità di provisioning della velocità effettiva dedicata](databases-containers-items.md#azure-cosmos-containers)) | 1\.000.000 per impostazione predefinita. È possibile aumentarlo dal [invio di un ticket di supporto tecnico di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) o contattare Microsoft tramite [chiedere a Cosmos DB](mailto:askcosmosdb@microsoft.com) |
-| Unità richieste massime per ogni database ([modalità di provisioning di velocità effettiva condiviso](databases-containers-items.md#azure-cosmos-containers)) | 1\.000.000 per impostazione predefinita. È possibile aumentarlo dal [invio di un ticket di supporto tecnico di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) o contattare Microsoft tramite [chiedere a Cosmos DB](mailto:askcosmosdb@microsoft.com) |
-| Unità richieste massime per ogni chiave di partizione (logici) | 10,000 |
-| Spazio di archiviazione massimo tra tutti gli elementi per chiave di partizione (logici)| 10 GB |
-| Numero massimo di chiavi di partizione distinta (logici) | Illimitato |
-| Spazio di archiviazione massimo per ogni contenitore | Illimitato |
-| Spazio di archiviazione massimo per ogni database | Illimitato |
+| Numero massimo di ur per contenitore (modalità di provisioning della[velocità effettiva dedicata](databases-containers-items.md#azure-cosmos-containers)) | 1 milione per impostazione predefinita. È possibile aumentarlo inserendo [un ticket di supporto di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) |
+| Numero massimo di ur per database (modalità con provisioning della[velocità effettiva condivisa](databases-containers-items.md#azure-cosmos-containers)) | 1 milione per impostazione predefinita. È possibile aumentarlo inserendo [un ticket di supporto di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) |
+| Numero massimo di ur per chiave di partizione (logica) | 10,000 |
+| Archiviazione massima tra tutti gli elementi per ogni chiave di partizione (logica)| 10 GB |
+| Numero massimo di chiavi di partizione (logiche) distinte | Senza limitazioni |
+| Spazio di archiviazione massimo per contenitore | Senza limitazioni |
+| Spazio di archiviazione massimo per database | Senza limitazioni |
 
 > [!NOTE]
-> Per le procedure consigliate gestire i carichi di lavoro che dispongono di chiavi di partizione che richiedono limiti più elevati per l'archiviazione o velocità effettiva, vedere [progetta per accesso frequente le chiavi di partizione](synthetic-partition-keys.md)
+> Per le procedure consigliate per gestire i carichi di lavoro con chiavi di partizione che richiedono limiti più elevati per l'archiviazione o la velocità effettiva, vedere [progettazione di chiavi di partizione a caldo](synthetic-partition-keys.md)
 >
 
-Un contenitore Cosmos (o condivisa della velocità effettiva database) deve avere una velocità effettiva minima di 400 UR. Man mano che aumenta il contenitore, anche la velocità effettiva supportata minima dipende dai fattori seguenti:
+Un contenitore Cosmos (o un database con velocità effettiva condivisa) deve avere una velocità effettiva minima di 400 ur. Man mano che aumenta il contenitore, la velocità effettiva minima supportata dipende anche dai fattori seguenti:
 
-* La velocità effettiva massima che mai eseguito il provisioning del contenitore. Il servizio supporta la riduzione della velocità effettiva di un contenitore al 10% rispetto al numero massimo di provisioning. Ad esempio, se la velocità effettiva è stata aumentata a 10000 UR, quindi la velocità effettiva con provisioning possibili più bassa sarà 1000 UR
-* Il numero totale di contenitori che hanno già creato in un database condiviso della velocità effettiva, misurata in 100 unità richieste per ogni contenitore. Ad esempio, se è stato creato cinque contenitori all'interno di un database condiviso della velocità effettiva, quindi la velocità effettiva necessario almeno 500 UR
+* La velocità effettiva minima che è possibile impostare in un contenitore dipende dalla velocità effettiva massima di cui è stato effettuato il provisioning nel contenitore. Il servizio supporta la riduzione della velocità effettiva di un contenitore fino al 10% del valore massimo di cui è stato effettuato il provisioning. Se ad esempio la velocità effettiva è aumentata a 10000 ur, la velocità effettiva con provisioning più bassa possibile sarà 1000 ur
+* La velocità effettiva minima in un database di velocità effettiva condivisa dipende anche dal numero totale di contenitori creati in un database di velocità effettiva condivisa, misurato a 100 ur per ogni contenitore. Se, ad esempio, sono stati creati cinque contenitori all'interno di un database di velocità effettiva condivisa, la velocità effettiva deve essere almeno di 500 UR
 
-La velocità effettiva corrente e minima di un contenitore o un database può essere recuperata dal portale di Azure o gli SDK. Per altre informazioni, vedere [velocità effettiva di provisioning per i contenitori e i database](set-throughput.md). In sintesi, ecco i limiti di unità richiesta con provisioning minima. 
+La velocità effettiva corrente e minima di un contenitore o di un database può essere recuperata dal portale di Azure o dagli SDK. Per altre informazioni, vedere provisioning della [velocità effettiva nei contenitori e nei database](set-throughput.md). 
+
+> [!NOTE]
+> In alcuni casi, potrebbe essere possibile ridurre la velocità effettiva a un valore inferiore al 10%. Usare l'API per ottenere le UR minime esatte per ogni contenitore.
+>
+
+In breve, di seguito sono riportati i limiti minimi di provisioning delle UR. 
 
 | Risorsa | Limite predefinito |
 | --- | --- |
-| Unità minima richiesta per ogni contenitore ([modalità di provisioning della velocità effettiva dedicata](databases-containers-items.md#azure-cosmos-containers)) | 400 |
-| Unità minima richiesta per ogni database ([modalità di provisioning di velocità effettiva condiviso](databases-containers-items.md#azure-cosmos-containers)) | 400 |
-| Unità minima richiesta per ogni contenitore all'interno di un database condiviso della velocità effettiva | 100 |
+| Numero minimo di ur per contenitore (modalità di provisioning della[velocità effettiva dedicata](databases-containers-items.md#azure-cosmos-containers)) | 400 |
+| Numero minimo di ur per database (modalità con provisioning della[velocità effettiva condivisa](databases-containers-items.md#azure-cosmos-containers)) | 400 |
+| Unità richiesta minime per contenitore all'interno di un database di velocità effettiva condivisa | 100 |
 
-COSMOS DB supporta la scalabilità elastica della velocità effettiva (UR) al contenitore o un database tramite il SDK o il portale. Ogni contenitore è possibile scalare in modo sincrono e immediatamente all'interno di un intervallo di scalabilità di 10 a 100 volte, tra i valori minimi e massimo. Se il valore di velocità effettiva richiesta non rientra nell'intervallo, il ridimensionamento viene eseguito in modo asincrono. Ridimensionamento asincrono può richiedere minuti da ore a seconda della velocità effettiva richiesta e dimensioni di archiviazione di dati nel contenitore.  
+Cosmos DB supporta il ridimensionamento elastico della velocità effettiva (UR) per ogni contenitore o database tramite gli SDK o il portale. Ogni contenitore può essere ridimensionato in modo sincrono e immediatamente entro un intervallo di scala compreso tra 10 e 100 volte, tra i valori minimo e massimo. Se il valore della velocità effettiva richiesta non rientra nell'intervallo, il ridimensionamento viene eseguito in modo asincrono. Il completamento del ridimensionamento asincrono può richiedere minuti o ore, a seconda della velocità effettiva richiesta e delle dimensioni di archiviazione dei dati nel contenitore.  
 
 ## <a name="control-plane-operations"></a>Operazioni del piano di controllo
 
-È possibile [effettuare il provisioning e gestire il proprio account Azure Cosmos](how-to-manage-database-account.md) usando il portale di Azure, Azure PowerShell, CLI di Azure e i modelli Azure Resource Manager. La tabella seguente elenca i limiti per il numero di operazioni di sottoscrizione e account.
+È possibile eseguire il provisioning [e gestire l'account Azure Cosmos](how-to-manage-database-account.md) usando i modelli di portale di Azure, Azure PowerShell, interfaccia della riga di comando di azure e Azure Resource Manager. La tabella seguente elenca i limiti per sottoscrizione, account e numero di operazioni.
 
 | Risorsa | Limite predefinito |
 | --- | --- |
-| Account massime del database per ogni sottoscrizione | 50 per impostazione predefinita. È possibile aumentarlo dal [invio di un ticket di supporto tecnico di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) o contattare Microsoft tramite [chiedere a Cosmos DB](mailto:askcosmosdb@microsoft.com)|
-| Numero massimo di failover regionali | 1 ora per impostazione predefinita. È possibile aumentarlo dal [invio di un ticket di supporto tecnico di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) o contattare Microsoft tramite [chiedere a Cosmos DB](mailto:askcosmosdb@microsoft.com)|
+| Numero massimo di account di database per sottoscrizione | 50 per impostazione predefinita. È possibile aumentarlo inserendo [un ticket di supporto di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)|
+| Numero massimo di failover a livello di area | 1/ora per impostazione predefinita. È possibile aumentarlo inserendo [un ticket di supporto di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)|
 
 > [!NOTE]
-> Failover regionali si applicano solo agli account di scrittura in una singola area. Gli account di scrittura in più aree non richiedono né hanno limiti su come modificare l'area di scrittura.
+> I failover a livello di area sono validi solo per le Scritture a area singola. Gli account di scrittura in più aree non richiedono o non hanno limiti per la modifica dell'area di scrittura.
 
-COSMOS DB esegue automaticamente il backup dei dati a intervalli regolari. Per informazioni dettagliate su windows e gli intervalli di conservazione dei backup, vedere [ripristino il backup in linea e i dati on demand in Azure Cosmos DB](online-backup-and-restore.md).
+Cosmos DB esegue automaticamente il backup dei dati a intervalli regolari. Per informazioni dettagliate sugli intervalli di conservazione del backup e su Windows, vedere [backup online e ripristino dei dati su richiesta in Azure Cosmos DB](online-backup-and-restore.md).
 
-## <a name="per-container-limits"></a>Limiti per ogni contenitore
-
-A seconda di quali API utilizzare, un contenitore di Azure Cosmos può rappresentare in una raccolta, una tabella, o del grafico. I contenitori supportano le configurazioni per [vincoli di chiave univoca](unique-keys.md), [stored procedure, trigger e funzioni definite dall'utente](stored-procedures-triggers-udfs.md), e [criteri di indicizzazione](how-to-manage-indexing-policy.md). Nella tabella seguente sono elencate le limitazioni specifiche per le configurazioni in un contenitore. 
+## <a name="per-account-limits"></a>Limiti per account
 
 | Risorsa | Limite predefinito |
 | --- | --- |
-| Lunghezza massima del nome di database o un contenitore | 255 |
-| Numero massimo di stored procedure per ogni contenitore | 100 <sup>*</sup>|
-| Funzioni definite dall'utente massimo per ogni contenitore | 25 <sup>*</sup>|
-| Numero massimo di percorsi dei criteri di indicizzazione| 100 <sup>*</sup>|
+| Numero massimo di database | Senza limitazioni |
+| Numero massimo di contenitori per database (o account) | Senza limitazioni |
+| Numero massimo di aree | Nessun limite (tutte le aree di Azure) |
+
+## <a name="per-container-limits"></a>Limiti per contenitore
+
+A seconda dell'API usata, un contenitore di Azure Cosmos può rappresentare una raccolta, una tabella o un grafo. I contenitori supportano le configurazioni per [vincoli di chiave univoca](unique-keys.md), [stored procedure, trigger e funzioni definite dall'utente](stored-procedures-triggers-udfs.md) e [criteri di indicizzazione](how-to-manage-indexing-policy.md). La tabella seguente elenca i limiti specifici delle configurazioni all'interno di un contenitore. 
+
+| Risorsa | Limite predefinito |
+| --- | --- |
+| Lunghezza massima del nome del database o del contenitore | 255 |
+| Numero massimo di stored procedure per contenitore | 100 <sup>*</sup>|
+| Numero massimo di UDF per contenitore | 25 <sup>*</sup>|
+| Numero massimo di percorsi nei criteri di indicizzazione| 100 <sup>*</sup>|
 | Numero massimo di chiavi univoche per ogni contenitore|10 <sup>*</sup>|
-| Numero massimo di percorsi per ogni vincolo di chiave univoca|16 <sup>*</sup>|
+| Numero massimo di percorsi per vincolo di chiave univoca|16 <sup>*</sup>|
 
-<sup>*</sup> È possibile aumentare questi limiti per ogni contenitore di contattare il supporto tecnico di Azure o contattando Microsoft tramite [chiedere a Cosmos DB](mailto:askcosmosdb@microsoft.com).
+<sup>*</sup>È possibile aumentare i limiti per ogni contenitore contattando il supporto tecnico di Azure.
 
-## <a name="per-item-limits"></a>Limiti per ogni elemento
+## <a name="per-item-limits"></a>Limiti per singolo elemento
 
-A seconda di quali API utilizzare, un elemento Cosmos Azure può rappresentare un documento in una raccolta, una riga in una tabella, o in un nodo o edge in un grafico. La tabella seguente illustra i limiti per ogni elemento in Cosmos DB. 
+A seconda dell'API usata, un elemento di Azure Cosmos può rappresentare un documento in una raccolta, una riga in una tabella o un nodo o un bordo in un grafico. La tabella seguente mostra i limiti per ogni elemento in Cosmos DB. 
 
 | Risorsa | Limite predefinito |
 | --- | --- |
-| Dimensioni massime di un elemento | 2 MB (UTF-8 lunghezza della rappresentazione JSON) |
-| Lunghezza massima del valore di chiave di partizione | 2048 byte |
-| Lunghezza massima del valore di id | 1024 byte |
-| Numero massimo di proprietà per ogni elemento | Nessun limite pratico |
+| Dimensioni massime di un elemento | 2 MB (lunghezza UTF-8 della rappresentazione JSON) |
+| Lunghezza massima del valore della chiave di partizione | 2048 byte |
+| Lunghezza massima del valore ID | 1024 byte |
+| Numero massimo di proprietà per elemento | Nessun limite pratico |
 | Profondità massima di annidamento | Nessun limite pratico |
 | Lunghezza massima del nome della proprietà | Nessun limite pratico |
 | Lunghezza massima del valore della proprietà | Nessun limite pratico |
 | Lunghezza massima del valore della proprietà stringa | Nessun limite pratico |
-| Lunghezza massima del valore della proprietà numeriche | IEEE754 precisione doppia a 64 bit |
+| Lunghezza massima del valore della proprietà numerica | IEEE754 a precisione doppia 64 bit |
 
-Non sono previste restrizioni sui payload dell'elemento come il numero di proprietà e l'annidamento profondità, fatta eccezione per le restrizioni di lunghezza nella chiave di partizione e i valori di id e complessiva restrizione di 2 MB di dimensioni. È possibile configurare criteri di indicizzazione per i contenitori con elemento di grandi dimensioni o complesse strutture per ridurre il consumo di UR. Visualizzare [modellazione gli elementi in Cosmos DB](how-to-model-partition-example.md) per un esempio reale e i modelli per gestire gli elementi di grandi dimensioni.
+Non sono previste restrizioni per i payload dell'elemento come il numero di proprietà e la profondità di nidificazione, ad eccezione delle limitazioni di lunghezza per la chiave di partizione e i valori ID e la restrizione di dimensione complessiva di 2 MB. Potrebbe essere necessario configurare i criteri di indicizzazione per i contenitori con strutture di elementi grandi o complesse per ridurre il consumo di ur. Vedere [modellazione di elementi in Cosmos DB](how-to-model-partition-example.md) per un esempio reale e modelli per gestire elementi di grandi dimensioni.
 
-## <a name="per-request-limits"></a>Limiti richiesta
+## <a name="per-request-limits"></a>Limiti per richiesta
 
-COSMOS DB supporta [operazioni CRUD e di query](https://docs.microsoft.com/rest/api/cosmos-db/) sulle risorse come contenitori, gli elementi e i database.  
-
-| Risorsa | Limite predefinito |
-| --- | --- |
-| Tempo di esecuzione massimo per una singola operazione (ad esempio, un'esecuzione della stored procedure o il recupero di pagina una sola query)| 5 secondi |
-| Dimensione massima della richiesta (stored procedure CRUD)| 2 MB |
-| Dimensione massima della risposta (ad esempio, impaginati query) | 4 MB |
-
-Una volta un'operazione, ad esempio query raggiunge il limite di dimensione esecuzione timeout o della risposta, restituisce una pagina di risultati e un token di continuazione per il client possa riprendere l'esecuzione. Non sono previsti limiti pratici sulla durata di che una singola query eseguibili tra pagine/le continuazioni.
-
-COSMOS DB Usa HMAC per l'autorizzazione. È possibile usare entrambi una chiave master, o un [i token delle risorse](secure-access-to-data.md) per il controllo di accesso con granularità fine alle risorse come contenitori, partizionare le chiavi o elementi. Nella tabella seguente elenca i limiti per i token di autorizzazione in Cosmos DB.
+Cosmos DB supporta [operazioni CRUD e di query](https://docs.microsoft.com/rest/api/cosmos-db/) su risorse quali contenitori, elementi e database.  
 
 | Risorsa | Limite predefinito |
 | --- | --- |
-| Massimo master scadenza dei token | 15 min  |
-| Ora di scadenza del token risorsa minima | 10 min  |
-| Ora di scadenza del token massima di risorse | 24 ore per impostazione predefinita. È possibile aumentarlo dal [invio di un ticket di supporto tecnico di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) o contattare Microsoft tramite [chiedere a Cosmos DB](mailto:askcosmosdb@microsoft.com)|
-| Sfasamento di orario massimo per l'autorizzazione di token| 15 min |
+| Tempo massimo di esecuzione per una singola operazione (ad esempio, un'esecuzione stored procedure o un singolo recupero della pagina di query)| 5 secondi |
+| Dimensioni massime richiesta (stored procedure, CRUD)| 2 MB |
+| Dimensione massima della risposta (ad esempio, query impaginata) | 4 MB |
 
-COSMOS DB supporta l'esecuzione di trigger durante la scrittura. Il servizio supporta un massimo di una pre-trigger e un post-trigger per ogni operazione di scrittura. 
+Una volta che un'operazione come query raggiunge il limite di timeout di esecuzione o la dimensione della risposta, restituisce una pagina di risultati e un token di continuazione al client per riprendere l'esecuzione. Non esiste un limite pratico per la durata di esecuzione di una singola query tra pagine/continuazioni.
 
-## <a name="sql-query-limits"></a>Limiti di query SQL
-
-COSMOS DB supporta l'esecuzione di query usando gli elementi [SQL](how-to-sql-query.md). La tabella seguente descrive le restrizioni nelle istruzioni di query, ad esempio in termini di numero di clausole o lunghezza di query.
+Cosmos DB USA HMAC per l'autorizzazione. È possibile usare una chiave master o un token di [risorsa](secure-access-to-data.md) per il controllo di accesso con granularità fine a risorse quali contenitori, chiavi di partizione o elementi. Nella tabella seguente sono elencati i limiti per i token di autorizzazione in Cosmos DB.
 
 | Risorsa | Limite predefinito |
 | --- | --- |
-| Lunghezza massima di query SQL| 256 KB <sup>*</sup>|
-| Join massimo per ogni query| 5 <sup>*</sup>|
-| Massimo and per ogni query| 2000 <sup>*</sup>|
-| Operatori OR massima per ogni query| 2000 <sup>*</sup>|
-| Funzioni definite dall'utente massimo per le query| 10 <sup>*</sup>|
-| Argomenti di massimi per ogni nell'espressione| 6000 <sup>*</sup>|
-| Numero massimo di punti per ogni poligono| 4096 <sup>*</sup>|
+| Ora di scadenza massima del token master | 15 min  |
+| Tempo di scadenza del token di risorsa minimo | 10 minuti  |
+| Tempo di scadenza massimo del token di risorsa | 24 ore per impostazione predefinita. È possibile aumentarlo inserendo [un ticket di supporto di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)|
+| Sfasamento di clock massimo per l'autorizzazione del token| 15 min |
 
-<sup>*</sup> È possibile aumentare questi limiti di query SQL di mediante contattando il supporto tecnico di Azure o contattare Microsoft tramite il [chiedere a Cosmos DB](mailto:askcosmosdb@microsoft.com).
+Cosmos DB supporta l'esecuzione di trigger durante le Scritture. Il servizio supporta un massimo di un pre-trigger e un post-trigger per operazione di scrittura. 
+
+## <a name="sql-query-limits"></a>Limiti per le query SQL
+
+Cosmos DB supporta l'esecuzione di query su elementi con [SQL](how-to-sql-query.md). Nella tabella seguente vengono descritte le restrizioni nelle istruzioni di query, ad esempio in termini di numero di clausole o di lunghezza della query.
+
+| Risorsa | Limite predefinito |
+| --- | --- |
+| Lunghezza massima della query SQL| 256 KB <sup>*</sup>|
+| Numero massimo di JOIN per query| 5 <sup>*</sup>|
+| Numero massimo di i/o per query| 2000 <sup>*</sup>|
+| Numero massimo di ORs per query| 2000 <sup>*</sup>|
+| Numero massimo di UDF per query| 10 <sup>*</sup>|
+| Numero massimo di argomenti per espressione| 6000 <sup>*</sup>|
+| Punti massimi per poligono| 4096 <sup>*</sup>|
+
+<sup>*</sup>È possibile aumentare i limiti di query SQL contattando il supporto tecnico di Azure.
 
 ## <a name="mongodb-api-specific-limits"></a>Limiti specifici dell'API MongoDB
 
-COSMOS DB supporta il protocollo di trasmissione MongoDB per le applicazioni scritte per MongoDB. È possibile trovare i comandi supportati e le versioni del protocollo [MongoDB supportate funzionalità e sintassi](mongodb-feature-support.md).
+Cosmos DB supporta il protocollo wire di MongoDB per le applicazioni scritte in MongoDB. È possibile trovare i comandi e le versioni del protocollo supportati in [funzionalità e sintassi di MongoDB supportate](mongodb-feature-support.md).
 
-Nella tabella seguente sono elencate le limitazioni specifiche per il supporto di funzionalità di MongoDB. Altri limiti di servizio indicati per le API (core) di SQL si applicano anche all'API di MongoDB.
-
-| Risorsa | Limite predefinito |
-| --- | --- |
-| Dimensioni massime della memoria della query MongoDB | 40 MB |
-| Tempo di esecuzione massimo per le operazioni di MongoDB| 30 secondi |
-
-## <a name="try-cosmos-db-free-limits"></a>Provare a limiti di Cosmos DB gratuito
-
-La tabella seguente elenca i limiti per il [prova gratuitamente Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) valutazione.
+La tabella seguente elenca i limiti specifici del supporto della funzionalità MongoDB. Altri limiti di servizio indicati per l'API SQL (Core) si applicano anche all'API MongoDB.
 
 | Risorsa | Limite predefinito |
 | --- | --- |
-| Durata del periodo di valutazione | 30 giorni (può essere rinnovato qualsiasi numero di volte) |
-| Numero massimo di contenitori per ogni sottoscrizione (API di tabella SQL, Gremlin) | 1 |
-| Numero massimo di contenitori per ogni sottoscrizione (l'API MongoDB) | 3 |
-| Velocità effettiva massima per ogni contenitore | 5000 |
-| Velocità effettiva massima per ogni database condivisi e velocità effettiva | 20000 |
-| Massimo spazio di archiviazione totale per ogni account | 10 GB |
+| Dimensioni massime memoria query MongoDB | 40 MB |
+| Tempo massimo di esecuzione per le operazioni MongoDB| 30 secondi |
 
-Provare a distribuzione globale di Cosmos DB supporta in solo le aree Stati Uniti centrali, Europa settentrionale e Asia sud-orientale. Non è possibile creare ticket di supporto tecnico di Azure per gli account di prova di Azure Cosmos DB. Tuttavia, il supporto è fornito per i sottoscrittori con piani di supporto.
+## <a name="try-cosmos-db-free-limits"></a>Prova Cosmos DB limiti gratuiti
+
+La tabella seguente elenca i limiti per la versione di valutazione [gratuita di Try Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) .
+
+| Risorsa | Limite predefinito |
+| --- | --- |
+| Durata della versione di valutazione | 30 giorni (è possibile rinnovare un numero qualsiasi di volte) |
+| Numero massimo di contenitori per sottoscrizione (SQL, Gremlin, API Tabella) | 1 |
+| Numero massimo di contenitori per sottoscrizione (API MongoDB) | 3 |
+| Velocità effettiva massima per contenitore | 5000 |
+| Velocità effettiva massima per database con velocità effettiva condivisa | 20000 |
+| Spazio di archiviazione totale massimo per account | 10 GB |
+
+Prova Cosmos DB supporta la distribuzione globale solo nelle aree Stati Uniti centrali, Europa settentrionale e Asia sudorientale. Non è possibile creare ticket di supporto di Azure per gli account di prova Azure Cosmos DB. Tuttavia, viene fornito il supporto per i sottoscrittori con piani di supporto esistenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni su Cosmos DB i concetti fondamentali [distribuzione globale](distribute-data-globally.md) e [partizionamento](partitioning-overview.md) e [velocità effettiva con provisioning](request-units.md).
+Scopri di più sui concetti di base di Cosmos DB la [distribuzione globale](distribute-data-globally.md) e il [partizionamento](partitioning-overview.md) e la [velocità effettiva con provisioning](request-units.md).
 
 Per un'introduzione ad Azure Cosmos DB, fare riferimento alle guide introduttive seguenti:
 

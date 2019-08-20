@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cedfead26bd2a82792729853a2b8d038278b75f6
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 79f462b8903033784f186032c715cc966dfae7b4
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853293"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622696"
 ---
 # <a name="what-is-authentication"></a>Informazioni sull'autenticazione
 
@@ -53,7 +53,7 @@ Di seguito vengono indicate le informazioni sui diversi componenti presenti nel 
   * Per compilare in modo rapido un'app e aggiungere funzionalità, ad esempio il recupero e l'aggiornamento dei token, l'accesso di un utente, la visualizzazione di alcune informazioni utente e altro ancora, vedere la sezione **Guide introduttive** della documentazione.
   * Per ottenere procedure dettagliate basate su scenari specifici per attività di sviluppo relative all'autenticazione primarie, ad esempio il recupero di token di accesso e il relativo uso in chiamate all'API Microsoft Graph e ad altre API, l'implementazione dell'accesso con Microsoft tramite un'app basata su Web browser tradizionale tramite OpenID Connect e altro ancora, vedere la sezione **Esercitazioni** della documentazione.
   * Per scaricare esempi di codice, vedere [GitHub](https://github.com/Azure-Samples?q=active-directory).
-* Il flusso di richieste e risposte per il processo di autenticazione dipende dal protocollo di autenticazione usato, ad esempio OAuth 2.0, OpenID Connect, WS-Federation o SAML 2.0. Per altre informazioni sui protocolli, vedere la sezione **Concetti > Protocolli** della documentazione.
+* Il flusso di richieste e risposte per il processo di autenticazione dipende dal protocollo di autenticazione usato, ad esempio OAuth 2.0, OpenID Connect, WS-Federation o SAML 2.0. Per ulteriori informazioni sui protocolli, vedere la sezione **concetti > protocollo di autenticazione** della documentazione.
 
 Nello scenario di esempio precedente è possibile classificare le app in base ai due ruoli seguenti:
 
@@ -106,7 +106,7 @@ Le attestazioni presenti in un determinato token di sicurezza dipendono dal tipo
 
 La tabella seguente fornisce una breve descrizione dei tipi di attestazione generati da Microsoft Identity Platform. Per informazioni più dettagliate, vedere i [token di accesso](access-tokens.md) e i [token ID](id-tokens.md) emessi da Microsoft Identity Platform.
 
-| Attestazione | DESCRIZIONE |
+| Attestazione | Descrizione |
 | --- | --- |
 | ID applicazione | Identifica l'applicazione che usa il token. |
 | Destinatari | Identifica la risorsa di destinazione del token. |
@@ -127,7 +127,7 @@ La tabella seguente fornisce una breve descrizione dei tipi di attestazione gene
 | ID tenant | Contiene un identificatore univoco e non modificabile del tenant di directory che ha emesso il token. |
 | Durata del token | Definisce l'intervallo di tempo entro il quale un token è valido. |
 | Nome entità utente | Contiene il nome dell'entità utente dell'oggetto. |
-| Version | Contiene il numero di versione del token. |
+| Versione | Contiene il numero di versione del token. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

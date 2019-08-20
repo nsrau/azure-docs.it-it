@@ -7,35 +7,35 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 06/16/2019
 ms.author: bwren
-ms.openlocfilehash: e243ebbc31f9e941678ac76a83738276995b5ba1
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 6f5ae426018c9e7fa2ac586a2886c8e5e609069b
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67297298"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68813855"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Struttura dei log di monitoraggio di Azure
-La possibilità di ottenere rapidamente informazioni dettagliate sui tuoi dati usando un [query di log](log-query-overview.md) è una potente funzionalità di monitoraggio di Azure. Per creare query efficienti e utile, è necessario comprendere alcuni concetti di base, ad esempio in cui si trovano i dati desiderati e la struttura. Questo articolo illustra i concetti di base che necessari per iniziare.
+La possibilità di ottenere rapidamente informazioni dettagliate sui dati tramite una query di [log](log-query-overview.md) è una funzionalità potente di monitoraggio di Azure. Per creare query efficienti e utili, è necessario comprendere alcuni concetti di base, ad esempio dove si trovano i dati desiderati e come sono strutturati. Questo articolo fornisce i concetti di base necessari per iniziare.
 
 ## <a name="overview"></a>Panoramica
-Dati nei log di monitoraggio di Azure vengono archiviati in un'area di lavoro di Log Analitica o un'applicazione di Application Insights. Entrambi sono basate su GPU [Esplora dati di Azure](/azure/data-explorer/) vale a dire che si avvalgono di un linguaggio di motore e query avanzati per i dati.
+I dati nei log di monitoraggio di Azure vengono archiviati in un'area di lavoro Log Analytics o in un'applicazione Application Insights. Entrambe le funzionalità sono basate su [Azure Esplora dati](/azure/data-explorer/) , ovvero sfruttano il potente motore di dati e il linguaggio di query.
 
-Dati in entrambe le aree di lavoro e le applicazioni sono organizzati in tabelle, ognuno dei quali archivia i diversi tipi di dati e si ha un proprio set di proprietà univoco. La maggior parte degli [zdroje dat](../platform/data-sources.md) scriverà autonomamente le tabelle in un'area di lavoro di Log Analitica, mentre Application Insights verranno scritti in un set predefinito di tabelle in un'applicazione di Application Insights. Le query di log sono molto flessibile che consente di combinare facilmente i dati da più tabelle e anche usare una query più risorse per combinare dati provenienti da tabelle in più aree di lavoro o per scrivere le query che combinano i dati dell'area di lavoro e l'applicazione.
+I dati nelle aree di lavoro e nelle applicazioni sono organizzati in tabelle, ognuna delle quali archivia diversi tipi di dati e dispone di un proprio set univoco di proprietà. La maggior parte delle [origini dati](../platform/data-sources.md) scriverà nelle proprie tabelle in un'area di lavoro log Analytics, mentre Application Insights scriverà in un set predefinito di tabelle in un'applicazione Application Insights. Le query di log sono molto flessibili, consentendo di combinare facilmente i dati da più tabelle e persino di usare una query tra risorse per combinare i dati delle tabelle in più aree di lavoro o scrivere query che combinano i dati dell'area di lavoro e dell'applicazione.
 
-L'immagine seguente mostra alcuni esempi di origini dati che scrivono in diverse tabelle utilizzate nella query di esempio.
+Nell'immagine seguente vengono illustrati esempi di origini dati che scrivono in tabelle diverse utilizzate nelle query di esempio.
 
 ![Tabelle](media/logs-structure/queries-tables.png)
 
 ## <a name="log-analytics-workspace"></a>Area di lavoro Log Analytics
-Tutti i dati raccolti da log di monitoraggio di Azure ad eccezione di Application Insights vengono archiviati in un [dell'area di lavoro di Log Analitica](../platform/manage-access.md). È possibile creare uno o più aree di lavoro a seconda delle esigenze specifiche. [Zdroje dat](../platform/data-sources.md) , ad esempio log di log attività e di diagnostica dalle risorse di Azure, gli agenti di macchine virtuali e i dati delle informazioni dettagliate e soluzioni di monitoraggio dati verranno scritti in uno o più aree di lavoro configurata come parte del loro onboarding. Altri servizi, ad esempio [Centro sicurezza di Azure](/azure/security-center/) e [Azure Sentinel](/azure/sentinel/) anche usare un'area di lavoro di Log Analitica per archiviare i dati in modo che può essere analizzato con query di log insieme ai dati da altre di monitoraggio origini dati.
+Tutti i dati raccolti dai log di monitoraggio di Azure ad eccezione di Application Insights vengono archiviati in un' [area di lavoro di log Analytics](../platform/manage-access.md). È possibile creare una o più aree di lavoro in base ai requisiti specifici. Le [origini dati](../platform/data-sources.md) , ad esempio i log attività e i log di diagnostica delle risorse di Azure, gli agenti nelle macchine virtuali e i dati dalle soluzioni Insights e Monitoring scriveranno i dati in una o più aree di lavoro configurate come parte dell'onboarding. Altri servizi, come il [Centro sicurezza di Azure](/azure/security-center/) e [Azure Sentinel](/azure/sentinel/) , usano anche un'area di lavoro di log Analytics per archiviare i dati in modo che possano essere analizzati usando query di log insieme ai dati di monitoraggio di altre origini.
 
-Diversi tipi di dati vengono archiviati in tabelle diverse nell'area di lavoro e ogni tabella dispone di un set di proprietà univoco. Un set standard di tabelle vengono aggiunte a un'area di lavoro quando viene creato e vengono aggiunte nuove tabelle per origini dati diverse, soluzioni e servizi non appena vengono caricate. È anche possibile creare tabelle personalizzate usando il [API di raccolta dati](../platform/data-collector-api.md).
+Diversi tipi di dati vengono archiviati in tabelle diverse dell'area di lavoro e ogni tabella dispone di un set univoco di proprietà. Un set standard di tabelle viene aggiunto a un'area di lavoro al momento della creazione e le nuove tabelle vengono aggiunte per diverse origini dati, soluzioni e servizi durante l'onboarding. È anche possibile creare tabelle personalizzate usando l' [API dell'agente di raccolta dati](../platform/data-collector-api.md).
 
-È possibile esplorare le tabelle in un'area di lavoro e i relativi schemi nel **Schema** scheda nel Log Analitica per l'area di lavoro.
+È possibile esplorare le tabelle in un'area di lavoro e il relativo schema nella scheda **schema** log Analytics per l'area di lavoro.
 
-![Schema dell'area di lavoro](media/scope/workspace-schema.png)
+![Schema area di lavoro](media/scope/workspace-schema.png)
 
-Usare la query seguente per elencare le tabelle nell'area di lavoro e il numero di record raccolti in ognuno nel giorno precedente. 
+Utilizzare la query seguente per elencare le tabelle nell'area di lavoro e il numero di record raccolti in ogni nel giorno precedente. 
 
 ```Kusto
 union withsource = table * 
@@ -43,44 +43,44 @@ union withsource = table *
 | summarize count() by table
 | sort by table asc
 ```
-Vedere la documentazione per ogni origine dati per i dettagli delle tabelle che vengono create. Esempi includono gli articoli relativi [origini dati dell'agente](../platform/agent-data-sources.md), [log di diagnostica](../platform/diagnostic-logs-schema.md), e [soluzioni di monitoraggio](../insights/solutions-inventory.md).
+Per informazioni dettagliate sulle tabelle create, vedere la documentazione per ogni origine dati. Gli esempi includono articoli per le [origini dati di Agent, i](../platform/agent-data-sources.md) [log di diagnostica](../platform/diagnostic-logs-schema.md)e le soluzioni di [monitoraggio](../insights/solutions-inventory.md).
 
-### <a name="workspace-permissions"></a>Autorizzazioni dell'area di lavoro
-Visualizzare [le autorizzazioni dell'area di lavoro e l'ambito](../platform/manage-access.md#workspace-permissions-and-scope) per informazioni dettagliate sulla capacità di fornire accesso ai dati in un'area di lavoro. Oltre a concedere l'accesso all'area di lavoro, è possibile limitare l'accesso per le singole tabelle usando [RBAC a livello di tabella](../platform/manage-access.md#table-level-rbac).
+### <a name="workspace-permissions"></a>Autorizzazioni per l'area di lavoro
+Per informazioni dettagliate su come fornire l'accesso ai dati in un'area di lavoro [, vedere autorizzazioni e ambito dell'area di lavoro](../platform/manage-access.md#manage-accounts-and-users) . Oltre a concedere l'accesso all'area di lavoro stessa, è possibile limitare l'accesso a singole tabelle utilizzando il [controllo degli accessi in base al ruolo](../platform/manage-access.md#table-level-rbac).
 
-## <a name="application-insights-application"></a>Applicazione di application Insights
-Quando si crea un'applicazione in Application Insights, un'applicazione corrispondente viene creata automaticamente nel log di monitoraggio di Azure. È necessaria alcuna configurazione per raccogliere i dati e l'applicazione scriverà automaticamente il monitoraggio dei dati, ad esempio visualizzazioni pagina, le richieste ed eccezioni.
+## <a name="application-insights-application"></a>Applicazione Application Insights
+Quando si crea un'applicazione in Application Insights, viene creata automaticamente un'applicazione corrispondente nei log di monitoraggio di Azure. Non è necessaria alcuna configurazione per la raccolta dei dati e l'applicazione scriverà automaticamente i dati di monitoraggio, ad esempio le visualizzazioni di pagina, le richieste e le eccezioni.
 
-A differenza di un'area di lavoro di Log Analitica, un'applicazione di Application Insights dispone di un set fisso di tabelle. Non è possibile configurare altre origini dati in cui scrivere l'applicazione in modo che non è possibile creare alcun tabelle aggiuntive. 
+A differenza di un'area di lavoro Log Analytics, un'applicazione Application Insights dispone di un set fisso di tabelle. Non è possibile configurare altre origini dati da scrivere nell'applicazione in modo da non creare altre tabelle. 
 
 | Tabella | Descrizione | 
 |:---|:---|
-| availabilityResults | Dati di riepilogo dai test di disponibilità. |
+| availabilityResults | Riepilogare i dati dei test di disponibilità. |
 | browserTimings      | Dati sulle prestazioni del client, ad esempio il tempo impiegato per elaborare i dati in ingresso. |
 | customEvents        | Eventi personalizzati creati dall'applicazione. |
 | customMetrics       | Metriche personalizzate create dall'applicazione. |
-| Dipendenze        | Chiamate dall'applicazione a componenti esterni. |
-| Eccezioni          | Eccezioni generate dal runtime dell'applicazione. |
-| Visualizzazioni pagina           | Consente di visualizzare i dati relativi a ogni sito Web con informazioni di visualizzazione. |
-| performanceCounters | Misurazioni delle prestazioni tra le risorse di calcolo che supportano l'applicazione. |
-| requests            | Dettagli di ogni richiesta dell'applicazione.  |
-| traces              | Risultati della traccia distribuita. |
+| dipendenze        | Chiamate dall'applicazione a componenti esterni. |
+| eccezioni          | Eccezioni generate dal runtime dell'applicazione. |
+| pageViews           | Dati relativi a ogni visualizzazione del sito Web con le informazioni del browser. |
+| performanceCounters | Misurazioni delle prestazioni dalle risorse di calcolo che supportano l'applicazione. |
+| richieste            | Dettagli di ogni richiesta dell'applicazione.  |
+| traces              | Risultati dalla traccia distribuita. |
 
-È possibile visualizzare lo schema per ogni tabella di **Schema** scheda nel Log Analitica per l'applicazione.
+È possibile visualizzare lo schema per ogni tabella nella scheda **schema** log Analytics per l'applicazione.
 
-![Schema dell'applicazione](media/scope/application-schema.png)
+![Schema applicazione](media/scope/application-schema.png)
 
 ## <a name="standard-properties"></a>Proprietà standard
-Anche se ogni tabella nel log di monitoraggio di Azure ha un proprio schema, esistono standard proprietà condivise da tutte le tabelle. Visualizzare [delle proprietà Standard nei log di monitoraggio di Azure](../platform/log-standard-properties.md) per informazioni dettagliate di ognuno.
+Mentre ogni tabella nei log di monitoraggio di Azure ha un proprio schema, sono presenti proprietà standard condivise da tutte le tabelle. Per informazioni dettagliate, vedere [proprietà standard nei log di monitoraggio di Azure](../platform/log-standard-properties.md) .
 
-| Area di lavoro Log Analytics | Applicazione di application Insights | Descrizione |
+| Area di lavoro Log Analytics | Applicazione Application Insights | Descrizione |
 |:---|:---|:---|
-| TimeGenerated | timestamp  | Data e ora di che creazione del record. |
-| Type          | itemType   | Nome della tabella che di record è stato recuperato dal. |
-| _ResourceId   |            | Identificatore univoco per il record della risorsa è associato. |
+| TimeGenerated | timestamp  | Data e ora di creazione del record. |
+| Type          | itemType   | Nome della tabella da cui è stato recuperato il record. |
+| _ResourceId   |            | Identificatore univoco per la risorsa a cui è associato il record. |
 | _IsBillable   |            | Specifica se i dati inseriti sono fatturabili. |
-| _BilledSize   |            | Specifica la dimensione in byte dei dati che verranno fatturati. |
+| _BilledSize   |            | Specifica le dimensioni in byte dei dati che verranno fatturati. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Informazioni su come usare [ricerche nei log di Log Analitica per creare e modificare](../log-query/portals.md).
+- Informazioni sull'uso [di log Analytics per creare e modificare le ricerche nei log](../log-query/portals.md).
 - Vedere un'[esercitazione sulla scrittura di query](../log-query/get-started-queries.md) con il nuovo linguaggio di query.

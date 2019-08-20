@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 150c41dce06c81f2e9e07605ab6d5afa9e424453
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: a836e4cf66bf1e957f7b3779e21ec6a0296f7abe
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494494"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881451"
 ---
 # <a name="multi-step-web-tests"></a>Test Web in più passi
 
 È possibile monitorare una sequenza registrata di URL e interazioni con un sito Web tramite test Web in più passaggi. In questo articolo viene illustrato il processo di creazione di un test Web in più passaggi con Visual Studio Enterprise.
 
 > [!NOTE]
-> I test Web in più passaggi dipendono dai file di test Web di Visual Studio. È stato [annunciato](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) che Visual Studio 2019 sarà l'ultima versione con funzionalità di test Web. È importante comprendere che, sebbene non vengano aggiunte nuove funzionalità, la funzionalità di test Web in Visual Studio 2019 è ancora attualmente supportata e continuerà a essere supportata durante il ciclo di vita del supporto del prodotto. Il team del prodotto monitoraggio di Azure ha risolto le domande relative al futuro [dei test di](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101)disponibilità in più passaggi.  
+> I test Web in più passaggi dipendono dai file di test Web di Visual Studio. È stato [annunciato](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) che Visual Studio 2019 sarà l'ultima versione con funzionalità di test Web. È importante comprendere che, sebbene non vengano aggiunte nuove funzionalità, la funzionalità di test Web in Visual Studio 2019 è ancora attualmente supportata e continuerà a essere supportata durante il ciclo di vita del supporto del prodotto. Il team del prodotto monitoraggio di Azure ha risolto le domande relative al futuro dei test di [disponibilità in più passaggi](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101).  
 
 ## <a name="pre-requisites"></a>Prerequisiti
 
@@ -48,7 +48,7 @@ Per creare un test in più passaggi, registrare lo scenario con Visual Studio En
 
 Usare Visual Studio Enterprise per registrare una sessione Web.
 
-1. Creare un progetto di test di carico e prestazioni Web. **File** > **nuovo**  progettoVisualTest >  >   > **C#**
+1. Creare un progetto di test di carico e prestazioni Web. **File** > **nuovo**progettoVisualTest >  >   > **C#**
 
     ![Interfaccia utente nuovo progetto di Visual Studio](./media/availability-multistep/vs-web-performance-and-load-test.png)
 
@@ -136,7 +136,18 @@ In tutti i casi è consigliabile creare un account nell'applicazione solo a scop
 
 **Nome utente e password semplici** Registrare un test Web nel modo consueto. Eliminare prima di tutto i cookie.
 
-**Autenticazione SAML** Usare il plug-in SAML disponibile per i test Web. Accedere al plug-in...
+**Autenticazione SAML**
+
+|Nome proprietà| DESCRIZIONE|
+|----|-----|
+| URI del gruppo di destinatari | URI del destinatario per il token SAML.  Si tratta dell'URI per il servizio di controllo di accesso (ACS), inclusi lo spazio dei nomi ACS e il nome host. |
+| Password certificato | Password del certificato client che consentirà l'accesso alla chiave privata incorporata. |
+| Certificato client  | Il valore del certificato client con la chiave privata nel formato con codifica Base64. |
+| Identificatore nome | Identificatore del nome per il token. |
+| Non dopo | TimeSpan per il quale il token sarà valido.  Il valore predefinito è 5 minuti. |
+| Non prima | TimeSpan per il quale un token creato in passato sarà valido (per risolvere gli sfasamento dell'ora).  Il valore predefinito è (negativo) 5 minuti. |
+| Nome parametro di contesto di destinazione | Parametro di contesto che riceverà l'asserzione generata. |
+
 
 **Segreto client** Se l'app ha una route di accesso che include un segreto client, usare tale route. Un servizio che offre l'accesso con segreto client è ad esempio Azure Active Directory (AAD). In AAD, il segreto client è la chiave dell'app.
 

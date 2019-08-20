@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 08/19/2019
 ms.author: diberry
-ms.openlocfilehash: 0a3a9330eaa977f72cdbaba4e11aaa706b437fad
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 60cd87b6cecfb30ebc90f445c79e25c241980a86
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945915"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623349"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Esercitazione: Eseguire test in batch dei set di dati
 
@@ -95,7 +95,7 @@ Seguire questa procedura:
 
 ## <a name="review-batch-results"></a>Esaminare i risultati del batch
 
-Il grafico relativo al batch visualizza quattro quadranti d risultati. Nella parte destra del grafico è presente un filtro. L'impostazione predefinita del filtro è sulla prima finalità dell'elenco. Il filtro contiene tutti gli Intent e solo le entità semplici e composite. Quando si seleziona una [sezione del grafico](luis-concept-batch-test.md#batch-test-results) oppure un punto nel grafico, le espressioni associate vengono visualizzate sotto il grafico. 
+Il grafico relativo al batch visualizza quattro quadranti d risultati. Nella parte destra del grafico è presente un filtro. Il filtro contiene Intent ed entità. Quando si seleziona una [sezione del grafico](luis-concept-batch-test.md#batch-test-results) oppure un punto nel grafico, le espressioni associate vengono visualizzate sotto il grafico. 
 
 Quando si passa il mouse sul grafico, la rotellina del mouse consente di ingrandire o ridurre la visualizzazione del grafico. Ciò è utile quando sono presenti molti punti nel grafico strettamente raggruppati. 
 
@@ -103,27 +103,27 @@ Il grafico è diviso in quattro quadranti, con due sezioni visualizzate in rosso
 
 ### <a name="getjobinformation-test-results"></a>Risultati del test GetJobInformation
 
-I risultati del test **GetJobInformation** visualizzati nel filtro mostrano che due delle quattro stime hanno avuto esito positivo. Selezionare il nome **False positive** (Falso positivo) sopra il quadrante superiore destro per visualizzare le espressioni sotto il grafico. 
+I risultati del test **GetJobInformation** visualizzati nel filtro mostrano che due delle quattro stime hanno avuto esito positivo. Selezionare il nome **false negative** nel quadrante in basso a sinistra per visualizzare le espressioni sotto il grafico. 
 
-![Espressioni di test in batch LUIS](./media/luis-tutorial-batch-testing/hr-applyforjobs-false-positive-results.png)
+Utilizzare la tastiera, CTRL + E, per passare alla visualizzazione etichetta per visualizzare il testo esatto dell'espressione utente. 
 
-Perché sono presenti due espressioni previste come **ApplyForJob** anziché come finalità **GetJobInformation** corretta? Le due finalità sono strettamente correlate in termini di scelta e di disposizione delle parole. Esistono anche esempi per **ApplyForJob** tre volte più numerosi rispetto a **GetJobInformation**. Questo disuguaglianza di espressioni di esempio pesa in favore della finalità **ApplyForJob**. 
+L'espressione `Is there a database position open in Los Colinas?` è contrassegnata come _GetJobInformation_ , ma il modello corrente ha stimato l'espressione come _ApplyForJob_. 
+
+Ci sono quasi tre volte il numero di esempi per **ApplyForJob** rispetto a **GetJobInformation**. Questa uniformità degli enunciati di esempio pondera il vantaggio di **ApplyForJob** Intent, causando una stima errata. 
 
 Si noti che entrambe le finalità hanno lo stesso numero di errori. Una stima non corretta in una finalità influisce anche sull'altra. Entrambe presentano errori perché le espressioni sono state stimate in modo non corretto per una finalità e anche per l'altra. 
 
-![Errori di filtro di test in batch LUIS](./media/luis-tutorial-batch-testing/hr-intent-error-count.png)
+<a name="fix-the-app"></a>
 
-Le espressioni corrispondenti nella parte superiore della sezione **False positive** (Falso positivo) sono `Can I apply for any database jobs with this resume?` e `Can I apply for any database jobs with this resume?`. Per la prima espressione, la parola `resume` è stata usata solo in **ApplyForJob**. Per la seconda espressione, la parola `apply` è stata usata solo per la finalità **ApplyForJob**.
-
-## <a name="fix-the-app"></a>Correggere l'app
+## <a name="how-to-fix-the-app"></a>Come correggere l'app
 
 L'obiettivo di questa sezione è quello di avere tutte le espressioni stimate in modo corretto per **GetJobInformation** tramite la correzione dell'app. 
 
-Una correzione apparentemente rapida potrebbe essere quella di aggiungere queste espressioni di file batch alla finalità corretta. Questo risultato non è tuttavia quello desiderato. Si desidera che LUIS stimi in modo corretto tali espressioni senza aggiungerle come esempi. 
+Una correzione apparentemente rapida potrebbe essere quella di aggiungere queste espressioni di file batch alla finalità corretta. Questo non è ciò che si vuole fare. Si desidera che LUIS stimi in modo corretto tali espressioni senza aggiungerle come esempi. 
 
 Può essere opportuno anche rimuovere le espressioni da **ApplyForJob** fino a quando la quantità di espressioni equivale a quella di **GetJobInformation**. In questo modo si potrebbero correggere i risultati del test, ma si impedisce a LUIS di stimare in modo preciso la finalità la volta successiva. 
 
-La prima soluzione consiste nell'aggiungere più espressioni a **GetJobInformation**. La seconda soluzione consiste nel ridurre il peso di parole come `resume` e `apply` rispetto alla finalità **ApplyForJob**. 
+La correzione consiste nell'aggiungere più espressioni a **GetJobInformation**. Ricordarsi di variare la lunghezza dell'espressione, la scelta di parole e la disposizione di parole, pur continuando a individuare le informazioni sul processo, _non_ applicando il processo.
 
 ### <a name="add-more-utterances"></a>Aggiungere altre espressioni
 
@@ -161,15 +161,13 @@ Per verificare che le espressioni del test in batch siano stimate correttamente 
 
 1. Selezionare **Test** nella barra di spostamento in alto. Se i risultati del batch sono ancora aperti, selezionare **Back to list** (Torna a elenco).  
 
-2. Selezionare i puntini di sospensione (***...*** ) a destra del nome del batch e selezionare **Run Dataset** (Esegui set di dati). Attendere fino a quando il test in batch non viene completato. Si noti che il pulsante **See results** (Visualizza risultati) è ora di colore verde. Ciò significa che l'intero batch è stato eseguito correttamente.
+1. Selezionare il pulsante con i puntini di sospensione (***...***) a destra del nome del batch e selezionare **Esegui**. Attendere fino a quando il test in batch non viene completato. Si noti che il pulsante **See results** (Visualizza risultati) è ora di colore verde. Ciò significa che l'intero batch è stato eseguito correttamente.
 
-3. Selezionare **See results** (Visualizza risultati). Per tutte le finalità, le icone a sinistra del nome devono essere verdi. 
-
-    ![Schermata di LUIS con il pulsante di risultati batch evidenziato](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)
+1. Selezionare **See results** (Visualizza risultati). Per tutte le finalità, le icone a sinistra del nome devono essere verdi. 
 
 ## <a name="create-batch-file-with-entities"></a>Creare file di batch con entità 
 
-Per verificare le entità in un test in batch, le entità devono essere etichettate nel file batch JSON. Vengono usate solo le entità apprese dal computer: entità semplici e composite. Non aggiungere entità non apprese in modo automatico perché si trovano sempre tramite espressioni regolari o corrispondenze di testo esplicite.
+Per verificare le entità in un test in batch, le entità devono essere etichettate nel file batch JSON. 
 
 La variazione delle entità per il numero di parole totali ([token](luis-glossary.md#token)) può influire sulla qualità della stima. Verificare che i dati di training specificati per la finalità con espressioni etichettate includano una vasta gamma di lunghezze di entità. 
 
@@ -178,7 +176,6 @@ Quando si scrivono i file di batch e se ne esegue il test la prima volta, è con
 Il valore di un'entità **Job**, indicato nelle espressioni di test, è composto in genere da una o due parole, con alcuni esempi di più parole. Se la _propria_ app relativa alle risorse umane è composta in genere da nomi di lavoro costituiti da molte parole, le espressioni di esempio etichettate con l'entità **Job** in questa app non funzionano in modo corretto.
 
 1. Creare `HumanResources-entities-batch.json` in un editor di testo come [VSCode](https://code.visualstudio.com/) o [scaricarlo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json).
-
 
 2. Nel file batch in formato JSON aggiungere una matrice di oggetti che includono espressioni con la **finalità** che si vuole stimare nel test nonché i percorsi di tutte le entità nell'espressione. Poiché un'entità è basata su token, verificare di iniziare e terminare ogni entità con un carattere. Non iniziare o terminare l'espressione con uno spazio. Ciò può causare un errore durante l'importazione del file batch.  
 

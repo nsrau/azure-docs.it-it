@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: e85f9a90af778a7e68bf761d8d2159e808cf122d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 829054064a21b2fb8da2bd975501bfcd0840e7eb
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639203"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624576"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>Funzionalità di elenco di frasi nell'app LUIS
 
@@ -69,7 +69,7 @@ Dal momento che le parole o le frasi per il corpo d'acqua sono sinonimi e posson
 
 ### <a name="non-interchangeable-lists"></a>Elenchi non intercambiabili
 
-Un elenco di frasi non intercambiabile è un segnale che potenzia il rilevamento per LUIS. L'elenco di frasi indica parole o frasi che sono più significative rispetto alle altre parole. Ciò è utile sia per la determinazione della finalità che per il rilevamento delle entità. Ad esempio, si supponga di usare il dominio di interesse Viaggi globale, ovvero valido per più impostazioni cultura, ma comunque in una sola lingua. Sono presenti parole e frasi che sono importanti per l'app, ma non sono sinonimi. 
+Un elenco di frasi non intercambiabile è un segnale che potenzia il rilevamento per LUIS. L'elenco di frasi indica parole o frasi più significative di altre parole. Ciò è utile sia per la determinazione della finalità che per il rilevamento delle entità. Ad esempio, si supponga di usare il dominio di interesse Viaggi globale, ovvero valido per più impostazioni cultura, ma comunque in una sola lingua. Sono presenti parole e frasi che sono importanti per l'app, ma non sono sinonimi. 
 
 Sempre a titolo di esempio, si potrebbe usare un elenco di frasi non intercambiabile anche per le parole rare, brevettate e straniere. LUIS potrebbe non essere in grado di riconoscere le parole rare e brevettate, nonché le parole straniere (diverse rispetto alla impostazioni cultura dell'app). L'impostazione di non intercambiabilità indica che il set di parole rare forma una classe che LUIS deve imparare a riconoscere, ma che queste parole non sono sinonimi o intercambiabili tra loro.
 

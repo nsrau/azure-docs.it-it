@@ -1,7 +1,7 @@
 ---
-title: Estrazione dei dati
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: Estrarre dati da un testo utterance con finalità ed entità. Informazioni su quale tipo di dati può essere estratti da LUIS (Language Understanding).
+title: Estrazione dei dati-LUIS
+titleSuffix: Azure Cognitive Services
+description: Estrae i dati da testo enunciato con Intent ed entità. Informazioni sul tipo di dati che è possibile estrarre da Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 07/24/2019
 ms.author: diberry
-ms.openlocfilehash: 15d6b0d28f926bdb39b35b763b89422cddcccc84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 055cd25f534de5d3cc3ccbe44df88e7111e101a3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65150690"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560757"
 ---
-# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Estrarre dati da un testo utterance con finalità ed entità
+# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Estrai i dati da testo enunciato con Intent ed entità
 LUIS consente di ottenere informazioni da espressioni in linguaggio naturale dell'utente. Le informazioni vengono estratte in modo che possano essere usate da un programma, applicazione o chatbot per intervenire. Le sezioni seguenti spiegano quali dati vengono restituiti da finalità ed entità con esempi di JSON.
 
 I dati più difficili da estrarre sono i dati appresi in modo automatico perché non rappresentano una corrispondenza di testo esatta. L'estrazione dati delle [entità](luis-concept-entity-types.md) apprese in modo automatico deve far parte del [ciclo di creazione](luis-concept-app-iteration.md) finché non si è certi di ricevere i dati previsti.
@@ -75,7 +75,7 @@ Se il chatbot o l'app chiamante LUIS prende una decisione in base a più di un p
 
 Le finalità vengono ordinate dal punteggio più alto al più basso.
 
-|Oggetto dati|Tipo di dati|Posizione dei dati|Value|Score|
+|Oggetto dati|Tipo di dati|Posizione dei dati|Valore|Punteggio|
 |--|--|--|--|:--|
 |Finalità|String|intents[0].intent|"GetStoreInfo"|0,984749258|
 |Finalità|String|intents[0].intent|"None"|0,0168218873|
@@ -109,7 +109,7 @@ Se si aggiungono domini predefiniti, il nome della finalità indica il dominio, 
 |Domain|Oggetto dati|Tipo di dati|Posizione dei dati|Value|
 |--|--|--|--|--|
 |Servizi pubblici|Finalità|String|intents[0].intent|"<b>Utilities</b>.ShowNext"|
-|Comunicazione|Finalità|String|intents[0].intent|<b>Communication</b>.StartOver"|
+|Comunicazioni|Finalità|String|intents[0].intent|<b>Communication</b>.StartOver"|
 ||Finalità|String|intents[2].intent|"None"|
 
 
@@ -148,141 +148,15 @@ Ad esempio, in tedesco, la parola `das Bauernbrot` in formato token è `das baue
 
 ## <a name="simple-entity-data"></a>Dati entità semplice
 
-Un'[entità semplice](luis-concept-entity-types.md) è un valore appreso in modo automatico. Può trattarsi di una parola o di una frase.
-
-`Bob Jones wants 3 meatball pho`
-
-Nell'espressione precedente `Bob Jones` è etichettata come entità `Customer` semplice.
-
-I dati restituiti dall'endpoint includono il nome dell'entità, il testo individuato nell'espressione, la posizione del testo individuato e il punteggio:
-
-```JSON
-"entities": [
-  {
-  "entity": "bob jones",
-  "type": "Customer",
-  "startIndex": 0,
-  "endIndex": 8,
-  "score": 0.473899543
-  }
-]
-```
-
-|Oggetto dati|Nome dell'entità|Value|
-|--|--|--|
-|Entità semplice|`Customer`|`bob jones`|
+Un'[entità semplice](reference-entity-simple.md) è un valore appreso in modo automatico. Può trattarsi di una parola o di una frase.
 
 ## <a name="composite-entity-data"></a>Dati entità composita
-Le entità [composite](luis-concept-entity-types.md) vengono apprese in modo automatico e possono includere una parola o una frase. Ad esempio, considerare un'entità composita di `number` e `Location::ToLocation` predefiniti con l'espressione seguente:
 
-`book 2 tickets to paris`
-
-Si noti che tra `2`, il numero, `paris` e ToLocation sono presenti delle parole che non fanno parte di nessuna delle entità. La sottolineatura verde, usata in un'espressione etichettata nel sito Web [LUIS](luis-reference-regions.md), indica un'entità composita.
-
-![Entità composita](./media/luis-concept-data-extraction/composite-entity.png)
-
-Le entità composite vengono restituite in una matrice `compositeEntities` e tutte le entità nell'entità composita vengono restituite nella matrice `entities`:
-
-```JSON
-
-"entities": [
-    {
-    "entity": "2 tickets to cairo",
-    "type": "ticketInfo",
-    "startIndex": 0,
-    "endIndex": 17,
-    "score": 0.67200166
-    },
-    {
-    "entity": "2",
-    "type": "builtin.number",
-    "startIndex": 0,
-    "endIndex": 0,
-    "resolution": {
-        "subtype": "integer",
-        "value": "2"
-    }
-    },
-    {
-    "entity": "cairo",
-    "type": "builtin.geographyV2",
-    "startIndex": 13,
-    "endIndex": 17
-    }
-],
-"compositeEntities": [
-    {
-    "parentType": "ticketInfo",
-    "value": "2 tickets to cairo",
-    "children": [
-        {
-        "type": "builtin.geographyV2",
-        "value": "cairo"
-        },
-        {
-        "type": "builtin.number",
-        "value": "2"
-        }
-    ]
-    }
-]
-```    
-
-|Oggetto dati|Nome dell'entità|Value|
-|--|--|--|
-|Entità predefinita - numero|"builtin.number"|"2"|
-|Entità predefiniti - GeographyV2|"Location::ToLocation"|"paris"|
+Un' [entità composita](reference-entity-composite.md) è costituita da altre entità, ad esempio entità predefinite, semplici, espressioni regolari ed elenchi. Le entità separate formano un'entità intera. 
 
 ## <a name="list-entity-data"></a>Dati entità elenco
 
-Un'entità [list](luis-concept-entity-types.md) non è appresa in modo automatico. Si tratta di una corrispondenza di testo esatta. Un elenco rappresenta gli elementi dell'elenco insieme ai sinonimi di tali elementi. LUIS contrassegna eventuali corrispondenze a un elemento in qualsiasi elenco come un'entità nella risposta. Un sinonimo può trovarsi in più di un elenco.
-
-Si supponga che l'app disponga di un elenco, di nome `Cities`, consentendo variazioni di nomi di città, tra cui città dell'aeroporto (Sea-tac), codice dell'aeroporto (SEA), codice postale (98101) e prefisso telefonico (206).
-
-|Elemento elenco|Sinonimi elenco|
-|---|---|
-|`Seattle`|`sea-tac`, `sea`, `98101`, `206`, `+1` |
-|`Paris`|`cdg`, `roissy`, `ory`, `75001`, `1`, `+33`|
-
-`book 2 tickets to paris`
-
-Nell'espressione precedente la parola `paris` viene mappata all'elemento parigi come parte dell'entità elenco `Cities`. L'entità elenco corrisponde al nome normalizzato dell'elemento e ai sinonimi dell'elemento.
-
-```JSON
-"entities": [
-  {
-    "entity": "paris",
-    "type": "Cities",
-    "startIndex": 18,
-    "endIndex": 22,
-    "resolution": {
-      "values": [
-        "Paris"
-      ]
-    }
-  }
-]
-```
-
-Un'altra espressione di esempio, usando un sinonimo per Parigi:
-
-`book 2 tickets to roissy`
-
-```JSON
-"entities": [
-  {
-    "entity": "roissy",
-    "type": "Cities",
-    "startIndex": 18,
-    "endIndex": 23,
-    "resolution": {
-      "values": [
-        "Paris"
-      ]
-    }
-  }
-]
-```
+Le [entità di elenco](reference-entity-list.md) rappresentano un set fisso e chiuso di parole correlate insieme ai relativi sinonimi. LUIS non individua valori aggiuntivi per le entità elenco. Usare la funzione **consigliata** per visualizzare i suggerimenti per le nuove parole in base all'elenco corrente. Se sono presenti più entità elenco con lo stesso valore, ogni entità viene restituita nella query endpoint. 
 
 ## <a name="prebuilt-entity-data"></a>Dati entità predefinita
 Vengono trovate le entità [predefinite](luis-concept-entity-types.md) in base alla corrispondenza con espressione regolare usando il progetto [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) open-source. Le entità predefinite vengono restituite nella matrice di entità e usano il nome tipo con prefisso `builtin::`. Il testo seguente è un'espressione di esempio con entità predefinite restituite:
@@ -369,35 +243,8 @@ Vengono trovate le entità [predefinite](luis-concept-entity-types.md) in base a
 ```
 
 ## <a name="regular-expression-entity-data"></a>Dati entità espressione regolare
-Le entità [espressione regolare](luis-concept-entity-types.md) vengono individuate in base a una corrispondenza con espressione regolare usando un'espressione fornita alla creazione dell'entità. Quando si usa `kb[0-9]{6}` come definizione di entità espressione regolare, la risposta JSON seguente è un'espressione di esempio con le entità espressione regolare restituite per la query `When was kb123456 published?`:
 
-```JSON
-{
-  "query": "when was kb123456 published?",
-  "topScoringIntent": {
-    "intent": "FindKBArticle",
-    "score": 0.933641255
-  },
-  "intents": [
-    {
-      "intent": "FindKBArticle",
-      "score": 0.933641255
-    },
-    {
-      "intent": "None",
-      "score": 0.04397359
-    }
-  ],
-  "entities": [
-    {
-      "entity": "kb123456",
-      "type": "KB number",
-      "startIndex": 9,
-      "endIndex": 16
-    }
-  ]
-}
-```
+Un' [entità di espressione regolare](reference-entity-regular-expression.md) estrae un'entità in base a un modello di espressione regolare fornito dall'utente.
 
 ## <a name="extracting-names"></a>Estrazione di nomi
 Ottenere i nomi da un'espressione è difficile perché un nome può essere qualsiasi combinazione di lettere e parole. Le opzioni disponibili variano a seconda del tipo di nome estratto. I suggerimenti seguenti non sono regole, ma linee guida.
@@ -408,17 +255,17 @@ Le entità [PersonName](luis-reference-prebuilt-person.md) e [GeographyV2](luis-
 
 ### <a name="names-of-people"></a>Nomi di persone
 
-I nomi delle persone possono presentare un formato a seconda della lingua e delle impostazioni cultura. Usare un precompilati **[personName](luis-reference-prebuilt-person.md)** entità o un **[entità semplice](luis-concept-entity-types.md#simple-entity)** con [ruoli](luis-concept-roles.md) del primo e Cognome. 
+I nomi delle persone possono presentare un formato a seconda della lingua e delle impostazioni cultura. Utilizzare un'entità **[personName](luis-reference-prebuilt-person.md)** predefinita o un' **[entità semplice](luis-concept-entity-types.md#simple-entity)** con [ruoli](luis-concept-roles.md) di nome e cognome. 
 
-Se si usa l'entità semplice, assicurarsi di fornire esempi che usano il nome e cognome in diverse parti del utterance, nelle espressioni di lunghezze diverse e utterances tra tutti gli Intent tra cui nessun intent. [Rivedere](luis-how-to-review-endoint-utt.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
+Se si usa l'entità semplice, assicurarsi di fornire esempi che usano il nome e il cognome in parti diverse dell'espressione, in espressioni di lunghezze diverse ed espressioni in tutti gli Intent, inclusa la finalità None. [Rivedere](luis-how-to-review-endoint-utt.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
 
 ### <a name="names-of-places"></a>Nomi di località
 
-Nomi di località vengono impostati e noti, ad esempio le città, province, gli stati, province e paesi/aree geografiche. Utilizzare l'entità precompilato **[geographyV2](luis-reference-prebuilt-geographyv2.md)** per estrarre le informazioni sulla posizione.
+I nomi di località sono impostati e noti come città, contee, Stati, Province e paesi/aree geografiche. Usare l'entità predefinita **[geographyV2](luis-reference-prebuilt-geographyv2.md)** per estrarre le informazioni sul percorso.
 
 ### <a name="new-and-emerging-names"></a>Nomi nuovi ed emergenti
 
-Alcune app devono essere in grado di trovare nomi nuovi ed emergenti, ad esempio prodotti o aziende. Questi tipi di nomi sono il tipo più difficile di estrazione dei dati. Iniziare con una **[entità semplice](luis-concept-entity-types.md#simple-entity)** e aggiungere un [elenco frasi](luis-concept-feature.md). [Rivedere](luis-how-to-review-endoint-utt.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
+Alcune app devono essere in grado di trovare nomi nuovi ed emergenti, ad esempio prodotti o aziende. Questi tipi di nomi sono il tipo più complesso di estrazione dei dati. Iniziare con un' **[entità semplice](luis-concept-entity-types.md#simple-entity)** e aggiungere un [elenco di frasi](luis-concept-feature.md). [Rivedere](luis-how-to-review-endoint-utt.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
 
 ## <a name="pattern-roles-data"></a>Dati ruoli criterio
 I ruoli sono differenze contestuali di entità.
@@ -482,49 +329,8 @@ I ruoli sono differenze contestuali di entità.
 ```
 
 ## <a name="patternany-entity-data"></a>Dati entità Pattern.any
-Le entità pattern.Any sono entità a lunghezza variabile usate nelle espressioni modello di un [criterio](luis-concept-patterns.md).
 
-```JSON
-{
-  "query": "where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?",
-  "topScoringIntent": {
-    "intent": "FindForm",
-    "score": 0.999999464
-  },
-  "intents": [
-    {
-      "intent": "FindForm",
-      "score": 0.999999464
-    },
-    {
-      "intent": "GetEmployeeBenefits",
-      "score": 4.883697E-06
-    },
-    {
-      "intent": "None",
-      "score": 1.02040713E-06
-    },
-    {
-      "intent": "GetEmployeeOrgChart",
-      "score": 9.278342E-07
-    },
-    {
-      "intent": "MoveAssetsOrPeople",
-      "score": 9.278342E-07
-    }
-  ],
-  "entities": [
-    {
-      "entity": "understand your responsibilities as a member of the community",
-      "type": "FormName",
-      "startIndex": 18,
-      "endIndex": 78,
-      "role": ""
-    }
-  ]
-}
-```
-
+[Pattern. any](reference-entity-pattern-any.md) è un segnaposto a lunghezza variabile usato solo nell'espressione di modello di un modello per contrassegnare l'inizio e la fine dell'entità.  
 
 ## <a name="sentiment-analysis"></a>Analisi del sentiment
 Se l'analisi del sentiment è configurata, è inclusa nella risposta json LUIS. Per ulteriori informazioni sull'analisi del sentiment, vedere la documentazione [Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).

@@ -1,7 +1,7 @@
 ---
-title: Rilevare lo sfasamento di dati (anteprima) in distribuzioni con configurazione servizio contenitore di AZURE
+title: Rilevare la tendenza dei dati (anteprima) nelle distribuzioni AKS
 titleSuffix: Azure Machine Learning service
-description: Rilevare lo sfasamento di dati in Azure Kubernetes Service distribuito nel servizio Azure Machine Learning i modelli.
+description: Rilevare la tendenza dei dati nei modelli distribuiti del servizio Kubernetes di Azure nel servizio Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,58 +10,60 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 07/08/2019
-ms.openlocfilehash: 3b8152bde8b7e44dde1b0b9c82216333778f83da
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
-ms.translationtype: MT
+ms.openlocfilehash: c5484c37d89cc9ae880bbe17987bb47f3114b8a4
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806013"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847884"
 ---
-# <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Rilevare lo sfasamento di dati (anteprima) per i modelli distribuiti a Azure Kubernetes Service (AKS)
+# <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Rilevare la tendenza dei dati (anteprima) nei modelli distribuiti in Azure Kubernetes Service (AKS)
 
-In questo articolo descrive come monitorare la deviazione di dati tra il set di dati di training e inferenza dei dati di un modello distribuito. Nel contesto di machine learning, sottoposto a training modelli di machine learning verifichi le prestazioni della stima con funzionalità ridotte a causa di deviazione. Con il servizio di Azure Machine Learning, è possibile monitorare lo sfasamento di dati e il servizio può inviare un messaggio di avviso all'utente quando viene rilevato uno sfasamento.
+Questo articolo illustra come monitorare la tendenza dei dati tra il set di dati di training e i dati di inferenza di un modello distribuito. Nel contesto di Machine Learning, i modelli di apprendimento automatico sottoposti a training possono comportare una riduzione delle prestazioni di stima a causa della deviazione. Con il servizio Azure Machine Learning è possibile monitorare la tendenza dei dati e il servizio può inviare un avviso di posta elettronica quando viene rilevata una deriva.
 
-## <a name="what-is-data-drift"></a>Che cos'è lo sfasamento di dati?
+## <a name="what-is-data-drift"></a>Che cos'è la deriva dei dati?
 
-Lo sfasamento di dati si verifica quando i dati serviti da un modello nell'ambiente di produzione sono diversi da quelli usati per il training del modello. È uno dei motivi principali in cui accuratezza del modello diminuisca nel tempo, in questo modo i dati di monitoraggio sfasamento consente di rilevare i problemi di prestazioni del modello. 
+La tendenza ai dati si verifica quando i dati serviti a un modello in produzione sono diversi da quelli utilizzati per il training del modello. Si tratta di uno dei motivi principali in cui l'accuratezza del modello diminuisce nel tempo, quindi il monitoraggio della deriva dei dati consente di rilevare i problemi di prestazioni del modello. 
 
-## <a name="what-can-i-monitor"></a>Ciò che è possibile monitorare?
+## <a name="what-can-i-monitor"></a>Che cosa è possibile monitorare?
 
-Con il servizio di Azure Machine Learning, è possibile monitorare gli input per un modello distribuito nel servizio contenitore di AZURE e confrontare questi dati per il set di dati di training per il modello. A intervalli regolari, siano i dati di inferenza [snapshot e il profiling](how-to-explore-prepare-data.md), quindi calcolato rispetto ai set di dati della linea di base per produrre un'analisi di sfasamento di dati che: 
+Con Azure Machine Learning servizio è possibile monitorare gli input per un modello distribuito in AKS e confrontare questi dati con il set di dati di training per il modello. A intervalli regolari, i dati di inferenza sono [snapshot e](how-to-explore-prepare-data.md)profilati, quindi vengono calcolati in base al set di dati baseline per produrre un'analisi della deriva dei dati che: 
 
-+ Calcola la grandezza di sfasamento di dati, denominato il coefficiente di deviazione.
-+ Le misure i dati dello sfasamento contributo dalla funzionalità, per informare le funzionalità che ha causato lo sfasamento di dati.
-+ Le misure a metriche di distanza. Attualmente vengono calcolate Wasserstein e distanza di energia.
-+ Distribuzioni di misure delle funzionalità. Attualmente la stima di densità del kernel e gli istogrammi.
-+ Inviare gli avvisi per i dati dello sfasamento tramite posta elettronica.
++ Misura la grandezza della deviazione dei dati, denominata coefficiente di tendenza.
++ Misura il contributo alla derivazione dei dati per funzionalità, che informa quali funzionalità hanno causato la deriva dei dati.
++ Misura le metriche della distanza. Attualmente Wasserstein e la distanza di energia vengono calcolate.
++ Misura le distribuzioni delle funzionalità. Stima della densità del kernel e istogrammi.
++ Invia avvisi alla deviazione dei dati tramite posta elettronica.
 
 > [!Note]
-> Questo servizio è in (anteprima) e limitate nelle opzioni di configurazione. Vedere la [documentazione dell'API](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py) e [note sulla versione](azure-machine-learning-release-notes.md) per informazioni dettagliate e gli aggiornamenti. 
+> Questo servizio è in (anteprima) e limitato nelle opzioni di configurazione. Per informazioni dettagliate e aggiornamenti, vedere la [documentazione dell'API](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py) e le [Note sulla versione](azure-machine-learning-release-notes.md) . 
 
-### <a name="how-data-drift-is-monitored-in-azure-machine-learning-service"></a>Modo in cui viene monitorato lo sfasamento di dati nel servizio Azure Machine Learning
+### <a name="how-data-drift-is-monitored-in-azure-machine-learning-service"></a>Modalità di monitoraggio della deviazione dei dati nel servizio Azure Machine Learning
 
-Usa il servizio di Azure Machine Learning, lo sfasamento di dati viene monitorato tramite i set di dati o le distribuzioni. Per il monitoraggio sfasamento di dati, viene specificato un set di dati della linea di base - generalmente il training set di dati per un modello. Un secondo set di dati - in genere i dati di input modello raccolti da una distribuzione - è testata con il set di dati della linea di base. Entrambi i set di dati [profilate](how-to-explore-prepare-data.md#explore-with-summary-statistics) e servizio di monitoraggio dello sfasamento di input per i dati. Viene eseguito il training di un modello di machine learning per rilevare le differenze tra due set di dati. Le prestazioni del modello viene convertita nel coefficiente di deviazione, che misura la grandezza di deviazione tra due set di dati. Usando [interpretazione del modello](machine-learning-interpretability-explainability.md), vengono calcolate le funzionalità che contribuiscono al coefficiente di deviazione. Dal profilo del set di dati, vengano tenuta traccia informazioni statistiche su ognuna delle funzionalità. 
+Utilizzando Azure Machine Learning servizio, la deriva dei dati viene monitorata tramite set di dati o distribuzioni. Per monitorare la deriva dei dati, viene specificato un set di dati di base, in genere il set di dati di training per un modello. Un secondo set di dati, in genere il modello di dati di input raccolti da una distribuzione, viene testato rispetto al set di dati di base. Entrambi i set di dati vengono [profilati](how-to-explore-prepare-data.md#explore-with-summary-statistics) e vengono inseriti nel servizio di monitoraggio della deriva dati. Viene eseguito il training di un modello di apprendimento automatico per rilevare le differenze tra i due set di impostazioni. Le prestazioni del modello vengono convertite nel coefficiente di derivazione, che misura la grandezza della deviazione tra i due set di impostazioni. Grazie all' [interpretazione dei modelli](machine-learning-interpretability-explainability.md), vengono calcolate le funzionalità che contribuiscono al coefficiente di drifting. Dal profilo del set di dati vengono rilevate informazioni statistiche su ogni funzionalità. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Una sottoscrizione di Azure. Se non hai uno, creare un account gratuito, prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
+- Una sottoscrizione di Azure. Se non si ha un account, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
 
-- Un'area di lavoro del servizio di Azure Machine Learning e Azure Machine Learning SDK per Python installato. Usare le istruzioni riportate in [Creare un'area di lavoro del servizio Azure Machine Learning](setup-create-workspace.md#sdk) per eseguire queste operazioni:
+- SDK Azure Machine Learning per Python installato. Usare le istruzioni in [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) per eseguire le operazioni seguenti:
 
     - Creare un ambiente Miniconda
     - Installare Azure Machine Learning SDK per Python
-    - Creare un'area di lavoro
-    - Scrivere un file di configurazione dell'area di lavoro (aml_config/config.json).
 
-- Installare lo sfasamento di dati SDK usando il comando seguente:
+- Un' [area di lavoro del servizio Azure Machine Learning](how-to-manage-workspace.md).
+
+- Un [file di configurazione](how-to-configure-environment.md#workspace)dell'area di lavoro.
+
+- Installare Data Drift SDK usando il comando seguente:
 
     ```shell
     pip install azureml-contrib-datadrift
     ```
 
-- Creare un [set di dati](how-to-create-register-datasets.md) dai dati di training del modello.
+- Creare un [set](how-to-create-register-datasets.md) di dati dai dati di training del modello.
 
-- Specificare il set di dati di training durante [registrazione](concept-model-management-and-deployment.md) il modello. Nell'esempio seguente viene illustrato l'utilizzo di `datasets` parametro per specificare il set di dati di training:
+- Specificare il set di dati di training durante la [registrazione](concept-model-management-and-deployment.md) del modello. Nell'esempio seguente viene illustrato l' `datasets` utilizzo del parametro per specificare il set di dati di training:
 
     ```python
     model = Model.register(model_path=model_file,
@@ -72,12 +74,12 @@ Usa il servizio di Azure Machine Learning, lo sfasamento di dati viene monitorat
     print(model_name, image_name, service_name, model)
     ```
 
-- [Abilitare la raccolta di dati del modello](how-to-enable-data-collection.md) per raccogliere i dati dalla distribuzione del modello di servizio contenitore di AZURE e verificare che i dati vengono raccolti nel `modeldata` contenitore blob.
+- [Abilitare la raccolta dei dati del modello](how-to-enable-data-collection.md) per raccogliere dati dalla distribuzione di AKS del modello e verificare che i dati vengano `modeldata` raccolti nel contenitore BLOB.
 
-## <a name="configure-data-drift"></a>Configurare lo sfasamento di dati
-Per configurare lo sfasamento di dati per l'esperimento, importare le dipendenze, come illustrato nell'esempio seguente di Python. 
+## <a name="configure-data-drift"></a>Configurare la tendenza dei dati
+Per configurare la tendenza dei dati per l'esperimento, importare le dipendenze come illustrato nell'esempio Python seguente. 
 
-In questo esempio viene illustrata la configurazione di [ `DataDriftDetector` ](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector.datadriftdetector?view=azure-ml-py) oggetto:
+In questo esempio viene illustrata la configurazione dell' [`DataDriftDetector`](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector.datadriftdetector?view=azure-ml-py) oggetto:
 
 ```python
 # Import Azure ML packages
@@ -93,9 +95,9 @@ datadrift = DataDriftDetector.create(ws, model.name, model.version, services, fr
 print('Details of Datadrift Object:\n{}'.format(datadrift))
 ```
 
-## <a name="submit-a-datadriftdetector-run"></a>Invia un'esecuzione DataDriftDetector
+## <a name="submit-a-datadriftdetector-run"></a>Inviare un'esecuzione DataDriftDetector
 
-Con il `DataDriftDetector` oggetto configurato, è possibile inviare un [sfasamento di dati eseguito](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) in una determinata data per il modello. Come parte dell'esecuzione, abilitare avvisi DataDriftDetector impostando il `drift_threshold` parametro. Se il [datadrift_coefficient](#metrics) supera il determinato `drift_threshold`, viene inviato un messaggio di posta elettronica.
+Con l' `DataDriftDetector` oggetto configurato, è possibile inviare un' [esecuzione della deviazione dati](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) in una data specifica per il modello. Come parte dell'esecuzione, abilitare gli avvisi DataDriftDetector impostando il `drift_threshold` parametro. Se il valore di [datadrift_coefficient](#metrics) è superiore `drift_threshold`a quello specificato, viene inviato un messaggio di posta elettronica.
 
 ```python
 # adhoc run today
@@ -113,27 +115,27 @@ dd_run = Run(experiment=exp, run_id=run)
 RunDetails(dd_run).show()
 ```
 
-## <a name="visualize-drift-metrics"></a>Visualizzare le metriche di deviazione
+## <a name="visualize-drift-metrics"></a>Visualizzare le metriche di Drift
 
 <a name="metrics"></a>
 
-Dopo aver inviato il DataDriftDetector eseguire, si è in grado di visualizzare le metriche di sfasamento che vengono salvate in ogni iterazione di esecuzione per un'attività di sfasamento di dati:
+Dopo aver inviato l'esecuzione di DataDriftDetector, è possibile visualizzare le metriche di spostamento salvate in ogni iterazione di esecuzione per un'attività di drifting dei dati:
 
 
-|Metrica|Descrizione|
+|Metrica|DESCRIZIONE|
 --|--|
 wasserstein_distance|Distanza statistica definita per la distribuzione numerica unidimensionale.|
 energy_distance|Distanza statistica definita per la distribuzione numerica unidimensionale.|
-datadrift_coefficient|Calcolato come il coefficiente di correlazione di Matthew allo stesso modo, ma questo output è un numero reale compreso tra 0 e 1. Nel contesto di deviazione, 0 non indica nessun orientamenti e 1 indica che lo sfasamento massimo.|
-datadrift_contribution|Importanza delle caratteristiche delle funzionalità contributo dello sfasamento.|
+datadrift_coefficient|Calcolato in modo analogo al coefficiente di correlazione di Matthew, ma questo output è un numero reale compreso tra 0 e 1. Nel contesto di Drift, 0 indica No Drift e 1 indica la deviazione massima.|
+datadrift_contribution|Importanza delle funzionalità che contribuiscono alla deviazione.|
 
-Esistono diversi modi per visualizzare le metriche di deviazione:
+Sono disponibili diversi modi per visualizzare le metriche di Drift:
 
-* Usare il widget di Jupyter.
-* Usare la [ `get_metrics()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-) funzione in qualsiasi `datadrift` oggetto di esecuzione.
-* Visualizzare le metriche nel portale di Azure nel modello
+* Usare il `RunDetails` [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
+* Utilizzare la [`get_metrics()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-) funzione su qualsiasi `datadrift` oggetto di esecuzione.
+* Visualizzare le metriche nel portale di Azure del modello.
 
-Python di esempio seguente viene illustrato come tracciare le metriche di sfasamento di dati rilevanti. Per creare visualizzazioni personalizzate, è possibile usare le metriche restituite:
+Nell'esempio Python seguente viene illustrato come tracciare le metriche di spostamento dei dati rilevanti. È possibile usare le metriche restituite per creare visualizzazioni personalizzate:
 
 ```python
 # start and end are datetime objects 
@@ -144,40 +146,40 @@ drift_metrics = datadrift.get_output(start_time=start, end_time=end)
 drift_figures = datadrift.show(with_details=True)
 ```
 
-![Vedere lo sfasamento di dati rilevato da Azure Machine Learning](media/how-to-monitor-data-drift/drift_show.png)
+![Vedere la tendenza dei dati rilevata da Azure Machine Learning](media/how-to-monitor-data-drift/drift_show.png)
 
 
-## <a name="schedule-data-drift-scans"></a>Lo sfasamento le analisi dei dati di pianificazione 
+## <a name="schedule-data-drift-scans"></a>Pianifica analisi della deviazione dati 
 
-Quando si abilita il rilevamento di deviazione di dati, un DataDriftDetector viene eseguito in base alla frequenza specificata, pianificata. Se raggiunge la datadrift_coefficient il determinato `drift_threshold`, un messaggio di posta elettronica viene inviato con ogni esecuzione pianificata. 
+Quando si Abilita il rilevamento della tendenza dei dati, viene eseguito un DataDriftDetector alla frequenza pianificata specificata. Se il datadrift_coefficient raggiunge l'oggetto `drift_threshold`specificato, viene inviato un messaggio di posta elettronica con ogni esecuzione pianificata. 
 
 ```python
 datadrift.enable_schedule()
 datadrift.disable_schedule()
 ```
 
-La configurazione del Rilevatore di sfasamento di dati può essere visualizzata nella pagina dei dettagli del modello nel portale di Azure.
+La configurazione del rilevamento della deriva dei dati può essere visualizzata nella pagina dei dettagli del modello nel portale di Azure.
 
-![Portale di Azure Data deviazione della configurazione](media/how-to-monitor-data-drift/drift_config.png)
+![Configurazione della deviazione dati portale di Azure](media/how-to-monitor-data-drift/drift_config.png)
 
-## <a name="view-results-in-azure-ml-workspace-ui"></a>Visualizzare i risultati nell'interfaccia utente dell'area di lavoro di Machine Learning di Azure
+## <a name="view-results-in-azure-ml-workspace-ui"></a>Visualizzare i risultati nell'interfaccia utente di Azure area di lavoro di ML
 
-Per visualizzare i risultati nell'interfaccia utente dell'area di lavoro di Machine Learning di Azure, passare alla pagina del modello. Nella scheda dettagli del modello, verrà visualizzata la configurazione di sfasamento di dati. Una scheda 'Sfasamento di dati (anteprima)' è ora disponibile che mostrano metriche lo sfasamento di dati. 
+Per visualizzare i risultati nell'interfaccia utente di Azure area di lavoro di ML, passare alla pagina del modello. Nella scheda Dettagli del modello viene visualizzata la configurazione della deviazione dati. È ora disponibile una scheda relativa alla deviazione dei dati (anteprima) per la visualizzazione delle metriche di spostamento dei dati. 
 
-![Portale di Azure lo sfasamento di dati](media/how-to-monitor-data-drift/drift_ui.png)
+![Spostamento dei dati portale di Azure](media/how-to-monitor-data-drift/drift_ui.png)
 
-## <a name="receiving-drift-alerts"></a>Ricevere avvisi di deviazione
+## <a name="receiving-drift-alerts"></a>Ricezione di avvisi di Drift
 
-Impostando il coefficiente di deviazione della soglia di avviso e fornendo un indirizzo di posta elettronica, un' [monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/overview) avviso tramite posta elettronica viene inviato automaticamente ogni volta che il coefficiente lo sfasamento è superiore alla soglia. 
+Impostando la soglia di avviso per il coefficiente di tendenza e fornendo un indirizzo di posta elettronica, viene automaticamente inviato un avviso di posta elettronica di [monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/overview) ogni volta che il coefficiente di spostamento supera la soglia. 
 
-Perché è possibile configurare avvisi personalizzati e le azioni, tutte le metriche di sfasamento di dati vengono archiviate nel [Application Insights](how-to-enable-app-insights.md) risorsa creata con l'area di lavoro del servizio di Azure Machine Learning. È possibile seguire il collegamento nell'avviso di posta elettronica per la query di Application Insights.
+Per configurare gli avvisi e le azioni personalizzati, tutte le metriche di spostamento dei dati vengono archiviate nella risorsa [Application Insights](how-to-enable-app-insights.md) creata insieme all'area di lavoro del servizio Azure Machine Learning. È possibile seguire il collegamento nell'avviso di posta elettronica per la query Application Insights.
 
-![Avviso di posta elettronica di sfasamento di dati](media/how-to-monitor-data-drift/drift_email.png)
+![Avviso di posta elettronica Drift dei dati](media/how-to-monitor-data-drift/drift_email.png)
 
-## <a name="retrain-your-model-after-drift"></a>Ripetere il training del modello dopo gli orientamenti
+## <a name="retrain-your-model-after-drift"></a>Ripetere il training del modello dopo la deriva
 
-Quando lo sfasamento di dati influisce negativamente sulle prestazioni del modello distribuito, è possibile ripetere il training di modelli. Quanto segue [ `diff()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#diff-rhs-dataset--compute-target-none--columns-none-
-) metodo offre un'idea iniziale di le modifiche apportate tra i vecchi e nuovi set di dati. 
+Quando la tendenza dei dati influisce negativamente sulle prestazioni del modello distribuito, è il momento di ripetere il training del modello. Il metodo [ seguente `diff()` offre un'idea iniziale di ciò che è cambiato tra i set di dati di training vecchi e nuovi. ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#diff-rhs-dataset--compute-target-none--columns-none-
+) 
 
 ```python
 from azureml.core import Dataset
@@ -185,16 +187,16 @@ from azureml.core import Dataset
 old_training_dataset.diff(new_training_dataset)
 ```
 
-Basata sull'output del codice precedente, è possibile ripetere il training del modello. A tale scopo, procedere con la procedura seguente.
+In base all'output del codice precedente, potrebbe essere necessario ripetere il training del modello. A tale scopo, procedere con i passaggi seguenti.
 
-* Analizzare i dati raccolti e preparare i dati per il training del nuovo modello.
-* Suddividerlo in dati di training/test.
-* Il training del modello usando i nuovi dati.
+* Esaminare i dati raccolti e preparare i dati per il training del nuovo modello.
+* Suddividerla in dati di training/test.
+* Eseguire di nuovo il training del modello utilizzando i nuovi dati.
 * Valutare le prestazioni del modello appena generato.
-* Se le prestazioni sono migliori rispetto al modello di produzione, distribuire nuovo modello.
+* Distribuire un nuovo modello se le prestazioni sono migliori rispetto al modello di produzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per un esempio completo dell'uso di sfasamento di dati, vedere la [dati di Azure Machine Learning deviano notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/data-drift/azure-ml-datadrift.ipynb). Questo Notebook di Jupyter illustra l'uso di un' [set di dati aperto Azure](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) per addestrare un modello per stimare le condizioni meteo, distribuirla in AKS ed esegue il monitoraggio sfasamento di dati. 
+* Per un esempio completo dell'uso della dispersione dei dati, vedere il [notebook di spostamento dei dati di Azure ml](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/azure-ml-datadrift.ipynb). Questo Jupyter Notebook illustra l'uso di un [set di dati di Azure Open](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) per eseguire il training di un modello per stimare il tempo, distribuirlo in AKS e monitorare la tendenza dei dati. 
 
-* È possibile lasciare le domande, commenti o suggerimenti notevolmente quando lo sfasamento di dati viene spostato verso generale la disponibilità. Usare il pulsante commenti e suggerimenti di prodotto seguente. 
+* Si apprezzeranno molto le domande, i commenti o i suggerimenti quando lo spostamento dei dati viene spostato verso la disponibilità generale. Usare il pulsante feedback del prodotto sotto. 

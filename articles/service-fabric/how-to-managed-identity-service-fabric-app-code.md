@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 7/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: 528e1b0a353cdcd716f9bca63c423af7a6f12641
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: d5593da4f874688fa099827e418b12e41363f4bd
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68958239"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624885"
 ---
-# <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Come sfruttare un'identità gestita dell'applicazione Service Fabric per accedere ai servizi di Azure
+# <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services-preview"></a>Come sfruttare un'identità gestita dell'applicazione Service Fabric per accedere ai servizi di Azure (anteprima)
 
 Service Fabric applicazioni possono sfruttare le identità gestite per accedere ad altre risorse di Azure che supportano l'autenticazione basata su Azure Active Directory. Un'applicazione può ottenere un [token di accesso](../active-directory/develop/developer-glossary.md#access-token) che rappresenta l'identità, che può essere assegnata dal sistema o assegnata dall'utente e usarla come token di connessione per autenticarsi a un altro servizio, noto anche come [server di risorse protetto](../active-directory/develop/developer-glossary.md#resource-server). Il token rappresenta l'identità assegnata all'applicazione Service Fabric e verrà emesso solo per le risorse di Azure (incluse le applicazioni SF) che condividono tale identità. Per una descrizione dettagliata delle identità gestite, vedere la documentazione relativa alla [Panoramica dell'identità gestita](../active-directory/managed-identities-azure-resources/overview.md) , nonché la distinzione tra identità assegnate dal sistema e identità assegnate dall'utente. Si fa riferimento a un'applicazione Service Fabric abilitata per l'identità gestita come [applicazione client](../active-directory/develop/developer-glossary.md#client-application) in questo articolo.
 
@@ -280,7 +280,7 @@ Errore di esempio:
 
 Di seguito è riportato un elenco di errori di Service Fabric tipici specifici per le identità gestite:
 
-| Codice | Messaggio | DESCRIZIONE | 
+| Codice | Messaggio | Descrizione | 
 | ----------- | ----- | ----------------- |
 | SecretHeaderNotFound | Il segreto non è stato trovato nelle intestazioni della richiesta. | Il codice di autenticazione non è stato fornito con la richiesta. | 
 | ManagedIdentityNotFound | Identità gestita non trovata per l'host applicazioni specificato. | L'applicazione non ha identità oppure il codice di autenticazione è sconosciuto. |

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/09/2019
-ms.openlocfilehash: 1e5eb1e363ac9e282a72a9c1430c3f80c825bb91
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: a77310d0e45f095260d77ead0cfe14a3ce0ebd8e
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945069"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623834"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Eseguire la migrazione all'accesso granulare in base al ruolo per le configurazioni dei cluster
 
@@ -201,7 +201,7 @@ Se il problema persiste, contattare l'amministratore di AAD per acquisire le aut
 
 ### <a name="what-will-happen-if-i-take-no-action"></a>Che cosa succede se non viene eseguita alcuna azione?
 
-E non restituiranno più informazioni e la chiamata non `GET /configurations/{configurationName}` restituirà più parametri sensibili, ad esempio la chiave dell'account di archiviazione o la password del cluster. `POST /configurations/gateway` `GET /configurations` Lo stesso vale per i metodi SDK e i cmdlet di PowerShell corrispondenti.
+Le `GET /configurations` chiamate `POST /configurations/gateway` e non restituiranno più informazioni e la `GET /configurations/{configurationName}` chiamata non restituirà più parametri sensibili, ad esempio le chiavi dell'account di archiviazione o la password del cluster. Lo stesso vale per i metodi SDK e i cmdlet di PowerShell corrispondenti.
 
 Se si usa una versione precedente di uno degli strumenti per Visual Studio, VSCode, IntelliJ o Eclipse menzionati in precedenza, non funzioneranno più fino a quando non si esegue l'aggiornamento.
 

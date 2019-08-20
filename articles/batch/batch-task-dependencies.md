@@ -4,7 +4,7 @@ description: Creare attività che dipendono dal completamento di altre attività
 services: batch
 documentationcenter: .net
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: b8d12db5-ca30-4c7d-993a-a05af9257210
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ca6918b809a9b4ede3fffb151c7fa5183ae03b47
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a0a258630fcb3639f20de4c72591611b7af15b90
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60550382"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68322971"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Creare relazioni tra attività per eseguire attività che dipendono da altre attività
 
@@ -38,10 +38,10 @@ Per impostazione predefinita, l'esecuzione delle attività dipendenti è pianifi
 È possibile creare attività che dipendono da altre attività in una relazione uno-a-uno o uno-a-molti. È anche possibile creare una dipendenza da un intervallo, in cui un'attività dipende dal completamento di un gruppo di attività all'interno di un intervallo di ID attività specifico. È possibile combinare questi tre scenari di base per creare relazioni molti-a-molti.
 
 ## <a name="task-dependencies-with-batch-net"></a>Relazioni tra attività con Batch .NET
-Questo articolo illustra la configurazione di relazioni tra attività tramite la libreria [Batch .NET][net_msdn]. Viene illustrato prima come [abilitare le dipendenze tra attività](#enable-task-dependencies) nei processi, quindi viene spiegato come [configurare un'attività con dipendenze](#create-dependent-tasks). Viene inoltre descritto come specificare un'azione di dipendenza per l'esecuzione di attività dipendenti se l'attività padre non riesce. Vengono infine illustrati gli [scenari delle relazione](#dependency-scenarios) supportate da Batch.
+In questo articolo viene illustrato come configurare le dipendenze delle attività tramite la libreria [batch .NET][net_msdn] . Viene illustrato prima come [abilitare le dipendenze tra attività](#enable-task-dependencies) nei processi, quindi viene spiegato come [configurare un'attività con dipendenze](#create-dependent-tasks). Viene inoltre descritto come specificare un'azione di dipendenza per l'esecuzione di attività dipendenti se l'attività padre non riesce. Vengono infine illustrati gli [scenari delle relazione](#dependency-scenarios) supportate da Batch.
 
 ## <a name="enable-task-dependencies"></a>Abilitare le relazioni tra attività
-Per usare le dipendenze delle attività nell'applicazione Batch, è innanzitutto necessario configurare il processo per l'uso delle dipendenze. In Batch .NET abilitare la funzionalità in [CloudJob][net_cloudjob] impostando la rispettiva proprietà [UsesTaskDependencies][net_usestaskdependencies] su `true`:
+Per usare le dipendenze delle attività nell'applicazione Batch, è innanzitutto necessario configurare il processo per l'uso delle dipendenze. In batch .NET abilitarlo in [CloudJob][net_cloudjob] impostando la relativa proprietà [UsesTaskDependencies][net_usestaskdependencies] su `true`:
 
 ```csharp
 CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
@@ -51,10 +51,10 @@ CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
 unboundJob.UsesTaskDependencies = true;
 ```
 
-Nel frammento di codice precedente "batchClient" è un'istanza della classe [BatchClient][net_batchclient].
+Nel frammento di codice precedente, "batchClient" è un'istanza della classe [batchClient][net_batchclient] .
 
 ## <a name="create-dependent-tasks"></a>Creare attività dipendenti
-Per creare un'attività che dipende dal completamento di una o più attività padre, è possibile specificare che l'attività "dipende" dalle altre attività. In Batch .NET configurare la proprietà [CloudTask][net_cloudtask].[DependsOn][net_dependson] con un'istanza della classe [TaskDependencies][net_taskdependencies]:
+Per creare un'attività che dipende dal completamento di una o più attività padre, è possibile specificare che l'attività "dipende" dalle altre attività. In batch .NET configurare [CloudTask][net_cloudtask]. Proprietà [DependsOn][net_dependson] con un'istanza della classe [TaskDependencies][net_taskdependencies] :
 
 ```csharp
 // Task 'Flowers' depends on completion of both 'Rain' and 'Sun'
@@ -68,7 +68,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 Questo frammento di codice crea un'attività dipendente con ID attività "Flowers". L'attività "Flowers" dipende dalle attività "Rain" e "Sun". L'esecuzione dell'attività "Flowers" in un nodo di calcolo verrà pianificata solo dopo il corretto completamento delle attività "Rain" e "Sun".
 
 > [!NOTE]
-> Per impostazione predefinita, un'attività viene considerata correttamente completata quando l'attività è in **stato completato** e il **codice di uscita** è `0`. In Batch .NET ciò corrisponde a un valore della proprietà [CloudTask][net_cloudtask].[State][net_taskstate] pari a `Completed` e il valore della proprietà [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] è `0`. Per informazioni su come modificare questa impostazione, vedere la sezione [Azioni di dipendenza](#dependency-actions).
+> Per impostazione predefinita, un'attività viene considerata correttamente completata quando l'attività è in **stato completato** e il **codice di uscita** è `0`. In batch .NET questo significa un valore della proprietà [CloudTask][net_cloudtask].[State][net_taskstate] di `Completed` e [TaskExecutionInformation][net_taskexecutioninformation] di CloudTask. Il valore della proprietà [ExitCode][net_exitcode] è `0`. Per informazioni su come modificare questa impostazione, vedere la sezione [Azioni di dipendenza](#dependency-actions).
 > 
 > 
 
@@ -87,7 +87,7 @@ In Azure Batch è possibile usare tre scenari di relazioni tra attività di base
 > Negli esempi di questa sezione un'attività dipendente viene eseguita solo dopo che le attività padre vengono completate correttamente. Questo comportamento è quello predefinito per un'attività dipendente. È possibile eseguire un'attività dipendente dopo che un'attività padre non riesce specificando un'azione di dipendenza per sostituire il comportamento predefinito. Per informazioni dettagliate, vedere la sezione [Azioni di dipendenza](#dependency-actions).
 
 ### <a name="one-to-one"></a>Uno-a-uno
-In una relazione uno-a-uno un'attività dipende dal corretto completamento di una sola attività padre. Per creare la dipendenza, specificare un solo ID attività nel metodo statico [TaskDependencies][net_taskdependencies].[OnId][net_onid] quando si popola la proprietà [DependsOn][net_dependson] di [CloudTask][net_cloudtask].
+In una relazione uno-a-uno un'attività dipende dal corretto completamento di una sola attività padre. Per creare la dipendenza, fornire un singolo ID attività a [TaskDependencies][net_taskdependencies]. Metodo statico [OnId][net_onid] quando si popola la proprietà [DependsOn][net_dependson] di [CloudTask][net_cloudtask].
 
 ```csharp
 // Task 'taskA' doesn't depend on any other tasks
@@ -101,7 +101,7 @@ new CloudTask("taskB", "cmd.exe /c echo taskB")
 ```
 
 ### <a name="one-to-many"></a>Uno-a-molti
-In una relazione uno-a-molti un'attività dipende dal completamento di più attività padre. Per creare la dipendenza, specificare una raccolta di ID attività nel metodo statico [TaskDependencies][net_taskdependencies].[OnId][net_onids] quando si popola la proprietà [DependsOn][net_dependson] di [CloudTask][net_cloudtask].
+In una relazione uno-a-molti un'attività dipende dal completamento di più attività padre. Per creare la dipendenza, fornire una raccolta di ID attività a [TaskDependencies][net_taskdependencies]. Metodo statico [ONID][net_onids] quando si popola la proprietà [DependsOn][net_dependson] di [CloudTask][net_cloudtask].
 
 ```csharp
 // 'Rain' and 'Sun' don't depend on any other tasks
@@ -118,7 +118,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 
 ### <a name="task-id-range"></a>Intervallo di ID attività
 In una dipendenza da un intervallo di attività padre un'attività dipende dal completamento delle attività il cui ID è compreso all'interno di un intervallo.
-Per creare la dipendenza, specificare il primo e l'ultimo ID attività dell'intervallo nel metodo statico [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange] quando si popola la proprietà [DependsOn][net_dependson] di [CloudTask][net_cloudtask].
+Per creare la dipendenza, fornire il primo e l'ultimo ID attività nell'intervallo a [TaskDependencies][net_taskdependencies]. Metodo statico [OnIdRange][net_onidrange] quando si popola la proprietà [DependsOn][net_dependson] di [CloudTask][net_cloudtask].
 
 > [!IMPORTANT]
 > Quando si usano intervalli di ID attività per le dipendenze, verranno selezionate solo le attività con ID che rappresentano valori interi. Pertanto, l'intervallo `1..10` selezionerà le attività `3` e `7`, ma non `5flamingoes`. 
@@ -153,7 +153,7 @@ Per impostazione predefinita, un'attività o un set di attività dipendenti veng
 
 Si supponga, ad esempio, un'attività dipendente in attesa di dati dal completamento dell'attività upstream. Se l'attività upstream non riesce, l'attività dipendente potrebbe comunque essere eseguita usando dati meno recenti. In questo caso, un'azione di dipendenza può specificare che l'attività dipendente è idonea per l'esecuzione nonostante l'errore dell'attività padre.
 
-Un'azione di dipendenza è basata su una condizione di uscita per l'attività padre. È possibile specificare un'azione di dipendenza per una qualsiasi delle condizioni di uscita seguenti. Per .NET, vedere la classe [ExitConditions][net_exitconditions] per altre informazioni.
+Un'azione di dipendenza è basata su una condizione di uscita per l'attività padre. È possibile specificare un'azione di dipendenza per una delle seguenti condizioni di uscita. per .NET, vedere la classe [ExitConditions][net_exitconditions] per i dettagli:
 
 - Quando si verifica un errore di pre-elaborazione.
 - Quando si verifica un errore di caricamento dei file. Se l'attività si chiude con un codice di uscita specificato tramite **exitCodes** o **exitCodeRanges** e quindi si verifica un errore di caricamento dei file, l'azione specificata dal codice di uscita ha la precedenza.
@@ -161,7 +161,7 @@ Un'azione di dipendenza è basata su una condizione di uscita per l'attività pa
 - Quando l'attività termina con un codice di uscita compreso in un intervallo specificato dalla proprietà **ExitCodeRanges**.
 - Il caso predefinito, ovvero se l'attività si chiude con un codice di uscita non definito da **ExitCodes** o **ExitCodeRanges** oppure se l'attività si chiude con un errore di pre-elaborazione e la proprietà **PreProcessingError** non è stata configurata o se l'attività ha esito negativo con un errore di caricamento dei file e la proprietà **FileUploadError** non è stata configurata. 
 
-Per specificare un'azione di dipendenza in .NET, impostare la proprietà [ExitOptions][net_exitoptions].[DependencyAction][net_dependencyaction] per la condizione di uscita. La proprietà **DependencyAction** accetta uno di questi due valori:
+Per specificare un'azione di dipendenza in .NET, impostare [ExitOptions][net_exitoptions]. Proprietà [DependencyAction][net_dependencyaction] per la condizione di uscita. La proprietà **DependencyAction** accetta uno di questi due valori:
 
 - L'impostazione della proprietà **DependencyAction** su **Satisfy** indica che le attività dipendenti sono idonee per l'esecuzione se l'attività padre termina con un errore specificato.
 - L'impostazione della proprietà **DependencyAction** su **Block** indica che le attività dipendenti non sono idonee per l'esecuzione.
@@ -204,7 +204,7 @@ new CloudTask("B", "cmd.exe /c echo B")
 ```
 
 ## <a name="code-sample"></a>Esempio di codice
-Il progetto di esempio [TaskDependencies][github_taskdependencies] è uno degli [esempi di codice di Azure Batch][github_samples] disponibili in GitHub. Questa soluzione di Visual Studio mostra:
+Il progetto di esempio [TaskDependencies][github_taskdependencies] è uno degli [esempi di codice Azure batch][github_samples] su GitHub. Questa soluzione di Visual Studio mostra:
 
 - Come abilitare la dipendenza delle attività in un processo
 - Come creare attività che dipendono da altre attività
@@ -215,7 +215,7 @@ Il progetto di esempio [TaskDependencies][github_taskdependencies] è uno degli 
 La funzionalità [Pacchetti dell'applicazione](batch-application-packages.md) di Batch offre un modo semplice per distribuire e controllare le versioni delle applicazioni eseguite dalle attività nei nodi di calcolo.
 
 ### <a name="installing-applications-and-staging-data"></a>Installazione delle applicazioni e staging dei dati
-Per una panoramica dei metodi di preparazione dei nodi per l'esecuzione di attività, vedere [Installing applications and staging data on Batch compute nodes][forum_post] (Installazione di applicazioni e staging dei dati nei nodi di calcolo di Batch) nel forum di Azure Batch. Scritto da uno dei membri del team di Azure Batch, questo post è una panoramica utile dei diversi modi disponibili per copiare applicazioni, dati di input di attività e altri file nei nodi di calcolo.
+Per una panoramica dei metodi di preparazione dei nodi per l'esecuzione delle attività, vedere [installazione di applicazioni e gestione temporanea dei nodi di calcolo batch][forum_post] nel forum Azure batch. Scritto da uno dei membri del team di Azure Batch, questo post è una panoramica utile dei diversi modi disponibili per copiare applicazioni, dati di input di attività e altri file nei nodi di calcolo.
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_taskdependencies]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies

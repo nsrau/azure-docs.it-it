@@ -1,20 +1,20 @@
 ---
-title: 'Backup di Azure: Creare insiemi di credenziali di servizi di ripristino'
-description: creazione di insiemi di credenziali di servizi di ripristino che archivia il backup e i punti di ripristino
-services: backup
-author: sogup
-manager: vijayts
-keywords: Insieme di credenziali di Recovery Services; Backup di macchine Virtuali di Azure; Ripristino di macchine Virtuali di Azure;
+title: 'Backup di Azure: Creare insiemi di credenziali dei servizi di ripristino'
+description: creazione di insiemi di credenziali dei servizi di ripristino in cui vengono archiviati i backup e i punti di ripristino
+ms.reviewer: sogup
+author: dcurwin
+manager: carmonm
+keywords: Insieme di credenziali di servizi di ripristino; Backup delle macchine virtuali di Azure; Ripristino delle macchine virtuali di Azure;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.author: sogup
-ms.openlocfilehash: 9fba7d679b7d0edb3c99207c99b23f9616c6fa0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: dacurwin
+ms.openlocfilehash: d13aff40d735e98e7745358f8caddcd8cdc20727
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66477577"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688550"
 ---
 # <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
@@ -62,23 +62,23 @@ Per creare un insieme di credenziali dei servizi di ripristino:
 
 ## <a name="set-storage-redundancy"></a>Impostare la ridondanza di archiviazione
 
-Backup di Azure gestisce automaticamente l'archiviazione per l'insieme di credenziali. È necessario specificare una modalità di replica archiviazione.
+Backup di Azure gestisce automaticamente lo spazio di archiviazione per l'insieme di credenziali. È necessario specificare la modalità di replica dell'archiviazione.
 
-1. Nel pannello **Insieme di credenziali dei servizi di ripristino** fare clic sul nuovo insieme di credenziali. Sotto il **le impostazioni** fare clic su **proprietà**.
-2. Nelle **delle proprietà**, in **configurazione Backup**, fare clic su **Update**.
+1. Nel pannello **Insieme di credenziali dei servizi di ripristino** fare clic sul nuovo insieme di credenziali. Nella sezione **Impostazioni** fare clic su **Proprietà**.
+2. In **Proprietà**, in **configurazione backup**, fare clic su **Aggiorna**.
 
-3. Selezionare il tipo di replica di archiviazione e fare clic su **salvare**.
+3. Selezionare il tipo di replica di archiviazione e fare clic su **Salva**.
 
      ![Impostare la configurazione dell'archiviazione per il nuovo insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
-   - È consigliabile che se si usa Azure come endpoint di archiviazione di backup primario, continuare a usare il valore predefinito **geograficamente ridondante** impostazione.
+   - Se si usa Azure come endpoint di archiviazione di backup primario, è consigliabile continuare a usare l'impostazione con **ridondanza geografica** predefinita.
    - Se non si usa Azure come endpoint di archiviazione di backup primario, scegliere l'opzione **Con ridondanza locale**, che riduce i costi di archiviazione di Azure.
-   - Altre informazioni sulle [geografica](../storage/common/storage-redundancy-grs.md) e [locale](../storage/common/storage-redundancy-lrs.md) ridondanza.
+   - Altre informazioni sulla [ridondanza geografica](../storage/common/storage-redundancy-grs.md) e [locale](../storage/common/storage-redundancy-lrs.md) .
 
 > [!NOTE]
-> Modificando **tipo di replica archiviazione** (localmente ridondante / geograficamente ridondante) per un ripristino dell'insieme di credenziali di servizi deve essere eseguita prima di configurare i backup nell'insieme di credenziali. Quando si configura il backup, la possibilità di modificare è disabilitata e non è possibile modificare il **tipo di replica archiviazione**. 
+> Per modificare il **tipo di replica di archiviazione** (con ridondanza locale o con ridondanza geografica) per un insieme di credenziali di servizi di ripristino, è necessario eseguire prima di configurare i backup nell'insieme di credenziali. Dopo aver configurato il backup, l'opzione per la modifica è disabilitata e non è possibile modificare il **tipo di replica di archiviazione**. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Informazioni su](backup-azure-recovery-services-vault-overview.md) insiemi di credenziali dei servizi di ripristino.
-[Informazioni su](backup-azure-delete-vault.md) insiemi di credenziali dei servizi di ripristino di eliminazione.
+Informazioni [su](backup-azure-recovery-services-vault-overview.md) Insiemi di credenziali dei servizi di ripristino.
+Informazioni [su](backup-azure-delete-vault.md) Eliminare gli insiemi di credenziali dei servizi di ripristino.

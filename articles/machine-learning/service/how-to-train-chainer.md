@@ -1,7 +1,7 @@
 ---
-title: Eseguire il training e registrare i modelli di Chainer
+title: Training della rete neurale Deep Learning con Chainer
 titleSuffix: Azure Machine Learning service
-description: Questo articolo illustra come eseguire il training e la registrazione di un modello Chainer usando Azure Machine Learning servizio.
+description: Informazioni su come eseguire gli script di training di PyTorch su scala aziendale usando la classe di stimatore chainer di Azure Machine Learning.  Lo script di esempio classifica le immagini di cifre scritte a mano per creare una rete neurale di apprendimento avanzato usando la libreria Python del Chainer in esecuzione in numpy.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
-ms.date: 06/15/2019
-ms.openlocfilehash: 7cf5650708cd951e872e3df6ea533a62bde0389d
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.date: 08/02/2019
+ms.openlocfilehash: bc14ba2bcaa80236717c062abd1dc8a63b58305c
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618332"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966838"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning-service"></a>Esegui il training e la registrazione dei modelli di Chainer su larga scala con il servizio Azure Machine Learning
 
-Questo articolo illustra come eseguire il training e la registrazione di un modello Chainer usando Azure Machine Learning servizio. Usa il set di [dati MNIST](http://yann.lecun.com/exdb/mnist/) più diffusi per classificare le cifre scritte a mano usando una rete neurale profonda (DNN) creata usando la [libreria Python](https://Chainer.org) del Chainer in esecuzione su [numpy](https://www.numpy.org/).
+Questo articolo illustra come eseguire gli script di training del [Chainer](https://chainer.org/) su scala aziendale usando la classe di [stimatore chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) di Azure Machine Learning. Lo script di training di esempio in questo articolo usa il popolare [set di dati MNIST](http://yann.lecun.com/exdb/mnist/) per classificare le cifre scritte a mano usando una rete neurale profonda (DNN) creata usando la libreria Python del Chainer in esecuzione su [numpy](https://www.numpy.org/).
 
-Chainer è un'API di rete neurale di alto livello che può essere eseguita su altri Framework DNN più diffusi per semplificare lo sviluppo. Con Azure Machine Learning servizio è possibile scalare rapidamente i processi di training usando le risorse di calcolo del cloud elastico. È anche possibile tenere traccia delle esecuzioni di training, dei modelli di versione, della distribuzione dei modelli e molto altro ancora.
+Sia che si stia eseguendo il training di un modello di chaining di Deep Learning da zero o che si stia introducendo un modello esistente nel cloud, è possibile usare Azure Machine Learning per scalare i processi di training open source con risorse di calcolo elastiche del cloud. Con Azure Machine Learning è possibile compilare, distribuire, eseguire la versione e monitorare i modelli a livello di produzione. 
 
-Indipendentemente dal fatto che si stia sviluppando un modello Chainer da zero o si stia portando un modello esistente nel cloud, Azure Machine Learning servizio può aiutarti a creare modelli pronti per la produzione.
+Scopri di più sull'apprendimento avanzato [rispetto a Machine Learning](concept-deep-learning-vs-machine-learning.md).
 
 Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -33,14 +33,14 @@ Eseguire questo codice in uno degli ambienti seguenti:
 
 - Azure Machine Learning macchina virtuale Notebook-nessun download o installazione necessaria
 
-    - Completare la [Guida introduttiva al notebook basata sul cloud](quickstart-run-cloud-notebook.md) per creare un server di notebook dedicato precaricato con l'SDK e il repository di esempio.
-    - Nella cartella Samples nel server notebook trovare un notebook e i file completati nella cartella **How-to-use-azureml/training-with-Deep-Learning/Train-iperparameter-Tune-deploy-with-Chainer** .  Il notebook include sezioni espanse che coprono l'ottimizzazione intelligente dei parametri, la distribuzione di modelli e i widget del notebook.
+    - Completare l'[Esercitazione: Configurare l'ambiente e](tutorial-1st-experiment-sdk-setup.md) l'area di lavoro per creare un server notebook dedicato precaricato con l'SDK e il repository di esempio.
+    - Nella cartella Samples Deep learning nel server notebook trovare un notebook e i file completati nella cartella **How-to-use-azureml/training-with-Deep-Learning/Train-iperparameter-Tune-deploy-with-Chainer** .  Il notebook include sezioni espanse che coprono l'ottimizzazione intelligente dei parametri, la distribuzione di modelli e i widget del notebook.
 
 - Server Jupyter Notebook personale
 
-    - [Installare l'SDK di Azure Machine Learning per Python](setup-create-workspace.md#sdk)
-    - [Creare un file di configurazione dell'area di lavoro](setup-create-workspace.md#write-a-configuration-file)
-    - Scaricare il file di script di esempio [chainer_mnist. py](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/chainer_mnist.py)
+    - [Installare Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+    - [Creare un file di configurazione dell'area di lavoro](how-to-configure-environment.md#workspace).
+    - Scaricare il file di script di esempio [chainer_mnist. py](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/chainer_mnist.py).
      - È anche possibile trovare una [versione di Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb) completata di questa guida nella pagina degli esempi di GitHub. Il notebook include sezioni espanse che coprono l'ottimizzazione intelligente dei parametri, la distribuzione di modelli e i widget del notebook.
 
 ## <a name="set-up-the-experiment"></a>Configurare l'esperimento
@@ -94,7 +94,7 @@ import shutil
 shutil.copy('chainer_mnist.py', project_folder)
 ```
 
-### <a name="create-an-experiment"></a>Creare un esperimento
+### <a name="create-a-deep-learning-experiment"></a>Creare un esperimento di apprendimento approfondito
 
 Creare un esperimento. In questo esempio, creare un esperimento denominato "Chainer-mnist".
 
@@ -209,10 +209,10 @@ for f in run.get_file_names():
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato eseguito il training di un modello Chainer nel servizio Azure Machine Learning. 
-
-* Per informazioni su come distribuire un modello, continuare con l'articolo sulla [distribuzione del modello](how-to-deploy-and-where.md) .
+In questo articolo è stato eseguito il training e la registrazione di una rete neurale con formazione approfondita usando Chainer nel servizio Azure Machine Learning. Per informazioni su come distribuire un modello, continuare con l'articolo sulla [distribuzione del modello](how-to-deploy-and-where.md) .
 
 * [Ottimizzare gli iperparametri](how-to-tune-hyperparameters.md)
 
 * [Tracciare le metriche di esecuzione durante il training](how-to-track-experiments.md)
+
+* [Visualizza l'architettura di riferimento per il training di Deep learning distribuito in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

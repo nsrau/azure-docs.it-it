@@ -1,21 +1,21 @@
 ---
-title: Risolvere gli errori quando si spostano le risorse di Azure alla nuova sottoscrizione o gruppo di risorse
+title: Risolvere gli errori quando si trasferiscono risorse di Azure alla nuova sottoscrizione o al gruppo di risorse
 description: Usare Azure Resource Manager per spostare risorse a un nuovo gruppo di risorse o a una nuova sottoscrizione.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 08/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: e23d7c571a010e5bfb42e5f15368e0194272ed53
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 445ee2784a74a366089a49a0e2f2f17d51ef93bf
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723467"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624309"
 ---
-# <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>Risolvere i problemi di spostare le risorse di Azure in un nuovo gruppo di risorse o sottoscrizione
+# <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>Risolvere i problemi di trasferimento delle risorse di Azure in un nuovo gruppo di risorse o sottoscrizione
 
-Questo articolo fornisce suggerimenti per risolvere i problemi quando si spostano risorse.
+Questo articolo fornisce suggerimenti per la risoluzione dei problemi durante lo trasferimento delle risorse.
 
 ## <a name="upgrade-a-subscription"></a>Aggiornare una sottoscrizione
 
@@ -28,18 +28,22 @@ Se non è possibile convertire la sottoscrizione, [creare una richiesta di suppo
 
 ## <a name="service-limitations"></a>Limitazioni del servizio
 
-Alcuni servizi richiedono considerazioni aggiuntive quando si spostano risorse. Se si spostano i servizi seguenti, accertarsi di controllare le linee guida e limitazioni.
+Alcuni servizi richiedono considerazioni aggiuntive quando si trasferiscono le risorse. Se si stanno migrando i servizi seguenti, assicurarsi di controllare le linee guida e le limitazioni.
 
 * [Servizi app](./move-limitations/app-service-move-limitations.md)
 * [Servizi di Azure DevOps](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
 * [Modello di distribuzione classica](./move-limitations/classic-model-move-limitations.md)
+* [Rete](./move-limitations/networking-move-limitations.md)
 * [Servizi di ripristino](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
 * [Macchine virtuali](./move-limitations/virtual-machines-move-limitations.md)
-* [Reti virtuali](./move-limitations/virtual-network-move-limitations.md)
 
 ## <a name="large-requests"></a>Richieste di grandi dimensioni
 
 Quando possibile, suddividere spostamenti di grandi dimensioni in operazioni di spostamento separate. Resource Manager restituisce immediatamente un errore quando sono presenti più di 800 risorse in un'unica operazione. Anche lo spostamento di meno di 800 risorse può non riuscire a causa di un timeout.
+
+## <a name="resource-not-in-succeeded-state"></a>Lo stato della risorsa non è riuscito
+
+Se viene ricevuto un messaggio di errore che indica che non è possibile spostare una risorsa perché non è in uno stato Succeeded, potrebbe essere effettivamente una risorsa dipendente che blocca lo spostamento. Vedere [lo stato delle risorse dipendenti](./move-limitations/networking-move-limitations.md#state-of-dependent-resources).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

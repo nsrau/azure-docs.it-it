@@ -4,17 +4,16 @@ description: Assegnare degli analizzatori ai campi di testo di ricerca in un ind
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 08/08/2019
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
-ms.custom: seodec2018
-ms.openlocfilehash: f76d944f614f07a4428d4e4100f6a08a375d96dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da1d39c23106b2218700e7a2707b824e240448d3
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65795806"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883030"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analizzatori per elaborazione del testo in Ricerca di Azure
 
@@ -31,7 +30,7 @@ Gli analizzatori linguistici convertono un input di testo nella forma primitiva 
 
 ## <a name="default-analyzer"></a>Analizzatore predefinito  
 
-Ricerca di Azure usa l'[analizzatore Apache Lucene Standard (lucene standard)](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html), come impostazione predefinita, che suddivide il testo in elementi sulla base delle regole di ["segmentazione del testo Unicode"](https://unicode.org/reports/tr29/). L'analizzatore standard, inoltre, converte tutti i caratteri nel rispettivo formato minuscolo. I documenti indicizzati e i termini di ricerca vengono sottoposti ad analisi durante l'indicizzazione e l'elaborazione delle query.  
+Ricerca di Azure usa l'[analizzatore Apache Lucene Standard (lucene standard)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html), come impostazione predefinita, che suddivide il testo in elementi sulla base delle regole di ["segmentazione del testo Unicode"](https://unicode.org/reports/tr29/). L'analizzatore standard, inoltre, converte tutti i caratteri nel rispettivo formato minuscolo. I documenti indicizzati e i termini di ricerca vengono sottoposti ad analisi durante l'indicizzazione e l'elaborazione delle query.  
 
 Viene usato automaticamente in ogni campo ricercabile. È possibile eseguire l'override del valore predefinito nei singoli campi. In alternativa, si può usare un [analizzatore del linguaggio](index-add-language-analyzers.md), un [analizzatore personalizzato](index-add-custom-analyzers.md) o un analizzatore predefinito incluso nell'[elenco di analizzatori disponibili](index-add-custom-analyzers.md#AnalyzerTable).
 
@@ -40,9 +39,9 @@ Viene usato automaticamente in ogni campo ricercabile. È possibile eseguire l'o
 
 Nell'elenco seguente sono descritti gli analizzatori disponibili in Ricerca di Azure.
 
-| Category | Descrizione |
+| Category | DESCRIZIONE |
 |----------|-------------|
-| [Analizzatore Lucene standard](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Default. Non è necessaria alcun specifica o configurazione. Questo uso generale funziona correttamente per la maggior parte dei linguaggi e degli scenari.|
+| [Analizzatore Lucene standard](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Default. Non è necessaria alcun specifica o configurazione. Questo uso generale funziona correttamente per la maggior parte dei linguaggi e degli scenari.|
 | Analizzatori predefiniti | Offerto come prodotto finito, da usare così com'è. <br/>Ne esistono due tipi: specializzato e del linguaggio. Ciò che li rende "predefiniti" è il fatto di farvi riferimento in base al nome, senza alcuna configurazione né personalizzazione. <br/><br/>Gli [analizzatori specializzati (indipendenti dal linguaggio)](index-add-custom-analyzers.md#AnalyzerTable) vengono usati quando gli input di testo richiedono un'elaborazione minima o specializzata. Gli analizzatori predefiniti indipendenti dal linguaggio includono **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop** e **Whitespace**.<br/><br/>Gli [analizzatori del linguaggio](index-add-language-analyzers.md) vengono usati quando è necessario un supporto linguistico avanzato per i singoli linguaggi. Ricerca di Azure supporta 35 analizzatori di linguaggi Lucene e 50 analizzatori di elaborazione del linguaggio naturale Microsoft. |
 |[Analizzatori personalizzati](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Si riferisce a una configurazione definita dall'utente di una combinazione di elementi esistenti, costituiti da un tokenizer (obbligatorio) e da filtri facoltativi (char o token).|
 
@@ -274,20 +273,20 @@ I campi contenenti stringhe in diverse lingue possono utsare un analizzatore del
 
 ## <a name="c-examples"></a>C#esempi
 
-Se si usa gli esempi di codice .NET SDK, è possibile aggiungere questi esempi per usare o configurare gli analizzatori.
+Se si usano gli esempi di codice di .NET SDK, è possibile aggiungere questi esempi per usare o configurare gli analizzatori.
 
-+ [Assegnare un analizzatore predefinito](#Assign-a-language-analyzer)
++ [Assegnare un analizzatore incorporato](#Assign-a-language-analyzer)
 + [Configurare un analizzatore](#Define-a-custom-analyzer)
 
 <a name="Assign-a-language-analyzer"></a>
 
 ### <a name="assign-a-language-analyzer"></a>Assegnare un analizzatore del linguaggio
 
-Qualsiasi analizzatore che viene usato come-è, senza alcuna configurazione, viene specificato in una definizione di campo. Non è necessario per la creazione di un costrutto di analizzatore. 
+Qualsiasi analizzatore usato così com'è, senza configurazione, viene specificato in una definizione di campo. Non è necessario creare un costrutto dell'analizzatore. 
 
-In questo esempio assegna gli analizzatori Microsoft English e francese ai campi di descrizione. È un frammento di codice eseguito da una definizione dell'indice degli hotel, creazione tramite la classe Hotel nel file hotels.cs di dimensioni maggiori di [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) esempio.
+Questo esempio Mostra come assegnare gli analizzatori di Microsoft inglese e francese ai campi di descrizione. Si tratta di un frammento di codice tratto da una definizione più ampia dell'indice degli alberghi, creando usando la classe dell'hotel nel file hotels.cs dell'esempio [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) .
 
-Chiamare [analizzatore](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), specificando la [AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) tipo che fornisce un analizzatore di testo è supportato in ricerca di Azure.
+Call [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), che specifica il tipo [AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) che fornisce un analizzatore di testo supportato in ricerca di Azure.
 
 ```csharp
     public partial class Hotel
@@ -311,9 +310,9 @@ Chiamare [analizzatore](https://docs.microsoft.com/dotnet/api/microsoft.azure.se
 
 ### <a name="define-a-custom-analyzer"></a>Definire un analizzatore personalizzato
 
-Quando è necessaria la personalizzazione o configurazione, è necessario aggiungere un costrutto di analizzatore a un indice. Dopo averlo definito, è possibile aggiungere la definizione del campo come illustrato nell'esempio precedente.
+Quando è necessaria la personalizzazione o la configurazione, sarà necessario aggiungere un costrutto dell'analizzatore a un indice. Una volta definita, è possibile aggiungerla alla definizione del campo, come illustrato nell'esempio precedente.
 
-Creare un [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) oggetto. Per altri esempi, vedere [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs).
+Creare un oggetto [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) . Per altri esempi, vedere [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs).
 
 ```csharp
 {

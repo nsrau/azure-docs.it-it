@@ -5,15 +5,15 @@ services: digital-twins
 author: alinamstanciu
 ms.service: digital-twins
 ms.topic: include
-ms.date: 08/12/2019
+ms.date: 08/16/2019
 ms.author: alinast
 ms.custom: include file
-ms.openlocfilehash: 9f4bf6fb92b590e274e8880b5f900e5469f85727
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: ef6b395aeff18a63f52f58e2477679b48a19b002
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "69012172"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624758"
 ---
 1. Nel [portale di Azure](https://portal.azure.com) aprire **Azure Active Directory** nel riquadro sinistro e quindi aprire il riquadro **Proprietà**. Copia il valore di **ID directory** in un file temporaneo. Questo valore verrà usato per configurare un'applicazione di esempio nella sezione successiva.
 
@@ -41,7 +41,7 @@ ms.locfileid: "69012172"
 
    e. Selezionare **Fine** nel riquadro **Aggiungi accesso all'API**.
 
-   f. Nel riquadro **Autorizzazioni necessarie** selezionare il pulsante **Concedi autorizzazioni** e accettare la conferma visualizzata. Se l'autorizzazione non viene concessa per questa API, contattare l'amministratore.
+   f. Nel riquadro **autorizzazioni necessarie** selezionare il pulsante **Concedi autorizzazioni** e accettare il riconoscimento visualizzato. Se l'autorizzazione non viene concessa per questa API, contattare l'amministratore.
 
       ![Riquadro Autorizzazioni necessarie](./media/digital-twins-permissions-legacy/aad-app-req-permissions.png)
 

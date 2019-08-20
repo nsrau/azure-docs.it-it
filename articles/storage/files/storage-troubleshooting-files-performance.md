@@ -1,105 +1,104 @@
 ---
-title: Prestazioni dei file di Azure Guida risoluzione dei problemi
-description: Problemi di prestazioni con condivisioni file di Azure e soluzioni alternative associate noti.
-services: storage
+title: Guida alla risoluzione dei problemi delle prestazioni File di Azure
+description: Problemi noti relativi alle prestazioni delle condivisioni file di Azure e delle soluzioni alternative associate.
 author: gunjanj
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 8c35501f3afbeed519fb5304229f25be1cbd5f9b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 240b2110db66af0982e4e1bf95d3715cbe733a60
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445664"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816529"
 ---
-# <a name="troubleshoot-azure-files-performance-issues"></a>Risolvere i problemi relativi alle prestazioni di file di Azure
+# <a name="troubleshoot-azure-files-performance-issues"></a>Risolvere i problemi relativi alle prestazioni File di Azure
 
-Questo articolo elenca alcuni problemi comuni correlati a condivisioni file di Azure. Possibili cause e soluzioni alternative fornisce quando si verificano questi problemi.
+Questo articolo elenca alcuni problemi comuni relativi alle condivisioni file di Azure. Fornisce possibili cause e soluzioni alternative quando si verificano questi problemi.
 
-## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Una latenza elevata, bassa velocità effettiva e problemi generali relativi alle prestazioni
+## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Latenza elevata, velocità effettiva bassa e problemi di prestazioni generali
 
-### <a name="cause-1-share-experiencing-throttling"></a>Causa 1: Condividere la limitazione delle richieste di cui si è verificato
+### <a name="cause-1-share-experiencing-throttling"></a>Causa 1: Condividi la limitazione delle richieste
 
-La quota predefinita in una condivisione di premium è 100 GiB, che offre IOPS della linea di base 100 (con un potenziale per il burst fino a 300 per un'ora). Per altre informazioni sul provisioning e la relativa relazione per IOPS, vedere la [effettuato il provisioning di condivisioni](storage-files-planning.md#provisioned-shares) sezione della Guida alla pianificazione.
+La quota predefinita in una condivisione Premium è 100 GiB, che fornisce 100 IOPS Baseline (con un potenziale aumento fino a 300 per un'ora). Per ulteriori informazioni sul provisioning e la relativa relazione con IOPS, vedere la sezione relativa alle [condivisioni sottoposte a provisioning](storage-files-planning.md#provisioned-shares) nella Guida alla pianificazione.
 
-Per verificare se la condivisione è limitata, è possibile sfruttare le metriche di Azure nel portale.
+Per verificare se la condivisione è stata limitata, è possibile sfruttare le metriche di Azure nel portale.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-1. Selezionare **tutti i servizi** e quindi cercare **metriche**.
+1. Selezionare **tutti i servizi** e quindi cercare **metrica**.
 
 1. Selezionare **Metriche**.
 
 1. Selezionare l'account di archiviazione come risorsa.
 
-1. Selezionare **File** come spazio dei nomi delle metriche.
+1. Selezionare **file** come spazio dei nomi della metrica.
 
 1. Selezionare **transazioni** come metrica.
 
-1. Aggiungere un filtro per **ResponseType** e verificare se le richieste hanno un codice di risposta **SuccessWithThrottling** (per SMB) o **ClientThrottlingError** (per REST).
+1. Aggiungere un filtro per **responseType** e verificare se le richieste hanno un codice di risposta **SUCCESSWITHTHROTTLING** (per SMB) o **ClientThrottlingError** (per REST).
 
-![Opzioni di metriche per condivisioni file premium](media/storage-troubleshooting-premium-fileshares/metrics.png)
+![Opzioni di metrica per le condivisioni file Premium](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
 ### <a name="solution"></a>Soluzione
 
-- Aumento condividono capacità con provisioning specificando una quota maggiore nella condivisione.
+- Aumentare la capacità con provisioning delle condivisioni specificando una quota superiore nella condivisione.
 
-### <a name="cause-2-metadatanamespace-heavy-workload"></a>Causa 2: Carico di lavoro metadati/spazio dei nomi
+### <a name="cause-2-metadatanamespace-heavy-workload"></a>Causa 2: Carico di lavoro elevato di metadati/spazio dei nomi
 
-Se la maggior parte delle richieste di metadati sugli elementi, (ad esempio createfile/openfile/closefile/queryinfo/querydirectory), la latenza è peggiore rispetto di operazioni di lettura/scrittura.
+Se la maggior parte delle richieste è incentrata sui metadati, ad esempio CreateFile/OpenFile/CloseFile/QueryInfo/querydirectory, la latenza sarà peggiore rispetto alle operazioni di lettura/scrittura.
 
-Per verificare che se la maggior parte delle richieste di metadati sugli elementi, è possibile usare gli stessi passaggi come illustrato in precedenza. Tranne che invece di aggiungere un filtro per **ResponseType**, aggiungere un filtro per **nome API**.
+Per verificare se la maggior parte delle richieste sono incentrate sui metadati, è possibile usare gli stessi passaggi descritti in precedenza. Eccetto anziché aggiungere un filtro per **responseType**, aggiungere un filtro per **nome API**.
 
-![Filtra per nome API nelle metriche](media/storage-troubleshooting-premium-fileshares/MetadataMetrics.png)
+![Filtrare il nome API nelle metriche](media/storage-troubleshooting-premium-fileshares/MetadataMetrics.png)
 
 ### <a name="workaround"></a>Soluzione alternativa
 
-- Controllare se l'applicazione può essere modificata per ridurre il numero di operazioni sui metadati.
+- Controllare se è possibile modificare l'applicazione per ridurre il numero di operazioni sui metadati.
 
 ### <a name="cause-3-single-threaded-application"></a>Causa 3: Applicazione a thread singolo
 
-Se l'applicazione in uso da parte del cliente è a thread singolo, ciò può comportare significativamente inferiore IOPS/velocità effettiva rispetto al numero massimo consentito in base alle dimensioni di condivisione con provisioning.
+Se l'applicazione usata dal cliente è a thread singolo, questo può comportare un numero significativamente inferiore di IOPS/velocità effettiva rispetto al massimo possibile in base alle dimensioni della condivisione di cui è stato effettuato il provisioning.
 
 ### <a name="solution"></a>Soluzione
 
-- Aumentare il parallelismo dell'applicazione, aumentando il numero di thread.
-- Passare alle applicazioni in cui è possibile il parallelismo. Ad esempio, per le operazioni di copia, i clienti è stato possibile usare AzCopy o RoboCopy dal client di Windows o il **parallele** comando nei client Linux.
+- Aumentare il parallelismo dell'applicazione aumentando il numero di thread.
+- Passa alle applicazioni in cui è possibile il parallelismo. Per le operazioni di copia, ad esempio, i clienti possono usare AzCopy o RoboCopy da client Windows o il comando **parallelo** nei client Linux.
 
 ## <a name="very-high-latency-for-requests"></a>Latenza molto elevata per le richieste
 
 ### <a name="cause"></a>Causa
 
-Il macchina virtuale client potrebbe trovarsi in un'area diversa rispetto alla condivisione file.
+La macchina virtuale client potrebbe trovarsi in un'area diversa dalla condivisione file.
 
 ### <a name="solution"></a>Soluzione
 
 - Eseguire l'applicazione da una macchina virtuale che si trova nella stessa area della condivisione file.
 
-## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>Client non è possibile ottenere la velocità effettiva massima supportata dalla rete
+## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>Il client non è in grado di raggiungere la velocità effettiva massima supportata dalla rete
 
-Una delle possibili cause di questo oggetto è una mancanza fo SMB multicanale supporto. Condivisioni file di Azure attualmente supportano solo singolo canale, pertanto non c'è una sola connessione dal client della macchina virtuale al server. Questa singola connessione è stata associata a un singolo core nella macchina virtuale, il client in modo che è associata la massima velocità effettiva ottenibile da una macchina virtuale da un singolo core.
+Una delle possibili cause è la mancanza del supporto multicanale SMB. Attualmente, le condivisioni file di Azure supportano solo un canale singolo, pertanto esiste una sola connessione dalla macchina virtuale client al server. Questa singola connessione è ancorata a un singolo core nella macchina virtuale client, quindi la velocità effettiva massima ottenibile da una macchina virtuale è vincolata da un singolo core.
 
 ### <a name="workaround"></a>Soluzione alternativa
 
-- Recupero di una macchina virtuale con un core più grande può contribuire al miglioramento della velocità effettiva.
-- Esecuzione dell'applicazione client da più macchine virtuali aumenta la velocità effettiva.
-- Dove possibile, usare le API REST.
+- Ottenere una VM con un core più grande può contribuire a migliorare la velocità effettiva.
+- L'esecuzione dell'applicazione client da più macchine virtuali aumenterà la velocità effettiva.
+- Usare le API REST laddove possibile.
 
-## <a name="throughput-on-linux-clients-is-significantly-lower-when-compared-to-windows-clients"></a>Velocità effettiva nei client Linux è notevolmente inferiore rispetto ai client di Windows.
+## <a name="throughput-on-linux-clients-is-significantly-lower-when-compared-to-windows-clients"></a>La velocità effettiva nei client Linux è significativamente inferiore rispetto ai client Windows.
 
 ### <a name="cause"></a>Causa
 
-Si tratta di un problema noto con l'implementazione del client SMB in Linux.
+Si tratta di un problema noto relativo all'implementazione del client SMB in Linux.
 
 ### <a name="workaround"></a>Soluzione alternativa
 
 - Distribuire il carico tra più macchine virtuali
-- Nella stessa VM, usare più punti di montaggio **nosharesock** opzione e distribuito il carico in questi punti di montaggio.
+- Nella stessa VM usare più punti di montaggio con l'opzione **nosharesock** e distribuire il carico tra questi punti di montaggio.
 
-## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>Delle latenze elevate per i metadati carichi di lavoro che implicano operazioni di apertura e chiusura estese.
+## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>Latenze elevate per carichi di lavoro intensivi dei metadati che coinvolgono numerose operazioni di apertura/chiusura.
 
 ### <a name="cause"></a>Causa
 
@@ -107,62 +106,62 @@ Mancanza di supporto per i lease di directory.
 
 ### <a name="workaround"></a>Soluzione alternativa
 
-- Se possibile, evitare un numero eccessivo handle di apertura/chiusura nella stessa directory entro un breve periodo di tempo.
-- Per le macchine virtuali Linux, aumentare il timeout della cache voce di directory, specificando **actimeo =<sec>**  come opzione di montaggio. Per impostazione predefinita, è un secondo, in modo che può essere utile un valore maggiore, ad esempio tre o cinque.
-- Per le macchine virtuali Linux, aggiornare il kernel a 4.20 o versione successiva.
+- Se possibile, evitare un handle di apertura/chiusura eccessivo nella stessa directory entro un breve periodo di tempo.
+- Per le macchine virtuali Linux, aumentare il timeout della cache per la voce di directory specificando **actimeo =\<sec >** come opzione di montaggio. Per impostazione predefinita, si tratta di un secondo, quindi un valore maggiore, ad esempio tre o cinque, potrebbe essere utile.
+- Per le macchine virtuali Linux, aggiornare il kernel a 4,20 o versione successiva.
 
-## <a name="low-iops-on-centosrhel"></a>Bassa IOPS in CentOS/RHEL
+## <a name="low-iops-on-centosrhel"></a>IOPS Bassi su CentOS/RHEL
 
 ### <a name="cause"></a>Causa
 
-Profondità dei / o maggiore di uno non è supportata in CentOS/RHEL.
+La profondità IO maggiore di uno non è supportata in CentOS/RHEL.
 
 ### <a name="workaround"></a>Soluzione alternativa
 
-- Eseguire l'aggiornamento a 8 CentOS / RHEL 8.
-- Impostare su Ubuntu.
+- Eseguire l'aggiornamento a CentOS 8/RHEL 8.
+- Passare a Ubuntu.
 
 ## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Rallentamento della copia del file da e verso File di Azure in Linux
 
-Se si verificano copia del file lenta da e verso file di Azure, esaminiamo il [rallentamento della copia del file da e verso file di Azure in Linux](storage-troubleshoot-linux-file-connection-problems.md#slow-file-copying-to-and-from-azure-files-in-linux) Guida alla sezione la risoluzione dei problemi di Linux.
+Se si sta verificando un rallentamento della copia dei file da e verso File di Azure, vedere la sezione relativa alla [copia dei file lenti da e verso file di Azure in Linux](storage-troubleshoot-linux-file-connection-problems.md#slow-file-copying-to-and-from-azure-files-in-linux) nella Guida alla risoluzione dei problemi di Linux.
 
-## <a name="jitterysaw-tooth-pattern-for-iops"></a>Modello di instabilità/sega per IOPS
+## <a name="jitterysaw-tooth-pattern-for-iops"></a>Modello di dente jittery/SAW per IOPS
 
 ### <a name="cause"></a>Causa
 
-Applicazione client supera spesso la linea di base di IOPS. Attualmente, non è disponibile alcun lato servizio anti-aliasing del carico delle richieste, pertanto, se il client supera linea di base di IOPS, sarà limitata dal servizio. Tale limitazione può comportare il client riscontra una serie di operazioni IOPS di instabilità/sega. In questo caso, Media IOPS ottenuta dal client potrebbe essere inferiore alla linea di base di IOPS.
+L'applicazione client supera costantemente il IOPS Baseline. Attualmente non è disponibile il lato servizio per il caricamento della richiesta, pertanto se il client supera il numero di operazioni di base IOPS, il servizio verrà limitato. Questa limitazione può comportare il verificarsi di un modello di IOPS per il client. In questo caso, il numero medio di operazioni di i/o al secondo eseguite dal client potrebbe essere inferiore al valore di IOPS Baseline.
 
 ### <a name="workaround"></a>Soluzione alternativa
 
-- Ridurre il carico delle richieste dall'applicazione client, in modo che la condivisione non applicata la limitazione.
-- Aumentare la quota della condivisione in modo che la condivisione non applicata la limitazione.
+- Ridurre il carico delle richieste dall'applicazione client, in modo che la condivisione non venga limitata.
+- Aumentare la quota della condivisione in modo che la condivisione non venga limitata.
 
-## <a name="excessive-directoryopendirectoryclose-calls"></a>Chiamate DirectoryOpen/DirectoryClose eccessivo
+## <a name="excessive-directoryopendirectoryclose-calls"></a>Chiamate DirectoryOpen/DirectoryClose eccessive
 
 ### <a name="cause"></a>Causa
 
-Se il numero di chiamate DirectoryOpen/DirectoryClose è tra le prime chiamate alle API e non si prevede che il client esegua che molte chiamate, potrebbe essere un problema con l'antivirus installato nel client Azure della macchina virtuale.
+Se il numero di chiamate DirectoryOpen/DirectoryClose è tra le chiamate API principali e non si prevede che il client debba effettuare molte chiamate, potrebbe trattarsi di un problema con l'antivirus installato nella macchina virtuale client di Azure.
 
 ### <a name="workaround"></a>Soluzione alternativa
 
-- Una correzione per risolvere questo problema è disponibile nel [mese di aprile Platform Update per Windows](https://support.microsoft.com/help/4052623/update-for-windows-defender-antimalware-platform).
+- Una correzione per questo problema è disponibile nell' [aggiornamento della piattaforma di aprile per Windows](https://support.microsoft.com/help/4052623/update-for-windows-defender-antimalware-platform).
 
-## <a name="file-creation-is-slower-than-expected"></a>Creazione di file è più lenta del previsto
+## <a name="file-creation-is-slower-than-expected"></a>La creazione del file è più lenta del previsto
 
 ### <a name="cause"></a>Causa
 
-I carichi di lavoro che si basano sulla creazione di un numero elevato di file non visualizzeranno una differenza sostanziale tra le prestazioni delle condivisioni file premium e le condivisioni di file standard.
+I carichi di lavoro che si basano sulla creazione di un numero elevato di file non vedranno una differenza sostanziale tra le prestazioni delle condivisioni file Premium e delle condivisioni file standard.
 
 ### <a name="workaround"></a>Soluzione alternativa
 
 - No.
 
-## <a name="slow-performance-from-windows-81-or-server-2012-r2"></a>Rallentamento delle prestazioni da Server 2012 R2 o Windows 8.1
+## <a name="slow-performance-from-windows-81-or-server-2012-r2"></a>Rallentamento delle prestazioni da Windows 8.1 o Server 2012 R2
 
 ### <a name="cause"></a>Causa
 
-Latenza accesso ai file di Azure per carichi di lavoro con utilizzo intensivo dei / o prevista superiore.
+Maggiore della latenza prevista per l'accesso File di Azure per carichi di lavoro con utilizzo intensivo IO.
 
 ### <a name="workaround"></a>Soluzione alternativa
 
-- Installare il disponibile [hotfix](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1).
+- Installare l' [hotfix](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1)disponibile.

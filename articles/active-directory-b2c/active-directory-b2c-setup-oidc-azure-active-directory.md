@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 46755cb8d0383d166b10d50854eb476b676a6ee4
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 477b4e51c49a558aed0e5623a3821fa9b8d9eabd
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69509729"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622356"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurare l'accesso per un'organizzazione Azure Active Directory specifica in Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ Per usare un account di Azure Active Directory (Azure AD) come [provider di iden
 Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD, è necessario registrare un'applicazione all'interno del tenant aziendale di Azure AD che non corrisponde al tenant di Azure AD B2C.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Assicurarsi di usare la directory che contiene il tenant del Azure AD. Selezionare il **filtro directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant Azure ad. Non si tratta dello stesso tenant del tenant Azure AD B2C.
+2. Assicurarsi di usare la directory che contiene il tenant del Azure AD. Selezionare il filtro **directory + sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant Azure ad. Non si tratta dello stesso tenant del tenant Azure AD B2C.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Registrazioni per l'app**.
 4. Selezionare **Nuova registrazione**.
 5. Immettere un nome per l'applicazione. Ad esempio `Azure AD B2C App`.
@@ -47,27 +47,28 @@ Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD,
 
 ## <a name="configure-azure-ad-as-an-identity-provider"></a>Configurare Azure AD come provider di identità
 
-1. Assicurarsi di usare la directory che contiene Azure AD B2C tenant. Selezionare il **filtro directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant Azure ad B2C.
-2. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
-3. Selezionare **Provider di identità** e quindi selezionare **Aggiungi**.
-4. Immettere un **Nome**. Immettere ad esempio `Contoso Azure AD`.
-5. Selezionare **tipo di provider di identità**, selezionare **OpenID Connect**e quindi fare clic su **OK**.
-6. Selezionare **Configura il provider di identità**
-7. In **URL dei metadati** immettere l'URL seguente, sostituendo `your-AD-tenant-domain` con il nome di dominio del tenant di Azure AD. Ad esempio, `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`:
+1. Assicurarsi di usare la directory che contiene Azure AD B2C tenant. Selezionare il filtro **directory + sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant Azure ad B2C.
+1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
+1. Selezionare **provider di identità**e quindi fare clic su **nuovo provider OpenID Connect**.
+1. Immettere un **Nome**. Ad esempio, immettere *Contoso Azure AD*.
+1. Per **URL metadati**immettere l'URL seguente sostituendo `your-AD-tenant-domain` con il nome di dominio del tenant di Azure ad:
 
     ```
     https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
     ```
 
-8. Per **ID client**immettere l'ID applicazione registrato in precedenza e per il **segreto client**, immettere il segreto client registrato in precedenza.
-9. Facoltativamente immettere un valore per **Domain_hint**. Ad esempio `ContosoAD`. Si tratta del valore da usare quando si fa riferimento a questo provider di identità specificando *domain_hint* nella richiesta.
-10. Fare clic su **OK**.
-11. Selezionare **Esegui mapping delle attestazioni di questo provider di identità** e impostare le attestazioni seguenti:
+    Ad esempio `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
 
-    - Per **ID utente** immettere `oid`.
-    - Per **nome visualizzato** immettere `name`.
-    - Per **Nome** immettere `given_name`.
-    - Per **Cognome** immettere `family_name`.
-    - In **Posta elettronica** immettere `unique_name`.
+1. Per **ID client**immettere l'ID applicazione registrato in precedenza.
+1. Per il **segreto client**, immettere il segreto client registrato in precedenza.
+1. Lasciare i valori predefiniti per **ambito**, **tipo di risposta**e **modalità di risposta**.
+1. Opzionale Immettere un valore per **Domain_hint**. Ad esempio, *ContosoAD*. Si tratta del valore da usare quando si fa riferimento a questo provider di identità specificando *domain_hint* nella richiesta.
+1. In **mapping**delle attestazioni del provider di identità immettere i valori di mapping delle attestazioni seguenti:
 
-12. Fare clic su **OK** e quindi su **Crea** per salvare la configurazione.
+    * **ID utente**: *OID*
+    * **Nome visualizzato**: *nome*
+    * **Nome specificato**: *given_name*
+    * **Cognome**: *family_name*
+    * **Posta elettronica**: *UNIQUE_NAME*
+
+1. Selezionare **Salva**.

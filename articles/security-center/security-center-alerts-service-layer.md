@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/18/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 18579f716f80cdf79b703dc78fe520c675e82c51
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
-ms.translationtype: HT
+ms.openlocfilehash: 70b43c65703316e5dee8e9cf2cf86fe982a49592
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575625"
+ms.locfileid: "69624776"
 ---
 # <a name="threat-detection-for-azure-service-layer-in-azure-security-center"></a>Rilevamento delle minacce per il livello di servizio di Azure nel centro sicurezza di Azure
 
@@ -59,7 +59,7 @@ Il Centro sicurezza offre un livello di protezione aggiuntivo sfruttando Azure R
 
 > [!div class="mx-tableFixed"]
 
-|Avviso|Descrizione|
+|Avviso|DESCRIZIONE|
 |---|---|
 |**Esecuzione del Toolkit di microesplosioni**|Nell'ambiente è stata rilevata un'esecuzione nota del Toolkit di esplorazione dell'ambiente cloud. Lo strumento "microrompi" ( https://github.com/NetSPI/MicroBurst) vedere può essere usato da un utente malintenzionato (o tester di penetrazione) per eseguire il mapping delle risorse delle sottoscrizioni, identificare le configurazioni non sicure e perdere informazioni riservate.|
 |**Esecuzione di azzurrite Toolkit**|Nell'ambiente è stata rilevata un'esecuzione nota del Toolkit di esplorazione dell'ambiente cloud. Lo strumento "azzurrite" (vedere https://github.com/mwrlabs/Azurite) può essere usato da un utente malintenzionato (o tester di penetrazione) per eseguire il mapping delle risorse delle sottoscrizioni e identificare le configurazioni non protette.|
@@ -78,4 +78,4 @@ Il Centro sicurezza offre un livello di protezione aggiuntivo sfruttando Azure R
 > 3. In **Enable integrations** (Abilita integrazioni) deselezionare **Allow Microsoft Cloud App Security to access my data** (Consenti a Cloud App Security di accedere ai miei dati) e fare clic su **Salva**.
 
 >[!NOTE]
->Il Centro sicurezza di Azure archivia i dati dei clienti correlati alla sicurezza nella stessa area geografica della risorsa. Se Microsoft non ha ancora distribuito il Centro sicurezza di Azure nell'area geografica della risorsa, archivia i dati nel Stati Uniti. Quando Microsoft Cloud App Security (MCAS) è abilitata, queste informazioni vengono archiviate in base alle regole di localizzazione geografica di MCAS. [Per ulteriori informazioni, vedere archiviazione dei dati per servizi non locali](http://azuredatacentermap.azurewebsites.net/).
+>Il Centro sicurezza di Azure archivia i dati dei clienti correlati alla sicurezza nella stessa area geografica della risorsa. Se Microsoft non ha ancora distribuito il Centro sicurezza di Azure nell'area geografica della risorsa, archivia i dati nel Stati Uniti. Quando Microsoft Cloud App Security (MCAS) è abilitata, queste informazioni vengono archiviate in base alle regole di localizzazione geografica di MCAS. [Per ulteriori informazioni, vedere archiviazione dei dati per servizi non locali](https://azuredatacentermap.azurewebsites.net/).

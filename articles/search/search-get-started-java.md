@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva di Java: Creare, caricare ed eseguire query sugli indici con API REST di ricerca di Azure - ricerca di Azure'
-description: Illustra come creare un indice, caricare i dati ed eseguire query usando Java e le API REST di ricerca di Azure.
+title: 'Avvio rapido: Creare un indice di ricerca di Azure in Java'
+description: Viene illustrato come creare un indice, caricare i dati ed eseguire query usando Java e le API REST di ricerca di Azure.
 services: search
 author: jj09
 manager: jlembicz
@@ -8,13 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
-ms.custom: seodec2018
-ms.openlocfilehash: 83f41f248d99ce55daef40e168e5f7b175e08107
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
-ms.translationtype: MT
+ms.custom: seodec2018, seo-java-july2019
+ms.openlocfilehash: 7172cd01ca881ec3027854444107b0744b65feb3
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450092"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489781"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-java"></a>Avvio rapido: Creare un indice di ricerca di Azure in Java
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Per compilare e testare questo esempio è stato utilizzato il seguente software:
 ## <a name="about-the-data"></a>Informazioni sui dati
 L’applicazione di esempio usa i dati dei [servizi geologici degli Stati Uniti (USGS)](https://geonames.usgs.gov/domestic/download_data.htm)con il filtro dello stato del Rhode Island per ridurre la dimensione del set di dati. Tali dati saranno utilizzati per compilare un'applicazione di ricerca che restituisce gli edifici di riferimento quali ospedali e scuole nonché caratteristiche geologiche come fiumi, laghi e vette.
 
-In questa applicazione, il **searchservlet. Java** programma compila e carica l'indice utilizzando un [indicizzatore](https://msdn.microsoft.com/library/azure/dn798918.aspx) costrutto, il recupero di set di dati USGS filtrato da un Database SQL di Azure. Nel codice del programma vengono fornite credenziali predefinite e la connessione all'origine dati online. In termini di accesso ai dati, non è necessaria alcuna ulteriore configurazione.
+In questa applicazione, il programma **SearchServlet. Java** compila e carica l'indice usando un costrutto dell'[indicizzatore](https://msdn.microsoft.com/library/azure/dn798918.aspx), recuperando il set di dati di USGS filtrato da un database SQL di Azure. Nel codice del programma vengono fornite credenziali predefinite e la connessione all'origine dati online. In termini di accesso ai dati, non è necessaria alcuna ulteriore configurazione.
 
 > [!NOTE]
 > A questo set di dati è stato applicato un filtro per restare sotto il limite di 10.000 documenti del livello di prezzo gratuito. Se si utilizza il livello standard, questo limite non viene applicato ed è possibile modificare il codice per l'utilizzo di un set di dati più grande. Per ulteriori informazioni sulla capacità per ogni livello di prezzo, vedere [Limiti e vincoli](search-limits-quotas-capacity.md).
@@ -51,20 +51,20 @@ Nell'elenco seguente vengono descritti i file che sono rilevanti per questo esem
 * SearchServiceClient.java: gestisce le richieste HTTP
 * SearchServiceHelper.java: classe di supporto che fornisce metodi statici
 * Document.java: fornisce il modello di dati
-* config.properties: Imposta l'URL del servizio di ricerca e `api-key`
+* config.properties: Imposta l'URL del servizio di ricerca e`api-key`
 * pom.xml: dipendenza Maven
 
 <a id="sub-2"></a>
 
-## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Trovare il nome del servizio e `api-key` del servizio di ricerca di Azure
-Tutte le chiamate all'API REST a ricerca di Azure è necessario specificare l'URL del servizio e un `api-key`. 
+## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Trovare il nome del servizio `api-key` e del servizio di ricerca di Azure
+Per tutte le chiamate API REST in ricerca di Azure è necessario fornire l'URL del `api-key`servizio e un. 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nella barra di spostamento, fare clic su **Servizio di ricerca** per elencare tutti i servizi di Ricerca di Azure con provisioning per la sottoscrizione.
 3. Selezionare il servizio che si vuole usare.
 4. Nel dashboard del servizio saranno presenti i riquadri per le informazioni essenziali, nonché l'icona della chiave per l'accesso alle chiavi di amministrazione.
    
-      ![][3]
+      ![Screenshot che illustra come accedere alle chiavi di amministrazione dal dashboard del servizio][3]
 5. Copiare l'URL del servizio e una chiave di amministrazione. Sarà necessario utilizzarli in seguito, quando vengono aggiunti al file **config.properties** .
 
 ## <a name="download-the-sample-files"></a>Scaricare i file di esempio
@@ -77,32 +77,32 @@ Tutte le successive modifiche e le istruzioni di esecuzione verranno effettuate 
 ## <a name="import-project"></a>Importare il progetto
 1. In Eclipse scegliere **File** > **Importa** > **Generale** >  **Progetti esistenti nell'area di lavoro**.
    
-    ![][4]
+    ![Screenshot che illustra come importare un progetto esistente][4]
 2. In **Select root directory**, passare alla cartella contenente i file di esempio. Selezionare la cartella che contiene la cartella .project. Il progetto verrà visualizzato nell’elenco **Projects** come elemento selezionato.
    
-    ![][12]
-3. Fare clic su **Finish**.
+    ![Screenshot che mostra l'elenco progetti nella finestra Importa progetti][12]
+3. Scegliere **Fine**.
 4. Utilizzare **Project Explorer** per visualizzare e modificare i file. Se non è già aperto, fare clic su **Finestra** > **Mostra visualizzazione** > **Esplora progetti** oppure usare il collegamento per aprirlo.
 
-## <a name="configure-the-service-url-and-api-key"></a>Configurare l'URL del servizio e `api-key`
-1. Nelle **Esplora progetti**, fare doppio clic su **config. Properties** per modificare le impostazioni di configurazione che contiene il nome del server e `api-key`.
-2. Vedere i passaggi descritti in precedenza in questo articolo, in cui è stato individuato l'URL del servizio e `api-key` nella [portale di Azure](https://portal.azure.com), per ottenere i valori entrerà in **Properties**.
-3. Nelle **config. Properties**, sostituire "API Key" con il `api-key` per il servizio. Successivamente, il nome del servizio (il primo componente dell'URL https://servicename.search.windows.net) sostituisce "service name" nello stesso file.
+## <a name="configure-the-service-url-and-api-key"></a>Configurare l'URL del servizio e`api-key`
+1. In **Esplora progetti**fare doppio clic su **config. Properties** per modificare le impostazioni di configurazione che contengono il nome `api-key`del server e.
+2. Fare riferimento ai passaggi descritti in precedenza in questo articolo, in cui è stato trovato `api-key` l'URL del servizio e nella [portale di Azure](https://portal.azure.com), per ottenere i valori che verranno immessi in **config. Properties**.
+3. In **config. Properties**sostituire "API Key" con il `api-key` per il servizio. Successivamente, il nome del servizio (il primo componente dell'URL https://servicename.search.windows.net) sostituisce "service name" nello stesso file.
    
-    ![][5]
+    ![Screenshot che illustra come sostituire la chiave API][5]
 
 ## <a name="configure-the-project-build-and-runtime-environments"></a>Configurare gli ambienti di progetto, compilazione e runtime
 1. In Eclipse fare clic con il pulsante destro del mouse sul progetto > **Proprietà** > **Facet progetto** in Esplora progetti.
 2. Selezionare **Dynamic Web Module**, **Java** e **JavaScript**.
    
-    ![][6]
+    ![Screenshot che illustra come selezionare i facet di progetto per il progetto][6]
 3. Fare clic su **Apply**.
 4. Selezionare **Finestra** > **Preferenze** > **Server** > **Runtime Environments (Ambienti di runtime)**  > **Aggiungi..** .
 5. Espandere Apache e selezionare la versione del server Apache Tomcat installata in precedenza. In questo sistema è installata la versione 8.
    
-    ![][7]
+    ![Screenshot che mostra la posizione in cui è possibile selezionare la versione di Apache Tomcat nella finestra ambiente di runtime][7]
 6. Nella pagina successiva, specificare la directory di installazione di Tomcat. In un computer Windows, sarà probabilmente C:\Programmi\Microsoft Files\Apache Software Foundation\Tomcat *versione*.
-7. Fare clic su **Finish**.
+7. Scegliere **Fine**.
 8. Selezionare **Finestra** > **Preferenze** > **Java** > **Installed JREs (JRE installati)**  > **Aggiungi**.
 9. In **Add JRE** (Aggiungi JRE) selezionare **Standard VM (VM standard)** .
 10. Fare clic su **Avanti**.
@@ -110,17 +110,17 @@ Tutte le successive modifiche e le istruzioni di esecuzione verranno effettuate 
 12. Passare a **Programmi** > **Java** e selezionare il JDK installato in precedenza. È importante selezionare JDK come JRE.
 13. In Installed JREs, scegliere il **JDK**. Il risultato finale dovrebbe essere simile a quello riportato nella schermata seguente.
     
-    ![][9]
+    ![Screenshot che illustra come selezionare JDK come JRE installato][9]
 14. Facoltativamente, selezionare **Finestra** > **Web Browser** > **Internet Explorer** per aprire l'applicazione in una finestra del browser esterno. L’utilizzo di un browser esterno offre una migliore esperienza di applicazione Web.
     
-    ![][8]
+    ![Screenshot che illustra come selezionare Internet Explorer come finestra di esplorazione esterna][8]
 
 La configurazione del dispositivo è stata completata. A questo punto, compilare ed eseguire il progetto.
 
 ## <a name="build-the-project"></a>Compilare il progetto
 1. In Esplora progetti, fare clic con il pulsante destro del mouse sul progetto e scegliere **Esegui come** > **Build Maven...** per configurare il progetto.
    
-    ![][10]
+    ![Screenshot che illustra come scegliere la compilazione Maven nella finestra Esplora progetti][10]
 2. In Edit Configuration, in Goals, digitare "clean install", quindi fare clic su **Run**.
 
 I messaggi di stato vengono visualizzati nella finestra della console. Un messaggio di compilazione completata indica che il progetto è stato compilato senza errori.
@@ -147,7 +147,7 @@ Il set di dati dei servizi geologici degli Stati Uniti include i dati relativi a
 
 L’immissione di un termine di ricerca fornirà al motore di ricerca un elemento con cui continuare. Provare a immettere un nome locale. "Roger Williams" è stato il primo governatore del Rhode Island. Numerosi parchi, edifici e scuole prendono il suo nome.
 
-![][11]
+![Screenshot che illustra come eseguire ricerche nei dati di USGS][11]
 
 È inoltre possibile tentare con uno dei termini seguenti:
 

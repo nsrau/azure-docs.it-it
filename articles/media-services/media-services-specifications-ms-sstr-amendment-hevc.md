@@ -3,7 +3,7 @@ title: Servizi multimediali di Azure - Rettifica del protocollo Smooth Streaming
 description: Questa specifica descrive il protocollo e il formato per lo streaming live basato sul formato MP4 frammentato con HEVC in Servizi multimediali di Azure. Questa è una rettifica alla documentazione del protocollo Smooth Streaming (MS-SSTR) per includere il supporto dello streaming e dell'inserimento HEVC. In questo articolo vengono specificate solo le modifiche necessarie per usare HEVC, tranne nei casi in cui è riportato "(Nessuna modifica)" per indicare che il testo è stato copiato solo per maggiore chiarezza.
 services: media-services
 documentationcenter: ''
-author: cenkdin
+author: johndeu
 manager: femila
 editor: ''
 ms.assetid: f27d85de-2cb8-4269-8eed-2efb566ca2c6
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 08/19/2019
 ms.author: johndeu
-ms.openlocfilehash: dfd6de1ab2e4530afb56d1c6c67e6d78eb9ee474
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: e0637b2a015a610f9c3f92809f63a442980b63b1
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015687"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624812"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Rettifica del protocollo Smooth Streaming (MS-SSTR) per HEVC 
 
@@ -27,7 +27,7 @@ ms.locfileid: "69015687"
 
 Questo articolo fornisce le modifiche dettagliate da applicare alla specifica del protocollo Smooth Streaming [MS-SSTR] per abilitare lo Smooth Streaming di video con codifica HEVC. In questa specifica vengono illustrate solo le modifiche necessarie per usare il codec video HEVC. L'articolo segue lo stesso schema di numerazione della specifica [MS-SSTR]. I titoli vuoti presenti nell'articolo vengono forniti per far orientare il lettore all'interno della specifica [MS-SSTR].  "(Nessuna modifica)" indica che il testo è stato copiato solo per maggiore chiarezza.
 
-L'articolo include i requisiti di implementazione tecnica per la segnalazione del codec video HEVC in un manifesto Smooth Streaming e sono stati aggiornati i riferimenti normativi per fare riferimento agli standard MPEG correnti che includono HEVC, Common Encryption di HEVC, e sono stati aggiornati i nomi dei riquadri per ISO Base Media File Format in modo da essere coerenti con le ultime specifiche. 
+Questo articolo fornisce i requisiti di implementazione tecnica per la segnalazione del codec video HEVC (usando le tracce del formato ' hev1' o ' hvc1') in un manifesto Smooth Streaming e i riferimenti normativi vengono aggiornati per fare riferimento agli standard MPEG correnti che includere HEVC, crittografia comune di HEVC e i nomi di box per il formato di file multimediale di base ISO sono stati aggiornati in modo da essere coerenti con le specifiche più recenti. 
 
 La specifica del protocollo Smooth Streaming di riferimento [MS-SSTR] descrive il formato di trasmissione usato per offrire contenuto multimediale live e on-demand come audio e video nei modi seguenti: da un codificatore a un server Web, da un server a un altro server e da un server a un client HTTP.
 L'utilizzo di una distribuzione della struttura dei dati basata su MPEG-4 ([[MPEG-4-RA])](https://go.microsoft.com/fwlink/?LinkId=327787) tramite HTTP consente il passaggio senza interruzioni quasi in tempo reale tra diversi livelli di qualità di contenuto multimediale compresso. Il risultato è un'esperienza di riproduzione costante per l'utente finale del client HTTP, anche se le condizioni di rete e rendering video cambiano per il computer client o il dispositivo.
@@ -148,10 +148,12 @@ ProtectionElement deve essere presente quando CENC (Common Encryption) viene app
 >   **FourCC (variabile):** codice di quattro caratteri che identifica il formato multimediale usato per ogni campione. L'intervallo di valori seguente è riservato con questi significati semantici:
 > 
 > * "hev1": i campioni video per questp brano usano video HEVC, con il formato descrizione campione 'hev1' specificato in [ISO/IEC-14496-15].
+>
+> * "hvc1": Gli esempi video per questa traccia usano il video HEVC, usando il formato di descrizione dell'esempio ' hvc1' specificato in [ISO/IEC-14496-15].
 > 
 >   **CodecPrivateData (variabile):** dati che indicano parametri specifici del formato multimediale e comuni a tutti i campioni nel brano, rappresentati come stringa di byte con codifica esadecimale. Il formato e il significato semantico delle sequenza di byte varia in base al valore del campo **FourCC** come indicato di seguito:
 > 
->   * Quando TrackElement descrive un video HEVC, il campo **FourCC** deve essere uguale a **"hev1"** e;
+>   * Quando un oggetto Trackelement descrive il video di HEVC, il campo **fourcc** sarà uguale a **"hev1"** o **"hvc1"**
 > 
 >   Il campo **CODECPRIVATEDATA** deve contenere una rappresentazione in forma di stringa con codifica esadecimale della sequenza di byte seguente, specificata in ABNF [[RFC5234]:](https://go.microsoft.com/fwlink/?LinkId=123096) (nessuna modifica da MS-SSTR)
 > 
@@ -173,7 +175,7 @@ ProtectionElement deve essere presente quando CENC (Common Encryption) viene app
 
 ### <a name="223-fragment-request"></a>2.2.3 Richiesta frammento 
 
->   **Nota**: il formato multimediale predefinito richiesto per **MinorVersion** 2 e 'hev1' è il marchio 'iso8', ISO Base Media File Format, specificato in [ISO/IEC 14496-12] ISO Base Media File Format Fourth Edition e [ISO/IEC 23001-7] Common Encryption Second Edition.
+>   **Nota**: Il formato multimediale predefinito richiesto per **MinorVersion** 2 è hev1' o ' hvc1' è' ISO8' il formato del file multimediale di base ISO di base specificato in [ISO/IEC 14496-12] ISO base media file format Fourth Edition e [ISO/IEC 23001-7] crittografia comune seconda edizione.
 
 ### <a name="224-fragment-response"></a>2.2.4 Risposta frammento 
 

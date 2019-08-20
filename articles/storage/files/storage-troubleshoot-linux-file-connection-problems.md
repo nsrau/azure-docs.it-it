@@ -1,20 +1,18 @@
 ---
 title: Risolvere i problemi di File di Azure in Linux | Microsoft Docs
 description: Risoluzione dei problemi di File di Azure in Linux
-services: storage
 author: jeffpatt24
-tags: storage
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 232b4ca2ee4f3137069ed155cc82a5c5e3251420
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 5c501e6c2bc1a30273682352a68565ccc897ff50
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807267"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699197"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Risolvere i problemi di File di Azure in Linux
 
@@ -41,7 +39,7 @@ Le cause comuni di questo problema sono le seguenti:
 
 - Le utilità CIFS (cfs-utils) non sono installate nel client.
 - La versione SMB/CIFS minima, ossia la 2.1, non è installata nel client.
-- La crittografia SMB 3.0 non è supportata nel client. Nella tabella precedente presenta un elenco delle distribuzioni di Linux il montaggio di tale supporto da on-premise e tra più aree usando la crittografia. Altre distribuzioni richiedono il kernel 4.11 e versioni successive.
+- La crittografia SMB 3.0 non è supportata nel client. La tabella precedente fornisce un elenco di distribuzioni Linux che supportano il montaggio dall'ambiente locale e tra più aree usando la crittografia. Altre distribuzioni richiedono il kernel 4.11 e versioni successive.
 - Si sta tentando di connettersi a un account di archiviazione tramite la porta TCP 445, che non è supportata.
 - Si sta tentando di connettersi a una condivisione file di Azure da una macchina virtuale di Azure e la macchina virtuale non si trova nella stessa area dell'account di archiviazione.
 - Se l'impostazione [Trasferimento sicuro obbligatorio]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) è abilitata nell'account di archiviazione, File di Azure consentirà solo connessioni crittografate con SMB 3.0.
@@ -82,7 +80,7 @@ Verificare che le regole di rete virtuale e di firewall siano configurate corret
 
 In Linux si riceve un messaggio di errore simile al seguente:
 
-**\<nome file > quota disco [autorizzazione negata] ha superato**
+**\<nome file > [autorizzazione negata] quota disco superata**
 
 ### <a name="cause"></a>Causa
 
@@ -94,12 +92,12 @@ In Linux si riceve un messaggio di errore simile al seguente:
 
 Ridurre il numero di handle aperti simultaneamente chiudendone alcuni e quindi riprovare.
 
-Per visualizzare gli handle aperti per una condivisione file, directory o file, usare il [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) cmdlet di PowerShell.  
+Per visualizzare gli handle aperti per una condivisione file, una directory o un file, usare il cmdlet di PowerShell [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) .  
 
-Per chiudere gli handle aperti per una condivisione file, directory o file, usare il [Close AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) cmdlet di PowerShell.
+Per chiudere gli handle aperti per una condivisione file, una directory o un file, usare il cmdlet di PowerShell [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) .
 
 > [!Note]  
-> Il cmdlet Get-AzStorageFileHandle e Chiudi AzStorageFileHandle sono inclusi in Az modulo PowerShell versione 2.4 o versione successiva. Per installare il modulo PowerShell di Az più recente, vedere [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+> I cmdlet Get-AzStorageFileHandle e Close-AzStorageFileHandle sono inclusi nel modulo AZ PowerShell versione 2,4 o successiva. Per installare la versione più recente del modulo AZ PowerShell, vedere [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Rallentamento della copia del file da e verso File di Azure in Linux
@@ -107,17 +105,17 @@ Per chiudere gli handle aperti per una condivisione file, directory o file, usar
 - In assenza di un requisito minimo specifico per la dimensione di I/O, è consigliabile usare 1 MiB per assicurare prestazioni ottimali.
 - Usare il metodo di copia corretto:
     - Usare [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) per i trasferimenti tra due condivisioni file.
-    - Con cp o gg parallelo potrebbe migliorare la velocità di copia, il numero di thread dipende il caso d'uso e del carico di lavoro. Gli esempi seguenti usano sei: 
-    - esempio CP (cp userà la dimensione del blocco predefinita del file system come le dimensioni del blocco): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
-    - esempio gg (questo comando imposta in modo esplicito le dimensioni del blocco su 1 MiB): `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
-    - Strumenti open source terze parti, ad esempio:
+    - L'uso di CP o DD con Parallel può migliorare la velocità di copia, il numero di thread dipende dal caso d'uso e dal carico di lavoro. Gli esempi seguenti usano sei: 
+    - esempio CP (CP utilizzerà la dimensione del blocco predefinita del file system come dimensione del blocco): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
+    - esempio di dd (questo comando imposta in modo esplicito le dimensioni del blocco su 1 MiB):`find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
+    - Strumenti di terze parti open source, ad esempio:
         - [Parallelo GNU](https://www.gnu.org/software/parallel/).
-        - [Fpart](https://github.com/martymac/fpart) : Ordina i file e le inserisce in partizioni.
-        - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) -Usa Fpart e uno strumento di copia per generare più istanze per migrare i dati da src_dir a dst_url.
-        - [Con più](https://github.com/pkolano/mutil) -cp multithread e md5sum basato su GNU coreutils.
-- Impostazione delle dimensioni del file in anticipo, anziché lasciare che ogni operazione di scrittura un'estensione, consente di migliorare la velocità di copia in scenari in cui le dimensioni del file sono noto. Se si estende scritture dover essere evitata, è possibile impostare la dimensione di un file di destinazione con `truncate - size <size><file>` comando. Successivamente, `dd if=<source> of=<target> bs=1M conv=notrunc`comando copierà un file di origine senza la necessità di aggiornare più volte le dimensioni del file di destinazione. Ad esempio, è possibile impostare le dimensioni del file di destinazione per ogni file che si desidera copiare (presuppongono una condivisione viene montata in//mnt o una condivisione):
+        - [Fpart](https://github.com/martymac/fpart) : Ordina i file e li comprime in partizioni.
+        - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) : USA fpart e uno strumento di copia per generare più istanze per la migrazione dei dati da src_dir a dst_url.
+        - [Multi](https://github.com/pkolano/mutil) CP e md5sum multithread multithreading basati su coreutils GNU.
+- Impostando in anticipo le dimensioni del file, invece di creare ogni scrittura di un'estensione di scrittura, contribuisce a migliorare la velocità di copia negli scenari in cui le dimensioni del file sono note. Se è necessario evitare l'estensione delle Scritture, è possibile impostare le dimensioni del `truncate - size <size><file>` file di destinazione con il comando. Successivamente, `dd if=<source> of=<target> bs=1M conv=notrunc`tramite il comando viene copiato un file di origine senza dover aggiornare ripetutamente le dimensioni del file di destinazione. Ad esempio, è possibile impostare le dimensioni del file di destinazione per ogni file che si desidera copiare (si supponga che una condivisione sia montata in/mnt/share):
     - `$ for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
-    - e quindi - copiare i file senza estensione di operazioni di scrittura in parallelo: `$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
+    - e quindi copiare i file senza estendere le Scritture in parallelo:`$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
 
 <a id="error115"></a>
 ## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>"Errore di montaggio (115): L'operazione è in corso" quando si esegue il montaggio di File di Azure usando SMB 3.0
@@ -128,12 +126,12 @@ Alcune distribuzioni di Linux non supportano ancora le funzionalità di crittogr
 
 ### <a name="solution"></a>Soluzione
 
-La funzionalità di crittografia per SMB 3.0 per Linux è stata introdotta nel kernel 4.11. Questa funzionalità consente di montare una condivisione file di Azure da un ambiente locale o da un'area di Azure diversa. Questa funzionalità è inclusa nelle distribuzioni Linux elencate in [minime consigliate le versioni con funzionalità di montaggio corrispondenti (SMB versione 2.1 ed SMB versione 3.0)](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30). Altre distribuzioni richiedono il kernel 4.11 e versioni successive.
+La funzionalità di crittografia per SMB 3.0 per Linux è stata introdotta nel kernel 4.11. Questa funzionalità consente di montare una condivisione file di Azure da un ambiente locale o da un'area di Azure diversa. Questa funzionalità è inclusa nelle distribuzioni Linux elencate in [Versioni minime consigliate con le corrispondenti funzionalità di montaggio (SMB versione 2.1 e SMB versione 3.0)](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30). Altre distribuzioni richiedono il kernel 4.11 e versioni successive.
 
 Se il client Linux SMB non supporta la crittografia, montare File di Azure usando SMB 2.1 da una macchina virtuale Linux di Azure presente nello stesso data center della condivisione file. Verificare che l'opzione [Trasferimento sicuro obbligatorio]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) sia disabilitata nell'account di archiviazione. 
 
 <a id="authorizationfailureportal"></a>
-## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>Errore "Errore di autorizzazione" durante l'esplorazione di una condivisione file di Azure nel portale
+## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>Errore di "errore di autorizzazione" durante l'esplorazione di una condivisione file di Azure nel portale
 
 Quando si passa alla condivisione file di Azure nel portale, viene visualizzato il messaggio di errore seguente:
 
@@ -153,28 +151,28 @@ Passare all'account di archiviazione in cui si trova la condivisione file di Azu
 Verificare che le regole di rete virtuale e di firewall siano configurate correttamente nell'account di archiviazione. Per verificare se le regole di rete virtuale o del firewall sono la causa del problema, modificare temporaneamente le impostazioni dell'account di archiviazione per **consentire l'accesso da tutte le reti**. Per altre informazioni, vedere [Configurare i firewall e le reti virtuali di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 <a id="open-handles"></a>
-## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Non è possibile eliminare un file o directory in una condivisione file di Azure
+## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Non è possibile eliminare un file o una directory in una condivisione file di Azure
 
 ### <a name="cause"></a>Causa
-Questo problema si verifica in genere se il file o directory ha un handle aperto. 
+Questo problema si verifica in genere se il file o la directory dispone di un handle aperto. 
 
 ### <a name="solution"></a>Soluzione
 
-Se i client SMB sono chiusi tutti gli handle aperti e il problema persiste, eseguire le operazioni seguenti:
+Se i client SMB hanno chiuso tutti gli handle aperti e il problema continua a verificarsi, eseguire le operazioni seguenti:
 
-- Usare la [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) cmdlet di PowerShell per visualizzare gli handle aperti.
+- Usare il cmdlet di PowerShell [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) per visualizzare gli handle aperti.
 
-- Usare la [Close AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) cmdlet di PowerShell per chiudere handle aperti. 
+- Usare il cmdlet di PowerShell [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) per chiudere gli handle aperti. 
 
 > [!Note]  
-> Il cmdlet Get-AzStorageFileHandle e Chiudi AzStorageFileHandle sono inclusi in Az modulo PowerShell versione 2.4 o versione successiva. Per installare il modulo PowerShell di Az più recente, vedere [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+> I cmdlet Get-AzStorageFileHandle e Close-AzStorageFileHandle sono inclusi nel modulo AZ PowerShell versione 2,4 o successiva. Per installare la versione più recente del modulo AZ PowerShell, vedere [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Rallentamento delle prestazioni in una condivisione file di Azure montata in una VM Linux
 
 ### <a name="cause-1-caching"></a>Causa 1: Memorizzazione nella cache
 
-Una possibile causa del rallentamento delle prestazioni è la disattivazione della memorizzazione nella cache. La memorizzazione nella cache può essere utile che se si accede più volte un file, in caso contrario, può essere un sovraccarico. Controllare se si usa la cache prima di disabilitarlo.
+Una possibile causa del rallentamento delle prestazioni è la disattivazione della memorizzazione nella cache. La memorizzazione nella cache può essere utile se si accede ripetutamente a un file. in caso contrario, può essere un sovraccarico. Controllare se si sta usando la cache prima di disattivarla.
 
 ### <a name="solution-for-cause-1"></a>Soluzione per la causa 1
 
@@ -182,7 +180,7 @@ Per controllare se la memorizzazione nella cache è disattivata, cercare la voce
 
 **cache=none** indica che la memorizzazione nella cache è disattivata. Eseguire nuovamente il montaggio della condivisione usando il comando di montaggio predefinito o aggiungendo esplicitamente l'opzione **cache=strict** al comando di montaggio per assicurarsi che la modalità di memorizzazione nella cache predefinita o "strict" sia attivata.
 
-In alcuni scenari, l'opzione di montaggio **serverino** può far sì che il comando **ls** esegua stat rispetto a ogni voce di directory. Questo comportamento determina una riduzione delle prestazioni quando si elenca una directory di grandi dimensioni. È possibile controllare le opzioni di montaggio nella voce **/etc/fstab**:
+In alcuni scenari, l'opzione di montaggio **serverino** può far sì che il comando **ls** esegua stat rispetto a ogni voce di directory. Questo comportamento comporta un peggioramento delle prestazioni quando si elenca una directory di grandi dimensioni. È possibile controllare le opzioni di montaggio nella voce **/etc/fstab**:
 
 `//azureuser.file.core.windows.net/cifs /cifs cifs vers=2.1,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
@@ -196,11 +194,11 @@ Se l'opzione **cache=strict** o **serverino** non è presente, smontare e montar
 
 ### <a name="cause-2-throttling"></a>Causa 2: Limitazione
 
-È possibile che si sono verificate la limitazione delle richieste e le richieste vengono inviate a una coda. È possibile verificarlo sfruttando [metriche di archiviazione di Azure in Monitoraggio di Azure](../common/storage-metrics-in-azure-monitor.md).
+È possibile che si verifichino limitazioni e che le richieste vengano inviate a una coda. Per verificarlo, è possibile sfruttare le [metriche di archiviazione di Azure in monitoraggio di Azure](../common/storage-metrics-in-azure-monitor.md).
 
 ### <a name="solution-for-cause-2"></a>Soluzione per la causa 2
 
-Verificare che l'app si trova all'interno di [file di Azure Ridimensiona destinazioni](storage-files-scale-targets.md#azure-files-scale-targets).
+Assicurarsi che l'app si trovi entro gli [obiettivi di scalabilità file di Azure](storage-files-scale-targets.md#azure-files-scale-targets).
 
 <a id="timestampslost"></a>
 ## <a name="time-stamps-were-lost-in-copying-files-from-windows-to-linux"></a>I timestamp sono andati persi durante la copia dei file da Windows a Linux
@@ -283,7 +281,7 @@ Questo problema di riconnessione nel kernel Linux è stato corretto nell'ambito 
 - [CIFS: Fix a possible memory corruption during reconnect](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b) (CIFS: correggere un possibile danneggiamento della memoria dopo la riconnessione)
 - [CIFS: Fix a possible double locking of mutex during reconnect - for kernels v4.9 and later](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183) (CIFS: Correggere un possibile doppio blocco del mutex durante la riconnessione, per i kernel 4.9 e versioni successive)
 
-È tuttavia possibile che queste modifiche non siano state ancora trasferite a tutte le distribuzioni di Linux. Questa correzione e altre correzioni di riconnessione sono reperibile nella [minime consigliate le versioni con funzionalità di montaggio corrispondenti (SMB versione 2.1 ed SMB versione 3.0)](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30) sezione del [Usa file di Azure con Linux](storage-how-to-use-files-linux.md)articolo. Per ottenere questa correzione, eseguire l'aggiornamento a una di queste versioni del kernel consigliate.
+È tuttavia possibile che queste modifiche non siano state ancora trasferite a tutte le distribuzioni di Linux. Questa correzione e altre correzioni per la riconnessione sono disponibili nella sezione [Versioni minime consigliate con funzionalità di montaggio corrispondenti (SMB versione 2.1 vs SMB versione 3.0)](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30) dell'articolo [Usare File di Azure con Linux](storage-how-to-use-files-linux.md). Per ottenere questa correzione, eseguire l'aggiornamento a una di queste versioni del kernel consigliate.
 
 ### <a name="workaround"></a>Soluzione alternativa
 

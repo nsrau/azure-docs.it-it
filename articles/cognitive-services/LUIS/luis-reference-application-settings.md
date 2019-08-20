@@ -1,35 +1,35 @@
 ---
-title: Impostazioni dell'applicazione
+title: Impostazioni dell'applicazione-LUIS
 titleSuffix: Azure Cognitive Services
-description: Informazioni sulle impostazioni di applicazioni per le app di comprensione del linguaggio.
+description: Informazioni sulle impostazioni delle applicazioni per le app per la comprensione del linguaggio.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 3682b9e0c38344be1522440290b46f8c10bd5607
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 6d516590b90efd937789fa0847b707d2521f6459
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275914"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932585"
 ---
 # <a name="application-settings"></a>Impostazioni dell'applicazione
 
-Le impostazioni dell'applicazione vengono archiviate nel [esportati](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) app e [aggiornata](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) con le API REST. Modifica delle impostazioni di versione app Reimposta lo stato training dell'app non sottoposto a training.
+Queste impostazioni dell'applicazione vengono archiviate nell'app [esportata](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) e [aggiornate](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) con le API REST. Modificando le impostazioni della versione dell'app si reimposta lo stato di training dell'app su non sottoposto a training.
 
 |Impostazione|Valore predefinito|Note|
 |--|--|--|
 |NormalizePunctuation|True|Rimuove la punteggiatura.|
 |NormalizeDiacritics|True|Rimuove i segni diacritici.|
 
-## <a name="diacritics-normalization"></a>Normalizzazione dei segni diacritici 
+## <a name="diacritics-normalization"></a>Normalizzazione segni diacritici 
 
-Attivare la normalizzazione utterance dei segni diacritici al file app LUIS JSON nel `settings` parametro.
+Attivare la normalizzazione dell'espressione per i segni diacritici nel file dell' `settings` app Luis JSON nel parametro.
 
 ```JSON
 "settings": [
@@ -37,18 +37,18 @@ Attivare la normalizzazione utterance dei segni diacritici al file app LUIS JSON
 ] 
 ```
 
-Le espressioni seguenti mostrano come normalizzazione dei segni diacritici influisce sulle espressioni:
+Negli enunciati seguenti viene illustrato il modo in cui la normalizzazione dei segni diacritici influisca sulle espressioni:
 
-|Con i segni diacritici impostati su false|Con i segni diacritici impostato su true|
+|Con segni diacritici impostati su false|Con segni diacritici impostati su true|
 |--|--|
 |`quiero tomar una piña colada`|`quiero tomar una pina colada`|
 |||
 
-### <a name="language-support-for-diacritics"></a>Supporto delle lingue per i segni diacritici
+### <a name="language-support-for-diacritics"></a>Supporto della lingua per i segni diacritici
 
-#### <a name="brazilian-portuguese-pt-br-diacritics"></a>Portoghese (Brasile) `pt-br` segni diacritici
+#### <a name="brazilian-portuguese-pt-br-diacritics"></a>Segni diacritici `pt-br` del Portoghese brasiliano
 
-|I segni diacritici impostato su false|I segni diacritici impostato su true|
+|Segni diacritici impostati su false|Segni diacritici impostati su true|
 |-|-|
 |`á`|`a`|
 |`â`|`a`|
@@ -64,9 +64,9 @@ Le espressioni seguenti mostrano come normalizzazione dei segni diacritici influ
 |`ú`|`u`| 
 |||
 
-#### <a name="dutch-nl-nl-diacritics"></a>Olandese `nl-nl` segni diacritici
+#### <a name="dutch-nl-nl-diacritics"></a>Segni `nl-nl` diacritici olandesi
 
-|I segni diacritici impostato su false|I segni diacritici impostato su true|
+|Segni diacritici impostati su false|Segni diacritici impostati su true|
 |-|-|
 |`á`|`a`|
 |`à`|`a`|
@@ -81,11 +81,11 @@ Le espressioni seguenti mostrano come normalizzazione dei segni diacritici influ
 |`ü`|`u`|
 |||
 
-#### <a name="french-fr--diacritics"></a>Francese `fr-` segni diacritici
+#### <a name="french-fr--diacritics"></a>Segni `fr-` diacritici francesi
 
-Si tratta di impostazioni cultura secondarie sia una francese canadese.
+Sono incluse sia le impostazioni cultura di lingua francese sia quelle canadesi.
 
-|I segni diacritici impostato su false|I segni diacritici impostato su true|
+|Segni diacritici impostati su false|Segni diacritici impostati su true|
 |--|--|
 |`é`|`e`|
 |`à`|`a`|
@@ -102,17 +102,17 @@ Si tratta di impostazioni cultura secondarie sia una francese canadese.
 |`ü`|`u`| 
 |`ÿ`|`y`| 
 
-#### <a name="german-de-de-diacritics"></a>Tedesco `de-de` segni diacritici
+#### <a name="german-de-de-diacritics"></a>Segni `de-de` diacritici tedeschi
 
-|I segni diacritici impostato su false|I segni diacritici impostato su true|
+|Segni diacritici impostati su false|Segni diacritici impostati su true|
 |--|--|
 |`ä`|`a`|
 |`ö`|`o`| 
 |`ü`|`u`| 
 
-#### <a name="italian-it-it-diacritics"></a>Italiano `it-it` segni diacritici
+#### <a name="italian-it-it-diacritics"></a>Segni `it-it` diacritici italiani
 
-|I segni diacritici impostato su false|I segni diacritici impostato su true|
+|Segni diacritici impostati su false|Segni diacritici impostati su true|
 |--|--|
 |`à`|`a`|
 |`è`|`e`|
@@ -125,11 +125,11 @@ Si tratta di impostazioni cultura secondarie sia una francese canadese.
 |`ù`|`u`|
 |`ú`|`u`|
 
-#### <a name="spanish-es--diacritics"></a>Spagnolo `es-` segni diacritici
+#### <a name="spanish-es--diacritics"></a>Segni `es-` diacritici in spagnolo
 
-Ciò include canadese sia spagnolo messicano.
+Sono inclusi sia spagnolo che messicano.
 
-|I segni diacritici impostato su false|I segni diacritici impostato su true|
+|Segni diacritici impostati su false|Segni diacritici impostati su true|
 |-|-|
 |`á`|`a`|
 |`é`|`e`|
@@ -140,9 +140,9 @@ Ciò include canadese sia spagnolo messicano.
 |`ñ`|`u`|
 
 
-## <a name="punctuation-normalization"></a>Normalizzazione dei segni di punteggiatura
+## <a name="punctuation-normalization"></a>Normalizzazione punteggiatura
 
-Attivare la normalizzazione utterance la punteggiatura al file app LUIS JSON nel `settings` parametro.
+Attivare la `settings` normalizzazione dell'espressione per la punteggiatura al file dell'app Luis JSON nel parametro.
 
 ```JSON
 "settings": [
@@ -150,16 +150,16 @@ Attivare la normalizzazione utterance la punteggiatura al file app LUIS JSON nel
 ] 
 ```
 
-Le espressioni seguenti mostrano come i segni diacritici influisce sulle espressioni:
+Le espressioni seguenti mostrano come i segni diacritici influiscano sulle espressioni:
 
-|Con i segni diacritici impostati su False|Con i segni diacritici impostati su True|
+|Con segni diacritici impostati su false|Con segni diacritici impostati su true|
 |--|--|
 |`Hmm..... I will take the cappuccino`|`Hmm I will take the cappuccino`|
 |||
 
-### <a name="punctuation-removed"></a>Punteggiatura
+### <a name="punctuation-removed"></a>Segni di punteggiatura rimossi
 
-La punteggiatura seguente è stata rimossa con `NormalizePunctuation` è impostato su true.
+La punteggiatura seguente viene rimossa `NormalizePunctuation` con la è impostata su true.
 
 |Punteggiatura|
 |--|

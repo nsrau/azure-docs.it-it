@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 607da7983cabe4c36c01171ba8d88c752b99ce3d
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: f8203cade1d2e34a9852e945df03dc2fddc1fbe5
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303819"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359410"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: monitorare e diagnosticare con una latenza di 1 secondo
 
-Usando Live Metrics Stream da [Application Insights](../../azure-monitor/app/app-insights-overview.md) è possibile testare il funzionamento dell'applicazione Web live nell'ambiente di produzione. Selezionare e filtrare le metriche e i contatori delle prestazioni in tempo reale, senza distorsioni del servizio. Esaminare le analisi dello stack da richieste ed eccezioni di esempio non riuscite. Assieme [Profiler](../../azure-monitor/app/profiler.md), [Snapshot debugger](../../azure-monitor/app/snapshot-debugger.md). Stream di metriche in tempo reale fornisce uno strumento di diagnostica non invasivo e potente per il sito web live.
+Usando Live Metrics Stream da [Application Insights](../../azure-monitor/app/app-insights-overview.md) è possibile testare il funzionamento dell'applicazione Web live nell'ambiente di produzione. Selezionare e filtrare le metriche e i contatori delle prestazioni in tempo reale, senza distorsioni del servizio. Esaminare le analisi dello stack da richieste ed eccezioni di esempio non riuscite. Insieme al [Profiler](../../azure-monitor/app/profiler.md), [snapshot debugger](../../azure-monitor/app/snapshot-debugger.md). Live Metrics Stream offre uno strumento di diagnostica potente e non invasivo per il sito Web Live.
 
 Con Live Metrics Stream, è possibile:
 
@@ -36,7 +36,7 @@ Con Live Metrics Stream, è possibile:
 
 [![Video di Live Metrics Stream](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
-Le metriche in tempo reale sono attualmente supportate per le app ASP.NET, ASP.NET Core, funzioni di Azure, Java e Node. js.
+Le metriche attive sono attualmente supportate per le app ASP.NET, ASP.NET Core, funzioni di Azure, Java e node. js.
 
 ## <a name="get-started"></a>Attività iniziali
 
@@ -52,7 +52,7 @@ Le metriche in tempo reale sono attualmente supportate per le app ASP.NET, ASP.N
 
 ### <a name="nodejs"></a>Node.js
 
-Per usare le metriche in tempo reale con Node. js è necessario aggiornare alla versione 1.30 o successiva del SDK. Per impostazione predefinita le metriche in tempo reale è disabilitata in Node. js SDK. Per abilitare le metriche in tempo reale, aggiungere `setSendLiveMetrics(true)` per il [metodi di configurazione](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) viene inizializzato il SDK.
+Per usare la metrica dinamica con node. js, è necessario eseguire l'aggiornamento alla versione 1,30 o successiva dell'SDK. Per impostazione predefinita, la metrica dinamica è disabilitata in node. js SDK. Per abilitare le metriche in tempo `setSendLiveMetrics(true)` reale, aggiungere i [metodi di configurazione](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) durante l'inizializzazione dell'SDK.
 
 ### <a name="no-data-check-your-server-firewall"></a>Dati non visualizzati Controllare il firewall del server
 
@@ -94,7 +94,7 @@ Così come con le metriche, è possibile specificare i criteri arbitrari per i t
 
 ![Feed live personalizzati](./media/live-stream/live-stream-events.png)
 
-Note: attualmente, per i criteri di eccezione basati sul messaggio, usare il messaggio dell'eccezione più esterna. Nell'esempio precedente, per filtrare l'eccezione di tipo benigno con messaggio di eccezione interna, segue il delimitatore "<--", "Il client si è disconnesso." usare un criterio che non contiene il messaggio "Errore durante la lettura del contenuto della richiesta".
+Nota: attualmente, per i criteri di eccezione basati sul messaggio, usare il messaggio dell'eccezione più esterna. Nell'esempio precedente, per filtrare l'eccezione di tipo benigno con messaggio di eccezione interna, segue il delimitatore "<--", "Il client si è disconnesso." usare un criterio che non contiene il messaggio "Errore durante la lettura del contenuto della richiesta".
 
 Visualizzare i dettagli di un elemento nel feed live facendovi clic sopra. È possibile sospendere il feed facendo clic su **Sospendi** o semplicemente scorrendo verso il basso o facendo clic su un elemento. Il feed live verrà ripreso se, scorrendo, si torna all'inizio o facendo clic sul contatore degli elementi raccolti che era stato sospeso.
 
@@ -175,13 +175,13 @@ Modificare il file startup.cs come indicato di seguito:
 
 Prima aggiungere
 
-``` C#
+```csharp
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
 ```
 
 Poi, all'interno del metodo ConfigureServices, aggiungere:
 
-``` C#
+```csharp
 services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 ```
 

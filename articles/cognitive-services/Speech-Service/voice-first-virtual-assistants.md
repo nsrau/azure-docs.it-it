@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 8a12c9e5d569092440552958554681c0b1d79590
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f77a95af1edcd37043ea1e067560577140a81a04
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552538"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967597"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>Informazioni sull'anteprima degli assistenti virtuali per la prima voce personalizzata
 
@@ -36,18 +36,29 @@ Il riconoscimento diretto della linea e la relativa funzionalità associata per 
 |[Sintesi vocale](text-to-speech.md) | Le risposte testuali dal bot verranno sintetizzate tramite sintesi [vocale](text-to-speech.md) da servizi vocali di Azure. Questa sintesi verrà quindi resa disponibile all'applicazione client come flusso audio. Microsoft offre la possibilità di creare una voce personalizzata neurale e di alta qualità che fornisca una voce al proprio marchio, per saperne di più su [Contattaci](mailto:mstts@microsoft.com).
 |[Sintesi vocale diretta](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech) | Come canale in bot Framework, direct line Speech consente una connessione semplice e uniforme tra l'applicazione client, un bot compatibile e le funzionalità dei servizi di riconoscimento vocale di Azure. Per ulteriori informazioni sulla configurazione del bot per l'utilizzo del canale di riconoscimento vocale diretto, vedere la [relativa pagina nella documentazione di bot Framework](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
+## <a name="get-started-with-virtual-assistants"></a>Inizia a usare gli assistenti virtuali
+
+Sono disponibili guide introduttive progettate per l'esecuzione di codice in meno di 10 minuti. Questa tabella include un elenco di guide introduttive di assistente virtuale per la prima voce organizzate in base alla lingua.
+
+| Avvio rapido | Piattaforma | Informazioni di riferimento per l'API |
+|------------|----------|---------------|
+| C#, UWP | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| Java | Windows, macOS, Linux | [Browse](https://aka.ms/csspeech/javaref) |
+| Java | Android | [Browse](https://aka.ms/csspeech/javaref) |
+
 ## <a name="sample-code"></a>Codice di esempio
 
 Il codice di esempio per la creazione di un assistente virtuale Voice-First è disponibile su GitHub. Questi esempi coprono l'applicazione client per la connessione al bot in diversi linguaggi di programmazione più diffusi.
 
 * [Esempi di assistente virtuale per la prima voce (SDK)](https://aka.ms/csspeech/samples)
-* [Guida introduttiva: assistenti virtuali vocali-C#First ()](quickstart-virtual-assistant-csharp-uwp.md)
-* [Guida introduttiva: assistenti virtuali vocali-First (Java)](quickstart-virtual-assistant-java-jre.md)
-* [Client di sintesi vocale direttaC#(, WPF)](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client)
+* [Esercitazione: Voice Abilita il bot con l'SDK di riconoscimento vocale,C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+
+## <a name="tutorial"></a>Esercitazione
+Esercitazione su come [abilitare il bot usando l'SDK di riconoscimento vocale e il canale di sintesi vocale Direct Line](tutorial-voice-enable-your-bot-speech-sdk.md).
 
 ## <a name="customization"></a>Personalizzazione
 
-Gli assistenti virtuali vocali creati con i servizi di riconoscimento vocale di Azure possono usare la gamma completa di opzioni di personalizzazione disponibili per la selezione [vocale](speech-to-text.md) [, sintesi](text-to-speech.md)vocale e [parola chiave personalizzata](speech-devices-sdk-create-kws.md).
+Gli assistenti virtuali vocali creati con i servizi di riconoscimento vocale di Azure possono usare la gamma completa di opzioni di personalizzazione disponibili per la selezione [vocale](speech-to-text.md), [sintesi vocale](text-to-speech.md) e [parola chiave personalizzata](speech-devices-sdk-create-kws.md).
 
 > [!NOTE]
 > Le opzioni di personalizzazione variano in base alla lingua o alle impostazioni locali (vedere [lingue supportate](supported-languages.md)).

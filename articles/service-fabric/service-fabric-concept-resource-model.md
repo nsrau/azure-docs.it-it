@@ -7,15 +7,15 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: atsenthi
-ms.openlocfilehash: 7795612d8aa4974bc640571d49ad1520e2a0f94c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 8e39318dcaa31a111908c6be1ae7a51d73eb7478
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963834"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623820"
 ---
 # <a name="what-is-the-service-fabric-application-resource-model"></a>Che cos'è il modello di risorsa Service Fabric applicazione?
-Si consiglia di distribuire Service Fabric applicazioni nel cluster Service Fabric tramite Azure Resource Manager. Questo metodo rende possibile descrivere le applicazioni e i servizi in JSON e distribuirli nello stesso modello di Gestione risorse del cluster. Invece di distribuire e gestire le applicazioni tramite PowerShell o l'interfaccia della riga di comando di Azure, non è necessario attendere che il cluster sia pronto. Il processo di registrazione, provisioning e distribuzione delle applicazioni può essere eseguito in un unico passaggio. Questa è la procedura consigliata per gestire il ciclo di vita dell'applicazione nel cluster. Per altre informazioni, vedere [procedure consigliate](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources).
+Si consiglia di distribuire Service Fabric applicazioni nel cluster Service Fabric tramite Azure Resource Manager. Questo metodo rende possibile descrivere le applicazioni e i servizi in JSON e distribuirli nello stesso modello di Gestione risorse del cluster. Invece di distribuire e gestire le applicazioni tramite PowerShell o l'interfaccia della riga di comando di Azure, non è necessario attendere che il cluster sia pronto. Il processo di registrazione, provisioning e distribuzione delle applicazioni avviene in un unico passaggio. Si tratta della procedura consigliata per gestire il ciclo di vita delle applicazioni nel cluster. Per altre informazioni, vedere [procedure consigliate](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources).
 
 Se possibile, gestire le applicazioni come risorse di Resource Manager in modo da usufruire dei vantaggi seguenti.
 * Audit Trail: Gestione risorse controlla ogni operazione e mantiene un *log attività* dettagliato che consente di tracciare le modifiche apportate a queste applicazioni e al cluster.
@@ -33,7 +33,7 @@ In questo documento si apprenderà come:
 ## <a name="deploy-application-resources-using-azure-resource-manager"></a>Distribuire le risorse dell'applicazione usando Azure Resource Manager  
 Per distribuire un'applicazione e i relativi servizi usando il modello di risorsa dell'applicazione Azure Resource Manager, è necessario creare il pacchetto del codice dell'applicazione, caricare il pacchetto e quindi fare riferimento al percorso del pacchetto in un modello di Azure Resource Manager come applicazione risorse. Per altre informazioni, vedere creare [un pacchetto di un'applicazione](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg).
           
-Quindi, creare un modello di Azure Resource Manager, aggiornare il file dei parametri con i dettagli dell'applicazione e distribuirlo nel cluster di Service Fabric. Vedere gli esempi qui
+Quindi, creare un modello di Azure Resource Manager, aggiornare il file dei parametri con i dettagli dell'applicazione e distribuirlo nel cluster di Service Fabric. Vedere gli esempi [qui](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM).
 
 ### <a name="create-a-storage-account"></a>Creare un account di archiviazione 
 Per la distribuzione di un'applicazione da un modello di Gestione risorse è necessario un account di archiviazione per organizzare l'immagine dell'applicazione. È possibile riutilizzare un account di archiviazione esistente o creare un nuovo account di archiviazione per organizzare le applicazioni. Se si vuole usare un account di archiviazione esistente, è possibile ignorare questo passaggio. 

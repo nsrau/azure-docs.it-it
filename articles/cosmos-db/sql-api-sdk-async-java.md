@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 07/01/2019
 ms.author: moderakh
-ms.openlocfilehash: 3cafa4d5aecaa4c8f3863c3269ec02793340e3e6
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 3bee473adde9c4762cf400dff6190eb76a4cc8d7
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509271"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624697"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK per API SQL: risorse e note sulla versione
 > [!div class="op_single_selector"]
@@ -27,8 +27,8 @@ ms.locfileid: "67509271"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Provider di risorse REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Executor in blocco-.NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Executor in blocco-Java](sql-api-sdk-bulk-executor-java.md)
 
 SQL API Async Java SD differisce da SQL API Java SDK offrendo operazioni asincrone con il supporto della libreria [Netty](https://netty.io/). La versione pre-esistente [SQL API Java SDK](sql-api-sdk-java.md) non supporta operazioni asincrone. 
 
@@ -45,25 +45,25 @@ SQL API Async Java SD differisce da SQL API Java SDK offrendo operazioni asincro
 ## <a name="release-notes"></a>Note sulla versione
 
 ### <a name="a-name250250"></a><a name="2.5.0"/>2.5.0
-* Modalità TCP ora su per impostazione predefinita
-* Le metriche di query in più partizioni restituisce ora tutte le partizioni
-* Sicuro globale ora funziona correttamente
-* Il failover per le query non corretta Ritenta multimaster
-* Esempi di dipendenze per gli hotfix di sicurezza
+* Modalità TCP ora attiva per impostazione predefinita
+* Le metriche delle query in Cross-Partition restituiscono ora tutte le partizioni
+* Global Strong ora funziona correttamente
+* Failover per le query che non eseguono correttamente tentativi per il multimaster
+* Urti di dipendenza per gli hotfix di sicurezza
 
 ### <a name="a-name245245"></a><a name="2.4.5"/>2.4.5
-* BugFix per il supporto di Hash V2
+* Supporto di bugfix per hash V2
 
 ### <a name="a-name243243"></a><a name="2.4.3"/>2.4.3
-* BugFix per perdita di risorse in client#close() ([github #88](https://github.com/Azure/azure-cosmosdb-java/issues/88)).
+* Bugfix per la perdita di risorse nel client # Close () ([github #88](https://github.com/Azure/azure-cosmosdb-java/issues/88)).
 
 ### <a name="a-name242242"></a><a name="2.4.2"/>2.4.2
-* Aggiunto continuation token supporto per query della partizione.
+* Aggiunto il supporto del token di continuazione per le query tra partizioni.
 
 ### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
-* Corretti alcuni bug in modalità diretta.
-* Funzionalità migliorate di registrazione in modalità diretta.
-* Gestione connessione migliorata.
+* Correzione di alcuni bug in modalità diretta.
+* Registrazione migliorata in modalità diretta.
+* Gestione delle connessioni migliorata.
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 * La connettività in modalità diretta è ora disponibile a livello generale. Per un esempio di uso della connettività in modalità diretta, vedere il repository GitHub [azure-cosmosdb-java](https://github.com/Azure/azure-cosmosdb-java).
@@ -154,11 +154,11 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal
 
 <br/>
 
-| Version | Data di rilascio | Data di ritiro |
+| Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
-| [2.4.3](#2.4.3) |5 marzo 2019|--- |
-| [2.4.2](#2.4.2) |1 marzo 2019|--- |
-| [2.4.1](#2.4.1) |20 febbraio 2019|--- |
+| [2.4.3](#2.4.3) |5 mar 2019|--- |
+| [2.4.2](#2.4.2) |1 mar 2019|--- |
+| [2.4.1](#2.4.1) |20 feb, 2019|--- |
 | [2.4.0](#2.4.0) |8 febbraio 2019|--- |
 | [2.4.0-beta-1](#2.4.0-beta-1) |4 febbraio 2019|--- |
 | [2.3.1](#2.3.1) |15 gen 2019|--- |

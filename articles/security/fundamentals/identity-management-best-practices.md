@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2019
 ms.author: barclayn
-ms.openlocfilehash: 46850ad430aa5fb8ad25a71515bdd640855350c2
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 371c3b9fde17bba33fb6f2526be68fe89aec6b01
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727249"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934701"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Procedure consigliate per la sicurezza con il controllo di accesso e la gestione delle identità di Azure
 Questo articolo illustra una serie di procedure consigliate per la sicurezza con il controllo di accesso e la gestione delle identità di Azure. Le procedure consigliate si basano sull'esperienza di tecnici e clienti con [Azure AD](../../active-directory/fundamentals/active-directory-whatis.md).
@@ -84,8 +84,8 @@ Per altre informazioni, vedere [Implementare la sincronizzazione dell'hash delle
 **Dettagli**: Usare le funzionalità corrette per supportare l'autenticazione:
 
   - Azure AD per i dipendenti
-  - [Azure ad B2B](https://docs.microsoft.com/azure/active-directory/b2b/) per utenti guest e partner esterni
-  - [Azure ad B2C](https://docs.microsoft.com/azure/active-directory-b2c/) per controllare la modalità di iscrizione, accesso e gestione dei profili dei clienti quando usano le applicazioni
+  - [Azure ad B2B](../../active-directory/b2b/index.yml) per utenti guest e partner esterni
+  - [Azure ad B2C](../../active-directory-b2c/index.yml) per controllare la modalità di iscrizione, accesso e gestione dei profili dei clienti quando usano le applicazioni
 
 Le organizzazioni che non integrano l'identità locale con la propria identità cloud possono subire un sovraccarico maggiore nella gestione degli account. Questo sovraccarico aumenta le probabilità di incorrere in errori e violazioni della sicurezza.
 
@@ -174,7 +174,7 @@ La designazione di gruppi o singoli ruoli responsabili di funzioni specifiche in
 
 Il team di sicurezza deve avere visibilità sulle risorse di Azure per valutare e correggere i rischi. Se il team di sicurezza ha responsabilità operative, è necessario disporre di autorizzazioni aggiuntive per svolgere i propri processi.
 
-È [possibile utilizzare il](/azure/role-based-access-control/overview) controllo degli accessi in base al ruolo per assegnare autorizzazioni a utenti, gruppi e applicazioni in un determinato ambito. L'ambito di un'assegnazione di ruolo può essere una sottoscrizione, un gruppo di risorse o una singola risorsa.
+È possibile utilizzare il [controllo degli accessi in base al ruolo](/azure/role-based-access-control/overview) per assegnare autorizzazioni a utenti, gruppi e applicazioni in un determinato ambito. L'ambito di un'assegnazione di ruolo può essere una sottoscrizione, un gruppo di risorse o una singola risorsa.
 
 **Procedura consigliata**: Separare i compiti all'interno del team e concedere solo la quantità di accesso agli utenti necessari per svolgere il proprio lavoro. Anziché concedere a tutti le autorizzazioni senza restrizioni per la sottoscrizione o le risorse di Azure, consentire solo determinate azioni in un determinato ambito.
 **Dettagli**: Usare i [ruoli RBAC predefiniti](/azure/role-based-access-control/built-in-roles) in Azure per assegnare privilegi agli utenti.
