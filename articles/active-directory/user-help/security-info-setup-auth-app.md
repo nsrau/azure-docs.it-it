@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5fff27094881ffbada2bda7937fa714ffc07133
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 0e1be41c854e212a7b673d8c2dff42d7b9981fb4
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954359"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616140"
 ---
 # <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>Configurare le informazioni di sicurezza (anteprima) per l'uso di un'app di autenticazione
 
@@ -145,6 +145,8 @@ In base all'operazione da eseguire, sono disponibili opzioni aggiuntive relative
     >Se alcune opzioni non sono disponibili, è probabile che l'organizzazione non consenta di usare questi metodi. In questo caso, è necessario scegliere un metodo disponibile oppure contattare l'amministratore per ottenere assistenza.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+- Eseguire l'accesso con l'app Microsoft Authenticator, seguendo la procedura illustrata nell'articolo [accedere usando la verifica in due passaggi o le informazioni sulla sicurezza](security-info-setup-signin.md) .
 
 - Se la password viene persa o dimenticata, reimpostarla dal [portale per la reimpostazione della password](https://passwordreset.microsoftonline.com/) oppure seguire i passaggi nell'articolo [Reimpostare la password aziendale o dell'istituto di istruzione](user-help-reset-password.md).
 

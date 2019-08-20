@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fe80c6231f95ec7040bde5f1d7e74353b8bfff60
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: b9060ecbb9ca9e77d994a8f20378e2c53927586a
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544422"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617380"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Usare Azure AD come provider di identità per vCenter nel cloud privato CloudSimple
 
@@ -64,16 +64,16 @@ Facoltativamente, è possibile configurare altre funzionalità di Azure AD.  Que
 3. Configurare il gruppo di amministratori per la gestione di Azure AD Domain Services come descritto in [abilitare Azure Active Directory Domain Services con il portale di Azure](../active-directory-domain-services/active-directory-ds-getting-started-admingroup.md).
 4. Aggiornare le impostazioni DNS per il Azure AD Domain Services come descritto in [abilitare Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-dns.md).  Se si desidera connettersi ad Active Directory tramite Internet, impostare il record DNS per l'indirizzo IP pubblico del Azure AD servizi di dominio sul nome di dominio.
 5. Abilitare la sincronizzazione dell'hash delle password per gli utenti.  Questo passaggio consente la sincronizzazione degli hash delle password necessari per l'autenticazione NTLM (NT LAN Manager) e Kerberos per Azure AD Domain Services. Al termine della configurazione della sincronizzazione dell'hash delle password, gli utenti potranno accedere al dominio gestito con le credenziali aziendali. Vedere [abilitare la sincronizzazione dell'hash delle password per Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md).
-    1. Se sono presenti utenti solo cloud, è necessario modificare la password usando <a href="http://myapps.microsoft.com/" target="_blank">Azure ad pannello di accesso</a> per assicurarsi che gli hash delle password siano archiviati nel formato richiesto da NTLM o Kerberos.  Seguire le istruzioni riportate in [abilitare la sincronizzazione dell'hash delle password nel dominio gestito per gli account utente solo cloud](../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md#task-5-enable-password-hash-synchronization-to-your-managed-domain-for-cloud-only-user-accounts).  Questo passaggio deve essere eseguito per singoli utenti e per qualsiasi nuovo utente creato nella directory Azure AD usando i cmdlet di portale di Azure o Azure AD PowerShell. Gli utenti che richiedono l'accesso a Azure AD Domain Services devono usare il <a href="http://myapps.microsoft.com/" target="_blank">Pannello di accesso Azure ad</a> e accedere al proprio profilo per modificare la password.
+    1. Se sono presenti utenti solo cloud, è necessario modificare la password usando <a href="http://myapps.microsoft.com/" target="_blank">Azure ad pannello di accesso</a> per assicurarsi che gli hash delle password siano archiviati nel formato richiesto da NTLM o Kerberos.  Seguire le istruzioni riportate in [abilitare la sincronizzazione dell'hash delle password nel dominio gestito per gli account utente solo cloud](../active-directory-domain-services/tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).  Questo passaggio deve essere eseguito per singoli utenti e per qualsiasi nuovo utente creato nella directory Azure AD usando i cmdlet di portale di Azure o Azure AD PowerShell. Gli utenti che richiedono l'accesso a Azure AD Domain Services devono usare il <a href="http://myapps.microsoft.com/" target="_blank">Pannello di accesso Azure ad</a> e accedere al proprio profilo per modificare la password.
 
         > [!NOTE]
         > Se l'organizzazione dispone di account utente solo cloud, tutti gli utenti che devono usare Azure Active Directory Domain Services necessario modificare le password. Un account utente solo cloud è un account creato nella directory di Azure AD tramite il portale di Azure o i cmdlet di Azure AD PowerShell. Questi account utente non vengono sincronizzati da una directory locale.
 
-    2. Se si sincronizzano le password da Active Directory locale, seguire la procedura descritta nella [documentazione di Active Directory] (.. /active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md.
+    2. Se si sincronizzano le password da Active Directory locale, seguire la procedura descritta nella [documentazione Active Directory](../active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md).
 
-6.  Configurare LDAP sicuro nel Azure Active Directory Domain Services come descritto in [configurare LDAP sicuro (LDAPS) per un dominio gestito Azure ad Domain Services](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
-    1. Caricare un certificato per l'uso con LDAP sicuro, come descritto nell'argomento Azure [ottenere un certificato per l'LDAP sicuro](../active-directory-domain-services/configure-ldaps.md#task-1---obtain-a-certificate-for-secure-ldap).  CloudSimple consiglia di usare un certificato firmato emesso da un'autorità di certificazione per assicurarsi che vCenter possa considerare attendibile il certificato.
-    2. Abilitare LDAP sicuro come descritto in [abilitare LDAP sicuro (LDAPS) per un dominio gestito Azure ad Domain Services](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md).
+6.  Configurare LDAP sicuro nel Azure Active Directory Domain Services come descritto in [configurare LDAP sicuro (LDAPS) per un dominio gestito Azure ad Domain Services](../active-directory-domain-services/tutorial-configure-ldaps.md).
+    1. Caricare un certificato per l'uso con LDAP sicuro, come descritto nell'argomento Azure [ottenere un certificato per l'LDAP sicuro](../active-directory-domain-services/tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap).  CloudSimple consiglia di usare un certificato firmato emesso da un'autorità di certificazione per assicurarsi che vCenter possa considerare attendibile il certificato.
+    2. Abilitare LDAP sicuro come descritto in [abilitare LDAP sicuro (LDAPS) per un dominio gestito Azure ad Domain Services](../active-directory-domain-services/tutorial-configure-ldaps.md).
     3. Salvare la parte pubblica del certificato (senza la chiave privata) nel formato CER per l'uso con vCenter durante la configurazione dell'origine identità.
     4. Se è richiesto l'accesso a Internet ai servizi del dominio Azure AD, abilitare l'opzione "Consenti accesso sicuro a LDAP su Internet".
     5. Aggiungere la regola di sicurezza in ingresso per la NSG di servizi di dominio Azure AD per la porta TCP 636.

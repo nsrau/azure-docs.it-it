@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 35211d6f832033a2bb16c495ebab839b7f740445
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 21693926bae681cf15d31dca06344dfa5d865e3b
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69031037"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69613006"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Distribuire il proxy di applicazione di Azure AD in un dominio gestito di Azure AD Domain Services
 Il proxy dell'applicazione di Azure Active Directory (AD) consente di supportare lavoratori remoti pubblicando applicazioni locali in modo che siano accessibili tramite Internet. Azure AD Domain Services ora consente di trasferire in modalità lift-and-shift le applicazioni legacy in esecuzione in locale nei servizi di infrastruttura di Azure. È quindi possibile pubblicare queste applicazioni con il proxy di applicazione di Azure AD per garantire l'accesso remoto sicuro agli utenti dell'organizzazione.
@@ -35,7 +35,7 @@ Per eseguire le attività elencate in questo articolo sono necessari gli element
 1. Una **sottoscrizione di Azure**valida.
 2. Una **directory di Azure AD** sincronizzata con una directory locale o con una directory solo cloud.
 3. Per usare il proxy di applicazione Azure AD, è necessaria una **licenza di Azure ad Premium** .
-4. **Servizi di dominio Azure AD** devono essere abilitati per la directory di Azure AD. Se non è stato fatto, eseguire tutte le attività descritte nella [guida introduttiva](create-instance.md).
+4. **Servizi di dominio Azure AD** devono essere abilitati per la directory di Azure AD. Se non è stato fatto, eseguire tutte le attività descritte nella [guida introduttiva](tutorial-create-instance.md).
 
 <br>
 
@@ -114,18 +114,18 @@ Usare la delega vincolata Kerberos basata su risorse, come illustrato in [questo
 
 Usare il cmdlet di PowerShell Get-ADComputer per recuperare le impostazioni del computer in cui è installato il connettore del proxy di applicazione di Azure AD.
 ```powershell
-$ConnectorComputerAccount = Get-ADComputer -Identity contoso100-proxy.contoso100.com
+$ConnectorComputerAccount = Get-ADComputer -Identity contoso-proxy.contoso.com
 ```
 
 Successivamente, usare il cmdlet Set-ADComputer per impostare la delega vincolata Kerberos basata su risorse per il server delle risorse.
 ```powershell
-Set-ADComputer contoso100-resource.contoso100.com -PrincipalsAllowedToDelegateToAccount $ConnectorComputerAccount
+Set-ADComputer contoso-resource.contoso.com -PrincipalsAllowedToDelegateToAccount $ConnectorComputerAccount
 ```
 
 Se sono stati distribuiti più connettori del proxy di applicazione nel dominio gestito, è necessario configurare la delega vincolata Kerberos basata su risorse per ogni istanza di tale connettore.
 
 
 ## <a name="related-content"></a>Contenuto correlato
-* [Servizi di dominio Azure AD: introduzione](create-instance.md)
+* [Servizi di dominio Azure AD: introduzione](tutorial-create-instance.md)
 * [Configurare la delega vincolata Kerberos in un dominio gestito](deploy-kcd.md)
 * [Panoramica della delega vincolata Kerberos](https://technet.microsoft.com/library/jj553400.aspx)

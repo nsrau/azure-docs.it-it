@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: 1ad3c446df2f2ce62024dfdda589669653f65ef4
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 300fd31632a6b3c9043c19dd9b47f40258080261
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488699"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614215"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Configurare un cluster HDInsight con Enterprise Security Package usando Azure Active Directory Domain Services
 
@@ -31,7 +31,7 @@ Questo articolo illustra come configurare un cluster HDInsight con ESP usando Az
 >
 > Se l'archiviazione del cluster viene eseguita in Archiviazione BLOB di Azure (WASB), non disabilitare MFA.
 
-L'abilitazione di Azure Active Directory Domain Services è un prerequisito per la creazione di un cluster HDInsight con ESP. Per altre informazioni vedere [Abilitare Azure Active Directory Domain Services tramite il portale di Azure](../../active-directory-domain-services/create-instance.md). 
+L'abilitazione di Azure Active Directory Domain Services è un prerequisito per la creazione di un cluster HDInsight con ESP. Per altre informazioni vedere [Abilitare Azure Active Directory Domain Services tramite il portale di Azure](../../active-directory-domain-services/tutorial-create-instance.md). 
 
 Quando Azure Active Directory Domain Services è abilitato, tutti gli utenti e gli oggetti avviano la sincronizzazione da Azure Active Directory (AAD) ad Azure Active Directory Domain Services per impostazione predefinita. La durata dell'operazione di sincronizzazione dipende dal numero di oggetti in Azure AD. La sincronizzazione potrebbe richiedere alcuni giorni per centinaia di migliaia di oggetti. 
 
@@ -39,7 +39,7 @@ Per usare HDInsight, il nome di dominio usato con Azure AD-DS deve essere di 39 
 
 È possibile scegliere di sincronizzare solo i gruppi che devono accedere ai cluster HDInsight. Questa opzione di sincronizzazione che coinvolge solo determinati gruppi è chiamata *sincronizzazione con ambito*. Per istruzioni, vedere [Configurare la sincronizzazione con ambito da Azure AD al dominio gestito](../../active-directory-domain-services/scoped-synchronization.md).
 
-Quando si abilita LDAP sicuro, inserire il nome di dominio nel nome del soggetto e il nome alternativo del soggetto nel certificato. Se, ad esempio, il nome di dominio è *contoso100.onmicrosoft.com*, verificare che nel nome del soggetto del certificato e nel nome alternativo del soggetto sia presente il nome esatto. Per altre informazioni, vedere [Configurare l'accesso LDAP sicuro (LDAPS) per un dominio gestito di Azure AD-DS](../../active-directory-domain-services/configure-ldaps.md). Di seguito è riportato un esempio di creazione di un certificato autofirmato che presenta il nome di dominio *contoso100.onmicrosoft.com* sia nel nome del soggetto sia in DnsName (il nome alternativo del soggetto):
+Quando si abilita LDAP sicuro, inserire il nome di dominio nel nome del soggetto e il nome alternativo del soggetto nel certificato. Se, ad esempio, il nome di dominio è *contoso100.onmicrosoft.com*, verificare che nel nome del soggetto del certificato e nel nome alternativo del soggetto sia presente il nome esatto. Per altre informazioni, vedere [Configurare l'accesso LDAP sicuro (LDAPS) per un dominio gestito di Azure AD-DS](../../active-directory-domain-services/tutorial-configure-ldaps.md). Di seguito è riportato un esempio di creazione di un certificato autofirmato che presenta il nome di dominio *contoso100.onmicrosoft.com* sia nel nome del soggetto sia in DnsName (il nome alternativo del soggetto):
 
 ```powershell
 $lifetime=Get-Date
@@ -70,7 +70,7 @@ Dopo aver creato l'identità gestita e aver assegnato il ruolo corretto, l'ammin
 ## <a name="networking-considerations"></a>Considerazioni sulla rete
 
 > [!NOTE]  
-> È necessario distribuire Azure Active Directory Domain Services in una rete virtuale basata su Azure Resource Manager. Le reti virtuali classiche non sono supportate per Azure Active Directory Domain Services. Per altre informazioni, vedere [Abilitare Azure Active Directory Domain Services tramite il portale di Azure](../../active-directory-domain-services/active-directory-ds-getting-started-network.md).
+> Azure AD-DS deve essere distribuito in un vNET basato su Azure Resource Manager. Le reti virtuali classiche non sono supportate per Azure Active Directory Domain Services. Per altre informazioni, vedere [Abilitare Azure Active Directory Domain Services tramite il portale di Azure](../../active-directory-domain-services/tutorial-create-instance.md#create-and-configure-the-virtual-network).
 
 Dopo aver abilitato Azure Active Directory Domain Services, un server DNS (Domain Name Service) locale viene eseguito nelle macchine virtuali (VM) AD. Configurare la rete virtuale (VNET) di Azure Active Directory Domain Services per usare i server DNS personalizzati. Per individuare gli indirizzi IP corretti, selezionare **Proprietà** nella categoria **Gestisci** e osservare gli indirizzi IP elencati sotto **Indirizzo IP nella rete virtuale**.
 

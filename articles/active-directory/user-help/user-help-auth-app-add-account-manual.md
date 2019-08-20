@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f2145811338200b38e84766459844b4c83e5a80
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 00f8a0e8d655f9412eceb7b0901ced829e490f78
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382765"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616101"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Aggiungere manualmente un account all'app
 
@@ -105,6 +105,6 @@ I codici forniti per gli account non fanno distinzione tra maiuscole e minuscole
 
 - Dopo aver aggiunto gli account all'app, è possibile accedere usando l'app Microsoft Authenticator nel dispositivo. Per altre informazioni, consultare [Accedere con l'app](user-help-auth-app-sign-in.md).
 
-- Se si verificano problemi durante il recupero del codice di verifica per la account Microsoft personale, vedere la sezione **risoluzione dei problemi del codice di verifica** per la risoluzione dei problemi dell'articolo [account Microsoft informazioni di sicurezza & codici di verifica](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) .
+- Se si verificano problemi durante il recupero del codice di verifica per la account Microsoft personale, vedere la sezione **risoluzione dei problemi del codice di verifica** per la risoluzione dei problemi dell'articolo [account Microsoft informazioni di sicurezza & codici di verifica](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) .
 
 - Per i dispositivi che eseguono iOS, è anche possibile eseguire il backup nel cloud delle credenziali dell'account e delle relative impostazioni dell'app, ad esempio l'ordine degli account. Per altre informazioni, consultare [Eseguire il backup e il ripristino con l'app Microsoft Authenticator](user-help-auth-app-backup-recovery.md).

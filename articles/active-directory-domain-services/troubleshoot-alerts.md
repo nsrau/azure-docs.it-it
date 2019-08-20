@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 63f2e12b9b769e806f8bd052af5bc78aed6a1fe0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 5a8f3401de0dc452193efbcf79aef87a19aed081
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472295"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617082"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - Risolvere i problemi correlati agli avvisi
 Questo articolo fornisce istruzioni per la risoluzione dei problemi correlati agli avvisi che si possono ricevere nel dominio gestito.
@@ -81,7 +81,7 @@ Per ripristinare il servizio, seguire questa procedura:
 
 1. [Eliminare il dominio gestito](delete-aadds.md) dalla directory di Azure AD esistente.
 2. Creare una nuova directory che non sia una directory di Azure AD B2C.
-3. Seguire le istruzioni fornite nella [Guida introduttiva](create-instance.md) per ricreare un dominio gestito.
+3. Seguire le istruzioni fornite nella [Guida introduttiva](tutorial-create-instance.md) per ricreare un dominio gestito.
 
 ## <a name="aadds103-address-is-in-a-public-ip-range"></a>AADDS103: Indirizzo incluso in un intervallo di IP pubblici
 
@@ -110,7 +110,7 @@ All'interno della rete virtuale, i computer possono inviare richieste a risorse 
    5. Fare clic su **Subnet** nel menu di spostamento a sinistra.
    6. Fare clic sulla subnet che si vuole modificare nella tabella.
    7. Aggiornare l'intervallo di indirizzi e salvare le modifiche.
-3. Seguire le istruzioni fornite nella [Guida introduttiva all'uso di Azure AD Domain Services](create-instance.md) per ricreare il dominio gestito. Selezionare una rete virtuale con un intervallo di indirizzi IP privati.
+3. Seguire le istruzioni fornite nella [Guida introduttiva all'uso di Azure AD Domain Services](tutorial-create-instance.md) per ricreare il dominio gestito. Selezionare una rete virtuale con un intervallo di indirizzi IP privati.
 4. Per aggiungere le macchine virtuali al nuovo dominio, seguire [queste istruzioni](join-windows-vm.md).
 8. Per verificare che il problema segnalato dall'avviso sia stato risolto, controllare l'integrità del dominio dopo due ore.
 
@@ -126,7 +126,7 @@ Azure AD Domain Services richiede una sottoscrizione per funzionare correttament
 
 1. Crea una sottoscrizione di Azure
 2. [Eliminare il dominio gestito](delete-aadds.md) dalla directory di Azure AD esistente.
-3. Seguire le istruzioni fornite nella [Guida introduttiva](create-instance.md) per ricreare un dominio gestito.
+3. Seguire le istruzioni fornite nella [Guida introduttiva](tutorial-create-instance.md) per ricreare un dominio gestito.
 
 ## <a name="aadds107-your-azure-subscription-is-disabled"></a>AADDS107: La sottoscrizione di Azure è disabilitata
 
@@ -177,7 +177,7 @@ Per funzionare correttamente Azure AD Domain Services crea risorse specifiche du
 
 **Risoluzione:**
 
-Questo errore è irreversibile. Per risolvere questo problema, è necessario [eliminare il dominio gestito esistente](delete-aadds.md) e [crearne uno nuovo](create-instance.md).
+Questo errore è irreversibile. Per risolvere questo problema, è necessario [eliminare il dominio gestito esistente](delete-aadds.md) e [crearne uno nuovo](tutorial-create-instance.md).
 
 ## <a name="aadds111-service-principal-unauthorized"></a>AADDS111: Entità servizio non autorizzata
 
@@ -222,7 +222,7 @@ Le entità servizio devono accedere per poter gestire e creare le risorse nel do
 
 **Risoluzione:**
 
-Questo errore è irreversibile. Per risolvere questo problema, è necessario [eliminare il dominio gestito esistente](delete-aadds.md) e [crearne uno nuovo](create-instance.md).
+Questo errore è irreversibile. Per risolvere questo problema, è necessario [eliminare il dominio gestito esistente](delete-aadds.md) e [crearne uno nuovo](tutorial-create-instance.md).
 
 ## <a name="aadds114-subnet-invalid"></a>AADDS114: Subnet non valida
 
@@ -232,7 +232,7 @@ Questo errore è irreversibile. Per risolvere questo problema, è necessario [el
 
 **Risoluzione:**
 
-Questo errore è irreversibile. Per risolvere questo problema, è necessario [eliminare il dominio gestito esistente](delete-aadds.md) e [crearne uno nuovo](create-instance.md).
+Questo errore è irreversibile. Per risolvere questo problema, è necessario [eliminare il dominio gestito esistente](delete-aadds.md) e [crearne uno nuovo](tutorial-create-instance.md).
 
 ## <a name="aadds115-resources-are-locked"></a>AADDS115: Le risorse sono bloccate
 
@@ -270,7 +270,7 @@ Questo errore è irreversibile. Per risolvere questo problema, è necessario [el
 
 Ecco alcuni motivi comuni per cui la sincronizzazione viene arrestata nei domini gestiti:
 - La connessione di rete è bloccata nel dominio gestito. Per altre informazioni sul controllo dei problemi di rete, leggere la procedura per [Risolvere i problemi dei gruppi di sicurezza di rete](alert-nsg.md) e i [Requisiti di rete per Azure AD Domain Services](network-considerations.md).
--  La sincronizzazione delle password non è stata mai configurata o completata. Per configurare la sincronizzazione delle password, leggere [questo articolo](active-directory-ds-getting-started-password-sync.md).
+-  La sincronizzazione delle password non è stata mai configurata o completata. Per configurare la sincronizzazione delle password, leggere [questo articolo](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).
 
 ## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501: Backup non eseguito da qualche tempo
 

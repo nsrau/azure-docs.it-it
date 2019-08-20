@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: f800560aa4ddef52c2274fa8b3f5c98d68189f0f
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 1dc4120ec9f1db8ac34800096ae407b5581758a4
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717531"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614155"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Informazioni sulla fattura di Azure Cosmos DB
 
@@ -90,7 +90,7 @@ Se alle 9:30 si aumenta la velocità effettiva di cui è stato effettuato il pro
 
 ## <a name="billing-examples-with-geo-replication-and-multi-master"></a>Esempi di fatturazione con replica geografica e multimaster  
 
-Nell'account di database di Azure Cosmos DB è possibile aggiungere o rimuovere in qualsiasi momento aree di Azure dislocate in qualsiasi parte del mondo. La velocità effettiva configurata per i vari database e contenitori di Azure Cosmos DB viene riservata in ogni area di Azure associata all'account di database di Azure Cosmos DB. Se la somma della velocità effettiva di cui è stato effettuato il provisioning (UR/sec) configurata in tutti i database e in tutti i contenitori all'interno dell'account del database di Azure Cosmos account (con provisioning all'ora) è T e il numero di aree di Azure associate all'account di database è N, la velocità effettiva di cui è stato effettuato il provisioning totale per un'ora specifica, (a) per un account di database di Azure Cosmos configurato con un'area di scrittura singola è uguale a T x N UR/sec e (b) per un account di database di Azure Cosmos configurato con tutte le aree in grado di elaborare operazioni di scrittura è uguale a T x (N + 1) UR/sec, rispettivamente. La velocità effettiva di cui è stato effettuato il provisioning (area di scrittura singola) costa 0,008 dollari/ora per 100 UR/sec e la velocità effettiva di cui è stato effettuato il provisioning con più aree scrivibili (configurazione multimaster) costa 0,016 dollari/ora per 100 UR/sec (vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/)). Indipendentemente dal numero di aree di scrittura, Azure Cosmos DB consente la lettura dei dati da qualsiasi area.
+È possibile aggiungere o rimuovere aree di Azure ovunque nel mondo per l'account del database di Azure Cosmos in qualsiasi momento. La velocità effettiva configurata per i vari database e contenitori di Azure Cosmos verrà riservata in ognuna delle aree di Azure associate all'account del database Azure Cosmos. Se la somma della velocità effettiva di cui è stato effettuato il provisioning (UR/sec) configurata in tutti i database e in tutti i contenitori all'interno dell'account del database di Azure Cosmos account (con provisioning all'ora) è T e il numero di aree di Azure associate all'account di database è N, la velocità effettiva di cui è stato effettuato il provisioning totale per un'ora specifica, (a) per un account di database di Azure Cosmos configurato con un'area di scrittura singola è uguale a T x N UR/sec e (b) per un account di database di Azure Cosmos configurato con tutte le aree in grado di elaborare operazioni di scrittura è uguale a T x (N + 1) UR/sec, rispettivamente. La velocità effettiva di cui è stato effettuato il provisioning (area di scrittura singola) costa 0,008 dollari/ora per 100 UR/sec e la velocità effettiva di cui è stato effettuato il provisioning con più aree scrivibili (configurazione multimaster) costa 0,016 dollari/ora per 100 UR/sec (vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/)). Indipendentemente dal numero di aree di scrittura, Azure Cosmos DB consente la lettura dei dati da qualsiasi area.
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-single-region-writes"></a>Esempio di fatturazione: account di Azure Cosmos multiarea, operazioni di scrittura in un'area singola
 
@@ -228,7 +228,7 @@ Costo mensile totale = Costo mensile per l'archiviazione + Costo mensile per la 
 
 ## <a name="billing-with-azure-cosmos-db-reserved-capacity"></a>Fatturazione con capacità riservata di Azure Cosmos DB
 
-La capacità riservata di Azure Cosmos DB consente di acquistare in anticipo velocità effettiva di cui è stato effettuato il provisioning (capacità riservata o prenotazione) che può essere applicata a tutti i database e a tutti i contenitori di Azure Cosmos DB (per qualsiasi modello di dati o API) in tutte le aree di Azure. Poiché il prezzo della velocità effettiva di cui è stato effettuato il provisioning varia in base all'area, è possibile considerare la capacità riservata come un credito monetario acquistato a prezzo scontato che può essere dedotto dal prezzo della velocità effettiva di cui è stato effettuato il provisioning in ogni area. Si supponga, ad esempio, che un account di Azure Cosmos abbia un singolo contenitore di cui sia stato effettuato il provisioning con 50 K UR/sec e due aree replicate globalmente: Stati Uniti orientali e Giappone orientale. Se si sceglie l'opzione con pagamento in base al consumo, si paga:  
+Azure Cosmos DB capacità riservata ti permette di acquistare in anticipo la velocità effettiva con provisioning, ovvero una capacità riservata o una prenotazione, che può essere applicata a tutti i database e contenitori di Azure Cosmos (per qualsiasi API o modello di dati) in tutte le aree di Azure. Poiché il prezzo della velocità effettiva di cui è stato effettuato il provisioning varia in base all'area, è possibile considerare la capacità riservata come un credito monetario acquistato a prezzo scontato che può essere dedotto dal prezzo della velocità effettiva di cui è stato effettuato il provisioning in ogni area. Si supponga, ad esempio, che un account di Azure Cosmos abbia un singolo contenitore di cui sia stato effettuato il provisioning con 50 K UR/sec e due aree replicate globalmente: Stati Uniti orientali e Giappone orientale. Se si sceglie l'opzione con pagamento in base al consumo, si paga:  
 
 * Nell'area Stati Uniti orientali: 50 K UR/sec alla tariffa di $ 0,008 per 100 UR/sec 
 
@@ -236,7 +236,7 @@ La capacità riservata di Azure Cosmos DB consente di acquistare in anticipo vel
 
 La fattura totale (senza capacità riservata) è (presupponendo 30 giorni o 720 ore): 
 
-|**Area**| **Prezzo all'ora per 100 UR/s**|**Unità (UR/s)**|**Importo fatturato (orario)**| **Importo fatturato (mensile)**|
+|**Region**| **Prezzo all'ora per 100 UR/s**|**Unità (UR/s)**|**Importo fatturato (orario)**| **Importo fatturato (mensile)**|
 |----|----|----|----|----|
 |East US|$ 0,008 |50 K|$ 4|$ 2.880 |
 |Giappone orientale|$ 0,009 |50 K| $ 4,50 |$ 3.240 |
@@ -250,11 +250,11 @@ Si supponga invece di aver acquistato capacità riservata. È possibile acquista
 
 Ciò che si è effettivamente acquistato è un credito di 8 dollari all'ora, per 100 K UR/sec in base al prezzo di listino degli Stati Uniti orientali, a 6,40 dollari all'ora. È quindi possibile utilizzare questa prenotazione prepagata su base oraria per il provisioning della capacità di velocità effettiva in qualsiasi area di Azure globale al prezzo di listino impostato per ciascuna area per la sottoscrizione. In questo esempio, effettuando il provisioning di 50 UR/sec sia nell'area Stati Uniti orientali sia nell'area Giappone orientale, è possibile dedurre un valore di 8,00 dollari all'ora di velocità effettiva di cui è stato effettuato il provisioning e verrà fatturata un'eccedenza di 0,50 dollari all'ora (o 360 dollari al mese). 
 
-|**Area**| **Prezzo all'ora per 100 UR/s**|**Unità (UR/s)**| **Importo fatturato (orario)**| **Importo fatturato (mensile)**|
+|**Region**| **Prezzo all'ora per 100 UR/s**|**Unità (UR/s)**| **Importo fatturato (orario)**| **Importo fatturato (mensile)**|
 |----|----|----|----|----|
 |East US|$ 0,008 |50 K|$ 4|$ 2.880 |
 |Giappone orientale|$ 0,009 |50 K| $ 4,50 |$ 3.240 |
-|||Pagamento a consumo|$ 8,50|$ 6120|
+|||Pagamento in base al consumo|$ 8,50|$ 6120|
 |Capacità riservata acquistata|$ 0,0064 (20% di sconto) |100 UR/sec o $ 8 di capacità preacquistata |-$ 8|-$ 5.760 |
 |Fattura netta|||$ 0.50 |$ 360 |
 
