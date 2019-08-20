@@ -1,96 +1,100 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentazione di Azure AD Domain Services
+summary: Informazioni su come usare Azure Active Directory Domain Services per fornire l'autenticazione Kerberos o NTLM alle applicazioni o aggiungere macchine virtuali di Azure a un dominio gestito.
 metadata:
   title: Documentazione di Azure AD Domain Services
-  description: Informazioni su come usare i servizi di dominio di Active Directory per aggiungere le macchine virtuali di Azure a un dominio senza usare i controller di dominio. Esercitazioni e altri documenti mostrano come gestire le macchine virtuali usando criteri di gruppo.
-  keywords: 'Azure AD, Azure, aggiunta al dominio, criteri di gruppo, LDAP, Kerberos, controller di dominio, DC, lift-and-shift'
+  description: Informazioni su come usare Azure Active Directory Domain Services per fornire l'autenticazione Kerberos o NTLM alle applicazioni o aggiungere macchine virtuali di Azure a un dominio gestito.
+  services: service
+  ms.service: active-directory
+  ms.subservice: domain-services
+  ms.topic: landing-page
+  ms.collection: collection
   author: iainfoulds
   ms.author: iainfou
   manager: daveba
-  ms.date: 05/22/2019
-  ms.topic: landing-page
-  ms.devlang: na
-  ms.service: active-directory
-  ms.subservice: domain-services
-sections:
-  - items:
-      - type: markdown
-        text: Informazioni su come usare i servizi di dominio di Active Directory per aggiungere le macchine virtuali di Azure a un dominio senza usare i controller di dominio. Esercitazioni e altri documenti mostrano come gestire le macchine virtuali usando criteri di gruppo.
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 2
-        items:
-          - href: overview.md
-            html: <p>Informazioni sui vantaggi offerti da Azure AD Domain Services.</p>
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_investigate.svg'
-            title: Informazioni su Azure AD Domain Services
-          - href: create-instance.md
-            html: <p>Creare un dominio gestito personalizzato con questa semplice procedura dettagliata.</p>
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_deploy.svg'
-            title: Attività iniziali
-          - href: contact-us.md
-            html: <p>Ricevere assistenza quando necessario.</p>
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_support.svg'
-            title: Supporto
-          - href: 'https://azure.microsoft.com/updates/?product=active-directory-ds'
-            html: <p>Visualizzare le nuove funzionalità in Azure AD Domain Services.</p>
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_whats-new.svg'
-            title: Novità
-  - title: Video
-    items:
-      - type: markdown
-        text: '>[!VIDEO https://www.youtube.com/embed/T1Nd9APNceQ]'
-  - title: Articoli sulla pianificazione
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="comparison.md">Stabilire se il servizio è adatto alle proprie esigenze</a>
-          - html: <a href="active-directory-ds-features.md">Funzionalità di Azure AD Domain Services</a>
-          - html: <a href="scenarios.md">Informazioni sulle modalità di utilizzo del servizio</a>
-          - html: <a href="synchronization.md">Informazioni sul funzionamento della sincronizzazione in Azure AD Domain Services</a>
-          - html: '<a href="https://azure.microsoft.com/pricing/details/active-directory-ds/">Prezzi di Azure AD Domain Services</a>'
-  - title: Applicazioni e Azure AD Domain Services
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="deploy-azure-app-proxy.md">Distribuire il proxy app di Azure AD</a>
-          - html: <a href="deploy-sp-profile-sync.md">Sincronizzazione del profilo per SharePoint Server</a>
-          - html: <a href="deploy-kcd.md">Configurare la delega vincolata di Kerberos</a>
-  - title: Procedure
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="check-health.md">Verificare l'integrità di un dominio gestito</a>
-          - html: <a href="csp.md">Sottoscrizioni di Azure CSP e Azure AD Domain Services</a>
-          - html: <a href="manage-dns.md">Gestire il DNS</a>
-          - html: <a href="network-considerations.md">Selezionare una rete virtuale</a>
-          - html: <a href="configure-ldaps.md">Configurare LDAP sicuro</a>
-          - html: <a href="create-ou.md">Creare un'unità organizzativa</a>
-          - html: <a href="manage-group-policy.md">Gestire Criteri di gruppo</a>
-  - title: Articoli sulla risoluzione dei problemi
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="troubleshoot.md">Guida per la risoluzione dei problemi</a>
-          - html: <a href="troubleshoot-alerts.md">Risolvere i problemi correlati agli avvisi nel dominio gestito</a>
-          - html: <a href="faqs.md">Domande frequenti</a>
-          - html: '<a href="https://azure.microsoft.com/support/options/">Ottenere supporto</a>'
-  - title: 'Altre risorse:'
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: '<a href="https://feedback.azure.com/forums/169401-azure-active-directory/">Inviare commenti e suggerimenti su Azure AD Domain Services in UserVoice</a>'
-          - html: '<a href="https://azure.microsoft.com/roadmap/?category=security-identity">Roadmap per Azure</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-contact-us">Contatta</a>'
+  ms.date: 08/01/2019
+  ms.openlocfilehash: 3c97b7bbb652fd26e5c8fdb6d20576a3c9e70421
+  ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 08/19/2019
+  ms.locfileid: "69612862"
+landingContent:
+- title: Informazioni su Azure AD Domain Services
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Informazioni su Azure AD Domain Services
+      url: overview.md
+    - text: Confrontare le soluzioni per le identità
+      url: compare-identity-solutions.md
+    - text: Come funziona la sincronizzazione?
+      url: synchronization.md
+    - text: Domande frequenti
+      url: faqs.md
+- title: Attività iniziali
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Creare un dominio gestito
+      url: tutorial-create-instance.md
+  - linkListType: tutorial
+    links:
+    - text: Aggiungere una macchina virtuale Windows Server a un dominio
+      url: join-windows-vm.md
+    - text: Installare gli strumenti di gestione
+      url: tutorial-create-management-vm.md
+- title: Configurare
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Configurare LDAP sicuro
+      url: tutorial-configure-ldaps.md
+  - linkListType: how-to-guide
+    links:
+    - text: Abilitare la sincronizzazione dell'hash delle password
+      url: active-directory-ds-getting-started-password-sync-synced-tenant.md
+    - text: Creare un'unità organizzativa (OU)
+      url: create-ou.md
+    - text: Configurare la delega vincolata di Kerberos
+      url: deploy-kcd.md
+    - text: Proteggere il dominio gestito
+      url: secure-your-domain.md
+- title: Gestisci
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Amministrare criteri di gruppo
+      url: manage-group-policy.md
+    - text: Gestire il DNS
+      url: manage-dns.md
+    - text: Verificare lo stato di integrità
+      url: check-health.md
+    - text: Configurare le notifiche di posta elettronica
+      url: notifications.md
+    - text: Abilitare i controlli di sicurezza (anteprima)
+      url: security-audit-events.md
+- title: Aggiungere macchine virtuali al dominio
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Windows Server
+      url: join-windows-vm.md
+  - linkListType: how-to-guide
+    links:
+    - text: Ubuntu Server
+      url: join-ubuntu-linux-vm.md
+    - text: Red Hat Enterprise Linux.
+      url: join-rhel-linux-vm.md
+- title: Risolvere problemi
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Problemi comuni
+      url: troubleshoot.md
+    - text: Messaggi di avviso comuni
+      url: troubleshoot-alerts.md
+    - text: Problemi relativi al gruppo di sicurezza di rete
+      url: alert-nsg.md
+    - text: Problemi relativi a LDAP sicuro
+      url: alert-ldaps.md

@@ -19,6 +19,10 @@
 - name: Concetti
   expanded: false
   items:
+    - name: Adozione dell'accesso condizionale
+      href: howto-conditional-access-adoption-kit.md
+    - name: Criteri comuni di accesso condizionale
+      href: concept-conditional-access-policy-common.md
     - name: Condizioni
       href: conditions.md
     - name: Condizioni di posizione
@@ -38,6 +42,22 @@
       href: plan-conditional-access.md
     - name: Procedure consigliate
       href: best-practices.md
+    - name: Modelli di criteri comuni
+      items:
+        - name: Richiedere l'autenticazione a più fattori per gli amministratori
+          href: howto-conditional-access-policy-admin-mfa.md
+        - name: Richiedere l'autenticazione a più fattori per la gestione di Azure
+          href: howto-conditional-access-policy-azure-management.md
+        - name: Bloccare l'autenticazione legacy
+          href: howto-conditional-access-policy-block-legacy.md
+        - name: Accesso condizionale basato sul rischio
+          href: howto-conditional-access-policy-risk.md
+        - name: Richiedere una località attendibile per la registrazione dell'autenticazione a più fattori
+          href: howto-conditional-access-policy-registration.md
+        - name: Bloccare l'accesso in base alla località
+          href: howto-conditional-access-policy-location.md
+        - name: Richiede dispositivi conformi
+          href: howto-conditional-access-policy-compliant-device.md
     - name: Bloccare l'autenticazione legacy
       href: block-legacy-authentication.md
     - name: Accesso condizionale per la registrazione MFA

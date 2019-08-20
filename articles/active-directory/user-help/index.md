@@ -11,12 +11,12 @@ ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a6908a26e1d513261094be28620c3c9a2d86b48
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: a065f275321d16b9eaf82a02cb7da45c15aa82cc
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383102"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616323"
 ---
 # <a name="user-help-for-authentication-apps-and-device-management"></a>Guida dell'utente per l'autenticazione, le app e la gestione dei dispositivi
 
@@ -92,8 +92,11 @@ Questo contenuto è utile per configurare e usare le informazioni di sicurezza e
                     <div class="cardText">
                         <h3>Guida alla verifica in due passaggi</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/multi-factor-authentication-end-user-first-time">Configurare la verifica in due passaggi</a><br/>
+                        <a href="/azure/active-directory/user-help/multi-factor-authentication-setup-auth-app">Configurare un'app di autenticazione</a><br/>
+                        <a href="/azure/active-directory/user-help/multi-factor-authentication-setup-phone-number">Configurare un dispositivo mobile</a><br/>
+                        <a href="/azure/active-directory/user-help/multi-factor-authentication-setup-office-phone">Configurare un telefono dell'ufficio</a><br/>
                         <a href="/azure/active-directory/user-help/multi-factor-authentication-end-user-manage-settings">Gestire le impostazioni</a><br/>
+                        <a href="/azure/active-directory/user-help/multi-factor-authentication-end-user-troubleshoot">Ottenere assistenza per problemi comuni</a><br/>
                         <a href="/azure/active-directory/user-help/user-help-sign-in">Come effettuare l'accesso</a>
                         </p>
                     </div>

@@ -111,15 +111,19 @@
         - name: Configurare le macchine virtuali di VMware per il cloud privato
           items:
             - name: Creare una VM in Azure
-              href: 'https://docs.azure.cloudsimple.com/azure-create-vm/'
+              href: azure-create-vm.md
+            - name: Gestire macchine virtuali in Azure
+              href: azure-manage-vm.md
     - name: Guide alle procedure
       items:
         - name: Proteggere l'ambiente
           href: 'https://docs.azure.cloudsimple.com/private-cloud-secure/'
         - name: Gestione del cloud privato
           items:
+            - name: Riassegnare i privilegi di Cloud privato
+              href: escalate-privileges.md
             - name: Configurazione dei carichi di lavoro DNS e DHCP
-              href: 'https://docs.azure.cloudsimple.com/dns-dhcp-setup/'
+              href: dns-dhcp-setup.md
             - name: VPN livello 2 di NSX per la migrazione
               href: 'https://docs.azure.cloudsimple.com/migrate-workloads/#migrating-vms-using-nsx-layer-2-vpn'
         - name: Funzionalità di rete del cloud privato
@@ -133,11 +137,11 @@
         - name: Piattaforma VMware
           items:
             - name: Informazioni sul modello di autorizzazioni del cloud privato
-              href: 'https://docs.azure.cloudsimple.com/learn-private-cloud-permissions/'
+              href: learn-private-cloud-permissions.md
             - name: Origini delle identità di vCenter
               href: set-vcenter-identity.md
             - name: Analisi gateway applicazione di Azure con VM di VMware
-              href: 'https://docs.azure.cloudsimple.com/azure-application-gateway/'
+              href: azure-application-gateway.md
             - name: Configurare un server vCenter del cloud privato come endpoint di automazione vRealize
               href: 'https://docs.azure.cloudsimple.com/configure-server-vra-endpoint/'
             - name: Eseguire la migrazione delle VM dei carichi di lavoro a un cloud privato
@@ -146,8 +150,8 @@
               href: 'https://docs.azure.cloudsimple.com/ensuring-high-availability/'
         - name: Ecosistema di VMware
           items:
-            - name: Eseguire il backup delle macchine virtuali dei carichi di lavoro
-              href: 'https://docs.azure.cloudsimple.com/backup-workloads-veeam/'
+            - name: Eseguire il backup delle macchine virtuali del carico di lavoro
+              href: backup-workloads-veeam.md
             - name: Guida della soluzione VMware Horizon
               href: 'https://docs.azure.cloudsimple.com/horizon-guide/'
             - name: Configurare la crittografia di vSAN per il cloud privato

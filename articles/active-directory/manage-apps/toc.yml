@@ -29,6 +29,8 @@
           items:
             - name: Introduzione all'integrazione di app
               href: plan-an-application-integration.md
+            - name: Pianificare una distribuzione del pannello di accesso
+              href: access-panel-deployment-plan.md
             - name: Linee guida per gli sviluppatori
               href: developer-guidance-for-integrating-applications.md
         - name: Single sign-on

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: b7bf9943afa2a79f98fd28d15e5ea46fa63af732
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 6a929359c0e4e0a5c64eadbf41f565dfeb56a233
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688636"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854109"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Eseguire il backup di database SQL Server in macchine virtuali di Azure
 
@@ -168,7 +168,7 @@ Come individuare i database in esecuzione in una macchina virtuale:
    Per ottimizzare i carichi di backup, Backup di Azure imposta il numero massimo di database in un processo di backup su 50.
 
      * Per proteggere più di 50 database, configurare più backup.
-     * Per abilitare [](#enable-auto-protection) l'intera istanza o il gruppo di disponibilità always on. Nell'elenco a discesa AutoProtect selezionare on, quindi fare clic **su** **OK**.
+     * Per abilitare la [protezione automatica](#enable-auto-protection) per l'intera istanza o il gruppo di disponibilità always on. Nell'elenco a discesa AutoProtect selezionare on, quindi fare clic **su** **OK**.
 
     > [!NOTE]
     > La funzionalità di [protezione automatica](#enable-auto-protection) non solo Abilita la protezione in tutti i database esistenti in una sola volta, ma protegge automaticamente anche tutti i nuovi database aggiunti a tale istanza o al gruppo di disponibilità.  
@@ -177,7 +177,7 @@ Come individuare i database in esecuzione in una macchina virtuale:
 
     ![Abilitare la protezione automatica per il gruppo di disponibilità Always On](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-5. In **criterio di backup**scegliere un criterio e quindi fare clic su **OK**.
+5. In **criterio di backup**scegliere un criterio e quindi fare clic su **OK**.
 
    - Selezionare i criteri predefiniti come HourlyLogBackup.
    - Scegliere un criterio di backup creato in precedenza per SQL.
@@ -185,11 +185,11 @@ Come individuare i database in esecuzione in una macchina virtuale:
 
      ![Selezionare il criterio di backup](./media/backup-azure-sql-database/select-backup-policy.png)
 
-6. In **backup**selezionare **Abilita backup**.
+6. In **Backup** selezionare **Abilita backup**.
 
     ![Abilitare i criteri di backup scelti](./media/backup-azure-sql-database/enable-backup-button.png)
 
-7. È possibile monitorare l'avanzamento della configurazione nell'area  **Notifiche**  del portale.
+7. È possibile monitorare l'avanzamento della configurazione nell'area delle **notifiche** del portale.
 
     ![Area delle notifiche](./media/backup-azure-sql-database/notifications-area.png)
 
@@ -273,7 +273,7 @@ Nel dashboard dell'insieme di credenziali passare > a Gestisci**criteri di backu
 
 - Non esiste alcun limite al numero di database che è possibile selezionare per la protezione automatica in una sola volta.
 - Non è possibile proteggere in modo selettivo o escludere i database dalla protezione in un'istanza nel momento in cui si Abilita la protezione automatica.
-- Se l'istanza include già alcuni database protetti, questi rimarranno protetti in base ai rispettivi criteri anche dopo l'attivazione della protezione automatica. Tutti i database non protetti aggiunti in un secondo momento avranno un solo criterio definito al momento dell'abilitazione della protezione automatica, elencati in **configurare il backup**. Tuttavia, è possibile modificare i criteri associati a un database protetto automaticamente in un secondo momento.  
+- Se l'istanza include già alcuni database protetti, questi rimarranno protetti in base ai rispettivi criteri anche dopo l'attivazione della protezione automatica. Tutti i database non protetti aggiunti in un secondo momento avranno un solo criterio definito al momento dell'abilitazione della protezione automatica, elencati in **configurare il backup**. Tuttavia, è possibile modificare i criteri associati a un database protetto automaticamente in un secondo momento.  
 
 Per abilitare la protezione automatica:
 
@@ -288,7 +288,7 @@ Se è necessario disabilitare la protezione automatica, selezionare il nome dell
 
 ![Disabilitare la protezione automatica in tale istanza](./media/backup-azure-sql-database/disable-auto-protection.png)
 
- 
+ 
 ## <a name="next-steps"></a>Passaggi successivi
 
 È possibile passare agli argomenti seguenti:

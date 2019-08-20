@@ -64,7 +64,7 @@ sections:
               src: media/index/spark-logo.png
             title: Analisi predefinita con Apache Spark
           - href: /azure/cosmos-db/change-feed/
-            html: '<p>Con il feed delle modifiche, è possibile eseguire analisi in tempo reale leggendo l''elenco ordinato di documenti all''interno di un contenitore di Azure Cosmos DB, nell''ordine in cui sono stati modificati. </p>'
+            html: <p>Con il feed di modifiche è possibile eseguire analisi in tempo reale leggendo l'elenco ordinato di documenti all'interno di un contenitore di Azure Cosmos nell'ordine in cui sono stati modificati. </p>
             image:
               src: media/index/change-feed-logo.png
             title: Feed delle modifiche

@@ -4,8 +4,16 @@
   items:
     - name: Panoramica
       href: user-help-two-step-verification-overview.md
-    - name: Configurare l'account
-      href: multi-factor-authentication-end-user-first-time.md
+    - name: Configurare i metodi di verifica a due fattori
+      items:
+        - name: Panoramica
+          href: multi-factor-authentication-end-user-first-time.md
+        - name: Configurare un'app di autenticazione
+          href: multi-factor-authentication-setup-auth-app.md
+        - name: Configurare un dispositivo mobile
+          href: multi-factor-authentication-setup-phone-number.md
+        - name: Configurare un telefono dell'ufficio
+          href: multi-factor-authentication-setup-office-phone.md
     - name: Gestire le impostazioni
       href: multi-factor-authentication-end-user-manage-settings.md
     - name: Ottenere aiuto

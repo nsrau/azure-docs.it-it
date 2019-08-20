@@ -128,6 +128,9 @@
         - name: Configurare ambienti di sviluppo
           displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'
           href: how-to-configure-environment.md
+        - name: Gestire l'ambiente software
+          displayName: 'pip, Conda'
+          href: how-to-use-environments.md
         - name: Abilitazione della registrazione
           displayName: 'troubleshoot, log, files, tracing'
           href: how-to-enable-logging.md
