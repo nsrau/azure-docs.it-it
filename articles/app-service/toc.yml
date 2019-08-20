@@ -170,7 +170,7 @@
     - name: Ridimensionare un'app
       items:
         - name: Aumentare la capacità del server di elaborazione
-          href: web-sites-scale.md
+          href: manage-scale-up.md
         - name: Configurare il livello PremiumV2
           href: app-service-configure-premium-tier.md
         - name: Aumentare il numero di istanze

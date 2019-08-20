@@ -216,9 +216,6 @@
         - name: Risolvere i problemi delle modifiche di una VM
           href: automation-tutorial-troubleshoot-changes.md
           displayName: inventory
-        - name: Gestire una macchina virtuale con la raccolta dell'inventario
-          href: automation-vm-inventory.md
-          displayName: inventory
     - name: Risolvere problemi
       items:
         - name: Onboarding

@@ -126,7 +126,7 @@ Questa procedura consente di preparare il server per scaricare i moduli da Power
     - Riferimenti: [Installazione di PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget).
     - Comando: `Install-Module -Name PowerShellGet`.
     - Parametri facoltativi:
-        - [https://login.microsoftonline.com/common/](`-Proxy`). Specifica un server proxy per la richiesta.
+        - `-Proxy`. Specifica un server proxy per la richiesta.
         - `-Force`. Ignora l'avviso "già installato" e installa la versione più recente.
 
     Questo errore viene visualizzato se non si usa la versione più recente di PowerShellGet:

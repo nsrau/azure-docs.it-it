@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/22/2019
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 4d13779317793b5edd971dd457a77e0bc5cae1c8
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: f85605610727ef2c1e1987b7ef93a41ce2417a25
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68426906"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69626351"
 ---
 | Risorsa | Limite predefinito | Limite massimo |
 | --- | --- | --- |
@@ -33,7 +33,7 @@ ms.locfileid: "68426906"
 
 <sup>1</sup> I limiti predefiniti variano in base al tipo di categoria di offerta, ad esempio versione di valutazione gratuita e pagamento in base al consumo, e per serie, ad esempio dv2, F e G. Ad esempio, il valore predefinito per le sottoscrizioni Enterprise Agreement è 350.
 
-<sup>2</sup> È possibile applicare un numero illimitato di tag per ogni sottoscrizione. Il numero di tag per risorsa o per gruppo di risorse è limitato a 15. Gestione risorse restituisce un [elenco di nomi e valori di tag univoci](/rest/api/resources/tags) nella sottoscrizione solo se il numero di tag è 10.000 o meno. È ancora possibile trovare una risorsa in base al tag quando il numero supera 10.000.  
+<sup>2</sup> È possibile applicare un numero illimitato di tag per ogni sottoscrizione. Il numero di tag per risorsa o gruppo di risorse è limitato a 50. Gestione risorse restituisce un [elenco di nomi e valori di tag univoci](/rest/api/resources/tags) nella sottoscrizione solo se il numero di tag è 10.000 o meno. È ancora possibile trovare una risorsa in base al tag quando il numero supera 10.000.  
 
 <sup>3</sup> Queste funzionalità non sono più necessarie con i gruppi di risorse di Azure e Gestione risorse.
 
