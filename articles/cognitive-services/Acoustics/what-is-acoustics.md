@@ -3,20 +3,20 @@ title: Panoramica di Progetto Acustica
 titlesuffix: Azure Cognitive Services
 description: Progetto Acustica è un motore di acustica per esperienze 3D interattive, che integra la simulazione della fisica delle onde con bake e controlli di progettazione interattivi.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: overview
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: a654dd966c40b5b079f92b910ade52f4eda10344
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: f0685b65ce9204221e93a1ea4aa47a5e09eaac9f
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704745"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932969"
 ---
 # <a name="what-is-project-acoustics"></a>Informazioni su Project Acoustics
 Progetto Acustica è un motore di acustica delle onde per esperienze interattive 3D. Modella effetti d'onda come diffrazione, portaling e riverbero in scene complesse senza markup manuale delle zone. Include anche l'integrazione di motori di gioco e middleware audio. La filosofia di Progetto Acustica è simile all'illuminazione statica: si effettua il bake della fisica dettagliata offline per fornire una baseline fisica e si usa il runtime leggero con controlli di progettazione espressivi per soddisfare gli obiettivi artistici.
@@ -40,11 +40,17 @@ L'[integrazione di Progetto Acustica con Unreal](unreal-integration.md) include 
 * **Bake:** un passaggio dell'analisi viene eseguito localmente, con la voxelizzazione e altre analisi geometriche della scena in base alle selezioni precedenti. I risultati vengono visualizzati nell'editor per verificare la configurazione della scena. Al momento dell'invio del bake, i dati voxel vengono inviati ad Azure e si ottiene una risorsa di gioco acustico.
 * **Runtime:** è sufficiente caricare la risorsa nel proprio livello per ascoltare l'acustica nel livello stesso. Progettare l'acustica dal vivo nell'editor usando controlli granulari per ogni sorgente. I controlli possono anche essere gestiti da script di livello.
 
-## <a name="platforms"></a>Piattaforme
+## <a name="runtime-platforms"></a>Piattaforme di runtime
 I plug-in di runtime di Progetto Acustica possono essere attualmente distribuiti nelle piattaforme seguenti:
 * Windows
+* MacOS
 * Android
 * Xbox One
+
+## <a name="editor-platforms"></a>Piattaforme supportate dall'editor
+Il plug-in dell'editor di Progetto Acustica è disponibile per le piattaforme seguenti:
+* Windows
+* MacOS (solo Unity)
 
 ## <a name="download"></a>Download
 * [Plug-in ed esempi di Progetto Acustica in Unity](https://www.microsoft.com/en-us/download/details.aspx?id=57346)

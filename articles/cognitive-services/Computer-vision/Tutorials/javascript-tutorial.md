@@ -7,54 +7,54 @@ author: KellyDF
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 04/30/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 24ef94b702d11977df4e1ca2dab181f5c14a00df
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
-ms.translationtype: MT
+ms.openlocfilehash: df2aef9a6401d0a3a1807fb7e869f03f9b7bcd36
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564557"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881247"
 ---
 # <a name="use-computer-vision-features-with-the-rest-api-and-javascript"></a>Usare le funzionalità di Visione artificiale con l'API REST e JavaScript
 
-Questa guida illustra le funzionalità dell'API REST di servizi cognitivi di Azure Visione artificiale.
+Questa guida illustra le funzionalità dell'API REST Visione artificiale di Servizi cognitivi di Azure.
 
 Si esamina un'applicazione JavaScript che usa l'API REST Visione artificiale per effettuare il riconoscimento ottico dei caratteri (OCR), creare immagini di anteprima con ritaglio intelligente, nonché rilevare, classificare, contrassegnare con tag e descrivere le caratteristiche visive, inclusi i visi, in un'immagine. L'esempio consente di inviare un URL di un'immagine per l'analisi o l'elaborazione. È possibile usare questo esempio open source come modello per la creazione di un'app JavaScript personalizzata per l'uso dell'API REST Visione artificiale.
 
-L'applicazione JavaScript è già stata scritta, ma non include la funzionalità di Visione artificiale. In questa guida viene aggiunto il codice specifico dell'API REST di Visione artificiale per completare la funzionalità dell'applicazione.
+L'applicazione JavaScript è già stata scritta, ma non include la funzionalità di Visione artificiale. In questa guida si aggiunge codice specifico dell'API REST Visione artificiale per completare le funzionalità dell'applicazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="platform-requirements"></a>Requisiti di piattaforma
 
-È possibile seguire la procedura descritta in questa guida utilizzando un semplice editor di testo.
+È possibile seguire le procedure descritte in questa guida usando un semplice editor di testo.
 
 ### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Effettuare la sottoscrizione dell'API Visione artificiale e ottenere una chiave di sottoscrizione
 
-Prima di creare l'esempio, è necessario effettuare la sottoscrizione dell'API Visione artificiale, che fa parte di Servizi cognitivi di Azure. Per informazioni dettagliate sulla sottoscrizione e sulla gestione delle chiavi, vedere [Sottoscrizioni](https://azure.microsoft.com/try/cognitive-services/). Le chiavi primarie e secondarie sono valide per l'uso in questa guida.
+Prima di creare l'esempio, è necessario effettuare la sottoscrizione dell'API Visione artificiale, che fa parte di Servizi cognitivi di Azure. Per informazioni dettagliate sulla sottoscrizione e sulla gestione delle chiavi, vedere [Sottoscrizioni](https://azure.microsoft.com/try/cognitive-services/). In questa guida è possibile usare sia la chiave primaria sia quella secondaria.
 
-## <a name="acquire-incomplete-tutorial-project"></a>Acquisisci progetto di esercitazione incompleta
+## <a name="acquire-incomplete-tutorial-project"></a>Acquisire il progetto incompleto dell'esercitazione
 
 ### <a name="download-the-project"></a>Scaricare il progetto
 
 Clonare l'[esercitazione JavaScript per Visione artificiale di Servizi cognitivi](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial) o scaricare il file ZIP ed estrarlo in una directory vuota.
 
-Se si preferisce usare il progetto terminato con l'aggiunta di tutto il codice dell'esercitazione, è possibile usare i file nella cartella **completata** .
+Se si preferisce usare il progetto finito cui è stato aggiunto tutto il codice dell'esercitazione, è possibile usare i file nella cartella **Completed**.
 
 ## <a name="add-tutorial-code-to-the-project"></a>Aggiungere il codice dell'esercitazione al progetto
 
-L'applicazione JavaScript è configurata con sei file HTML, uno per ogni funzionalità. Ogni file illustra una funzione diversa di Visione artificiale (analizza, OCR e così via). Le sei sezioni non hanno interdipendenze, quindi è possibile aggiungere il codice dell'esercitazione a un file, a tutti i sei file o solo a un paio di file. È possibile aggiungere il codice dell'esercitazione ai file in qualsiasi ordine.
+L'applicazione JavaScript è configurata con sei file HTML, uno per ogni funzionalità. Ogni file illustra una funzione diversa di Visione artificiale (analisi, OCR e così via). Le sei sezioni non presentano interdipendenze, quindi è possibile aggiungere il codice dell'esercitazione a un file, a tutti e sei i file o solo ad alcuni. È possibile aggiungere il codice dell'esercitazione ai file in qualsiasi ordine.
 
 ### <a name="analyze-an-image"></a>Analizzare un'immagine
 
-La funzionalità analizza di Visione artificiale analizza un'immagine per migliaia di oggetti riconoscibili, elementi viventi, scenario e azioni. Una volta completata l'analisi, la funzionalità restituisce un oggetto JSON che descrive l'immagine con tag descrittivi, analisi del colore, didascalie e molto altro.
+La funzionalità di analisi di Visione artificiale analizza un'immagine alla ricerca di migliaia di oggetti, esseri viventi, panorami e azioni riconoscibili. Una volta completata l'analisi, la funzionalità restituisce un oggetto JSON che descrive l'immagine con tag descrittivi, analisi del colore, didascalie e molto altro.
 
-Per completare la funzionalità analizza dell'applicazione, seguire questa procedura:
+Per completare la funzionalità di analisi dell'applicazione, seguire questa procedura:
 
-#### <a name="add-the-event-handler-code-for-the-analyze-button"></a>Aggiungere il codice del gestore eventi per il pulsante Analizza
+#### <a name="add-the-event-handler-code-for-the-analyze-button"></a>Aggiungere il codice del gestore eventi per il pulsante di analisi
 
 Aprire il file **analyze.html** in un editor di testo e individuare la funzione **analyzeButtonClick** nella parte inferiore del file.
 
@@ -150,7 +150,7 @@ function AnalyzeImage(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-#### <a name="run-the-analyze-function"></a>Eseguire la funzione Analyze
+#### <a name="run-the-analyze-function"></a>Eseguire la funzione di analisi
 
 Salvare il file **analyze.html** e aprirlo in un Web browser. Inserire la chiave di sottoscrizione nel campo **Chiave sottoscrizione** e verificare di usare l'area corretta in **Subscription Region** (Area sottoscrizione). Immettere un URL di un'immagine da analizzare, quindi fare clic sul pulsante **Analyze Image** (Analizza immagine) per analizzare un'immagine e visualizzare il risultato.
 
@@ -158,9 +158,9 @@ Salvare il file **analyze.html** e aprirlo in un Web browser. Inserire la chiave
 
 La funzionalità relativa ai punti di riferimento di Visione artificiale analizza un'immagine per individuare punti di riferimento naturali e artificiali, ad esempio montagne o edifici famosi. Una volta completata l'analisi, questa funzionalità restituisce un oggetto JSON che identifica i punti di riferimento trovati nell'immagine.
 
-Per completare la funzionalità di riferimento dell'applicazione, seguire questa procedura:
+Per completare la funzionalità dell'applicazione relativa ai luoghi di interesse, seguire questa procedura:
 
-#### <a name="add-the-event-handler-code-for-the-landmark-button"></a>Aggiungere il codice del gestore eventi per il pulsante Landmark
+#### <a name="add-the-event-handler-code-for-the-landmark-button"></a>Aggiungere il codice del gestore eventi per il pulsante per i luoghi di interesse
 
 Aprire il file **landmark.html** in un editor di testo e individuare la funzione **landmarkButtonClick** nella parte inferiore del file.
 
@@ -255,7 +255,7 @@ function IdentifyLandmarks(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-#### <a name="run-the-landmark-function"></a>Eseguire la funzione Landmark
+#### <a name="run-the-landmark-function"></a>Eseguire la funzione per i luoghi di interesse
 
 Salvare il file **landmark.html** e aprirlo in un Web browser. Inserire la chiave di sottoscrizione nel campo **Chiave sottoscrizione** e verificare di usare l'area corretta in **Subscription Region** (Area sottoscrizione). Immettere un URL di un'immagine da analizzare, quindi fare clic sul pulsante **Analyze Image** (Analizza immagine) per analizzare un'immagine e visualizzare il risultato.
 
@@ -263,9 +263,9 @@ Salvare il file **landmark.html** e aprirlo in un Web browser. Inserire la chiav
 
 La funzionalità relativa alle celebrità di Visione artificiale analizza un'immagine per individuare personaggi famosi. Una volta completata l'analisi, questa funzionalità restituisce un oggetto JSON che identifica le celebrità trovate nell'immagine.
 
-Per completare la funzionalità di celebrità dell'applicazione, seguire questa procedura:
+Per completare la funzionalità dell'applicazione relativa alle celebrità, seguire questa procedura:
 
-#### <a name="add-the-event-handler-code-for-the-celebrities-button"></a>Aggiungere il codice del gestore eventi per il pulsante celebrità
+#### <a name="add-the-event-handler-code-for-the-celebrities-button"></a>Aggiungere il codice del gestore eventi per il pulsante per le celebrità
 
 Aprire il file **celebrities.html** in un editor di testo e individuare la funzione **celebritiesButtonClick** nella parte inferiore del file.
 
@@ -356,7 +356,7 @@ function IdentifyCelebrities(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-#### <a name="run-the-celebrities-function"></a>Eseguire la funzione celebrità
+#### <a name="run-the-celebrities-function"></a>Eseguire la funzione per le celebrità
 
 Salvare il file **celebrities.html** e aprirlo in un Web browser. Inserire la chiave di sottoscrizione nel campo **Chiave sottoscrizione** e verificare di usare l'area corretta in **Subscription Region** (Area sottoscrizione). Immettere un URL di un'immagine da analizzare, quindi fare clic sul pulsante **Analyze Image** (Analizza immagine) per analizzare un'immagine e visualizzare il risultato.
 
@@ -366,7 +366,7 @@ La funzionalità di anteprima di Visione artificiale genera un'anteprima da un'i
 
 Per completare la funzionalità di anteprima dell'applicazione, seguire questa procedura:
 
-#### <a name="add-the-event-handler-code-for-the-thumbnail-button"></a>Aggiungere il codice del gestore eventi per il pulsante dell'anteprima
+#### <a name="add-the-event-handler-code-for-the-thumbnail-button"></a>Aggiungere il codice del gestore eventi per il pulsante di anteprima
 
 Aprire il file **thumbnail.html** in un editor di testo e individuare la funzione **thumbnailButtonClick** nella parte inferiore del file.
 
@@ -485,7 +485,7 @@ La funzionalità di riconoscimento ottico dei caratteri (OCR) di Visione artific
 
 Per completare la funzionalità OCR dell'applicazione, seguire questa procedura:
 
-### <a name="add-the-event-handler-code-for-the-ocr-button"></a>Aggiungere il codice del gestore eventi per il pulsante OCR
+### <a name="add-the-event-handler-code-for-the-ocr-button"></a>Aggiungere il codice del gestore eventi per il pulsante di OCR
 
 Aprire il file **ocr.html** in un editor di testo e individuare la funzione **ocrButtonClick** nella parte inferiore del file.
 
@@ -578,7 +578,7 @@ La funzionalità di riconoscimento della grafia di Visione artificiale analizza 
 
 Per completare la funzionalità di riconoscimento della grafia dell'applicazione, seguire questa procedura:
 
-#### <a name="add-the-event-handler-code-for-the-handwriting-button"></a>Aggiungere il codice del gestore eventi per il pulsante grafia
+#### <a name="add-the-event-handler-code-for-the-handwriting-button"></a>Aggiungere il codice del gestore eventi per il pulsante per la grafia
 
 Aprire il file **handwriting.html** in un editor di testo e individuare la funzione **handwritingButtonClick** nella parte inferiore del file.
 
@@ -727,12 +727,12 @@ function ReadHandwrittenImage(sourceImageUrl, responseTextArea) {
 }
 ```
 
-#### <a name="run-the-handwriting-function"></a>Eseguire la funzione di grafia
+#### <a name="run-the-handwriting-function"></a>Eseguire la funzione per la grafia
 
 Salvare il file **handwriting.html** e aprirlo in un Web browser. Inserire la chiave di sottoscrizione nel campo **Chiave sottoscrizione** e verificare di usare l'area corretta in **Subscription Region** (Area sottoscrizione). Immettere un URL di un'immagine di testo da leggere, quindi fare clic sul pulsante **Read Image** (Leggi immagine) per analizzare un'immagine e visualizzare il risultato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida è stata usata l'API REST di Visione artificiale con JavaScript per testare molte delle funzionalità di analisi delle immagini disponibili. Vedere quindi la documentazione di riferimento per ulteriori informazioni sulle API necessarie.
+In questa guida si è usata l'API REST Visione artificiale con JavaScript per testare molte delle funzionalità di analisi delle immagini disponibili. Per altre informazioni sulle API coinvolte, vedere la documentazione di riferimento.
 
-- [API REST di Visione artificiale](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)
+- [API REST Visione artificiale](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)

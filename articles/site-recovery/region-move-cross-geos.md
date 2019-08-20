@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: fe2620c7a07389b2a86d36420eadd2ef5883f5da
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 63150b8924438df8d77fdd088811d9fbe3ec2d84
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012819"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967317"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Spostare le VM di Azure tra aree per enti pubblici e aree pubbliche 
 
@@ -47,7 +47,7 @@ Questa esercitazione illustra come spostare VM di Azure tra aree per enti pubbli
 - Assicurarsi che i server da replicare siano conformi ai [requisiti di Azure per le macchine virtuali](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Preparare un account per l'installazione automatica del servizio Mobility su ogni server da replicare.
 
-- Si noti che in seguito agli errori nell'area di destinazione in Azure non sarà possibile eseguire direttamente un failback nell'area di origine. Sarà necessario configurare nuovamente la replica alla destinazione.
+- Si noti che dopo il failover nell'area di destinazione in Azure non sarà possibile effettuare direttamente un failback nell'area di origine. Sarà necessario configurare nuovamente la replica alla destinazione.
 
 ### <a name="verify-azure-account-permissions"></a>Verificare le autorizzazioni dell'account di Azure
 
@@ -111,11 +111,11 @@ La procedura seguente illustra come usare Azure Site Recovery per copiare i dati
 ### <a name="create-the-vault-in-any-region-except-the-source-region"></a>Creare l'insieme di credenziali in tutte le aree, ad eccezione dell'area di origine.
 
 1. Accedere a [portale di Azure](https://portal.azure.com) > **Servizi di ripristino**.
-2. Fare clic su **Crea una risorsa** > **Strumenti di gestione** > **Backup e Site Recovery (OMS)**.
+2. Fare clic su **Crea una risorsa** > **Strumenti di gestione** > **Backup e Site Recovery (OMS)** .
 3. In **Nome** specificare il nome descrittivo **ContosoVMVault**. Se si hanno più sottoscrizioni, selezionare quella appropriata.
 4. Creare un gruppo di risorse **ContosoRG**.
 5. Specificare un'area di Azure. Per verificare le aree supportate, vedere la sezione relativa alla disponibilità a livello geografico in [Prezzi di Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
-6. In Insiemi di credenziali dei servizi di ripristino fare clic su **Panoramica** > **ContosoVMVault** > **+Replica**
+6. In Insiemi di credenziali dei servizi di ripristino fare clic su **Panoramica** > **ContosoVMVault** >  **+Replica**
 7. Selezionare **In Azure** > **Non virtualizzato/Altro**.
 
 ### <a name="set-up-the-configuration-server-to-discover-vms"></a>Configurare il server di configurazione per rilevare le VM.
@@ -169,7 +169,7 @@ Selezionare e verificare le risorse di destinazione.
 
 ### <a name="create-a-replication-policy"></a>Creare un criterio di replica
 
-1. Per creare nuovi criteri di replica, fare clic su **Infrastruttura di Site Recovery** > **Criteri di replica** > **+Criteri di replica**.
+1. Per creare nuovi criteri di replica, fare clic su **Infrastruttura di Site Recovery** > **Criteri di replica** >  **+Criteri di replica**.
 2. In **Creare i criteri di replica** specificare un nome per i criteri.
 3. In **Soglia RPO**, specificare il limite dell'obiettivo del punto di ripristino (RPO). Questo valore specifica la frequenza con cui vengono creati punti di ripristino dei dati. Se la replica continua supera questo limite, viene generato un avviso.
 4. In **Conservazione del punto di recupero**, specificare la durata in ore dell'intervallo di conservazione per ogni punto di recupero. Le VM replicate possono essere ripristinate in qualsiasi punto all'interno di un intervallo. È supportata la conservazione fino a 24 ore per le macchine replicate in Archiviazione Premium e fino a 72 ore per Archiviazione Standard.

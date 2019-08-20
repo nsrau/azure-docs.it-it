@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: overview
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 80e0984deff83726fd96a462a1ae8a4375db9d2e
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 70cb4a008391ad55562bc55fb45d877988e68643
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721599"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854784"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Cos'è l'API Rilevamento anomalie?
 
@@ -38,15 +38,22 @@ Con il Rilevamento anomalie è possibile rilevare automaticamente le anomalie in
 
 ## <a name="demo"></a>Demo
 
-Per iniziare rapidamente a usare l'API Rilevamento anomalie, provare una [demo online](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector) che può essere eseguita nel browser. Questa demo viene eseguita in un notebook di Jupyter ospitato sul Web e mostra come inviare una richiesta API e visualizzare il risultato.
+Per comprendere il funzionamento di Rilevamento anomalie, vedere questa [dimostrazione interattiva](https://aka.ms/adDemo).
+Per eseguire la demo, è necessario creare una risorsa di Rilevamento anomalie e ottenere l'endpoint e la chiave API.
 
-Per eseguire la demo, completare i passaggi seguenti:
+## <a name="notebook"></a>Blocco appunti
 
-1. Ottenere una chiave di sottoscrizione valida dell'API Rilevamento anomalie e un endpoint API. La sezione seguente contiene le istruzioni per l'iscrizione. 
-2. Accedere e fare clic su Clone in alto a destra.
-3. Fare clic su **Run on free compute** (Esegui in ambiente di calcolo gratuito)
-4. Selezionare uno dei notebook per questo esempio.
-5. Aggiungere una chiave di sottoscrizione valida dell'API Rilevamento anomalie alla variabile `subscription_key`. Modificare la variabile `endpoint` in modo nel proprio endpoint. Ad esempio: `https://westus2.api.cognitive.microsoft.com`
+Per informazioni su come chiamare l'API Rilevamento anomalie, provare questo [notebook di Azure](https://aka.ms/adNotebook). Questo notebook Jupyter ospitato sul Web illustra come inviare una richiesta API e visualizzare il risultato.
+
+Per eseguire il notebook, seguire questa procedura:
+
+1. Ottenere una chiave di sottoscrizione valida dell'API Rilevamento anomalie e un endpoint API. La sezione seguente contiene le istruzioni per l'iscrizione.
+1. Accedere e fare clic su Clone in alto a destra.
+1. Prima di completare l'operazione di clonazione, deselezionare l'opzione "Public" (Pubblico) nella finestra di dialogo. In caso contrario, il notebook, incluse le chiavi di sottoscrizione, sarà pubblico.
+1. Fare clic su **Run on free compute** (Esegui in ambiente di calcolo gratuito)
+1. Selezionare uno dei notebook.
+1. Aggiungere una chiave di sottoscrizione valida dell'API Rilevamento anomalie alla variabile `subscription_key`. 
+1. Modificare la variabile `endpoint` in modo nel proprio endpoint. Ad esempio: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
 1. Nella barra dei menu superiore fare clic su **Cell** (Cella) quindi su **Run All** (Esegui tutto).
 
 ## <a name="workflow"></a>Flusso di lavoro
@@ -62,6 +69,13 @@ Dopo aver eseguito l'iscrizione:
 1. Convertire i dati di serie temporali in un formato JSON valido. Usare le [procedure consigliate](concepts/anomaly-detection-best-practices.md) durante la preparazione dei dati per ottenere i risultati migliori.
 1. Inviare una richiesta all'API Rilevamento anomalie con i dati.
 1. Elaborare la risposta dell'API tramite l'analisi del messaggio JSON restituito.
+
+## <a name="algorithms"></a>Algoritmi
+
+* Per informazioni sugli algoritmi sottostanti, vedere l'[introduzione all'API Rilevamento anomalie di Azure](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162) nel blog tecnico.
+* Per informazioni sugli algoritmi SR-CNN all'avanguardia sviluppati da Microsoft, vedere il documento accettato da KDD 2019 relativo al [servizio Microsoft per il rilevamento delle anomalie nelle serie temporali](https://arxiv.org/abs/1906.03821).
+
+> [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
