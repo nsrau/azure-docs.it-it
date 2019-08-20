@@ -148,9 +148,6 @@
         - name: Aggiungere e registrare set di dati
           displayName: 'data, dataset'
           href: how-to-create-register-datasets.md
-        - name: Esplorazione dei dati
-          displayName: 'data, eda, exploratory, analysis, etl, dataset, summary statistics, profile, explore, data preparation, dataprep'
-          href: how-to-explore-prepare-data.md
         - name: Eseguire la preparazione con azureml.dataprep
           items:
             - name: Caricare i dati

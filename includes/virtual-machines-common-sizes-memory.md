@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 08/08/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 3d45defa9ff8e7b2e03d550b76c0e18192c58c4a
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: dce7cc2cd8e97eef81023eb803cace3f6d011171
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881611"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69626354"
 ---
 Le dimensioni delle macchine virtuali con ottimizzazione per la memoria offrono un rapporto memoria-CPU elevato, ideale per server di database relazionali, cache di medie e grandi dimensioni e analisi in memoria. Questo articolo offre informazioni sul numero di vCPU, dischi dati e schede di rete, oltre che sulla velocità effettiva di archiviazione e sulla larghezza di banda della rete per ogni dimensione di questo raggruppamento.
 
 * La serie Ev3 include il processore E5-2673 v4 a 2,3 GHz (Broadwell) in una configurazione con hyperthreading, assicurando una proposta di valore ottimizzata per la maggior parte dei carichi di lavoro per uso generico e garantendo l'allineamento della serie Ev3 alle macchine virtuali per uso generico della maggior parte degli altri cloud.  La memoria è stata estesa (da 7 GiB/vCPU a 8 GiB/vCPU) mentre i limiti di rete e dei dischi sono stati modificati in base al core per consentire l'allineamento con il passaggio all'hyperthreading.  La serie Ev3 rappresenta un passo avanti rispetto alle dimensioni delle macchine virtuali con memoria elevata delle famiglie D/Dv2.
 
-* Le serie Eav3 e Easv3 usano il processore 2.35 GHz EPYC<sup>TM</sup> 7452V di AMD in una configurazione multithread con una cache fino a a 256 GB L3, aumentando le opzioni per l'esecuzione della maggior parte dei carichi di lavoro con ottimizzazione per la memoria.  La serie Eav3 e la serie Easv3 hanno le stesse configurazioni di memoria e disco della serie EV3 & Esv3.
+* Le serie Eav3 e Easv3 usano il processore 2.35 GHz EPYC<sup>TM</sup> 7452V di AMD in una configurazione multithread con una cache L3 fino a 256 MB, aumentando le opzioni per l'esecuzione della maggior parte dei carichi di lavoro con ottimizzazione per la memoria.  La serie Eav3 e la serie Easv3 hanno le stesse configurazioni di memoria e disco della serie EV3 & Esv3.
 
 * La serie Mv2 offre il numero massimo di vCPU (fino a 208 vCPU) e la memoria massima (fino a 5,7 TiB) di qualsiasi macchina virtuale nel cloud. È ideale per database molto grandi o altre applicazioni che traggono vantaggio da un elevato numero di vCPU e una grande quantità di memoria.
 

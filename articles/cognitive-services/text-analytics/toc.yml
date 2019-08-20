@@ -12,6 +12,18 @@
 - name: Guide introduttive
   expanded: true
   items:
+    - name: Client
+      items:
+        - name: 'C#'
+          href: quickstarts/csharp.md
+        - name: Python
+          href: quickstarts/python-sdk.md
+        - name: Go
+          href: quickstarts/go-sdk.md
+        - name: Ruby
+          href: quickstarts/ruby-sdk.md
+        - name: Node.js
+          href: quickstarts/nodejs-sdk.md
     - name: API REST
       items:
         - name: Go
@@ -26,18 +38,6 @@
           href: quickstarts/python.md
         - name: Ruby
           href: quickstarts/ruby.md
-    - name: Client
-      items:
-        - name: 'C#'
-          href: quickstarts/csharp.md
-        - name: Python
-          href: quickstarts/python-sdk.md
-        - name: Go
-          href: quickstarts/go-sdk.md
-        - name: Ruby
-          href: quickstarts/ruby-sdk.md
-        - name: Node.js
-          href: quickstarts/nodejs-sdk.md
 - name: Esercitazioni
   items:
     - name: Integrare Power BI per analizzare il feedback dei clienti

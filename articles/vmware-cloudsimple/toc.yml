@@ -117,7 +117,7 @@
     - name: Guide alle procedure
       items:
         - name: Proteggere l'ambiente
-          href: 'https://docs.azure.cloudsimple.com/private-cloud-secure/'
+          href: private-cloud-secure.md
         - name: Gestione del cloud privato
           items:
             - name: Riassegnare i privilegi di Cloud privato
@@ -143,7 +143,7 @@
             - name: Analisi gateway applicazione di Azure con VM di VMware
               href: azure-application-gateway.md
             - name: Configurare un server vCenter del cloud privato come endpoint di automazione vRealize
-              href: 'https://docs.azure.cloudsimple.com/configure-server-vra-endpoint/'
+              href: configure-server-vrealize-automation-endpoint.md
             - name: Eseguire la migrazione delle VM dei carichi di lavoro a un cloud privato
               href: 'https://docs.azure.cloudsimple.com/migrate-workloads/'
             - name: Assicurare la disponibilità elevata delle applicazioni in VMware in Azure
