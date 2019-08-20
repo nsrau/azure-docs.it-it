@@ -43,12 +43,12 @@ Nella tabella seguente vengono fornite descrizioni per le proprietà restituite 
 
 | Proprietà | DESCRIZIONE |
 -------- | ------------- | 
-| NOME | Nome del runtime di integrazione di Azure. |  
-| Stato | Stato del runtime di integrazione di Azure. | 
-| Località | Percorso del runtime di integrazione di Azure. Per altri dettagli sul percorso di un runtime di integrazione di Azure, vedere [Introduzione al runtime di integrazione](concepts-integration-runtime.md). |
+| Name | Nome del runtime di integrazione di Azure. |  
+| State | Stato del runtime di integrazione di Azure. | 
+| Location | Percorso del runtime di integrazione di Azure. Per altri dettagli sul percorso di un runtime di integrazione di Azure, vedere [Introduzione al runtime di integrazione](concepts-integration-runtime.md). |
 | DataFactoryName | Nome della data factory a cui appartiene il runtime di integrazione di Azure. | 
 | ResourceGroupName | Nome del gruppo di risorse a cui appartiene la data factory.  |
-| DESCRIZIONE | Descrizione del runtime di integrazione di Azure.  |
+| Description | Descrizione del runtime di integrazione di Azure.  |
 
 ### <a name="status"></a>Stato
 La tabella seguente indica i possibili stati di un runtime di integrazione di Azure:
