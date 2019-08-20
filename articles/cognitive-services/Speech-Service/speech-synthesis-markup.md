@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 89b8b5f8c574de033fabf6861e24fc7d2b31e171
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 12d556fd9c37b83a919b830d155250e9eaa64128
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855095"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624249"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Speech Synthesis Markup Language (SSML)
 
@@ -31,6 +31,10 @@ L'implementazione di SSML per i servizi vocali è basata sulla [versione 1,0 del
 È possibile scegliere tra le voci standard e neurali oppure creare una voce personalizzata univoca per il prodotto o il marchio. 75 e le voci standard sono disponibili in più di 45 lingue e impostazioni locali e 5 voci neurali sono disponibili in 4 lingue e impostazioni locali. Per un elenco completo delle lingue supportate, delle impostazioni locali e delle voci (neurale e standard), vedere [Supporto per le lingue](language-support.md).
 
 Per altre informazioni sulle voci standard, neurale e personalizzate, vedere [Cenni preliminari](text-to-speech.md)sulla sintesi vocale.
+
+## <a name="special-characters"></a>Caratteri speciali
+
+Quando si usa SSML per convertire il riconoscimento vocale da testo a sintetizzato, tenere presente che, esattamente come con XML, i caratteri speciali, ad esempio virgolette, apostrofi e parentesi quadre, devono essere preceduti da un carattere di escape. Per ulteriori informazioni, vedere [Extensible Markup Language (XML) 1,0: Appendice D](https://www.w3.org/TR/xml/#sec-entexpand).
 
 ## <a name="supported-ssml-elements"></a>Elementi SSML supportati
 
@@ -138,10 +142,11 @@ Le modifiche vengono applicate a livello di frase e lo stile varia in base alla 
 
 Usare questa tabella per determinare quali stili di pronuncia sono supportati per ogni voce neurale.
 
-| Voce | Type | DESCRIZIONE |
+| Chiamata vocale | Type | Descrizione |
 |-------|------|-------------|
 | `en-US-JessaNeural` | tipo =`cheerful` | Esprime un'emozione positiva e felice |
 | | tipo =`empathy` | Esprime un senso di attenzione e comprensione |
+| | tipo =`chat` | Pronunciare un tono informale e rilassato |
 | `zh-CN-XiaoxiaoNeural` | tipo =`newscast` | Esprime un tono formale, simile alle trasmissioni di notizie |
 | | tipo =`sentiment` | Trasmette un messaggio di contatto o una storia |
 
@@ -175,12 +180,12 @@ Usare l' `break` elemento per inserire pause (o interruzioni) tra parole oppure 
 
 **Attributes (Attributi)**
 
-| Attributo | DESCRIZIONE | Obbligatoria / Facoltativa |
+| Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
 | forza | Specifica la durata relativa di una pausa utilizzando uno dei valori seguenti:<ul><li>none</li><li>x-debole</li><li>vulnerabile</li><li>media (impostazione predefinita)</li><li>complessa</li><li>x-forte</li></ul> | Facoltativo |
 | time | Specifica la durata assoluta di una pausa in secondi o millisecondi. Esempi di valori validi sono 2S e 500 | Facoltativo |
 
-| Forza | DESCRIZIONE |
+| Forza | Descrizione |
 |----------|-------------|
 | None oppure se non viene specificato alcun valore | 0 ms |
 | x-debole | 250 ms |
@@ -286,7 +291,7 @@ Poiché i valori dell'attributo prosodica possono variare in base a un intervall
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
 | passo | Indica il passo della linea di base per il testo. È possibile esprimere il passo come:<ul><li>Valore assoluto, espresso come numero seguito da "Hz" (hertz). Ad esempio, 600Hz.</li><li>Valore relativo, espresso come numero preceduto da "+" o "-", seguito da "Hz" o "St", che specifica una quantità per modificare il pitch. Ad esempio: + 80Hz o-2ST. Il valore "St" indica che l'unità di modifica è semitono, ovvero la metà di un tono (un mezzo) sulla scala diatonica standard.</li><li>Valore costante:<ul><li>x-basso</li><li>bassa</li><li>media</li><li>elevata</li><li>x-alto</li><li>default</li></ul></li></ul>. | Facoltativo |
-| contorno | Il contorno non è supportato per le voci neurali. Contour rappresenta le modifiche in pitch per il contenuto vocale come matrice di destinazioni in posizioni temporali specificate nell'output del riconoscimento vocale. Ogni destinazione è definita da insiemi di coppie di parametri. Ad esempio: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Il primo valore di ogni set di parametri specifica la posizione della modifica del passo come percentuale della durata del testo. Il secondo valore specifica la quantità da elevare o abbassare il pitch, usando un valore relativo o un valore di enumerazione per pitch `pitch`(vedere). | Facoltativo |
+| contorno | Il contorno non è supportato per le voci neurali. Contour rappresenta le modifiche in pitch per il contenuto vocale come matrice di destinazioni in posizioni temporali specificate nell'output del riconoscimento vocale. Ogni destinazione è definita da insiemi di coppie di parametri. Esempio: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Il primo valore di ogni set di parametri specifica la posizione della modifica del passo come percentuale della durata del testo. Il secondo valore specifica la quantità da elevare o abbassare il pitch, usando un valore relativo o un valore di enumerazione per pitch `pitch`(vedere). | Facoltativo |
 | range  | Valore che rappresenta l'intervallo di pitch per il testo. È possibile esprimere `range` usando gli stessi valori assoluti, i valori relativi o i valori di enumerazione usati `pitch`per descrivere. | Facoltativo |
 | tasso  | Indica la velocità di pronuncia del testo. È possibile esprimere `rate` le seguenti operazioni:<ul><li>Valore relativo, espresso come numero che funge da moltiplicatore del valore predefinito. Il valore *1* , ad esempio, non comporta alcuna modifica nella frequenza. Il valore *0,5* comporta una dimezzazione della frequenza. Il valore *3* comporta un triplo della frequenza.</li><li>Valore costante:<ul><li>x-lento</li><li>lento</li><li>media</li><li>veloce</li><li>x-veloce</li><li>default</li></ul></li></ul> | Facoltativo |
 | duration  | Periodo di tempo che deve trascorrere mentre il servizio di sintesi vocale (TTS) legge il testo, in secondi o millisecondi. Ad esempio, *2S* o *1800ms*. | Facoltativo |
@@ -409,7 +414,7 @@ Per ogni documento SSML è consentito un solo file audio di sfondo. Tuttavia, è
 
 **Attributes (Attributi)**
 
-| Attributo | Descrizione | Obbligatoria / Facoltativa |
+| Attributo | DESCRIZIONE | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
 | src | Specifica il percorso o l'URL del file audio in background. | Obbligatorio se si usa l'audio in background nel documento di SSML. |
 | volume | Specifica il volume del file audio in background. **Valori**accettati `0` : `100` per l'inclusione. Il valore predefinito è `1`. | Facoltativo |

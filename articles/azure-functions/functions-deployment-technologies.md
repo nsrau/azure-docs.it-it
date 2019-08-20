@@ -10,16 +10,16 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 88b6fbbd68f1f98e50ec0f04336a022dc1580a73
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 9f40ec658fc6725f381300d967c9d7cd61c3a218
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562909"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624154"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologie di distribuzione in funzioni di Azure
 
-È possibile usare alcune tecnologie diverse per distribuire il codice del progetto di funzioni di Azure in Azure. Questo articolo fornisce un elenco completo di queste tecnologie, descrive le tecnologie disponibili per i diversi tipi di funzioni, spiega cosa accade quando si usa ogni metodo e fornisce consigli per il metodo migliore da usare in diversi scenari . I vari strumenti che supportano la distribuzione in funzioni di Azure sono ottimizzati per la tecnologia corretta in base al contesto.
+È possibile usare alcune tecnologie diverse per distribuire il codice del progetto di funzioni di Azure in Azure. Questo articolo fornisce un elenco completo di queste tecnologie, descrive le tecnologie disponibili per i diversi tipi di funzioni, spiega cosa accade quando si usa ogni metodo e fornisce consigli per il metodo migliore da usare in diversi scenari . I vari strumenti che supportano la distribuzione in funzioni di Azure sono ottimizzati per la tecnologia corretta in base al contesto. In generale, la distribuzione di zip è la tecnologia di distribuzione consigliata per funzioni di Azure.
 
 ## <a name="deployment-technology-availability"></a>Disponibilità della tecnologia di distribuzione
 
@@ -31,17 +31,17 @@ Funzioni di Azure supporta lo sviluppo locale multipiattaforma e l'hosting in Wi
 
 Ogni piano ha comportamenti diversi. Non tutte le tecnologie di distribuzione sono disponibili per ogni versione di funzioni di Azure. Nel grafico seguente vengono illustrate le tecnologie di distribuzione supportate per ogni combinazione di sistema operativo e piano di hosting:
 
-| Tecnologia di distribuzione | Utilizzo di Windows | Windows Premium (anteprima) | Windows dedicato  | Consumo Linux | Linux dedicato |
-|-----------------------|:-------------------:|:-------------------------:|:-----------------:|:---------------------------:|:---------------:|
-| URL pacchetto esterno<sup>1</sup> |✔|✔|✔|✔|✔|
-| Distribuzione zip |✔|✔|✔| |✔|
-| Contenitore Docker | | | | |✔|
-| Distribuzione Web |✔|✔|✔| | |
-| Controllo del codice sorgente |✔|✔|✔| |✔|
-| Git locale<sup>1</sup> |✔|✔|✔| |✔|
-| Sincronizzazione cloud<sup>1</sup> |✔|✔|✔| |✔|
-| FTP<sup>1</sup> |✔|✔|✔| |✔|
-| Modifica del portale |✔|✔|✔| |✔<sup>2</sup>|
+| Tecnologia di distribuzione | Utilizzo di Windows | Windows Premium (anteprima) | Windows dedicato  | Consumo Linux | Linux Premium (anteprima) | Linux dedicato |
+|-----------------------|:-------------------:|:-------------------------:|:------------------:|:---------------------------:|:-------------:|:---------------:|
+| URL pacchetto esterno<sup>1</sup> |✔|✔|✔|✔|✔|✔|
+| Distribuzione zip |✔|✔|✔|✔|✔|✔|
+| Contenitore Docker | | | | |✔|✔|
+| Distribuzione Web |✔|✔|✔| | | |
+| Controllo del codice sorgente |✔|✔|✔| |✔|✔|
+| Git locale<sup>1</sup> |✔|✔|✔| |✔|✔|
+| Sincronizzazione cloud<sup>1</sup> |✔|✔|✔| |✔|✔|
+| FTP<sup>1</sup> |✔|✔|✔| |✔|✔|
+| Modifica del portale |✔|✔|✔| |✔<sup>2</sup>|✔<sup>2</sup>|
 
 <sup>1</sup> tecnologia di distribuzione che richiede la [sincronizzazione manuale del trigger](#trigger-syncing).  
 <sup>2</sup> la modifica del portale è abilitata solo per i trigger http e timer per le funzioni in Linux con piani Premium e dedicati.
@@ -58,7 +58,40 @@ Quando si modifica uno dei trigger, l'infrastruttura di funzioni deve essere in 
 * Inviare una richiesta HTTP post all' `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` utilizzo della [chiave master](functions-bindings-http-webhook.md#authorization-keys).
 * Inviare una richiesta HTTP POST a `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Sostituire i segnaposto con l'ID sottoscrizione, il nome del gruppo di risorse e il nome dell'app per le funzioni.
 
-## <a name="deployment-technology-details"></a>Dettagli sulla tecnologia di distribuzione 
+### <a name="remote-build"></a>Compilazione remota
+
+Funzioni di Azure può eseguire automaticamente le compilazioni sul codice ricevuto dopo le distribuzioni zip. Queste compilazioni hanno un comportamento leggermente diverso a seconda che l'app sia in esecuzione in Windows o Linux. Le compilazioni remote non vengono eseguite quando un'app è stata impostata in precedenza per l'esecuzione in modalità di [esecuzione del pacchetto](run-functions-from-deployment-package.md) . 
+
+> [!NOTE]
+> Se si verificano problemi con la compilazione remota, è possibile che l'app sia stata creata prima che la funzionalità venisse resa disponibile (1 agosto 2019). Provare a creare una nuova app per le funzioni.
+
+#### <a name="remote-build-on-windows"></a>Compilazione remota in Windows
+
+Tutte le app per le funzioni in esecuzione in Windows hanno una piccola app di gestione, il sito SCM (o [Kudu](https://github.com/projectkudu/kudu)). Questo sito gestisce gran parte della logica di distribuzione e compilazione per funzioni di Azure.
+
+Quando un'app viene distribuita in Windows, vengono eseguiti i comandi specifici `dotnet restore` dellaC#lingua, `npm install` ad esempio () o (JavaScript).
+
+#### <a name="remote-build-on-linux-preview"></a>Compilazione remota su Linux (anteprima)
+
+Per abilitare la compilazione remota in Linux, è necessario impostare le [impostazioni dell'applicazione](functions-how-to-use-azure-function-app-settings.md#settings)seguenti:
+
+* `ENABLE_ORYX_BUILD=true`
+* `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
+
+Quando le app vengono compilate in remoto in Linux, vengono [eseguite dal pacchetto di distribuzione](run-functions-from-deployment-package.md).
+
+> [!NOTE]
+> La compilazione remota nel piano Linux dedicato (servizio app) è attualmente supportata solo per node. js e Python.
+
+##### <a name="consumption-preview-plan"></a>Piano di utilizzo (anteprima)
+
+Le app per le funzioni di Linux in esecuzione nel piano a consumo non dispongono di un sito SCM/Kudu, che limita le opzioni di distribuzione. Tuttavia, le app per le funzioni in Linux in esecuzione nel piano a consumo supportano le compilazioni remote. Queste compilazioni Remote usano [Oryx](https://github.com/microsoft/Oryx).
+
+##### <a name="dedicated-and-premium-preview-plans"></a>Piani dedicati e Premium (anteprima)
+
+Le app per le funzioni eseguite in Linux nel [piano dedicato (servizio app)](functions-scale.md#app-service-plan) e nel [piano Premium](functions-scale.md#premium-plan) hanno anche un sito SCM/Kudu limitato, che a sua volta sfrutta i vantaggi offerti da [Oryx](https://github.com/microsoft/Oryx).
+
+## <a name="deployment-technology-details"></a>Dettagli sulla tecnologia di distribuzione
 
 In funzioni di Azure sono disponibili i metodi di distribuzione seguenti.
 
@@ -70,17 +103,25 @@ In funzioni di Azure sono disponibili i metodi di distribuzione seguenti.
 >
 >Se si usa l'archiviazione BLOB di Azure, usare un contenitore privato con una [firma di accesso condiviso (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) per concedere alle funzioni l'accesso al pacchetto. Ogni volta che l'applicazione viene riavviata, recupera una copia del contenuto. Il riferimento deve essere valido per la durata dell'applicazione.
 
->__Quando utilizzarlo:__ L'URL del pacchetto esterno è l'unico metodo di distribuzione supportato per funzioni di Azure in esecuzione in Linux nel piano a consumo. Quando si aggiorna il file del pacchetto a cui fa riferimento un'app per le funzioni, è necessario [sincronizzare manualmente i trigger](#trigger-syncing) per indicare ad Azure che l'applicazione è stata modificata.
+>__Quando utilizzarlo:__ L'URL del pacchetto esterno è l'unico metodo di distribuzione supportato per funzioni di Azure in esecuzione in Linux nel piano a consumo, se l'utente non vuole che si verifichi una compilazione remota. Quando si aggiorna il file del pacchetto a cui fa riferimento un'app per le funzioni, è necessario [sincronizzare manualmente i trigger](#trigger-syncing) per indicare ad Azure che l'applicazione è stata modificata.
 
 ### <a name="zip-deploy"></a>Distribuzione zip
 
-Usare la distribuzione zip per eseguire il push di un file con estensione zip che contiene l'app per le funzioni in Azure. Facoltativamente, è possibile impostare l'avvio dell'app in modalità di [esecuzione in base al pacchetto](run-functions-from-deployment-package.md) .
+Usare la distribuzione zip per eseguire il push di un file con estensione zip che contiene l'app per le funzioni in Azure. Facoltativamente, è possibile impostare l'avvio [dell'esecuzione dell'app dal pacchetto](run-functions-from-deployment-package.md)o specificare che si verifica una [compilazione remota](#remote-build) .
 
 >__Come usarlo:__ Eseguire la distribuzione usando lo strumento client preferito: [Vs code](functions-create-first-function-vs-code.md#publish-the-project-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure)o l'interfaccia della riga di comando di [Azure](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). Per distribuire manualmente un file con estensione zip nell'app per le funzioni, seguire le istruzioni in [distribuire da un file zip o un URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
->
->Quando si esegue la distribuzione tramite la distribuzione zip, è possibile impostare l'esecuzione dell'app in modalità di [esecuzione da pacchetto](run-functions-from-deployment-package.md) . Per impostare l'esecuzione dalla modalità pacchetto, impostare `WEBSITE_RUN_FROM_PACKAGE` il valore dell'impostazione `1`dell'applicazione su. Si consiglia la distribuzione di zip. Produce tempi di caricamento più rapidi per le applicazioni ed è il valore predefinito per VS Code, Visual Studio e l'interfaccia della riga di comando di Azure.
 
->__Quando utilizzarlo:__ Zip Deploy è la tecnologia di distribuzione consigliata per le funzioni in esecuzione in Windows e Linux nel piano Premium o dedicato.
+Per eseguire una distribuzione zip con una compilazione remota, usare il seguente comando [degli strumenti principali](functions-run-local.md) :
+
+```bash
+func azure functionapp publish <app name> --build remote
+```
+
+In alternativa, è possibile impostare VS Code per eseguire una compilazione remota durante la distribuzione aggiungendo il flag '' azureFunctions. scmDoBuildDuringDeployment '. Per informazioni su come aggiungere un flag a VS Code, leggere le istruzioni nel [wiki dell'estensione funzioni di Azure](https://github.com/microsoft/vscode-azurefunctions/wiki).
+
+>Quando si esegue la distribuzione tramite zip deploy, è possibile impostare l'applicazione per l' [esecuzione dal pacchetto](run-functions-from-deployment-package.md). Per eseguire dal pacchetto, impostare il `WEBSITE_RUN_FROM_PACKAGE` valore dell'impostazione dell' `1`applicazione su. Si consiglia la distribuzione di zip. Produce tempi di caricamento più rapidi per le applicazioni ed è il valore predefinito per VS Code, Visual Studio e l'interfaccia della riga di comando di Azure. 
+
+>__Quando utilizzarlo:__ Zip Deploy è la tecnologia di distribuzione consigliata per funzioni di Azure.
 
 ### <a name="docker-container"></a>Contenitore Docker
 
@@ -93,7 +134,7 @@ Usare la distribuzione zip per eseguire il push di un file con estensione zip ch
 >
 >Per eseguire la distribuzione in un'app esistente usando un contenitore personalizzato, in [Azure Functions Core Tools](functions-run-local.md)usare il [`func deploy`](functions-run-local.md#publish) comando.
 
->__Quando utilizzarlo:__ Usare l'opzione contenitore Docker quando è necessario un maggiore controllo sull'ambiente Linux in cui viene eseguita l'app per le funzioni. Questo meccanismo di distribuzione è disponibile solo per le funzioni in esecuzione su Linux in un piano di servizio app.
+>__Quando utilizzarlo:__ Usare l'opzione contenitore Docker quando è necessario un maggiore controllo sull'ambiente Linux in cui viene eseguita l'app per le funzioni. Questo meccanismo di distribuzione è disponibile solo per le funzioni in esecuzione su Linux.
 
 ### <a name="web-deploy-msdeploy"></a>Distribuzione Web (MSDeploy)
 
@@ -166,23 +207,7 @@ Nella tabella seguente sono illustrati i sistemi operativi e i linguaggi che sup
 
 ## <a name="deployment-slots"></a>Slot di distribuzione
 
-Quando si distribuisce l'app per le funzioni in Azure, è possibile eseguire la distribuzione in uno slot di distribuzione separato anziché eseguire direttamente la distribuzione nell'ambiente di produzione. Per ulteriori informazioni sugli slot di distribuzione, vedere [app Azure slot del servizio](../app-service/deploy-staging-slots.md).
-
-### <a name="deployment-slots-levels-of-support"></a>Livelli di supporto per gli slot di distribuzione
-
-Per gli slot di distribuzione sono disponibili due livelli di supporto:
-
-* **Disponibilità generale (GA)** : Completamente supportato e approvato per l'uso in produzione.
-* **Anteprima**: Non ancora supportato, ma si prevede di raggiungere lo stato di GA in futuro.
-
-| Sistema operativo/piano di hosting | Livello di supporto |
-| --------------- | ------ |
-| Utilizzo di Windows | Anteprima |
-| Windows Premium (anteprima) | Anteprima |
-| Windows dedicato | Disponibilità generale |
-| Consumo Linux | File modifiche disco non supportato |
-| Linux Premium (anteprima) | Anteprima |
-| Linux dedicato | Disponibilità generale |
+Quando si distribuisce l'app per le funzioni in Azure, è possibile eseguire la distribuzione in uno slot di distribuzione separato invece che direttamente nell'ambiente di produzione. Per ulteriori informazioni sugli slot di distribuzione, vedere la documentazione relativa agli [slot di distribuzione di funzioni di Azure](../app-service/deploy-staging-slots.md) per informazioni dettagliate.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
