@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
 ms.openlocfilehash: 78d14add09a89b7ec4d4844a12ffa0434d714b3a
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 08/15/2019
 ms.locfileid: "67709091"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Disponibilità elevata di SAP HANA in macchine virtuali di Azure su SUSE Linux Enterprise Server
@@ -71,10 +71,10 @@ Leggere prima di tutto i documenti e le note SAP seguenti:
 * La nota SAP [401162] contiene informazioni su come evitare l'errore "indirizzo già in uso" quando si configura la replica di sistema HANA.
 * [Community WIKI SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes), che contiene tutte le note SAP necessarie per Linux.
 * [SAP HANA certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) (Piattaforme IaaS certificate per SAP HANA)
-* [Pianificazione di macchine virtuali di Azure e implementazione per SAP in Linux][planning-guide] Guida.
+* Guida alla [pianificazione e implementazione di macchine virtuali di Azure per SAP in Linux][planning-guide] .
 * [Distribuzione di macchine virtuali di Azure per SAP in Linux][deployment-guide] (questo articolo).
-* [Distribuzione DBMS di macchine virtuali di Azure per SAP in Linux][dbms-guide] Guida.
-* [SUSE Linux Enterprise Server per SAP Applications 12 SP3 migliore guide sulle procedure consigliate][sles-for-sap-bp]
+* Guida alla [distribuzione DBMS di macchine virtuali di Azure per SAP in Linux][dbms-guide] .
+* [SUSE Linux Enterprise Server per le guide alle procedure consigliate di SAP Applications 12 SP3][sles-for-sap-bp]
   * Configurazione di un'infrastruttura ottimizzata per le prestazioni per la replica di sistema SAP HANA (SLES for SAP Applications 12 SP1). La guida contiene tutte le informazioni necessarie per configurare la replica di sistema SAP HANA per lo sviluppo locale. Usare la guida per le indicazioni di base.
   * Configurazione di un'infrastruttura ottimizzata per i costi per la replica di sistema SAP HANA (SLES for SAP Applications 12 SP1)
 
@@ -101,8 +101,8 @@ Azure Marketplace contiene un'immagine per SUSE Linux Enterprise Server for SAP 
 È possibile usare uno dei modelli di avvio rapido di GitHub per distribuire tutte le risorse necessarie. Il modello consente di distribuire le macchine virtuali, il servizio di bilanciamento del carico, il set di disponibilità e così via.
 Per distribuire il modello, seguire questi passaggi:
 
-1. Aprire il [modello di database][template-multisid-db] or the [converged template][template-converged] on the Azure portal. 
-    The database template creates the load-balancing rules for a database only. The converged template also creates the load-balancing rules for an ASCS/SCS and ERS (Linux only) instance. If you plan to install an SAP NetWeaver-based system and you want to install the ASCS/SCS instance on the same machines, use the [converged template][template-converged].
+1. Aprire il [modello di database][template-multisid-db] o il [modello convergente][template-converged] nel portale di Azure. 
+    Il modello di database crea le regole di bilanciamento del carico solo per un database. Il modello con convergenza crea anche le regole di bilanciamento del carico per un'istanza di ASCS/SCS ed ERS (solo Linux). Se si prevede di installare un sistema basato su SAP NetWeaver e si vuole installare l'istanza di ASC/SCS sulle stesse macchine, usare il [modello convergente][template-converged].
 
 1. Immettere i parametri seguenti:
     - **Sap System ID**: Immettere l'ID del sistema SAP che si vuole installare. L'ID viene usato come prefisso per le risorse distribuite.
@@ -111,7 +111,7 @@ Per distribuire il modello, seguire questi passaggi:
     - **Tipo di database**: Selezionare **HANA**.
     - **Sap System Size** (Dimensioni sistema SAP): immettere il numero di istanze SAP fornite dal nuovo sistema. Se non si è certi del numero di istanze SAP necessarie per il sistema, chiedere all'integratore di sistemi o al partner tecnologico SAP.
     - **Disponibilità del sistema**: Selezionare **HA**.
-    - **Admin Username and Admin Password** (Nome utente e password amministratore): Viene creato un nuovo utente che può essere usato per accedere alla macchina.
+    - **Admin Username and Admin Password** (Nome utente e password amministratore): Viene creato un nuovo utente che può essere usato per accedere al computer.
     - **New Or Existing Subnet** (Subnet nuova o esistente): Determina se devono essere create una nuova rete virtuale e una nuova subnet o deve essere usata una subnet esistente. Se è già presente una rete virtuale connessa alla rete locale, selezionare **Esistente**.
     - **ID subnet**: Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID in genere ha il formato **/subscriptions/\<ID sottoscrizione>/resourceGroups/\<nome gruppo di risorse>/providers/Microsoft.Network/virtualNetworks/\<nome rete virtuale>/subnets/\<nome subnet>** .
 
@@ -191,11 +191,11 @@ Per distribuire il modello, seguire questi passaggi:
    1. Selezionare **OK**.
    1. Ripetere questi passaggi per le porte 3**03**41 e 3**03**42.
 
-Per altre informazioni sulle porte necessarie per SAP HANA, consultare il capitolo [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) nel [i database Tenant di SAP HANA](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) Guida o [nota SAP 2388694][2388694].
+Per ulteriori informazioni sulle porte necessarie per SAP HANA, vedere il capitolo [connessioni ai database tenant](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) nella Guida ai [database tenant di SAP Hana](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) o la [Nota SAP 2388694][2388694].
 
 > [!IMPORTANT]
-> Non abilitare TCP timestamp sulle macchine virtuali di Azure posizionato dietro bilanciamento del carico di Azure. Abilitazione di TCP timestamp causerà i probe di integrità errore. Impostare il parametro **net.ipv4.tcp_timestamps** al **0**. Per informazioni dettagliate, vedere [probe di integrità di Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
-> Vedere anche SAP nota [2382421](https://launchpad.support.sap.com/#/notes/2382421). 
+> Non abilitare i timestamp TCP nelle macchine virtuali di Azure che si trovano dietro Azure Load Balancer. Se si abilitano i timestamp TCP, i probe di integrità avranno esito negativo. Impostare il parametro **net. IPv4. TCP _timestamps** su **0**. Per informazioni dettagliate, vedere [Load Balancer Probe di integrità](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Vedere anche la nota SAP [2382421](https://launchpad.support.sap.com/#/notes/2382421). 
 
 ## <a name="create-a-pacemaker-cluster"></a>Creare un cluster Pacemaker
 
@@ -347,7 +347,7 @@ Per installare la replica di sistema SAP HANA, seguire il capitolo 4 della guida
 
 1. **[T]** Aggiornare l'agente host SAP.
 
-   Scaricare l'archivio dell'agente Host SAP più recente dal [SAP Software Center][sap-swcenter] ed eseguire il comando seguente per aggiornare l'agente. Sostituire il percorso dell'archivio in modo da puntare al file scaricato:
+   Scaricare l'archivio più recente dell'agente host SAP da [SAP Software Center][sap-swcenter] ed eseguire il comando seguente per aggiornare l'agente. Sostituire il percorso dell'archivio in modo da puntare al file scaricato:
 
    <pre><code>sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive &lt;path to SAP Host Agent SAR&gt;
    </code></pre>
@@ -364,14 +364,14 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
    Se si usa SAP HANA 2.0 o MDC, creare un database tenant per il sistema SAP NetWeaver. Sostituire **NW1** con il SID del sistema SAP.
 
-   Eseguire il comando seguente come < hanasid\>adm:
+   Eseguire il comando seguente come < hanasid\>ADM:
 
    <pre><code>hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
    </code></pre>
 
 1. **[1]** Configurare la replica di sistema nel primo nodo:
 
-   Eseguire il backup di database come < hanasid\>adm:
+   Eseguire il backup dei database come <\>hanasid ADM:
 
    <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
    hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
@@ -391,7 +391,7 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
 1. **[2]** Configurare la replica di sistema nel secondo nodo:
     
-   Registrare il secondo nodo per avviare la replica di sistema. Eseguire il comando seguente come < hanasid\>adm:
+   Registrare il secondo nodo per avviare la replica di sistema. Eseguire il comando seguente come < hanasid\>ADM:
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
@@ -417,7 +417,7 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
 1. **[T]** Creare una voce di archivio chiavi.
 
-   Eseguire il comando seguente come radice per creare una nuova voce dell'archivio chiavi:
+   Eseguire il comando seguente come root per creare una nuova voce dell'archivio chiavi:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
@@ -425,7 +425,7 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
 1. **[1]** Eseguire il backup del database.
 
-   Il backup dei database come utente root:
+   Eseguire il backup dei database come radice:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -d SYSTEMDB -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
@@ -438,7 +438,7 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
 1. **[1]** Configurare la replica di sistema nel primo nodo.
 
-   Creare il sito primario come < hanasid\>adm:
+   Creare il sito primario come < hanasid\>ADM:
 
    <pre><code>su - <b>hdb</b>adm
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
@@ -446,7 +446,7 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
 1. **[2]** Configurare la replica di sistema nel nodo secondario.
 
-   Registrare il sito secondario come < hanasid\>adm:
+   Registrare il sito secondario come < hanasid\>ADM:
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
@@ -688,12 +688,12 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 > [!IMPORTANT]
 > Assicurarsi che il sistema operativo selezionato sia dotato di certificazione SAP per SAP HANA sugli specifici tipi di macchina virtuale in uso. Per un elenco dei tipi di macchina virtuale certificati per SAP HANA e delle versioni di sistema operativo correlate, vedere l'elenco delle [piattaforme IaaS certificate per SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Fare clic su ogni voce presente nell'elenco dei tipi di macchina virtuale per ottenere l'elenco completo delle versioni di sistema operativo supportate da SAP HANA per lo specifico tipo di VM.
 
-Eseguire tutti i test case elencati nella guida allo scenario di ottimizzazione delle prestazioni della replica di sistema SAP HANA o dello scenario di ottimizzazione dei costi della replica di sistema SAP HANA, a seconda del caso d'uso. È possibile trovare le guide sul [SLES per SAP best pagina consigliate][sles-for-sap-bp].
+Eseguire tutti i test case elencati nella guida allo scenario di ottimizzazione delle prestazioni della replica di sistema SAP HANA o dello scenario di ottimizzazione dei costi della replica di sistema SAP HANA, a seconda del caso d'uso. È possibile trovare le guide nella pagina relativa alle [procedure consigliate per SLES per SAP][sles-for-sap-bp].
 
 I test seguenti sono una copia delle descrizioni dei test della guida di SUSE Linux Enterprise Server for SAP Applications 12 SP1 per lo scenario di ottimizzazione delle prestazioni della replica di sistema SAP HANA. Per una versione aggiornata, fare sempre riferimento alla guida. Assicurarsi sempre che HANA sia sincronizzato prima di avviare il test e che la configurazione di Pacemaker sia corretta.
 
 Nelle descrizioni dei test seguenti si presuppone che PREFER_SITE_TAKEOVER="true" e AUTOMATED_REGISTER="false".
-NOTA:  i test seguenti sono progettati per essere eseguiti in sequenza e dipendono dal risultato dei test precedenti.
+NOTA: i test seguenti sono progettati per essere eseguiti in sequenza e dipendono dal risultato dei test precedenti.
 
 1. TEST 1: ARRESTARE IL DATABASE PRIMARIO NEL NODO 1
 
@@ -709,7 +709,7 @@ NOTA:  i test seguenti sono progettati per essere eseguiti in sequenza e dipendo
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-   Eseguire i comandi seguenti come < hanasid\>adm nel nodo hn1-db-0:
+   Eseguire i comandi seguenti come < hanasid\>ADM sul nodo HN1-DB-0:
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -750,7 +750,7 @@ NOTA:  i test seguenti sono progettati per essere eseguiti in sequenza e dipendo
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
    </code></pre>
 
-   Eseguire i comandi seguenti come < hanasid\>adm nel nodo hn1-db-1:
+   Eseguire i comandi seguenti come < hanasid\>ADM sul nodo HN1-DB-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -791,7 +791,7 @@ NOTA:  i test seguenti sono progettati per essere eseguiti in sequenza e dipendo
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-   Eseguire i comandi seguenti come < hanasid\>adm nel nodo hn1-db-0:
+   Eseguire i comandi seguenti come < hanasid\>ADM sul nodo HN1-DB-0:
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -832,7 +832,7 @@ NOTA:  i test seguenti sono progettati per essere eseguiti in sequenza e dipendo
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
    </code></pre>
 
-   Eseguire i comandi seguenti come < hanasid\>adm nel nodo hn1-db-1:
+   Eseguire i comandi seguenti come < hanasid\>ADM sul nodo HN1-DB-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -975,7 +975,7 @@ NOTA:  i test seguenti sono progettati per essere eseguiti in sequenza e dipendo
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-   Eseguire i comandi seguenti come < hanasid\>adm nel nodo hn1-db-1:
+   Eseguire i comandi seguenti come < hanasid\>ADM sul nodo HN1-DB-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -1012,7 +1012,7 @@ NOTA:  i test seguenti sono progettati per essere eseguiti in sequenza e dipendo
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-   Eseguire i comandi seguenti come < hanasid\>adm nel nodo hn1-db-1:
+   Eseguire i comandi seguenti come < hanasid\>ADM sul nodo HN1-DB-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -1084,7 +1084,7 @@ NOTA:  i test seguenti sono progettati per essere eseguiti in sequenza e dipendo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Pianificazione di macchine virtuali di Azure e implementazione per SAP][planning-guide]
+* [Pianificazione e implementazione di macchine virtuali di Azure per SAP][planning-guide]
 * [Distribuzione di macchine virtuali di Azure per SAP][deployment-guide]
 * [Distribuzione DBMS di macchine virtuali di Azure per SAP][dbms-guide]
 * Per informazioni su come configurare la disponibilità elevata e pianificare il ripristino di emergenza di SAP HANA in Azure (istanze Large), vedere [Disponibilità elevata e ripristino di emergenza di SAP HANA (istanze Large) in Azure](hana-overview-high-availability-disaster-recovery.md)
