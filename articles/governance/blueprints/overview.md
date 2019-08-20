@@ -7,12 +7,12 @@ ms.date: 02/08/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 5f403ee7d2bf4a0730ceaa9b5a95b3e7b11f3695
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: be7e3043172f988a429bbf02dec08bfbbc1a70b7
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428782"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848430"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Panoramica del servizio Azure Blueprints
 
@@ -54,7 +54,7 @@ Un progetto è costituito da _artefatti_. Azure Blueprint supporta attualmente l
 
 |Risorsa  | Opzioni della gerarchia| DESCRIZIONE  |
 |---------|---------|---------|
-|Gruppi di risorse | Sottoscrizione | Creare un nuovo gruppo di risorse per l'uso da parte di altri artefatti nel progetto.  Questi gruppi di risorse segnaposto consentono di organizzare le risorse strutturandole esattamente nel modo desiderato e forniscono un limitatore di ambito per i criteri e gli artefatti di assegnazione dei ruoli inclusi, nonché per i modelli di Azure Resource Manager. |
+|Gruppi di risorse | Subscription | Creare un nuovo gruppo di risorse per l'uso da parte di altri artefatti nel progetto.  Questi gruppi di risorse segnaposto consentono di organizzare le risorse strutturandole esattamente nel modo desiderato e forniscono un limitatore di ambito per i criteri e gli artefatti di assegnazione dei ruoli inclusi, nonché per i modelli di Azure Resource Manager. |
 |Modello di Azure Resource Manager | Sottoscrizione, gruppo di risorse | I modelli vengono usati per creare ambienti complessi. Esempi di ambienti complessi sono: una farm di SharePoint, la configurazione dello stato di Automazione di Azure o un'area di lavoro Log Analytics. |
 |Assegnazione dei criteri | Sottoscrizione, gruppo di risorse | Consente di assegnare criteri o iniziative alla sottoscrizione a cui è assegnato il progetto. I criteri o le iniziative devono trovarsi nell'ambito della posizione della definizione di progetto. Se i criteri o le iniziative includono dei parametri, questi vengono assegnati al momento della creazione del progetto o durante l'assegnazione dello stesso. |
 |Assegnazione di ruolo | Sottoscrizione, gruppo di risorse | Aggiungere un utente o gruppo esistente a un ruolo predefinito per assicurarsi che gli utenti corretti possano sempre accedere correttamente alle risorse. Le assegnazioni di ruolo possono essere definite per l'intera sottoscrizione o annidate in un gruppo di risorse specifiche incluso nel progetto. |
@@ -79,7 +79,7 @@ Quando si crea un progetto per la prima volta, questo viene considerato in modal
 
 ## <a name="blueprint-assignment"></a>Assegnazione progetto
 
-Ciascuna **versione** **pubblicata** di un progetto può essere assegnata a una sottoscrizione esistente. Nel portale il progetto imposta la **versione** **pubblicata** più di recente come predefinita. Se sono presenti parametri dell'artefatto (o parametri di progetto), questi vengono definiti durante il processo di assegnazione.
+Ogni **Versione** **pubblicata** di un progetto può essere assegnata (con un nome di lunghezza massima di 90 caratteri) a una sottoscrizione esistente. Nel portale il progetto imposta la **versione** **pubblicata** più di recente come predefinita. Se sono presenti parametri dell'artefatto (o parametri di progetto), questi vengono definiti durante il processo di assegnazione.
 
 ## <a name="permissions-in-azure-blueprints"></a>Autorizzazioni in Azure Blueprint
 
@@ -110,6 +110,17 @@ Tutte le autorizzazioni precedenti sono incluse nel ruolo **Proprietario**. Il r
 
 > [!NOTE]
 > Se si utilizza un'identità gestita assegnata al sistema, per poter abilitare la distribuzione l'entità servizio per Azure Blueprint richiede il ruolo **proprietario** nella sottoscrizione assegnata. Se si usa il portale, questo ruolo viene automaticamente concesso e revocato per la distribuzione. Se si usa l'API REST, questo ruolo deve essere concesso manualmente, ma viene comunque revocato automaticamente al termine della distribuzione. Se si utilizza un'identità gestita assegnata dall'utente, solo l'utente che crea l'assegnazione del progetto ha bisogno delle autorizzazioni **proprietario**.
+
+## <a name="naming-limits"></a>Limiti di denominazione
+
+Di seguito è riportato un elenco delle limitazioni previste per determinati campi:
+
+|Oggetto|Campo|Caratteri consentiti|Max. Length|
+|-|-|-|-|
+|Progetto|NOME|lettere, numeri, trattini e punti|48|
+|Progetto|Versione|lettere, numeri, trattini e punti|20|
+|Assegnazione progetto|NOME|lettere, numeri, trattini e punti|90|
+|Artefatto del progetto|NOME|lettere, numeri, trattini e punti|48|
 
 ## <a name="video-overview"></a>Video introduttivo
 

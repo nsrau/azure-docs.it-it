@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
-ms.openlocfilehash: 4e8bdc63daa7450a88c2fcf4b7e878e18cea260d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: ac77f0b6a1d90fd78db64618c1e03ade198a67c0
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180515"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882128"
 ---
 ## <a name="create-an-azure-signalr-service-instance"></a>Creare un'istanza del servizio Azure SignalR
 
@@ -34,6 +34,7 @@ L'applicazione si connette a un'istanza del servizio SignalR in Azure.
     | **Posizione** | Stati Uniti occidentali | Scegliere [un'area](https://azure.microsoft.com/regions/) nelle vicinanze. |
     | **Piano tariffario** | Gratuito | Provare il servizio Azure SignalR gratuitamente. |
     | **Unità: conteggio** |  Non applicabile | Numero di unità specifica il numero di connessioni che può accettare l'istanza del servizio SignalR. È configurabili solo nel livello Standard. |
+    | **Modalità di servizio** |  Senza server | Per l'uso con Funzioni di Azure o l'API REST. |
 
     ![Creare il servizio SignalR](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-create.png)
 

@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/21/2019
-ms.openlocfilehash: c5b423fca3e0ec116fceefb6867189f4f8413b96
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
-ms.translationtype: HT
+ms.openlocfilehash: 67dda1ab56c6a706a9fdbef45fabdae9167ffe2b
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856081"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616332"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Creare e accedere ai set di impostazioni (anteprima) in Azure Machine Learning
 
@@ -24,13 +24,11 @@ In questo articolo si apprenderà come creare set di dati Azure Machine Learning
 
 Con Azure Machine Learning set di impostazioni è possibile: 
 
-* **Mantieni una sola copia dei dati nello spazio di archiviazione a** cui fanno riferimento i set di dati
+* **Conservare una sola copia dei dati nella risorsa di archiviazione a** cui fanno riferimento i set di dati. 
 
-* **Analizzare i dati** tramite l'analisi esplorativa dei dati 
+* **Accedere facilmente ai dati durante il training del modello** senza doversi preoccupare della stringa di connessione o del percorso dati.
 
-* **Accedere facilmente ai dati durante il training del modello** senza doversi preoccupare della stringa di connessione o del percorso dati
-
-* **Condividere i dati & collaborare** con altri utenti
+* **Condividere i dati & collaborare** con altri utenti.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -43,48 +41,24 @@ Per creare e usare i set di impostazioni, è necessario:
 * [SDK Azure Machine Learning per Python installato](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), che include il pacchetto azureml-DataSets.
 
 > [!Note]
-> Alcune classi del set di dati (anteprima) presentano dipendenze dal pacchetto [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) (GA). Per gli utenti Linux queste classi sono supportate solo nelle distribuzioni seguenti:  Red Hat Enterprise Linux, Ubuntu, Fedora e CentOS.
+> Alcune classi del set di dati (anteprima) presentano dipendenze dal pacchetto [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) . Per gli utenti Linux queste classi sono supportate solo nelle distribuzioni seguenti:  Red Hat Enterprise Linux, Ubuntu, Fedora e CentOS.
 
-## <a name="data-formats"></a>Formati di dati
+## <a name="dataset-types"></a>Tipi di set di dati
+I set di impostazioni sono suddivisi in vari tipi in base al modo in cui gli utenti li utilizzano nel training. Attualmente sono supportati TabularDatasets che rappresentano i dati in formato tabulare analizzando il file o l'elenco di file fornito. Questo consente di materializzare i dati in un frame di dati Pandas. TabularDataset può essere creato da file CSV, TSV, parquet, risultati di query SQL e così via. Per un elenco completo, consultare la documentazione.
 
-È possibile creare un set di dati Azure Machine Learning dai formati seguenti:
-+ [delimited](/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-delimited-files-path--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---encoding--fileencoding-utf8--0---quoting-false--infer-column-types-true--skip-rows-0--skip-mode--skiplinesbehavior-no-rows--0---comment-none--include-path-false--archive-options-none--partition-format-none-)
-+ [json](/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-json-files-path--encoding--fileencoding-utf8--0---flatten-nested-arrays-false--include-path-false--partition-format-none-)
-+ [Excel](/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-excel-files-path--sheet-name-none--use-column-headers-false--skip-rows-0--include-path-false--infer-column-types-true--partition-format-none-)
-+ [Parquet](/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-parquet-files-path--include-path-false--partition-format-none-)
-+ [dataframe Pandas](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-pandas-dataframe-dataframe--path-none--in-memory-false-)
-+ [SQL query](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-sql-query-data-source--query-)
-+ [binary](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-binary-files-path-)
+Per altre informazioni sulle future modifiche alle API, vedere [che cos'è Azure Machine Learning servizio?](https://aka.ms/tabular-dataset) 
 
 ## <a name="create-datasets"></a>Creare set di dati 
 
 Creando un set di dati, si crea un riferimento al percorso dell'origine dati, insieme a una copia dei relativi metadati. I dati rimangono nella posizione esistente, pertanto non è previsto alcun costo aggiuntivo per l'archiviazione.
 
-### <a name="create-from-local-files"></a>Crea da file locali
-
-Caricare i file dal computer locale specificando il percorso del file o della cartella [`auto_read_files()`](/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#auto-read-files-path--include-path-false--partition-format-none-) con il metodo `Dataset` della classe.  Questo metodo esegue i passaggi seguenti senza richiedere di specificare il tipo di file o gli argomenti di analisi:
-
-* Inferenza e impostazione del delimitatore.
-* I record vuoti verranno ignorati all'inizio del file.
-* Deduzione e impostazione della riga di intestazione.
-* Deduzione e conversione di tipi di dati di colonna.
-
-```Python
-from azureml.core.dataset import Dataset
-
-dataset = Dataset.auto_read_files('./data/crime.csv')
-```
-
-In alternativa, usare le funzioni specifiche del file per controllare in modo esplicito l'analisi del file. 
-
-
-### <a name="create-from-azure-datastores"></a>Crea da archivi dati di Azure
+Affinché i dati siano accessibili da parte del servizio Azure Machine Learning, è necessario creare i set di dati da percorsi in [archivi dati di Azure](how-to-access-data.md) o URL Web pubblici.
 
 Per creare set di dati da un [archivio dati di Azure](how-to-access-data.md):
 
 * Verificare di avere `contributor` o `owner` accedere all'archivio dati di Azure registrato.
 
-* Creare il set di dati facendo riferimento a un percorso nell'archivio dati 
+* Creare il set di dati facendo riferimento a un percorso nell'archivio dati.
 
 ```Python
 from azureml.core.workspace import Workspace
@@ -97,54 +71,91 @@ datastore_name = 'your datastore name'
 workspace = Workspace.from_config()
 
 # retrieve an existing datastore in the workspace by name
-dstore = Datastore.get(workspace, datastore_name)
+datastore = Datastore.get(workspace, datastore_name)
 ```
+### <a name="create-tabulardatasets"></a>Crea TabularDatasets
 
-Usare il metodo `from_delimited_files()` per leggere i file delimitati da un [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) e creare un set di dati non registrato.
+Usare il `from_delimited_files()` metodo sulla `TabularDatasetFactory` classe per leggere i file in formato CSV o TSV e creare un TabularDataset non registrato. Se si esegue la lettura da più file, i risultati verranno aggregati in una rappresentazione tabulare.
 
 ```Python
-# create an in-memory Dataset on your local machine
-dataset = Dataset.from_delimited_files(dstore.path('data/src/crime.csv'))
+# create a TabularDataset from multiple paths in datastore
+datastore_paths = [
+                  (datastore, 'weather/2018/11.csv'),
+                  (datastore, 'weather/2018/12.csv'),
+                  (datastore, 'weather/2019/*.csv')
+                 ]
+weather_ds = Dataset.Tabular.from_delimited_files(path=datastore_paths)
 
-# returns the first 5 rows of the Dataset as a pandas Dataframe.
-dataset.head(5)
+# create a TabularDataset from a delimited file behind a public web url
+web_path ='https://dprepdata.blob.core.windows.net/demo/Titanic.csv'
+titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path)
+
+# preview the first 3 rows of titanic_ds
+titanic_ds.take(3).to_pandas_dataframe()
 ```
+
+| |PassengerId|Rimasti|Pclass|NOME|Sesso|Tempo di risoluzione|SibSp|Parch|Ticket|Tariffe|Abitacolo|Intrapreso
+-|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
+0|1|0|3|Braund, Mr. Owen Harris|male|22,0|1|0|A/5 21171|7,2500||D
+1|2|1|1|Cumings, Mrs. John Bradley (Florence Briggs th...|female|38,0|1|0|PC 17599|71,2833|C85|C
+2|3|1|3|Heikkinen, Miss. Laina|female|26,0|0|0|STON/O2. 3101282|7,9250||D
 
 ## <a name="register-datasets"></a>Registrare i set di impostazioni
 
 Per completare il processo di creazione, registrare i set di impostazioni con l'area di lavoro:
 
-Usare il [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) metodo per registrare i set di elementi nell'area di lavoro in modo che possano essere condivisi con altri utenti e riutilizzati in diversi esperimenti.
+Usare il `register()` metodo per registrare i set di elementi nell'area di lavoro in modo che possano essere condivisi con altri utenti e riutilizzati in diversi esperimenti.
 
 ```Python
-dataset = dataset.register(workspace = workspace,
-                           name = 'dataset_crime',
-                           description = 'Training data',
-                           exist_ok = False
-                           )
+titanic_ds = titanic_ds.register(workspace = workspace,
+                                 name = 'titanic_ds',
+                                 description = 'titanic training data')
 ```
 
->[!NOTE]
-> Se `exist_ok = False` (impostazione predefinita) e si tenta di registrare un set di dati con lo stesso nome di un altro, si verifica un errore. Impostare su `True` per sovrascrivere esistente.
+## <a name="version-datasets"></a>Set di impostazioni di versione
 
-## <a name="access-data-in-datasets"></a>Accedere ai dati nei set di dati
-
-I set di impostazioni registrati sono accessibili in locale e in remoto nei cluster di calcolo come il Azure Machine Learning calcolo. Per accedere al set di dati registrato tra gli esperimenti, usare il codice seguente per ottenere l'area di lavoro e il set di dati registrato in base al nome.
+È possibile registrare un nuovo set di dati con lo stesso nome creando una nuova versione. La versione del set di dati è un modo per aggiungere segnalibri allo stato dei dati, in modo da poter applicare una versione specifica del set di dati per la sperimentazione o la riproduzione futura. Scenari tipici da considerare per il controllo delle versioni: 
+* Quando sono disponibili nuovi dati per la ripetizione del training.
+* Quando si applicano approcci diversi per la preparazione dei dati o la progettazione di funzionalità.
 
 ```Python
-workspace = Workspace.from_config()
+# create a TabularDataset from new Titanic training data
+web_paths = [
+            'https://dprepdata.blob.core.windows.net/demo/Titanic.csv',
+            'https://dprepdata.blob.core.windows.net/demo/Titanic2.csv'
+           ]          
+titanic_ds = Dataset.Tabular.from_delimited_files(path=web_paths)
 
-# See list of datasets registered in workspace.
-print(Dataset.list(workspace))
+# create a new version of titanic_ds
+titanic_ds = titanic_ds.register(workspace = workspace,
+                                 name = 'titanic_ds',
+                                 description = 'new titanic training data',
+                                 create_new_version = True)
+```
 
-# Get dataset by name
-dataset = Dataset.get(workspace, 'dataset_crime')
 
-# Load data into pandas DataFrame
-dataset.to_pandas_dataframe()
+## <a name="access-your-data-during-training"></a>Accedi ai dati durante il training
+
+I set di impostazioni registrati sono accessibili in locale e in remoto nei cluster di calcolo come il Azure Machine Learning calcolo. Per accedere al set di dati registrato tra gli esperimenti, usare il codice seguente per ottenere l'area di lavoro e il set di dati registrato in base al nome. Per `get_by_name` impostazione predefinita, `Dataset` il metodo della classe restituisce la versione più recente del set di dati registrato con l'area di lavoro.
+
+```Python
+%%writefile $script_folder/train.py
+
+from azureml.core import Dataset, Run
+
+run = Run.get_context()
+workspace = run.experiment.workspace
+
+dataset_name = 'titanic_ds'
+
+# Get a dataset by name
+titanic_ds = Dataset.get_by_name(workspace=workspace, name=dataset_name)
+
+# Load a TabularDataset into pandas DataFrame
+df = titanic_ds.to_pandas_dataframe()
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Esplorare e preparare i set di impostazioni](how-to-explore-prepare-data.md).
-* Per un esempio dell'uso dei set di impostazioni, vedere i [notebook di esempio](https://aka.ms/dataset-tutorial).
+* USA Machine Learning automatizzato per eseguire il [training con TabularDatasets](https://aka.ms/automl-dataset).
+* Per altri esempi di training con i set di impostazioni, vedere i [notebook di esempio](https://aka.ms/dataset-tutorial).

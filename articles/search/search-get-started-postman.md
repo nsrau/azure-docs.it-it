@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 07/11/2019
 ms.author: heidist
-ms.openlocfilehash: 5ad1708475200475669c5de8f4fbd316f04ebd04
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e3912e90762977bc801279fde481fc26516e51a6
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840797"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882649"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-postman-using-rest-apis"></a>Guida introduttiva: Creare un indice di Ricerca di Azure in Postman con le API REST
 > [!div class="op_single_selector"]
@@ -80,7 +80,7 @@ Per eseguire questa operazione in Postman:
 
 1. Modificare il verbo in **PUT**.
 
-2. Copiare questo URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels?api-version=2019-05-06`.
+2. Copiare questo URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06`.
 
 3. Specificare la definizione dell'indice (di seguito è disponibile il codice pronto per la copia) nel corpo della richiesta.
 
@@ -298,6 +298,7 @@ Se si usa un servizio gratuito, tenere presente che il numero di indicizzatori e
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-I client REST sono molto utili per l'esplorazione improvvisata, ma ora che si conosce il funzionamento delle API REST, è possibile precedere con il codice. Per il passaggio successivo, vedere il collegamento seguente:
+Ora che si è appreso come eseguire le attività principali, è possibile procedere con chiamate ad API REST aggiuntive per funzionalità più avanzate, ad esempio gli indicizzatori o la [configurazione di una pipeline di ricerca cognitiva](cognitive-search-tutorial-blob.md). Per il passaggio successivo, vedere il collegamento seguente:
 
-+ [Guida introduttiva: Creare un indice con .NET SDK](search-get-started-dotnet.md)
+> [!div class="nextstepaction"]
+> [Esercitazione REST: indicizzare e cercare dati semistrutturati (BLOB JSON) in Ricerca di Azure](search-semi-structured-data.md)

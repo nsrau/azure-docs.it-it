@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 978b56f5c38a154c79544c7deb5d49396b1deff9
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 0d67385975db13539c28745eede4fb288a0daedd
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688854"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989132"
 ---
 # <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-c"></a>Guida introduttiva: Creare un'app Web che consenta di avviare lo strumento di lettura immersiva (C#)
 
@@ -223,5 +223,7 @@ Quando si fa clic sul pulsante "Strumento di lettura immersiva", verrà avviato 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Accedere all'[esercitazione](./tutorial.md) per scoprire quali altri operazioni è possibile eseguire con Immersive Reader SDK
+* Visualizzare l'[esercitazione per Node.js](./tutorial-nodejs.md) per scoprire quali altre attività è possibile eseguire con Immersive Reader SDK usando Node.js
+* Visualizzare l'[esercitazione per Python](./tutorial-python.md) per scoprire quali altre attività è possibile eseguire con Immersive Reader SDK usando Python
+* Visualizzare l'[esercitazione per iOS](./tutorial-ios-picture-immersive-reader.md) per scoprire quali altre attività è possibile eseguire con Immersive Reader SDK usando Swift
 * Esplorare [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) e le [informazioni di riferimento su Immersive Reader SDK](./reference.md)

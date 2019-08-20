@@ -11,14 +11,14 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 0be78b444c9af9c5c0a818d790982670d2b68ee8
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 2c01172bf22fb286f790543b02a4c1e482b05fe7
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477610"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850556"
 ---
-# <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Configurare una macchina virtuale Linux con Desired State Configuration
+# <a name="configure-a-virtual-machine-with-desired-state-configuration"></a>Configurare una macchina virtuale con Desired State Configuration
 
 Abilitando DSC (Desired State Configuration), è possibile gestire e monitorare le configurazioni dei server Windows e Linux. Si possono identificare o correggere automaticamente le configurazioni che deviano dalla configurazione desiderata. Questa guida introduttiva illustra l'onboarding di una VM Linux e la distribuzione di uno stack LAMP con DSC.
 

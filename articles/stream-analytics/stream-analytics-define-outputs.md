@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: a0da13e82811d500dee50c2231500245c7e011a6
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
-ms.translationtype: HT
+ms.openlocfilehash: 3b242ff8ee3e635493cd501cf37ffc7c78a57d91
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383440"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563312"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Informazioni sugli output di Analisi di flusso di Azure
 
@@ -34,7 +34,7 @@ Azure Data Lake Storage output di analisi di flusso non è attualmente disponibi
 
 La tabella seguente elenca i nomi delle proprietà e le relative descrizioni per configurare l'output di Data Lake Storage generazione 1.   
 
-| Nome proprietà | Descrizione |
+| Nome proprietà | DESCRIZIONE |
 | --- | --- |
 | Alias di output | Nome descrittivo usato nelle query per indirizzare l'output della query a Data Lake Store. |
 | Sottoscrizione | Sottoscrizione che contiene l'account Azure Data Lake Storage. |
@@ -54,7 +54,7 @@ La tabella seguente elenca i nomi delle proprietà e le relative descrizioni per
 
 La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per la creazione di un output del database SQL.
 
-| Nome proprietà | Descrizione |
+| Nome proprietà | DESCRIZIONE |
 | --- | --- |
 | Alias di output |Nome descrittivo usato nelle query per indirizzare l'output delle query a questo database. |
 | Database | Nome del database in cui si sta inviando l'output. |
@@ -76,7 +76,7 @@ Archiviazione BLOB di Azure offre una soluzione conveniente e scalabile per l'ar
 
 La tabella seguente elenca i nomi delle proprietà e le relative descrizioni per la creazione di un output del BLOB.
 
-| Nome proprietà       | Descrizione                                                                      |
+| Nome proprietà       | DESCRIZIONE                                                                      |
 | ------------------- | ---------------------------------------------------------------------------------|
 | Alias di output        | Nome descrittivo usato nelle query per indirizzare l'output delle query a questa archiviazione BLOB. |
 | Account di archiviazione     | Nome dell'account di archiviazione in cui si sta inviando l'output.               |
@@ -109,7 +109,7 @@ Il servizio [Hub eventi di Azure](https://azure.microsoft.com/services/event-hub
 
 Sono necessari alcuni parametri per configurare i flussi di dati dagli hub eventi come output.
 
-| Nome proprietà | Descrizione |
+| Nome proprietà | DESCRIZIONE |
 | --- | --- |
 | Alias di output | Nome descrittivo usato nelle query per indirizzare l'output delle query a questo hub eventi. |
 | Spazio dei nomi dell'hub eventi | Contenitore per un set di entità di messaggistica. Quando è stato creato un nuovo hub eventi, è stato creato anche uno spazio dei nomi dell'hub eventi. |
@@ -131,7 +131,7 @@ Power BI output di analisi di flusso non è attualmente disponibile nelle aree A
 
 La tabella seguente elenca i nomi delle proprietà e le relative descrizioni per configurare l'output del Power BI.
 
-| Nome proprietà | Descrizione |
+| Nome proprietà | DESCRIZIONE |
 | --- | --- |
 | Alias di output |Fornire un nome descrittivo usato nelle query per indirizzare l'output delle query a questo output Power BI. |
 | Area di lavoro del gruppo |Per abilitare la condivisione dei dati con altri utenti Power BI, è possibile selezionare i gruppi nell'account Power BI o scegliere **area di lavoro personale** se non si vuole scrivere in un gruppo. L'aggiornamento di un gruppo esistente richiede il rinnovo dell'autenticazione di Power BI. |
@@ -270,6 +270,9 @@ Analisi di flusso di Azure richiama Funzioni di Azure tramite trigger HTTP. L'ad
 | Numero massimo di batch  |Proprietà che consente di specificare il numero massimo di eventi in ogni batch inviato a funzioni di Azure. Il valore predefinito è 100. |
 
 Quando analisi di flusso di Azure riceve un'eccezione di 413 ("entità richiesta HTTP troppo grande") da una funzione di Azure, riduce la dimensione dei batch che invia a funzioni di Azure. Usare questa eccezione nel codice della funzione di Azure per fare in modo che Analisi di flusso di Azure non invii batch troppo grandi. Assicurarsi anche che il numero massimo di batch e i valori delle dimensioni usati nella funzione siano coerenti con i valori immessi nel portale di analisi dei flussi.
+
+> [!NOTE]
+> Durante il test della connessione, analisi di flusso Invia un batch vuoto a funzioni di Azure per verificare se la connessione tra i due funziona. Assicurarsi che l'app funzioni gestisca le richieste batch vuote per assicurarsi che il test della connessione venga superato.
 
 Inoltre, in una situazione in cui non è presente alcun evento di destinazione in un intervallo di tempo, non viene generato alcun output. Di conseguenza, la funzione **computeResult** non viene chiamata. Questo comportamento è coerente con le funzioni di aggregazione finestra predefinite.
 

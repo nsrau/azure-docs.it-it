@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 8a542f7927ddd834c7273f6ef8b251ddc35e8436
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 8f9f4a8b52548dad011f5e825fa42c50da970ea7
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234197"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69613149"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD Domain Services - Risoluzione dei problemi relativi alla configurazione di LDAP sicuro
 
-Questo articolo fornisce soluzioni per i problemi comuni che si verificano durante la [configurazione di LDAP sicuro](configure-ldaps.md) di Azure AD Domain Services.
+Questo articolo fornisce soluzioni per i problemi comuni che si verificano durante la [configurazione di LDAP sicuro](tutorial-configure-ldaps.md) di Azure AD Domain Services.
 
 ## <a name="aadds101-secure-ldap-network-security-group-configuration"></a>AADDS101: Configurazione del gruppo di sicurezza di rete LDAP sicuro
 
@@ -62,7 +62,7 @@ Quando è abilitato LDAP sicuro, è consigliabile creare regole aggiuntive per c
 
 **Risoluzione:**
 
-Creare un nuovo certificato LDAP sicuro eseguendo la procedura descritta nell'articolo [Configurare l'accesso LDAP sicuro](configure-ldaps.md).
+Creare un nuovo certificato LDAP sicuro eseguendo la procedura descritta nell'articolo [Configurare l'accesso LDAP sicuro](tutorial-configure-ldaps.md).
 
 ## <a name="contact-us"></a>Contatti
 Contattare il team di prodotto di Servizi di dominio Azure AD per [condividere commenti e suggerimenti o per chiedere supporto tecnico](contact-us.md).

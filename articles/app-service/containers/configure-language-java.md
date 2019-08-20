@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: 825379c04c22b3f13e651455c490a58ad47169d8
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
-ms.translationtype: HT
+ms.openlocfilehash: b71cf55944c1049fa2c3ddca79f02a8b75b9b2ec
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967153"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563007"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurare un'app Java Linux per il servizio app Azure
 
@@ -139,7 +139,7 @@ Gli sviluppatori che eseguono una singola applicazione con uno slot di distribuz
 
 Quando si ottimizzano le impostazioni heap delle applicazioni, esaminare i dettagli del piano di servizio app e tenere in considerazione le esigenze di più applicazioni e slot di distribuzione per trovare l'allocazione ottimale della memoria.
 
-Se si distribuisce un'applicazione JAR, questa deve essere denominata *app. jar* , in modo che l'immagine incorporata possa identificare correttamente l'app. Il plug-in Maven viene rinominato automaticamente. Se non si vuole rinominare il file JAR in *app. jar*, è possibile caricare uno script della shell con il comando per eseguire il file jar. Incollare quindi il percorso completo di questo script nella casella di testo [file di avvio](app-service-linux-faq.md#built-in-images) nella sezione configurazione del portale.
+Se si distribuisce un'applicazione JAR, questa deve essere denominata *app. jar* , in modo che l'immagine incorporata possa identificare correttamente l'app. Il plug-in Maven viene rinominato automaticamente. Se non si vuole rinominare il file JAR in *app. jar*, è possibile caricare uno script della shell con il comando per eseguire il file jar. Incollare quindi il percorso completo di questo script nella casella di testo [file di avvio](app-service-linux-faq.md#built-in-images) nella sezione configurazione del portale. Lo script di avvio non viene eseguito dalla directory in cui si trova. Pertanto, utilizzare sempre i percorsi assoluti per fare riferimento ai file nello script di avvio ( `java -jar /home/myapp/myapp.jar`ad esempio:).
 
 ### <a name="turn-on-web-sockets"></a>Attivare i Web Socket
 

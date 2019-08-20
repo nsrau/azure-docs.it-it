@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: saudas
-ms.openlocfilehash: a4726444e2103228cd26be3d3a6d516b31e315ee
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
-ms.translationtype: HT
+ms.openlocfilehash: bf86af16ce330be7119ecbeb24cedbcd31282735
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304319"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034036"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versioni Kubernetes supportate nel servizio Azure Kubernetes
 
@@ -79,7 +79,7 @@ E AKS rilasciano 1.13. x, ciò significa che le versioni 1.9. x (tutte le versio
 > Si noti che se i clienti eseguono una versione di Kubernetes non supportata, verrà richiesto di eseguire l'aggiornamento quando richiede il supporto per il cluster. I cluster che eseguono versioni Kubernetes non supportate non sono coperti dai [criteri di supporto di AKS](https://docs.microsoft.com/azure/aks/support-policies).
 
 
-Oltre alle versioni precedenti, AKS supporta le due *versioni più recenti*di una data versione secondaria. Ad esempio, date le seguenti versioni supportate:
+Oltre alle versioni precedenti, AKS supporta le due versioni più recenti di unadata versione secondaria. Ad esempio, date le seguenti versioni supportate:
 
 ```
 Current Supported Version List
@@ -144,13 +144,14 @@ L'output è simile all'esempio seguente, che mostra che Kubernetes versione *1.1
 ```
 KubernetesVersion    Upgrades
 -------------------  ------------------------
-1.13.5               None available
-1.12.7               1.13.5
-1.12.6               1.12.7, 1.13.5
-1.11.9               1.12.6, 1.12.7
-1.11.8               1.11.9, 1.12.6, 1.12.7
-1.10.13              1.11.8, 1.11.9
-1.10.12              1.10.13, 1.11.8, 1.11.9
+1.14.5               None available
+1.13.9               1.14.5
+1.12.8               1.13.9
+1.12.7               1.12.8, 1.13.9
+1.11.10              1.12.7, 1.12.8
+1.11.9               1.11.10, 1.12.7, 1.12.8
+1.10.13              1.11.9, 1.11.10
+1.10.12              1.10.13, 1.11.9, 1.11.10
 ```
 
 ## <a name="faq"></a>Domande frequenti

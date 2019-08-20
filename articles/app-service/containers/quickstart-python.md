@@ -4,7 +4,7 @@ description: Distribuire la prima app Hello World Python nel servizio app di Azu
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: app-service-web
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/29/2019
 ms.author: cephalin
-ms.openlocfilehash: 28e10389f65e0b64ed15c00eb2a8632229397383
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 163876d63ba2127dd3f3444e95b284918e60e368
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639180"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952003"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Creare un'app Python nel Servizio app di Azure in Linux
 
@@ -199,7 +199,7 @@ Il menu a sinistra fornisce varie pagine per la configurazione dell'app.
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione: App Python con PostgreSQL](tutorial-python-postgresql-app.md)
+> [Esercitazione: App Web Python (Django) con PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
 > [Configurare un'app Python](how-to-configure-python.md)

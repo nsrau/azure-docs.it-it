@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: diberry
-ms.openlocfilehash: dbfa7aaccd513ffcf8ba3907911d8c49275b2ea6
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
-ms.translationtype: HT
+ms.openlocfilehash: 18b901b429ee675726ef0e36535f1f97f4cdd076
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967646"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543007"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Ottenere una risposta con l'API e i metadati di GenerateAnswer
 
@@ -228,6 +228,18 @@ Per impostazione predefinita, QnA Maker cerca le domande e le risposte. Se si de
   "RankerType":"QuestionOnly"
 }
 ```
+
+## <a name="common-http-errors"></a>Errori HTTP comuni
+
+|Codice|Spiegazione|
+|:--|--|
+|2xx|Riuscito|
+|400|I parametri della richiesta non sono corretti, vale a dire che i parametri obbligatori mancano, non solo validi o sono troppo grandi|
+|400|Il corpo della richiesta non è corretto, vale a dire che la stringa JSON manca, non è valida o è troppo grande|
+|401|Chiave non valida|
+|403|Operazione non consentita: non si dispone delle autorizzazioni corrette|
+|404|La knowledge base non esiste|
+|410|L'API è deprecata e non è più disponibile|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

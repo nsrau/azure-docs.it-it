@@ -11,10 +11,10 @@ description: Distribuire un microservizio nel servizio Azure Kubernetes con Azur
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 manager: gwallace
 ms.openlocfilehash: 39fb7658140a2eda948cd0dc0e58d71b0b9a053b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67710674"
 ---
 # <a name="quickstart-develop-an-application-on-kubernetes-using-azure-dev-spaces"></a>Guida introduttiva: Sviluppare un'applicazione in Kubernetes tramite Azure Dev Spaces
@@ -72,7 +72,7 @@ cd dev-spaces/samples/nodejs/getting-started/webfrontend
 
 ## <a name="prepare-the-application"></a>Preparare l'applicazione
 
-Per eseguire l'applicazione in Azure Dev Spaces, è necessario avere un Dockerfile e un grafico Helm. Per alcuni linguaggi, come [Java][java-quickstart], [.NET core][netcore-quickstart] e [Node.js][nodejs-quickstart], gli strumenti client di Azure Dev Spaces consentono di generare tutti gli asset necessari. Per molti altri linguaggi, come Go, PHP e Python, gli strumenti client consentono di generare il grafico Helm purché venga specificato un Dockerfile valido.
+Per eseguire l'applicazione in Azure Dev Spaces, è necessario avere un Dockerfile e un grafico Helm. Per alcuni linguaggi, come [Java][java-quickstart], [.NET Core][netcore-quickstart] e [Node.js][nodejs-quickstart], gli strumenti client di Azure Dev Spaces possono generare tutti gli asset necessari. Per molti altri linguaggi, come Go, PHP e Python, gli strumenti client consentono di generare il grafico Helm purché venga specificato un Dockerfile valido.
 
 Generare le risorse grafico Docker e Helm per l'esecuzione dell'applicazione in Kubernetes usando il comando `azds prep`:
 

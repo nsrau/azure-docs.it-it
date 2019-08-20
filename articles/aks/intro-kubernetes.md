@@ -9,10 +9,10 @@ ms.date: 05/06/2019
 ms.author: mlearned
 ms.custom: mvc
 ms.openlocfilehash: 5515951a9bde596935f4c603ffd9e088f74dee45
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67615171"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Servizio Azure Kubernetes
@@ -23,7 +23,7 @@ Il servizio Azure Kubernetes semplifica la distribuzione di un cluster Kubernete
 
 Per altre informazioni sulle nozioni di base di Kubernetes, vedere [Concetti di base di Kubernetes per il servizio Azure Kubernetes][concepts-clusters-workloads].
 
-Per iniziare, completare l'argomento di avvio rapido sul servizio Azure Kubernetes [nel portale di Azure][aks-portal] or [with the Azure CLI][aks-cli].
+Per iniziare, completare l'avvio rapido del servizio Azure Kubernetes [nel portale di Azure][aks-portal] o [usando l'interfaccia della riga di comando di Azure][aks-cli].
 
 ## <a name="access-security-and-monitoring"></a>Accesso, sicurezza e monitoraggio
 
@@ -57,7 +57,7 @@ Per altre informazioni, vedere [Ridimensionare un cluster del servizio Azure Kub
 
 Il servizio Azure Kubernetes offre più versioni di Kubernetes. Non appena sono disponibili nuove versioni in servizio Azure Kubernetes, il cluster può essere aggiornato tramite il portale di Azure o l'interfaccia della riga di comando di Azure. Durante il processo di aggiornamento, i nodi vengono accuratamente contrassegnati come non pianificabili e svuotati per ridurre al minimo le interruzioni nelle applicazioni in esecuzione.
 
-Per altre informazioni sulle versioni del ciclo di vita, vedere [Versioni di Kubernetes supportate nel servizio Azure Kubernetes][aks-supported versions]. For steps on how to upgrade, see [Upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
+Per altre informazioni sulle versioni del ciclo di vita, vedere [Versioni di Kubernetes supportate nel servizio Azure Kubernetes][aks-supported versions]. Per la procedura di aggiornamento, vedere [Aggiornare un cluster del servizio Azure Kubernetes][aks-upgrade].
 
 ### <a name="gpu-enabled-nodes"></a>Nodi abilitati per la GPU
 
@@ -71,7 +71,7 @@ Per supportare carichi di lavoro applicativi, possono essere montati volumi di a
 
 Per altre informazioni, vedere [Opzioni di archiviazione per le applicazioni nel servizio Azure Kubernetes][concepts-storage].
 
-Introduzione ai volumi permanenti dinamici con [dischi di Azure][azure-disk] or [Azure Files][azure-files].
+Capire come usare i volumi persistenti dinamici con [Dischi di Azure][azure-disk] o [File di Azure][azure-files].
 
 ## <a name="virtual-networks-and-ingress"></a>Reti virtuali e ingresso
 

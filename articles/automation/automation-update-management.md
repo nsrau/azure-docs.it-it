@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 51ef55247d3262d8707403ed09cc8643403dda23
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
-ms.translationtype: HT
+ms.openlocfilehash: 393c66f57cd4a7621ad660774a95502c0f5ad8c4
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952976"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534717"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
@@ -250,6 +250,15 @@ Per creare una nuova distribuzione di aggiornamenti, selezionare **Pianifica la 
 | Controllo riavvio| Determina come vengono gestiti i riavvii. Le opzioni disponibili sono:</br>Riavvia se necessario (opzione predefinita)</br>Riavvia sempre</br>Non riavviare mai</br>Riavvia solamente: gli aggiornamenti non verranno installati|
 
 Le distribuzioni di aggiornamenti possono essere create anche a livello di codice. Per informazioni su come creare una distribuzione di aggiornamenti con l'API REST, vedere [Software Update Configurations - Create](/rest/api/automation/softwareupdateconfigurations/create) (Configurazioni degli aggiornamenti software - Creazione). È anche disponibile un runbook di esempio che può essere usato per creare una distribuzione di aggiornamenti settimanale. Per altre informazioni su questo runbook, vedere [Create a weekly update deployment for one or more VMs in a resource group](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1) (Creare una distribuzione di aggiornamenti settimanale per una o più macchine virtuali in un gruppo di risorse).
+
+### <a name="maintenance-windows"></a>Finestre di manutenzione
+
+Le finestre di manutenzione controllano la quantità di tempo consentita per l'installazione degli aggiornamenti. Quando si specifica una finestra di manutenzione, tenere presenti i dettagli seguenti.
+
+* Finestre di manutenzione consente di controllare il numero di aggiornamenti che si tenta di installare.
+* Gestione aggiornamenti non interrompe l'installazione di nuovi aggiornamenti se si avvicina la fine di una finestra di manutenzione.
+* Gestione aggiornamenti non termina gli aggiornamenti in corso se quando viene superata la finestra di manutenzione.
+* Se la finestra di manutenzione viene superata in Windows, spesso è dovuto a un Service Pack aggiornamento che richiede molto tempo per l'installazione.
 
 ### <a name="multi-tenant"></a>Distribuzioni di aggiornamenti tra tenant
 

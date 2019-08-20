@@ -1,5 +1,5 @@
 ---
-title: Esercitazione sulle entità composite-LUIS
+title: Esercitazione sulle entità composite - LUIS
 titleSuffix: Azure Cognitive Services
 description: Aggiungere un'entità composita per aggregare i dati estratti di vario tipo in una singola entità contenitore. Aggregando i dati, l'applicazione client può estrarre facilmente i dati correlati in diversi tipi di dati.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 610a7ee677771777c9bd88e5747ff766f284ae3e
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
-ms.translationtype: MT
+ms.openlocfilehash: 698635b3f216c556e1e36a033703b8786a028e38
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68637924"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946121"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Esercitazione: Raggruppare ed estrarre dati correlati
 Questa esercitazione illusta come aggiungere un'entità composita per aggregare i dati estratti di vario tipo in una singola entità contenitore. Aggregando i dati, l'applicazione client può estrarre facilmente i dati correlati in diversi tipi di dati.
@@ -85,9 +85,9 @@ LUIS fornisce varie entità predefinite per l'estrazione di dati comuni.
 
 1. Selezionare **TransferEmployeeToDepartment** nell'elenco di finalità.
 
-1. Nell'espressione `place John Jackson in engineering`Selezionare l'entità PersonName, `John Jackson`quindi selezionare **Wrap nell'entità composita** nell'elenco dei menu popup per l'espressione seguente. 
+1. Nell'espressione `place John Jackson in engineering` selezionare l'entità personName `John Jackson` e quindi selezionare **Wrap in composite entity** (Esegui wrapping nell'entità composita) nell'elenco del menu popup per l'espressione successiva. 
 
-    ![Screenshot della selezione del wrapping composito nella finestra di dialogo a discesa](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
+    ![Screenshot della selezione del wrapping nell'entità composita nella finestra di dialogo a discesa](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
 
 1. Quindi selezionare immediatamente l'ultima entità, `engineering`, nell'espressione. Sotto le parole selezionate viene disegnata una barra verde che indica un'entità composita. Nel menu a comparsa, immettere il nome composto `TransferEmployeeInfo` quindi premere INVIO. 
 

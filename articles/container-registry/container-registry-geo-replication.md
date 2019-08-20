@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: overview
 ms.date: 05/24/2019
 ms.author: stevelas
-ms.openlocfilehash: e17b70843fcda1d183de1b81a98da53138835340
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 2fffa3b063969cbe68fb9a405f4198f15b3f9809
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309600"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845198"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replica geografica nel servizio Registro Azure Container
 
@@ -60,7 +60,7 @@ L'uso della funzionalità di replica geografica di Registro Azure Container è c
 
 * Gestione di un unico registro per tutte le aree: `contoso.azurecr.io`
 * Gestione di un'unica configurazione per le distribuzioni delle immagini in quanto tutte le aree usano lo stesso URL immagine: `contoso.azurecr.io/public/products/web:1.2`
-* Esecuzione del push in un unico registro, mentre il servizio Registro Azure Container gestisce la replica geografica. È possibile configurare [webhook](container-registry-webhook.md) regionali per ricevere notifiche degli eventi in specifiche repliche.
+* Esecuzione del push in un unico registro, mentre il servizio Registro Azure Container gestisce la replica geografica. È possibile configurare [webhook](container-registry-webhook.md) a livello di area per ricevere notifiche degli eventi in repliche specifiche.
 
 ## <a name="configure-geo-replication"></a>Configurare la replica geografica
 

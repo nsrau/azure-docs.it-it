@@ -1,5 +1,5 @@
 ---
-title: Entità di corrispondenza del testo extact-LUIS
+title: Estrarre entità di corrispondenza esatta del testo - LUIS
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come aggiungere un'entità elenco per aiutare LUIS a etichettare le varianti di una parola o una frase.
 services: cognitive-services
@@ -7,20 +7,20 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: da6e8e794520a737a96ba45f94459fb8c1a5ff18
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
-ms.translationtype: MT
+ms.openlocfilehash: 979cbe16653c09ea1b019310d820b070be4a5a91
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68637826"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946057"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Usare un'entità elenco per migliorare il rilevamento di entità 
 Questa esercitazione illustra l'uso di una [entità elenco](luis-concept-entity-types.md) per migliorare il rilevamento di entità. Non è necessario etichettare le entità elenco, in quanto rappresentano una corrispondenza esatta di termini.  
 
-In questa esercitazione si imparerà a:
+In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare un'entità elenco 
@@ -212,7 +212,7 @@ Il dispositivo specifico **Thermostat** viene identificato con una query orienta
 
 Provare le altre due espressioni per vedere che anche per esse viene restituito il valore thermostat. 
 
-|#|Espressione|entità|type|value|
+|#|Espressione|Entità|Tipo|value|
 |--|--|--|--|--|
 |1|turn on the ac| ac | DevicesList | Thermostat|
 |2|turn up the heat|heat| DevicesList |Thermostat|

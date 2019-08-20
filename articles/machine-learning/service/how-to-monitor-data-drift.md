@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 07/08/2019
-ms.openlocfilehash: c5484c37d89cc9ae880bbe17987bb47f3114b8a4
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
-ms.translationtype: HT
+ms.openlocfilehash: 41e357ee53d4c2fbc6683be3446ba2527dd9253f
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847884"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623972"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Rilevare la tendenza dei dati (anteprima) nei modelli distribuiti in Azure Kubernetes Service (AKS)
 
@@ -40,13 +40,13 @@ Con Azure Machine Learning servizio è possibile monitorare gli input per un mod
 
 ### <a name="how-data-drift-is-monitored-in-azure-machine-learning-service"></a>Modalità di monitoraggio della deviazione dei dati nel servizio Azure Machine Learning
 
-Utilizzando Azure Machine Learning servizio, la deriva dei dati viene monitorata tramite set di dati o distribuzioni. Per monitorare la deriva dei dati, viene specificato un set di dati di base, in genere il set di dati di training per un modello. Un secondo set di dati, in genere il modello di dati di input raccolti da una distribuzione, viene testato rispetto al set di dati di base. Entrambi i set di dati vengono [profilati](how-to-explore-prepare-data.md#explore-with-summary-statistics) e vengono inseriti nel servizio di monitoraggio della deriva dati. Viene eseguito il training di un modello di apprendimento automatico per rilevare le differenze tra i due set di impostazioni. Le prestazioni del modello vengono convertite nel coefficiente di derivazione, che misura la grandezza della deviazione tra i due set di impostazioni. Grazie all' [interpretazione dei modelli](machine-learning-interpretability-explainability.md), vengono calcolate le funzionalità che contribuiscono al coefficiente di drifting. Dal profilo del set di dati vengono rilevate informazioni statistiche su ogni funzionalità. 
+Utilizzando Azure Machine Learning servizio, la deriva dei dati viene monitorata tramite set di dati o distribuzioni. Per monitorare la deriva dei dati, viene specificato un set di dati di base, in genere il set di dati di training per un modello. Un secondo set di dati, in genere il modello di dati di input raccolti da una distribuzione, viene testato rispetto al set di dati di base. Entrambi i set di dati vengono profilati e vengono inseriti nel servizio di monitoraggio della deriva dati. Viene eseguito il training di un modello di apprendimento automatico per rilevare le differenze tra i due set di impostazioni. Le prestazioni del modello vengono convertite nel coefficiente di derivazione, che misura la grandezza della deviazione tra i due set di impostazioni. Grazie all' [interpretazione dei modelli](machine-learning-interpretability-explainability.md), vengono calcolate le funzionalità che contribuiscono al coefficiente di drifting. Dal profilo del set di dati vengono rilevate informazioni statistiche su ogni funzionalità. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Una sottoscrizione di Azure. Se non si ha un account, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
 
-- SDK Azure Machine Learning per Python installato. Usare le istruzioni in [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) per eseguire le operazioni seguenti:
+- Installazione di Azure Machine Learning SDK per Python. Usare le istruzioni riportate in [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) per eseguire queste operazioni:
 
     - Creare un ambiente Miniconda
     - Installare Azure Machine Learning SDK per Python
@@ -162,9 +162,9 @@ La configurazione del rilevamento della deriva dei dati può essere visualizzata
 
 ![Configurazione della deviazione dati portale di Azure](media/how-to-monitor-data-drift/drift_config.png)
 
-## <a name="view-results-in-azure-ml-workspace-ui"></a>Visualizzare i risultati nell'interfaccia utente di Azure area di lavoro di ML
+## <a name="view-results-in-azure-portal"></a>Visualizza risultati in portale di Azure
 
-Per visualizzare i risultati nell'interfaccia utente di Azure area di lavoro di ML, passare alla pagina del modello. Nella scheda Dettagli del modello viene visualizzata la configurazione della deviazione dati. È ora disponibile una scheda relativa alla deviazione dei dati (anteprima) per la visualizzazione delle metriche di spostamento dei dati. 
+Per visualizzare i risultati nell'area di lavoro in [portale di Azure](https://portal.azure.com), passare alla pagina del modello. Nella scheda Dettagli del modello viene visualizzata la configurazione della deviazione dati. È ora disponibile una scheda relativa alla deviazione dei dati (anteprima) per la visualizzazione delle metriche di spostamento dei dati. 
 
 ![Spostamento dei dati portale di Azure](media/how-to-monitor-data-drift/drift_ui.png)
 

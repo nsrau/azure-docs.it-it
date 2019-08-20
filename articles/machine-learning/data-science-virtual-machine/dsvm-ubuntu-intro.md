@@ -15,13 +15,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/16/2018
-ms.openlocfilehash: 8a19f414f31c307111edad876ed973ff4027d907
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.date: 08/13/2019
+ms.openlocfilehash: 6d79bfa8f390d145bfd963b40497030140a3d135
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68591927"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013587"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Effettuare il provisioning di una macchina virtuale per l'analisi scientifica dei dati per Linux (Ubuntu)
 
@@ -86,32 +86,35 @@ Prima di creare una macchina virtuale per l'analisi scientifica dei dati per Lin
 Di seguito sono elencati i passaggi per la creazione di un'istanza della macchina virtuale per l'analisi scientifica dei dati per Linux:
 
 1. Passare all'elenco di macchine virtuali nel [portale di Azure](https://portal.azure.com/#create/microsoft-dsvm.linux-data-science-vm-ubuntulinuxdsvmubuntu). Se non è stato eseguito l'accesso all'account Azure, verrà chiesto di farlo. 
-1. Fare clic su **Crea** (in basso) per aprire la procedura guidata.![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
-1. Le sezioni seguenti forniscono gli input per ognuno dei passaggi (elencati nella parte destra della figura precedente) della procedura guidata usata per creare la macchina virtuale per l'analisi scientifica dei dati di Microsoft. Di seguito sono riportati gli input necessari per configurare ciascuno di questi passaggi:
+1. Fare clic su **Crea** per visualizzare la procedura guidata.
+    ![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
+1. Le sezioni seguenti forniscono gli input per ognuno dei passaggi della procedura guidata usata per creare l'ambiente Microsoft Data Science Virtual Machine. Di seguito sono riportati gli input necessari per configurare ciascuno di questi passaggi:
 
-   a. **Nozioni di base**:
-
-   * **Nome**: nome del server di data science che si sta creando.
-   * **Tipo di disco VM**: se si preferisce un'unità a stato solido, scegliere **SSD Premium**. In caso contrario, scegliere **HDD Standard**. 
-   * **Nome utente**: primo ID di accesso dell'account.
-   * **Password**: prima password dell'account. È possibile usare una chiave pubblica SSH invece di una password.
-   * **Sottoscrizione** Se si ha più di una sottoscrizione, selezionare quella in cui viene creata e fatturata la macchina virtuale. È necessario disporre di privilegi di creazione delle risorse per questa sottoscrizione.
-   * **Gruppo di risorse**: È possibile creare un nuovo gruppo di risorse o usare un gruppo esistente.
-   * **Posizione**: selezionare il data center più appropriato. In genere è il data center che include la maggior parte dei dati o è più vicino alla posizione fisica per l'accesso più veloce alla rete.
-
-   b. **Dimensione**:
-
-   * Selezionare uno dei tipi di server che soddisfa i requisiti funzionali e vincoli di costo. Selezionare una macchina virtuale di classe NC o ND per le istanze di VM basate su GPU. Nella pagina [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/) sono elencate le aree con GPU.
-
-   c. **Impostazioni**:
-
-   * Nella maggior parte dei casi è possibile usare semplicemente i valori predefiniti. Nel caso in cui si desideri usare valori non predefiniti, è possibile passare il puntatore sul collegamento informativo per visualizzare informazioni sui campi specifici.
-
-   d. **Riepilogo**:
-
-   * Verificare che tutte le informazioni immesse siano corrette. Viene fornito un collegamento alle condizioni per l'utilizzo. La macchina virtuale non prevede costi aggiuntivi oltre a quelli per il calcolo delle dimensioni del server scelto nel passaggio **Size** . Per avviare il provisioning, fare clic su **Crea**. 
-
-Per il provisioning sono necessari circa 5 minuti. Lo stato del provisioning viene visualizzato nel portale di Azure.
+    a. **Nozioni di base**:
+    
+    * **Sottoscrizione** Se si ha più di una sottoscrizione, selezionare quella in cui viene creata e fatturata la macchina virtuale. È necessario disporre di privilegi di creazione delle risorse per questa sottoscrizione.
+    * **Gruppo di risorse**: È possibile creare un nuovo gruppo di risorse o usare un gruppo esistente.
+    * **Virtual Machine Name** (Nome macchina virtuale): nome del server di data science che si sta creando.
+    * **Area**: selezionare il data center più appropriato. In genere è il data center che include la maggior parte dei dati o è più vicino alla posizione fisica per l'accesso più veloce alla rete.
+    * **Opzioni di disponibilità**: impostare questa opzione se si vuole usare questa macchina virtuale in zone o set di disponibilità altrimenti lasciare l'impostazione predefinita.
+    * **Immagine**: lasciare il valore predefinito
+    * **Dimensione**: Selezionare uno dei tipi di server che soddisfa i requisiti funzionali e vincoli di costo. Selezionare una macchina virtuale serie NC o ND per le istanze di macchina virtuale basate su GPU. 
+    * **Nome utente**: Nome utente amministratore
+    * **Chiave pubblica SSH**: chiave pubblica RSA nel formato a riga singola. È possibile usare la password invece della chiave SSH.
+    
+    b. **Dischi**:
+    
+    * **Tipo di disco del sistema operativo**: se si preferisce un'unità a stato solido, scegliere **SSD Premium**. In caso contrario, scegliere **HDD Standard**.
+    
+    c. Per le altre impostazioni è possibile usare semplicemente i valori predefiniti. Nel caso in cui si desideri usare valori non predefiniti, è possibile passare il puntatore sul collegamento informativo per visualizzare informazioni sui campi specifici.
+    
+    Selezionare infine **Rivedi e crea**
+    
+    d. **Rivedi e crea**:
+    
+    * Dopo la convalida, verificare che tutte le informazioni immesse siano corrette. Viene fornito un collegamento alle condizioni per l'utilizzo. La macchina virtuale non prevede costi aggiuntivi oltre a quelli per il calcolo per le dimensioni del server scelte nel passaggio Dimensioni. Per avviare il provisioning, fare clic su **Crea**.
+    
+    Per il provisioning sono necessari circa 5 minuti. Lo stato del provisioning viene visualizzato nel portale di Azure.
 
 ## <a name="how-to-access-the-data-science-virtual-machine-for-linux"></a>Come accedere alla macchina virtuale per l'analisi scientifica dei dati per Linux
 

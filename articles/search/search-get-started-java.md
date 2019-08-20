@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
 ms.custom: seodec2018, seo-java-july2019
-ms.openlocfilehash: 7172cd01ca881ec3027854444107b0744b65feb3
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
-ms.translationtype: HT
+ms.openlocfilehash: 7deb9d2cf16aa82de7ce4ea163652c2936819063
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489781"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533245"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-java"></a>Avvio rapido: Creare un indice di ricerca di Azure in Java
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ Nell'elenco seguente vengono descritti i file che sono rilevanti per questo esem
 Per tutte le chiamate API REST in ricerca di Azure è necessario fornire l'URL del `api-key`servizio e un. 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Nella barra di spostamento, fare clic su **Servizio di ricerca** per elencare tutti i servizi di Ricerca di Azure con provisioning per la sottoscrizione.
+2. Nella barra di spostamento selezionare **servizio di ricerca** per elencare tutti i servizi di ricerca di Azure di cui è stato effettuato il provisioning per la sottoscrizione.
 3. Selezionare il servizio che si vuole usare.
 4. Nel dashboard del servizio saranno presenti i riquadri per le informazioni essenziali, nonché l'icona della chiave per l'accesso alle chiavi di amministrazione.
    
@@ -69,20 +69,20 @@ Per tutte le chiamate API REST in ricerca di Azure è necessario fornire l'URL d
 
 ## <a name="download-the-sample-files"></a>Scaricare i file di esempio
 1. Passare a [search-java-indexer-demo](https://github.com/Azure-Samples/search-java-indexer-demo) su GitHub.
-2. Fare clic su **Scarica ZIP**, salvare il file con estensione zip su disco e quindi estrarre tutti i file in esso contenuti. È consigliabile estrarre i file nell'area di lavoro Java per trovare più facilmente il progetto in un secondo momento.
+2. Selezionare **download zip**, salvare il file con estensione zip su disco e quindi estrarre tutti i file in esso contenuti. È consigliabile estrarre i file nell'area di lavoro Java per trovare più facilmente il progetto in un secondo momento.
 3. I file di esempio sono di sola lettura. Fare clic con il pulsante destro del mouse sulle proprietà della cartella e deselezionare l'attributo di sola lettura.
 
 Tutte le successive modifiche e le istruzioni di esecuzione verranno effettuate sui file in questa cartella.  
 
 ## <a name="import-project"></a>Importare il progetto
-1. In Eclipse scegliere **File** > **Importa** > **Generale** >  **Progetti esistenti nell'area di lavoro**.
+1. In Eclipse selezionare **file** > **Importa** > generaleprogetti > **esistenti nell'area di lavoro**.
    
     ![Screenshot che illustra come importare un progetto esistente][4]
 2. In **Select root directory**, passare alla cartella contenente i file di esempio. Selezionare la cartella che contiene la cartella .project. Il progetto verrà visualizzato nell’elenco **Projects** come elemento selezionato.
    
     ![Screenshot che mostra l'elenco progetti nella finestra Importa progetti][12]
-3. Scegliere **Fine**.
-4. Utilizzare **Project Explorer** per visualizzare e modificare i file. Se non è già aperto, fare clic su **Finestra** > **Mostra visualizzazione** > **Esplora progetti** oppure usare il collegamento per aprirlo.
+3. Selezionare **Fine**.
+4. Utilizzare **Project Explorer** per visualizzare e modificare i file. Se non è già aperto, selezionare **finestra** > **Mostra** > **Esplora progetti** o usare il collegamento per aprirlo.
 
 ## <a name="configure-the-service-url-and-api-key"></a>Configurare l'URL del servizio e`api-key`
 1. In **Esplora progetti**fare doppio clic su **config. Properties** per modificare le impostazioni di configurazione che contengono il nome `api-key`del server e.
@@ -96,19 +96,19 @@ Tutte le successive modifiche e le istruzioni di esecuzione verranno effettuate 
 2. Selezionare **Dynamic Web Module**, **Java** e **JavaScript**.
    
     ![Screenshot che illustra come selezionare i facet di progetto per il progetto][6]
-3. Fare clic su **Apply**.
+3. Selezionare **Applica**.
 4. Selezionare **Finestra** > **Preferenze** > **Server** > **Runtime Environments (Ambienti di runtime)**  > **Aggiungi..** .
 5. Espandere Apache e selezionare la versione del server Apache Tomcat installata in precedenza. In questo sistema è installata la versione 8.
    
     ![Screenshot che mostra la posizione in cui è possibile selezionare la versione di Apache Tomcat nella finestra ambiente di runtime][7]
 6. Nella pagina successiva, specificare la directory di installazione di Tomcat. In un computer Windows, sarà probabilmente C:\Programmi\Microsoft Files\Apache Software Foundation\Tomcat *versione*.
-7. Scegliere **Fine**.
+7. Selezionare **Fine**.
 8. Selezionare **Finestra** > **Preferenze** > **Java** > **Installed JREs (JRE installati)**  > **Aggiungi**.
 9. In **Add JRE** (Aggiungi JRE) selezionare **Standard VM (VM standard)** .
-10. Fare clic su **Avanti**.
-11. Nella definizione dell'ambiente JRE, nella home di JRE, fare clic su **Directory**.
+10. Selezionare **Avanti**.
+11. In definizione JRE, in Home page di JRE, selezionare **directory**.
 12. Passare a **Programmi** > **Java** e selezionare il JDK installato in precedenza. È importante selezionare JDK come JRE.
-13. In Installed JREs, scegliere il **JDK**. Il risultato finale dovrebbe essere simile a quello riportato nella schermata seguente.
+13. In jres (JRE installati selezionare **JDK**. Il risultato finale dovrebbe essere simile a quello riportato nella schermata seguente.
     
     ![Screenshot che illustra come selezionare JDK come JRE installato][9]
 14. Facoltativamente, selezionare **Finestra** > **Web Browser** > **Internet Explorer** per aprire l'applicazione in una finestra del browser esterno. L’utilizzo di un browser esterno offre una migliore esperienza di applicazione Web.
@@ -118,10 +118,10 @@ Tutte le successive modifiche e le istruzioni di esecuzione verranno effettuate 
 La configurazione del dispositivo è stata completata. A questo punto, compilare ed eseguire il progetto.
 
 ## <a name="build-the-project"></a>Compilare il progetto
-1. In Esplora progetti, fare clic con il pulsante destro del mouse sul progetto e scegliere **Esegui come** > **Build Maven...** per configurare il progetto.
+1. In Esplora progetti fare clic con il pulsante destro del mouse sul nome del progetto e scegliere **Esegui come** > **compilazione Maven** per configurare il progetto.
    
-    ![Screenshot che illustra come scegliere la compilazione Maven nella finestra Esplora progetti][10]
-2. In Edit Configuration, in Goals, digitare "clean install", quindi fare clic su **Run**.
+    ![Screenshot che illustra come selezionare la compilazione Maven nella finestra Esplora progetti][10]
+2. In modifica configurazione, in obiettivi, immettere "Pulisci installazione" e quindi selezionare **Esegui**.
 
 I messaggi di stato vengono visualizzati nella finestra della console. Un messaggio di compilazione completata indica che il progetto è stato compilato senza errori.
 
@@ -131,19 +131,19 @@ In questo ultimo passaggio, verrà eseguita l'applicazione in un ambiente di run
 Se ancora non è stato specificato un ambiente di runtime del server in Eclipse, è necessario eseguire innanzitutto tale operazione.
 
 1. In Project Explorer espandere **WebContent**.
-2. Fare clic con il pulsante destro del mouse su **Search.jsp** > **Esegui come** > **Esegui come controllo server**. Selezionare il server Apache Tomcat, quindi fare clic su **Run**.
+2. Fare clic con il pulsante destro del mouse su **Search.jsp** > **Esegui come** > **Esegui come controllo server**. Selezionare il server Apache Tomcat, quindi selezionare **Esegui**.
 
 > [!TIP]
-> Se è stata utilizzata un'area di lavoro non predefinita per archiviare il progetto, è necessario modificare la **configurazione di esecuzione** in modo che punti al percorso del progetto per evitare un errore di avvio del server. In Esplora progetti fare clic con il pulsante destro del mouse su **Search.jsp** > **Esegui come** > **Configurazione di esecuzione**. Selezionare il server Apache Tomcat. Fare clic su **Arguments**. Fare clic su **Workspace** o **File system** per impostare la cartella contenente il progetto.
+> Se è stata utilizzata un'area di lavoro non predefinita per archiviare il progetto, è necessario modificare la **configurazione di esecuzione** in modo che punti al percorso del progetto per evitare un errore di avvio del server. In Esplora progetti fare clic con il pulsante destro del mouse su **Search.jsp** > **Esegui come** > **Configurazione di esecuzione**. Selezionare il server Apache Tomcat. Selezionare **argomenti**. Selezionare **area di lavoro** o **file System** per impostare la cartella che contiene il progetto.
 > 
 > 
 
 Quando si esegue l'applicazione viene visualizzata una finestra del browser con una casella di ricerca per l'immissione di termini.
 
-Attendere circa un minuto prima di fare clic su **Ricerca** per consentire al servizio di creare e caricare l'indice. Se si verifica un errore HTTP 404, è necessario attendere un po' più a lungo prima di riprovare.
+Attendere circa un minuto prima di selezionare **Cerca** per concedere al servizio il tempo necessario per creare e caricare l'indice. Se si verifica un errore HTTP 404, è necessario attendere un po' più a lungo prima di riprovare.
 
 ## <a name="search-on-usgs-data"></a>Eseguire ricerche sui dati dei servizi geologici degli Stati Uniti
-Il set di dati dei servizi geologici degli Stati Uniti include i dati relativi allo stato del Rhode Island. Se si fa clic su **Ricerca** su una casella di ricerca vuota, si otterranno le prime 50 voci, ossia l'impostazione predefinita.
+Il set di dati dei servizi geologici degli Stati Uniti include i dati relativi allo stato del Rhode Island. Se si seleziona **Cerca** in una casella di ricerca vuota, si otterranno le prime 50 voci, che corrisponde all'impostazione predefinita.
 
 L’immissione di un termine di ricerca fornirà al motore di ricerca un elemento con cui continuare. Provare a immettere un nome locale. "Roger Williams" è stato il primo governatore del Rhode Island. Numerosi parchi, edifici e scuole prendono il suo nome.
 

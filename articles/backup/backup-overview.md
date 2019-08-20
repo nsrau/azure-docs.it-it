@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/24/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: a4fbfeb96d2316ce6af100cb16fcbf0d13f230f2
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 526c60916854d4918607a1fd1b887ac9d27cd1c7
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737127"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950020"
 ---
 # <a name="what-is-the-azure-backup-service"></a>Informazioni sul servizio Backup di Azure
 
@@ -55,7 +55,7 @@ Consultare la tabella seguente per identificare le proprie esigenze ai fini dell
 
 **Obiettivo** | **Dettagli** | **Confronto**
 --- | --- | ---
-**Backup/conservazione dei dati** | I dati di backup possono essere conservati e archiviati per diversi giorni, mesi o anche anni se necessario ai fini della conformità. | Le soluzioni come Backup di Azure consentono di selezionare con precisione i dati di cui eseguire il backup, nonché di ottimizzare i criteri di backup e conservazione.<br/><br/> Site Recovery non offre lo stesso livello di ottimizzazione.
+**Backup/conservazione dei dati** | I dati di backup possono essere conservati e archiviati per giorni, mesi o anche anni se necessario ai fini della conformità. | Le soluzioni come Backup di Azure consentono di selezionare con precisione i dati di cui eseguire il backup, nonché di ottimizzare i criteri di backup e conservazione.<br/><br/> Site Recovery non offre lo stesso livello di ottimizzazione.
 **Obiettivo del punto di ripristino (RPO)** | Quantità di perdita di dati accettabile se si rende necessario un ripristino. | I backup hanno RPO più variabili.<br/><br/> I backup delle VM hanno in genere un RPO di un giorno, mentre i backup dei database hanno RPO fino a un minimo di 15 minuti.<br/><br/> Site Recovery fornisce un RPO basso, perché la replica è continua o frequente, quindi il delta tra l'origine e la copia di replica è piccolo.
 **Obiettivo del tempo di ripristino (RTO)** |Quantità di tempo necessario per completare un ripristino o un recupero. | Dato l'RPO più alto, la quantità di dati che deve essere elaborata dalla soluzione di backup è in genere molto più grande e questo comporta un RTO maggiore. Ad esempio, il ripristino dei dati dai nastri può richiedere giorni, a seconda del tempo richiesto per il trasporto del nastro da una posizione esterna.
 
@@ -66,7 +66,7 @@ Backup di Azure consente di eseguire il backup sia di computer locali che di VM 
 **Computer** | **Scenario di backup**
 --- | ---
 **Backup locale** |  1) Eseguire l'agente di Servizi di ripristino di Microsoft Azure di Backup di Azure nei computer Windows locali per eseguire il backup di singoli file e dello stato del sistema. <br/><br/>2) Eseguire il backup dei computer locali in un server di backup, ad esempio System Center Data Protection Manager (DPM) o un server di Backup di Microsoft Azure, e quindi configurarlo per eseguire il backup in un insieme di credenziali di Servizi di ripristino di Backup di Azure in Azure.
-**Macchine virtuali di Azure** | 1) Abilitare il backup delle singole macchine virtuali di Azure. Quando si abilita il backup, Backup di Azure installa un'estensione dell'agente di macchine virtuali di Azure in esecuzione nella macchina virtuale. L'agente esegue il backup dell'intera macchina virtuale.<br/><br/> 2) Eseguire l'agente di Servizi di ripristino di Microsoft Azure in una macchina virtuale di Azure. Ciò è utile se si vuole eseguire il backup di singoli file e cartelle nella macchina virtuale.<br/><br/> 3) Eseguire il backup di una macchina virtuale di Azure in un server DPM o in un server di Backup di Microsoft Azure in esecuzione in Azure. Eseguire quindi il backup del server DPM o del server di Backup di Microsoft Azure in un insieme di credenziali con Backup di Azure.
+**Macchine virtuali di Azure** | 1) Abilitare il backup delle singole macchine virtuali di Azure. Quando si abilita il backup, Backup di Azure installa un'estensione dell'agente di macchine virtuali di Azure in esecuzione nella macchina virtuale. L'agente esegue il backup dell'intera macchina virtuale.<br/><br/> 2) Eseguire l'agente di Servizi di ripristino di Microsoft Azure in una macchina virtuale di Azure. Ciò è utile se si vuole eseguire il backup di singoli file e cartelle nella macchina virtuale.<br/><br/> 
 
 
 ## <a name="why-use-a-backup-server"></a>Perché usare un server di backup?

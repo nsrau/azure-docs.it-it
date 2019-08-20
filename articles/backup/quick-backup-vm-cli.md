@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva di Azure - Eseguire il backup di una macchina virtuale con l'interfaccia della riga di comando di Azure
+title: Avvio rapido di Azure - Eseguire il backup di una macchina virtuale con l'interfaccia della riga di comando di Azure
 description: Informazioni su come eseguire il backup delle macchine virtuali con l'interfaccia della riga di comando di Azure
 author: dcurwin
 manager: carmonm
@@ -10,17 +10,17 @@ ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 21178c3b8555879f13686164a4eee922997933dd
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 38e18a79888853383e7966464402408087817f01
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688484"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019007"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Eseguire il backup di una macchina virtuale in Azure con l'interfaccia della riga di comando
 L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. È possibile proteggere i dati eseguendo backup a intervalli regolari. Backup di Azure crea punti di ripristino che possono essere archiviati in insiemi di credenziali di ripristino con ridondanza geografica. Questo articolo illustra in modo dettagliato come eseguire il backup di una macchina virtuale (VM) in Azure con l'interfaccia della riga di comando di Azure. È anche possibile eseguire questa procedura con [Azure PowerShell](quick-backup-vm-powershell.md) o nel [portale di Azure](quick-backup-vm-portal.md).
 
-Questa guida introduttiva abilita il backup per una VM di Azure esistente. Se necessario, è possibile [creare una VM con l'interfaccia della riga di comando di Azure](../virtual-machines/linux/quick-create-cli.md).
+Questa guida introduttiva abilita il backup in una VM di Azure esistente. Se necessario, è possibile [creare una VM con l'interfaccia della riga di comando di Azure](../virtual-machines/linux/quick-create-cli.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -140,7 +140,7 @@ az group delete --name myResourceGroup
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa guida introduttiva si è creato un insieme di credenziali dei servizi di ripristino, si è abilitata la protezione per una VM e si è creato il punto di ripristino iniziale. Per altre informazioni su Backup e Servizi di ripristino di Azure, proseguire con le esercitazioni.
+In questa guida introduttiva è stato creato un insieme di credenziali di Servizi di ripristino, è stata abilitata la protezione per una VM ed è stato creato il punto di ripristino iniziale. Per altre informazioni su Backup e Servizi di ripristino di Azure, proseguire con le esercitazioni.
 
 > [!div class="nextstepaction"]
 > [Eseguire il backup di più macchine virtuali di Azure](./tutorial-backup-vm-at-scale.md)

@@ -1,17 +1,17 @@
 ---
 title: Creare un'istanza di Azure Data Catalog
-description: Guida di avvio rapido alla creazione di un'istanza di Azure Data Catalog.
+description: Questo argomento di avvio rapido descrive come creare un'istanza di Azure Data Catalog usando il portale di Azure.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
 ms.date: 08/01/2019
-ms.openlocfilehash: df2f536dc95dd74dbae1c8bda1a9934a73fd1fe0
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 854760ea0158d356cc5449c9f1fdab6161588640
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736485"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976869"
 ---
 # <a name="quickstart-create-an-azure-data-catalog"></a>Guida introduttiva: Creare un'istanza di Azure Data Catalog
 
@@ -36,7 +36,7 @@ Per configurare Data Catalog, l'utente deve essere proprietario o comproprietari
 
 1. Passare al [portale di Azure](https://portal.azure.com) > **Crea una risorsa** e selezionare **Data Catalog**.
 
-    ![Creare un'istanza di Data Catalog](media/data-catalog-get-started/data-catalog-create.png)
+    ![Pulsante di creazione di Azure Data Catalog](media/data-catalog-get-started/data-catalog-create.png)
 
 2. Specificare un **nome** per il catalogo, la **sottoscrizione** che si vuole usare, la **posizione** del catalogo e il **piano tariffario**. Selezionare quindi **Crea**.
 

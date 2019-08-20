@@ -1,7 +1,7 @@
 ---
-title: Informazioni sul servizio di riconoscimento vocale
+title: Informazioni sui servizi Voce
 titleSuffix: Azure Cognitive Services
-description: Il servizio Voce di Azure combina il riconoscimento vocale, la sintesi vocale e la traduzione vocale in una singola sottoscrizione di Azure. Con Speech SDK, Speech Devices SDK o API REST è facile aggiungere il riconoscimento vocale ad applicazioni, strumenti e dispositivi. Aggiungere funzionalità di riconoscimento vocale in un chatbot esistente, convertire la sintesi vocale in un'applicazione di conversione o trascrivere grandi volumi di dati del call center.
+description: I servizi Voce di Azure combinano riconoscimento vocale, sintesi vocale e traduzione vocale in un'unica sottoscrizione di Azure. Con Speech SDK, Speech Devices SDK o API REST è facile aggiungere il riconoscimento vocale ad applicazioni, strumenti e dispositivi. Aggiungere funzionalità di riconoscimento vocale in un chatbot esistente, convertire la sintesi vocale in un'applicazione di conversione o trascrivere grandi volumi di dati del call center.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 1d722d7e2886008aa5aa3acff8095fcf35ac38d8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4ea6f04dbfd18a6e561a255988ba0465b9e017be
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68554175"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967619"
 ---
 # <a name="what-are-the-speech-services"></a>Informazioni sui servizi Voce
 
-I servizi Voce di Azure combinano il riconoscimento vocale, la sintesi vocale e la traduzione vocale in una singola sottoscrizione di Azure. Con [Speech SDK](speech-sdk-reference.md), [Speech Devices SDK](https://aka.ms/sdsdk-quickstart) o [API REST](rest-apis.md) è facile abilitare il riconoscimento vocale in applicazioni, strumenti e dispositivi.
+I servizi Voce di Azure combinano riconoscimento vocale, sintesi vocale e traduzione vocale in un'unica sottoscrizione di Azure. Con [Speech SDK](speech-sdk-reference.md), [Speech Devices SDK](https://aka.ms/sdsdk-quickstart) o [API REST](rest-apis.md) è facile abilitare il riconoscimento vocale in applicazioni, strumenti e dispositivi.
 
 > [!IMPORTANT]
 > I servizi Voce hanno sostituito i servizi API riconoscimento vocale Bing, Traduzione vocale e Riconoscimento vocale personalizzato. Vedere *Guide alle procedure > Migrazione* per istruzioni relative alla migrazione.
@@ -41,14 +41,14 @@ Queste funzionalità costituiscono i servizi Voce di Azure. Per altre informazio
 
 Informazioni sulle novità relative ai servizi Voce di Azure.
 
+* Agosto 2019
+  * **Nuova esercitazione**: [Abilitare la voce per il bot con Speech SDK, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
 * Giugno 2019
-    * Rilasciato Speech SDK 1.6.0. Per un elenco completo di aggiornamenti, miglioramenti e problemi noti, vedere [Note sulla versione](releasenotes.md).
+  * Rilasciato Speech SDK 1.6.0. Per un elenco completo di aggiornamenti, miglioramenti e problemi noti, vedere [Note sulla versione](releasenotes.md).
 * Maggio 2019 - Disponibilità della documentazione per [Trascrizione conversazione](conversation-transcription-service.md), [Trascrizione di call center](call-center-transcription.md) e [Assistenti virtuali voice-first](voice-first-virtual-assistants.md).
 * Maggio 2019
-    * Rilasciato Speech SDK 1.5.1. Per un elenco completo di aggiornamenti, miglioramenti e problemi noti, vedere [Note sulla versione](releasenotes.md).
-    * Rilasciato Speech SDK 1.5.0. Per un elenco completo di aggiornamenti, miglioramenti e problemi noti, vedere [Note sulla versione](releasenotes.md).
-* Aprile 2019 - Rilasciato Speech SDK 1.4.0 con il supporto per la sintesi vocale (beta) per C++, C# e Java su Windows e Linux. Inoltre, l'SDK ora supporta formati audio MP3 e Opus/Ogg per C++ e C# su Linux. Per un elenco completo di aggiornamenti, miglioramenti e problemi noti, vedere [Note sulla versione](releasenotes.md).
-* Marzo 2019 - È ora disponibile un nuovo endpoint per la sintesi vocale che restituisce un elenco completo delle voci disponibili in aree specifiche. Inoltre, sono ora supportate nuove aree per la sintesi vocale. Per altre informazioni, vedere le [informazioni di riferimento sull'API di sintesi vocale (REST)](rest-text-to-speech.md).
+  * Rilasciato Speech SDK 1.5.1. Per un elenco completo di aggiornamenti, miglioramenti e problemi noti, vedere [Note sulla versione](releasenotes.md).
+  * Rilasciato Speech SDK 1.5.0. Per un elenco completo di aggiornamenti, miglioramenti e problemi noti, vedere [Note sulla versione](releasenotes.md).
 
 ## <a name="try-speech-services"></a>Provare i servizi Voce
 
@@ -67,6 +67,7 @@ Sono disponibili modelli di avvio rapido nei linguaggi di programmazione più di
 Dopo aver usato i servizi Voce, provare l'esercitazione che illustra come riconoscere le finalità dai contenuti vocali con Speech SDK e LUIS.
 
 * [Esercitazione: Riconoscere le finalità dai contenuti vocali con Speech SDK e LUIS per C#](how-to-recognize-intents-from-speech-csharp.md)
+* [Esercitazione: Abilitare il servizio voce per il bot con Speech SDK, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
 * [Esercitazione: Creare un'app Flask per tradurre testo, analizzare sentiment e sintetizzare il testo tradotto in parlato, REST](https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json&toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fspeech-service%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
 
 ## <a name="get-sample-code"></a>Ottenere il codice di esempio
@@ -76,6 +77,7 @@ Il codice di esempio è disponibile in GitHub per ognuno dei servizi Voce di Azu
 * [Esempi di riconoscimento vocale, sintesi vocale e traduzione vocale (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 * [Batch transcription samples (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch) (Esempi di trascrizione batch (REST))
 * [Text-to-speech samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS) (Esempi di sintesi vocale (REST))
+* [Esempi di assistente virtuale basati sul riconoscimento vocale (SDK)](https://aka.ms/csspeech/samples)
 
 ## <a name="customize-your-speech-experience"></a>Personalizzare l'esperienza di riconoscimento vocale
 

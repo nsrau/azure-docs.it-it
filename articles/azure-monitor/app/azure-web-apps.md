@@ -100,7 +100,7 @@ La destinazione del Framework completo da .NET Core, la distribuzione autonoma e
 
 Il monitoraggio lato client è il consenso esplicito per ASP.NET. Per abilitare il monitoraggio lato client:
 
-* Selezionare **impostazioni** >** **dell'applicazione delle impostazioni****
+* Selezionare **impostazioni** >** **dell'applicazione delle impostazioni** **
    * In Impostazioni applicazione aggiungere un nuovo nome e **valore**per l' **impostazione dell'app** :
 
      Nome: `APPINSIGHTS_JAVASCRIPT_ENABLED`

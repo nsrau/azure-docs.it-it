@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5409ed799454a6bb64077ee884065fc518556142
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 03918976935f9071ba2a7951e29195118943a8ef
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227818"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845827"
 ---
 # <a name="about-azure-migrate"></a>Informazioni su Azure Migrate
 
@@ -50,7 +50,7 @@ Oltre agli strumenti nativi di Azure, Azure Migrate si integra con diverse offer
 
 ### <a name="selecting-an-isv-tool"></a>Selezione di uno strumento ISV
 
-Dopo aver aggiunto uno strumento ISV a un progetto di Azure Migrate, per iniziare a usarlo ottenere la licenza o iscriversi per una versione di valutazione gratuita, in base ai requisiti dell'ISV. In ogni strumento è disponibile un'opzione per connettersi ad Azure Migrate. Per connettere lo strumento ad Azure Migrate, seguire le istruzioni e la documentazione per lo strumento.
+Dopo aver aggiunto uno strumento ISV a un progetto di Azure Migrate, per iniziare a usarlo ottenere la licenza o iscriversi per una versione di valutazione gratuita, in base ai requisiti dell'ISV. In ogni strumento è disponibile un'opzione per connettersi ad Azure Migrate. Per connettere lo strumento ad Azure Migrate, seguire le istruzioni e la documentazione per lo strumento. Le licenze per gli strumenti ISV sono conformi al modello di licenza ISV.
 
 ## <a name="azure-migrate-server-assessment"></a>Valutazione server di Azure Migrate
 

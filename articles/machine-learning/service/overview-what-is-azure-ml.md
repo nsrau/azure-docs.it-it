@@ -1,6 +1,5 @@
 ---
-title: Analisi di simulazione
-titleSuffix: Azure Machine Learning service
+title: Informazioni sul servizio Azure Machine Learning
 description: Panoramica del servizio Azure Machine Learning, una soluzione integrata di data science end-to-end destinata a data scientist professionisti per lo sviluppo, la sperimentazione e la distribuzione di applicazioni per analisi avanzate su scala cloud.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 08/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5323c996b8d974c9db11a508503f767cfee80301
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 1dea5e174c66685f889595ab15b3edf57dd02493
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828100"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018239"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Informazioni sul servizio Azure Machine Learning
 
@@ -50,15 +49,15 @@ Iniziare il training nel computer locale usando <a href="https://aka.ms/aml-sdk"
 
 È anche possibile [automatizzare il training e l'ottimizzazione dei modelli](tutorial-auto-train-models.md) usando l'SDK.
 
-### <a name="code-free--low-code-experience"></a>Esperienza code-free/low code
+### <a name="ui-based-low-code-experience"></a>Esperienza con poco codice basata sull'interfaccia utente
 
-Per il training code-free, provare a usare:
+Per il training code-free, provare:
 
-+ L'interfaccia visiva grafica per la sperimentazione e la distribuzione tramite trascinamento della selezione
++ Creazione di [esperimenti di Machine Learning automatizzati](tutorial-first-experiment-automated-ml.md) in un'interfaccia semplice da usare.
++ [Sperimentazione tramite trascinamento della selezione nell'interfaccia visiva grafica](ui-tutorial-automobile-price-train-score.md).
+  ![Interfaccia visiva grafica per il servizio Azure Machine Learning](media/overview-what-is-azure-ml/visual-interface.png)
 
-    ![Interfaccia visiva grafica per il servizio Azure Machine Learning](media/overview-what-is-azure-ml/visual-interface.png)
 
-+ L'opzione del portale di Azure per esperimenti automatizzati di Machine Learning
 
 ### <a name="operationalization-mlops"></a>Operazionalizzazione (MLOps)
 
@@ -71,9 +70,9 @@ Questi modelli possono essere utilizzati e restituiscono stime, [in tempo reale]
 È inoltre possibile usare [pipeline avanzate di Machine Learning](concept-ml-pipelines.md) per collaborare in tutti i passaggi di preparazione dei dati, training dei modelli, valutazione e distribuzione. Le pipeline consentono di:
 
 * Automatizzare il processo di Machine Learning end-to-end nel cloud
-* Riusare i componenti e ripetere i passaggi solo quando necessario
+* Riutilizzare i componenti e ripetere i passaggi solo quando necessario
 * Usare risorse di calcolo diverse in ogni passaggio
-* Eseguire attività di assegnazione punteggio batch
+* Eseguire attività di assegnazione di punteggio batch
 
 Per iniziare a usare il servizio Azure Machine Learning, vedere [Passaggi successivi](#next-steps).
 
@@ -106,7 +105,7 @@ Si ricevono così crediti da spendere in servizi di Azure. Quando i crediti sara
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per iniziare, [creare un'area di lavoro del servizio Azure Machine Learning](setup-create-workspace.md).
+- Per iniziare, [creare un'area di lavoro del servizio Azure Machine Learning](how-to-manage-workspace.md).
 
 - Seguire le esercitazioni complete:
   + [Eseguire il training di un modello di classificazione delle immagini con il servizio Azure Machine Learning](tutorial-train-models-with-aml.md)

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: e7a343e257a926f010b52f9833d7acb321c8aeb6
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: b5c800e1b07fab2026ab74209a41bc07cc56238f
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639473"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019502"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Eseguire il backup di una macchina virtuale in Azure con PowerShell
 
@@ -104,7 +104,6 @@ Abilitare il backup come segue:
         -Policy $policy
     ```
 
-
 ## <a name="start-a-backup-job"></a>Avviare un processo di backup
 
 I backup vengono eseguiti in conformità alla pianificazione specificata nei relativi criteri. È anche possibile eseguire un backup ad hoc:
@@ -158,7 +157,7 @@ Eseguire un processo di backup ad hoc come segue:
 ## <a name="clean-up-the-deployment"></a>Pulire la distribuzione
 
 Se non è più necessario eseguire il backup della VM, è possibile eseguire la pulizia.
-- Se si vuole provare a ripristinare la VM, ignorare questo passaggio.
+- Se si vuole provare a ripristinare la macchina virtuale, ignorare la pulizia.
 - Se è stata usata una VM esistente, si può ignorare il cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) finale e mantenere così il gruppo di risorse e la VM.
 
 Disabilitare la protezione, rimuovere i punti di ripristino e l'insieme di credenziali. Quindi, eliminare il gruppo di risorse e le risorse VM associate, come segue:

@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 1581a62f0999cf502feaad31d2c884f4d171e770
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
-ms.translationtype: HT
+ms.openlocfilehash: 5e9972c5fea7aaa2e6b5270aff87343437b1963e
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019667"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624017"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Differenze T-SQL tra un'istanza gestita del database SQL di Azure e SQL Server
 
@@ -62,6 +62,7 @@ Per le istanze gestite sono disponibili backup automatici, in modo che gli `COPY
 Limitazioni: 
 
 - Con un'istanza gestita, è possibile eseguire il backup di un database di istanza in un backup con un massimo di 32 striping, che è sufficiente per i database fino a 4 TB se viene utilizzata la compressione dei backup.
+- Non è possibile `BACKUP DATABASE ... WITH COPY_ONLY` eseguire in un database crittografato con Transparent Data Encryption gestiti dal servizio (Transparent Service). La crittografia Transparent gestita dal servizio impone la crittografia dei backup con una chiave Transparent Data Encryption. La chiave non può essere esportata, quindi non è possibile ripristinare il backup. Utilizzare i backup automatici e il ripristino temporizzato oppure utilizzare la crittografia [BYOK (Customer-Managed)](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) . È anche possibile disabilitare la crittografia nel database.
 - Le dimensioni massime dello striping del backup `BACKUP` tramite il comando in un'istanza gestita sono 195 GB, ovvero la dimensione massima del BLOB. Aumentare il numero di set di stripe nel comando backup per ridurre le dimensioni dei singoli set di stripe e restare nel limite consentito.
 
     > [!TIP]
@@ -339,9 +340,9 @@ Un'istanza gestita non può accedere a condivisioni file e cartelle di Windows, 
 
 Le istruzioni DBCC non documentate abilitate in SQL Server non sono supportate nelle istanze gestite.
 
-- I `Trace flags` non sono supportati. Vedere [flag di traccia](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
-- `DBCC TRACEOFF` non è supportata. Vedere [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql).
-- `DBCC TRACEON` non è supportata. Vedere [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql).
+- È supportato solo un numero limitato `Trace flags` di elementi globali. Il livello `Trace flags` di sessione non è supportato. Vedere [flag di traccia](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
+- [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql) e [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) funzionano con il numero limitato di flag di traccia globali.
+- Impossibile utilizzare [DBCC CHECKDB](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql) con le opzioni REPAIR_ALLOW_DATA_LOSS, REPAIR_FAST e REPAIR_REBUILD perché il database non può essere impostato `SINGLE_USER` in modalità. vedere [differenze di alter database](#alter-database-statement). I potenziali danneggiamenti del database sono gestiti dal team di supporto di Azure. Se si nota un danneggiamento del database da correggere, contattare il supporto tecnico di Azure.
 
 ### <a name="distributed-transactions"></a>Transazioni distribuite
 
@@ -399,7 +400,7 @@ Le tabelle esterne che fanno riferimento ai file in HDFS o nell'archiviazione BL
 
 ### <a name="replication"></a>Replica
 
-- Sono supportati i tipi di replica snapshot e bidirezionale. La replica di tipo merge, la replica peer-to-peer e le sottoscrizioni aggiornabili non sono supportate.
+- Sono supportati i tipi di replica snapshot e bidirezionali. La replica di tipo merge, la replica peer-to-peer e le sottoscrizioni aggiornabili non sono supportate.
 - La [replica](sql-database-managed-instance-transactional-replication.md) transazionale è disponibile per l'anteprima pubblica in istanza gestita con alcuni vincoli:
     - Tutti i tipi di partecipanti alla replica (server di pubblicazione, server di distribuzione, sottoscrittore pull e Sottoscrittore push) possono essere inseriti in istanze gestite, ma non è possibile inserire server di pubblicazione e server di distribuzione in istanze diverse
     - Le istanze gestite possono comunicare con le versioni recenti di SQL Server. Vedere le versioni supportate [qui](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
@@ -512,6 +513,10 @@ Il broker di servizio tra istanze non è supportato:
 - Dopo la creazione di un'istanza gestita, lo stato di trasferimento dell'istanza gestita o VNet a un altro gruppo di risorse o a una sottoscrizione non è supportato.
 - Alcuni servizi, ad esempio gli ambienti del servizio app, le app per la logica e le istanze gestite, usati per la replica geografica, la replica transazionale o tramite server collegati, non possono accedere alle istanze gestite in aree diverse se i reti virtuali sono connessi tramite [Global peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). È possibile connettersi a queste risorse tramite ExpressRoute o da VNet a VNet tramite gateway VNet.
 
+### <a name="tempdb-size"></a>Dimensioni di TEMPDB
+
+La dimensione massima del `tempdb` file non può essere maggiore di 24 GB per core in un livello per utilizzo generico. Le dimensioni `tempdb` massime di un livello business critical sono limitate dalle dimensioni di archiviazione dell'istanza. `Tempdb`le dimensioni del file di log sono limitate a 120 GB nei livelli per utilizzo generico e business critical. Alcune query potrebbero restituire un errore se hanno bisogno di più di 24 GB per core `tempdb` in o se producono più di 120 GB di dati di log.
+
 ## <a name="Changes"></a> Modifiche nel comportamento
 
 Le variabili, funzioni e viste seguenti restituiscono risultati diversi:
@@ -526,13 +531,39 @@ Le variabili, funzioni e viste seguenti restituiscono risultati diversi:
 
 ## <a name="Issues"></a> Problemi noti e limitazioni
 
-### <a name="tempdb-size"></a>Dimensioni di TEMPDB
+### <a name="cross-database-service-broker-dialogs-dont-work-after-service-tier-upgrade"></a>Le finestre di dialogo Service Broker tra database non funzionano dopo l'aggiornamento del livello di servizio
 
-La dimensione massima del `tempdb` file non può essere maggiore di 24 GB per core in un livello per utilizzo generico. Le dimensioni `tempdb` massime di un livello business critical sono limitate dalle dimensioni di archiviazione dell'istanza. `Tempdb`le dimensioni del file di log sono limitate a 120 GB nei livelli per utilizzo generico e business critical. Il `tempdb` database è sempre suddiviso in 12 file di dati. Non è possibile modificare le dimensioni massime per ogni file e non è possibile aggiungere `tempdb`nuovi file a. Alcune query potrebbero restituire un errore se hanno bisogno di più di 24 GB per core `tempdb` in o se producono più di 120 GB di dati di log. `Tempdb`viene sempre ricreato come database vuoto quando l'istanza viene avviata o sottoposta a failover e tutte le `tempdb` modifiche apportate in non verranno mantenute. 
+**Data** 2019 agosto
 
-### <a name="cant-restore-contained-database"></a>Non è possibile ripristinare il database indipendente
+Le finestre di dialogo Service Broker tra database non riescono a recapitare i messaggi dopo la modifica dell'operazione del livello di servizio. Qualsiasi modifica delle dimensioni di archiviazione dell'istanza o di Vcore in istanza gestita `service_broke_guid` , causerà la modifica del valore della vista [sys.](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) databases per tutti i database. Qualsiasi `DIALOG` istruzione CREATE using [BEGIN DIALOG](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) , che fa riferimento a broker di servizi in un altro database tramite GUID, non sarà in grado di recapitare i messaggi.
 
-Istanza gestita non è in grado di ripristinare [database indipendenti](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). Il ripristino temporizzato dei database indipendenti esistenti non funziona nell'istanza gestita. Nel frattempo, è consigliabile rimuovere l'opzione di contenimento dai database posizionati nell'istanza gestita. Non usare l'opzione di contenimento per i database di produzione. 
+**Soluzione alternativa:** Arrestare tutte le attività che usano le conversazioni di dialogo Service Broker tra database prima di aggiornare il livello di servizio e reinizializzarle dopo.
+
+### <a name="some-aad-login-types-cannot-be-impersonated"></a>Non è possibile rappresentare alcuni tipi di accesso ad AAD
+
+**Data** 2019 luglio
+
+La rappresentazione tramite `EXECUTE AS USER` o `EXECUTE AS LOGIN` delle entità AAD seguenti non è supportata:
+-   Utenti di AAD con alias. In questo caso `15517`viene restituito l'errore seguente.
+- Accessi e utenti di AAD basati su applicazioni o entità servizio di AAD. In questo caso `15517` vengono restituiti i seguenti errori e `15406`.
+
+### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@queryil parametro non è supportato in sp_send_db_mail
+
+**Data** Aprile 2019
+
+Il `@query` parametro nella procedura [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) non funziona.
+
+### <a name="aad-logins-and-users-are-not-supported-in-tools"></a>Gli account di accesso e gli utenti di AAD non sono supportati negli strumenti
+
+**Data** Gennaio 2019
+
+SQL Server Management Studio e SQL Server Data Tools non fuly supportano gli account di accesso e gli utenti di Azure acctive directory.
+- L'uso di Azure AD entità server (account di accesso) e degli utenti (anteprima pubblica) con SQL Server Data Tools attualmente non è supportato.
+- La creazione di script per Azure AD entità server (account di accesso) e utenti (anteprima pubblica) non è supportata in SQL Server Management Studio.
+
+### <a name="tempdb-structure-and-content-is-re-created"></a>La struttura e il contenuto di TEMPDB vengono ricreati
+
+Il `tempdb` database viene sempre suddiviso in 12 file di dati e la struttura del file non può essere modificata. Non è possibile modificare le dimensioni massime per ogni file e non è possibile aggiungere `tempdb`nuovi file a. `Tempdb`viene sempre ricreato come database vuoto quando l'istanza viene avviata o sottoposta a failover e tutte le `tempdb` modifiche apportate in non verranno mantenute.
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Superamento dello spazio di archiviazione con file di database di piccole dimensioni
 
@@ -551,24 +582,9 @@ In questo esempio, i database esistenti continuano a funzionare e possono cresce
 
 È possibile [identificare il numero di file rimanenti usando le](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) visualizzazioni di sistema. Se si raggiunge questo limite, provare a [svuotare ed eliminare alcuni dei file più piccoli usando l'istruzione DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) o passare al [livello business critical, che non ha questo limite](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
-### <a name="tooling"></a>Strumenti
-
-SQL Server Management Studio e SQL Server Data Tools potrebbero riscontrare problemi durante l'accesso a un'istanza gestita.
-
-- L'uso di Azure AD entità server (account di accesso) e degli utenti (anteprima pubblica) con SQL Server Data Tools attualmente non è supportato.
-- La creazione di script per Azure AD entità server (account di accesso) e utenti (anteprima pubblica) non è supportata in SQL Server Management Studio.
-
-### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>Nomi di database errati in alcune viste, log e messaggi
+### <a name="guid-values-shown-instead-of-database-names"></a>Valori GUID visualizzati al posto dei nomi di database
 
 In numerose viste di sistema, contatori delle prestazioni, messaggi di errore, XEvent e voci del log degli errori sono visualizzati gli identificatori GUID dei database anziché i nomi effettivi. Non fare affidamento su questi identificatori GUID perché sono sostituiti con nomi di database effettivi in futuro.
-
-### <a name="database-mail"></a>Posta elettronica database
-
-Il `@query` parametro nella procedura [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) non funziona.
-
-### <a name="database-mail-profile"></a>Profilo Posta elettronica database
-
-È necessario chiamare `AzureManagedInstance_dbmail_profile`il profilo Posta elettronica database usato dall'SQL Server Agent. Non esistono restrizioni per altri nomi di profilo Posta elettronica database.
 
 ### <a name="error-logs-arent-persisted"></a>I log degli errori non sono salvati in stato permanente
 
@@ -616,12 +632,6 @@ Sebbene questo codice funzioni con i dati all'interno della stessa istanza, è n
 I moduli CLR posizionati in un'istanza gestita, i server collegati o le query distribuite che fanno riferimento a un'istanza corrente talvolta non riescono a risolvere l'indirizzo IP di un'istanza locale. Questo errore è un problema temporaneo.
 
 **Soluzione alternativa:** Se possibile, utilizzare le connessioni di contesto in un modulo CLR.
-
-### <a name="tde-encrypted-databases-with-a-service-managed-key-dont-support-user-initiated-backups"></a>I database con crittografia Transparent con una chiave gestita dal servizio non supportano i backup avviati dall'utente
-
-Non è possibile `BACKUP DATABASE ... WITH COPY_ONLY` eseguire in un database crittografato con Transparent Data Encryption gestiti dal servizio (Transparent Service). La crittografia Transparent gestita dal servizio impone la crittografia dei backup con una chiave Transparent Data Encryption. La chiave non può essere esportata, quindi non è possibile ripristinare il backup.
-
-**Soluzione alternativa:** Utilizzare i backup automatici e il ripristino temporizzato oppure utilizzare la crittografia [BYOK (Customer-Managed)](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) . È anche possibile disabilitare la crittografia nel database.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
