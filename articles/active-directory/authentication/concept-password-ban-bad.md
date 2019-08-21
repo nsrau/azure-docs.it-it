@@ -121,7 +121,7 @@ Sulla password normalizzata viene applicata la corrispondenza fuzzy per verifica
 
 Esempio: si supponga che la password "abcdef" sia compresa tra le password escluse e che un utente tenti di modificarla in una delle password seguenti:
 
-'abcdeg'    * (ultimo carattere modificato da 'f' a 'g')* 'abcdefg'   * '(g' aggiunto alla fine)* 'abcde'     * ('f' finale eliminata)*
+'abcdeg'     *(ultimo carattere modificato da 'f' a 'g')* 'abcdefg'    *'(g' aggiunto alla fine)* 'abcde'      *('f' finale eliminata)*
 
 Nessuna delle password precedenti corrisponde esattamente alla password esclusa "abcdef", Tuttavia, poiché ogni esempio si trova all'interno di una distanza di modifica di 1 del termine ' abcdef ' vietato, vengono tutti considerati come una corrispondenza con "abcdef".
 

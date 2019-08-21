@@ -83,7 +83,7 @@ Nelle aziende moderne, i reparti IT spesso non sono a conoscenza di tutte le app
 
 [Microsoft cloud app Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) (MCAS) consente di identificare le app utili più diffuse con gli utenti che possono approvare e aggiungere alla raccolta di applicazioni aziendali, in modo che gli utenti possano trarre vantaggio dalle funzionalità quali SSO e accesso condizionale.
 
-*"* * Cloud app Security** aiuta Microsoft a garantire che gli utenti utilizzino correttamente le applicazioni cloud e Saas, in modo da supportare i criteri di sicurezza di base che consentono di proteggere Accenture". *--- [John Blasi, Managing Director, Information Security, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
+*"**Cloud app Security** aiuta Microsoft a garantire che gli utenti utilizzino correttamente le applicazioni cloud e Saas, in modo da supportare i criteri di sicurezza di base che consentono di proteggere Accenture".* --- [John Blasi, Managing Director, Information Security, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
 Oltre a rilevare shadow IT, MCAS può anche determinare il livello di rischio delle app, impedire l'accesso non autorizzato ai dati aziendali, possibili perdite di dati e altri rischi per la sicurezza inerenti alle applicazioni.
 
