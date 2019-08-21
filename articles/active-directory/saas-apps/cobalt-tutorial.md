@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9fc2cb6e3aa23ffef03dc129f1f8cea520d1025
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eda55cbdaf87d80d239ed284919394f83c7e69b4
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105268"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944762"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cobalt"></a>Esercitazione: Integrazione di Azure Active Directory con Cobalt
 
@@ -111,7 +111,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Cobalt, seguire questa 
     > [!NOTE]
     > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto clienti di Cobalt](https://www.cobalt.net/support/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-5. L'applicazione Cobalt prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su  **Modifica** per aprire la finestra di dialogo Attributi utente.
+5. L'applicazione Cobalt prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aprire la finestra di dialogo Attributi utente.
 
     ![image](common/edit-attribute.png)
 
@@ -210,7 +210,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 ### <a name="create-cobalt-test-user"></a>Creare l'utente di test di Cobalt
 
-In questa sezione viene creato un utente di nome Britta Simon in Cobalt. Collaborare con il  [team di supporto di Cobalt](https://www.cobalt.net/support/) per aggiungere gli utenti alla piattaforma Cobalt. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in Cobalt. Collaborare con il [team di supporto di Cobalt](https://www.cobalt.net/support/) per aggiungere gli utenti alla piattaforma Cobalt. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

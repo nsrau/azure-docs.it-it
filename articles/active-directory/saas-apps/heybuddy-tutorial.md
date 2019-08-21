@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a29d20c434a7306b016fe9a549415242f5977a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e00cc46385f5d60b28607bfc08b9ca9540f152c6
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67101116"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944968"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-heybuddy"></a>Esercitazione: Integrazione di Azure Active Directory con HeyBuddy
 
@@ -113,7 +113,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con HeyBuddy, seguire quest
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi (ID entità). Il `Entity ID` l'URL di accesso viene generato automaticamente per ogni organizzazione. Per ottenere questi valori, contattare il [team di supporto di HeyBuddy](mailto:support@heybuddy.com).
 
-5. L'applicazione HeyBuddy prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su  **Modifica** per aprire la finestra di dialogo Attributi utente.
+5. L'applicazione HeyBuddy prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aprire la finestra di dialogo Attributi utente.
 
     ![image](common/edit-attribute.png)
 
@@ -209,7 +209,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene creato un utente di nome Britta Simon in HeyBuddy. HeyBuddy supporta il provisioning JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in HeyBuddy, ne viene creato uno nuovo dopo l'autenticazione.
 
 > [!Note]
-> Se è necessario creare un utente manualmente, contattare il  [team di supporto di HeyBuddy](mailto:support@heybuddy.com).
+> Per creare un utente manualmente, contattare il [team di supporto di HeyBuddy](mailto:support@heybuddy.com).
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

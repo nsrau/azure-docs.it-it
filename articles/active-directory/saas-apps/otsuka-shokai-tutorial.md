@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd06eafca2c508bc73fa2b327235621797be417c
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: f558b33079821efcf56731eb95073e0170a72795
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274188"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943541"
 ---
 # <a name="tutorial-integrate-otsuka-shokai-with-azure-active-directory"></a>Esercitazione: Integrare Otsuka Shokai con Azure Active Directory
 
@@ -80,7 +80,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella sezione **Configura l'accesso Single Sign-On con SAML** l'applicazione è preconfigurata e gli URL necessari sono già prepopolati con Azure. L'utente deve salvare la configurazione facendo clic sul pulsante **Salva**.
 
-1. L'applicazione Otsuka Shokai prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente illustra l'elenco degli attributi predefiniti in cui  **nameidentifier**  è associato a  **user.userprincipalname**. L'applicazione Otsuka Shokai prevede il mapping di  **nameidentifier**  a  **user.objectid**, di conseguenza per modificare il mapping degli attributi, è necessario fare clic sull'icona  **Modifica** .
+1. L'applicazione Otsuka Shokai prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente illustra l'elenco degli attributi predefiniti in cui **nameidentifier** è associato a **user.userprincipalname**. L'applicazione Otsuka Shokai prevede che **nameidentifier** sia associato a **user.objectid**, di conseguenza è necessario modificare il mapping dell'attributo. A questo scopo, fare clic sull'icona **Modifica**.
 
     ![image](common/edit-attribute.png)
 

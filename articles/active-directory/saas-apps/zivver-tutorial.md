@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: e18c5dfe3649f74a9f84c605785ca99748298bea
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cc78b08c25ada2bf1ed67f4c27246bc873823516
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67086142"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943112"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zivver"></a>Esercitazione: Integrazione di Azure Active Directory con ZIVVER
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ZIVVER, seguire questa 
 
     Nella casella di testo **Identificatore** digitare un URL: `https://app.zivver.com/SAML/Zivver`
 
-5. L'applicazione ZIVVER prevede un formato specifico per le asserzioni SAML, in base al quale è necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi token SAML. Lo screenshot seguente illustra l'elenco degli attributi predefiniti, in cui  **nameidentifier**  è mappato a  **user.userprincipalname**. L'applicazione ZIVVER prevede che  **nameidentifier**  sia mappato a  **user.mail**, di conseguenza è necessario modificare il mapping di attributi facendo clic sull'icona  **Modifica** .
+5. L'applicazione ZIVVER prevede un formato specifico per le asserzioni SAML, in base al quale è necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi token SAML. La schermata seguente illustra l'elenco degli attributi predefiniti in cui **nameidentifier** è associato a **user.userprincipalname**. L'applicazione ZIVVER prevede che **nameidentifier** sia associato a **user.mail**, di conseguenza è necessario modificare il mapping dell'attributo. A questo scopo, fare clic sull'icona **Modifica**.
 
     ![image](common/edit-attribute.png)
 
@@ -218,7 +218,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 ### <a name="create-zivver-test-user"></a>Creare l'utente di test di ZIVVER
 
-In questa sezione viene creato un utente di nome Britta Simon in ZIVVER. Collaborare con il  [team di supporto di ZIVVER](https://support.zivver.com/) per aggiungere gli utenti nella piattaforma ZIVVER. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in ZIVVER. Collaborare con il [team di supporto di ZIVVER](https://support.zivver.com/) per aggiungere gli utenti nella piattaforma ZIVVER. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

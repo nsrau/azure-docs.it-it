@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 279f6970c34acbfea645366f7e965c830873fdbf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: efd64830c0d9afa83838adef96cf1c103b4485e8
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089184"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943270"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tas"></a>Esercitazione: Integrazione di Azure Active Directory con TAS
 
@@ -150,7 +150,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con TAS, seguire questa pro
 
     c. Nella casella di testo **Enter URL** (Immetti URL) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
-    d. Nel Blocco note aprire il certificato con codifica Base 64 scaricato dal portale di Azure, copiarne il contenuto e quindi incollarlo nella casella  **Enter Certification**  (Immetti certificato).
+    d. Nel Blocco note aprire il certificato con codifica Base 64 scaricato dal portale di Azure, copiarne il contenuto e quindi incollarlo nella casella **Enter Certification** (Immetti certificato).
 
     e. Nella casella di testo **Enter New IP** (Immetti nuovo IP) digitare l'indirizzo IP.
 
@@ -216,7 +216,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 ### <a name="create-tas-test-user"></a>Creare l'utente di test di TAS
 
-In questa sezione viene creato un utente di nome Britta Simon in TAS. Collaborare con il [team di supporto TAS](mailto:support@combtas.com) per aggiungere gli utenti alla piattaforma TAS. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in TAS. Collaborare con il [team di supporto di TAS](mailto:support@combtas.com) per aggiungere gli utenti alla piattaforma TAS. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

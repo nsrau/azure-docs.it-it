@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/30/2019
+ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf5bf49538823ea50bca197a78ec54d4ddcae1ff
-ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
+ms.openlocfilehash: e078cb7daa787b9fe5e8bc996b36f0fef198f41c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68708444"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879689"
 ---
 # <a name="tutorial-integrate-carbonite-endpoint-backup-with-azure-active-directory"></a>Esercitazione: Integrare Carbonite Endpoint Backup con Azure Active Directory
 
@@ -125,27 +125,35 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 ### <a name="configure-carbonite-endpoint-backup-sso"></a>Configurare l'accesso SSO di Carbonite Endpoint Backup
 
-1. In un'altra finestra del Web browser accedere al sito aziendale di Carbonite Endpoint Backup come amministratore.
+1. Per automatizzare la configurazione all'interno di Carbonite Endpoint Backup, è necessario installare l'**estensione del browser per l'accesso sicuro ad App personali** facendo clic su **Installa l'estensione**.
 
-1. Fare clic su **Company** (Società) nel riquadro sinistro.
+    ![Estensione App personali](common/install-myappssecure-extension.png)
+
+2. Dopo aver aggiunto l'estensione al browser, fare clic su **Configura Carbonite Endpoint Backup**  per passare direttamente all'applicazione Carbonite Endpoint Backup. Nell'applicazione fornire le credenziali di amministratore per accedere a Carbonite Endpoint Backup. L'estensione del browser configurerà automaticamente l'applicazione per l'utente e automatizzerà i passaggi da 3 a 7.
+
+    ![Eseguire la configurazione](common/setup-sso.png)
+
+3. Se si vuole configurare manualmente Carbonite Endpoint Backup, aprire una nuova finestra del Web browser, accedere al sito aziendale di Carbonite Endpoint Backup come amministratore e seguire questa procedura:
+
+4. Fare clic su **Company** (Società) nel riquadro sinistro.
 
     ![Configurazione di Carbonite Endpoint Backup ](media/carbonite-endpoint-backup-tutorial/configure1.png)
 
-1. Fare clic su **Single sign-on**.
+5. Fare clic su **Single sign-on**.
 
     ![Configurazione di Carbonite Endpoint Backup ](media/carbonite-endpoint-backup-tutorial/configure2.png)
 
-1. Fare clic su **Enable** (Abilita) e quindi su **Edit settings** (Modifica impostazioni) per eseguire la configurazione.
+6. Fare clic su **Enable** (Abilita) e quindi su **Edit settings** (Modifica impostazioni) per eseguire la configurazione.
 
     ![Configurazione di Carbonite Endpoint Backup ](media/carbonite-endpoint-backup-tutorial/configure3.png)
 
-1. Nella pagina di impostazioni **Single sign-on** seguire questa procedura:
+7. Nella pagina di impostazioni **Single sign-on** seguire questa procedura:
 
     ![Configurazione di Carbonite Endpoint Backup ](media/carbonite-endpoint-backup-tutorial/configure4.png)
 
-    1. Nella casella di testo **Identity provider name** (Nome provider di identità) immettere il nome del provider di identità, ad esempio **Microsoft Azure AD**.
+    1. Nella casella di testo **Identity provider name** (Nome del provider di identità) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
 
-    1. Nella casella di testo **Identity Provider URL** (URL provider di identità) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
+    1. Nella casella di testo **Identity provider URL** (URL del provider di identità) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
     1. Fare clic su **Choose file** (Scegli file) per caricare il file di **Certificato (Base64)** scaricato dal portale di Azure.
 

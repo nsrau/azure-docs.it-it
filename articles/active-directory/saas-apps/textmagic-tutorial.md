@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 1184e282c8dc52cb616bcc47068d96fe61651da9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53711a80f35177c911b754a0ce3f189ac106adb2
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67088867"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943311"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>Esercitazione: Integrazione di Azure Active Directory con TextMagic
 
@@ -166,13 +166,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con TextMagic, seguire ques
 
     ![Configurazione di TextMagic](./media/textmagic-tutorial/config2.png)
 
-    a. Nella casella di testo  **Identity provider Entity ID**  (ID entità del provider di identità) incollare il valore di  **Identificatore di Azure AD** copiato dal portale di Azure.
+    a. Nella casella di testo **Identity provider Entity ID:** (ID entità del provider di identità) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
 
-    b. Nella casella di testo  **Identity provider SSO URL:**   (URL SSO del provider di identità) incollare il valore di  **URL di accesso** copiato dal portale di Azure.
+    b. Nella casella di testo **Identity Provider SSO URL** (URL SSO del provider di identità) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
-    c. Nella casella di testo  **Identity provider SLO URL:**   (URL SLO provider di identità) incollare il valore di  **URL disconnessione** copiato dal portale di Azure.
+    c. Nella casella di testo **Identity provider SLO URL** (URL di disconnessione singolo provider di identità) incollare il valore di **URL di disconnessione** copiato dal portale di Azure.
 
-    d. Aprire nel Blocco note il **certificato con codifica Base 64** scaricato dal portale di Azure, copiarne il contenuto negli Appunti e incollarlo nella casella di testo  **Public x509 certificate**  (Certificato X509 pubblico).
+    d. Aprire nel Blocco note il certificato con codifica **Base 64** scaricato dal portale di Azure, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **Public x509 certificate** (Certificato X509 pubblico).
 
     e. Fare clic su **Save**.
 
