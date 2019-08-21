@@ -149,6 +149,8 @@
           href: display-feature-information-android.md
         - name: Aggiungere un livello per i riquadri
           href: how-to-add-tile-layer-android-map.md
+    - name: Inviare commenti e suggerimenti sui dati
+      href: how-to-use-feedback-tool.md
 - name: riferimento
   items:
     - name: Estensioni di API e parametri

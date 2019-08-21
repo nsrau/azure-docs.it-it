@@ -72,7 +72,7 @@
   items:
     - name: Lab per le classi
       items:
-        - name: Creare e configurare account di lab
+        - name: Creare e configurare account lab (proprietario di account lab)
           items:
             - name: Creare e gestire account di lab
               href: classroom-labs/how-to-manage-lab-accounts.md
@@ -82,7 +82,7 @@
               href: classroom-labs/how-to-connect-peer-virtual-network.md
             - name: Collegare o scollegare una raccolta immagini condivisa
               href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
-        - name: 'Creare, configurare e usare i lab per le classi'
+        - name: Creare e configurare lab per le classi (docente)
           items:
             - name: Creare e gestire i lab per le classi
               href: classroom-labs/how-to-manage-classroom-labs.md
@@ -90,8 +90,6 @@
               href: classroom-labs/how-to-create-manage-template.md
             - name: Configurare e controllare l'utilizzo
               href: classroom-labs/how-to-configure-student-usage.md
-            - name: Accedere ai lab per le classi
-              href: classroom-labs/how-to-use-classroom-lab.md
             - name: Creare e gestire pianificazioni
               href: classroom-labs/how-to-create-schedules.md
             - name: Creare un ambiente con più macchine virtuali all'interno di un modello di macchina virtuale
@@ -102,6 +100,10 @@
               href: classroom-labs/how-to-enable-remote-desktop-linux.md
             - name: Impostare o reimpostare le password per le macchine virtuali
               href: classroom-labs/how-to-set-virtual-machine-passwords.md
+        - name: Connettersi a una macchina virtuale in lab per le classi (studente)
+          items:
+            - name: Accedere ai lab per le classi
+              href: classroom-labs/how-to-use-classroom-lab.md
     - name: DevTest Labs
       items:
         - name: Configurare un lab
@@ -120,6 +122,8 @@
               href: configure-lab-remote-desktop-gateway.md
             - name: Pubblicare un annuncio in un lab
               href: devtest-lab-announcements.md
+            - name: Abilitare la connessione tramite browser nelle macchine virtuali
+              href: enable-browser-connection-lab-virtual-machines.md
             - name: Configurare la gestione dei costi
               href: devtest-lab-configure-cost-management.md
             - name: Inviare notifiche di arresto automatico
@@ -166,6 +170,8 @@
               href: devtest-lab-use-resource-manager-template.md
             - name: Creare una VM usando un'immagine della raccolta immagini condivisa
               href: add-vm-use-shared-image.md
+            - name: Connettersi alla macchina virtuale tramite un browser
+              href: connect-virtual-machine-through-browser.md
             - name: Avviare o arrestare una VM con PowerShell o con l'interfaccia della riga di comando
               href: use-command-line-start-stop-virtual-machines.md
             - name: Riavviare una macchina virtuale
