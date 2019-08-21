@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 499b7f5761c97f6986ca0291af2242d694b609d2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a7c1a59e3b0650badd75a1170a4daaa6561bd23c
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67101744"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945053"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getthere"></a>Esercitazione: integrazione di Azure Active Directory con GetThere
 
@@ -120,7 +120,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con GetThere, seguire quest
     | `https://gtx2-gcte2.getthere.net/login/saml/ssoaasvalidate.act` |
     | `https://wx1.getthere.net/login/saml/ssoaavalidate.act` |
 
-5. L'applicazione GetThere prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su  **Modifica** per aprire la finestra di dialogo Attributi utente.
+5. L'applicazione GetThere prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aprire la finestra di dialogo Attributi utente.
 
     ![image](common/edit-attribute.png)
 
@@ -220,7 +220,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 ### <a name="create-getthere-test-user"></a>Creare un utente di test di GetThere
 
-In questa sezione viene creato un utente di nome Britta Simon in GetThere. Per aggiungere gli utenti alla piattaforma GetThere, collaborare con il  [team di supporto di GetThere](mailto:dataintegration@sabre.com). Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in GetThere. Collaborare con il [team di supporto di GetThere](mailto:dataintegration@sabre.com) per aggiungere gli utenti alla piattaforma GetThere. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

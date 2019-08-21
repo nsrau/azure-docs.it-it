@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07341c1ad30f1242bdff430826fdc82c45e09dac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 07b0f8112f724c857ffb46378f7aa7ef605b9bbb
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67086063"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943297"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Esercitazione: Integrazione di Azure Active Directory con Zscaler Beta
 
@@ -112,7 +112,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler Beta, seguire q
     > [!NOTE]
     > Poiché il valore non è reale, è necessario aggiornarlo con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto clienti di Zscaler Beta](https://www.zscaler.com/company/contact).
 
-5. L'applicazione Zscaler Beta prevede un formato specifico per le asserzioni SAML. È necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Selezionare **Modifica** per aprire la finestra di dialogo **Attributi utente**.
+5. L'applicazione Zscaler Beta prevede un formato specifico per le asserzioni SAML. È necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Selezionare **Modifica** per aprire la finestra di dialogo **Attributi utente**.
 
     ![Finestra di dialogo Attributi utente](common/edit-attribute.png)
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 61946f77ddffe999e55acd09e3957d91c621492b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 557f07f3e99365bbfca7f0b0d70c0c0cd928c2e6
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67103244"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944400"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-eplatform"></a>Esercitazione: Integrazione di Azure Active Directory con ePlatform
 
@@ -117,7 +117,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ePlatform, seguire ques
 
     ![Copiare il valore di Identificazione personale](common/copy-thumbprint.png)
 
-7. L'applicazione ePlatform prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic sull'icona  **Modifica** per aprire la finestra di dialogo **Attributi utente**. 
+7. L'applicazione ePlatform prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aprire la finestra di dialogo **Attributi utente**.
 
     ![image](common/edit-attribute.png)
 
@@ -212,7 +212,7 @@ In questa sezione l'utente Britta Simon viene abilitato per l'uso dell'accesso S
 
 ### <a name="create-eplatform-test-user"></a>Creare l'utente di test di ePlatform
 
-In questa sezione viene creato un utente di nome Britta Simon in ePlatform. Per aggiungere gli utenti alla piattaforma ePlatform, collaborare con il  [team di supporto di ePlatform](https://help.eplatform.co/hc/en-us). Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in ePlatform. Collaborare con il [team di supporto di ePlatform](https://help.eplatform.co/hc/en-us) per aggiungere gli utenti alla piattaforma ePlatform. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 
