@@ -5,18 +5,17 @@ services: search
 manager: pablocas
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: 8fb7ff51507212dfb162c09fcee469d6f154f3c3
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 03ebf39db264c9d6f78b228f3af4239c6e249b26
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840895"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69635935"
 ---
 #   <a name="text-split-cognitive-skill"></a>Competenza cognitiva Divisione del testo
 
@@ -48,7 +47,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 ## <a name="skill-outputs"></a>Output competenze 
 
-| Nome parametro     | DESCRIZIONE |
+| Nome parametro     | Descrizione |
 |--------------------|-------------|
 | textItems | Una matrice di sottostringhe che sono state estratte. |
 

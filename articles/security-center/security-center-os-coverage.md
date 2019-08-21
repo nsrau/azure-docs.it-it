@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 21a42b2986b52282fbab914fa702d8c4a323ed35
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 1f5a144728614ee13bf4f08bb594f0546d446880
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611943"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640792"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Funzionalità e piattaforme supportate dal Centro sicurezza di Azure
 
@@ -82,22 +82,22 @@ Sono supportate anche le macchine virtuali in esecuzione in un servizio cloud. V
 |**Environment**|**Azure**||**Non Azure**|**Azure**||**Non Azure**||
 ||**Macchina virtuale**|**Set di scalabilità della macchina virtuale**||**Macchina virtuale**|**Set di scalabilità della macchina virtuale**|
 |Avvisi di rilevamento minacce VMBA|✔|✔|✔|✔ (nelle versioni supportate)|✔ (nelle versioni supportate)|✔|Indicazioni (gratuite) rilevamento minacce (standard)|
-|Avvisi di rilevamento delle minacce di rete|✔|✔|X|✔|✔|x|Standard|
-|Integrazione con Windows Defender ATP|✔ (nelle versioni supportate)|✔ (nelle versioni supportate)|✔|X|X|x|Standard|
+|Avvisi di rilevamento delle minacce di rete|✔|✔|x|✔|✔|x|Standard|
+|Integrazione con Windows Defender ATP|✔ (nelle versioni supportate)|✔ (nelle versioni supportate)|✔|X|X|X|Standard|
 |Patch mancanti|✔|✔|✔|✔|✔|✔|Gratuito|
 |Configurazioni della sicurezza|✔|✔|✔|✔|✔|✔|Gratuito|
-|Valutazione di Endpoint Protection|✔|✔|✔|X|X|X|Gratuito|
+|Valutazione di Endpoint Protection|✔|✔|✔|X|X|x|Gratuito|
 |Accesso JIT alle VM|✔|X|X|✔|x|X|Standard|
-|Controlli applicazione adattivi|✔|X|✔|✔|x|✔|Standard|
+|Controlli applicazione adattivi|✔|x|✔|✔|X|✔|Standard|
 |FIM|✔|✔|✔|✔|✔|✔|Standard|
-|Valutazione della crittografia del disco|✔|✔|x|✔|✔|X|Gratuito|
-|Distribuzione di terze parti|✔|X|X|✔|x|X|Gratuito|
-|Valutazione NSG|✔|✔|X|✔|✔|X|Gratuito|
-|Rilevamento delle minacce senza file|✔|✔|✔|X|X|X|Standard|
+|Valutazione della crittografia del disco|✔|✔|X|✔|✔|X|Gratuito|
+|Distribuzione di terze parti|✔|X|X|✔|x|x|Gratuito|
+|Valutazione NSG|✔|✔|x|✔|✔|X|Gratuito|
+|Rilevamento delle minacce senza file|✔|✔|✔|X|X|x|Standard|
 |Mappa di rete|✔|✔|X|✔|✔|X|Standard|
-|Controlli adattivi della rete|✔|✔|X|✔|✔|x|Standard|
+|Controlli adattivi della rete|✔|✔|X|✔|✔|X|Standard|
 |Dashboard di conformità normativa & report|✔|✔|✔|✔|✔|✔|Standard|
-|Raccomandazioni e rilevamento delle minacce nei contenitori IaaS ospitati da Docker|x|X|x|✔|✔|✔|Standard|
+|Raccomandazioni e rilevamento delle minacce nei contenitori IaaS ospitati da Docker|x|X|X|✔|✔|✔|Standard|
 
 ### <a name="supported-endpoint-protection-solutions"></a>Soluzioni di protezione endpoint supportate
 
@@ -111,7 +111,7 @@ Per informazioni sul momento in cui vengono generate le indicazioni per ognuna d
 |------|------|-----|-----|
 | Windows Defender (Microsoft Antimalware)| Windows Server 2016| No, predefinito nel sistema operativo| Sì |
 | System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (vedere la nota seguente) | Tramite estensione | Sì |
-| Trend Micro – Tutte le versioni | Famiglia Windows Server  | No | Sì |
+| Tendenza Micro-tutte le versioni * | Famiglia Windows Server  | No | Sì |
 | Symantec v12.1.1100+| Famiglia Windows Server  | No | Sì |
 | McAfee v10+ | Famiglia Windows Server  | No | Sì |
 | McAfee v10+ | Famiglia di server Linux  | No | Sì **\*** |
@@ -121,6 +121,7 @@ Per informazioni sul momento in cui vengono generate le indicazioni per ognuna d
 
 > [!NOTE]
 > - Per poter rilevare System Center Endpoint Protection (SCEP) in una macchina virtuale Windows Server 2008 R2, SCEP deve essere installato dopo PowerShell 3.0 (o versione successiva).
+> - Il rilevamento di tendenza Micro Protection è supportato per gli agenti di sicurezza approfonditi.  Gli agenti OfficeScan non sono supportati.
 
 ## <a name="supported-paas-features"></a>Funzionalità PaaS supportate
 
@@ -132,7 +133,7 @@ Per informazioni sul momento in cui vengono generate le indicazioni per ognuna d
 |MySQL*|✔| ✔|
 |Account di archiviazione BLOB di Azure|✔| ✔|
 |Servizi app|✔| ✔|
-|Servizi cloud|✔| X|
+|Servizi cloud|✔| x|
 |Reti virtuali|✔| ND|
 |Subnet|✔| ND|
 |Schede di interfaccia di rete|✔| ND|

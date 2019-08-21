@@ -1,7 +1,7 @@
 ---
 title: Aggiornare il servizio Qna Maker - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Condivisione o aggiornare i servizi di QnA Maker per gestire le risorse migliore.
+description: Condividere o aggiornare i servizi di QnA Maker per gestire meglio le risorse.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,21 +10,21 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: diberry
-ms.openlocfilehash: 2fdbb245f838d92e84d1247faa610a2f1a66c532
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: df4aa2d6a3c4690fb1fc38b0f4f7d49afccdd657
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439755"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640473"
 ---
-# <a name="share-or-upgrade-your-qna-maker-service"></a>Condivisione o aggiornare il servizio QnA Maker
-Condivisione o aggiornare i servizi di QnA Maker per gestire le risorse migliore. 
+# <a name="share-or-upgrade-your-qna-maker-service"></a>Condividere o aggiornare il servizio QnA Maker
+Condividere o aggiornare i servizi di QnA Maker per gestire meglio le risorse. 
 
 È possibile scegliere di aggiornare i singoli componenti dello stack di QnA Maker dopo la creazione iniziale. Vedere i dettagli dei componenti dipendenti e della selezione dello SKU [qui](https://aka.ms/qnamaker-docs-capacity).
 
 ## <a name="share-existing-services-with-qna-maker"></a>Condividere i servizi esistenti con QnA Maker
 
-QnA Maker crea diverse risorse di Azure. Per ridurre la gestione e trarre vantaggio dal costo di condivisione, usare la tabella seguente per comprendere cosa può e non possono condividere:
+QnA Maker crea diverse risorse di Azure. Per ridurre la gestione e trarre vantaggio dalla condivisione dei costi, usare la tabella seguente per comprendere cosa è possibile e non è possibile condividere:
 
 |Service|Condividi|
 |--|--|
@@ -52,7 +52,7 @@ Per aggiornare lo SKU di gestione di QnA Maker:
 
  Quando la knowledge base deve servire più richieste dall'applicazione client, aggiornare il piano tariffario del servizio app.
 
-È possibile [aumentare](https://docs.microsoft.com/azure/app-service/web-sites-scale) o ridurre le prestazioni del servizio app.
+È possibile [aumentare](https://docs.microsoft.com/azure/app-service/manage-scale-up) o ridurre le prestazioni del servizio app.
 
 1. Passare alla risorsa del servizio app nel portale di Azure e selezionare le opzioni per **aumentare** o **ridurre** le prestazioni secondo le esigenze.
 

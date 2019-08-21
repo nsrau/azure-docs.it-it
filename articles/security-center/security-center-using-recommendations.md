@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/26/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 60bb1c3b81ef990993a2ce659a2b189c9d8a0eba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79a5f9a1269bdfc63d9d0b6fffd8458d011b777b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967976"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640868"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Uso delle raccomandazioni del Centro sicurezza di Azure per migliorare la sicurezza
 Configurando i criteri di sicurezza e implementando le raccomandazioni offerte dal Centro sicurezza di Azure, è possibile ridurre le probabilità di un importante evento di sicurezza. Questo articolo illustra come usare i criteri di sicurezza e le raccomandazioni nel Centro sicurezza di Azure per attenuare un attacco alla sicurezza. 
 
-Il Centro sicurezza esegue automaticamente le analisi continua per analizzare lo stato di sicurezza delle risorse di Azure. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli di sicurezza necessari. Il Centro sicurezza Aggiorna relative indicazioni entro 24 ore, con le eccezioni seguenti:
+Il Centro sicurezza esegue automaticamente analisi continue per analizzare lo stato di sicurezza delle risorse di Azure. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli di sicurezza necessari. Il Centro sicurezza aggiorna le proprie raccomandazioni entro 24 ore, con le eccezioni seguenti:
 
-- Consigli sulla configurazione di sicurezza del sistema operativo vengono aggiornati entro 48 ore
-- Consigli di problemi di endpoint Protection vengono aggiornati entro 8 ore
+- Le raccomandazioni relative alla configurazione della sicurezza del sistema operativo vengono aggiornate entro 48 ore
+- Le raccomandazioni per i problemi di Endpoint Protection vengono aggiornate entro 8 ore
 
 ## <a name="scenario"></a>Scenario
 In questo scenario viene illustrato come usare il Centro sicurezza per ridurre il rischio di eventi imprevisti della sicurezza monitorando e intervenendo sulle raccomandazioni del Centro sicurezza. Si fa riferimento a una società fittizia, Contoso, e ai ruoli presentati nella [guida alla pianificazione e gestione](security-center-planning-and-operations-guide.md#security-roles-and-access-controls) del Centro sicurezza. Lo scenario si concentra sui ruoli degli utenti tipo seguenti:
@@ -41,34 +41,34 @@ David, del reparto sicurezza IT di Contoso, ha già scelto di eseguire l'onboard
 
 Il Centro sicurezza analizza automaticamente lo stato di sicurezza delle risorse di Azure di Contoso e applica i criteri di sicurezza predefiniti. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea **raccomandazioni** in base ai controlli impostati nel criterio di sicurezza. 
 
-David esegue il livello standard del Centro sicurezza di Azure in tutte le sottoscrizioni per ottenere la suite completa di raccomandazioni e funzionalità di sicurezza disponibili. Anche Jeff esegue l'onboarding di tutti i server locali esistenti di cui non è ancora stata eseguita la migrazione al cloud, in modo da poter usufruire del supporto ibrido del Centro sicurezza per i server [Windows](quick-onboard-windows-computer.md) e [Linux](quick-onboard-linux-computer.md).
+David esegue il livello standard di sicurezza di Azure, in tutte le sottoscrizioni, per ottenere la suite completa di funzionalità di sicurezza e consigli disponibili. Jeff carica anche tutti i server locali esistenti che non sono stati ancora migrati nel cloud, in modo da poter sfruttare il supporto ibrido del Centro sicurezza nei propri server [Windows](quick-onboard-windows-computer.md) e [Linux](quick-onboard-linux-computer.md) .
 
 Jeff è un proprietario del carico di lavoro cloud. È responsabile dell'applicazione dei controlli di sicurezza in conformità con i criteri di sicurezza di Contoso. 
 
 Jeff esegue queste attività:
 
 - monitorare le raccomandazioni di sicurezza presenti nel Centro sicurezza
-- valutare le raccomandazioni sulla sicurezza e decidere se applicarle o ignorarle
+- Valutare le raccomandazioni sulla sicurezza e decidere se applicare o ignorare le raccomandazioni.
 - applicare le raccomandazioni sulla sicurezza
 
 ### <a name="remediate-threats-using-recommendations"></a>Correggere le minacce usando le raccomandazioni
-Come parte delle sue attività di monitoraggio quotidiane, Jeff accede ad Azure e apre il Centro sicurezza. 
+Come parte delle attività di monitoraggio quotidiane, Jeff accede ad Azure e apre il Centro sicurezza. 
 
-1. Jeff seleziona le sottoscrizioni del suo carico di lavoro.
+1. Jeff seleziona le sottoscrizioni del carico di lavoro.
 
-2. Jeff controlla il **punteggio di sicurezza** per ottenere un quadro generale della sicurezza delle sottoscrizioni e vede che il suo punteggio è 548.
+2. Jeff controlla il **Punteggio sicuro** per ottenere un'immagine complessiva della protezione delle sottoscrizioni e rileva che il punteggio è 548.
 
 3. Jeff deve decidere quali raccomandazioni gestire per prime. Quindi, Jeff fa clic sul punteggio di sicurezza e inizia a gestire raccomandazioni in base a quanto migliorano l'[impatto di punteggio di sicurezza](security-center-secure-score.md).
 
 4. Poiché ha un numero elevato di server e macchine virtuali connesse, Jeff decide di concentrarsi su **Risorse di calcolo e app**.
 
-5. Quando Jeff fa clic sul **Risorse di calcolo e app**, visualizza un elenco di raccomandazioni e le gestisce in base all'impatto di punteggio di sicurezza.
+5. Quando Jeff fa clic su **calcolo e app**, Visualizza un elenco di raccomandazioni e le gestisce in base all'effetto del Punteggio sicuro.
 
-6. Jeff ha numerose macchine virtuali con connessione Internet e poiché le relative porte sono esposte, teme che un utente malintenzionato possa ottenere il controllo dei server. Di conseguenza, sceglie di usare l'**accesso JIT alle macchine virtuali** [security-center-just-in-time.md].
+6. Jeff dispone di numerose macchine virtuali con connessione Internet e, poiché le relative porte sono esposte, temono che un utente malintenzionato possa ottenere il controllo sui server. Di conseguenza, sceglie di usare l'**accesso JIT alle macchine virtuali** [security-center-just-in-time.md].
 
 Jeff continua a sfogliare le raccomandazioni con priorità alta e media, decidendo di volta in volta sull'implementazione. Per ogni raccomandazione, Jeff esamina le informazioni dettagliate fornite dal Centro sicurezza per comprendere quali risorse sono interessate, qual è l'impatto di punteggio sicuro, il significato di ogni raccomandazione e la procedura di correzione per attenuare i problemi.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 Il monitoraggio delle raccomandazioni nel Centro sicurezza contribuisce a eliminare le vulnerabilità di sicurezza prima che si verifichi un attacco. Quando si fanno correzioni in base alle raccomandazioni, il punteggio di sicurezza e le condizioni di sicurezza dei carichi di lavoro migliorano. Il Centro sicurezza individua automaticamente le nuove risorse distribuite, le valuta in base ai criteri di sicurezza e offre nuove raccomandazioni per proteggerle.
 
 

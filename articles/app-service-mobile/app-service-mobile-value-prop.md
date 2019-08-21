@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 72614a7f804f404e3e560d944db7b3d2e496c383
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: a3817b3e9f62a863f3fea9305ef169db2eb84491
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68705678"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637954"
 ---
 # <a name="getting-started"> </a>Informazioni su App per dispositivi mobili nel servizio app di Azure
 
@@ -104,7 +104,7 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [Xamarin.iOS, Xamarin.Android]: ./app-service-mobile-dotnet-how-to-use-client-library.md
 [Xamarin.Forms]: ./app-service-mobile-xamarin-forms-get-started.md
 [Apache Cordova]: ./app-service-mobile-cordova-how-to-use-client-library.md
-[scalabilità automatica]: ../app-service/web-sites-scale.md
+[scalabilità automatica]: ../app-service/manage-scale-up.md
 [ambienti di staging]: ../app-service/deploy-staging-slots.md
 [connessioni ibride]: ../biztalk-services/integration-hybrid-connection-overview.md
 [reti virtuali]: ../app-service/web-sites-integrate-with-vnet.md

@@ -6,16 +6,15 @@ author: luiscabrer
 services: search
 ms.service: search
 ms.subservice: cognitive-search
-ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: a032288338d2d6a53489105790b6862eefadf609
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 58f98f3807955db0b32cbcd1ed0d409814e35a76
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68841239"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639908"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Esempio: Creare una competenza personalizzata usando il API Ricerca entità Bing
 
@@ -478,7 +477,7 @@ Qui viene conteggiata la competenza incorporata per il [riconoscimento delle ent
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Congratulazioni! Il primo arricchimento personalizzato è stato creato. Ora è possibile seguire lo stesso schema per aggiungere funzionalità personalizzate. 
+La procedura è stata completata. Il primo arricchimento personalizzato è stato creato. Ora è possibile seguire lo stesso schema per aggiungere funzionalità personalizzate. 
 
 + [Aggiungere una competenza personalizzata a una pipeline di ricerca cognitiva](cognitive-search-custom-skill-interface.md)
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)

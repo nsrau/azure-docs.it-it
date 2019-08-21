@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: bd59257c1136f52beaf217c1f983c8aeb7bd81d5
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: ea8f3f1860223e102aeccf81f72b5294283b83f6
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671117"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640749"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Ottimizzare la VM Linux su Azure
 La creazione di una macchina virtuale (VM) di Linux è facile da eseguire dalla riga di comando o dal portale. Questa esercitazione illustra come assicurarsi di averla configurata in modo da ottimizzarne le prestazioni sulla piattaforma Microsoft Azure. Questo argomento usa una VM di Ubuntu Server, ma è anche possibile creare una macchina virtuale Linux usando le [proprie immagini come modelli](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -60,9 +60,9 @@ Nelle immagini cloud Ubuntu, è necessario usare cloud-init per configurare la p
 
 Per le immagini senza supporto cloud-init, le immagini delle VM distribuite da Azure Marketplace includono un agente Linux integrato per la VM con il sistema operativo, che consente alla VM di interagire con diversi servizi di Azure. Supponendo che sia stata distribuita un'immagine standard da Azure Marketplace, sarà necessario seguire questa procedura per configurare correttamente le impostazioni del file di scambio Linux:
 
-Trovare e modificare due voci nel file **/etc/waagent.conf** . Queste voci controllano l'esistenza di un file di scambio dedicato e le dimensioni del file di scambio. I parametri che si sta cercando di modificare sono `ResourceDisk.EnableSwap=N` e `ResourceDisk.SwapSizeMB=0` 
+Trovare e modificare due voci nel file **/etc/waagent.conf** . Queste voci controllano l'esistenza di un file di scambio dedicato e le dimensioni del file di scambio. I parametri che è necessario verificare `ResourceDisk.EnableSwap` sono e`ResourceDisk.SwapSizeMB` 
 
-Modificarli secondo le impostazioni seguenti:
+Per abilitare un disco correttamente abilitato e un file di scambio montato, verificare che i parametri abbiano le impostazioni seguenti:
 
 * ResourceDisk.EnableSwap=Y
 * ResourceDisk.SwapSizeMB={dimensione in MB che soddisfa le esigenze} 

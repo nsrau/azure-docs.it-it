@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bb4ac9953bcadd9e49cee5b7b99e853705b6567c
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 9609a886bdcbf093cffaf888f9aeaff0d61acec1
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990278"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69636659"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurare un'app del servizio app nel portale di Azure
 
@@ -167,7 +167,7 @@ Nella [portale di Azure]passare alla pagina di gestione dell'app. Nel menu a sin
 
 ![Impostazioni generali](./media/configure-common/open-general.png)
 
-Qui è possibile configurare alcune impostazioni comuni per l'app. Per alcune impostazioni è necessario [scalare fino a piani tariffari più elevati](web-sites-scale.md).
+Qui è possibile configurare alcune impostazioni comuni per l'app. Per alcune impostazioni è necessario [scalare fino a piani tariffari più elevati](manage-scale-up.md).
 
 - **Impostazioni dello stack**: Lo stack software per eseguire l'app, incluse le versioni del linguaggio e dell'SDK. Per le app Linux e le app contenitore personalizzate, è anche possibile impostare un comando o un file di avvio facoltativo.
 - **Impostazioni piattaforma**: Consente di configurare le impostazioni per la piattaforma di hosting, tra cui:
@@ -268,4 +268,4 @@ Vedere [configurare un contenitore Linux personalizzato per il servizio app Azur
 [How to: Monitor web endpoint status]: https://go.microsoft.com/fwLink/?LinkID=279906
 [Informazioni di base sul monitoraggio nel Servizio app di Azure]: ./web-sites-monitor.md
 [modalità pipeline]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
-[Aumentare le prestazioni di un'app nel Servizio app di Azure]: ./web-sites-scale.md
+[Aumentare le prestazioni di un'app nel Servizio app di Azure]: ./manage-scale-up.md

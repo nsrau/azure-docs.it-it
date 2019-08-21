@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 489ff1824c4bc45ee7ed31e9c96377975a32baa4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 8df01c204a6893f4e2ff1c2ff22fa337d77c519b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879250"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637584"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Blocco intelligente di Azure Active Directory
 
@@ -48,7 +48,7 @@ Quando si usa l'[autenticazione pass-through](../hybrid/how-to-connect-pta.md), 
 Ad esempio, se si vuole che il contatore di Azure AD sia maggiore di AD, Azure AD sarebbe 120 secondi (2 minuti) mentre l'annuncio in locale è impostato su 1 minuto (60 secondi).
 
 > [!IMPORTANT]
-> Attualmente un amministratore non può sbloccare gli account cloud degli utenti se questi sono stati bloccati dalla funzionalità di blocco smart. L'amministratore deve attendere la scadenza della durata del blocco.
+> Attualmente, un amministratore non può sbloccare gli account cloud degli utenti se questi sono stati bloccati dalla funzionalità di blocco Smart. L'amministratore deve attendere la scadenza della durata del blocco. Tuttavia, l'utente può sbloccare usando la reimpostazione della password self-service (SSPR) da una posizione o un dispositivo attendibile.
 
 ## <a name="verify-on-premises-account-lockout-policy"></a>Verificare i criteri di blocco degli account locali
 

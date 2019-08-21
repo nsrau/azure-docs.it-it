@@ -5,15 +5,15 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/05/2018
+ms.date: 08/20/2019
 ms.author: dacurwin
 ms.reviewer: pullabhk
-ms.openlocfilehash: f933b926aa0e277976416ae1b3b2eb684d9fcc85
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
-ms.translationtype: MT
+ms.openlocfilehash: f736d7f1dde8f268033d7c80322b91543672e68f
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955092"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638521"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Eseguire il backup e il ripristino File di Azure con PowerShell
 
@@ -262,6 +262,12 @@ testAzureFS       Backup               Completed            11/12/2018 2:42:07 P
 ```
 
 Durante l'esecuzione dei backup vengono usati gli snapshot di condivisione file di Azure, quindi in genere il processo viene completato nel momento in cui il comando restituisce l'output.
+
+### <a name="using-on-demand-backups-to-extend-retention"></a>Uso di backup su richiesta per estendere la conservazione
+
+È possibile usare i backup su richiesta per conservare gli snapshot per 10 anni. È possibile usare le utilità di pianificazione per eseguire script di PowerShell su richiesta con la conservazione scelta e quindi creare snapshot a intervalli regolari ogni settimana, mese o anno. Quando si effettuano snapshot regolari, si fa riferimento alle [limitazioni dei backup su richiesta](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share-) con backup di Azure.
+
+Per gli script di esempio, è possibile fare riferimento allo script di esempio su GitHub (https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup) usando Runbook di automazione di Azure che consente di pianificare i backup periodicamente e conservarli anche fino a 10 anni.
 
 ### <a name="modify-the-protection-policy"></a>Modificare i criteri di protezione
 

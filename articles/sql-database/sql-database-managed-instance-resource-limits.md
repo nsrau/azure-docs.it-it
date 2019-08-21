@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 06/26/2019
-ms.openlocfilehash: 961c0de6856a9791f76be1ec609f176f1fbbf8fb
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 412a3cb32663f5bd3bfad2d565b6797f92e26b75
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567336"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69641105"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Panoramica dei limiti delle risorse dell'istanza gestita di database SQL di Azure
 
@@ -42,7 +42,7 @@ Istanza gestita di database SQL di Azure può essere distribuita in due generazi
 | Archiviazione riservata istanza massima |  Per utilizzo generico: 8 TB<br/>Business critical: 1 TB | Per utilizzo generico: 8 TB<br/> Business critical 1 TB, 2 TB o 4 TB a seconda del numero di core |
 
 > [!IMPORTANT]
-> I nuovi database Gen4 non sono più supportati nell'area AustraliaEast.
+> I nuovi database Gen4 non sono più supportati nelle aree dell'Australia orientale o del Brasile meridionale.
 
 ### <a name="service-tier-characteristics"></a>Caratteristiche del livello di servizio
 
@@ -96,7 +96,7 @@ La tabella seguente illustra i limiti internazionali predefiniti per le sottoscr
 
 |Tipo di sottoscrizione| Numero massimo di subnet istanza gestite | Numero massimo di unità vCore * |
 | :---| :--- | :--- |
-|Pagamento a consumo|3|320|
+|Pagamento in base al consumo|3|320|
 |CSP |8 (15 in alcune aree * *)|960 (1440 in alcune aree * *)|
 |Sviluppo/test con pagamento in base al consumo|3|320|
 |Sviluppo/test Enterprise|3|320|

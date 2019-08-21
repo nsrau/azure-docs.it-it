@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/07/2019
-ms.openlocfilehash: e75f2fdd0530b92e8c8405b74c2a364ff9e9e28e
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.date: 08/16/2019
+ms.openlocfilehash: 6e734a661557b024257fcd1b9d9c2da6a3bc8f85
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935432"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640234"
 ---
 # <a name="issues-with-region-servers-in-azure-hdinsight"></a>Problemi con i server di area in Azure HDInsight
 
@@ -27,7 +27,7 @@ Quando si `hbase hbck` esegue il comando, viene visualizzato un messaggio di err
 multiple regions being unassigned or holes in the chain of regions
 ```
 
-Dall'interfaccia utente di Apache HBase Master è possibile notare che il numero di aree non bilanciate in tutti i server di area.
+Dall'interfaccia utente di Apache HBase Master è possibile visualizzare il numero di aree sbilanciate in tutti i server di area. Si può quindi eseguire il comando `hbase hbck` per visualizzare i difetti nella catena di aree.
 
 ### <a name="cause"></a>Causa
 
@@ -37,15 +37,15 @@ I buchi possono essere il risultato di aree offline.
 
 Correggere le assegnazioni. Seguire i passaggi seguenti per ripristinare lo stato normale delle aree non assegnate:
 
-1. Accedere al cluster HDInsight HBase tramite SSH.
+1. Accedere al cluster HBase di HDInsight con SSH.
 
-1. Eseguire `hbase zkcli` il comando per connettersi con la shell Zookeeper.
+1. Eseguire `hbase zkcli` il comando per connettersi con la shell ZooKeeper.
 
 1. Eseguire `rmr /hbase/regions-in-transition` il `rmr /hbase-unsecure/regions-in-transition` comando o.
 
 1. Uscire dalla shell Zookeeper usando `exit` il comando.
 
-1. Aprire l'interfaccia utente di Ambari e riavviare il servizio Active HBase Master da Ambari.
+1. Aprire l'interfaccia utente di Apache Ambari e quindi riavviare il servizio HBase Master attivo.
 
 1. Eseguire `hbase hbck` di nuovo il comando (senza ulteriori opzioni). Controllare l'output e assicurarsi che tutte le aree siano assegnate.
 
@@ -61,7 +61,7 @@ Impossibile avviare i server di area.
 
 Più directory WAL di suddivisione.
 
-1. Ottiene l'elenco di Wals corrente `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out`:.
+1. Ottiene l'elenco di WALs corrente `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out`:.
 
 1. Esaminare il `wals.out` file. Se sono presenti troppe directory di suddivisione (a partire dalla suddivisione *), è probabile che il server di area non riesca a causa di queste directory.
 

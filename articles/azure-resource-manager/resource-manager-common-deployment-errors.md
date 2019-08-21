@@ -6,42 +6,44 @@ author: tfitzmac
 keywords: errore di distribuzione, distribuzione di azure, distribuire in azure
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
-ms.date: 02/15/2019
+ms.date: 07/28/2019
 ms.author: tomfitz
-ms.openlocfilehash: fea7f77b1f4bcace23ad9164354c4f42e868869f
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 639f6b3b29b7effa12de79335d44b0193f3f9932
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206331"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638550"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager
 
 Questo argomento descrive alcuni errori comuni che possono verificarsi durante la distribuzione di risorse in Azure e fornisce indicazioni sulla relativa risoluzione. Se non si trova il codice di errore per l'errore di distribuzione specifico, vedere [Trovare il codice di errore](#find-error-code).
 
+Se si stanno cercando informazioni su un codice di errore e tali informazioni non vengono fornite in questo articolo, è possibile segnalarle. Nella parte inferiore della pagina è possibile lasciare il feedback. Il feedback viene registrato con i problemi di GitHub. 
+
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="error-codes"></a>Codici di errore
 
-| Codice di errore | Mitigazione | Altre informazioni |
+| Codice di errore | Attenuazione | Altre informazioni |
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Seguire le limitazioni relative all'assegnazione dei nomi per gli account di archiviazione. | [Risolvere gli errori relativi ai nomi degli account di archiviazione](resource-manager-storage-account-name-errors.md) |
 | AccountPropertyCannotBeSet | Controllare le proprietà dell'account di archiviazione disponibili. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
 | AllocationFailed | Il cluster o l'area non ha risorse disponibili o non può supportare le dimensioni di macchina virtuale richieste. Ripetere la richiesta in un secondo momento oppure richiedere una dimensione di macchina virtuale diversa. | [Problemi di provisioning e allocazione per Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [Problemi di provisioning e allocazione per Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) e [Risolvere i problemi relativi agli errori di allocazione](../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Attendere il completamento dell'operazione simultanea. | |
 | AuthorizationFailed | L'account o l'entità servizio non dispone dell'accesso sufficiente per completare la distribuzione. Selezionare il ruolo a cui appartiene l'account e il relativo accesso per l'ambito della distribuzione.<br><br>Questo errore può essere visualizzato quando un provider di risorse richiesto non è registrato. | [Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/role-assignments-portal.md)<br><br>[Risoluzione degli errori di registrazione del provider di risorse](resource-manager-register-provider-errors.md) |
-| RichiestaNonValida | I valori della distribuzione inviati non corrispondono ai valori previsti da Resource Manager. Per informazioni sulla risoluzione dei problemi, controllare il messaggio di stato interno. | [Informazioni di riferimento sul modello](/azure/templates/) e [Località supportate](resource-group-authoring-templates.md#resource-location) |
+| BadRequest | I valori della distribuzione inviati non corrispondono ai valori previsti da Resource Manager. Per informazioni sulla risoluzione dei problemi, controllare il messaggio di stato interno. | [Informazioni di riferimento sul modello](/azure/templates/) e [Località supportate](resource-group-authoring-templates.md#resource-location) |
 | Conflitto | Si sta richiedendo un'operazione non consentita nello stato corrente della risorsa. Il ridimensionamento del disco, ad esempio, è consentito solo quando viene creata o deallocata una macchina virtuale. | |
 | DeploymentActive | Attendere il completamento della distribuzione simultanea al gruppo di risorse. | |
 | DeploymentFailed | DeploymentFailed è un errore generale che non fornisce i dettagli necessari per risolvere l'errore. Nei dettagli cercare un codice di errore che fornisca maggiori informazioni. | [Trovare il codice di errore](#find-error-code) |
 | DeploymentQuotaExceeded | Se si raggiunge il limite di 800 distribuzioni per gruppo di risorse, eliminare dalla cronologia le distribuzioni che non sono più necessarie. È possibile eliminare le voci dalla cronologia usando [az group deployment delete](/cli/azure/group/deployment#az-group-deployment-delete) nell'interfaccia della riga di comando di Azure o [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/remove-azresourcegroupdeployment) in PowerShell. L'eliminazione di una voce dalla cronologia della distribuzione non ha effetto sulle risorse distribuite. | |
-| DnsRecordInUse | Il nome del record DNS deve essere univoco. Specificare un nome diverso o modificare il record esistente. | |
+| DnsRecordInUse | Il nome del record DNS deve essere univoco. Immettere un nome diverso. | |
 | ImageNotFound | Controllare le impostazioni dell'immagine della macchina virtuale. |  |
-| InUseSubnetCannotBeDeleted | Questo errore può verificarsi quando si tenta di aggiornare una risorsa, ma la richiesta viene elaborata eliminando e creando la risorsa. Assicurarsi di specificare tutti i valori invariati. | [Aggiornare una risorsa](/azure/architecture/building-blocks/extending-templates/update-resource) |
+| InUseSubnetCannotBeDeleted | Questo errore può essere ricevuto quando si tenta di aggiornare una risorsa e la richiesta viene elaborata eliminando e creando la risorsa. Assicurarsi di specificare tutti i valori invariati. | [Aggiornare una risorsa](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Ottenere il token di accesso per il tenant appropriato. È possibile ottenere solo il token dal tenant a cui appartiene l'account. | |
-| InvalidContentLink | È probabile che si sia tentato il collegamento a un modello annidato non disponibile. Ricontrollare l'URI specificato per il modello annidato. Se il modello si trova in un account di archiviazione, verificare che l'URI sia accessibile. Potrebbe essere necessario passare un token di firma di accesso condiviso. | [Modelli collegati](resource-group-linked-templates.md) |
-| InvalidParameter | Uno dei valori forniti per una risorsa non corrisponde al valore previsto. Questo errore può dipendere da molte condizioni diverse. Ad esempio, è possibile che una password non sia sufficiente o che un nome di BLOB non sia corretto. Controllare il messaggio di errore per determinare se è necessario correggere il valore. | |
-| InvalidRequestContent | I valori della distribuzione contengono valori non previsti o mancano valori obbligatori. Confermare i valori per il tipo di risorsa. | [Informazioni di riferimento sul modello](/azure/templates/) |
+| InvalidContentLink | È probabile che si sia tentato il collegamento a un modello annidato non disponibile. Ricontrollare l'URI specificato per il modello annidato. Se il modello si trova in un account di archiviazione, verificare che l'URI sia accessibile. Potrebbe essere necessario passare un token SAS. | [Modelli collegati](resource-group-linked-templates.md) |
+| InvalidParameter | Uno dei valori forniti per una risorsa non corrisponde al valore previsto. Questo errore può dipendere da molte condizioni diverse. Ad esempio, è possibile che una password non sia sufficiente o che un nome di BLOB non sia corretto. Il messaggio di errore dovrebbe indicare il valore che deve essere corretto. | |
+| InvalidRequestContent | I valori di distribuzione includono valori non riconosciuti oppure mancano i valori obbligatori. Confermare i valori per il tipo di risorsa. | [Informazioni di riferimento sul modello](/azure/templates/) |
 | InvalidRequestFormat | Abilitare la registrazione del debug quando si esegue la distribuzione e verificare il contenuto della richiesta. | [Registrazione del debug](#enable-debug-logging) |
 | InvalidResourceNamespace | Controllare lo spazio dei nomi della risorsa specificato nella proprietà **type**. | [Informazioni di riferimento sul modello](/azure/templates/) |
 | InvalidResourceReference | La risorsa non esiste ancora o viene referenziata in modo non corretto. Controllare se è necessario aggiungere una dipendenza. Verificare che l'utilizzo della funzione **reference** includa i parametri necessari per lo scenario in uso. | [Risolvere gli errori relativi alle risorse di Azure non trovate](resource-manager-not-found-errors.md) |
@@ -49,25 +51,25 @@ Questo argomento descrive alcuni errori comuni che possono verificarsi durante l
 | InvalidSubscriptionRegistrationState | Registrare la sottoscrizione con il provider di risorse. | [Risoluzione degli errori di registrazione del provider di risorse](resource-manager-register-provider-errors.md) |
 | InvalidTemplate | Ricercare eventuali errori nella sintassi del modello. | [Risolvere errori dovuti a modelli non validi](resource-manager-invalid-template-errors.md) |
 | InvalidTemplateCircularDependency | Rimuovere le dipendenze non necessarie. | [Risolvere le dipendenze circolari](resource-manager-invalid-template-errors.md#circular-dependency) |
-| LinkedAuthorizationFailed | Controllare se l'account appartiene allo stesso tenant del gruppo di risorse in fase di distribuzione. | |
+| LinkedAuthorizationFailed | Controllare se l'account appartiene allo stesso tenant del gruppo di risorse in cui si sta eseguendo la distribuzione. | |
 | LinkedInvalidPropertyId | La risoluzione dell'ID risorsa per una risorsa non è stato eseguito correttamente. Verificare di avere fornito tutti i valori necessari per l'ID risorsa, incluso l'ID sottoscrizione, il nome del gruppo di risorse, il tipo di risorsa, il nome della risorsa padre (se necessario) e il nome della risorsa. | |
-| LocationRequired | Fornire una posizione per la risorsa. | [Impostare la posizione](resource-group-authoring-templates.md#resource-location) |
+| LocationRequired | Specificare un percorso per la risorsa. | [Impostare la posizione](resource-group-authoring-templates.md#resource-location) |
 | MismatchingResourceSegments | Assicurarsi che la risorsa nidificata abbia il numero corretto di segmenti nel nome e nel tipo. | [Risolvere i segmenti di risorse](resource-manager-invalid-template-errors.md#incorrect-segment-lengths)
-| MissingRegistrationForLocation | Controllare lo stato della registrazione del provider di risorse e le posizioni supportate. | [Risoluzione degli errori di registrazione del provider di risorse](resource-manager-register-provider-errors.md) |
+| MissingRegistrationForLocation | Verificare lo stato di registrazione del provider di risorse e i percorsi supportati. | [Risoluzione degli errori di registrazione del provider di risorse](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Registrare la sottoscrizione con il provider di risorse. | [Risoluzione degli errori di registrazione del provider di risorse](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | Controllare lo stato della registrazione del provider di risorse. | [Risoluzione degli errori di registrazione del provider di risorse](resource-manager-register-provider-errors.md) |
-| NotFound | È possibile che si stia tentando di distribuire una risorsa dipendente in parallelo con una risorsa padre. Controllare se è necessario aggiungere una dipendenza. | [Risolvere gli errori relativi alle risorse di Azure non trovate](resource-manager-not-found-errors.md) |
+| Non trovato | È possibile che si stia tentando di distribuire una risorsa dipendente in parallelo con una risorsa padre. Controllare se è necessario aggiungere una dipendenza. | [Risolvere gli errori relativi alle risorse di Azure non trovate](resource-manager-not-found-errors.md) |
 | OperationNotAllowed | La distribuzione sta tentando di eseguire un'operazione che supera la quota per la sottoscrizione, il gruppo di risorse o l'area. Se possibile, modificare la distribuzione in modo da non superare le quote. In alternativa è possibile richiedere una modifica delle quote. | [Risolvere gli errori di quota delle risorse](resource-manager-quota-errors.md) |
 | ParentResourceNotFound | Assicurarsi che esista una risorsa padre prima di creare le risorse figlio. | [Risolvere gli errori delle risorse padre](resource-manager-parent-resource-errors.md) |
-| PasswordTooLong | Potrebbe essere stata selezionata una password con troppi caratteri oppure il valore della password può essere stato convertito in una stringa sicura prima di passarlo come parametro. Se il modello include un parametro **secure string**, non è necessario convertire il valore in una stringa sicura. Specificare il valore della password come testo. |  |
+| PasswordTooLong | Potrebbe essere stata selezionata una password con troppi caratteri oppure il valore della password è stato convertito in una stringa sicura prima di passarlo come parametro. Se il modello include un parametro **secure string**, non è necessario convertire il valore in una stringa sicura. Specificare il valore della password come testo. |  |
 | PrivateIPAddressInReservedRange | L'indirizzo IP specificato include un intervallo di indirizzi richiesto da Azure. Modificare l'indirizzo IP in modo da evitare l'intervallo riservato. | [Indirizzi IP](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
 | PrivateIPAddressNotInSubnet | L'indirizzo IP specificato non è compreso nell'intervallo di subnet. Modificare l'indirizzo IP in modo che sia compreso nell'intervallo di subnet. | [Indirizzi IP](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
 | PropertyChangeNotAllowed | Alcune proprietà non possono essere modificate per una risorsa distribuita. Quando si aggiorna una risorsa, è possibile limitare le modifiche alle proprietà consentite. | [Aggiornare una risorsa](/azure/architecture/building-blocks/extending-templates/update-resource) |
-| RequestDisallowedByPolicy | La sottoscrizione include un criterio di risorsa che impedisce di eseguire un'azione desiderata in fase distribuzione. Individuare il criterio che blocca l'azione. Se possibile, modificare la distribuzione in modo da soddisfare le limitazioni del criterio. | [Errore RequestDisallowedByPolicy con i criteri delle risorse di Azure](resource-manager-policy-requestdisallowedbypolicy-error.md) |
+| RequestDisallowedByPolicy | La sottoscrizione include un criterio di risorsa che impedisce di eseguire un'azione desiderata in fase distribuzione. Individuare il criterio che blocca l'azione. Se possibile, modificare la distribuzione in modo che soddisfi le limitazioni del criterio. | [Errore RequestDisallowedByPolicy con i criteri delle risorse di Azure](resource-manager-policy-requestdisallowedbypolicy-error.md) |
 | ReservedResourceName | Specificare un nome di risorsa che non includa un nome riservato. | [Nomi di risorse riservati](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Attendere il completamento dell'eliminazione. | |
-| ResourceGroupNotFound | Controllare il nome del gruppo della risorse di destinazione per la distribuzione. Deve esistere già nella sottoscrizione. Controllare il contesto della sottoscrizione. | [Interfaccia della riga di comando di Azure](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |
-| ResourceNotFound | La distribuzione referenzia una risorsa di cui non è possibile eseguire la risoluzione. Verificare che l'utilizzo della funzione **reference** includa i parametri necessari per lo scenario in uso. | [Risolvere gli errori relativi ai riferimenti](resource-manager-not-found-errors.md) |
+| ResourceGroupNotFound | Controllare il nome del gruppo della risorse di destinazione per la distribuzione. Il gruppo di risorse di destinazione deve essere già presente nella sottoscrizione. Controllare il contesto della sottoscrizione. | [Interfaccia della riga di comando di Azure](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |
+| Risorsa non trovata | La distribuzione referenzia una risorsa di cui non è possibile eseguire la risoluzione. Verificare che l'utilizzo della funzione **reference** includa i parametri necessari per lo scenario in uso. | [Risolvere gli errori relativi ai riferimenti](resource-manager-not-found-errors.md) |
 | ResourceQuotaExceeded | La distribuzione sta tentando di creare risorse che superano la quota per la sottoscrizione, il gruppo di risorse o l'area. Se possibile, modificare l'infrastruttura in modo da non superare le quote. In alternativa è possibile richiedere una modifica delle quote. | [Risolvere gli errori di quota delle risorse](resource-manager-quota-errors.md) |
 | SkuNotAvailable | Selezionare lo SKU, ad esempio le dimensioni delle macchine virtuali, disponibile per la posizione selezionata. | [Risolvere gli errori dovuti all'indisponibilità di SKU](resource-manager-sku-not-available-errors.md) |
 | StorageAccountAlreadyExists | Fornire un nome univoco per l'account di archiviazione. | [Risolvere gli errori relativi ai nomi degli account di archiviazione](resource-manager-storage-account-name-errors.md)  |
@@ -246,6 +248,6 @@ In alternativa, si supponga di incontrare errori di distribuzione presumibilment
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per eseguire un'esercitazione di risoluzione dei problemi, vedere [Esercitazione: Per le distribuzioni del modello di Resource Manager](./resource-manager-tutorial-troubleshoot.md)
+* Per esaminare un'esercitazione sulla risoluzione dei problemi, [vedere Esercitazione: Risolvere i problemi delle distribuzioni dei modelli di Resource Manager](./resource-manager-tutorial-troubleshoot.md)
 * Per altre informazioni sulle azioni di controllo, vedere [Operazioni di controllo con Resource Manager](resource-group-audit.md).
 * Per altre informazioni sulle azioni che consentono di determinare gli errori di distribuzione, vedere [Visualizzare le operazioni di distribuzione con il portale di Azure](resource-manager-deployment-operations.md).

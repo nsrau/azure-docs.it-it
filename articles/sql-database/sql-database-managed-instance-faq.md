@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 3637676a330b324d5620885f0cbe50d4aa68ed51
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 2efeb37f8b98f4cf9a29ec8a6976146b81aab26b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779054"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69641081"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Domande frequenti sull'istanza gestita di database SQL
 
@@ -36,8 +36,7 @@ Per i livelli di servizio disponibili e le relative caratteristiche, vedere [dif
 
 ## <a name="where-can-i-find-known-issues-and-bugs"></a>Dove è possibile trovare I problemi noti e I bug?
 
-Per i bug e i problemi noti, vedere [modifiche comportamentali](sql-database-managed-instance-transact-sql-information.md#Changes) e [problemi noti](sql-database-managed-instance-transact-sql-information.md#Issues).
-
+Per i bug e i problemi noti, vedere [problemi noti](sql-database-managed-instance-transact-sql-information.md#Issues).
 
 ## <a name="can-a-managed-instance-have-the-same-name-as-on-premises-sql-server"></a>Un'istanza gestita può avere lo stesso nome di SQL Server locali?
 

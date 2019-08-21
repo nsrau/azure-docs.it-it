@@ -1,24 +1,24 @@
 ---
-title: Operazioni per chiamare l'API REST di Archiviazione di Azure, inclusa l'autenticazione | Microsoft Docs
-description: Operazioni per chiamare l'API REST di Archiviazione di Azure, inclusa l'autenticazione
+title: Chiamata delle operazioni dell'API REST dei servizi di archiviazione di Azure con autorizzazione della chiave condivisa | Microsoft Docs
+description: Usare l'API REST di archiviazione di Azure per effettuare una richiesta all'archiviazione BLOB usando l'autorizzazione della chiave condivisa.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 08/19/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2149bfb68697129680c45f15c6cce359863fbc59
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1463a470c84d38ebc30e32cf539aa9d6f64a6854
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989933"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640671"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Uso dell'API REST di Archiviazione di Azure
 
-Questo articolo illustra come usare le API REST del servizio di archiviazione BLOB e come autenticare la chiamata al servizio. Viene scritto dal punto di vista di uno sviluppatore che non conosce niente di REST e non ha idea di come eseguire una chiamata REST. Non sempre è facile comprendere come trasformare i dati della documentazione di riferimento in un'effettiva chiamata REST, specificando i campi nel modo corretto. Dopo aver appreso come configurare una chiamata REST, sarà possibile sfruttare queste informazioni anche per usare le altre API REST dei servizi di archiviazione.
+Questo articolo illustra come usare le API REST del servizio di archiviazione BLOB e come autorizzare la chiamata al servizio. Viene scritto dal punto di vista di uno sviluppatore che non conosce niente di REST e non ha idea di come eseguire una chiamata REST. Non sempre è facile comprendere come trasformare i dati della documentazione di riferimento in un'effettiva chiamata REST, specificando i campi nel modo corretto. Dopo aver appreso come configurare una chiamata REST, sarà possibile sfruttare queste informazioni anche per usare le altre API REST dei servizi di archiviazione.
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
@@ -267,12 +267,13 @@ Ora che si è appreso come creare la richiesta, chiamare il servizio e analizzar
 ## <a name="creating-the-authorization-header"></a>Creazione dell'intestazione dell'autorizzazione
 
 > [!TIP]
-> Archiviazione di Azure ora supporta l'integrazione di Azure Active Directory (Azure AD) per i BLOB e le code. Azure AD offre un'esperienza molto più semplice per l'autorizzazione di una richiesta per Archiviazione di Azure. Per altre informazioni sull'uso di Azure AD per autorizzare le operazioni REST, vedere [eseguire l'autenticazione con Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory). Per una panoramica dell'integrazione di Azure AD con archiviazione di Azure, vedere [autenticare l'accesso ad archiviazione di Azure usando Azure Active Directory](storage-auth-aad.md).
+> Archiviazione di Azure ora supporta l'integrazione di Azure Active Directory (Azure AD) per i BLOB e le code. Azure AD offre un'esperienza molto più semplice per l'autorizzazione di una richiesta per Archiviazione di Azure. Per altre informazioni sull'uso di Azure AD per autorizzare le operazioni REST, vedere [autorizzazione con Azure Active Directory](/rest/api/storageservices/authorize-with-azure-active-directory). Per una panoramica dell'integrazione di Azure AD con archiviazione di Azure, vedere [autenticare l'accesso ad archiviazione di Azure usando Azure Active Directory](storage-auth-aad.md).
 
-I concetti di base relativi all'autenticazione (senza esempi di codice) sono illustrati nell'articolo [Authentication for the Azure Storage Services](/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services) (Autenticazione per i servizi di archiviazione di Azure),
+È disponibile un articolo che illustra concettualmente (nessun codice) come [autorizzare le richieste ad archiviazione di Azure](/rest/api/storageservices/authorize-requests-to-azure-storage).
+
 ma ai fini pratici è possibile concentrarsi sulle nozioni fondamentali ed esaminare in dettaglio il codice.
 
-Prima di tutto, usare un'autenticazione con chiave condivisa. L'intestazione dell'autorizzazione ha un formato simile al seguente:
+Usare prima di tutto l'autorizzazione per la chiave condivisa. L'intestazione dell'autorizzazione ha un formato simile al seguente:
 
 ```  
 Authorization="SharedKey <storage account name>:<signature>"  
@@ -360,7 +361,7 @@ Questa parte della stringa relativa alla firma rappresenta l'account di archivia
 
 Se si dispone di parametri di query, questo esempio include anche questi parametri. Di seguito è riportato il codice che gestisce anche altri parametri di query, eventualmente con più valori. Tenere presente che si sta compilando questo codice per lavorare per tutte le API REST. Si desidera includere tutte le possibilità, anche se il Metodo ListContainers non ne ha bisogno.
 
-```csharp 
+```csharp
 private static string GetCanonicalizedResource(Uri address, string storageAccountName)
 {
     // The absolute path will be "/" because for we're getting a list of containers.
@@ -376,7 +377,7 @@ private static string GetCanonicalizedResource(Uri address, string storageAccoun
         sb.Append('\n').Append(item).Append(':').Append(values[item]);
     }
 
-    return sb.ToString();
+    return sb.ToString().ToLower();
 }
 ```
 
@@ -571,3 +572,4 @@ In questo articolo si è appreso come effettuare una richiesta all'API REST di a
 * [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api) (API REST del servizio BLOB)
 * [File Service REST API](/rest/api/storageservices/file-service-rest-api) (API REST del servizio file)
 * [API REST del servizio di accodamento](/rest/api/storageservices/queue-service-rest-api)
+* [API REST del servizio tabelle](/rest/api/storageservices/table-service-rest-api)

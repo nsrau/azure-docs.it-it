@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 7e697329e83b530157e490b04f5155d28d243bb6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e82a39b049c39cb4facfbc38b5e9020bb46de99b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61271806"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637962"
 ---
 # <a name="back-up-your-app-in-azure"></a>Eseguire il backup dell'app in Azure
-La funzionalità di backup e ripristino nel [Servizio app di Azure](overview.md) consente di creare facilmente backup di app in modo manuale o pianificato. È possibile ripristinare l'app a una snapshot di uno stato precedente sovrascrivendo l'applicazione esistente o eseguendo il ripristino in un'altra applicazione. 
+La funzionalità di backup e ripristino nel [Servizio app di Azure](overview.md) consente di creare facilmente backup di app in modo manuale o pianificato.  È possibile configurare i backup in modo che vengano conservati fino a un periodo di tempo indefinito. È possibile ripristinare l'app a una snapshot di uno stato precedente sovrascrivendo l'applicazione esistente o eseguendo il ripristino in un'altra applicazione.
 
 Per informazioni sul ripristino di un'app dal backup, vedere [Ripristinare un'app nel Servizio app di Azure](web-sites-restore.md).
 
@@ -33,7 +33,7 @@ Per informazioni sul ripristino di un'app dal backup, vedere [Ripristinare un'ap
 Il servizio app può eseguire il backup delle informazioni seguenti in un account di archiviazione di Azure e nel contenitore configurati per essere usati dall'app. 
 
 * Configurazione dell'app
-* Contenuto del file
+* Contenuto file
 * Database connesso all'app
 
 Le soluzioni di database seguenti sono supportate con funzionalità di backup: 
@@ -50,7 +50,7 @@ Le soluzioni di database seguenti sono supportate con funzionalità di backup:
 <a name="requirements"></a>
 
 ## <a name="requirements-and-restrictions"></a>Requisiti e restrizioni
-* Per usufruire della funzionalità di backup e ripristino è necessario che il piano del Servizio app si trovi al livello **Standard** o al livello **Premium**. Per altre informazioni sul ridimensionamento del piano di servizio app per usare un livello superiore, vedere [Scalare un'app Web in Servizio app di Azure](web-sites-scale.md).  
+* Per usufruire della funzionalità di backup e ripristino è necessario che il piano del Servizio app si trovi al livello **Standard** o al livello **Premium**. Per altre informazioni sul ridimensionamento del piano di servizio app per usare un livello superiore, vedere [Scalare un'app Web in Servizio app di Azure](manage-scale-up.md).  
   Il livello **Premium** consente un maggior numero di backup giornalieri rispetto al livello **Standard**.
 * Sono necessari un account di archiviazione e un contenitore di Azure nella stessa sottoscrizione dell'applicazione di cui si desidera eseguire il backup. Per altre informazioni sugli account di archiviazione di Azure, vedere [Panoramica dell'account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 * È possibile eseguire il backup di un massimo di 10 GB di contenuto del database e dell'app. Se la dimensione del backup supera questo limite, verrà visualizzato un messaggio di errore.
@@ -69,7 +69,7 @@ Le soluzioni di database seguenti sono supportate con funzionalità di backup:
    
    > [!NOTE]
    > Se viene visualizzato questo messaggio, fare clic per aggiornare il piano di servizio app prima di procedere con i backup.
-   > Per altre informazioni, vedere [Aumentare le prestazioni di un'app in Azure](web-sites-scale.md).  
+   > Per altre informazioni, vedere [Aumentare le prestazioni di un'app in Azure](manage-scale-up.md).  
    > ![Scelta dell'account di archiviazione](./media/web-sites-backup/01UpgradePlan1.png)
    > 
    > 
@@ -78,13 +78,13 @@ Le soluzioni di database seguenti sono supportate con funzionalità di backup:
 ![Fare clic su Configura](./media/web-sites-backup/ClickConfigure1.png)
 3. Nella pagina **Configurazione backup** fare clic su **Archiviazione: non configurata** per configurare un account di archiviazione.
    
-    ![Scegliere l'account di archiviazione][ChooseStorageAccount]
+    ![Scegli account di archiviazione][ChooseStorageAccount]
 4. Scegliere la destinazione del backup selezionando un **Account di archiviazione** e un **Contenitore**. L'account di archiviazione deve appartenere alla stessa sottoscrizione dell'app da sottoporre a backup. Se si vuole, è possibile creare un nuovo account di archiviazione o un nuovo contenitore nelle rispettive pagine. Al termine, fare clic su **Seleziona**.
    
-    ![Scegliere l'account di archiviazione](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
+    ![Scegli account di archiviazione](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
 5. Nella pagina **Configurazione backup** rimasta aperta è possibile configurare **Backup database**, selezionare i database da includere nei backup (database SQL o MySQL), quindi fare clic su **OK**.  
    
-    ![Scegliere l'account di archiviazione](./media/web-sites-backup/03ConfigureDatabase1.png)
+    ![Scegli account di archiviazione](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
    > Per visualizzare un database nell'elenco, è necessaria la presenza della relativa stringa di connessione nella sezione **Stringhe di connessione** della pagina **Impostazioni applicazione** per l'app. 
@@ -106,7 +106,7 @@ Dopo avere configurato l'account di archiviazione e il contenitore è possibile 
 ## <a name="configure-automated-backups"></a>Configurazione dei backup automatici
 1. Nella pagina **Configurazione backup** impostare **Backup pianificato** su **On** (Attivato). 
    
-    ![Scegliere l'account di archiviazione](./media/web-sites-backup/05ScheduleBackup1.png)
+    ![Scegli account di archiviazione](./media/web-sites-backup/05ScheduleBackup1.png)
 2. Verranno visualizzate le opzioni di pianificazione backup. Impostare **Backup pianificati** su **Sì**, quindi configurare la pianificazione dei backup come desiderato e fare clic su **OK**.
    
     ![Abilitazione dei backup automatici][SetAutomatedBackupOn]
@@ -114,7 +114,7 @@ Dopo avere configurato l'account di archiviazione e il contenitore è possibile 
 <a name="partialbackups"></a>
 
 ## <a name="configure-partial-backups"></a>Configurare backup parziali
-In alcuni casi non si vuole eseguire il backup di tutti gli elementi dell'app. Di seguito sono disponibili alcuni esempi:
+In alcuni casi non si vuole eseguire il backup di tutti gli elementi dell'app. Ecco alcuni esempi:
 
 * Si [configurano backup settimanali](#configure-automated-backups) dell'app che contiene contenuto statico che non cambia mai, ad esempio immagini o post di blog precedenti.
 * L'app include oltre 10 GB di contenuto, ovvero la quantità massima di cui è possibile eseguire il backup ogni volta.
@@ -123,7 +123,7 @@ In alcuni casi non si vuole eseguire il backup di tutti gli elementi dell'app. D
 I backup parziali consentono di scegliere esattamente i file di cui eseguire il backup.
 
 > [!NOTE]
-> I singoli database nel backup possono essere massime di 4GB ma la dimensione massima totale del backup è 10GB
+> I singoli database del backup possono avere una dimensione massima di 4 GB, ma la dimensione totale massima del backup è 10 GB
 
 ### <a name="exclude-files-from-your-backup"></a>Escludere file dal backup
 Si supponga di avere un'app che contiene file di log e immagini statiche di cui è stato eseguito un backup e che nos si intende modificare. In questi casi è possibile escludere le cartelle e i file dall'archiviazione nei backup futuri. Per escludere file e cartelle dai backup, creare un file `_backup.filter` nella cartella `D:\home\site\wwwroot` dell'applicazione. Specificare l'elenco di file e cartelle da escludere in questo file. 

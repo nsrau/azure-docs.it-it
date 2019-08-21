@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: e07a436ee18a216bab569d299e534e729996db19
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 5947c4c28736f8488ea0e48941214df42c6af72a
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990168"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639494"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Tempo di inserimento dei dati di log in Monitoraggio di Azure
 Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. Spesso sono state poste domande sul tempo necessario affinché i dati di log diventino disponibili dopo la raccolta. Questo articolo illustra i diversi fattori che influiscono su questa latenza.
@@ -100,8 +100,11 @@ Heartbeat
 | summarize percentiles(E2EIngestionLatency,50,95), percentiles(AgentLatency,50,95) by Computer 
 | top 20 by percentile_E2EIngestionLatency_95 desc
 ```
- 
-Se si desidera eseguire il drill-down del tempo di inserimento per un computer specifico in un determinato periodo di tempo, utilizzare la query seguente che visualizza anche i dati del giorno precedente in un grafico: 
+
+I controlli percentile precedenti sono ideali per individuare le tendenze generali nella latenza. Per identificare un picco a breve termine nella latenza, l'utilizzo del`max()`valore massimo () potrebbe essere più efficace.
+
+Se si desidera eseguire il drill-down del tempo di inserimento per un computer specifico in un periodo di tempo, utilizzare la query seguente, che visualizza anche i dati del giorno precedente in un grafico: 
+
 
 ``` Kusto
 Heartbeat 

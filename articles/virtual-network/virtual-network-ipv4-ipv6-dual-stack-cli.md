@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/08/2019
 ms.author: kumud
-ms.openlocfilehash: cc89e9284e6dbb735aef08100c99a5a7fdb87549
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 75af2012c4e6287a2fbe76098c2a325e6c9ae2ef
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248851"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640683"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---cli-preview"></a>Distribuire un'applicazione IPv6 dual stack in rete virtuale di Azure-interfaccia della riga di comando (anteprima)
 
@@ -111,7 +111,7 @@ az network public-ip create \
 
 In questa sezione vengono configurati due IP front-end (IPv4 e IPv6) e il pool di indirizzi back-end per il servizio di bilanciamento del carico e quindi viene creato un Load Balancer di base.
 
-### <a name="create-load-balancer"></a>Creare un servizio di bilanciamento del carico
+### <a name="create-load-balancer"></a>Crea servizio di bilanciamento del carico
 
 Creare il Load Balancer di base con [AZ Network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) denominato **dsLB** che include un pool Front-End denominato **dsLbFrontEnd_v4**, un pool back-end denominato **dsLbBackEndPool_v4** che è associato all'indirizzo **IP pubblico IPv4 dsPublicIP_v4** creato nel passaggio precedente. 
 
@@ -130,7 +130,7 @@ az network lb create \
 
 Creare un indirizzo IP front-end IPV6 con [AZ Network lb frontend-IP create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create). L'esempio seguente crea una configurazione IP front-end denominata *dsLbFrontEnd_v6* e connette l'indirizzo *dsPublicIP_v6* :
 
-```azurepowershell-interactive
+```azurecli
 az network lb frontend-ip create \
 --lb-name dsLB  \
 --name dsLbFrontEnd_v6  \
@@ -182,7 +182,7 @@ az network lb rule create \
 
 ## <a name="create-network-resources"></a>Creare risorse di rete
 Prima di distribuire alcune macchine virtuali, è necessario creare risorse di rete di supporto: set di disponibilità, gruppo di sicurezza di rete, rete virtuale e NIC virtuali. 
-### <a name="create-an-availability-set"></a>Creare un set di disponibilità
+### <a name="create-an-availability-set"></a>Crea set di disponibilità
 Per migliorare la disponibilità dell'app, inserire le VM in un set di disponibilità.
 
 Creare un set di disponibilità con [az vm availability-set create](https://docs.microsoft.com/cli/azure/vm/availability-set?view=azure-cli-latest). Nell'esempio seguente viene creato un set di disponibilità denominato *dsAVset*:

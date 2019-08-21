@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 8a287f118c126967d2cf8cad77a434cfecc098eb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e0325a3bda912c95d8d27646bc1e80fff5ce10a8
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60236243"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639434"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Cos'è l'estensione Diagnostica di Azure
 L'estensione Diagnostica di Azure è un agente di Azure che consente la raccolta di dati di diagnostica in un'applicazione distribuita. È possibile usare l'estensione di diagnostica da numerose origini diverse. Sono attualmente supportati ruoli Web e di lavoro (classici) del servizio cloud di Azure, macchine virtuali, set di scalabilità di macchine virtuali e Service Fabric. Altri servizi di Azure hanno altri metodi di diagnostica. Vedere la [panoramica sul monitoraggio in Azure](../../azure-monitor/overview.md).
@@ -52,7 +52,7 @@ Oppure è possibile trasmetterli all'[hub eventi](../../event-hubs/event-hubs-ab
 Per altre informazioni su come configurare questo sink, consultare la [documentazione dello schema di diagnostica di Azure.](diagnostics-extension-schema-1dot3.md)
 
 ## <a name="costs"></a>Costi
-Ognuna delle opzioni elencate in precedenza potrebbe incorrere in costi. Assicurarsi di cercare in modo da evitare effetti imprevisti.  Application Insights, hub eventi, e archiviazione di Azure sono separati costi associati all'inserimento e l'ora archiviati. In particolare, archiviazione di Azure manterrà tutti i dati per sempre in modo che è possibile eliminare i dati meno recenti dopo un certo periodo di tempo per tenere i costi del controllo.    
+Ognuna delle opzioni precedenti può comportare costi. Assicurarsi di ricercarli per evitare fatture impreviste.  Application Insights, Hub eventi e archiviazione di Azure presentano costi separati associati all'inserimento e al tempo archiviato. In particolare, archiviazione di Azure manterrà i dati per sempre, quindi è consigliabile eliminare i dati meno recenti dopo un determinato periodo di tempo per ridurre i costi.    
 
 ## <a name="versioning-and-configuration-schema"></a>Controllo delle versioni e schema di configurazione
 Vedere [Versioni e cronologia degli schemi di configurazione dell'estensione di Diagnostica di Azure](diagnostics-extension-schema.md).
@@ -74,7 +74,7 @@ Per argomenti più avanzati, vedere
 
 ## <a name="virtual-machines"></a>Macchine virtuali
 * Se si usa Visual Studio, per iniziare vedere l'articolo su come [usare Visual Studio per tracciare le macchine virtuali di Azure](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines). In alternativa, vedere
-* [Configurare Diagnostica di Azure in una macchina virtuale di Azure](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
+* [Configurare Diagnostica di Azure in una macchina virtuale di Azure](/azure/virtual-machines/extensions/diagnostics-windows)
 
 Per argomenti più avanzati, vedere
 

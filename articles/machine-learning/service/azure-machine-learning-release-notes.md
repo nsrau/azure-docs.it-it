@@ -10,18 +10,88 @@ ms.author: jmartens
 author: j-martens
 ms.date: 07/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: ec913133ef97a632b12db2859bd4ac32df70a1c5
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
-ms.translationtype: MT
+ms.openlocfilehash: 684a84431c8348ddafab8cefbe831c2b58c3cee6
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828629"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639937"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Note sulla versione del servizio Azure Machine Learning
 
 Questo articolo fornisce informazioni sulle versioni del servizio Azure Machine Learning.  Per il contenuto completo dell'SDK di riferimento, visitare la pagina di riferimento dell'SDK principale di Azure Machine Learning [**per Python**](https://aka.ms/aml-sdk) .
 
 Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei problemi noti](resource-known-issues.md).
+
+## <a name="2019-08-19"></a>2019-08-19
+
+### <a name="azure-machine-learning-sdk-for-python-v1057"></a>SDK di Azure Machine Learning per Python v 1.0.57
++ **Nuove funzionalità**
+  + Abilitato `TabularDataset` per essere utilizzato da AutomatedML. Per ulteriori informazioni su `TabularDataset`, visitare https://aka.ms/azureml/howto/createdatasets il.
+  
++ **Correzioni di bug e miglioramenti**
+  + **automl-client-Core-nativeClient**
+    + Correzione dell'errore, generato quando le etichette di training e/o di convalida (y e y_valid) vengono fornite sotto forma di dataframe Pandas ma non come matrice numpy.
+    + Interfaccia aggiornata per creare un `RawDataContext` oggetto per richiedere solo i dati e `AutoMLBaseSettings` l'oggetto.
+    +  Consentire agli utenti di AutoML di eliminare le serie di training che non sono sufficientemente lunghe durante la previsione. -Consentire agli utenti di AutoML di eliminare i granularità dal set di test che non esistono nel set di training durante la previsione.
+  + **azure-cli-ml**
+    + È ora possibile aggiornare il certificato SSL per l'endpoint di assegnazione dei punteggi distribuito nel cluster AKS sia per il certificato generato da Microsoft che per il cliente.
+  + **azureml-automl-Core**
+    + Correzione di un problema in AutoML, in cui le righe con etichette mancanti non sono state rimosse correttamente.
+    + Registrazione degli errori migliorata in AutoML; i messaggi di errore completi ora verranno sempre scritti nel file di log.
+    + AutoML ha aggiornato il blocco del pacchetto per `azureml-defaults`includere `azureml-explain-model`, e `azureml-dataprep`. AutoML non avviserà più in caso di mancata corrispondenza del pacchetto ( `azureml-train-automl` ad eccezione del pacchetto).
+    + Correzione di un problema in timeseries, in cui le divisioni del CV hanno una dimensione diversa, causando un errore di calcolo del contenitore.
+    + Quando si esegue l'iterazione di ensemble per il tipo di training di convalida incrociata, se si verificano problemi durante il download dei modelli sottoposti a training sull'intero set di dati, si è verificata un'incoerenza tra i pesi del modello e i modelli che sono stati inseriti nel voto Ensemble.
+    + Correzione dell'errore, generato quando le etichette di training e/o di convalida (y e y_valid) vengono fornite sotto forma di dataframe Pandas ma non come matrice numpy.
+    + Correzione del problema relativo alle attività di previsione quando non è stata rilevata alcuna nelle colonne booleane delle tabelle di input.
+    + Consentire agli utenti di AutoML di eliminare le serie di training che non sono sufficientemente lunghe durante la previsione. -Consentire agli utenti di AutoML di eliminare i granularità dal set di test che non esistono nel set di training durante la previsione.
+  + **azureml-core**
+    + Correzione del problema relativo all'ordinamento dei parametri blob_cache_timeout.
+    + Aggiunta di tipi di eccezione Fit e Transform esterni agli errori di sistema.
+    + Aggiunta del supporto per i segreti Key Vault per le esecuzioni remote. Aggiungere una classe azureml. Core. Vault. chiave Vault per aggiungere, ottenere ed elencare i segreti dall'insieme di credenziali delle chiavi associato all'area di lavoro. Sono supportate le operazioni seguenti:
+      + azureml. Core. Workspace. Workspace. Get _default_keyvault ()
+      + azureml. Core. chiave Vault. insieme di credenziali. set _secret (nome, valore)
+      + azureml. Core. chiave Vault. insieme di credenziali. set _secrets (secrets_dict)
+      + azureml. Core. chiave Vault. Get _secret (nome)
+      + azureml. Core. chiave Vault. Get _secrets (secrets_list)
+      + azureml. Core. chiave Vault. list_secrets ()
+    + Metodi aggiuntivi per ottenere l'insieme di credenziali delle chiavi predefinito e ottenere i segreti durante l'esecuzione remota:
+      + azureml. Core. Workspace. Workspace. Get _default_keyvault ()
+      + azureml. Core. Run. Run. Get _secret (nome)
+      + azureml. Core. Run. Run. Get _secrets (secrets_list)
+    + Aggiunta di parametri di override aggiuntivi al comando Invia-iperguida CLI.
+    + Per migliorare l'affidabilità delle chiamate API, è necessario espandere i nuovi tentativi per le eccezioni comuni della libreria.
+    + Aggiunta del supporto per l'invio di esecuzioni da un'esecuzione inviata.
+    + Correzione del problema del token di firma di accesso condiviso con scadenza in FileWatcher che ha causato l'interruzione del caricamento dei file dopo la scadenza del token iniziale.
+    + È supportata l'importazione di file CSV/TSV HTTP nel set di dati Python SDK.
+    + Il Metodo Workspace. Setup () è stato deprecato. Un messaggio di avviso visualizzato agli utenti suggerisce di usare invece create () o Get ()/from_config ().
+    + Aggiunta dell'ambiente. aggiungere _private_pip_wheel (), che consente il caricamento di pacchetti Python personalizzati privati (con estensione WHL) nell'area di lavoro e il loro utilizzo sicuro per la compilazione o la materializzazione dell'ambiente.
+    + È ora possibile aggiornare il certificato SSL per l'endpoint di assegnazione dei punteggi distribuito nel cluster AKS sia per il certificato generato da Microsoft che per il cliente.
+  + **azureml-explain-model**
+    + Aggiunta del parametro per aggiungere un ID modello alle spiegazioni al caricamento.
+    + Aggiunta `is_raw` di tag alle spiegazioni in memoria e caricamento.
+    + Aggiunta del supporto di pytorch e test per il pacchetto azureml-explain-Model.
+  + **azureml-opendatasets**
+    + Supporto per il rilevamento e la registrazione dell'ambiente di test automatico.
+    + Sono state aggiunte le classi per ottenere la popolazione degli Stati Uniti in base a County e zip
+  + **azureml-pipeline-core**
+    + Aggiunta della proprietà Label alle definizioni delle porte di input e di output.
+  + **azureml-telemetria**
+    + Correzione di una configurazione di telemetria non corretta.
+  + **azureml-train-automl**
+    + Correzione del bug in cui si è verificato un errore durante l'installazione. l'errore non è stato registrato nel campo "errori" per l'esecuzione del programma di installazione e pertanto non è stato archiviato nell'esecuzione padre "errori".
+    + Correzione di un problema in AutoML, in cui le righe con etichette mancanti non sono state rimosse correttamente.
+    + Consentire agli utenti di AutoML di eliminare le serie di training che non sono sufficientemente lunghe durante la previsione.
+    + Consente agli utenti di AutoML di eliminare i granularità dal set di test che non esistono nel set di training durante la previsione.
+    + Ora AutoMLStep passa attraverso la configurazione automl al back-end per evitare eventuali problemi di modifiche o aggiunte di nuovi parametri di configurazione.
+  + **azureml-train-core**
+    + Aggiunto il supporto di torcia 1,2 in PyTorch Estimator.
+  + **azureml-widget**
+    + Grafici della matrice di confusione migliorati per il training della classificazione.
+
+### <a name="azure-portal"></a>Portale di Azure
++ **Funzionalità di anteprima**
+  + Il flusso dei file di log e di output è ora disponibile per le pagine di dettagli dell'esecuzione. I file effettueranno lo streaming degli aggiornamenti in tempo reale quando l'interruttore di anteprima è attivato.
 
 ## <a name="2019-08-05"></a>2019-08-05
 

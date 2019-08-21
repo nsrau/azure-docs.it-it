@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/14/2019
-ms.openlocfilehash: f69fc89fe5634c9467cf728c7ab5c4d8ac6c5c74
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 6a29d1e001d4c647d5b975b7e746eced29962ee4
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512304"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637254"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Limiti delle risorse per i singoli database che usano il modello di acquisto basato su vCore
 
@@ -35,7 +35,7 @@ Per i limiti del modello di acquisto basato su DTU per i singoli database in un 
 ## <a name="general-purpose-service-tier-for-provisioned-compute"></a>per utilizzo generico livello di servizio per il calcolo di cui è stato effettuato il provisioning
 
 > [!IMPORTANT]
-> I nuovi database Gen4 non sono più supportati nell'area AustraliaEast.
+> I nuovi database Gen4 non sono più supportati nelle aree dell'Australia orientale o del Brasile meridionale.
 
 ### <a name="gen4-compute-generation-part-1"></a>Generazione di calcolo Gen4 (parte 1)
 
@@ -184,7 +184,7 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è in anteprima
 ## <a name="business-critical-service-tier-for-provisioned-compute"></a>business critical livello di servizio per il calcolo di cui è stato effettuato il provisioning
 
 > [!IMPORTANT]
-> I nuovi database Gen4 non sono più supportati nell'area AustraliaEast.
+> I nuovi database Gen4 non sono più supportati nelle aree dell'Australia orientale o del Brasile meridionale.
 
 ### <a name="gen4-compute-generation-part-1"></a>Generazione di calcolo Gen4 (parte 1)
 

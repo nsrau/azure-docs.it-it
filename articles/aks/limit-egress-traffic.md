@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: mlearned
-ms.openlocfilehash: cf9dc304efea8874d16953f74bf88a4317760819
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 369729f10de4a55cd14bb866795ea1aa15b3d9da
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69031833"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639792"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Anteprima: limitare il traffico in uscita per i nodi del cluster e controllare l'accesso alle porte e ai servizi richiesti in Azure Kubernetes Service (AKS)
 
@@ -58,6 +58,10 @@ A scopo di gestione e operativi, i nodi in un cluster AKS devono accedere a dete
 Per aumentare la sicurezza del cluster AKS, è possibile che si desideri limitare il traffico in uscita. Il cluster è configurato per eseguire il pull delle immagini del contenitore di sistema di base da o da o ACR. Se si blocca il traffico in uscita in questo modo, è necessario definire porte e FQDN specifici per consentire ai nodi AKS di comunicare correttamente con i servizi esterni richiesti. Senza queste porte e FQDN autorizzati, i nodi AKS non possono comunicare con il server API o installare componenti di base.
 
 È possibile usare il [firewall di Azure][azure-firewall] o un appliance firewall di terze parti per proteggere il traffico in uscita e definire le porte e gli indirizzi richiesti. AKS non crea automaticamente queste regole. Le porte e gli indirizzi seguenti sono per riferimento quando si creano le regole appropriate nel firewall di rete.
+
+> [!IMPORTANT]
+> Quando si usa il firewall di Azure per limitare il traffico in uscita e creare una route definita dall'utente (UDR) per forzare tutto il traffico in uscita, assicurarsi di creare una regola DNAT appropriata nel firewall per consentire correttamente il traffico in ingresso. L'uso del firewall di Azure con un UDR interrompe la configurazione in ingresso a causa del routing asimmetrico. Il problema si verifica perché la subnet AKS ha una route predefinita che passa all'indirizzo IP privato del firewall, ma si usa un servizio di bilanciamento del carico pubblico-ingress o Kubernetes di tipo: LoadBalancer). In questo caso, il traffico del servizio di bilanciamento del carico in ingresso viene ricevuto tramite l'indirizzo IP pubblico, ma il percorso di ritorno passa attraverso l'indirizzo IP privato del firewall. Poiché il firewall è con stato, Elimina il pacchetto restituito perché il firewall non è a conoscenza di una sessione stabilita. Per informazioni su come integrare il firewall di Azure con il servizio di bilanciamento del carico in ingresso o servizio, vedere [integrare il firewall di Azure con azure Load Balancer standard](https://docs.microsoft.com/en-us/azure/firewall/integrate-lb).
+>
 
 In AKS sono disponibili due set di porte e indirizzi:
 

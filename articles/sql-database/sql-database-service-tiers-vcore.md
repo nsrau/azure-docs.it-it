@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 06/26/2019
-ms.openlocfilehash: e5af3803ebb4cb0a88a082d3c85d0df68da8d1b8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a23f71a38324d9751846f1308f79d3a4e746fd85
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566627"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637278"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>Scegliere tra i livelli di servizio vCore ed eseguire la migrazione dai livelli di servizio DTU
 
@@ -28,7 +28,7 @@ Il modello di acquisto basato su Virtual Core (vCore) consente di ridimensionare
 L'hardware Gen4 offre molta più memoria per ogni vCore. L'hardware Gen5 consente tuttavia di aumentare molto di più le risorse di calcolo.
 
 > [!IMPORTANT]
-> I nuovi database Gen4 non sono più supportati nell'area AustraliaEast.
+> I nuovi database Gen4 non sono più supportati nelle aree dell'Australia orientale o del Brasile meridionale.
 > [!NOTE]
 > Per informazioni sui livelli di servizio basati su DTU, vedere [livelli di servizio per il modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md). Per informazioni sulle differenze tra i livelli di servizio per i modelli di acquisto basati su DTU e vCore, vedere [modelli di acquisto del database SQL di Azure](sql-database-purchase-models.md).
 
@@ -111,12 +111,12 @@ La tabella seguente fornisce indicazioni per scenari di migrazione specifici:
 |---|---|---|---|
 |Standard|Scopo generico|Laterale|L'ordine di migrazione non è rilevante, ma è necessario verificare che il numero di vCore sia appropriato*|
 |Premium|Business Critical|Laterale|L'ordine di migrazione non è rilevante, ma è necessario verificare che il numero di vCore sia appropriato*|
-|Standard|Business Critical|Aggiorna|È necessario eseguire prima la migrazione del database secondario|
+|Standard|Business Critical|Aggiornamento|È necessario eseguire prima la migrazione del database secondario|
 |Business Critical|Standard|Downgrade|È necessario eseguire prima la migrazione del database primario|
 |Premium|Scopo generico|Downgrade|È necessario eseguire prima la migrazione del database primario|
 |Scopo generico|Premium|Aggiornamento|È necessario eseguire prima la migrazione del database secondario|
 |Business Critical|Utilizzo generico|Downgrade|È necessario eseguire prima la migrazione del database primario|
-|Utilizzo generico|Business Critical|Aggiorna|È necessario eseguire prima la migrazione del database secondario|
+|Utilizzo generico|Business Critical|Aggiornamento|È necessario eseguire prima la migrazione del database secondario|
 ||||
 
 \*Ogni 100 DTU nel livello standard richiede almeno 1 vCore e ogni 125 DTU nel livello Premium richiede almeno 1 vCore.

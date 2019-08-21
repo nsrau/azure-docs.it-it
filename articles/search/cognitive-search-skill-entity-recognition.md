@@ -5,18 +5,17 @@ services: search
 manager: pablocas
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: 1328edfd9a049daf9244df992b55f4fb1585c8ba
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 25f6075d1e026745d4db1a60149e109a0f9636a4
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68841076"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69635965"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Competenza cognitiva Riconoscimento delle entità
 
@@ -38,11 +37,11 @@ La dimensione massima di un record deve essere di 50.000 caratteri misurata [`St
 
 I parametri fanno distinzione tra maiuscole e minuscole e sono tutti facoltativi.
 
-| Nome parametro     | Descrizione |
+| Nome parametro     | DESCRIZIONE |
 |--------------------|-------------|
 | categories    | Matrice di categorie che devono essere estratte.  Possibili tipi di categorie: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Se non vengono fornite categorie, vengono restituiti tutti i tipi.|
 |defaultLanguageCode |  Codice lingua del testo di input. Sono supportate le lingue seguenti: `de, en, es, fr, it`|
-|minimumPrecision | Non utilizzato. Riservato per utilizzi futuri. |
+|minimumPrecision | Non utilizzato. Riservato per usi futuri. |
 |includeTypelessEntities | Quando è impostato su true, se il testo contiene un'entità conosciuta, ma che non può essere classificata in una delle categorie supportate, verrà restituito come parte del campo di output complesso `"entities"`. 
 Si tratta di entità note che non sono classificate come parte delle "categorie" supportate correnti. Ad esempio, "Windows 10" è un'entità nota (un prodotto), ma i "prodotti" non sono inclusi nelle categorie attualmente supportate. Il valore predefinito è `false` |
 
@@ -59,7 +58,7 @@ Si tratta di entità note che non sono classificate come parte delle "categorie"
 > [!NOTE]
 > non tutte le categorie di entità sono supportate per tutte le lingue. Solo _en_, _es_ supportano l'estrazione dei tipi `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`.
 
-| Nome output     | DESCRIZIONE                   |
+| Nome output     | Descrizione                   |
 |---------------|-------------------------------|
 | persons      | Una matrice di stringhe in cui ogni stringa rappresenta il nome di una persona. |
 | locations  | Una matrice di stringhe in cui ogni stringa rappresenta il nome una posizione. |

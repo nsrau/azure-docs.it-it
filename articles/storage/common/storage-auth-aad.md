@@ -9,12 +9,12 @@ ms.date: 08/02/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f33193e3102afca73344fcd640d14d9af9c1d46e
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 2607e09e6b8428c2aacc8ee7c6be42f54284a1ce
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775352"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69641100"
 ---
 # <a name="authorize-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Autorizzare l'accesso a BLOB e code di Azure usando Azure Active Directory
 
@@ -54,7 +54,7 @@ Per altre informazioni sul modo in cui vengono definiti i ruoli predefiniti per 
 
 ### <a name="access-permissions-for-data-operations"></a>Autorizzazioni di accesso per le operazioni sui dati
 
-Per informazioni dettagliate sulle autorizzazioni necessarie per chiamare operazioni BLOB o Servizio di accodamento specifiche, vedere [autorizzazioni per la chiamata di operazioni sui dati di BLOB e](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)di Accodamento.
+Per informazioni dettagliate sulle autorizzazioni necessarie per chiamare operazioni BLOB o Servizio di accodamento specifiche, vedere [autorizzazioni per la chiamata di operazioni sui dati di BLOB e](https://docs.microsoft.com/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)di Accodamento.
 
 ## <a name="resource-scope"></a>Ambito delle risorse
 
@@ -85,5 +85,5 @@ File di Azure supporta l'autorizzazione con Azure AD su SMB solo per le macchine
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Autorizzare l'accesso a BLOB e code con Azure Active Directory e identità gestite per le risorse di Azure](storage-auth-aad-msi.md)
-- [Eseguire l'autenticazione con Azure Active Directory da un'applicazione per l'accesso ai BLOB e alle code](storage-auth-aad-app.md)
+- [Autorizzare con Azure Active Directory da un'applicazione per l'accesso a BLOB e code](storage-auth-aad-app.md)
 - [Supporto di archiviazione di Azure per il controllo degli accessi in base al Azure Active Directory](https://azure.microsoft.com/blog/azure-storage-support-for-azure-ad-based-access-control-now-generally-available/)

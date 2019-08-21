@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/04/2019
 ms.author: mlearned
-ms.openlocfilehash: 0238278b81255d735f8a950ca307d0e05100cfec
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: e3a4ea2e81e6c428b51d164336282f8f929d414b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67614570"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639799"
 ---
 # <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>Connettersi con RDP ai nodi di Windows Server del cluster di Azure Kubernetes Service (AKS) per la manutenzione o la risoluzione dei problemi
 
@@ -63,6 +63,27 @@ L'output di esempio seguente mostra che la macchina virtuale è stata creata cor
 ```
 
 Registrare l'indirizzo IP pubblico della macchina virtuale. Questo indirizzo verrà usato in un passaggio successivo.
+
+## <a name="allow-access-to-the-virtual-machine"></a>Consentire l'accesso alla macchina virtuale
+
+Per impostazione predefinita, le subnet del pool di nodi AKS sono protette con gruppi (gruppi di sicurezza di rete). Per ottenere l'accesso alla macchina virtuale, è necessario abilitare l'accesso nella NSG.
+
+> [!NOTE]
+> Gruppi sono controllati dal servizio AKS. Tutte le modifiche apportate al NSG verranno sovrascritte in qualsiasi momento dal piano di controllo.
+>
+
+Per prima cosa, ottenere il gruppo di risorse e il nome NSG del NSG a cui aggiungere la regola:
+
+```azurecli-interactive
+CLUSTER_RG=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
+NSG_NAME=$(az network nsg list -g $CLUSTER_RG --query [].name -o tsv)
+```
+
+Quindi, creare la regola NSG:
+
+```azurecli-interactive
+az network nsg rule create --name tempRDPAccess --resource-group $CLUSTER_RG --nsg-name $NSG_NAME --priority 100 --destination-port-range 3389 --protocol Tcp --description "Temporary RDP access to Windows nodes"
+```
 
 ## <a name="get-the-node-address"></a>Ottenere l'indirizzo del nodo
 
@@ -117,6 +138,17 @@ Al termine, chiudere la connessione RDP al nodo Windows Server, quindi uscire da
 
 ```azurecli-interactive
 az vm delete --resource-group myResourceGroup --name myVM
+```
+
+E la regola NSG:
+
+```azurecli-interactive
+CLUSTER_RG=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
+NSG_NAME=$(az network nsg list -g $CLUSTER_RG --query [].name -o tsv)
+```
+
+```azurecli-interactive
+az network nsg rule delete --resource-group $CLUSTER_RG --nsg-name $NSG_NAME --name tempRDPAccess
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

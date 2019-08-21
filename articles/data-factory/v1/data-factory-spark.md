@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 95c49eec6964984894f75ecd0a9e50c9c947683b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f39331cb6fb5da370ec34b38592f513d713e957
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61257569"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640285"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Chiamare i programmi Spark dalle pipeline Azure Data Factory
 
@@ -270,7 +270,7 @@ In questo passaggio viene creata una pipeline con un'attività HDInsightSpark. L
 <!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
 Per istruzioni dettagliate, vedere la sezione [Eseguire una query SQL Spark](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
 
-### <a name="troubleshooting"></a>risoluzione dei problemi
+### <a name="troubleshooting"></a>Risoluzione dei problemi
 Poiché getDebugInfo è impostato su **Always** (Sempre), è possibile vedere una sottocartella log nella cartella pyFiles nel contenitore BLOB di Azure. Il file di log nella cartella log offre informazioni aggiuntive. Tale file è particolarmente utile quando si verifica un errore. In un ambiente di produzione è consigliabile impostarlo su **Failure** (Operazione non riuscita).
 
 Per altre azioni di risoluzione del problema, eseguire la procedura seguente:
@@ -306,7 +306,7 @@ Di seguito è riportata la definizione JSON di esempio di una pipeline con un'at
                     "arguments": [ "arg1", "arg2" ],
                     "sparkConfig": {
                         "spark.python.worker.memory": "512m"
-                    }
+                    },
                     "getDebugInfo": "Always"
                 },
                 "outputs": [
@@ -329,11 +329,11 @@ La tabella seguente descrive le proprietà JSON usate nella definizione JSON.
 
 | Proprietà | Descrizione | Obbligatorio |
 | -------- | ----------- | -------- |
-| name | Nome dell'attività nella pipeline. | Yes |
+| name | Nome dell'attività nella pipeline. | Sì |
 | description | Testo che descrive la funzione dell'attività. | No |
 | type | Questa proprietà deve essere impostata su HDInsightSpark. | Yes |
 | linkedServiceName | Riferimento a un servizio collegato HDInsight in cui viene eseguito il programma Spark. | Yes |
-| rootPath | Contenitore BLOB e cartella che contiene il file Spark. Il nome del file fa distinzione tra maiuscole e minuscole. | Yes |
+| rootPath | Contenitore BLOB e cartella che contiene il file Spark. Il nome del file fa distinzione tra maiuscole e minuscole. | Sì |
 | entryFilePath | Percorso relativo alla cartella radice del pacchetto/codice Spark. | Sì |
 | className | Classe principale Java/Spark dell'applicazione. | No |
 | arguments | Elenco di argomenti della riga di comando del programma Spark. | N. |
@@ -350,7 +350,7 @@ Creare la struttura di cartelle seguente nell'archivio BLOB a cui fa riferimento
 | `Path` | Descrizione | Obbligatorio | Type |
 | ---- | ----------- | -------- | ---- |
 | . | Percorso radice del processo Spark nel servizio collegato di archiviazione. | Yes | Cartella |
-| &lt;definito dall'utente &gt; | Percorso che punta al file di ingresso del processo Spark. | Yes | File |
+| &lt;definito dall'utente &gt; | Percorso che punta al file di ingresso del processo Spark. | Sì | File |
 | ./jars | Tutti i file in questa cartella vengono caricati e inseriti in classpath Java del cluster. | No | Cartella |
 | ./pyFiles | Tutti i file in questa cartella vengono caricati e inseriti in PYTHONPATH del cluster. | No | Cartella |
 | ./files | Tutti i file in questa cartella vengono caricati e inseriti nella directory di lavoro executor. | No | Cartella |

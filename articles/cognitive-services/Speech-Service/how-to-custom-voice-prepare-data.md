@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6a29117ff6e5173063bc2aced87f08f1a6aea425
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8b4b5553605042499a9a8f3343ac4e6678e7006f
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559576"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640435"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Preparare i dati per creare una voce personalizzata
 
@@ -31,7 +31,7 @@ In alcuni casi, è possibile che non si disponga del set di dati appropriato e c
 
 Questa tabella elenca i tipi di dati e il modo in cui ognuno viene usato per creare un modello vocale personalizzato per la sintesi vocale.
 
-| Tipo di dati | Descrizione | Quando usare le autorizzazioni | Richiesto servizio aggiuntivo | Quantità per il training di un modello | Impostazioni locali |
+| Tipo di dati | DESCRIZIONE | Quando usare le autorizzazioni | Richiesto servizio aggiuntivo | Quantità per il training di un modello | Impostazioni locali |
 | --------- | ----------- | ----------- | --------------------------- | ----------------------------- | --------- |
 | **Singole espressioni + trascrizione corrispondente** | Raccolta (zip) di file audio (WAV) come singoli enunciati. Ogni file audio deve avere una lunghezza di 15 secondi o inferiore, associato a una trascrizione formattata (con estensione txt). | Registrazioni professionali con trascrizioni corrispondenti | Pronto per il training. | Nessun requisito rigido per en-US e zh-CN. Oltre 2000 espressioni distinte per altre impostazioni locali. | Tutte le impostazioni locali vocali personalizzate |
 | **Audio lungo + trascrizione (beta)** | Raccolta (con estensione zip) di file audio lunghi e non segmentati (più di 20 secondi), abbinati a una trascrizione (con estensione txt) che contiene tutte le parole vocali. | Sono presenti file audio e trascrizioni corrispondenti, ma non sono segmentati in espressioni. | Segmentazione (usando la trascrizione batch).<br>Trasformazione del formato audio, ove necessario. | Nessun requisito rigido per en-US e zh-CN. | `en-US` e `zh-CN` |
@@ -124,7 +124,7 @@ Le trascrizioni devono essere preparate alle specifiche elencate in questa tabel
 | Nome file | USA lo stesso nome del file audio corrispondente |
 | Formato di codifica | Solo UTF-8-BOM |
 | N. di espressioni per riga | Nessun limite |
-| Dimensione massima dei file | 50.000.000 |
+| Dimensione massima dei file | 50 MB |
 
 Tutti i file delle trascrizioni in questo tipo di dati devono essere raggruppati in un file zip. Nel file zip non è consentita alcuna sottocartella. Ad esempio, è stato caricato un file zip contenente un file audio denominato ' kingstory. wav ', 45 secondi e un altro denominato ' queenstory. mp3', 200 secondi di lunghezza. Sarà necessario caricare un altro file zip contenente due trascrizioni, una con il nome "kingstory. txt", l'altra "queenstory. txt". All'interno di ogni file di testo normale, viene fornita la trascrizione completa corretta per l'audio corrispondente.
 
@@ -139,7 +139,7 @@ Seguire queste linee guida durante la preparazione dell'audio.
 > [!NOTE]
 > Il servizio di segmentazione dell'audio lungo utilizzerà la funzionalità di trascrizione batch di riconoscimento vocale, che supporta solo gli utenti di sottoscrizione standard (S0).
 
-| Proprietà | Value |
+| Proprietà | Valore |
 | -------- | ----- |
 | Formato file | RIFF (WAV) con frequenza di campionamento di almeno 16 kHz-16 bit in PCM o. mp3 con una velocità in bit di almeno 256 KBps, raggruppati in un file con estensione zip |
 | Nome file | Solo caratteri ASCII. I caratteri Unicode nel nome avranno esito negativo, ad esempio i caratteri cinesi o i simboli come "-". Nessun nome duplicato consentito. |

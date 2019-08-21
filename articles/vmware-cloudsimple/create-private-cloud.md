@@ -1,21 +1,23 @@
 ---
-title: Creare una soluzione VMware di Azure con il cloud privato CloudSimple
+title: 'Soluzione VMware di Azure di CloudSimple: creare un cloud privato CloudSimple'
 description: Viene descritto come creare un cloud privato CloudSimple per estendere i carichi di lavoro VMware al cloud con flessibilità operativa e continuità
 author: sharaths-cs
 ms.author: b-shsury
-ms.date: 06/10/2019
+ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 02a2bd311ea1e89a49eb12ef57a167a08eea5f98
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: aacdb57c312946a9ec2b17a8d41aa9150efc277d
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812261"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640978"
 ---
 # <a name="create-a-cloudsimple-private-cloud"></a>Creare un cloud privato CloudSimple
+
+Un cloud privato è uno stack VMware isolato che supporta host ESXi, vCenter, rete VSAN e NSX. I cloud privati vengono gestiti tramite il portale CloudSimple. Hanno il proprio server vCenter nel proprio dominio di gestione. Lo stack viene eseguito su nodi dedicati e nodi hardware bare metal isolati.
 
 La creazione di un cloud privato ti aiuta a soddisfare diverse esigenze comuni per l'infrastruttura di rete:
 
@@ -29,54 +31,38 @@ La creazione di un cloud privato ti aiuta a soddisfare diverse esigenze comuni p
 
 Quando si crea un cloud privato, si ottiene un singolo cluster vSphere e tutte le macchine virtuali di gestione create in tale cluster.
 
-## <a name="before-you-begin"></a>Prima di iniziare
-
-Prima di poter creare il cloud privato, è necessario effettuare il provisioning dei nodi.  Per altre informazioni sul provisioning dei nodi, vedere l'articolo relativo al provisioning di [nodi per la soluzione VMware con CloudSimple-Azure](create-nodes.md) .
-
-Allocare un intervallo CIDR per le subnet vSphere/rete VSAN per il cloud privato. Un cloud privato viene creato come ambiente VMware stack isolato (host ESXi, vCenter, rete VSAN e NSX) gestito da un server vCenter. I componenti di gestione vengono distribuiti nella rete selezionata per la CIDR delle subnet vSphere/rete VSAN. L'intervallo CIDR di rete è diviso in subnet diverse durante la distribuzione.  Lo spazio degli indirizzi della subnet vSphere/rete VSAN deve essere univoco. Non deve sovrapporsi ad alcuna rete che comunica con l'ambiente CloudSimple.  Le reti che comunicano con CloudSimple includono reti locali e reti virtuali di Azure.  Per altre informazioni sulle subnet vSphere/rete VSAN, vedere [Panoramica di VLAN e subnet](cloudsimple-vlans-subnets.md).
-
-* Prefisso intervallo CIDR per le subnet vSphere/rete VSAN minimo:/24 
-* Prefisso intervallo CIDR per le subnet vSphere/rete VSAN massimo:/21
-
-## <a name="sign-in-to-azure"></a>Accedi ad Azure
-
-Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
-
 ## <a name="access-the-cloudsimple-portal"></a>Accedere al portale di CloudSimple
 
 Accedere al [portale di CloudSimple](access-cloudsimple-portal.md).
 
 ## <a name="create-a-new-private-cloud"></a>Creazione di un nuovo cloud privato
 
-1. Nella pagina **risorse** fare clic su **nuovo cloud privato**.
+1. Selezionare **Tutti i servizi**.
+2. Cercare i **Servizi CloudSimple**.
+3. Selezionare il servizio CloudSimple in cui si vuole creare il cloud privato.
+4. Da **Panoramica**fare clic su **Crea cloud privato** per aprire una nuova scheda del browser per il portale di CloudSimple. Se richiesto, accedere con le credenziali di accesso di Azure.
 
-    ![Creazione di un cloud privato-come iniziare](media/create-pc-button.png)
+    ![Creare un cloud privato da Azure](media/create-private-cloud-from-azure.png)
 
-2. Selezionare la località in cui ospitare le risorse del cloud privato.
+5. Nel portale di CloudSimple specificare un nome per il cloud privato.
+6. Selezionare la **località** per il cloud privato.
+7. Selezionare il **tipo di nodo**, coerente con quello acquistato in Azure.  È possibile scegliere l' [opzione CS28 o CS36](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku). La seconda opzione include la capacità di calcolo e di memoria massima.
+8. Specificare il **numero di nodi**.  Per creare un cloud privato sono necessari almeno tre nodi.
 
-3. Scegliere il tipo di nodo CS28 o CS36 di cui è stato effettuato il provisioning you'ev per il cloud privato. La seconda opzione include la capacità di calcolo e di memoria massima.
+    ![Creare un cloud privato-informazioni di base](media/create-private-cloud-basic-info.png)
 
-4. Selezionare il numero di nodi per il cloud privato. È possibile selezionare al massimo il numero di nodi disponibili di cui [è stato effettuato il provisioning di you'ev](create-nodes.md).
+9. Fare clic su **Avanti: Opzioni**avanzate.
+10. Immettere l'intervallo CIDR per le subnet vSphere/rete VSAN. Verificare che l'intervallo CIDR non si sovrappongano con le subnet di Azure locali o altre (reti virtuali) o con la subnet del gateway.
 
-    ![Creare un cloud privato-impostazioni di base](media/create-private-cloud-basic-info.png)
-
-5. Fare clic su **Avanti: Opzioni**avanzate.
-
-6. Immettere l'intervallo CIDR per le subnet vSphere/rete VSAN. Verificare che l'intervallo CIDR non si sovrappongano con le subnet di Azure locali o altre (reti virtuali) o con la subnet del gateway.  Non usare alcun intervallo CIDR definito nelle reti virtuali di Azure.
-    
     **Opzioni di intervallo CIDR:** /24,/23,/22 o/21. Un intervallo CIDR/24 supporta fino a nove nodi, un intervallo CIDR/23 supporta fino a 41 nodi e un intervallo CIDR/22 e/21 supporta fino a 64 nodi (il numero massimo di nodi in un cloud privato).
 
-    > [!CAUTION]
-    > Gli indirizzi IP nell'intervallo CIDR vSphere/rete VSAN sono riservati per l'uso da un'infrastruttura di cloud privato.  Non usare l'indirizzo IP in questo intervallo in una macchina virtuale.
+    > [!IMPORTANT]
+    > Gli indirizzi IP nell'intervallo CIDR vSphere/rete VSAN sono riservati per l'uso da parte dell'infrastruttura di cloud privato.  Non usare l'indirizzo IP in questo intervallo in una macchina virtuale.
 
-7. Fare clic su **Avanti: Esaminare e creare**.
+11. Fare clic su **Avanti: Esaminare e creare**.
+12. Esaminare le impostazioni. Se è necessario modificare le impostazioni, fare clic su **indietro**.
+13. Fare clic su **Create**(Crea).
 
-8. Esaminare le impostazioni. Se è necessario modificare le impostazioni, fare clic su **indietro**.
+Viene avviato il processo di provisioning del cloud privato. Il provisioning del cloud privato può richiedere fino a due ore.
 
-9. Fare clic su **Create**(Crea).
-
-Il provisioning del cloud privato si avvierà quando si fa clic su Crea.  È possibile monitorare lo stato di avanzamento dalla pagina [attività](https://docs.azure.cloudsimple.com/activity/#tasks) nel portale di CloudSimple.  Il provisioning può richiedere da 30 minuti a due ore.  Al termine del provisioning, si riceverà un messaggio di posta elettronica.
-
-## <a name="next-steps"></a>Passaggi successivi
-
-* [Espandi cloud privato](expand-private-cloud.md)
+Per istruzioni sull'espansione di un cloud privato esistente, vedere [espandere un cloud privato](expand-private-cloud.md).

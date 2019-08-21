@@ -6,17 +6,16 @@ manager: pablocas
 author: luiscabrer
 ms.service: search
 ms.subservice: cognitive-search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: luisca
-ms.openlocfilehash: dff0ffaed49d7e4b7ba8211827a26bc3e9a87d9d
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 21a36988b31571f2110fe4fd2802aa5d84ee0216
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68841107"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69635918"
 ---
 #   <a name="conditional-skill"></a>Competenza condizionale
 
@@ -88,7 +87,7 @@ Poiché la competenza condizionale supporta la valutazione, è possibile utilizz
 ## <a name="skill-inputs"></a>Input competenze
 Gli input fanno distinzione tra maiuscole e minuscole.
 
-| Input   | DESCRIZIONE |
+| Input   | Descrizione |
 |-------------|-------------|
 | condition   | Questo input è un [campo valutato](#evaluated-fields) che rappresenta la condizione da valutare. Questa condizione deve restituire un valore booleano (*true* o *false*).   <br/>  Esempi: <br/> "= true" <br/> "= $ (/Document/Language) = =' fr '" <br/> "= $ (/Document/pages/\*/Language) = = $ (/Document/expectedLanguage)" <br/> |
 | whenTrue    | Questo input è un [campo valutato](#evaluated-fields) che rappresenta il valore da restituire se la condizione viene valutata come *true*. Le stringhe delle costanti devono essere restituite tra virgolette singole (' and '). <br/>Valori di esempio: <br/> "=" contratto ""<br/>"= $ (/document/contractType)" <br/> "= $ (/Document/Entities/\*)" <br/> |

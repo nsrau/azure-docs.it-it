@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2018
 ms.author: v-mohabe
-ms.openlocfilehash: 87f5a14bcd6003ad81b663ed97e5349dcbff2a30
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 597670803514fa59faaafdad73786cdb745a0976
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296522"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640908"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Advanced Threat Protection con il Centro sicurezza di Azure
 
@@ -51,7 +51,7 @@ Nel Centro sicurezza di Azure sono ora disponibili queste funzionalità:
 
 ## <a name="platform-support"></a>Supporto delle piattaforme
 
-Windows Defender ATP nel centro sicurezza supporta il rilevamento nei sistemi operativi Windows Server 2012 R2 e Windows Server 2016 che appartengono a una sottoscrizione di servizio standard.
+Windows Defender ATP nel centro sicurezza supporta il rilevamento nei sistemi operativi Windows Server 2016, 2012 R2 e 2008 R2 SP1 in una sottoscrizione di servizio standard.
 
 > [!NOTE]
 > Quando si usa il Centro sicurezza di Azure per monitorare i server, viene creato automaticamente un tenant di Windows Defender ATP e i dati di Windows Defender ATP vengono archiviati in Europa per impostazione predefinita. Se è necessario spostare i dati in un'altra posizione, è necessario contattare supporto tecnico Microsoft per reimpostare il tenant.

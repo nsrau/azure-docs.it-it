@@ -9,16 +9,16 @@ ms.date: 06/20/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 0f73871d8248b2f52bab5934eef03d883c72ed79
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d1106865b3a2ea3164090896c5b90ab08f996f3d
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985390"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640499"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configurare le stringhe di connessione di Archiviazione di Azure
 
-Una stringa di connessione include le informazioni di autenticazione necessarie all'applicazione per accedere ai dati in un account di archiviazione di Azure in fase di esecuzione tramite l'autorizzazione della chiave condivisa. Le stringhe di connessione possono essere configurate per:
+Una stringa di connessione include le informazioni di autorizzazione necessarie all'applicazione per accedere ai dati in un account di archiviazione di Azure in fase di esecuzione tramite l'autorizzazione della chiave condivisa. Le stringhe di connessione possono essere configurate per:
 
 * Connettersi all'emulatore di archiviazione di Azure.
 * Accedere a un account di archiviazione in Azure.

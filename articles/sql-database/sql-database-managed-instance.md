@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: 94035fda6b1dff491a69c0f0001019ccd753d4e8
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: ebf4f516b8f90ce2ba8b277281300ae3239821c5
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816627"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640812"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Che cos'è l'istanza gestita di database SQL di Azure?
 
@@ -53,13 +53,13 @@ L'istanza gestita combina le migliori funzionalità disponibili sia nel database
 
 Nella tabella seguente sono elencate le principali funzionalità delle istanze gestite:
 
-|Funzionalità | DESCRIZIONE|
+|Funzionalità | Descrizione|
 |---|---|
 | Versione/build di SQL Server | Motore di database di SQL Server (ultima versione stabile) |
 | Backup automatici gestiti | Yes |
-| Monitoraggio predefinito e metriche dell'istanza e del database | Yes |
-| Applicazione automatica di patch software | Sì |
-| Funzionalità più recenti del motore di database | Yes |
+| Monitoraggio predefinito e metriche dell'istanza e del database | Sì |
+| Applicazione automatica di patch software | Yes |
+| Funzionalità più recenti del motore di database | Sì |
 | Numero di file di dati (RIGHE) per il database | Più posizioni |
 | Numero di file di log (LOG) per il database | 1 |
 | Rete virtuale: distribuzione di Azure Resource Manager | Yes |
@@ -82,7 +82,7 @@ Nel modello vCore è possibile scegliere tra diverse generazioni di hardware.
 Per altre informazioni sulle differenze tra le generazioni di hardware, vedere [Limiti delle risorse per le istanze gestite](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 
 > [!IMPORTANT]
-> I nuovi database Gen4 non sono più supportati nell'area AustraliaEast.
+> I nuovi database Gen4 non sono più supportati nelle aree dell'Australia orientale o del Brasile meridionale.
 
 ## <a name="managed-instance-service-tiers"></a>Livelli di servizio dell'istanza gestita
 
@@ -292,7 +292,7 @@ L'opzione di distribuzione dell'istanza gestita consente all'amministratore di s
 
 La tabella seguente mostra diverse proprietà, accessibili tramite Transact SQL, che è possibile usare per rilevare se l'applicazione funziona con l'istanza gestita e recuperare proprietà importanti.
 
-|Proprietà|Value|Commento|
+|Proprietà|Valore|Commento|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Questo valore è uguale a quello del database SQL.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Questo valore è uguale a quello del database SQL.|

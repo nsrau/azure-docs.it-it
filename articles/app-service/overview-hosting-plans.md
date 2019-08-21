@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4ea983255463080592181cda321ef6b6d1ff147f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: be391f2aa9ee5d94ffc36a6e03d3af8881346520
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932350"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69636562"
 ---
 # <a name="azure-app-service-plan-overview"></a>Panoramica del piano di servizio app di Azure
 
@@ -100,7 +100,7 @@ L'uso delle funzionalità del servizio app disponibili (configurazione di domini
 
 Lo stesso meccanismo funziona in ordine inverso. Quando le funzionalità di un piano superiore non sono più necessarie, è possibile passare a un piano inferiore per risparmiare.
 
-Per informazioni sul passaggio dell'app a un piano di servizio superiore, vedere [Aumentare le prestazioni di un'app in Azure](web-sites-scale.md).
+Per informazioni sul passaggio dell'app a un piano di servizio superiore, vedere [Aumentare le prestazioni di un'app in Azure](manage-scale-up.md).
 
 Se l'app è nello stesso piano di servizio app di altre app, potrebbe essere necessario migliorare le prestazioni dell'app isolando le risorse di calcolo. A questo scopo, è possibile spostare l'app in un piano di servizio app separato. Per altre informazioni, vedere [Move an app to another App Service plan](app-service-plan-manage.md#move) (Spostare un'app in un altro piano di servizio app).
 

@@ -5,18 +5,17 @@ services: search
 manager: briansmi
 author: careyjmac
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: cmacdo
 ms.subservice: cognitive-search
-ms.openlocfilehash: 1f4ba923cb9698a00c8c7c8be6e1b34f09ea1b72
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 5f608ee058dd4e463253f4c4f5e410c515031e25
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840947"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638889"
 ---
 #   <a name="text-translation-cognitive-skill"></a>Competenze cognitive per la traduzione del testo
 
@@ -57,7 +56,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 ## <a name="skill-outputs"></a>Output competenze
 
-| Nome output    | DESCRIZIONE |
+| Nome output    | Descrizione |
 |--------------------|-------------|
 | translatedText | Risultato stringa della traduzione del testo da translatedFromLanguageCode a translatedToLanguageCode.|
 | translatedToLanguageCode  | Stringa che indica il codice della lingua in cui è stato convertito il testo. Utile se si esegue la conversione in più lingue e si desidera essere in grado di tenere traccia del testo che è il linguaggio.|

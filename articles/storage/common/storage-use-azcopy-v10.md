@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 6b127738d4be79c30d1791d7313c0f8f7eacaf36
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
-ms.translationtype: MT
+ms.openlocfilehash: 60b3d1dcc7d60b25319b3fa5dd740541a457927f
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985143"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640085"
 ---
 # <a name="get-started-with-azcopy"></a>Introduzione ad AzCopy
 
@@ -65,9 +65,9 @@ Usare questa tabella come guida:
 |**Archiviazione BLOB (spazio dei nomi gerarchica)** | Firma di accesso condiviso Azure AD & |
 |**Archiviazione file** | Solo SAS |
 
-### <a name="option-1-use-azure-ad"></a>Opzione 1: USA Azure AD
+### <a name="option-1-use-azure-active-directory"></a>Opzione 1: Usare Azure Active Directory
 
-Con Azure AD è possibile fornire le credenziali una sola volta anziché dover aggiungere un token SAS a ogni comando.  
+Con Azure Active Directory è possibile fornire le credenziali una sola volta anziché dover aggiungere un token SAS a ogni comando.  
 
 > [!NOTE]
 > Nella versione corrente, se si prevede di copiare i BLOB tra gli account di archiviazione, è necessario aggiungere un token di firma di accesso condiviso a ogni URL di origine. È possibile omettere il token SAS solo dall'URL di destinazione. Per esempi, vedere [copiare i BLOB tra account di archiviazione](storage-use-azcopy-blobs.md).
@@ -149,7 +149,7 @@ $env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
 ```
 
 > [!NOTE]
-> Prendere in considerazione l'uso di un prompt, come illustrato in questo esempio. In questo modo, il segreto client non verrà visualizzato nella cronologia dei comandi della console. 
+> Prendere in considerazione l'uso di un prompt, come illustrato in questo esempio. In questo modo, la password non verrà visualizzata nella cronologia dei comandi della console.  
 
 Digitare quindi il comando seguente e premere il tasto INVIO.
 
@@ -170,7 +170,7 @@ Impostare quindi la `AZCOPY_SPA_CERT_PASSWORD` variabile di ambiente sulla passw
 > [!NOTE]
 > Assicurarsi di impostare questo valore dal prompt dei comandi e non nelle impostazioni delle variabili di ambiente del sistema operativo. In questo modo, il valore è disponibile solo per la sessione corrente.
 
-Questo esempio illustra come eseguire questa operazione in PowerShell.
+Questo esempio illustra come eseguire questa attività in PowerShell.
 
 ```azcopy
 $env:AZCOPY_SPA_CERT_PASSWORD="$(Read-Host -prompt "Enter key")"
