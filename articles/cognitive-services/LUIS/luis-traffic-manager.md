@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: 72a7b383d224936e3d22ee9e7acb5db28fe63c4e
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 85f6be7a897908ef9198ac71ada809efb7c033bc
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945135"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650547"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Usare Gestione traffico di Microsoft Azure per gestire la quota di endpoint tra le chiavi
 Language Understanding (LUIS) offre la possibilità di aumentare la quota di endpoint oltre la quota della singola chiave. Questa operazione viene eseguita creando più chiavi per LUIS e aggiungendole all'applicazione LUIS sulla pagina **Publish** (Pubblica) nella sezione **Resources and Keys** (Risorse e chiavi). 
@@ -58,7 +58,7 @@ Gestione traffico crea un nuovo punto di accesso DNS per gli endpoint. Non opera
 ### <a name="polling-uses-luis-endpoint"></a>Il polling usa l'endpoint LUIS
 Gestione traffico esegue il polling degli endpoint periodicamente per verificare che l'endpoint sia ancora disponibile. L'URL di Gestione traffico sottoposto a polling deve essere accessibile con una richiesta GET e restituire un valore 200. L'URL dell'endpoint sulla pagina **Publish** (Pubblica) esegue questa operazione. Poiché ogni chiave endpoint ha una route e parametri di stringa di query diversi, per ogni chiave endpoint è necessario un percorso di polling diverso. Ogni volta che Gestione traffico esegue il polling, comporta un costo in termini di richiesta di quota. Il parametro della stringa di query **q** dell'endpoint LUIS è l'espressione inviata a LUIS. Questo parametro, anziché inviare un'espressione, viene usato per aggiungere il polling di Gestione traffico al registro di endpoint LUIS come tecnica di debug mentre Gestione traffico viene configurato.
 
-Poiché ogni endpoint LUIS deve avere il proprio percorso, ha bisogno di un proprio profilo di Gestione traffico. Per la gestione tra i profili, creare un'architettura di [Gestione traffico _nidificata_ ](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-nested-profiles). Un profilo padre punta ai profili figlio e gestisce il traffico tra di loro.
+Poiché ogni endpoint LUIS deve avere il proprio percorso, ha bisogno di un proprio profilo di Gestione traffico. Per la gestione tra i profili, creare un'architettura di [Gestione traffico _nidificata_](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-nested-profiles). Un profilo padre punta ai profili figlio e gestisce il traffico tra di loro.
 
 Dopo aver configurato Gestione traffico, ricordarsi di modificare il percorso per usare il parametro della stringa di query logging=false, in modo che tutto lo spazio del registro non venga occupato con il polling.
 
