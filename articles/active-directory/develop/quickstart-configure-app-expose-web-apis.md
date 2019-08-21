@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2019
+ms.date: 08/14/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f770539e2f60a960a52a877dd4eaa79c60a1af4a
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: f9c8e4a2e5dadf64312481f33993911177c90bc7
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482680"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989281"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Guida introduttiva: Configurare un'applicazione per l'esposizione di API Web
 
@@ -116,8 +116,9 @@ Per esporre un nuovo ambito tramite il manifesto dell'applicazione:
 ## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>Verificare che l'API Web sia esposta ad altre applicazioni
 
 1. Tornare al tenant di Azure AD, selezionare nuovamente **Registrazioni app** e quindi trovare e selezionare l'applicazione client che si vuole configurare.
-1. Ripetere la procedura illustrata in Configurare un'applicazione client per l'accesso ad API Web.
-1. Quando si arriva al passaggio per **selezionare un'API**, selezionare la risorsa. Dovrebbe essere visualizzato il nuovo ambito, disponibile per le richieste di autorizzazioni dei client.
+1. Ripetere la procedura illustrata in [Configurare un'applicazione client per l'accesso ad API Web](quickstart-configure-app-access-web-apis.md).
+1. Quando si arriva al passaggio per [selezionare un'API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis
+), selezionare la risorsa. Dovrebbe essere visualizzato il nuovo ambito, disponibile per le richieste di autorizzazioni dei client.
 
 ## <a name="more-on-the-application-manifest"></a>Altre informazioni sul manifesto dell'applicazione
 

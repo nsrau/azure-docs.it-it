@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3bc06a8903fbc431d991e6ef2a4aad8fbaff2365
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: f254572f5c26a809f401e99f527ccd3d30451c3d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736859"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931577"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Esercitazione: Registrare il traffico di rete da e verso una macchina virtuale tramite il portale di Azure
 
@@ -108,6 +108,11 @@ La registrazione del flusso di NSG richiede il provider **Microsoft.Insights**. 
    ![Selezionare la versione dei log dei flussi](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
 
 9. Selezionare l'account di archiviazione creato al passaggio 3.
+   > [!NOTE]
+   > I log del flusso del gruppo di sicurezza di rete non funzionano con gli account di archiviazione se:
+   > * Negli account di archiviazione è abilitato un firewall.
+   > * Negli account di archiviazione è abilitato lo [spazio dei nomi gerarchico](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace).
+1. Nell'angolo in alto a sinistra del portale selezionare **Tutti i servizi**. Nella **casella del filtro** digitare *Network Watcher*. Selezionare **Network Watcher** quando viene visualizzato tra i risultati della ricerca.
 10. Impostare **Conservazione (giorni)** su 5 e poi selezionare **Salva**.
 
 ## <a name="download-flow-log"></a>Scaricare il log del flusso
@@ -212,7 +217,7 @@ Il valore per **mac** negli output precedenti è l'indirizzo MAC dell'interfacci
 | Una            | Azione                 | Indica se il traffico è stato consentito (A) o negato (D).  
 | C            | Stato del flusso **solo versione 2** | Acquisisce lo stato del flusso. Gli stati possibili sono **B**: indica la creazione di un flusso. Non vengono fornite statistiche. **C**: indica un flusso in corso. Vengono fornite statistiche a intervalli di 5 minuti. **E**: indica un flusso terminato. Vengono fornite statistiche. |
 | 30 | Pacchetti inviati - Da origine a destinazione **solo versione 2** | Numero totale di pacchetti TCP o UDP inviati dall'origine alla destinazione dall'ultimo aggiornamento. |
-| 16978 | Byte inviati - Da origine a destinazione **solo versione 2** | Numero totale di byte di pacchetti TCP o UDP inviati dall'origine alla destinazione dall'ultimo aggiornamento. I byte dei pacchetti includono l'intestazione del pacchetto e il payload. | 
+| 16978 | Byte inviati - Da origine a destinazione **solo versione 2** | Numero totale di byte di pacchetti TCP o UDP inviati dall'origine alla destinazione dall'ultimo aggiornamento. I byte dei pacchetti includono l'intestazione del pacchetto e il payload. |
 | 24 | Pacchetti inviati - Da destinazione a origine **solo versione 2** | Numero totale di pacchetti TCP o UDP inviati dalla destinazione all'origine dall'ultimo aggiornamento. |
 | 14008| Byte inviati - Da destinazione a origine **solo versione 2** | Numero totale di byte di pacchetti TCP e UDP inviati dalla destinazione all'origine dall'ultimo aggiornamento. I byte dei pacchetti includono payload e intestazione del pacchetto.|
 

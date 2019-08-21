@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Configurare l'ambiente e l'area di lavoro"
+title: "Esercitazione: Configurare l'ambiente e l'area di lavoro."
 titleSuffix: Azure Machine Learning service
 description: In questa serie di esercitazioni si completeranno le procedure end-to-end per iniziare a usare Azure Machine Learning SDK per Python eseguito in Jupyter Notebook.  La prima parte illustra la creazione di un ambiente server notebook cloud, nonché la creazione di un'area di lavoro per gestire gli esperimenti e i modelli di Machine Learning.
 services: machine-learning
@@ -10,14 +10,14 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: b3fdcfbb9869c0199c91f5bbc6ca1f02fec996cf
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 70fee90fb82618a409d2566a3235ad8ca42e1760
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828641"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934422"
 ---
-# <a name="tutorial-setup-environment-and-workspace"></a>Esercitazione: Configurare l'ambiente e l'area di lavoro
+# <a name="tutorial-set-up-environment-and-workspace"></a>Esercitazione: Configurare l'ambiente e l'area di lavoro
 
 In questa esercitazione si completeranno le procedure end-to-end per iniziare a usare Azure Machine Learning SDK per Python eseguito in Jupyter Notebook. Questa esercitazione, la **prima di una serie di esercitazioni in due parti**, illustra l'installazione e la configurazione dell'ambiente Python, nonché la creazione di un'area di lavoro per gestire gli esperimenti e i modelli di Machine Learning. Su questa base, nella [**seconda parte**](tutorial-1st-experiment-sdk-train.md) viene eseguito il training di più modelli di Machine Learning e viene presentato il processo di gestione dei modelli sia con il portale di Azure che con l'SDK.
 
@@ -25,7 +25,7 @@ In questa esercitazione:
 
 > [!div class="checklist"]
 > * Creare un'area di lavoro di Machine Learning da usare nell'esercitazione successiva.
-> * Creare una macchina virtuale per notebook, un server Jupyter Notebook basato sul cloud con Azure Machine Learning SDK per Python preinstallato e preconfigurato.
+> * Creare una macchina virtuale Jupyter Notebook basata sul cloud con Azure Machine Learning SDK per Python installato e preconfigurato.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

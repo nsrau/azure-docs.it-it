@@ -1,5 +1,5 @@
 ---
-title: Compilare un'immagine personalizzata e per l'app Web per contenitori - Servizio app di Azure | Microsoft Docs
+title: Compilare un'immagine personalizzata ed eseguirla nel servizio app da un registro privato
 description: Come usare un'immagine Docker personalizzata per l'app Web per contenitori.
 keywords: Servizio app di Azure, app Web, Linux, Docker, contenitore
 services: app-service
@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: b48ec72a1f0a4178dad66ed31c544399e90c5293
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 6ef739b61c07dae1631a704a70a3a5543d9d8a3d
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484510"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69015595"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Esercitazione: Compilare un'immagine personalizzata ed eseguirla nel servizio app da un registro privato
 
@@ -292,20 +292,20 @@ SSH consente la comunicazione sicura tra un contenitore e un client. Per abilita
 
 * Lo [script di ingresso](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/init.sh#L5) avvia il server SSH.
 
-      ```bash
-      #!/bin/bash
-      service ssh start
+    ```bash
+    #!/bin/bash
+    service ssh start
     ```
 
-### Open SSH connection to container
+### <a name="open-ssh-connection-to-container"></a>Aprire una connessione SSH a un contenitore
 
-SSH connection is available only through the Kudu site, which is accessible at `https://<app-name>.scm.azurewebsites.net`.
+La connessione SSH è disponibile solo tramite il sito Kudu, accessibile da `https://<app-name>.scm.azurewebsites.net`.
 
-To connect, browse to `https://<app-name>.scm.azurewebsites.net/webssh/host` and sign in with your Azure account.
+Per connettersi, passare a `https://<app-name>.scm.azurewebsites.net/webssh/host` e accedere con l'account di Azure.
 
-You are then redirected to a page displaying an interactive console.
+Si viene quindi reindirizzati a una pagina che visualizza una console interattiva.
 
-You may wish to verify that certain applications are running in the container. To inspect the container and verify running processes, issue the `top` command at the prompt.
+È possibile verificare che determinate applicazioni siano in esecuzione nel contenitore. Per ispezionare il contenitore e verificare i processi in esecuzione, eseguire il comando `top` al prompt.
 
 ```bash
 top

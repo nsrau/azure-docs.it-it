@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/21/2019
+ms.date: 08/14/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c890288539a8abebe688ca4571ffa6c152e992ee
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: aefa6d21488b617b26ddefe5fa4fc61cdd203f96
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694048"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032536"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Esercitazione: Aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory
 
@@ -96,7 +96,7 @@ Consentire l'accesso agli URL seguenti:
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure usa questi URL per verificare i certificati. |
 | login.windows.net<br>login.microsoftonline.com<br>secure.aadcdn.microsoftonline-p.com  | Il connettore usa questi URL durante il processo di registrazione. |
 
-È possibile consentire le connessioni a \*.msappproxy.net e \*.servicebus.windows.net se il firewall o il proxy consente di configurare elenchi di elementi consentiti DNS. In caso contrario, è necessario consentire l'accesso agli [intervalli di indirizzi IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653). Gli intervalli di indirizzi IP vengono aggiornati ogni settimana.
+È possibile consentire le connessioni a \*.msappproxy.net e \*.servicebus.windows.net se il firewall o il proxy consente di configurare elenchi di elementi consentiti DNS. In caso contrario, è necessario consentire l'accesso agli [intervalli di indirizzi IP e ai tag di servizio di Azure - Cloud pubblico](https://www.microsoft.com/download/details.aspx?id=56519). Gli intervalli di indirizzi IP vengono aggiornati ogni settimana.
 
 ## <a name="install-and-register-a-connector"></a>Installare e registrare un connettore
 

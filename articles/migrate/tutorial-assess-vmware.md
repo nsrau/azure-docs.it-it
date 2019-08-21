@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: hamusa
-ms.openlocfilehash: 7b27637ca63ec69d7f4c33f05e7c037d67676b2d
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 04162f074dba05ac6492c16acb446912296cd673
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828294"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952092"
 ---
 # <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>Valutare le macchine virtuali VMware con Azure Migrate: Valutazione server
 
@@ -180,8 +180,39 @@ Viene avviata l'individuazione. Per visualizzare i metadati delle VM individuate
 
 ### <a name="scoping-discovery"></a>Definire l'ambito dell'individuazione
 
-È possibile definire l'ambito dell'individuazione limitando l'accesso dell'account vCenter usato per l'individuazione. L'ambito può essere impostato su data center, cluster, cartella di cluster, host, cartella di host o singole VM del server vCenter. 
+È possibile definire l'ambito dell'individuazione limitando l'accesso dell'account vCenter usato per l'individuazione. L'ambito può essere impostato su data center, cluster, cartella di cluster, host, cartella di host o singole VM del server vCenter.
 
+Per impostare l'ambito, seguire questa procedura:
+1.  Creare un account utente vCenter.
+2.  Definire un nuovo ruolo con i privilegi necessari. (<em>necessario per la migrazione del server senza agente</em>)
+3.  Assegnare le autorizzazioni all'account utente sugli oggetti vCenter.
+
+**Creare un account utente vCenter**
+1.  Accedere al client Web vSphere come amministratore del server vCenter.
+2.  Fare clic sulla scheda **Administration** > **SSO users and Groups** > **Users** (Amministrazione > Utenti e gruppi SSO > Utenti).
+3.  Fare clic sull'icona **New User** (Nuovo utente).
+4.  Immettere le informazioni necessarie per creare un nuovo utente e fare clic su **OK**.
+
+**Definire un nuovo ruolo con i privilegi necessari** (<em>necessario per la migrazione del server senza agente</em>)
+1.  Accedere al client Web vSphere come amministratore del server vCenter.
+2.  Passare ad **Administration** > **Role Manager** (Amministrazione > Gestione ruoli).
+3.  Selezionare il server vCenter dal menu a discesa.
+4.  Fare clic sull'azione **Create role** (Crea ruolo).
+5.  Digitare un nome per il nuovo ruolo, ad esempio <em>Azure_Migrate</em>.
+6.  Assegnare queste [autorizzazioni](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) al ruolo appena definito.
+7.  Fare clic su **OK**.
+
+**Assegnare le autorizzazioni per gli oggetti vCenter**
+
+Sono disponibili due approcci per assegnare le autorizzazioni per gli oggetti inventario in vCenter all'account utente vCenter con un ruolo assegnato.
+- Per la valutazione del server, è necessario applicare il ruolo **Read-only** (sola lettura) all'account utente vCenter per tutti gli oggetti padre in cui sono ospitate le macchine virtuali da individuare. Tutti gli oggetti padre (host, cartella di host, cluster, cartella di cluster) nella gerarchia fino al data center devono essere inclusi. Queste autorizzazioni devono essere propagate agli oggetti figlio nella gerarchia. 
+
+    Allo stesso modo, per la migrazione del server, è necessario applicare un ruolo definito dall'utente (denominato, ad esempio, <em>Azure_Migrate</em>) con questi [privilegi](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) assegnati all'account utente vCenter per tutti gli oggetti padre che ospitano le macchine virtuali di cui verrà eseguita la migrazione.
+
+![Assegnare autorizzazioni](./media/tutorial-assess-vmware/assign-perms.png)
+
+- L'approccio alternativo consiste nell'assegnare l'account e il ruolo utente al livello del data center e quindi propagarli agli oggetti figlio. Assegnare quindi all'account un ruolo **No access** (nessun accesso) per ogni oggetto, ad esempio le macchine virtuali, da escludere dall'individuazione/migrazione. Questa configurazione è complicata e al tempo stesso espone a controlli di accesso accidentali, perché a ogni nuovo oggetto figlio viene automaticamente concesso l'accesso ereditato dall'oggetto padre. È quindi consigliabile usare il primo approccio.
+ 
 > [!NOTE]
 > Attualmente lo strumento Valutazione server non è in grado di individuare le VM se all'account vCenter è stato concesso l'accesso al livello di cartella di VM vCenter. Se si vuole definire l'ambito dell'individuazione in base alle cartelle di VM, è possibile farlo verificando che all'account vCenter sia assegnato l'accesso di sola lettura a livello di VM.  A questo scopo seguire le istruzioni seguenti:
 >

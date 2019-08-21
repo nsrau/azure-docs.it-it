@@ -1,20 +1,19 @@
 ---
 title: Introduzione ad Azure Data Lake Storage Gen2
 description: Offre una panoramica di Azure Data Lake Storage Gen2
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: daa5efcf1be075e81e402edff56239a7cf21db18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 3dea4dfc58bf087b8f6bc0a3f45646da5cb597ad
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939235"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847221"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introduzione ad Azure Data Lake Storage Gen2
 
@@ -44,7 +43,7 @@ In passato, le analisi basate sul cloud imponevano il raggiungimento di un compr
 
 -   **Conveniente**: Data Lake Storage Gen2 offre capacità di archiviazione e transazioni a basso costo. Con il passaggio di dati tramite il relativo ciclo di vita completo, le tariffe di fatturazione cambiano mantenendo i costi al minimo tramite funzionalità incorporate, come ad esempio il [ciclo di vita di archiviazione BLOB di Azure](storage-lifecycle-management-concepts.md).
 
--   **Driver ottimizzato**: Il driver ABFS [ottimizzato in modo specifico](data-lake-storage-abfs-driver.md) per analitica dei big Data. Le API REST corrispondente vengono rilevate tramite l'endpoint `dfs.core.windows.net`.
+-   **Driver ottimizzato**: il driver ABFS è [ottimizzato appositamente](data-lake-storage-abfs-driver.md) per l'analisi dei Big Data. Le API REST corrispondenti vengono rilevate tramite l'endpoint `dfs.core.windows.net`.
 
 ### <a name="scalability"></a>Scalabilità
 
@@ -64,7 +63,7 @@ Di seguito sono elencate le entità equivalenti, descritte da concetti diversi. 
 
 | Concetto                                | Organizzazione di livello superiore | Organizzazione di livello inferiore                                            | Contenitore dati |
 |----------------------------------------|------------------------|---------------------------------------------------------------------|----------------|
-| BLOB: archivio di oggetti per utilizzo generico | Contenitore              | Directory virtuale (solo SDK, non fornisce la manipolazione atomica) | Blob           |
+| BLOB: archivio di oggetti per utilizzo generico | Contenitore              | Directory virtuale (solo SDK, non fornisce la manipolazione atomica) | BLOB           |
 | ADLS Gen2: archivio di analisi          | File system             | Directory                                                           | File           |
 
 ## <a name="supported-open-source-platforms"></a>Piattaforme open source supportate

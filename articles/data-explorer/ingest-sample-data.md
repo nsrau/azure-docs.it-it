@@ -5,21 +5,21 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: e80322cda671e2145cf3e65aa1457f1fa1827737
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.topic: quickstart
+ms.date: 08/12/2019
+ms.openlocfilehash: c803de599f6be98512b15e927c6d15f1c7d95ff1
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60759270"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515750"
 ---
-# <a name="ingest-sample-data-into-azure-data-explorer"></a>Inserire i dati di esempio in Esplora dati di Azure
+# <a name="quickstart-ingest-sample-data-into-azure-data-explorer"></a>Guida introduttiva: Inserire i dati di esempio in Esplora dati di Azure
 
 Questo articolo illustra come inserire (caricare) i dati di esempio in un database di Esplora dati di Azure. Esistono [diversi modi per inserire i dati](ingest-data-overview.md); questo articolo è incentrato su un approccio di base adatto a scopo di test.
 
 > [!NOTE]
-> Si dispone già di questi dati se i passaggi elencati in [Avvio rapido sono stati completati: Inserire dati usando la libreria di Esplora dati di Azure per Python](python-ingest-data.md).
+> Si dispone già di questi dati se è stato completata l'esercitazione [Inserire dati usando la libreria Esplora dati di Azure per Python](python-ingest-data.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -56,11 +56,6 @@ Il set di dati di esempio **StormEvents** contiene dati relativi al meteo del [N
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Guida introduttiva: Eseguire query sui dati in Esplora dati di Azure](web-query-data.md)
-
-> [!div class="nextstepaction"]
-> [Scrivere query](write-queries.md)
-
-> [!div class="nextstepaction"]
-> [Inserimento dati in Esplora dati di Azure](ingest-data-overview.md)
+* [Inserimento dati in Esplora dati di Azure](ingest-data-overview.md) per acquisire altre informazioni sui metodi di inserimento.
+* [Guida introduttiva: Eseguire query sui dati nell'interfaccia utente Web di Esplora dati di Azure](web-query-data.md).
+* [Scrivere query](write-queries.md) con il linguaggio di query Kusto.

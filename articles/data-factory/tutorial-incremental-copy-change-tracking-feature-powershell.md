@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 52dee0ee60c111c56c42e0452f8f8750ea9ea4e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 117b6d53a3392e8a4f75d5d1966e3f48fb66d5ce
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66167578"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966401"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Caricare dati in modo incrementale da un database SQL di Azure all'archiviazione BLOB di Azure tramite il rilevamento delle modifiche 
 In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati differenziali basati su informazioni di **rilevamento delle modifiche** nel database SQL di Azure di origine in una risorsa di archiviazione BLOB di Azure.  
@@ -216,8 +216,8 @@ In questo passaggio l'account di archiviazione di Azure viene collegato alla dat
         }
     }
     ```
-2. In **Azure PowerShell** passare alla cartella **C:\ADFTutorials\IncCopyChgTrackingTutorial**.
-3. Eseguire il cmdlet **Set-AzDataFactoryV2LinkedService** cmdlet per creare il servizio collegato: **AzureStorageLinkedService**. Nell'esempio seguente si passano i valori per i parametri **ResourceGroupName** e **DataFactoryName**. 
+2. In **Azure PowerShell** passare alla cartella **C:\ADFTutorials\IncCopyChangeTrackingTutorial**.
+3. Eseguire il cmdlet **Set-AzDataFactoryV2LinkedService** per creare il servizio collegato: **AzureStorageLinkedService**. Nell'esempio seguente si passano i valori per i parametri **ResourceGroupName** e **DataFactoryName**. 
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -235,7 +235,7 @@ In questo passaggio l'account di archiviazione di Azure viene collegato alla dat
 ### <a name="create-azure-sql-database-linked-service"></a>Creare un servizio collegato Database SQL di Azure.
 In questo passaggio viene collegato il database SQL di Azure alla data factory.
 
-1. Creare un file JSON denominato **AzureSQLDatabaseLinkedService.json** nella cartella **C:\ADFTutorials\IncCopyChangeTrackingTutorial** con il contenuto seguente: Sostituire server database name **, &lt;user id&gt; e &lt;password&gt;** con il nome del server SQL di Azure, il nome del database, l'ID utente e la password prima di salvare il file. 
+1. Creare un file JSON denominato **AzureSQLDatabaseLinkedService.json** nella cartella **C:\ADFTutorials\IncCopyChangeTrackingTutorial** con il contenuto seguente: Sostituire **&lt;server&gt; &lt;database name **, &lt;user id&gt; e &lt;password&gt;** con il nome del server SQL di Azure, il nome del database, l'ID utente e la password prima di salvare il file. 
 
     ```json
     {
@@ -370,7 +370,7 @@ In questo passaggio viene creato un set di dati per l'archiviazione della versio
     ```
 
     Come parte dei prerequisiti, è necessario creare la tabella table_store_ChangeTracking_version.
-2.  Eseguire il cmdlet Set-AzDataFactoryV2Dataset per creare il set di dati: WatermarkDataset
+2.  Eseguire il cmdlet Set-AzDataFactoryV2Dataset per creare il set di dati: ChangeTrackingDataset
     
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "ChangeTrackingDataset" -File ".\ChangeTrackingDataset.json"

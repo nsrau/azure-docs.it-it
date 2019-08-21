@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 7bd18ab0cedf94f0ecc08c3523a608a8d554e6b2
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 2ef207a14582e6ba0d9f8a25c0314c5ec639c7cb
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827914"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882854"
 ---
 # <a name="what-is-azure-security-center"></a>Che cos'è il Centro sicurezza di Azure?
 
@@ -32,9 +32,9 @@ Centro sicurezza di Azure consente di risolvere le tre problematiche di sicurezz
 
 -   **Carichi di lavoro in costante evoluzione**: è un punto di forza e al tempo stesso una delle difficoltà del cloud. Da una parte, gli utenti hanno a disposizione più opzioni. Da un’altra parte, come assicurarsi che i servizi in continua evoluzione che le persone usano e creano siano conformi agli standard di sicurezza e che le persone seguano le procedure consigliate?
 
--   **Attacchi sempre più sofisticati** : ogni volta che si eseguono carichi di lavoro, gli attacchi diventano sempre più sofisticati. È necessario proteggere i carichi di lavoro su cloud pubblico, che sono in realtà carichi di lavoro su Internet che possono rendere più vulnerabili, se non si rispettano le procedure consigliate per la sicurezza.
+-   **Attacchi sempre più sofisticati**: ogni volta che si eseguono carichi di lavoro, gli attacchi diventano sempre più sofisticati. È necessario proteggere i carichi di lavoro su cloud pubblico, che sono in realtà carichi di lavoro su Internet che possono rendere più vulnerabili, se non si rispettano le procedure consigliate per la sicurezza.
 
--   **Le competenze di sicurezza sono scarse** : il numero di avvisi e di sistemi di avviso per la sicurezza superano di gran lunga il numero di amministratori con le conoscenze e l'esperienza necessarie per garantire che gli ambienti siano protetti. Rimanere aggiornati sugli attacchi più recenti è una sfida costante che rende impossibile rimanere fermi quando il mondo della sicurezza si muove in continuazione.
+-   **Le competenze di sicurezza sono scarse**: il numero di avvisi e di sistemi di avviso per la sicurezza superano di gran lunga il numero di amministratori con le conoscenze e l'esperienza necessarie per garantire che gli ambienti siano protetti. Rimanere aggiornati sugli attacchi più recenti è una sfida costante che rende impossibile rimanere fermi quando il mondo della sicurezza si muove in continuazione.
 
 Per garantire la protezione da questi problemi, Centro sicurezza offre gli strumenti necessari per:
 
@@ -60,15 +60,15 @@ Centro sicurezza di Azure migliora il comportamento di sicurezza. Ciò significa
 
 ### <a name="manage-organization-security-policy-and-compliance"></a>Gestione delle policy di sicurezza dell’organizzazione e conformità
 
-Conoscere e verificare che i carichi di lavoro siano protetti è fondamentale. Per farlo, è necessario disporre di policy di sicurezza personalizzate. Poiché tutte le policy di Centro sicurezza si basano sui sistemi di controllo delle policy di Azure, si può usufruire dell’intera gamma e flessibilità di una  **soluzione di policy leader**. In Centro sicurezza è possibile impostare le proprie policy da eseguire su gruppi di gestione, sulle sottoscrizioni e anche su un intero tenant.
+Conoscere e verificare che i carichi di lavoro siano protetti è fondamentale. Per farlo, è necessario disporre di policy di sicurezza personalizzate. Dal momento che tutti i criteri di Centro sicurezza si basano su controlli dei criteri di Azure, è possibile usufruire dell'intera gamma e della flessibilità di una **soluzione di elevata qualità per i criteri**. In Centro sicurezza è possibile impostare le proprie policy da eseguire su gruppi di gestione, sulle sottoscrizioni e anche su un intero tenant.
 
 ![Dashboard del Centro sicurezza](media/security-center-intro/sc-dashboard.png)
 
-Centro sicurezza permette di  **identificare le sottoscrizioni di utenti non autorizzati**. Esaminando le sottoscrizioni con l'etichetta **non coperto** nel dashboard, è possibile sapere immediatamente quando vengono create nuove sottoscrizioni e assicurarsi che siano coperte dalle policy e protette da Centro sicurezza di Azure.
+Centro sicurezza consente di **identificare sottoscrizioni shadow IT**. Esaminando le sottoscrizioni con l'etichetta **non coperto** nel dashboard, è possibile sapere immediatamente quando vengono create nuove sottoscrizioni e assicurarsi che siano coperte dalle policy e protette da Centro sicurezza di Azure.
 
 ![Dashboard delle policy di Centro sicurezza](media/security-center-intro/sc-policy-dashboard.png)
 
-Le funzionalità avanzate di monitoraggio di Centro sicurezza consentono inoltre di  **rilevare e gestire la conformità e la governance nel tempo**. La  **conformità complessiva** fornisce una misura di quanto le sottoscrizioni siano conformi alle policy associate al carico di lavoro. 
+Le funzionalità avanzate di monitoraggio di Centro sicurezza consentono inoltre di **rilevare e gestire la conformità e la governance nel tempo**. La **conformità generale** è indicativa della conformità delle sottoscrizioni ai criteri associati al carico di lavoro. 
 
 ![Policy di Centro sicurezza nel tempo](media/security-center-intro/sc-policy-time.png)
 
@@ -76,11 +76,11 @@ Le funzionalità avanzate di monitoraggio di Centro sicurezza consentono inoltre
 
 Centro sicurezza individua continuamente le nuove risorse distribuite tra i carichi di lavoro e consente di valutare se sono configurate in base alle procedure ottimali di protezione; in caso contrario, vengono contrassegnate e viene restituito un elenco in ordine di priorità delle raccomandazioni sulle risorse da correggere per proteggere i computer.
 
-Uno degli strumenti più potenti che Centro sicurezza mette a disposizione per monitorare in modo continuo lo stato di sicurezza di rete è la  **mappa della rete**. La mappa consente di visualizzare la topologia dei carichi di lavoro, pertanto è possibile controllare che ogni nodo sia configurato correttamente. È possibile visualizzare come sono connessi i nodi per bloccare le connessioni indesiderate che potrebbero potenzialmente agevolare l’attacco alla rete da parte di un utente malintenzionato.
+Uno degli strumenti più potenti offerti da Centro sicurezza per il monitoraggio continuo dello stato di sicurezza della rete è la **mappa di rete**. La mappa consente di visualizzare la topologia dei carichi di lavoro, pertanto è possibile controllare che ogni nodo sia configurato correttamente. È possibile visualizzare come sono connessi i nodi per bloccare le connessioni indesiderate che potrebbero potenzialmente agevolare l’attacco alla rete da parte di un utente malintenzionato.
 
 ![Mappa della rete di Centro sicurezza](media/security-center-intro/sc-net-map.png)
 
-Centro sicurezza rende più semplice la riduzione degli avvisi di sicurezza consentendo di aggiungere un  **punteggio di sicurezza**. I punteggi di sicurezza sono associati a ogni raccomandazione ricevuta per consentire di comprendere quanto è importante ogni raccomandazione per il comportamento di sicurezza complessivo. Questo è fondamentale per  **stabilire le priorità degli interventi sulla sicurezza**.
+Centro sicurezza semplifica la mitigazione degli avvisi di sicurezza, grazie all'aggiunta di un **punteggio di sicurezza**. I punteggi di sicurezza sono associati a ogni raccomandazione ricevuta per consentire di comprendere quanto è importante ogni raccomandazione per il comportamento di sicurezza complessivo. Si tratta di una funzionalità essenziale per **classificare in ordine di priorità gli interventi di sicurezza**.
 
 ![Punteggio di sicurezza di Centro sicurezza](media/security-center-intro/sc-secure-score.png)
 

@@ -5,23 +5,23 @@ services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 04/13/2018
+ms.date: 08/07/2019
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 127d67cc3b5dcd0ddd585470821eb1baa08c2388
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 6656c374ae0ff4aae7f99fd340e9e25e5cbc67d1
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180693"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854171"
 ---
-È ora possibile aggiungere dati alla nuova raccolta usando Esplora dati.
+È ora possibile aggiungere dati al nuovo contenitore usando Esplora dati.
 
-1. In Esplora dati il nuovo database viene visualizzato nel riquadro Raccolte. Espandere il database **Tasks**, espandere la raccolta **Items**, fare clic su **Documenti** e quindi su **Nuovo documento**. 
+1. In **Esplora dati** espandere il database **Tasks** e quindi il contenitore **Elementi**. Selezionare **Elementi** e quindi fare clic su **Nuovo elemento**.
 
    ![Creare nuovi documenti in Esplora dati nel portale di Azure](./media/cosmos-db-create-sql-api-add-sample-data/azure-cosmosdb-data-explorer-new-document.png)
   
-2. Aggiungere ora un documento alla raccolta con la struttura seguente.
+2. Aggiungere ora un documento al contenitore con la struttura seguente.
 
      ```json
      {
@@ -33,8 +33,8 @@ ms.locfileid: "67180693"
      }
      ```
 
-3. Dopo avere aggiunto il codice JSON alla scheda **Documenti**, fare clic su **Salva**.
+3. Dopo avere aggiunto il codice JSON alla scheda **Documenti**, selezionare **Salva**.
 
-    ![Copiare i dati JSON e fare clic su Salva in Esplora dati nel portale di Azure](./media/cosmos-db-create-sql-api-add-sample-data/azure-cosmosdb-data-explorer-save-document.png)
+    ![Copiare i dati JSON e selezionare Salva in Esplora dati nel portale di Azure](./media/cosmos-db-create-sql-api-add-sample-data/azure-cosmosdb-data-explorer-save-document.png)
 
 4.  Creare e salvare un altro documento inserendo un valore univoco per la proprietà `id` e modificando le altre proprietà come si preferisce. I nuovi documenti possono avere la struttura desiderata, perché Azure Cosmos DB non impone alcuno schema per i dati.

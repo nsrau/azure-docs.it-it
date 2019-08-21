@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/11/2019
 ms.author: spelluru
-ms.openlocfilehash: 0c50a321cbeb0d07a5039038ff796df00463ac8a
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 964ecca015e440439885bbbd85cb720a3abd10a9
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385660"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883506"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Esercitazione: Configurare un lab per le classi 
 Questa esercitazione descrive come configurare un lab per le classi con macchine virtuali usate dagli studenti nella classe.  
@@ -43,7 +43,7 @@ Un proprietario del lab può aggiungere altri utenti al ruolo **Autore di labora
 2. Selezionare **Accedi** e immettere le credenziali. Azure Lab Services supporta gli account aziendali e gli account Microsoft. 
 3. Nella finestra **New Lab** (Nuovo lab) eseguire queste operazioni: 
     1. Specificare un **nome** per il lab. 
-    2. Specificare il **numero massimo di macchine virtuali** nel lab. È possibile aumentare o diminuire il numero di VM dopo aver creato il lab oppure in un lab esistente. Per altre informazioni, vedere [Aggiornare il numero di VM in un lab](how-to-configure-student-usage.md#update-number-of-virtual-machines-in-lab)
+    2. Specificare il **numero massimo di macchine virtuali** nel lab. È possibile aumentare o ridurre il numero di macchine virtuali dopo aver creato il lab o in un lab esistente. Per altre informazioni, vedere [Aggiornare il numero di VM in un lab](how-to-configure-student-usage.md#update-number-of-virtual-machines-in-lab)
     6. Selezionare **Salva**.
 
         ![Creare un lab per le classi](../media/tutorial-setup-classroom-lab/new-lab-window.png)

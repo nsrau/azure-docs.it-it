@@ -10,12 +10,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 01/25/2019
-ms.openlocfilehash: 677d9b5a8ca837288755ab098fbccd8a5b7ddacd
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f4d2afd65ec06c331498ce974e933fe08c8e67dd
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567852"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935180"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatizzare le attività di gestione con processi di database
 
@@ -44,7 +44,7 @@ L'automazione dei processi può essere usata in diversi scenari:
 In Database SQL di Azure sono disponibili le tecnologie di pianificazione dei processi seguenti.
 
 - **Processi di SQL Agent**: componente classico e testato sul campo per la pianificazione dei processi di SQL Server disponibile in Istanza gestita. I processi di SQL Agent non sono disponibili nei database singoli.
-- **Processi di database elastico**: servizio di pianificazione dei processi che esegue processi personalizzati su uno o più database SQL di Azure.
+- **Processi di database elastico (anteprima)** : servizi di pianificazione dei processi che eseguono processi personalizzati su uno o più database SQL di Azure.
 
 È opportuno notare alcune differenze tra SQL Agent, disponibile in locale e come parte di Istanza gestita di database SQL, e l'agente dei processi di database elastico, disponibile per database singoli in Database SQL di Azure e per database in SQL Data Warehouse.
 
@@ -55,7 +55,7 @@ In Database SQL di Azure sono disponibili le tecnologie di pianificazione dei pr
 
 ## <a name="sql-agent-jobs"></a>Processi di SQL Agent
 
-I processi di SQL Agent sono serie specificate di script T-SQL sul database. Usare i processi per definire un'attività amministrativa eseguibile una o più volte e monitorabile per verificarne l'esito positivo o negativo.
+I processi di SQL Agent sono una serie specificata di script T-SQL sul database. Usare i processi per definire un'attività amministrativa eseguibile una o più volte e monitorabile per verificarne l'esito positivo o negativo.
 Un processo può essere eseguito in un server locale o in più server remoti. I processi di SQL Agent sono un componente interno del motore di database che viene eseguito nel servizio Istanza gestita.
 Di seguito sono riportati i concetti chiave dei processi di SQL Agent:
 
@@ -66,7 +66,7 @@ Di seguito sono riportati i concetti chiave dei processi di SQL Agent:
 ### <a name="job-steps"></a>Passaggi di processo
 
 I passaggi di processo di SQL Agent sono sequenze di azioni che devono essere eseguite da SQL Agent. Ogni passaggio include il passaggio successivo da eseguire in caso di esito positivo o negativo e il numero di tentativi in caso di errore.
-SQL Agent consente di creare tipi diversi di passaggi di processo, ad esempio passaggi di processo Transact-SQL per l'esecuzione di un singolo batch Transact-SQL sul database, passaggi PowerShell o di comandi del sistema operativo per l'esecuzione di uno script personalizzato del sistema operativo, passaggi di processo SSIS che consentono di caricare dati con il runtime SSIS o passaggi di [replica](sql-database-managed-instance-transactional-replication.md) per la pubblicazione di modifiche da un database ad altri.
+SQL Agent consente di creare tipi diversi di passaggi di processo, ad esempio passaggi di processo Transact-SQL per l'esecuzione di un singolo batch Transact-SQL sul database, passaggi PowerShell o di comandi del sistema operativo per l'esecuzione di uno script personalizzato del sistema operativo, passaggi di processo SSIS che consentono di caricare dati con il runtime SSIS o passaggi di [replica](sql-database-managed-instance-transactional-replication.md) per la pubblicazione di modifiche da un database ad altri database.
 
 La [replica transazionale](sql-database-managed-instance-transactional-replication.md) è una funzionalità del motore di database che consente di pubblicare le modifiche apportate a una o più tabelle di un database e pubblicarle/distribuirle in un set di database sottoscrittore. La pubblicazione delle modifiche viene implementata con i tipi di passaggi di processo di SQL Agent seguenti:
 
@@ -90,11 +90,11 @@ Per quanto riguarda quando un processo deve essere eseguito, una pianificazione 
 - In base a una pianificazione ricorrente.
 
 > [!Note]
-> Istanza gestita attualmente non consente di avviare un processo quando l'istanza è "inattiva".
+> Istanza gestita non consente attualmente di avviare un processo quando l'istanza è "inattiva".
 
 ### <a name="job-notifications"></a>Notifiche dei processi
 
-I processi di SQL Agent consentono di ricevere notifiche al completamento o all'esito negativo del processo. È possibile ricevere una notifica tramite posta elettronica.
+I processi di SQL Agent consentono di ricevere notifiche quando il processo viene completato o non riesce. È possibile ricevere le notifiche tramite posta elettronica.
 
 Per prima cosa, sarà necessario configurare l'account di posta elettronica che verrà usato per l'invio delle notifiche e assegnare l'account al profilo di posta elettronica denominato `AzureManagedInstance_dbmail_profile`, come illustrato nell'esempio seguente:
 
@@ -146,7 +146,7 @@ EXEC msdb.dbo.sp_add_operator
         @email_address=N'mihajlo.pupin@contoso.com'
 ```
 
-È possibile modificare qualsiasi processo e assegnare l'operatore che riceverà una notifica tramite posta elettronica in caso di completamento, esito negativo o esito positivo del processo usando SSMS o lo script Transact-SQL seguente:
+È possibile modificare qualsiasi processo e assegnare gli operatori che riceveranno una notifica tramite posta elettronica in caso di completamento, esito negativo o esito positivo del processo usando SSMS o lo script Transact-SQL seguente:
 
 ```sql
 EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS', 
@@ -158,17 +158,17 @@ EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS',
 
 Alcune delle funzionalità di SQL Agent disponibili in SQL Server non sono supportate in Istanza gestita:
 - Le impostazioni dell'agente SQL sono di sola lettura. La routine `sp_set_agent_properties` non è supportata in Istanza gestita.
-- L'abilitazione/disabilitazione dell'agente non è attualmente supportata in Istanza gestita. SQL Agent è sempre in esecuzione.
+- L'abilitazione/disabilitazione di SQL Agent non è attualmente supportata in Istanza gestita. SQL Agent è sempre in esecuzione.
 - Le notifiche sono supportate in modo parziale.
   - Il cercapersone non è supportato.
   - NetSend non è supportato.
-  - Gli avvisi non sono ancora supportati.
+  - Gli avvisi non sono supportati.
 - I proxy non sono supportati.
 - EventLog non è supportato.
 
 Per informazioni su SQL Server Agent, vedere [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent).
 
-## <a name="elastic-database-jobs"></a>Processi di database elastici
+## <a name="elastic-database-jobs-preview"></a>Processi di database elastico (anteprima)
 
 I **processi di database elastico** consentono di eseguire uno o più script T-SQL in parallelo, in un numero elevato di database, in una pianificazione o su richiesta.
 
@@ -194,7 +194,7 @@ Un agente di processo elastico è la risorsa di Azure per la creazione, l'esecuz
 
 La creazione di un **agente di processo elastico** richiede un database SQL esistente. L'agente configura il database esistente come [*database di processo*](#job-database).
 
-L'agente di processo elastico è gratuito. Il database di processo viene fatturato alla stessa tariffa di qualsiasi database SQL.
+L'agente di processo elastico è gratuito. Il database di processo viene fatturato alla stessa tariffa di qualsiasi altro database SQL.
 
 #### <a name="job-database"></a>Database di processo
 

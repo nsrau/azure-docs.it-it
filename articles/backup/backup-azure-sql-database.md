@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7312821320084c766f5b3357fe64c061df83673b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 647ab76760d0c5ce5315a60d0a671163b902be0f
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827654"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954546"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Informazioni sul backup di SQL Server in macchine virtuali di Azure
 
@@ -75,7 +75,7 @@ Agli utenti non verranno addebitati i costi per questa funzionalità fino al mom
 - È possibile eseguire il backup di un totale di **~2000** database SQL Server in un insieme di credenziali. Nel caso di un numero elevato di database, è possibile creare più insiemi di credenziali.
 - È possibile configurare il backup per un totale di **50** database alla volta. Questa restrizione contribuisce a ottimizzare i carichi di backup.
 - Sono supportati database di dimensioni fino a **2 TB**. Per dimensioni maggiori, potrebbero verificarsi problemi di prestazioni.
-- Per avere un'idea della quantità di database che è possibile proteggere per ogni server, è necessario considerare fattori come la larghezza di banda, le dimensioni delle VM, la frequenza dei backup, le dimensioni dei database e così via. [Scaricare](http://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) il calcolatore di risorse che fornisce il numero approssimativo di database disponibili per server in base alle risorse delle macchine virtuali e ai criteri di backup.
+- Per avere un'idea della quantità di database che è possibile proteggere per ogni server, è necessario considerare fattori come la larghezza di banda, le dimensioni delle VM, la frequenza dei backup, le dimensioni dei database e così via. [Scaricare](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) il calcolatore di risorse che fornisce il numero approssimativo di database disponibili per server in base alle risorse delle macchine virtuali e ai criteri di backup.
 - Nel caso dei gruppi di disponibilità, i backup vengono eseguiti da diversi nodi in base ad alcuni fattori. Il comportamento di backup per un gruppo di disponibilità è riepilogato di seguito.
 
 ### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Comportamento di backup nel caso di gruppi di disponibilità AlwaysOn
@@ -83,7 +83,7 @@ Agli utenti non verranno addebitati i costi per questa funzionalità fino al mom
 È consigliabile configurare il backup solo su un nodo di un gruppo di disponibilità. Il backup deve sempre essere configurato nella stessa area del nodo primario. In altre parole, il nodo primario deve essere sempre presente nell'area in cui si sta configurando il backup. Se tutti i nodi del gruppo di disponibilità risiedono nella stessa area in cui è configurato il backup, non c'è motivo di preoccuparsi.
 
 **Per i gruppi di disponibilità tra più aree**
-- Indipendentemente dalle preferenze per il backup, non verrà eseguito alcun backup dai nodi che non risiedono nella stessa area in cui è configurato il backup, perché i backup tra più aree non sono supportati. Se sono presenti solo 2 nodi e il nodo secondario risiede nell'altra area, verranno eseguiti solo i backup dal nodo primario, a meno che la preferenza scelta per il backup non sia 'solo secondario'.
+- Indipendentemente dalle preferenze per il backup, non verrà eseguito alcun backup dai nodi che non risiedono nella stessa area in cui è configurato il backup, perché i backup tra più aree non sono supportati. Se sono presenti solo due nodi e il nodo secondario risiede nell'altra area, verranno eseguiti solo i backup dal nodo primario, a meno che la preferenza scelta per il backup non sia "solo secondario".
 - Se viene eseguito il failover in un'area diversa da quella in cui è configurato il backup, il backup sui nodi dell'area di failover non verrà eseguito.
 
 In base alle preferenze e ai tipi di backup (completo/differenziale/log/completo solo copia), i backup vengono eseguiti da uno specifico nodo (primario o secondario).

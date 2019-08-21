@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1688651466ba6748e1254c9d33bb24435602868b
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 76ba284ec1a30322a24c762a1829b399f2583c6c
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489159"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032915"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management-preview"></a>Esercitazione: Creare il primo pacchetto di accesso in Gestione entitlement di Azure AD (anteprima)
 
@@ -44,7 +44,9 @@ In questa esercitazione si apprenderà come:
 > * Mostrare come un utente interno può richiedere il pacchetto di accesso
 > * Approvare la richiesta di accesso
 
-Se non si dispone di una licenza di Azure AD Premium P2 o Enterprise Mobility + Security E5, è possibile creare un account di [valutazione di Enterprise Mobility + Security E5](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1) gratuito.
+Per una dimostrazione dettagliata del processo di distribuzione di Gestione entitlement di Azure Active Directory, inclusa la creazione del primo pacchetto di accesso, vedere il video seguente:
+
+>[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -52,6 +54,8 @@ Per usare Gestione entitlement di Azure AD (anteprima) è necessario disporre di
 
 - Azure AD Premium P2
 - Licenza di Enterprise Mobility + Security (EMS) E5
+
+Se non si dispone di una licenza di Azure AD Premium P2 o Enterprise Mobility + Security E5, è possibile creare un account di [valutazione di Enterprise Mobility + Security E5](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1) gratuito.
 
 ## <a name="step-1-set-up-users-and-group"></a>Passaggio 1: Configurare utenti e gruppi
 

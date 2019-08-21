@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/23/2019
+ms.date: 08/12/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: ca42532fe6ba954180ce06ed0e3561e42f1fb447
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 9e3159a083d21e4a7a81df2fcf7a7d5db882b757
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424244"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976925"
 ---
 ::: zone target="docs"
 
@@ -109,12 +109,9 @@ I datacenter di Azure in Australia prevedono una notifica sulla sicurezza aggiun
 1. Sulla lettera di vettura, nelle informazioni sul mittente, indicare il nome dell'azienda e l'indirizzo.
 2. Inviare un messaggio di posta elettronica a Quantium Solutions usando il modello di messaggio di posta elettronica seguente.
 
-    - Se la lettera di vettura di Japan Post Chakubarai non era inclusa o risulta mancante, indicarlo nel messaggio di posta elettronica. Quantium Solutions Japan richiederà a Japan Post di portare la lettera di vettura al momento del ritiro.
-    - In caso di più ordini, inviare messaggi di posta elettronica per garantire prelievi singoli.
-
     ```
     To: Customerservice.JP@quantiumsolutions.com
-    Subject: Pickup request for Azure Data Box Disk｜Job Name： 
+    Subject: Pickup request for Microsoft Azure Data Box Disk｜Job Name： 
     Body: 
     - Japan Post Yu-Pack tracking number (reference number)：
     - Requested pickup date：mmdd (Select a requested time slot from below).
@@ -123,6 +120,9 @@ I datacenter di Azure in Australia prevedono una notifica sulla sicurezza aggiun
         c. 15：00-17：00 
         d. 17：00-19：00 
     ```
+    - **Se il ritiro avviene a Osaka**, modificare l'oggetto nel modello di messaggio di posta elettronica in: `Pickup request for Microsoft Azure OSA`.
+    - Se la lettera di vettura di Japan Post Chakubarai non era inclusa o risulta mancante, indicarlo nel messaggio di posta elettronica. Quantium Solutions Japan richiederà a Japan Post di portare la lettera di vettura al momento del ritiro.
+    - In caso di più ordini, inviare messaggi di posta elettronica per garantire prelievi singoli.
 
 3. Si riceverà una conferma tramite posta elettronica da Quantium Solutions dopo la prenotazione di un prelievo. La conferma tramite posta elettronica include anche informazioni sulla lettera di vettura di Chakubarai.
 

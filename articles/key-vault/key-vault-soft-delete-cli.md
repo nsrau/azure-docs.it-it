@@ -1,18 +1,19 @@
 ---
 title: Azure Key Vault - Come usare la funzionalità di eliminazione temporanea con l'interfaccia della riga di comando
 description: Esempi di casi d'uso della funzionalità di eliminazione temporanea con frammenti di codice dell'interfaccia della riga di comando
+services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 ms.service: key-vault
-ms.topic: conceptual
-ms.date: 02/01/2019
+ms.topic: tutorial
+ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: aa9b89b9afec069e97236b7652e0f1d37644f5cf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: aef4061a8349e6602ac4394cb31bbe76b6cb63c0
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60640481"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976302"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Come usare l'eliminazione temporanea di Key Vault con l'interfaccia della riga di comando
 
@@ -31,7 +32,7 @@ Per informazioni sui comandi dell'interfaccia della riga di comando relativi a K
 
 Le operazioni di Key Vault vengono gestite separatamente tramite autorizzazioni del controllo degli accessi in base al ruolo, come indicato di seguito:
 
-| Operazione | Descrizione | Autorizzazione utente |
+| Operazione | DESCRIZIONE | Autorizzazione utente |
 |:--|:--|:--|
 |Elenco|Elenca gli insiemi di credenziali delle chiavi eliminati.|Microsoft.KeyVault/deletedVaults/read|
 |Recupera|Recupera un insieme di credenziali delle chiavi eliminato.|Microsoft.KeyVault/vaults/write|
@@ -94,7 +95,7 @@ Con la funzione di eliminazione temporanea abilitata:
 ```azurecli
 az keyvault list-deleted
 ```
-- *ID* può essere utilizzato per identificare la risorsa durante il recupero o l'eliminazione definitiva. 
+- L'*ID* può essere usato per identificare la risorsa durante il recupero o l'eliminazione definitiva. 
 - L'*ID risorsa* è l'ID risorsa originale di questo insieme di credenziali. Poiché l'insieme di credenziali delle chiavi è ora in stato "eliminato", non è presente alcuna risorsa con questo ID. 
 - La *data di eliminazione definitiva programmata* indica il momento in cui l'insieme di credenziali verrà eliminato in modo definitivo se non viene eseguita alcuna operazione. Il periodo di memorizzazione predefinito usato per calcolare il campo *Scheduled Purge Date* (Data eliminazione definitiva programmata) è di 90 giorni.
 
@@ -195,7 +196,7 @@ Come le chiavi, i segreti vengono gestiti con comandi specifici:
 > [!IMPORTANT]
 > Dopo l'operazione di pulizia, un insieme di credenziali delle chiavi o un oggetto dell'insieme non è più recuperabile.
 
-La funzione di eliminazione viene usata per eliminare definitivamente un oggetto insieme di credenziali delle chiavi o un'intera istanza Key vault, che è stata precedentemente eliminati temporaneamente. Come illustrato nella sezione precedente, gli oggetti archiviati in un insieme di credenziali delle chiavi con la funzionalità di eliminazione temporanea abilitata, possono passare attraverso più stati:
+La funzione di pulizia viene usata per eliminare in modo permanente un oggetto dell'insieme di credenziali delle chiavi, o un intero insieme, che in precedenza è stato eliminato temporaneamente. Come illustrato nella sezione precedente, gli oggetti archiviati in un insieme di credenziali delle chiavi con la funzionalità di eliminazione temporanea abilitata, possono passare attraverso più stati:
 
 - **Attivo**: prima dell'eliminazione.
 - **Eliminato temporaneamente**: dopo l'eliminazione, può essere recuperato e ripristinato allo stato attivo.
@@ -223,19 +224,19 @@ Quando si elencano gli oggetti di un insieme di credenziali eliminato, viene ind
 >[!IMPORTANT]
 >Un oggetto di un insieme di credenziali delle chiavi eliminato in modo permanente, attivato dal campo *Scheduled Purge Date* (Data eliminazione definitiva programmata), viene eliminato in modo definitivo e non è più recuperabile.
 
-## <a name="enabling-purge-protection"></a>Abilitazione della protezione dall'eliminazione
+## <a name="enabling-purge-protection"></a>Abilitazione del flag di protezione dall'eliminazione
 
-Quando protezione dall'eliminazione è attivata, un insieme di credenziali o un oggetto eliminata non può essere ripulito stato fino a quando non ha superato il periodo di conservazione di 90 giorni. Tale insieme di credenziali o oggetto può essere comunque ripristinato. Questa funzionalità offre maggiore sicurezza che un insieme di credenziali o un oggetto non può mai essere definitivamente eliminato fino a quando non ha superato il periodo di conservazione periodo.
+Quando la protezione dall'eliminazione è attivata, un insieme di credenziali o un oggetto nello stato eliminato non può essere ripulito finché non ha superato il periodo di conservazione di 90 giorni. Tale insieme di credenziali o oggetto può essere comunque ripristinato. Questa funzionalità offre maggiore sicurezza che un oggetto o un insieme di credenziali non venga mai eliminato definitivamente prima che sia trascorso il periodo di conservazione.
 
-È possibile abilitare protezione dall'eliminazione solo se è abilitata anche la funzione di eliminazione temporanea. 
+È possibile abilitare la protezione dall'eliminazionesolo se è abilitata anche l'eliminazione temporanea. 
 
-Per attivare entrambi l'eliminazione temporanea e ripulire protezione durante la creazione di un insieme di credenziali, usare il [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) comando:
+Per attivare l'eliminazione temporanea e la protezione dall'eliminazione durante la creazione di un insieme di credenziali, usare il comando [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create):
 
 ```
 az keyvault create --name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
 ```
 
-Per aggiungere protezione dall'eliminazione per un insieme di credenziali esistente (che dispone già di eliminazione temporanea abilitata), usare il [aggiornamento di az keyvault](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) comando:
+Per aggiungere la protezione dall'eliminazione a un insieme di credenziali esistente (per cui è già abilitata l'eliminazione temporanea), usare il comando [az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update):
 
 ```
 az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true
