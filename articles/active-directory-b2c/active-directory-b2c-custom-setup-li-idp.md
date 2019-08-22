@@ -76,7 +76,7 @@ Per consentire agli utenti di accedere con un account LinkedIn, è necessario de
 
 Definire un account LinkedIn come provider di attestazioni aggiungendolo all'elemento **ClaimsProviders** nel file di estensione dei criteri.
 
-1. Aprire il file *SocialAndLocalAccounts/**TrustFrameworkExtensions. XML***nell'editor. Questo file si trova nello [Starter Pack dei criteri personalizzati][starter-pack] scaricato come parte di uno dei prerequisiti.
+1. Aprire il file *SocialAndLocalAccounts/ **TrustFrameworkExtensions. XML*** nell'editor. Questo file si trova nello [Starter Pack dei criteri personalizzati][starter-pack] scaricato come parte di uno dei prerequisiti.
 1. Trovare l'elemento **ClaimsProviders**. Se non esiste, aggiungerlo nell'elemento radice.
 1. Aggiungere un nuovo **ClaimsProvider** come illustrato di seguito:
 
