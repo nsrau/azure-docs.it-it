@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 6bb3be3805243bba4d11037b180e7f8418a84014
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
-ms.translationtype: MT
+ms.openlocfilehash: 54d3f175e74b9f94c7845725e3d8f4531750df57
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947214"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877564"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contenitori di profili FSLogix e file di Azure
 
@@ -47,8 +47,8 @@ La tabella seguente illustra i vantaggi e le limitazioni delle tecnologie dei pr
 
 | Tecnologia | Impostazioni moderne | Impostazioni Win32 | Impostazioni del sistema operativo | Dati utente | Supportato nello SKU del server | Archiviazione back-end in Azure | Archiviazione back-end locale | Supporto della versione | Ora di accesso successiva |Note|
 | ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |-----|
-| **Dischi del profilo utente (UPD)** | Sì | Sì | Sì | Sì | Sì | No | Yes | Win 7 + | Sì | |
-| **Profilo utente mobile (RUP), modalità manutenzione** | No | Yes | Sì | Sì | Sì| No | Yes | Win 7 + | No | |
+| **Dischi del profilo utente (UPD)** | Sì | Sì | Sì | Sì | Sì | No | Sì | Win 7 + | Sì | |
+| **Profilo utente mobile (RUP), modalità manutenzione** | No | Yes | Sì | Sì | Sì| No | Sì | Win 7 + | No | |
 | **Enterprise State Roaming (ESR)** | Yes | No | Sì | No | Vedere le note | Yes | No | Windows 10 | No | Funzioni nello SKU del server ma nessuna interfaccia utente di supporto |
 | **Virtualizzazione dell'esperienza utente (UE-V)** | Yes | Sì | Sì | No | Sì | No | Sì | Win 7 + | No |  |
 | **File Cloud OneDrive** | No | No | No | Yes | Vedere le note | Vedere le note  | Vedere le note | Win 10 RS3 | No | Non testato nello SKU del server. L'archiviazione back-end in Azure dipende dal client di sincronizzazione. Per l'archiviazione back-end locale è necessario un client di sincronizzazione. |
@@ -86,7 +86,7 @@ Desktop virtuale di Windows offre il controllo completo sulle dimensioni, il tip
 Per assicurarsi che l'ambiente desktop virtuale di Windows segua le procedure consigliate:
 
 - File di Azure account di archiviazione deve trovarsi nella stessa area delle VM host sessione.
-- File di Azure le autorizzazioni devono corrispondere alle autorizzazioni descritte nei [contenitori dei profili dei requisiti](https://docs.fslogix.com/display/20170529/Requirements+-+Profile+Containers).
+- File di Azure le autorizzazioni devono corrispondere alle autorizzazioni descritte nei [contenitori dei profili dei requisiti](https://docs.microsoft.com/fslogix/overview#requirements).
 - Ogni pool di host deve essere compilato con la stessa macchina virtuale di tipo e dimensioni basata sulla stessa immagine master.
 - Ogni macchina virtuale del pool host deve trovarsi nello stesso gruppo di risorse per agevolare la gestione, la scalabilità e l'aggiornamento.
 - Per ottenere prestazioni ottimali, la soluzione di archiviazione e il contenitore del profilo FSLogix devono trovarsi nello stesso percorso data center.
@@ -99,6 +99,6 @@ Utilizzare le seguenti guide per configurare un ambiente desktop virtuale di Win
 - Per iniziare a creare la soluzione di virtualizzazione desktop, vedere [creare un tenant in un desktop virtuale di Windows](tenant-setup-azure-active-directory.md).
 - Per creare un pool di host nel tenant del desktop virtuale Windows, vedere [creare un pool di host con Azure Marketplace](create-host-pools-azure-marketplace.md).
 - Per configurare condivisioni file completamente gestite nel cloud, vedere [configurare file di Azure condivisione](/articles/storage/files/storage-files-active-directory-enable.md).
-- Per configurare i contenitori di profili FSLogix, vedere [configurare una condivisione del profilo utente per un pool host](create-host-pools-user-profile.md).
+- Per configurare i contenitori di profili FSLogix, vedere [creare un contenitore di profili per un pool host usando una condivisione file](create-host-pools-user-profile.md).
 - Per assegnare gli utenti a un pool di host, vedere [gestire i gruppi di app per desktop virtuale di Windows](manage-app-groups.md).
 - Per accedere alle risorse del desktop virtuale di Windows da un Web browser, vedere [connettersi al desktop virtuale di Windows](connect-web.md).

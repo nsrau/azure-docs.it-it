@@ -1,23 +1,23 @@
 ---
-title: Gateway VPN nella soluzione VMware di CloudSimple-Azure
+title: Soluzione VMware di Azure di CloudSimple-gateway VPN
 description: Informazioni sulla VPN da sito a sito di CloudSimple e i concetti relativi alla VPN da punto a sito
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/10/2019
+ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d922f87e9a915bd5af9d2b1257dee8044773797e
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 88c27b920817da5edc2cefe780903c2b94695807
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816144"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877648"
 ---
 # <a name="vpn-gateways-overview"></a>Panoramica di gateway VPN
 
-Un gateway VPN viene usato per inviare il traffico crittografato tra una rete di area CloudSimple in una posizione locale o un computer tramite la rete Internet pubblica.  Ogni area può avere un solo gateway VPN. ma è possibile creare più connessioni allo stesso gateway VPN. Quando si creano più connessioni allo stesso gateway VPN, tutti i tunnel VPN condividono la larghezza di banda disponibile per il gateway.
+Un gateway VPN viene usato per inviare il traffico crittografato tra una rete di area CloudSimple in una posizione locale o un computer tramite la rete Internet pubblica.  Ogni area può avere un solo gateway VPN, che può supportare più connessioni. Quando si creano più connessioni allo stesso gateway VPN, tutti i tunnel VPN condividono la larghezza di banda disponibile per il gateway.
 
 CloudSimple fornisce due tipi di gateway VPN:
 
@@ -26,11 +26,11 @@ CloudSimple fornisce due tipi di gateway VPN:
 
 ## <a name="site-to-site-vpn-gateway"></a>Gateway VPN da sito a sito
 
-Un gateway VPN da sito a sito viene usato per inviare il traffico crittografato tra una rete di area CloudSimple e un Data Center locale. Usare questa connessione per definire l'intervallo di subnet/CIDR per la comunicazione tra la rete locale e la rete dell'area CloudSimple.
+Un gateway VPN da sito a sito viene usato per inviare il traffico crittografato tra una rete di area CloudSimple e un Data Center locale. Usare questa connessione per definire l'intervallo di subnet/CIDR per il traffico di rete tra la rete locale e la rete dell'area CloudSimple.
 
-Il gateway VPN consente di utilizzare i servizi locali nel cloud privato e i servizi nel cloud privato, dalla rete locale.  CloudSimple fornisce un server VPN basato su criteri per stabilire una connessione dalla rete locale.
+Il gateway VPN consente di utilizzare i servizi locali nel cloud privato e i servizi nel cloud privato dalla rete locale.  CloudSimple fornisce un server VPN basato su criteri per stabilire la connessione dalla rete locale.
 
-I casi di utilizzo per la VPN da sito a sito includono:
+Casi d'uso per VPN da sito a sito:
 
 * Accessibilità del cloud privato vCenter da qualsiasi workstation nella rete locale.
 * Uso del Active Directory locale come origine di identità vCenter.
@@ -39,35 +39,30 @@ I casi di utilizzo per la VPN da sito a sito includono:
 
 ![Topologia di connessione VPN da sito a sito](media/cloudsimple-site-to-site-vpn-connection.png)
 
-> [!IMPORTANT]
-> È necessario bloccare la MSS TCP a 1078 byte o inferiore. In alternativa, se i dispositivi VPN non supportano il blocco MSS, è invece possibile impostare il MTU sull'interfaccia del tunnel su 1118 byte. 
-
 ### <a name="cryptographic-parameters"></a>Parametri crittografici
 
-Una connessione VPN da sito a sito usa i parametri crittografici predefiniti seguenti per stabilire una connessione protetta.  Quando si crea una connessione dal dispositivo VPN locale, usare uno dei parametri seguenti supportati dal gateway VPN locale.
+Una connessione VPN da sito a sito usa i parametri crittografici predefiniti seguenti per stabilire una connessione protetta.  Quando si crea una connessione dal dispositivo VPN locale, usare uno dei parametri seguenti che sono supportati dal gateway VPN locale.
 
 #### <a name="phase-1-proposals"></a>Proposte della fase 1
 
-| Parametro                       | Proposta 1     | Proposta 2     | Proposta 3     |
-|---------------------------------|----------------|----------------|----------------|
-| Versione IKE                     | IKEv1          | IKEv1          | IKEv1          |
-| Crittografia                      | AES 128        | AES 256        | AES 256        |
-| Algoritmo hash                  | SHA 256        | SHA 256        | SHA 1          |
-| Gruppo Diffie Hellman (gruppo DH) | 2              | 2              | 2              |
-| Durata                       | 28.800 secondi | 28.800 secondi | 28.800 secondi |
-| Dimensioni dei dati                       | 4 GB           | 4 GB           | 4 GB           |
-| Rilevamento peer inattivo       | Disabilitato/disattivato   | Disabilitato/disattivato   | Disabilitato/disattivato   |
+| Parametro | Proposta 1 | Proposta 2 | Proposta 3 |
+|-----------|------------|------------|------------|
+| Versione IKE | IKEv1 | IKEv1 | IKEv1 |
+| Crittografia | AES 128 | AES 256 | AES 256 |
+| Algoritmo hash| SHA 256 | SHA 256 | SHA 1 |
+| Gruppo Diffie Hellman (gruppo DH) | 2 | 2 | 2 |
+| Durata | 28.800 secondi | 28.800 secondi | 28.800 secondi |
+| Dimensioni dei dati | 4 GB | 4 GB | 4 GB |
 
+#### <a name="phase-2-proposals"></a>Proposte della fase 2
 
-#### <a name="phase-2-proposals"></a>Proposte della fase 2 
-
-| Parametro                                 | Proposta 1    | Proposta 2    | Proposta 3    |
-|-------------------------------------------|---------------|---------------|---------------|
-| Crittografia                                | AES 128       | AES 256       | AES 256       |
-| Algoritmo hash                            | SHA 256       | SHA 256       | SHA 1         |
-| Gruppo della segretezza diretta perfetto (gruppo PFS) | Nessuna          | Nessuna          | Nessuna          |
-| Durata                                 | 1\.800 secondi | 1\.800 secondi | 1\.800 secondi |
-| Dimensioni dei dati                                 | 4 GB          | 4 GB          | 4 GB          |
+| Parametro | Proposta 1 | Proposta 2 | Proposta 3 |
+|-----------|------------|------------|------------|
+| Crittografia | AES 128 | AES 256 | AES 256 |
+| Algoritmo hash| SHA 256 | SHA 256 | SHA 1 |
+| Gruppo della segretezza diretta perfetto (gruppo PFS) | Nessuna | Nessuna | Nessuna |
+| Durata | 1\.800 secondi | 1\.800 secondi | 1\.800 secondi |
+| Dimensioni dei dati | 4 GB | 4 GB | 4 GB |
 
 ## <a name="point-to-site-vpn-gateway"></a>Gateway VPN da punto a sito
 
@@ -75,4 +70,4 @@ Una VPN da punto a sito viene usata per inviare il traffico crittografato tra un
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Configurare il gateway VPN](https://docs.azure.cloudsimple.com/vpn-gateway/)
+* [Configurare il gateway VPN](vpn-gateway.md)

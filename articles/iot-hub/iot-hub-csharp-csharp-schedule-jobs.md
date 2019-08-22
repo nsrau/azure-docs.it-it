@@ -6,14 +6,14 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/06/2018
+ms.date: 08/16/2019
 ms.author: robinsh
-ms.openlocfilehash: c4f2994413fca07f4a168cf12ba7967b00b6b0e2
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 3594828ff3a79242e1cfd4663c415d8de502a329
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668098"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872760"
 ---
 # <a name="schedule-and-broadcast-jobs-net"></a>Pianificare e trasmettere processi (.NET)
 
@@ -47,9 +47,12 @@ Al termine di questa esercitazione si ottengono due app console .NET (C#):
 
 **ScheduleJob** che usa i processi per chiamare il metodo diretto **LockDoor** e aggiornare le proprietà di dispositivi gemelli desiderate su più dispositivi.
 
-Per completare l'esercitazione, sono necessari gli elementi seguenti:
+## <a name="prerequisites"></a>Prerequisiti
 
-* Visual Studio.
+Per completare questa esercitazione, sono necessari:
+
+* Visual Studio. Questa esercitazione usa Visual Studio 2017.
+
 * Un account Azure attivo. Se non si ha un account, è possibile creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
@@ -64,18 +67,18 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 In questa sezione viene creata un'app console .NET che risponde a un metodo diretto chiamato dal back-end della soluzione.
 
-1. In Visual Studio aggiungere un progetto desktop di Windows classico in Visual C# usando il modello di progetto **Applicazione console** . Assegnare al progetto il nome **SimulateDeviceMethods**.
-   
+1. In Visual Studio aggiungere un progetto desktop C# di Visual Windows classico a una soluzione nuova o esistente usando il modello di progetto **applicazione console** . Assegnare al progetto il nome **SimulateDeviceMethods**.
+
     ![Nuova app per il dispositivo di Windows classico in Visual C#](./media/iot-hub-csharp-csharp-schedule-jobs/create-device-app.png)
-    
-2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **SimulateDeviceMethods**, quindi scegliere **Gestisci pacchetti NuGet...** .
+
+2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **SimulateDeviceMethods** e quindi scegliere **Gestisci pacchetti NuGet...** .
 
 3. Nella finestra **Gestione pacchetti NuGet** selezionare **Sfoglia** e cercare **Microsoft.Azure.Devices.Client**. Selezionare **Installa** per installare il pacchetto **microsoft.azure.devices.client** e accettare le condizioni d'uso. Questa procedura scarica, installa e aggiunge un riferimento al pacchetto [NuGet Azure IoT SDK per dispositivi](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) e alle relative dipendenze.
-   
+
     ![App client della finestra Gestione pacchetti NuGet](./media/iot-hub-csharp-csharp-schedule-jobs/device-app-nuget.png)
 
 4. Aggiungere le istruzione `using` seguenti all'inizio del file **Program.cs** :
-   
+
     ```csharp
     using Microsoft.Azure.Devices.Client;
     using Microsoft.Azure.Devices.Shared;
@@ -97,7 +100,7 @@ In questa sezione viene creata un'app console .NET che risponde a un metodo dire
         Console.WriteLine();
         Console.WriteLine("Locking Door!");
         Console.WriteLine("\nReturning response for method {0}", methodRequest.Name);
-            
+
         string result = "'Door was locked.'";
         return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(result), 200));
     }
@@ -115,7 +118,7 @@ In questa sezione viene creata un'app console .NET che risponde a un metodo dire
     ```
 
 8. Infine aggiungere il codice seguente al metodo **Main** per aprire la connessione all'hub IoT e inizializzare il listener del metodo:
-   
+
     ```csharp
     try
     {
@@ -140,12 +143,12 @@ In questa sezione viene creata un'app console .NET che risponde a un metodo dire
         Console.WriteLine("Error in sample: {0}", ex.Message);
     }
     ```
-        
-9. Salvare il lavoro e compilare la soluzione.         
+
+9. Salvare il lavoro e compilare la soluzione.
 
 > [!NOTE]
 > Per semplicità, in questa esercitazione non si implementa alcun criterio di ripetizione dei tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio dei tentativi di connessione, come suggerito nell'articolo [Gestione degli errori temporanei](/azure/architecture/best-practices/transient-faults).
-> 
+>
 
 ## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub Internet
 
@@ -161,14 +164,14 @@ In questa sezione si crea un'app console .NET (usando C#) che usa i processi per
 
     ![Nuovo progetto desktop di Windows classico in Visual C#](./media/iot-hub-csharp-csharp-schedule-jobs/createnetapp.png)
 
-2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **ScheduleJob** e quindi scegliere **Gestisci pacchetti NuGet**.
+2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **ScheduleJob** e quindi scegliere **Gestisci pacchetti NuGet...** .
 
 3. Nella finestra **Gestione pacchetti NuGet** selezionare **Esplora**, cercare **Microsoft.Azure.Devices**, selezionare **Installa** per installare il pacchetto **Microsoft.Azure.Devices** e accettare le condizioni per l'uso. Questa procedura scarica, installa e aggiunge un riferimento al pacchetto NuGet [Azure IoT SDK per servizi](https://www.nuget.org/packages/Microsoft.Azure.Devices/) e alle relative dipendenze.
 
     ![Finestra Gestione pacchetti NuGet](./media/iot-hub-csharp-csharp-schedule-jobs/servicesdknuget.png)
 
 4. Aggiungere le istruzione `using` seguenti all'inizio del file **Program.cs** :
-    
+
     ```csharp
     using Microsoft.Azure.Devices;
     using Microsoft.Azure.Devices.Shared;
@@ -213,7 +216,7 @@ In questa sezione si crea un'app console .NET (usando C#) che usa i processi per
         CloudToDeviceMethod directMethod = 
           new CloudToDeviceMethod("LockDoor", TimeSpan.FromSeconds(5), 
           TimeSpan.FromSeconds(5));
-       
+
         JobResponse result = await jobClient.ScheduleDeviceMethodAsync(jobId,
             $"DeviceId IN ['{deviceId}']",
             directMethod,
@@ -250,7 +253,7 @@ In questa sezione si crea un'app console .NET (usando C#) che usa i processi per
 
     > [!NOTE]
     > Per altre informazioni sulla sintassi della query, vedere [Linguaggio di query di hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language).
-    > 
+    >
 
 10. Aggiungere infine le righe seguenti al metodo **Main** :
 
@@ -275,17 +278,17 @@ In questa sezione si crea un'app console .NET (usando C#) che usa i processi per
     Console.ReadLine();
     ```
 
-11. Salvare il lavoro e compilare la soluzione. 
+11. Salvare il lavoro e compilare la soluzione.
 
 ## <a name="run-the-apps"></a>Eseguire le app
 
 A questo punto è possibile eseguire le app.
 
-1. In Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse sulla soluzione e quindi scegliere **Compila**. **Progetti di avvio multipli**. Assicurarsi che `SimulateDeviceMethods` si trovi all'inizio dell'elenco, seguito da `ScheduleJob`. Impostare le azioni di entrambi su **Avvia** e fare clic su **OK**.
+1. In Visual Studio Esplora soluzioni, fare clic con il pulsante destro del mouse sulla soluzione e selezionare **Imposta progetti di avvio**. Quindi selezionare **progetti di avvio multipli**. Verificare che **SimulateDeviceMethods** sia nella parte superiore dell'elenco seguito da **ScheduleJob**. Impostare entrambe le azioni su **Avvia** e selezionare **OK**.
 
-2. Eseguire i progetti facendo clic su **Avvia** o passare al menu **Debug** e scegliere **Avvia debug**.
+2. Eseguire i progetti selezionando **Start** oppure scegliendo **Avvia debug**dal menu **debug** .
 
-3. L'output viene visualizzato sia dal dispositivo che dalle app back-end.
+3. Viene visualizzato l'output del dispositivo e delle app back-end.
 
     ![Eseguire le app per pianificare i processi](./media/iot-hub-csharp-csharp-schedule-jobs/schedulejobs.png)
 

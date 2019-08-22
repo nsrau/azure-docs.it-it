@@ -2,18 +2,18 @@
 title: 'Esempio: Facet multilivello - Ricerca di Azure'
 description: Informazioni su come creare strutture di facet per tassonomie multilivello, realizzando così una struttura di esplorazione nidificata che è possibile includere nelle pagine delle applicazioni.
 author: cstone
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: chstone
-ms.openlocfilehash: e17a91a35b69102e4e0ac6025559bbc32e71d8fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a6fda0157f0f3a4ca5861acd4bcbead7839e451
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024134"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69649925"
 ---
 # <a name="example-multi-level-facets-in-azure-search"></a>Esempio: Facet multilivello in Ricerca di Azure
 
@@ -87,7 +87,7 @@ categories.count = sum;
   ![filtro in base a facet multilivello](./media/search-example-adventureworks/multi-level-facet.png "filtro in base a facet multilivello")
 
  
-Ogni collegamento nell'albero deve applicare il filtro correlato. Ad esempio:
+Ogni collegamento nell'albero deve applicare il filtro correlato. Esempio:
 
 + **taxonomy/any**`(x:x eq 'Accessories')` restituisce tutti i documenti nel ramo Accessories
 + **taxonomy/any**`(x:x eq 'Accessories|Bike Racks')` restituisce solo i documenti con sottocategoria Bike Racks nel ramo Accessories.

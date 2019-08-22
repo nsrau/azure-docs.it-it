@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 5ef1749217dd8980892d7bf933cbe1412929fbbd
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 9e3df59af33d6e5fdd1024d42c34dc2b4ed3184e
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976990"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873189"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Arricchimento dei messaggi per i messaggi dell'hub da dispositivo a cloud (anteprima)
 
@@ -76,6 +76,8 @@ Per informazioni su come provare gli arricchimenti dei messaggi, vedere l' [eser
 
 * Le dimensioni totali dei messaggi, incluse le arricchimenti, non possono superare 256 KB. Se le dimensioni di un messaggio superano 256 KB, l'hub delle cose eliminerà il messaggio. È possibile usare le [metriche dell'hub](iot-hub-metrics.md) Internet per identificare ed eseguire il debug degli errori quando i messaggi vengono eliminati. Ad esempio, è possibile monitorare D2C. telemetria. uscita. non è valido.
 
+* I miglioramenti apportati ai messaggi non si applicano agli eventi di modifica di dispositivi gemelli digitali (parte del [plug and Play di anteprima pubblica](../iot-pnp/overview-iot-plug-and-play.md)).
+
 ## <a name="pricing"></a>Prezzi
 
 Gli arricchimenti dei messaggi sono disponibili senza costi aggiuntivi. Attualmente viene addebitato un addebito quando si invia un messaggio a un hub Internet. Viene addebitata una sola volta per il messaggio, anche se il messaggio viene indirizzato a più endpoint.
@@ -87,6 +89,8 @@ Questa funzionalità è disponibile in anteprima ed è disponibile in tutte le a
 ## <a name="next-steps"></a>Passaggi successivi
 
 Vedere questi articoli per altre informazioni sul routing dei messaggi a un hub Internet:
+
+* [Esercitazione sui miglioramenti ai messaggi](tutorial-message-enrichments.md)
 
 * [Usare il routing dei messaggi dell'hub Internet per inviare messaggi da dispositivo a cloud a endpoint diversi](iot-hub-devguide-messages-d2c.md)
 

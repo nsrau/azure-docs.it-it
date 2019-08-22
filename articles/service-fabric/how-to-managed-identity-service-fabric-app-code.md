@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 7/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: f0944e9fddc0afb28f758ba7b16232330d3bc34d
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 5095e680eb7fd33d28acb2d187f83d86db1b46bf
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/20/2019
-ms.locfileid: "69635533"
+ms.locfileid: "69656616"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services-preview"></a>Come sfruttare un'identità gestita dell'applicazione Service Fabric per accedere ai servizi di Azure (anteprima)
 
@@ -60,7 +60,7 @@ dove:
 | `GET` | Verbo HTTP, che indica che si vuole recuperare i dati dall'endpoint. In questo caso, un token di accesso OAuth. | 
 | `http://localhost:2377/metadata/identity/oauth2/token` | Endpoint di identità gestita per Service Fabric applicazioni, fornito tramite la variabile di ambiente MSI_ENDPOINT. |
 | `api-version` | Parametro della stringa di query che specifica la versione dell'API del servizio token di identità gestito. Attualmente l'unico valore accettato è `2019-07-01-preview`ed è soggetto a modifiche. |
-| `resource` | Parametro della stringa di query, che indica l'URI ID app della risorsa di destinazione. Questo verrà riflesso come `aud` attestazione (audience) del token emesso. Questo esempio richiede un token per accedere a Azure Key Vault, il cui URI ID app https://keyvault.azure.com/ è. |
+| `resource` | Parametro della stringa di query, che indica l'URI ID app della risorsa di destinazione. Questo verrà riflesso come `aud` attestazione (audience) del token emesso. Questo esempio richiede un token per accedere a Azure Key Vault, il cui URI ID app è https\/:/keyvault.Azure.com/. |
 | `Secret` | Campo di intestazione della richiesta HTTP, richiesto dal servizio token di identità gestito Service Fabric per Service Fabric Services per l'autenticazione del chiamante. Questo valore viene fornito dal runtime SF tramite la variabile di ambiente MSI_SECRET. |
 
 
@@ -77,7 +77,7 @@ Content-Type: application/json
 ```
 dove:
 
-| Elemento | DESCRIZIONE |
+| Elemento | Descrizione |
 | ------- | ----------- |
 | `token_type` | Tipo di token. in questo caso, un token di accesso "Bearer", che significa che il presentatore (' Bearer ') di questo token è l'oggetto previsto del token. |
 | `access_token` | Token di accesso richiesto. Quando si chiama un'API REST protetta, il token è incorporato nel campo di intestazione della richiesta `Authorization` come token di connessione, in modo da consentire all'API di autenticare il chiamante. | 
@@ -267,7 +267,7 @@ Il campo ' status code ' dell'intestazione della risposta HTTP indica lo stato d
 
 Se si verifica un errore, il corpo della risposta HTTP corrispondente contiene un oggetto JSON con i dettagli dell'errore:
 
-| Elemento | Descrizione |
+| Elemento | DESCRIZIONE |
 | ------- | ----------- |
 | code | Codice di errore. |
 | correlationId | ID di correlazione utilizzabile per il debug. |
@@ -280,7 +280,7 @@ Errore di esempio:
 
 Di seguito è riportato un elenco di errori di Service Fabric tipici specifici per le identità gestite:
 
-| Codice | Messaggio | Descrizione | 
+| Codice | Messaggio | DESCRIZIONE | 
 | ----------- | ----- | ----------------- |
 | SecretHeaderNotFound | Il segreto non è stato trovato nelle intestazioni della richiesta. | Il codice di autenticazione non è stato fornito con la richiesta. | 
 | ManagedIdentityNotFound | Identità gestita non trovata per l'host applicazioni specificato. | L'applicazione non ha identità oppure il codice di autenticazione è sconosciuto. |

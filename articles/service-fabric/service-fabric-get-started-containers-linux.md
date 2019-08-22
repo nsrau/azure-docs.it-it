@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
 ms.author: atsenthi
-ms.openlocfilehash: dde124a568581c53a4168b1c84e5df8a9d55155f
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 2bb9a5e8e42901f22d9f68d691684614c7161620
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599558"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650661"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Creare la prima applicazione contenitore di Service Fabric in Linux
 > [!div class="op_single_selector"]
@@ -181,28 +181,11 @@ Specificare il mapping della porta nel formato appropriato. Per questo articolo,
 ![Generatore Yeoman di Service Fabric per i contenitori][sf-yeoman]
 
 ## <a name="configure-container-repository-authentication"></a>Configurare l'autenticazione del repository di contenitori
- Se il contenitore deve eseguire l'autenticazione con un repository privato, aggiungere `RepositoryCredentials`. Per questo articolo, aggiungere il nome e la password dell'account per il registro contenitori myregistry.azurecr.io. Verificare che il criterio venga aggiunto sotto il tag 'ServiceManifestImport' corrispondente al pacchetto del servizio corretto.
 
-```xml
-   <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="MyServicePkg" ServiceManifestVersion="1.0.0" />
-    <Policies>
-        <ContainerHostPolicies CodePackageRef="Code">
-        <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
-        </ContainerHostPolicies>
-    </Policies>
-   </ServiceManifestImport>
-``` 
-
-È consigliabile crittografare la password del repository. Per istruzioni, vedere [Gestire i segreti crittografati nelle applicazioni di Service Fabric](service-fabric-application-secret-management.md).
-
-### <a name="configure-cluster-wide-credentials"></a>Configurare credenziali a livello di cluster
-Fare riferimento alla documentazione disponibile [qui](
-service-fabric-get-started-containers.md#configure-cluster-wide-credentials)
+Vedere [autenticazione del repository di contenitori](configure-container-repository-credentials.md)per informazioni su come configurare diversi tipi di autenticazione per il download di immagini del contenitore.
 
 ## <a name="configure-isolation-mode"></a>Configurare la modalità di isolamento
-Con la versione del runtime 6.3, l'isolamento delle macchine virtuali è supportato per i contenitori Linux, consentendo in tal modo il supporto di due modalità di isolamento per i contenitori, ovvero process e hyperv. Nella modalità di isolamento hyperv i kernel sono isolati tra ogni contenitore e l'host dei contenitori. L'isolamento hyperv viene implementato tramite [Clear Containers](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). La modalità di isolamento viene specificata per i cluster Linux nell'elemento `ServicePackageContainerPolicy` nel file manifesto dell'applicazione. Le modalità di isolamento specificabili sono `process`, `hyperv` e `default`. Il valore predefinito è la modalità di isolamento processo. Il frammento seguente indica come è specificata la modalità di isolamento nel file manifesto dell'applicazione.
+Con la versione di runtime 6,3, l'isolamento delle macchine virtuali è supportato per i contenitori Linux, supportando quindi due modalità di isolamento per i contenitori: processo e Hyper-V. Con la modalità di isolamento Hyper-V, i kernel sono isolati tra ogni contenitore e l'host contenitore. L'isolamento di Hyper-V viene implementato usando [Clear Containers](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). La modalità di isolamento viene specificata per i cluster Linux nell'elemento `ServicePackageContainerPolicy` nel file manifesto dell'applicazione. Le modalità di isolamento specificabili sono `process`, `hyperv` e `default`. Il valore predefinito è la modalità di isolamento processo. Il frammento seguente indica come è specificata la modalità di isolamento nel file manifesto dell'applicazione.
 
 ```xml
 <ServiceManifestImport>

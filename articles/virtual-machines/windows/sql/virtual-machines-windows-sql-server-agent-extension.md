@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d95760745dc3554bc63271cedc63dcf3bf017c5c
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 59b5138950e0fb94ea0051fa9cfe9aa75cd7d770
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855227"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877798"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>Automatizzare le attività di gestione in macchine virtuali di Azure usando l'estensione SQL Server IaaS Agent
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ Sono disponibili tre modalità di gestibilità per il SQL Server estensione IaaS
 ## <a name="supported-services"></a>Servizi supportati
 L'Estensione Agente IaaS di SQL Server supporta le attività di amministrazione seguenti:
 
-| Funzionalità di amministrazione | DESCRIZIONE |
+| Funzionalità di amministrazione | Descrizione |
 | --- | --- |
 | **SQL Server backup automatico** |Automatizza la pianificazione dei backup per tutti i database per l'istanza predefinita o un'istanza denominata [corretta installata](virtual-machines-windows-sql-server-iaas-faq.md#administration) di SQL Server nella macchina virtuale. Per ulteriori informazioni, vedere [backup automatico per SQL Server in macchine virtuali di Azure (Gestione risorse)](virtual-machines-windows-sql-automated-backup.md). |
 | **SQL Server applicazione automatica di patch** |Consente di configurare una finestra di manutenzione durante la quale è possibile eseguire aggiornamenti importanti di Windows nella macchina virtuale, evitandone l'esecuzione nei periodi di picco del carico di lavoro. Per ulteriori informazioni, vedere applicazione [automatica di patch per SQL Server in macchine virtuali di Azure (Gestione risorse)](virtual-machines-windows-sql-automated-patching.md). |
@@ -88,14 +88,17 @@ Di seguito sono riportati i requisiti per l'uso dell'estensione SQL Server IaaS 
 È possibile visualizzare la modalità corrente dell'agente di SQL Server IaaS usando PowerShell: 
 
   ```powershell-interactive
-     //Get the SqlVirtualMachine
+     #Get the SqlVirtualMachine
      $sqlvm = Get-AzResource -Name $vm.Name  -ResourceGroupName $vm.ResourceGroupName  -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines
      $sqlvm.Properties.sqlManagement
   ```
 
-Per SQL Server macchine virtuali in cui è installata l'estensione noagent o Lightweight IaaS, è possibile aggiornare la modalità a full usando il portale di Azure. Non è possibile effettuare il downgrade. A tale scopo, è necessario disinstallare completamente il SQL Server estensione IaaS e installarlo di nuovo. 
+SQL Server le macchine virtuali con l'estensione IaaS *Lightweight* installata possono aggiornare la modalità a _full_ usando il portale di Azure. SQL Server le macchine virtuali in modalità _senza agente_ possono eseguire l'aggiornamento alla _versione completa_ dopo l'aggiornamento del sistema operativo a Windows 2008 R2 e versioni successive. Non è possibile effettuare il downgrade. a tale scopo, sarà necessario disinstallare completamente l'estensione IaaS di SQL e installarla nuovamente. 
 
 Per aggiornare la modalità agente a Full: 
+
+
+# <a name="azure-portaltabazure-portal"></a>[Portale di Azure](#tab/azure-portal)
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Passare alla risorsa [macchine virtuali SQL](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) . 
@@ -108,8 +111,33 @@ Per aggiornare la modalità agente a Full:
 
     ![Casella di controllo per accettare il riavvio del servizio SQL Server nella macchina virtuale](media/virtual-machines-windows-sql-server-agent-extension/enable-full-mode-iaas.png)
 
+# <a name="az-clitabbash"></a>[Interfaccia della riga di comando AZ](#tab/bash)
+
+Eseguire il frammento di codice AZ CLI seguente:
+
+  ```azurecli-interactive
+  # Update to full mode
+
+  az sql vm update --name <vm_name> --resource-group <resource_group_name> --sql-mgmt-type full  
+  ```
+
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+
+Eseguire il frammento di codice PowerShell seguente:
+
+  ```powershell-interactive
+  # Update to full mode
+
+  $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
+  $SqlVm.Properties.sqlManagement="Full"
+  $SqlVm | Set-AzResource -Force
+  ```
+
+---
+
+
 ##  <a name="installation"></a>Installazione
-L'estensione IaaS SQL Server viene installata quando si registra la VM SQL Server con il [provider di risorse della macchina virtuale SQL](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-the-sql-vm-resource-provider). Se necessario, è possibile installare manualmente l'agente di SQL Server IaaS usando la modalità Full o Lightweight. 
+L'estensione IaaS SQL Server viene installata quando si registra la VM SQL Server con il [provider di risorse della macchina virtuale SQL](virtual-machines-windows-sql-register-with-resource-provider.md). Se necessario, è possibile installare manualmente l'agente di SQL Server IaaS usando la modalità Full o Lightweight. 
 
 L'estensione SQL Server agente IaaS in modalità completa viene installata automaticamente quando si esegue il provisioning di una delle immagini SQL Server macchine virtuali di Azure Marketplace usando il portale di Azure. 
 
@@ -119,10 +147,10 @@ La modalità completa per l'estensione IaaS SQL Server offre la gestibilità com
 Installare il SQL Server agente IaaS con la modalità completa usando PowerShell:
 
   ```powershell-interactive
-     // Get the existing compute VM
+     #Get the existing compute VM
      $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
           
-     // Register the SQL Server VM with 'Full' SQL Server IaaS agent
+     #Register the SQL Server VM with 'Full' SQL Server IaaS agent
      New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
         -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
         -Properties @{virtualMachineResourceId=$vm.Id;sqlServerLicenseType='AHUB';sqlManagement='Full'}  
@@ -158,10 +186,10 @@ Installare il SQL Server agente IaaS con la modalità Lightweight usando PowerSh
 
 
   ```powershell-interactive
-     // Get the existing  Compute VM
+     /#Get the existing  Compute VM
      $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
           
-     // Register the SQL Server VM with the 'Lightweight' SQL IaaS agent
+     #Register the SQL Server VM with the 'Lightweight' SQL IaaS agent
      New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
         -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
         -Properties @{virtualMachineResourceId=$vm.Id;sqlServerLicenseType='AHUB';sqlManagement='LightWeight'}  

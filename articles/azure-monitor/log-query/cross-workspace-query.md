@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 597944d03e685a9a2933a04847f78c9d54f3ea36
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: a1ea4012b7cda5b5deab82027e5547a9c9ef786f
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722693"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650145"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Eseguire query di log su più risorse in Monitoraggio di Azure  
 
@@ -90,7 +90,7 @@ L'identificazione di un'applicazione in Application Insights può essere eseguit
 
 * ID risorsa Azure - Identità univoca dell'app definita da Azure. Si usa quando il nome della risorsa è ambiguo. Il formato è: */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/components/componentName*.  
 
-    Ad esempio:
+    Esempio:
     ```
     app("/subscriptions/b459b4f6-912x-46d5-9cb1-b43069212ab4/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
     ```
@@ -134,6 +134,11 @@ applicationsScoping
 | summarize count() by applicationName, bin(timestamp, 1h) 
 | render timechart
 ```
+
+>[!NOTE]
+>Questo metodo non può essere usato con gli avvisi del log perché la convalida dell'accesso delle risorse della regola di avviso, incluse le aree di lavoro e le applicazioni, viene eseguita al momento della creazione dell'avviso. L'aggiunta di nuove risorse alla funzione dopo la creazione dell'avviso non è supportata. Se si preferisce usare la funzione per l'ambito delle risorse negli avvisi del log, è necessario modificare la regola di avviso nel portale o con un modello di Gestione risorse per aggiornare le risorse con ambito. In alternativa, è possibile includere l'elenco delle risorse nella query di avviso del log.
+
+
 ![Diagramma temporale](media/cross-workspace-query/chart.png)
 
 ## <a name="next-steps"></a>Passaggi successivi

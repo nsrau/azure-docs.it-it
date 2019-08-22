@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: a5ced51eabe708dc7883fc91e5b6fa67f9211381
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f2b95affd08c989a9d1cdee53c0a4e6df16af106
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559638"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69892045"
 ---
 # <a name="what-is-custom-speech"></a>Che cos'è Riconoscimento vocale personalizzato?
 
-[Riconoscimento vocale personalizzato](https://aka.ms/custom-speech) è un set di strumenti online che consentono di valutare e migliorare l'accuratezza del riconoscimento vocale di Microsoft per le applicazioni, gli strumenti e i prodotti. Per iniziare sono disponibili solo alcuni file audio di test. Per iniziare a creare un'esperienza di riconoscimento vocale personalizzata, seguire i collegamenti seguenti.
+[Riconoscimento vocale personalizzato](https://aka.ms/customspeech) è un set di strumenti online che consentono di valutare e migliorare l'accuratezza del riconoscimento vocale di Microsoft per le applicazioni, gli strumenti e i prodotti. Per iniziare sono disponibili solo alcuni file audio di test. Per iniziare a creare un'esperienza di riconoscimento vocale personalizzata, seguire i collegamenti seguenti.
 
 ## <a name="whats-in-custom-speech"></a>Quali sono i Riconoscimento vocale personalizzato?
 

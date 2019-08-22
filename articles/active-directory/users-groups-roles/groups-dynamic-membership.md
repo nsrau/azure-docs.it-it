@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 08/12/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a0e0508babdd9ae703e38d58b079ab5fa16f68c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f529723abd449891dba845253502b78e8666199f
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66397871"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650235"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regole di appartenenza dinamica per i gruppi in Azure Active Directory
 
@@ -43,6 +43,12 @@ Una regola di appartenenza che popola automaticamente un gruppo con utenti o dis
 * Value
 
 L'ordine delle parti in un'espressione è importante per evitare gli errori di sintassi.
+
+### <a name="rule-builder-in-the-azure-portal"></a>Generatore regole nella portale di Azure
+
+Azure AD fornisce un generatore di regole per creare e aggiornare le regole importanti più rapidamente. Il generatore regole supporta fino a cinque regole. Per aggiungere un sesto e gli eventuali termini della regola successiva, è necessario utilizzare la casella di testo. Per altre istruzioni dettagliate, vedere [aggiornare un gruppo dinamico](groups-update-rule.md).
+
+   ![Aggiungi regola di appartenenza per un gruppo dinamico](./media/groups-update-rule/update-dynamic-group-rule.png)
 
 ### <a name="rules-with-a-single-expression"></a>Regole con una singola espressione
 
@@ -68,14 +74,14 @@ Di seguito sono elencate le proprietà utente che è possibile usare per creare 
 
 ### <a name="properties-of-type-boolean"></a>Proprietà di tipo boolean
 
-| Properties | Valori consentiti | Uso |
+| Properties | Valori consentiti | Utilizzo |
 | --- | --- | --- |
 | accountEnabled |true false |user.accountEnabled -eq true |
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>Proprietà di tipo stringa
 
-| Properties | Valori consentiti | Uso |
+| Properties | Valori consentiti | Utilizzo |
 | --- | --- | --- |
 | city |Qualsiasi valore di stringa o *null* |(user.city -eq "valore") |
 | country |Qualsiasi valore di stringa o *null* |(user.country -eq "valore") |
@@ -106,7 +112,7 @@ Di seguito sono elencate le proprietà utente che è possibile usare per creare 
 
 ### <a name="properties-of-type-string-collection"></a>Proprietà di tipo insieme String
 
-| Properties | Valori consentiti | Uso |
+| Properties | Valori consentiti | Utilizzo |
 | --- | --- | --- |
 | otherMails |Qualsiasi valore stringa. |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
@@ -120,14 +126,14 @@ Nella tabella seguente sono elencati tutti gli operatori supportati e la relativ
 | Operator | Sintassi |
 | --- | --- |
 | Non uguale a |-ne |
-| Uguale a |-eq |
+| Equals |-eq |
 | Non inizia con |-notStartsWith |
 | Inizia con |-startsWith |
 | Non contiene |-notContains |
 | Contiene |-contains |
 | Non corrispondente |-notMatch |
 | Corrispondente |-match |
-| In ingresso | -in |
+| In | -in |
 | Non incluso | -notIn |
 
 ### <a name="using-the--in-and--notin-operators"></a>Uso degli operatori -in e -notIn
@@ -231,7 +237,7 @@ Una regola di appartenenza può essere costituita da espressioni complesse in cu
 
 Le proprietà multivalore sono raccolte di oggetti dello stesso tipo. Possono essere usate per creare regole di appartenenza tramite gli operatori logici -any e -all.
 
-| Properties | Valori | Uso |
+| Properties | Valori | Utilizzo |
 | --- | --- | --- |
 | assignedPlans | Ogni oggetto della raccolta espone le proprietà di stringa seguenti: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 | proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
@@ -261,7 +267,7 @@ L'espressione seguente seleziona tutti gli utenti che hanno un piano di servizio
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-### <a name="using-the-underscore--syntax"></a>Usando la sintassi del carattere di sottolineatura (\_)
+### <a name="using-the-underscore-_-syntax"></a>Usando la sintassi del carattere di sottolineatura (\_)
 
 La sintassi del carattere di sottolineatura (\_) combina le occorrenze di un valore specifico in una delle proprietà di raccolta stringa multivalore per aggiungere utenti o dispositivi a un gruppo dinamico. Viene usata con-qualsiasi - o tutti - gli operatori.
 
@@ -283,7 +289,7 @@ La regola per i dipendenti diretti viene costruita usando la sintassi seguente:
 Direct Reports for "{objectID_of_manager}"
 ```
 
-Di seguito è riportato un esempio di una regola valida in cui "62e19b97-8b3d-4d4a-a106-4ce66896a863" è il valore objectID del manager:
+Di seguito è riportato un esempio di una regola valida in cui "62e19b97-8b3d-4d4a-A106-4ce66896a863" è il valore objectID del gestore:
 
 ```
 Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
@@ -300,17 +306,17 @@ I suggerimenti seguenti sono utili per usare la regola in modo appropriato.
 
 È possibile creare un gruppo contenente tutti gli utenti di un tenant usando una regola di appartenenza. Quando in futuro gli utenti vengono aggiunti o rimossi dal tenant, l'appartenenza al gruppo viene modificata automaticamente.
 
-La regola "All users" viene costruita usando una singola espressione utilizzando l'operatore - ne e il valore null. Questa regola consente di aggiungere al gruppo sia gli utenti guest B2B che gli utenti membri.
+La regola "tutti gli utenti" viene costruita usando un'espressione singola usando l'operatore-ne e il valore null. Questa regola consente di aggiungere al gruppo sia gli utenti guest B2B che gli utenti membri.
 
 ```
 user.objectid -ne null
 ```
 
-### <a name="create-an-all-devices-rule"></a>Creare una regola di "Tutti i dispositivi"
+### <a name="create-an-all-devices-rule"></a>Creare una regola "tutti i dispositivi"
 
 È possibile creare un gruppo contenente tutti i dispositivi di un tenant usando una regola di appartenenza. Quando in futuro i dispositivi vengono aggiunti o rimossi dal tenant, l'appartenenza al gruppo viene modificata automaticamente.
 
-La regola di "Tutti i dispositivi" viene costruita usando una singola espressione utilizzando l'operatore - ne e il valore null:
+La regola "tutti i dispositivi" viene costruita usando un'espressione singola usando l'operatore-ne e il valore null:
 
 ```
 device.objectid -ne null
@@ -318,7 +324,7 @@ device.objectid -ne null
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>Proprietà di estensione e proprietà di estensione personalizzate
 
-Gli attributi di estensione e le proprietà di estensione personalizzati sono supportate come le proprietà della stringa nelle regole di appartenenza dinamica. Gli attributi di estensione vengono sincronizzati dall'istanza locale di Window Server AD e hanno il formato "ExtensionAttributeX", dove X equivale a 1 - 15. Ecco un esempio di regola che usa un attributo di estensione come proprietà:
+Gli attributi di estensione e le proprietà dell'estensione personalizzata sono supportati come proprietà di stringa nelle regole di appartenenza dinamiche. Gli attributi di estensione vengono sincronizzati dall'istanza locale di Window Server AD e hanno il formato "ExtensionAttributeX", dove X equivale a 1 - 15. Ecco un esempio di regola che usa un attributo di estensione come proprietà:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
@@ -346,8 +352,8 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
  Attributo del dispositivo  | Valori | Esempio
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
- displayName | Qualsiasi valore stringa. |(Device. DisplayName - eq "IPhone di Rob")
- deviceOSType | Qualsiasi valore stringa. | (device.deviceOSType -eq "iPad") o (device.deviceOSType -eq "iPhone")<br>(device.deviceOSType -contains "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
+ displayName | Qualsiasi valore stringa. |(Device. displayName-EQ "Rob iPhone")
+ deviceOSType | Qualsiasi valore stringa. | (device.deviceOSType -eq "iPad") o (device.deviceOSType -eq "iPhone")<br>(Device. deviceOSType-contiene "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
  deviceOSVersion | Qualsiasi valore stringa. | (device.deviceOSVersion -eq "9.1")
  deviceCategory | nome di una categoria di dispositivo valido | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | Qualsiasi valore stringa. | (device.deviceManufacturer -eq "Samsung")
@@ -358,7 +364,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
  managementType | MDM (per i dispositivi mobili)<br>PC (per i computer gestiti dall'agente di PC Intune) | (device.managementType -eq "MDM")
  deviceId | ID dispositivo di Azure AD valido | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | ID oggetto di Azure AD valido |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
- systemLabels | qualsiasi stringa corrispondente alla proprietà del dispositivo Intune per contrassegnare i dispositivi dell'area di lavoro moderna | (device.systemLabels-contiene "M365Managed")
+ systemLabels | qualsiasi stringa corrispondente alla proprietà del dispositivo Intune per contrassegnare i dispositivi dell'area di lavoro moderna | (Device. systemLabels-contiene "M365Managed")
 
 > [!Note]  
 > Per deviceOwnership durante la creazione di gruppi dinamici per i dispositivi, è necessario impostare il valore uguale a "Company". In Intune la proprietà del dispositivo viene invece rappresentata come aziendale. Fare riferimento a [OwnerTypes](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes) per altri dettagli. 

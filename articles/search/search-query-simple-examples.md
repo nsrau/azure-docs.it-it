@@ -1,8 +1,8 @@
 ---
-title: Esempi di query usando la sintassi di ricerca "semplice" - ricerca di Azure
+title: Esempi di query che usano la sintassi di ricerca "Simple"-ricerca di Azure
 description: Esempi di query semplici per la ricerca full-text, la ricerca con filtro, la ricerca con geolocalizzazione, la ricerca basata su facet e altre stringhe di query usate per eseguire query in un indice di Ricerca di Azure.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: Simple query analyzer syntax
 services: search
 ms.service: search
@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 6b7451371fe1562a6763643cd90e5646bd255018
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: df84686e512db90351d5a9815706890bce49848b
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653517"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647625"
 ---
-# <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Esempi di query usando la sintassi di ricerca "semplice" ricerca di Azure
+# <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Esempi di query che usano la sintassi di ricerca semplice in ricerca di Azure
 
 La [sintassi di query semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) richiama il parser di query predefinito per eseguire query di ricerca full-text in un indice di Ricerca di Azure. L'analizzatore di query semplice è rapido e gestisce scenari comuni in Ricerca di Azure, incluse la ricerca full-text, la ricerca con filtro e facet e la ricerca con geolocalizzazione. In questo articolo vedere gli esempi che dimostrano le operazioni di query disponibili con la sintassi semplice.
 
@@ -55,9 +55,9 @@ La composizione dell'URL presenta i seguenti elementi:
 
 ## <a name="send-your-first-query"></a>Inviare la prima query
 
-Come fase di verifica, incollare la seguente richiesta in GET e fare clic su **Invia**. I risultati vengono restituiti come documenti JSON dettagliati. Vengono restituiti interi documenti, che consente di visualizzare tutti i campi e tutti i valori.
+Come fase di verifica, incollare la seguente richiesta in GET e fare clic su **Invia**. I risultati vengono restituiti come documenti JSON dettagliati. Vengono restituiti interi documenti, che consentono di visualizzare tutti i campi e tutti i valori.
 
-Incollare questo URL in un client REST come passaggio di convalida e per visualizzare la struttura documento.
+Incollare l'URL in un client REST come passaggio di convalida e visualizzare la struttura del documento.
 
   ```http
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=*
@@ -77,13 +77,13 @@ Questo primo esempio non è specifico del parser, ma viene presentato per primo 
 
 In breve, la query punta solo al campo *business_title* e specifica che vengano restituite solo le qualifiche professionali. La sintassi è **searchFields** per limitare l'esecuzione della query al campo business_title e **select** per specificare i campi da includere nella risposta.
 
-### <a name="partial-query-string"></a>Stringa di query parziali
+### <a name="partial-query-string"></a>Stringa di query parziale
 
 ```http
 searchFields=business_title&$select=business_title&search=*
 ```
 
-Di seguito è la stessa query con più campi in un elenco delimitato da virgole.
+Di seguito è illustrata la stessa query con più campi in un elenco delimitato da virgole.
 
 ```http
 search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
@@ -211,7 +211,7 @@ POST /indexes/nycjobs/docs/search?api-version=2019-05-06
       "count": "true"
     }
 ```
-Per ottenere risultati più leggibili, vengono eliminati i risultati della ricerca per includere un ID di processo, il titolo professionale e il percorso di lavoro. Le coordinate di inizio sono state ottenute da un documento casuale nell'indice (in questo caso, per una località di lavoro a Staten Island).
+Per ottenere risultati più leggibili, i risultati della ricerca vengono rimossi per includere un ID processo, un titolo del processo e il percorso di lavoro. Le coordinate di inizio sono state ottenute da un documento casuale nell'indice (in questo caso, per una località di lavoro a Staten Island).
 
 È anche possibile provare questo esempio in Postman usando GET:
 

@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: b792c0fc5d02a84d45b47ac68e0058144f31e673
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
-ms.translationtype: HT
+ms.openlocfilehash: 8ed9b86f8dd4f255a6ea8420ef27fbb131df91a9
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/20/2019
-ms.locfileid: "69641005"
+ms.locfileid: "69644885"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Differenze T-SQL tra istanze gestite, limitazioni e problemi noti
 
@@ -545,15 +545,13 @@ Le finestre di dialogo Service Broker tra database interromperanno il recapito d
 
 **Soluzione alternativa:** Arrestare tutte le attività che usano le conversazioni di dialogo Service Broker tra database prima di aggiornare il livello di servizio e reinizializzarle dopo. Se sono presenti messaggi rimanenti che non vengono recapitati dopo la modifica del livello di servizio, leggere i messaggi dalla coda di origine e inviarli nuovamente alla coda di destinazione.
 
-### <a name="impresonification-of-aad-login-types-is-not-supported"></a>Impresonification dei tipi di accesso AAD non è supportato
+### <a name="impersonification-of-aad-login-types-is-not-supported"></a>L'impersonificazione dei tipi di accesso ad AAD non è supportata
 
 **Data** 2019 luglio
 
 La rappresentazione tramite `EXECUTE AS USER` o `EXECUTE AS LOGIN` delle entità AAD seguenti non è supportata:
 -   Utenti di AAD con alias. In questo caso `15517`viene restituito l'errore seguente.
 - Accessi e utenti di AAD basati su applicazioni o entità servizio di AAD. In questo caso `15517` vengono restituiti i seguenti errori e `15406`.
-
-### <a name="database-email"></a>Posta elettronica database 
 
 ### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@queryil parametro non è supportato in sp_send_db_mail
 

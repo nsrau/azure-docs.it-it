@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 04/29/2019
+ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: ee8af77ce8f3897fdf1cb3da9a125acca28f9419
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
-ms.translationtype: MT
+ms.openlocfilehash: e730e1b5534c4c74734816f5481247e341436b08
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358705"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656332"
 ---
 # <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>Usare SSL per proteggere un servizio Web tramite Azure Machine Learning
 
@@ -51,7 +51,7 @@ Quando si proteggono i servizi Web tra le [destinazioni di distribuzione](how-to
 
 ## <a name="get-a-domain-name"></a>Immettere un nome di dominio
 
-Se non si dispone già di un nome di dominio, acquistarne uno da un registrar. Il processo e il prezzo variano tra i registrar. Il registrar fornisce gli strumenti per gestire il nome di dominio. Questi strumenti vengono usati per eseguire il mapping di un nome di dominio completo (FQDN) (\.ad esempio www contoso.com) all'indirizzo IP che ospita il servizio Web.
+Se non si dispone già di un nome di dominio, acquistarneuno da un registrar. Il processo e il prezzo variano tra i registrar. Il registrar fornisce gli strumenti per gestire il nome di dominio. Questi strumenti vengono usati per eseguire il mapping di un nome di dominio completo (FQDN) (\.ad esempio www contoso.com) all'indirizzo IP che ospita il servizio Web.
 
 ## <a name="get-an-ssl-certificate"></a>Ottenere un certificato SSL
 
@@ -66,7 +66,7 @@ Quando si richiede un certificato, è necessario fornire il nome di dominio comp
 > Se l'autorità di certificazione non può fornire il certificato e la chiave come file con codifica PEM, è possibile usare un'utilità come [openssl](https://www.openssl.org/) per modificare il formato.
 
 > [!WARNING]
-> Usare  i certificati autofirmati solo per lo sviluppo. Non usarli negli ambienti di produzione. I certificati autofirmati possono causare problemi nelle applicazioni client. Per ulteriori informazioni, vedere la documentazione relativa alle librerie di rete utilizzate dall'applicazione client.
+> Usare i certificati autofirmati solo per lo sviluppo. Non usarli negli ambienti di produzione. I certificati autofirmati possono causare problemi nelle applicazioni client. Per ulteriori informazioni, vedere la documentazione relativa alle librerie di rete utilizzate dall'applicazione client.
 
 ## <a id="enable"></a>Abilitare SSL e distribuire
 
@@ -152,6 +152,107 @@ Successivamente, è necessario aggiornare il DNS in modo che punti al servizio W
   Aggiornare il DNS nella scheda **configurazione** dell'indirizzo IP pubblico del cluster AKS. (Vedere l'immagine seguente). L'indirizzo IP pubblico è un tipo di risorsa creato nel gruppo di risorse che contiene i nodi dell'agente AKS e altre risorse di rete.
 
   ![Servizio Azure Machine Learning: Protezione del servizio Web con SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
+
+## <a name="update-the-ssl-certificate"></a>Aggiornare il certificato SSL
+
+I certificati SSL scadono e devono essere rinnovati. Questa situazione si verifica in genere ogni anno. Usare le informazioni nelle sezioni riportate di seguito per aggiornare e rinnovare il certificato per i modelli distribuiti nel servizio Azure Kubernetes:
+
+### <a name="update-a-microsoft-generated-certificate"></a>Aggiornare un certificato generato da Microsoft
+
+Se il certificato è stato originariamente generato da Microsoft (quando si usa *leaf_domain_label* per creare il servizio), usare uno degli esempi seguenti per aggiornare il certificato:
+
+**Usare l'SDK**
+
+```python
+from azureml.core.compute import AksCompute
+from azureml.core.compute.aks import AksUpdateConfiguration
+from azureml.core.compute.aks import SslConfiguration
+
+# Get the existing cluster
+aks_target = AksCompute(ws, clustername)
+
+# Update the existing certificate by referencing the leaf domain label
+ssl_configuration = SslConfiguration(leaf_domain_label="myaks", overwrite_existing_domain=True)
+update_config = AksUpdateConfiguration(ssl_configuration)
+aks_target.update(update_config)
+```
+
+**Usare l'interfaccia della riga di comando**
+
+```azurecli
+az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n "myaks" --ssl-leaf-domain-label "myaks" --ssl-overwrite-domain True
+```
+
+Per ulteriori informazioni, vedere la documentazione di riferimento seguente:
+
+* [SslConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.sslconfiguration?view=azure-ml-py)
+* [AksUpdateConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksupdateconfiguration?view=azure-ml-py)
+
+### <a name="update-custom-certificate"></a>Aggiorna certificato personalizzato
+
+Se il certificato è stato originariamente generato da un'autorità di certificazione, attenersi alla procedura seguente:
+
+1. Utilizzare la documentazione fornita dall'autorità di certificazione per rinnovare il certificato. Questo processo crea nuovi file di certificato.
+
+1. Usare l'SDK o l'interfaccia della riga di comando per aggiornare il servizio con il nuovo certificato:
+
+    **Usare l'SDK**
+
+    ```python
+    from azureml.core.compute import AksCompute
+    from azureml.core.compute.aks import AksUpdateConfiguration
+    from azureml.core.compute.aks import SslConfiguration
+    
+    # Read the certificate file
+    def get_content(file_name):
+        with open(file_name, 'r') as f:
+            return f.read()
+
+    # Get the existing cluster
+    aks_target = AksCompute(ws, clustername)
+    
+    # Update cluster with custom certificate
+    ssl_configuration = SslConfiguration(cname="myaks", cert=get_content('cert.pem'), key=get_content('key.pem'))
+    update_config = AksUpdateConfiguration(ssl_configuration)
+    aks_target.update(update_config)
+    ```
+
+    **Usare l'interfaccia della riga di comando**
+
+    ```azurecli
+    az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n "myaks" --ssl-cname "myaks"--ssl-cert-file "cert.pem" --ssl-key-file "key.pem"
+    ```
+
+Per ulteriori informazioni, vedere la documentazione di riferimento seguente:
+
+* [SslConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.sslconfiguration?view=azure-ml-py)
+* [AksUpdateConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksupdateconfiguration?view=azure-ml-py)
+
+## <a name="disable-ssl"></a>Disabilitare SSL
+
+Per disabilitare SSL per un modello distribuito nel servizio Azure Kubernetes, è possibile usare l'SDK o l'interfaccia della riga di comando:
+
+**Usare l'SDK**
+
+```python
+from azureml.core.compute import AksCompute
+from azureml.core.compute.aks import AksUpdateConfiguration
+from azureml.core.compute.aks import SslConfiguration
+
+# Get the existing cluster
+aks_target = AksCompute(ws, clustername)
+
+# Disable SSL
+ssl_configuration = SslConfiguration(status="Disabled")
+update_config = AksUpdateConfiguration(ssl_configuration)
+aks_target.update(update_config)
+```
+
+**Usare l'interfaccia della riga di comando**
+
+```azurecli
+ az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n "myaks" --ssl-disable True
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 È possibile passare agli argomenti seguenti:

@@ -4,14 +4,14 @@ description: Informazioni sulle funzioni da usare in un modello di Azure Resourc
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 08/06/2019
+ms.date: 08/20/2019
 ms.author: tomfitz
-ms.openlocfilehash: 2ec6e58438e7be953e1f672fb815ff3f68a7f252
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 2cd37405176eefa8f4445942b9fbf1afc2a7404a
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839266"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650422"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funzioni delle risorse per i modelli di Azure Resource Manager
 
@@ -40,7 +40,7 @@ La sintassi per questa funzione varia in base al nome delle operazioni list. Ogn
 | Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | resourceName o resourceIdentifier |Sì |string |Identificatore univoco della risorsa. |
-| apiVersion |Yes |string |Versione dell'API dello stato di runtime della risorsa. In genere il formato è **aaaa-mm-gg**. |
+| apiVersion |Sì |string |Versione dell'API dello stato di runtime della risorsa. In genere il formato è **aaaa-mm-gg**. |
 | functionValues |No |object | Oggetto che contiene valori per la funzione. Specificare solo questo oggetto per le funzioni che supportano la ricezione di un oggetto con valori di parametro, ad esempio **listAccountSas** per un account di archiviazione. Questo articolo illustra un esempio di passaggio dei valori di funzione. | 
 
 ### <a name="implementations"></a>Implementazioni
@@ -267,7 +267,7 @@ Restituisce informazioni su un provider di risorse e i relativi tipi di risorse 
 
 | Parametro | Obbligatorio | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Yes |string |Spazio dei nomi del provider |
+| providerNamespace |Sì |string |Spazio dei nomi del provider |
 | resourceType |No |string |Il tipo di risorsa all'interno dello spazio dei nomi specificato. |
 
 ### <a name="return-value"></a>Valore restituito
@@ -342,7 +342,7 @@ Restituisce un oggetto che rappresenta lo stato di runtime di una risorsa.
 
 | Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| resourceName o resourceIdentifier |Sì |string |Nome o identificatore univoco di una risorsa. Quando si fa riferimento a una risorsa nel modello corrente, specificare solo il nome della risorsa come parametro. Quando si fa riferimento a una risorsa distribuita in precedenza, fornire l'ID risorsa. |
+| resourceName o resourceIdentifier |Yes |string |Nome o identificatore univoco di una risorsa. Quando si fa riferimento a una risorsa nel modello corrente, specificare solo il nome della risorsa come parametro. Quando si fa riferimento a una risorsa distribuita in precedenza, fornire l'ID risorsa. |
 | apiVersion |No |string |Versione dell'API della risorsa specificata. Includere questo parametro quando non viene effettuato il provisioning della risorsa nello stesso modello. In genere il formato è **aaaa-mm-gg**. Per le versioni API valide per la risorsa, vedere [riferimento ai modelli](/azure/templates/). |
 | 'Full' |No |string |Valore che specifica se restituire l'oggetto risorsa completo. Se non si specifica `'Full'`, viene restituito solo l'oggetto proprietà della risorsa. L'oggetto completo include valori quali l'ID e la posizione della risorsa. |
 
@@ -634,7 +634,7 @@ L'esempio precedente restituisce un oggetto nel formato seguente:
 
 ## <a name="resourceid"></a>resourceId
 
-`resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)`
+`resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)`
 
 Restituisce l'identificatore univoco di una risorsa. Questa funzione viene usata quando il nome della risorsa è ambiguo o non è stato sottoposto a provisioning all'interno dello stesso modello. 
 
@@ -646,43 +646,46 @@ Restituisce l'identificatore univoco di una risorsa. Questa funzione viene usata
 | resourceGroupName |No |string |Il valore predefinito è il gruppo di risorse corrente. Specificare questo valore quando si vuole recuperare una risorsa in un altro gruppo di risorse. |
 | resourceType |Sì |string |Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse. |
 | resourceName1 |Sì |string |Nome della risorsa. |
-| resourceName2 |No |string |Segmento successivo del nome della risorsa se la risorsa è annidata. |
+| resourceName2 |No |string |Segmento del nome di risorsa successivo, se necessario. |
+
+Continuare ad aggiungere i nomi di risorsa come parametri quando il tipo di risorsa include più segmenti.
 
 ### <a name="return-value"></a>Valore restituito
 
 L'identificatore viene restituito nel formato seguente:
 
-```json
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-```
+**/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}**
+
 
 ### <a name="remarks"></a>Note
 
-Se usata con una [distribuzione a livello di sottoscrizione](deploy-to-subscription.md), la funzione `resourceId()` può recuperare solo l'ID delle risorse distribuite a tale livello. Ad esempio, è possibile ottenere l'ID di una definizione di criteri o di una definizione di ruolo, ma non l'ID di un account di archiviazione. Per le distribuzioni a un gruppo di risorse, si verifica il contrario. Non è possibile ottenere l'ID delle risorse distribuite a livello di sottoscrizione.
+Il numero di parametri forniti varia a seconda che la risorsa sia una risorsa padre o figlio e che la risorsa si trovi nella stessa sottoscrizione o nel gruppo di risorse.
 
-I valori da specificare per i parametri dipendono dall'appartenenza o meno della risorsa alla stessa sottoscrizione e allo stesso gruppo di risorse della distribuzione corrente. Per ottenere l'ID risorsa per un account di archiviazione nella stessa sottoscrizione e nello stesso gruppo di risorse, usare:
-
-```json
-"[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]"
-```
-
-Per ottenere l'ID risorsa per un account di archiviazione nella stessa sottoscrizione, ma in un gruppo di risorse differente, usare:
+Per ottenere l'ID risorsa per una risorsa padre nella stessa sottoscrizione e nello stesso gruppo di risorse, specificare il tipo e il nome della risorsa.
 
 ```json
-"[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
+"[resourceId('Microsoft.ServiceBus/namespaces', 'namespace1')]"
 ```
 
-Per ottenere l'ID risorsa per un account di archiviazione in una sottoscrizione differente, ma nello stesso gruppo di risorse, usare:
+Per ottenere l'ID risorsa per una risorsa figlio, prestare attenzione al numero di segmenti nel tipo di risorsa. Specificare un nome di risorsa per ogni segmento del tipo di risorsa. Il nome del segmento corrisponde alla risorsa esistente per quella parte della gerarchia.
+
+```json
+"[resourceId('Microsoft.ServiceBus/namespaces/queues/authorizationRules', 'namespace1', 'queue1', 'auth1')]"
+```
+
+Per ottenere l'ID risorsa per una risorsa nella stessa sottoscrizione ma in un gruppo di risorse diverso, specificare il nome del gruppo di risorse.
+
+```json
+"[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts', 'examplestorage')]"
+```
+
+Per ottenere l'ID risorsa per una risorsa in una sottoscrizione e un gruppo di risorse diversi, fornire l'ID sottoscrizione e il nome del gruppo di risorse.
 
 ```json
 "[resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
 ```
 
-Per ottenere l'ID risorsa per un database in un gruppo di risorse differente, usare:
-
-```json
-"[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]"
-```
+Se usata con una [distribuzione a livello di sottoscrizione](deploy-to-subscription.md), la funzione `resourceId()` può recuperare solo l'ID delle risorse distribuite a tale livello. Ad esempio, è possibile ottenere l'ID di una definizione di criteri o di una definizione di ruolo, ma non l'ID di un account di archiviazione. Per le distribuzioni a un gruppo di risorse, si verifica il contrario. Non è possibile ottenere l'ID delle risorse distribuite a livello di sottoscrizione.
 
 Per ottenere l'ID di una risorsa a livello di sottoscrizione durante la distribuzione nell'ambito della sottoscrizione, usare:
 

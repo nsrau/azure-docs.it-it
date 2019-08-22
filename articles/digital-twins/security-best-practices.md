@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 08/19/2019
 ms.author: v-adgera
-ms.openlocfilehash: 64a980ba8ed581b3cad369951220d47baf9e17ab
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: f211206bc2408fe55f6742622b5b0e56d1ab4d90
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849291"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656515"
 ---
 # <a name="security-best-practices"></a>Procedure di sicurezza consigliate
 
@@ -26,6 +26,9 @@ Questo articolo riepiloga le principali procedure consigliate da seguire.
 > [!IMPORTANT]
 > Per garantire la massima sicurezza per lo spazio IoT, esaminare altre risorse relative alla sicurezza. Assicurarsi di includere i fornitori di dispositivi.
 
+> [!TIP]
+> Usa il [Centro sicurezza di Azure per](https://docs.microsoft.com/azure/asc-for-iot/) gli Internet per scoprire le minacce e le vulnerabilità della sicurezza.
+
 ## <a name="iot-security-best-practices"></a>Procedure consigliate per la sicurezza IoT
 
 Ecco alcune tra le principali procedure consigliate per proteggere in modo sicuro i dispositivi IoT:
@@ -36,6 +39,7 @@ Ecco alcune tra le principali procedure consigliate per proteggere in modo sicur
 > * Prendere in considerazione l'eventualità di usare il filtro degli indirizzi IP dei dispositivi e la restrizione della porta.
 > * Limitare larghezza di banda di I/O e dei dispositivi per migliorare le prestazioni. La limitazione della velocità può consentire di migliorare la sicurezza impedendo attacchi Denial of Service.
 > * Mantenere aggiornato il firmware del dispositivo.
+> * Controllare periodicamente le procedure consigliate per la sicurezza di dispositivi, reti e gateway Man mano che continuano a migliorare e a evolversi.
 
 Ecco alcune tra le principali procedure consigliate per proteggere in modo sicuro uno spazio IoT:
 
@@ -43,6 +47,7 @@ Ecco alcune tra le principali procedure consigliate per proteggere in modo sicur
 > * Crittografare i dati salvati, archiviati o salvati in modo permanente.
 > * Richiedere la modifica o l'aggiornamento periodico di password o chiavi.
 > * Limitare attentamente le autorizzazioni e l'accesso in base al ruolo. Vedere la sezione [Procedure consigliate per il controllo degli accessi in base al ruolo](#rbac) seguente.
+> * Si consideri una topologia di rete divisa in modo che i dispositivi in ogni rete siano isolati dagli altri.
 > * Usare la crittografia avanzata. Richiedere password lunghe, usare protocolli sicuri e l'autenticazione a due fattori.
 
 [Monitorare](./how-to-configure-monitoring.md) le risorse IoT per individuare outlier, minacce o parametri delle risorse che non rientrano nell'intervallo del normale funzionamento. Usare Azure Analytics per monitorare la gestione.

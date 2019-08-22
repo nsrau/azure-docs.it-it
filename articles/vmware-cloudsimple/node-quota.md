@@ -3,21 +3,21 @@ title: Soluzione VMware di Azure per CloudSimple-quota del nodo CloudSimple
 description: Descrive i limiti di quota per i nodi CloudSimple e come richiedere un aumento della quota
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/30/2019
+ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e765d7c87f2f941a5e2d558b71c4e5a71d2df9b1
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 5da91f37d197e9d427343a09d0376076c356e92d
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816682"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877810"
 ---
 # <a name="cloudsimple-node-quota-limits"></a>Limiti della quota del nodo CloudSimple
 
-Quattro nodi è la quantità predefinita disponibile per il provisioning, quando la sottoscrizione è abilitata per il servizio CloudSimple.  È possibile effettuare il provisioning di qualsiasi [tipo di nodo](cloudsimple-node.md) da portale di Azure.  Per creare un cloud privato, sono necessari almeno tre nodi dello stesso SKU.  Se è stato effettuato il provisioning dei nodi, è possibile che venga visualizzato un errore quando si tenta di eseguire il provisioning di nodi aggiuntivi.
+Quattro nodi è la quantità predefinita disponibile per l'acquisto quando la sottoscrizione è abilitata per il servizio CloudSimple.  È possibile acquistare qualsiasi [tipo di nodo](cloudsimple-node.md) dalla portale di Azure.  Per creare un cloud privato sono necessari almeno tre nodi dello stesso SKU.  Se i nodi sono stati acquistati, è possibile che venga visualizzato un errore quando si tenta di acquistare altri nodi.
 
 ## <a name="quota-increase"></a>Aumento della quota
 
@@ -28,7 +28,7 @@ Quattro nodi è la quantità predefinita disponibile per il provisioning, quando
 * Tipo di servizio: **Soluzione VMware per CloudSimple**
 * Tipo di problema: **Quota di nodi dedicati**
 * Sottotipo di problema: **Aumentare la quota di nodi dedicati**
-* Soggetto: **Aumento della quota**
+* Oggetto: **Aumento della quota**
 
 Nei dettagli del ticket di supporto specificare il numero di nodi e lo SKU del nodo necessari.
 
@@ -40,5 +40,5 @@ Nei dettagli del ticket di supporto specificare il numero di nodi e lo SKU del n
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Eseguire il provisioning di nodi](create-nodes.md)
+* [Nodi di acquisto](create-nodes.md)
 * [Panoramica sui nodi CloudSimple](cloudsimple-node.md)

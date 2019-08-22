@@ -2,7 +2,7 @@
 title: Come usare i risultati della ricerca - Ricerca di Azure
 description: Strutturare e ordinare i risultati della ricerca, ottenere un numero di documenti e aggiungere l'esplorazione dei contenuti ai risultati della ricerca in Ricerca di Azure.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: ''
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: bb86a75be464cb78a16170626bc96778d43bb8b6
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 9fa2baf64dbb35d85c55635d7522075d61bfc17d
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67974613"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647715"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>Come usare i risultati della ricerca in Ricerca di Azure
 In questo articolo vengono fornite indicazioni su come implementare elementi standard di una pagina di risultati della ricerca, ad esempio i conteggi totali, il recupero di documenti, i criteri di ordinamento e l'esplorazione. Le opzioni relative alla pagina che forniscono dati o informazioni per i risultati della ricerca vengono specificate tramite richieste [Cerca nel documento](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) inviate al servizio Ricerca di Azure. 
@@ -96,7 +96,7 @@ L’esplorazione di ricerca è comune in una pagina di risultati, che spesso si 
 
 ## <a name="filters-at-the-page-level"></a>Filtri a livello di pagina
 
-Se la progettazione della soluzione include pagine di ricerca dedicate per tipi specifici di contenuto (ad esempio, un'applicazione per la vendita al dettaglio online con reparti elencati nella parte superiore della pagina), è possibile inserire un' [espressione di filtro](search-filters.md) insieme a un evento OnClick per  aprire una pagina in uno stato pre-filtrato.
+Se la progettazione della soluzione include pagine di ricerca dedicate per tipi specifici di contenuto (ad esempio, un'applicazione per la vendita al dettaglio online con reparti elencati nella parte superiore della pagina), è possibile inserire un' [espressione di filtro](search-filters.md) insieme a un evento OnClick per aprire una pagina in uno stato pre-filtrato.
 
 È possibile inviare un filtro con o senza espressione di ricerca. Ad esempio, la seguente richiesta filtrerà la marca, restituendo solo i documenti ad essa corrispondenti.
 

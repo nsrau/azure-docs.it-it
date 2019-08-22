@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 92d6f005018040e20c2df72dbc608a47bc8d9f08
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: e7c0f0abdf4a96f4af904f76549bdebd62b803cd
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849015"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877331"
 ---
 # <a name="trigger-azure-functions-using-webhooks-in-azure-iot-central"></a>Attivare Funzioni di Azure usando i webhook in Azure IoT Central
 
 *Questo argomento è rivolto ai responsabili della compilazione e agli amministratori.*
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 Usare Funzioni di Azure per eseguire codice serverless sull'output di webhook delle regole di IoT Central. Non è necessario effettuare il provisioning di una macchina virtuale o pubblicare un'app Web per l'uso di funzioni di Azure, ma è possibile eseguire questo codice senza server. Usare Funzioni di Azure per trasformare il payload del webhook prima di inviarlo alla destinazione finale, ad esempio un database SQL o Griglia di eventi.
 

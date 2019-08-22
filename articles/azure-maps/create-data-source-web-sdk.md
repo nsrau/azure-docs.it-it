@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: c225aa5f821925247d27890e9ee75f3eac4d9eb9
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 36c06182d0807ce3d255477a865023ae7b74e2cb
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977352"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874918"
 ---
 # <a name="create-a-data-source"></a>Creare un'origine dati
 
@@ -22,7 +22,11 @@ Azure Maps Web SDK archivia i dati nelle origini dati che ottimizzano i dati per
 
 **Origine dati GeoJSON**
 
-Un'origine dati basata su GeoJSON può caricare e archiviare i dati localmente `DataSource` usando la classe. I dati GeoJSON possono essere creati o creati manualmente usando le classi helper nello spazio dei nomi [Atlas. Data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) . La `DataSource` classe fornisce funzioni per l'importazione di file GeoJSON locali o remoti. I file GeoJSON remoti devono essere ospitati in un endpoint abilitato per CORs. La `DataSource` classe fornisce funzionalità per i dati dei punti di clustering. 
+Un'origine dati basata su GeoJSON può caricare e archiviare i dati localmente `DataSource` usando la classe. I dati GeoJSON possono essere creati o creati manualmente usando le classi helper nello spazio dei nomi [Atlas. Data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) . La `DataSource` classe fornisce funzioni per l'importazione di file GeoJSON locali o remoti. I file GeoJSON remoti devono essere ospitati in un endpoint abilitato per CORs. La `DataSource` classe fornisce funzionalità per i dati dei punti di clustering. I dati possono essere facilmente aggiunti, rimossi e aggiornati con la `DataSource` classe.
+
+
+> [!TIP]
+> Se si desidera sovrascrivere tutti i dati di `DataSource`un oggetto, se si effettuano `clear` chiamate `add` alle funzioni then, la mappa tenterà di eseguire nuovamente il rendering due volte che potrebbero causare un po' di ritardo. Usare invece la `setShapes` funzione che rimuoverà e sostituirà tutti i dati nell'origine dati e attiverà un solo nuovo rendering della mappa.
 
 **Origine riquadro vettoriale**
 

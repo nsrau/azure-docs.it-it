@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/02/2019
+ms.date: 8/20/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 91dd397095718b3b43e41767af422801fd50b7f1
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 25fb94afdfe68510c66cff130a3abc8b74d7311d
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295691"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647318"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Avvisi di sicurezza nel centro sicurezza di Azure
 
@@ -50,7 +50,7 @@ Gli argomenti seguenti illustrano il modo in cui il Centro sicurezza sfrutta i d
 
 ## <a name="what-are-alert-incidents"></a>Che cosa sono gli eventi imprevisti di avviso?
 
-Un evento imprevisto di sicurezza è una raccolta di avvisi correlati, anziché elencare singolarmente ogni avviso. Il Centro sicurezza USA Fusion per correlare avvisi diversi e segnali con una bassa fedeltà agli eventi imprevisti della sicurezza.
+Un evento imprevisto di sicurezza è una raccolta di avvisi correlati, anziché elencare singolarmente ogni avviso. Il Centro sicurezza usa la correlazione degli avvisi [cloud](security-center-alerts-cloud-smart.md) per correlare avvisi diversi e segnali di fedeltà bassa in eventi imprevisti della sicurezza.
 
 Con gli eventi imprevisti, il Centro sicurezza offre un'unica visualizzazione di una campagna di attacco e di tutti gli avvisi correlati. Questa visualizzazione consente di comprendere rapidamente le azioni intraprese dall'utente malintenzionato e le risorse interessate. Per ulteriori informazioni, vedere [correlazione tra Smart Alert cloud](security-center-alerts-cloud-smart.md).
 

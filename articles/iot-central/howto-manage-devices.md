@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a4a22cc2161af444ba2169cc2f83124e80c7ec11
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 364bd4dd0781c5fd74d0e4bdbfe3b4372a3d3ca0
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052986"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876007"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gestire i dispositivi nell'applicazione Azure IoT Central
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 L'articolo illustra come un operatore può gestire i dispositivi nell'applicazione Azure IoT Central. Un operatore può:
 
@@ -90,11 +92,11 @@ Se si registrano i dispositivi avviando l'importazione sotto **Dispositivi non a
 
 1. Selezionare i dispositivi da associare a un modello:
 
-1. Selezionare **associare**:
+1. Selezionare **associa**:
 
-    ![Associare i dispositivi](./media/howto-manage-devices/unassociateddevices2a.png)
+    ![Associa dispositivi](./media/howto-manage-devices/unassociateddevices2a.png)
 
-1. Scegliere il modello dall'elenco dei modelli disponibili e selezionare **associare**.
+1. Scegliere il modello dall'elenco dei modelli disponibili e selezionare **associa**.
 
 1. I dispositivi selezionati verranno associati al modello di dispositivo scelto.
 
@@ -103,7 +105,7 @@ Se si registrano i dispositivi avviando l'importazione sotto **Dispositivi non a
 
 ## <a name="export-devices"></a>Esportare dispositivi
 
-Per connettere un dispositivo reale a IoT Central, è necessario disporre della stringa di connessione corrispondente. È possibile esportare i dettagli di dispositivi in blocco per ottenere le informazioni necessarie per creare stringhe di connessione di dispositivi. Il processo di esportazione crea un file CSV con l'identità del dispositivo, nome del dispositivo e le chiavi per tutti i dispositivi selezionati.
+Per connettere un dispositivo reale a IoT Central, è necessario disporre della stringa di connessione corrispondente. È possibile esportare i dettagli del dispositivo in blocco per ottenere le informazioni necessarie per creare stringhe di connessione del dispositivo. Il processo di esportazione crea un file CSV con l'identità del dispositivo, il nome del dispositivo e le chiavi per tutti i dispositivi selezionati.
 
 Per esportare in blocco i dispositivi dall'applicazione:
 
@@ -111,7 +113,7 @@ Per esportare in blocco i dispositivi dall'applicazione:
 
 1. Nel pannello di sinistra scegliere il modello di dispositivo a partire dal quale si vuole esportare i dispositivi.
 
-1. Selezionare i dispositivi che si desidera esportare e quindi selezionare il **esportare** azione.
+1. Selezionare i dispositivi che si desidera esportare, quindi selezionare l'azione **Esporta** .
 
     ![Esportazione](./media/howto-manage-devices/export1a.png)
 
@@ -119,7 +121,7 @@ Per esportare in blocco i dispositivi dall'applicazione:
 
 1. Al termine dell'esportazione verrà visualizzato un messaggio di operazione completata insieme a un collegamento per scaricare il file generato.
 
-1. Selezionare il **messaggio di operazione riuscita** per scaricare il file in una cartella sul disco locale.
+1. Selezionare il **messaggio di operazione riuscita** per scaricare il file in una cartella locale sul disco.
 
     ![Esportazione riuscita](./media/howto-manage-devices/export2a.png)
 
@@ -132,7 +134,7 @@ Per esportare in blocco i dispositivi dall'applicazione:
     * IOTC_X509THUMBPRINT_PRIMARY
     * IOTC_X509THUMBPRINT_SECONDARY
 
-Visualizzare [connettività dei dispositivi in Azure IoT Central](concepts-connectivity.md), per altre informazioni sulle stringhe di connessione e di dispositivi reali che si connette all'applicazione IoT Central.
+Per altre informazioni sulle stringhe di connessione e sulla connessione di dispositivi reali all'applicazione IoT Central, vedere [connettività dei dispositivi in Azure IOT Central](concepts-connectivity.md).
 
 ## <a name="delete-a-device"></a>Eliminare un dispositivo
 

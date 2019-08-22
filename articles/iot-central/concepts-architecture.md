@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 4bc9a79576c3165585a4a2c897bd41bfb77c080c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 43357bdeb444fed20f29107d10dc31a61857fccf
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66693142"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877514"
 ---
 # <a name="azure-iot-central-architecture"></a>Architettura di Azure IoT Central
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 Questo articolo presenta una panoramica dell'architettura di Microsoft Azure IoT Central.
 
@@ -55,7 +57,7 @@ Azure IoT Central archivia i dati dell'applicazione nel cloud. I dati archiviati
 
 Azure IoT Central usa un archivio di serie temporali per i dati di misura inviati dai dispositivi. Dati di serie temporali dei dispositivi utilizzati dal servizio di analisi.
 
-## <a name="analytics"></a>Analytics
+## <a name="analytics"></a>Analisi
 
 Il servizio di analisi è responsabile della generazione dei dati dei report personalizzati mostrati dall'applicazione. Un operatore può [personalizzare le analisi](howto-create-analytics.md) visualizzate nell'applicazione. Il servizio di analisi si basa su [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) ed elabora i dati di misura inviati dai dispositivi.
 
@@ -79,13 +81,13 @@ Un modello di dispositivo:
 
 Un'applicazione può avere uno o più dispositivi simulati e reali basati su ogni modello di dispositivo.
 
-## <a name="data-export"></a>Esportazione dei dati
+## <a name="data-export"></a>Esportazione dati
 
-In un'applicazione Azure IoT Central, è possibile [esportare continuamente dati](howto-export-data-event-hubs-service-bus.md) proprio hub eventi di Azure e le istanze del Bus di servizio di Azure. È possibile esportare anche periodicamente i dati all'account di archiviazione Blob di Azure. IoT Central è possibile esportare le misurazioni, dispositivi e modelli di dispositivo.
+In un'applicazione IoT Central di Azure è possibile [esportare i dati](howto-export-data-event-hubs-service-bus.md) in modo continuo nei propri hub eventi di Azure e nelle istanze del bus di servizio di Azure. È anche possibile esportare periodicamente i dati nell'account di archiviazione BLOB di Azure. IoT Central possibile esportare misure, dispositivi e modelli di dispositivo.
 
 ## <a name="batch-device-updates"></a>Aggiornamenti del dispositivo batch
 
-In un'applicazione Azure IoT Central, è possibile [creare ed eseguire processi](howto-run-a-job.md) per gestire i dispositivi connessi. Questi processi consentono di aggiornamenti per le impostazioni o le proprietà dei dispositivi in blocco oppure eseguire i comandi. Ad esempio, è possibile creare un processo per aumentare la velocità della ventola per più frigoriferi distributori automatici.
+In un'applicazione IoT Central di Azure è possibile [creare ed eseguire processi](howto-run-a-job.md) per gestire i dispositivi connessi. Questi processi consentono di eseguire aggiornamenti in blocco per le proprietà o le impostazioni del dispositivo o di eseguire comandi. Ad esempio, è possibile creare un processo per aumentare la velocità della ventola per più computer distributori frigoriferi.
 
 ## <a name="role-based-access-control-rbac"></a>Controllo degli accessi in base al ruolo
 
@@ -103,10 +105,10 @@ Le funzionalità di sicurezza all'interno di Azure IoT Central includono:
 ## <a name="ui-shell"></a>Shell dell'interfaccia utente
 
 La shell dell'interfaccia utente è un'applicazione browser HTML5 moderna e reattiva.
-Un amministratore può personalizzare l'interfaccia utente dell'applicazione, applicazione di temi personalizzati e modificando i collegamenti della Guida in modo da puntare alle risorse di file della Guida personalizzato. Per altre informazioni sulla personalizzazione dell'interfaccia utente, vedere [personalizzare Azure IoT Central UI](howto-customize-ui.md) articolo.
+Un amministratore può personalizzare l'interfaccia utente dell'applicazione applicando temi personalizzati e modificando i collegamenti della Guida in modo che puntino alle risorse della Guida personalizzate. Per altre informazioni sulla personalizzazione dell'interfaccia utente, vedere [l'articolo personalizzare l'interfaccia utente di Azure IOT Central](howto-customize-ui.md) .
 
-Un operatore può creare dashboard applicazioni personalizzate. È possibile avere diversi dashboard che visualizzano dati diversi e spostarsi tra le due.
+Un operatore può creare dashboard di applicazione personalizzati. È possibile avere diversi dashboard che visualizzano dati diversi e passano tra loro.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si sono appresi l'architettura di Azure IoT Central, il passaggio successivo consigliato sia per apprendere [connettività dei dispositivi](concepts-connectivity.md) in Azure IoT Central.
+Ora che sono state apprese le informazioni sull'architettura di Azure IoT Central, il passaggio successivo suggerito consiste nell'ottenere informazioni sulla [connettività dei dispositivi](concepts-connectivity.md) in Azure IOT Central.

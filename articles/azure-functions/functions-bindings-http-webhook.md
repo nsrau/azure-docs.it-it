@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 4aadac343e023e68432741c1f1231bc0ec9fe0ea
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 5e3b96d79ddef7940fd4029f9268e3040a63d2fb
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990197"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875075"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Trigger e associazioni HTTP di Funzioni di Azure
 
@@ -728,7 +728,7 @@ Le chiavi vengono archiviate come parte dell'app per le funzioni in Azure e crit
 
 ![Gestire le chiavi di funzione nel portale.](./media/functions-bindings-http-webhook/manage-function-keys.png)
 
-Non è disponibile alcuna API supportata per l'acquisizione a livello di codice di tasti funzione.
+È possibile ottenere chiavi di funzione a livello di codice tramite l' [API di gestione delle chiavi](https://github.com/Azure/azure-functions-host/wiki/Key-management-API).
 
 ### <a name="api-key-authorization"></a>Autorizzazione della chiave API
 

@@ -1,5 +1,5 @@
 ---
-title: Utilizzare server dei criteri di rete esistenti per fornire funzionalità di Azure MFA - Azure Active Directory
+title: Usare i server NPS esistenti per fornire funzionalità di autenticazione a più fattori di Azure-Azure Active Directory
 description: Aggiungere le funzionalità di verifica in due passaggi basate sul cloud all'infrastruttura di autenticazione esistente
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca6f79b5febdbf12c80ab85d07117bf937babef0
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 879404b264e9ea6c544c6edf509001b38997bb0c
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798201"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874339"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication
 
@@ -79,7 +79,7 @@ Il server NPS deve essere in grado di comunicare con gli URL seguenti sulle port
 - https:\//adnotifications.windowsazure.com
 - https:\//login.microsoftonline.com
 
-Inoltre, la connettività agli URL seguenti è necessario per completare il [il programma di installazione dell'adapter utilizzando lo script di PowerShell fornito](#run-the-powershell-script)
+Inoltre, è necessaria la connettività agli URL seguenti per completare l' [installazione dell'adapter mediante lo script di PowerShell fornito](#run-the-powershell-script)
 
 - https:\//login.microsoftonline.com
 - https:\//provisioningapi.microsoftonline.com
@@ -125,7 +125,7 @@ Sono due i fattori che determinano i metodi di autenticazione disponibili con un
       > [!NOTE]
       > Quando si distribuisce l'estensione di Server dei criteri di rete, usare questi fattori per valutare i metodi disponibili per gli utenti. Se il client RADIUS supporta PAP, ma nel client non esistono campi di input per un codice di verifica, la chiamata telefonica e la notifica dell'app per dispositivi mobili sono le due opzioni supportate.
       >
-      > Inoltre, se il client VPN che UX supportano l'input archiviato e configurati criteri di accesso di rete - l'autenticazione potrebbe riuscire, tuttavia nessuno degli attributi RADIUS configurati nei criteri di rete, verrà applicato a né l'accesso dispositivo di rete, ad esempio il server RRAS, né il client VPN. Di conseguenza, il client VPN potrebbe avere accesso maggiore o minore per non consentire l'accesso desiderato.
+      > Inoltre, se il client VPN UX supporta il campo di input e sono stati configurati i criteri di accesso alla rete, l'autenticazione potrebbe avere esito positivo, tuttavia nessuno degli attributi RADIUS configurati nei criteri di rete verrà applicato né al dispositivo di accesso alla rete. come il server RRAS, né il client VPN. Di conseguenza, il client VPN potrebbe avere un accesso maggiore di quello desiderato o meno a nessun accesso.
       >
 
 2. I metodi di input che l'applicazione client (VPN, server Netscaler o altra) può gestire. Ad esempio, gli strumenti usati dal client VPN per consentire all'utente di digitare un codice di verifica da un testo o da un'app per dispositivi mobili.
@@ -155,7 +155,7 @@ Seguire questa procedura per avviare un account di test:
 
 #### <a name="upgrade-the-nps-extension"></a>Aggiornare l'estensione NPS
 
-Quando si installa l'aggiornamento di un'estensione dei criteri di rete esistente, per evitare un riavvio del server sottostante completare i passaggi seguenti:
+Quando si aggiorna un'installazione di estensione NPS esistente, per evitare il riavvio del server sottostante completare i passaggi seguenti:
 
 1. Disinstallare la versione esistente
 1. Eseguire il nuovo programma di installazione
@@ -188,18 +188,18 @@ A meno che non si desideri utilizzare i propri certificati (invece dei certifica
 
 Ripetere questi passaggi per tutti i server dei criteri di rete aggiuntivi che si intende configurare per il bilanciamento del carico.
 
-Se è scaduto il certificato del computer precedente e un nuovo certificato è stato generato, è necessario eliminare eventuali certificati scaduti. Con i certificati scaduti possono causare problemi con l'estensione NPS avvio.
+Se il certificato del computer precedente è scaduto ed è stato generato un nuovo certificato, è necessario eliminare eventuali certificati scaduti. La presenza di certificati scaduti può causare problemi con l'avvio dell'estensione NPS.
 
 > [!NOTE]
 > Se si usano i propri certificati invece di generare certificati con lo script di PowerShell, verificare che rispettino la convenzione di denominazione di Server dei criteri di rete. Il nome oggetto deve essere **CN=\<TenantID\>,OU=Estensione di Server dei criteri di rete Microsoft**. 
 
 ### <a name="certificate-rollover"></a>Rollover dei certificati
 
-Con versione 1.0.1.32 dell'estensione NPS, la lettura di più certificati è ora supportato. Questa funzionalità consentirà di semplificare in sequenza gli aggiornamenti del certificato prima della loro scadenza. Se l'organizzazione è in esecuzione una versione precedente dell'estensione NPS, è consigliabile aggiornare alla versione 1.0.1.32 o versione successiva.
+Con la versione 1.0.1.32 dell'estensione NPS, è ora supportata la lettura di più certificati. Questa funzionalità consente di semplificare gli aggiornamenti del certificato in sequenza prima della scadenza. Se l'organizzazione esegue una versione precedente dell'estensione NPS, è necessario eseguire l'aggiornamento alla versione 1.0.1.32 o successiva.
 
-I certificati creati dal `AzureMfaNpsExtnConfigSetup.ps1` script sono valide per 2 anni. Le organizzazioni IT devono monitorare i certificati per la scadenza. I certificati per l'estensione NPS vengono inseriti nell'archivio certificati Computer locale in personale e vengono emessi per l'ID tenant specificato per lo script.
+I `AzureMfaNpsExtnConfigSetup.ps1` certificati creati dallo script sono validi per 2 anni. Le organizzazioni IT dovrebbero monitorare i certificati per la scadenza. I certificati per l'estensione NPS vengono inseriti nell'archivio certificati del computer locale in personale e vengono rilasciati all'ID tenant fornito allo script.
 
-Quando un certificato sta per raggiungere la data di scadenza, un nuovo certificato deve essere creato per sostituirlo.  Questo processo viene eseguito tramite l'esecuzione di `AzureMfaNpsExtnConfigSetup.ps1` nuovamente mantenendo lo stesso ID tenant quando richiesto. Questo processo deve essere ripetuto in ogni server dei criteri di rete nell'ambiente in uso.
+Quando un certificato si avvicina alla data di scadenza, è necessario creare un nuovo certificato per sostituirlo.  Questo processo viene eseguito `AzureMfaNpsExtnConfigSetup.ps1` eseguendo di nuovo e mantenendo lo stesso ID tenant quando richiesto. Questo processo deve essere ripetuto in ogni server NPS nell'ambiente in uso.
 
 ## <a name="configure-your-nps-extension"></a>Configurare l'estensione di Server dei criteri di rete
 
@@ -229,11 +229,11 @@ Lo scopo di questa impostazione è stabilire cosa fare quando un utente non è r
 
 È possibile scegliere di creare questa chiave e impostarla su FALSE, durante il caricamento degli utenti che potrebbero non essere ancora registrati per Azure MFA. Poiché l'impostazione della chiave consente agli utenti che non sono registrati all'MFA di accedere, è necessario rimuovere la chiave prima di passare all'ambiente di produzione.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-### <a name="nps-extension-health-check-script"></a>Script di verifica dell'integrità di estensione dei criteri di rete
+### <a name="nps-extension-health-check-script"></a>Script di controllo integrità estensione NPS
 
-Lo script seguente è disponibile nella raccolta di TechNet per eseguire i passaggi di verifica dell'integrità di base per risolvere il problema l'estensione NPS.
+Lo script seguente è disponibile nella raccolta TechNet per eseguire i passaggi di base del controllo di integrità durante la risoluzione dei problemi relativi all'estensione NPS.
 
 [MFA_NPS_Troubleshooter.ps1](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
 
@@ -243,7 +243,7 @@ Lo script seguente è disponibile nella raccolta di TechNet per eseguire i passa
 
 Cercare il certificato autofirmato creato dal programma di installazione nell'archivio dei certificati e verificare che la chiave privata disponga delle autorizzazioni concesse all'utente **Servizio di rete**. Il certificato ha come nome oggetto **CN \<tenantid\>, OU = Estensione di Server dei criteri di rete Microsoft**
 
-I certificati autofirmati generati dal *AzureMfaNpsExtnConfigSetup.ps1* script anche avere una durata di validità di due anni. Quando si verifica che il certificato è installato, controllare anche che il certificato non sia scaduto.
+Anche i certificati autofirmati generati dallo script *AzureMfaNpsExtnConfigSetup. ps1* hanno una durata di validità di due anni. Quando si verifica che il certificato sia installato, è necessario verificare anche che il certificato non sia scaduto.
 
 ---
 
@@ -302,11 +302,11 @@ Verificare che https://adnotifications.windowsazure.com sia raggiungibile dal se
 
 ---
 
-### <a name="why-is-authentication-not-working-despite-a-valid-certificate-being-present"></a>Il motivo per cui l'autenticazione non funziona, nonostante un certificato valido presenziando?
+### <a name="why-is-authentication-not-working-despite-a-valid-certificate-being-present"></a>Perché l'autenticazione non funziona, nonostante sia presente un certificato valido?
 
-Se è scaduto il certificato del computer precedente e un nuovo certificato è stato generato, è necessario eliminare eventuali certificati scaduti. Con i certificati scaduti possono causare problemi con l'estensione NPS avvio.
+Se il certificato del computer precedente è scaduto ed è stato generato un nuovo certificato, è necessario eliminare eventuali certificati scaduti. La presenza di certificati scaduti può causare problemi con l'avvio dell'estensione NPS.
 
-Per controllare se si dispone di un certificato valido, controllare Store certificato dell'Account Computer locale mediante la console MMC e assicurarsi che il certificato non ha superato la data di scadenza. Per generare un certificato appena valido, eseguire di nuovo i passaggi nella sezione "[eseguire lo script di PowerShell](#run-the-powershell-script)"
+Per verificare se si dispone di un certificato valido, controllare l'archivio certificati dell'account computer locale utilizzando MMC e verificare che il certificato non abbia superato la data di scadenza. Per generare un certificato appena valido, eseguire di nuovo i passaggi descritti nella sezione "[eseguire lo script di PowerShell](#run-the-powershell-script)".
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Gestione dei protocolli TLS/SSL e dei pacchetti di crittografia
 
@@ -314,7 +314,7 @@ Per controllare se si dispone di un certificato valido, controllare Store certif
 
 ### <a name="additional-troubleshooting"></a>Risoluzione dei problemi aggiuntiva
 
-Soluzioni possibili e indicazioni sulla risoluzione dei problemi aggiuntive sono reperibili nell'articolo [risolvere i messaggi di errore dall'estensione NPS per Azure multi-Factor Authentication](howto-mfa-nps-extension-errors.md).
+Ulteriori indicazioni per la risoluzione dei problemi e le possibili soluzioni sono disponibili nell'articolo [risolvere i messaggi di errore dall'estensione NPS per Azure Multifactor Authentication](howto-mfa-nps-extension-errors.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

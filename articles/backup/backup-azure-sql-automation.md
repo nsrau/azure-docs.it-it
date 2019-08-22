@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: e078c75911a332c7e70f3a578723735729b9e6b6
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: e6a1ec1d11404e6179fda919c58f581c3524c4d4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954490"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650346"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure--vms-with-powershell"></a>Eseguire il backup e il ripristino di database SQL in macchine virtuali di Azure con PowerShell
 
@@ -167,6 +167,18 @@ I criteri di backup specificano la pianificazione per i backup e il tempo di man
 * Visualizzare la pianificazione predefinita dei criteri di backup utilizzando [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject?view=azps-1.4.0).
 * Usare il cmdlet [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0) per creare un nuovo criterio di backup. Vengono inseriti gli oggetti Criteri di pianificazione e conservazione.
 
+Per impostazione predefinita, nell'oggetto Criteri di pianificazione è definita un'ora di inizio. Usare l'esempio seguente per modificare l'ora di inizio con l'ora di inizio desiderata. L'ora di inizio desiderata dovrebbe essere anche UTC. Nell'esempio seguente si presuppone che l'ora di inizio desiderata sia 01:00 UTC per i backup giornalieri.
+
+```powershell
+$schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "MSSQL"
+$UtcTime = Get-Date -Date "2019-03-20 01:30:00Z"
+$UtcTime = $UtcTime.ToUniversalTime()
+$schpol.ScheduleRunTimes[0] = $UtcTime
+```
+
+> [!IMPORTANT]
+> È necessario specificare l'ora di inizio solo in più di 30 minuti. Nell'esempio precedente può essere solo "01:00:00" o "02:30:00". L'ora di inizio non può essere "01:15:00"
+
 Nell'esempio seguente i criteri di pianificazione e i criteri di conservazione vengono archiviati nelle variabili. USA quindi tali variabili come parametri per un nuovo criterio (**NewSQLPolicy**). **NewSQLPolicy** esegue un backup giornaliero "completo", lo conserva per 180 giorni ed esegue un backup del log ogni 2 ore
 
 ```powershell
@@ -181,7 +193,7 @@ L'output è simile al seguente.
 Name                 WorkloadType       BackupManagementType BackupTime                Frequency                                IsDifferentialBackup IsLogBackupEnabled
                                                                                                                                 Enabled
 ----                 ------------       -------------------- ----------                ---------                                -------------------- ------------------
-NewSQLPolicy         MSSQL              AzureWorkload        3/15/2019 9:00:00 PM      Daily                                    False                True
+NewSQLPolicy         MSSQL              AzureWorkload        3/15/2019 01:30:00 AM      Daily                                    False                True
 ```
 
 ## <a name="enable-backup"></a>Abilita backup
@@ -198,7 +210,7 @@ Register-AzRecoveryServicesBackupContainer -ResourceId $myVM.ID -BackupManagemen
 Il comando restituirà' backup container ' di questa risorsa e lo stato sarà' registered '
 
 > [!NOTE]
-> Se non si specifica il parametro Force, viene richiesto all'utente di confermare con il testo "disabilitare la protezione per questo contenitore". Ignorare questo testo e pronunciare "Y" per confermare. Si tratta di un problema noto e si sta lavorando per rimuovere il testo e il requisito per il parametro Force
+> Se non si specifica il parametro Force, viene richiesto all'utente di confermare con il testo "disabilitare la protezione per questo contenitore". Ignorare questo testo e pronunciare "Y" per confermare. Si tratta di un problema noto e si sta lavorando per rimuovere il testo e il requisito per il parametro Force.
 
 ### <a name="fetching-sql-dbs"></a>Recupero di database SQL
 

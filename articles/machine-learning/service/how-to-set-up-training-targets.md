@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 72155e072acb8006b48f6951fc60081126c80691
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: e73a64a9782535da31e2eacbaa2740007707c774
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990453"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872429"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurare le destinazioni di calcolo per il training del modello 
 
@@ -317,7 +317,7 @@ Per visualizzare le destinazioni di calcolo dell'area di lavoro, usare la proced
 1. Andare nel [portale di Azure](https://portal.azure.com) e aprire l'area di lavoro. 
 1. In __Applicazioni__ selezionare __Ambiente di calcolo__.
 
-    ![Visualizzare la scheda Calcolo](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)
+    [![Visualizza scheda calcolo](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)
 
 ### <a id="portal-create"></a>Creare una destinazione di calcolo
 
@@ -336,8 +336,6 @@ Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di ca
 
 1. Compilare il modulo. Specificare i valori per le proprietà necessarie, in particolare la **famiglia di macchine virtuali**e il **numero massimo di nodi** da usare per creare rapidamente l'ambiente di calcolo.  
 
-    ![Compilare il modulo](./media/how-to-set-up-training-targets/add-compute-form.png) 
-
 1. Selezionare __Create__.
 
 
@@ -348,8 +346,6 @@ Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di ca
 1. Verranno mostrati i dettagli della destinazione di calcolo: 
 
     ![Visualizzare i dettagli della destinazione di calcolo](./media/how-to-set-up-training-targets/compute-target-details.png) 
-
-
 
 ### <a id="portal-reuse"></a>Collegare destinazioni di calcolo
 

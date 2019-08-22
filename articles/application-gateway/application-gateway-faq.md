@@ -5,15 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 6/1/2019
+ms.date: 08/22/2019
 ms.author: victorh
-ms.openlocfilehash: 5bfb3a093cd101f30daf4439dc8f58b5b4f693ca
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: da8142ad035eec338a3c1ba1a23be7c2be470a04
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68740876"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891714"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Domande frequenti sul gateway applicazione
 
@@ -361,6 +360,13 @@ Sì. Nel gateway applicazione gli avvisi vengono configurati sulle metriche. Per
 ### <a name="what-could-cause-backend-health-to-return-an-unknown-status"></a>Cosa può fare in modo che l'integrità back-end restituisca uno stato sconosciuto?
 
 Viene in genere visualizzato uno stato sconosciuto quando l'accesso al back-end è bloccato da un gruppo di sicurezza di rete (NSG), un DNS personalizzato o un routing definito dall'utente (UDR) nella subnet del gateway applicazione. Per altre informazioni, vedere [integrità back-end, registrazione diagnostica e metriche per il gateway applicazione](application-gateway-diagnostics.md).
+
+### <a name="is-there-any-case-where-nsg-flow-logs-wont-show-allowed-traffic"></a>Esistono casi in cui i log di flusso NSG non visualizzeranno il traffico consentito?
+
+Sì. Se la configurazione corrisponde al seguente scenario, non verrà visualizzato il traffico consentito nei log del flusso di NSG:
+- Il gateway applicazione V2 è stato distribuito
+- Si dispone di un NSG nella subnet del gateway applicazione
+- Sono stati abilitati i log di flusso NSG su tale NSG
 
 ## <a name="next-steps"></a>Passaggi successivi
 

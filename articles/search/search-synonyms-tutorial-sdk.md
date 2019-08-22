@@ -1,7 +1,7 @@
 ---
-title: Sinonimi C# esempio - ricerca di Azure
-description: In questo C# esempio informazioni su come aggiungere la funzionalità relativa ai sinonimi a un indice in ricerca di Azure. Un mapping dei sinonimi è un elenco di termini equivalenti. I campi con supporto dei sinonimi espandono le query in modo da includere il termine fornito dall'utente e tutti i relativi sinonimi.
-manager: cgronlun
+title: Esempio C# di sinonimi-ricerca di Azure
+description: In questo C# esempio viene illustrato come aggiungere la funzionalità sinonimi a un indice in ricerca di Azure. Un mapping dei sinonimi è un elenco di termini equivalenti. I campi con supporto dei sinonimi espandono le query in modo da includere il termine fornito dall'utente e tutti i relativi sinonimi.
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
@@ -9,29 +9,29 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5b81e4b9a8773cc8e4cc76582ccf2df88565d3d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad71a6ab5090e601ef075617edf08c421abebdb0
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65025162"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647760"
 ---
 # <a name="example-add-synonyms-for-azure-search-in-c"></a>Esempio: Aggiungere sinonimi per Ricerca di Azure in C#
 
 I sinonimi espandono una query tramite la corrispondenza con termini considerati semanticamente uguali al termine di input. È ad esempio possibile che si voglia che il termine "auto" consenta di rilevare corrispondenze con documenti contenenti i termini "automobile" o "veicolo". 
 
-In Ricerca di Azure i sinonimi sono definiti in una *mappa di sinonimi* tramite *regole di mapping* che associano termini equivalenti. In questo esempio illustra i passaggi essenziali per l'aggiunta e utilizzo dei sinonimi a un indice esistente. Si apprenderà come:
+In Ricerca di Azure i sinonimi sono definiti in una *mappa di sinonimi* tramite *regole di mapping* che associano termini equivalenti. In questo esempio vengono illustrati i passaggi essenziali per l'aggiunta e l'utilizzo di sinonimi con un indice esistente. Si apprenderà come:
 
 > [!div class="checklist"]
-> * Creare una mappa di sinonimi usando il [SynonymMap](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) classe. 
-> * Impostare il [SynonymMaps](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) proprietà sui campi che devono supportare l'espansione della query tramite i sinonimi.
+> * Creare una mappa di sinonimi usando la classe [SynonymMap](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) . 
+> * Impostare la proprietà [SynonymMaps](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) nei campi che devono supportare l'espansione delle query tramite sinonimi.
 
-È possibile eseguire una query un campo sinonimo abilitati come di consueto. Non è disponibile alcuna sintassi di query aggiuntive necessarie per accedere ai sinonimi.
+È possibile eseguire una query su un campo abilitato per sinonimi come in genere. Non è necessaria alcuna sintassi di query aggiuntiva per accedere ai sinonimi.
 
 È possibile creare più mappe di sinonimi, inserirle come risorse a livello di servizio disponibili per qualsiasi indice e quindi fare riferimento alla mappa da usare a livello di campo. In fase di query, oltre a eseguire ricerche in un indice, Ricerca di Azure esegue una ricerca in una mappa di sinonimi, se tale mappa viene specificata nei campi usati nella query.
 
 > [!NOTE]
-> È possibile creare sinonimi a livello di codice, ma non nel portale. Se l'utente considera utile il supporto dei sinonimi del portale di Azure, può fornire un feedback tramite [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
+> I sinonimi possono essere creati a livello di codice, ma non nel portale. Se l'utente considera utile il supporto dei sinonimi del portale di Azure, può fornire un feedback tramite [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -163,18 +163,18 @@ Name: Roach Motel       Category: Budget        Tags: [motel, budget]
 ~~~
 La prima query trova il documento dalla regola `five star=>luxury`. La seconda query espande la ricerca usando `internet,wifi` e la terza usando `hotel, motel` e `economy,inexpensive=>budget` nell'individuazione di documenti corrispondenti.
 
-L'aggiunta di sinonimi modifica completamente l'esperienza di ricerca. In questo esempio, la query originale non è riuscito a restituire risultati significativi, anche se i documenti nell'indice sono rilevanti. Abilitando i sinonimi, è possibile espandere un indice in modo da includere termini di uso comune, senza modifiche ai dati sottostanti dell'indice.
+L'aggiunta di sinonimi modifica completamente l'esperienza di ricerca. In questo esempio, le query originali non sono in grado di restituire risultati significativi anche se i documenti nell'indice sono rilevanti. Abilitando i sinonimi, è possibile espandere un indice in modo da includere termini di uso comune, senza modifiche ai dati sottostanti dell'indice.
 
 ## <a name="sample-application-source-code"></a>Esempio di codice sorgente dell'applicazione
 Il codice sorgente completo dell'applicazione di esempio utilizzata è disponibile in questa procedura dettagliata su [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Il modo più rapido per la pulizia dopo che è un esempio, eliminando il gruppo di risorse che contiene il servizio di ricerca di Azure. È possibile eliminare ora il gruppo di risorse per eliminare definitivamente tutti gli elementi in esso contenuti. Nel portale, il nome del gruppo di risorse è indicato nella pagina Panoramica del servizio Ricerca di Azure.
+Il modo più rapido per eseguire la pulizia dopo un esempio consiste nell'eliminare il gruppo di risorse che contiene il servizio ricerca di Azure. È possibile eliminare ora il gruppo di risorse per eliminare definitivamente tutti gli elementi in esso contenuti. Nel portale, il nome del gruppo di risorse è indicato nella pagina Panoramica del servizio Ricerca di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo esempio viene illustrata la funzionalità relativa ai sinonimi in C# codice per creare e pubblicare le regole di mapping e quindi chiamare la mappa di sinonimi per una query. Altre informazioni sono disponibili nella documentazione di riferimento per [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) e [API REST](https://docs.microsoft.com/rest/api/searchservice/).
+In questo esempio è stata illustrata C# la funzionalità sinonimi nel codice per creare e inserire regole di mapping e quindi chiamare la mappa dei sinonimi in una query. Altre informazioni sono disponibili nella documentazione di riferimento per [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) e [API REST](https://docs.microsoft.com/rest/api/searchservice/).
 
 > [!div class="nextstepaction"]
 > [Come usare i sinonimi in Ricerca di Azure](search-synonyms.md)

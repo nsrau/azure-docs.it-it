@@ -3,19 +3,19 @@ title: Connettere e indicizzare il contenuto del database SQL di Azure usando gl
 description: Informazioni su come ricercare per indicizzazione i dati nel database SQL di Azure usando gli indicizzatori di ricerca full-text in Ricerca di Azure. Questo articolo illustra le connessioni, la configurazione dell'indicizzatore e l'inserimento di dati.
 ms.date: 05/02/2019
 author: mgottein
-manager: cgronlun
+manager: nitinme
 ms.author: magottei
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 59a45791676f62f42763e0e834d327b0c0c4106d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4ed218fdc1c6580e9b92364d123b081a1f34b441
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755105"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656226"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Effettuare la connessione a e indicizzare il contenuto del database SQL di Azure usando gli indicizzatori di Ricerca di Azure
 
@@ -158,7 +158,7 @@ Sono disponibili informazioni aggiuntive relative alla risposta [Ottenere lo sta
 
 È richiesto il parametro **interval** . L'intervallo fa riferimento al tempo tra l'inizio di due esecuzioni consecutive dell'indicizzatore. L'intervallo minimo consentito è di 5 minuti, quello massimo di un giorno. Il valore deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore [duration ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Il modello è: `P(nD)(T(nH)(nM))`. Esempi: `PT15M` ogni 15 minuti, `PT2H` ogni due ore.
 
-Per altre informazioni sulla definizione delle pianificazioni di indicizzatore, vedere [come pianificare gli indicizzatori per ricerca di Azure](search-howto-schedule-indexers.md).
+Per altre informazioni sulla definizione delle pianificazioni degli indicizzatori [, vedere come pianificare gli indicizzatori per ricerca di Azure](search-howto-schedule-indexers.md).
 
 <a name="CaptureChangedRows"></a>
 
@@ -178,7 +178,7 @@ Se il database SQL supporta il [rilevamento delle modifiche](https://docs.micros
 + Nel database [abilitare il rilevamento della modifica](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) per la tabella. 
 + Nessuna chiave primaria composta, ovvero una chiave primaria che contiene più di una colonna, nella tabella.  
 
-#### <a name="usage"></a>Uso
+#### <a name="usage"></a>Utilizzo
 
 Per utilizzare questo criterio, creare o aggiornare l'origine dati nel modo indicato di seguito:
 
@@ -213,7 +213,7 @@ Questi criteri di rilevamento delle modifiche si basano su una colonna di "livel
 > [!IMPORTANT] 
 > È consigliabile usare il tipo di dati [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) per la colonna di livello più alto. Se viene usato un qualsiasi altro tipo di dati, il rilevamento delle modifiche potrebbe non garantire l'acquisizione di tutte le modifiche in presenza di transazioni in esecuzione contemporaneamente a una query dell'indicizzatore. Quando si usa **rowversion** in una configurazione con le repliche di sola lettura, è necessario puntare l'indicizzatore alla replica primaria. Per scenari di sincronizzazione dei dati, è possibile usare solo una replica primaria.
 
-#### <a name="usage"></a>Uso
+#### <a name="usage"></a>Utilizzo
 
 Per usare questo criterio di limite massimo, creare o aggiornare l'origine dati nel modo seguente:
 

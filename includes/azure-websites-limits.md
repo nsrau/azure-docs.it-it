@@ -4,19 +4,19 @@ ms.service: billing
 ms.topic: include
 ms.date: 08/09/2019
 ms.author: jroth
-ms.openlocfilehash: 203f0eda7e2e9d1545e7bf5cc2bb6eff9c2c3c55
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 1080e3488483610af0f0c9afadaf000895021821
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68936832"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69657805"
 ---
 | Risorsa | Gratuito | Condiviso | Basic | Standard | Premium (v2) | Isolato </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [App Web, per dispositivi mobili o](https://azure.microsoft.com/services/app-service/) per le API per [app Azure piano di servizio](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Illimitato<sup>2</sup> |Illimitato<sup>2</sup> |Illimitato<sup>2</sup> |Illimitato<sup>2</sup>|
 | [Piano di servizio app](../articles/app-service/overview-hosting-plans.md) |10 per area |10 per gruppo di risorse. |100 per gruppo di risorse |100 per gruppo di risorse |100 per gruppo di risorse |100 per gruppo di risorse|
 | Tipo di istanza di calcolo |Condiviso |Condiviso |Dedicato<sup>3</sup> |Dedicato<sup>3</sup> |Dedicato<sup>3</sup></p> |Dedicato<sup>3</sup>|
-| [Scalabilità orizzontale](../articles/app-service/web-sites-scale.md) (numero massimo di istanze) |1 condivisa |1 condivisa |3 dedicati<sup>3</sup> |10 dedicati<sup>3</sup> |20 dedicati<sup>3</sup>|100 dedicati<sup>4</sup>|
+| [Scalabilità orizzontale](../articles/app-service/manage-scale-up.md) (numero massimo di istanze) |1 condivisa |1 condivisa |3 dedicati<sup>3</sup> |10 dedicati<sup>3</sup> |20 dedicati<sup>3</sup>|100 dedicati<sup>4</sup>|
 | Archiviazione<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |250 GB<sup>5</sup></p> |1 TB<sup>5</sup>|
 | Tempo CPU (5 minuti)<sup>6</sup> |3 minuti |3 minuti |Senza limiti, pagamento con [tariffe](https://azure.microsoft.com/pricing/details/app-service/) standard</a> |Senza limiti, pagamento con [tariffe](https://azure.microsoft.com/pricing/details/app-service/) standard</a> |Senza limiti, pagamento con [tariffe](https://azure.microsoft.com/pricing/details/app-service/) standard</a> |Senza limiti, pagamento con [tariffe](https://azure.microsoft.com/pricing/details/app-service/) standard</a>|
 | Tempo di CPU (giorno)<sup>6</sup> |60 minuti |240 minuti |Senza limiti, pagamento con [tariffe](https://azure.microsoft.com/pricing/details/app-service/) standard</a> |Senza limiti, pagamento con [tariffe](https://azure.microsoft.com/pricing/details/app-service/) standard</a> |Senza limiti, pagamento con [tariffe](https://azure.microsoft.com/pricing/details/app-service/) standard</a> |Senza limiti, pagamento con [tariffe](https://azure.microsoft.com/pricing/details/app-service/) standard</a> |
@@ -28,12 +28,12 @@ ms.locfileid: "68936832"
 | Certificati del servizio app per sottoscrizione<sup>10</sup>| Non supportate | Non supportate |10 |10 |10 |10 |
 | Domini personalizzati per applicazione</a> |0 (solo sottodominio azurewebsites.net)|500 |500 |500 |500 |500 |
 | Supporto per il dominio personalizzato [SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |Non supportato. il certificato con caratteri jolly per *. azurewebsites.net è disponibile per impostazione predefinita|Non supportato. il certificato con caratteri jolly per *. azurewebsites.net è disponibile per impostazione predefinita|Connessioni SNI SSL senza limiti |Connessioni SNI SSL senza limiti e 1 connessione IP SSL incluse |Connessioni SNI SSL senza limiti e 1 connessione IP SSL incluse | Connessioni SNI SSL senza limiti e 1 connessione IP SSL incluse|
-| Bilanciamento del carico integrato | |X |X |X |X |X<sup>9</sup> |
-| [Always On](../articles/app-service/configure-common.md) | | |X |X |X |X |
+| Bilanciamento del carico integrato | |X |X |X |x |X<sup>9</sup> |
+| [Always On](../articles/app-service/configure-common.md) | | |X |X |X |x |
 | [Backup pianificati](../articles/app-service/manage-backup.md) | | | | Backup pianificati ogni 2 ore, un massimo di 12 backup al giorno (manuale + pianificato) | Backup pianificati ogni ora, un massimo di 50 backup al giorno (manuale + pianificato) | Backup pianificati ogni ora, un massimo di 50 backup al giorno (manuale + pianificato) |
-| [Autoscale](../articles/app-service/web-sites-scale.md) | | | |X |X |X |
+| [Autoscale](../articles/app-service/manage-scale-up.md) | | | |X |X |x |
 | [Processi Web](../articles/app-service/webjobs-create.md)<sup>8</sup> |X |X |X |X |X |X |
-| [Utilità di pianificazione di Azure](https://azure.microsoft.com/services/scheduler/) | |X |X |X |X |X |
+| [Utilità di pianificazione di Azure](https://azure.microsoft.com/services/scheduler/) | |X |X |X |X |x |
 | [Monitoraggio endpoint](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
 | [Slot di staging](../articles/app-service/deploy-staging-slots.md) | | | |5 |20 |20 |
 | Contratto di servizio | |  |99,95%|99,95%|99,95%|99,95%|  

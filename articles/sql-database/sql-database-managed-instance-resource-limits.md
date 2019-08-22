@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 06/26/2019
-ms.openlocfilehash: 412a3cb32663f5bd3bfad2d565b6797f92e26b75
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: e5dc449dc51faccdd8c0e69337cc5f8ac19fa296
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69641105"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874406"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Panoramica dei limiti delle risorse dell'istanza gestita di database SQL di Azure
 
@@ -56,11 +56,13 @@ Istanza gestita ha due livelli di servizio: Per utilizzo generico e business cri
 | Dimensioni massime del database | Determinata dalla dimensione massima di archiviazione per ogni istanza | Determinata dalla dimensione massima di archiviazione per ogni istanza |
 | Numero massimo di database per istanza | 100 | 100 |
 | Numero massimo di file di database per istanza | Fino a 280 | 32.767 file per ogni database |
+| Dimensioni massime file | 8 TB | 4 TB |
 | Dati/Log di IOPS (approssimativi) | 500 - 7.500 per file<br/>\*[Aumentare le dimensioni del file per ottenere più IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 k-110 K (1375/vCore)<br/>Aggiungere altri Vcore per ottenere prestazioni di i/o migliori. |
 | Limite velocità effettiva scrittura log | 3 MB/s per ogni vCore<br/>Massimo 22 MB/s per istanza | 4 MB/s per vCore<br/>Massimo 48 MB/s per istanza|
 | Dati effettivi (approssimativi) | 100 - 250 MB/s per ogni file<br/>\*[Aumentare le dimensioni del file per ottenere prestazioni di i/o migliori](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/D |
 | Latenza IO di archiviazione (approssimativa) | 5-10 ms | 1-2 ms |
 | Dimensioni max di tempDB | 192 - 1.920 GB (24 GB per vCore)<br/>Aggiungere altri Vcore per ottenere ulteriore spazio in TempDB. | Limitato dalle dimensioni massime di archiviazione dell'istanza. Le dimensioni del file di log TempDB sono attualmente limitate a 24 GB/vCore. |
+| OLTP in memoria | Non supportate | Disponibile |
 | Numero massimo di sessioni | 30000 | 30000 |
 
 > [!NOTE]

@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: glenga
-ms.openlocfilehash: 183056d01146194b2854a70df790802e1a0bb839
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: 498bb8c0f1e7bb674605d4a98f0be0f3e0b9a7c9
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782242"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650487"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Come disabilitare le funzioni in Funzioni di Azure
 
@@ -29,7 +29,7 @@ Questo articolo illustra come disabilitare una funzione in Funzioni di Azure. *D
 
 ## <a name="functions-2x---all-languages"></a>Funzioni 2.x: tutti i linguaggi
 
-In functions 2. x, una funzione viene disabilitata usando un'impostazione dell'app nel `AzureWebJobs.<FUNCTION_NAME>.Disabled`formato. È possibile creare e modificare questa impostazione a livello di codice usando l'interfaccia della riga di comando di Azure. È anche possibile eseguire questa operazione dalla scheda **Gestisci** della funzione nella [portale di Azure](https://portal.azure.com). 
+In functions 2. x, una funzione viene disabilitata usando un'impostazione dell'app nel `AzureWebJobs.<FUNCTION_NAME>.Disabled`formato. È possibile creare e modificare l'impostazione dell'applicazione in diversi modi, ad esempio usando l'interfaccia della riga di comando di [Azure](/cli/azure/) e dalla scheda **Gestisci** della funzione nella [portale di Azure](https://portal.azure.com). 
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 

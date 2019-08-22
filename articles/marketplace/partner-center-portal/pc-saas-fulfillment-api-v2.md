@@ -2,17 +2,17 @@
 title: API di evasione SaaS V2 | Azure Marketplace
 description: Questo articolo illustra come creare e gestire un'offerta SaaS in AppSource e in Azure Marketplace usando le API di Fulfillment V2 associate.
 services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: qianw211
 ms.service: marketplace
 ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: 276699b9316a0c4fd428038f2c967bdf934f449c
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: a2041aefcfdcb1746e64f50c7cb53b3bfaec3299
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016035"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872797"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>API di evasione SaaS, versione 2 
 
@@ -134,10 +134,10 @@ Codice: 400<br>
 Richiesta non valida. x-ms-Marketplace-token mancante, non valido o scaduto.
 
 Codice: 403<br>
-Autorizzazioni mancanti. Il token di autenticazione non è stato fornito o non è valido oppure la richiesta sta tentando di accedere a un'acquisizione che non appartiene al server di pubblicazione corrente.
+Non autorizzato. Il token di autenticazione non è stato fornito o non è valido oppure la richiesta sta tentando di accedere a un'acquisizione che non appartiene al server di pubblicazione corrente.
 
 Codice: 404<br>
-Elemento non trovato.
+Non trovato.
 
 Codice: 500<br>
 Errore interno del server.
@@ -219,7 +219,7 @@ Payload risposta:<br>
 Il token di continuazione sarà presente solo se sono presenti "pagine" aggiuntive dei piani da recuperare. 
 
 Codice: 403 <br>
-Autorizzazioni mancanti. Il token di autenticazione non è stato fornito o non è valido oppure la richiesta sta tentando di accedere a un'acquisizione che non appartiene al server di pubblicazione corrente. 
+Non autorizzato. Il token di autenticazione non è stato fornito o non è valido oppure la richiesta sta tentando di accedere a un'acquisizione che non appartiene al server di pubblicazione corrente. 
 
 Codice: 500<br>
 Errore interno del server.
@@ -288,10 +288,10 @@ Response Body:
 ```
 
 Codice: 403<br>
-Autorizzazioni mancanti. Il token di autenticazione non è stato fornito o non è valido oppure la richiesta sta tentando di accedere a un'acquisizione che non appartiene al server di pubblicazione corrente.
+Non autorizzato. Il token di autenticazione non è stato fornito o non è valido oppure la richiesta sta tentando di accedere a un'acquisizione che non appartiene al server di pubblicazione corrente.
 
 Codice: 404<br>
-Elemento non trovato.<br> 
+Non trovato.<br> 
 
 Codice: 500<br>
 Errore interno del server.<br>
@@ -341,10 +341,10 @@ Ottiene un elenco di piani disponibili per un cliente. Corpo della risposta:
 ```
 
 Codice: 404<br>
-Elemento non trovato.<br> 
+Non trovato.<br> 
 
 Codice: 403<br>
-Autorizzazioni mancanti. Il token di autenticazione non è stato fornito o non è valido oppure la richiesta sta tentando di accedere a un'acquisizione che non appartiene al server di pubblicazione corrente. <br> 
+Non autorizzato. Il token di autenticazione non è stato fornito o non è valido oppure la richiesta sta tentando di accedere a un'acquisizione che non appartiene al server di pubblicazione corrente. <br> 
 
 Codice: 500<br>
 Errore interno del server.<br>
@@ -395,10 +395,10 @@ Codice: 400<br>
 Richiesta non valida: errori di convalida.
 
 Codice: 403<br>
-Autorizzazioni mancanti. Il token di autenticazione non è stato fornito o non è valido oppure la richiesta sta tentando di accedere a un'acquisizione che non appartiene al server di pubblicazione corrente.
+Non autorizzato. Il token di autenticazione non è stato fornito o non è valido oppure la richiesta sta tentando di accedere a un'acquisizione che non appartiene al server di pubblicazione corrente.
 
 Codice: 404<br>
-Elemento non trovato.
+Non trovato.
 
 Codice: 500<br>
 Errore interno del server.
@@ -458,10 +458,10 @@ Codice: 400<br>
 Richiesta non valida: errori di convalida.
 
 Codice: 403<br>
-Autorizzazioni mancanti. Il token di autenticazione non è stato fornito o non è valido oppure la richiesta sta tentando di accedere a un'acquisizione che non appartiene al server di pubblicazione corrente.
+Non autorizzato. Il token di autenticazione non è stato fornito o non è valido oppure la richiesta sta tentando di accedere a un'acquisizione che non appartiene al server di pubblicazione corrente.
 
 Codice: 404<br>
-Elemento non trovato.
+Non trovato.
 
 Codice: 500<br>
 Errore interno del server.
@@ -525,10 +525,10 @@ Richiesta non valida: errori di convalida.
 
 
 Codice: 403<br>
-Autorizzazioni mancanti. Il token di autenticazione non è stato fornito o non è valido oppure la richiesta sta tentando di accedere a un'acquisizione che non appartiene al server di pubblicazione corrente.
+Non autorizzato. Il token di autenticazione non è stato fornito o non è valido oppure la richiesta sta tentando di accedere a un'acquisizione che non appartiene al server di pubblicazione corrente.
 
 Codice: 404<br>
-Elemento non trovato.
+Non trovato.
 
 Codice: 500<br>
 Errore interno del server.
@@ -576,10 +576,10 @@ Codice: 400<br>
 Elimina in una sottoscrizione con **Delete** not in `allowedCustomerOperations`.
 
 Codice: 403<br>
-Autorizzazioni mancanti. Il token di autenticazione non è stato fornito o non è valido oppure la richiesta sta tentando di accedere a un'acquisizione che non appartiene al server di pubblicazione corrente.
+Non autorizzato. Il token di autenticazione non è stato fornito o non è valido oppure la richiesta sta tentando di accedere a un'acquisizione che non appartiene al server di pubblicazione corrente.
 
 Codice: 404<br>
-Elemento non trovato.
+Non trovato.
 
 Codice: 500<br>
 Errore interno del server.
@@ -644,10 +644,10 @@ Codice: 400<br>
 Richiesta non valida: errori di convalida.
 
 Codice: 403<br>
-Autorizzazioni mancanti. Il token di autenticazione non è stato fornito o non è valido oppure la richiesta sta tentando di accedere a un'acquisizione che non appartiene al server di pubblicazione corrente.
+Non autorizzato. Il token di autenticazione non è stato fornito o non è valido oppure la richiesta sta tentando di accedere a un'acquisizione che non appartiene al server di pubblicazione corrente.
 
 Codice: 404<br>
-Elemento non trovato.
+Non trovato.
 
 Codice: 500<br>
 Errore interno del server.
@@ -708,10 +708,10 @@ Codice: 400<br>
 Richiesta non valida: errori di convalida.
 
 Codice: 403<br>
-Autorizzazioni mancanti. Il token di autenticazione non è stato fornito o non è valido oppure la richiesta sta tentando di accedere a un'acquisizione che non appartiene al server di pubblicazione corrente.
+Non autorizzato. Il token di autenticazione non è stato fornito o non è valido oppure la richiesta sta tentando di accedere a un'acquisizione che non appartiene al server di pubblicazione corrente.
  
 Codice: 404<br>
-Elemento non trovato.
+Non trovato.
 
 Codice: 500<br> Errore interno del server.
 
@@ -766,10 +766,10 @@ Codice: 400<br>
 Richiesta non valida: errori di convalida.
 
 Codice: 403<br>
-Autorizzazioni mancanti. Il token di autenticazione non è stato fornito o non è valido oppure la richiesta sta tentando di accedere a un'acquisizione che non appartiene al server di pubblicazione corrente.
+Non autorizzato. Il token di autenticazione non è stato fornito o non è valido oppure la richiesta sta tentando di accedere a un'acquisizione che non appartiene al server di pubblicazione corrente.
 
 Codice: 404<br>
-Elemento non trovato.
+Non trovato.
 
 Codice: 409<br>
 Conflitto. Ad esempio, è già stata soddisfatta una transazione più recente.
@@ -790,7 +790,6 @@ Codice: 500<br> Errore interno del server.
 
 Il server di pubblicazione deve implementare un webhook in questo servizio SaaS per notificare in modo proattivo agli utenti le modifiche apportate al servizio. È previsto che il servizio SaaS chiami l'API Operations per convalidare e autorizzare prima di eseguire un'azione sulla notifica del webhook.
 
-Per garantire comunicazioni sicure, Microsoft include il token Azure Active Directory JWT nell'intestazione Authorization come parte della chiamata. I provider SaaS sono invitati a convalidare il token JWT come descritto nell'articolo [token di accesso della piattaforma Microsoft Identity](https://docs.microsoft.com/azure/active-directory/develop/access-tokens) per assicurarsi che vengano accettate solo le chiamate valide.
 
 ```json
 {

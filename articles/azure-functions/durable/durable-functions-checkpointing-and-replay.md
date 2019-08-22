@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: b1fd31a758501620129fdbbc532b8defcf927045
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4ed9e4aced7983cce10a577b38c1c170474cf83d
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648500"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876869"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Checkpoint e riesecuzione in Funzioni permanenti (Funzioni di Azure)
 
@@ -78,7 +78,7 @@ Dopo aver completato l'impostazione dei checkpoint, la funzione dell'agente di o
 
 Al termine dell'operazione, la cronologia della funzione illustrata in precedenza ha un aspetto simile al seguente nell'archiviazione tabelle di Azure (abbreviata a scopo illustrativo):
 
-| PartitionKey (InstanceId)                     | EventType             | Timestamp               | Input | NOME             | Risultato                                                    | Stato |
+| PartitionKey (InstanceId)                     | Tipo di evento             | Timestamp               | Input | Name             | Risultato                                                    | Stato |
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | Null  | E1_HelloSequence |                                                           |                     |
@@ -94,7 +94,7 @@ Al termine dell'operazione, la cronologia della funzione illustrata in precedenz
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     |
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:35.032Z |       |                  |                                                           |                     |
 | eaee885b | TaskCompleted         | 2017-05-05T18:45:34.919Z |       |                  | """Hello London!"""                                       |                     |
-| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | "[""Hello Tokyo!"",""Hello Seattle!"",""Hello London!""]" | Completi           |
+| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | "[""Hello Tokyo!"",""Hello Seattle!"",""Hello London!""]" | Operazione completata           |
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:35.044Z |       |                  |                                                           |                     |
 
 Di seguito vengono indicate alcune note sui valori di colonna.
@@ -145,7 +145,7 @@ Questo comportamento di riesecuzione crea vincoli sul tipo di codice che è poss
 
   Se l'agente di orchestrazione deve essere ritardato, è possibile usare l'API [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) (.NET) o `createTimer` (JavaScript).
 
-* Il codice dell'agente di orchestrazione **non deve mai avviare un'operazione asincrona**, a meno che non usi l'API [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) o l'API dell'oggetto `context.df`. Ad esempio, nessun `Task.Run`, `Task.Delay` o `HttpClient.SendAsync` in .NET o `setTimeout()` e `setInterval()` in JavaScript. Il framework di attività permanenti esegue il codice dell'agente di orchestrazione in un singolo thread e non può interagire con alcun altro thread che possa essere pianificato da altre API asincrone.
+* Il codice dell'agente di orchestrazione **non deve mai avviare un'operazione asincrona**, a meno che non usi l'API [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) o l'API dell'oggetto `context.df`. Ad esempio, nessun `Task.Run`, `Task.Delay` o `HttpClient.SendAsync` in .NET o `setTimeout()` e `setInterval()` in JavaScript. Il framework di attività permanenti esegue il codice dell'agente di orchestrazione in un singolo thread e non può interagire con alcun altro thread che possa essere pianificato da altre API asincrone. Se si verifica questa `InvalidOperationException` situazione, viene generata un'eccezione.
 
 * Nel codice dell'agente di orchestrazione **devono essere evitati i cicli infiniti**. Poiché il framework di attività permanenti salva la cronologia di esecuzione durante l'avanzamento della funzione di orchestrazione, un ciclo infinito potrebbe causare un problema di memoria insufficiente per un'istanza dell'agente di orchestrazione. Per scenari che prevedono la presenza di cicli infiniti, usare API come [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) (.NET) o `continueAsNew` (JavaScript) per riavviare l'esecuzione della funzione e rimuovere la cronologia di esecuzione precedente.
 

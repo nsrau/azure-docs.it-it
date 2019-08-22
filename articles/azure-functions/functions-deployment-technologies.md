@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 9f40ec658fc6725f381300d967c9d7cd61c3a218
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: a0c34fcc70d92f98a6d72e4cd2fc78d34d863d55
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624154"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650465"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologie di distribuzione in funzioni di Azure
 
@@ -60,7 +60,7 @@ Quando si modifica uno dei trigger, l'infrastruttura di funzioni deve essere in 
 
 ### <a name="remote-build"></a>Compilazione remota
 
-Funzioni di Azure può eseguire automaticamente le compilazioni sul codice ricevuto dopo le distribuzioni zip. Queste compilazioni hanno un comportamento leggermente diverso a seconda che l'app sia in esecuzione in Windows o Linux. Le compilazioni remote non vengono eseguite quando un'app è stata impostata in precedenza per l'esecuzione in modalità di [esecuzione del pacchetto](run-functions-from-deployment-package.md) . 
+Funzioni di Azure può eseguire automaticamente le compilazioni sul codice ricevuto dopo le distribuzioni zip. Queste compilazioni hanno un comportamento leggermente diverso a seconda che l'app sia in esecuzione in Windows o Linux. Le compilazioni remote non vengono eseguite quando un'app è stata impostata in precedenza per l'esecuzione in modalità di [esecuzione del pacchetto](run-functions-from-deployment-package.md) . Per informazioni su come usare la compilazione remota, passare a [zip deploy](#zip-deploy).
 
 > [!NOTE]
 > Se si verificano problemi con la compilazione remota, è possibile che l'app sia stata creata prima che la funzionalità venisse resa disponibile (1 agosto 2019). Provare a creare una nuova app per le funzioni.
@@ -85,11 +85,11 @@ Quando le app vengono compilate in remoto in Linux, vengono [eseguite dal pacche
 
 ##### <a name="consumption-preview-plan"></a>Piano di utilizzo (anteprima)
 
-Le app per le funzioni di Linux in esecuzione nel piano a consumo non dispongono di un sito SCM/Kudu, che limita le opzioni di distribuzione. Tuttavia, le app per le funzioni in Linux in esecuzione nel piano a consumo supportano le compilazioni remote. Queste compilazioni Remote usano [Oryx](https://github.com/microsoft/Oryx).
+Le app per le funzioni di Linux in esecuzione nel piano a consumo non dispongono di un sito SCM/Kudu, che limita le opzioni di distribuzione. Tuttavia, le app per le funzioni in Linux in esecuzione nel piano a consumo supportano le compilazioni remote.
 
 ##### <a name="dedicated-and-premium-preview-plans"></a>Piani dedicati e Premium (anteprima)
 
-Le app per le funzioni eseguite in Linux nel [piano dedicato (servizio app)](functions-scale.md#app-service-plan) e nel [piano Premium](functions-scale.md#premium-plan) hanno anche un sito SCM/Kudu limitato, che a sua volta sfrutta i vantaggi offerti da [Oryx](https://github.com/microsoft/Oryx).
+Le app per le funzioni in esecuzione in Linux nel [piano dedicato (servizio app)](functions-scale.md#app-service-plan) e nel [piano Premium](functions-scale.md#premium-plan) hanno anche un sito SCM/Kudu limitato.
 
 ## <a name="deployment-technology-details"></a>Dettagli sulla tecnologia di distribuzione
 
@@ -111,7 +111,7 @@ Usare la distribuzione zip per eseguire il push di un file con estensione zip ch
 
 >__Come usarlo:__ Eseguire la distribuzione usando lo strumento client preferito: [Vs code](functions-create-first-function-vs-code.md#publish-the-project-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure)o l'interfaccia della riga di comando di [Azure](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). Per distribuire manualmente un file con estensione zip nell'app per le funzioni, seguire le istruzioni in [distribuire da un file zip o un URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
-Per eseguire una distribuzione zip con una compilazione remota, usare il seguente comando [degli strumenti principali](functions-run-local.md) :
+Per eseguire una distribuzione zip con una [compilazione remota](#remote-build), usare il seguente comando [degli strumenti principali](functions-run-local.md) :
 
 ```bash
 func azure functionapp publish <app name> --build remote

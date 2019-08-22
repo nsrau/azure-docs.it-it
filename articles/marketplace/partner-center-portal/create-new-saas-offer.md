@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 3d3fc1541fb99d8d1219392158c3b87cd6ff99aa
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
-ms.translationtype: MT
+ms.openlocfilehash: 37624c79a345f956de9a289c672340e391199e2f
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033536"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650714"
 ---
 # <a name="create-a-new-saas-offer"></a>Creare una nuova offerta SaaS
 
@@ -225,7 +225,7 @@ In questo campo è possibile immettere fino a 3.000 caratteri di testo. Per altr
 
 #### <a name="description"></a>**Descrizione**
 
-Questo è un campo obbligatorio. Elementi da includere nella descrizione: 
+Si tratta di un campo obbligatorio. Elementi da includere nella descrizione: 
 
 * Descrivere chiaramente la proposta di valore dell'offerta subito nelle prime frasi della descrizione.  
 * Tenere presente che le prime frasi possono essere visualizzate nei risultati dei motori di ricerca.  
@@ -302,12 +302,7 @@ Per rendere più accattivante la descrizione dell'offerta, è possibile usare i 
 
     Il precedente avrà un aspetto simile al seguente:
 
-    <h1>Titolo 1</h1> 
-    <h2>Questo è l'intestazione 2</h2> 
-    <h3>Questa è l'intestazione 3</h3> 
-    <h4>Titolo 4</h4> 
-    <h5>Questo è l'intestazione 5</h5> 
-    <h6>Titolo 6</h6> 
+    ![Intestazioni di esempio](./media/heading.png)
 
 #### <a name="links"></a>Collegamenti
 
@@ -381,7 +376,7 @@ Le **azioni** disponibili nella **Panoramica del piano** variano a seconda dello
 **Crea nuovo piano** (almeno un piano per coloro che scelgono di vendere tramite Microsoft)
 
 - **ID piano:** Creare un ID piano univoco per ogni piano di questa offerta. Questo ID sarà visibile ai clienti nell'URL del prodotto e Azure Resource Manager modelli (se applicabile). Usare solo caratteri minuscoli, alfanumerici, trattini o caratteri di sottolineatura. Per questo ID piano sono consentiti al massimo 50 caratteri. Si noti che l'ID non può essere modificato dopo aver selezionato Crea.
-- **Nome del piano:** Il nome verrà visualizzato dai clienti quando si decide quale piano selezionare nell'offerta. Creare un nome di offerta univoco per ogni piano nell'offerta. Il nome del piano viene usato per distinguere i piani software che possono far parte della stessa offerta, ad esempio Nome offerta: Windows Server; piani Windows Server 2016, Windows Server 2019).
+- **Nome del piano:** Il nome verrà visualizzato dai clienti quando si decide quale piano selezionare nell'offerta. Creare un nome di offerta univoco per ogni piano nell'offerta. Il nome del piano viene usato per distinguere i piani software che possono far parte della stessa offerta, ad esempio Nome dell'offerta: Windows Server; piani Windows Server 2016, Windows Server 2019).
 
 ### <a name="plan-listing"></a>Elenco di piani
 

@@ -3,19 +3,19 @@ title: Indicizzare il contenuto dell'Archiviazione tabelle di Azure per la ricer
 description: Informazioni su come indicizzare i dati archiviati in Archiviazione tabelle di Azure con un indicizzatore di Ricerca di Azure.
 ms.date: 05/02/2019
 author: mgottein
-manager: cgronlun
+manager: nitinme
 ms.author: magottei
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: bca7c1b9ffe7ac0ab82f4287bba201a78fbf726a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dffb0a41dbf33cd86014115b089036d69a8e4718
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755076"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648176"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Indicizzare in Archiviazione tabelle di Azure con Ricerca di Azure
 In questo articolo viene illustrato come usare Ricerca di Azure per indicizzare i dati archiviati in Archiviazione tabelle di Azure.
@@ -95,7 +95,7 @@ Per creare un indice:
 
 Per altre informazioni sulla creazione di indici, vedere [Creare un indice](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-### <a name="step-3-create-an-indexer"></a>Passaggio 3: Creare un indicizzatore
+### <a name="step-3-create-an-indexer"></a>Passaggio 3: Crea un indicizzatore
 Un indicizzatore si connette a un'origine dati con un indice di ricerca di destinazione e consente di pianificare l'automatizzazione dell'aggiornamento dei dati. 
 
 Dopo aver creato l'indice e l'origine dati, è possibile creare l'indicizzatore:
@@ -115,7 +115,7 @@ L'indicizzatore verrà eseguito ogni due ore. L'intervallo di pianificazione è 
 
 Per altre informazioni sull'API di creazione dell'indicizzatore dati, vedere [Creare un indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-Per altre informazioni sulla definizione delle pianificazioni di indicizzatore, vedere [come pianificare gli indicizzatori per ricerca di Azure](search-howto-schedule-indexers.md).
+Per altre informazioni sulla definizione delle pianificazioni degli indicizzatori [, vedere come pianificare gli indicizzatori per ricerca di Azure](search-howto-schedule-indexers.md).
 
 ## <a name="deal-with-different-field-names"></a>Gestire nomi campo diversi
 I nomi campo nell'indice esistente sono talvolta diversi dai nomi proprietà nella tabella. È possibile usare i mapping dei campi per eseguire il mapping dei nomi di proprietà forniti dalla tabella ai nomi di campo nell'indice di ricerca. Per altre informazioni sui mapping dei campi, vedere [I mapping dei campi dell'indicizzatore di Ricerca di Azure colmano le differenze tra le origini dati e gli indici di ricerca](search-indexer-field-mappings.md).

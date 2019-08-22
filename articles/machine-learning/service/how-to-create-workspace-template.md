@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/16/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 0e78d9cfce59615a53534fe9815205e39f64853d
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 89c24512e50dedbf10d145088ec77c2e6e303d1e
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868824"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873161"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Usare un modello di Azure Resource Manager per creare un'area di lavoro per Azure Machine Learning servizio
 
@@ -41,7 +41,7 @@ Questo modello crea le risorse Azure seguenti:
 * Account di archiviazione di Azure
 * Azure Key Vault
 * Azure Application Insights
-* Registro Azure Container
+* Registro contenitori di Azure
 * Area di lavoro di Azure Machine Learning
 
 Il gruppo di risorse è il contenitore che contiene i servizi. I vari servizi sono necessari per l'area di lavoro di Azure Machine Learning.
@@ -71,8 +71,6 @@ Per altre informazioni sui modelli, vedere gli articoli indicati di seguito:
    * Gruppo di risorse: Selezionare o creare un gruppo di risorse per contenere i servizi.
    * Nome dell'area di lavoro: Il nome da utilizzare per l'area di lavoro Azure Machine Learning che verrà creato. Il nome dell'area di lavoro deve avere una lunghezza compresa tra 3 e 33 caratteri. Può contenere solo caratteri alfanumerici e '-'.
    * Percorso: Selezionare la posizione in cui verranno create le risorse.
-
-     ![Parametri del modello nel portale di Azure](media/how-to-create-workspace-template/template-parameters.png)
 
 Per altre informazioni, vedere [Distribuire risorse da un modello personalizzato](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 

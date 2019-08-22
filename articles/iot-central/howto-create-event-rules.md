@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4754e6b571845d286ef22014f87b86fae2f6633d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c931cfbcff750d96828641669c4aaa15e7932970
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67053026"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877400"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Creare una regola eventi e impostare notifiche nell'applicazione Azure IoT Central
 
 *Questo articolo è rivolto a operatori, autori e amministratori.*
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 È possibile usare Azure IoT Central per monitorare in remoto i dispositivi connessi. Le regole di Azure IoT Central consentono il monitoraggio dei dispositivi in tempo reale e l'attivazione automatica di azioni quali l'invio di un messaggio di posta elettronica o l'avvio di Microsoft Flow. Con pochi clic è possibile definire la condizione per cui monitorare i dati del dispositivo e configurare l'azione corrispondente. Questo articolo illustra come creare regole che consentono di monitorare gli eventi inviati dal dispositivo.
 
@@ -27,21 +29,21 @@ I dispositivi possono usare le misurazioni di eventi per inviare gli eventi del 
 
 Per creare una regola di evento, il modello di dispositivo deve disporre di misurazione di almeno un evento definito. L'esempio usa un dispositivo distributore automatico refrigerato che segnala l'evento Errore motore ventola. La regola esegue il monitoraggio dell'evento segnalato dal dispositivo e invia un messaggio di posta elettronica ogni volta che l'evento viene segnalato.
 
-1. Usando il **modelli di dispositivo** pagina, passare al modello del dispositivo per cui si aggiunge la regola per.
+1. Usando la pagina **modelli di dispositivo** , passare al modello di dispositivo per cui si sta aggiungendo la regola.
 
 1. Se non è ancora stata creata nessuna regola viene visualizzata la schermata seguente:
 
     ![Nessuna regola](media/howto-create-event-rules/rules_landing_page1.png)
 
-1. Nel **regole** scheda, seleziona **+ nuova regola** per visualizzare i tipi di regole che è possibile creare.
+1. Nella scheda **regole** selezionare **+ nuova regola** per visualizzare i tipi di regole che è possibile creare.
 
-1. Scegliere il **evento** riquadro per creare una regola di monitoraggio di eventi.
+1. Scegliere il riquadro **evento** per creare una regola di monitoraggio degli eventi.
 
     ![Tipi di regola](media/howto-create-event-rules/rule_types1.png)
 
 1. Immettere un nome che consente di identificare la regola in questo modello di dispositivo.
 
-1. Per attivare immediatamente la regola per tutti i dispositivi creati da questo modello, attivare o disattivare **Abilita regola per tutti i dispositivi di questo modello**.
+1. Per abilitare immediatamente la regola per tutti i dispositivi creati da questo modello, attivare la **regola per tutti i dispositivi di questo modello**.
 
     ![Dettagli regola](media/howto-create-event-rules/rule_detail1.png)
 
@@ -59,15 +61,15 @@ Condizione definisce i criteri che vengono monitorato dalla regola.
 
 1. Facoltativamente, è possibile impostare anche **conteggio** come **aggregazione** e specificare la soglia corrispondente.
 
-   - Senza aggregazione, la regola viene attivata per ogni punto dati di evento che soddisfa la condizione. Ad esempio, se si configura la regola della condizione per stabilire quando un **ventola Motor errore** evento si verifica quindi la regola attiva quasi immediatamente quando il dispositivo segnala che l'evento.
-   - Se Conteggio viene utilizzato come una funzione di aggregazione, è necessario specificare una **soglia** e un **intervallo di tempo di aggregazione** su cui la condizione deve essere valutata. In questo caso, viene aggregato il conteggio degli eventi e la regola viene attivata solo se il conteggio aggregato degli eventi corrisponde alla soglia.
+   - Senza aggregazione, la regola viene attivata per ogni punto dati di evento che soddisfa la condizione. Se, ad esempio, si configura la condizione della regola da attivare quando si verifica un evento di **errore del motore ventola** , la regola viene attivata quasi immediatamente quando il dispositivo segnala tale evento.
+   - Se Conteggio viene utilizzato come una funzione di aggregazione, è necessario specificare una **soglia** e un **intervallo di tempo di aggregazione** su cui la condizione deve essere valutata. In questo caso, il numero di eventi viene aggregato e la regola viene attivata solo se il conteggio aggregato degli eventi corrisponde alla soglia.
 
      Ad esempio, se si vuole generare un avviso quando sono presenti più di tre eventi del dispositivo entro 5 minuti, selezionare l'evento e impostare la funzione di aggregazione "conteggio", l'operatore "maggiore di" e "soglia" 3. Impostare "Aggregazione periodo di tempo" su "5 minuti". La regola viene attivata quando più di tre eventi vengono inviati dal dispositivo entro 5 minuti. La frequenza di valutazione della regola è identica all’**intervallo di tempo di aggregazione**, ovvero, in questo esempio, la regola viene valutata una volta ogni 5 minuti.
 
      ![Aggiungere una condizione evento](media/howto-create-event-rules/aggregate_condition_filled_out1.png)
 
      >[!NOTE]
-     >È possibile aggiungere più di una misura di evento in **condizione**. Se si specificano più condizioni, la regola viene attivata solo quando tutte le condizioni risultano soddisfatte. Ogni condizione Ottiene unite da una clausola 'AND' in modo implicito. Quando si usa una funzione di aggregazione, è necessario aggregare ogni misura.
+     >È possibile aggiungere più di una misura di evento in **condizione**. Se si specificano più condizioni, la regola viene attivata solo quando tutte le condizioni risultano soddisfatte. Ogni condizione viene unita in modo implicito da una clausola ' AND '. Quando si usa una funzione di aggregazione, è necessario aggregare ogni misura.
 
 ### <a name="configure-actions"></a>Configurare le azioni
 
@@ -113,5 +115,5 @@ Ora che si conosce la procedura per creare regole nell'applicazione Azure IoT Ce
 
 - [Aggiungere azione di Microsoft Flow nelle regole](howto-add-microsoft-flow.md)
 - [Aggiungere azione di Webhook nelle regole](howto-create-webhooks.md)
-- [Più azioni da eseguire da una o più regole di gruppo](howto-use-action-groups.md)
+- [Raggruppare più azioni da eseguire da una o più regole](howto-use-action-groups.md)
 - [Come gestire i dispositivi](howto-manage-devices.md)

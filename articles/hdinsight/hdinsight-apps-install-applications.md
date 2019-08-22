@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: 38b37b45964dd724b18f22a478be0d85a7036ce7
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 9b96294362400891113812e308ff59bd0e438b90
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946960"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873359"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Installare applicazioni Apache Hadoop di terze parti in Azure HDInsight
 
@@ -37,7 +37,7 @@ L'elenco seguente mostra le applicazioni pubblicate:
 |[Starburst presto per Azure HDInsight](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/starburst.starburst-presto) |Hadoop |Presto è un motore di query SQL distribuito veloce e scalabile. Progettato per separare l'archiviazione dal calcolo, Presto è perfetto per eseguire query sui dati in Azure Data Lake Storage, Archiviazione BLOB di Azure, database SQL e NoSQL e altre origini dati. |
 |[Agente di raccolta dati StreamSets per HDInsight cloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/streamsets.streamsets-data-collector-hdinsight) |Hadoop, HBase, Spark, Kafka |StreamSets Data Collector è un motore leggero e potente che trasmette i dati in tempo reale. Usare l'agente di raccolta dati per instradare ed elaborare i dati nei flussi di dati. Viene fornita con una licenza di valutazione di 30 giorni. |
 |[Trifacta Wrangler Enterprise](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/trifacta.tr01) |Hadoop, Spark, HBase |Trifacta Wrangler Enterprise per HDInsight supporta data wrangling a livello aziendale per qualsiasi scala di dati. Il costo dell'esecuzione di trifactora in Azure è costituito da una combinazione di costi di sottoscrizione trifacta oltre ai costi dell'infrastruttura di Azure per le macchine virtuali. |
-|[Piattaforma dati UniFi](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/unifi-software.unifi-data-catalog) |Hadoop, HBase, Storm, Spark |La piattaforma di dati UniFi è una suite integrata di strumenti per i dati self-service progettati per consentire all'utente di business di affrontare le problematiche relative ai dati che spingono i ricavi incrementali, riducono i costi o la complessità operativa. |
+|[Piattaforma dati UniFi](https://unifisoftware.com/platform/) |Hadoop, HBase, Storm, Spark |La piattaforma di dati UniFi è una suite integrata di strumenti per i dati self-service progettati per consentire all'utente di business di affrontare le problematiche relative ai dati che spingono i ricavi incrementali, riducono i costi o la complessità operativa. |
 |[APM Unraveldata](https://azuremarketplace.microsoft.com/marketplace/apps/unravel-data.unravel-app) |Spark |Districare l'app dati per il cluster HDInsight Spark. |
 |[Data Catalog di base per intelligenza artificiale](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/waterline_data.waterline_data) |Spark |I cataloghi di contornamento, organizzano e governano i dati usando l'intelligenza artificiale per contrassegnare automaticamente i dati con termini aziendali. Il ricco catalogo aziendale di Waterline è un componente critico e di successo per il self-service di analisi, conformità, governance e iniziative di gestione dell'IT. |
 
@@ -80,7 +80,7 @@ Il portale include un elenco delle applicazioni HDInsight installate per un clus
     ![App installate in Applicazioni di HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
 5. Selezionare una delle applicazioni installate per visualizzare la proprietà. Elenchi delle proprietà:
 
-    |Proprietà | Descrizione |
+    |Proprietà | DESCRIZIONE |
     |---|---|
     |Nome app |Nome dell'applicazione. |
     |Stato |Stato dell'applicazione. |

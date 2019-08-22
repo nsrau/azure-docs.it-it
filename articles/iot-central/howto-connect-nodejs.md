@@ -1,6 +1,6 @@
 ---
 title: Connettere un'applicazione client Node.js generica ad Azure IoT Central | Microsoft Docs
-description: Gli sviluppatori di dispositivo come connettere un dispositivo di Node. js generico per l'applicazione Azure IoT Central.
+description: Come sviluppatore di dispositivi, come connettere un dispositivo node. js generico all'applicazione IoT Central di Azure.
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/14/2019
@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 90e4a061e38fdd3a13a640363069fae3a18e0b49
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 3b73344a233182fe8366795cfa111b706c6d06ac
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444229"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876242"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Connettere un'applicazione client generica all'applicazione Azure IoT Central (Node.js)
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 Questo articolo descrive come connettere, in qualità di sviluppatore di dispositivi, un'applicazione Node.js generica, che rappresenta un dispositivo reale, all'applicazione Microsoft Azure IoT Central.
 
@@ -28,13 +30,13 @@ Per seguire la procedura descritta in questo articolo, sono necessari gli elemen
 
 ## <a name="create-a-device-template"></a>Creare un modello di dispositivo
 
-Nell'applicazione Azure IoT Central, è necessario un modello di dispositivo con le misurazioni, le proprietà dei dispositivi, impostazioni e i comandi seguenti:
+Nell'applicazione IoT Central di Azure è necessario un modello di dispositivo con le misurazioni, le proprietà del dispositivo, le impostazioni e i comandi seguenti:
 
 ### <a name="telemetry-measurements"></a>Misure di telemetria
 
-Aggiungere i seguenti dati di telemetria sul **misurazioni** pagina:
+Aggiungere i dati di telemetria seguenti nella pagina **misure** :
 
-| Nome visualizzato | Nome campo  | Unità | Min | Max | Cifre decimali |
+| Nome visualizzato | Nome campo  | Unità | Min | Max | Posizioni decimali |
 | ------------ | ----------- | ----- | --- | --- | -------------- |
 | Temperatura  | temperatura | F     | 60  | 110 | 0              |
 | Umidità     | umidità    | %     | 0   | 100 | 0              |
@@ -43,11 +45,11 @@ Aggiungere i seguenti dati di telemetria sul **misurazioni** pagina:
 > [!NOTE]
 > Il tipo di dati della misura telemetrica è un numero in virgola mobile.
 
-Immettere nel modello di dispositivo i nomi dei campi esattamente come sono visualizzati nella tabella. Se i nomi dei campi non corrispondono ai nomi di proprietà nel codice del dispositivo corrispondente, i dati di telemetria non può essere visualizzata nell'applicazione.
+Immettere nel modello di dispositivo i nomi dei campi esattamente come sono visualizzati nella tabella. Se i nomi dei campi non corrispondono ai nomi delle proprietà nel codice del dispositivo corrispondente, i dati di telemetria non possono essere visualizzati nell'applicazione.
 
 ### <a name="state-measurements"></a>Misure di stato
 
-Aggiungere il seguente stato sul **misurazioni** pagina:
+Aggiungere lo stato seguente nella pagina **misure** :
 
 | Nome visualizzato | Nome campo  | Valore 1 | Nome visualizzato | Valore 2 | Nome visualizzato |
 | ------------ | ----------- | --------| ------------ | ------- | ------------ | 
@@ -56,74 +58,74 @@ Aggiungere il seguente stato sul **misurazioni** pagina:
 > [!NOTE]
 > Il tipo di dati della misura dello stato è di tipo stringa.
 
-Immettere nel modello di dispositivo i nomi dei campi esattamente come sono visualizzati nella tabella. Se i nomi dei campi non corrispondono ai nomi di proprietà nel codice del dispositivo corrispondente, lo stato non è visualizzato nell'applicazione.
+Immettere nel modello di dispositivo i nomi dei campi esattamente come sono visualizzati nella tabella. Se i nomi dei campi non corrispondono ai nomi delle proprietà nel codice del dispositivo corrispondente, non è possibile visualizzare lo stato nell'applicazione.
 
 ### <a name="event-measurements"></a>Misure di evento
 
-Aggiungere il seguente evento nel **misurazioni** pagina:
+Aggiungere l'evento seguente nella pagina **misure** :
 
 | Nome visualizzato | Nome campo  | severity |
 | ------------ | ----------- | -------- |
-| Surriscaldamento  | overheat    | Tipi di errore    |
+| Surriscaldamento  | overheat    | Errore    |
 
 > [!NOTE]
 > Il tipo di dati della misura dell'evento è di tipo stringa.
 
-### <a name="location-measurements"></a>Misurazioni di posizione
+### <a name="location-measurements"></a>Misurazioni località
 
-Aggiungere la misura di percorso seguente nel **misurazioni** pagina:
+Aggiungere la misurazione percorso seguente nella pagina **misure** :
 
 | Nome visualizzato | Nome campo  |
 | ------------ | ----------- |
 | Location     | location    |
 
-Numeri a virgola per latitudine e longitudine e un numero a virgola mobile facoltativo per altitudine, la misurazione di posizione, tipo di dati è costituito da due a virgola mobile.
+Il tipo di dati di misurazione della posizione è costituito da due numeri a virgola mobile per longitudine e latitudine e da un numero a virgola mobile facoltativo per l'altitudine.
 
-Immettere nel modello di dispositivo i nomi dei campi esattamente come sono visualizzati nella tabella. Se i nomi dei campi non corrispondono ai nomi di proprietà nel codice del dispositivo corrispondente, il percorso non può essere visualizzato nell'applicazione.
+Immettere nel modello di dispositivo i nomi dei campi esattamente come sono visualizzati nella tabella. Se i nomi dei campi non corrispondono ai nomi delle proprietà nel codice del dispositivo corrispondente, il percorso non può essere visualizzato nell'applicazione.
 
 ### <a name="device-properties"></a>Proprietà dei dispositivi
 
-Aggiungere le seguenti proprietà del dispositivo sul **proprietà** pagina:
+Aggiungere le seguenti proprietà del dispositivo nella pagina delle **Proprietà** :
 
 | Nome visualizzato        | Nome campo        | Tipo di dati |
 | ------------------- | ----------------- | --------- |
 | Numero di serie       | serialNumber      | text      |
-| Produttore del dispositivo | manufacturer      | text      |
+| Produttore del dispositivo | produttore      | text      |
 
-Immettere nel modello di dispositivo i nomi dei campi esattamente come sono visualizzati nella tabella. Se i nomi dei campi non corrispondono ai nomi di proprietà nel codice del dispositivo corrispondente, le proprietà non possono essere visualizzate nell'applicazione.
+Immettere nel modello di dispositivo i nomi dei campi esattamente come sono visualizzati nella tabella. Se i nomi dei campi non corrispondono ai nomi delle proprietà nel codice del dispositivo corrispondente, le proprietà non possono essere visualizzate nell'applicazione.
 
 ### <a name="settings"></a>Impostazioni
 
-Aggiungere il codice seguente **numero** impostazioni di **impostazioni** pagina:
+Aggiungere le seguenti impostazioni di **numero** nella pagina **Impostazioni** :
 
 | Nome visualizzato    | Nome campo     | Unità | Decimali | Min | Max  | Initial |
 | --------------- | -------------- | ----- | -------- | --- | ---- | ------- |
 | Velocità della ventola       | fanSpeed       | rpm   | 0        | 0   | 3000 | 0       |
 | Imposta temperatura | setTemperature | F     | 0        | 20  | 200  | 80      |
 
-Immettere nel modello di dispositivo il nome del campo esattamente come è visualizzato nella tabella. Se i nomi dei campi non corrispondono ai nomi di proprietà nel codice del dispositivo corrispondente, il dispositivo non può ricevere il valore dell'impostazione.
+Immettere nel modello di dispositivo il nome del campo esattamente come è visualizzato nella tabella. Se i nomi dei campi non corrispondono ai nomi delle proprietà nel codice del dispositivo corrispondente, il dispositivo non può ricevere il valore dell'impostazione.
 
 ### <a name="commands"></a>Comandi:
 
-Aggiungere il seguente comando sul **comandi** pagina:
+Aggiungere il comando seguente nella pagina **comandi** :
 
 | Nome visualizzato    | Nome campo     | Timeout predefinito | Tipo di dati |
 | --------------- | -------------- | --------------- | --------- |
-| Conto alla rovescia       | Conto alla rovescia      | 30              | number    |
+| Conto alla rovescia       | conto alla rovescia      | 30              | number    |
 
-Aggiungere il campo di input seguente al comando conto alla rovescia:
+Aggiungere il campo di input seguente al comando Countdown:
 
 | Nome visualizzato    | Nome campo     | Tipo di dati | Value |
 | --------------- | -------------- | --------- | ----- |
-| Il conteggio da      | countFrom      | number    | 10    |
+| Conteggio da      | countFrom      | number    | 10    |
 
-Immettere i nomi di campo esattamente come indicato nelle tabelle nel modello di dispositivo. Se i nomi dei campi non corrispondono ai nomi di proprietà nel codice del dispositivo corrispondente, il dispositivo non è possibile elaborare il comando.
+Immettere i nomi dei campi esattamente come illustrato nelle tabelle nel modello di dispositivo. Se i nomi dei campi non corrispondono ai nomi delle proprietà nel codice del dispositivo corrispondente, il dispositivo non è in grado di elaborare il comando.
 
 ## <a name="add-a-real-device"></a>Aggiungere un dispositivo reale
 
-Nell'applicazione Azure IoT Central, aggiungere un dispositivo reale al modello del dispositivo creato nella sezione precedente.
+Nell'applicazione IoT Central di Azure aggiungere un dispositivo reale al modello di dispositivo creato nella sezione precedente.
 
-Seguire le istruzioni dell'esercitazione "Aggiungere un dispositivo" per [genera una stringa di connessione per il dispositivo reale](tutorial-add-device.md#generate-connection-string). Usare questa stringa di connessione nella sezione seguente:
+Seguire quindi le istruzioni riportate nell'esercitazione "aggiungere un dispositivo" per [generare una stringa di connessione per il dispositivo reale](tutorial-add-device.md#generate-connection-string). Usare questa stringa di connessione nella sezione seguente:
 
 ### <a name="create-a-nodejs-application"></a>Creare un'applicazione Node.js
 
@@ -161,9 +163,9 @@ I passaggi seguenti illustrano come creare un'applicazione client che implementa
     var client = clientFromConnectionString(connectionString);
     ```
 
-    Aggiornare il segnaposto `{your device connection string}` con il [stringa di connessione del dispositivo](tutorial-add-device.md#generate-connection-string). In questo esempio, si inizializza `targetTemperature` a zero, è possibile usare un valore da un dispositivo gemello o lettura corrente dal dispositivo.
+    Aggiornare il segnaposto `{your device connection string}` con la [stringa di connessione del dispositivo](tutorial-add-device.md#generate-connection-string). In questo esempio, viene inizializzato `targetTemperature` su zero, è possibile usare la lettura corrente dal dispositivo o un valore del dispositivo gemello.
 
-1. Per inviare dati di telemetria, stato, eventi e le misurazioni di percorso per l'applicazione Azure IoT Central, aggiungere la funzione seguente al file:
+1. Per inviare le misurazioni di telemetria, stato, evento e località all'applicazione IoT Central di Azure, aggiungere la funzione seguente al file:
 
     ```javascript
     // Send device measurements.
@@ -254,7 +256,7 @@ I passaggi seguenti illustrano come creare un'applicazione client che implementa
     }
     ```
 
-1. Aggiungere il codice seguente per gestire un comando del conto alla rovescia inviato dall'applicazione IoT Central:
+1. Aggiungere il codice seguente per gestire un comando di conto alla rovescia inviato dall'applicazione IoT Central:
 
     ```javascript
     // Handle countdown command
@@ -341,22 +343,22 @@ Per il dispositivo reale, un operatore nell'applicazione Azure IoT Central può:
 
     ![Visualizzare i dati di telemetria](media/howto-connect-nodejs/viewtelemetry.png)
 
-* Consente di visualizzare il percorso nel **misurazioni** pagina:
+* Visualizzare il percorso nella pagina **misure** :
 
-    ![Visualizzazione delle misurazioni di posizione](media/howto-connect-nodejs/viewlocation.png)
+    ![Visualizza misure posizione](media/howto-connect-nodejs/viewlocation.png)
 
-* Visualizzare i valori delle proprietà del dispositivo inviati dal dispositivo nella pagina **Proprietà**. La proprietà riquadri aggiornamento del dispositivo quando si connette il dispositivo:
+* Visualizzare i valori delle proprietà del dispositivo inviati dal dispositivo nella pagina **Proprietà**. I riquadri delle proprietà del dispositivo vengono aggiornati quando si connette il dispositivo:
 
     ![Visualizzare le proprietà del dispositivo](media/howto-connect-nodejs/viewproperties.png)
 
-* Impostare la temperatura della ventola velocità e la destinazione dal **impostazioni** pagina:
+* Impostare la velocità della ventola e la temperatura di destinazione dalla pagina **Impostazioni** :
 
     ![Impostare la velocità della ventola](media/howto-connect-nodejs/setfanspeed.png)
 
-* Chiamare il comando del conto alla rovescia dal **comandi** pagina:
+* Chiamare il comando Countdown dalla pagina **comandi** :
 
-    ![Chiamare il comando del conto alla rovescia](media/howto-connect-nodejs/callcountdown.png)
+    ![Comando call Countdown](media/howto-connect-nodejs/callcountdown.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo avere appreso come connettere un client Node. js generico per l'applicazione Azure IoT Central, il passaggio successivo consigliato consiste informazioni su come [configurare un modello di dispositivo personalizzata](howto-set-up-template.md) per dispositivo IoT.
+Ora che si è appreso come connettere un client Node. js generico all'applicazione IoT Central di Azure, il passaggio successivo suggerito consiste nell'apprendere come [configurare un modello di dispositivo personalizzato](howto-set-up-template.md) per il proprio dispositivo.

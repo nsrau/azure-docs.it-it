@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: 8e7456eff3062ef6667e7b0022ea9740c397a493
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 5ffa77a05e6019ee6b5e29c5af5ed0130e027cae
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679239"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876510"
 ---
 > [!NOTE]
 > Questo documento illustra in dettaglio l'elenco delle funzionalità che sono state ritirate dal centro sicurezza di Azure il 31 luglio 2019.
@@ -160,7 +160,7 @@ Il Centro sicurezza può abilitare [soluzioni di sicurezza integrate in Azure](h
 - [Microsoft Advanced Threat Analytics](https://docs.microsoft.com/azure/sentinel/connect-azure-atp)
 - [Azure AD Identity Protection](https://docs.microsoft.com/azure/sentinel/connect-azure-ad-identity-protection)
 
-Al termine del ritiro non sarà possibile aggiungere o modificare i tipi di soluzione indicati nell'elenco precedente, dall'interfaccia utente o dall'API.
+Al termine del ritiro non sarà possibile aggiungere o modificare i tipi di soluzione indicati nell'elenco precedente, dall'interfaccia utente o dall'API. Il Centro sicurezza di Azure non troverà più le nuove istanze delle soluzioni partner sopra indicate.
 
 Se si hanno soluzioni connesse esistenti, si consiglia di passare ad Azure Sentinel.
 

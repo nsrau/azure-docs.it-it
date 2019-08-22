@@ -2,19 +2,19 @@
 title: Domande frequenti - Ricerca di Azure
 description: Risposte alle domande frequenti sul servizio Ricerca di Microsoft Azure, un servizio di ricerca ospitato sul cloud in Microsoft Azure.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c77f26187914b2c6e52426bb2a07303b22ccb2b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4aae2f2ef9ccbc645647125682d999c11c99ab6
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65023986"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69649821"
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Ricerca di Azure: Domande frequenti
 
@@ -64,7 +64,7 @@ Non esistono restrizioni all'utilizzo di repliche primarie o secondarie come ori
 
 No, questa operazione non è supportata. La ricerca avviene sempre nell'ambito di un singolo indice.
 
-### <a name="can-i-restrict-search-index-access-by-user-identity"></a>È possibile limitare l'accesso all'indice di ricerca dall'identità dell'utente?
+### <a name="can-i-restrict-search-index-access-by-user-identity"></a>È possibile limitare l'accesso all'indice di ricerca in base all'identità dell'utente?
 
 È possibile implementare [ filtri di sicurezza](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search) con `search.in()` filtro. Il filtro si integra bene con i [servizi di gestione delle identità come Azure Active Directory(AAD)](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search-with-aad) per limitare i risultati della ricerca in base all'appartenenza al gruppo utente definita.
 

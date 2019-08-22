@@ -7,12 +7,12 @@ ms.date: 08/10/2018
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: 9e0e024a5bd3c9cf16879bb9ea93727a338ddbf4
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
-ms.translationtype: MT
+ms.openlocfilehash: ee8dd9da186013dc168e20e6b8b842cca85de172
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986401"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877634"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usare l'emulatore di archiviazione di Azure per sviluppo e test
 
@@ -221,9 +221,21 @@ Non esistono differenze specifiche per l'archiviazione di accodamento nell'emula
 
 ## <a name="storage-emulator-release-notes"></a>Note sulla versione dell'emulatore di archiviazione
 
+### <a name="version-510"></a>Versione 5,10
+
+* L'emulatore di archiviazione non rifiuterà la versione 2019-07-07 dei servizi di archiviazione sugli endpoint di servizio BLOB, di Accodamento e tabelle.
+
+### <a name="version-59"></a>Versione 5,9
+
+* L'emulatore di archiviazione non rifiuterà la versione 2019-02-02 dei servizi di archiviazione sugli endpoint di servizio BLOB, di Accodamento e tabelle.
+
+### <a name="version-58"></a>Versione 5,8
+
+* L'emulatore di archiviazione non rifiuterà la versione 2018-11-09 dei servizi di archiviazione sugli endpoint di servizio BLOB, di Accodamento e tabelle.
+
 ### <a name="version-57"></a>Versione 5.7
 
-È stato risolto un bug che causava l'arresto del sistema quando era abilitata la registrazione.
+* È stato risolto un bug che causava l'arresto del sistema quando era abilitata la registrazione.
 
 ### <a name="version-56"></a>Versione 5.6
 
@@ -236,11 +248,11 @@ Non esistono differenze specifiche per l'archiviazione di accodamento nell'emula
 
 ### <a name="version-54"></a>Versione 5.4
 
-Per migliorare la stabilità dell'installazione, l'emulatore non tenta più di riservare le porte in fase di installazione. Se si vogliono prenotare porte, usare l'opzione *- reserveports* del comando **init** per specificarle.
+* Per migliorare la stabilità dell'installazione, l'emulatore non tenta più di riservare le porte in fase di installazione. Se si vogliono prenotare porte, usare l'opzione *- reserveports* del comando **init** per specificarle.
 
 ### <a name="version-53"></a>Versione 5.3
 
-L'emulatore di archiviazione supporta ora la versione 2017-07-29 dei servizi di archiviazione per gli endpoint BLOB, della coda e del servizio tabelle.
+* L'emulatore di archiviazione supporta ora la versione 2017-07-29 dei servizi di archiviazione per gli endpoint BLOB, della coda e del servizio tabelle.
 
 ### <a name="version-52"></a>Versione 5.2
 
@@ -249,7 +261,7 @@ L'emulatore di archiviazione supporta ora la versione 2017-07-29 dei servizi di 
 
 ### <a name="version-51"></a>Versione 5.1
 
-È stato risolto un bug per cui l'emulatore di archiviazione restituiva l'intestazione `DataServiceVersion` in risposte in cui il servizio non era presente.
+* È stato risolto un bug per cui l'emulatore di archiviazione restituiva l'intestazione `DataServiceVersion` in risposte in cui il servizio non era presente.
 
 ### <a name="version-50"></a>Versione 5.0
 

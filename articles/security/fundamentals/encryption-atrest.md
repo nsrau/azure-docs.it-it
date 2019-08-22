@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2019
+ms.date: 08/20/2019
 ms.author: barclayn
-ms.openlocfilehash: 89acc86526d1017e97efbf1812e02cfb6a240953
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 910057e0e81219a68608441530d03ca1a2411b02
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035420"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875104"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Crittografia dei dati inattivi di Azure
 
@@ -254,66 +254,66 @@ Il supporto per la crittografia server viene attualmente fornito tramite la funz
 
 La crittografia lato client dei dati di Database SQL di Azure è supportata tramite la funzionalità [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). Always Encrypted usa una chiave creata e archiviata dal client. I clienti possono archiviare la chiave master in un archivio certificati di Windows, in Azure Key Vault o in un modulo di protezione hardware locale. Tramite SQL Server Management Studio, gli utenti SQL possono scegliere la chiave da usare per crittografare ogni colonna.
 
-|                                  |                    | **Modello di crittografia e gestione delle chiavi** |                    |
-|----------------------------------|--------------------|-----------------------------------------|--------------------|
-|                                  | **Lato server con chiave gestita dal servizio**     | **Lato server con chiave gestita dal cliente**             | **Lato client con chiave gestita dal client**      |
-| **Intelligenza artificiale e Machine Learning**      |                    |                    |                    |
+#### <a name="encryption-model-and-key-management"></a>Modello di crittografia e gestione delle chiavi
+
+| **Lato server con chiave gestita dal servizio** |**Lato server con chiave gestita dal cliente**| **Lato client con chiave gestita dal client** | **Intelligenza artificiale e Machine Learning**   |
+|--------------------|-------------------|----------------------|--------------------|
 | Ricerca di Azure                     | Sì                | -                  | -                  |
 | Servizio Azure Machine Learning   | Yes                | -                  | -                  |
 | Azure Machine Learning Studio    | Yes                | Anteprima, RSA a 2048 bit | -               |
-| Power BI                         | Sì                | Anteprima, RSA a 2048 bit | -                  |
+| Power BI                         | Yes                | Anteprima, RSA a 2048 bit | -               |
 | **Analisi**                    |                    |                    |                    |
-| Analisi di flusso di Azure           | Yes                | -                  | -                  |
+| Analisi di flusso di Azure           | Sì                | -                  | -                  |
 | Hub eventi                       | Sì                | -                  | -                  |
-| Azure Analysis Services          | Yes                | -                  | -                  |
-| Azure Data Catalog               | Sì                | -                  | -                  |
-| Apache Kafka in Azure HDInsight  | Sì                | Tutte le lunghezze di RSA.   | -                  |
+| Azure Analysis Services          | Sì                | -                  | -                  |
+| Azure Data Catalog               | Yes                | -                  | -                  |
+| Apache Kafka in Azure HDInsight  | Yes                | Tutte le lunghezze di RSA.   | -                  |
 | Data factory di Azure               | Sì                | -                  | -                  |
-| Archivio Azure Data Lake            | Sì                | Sì, RSA a 2048 bit  | -                  |
+| Archivio Azure Data Lake            | Yes                | Sì, RSA a 2048 bit  | -                  |
 | **Contenitori**                   |                    |                    |                    |
-| Servizio Azure Kubernetes         | Sì                | -                  | -                  |
+| Servizio Azure Kubernetes         | Yes                | -                  | -                  |
 | Registro Container               | Sì                | -                  | -                  |
 | **Calcolo**                      |                    |                    |                    |
 | Macchine virtuali                 | Yes                | Sì, RSA a 2048 bit  | -                  |
-| Set di scalabilità di macchine virtuali        | Sì                | Sì, RSA a 2048 bit  | -                  |
+| Set di scalabilità di macchine virtuali        | Yes                | Sì, RSA a 2048 bit  | -                  |
 | SAP HANA                         | Sì                | Sì, RSA a 2048 bit  | -                  |
 | **Database**                    |                    |                    |                    |
-| SQL Server nelle macchine virtuali   | Sì                | Sì, RSA a 2048 bit  | Yes                |
-| Database SQL di Azure               | Yes                | Sì, RSA a 2048 bit  | Yes                |
+| SQL Server nelle macchine virtuali   | Yes                | Sì, RSA a 2048 bit  | Yes                |
+| Database SQL di Azure               | Sì                | Sì, RSA a 2048 bit  | Sì                |
 | Database SQL di Azure per MariaDB   | Yes                | -                  | -                  |
 | Database SQL di Azure per MySQL     | Sì                | -                  | -                  |
-| Database SQL di Azure per PostgreSQL | Sì                | -                  | -                  |
-| Azure SQL Data Warehouse         | Sì                | Sì, RSA a 2048 bit  | Yes                |
-| SQL Server Stretch Database      | Sì                | Sì, RSA a 2048 bit  | Yes                |
-| Archiviazione tabelle                    | Yes                | -                  | Sì                |
+| Database SQL di Azure per PostgreSQL | Yes                | -                  | -                 |
+| Azure SQL Data Warehouse         | Sì                | Sì, RSA a 2048 bit  | Sì                |
+| SQL Server Stretch Database      | Yes                | Sì, RSA a 2048 bit  | Yes                |
+| Archiviazione tabelle                    | Sì                | -                  | Yes                |
 | Azure Cosmos DB                  | Sì                | -                  | -                  |
 | **DevOps**                       |                    |                    |                    |
 | Azure DevOps                     | Sì                | -                  | Sì                |
-| Azure Repos                      | Yes                | -                  | Sì                |
+| Azure Repos                      | Sì                | -                  | Sì                |
 | **Identità**                     |                    |                    |                    |
 | Azure Active Directory           | Sì                | -                  | -                  |
-| Servizi di dominio Azure Active Directory | Yes          | Sì, RSA a 2048 bit  | -                  |
+| Servizi di dominio Azure Active Directory | Sì          | Sì, RSA a 2048 bit  | -                  |
 | **Integrazione**                  |                    |                    |                    |
-| Bus di servizio                      | Yes                | -                  | Yes                |
-| Griglia eventi                       | Sì                | -                  | -                  |
+| Bus di servizio                      | Sì                | -                  | Sì                |
+| Griglia eventi                       | Yes                | -                  | -                  |
 | Gestione API                   | Sì                | -                  | -                  |
 | **Servizi IoT**                 |                    |                    |                    |
 | Hub IoT                          | Yes                | -                  | Sì                |
 | **Gestione e governance**    |                    |                    |                    |
-| Azure Site Recovery              | Sì                | Sì, RSA a 2048 bit  | Sì                |
+| Azure Site Recovery              | Sì                | Sì, RSA a 2048 bit  | Yes                |
 | **Media**                        |                    |                    |                    |
-| Servizi multimediali                   | Yes                | -                  | Yes                |
+| Servizi multimediali                   | Sì                | -                  | Sì                |
 | **Archiviazione**                      |                    |                    |                    |
-| Archiviazione BLOB                     | Sì                | Sì, RSA a 2048 bit  | Sì                |
-| Archiviazione su disco                     | Yes                | -                  | -                  |
-| Archiviazione su dischi gestiti             | Yes                | -                  | -                  |
-| Archiviazione file                     | Yes                | Sì, RSA a 2048 bit  | -                  |
-| Archiviazione code                    | Yes                | -                  | Sì                |
-| Avere vFXT                       | Sì                | -                  | -                  |
+| Archiviazione BLOB                     | Yes                | Sì, RSA a 2048 bit  | Yes                |
+| Archiviazione su disco                     | Sì                | -                  | -                  |
+| Archiviazione su dischi gestiti             | Sì                | -                  | -                  |
+| Archiviazione file                     | Sì                | Sì, RSA a 2048 bit  | -                  |
+| Archiviazione code                    | Sì                | -                  | Sì                |
+| Avere vFXT                       | Yes                | -                  | -                  |
 | Azure NetApp Files               | Sì                | -                  | -                  |
 | Spazio di archiviazione                  | Sì                | Sì, RSA a 2048 bit  | -                  |
-| StorSimple                       | Sì                | Sì, RSA a 2048 bit  | Sì                |
-| Backup di Azure                     | Sì                | -                  | Sì                |
+| StorSimple                       | Sì                | Sì, RSA a 2048 bit  | Yes                |
+| Backup di Azure                     | Yes                | -                  | Sì                |
 | Data Box                         | Yes                | -                  | Sì                |
 
 ## <a name="conclusion"></a>Conclusione

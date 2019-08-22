@@ -2,19 +2,19 @@
 title: Come gestire le scritture simultanee nelle risorse - Ricerca di Azure
 description: Usare la concorrenza ottimistica per evitare conflitti a livello di aggiornamento o di eliminazione in indici, indicizzatori e origini dati di Ricerca di Azure.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 7e569fa30727f2df7411eee5fa6d48f9b9454460
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67f2dad016d3958dc10ba87e785d31694a1c94f5
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65025331"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656728"
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>Come gestire la concorrenza in Ricerca di Azure
 
@@ -170,7 +170,7 @@ Il codice seguente illustra i controlli accessCondition per le principali operaz
 
 Uno schema progettuale per l'implementazione della concorrenza ottimistica deve includere un ciclo che recupera il controllo della condizione di accesso, un test per la condizione di accesso e, facoltativamente, una risorsa aggiornata prima di provare ad applicare di nuovo le modifiche.
 
-Questo frammento di codice illustra l'aggiunta di synonymMap a un indice già esistente. Questo codice è tratto dal [sinonimo C# esempio di ricerca di Azure](search-synonyms-tutorial-sdk.md).
+Questo frammento di codice illustra l'aggiunta di synonymMap a un indice già esistente. Questo codice è riportato nell' [esempio C# di sinonimo di ricerca di Azure](search-synonyms-tutorial-sdk.md).
 
 Il frammento ottiene l'indice "hotels", controlla la versione dell'oggetto in un'operazione di aggiornamento, genera un'eccezione se la condizione ha esito negativo e quindi esegue un nuovo tentativo di operazione (fino a tre volte), iniziando con il recupero dell'indice dal server per ottenere la versione più recente.
 

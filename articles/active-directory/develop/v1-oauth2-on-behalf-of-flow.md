@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf0c639dd5fb678af7fca9224292218331b10ee6
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: accd14446ab8f4a70336e3bd6787cbd8c93ff21d
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834763"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891511"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Chiamate da servizio a servizio tramite l'identità utente delegato nel flusso on-behalf-of
 
@@ -196,7 +196,7 @@ Una risposta di esito positivo è una risposta OAuth 2.0 JSON con i parametri se
 
 L'esempio seguente mostra una risposta corretta a una richiesta di token di accesso per l'API Web https://graph.windows.net.
 
-```
+```json
 {
     "token_type":"Bearer",
     "scope":"User.Read",
@@ -215,7 +215,7 @@ L'esempio seguente mostra una risposta corretta a una richiesta di token di acce
 
 L'endpoint del token Azure AD restituisce una risposta di errore quando tenta di acquisire un token di accesso per un'API downstream impostata con criteri di accesso condizionale, ad esempio l'autenticazione a più fattori. Il servizio di livello intermedio deve esporre questo errore all'applicazione client in modo che l'applicazione client possa fornire l'interazione dell'utente per soddisfare i criteri di accesso condizionale.
 
-```
+```json
 {
     "error":"interaction_required",
     "error_description":"AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access 'bf8d80f9-9098-4972-b203-500f535113b1'.\r\nTrace ID: b72a68c3-0926-4b8e-bc35-3150069c2800\r\nCorrelation ID: 73d656cf-54b1-4eb2-b429-26d8165a52d7\r\nTimestamp: 2017-05-01 22:43:20Z",
@@ -272,7 +272,7 @@ La risposta contiene un token SAML con codifica UTF8 e Base64url.
 
 ### <a name="response-with-saml-assertion"></a>Risposta con asserzione SAML
 
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 | --- | --- |
 | token_type |Indica il valore del tipo di token. L'unico tipo supportato da Azure AD è **Bearer**. Per altre informazioni sui bearer token, vedere [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) (Framework di autorizzazione di OAuth 2.0: uso dei bearer token - RFC 6750). |
 | scope |L'ambito di accesso concesso nel token. |

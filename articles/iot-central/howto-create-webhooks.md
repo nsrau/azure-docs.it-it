@@ -8,22 +8,24 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: fdeefdc1ec5372d6ac17f0f985ee0c50ce902e56
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 508e8b4b3a909e87f538f67b1ad9a5efdbcd9551
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165317"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876030"
 ---
 # <a name="create-webhook-actions-on-rules-in-azure-iot-central"></a>Creare webhook per le regole in Azure IoT Central
 
 *Questo argomento è rivolto ai responsabili della compilazione e agli amministratori.*
 
-I webhook consentono di connettere l'app IoT Central ad altre applicazioni e servizi per il monitoraggio remoto e le notifiche. I webhook inviano automaticamente notifiche ad altre applicazioni e servizi a cui ci si connette ogni volta che viene attivata una regola nell'app IoT Central. L'app IoT Central invia una richiesta POST all'endpoint HTTP dell'applicazione ogni volta che viene attivata una regola. Il payload contiene i dettagli del dispositivo e i dettagli trigger della regola.
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
+I webhook consentono di connettere l'app IoT Central ad altre applicazioni e servizi per il monitoraggio remoto e le notifiche. I webhook inviano automaticamente notifiche ad altre applicazioni e servizi a cui ci si connette ogni volta che viene attivata una regola nell'app IoT Central. L'app IoT Central invia una richiesta POST all'endpoint HTTP dell'altra applicazione ogni volta che viene attivata una regola. Il payload contiene i dettagli del dispositivo e i dettagli del trigger di regola.
 
 ## <a name="set-up-the-webhook"></a>Configurare il webhook
 
-In questo esempio, si connette a RequestBin per ricevere notifiche quando le regole vengono generati usando i webhook.
+In questo esempio si esegue la connessione a RequestBin per ricevere una notifica quando vengono attivate le regole usando i webhook.
 
 1. Aprire [RequestBin](https://requestbin.net/).
 
@@ -31,17 +33,17 @@ In questo esempio, si connette a RequestBin per ricevere notifiche quando le reg
 
 1. Creare una [regola di telemetria](howto-create-telemetry-rules.md) o una [regola eventi](howto-create-event-rules.md). Salvare la regola e aggiungere una nuova azione.
 
-    ![Schermata di creazione di Webhook](media/howto-create-webhooks/webhookcreate.png)
+    ![Schermata di creazione del webhook](media/howto-create-webhooks/webhookcreate.png)
 
 1. Scegliere l'azione del webhook e specificare un nome visualizzato e incollare l'URL del contenitore come URL di callback.
 
 1. Salvare la regola.
 
-Ora quando viene attivata la regola, viene visualizzata una nuova richiesta di RequestBin.
+A questo punto, quando viene attivata la regola, viene visualizzata una nuova richiesta in RequestBin.
 
 ## <a name="payload"></a>Payload
 
-Quando viene attivata una regola, viene effettuata una richiesta HTTP POST all'URL di callback contenente un payload JSON con i dettagli su misure, dispositivi, regole e applicazioni. Per una regola di dati di telemetria, il payload è simile a quanto segue:
+Quando viene attivata una regola, viene effettuata una richiesta HTTP POST all'URL di callback contenente un payload JSON con i dettagli su misure, dispositivi, regole e applicazioni. Per una regola di telemetria, il payload ha un aspetto simile al seguente:
 
 ```json
 {
@@ -97,4 +99,4 @@ Inviare eventuali suggerimenti su come migliorare questa funzionalità al [forum
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si è appreso come configurare e usare i webhook, il passaggio successivo consigliato è esplorare [compilazione di flussi di lavoro in Microsoft Flow](howto-add-microsoft-flow.md).
+Ora che si è appreso come configurare e usare i webhook, il passaggio successivo suggerito consiste nell'esplorazione della [creazione di flussi di lavoro in Microsoft Flow](howto-add-microsoft-flow.md).

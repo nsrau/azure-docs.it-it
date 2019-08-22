@@ -2,19 +2,19 @@
 title: Implementare Analisi del traffico di ricerca - Ricerca di Azure
 description: Abilitare Analisi del traffico di ricerca per Ricerca di Azure per aggiungere dati di telemetria ed eventi avviati dall'utente nei file di log.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b15ae30151b22509a78b9a39d258991363a05e5b
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: bb12ed2f18df100ab3f679e7a8a3ef1e7c1aca45
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295431"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647808"
 ---
 # <a name="implement-search-traffic-analytics-in-azure-search"></a>Implementare Analisi del traffico di ricerca in Ricerca di Azure
 Analisi del traffico di ricerca è un modello per l'implementazione di un ciclo di feedback per il servizio di ricerca. Questo modello descrive i dati necessari e come raccoglierli utilizzando Application Insights, uno strumento leader di settore per il monitoraggio dei servizi in più piattaforme.
@@ -98,7 +98,7 @@ Per altre piattaforme e altri linguaggi, vedere l'[elenco](https://docs.microsof
 
 Ogni volta che un utente esegue una richiesta di ricerca, è necessario registrarla come evento di ricerca con lo schema seguente in un evento personalizzato di Application Insights:
 
-**SearchServiceName**: nome del servizio di ricerca (string) **SearchId**: identificatore univoco (guid) della query di ricerca (include nella risposta della ricerca) **IndexName**: (string) servizio indice di ricerca eseguire una query **QueryTerms**: termini di ricerca (string) immessi dall'utente **ResultCount**: (int) numero di documenti restituiti (include nella risposta della ricerca)  **ScoringProfile**: nome (stringa) del profilo di punteggio usato, se presente
+**SearchServiceName**: (String) nome del servizio di ricerca SearchId: (Guid) identificatore univoco della query di ricerca (si trova nella rispostadi ricerca) IndexName: (String) indice del servizio di ricerca da sottoporre a query **QueryTerms**: (String) search termini immessi dall'utente **Resultcount**: (int) numero di documenti restituiti (in risposta alla ricerca) **ScoringProfile**: (String) nome del profilo di punteggio usato, se disponibile.
 
 > [!NOTE]
 > Richiedere il conteggio nelle query generate dall'utente mediante l'aggiunta di $count=true alla query di ricerca. Ulteriori informazioni sono disponibili [qui](https://docs.microsoft.com/rest/api/searchservice/search-documents#request).

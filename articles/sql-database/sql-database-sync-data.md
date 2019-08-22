@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-ms.date: 01/25/2019
-ms.openlocfilehash: 24e340d25cb57f9a35f06f6dbd5a394d60a14fad
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/20/2019
+ms.openlocfilehash: 7ff7712130372dcfd277750e881cccce23b36465
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566430"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648354"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL
 
@@ -118,6 +118,12 @@ Sulle prestazioni del database possono incidere anche il provisioning e il depro
 ### <a name="general-requirements"></a>Requisiti generali
 
 - Ogni tabella deve avere una chiave primaria. Non modificare il valore della chiave primaria in alcuna riga. Se è necessario modificare un valore della chiave primaria, eliminare la riga e ricrearla con il nuovo valore della chiave primaria. 
+
+> [!IMPORTANT]
+> La modifica del valore di una chiave primaria esistente provocherà il comportamento difettoso seguente:   
+>   - I dati tra l'hub e il membro possono essere persi anche se la sincronizzazione non segnala alcun problema.
+> - La sincronizzazione può avere esito negativo perché la tabella di rilevamento include una riga non esistente dall'origine a causa della modifica della chiave primaria.
+
 - L'isolamento dello snapshot deve essere abilitato. Per altre informazioni, vedere [Isolamento dello snapshot in SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### <a name="general-limitations"></a>Limitazioni generali
@@ -139,7 +145,7 @@ Sulle prestazioni del database possono incidere anche il provisioning e il depro
 
 #### <a name="unsupported-column-types"></a>Tipi di colonna non supportati
 
-La sincronizzazione dati non sincronizza le colonne di sola lettura o generate dal sistema. Ad esempio:
+La sincronizzazione dati non sincronizza le colonne di sola lettura o generate dal sistema. Esempio:
 
 - Colonne calcolate.
 - Colonne generate dal sistema per le tabelle temporali.

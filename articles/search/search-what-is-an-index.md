@@ -2,19 +2,19 @@
 title: Creare una definizione di indice e concetti - Ricerca di Azure
 description: Introduzione all'indicizzazione di termini e concetti in Ricerca di Azure, incluse le parti dei componenti e la struttura fisica.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 0a6a5b0e3957141b9ea17a378a7cbeff33a0124e
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 0a26cfc578f12044cb5834f202a0fed5d0a30274
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485196"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647361"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Creare un indice di base in Ricerca di Azure
 
@@ -46,7 +46,7 @@ Il raggiungimento di una corretta progettazione degli indici si ottiene in gener
 
 6. Continuare a usare il codice per eseguire l'iterazione sul progetto.  
 
-Poiché nel servizio, vengono create strutture fisiche [eliminando e ricreando gli indici](search-howto-reindex.md) è necessaria ogni volta che si apportano modifiche sostanziali modifiche a una definizione di campo esistente. Ciò significa che durante lo sviluppo, è necessario pianificare ricompilazioni frequenti. È possibile prendere in considerazione l'uso di un subset di dati per velocizzare le ricompilazioni. 
+Poiché le strutture fisiche vengono create nel servizio, è necessario [eliminare e ricreare](search-howto-reindex.md) gli indici quando si apportano modifiche sostanziali a una definizione di campo esistente. Ciò significa che durante lo sviluppo, è necessario pianificare ricompilazioni frequenti. È possibile prendere in considerazione l'uso di un subset di dati per velocizzare le ricompilazioni. 
 
 Per la progettazione iterativa è consigliabile un codice anziché un approccio basato sul portale. Se ci si affida al portale per la definizione dell'indice, è necessario compilare la definizione dell'indice a ogni ricompilazione. In alternativa, strumenti come [Postman e API REST](search-get-started-postman.md) sono utili per eseguire test dei modelli di verifica quando i progetti di sviluppo sono ancora in fase iniziale. È possibile apportare modifiche incrementali a una definizione di indice nel corpo della richiesta e quindi inviare la richiesta al servizio per ricreare un indice usando uno schema aggiornato.
 
@@ -54,7 +54,7 @@ Per la progettazione iterativa è consigliabile un codice anziché un approccio 
 
 In modo schematico, un indice Ricerca di Azure è costituito dagli elementi seguenti. 
 
-La [*raccolta campi*](#fields-collection) in genere costituisce la maggior parte di un indice, in cui ogni campo è denominato, tipizzato e attribuito con comportamenti consentiti che determinano la modalità di utilizzo. Gli altri elementi figurano [suggesters](#suggesters), [profili di punteggio](#scoring-profiles), [analizzatori](#analyzers) con parti di componenti per supportare la personalizzazione, [CORS](#cors) e [chiave di crittografia](#encryption-key) opzioni.
+La [*raccolta campi*](#fields-collection) in genere costituisce la maggior parte di un indice, in cui ogni campo è denominato, tipizzato e attribuito con comportamenti consentiti che determinano la modalità di utilizzo. Altri elementi includono [suggerimenti](#suggesters), [profili di Punteggio](#scoring-profiles)e [analizzatori](#analyzers) con parti componente per supportare le opzioni di personalizzazione, [CORS](#cors) e chiave di [crittografia](#encryption-key) .
 
 ```json
 {
@@ -161,13 +161,13 @@ Quando si definisce lo schema, è necessario specificare il nome, tipo e gli att
 
 ### <a name="index-attributes"></a>Attributi dell'indice
 
-Esattamente un campo nell'indice deve essere designato come un **chiave** campo che identifica in modo univoco ogni documento.
+Esattamente un campo nell'indice deve essere designato come un campo **chiave** che identifica in modo univoco ogni documento.
 
-Altri attributi determinano come un campo viene usato in un'applicazione. Ad esempio, il **ricercabili** attributo viene assegnato a tutti i campi che devono essere inclusi nella ricerca full-text. 
+Altri attributi determinano la modalità di utilizzo di un campo in un'applicazione. Ad esempio, l' attributo ricercabile viene assegnato a ogni campo che deve essere incluso in una ricerca full-text. 
 
-Le API usate per compilare un indice sono diversi comportamenti predefiniti. Per il [le API REST](https://docs.microsoft.com/rest/api/searchservice/Create-Index), la maggior parte degli attributi sono abilitati per impostazione predefinita (ad esempio, **ricercabile** e **recuperabile** sono true per i campi stringa) ed è spesso sufficiente impostarli se si vuole disattivarli. Per .NET SDK, è vero il contrario. In qualsiasi proprietà che non viene impostato in modo esplicito, il valore predefinito consiste nel disabilitare il comportamento di ricerca corrispondenti a meno che non è abilitata specificamente.
+Le API usate per compilare un indice hanno comportamenti predefiniti variabili. Per le [API REST](https://docs.microsoft.com/rest/api/searchservice/Create-Index), la maggior parte degli attributi è abilitata per impostazione predefinita (ad esempio, la **ricerca** e il **recupero** sono true per i campi di stringa) ed è spesso necessario impostarli solo se si desidera disattivarli. Per .NET SDK, il valore opposto è true. Per le proprietà non impostate in modo esplicito, per impostazione predefinita viene disabilitato il comportamento di ricerca corrispondente, a meno che non venga abilitato in modo specifico.
 
-| Attributo | Descrizione |
+| Attributo | DESCRIZIONE |
 | --- | --- |
 | `key` |Stringa che fornisce l'ID univoco di ogni documento, usata per la ricerca di documenti. Ogni indice deve avere una chiave. Un solo campo può essere la chiave e deve essere impostata su Edm.String. |
 | `retrievable` |Specifica se il campo può essere restituito nel risultato di una ricerca. |
@@ -181,7 +181,7 @@ Le API usate per compilare un indice sono diversi comportamenti predefiniti. Per
 
 Gli attributi selezionati hanno un impatto sull'archiviazione. Lo screenshot seguente illustra i modelli di archiviazione dell'indice derivanti da diverse combinazioni di attributi.
 
-L'indice è basato sul [immobiliare incorporati esempio](search-get-started-portal.md) origine dati, che è possibile indicizzare ed eseguire una query nel portale. Anche se non vengono visualizzati gli schemi dell'indice, è possibile dedurre gli attributi in base al nome dell'indice. Ad esempio, l'indice *realestate-searchable*ha soltanto l'attributo **ricercabile** selezionato, l'indice *realestate-retrievable*ha soltanto l'attributo **recuperabile** selezionato e così via.
+L'indice è basato sull'origine dati [incorporata di esempio Real Immobiliare](search-get-started-portal.md) , che è possibile indicizzare ed eseguire query nel portale. Anche se non vengono visualizzati gli schemi dell'indice, è possibile dedurre gli attributi in base al nome dell'indice. Ad esempio, l'indice *realestate-searchable*ha soltanto l'attributo **ricercabile** selezionato, l'indice *realestate-retrievable*ha soltanto l'attributo **recuperabile** selezionato e così via.
 
 ![Dimensioni dell'indice in base alla selezione dell'attributo](./media/search-what-is-an-index/realestate-index-size.png "Dimensioni dell'indice in base alla selezione dell'attributo")
 
@@ -221,7 +221,7 @@ Per CORS è possibile impostare le opzioni seguenti:
 
 ## <a name="encryption-key"></a>Chiave di crittografia
 
-Mentre tutti gli indici di ricerca di Azure vengono crittografati per impostazione predefinita con chiavi gestite da Microsoft, gli indici possono essere configurati per essere crittografato con **chiavi gestite dal cliente** in Azure Key Vault. Per altre informazioni, vedere [gestire le chiavi di crittografia in ricerca di Azure](search-security-manage-encryption-keys.md).
+Sebbene tutti gli indici di ricerca di Azure siano crittografati per impostazione predefinita usando chiavi gestite da Microsoft, è possibile configurare gli indici per la crittografia con **chiavi gestite dal cliente** in Key Vault. Per altre informazioni, vedere [gestire le chiavi di crittografia in ricerca di Azure](search-security-manage-encryption-keys.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

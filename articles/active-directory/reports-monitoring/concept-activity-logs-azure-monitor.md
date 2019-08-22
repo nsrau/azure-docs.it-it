@@ -17,12 +17,12 @@ ms.date: 04/22/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8fb570d328c7391c269d4a2aa91c69003b1cfc8
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: f62ad020d2ec3b5ab712f50dca2dddd3b981f098
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989881"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656474"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure AD log attività in monitoraggio di Azure
 
@@ -70,7 +70,7 @@ Se si dispone già di una licenza di Azure AD, è necessaria una sottoscrizione 
 
 ### <a name="storage-size-for-activity-logs"></a>Dimensioni di archiviazione per i log attività
 
-Ogni evento del log di controllo usa circa 2 KB di archiviazione dati. Per un tenant con 100.000 utenti, che potrebbe comportare circa 1,5 milioni di eventi al giorno, occorrerebbero circa 3 GB di archiviazione dati al giorno. Dato che le scritture vengono eseguite in batch ogni 5 minuti circa, è possibile prevedere circa 9.000 operazioni di scrittura al mese. 
+Ogni evento del log di controllo usa circa 2 KB di archiviazione dati. I registri eventi di accesso sono pari a circa 4 KB di archiviazione dati. Per un tenant con 100.000 utenti, che potrebbe comportare circa 1,5 milioni di eventi al giorno, occorrerebbero circa 3 GB di archiviazione dati al giorno. Dato che le scritture vengono eseguite in batch ogni 5 minuti circa, è possibile prevedere circa 9.000 operazioni di scrittura al mese. 
 
 
 La tabella seguente contiene una stima del costo, a seconda delle dimensioni del tenant, per un account di archiviazione per utilizzo generico v2 negli Stati Uniti occidentali per almeno un anno di conservazione. Usare il [calcolatore prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/blobs/) per creare una stima più accurata per il volume di dati previsto per l'applicazione.

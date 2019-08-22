@@ -8,14 +8,14 @@ ms.author: sahubbar
 ms.date: 07/08/2019
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 298770b1b2da816ddef9154fafb20d7c6cb82df3
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 6c18a244ceae2ccd9a536abeb6bc2d85760bb0a6
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849032"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875918"
 ---
-# <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Creare ed eseguire un processo nell'applicazione Azure IoT Central
+# <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Creare ed eseguire un processo nell'applicazione IoT Central di Azure
 
 È possibile usare Microsoft Azure IoT Central per gestire i dispositivi connessi su larga scala che usano i processi. I processi consentono di eseguire aggiornamenti in blocco per le proprietà, le impostazioni e i comandi del dispositivo. Questo articolo illustra come iniziare a usare i processi nella propria applicazione.
 
@@ -27,7 +27,7 @@ Questa sezione descrive come creare ed eseguire un processo. Viene illustrato co
 
 1. Selezionare **+ nuovo** per creare un nuovo processo.
 
-    ![Creare un nuovo processo](./media/howto-run-a-job/createnewjob.png)
+    ![Crea nuovo processo](./media/howto-run-a-job/createnewjob.png)
 
 1. Immettere un nome e una descrizione per identificare il processo che si sta creando.
 
@@ -41,7 +41,7 @@ Questa sezione descrive come creare ed eseguire un processo. Viene illustrato co
 
 1. Dopo aver selezionato i dispositivi, scegliere **Esegui** o **Salva**. Il processo verrà ora visualizzato nella pagina dei **processi** principali. In questa visualizzazione è possibile visualizzare il processo attualmente in esecuzione e la cronologia di tutti i processi eseguiti in precedenza. Il processo in esecuzione viene sempre visualizzato nella parte superiore dell'elenco. È possibile aprire nuovamente il processo salvato in qualsiasi momento per continuare la modifica o l'esecuzione.
 
-    ![Visualizzare il processo](./media/howto-run-a-job/viewjob.png)
+    ![Visualizza processo](./media/howto-run-a-job/viewjob.png)
 
     > [!NOTE]
     > È possibile visualizzare la cronologia dei processi eseguiti in precedenza per un massimo di 30 giorni.
@@ -84,7 +84,7 @@ Il messaggio di stato è seguito da una panoramica dei dispositivi nel processo.
 
 | Messaggio di stato       | Significato dello stato                                                     |
 | -------------------- | ------------------------------------------------------------------ |
-| Succeeded            | Il numero di dispositivi in cui il processo è stato eseguito correttamente.       |
+| Riuscita            | Il numero di dispositivi in cui il processo è stato eseguito correttamente.       |
 | Failed               | Il numero di dispositivi in cui l'esecuzione del processo non è riuscita.       |
 
 ### <a name="view-the-device-status"></a>Visualizzare lo stato del dispositivo

@@ -6,14 +6,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08/16/2019
 ms.author: robinsh
-ms.openlocfilehash: 81b2145e6107558f2d9698c7e5d03658f1129b00
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 63534260e042a1b47ca5e635c48123672d663a9b
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667937"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873269"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Pianificare e trasmettere processi (Python)
 
@@ -47,15 +47,17 @@ Al termine di questa esercitazione si hanno due app Python:
 
 **scheduleJobService.py**, che chiama un metodo diretto nell'app del dispositivo simulato e aggiorna le proprietà desiderate di un dispositivo gemello tramite un processo.
 
-[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
-
-Di seguito sono riportate le istruzioni di installazione per i prerequisiti.
-
-[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
-
 > [!NOTE]
 > **Azure IoT SDK per Python** non supporta direttamente la funzionalità **Processi**. Questa esercitazione offre invece una soluzione alternativa tramite l'uso dii timer e thread asincroni. Per altri aggiornamenti, vedere l'elenco delle funzionalità **Service Client SDK** nella pagina [Azure IoT SDK per Python](https://github.com/Azure/azure-iot-sdk-python).
 >
+
+[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
+
+## <a name="prerequisites"></a>Prerequisiti
+
+Per completare questa esercitazione, sono necessari:
+
+[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
@@ -74,6 +76,10 @@ In questa sezione viene creata un'applicazione console Python che risponde a un 
     ```cmd/sh
     pip install azure-iothub-device-client
     ```
+
+   > [!NOTE]
+   > I pacchetti PIP per Azure-iothub-Service-client e Azure-iothub-Device-client sono attualmente disponibili solo per il sistema operativo Windows. Per Linux/Mac OS, vedere le sezioni specifiche per Linux e Mac OS dell' [ambiente di sviluppo per Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) .
+   >
 
 2. Usando un editor di testo, creare un nuovo file **simDevice.py** nella directory di lavoro.
 
@@ -158,9 +164,27 @@ In questa sezione viene creata un'applicazione console Python che risponde a un 
 
 ## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub Internet
 
-[!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
+In questo articolo viene creato un servizio back-end che richiama un metodo diretto su un dispositivo e aggiorna il dispositivo gemello. Il servizio deve disporre dell'autorizzazione **Connect** per chiamare un metodo diretto in un dispositivo. Il servizio necessita inoltre delle autorizzazioni di **lettura** del registro di sistema e di **scrittura del registro** di sistema per leggere e scrivere il registro delle identità. Non sono presenti criteri di accesso condiviso predefiniti che contengono solo queste autorizzazioni, quindi è necessario crearne uno.
 
-[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
+Per creare un criterio di accesso condiviso che concede le autorizzazioni di **connessione al servizio**, **lettura del registro**di sistema e **scrittura del registro** di sistema e per ottenere una stringa di connessione per questo criterio, attenersi alla procedura seguente:
+
+1. Aprire l'hub Internet delle cose nel [portale di Azure](https://portal.azure.com). Il modo più semplice per ottenere l'hub Internet è quello di selezionare i **gruppi di risorse**, selezionare il gruppo di risorse in cui si trova l'hub Internet e quindi selezionare l'hub delle cose dall'elenco di risorse.
+
+2. Nel riquadro sinistro dell'hub Internet, selezionare **criteri di accesso condiviso**.
+
+3. Dal menu superiore sopra l'elenco di criteri selezionare **Aggiungi**.
+
+4. Nel riquadro **Aggiungi criteri di accesso condiviso** immettere un nome descrittivo per il criterio. ad esempio: *serviceAndRegistryReadWrite*. In **autorizzazioni**selezionare **connessione al servizio** e **scrittura del registro** di sistema. la**lettura del registro di sistema** viene selezionata automaticamente quando si seleziona **scrittura del registro**di sistema. Selezionare quindi **Crea**.
+
+    ![Mostra come aggiungere nuovi criteri di accesso condiviso](./media/iot-hub-python-python-schedule-jobs/add-policy.png)
+
+5. Tornare al riquadro **criteri di accesso condivisi** e selezionare i nuovi criteri dall'elenco dei criteri.
+
+6. In **chiavi di accesso condivise**selezionare l'icona di copia per la **stringa di connessione--chiave primaria** e salvare il valore.
+
+    ![Mostrare come recuperare la stringa di connessione](./media/iot-hub-python-python-schedule-jobs/get-connection-string.png)
+
+Per altre informazioni sui criteri di accesso condiviso e sulle autorizzazioni dell'hub Internet, vedere [controllo di accesso e autorizzazioni](./iot-hub-devguide-security.md#access-control-and-permissions).
 
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>Pianificare i processi per chiamare un metodo diretto e aggiornare le proprietà dei dispositivi gemelli
 
@@ -172,9 +196,13 @@ In questa sezione si creerà un'app console Python che avvia un **lockDoor** rem
     pip install azure-iothub-service-client
     ```
 
+   > [!NOTE]
+   > I pacchetti PIP per Azure-iothub-Service-client e Azure-iothub-Device-client sono attualmente disponibili solo per il sistema operativo Windows. Per Linux/Mac OS, vedere le sezioni specifiche per Linux e Mac OS dell' [ambiente di sviluppo per Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) .
+   >
+
 2. Usando un editor di testo, creare un nuovo file **scheduleJobService.py** nella directory di lavoro.
 
-3. Aggiungere le variabili e le istruzioni `import` seguenti all'inizio del file **scheduleJobService.py**:
+3. Aggiungere le seguenti `import` variabili e istruzioni all'inizio del file **scheduleJobService.py** . Sostituire il `{IoTHubConnectionString}` segnaposto con la stringa di connessione dell'hub Internet che è stata copiata in precedenza in [ottenere la stringa di connessione dell'hub Internet](#get-the-iot-hub-connection-string). Sostituire il `{deviceId}` segnaposto con l'ID del dispositivo registrato in [registrare un nuovo dispositivo nell'hub](#register-a-new-device-in-the-iot-hub)Internet:
 
     ```python
     import sys

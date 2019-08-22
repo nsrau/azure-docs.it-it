@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 07/22/2019
-ms.openlocfilehash: 86350f21f5c530a00560c92cc0ae2fd58c9a2c57
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.date: 08/20/2019
+ms.openlocfilehash: ad08bb19f96aadad42e973eebb8adce6875e07b1
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780047"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876589"
 ---
 # <a name="secure-your-cluster-in-azure-data-explorer"></a>Proteggere il cluster in Azure Esplora dati
 
@@ -29,6 +29,9 @@ L'abilitazione della [crittografia](/azure/security/fundamentals/encryption-atre
 1. Nella finestra **sicurezza** selezionare **on** per l'impostazione di sicurezza **crittografia dischi** . 
 
 1. Selezionare **Salva**.
+ 
+> [!NOTE]
+> La crittografia può essere disabilitata dopo essere stata attivata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

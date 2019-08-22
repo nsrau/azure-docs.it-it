@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 0f8942d92958ee8add9645239cc5664a4a96bb33
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: f411771fbf39a99642506253fc025d6b29840423
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533365"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648649"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Rispondere agli eventi dell'hub IoT usando Griglia di eventi per attivare le azioni
 
@@ -72,7 +72,7 @@ L'esempio seguente illustra lo schema di un evento di dispositivo connesso:
 
 ### <a name="device-telemetry-schema"></a>Schema di telemetria del dispositivo
 
-Il messaggio di telemetria del dispositivo deve essere in un formato JSON valido con contentType impostato su JSON e contentEncoding impostato su UTF-8 nelle [proprietà del sistema](iot-hub-devguide-routing-query-syntax.md#system-properties)del messaggio. Se questo non è impostato, l'hub Internet scriverà i messaggi nel formato con codifica base 64.
+Il messaggio di telemetria del dispositivo deve essere in un formato JSON valido con contentType impostato su **Application/JSON** e ContentEncoding impostato su **UTF-8** nelle [proprietà del sistema](iot-hub-devguide-routing-query-syntax.md#system-properties)del messaggio. Entrambe le proprietà non fanno distinzione tra maiuscole e minuscole. Se la codifica del contenuto non è impostata, l'hub Internet scriverà i messaggi nel formato con codifica base 64.
 
 È possibile arricchire gli eventi di telemetria del dispositivo prima che vengano pubblicati in griglia di eventi selezionando l'endpoint come griglia di eventi. Per ulteriori informazioni, vedere [Cenni preliminari sugli arricchimenti dei messaggi](iot-hub-message-enrichments-overview.md).
 
@@ -174,9 +174,9 @@ L'oggetto di eventi IoT usa il formato:
 devices/{deviceId}
 ```
 
-Griglia di eventi consente inoltre di filtrare gli attributi di ogni evento, incluso il contenuto dei dati. In questo modo è possibile scegliere quali eventi vengono recapitati in base al contenuto del messaggio di telemetria. Per visualizzare esempi, vedere [filtro avanzato](../event-grid/event-filtering.md#advanced-filtering) . Per filtrare il corpo del messaggio di telemetria, è necessario impostare contentType su JSON e contentEncoding su UTF-8 nelle [proprietà del sistema](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)del messaggio.
+Griglia di eventi consente inoltre di filtrare gli attributi di ogni evento, incluso il contenuto dei dati. In questo modo è possibile scegliere quali eventi vengono recapitati in base al contenuto del messaggio di telemetria. Per visualizzare esempi, vedere [filtro avanzato](../event-grid/event-filtering.md#advanced-filtering) . Per filtrare il corpo del messaggio di telemetria, è necessario impostare contentType su **Application/JSON** e ContentEncoding su **UTF-8** nelle [proprietà del sistema](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)del messaggio. Entrambe le proprietà non fanno distinzione tra maiuscole e minuscole.
 
-Per gli eventi non di telemetria come DeviceConnected, DeviceDisconnected, DeviceCreated e DeviceDeleted, è possibile usare il filtro di griglia di eventi durante la creazione della sottoscrizione. Per gli eventi di telemetria, oltre al filtro in griglia di eventi, gli utenti possono anche filtrare in dispositivi gemelli, proprietà e corpo del messaggio tramite la query di routing dei messaggi. Viene creata una [Route](iot-hub-devguide-messages-d2c.md) predefinita nell'hub Internet, basata sulla sottoscrizione di griglia di eventi per la telemetria del dispositivo. Questa singola route può gestire tutte le sottoscrizioni di griglia di eventi. Per filtrare i messaggi prima dell'invio dei dati di telemetria, è possibile aggiornare la [query di routing](iot-hub-devguide-routing-query-syntax.md). Si noti che la query di routing può essere applicata al corpo del messaggio solo se il corpo è JSON. È inoltre necessario impostare contentType su JSON e contentEncoding su UTF-8 nelle [proprietà del sistema](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)del messaggio.
+Per gli eventi non di telemetria come DeviceConnected, DeviceDisconnected, DeviceCreated e DeviceDeleted, è possibile usare il filtro di griglia di eventi durante la creazione della sottoscrizione. Per gli eventi di telemetria, oltre al filtro in griglia di eventi, gli utenti possono anche filtrare in dispositivi gemelli, proprietà e corpo del messaggio tramite la query di routing dei messaggi. Viene creata una [Route](iot-hub-devguide-messages-d2c.md) predefinita nell'hub Internet, basata sulla sottoscrizione di griglia di eventi per la telemetria del dispositivo. Questa singola route può gestire tutte le sottoscrizioni di griglia di eventi. Per filtrare i messaggi prima dell'invio dei dati di telemetria, è possibile aggiornare la [query di routing](iot-hub-devguide-routing-query-syntax.md). Si noti che la query di routing può essere applicata al corpo del messaggio solo se il corpo è JSON. È inoltre necessario impostare contentType su **Application/JSON** e ContentEncoding su **UTF-8** nelle [proprietà del sistema](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)del messaggio.
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Limitazioni per gli eventi correlati a dispositivi connessi e disconnessi
 

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: dacurwin
-ms.openlocfilehash: 23492133035f27aa3e1217269022565e0ff217a9
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 5176fc36b62fc1e970bd51f6386191ea34c5170c
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69018766"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872684"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Eseguire il backup e il ripristino di VM di Azure con PowerShell
 
@@ -120,7 +120,7 @@ Get-AzRecoveryServicesVault
 
 L'output è simile all'esempio seguente. Si noti che vengono inclusi gli elementi ResourceGroupName e Location associati.
 
-```
+```output
 Name              : Contoso-vault
 ID                : /subscriptions/1234
 Type              : Microsoft.RecoveryServices/vaults
@@ -140,7 +140,21 @@ Usare un insieme di credenziali di Servizi di ripristino per proteggere le macch
 Prima di abilitare la protezione in una macchina virtuale, usare [set-AzRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext?view=azps-1.4.0) per impostare il contesto dell'insieme di credenziali. Una volta impostato il contesto dell'insieme di credenziali, si applica a tutti i cmdlet successivi. L'esempio seguente imposta il contesto per l'insieme di credenziali, *testvault*.
 
 ```powershell
-Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultContext
+Get-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "Contoso-docs-rg" | Set-AzRecoveryServicesVaultContext
+```
+
+### <a name="fetch-the-vault-id"></a>Recuperare l'ID dell'insieme di credenziali
+
+Si prevede di deprecare l'impostazione del contesto dell'insieme di credenziali in base alle linee guida Azure PowerShell. È invece possibile archiviare o recuperare l'ID dell'insieme di credenziali e passarlo ai comandi pertinenti. Quindi, se il contesto dell'insieme di credenziali non è stato impostato o si vuole specificare il comando da eseguire per un determinato insieme di credenziali, passare l'ID dell'insieme di credenziali come "-vaultID" a tutti i comandi pertinenti, come indicato di seguito:
+
+```powershell
+$targetVault = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" -Name "testvault"
+$targetVault.ID
+```
+Oppure
+
+```powershell
+$targetVaultID = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" -Name "testvault" | select -ExpandProperty ID
 ```
 
 ### <a name="modifying-storage-replication-settings"></a>Modifica delle impostazioni di replica di archiviazione
@@ -148,8 +162,7 @@ Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultConte
 Usare il comando [set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperty) per impostare la configurazione della replica di archiviazione dell'insieme di credenziali su con ridondanza locale/GRS
 
 ```powershell
-$vault= Get-AzRecoveryServicesVault -name "testvault"
-Set-AzRecoveryServicesBackupProperty -Vault $vault -BackupStorageRedundancy GeoRedundant/LocallyRedundant
+Set-AzRecoveryServicesBackupProperty -Vault $targetVault -BackupStorageRedundancy GeoRedundant/LocallyRedundant
 ```
 
 > [!NOTE]
@@ -167,7 +180,7 @@ Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
 
 L'output è simile all'esempio seguente:
 
-```
+```output
 Name                 WorkloadType       BackupManagementType BackupTime                DaysOfWeek
 ----                 ------------       -------------------- ----------                ----------
 DefaultPolicy        AzureVM            AzureVM              4/14/2016 5:00:00 PM
@@ -206,7 +219,7 @@ New-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -WorkloadType "Az
 
 L'output è simile all'esempio seguente:
 
-```
+```output
 Name                 WorkloadType       BackupManagementType BackupTime                DaysOfWeek
 ----                 ------------       -------------------- ----------                ----------
 NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
@@ -259,7 +272,7 @@ $joblist[0]
 
 L'output è simile all'esempio seguente:
 
-```
+```output
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
 ------------     ---------            ------               ---------                 -------                   ----------
 V2VM             Backup               InProgress            4/23/2016                5:00:30 PM                cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
@@ -307,9 +320,9 @@ Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -RetentionPolicy $Ret
 > Da AZ PS versione 1.6.0 in poi, è possibile aggiornare il periodo di conservazione degli snapshot di ripristino istantaneo nei criteri usando PowerShell
 
 ````powershell
-PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+$bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
 $bkpPol.SnapshotRetentionInDays=7
-PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ````
 
 Il valore predefinito sarà 2, l'utente può impostare il valore con un minimo di 1 e un massimo di 5. Per i criteri di backup settimanali, il periodo è impostato su 5 e non può essere modificato.
@@ -327,7 +340,7 @@ $job = Backup-AzRecoveryServicesBackupItem -Item $item -VaultId $targetVault.ID 
 
 L'output è simile all'esempio seguente:
 
-```
+```output
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
 ------------     ---------            ------               ---------                 -------                   ----------
 V2VM              Backup              InProgress          4/23/2016                  5:00:30 PM                cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
@@ -421,7 +434,7 @@ $rp[0]
 
 L'output è simile all'esempio seguente:
 
-```powershell
+```output
 RecoveryPointAdditionalInfo :
 SourceVMStorageType         : NormalStorage
 Name                        : 15260861925810
@@ -469,7 +482,7 @@ Il file **VMConfig.JSON** verrà ripristinato nell'account di archiviazione e i 
 
 L'output è simile all'esempio seguente:
 
-```powershell
+```output
 WorkloadName     Operation          Status               StartTime                 EndTime            JobID
 ------------     ---------          ------               ---------                 -------          ----------
 V2VM              Restore           InProgress           4/23/2016 5:00:30 PM                        cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
@@ -771,7 +784,7 @@ $rp[0]
 
 L'output è simile all'esempio seguente:
 
-```powershell
+```output
 RecoveryPointAdditionalInfo :
 SourceVMStorageType         : NormalStorage
 Name                        : 15260861925810
@@ -800,7 +813,7 @@ Get-AzRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 
 L'output è simile all'esempio seguente:
 
-```powershell
+```output
 OsType  Password        Filename
 ------  --------        --------
 Windows e3632984e51f496 V2VM_wus2_8287309959960546283_451516692429_cbd6061f7fc543c489f1974d33659fed07a6e0c2e08740.exe

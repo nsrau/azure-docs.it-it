@@ -1,24 +1,21 @@
 ---
 title: Ridimensionamento e hosting di Funzioni di Azure | Microsoft Docs
 description: Scopri come scegliere tra il piano a consumo di funzioni di Azure e il piano Premium.
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 keywords: funzioni di Azure, funzioni, piano a consumo, piano Premium, elaborazione di eventi, webhook, calcolo dinamico, architettura senza server
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: azure-functions
-ms.devlang: multiple
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fdef1457254b6deb8a0b791b11c94154518b4301
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: c39ee29b9a4449000d44e44bc6feae407cf4cd38
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69636447"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874943"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Ridimensionamento e hosting di Funzioni di Azure
 
@@ -143,9 +140,6 @@ Per altre informazioni sui tipi di account di archiviazione, vedere [Introduzion
 Nei piani di consumo e Premium, l'infrastruttura di funzioni di Azure consente di ridimensionare le risorse di CPU e memoria aggiungendo altre istanze dell'host di funzioni, in base al numero di eventi su cui vengono attivate le relative funzioni. Ogni istanza dell'host di funzioni nel piano a consumo è limitata a 1,5 GB di memoria e una CPU.  Un'istanza dell'host è l'intera app per le funzioni, che significa che tutte le funzioni all'interno di un'app per le funzioni condividono una risorsa all'interno di un'istanza e vengono ridimensionate allo stesso tempo. Le app per le funzioni che condividono lo stesso piano a consumo vengono ridimensionate in modo indipendente.  Nel piano Premium, le dimensioni del piano determineranno la memoria e la CPU disponibili per tutte le app del piano in tale istanza.  
 
 I file di codice delle funzioni vengono archiviati nelle condivisioni File di Azure nell'account di archiviazione principale della funzione. Quando si elimina l'account di archiviazione principale dell'app per le funzioni, i file di codice delle funzioni vengono eliminati e non possono essere recuperati.
-
-> [!NOTE]
-> Quando si usa un trigger di tipo BLOB in un piano a consumo, può verificarsi un ritardo massimo di 10 minuti per l'elaborazione di nuovi BLOB. Questo ritardo si verifica in caso di inattività di un'app per le funzioni. Quando l'app per le funzioni è in esecuzione, i BLOB vengono elaborati immediatamente. Per evitare questo ritardo di avvio a freddo, utilizzare il piano Premium oppure utilizzare il [trigger griglia di eventi](functions-bindings-event-grid.md). Per altre informazioni, vedere l'articolo di riferimento sull'[associazione del trigger BLOB](functions-bindings-storage-blob.md#trigger).
 
 ### <a name="runtime-scaling"></a>Ridimensionamento in fase di runtime
 

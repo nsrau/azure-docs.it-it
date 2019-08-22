@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: e18d6519d1ee3c1750757af5c59157de8bdde80c
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 3c16d8b5f1611c6c05e60d65551f73eb2d395668
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637922"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872899"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Eseguire il backup di database SQL Server in macchine virtuali di Azure
 
@@ -175,7 +175,7 @@ Come individuare i database in esecuzione in una macchina virtuale:
    Per ottimizzare i carichi di backup, Backup di Azure imposta il numero massimo di database in un processo di backup su 50.
 
      * Per proteggere più di 50 database, configurare più backup.
-     * Per abilitare la [protezione automatica](#enable-auto-protection) per l'intera istanza o il gruppo di disponibilità always on. Nell'elenco a discesa AutoProtect selezionare on, quindi fare clic **su** **OK**.
+     * Per [abilitare](#enable-auto-protection) l'intera istanza o il gruppo di disponibilità always on, nell' elenco a discesa Proteggi AutoProtect selezionare **on**, quindi fare clic su **OK**.
 
     > [!NOTE]
     > La funzionalità di [protezione automatica](#enable-auto-protection) non solo Abilita la protezione in tutti i database esistenti in una sola volta, ma protegge automaticamente anche tutti i nuovi database aggiunti a tale istanza o al gruppo di disponibilità.  

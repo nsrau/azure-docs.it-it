@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: 48792a90a42d0cfe5c0b34c872b3d474d6a784f1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 75bbcfa831ba7ef0b3dd0da629cfa94768d6ae9d
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433496"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873322"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Uso combinato di ScaleR e SparkR in HDInsight
 
@@ -193,7 +193,7 @@ rxDataStep(weatherDF, outFile = weatherDF1, rowsPerRead = 50000, overwrite = T,
 
 ## <a name="importing-the-airline-and-weather-data-to-spark-dataframes"></a>Importazione dei dati relativi al meteo e alle compagnie aeree per i DataFrame di Spark
 
-A questo punto verrà usata la funzione SparkR [read.df()](https://docs.databricks.com/spark/1.6/sparkr/functions/read.df.html#read-df) per importare i dati relativi al meteo e alle compagnie aeree nei DataFrame di Spark. Questa funzione, come molti altri metodi Spark, viene eseguita in modo differito, vale a dire che viene accodata per l'esecuzione, ma eseguita solo quando è necessario.
+A questo punto verrà usata la funzione SparkR [read.df()](http://spark.apache.org/docs/latest/api/R/read.df.html) per importare i dati relativi al meteo e alle compagnie aeree nei DataFrame di Spark. Questa funzione, come molti altri metodi Spark, viene eseguita in modo differito, vale a dire che viene accodata per l'esecuzione, ma eseguita solo quando è necessario.
 
 ```
 airPath     <- file.path(inputDataDir, "AirOnTime08to12CSV")
@@ -266,7 +266,7 @@ weatherDF <- rename(weatherDF,
 
 ## <a name="joining-the-weather-and-airline-data"></a>Unione in join dei dati meteo e delle compagnie aeree
 
-La funzione [join()](https://docs.databricks.com/spark/1.6/sparkr/functions/join.html#join) di SparkR verrà ora usata per eseguire un left outer join dei dati sulle compagnie aeree e dei dati meteo in base ai valori di datetime e AirportID di partenza. L'outer join consente di conservare tutti i record dei dati relativi alle compagnie aeree, anche in assenza di dati meteo corrispondenti. Dopo il join verranno rimosse alcune colonne ridondanti e verranno rinominate le colonne conservate per rimuovere il prefisso DataFrame introdotto dal join.
+La funzione [join()](http://spark.apache.org/docs/latest/api/R/join.html) di SparkR verrà ora usata per eseguire un left outer join dei dati sulle compagnie aeree e dei dati meteo in base ai valori di datetime e AirportID di partenza. L'outer join consente di conservare tutti i record dei dati relativi alle compagnie aeree, anche in assenza di dati meteo corrispondenti. Dopo il join verranno rimosse alcune colonne ridondanti e verranno rinominate le colonne conservate per rimuovere il prefisso DataFrame introdotto dal join.
 
 ```
 logmsg('Join airline data with weather at Origin Airport')
@@ -536,7 +536,7 @@ In questo articolo è stato illustrato come è possibile combinare l'uso di Spar
 
 - Per altre informazioni sull'uso di ML Server in Apache Spark, vedere la [Guida introduttiva](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
 
-- Per informazioni sui servizi di Machine Learning in HDInsight, vedere [Panoramica di servizi di Machine Learning su HDInsight](r-server/r-server-overview.md).
+- Per informazioni su ML Services in HDInsight, vedere [Panoramica di ml Services in HDInsight](r-server/r-server-overview.md).
 
 Per altre informazioni sull'uso di SparkR, vedere:
 

@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 737da27fd8da292b6c1f8997d4bd300bbec8740e
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 2715aeae5d10241703fa876557d1edcea1723874
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565525"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874968"
 ---
 # <a name="azure-functions-developers-guide"></a>Manuale dello sviluppatore di Funzioni di Azure
 In Funzioni di Azure funzioni specifiche condividono alcuni concetti tecnici e componenti di base, indipendentemente dal linguaggio o dall'associazione che vengono usati. Prima di passare all'apprendimento di dettagli specifici per un linguaggio o un'associazione, assicurarsi di leggere questa panoramica generale.
@@ -43,6 +43,8 @@ Il file function.json definisce il trigger, le associazioni e altre impostazioni
     ]
 }
 ```
+
+Per altri esempi, vedere la [pagina wiki di Function. JSON](https://github.com/Azure/azure-functions-host/wiki/function.json).
 
 La proprietà `bindings` è quella che consente di configurare trigger e associazioni. Ogni associazione condivide alcune impostazioni comuni e altre specifiche per tipo. Ogni associazione richiede le impostazioni seguenti:
 

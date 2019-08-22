@@ -15,12 +15,12 @@ ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: d50acc50880229626c847d41d9abe9a9e13d9c6e
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 58d03d80c82fbf58803f7fefa8ef60c19f99bced
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736123"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876878"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Sviluppare e distribuire processi Web usando Visual Studio - Servizio app di Azure
 
@@ -37,7 +37,7 @@ Quando si usa la versione 3. x dei processi Web, è possibile creare e pubblicar
 > [!NOTE]
 > I processi Web di .NET Core non possono essere collegati con i progetti Web. Se è necessario distribuire processo Web con un'app Web, è necessario [creare il processo Web come app console .NET Framework](#webjobs-as-net-framework-console-apps).  
 
-### <a name="deploy-to-azure-app-service"></a>Distribuisci nel servizio app Azure
+### <a name="deploy-to-azure-app-service"></a>Distribuire nel Servizio app di Azure
 
 La pubblicazione di un processo Web .NET Core nel servizio app da Visual Studio usa gli stessi strumenti di pubblicazione di un'app ASP.NET Core.
 
@@ -90,7 +90,7 @@ A un progetto abilitato per i processi Web vengono aggiunti gli elementi seguent
 
 Se si usa Visual Studio 2015, installare [Azure SDK per .NET (Visual Studio 2015)](https://azure.microsoft.com/downloads/).
 
-Se si usa Visual Studio 2019, installare il [carico di lavoro sviluppo di Azure](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---choose-workloads).
+Se si usa Visual Studio 2017, installare il [carico di lavoro di sviluppo di Azure](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---choose-workloads).
 
 ### <a id="convert"></a> Abilitare la distribuzione dei processi Web per un progetto di applicazione console esistente
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: cbrooks
-ms.openlocfilehash: 13eef9beb6c86683c56efc744dc42b4614b84fe9
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: b813ef89bb1a55f769d0ea2391855ba5d671c140
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946491"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648801"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reazione a eventi di Archiviazione BLOB di Azure
 
@@ -32,6 +32,8 @@ Per provare a eseguire questa operazione, vedere gli articoli introduttivi segue
 |Portale di Azure    |[Avvio rapido: Indirizzare gli eventi di archiviazione BLOB all'endpoint Web con la portale di Azure](https://docs.microsoft.com/azure/event-grid/blob-event-quickstart-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |PowerShell    |[Avvio rapido: Indirizzare gli eventi di archiviazione all'endpoint Web con PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Interfaccia della riga di comando di Azure    |[Avvio rapido: Indirizzare gli eventi di archiviazione all'endpoint Web con l'interfaccia della riga di comando](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+
+Se il proprio account dispone di uno spazio dei nomi gerarchico, in questa esercitazione verrà illustrato come connettere una sottoscrizione di griglia di eventi, una funzione di Azure e un [processo](https://docs.azuredatabricks.net/user-guide/jobs.html) in Azure Databricks: [Esercitazione: Usare eventi Azure Data Lake Storage Gen2 per aggiornare una tabella](data-lake-storage-events.md)Delta di databricks.
 
 ## <a name="the-event-model"></a>Modello di eventi
 

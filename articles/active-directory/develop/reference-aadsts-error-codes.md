@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e62a0c1363acfedc1f059ac0e56fce0df68298f8
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 57ec69f4bc2e73bfb390a6b23b1da627d77f9b5e
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532363"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874243"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Codici di errore di autenticazione e autorizzazione
 
@@ -35,7 +35,7 @@ Se sono necessarie informazioni sui codici di errore AADSTS restituiti dal servi
 
 ## <a name="aadsts-error-codes"></a>Codici di errore AADSTS
 
-| Errore | DESCRIZIONE |
+| Errore | Descrizione |
 |---|---|
 | AADSTS16000 | SelectUserAccount: interrupt generato da Azure AD, con conseguente attivazione dell'interfaccia utente che permette all'utente di selezionare tra più sessioni SSO valide. Questo errore è piuttosto comune e può essere restituito all'applicazione se è specificato `prompt=none`. |
 | AADSTS16001 | UserAccountSelectionInvalid: questo errore viene visualizzato se l'utente fa clic su un riquadro che è stato rifiutato dalla logica di selezione della sessione. Se attivato, questo errore permette all'utente di rimediare effettuando la selezione in un elenco aggiornato di riquadri/sessioni o scegliendo un altro account. Questo errore può essere dovuto a un problema del codice o a una race condition. |
@@ -265,6 +265,7 @@ Se sono necessarie informazioni sui codici di errore AADSTS restituiti dal servi
 | AADSTS700023 | InvalidResourcelessScope: il valore specificato per l'ambito del parametro di input non è valido quando è necessario un token di accesso. |
 | AADSTS1000000 | UserNotBoundError: l'API di associazione richiede che l'utente di Azure AD esegua l'autenticazione anche con un provider di identità esterno e questa autenticazione non è stata ancora eseguita. |
 | AADSTS1000002 | BindCompleteInterruptError: l'associazione è stata completata correttamente, ma l'utente deve essere informato. |
+| AADSTS7000112 | UnauthorizedClientApplicationDisabled-l'applicazione è disabilitata. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

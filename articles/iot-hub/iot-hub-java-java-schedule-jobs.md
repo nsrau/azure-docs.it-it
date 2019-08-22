@@ -8,13 +8,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 07/10/2017
-ms.openlocfilehash: ecbdbdd29a777a997c594f8119c1474a89e64a10
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.date: 08/16/2019
+ms.openlocfilehash: 60d8d4594d76fbef36df0259940d4437e28280cb
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404180"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873412"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Pianificare e trasmettere processi (Java)
 
@@ -87,21 +87,23 @@ In questa sezione si crea un'app console Java che usa i processi per:
 
 Per creare l'app:
 
-1. Nel computer di sviluppo creare una cartella vuota denominata `iot-java-schedule-jobs`.
+1. Nel computer di sviluppo creare una cartella vuota denominata Internet degli altri- **Java-Schedule-Jobs**.
 
-2. Nella cartella `iot-java-schedule-jobs` creare un progetto Maven denominato **schedule-jobs** eseguendo il comando seguente al prompt dei comandi. Si noti che si tratta di un lungo comando singolo:
+2. Nella cartella Internet delle cose **-Java-Schedule-Jobs** creare un progetto Maven denominato **Schedule-** Jobs usando il comando seguente al prompt dei comandi. Si noti che si tratta di un lungo comando singolo:
 
-    `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=schedule-jobs -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
+   ```cmd/sh
+   mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=schedule-jobs -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+   ```
 
-3. Al prompt dei comandi passare alla cartella `schedule-jobs`.
+3. Al prompt dei comandi passare alla cartella **Schedule-Jobs** .
 
-4. In un editor di testo aprire il file `pom.xml` nella cartella `schedule-jobs` e aggiungere la dipendenza seguente al nodo **dependencies**. Questa dipendenza consente di usare il pacchetto **iot-service-client** nell'app per comunicare con l'hub IoT:
+4. Usando un editor di testo, aprire il file **POM. XML** nella cartella **Schedule-Jobs** e aggiungere la dipendenza seguente al nodo **dipendenze** . Questa dipendenza consente di usare il pacchetto **iot-service-client** nell'app per comunicare con l'hub IoT:
 
     ```xml
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.7.23</version>
+      <version>1.17.1</version>
       <type>jar</type>
     </dependency>
     ```
@@ -127,9 +129,9 @@ Per creare l'app:
     </build>
     ```
 
-6. Salvare e chiudere il file `pom.xml`.
+6. Salvare e chiudere il file **pom.xml**.
 
-7. Aprire il file `schedule-jobs\src\main\java\com\mycompany\app\App.java` in un editor di testo.
+7. Usando un editor di testo, aprire il file **Schedule-jobs\src\main\java\com\mycompany\app\App.Java** .
 
 8. Aggiungere al file le istruzioni **import** seguenti:
 
@@ -264,7 +266,7 @@ Per creare l'app:
     public static void main( String[] args ) throws Exception
     ```
 
-15. Per eseguire e monitorare due processi in sequenza, aggiungere il codice seguente al metodo **main**:
+15. Per eseguire e monitorare due processi in modo sequenziale, sostituire il codice nel metodo **Main** con il codice seguente:
 
     ```java
     // Record the start time
@@ -291,36 +293,50 @@ Per creare l'app:
     System.out.println("Shutting down schedule-jobs app");
     ```
 
-16. Salvare e chiudere il file `schedule-jobs\src\main\java\com\mycompany\app\App.java`
+16. Salvare e chiudere il file **Schedule-jobs\src\main\java\com\mycompany\app\App.Java**
 
-17. Compilare l'app **schedule-jobs** e correggere eventuali errori. Al prompt dei comandi passare alla cartella `schedule-jobs` ed eseguire il comando seguente:
+17. Compilare l'app **schedule-jobs** e correggere eventuali errori. Al prompt dei comandi passare alla cartella **Schedule-Jobs** ed eseguire il comando seguente:
 
-    `mvn clean package -DskipTests`
+    ```cmd/sh
+    mvn clean package -DskipTests
+    ```
 
 ## <a name="create-a-device-app"></a>Creare un'app per dispositivi
 
 In questa sezione si crea un'app console Java che gestisce le proprietà desiderate inviate dall'hub IoT e implementa la chiamata di metodo diretto.
 
-1. Nella cartella `iot-java-schedule-jobs` creare un progetto Maven denominato **simulated-device** usando il comando seguente al prompt dei comandi. Si noti che si tratta di un lungo comando singolo:
+1. Nella cartella Internet delle cose **-Java-Schedule-Jobs** creare un progetto Maven denominato **Simulated-Device** usando il comando seguente al prompt dei comandi. Si noti che si tratta di un lungo comando singolo:
 
-    `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
+   ```cmd/sh
+   mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+   ```
 
-2. Al prompt dei comandi passare alla cartella `simulated-device`.
+2. Al prompt dei comandi passare alla cartella **Simulated-Device** .
 
-3. In un editor di testo aprire il file `pom.xml` nella cartella `simulated-device` e aggiungere le dipendenze seguenti al nodo **dependencies**. Questa dipendenza consente di usare il pacchetto **iot-device-client** nell'app per comunicare con l'hub IoT:
+3. Usando un editor di testo, aprire il file **POM. XML** nella cartella **Simulated-Device** e aggiungere le dipendenze seguenti al nodo **dipendenze** . Questa dipendenza consente di usare il pacchetto **iot-device-client** nell'app per comunicare con l'hub IoT:
 
     ```xml
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.3.32</version>
+      <version>1.17.5</version>
     </dependency>
     ```
 
     > [!NOTE]
     > È possibile cercare la versione più recente di **iot-device-client** usando la [ricerca di Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-4. Aggiungere il nodo **build** seguente dopo il nodo **dependencies**. Questa configurazione indica a Maven di usare Java 1.8 per compilare l'app:
+4. Aggiungere la dipendenza seguente al nodo **dipendenze** . Questa dipendenza configura un NOP per la facciata di registrazione di Apache [SLF4J](https://www.slf4j.org/) , che viene usata da Device client SDK per implementare la registrazione. Questa configurazione è facoltativa, ma se la si omette, è possibile che venga visualizzato un avviso nella console quando si esegue l'app. Per ulteriori informazioni sulla registrazione in Device client SDK, vedere la pagina relativa alla [registrazione](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md#logging)degli *esempi per il file Leggimi di Azure per dispositivi SDK per Java* .
+
+    ```xml
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-nop</artifactId>
+      <version>1.7.28</version>
+    </dependency>
+    ```
+
+5. Aggiungere il nodo **build** seguente dopo il nodo **dependencies**. Questa configurazione indica a Maven di usare Java 1.8 per compilare l'app:
 
     ```xml
     <build>
@@ -338,11 +354,11 @@ In questa sezione si crea un'app console Java che gestisce le proprietà desider
     </build>
     ```
 
-5. Salvare e chiudere il file `pom.xml`.
+6. Salvare e chiudere il file **pom.xml**.
 
-6. Aprire il file `simulated-device\src\main\java\com\mycompany\app\App.java` in un editor di testo.
+7. Usando un editor di testo, aprire il file **Simulated-device\src\main\java\com\mycompany\app\app.Java.** .
 
-7. Aggiungere al file le istruzioni **import** seguenti:
+8. Aggiungere al file le istruzioni **import** seguenti:
 
     ```java
     import com.microsoft.azure.sdk.iot.device.*;
@@ -353,10 +369,10 @@ In questa sezione si crea un'app console Java che gestisce le proprietà desider
     import java.util.Scanner;
     ```
 
-8. Aggiungere le variabili a livello di classe seguenti alla classe **App** . Sostituzione di `{youriothubname}` con il nome dell'hub IoT e di `{yourdevicekey}` con il valore della chiave del dispositivo generato nella sezione *Creare un'identità del dispositivo*:
+9. Aggiungere le variabili a livello di classe seguenti alla classe **App** . Sostituire `{yourdeviceconnectionstring}` con la stringa di connessione del dispositivo copiata in precedenza nella sezione [registrare un nuovo dispositivo nell'hub delle](#register-a-new-device-in-the-iot-hub) cose:
 
     ```java
-    private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myDeviceID;SharedAccessKey={yourdevicekey}";
+    private static String connString = "{yourdeviceconnectionstring}";
     private static IotHubClientProtocol protocol = IotHubClientProtocol.MQTT;
     private static final int METHOD_SUCCESS = 200;
     private static final int METHOD_NOT_DEFINED = 404;
@@ -364,7 +380,7 @@ In questa sezione si crea un'app console Java che gestisce le proprietà desider
 
     Questa app di esempio usa la variabile **protocol** quando crea un'istanza di un oggetto **DeviceClient**.
 
-9. Per stampare le notifiche del dispositivo gemello nella console, aggiungere la classe annidata seguente alla classe **App**:
+10. Per stampare le notifiche del dispositivo gemello nella console, aggiungere la classe annidata seguente alla classe **App**:
 
     ```java
     // Handler for device twin operation notifications from IoT Hub
@@ -375,7 +391,7 @@ In questa sezione si crea un'app console Java che gestisce le proprietà desider
     }
     ```
 
-10. Per stampare le notifiche del metodo diretto nella console, aggiungere la classe annidata seguente alla classe **App**:
+11. Per stampare le notifiche del metodo diretto nella console, aggiungere la classe annidata seguente alla classe **App**:
 
     ```java
     // Handler for direct method notifications from IoT Hub
@@ -386,7 +402,7 @@ In questa sezione si crea un'app console Java che gestisce le proprietà desider
     }
     ```
 
-11. Per gestire chiamate di metodo diretto dall'hub IoT, aggiungere la classe annidata seguente alla classe **App**:
+12. Per gestire chiamate di metodo diretto dall'hub IoT, aggiungere la classe annidata seguente alla classe **App**:
 
     ```java
     // Handler for direct method calls from IoT Hub
@@ -411,13 +427,13 @@ In questa sezione si crea un'app console Java che gestisce le proprietà desider
     }
     ```
 
-12. Aggiornare la firma del metodo **main** affinché includa la clausola `throws`:
+13. Aggiornare la firma del metodo **main** affinché includa la clausola `throws`:
 
     ```java
     public static void main( String[] args ) throws IOException, URISyntaxException
     ```
 
-13. Al metodo **main** aggiungere il codice seguente:
+14. Sostituire il codice nel metodo **Main** con il codice seguente per:
     * Creare un client del dispositivo per comunicare con l'IoT Hub.
     * Creare un oggetto **Device** per archiviare le proprietà dei dispositivi gemelli.
 
@@ -435,7 +451,7 @@ In questa sezione si crea un'app console Java che gestisce le proprietà desider
     };
     ```
 
-14. Per avviare i servizi client del dispositivo, aggiungere il codice seguente al metodo **main**:
+15. Per avviare i servizi client del dispositivo, aggiungere il codice seguente al metodo **main**:
 
     ```java
     try {
@@ -453,7 +469,7 @@ In questa sezione si crea un'app console Java che gestisce le proprietà desider
     }
     ```
 
-15. Per attendere che l'utente prema il tasto **INVIO** prima della chiusura, aggiungere il codice seguente alla fine del metodo **main**:
+16. Per attendere che l'utente prema il tasto **INVIO** prima della chiusura, aggiungere il codice seguente alla fine del metodo **main**:
 
     ```java
     // Close the app
@@ -465,35 +481,41 @@ In questa sezione si crea un'app console Java che gestisce le proprietà desider
     scanner.close();
     ```
 
-16. Salvare e chiudere il file `simulated-device\src\main\java\com\mycompany\app\App.java`.
+17. Salvare e chiudere il file **Simulated-device\src\main\java\com\mycompany\app\app.Java.** .
 
-17. Compilare l'app **simulated-device** e correggere eventuali errori. Al prompt dei comandi passare alla cartella `simulated-device` ed eseguire il comando seguente:
+18. Compilare l'app **simulated-device** e correggere eventuali errori. Al prompt dei comandi passare alla cartella **Simulated-Device** ed eseguire il comando seguente:
 
-    `mvn clean package -DskipTests`
+    ```cmd/sh
+    mvn clean package -DskipTests
+    ```
 
 ## <a name="run-the-apps"></a>Eseguire le app
 
 A questo punto è possibile eseguire le app console.
 
-1. Al prompt dei comandi nella cartella `simulated-device` eseguire il comando seguente per avviare l'app per dispositivi che ascolta le modifiche di proprietà desiderate e le chiamate di metodo diretto:
+1. Al prompt dei comandi nella cartella **Simulated-Device** eseguire il comando seguente per avviare l'app del dispositivo in ascolto delle modifiche delle proprietà desiderate e delle chiamate al metodo diretto:
 
-    `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
+   ```cmd/sh
+   mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+   ```
 
-    ![Il client per dispositivi si avvia](./media/iot-hub-java-java-schedule-jobs/device-app-1.png)
+   ![Il client per dispositivi si avvia](./media/iot-hub-java-java-schedule-jobs/device-app-1.png)
 
 2. Al prompt dei comandi nella cartella `schedule-jobs` eseguire il comando seguente per avviare l'app di servizio **schedule-jobs** in modo da eseguire due processi. Il primo imposta i valori di proprietà desiderati, il secondo chiama il metodo diretto:
 
-    `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
+   ```cmd\sh
+   mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+   ```
 
-    ![L'app di servizio dell'hub IoT Java crea due processi](./media/iot-hub-java-java-schedule-jobs/service-app-1.png)
+   ![L'app di servizio dell'hub IoT Java crea due processi](./media/iot-hub-java-java-schedule-jobs/service-app-1.png)
 
 3. L'app per dispositivi gestisce la modifica di proprietà desiderata e la chiamata di metodo diretto:
 
-    ![Il client per dispositivi risponde alle modifiche](./media/iot-hub-java-java-schedule-jobs/device-app-2.png)
+   ![Il client per dispositivi risponde alle modifiche](./media/iot-hub-java-java-schedule-jobs/device-app-2.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato configurato un nuovo hub IoT nel Portale di Azure ed è stata quindi creata un'identità del dispositivo nel registro di identità dell'hub IoT. È stata creata un'app back-end per l'esecuzione di due processi. Il primo processo ha impostato i valori di proprietà desiderati e il secondo processo ha chiamato un metodo diretto.
+In questa esercitazione è stato usato un processo per pianificare un metodo diretto in un dispositivo e aggiornare le proprietà di un dispositivo gemello.
 
 Per altre informazioni, vedere le risorse seguenti:
 

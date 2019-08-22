@@ -1,13 +1,13 @@
 ---
-title: Riferimento alla sintassi di OData expression - ricerca di Azure
-description: Specifica sintassi e grammatica formale per le espressioni di OData nelle query di ricerca di Azure.
+title: Guida di riferimento alla sintassi delle espressioni OData-ricerca di Azure
+description: Grammatica formale e specifica della sintassi per le espressioni OData nelle query di ricerca di Azure.
 ms.date: 06/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual
 author: brjohnstmsft
 ms.author: brjohnst
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,29 +19,29 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: ebe41ba61ac5136900328db9c35acb8551dcd5b2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5d7e6456cd6a6648ff2ca38ecbb4f2de5479d7c9
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428651"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647485"
 ---
-# <a name="odata-expression-syntax-reference-for-azure-search"></a>Riferimento alla sintassi di espressione di OData per ricerca di Azure
+# <a name="odata-expression-syntax-reference-for-azure-search"></a>Guida di riferimento alla sintassi delle espressioni OData per ricerca di Azure
 
-Ricerca di Azure Usa [espressioni OData](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) come parametri in tutta l'API. In genere, le espressioni di OData sono usate per la `$orderby` e `$filter` parametri. Queste espressioni possono essere complesse, contenente più clausole, funzioni e operatori. Tuttavia, anche in semplici espressioni OData come proprietà vengono usati percorsi in molte parti dell'API REST di ricerca di Azure. Ad esempio, le espressioni di percorso vengono usate per fare riferimento a campi secondari dei campi complessi ovunque nell'API, ad esempio quando elenco campi secondari in un [dello strumento suggerimenti](index-add-suggesters.md), un [funzione di assegnazione dei punteggi](index-add-scoring-profiles.md), il `$select` parametro , o addirittura [con campo di ricerca nelle query di Lucene](query-lucene-syntax.md).
+Ricerca di Azure usa [espressioni OData](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) come parametri nell'intera API. In genere, le espressioni OData vengono utilizzate per `$orderby` i `$filter` parametri e. Queste espressioni possono essere complesse, contenenti più clausole, funzioni e operatori. Tuttavia, anche le espressioni OData semplici come i percorsi delle proprietà vengono usate in molte parti dell'API REST di ricerca di Azure. Le espressioni di percorso, ad esempio, vengono usate per fare riferimento a sottocampi di campi complessi in qualsiasi punto dell'API, ad esempio quando si elencano i sottocampi in un componente di `$select` [Suggerimento](index-add-suggesters.md), una funzione di assegnazione dei [punteggi](index-add-scoring-profiles.md), il parametro o una [ricerca anche in campo in Lucene query](query-lucene-syntax.md).
 
-Questo articolo descrive tutte le queste forme di espressioni di OData tramite una grammatica formale. È inoltre disponibile un' [diagramma interattivo](#syntax-diagram) che aiuta a esplorare visivamente la grammatica.
+Questo articolo descrive tutte queste forme di espressioni OData usando una grammatica formale. È inoltre disponibile un [diagramma interattivo](#syntax-diagram) che consente di esplorare visivamente la grammatica.
 
 ## <a name="formal-grammar"></a>Grammatica formale
 
-È possibile descrivere il subset del linguaggio OData supportato da ricerca di Azure tramite un EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) grammatica. "Top-down", iniziando con le espressioni più complesse e li scomporre in espressioni più primitive sono elencate le regole. Nella parte superiore sono le regole di grammatica che corrispondono ai parametri specifici dell'API REST di ricerca di Azure:
+È possibile descrivere il subset del linguaggio OData supportato da ricerca di Azure usando una grammatica EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)). Le regole sono elencate "dall'alto verso il basso", a partire dalle espressioni più complesse, e le suddivide in espressioni più primitive. Nella parte superiore sono presenti le regole di grammatica che corrispondono a parametri specifici dell'API REST di ricerca di Azure:
 
-- [`$filter`](search-query-odata-filter.md), definito dal `filter_expression` regola.
-- [`$orderby`](search-query-odata-orderby.md), definito dal `order_by_expression` regola.
-- [`$select`](search-query-odata-select.md), definito dal `select_expression` regola.
-- I percorsi, definiti dal campo di `field_path` regola. I percorsi di campo vengono usati in tutta l'API. Cui possono fare riferimento a entrambi campi di livello superiore di un indice o campi secondari con uno o più [campo complesso](search-howto-complex-data-types.md) predecessori.
+- [`$filter`](search-query-odata-filter.md), definito dalla `filter_expression` regola.
+- [`$orderby`](search-query-odata-orderby.md), definito dalla `order_by_expression` regola.
+- [`$select`](search-query-odata-select.md), definito dalla `select_expression` regola.
+- Percorsi dei campi, definiti dalla `field_path` regola. I percorsi dei campi vengono usati nell'API. Possono fare riferimento a campi di primo livello di un indice o a campi secondari con uno o più predecessori di [campo complessi](search-howto-complex-data-types.md) .
 
-Dopo che è un esplorabile di EBNF [diagramma della sintassi](https://en.wikipedia.org/wiki/Syntax_diagram) che consente di esplorare in modo interattivo la grammatica e le relazioni tra le regole.
+Quando EBNF è un [diagramma della sintassi](https://en.wikipedia.org/wiki/Syntax_diagram) esplorabile che consente di esplorare in modo interattivo la grammatica e le relazioni tra le regole.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -209,7 +209,7 @@ search_mode ::= "'any'" | "'all'"
 
 ## <a name="syntax-diagram"></a>Diagramma della sintassi
 
-Per esplorare visivamente la grammatica del linguaggio OData supportata da ricerca di Azure, provare a eseguire il diagramma della sintassi interattiva:
+Per esplorare visivamente la grammatica del linguaggio OData supportata da ricerca di Azure, provare il diagramma della sintassi interattiva:
 
 > [!div class="nextstepaction"]
 > [Diagramma della sintassi OData per ricerca di Azure](https://azuresearch.github.io/odata-syntax-diagram/)

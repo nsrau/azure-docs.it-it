@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 164a71354423bebc1422ba94747f2daeec33909d
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: e9c21ff5c4c94eecc7bb1a6643e46166df80edf4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828930"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648327"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Abilitare l'accesso senza password con l'app Microsoft Authenticator (anteprima)
 
@@ -92,7 +92,7 @@ Gli utenti finali abilitati per l'autenticazione a più fattori tramite il serve
 
 ### <a name="device-registration"></a>Registrazione del dispositivo
 
-Uno dei prerequisiti per creare la nuova credenziale avanzata è che il dispositivo deve essere registrato anche all'interno del tenant di Azure AD a un singolo utente. A causa delle restrizioni di registrazione del dispositivo correnti, un dispositivo può essere registrato solo in un singolo tenant. A causa di questa limitazione, nell'app Microsoft Authenticator può essere abilitato per l'accesso tramite telefono un solo account aziendale o dell'istituto di istruzione.
+Uno dei prerequisiti per creare la nuova credenziale avanzata è che il dispositivo, in cui è installata l'app Microsoft Authenticator, deve essere registrato anche all'interno del tenant di Azure AD a un singolo utente. A causa delle restrizioni di registrazione del dispositivo correnti, un dispositivo può essere registrato solo in un singolo tenant. A causa di questa limitazione, nell'app Microsoft Authenticator può essere abilitato per l'accesso tramite telefono un solo account aziendale o dell'istituto di istruzione.
 
 > [!NOTE]
 > La registrazione del dispositivo non è identica alla gestione dei dispositivi o alla "MDM". Associa solo un ID dispositivo e un ID utente insieme nella directory Azure AD.  

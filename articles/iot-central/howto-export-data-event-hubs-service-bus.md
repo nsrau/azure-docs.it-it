@@ -8,14 +8,16 @@ ms.date: 07/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: c6f10352646350152c5aac795885231697e81fe7
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: e6df6a1f751106f62cdfecc3a7b5efb0fe4c63bf
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850200"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876005"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Esportare i dati in Azure IoT Central
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 *Questo argomento riguarda gli amministratori.*
 
@@ -107,7 +109,7 @@ I dati di misurazioni, dispositivi e modelli di dispositivo vengono esportati ne
 > [!NOTE]
 > Quando si sceglie un bus di servizio come destinazione dell'esportazione, per le code e gli argomenti **non devono essere abilitati le sessioni e il rilevamento dei duplicati**. Se una di queste due opzioni è abilitata, alcuni messaggi non verranno recapitati alla coda o all'argomento.
 
-### <a name="measurements"></a>Misure
+### <a name="measurements"></a>Misurazioni
 
 Un nuovo messaggio viene esportato poco dopo che IoT Central lo ha ricevuto da un dispositivo. Ogni messaggio esportato in Hub eventi e nel bus di servizio contiene il messaggio completo inviato dal dispositivo nella proprietà "body" in formato JSON. 
 

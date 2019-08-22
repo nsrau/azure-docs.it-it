@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: d3c0943ceeadd725ac0e0fb2624d37bc9fb8c3bf
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 633d960e430d035a187a402e664c70f27cd23756
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68844785"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648744"
 ---
 # <a name="copy-data-from-amazon-s3-buckets-by-using-azcopy"></a>Copiare i dati dai bucket di Amazon S3 usando AzCopy
 
@@ -57,8 +57,8 @@ AzCopy usa il [blocco put dall'API URL](https://docs.microsoft.com/rest/api/stor
 
 |    |     |
 |--------|-----------|
-| **Sintassi** | `azcopy cp "https://s3.amazonaws.com/<bucket-name>/<object-name>" "https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>"` |
-| **Esempio** | `azcopy cp "https://s3.amazonaws.com/mybucket/myobject" "https://mystorageaccount.blob.core.windows.net/mycontainer/myblob"` |
+| **Sintassi** | `azcopy copy "https://s3.amazonaws.com/<bucket-name>/<object-name>" "https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>"` |
+| **Esempio** | `azcopy copy "https://s3.amazonaws.com/mybucket/myobject" "https://mystorageaccount.blob.core.windows.net/mycontainer/myblob"` |
 
 > [!NOTE]
 > Gli esempi in questo articolo usano URL di tipo Path per i bucket di AWS s3 (ad `http://s3.amazonaws.com/<bucket-name>`esempio:). 
@@ -71,29 +71,29 @@ AzCopy usa il [blocco put dall'API URL](https://docs.microsoft.com/rest/api/stor
 
 |    |     |
 |--------|-----------|
-| **Sintassi** | `azcopy cp "https://s3.amazonaws.com/<bucket-name>/<directory-name>" "https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>" --recursive=true` |
-| **Esempio** | `azcopy cp "https://s3.amazonaws.com/mybucket/mydirectory" "https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory" --recursive=true` |
+| **Sintassi** | `azcopy copy "https://s3.amazonaws.com/<bucket-name>/<directory-name>" "https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>" --recursive=true` |
+| **Esempio** | `azcopy copy "https://s3.amazonaws.com/mybucket/mydirectory" "https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory" --recursive=true` |
 
 ### <a name="copy-a-bucket"></a>Copiare un bucket
 
 |    |     |
 |--------|-----------|
-| **Sintassi** | `azcopy cp "https://s3.amazonaws.com/<bucket-name>" "https://<storage-account-name>.blob.core.windows.net/<container-name>" --recursive=true` |
-| **Esempio** | `azcopy cp "https://s3.amazonaws.com/mybucket" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive=true` |
+| **Sintassi** | `azcopy copy "https://s3.amazonaws.com/<bucket-name>" "https://<storage-account-name>.blob.core.windows.net/<container-name>" --recursive=true` |
+| **Esempio** | `azcopy copy "https://s3.amazonaws.com/mybucket" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive=true` |
 
 ### <a name="copy-all-buckets-in-all-regions"></a>Copia tutti i bucket in tutte le aree
 
 |    |     |
 |--------|-----------|
-| **Sintassi** | `azcopy cp "https://s3.amazonaws.com/" "https://<storage-account-name>.blob.core.windows.net" --recursive=true` |
-| **Esempio** | `azcopy cp "https://s3.amazonaws.com" "https://mystorageaccount.blob.core.windows.net" --recursive=true` |
+| **Sintassi** | `azcopy copy "https://s3.amazonaws.com/" "https://<storage-account-name>.blob.core.windows.net" --recursive=true` |
+| **Esempio** | `azcopy copy "https://s3.amazonaws.com" "https://mystorageaccount.blob.core.windows.net" --recursive=true` |
 
 ### <a name="copy-all-buckets-in-a-specific-s3-region"></a>Copia tutti i bucket in una specifica area S3
 
 |    |     |
 |--------|-----------|
-| **Sintassi** | `azcopy cp "https://s3-<region-name>.amazonaws.com/" "https://<storage-account-name>.blob.core.windows.net" --recursive=true` |
-| **Esempio** | `azcopy cp "https://s3-rds.eu-north-1.amazonaws.com" "https://mystorageaccount.blob.core.windows.net" --recursive=true` |
+| **Sintassi** | `azcopy copy "https://s3-<region-name>.amazonaws.com/" "https://<storage-account-name>.blob.core.windows.net" --recursive=true` |
+| **Esempio** | `azcopy copy "https://s3-rds.eu-north-1.amazonaws.com" "https://mystorageaccount.blob.core.windows.net" --recursive=true` |
 
 ## <a name="handle-differences-in-object-naming-rules"></a>Gestire le differenze nelle regole di denominazione degli oggetti
 

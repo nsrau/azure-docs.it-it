@@ -2,7 +2,7 @@
 title: Amministrazione del servizio per Ricerca di Azure nel portale - Ricerca di Azure
 description: Gestire un servizio di Ricerca di Azure, un servizio di ricerca cloud ospitato in Microsoft Azure, usando il portale di Azure.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: azure-portal
 services: search
 ms.service: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d5820c927b88eba37eaf092dfd4b209180bfc8eb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2c4b2a03e7e5c818453eaf4ad6881b2caba3b93c
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60565454"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647670"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Amministrazione del servizio per Ricerca di Azure nel portale di Azure
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ In termini di informazioni generali sul servizio, è possibile ottenere informaz
 <a id="sub-5"></a>
 
 ## <a name="monitor-resource-usage"></a>Monitorare l'uso delle risorse
-Nel dashboard il monitoraggio delle risorse è limitato alle informazioni visualizzate nel dashboard del servizio e ad alcune metriche che è possibile ottenere effettuando query sul servizio. Nella sezione Utilizzo del Dashboard servizi è possibile determinare rapidamente se i livelli delle risorse di partizione sono adeguati per l'applicazione. È possibile eseguire il provisioning di risorse esterne, ad esempio il monitoraggio di Azure, se si desidera acquisire e salvare in modo permanente gli eventi registrati. Per altre informazioni, vedere [ricerca di Azure Monitoring](search-monitor-usage.md).
+Nel dashboard il monitoraggio delle risorse è limitato alle informazioni visualizzate nel dashboard del servizio e ad alcune metriche che è possibile ottenere effettuando query sul servizio. Nella sezione Utilizzo del Dashboard servizi è possibile determinare rapidamente se i livelli delle risorse di partizione sono adeguati per l'applicazione. È possibile effettuare il provisioning di risorse esterne, ad esempio monitoraggio di Azure, se si desidera acquisire e rendere permanente gli eventi registrati. Per altre informazioni, vedere [monitoraggio di ricerca di Azure](search-monitor-usage.md).
 
 Usando l'API REST del servizio di ricerca, è possibile ottenere un conteggio dei documenti e degli indici a livello di codice: 
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 94d3599fe919cf648be7115be68002d2aa458ee3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7f6439d79e5d46621b92b1c24ba5caf87889f443
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60400644"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877067"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintassi query per il routing dei messaggi di hub IoT
 
@@ -47,7 +47,7 @@ L'hub IoT definisce un [formato comune](iot-hub-devguide-messages-construct.md) 
 } 
 ```
 
-### <a name="system-properties"></a>Proprietà di sistema
+### <a name="system-properties"></a>Proprietà del sistema
 
 Le proprietà di sistema identificano contenuto e origine dei messaggi. 
 
@@ -57,6 +57,7 @@ Le proprietà di sistema identificano contenuto e origine dei messaggi.
 | contentEncoding | string | L'utente specifica il tipo di codifica del messaggio. Valori consentiti sono UTF-8, UTF-16, UTF-32 Se il contentType è impostato su application/JSON. |
 | iothub-connection-device-id | string | Questo valore viene impostato dall'hub IoT e identifica l'ID del dispositivo. Per la query, usare `$connectionDeviceId`. |
 | iothub-enqueuedtime | string | Questo valore viene impostato dall'hub IoT e rappresenta l'ora effettiva di inserimento in coda del messaggio in UTC. Per la query, usare `enqueuedTime`. |
+| Nome-interfaccia iothub | string | Questo valore viene impostato dall'utente e rappresenta il nome dell'interfaccia digitale gemella che implementa il messaggio di telemetria. Per la query, usare `$interfaceName`. Questa funzionalità è disponibile come parte del [plug and Play di anteprima pubblica](../iot-pnp/overview-iot-plug-and-play.md). |
 
 Come descritto in [messaggi dell'hub IoT](iot-hub-devguide-messages-construct.md), sono disponibili le proprietà di sistema aggiuntive in un messaggio. Oltre a **contentType**, **contentEncoding** e **enqueuedTime**, è possibile sottoporre a query anche **connectionDeviceId** e **connectionModuleId**.
 
@@ -86,7 +87,7 @@ Per combinare queste query, è possibile usare funzioni ed espressioni booleane:
 $contentEncoding = 'UTF-8' AND processingPath = 'hot'
 ```
 
-Fare riferimento alla sezione [Espressioni e condizioni](iot-hub-devguide-query-language.md#expressions-and-conditions) per l'elenco completo delle funzioni e degli operatori supportati
+In [Expression and Conditions](iot-hub-devguide-query-language.md#expressions-and-conditions)viene visualizzato un elenco completo di funzioni e operatori supportati.
 
 ## <a name="message-routing-query-based-on-message-body"></a>Query di routing dei messaggi in base al corpo del messaggio 
 
@@ -163,7 +164,7 @@ $body.Weather.Temperature = 50 AND processingPath = 'hot'
 
 ## <a name="message-routing-query-based-on-device-twin"></a>Query di routing dei messaggi basata sul dispositivo gemello 
 
-Il routing dei messaggi consente di eseguire query su tag e proprietà del [Dispositivo gemello](iot-hub-devguide-device-twins.md), che sono oggetti JSON. Si noti che l'esecuzione di query nel modulo gemello non è supportata. Di seguito è riportato un esempio di tag e proprietà del Dispositivo gemello.
+Il routing dei messaggi consente di eseguire query su tag e proprietà del [Dispositivo gemello](iot-hub-devguide-device-twins.md), che sono oggetti JSON. L'esecuzione di query sul modulo gemello non è supportata. Di seguito è riportato un esempio di tag e proprietà del Dispositivo gemello.
 
 ```JSON
 {

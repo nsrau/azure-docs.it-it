@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: d2d4d39cc7b330794094745851856365ef54b42f
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 6ee9e334c10bd2d0f291b5fd1bb547ba3ba83ddb
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828194"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877179"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Usare il routing dei messaggi dell'hub Internet per inviare messaggi da dispositivo a cloud a endpoint diversi
 
@@ -39,7 +39,7 @@ Un hub IoT ha un endpoint incorporato predefinito (**messaggi/eventi**) compatib
 
 ### <a name="azure-blob-storage"></a>Archivio BLOB di Azure
 
-L'hub Internet delle cose supporta la scrittura di dati nell'archivio BLOB di Azure in formato [Apache avro](https://avro.apache.org/) e in formato JSON. La funzionalità di codifica del formato JSON è disponibile a livello generale in tutte le aree in cui è disponibile l'hub Internet. Il valore predefinito è AVRO. Il formato di codifica può essere impostato solo quando viene configurato l'endpoint di archiviazione BLOB. Non è possibile modificare il formato per un endpoint esistente. Quando si usa la codifica JSON, è necessario impostare contentType su JSON e contentEncoding su UTF-8 nelle [proprietà del sistema](iot-hub-devguide-routing-query-syntax.md#system-properties)del messaggio. Se questo non è impostato, l'hub Internet scriverà i messaggi nel formato con codifica base 64. È possibile selezionare il formato di codifica usando l'API REST di creazione o aggiornamento dell'hub Internet, in particolare [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), il portale di Azure, l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)o [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). Il diagramma seguente illustra come selezionare il formato di codifica nel portale di Azure.
+L'hub Internet delle cose supporta la scrittura di dati nell'archivio BLOB di Azure in formato [Apache avro](https://avro.apache.org/) e in formato JSON. La funzionalità di codifica del formato JSON è disponibile a livello generale in tutte le aree in cui è disponibile l'hub Internet. Il valore predefinito è AVRO. Il formato di codifica può essere impostato solo quando viene configurato l'endpoint di archiviazione BLOB. Non è possibile modificare il formato per un endpoint esistente. Quando si usa la codifica JSON, è necessario impostare contentType su **Application/JSON** e ContentEncoding su **UTF-8** nelle [proprietà del sistema](iot-hub-devguide-routing-query-syntax.md#system-properties)del messaggio. Entrambi i valori non fanno distinzione tra maiuscole e minuscole. Se la codifica del contenuto non è impostata, l'hub Internet scriverà i messaggi nel formato con codifica base 64. È possibile selezionare il formato di codifica usando l'API REST di creazione o aggiornamento dell'hub Internet, in particolare [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), il portale di Azure, l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)o [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). Il diagramma seguente illustra come selezionare il formato di codifica nel portale di Azure.
 
 ![Codifica dell'endpoint di archiviazione BLOB](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
@@ -53,7 +53,7 @@ L'hub IoT crea batch di messaggi e scrive i dati in un BLOB non appena il batch 
 
 È possibile usare qualsiasi convenzione di denominazione. È tuttavia necessario usare tutti i token elencati. L'hub IoT scriverà in un BLOB vuoto se non sono presenti dati da scrivere.
 
-Quando si esegue il routing all'archivio BLOB è consigliabile integrare i BLOB e quindi eseguirne l'iterazione per garantire che tutti i contenitori vengano letti senza fare ipotesi sulla partizione. L'intervallo di partizione potrebbe potenzialmente cambiare durante un [failover avviato da Microsoft](iot-hub-ha-dr.md#microsoft-initiated-failover)o un [failover manuale](iot-hub-ha-dr.md#manual-failover-preview) dell'hub IoT. È possibile usare l' [API List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) per enumerare l'elenco di BLOB. Per informazioni, vedere l'esempio seguente.
+Quando si esegue il routing all'archivio BLOB è consigliabile integrare i BLOB e quindi eseguirne l'iterazione per garantire che tutti i contenitori vengano letti senza fare ipotesi sulla partizione. L'intervallo di partizione potrebbe potenzialmente cambiare durante un [failover avviato da Microsoft](iot-hub-ha-dr.md#microsoft-initiated-failover)o un [failover manuale](iot-hub-ha-dr.md#manual-failover) dell'hub IoT. È possibile usare l' [API List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) per enumerare l'elenco di BLOB. Per informazioni, vedere l'esempio seguente.
 
    ```csharp
         public void ListBlobsInContainer(string containerName, string iothub)
@@ -103,7 +103,7 @@ La route di fallback invia tutti i messaggi che non soddisfano le condizioni di 
 
 ## <a name="non-telemetry-events"></a>Eventi non di telemetria
 
-Oltre alla telemetria del dispositivo, il routing dei messaggi consente anche l'invio degli eventi di modifica del dispositivo gemello e degli eventi del ciclo di vita del dispositivo. Ad esempio, se viene creata una route con origine dati impostata su **Eventi di modifica del dispositivo gemello**, l'hub IoT invia messaggi all'endpoint che contengono la modifica nel dispositivo gemello. In modo analogo, se viene creata una route con origine dati impostata su **Eventi relativi al ciclo di vita del dispositivo**, l'hub IoT invierà un messaggio che indica se il dispositivo è stato eliminato o creato. 
+Oltre ai dati di telemetria del dispositivo, il routing dei messaggi consente anche l'invio di eventi di modifica del dispositivo gemello, eventi del ciclo di vita del dispositivo e eventi di modifica del gemello digitale (in anteprima Ad esempio, se viene creata una route con origine dati impostata su **Eventi di modifica del dispositivo gemello**, l'hub IoT invia messaggi all'endpoint che contengono la modifica nel dispositivo gemello. Analogamente, se viene creata una route con l'origine dati impostata su **eventi del ciclo**di vita del dispositivo, l'hub Internet invia un messaggio che indica se il dispositivo è stato eliminato o creato. Infine, nell'ambito del [plug and Play di anteprima pubblica](../iot-pnp/overview-iot-plug-and-play.md), uno sviluppatore può creare route con l'origine dati impostata su **eventi di modifica digitale gemello** e l'hub Internet invia messaggi ogni volta che viene impostata o modificata una [proprietà](../iot-pnp/iot-plug-and-play-glossary.md) del dispositivo gemello digitale, un dispositivo [gemello digitale ](../iot-pnp/iot-plug-and-play-glossary.md)viene sostituito o quando si verifica un evento di modifica per il dispositivo gemello sottostante.
 
 L'hub Internet si [integra anche con griglia di eventi di Azure](iot-hub-event-grid.md) per pubblicare gli eventi del dispositivo per supportare integrazioni in tempo reale e automazione dei flussi di lavoro in base a questi eventi. Vedere le principali [differenze tra il routing dei messaggi e Griglia di eventi](iot-hub-event-grid-routing-comparison.md) per determinare la soluzione ottimale per il proprio scenario.
 
@@ -111,7 +111,7 @@ L'hub Internet si [integra anche con griglia di eventi di Azure](iot-hub-event-g
 
 Quando si crea una nuova route o si modifica una route esistente, è consigliabile testare la query di route con un messaggio di esempio. È possibile testare singole route o testarle tutte contemporaneamente. Nessuno messaggio viene indirizzato agli endpoint durante il test. Per i test è possibile usare portale di Azure, Azure Resource Manager, Azure PowerShell e l'interfaccia della riga di comando di Azure. I risultati consentono di identificare se il messaggio di esempio corrisponde alla query, il messaggio non corrisponde alla query o se il test non è stato eseguito perché la sintassi del messaggio o della query di esempio non è corretta. Per altre informazioni, vedere [Test Route](/rest/api/iothub/iothubresource/testroute) (Testare una route) e [Test all routes](/rest/api/iothub/iothubresource/testallroutes) (Testare tutte le route).
 
-## <a name="latency"></a>Latenza
+## <a name="latency"></a>Latency
 
 Quando si indirizzano i messaggi di telemetria da dispositivo a cloud tramite endpoint predefiniti, si verifica un lieve aumento della latenza end-to-end dopo la creazione della prima route.
 

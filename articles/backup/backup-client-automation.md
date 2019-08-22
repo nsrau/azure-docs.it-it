@@ -6,14 +6,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 5/24/2018
+ms.date: 08/20/2019
 ms.author: dacurwin
-ms.openlocfilehash: bb488db036b99d3826a3060a7f4143bec7aea3e5
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: d65da05ea2b24e3820d9a6fde31b3d4a5c72dbd1
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688580"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656741"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Distribuire e gestire il backup in Azure per server Windows/client Windows mediante PowerShell
 
@@ -136,6 +136,18 @@ Dopo aver creato l'insieme di credenziali dei servizi di ripristino, scaricare l
 ```powershell
 $CredsPath = "C:\downloads"
 $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault1 -Path $CredsPath
+```
+
+### <a name="registering-using-the-ps-az-module"></a>Registrazione tramite il modulo PS AZ
+
+Nel modulo AZ di PowerShell più recente, a causa delle limitazioni della piattaforma sottostanti, il download delle credenziali dell'insieme di credenziali richiede un certificato autofirmato. Nell'esempio seguente viene illustrato come fornire un certificato autofirmato e scaricare le credenziali dell'insieme di credenziali.
+
+```powershell
+$Vault = Get-AzRecoveryServicesVault -ResourceGroupName $rgName -Name $VaultName
+$cert = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname xxxxxxxxxxxxx
+$certificate =[System.Convert]::ToBase64String($cert.RawData)
+$CredsPath = "C:\downloads"
+$CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Certificate $certificate -Vault $vault -Backup -Path $CredsPath
 ```
 
 In Windows Server o in un client Windows, eseguire il cmdlet [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) per registrare il computer con l'insieme di credenziali.

@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 184cdaddc638461d50f322292d5cfaf28ab93093
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 0e60607d50722a4496dc8f4ad7d609cdf9fd5792
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950536"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877178"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Riferimento - Quote e limitazioni dell'hub IoT
 
@@ -25,6 +25,10 @@ Ogni sottoscrizione di Azure può avere al massimo 50 hub IoT e al massimo un hu
 Il provisioning di ogni hub IoT viene eseguito con un determinato numero di unità in un livello specifico. Il livello e il numero di unità determinano la quota giornaliera massima dei messaggi che è possibile inviare. La dimensione dei messaggi usata per calcolare che la quota giornaliera è 0,5 kB per un hub di livello gratuito e 4 kB per tutti gli altri livelli. Per altre informazioni, vedere [Prezzi di Hub IoT](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 Il livello determina anche le limitazioni che l'hub IoT applica alle operazioni.
+
+### <a name="iot-plug-and-play"></a>IoT Plug and Play
+
+Durante la fase di anteprima pubblica, gli Plug and Play dispositivi invieranno messaggi distinti per interfaccia, che potrebbero aumentare il numero di messaggi conteggiati per la quota del messaggio.
 
 ## <a name="operation-throttles"></a>Limitazioni per le operazioni
 
@@ -110,7 +114,7 @@ L'hub IoT applica altri limiti operativi:
 
 In qualsiasi momento, è possibile aumentare le quote o i limiti di limitazione aumentando [il numero di unità di](iot-hub-upgrade.md)cui è stato effettuato il provisioning in un hub Internet.
 
-## <a name="latency"></a>Latenza
+## <a name="latency"></a>Latency
 
 L'hub IoT punta a fornire bassa latenza per tutte le operazioni. Tuttavia, a causa delle condizioni della rete e di altri fattori imprevedibili, non è in grado di garantire una certa latenza. Quando si progetta la soluzione, è necessario:
 
