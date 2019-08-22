@@ -71,7 +71,7 @@ Una valutazione descrive:
 
 ### <a name="view-an-assessment"></a>Visualizza una valutazione
 
-1. In **Server** degli **obiettivi** >  di migrazione fare clic su ****valutazioni** in Azure migrate: Valutazione**del server.
+1. In **Server** degli **obiettivi** >  **di migrazione fare clic su  **valutazioni**in Azure migrate: Valutazione**del server.
 2. In **valutazioni**fare clic su una valutazione per aprirla.
 
     ![Riepilogo valutazione](./media/how-to-create-assessment/assessment-summary.png)
