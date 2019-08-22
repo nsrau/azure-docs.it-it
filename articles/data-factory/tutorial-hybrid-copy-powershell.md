@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: abnarain
-ms.openlocfilehash: 49d9be9f10f0e840cfa3d027901a297de8cbf750
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3f49bed0253a380dbcb0a526364c85c2031b0116
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60328163"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640303"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Esercitazione: Copiare dati da un database di SQL Server locale a un archivio BLOB di Azure
 In questa esercitazione si usa Azure PowerShell per creare una pipeline di Data Factory che copia i dati da un database di SQL Server locale a un archivio BLOB di Azure. Si crea e si usa un runtime di integrazione self-hosted, che sposta i dati tra gli archivi dati locali e cloud. 
@@ -76,13 +76,11 @@ In questa esercitazione si usano il nome e la chiave dell'account di archiviazio
 
 1. Nel riquadro a sinistra selezionare **Altri servizi**, usare la parola chiave **Archiviazione** come filtro e selezionare **Account di archiviazione**.
 
-    ![Cercare l'account di archiviazione](media/tutorial-hybrid-copy-powershell/search-storage-account.png)
+    ![Cercare l'account di archiviazione](media/doc-common-process/search-storage-account.png)
 
 1. Nell'elenco degli account di archiviazione filtrare, se necessario, e quindi selezionare il proprio account di archiviazione. 
 
 1. Nella finestra **Account di archiviazione** selezionare **Chiavi di accesso**.
-
-    ![Recuperare il nome e la chiave dell'account di archiviazione](media/tutorial-hybrid-copy-powershell/storage-account-name-key.png)
 
 1. Nelle caselle **Nome account di archiviazione** e **key1** copiare i valori e incollarli nel Blocco note o in un altro editor per usarli in seguito nell'esercitazione. 
 
@@ -107,7 +105,6 @@ In questa sezione si crea un contenitore BLOB denominato **adftutorial** nell'ar
 
 1. Tenere aperta la finestra **Contenitore** per **adftutorial** perché verrà usata per verificare l'output alla fine di questa esercitazione. Data Factory crea automaticamente la cartella di output in questo contenitore, quindi non è necessario crearne uno.
 
-    ![Finestra Contenitore](media/tutorial-hybrid-copy-powershell/container-page.png)
 
 ### <a name="windows-powershell"></a>Windows PowerShell
 
@@ -415,7 +412,7 @@ In questo passaggio si collega l'istanza di SQL Server locale alla data factory.
     > [!IMPORTANT]
     > - Selezionare la sezione in base all'autenticazione usata per connettersi all'istanza di SQL Server.
     > - Sostituire **\<integration runtime name>** con il nome del runtime di integrazione.
-    > - Prima di salvare il file, sostituire **\<servername>**, **\<databasename>**, **\<username>** e **\<password>** con i valori dell'istanza di SQL Server.
+    > - Prima di salvare il file, sostituire **\<servername>** , **\<databasename>** , **\<username>** e **\<password>** con i valori dell'istanza di SQL Server.
     > - Se è necessario usare una barra rovesciata (\\) nell'account utente o nel nome del server, farla precedere dal carattere di escape (\\). Ad esempio, usare *mydomain\\\\myuser*. 
 
 1. Per crittografare i dati sensibili (nome utente, password e così via), eseguire il cmdlet `New-AzDataFactoryV2LinkedServiceEncryptedCredential`.  

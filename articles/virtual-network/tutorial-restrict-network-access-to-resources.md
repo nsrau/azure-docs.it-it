@@ -16,12 +16,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 08/23/2018
 ms.author: kumud
-ms.openlocfilehash: 4d3fd152782c65c7f63e459a1c35dee6ae764361
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 34cb2b6c5a770aa9ec38ce02a97d976fe28251ac
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708836"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638746"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Esercitazione: Limitare l'accesso di rete alle risorse PaaS con gli endpoint servizio di rete virtuale usando il portale di Azure
 
@@ -53,12 +53,14 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
    |----|----|
    |Nome| myVirtualNetwork |
    |Spazio degli indirizzi| 10.0.0.0/16|
-   |Sottoscrizione| Selezionare la propria sottoscrizione|
-   |Gruppo di risorse | Selezionare **Crea nuovo** e immettere *myResourceGroup*.|
-   |Località| Selezionare **Stati Uniti orientali**. |
+   |Subscription| Selezionare la propria sottoscrizione|
+   |Resource group | Selezionare **Crea nuovo** e immettere *myResourceGroup*.|
+   |Location| Selezionare **Stati Uniti orientali**. |
    |Nome della subnet| Pubblico|
    |Intervallo di indirizzi subnet| 10.0.0.0/24|
+   |Protezione DDoS| Basic|
    |Endpoint di servizio| Disabled|
+   |Firewall| Disabled|
 
    ![Immettere le informazioni di base sulla rete virtuale](./media/tutorial-restrict-network-access-to-resources/create-virtual-network.png)
 
@@ -93,9 +95,9 @@ Per impostazione predefinita, tutte le macchine virtuali in una subnet possono c
     |Impostazione|Valore|
     |----|----|
     |NOME| myNsgPrivate |
-    |Sottoscrizione| Selezionare la propria sottoscrizione|
-    |Gruppo di risorse | Selezionare **Usa esistente** e selezionare *myResourceGroup*.|
-    |Località| Selezionare **Stati Uniti orientali**. |
+    |Subscription| Selezionare la propria sottoscrizione|
+    |Resource group | Selezionare **Usa esistente** e selezionare *myResourceGroup*.|
+    |Location| Selezionare **Stati Uniti orientali**. |
 
 4. Dopo che il gruppo di sicurezza di rete è stato creato, immettere *myNsgPrivate* nella casella **Cerca risorse, servizi e documentazione** nella parte superiore del portale. Selezionare **myNsgPrivate** quando viene visualizzato nei risultati della ricerca.
 5. In **IMPOSTAZIONI** selezionare **Regole di sicurezza in uscita**.
@@ -162,10 +164,10 @@ I passaggi necessari per limitare l'accesso di rete alle risorse create tramite 
     |----|----|
     |NOME| Immettere un nome univoco per tutte le località di Azure, di lunghezza compresa tra 3 e 24 caratteri e costituito solo da numeri e lettere minuscole.|
     |Tipo di account|Archiviazione v2 (utilizzo generico v2)|
-    |Località| Selezionare **Stati Uniti orientali**. |
+    |Location| Selezionare **Stati Uniti orientali**. |
     |Replica| Archiviazione con ridondanza locale|
-    |Sottoscrizione| Selezionare la propria sottoscrizione|
-    |Gruppo di risorse | Selezionare **Usa esistente** e selezionare *myResourceGroup*.|
+    |Subscription| Selezionare la propria sottoscrizione|
+    |Resource group | Selezionare **Usa esistente** e selezionare *myResourceGroup*.|
 
 ### <a name="create-a-file-share-in-the-storage-account"></a>Creare una condivisione file nell'account di archiviazione
 
@@ -189,7 +191,7 @@ Per impostazione predefinita, gli account di archiviazione accettano connessioni
 
     |Impostazione|Valore|
     |----|----|
-    |Sottoscrizione| Selezionare la propria sottoscrizione.|
+    |Subscription| Selezionare la propria sottoscrizione.|
     |Reti virtuali|Selezionare **myVirtualNetwork** in **Reti virtuali**|
     |Subnet| Selezionare **Privata** in **Subnet**|
 
@@ -218,9 +220,9 @@ Per testare l'accesso di rete a un account di archiviazione, distribuire una VM 
    |NOME| myVmPublic|
    |Nome utente|Immettere un nome utente a scelta.|
    |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-   |Sottoscrizione| Selezionare la propria sottoscrizione.|
-   |Gruppo di risorse| Selezionare **Usa esistente** e selezionare **myResourceGroup**.|
-   |Località| Selezionare **Stati Uniti orientali**.|
+   |Subscription| Selezionare la propria sottoscrizione.|
+   |Resource group| Selezionare **Usa esistente** e selezionare **myResourceGroup**.|
+   |Location| Selezionare **Stati Uniti orientali**.|
 
    ![Immettere le informazioni di base relative a una macchina virtuale](./media/tutorial-restrict-network-access-to-resources/virtual-machine-basics.png)
 4. Selezionare una dimensione per la macchina virtuale e quindi scegliere **Seleziona**.

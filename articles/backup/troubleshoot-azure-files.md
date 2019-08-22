@@ -4,22 +4,21 @@ description: Questo articolo contiene informazioni per la risoluzione dei proble
 ms.service: backup
 author: dcurwin
 ms.author: dacurwin
-ms.date: 07/22/2019
+ms.date: 08/20/2019
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 486c0ae674f1549206b7aa3110faf31132c22f2a
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 1182c7d4ac9a103e752a8cd0c392c5e57f1eebd0
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639404"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637574"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Risolvere i problemi del backup di condivisioni file di Azure
 È possibile risolvere i problemi e gli errori rilevati durante l'uso del backup di condivisioni file di Azure con le informazioni elencate nelle tabelle seguenti.
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitazioni per il backup delle condivisioni file di Azure durante l'anteprima
 Il backup per le condivisioni file di Azure è disponibile in anteprima. Le condivisioni file di Azure sono supportate negli account di archiviazione per utilizzo generico sia v1 che v2. Gli scenari di backup seguenti non sono supportati nelle condivisioni file di Azure:
-- Non è possibile proteggere le condivisioni file di Azure negli account di archiviazione con reti virtuali o firewall abilitati.
 - Per la protezione di File di Azure con Backup di Azure non è disponibile l'interfaccia della riga di comando.
 - Il numero massimo di backup pianificati al giorno è uno.
 - Il numero massimo di backup su richiesta al giorno è quattro.
@@ -51,7 +50,6 @@ La configurazione del backup è illustrata nella tabella seguente:
 | È stato raggiunto il limite massimo di snapshot per questa condivisione file. Sarà possibile creare altri snapshot alla scadenza di quelli meno recenti. | <ul><li> Questo errore può verificarsi quando si creano più backup su richiesta per un file. <li> È previsto un limite di 200 snapshot per ogni condivisione file, inclusi quelli creati da Backup di Azure. I backup (o gli snapshot) pianificati meno recenti vengono cancellati automaticamente. I backup (o gli snapshot) su richiesta devono essere eliminati se viene raggiunto il limite massimo.<li> Eliminare i backup su richiesta (snapshot di condivisione file di Azure) dal portale di File di Azure. **Nota**: eliminando gli snapshot creati da Azure Backup si perderanno i punti di ripristino. |
 | Il backup o il ripristino della condivisione file non è riuscito a causa della limitazione del servizio di archiviazione. Questo problema potrebbe dipendere dal fatto che il servizio di archiviazione sta già elaborando altre richieste per l'account di archiviazione specificato.| Ripetere l'operazione dopo alcuni minuti. |
 | Ripristino non riuscito con condivisione file di destinazione non trovata. | <ul><li>Assicurarsi che l'account di archiviazione selezionato esista e che la condivisione file di destinazione non sia stata eliminata. <li> Accertarsi che l'account di archiviazione sia supportato per il backup di condivisioni file. |
-| Backup di Azure non è attualmente supportato per le condivisioni file di Azure negli account di archiviazione con reti virtuali abilitate. | Disabilitare le reti virtuali nell'account di archiviazione per consentire le operazioni di backup o ripristino. |
 | Il backup o il ripristino non è riuscito perché l'account di archiviazione è in stato bloccato. | Rimuovere il blocco nell'account di archiviazione oppure usare il blocco di eliminazione al posto del blocco di lettura e ripetere l'operazione. |
 | Il ripristino non è riuscito perché il numero di file con errori è superiore alla soglia. | <ul><li> Le cause dell'errore di ripristino sono elencate in un file il cui percorso è indicato nei dettagli del processo. Risolvere gli errori e ripetere l'operazione di ripristino solo per i file con errori. <li> Cause comuni degli errori di ripristino file: <br/> - verificare che i file con errori non siano in uso, <br/> - nella directory padre è presente una directory con lo stesso nome del file con errori. |
 | Il ripristino non è riuscito perché non è stato possibile ripristinare alcun file. | <ul><li> Le cause dell'errore di ripristino sono elencate in un file il cui percorso è indicato nei dettagli del processo. Risolvere gli errori e ripetere le operazioni di ripristino solo per i file con errori. <li> Cause comuni dell'errore di ripristino file: <br/> - verificare che i file con errori non siano in uso, <br/> - nella directory padre è presente una directory con lo stesso nome del file con errori. |

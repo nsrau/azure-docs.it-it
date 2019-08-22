@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: a91bbceb3cb55cf3e7f8e0f84581af07f1ffb80d
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 388583b42d36a21ceb53a59e7c37392bf0eb8333
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66728904"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534311"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-scale-set-with-an-azure-template"></a>Guida introduttiva: Creare un set di scalabilità di macchine virtuali Windows con un modello di Azure
 
@@ -41,7 +41,7 @@ Un modello definisce la configurazione di ciascun tipo di risorsa. Un tipo di ri
 
 | Proprietà                     | Descrizione della proprietà                                  | Valore di esempio del modello                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
-| type                         | Tipo di risorsa di Azure da creare                            | Microsoft.Compute/virtualMachineScaleSets |
+| Tipo                         | Tipo di risorsa di Azure da creare                            | Microsoft.Compute/virtualMachineScaleSets |
 | name                         | Nome del set di scalabilità                                       | myScaleSet                                |
 | location                     | Posizione in cui creare il set di scalabilità                     | Stati Uniti orientali                                   |
 | sku.name                     | Dimensioni delle VM per ogni istanza del set di scalabilità                  | Standard_A1                               |
@@ -149,7 +149,7 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 # Deploy template into resource group
 New-AzResourceGroupDeployment `
     -ResourceGroupName myResourceGroup `
-    -TemplateFile https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-windows-webapp-dsc-autoscale/azuredeploy.json
+    -TemplateURI https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-windows-webapp-dsc-autoscale/azuredeploy.json
 
 # Update the scale set and apply the extension
 Update-AzVmss `

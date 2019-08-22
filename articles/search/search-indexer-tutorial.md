@@ -2,20 +2,18 @@
 title: 'Esercitazione per C#: Indicizzare i dati da database SQL di Azure - Ricerca di Azure'
 description: Esempio di codice C# che mostra come eseguire la connessione al database SQL di Azure, estrarre i dati ricercabili e caricarli in un indice di Ricerca di Azure.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: c88ff0d7e408e03216707ff9282d640fb7d28500
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: d0f0abade5d1eea952c5abde293ae90745ee9b04
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840683"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640646"
 ---
 # <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Esercitazione per C#: effettuare una ricerca per indicizzazione in un database SQL di Azure con gli indicizzatori di Ricerca di Azure
 

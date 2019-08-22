@@ -1,20 +1,20 @@
 ---
 title: "Esercitazione: Creare un'app iOS per l'avvio di una foto nello strumento di lettura immersiva (Swift)"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: In questa esercitazione si creerà da zero un'app iOS cui si aggiungerà la funzionalità di avvio di immagini nello strumento di lettura immersiva.
 services: cognitive-services
-author: MeganRoach
+author: metanMSFT
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 08/01/2019
-ms.author: t-meroa
-ms.openlocfilehash: d0e6cf05043c82faa04d530571ad7cacb3a02854
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.author: metan
+ms.openlocfilehash: bdaee97c8c5d7e19076847c5f1f7c07c528c1747
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991137"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899383"
 ---
 # <a name="tutorial-create-an-ios-app-that-launches-the-immersive-reader-with-content-from-a-photo-swift"></a>Esercitazione: Creare un'app iOS per l'avvio dello strumento di lettura immersiva con il contenuto di una foto (Swift)
 

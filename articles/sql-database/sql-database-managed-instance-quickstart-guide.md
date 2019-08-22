@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 07/11/2019
-ms.openlocfilehash: 97f7393622311103d94d3067205f902e3eec6843
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a8dfe0db5277a995b6e6675381ebeb5aeb243c9b
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567344"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647206"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Introduzione all'istanza gestita di database SQL di Azure
 
@@ -55,8 +55,6 @@ Queste guide introduttive consentono di creare, configurare e ripristinare rapid
 ## <a name="customize-network-environment"></a>Personalizzare l'ambiente di rete
 
 Anche se è possibile configurare automaticamente la rete virtuale e la subnet durante la creazione dell'istanza con il [portale di Azure](sql-database-managed-instance-get-started.md), è consigliabile crearle prima di avviare la creazione di istanze gestite, perché in questo modo è possibile configurare i parametri necessari. Il modo più semplice per creare e configurare l'ambiente di rete consiste nell'usare il modello di [distribuzione Azure Resource Manager](sql-database-managed-instance-create-vnet-subnet.md), che crea e configura la rete e la subnet in cui verrà inserita l'istanza. È sufficiente premere il pulsante Distribuisci di Azure Resource Manager e popolare il modulo con i parametri.
-
-In alternativa, per automatizzare la creazione della rete è possibile usare uno [script di PowerShell](https://www.powershellmagazine.com/20../../configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/).
 
 In alternativa, per automatizzare la creazione della rete è possibile usare uno [script di PowerShell](https://www.powershellmagazine.com/2018/07/23/configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/).
 

@@ -1,6 +1,6 @@
 ---
 title: "Guida introduttiva: Creare un'app Web che consenta di avviare lo strumento di lettura immersiva con C#"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: In questo argomento di avvio rapido si creerà da zero un'app Web a cui si aggiungerà la funzionalità dell'API dello strumento di lettura immersiva.
 services: cognitive-services
 author: metanMSFT
@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 0d67385975db13539c28745eede4fb288a0daedd
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: ed49f834cb7cd4f649d84aea9e549e212771eead
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989132"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899357"
 ---
 # <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-c"></a>Guida introduttiva: Creare un'app Web che consenta di avviare lo strumento di lettura immersiva (C#)
 
