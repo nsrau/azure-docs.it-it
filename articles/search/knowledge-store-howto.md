@@ -1,7 +1,7 @@
 ---
 title: Introduzione al knowledge store (anteprima) - Ricerca di Azure
 description: Informazioni sulla procedura per inviare documenti arricchiti creati da pipeline di indicizzazione basate sull'intelligenza artificiale in Ricerca di Azure a un knowledge store nell'account di archiviazione di Azure, da cui è possibile visualizzare, trasformare e utilizzare i documenti arricchiti in Ricerca di Azure e in altre applicazioni.
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
@@ -9,12 +9,12 @@ ms.subservice: cognitive-search
 ms.topic: tutorial
 ms.date: 06/29/2019
 ms.author: heidist
-ms.openlocfilehash: 7539481105e1c1fd3b6816778e31e6edde8842d3
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: d6cecdce9bc4f7fee9ec936ac73b6accc77084c4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840803"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648827"
 ---
 # <a name="how-to-get-started-with-knowledge-store-in-azure-search"></a>Introduzione al knowledge store in Ricerca di Azure
 
