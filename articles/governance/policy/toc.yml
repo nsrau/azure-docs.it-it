@@ -249,9 +249,6 @@
         - name: Assicurare la crittografia dei file di archiviazione
           displayName: 'deny, all'
           href: samples/ensure-storage-file-encryption.md
-        - name: Richiedere la crittografia dell'account di archiviazione
-          displayName: 'deny, builtin'
-          href: samples/require-storage-account-encryption.md
 - name: Concetti
   items:
     - name: Struttura delle definizioni di criteri di Azure

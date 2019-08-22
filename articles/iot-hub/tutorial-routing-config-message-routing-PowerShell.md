@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 51e9bc85c2ee843aa096674a25a1f634bd08b838
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2c0e66bfe5ec332d25b93305cb2ac8d172ca130d
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66162739"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535141"
 ---
 # <a name="tutorial-use-azure-powershell-to-configure-iot-hub-message-routing"></a>Esercitazione: Usare Azure PowerShell per configurare il routing dei messaggi per l'hub IoT
 
@@ -44,7 +44,7 @@ Copiare e incollare lo script seguente in Cloud Shell e premere INVIO. Lo script
 
 ```azurepowershell-interactive
 # This command retrieves the subscription id of the current Azure account.
-# This field is used when setting up the routing rules.
+# This field is used when setting up the routing queries.
 $subscriptionID = (Get-AzContext).Subscription.Id
 
 # Concatenate this number onto the resources that have to be globally unique.
