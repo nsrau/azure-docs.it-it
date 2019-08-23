@@ -5,19 +5,19 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/27/2019
 ms.author: pafarley
-ms.openlocfilehash: 17dc32f8948387b90229d3c4c07102cff98e3018
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4079b0cab0126a9750bbb91ca7046aa18dbe9ece
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562673"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69657807"
 ---
 Il riconoscimento modulo funziona su documenti di input che soddisfano questi requisiti:
 
 * Il formato deve essere JPG, PNG o PDF (testo o digitalizzato). I documenti PDF con testo incorporato sono i più adatti perché non vi è alcuna possibilità di errore nell'estrazione e individuazione dei caratteri.
 * Se i file PDF sono bloccati da password, è necessario rimuovere il blocco prima di inviarli.
 * Le dimensioni dei file devono essere minori di 4 MB.
-* Per le immagini, le dimensioni devono essere comprese tra 50 x 50 pixel e 4200 x 4200 pixel.
+* Per le immagini, le dimensioni devono essere comprese tra 600 x 100 pixel e 4200 x 4200 pixel.
 * Se digitalizzati da documenti cartacei, i moduli devono essere scansioni di alta qualità.
 * Per il testo deve essere usato l'alfabeto latino (caratteri in lingua inglese).
 * I dati devono contenere chiavi e valori.

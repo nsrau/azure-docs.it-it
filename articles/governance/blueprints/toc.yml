@@ -101,6 +101,22 @@
         - name: Procedura per la distribuzione
           displayName: 'standards, uk official, uk nhs'
           href: ./samples/ukofficial/deploy.md
+    - name: Definizione della base di Cloud Adoption Framework
+      items:
+        - name: Panoramica
+          displayName: 'caf, foundation'
+          href: ./samples/caf-foundation/index.md
+        - name: Procedura per la distribuzione
+          displayName: 'caf, foundation, deploy'
+          href: ./samples/caf-foundation/deploy.md
+    - name: Zona di destinazione per la migrazione di Cloud Adoption Framework
+      items:
+        - name: Panoramica
+          displayName: 'caf, migrate, landing zone'
+          href: ./samples/caf-migrate-landing-zone/index.md
+        - name: Procedura per la distribuzione
+          displayName: 'caf, migrate, landing zone, deploy'
+          href: ./samples/caf-migrate-landing-zone/deploy.md
 - name: Concetti
   items:
     - name: Ciclo di vita di un progetto
