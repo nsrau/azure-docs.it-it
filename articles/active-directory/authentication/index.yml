@@ -1,43 +1,87 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentazione di Autenticazione di Azure AD
+### YamlMime:Landing
+title: Documentazione sull'autenticazione di Azure Active Directory
+summary: Informazioni su come gestire e distribuire la reimpostazione della password self-service di Azure Active Directory, Multi-Factor Authentication, l'elenco personalizzato di password escluse e il blocco intelligente.
 metadata:
-  document_id: null
   title: Documentazione sull'autenticazione di Azure Active Directory
-  description: 'Informazioni su come gestire e distribuire la reimpostazione della password self-service di Azure Active Directory, Multi-Factor Authentication, l''elenco personalizzato di password escluse e il blocco intelligente.'
+  description: Informazioni su come gestire e distribuire la reimpostazione della password self-service di Azure Active Directory, Multi-Factor Authentication, l'elenco personalizzato di password escluse e il blocco intelligente.
   services: active-directory
-  ms.subservice: authentication
-  author: MicrosoftGuyJFlo
-  manager: daveba
   ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: authentication
   ms.topic: landing-page
-  ms.date: 07/19/2018
+  author: MicrosoftGuyJFlo
   ms.author: joflore
-abstract:
-  description: 'Informazioni su come distribuire e gestire la reimpostazione della password self-service di Azure Active Directory, Multi-Factor Authentication, l''elenco personalizzato di password escluse e il blocco intelligente. Queste funzionalità vengono combinate per fornire un robusto sistema di autenticazione, con tutta una serie di metodi di verifica e, al contempo, una semplice procedura di accesso per l''organizzazione.'
-sections:
-  - title: Guide introduttive di 5 minuti
-    items:
-      - type: paragraph
-        text: Informazioni su come abilitare la reimpostazione della password self-service per ridurre le chiamate al supporto tecnico da parte degli utenti.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/index/i_protect.png
-            text: Abilitare la reimpostazione self-service delle password
-            href: 'https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr'
-  - title: Esercitazioni dettagliate
-    items:
-      - type: paragraph
-        text: Informazioni su come abilitare un processo di accesso semplice e sicuro per l'organizzazione.
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/authentication/tutorial-sspr-pilot">Abilitare un progetto pilota di reimpostazione della password self-service</a>
-          - html: <a href="/azure/active-directory/authentication/tutorial-mfa-applications">Richiedere Multi-Factor Authentication per il portale di Azure</a>
-          - html: <a href="/azure/active-directory/authentication/tutorial-enable-writeback">Abilitare l'integrazione locale della reimpostazione della password self-service</a>
-          - html: <a href="/azure/active-directory/authentication/tutorial-sspr-windows">Abilitare la reimpostazione della password di Windows 10</a>
-          - html: <a href="/azure/active-directory/authentication/tutorial-risk-based-sspr-mfa">Integrazione con Azure Identity Protection</a>
+  ms.date: 08/20/2019
+  ms.collection: M365-identity-device-management
+  ms.openlocfilehash: 4ae9515bf7926eca305f77eff4bae3ab53d1dfa0
+  ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 08/21/2019
+  ms.locfileid: "69874375"
+landingContent:
+- title: Informazioni sull'autenticazione
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Informazioni sull'autenticazione
+      url: overview-authentication.md
+    - text: Cosa si intende per metodi di autenticazione?
+      url: concept-authentication-methods.md
+    - text: Registrazione delle informazioni di sicurezza
+      url: concept-registration-mfa-sspr-combined.md
+    - text: Informazioni sull'accesso senza password
+      url: concept-authentication-passwordless.md
+- title: Distribuire la reimpostazione self-service delle password
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Funzionamento della reimpostazione della password self-service
+      url: concept-sspr-howitworks.md
+    - text: writeback delle password
+      url: concept-sspr-writeback.md
+  - linkListType: quickstart
+    links:
+    - text: Guida di avvio rapido sulla reimpostazione della password self-service
+      url: quickstart-sspr.md
+  - linkListType: deploy
+    links:
+    - text: Distribuire la reimpostazione della password self-service di Azure AD
+      url: howto-sspr-deployment.md
+    - text: Abilitare il writeback delle password
+      url: howto-sspr-writeback.md
+    - text: Abilitare la reimpostazione della password self-service di Azure AD dalla schermata di accesso di Windows
+      url: howto-sspr-windows.md
+- title: Abilitare Azure Multi-Factor Authentication
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Come funziona Azure Multi-Factor Authentication
+      url: concept-mfa-howitworks.md
+  - linkListType: tutorial
+    links:
+    - text: Gestire Azure MFA per applicazioni specifiche
+      url: tutorial-mfa-applications.md
+    - text: Usare eventi di rischio per attivare Multi-Factor Authentication e modifiche delle password
+      url: tutorial-risk-based-sspr-mfa.md
+  - linkListType: deploy
+    links:
+    - text: Distribuire Azure Multi-Factor Authentication
+      url: howto-mfa-getstarted.md
+    - text: Usare l'estensione NPS per integrare applicazioni locali
+      url: howto-mfa-nps-extension.md
+- title: Distribuire la protezione delle password di Azure AD
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Eliminare le password vulnerabili sul cloud
+      url: concept-password-ban-bad.md
+    - text: Eliminare le password vulnerabili in locale
+      url: concept-password-ban-bad-on-premises.md
+  - linkListType: get-started
+    links:
+    - text: Configurare l'elenco di password escluse
+      url: howto-password-ban-bad-configure.md
+  - linkListType: how-to-guide
+    links:
+    - text: Distribuire la protezione delle password di Azure AD
+      url: howto-password-ban-bad-on-premises-deploy.md

@@ -12,7 +12,7 @@
       items:
         - name: Inizializzare ed effettuare il provisioning di capacità
           href: quickstart-create-cloudsimple-service.md
-        - name: Configurare l'ambiente di cloud privato
+        - name: Configurare l'ambiente cloud privato
           href: quickstart-create-private-cloud.md
         - name: Creare VM di VMware nel cloud privato
           href: quickstart-create-private-cloud-vmware-virtual-machine.md
@@ -42,7 +42,7 @@
           href: cloudsimple-account.md
         - name: Gestione attività
           href: cloudsimple-activity.md
-        - name: VMware in cloud privato
+        - name: VMware nel cloud privato
           href: vmware-components.md
         - name: Panoramica della sicurezza
           href: cloudsimple-security.md
@@ -105,7 +105,7 @@
             - name: Visualizzare l'elenco di utenti
               href: users.md
             - name: Configurare una connessione di rete virtuale con il cloud privato
-              href: 'https://docs.azure.cloudsimple.com/virtual-network-connection/'
+              href: virtual-network-connection.md
             - name: Modificare il profilo utente
               href: 'https://docs.azure.cloudsimple.com/editprofile/'
         - name: Configurare le macchine virtuali di VMware per il cloud privato
@@ -124,8 +124,8 @@
               href: escalate-privileges.md
             - name: Configurazione dei carichi di lavoro DNS e DHCP
               href: dns-dhcp-setup.md
-            - name: VPN livello 2 di NSX per la migrazione
-              href: 'https://docs.azure.cloudsimple.com/migrate-workloads/#migrating-vms-using-nsx-layer-2-vpn'
+            - name: Eseguire la migrazione di carichi di lavoro usando reti estese di livello 2
+              href: migration-layer-2-vpn.md
         - name: Funzionalità di rete del cloud privato
           items:
             - name: Connessione VPN tra ambiente locale e cloud privato
@@ -145,24 +145,28 @@
             - name: Configurare un server vCenter del cloud privato come endpoint di automazione vRealize
               href: configure-server-vrealize-automation-endpoint.md
             - name: Eseguire la migrazione delle VM dei carichi di lavoro a un cloud privato
-              href: 'https://docs.azure.cloudsimple.com/migrate-workloads/'
+              href: migrate-workloads.md
             - name: Assicurare la disponibilità elevata delle applicazioni in VMware in Azure
               href: 'https://docs.azure.cloudsimple.com/ensuring-high-availability/'
+            - name: Scegliere una soluzione di bilanciamento del carico
+              href: load-balancers.md
         - name: Ecosistema di VMware
           items:
             - name: Eseguire il backup delle macchine virtuali del carico di lavoro
               href: backup-workloads-veeam.md
+            - name: Configurare il cloud privato come sito di ripristino di emergenza con Zerto
+              href: disaster-recovery-zerto.md
             - name: Guida della soluzione VMware Horizon
               href: 'https://docs.azure.cloudsimple.com/horizon-guide/'
             - name: Configurare la crittografia di vSAN per il cloud privato
               href: vsan-encryption.md
-            - name: Distribuzione di Oracle RAC nel cloud privato CloudSimple
-              href: 'https://docs.azure.cloudsimple.com/oracle-rac/'
+            - name: Ottimizzare il cloud privato per Oracle RAC
+              href: oracle-real-application-clusters.md
         - name: Integrazione dei componenti di base di Azure
           items:
             - name: Origine delle identità di Azure AD in vCenter del cloud privato
               href: azure-ad.md
             - name: Connessione di rete locale con ExpressRoute
-              href: 'https://docs.azure.cloudsimple.com/on-premises-connection/'
+              href: on-premises-connection.md
             - name: Connessione di rete virtuale di Azure con ExpressRoute
-              href: 'https://docs.azure.cloudsimple.com/azure-expressroute-connection/'
+              href: azure-expressroute-connection.md

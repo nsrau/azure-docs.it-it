@@ -34,8 +34,10 @@
       href: create-host-pools-powershell.md
     - name: Applicare la licenza Windows a host sessione Desktop virtuale Windows
       href: apply-windows-license.md
-    - name: Configurare una condivisione di profilo utente per un pool di host
+    - name: Creare un contenitore di profili per un pool di host con una condivisione file
       href: create-host-pools-user-profile.md
+    - name: Creare un contenitore di profili per un pool di host con Azure NetApp Files
+      href: create-fslogix-profile-container.md
     - name: Configurare il metodo di bilanciamento del carico di Desktop virtuale Windows
       href: configure-host-pool-load-balancing.md
     - name: Preparare e personalizzare un'immagine master di disco rigido virtuale

@@ -173,6 +173,9 @@
         - name: IoT Edge
           tocHref: /azure/iot-edge/
           topicHref: /azure/iot-edge/
+        - name: Plug and Play IoT
+          tocHref: /azure/iot-pnp/
+          topicHref: /azure/iot-pnp/
         - name: Gemelli digitali di Azure
           tocHref: /azure/digital-twins/
           topicHref: /azure/digital-twins/

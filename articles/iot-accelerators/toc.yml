@@ -251,14 +251,16 @@
   items:
     - name: Soluzioni
       items:
-        - name: Acceleratori di soluzioni IoT
-          href: /azure/iot-accelerators
         - name: IoT Central
           href: 'https://docs.microsoft.com/microsoft-iot-central/'
+        - name: Acceleratori di soluzioni IoT
+          href: /azure/iot-accelerators
     - name: Servizi della piattaforma
       items:
         - name: Hub IoT
           href: /azure/iot-hub
+        - name: Plug and Play IoT
+          href: /azure/iot-pnp
         - name: Servizio Device Provisioning in hub IoT
           href: /azure/iot-dps
         - name: IoT SDK per servizi
@@ -267,18 +269,12 @@
           href: /azure/azure-maps
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: Microsoft Edge
+    - name: IoT Edge
       items:
-        - name: IoT Edge
+        - name: Azure IoT Edge
           href: /azure/iot-edge
         - name: IoT SDK per dispositivi
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
-    - name: Analisi di flusso
-      href: /azure/stream-analytics/
-    - name: Hub eventi
-      href: /azure/event-hubs/
-    - name: Machine Learning
-      href: /azure/machine-learning/
 - name: Risorse
   items:
     - name: Roadmap per Azure

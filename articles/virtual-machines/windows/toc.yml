@@ -251,6 +251,8 @@
           href: mitigate-se.md
         - name: Eventi pianificati
           href: scheduled-events.md
+        - name: Monitorare gli eventi pianificati
+          href: scheduled-event-service.md
         - name: Monitorare i metadati
           href: instance-metadata-service.md
         - name: Abilitare la virtualizzazione annidata

@@ -82,7 +82,7 @@
               href: classroom-labs/how-to-connect-peer-virtual-network.md
             - name: Collegare o scollegare una raccolta immagini condivisa
               href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
-        - name: Creare e configurare lab per le classi (docente)
+        - name: Creare e configurare lab per le classi (istruttore)
           items:
             - name: Creare e gestire i lab per le classi
               href: classroom-labs/how-to-manage-classroom-labs.md
@@ -104,6 +104,10 @@
           items:
             - name: Accedere ai lab per le classi
               href: classroom-labs/how-to-use-classroom-lab.md
+            - name: Usare Connessione desktop remoto per macchine virtuali Linux
+              href: classroom-labs/how-to-use-remote-desktop-linux-student.md
+            - name: Impostare o reimpostare le password per le macchine virtuali
+              href: classroom-labs/how-to-set-virtual-machine-passwords-student.md
     - name: DevTest Labs
       items:
         - name: Configurare un lab

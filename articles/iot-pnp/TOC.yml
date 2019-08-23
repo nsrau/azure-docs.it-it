@@ -1,0 +1,83 @@
+- name: Documentazione di Plug and Play IoT
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Informazioni su Plug and Play IoT
+      href: overview-iot-plug-and-play.md
+- name: Guide introduttive
+  expanded: true
+  items:
+    - name: Usare un modello di funzionalità di dispositivo per creare un dispositivo
+      href: quickstart-create-pnp-device.md
+    - name: Connettere un dispositivo all'hub IoT
+      href: quickstart-connect-pnp-device.md
+    - name: Connettere un dispositivo a IoT Central
+      href: 'https://aka.ms/iot-central-connect-qs'
+    - name: Connettersi a un dispositivo nella soluzione
+      href: quickstart-connect-pnp-device-solution.md
+- name: Esercitazioni
+  items:
+    - name: Creare un dispositivo con VS Code
+      href: tutorial-pnp-visual-studio-code.md
+    - name: Creare un dispositivo pronto per la certificazione
+      href: tutorial-build-device-certification.md
+    - name: Certificare il dispositivo
+      href: tutorial-certification-test.md
+- name: Concetti
+  items:
+    - name: Glossario
+      href: iot-plug-and-play-glossary.md
+    - name: Guida per sviluppatori
+      href: concepts-developer-guide.md
+    - name: Interfacce comuni
+      href: concepts-common-interfaces.md
+    - name: Individuazione dei modelli
+      href: concepts-model-discovery.md
+    - name: Limiti e quote
+      href: concepts-limits-quotas.md
+- name: Guide alle procedure
+  items:
+    - name: Usare IoT Device Workbench
+      href: howto-use-iot-device-workbench.md
+    - name: Installare IoT Explorer
+      href: howto-install-iot-explorer.md
+    - name: Eseguire l'onboarding al portale IoT
+      href: howto-onboard-portal.md
+    - name: Gestire i modelli
+      href: howto-manage-models.md
+    - name: Connettersi a un dispositivo e interagire con esso
+      href: howto-develop-solution.md
+- name: Informazioni di riferimento
+  items:
+    - name: REST
+      href: 'https://aka.ms/iot-pnp-rest'
+    - name: Generare un token di sicurezza REST
+      href: howto-generate-sas-token.md
+- name: Risorse correlate
+  items:
+    - name: Soluzioni
+      items:
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+        - name: Acceleratori di soluzioni IoT
+          href: /azure/iot-accelerators
+    - name: Servizi della piattaforma
+      items:
+        - name: Hub IoT
+          href: /azure/iot-hub
+        - name: Plug and Play IoT
+          href: /azure/iot-pnp
+        - name: Servizio Device Provisioning in hub IoT
+          href: /azure/iot-dps
+        - name: IoT SDK per servizi
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Mappe
+          href: /azure/azure-maps
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: IoT Edge
+      items:
+        - name: Azure IoT Edge
+          href: /azure/iot-edge
+        - name: IoT SDK per dispositivi
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
