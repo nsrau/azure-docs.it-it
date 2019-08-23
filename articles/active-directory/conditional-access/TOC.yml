@@ -42,7 +42,7 @@
       href: plan-conditional-access.md
     - name: Procedure consigliate
       href: best-practices.md
-    - name: Modelli di criteri comuni
+    - name: Criteri comuni di accesso condizionale
       items:
         - name: Richiedere l'autenticazione a più fattori per gli amministratori
           href: howto-conditional-access-policy-admin-mfa.md

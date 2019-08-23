@@ -6,10 +6,9 @@ metadata:
   description: Informazioni su come usare Traduzione testuale per tradurre il testo in più lingue.
   services: cognitive-services
   author: swmachan
-  manager: Chris.Wendt
+  manager: nitinme
   ms.service: cognitive-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: translator-text
   ms.topic: landing-page
   ms.date: 06/04/2019
   ms.author: swmachan

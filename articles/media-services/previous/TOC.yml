@@ -72,7 +72,7 @@
             - name: Aggiornare Servizi multimediali dopo il rollover delle chiavi di accesso alle risorse di archiviazione
               href: media-services-roll-storage-access-keys.md
             - name: Gestire asset tra più account di archiviazione
-              href: meda-services-managing-multiple-storage-accounts.md
+              href: media-services-managing-multiple-storage-accounts.md
         - name: Quote e limitazioni
           href: media-services-quotas-and-limitations.md
     - name: Configurare Postman
@@ -94,8 +94,6 @@
               href: media-services-dotnet-upload-files.md
             - name: REST
               href: media-services-rest-upload-files.md
-        - name: Caricare file di grandi dimensioni con Aspera
-          href: media-services-upload-files-with-aspera.md
         - name: Caricare file con StorSimple
           href: media-services-upload-files-from-storsimple.md
         - name: Copiare BLOB esistenti
