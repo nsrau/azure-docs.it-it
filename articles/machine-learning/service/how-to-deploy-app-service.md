@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/01/2019
-ms.openlocfilehash: a5fd376a6da70ed68baedf44fd4c2cc47e68d3cf
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
-ms.translationtype: HT
+ms.openlocfilehash: ada2a19de12c2f3f6b23fcc3d759afb0c747d37d
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872384"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69897434"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Distribuire un modello di machine learning nel servizio app Azure (anteprima)
 
@@ -108,11 +108,11 @@ Quando `show_output=True`viene visualizzato l'output del processo di compilazion
 
 1. Dal [portale di Azure](https://portal.azure.com)selezionare l'area di lavoro Azure Machine Learning. Nella sezione __Panoramica__ usare il collegamento al __Registro di sistema__ per accedere al container Registry di Azure per l'area di lavoro.
 
-    ![Screenshot della panoramica dell'area di lavoro](media/how-to-deploy-app-service/workspace-overview.png)
+    [![Screenshot della panoramica dell'area di lavoro](media/how-to-deploy-app-service/workspace-overview.png)](media/how-to-deploy-app-service/workspace-overview-expanded.png)
 
 2. Dal Container Registry di Azure selezionare __repository__, quindi selezionare il __nome dell'immagine__ che si desidera distribuire. Per la versione che si vuole distribuire, selezionare la voce __...__ e quindi eseguire la __distribuzione nell'app Web__.
 
-    ![Screenshot della distribuzione da ACR a un'app Web](media/how-to-deploy-app-service/deploy-to-web-app.png)
+    [![Screenshot della distribuzione da ACR a un'app Web](media/how-to-deploy-app-service/deploy-to-web-app.png)](media/how-to-deploy-app-service/deploy-to-web-app-expanded.png)
 
 3. Per creare l'app Web, specificare un nome di sito, una sottoscrizione, un gruppo di risorse e selezionare il piano di servizio app/percorso. Infine, selezionare __Crea__.
 
@@ -122,7 +122,7 @@ Quando `show_output=True`viene visualizzato l'output del processo di compilazion
 
 Dal [portale di Azure](https://portal.azure.com)selezionare l'app Web creata nel passaggio precedente. Nella sezione __Panoramica__ copiare l' __URL__. Questo valore è l' __URL di base__ del servizio.
 
-![Screenshot della panoramica per l'app Web](media/how-to-deploy-app-service/web-app-overview.png)
+[![Screenshot della panoramica per l'app Web](media/how-to-deploy-app-service/web-app-overview.png)](media/how-to-deploy-app-service/web-app-overview-expanded.png)
 
 Il servizio Web che passa le richieste al modello si trova in `{baseurl}/score`. Ad esempio `https://mywebapp.azurewebsites.net/score`. Il codice Python seguente illustra come inviare dati all'URL e visualizzare la risposta:
 

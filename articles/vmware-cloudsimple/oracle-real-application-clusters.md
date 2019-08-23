@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 109cad9988645b4033d7d3da10c6da09540fa811
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 733a225c66040cb2ab819f041647120c8b63b6a0
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69881112"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972416"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Ottimizzare il cloud privato di CloudSimple per l'installazione di Oracle RAC
 
@@ -51,9 +51,9 @@ Nell'esempio seguente vengono usati i dischi definiti nella tabella seguente.
 | DATABASE                                  | Percorso di installazione per il software Oracle database | No          |
 | ORAHOME                                   | Percorso di base per i file binari del database Oracle    | No          |
 | DATA1, DATA2, DATA3, DATA4                | Disco in cui sono archiviati i file di database Oracle   | Sì         |
-| REDO1, REDO2, REDO3, REDO4, REDO5, REDO6  | Dischi di log di rollforward                                | Sì         |
+| REDO1, REDO2, REDO3, REDO4, REDO5, REDO6  | Dischi di log di rollforward                                | Yes         |
 | OCR1, OCR2, OCR3, OCR4, OCR5              | Dischi votanti                                  | Yes         |
-| FRA1, FRA2                                | Dischi dell'area di ripristino rapido                      | Sì         |
+| FRA1, FRA2                                | Dischi dell'area di ripristino rapido                      | Yes         |
 
 ![Configurazione del disco della macchina virtuale Oracle](media/oracle-vmdk.png)
 

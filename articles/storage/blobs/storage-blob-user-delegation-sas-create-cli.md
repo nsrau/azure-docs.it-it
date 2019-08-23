@@ -9,12 +9,12 @@ ms.date: 08/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 1c60c4b868854952771ba297107904762a2357d8
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: ef51a1b130323a8799d5334d8d043fda08fcc7ef
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032995"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69896972"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli-preview"></a>Creare una firma di accesso condiviso di delega utente per un contenitore o BLOB con l'interfaccia della riga di comando di Azure (anteprima)
 
@@ -49,7 +49,7 @@ az role assignment create \
     --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>"
 ```
 
-Per altre informazioni sui ruoli predefiniti che includono l'azione **Microsoft. storage/storageAccounts/blobServices/generateUserDelegationKey** , vedere [ruoli predefiniti per le risorse di Azure](/role-based-access-control/built-in-roles).
+Per altre informazioni sui ruoli predefiniti che includono l'azione **Microsoft. storage/storageAccounts/blobServices/generateUserDelegationKey** , vedere [ruoli predefiniti per le risorse di Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="use-azure-ad-credentials-to-secure-a-sas"></a>Usare le credenziali Azure AD per proteggere una firma di accesso condiviso
 
@@ -63,7 +63,7 @@ Quando si crea una firma di accesso condiviso `--auth-mode login` di `--as-user 
 
 Per creare una firma di accesso condiviso dell'utente per un contenitore con l'interfaccia della riga di comando di Azure, chiamare il comando [AZ Storage container generate-SAS](/cli/azure/storage/container#az-storage-container-generate-sas) .
 
-Le autorizzazioni supportate per una firma di accesso condiviso di delega utente in un contenitore includono Aggiungi, crea, Elimina, elenca, lettura e scrittura. È possibile specificare le autorizzazioni singolarmente o combinate. Per altre informazioni su queste autorizzazioni, vedere [creare una](/rest/api/storageservices/create-a-user-delegation-sas)firma di accesso condiviso di delega utente.
+Le autorizzazioni supportate per una firma di accesso condiviso di delega utente in un contenitore includono Aggiungi, crea, Elimina, elenca, lettura e scrittura. È possibile specificare le autorizzazioni singolarmente o combinate. Per altre informazioni su queste autorizzazioni, vedere [creare una](/rest/api/storageservices/create-user-delegation-sas)firma di accesso condiviso di delega utente.
 
 Nell'esempio seguente viene restituito un token SAS di delega utente per un contenitore. Ricordarsi di sostituire i valori segnaposto tra parentesi con valori personalizzati:
 
@@ -87,7 +87,7 @@ se=2019-07-27&sp=r&sv=2018-11-09&sr=c&skoid=<skoid>&sktid=<sktid>&skt=2019-07-26
 
 Per creare una firma di accesso condiviso dell'utente per un BLOB con l'interfaccia della riga di comando di Azure, chiamare il comando [AZ storage BLOB generate-SAS](/cli/azure/storage/blob#az-storage-blob-generate-sas) .
 
-Le autorizzazioni supportate per la firma di accesso condiviso di una delega utente in un BLOB includono Aggiungi, crea, Elimina, lettura e scrittura. È possibile specificare le autorizzazioni singolarmente o combinate. Per altre informazioni su queste autorizzazioni, vedere [creare una](/rest/api/storageservices/create-a-user-delegation-sas)firma di accesso condiviso di delega utente.
+Le autorizzazioni supportate per la firma di accesso condiviso di una delega utente in un BLOB includono Aggiungi, crea, Elimina, lettura e scrittura. È possibile specificare le autorizzazioni singolarmente o combinate. Per altre informazioni su queste autorizzazioni, vedere [creare una](/rest/api/storageservices/create-user-delegation-sas)firma di accesso condiviso di delega utente.
 
 La sintassi seguente restituisce una firma di accesso condiviso di delega utente per un BLOB. Nell'esempio viene specificato `--full-uri` il parametro, che restituisce l'URI del BLOB con il token di firma di accesso condiviso accodato. Ricordarsi di sostituire i valori segnaposto tra parentesi con valori personalizzati:
 
@@ -115,5 +115,5 @@ https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?se=2019-
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Creare una firma di accesso condiviso per la delega utente (API REST)](/rest/api/storageservices/create-a-user-delegation-sas)
+- [Creare una firma di accesso condiviso per la delega utente (API REST)](/rest/api/storageservices/create-user-delegation-sas)
 - [Operazione di ottenimento della chiave di delega utente](/rest/api/storageservices/get-user-delegation-key)

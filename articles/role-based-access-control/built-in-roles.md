@@ -15,12 +15,12 @@ ms.date: 08/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 4ea0ceed80875018ee4f6e4bbcdc2548a232e9e0
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 09551eb2620349fa2445c1da3a7e0d66062ebaf0
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989952"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899728"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ruoli predefiniti per le risorse di Azure
 
@@ -59,7 +59,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 | [Mittente dati di hub eventi di Azure (anteprima)](#azure-event-hubs-data-sender-preview) | Consente di inviare l'accesso alle risorse di hub eventi di Azure. |
 | [Ruolo di amministratore del cluster del servizio Azure Kubernetes](#azure-kubernetes-service-cluster-admin-role) | Elencare l'azione delle credenziali di amministratore del cluster. |
 | [Ruolo di utente del cluster del servizio Azure Kubernetes](#azure-kubernetes-service-cluster-user-role) | Elencare l'azione delle credenziali di utente del cluster. |
-| [Lettore dati di Maps di Azure (anteprima)](#azure-maps-data-reader-preview) | Concede l'accesso per la lettura dei dati correlati alle mappe da un account Mappe di Azure. |
+| [Lettore dati di Maps di Azure (anteprima)](#azure-maps-data-reader-preview) | Concede l'accesso per leggere i dati correlati alla mappa da un account Azure maps. |
 | [Proprietario dati del bus di servizio di Azure (anteprima)](#azure-service-bus-data-owner-preview) | Consente l'accesso completo alle risorse del bus di servizio di Azure. |
 | [Ricevitore dati del bus di servizio di Azure (anteprima)](#azure-service-bus-data-receiver-preview) | Consente di ricevere l'accesso alle risorse del bus di servizio di Azure. |
 | [Mittente dati del bus di servizio di Azure (anteprima)](#azure-service-bus-data-sender-preview) | Consente di inviare l'accesso alle risorse del bus di servizio di Azure. |
@@ -69,7 +69,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 | [Lettore di backup](#backup-reader) | Può visualizzare i servizi di backup, ma non può apportare modifiche. |
 | [Lettore per la fatturazione](#billing-reader) | Consente l'accesso in lettura ai dati di fatturazione. |
 | [Collaboratore BizTalk](#biztalk-contributor) | Consente di gestire i servizi BizTalk, ma non di accedervi. |
-| [Accesso al nodo membro blockchain (anteprima)](#blockchain-member-node-access-preview) | Consente l'accesso ai nodi di tipo membro della blockchain |
+| [Accesso al nodo membro blockchain (anteprima)](#blockchain-member-node-access-preview) | Consente l'accesso ai nodi membro blockchain |
 | [Collaboratore endpoint rete CDN](#cdn-endpoint-contributor) | Può gestire gli endpoint della rete CDN, ma non può concedere l'accesso ad altri utenti. |
 | [Lettore endpoint rete CDN](#cdn-endpoint-reader) | Può visualizzare gli endpoint della rete CDN, ma non può apportare modifiche. |
 | [Collaboratore profilo rete CDN](#cdn-profile-contributor) | Può gestire i profili e i rispettivi endpoint della rete CDN, ma non può concedere l'accesso ad altri utenti. |
@@ -139,7 +139,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 | [Collaboratore ai dati del BLOB di archiviazione](#storage-blob-data-contributor) | Leggere, scrivere ed eliminare i contenitori e i BLOB di archiviazione di Azure. Per informazioni sulle azioni necessarie per una determinata operazione sui dati, vedere [autorizzazioni per la chiamata di operazioni di dati BLOB e di Accodamento](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 | [Proprietario dei dati del BLOB di archiviazione](#storage-blob-data-owner) | Fornisce accesso completo ai contenitori BLOB e ai dati di archiviazione di Azure, inclusa l'assegnazione del controllo di accesso POSIX. Per informazioni sulle azioni necessarie per una determinata operazione sui dati, vedere [autorizzazioni per la chiamata di operazioni di dati BLOB e di Accodamento](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 | [Lettore dei dati del BLOB di archiviazione](#storage-blob-data-reader) | Leggere ed elencare i contenitori e i BLOB di archiviazione di Azure. Per informazioni sulle azioni necessarie per una determinata operazione sui dati, vedere [autorizzazioni per la chiamata di operazioni di dati BLOB e di Accodamento](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
-| [Delegatore BLOB di archiviazione](#storage-blob-delegator) | Ottenere la chiave di delega utente, che può quindi essere usata per creare una firma di accesso condiviso per un contenitore o un BLOB firmato con Azure AD credenziali. Per altre informazioni, vedere [creare una firma di](https://docs.microsoft.com/rest/api/storageservices/create-a-user-delegation-sas)accesso condiviso di delega utente. |
+| [Delegatore BLOB di archiviazione](#storage-blob-delegator) | Ottenere la chiave di delega utente, che può quindi essere usata per creare una firma di accesso condiviso per un contenitore o un BLOB firmato con Azure AD credenziali. Per altre informazioni, vedere [creare una firma di](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas)accesso condiviso di delega utente. |
 | [Collaboratore condivisione SMB dati file di archiviazione](#storage-file-data-smb-share-contributor) | Consente l'accesso in lettura, scrittura ed eliminazione nelle condivisioni file di archiviazione di Azure tramite SMB |
 | [File di archiviazione dati condivisione SMB con privilegi elevati](#storage-file-data-smb-share-elevated-contributor) | Consente l'accesso in lettura, scrittura, eliminazione e modifica delle autorizzazioni NTFS nelle condivisioni file di archiviazione di Azure tramite SMB |
 | [Lettore condivisione SMB dati file di archiviazione](#storage-file-data-smb-share-reader) | Consente l'accesso in lettura alla condivisione file di Azure tramite SMB |
@@ -635,7 +635,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrizione** | Concede l'accesso per la lettura dei dati correlati alle mappe da un account Mappe di Azure. |
+> | **Descrizione** | Concede l'accesso per leggere i dati correlati alla mappa da un account Azure maps. |
 > | **Id** | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
 > | **Actions** |  |
 > | *nessuna* |  |
@@ -933,11 +933,11 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | **NotDataActions** |  |
 > | *nessuna* |  |
 
-## <a name="blockchain-member-node-access-preview"></a>Accesso ai nodi di tipo membro della blockchain (anteprima)
+## <a name="blockchain-member-node-access-preview"></a>Accesso al nodo membro blockchain (anteprima)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrizione** | Consente l'accesso ai nodi di tipo membro della blockchain |
+> | **Descrizione** | Consente l'accesso ai nodi membro blockchain |
 > | **Id** | 31a002a1-acaf-453e-8a5b-297c9ca1ea24 |
 > | **Actions** |  |
 > | Microsoft.Blockchain/blockchainMembers/transactionNodes/read | Ottiene o elenca i nodi di transazione del membro blockchain esistenti. |
@@ -2655,7 +2655,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrizione** | Ottenere una chiave di delega utente, che può quindi essere usata per creare una firma di accesso condiviso per un contenitore o un BLOB firmato con Azure AD credenziali. Per altre informazioni, vedere [creare una firma di](https://docs.microsoft.com/rest/api/storageservices/create-a-user-delegation-sas)accesso condiviso di delega utente. |
+> | **Descrizione** | Ottenere una chiave di delega utente, che può quindi essere usata per creare una firma di accesso condiviso per un contenitore o un BLOB firmato con Azure AD credenziali. Per altre informazioni, vedere [creare una firma di](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas)accesso condiviso di delega utente. |
 > | **Id** | db58b8e5-c6ad-4a2a-8342-4190687cbf4a |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Restituisce una chiave di delega utente per il servizio BLOB. |

@@ -10,13 +10,14 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 06/27/2019
-ms.openlocfilehash: 1afe8a2e9179c768fd639b4a208de98b0789a53f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+manager: craigg
+ms.date: 08/22/2019
+ms.openlocfilehash: 551c2c02af7b996a34a138586fd91a77a0455d92
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569462"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904314"
 ---
 # <a name="automated-backups"></a>Backup automatizzati
 
@@ -32,10 +33,10 @@ Il database SQL usa la tecnologia SQL Server per creare [backup completi](https:
 
 - **Ripristinare un database esistente a un punto nel tempo precedente** entro il periodo di conservazione usando il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST. Nel database singolo e nei pool elastici questa operazione creerà un nuovo database nello stesso server del database originale. In Istanza gestita questa operazione può creare una copia del database o dello stesso o di Istanza gestita diversi nella stessa sottoscrizione.
   - **[Modificare il periodo di conservazione del backup](#how-to-change-the-pitr-backup-retention-period)** compreso tra 7 e 35 giorni per configurare i criteri di backup.
-  - **Modificare i criteri di conservazione a lungo termine fino a 10 anni** in database singolo e nei pool elastici usando [il portale di Azure](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies) o [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups).
+  - **Modificare i criteri di conservazione a lungo termine fino a 10 anni** in database singolo e nei pool elastici usando [il portale di Azure](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies) o [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups).
 - **Ripristinare un database eliminato fino al momento in cui è stato eliminato** o in qualsiasi momento entro il periodo di memorizzazione. Il database eliminato può essere ripristinato solo nello stesso server logico o in Istanza gestita in cui è stato creato il database originale.
 - **Ripristinare un database in un'altra area geografica**. Il ripristino geografico consente di eseguire un ripristino di emergenza geografico quando è impossibile accedere al server e al database. Crea un nuovo database in qualsiasi server esistente ovunque nel mondo.
-- **Ripristinare un database da uno specifico backup a lungo termine** in Database singolo o pool elastico se il database è stato configurato con un criterio di conservazione a lungo termine (LTR). LTR consente di ripristinare una versione precedente del database usando [il portale di Azure](sql-database-long-term-backup-retention-configure.md#view-backups-and-restore-from-a-backup-using-azure-portal) o [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups) per soddisfare una richiesta di conformità o per eseguire una versione precedente dell'applicazione. Per altre informazioni, vedere [Long-term retention](sql-database-long-term-retention.md) (Conservazione a lungo termine).
+- **Ripristinare un database da uno specifico backup a lungo termine** in Database singolo o pool elastico se il database è stato configurato con un criterio di conservazione a lungo termine (LTR). LTR consente di ripristinare una versione precedente del database usando [il portale di Azure](sql-database-long-term-backup-retention-configure.md#view-backups-and-restore-from-a-backup-using-azure-portal) o [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups) per soddisfare una richiesta di conformità o per eseguire una versione precedente dell'applicazione. Per altre informazioni, vedere [Long-term retention](sql-database-long-term-retention.md) (Conservazione a lungo termine).
 - Per eseguire un ripristino, vedere l'articolo su come [ripristinare un database da un backup](sql-database-recovery-using-backups.md).
 
 > [!NOTE]
@@ -46,7 +47,7 @@ Il database SQL usa la tecnologia SQL Server per creare [backup completi](https:
 | | Portale di Azure | Azure PowerShell |
 |---|---|---|
 | Modificare la conservazione dei backup | [Database singolo](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-the-azure-portal) <br/> [Istanza gestita](sql-database-automated-backups.md#change-pitr-for-a-managed-instance) | [Database singolo](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[Istanza gestita](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
-| Modificare la conservazione dei backup a lungo termine | [Database singolo](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Istanza gestita-N/A  | [Database singolo](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups)<br/>Istanza gestita-N/A  |
+| Modificare la conservazione dei backup a lungo termine | [Database singolo](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Istanza gestita-N/A  | [Database singolo](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups)<br/>Istanza gestita-N/A  |
 | Ripristinare il database da un punto nel tempo | [Database singolo](sql-database-recovery-using-backups.md#point-in-time-restore) | [Database singolo](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Istanza gestita](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
 | Ripristinare un database eliminato | [Database singolo](sql-database-recovery-using-backups.md#deleted-database-restore-using-the-azure-portal) | [Database singolo](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Istanza gestita](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
 | Ripristinare il database dall'archiviazione BLOB di Azure | Database singolo-N/A <br/>Istanza gestita-N/A  | Database singolo-N/A <br/>[Istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
@@ -81,7 +82,7 @@ Come i backup di ripristino temporizzato, i backup di conservazione a lungo term
 Per altre informazioni, vedere [Conservazione dei backup a lungo termine](sql-database-long-term-retention.md).
 
 ## <a name="storage-costs"></a>Costi di archiviazione
-Sette giorni di backup automatizzati dei tuoi database vengono copiati nell'archivio BLOB Standard con archiviazione con ridondanza geografica e accesso in lettura per impostazione predefinita. Le risorse di archiviazione vengono usate da backup completi settimanali, backup differenziali giornalieri e backup del log delle transazioni copiati ogni 5 minuti. Le dimensioni del log delle transazioni dipendono dalla frequenza di modifica del database. Uno spazio di archiviazione minimo equivalente al 100% delle dimensioni del database viene fornito senza addebiti aggiuntivi. L'utilizzo aggiuntivo dell'archivio di backup verrà addebitato in base a GB/mese.
+Per i database singoli, viene fornita una quantità minima di spazio di archiviazione per il backup pari al 100% delle dimensioni del database senza costi aggiuntivi. Per i pool elastici, un importo di archiviazione di backup minimo pari al 100% dell'archiviazione dei dati allocati per il pool viene fornito senza costi aggiuntivi. L'utilizzo aggiuntivo dell'archivio di backup verrà addebitato in base a GB/mese. Questo consumo aggiuntivo dipenderà dal carico di lavoro e dalle dimensioni dei singoli database.
 
 Per altre informazioni sui prezzi delle risorse di archiviazione, vedere la pagina dei [prezzi](https://azure.microsoft.com/pricing/details/sql-database/single/). 
 

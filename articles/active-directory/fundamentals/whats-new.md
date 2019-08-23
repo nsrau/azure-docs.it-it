@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50f2f1f7f5d8509a28557e9704bc178be465b1ee
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 93327091d0065a67d441dd56cadd83f4f7d2d1f2
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648667"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69970389"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novità di Azure Active Directory
 
@@ -114,7 +114,7 @@ Per ulteriori informazioni, vedere [What ' s New for Authentication?](https://do
 
 Azure AD i clienti possono ora impostare i criteri per gestire le chiavi di sicurezza FIDO2 per gli utenti e i gruppi dell'organizzazione. Gli utenti finali possono anche registrare autonomamente le proprie chiavi di sicurezza, usare le chiavi per accedere ai propri account Microsoft nei siti Web, mentre nei dispositivi che supportano FIDO, e accedere ai dispositivi Windows 10 aggiunti a Azure AD.
 
-Per altre informazioni, vedere [abilitare l'accesso senza password per Azure ad (anteprima)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-enable) per le informazioni relative all'amministratore e [configurare le informazioni di sicurezza per l'uso di una chiave di sicurezza (anteprima)](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-security-key) per le informazioni relative all'utente finale.
+Per altre informazioni, vedere [abilitare l'accesso senza password per Azure ad (anteprima)](/azure/active-directory/authentication/concept-authentication-passwordless) per le informazioni relative all'amministratore e [configurare le informazioni di sicurezza per l'uso di una chiave di sicurezza (anteprima)](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-security-key) per le informazioni relative all'utente finale.
 
 ---
 
@@ -382,7 +382,7 @@ Per ulteriori informazioni sulla configurazione della personalizzazione dell'azi
 
 ---
 
-### <a name="azure-multi-factor-authentication-mfa-server-is-no-longer-available-for-new-deployments"></a>Il server Azure multi-factor authentication (AMF) non è più disponibile per le nuove distribuzioni
+### <a name="azure-multi-factor-authentication-mfa-server-is-no-longer-available-for-new-deployments"></a>Il server Azure Multi-Factor Authentication (multi-factor authentication) non è più disponibile per le nuove distribuzioni
 
 **Tipo:** Funzionalità deprecate  
 **Categoria di servizio:** MFA  
@@ -390,7 +390,7 @@ Per ulteriori informazioni sulla configurazione della personalizzazione dell'azi
 
 A partire dal 1 ° luglio 2019, Microsoft non offrirà più il server multi-factor authentication per le nuove distribuzioni. I nuovi clienti che vogliono richiedere l'autenticazione a più fattori nella propria organizzazione devono ora usare Azure a più fattori basato sul cloud. I clienti che hanno attivato il server di autenticazione a più fattori prima del 1 ° luglio non vedranno una modifica. Sarà comunque possibile scaricare la versione più recente, ottenere gli aggiornamenti futuri e generare le credenziali di attivazione.
 
-Per altre informazioni, vedere [Introduzione al server Azure Multifactor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy). Per ulteriori informazioni sull'autenticazione a più fattori basata sul cloud, vedere [pianificazione di una distribuzione di Azure a più fattori basata sul cloud](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted).
+Per altre informazioni, vedere [Introduzione all'server multi-factor authentication di Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy). Per ulteriori informazioni sull'autenticazione a più fattori basata sul cloud, vedere [pianificazione di una distribuzione di Azure a più fattori basata sul cloud](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted).
 
 ---
 
@@ -718,7 +718,7 @@ Per altre informazioni, vedere [come richiedere criteri di protezione delle app 
 **Categoria di servizio:** Accesso condizionale  
 **Funzionalità del prodotto:** Identity Security e Protection
 
-Il supporto Azure AD per Microsoft Edge è stato migliorato, inclusa la fornitura di un nuovo supporto per Azure AD Single Sign-on e l'accesso condizionale. Se in precedenza è stato usato Microsoft Intune Managed Browser, ora è possibile usare Microsoft Edge.
+Il supporto Azure AD per Microsoft Edge è stato migliorato, inclusa la fornitura di un nuovo supporto per Azure AD Single Sign-On e l'accesso condizionale. Se in precedenza è stato usato Microsoft Intune Managed Browser, ora è possibile usare Microsoft Edge.
 
 Per altre informazioni sulla configurazione e la gestione di dispositivi e app usando l'accesso condizionale, vedere [richiedere i dispositivi gestiti per l'accesso alle app cloud con accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices) e [richiedere app client approvate per l'accesso alle app cloud con accesso condizionale ](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). Per altre informazioni su come gestire l'accesso tramite Microsoft Edge con i criteri di Microsoft Intune, vedere [gestire l'accesso a Internet tramite un browser protetto da criteri Microsoft Intune](https://docs.microsoft.com/intune/app-configuration-managed-browser).
 

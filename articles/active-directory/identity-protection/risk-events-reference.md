@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08e27052c3583ddea7a2fb6fe96fa6b48cd6c372
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 5d2247aab872a71f250bd0b4b52714e402d2102d
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333869"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905204"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Riferimento agli eventi di rischio in Azure Active Directory Identity Protection
 
@@ -64,7 +64,7 @@ Questo tipo di evento di rischio indica accessi da indirizzi IP infettati da mal
 ## <a name="unfamiliar-sign-in-properties"></a>Proprietà di accesso insolite
 
 **Tipo di rilevamento:** Tempo reale  
-**Nome precedente:** Accessi da posizioni insolite
+**Nome precedente:** Accessi da posizioni non note
 
 Questo tipo di evento di rischio considera la cronologia di accesso precedente (IP, Latitudine/Longitudine e ASN) per la ricerca di accessi anomali. Il sistema archivia le informazioni sulle posizioni usate in precedenza da un utente e le considera posizioni "note". L'evento di rischio viene attivato quando viene eseguito l'accesso da una posizione non inclusa nell'elenco delle posizioni note. Gli utenti appena creati saranno in "modalità di apprendimento" per un periodo di tempo in cui gli eventi di rischio delle proprietà di accesso non note verranno spenti mentre gli algoritmi apprendono il comportamento dell'utente. La durata della modalità di apprendimento è dinamica e dipende dalla quantità di tempo impiegato dall'algoritmo per raccogliere informazioni sufficienti sui modelli di accesso dell'utente. La durata minima è di cinque giorni. Un utente può tornare alla modalità di apprendimento dopo un lungo periodo di inattività. Il sistema ignora anche gli accessi da dispositivi noti e le posizioni geograficamente vicine a una posizione nota. 
 
@@ -76,3 +76,8 @@ Questo tipo di evento di rischio considera la cronologia di accesso precedente (
 **Nome precedente:** Questo rilevamento verrà visualizzato nei report legacy Azure AD Identity Protection (utenti contrassegnati per il rischio, eventi di rischio) come ' utenti con credenziali perse '
 
 Questo tipo di evento di rischio indica che l'attività dell'utente è insolita per l'utente specificato o è coerente con i modelli di attacco noti basati sulle fonti di intelligence per le minacce interne ed esterne di Microsoft.
+
+## <a name="admin-confirmed-user-compromised"></a>L'amministratore ha confermato che l'utente è compromesso
+
+**Tipo di rilevamento:** Offline <br>
+Questo rilevamento indica che un amministratore ha selezionato ' conferma utente compromesso ' nell'interfaccia utente Risky Users o usando l'API riskyUsers. Per verificare quale amministratore ha confermato la compromissione dell'utente, controllare la cronologia dei rischi dell'utente (tramite interfaccia utente o API).

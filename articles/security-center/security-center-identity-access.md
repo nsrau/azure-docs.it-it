@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
 ms.author: v-mohabe
-ms.openlocfilehash: 73480c6e24ab13b7764c5b72280c19971eb3d039
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 1ef4d8e76b54b995a09decdfaf9974f0929c8ed9
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296484"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905333"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Monitorare identità e accesso nel Centro sicurezza di Azure (anteprima)
 Questo articolo illustra come usare il Centro sicurezza di Azure per monitorare l'identità e le attività di accesso degli utenti.
@@ -108,17 +108,17 @@ In **Sottoscrizioni** è presente un elenco di sottoscrizioni. La prima colonna 
 ## <a name="recommendations"></a>Consigli
 Usare la tabella seguente come riferimento per comprendere i consigli relativi a Identità e accesso disponibili e gli effetti che producono se si decide di metterli in pratica.
 
-|Tipo di risorsa|Punteggio di sicurezza|Recommendation|DESCRIZIONE|
+|Tipo di risorsa|Punteggio di sicurezza|Recommendation|Descrizione|
 |----|----|----|----|
-|Sottoscrizione|50|L'autenticazione a più fattori deve essere abilitata per gli account con autorizzazioni proprietario per la sottoscrizione|Abilitare l'autenticazione a più fattori (MFA, Multi-Factor Authentication) per tutti gli account della sottoscrizione con privilegi di amministratore per impedire una violazione degli account o delle risorse.|
+|Sottoscrizione|50|L'autenticazione MFA deve essere abilitata negli account con autorizzazioni di proprietario per la sottoscrizione|Abilitare l'autenticazione a più fattori (MFA, Multi-Factor Authentication) per tutti gli account della sottoscrizione con privilegi di amministratore per impedire una violazione degli account o delle risorse.|
 |Sottoscrizione|40|Autenticazione a più fattori deve essere abilitata per gli account di sottoscrizione con autorizzazioni di scrittura|Abilitare l'autenticazione a più fattori (MFA, Multi-Factor Authentication) per tutti gli account della sottoscrizione con privilegi di scrittura per impedire una violazione degli account o delle risorse.|
-|Sottoscrizione|30|Gli account esterni con autorizzazioni proprietario devono essere rimossi dalla sottoscrizione|Rimuovere dalla sottoscrizione gli account esterni con autorizzazioni di proprietario in modo da evitare l'accesso non monitorato.|
+|Sottoscrizione|30|Gli account esterni con autorizzazioni di proprietario devono essere rimossi dalla sottoscrizione|Rimuovere dalla sottoscrizione gli account esterni con autorizzazioni di proprietario in modo da evitare l'accesso non monitorato.|
 |Sottoscrizione|30|Autenticazione a più fattori deve essere abilitata per gli account di sottoscrizione con le autorizzazioni di lettura|Abilitare l'autenticazione a più fattori (MFA, Multi-Factor Authentication) per tutti gli account della sottoscrizione con privilegi di lettura per impedire una violazione degli account o delle risorse.|
-|Sottoscrizione|25|È consigliabile rimuovere dalla sottoscrizione gli account esterni con autorizzazioni di scrittura|Rimuovere dalla sottoscrizione gli account esterni con autorizzazioni di scrittura in modo da evitare l'accesso non monitorato. |
-|Sottoscrizione|20|Gli account deprecati con autorizzazioni proprietario devono essere rimossi dalla sottoscrizione|Rimuovere gli account deprecati con autorizzazioni di proprietario dalle sottoscrizioni.|
+|Sottoscrizione|25|Gli account esterni con autorizzazioni di scrittura devono essere rimossi dalla sottoscrizione|Rimuovere dalla sottoscrizione gli account esterni con autorizzazioni di scrittura in modo da evitare l'accesso non monitorato. |
+|Sottoscrizione|20|Gli account deprecati con autorizzazioni di proprietario devono essere rimossi dalla sottoscrizione|Rimuovere gli account deprecati con autorizzazioni di proprietario dalle sottoscrizioni.|
 |Sottoscrizione|5|Gli account deprecati devono essere rimossi dalla sottoscrizione|Rimuovere gli account deprecati dalle sottoscrizioni correnti per consentire l'accesso solo agli utenti connessi. |
-|Sottoscrizione|5|La sottoscrizione deve essere assegnata a più di un proprietario|Designare più di un proprietario di sottoscrizione per assicurare la ridondanza dell'accesso amministratore.|
-|Sottoscrizione|5|È necessario designare un massimo di 3 proprietari per la sottoscrizione|Designare meno di 3 proprietari di sottoscrizione in modo da ridurre la probabilità di violazione da parte di un proprietario compromesso.|
+|Sottoscrizione|5|Alla sottoscrizione deve essere assegnato più di un proprietario|Designare più di un proprietario di sottoscrizione per assicurare la ridondanza dell'accesso amministratore.|
+|Sottoscrizione|5|Per la sottoscrizione devono essere designati al massimo 3 proprietari|Designare meno di 3 proprietari di sottoscrizione in modo da ridurre la probabilità di violazione da parte di un proprietario compromesso.|
 |Insieme di credenziali delle chiavi|5|I log di diagnostica in Key Vault devono essere abilitati|Abilitare i log e conservarli fino a un anno. Questo consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
 |Sottoscrizione|15|Gli account esterni con autorizzazioni di lettura devono essere rimossi dalla sottoscrizione|Rimuovere dalla sottoscrizione gli account esterni con privilegi di lettura in modo da evitare l'accesso non monitorato.| 
 
@@ -128,7 +128,7 @@ Usare la tabella seguente come riferimento per comprendere i consigli relativi a
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle raccomandazioni applicabili ad altri tipi di risorse di Azure, vedere gli argomenti seguenti:
 
-- [Protezione delle macchine virtuali nel Centro sicurezza di Azure](security-center-virtual-machine-recommendations.md)
+- [Protezione delle macchine virtuali nel Centro sicurezza di Azure](security-center-virtual-machine-protection.md)
 - [Protezione della rete nel Centro sicurezza di Azure](security-center-network-recommendations.md)
 - [Protezione del servizio SQL di Azure e dei dati nel Centro sicurezza di Azure](security-center-sql-service-recommendations.md)
 

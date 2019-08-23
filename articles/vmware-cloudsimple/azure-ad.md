@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b9060ecbb9ca9e77d994a8f20378e2c53927586a
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 8e8ea11da0339103375009709be8795cdede2448
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617380"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972919"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Usare Azure AD come provider di identità per vCenter nel cloud privato CloudSimple
 
-È possibile configurare il cloud privato di CloudSimple per l'autenticazione con Azure Active Directory (Azure AD) per gli amministratori VMware per accedere a vCenter. Dopo aver configurato l'origine di identità Single Sign-on, l'utente **cloudowner** può aggiungere utenti dall'origine identità a vCenter.  
+È possibile configurare il cloud privato di CloudSimple per l'autenticazione con Azure Active Directory (Azure AD) per gli amministratori VMware per accedere a vCenter. Dopo aver configurato l'origine Single Sign-On identità, l'utente **cloudowner** può aggiungere utenti dall'origine identità a vCenter.  
 
 È possibile configurare il dominio Active Directory e i controller di dominio in uno dei modi seguenti:
 
@@ -98,4 +98,4 @@ Facoltativamente, è possibile configurare altre funzionalità di Azure AD.  Que
 
 3. Accedere al cloud privato vCenter dopo l'escalation dei privilegi.
 4. Seguire le istruzioni in [aggiungere un'origine di identità in vCenter](set-vcenter-identity.md#add-an-identity-source-on-vcenter) usando i valori del passaggio precedente per configurare Azure Active Directory come origine di identità.
-5. Aggiungere utenti/gruppi da Azure AD ai gruppi vCenter come descritto nell'argomento relativo all' <a href="https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html" target="_blank">aggiunta di membri a un gruppo vCenter Single Sign-on</a>in VMware.
+5. Aggiungere utenti/gruppi da Azure AD ai gruppi vCenter come descritto nell'argomento relativo all' [aggiunta di membri a un gruppo vCenter Single Sign-on](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html)in VMware.

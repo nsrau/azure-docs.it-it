@@ -16,12 +16,12 @@ ms.date: 10/16/2018
 ms.author: cephalin
 ms.reviewer: apurvajo
 ms.custom: seodec18
-ms.openlocfilehash: 7675a22b4b2d8b13524f06f45d6bb805c1e2fad1
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 8f55e2eb3ac7fe2e869b6b1061f6d45d11894ccf
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019142"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905932"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Acquistare e configurare un certificato SSL per il servizio app di Azure
 
@@ -50,7 +50,7 @@ Usare la tabella seguente per informazioni sulla configurazione del certificato.
 
 | Impostazione | DESCRIZIONE |
 |-|-|
-| Name | Nome descrittivo per il certificato del servizio app. |
+| NOME | Nome descrittivo per il certificato del servizio app. |
 | Nome host di dominio di tipo naked | Specificare qui il dominio radice. Il certificato emesso protegge *sia* il dominio radice che il `www` sottodominio. Nel certificato emesso il campo nome comune contiene il dominio radice e il campo nome alternativo oggetto contiene il `www` dominio. Per proteggere solo un sottodominio, specificare qui il nome di dominio completo del sottodominio, ad esempio `mysubdomain.contoso.com`.|
 | Sottoscrizione | Data center in cui è ospitata l'app Web. |
 | Gruppo di risorse | Gruppo di risorse che contiene il certificato. È possibile usare un nuovo gruppo di risorse o selezionare lo stesso gruppo di risorse, ad esempio, dell'app del servizio app. |
@@ -71,7 +71,7 @@ Nella pagina **Stato insieme di credenziali delle chiavi** fare clic su **Reposi
 
 | Impostazione | DESCRIZIONE |
 |-|-|
-| NOME | Nome univoco costituito da caratteri alfanumerici e trattini. |
+| Name | Nome univoco costituito da caratteri alfanumerici e trattini. |
 | Gruppo di risorse | È consigliabile selezionare lo stesso gruppo di risorse del certificato del servizio app. |
 | Location | Selezionare la stessa località dell'app del servizio app. |
 | Piano tariffario | Per altre informazioni, vedere [Prezzi di Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
@@ -139,7 +139,7 @@ Al termine dell'operazione rekey, fare clic su **Sincronizza**. L'operazione di 
 
 ## <a name="renew-certificate"></a>Rinnova certificato
 
-Per attivare il rinnovo automatico del certificato in qualsiasi momento, selezionare il certificato nella pagina [Certificati del servizio app](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) e quindi fare clic su **Impostazioni di rinnovo automatico** nel riquadro di spostamento a sinistra.
+Per attivare il rinnovo automatico del certificato in qualsiasi momento, selezionare il certificato nella pagina [Certificati del servizio app](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) e quindi fare clic su **Impostazioni di rinnovo automatico** nel riquadro di spostamento a sinistra. Per impostazione predefinita, i certificati del servizio app hanno un periodo di validità di 1 anno.
 
 Selezionare **Attivato** e fare clic su **Salva**. Il rinnovo dei certificati può essere avviato automaticamente 60 giorni prima della scadenza se è attivato il rinnovo automatico.
 

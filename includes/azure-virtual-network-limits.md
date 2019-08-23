@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/25/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 1fd08efd12e723a16445eba1d341f017a86a212e
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: e55b191e937b6c9f8183b3878b264eb50401b3f1
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68481471"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69903938"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Limiti di rete: Azure Resource Manager si applicano i limiti seguenti solo per le risorse di rete gestite tramite **Azure Resource Manager** per area per sottoscrizione. Informazioni su come [visualizzare l'utilizzo delle risorse corrente rispetto ai limiti della sottoscrizione](../articles/networking/check-usage-against-limits.md).
 
@@ -78,7 +78,7 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Risorsa | Limite predefinito | Limite massimo |
 | --- | --- | --- |
 | Reti virtuali |100 |100 |
-| Siti di rete locale |20 |Contattare il supporto tecnico. |
+| Siti di rete locale |20 |50 |
 | Server DNS per ogni rete virtuale |20 |20 |
 | Indirizzi IP privati per ogni rete virtuale |4\.096 |4\.096 |
 | Flussi TCP o UDP simultanei per ogni scheda di interfaccia di rete di un'istanza del ruolo o di una macchina virtuale |500.000, fino a 1 milione per due o più schede di rete. |500.000, fino a 1 milione per due o più schede di rete. |

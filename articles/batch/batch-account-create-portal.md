@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6e1543d578e6812fd270bd76ec18bdfe8fe5ba6a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: d4bf7b894a23f0054485ddb6dbb91c4df2122222
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324052"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907335"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Creare un account Batch nel portale di Azure
 
@@ -115,7 +115,7 @@ In modalità di sottoscrizione utente, è necessario un insieme di credenziali d
 
 Quando si crea l'account batch in modalità di sottoscrizione utente, usare il gruppo di risorse per l'insieme di credenziali delle chiavi. Specificare **sottoscrizione utente** come modalità di allocazione pool, selezionare l'insieme di credenziali delle chiavi e selezionare la casella per concedere l'accesso Azure batch all'insieme di credenziali delle chiavi. 
 
-Se si preferisce concedere l'accesso a Key Vault manualmente, passare alla sezione **criteri di accesso** dell'insieme di credenziali delle chiavi e selezionare **Microsoft Azure batch**. Configurare le **autorizzazioni segrete** usando il menu a discesa. Azure Batch necessario assegnare almeno le autorizzazioni **Get**, **List**, **set**e **Delete** .
+Se si preferisce concedere l'accesso a Key Vault manualmente, passare alla sezione **criteri di accesso** dell'insieme di credenziali delle chiavi e selezionare **Aggiungi criteri di accesso** e cercare **Microsoft Azure batch**. Una volta selezionata, sarà necessario configurare le **autorizzazioni segrete** usando il menu a discesa. Azure Batch necessario assegnare almeno le autorizzazioni **Get**, **List**, **set**e **Delete** .
 
 ![Autorizzazioni segrete per Azure Batch](./media/batch-account-create-portal/secret-permissions.png)
 

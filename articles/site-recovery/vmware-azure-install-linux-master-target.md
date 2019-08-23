@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 062ed5e408317e95b36d6d0dfa395311ed4afe7f
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 5b4b3f5025edef242b87215665fd65f131157943
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68261423"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904408"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installare un server di destinazione master Linux per il failback
 Dopo avere effettuato il failover delle macchine virtuali in Azure, è possibile eseguirne il failback nel sito locale. Per eseguire il failback, è necessario riproteggere la macchina virtuale da Azure al sito locale. A tale scopo, è necessario un server di destinazione master locale che riceva il traffico. 
@@ -214,12 +214,11 @@ Per scaricarli usando Linux, digitare:
 
 ### <a name="apply-custom-configuration-changes"></a>Applicare le modifiche di configurazione personalizzate
 
-Per applicare le modifiche di configurazione personalizzate, attenersi alla procedura seguente:
-
+Per applicare le modifiche di configurazione personalizzate, attenersi alla procedura seguente come utente ROOT:
 
 1. Eseguire il seguente comando per decomprimere il file binario.
 
-    `tar -zxvf latestlinuxmobsvc.tar.gz`
+    `tar -xvf latestlinuxmobsvc.tar.gz`
 
     ![Schermata del comando da eseguire](./media/vmware-azure-install-linux-master-target/image16.png)
 

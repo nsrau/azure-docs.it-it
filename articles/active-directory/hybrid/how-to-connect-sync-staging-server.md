@@ -16,12 +16,12 @@ ms.date: 02/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 176b8509892ef16b631697a686471e7fa52bb380
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bc88640cdff4f716902a80bb149913b961d40ae3
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60381587"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900066"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: Server di gestione temporanea e ripristino di emergenza
 Con un server in modalità di gestione temporanea è possibile apportare modifiche alla configurazione e visualizzarle in anteprima prima di attivare il server. È anche possibile eseguire operazioni di importazione e sincronizzazione complete per verificare che tutte le modifiche siano previste prima di introdurle nell'ambiente di produzione.
@@ -42,7 +42,7 @@ Durante l'installazione è possibile selezionare la **modalità di gestione temp
 
 È comunque possibile forzare un’esportazione utilizzando Synchronization Service Manager.
 
-Un server in modalità di gestione temporanea continua a ricevere modifiche da Active Directory e Azure AD. Ha sempre una copia delle modifiche più recenti e può così assumere velocemente le funzioni di un altro server. Se si apportano modifiche alla configurazione del server primario, è necessario apportare le stesse modifiche al server in modalità di gestione temporanea.
+Un server in modalità di gestione temporanea continua a ricevere modifiche da Active Directory e Azure AD e può assumere rapidamente le responsabilità di un altro server in caso di errore. Se si apportano modifiche alla configurazione del server primario, è necessario apportare le stesse modifiche al server in modalità di gestione temporanea.
 
 Coloro che hanno una conoscenza delle tecnologie di sincronizzazione precedenti tengano presente che la modalità di gestione temporanea è diversa, perché il server ha il proprio database SQL. L'architettura consente al server in modalità di gestione temporanea di trovarsi in un altro data center.
 

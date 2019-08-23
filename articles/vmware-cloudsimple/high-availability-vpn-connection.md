@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0ad917215275ce2f80dfdd2ec4e5a16794b36c13
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: ea8ad80d8d12ae9ecac88bd6a3d661ca895d67f4
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650348"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972766"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>Configurare una connessione a disponibilità elevata da locale a gateway VPN CloudSimple
 
@@ -27,7 +27,7 @@ Per impostazione predefinita, i gateway VPN CloudSimple sono configurati in moda
 
 ### <a name="phase-1"></a>Fase 1
 
-| Parametro | Valore |
+| Parametro | Value |
 |-----------|-------|
 | Versione IKE | IKEv1 |
 | Crittografia | AES 256 |
@@ -38,7 +38,7 @@ Per impostazione predefinita, i gateway VPN CloudSimple sono configurati in moda
 
 ### <a name="phase-2"></a>Fase 2
 
-| Parametro | Valore |
+| Parametro | Value |
 |-----------|-------|
 | Crittografia | AES 256 |
 | Algoritmo hash| SHA 256 |
@@ -315,11 +315,11 @@ Configurazione di Cisco Adaptive Security Appliance Virtual (ASAv) in Azure:
 
 Configurazione della VPN da sito a sito con ID proxy in palo alto:
 
-<a href="https://docs.paloaltonetworks.com/pan-os/9-0/pan-os-admin/vpns/set-up-site-to-site-vpn#" target="_blank">Configurare una VPN da sito a sito</a>
+[Configurare una VPN da sito a sito](https://docs.paloaltonetworks.com/pan-os/9-0/pan-os-admin/vpns/set-up-site-to-site-vpn#)
 
 Impostazione del monitoraggio tunnel:
 
-<a href="https://docs.paloaltonetworks.com/pan-os/7-1/pan-os-admin/vpns/set-up-tunnel-monitoring.html" target="_blank">Configurare il monitoraggio del tunnel</a>
+[Configurare il monitoraggio del tunnel](https://docs.paloaltonetworks.com/pan-os/7-1/pan-os-admin/vpns/set-up-tunnel-monitoring.html)
 
 Operazioni del tunnel del gateway IKE o IPsec:
 

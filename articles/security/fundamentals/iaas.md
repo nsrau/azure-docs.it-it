@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/05/2019
 ms.author: barclayn
-ms.openlocfilehash: c04d5fc5b455c798ffc8cb4a88948deaea0cf348
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 0e8be1675dd2b400f89ab17fe85c037066302409
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927921"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906027"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedure consigliate per la sicurezza dei carichi di lavoro IaaS in Azure
 Questo articolo descrive le procedure consigliate per la sicurezza delle macchine virtuali e dei sistemi operativi.
@@ -182,7 +182,7 @@ Monitorare e limitare la connettività Internet diretta della macchina virtuale.
 **Dettagli**: Usare il controllo degli accessi in base al ruolo per assicurarsi che solo il gruppo di rete centrale disponga delle autorizzazioni per la
 
 **Procedura consigliata**: Identificare e correggere le macchine virtuali esposte che consentono l'accesso da un indirizzo IP di origine "any".   
-**Dettagli**: Usare il Centro sicurezza di Azure. Il Centro sicurezza consiglia di limitare l'accesso tramite endpoint con connessione Internet se uno dei gruppi di sicurezza di rete ha una o più regole in ingresso che consentono l'accesso da un indirizzo IP di origine "any". Il Centro sicurezza consiglierà di modificare queste regole in ingresso per [limitare l'accesso](../../security-center/security-center-restrict-access-through-internet-facing-endpoints.md) agli indirizzi IP di origine che necessitano effettivamente dell'accesso.
+**Dettagli**: Usare il Centro sicurezza di Azure. Il Centro sicurezza consiglia di limitare l'accesso tramite endpoint con connessione Internet se uno dei gruppi di sicurezza di rete ha una o più regole in ingresso che consentono l'accesso da un indirizzo IP di origine "any". Il Centro sicurezza consiglierà di modificare queste regole in ingresso per [limitare l'accesso](../../security-center/security-center-network-recommendations.md) agli indirizzi IP di origine che necessitano effettivamente dell'accesso.
 
 **Procedura consigliata**: Limitare le porte di gestione (RDP, SSH).   
 **Dettagli**: [L'accesso alla macchina virtuale JIT (just-in-Time)](../../security-center/security-center-just-in-time.md) può essere usato per bloccare il traffico in ingresso verso le macchine virtuali di Azure, riducendo l'esposizione agli attacchi offrendo un facile accesso per connettersi alle macchine virtuali quando necessario. Quando JIT è abilitato, il Centro sicurezza blocca il traffico in ingresso nelle macchine virtuali di Azure creando una regola del gruppo di sicurezza di rete. Selezionare le porte nella macchina virtuale per cui proteggere il traffico in ingresso. Queste porte sono controllate dalla soluzione JIT.

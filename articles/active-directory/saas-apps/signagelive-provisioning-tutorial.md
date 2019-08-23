@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: Zhchia
-ms.openlocfilehash: 7838fd30869629298c5b44cc4b3e5c1e5daa7051
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: ef5a605fb0190e67de8b2bb95bbccfd8fd3cf279
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69519997"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906046"
 ---
 # <a name="tutorial-configure-signagelive--for-automatic-user-provisioning"></a>Esercitazione: Configurare Signagelive per il provisioning utenti automatico
 
@@ -56,8 +56,7 @@ Prima di configurare e abilitare il provisioning utenti automatico, è necessari
 
 Prima di configurare Signagelive per il provisioning utenti automatico con Azure AD, sarà necessario abilitare il provisioning di SCIM in Signagelive.
 
-1.  Contattare [Signagelive](mailto:development@signagelive.com) per ottenere il token segreto necessario per configurare il provisioning di SCIM.
-
+  Contattare [Signagelive](mailto:development@signagelive.com) per ottenere il token segreto necessario per configurare il provisioning di SCIM.
 
 ## <a name="add-signagelive-from-the-gallery"></a>Aggiungere Signagelive dalla raccolta
 
@@ -86,7 +85,7 @@ Per configurare Signagelive per il provisioning utenti automatico con Azure AD, 
 Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in Signagelive in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 > [!TIP]
->  È anche possibile scegliere di abilitare l'accesso Single Sign-on basato su SAML per BitaBIZ, seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on di Signagelive](Signagelive-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
+>  È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per Signagelive, seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on di Signagelive](Signagelive-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
 
 ### <a name="to-configure-automatic-user-provisioning-for-signagelive--in-azure-ad"></a>Per configurare il provisioning utenti automatico per Signagelive in Azure AD:
 
@@ -106,7 +105,8 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Scheda Provisioning](common/provisioning-automatic.png)
 
-5. Nella sezione credenziali amministratore immettere ` https://samlapi.signagelive.com/scim/v2` in **URL tenant**. In campo **token segreto** immettere il valore del **token di porta** fornito dal team di sviluppo della progettazione. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a Signagelive. Se la connessione non riesce, verificare che l'account Signagelive disponga delle autorizzazioni di ![amministratore e riprovare URL tenant + token](common/provisioning-testconnection-tenanturltoken.png)
+5. Nella sezione credenziali amministratore immettere ` https://samlapi.signagelive.com/scim/v2` in **URL tenant**. In campo **token segreto** immettere il valore del **token di porta** fornito dal team di sviluppo della progettazione. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a Signagelive. Se la connessione non riesce, verificare che l'account Signagelive disponga delle autorizzazioni di amministratore e riprovare.
+    ![URL tenant + token](common/provisioning-testconnection-tenanturltoken.png)
 
 6. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
 
@@ -144,9 +144,9 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Salvataggio della configurazione del provisioning](common/provisioning-configuration-save.png)
 
-L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio Azure ad provisioning su Signagelive.
+L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive. Per ulteriori informazioni sul tempo necessario per il provisioning di utenti e/o gruppi, vedere [quanto tempo sarà necessario per il provisioning degli utenti](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users). 
 
-Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../manage-apps/check-status-user-account-provisioning.md).
+È possibile usare la sezione **stato corrente** per monitorare lo stato di avanzamento e selezionare i collegamenti al report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio Azure ad provisioning su Signagelive. Per altre informazioni, vedere [controllare lo stato del](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md)provisioning dell'utente. Per leggere i log di provisioning di Azure AD, vedere [creazione di report sul provisioning automatico degli account utente](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

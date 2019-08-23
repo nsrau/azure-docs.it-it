@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6869602b7d4aff6d779d189f0b6444dde2055d4
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 5630c157ef7843726bcc17455a1e683e58b88ffd
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68261910"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905247"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servizi che supportano le identità gestite per le risorse di Azure
 
@@ -63,7 +63,7 @@ Vedere l'elenco seguente per configurare l'identità gestita per il set di scala
 | Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
 | --- | --- | --- | --- | --- |
 | Assegnata dal sistema | Disponibile | Disponibile | Disponibile | Disponibile |
-| Assegnata dall'utente | Anteprima | Non disponibile | Non disponibile | Non disponibile |
+| Assegnata dall'utente | Disponibile | Non disponibile | Non disponibile | Non disponibile |
 
 Vedere l'elenco seguente per configurare l'identità gestita per il Servizio app di Azure (nelle aree in cui è disponibile):
 
@@ -89,7 +89,7 @@ Vedere l'elenco seguente per usare un'identità gestita con i [progetti di Azure
 Tipo di identità gestita |Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
 | --- | --- | --- | --- | --- |
 | Assegnata dal sistema | Disponibile | Disponibile | Disponibile | Disponibile |
-| Assegnata dall'utente | Anteprima | Non disponibile | Non disponibile | Non disponibile |
+| Assegnata dall'utente | Disponibile | Non disponibile | Non disponibile | Non disponibile |
 
 Vedere l'elenco seguente per configurare l'identità gestita per Funzioni di Azure (nelle aree in cui è disponibile):
 
@@ -197,7 +197,7 @@ Per configurare l'accesso ai Azure Resource Manager, vedere l'elenco seguente:
 | Azure Germania |   | Non disponibile |
 | 21Vianet per Azure Cina |  | Non disponibile |
 
-### <a name="azure-sql"></a>SQL di Azure 
+### <a name="azure-sql"></a>Azure SQL 
 
 | Cloud | ID risorsa | Stato |
 |--------|------------|--------|

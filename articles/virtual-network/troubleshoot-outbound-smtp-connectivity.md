@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: e21788dbf30b6fa3b37f84dd07d54b89bc91f17f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 64cf633d50fc81ae8d53f2b4ee2a9975a756f0c7
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935379"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972488"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>Risolvere i problemi di connettività SMTP in uscita in Azure
 
@@ -33,12 +33,12 @@ In Azure non sono previste restrizioni relative all'uso di questi servizi di rec
 ## <a name="enterprise-agreement"></a>Contratto Enterprise
 Per gli utenti di Azure con contratto Enterprise Agreement, non vi sono variazioni riguardo alla capacità tecnica di inviare posta elettronica senza usare un servizio di inoltro autenticato. Gli utenti con contratto Enterprise Agreement, sia nuovi che esistenti, possono tentare il recapito di posta elettronica in uscita direttamente dalle macchine virtuali di Azure a provider di posta elettronica esterni, senza restrizioni da parte della piattaforma Azure. Anche se non è garantito che i provider di posta elettronica accettino posta elettronica in ingresso da un utente qualsiasi, i tentativi di recapito non verranno bloccati dalla piattaforma Azure per le macchine virtuali nell'ambito di sottoscrizioni Enterprise Agreement. Sarà necessario collaborare direttamente con i provider di posta elettronica per risolvere eventuali errori di recapito di messaggi o di filtro di posta indesiderata che interessano tali provider.
 
-## <a name="pay-as-you-go"></a>Con pagamento in base al consumo
+## <a name="pay-as-you-go"></a>Pagamento in base al consumo
 Se si è eseguita l'iscrizione a offerte di sottoscrizione con pagamento in base al consumo o Microsoft Partner Network prima del 15 novembre 2017, non vi saranno variazioni riguardo alla capacità tecnica di tentare il recapito di posta elettronica in uscita. Si continuerà ad avere la possibilità di tentare il recapito di posta elettronica in uscita dalle macchine virtuali di Azure nell'ambito di queste sottoscrizioni direttamente a provider di posta elettronica esterni, senza restrizioni da parte della piattaforma Azure. Anche in questo caso, non è garantito che i provider di posta elettronica accettino posta elettronica in ingresso da un utente qualsiasi e gli utenti dovranno collaborare direttamente con i provider di posta elettronica per risolvere eventuali errori di recapito di messaggi o di filtro di posta indesiderata che interessano tali provider.
 
 Per le sottoscrizioni con pagamento in base al consumo o Microsoft Partner Network create dopo il 15 novembre 2017, saranno presenti restrizioni tecniche che bloccano la posta elettronica inviata direttamente dalle macchine virtuali nell'ambito di tali sottoscrizioni. Se si vuole avere la possibilità di inviare posta elettronica direttamente dalle macchine virtuali di Azure a provider di posta elettronica esterni, senza inoltro SMTP autenticato, è possibile inviare una richiesta per la rimozione della restrizione. Le richieste verranno esaminate e approvate a discrezione di Microsoft e saranno soddisfatte solo in seguito a ulteriori controlli anti-frode. Per eseguire una richiesta, aprire un caso di supporto usando il tipo di problema seguente: > La**connettività**direte > virtuale tecnica**non può inviare messaggi di posta elettronica (SMTP/porta 25).**  >  Assicurarsi di aggiungere i dettagli sul motivo per cui la propria distribuzione deve inviare messaggi direttamente a provider di posta elettronica anziché usare un servizio di inoltro autenticato.
 
-Dopo che una sottoscrizione con pagamento in base al consumo o Microsoft Partner Network è stata esentata e che le macchine virtuali sono state arrestate &' avviato ' dal portale di Azure, tutte le macchine virtuali all'interno di tale sottoscrizione verranno esentate in futuro. L'esenzione è applicabile solo alla sottoscrizione richiesta.
+Dopo che una sottoscrizione con pagamento in base al consumo o Microsoft Partner Network è stata esentata e che le macchine virtuali sono state arrestate &' avviato ' dal portale di Azure, tutte le macchine virtuali all'interno di tale sottoscrizione verranno esentate in futuro. L'esenzione è applicabile solo alla sottoscrizione richiesta e si applica solo al traffico delle macchine virtuali indirizzato direttamente a Internet. Il traffico della porta 25 di routing tramite i servizi PaaS di Azure, ad esempio il [firewall di Azure](https://azure.microsoft.com/services/azure-firewall/) , non è supportato.
 
 > [!NOTE]
 > Microsoft si riserva il diritto di revocare questa esenzione nel caso in cui venga accertata una violazione delle condizioni del servizio.

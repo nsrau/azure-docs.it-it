@@ -1,7 +1,7 @@
 ---
-title: Distribuire modelli usando un'immagine Docker personalizzata
+title: Distribuire modelli con un'immagine di base Docker personalizzata
 titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare un'immagine Docker personalizzata quando si distribuiscono i modelli di servizio Azure Machine Learning. Quando si distribuisce un modello sottoposto a training, viene creata un'immagine Docker per ospitare l'immagine, il server Web e altri componenti necessari per eseguire il servizio. Mentre Azure Machine Learning servizio fornisce un'immagine predefinita, è anche possibile usare la propria immagine.
+description: Informazioni su come usare un'immagine di base Docker personalizzata quando si distribuiscono i modelli di servizio Azure Machine Learning. Quando si distribuisce un modello sottoposto a training, viene distribuita un'immagine contenitore di base per eseguire il modello per l'inferenza. Mentre Azure Machine Learning servizio fornisce un'immagine di base predefinita, è anche possibile usare un'immagine di base personalizzata.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,23 +9,25 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 07/11/2019
-ms.openlocfilehash: f41ccef7803366e63247e6862c59ddb983527d26
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.date: 08/22/2019
+ms.openlocfilehash: a86dd021d8f9cfe275b3af3f0cb71b99857c26d7
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990508"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971510"
 ---
-# <a name="deploy-a-model-by-using-a-custom-docker-image"></a>Distribuire un modello usando un'immagine Docker personalizzata
+# <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Distribuire un modello usando un'immagine di base Docker personalizzata
 
-Informazioni su come usare un'immagine Docker personalizzata quando si distribuiscono modelli sottoposti a training con il servizio Azure Machine Learning.
+Informazioni su come usare un'immagine di base Docker personalizzata quando si distribuiscono modelli con training con il servizio Azure Machine Learning.
 
-Quando si distribuisce un modello sottoposto a training in un servizio Web o in un dispositivo IoT Edge, viene creata un'immagine docker. Questa immagine contiene il modello, l'ambiente conda e gli asset necessari per usare il modello. Contiene anche un server Web per gestire le richieste in ingresso quando viene distribuito come servizio Web e i componenti necessari per lavorare con l'hub Azure.
+Quando si distribuisce un modello sottoposto a training in un servizio Web o in un dispositivo IoT Edge, viene creato un pacchetto che contiene un server Web per la gestione delle richieste in ingresso.
 
-Azure Machine Learning servizio fornisce un'immagine Docker predefinita, quindi non è necessario preoccuparsi di crearne una. È anche possibile usare un'immagine personalizzata creata come _immagine di base_. Un'immagine di base viene usata come punto di partenza per la creazione di un'immagine per una distribuzione. Fornisce il sistema operativo e i componenti sottostanti. Il processo di distribuzione aggiunge quindi componenti aggiuntivi, ad esempio il modello, l'ambiente conda e altre risorse, all'immagine prima di distribuirla.
+Azure Machine Learning servizio fornisce un'immagine di base Docker predefinita, quindi non è necessario preoccuparsi di crearne una. È anche possibile usare un'immagine di base personalizzata creata come immagine di _base_. 
 
-In genere, si crea un'immagine personalizzata quando si desidera controllare le versioni del componente o risparmiare tempo durante la distribuzione. Ad esempio, potrebbe essere necessario standardizzare una versione specifica di Python, conda o un altro componente. Potrebbe inoltre essere necessario installare il software richiesto dal modello, in cui il processo di installazione richiede molto tempo. L'installazione del software durante la creazione dell'immagine di base significa che non è necessario installarla per ogni distribuzione.
+Un'immagine di base viene usata come punto di partenza per la creazione di un'immagine per una distribuzione. Fornisce il sistema operativo e i componenti sottostanti. Il processo di distribuzione aggiunge quindi componenti aggiuntivi, ad esempio il modello, l'ambiente conda e altre risorse, all'immagine prima di distribuirla.
+
+In genere, si crea un'immagine di base personalizzata quando si vuole usare Docker per gestire le dipendenze, mantenere un controllo più rigoroso sulle versioni dei componenti o risparmiare tempo durante la distribuzione. Ad esempio, potrebbe essere necessario standardizzare una versione specifica di Python, conda o un altro componente. Potrebbe inoltre essere necessario installare il software richiesto dal modello, in cui il processo di installazione richiede molto tempo. L'installazione del software durante la creazione dell'immagine di base significa che non è necessario installarla per ogni distribuzione.
 
 > [!IMPORTANT]
 > Quando si distribuisce un modello, non è possibile eseguire l'override di componenti di base come il server Web o i componenti IoT Edge. Questi componenti forniscono un ambiente funzionante noto testato e supportato da Microsoft.
@@ -35,8 +37,8 @@ In genere, si crea un'immagine personalizzata quando si desidera controllare le 
 
 Questo documento è suddiviso in due sezioni:
 
-* Creare un'immagine personalizzata: Fornisce informazioni agli amministratori e DevOps sulla creazione di un'immagine personalizzata e sulla configurazione dell'autenticazione in un Container Registry di Azure tramite l'interfaccia della riga di comando di Azure e Machine Learning CLI.
-* Usare un'immagine personalizzata: Fornisce informazioni ai data scientist e DevOps/MLOps sull'uso di immagini personalizzate quando si distribuisce un modello sottoposto a Training dall'interfaccia della riga di comando di Python SDK o ML.
+* Creare un'immagine di base personalizzata: Fornisce informazioni agli amministratori e DevOps sulla creazione di un'immagine personalizzata e sulla configurazione dell'autenticazione in un Container Registry di Azure tramite l'interfaccia della riga di comando di Azure e Machine Learning CLI.
+* Distribuire un modello usando un'immagine di base personalizzata: Fornisce informazioni ai data scientist e ai tecnici DevOps/ML sull'uso di immagini personalizzate quando si distribuisce un modello sottoposto a training da Python SDK o ML CLI.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -47,7 +49,7 @@ Questo documento è suddiviso in due sezioni:
 * Un [container Registry di Azure](/azure/container-registry) o un altro registro Docker accessibile su Internet.
 * I passaggi descritti in questo documento presuppongono che si abbia familiarità con la creazione e l'uso di un oggetto di __configurazione__ dell'inferenza come parte della distribuzione del modello. Per ulteriori informazioni, vedere la sezione "preparazione alla distribuzione" di [where to deploy and how](how-to-deploy-and-where.md#prepare-to-deploy).
 
-## <a name="create-a-custom-image"></a>Creare un'immagine personalizzata
+## <a name="create-a-custom-base-image"></a>Creare un'immagine di base personalizzata
 
 Le informazioni contenute in questa sezione presuppongono che si usi un Container Registry di Azure per archiviare le immagini docker. Utilizzare l'elenco di controllo seguente quando si pianifica la creazione di immagini personalizzate per Azure Machine Learning servizio:
 
@@ -109,7 +111,7 @@ Se sono già stati sottoposti a training o distribuiti modelli usando il servizi
 
     Il `<registry_name>` valore è il nome del container Registry di Azure per l'area di lavoro.
 
-### <a name="build-a-custom-image"></a>Creare un'immagine personalizzata
+### <a name="build-a-custom-base-image"></a>Creare un'immagine di base personalizzata
 
 I passaggi descritti in questa sezione illustrano come creare un'immagine Docker personalizzata nel Container Registry di Azure.
 
@@ -162,7 +164,7 @@ Per altre informazioni sulla creazione di immagini con una Container Registry di
 
 Per altre informazioni sul caricamento di immagini esistenti in un Container Registry di Azure, vedere [eseguire il push della prima immagine in un registro contenitori Docker privato](/azure/container-registry/container-registry-get-started-docker-cli).
 
-## <a name="use-a-custom-image"></a>Usare un'immagine personalizzata
+## <a name="use-a-custom-base-image"></a>Usare un'immagine di base personalizzata
 
 Per usare un'immagine personalizzata, sono necessarie le informazioni seguenti:
 
@@ -174,7 +176,7 @@ Per usare un'immagine personalizzata, sono necessarie le informazioni seguenti:
 
     Se non si dispone di queste informazioni, rivolgersi all'amministratore per il Container Registry di Azure che contiene l'immagine.
 
-### <a name="publicly-available-images"></a>Immagini disponibili pubblicamente
+### <a name="publicly-available-base-images"></a>Immagini di base disponibili pubblicamente
 
 Microsoft fornisce diverse immagini Docker in un repository accessibile pubblicamente, che può essere usato con i passaggi descritti in questa sezione:
 

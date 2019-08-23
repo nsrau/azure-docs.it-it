@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d9e76532d41e23cba376755ca524ca6911385204
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: d830b8e27bb6f66a533b8106cbec53eeca4ca139
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69559548"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69970712"
 ---
 # <a name="convert-configurations-to-composite-resources"></a>Convertire le configurazioni in risorse composite
 
@@ -49,7 +49,7 @@ Il cmdlet caricherà il contenuto della configurazione, otterrà l'elenco dei pa
 
 Dopo aver generato un modulo, è possibile incrementare la versione e aggiungere le note sulla versione ogni volta che si apportano modifiche e lo si pubblica nel [repository PowerShellGet](https://kevinmarquette.github.io/2018-03-03-Powershell-Using-a-NuGet-server-for-a-PSRepository/?utm_source=blog&utm_medium=blog&utm_content=psscriptrepo).
 
-Dopo aver creato un modulo di risorsa composita contenente la configurazione (o più configurazioni), è possibile usarli nell' [esperienza di creazione componibile](/azure/automation/compose-configurationwithcompositeresources) in Azure oppure aggiungerli agli script di [configurazione DSC](/powershell/dsc/resources/configurations) per generare file MOF e [caricare i file MOF in automazione di Azure](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
+Dopo aver creato un modulo di risorsa composita contenente la configurazione (o più configurazioni), è possibile usarli nell' [esperienza di creazione componibile](/azure/automation/compose-configurationwithcompositeresources) in Azure oppure aggiungerli agli script di [configurazione DSC](/powershell/dsc/configurations/configurations) per generare file MOF e [caricare i file MOF in automazione di Azure](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
 Quindi registrare i server da [locale](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws) o [in Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) per eseguire il pull delle configurazioni.
 L'aggiornamento più recente del progetto ha pubblicato anche [manuali operativi](https://www.powershellgallery.com/packages?q=DscGallerySamples) per automazione di Azure per automatizzare il processo di importazione delle configurazioni dal PowerShell Gallery.
 

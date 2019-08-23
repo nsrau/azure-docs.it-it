@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/05/2019
 ms.author: TomSh
-ms.openlocfilehash: 09caffcfdad4b132858b6ec52b36fe037f488b3a
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4bc4e8e02c5b44c63ee531a295f2b59e91c056bd
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934715"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900473"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Procedure consigliate di Azure per la sicurezza di rete
 Questo articolo illustra una raccolta di procedure consigliate di Azure per migliorare la sicurezza della rete. derivate dalla nostra esperienza con la rete di Azure e dalle esperienze di altri clienti.
@@ -114,7 +114,7 @@ I dispositivi di sicurezza di rete di Azure possono offrire livelli di sicurezza
 Per individuare i dispositivi di sicurezza di rete virtuale di Azure, visitare [Azure Marketplace](https://azure.microsoft.com/marketplace/) e cercare "sicurezza" e "sicurezza di rete".
 
 ## <a name="deploy-perimeter-networks-for-security-zones"></a>Distribuire reti perimetrali per le aree di sicurezza
-Una [rete perimetrale](./https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) è un segmento di rete fisica o logica che fornisce un ulteriore livello di sicurezza tra le risorse e Internet. I dispositivi specializzati per il controllo di accesso alla rete dislocati al margine di una rete perimetrale lasciano entrare nella rete virtuale solo il traffico desiderato.
+Una [rete perimetrale](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) è un segmento di rete fisica o logica che fornisce un ulteriore livello di sicurezza tra le risorse e Internet. I dispositivi specializzati per il controllo di accesso alla rete dislocati al margine di una rete perimetrale lasciano entrare nella rete virtuale solo il traffico desiderato.
 
 Le reti perimetrali sono utili perché permettono di concentrare le operazioni di gestione, monitoraggio, registrazione e creazione di report del controllo di accesso alla rete sui dispositivi della rete virtuale di Azure. Una rete perimetrale consente in genere di abilitare la prevenzione di attacchi Denial of Service (DDoS), il rilevamento delle intrusioni/sistemi di prevenzione delle intrusioni (IDS/IPS), le regole e i criteri del firewall, i filtri Web, l'antimalware di rete e altro ancora. I dispositivi di sicurezza di rete sono posizionati tra Internet e la rete virtuale di Azure e hanno un'interfaccia su entrambe le reti.
 

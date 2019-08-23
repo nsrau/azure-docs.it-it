@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 79e7027d308d389aa672d164de91df61b1142e32
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 07d48ed195f74c9aef5d34de1925ab8fc2a3ae21
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534161"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899923"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Creare e installare i file di configurazione del client VPN per le configurazioni da punto a sito con autenticazione del certificato nativa di Azure
 
@@ -133,13 +133,13 @@ In Ubuntu 18.0.4 sono state create le istruzioni seguenti. Ubuntu 16.0.10 non su
    ```
    sudo apt install network-manager-strongswan
    ```
-2. Selezionare l'icona **Network Manager** (Gestione rete) usando le frecce su/giù e selezionare **Edit Connections** (Modifica connessioni).
+2. Selezionare **Impostazioni** , quindi fare clic su **rete**.
 
    ![Modificare le connessioni](./media/point-to-site-vpn-client-configuration-azure-cert/editconnections.png)
-3. Fare clic sul pulsante **Aggiungi** per creare una nuova connessione.
+3. Fare clic **+** sul pulsante per creare una nuova connessione.
 
    ![Aggiungere una connessione](./media/point-to-site-vpn-client-configuration-azure-cert/addconnection.png)
-4. Selezionare **IPsec/IKEv2 (strongswan)** dal menu a discesa e fare clic su **Create** (Crea). In questo passaggio è possibile rinominare la connessione.
+4. Selezionare **IPSec/IKEv2 (strongSwan)** dal menu e fare doppio clic su. In questo passaggio è possibile assegnare un nome alla connessione.
 
    ![Scegliere un tipo di connessione](./media/point-to-site-vpn-client-configuration-azure-cert/choosetype.png)
 5. Aprire il file **VpnSettings.xml** dalla cartella **Generic** (Generale) contenuta nei file di configurazione client scaricati. Trovare il tag denominato **VpnServer** e copiare il nome, che inizia con "azuregateway" e termina con ".cloudapp.net".
@@ -148,8 +148,8 @@ In Ubuntu 18.0.4 sono state create le istruzioni seguenti. Ubuntu 16.0.10 non su
 6. Incollare il nome nel campo **Address** (Indirizzo) della nuova connessione VPN nella sezione **Gateway**. Successivamente, selezionare l'icona della cartella alla fine del campo **Certificate** (Certificato), passare alla cartella **Generic** e selezionare il file **VpnServerRoot**.
 7. Nella sezione **Client** della connessione, per **Authentication** (Autenticazione) selezionare **Certificate/private key** (Certificato/Chiave privata). Per **Certificate** (Certificato) e **Private key** (Chiave privata) scegliere il certificato e la chiave privata creati in precedenza. In **Options** (Opzioni) selezionare **Request an inner IP address** (Richiedi un indirizzo IP interno). Fare quindi clic su **Aggiungi**.
 
-   ![Richiedere un indirizzo IP interno](./media/point-to-site-vpn-client-configuration-azure-cert/inneripreq.png)
-8. Fare clic sull'icona **Network Manager** (Gestione rete) (freccia su/freccia giù) e passare il mouse su **Connessioni VPN**. Viene visualizzata la connessione VPN creata. Fare clic per avviare la connessione.
+   ![Richiedere un indirizzo IP interno](./media/point-to-site-vpn-client-configuration-azure-cert/turnon.png)
+8. Attivare la connessione.
 
 ## <a name="linuxinstallcli"></a>Linux (strongSwan CLI)
 

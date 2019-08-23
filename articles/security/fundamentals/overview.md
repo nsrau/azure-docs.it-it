@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: e87fc74b3fa989471f9074a33fc66d8cb8250aa0
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 2cc8f4f81ad95376dcbc10c2952c1b2ed95ffe42
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927845"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907902"
 ---
 # <a name="introduction-to-azure-security"></a>Introduzione alla sicurezza in Azure
 ## <a name="overview"></a>Panoramica
@@ -270,6 +270,7 @@ Web application firewall è una funzionalità del [gateway applicazione di Azure
 
 
 L'uso di un Web application firewall centralizzato per la protezione dagli attacchi Web semplifica notevolmente la gestione della sicurezza e offre all'applicazione migliori garanzie contro le minacce di intrusione. Una soluzione WAF è anche in grado di reagire più velocemente a una minaccia alla sicurezza tramite l'applicazione di patch su una vulnerabilità nota in una posizione centrale, anziché proteggere ogni singola applicazione Web. È possibile convertire facilmente i gateway applicazione esistenti in gateway applicazione con Web application firewall.
+
 ### <a name="traffic-manager"></a>Gestione traffico
 [Gestione traffico di Microsoft Azure](../../traffic-manager/traffic-manager-overview.md) consente di controllare la distribuzione del traffico utente per gli endpoint di servizio in diversi data center. Gli endpoint di servizio supportati da Gestione traffico includono servizi cloud, app Web e VM di Azure. È anche possibile usare Gestione traffico con endpoint esterni, non di Azure. Gestione traffico usa il sistema DNS (Domain Name System) per indirizzare le richieste del client all'endpoint più appropriato in base a un [metodo di routing del traffico](../../traffic-manager/traffic-manager-routing-methods.md) e all'integrità degli endpoint.
 
@@ -295,18 +296,8 @@ Il sistema [DNS (Domain Name System)](https://technet.microsoft.com/library/bb62
 -   Contatore regole: contiene voci per sapere quante volte ogni regola dei gruppi di sicurezza di rete è stata applicata per rifiutare o consentire il traffico.
 
 ### <a name="azure-security-center"></a>Centro sicurezza di Azure
-Il Centro sicurezza consente di prevenire, rilevare e rispondere alle minacce e offre un livello di visibilità e controllo più elevato della sicurezza delle risorse di Azure. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri nelle sottoscrizioni di Azure, consente di rilevare minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza. Le raccomandazioni sulla rete sono incentrate su firewall, gruppi di sicurezza di rete, configurazione delle regole per il traffico in ingresso e altro ancora.
 
-Sono disponibili le raccomandazioni sulla rete seguenti.
-
--   [Aggiungi un firewall di nuova generazione](../../security-center/security-center-add-next-generation-firewall.md): è consigliabile aggiungere un firewall di nuova generazione di un partner Microsoft per aumentare i meccanismi di protezione per la sicurezza.
-
--   [Indirizza il traffico solo tramite il firewall di nuova generazione](../../security-center/security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only): è consigliabile configurare regole del gruppo di sicurezza di rete che forzino il traffico in ingresso alla VM attraverso il firewall di nuova generazione.
-
--   [Abilita i gruppi di sicurezza di rete nelle subnet/sulle macchine virtuali](../../security-center/security-center-enable-network-security-groups.md): è consigliabile abilitare gruppi di sicurezza di rete nelle subnet o sulle VM.
-
--   [Limita l'accesso tramite un endpoint con connessione Internet](../../security-center/security-center-restrict-access-through-internet-facing-endpoints.md): è consigliabile configurare regole per il traffico in ingresso per i gruppi di sicurezza di rete.
-
+Il [Centro sicurezza di Azure](../../security-center/security-center-intro.md) analizza continuamente lo stato di sicurezza delle risorse di Azure per le procedure consigliate per la sicurezza della rete. Quando il Centro sicurezza identifica le potenziali vulnerabilità di sicurezza, vengono creati [consigli](../../security-center/security-center-recommendations.md) che guidano l'utente nel processo di configurazione dei controlli necessari per rafforzare e proteggere le risorse.
 
 ## <a name="compute"></a>Calcolo
 
@@ -369,7 +360,7 @@ Per gestire le identità e l'accesso, Microsoft usa più procedure e tecnologie 
 
 | Funzionalità comuni/gratuite     | Funzionalità Basic    |Funzionalità Premium P1 |Funzionalità Premium P2 | Aggiunta ad Azure Active Directory - Solo funzionalità correlate a Windows 10|
 | :------------- | :------------- |:------------- |:------------- |:------------- |
-|   [Oggetti directory](../../active-directory/active-directory-whatis.md), [gestione di utenti/gruppi (aggiunta/aggiornamento/eliminazione)/provisioning basato sull'utente, registrazione del dispositivo](../../active-directory/active-directory-whatis.md), [Single Sign-on (SSO)](../../active-directory/active-directory-whatis.md), [modifica della password self-service per gli utenti cloud](../../active-directory/active-directory-whatis.md), [Connect (motore di sincronizzazione che estende le directory locali per Azure Active Directory)](../../active-directory/active-directory-whatis.md), i [report di sicurezza/utilizzo](../../active-directory/active-directory-whatis.md)       |   [Gestione/provisioning degli accessi in base al gruppo](../../active-directory/active-directory-whatis.md), reimpostazione della [password self-service per gli utenti cloud](../../active-directory/active-directory-whatis.md), informazioni personalizzate distintive dell' [azienda (pagine di accesso/personalizzazione del pannello di accesso)](../../active-directory/active-directory-whatis.md), [proxy dell'applicazione](../../active-directory/active-directory-whatis.md), [SLA 99,9%](../../active-directory/active-directory-whatis.md) |  [Gestione self-service di gruppi e app/aggiunta self-service di applicazioni/gruppi dinamici](../../active-directory/active-directory-whatis.md), reimpostazione della [password self-service/modifica/sblocco con writeback locale](../../active-directory/active-directory-whatis.md), autenticazione a più [fattori (cloud e locale (server di autenticazione a più fattori) )](../../active-directory/active-directory-whatis.md), [Licenze CAL MIM e server mim](../../active-directory/active-directory-whatis.md), [cloud app Discovery](../../active-directory/active-directory-whatis.md), [Connect Health](../../active-directory/active-directory-whatis.md), [rollover automatico delle password per gli account di gruppo](../../active-directory/active-directory-whatis.md)|    [Identity Protection](../../active-directory/identity-protection/overview.md), [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)|   [Aggiungere un dispositivo a Azure ad, SSO per desktop, Microsoft Passport per Azure ad, ripristino BitLocker con privilegi di amministratore](../../active-directory/active-directory-whatis.md), [registrazione automatica MDM, ripristino BitLocker self-service, amministratori locali aggiuntivi per dispositivi Windows 10 tramite Azure ad join](../../active-directory/active-directory-whatis.md)|
+|   [Oggetti directory](../../active-directory/active-directory-whatis.md), [gestione di utenti/gruppi (aggiunta/aggiornamento/eliminazione)/provisioning basato sull'utente, registrazione del dispositivo](../../active-directory/active-directory-whatis.md), [Single Sign-on (SSO)](../../active-directory/active-directory-whatis.md), [modifica della password self-service per gli utenti cloud](../../active-directory/active-directory-whatis.md), [Connect (motore di sincronizzazione che estende le directory locali per Azure Active Directory)](../../active-directory/active-directory-whatis.md), i [report di sicurezza/utilizzo](../../active-directory/active-directory-whatis.md)       |   [Gestione/provisioning degli accessi in base al gruppo](../../active-directory/active-directory-whatis.md), reimpostazione della [password self-service per gli utenti cloud](../../active-directory/active-directory-whatis.md), informazioni personalizzate distintive dell' [azienda (pagine di accesso/personalizzazione del pannello di accesso)](../../active-directory/active-directory-whatis.md), [proxy dell'applicazione](../../active-directory/active-directory-whatis.md), [SLA 99,9%](../../active-directory/active-directory-whatis.md) |  [Gestione self-service di gruppi e app/aggiunta self-service di applicazioni/gruppi dinamici](../../active-directory/active-directory-whatis.md), reimpostazione della [password self-service/modifica/sblocco con writeback locale](../../active-directory/active-directory-whatis.md), [multi-factor authentication (cloud e locale (server multi-factor authentication) )](../../active-directory/active-directory-whatis.md), [Licenze CAL MIM e server mim](../../active-directory/active-directory-whatis.md), [cloud app Discovery](../../active-directory/active-directory-whatis.md), [Connect Health](../../active-directory/active-directory-whatis.md), [rollover automatico delle password per gli account di gruppo](../../active-directory/active-directory-whatis.md)|    [Identity Protection](../../active-directory/identity-protection/overview.md), [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)|   [Aggiungere un dispositivo a Azure ad, SSO per desktop, Microsoft Passport per Azure ad, ripristino BitLocker con privilegi di amministratore](../../active-directory/active-directory-whatis.md), [registrazione automatica MDM, ripristino BitLocker self-service, amministratori locali aggiuntivi per dispositivi Windows 10 tramite Azure ad join](../../active-directory/active-directory-whatis.md)|
 
 
 - [Cloud App Discovery](../../active-directory/cloudappdiscovery-get-started.md) è una funzionalità Premium di Azure Active Directory che consente di identificare le applicazioni cloud usate dai dipendenti dell'organizzazione.
@@ -387,7 +378,7 @@ Per gestire le identità e l'accesso, Microsoft usa più procedure e tecnologie 
 - Il [proxy di applicazione di Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/) fornisce l'accesso remoto sicuro e SSO per le applicazioni Web ospitate in locale.
 
 ## <a name="next-steps"></a>Fasi successive
-- [Introduzione alla sicurezza in Microsoft Azure](./https://docs.microsoft.com/azure/security)
+- [Introduzione alla sicurezza in Microsoft Azure](https://docs.microsoft.com/azure/security)
 
 Servizi e funzionalità di Azure che è possibile usare per proteggere i servizi e i dati in Azure
 

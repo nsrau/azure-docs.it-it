@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 015318b1695f76121662b82e94b37de1ddb63b1b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 5573eea4e7a5322c762665d2db8e3fbed1f585a1
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952947"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69970450"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatizzare le risorse nel centro dati o nel cloud usando i ruoli di lavoro ibridi per runbook
 
@@ -47,6 +47,7 @@ Per installare e configurare un ruolo di lavoro ibrido per runbook di Windows, �
 Prima di iniziare la distribuzione di un ruolo di lavoro ibrido per runbook, rivedere le [informazioni per la pianificazione della rete](#network-planning). Dopo avere distribuito correttamente un ruolo di lavoro per runbook, esaminare [Esecuzione di runbook in un ruolo di lavoro ibrido per runbook](automation-hrw-run-runbooks.md) per informazioni su come configurare i runbook per automatizzare i processi nel centro dati locale o un altro ambiente cloud.
 
 È possibile aggiungere il computer a un gruppo di ruoli di lavoro ibridi per runbook nell'account di Automazione per supportare i runbook di Automazione, purché si usi lo stesso account sia per la soluzione che per l'appartenenza al gruppo di ruoli di lavoro ibridi per runbook. Questa funzionalità è stata aggiunta alla versione 7.2.12024.0 del ruolo di lavoro ibrido per runbook.
+
 ## <a name="remove-a-hybrid-runbook-worker"></a>Rimuovere un ruolo di lavoro ibrido per runbook
 
 È possibile rimuovere uno o più ruoli di lavoro ibridi per runbook da un gruppo o è possibile rimuovere il gruppo, a seconda dei requisiti. Per rimuovere un ruolo di lavoro ibrido per runbook da un computer locale, usare la procedura seguente:

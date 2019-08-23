@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 54d3f175e74b9f94c7845725e3d8f4531750df57
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
-ms.translationtype: HT
+ms.openlocfilehash: fe45adc3eb65631c0b127872240f8d76400f9102
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877564"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899670"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contenitori di profili FSLogix e file di Azure
 
@@ -47,11 +47,11 @@ La tabella seguente illustra i vantaggi e le limitazioni delle tecnologie dei pr
 
 | Tecnologia | Impostazioni moderne | Impostazioni Win32 | Impostazioni del sistema operativo | Dati utente | Supportato nello SKU del server | Archiviazione back-end in Azure | Archiviazione back-end locale | Supporto della versione | Ora di accesso successiva |Note|
 | ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |-----|
-| **Dischi del profilo utente (UPD)** | Sì | Sì | Sì | Sì | Sì | No | Sì | Win 7 + | Sì | |
+| **Dischi del profilo utente (UPD)** | Sì | Sì | Sì | Sì | Sì | No | Sì | Win 7 + | Yes | |
 | **Profilo utente mobile (RUP), modalità manutenzione** | No | Yes | Sì | Sì | Sì| No | Sì | Win 7 + | No | |
-| **Enterprise State Roaming (ESR)** | Yes | No | Sì | No | Vedere le note | Yes | No | Windows 10 | No | Funzioni nello SKU del server ma nessuna interfaccia utente di supporto |
-| **Virtualizzazione dell'esperienza utente (UE-V)** | Yes | Sì | Sì | No | Sì | No | Sì | Win 7 + | No |  |
-| **File Cloud OneDrive** | No | No | No | Yes | Vedere le note | Vedere le note  | Vedere le note | Win 10 RS3 | No | Non testato nello SKU del server. L'archiviazione back-end in Azure dipende dal client di sincronizzazione. Per l'archiviazione back-end locale è necessario un client di sincronizzazione. |
+| **Enterprise State Roaming (ESR)** | Yes | No | Sì | No | Vedere le note | Sì | No | Windows 10 | No | Funzioni nello SKU del server ma nessuna interfaccia utente di supporto |
+| **Virtualizzazione dell'esperienza utente (UE-V)** | Sì | Sì | Sì | No | Sì | No | Sì | Win 7 + | No |  |
+| **File Cloud OneDrive** | No | No | No | Sì | Vedere le note | Vedere le note  | Vedere le note | Win 10 RS3 | No | Non testato nello SKU del server. L'archiviazione back-end in Azure dipende dal client di sincronizzazione. Per l'archiviazione back-end locale è necessario un client di sincronizzazione. |
 
 #### <a name="performance"></a>Prestazioni
 
@@ -98,7 +98,7 @@ Utilizzare le seguenti guide per configurare un ambiente desktop virtuale di Win
 
 - Per iniziare a creare la soluzione di virtualizzazione desktop, vedere [creare un tenant in un desktop virtuale di Windows](tenant-setup-azure-active-directory.md).
 - Per creare un pool di host nel tenant del desktop virtuale Windows, vedere [creare un pool di host con Azure Marketplace](create-host-pools-azure-marketplace.md).
-- Per configurare condivisioni file completamente gestite nel cloud, vedere [configurare file di Azure condivisione](/articles/storage/files/storage-files-active-directory-enable.md).
+- Per configurare condivisioni file completamente gestite nel cloud, vedere [configurare file di Azure condivisione](/azure/storage/files/storage-files-active-directory-enable).
 - Per configurare i contenitori di profili FSLogix, vedere [creare un contenitore di profili per un pool host usando una condivisione file](create-host-pools-user-profile.md).
 - Per assegnare gli utenti a un pool di host, vedere [gestire i gruppi di app per desktop virtuale di Windows](manage-app-groups.md).
 - Per accedere alle risorse del desktop virtuale di Windows da un Web browser, vedere [connettersi al desktop virtuale di Windows](connect-web.md).

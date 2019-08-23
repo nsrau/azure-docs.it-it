@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 07/29/2019
-ms.openlocfilehash: 78dff1b9d9db4e54ab1a8f7203088753e206c610
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.date: 08/21/2019
+ms.openlocfilehash: 635b7adb8753b7e9490e8f14a0699c09297fdbbb
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68641955"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899087"
 ---
 # <a name="scenario-apache-spark-job-run-slowly-when-the-azure-storage-container-contains-many-files-in-azure-hdinsight"></a>Scenario: Apache Spark processo viene eseguito lentamente quando il contenitore di archiviazione di Azure contiene molti file in Azure HDInsight
 
@@ -26,8 +26,6 @@ Quando si esegue un cluster HDInsight, il processo di Apache Spark che scrive ne
 Si tratta di un problema di Spark noto. La lentezza deriva dalle `ListBlob` operazioni e `GetBlobProperties` durante l'esecuzione del processo Spark.
 
 Per tenere traccia delle partizioni, Spark deve mantenere `FileStatusCache` un che contiene informazioni sulla struttura di directory. Con questa cache, Spark può analizzare i percorsi e tenere presenti le partizioni disponibili. Il vantaggio delle partizioni di rilevamento è che Spark tocca solo i file necessari durante la lettura dei dati. Per rendere aggiornate queste informazioni, quando si scrivono nuovi dati, Spark deve elencare tutti i file nella directory e aggiornare la cache.
-
-In Spark 1,6, ogni volta che si aggiorna la directory, si (1) cancellare la cache (2) elencare tutti i file in modo ricorsivo e (3) aggiornare l'intera cache. Questo consentirà di eseguire numerose operazioni di elenco.
 
 In Spark 2,1, sebbene non sia necessario aggiornare la cache dopo ogni operazione di scrittura, Spark verificherà se una colonna di partizione esistente corrisponde a quella proposta nella richiesta di scrittura corrente, quindi condurrà anche l'elenco delle operazioni all'inizio di ogni operazione di scrittura.
 

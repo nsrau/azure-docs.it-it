@@ -9,12 +9,12 @@ ms.date: 08/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: bed95c070649785a701f9d08a98faf29c8ee1413
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 98ab93bbec8da17dde93c9c343703838b0279994
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990689"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900437"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net-preview"></a>Creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB con .NET (anteprima)
 
@@ -44,7 +44,7 @@ Per eseguire l'autenticazione con Azure AD le credenziali tramite la libreria cl
 
 Per creare un'entità servizio con l'interfaccia della riga di comando di Azure e assegnare un ruolo RBAC, chiamare il comando [AZ ad SP create-for-RBAC](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) . Fornire un ruolo di accesso ai dati di archiviazione di Azure da assegnare alla nuova entità servizio. Il ruolo deve includere l'azione **Microsoft. storage/storageAccounts/blobServices/generateUserDelegationKey** . Per altre informazioni sui ruoli predefiniti forniti per archiviazione di Azure, vedere [ruoli predefiniti per le risorse di Azure](../../role-based-access-control/built-in-roles.md).
 
-Fornire inoltre l'ambito per l'assegnazione di ruolo. L'entità servizio creerà la chiave di delega utente, ovvero un'operazione eseguita a livello dell'account di archiviazione, in modo che l'assegnazione di ruolo debba avere come ambito il livello dell'account di archiviazione, il gruppo di risorse o la sottoscrizione. Per ulteriori informazioni sulle autorizzazioni RBAC per la creazione di una firma di accesso condiviso di delega utente, vedere la sezione **assegnare autorizzazioni con RBAC** in creare una firma di accesso condiviso [utente (API REST)](/rest/api/storageservices/create-a-user-delegation-sas).
+Fornire inoltre l'ambito per l'assegnazione di ruolo. L'entità servizio creerà la chiave di delega utente, ovvero un'operazione eseguita a livello dell'account di archiviazione, in modo che l'assegnazione di ruolo debba avere come ambito il livello dell'account di archiviazione, il gruppo di risorse o la sottoscrizione. Per ulteriori informazioni sulle autorizzazioni RBAC per la creazione di una firma di accesso condiviso di delega utente, vedere la sezione **assegnare autorizzazioni con RBAC** in creare una firma di accesso condiviso [utente (API REST)](/rest/api/storageservices/create-user-delegation-sas).
 
 Se non si dispone di autorizzazioni sufficienti per assegnare un ruolo all'entità servizio, potrebbe essere necessario richiedere al proprietario o all'amministratore dell'account di eseguire l'assegnazione di ruolo.
 
@@ -276,4 +276,4 @@ private static async Task ReadBlobWithSasAsync(Uri sasUri)
 ## <a name="see-also"></a>Vedere anche
 
 - [Operazione di ottenimento della chiave di delega utente](/rest/api/storageservices/get-user-delegation-key)
-- [Creare una firma di accesso condiviso per la delega utente (API REST)](/rest/api/storageservices/create-a-user-delegation-sas)
+- [Creare una firma di accesso condiviso per la delega utente (API REST)](/rest/api/storageservices/create-user-delegation-sas)

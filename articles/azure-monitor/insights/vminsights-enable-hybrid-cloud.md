@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: e8241069a8671919b70dfbe44fe28c99a05358c5
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: b06fe477f551977b1357f3b1b185cb340a948052
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489743"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905492"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>Abilitare Monitoraggio di Azure per le macchine virtuali (anteprima) per un ambiente ibrido
 
@@ -42,6 +42,9 @@ I passaggi per completare questa attività sono riepilogati come segue:
 3. Abilitare la raccolta dei contatori delle prestazioni.
 
 4. Distribuire Monitoraggio di Azure per le macchine virtuali.
+
+>[!NOTE]
+>Le informazioni descritte in questo articolo per la distribuzione di Dependency Agent sono applicabili anche alla [soluzione mapping dei servizi](service-map.md).  
 
 ## <a name="install-the-dependency-agent-on-windows"></a>Installare Dependency Agent in Windows
 
@@ -245,7 +248,7 @@ Per usare l'interfaccia della riga di comando di Azure, è prima necessario inst
     ```
    Dopo avere abilitato il monitoraggio, possono essere necessari circa 10 minuti prima di poter visualizzare lo stato di integrità e le metriche per il computer ibrido.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 ### <a name="vm-doesnt-appear-on-the-map"></a>La macchina virtuale non viene visualizzata nella mappa
 

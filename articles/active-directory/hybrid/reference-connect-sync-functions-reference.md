@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b21c5f8630598a4b7117d23ad7c8da46de07d2fa
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 5c3102480e316c634930c356ae02f769767b7d08
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204504"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900034"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni
 In Azure AD Connect le funzioni vengono usate per modificare il valore di un attributo durante la sincronizzazione.  
@@ -102,7 +102,7 @@ La funzione BitAnd imposta i bit specificati su un valore.
 **Osservazioni:**  
 Questa funzione converte entrambi i parametri nella rappresentazione binaria e imposta un bit su:
 
-* 0: se il valore di uno o entrambi i bit corrispondenti nella *maschera* e nel *flag* sono pari a 0
+* 0: se uno o entrambi i bit corrispondenti in *value1* e *value2* sono 0
 * 1: se entrambi i bit corrispondenti sono pari a 1.
 
 In altre parole, restituisce 0 in tutti i casi tranne quando i bit corrispondenti di entrambi i parametri sono pari a 1.
@@ -133,7 +133,7 @@ La funzione CBool restituisce un valore booleano basato sull'espressione valutat
 `bool CBool(exp Expression)`
 
 **Osservazioni:**  
-Se l'espressione restituisce un valore diverso da zero, CBool restituisce True. In caso contrario restituisce False.
+Se l'espressione restituisce un valore diverso da zero, CBool restituisce true; in caso contrario, restituisce false.
 
 **Esempio:**  
 `CBool([attrib1] = [attrib2])`  
@@ -567,7 +567,7 @@ Se dn è "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com", allora
 restituiscono entrambi US.
 
 ---
-### <a name="error"></a>Tipi di errore
+### <a name="error"></a>Errore
 **Descrizione:**  
 La funzione Error viene usata per restituire un errore personalizzato.
 
@@ -1072,7 +1072,7 @@ La funzione RemoveDuplicates accetta una stringa multivalore e verifica che ogni
 Restituisce un attributo proxyAddress purificato in cui sono stati rimossi tutti i valori duplicati.
 
 ---
-### <a name="replace"></a>Replace
+### <a name="replace"></a>Sostituisci
 **Descrizione:**  
 La funzione Replace sostituisce tutte le occorrenze di una stringa in un'altra stringa.
 

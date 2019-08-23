@@ -4,14 +4,14 @@ description: Usare Azure Resource Manager e l'interfaccia della riga di comando 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/12/2019
+ms.date: 08/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 93b1b16776bac6cb24996d6fa08a547318802f32
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: bd43e919cc0b2bcf1d130c7e616b7da064abcc65
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67853842"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971021"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure
 
@@ -133,7 +133,7 @@ La distribuzione specificata deve aver avuto esito positivo.
 
 ## <a name="parameters"></a>Parametri
 
-Per passare i valori dei parametri, è possibile usare i parametri inline o un file di parametri. Gli esempi precedenti in questo articolo illustrano i parametri inline.
+Per passare i valori dei parametri, è possibile usare i parametri inline o un file di parametri.
 
 ### <a name="inline-parameters"></a>Parametri inline
 
@@ -172,23 +172,7 @@ Il formato arrayContent.json è:
 
 Invece di passare i parametri come valori inline nello script, può risultare più facile usare un file JSON che contenga i valori dei parametri. Il file dei parametri deve essere un file locale. I file dei parametri esterni non sono supportati con l'interfaccia della riga di comando di Azure.
 
-Il file dei parametri deve essere nel formato seguente:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-     "storageAccountType": {
-         "value": "Standard_GRS"
-     }
-  }
-}
-```
-
-Si noti che la sezione dei parametri include un nome di parametro che corrisponde al parametro definito nel modello (storageAccountType). Il file dei parametri contiene un valore per il parametro. Questo valore viene passato automaticamente al modello durante la distribuzione. È possibile creare più di un file dei parametri e successivamente passare il file dei parametri appropriato per lo scenario. 
-
-Copiare l'esempio precedente e salvarlo come file denominato `storage.parameters.json`.
+Per altre informazioni sul file dei parametri, vedere [creare Gestione risorse file di parametri](resource-manager-parameter-files.md).
 
 Per passare un file dei parametri locale, usare `@` per specificare un file locale denominato storage.parameters.json.
 
@@ -198,18 +182,6 @@ az group deployment create \
   --resource-group ExampleGroup \
   --template-file storage.json \
   --parameters @storage.parameters.json
-```
-
-### <a name="parameter-precedence"></a>Precedenza dei parametri
-
-È possibile usare i parametri inline e un file di parametri locale nella stessa operazione di distribuzione. Ad esempio, è possibile specificare alcuni valori nel file di parametri locale e aggiungere altri valori inline durante la distribuzione. Se si specificano valori per un parametro sia nel file dei parametri locale che inline, il valore inline ha la precedenza.
-
-```azurecli
-az group deployment create \
-  --resource-group testgroup \
-  --template-file demotemplate.json \
-  --parameters @demotemplate.parameters.json \
-  --parameters exampleArray=@arrtest.json
 ```
 
 ## <a name="test-a-template-deployment"></a>Testare una distribuzione del modello

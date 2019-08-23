@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 08/14/2019
-ms.openlocfilehash: 6a29d1e001d4c647d5b975b7e746eced29962ee4
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.date: 08/22/2019
+ms.openlocfilehash: 481419a5db6efd600d74851238cd1a12d8766186
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637254"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972538"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Limiti delle risorse per i singoli database che usano il modello di acquisto basato su vCore
 
@@ -301,7 +301,7 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è in anteprima
 |Latenza di I/O (approssimativa)|Deve essere determinato|Deve essere determinato|Deve essere determinato|Deve essere determinato|Deve essere determinato|Deve essere determinato|Deve essere determinato|Deve essere determinato|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|800|1600|2400|3200|4000|8000|
 |Numero massimo di sessioni simultanee|30000|30000|30000|30000|30000|30000|30000|30000|
-|Numero di repliche|2|2|2|2|2|2|2|2|
+|Repliche secondarie|0-4|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
 |Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archivio di backup incluso |7|7|7|7|7|7|7|7|

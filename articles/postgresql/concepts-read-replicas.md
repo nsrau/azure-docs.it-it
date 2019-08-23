@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.openlocfilehash: 928a85c9d03148198fe3e965636740812ce732f7
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.date: 08/21/2019
+ms.openlocfilehash: 0884120c15b2e48566d1889400197e316bac9021
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976277"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907454"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Leggere le repliche nel database di Azure per PostgreSQL-server singolo
 
@@ -120,9 +120,25 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 > Il server autonomo non può essere di nuovo impostato come replica.
 > Prima di arrestare la replica in una replica in lettura, assicurarsi che la replica abbia tutti i dati necessari.
 
-Quando si arresta la replica, la replica perde tutti i collegamenti al master precedente e ad altre repliche. Non esiste un failover automatico tra un master e una replica. 
+Quando si arresta la replica, la replica perde tutti i collegamenti al master precedente e ad altre repliche.
 
 Informazioni su come [arrestare la replica in una replica](howto-read-replicas-portal.md).
+
+## <a name="fail-over"></a>Effettuare il failover
+Non esiste un failover automatico tra i server master e di replica. 
+
+Poiché la replica è asincrona, si verifica un ritardo tra il database master e la replica. La quantità di ritardo dipende dalla quantità di carico di lavoro in esecuzione nel server master. Nella maggior parte dei casi, il ritardo di replica è compreso tra pochi secondi e un paio di minuti. È possibile tenere traccia dell'effettivo ritardo di replica usando l' *intervallo di replica*metrica, disponibile per ogni replica. Questa metrica indica il tempo trascorso dall'ultima transazione riprodotta. Si consiglia di identificare il ritardo medio osservando il ritardo della replica in un periodo di tempo. È possibile impostare un avviso per il ritardo di replica, in modo che se non rientra nell'intervallo previsto, è possibile intervenire.
+
+> [!Tip]
+> Se si esegue il failover nella replica, il ritardo nel momento in cui si scollega la replica dal master indicherà la quantità di dati persi.
+
+Dopo aver deciso di voler eseguire il failover su una replica, 
+
+1. Arrestare la replica nella replica questo passaggio è necessario per consentire al server di replica di accettare le Scritture. Come parte di questo processo, il server di replica verrà riavviato e verrà decollegato dal master. Una volta avviata l'arresto della replica, il completamento del processo back-end richiede in genere circa 2 minuti. Altre informazioni su come [arrestare la replica](#stop-replication).
+    
+2. Puntare l'applicazione alla replica (precedente) ogni server dispone di una stringa di connessione univoca. Aggiornare l'applicazione in modo che punti alla replica (precedente) invece che al database master.
+    
+Una volta che l'applicazione ha elaborato correttamente le operazioni di lettura e scrittura, il failover è stato completato. La quantità di tempo di inattività di cui l'applicazione dipenderà quando si rileva un problema e si completano i passaggi 1 e 2 precedenti.
 
 
 ## <a name="considerations"></a>Considerazioni
@@ -136,17 +152,17 @@ Prima di creare una replica in lettura, il `azure.replication_support`parametro 
 Una replica in lettura viene creata come nuovo server di Database di Azure per PostgreSQL. Un server esistente non può essere impostato come replica. Non è possibile creare una replica di un'altra replica in lettura.
 
 ### <a name="replica-configuration"></a>Configurazione della replica
-Una replica viene creata usando la stessa configurazione server del master. Dopo aver creato una replica, è possibile modificare diverse impostazioni in modo indipendente dal server master: la generazione di calcolo, i vCore, l'archiviazione e il periodo di conservazione dei backup. È anche possibile modificare in modo indipendente il piano tariffario, tranne da o verso il livello Basic.
+Una replica viene creata usando le stesse impostazioni di calcolo e di archiviazione del database master. Dopo aver creato una replica, è possibile modificare diverse impostazioni in modo indipendente dal server master: la generazione di calcolo, i vCore, l'archiviazione e il periodo di conservazione dei backup. È anche possibile modificare in modo indipendente il piano tariffario, tranne da o verso il livello Basic.
 
 > [!IMPORTANT]
-> Prima che la configurazione del server master venga aggiornata con nuovi valori, la configurazione delle repliche deve essere aggiornata impostandola su valori uguali o superiori. Questa azione garantisce che le repliche siano sempre aggiornate con le modifiche apportate al master.
+> Prima che un'impostazione master venga aggiornata a un nuovo valore, aggiornare la configurazione della replica a un valore uguale o maggiore. Questa azione garantisce che le repliche siano sempre aggiornate con le modifiche apportate al master.
 
 PostgreSQL richiede che il valore del parametro`max_connections` sulla replica in lettura sia maggiore o uguale a quello del master; in caso contrario, la replica non si avvia. Nel Database di Azure per PostgreSQL, il valore del parametro `max_connections` è basato sullo SKU. Per altre informazioni, vedere [Limiti in Database di Azure per PostgreSQL](concepts-limits.md). 
 
 Se si tenta di aggiornare i valori del server, ma non si rispettano i limiti, viene visualizzato un errore.
 
 ### <a name="max_prepared_transactions"></a>max_prepared_transactions
-[PostgreSQL richiede](https://www.postgresql.org/docs/10/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) che il valore del `max_prepared_transactions` parametro nella replica di lettura sia maggiore o uguale al valore master. in caso contrario, la replica non viene avviata. Se si desidera modificare `max_prepared_transactions` il database master, modificarlo prima nelle repliche.
+[PostgreSQL richiede](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) che il valore del `max_prepared_transactions` parametro nella replica di lettura sia maggiore o uguale al valore master. in caso contrario, la replica non viene avviata. Se si desidera modificare `max_prepared_transactions` il database master, modificarlo prima nelle repliche.
 
 ### <a name="stopped-replicas"></a>Repliche arrestate
 Se si arresta la replica tra un server master e una replica in lettura, la replica verrà riavviata per poter applicare tale modifica. La replica arrestata diventa un server autonomo che supporta sia la lettura che la scrittura. Il server autonomo non può essere di nuovo impostato come replica.
@@ -155,4 +171,5 @@ Se si arresta la replica tra un server master e una replica in lettura, la repli
 Quando viene eliminato un server master, tutte le relative repliche in lettura diventano server autonomi. Le repliche vengono riavviate in modo da riflettere questa modifica.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Informazioni su come [creare e gestire le repliche in lettura nel portale di Azure](howto-read-replicas-portal.md).
+* Informazioni su come [creare e gestire le repliche in lettura nel portale di Azure](howto-read-replicas-portal.md).
+* Informazioni su come [creare e gestire le repliche di lettura nell'interfaccia della riga di comando di Azure](howto-read-replicas-cli.md).

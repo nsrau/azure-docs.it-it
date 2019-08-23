@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d6229e78958fdc4995153d99ad02a15804330f1b
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: d314cc55096f681d1bcf66d33c4c30a4060751e9
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544565"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972662"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Configurare le origini di identità vCenter da usare Active Directory
 
@@ -63,7 +63,7 @@ Usare le informazioni nella tabella seguente durante la configurazione del domin
 Quando si hanno le informazioni nella tabella precedente, è possibile aggiungere la Active Directory locale come origine di identità Single Sign-on in vCenter.
 
 > [!TIP]
-> Altre informazioni sulle origini di identità Single Sign-on sono disponibili nella <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.psc.doc/GUID-B23B1360-8838-4FF2-B074-71643C4CB040.html" target="_blank">pagina della documentazione di VMware</a>.
+> Altre informazioni sulle origini di identità Single Sign-on sono disponibili nella [pagina della documentazione di VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.psc.doc/GUID-B23B1360-8838-4FF2-B074-71643C4CB040.html).
 
 ## <a name="set-up-new-active-directory-on-a-private-cloud"></a>Configurare nuovi Active Directory in un cloud privato
 
@@ -83,7 +83,7 @@ Per la procedura dettagliata, vedere [installare una nuova foresta di Windows Se
 
 Dopo aver configurato la foresta e il dominio Active Directory, è possibile [aggiungere un'origine di identità in vCenter](#add-an-identity-source-on-vcenter) per la nuova Active Directory.
 
-### <a name="new-active-directory-domain-in-an-existing-active-directory-forest"></a>Nuovi Dominio di Active Directory in una foresta Active Directory esistente
+### <a name="new-active-directory-domain-in-an-existing-active-directory-forest"></a>Nuovo Active Directory dominio in una foresta Active Directory esistente
 
 Per configurare un nuovo dominio di Active Directory in una foresta Active Directory esistente, è necessario quanto segue:
 

@@ -2,20 +2,20 @@
 title: Informazioni sulle operazioni di Azure SQL Data Warehouse | Documentazione Microsoft
 description: "L'elasticità di SQL Data Warehouse consente di aumentare, ridurre o sospendere la potenza di calcolo usando una scala scorrevole di unità data warehouse (DWU). Questo articolo illustra le metriche del data warehouse e come sono correlate alle DWU. "
 services: sql-data-warehouse
-author: kevinvngo
+author: julieMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
 ms.date: 04/17/2018
-ms.author: kevin
+ms.author: jrasnick
 ms.reviewer: igorstan
-ms.openlocfilehash: f0489d9c018abac380cd0f8b1aa51fa5bb81707a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 47e04cb6b58a185e84120fe73a8468834d2e57fd
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60531195"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907932"
 ---
 # <a name="data-warehouse-workload"></a>Carico di lavoro del data warehouse
 Per carico di lavoro del data warehouse si intendono tutte le operazioni che passano attraverso un data warehouse. Tale carico di lavoro include pertanto l'intero processo di caricamento dei dati nel data warehouse, l'esecuzione dell'analisi e la creazione dei report a esso relativi, la gestione dei dati in esso contenuti e l'esportazione dei dati da esso. La profondità e l'estensione di questi componenti sono spesso proporzionali al livello di maturità del data warehouse.
@@ -49,7 +49,7 @@ Le query di reporting e analisi vengono spesso classificate come di piccole, med
 
 * La pianificazione della capacità può essere un'attività complessa per un carico di lavoro con query miste, soprattutto se è necessario un lungo lead time per aggiungere capacità al data warehouse. Con SQL Data Warehouse la pianificazione della capacità non è più indispensabile, in quanto è possibile aumentare e ridurre la capacità di calcolo in qualsiasi momento e tale capacità e quella di archiviazione vengono dimensionate in modo indipendente.
 
-### <a name="data-management"></a>Gestione dei dati
+### <a name="data-management"></a>Gestione dati
 La gestione dati è importante, soprattutto quando si sa che a breve lo spazio su disco potrebbe esaurirsi. I data warehouse in genere suddividono i dati in intervalli significativi, che vengono archiviati come partizioni in una tabella. Tutti i prodotti basati su SQL Server consentono di spostare le partizioni all'interno e all'esterno della tabella. Tale spostamento delle partizioni consente di spostare i dati meno recenti in aree di archiviazione meno costose e di mantenere disponibili i dati più recenti nello spazio di archiviazione online.
 
 * Gli indici columnstore supportano le tabelle partizionate. Per questi indici, le tabelle partizionate vengono usate per la gestione e l'archiviazione dei dati. Per le tabelle archiviate riga per riga, le partizioni hanno un peso maggiore sulle prestazioni delle query.  
@@ -62,7 +62,7 @@ Un modo per rendere disponibili i dati per i report e l'analisi consiste nell'in
 * Per l'analisi, è possibile creare un apposito cubo nel data warehouse ed eseguire l'analisi su quest'ultimo oppure pre-elaborare i dati ed esportarli nel server di analisi in modo che possano essere analizzati ulteriormente.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo aver appreso alcune informazioni su SQL Data Warehouse, vedere come [creare un SQL Data Warehouse][create a SQL Data Warehouse] rapidamente e [caricare i dati di esempio][load sample data].
+Dopo aver appreso alcune informazioni su SQL Data warehouse, vedere come [Creare un Azure SQL Data Warehouse][create a SQL Data Warehouse] rapidamente e [Caricare i dati di esempio in SQL Data Warehouse][load sample data].
 
 <!--Image references-->
 

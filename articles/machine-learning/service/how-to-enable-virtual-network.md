@@ -10,16 +10,16 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 08/05/2019
-ms.openlocfilehash: 05c5d42d3c20948df4f42db50dd93abd60288c00
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 6e5ae4966a62c24594ec6efa9454d5e03f75c25b
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639585"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971533"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Proteggere i processi di sperimentazione e inferenza di Azure ML in una rete virtuale di Azure
 
-In questo articolo si apprenderà come proteggere i processi di sperimentazione/formazione e i processi di inferenza/assegnazione dei punteggi in Azure Machine Learning all'interno di una rete virtuale di Azure (VNET). 
+In questo articolo si apprenderà come proteggere i processi di sperimentazione/formazione e i processi di inferenza/assegnazione dei punteggi in Azure Machine Learning all'interno di una rete virtuale di Azure (VNET).
 
 Una **rete virtuale** funge da limite di sicurezza, isolando le risorse di Azure dalla rete Internet pubblica. È anche possibile aggiungere una rete virtuale di Azure alla rete locale. Aderendo alle reti, è possibile eseguire il training sicuro dei modelli e accedere ai modelli distribuiti per l'inferenza.
 
@@ -29,25 +29,25 @@ Questo articolo fornisce inoltre informazioni dettagliate sulle *impostazioni di
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-+ Un'area di [lavoro](how-to-manage-workspace.md)del servizio Azure Machine Learning. 
++ Un'area di [lavoro](how-to-manage-workspace.md)del servizio Azure Machine Learning.
 
-+ Conoscenza generale del [servizio rete virtuale di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) e della [rete IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm). 
++ Conoscenza generale del [servizio rete virtuale di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) e della [rete IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm).
 
-+ Una rete virtuale e una subnet preesistenti da usare con le risorse di calcolo. 
++ Una rete virtuale e una subnet preesistenti da usare con le risorse di calcolo.
 
 ## <a name="use-a-storage-account-for-your-workspace"></a>Usare un account di archiviazione per l'area di lavoro
 
 Per usare un account di archiviazione di Azure per l'area di lavoro in una rete virtuale, eseguire le operazioni seguenti:
 
-1. Creare un'istanza di calcolo della sperimentazione, ad esempio un'istanza di ambiente di calcolo di Machine Learning, dietro una rete virtuale oppure alleghi un'istanza di calcolo sperimentazione all'area di lavoro, ad esempio un cluster HDInsight o una macchina virtuale. 
+1. Creare un'istanza di calcolo della sperimentazione, ad esempio un'istanza di ambiente di calcolo di Machine Learning, dietro una rete virtuale oppure alleghi un'istanza di calcolo sperimentazione all'area di lavoro, ad esempio un cluster HDInsight o una macchina virtuale.
 
    Per ulteriori informazioni, vedere le sezioni "utilizzare un'istanza di ambiente di calcolo di Machine Learning" e "utilizzare una macchina virtuale o un cluster HDInsight" in questo articolo.
 
-1. Nella portale di Azure passare alla risorsa di archiviazione collegata all'area di lavoro. 
+1. Nella portale di Azure passare alla risorsa di archiviazione collegata all'area di lavoro.
 
-   ![Archiviazione collegata all'area di lavoro del servizio Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-storage.png)
+   [![Archiviazione collegata all'area di lavoro del servizio Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
 
-1. Nella pagina **archiviazione di Azure** selezionare __firewall e reti virtuali__. 
+1. Nella pagina **archiviazione di Azure** selezionare __firewall e reti virtuali__.
 
    ![Nell'area "firewall e reti virtuali" della pagina archiviazione di Azure della portale di Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
 
@@ -56,7 +56,12 @@ Per usare un account di archiviazione di Azure per l'area di lavoro in una rete 
     - In __reti virtuali__selezionare il collegamento __Aggiungi rete virtuale esistente__ . Questa azione aggiunge la rete virtuale in cui risiede l'istanza di calcolo della sperimentazione (vedere il passaggio 1).
     - Selezionare la casella __di controllo Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione__ .
 
-   ![Il riquadro "firewall e reti virtuali" nel portale di Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)
+    > [!IMPORTANT]
+    > Quando si usa Azure Machine Learning SDK, l'ambiente di sviluppo deve essere in grado di connettersi all'account di archiviazione di Azure. Quando l'account di archiviazione si trova all'interno di una rete virtuale, il firewall deve consentire l'accesso dall'indirizzo IP dell'ambiente di sviluppo.
+    >
+    > Per abilitare l'accesso all'account di archiviazione, visitare i __firewall e le reti virtuali__ per l'account di archiviazione *da un Web browser nel client di sviluppo*. Usare quindi la casella di controllo __Aggiungi indirizzo IP del client__ per aggiungere l'indirizzo IP del client all' __intervallo di indirizzi__. È anche possibile usare il campo __intervallo di indirizzi__ per immettere manualmente l'indirizzo IP dell'ambiente di sviluppo. Dopo che l'indirizzo IP per il client è stato aggiunto, può accedere all'account di archiviazione usando l'SDK.
+
+   [![Il riquadro "firewall e reti virtuali" nel portale di Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
 1. Quando si esegue l'esperimento, nel codice di sperimentazione modificare la configurazione di esecuzione per usare l'archivio BLOB di Azure:
 
@@ -65,9 +70,9 @@ Per usare un account di archiviazione di Azure per l'area di lavoro in una rete 
     ```
 
 > [!IMPORTANT]
-> È possibile inserire l' _account di archiviazione predefinito_ per il servizio Azure Machine Learning in una rete virtuale _solo per_la sperimentazione.
+> È possibile inserire l' _account di archiviazione predefinito_ per il servizio Azure Machine Learning in una rete virtuale _solo per_la sperimentazione. Quando si crea un'area di lavoro, viene eseguito automaticamente il provisioning dell'account di archiviazione predefinito.
 >
-> È possibile inserire gli _account di archiviazione non predefiniti_ in una rete virtuale _solo per la sperimentazione_.
+> È possibile inserire gli _account di archiviazione non predefiniti_ in una rete virtuale _solo per la sperimentazione_. Il `storage_account` parametro [ nellafunzioneconsentedispecificareunaccountdiarchiviazionepersonalizzatoinbaseall'IDrisorsadiAzure.`Workspace.create()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)
 >
 > Sia gli account di archiviazione predefiniti che quelli non predefiniti usati per l' _inferenza_ devono avere _accesso illimitato all'account di archiviazione_.
 >
@@ -81,11 +86,11 @@ L'istanza di Key Vault associata all'area di lavoro viene usata dal servizio Azu
 * Stringhe di connessione agli archivi dati
 
 Per usare Azure Machine Learning funzionalità di sperimentazione con Azure Key Vault dietro una rete virtuale, eseguire le operazioni seguenti:
-1. Passare all'insieme di credenziali delle chiavi associato all'area di lavoro. 
+1. Passare all'insieme di credenziali delle chiavi associato all'area di lavoro.
 
-   ![Insieme di credenziali delle chiavi associato all'area di lavoro del servizio Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-key-vault.png)
+   [![Insieme di credenziali delle chiavi associato all'area di lavoro del servizio Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-key-vault.png)](./media/how-to-enable-virtual-network/workspace-key-vault.png#lightbox)
 
-1. Nel riquadro sinistro della pagina **Key Vault** selezionare __firewall e reti virtuali__. 
+1. Nel riquadro sinistro della pagina **Key Vault** selezionare __firewall e reti virtuali__.
 
    ![Sezione "firewall e reti virtuali" nel riquadro Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks.png)
 
@@ -94,31 +99,25 @@ Per usare Azure Machine Learning funzionalità di sperimentazione con Azure Key 
     - In __reti virtuali__selezionare __Aggiungi reti virtuali esistenti__ per aggiungere la rete virtuale in cui risiede l'istanza di calcolo della sperimentazione.
     - In __Consenti ai servizi Microsoft attendibili di ignorare questo firewall__selezionare __Sì__.
 
-   ![Sezione "firewall e reti virtuali" nel riquadro Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)
+   [![Sezione "firewall e reti virtuali" nel riquadro Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
 
 ## <a name="use-a-machine-learning-compute-instance"></a>Usa un'istanza di ambiente di calcolo di Machine Learning
 
-Per usare un'istanza di calcolo Azure Machine Learning in una rete virtuale, considerare i requisiti di rete seguenti:
+Per usare un'istanza di calcolo Azure Machine Learning in una rete virtuale, è necessario soddisfare i requisiti di rete seguenti:
 
-- La rete virtuale deve trovarsi nella stessa sottoscrizione e area dell'area di lavoro del servizio Azure Machine Learning.
+> [!div class="checklist"]
+> * La rete virtuale deve trovarsi nella stessa sottoscrizione e area dell'area di lavoro del servizio Azure Machine Learning.
+> * La subnet specificata per il cluster di calcolo deve disporre di indirizzi IP non assegnati sufficienti per contenere il numero di macchine virtuali di destinazione per il cluster. Se la subnet non dispone di un numero sufficiente di indirizzi IP non assegnati, il cluster verrà allocato parzialmente.
+> * Controllare se i criteri di sicurezza o i blocchi nella sottoscrizione o nel gruppo di risorse della rete virtuale limitano le autorizzazioni per la gestione della rete virtuale. Se si prevede di proteggere la rete virtuale limitando il traffico, lasciare aperte alcune porte per il servizio di calcolo. Per ulteriori informazioni, vedere la sezione [porte obbligatorie](#mlcports) .
+> * Se si intende inserire più cluster di calcolo in una rete virtuale, potrebbe essere necessario richiedere un aumento della quota per una o più risorse.
 
-- La subnet specificata per il cluster di calcolo deve disporre di indirizzi IP non assegnati sufficienti per contenere il numero di macchine virtuali di destinazione per il cluster. Se la subnet non ha abbastanza indirizzi IP non assegnati, il cluster verrà parzialmente allocato.
+L'istanza di ambiente di calcolo di Machine Learning alloca automaticamente altre risorse di rete nel gruppo di risorse che contiene la rete virtuale. Per ogni cluster di calcolo, il servizio alloca le risorse seguenti:
 
-- Se si prevede di proteggere la rete virtuale limitando il traffico, lasciare aperte alcune porte per il servizio di calcolo. Per altre informazioni, vedere la sezione [Porte richieste](#mlcports).
+* Un gruppo di sicurezza di rete
+* Un indirizzo IP pubblico
+* Un bilanciamento del carico
 
-- Controllare se i criteri di sicurezza o i blocchi nella sottoscrizione o nel gruppo di risorse della rete virtuale limitano le autorizzazioni per la gestione della rete virtuale.
-
-- Se si intende inserire più cluster di calcolo in una rete virtuale, potrebbe essere necessario richiedere un aumento della quota per una o più risorse.
-
-    L'istanza di ambiente di calcolo di Machine Learning alloca automaticamente altre risorse di rete nel gruppo di risorse che contiene la rete virtuale. Per ogni cluster di calcolo, il servizio alloca le risorse seguenti:
-
-    - Un gruppo di sicurezza di rete
-
-    - Un indirizzo IP pubblico
-
-    - Un bilanciamento del carico
-
-  Queste risorse sono limitate in base alle [quote delle risorse](https://docs.microsoft.com/azure/azure-subscription-service-limits) della sottoscrizione.
+Queste risorse sono limitate in base alle [quote delle risorse](https://docs.microsoft.com/azure/azure-subscription-service-limits) della sottoscrizione.
 
 ### <a id="mlcports"></a> Porte richieste
 
@@ -140,7 +139,7 @@ Non è necessario specificare gruppi a livello di subnet, perché il servizio Az
 
 La configurazione della regola NSG nel portale di Azure è illustrata nelle immagini seguenti:
 
-![Regole NSG in ingresso per ambiente di calcolo di Machine Learning](./media/how-to-enable-virtual-network/amlcompute-virtual-network-inbound.png)
+[![Regole NSG in ingresso per ambiente di calcolo di Machine Learning](./media/how-to-enable-virtual-network/amlcompute-virtual-network-inbound.png)](./media/how-to-enable-virtual-network/amlcompute-virtual-network-inbound.png#lightbox)
 
 ![Regole NSG in uscita per ambiente di calcolo di Machine Learning](./media/how-to-enable-virtual-network/experimentation-virtual-network-outbound.png)
 
@@ -157,7 +156,7 @@ Se non si vogliono usare le regole in uscita predefinite e si vuole limitare l'a
 
 La configurazione della regola NSG nel portale di Azure è illustrata nell'immagine seguente:
 
-![Regole NSG in uscita per ambiente di calcolo di Machine Learning](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png)
+[![Regole NSG in uscita per ambiente di calcolo di Machine Learning](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png)](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png#lightbox)
 
 ### <a name="user-defined-routes-for-forced-tunneling"></a>Route definite dall'utente per il tunneling forzato
 
@@ -282,13 +281,13 @@ Per usare una macchina virtuale o un cluster Azure HDInsight in una rete virtual
 Per aggiungere AKS in una rete virtuale all'area di lavoro, seguire questa procedura:
 
 > [!IMPORTANT]
-> Prima di iniziare la procedura seguente, verificare i prerequisiti e pianificare gli indirizzi IP per il cluster. Per altre informazioni, vedere [Configurare funzionalità di rete avanzate nel servizio Azure Kubernetes (AKS)](https://docs.microsoft.com/azure/aks/configure-advanced-networking).
+> Prima di iniziare la procedura seguente, attenersi ai prerequisiti descritti in How to [Advanced Networking in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/configure-advanced-networking#prerequisites) e pianificare gli indirizzi IP per il cluster.
 >
 > L'istanza di AKS e la rete virtuale di Azure devono trovarsi nella stessa area.
 
 1. Nel [portale di Azure](https://portal.azure.com)verificare che il NSG che controlla la rete virtuale disponga di una regola in ingresso abilitata per il servizio Azure machine learning utilizzando __AzureMachineLearning__ come **origine**.
 
-    ![Riquadro Aggiungi calcolo del servizio Azure Machine Learning](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png)
+    [![Riquadro Aggiungi calcolo del servizio Azure Machine Learning](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png#lightbox)
 
 1. Selezionare l'area di lavoro del servizio Azure Machine Learning.
 
@@ -315,8 +314,8 @@ Per aggiungere AKS in una rete virtuale all'area di lavoro, seguire questa proce
 1. Verificare che il gruppo NSG che controlla la rete virtuale disponga di una regola di sicurezza in ingresso abilitata per l'endpoint di assegnazione dei punteggi, in modo che possa essere chiamata dall'esterno della rete virtuale.
    > [!IMPORTANT]
    > Mantenere le regole in uscita predefinite per il gruppo di sicurezza di rete. Per altre informazioni, vedere le regole di sicurezza predefinite in [Gruppi di sicurezza](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
-  
-   ![Una regola di sicurezza in ingresso](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)
+
+   [![Una regola di sicurezza in ingresso](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png#lightbox)
 
 È anche possibile usare Azure Machine Learning SDK per aggiungere il servizio Kubernetes di Azure in una rete virtuale. Se si dispone già di un cluster AKS in una rete virtuale, collegarlo all'area di lavoro come descritto in [How to Deploy to AKS](how-to-deploy-to-aks.md). Il codice seguente crea una nuova istanza di AKS nella `default` subnet di una rete virtuale denominata `mynetwork`:
 

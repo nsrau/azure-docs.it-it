@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: bbccb9beab374a4a514d527c22b3861f0752d5fd
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: 956e31c157c667acd2f830702467249d869648cb
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782392"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971282"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Comprendere i risultati del controllo dell'agente Windows in Gestione aggiornamenti
 
@@ -107,7 +107,9 @@ Il controllo dell'accesso alla cartella Crypto determina se l'account sistema lo
 
 ## <a name="troubleshoot-offline"></a>Risolvere i problemi offline
 
-È possibile usare la risoluzione dei problemi per un ruolo di lavoro ibrido per runbook offline eseguendo lo script in locale. Lo script [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration) è disponibile in PowerShell Gallery. L'output di questo script è simile al seguente:
+È possibile usare la risoluzione dei problemi per un ruolo di lavoro ibrido per runbook offline eseguendo lo script in locale. Lo script [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration) è disponibile in PowerShell Gallery. Per eseguire lo script è necessario che sia installato WMF 4,0 o versione successiva. Per scaricare la versione più recente di PowerShell, vedere [installazione di diverse versioni di PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell).
+
+L'output di questo script è simile al seguente:
 
 ```output
 RuleId                      : OperatingSystemCheck

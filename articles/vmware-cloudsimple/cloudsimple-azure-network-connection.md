@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 90e3121c3f036d1abc8ca372ee349aef3485d07b
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: cfd4d65b07cf255ac2b60d6bf8376723a997374e
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69625010"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972939"
 ---
 # <a name="azure-network-connections-overview"></a>Panoramica delle connessioni di rete di Azure
 
@@ -44,7 +44,6 @@ I cloud privati possono essere connessi alle risorse di Azure usando ExpressRout
 È possibile connettere il circuito ExpressRoute di Azure esistente all'area CloudSimple. ExpressRoute Copertura globale funzionalità viene usato per connettere i due circuiti tra loro.  Viene stabilita una connessione tra i circuiti ExpressRoute locali e CloudSimple.  Questa connessione consente di estendere le reti locali alla rete cloud privata. Le route dalla rete CloudSimple verranno scambiate tramite BGP con la rete locale.
 
 ![Connessione ExpressRoute locale-Copertura globale](media/cloudsimple-global-reach-connection.png)
-
 
 ## <a name="connection-to-on-premises-network-and-azure-virtual-network"></a>Connessione alla rete locale e alla rete virtuale di Azure
 

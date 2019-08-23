@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: 9053866b76ec1cc409c3f00d0af59bf3761d3936
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: e5ed60ea59dc8cf19b8f9ca7e96777dbc6980171
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927971"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906052"
 ---
 # <a name="azure-database-security-overview"></a>Panoramica della sicurezza del database di Azure
 
@@ -206,7 +206,7 @@ SQL Advanced Threat Protection (ATP) offre una serie di funzionalità di sicurez
 
 Il [Centro sicurezza di Azure](https://azure.microsoft.com/documentation/services/security-center/) consente di impedire, rilevare e gestire le minacce. Integra il monitoraggio della sicurezza e la gestione dei criteri in tutte le sottoscrizioni di Azure. Aiuta a rilevare le minacce che potrebbero altrimenti passare inosservate e opera con un ampio ecosistema di soluzioni per la sicurezza.
 
-Il [Centro sicurezza](../../security-center/security-center-sql-database.md) consente di proteggere i dati nel database SQL fornendo visibilità per la sicurezza di tutti i server e database. Con il Centro sicurezza è possibile:
+Il [Centro sicurezza](../../security-center/security-center-alerts-data-services.md) consente di proteggere i dati nel database SQL fornendo visibilità per la sicurezza di tutti i server e database. Con il Centro sicurezza è possibile:
 
 - Definire i criteri per la crittografia e il controllo del database SQL.
 - Monitorare la sicurezza delle risorse del database SQL per tutte le sottoscrizioni.

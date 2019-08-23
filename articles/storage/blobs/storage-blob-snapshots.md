@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/06/2018
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 9c24f613de8bf26331f6fe328358aaf8a320d522
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0da3373ba2c13bd6a00a92a6b38bead86fc9a5ea
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65794242"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69897020"
 ---
 # <a name="create-a-blob-snapshot"></a>Creare uno snapshot del BLOB
 
@@ -78,12 +78,12 @@ Le operazioni di copia che interessano BLOB e snapshot si attengono alle seguent
 * Quando si crea uno snapshot di un BLOB in blocchi, anche l'elenco di blocchi di cui è stato eseguito il commit del BLOB viene copiato nello snapshot. Eventuali blocchi di cui non è stato eseguito il commit non vengono copiati.
 
 ## <a name="specify-an-access-condition"></a>Specificare una condizione di accesso
-Quando si chiama [CreateSnapshotAsync][dotnet_CreateSnapshotAsync], è possibile specificare una condizione di accesso in modo da creare lo snapshot solo se viene soddisfatta tale condizione. Per specificare una condizione di accesso, usare il parametro [AccessCondition][dotnet_AccessCondition]. Se la condizione specificata non viene soddisfatta, lo snapshot non viene creato e il servizio BLOB restituisce il codice di stato [HTTPStatusCode][dotnet_HTTPStatusCode].PreconditionFailed.
+Quando si chiama [CreateSnapshotAsync][dotnet_CreateSnapshotAsync], è possibile specificare una condizione di accesso in modo che lo snapshot venga creato solo se viene soddisfatta una condizione. Per specificare una condizione di accesso, usare il parametro [AccessCondition][dotnet_AccessCondition] . Se la condizione specificata non viene soddisfatta, lo snapshot non viene creato e il servizio BLOB restituisce il codice di stato [HTTPStatusCode][dotnet_HTTPStatusCode]. PreconditionFailed.
 
 ## <a name="delete-snapshots"></a>Eliminare gli snapshot
 Non è possibile eliminare un BLOB contenente snapshot a meno che non si eliminino anche gli snapshot. È possibile eliminare uno snapshot singolarmente o specificare di eliminare tutti gli snapshot quando si elimina il BLOB di origine. Se si tenta di eliminare un BLOB per il quale esistono ancora degli snapshot, viene restituito un errore.
 
-L'esempio seguente illustra come eliminare un BLOB e i relativi snapshot in .NET, dove `blockBlob` è un oggetto di tipo [CloudBlockBlob][dotnet_CloudBlockBlob]:
+Nell'esempio di codice seguente viene illustrato come eliminare un BLOB e i relativi snapshot in .NET, `blockBlob` dove è un oggetto di tipo [CloudBlockBlob][dotnet_CloudBlockBlob]:
 
 ```csharp
 await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);
@@ -127,7 +127,7 @@ Nell'elenco seguente sono inclusi i punti principali da considerare quando si cr
 
 * Sono previsti costi per l'account di archiviazione per blocchi univoci o pagine, sia che si trovino nel BLOB che nello snapshot. Non sono previsti costi aggiuntivi per gli snapshot associati a un BLOB finché il BLOB su cui si basano non viene aggiornato. Dopo aver aggiornato il BLOB di base, questo differisce dai relativi snapshot. In questo caso, vengono addebitati costi per i blocchi univoci o le pagine in ogni BLOB o snapshot.
 * Quando si sostituisce un blocco all'interno di un BLOB in blocchi, tale blocco viene successivamente addebitato come blocco univoco. Ciò è vero persino se il blocco ha lo stesso ID blocco e la stessa data che ha nello snapshot. Una volta che il blocco viene inviato nuovamente, differisce dalla controparte in ogni snapshot e all'utente verrà addebitato un costo per i relativi dati. Lo stesso vale per una pagina in un BLOB di pagine che viene aggiornata con dati identici.
-* Se si sostituisce un BLOB in blocchi tramite chiamata al metodo [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream] o [UploadFromByteArray][dotnet_UploadFromByteArray], il metodo sostituisce tutti i blocchi nel BLOB. Se è presente uno snapshot associato al BLOB, tutti i blocchi del BLOB di base e lo snapshot a questo punto differiranno e all'utente verranno addebitati i costi di tutti i blocchi in entrambi i BLOB. Questo vale persino se i dati nel BLOB di base e nello snapshot restano identici.
+* La sostituzione di un BLOB in blocchi chiamando il metodo [UploadFromFile][dotnet_UploadFromFile], [Uploadtext][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream]o [UploadFromByteArray][dotnet_UploadFromByteArray] sostituisce tutti i blocchi nel BLOB. Se è presente uno snapshot associato al BLOB, tutti i blocchi del BLOB di base e lo snapshot a questo punto differiranno e all'utente verranno addebitati i costi di tutti i blocchi in entrambi i BLOB. Questo vale persino se i dati nel BLOB di base e nello snapshot restano identici.
 * Il servizio BLOB di Azure non dispone dei mezzi per determinare se due blocchi contengono dati identici. Ogni blocco che viene caricato e inviato viene trattato come univoco, persino se contiene gli stessi dati e ha lo stesso ID blocco. Poiché i costi aumentano per i blocchi univoci, è importante considerare che se si aggiorna un BLOB contenente uno snapshot, si generano altri blocchi univoci e i costi aggiuntivi aumentano.
 
 ### <a name="minimize-cost-with-snapshot-management"></a>Ridurre al minimo i costi con la gestione degli snapshot
@@ -135,7 +135,7 @@ Nell'elenco seguente sono inclusi i punti principali da considerare quando si cr
 Si consiglia di gestire gli snapshot con attenzione per evitare costi supplementari. È possibile seguire queste procedure consigliate per ridurre al minimo i costi che sorgono con l'archiviazione degli snapshot:
 
 * Eliminare e ricreare gli snapshot associati a un BLOB ogni volta che si aggiorna il BLOB, persino se l'aggiornamento viene eseguito con dati identici, a meno che la progettazione dell'applicazione non richieda di mantenerli. Se si eliminano e si ricreano gli snapshot del BLOB, ci si garantisce che il BLOB e gli snapshot non differiscano.
-* Quando si gestiscono gli snapshot per un BLOB, evitare di chiamare il metodo [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream] o [UploadFromByteArray][dotnet_UploadFromByteArray] per aggiornare il BLOB. Questi metodi sostituiscono tutti i blocchi nel BLOB, creando così delle differenze significative tra il BLOB di base e gli snapshot. Aggiornare invece il minor numero possibile di blocchi usando i metodi [PutBlock][dotnet_PutBlock] e [PutBlockList][dotnet_PutBlockList].
+* Se si gestiscono snapshot per un BLOB, evitare di chiamare [UploadFromFile][dotnet_UploadFromFile], [Uploadtext][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream]o [UploadFromByteArray][dotnet_UploadFromByteArray] per aggiornare il BLOB. Questi metodi sostituiscono tutti i blocchi nel BLOB, creando così delle differenze significative tra il BLOB di base e gli snapshot. Aggiornare invece il minor numero possibile di blocchi usando i metodi [PutBlock][dotnet_PutBlock] e [PutBlockList][dotnet_PutBlockList].
 
 ### <a name="snapshot-billing-scenarios"></a>Scenari di fatturazione degli snapshot
 Gli scenari seguenti dimostrano in che modo aumentano i costi per un BLOB in blocchi e i relativi snapshot.
@@ -160,7 +160,7 @@ Nello Scenario 3, il BLOB di base è stato aggiornato, ma lo snapshot no. Il blo
 
 **Scenario 4**
 
-Nello Scenario 4, il BLOB di base è stato completamente aggiornato e non contiene nessuno dei blocchi originali. Di conseguenza, all'account vengono addebitati tutti gli otto blocchi univoci. Questo scenario può verificarsi se si usa un metodo di aggiornamento come [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream] o [UploadFromByteArray][dotnet_UploadFromByteArray], in quanto questi metodi sostituiscono tutto il contenuto di un BLOB.
+Nello Scenario 4, il BLOB di base è stato completamente aggiornato e non contiene nessuno dei blocchi originali. Di conseguenza, all'account vengono addebitati tutti gli otto blocchi univoci. Questo scenario può verificarsi se si usa un metodo di aggiornamento, ad esempio [UploadFromFile][dotnet_UploadFromFile], [Uploadtext][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream]o [UploadFromByteArray][dotnet_UploadFromByteArray], perché questi metodi sostituiscono tutto il contenuto di un BLOB.
 
 ![Risorse di archiviazione di Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
@@ -172,7 +172,7 @@ Nello Scenario 4, il BLOB di base è stato completamente aggiornato e non contie
 
 [dotnet_AccessCondition]: https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.accesscondition
 [dotnet_CloudBlockBlob]: https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob
-[dotnet_CreateSnapshotAsync]: https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.generatedblobs.createsnapshotasync
+[dotnet_CreateSnapshotAsync]: https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.createsnapshotasync
 [dotnet_HTTPStatusCode]: https://docs.microsoft.com/java/api/com.microsoft.store.partnercenter.network.httpstatuscode
 [dotnet_PutBlockList]: /dotnet/api/microsoft.azure.storage.blob.cloudblockblob.putblocklist
 [dotnet_PutBlock]: /dotnet/api/microsoft.azure.storage.blob.cloudblockblob.putblock

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: e076d6fed8cb3baf6b62dc3ede6ddd34732ed7a2
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 95df72875338b6964f42075404cf9c30ba132f9d
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562068"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900215"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -48,7 +48,7 @@ Ecco i limiti per una singola definizione di app per la logica:
 
 Ecco i limiti per una singola esecuzione di app per la logica:
 
-| Name | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
+| NOME | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
 |------|--------------------|---------------------------------------|-------|
 | Durata esecuzione | 90 giorni | 365 giorni | Per modificare il limite predefinito, vedere la pagina relativa alla [durata dell'esecuzione delle modifiche](#change-duration). |
 | Conservazione in risorsa di archiviazione | 90 giorni dalla data di inizio dell'esecuzione | 365 giorni | Per modificare il limite predefinito, vedere [modificare la conservazione dell'archiviazione](#change-retention). |
@@ -75,7 +75,7 @@ Per modificare il limite predefinito per la durata dell'esecuzione e la conserva
 
 Ecco i limiti per una singola esecuzione di app per la logica:
 
-| Name | Limite | Note |
+| NOME | Limite | Note |
 | ---- | ----- | ----- |
 | Concorrenza di trigger | * Senza limiti quando il controllo della concorrenza è disattivato <p><p>* 25 è il limite predefinito quando il controllo della concorrenza è attivato e non può essere annullato dopo l'attivazione del controllo. È possibile modificare il valore predefinito impostandolo su un valore compreso tra 1 e 50, estremi inclusi. | Questo limite descrive il numero più alto di istanze di app per la logica che è possibile eseguire contemporaneamente o in parallelo. <p><p>Per modificare il limite predefinito e impostarlo su un valore compreso tra 1 e 50 inclusi, vedere [Modificare il limite della concorrenza dei trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) o [Attivare le istanze in sequenza](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Numero massimo di esecuzioni in attesa | Quando il controllo della concorrenza è attivato, il numero minimo di esecuzioni in attesa è 10 più il numero di esecuzioni simultanee (trigger di concorrenza). È possibile modificare il numero massimo impostando un valore fino a 100 (incluso). | Questo limite descrive il numero più alto di istanze di app per la logica in attesa di esecuzione quando l'app per la logica esegue già il numero massimo di istanze simultanee. <p><p>Per modificare il limite predefinito, vedere [Modificare il limite delle esecuzioni in attesa](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
@@ -141,7 +141,7 @@ Alcune operazioni dei connettori effettuano chiamate asincrone o sono in ascolto
 
 #### <a name="retry-policy"></a>Criteri per i tentativi
 
-| Name | Limite | Note |
+| NOME | Limite | Note |
 | ---- | ----- | ----- |
 | Tentativi | 90 | Il valore predefinito è 4. Per modificare il valore predefinito, usare il [parametro dei criteri di ripetizione](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 | Intervallo massimo tra i tentativi | 1 giorno | Per modificare il valore predefinito, usare il [parametro dei criteri di ripetizione](../logic-apps/logic-apps-workflow-actions-triggers.md). |
@@ -253,9 +253,11 @@ Quando si elimina un'app per la logica, non viene eseguita alcuna nuova istanza 
 
 ## <a name="firewall-configuration-ip-addresses"></a>Configurazione del firewall: Indirizzi IP
 
-Tutte le app per la logica nella stessa area usano gli stessi intervalli di indirizzi IP. Per supportare le chiamate che le app per la logica effettuano direttamente con [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) e altre richieste HTTP, impostare le configurazioni dei firewall in modo che includano  *tutti* gli indirizzi IP [in ingresso](#inbound) *e* [in uscita](#outbound) usati dal servizio App per la logica in base all'area in cui sono presenti le app per la logica. Questi indirizzi vengono visualizzati sotto le intestazioni **In ingresso** e **In uscita** in questa sezione e vengono ordinati in base all'area.
+Tutte le app per la logica nella stessa area usano gli stessi intervalli di indirizzi IP. Per supportare le chiamate che le app per la logica effettuano direttamente con [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) e altre richieste HTTP, impostare le configurazioni dei firewall in modo che includano  *tutti* gli indirizzi IP [in ingresso](#inbound) *e* [in uscita](#outbound) usati dal servizio App per la logica in base all'area in cui sono presenti le app per la logica. Questi indirizzi vengono visualizzati sotto le intestazioni **In ingresso** e **In uscita** in questa sezione e vengono ordinati in base all'area. 
 
 Per supportare le chiamate effettuate dai [connettori gestiti da Microsoft](../connectors/apis-list.md), impostare le configurazioni del firewall in modo che includano *tutti* gli indirizzi IP [in uscita](#outbound) usati da questi connettori, in base alle aree in cui sono presenti le app per la logica. Questi indirizzi vengono visualizzati sotto l'intestazione **In uscita** in questa sezione e vengono ordinati in base all'area.
+
+Per le app per la logica eseguite in un ambiente Integration Services (ISE), assicurarsi di [aprire queste porte](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
 
 Per [Azure per enti pubblici](../azure-government/documentation-government-overview.md) e [Azure Cina 21Vianet](https://docs.microsoft.com/azure/china/), gli indirizzi IP riservati per i connettori non sono attualmente disponibili.
 

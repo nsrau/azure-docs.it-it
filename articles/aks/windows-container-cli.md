@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 6c4d143bdaee0818d32b846a38a63eb48f69f717
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 879e2831dc099eabe43f1eefb81b1b7373c665dc
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034026"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69898717"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Anteprima: creare un contenitore di Windows Server in un cluster Azure Kubernetes Service (AKS) usando l'interfaccia della riga di comando di Azure
 
@@ -134,7 +134,7 @@ az aks create \
     --name myAKSCluster \
     --node-count 1 \
     --enable-addons monitoring \
-    --kubernetes-version 1.14.5 \
+    --kubernetes-version 1.14.6 \
     --generate-ssh-keys \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
@@ -159,7 +159,7 @@ az aks nodepool add \
     --os-type Windows \
     --name npwin \
     --node-count 1 \
-    --kubernetes-version 1.14.5
+    --kubernetes-version 1.14.6
 ```
 
 Il comando precedente crea un nuovo pool di nodi denominato *npwin* e lo aggiunge al *myAKSCluster*. Quando si crea un pool di nodi per l'esecuzione di contenitori di Windows Server, il valore predefinito per *node-VM-size* è *Standard_D2s_v3*. Se si sceglie di impostare il parametro *node-VM-size* , controllare l'elenco delle [dimensioni delle macchine virtuali limitate][restricted-vm-sizes]. La dimensione minima consigliata è *Standard_D2s_v3*. Il comando precedente usa anche la subnet predefinita nel VNET predefinito creato durante l'esecuzione `az aks create`di.
@@ -188,8 +188,8 @@ L'esempio di output seguente mostra il nodo singolo creato nei passaggi preceden
 
 ```
 NAME                                STATUS   ROLES   AGE    VERSION
-aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.5
-aksnpwin987654                      Ready    agent   108s   v1.14.5
+aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.6
+aksnpwin987654                      Ready    agent   108s   v1.14.6
 ```
 
 ## <a name="run-the-application"></a>Esecuzione dell'applicazione

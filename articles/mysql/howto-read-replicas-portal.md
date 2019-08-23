@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 04/29/2019
-ms.openlocfilehash: b422718a1eaec483acdc2c8ab37442b9aea78aaa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/21/2019
+ms.openlocfilehash: 74f27f70c4a0752975a53b3889681d3910b1dd05
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510800"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906430"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Come creare e gestire le repliche in lettura in Database di Azure per MySQL con il portale di Azure
 
-In questo articolo si apprenderà come creare e gestire le repliche di lettura nel Database di Azure per MySQL usando il portale di Azure.
+In questo articolo si apprenderà come creare e gestire le repliche di lettura nel database di Azure per il servizio MySQL usando il portale di Azure.
 
 > [!IMPORTANT]
-> È possibile creare una replica di lettura nella stessa area del server master o in altre aree di Azure di propria scelta. La replica tra aree è attualmente in anteprima pubblica.
+> È possibile creare una replica di lettura nella stessa area del server master o in qualsiasi altra area di Azure di propria scelta. La replica tra aree è attualmente disponibile in anteprima pubblica.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -43,11 +43,14 @@ In questo articolo si apprenderà come creare e gestire le repliche di lettura n
 
 5. Immettere un nome per il server di replica.
 
-    ![Database di Azure per MySQL - nome della Replica](./media/howto-read-replica-portal/replica-name.png)
+    ![Database di Azure per MySQL-nome replica](./media/howto-read-replica-portal/replica-name.png)
 
-6. Selezionare il percorso per il server di replica. È possibile creare una replica in qualsiasi area di Azure. Il percorso predefinito è quello utilizzato per il server master
+6. Selezionare il percorso per il server di replica. Il percorso predefinito è identico a quello del server master.
 
-    ![Database di Azure per MySQL - percorso di Replica](./media/howto-read-replica-portal/replica-location.png)
+    ![Database di Azure per MySQL-percorso di replica](./media/howto-read-replica-portal/replica-location.png)
+
+   > [!NOTE]
+   > Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l' [articolo leggere i concetti relativi alla replica](concepts-read-replicas.md). 
 
 7. Selezionare **OK** per confermare la creazione della replica.
 

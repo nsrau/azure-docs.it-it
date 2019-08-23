@@ -7,14 +7,14 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 08/15/2019
+ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: 570429a2d5332e7d951271b36b79d9d16df174c0
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: b0345773956a0adc5c7f403195c496a3ea5e6fd6
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535211"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982334"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Servizi cognitivi e Machine Learning
 
@@ -65,7 +65,7 @@ In genere, i destinatari sono diversi:
 
 Un servizio cognitivo fornisce un modello sottoposto a training. In questo modo, i dati e un algoritmo vengono combinati, disponibili da un'API REST o da un SDK. È possibile implementare questo servizio entro pochi minuti, a seconda dello scenario.  Un servizio cognitivo fornisce risposte a problemi generali come le frasi chiave nel testo o nell'identificazione dell'elemento nelle immagini. 
 
-Machine Learning è un processo che in genere richiede un periodo di tempo più lungo per l'implementazione corretta. Questo tempo è dedicato alla raccolta dei dati, alla pulizia, alla trasformazione, alla selezione degli algoritmi, al training del modello e alla distribuzione per ottenere lo stesso livello di funzionalità fornito da un servizio cognitivo. Con machine learning, è possibile fornire risposte a qualsiasi tipo di problema, inclusi problemi specifici o altamente specializzati. Questi problemi di apprendimento automatico richiedono familiarità con una o più delle seguenti operazioni: oggetto, Machine Learning, data science.
+Machine Learning è un processo che in genere richiede un periodo di tempo più lungo per l'implementazione corretta. Questo tempo è dedicato alla raccolta dei dati, alla pulizia, alla trasformazione, alla selezione degli algoritmi, al training del modello e alla distribuzione per ottenere lo stesso livello di funzionalità fornito da un servizio cognitivo. Con machine learning, è possibile fornire risposte a problemi altamente specializzati e/o specifici. I problemi di Machine Learning richiedono una certa familiarità con l'oggetto specifico e i dati del problema in considerazione, nonché le competenze in data science.
 
 ## <a name="what-kind-of-data-do-you-have"></a>Quali tipi di dati sono disponibili?
 

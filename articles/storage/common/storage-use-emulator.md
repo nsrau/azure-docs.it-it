@@ -3,16 +3,16 @@ title: Usare l'emulatore di archiviazione di Azure per sviluppo e test | Microso
 description: L'emulatore di archiviazione di Azure offre un ambiente di sviluppo locale gratuito per sviluppare e testare applicazioni di Archiviazione di Azure. Informazioni sulle modalità di autorizzazione delle richieste, su come connettersi all'emulatore dall'applicazione e su come usare lo strumento da riga di comando.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 08/10/2018
+ms.date: 08/21/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: ee8dd9da186013dc168e20e6b8b842cca85de172
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
-ms.translationtype: HT
+ms.openlocfilehash: a50b397ffe1cfc44d4234dcfbee1618e9fb2506c
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877634"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900354"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usare l'emulatore di archiviazione di Azure per sviluppo e test
 

@@ -11,12 +11,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: dapine
-ms.openlocfilehash: ddbe586c03d9f722d844d06968aa25e4b4a5aac0
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: ff0be2e9dada758cce96ba7c5eebbf03b00f56c6
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815304"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971455"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installare ed eseguire i contenitori di Analisi del testo
 
@@ -139,7 +139,7 @@ Questo comando:
 
 Il contenitore fornisce API dell'endpoint di stima di query basate su REST.
 
-Usare l'host, `https://localhost:5000`, per le API del contenitore.
+Usare l'host, `http://localhost:5000`, per le API del contenitore.
 
 <!--  ## Validate container is running -->
 

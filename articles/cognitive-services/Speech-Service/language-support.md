@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: ac3cb1d637eae1b4ee0a7db59efe631c7eb1ac6f
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: abff902dc62ad7ae48f2ecedfbd52aeb96719093
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815268"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69970377"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Supporto per lingua e area per i servizi di riconoscimento vocale
 
@@ -24,40 +24,40 @@ Le diverse funzioni dei servizi di riconoscimento vocale supportano lingue diver
 
 ## <a name="speech-to-text"></a>Riconoscimento vocale
 
-Microsoft Speech Recognition SDK e l'API REST supportano le seguenti lingue (impostazioni locali). Livelli diversi di personalizzazione sono disponibili per ogni lingua.
+Microsoft Speech Recognition SDK e l'API REST supportano le seguenti lingue (impostazioni locali). Per migliorare l'accuratezza, la personalizzazione viene offerta per un subset di lingue tramite il caricamento di trascrizioni audio e con etichetta umana o testo correlato: Frasi.  La personalizzazione della pronuncia è attualmente disponibile solo per en-US e de-DE. Altre informazioni sulla personalizzazione sono disponibili [qui](how-to-custom-speech.md).
 
-  Codice | Linguaggio | [Adattamento acustico](how-to-customize-acoustic-models.md) | [Adattamento linguistico](how-to-customize-language-model.md) | [Adattamento della pronuncia](how-to-customize-pronunciation.md)
- ------|----------|---------------------|---------------------|-------------------------
- ar-EG | Arabo (Egitto), standard moderno | No | Sì | No
- ca-ES | Catalano | No | No | No
- da-DK | Danese (Danimarca) | No | No | No
- de-DE | Tedesco (Germania) | Yes | Sì | Sì
- en-AU | Inglese (Australia) | No | Sì | No
- en-CA | Inglese (Canada) | No | Sì | No
- en-GB | Inglese (Regno Unito) | No | Sì | No
- en-IN | Inglese (India) | Sì | Sì | No
- en-NZ | Inglese (Nuova Zelanda) | No | Sì | No 
- en-US | Inglese (Stati Uniti) | Sì | Sì | Sì
- es-ES | Spagnolo (Spagna) | Yes | Sì | No
- es-MX | Spagnolo (Messico) | No | Sì | No
- fi-FI | Finlandese (Finlandia) | No | No | No
- fr-CA | Francese (Canada) | No | Sì | No
- fr-FR | Francese (Francia) | Sì | Sì | No
- hi-IN | Hindi (India) | No | Sì | No
- it-IT | Italiano (Italia) | Sì | Sì | No
- ja-JP | Giapponese (Giappone) | No | Sì | No
- ko-KR | Coreano (Corea del Sud) | No | Sì | No
- nb-NO | Norvegese (Bokmål) (Norvegia) | No | No | No
- nl-NL | Olandese (Paesi Bassi) | No | Sì | No
- pl-PL | Polacco (Polonia) | No | No | No
- pt-BR | Portoghese (Brasile) | Sì | Sì | No
- pt-PT | Portoghese (Portogallo) | No | Sì | No
- ru-RU | Russo (Russia) | Yes | Sì | No
- sv-SE | Svedese (Svezia) | No | No | No
- zh-CN | Cinese (mandarino, semplificato) | Sì | Sì | No
- zh-HK | Cinese (cantonese, tradizionale) | No | Sì | No
- zh-TW | Cinese (mandarino taiwanese) | No | Sì | No
- th-TH | Thai (Tailandia) | No | No | No
+  Codice | Linguaggio | Supportato | Personalizzabile
+ ------|----------|---------------------|---------------------
+ ar-EG | Arabo (Egitto), standard moderno | Sì | Yes
+ ca-ES | Catalano | Yes | No
+ da-DK | Danese (Danimarca) | Sì | No
+ de-DE | Tedesco (Germania) | Sì | Sì
+ en-AU | Inglese (Australia) | Sì | Sì
+ en-CA | Inglese (Canada) | Yes | Sì
+ en-GB | Inglese (Regno Unito) | Sì | Sì
+ en-IN | Inglese (India) | Yes | Sì
+ en-NZ | Inglese (Nuova Zelanda) | Sì | Sì
+ en-US | Inglese (Stati Uniti) | Sì | Yes
+ es-ES | Spagnolo (Spagna) | Sì | Yes
+ es-MX | Spagnolo (Messico) | Sì | Sì
+ fi-FI | Finlandese (Finlandia) | Yes | No
+ fr-CA | Francese (Canada) | Yes | Sì
+ fr-FR | Francese (Francia) | Sì | Sì
+ hi-IN | Hindi (India) | Sì | Sì
+ it-IT | Italiano (Italia) | Sì | Sì
+ ja-JP | Giapponese (Giappone) | Yes | Sì
+ ko-KR | Coreano (Corea) | Sì | Sì
+ nb-NO | Norvegese (Bokmål) (Norvegia) | Sì | No
+ nl-NL | Olandese (Paesi Bassi) | Sì | Yes
+ pl-PL | Polacco (Polonia) | Sì | No
+ pt-BR | Portoghese (Brasile) | Yes | Sì
+ pt-PT | Portoghese (Portogallo) | Yes | Yes
+ ru-RU | Russo (Russia) | Sì | Yes
+ sv-SE | Svedese (Svezia) | Sì | No
+ zh-CN | Cinese (mandarino, semplificato) | Sì | Sì
+ zh-HK | Cinese (cantonese, tradizionale) | Sì | Sì
+ zh-TW | Cinese (mandarino taiwanese) | Yes | Sì
+ th-TH | Thailandese (Thailandia) | Sì | No 
 
 
 ## <a name="text-to-speech"></a>Sintesi vocale
@@ -95,7 +95,7 @@ Impostazioni locali | Linguaggio | Sesso | Mapping completo del nome del servizi
 ar-EG\* | Arabo (Egitto) | Femmina | "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)" | "ar-EG-un".
 ar-SA | Arabo (Arabia Saudita) | Maschio | "Microsoft Server Speech Text to Speech Voice (ar-SA, Naayf)" | "ar-SA-Naayf"
 bg-BG | Bulgaro | Maschio | "Microsoft Server Speech Text to Speech Voice (bg-BG, Ivan)" | "BG-BG-Ivan"
-ca-ES | Catalano | Femmina | "Microsoft Server Speech Text to Speech Voice (ca-ES, HerenaRUS)" | "ca-ES-HerenaRUS"
+ca-ES | Catalano (Spagna) | Femmina | "Microsoft Server Speech Text to Speech Voice (ca-ES, HerenaRUS)" | "ca-ES-HerenaRUS"
 cs-CZ | Ceco | Maschio | "Microsoft Server Speech Text to Speech Voice (cs-CZ, Jakub)" | "CS-CZ-Jakub"
 da-DK | Danese | Femmina | "Microsoft Server Speech Text to Speech Voice (da-DK, HelleRUS)" | "da-DK-HelleRUS"
 de-AT | Tedesco (Austria) | Maschio | "Microsoft Server Speech Text to Speech Voice (de-AT, Michael)" | "de-AT-Michael"
@@ -197,7 +197,7 @@ L'API **Traduzione vocale** supporta lingue diverse per la traduzione vocale e c
 | Afrikaans      | `af`          |
 | Arabo       | `ar`          |
 | Bengali      | `bn`          |
-| Bosniaco (alfabeto latino)      | `bs`          |
+| Bosniaco (latino)      | `bs`          |
 | Bulgaro      | `bg`          |
 | Cantonese (tradizionale)      | `yue`          |
 | Catalano      | `ca`          |

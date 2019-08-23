@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 09/15/2017
+ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 44dea072b9871d0be6e18549896456af2a4989f6
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 5a0be55df9be67fcf6ff5d53e18e3eb2b0e69d7f
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558733"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904469"
 ---
 # <a name="get-started-with-device-management-net"></a>Introduzione alla gestione dei dispositivi (.NET)
 
@@ -34,7 +34,9 @@ Al termine di questa esercitazione si ottengono due app console .NET:
 
 * **TriggerReboot**. Questa app chiama un metodo diretto nell'app per dispositivo simulato, Visualizza la risposta e visualizza le proprietà segnalate aggiornate.
 
-Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
+## <a name="prerequisites"></a>Prerequisiti
+
+Per completare questa esercitazione, sono necessari:
 
 * Visual Studio.
 
@@ -81,7 +83,7 @@ In questa sezione si crea un'app console .NET, usando C#, che avvia un riavvio r
    using Microsoft.Azure.Devices.Shared;
    ```
 
-1. Aggiungere i campi seguenti alla classe **Program** . Sostituire il valore del segnaposto con la stringa di connessione dell'hub Internet che è stata copiata in precedenza in [ottenere la stringa di connessione dell'hub Internet](#get-the-iot-hub-connection-string).
+1. Aggiungere i campi seguenti alla classe **Program** . Sostituire il `{iot hub connection string}` valore del segnaposto con la stringa di connessione dell'hub Internet che è stata copiata in precedenza in [ottenere la stringa di connessione dell'hub Internet](#get-the-iot-hub-connection-string).
 
    ```csharp
    static RegistryManager registryManager;
@@ -133,7 +135,7 @@ In questa sezione si crea un'app console .NET, usando C#, che avvia un riavvio r
 
 ## <a name="create-a-simulated-device-app"></a>Creare un'app di dispositivo simulato
 
-In questa sezione vengono eseguite le azioni seguenti:
+In questa sezione verrà illustrato come:
 
 * Creare un'app console .NET che risponde a un metodo diretto chiamato dal cloud.
 
@@ -164,11 +166,10 @@ Per creare l'app per dispositivo simulato, seguire questa procedura:
     using Microsoft.Azure.Devices.Shared;
     ```
 
-1. Aggiungere i campi seguenti alla classe **Program** . Sostituire il valore del segnaposto con la stringa di connessione del dispositivo annotato nella sezione precedente.
+1. Aggiungere i campi seguenti alla classe **Program** . Sostituire il `{device connection string}` valore del segnaposto con la stringa di connessione del dispositivo annotata in precedenza in [registrare un nuovo dispositivo nell'hub](#register-a-new-device-in-the-iot-hub).
 
     ```csharp
-    static string DeviceConnectionString = 
-      "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
+    static string DeviceConnectionString = "{device connection string}";
     static DeviceClient Client = null;
     ```
 
@@ -233,7 +234,7 @@ Per creare l'app per dispositivo simulato, seguire questa procedura:
    }
    ```
 
-1. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione e selezionare **Imposta progetti di avvio**. 
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione e selezionare **Imposta progetti di avvio**.
 
 1. Per**progetto di avvio** **Proprietà** > comuni selezionare **progetto di avvio singolo**, quindi selezionare il progetto **SimulateManagedDevice** . Selezionare **OK** per salvare le modifiche.
 
@@ -244,7 +245,7 @@ Per creare l'app per dispositivo simulato, seguire questa procedura:
 
 ## <a name="run-the-apps"></a>Eseguire le app
 
-A questo punto è possibile eseguire le app.
+A questo punto si è pronti per eseguire le app.
 
 1. Per eseguire l'app per dispositivi .NET **SimulateManagedDevice**, in Esplora soluzioni, fare clic con il pulsante destro del mouse sul progetto **SimulateManagedDevice** , scegliere **debug**e quindi selezionare **Avvia nuova istanza**. L'app dovrebbe iniziare ad ascoltare le chiamate ai metodi dall'hub Internet.
 

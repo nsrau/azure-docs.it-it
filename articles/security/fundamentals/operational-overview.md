@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
-ms.openlocfilehash: 31e59f913fa29c92bc1b97029d8712bbd9b68ab8
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 52d74983458a2c6a4de27ec91bc23a8dd9bee387
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934652"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899814"
 ---
 # <a name="azure-operational-security-overview"></a>Panoramica sulla sicurezza operativa di Azure
 
-[Sicurezza operativa di Azure] /Azure/Security/Fundamentals/Operational-Security si riferisce ai servizi, ai controlli e alle funzionalità disponibili per gli utenti per la protezione dei dati, delle applicazioni e di altre risorse in Microsoft Azure. È un framework che incorpora le conoscenze acquisite attraverso varie funzionalità uniche di Microsoft. Queste funzionalità includono Microsoft Security Development Lifecycle (SDL), il programma Microsoft Security Response Center e una profonda conoscenza del panorama delle minacce della cybersecurity.
+La [sicurezza operativa di Azure](/azure/security/fundamentals/operational-security) include i servizi, i controlli e le funzionalità offerti agli utenti per proteggere i dati, le applicazioni e gli altri asset di Microsoft Azure. È un framework che incorpora le conoscenze acquisite attraverso varie funzionalità uniche di Microsoft. Queste funzionalità includono Microsoft Security Development Lifecycle (SDL), il programma Microsoft Security Response Center e una profonda conoscenza del panorama delle minacce della cybersecurity.
 
 ## <a name="azure-management-services"></a>Servizi di gestione di Azure
 

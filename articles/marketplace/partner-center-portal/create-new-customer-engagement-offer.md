@@ -7,12 +7,12 @@ ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 1478e8f44db2e6a1d52d069d2f52830c265b2641
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 7cda51870a98b2606a0133a61ad6f786e7e9324a
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036826"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900145"
 ---
 # <a name="create-a-new-dynamics-365-for-customer-engagement--powerapps-offer"></a>Crea una nuova offerta di Dynamics 365 per Customer Engagement & PowerApps
 
@@ -82,27 +82,11 @@ Selezionare una delle opzioni seguenti:
 
 ## <a name="connect-lead-management"></a>Gestione dei lead di connessione
 
-È necessario connettersi direttamente ai clienti mediante l'associazione del sistema CRM (Customer Relationship Management). Quando si esegue questa operazione, si riceveranno le informazioni di contatto del cliente quando un cliente esprime interesse o distribuisce il prodotto.
+[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
 
-Per connettere il sistema CRM, selezionare **Connetti**.
+Per ulteriori informazioni, vedere [Panoramica della gestione dei lead](./commercial-marketplace-get-customer-leads.md) .
 
-### <a name="choose-a-lead-destination"></a>Scegliere una destinazione principale
-
-Dopo aver selezionato **Connetti**, verrà visualizzato un menu a discesa in cui è possibile selezionare il sistema CRM, quindi specificare i dettagli della connessione.
-
-Il centro per i partner supporta i sistemi CRM seguenti per la gestione dei lead. Selezionare il collegamento per le istruzioni di installazione.
-
-- [Tabella di Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) : specificare la stringa di connessione dell'account di archiviazione. 
-- [Dynamics 365 per Customer Engagement (noto in precedenza come Dynamics CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) ): specificare l'URL dell'istanza di Dynamics 365 e la modalità di autenticazione (Office 365 o Azure Active Directory).
-- [Endpoint HTTPS](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) : specificare l'URL dell'endpoint HTTPS. 
-- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) : specificare l'ID del server, l'ID dell'account Munchkin e l'ID modulo.
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) : specificare l'ID organizzazione. 
-
-#### <a name="additional-lead-management-resources"></a>Risorse aggiuntive per la gestione dei lead
-
-- [Domande frequenti sulla gestione dei lead](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Errori comuni di configurazione del lead](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
-- [Panoramica della gestione dei lead un cercapersone](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
+Ricordarsi di **salvare** prima di procedere alla sezione successiva.
 
 ## <a name="properties"></a>Properties
 
@@ -147,7 +131,7 @@ Sarà necessario definire i dettagli del Marketplace (nome dell'offerta, descriz
 > [!NOTE]
 > Il contenuto dell'offerta (ad esempio la descrizione, i documenti, le schermate, le condizioni per l'utilizzo e così via) non deve essere in inglese, purché la descrizione dell'offerta inizi con la frase "questa applicazione è disponibile solo in [lingua non inglese]". È anche accettabile fornire un URL di *collegamento utile* per offrire contenuto in una lingua diversa da quella usata nell'offerta di visualizzazione del contenuto.
 
-### <a name="name"></a>NOME
+### <a name="name"></a>Name
 
 Il nome immesso qui verrà visualizzato ai clienti come titolo dell'elenco di offerte. Questo campo viene prepopolato con il testo immesso per l' **alias offerta** al momento della creazione dell'offerta, ma è possibile modificare questo valore. Questo nome può essere registrato (e possono essere inclusi marchi o simboli di copyright). Il nome non può contenere più di 50 caratteri e non può includere emoji.
 
@@ -155,7 +139,7 @@ Il nome immesso qui verrà visualizzato ai clienti come titolo dell'elenco di of
 
 Fornire una breve descrizione dell'offerta (fino a 100 caratteri). Questa operazione può essere usata nei risultati della ricerca nel Marketplace.
 
-### <a name="description"></a>DESCRIZIONE
+### <a name="description"></a>Descrizione
 
 Fornire una descrizione più lunga dell'offerta (fino a 3.000 caratteri). Questa descrizione verrà visualizzata ai clienti nella panoramica dell'inserzione sul Marketplace. Includere la proposta di valore dell'offerta, i vantaggi principali, le associazioni di categoria e/o di settore, le opportunità di acquisto in-app ed eventuali divulgazioni necessarie. 
 

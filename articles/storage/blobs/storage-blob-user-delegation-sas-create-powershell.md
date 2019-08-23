@@ -9,12 +9,12 @@ ms.date: 08/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 86b5e4b6bcf65c2174fa3d3743551813ce2f8b1b
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: bdb66ec65d493c6af2f33bf6ed6e4a2bb2154235
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034747"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69897033"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell-preview"></a>Creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB con PowerShell (anteprima)
 
@@ -80,7 +80,7 @@ Per altre informazioni sull'accesso con PowerShell, vedere [accedere con Azure P
 
 ## <a name="assign-permissions-with-rbac"></a>Assegnare autorizzazioni con RBAC
 
-Per creare una firma di accesso condiviso di delega utente da Azure PowerShell, è necessario assegnare all'account Azure AD usato per accedere a PowerShell un ruolo che includa l'azione **Microsoft. storage/storageAccounts/blobServices/generateUserDelegationKey** . Questa autorizzazione consente a tale account Azure AD di richiedere la *chiave di delega dell'utente*. La chiave di delega utente viene usata per firmare la firma di accesso condiviso della delega utente. Il ruolo che fornisce l'azione **Microsoft. storage/storageAccounts/blobServices/generateUserDelegationKey** deve essere assegnato a livello dell'account di archiviazione, del gruppo di risorse o della sottoscrizione. Per ulteriori informazioni sulle autorizzazioni RBAC per la creazione di una firma di accesso condiviso di delega utente, vedere la sezione **assegnare autorizzazioni con RBAC** in creare una firma di accesso condiviso di [delega utente](/rest/api/storageservices/create-a-user-delegation-sas).
+Per creare una firma di accesso condiviso di delega utente da Azure PowerShell, è necessario assegnare all'account Azure AD usato per accedere a PowerShell un ruolo che includa l'azione **Microsoft. storage/storageAccounts/blobServices/generateUserDelegationKey** . Questa autorizzazione consente a tale account Azure AD di richiedere la *chiave di delega dell'utente*. La chiave di delega utente viene usata per firmare la firma di accesso condiviso della delega utente. Il ruolo che fornisce l'azione **Microsoft. storage/storageAccounts/blobServices/generateUserDelegationKey** deve essere assegnato a livello dell'account di archiviazione, del gruppo di risorse o della sottoscrizione. Per ulteriori informazioni sulle autorizzazioni RBAC per la creazione di una firma di accesso condiviso di delega utente, vedere la sezione **assegnare autorizzazioni con RBAC** in creare una firma di accesso condiviso di [delega utente](/rest/api/storageservices/create-user-delegation-sas).
 
 Se non si dispone di autorizzazioni sufficienti per assegnare i ruoli di controllo degli accessi in base al ruolo a un Azure AD entità di sicurezza, potrebbe essere necessario richiedere al proprietario o all'amministratore dell'account di assegnare le autorizzazioni necessarie.
 
@@ -94,7 +94,7 @@ New-AzRoleAssignment -SignInName <email> `
     -Scope  "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>"
 ```
 
-Per altre informazioni sui ruoli predefiniti che includono l'azione **Microsoft. storage/storageAccounts/blobServices/generateUserDelegationKey** , vedere [ruoli predefiniti per le risorse di Azure](/role-based-access-control/built-in-roles).
+Per altre informazioni sui ruoli predefiniti che includono l'azione **Microsoft. storage/storageAccounts/blobServices/generateUserDelegationKey** , vedere [ruoli predefiniti per le risorse di Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="use-azure-ad-credentials-to-secure-a-sas"></a>Usare le credenziali Azure AD per proteggere una firma di accesso condiviso
 
@@ -167,5 +167,5 @@ Revoke-AzStorageAccountUserDelegationKeys -ResourceGroupName <resource-group> `
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Creare una firma di accesso condiviso per la delega utente (API REST)](/rest/api/storageservices/create-a-user-delegation-sas)
+- [Creare una firma di accesso condiviso per la delega utente (API REST)](/rest/api/storageservices/create-user-delegation-sas)
 - [Operazione di ottenimento della chiave di delega utente](/rest/api/storageservices/get-user-delegation-key)

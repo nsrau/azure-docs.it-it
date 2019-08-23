@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: ce68e3ae7728108126b2994a0e065ac84eb894bb
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7944f985f2317690f3a13add783192c49acbe22f
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68641929"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907652"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli"></a>Come creare e gestire le repliche di lettura nel database di Azure per MariaDB usando l'interfaccia della riga di comando di Azure
 
@@ -38,7 +38,7 @@ az mariadb server replica create --name mydemoreplicaserver --source-server myde
 
 Il comando `az mariadb server replica create` richiede i parametri seguenti:
 
-| Impostazione | Valore di esempio | Descrizione  |
+| Impostazione | Valore di esempio | DESCRIZIONE  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Gruppo di risorse in cui verrà creato il server di replica.  |
 | name | mydemoreplicaserver | Nome del nuovo server di replica creato. |
@@ -49,6 +49,9 @@ Per creare una replica di lettura tra aree, usare `--location` il parametro. L'e
 ```azurecli-interactive
 az mariadb server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup --location westus
 ```
+
+> [!NOTE]
+> Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l' [articolo leggere i concetti relativi alla replica](concepts-read-replicas.md). 
 
 > [!NOTE]
 > Le repliche in lettura vengono create con la stessa configurazione server del master. La configurazione del server di replica può essere modificata dopo la creazione. È consigliabile mantenere nella configurazione del server di replica valori maggiori o uguali a quelli del master affinché la replica possa restare al passo con il master.
@@ -100,7 +103,7 @@ az mariadb server replica list --server-name mydemoserver --resource-group myres
 
 Il comando `az mariadb server replica list` richiede i parametri seguenti:
 
-| Impostazione | Valore di esempio | DESCRIZIONE  |
+| Impostazione | Valore di esempio | Descrizione  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Gruppo di risorse in cui verrà creato il server di replica.  |
 | server-name | mydemoserver | Nome o ID del server master. |

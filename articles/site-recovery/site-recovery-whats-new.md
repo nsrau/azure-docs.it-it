@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08/22/2019
 ms.author: raynew
-ms.openlocfilehash: 1ce71665a924c6681af418075d8cc635c73f8a1a
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 3dc20036ead29c62d47b4a628d7ce8101b9d31f4
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717681"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972514"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novità di Site Recovery
 
@@ -24,6 +24,27 @@ Se si hanno suggerimenti per le funzionalità di Site Recovery, Microsoft è lie
 ## <a name="installing-updates"></a>Installazione degli aggiornamenti
 
 [Vedere questo articolo](service-updates-how-to.md) per informazioni sul supporto e le istruzioni per l'aggiornamento Site Recovery.
+
+## <a name="updates-august-2019"></a>Aggiornamenti (2019 agosto)
+
+### <a name="update-rollup-39"></a>Aggiornamento cumulativo 39
+
+L' [aggiornamento cumulativo 39](https://support.microsoft.com/help/4517283/update-rollup-39-for-azure-site-recovery) fornisce gli aggiornamenti seguenti.
+
+**Aggiornamento** | **Dettagli**
+--- | ---
+**Provider e agenti** | Aggiornamenti per Site Recovery agenti e provider (come descritto in dettaglio nel rollup)
+**Correzioni di problemi/miglioramenti** | Una serie di correzioni e miglioramenti (come descritto in dettaglio nel rollup)
+
+
+### <a name="azure-vm-disaster-recovery"></a>Ripristino di emergenza per macchine virtuali di Azure
+
+Le nuove funzionalità per il ripristino di emergenza delle macchine virtuali di Azure sono riepilogate nella tabella.
+
+**Funzionalità** | **Dettagli**
+--- | ---
+**Crittografia senza Azure AD** | La crittografia senza un'app Azure AD è ora supportata per la replica di macchine virtuali di Azure in dischi gestiti che eseguono Windows.
+**Risorse di rete per il failover** | Quando si esegue il failover in un'altra area, è ora possibile alleghi le impostazioni delle risorse di rete (gruppi, bilanciamento del carico, indirizzo IP pubblico) a una macchina virtuale. 
 
 ## <a name="updates-july-2019"></a>Aggiornamenti (2019 luglio)
 

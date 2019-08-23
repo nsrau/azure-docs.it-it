@@ -7,12 +7,12 @@ ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 84738d9de880e09177ebb5c060fbd7bbd4613006
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: f9223fdead9d22e8f58076b47502e71c06741e3f
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036813"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900090"
 ---
 # <a name="create-a-new-dynamics-365-for-operations-offer"></a>Crea una nuova offerta di Dynamics 365 per le operazioni
 
@@ -82,27 +82,11 @@ Selezionare una delle opzioni seguenti:
 
 ## <a name="connect-lead-management"></a>Gestione dei lead di connessione
 
-È necessario connettersi direttamente ai clienti mediante l'associazione del sistema CRM (Customer Relationship Management). Quando si esegue questa operazione, si riceveranno le informazioni di contatto del cliente quando un cliente esprime interesse o distribuisce il prodotto.
+[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
 
-Per connettere il sistema CRM, selezionare **Connetti**.
+Per ulteriori informazioni, vedere [Panoramica della gestione dei lead](./commercial-marketplace-get-customer-leads.md) .
 
-### <a name="choose-a-lead-destination"></a>Scegliere una destinazione principale
-
-Dopo aver selezionato **Connetti**, verrà visualizzato un menu a discesa in cui è possibile selezionare il sistema CRM, quindi specificare i dettagli della connessione.
-
-Il centro per i partner supporta i sistemi CRM seguenti per la gestione dei lead. Selezionare il collegamento per le istruzioni di installazione.
-
-- [Tabella di Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) : specificare la stringa di connessione dell'account di archiviazione. 
-- [Dynamics 365 per Customer Engagement (noto in precedenza come Dynamics CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) ): specificare l'URL dell'istanza di Dynamics 365 e la modalità di autenticazione (Office 365 o Azure Active Directory).
-- [Endpoint HTTPS](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) : specificare l'URL dell'endpoint HTTPS. 
-- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) : specificare l'ID del server, l'ID dell'account Munchkin e l'ID modulo.
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) : specificare l'ID organizzazione.
-
-#### <a name="additional-lead-management-resources"></a>Risorse aggiuntive per la gestione dei lead
-
-- [Domande frequenti sulla gestione dei lead](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Errori comuni di configurazione del lead](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
-- [Panoramica della gestione dei lead un cercapersone](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
+Ricordarsi di **salvare** prima di procedere alla sezione successiva.
 
 ## <a name="properties"></a>Properties
 
@@ -151,7 +135,7 @@ Il nome immesso qui verrà visualizzato ai clienti come titolo dell'elenco di of
 
 Fornire una breve descrizione dell'offerta (fino a 100 caratteri). Questa operazione può essere usata nei risultati della ricerca nel Marketplace.
 
-### <a name="description"></a>Descrizione
+### <a name="description"></a>DESCRIZIONE
 
 Fornire una descrizione più lunga dell'offerta (fino a 3.000 caratteri). Questa descrizione verrà visualizzata ai clienti nella panoramica dell'inserzione sul Marketplace. Includere la proposta di valore dell'offerta, i vantaggi principali, le associazioni di categoria e/o di settore, le opportunità di acquisto in-app ed eventuali divulgazioni necessarie. 
 

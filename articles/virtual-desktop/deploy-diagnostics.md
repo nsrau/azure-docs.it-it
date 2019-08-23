@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.author: helohr
-ms.openlocfilehash: 356b430e0bb9170999398eb8eb68ad31f2d5eeb6
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: d5f0dbf916096b608495c0cc1017d919616653d4
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69017309"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899697"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Distribuire lo strumento di diagnostica
 
@@ -106,7 +106,7 @@ Di seguito viene illustrato come configurare manualmente i contatori delle prest
     -   Informazioni processore (\*)\\tempo processore
     -   Ritardo input utente per sessione (\*)\\-ritardo input massimo
 
-Altre informazioni sui contatori delle prestazioni [nelle origini dati delle prestazioni di Windows e Linux in monitoraggio di Azure](/articles/azure-monitor/platform/data-sources-performance-counters.md).
+Altre informazioni sui contatori delle prestazioni [nelle origini dati delle prestazioni di Windows e Linux in monitoraggio di Azure](/azure/azure-monitor/platform/data-sources-performance-counters).
 
 >[!NOTE]
 >Tutti i contatori aggiuntivi configurati non verranno visualizzati nello strumento di diagnostica. Per fare in modo che venga visualizzato nello strumento di diagnostica, è necessario configurare il file di configurazione dello strumento. Le istruzioni su come eseguire questa operazione con l'amministrazione avanzata saranno disponibili in GitHub in un secondo momento.
@@ -189,7 +189,7 @@ Per impostare l'URI di reindirizzamento:
 
 Prima di rendere disponibile lo strumento di diagnostica agli utenti, verificare che dispongano delle autorizzazioni seguenti:
 
-- Gli utenti hanno bisogno dell'accesso in lettura per log Analytics. Per altre informazioni, vedere [Introduzione a ruoli, autorizzazioni e sicurezza con monitoraggio di Azure](/articles/azure-monitor/platform/roles-permissions-security.md).
+- Gli utenti hanno bisogno dell'accesso in lettura per log Analytics. Per altre informazioni, vedere [Introduzione a ruoli, autorizzazioni e sicurezza con monitoraggio di Azure](/azure/azure-monitor/platform/roles-permissions-security).
 -  Per gli utenti è inoltre necessario l'accesso in lettura per il tenant desktop virtuale Windows (ruolo lettura Servizi Desktop remoto). Per ulteriori informazioni, vedere [l'accesso delegato nell'anteprima di desktop virtuale di Windows](delegated-access-virtual-desktop.md).
 
 È anche necessario fornire agli utenti le informazioni seguenti:

@@ -1,24 +1,24 @@
 ---
-title: Gestire le repliche di lettura per il Database di Azure per PostgreSQL - Server singolo dal comando di Azure
-description: Informazioni su come gestire le repliche di lettura nel Database di Azure per PostgreSQL - Server singolo dal comando di Azure.
+title: Gestire le repliche di lettura per il database di Azure per PostgreSQL-server singolo dall'interfaccia della riga di comando di Azure
+description: Informazioni su come gestire le repliche di lettura nel database di Azure per PostgreSQL-server singolo dall'interfaccia della riga di comando di Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.openlocfilehash: 9a6a1a744a8441d2f082d4d14a3aba8aa1cfc09e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/21/2019
+ms.openlocfilehash: 63a8acad3c393a4c4d9c6a3b6750f1f934dad43d
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306032"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907435"
 ---
-# <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>Creare e gestire le repliche di lettura della riga di comando di Azure
+# <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>Creare e gestire le repliche di lettura dall'interfaccia della riga di comando di Azure
 
-In questo articolo descrive come creare e gestire le repliche di lettura nel Database di Azure per PostgreSQL dal comando di Azure. Per altre informazioni sulle repliche in lettura, vedere la [panoramica](concepts-read-replicas.md).
+Questo articolo illustra come creare e gestire le repliche di lettura in database di Azure per PostgreSQL dall'interfaccia della riga di comando di Azure. Per altre informazioni sulle repliche in lettura, vedere la [panoramica](concepts-read-replicas.md).
 
 > [!IMPORTANT]
-> È possibile creare una replica di lettura nella stessa area del server master o in altre aree di Azure di propria scelta. La replica tra aree è attualmente in anteprima pubblica.
+> È possibile creare una replica di lettura nella stessa area del server master o in qualsiasi altra area di Azure di propria scelta. La replica tra aree è attualmente disponibile in anteprima pubblica.
 
 ## <a name="prerequisites"></a>Prerequisiti
 - Un [server di Database di Azure per PostgreSQL](quickstart-create-server-up-azure-cli.md) che verrà usato come server master.
@@ -31,15 +31,15 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 ## <a name="prepare-the-master-server"></a>Preparare il server master
 È necessario seguire questi passaggi per preparare un server master nei livelli Utilizzo generico o Con ottimizzazione per la memoria.
 
-Il `azure.replication_support`parametro deve essere impostato su **REPLICA** nel server master. Quando questo parametro statico viene modificato, riavviare il server è necessario rendere effettiva la modifica.
+Il `azure.replication_support`parametro deve essere impostato su **REPLICA** nel server master. Quando questo parametro statico viene modificato, è necessario riavviare il server per rendere effettive le modifiche.
 
-1. Impostare `azure.replication_support` alla REPLICA.
+1. Impostare `azure.replication_support` su replica.
 
    ```azurecli-interactive
    az postgres server configuration set --resource-group myresourcegroup --server-name mydemoserver --name azure.replication_support --value REPLICA
    ```
 
-2. Riavvio per applicare la modifica al server.
+2. Riavviare per applicare la modifica al server.
 
    ```azurecli-interactive
    az postgres server restart --name mydemoserver --resource-group myresourcegroup
@@ -47,42 +47,45 @@ Il `azure.replication_support`parametro deve essere impostato su **REPLICA** nel
 
 ## <a name="create-a-read-replica"></a>Creare una replica in lettura
 
-Il [replica di az postgres server create](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-create) comando richiede i parametri seguenti:
+Il comando [AZ Postgres server replica create](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-create) richiede i parametri seguenti:
 
 | Impostazione | Valore di esempio | Descrizione  |
 | --- | --- | --- |
 | resource-group | myresourcegroup |  Il gruppo di risorse in cui verrà creato il server di replica.  |
 | name | mydemoserver-replica | Nome del nuovo server di replica creato. |
-| source-server | mydemoserver | L'ID risorsa o nome del server master esistente per la replica da. |
+| source-server | mydemoserver | Nome o ID risorsa del server master esistente da cui eseguire la replica. |
 
-Nell'esempio dell'interfaccia della riga seguente, viene creata la replica nella stessa area come il master.
+Nell'esempio dell'interfaccia della riga di comando riportata di seguito, la replica viene creata nella stessa area del database master.
 
 ```azurecli-interactive
 az postgres server replica create --name mydemoserver-replica --source-server mydemoserver --resource-group myresourcegroup
 ```
 
-Per creare una croce area leggere replica, usare il `--location` parametro. L'esempio di riga di comando seguente crea la replica negli Stati Uniti occidentali.
+Per creare una replica di lettura tra aree, usare `--location` il parametro. L'esempio dell'interfaccia della riga di comando seguente crea la replica negli Stati Uniti occidentali.
 
 ```azurecli-interactive
 az postgres server replica create --name mydemoserver-replica --source-server mydemoserver --resource-group myresourcegroup --location westus
 ```
 
-Se non è stata impostata la `azure.replication_support` parametro per **REPLICA** su un utilizzo generico o con ottimizzazione per la memoria server master e riavviare il server, viene visualizzato un errore. Completare i due passaggi prima di creare una replica.
+> [!NOTE]
+> Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l' [articolo leggere i concetti relativi alla replica](concepts-read-replicas.md). 
 
-Una replica viene creata usando la stessa configurazione server del master. Dopo aver creato una replica, è possibile modificare diverse impostazioni in modo indipendente dal server master: la generazione di calcolo, i vCore, l'archiviazione e il periodo di conservazione dei backup. È anche possibile modificare in modo indipendente il piano tariffario, tranne da o verso il livello Basic.
+Se il `azure.replication_support` parametro non è stato impostato su **replica** in un per utilizzo generico o in un server master con ottimizzazione per la memoria e il server è stato riavviato, viene visualizzato un errore. Completare questi due passaggi prima di creare una replica.
+
+Una replica viene creata usando le stesse impostazioni di calcolo e di archiviazione del database master. Dopo aver creato una replica, è possibile modificare diverse impostazioni in modo indipendente dal server master: la generazione di calcolo, i vCore, l'archiviazione e il periodo di conservazione dei backup. È anche possibile modificare in modo indipendente il piano tariffario, tranne da o verso il livello Basic.
 
 > [!IMPORTANT]
-> Prima che la configurazione del server master venga aggiornata con nuovi valori, la configurazione delle repliche deve essere aggiornata impostandola su valori uguali o superiori. Questa azione garantisce che le repliche siano sempre aggiornate con le modifiche apportate al master.
+> Prima che un'impostazione del server master venga aggiornata a un nuovo valore, aggiornare l'impostazione della replica a un valore uguale o maggiore. Questa azione consente alla replica di rimanere al passo con le modifiche apportate al database master.
 
-## <a name="list-replicas"></a>Elenco repliche
-È possibile visualizzare l'elenco di repliche di un server master tramite [elenco di az postgres server replica](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-list) comando.
+## <a name="list-replicas"></a>Elencare le repliche
+È possibile visualizzare l'elenco delle repliche di un server master usando il comando [AZ Postgres server replica list](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-list) .
 
 ```azurecli-interactive
 az postgres server replica list --server-name mydemoserver --resource-group myresourcegroup 
 ```
 
 ## <a name="stop-replication-to-a-replica-server"></a>Arrestare la replica in un server di replica
-È possibile arrestare la replica tra un server master e una replica di lettura usando [stop di az postgres server replica](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-stop) comando.
+È possibile arrestare la replica tra un server master e una replica di lettura usando il comando [AZ Postgres server replica stop](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-stop) .
 
 L'arresto della replica in un server master e una replica in lettura è irreversibile. La replica in lettura diventa un server autonomo che supporta sia la lettura che la scrittura. Il server autonomo non può essere di nuovo impostato come replica.
 
@@ -91,7 +94,7 @@ az postgres server replica stop --name mydemoserver-replica --resource-group myr
 ```
 
 ## <a name="delete-a-master-or-replica-server"></a>Eliminare un server master o di replica
-Per eliminare un server master o di replica, si utilizza il [delete di az postgres server](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-delete) comando.
+Per eliminare un server master o di replica, è necessario usare il comando [AZ Postgres server delete](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-delete) .
 
 Quando viene eliminato un server master, la replica viene arrestata per tutte le repliche in lettura. Le repliche in lettura diventano server autonomi che supportano sia la lettura che la scrittura.
 
@@ -100,4 +103,5 @@ az postgres server delete --name myserver --resource-group myresourcegroup
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere altre informazioni sulle [repliche in lettura in Database di Azure per PostgreSQL](concepts-read-replicas.md).
+* Vedere altre informazioni sulle [repliche in lettura in Database di Azure per PostgreSQL](concepts-read-replicas.md).
+* Informazioni su come [creare e gestire le repliche in lettura nel portale di Azure](howto-read-replicas-portal.md).

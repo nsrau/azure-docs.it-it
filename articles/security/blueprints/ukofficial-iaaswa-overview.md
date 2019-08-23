@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 2fa9db20554df813e5da94e2bbea122ac6cc9b60
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 602e4356ccd9eb45855462a7a25e0966dc176b4f
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946535"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899933"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Progetto per la sicurezza e la conformità di Azure: Automazione di applicazioni Web IaaS su tre livelli per UK OFFICIAL
 
@@ -186,7 +186,7 @@ Queste reti virtuali vengono gestite comunque come risorse separate, ma vengono 
 
 [Linee guida per la distribuzione di Active Directory di Windows Server in macchine virtuali di Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
-**Integrazione in Active Directory**: come alternativa a un'architettura dedicata di AD DS, i clienti possono usare l'integrazione in [Azure Active Directory](/azure/architecture/reference-architectures/identity.md) o [Active Directory in Azure aggiunto a una foresta locale](/azure/architecture/reference-architectures/identity.md).
+**Integrazione in Active Directory**: come alternativa a un'architettura dedicata di AD DS, i clienti possono usare l'integrazione in [Azure Active Directory](/azure/architecture/reference-architectures/identity) o [Active Directory in Azure aggiunto a una foresta locale](/azure/architecture/reference-architectures/identity).
 
 ### <a name="security"></a>Security
 
@@ -200,9 +200,9 @@ I clienti possono prendere in considerazione l'uso di un [modello amministrativo
 
 **Intervalli di indirizzi IP**: gli intervalli di indirizzi IP nell'architettura sono intervalli suggeriti. È consigliabile che i clienti esaminino i rispettivi ambienti e usino intervalli appropriati.
 
-**Connettività ibrida**: i carichi di lavoro basati sul cloud sono connessi al data center locale tramite rete privata virtuale IPSec con gateway VPN di Azure. I clienti devono assicurarsi di usare un gateway VPN appropriato per la connessione ad Azure. Esempio: [Modello di Resource Manager per un gateway VPN](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). È consigliabile che i clienti che eseguono carichi di lavoro su larga scala e critici con requisiti per Big Data prendano in considerazione un'architettura di rete ibrida con [ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute.md) per la connettività di rete privata verso i servizi cloud Microsoft.
+**Connettività ibrida**: i carichi di lavoro basati sul cloud sono connessi al data center locale tramite rete privata virtuale IPSec con gateway VPN di Azure. I clienti devono assicurarsi di usare un gateway VPN appropriato per la connessione ad Azure. Esempio: [Modello di Resource Manager per un gateway VPN](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). È consigliabile che i clienti che eseguono carichi di lavoro su larga scala e critici con requisiti per Big Data prendano in considerazione un'architettura di rete ibrida con [ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute) per la connettività di rete privata verso i servizi cloud Microsoft.
 
-**Separazione dei compiti**: questa architettura di riferimento separa le reti virtuali per operazioni di gestione e aziendali. La separazione di reti virtuali e subnet consente la gestione del traffico, incluse le limitazioni al traffico in ingresso e in uscita, tramite gruppi di sicurezza di rete tra segmenti di rete in base alle procedure consigliate illustrate in [Servizi cloud Microsoft e sicurezza di rete](/azure/architecture/vdc/networking-virtual-datacenter.md).
+**Separazione dei compiti**: questa architettura di riferimento separa le reti virtuali per operazioni di gestione e aziendali. La separazione di reti virtuali e subnet consente la gestione del traffico, incluse le limitazioni al traffico in ingresso e in uscita, tramite gruppi di sicurezza di rete tra segmenti di rete in base alle procedure consigliate illustrate in [Servizi cloud Microsoft e sicurezza di rete](/azure/architecture/vdc/networking-virtual-datacenter).
 
 **Gestione delle risorse**: le risorse di Azure, ad esempio le macchine virtuali, le reti virtuali e i servizi di bilanciamento del carico, vengono gestite tramite il raggruppamento in [gruppi di risorse di Azure](../../azure-resource-manager/resource-group-overview.md). I ruoli di controllo di accesso in base alle risorse possono essere quindi assegnati a ogni gruppo di risorse per limitare l'accesso ai soli utenti autorizzati.
 

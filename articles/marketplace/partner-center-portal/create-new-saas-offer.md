@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 37624c79a345f956de9a289c672340e391199e2f
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
-ms.translationtype: HT
+ms.openlocfilehash: 584b9fdde33d14650c36c44b9b457a25f8a1d6f9
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650714"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900124"
 ---
 # <a name="create-a-new-saas-offer"></a>Creare una nuova offerta SaaS
 
@@ -153,23 +153,9 @@ Abilitando test drive, verrà richiesto di configurare un ambiente dimostrativo 
 
 ## <a name="connect-lead-management"></a>Gestione dei lead di connessione
 
-È possibile connettersi direttamente con i clienti elencando l'offerta nei Marketplace e associando il sistema CRM (Customer Relationship Management) in modo da ricevere le informazioni di contatto del cliente immediatamente dopo che un cliente esprime l'interesse o distribuisce il prodotto.
+[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
 
-- **Scegliere una destinazione principale** (menu a discesa): Fornire i dettagli della connessione al sistema CRM in cui si desidera inviare i lead dei clienti. 
-
-Il centro per i partner supporta i sistemi CRM seguenti per la gestione dei lead. Selezionare il collegamento per le istruzioni di installazione.
-
-- BLOB di Azure: fornire posta elettronica di contatto, nome del contenitore e stringa di connessione dell'account di archiviazione. 
-- [Tabella di Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) : specificare la stringa di connessione dell'account di archiviazione e di contatto. 
-- [Dynamics CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) : fornire l'indirizzo di posta elettronica di contatto, l'URL e la modalità di autenticazione (Office 365 o Azure Active Directory).
-- [Endpoint HTTPS](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) : fornire la posta elettronica di contatto e l'URL dell'endpoint HTTPS. 
-- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) : fornire posta elettronica di contatto, ID modulo, ID account Munchkin e ID server.
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) : fornire un indirizzo di posta elettronica di contatto e un ID organizzazione. 
-
-#### <a name="additional-lead-management-resources"></a>Risorse aggiuntive per la gestione dei lead
-- [Domande frequenti sulla gestione dei lead](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Errori comuni di configurazione del lead](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
-- [Panoramica della gestione dei lead un cercapersone](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
+Per ulteriori informazioni, vedere [Panoramica della gestione dei lead](./commercial-marketplace-get-customer-leads.md) .
 
 Ricordarsi di **salvare** prima di procedere alla sezione successiva.
 

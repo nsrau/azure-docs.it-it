@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9dbe1751ac77f370991af75ea161247c21700ff2
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 122e0636f54e066ae86ed2d19cefe5863b026293
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68886988"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972825"
 ---
-# <a name="delete-nodes-from-vmware-solution-by-cloudsimple---azure"></a>Eliminare i nodi dalla soluzione VMware da CloudSimple-Azure
+# <a name="delete-nodes-from-azure-vmware-solution-by-cloudsimple"></a>Eliminare i nodi dalla soluzione VMware di Azure CloudSimple
 
-I nodi CloudSimple vengono misurati dopo la creazione.  Per arrestare la misurazione dei nodi, è necessario eliminare i nodi.  Si eliminano i nodi non utilizzati da portale di Azure. 
+I nodi CloudSimple vengono misurati dopo la creazione.  Per arrestare la misurazione dei nodi, è necessario eliminare i nodi.  Si eliminano i nodi non utilizzati da portale di Azure.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -25,7 +25,6 @@ Un nodo può essere eliminato solo nelle condizioni seguenti:
 
 * Un cloud privato creato con i nodi viene eliminato.  Per eliminare un cloud privato, vedere [eliminare una soluzione VMware di Azure da CloudSimple cloud privato](delete-private-cloud.md).
 * Il nodo è stato rimosso dal cloud privato compattando il cloud privato.  Per compattare un cloud privato, vedere la pagina relativa alla compattazione della [soluzione VMware di Azure con CloudSimple private cloud](shrink-private-cloud.md).
-
 
 ## <a name="sign-in-to-azure"></a>Accedi ad Azure
 

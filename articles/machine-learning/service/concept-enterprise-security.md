@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/07/2019
-ms.openlocfilehash: ebecb69e57c620b2eb84568757c8e3e6f1cb1663
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 510f58cc0b71fb75ac6f5e15fc883c3caf4a8f9a
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946398"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69897910"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Sicurezza aziendale per il servizio Azure Machine Learning
 
@@ -31,7 +31,7 @@ La funzionalità autenticazione a più fattori è supportata se Azure Active Dir
 * Il client presenta un token per Azure Resource Manager & tutti i servizi Azure Machine Learning
 * Azure Machine Learning servizio fornisce un token Azure Machine Learning per il calcolo dell'utente. Ad esempio, ambiente di calcolo di Machine Learning. Questo token viene usato dall'utente calcolo per richiamare il servizio Azure Machine Learning (limita l'ambito all'area di lavoro) al termine dell'esecuzione.
 
-![Screenshot che illustra il funzionamento dell'autenticazione nel servizio Azure Machine Learning](./media/enterprise-readiness/authentication.png)
+[![Screenshot che illustra il funzionamento dell'autenticazione nel servizio Azure Machine Learning](./media/enterprise-readiness/authentication.png)](./media/enterprise-readiness/authentication-expanded.png)
 
 ### <a name="authentication-for-web-service-deployment"></a>Autenticazione per la distribuzione del servizio Web
 
@@ -185,7 +185,7 @@ A ogni area di lavoro è associata un'identità gestita assegnata dal sistema (c
 
 Le metriche di monitoraggio di Azure possono essere usate per visualizzare e monitorare le metriche per l'area di lavoro del servizio Azure Machine Learning. Dal [portale di Azure](https://portal.azure.com)selezionare l'area di lavoro e quindi usare il collegamento __metrica__ .
 
-![Screenshot che mostra le metriche di esempio per un'area di lavoro](./media/enterprise-readiness/workspace-metrics.png)
+[![Screenshot che mostra le metriche di esempio per un'area di lavoro](./media/enterprise-readiness/workspace-metrics.png)](./media/enterprise-readiness/workspace-metrics-expanded.png)
 
 Le metriche includono informazioni sulle esecuzioni, le distribuzioni e le registrazioni.
 
@@ -197,7 +197,7 @@ Per altre informazioni, vedere [metriche in monitoraggio di Azure](/azure/azure-
 
 La schermata seguente mostra il log attività per un'area di lavoro:
 
-![Screenshot che mostra il log attività in un'area di lavoro](./media/enterprise-readiness/workspace-activity-log.png)
+[![Screenshot che mostra il log attività in un'area di lavoro](./media/enterprise-readiness/workspace-activity-log.png)](./media/enterprise-readiness/workspace-activity-log-expanded.png)
 
 I dettagli della richiesta di assegnazione dei punteggi vengono archiviati in Application Insight, creato nella sottoscrizione dell'utente durante la creazione dell'area di lavoro. Le informazioni registrate includono campi come HTTPMethod, UserAgent, ComputeType, RequestUrl, StatusCode, RequestId, Duration e così via.
 
@@ -220,14 +220,14 @@ L'utente accede Azure AD da uno dei client del servizio di Azure Machine Learnin
 
 Altre risorse di calcolo collegate a un'area di lavoro (servizio Azure Kubernetes, VM e così via) possono anche essere sottoposte a provisioning dai clienti in base alle esigenze.
 
-![Screenshot che illustra il flusso di lavoro Crea area di lavoro](./media/enterprise-readiness/create-workspace.png)
+[![Screenshot che illustra il flusso di lavoro Crea area di lavoro](./media/enterprise-readiness/create-workspace.png)](./media/enterprise-readiness/create-workspace-expanded.png)
 
 ### <a name="save-source-code-training-scripts"></a>Salva codice sorgente (script di training)
 
 Il diagramma seguente illustra il flusso di lavoro snapshot del codice.
 Associate a un'area di lavoro del servizio Azure Machine Learning sono directory (esperimenti), che contiene il codice sorgente (script di training).  Questi script vengono archiviati nel computer locale del cliente e nel cloud (nell'archivio BLOB di Azure nella sottoscrizione del cliente). Gli snapshot del codice vengono usati per l'esecuzione o l'ispezione per il controllo cronologico.
 
-![Screenshot che illustra il flusso di lavoro Crea area di lavoro](./media/enterprise-readiness/code-snapshot.png)
+[![Screenshot che illustra il flusso di lavoro Crea area di lavoro](./media/enterprise-readiness/code-snapshot.png)](./media/enterprise-readiness/code-snapshot-expanded.png)
 
 ### <a name="training"></a>Formazione
 
@@ -253,7 +253,7 @@ Il diagramma seguente illustra il flusso di lavoro di training.
 
 Questo passaggio viene visualizzato nel flusso in cui il training Compute scrive le *metriche di esecuzione* nel servizio Azure Machine Learning da dove viene archiviato nel Cosmos DB. I client possono chiamare Azure Machine Learning servizio che effettuerà a sua volta il pull delle metriche dal Cosmos DB e lo restituirà al client.
 
-![Screenshot che illustra il flusso di lavoro Crea area di lavoro](./media/enterprise-readiness/training-and-metrics.png)
+[![Screenshot che illustra il flusso di lavoro Crea area di lavoro](./media/enterprise-readiness/training-and-metrics.png)](./media/enterprise-readiness/training-and-metrics-expanded.png)
 
 ### <a name="creating-web-services"></a>Creazione di servizi Web
 
@@ -267,7 +267,7 @@ Vedere i dettagli seguenti:
 * I dettagli della richiesta di assegnazione dei punteggi vengono archiviati in Application Insights, che si trova nella sottoscrizione dell'utente
 * Viene anche effettuato il push della telemetria alla sottoscrizione Microsoft/Azure
 
-![Screenshot che illustra il flusso di lavoro Crea area di lavoro](./media/enterprise-readiness/inferencing.png)
+[![Screenshot che illustra il flusso di lavoro Crea area di lavoro](./media/enterprise-readiness/inferencing.png)](./media/enterprise-readiness/inferencing-expanded.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

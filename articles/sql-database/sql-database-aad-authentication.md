@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 02/20/2019
-ms.openlocfilehash: b99dbd403de0de948527fbe74b7e1205316822c0
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 848cfc96a7da4e69ff77d16a42226a983153ac63
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019685"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69896993"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Usare l'autenticazione di Azure Active Directory per l'autenticazione con SQL
 
@@ -116,8 +116,9 @@ Per creare un utente di database indipendente nel database SQL di Azure, in Ista
 
 L'autenticazione di Azure Active Directory supporta i metodi seguenti per la connessione a un database con le identità di Azure AD:
 
-- Con l'autenticazione integrata di Windows
-- Con un nome di entità e una password di Azure AD
+- Password di Azure Active Directory
+- Autenticazione integrata di Azure Active Directory
+- Autenticazione universale di Azure Active Directory con MFA
 - Con l'autenticazione del token dell'applicazione
 
 Per le entità server (account di accesso) di Azure AD (**versione di anteprima pubblica**) sono supportati i metodi di autenticazione seguenti:
@@ -125,10 +126,9 @@ Per le entità server (account di accesso) di Azure AD (**versione di anteprima 
 - Password di Azure Active Directory
 - Autenticazione integrata di Azure Active Directory
 - Autenticazione universale di Azure Active Directory con MFA
-- Autenticazione interattiva di Azure Active Directory
 
 
-### <a name="additional-considerations"></a>Ulteriori considerazioni
+### <a name="additional-considerations"></a>Considerazioni aggiuntive
 
 - Per migliorare la gestibilità, è consigliabile effettuare il provisioning di un gruppo di Azure AD dedicato come amministratore.   
 - È possibile configurare un solo amministratore di Azure AD, utente o gruppo, per un server di database SQL di Azure o Azure SQL Data Warehouse in qualsiasi momento.

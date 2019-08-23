@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/06/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 7bfbec194733f2f8422eef45236a64e45bb553c7
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
-ms.translationtype: HT
+ms.openlocfilehash: acb3717f0e71ca1e67f1ddec79a259935f6cc539
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656371"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69897638"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuire modelli con il servizio di Azure Machine Learning
 
@@ -723,7 +723,7 @@ Il supporto per la distribuzione in Edge è in anteprima. Per ulteriori informaz
 
 1. Usare le __connessioni al servizio__ per configurare una connessione dell'entità servizio all'area di lavoro del servizio Azure Machine Learning per accedere a tutti gli elementi. Passare a Impostazioni progetto, fare clic su connessioni al servizio e selezionare Azure Resource Manager.
 
-    ![visualizzazione-servizio-connessione](media/how-to-deploy-and-where/view-service-connection.png) 
+    [![visualizzazione-servizio-connessione](media/how-to-deploy-and-where/view-service-connection.png)](media/how-to-deploy-and-where/view-service-connection-expanded.png) 
 
 1. Definire AzureMLWorkspace come __livello di ambito__ e inserire i parametri successivi.
 
@@ -731,11 +731,11 @@ Il supporto per la distribuzione in Edge è in anteprima. Per ulteriori informaz
 
 1. Quindi, per distribuire continuamente il modello di Machine Learning usando il Azure Pipelines, in pipeline selezionare __rilascia__. Aggiungere un nuovo elemento, selezionare l'elemento del modello AzureML e la connessione del servizio creata nel passaggio precedente. Selezionare il modello e la versione per attivare una distribuzione. 
 
-    ![select-AzureMLmodel-artifact](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)
+    [![Select-AzureMLmodel-artefatto](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)](media/how-to-deploy-and-where/enable-modeltrigger-artifact-expanded.png)
 
 1. Abilitare il trigger del modello nell'elemento del modello. Attivando il trigger ogni volta che la versione specificata (ad esempio la versione più recente di tale modello è registra nell'area di lavoro, viene attivata una pipeline di rilascio di Azure DevOps. 
 
-    ![Enable-Model-trigger](media/how-to-deploy-and-where/set-modeltrigger.png)
+    [![Enable-Model-trigger](media/how-to-deploy-and-where/set-modeltrigger.png)](media/how-to-deploy-and-where/set-modeltrigger-expanded.png)
 
 Per altri progetti ed esempi di esempio, vedere i repository di esempio seguenti:
 

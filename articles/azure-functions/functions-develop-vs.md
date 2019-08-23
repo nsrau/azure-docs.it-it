@@ -1,21 +1,19 @@
 ---
 title: Sviluppare Funzioni di Azure con Visual Studio | Microsoft Docs
 description: Informazioni su come sviluppare e testare funzioni di Azure usando gli strumenti di funzioni di Azure per Visual Studio 2019.
-services: functions
-documentationcenter: .net
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 08/21/2019
 ms.author: glenga
-ms.openlocfilehash: 6040552ccee5269e4a04d8b7a1ee072400a8506d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 10c356afc235494b00777561259190ae78b65482
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68593245"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905689"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Sviluppare Funzioni di Azure con Visual Studio  
 
@@ -212,6 +210,9 @@ Questa operazione visualizza la finestra di dialogo **Impostazioni applicazione*
 ![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
 
 **Locale** rappresenta un valore di impostazione del file local.settings.json, mentre **Remoto** è l'impostazione corrente nell'app per le funzioni in Azure.  Scegliere **Aggiungi impostazione** per creare una nuova impostazione dell'app. Usare il collegamento **Inserisci valore da locale** per copiare un valore di impostazione nel campo **Remoto**. Le modifiche in sospeso vengono scritte nel file delle impostazioni locali e nell'app per le funzioni quando si seleziona **OK**.
+
+> [!NOTE]
+> Per impostazione predefinita, il file local. Settings. JSON non viene archiviato nel controllo del codice sorgente. Ciò significa che quando si clona un progetto di funzioni locali dal controllo del codice sorgente, il progetto non dispone di un file local. Settings. JSON. In questo caso, è necessario creare manualmente il file local. Settings. JSON nella radice del progetto, in modo che la finestra di dialogo **Impostazioni applicazione** funzioni come previsto. 
 
 È anche possibile gestire le impostazioni dell'applicazione in questi altri modi:
 

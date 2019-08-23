@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/18/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 70b43c65703316e5dee8e9cf2cf86fe982a49592
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: aae2270417e0bb3bdf0dd847e2e09e7cb1999d39
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624776"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972476"
 ---
 # <a name="threat-detection-for-azure-service-layer-in-azure-security-center"></a>Rilevamento delle minacce per il livello di servizio di Azure nel centro sicurezza di Azure
 
@@ -37,7 +37,7 @@ L'analisi a livello di rete del Centro sicurezza si basa su [dati IPFIX](https:/
 
 > [!div class="mx-tableFixed"]
 
-|Avviso|Descrizione|
+|Avviso|DESCRIZIONE|
 |---|---|
 |**Attività di rete RDP in uscita sospetta**|L'analisi del traffico di rete campionata ha rilevato una comunicazione in uscita Remote Desktop Protocol (RDP) anomala originata da una risorsa nella distribuzione. Questa attività viene considerata anomala per questo ambiente e può indicare che la risorsa è stata compromessa e viene ora utilizzata per la forza bruta dell'endpoint RDP esterno. Si noti che in seguito a questo tipo di attività l'IP può venire contrassegnato come dannoso dalle entità esterne.|
 |**Attività di rete RDP in uscita sospetta verso più destinazioni**|L'analisi del traffico di rete campionata ha rilevato una comunicazione in uscita Remote Desktop Protocol (RDP) anomala originata da una risorsa nella distribuzione a più destinazioni. Questa attività viene considerata anomala per questo ambiente e può indicare che la risorsa è stata compromessa e viene ora utilizzata per la forza bruta degli endpoint RDP esterni. Si noti che in seguito a questo tipo di attività l'IP può venire contrassegnato come dannoso dalle entità esterne.|
@@ -50,6 +50,10 @@ L'analisi a livello di rete del Centro sicurezza si basa su [dati IPFIX](https:/
 |**È stata rilevata la comunicazione di rete con un indirizzo dannoso**|L'analisi del traffico di rete campionata ha rilevato la comunicazione originata da una risorsa nella distribuzione con un possibile server di comando e controllo (C & C). Si noti che in seguito a questo tipo di attività l'IP può venire contrassegnato come dannoso dalle entità esterne.|
 
 Per comprendere in che modo il Centro sicurezza può usare i segnali correlati alla rete per applicare la protezione dalle minacce, vedere [rilevamento di DNS euristici nel centro sicurezza di Azure](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
+
+>[!NOTE]
+>Gli avvisi di rilevamento delle minacce a livello di rete di Azure, nel centro sicurezza di Azure, non vengono generati durante la prima ora dopo la creazione della macchina virtuale.
+
 ## Livello di gestione di Azure (Azure Resource Manager) (anteprima)<a name ="management-layer"></a>
 
 >[!NOTE]
@@ -59,7 +63,7 @@ Il Centro sicurezza offre un livello di protezione aggiuntivo sfruttando Azure R
 
 > [!div class="mx-tableFixed"]
 
-|Avviso|DESCRIZIONE|
+|Avviso|Descrizione|
 |---|---|
 |**Esecuzione del Toolkit di microesplosioni**|Nell'ambiente è stata rilevata un'esecuzione nota del Toolkit di esplorazione dell'ambiente cloud. Lo strumento "microrompi" ( https://github.com/NetSPI/MicroBurst) vedere può essere usato da un utente malintenzionato (o tester di penetrazione) per eseguire il mapping delle risorse delle sottoscrizioni, identificare le configurazioni non sicure e perdere informazioni riservate.|
 |**Esecuzione di azzurrite Toolkit**|Nell'ambiente è stata rilevata un'esecuzione nota del Toolkit di esplorazione dell'ambiente cloud. Lo strumento "azzurrite" (vedere https://github.com/mwrlabs/Azurite) può essere usato da un utente malintenzionato (o tester di penetrazione) per eseguire il mapping delle risorse delle sottoscrizioni e identificare le configurazioni non protette.|

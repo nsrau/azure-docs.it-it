@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 7fa903f65a6c7d244ff424eae4a0def258b50bbc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a31ed174c7a5986594f7c07b7ce00b1649413c8
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60803253"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907974"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Creare un set di scalabilità di macchine virtuali che usa le zone di disponibilità
 
@@ -34,11 +34,11 @@ Quando si distribuisce un set di scalabilità in una o più zone con la versione
 
 Con la distribuzione massima si vede solo un dominio di errore nella visualizzazione dell'istanza di macchina virtuale del set di scalabilità e nei metadati dell'istanza, indipendentemente dal numero di domini di errore in cui le macchine virtuali sono distribuite. La distribuzione all'interno di ogni zona è implicita.
 
-Per usare la distribuzione massima, impostare *platformFaultDomainCount* su *1*. Per usare la distribuzione statica in cinque domini di errore, impostare *platformFaultDomainCount* su *5*. Nell'API versione *2017-12-01* il valore predefinito di *platformFaultDomainCount* è *1* per i set di scalabilità a zona singola e tra zone. Attualmente è supportata solo la distribuzione statica in cinque domini di errore per i set di scalabilità a livello di area.
+Per usare la distribuzione massima, impostare *platformFaultDomainCount* su *1*. Per usare la distribuzione statica in cinque domini di errore, impostare *platformFaultDomainCount* su *5*. Nell'API versione *2017-12-01* il valore predefinito di *platformFaultDomainCount* è *1* per i set di scalabilità a zona singola e tra zone. Attualmente è supportata solo la distribuzione statica di cinque domini di errore per i set di scalabilità a livello di area (non di zona).
 
 ### <a name="placement-groups"></a>Gruppi di posizionamento
 
-Quando si distribuisce un set di scalabilità, è anche possibile procedere con un singolo [gruppo di posizionamento](./virtual-machine-scale-sets-placement-groups.md) per zona di disponibilità o con più gruppi per zona. Per i set di scalabilità di area, è possibile scegliere tra un singolo gruppo di posizionamento o più gruppi nell'area. Per la maggior parte dei carichi di lavoro è consigliabile usare più gruppi di posizionamento, che consentono una maggiore scalabilità. Per impostazione predefinita, nell'API versione *2017-12-01* i set di scalabilità a zona singola e tra zone usano più gruppi di posizionamento, mentre i set di scalabilità a livello di area usano un solo gruppo di posizionamento.
+Quando si distribuisce un set di scalabilità, è anche possibile procedere con un singolo [gruppo di posizionamento](./virtual-machine-scale-sets-placement-groups.md) per zona di disponibilità o con più gruppi per zona. Per i set di scalabilità a livello di area (non di zona), la scelta consiste nel disporre di un singolo gruppo di posizionamento nell'area o in più aree. Per la maggior parte dei carichi di lavoro è consigliabile usare più gruppi di posizionamento, che consentono una maggiore scalabilità. Nella versione API *2017-12-01*i set di scalabilità vengono impostati per impostazione predefinita su più gruppi di posizionamento per i set di scalabilità a zona singola e tra zone, ma per impostazione predefinita viene impostato il gruppo di posizionamento singolo per i set di scalabilità (non di zona) locali.
 
 > [!NOTE]
 > Se si usa la distribuzione massima, è necessario usare più gruppi di posizionamento.

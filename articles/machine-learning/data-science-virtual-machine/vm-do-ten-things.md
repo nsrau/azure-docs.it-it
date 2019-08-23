@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: vijetaj
-ms.openlocfilehash: ee63f7aae70e93dfbe857b8680d2b4a477600d72
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
-ms.translationtype: MT
+ms.openlocfilehash: cd4acdd4009a94b51807a536c28b138b86d2aced
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575102"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971927"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dieci cose da fare con la macchina virtuale per l'analisi scientifica dei dati di Windows
 
@@ -64,10 +64,6 @@ Per Python è possibile usare un IDE come Visual Studio Community Edition, in cu
 * Creare ambienti personalizzati per ogni versione passando a **Strumenti** -> **Strumenti Python** -> **Ambienti Python** e quindi facendo clic su " **+ Personalizza**" in Visual Studio Community Edition.
 * Immettere una descrizione e impostare il percorso con il prefisso dell'ambiente come *c:\anaconda\envs\python2* per Anaconda Python 2.7.
 * Fare clic su **Rilevamento automatico** e quindi su **Applica** per salvare l'ambiente.
-
-Ecco come appare la configurazione dell'ambiente personalizzato in Visual Studio.
-
-![Screenshot di Visual Studio con Python Tools per Visual Studio selezionato](./media/vm-do-ten-things/PTVSSetup.png)
 
 Per altri dettagli su come creare gli ambienti Python, vedere la [documentazione relativa a PTVS](https://aka.ms/ptvsdocs) .
 
@@ -219,7 +215,7 @@ Per amministrare la sottoscrizione di Azure e le risorse cloud, sono disponibili
 + **Azure PowerShell**: usare gli script di Windows PowerShell. Eseguire Azure PowerShell da un collegamento sul desktop o dal menu Start denominato "Microsoft Azure PowerShell". Per informazioni dettagliate, vedere la [documentazione di Microsoft Azure PowerShell](../../powershell-azure-resource-manager.md) . 
 
 ## <a name="5-extend-storage-with-shared-file-systems"></a>5. Estendi archiviazione con file system condivisi
-I data scientist possono condividere grandi set di dati, codice o alte risorse all'interno del team. Nella macchina virtuale per data science sono disponibili circa 45 GB di spazio. Per estendere lo spazio di archiviazione, è possibile usare il Servizio file di Azure e montarlo in una o più istanze della macchina virtuale per data science oppure accedervi tramite un'API REST.  È inoltre possibile usare il [portale di Azure](../../virtual-machines/windows/attach-managed-disk-portal.md) oppure [Azure PowerShell](../../virtual-machines/windows/attach-disk-ps.md) per aggiungere altri dischi dati dedicati. 
+I data scientist possono condividere grandi set di dati, codice o alte risorse all'interno del team. Nella macchina virtuale per data science sono disponibili circa 45 GB di spazio. Per estendere lo spazio di archiviazione, è possibile usare il Servizio file di Azure e montarlo in una o più istanze della macchina virtuale per data science oppure accedervi tramite un'API REST.  È anche possibile usare [portale di Azure](../../virtual-machines/windows/attach-managed-disk-portal.md) o usare [Azure PowerShell](../../virtual-machines/windows/attach-disk-ps.md) per aggiungere altri dischi dati dedicati. 
 
 > [!NOTE]
 > La quantità massima di spazio della condivisione del Servizio file di Azure è di 5 TB e il limite delle dimensioni dei singoli file è di 1 TB. 
@@ -295,8 +291,6 @@ Per spostare i dati tra i file locali e l'archiviazione BLOB, è possibile usare
     AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
 
 Sostituire **C:\myfolder** con il percorso di archiviazione del file, **mystorageaccount** con il nome dell'account di archiviazione BLOB, **mycontainer** con il nome del contenitore e **storage account key** con la chiave di accesso alle risorse di archiviazione BLOB. È possibile trovare le credenziali dell'account di archiviazione nel [portale di Azure](https://portal.azure.com).
-
-![Screenshot delle chiavi dell'account di archiviazione e delle informazioni sul contenitore nel portale di Azure](./media/vm-do-ten-things/StorageAccountCredential_v2.png)
 
 Eseguire il comando AzCopy in PowerShell o al prompt dei comandi. Ecco un esempio di utilizzo del comando AzCopy:
 
@@ -393,9 +387,7 @@ Un Archivio Azure Data Lake è un repository con iperscalabilità per i carichi 
 
 **Spostare i dati dalla VM a Data Lake: Azure Data Lake Explorer**
 
-È possibile usare **Azure Data Lake Explorer** per caricare i dati dai file locali della macchina virtuale nell'archivio di Data Lake.
-
-![Screenshot dell'uso di Data Lake Explorer per caricare i file](./media/vm-do-ten-things/Azure_Data_Lake_UploadData.PNG)
+È possibile usare **Azure Data Lake Explorer** per [caricare i dati dai file locali nella macchina virtuale per data Lake archiviazione](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
 È anche possibile creare una pipeline di dati per rendere operativo lo spostamento dei dati da e verso Azure Data Lake tramite [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/). Per istruzioni dettagliate per creare pipeline di dati, vedere questo [articolo](https://azure.microsoft.com/blog/creating-big-data-pipelines-using-azure-data-lake-and-azure-data-factory/).
 
@@ -406,8 +398,6 @@ Se i dati si trovano nell'archivio BLOB di Azure, è possibile leggerli direttam
 ![Screenshot della finestra di dialogo Aggiungi origine dati](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
 In Visual Studio è possibile leggere i dati dall'archivio BLOB, modificarli, progettare funzionalità e pubblicare i dati risultanti in Azure Data Lake o nell'archivio BLOB di Azure. Quando si fa riferimento ai dati nell'archiviazione BLOB, usare **wasb://** ; quando si fa riferimento ai dati in Azure Data Lake, usare **swbhdfs://**
-
-![Screenshot della query con la voce WASB evidenziata](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 
 È possibile usare le query U-SQL seguenti in Visual Studio:
 
@@ -880,9 +870,7 @@ I dati sono ora inclusi nel modello di dati di Power BI. Power BI Desktop deve a
 
 ![Power BI Desktop](./media/vm-do-ten-things/PowerBIVolcanoData.png)
 
-È possibile avviare la compilazione di report e visualizzazioni usando il modello di dati. Per compilare un report, è possibile seguire i passaggi in questo [articolo relativo a Power BI](../../cosmos-db/powerbi-visualize.md#build-the-reports) . L'output è un report simile al seguente.
-
-![Visualizzazione report di Power BI Desktop - Connettore Power BI](./media/vm-do-ten-things/power_bi_connector_pbireportview2.png)
+È possibile avviare la compilazione di report e visualizzazioni usando il modello di dati. Per compilare un report, è possibile seguire i passaggi in questo [articolo relativo a Power BI](../../cosmos-db/powerbi-visualize.md#build-the-reports) .
 
 ## <a name="9-dynamic-dsvm-scaling"></a>9. Ridimensionamento DSVM dinamico 
 È possibile aumentare e ridurre le prestazioni di DSVM per soddisfare le esigenze del progetto. Se non è necessario usare la VM la sera o nei fine settimana, è sufficiente arrestarla dal [portale di Azure](https://portal.azure.com).
@@ -894,9 +882,7 @@ I dati sono ora inclusi nel modello di dati di Power BI. Power BI Desktop deve a
 
 Se è necessario gestire analisi su larga scala e si ha bisogno di più CPU e/o memoria e/o capacità disco, è possibile trovare un'ampia scelta di dimensioni di macchina virtuale in termini di core CPU, istanze basate su GPU per apprendimento avanzato, capacità di memoria e tipi di disco (incluse le unità SSD), che soddisfano qualsiasi esigenza di calcolo e di budget. L'elenco completo di VM con i rispettivi prezzi di calcolo orario è disponibile nella pagina [Prezzi di Macchine virtuali di Azure](https://azure.microsoft.com/pricing/details/virtual-machines/) .
 
-Allo stesso modo, se le esigenze di capacità di elaborazione della VM diminuiscono, ad esempio se si è spostato un carico di lavoro principale in un cluster Hadoop o Spark, è possibile passare a un piano inferiore per il cluster dal [portale di Azure](https://portal.azure.com) tramite le impostazioni dell'istanza della VM. Ecco uno screenshot.
-
-![Impostazioni dell'istanza della VM](./media/vm-do-ten-things/VMScaling.PNG)
+Allo stesso modo, se le esigenze di capacità di elaborazione della VM diminuiscono, ad esempio se si è spostato un carico di lavoro principale in un cluster Hadoop o Spark, è possibile passare a un piano inferiore per il cluster dal [portale di Azure](https://portal.azure.com) tramite le impostazioni dell'istanza della VM. 
 
 ## <a name="10-add-more-tools"></a>10. Aggiungi altri strumenti
 Nella macchina virtuale per data science sono già inclusi diversi strumenti che possono soddisfare molte delle comuni esigenze di analisi dei dati. In questo modo è possibile risparmiare tempo, evitando di installare e configurare un ambiente alla volta, nonché limitare i costi poiché si pagano solo le risorse usate.

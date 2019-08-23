@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2019
 ms.author: v-mohabe
-ms.openlocfilehash: c2adf9bff4c3d91305e71a7688740fa0268ad7b9
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 0704db7444756fb44c5587ae8e8e743f671c9dcc
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69531474"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907937"
 ---
 # <a name="protect-azure-data-and-storage-services-in-azure-security-center"></a>Proteggere i servizi di archiviazione e dati di Azure nel centro sicurezza di Azure
 Questo argomento illustra come visualizzare e implementare le raccomandazioni sulla sicurezza per i dati e le risorse di archiviazione. Il Centro sicurezza di Azure ha rilevato questi consigli durante l'analisi dello stato di sicurezza delle risorse di Azure.
@@ -65,7 +65,7 @@ Da questa pagina è possibile:
 |----|----|----|----|
 |Account di archiviazione|20|Il trasferimento sicuro negli account di archiviazione deve essere abilitato|Il trasferimento sicuro è un'opzione che impone all'account di archiviazione di accettare richieste solo da connessioni sicure (HTTPS). HTTPS assicura l'autenticazione tra il server e il servizio e protegge i dati in transito da attacchi a livello di rete, ad esempio Man-in-the-Middle, intercettazione e Hijack della sessione.|
 |Redis|20|Devono essere abilitate solo connessioni sicure alla Cache Redis|Consenti solo connessioni sicure alla Cache Redis di Azure tramite SSL. L'uso di connessioni sicure garantisce l'autenticazione tra il server e il servizio e protegge i dati in transito dagli attacchi a livello rete, come attacchi man-in-the-middle, eavesdropping e hijack della sessione.|
-|SQL|15|Transparent Data Encryption deve essere abilitata nei database SQL|Abilitare Transparent Data Encryption per proteggere i dati inattivi e rispettare i requisiti relativi alla conformità.|
+|SQL|15|Transparent Data Encryption deve essere abilitata nei database SQL|Abilitare Transparent Data Encryption per proteggere i dati inattivi e rispettare i requisiti di conformità.|
 |SQL|15|Il controllo di SQL Server deve essere abilitato|Abilitare il controllo per i server SQL. (Solo servizio Azure SQL. Non include istanze di SQL in esecuzione nelle macchine virtuali.)|
 |Data Lake Analytics|5|I log di diagnostica in Data Lake Analytics devono essere abilitati|Abilitare i log e conservarli fino a un anno. Ciò consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
 |Data Lake Store|5|I log di diagnostica in Azure Data Lake Store devono essere abilitati|Abilitare i log e conservarli fino a un anno. Questo consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
@@ -77,7 +77,7 @@ Da questa pagina è possibile:
 ## <a name="see-also"></a>Vedere anche
 Per ulteriori informazioni sulle raccomandazioni applicabili ad altri tipi di risorse di Azure, vedere gli argomenti seguenti:
 
-* [Protezione delle macchine virtuali nel Centro sicurezza di Azure](security-center-virtual-machine-recommendations.md)
+* [Protezione delle macchine virtuali nel Centro sicurezza di Azure](security-center-virtual-machine-protection.md)
 * [Protecting your applications in Azure Security Center](security-center-application-recommendations.md)
 * [Protezione della rete nel Centro sicurezza di Azure](security-center-network-recommendations.md)
 

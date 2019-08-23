@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 4cf959c5218160a8fe341e6ffdfdf459c1a19247
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 50264b1364f40ff5e68ae4a93783d62837c167b3
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019179"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69898824"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Aggiornare un cluster del servizio Azure Kubernetes
 
@@ -40,22 +40,22 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --outpu
 >
 > Per eseguire l'aggiornamento, da *1.12. x* -> *1.14. x*, eseguire -> prima l'aggiornamento da 1.12. x*1.13. x*, quindi eseguire l'aggiornamento da *1.13. x* -> *1.14. x*.
 
-L'output di esempio seguente mostra che il cluster può essere aggiornato alla versione *1.13.9*:
+L'output di esempio seguente mostra che il cluster può essere aggiornato alle versioni *1.13.9* e *1.13.10*:
 
 ```console
-Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
--------  ---------------  ---------------  -----------------  --------------
-default  myResourceGroup  1.12.8           1.12.8             1.13.9
+Name     ResourceGroup     MasterVersion    NodePoolVersion    Upgrades
+-------  ----------------  ---------------  -----------------  ---------------
+default  myResourceGroup   1.12.8           1.12.8             1.13.9, 1.13.10
 ```
 
 ## <a name="upgrade-an-aks-cluster"></a>Aggiornare un cluster del servizio Azure Container
 
 Con un elenco delle versioni disponibili per il cluster AKS, usare il comando [AZ AKS upgrade][az-aks-upgrade] per eseguire l'aggiornamento. Durante il processo di aggiornamento, AKS aggiunge un nuovo nodo al cluster che esegue la versione specificata di Kubernetes, quindi controlla attentamente [e svuota][kubernetes-drain] uno dei nodi obsoleti per ridurre al minimo le problematiche di esecuzione delle applicazioni. Quando il nuovo nodo viene confermato come esecuzione di Pod applicazione, il nodo precedente viene eliminato. Questo processo si ripete fino a quando tutti i nodi del cluster non sono stati aggiornati.
 
-L'esempio seguente aggiorna un cluster alla versione *1.13.9*:
+L'esempio seguente aggiorna un cluster alla versione *1.13.10*:
 
 ```azurecli-interactive
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.13.9
+az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.13.10
 ```
 
 Per aggiornare il cluster sono necessari alcuni minuti, a seconda del numero di nodi di cui si dispone.
@@ -66,12 +66,12 @@ Per verificare che l'aggiornamento sia stato eseguito correttamente, usare il co
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-L'output di esempio seguente mostra che il cluster ora esegue *1.13.9*:
+L'output di esempio seguente mostra che il cluster ora esegue *1.13.10*:
 
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ---------------------------------------------------------------
-myAKSCluster  eastus      myResourceGroup  1.13.9               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
+myAKSCluster  eastus      myResourceGroup  1.13.10               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

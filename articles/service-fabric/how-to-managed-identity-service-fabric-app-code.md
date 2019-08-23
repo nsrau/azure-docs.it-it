@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 7/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: 5095e680eb7fd33d28acb2d187f83d86db1b46bf
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
-ms.translationtype: HT
+ms.openlocfilehash: 8e535fc581e186abd032206c2bbf78623d95967f
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656616"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899761"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services-preview"></a>Come sfruttare un'identità gestita dell'applicazione Service Fabric per accedere ai servizi di Azure (anteprima)
 
@@ -23,7 +23,7 @@ Service Fabric applicazioni possono sfruttare le identità gestite per accedere 
 > Un'identità gestita rappresenta l'associazione tra una risorsa di Azure e un'entità servizio nel tenant di Azure AD corrispondente associato alla sottoscrizione che contiene la risorsa. Di conseguenza, nel contesto di Service Fabric, le identità gestite sono supportate solo per le applicazioni distribuite come risorse di Azure. 
 
 > [!IMPORTANT]
-> Prima di usare l'identità gestita di un'applicazione Service Fabric, è necessario concedere all'applicazione client l'accesso alla risorsa protetta. Vedere l'elenco dei servizi di [Azure che supportano l'autenticazione Azure ad](/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-managed-identities-for-azure-resources) per verificare il supporto e quindi la documentazione del rispettivo servizio per i passaggi specifici per concedere a un'identità l'accesso alle risorse di interesse. 
+> Prima di usare l'identità gestita di un'applicazione Service Fabric, è necessario concedere all'applicazione client l'accesso alla risorsa protetta. Vedere l'elenco dei servizi di [Azure che supportano l'autenticazione Azure ad](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources) per verificare il supporto e quindi la documentazione del rispettivo servizio per i passaggi specifici per concedere a un'identità l'accesso alle risorse di interesse. 
 
 ## <a name="acquiring-an-access-token-using-rest-api"></a>Acquisizione di un token di accesso tramite l'API REST
 Nei cluster abilitati per l'identità gestita, il runtime di Service Fabric espone un endpoint localhost che le applicazioni possono usare per ottenere i token di accesso. L'endpoint è disponibile in ogni nodo del cluster ed è accessibile a tutte le entità in tale nodo. I chiamanti autorizzati possono ottenere i token di accesso chiamando questo endpoint e presentando un codice di autenticazione; il codice viene generato dal Runtime Service Fabric per ogni attivazione del pacchetto di codice del servizio distinto ed è associato alla durata del processo che ospita il pacchetto di codice del servizio.
@@ -55,7 +55,7 @@ GET 'http://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-01
 ```
 dove:
 
-| Elemento | Descrizione |
+| Elemento | DESCRIZIONE |
 | ------- | ----------- |
 | `GET` | Verbo HTTP, che indica che si vuole recuperare i dati dall'endpoint. In questo caso, un token di accesso OAuth. | 
 | `http://localhost:2377/metadata/identity/oauth2/token` | Endpoint di identità gestita per Service Fabric applicazioni, fornito tramite la variabile di ambiente MSI_ENDPOINT. |
@@ -77,7 +77,7 @@ Content-Type: application/json
 ```
 dove:
 
-| Elemento | Descrizione |
+| Elemento | DESCRIZIONE |
 | ------- | ----------- |
 | `token_type` | Tipo di token. in questo caso, un token di accesso "Bearer", che significa che il presentatore (' Bearer ') di questo token è l'oggetto previsto del token. |
 | `access_token` | Token di accesso richiesto. Quando si chiama un'API REST protetta, il token è incorporato nel campo di intestazione della richiesta `Authorization` come token di connessione, in modo da consentire all'API di autenticare il chiamante. | 
@@ -280,7 +280,7 @@ Errore di esempio:
 
 Di seguito è riportato un elenco di errori di Service Fabric tipici specifici per le identità gestite:
 
-| Codice | Messaggio | DESCRIZIONE | 
+| Codice | Messaggio | Descrizione | 
 | ----------- | ----- | ----------------- |
 | SecretHeaderNotFound | Il segreto non è stato trovato nelle intestazioni della richiesta. | Il codice di autenticazione non è stato fornito con la richiesta. | 
 | ManagedIdentityNotFound | Identità gestita non trovata per l'host applicazioni specificato. | L'applicazione non ha identità oppure il codice di autenticazione è sconosciuto. |

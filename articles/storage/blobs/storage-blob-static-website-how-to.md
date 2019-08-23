@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 05/28/2019
-ms.openlocfilehash: 591a62ebb6b83ea23d3ed6cf867c07b91e1596b3
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 5664bf1eaee85d2492601ef00968d9b17d857abb
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847039"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900491"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Ospitare un sito Web statico in archiviazione di Azure
 
@@ -175,7 +175,7 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
 Trovare l'URL usando il comando seguente:
 
 ```powershell
- $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+ $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -Name "<storage-account-name>"
 Write-Output $storageAccount.PrimaryEndpoints.Web
 ```
 

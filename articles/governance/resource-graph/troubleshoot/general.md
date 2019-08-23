@@ -3,16 +3,16 @@ title: Risoluzione dei problemi comuni
 description: Informazioni su come risolvere i problemi relativi all'esecuzione di query sulle risorse di Azure con Azure Resource Graph.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 07/24/2019
+ms.date: 08/21/2019
 ms.topic: troubleshooting
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 511d170f90e8ed34b00a3960d084223ec73d99dd
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 3c59b5c4b580604c65572364d29d4e5d10a26820
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68480553"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899999"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Risolvere gli errori usando il grafico delle risorse di Azure
 
@@ -60,6 +60,33 @@ foreach ($batch in $subscriptionsBatch){ $response += Search-AzGraph -Query $que
 # View the completed results of the query on all subscriptions
 $response
 ```
+
+### <a name="rest-contenttype"></a>Scenario: Intestazione REST del tipo di contenuto non supportata
+
+#### <a name="issue"></a>Problema
+
+I clienti che eseguono query sull'API REST di Azure Resource Graph ottengono una risposta _500_ (errore interno del server) restituita.
+
+#### <a name="cause"></a>Causa
+
+L'API REST di Azure Resource Graph supporta solo `Content-Type` una di **Application/JSON**. Per impostazione predefinita, alcuni strumenti REST o gli agenti sono di **testo/normale**, che non sono supportati dall'API REST.
+
+#### <a name="resolution"></a>Risoluzione
+
+Verificare che lo strumento o l'agente che si sta usando per eseguire query in Azure Resource Graph disponga `Content-Type` dell'intestazione API REST configurata per **Application/JSON**.
+### <a name="rest-403"></a>Scenario: Nessuna autorizzazione di lettura per tutte le sottoscrizioni nell'elenco
+
+#### <a name="issue"></a>Problema
+
+I clienti che passano esplicitamente un elenco di sottoscrizioni con una query di Azure Resource Graph ottengono una risposta _403_ (accesso negato).
+
+#### <a name="cause"></a>Causa
+
+Se il cliente non dispone dell'autorizzazione di lettura per tutte le sottoscrizioni fornite, la richiesta viene negata a causa della mancanza di diritti di protezione appropriati.
+
+#### <a name="resolution"></a>Risoluzione
+
+Includere almeno una sottoscrizione nell'elenco di sottoscrizioni per cui il cliente che esegue la query dispone almeno dell'accesso in lettura a. Per altre informazioni, vedere [autorizzazioni in Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

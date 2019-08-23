@@ -1,19 +1,19 @@
 ---
-title: Backup e ripristino nel Database di Azure per PostgreSQL - Server singolo
-description: Informazioni sui backup automatici e ripristino Database di Azure per PostgreSQL server - Server singolo.
+title: Backup e ripristino nel database di Azure per PostgreSQL-server singolo
+description: Informazioni sui backup automatici e il ripristino del database di Azure per il server PostgreSQL-server singolo.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 08a061a76f1532441817e61d423533bcc0850227
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/21/2019
+ms.openlocfilehash: bf2e289ad12f459c37a93ad3936c30339ecf663d
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65068863"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907533"
 ---
-# <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Backup e ripristino nel Database di Azure per PostgreSQL - Server singolo
+# <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Backup e ripristino nel database di Azure per PostgreSQL-server singolo
 
 Database di Azure per PostgreSQL crea automaticamente backup del server e li archivia in un archivio con ridondanza locale o geografica configurato dall'utente. I backup possono essere usati per ripristinare il server a un momento specifico. Il backup e il ripristino sono una parte essenziale di qualsiasi strategia di continuità aziendale, perché proteggono i dati dal danneggiamento o dall'eliminazione accidentale.
 
@@ -38,7 +38,7 @@ Database di Azure per PostgreSQL offre fino al 100% delle risorse di archiviazio
 
 Se è stato effettuato il provisioning di un server con 250 GB, ad esempio, sono disponibili 250 GB per l'archiviazione dei backup senza costi aggiuntivi. Lo spazio di archiviazione oltre 250 GB viene addebitato.
 
-## <a name="restore"></a>Restore
+## <a name="restore"></a>Ripristina
 
 In Database di Azure per PostgreSQL, l'esecuzione di un ripristino crea un nuovo server dai backup del server originale.
 
@@ -62,7 +62,7 @@ Per poter eseguire il ripristino a un momento specifico negli ultimi cinque minu
 
 ### <a name="geo-restore"></a>Ripristino geografico
 
-Se il server è stato configurato per backup con ridondanza geografica, è possibile ripristinare un server in un'altra area di Azure in cui il servizio è disponibile. Il ripristino geografico è l'opzione di ripristino predefinita quando il server non è disponibile a causa di un evento imprevisto nell'area in cui è ospitato. Se un evento imprevisto su larga scala determina la mancata disponibilità dell'applicazione di database, è possibile ripristinare un server dai backup con ridondanza geografica in un server in un'altra area. Esiste un ritardo tra il momento in cui un backup viene creato e quando ne viene eseguita la replica in un'area diversa. Questo ritardo può essere al massimo di un'ora, quindi, in caso di emergenza, può verificarsi una perdita massima di un'ora di dati.
+Se il server è stato configurato per backup con ridondanza geografica, è possibile ripristinare un server in un'altra area di Azure in cui il servizio è disponibile. Se un evento imprevisto su larga scala determina la mancata disponibilità dell'applicazione di database, è possibile ripristinare un server dai backup con ridondanza geografica in un server in un'altra area. Esiste un ritardo tra il momento in cui un backup viene creato e quando ne viene eseguita la replica in un'area diversa. Questo ritardo può essere al massimo di un'ora, quindi, in caso di emergenza, può verificarsi una perdita massima di un'ora di dati.
 
 Durante il ripristino geografico è possibile modificare le seguenti opzioni relative alle configurazioni del server: generazione delle risorse di calcolo, vCore, periodo di conservazione dei backup e ridondanza per il backup. La modifica del piano tariffario (Basic, Utilizzo generico oppure Ottimizzato per la memoria) o delle dimensioni della risorsa di archiviazione non è supportata.
 
@@ -77,6 +77,6 @@ Dopo il ripristino con uno dei due meccanismi, per rendere nuovamente operativi 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- Informazioni su come eseguire il ripristino usando [il portale di Azure](howto-restore-server-portal.md).
+- Informazioni su come eseguire il ripristino usando [l'interfaccia della](howto-restore-server-cli.md)riga di comando di Azure.
 - Per altre informazioni sulla continuità aziendale, vedere la relativa  [panoramica](concepts-business-continuity.md).
-- Per eseguire il ripristino temporizzato con il portale di Azure, vedere l'articolo su come  [ripristinare un database a un momento specifico con il portale di Azure](howto-restore-server-portal.md).
-- Per eseguire il ripristino temporizzato con l'interfaccia della riga di comando di Azure, vedere l'articolo su come  [ripristinare un database a un momento specifico con l'interfaccia della riga di comando](howto-restore-server-cli.md).

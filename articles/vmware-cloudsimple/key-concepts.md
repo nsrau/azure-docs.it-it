@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e434065feb218b0a46220b95cc6bfd9a7033de30
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 120ab94ce62010acf4e742bd5220405961dad6db
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816120"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972716"
 ---
 # <a name="key-concepts-for-administration-of-azure-vmware-solution-by-cloudsimple"></a>Concetti chiave per l'amministrazione della soluzione VMware di Azure di CloudSimple
 
@@ -34,7 +34,6 @@ Altre informazioni sul [servizio CloudSimple](cloudsimple-service.md).
 ## <a name="cloudsimple-node"></a>Nodo CloudSimple
 
 Un nodo CloudSimple è un host di calcolo e archiviazione con iperconvergenza e bare metal dedicato in cui viene distribuito il VMware ESXi hypervisor. Questo nodo viene quindi incorporato nelle piattaforme VMware vSphere, vCenter, rete VSAN e NSX. Sono abilitati anche i servizi di rete CloudSimple e i servizi di rete perimetrale. Ogni nodo funge da unità di capacità di calcolo e di archiviazione di cui è possibile eseguire il provisioning per creare [cloud privati CloudSimple](cloudsimple-private-cloud.md). Si effettua il provisioning o si riservano i nodi in un'area in cui è disponibile il servizio CloudSimple.
-
 
 Altre informazioni sui [nodi CloudSimple](cloudsimple-node.md).
 

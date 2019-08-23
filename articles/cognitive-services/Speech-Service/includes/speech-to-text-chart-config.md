@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 06/26/2019
+ms.date: 08/22/2019
 ms.author: dapine
-ms.openlocfilehash: 1b46c58d3f3c804052e637f7bde2e1a456764dba
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3f390affe7badb401277aa86d1867c763aa0ae3b
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67717242"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971346"
 ---
 ### <a name="speech-to-text-sub-chart-chartsspeechtotext"></a>Sintesi vocale (Sottografico: grafici/speechToText)
 
-Per eseguire l'override del grafico "Umbrella", aggiungere `speechToText.` il prefisso su qualsiasi parametro per renderlo più specifico. Ad esempio, eseguirà l'override del parametro corrispondente, `speechToText.numberOfConcurrentRequest` ad `numberOfConcurrentRequest`esempio sostituzioni.
+Per eseguire l'override del grafico "Umbrella", aggiungere `speechToText.` il prefisso su qualsiasi parametro per renderlo più specifico. Ad esempio, eseguirà l'override del parametro corrispondente, `speechToText.numberOfConcurrentRequest` ad esempio override. `numberOfConcurrentRequest`
 
 |Parametro|Descrizione|Predefinito|
 | -- | -- | -- |
@@ -37,5 +37,6 @@ Per eseguire l'override del grafico "Umbrella", aggiungere `speechToText.` il pr
 | `image.args.apikey`necessaria | Si usa per rilevare le informazioni di fatturazione. ||
 | `service.type` | Tipo di servizio Kubernetes del servizio di **riconoscimento vocale** . Vedere le [istruzioni sui tipi di servizio Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/) per altri dettagli e verificare il supporto del provider di servizi cloud. | `LoadBalancer` |
 | `service.port`|  Porta del servizio di **riconoscimento vocale** . | `80` |
+| `service.annotations` | Annotazioni **di sintesi vocale** per i metadati del servizio. Le annotazioni sono coppie chiave-valore. <br>`annotations:`<br>&nbsp;&nbsp;`some/annotation1: value1`<br>&nbsp;&nbsp;`some/annotation2: value2` | |
 | `service.autoScaler.enabled` | Indica se il ridimensionamento automatico del [Pod orizzontale](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) è abilitato. Se `true`, il `speech-to-text-autoscaler` verrà distribuito nel cluster Kubernetes. | `true` |
 | `service.podDisruption.enabled` | Indica se il [budget di interferenza Pod](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) è abilitato. Se `true`, il `speech-to-text-poddisruptionbudget` verrà distribuito nel cluster Kubernetes. | `true` |

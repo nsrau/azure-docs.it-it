@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 08/21/2019
 ms.author: v-adgera
-ms.openlocfilehash: 66dbfd09ef07740c07ddb010b73e33e783340e5a
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: a39663adedfdb9c00c4429f65ec1bd27286cb136
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873630"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904290"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Come configurare Postman per Gemelli digitali di Azure
 
@@ -35,9 +35,9 @@ Tramite il client Postman gli sviluppatori di soluzioni possono specificare il t
 
 Configurare l'app di Azure Active Directory per usare il flusso di concessione implicita OAuth 2.0.
 
-1. Seguire i passaggi di [questo avvio rapido](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) per creare un'applicazione di Azure AD di tipo nativo. In alternativa è possibile riusare una registrazione di app nativa esistente.
+1. Per creare un'applicazione Azure AD, seguire la procedura descritta nella [Guida introduttiva](./quickstart-view-occupancy-dotnet.md) . In alternativa, creare un' [app nativa usando il pannello AAD legacy](./how-to-use-legacy-aad.md).
 
-1. In **Autorizzazioni necessarie** selezionare **Aggiungi** e immettere **Gemelli digitali di Azure** in **Aggiungi accesso all'API**. Se la ricerca non individua l'API, cercare invece **Azure Smart Spaces**. Quindi selezionare **Concedi autorizzazioni > Autorizzazioni delegate** e **Fine**.
+1. In **autorizzazioni API**selezionare **Aggiungi un'autorizzazione**. Quindi, i dispositivi **gemelli digitali di Azure** in **API usano l'organizzazione**. Se la ricerca non individua l'API, cercare invece **Azure Smart Spaces**. Selezionare quindi **autorizzazioni delegate**, **lettura** > **lettura. scrittura**e **Aggiungi autorizzazione**.
 
     [![Azure Active Directory le registrazioni dell'app aggiungono API](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
@@ -64,7 +64,7 @@ Configurare e configurare il post per ottenere un token di Azure Active Director
     https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0
     ```
 
-    | Name  | Sostituire con | Esempio |
+    | NOME  | Sostituire con | Esempio |
     |---------|---------|---------|
     | YOUR_AZURE_TENANT | Il nome del tenant o dell'organizzazione | `microsoft` |
 
@@ -75,7 +75,7 @@ Configurare e configurare il post per ottenere un token di Azure Active Director
     | Tipo di concessione | `Implicit` |
     | Callback URL (URL callback) | `https://www.getpostman.com/oauth2/callback` |
     | Auth URL (URL autorizzazione) | Usare l'**URL di autorizzazione** ottenuto al passaggio 2 |
-    | ID client | Usare l'**ID applicazione** per l'app di Azure Active Directory creata o riconfigurata nella sezione precedente |
+    | ID client | Usare l' **ID applicazione** per l'app Azure Active Directory creata o riutilizzata nella sezione precedente |
     | Ambito | Lasciare vuoto |
     | Stato | Lasciare vuoto |
     | Autenticazione client | `Send as Basic Auth header` |

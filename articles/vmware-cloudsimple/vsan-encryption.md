@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 288a05fc09e0c59a01a8d4c9940c0d51cabdd28f
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 638b60bd3612fa25350ecef0a738fea75c2f53d3
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640953"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972339"
 ---
 # <a name="configure-vsan-encryption-for-cloudsimple-private-cloud"></a>Configurare la crittografia rete VSAN per il cloud privato CloudSimple
 
 È possibile configurare la funzionalità di crittografia del software rete VSAN in modo che il cloud privato CloudSimple possa funzionare con un server di gestione delle chiavi in esecuzione nella rete virtuale di Azure.
 
-VMware richiede l'uso di uno strumento del server di gestione delle chiavi di terze parti compatibile con KMIP 1,1 esterno quando si usa la crittografia rete VSAN. È possibile utilizzare qualsiasi KMS supportato certificato da VMware ed è disponibile per Azure. 
+VMware richiede l'uso di uno strumento del server di gestione delle chiavi di terze parti compatibile con KMIP 1,1 esterno quando si usa la crittografia rete VSAN. È possibile utilizzare qualsiasi KMS supportato certificato da VMware ed è disponibile per Azure.
 
 Questa guida descrive come usare il servizio di gestione delle chiavi di HyTrust in esecuzione in una rete virtuale di Azure. Un approccio simile può essere usato per qualsiasi altra soluzione di gestione delle chiavi di terze parti certificata per rete VSAN.
 

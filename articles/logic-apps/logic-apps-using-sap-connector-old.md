@@ -10,25 +10,25 @@ services: logic-apps
 ms.reviewer: klam, divswa, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: d677c0eae9c92f90783ed4ebd95a528b34c872ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 31f6a3fc281b8dc309ddcd237246c870c85ae20b
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60847403"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971633"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Connettersi a sistemi SAP con App per la logica di Azure
 
 > [!NOTE]
-> Questo connettore SAP è pianificato per la deprecazione. Usare o eseguire la migrazione per la [connettore SAP più recente e più avanzato](./logic-apps-using-sap-connector.md). 
+> Questo connettore SAP è stato pianificato per la deprecazione. Usare o eseguire la migrazione al [connettore SAP più recente e avanzato](./logic-apps-using-sap-connector.md). 
 
 Questo articolo illustra come è possibile accedere alle risorse SAP all'interno di un'app per la logica mediante i connettori del server applicazioni SAP e del server di messaggistica SAP. In questo modo, è possibile automatizzare le attività, i processi e i flussi di lavoro che gestiscono i dati e le risorse SAP mediante la creazione di app per la logica.
 
 In questo esempio viene usata un'app per la logica che è possibile attivare con una richiesta HTTP. L'app per la logica invia un documento intermedio (IDoc) a un server SAP e restituisce una risposta al richiedente che ha chiamato l'app per la logica.
 I connettori SAP correnti presentano azioni, ma non trigger, pertanto in questo esempio viene usato il [trigger richiesta HTTP](../connectors/connectors-native-reqres.md) come primo passaggio nel flusso di lavoro dell'app per la logica. Per informazioni tecniche specifiche del connettore SAP, vedere gli articoli di riferimento: 
 
-* <a href="https://docs.microsoft.com/connectors/sapapplicationserver/" target="blank">Connettore del server applicazioni SAP</a>
-* <a href="https://docs.microsoft.com/connectors/sapmessageserver/" target="blank">Connettore del server di messaggistica SAP</a>
+* <a href="https://docs.microsoft.com/connectors/sap" target="blank">Connettore del server applicazioni SAP</a>
+* <a href="https://docs.microsoft.com/connectors/sap/#send-message-to-sap" target="blank">Connettore del server di messaggistica SAP</a>
 
 Se non si dispone ancora di una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">registrarsi per creare un account Azure gratuito</a>.
 
@@ -84,14 +84,14 @@ In App per la logica di Azure, un'[azione](../logic-apps/logic-apps-overview.md#
 
 1. In Progettazione app per la logica, sotto il trigger, scegliere **Nuovo passaggio** > **Aggiungi un'azione**.
 
-   ![Aggiungere un'azione](./media/logic-apps-using-sap-connector-old/add-action.png) 
+   ![Aggiungi un'azione](./media/logic-apps-using-sap-connector-old/add-action.png) 
 
 2. Nella casella di ricerca immettere "server sap" come filtro. Nell'elenco delle azioni scegliere l'azione per il server SAP: 
 
    * **Server applicazioni SAP - Send to SAP**(Invia a SAP)
    * **Server di messaggistica SAP - Send to SAP**(Invia a SAP)
 
-   Questo esempio Usa questa azione: **Server applicazioni SAP - Send to SAP**(Invia a SAP)
+   Questo esempio usa questa azione: **Server applicazioni SAP - Send to SAP**(Invia a SAP)
 
    ![Selezionare il "Server applicazioni SAP" o "Server di messaggistica SAP"](media/logic-apps-using-sap-connector-old/select-sap-action.png)
 
@@ -190,8 +190,8 @@ Complimenti, è stata creata un'app per la logica che può comunicare con il ser
 
 Per informazioni tecniche dettagliate sul connettore, come descritto dai file Swagger dei connettori, vedere gli articoli di riferimento: 
 
-* [Server applicazioni SAP](/connectors/sapapplicationserver/)
-* [Server di messaggistica SAP](/connectors/sapmessageserver/)
+* [Server applicazioni SAP](/connectors/sap)
+* [Server di messaggistica SAP](/connectors/sap/#send-message-to-sap)
 
 ## <a name="get-support"></a>Supporto
 

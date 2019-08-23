@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: e169d7734776f9319685d97f941b3fc11eec8298
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
-ms.translationtype: HT
+ms.openlocfilehash: 1e35baf24b59e7864982d131f44f79458e0d9015
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656255"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971502"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Note sulla versione del servizio Azure Machine Learning
 
@@ -89,9 +89,18 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
   + **azureml-widget**
     + Grafici della matrice di confusione migliorati per il training della classificazione.
 
+### <a name="azure-machine-learning-data-prep-sdk-v1112"></a>Azure Machine Learning data Prep SDK v 1.1.12
++ **Nuove funzionalità**
+  + È ora possibile passare gli elenchi di stringhe come input ai `read_*` metodi.
+
++ **Correzioni di bug e miglioramenti**
+  + Le prestazioni di `read_parquet` sono state migliorate significativamente durante l'esecuzione in Spark.
+  + È stato risolto un `column_type_builder` problema per cui si è verificato un errore nel caso di una singola colonna con formati di data ambigui
+
 ### <a name="azure-portal"></a>Portale di Azure
 + **Funzionalità di anteprima**
   + Il flusso dei file di log e di output è ora disponibile per le pagine di dettagli dell'esecuzione. I file effettueranno lo streaming degli aggiornamenti in tempo reale quando l'interruttore di anteprima è attivato.
+  + La possibilità di impostare la quota a livello di area di lavoro viene rilasciata in anteprima. Le quote AmlCompute vengono allocate a livello di sottoscrizione, ma ora è possibile distribuire tale quota tra le aree di lavoro e allocarla per la condivisione e la governance corrette. È sufficiente fare clic sul pannello **utilizzi e quote** nella barra di spostamento a sinistra dell'area di lavoro e selezionare la scheda **Configura quote** . Si noti che è necessario essere un amministratore della sottoscrizione per poter impostare le quote a livello di area di lavoro, poiché si tratta di un'operazione tra più aree di lavoro.
 
 ## <a name="2019-08-05"></a>2019-08-05
 

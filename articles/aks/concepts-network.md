@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: mlearned
-ms.openlocfilehash: 459c11448280b63bafdfd54c13a6cad5983ef1b5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 967ca233169e2a2a213534d5b60bef2e3f44b6a9
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67615889"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69969639"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Concetti relativi alla rete per le applicazioni nel servizio Azure Kubernetes
 
@@ -55,7 +55,7 @@ Per semplificare la configurazione di rete per i carichi di lavoro dell'applicaz
 
 L'indirizzo IP per i bilanciamenti del carico e i servizi può essere assegnato in modo dinamico oppure è possibile specificare un indirizzo IP statico esistente da usare. Si possono assegnare sia indirizzi IP statici interni che esterni. Questo indirizzo IP statico esistente è spesso associato a una voce DNS.
 
-Si possono creare sia bilanciamenti del carico *interni* che *esterni*. Ai bilanciamenti del carico interni viene assegnato solo un indirizzo IP privato, in modo che non siano accessibili da Internet.
+Si possono creare sia bilanciamenti del carico *interni* che *esterni*. Al servizio di bilanciamento del carico interno viene assegnato solo un indirizzo IP privato, pertanto non è possibile accedervi da Internet.
 
 ## <a name="azure-virtual-networks"></a>Reti virtuali di Azure
 

@@ -8,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: eead4436a7135f6f74528cde52883ea247360fc6
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
-ms.translationtype: HT
+ms.openlocfilehash: a95e643d6561f425484a21b5032b1df585d0460b
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648783"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900335"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Trasferire i dati con AzCopy e l'archiviazione BLOB
 
@@ -195,7 +195,7 @@ Questa sezione contiene gli esempi seguenti:
 
 ## <a name="synchronize-files"></a>Sincronizzare i file
 
-È possibile sincronizzare il contenuto di un file system locale con un contenitore BLOB. La sincronizzazione è unidirezionale. In altre parole, è possibile scegliere quali di questi due endpoint sono l'origine e quella di destinazione.
+È possibile sincronizzare il contenuto di un file system locale con un contenitore BLOB. La sincronizzazione è unidirezionale. In altre parole, è possibile scegliere quali di questi due endpoint sono l'origine e quella di destinazione. La sincronizzazione usa anche API da server a server.
 
 > [!NOTE]
 > Attualmente, questo scenario è supportato solo per gli account che non dispongono di uno spazio dei nomi gerarchico. La versione corrente di AzCopy non viene sincronizzata tra altre origini e destinazioni, ad esempio: Bucket di archiviazione file o Amazon Web Services (AWS) S3).

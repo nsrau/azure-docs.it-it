@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 08/22/2019
 ms.author: raynew
-ms.openlocfilehash: 742f1359d928aa05a8b8d36bde2ccf022db93b79
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c330afb2c5d315b3d386d1477669f1aab2f6e6f9
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66418246"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972070"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in un sito secondario
 
@@ -57,15 +57,15 @@ Linux | Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> CentOs 6.5, 
 
 **Configurazione** | **Supportato**  
 --- | --- 
-Host - Gruppo NIC | Yes 
+Host - Gruppo NIC | Sì 
 Host - VLAN | Yes 
 Host - IPv4 | Yes 
 Host - IPv6 | No 
 VM guest - Gruppo NIC | No
-VM guest - IPv4 | Yes
+VM guest - IPv4 | Sì
 VM guest - IPv6 | No
-VM guest - Windows/Linux - Indirizzo IP statico | Yes
-VM guest - Più NIC | Yes
+VM guest - Windows/Linux - Indirizzo IP statico | Sì
+VM guest - Più NIC | Sì
 
 
 ## <a name="storage"></a>Archiviazione
@@ -77,7 +77,7 @@ VM guest - Più NIC | Yes
 NFS | Yes 
 SMB 3.0 | N/D 
 SAN (iSCSI) | Yes 
-Percorsi multipli (MPIO) | Yes 
+Percorsi multipli (MPIO) | Sì 
 
 ### <a name="guest-or-physical-server-storage"></a>Archiviazione su server fisico o guest
 
@@ -86,17 +86,17 @@ Percorsi multipli (MPIO) | Yes
 VMDK | Yes 
 VHD/VHDX | N/D 
 VM di seconda generazione | N/D 
-Disco cluster condiviso | Yes 
+Disco cluster condiviso | Sì 
 Disco crittografato | No 
-UEFI| Yes 
+UEFI| Sì 
 NFS | No 
 SMB 3.0 | No 
-RDM | Yes 
-Disco superiore a 1 TB | Yes 
+RDM | Sì 
+Disco superiore a 1 TB | Sì 
 Volume con disco con striping superiore a 1 TB<br/><br/> LVM | Yes 
 Spazi di archiviazione | No 
-Aggiunta/rimozione a caldo disco | Yes 
-Esclusione disco | Yes 
+Aggiunta/rimozione a caldo disco | Sì 
+Esclusione disco | Sì 
 Percorsi multipli (MPIO) | N/D 
 
 ## <a name="vaults"></a>Insiemi di credenziali
